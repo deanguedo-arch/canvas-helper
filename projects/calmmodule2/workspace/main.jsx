@@ -80,6 +80,18 @@ const { useState, useEffect, useRef } = React;
             { desc: "You pick up a bonus shift this month.", amount: 120, type: "income" }
         ];
 
+        const AD_SCENARIOS = [
+            { id: 1, product: "X-Treme Kicks", ad: "Join millions of teens already wearing X-Treme Kicks! Don't be the only one left out.", tactic: "Bandwagon", hint: "It implies everyone else is doing it." },
+            { id: 2, product: "ClearSkin Pro", ad: "Feeling ugly? Lonely? ClearSkin Pro guarantees happiness and a perfect prom date.", tactic: "Emotional Appeal", hint: "It targets fear and promises happiness." },
+            { id: 3, product: "MegaBurger", ad: "Our new burger is REVOLUTIONARY. It's an ALL-NATURAL paradigm shift in flavor!", tactic: "Glittering Generalities", hint: "It uses big words that don't mean anything specific." },
+            { id: 4, product: "Star-Glow Energy", ad: "Pro-Athlete Mike Jenkins drinks Star-Glow every morning. Drink it to be a champion!", tactic: "Testimonials/Influencers", hint: "It uses a famous person to sell the product." },
+            { id: 5, product: "Lumina Shampoo", ad: "Look at the gorgeous model's hair. Lumina makes everything about you better.", tactic: "The Halo Effect", hint: "It implies if the model is attractive, the product must be good." },
+            { id: 6, product: "Quantum Brain Pills", ad: "Clinical studies show 98% of students improve their grades by 2 full letter grades within 3 weeks.", tactic: "Facts & Figures", hint: "It uses numbers and statistics to sound scientific (even if they are fake)." },
+            { id: 7, product: "Diamond Elite Watch", ad: "Not everyone can appreciate true luxury. For those who demand the absolute best, and have the wealth to prove it.", tactic: "Snob Appeal", hint: "It makes you feel like you are part of an exclusive, wealthy club." }
+        ];
+
+        const AD_TACTICS = ["Bandwagon", "Emotional Appeal", "Glittering Generalities", "Testimonials/Influencers", "The Halo Effect", "Facts & Figures", "Snob Appeal"];
+
         const createDefaultBudgetScenarios = () => ({
             home: {
                 income: { job: "", loans: "", support: "" },
@@ -151,6 +163,10 @@ const { useState, useEffect, useRef } = React;
             defMarketing: "", defPackaging: "", influenceExample: "", favoriteStore: "",
             purchases: Array(10).fill({ item: "", influence: "" }),
             biggestInfluence: "",
+            adAnalyzerIndex: 0,
+            adAnalyzerScore: 0,
+            adAnalyzerFeedback: "",
+            adDeconstruction: "",
             joeDecision: "", sallyDecision: "", betterDecision: "",
             purchaseReflection: "",
             honestyNorma: "", honestyGertrude: "", honestyHerman: "", honestyAsif: "", honestyFrank: "", honestyCharlotte: "", honestySalima: "",
@@ -274,6 +290,31 @@ const { useState, useEffect, useRef } = React;
                 confetti({ particleCount: 40, spread: 70, colors: ['#8b5cf6', '#f59e0b', '#ef4444'] });
             };
 
+            const handleAdAnalyzerGuess = (guess) => {
+                const currentAd = AD_SCENARIOS[formData.adAnalyzerIndex];
+                if (!currentAd || formData.adAnalyzerScore >= AD_SCENARIOS.length) {
+                    return;
+                }
+
+                if (guess === currentAd.tactic) {
+                    updateField('adAnalyzerFeedback', `Correct! ${currentAd.hint}`);
+                    if (formData.adAnalyzerIndex < AD_SCENARIOS.length - 1) {
+                        window.setTimeout(() => {
+                            setFormData(prev => ({
+                                ...prev,
+                                adAnalyzerIndex: prev.adAnalyzerIndex + 1,
+                                adAnalyzerFeedback: ""
+                            }));
+                        }, 1600);
+                    } else {
+                        updateField('adAnalyzerScore', AD_SCENARIOS.length);
+                        confetti({ particleCount: 70, spread: 75, colors: ['#6366f1', '#22c55e', '#f59e0b'] });
+                    }
+                } else {
+                    updateField('adAnalyzerFeedback', "Not quite. Try again!");
+                }
+            };
+
             const activeBudgetScenario = getBudgetScenarioState(formData, activeBudgetTab);
             const currentBudgetTotals = getBudgetTotalsForState(formData, activeBudgetTab);
 
@@ -284,7 +325,15 @@ const { useState, useEffect, useRef } = React;
                 switch(sectionId) {
                     case 'intro': fields = [fd.studentName]; break;
                     case 'advertising': 
-                        fields = [fd.defMarketing, fd.defPackaging, fd.influenceExample, fd.favoriteStore, fd.biggestInfluence];
+                        fields = [
+                            fd.defMarketing,
+                            fd.defPackaging,
+                            fd.influenceExample,
+                            fd.favoriteStore,
+                            fd.biggestInfluence,
+                            fd.adDeconstruction,
+                            fd.adAnalyzerScore === AD_SCENARIOS.length ? 'complete' : ''
+                        ];
                         fd.purchases.forEach(p => { fields.push(p.item, p.influence) });
                         break;
                     case 'waiting': fields = [fd.joeDecision, fd.sallyDecision, fd.betterDecision]; break;
@@ -356,6 +405,8 @@ const { useState, useEffect, useRef } = React;
                 out += `Purchases:\n`;
                 fd.purchases.forEach((p, i) => { if(p.item) out += `  ${i+1}. ${p.item} (Influence: ${p.influence})\n` });
                 out += `Biggest Influence: ${fd.biggestInfluence}\n\n`;
+                out += `Ad Analyzer Score: ${fd.adAnalyzerScore}/${AD_SCENARIOS.length}\n`;
+                out += `Brand Deconstruction: ${fd.adDeconstruction}\n\n`;
 
                 out += `--- 2. WHAT ARE YOU WAITING FOR? ---\n`;
                 out += `Why Joe bought Camaro: ${fd.joeDecision}\n`;
@@ -580,6 +631,72 @@ const { useState, useEffect, useRef } = React;
                                             <label className="block font-bold mb-2 text-violet-600">Looking at your list, what has been the BIGGEST influence on what you have purchased?</label>
                                             <AutoExpandingTextarea value={formData.biggestInfluence} onChange={e => updateField('biggestInfluence', e.target.value)} placeholder="The biggest influence seems to be..." />
                                         </div>
+                                    </div>
+
+                                    <div className="flex flex-col xl:flex-row gap-6 mt-8">
+                                        <div className="xl:w-1/2">
+                                            <div className="clay-card p-8 bg-gradient-to-br from-indigo-50 to-purple-50 border-indigo-100">
+                                                <h2 className="text-2xl font-black text-indigo-900 mb-4"><i className="fa-solid fa-brain mr-2 text-indigo-500"></i> Learn: Advertising Tactics</h2>
+                                                <div className="space-y-3 text-sm text-slate-700">
+                                                    <p>The Canadian Code of Advertising Standards says ads must be honest, but companies still use psychology to manipulate your "Wants" into feeling like "Needs."</p>
+                                                    <ul className="space-y-2 mt-4">
+                                                        <li className="bg-white p-2 rounded border border-indigo-50 shadow-sm"><strong className="text-indigo-700">Bandwagon:</strong> "Everyone else is doing it/buying it!"</li>
+                                                        <li className="bg-white p-2 rounded border border-indigo-50 shadow-sm"><strong className="text-indigo-700">Emotional Appeal:</strong> Targets fear, loneliness, or desire for happiness.</li>
+                                                        <li className="bg-white p-2 rounded border border-indigo-50 shadow-sm"><strong className="text-indigo-700">Testimonial:</strong> Using celebrities or "experts" to build fake trust.</li>
+                                                        <li className="bg-white p-2 rounded border border-indigo-50 shadow-sm"><strong className="text-indigo-700">Facts & Figures:</strong> Using statistics (even misleading ones) to sound scientific.</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="xl:w-1/2">
+                                            <div className="clay-card p-8">
+                                                <h2 className="text-2xl font-black text-slate-800 mb-2"><i className="fa-solid fa-magnifying-glass mr-2 text-indigo-500"></i> Apply: Ad Analyzer</h2>
+                                                <p className="text-sm text-slate-500 mb-6">Read the fake ad below. Which tactic is the company using to manipulate you?</p>
+                                                
+                                                {formData.adAnalyzerScore < AD_SCENARIOS.length ? (
+                                                    <div className="p-6 bg-slate-800 text-white rounded-2xl text-center shadow-lg relative overflow-hidden">
+                                                        <div className="absolute top-0 left-0 bg-yellow-400 text-yellow-900 text-xs font-black px-3 py-1 uppercase tracking-widest rounded-br-xl">Ad {formData.adAnalyzerIndex + 1} of {AD_SCENARIOS.length}</div>
+                                                        <h3 className="font-black text-xl mt-4 mb-2 text-indigo-300">{AD_SCENARIOS[formData.adAnalyzerIndex].product}</h3>
+                                                        <p className="italic text-lg mb-6">"{AD_SCENARIOS[formData.adAnalyzerIndex].ad}"</p>
+                                                        
+                                                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                                                            {AD_TACTICS.map((tactic) => (
+                                                                <button
+                                                                    key={tactic}
+                                                                    type="button"
+                                                                    onClick={() => handleAdAnalyzerGuess(tactic)}
+                                                                    className="bg-slate-700 hover:bg-slate-600 p-3 rounded-xl font-bold transition-colors text-sm"
+                                                                >
+                                                                    {tactic}
+                                                                </button>
+                                                            ))}
+                                                        </div>
+                                                        {formData.adAnalyzerFeedback && (
+                                                            <p className={`mt-4 font-bold ${formData.adAnalyzerFeedback.includes('Correct') ? 'text-emerald-400' : 'text-rose-400'}`}>
+                                                                {formData.adAnalyzerFeedback}
+                                                            </p>
+                                                        )}
+                                                    </div>
+                                                ) : (
+                                                    <div className="text-center p-8 bg-emerald-50 text-emerald-800 rounded-2xl border-2 border-emerald-200">
+                                                        <i className="fa-solid fa-shield-halved text-4xl mb-2"></i>
+                                                        <h3 className="font-black">Immunity Unlocked!</h3>
+                                                        <p className="text-sm">You successfully identified all {AD_SCENARIOS.length} major advertising tactics.</p>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="mt-6 bg-amber-50 border-2 border-amber-200 p-4 rounded-xl">
+                                        <label className="block text-sm font-black text-amber-900 mb-2"><i className="fa-solid fa-pen-to-square mr-2"></i> Teacher Checkpoint: Deconstruct a Real Brand: Pick a brand you like (e.g., Nike, Apple, Lululemon). What physical product do they sell, and what EMOTION or IDEA are they ACTUALLY selling you?</label>
+                                        <textarea
+                                            className="w-full border-2 border-amber-100 rounded-xl py-3 px-4 focus:outline-none focus:border-amber-400 min-h-[120px] text-sm"
+                                            placeholder="Type your reflection here... (e.g., Nike sells shoes, but their ads are actually selling the idea of being an elite athlete and never giving up.)"
+                                            value={formData.adDeconstruction}
+                                            onChange={(e) => updateField('adDeconstruction', e.target.value)}
+                                        />
                                     </div>
                                 </div>
                             )}
