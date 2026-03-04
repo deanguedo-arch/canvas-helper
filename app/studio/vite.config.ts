@@ -1,12 +1,12 @@
 import { readFile } from "node:fs/promises";
-import type { ServerResponse } from "node:http";
+import type { IncomingMessage, ServerResponse } from "node:http";
 import path from "node:path";
 
 import react from "@vitejs/plugin-react";
 import { lookup as lookupMimeType } from "mime-types";
 import { defineConfig } from "vite";
 
-import { fileExists } from "../../scripts/lib/fs.js";
+import { fileExists, writeTextFile } from "../../scripts/lib/fs.js";
 import { getProjectPaths, projectsRoot, repoRoot } from "../../scripts/lib/paths.js";
 import { listStudioProjectBundles, readStudioProjectBundle } from "../../scripts/lib/projects.js";
 
@@ -52,6 +52,114 @@ function getPreviewPath(mode: "raw" | "workspace", slug: string, relativePath?: 
   return resolvedPath;
 }
 
+function isSafeProjectSlug(slug: string) {
+  return /^[a-z0-9][a-z0-9._-]*$/i.test(slug);
+}
+
+async function readRequestBody(request: IncomingMessage) {
+  const chunks: Buffer[] = [];
+
+  for await (const chunk of request) {
+    if (typeof chunk === "string") {
+      chunks.push(Buffer.from(chunk));
+      continue;
+    }
+
+    chunks.push(chunk);
+  }
+
+  return Buffer.concat(chunks).toString("utf8");
+}
+
+async function readRequestJson<T>(request: IncomingMessage): Promise<T> {
+  const body = await readRequestBody(request);
+  if (!body.trim()) {
+    return {} as T;
+  }
+
+  return JSON.parse(body) as T;
+}
+
+type SessionLogPayload = {
+  savedAt?: string;
+  sourcePath?: string;
+  selectedMode?: "raw" | "workspace";
+  compareMode?: boolean;
+  sidebarOpen?: boolean;
+  inspectorOpen?: boolean;
+  devices?: {
+    raw?: string;
+    workspace?: string;
+  };
+  zooms?: {
+    raw?: number;
+    workspace?: number;
+  };
+  scrollTop?: {
+    raw?: number | null;
+    workspace?: number | null;
+  };
+  sourceFiles?: string[];
+};
+
+function formatSessionLogEntry(slug: string, payload: SessionLogPayload) {
+  const savedAt = payload.savedAt && !Number.isNaN(Date.parse(payload.savedAt)) ? payload.savedAt : new Date().toISOString();
+  const selectedMode = payload.selectedMode === "raw" ? "raw" : "workspace";
+  const rawDevice = payload.devices?.raw ?? "unknown";
+  const workspaceDevice = payload.devices?.workspace ?? "unknown";
+  const rawZoom = typeof payload.zooms?.raw === "number" ? `${payload.zooms.raw}%` : "unknown";
+  const workspaceZoom = typeof payload.zooms?.workspace === "number" ? `${payload.zooms.workspace}%` : "unknown";
+  const rawScrollTop = typeof payload.scrollTop?.raw === "number" ? `${Math.round(payload.scrollTop.raw)}px` : "unknown";
+  const workspaceScrollTop =
+    typeof payload.scrollTop?.workspace === "number" ? `${Math.round(payload.scrollTop.workspace)}px` : "unknown";
+  const sourceFiles = Array.isArray(payload.sourceFiles) ? payload.sourceFiles : [];
+  const layoutLabel = payload.compareMode ? "split" : "focus";
+  const sidebarLabel = payload.sidebarOpen ? "shown" : "hidden";
+  const inspectorLabel = payload.inspectorOpen ? "shown" : "hidden";
+  const sourcePath = payload.sourcePath ?? "unknown";
+
+  const lines = [
+    `## ${savedAt}`,
+    `- Project: \`${slug}\``,
+    `- Source Path: \`${sourcePath}\``,
+    `- Active Mode: \`${selectedMode}\``,
+    `- Layout: \`${layoutLabel}\``,
+    `- Projects Rail: \`${sidebarLabel}\``,
+    `- Details Rail: \`${inspectorLabel}\``,
+    "",
+    "### Pane Settings",
+    `- Raw: device \`${rawDevice}\`, zoom \`${rawZoom}\`, scrollTop \`${rawScrollTop}\``,
+    `- Workspace: device \`${workspaceDevice}\`, zoom \`${workspaceZoom}\`, scrollTop \`${workspaceScrollTop}\``,
+    "",
+    "### Source Files",
+    ...(sourceFiles.length ? sourceFiles.map((filePath) => `- \`${filePath}\``) : ["- _No source files captured._"]),
+    "",
+    "### Resume",
+    "- Start studio with `npm.cmd run studio -- --host 127.0.0.1 --port 5173`.",
+    `- Open project \`${slug}\` and re-apply saved layout.`,
+    "- Compare using Split view and Match buttons."
+  ];
+
+  return lines.join("\n");
+}
+
+async function appendSessionLog(slug: string, payload: SessionLogPayload) {
+  const projectPaths = getProjectPaths(slug);
+  const entry = formatSessionLogEntry(slug, payload);
+  const existing = (await fileExists(projectPaths.sessionLogPath)) ? await readFile(projectPaths.sessionLogPath, "utf8") : "";
+  const header = "# Studio Session Log\n\nSaved studio checkpoints for station handoff.\n";
+  const nextContent = existing
+    ? `${existing.trimEnd()}\n\n${entry}\n`
+    : `${header}\n${entry}\n`;
+
+  await writeTextFile(projectPaths.sessionLogPath, nextContent);
+
+  return {
+    path: projectPaths.sessionLogPath,
+    savedAt: payload.savedAt && !Number.isNaN(Date.parse(payload.savedAt)) ? payload.savedAt : new Date().toISOString()
+  };
+}
+
 function studioServerPlugin() {
   return {
     name: "studio-server",
@@ -95,6 +203,40 @@ function studioServerPlugin() {
           } catch (error) {
             sendJson(response, 404, {
               error: error instanceof Error ? error.message : "Project not found."
+            });
+          }
+          return;
+        }
+
+        const sessionLogMatch = url.match(/^\/api\/projects\/([^/]+)\/session-log$/);
+        if (sessionLogMatch) {
+          if (request.method !== "POST") {
+            sendJson(response, 405, {
+              error: "Method not allowed."
+            });
+            return;
+          }
+
+          const slug = decodeURIComponent(sessionLogMatch[1]);
+          if (!isSafeProjectSlug(slug)) {
+            sendJson(response, 400, {
+              error: "Invalid project slug."
+            });
+            return;
+          }
+
+          try {
+            await readStudioProjectBundle(slug);
+            const payload = await readRequestJson<SessionLogPayload>(request);
+            const result = await appendSessionLog(slug, payload);
+            sendJson(response, 200, {
+              ok: true,
+              path: result.path,
+              savedAt: result.savedAt
+            });
+          } catch (error) {
+            sendJson(response, 400, {
+              error: error instanceof Error ? error.message : "Failed to save session log."
             });
           }
           return;

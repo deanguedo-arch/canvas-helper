@@ -101,7 +101,8 @@ export async function readStudioProjectBundle(slug: string): Promise<StudioProje
       workspaceScript,
       workspaceStyles,
       metaDir: paths.metaDir,
-      referencesDir: paths.referencesDir
+      referencesDir: paths.referencesDir,
+      sessionLogPath: paths.sessionLogPath
     },
     styleGuide,
     importLog,

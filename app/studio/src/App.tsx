@@ -329,6 +329,13 @@ type ReferenceManifest = {
   extractedTextPath?: string;
 };
 
+type SessionLogResponse = {
+  ok?: boolean;
+  path?: string;
+  savedAt?: string;
+  error?: string;
+};
+
 type ProjectBundle = {
   manifest: {
     id: string;
@@ -351,6 +358,7 @@ type ProjectBundle = {
     workspaceStyles?: string;
     metaDir: string;
     referencesDir: string;
+    sessionLogPath: string;
   };
   styleGuide: string;
   importLog: string;
@@ -386,6 +394,9 @@ export function App() {
     loadPreviewLayoutPreferences()
   );
   const [errorMessage, setErrorMessage] = useState<string>("");
+  const [sessionLogMessage, setSessionLogMessage] = useState<string>("");
+  const [sessionLogError, setSessionLogError] = useState<boolean>(false);
+  const [isSavingSessionLog, setIsSavingSessionLog] = useState<boolean>(false);
   const previewFrameRefs = useRef<Record<PreviewMode, HTMLIFrameElement | null>>({
     raw: null,
     workspace: null
@@ -439,6 +450,11 @@ export function App() {
     () => projects.find((project) => project.manifest.slug === selectedSlug) ?? null,
     [projects, selectedSlug]
   );
+
+  useEffect(() => {
+    setSessionLogMessage("");
+    setSessionLogError(false);
+  }, [selectedSlug]);
 
   const previewSources = useMemo(() => {
     if (!selectedProject) {
@@ -632,6 +648,57 @@ export function App() {
 
   const copyToClipboard = async (value: string) => {
     await navigator.clipboard.writeText(value);
+  };
+
+  const saveSessionLog = async () => {
+    if (!selectedProject) {
+      return;
+    }
+
+    try {
+      setIsSavingSessionLog(true);
+      setSessionLogError(false);
+      setSessionLogMessage("");
+      persistSelectedProjectScrollPositions();
+
+      const rawScroll = previewScrollMapRef.current[getPreviewScrollKey(selectedProject.manifest.slug, "raw")];
+      const workspaceScroll =
+        previewScrollMapRef.current[getPreviewScrollKey(selectedProject.manifest.slug, "workspace")];
+
+      const response = await fetch(`/api/projects/${encodeURIComponent(selectedProject.manifest.slug)}/session-log`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          savedAt: new Date().toISOString(),
+          sourcePath: selectedProject.manifest.sourcePath,
+          selectedMode: previewMode,
+          compareMode: layoutPreferences.compareMode,
+          sidebarOpen: layoutPreferences.sidebarOpen,
+          inspectorOpen: layoutPreferences.inspectorOpen,
+          devices: layoutPreferences.devices,
+          zooms: layoutPreferences.zooms,
+          scrollTop: {
+            raw: rawScroll?.windowTop ?? null,
+            workspace: workspaceScroll?.windowTop ?? null
+          },
+          sourceFiles
+        })
+      });
+
+      const result = (await response.json()) as SessionLogResponse;
+      if (!response.ok || !result.path) {
+        throw new Error(result.error ?? "Failed to save session log.");
+      }
+
+      setSessionLogMessage(`Saved handoff log to ${result.path}`);
+    } catch (error) {
+      setSessionLogError(true);
+      setSessionLogMessage(error instanceof Error ? error.message : "Failed to save session log.");
+    } finally {
+      setIsSavingSessionLog(false);
+    }
   };
 
   const renderPreviewPane = (mode: PreviewMode) => {
@@ -867,6 +934,24 @@ export function App() {
 
             <button
               type="button"
+              className="ghost-button"
+              onClick={() => void saveSessionLog()}
+              disabled={!selectedProject || isSavingSessionLog}
+            >
+              {isSavingSessionLog ? "Saving Log..." : "Save Session Log"}
+            </button>
+
+            <button
+              type="button"
+              className="ghost-button"
+              onClick={() => selectedProject && void copyToClipboard(selectedProject.paths.sessionLogPath)}
+              disabled={!selectedProject}
+            >
+              Copy Log Path
+            </button>
+
+            <button
+              type="button"
               className={layoutPreferences.sidebarOpen ? "ghost-button" : "ghost-button active-toggle"}
               onClick={() =>
                 setLayoutPreferences((current) => ({
@@ -894,6 +979,9 @@ export function App() {
         </header>
 
         {errorMessage ? <div className="error-banner">{errorMessage}</div> : null}
+        {sessionLogMessage ? (
+          <div className={sessionLogError ? "status-banner error" : "status-banner"}>{sessionLogMessage}</div>
+        ) : null}
 
         <div className={layoutPreferences.inspectorOpen ? "content-grid inspector-open" : "content-grid"}>
           <section className="preview-workspace">

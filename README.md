@@ -88,10 +88,15 @@ Do not point a folder import at `projects/<slug>` itself. Use a staging folder s
 ## Studio
 The studio is intentionally minimal:
 - Lists imported projects
-- Toggles between `raw` and `workspace` preview modes
+- Supports `Focus` and `Split` comparison modes
+- Hides/shows the projects rail and details rail
+- Sets independent `Desktop` / `Tablet` / `Mobile` widths per preview side
+- Sets independent zoom per preview side
+- Matches scroll position from one side to the other for faster comparison
 - Shows section metadata from `meta/section-map.json`
 - Surfaces source file paths for opening in Cursor
 - Displays the generated style guide and import log
+- Saves a portable handoff log to `projects/<slug>/meta/studio-session-log.md` via the `Save Session Log` button
 
 Preview routes are served directly from the local `projects/` folder:
 - `/preview/raw/<slug>/original.html`

@@ -148,6 +148,12 @@ pre {
   background: linear-gradient(135deg, #d46339, #ae4120);
 }
 
+.ghost-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
 .project-list {
   display: flex;
   flex-direction: column;
@@ -490,6 +496,20 @@ pre {
   color: #7b1f12;
   background: #ffe2d7;
   border: 1px solid #f3bea8;
+}
+
+.status-banner {
+  padding: 0.85rem 1rem;
+  border-radius: 16px;
+  color: #1f3f22;
+  background: #e1f4e1;
+  border: 1px solid #bfe3c2;
+}
+
+.status-banner.error {
+  color: #7b1f12;
+  background: #ffe2d7;
+  border-color: #f3bea8;
 }
 
 .sr-only {

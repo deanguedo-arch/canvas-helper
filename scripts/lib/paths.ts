@@ -32,6 +32,7 @@ export function getProjectPaths(slug: string): ProjectPaths {
     contentOutlinePath: path.join(root, "meta", "content-outline.md"),
     referenceIndexPath: path.join(root, "meta", "reference-index.json"),
     importLogPath: path.join(root, "meta", "import-log.md"),
+    sessionLogPath: path.join(root, "meta", "studio-session-log.md"),
     exportsDir: path.join(root, "exports"),
     brightspaceExportDir: path.join(root, "exports", "brightspace")
   };

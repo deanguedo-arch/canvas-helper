@@ -83,6 +83,7 @@ export type ProjectPaths = {
   contentOutlinePath: string;
   referenceIndexPath: string;
   importLogPath: string;
+  sessionLogPath: string;
   exportsDir: string;
   brightspaceExportDir: string;
 };
@@ -99,6 +100,7 @@ export type StudioProjectBundle = {
     workspaceStyles?: string;
     metaDir: string;
     referencesDir: string;
+    sessionLogPath: string;
   };
   styleGuide: string;
   importLog: string;
