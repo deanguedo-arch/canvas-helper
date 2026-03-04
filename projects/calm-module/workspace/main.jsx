@@ -24,6 +24,13 @@ const { useState, useEffect, useMemo, useRef } = React;
         function App() {
           const [activeTab, setActiveTab] = useState('overview');
           const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+          const [isDesktopSidebarCollapsed, setIsDesktopSidebarCollapsed] = useState(() => {
+            try {
+              return localStorage.getItem('calmModule1DesktopSidebarCollapsed') === 'true';
+            } catch (error) {
+              return false;
+            }
+          });
           const [printMode, setPrintMode] = useState(false);
           const [saveStatus, setSaveStatus] = useState('Saved');
           const prevStatsRef = useRef();
@@ -91,6 +98,14 @@ const { useState, useEffect, useMemo, useRef } = React;
             const timeoutId = setTimeout(() => setSaveStatus('Saved'), 500);
             return () => clearTimeout(timeoutId);
           }, [formData]);
+
+          useEffect(() => {
+            try {
+              localStorage.setItem('calmModule1DesktopSidebarCollapsed', String(isDesktopSidebarCollapsed));
+            } catch (error) {
+              // no-op
+            }
+          }, [isDesktopSidebarCollapsed]);
 
           const updateForm = (field, value) => setFormData(prev => ({ ...prev, [field]: value }));
           const updateArrayField = (field, index, value) => {
@@ -1345,12 +1360,25 @@ const { useState, useEffect, useMemo, useRef } = React;
               {/* SIDEBAR NAVIGATION - PLAYFUL VIBRANT */}
               <div className={`
                 ${isMobileMenuOpen ? 'block' : 'hidden'} 
-                md:flex w-full md:w-72 lg:w-80 bg-violet-600 text-violet-100 flex-shrink-0 flex-col h-auto md:h-screen md:sticky md:top-0 z-40 overflow-y-auto shadow-[8px_0_30px_rgba(0,0,0,0.1)] border-r-4 border-violet-800 print:hidden
+                ${isDesktopSidebarCollapsed ? 'md:hidden' : 'md:flex'} w-full md:w-72 lg:w-80 bg-violet-600 text-violet-100 flex-shrink-0 flex-col h-auto md:h-screen md:sticky md:top-0 z-40 overflow-y-auto shadow-[8px_0_30px_rgba(0,0,0,0.1)] border-r-4 border-violet-800 print:hidden
               `}>
                 <div className="p-8 hidden md:block border-b-4 border-violet-500/50">
-                  <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-violet-600 font-black text-4xl mb-6 shadow-[0_6px_0_0_#4c1d95] transform -rotate-3">C</div>
-                  <h1 className="text-3xl font-black text-white mb-2 tracking-tight">CALM</h1>
-                  <h2 className="text-sm font-bold bg-violet-800 text-violet-200 inline-block px-3 py-1 rounded-lg uppercase tracking-widest">Module 1</h2>
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-violet-600 font-black text-4xl mb-6 shadow-[0_6px_0_0_#4c1d95] transform -rotate-3">C</div>
+                      <h1 className="text-3xl font-black text-white mb-2 tracking-tight">CALM</h1>
+                      <h2 className="text-sm font-bold bg-violet-800 text-violet-200 inline-block px-3 py-1 rounded-lg uppercase tracking-widest">Module 1</h2>
+                    </div>
+                    <button
+                      type="button"
+                      className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-violet-500/70 text-violet-100 border-2 border-violet-400 hover:bg-violet-400 transition-colors print:hidden"
+                      onClick={() => setIsDesktopSidebarCollapsed(true)}
+                      aria-label="Collapse section menu"
+                      title="Collapse section menu"
+                    >
+                      <i className="fa-solid fa-chevron-left"></i>
+                    </button>
+                  </div>
                 </div>
                 
                 <nav className="flex-1 px-4 py-6 space-y-2">
@@ -1408,6 +1436,19 @@ const { useState, useEffect, useMemo, useRef } = React;
                   })}
                 </nav>
               </div>
+
+              {isDesktopSidebarCollapsed ? (
+                <button
+                  type="button"
+                  className="hidden md:flex items-center gap-2 fixed left-4 top-4 z-50 bg-violet-600 text-white border-2 border-violet-400 px-4 py-2 rounded-xl shadow-[0_6px_0_0_#4c1d95] hover:bg-violet-500 transition-all print:hidden"
+                  onClick={() => setIsDesktopSidebarCollapsed(false)}
+                  aria-label="Show section menu"
+                  title="Show section menu"
+                >
+                  <i className="fa-solid fa-bars"></i>
+                  Menu
+                </button>
+              ) : null}
 
               {/* MAIN CONTENT AREA */}
               <div className="flex-1 max-w-5xl mx-auto w-full p-4 md:p-10 lg:p-14 overflow-y-auto print:p-0 print:max-w-full print:overflow-visible">
