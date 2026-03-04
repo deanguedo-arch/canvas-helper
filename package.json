@@ -1,0 +1,38 @@
+{
+  "name": "canvas-helper",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "studio": "vite --config app/studio/vite.config.ts",
+    "build:studio": "vite build --config app/studio/vite.config.ts",
+    "typecheck": "tsc --noEmit",
+    "import": "tsx scripts/import-site.ts",
+    "analyze": "tsx scripts/analyze-site.ts",
+    "refs": "tsx scripts/extract-references.ts",
+    "export:brightspace": "tsx scripts/export-brightspace.ts",
+    "rehydrate": "tsx scripts/rehydrate-workspace.ts"
+  },
+  "dependencies": {
+    "@babel/generator": "^7.28.3",
+    "@babel/parser": "^7.28.4",
+    "@babel/traverse": "^7.28.4",
+    "cheerio": "^1.1.2",
+    "mammoth": "^1.11.0",
+    "mime-types": "^3.0.1",
+    "pdf-parse": "^1.1.1",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@types/mime-types": "^3.0.1",
+    "@types/node": "^24.5.2",
+    "@types/pdf-parse": "^1.1.5",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.2",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.5"
+  }
+}
