@@ -50,12 +50,9 @@ pre {
 .shell {
   display: grid;
   min-height: 100vh;
-  grid-template-columns: 280px minmax(0, 1fr);
-  transition: grid-template-columns 180ms ease;
-}
-
-.shell.sidebar-collapsed {
-  grid-template-columns: 0 minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
+  position: relative;
+  transition: none;
 }
 
 .sidebar {
@@ -80,6 +77,45 @@ pre {
   border-radius: 28px;
   background: linear-gradient(160deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.01));
   border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.brand-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+
+.sidebar-inline-toggle {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  padding: 0.25rem 0.6rem;
+  color: #f6f0e6;
+  background: rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.sidebar-inline-toggle:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-reopen {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 30;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: 0.45rem 0.85rem;
+  color: var(--ink);
+  background: var(--panel-strong);
+  box-shadow: 0 10px 20px rgba(38, 27, 10, 0.14);
+  cursor: pointer;
+}
+
+.sidebar-reopen:hover {
+  transform: translateY(-1px);
 }
 
 .brand-block h1 {
@@ -143,6 +179,12 @@ pre {
   background: rgba(255, 255, 255, 0.08);
 }
 
+.ghost-button.compact {
+  padding: 0.48rem 0.72rem;
+  border-radius: 12px;
+  font-size: 0.92rem;
+}
+
 .ghost-button.active-toggle {
   color: white;
   background: linear-gradient(135deg, #d46339, #ae4120);
@@ -191,7 +233,7 @@ pre {
   flex-direction: column;
   gap: 1.25rem;
   min-width: 0;
-  padding: 1.25rem;
+  padding: 1rem 1.25rem 1.25rem;
 }
 
 .topbar {
@@ -204,6 +246,12 @@ pre {
   border-radius: 28px;
   background: var(--panel);
   box-shadow: var(--shadow);
+}
+
+.topbar-compact {
+  gap: 1rem;
+  padding: 0.95rem 1.1rem;
+  border-radius: 24px;
 }
 
 .project-summary {
@@ -220,6 +268,11 @@ pre {
 .topbar h2 {
   margin: 0.25rem 0 0;
   font-size: 2rem;
+}
+
+.topbar-compact h2 {
+  margin-top: 0.1rem;
+  font-size: 1.85rem;
 }
 
 .project-switcher select {
@@ -242,6 +295,27 @@ pre {
   color: var(--ink-soft);
   font-size: 0.95rem;
   max-width: 58rem;
+}
+
+.compact-note {
+  margin-top: 0.3rem;
+  font-size: 0.86rem;
+}
+
+.topbar-meta {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.topbar-compact .source-path {
+  margin-top: 0.2rem;
+  font-size: 0.9rem;
+}
+
+.topbar-compact .mode-memory-note {
+  margin-top: 0.2rem;
+  font-size: 0.86rem;
+  line-height: 1.35;
 }
 
 .topbar-actions {
@@ -360,6 +434,16 @@ pre {
   white-space: nowrap;
 }
 
+.zoom-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.fit-button {
+  min-width: 3.2rem;
+}
+
 .zoom-control strong {
   color: var(--ink);
   min-width: 3.2rem;
@@ -371,7 +455,7 @@ pre {
 }
 
 .preview-stage {
-  padding: 1rem;
+  padding: 0.75rem;
   border-radius: 22px;
   border: 1px solid var(--line);
   background:
@@ -388,19 +472,23 @@ pre {
 .preview-canvas-shell {
   display: flex;
   justify-content: center;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .preview-canvas {
-  width: min(100%, var(--device-width));
-  max-width: 100%;
+  --zoom-scale: 1;
+  --frame-height: clamp(38rem, 76vh, 64rem);
+  width: calc(min(100%, var(--device-width)) / var(--zoom-scale));
+  max-width: none;
+  transform: scale(var(--zoom-scale));
   transform-origin: top center;
 }
 
 .preview-frame,
 .empty-preview {
   width: 100%;
-  min-height: clamp(34rem, 68vh, 52rem);
+  min-height: calc(var(--frame-height) / var(--zoom-scale));
+  height: calc(var(--frame-height) / var(--zoom-scale));
   border: 0;
   border-radius: 22px;
   background: white;
@@ -536,6 +624,11 @@ pre {
     grid-template-columns: 1fr;
   }
 
+  .sidebar-reopen {
+    top: 0.65rem;
+    left: 0.7rem;
+  }
+
   .preview-deck.split {
     grid-template-columns: 1fr;
   }
@@ -584,8 +677,13 @@ pre {
     flex: 1;
   }
 
+  .preview-canvas {
+    --frame-height: 60vh;
+  }
+
   .preview-frame,
   .empty-preview {
-    min-height: 60vh;
+    min-height: calc(var(--frame-height) / var(--zoom-scale));
+    height: calc(var(--frame-height) / var(--zoom-scale));
   }
 }

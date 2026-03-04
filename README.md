@@ -41,6 +41,21 @@ PowerShell note: this machine blocks `npm.ps1`, so use `npm.cmd ...` instead of 
 - `npm.cmd run export:brightspace -- --project <slug>`
 - `npm.cmd run rehydrate -- --project <slug> --force`
 
+## One-Click Launcher (Windows)
+- Use `launch-canvas-helper.bat` from the repo root for a click-to-run menu.
+- Options:
+  - Studio only
+  - Import + Analyze + Refs + Studio
+  - Export Brightspace
+- The launcher auto-opens `http://127.0.0.1:5173`.
+
+## Ops Runbook
+- Operational docs live in `docs/ops/`:
+  - `README.md`
+  - `session-checklist.md`
+  - `agent-prompt-templates.md`
+  - `preview-note-template.md`
+
 ## Typical Workflow
 1. Import a Canvas export:
    `npm.cmd run import -- "canvas code and references\CALM MODULE .HTML"`

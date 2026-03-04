@@ -368,10 +368,6 @@ type ProjectBundle = {
   };
 };
 
-function formatTimestamp(isoString: string) {
-  return new Date(isoString).toLocaleString();
-}
-
 function toCursorHref(filePath: string) {
   const normalizedPath = filePath.replace(/\\/g, "/");
   return `cursor://file/${encodeURI(normalizedPath)}`;
@@ -398,6 +394,10 @@ export function App() {
   const [sessionLogError, setSessionLogError] = useState<boolean>(false);
   const [isSavingSessionLog, setIsSavingSessionLog] = useState<boolean>(false);
   const previewFrameRefs = useRef<Record<PreviewMode, HTMLIFrameElement | null>>({
+    raw: null,
+    workspace: null
+  });
+  const previewShellRefs = useRef<Record<PreviewMode, HTMLDivElement | null>>({
     raw: null,
     workspace: null
   });
@@ -650,6 +650,32 @@ export function App() {
     await navigator.clipboard.writeText(value);
   };
 
+  const fitPreviewToWidth = (mode: PreviewMode) => {
+    const shell = previewShellRefs.current[mode];
+    if (!shell) {
+      return;
+    }
+
+    const availableWidth = shell.clientWidth;
+    if (availableWidth <= 0) {
+      return;
+    }
+
+    setLayoutPreferences((current) => {
+      const activeDevice = current.devices[mode];
+      const baseWidth = activeDevice === "tablet" ? 820 : activeDevice === "mobile" ? 430 : availableWidth;
+      const fitZoom = normalizeZoom((availableWidth / baseWidth) * 100);
+
+      return {
+        ...current,
+        zooms: {
+          ...current.zooms,
+          [mode]: fitZoom
+        }
+      };
+    });
+  };
+
   const saveSessionLog = async () => {
     if (!selectedProject) {
       return;
@@ -703,9 +729,10 @@ export function App() {
 
   const renderPreviewPane = (mode: PreviewMode) => {
     const devicePreset = DEVICE_PRESETS[layoutPreferences.devices[mode]];
+    const zoomScale = layoutPreferences.zooms[mode] / 100;
     const previewCanvasStyle = {
       "--device-width": devicePreset.width,
-      zoom: layoutPreferences.zooms[mode] / 100
+      "--zoom-scale": String(zoomScale)
     } as React.CSSProperties;
 
     return (
@@ -751,31 +778,41 @@ export function App() {
             ))}
           </div>
 
-          <label className="zoom-control">
-            <span>Zoom</span>
-            <input
-              className="zoom-slider"
-              type="range"
-              min="60"
-              max="140"
-              step="5"
-              value={layoutPreferences.zooms[mode]}
-              onChange={(event) =>
-                setLayoutPreferences((current) => ({
-                  ...current,
-                  zooms: {
-                    ...current.zooms,
-                    [mode]: normalizeZoom(Number(event.target.value))
-                  }
-                }))
-              }
-            />
-            <strong>{layoutPreferences.zooms[mode]}%</strong>
-          </label>
+          <div className="zoom-controls">
+            <button type="button" className="ghost-button compact fit-button" onClick={() => fitPreviewToWidth(mode)}>
+              Fit
+            </button>
+            <label className="zoom-control">
+              <span>Zoom</span>
+              <input
+                className="zoom-slider"
+                type="range"
+                min="60"
+                max="140"
+                step="5"
+                value={layoutPreferences.zooms[mode]}
+                onChange={(event) =>
+                  setLayoutPreferences((current) => ({
+                    ...current,
+                    zooms: {
+                      ...current.zooms,
+                      [mode]: normalizeZoom(Number(event.target.value))
+                    }
+                  }))
+                }
+              />
+              <strong>{layoutPreferences.zooms[mode]}%</strong>
+            </label>
+          </div>
         </div>
 
         <div className="preview-stage">
-          <div className="preview-canvas-shell">
+          <div
+            className="preview-canvas-shell"
+            ref={(node) => {
+              previewShellRefs.current[mode] = node;
+            }}
+          >
             <div className={`preview-canvas preview-canvas-${layoutPreferences.devices[mode]}`} style={previewCanvasStyle}>
               <iframe
                 key={`${selectedProject?.manifest.slug ?? "empty"}:${mode}`}
@@ -801,50 +838,11 @@ export function App() {
   };
 
   return (
-    <div className={layoutPreferences.sidebarOpen ? "shell" : "shell sidebar-collapsed"}>
-      <aside className="sidebar">
-        <div className="brand-block">
-          <p className="eyebrow">Local Studio</p>
-          <h1>Canvas Helper</h1>
-          <p className="lede">
-            Compare raw and workspace with independent zoom and device widths, then hide the rails when you need more
-            room.
-          </p>
-        </div>
-
-        <div className="sidebar-section">
-          <div className="section-header">
-            <h2>Projects</h2>
-            <button className="ghost-button" type="button" onClick={() => void fetchProjects().then(setProjects)}>
-              Refresh
-            </button>
-          </div>
-
-          {projects.length === 0 ? <p className="empty-state">No imported projects yet.</p> : null}
-
-          <div className="project-list">
-            {projects.map((project) => (
-              <button
-                key={project.manifest.id}
-                type="button"
-                className={project.manifest.slug === selectedSlug ? "project-card active" : "project-card"}
-                onClick={() => {
-                  persistSelectedProjectScrollPositions();
-                  setSelectedSlug(project.manifest.slug);
-                }}
-              >
-                <span className="project-title">{project.manifest.slug}</span>
-                <span className="project-meta">Updated {formatTimestamp(project.manifest.updatedAt)}</span>
-              </button>
-            ))}
-          </div>
-        </div>
-      </aside>
-
+    <div className="shell">
       <main className="main-panel">
-        <header className="topbar">
+        <header className="topbar topbar-compact">
           <div className="project-summary">
-            <p className="eyebrow">Compare Workspace</p>
+            <p className="eyebrow">Local Studio</p>
             <div className="project-heading-row">
               <h2>{selectedProject?.manifest.slug ?? "No project selected"}</h2>
               {projects.length ? (
@@ -865,12 +863,13 @@ export function App() {
                   </select>
                 </label>
               ) : null}
+              <button className="ghost-button compact" type="button" onClick={() => void fetchProjects().then(setProjects)}>
+                Refresh
+              </button>
             </div>
-            {selectedProject ? <p className="source-path">{selectedProject.manifest.sourcePath}</p> : null}
             {selectedProject ? (
-              <p className="mode-memory-note">
-                Split view gives both sides their own device width and zoom. Use Match to line the other side up with
-                your current spot.
+              <p className="mode-memory-note compact-note">
+                Split view keeps raw/workspace synced by section, with independent device and zoom controls.
               </p>
             ) : null}
           </div>
@@ -934,38 +933,25 @@ export function App() {
 
             <button
               type="button"
-              className="ghost-button"
+              className="ghost-button compact"
               onClick={() => void saveSessionLog()}
               disabled={!selectedProject || isSavingSessionLog}
             >
-              {isSavingSessionLog ? "Saving Log..." : "Save Session Log"}
+              {isSavingSessionLog ? "Saving..." : "Save Log"}
             </button>
 
             <button
               type="button"
-              className="ghost-button"
+              className="ghost-button compact"
               onClick={() => selectedProject && void copyToClipboard(selectedProject.paths.sessionLogPath)}
               disabled={!selectedProject}
             >
-              Copy Log Path
+              Copy Path
             </button>
 
             <button
               type="button"
-              className={layoutPreferences.sidebarOpen ? "ghost-button" : "ghost-button active-toggle"}
-              onClick={() =>
-                setLayoutPreferences((current) => ({
-                  ...current,
-                  sidebarOpen: !current.sidebarOpen
-                }))
-              }
-            >
-              {layoutPreferences.sidebarOpen ? "Hide Projects" : "Show Projects"}
-            </button>
-
-            <button
-              type="button"
-              className={layoutPreferences.inspectorOpen ? "ghost-button" : "ghost-button active-toggle"}
+              className={layoutPreferences.inspectorOpen ? "ghost-button compact" : "ghost-button compact active-toggle"}
               onClick={() =>
                 setLayoutPreferences((current) => ({
                   ...current,
@@ -973,7 +959,7 @@ export function App() {
                 }))
               }
             >
-              {layoutPreferences.inspectorOpen ? "Hide Details" : "Show Details"}
+              {layoutPreferences.inspectorOpen ? "Hide Details" : "Details"}
             </button>
           </div>
         </header>
