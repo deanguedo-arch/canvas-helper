@@ -4,7 +4,9 @@ setlocal EnableExtensions
 set "ROOT_DIR=%~dp0"
 cd /d "%ROOT_DIR%"
 
-set "STUDIO_URL=http://127.0.0.1:5173"
+set "STUDIO_HOST=127.0.0.1"
+set "STUDIO_PORT="
+set "STUDIO_URL="
 
 :menu
 cls
@@ -31,10 +33,11 @@ goto menu
 
 :studio_only
 call :ensure_deps || goto failed
-start "" "%STUDIO_URL%"
+call :resolve_studio_port || goto failed
+call :open_studio_when_ready
 echo.
-echo Starting studio with incoming watcher...
-call npm.cmd run studio:auto
+echo Starting studio with incoming watcher on %STUDIO_URL%...
+call npm.cmd run studio:auto -- --host "%STUDIO_HOST%" --port "%STUDIO_PORT%"
 goto end
 
 :import_studio
@@ -55,10 +58,11 @@ echo.
 echo Running import...
 call npm.cmd run import -- "%IMPORT_SOURCE%" --slug "%IMPORT_SLUG%" || goto failed
 
-start "" "%STUDIO_URL%"
+call :resolve_studio_port || goto failed
+call :open_studio_when_ready
 echo.
-echo Starting studio with incoming watcher...
-call npm.cmd run studio:auto
+echo Starting studio with incoming watcher on %STUDIO_URL%...
+call npm.cmd run studio:auto -- --host "%STUDIO_HOST%" --port "%STUDIO_PORT%"
 goto end
 
 :export_only
@@ -82,6 +86,21 @@ echo.
 echo Installing dependencies first (node_modules missing)...
 call npm.cmd install || exit /b 1
 :deps_ok
+exit /b 0
+
+:resolve_studio_port
+set "STUDIO_PORT="
+for /f %%I in ('powershell -NoProfile -ExecutionPolicy Bypass -Command "$ports = 5173..5193; foreach ($port in $ports) { if (-not (Get-NetTCPConnection -LocalPort $port -State Listen -ErrorAction SilentlyContinue)) { Write-Output $port; exit 0 } }; exit 1"') do set "STUDIO_PORT=%%I"
+if not defined STUDIO_PORT (
+  echo.
+  echo Could not find a free Studio port between 5173 and 5193.
+  exit /b 1
+)
+set "STUDIO_URL=http://%STUDIO_HOST%:%STUDIO_PORT%"
+exit /b 0
+
+:open_studio_when_ready
+start "" powershell -NoProfile -WindowStyle Hidden -ExecutionPolicy Bypass -Command "$url='%STUDIO_URL%'; for ($i = 0; $i -lt 120; $i++) { try { $response = Invoke-WebRequest -Uri $url -UseBasicParsing -TimeoutSec 1; if ($response.StatusCode -ge 200 -and $response.StatusCode -lt 500) { Start-Process $url; exit 0 } } catch {}; Start-Sleep -Milliseconds 500 }; Start-Process $url"
 exit /b 0
 
 :failed

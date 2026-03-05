@@ -1,9 +1,16 @@
 import { spawn, type ChildProcess } from "node:child_process";
 
+import {
+  buildNpmSpawnPlan,
+  buildStudioArgs,
+  parseStudioAutoOptions
+} from "./lib/studio-auto.js";
+
 function startProcess(label: string, args: string[]) {
-  const command = process.platform === "win32" ? "npm.cmd" : "npm";
-  const child = spawn(command, args, {
-    stdio: "inherit"
+  const spawnPlan = buildNpmSpawnPlan(args);
+  const child = spawn(spawnPlan.command, spawnPlan.args, {
+    stdio: "inherit",
+    shell: spawnPlan.shell
   });
 
   child.on("exit", (code) => {
@@ -25,9 +32,14 @@ function stopProcess(child: ChildProcess | null) {
 }
 
 async function main() {
-  console.log("[studio:auto] starting studio + incoming watcher...");
+  const options = parseStudioAutoOptions(process.argv.slice(2));
+  const studioArgs = buildStudioArgs(options);
+  const endpoint =
+    options.host && options.port ? ` http://${options.host}:${options.port}` : "";
 
-  const studio = startProcess("studio", ["run", "studio"]);
+  console.log(`[studio:auto] starting studio + incoming watcher...${endpoint}`);
+
+  const studio = startProcess("studio", studioArgs);
   const watcher = startProcess("watch:incoming", ["run", "watch:incoming"]);
 
   let shuttingDown = false;
