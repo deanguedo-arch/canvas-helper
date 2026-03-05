@@ -20,12 +20,12 @@ Phase 1 keeps the repo structure stable and adds a high-signal operating layer f
 5. Save session handoff log from Studio.
 6. Export Brightspace bundle when ready.
 
-Use [session-checklist.md](/c:/Users/dean.guedo/Documents/GitHub/canvas-helper/docs/ops/session-checklist.md) to keep runs consistent.
+Use [session-checklist.md](./session-checklist.md) to keep runs consistent.
 
 ## Prompting System
 
-Use [agent-prompt-templates.md](/c:/Users/dean.guedo/Documents/GitHub/canvas-helper/docs/ops/agent-prompt-templates.md) as your fast-start prompt catalog for common edit types.
+Use [agent-prompt-templates.md](./agent-prompt-templates.md) as your fast-start prompt catalog for common edit types.
 
 ## Preview Note
 
-Use [preview-note-template.md](/c:/Users/dean.guedo/Documents/GitHub/canvas-helper/docs/ops/preview-note-template.md) before or after major edits so context survives session handoff.
+Use [preview-note-template.md](./preview-note-template.md) before or after major edits so context survives session handoff.

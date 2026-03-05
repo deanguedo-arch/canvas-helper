@@ -1,4 +1,4 @@
-import { getStringFlag, parseArgs } from "./lib/cli.js";
+import { getStringFlag, hasFlag, parseArgs } from "./lib/cli.js";
 import { analyzeProject } from "./lib/analyzer.js";
 
 async function main() {
@@ -6,10 +6,11 @@ async function main() {
   const projectSlug = getStringFlag(parsedArgs, "project") ?? parsedArgs.positionals[0];
 
   if (!projectSlug) {
-    throw new Error('Usage: npm run analyze -- --project <slug>');
+    throw new Error('Usage: npm run analyze -- --project <slug> [--split]');
   }
 
-  const result = await analyzeProject(projectSlug);
+  const splitWorkspace = hasFlag(parsedArgs, "split");
+  const result = await analyzeProject(projectSlug, { splitWorkspace });
   console.log(`Analyzed "${result.projectSlug}" (${result.sectionCount} sections, ${result.splitCount} split file(s)).`);
 }
 

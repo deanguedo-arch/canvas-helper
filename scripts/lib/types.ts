@@ -92,6 +92,10 @@ export type StudioProjectBundle = {
   manifest: ProjectManifest;
   sectionMap: SectionMap | null;
   referenceIndex: ReferenceIndex | null;
+  htmlFiles: {
+    raw: string[];
+    workspace: string[];
+  };
   paths: {
     root: string;
     rawEntrypoint: string;

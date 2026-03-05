@@ -1,9 +1,28 @@
 import path from "node:path";
 import { readdir, readFile } from "node:fs/promises";
 
-import { fileExists, latestMtimeMs, readJsonFile, writeJsonFile } from "./fs.js";
+import { fileExists, latestMtimeMs, listFilesRecursive, readJsonFile, writeJsonFile } from "./fs.js";
 import { getProjectPaths, projectsRoot } from "./paths.js";
 import type { ProjectManifest, ReferenceIndex, SectionMap, StudioProjectBundle } from "./types.js";
+
+function normalizeSlash(value: string) {
+  return value.replace(/\\/g, "/");
+}
+
+async function listHtmlFiles(dirPath: string) {
+  if (!(await fileExists(dirPath))) {
+    return [] as string[];
+  }
+
+  const files = await listFilesRecursive(dirPath);
+  return files
+    .filter((filePath) => {
+      const extension = path.extname(filePath).toLowerCase();
+      return extension === ".html" || extension === ".htm";
+    })
+    .map((filePath) => normalizeSlash(path.relative(dirPath, filePath)))
+    .sort((left, right) => left.localeCompare(right));
+}
 
 export async function loadProjectManifest(slug: string) {
   const paths = getProjectPaths(slug);
@@ -81,19 +100,34 @@ export async function readStudioProjectBundle(slug: string): Promise<StudioProje
     ? path.join(paths.workspaceDir, "styles.css")
     : undefined;
 
-  const [sectionMap, referenceIndex, styleGuide, importLog, rawRevision, workspaceRevision] = await Promise.all([
+  const [
+    sectionMap,
+    referenceIndex,
+    styleGuide,
+    importLog,
+    rawRevision,
+    workspaceRevision,
+    rawHtmlFiles,
+    workspaceHtmlFiles
+  ] = await Promise.all([
     readOptionalJson<SectionMap>(paths.sectionMapPath),
     readOptionalJson<ReferenceIndex>(paths.referenceIndexPath),
     readOptionalFile(paths.styleGuidePath),
     readOptionalFile(paths.importLogPath),
     latestMtimeMs(paths.rawDir),
-    latestMtimeMs(paths.workspaceDir)
+    latestMtimeMs(paths.workspaceDir),
+    listHtmlFiles(paths.rawDir),
+    listHtmlFiles(paths.workspaceDir)
   ]);
 
   return {
     manifest,
     sectionMap,
     referenceIndex,
+    htmlFiles: {
+      raw: rawHtmlFiles,
+      workspace: workspaceHtmlFiles
+    },
     paths: {
       root: paths.root,
       rawEntrypoint: paths.rawEntrypoint,

@@ -1,3 +1,11 @@
 node_modules/
 dist/
 .vite/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Imported course content (DO NOT COMMIT)
+projects/**
+!projects/.gitkeep
