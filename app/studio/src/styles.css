@@ -440,6 +440,44 @@ pre {
   gap: 0.55rem;
 }
 
+.reference-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.mini-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 11rem;
+}
+
+.mini-field-wide {
+  min-width: 18rem;
+  flex: 1;
+}
+
+.mini-field span {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.mini-select {
+  padding: 0.55rem 0.75rem;
+  border-radius: 14px;
+  border: 1px solid var(--line-strong);
+  background: #fff;
+  color: var(--ink);
+}
+
 .fit-button {
   min-width: 3.2rem;
 }

@@ -1,13 +1,17 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 
-const previewModes = ["raw", "workspace"] as const;
+const previewModes = ["reference", "workspace"] as const;
 const deviceModes = ["desktop", "tablet", "mobile"] as const;
+
 type PreviewMode = (typeof previewModes)[number];
 type DeviceMode = (typeof deviceModes)[number];
+type PreviewRoot = "raw" | "workspace";
+
 type StudioSelection = {
   selectedSlug: string;
   previewMode: PreviewMode;
 };
+
 type PreviewLayoutPreferences = {
   compareMode: boolean;
   sidebarOpen: boolean;
@@ -15,6 +19,7 @@ type PreviewLayoutPreferences = {
   devices: Record<PreviewMode, DeviceMode>;
   zooms: Record<PreviewMode, number>;
 };
+
 type PreviewScrollPosition = {
   windowTop: number;
   windowLeft: number;
@@ -24,27 +29,40 @@ type PreviewScrollPosition = {
     left: number;
   }>;
 };
+
 type PreviewScrollMap = Record<string, PreviewScrollPosition>;
+type ScrollSelectorCache = Record<string, string[]>;
+
+type ReferenceTarget = {
+  projectSlug: string;
+  root: PreviewRoot;
+  htmlPath: string;
+};
 
 const STUDIO_SELECTION_STORAGE_KEY = "canvas-helper/studio-selection";
 const STUDIO_LAYOUT_STORAGE_KEY = "canvas-helper/studio-layout";
+const STUDIO_REFERENCE_STORAGE_KEY = "canvas-helper/studio-reference";
 const PREVIEW_SCROLL_STORAGE_KEY = "canvas-helper/preview-scroll";
+
 const MAX_TRACKED_SCROLL_CONTAINERS = 8;
+const MAX_SCAN_NODES = 12000;
+
 const DEVICE_PRESETS: Record<DeviceMode, { label: string; width: string }> = {
   desktop: { label: "Desktop", width: "100%" },
   tablet: { label: "Tablet", width: "820px" },
   mobile: { label: "Mobile", width: "430px" }
 };
+
 const DEFAULT_LAYOUT_PREFERENCES: PreviewLayoutPreferences = {
   compareMode: true,
   sidebarOpen: true,
   inspectorOpen: false,
   devices: {
-    raw: "tablet",
+    reference: "tablet",
     workspace: "desktop"
   },
   zooms: {
-    raw: 90,
+    reference: 90,
     workspace: 100
   }
 };
@@ -55,32 +73,21 @@ function normalizeZoom(zoom: number) {
 
 function loadStudioSelection(): StudioSelection {
   if (typeof window === "undefined") {
-    return {
-      selectedSlug: "",
-      previewMode: "workspace" as PreviewMode
-    };
+    return { selectedSlug: "", previewMode: "workspace" };
   }
 
   try {
     const savedValue = window.localStorage.getItem(STUDIO_SELECTION_STORAGE_KEY);
     if (!savedValue) {
-      return {
-        selectedSlug: "",
-        previewMode: "workspace" as PreviewMode
-      };
+      return { selectedSlug: "", previewMode: "workspace" };
     }
-
     const parsed = JSON.parse(savedValue) as Partial<StudioSelection>;
-
     return {
       selectedSlug: parsed.selectedSlug ?? "",
-      previewMode: parsed.previewMode === "raw" ? "raw" : "workspace"
+      previewMode: parsed.previewMode === "reference" ? "reference" : "workspace"
     };
   } catch {
-    return {
-      selectedSlug: "",
-      previewMode: "workspace" as PreviewMode
-    };
+    return { selectedSlug: "", previewMode: "workspace" };
   }
 }
 
@@ -91,10 +98,7 @@ function saveStudioSelection(selectedSlug: string, previewMode: PreviewMode) {
 
   window.localStorage.setItem(
     STUDIO_SELECTION_STORAGE_KEY,
-    JSON.stringify({
-      selectedSlug,
-      previewMode
-    })
+    JSON.stringify({ selectedSlug, previewMode })
   );
 }
 
@@ -110,29 +114,25 @@ function loadPreviewLayoutPreferences(): PreviewLayoutPreferences {
     }
 
     const parsed = JSON.parse(savedValue) as Partial<PreviewLayoutPreferences>;
-
     return {
       compareMode: typeof parsed.compareMode === "boolean" ? parsed.compareMode : DEFAULT_LAYOUT_PREFERENCES.compareMode,
-      sidebarOpen:
-        typeof parsed.sidebarOpen === "boolean" ? parsed.sidebarOpen : DEFAULT_LAYOUT_PREFERENCES.sidebarOpen,
+      sidebarOpen: typeof parsed.sidebarOpen === "boolean" ? parsed.sidebarOpen : DEFAULT_LAYOUT_PREFERENCES.sidebarOpen,
       inspectorOpen:
         typeof parsed.inspectorOpen === "boolean" ? parsed.inspectorOpen : DEFAULT_LAYOUT_PREFERENCES.inspectorOpen,
       devices: {
-        raw: deviceModes.includes(parsed.devices?.raw as DeviceMode)
-          ? (parsed.devices?.raw as DeviceMode)
-          : DEFAULT_LAYOUT_PREFERENCES.devices.raw,
+        reference: deviceModes.includes(parsed.devices?.reference as DeviceMode)
+          ? (parsed.devices?.reference as DeviceMode)
+          : DEFAULT_LAYOUT_PREFERENCES.devices.reference,
         workspace: deviceModes.includes(parsed.devices?.workspace as DeviceMode)
           ? (parsed.devices?.workspace as DeviceMode)
           : DEFAULT_LAYOUT_PREFERENCES.devices.workspace
       },
       zooms: {
-        raw: normalizeZoom(
-          typeof parsed.zooms?.raw === "number" ? parsed.zooms.raw : DEFAULT_LAYOUT_PREFERENCES.zooms.raw
+        reference: normalizeZoom(
+          typeof parsed.zooms?.reference === "number" ? parsed.zooms.reference : DEFAULT_LAYOUT_PREFERENCES.zooms.reference
         ),
         workspace: normalizeZoom(
-          typeof parsed.zooms?.workspace === "number"
-            ? parsed.zooms.workspace
-            : DEFAULT_LAYOUT_PREFERENCES.zooms.workspace
+          typeof parsed.zooms?.workspace === "number" ? parsed.zooms.workspace : DEFAULT_LAYOUT_PREFERENCES.zooms.workspace
         )
       }
     };
@@ -147,6 +147,35 @@ function savePreviewLayoutPreferences(preferences: PreviewLayoutPreferences) {
   }
 
   window.localStorage.setItem(STUDIO_LAYOUT_STORAGE_KEY, JSON.stringify(preferences));
+}
+
+function loadReferenceTarget(): ReferenceTarget {
+  if (typeof window === "undefined") {
+    return { projectSlug: "", root: "raw", htmlPath: "original.html" };
+  }
+
+  try {
+    const savedValue = window.localStorage.getItem(STUDIO_REFERENCE_STORAGE_KEY);
+    if (!savedValue) {
+      return { projectSlug: "", root: "raw", htmlPath: "original.html" };
+    }
+    const parsed = JSON.parse(savedValue) as Partial<ReferenceTarget>;
+    return {
+      projectSlug: parsed.projectSlug ?? "",
+      root: parsed.root === "workspace" ? "workspace" : "raw",
+      htmlPath: parsed.htmlPath ?? (parsed.root === "workspace" ? "index.html" : "original.html")
+    };
+  } catch {
+    return { projectSlug: "", root: "raw", htmlPath: "original.html" };
+  }
+}
+
+function saveReferenceTarget(target: ReferenceTarget) {
+  if (typeof window === "undefined") {
+    return;
+  }
+
+  window.localStorage.setItem(STUDIO_REFERENCE_STORAGE_KEY, JSON.stringify(target));
 }
 
 function loadPreviewScrollMap(): PreviewScrollMap {
@@ -170,15 +199,10 @@ function savePreviewScrollMap(scrollMap: PreviewScrollMap) {
   window.localStorage.setItem(PREVIEW_SCROLL_STORAGE_KEY, JSON.stringify(scrollMap));
 }
 
-function getPreviewScrollKey(slug: string, mode: PreviewMode) {
-  return `${slug}:${mode}`;
-}
-
 function escapeSelectorToken(value: string) {
   if (typeof CSS !== "undefined" && typeof CSS.escape === "function") {
     return CSS.escape(value);
   }
-
   return value.replace(/[^a-zA-Z0-9_-]/g, "\\$&");
 }
 
@@ -204,9 +228,7 @@ function getElementSelector(element: HTMLElement) {
 
     const parentElement: HTMLElement | null = current.parentElement;
     if (parentElement) {
-      const siblings = Array.from(parentElement.children).filter(
-        (child: Element) => child.tagName === currentTagName
-      );
+      const siblings = Array.from(parentElement.children).filter((child: Element) => child.tagName === currentTagName);
       if (siblings.length > 1) {
         selector += `:nth-of-type(${siblings.indexOf(current) + 1})`;
       }
@@ -227,61 +249,90 @@ function isScrollableElement(element: HTMLElement) {
   }
 
   const style = owningWindow.getComputedStyle(element);
-  const canScrollY =
-    /(auto|scroll|overlay)/.test(style.overflowY) && element.scrollHeight - element.clientHeight > 24;
-  const canScrollX =
-    /(auto|scroll|overlay)/.test(style.overflowX) && element.scrollWidth - element.clientWidth > 24;
+  const canScrollY = /(auto|scroll|overlay)/.test(style.overflowY) && element.scrollHeight - element.clientHeight > 24;
+  const canScrollX = /(auto|scroll|overlay)/.test(style.overflowX) && element.scrollWidth - element.clientWidth > 24;
 
   return canScrollX || canScrollY;
 }
 
-function capturePreviewScrollPosition(iframe: HTMLIFrameElement) {
+function toPreviewUrl(root: PreviewRoot, slug: string, relativePath: string, rev: number) {
+  const encodedSlug = encodeURIComponent(slug);
+  const encodedPath = relativePath
+    .split("/")
+    .map((part) => encodeURIComponent(part))
+    .join("/");
+  return `/preview/${root}/${encodedSlug}/${encodedPath}?rev=${rev}`;
+}
+
+type CaptureResult = {
+  position: PreviewScrollPosition;
+  selectors: string[];
+};
+
+function capturePreviewScrollPosition(iframe: HTMLIFrameElement, cachedSelectors?: string[]): CaptureResult | null {
   const contentWindow = iframe.contentWindow;
   const contentDocument = iframe.contentDocument;
   if (!contentWindow || !contentDocument) {
     return null;
   }
 
+  if (cachedSelectors && cachedSelectors.length) {
+    const containers = cachedSelectors
+      .map((selector) => {
+        const element = contentDocument.querySelector<HTMLElement>(selector);
+        if (!element || !isScrollableElement(element)) {
+          return null;
+        }
+        return { selector, top: element.scrollTop, left: element.scrollLeft };
+      })
+      .filter(Boolean) as PreviewScrollPosition["containers"];
+
+    if (containers.length) {
+      return {
+        position: {
+          windowTop: contentWindow.scrollY,
+          windowLeft: contentWindow.scrollX,
+          containers
+        },
+        selectors: cachedSelectors
+      };
+    }
+  }
+
   const seenSelectors = new Set<string>();
-  const containers = Array.from(contentDocument.querySelectorAll<HTMLElement>("body *"))
+  const nodes = Array.from(contentDocument.querySelectorAll<HTMLElement>("body *")).slice(0, MAX_SCAN_NODES);
+
+  const candidates = nodes
     .filter((element) => isScrollableElement(element))
     .map((element) => ({
       element,
       selector: getElementSelector(element),
       score: Math.max(element.scrollHeight - element.clientHeight, element.scrollWidth - element.clientWidth)
     }))
-    .sort((left, right) => right.score - left.score)
+    .sort((a, b) => b.score - a.score)
     .filter(({ selector }) => {
       if (!selector || seenSelectors.has(selector)) {
         return false;
       }
-
       seenSelectors.add(selector);
       return true;
     })
-    .slice(0, MAX_TRACKED_SCROLL_CONTAINERS)
-    .map(({ element, selector }) => ({
-      selector,
-      top: element.scrollTop,
-      left: element.scrollLeft
-    }));
+    .slice(0, MAX_TRACKED_SCROLL_CONTAINERS);
+
+  const selectors = candidates.map((candidate) => candidate.selector);
+  const containers = candidates.map(({ element, selector }) => ({
+    selector,
+    top: element.scrollTop,
+    left: element.scrollLeft
+  }));
 
   return {
-    windowTop: contentWindow.scrollY,
-    windowLeft: contentWindow.scrollX,
-    containers
-  } satisfies PreviewScrollPosition;
-}
-
-function clonePreviewScrollPosition(scrollPosition: PreviewScrollPosition): PreviewScrollPosition {
-  return {
-    windowTop: scrollPosition.windowTop,
-    windowLeft: scrollPosition.windowLeft,
-    containers: scrollPosition.containers.map((container) => ({
-      selector: container.selector,
-      top: container.top,
-      left: container.left
-    }))
+    position: {
+      windowTop: contentWindow.scrollY,
+      windowLeft: contentWindow.scrollX,
+      containers
+    },
+    selectors
   };
 }
 
@@ -299,7 +350,6 @@ function restorePreviewScrollPosition(iframe: HTMLIFrameElement, scrollPosition:
       if (!element) {
         return;
       }
-
       element.scrollTop = container.top;
       element.scrollLeft = container.left;
     });
@@ -329,13 +379,6 @@ type ReferenceManifest = {
   extractedTextPath?: string;
 };
 
-type SessionLogResponse = {
-  ok?: boolean;
-  path?: string;
-  savedAt?: string;
-  error?: string;
-};
-
 type ProjectBundle = {
   manifest: {
     id: string;
@@ -344,12 +387,9 @@ type ProjectBundle = {
     createdAt: string;
     updatedAt: string;
   };
-  sectionMap: {
-    sections: SectionManifest[];
-  } | null;
-  referenceIndex: {
-    references: ReferenceManifest[];
-  } | null;
+  sectionMap: { sections: SectionManifest[] } | null;
+  referenceIndex: { references: ReferenceManifest[] } | null;
+  htmlFiles: { raw: string[]; workspace: string[] };
   paths: {
     root: string;
     rawEntrypoint: string;
@@ -362,10 +402,7 @@ type ProjectBundle = {
   };
   styleGuide: string;
   importLog: string;
-  revisions: {
-    raw: number;
-    workspace: number;
-  };
+  revisions: { raw: number; workspace: number };
 };
 
 function toCursorHref(filePath: string) {
@@ -378,34 +415,33 @@ async function fetchProjects() {
   if (!response.ok) {
     throw new Error("Failed to load projects.");
   }
-
   return (await response.json()) as ProjectBundle[];
+}
+
+function getTargetKey(target: { projectSlug: string; root: PreviewRoot; htmlPath: string }) {
+  return `${target.projectSlug}:${target.root}:${target.htmlPath}`;
 }
 
 export function App() {
   const [projects, setProjects] = useState<ProjectBundle[]>([]);
   const [selectedSlug, setSelectedSlug] = useState<string>(() => loadStudioSelection().selectedSlug);
   const [previewMode, setPreviewMode] = useState<PreviewMode>(() => loadStudioSelection().previewMode);
-  const [layoutPreferences, setLayoutPreferences] = useState<PreviewLayoutPreferences>(() =>
-    loadPreviewLayoutPreferences()
-  );
+  const [layoutPreferences, setLayoutPreferences] = useState<PreviewLayoutPreferences>(() => loadPreviewLayoutPreferences());
+  const [referenceTarget, setReferenceTarget] = useState<ReferenceTarget>(() => loadReferenceTarget());
   const [errorMessage, setErrorMessage] = useState<string>("");
-  const [sessionLogMessage, setSessionLogMessage] = useState<string>("");
-  const [sessionLogError, setSessionLogError] = useState<boolean>(false);
-  const [isSavingSessionLog, setIsSavingSessionLog] = useState<boolean>(false);
+
   const previewFrameRefs = useRef<Record<PreviewMode, HTMLIFrameElement | null>>({
-    raw: null,
+    reference: null,
     workspace: null
   });
-  const previewShellRefs = useRef<Record<PreviewMode, HTMLDivElement | null>>({
-    raw: null,
-    workspace: null
-  });
+
   const previewCleanupRefs = useRef<Record<PreviewMode, (() => void) | null>>({
-    raw: null,
+    reference: null,
     workspace: null
   });
+
   const previewScrollMapRef = useRef<PreviewScrollMap>(loadPreviewScrollMap());
+  const scrollSelectorCacheRef = useRef<ScrollSelectorCache>({});
 
   useEffect(() => {
     let cancelled = false;
@@ -418,13 +454,33 @@ export function App() {
         }
 
         setProjects(bundles);
-        setSelectedSlug((currentSlug) => {
-          if (currentSlug && bundles.some((bundle) => bundle.manifest.slug === currentSlug)) {
-            return currentSlug;
-          }
 
-          return bundles[0]?.manifest.slug ?? "";
+        const fallbackSlug =
+          selectedSlug && bundles.some((bundle) => bundle.manifest.slug === selectedSlug)
+            ? selectedSlug
+            : bundles[0]?.manifest.slug ?? "";
+
+        setSelectedSlug(fallbackSlug);
+
+        setReferenceTarget((current) => {
+          const refSlug =
+            current.projectSlug && bundles.some((bundle) => bundle.manifest.slug === current.projectSlug)
+              ? current.projectSlug
+              : fallbackSlug;
+
+          const root: PreviewRoot = current.root === "workspace" ? "workspace" : "raw";
+          const project = bundles.find((bundle) => bundle.manifest.slug === refSlug);
+          const list = project?.htmlFiles?.[root] ?? [];
+          const defaultFile = root === "raw" ? "original.html" : "index.html";
+          const htmlPath = list.includes(current.htmlPath)
+            ? current.htmlPath
+            : list.includes(defaultFile)
+              ? defaultFile
+              : list[0] ?? defaultFile;
+
+          return { projectSlug: refSlug, root, htmlPath };
         });
+
         setErrorMessage("");
       } catch (error) {
         if (!cancelled) {
@@ -444,31 +500,32 @@ export function App() {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [selectedSlug]);
 
   const selectedProject = useMemo(
     () => projects.find((project) => project.manifest.slug === selectedSlug) ?? null,
     [projects, selectedSlug]
   );
 
-  useEffect(() => {
-    setSessionLogMessage("");
-    setSessionLogError(false);
-  }, [selectedSlug]);
-
-  const previewSources = useMemo(() => {
-    if (!selectedProject) {
-      return {
-        raw: "",
-        workspace: ""
-      };
-    }
+  const resolvedReference = useMemo(() => {
+    const project = projects.find((bundle) => bundle.manifest.slug === referenceTarget.projectSlug) ?? null;
+    const list = project?.htmlFiles?.[referenceTarget.root] ?? [];
+    const defaultFile = referenceTarget.root === "raw" ? "original.html" : "index.html";
+    const htmlPath = list.includes(referenceTarget.htmlPath)
+      ? referenceTarget.htmlPath
+      : list.includes(defaultFile)
+        ? defaultFile
+        : list[0] ?? defaultFile;
 
     return {
-      raw: `/preview/raw/${selectedProject.manifest.slug}/original.html?rev=${selectedProject.revisions.raw}`,
-      workspace: `/preview/workspace/${selectedProject.manifest.slug}/index.html?rev=${selectedProject.revisions.workspace}`
+      project,
+      target: {
+        projectSlug: referenceTarget.projectSlug,
+        root: referenceTarget.root,
+        htmlPath
+      }
     };
-  }, [selectedProject]);
+  }, [projects, referenceTarget]);
 
   useEffect(() => {
     saveStudioSelection(selectedSlug, previewMode);
@@ -478,55 +535,93 @@ export function App() {
     savePreviewLayoutPreferences(layoutPreferences);
   }, [layoutPreferences]);
 
-  const persistPreviewScrollPosition = (slug: string, mode: PreviewMode) => {
-    const iframe = previewFrameRefs.current[mode];
-    if (!iframe) {
-      return;
+  useEffect(() => {
+    saveReferenceTarget(resolvedReference.target);
+  }, [resolvedReference.target]);
+
+  useEffect(() => {
+    if (resolvedReference.target.htmlPath !== referenceTarget.htmlPath) {
+      setReferenceTarget((current) => ({ ...current, htmlPath: resolvedReference.target.htmlPath }));
     }
+  }, [resolvedReference.target.htmlPath, referenceTarget.htmlPath]);
 
-    const scrollPosition = capturePreviewScrollPosition(iframe);
-    if (!scrollPosition) {
-      return;
-    }
-
-    previewScrollMapRef.current[getPreviewScrollKey(slug, mode)] = scrollPosition;
-    savePreviewScrollMap(previewScrollMapRef.current);
-  };
-
-  const persistSelectedProjectScrollPositions = () => {
+  const workspaceTarget = useMemo(() => {
     if (!selectedProject) {
-      return;
+      return null;
     }
 
-    previewModes.forEach((mode) => {
-      persistPreviewScrollPosition(selectedProject.manifest.slug, mode);
-    });
+    return {
+      projectSlug: selectedProject.manifest.slug,
+      root: "workspace" as const,
+      htmlPath: "index.html"
+    };
+  }, [selectedProject]);
+
+  const referenceRevision = resolvedReference.project
+    ? resolvedReference.target.root === "raw"
+      ? resolvedReference.project.revisions.raw
+      : resolvedReference.project.revisions.workspace
+    : 0;
+
+  const previewSources = useMemo(() => {
+    if (!selectedProject || !workspaceTarget) {
+      return { reference: "", workspace: "" };
+    }
+
+    const workspaceSrc = toPreviewUrl(
+      "workspace",
+      selectedProject.manifest.slug,
+      workspaceTarget.htmlPath,
+      selectedProject.revisions.workspace
+    );
+
+    const referenceSrc =
+      resolvedReference.project && resolvedReference.target.projectSlug
+        ? toPreviewUrl(
+            resolvedReference.target.root,
+            resolvedReference.target.projectSlug,
+            resolvedReference.target.htmlPath,
+            referenceRevision
+          )
+        : "";
+
+    return { reference: referenceSrc, workspace: workspaceSrc };
+  }, [selectedProject, workspaceTarget, resolvedReference, referenceRevision]);
+
+  const getModeTarget = (mode: PreviewMode) => {
+    if (mode === "workspace") {
+      return workspaceTarget;
+    }
+    return resolvedReference.target.projectSlug ? resolvedReference.target : null;
   };
 
-  const syncPreviewModeScrollPosition = (sourceMode: PreviewMode, targetMode: PreviewMode) => {
-    if (!selectedProject || sourceMode === targetMode) {
+  const persistPreviewScrollPosition = (mode: PreviewMode) => {
+    const target = getModeTarget(mode);
+    const iframe = previewFrameRefs.current[mode];
+    if (!iframe || !target) {
       return;
     }
 
-    const sourceIframe = previewFrameRefs.current[sourceMode];
-    if (!sourceIframe) {
+    const key = getTargetKey(target);
+    const cachedSelectors = scrollSelectorCacheRef.current[key];
+    const captured = capturePreviewScrollPosition(iframe, cachedSelectors);
+    if (!captured) {
       return;
     }
 
-    const sourceScrollPosition = capturePreviewScrollPosition(sourceIframe);
-    if (!sourceScrollPosition) {
-      return;
-    }
-
-    previewScrollMapRef.current[getPreviewScrollKey(selectedProject.manifest.slug, sourceMode)] =
-      clonePreviewScrollPosition(sourceScrollPosition);
-    previewScrollMapRef.current[getPreviewScrollKey(selectedProject.manifest.slug, targetMode)] =
-      clonePreviewScrollPosition(sourceScrollPosition);
+    scrollSelectorCacheRef.current[key] = captured.selectors;
+    previewScrollMapRef.current[key] = captured.position;
     savePreviewScrollMap(previewScrollMapRef.current);
+  };
+
+  const persistAllVisibleScrollPositions = () => {
+    previewModes.forEach((mode) => persistPreviewScrollPosition(mode));
   };
 
   const copyPreviewModeScrollPosition = (sourceMode: PreviewMode, targetMode: PreviewMode) => {
-    if (!selectedProject || sourceMode === targetMode) {
+    const sourceTarget = getModeTarget(sourceMode);
+    const targetTarget = getModeTarget(targetMode);
+    if (!sourceTarget || !targetTarget) {
       return;
     }
 
@@ -535,24 +630,38 @@ export function App() {
       return;
     }
 
-    const sourceScrollPosition = capturePreviewScrollPosition(sourceIframe);
-    if (!sourceScrollPosition) {
+    const sourceKey = getTargetKey(sourceTarget);
+    const cachedSelectors = scrollSelectorCacheRef.current[sourceKey];
+    const captured = capturePreviewScrollPosition(sourceIframe, cachedSelectors);
+    if (!captured) {
       return;
     }
 
-    previewScrollMapRef.current[getPreviewScrollKey(selectedProject.manifest.slug, targetMode)] =
-      clonePreviewScrollPosition(sourceScrollPosition);
+    scrollSelectorCacheRef.current[sourceKey] = captured.selectors;
+    previewScrollMapRef.current[sourceKey] = captured.position;
+
+    const targetKey = getTargetKey(targetTarget);
+    scrollSelectorCacheRef.current[targetKey] = captured.selectors;
+    previewScrollMapRef.current[targetKey] = captured.position;
+
     savePreviewScrollMap(previewScrollMapRef.current);
 
     const targetIframe = previewFrameRefs.current[targetMode];
     if (targetIframe) {
-      restorePreviewScrollPosition(targetIframe, sourceScrollPosition);
+      restorePreviewScrollPosition(targetIframe, captured.position);
     }
+  };
+
+  const syncFocusModeScrollPosition = (fromMode: PreviewMode, toMode: PreviewMode) => {
+    if (fromMode === toMode) {
+      return;
+    }
+    copyPreviewModeScrollPosition(fromMode, toMode);
   };
 
   useEffect(() => {
     const handleBeforeUnload = () => {
-      persistSelectedProjectScrollPositions();
+      persistAllVisibleScrollPositions();
     };
 
     window.addEventListener("beforeunload", handleBeforeUnload);
@@ -565,47 +674,39 @@ export function App() {
         previewCleanupRefs.current[mode] = null;
       });
     };
-  }, [layoutPreferences.compareMode, selectedProject]);
+  }, [selectedProject, resolvedReference, layoutPreferences.compareMode]);
 
   useEffect(() => {
-    if (!selectedProject) {
-      return;
-    }
-
+    const target = getModeTarget(previewMode);
     const iframe = previewFrameRefs.current[previewMode];
-    const scrollPosition = previewScrollMapRef.current[getPreviewScrollKey(selectedProject.manifest.slug, previewMode)];
-    if (!iframe || !scrollPosition) {
+    if (!target || !iframe) {
       return;
     }
 
-    const restoreTimer = window.setTimeout(() => {
-      restorePreviewScrollPosition(iframe, scrollPosition);
-    }, 0);
+    const key = getTargetKey(target);
+    const stored = previewScrollMapRef.current[key];
+    if (!stored) {
+      return;
+    }
 
-    return () => {
-      window.clearTimeout(restoreTimer);
-    };
-  }, [previewMode, selectedProject]);
+    const timer = window.setTimeout(() => restorePreviewScrollPosition(iframe, stored), 0);
+    return () => window.clearTimeout(timer);
+  }, [previewMode, selectedProject, resolvedReference]);
 
   const attachPreviewPersistence = (mode: PreviewMode) => {
-    if (!selectedProject) {
-      return;
-    }
-
-    previewCleanupRefs.current[mode]?.();
+    const target = getModeTarget(mode);
     const iframe = previewFrameRefs.current[mode];
     const contentWindow = iframe?.contentWindow;
     const contentDocument = iframe?.contentDocument;
-
-    if (!iframe || !contentWindow || !contentDocument) {
+    if (!iframe || !contentWindow || !contentDocument || !target) {
       previewCleanupRefs.current[mode] = null;
       return;
     }
 
-    const scrollKey = getPreviewScrollKey(selectedProject.manifest.slug, mode);
-    const restoreState = previewScrollMapRef.current[scrollKey];
-    if (restoreState) {
-      restorePreviewScrollPosition(iframe, restoreState);
+    const key = getTargetKey(target);
+    const stored = previewScrollMapRef.current[key];
+    if (stored) {
+      restorePreviewScrollPosition(iframe, stored);
     }
 
     let frameHandle = 0;
@@ -613,10 +714,9 @@ export function App() {
       if (frameHandle) {
         return;
       }
-
       frameHandle = contentWindow.requestAnimationFrame(() => {
         frameHandle = 0;
-        persistPreviewScrollPosition(selectedProject.manifest.slug, mode);
+        persistPreviewScrollPosition(mode);
       });
     };
 
@@ -628,30 +728,15 @@ export function App() {
       if (frameHandle) {
         contentWindow.cancelAnimationFrame(frameHandle);
       }
-
-      persistPreviewScrollPosition(selectedProject.manifest.slug, mode);
+      persistPreviewScrollPosition(mode);
       contentWindow.removeEventListener("scroll", scheduleSave);
       contentWindow.removeEventListener("hashchange", scheduleSave);
       contentDocument.removeEventListener("scroll", scheduleSave, true);
     };
   };
 
-  const sourceFiles = selectedProject
-    ? [
-        selectedProject.paths.rawEntrypoint,
-        selectedProject.paths.workspaceEntrypoint,
-        selectedProject.paths.workspaceScript,
-        selectedProject.paths.workspaceStyles
-      ].filter(Boolean) as string[]
-    : [];
-  const visiblePreviewModes = layoutPreferences.compareMode ? [...previewModes] : [previewMode];
-
-  const copyToClipboard = async (value: string) => {
-    await navigator.clipboard.writeText(value);
-  };
-
   const fitPreviewToWidth = (mode: PreviewMode) => {
-    const shell = previewShellRefs.current[mode];
+    const shell = document.querySelector<HTMLDivElement>(`[data-preview-shell="${mode}"]`);
     if (!shell) {
       return;
     }
@@ -676,83 +761,113 @@ export function App() {
     });
   };
 
-  const saveSessionLog = async () => {
-    if (!selectedProject) {
-      return;
-    }
-
-    try {
-      setIsSavingSessionLog(true);
-      setSessionLogError(false);
-      setSessionLogMessage("");
-      persistSelectedProjectScrollPositions();
-
-      const rawScroll = previewScrollMapRef.current[getPreviewScrollKey(selectedProject.manifest.slug, "raw")];
-      const workspaceScroll =
-        previewScrollMapRef.current[getPreviewScrollKey(selectedProject.manifest.slug, "workspace")];
-
-      const response = await fetch(`/api/projects/${encodeURIComponent(selectedProject.manifest.slug)}/session-log`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          savedAt: new Date().toISOString(),
-          sourcePath: selectedProject.manifest.sourcePath,
-          selectedMode: previewMode,
-          compareMode: layoutPreferences.compareMode,
-          sidebarOpen: layoutPreferences.sidebarOpen,
-          inspectorOpen: layoutPreferences.inspectorOpen,
-          devices: layoutPreferences.devices,
-          zooms: layoutPreferences.zooms,
-          scrollTop: {
-            raw: rawScroll?.windowTop ?? null,
-            workspace: workspaceScroll?.windowTop ?? null
-          },
-          sourceFiles
-        })
-      });
-
-      const result = (await response.json()) as SessionLogResponse;
-      if (!response.ok || !result.path) {
-        throw new Error(result.error ?? "Failed to save session log.");
-      }
-
-      setSessionLogMessage(`Saved handoff log to ${result.path}`);
-    } catch (error) {
-      setSessionLogError(true);
-      setSessionLogMessage(error instanceof Error ? error.message : "Failed to save session log.");
-    } finally {
-      setIsSavingSessionLog(false);
-    }
-  };
+  const referenceProjectOptions = projects.map((project) => project.manifest.slug);
+  const activeReferenceProject =
+    projects.find((project) => project.manifest.slug === resolvedReference.target.projectSlug) ?? null;
+  const referenceFileOptions = activeReferenceProject
+    ? activeReferenceProject.htmlFiles[resolvedReference.target.root]
+    : [];
 
   const renderPreviewPane = (mode: PreviewMode) => {
     const devicePreset = DEVICE_PRESETS[layoutPreferences.devices[mode]];
     const zoomScale = layoutPreferences.zooms[mode] / 100;
+
     const previewCanvasStyle = {
       "--device-width": devicePreset.width,
       "--zoom-scale": String(zoomScale)
     } as React.CSSProperties;
 
+    const title = mode === "workspace" ? "Workspace" : "Reference";
+    const kicker = mode === "workspace" ? "Workspace Edit" : "Reference Browser";
+
     return (
       <article key={mode} className="preview-pane">
         <div className="preview-pane-header">
           <div className="pane-heading">
-            <p className="pane-kicker">{mode === "raw" ? "Raw Baseline" : "Workspace Edit"}</p>
-            <h3>{mode === "raw" ? "Raw" : "Workspace"}</h3>
+            <p className="pane-kicker">{kicker}</p>
+            <h3>{title}</h3>
           </div>
 
           {layoutPreferences.compareMode ? (
             <button
               type="button"
               className="ghost-button pane-match-button"
-              onClick={() => copyPreviewModeScrollPosition(mode, mode === "raw" ? "workspace" : "raw")}
+              onClick={() =>
+                copyPreviewModeScrollPosition(mode === "workspace" ? "reference" : "workspace", mode)
+              }
             >
-              {mode === "raw" ? "Match Workspace" : "Match Raw"}
+              {mode === "workspace" ? "Match Reference" : "Match Workspace"}
             </button>
           ) : null}
         </div>
+
+        {mode === "reference" ? (
+          <div className="reference-picker">
+            <label className="mini-field">
+              <span>Project</span>
+              <select
+                className="mini-select"
+                value={resolvedReference.target.projectSlug}
+                onChange={(event) => {
+                  persistAllVisibleScrollPositions();
+                  setReferenceTarget((current) => ({
+                    ...current,
+                    projectSlug: event.target.value
+                  }));
+                }}
+              >
+                {referenceProjectOptions.map((slug) => (
+                  <option key={slug} value={slug}>
+                    {slug}
+                  </option>
+                ))}
+              </select>
+            </label>
+
+            <label className="mini-field">
+              <span>Root</span>
+              <select
+                className="mini-select"
+                value={resolvedReference.target.root}
+                onChange={(event) => {
+                  persistAllVisibleScrollPositions();
+                  setReferenceTarget((current) => ({
+                    ...current,
+                    root: event.target.value === "workspace" ? "workspace" : "raw"
+                  }));
+                }}
+              >
+                <option value="raw">raw</option>
+                <option value="workspace">workspace</option>
+              </select>
+            </label>
+
+            <label className="mini-field mini-field-wide">
+              <span>HTML</span>
+              <select
+                className="mini-select"
+                value={resolvedReference.target.htmlPath}
+                onChange={(event) => {
+                  persistAllVisibleScrollPositions();
+                  setReferenceTarget((current) => ({
+                    ...current,
+                    htmlPath: event.target.value
+                  }));
+                }}
+              >
+                {referenceFileOptions.length ? (
+                  referenceFileOptions.map((file) => (
+                    <option key={file} value={file}>
+                      {file}
+                    </option>
+                  ))
+                ) : (
+                  <option value={resolvedReference.target.htmlPath}>{resolvedReference.target.htmlPath}</option>
+                )}
+              </select>
+            </label>
+          </div>
+        ) : null}
 
         <div className="preview-pane-controls">
           <div className="segmented-control compact">
@@ -760,9 +875,7 @@ export function App() {
               <button
                 key={`${mode}:${deviceMode}`}
                 type="button"
-                className={
-                  layoutPreferences.devices[mode] === deviceMode ? "segmented-button active" : "segmented-button"
-                }
+                className={layoutPreferences.devices[mode] === deviceMode ? "segmented-button active" : "segmented-button"}
                 onClick={() =>
                   setLayoutPreferences((current) => ({
                     ...current,
@@ -807,15 +920,10 @@ export function App() {
         </div>
 
         <div className="preview-stage">
-          <div
-            className="preview-canvas-shell"
-            ref={(node) => {
-              previewShellRefs.current[mode] = node;
-            }}
-          >
+          <div className="preview-canvas-shell" data-preview-shell={mode}>
             <div className={`preview-canvas preview-canvas-${layoutPreferences.devices[mode]}`} style={previewCanvasStyle}>
               <iframe
-                key={`${selectedProject?.manifest.slug ?? "empty"}:${mode}`}
+                key={`${mode}:${previewSources[mode]}`}
                 ref={(node) => {
                   if (!node) {
                     previewCleanupRefs.current[mode]?.();
@@ -825,7 +933,7 @@ export function App() {
                 }}
                 className={layoutPreferences.compareMode || previewMode === mode ? "preview-frame" : "preview-frame is-hidden"}
                 src={previewSources[mode]}
-                title={`${selectedProject?.manifest.slug ?? "preview"} ${mode} preview`}
+                title={`${mode} preview`}
                 sandbox="allow-same-origin allow-scripts allow-forms allow-modals allow-popups allow-downloads"
                 aria-hidden={!layoutPreferences.compareMode && previewMode !== mode}
                 onLoad={() => attachPreviewPersistence(mode)}
@@ -837,6 +945,21 @@ export function App() {
     );
   };
 
+  const visiblePreviewModes = layoutPreferences.compareMode ? [...previewModes] : [previewMode];
+
+  const sourceFiles = selectedProject
+    ? [
+        selectedProject.paths.rawEntrypoint,
+        selectedProject.paths.workspaceEntrypoint,
+        selectedProject.paths.workspaceScript,
+        selectedProject.paths.workspaceStyles
+      ].filter((filePath): filePath is string => Boolean(filePath))
+    : [];
+
+  const copyToClipboard = async (value: string) => {
+    await navigator.clipboard.writeText(value);
+  };
+
   return (
     <div className="shell">
       <main className="main-panel">
@@ -845,13 +968,14 @@ export function App() {
             <p className="eyebrow">Local Studio</p>
             <div className="project-heading-row">
               <h2>{selectedProject?.manifest.slug ?? "No project selected"}</h2>
+
               {projects.length ? (
                 <label className="project-switcher">
                   <span className="sr-only">Choose project</span>
                   <select
                     value={selectedSlug}
                     onChange={(event) => {
-                      persistSelectedProjectScrollPositions();
+                      persistAllVisibleScrollPositions();
                       setSelectedSlug(event.target.value);
                     }}
                   >
@@ -863,13 +987,15 @@ export function App() {
                   </select>
                 </label>
               ) : null}
+
               <button className="ghost-button compact" type="button" onClick={() => void fetchProjects().then(setProjects)}>
                 Refresh
               </button>
             </div>
+
             {selectedProject ? (
               <p className="mode-memory-note compact-note">
-                Split view keeps raw/workspace synced by section, with independent device and zoom controls.
+                Split view = Reference (left) + Workspace (right). Reference can point at any project/raw/workspace/html file.
               </p>
             ) : null}
           </div>
@@ -880,11 +1006,8 @@ export function App() {
                 type="button"
                 className={layoutPreferences.compareMode ? "segmented-button" : "segmented-button active"}
                 onClick={() => {
-                  persistSelectedProjectScrollPositions();
-                  setLayoutPreferences((current) => ({
-                    ...current,
-                    compareMode: false
-                  }));
+                  persistAllVisibleScrollPositions();
+                  setLayoutPreferences((current) => ({ ...current, compareMode: false }));
                 }}
               >
                 Focus
@@ -893,11 +1016,8 @@ export function App() {
                 type="button"
                 className={layoutPreferences.compareMode ? "segmented-button active" : "segmented-button"}
                 onClick={() => {
-                  persistSelectedProjectScrollPositions();
-                  setLayoutPreferences((current) => ({
-                    ...current,
-                    compareMode: true
-                  }));
+                  persistAllVisibleScrollPositions();
+                  setLayoutPreferences((current) => ({ ...current, compareMode: true }));
                 }}
               >
                 Split
@@ -908,21 +1028,21 @@ export function App() {
               <div className="segmented-control" role="tablist" aria-label="Preview mode">
                 <button
                   type="button"
-                  className={previewMode === "raw" ? "segmented-button active" : "segmented-button"}
+                  className={previewMode === "reference" ? "segmented-button active" : "segmented-button"}
                   onClick={() => {
-                    persistSelectedProjectScrollPositions();
-                    syncPreviewModeScrollPosition(previewMode, "raw");
-                    setPreviewMode("raw");
+                    persistAllVisibleScrollPositions();
+                    syncFocusModeScrollPosition(previewMode, "reference");
+                    setPreviewMode("reference");
                   }}
                 >
-                  Raw
+                  Ref
                 </button>
                 <button
                   type="button"
                   className={previewMode === "workspace" ? "segmented-button active" : "segmented-button"}
                   onClick={() => {
-                    persistSelectedProjectScrollPositions();
-                    syncPreviewModeScrollPosition(previewMode, "workspace");
+                    persistAllVisibleScrollPositions();
+                    syncFocusModeScrollPosition(previewMode, "workspace");
                     setPreviewMode("workspace");
                   }}
                 >
@@ -933,31 +1053,8 @@ export function App() {
 
             <button
               type="button"
-              className="ghost-button compact"
-              onClick={() => void saveSessionLog()}
-              disabled={!selectedProject || isSavingSessionLog}
-            >
-              {isSavingSessionLog ? "Saving..." : "Save Log"}
-            </button>
-
-            <button
-              type="button"
-              className="ghost-button compact"
-              onClick={() => selectedProject && void copyToClipboard(selectedProject.paths.sessionLogPath)}
-              disabled={!selectedProject}
-            >
-              Copy Path
-            </button>
-
-            <button
-              type="button"
               className={layoutPreferences.inspectorOpen ? "ghost-button compact" : "ghost-button compact active-toggle"}
-              onClick={() =>
-                setLayoutPreferences((current) => ({
-                  ...current,
-                  inspectorOpen: !current.inspectorOpen
-                }))
-              }
+              onClick={() => setLayoutPreferences((current) => ({ ...current, inspectorOpen: !current.inspectorOpen }))}
             >
               {layoutPreferences.inspectorOpen ? "Hide Details" : "Details"}
             </button>
@@ -965,9 +1062,6 @@ export function App() {
         </header>
 
         {errorMessage ? <div className="error-banner">{errorMessage}</div> : null}
-        {sessionLogMessage ? (
-          <div className={sessionLogError ? "status-banner error" : "status-banner"}>{sessionLogMessage}</div>
-        ) : null}
 
         <div className={layoutPreferences.inspectorOpen ? "content-grid inspector-open" : "content-grid"}>
           <section className="preview-workspace">
@@ -980,77 +1074,79 @@ export function App() {
             )}
           </section>
 
-          {layoutPreferences.inspectorOpen ? <section className="inspector">
-            <div className="panel-card">
-              <div className="section-header">
-                <h3>Source Files</h3>
-              </div>
-              {sourceFiles.length === 0 ? <p className="empty-state">No source files available yet.</p> : null}
-              {sourceFiles.map((filePath) => (
-                <div key={filePath} className="file-row">
-                  <code>{filePath}</code>
-                  <div className="file-actions">
-                    <button type="button" className="ghost-button" onClick={() => void copyToClipboard(filePath)}>
-                      Copy
-                    </button>
-                    <a className="ghost-button linkish" href={toCursorHref(filePath)}>
-                      Cursor
-                    </a>
+          {layoutPreferences.inspectorOpen ? (
+            <section className="inspector">
+              <div className="panel-card">
+                <div className="section-header">
+                  <h3>Source Files</h3>
+                </div>
+                {sourceFiles.length === 0 ? <p className="empty-state">No source files available yet.</p> : null}
+                {sourceFiles.map((filePath) => (
+                  <div key={filePath} className="file-row">
+                    <code>{filePath}</code>
+                    <div className="file-actions">
+                      <button type="button" className="ghost-button" onClick={() => void copyToClipboard(filePath)}>
+                        Copy
+                      </button>
+                      <a className="ghost-button linkish" href={toCursorHref(filePath)}>
+                        Cursor
+                      </a>
+                    </div>
                   </div>
+                ))}
+              </div>
+
+              <div className="panel-card">
+                <div className="section-header">
+                  <h3>Sections</h3>
                 </div>
-              ))}
-            </div>
-
-            <div className="panel-card">
-              <div className="section-header">
-                <h3>Sections</h3>
+                {selectedProject?.sectionMap?.sections.length ? (
+                  <div className="token-list">
+                    {selectedProject.sectionMap.sections.map((section) => (
+                      <div key={section.id} className="token-card">
+                        <strong>{section.label}</strong>
+                        {section.headingText ? <span>{section.headingText}</span> : <span>{section.file}</span>}
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="empty-state">No structured sections detected yet.</p>
+                )}
               </div>
-              {selectedProject?.sectionMap?.sections.length ? (
-                <div className="token-list">
-                  {selectedProject.sectionMap.sections.map((section) => (
-                    <div key={section.id} className="token-card">
-                      <strong>{section.label}</strong>
-                      {section.headingText ? <span>{section.headingText}</span> : <span>{section.file}</span>}
-                    </div>
-                  ))}
+
+              <div className="panel-card">
+                <div className="section-header">
+                  <h3>References</h3>
                 </div>
-              ) : (
-                <p className="empty-state">No structured sections detected yet.</p>
-              )}
-            </div>
-
-            <div className="panel-card">
-              <div className="section-header">
-                <h3>References</h3>
+                {selectedProject?.referenceIndex?.references.length ? (
+                  <div className="token-list">
+                    {selectedProject.referenceIndex.references.map((reference) => (
+                      <div key={reference.id} className="token-card">
+                        <strong>{reference.kind}</strong>
+                        <span>{reference.extractionStatus}</span>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="empty-state">Drop files into references/raw and run `npm run refs`.</p>
+                )}
               </div>
-              {selectedProject?.referenceIndex?.references.length ? (
-                <div className="token-list">
-                  {selectedProject.referenceIndex.references.map((reference) => (
-                    <div key={reference.id} className="token-card">
-                      <strong>{reference.kind}</strong>
-                      <span>{reference.extractionStatus}</span>
-                    </div>
-                  ))}
+
+              <div className="panel-card">
+                <div className="section-header">
+                  <h3>Style Guide</h3>
                 </div>
-              ) : (
-                <p className="empty-state">Drop files into the project references/raw folder and run `npm run refs`.</p>
-              )}
-            </div>
-
-            <div className="panel-card">
-              <div className="section-header">
-                <h3>Style Guide</h3>
+                <pre className="document-view">{selectedProject?.styleGuide ?? ""}</pre>
               </div>
-              <pre className="document-view">{selectedProject?.styleGuide ?? ""}</pre>
-            </div>
 
-            <div className="panel-card">
-              <div className="section-header">
-                <h3>Import Log</h3>
+              <div className="panel-card">
+                <div className="section-header">
+                  <h3>Import Log</h3>
+                </div>
+                <pre className="document-view">{selectedProject?.importLog ?? ""}</pre>
               </div>
-              <pre className="document-view">{selectedProject?.importLog ?? ""}</pre>
-            </div>
-          </section> : null}
+            </section>
+          ) : null}
         </div>
       </main>
     </div>
