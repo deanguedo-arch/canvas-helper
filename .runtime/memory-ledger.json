@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-03-05T22:13:45.451Z",
+  "generatedAt": "2026-03-05T22:38:25.661Z",
   "entries": [
     {
       "kind": "component",
@@ -131,11 +131,15 @@
       "key": "component:calmmodule3",
       "summary": "Reusable sections and components from calmmodule3",
       "signals": {
-        "sectionLabels": [],
+        "sectionLabels": [
+          "Report Field"
+        ],
         "keywords": [
           "detected",
+          "field",
           "imported",
           "moduletitle",
+          "report",
           "snapshot",
           "source",
           "sources",
@@ -153,14 +157,28 @@
           "source": "pattern",
           "command": "import",
           "observedAt": "2026-03-05T22:13:45.451Z"
+        },
+        {
+          "id": "component:pattern:calmmodule3:analyze:2026-03-05T22:38:17.563Z:component",
+          "projectSlug": "calmmodule3",
+          "source": "pattern",
+          "command": "analyze",
+          "observedAt": "2026-03-05T22:38:17.563Z"
+        },
+        {
+          "id": "component:pattern:calmmodule3:analyze:2026-03-05T22:38:25.661Z:component",
+          "projectSlug": "calmmodule3",
+          "source": "pattern",
+          "command": "analyze",
+          "observedAt": "2026-03-05T22:38:25.661Z"
         }
       ],
       "projectSlugs": [
         "calmmodule3"
       ],
-      "reinforcementCount": 1,
-      "lastSeenAt": "2026-03-05T22:13:45.451Z",
-      "confidence": "medium",
+      "reinforcementCount": 3,
+      "lastSeenAt": "2026-03-05T22:38:25.661Z",
+      "confidence": "high",
       "approved": true
     },
     {
@@ -234,6 +252,43 @@
       ],
       "reinforcementCount": 1,
       "lastSeenAt": "2026-03-05T22:13:33.733Z",
+      "confidence": "medium",
+      "approved": true
+    },
+    {
+      "kind": "component",
+      "key": "component:doc-bundle-import-1772750279047",
+      "summary": "Reusable sections and components from doc-bundle-import-1772750279047",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "detected",
+          "imported",
+          "moduletitle",
+          "snapshot",
+          "source",
+          "sources",
+          "topics"
+        ],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "component:pattern:doc-bundle-import-1772750279047:import:2026-03-05T22:38:01.049Z:component",
+          "projectSlug": "doc-bundle-import-1772750279047",
+          "source": "pattern",
+          "command": "import",
+          "observedAt": "2026-03-05T22:38:01.049Z"
+        }
+      ],
+      "projectSlugs": [
+        "doc-bundle-import-1772750279047"
+      ],
+      "reinforcementCount": 1,
+      "lastSeenAt": "2026-03-05T22:38:01.049Z",
       "confidence": "medium",
       "approved": true
     },
@@ -1677,8 +1732,10 @@
         "sectionLabels": [],
         "keywords": [
           "detected",
+          "field",
           "imported",
           "moduletitle",
+          "report",
           "snapshot",
           "source",
           "sources",
@@ -1699,14 +1756,28 @@
           "source": "reference",
           "command": "import",
           "observedAt": "2026-03-05T22:13:45.451Z"
+        },
+        {
+          "id": "resource:reference:calmmodule3:analyze:2026-03-05T22:38:17.563Z:resource",
+          "projectSlug": "calmmodule3",
+          "source": "reference",
+          "command": "analyze",
+          "observedAt": "2026-03-05T22:38:17.563Z"
+        },
+        {
+          "id": "resource:reference:calmmodule3:analyze:2026-03-05T22:38:25.661Z:resource",
+          "projectSlug": "calmmodule3",
+          "source": "reference",
+          "command": "analyze",
+          "observedAt": "2026-03-05T22:38:25.661Z"
         }
       ],
       "projectSlugs": [
         "calmmodule3"
       ],
-      "reinforcementCount": 1,
-      "lastSeenAt": "2026-03-05T22:13:45.451Z",
-      "confidence": "medium",
+      "reinforcementCount": 3,
+      "lastSeenAt": "2026-03-05T22:38:25.661Z",
+      "confidence": "high",
       "approved": true
     },
     {
@@ -1786,6 +1857,46 @@
       ],
       "reinforcementCount": 1,
       "lastSeenAt": "2026-03-05T22:13:33.733Z",
+      "confidence": "medium",
+      "approved": true
+    },
+    {
+      "kind": "resource",
+      "key": "resource:doc-bundle-import-1772750279047",
+      "summary": "Reference and resource profile from doc-bundle-import-1772750279047",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "detected",
+          "imported",
+          "moduletitle",
+          "snapshot",
+          "source",
+          "sources",
+          "topics"
+        ],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [],
+        "referenceKinds": [
+          "docx",
+          "pdf"
+        ]
+      },
+      "origins": [
+        {
+          "id": "resource:reference:doc-bundle-import-1772750279047:import:2026-03-05T22:38:01.049Z:resource",
+          "projectSlug": "doc-bundle-import-1772750279047",
+          "source": "reference",
+          "command": "import",
+          "observedAt": "2026-03-05T22:38:01.049Z"
+        }
+      ],
+      "projectSlugs": [
+        "doc-bundle-import-1772750279047"
+      ],
+      "reinforcementCount": 1,
+      "lastSeenAt": "2026-03-05T22:38:01.049Z",
       "confidence": "medium",
       "approved": true
     },
@@ -2022,8 +2133,10 @@
         "sectionLabels": [],
         "keywords": [
           "detected",
+          "field",
           "imported",
           "moduletitle",
+          "report",
           "snapshot",
           "source",
           "sources",
@@ -2035,6 +2148,7 @@
           "rounded-[2rem",
           "rounded-2xl",
           "rounded-full",
+          "slate-100",
           "slate-200",
           "slate-300",
           "slate-50",
@@ -2044,7 +2158,29 @@
         "hexColors": [
           "#020617",
           "#0f172a",
-          "#111827"
+          "#111827",
+          "#14213d",
+          "#1a2338",
+          "#312e81",
+          "#334155",
+          "#3e2eb9",
+          "#4f46e5",
+          "#52607a",
+          "#53607d",
+          "#5847de",
+          "#60a5fa",
+          "#66718e",
+          "#7b9bff",
+          "#8b95b0",
+          "#bfdbfe",
+          "#cbd5e1",
+          "#d9e1f2",
+          "#edf0fa",
+          "#eef1fb",
+          "#eef2ff",
+          "#f8f9ff",
+          "#f8fafc",
+          "#ffffff"
         ],
         "externalDependencies": [],
         "referenceKinds": []
@@ -2056,13 +2192,27 @@
           "source": "pattern",
           "command": "import",
           "observedAt": "2026-03-05T22:13:45.451Z"
+        },
+        {
+          "id": "style:pattern:calmmodule3:analyze:2026-03-05T22:38:17.563Z:style",
+          "projectSlug": "calmmodule3",
+          "source": "pattern",
+          "command": "analyze",
+          "observedAt": "2026-03-05T22:38:17.563Z"
+        },
+        {
+          "id": "style:pattern:calmmodule3:analyze:2026-03-05T22:38:25.661Z:style",
+          "projectSlug": "calmmodule3",
+          "source": "pattern",
+          "command": "analyze",
+          "observedAt": "2026-03-05T22:38:25.661Z"
         }
       ],
       "projectSlugs": [
         "calmmodule3"
       ],
-      "reinforcementCount": 1,
-      "lastSeenAt": "2026-03-05T22:13:45.451Z",
+      "reinforcementCount": 3,
+      "lastSeenAt": "2026-03-05T22:38:25.661Z",
       "confidence": "high",
       "approved": true
     },
@@ -2167,6 +2317,58 @@
       ],
       "reinforcementCount": 1,
       "lastSeenAt": "2026-03-05T22:13:33.733Z",
+      "confidence": "high",
+      "approved": true
+    },
+    {
+      "kind": "style",
+      "key": "style:doc-bundle-import-1772750279047",
+      "summary": "Approved style direction from doc-bundle-import-1772750279047",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "detected",
+          "imported",
+          "moduletitle",
+          "snapshot",
+          "source",
+          "sources",
+          "topics"
+        ],
+        "styleTokens": [
+          "indigo-100",
+          "indigo-500",
+          "rounded-[2rem",
+          "rounded-2xl",
+          "rounded-full",
+          "slate-200",
+          "slate-300",
+          "slate-50",
+          "slate-900",
+          "slate-950"
+        ],
+        "hexColors": [
+          "#020617",
+          "#0f172a",
+          "#111827"
+        ],
+        "externalDependencies": [],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "style:pattern:doc-bundle-import-1772750279047:import:2026-03-05T22:38:01.049Z:style",
+          "projectSlug": "doc-bundle-import-1772750279047",
+          "source": "pattern",
+          "command": "import",
+          "observedAt": "2026-03-05T22:38:01.049Z"
+        }
+      ],
+      "projectSlugs": [
+        "doc-bundle-import-1772750279047"
+      ],
+      "reinforcementCount": 1,
+      "lastSeenAt": "2026-03-05T22:38:01.049Z",
       "confidence": "high",
       "approved": true
     },
@@ -2311,8 +2513,10 @@
         "sectionLabels": [],
         "keywords": [
           "detected",
+          "field",
           "imported",
           "moduletitle",
+          "report",
           "snapshot",
           "source",
           "sources",
@@ -2346,13 +2550,27 @@
           "source": "pattern",
           "command": "import",
           "observedAt": "2026-03-05T22:13:45.451Z"
+        },
+        {
+          "id": "tool:pattern:calmmodule3:analyze:2026-03-05T22:38:17.563Z:tool",
+          "projectSlug": "calmmodule3",
+          "source": "pattern",
+          "command": "analyze",
+          "observedAt": "2026-03-05T22:38:17.563Z"
+        },
+        {
+          "id": "tool:pattern:calmmodule3:analyze:2026-03-05T22:38:25.661Z:tool",
+          "projectSlug": "calmmodule3",
+          "source": "pattern",
+          "command": "analyze",
+          "observedAt": "2026-03-05T22:38:25.661Z"
         }
       ],
       "projectSlugs": [
         "calmmodule3"
       ],
-      "reinforcementCount": 1,
-      "lastSeenAt": "2026-03-05T22:13:45.451Z",
+      "reinforcementCount": 3,
+      "lastSeenAt": "2026-03-05T22:38:25.661Z",
       "confidence": "high",
       "approved": true
     },
@@ -2459,6 +2677,59 @@
       ],
       "reinforcementCount": 1,
       "lastSeenAt": "2026-03-05T22:13:33.733Z",
+      "confidence": "high",
+      "approved": true
+    },
+    {
+      "kind": "tool",
+      "key": "tool:doc-bundle-import-1772750279047",
+      "summary": "Runtime and tool choices from doc-bundle-import-1772750279047",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "detected",
+          "imported",
+          "moduletitle",
+          "snapshot",
+          "source",
+          "sources",
+          "topics"
+        ],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [
+          "https://cdn.tailwindcss.com",
+          "https://cdn.tailwindcss.com\"></script>",
+          "https://fonts.googleapis.com",
+          "https://fonts.googleapis.com\">",
+          "https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&amp;display=swap",
+          "https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&amp;display=swap\"",
+          "https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap\"",
+          "https://fonts.gstatic.com",
+          "https://fonts.gstatic.com\"",
+          "https://unpkg.com/@babel/standalone/babel.min.js",
+          "https://unpkg.com/@babel/standalone/babel.min.js\"></script>",
+          "https://unpkg.com/react-dom@18/umd/react-dom.development.js",
+          "https://unpkg.com/react-dom@18/umd/react-dom.development.js\"></script>",
+          "https://unpkg.com/react@18/umd/react.development.js",
+          "https://unpkg.com/react@18/umd/react.development.js\"></script>"
+        ],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "tool:pattern:doc-bundle-import-1772750279047:import:2026-03-05T22:38:01.049Z:tool",
+          "projectSlug": "doc-bundle-import-1772750279047",
+          "source": "pattern",
+          "command": "import",
+          "observedAt": "2026-03-05T22:38:01.049Z"
+        }
+      ],
+      "projectSlugs": [
+        "doc-bundle-import-1772750279047"
+      ],
+      "reinforcementCount": 1,
+      "lastSeenAt": "2026-03-05T22:38:01.049Z",
       "confidence": "high",
       "approved": true
     }
