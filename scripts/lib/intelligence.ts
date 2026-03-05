@@ -1,9 +1,12 @@
+import { refreshMemoryLedger } from "./memory-ledger.js";
 import { rebuildPatternBankIndex, learnProjectPatterns } from "./pattern-bank.js";
 import { generatePromptPack } from "./prompt-pack.js";
 import { updateProjectManifest } from "./projects.js";
+import type { MemoryOriginCommand } from "./types.js";
 
 export type RefreshProjectIntelligenceOptions = {
   markWorkspaceApproved?: boolean;
+  command?: MemoryOriginCommand;
 };
 
 export async function refreshProjectIntelligence(
@@ -21,6 +24,11 @@ export async function refreshProjectIntelligence(
   }));
 
   const learned = await learnProjectPatterns(projectSlug);
+  await refreshMemoryLedger({
+    patternRecord: learned.record,
+    command: options.command ?? (options.markWorkspaceApproved ? "analyze" : "import"),
+    observedAt: updatedAt
+  });
   const library = await rebuildPatternBankIndex();
   const promptPack = await generatePromptPack(projectSlug);
 

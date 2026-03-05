@@ -19,6 +19,8 @@
     "backfill:learning": "tsx scripts/backfill-learning-source.ts",
     "test:learning": "tsx scripts/tests/learning-pipeline-check.ts",
     "export:brightspace": "tsx scripts/export-brightspace.ts",
+    "export:brightspace:zip": "tsx scripts/export-brightspace-package.ts",
+    "export:html": "tsx scripts/export-html.ts",
     "rehydrate": "tsx scripts/rehydrate-workspace.ts"
   },
   "dependencies": {

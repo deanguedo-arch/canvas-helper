@@ -4,6 +4,10 @@ export type BrightspaceTarget = "course-page";
 export type SourceKind = "function" | "dom" | "heuristic";
 export type LearningSource = "gemini" | "other";
 export type LearningTrust = "curated" | "auto";
+export type MemoryKind = "style" | "component" | "tool" | "resource" | "decision";
+export type MemoryConfidence = "low" | "medium" | "high";
+export type MemoryOriginCommand = "import" | "analyze" | "refs" | "export" | "plan";
+export type MemoryOriginSource = "pattern" | "workspace" | "reference" | "design-doc" | "export";
 export type ReferenceKind =
   | "txt"
   | "md"
@@ -66,6 +70,42 @@ export type ImportLog = {
   sourcePath: string;
   actions: string[];
   warnings: string[];
+};
+
+export type MemorySignals = {
+  sectionLabels: string[];
+  keywords: string[];
+  styleTokens: string[];
+  hexColors: string[];
+  externalDependencies: string[];
+  referenceKinds: string[];
+};
+
+export type MemoryLedgerOrigin = {
+  id: string;
+  projectSlug?: string;
+  source: MemoryOriginSource;
+  command: MemoryOriginCommand;
+  observedAt: string;
+};
+
+export type MemoryLedgerEntry = {
+  kind: MemoryKind;
+  key: string;
+  summary: string;
+  signals: MemorySignals;
+  origins: MemoryLedgerOrigin[];
+  projectSlugs: string[];
+  reinforcementCount: number;
+  lastSeenAt: string;
+  confidence: MemoryConfidence;
+  approved: boolean;
+};
+
+export type MemoryLedger = {
+  schemaVersion: 1;
+  generatedAt: string;
+  entries: MemoryLedgerEntry[];
 };
 
 export type ProjectPaths = {

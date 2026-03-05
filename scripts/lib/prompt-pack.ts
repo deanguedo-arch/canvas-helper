@@ -2,6 +2,7 @@ import path from "node:path";
 import { readFile } from "node:fs/promises";
 
 import { fileExists, readJsonFile, writeTextFile } from "./fs.js";
+import { rankRelevantMemoryForProject } from "./memory-ledger.js";
 import { getProjectPaths } from "./paths.js";
 import { findPatternMatches } from "./pattern-bank.js";
 import type { ProjectManifest, ReferenceIndex, SectionMap } from "./types.js";
@@ -99,6 +100,7 @@ export async function generatePromptPack(projectSlug: string) {
     })
   );
 
+  const globalMemory = await rankRelevantMemoryForProject(projectSlug, 5);
   const patternMatches = await findPatternMatches(projectSlug, 5);
 
   const sectionLines = sectionMap?.sections?.length
@@ -168,6 +170,26 @@ export async function generatePromptPack(projectSlug: string) {
         .join("\n\n")
     : "none";
 
+  const globalMemoryBody = globalMemory.length
+    ? globalMemory
+        .map((entry) => {
+          const lines = [
+            `### ${entry.summary}`,
+            `- Kind: ${entry.kind}`,
+            `- Confidence: ${entry.confidence}`,
+            `- Reinforcement: ${entry.reinforcementCount}`,
+            `- Projects: ${entry.projectSlugs.length ? entry.projectSlugs.join(", ") : "repo-wide"}`,
+            `- Top reasons: ${entry.reasons.length ? entry.reasons.join("; ") : "Approved memory entry."}`,
+            `- Keywords: ${entry.signals.keywords.length ? entry.signals.keywords.slice(0, 12).join(", ") : "none"}`,
+            `- Style tokens: ${entry.signals.styleTokens.length ? entry.signals.styleTokens.slice(0, 12).join(", ") : "none"}`,
+            `- Dependencies: ${entry.signals.externalDependencies.length ? entry.signals.externalDependencies.join(", ") : "none"}`,
+            `- Reference kinds: ${entry.signals.referenceKinds.length ? entry.signals.referenceKinds.join(", ") : "none"}`
+          ];
+          return lines.join("\n");
+        })
+        .join("\n\n")
+    : "none";
+
   const taskStubBody = [
     "```md",
     "# Task",
@@ -205,6 +227,7 @@ export async function generatePromptPack(projectSlug: string) {
     renderMarkdownSection("Style Guide", styleGuideBody),
     renderMarkdownSection("Content Outline", contentOutlineBody),
     renderMarkdownSection("Import Log", importLogBody),
+    renderMarkdownSection("Global Memory", globalMemoryBody),
     renderMarkdownSection("Pattern Matches", patternBody),
     renderMarkdownSection("Reference Excerpts", referenceBody),
     renderMarkdownSection("Task Stub", taskStubBody)

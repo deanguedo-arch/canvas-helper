@@ -11,7 +11,7 @@ import { fileExists, writeTextFile } from "../../scripts/lib/fs.js";
 import { getProjectPaths, projectsRoot, repoRoot } from "../../scripts/lib/paths.js";
 import { listStudioProjectBundles, readStudioProjectBundle } from "../../scripts/lib/projects.js";
 
-type StudioCommandName = "analyze" | "refs" | "verify" | "export";
+type StudioCommandName = "analyze" | "refs" | "verify" | "export" | "package" | "html";
 
 function resolveStudioCommandArgs(slug: string, commandName: string) {
   switch (commandName) {
@@ -23,6 +23,10 @@ function resolveStudioCommandArgs(slug: string, commandName: string) {
       return ["run", "verify", "--", "--project", slug, "--mode", "workspace"];
     case "export":
       return ["run", "export:brightspace", "--", "--project", slug];
+    case "package":
+      return ["run", "export:brightspace:zip", "--", "--project", slug];
+    case "html":
+      return ["run", "export:html", "--", "--project", slug];
     default:
       return null;
   }
@@ -133,6 +137,17 @@ function sendJson(response: ServerResponse, statusCode: number, value: unknown) 
   response.end(JSON.stringify(value, null, 2));
 }
 
+function isPathInside(baseDir: string, targetPath: string) {
+  const resolvedBase = path.resolve(baseDir);
+  const resolvedTarget = path.resolve(targetPath);
+
+  const normalizedBase = process.platform === "win32" ? resolvedBase.toLowerCase() : resolvedBase;
+  const normalizedTarget = process.platform === "win32" ? resolvedTarget.toLowerCase() : resolvedTarget;
+  const baseWithSeparator = normalizedBase.endsWith(path.sep) ? normalizedBase : `${normalizedBase}${path.sep}`;
+
+  return normalizedTarget === normalizedBase || normalizedTarget.startsWith(baseWithSeparator);
+}
+
 function getPreviewPath(mode: "raw" | "workspace", slug: string, relativePath?: string) {
   const paths = getProjectPaths(slug);
   const baseDir = mode === "raw" ? paths.rawDir : paths.workspaceDir;
@@ -140,8 +155,26 @@ function getPreviewPath(mode: "raw" | "workspace", slug: string, relativePath?: 
   const requestedPath = relativePath ? decodeURIComponent(relativePath) : defaultFile;
   const resolvedPath = path.resolve(baseDir, requestedPath);
 
-  if (!resolvedPath.startsWith(baseDir)) {
+  if (!isPathInside(baseDir, resolvedPath)) {
     throw new Error("Preview request escaped the project directory.");
+  }
+
+  return resolvedPath;
+}
+
+function getReferencePreviewPath(mode: "raw" | "extracted", slug: string, relativePath?: string) {
+  const paths = getProjectPaths(slug);
+  const baseDir = mode === "raw" ? paths.referencesRawDir : paths.referencesExtractedDir;
+  const requestedPath = relativePath ? decodeURIComponent(relativePath) : "";
+
+  if (!requestedPath) {
+    throw new Error("Reference resource path is required.");
+  }
+
+  const resolvedPath = path.resolve(baseDir, requestedPath);
+
+  if (!isPathInside(baseDir, resolvedPath)) {
+    throw new Error("Reference preview request escaped the project directory.");
   }
 
   return resolvedPath;
@@ -378,6 +411,31 @@ function studioServerPlugin() {
         }
 
         const previewMatch = url.match(/^\/preview\/(raw|workspace)\/([^/]+)(?:\/(.*))?$/);
+        const referencePreviewMatch = url.match(/^\/preview\/references\/(raw|extracted)\/([^/]+)(?:\/(.*))?$/);
+        if (referencePreviewMatch) {
+          try {
+            const filePath = getReferencePreviewPath(
+              referencePreviewMatch[1] as "raw" | "extracted",
+              referencePreviewMatch[2],
+              referencePreviewMatch[3]
+            );
+
+            if (!(await fileExists(filePath))) {
+              sendJson(response, 404, { error: `Reference preview file not found: ${filePath}` });
+              return;
+            }
+
+            const body = await readFile(filePath);
+            response.setHeader("Content-Type", resolveContentType(filePath));
+            response.end(body);
+          } catch (error) {
+            sendJson(response, 403, {
+              error: error instanceof Error ? error.message : "Invalid reference preview request."
+            });
+          }
+          return;
+        }
+
         if (previewMatch) {
           try {
             const filePath = getPreviewPath(

@@ -1,10 +1,10 @@
 # Agent Contract (Canvas Helper)
 ## Never touch
-- projects/** (except projects/.gitkeep)
 - projects/<slug>/raw/**
 - projects/<slug>/exports/** (generated output)
 
 ## Allowed zones
+- projects/<slug>/workspace/**
 - app/studio/**
 - scripts/**
 - docs/**

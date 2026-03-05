@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 
+import { getReferenceResourceRenderMode } from "./reference-resource-preview";
+
 const previewModes = ["reference", "workspace"] as const;
 const deviceModes = ["desktop", "tablet", "mobile"] as const;
 
@@ -35,11 +37,25 @@ type ScrollSelectorCache = Record<string, string[]>;
 
 type ReferenceTarget = {
   projectSlug: string;
+  source: "html" | "resource";
   root: PreviewRoot;
   htmlPath: string;
+  resourceRoot: "raw" | "extracted";
+  resourcePath: string;
 };
 
-type StudioCommandName = "analyze" | "refs" | "verify" | "export";
+type ResolvedReference = {
+  project: ProjectBundle | null;
+  target: ReferenceTarget;
+  options: {
+    html: string[];
+    resourcesRaw: string[];
+    resourcesExtracted: string[];
+    resourcesActive: string[];
+  };
+};
+
+type StudioCommandName = "analyze" | "refs" | "verify" | "export" | "package" | "html";
 type StudioCommandStatus = "idle" | "running" | "success" | "error";
 type StudioCommandResult = {
   ok: boolean;
@@ -56,6 +72,7 @@ const STUDIO_SELECTION_STORAGE_KEY = "canvas-helper/studio-selection";
 const STUDIO_LAYOUT_STORAGE_KEY = "canvas-helper/studio-layout";
 const STUDIO_REFERENCE_STORAGE_KEY = "canvas-helper/studio-reference";
 const PREVIEW_SCROLL_STORAGE_KEY = "canvas-helper/preview-scroll";
+const STUDIO_COMMAND_OUTPUT_VISIBLE_KEY = "canvas-helper/studio-command-output-visible";
 
 const MAX_TRACKED_SCROLL_CONTAINERS = 8;
 const MAX_SCAN_NODES = 12000;
@@ -63,7 +80,9 @@ const STUDIO_COMMANDS: Array<{ id: StudioCommandName; label: string }> = [
   { id: "analyze", label: "Analyze" },
   { id: "refs", label: "Refs" },
   { id: "verify", label: "Verify" },
-  { id: "export", label: "Export" }
+  { id: "export", label: "Export Dir" },
+  { id: "package", label: "Package" },
+  { id: "html", label: "HTML" }
 ];
 
 const DEVICE_PRESETS: Record<DeviceMode, { label: string; width: string }> = {
@@ -170,22 +189,49 @@ function savePreviewLayoutPreferences(preferences: PreviewLayoutPreferences) {
 
 function loadReferenceTarget(): ReferenceTarget {
   if (typeof window === "undefined") {
-    return { projectSlug: "", root: "raw", htmlPath: "original.html" };
+    return {
+      projectSlug: "",
+      source: "html",
+      root: "raw",
+      htmlPath: "original.html",
+      resourceRoot: "raw",
+      resourcePath: ""
+    };
   }
 
   try {
     const savedValue = window.localStorage.getItem(STUDIO_REFERENCE_STORAGE_KEY);
     if (!savedValue) {
-      return { projectSlug: "", root: "raw", htmlPath: "original.html" };
+      return {
+        projectSlug: "",
+        source: "html",
+        root: "raw",
+        htmlPath: "original.html",
+        resourceRoot: "raw",
+        resourcePath: ""
+      };
     }
     const parsed = JSON.parse(savedValue) as Partial<ReferenceTarget>;
+    const root: PreviewRoot = parsed.root === "workspace" ? "workspace" : "raw";
+    const source = parsed.source === "resource" ? "resource" : "html";
+    const resourceRoot = parsed.resourceRoot === "extracted" ? "extracted" : "raw";
     return {
       projectSlug: parsed.projectSlug ?? "",
-      root: parsed.root === "workspace" ? "workspace" : "raw",
-      htmlPath: parsed.htmlPath ?? (parsed.root === "workspace" ? "index.html" : "original.html")
+      source,
+      root,
+      htmlPath: parsed.htmlPath ?? (root === "workspace" ? "index.html" : "original.html"),
+      resourceRoot,
+      resourcePath: parsed.resourcePath ?? ""
     };
   } catch {
-    return { projectSlug: "", root: "raw", htmlPath: "original.html" };
+    return {
+      projectSlug: "",
+      source: "html",
+      root: "raw",
+      htmlPath: "original.html",
+      resourceRoot: "raw",
+      resourcePath: ""
+    };
   }
 }
 
@@ -195,6 +241,78 @@ function saveReferenceTarget(target: ReferenceTarget) {
   }
 
   window.localStorage.setItem(STUDIO_REFERENCE_STORAGE_KEY, JSON.stringify(target));
+}
+
+function loadCommandOutputVisible() {
+  if (typeof window === "undefined") {
+    return false;
+  }
+
+  try {
+    return window.localStorage.getItem(STUDIO_COMMAND_OUTPUT_VISIBLE_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+
+function saveCommandOutputVisible(value: boolean) {
+  if (typeof window === "undefined") {
+    return;
+  }
+
+  window.localStorage.setItem(STUDIO_COMMAND_OUTPUT_VISIBLE_KEY, value ? "1" : "0");
+}
+
+function uniqueStrings(values: Array<string | undefined>) {
+  const seen = new Set<string>();
+  const ordered: string[] = [];
+
+  for (const value of values) {
+    if (!value || seen.has(value)) {
+      continue;
+    }
+
+    seen.add(value);
+    ordered.push(value);
+  }
+
+  return ordered;
+}
+
+function equalReferenceTargets(a: ReferenceTarget, b: ReferenceTarget) {
+  return (
+    a.projectSlug === b.projectSlug &&
+    a.source === b.source &&
+    a.root === b.root &&
+    a.htmlPath === b.htmlPath &&
+    a.resourceRoot === b.resourceRoot &&
+    a.resourcePath === b.resourcePath
+  );
+}
+
+function normalizeSlashes(value: string) {
+  return value.replace(/\\/g, "/");
+}
+
+function toReferenceOptionPath(filePath: string | undefined, rootPrefix: string) {
+  if (!filePath) {
+    return "";
+  }
+
+  const normalizedFilePath = normalizeSlashes(filePath);
+  const normalizedRoot = normalizeSlashes(rootPrefix).replace(/\/+$/, "");
+  const normalizedFilePathLower = normalizedFilePath.toLowerCase();
+  const normalizedRootLower = normalizedRoot.toLowerCase();
+
+  if (normalizedFilePathLower === normalizedRootLower) {
+    return "";
+  }
+
+  if (normalizedFilePathLower.startsWith(`${normalizedRootLower}/`)) {
+    return normalizedFilePath.slice(normalizedRoot.length + 1);
+  }
+
+  return normalizedFilePath;
 }
 
 function loadPreviewScrollMap(): PreviewScrollMap {
@@ -281,6 +399,15 @@ function toPreviewUrl(root: PreviewRoot, slug: string, relativePath: string, rev
     .map((part) => encodeURIComponent(part))
     .join("/");
   return `/preview/${root}/${encodedSlug}/${encodedPath}?rev=${rev}`;
+}
+
+function toReferenceResourcePreviewUrl(root: "raw" | "extracted", slug: string, relativePath: string, rev: number) {
+  const encodedSlug = encodeURIComponent(slug);
+  const encodedPath = relativePath
+    .split("/")
+    .map((part) => encodeURIComponent(part))
+    .join("/");
+  return `/preview/references/${root}/${encodedSlug}/${encodedPath}?rev=${rev}`;
 }
 
 type CaptureResult = {
@@ -437,8 +564,18 @@ async function fetchProjects() {
   return (await response.json()) as ProjectBundle[];
 }
 
-function getTargetKey(target: { projectSlug: string; root: PreviewRoot; htmlPath: string }) {
-  return `${target.projectSlug}:${target.root}:${target.htmlPath}`;
+function getTargetKey(target: {
+  projectSlug: string;
+  root: PreviewRoot;
+  htmlPath: string;
+  source?: "html" | "resource";
+  resourceRoot?: "raw" | "extracted";
+  resourcePath?: string;
+}) {
+  const source = target.source ?? "html";
+  const resourceRoot = target.resourceRoot ?? "raw";
+  const resourcePath = target.resourcePath ?? "";
+  return `${target.projectSlug}:${source}:${target.root}:${target.htmlPath}:${resourceRoot}:${resourcePath}`;
 }
 
 export function App() {
@@ -448,15 +585,22 @@ export function App() {
   const [layoutPreferences, setLayoutPreferences] = useState<PreviewLayoutPreferences>(() => loadPreviewLayoutPreferences());
   const [referenceTarget, setReferenceTarget] = useState<ReferenceTarget>(() => loadReferenceTarget());
   const [workspaceHtmlSelections, setWorkspaceHtmlSelections] = useState<Record<string, string>>({});
+  const [paneControlsVisible, setPaneControlsVisible] = useState<Record<PreviewMode, boolean>>({
+    reference: true,
+    workspace: true
+  });
   const [commandStatus, setCommandStatus] = useState<Record<StudioCommandName, StudioCommandStatus>>({
     analyze: "idle",
     refs: "idle",
     verify: "idle",
-    export: "idle"
+    export: "idle",
+    package: "idle",
+    html: "idle"
   });
   const [commandLog, setCommandLog] = useState<string>("");
   const [commandBanner, setCommandBanner] = useState<string>("");
   const [commandBannerIsError, setCommandBannerIsError] = useState<boolean>(false);
+  const [commandOutputVisible, setCommandOutputVisible] = useState<boolean>(() => loadCommandOutputVisible());
   const [errorMessage, setErrorMessage] = useState<string>("");
 
   const previewFrameRefs = useRef<Record<PreviewMode, HTMLIFrameElement | null>>({
@@ -506,8 +650,17 @@ export function App() {
             : list.includes(defaultFile)
               ? defaultFile
               : list[0] ?? defaultFile;
+          const source = current.source === "resource" ? "resource" : "html";
+          const resourceRoot = current.resourceRoot === "extracted" ? "extracted" : "raw";
 
-          return { projectSlug: refSlug, root, htmlPath };
+          return {
+            projectSlug: refSlug,
+            source,
+            root,
+            htmlPath,
+            resourceRoot,
+            resourcePath: current.resourcePath ?? ""
+          };
         });
 
         setErrorMessage("");
@@ -554,22 +707,49 @@ export function App() {
     return htmlOptions[0] ?? "index.html";
   }, [selectedProject, workspaceHtmlSelections]);
 
-  const resolvedReference = useMemo(() => {
+  const resolvedReference = useMemo<ResolvedReference>(() => {
     const project = projects.find((bundle) => bundle.manifest.slug === referenceTarget.projectSlug) ?? null;
-    const list = project?.htmlFiles?.[referenceTarget.root] ?? [];
-    const defaultFile = referenceTarget.root === "raw" ? "original.html" : "index.html";
-    const htmlPath = list.includes(referenceTarget.htmlPath)
+    const source = referenceTarget.source === "resource" ? "resource" : "html";
+    const root: PreviewRoot = referenceTarget.root === "workspace" ? "workspace" : "raw";
+    const htmlOptions = project?.htmlFiles?.[root] ?? [];
+    const defaultHtmlFile = root === "raw" ? "original.html" : "index.html";
+    const htmlPath = htmlOptions.includes(referenceTarget.htmlPath)
       ? referenceTarget.htmlPath
-      : list.includes(defaultFile)
-        ? defaultFile
-        : list[0] ?? defaultFile;
+      : htmlOptions.includes(defaultHtmlFile)
+        ? defaultHtmlFile
+        : htmlOptions[0] ?? defaultHtmlFile;
+
+    const references = project?.referenceIndex?.references ?? [];
+    const referencesRootPath = project ? normalizeSlashes(project.paths.referencesDir) : "";
+    const referencesRawRoot = referencesRootPath ? `${referencesRootPath}/raw` : "";
+    const referencesExtractedRoot = referencesRootPath ? `${referencesRootPath}/extracted` : "";
+    const resourcesRaw = uniqueStrings(
+      references.map((reference) => toReferenceOptionPath(reference.originalPath, referencesRawRoot))
+    );
+    const resourcesExtracted = uniqueStrings(
+      references.map((reference) => toReferenceOptionPath(reference.extractedTextPath, referencesExtractedRoot))
+    );
+    const resourceRoot = referenceTarget.resourceRoot === "extracted" ? "extracted" : "raw";
+    const resourcesActive = resourceRoot === "raw" ? resourcesRaw : resourcesExtracted;
+    const resourcePath = resourcesActive.includes(referenceTarget.resourcePath)
+      ? referenceTarget.resourcePath
+      : resourcesActive[0] ?? "";
 
     return {
       project,
       target: {
         projectSlug: referenceTarget.projectSlug,
-        root: referenceTarget.root,
-        htmlPath
+        source,
+        root,
+        htmlPath,
+        resourceRoot,
+        resourcePath
+      },
+      options: {
+        html: htmlOptions,
+        resourcesRaw,
+        resourcesExtracted,
+        resourcesActive
       }
     };
   }, [projects, referenceTarget]);
@@ -583,14 +763,18 @@ export function App() {
   }, [layoutPreferences]);
 
   useEffect(() => {
+    saveCommandOutputVisible(commandOutputVisible);
+  }, [commandOutputVisible]);
+
+  useEffect(() => {
     saveReferenceTarget(resolvedReference.target);
   }, [resolvedReference.target]);
 
   useEffect(() => {
-    if (resolvedReference.target.htmlPath !== referenceTarget.htmlPath) {
-      setReferenceTarget((current) => ({ ...current, htmlPath: resolvedReference.target.htmlPath }));
+    if (!equalReferenceTargets(resolvedReference.target, referenceTarget)) {
+      setReferenceTarget(resolvedReference.target);
     }
-  }, [resolvedReference.target.htmlPath, referenceTarget.htmlPath]);
+  }, [resolvedReference.target, referenceTarget]);
 
   const workspaceTarget = useMemo(() => {
     if (!selectedProject) {
@@ -605,9 +789,11 @@ export function App() {
   }, [resolvedWorkspaceHtmlPath, selectedProject]);
 
   const referenceRevision = resolvedReference.project
-    ? resolvedReference.target.root === "raw"
-      ? resolvedReference.project.revisions.raw
-      : resolvedReference.project.revisions.workspace
+    ? resolvedReference.target.source === "html"
+      ? resolvedReference.target.root === "raw"
+        ? resolvedReference.project.revisions.raw
+        : resolvedReference.project.revisions.workspace
+      : resolvedReference.project.revisions.raw
     : 0;
 
   const previewSources = useMemo(() => {
@@ -624,12 +810,21 @@ export function App() {
 
     const referenceSrc =
       resolvedReference.project && resolvedReference.target.projectSlug
-        ? toPreviewUrl(
-            resolvedReference.target.root,
-            resolvedReference.target.projectSlug,
-            resolvedReference.target.htmlPath,
-            referenceRevision
-          )
+        ? resolvedReference.target.source === "resource"
+          ? resolvedReference.target.resourcePath
+            ? toReferenceResourcePreviewUrl(
+                resolvedReference.target.resourceRoot,
+                resolvedReference.target.projectSlug,
+                resolvedReference.target.resourcePath,
+                referenceRevision
+              )
+            : ""
+          : toPreviewUrl(
+              resolvedReference.target.root,
+              resolvedReference.target.projectSlug,
+              resolvedReference.target.htmlPath,
+              referenceRevision
+            )
         : "";
 
     return { reference: referenceSrc, workspace: workspaceSrc };
@@ -809,15 +1004,48 @@ export function App() {
   };
 
   const referenceProjectOptions = projects.map((project) => project.manifest.slug);
-  const activeReferenceProject =
-    projects.find((project) => project.manifest.slug === resolvedReference.target.projectSlug) ?? null;
-  const referenceFileOptions = activeReferenceProject
-    ? activeReferenceProject.htmlFiles[resolvedReference.target.root]
-    : [];
+  const referenceFileOptions = resolvedReference.options.html;
+  const referenceResourceOptions = resolvedReference.options.resourcesActive;
+  const selectedResourceReference = useMemo(() => {
+    if (resolvedReference.target.source !== "resource") {
+      return null;
+    }
+
+    const references = resolvedReference.project?.referenceIndex?.references ?? [];
+    const referencesRootPath = resolvedReference.project ? normalizeSlashes(resolvedReference.project.paths.referencesDir) : "";
+    const referencesRawRoot = referencesRootPath ? `${referencesRootPath}/raw` : "";
+    const referencesExtractedRoot = referencesRootPath ? `${referencesRootPath}/extracted` : "";
+    if (resolvedReference.target.resourceRoot === "raw") {
+      return (
+        references.find(
+          (reference) =>
+            toReferenceOptionPath(reference.originalPath, referencesRawRoot) === resolvedReference.target.resourcePath
+        ) ?? null
+      );
+    }
+
+    return (
+      references.find(
+        (reference) =>
+          toReferenceOptionPath(reference.extractedTextPath, referencesExtractedRoot) === resolvedReference.target.resourcePath
+      ) ?? null
+    );
+  }, [resolvedReference.project, resolvedReference.target]);
+
+  const selectedResourceExtractedPath = useMemo(() => {
+    if (!selectedResourceReference || !resolvedReference.project) {
+      return "";
+    }
+
+    const referencesRootPath = normalizeSlashes(resolvedReference.project.paths.referencesDir);
+    const referencesExtractedRoot = `${referencesRootPath}/extracted`;
+    return toReferenceOptionPath(selectedResourceReference.extractedTextPath, referencesExtractedRoot);
+  }, [selectedResourceReference, resolvedReference.project]);
 
   const renderPreviewPane = (mode: PreviewMode) => {
     const devicePreset = DEVICE_PRESETS[layoutPreferences.devices[mode]];
     const zoomScale = layoutPreferences.zooms[mode] / 100;
+    const controlsVisible = paneControlsVisible[mode];
 
     const previewCanvasStyle = {
       "--device-width": devicePreset.width,
@@ -825,31 +1053,87 @@ export function App() {
     } as React.CSSProperties;
 
     const title = mode === "workspace" ? "Workspace" : "Reference";
-    const kicker = mode === "workspace" ? "Workspace Edit" : "Reference Browser";
     const workspaceFileOptions = selectedProject ? selectedProject.htmlFiles.workspace : [];
+    const isReferenceResourceMode = mode === "reference" && resolvedReference.target.source === "resource";
+    const resourcePreviewUrl =
+      isReferenceResourceMode && resolvedReference.target.resourcePath
+        ? toReferenceResourcePreviewUrl(
+            resolvedReference.target.resourceRoot,
+            resolvedReference.target.projectSlug,
+            resolvedReference.target.resourcePath,
+            referenceRevision
+          )
+        : "";
+    const extractedFallbackPath = isReferenceResourceMode ? selectedResourceExtractedPath : "";
+    const isViewingSelectedExtractedText =
+      isReferenceResourceMode &&
+      resolvedReference.target.resourceRoot === "extracted" &&
+      resolvedReference.target.resourcePath === selectedResourceExtractedPath &&
+      Boolean(selectedResourceExtractedPath);
+    const resourceRenderMode = isReferenceResourceMode
+      ? getReferenceResourceRenderMode(resolvedReference.target.resourcePath, resolvedReference.target.resourceRoot)
+      : "fallback";
+    const shouldUsePdfResourcePreview = isReferenceResourceMode && resourceRenderMode === "inline-pdf";
+    const shouldUseResourceFallback = isReferenceResourceMode && resourceRenderMode === "fallback";
+    const handleOpenExtractedText = () => {
+      if (!selectedResourceExtractedPath) {
+        return;
+      }
+
+      persistAllVisibleScrollPositions();
+      setReferenceTarget((current) => ({
+        ...current,
+        source: "resource",
+        resourceRoot: "extracted",
+        resourcePath: selectedResourceExtractedPath
+      }));
+    };
 
     return (
       <article key={mode} className="preview-pane">
         <div className="preview-pane-header">
-          <div className="pane-heading">
-            <p className="pane-kicker">{kicker}</p>
-            <h3>{title}</h3>
-          </div>
+          <h3>{title}</h3>
 
-          {layoutPreferences.compareMode ? (
+          <div className="pane-header-actions">
+            {mode === "reference" && isReferenceResourceMode && selectedResourceExtractedPath ? (
+              <button
+                type="button"
+                className="ghost-button compact pane-utility-button"
+                disabled={isViewingSelectedExtractedText}
+                onClick={handleOpenExtractedText}
+              >
+                {isViewingSelectedExtractedText ? "Viewing Text" : "Extracted Text"}
+              </button>
+            ) : null}
+
+            {layoutPreferences.compareMode ? (
+              <button
+                type="button"
+                className="ghost-button compact pane-match-button"
+                onClick={() =>
+                  copyPreviewModeScrollPosition(mode === "workspace" ? "reference" : "workspace", mode)
+                }
+              >
+                Match
+              </button>
+            ) : null}
+
             <button
               type="button"
-              className="ghost-button pane-match-button"
+              className="ghost-button compact pane-toggle-button"
               onClick={() =>
-                copyPreviewModeScrollPosition(mode === "workspace" ? "reference" : "workspace", mode)
+                setPaneControlsVisible((current) => ({
+                  ...current,
+                  [mode]: !current[mode]
+                }))
               }
             >
-              {mode === "workspace" ? "Match Reference" : "Match Workspace"}
+              {controlsVisible ? "Hide Controls" : "Show Controls"}
             </button>
-          ) : null}
+          </div>
         </div>
 
-        {mode === "reference" ? (
+        {mode === "reference" && controlsVisible ? (
           <div className="reference-picker">
             <label className="mini-field">
               <span>Project</span>
@@ -873,51 +1157,119 @@ export function App() {
             </label>
 
             <label className="mini-field">
-              <span>Root</span>
+              <span>Source</span>
               <select
                 className="mini-select"
-                value={resolvedReference.target.root}
+                value={resolvedReference.target.source}
                 onChange={(event) => {
                   persistAllVisibleScrollPositions();
+                  const nextSource = event.target.value === "resource" ? "resource" : "html";
                   setReferenceTarget((current) => ({
                     ...current,
-                    root: event.target.value === "workspace" ? "workspace" : "raw"
+                    source: nextSource
                   }));
                 }}
               >
-                <option value="raw">raw</option>
-                <option value="workspace">workspace</option>
+                <option value="html">html</option>
+                <option value="resource">resource</option>
               </select>
             </label>
 
-            <label className="mini-field mini-field-wide">
-              <span>HTML</span>
-              <select
-                className="mini-select"
-                value={resolvedReference.target.htmlPath}
-                onChange={(event) => {
-                  persistAllVisibleScrollPositions();
-                  setReferenceTarget((current) => ({
-                    ...current,
-                    htmlPath: event.target.value
-                  }));
-                }}
-              >
-                {referenceFileOptions.length ? (
-                  referenceFileOptions.map((file) => (
-                    <option key={file} value={file}>
-                      {file}
-                    </option>
-                  ))
-                ) : (
-                  <option value={resolvedReference.target.htmlPath}>{resolvedReference.target.htmlPath}</option>
-                )}
-              </select>
-            </label>
+            {resolvedReference.target.source === "html" ? (
+              <>
+                <label className="mini-field">
+                  <span>Root</span>
+                  <select
+                    className="mini-select"
+                    value={resolvedReference.target.root}
+                    onChange={(event) => {
+                      persistAllVisibleScrollPositions();
+                      setReferenceTarget((current) => ({
+                        ...current,
+                        root: event.target.value === "workspace" ? "workspace" : "raw"
+                      }));
+                    }}
+                  >
+                    <option value="raw">raw</option>
+                    <option value="workspace">workspace</option>
+                  </select>
+                </label>
+
+                <label className="mini-field mini-field-wide">
+                  <span>HTML</span>
+                  <select
+                    className="mini-select"
+                    value={resolvedReference.target.htmlPath}
+                    onChange={(event) => {
+                      persistAllVisibleScrollPositions();
+                      setReferenceTarget((current) => ({
+                        ...current,
+                        htmlPath: event.target.value
+                      }));
+                    }}
+                  >
+                    {referenceFileOptions.length ? (
+                      referenceFileOptions.map((file) => (
+                        <option key={file} value={file}>
+                          {file}
+                        </option>
+                      ))
+                    ) : (
+                      <option value={resolvedReference.target.htmlPath}>{resolvedReference.target.htmlPath}</option>
+                    )}
+                  </select>
+                </label>
+              </>
+            ) : (
+              <>
+                <label className="mini-field">
+                  <span>Ref Root</span>
+                  <select
+                    className="mini-select"
+                    value={resolvedReference.target.resourceRoot}
+                    onChange={(event) => {
+                      persistAllVisibleScrollPositions();
+                      setReferenceTarget((current) => ({
+                        ...current,
+                        resourceRoot: event.target.value === "extracted" ? "extracted" : "raw"
+                      }));
+                    }}
+                  >
+                    <option value="raw">references/raw</option>
+                    <option value="extracted">references/extracted</option>
+                  </select>
+                </label>
+
+                <label className="mini-field mini-field-wide">
+                  <span>Resource</span>
+                  <select
+                    className="mini-select"
+                    value={resolvedReference.target.resourcePath}
+                    onChange={(event) => {
+                      persistAllVisibleScrollPositions();
+                      setReferenceTarget((current) => ({
+                        ...current,
+                        resourcePath: event.target.value
+                      }));
+                    }}
+                  >
+                    {referenceResourceOptions.length ? (
+                      referenceResourceOptions.map((filePath) => (
+                        <option key={filePath} value={filePath}>
+                          {filePath}
+                        </option>
+                      ))
+                    ) : (
+                      <option value="">No resources indexed</option>
+                    )}
+                  </select>
+                </label>
+              </>
+            )}
           </div>
         ) : null}
 
-        {mode === "workspace" ? (
+        {mode === "workspace" && controlsVisible ? (
           <div className="reference-picker workspace-picker">
             <label className="mini-field">
               <span>Project</span>
@@ -974,114 +1326,198 @@ export function App() {
           </div>
         ) : null}
 
-        {mode === "workspace" ? (
-          <div className="run-controls">
-            {STUDIO_COMMANDS.map((command) => {
-              const status = commandStatus[command.id];
-              const buttonClass =
-                status === "success"
-                  ? "ghost-button compact run-button success"
-                  : status === "error"
-                    ? "ghost-button compact run-button error"
-                    : status === "running"
-                      ? "ghost-button compact run-button running"
-                      : "ghost-button compact run-button";
-
-              return (
+        {controlsVisible ? (
+          <div className="preview-pane-controls">
+            <div className="segmented-control compact">
+              {deviceModes.map((deviceMode) => (
                 <button
-                  key={command.id}
+                  key={`${mode}:${deviceMode}`}
                   type="button"
-                  className={buttonClass}
-                  disabled={anyCommandRunning}
-                  onClick={() => void runStudioCommand(command.id)}
-                >
-                  {status === "running" ? `${command.label}...` : command.label}
-                </button>
-              );
-            })}
-          </div>
-        ) : null}
-
-        {mode === "workspace" && commandBanner ? (
-          <div className={commandBannerIsError ? "status-banner error" : "status-banner"}>
-            {commandBanner}
-          </div>
-        ) : null}
-
-        {mode === "workspace" && commandLog ? <pre className="command-output">{commandLog}</pre> : null}
-
-        <div className="preview-pane-controls">
-          <div className="segmented-control compact">
-            {deviceModes.map((deviceMode) => (
-              <button
-                key={`${mode}:${deviceMode}`}
-                type="button"
-                className={layoutPreferences.devices[mode] === deviceMode ? "segmented-button active" : "segmented-button"}
-                onClick={() =>
-                  setLayoutPreferences((current) => ({
-                    ...current,
-                    devices: {
-                      ...current.devices,
-                      [mode]: deviceMode
-                    }
-                  }))
-                }
-              >
-                {DEVICE_PRESETS[deviceMode].label}
-              </button>
-            ))}
-          </div>
-
-          <div className="zoom-controls">
-            <button type="button" className="ghost-button compact fit-button" onClick={() => fitPreviewToWidth(mode)}>
-              Fit
-            </button>
-            <label className="zoom-control">
-              <span>Zoom</span>
-              <input
-                className="zoom-slider"
-                type="range"
-                min="60"
-                max="140"
-                step="5"
-                value={layoutPreferences.zooms[mode]}
-                onChange={(event) =>
-                  setLayoutPreferences((current) => ({
-                    ...current,
-                    zooms: {
-                      ...current.zooms,
-                      [mode]: normalizeZoom(Number(event.target.value))
-                    }
-                  }))
-                }
-              />
-              <strong>{layoutPreferences.zooms[mode]}%</strong>
-            </label>
-          </div>
-        </div>
-
-        <div className="preview-stage">
-          <div className="preview-canvas-shell" data-preview-shell={mode}>
-            <div className={`preview-canvas preview-canvas-${layoutPreferences.devices[mode]}`} style={previewCanvasStyle}>
-              <iframe
-                key={`${mode}:${previewSources[mode]}`}
-                ref={(node) => {
-                  if (!node) {
-                    previewCleanupRefs.current[mode]?.();
-                    previewCleanupRefs.current[mode] = null;
+                  className={layoutPreferences.devices[mode] === deviceMode ? "segmented-button active" : "segmented-button"}
+                  onClick={() =>
+                    setLayoutPreferences((current) => ({
+                      ...current,
+                      devices: {
+                        ...current.devices,
+                        [mode]: deviceMode
+                      }
+                    }))
                   }
-                  previewFrameRefs.current[mode] = node;
-                }}
-                className={layoutPreferences.compareMode || previewMode === mode ? "preview-frame" : "preview-frame is-hidden"}
-                src={previewSources[mode]}
-                title={`${mode} preview`}
-                sandbox="allow-same-origin allow-scripts allow-forms allow-modals allow-popups allow-downloads"
-                aria-hidden={!layoutPreferences.compareMode && previewMode !== mode}
-                onLoad={() => attachPreviewPersistence(mode)}
-              />
+                >
+                  {DEVICE_PRESETS[deviceMode].label}
+                </button>
+              ))}
+            </div>
+
+            <div className="zoom-controls">
+              <button type="button" className="ghost-button compact fit-button" onClick={() => fitPreviewToWidth(mode)}>
+                Fit
+              </button>
+              <label className="zoom-control">
+                <span>Zoom</span>
+                <input
+                  className="zoom-slider"
+                  type="range"
+                  min="60"
+                  max="140"
+                  step="5"
+                  value={layoutPreferences.zooms[mode]}
+                  onChange={(event) =>
+                    setLayoutPreferences((current) => ({
+                      ...current,
+                      zooms: {
+                        ...current.zooms,
+                        [mode]: normalizeZoom(Number(event.target.value))
+                      }
+                    }))
+                  }
+                />
+                <strong>{layoutPreferences.zooms[mode]}%</strong>
+              </label>
             </div>
           </div>
+        ) : null}
+
+        <div className="preview-stage">
+          {shouldUseResourceFallback ? (
+            <div className="preview-canvas-shell" data-preview-shell={mode}>
+              <div className={`preview-canvas preview-canvas-${layoutPreferences.devices[mode]}`} style={previewCanvasStyle}>
+                <div className="resource-fallback">
+                  <h4>Inline preview unavailable</h4>
+                  <p>
+                    {resolvedReference.target.resourcePath
+                      ? `This file type does not render reliably in the embedded frame: ${resolvedReference.target.resourcePath}`
+                      : "No indexed resource file is available for this selection."}
+                  </p>
+                  <div className="resource-fallback-actions">
+                    {extractedFallbackPath ? (
+                      <button
+                        type="button"
+                        className="ghost-button compact"
+                        onClick={handleOpenExtractedText}
+                      >
+                        Open Extracted Text
+                      </button>
+                    ) : null}
+
+                    {resourcePreviewUrl ? (
+                      <a className="ghost-button compact linkish" href={resourcePreviewUrl} target="_blank" rel="noreferrer">
+                        Open In New Tab
+                      </a>
+                    ) : null}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ) : shouldUsePdfResourcePreview ? (
+            <div className="preview-canvas-shell" data-preview-shell={mode}>
+              <div className={`preview-canvas preview-canvas-${layoutPreferences.devices[mode]}`} style={previewCanvasStyle}>
+                <object
+                  key={`${mode}:${resourcePreviewUrl}`}
+                  className="preview-frame"
+                  data={resourcePreviewUrl}
+                  type="application/pdf"
+                  aria-label={`${resolvedReference.target.resourcePath} preview`}
+                >
+                  <div className="resource-fallback">
+                    <h4>Inline PDF preview unavailable</h4>
+                    <p>
+                      {resolvedReference.target.resourcePath
+                        ? `Your browser did not embed this PDF: ${resolvedReference.target.resourcePath}`
+                        : "No indexed PDF file is available for this selection."}
+                    </p>
+                    <div className="resource-fallback-actions">
+                      {extractedFallbackPath ? (
+                        <button
+                          type="button"
+                          className="ghost-button compact"
+                          onClick={handleOpenExtractedText}
+                        >
+                          Open Extracted Text
+                        </button>
+                      ) : null}
+
+                      {resourcePreviewUrl ? (
+                        <a className="ghost-button compact linkish" href={resourcePreviewUrl} target="_blank" rel="noreferrer">
+                          Open In New Tab
+                        </a>
+                      ) : null}
+                    </div>
+                  </div>
+                </object>
+              </div>
+            </div>
+          ) : (
+            <div className="preview-canvas-shell" data-preview-shell={mode}>
+              <div className={`preview-canvas preview-canvas-${layoutPreferences.devices[mode]}`} style={previewCanvasStyle}>
+                <iframe
+                  key={`${mode}:${previewSources[mode]}`}
+                  ref={(node) => {
+                    if (!node) {
+                      previewCleanupRefs.current[mode]?.();
+                      previewCleanupRefs.current[mode] = null;
+                    }
+                    previewFrameRefs.current[mode] = node;
+                  }}
+                  className={layoutPreferences.compareMode || previewMode === mode ? "preview-frame" : "preview-frame is-hidden"}
+                  src={previewSources[mode]}
+                  title={`${mode} preview`}
+                  sandbox="allow-same-origin allow-scripts allow-forms allow-modals allow-popups allow-downloads"
+                  aria-hidden={!layoutPreferences.compareMode && previewMode !== mode}
+                  onLoad={() => attachPreviewPersistence(mode)}
+                />
+              </div>
+            </div>
+          )}
         </div>
+
+        {mode === "workspace" ? (
+          <div className="workspace-actions-footer">
+            <div className="workspace-actions-row">
+              <div className="run-controls">
+                {STUDIO_COMMANDS.map((command) => {
+                  const status = commandStatus[command.id];
+                  const buttonClass =
+                    status === "success"
+                      ? "ghost-button compact run-button success"
+                      : status === "error"
+                        ? "ghost-button compact run-button error"
+                        : status === "running"
+                          ? "ghost-button compact run-button running"
+                          : "ghost-button compact run-button";
+
+                  return (
+                    <button
+                      key={command.id}
+                      type="button"
+                      className={buttonClass}
+                      disabled={anyCommandRunning}
+                      onClick={() => void runStudioCommand(command.id)}
+                    >
+                      {status === "running" ? `${command.label}...` : command.label}
+                    </button>
+                  );
+                })}
+              </div>
+
+              <button
+                type="button"
+                className="ghost-button compact workspace-output-toggle"
+                onClick={() => setCommandOutputVisible((current) => !current)}
+              >
+                {commandOutputVisible ? "Hide Output" : "Show Output"}
+              </button>
+            </div>
+
+            {commandOutputVisible && commandBanner ? (
+              <div className={commandBannerIsError ? "status-banner error" : "status-banner"}>
+                {commandBanner}
+              </div>
+            ) : null}
+
+            {commandOutputVisible && commandLog ? <pre className="command-output">{commandLog}</pre> : null}
+          </div>
+        ) : null}
       </article>
     );
   };
@@ -1129,7 +1565,7 @@ export function App() {
         { method: "POST" }
       );
       const payload = (await response.json()) as StudioCommandResult | { error: string };
-      if (!response.ok || !("ok" in payload)) {
+      if (!("ok" in payload)) {
         throw new Error("error" in payload ? payload.error : "Command failed.");
       }
 
@@ -1143,11 +1579,12 @@ export function App() {
       if (!payload.ok) {
         setCommandBanner(`${command} failed (exit ${payload.exitCode}).`);
         setCommandBannerIsError(true);
+        setCommandOutputVisible(true);
         return;
       }
 
       setCommandBanner(`${command} completed for ${selectedSlug}.`);
-      if (command === "analyze" || command === "refs" || command === "export") {
+      if (command === "analyze" || command === "refs" || command === "export" || command === "package" || command === "html") {
         await refreshProjects();
       }
     } catch (error) {
@@ -1157,6 +1594,7 @@ export function App() {
       }));
       setCommandBanner(error instanceof Error ? error.message : "Command failed.");
       setCommandBannerIsError(true);
+      setCommandOutputVisible(true);
     }
   };
 
@@ -1165,16 +1603,7 @@ export function App() {
       <main className="main-panel">
         <header className="topbar topbar-compact">
           <div className="project-summary">
-            <p className="eyebrow">Local Studio</p>
-              <div className="project-heading-row">
-                <h2>{selectedProject?.manifest.slug ?? "No project selected"}</h2>
-              </div>
-
-            {selectedProject ? (
-              <p className="mode-memory-note compact-note">
-                Split view = Reference (left) + Workspace (right). Reference can point at any project/raw/workspace/html file.
-              </p>
-            ) : null}
+            <h2>Studio</h2>
           </div>
 
           <div className="topbar-actions">
