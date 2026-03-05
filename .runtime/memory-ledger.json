@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-03-05T21:20:52.414Z",
+  "generatedAt": "2026-03-05T22:13:45.451Z",
   "entries": [
     {
       "kind": "component",
@@ -123,6 +123,568 @@
       ],
       "reinforcementCount": 4,
       "lastSeenAt": "2026-03-05T21:20:52.414Z",
+      "confidence": "high",
+      "approved": true
+    },
+    {
+      "kind": "component",
+      "key": "component:calmmodule3",
+      "summary": "Reusable sections and components from calmmodule3",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "detected",
+          "imported",
+          "moduletitle",
+          "snapshot",
+          "source",
+          "sources",
+          "topics"
+        ],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "component:pattern:calmmodule3:import:2026-03-05T22:13:45.451Z:component",
+          "projectSlug": "calmmodule3",
+          "source": "pattern",
+          "command": "import",
+          "observedAt": "2026-03-05T22:13:45.451Z"
+        }
+      ],
+      "projectSlugs": [
+        "calmmodule3"
+      ],
+      "reinforcementCount": 1,
+      "lastSeenAt": "2026-03-05T22:13:45.451Z",
+      "confidence": "medium",
+      "approved": true
+    },
+    {
+      "kind": "component",
+      "key": "component:doc-bundle-import-1772748779714",
+      "summary": "Reusable sections and components from doc-bundle-import-1772748779714",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "detected",
+          "imported",
+          "moduletitle",
+          "snapshot",
+          "source",
+          "sources",
+          "topics"
+        ],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "component:pattern:doc-bundle-import-1772748779714:import:2026-03-05T22:13:02.456Z:component",
+          "projectSlug": "doc-bundle-import-1772748779714",
+          "source": "pattern",
+          "command": "import",
+          "observedAt": "2026-03-05T22:13:02.456Z"
+        }
+      ],
+      "projectSlugs": [
+        "doc-bundle-import-1772748779714"
+      ],
+      "reinforcementCount": 1,
+      "lastSeenAt": "2026-03-05T22:13:02.456Z",
+      "confidence": "medium",
+      "approved": true
+    },
+    {
+      "kind": "component",
+      "key": "component:doc-bundle-import-1772748812747",
+      "summary": "Reusable sections and components from doc-bundle-import-1772748812747",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "detected",
+          "imported",
+          "moduletitle",
+          "snapshot",
+          "source",
+          "sources",
+          "topics"
+        ],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "component:pattern:doc-bundle-import-1772748812747:import:2026-03-05T22:13:33.733Z:component",
+          "projectSlug": "doc-bundle-import-1772748812747",
+          "source": "pattern",
+          "command": "import",
+          "observedAt": "2026-03-05T22:13:33.733Z"
+        }
+      ],
+      "projectSlugs": [
+        "doc-bundle-import-1772748812747"
+      ],
+      "reinforcementCount": 1,
+      "lastSeenAt": "2026-03-05T22:13:33.733Z",
+      "confidence": "medium",
+      "approved": true
+    },
+    {
+      "kind": "decision",
+      "key": "decision:2026-03-05-calmmodule2-hero-polish-design",
+      "summary": "CALM Module 2 Hero Polish Design",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "2026",
+          "activity",
+          "approachable",
+          "around",
+          "better",
+          "between",
+          "blocks",
+          "breathe",
+          "calm",
+          "cards",
+          "change",
+          "clay",
+          "clearer",
+          "color",
+          "component",
+          "components",
+          "composed",
+          "consistency",
+          "consistent",
+          "content",
+          "copy",
+          "current",
+          "date",
+          "depth",
+          "design",
+          "designed",
+          "direction",
+          "does",
+          "evenly",
+          "expected",
+          "experience",
+          "eyebrow",
+          "feel",
+          "flow",
+          "focus",
+          "focuses",
+          "form",
+          "goal",
+          "guide",
+          "header",
+          "headers",
+          "heading",
+          "headings",
+          "hero",
+          "hierarchy",
+          "hinttoggle",
+          "identity",
+          "improve",
+          "inconsistency",
+          "input",
+          "instead",
+          "intentional",
+          "interactive",
+          "introduce",
+          "isolated",
+          "keep",
+          "knowledgedrop",
+          "language",
+          "learning",
+          "lighter",
+          "like",
+          "logic",
+          "major",
+          "make",
+          "module",
+          "more",
+          "moves",
+          "page",
+          "part",
+          "pass",
+          "pattern",
+          "placeholder",
+          "playful",
+          "polish",
+          "premium",
+          "preserving",
+          "primary",
+          "professional",
+          "quieter",
+          "rather",
+          "read",
+          "readability",
+          "reducing",
+          "refine",
+          "related",
+          "result",
+          "reusable",
+          "rhythm",
+          "same",
+          "scope",
+          "section",
+          "sections",
+          "separate",
+          "shared",
+          "should",
+          "small",
+          "spacing",
+          "stack",
+          "still",
+          "stronger",
+          "structure",
+          "support",
+          "supporting",
+          "surface",
+          "surfaces",
+          "system",
+          "text",
+          "textarea",
+          "than",
+          "they",
+          "this",
+          "through",
+          "tighten",
+          "title",
+          "treatment",
+          "typography",
+          "unify",
+          "user",
+          "utility",
+          "vertical",
+          "violet",
+          "visual",
+          "while",
+          "with"
+        ],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "decision:design-doc:2026-03-05-calmmodule2-hero-polish-design:e1e99656165e",
+          "source": "design-doc",
+          "command": "plan",
+          "observedAt": "2026-03-05T22:13:02.456Z"
+        }
+      ],
+      "projectSlugs": [],
+      "reinforcementCount": 1,
+      "lastSeenAt": "2026-03-05T22:13:02.456Z",
+      "confidence": "high",
+      "approved": true
+    },
+    {
+      "kind": "decision",
+      "key": "decision:2026-03-05-calmmodule2-teacher-report-print-polish-design",
+      "summary": "CALM Module 2 Teacher Report Print Polish Design",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "answered",
+          "answers",
+          "approved",
+          "before",
+          "behave",
+          "better",
+          "blank",
+          "breaks",
+          "browser",
+          "budget",
+          "calm",
+          "calmmodule2",
+          "cards",
+          "changes",
+          "clay",
+          "cleaner",
+          "clearer",
+          "compact",
+          "comparison",
+          "consistently",
+          "content",
+          "contrast",
+          "criteria",
+          "current",
+          "darker",
+          "decorative",
+          "dependencies",
+          "design",
+          "direction",
+          "empty",
+          "faint",
+          "faster",
+          "flatter",
+          "flow",
+          "format",
+          "friendly",
+          "full",
+          "generated",
+          "goal",
+          "grading",
+          "handling",
+          "heavy",
+          "html",
+          "improve",
+          "includes",
+          "inside",
+          "instead",
+          "intentional",
+          "interactive",
+          "keep",
+          "layer",
+          "less",
+          "looking",
+          "main",
+          "make",
+          "module",
+          "more",
+          "near",
+          "only",
+          "opens",
+          "page",
+          "paper",
+          "personality",
+          "polish",
+          "print",
+          "prints",
+          "professional",
+          "projects",
+          "quickly",
+          "reading",
+          "reads",
+          "refine",
+          "render",
+          "replace",
+          "report",
+          "review",
+          "save",
+          "saves",
+          "scan",
+          "scenario",
+          "scenarios",
+          "scope",
+          "screen",
+          "spacing",
+          "stacked",
+          "states",
+          "status",
+          "still",
+          "stronger",
+          "student",
+          "styled",
+          "submission",
+          "success",
+          "summary",
+          "surfaces",
+          "table",
+          "teacher",
+          "text",
+          "than",
+          "triggers",
+          "uses",
+          "version",
+          "violet",
+          "visibly",
+          "with",
+          "workspace"
+        ],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "decision:design-doc:2026-03-05-calmmodule2-teacher-report-print-polish-design:d1ba2d604041",
+          "source": "design-doc",
+          "command": "plan",
+          "observedAt": "2026-03-05T22:13:02.456Z"
+        }
+      ],
+      "projectSlugs": [],
+      "reinforcementCount": 1,
+      "lastSeenAt": "2026-03-05T22:13:02.456Z",
+      "confidence": "high",
+      "approved": true
+    },
+    {
+      "kind": "decision",
+      "key": "decision:2026-03-05-calmmodule3-design",
+      "summary": "CALM Module 3 Design",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "accept",
+          "after",
+          "already",
+          "analyze",
+          "attitude",
+          "budgeting",
+          "build",
+          "bundle",
+          "calm",
+          "calmmodule2",
+          "calmmodule3",
+          "canvas",
+          "career",
+          "careers",
+          "choices",
+          "clone",
+          "complete",
+          "consumer",
+          "contains",
+          "criteria",
+          "current",
+          "decision",
+          "decoration",
+          "dependencies",
+          "design",
+          "digital",
+          "direction",
+          "docs",
+          "document",
+          "docx",
+          "dump",
+          "educational",
+          "energy",
+          "enters",
+          "export",
+          "extracted",
+          "extraction",
+          "family",
+          "files",
+          "first",
+          "flow",
+          "from",
+          "future",
+          "gemini",
+          "generated",
+          "goal",
+          "goals",
+          "guided",
+          "helps",
+          "here",
+          "high",
+          "html",
+          "hybrid",
+          "import",
+          "importer",
+          "incoming",
+          "indexed",
+          "instead",
+          "intake",
+          "interaction",
+          "into",
+          "jobs",
+          "keep",
+          "learning",
+          "life",
+          "making",
+          "mammoth",
+          "means",
+          "module",
+          "needed",
+          "normally",
+          "occupations",
+          "only",
+          "organize",
+          "original",
+          "overall",
+          "page",
+          "parse",
+          "path",
+          "pipeline",
+          "places",
+          "plain",
+          "planner",
+          "planning",
+          "polished",
+          "prebuilt",
+          "preserve",
+          "product",
+          "project",
+          "projects",
+          "prompts",
+          "readiness",
+          "real",
+          "reality",
+          "references",
+          "refs",
+          "relying",
+          "repo",
+          "review",
+          "rounded",
+          "same",
+          "scaffold",
+          "school",
+          "search",
+          "shape",
+          "shell",
+          "shift",
+          "should",
+          "sibling",
+          "site",
+          "skills",
+          "slug",
+          "smart",
+          "source",
+          "sources",
+          "start",
+          "starter",
+          "still",
+          "studio",
+          "style",
+          "succeeds",
+          "success",
+          "system",
+          "text",
+          "that",
+          "them",
+          "thinking",
+          "tone",
+          "transferable",
+          "translate",
+          "upgrade",
+          "using",
+          "verify",
+          "where",
+          "while",
+          "with",
+          "without",
+          "workbook",
+          "worksheet",
+          "workspace"
+        ],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "decision:design-doc:2026-03-05-calmmodule3-design:2be517399ff5",
+          "source": "design-doc",
+          "command": "plan",
+          "observedAt": "2026-03-05T22:13:02.456Z"
+        }
+      ],
+      "projectSlugs": [],
+      "reinforcementCount": 1,
+      "lastSeenAt": "2026-03-05T22:13:02.456Z",
       "confidence": "high",
       "approved": true
     },
@@ -1108,6 +1670,126 @@
       "approved": true
     },
     {
+      "kind": "resource",
+      "key": "resource:calmmodule3",
+      "summary": "Reference and resource profile from calmmodule3",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "detected",
+          "imported",
+          "moduletitle",
+          "snapshot",
+          "source",
+          "sources",
+          "topics"
+        ],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [],
+        "referenceKinds": [
+          "docx",
+          "pdf"
+        ]
+      },
+      "origins": [
+        {
+          "id": "resource:reference:calmmodule3:import:2026-03-05T22:13:45.451Z:resource",
+          "projectSlug": "calmmodule3",
+          "source": "reference",
+          "command": "import",
+          "observedAt": "2026-03-05T22:13:45.451Z"
+        }
+      ],
+      "projectSlugs": [
+        "calmmodule3"
+      ],
+      "reinforcementCount": 1,
+      "lastSeenAt": "2026-03-05T22:13:45.451Z",
+      "confidence": "medium",
+      "approved": true
+    },
+    {
+      "kind": "resource",
+      "key": "resource:doc-bundle-import-1772748779714",
+      "summary": "Reference and resource profile from doc-bundle-import-1772748779714",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "detected",
+          "imported",
+          "moduletitle",
+          "snapshot",
+          "source",
+          "sources",
+          "topics"
+        ],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [],
+        "referenceKinds": [
+          "docx",
+          "pdf"
+        ]
+      },
+      "origins": [
+        {
+          "id": "resource:reference:doc-bundle-import-1772748779714:import:2026-03-05T22:13:02.456Z:resource",
+          "projectSlug": "doc-bundle-import-1772748779714",
+          "source": "reference",
+          "command": "import",
+          "observedAt": "2026-03-05T22:13:02.456Z"
+        }
+      ],
+      "projectSlugs": [
+        "doc-bundle-import-1772748779714"
+      ],
+      "reinforcementCount": 1,
+      "lastSeenAt": "2026-03-05T22:13:02.456Z",
+      "confidence": "medium",
+      "approved": true
+    },
+    {
+      "kind": "resource",
+      "key": "resource:doc-bundle-import-1772748812747",
+      "summary": "Reference and resource profile from doc-bundle-import-1772748812747",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "detected",
+          "imported",
+          "moduletitle",
+          "snapshot",
+          "source",
+          "sources",
+          "topics"
+        ],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [],
+        "referenceKinds": [
+          "docx",
+          "pdf"
+        ]
+      },
+      "origins": [
+        {
+          "id": "resource:reference:doc-bundle-import-1772748812747:import:2026-03-05T22:13:33.733Z:resource",
+          "projectSlug": "doc-bundle-import-1772748812747",
+          "source": "reference",
+          "command": "import",
+          "observedAt": "2026-03-05T22:13:33.733Z"
+        }
+      ],
+      "projectSlugs": [
+        "doc-bundle-import-1772748812747"
+      ],
+      "reinforcementCount": 1,
+      "lastSeenAt": "2026-03-05T22:13:33.733Z",
+      "confidence": "medium",
+      "approved": true
+    },
+    {
       "kind": "style",
       "key": "style:calmmodule2",
       "summary": "Approved style direction from calmmodule2",
@@ -1333,6 +2015,162 @@
       "approved": true
     },
     {
+      "kind": "style",
+      "key": "style:calmmodule3",
+      "summary": "Approved style direction from calmmodule3",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "detected",
+          "imported",
+          "moduletitle",
+          "snapshot",
+          "source",
+          "sources",
+          "topics"
+        ],
+        "styleTokens": [
+          "indigo-100",
+          "indigo-500",
+          "rounded-[2rem",
+          "rounded-2xl",
+          "rounded-full",
+          "slate-200",
+          "slate-300",
+          "slate-50",
+          "slate-900",
+          "slate-950"
+        ],
+        "hexColors": [
+          "#020617",
+          "#0f172a",
+          "#111827"
+        ],
+        "externalDependencies": [],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "style:pattern:calmmodule3:import:2026-03-05T22:13:45.451Z:style",
+          "projectSlug": "calmmodule3",
+          "source": "pattern",
+          "command": "import",
+          "observedAt": "2026-03-05T22:13:45.451Z"
+        }
+      ],
+      "projectSlugs": [
+        "calmmodule3"
+      ],
+      "reinforcementCount": 1,
+      "lastSeenAt": "2026-03-05T22:13:45.451Z",
+      "confidence": "high",
+      "approved": true
+    },
+    {
+      "kind": "style",
+      "key": "style:doc-bundle-import-1772748779714",
+      "summary": "Approved style direction from doc-bundle-import-1772748779714",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "detected",
+          "imported",
+          "moduletitle",
+          "snapshot",
+          "source",
+          "sources",
+          "topics"
+        ],
+        "styleTokens": [
+          "indigo-100",
+          "indigo-500",
+          "rounded-[2rem",
+          "rounded-2xl",
+          "rounded-full",
+          "slate-200",
+          "slate-300",
+          "slate-50",
+          "slate-900",
+          "slate-950"
+        ],
+        "hexColors": [
+          "#020617",
+          "#0f172a",
+          "#111827"
+        ],
+        "externalDependencies": [],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "style:pattern:doc-bundle-import-1772748779714:import:2026-03-05T22:13:02.456Z:style",
+          "projectSlug": "doc-bundle-import-1772748779714",
+          "source": "pattern",
+          "command": "import",
+          "observedAt": "2026-03-05T22:13:02.456Z"
+        }
+      ],
+      "projectSlugs": [
+        "doc-bundle-import-1772748779714"
+      ],
+      "reinforcementCount": 1,
+      "lastSeenAt": "2026-03-05T22:13:02.456Z",
+      "confidence": "high",
+      "approved": true
+    },
+    {
+      "kind": "style",
+      "key": "style:doc-bundle-import-1772748812747",
+      "summary": "Approved style direction from doc-bundle-import-1772748812747",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "detected",
+          "imported",
+          "moduletitle",
+          "snapshot",
+          "source",
+          "sources",
+          "topics"
+        ],
+        "styleTokens": [
+          "indigo-100",
+          "indigo-500",
+          "rounded-[2rem",
+          "rounded-2xl",
+          "rounded-full",
+          "slate-200",
+          "slate-300",
+          "slate-50",
+          "slate-900",
+          "slate-950"
+        ],
+        "hexColors": [
+          "#020617",
+          "#0f172a",
+          "#111827"
+        ],
+        "externalDependencies": [],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "style:pattern:doc-bundle-import-1772748812747:import:2026-03-05T22:13:33.733Z:style",
+          "projectSlug": "doc-bundle-import-1772748812747",
+          "source": "pattern",
+          "command": "import",
+          "observedAt": "2026-03-05T22:13:33.733Z"
+        }
+      ],
+      "projectSlugs": [
+        "doc-bundle-import-1772748812747"
+      ],
+      "reinforcementCount": 1,
+      "lastSeenAt": "2026-03-05T22:13:33.733Z",
+      "confidence": "high",
+      "approved": true
+    },
+    {
       "kind": "tool",
       "key": "tool:calmmodule2",
       "summary": "Runtime and tool choices from calmmodule2",
@@ -1462,6 +2300,165 @@
       ],
       "reinforcementCount": 4,
       "lastSeenAt": "2026-03-05T21:20:52.414Z",
+      "confidence": "high",
+      "approved": true
+    },
+    {
+      "kind": "tool",
+      "key": "tool:calmmodule3",
+      "summary": "Runtime and tool choices from calmmodule3",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "detected",
+          "imported",
+          "moduletitle",
+          "snapshot",
+          "source",
+          "sources",
+          "topics"
+        ],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [
+          "https://cdn.tailwindcss.com",
+          "https://cdn.tailwindcss.com\"></script>",
+          "https://fonts.googleapis.com",
+          "https://fonts.googleapis.com\">",
+          "https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&amp;display=swap",
+          "https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&amp;display=swap\"",
+          "https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap\"",
+          "https://fonts.gstatic.com",
+          "https://fonts.gstatic.com\"",
+          "https://unpkg.com/@babel/standalone/babel.min.js",
+          "https://unpkg.com/@babel/standalone/babel.min.js\"></script>",
+          "https://unpkg.com/react-dom@18/umd/react-dom.development.js",
+          "https://unpkg.com/react-dom@18/umd/react-dom.development.js\"></script>",
+          "https://unpkg.com/react@18/umd/react.development.js",
+          "https://unpkg.com/react@18/umd/react.development.js\"></script>"
+        ],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "tool:pattern:calmmodule3:import:2026-03-05T22:13:45.451Z:tool",
+          "projectSlug": "calmmodule3",
+          "source": "pattern",
+          "command": "import",
+          "observedAt": "2026-03-05T22:13:45.451Z"
+        }
+      ],
+      "projectSlugs": [
+        "calmmodule3"
+      ],
+      "reinforcementCount": 1,
+      "lastSeenAt": "2026-03-05T22:13:45.451Z",
+      "confidence": "high",
+      "approved": true
+    },
+    {
+      "kind": "tool",
+      "key": "tool:doc-bundle-import-1772748779714",
+      "summary": "Runtime and tool choices from doc-bundle-import-1772748779714",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "detected",
+          "imported",
+          "moduletitle",
+          "snapshot",
+          "source",
+          "sources",
+          "topics"
+        ],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [
+          "https://cdn.tailwindcss.com",
+          "https://cdn.tailwindcss.com\"></script>",
+          "https://fonts.googleapis.com",
+          "https://fonts.googleapis.com\">",
+          "https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&amp;display=swap",
+          "https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&amp;display=swap\"",
+          "https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap\"",
+          "https://fonts.gstatic.com",
+          "https://fonts.gstatic.com\"",
+          "https://unpkg.com/@babel/standalone/babel.min.js",
+          "https://unpkg.com/@babel/standalone/babel.min.js\"></script>",
+          "https://unpkg.com/react-dom@18/umd/react-dom.development.js",
+          "https://unpkg.com/react-dom@18/umd/react-dom.development.js\"></script>",
+          "https://unpkg.com/react@18/umd/react.development.js",
+          "https://unpkg.com/react@18/umd/react.development.js\"></script>"
+        ],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "tool:pattern:doc-bundle-import-1772748779714:import:2026-03-05T22:13:02.456Z:tool",
+          "projectSlug": "doc-bundle-import-1772748779714",
+          "source": "pattern",
+          "command": "import",
+          "observedAt": "2026-03-05T22:13:02.456Z"
+        }
+      ],
+      "projectSlugs": [
+        "doc-bundle-import-1772748779714"
+      ],
+      "reinforcementCount": 1,
+      "lastSeenAt": "2026-03-05T22:13:02.456Z",
+      "confidence": "high",
+      "approved": true
+    },
+    {
+      "kind": "tool",
+      "key": "tool:doc-bundle-import-1772748812747",
+      "summary": "Runtime and tool choices from doc-bundle-import-1772748812747",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "detected",
+          "imported",
+          "moduletitle",
+          "snapshot",
+          "source",
+          "sources",
+          "topics"
+        ],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [
+          "https://cdn.tailwindcss.com",
+          "https://cdn.tailwindcss.com\"></script>",
+          "https://fonts.googleapis.com",
+          "https://fonts.googleapis.com\">",
+          "https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&amp;display=swap",
+          "https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&amp;display=swap\"",
+          "https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap\"",
+          "https://fonts.gstatic.com",
+          "https://fonts.gstatic.com\"",
+          "https://unpkg.com/@babel/standalone/babel.min.js",
+          "https://unpkg.com/@babel/standalone/babel.min.js\"></script>",
+          "https://unpkg.com/react-dom@18/umd/react-dom.development.js",
+          "https://unpkg.com/react-dom@18/umd/react-dom.development.js\"></script>",
+          "https://unpkg.com/react@18/umd/react.development.js",
+          "https://unpkg.com/react@18/umd/react.development.js\"></script>"
+        ],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "tool:pattern:doc-bundle-import-1772748812747:import:2026-03-05T22:13:33.733Z:tool",
+          "projectSlug": "doc-bundle-import-1772748812747",
+          "source": "pattern",
+          "command": "import",
+          "observedAt": "2026-03-05T22:13:33.733Z"
+        }
+      ],
+      "projectSlugs": [
+        "doc-bundle-import-1772748812747"
+      ],
+      "reinforcementCount": 1,
+      "lastSeenAt": "2026-03-05T22:13:33.733Z",
       "confidence": "high",
       "approved": true
     }

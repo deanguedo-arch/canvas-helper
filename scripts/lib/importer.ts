@@ -3,6 +3,8 @@ import { copyFile, readFile, stat } from "node:fs/promises";
 import path from "node:path";
 
 import { load } from "cheerio";
+import mammoth from "mammoth";
+import pdf from "pdf-parse";
 
 import { analyzeProject } from "./analyzer.js";
 import {
@@ -40,7 +42,7 @@ type WorkspaceBuildResult = {
 
 type ResolvedImportInput = {
   bundlePath: string;
-  siteFilePath: string;
+  siteFilePath?: string;
   inputKind: InputKind;
   sourceDir: string;
   htmlSource: string;
@@ -96,6 +98,157 @@ function inferInputKind(filePath: string): InputKind {
 function isSiteCandidate(filePath: string) {
   const extension = path.extname(filePath).toLowerCase();
   return extension === ".html" || extension === ".txt";
+}
+
+function isDocumentBundleSource(filePath: string) {
+  const extension = path.extname(filePath).toLowerCase();
+  return extension === ".docx" || extension === ".pdf";
+}
+
+async function extractDocumentBundleText(filePath: string) {
+  const extension = path.extname(filePath).toLowerCase();
+
+  if (extension === ".docx") {
+    const result = await mammoth.extractRawText({ path: filePath });
+    return result.value;
+  }
+
+  if (extension === ".pdf") {
+    const buffer = await readFile(filePath);
+    const parsed = await pdf(buffer);
+    return parsed.text;
+  }
+
+  return "";
+}
+
+function cleanDocumentBundleText(text: string) {
+  return text
+    .replace(/\r/g, "")
+    .split("\n")
+    .map((line) => line.trim())
+    .filter((line) => line.length > 0)
+    .filter((line) => !/^[a-z]{80,}$/i.test(line.replace(/\s+/g, "")))
+    .join("\n\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
+function collectDocumentBundleAnchors(text: string) {
+  const lower = text.toLowerCase();
+  const headings = [
+    "Oh! The Places You'll Go",
+    "Attitude and Learning",
+    "Life after High School",
+    "SMART Goal",
+    "Decision Making",
+    "Transferable Skills",
+    "Jobs, Occupations and Careers",
+    "Job Search Tips"
+  ];
+
+  return headings.filter((heading) => lower.includes(heading.toLowerCase()));
+}
+
+function buildDocumentBundleStarterHtml(title: string, text: string, sourceFiles: string[]) {
+  const paragraphs = text
+    .split(/\n{2,}/)
+    .map((paragraph) => paragraph.trim())
+    .filter((paragraph) => paragraph.length > 40)
+    .slice(0, 4);
+  const anchors = collectDocumentBundleAnchors(text);
+  const encodedTitle = JSON.stringify(title);
+  const encodedParagraphs = JSON.stringify(paragraphs);
+  const encodedAnchors = JSON.stringify(anchors);
+  const encodedSourceFiles = JSON.stringify(sourceFiles);
+
+  return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>${title}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+      body { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; }
+    </style>
+  </head>
+  <body class="min-h-screen bg-slate-950 text-slate-50">
+    <div id="root"></div>
+    <script type="text/babel">
+      const moduleTitle = ${encodedTitle};
+      const sourceParagraphs = ${encodedParagraphs};
+      const sourceAnchors = ${encodedAnchors};
+      const sourceFiles = ${encodedSourceFiles};
+
+      const App = () => (
+        <main className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(129,140,248,0.3),_transparent_30rem),linear-gradient(180deg,_#0f172a_0%,_#111827_45%,_#020617_100%)] text-slate-50">
+          <div className="mx-auto flex max-w-5xl flex-col gap-8 px-6 py-12">
+            <section className="rounded-[2rem] border border-white/10 bg-white/10 p-8 shadow-[0_24px_60px_rgba(15,23,42,0.45)] backdrop-blur">
+              <div className="inline-flex items-center rounded-full bg-indigo-500/20 px-4 py-2 text-xs font-black uppercase tracking-[0.24em] text-indigo-100">Doc-first import scaffold</div>
+              <h1 className="mt-5 text-4xl font-black tracking-tight text-white md:text-5xl">{moduleTitle}</h1>
+              <p className="mt-4 max-w-3xl text-lg font-medium leading-8 text-slate-200">
+                This starter workspace was generated from workbook documents because no HTML site entrypoint existed in the incoming bundle.
+              </p>
+            </section>
+
+            <section className="grid gap-5 md:grid-cols-[1.2fr_0.8fr]">
+              <div className="rounded-[2rem] border border-white/10 bg-slate-900/70 p-7 shadow-2xl">
+                <h2 className="text-2xl font-black tracking-tight text-white">Source Snapshot</h2>
+                <div className="mt-5 space-y-4">
+                  {sourceParagraphs.length > 0 ? sourceParagraphs.map((paragraph, index) => (
+                    <p key={index} className="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm font-medium leading-7 text-slate-200">
+                      {paragraph}
+                    </p>
+                  )) : (
+                    <p className="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm font-medium leading-7 text-slate-300">
+                      No clean source preview was extracted. Use the reference documents directly while building the workspace.
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              <div className="space-y-5">
+                <div className="rounded-[2rem] border border-white/10 bg-slate-900/70 p-7 shadow-2xl">
+                  <h2 className="text-xl font-black tracking-tight text-white">Detected Topics</h2>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {sourceAnchors.length > 0 ? sourceAnchors.map((anchor) => (
+                      <span key={anchor} className="rounded-full bg-indigo-500/20 px-4 py-2 text-xs font-black uppercase tracking-[0.16em] text-indigo-100">
+                        {anchor}
+                      </span>
+                    )) : (
+                      <span className="rounded-full bg-white/10 px-4 py-2 text-xs font-black uppercase tracking-[0.16em] text-slate-200">
+                        Workbook content detected
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                <div className="rounded-[2rem] border border-white/10 bg-slate-900/70 p-7 shadow-2xl">
+                  <h2 className="text-xl font-black tracking-tight text-white">Imported Sources</h2>
+                  <ul className="mt-4 space-y-3 text-sm font-semibold text-slate-200">
+                    {sourceFiles.map((filePath) => (
+                      <li key={filePath} className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">{filePath}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </section>
+          </div>
+        </main>
+      );
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<App />);
+    </script>
+  </body>
+</html>`;
 }
 
 function isGeneratedArtifactPath(inputDir: string, filePath: string) {
@@ -426,9 +579,50 @@ async function resolveImportInput(absoluteInputPath: string): Promise<ResolvedIm
     });
 
   if (siteCandidates.length === 0) {
-    throw new Error(
-      `No .html or .txt site file was found in ${absoluteInputPath}. Drop a Canvas export into the folder first.`
+    const documentSources = bundleFiles
+      .filter((filePath) => isDocumentBundleSource(filePath))
+      .sort((left, right) => {
+        const leftExtension = path.extname(left).toLowerCase();
+        const rightExtension = path.extname(right).toLowerCase();
+        if (leftExtension !== rightExtension) {
+          return leftExtension === ".docx" ? -1 : 1;
+        }
+
+        return left.localeCompare(right);
+      });
+
+    if (documentSources.length === 0) {
+      throw new Error(
+        `No .html or .txt site file was found in ${absoluteInputPath}. Drop a Canvas export into the folder first.`
+      );
+    }
+
+    const extractedTexts = await Promise.all(
+      documentSources.map(async (filePath) => {
+        try {
+          return cleanDocumentBundleText(await extractDocumentBundleText(filePath));
+        } catch {
+          return "";
+        }
+      })
     );
+    const primaryText = extractedTexts.find((text) => text.length > 0) ?? "";
+    const sourceFiles = documentSources.map((filePath) => path.relative(absoluteInputPath, filePath).replace(/\\/g, "/"));
+    const starterTitle = path.basename(documentSources[0], path.extname(documentSources[0])).replace(/\s+/g, " ").trim();
+
+    return {
+      bundlePath: absoluteInputPath,
+      inputKind: "html",
+      sourceDir: absoluteInputPath,
+      htmlSource: buildDocumentBundleStarterHtml(starterTitle, primaryText, sourceFiles),
+      referenceFiles: bundleFiles,
+      discoveryActions: [
+        `No HTML entrypoint was found. Generated a starter workspace from ${documentSources.length} document source file(s).`
+      ],
+      discoveryWarnings: [
+        "Imported a document bundle instead of a prebuilt site. Review the generated workspace and replace the starter scaffold."
+      ]
+    };
   }
 
   const siteFilePath = siteCandidates[0];
@@ -514,9 +708,18 @@ export async function importProject(options: ImportProjectOptions) {
 
   const htmlSource = resolvedInput.htmlSource;
   if (inputKind === "html") {
-    await copyFile(resolvedInput.siteFilePath, paths.rawEntrypoint);
-    actions.push("Copied the source HTML into raw/original.html without modifying it.");
+    if (resolvedInput.siteFilePath) {
+      await copyFile(resolvedInput.siteFilePath, paths.rawEntrypoint);
+      actions.push("Copied the source HTML into raw/original.html without modifying it.");
+    } else {
+      await writeTextFile(paths.rawEntrypoint, `${htmlSource}\n`);
+      actions.push("Generated starter HTML from the document bundle into raw/original.html.");
+    }
   } else {
+    if (!resolvedInput.siteFilePath) {
+      throw new Error("Text-based imports require a source file path.");
+    }
+
     await copyFile(resolvedInput.siteFilePath, paths.rawSourceText);
     await writeTextFile(paths.rawEntrypoint, `${htmlSource}\n`);
     actions.push("Extracted an HTML document from the source text file into raw/original.html.");
