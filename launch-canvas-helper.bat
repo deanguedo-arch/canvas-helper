@@ -12,8 +12,8 @@ echo ==============================================
 echo   Canvas Helper Launcher
 echo ==============================================
 echo.
-echo   1. Studio only
-echo   2. Import + Analyze + Refs + Studio
+echo   1. Studio + Auto Import Watcher (Recommended)
+echo   2. Import Once + Studio + Auto Import Watcher
 echo   3. Export Brightspace
 echo   4. Exit
 echo.
@@ -33,8 +33,8 @@ goto menu
 call :ensure_deps || goto failed
 start "" "%STUDIO_URL%"
 echo.
-echo Starting studio server...
-call npm.cmd run studio -- --host 127.0.0.1 --port 5173
+echo Starting studio with incoming watcher...
+call npm.cmd run studio:auto
 goto end
 
 :import_studio
@@ -54,15 +54,11 @@ if "%IMPORT_SLUG%"=="" (
 echo.
 echo Running import...
 call npm.cmd run import -- "%IMPORT_SOURCE%" --slug "%IMPORT_SLUG%" || goto failed
-echo Running analyze...
-call npm.cmd run analyze -- --project "%IMPORT_SLUG%" || goto failed
-echo Running refs...
-call npm.cmd run refs -- --project "%IMPORT_SLUG%" || goto failed
 
 start "" "%STUDIO_URL%"
 echo.
-echo Starting studio server...
-call npm.cmd run studio -- --host 127.0.0.1 --port 5173
+echo Starting studio with incoming watcher...
+call npm.cmd run studio:auto
 goto end
 
 :export_only

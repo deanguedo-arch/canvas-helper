@@ -46,8 +46,8 @@ PowerShell note: this machine blocks `npm.ps1`, so use `npm.cmd ...` instead of 
 ## One-Click Launcher (Windows)
 - Use `launch-canvas-helper.bat` from the repo root for a click-to-run menu.
 - Options:
-  - Studio only
-  - Import + Analyze + Refs + Studio
+  - Studio + Auto Import Watcher (recommended)
+  - Import once + Studio + Auto Import Watcher
   - Export Brightspace
 - The launcher auto-opens `http://127.0.0.1:5173`.
 

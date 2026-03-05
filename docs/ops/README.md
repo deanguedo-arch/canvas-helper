@@ -6,8 +6,8 @@ Phase 1 keeps the repo structure stable and adds a high-signal operating layer f
 
 - File: `launch-canvas-helper.bat`
 - Double-click to open a menu for:
-  - `Studio only`
-  - `Import + Analyze + Refs + Studio`
+  - `Studio + Auto Import Watcher`
+  - `Import Once + Studio + Auto Import Watcher`
   - `Export Brightspace`
 - Studio URL opens automatically: `http://127.0.0.1:5173`
 
@@ -15,7 +15,7 @@ Phase 1 keeps the repo structure stable and adds a high-signal operating layer f
 
 1. Launch `launch-canvas-helper.bat`.
 2. Import or select target project.
-3. Compare `raw` vs `workspace` in Split view.
+3. Compare `Reference` vs `Workspace` in Split view.
 4. Make edits only in `projects/<slug>/workspace/`.
 5. Save session handoff log from Studio.
 6. Export Brightspace bundle when ready.
