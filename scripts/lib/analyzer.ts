@@ -440,10 +440,16 @@ function buildContentOutline(manifest: ProjectManifest, sections: SectionManifes
   return `${lines.join("\n")}\n`;
 }
 
-export async function analyzeProject(projectSlug: string) {
+export type AnalyzeProjectOptions = {
+  splitWorkspace?: boolean;
+};
+
+export async function analyzeProject(projectSlug: string, options: AnalyzeProjectOptions = {}) {
   const manifest = await loadProjectManifest(projectSlug);
   const paths = getProjectPaths(projectSlug);
-  const splitCandidates = await maybeSplitWorkspaceDeclarations(projectSlug, manifest);
+  const splitCandidates = options.splitWorkspace
+    ? await maybeSplitWorkspaceDeclarations(projectSlug, manifest)
+    : [];
 
   const workspaceScriptPath =
     (await fileExists(path.join(paths.workspaceDir, "main.jsx")))
