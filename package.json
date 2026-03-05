@@ -5,9 +5,11 @@
   "type": "module",
   "scripts": {
     "studio": "vite --config app/studio/vite.config.ts",
+    "studio:auto": "tsx scripts/studio-auto.ts",
     "build:studio": "vite build --config app/studio/vite.config.ts",
     "typecheck": "tsc --noEmit",
     "import": "tsx scripts/import-site.ts",
+    "watch:incoming": "tsx scripts/watch-incoming.ts",
     "analyze": "tsx scripts/analyze-site.ts",
     "learn": "tsx scripts/learn-patterns.ts",
     "library": "tsx scripts/build-pattern-library.ts",

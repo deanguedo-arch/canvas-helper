@@ -33,9 +33,11 @@ PowerShell note: this machine blocks `npm.ps1`, so use `npm.cmd ...` instead of 
 
 ## Commands
 - `npm.cmd run studio`
+- `npm.cmd run studio:auto`
 - `npm.cmd run typecheck`
 - `npm.cmd run build:studio`
 - `npm.cmd run import -- "<path-to-html-or-txt-or-folder>"`
+- `npm.cmd run watch:incoming`
 - `npm.cmd run analyze -- --project <slug>`
 - `npm.cmd run refs -- --project <slug>`
 - `npm.cmd run export:brightspace -- --project <slug>`
@@ -70,6 +72,24 @@ PowerShell note: this machine blocks `npm.ps1`, so use `npm.cmd ...` instead of 
    `npm.cmd run refs -- --project <slug>`
 7. Export for Brightspace:
    `npm.cmd run export:brightspace -- --project <slug>`
+
+## Zero-Prompt Incoming Workflow
+Run one command and keep working in Studio while drops in `projects/_incoming/` auto-import:
+
+```powershell
+npm.cmd run studio:auto
+```
+
+What this does:
+- Starts Studio preview server.
+- Watches `projects/_incoming/` for changed folders.
+- Auto-runs import for changed folders (with `--force` behavior).
+- Import now auto-runs analyze, refs indexing (when applicable), pattern learning, and prompt-pack refresh.
+
+Watcher options:
+- One-shot scan now: `npm.cmd run watch:incoming -- --once`
+- Custom incoming root: `npm.cmd run watch:incoming -- --incoming <path>`
+- Disable force replace: `npm.cmd run watch:incoming -- --no-force`
 
 ## Recommended Drop-Folder Workflow
 Use a staging folder under `projects/_incoming/` so your source bundle stays separate from the generated project files.
