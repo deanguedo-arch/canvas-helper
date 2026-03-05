@@ -3,4 +3,6 @@
 - Treat tasks/active.md as the single source of truth for the current task.
 - Do not modify projects/** except projects/.gitkeep.
 - Do not add dependencies.
+- Read projects/<slug>/meta/prompt-pack.md before broad repo scans.
+- Prefer .runtime/pattern-bank matches before digging into raw references.
 - Provide final output in the format required by AGENTS.md.

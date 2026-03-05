@@ -14,6 +14,7 @@ import {
   writeJsonFile,
   writeTextFile
 } from "./fs.js";
+import { refreshProjectIntelligence } from "./intelligence.js";
 import { getProjectPaths } from "./paths.js";
 import { extractProjectReferences } from "./references.js";
 import type { ImportLog, InputKind, ProjectManifest } from "./types.js";
@@ -529,6 +530,10 @@ export async function importProject(options: ImportProjectOptions) {
     await extractProjectReferences(slug);
     actions.push("Indexed the imported supporting material into references/extracted.");
   }
+  const intelligence = await refreshProjectIntelligence(slug);
+  actions.push(`Learned project patterns (${intelligence.learnedProfilePath}).`);
+  actions.push(`Updated local pattern bank (${intelligence.libraryRecordCount} profile(s)).`);
+  actions.push(`Generated prompt pack (${intelligence.promptPackPath}).`);
   await writeTextFile(paths.importLogPath, createImportLogMarkdown(importLog));
 
   return {
@@ -560,4 +565,5 @@ export async function rehydrateWorkspace(slug: string, force = false) {
   await ensureDir(paths.workspaceDir);
   await buildWorkspaceFromHtml(rawHtml, paths.workspaceDir, paths.rawDir);
   await analyzeProject(slug);
+  await refreshProjectIntelligence(slug);
 }

@@ -26,3 +26,11 @@ When you finish, output:
 - No renames
 - No dependency changes
 - No “improvements” outside task scope
+
+## Retrieval defaults
+- Read `projects/<slug>/meta/prompt-pack.md` first.
+- Then read local pattern bank matches from `.runtime/pattern-bank/`.
+- Use `projects/<slug>/references/extracted/` only if needed after prompt-pack and bank matches.
+
+## Automatic intelligence refresh
+- `npm run import`, `npm run analyze`, and `npm run refs` refresh prompt-pack and pattern bank automatically.

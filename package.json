@@ -9,6 +9,8 @@
     "typecheck": "tsc --noEmit",
     "import": "tsx scripts/import-site.ts",
     "analyze": "tsx scripts/analyze-site.ts",
+    "learn": "tsx scripts/learn-patterns.ts",
+    "library": "tsx scripts/build-pattern-library.ts",
     "pack": "tsx scripts/pack-agent.ts",
     "verify": "tsx scripts/verify-project.ts",
     "refs": "tsx scripts/extract-references.ts",
