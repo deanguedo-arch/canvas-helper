@@ -16,6 +16,8 @@
     "pack": "tsx scripts/pack-agent.ts",
     "verify": "tsx scripts/verify-project.ts",
     "refs": "tsx scripts/extract-references.ts",
+    "backfill:learning": "tsx scripts/backfill-learning-source.ts",
+    "test:learning": "tsx scripts/tests/learning-pipeline-check.ts",
     "export:brightspace": "tsx scripts/export-brightspace.ts",
     "rehydrate": "tsx scripts/rehydrate-workspace.ts"
   },

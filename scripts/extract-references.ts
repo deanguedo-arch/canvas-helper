@@ -11,7 +11,7 @@ async function main() {
   }
 
   const result = await extractProjectReferences(projectSlug);
-  await refreshProjectIntelligence(projectSlug);
+  await refreshProjectIntelligence(projectSlug, { markWorkspaceApproved: true });
   console.log(`Indexed ${result.references.length} reference file(s) for "${projectSlug}".`);
 }
 

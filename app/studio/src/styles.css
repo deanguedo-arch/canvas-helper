@@ -450,6 +450,10 @@ pre {
   background: rgba(255, 255, 255, 0.65);
 }
 
+.workspace-picker {
+  align-items: flex-end;
+}
+
 .mini-field {
   display: flex;
   flex-direction: column;
@@ -476,6 +480,56 @@ pre {
   border: 1px solid var(--line-strong);
   background: #fff;
   color: var(--ink);
+}
+
+.workspace-picker .mini-select:disabled {
+  color: var(--ink-soft);
+  background: #f5efe7;
+}
+
+.picker-refresh {
+  align-self: flex-end;
+  white-space: nowrap;
+}
+
+.run-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.run-button.success {
+  color: #16492a;
+  border-color: rgba(33, 127, 67, 0.35);
+  background: #e6f6eb;
+}
+
+.run-button.error {
+  color: #7b1f12;
+  border-color: rgba(210, 84, 52, 0.35);
+  background: #ffe7de;
+}
+
+.run-button.running {
+  color: #1f2430;
+  border-color: rgba(41, 49, 66, 0.24);
+  background: #eef1f6;
+}
+
+.command-output {
+  margin: 0;
+  padding: 0.9rem;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: #fffdf9;
+  color: var(--ink-soft);
+  max-height: 11rem;
+  overflow: auto;
+  white-space: pre-wrap;
 }
 
 .fit-button {

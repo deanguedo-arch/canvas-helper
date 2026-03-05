@@ -1,18 +1,23 @@
 import { getStringFlag, hasFlag, parseArgs } from "./lib/cli.js";
-import { importProject } from "./lib/importer.js";
+import { importProject, resolveLearningSourceOverride } from "./lib/importer.js";
 
 async function main() {
   const parsedArgs = parseArgs(process.argv.slice(2));
   const inputPath = parsedArgs.positionals[0];
 
   if (!inputPath) {
-    throw new Error('Usage: npm run import -- "<path-to-html-or-txt-or-folder>" [--slug project-slug] [--force]');
+    throw new Error(
+      'Usage: npm run import -- "<path-to-html-or-txt-or-folder>" [--slug project-slug] [--force] [--source gemini|other]'
+    );
   }
+
+  const source = resolveLearningSourceOverride(getStringFlag(parsedArgs, "source"));
 
   const result = await importProject({
     inputPath,
     slug: getStringFlag(parsedArgs, "slug"),
-    force: hasFlag(parsedArgs, "force")
+    force: hasFlag(parsedArgs, "force"),
+    source
   });
 
   console.log(`Imported project "${result.slug}".`);

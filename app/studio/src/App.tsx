@@ -39,6 +39,19 @@ type ReferenceTarget = {
   htmlPath: string;
 };
 
+type StudioCommandName = "analyze" | "refs" | "verify" | "export";
+type StudioCommandStatus = "idle" | "running" | "success" | "error";
+type StudioCommandResult = {
+  ok: boolean;
+  command: StudioCommandName;
+  slug: string;
+  exitCode: number;
+  startedAt: string;
+  finishedAt: string;
+  stdout: string;
+  stderr: string;
+};
+
 const STUDIO_SELECTION_STORAGE_KEY = "canvas-helper/studio-selection";
 const STUDIO_LAYOUT_STORAGE_KEY = "canvas-helper/studio-layout";
 const STUDIO_REFERENCE_STORAGE_KEY = "canvas-helper/studio-reference";
@@ -46,6 +59,12 @@ const PREVIEW_SCROLL_STORAGE_KEY = "canvas-helper/preview-scroll";
 
 const MAX_TRACKED_SCROLL_CONTAINERS = 8;
 const MAX_SCAN_NODES = 12000;
+const STUDIO_COMMANDS: Array<{ id: StudioCommandName; label: string }> = [
+  { id: "analyze", label: "Analyze" },
+  { id: "refs", label: "Refs" },
+  { id: "verify", label: "Verify" },
+  { id: "export", label: "Export" }
+];
 
 const DEVICE_PRESETS: Record<DeviceMode, { label: string; width: string }> = {
   desktop: { label: "Desktop", width: "100%" },
@@ -428,6 +447,16 @@ export function App() {
   const [previewMode, setPreviewMode] = useState<PreviewMode>(() => loadStudioSelection().previewMode);
   const [layoutPreferences, setLayoutPreferences] = useState<PreviewLayoutPreferences>(() => loadPreviewLayoutPreferences());
   const [referenceTarget, setReferenceTarget] = useState<ReferenceTarget>(() => loadReferenceTarget());
+  const [workspaceHtmlSelections, setWorkspaceHtmlSelections] = useState<Record<string, string>>({});
+  const [commandStatus, setCommandStatus] = useState<Record<StudioCommandName, StudioCommandStatus>>({
+    analyze: "idle",
+    refs: "idle",
+    verify: "idle",
+    export: "idle"
+  });
+  const [commandLog, setCommandLog] = useState<string>("");
+  const [commandBanner, setCommandBanner] = useState<string>("");
+  const [commandBannerIsError, setCommandBannerIsError] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>("");
 
   const previewFrameRefs = useRef<Record<PreviewMode, HTMLIFrameElement | null>>({
@@ -507,6 +536,24 @@ export function App() {
     [projects, selectedSlug]
   );
 
+  const resolvedWorkspaceHtmlPath = useMemo(() => {
+    if (!selectedProject) {
+      return "index.html";
+    }
+
+    const htmlOptions = selectedProject.htmlFiles.workspace;
+    const savedSelection = workspaceHtmlSelections[selectedProject.manifest.slug];
+    if (savedSelection && htmlOptions.includes(savedSelection)) {
+      return savedSelection;
+    }
+
+    if (htmlOptions.includes("index.html")) {
+      return "index.html";
+    }
+
+    return htmlOptions[0] ?? "index.html";
+  }, [selectedProject, workspaceHtmlSelections]);
+
   const resolvedReference = useMemo(() => {
     const project = projects.find((bundle) => bundle.manifest.slug === referenceTarget.projectSlug) ?? null;
     const list = project?.htmlFiles?.[referenceTarget.root] ?? [];
@@ -553,9 +600,9 @@ export function App() {
     return {
       projectSlug: selectedProject.manifest.slug,
       root: "workspace" as const,
-      htmlPath: "index.html"
+      htmlPath: resolvedWorkspaceHtmlPath
     };
-  }, [selectedProject]);
+  }, [resolvedWorkspaceHtmlPath, selectedProject]);
 
   const referenceRevision = resolvedReference.project
     ? resolvedReference.target.root === "raw"
@@ -779,6 +826,7 @@ export function App() {
 
     const title = mode === "workspace" ? "Workspace" : "Reference";
     const kicker = mode === "workspace" ? "Workspace Edit" : "Reference Browser";
+    const workspaceFileOptions = selectedProject ? selectedProject.htmlFiles.workspace : [];
 
     return (
       <article key={mode} className="preview-pane">
@@ -868,6 +916,99 @@ export function App() {
             </label>
           </div>
         ) : null}
+
+        {mode === "workspace" ? (
+          <div className="reference-picker workspace-picker">
+            <label className="mini-field">
+              <span>Project</span>
+              <select
+                className="mini-select"
+                value={selectedSlug}
+                onChange={(event) => {
+                  persistAllVisibleScrollPositions();
+                  setSelectedSlug(event.target.value);
+                }}
+              >
+                {projects.map((project) => (
+                  <option key={project.manifest.id} value={project.manifest.slug}>
+                    {project.manifest.slug}
+                  </option>
+                ))}
+              </select>
+            </label>
+
+            <label className="mini-field">
+              <span>Root</span>
+              <select className="mini-select" value="workspace" disabled>
+                <option value="workspace">workspace</option>
+              </select>
+            </label>
+
+            <label className="mini-field mini-field-wide">
+              <span>HTML</span>
+              <select
+                className="mini-select"
+                value={resolvedWorkspaceHtmlPath}
+                onChange={(event) =>
+                  setWorkspaceHtmlSelections((current) => ({
+                    ...current,
+                    [selectedSlug]: event.target.value
+                  }))
+                }
+              >
+                {workspaceFileOptions.length ? (
+                  workspaceFileOptions.map((file) => (
+                    <option key={file} value={file}>
+                      {file}
+                    </option>
+                  ))
+                ) : (
+                  <option value={resolvedWorkspaceHtmlPath}>{resolvedWorkspaceHtmlPath}</option>
+                )}
+              </select>
+            </label>
+
+            <button className="ghost-button compact picker-refresh" type="button" onClick={() => void refreshProjects()}>
+              Refresh
+            </button>
+          </div>
+        ) : null}
+
+        {mode === "workspace" ? (
+          <div className="run-controls">
+            {STUDIO_COMMANDS.map((command) => {
+              const status = commandStatus[command.id];
+              const buttonClass =
+                status === "success"
+                  ? "ghost-button compact run-button success"
+                  : status === "error"
+                    ? "ghost-button compact run-button error"
+                    : status === "running"
+                      ? "ghost-button compact run-button running"
+                      : "ghost-button compact run-button";
+
+              return (
+                <button
+                  key={command.id}
+                  type="button"
+                  className={buttonClass}
+                  disabled={anyCommandRunning}
+                  onClick={() => void runStudioCommand(command.id)}
+                >
+                  {status === "running" ? `${command.label}...` : command.label}
+                </button>
+              );
+            })}
+          </div>
+        ) : null}
+
+        {mode === "workspace" && commandBanner ? (
+          <div className={commandBannerIsError ? "status-banner error" : "status-banner"}>
+            {commandBanner}
+          </div>
+        ) : null}
+
+        {mode === "workspace" && commandLog ? <pre className="command-output">{commandLog}</pre> : null}
 
         <div className="preview-pane-controls">
           <div className="segmented-control compact">
@@ -960,38 +1101,74 @@ export function App() {
     await navigator.clipboard.writeText(value);
   };
 
+  const refreshProjects = async () => {
+    const bundles = await fetchProjects();
+    setProjects(bundles);
+  };
+
+  const anyCommandRunning = useMemo(
+    () => Object.values(commandStatus).some((status) => status === "running"),
+    [commandStatus]
+  );
+
+  const runStudioCommand = async (command: StudioCommandName) => {
+    if (!selectedSlug || anyCommandRunning) {
+      return;
+    }
+
+    setCommandBanner("");
+    setCommandBannerIsError(false);
+    setCommandStatus((current) => ({
+      ...current,
+      [command]: "running"
+    }));
+
+    try {
+      const response = await fetch(
+        `/api/projects/${encodeURIComponent(selectedSlug)}/commands/${encodeURIComponent(command)}`,
+        { method: "POST" }
+      );
+      const payload = (await response.json()) as StudioCommandResult | { error: string };
+      if (!response.ok || !("ok" in payload)) {
+        throw new Error("error" in payload ? payload.error : "Command failed.");
+      }
+
+      const logs = [payload.stdout, payload.stderr].filter(Boolean).join("\n\n").trim();
+      setCommandLog(logs || "Command completed without output.");
+      setCommandStatus((current) => ({
+        ...current,
+        [command]: payload.ok ? "success" : "error"
+      }));
+
+      if (!payload.ok) {
+        setCommandBanner(`${command} failed (exit ${payload.exitCode}).`);
+        setCommandBannerIsError(true);
+        return;
+      }
+
+      setCommandBanner(`${command} completed for ${selectedSlug}.`);
+      if (command === "analyze" || command === "refs" || command === "export") {
+        await refreshProjects();
+      }
+    } catch (error) {
+      setCommandStatus((current) => ({
+        ...current,
+        [command]: "error"
+      }));
+      setCommandBanner(error instanceof Error ? error.message : "Command failed.");
+      setCommandBannerIsError(true);
+    }
+  };
+
   return (
     <div className="shell">
       <main className="main-panel">
         <header className="topbar topbar-compact">
           <div className="project-summary">
             <p className="eyebrow">Local Studio</p>
-            <div className="project-heading-row">
-              <h2>{selectedProject?.manifest.slug ?? "No project selected"}</h2>
-
-              {projects.length ? (
-                <label className="project-switcher">
-                  <span className="sr-only">Choose project</span>
-                  <select
-                    value={selectedSlug}
-                    onChange={(event) => {
-                      persistAllVisibleScrollPositions();
-                      setSelectedSlug(event.target.value);
-                    }}
-                  >
-                    {projects.map((project) => (
-                      <option key={project.manifest.id} value={project.manifest.slug}>
-                        {project.manifest.slug}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-              ) : null}
-
-              <button className="ghost-button compact" type="button" onClick={() => void fetchProjects().then(setProjects)}>
-                Refresh
-              </button>
-            </div>
+              <div className="project-heading-row">
+                <h2>{selectedProject?.manifest.slug ?? "No project selected"}</h2>
+              </div>
 
             {selectedProject ? (
               <p className="mode-memory-note compact-note">

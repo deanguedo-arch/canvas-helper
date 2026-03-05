@@ -47,6 +47,28 @@ function renderMarkdownSection(title: string, body: string) {
   return [`## ${title}`, "", body.trimEnd(), ""].join("\n");
 }
 
+function topMatchReasons(match: Awaited<ReturnType<typeof findPatternMatches>>[number]) {
+  const contributors: Array<{ label: string; value: number }> = [
+    { label: "Section overlap", value: match.scoreBreakdown.sections },
+    { label: "Reference kind overlap", value: match.scoreBreakdown.referenceKinds },
+    { label: "Style token overlap", value: match.scoreBreakdown.styleTokens },
+    { label: "Keyword overlap", value: match.scoreBreakdown.keywords },
+    { label: "Dependency overlap", value: match.scoreBreakdown.dependencies },
+    { label: "Hex color overlap", value: match.scoreBreakdown.hexColors },
+    { label: "Curated trust bonus", value: match.scoreBreakdown.curatedBonus },
+    { label: "Recency bonus", value: match.scoreBreakdown.recencyBonus },
+    { label: "Workspace approval bonus", value: match.scoreBreakdown.workspaceApprovalBonus }
+  ];
+
+  const reasons = contributors
+    .filter((item) => item.value > 0)
+    .sort((left, right) => right.value - left.value)
+    .slice(0, 2)
+    .map((item) => `${item.label} (+${item.value})`);
+
+  return reasons.length ? reasons.join("; ") : "No positive match signals.";
+}
+
 export async function generatePromptPack(projectSlug: string) {
   const paths = getProjectPaths(projectSlug);
 
@@ -132,10 +154,14 @@ export async function generatePromptPack(projectSlug: string) {
     ? patternMatches
         .map((match) => {
           const lines = [
-            `### ${match.projectSlug} (${match.source}, score ${match.score})`,
+            `### ${match.projectSlug} (${match.source}/${match.trust}, score ${match.score})`,
+            `- Confidence: ${match.confidence}`,
+            `- Score breakdown: sections ${match.scoreBreakdown.sections}, keywords ${match.scoreBreakdown.keywords}, references ${match.scoreBreakdown.referenceKinds}, styles ${match.scoreBreakdown.styleTokens}, colors ${match.scoreBreakdown.hexColors}, dependencies ${match.scoreBreakdown.dependencies}, curated ${match.scoreBreakdown.curatedBonus}, recency ${match.scoreBreakdown.recencyBonus}, workspace approval ${match.scoreBreakdown.workspaceApprovalBonus}`,
+            `- Top reasons: ${topMatchReasons(match)}`,
             `- Shared sections: ${match.overlap.sectionLabels.length ? match.overlap.sectionLabels.join(", ") : "none"}`,
             `- Shared style tokens: ${match.overlap.styleTokens.length ? match.overlap.styleTokens.join(", ") : "none"}`,
-            `- Shared keywords: ${match.overlap.headingKeywords.length ? match.overlap.headingKeywords.join(", ") : "none"}`
+            `- Shared keywords: ${match.overlap.headingKeywords.length ? match.overlap.headingKeywords.join(", ") : "none"}`,
+            `- Shared reference kinds: ${match.overlap.referenceKinds.length ? match.overlap.referenceKinds.join(", ") : "none"}`
           ];
           return lines.join("\n");
         })

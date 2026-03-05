@@ -12,7 +12,7 @@ async function main() {
 
   const splitWorkspace = hasFlag(parsedArgs, "split");
   const result = await analyzeProject(projectSlug, { splitWorkspace });
-  const intelligence = await refreshProjectIntelligence(projectSlug);
+  const intelligence = await refreshProjectIntelligence(projectSlug, { markWorkspaceApproved: true });
   console.log(`Analyzed "${result.projectSlug}" (${result.sectionCount} sections, ${result.splitCount} split file(s)).`);
   console.log(`Refreshed prompt pack and pattern bank (${intelligence.libraryRecordCount} profile(s)).`);
 }

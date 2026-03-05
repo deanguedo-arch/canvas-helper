@@ -2,6 +2,8 @@ export type InputKind = "html" | "text-html";
 export type PreviewMode = "raw" | "workspace";
 export type BrightspaceTarget = "course-page";
 export type SourceKind = "function" | "dom" | "heuristic";
+export type LearningSource = "gemini" | "other";
+export type LearningTrust = "curated" | "auto";
 export type ReferenceKind =
   | "txt"
   | "md"
@@ -21,6 +23,10 @@ export type ProjectManifest = {
   previewModes: Array<PreviewMode>;
   workspaceEntrypoint: string;
   rawEntrypoint: string;
+  learningSource: LearningSource;
+  learningTrust: LearningTrust;
+  learningUpdatedAt: string;
+  workspaceApprovedAt?: string;
   createdAt: string;
   updatedAt: string;
 };

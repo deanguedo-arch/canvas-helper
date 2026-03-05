@@ -1,6 +1,7 @@
 import { readFile } from "node:fs/promises";
 import type { IncomingMessage, ServerResponse } from "node:http";
 import path from "node:path";
+import { spawn } from "node:child_process";
 
 import react from "@vitejs/plugin-react";
 import { lookup as lookupMimeType } from "mime-types";
@@ -9,6 +10,100 @@ import { defineConfig } from "vite";
 import { fileExists, writeTextFile } from "../../scripts/lib/fs.js";
 import { getProjectPaths, projectsRoot, repoRoot } from "../../scripts/lib/paths.js";
 import { listStudioProjectBundles, readStudioProjectBundle } from "../../scripts/lib/projects.js";
+
+type StudioCommandName = "analyze" | "refs" | "verify" | "export";
+
+function resolveStudioCommandArgs(slug: string, commandName: string) {
+  switch (commandName) {
+    case "analyze":
+      return ["run", "analyze", "--", "--project", slug];
+    case "refs":
+      return ["run", "refs", "--", "--project", slug];
+    case "verify":
+      return ["run", "verify", "--", "--project", slug, "--mode", "workspace"];
+    case "export":
+      return ["run", "export:brightspace", "--", "--project", slug];
+    default:
+      return null;
+  }
+}
+
+function trimCommandOutput(value: string, maxChars = 12000) {
+  if (value.length <= maxChars) {
+    return value;
+  }
+
+  return `...<truncated>\n${value.slice(value.length - maxChars)}`;
+}
+
+async function runStudioCommand(slug: string, commandName: StudioCommandName) {
+  const commandArgs = resolveStudioCommandArgs(slug, commandName);
+  if (!commandArgs) {
+    throw new Error(`Unsupported command: ${commandName}`);
+  }
+
+  const isWindows = process.platform === "win32";
+  const npmCommand = isWindows ? "npm.cmd" : "npm";
+  const spawnCommand = isWindows ? [npmCommand, ...commandArgs].join(" ") : npmCommand;
+  const spawnArgs = isWindows ? [] : commandArgs;
+  const startedAt = new Date().toISOString();
+
+  return new Promise<{
+    ok: boolean;
+    command: StudioCommandName;
+    slug: string;
+    exitCode: number;
+    startedAt: string;
+    finishedAt: string;
+    stdout: string;
+    stderr: string;
+  }>((resolve) => {
+    const child = spawn(spawnCommand, spawnArgs, {
+      cwd: repoRoot,
+      env: process.env,
+      stdio: ["ignore", "pipe", "pipe"],
+      shell: isWindows
+    });
+
+    let stdout = "";
+    let stderr = "";
+    let done = false;
+
+    const finish = (exitCode: number, extraError?: string) => {
+      if (done) {
+        return;
+      }
+      done = true;
+      const combinedStderr = extraError ? `${stderr}\n${extraError}`.trim() : stderr.trim();
+      resolve({
+        ok: exitCode === 0,
+        command: commandName,
+        slug,
+        exitCode,
+        startedAt,
+        finishedAt: new Date().toISOString(),
+        stdout: trimCommandOutput(stdout.trim()),
+        stderr: trimCommandOutput(combinedStderr)
+      });
+    };
+
+    child.stdout?.on("data", (chunk) => {
+      stdout += String(chunk);
+    });
+
+    child.stderr?.on("data", (chunk) => {
+      stderr += String(chunk);
+    });
+
+    child.on("error", (error) => {
+      finish(1, error instanceof Error ? error.message : String(error));
+    });
+
+    child.on("close", (code) => {
+      finish(code ?? 1);
+    });
+  });
+}
 
 function resolveContentType(filePath: string) {
   const extension = path.extname(filePath).toLowerCase();
@@ -237,6 +332,46 @@ function studioServerPlugin() {
           } catch (error) {
             sendJson(response, 400, {
               error: error instanceof Error ? error.message : "Failed to save session log."
+            });
+          }
+          return;
+        }
+
+        const commandMatch = url.match(/^\/api\/projects\/([^/]+)\/commands\/([^/]+)$/);
+        if (commandMatch) {
+          if (request.method !== "POST") {
+            sendJson(response, 405, {
+              error: "Method not allowed."
+            });
+            return;
+          }
+
+          const slug = decodeURIComponent(commandMatch[1]);
+          const commandName = decodeURIComponent(commandMatch[2]) as StudioCommandName;
+
+          if (!isSafeProjectSlug(slug)) {
+            sendJson(response, 400, {
+              error: "Invalid project slug."
+            });
+            return;
+          }
+
+          const commandArgs = resolveStudioCommandArgs(slug, commandName);
+          if (!commandArgs) {
+            sendJson(response, 400, {
+              error: `Unsupported command: ${commandName}`
+            });
+            return;
+          }
+
+          try {
+            await readStudioProjectBundle(slug);
+            const result = await runStudioCommand(slug, commandName);
+            const statusCode = result.ok ? 200 : 422;
+            sendJson(response, statusCode, result);
+          } catch (error) {
+            sendJson(response, 400, {
+              error: error instanceof Error ? error.message : "Failed to run project command."
             });
           }
           return;

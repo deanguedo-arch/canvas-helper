@@ -24,13 +24,33 @@ async function listHtmlFiles(dirPath: string) {
     .sort((left, right) => left.localeCompare(right));
 }
 
+function normalizeLearningSource(value: string | undefined) {
+  return value === "gemini" ? "gemini" : "other";
+}
+
+function normalizeLearningTrust(value: string | undefined) {
+  return value === "curated" ? "curated" : "auto";
+}
+
+function normalizeProjectManifest(manifest: ProjectManifest): ProjectManifest {
+  const fallbackLearningTimestamp = manifest.updatedAt ?? manifest.createdAt ?? new Date().toISOString();
+  return {
+    ...manifest,
+    learningSource: normalizeLearningSource(manifest.learningSource),
+    learningTrust: normalizeLearningTrust(manifest.learningTrust),
+    learningUpdatedAt: manifest.learningUpdatedAt ?? fallbackLearningTimestamp,
+    workspaceApprovedAt: manifest.workspaceApprovedAt
+  };
+}
+
 export async function loadProjectManifest(slug: string) {
   const paths = getProjectPaths(slug);
   if (!(await fileExists(paths.manifestPath))) {
     throw new Error(`Project manifest not found for "${slug}" at ${paths.manifestPath}.`);
   }
 
-  return readJsonFile<ProjectManifest>(paths.manifestPath);
+  const manifest = await readJsonFile<ProjectManifest>(paths.manifestPath);
+  return normalizeProjectManifest(manifest);
 }
 
 export async function updateProjectManifest(
@@ -39,7 +59,7 @@ export async function updateProjectManifest(
 ) {
   const paths = getProjectPaths(slug);
   const currentManifest = await loadProjectManifest(slug);
-  await writeJsonFile(paths.manifestPath, updater(currentManifest));
+  await writeJsonFile(paths.manifestPath, normalizeProjectManifest(updater(currentManifest)));
 }
 
 export async function listProjectSlugs() {

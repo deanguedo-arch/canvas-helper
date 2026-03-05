@@ -15,14 +15,15 @@ import {
   writeTextFile
 } from "./fs.js";
 import { refreshProjectIntelligence } from "./intelligence.js";
-import { getProjectPaths } from "./paths.js";
+import { getProjectPaths, projectsRoot } from "./paths.js";
 import { extractProjectReferences } from "./references.js";
-import type { ImportLog, InputKind, ProjectManifest } from "./types.js";
+import type { ImportLog, InputKind, LearningSource, ProjectManifest } from "./types.js";
 
 type ImportProjectOptions = {
   inputPath: string;
   slug?: string;
   force?: boolean;
+  source?: LearningSource;
 };
 
 type AssetReference = {
@@ -48,6 +49,37 @@ type ResolvedImportInput = {
   discoveryActions: string[];
   discoveryWarnings: string[];
 };
+
+function normalizePathForCompare(value: string) {
+  return path.resolve(value).replace(/[\\/]+/g, path.sep).toLowerCase();
+}
+
+function isPathInsideRoot(targetPath: string, rootPath: string) {
+  const normalizedTarget = normalizePathForCompare(targetPath);
+  const normalizedRoot = normalizePathForCompare(rootPath);
+  return normalizedTarget === normalizedRoot || normalizedTarget.startsWith(`${normalizedRoot}${path.sep}`);
+}
+
+export function resolveLearningSourceOverride(value: string | undefined): LearningSource | undefined {
+  if (!value) {
+    return undefined;
+  }
+
+  if (value === "gemini" || value === "other") {
+    return value;
+  }
+
+  throw new Error(`Invalid --source value "${value}". Expected "gemini" or "other".`);
+}
+
+export function inferLearningSourceFromInputPath(absoluteInputPath: string): LearningSource {
+  const geminiIncomingRoot = path.join(projectsRoot, "_incoming", "gemini");
+  return isPathInsideRoot(absoluteInputPath, geminiIncomingRoot) ? "gemini" : "other";
+}
+
+function toLearningTrust(source: LearningSource) {
+  return source === "gemini" ? "curated" : "auto";
+}
 
 function slugify(value: string) {
   return value
@@ -462,6 +494,9 @@ export async function importProject(options: ImportProjectOptions) {
     await removePath(paths.root);
   }
 
+  const learningSource = options.source ?? inferLearningSourceFromInputPath(absoluteInputPath);
+  const learningTrust = toLearningTrust(learningSource);
+
   await ensureDir(paths.root);
   await ensureDir(paths.rawDir);
   await ensureDir(paths.workspaceDir);
@@ -513,6 +548,9 @@ export async function importProject(options: ImportProjectOptions) {
     previewModes: ["raw", "workspace"],
     workspaceEntrypoint: paths.workspaceEntrypoint,
     rawEntrypoint: paths.rawEntrypoint,
+    learningSource,
+    learningTrust,
+    learningUpdatedAt: timestamp,
     createdAt: timestamp,
     updatedAt: timestamp
   };

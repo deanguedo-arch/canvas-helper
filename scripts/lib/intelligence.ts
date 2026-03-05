@@ -1,7 +1,25 @@
 import { rebuildPatternBankIndex, learnProjectPatterns } from "./pattern-bank.js";
 import { generatePromptPack } from "./prompt-pack.js";
+import { updateProjectManifest } from "./projects.js";
 
-export async function refreshProjectIntelligence(projectSlug: string) {
+export type RefreshProjectIntelligenceOptions = {
+  markWorkspaceApproved?: boolean;
+};
+
+export async function refreshProjectIntelligence(
+  projectSlug: string,
+  options: RefreshProjectIntelligenceOptions = {}
+) {
+  const updatedAt = new Date().toISOString();
+  await updateProjectManifest(projectSlug, (manifest) => ({
+    ...manifest,
+    learningSource: manifest.learningSource === "gemini" ? "gemini" : "other",
+    learningTrust: manifest.learningTrust === "curated" ? "curated" : "auto",
+    learningUpdatedAt: updatedAt,
+    workspaceApprovedAt: options.markWorkspaceApproved ? updatedAt : manifest.workspaceApprovedAt,
+    updatedAt: updatedAt
+  }));
+
   const learned = await learnProjectPatterns(projectSlug);
   const library = await rebuildPatternBankIndex();
   const promptPack = await generatePromptPack(projectSlug);
