@@ -1,31 +1,22 @@
-# Canvas Helper Ops
+# Ops Runbook
 
-Phase 1 keeps the repo structure stable and adds a high-signal operating layer for fast iteration.
+Use this folder to keep local work disciplined, reproducible, and handoff-friendly.
 
-## One-Click Launcher
+## Core Operating Loop
 
-- File: `launch-canvas-helper.bat`
-- Double-click to open a menu for:
-  - `Studio + Auto Import Watcher`
-  - `Import Once + Studio + Auto Import Watcher`
-  - `Export Brightspace`
-- Studio URL opens automatically: `http://127.0.0.1:5173`
+1. Read [`AGENTS.md`](../../AGENTS.md)
+2. Read [`ARCHITECTURE.md`](../../ARCHITECTURE.md)
+3. Use [`session-checklist.md`](./session-checklist.md) before and during work
+4. Use [`HANDOFF.md`](./HANDOFF.md) for every meaningful stop point
+5. Use [`agent-prompt-templates.md`](./agent-prompt-templates.md) only after the architecture and task boundaries are clear
 
-## Daily Session Loop
+## Key References
 
-1. Launch `launch-canvas-helper.bat`.
-2. Import or select target project.
-3. Compare `Reference` vs `Workspace` in Split view.
-4. Make edits only in `projects/<slug>/workspace/`.
-5. Save session handoff log from Studio.
-6. Export Brightspace bundle when ready.
+- Repo mission and agent rules: [`AGENTS.md`](../../AGENTS.md)
+- System boundaries and placement rules: [`ARCHITECTURE.md`](../../ARCHITECTURE.md)
+- Contribution and commit discipline: [`CONTRIBUTING.md`](../../CONTRIBUTING.md)
+- Session handoff standard: [`HANDOFF.md`](./HANDOFF.md)
 
-Use [session-checklist.md](./session-checklist.md) to keep runs consistent.
+## Working Rule
 
-## Prompting System
-
-Use [agent-prompt-templates.md](./agent-prompt-templates.md) as your fast-start prompt catalog for common edit types.
-
-## Preview Note
-
-Use [preview-note-template.md](./preview-note-template.md) before or after major edits so context survives session handoff.
+The browser is the local shell. Node is the engine. Project data lives on disk. Ops docs exist to keep that workflow governable as the repo grows.

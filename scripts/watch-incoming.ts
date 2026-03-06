@@ -3,6 +3,7 @@ import { readdir } from "node:fs/promises";
 
 import { getStringFlag, hasFlag, parseArgs } from "./lib/cli.js";
 import { ensureDir, fileExists, latestMtimeMs, readJsonFile, writeJsonFile } from "./lib/fs.js";
+import { listIncomingProjectFolders } from "./lib/incoming-watch.js";
 import { repoRoot } from "./lib/paths.js";
 import { importProject } from "./lib/importer.js";
 
@@ -72,18 +73,6 @@ async function saveState(statePath: string, state: WatchState) {
   });
 }
 
-async function listIncomingFolders(incomingRoot: string) {
-  if (!(await fileExists(incomingRoot))) {
-    return [] as string[];
-  }
-
-  const entries = await readdir(incomingRoot, { withFileTypes: true });
-  return entries
-    .filter((entry) => entry.isDirectory() && !entry.name.startsWith("."))
-    .map((entry) => path.join(incomingRoot, entry.name))
-    .sort((left, right) => left.localeCompare(right));
-}
-
 async function main() {
   const parsedArgs = parseArgs(process.argv.slice(2));
   const once = hasFlag(parsedArgs, "once");
@@ -143,7 +132,7 @@ async function main() {
 
   async function scan(allowUnstable = false) {
     const now = Date.now();
-    const folders = await listIncomingFolders(incomingRoot);
+    const folders = await listIncomingProjectFolders(incomingRoot);
     const seenKeys = new Set<string>();
 
     for (const folderPath of folders) {

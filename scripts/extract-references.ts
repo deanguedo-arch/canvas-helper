@@ -1,5 +1,5 @@
 import { getStringFlag, parseArgs } from "./lib/cli.js";
-import { refreshProjectIntelligence } from "./lib/intelligence.js";
+import { readCliIntelligenceOverride, refreshProjectIntelligence } from "./lib/intelligence.js";
 import { extractProjectReferences } from "./lib/references.js";
 
 async function main() {
@@ -10,8 +10,13 @@ async function main() {
     throw new Error('Usage: npm run refs -- --project <slug>');
   }
 
+  const policyOverride = readCliIntelligenceOverride(parsedArgs);
   const result = await extractProjectReferences(projectSlug);
-  await refreshProjectIntelligence(projectSlug, { markWorkspaceApproved: true });
+  await refreshProjectIntelligence(projectSlug, {
+    markWorkspaceApproved: true,
+    command: "refs",
+    policyOverride
+  });
   console.log(`Indexed ${result.references.length} reference file(s) for "${projectSlug}".`);
 }
 

@@ -1,79 +1,104 @@
 # Agent Prompt Templates
 
-Use these prompts to speed up coding sessions and keep requests precise.
+These templates assume the repo follows the current architecture and governance contract.
 
-## 1) Content-Only Edit
+## 1. Studio UI Change
 
 ```text
 Project: <slug>
-Task: Update wording in section "<section heading>".
+Task: Update Studio UI behavior in <component or workflow>.
+Boundary:
+- Touch only app/studio unless server support is explicitly required.
 Constraints:
-- Do not change layout, classes, scripts, or behavior.
-- Edit only workspace files.
-- Keep heading hierarchy and style tokens consistent with style-guide.md.
+- Preserve compare/focus preview behavior.
+- Keep filesystem access out of the frontend.
+- No drive-by visual redesign.
+Verification:
+- npm.cmd run typecheck
+- npm.cmd run build:studio
 Deliver:
-- Exact files changed
-- Short diff summary
-- Quick visual check steps in studio
+- Summary
+- Files changed
+- Verification run
+- Known risks / follow-up
 ```
 
-## 2) Behavior + UX Fix
+## 2. Local Server Change
 
 ```text
-Project: <slug>
-Task: Fix interaction bug in "<feature>".
-Symptoms: <what is broken>
-Expected behavior: <target behavior>
+Task: Update local server handling for <route or preview behavior>.
+Boundary:
+- Touch app/server and only the minimum related Studio wiring.
 Constraints:
-- Keep Brightspace compatibility.
-- Preserve CDN dependencies unless absolutely required.
-- Edit workspace only.
+- Preserve local filesystem-driven serving.
+- Keep safe path validation explicit.
+- Do not move command logic into the browser.
+Verification:
+- npm.cmd run typecheck
+- npm.cmd run build:studio
+- route-specific verification steps
 Deliver:
-- Root cause
-- Code fix
-- Verification steps (raw vs workspace)
+- Summary
+- Architecture impact
+- Verification run
+- Exact next command
 ```
 
-## 3) Reference Alignment Pass
+## 3. Intelligence Policy Change
 
 ```text
-Project: <slug>
-Task: Align activity text with reference docs.
-Source priority:
-1) references/extracted
-2) references/raw only if needed
+Task: Adjust intelligence collect/apply behavior.
+Boundary:
+- Touch scripts/lib/intelligence/config, collect, or apply only.
 Constraints:
-- Preserve page structure and interactions.
-- No broad rewrites outside targeted sections.
+- Collection must remain explicit.
+- Application must respect collect-only, advisory, and active modes.
+- Preserve precedence: CLI > project > repo.
+Verification:
+- targeted tests
+- npm.cmd run typecheck
 Deliver:
-- Sections updated
-- Reference source mapping
-- Any unresolved ambiguity
+- Policy change summary
+- Flags added or changed
+- Behavior by mode
+- Risks
 ```
 
-## 4) Export Readiness Pass
+## 4. Pipeline / Export Change
 
 ```text
 Project: <slug>
-Task: Prepare Brightspace-ready export.
-Run:
-- analyze
-- refs (if new docs)
-- export:brightspace
+Task: Change import/analyze/refs/export behavior.
+Boundary:
+- Touch scripts plus the smallest necessary docs.
+Constraints:
+- Preserve local-first workflow.
+- Do not edit raw or exports manually unless the task explicitly requires it.
+- Update smoke verification if the core path changes.
+Verification:
+- targeted tests
+- smoke path
+- npm.cmd run typecheck
 Deliver:
-- Issues found (if any)
-- Export path
-- Upload notes
+- Pipeline impact
+- Files changed
+- Verification run
+- Follow-up
 ```
 
-## 5) Session Handoff
+## 5. Session Handoff
 
 ```text
-Project: <slug>
-Task: Create handoff-ready state.
-Actions:
-- Save Studio Session Log
-- Summarize completed changes
-- Summarize pending work as numbered next actions
-- Include exact commands for next session
+Project: <slug or repo-wide>
+Task: Produce a strict handoff.
+Use docs/ops/HANDOFF.md exactly.
+Include:
+- Status
+- Files changed
+- What changed
+- What still needs validation
+- Known risks
+- Exact next command
+- Exact next file to open
+- Do not do next / warnings
 ```

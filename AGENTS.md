@@ -1,36 +1,131 @@
-# Agent Contract (Canvas Helper)
-## Never touch
-- projects/<slug>/raw/**
-- projects/<slug>/exports/** (generated output)
+# Canvas Helper Agent Contract
 
-## Allowed zones
-- projects/<slug>/workspace/**
-- app/studio/**
-- scripts/**
-- docs/**
-- tasks/**
-- root config files (package.json, tsconfig, etc.)
+## Mission
 
-## Change budget
-- Touch <= 8 files unless the task explicitly lists more.
+Canvas Helper is a local-first Node + browser workspace for importing Canvas course content, preserving immutable raw inputs, editing safe workspace copies, applying intelligence signals, and exporting Brightspace-ready deliverables.
 
-## Output format required
-When you finish, output:
-1) Files changed
-2) Why each change exists (one line each)
-3) Commands to verify
-4) Known risks / TODOs (if any)
+## Architecture Map
 
-## No drive-by refactors
-- No formatting sweeps
-- No renames
-- No dependency changes
-- No “improvements” outside task scope
+- `app/studio/`: React/Vite browser shell only
+- `app/server/`: local request handlers, preview serving, command execution bridge
+- `scripts/`: import, analyze, refs, export, rehydrate, smoke, and task scripts
+- `scripts/lib/intelligence/config/`: intelligence policy and feature-flag resolution
+- `scripts/lib/intelligence/collect/`: always-on learning and signal collection
+- `scripts/lib/intelligence/apply/`: prompt-pack influence, recommendations, and advisory application
+- `projects/<slug>/raw/`: immutable imported baseline
+- `projects/<slug>/workspace/`: editable working files
+- `projects/<slug>/meta/`: manifests, prompt-pack, logs, handoff artifacts
+- `projects/<slug>/references/`: raw support material and extracted text
+- `projects/<slug>/exports/`: generated output only
+- `docs/`: architecture, governance, ops, and plans
 
-## Retrieval defaults
-- Read `projects/<slug>/meta/prompt-pack.md` first.
-- Then read local pattern bank matches from `.runtime/pattern-bank/`.
-- Use `projects/<slug>/references/extracted/` only if needed after prompt-pack and bank matches.
+## Allowed Zones
 
-## Automatic intelligence refresh
-- `npm run import`, `npm run analyze`, and `npm run refs` refresh prompt-pack and pattern bank automatically.
+- `app/studio/**`
+- `app/server/**`
+- `scripts/**`
+- `docs/**`
+- `tasks/**`
+- `projects/<slug>/workspace/**`
+- `projects/<slug>/meta/**`
+- repo root governance/config files
+
+## Forbidden / Protected Zones
+
+- `projects/<slug>/raw/**` unless the task explicitly requires raw repair or import regeneration
+- `projects/<slug>/exports/**` unless the task explicitly requires generated output inspection
+- `.runtime/**` unless the task explicitly targets runtime intelligence or caches
+- unrelated broad file moves, renames, or formatting-only sweeps
+
+## Domain Ownership
+
+- Studio UI state, components, and browser behavior belong in `app/studio/`
+- Local request routing, preview path validation, and command execution belong in `app/server/`
+- Filesystem import/analyze/refs/export logic belongs in `scripts/lib/`
+- Intelligence collection belongs in `scripts/lib/intelligence/collect/`
+- Intelligence application and prompt-pack influence belong in `scripts/lib/intelligence/apply/`
+- Intelligence policy, defaults, and feature flags belong in `scripts/lib/intelligence/config/`
+- Repo operating rules belong in `AGENTS.md`, `ARCHITECTURE.md`, `CONTRIBUTING.md`, and `docs/ops/`
+
+## Change Budget
+
+- Prefer focused changes with clear file ownership.
+- Touch only the domains needed for the task.
+- If a task expands past the planned boundary, document why in the handoff output.
+
+## No Drive-By Refactors
+
+- No formatting sweeps.
+- No renames unless the rename directly clarifies architecture in scope.
+- No dependency churn unless required to preserve or unblock the requested behavior.
+- No speculative cleanup outside the task boundary.
+
+## Retrieval Defaults
+
+1. Read `projects/<slug>/meta/prompt-pack.md` first when a project slug exists.
+2. Then read the relevant `.runtime/pattern-bank/` matches or ledger artifacts if the task depends on prior learning.
+3. Use `projects/<slug>/references/extracted/` only after prompt-pack and pattern-bank context.
+4. Read `ARCHITECTURE.md` and `docs/ops/HANDOFF.md` for repo-wide changes or mid-stream handoffs.
+
+## Intelligence Rules
+
+- Collection is always allowed when the workflow calls it.
+- Application is governed by intelligence policy flags and may be disabled, advisory-only, or active.
+- Respect precedence in this order:
+  1. CLI override
+  2. project policy file
+  3. repo default policy
+- Do not hard-wire intelligence influence into unrelated commands.
+
+## Feature Flag Rules
+
+- Put intelligence flags in `scripts/lib/intelligence/config/`.
+- Default new flags to the safest behavior that preserves current workflows.
+- Document every new flag in `ARCHITECTURE.md`, `CONTRIBUTING.md`, and the relevant command help text.
+
+## Docs Update Rules
+
+- Update `README.md` when quick start, commands, or top-level workflow changes.
+- Update `ARCHITECTURE.md` when responsibilities, folder boundaries, or core data flow changes.
+- Update `CONTRIBUTING.md` when completion, commit, or verification rules change.
+- Update `docs/ops/` when the operating loop, handoff format, or agent workflow changes.
+
+## Test Update Rules
+
+- Add or update tests when changing parsing, intelligence policy, route behavior, preview safety checks, or exported artifacts.
+- Add a smoke-path update when changing the core import/analyze/refs/export flow.
+- Do not ship architecture changes without at least targeted verification for the affected boundary.
+
+## Commit Rules
+
+- Use `type(scope): concise action`
+- Valid types include `refactor`, `feat`, `fix`, `docs`, `test`, `chore`
+- Scope should reflect the owning domain, such as `studio`, `server`, `intelligence`, `ops`, or `smoke`
+
+## Handoff Output Rules
+
+Every task handoff must include:
+
+1. Summary
+2. Files changed
+3. Verification run
+4. Known risks / follow-up
+5. Exact next command
+6. Exact next file to open
+
+Use the stricter template in `docs/ops/HANDOFF.md` for ongoing session work.
+
+## Editing Rules for Project Data
+
+- Do not manually edit `projects/<slug>/raw/**` or `projects/<slug>/exports/**` unless the task explicitly requires it.
+- Keep user-authored changes in `projects/<slug>/workspace/**`.
+- Treat `projects/<slug>/meta/**` as generated-plus-operational state that may be updated when workflows require it.
+
+## Verification Floor
+
+- Run the smallest meaningful set of checks for the touched area.
+- For repo-wide architecture changes, the minimum floor is:
+  - `npm.cmd run typecheck`
+  - `npm.cmd run build:studio`
+  - targeted tests
+  - smoke-path verification

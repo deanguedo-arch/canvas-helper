@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 2: The Foundation and the Brain</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom Styles for Interactive Elements */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8fafc; }
+        
+        /* Flip Card CSS */
+        .flip-card { background-color: transparent; height: 200px; perspective: 1000px; cursor: pointer; }
+        .flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s; transform-style: preserve-3d; }
+        .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+        .flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; border-radius: 0.5rem; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 1rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
+        .flip-card-front { background-color: #ffffff; border-top: 4px solid #3b82f6; }
+        .flip-card-back { background-color: #eff6ff; color: #1e3a8a; transform: rotateY(180deg); border: 1px solid #bfdbfe; }
+        
+        /* Accordion CSS */
+        .accordion-content { transition: max-height 0.3s ease-out, padding 0.3s ease; max-height: 0; overflow: hidden; padding: 0 1rem; }
+        .accordion-content.open { max-height: 500px; padding: 1rem; }
+        .accordion-icon { transition: transform 0.3s ease; }
+        .accordion-button.active .accordion-icon { transform: rotate(180deg); }
+
+        /* Tabs CSS */
+        .tab-content { display: none; animation: fadeIn 0.5s; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* General Module Styling */
+        .module-container { max-width: 1000px; margin: 0 auto; padding: 2rem; background: white; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); border-radius: 1rem; margin-top: 2rem; margin-bottom: 2rem; }
+        h1, h2, h3 { color: #1e293b; }
+        .highlight-box { background-color: #fef3c7; border-left: 4px solid #f59e0b; padding: 1rem; margin: 1.5rem 0; border-radius: 0 0.5rem 0.5rem 0; }
+    </style>
+</head>
+<body class="text-gray-800 leading-relaxed">
+
+    <!-- Header Area -->
+    <header class="bg-slate-900 text-white py-12 px-4 shadow-inner">
+        <div class="max-w-5xl mx-auto">
+            <h4 class="text-blue-400 font-bold tracking-wider uppercase text-sm mb-2"><i class="fas fa-brain mr-2"></i> General Psychology 20</h4>
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4">The Foundation & The Brain</h1>
+            <p class="text-xl text-slate-300 max-w-2xl">A deep dive into the biological roots of behaviour, thought, and emotion. Discover the microscopic building blocks and the macro-structures that make you who you are.</p>
+        </div>
+    </header>
+
+    <main class="module-container">
+        
+        <!-- Introduction -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold border-b-2 border-blue-500 pb-2 mb-6">Introduction: The Biological Basis of Behavior</h2>
+            <p class="mb-4 text-lg">Every thought you have, every emotion you feel, and every action you take is fundamentally a biological event. To truly understand psychology, we must look beneath the surface of behavior and examine the biological machinery that drives it. We begin our journey at the microscopic level with the neuron, before zooming out to the complex circuitry of the nervous system and the breathtaking architecture of the human brain.</p>
+            <div class="highlight-box">
+                <p class="font-semibold"><i class="fas fa-lightbulb text-yellow-600 mr-2"></i> Key Concept: Monism vs. Dualism</p>
+                <p class="text-sm mt-1">Historically, philosophers debated whether the mind and body were separate (Dualism) or the same (Monism). Modern biopsychology operates on the principle that "the mind is what the brain does."</p>
+            </div>
+        </section>
+
+        <!-- Section 1: The Neuron -->
+        <section class="mb-12 bg-slate-50 p-6 border border-slate-200 rounded-lg">
+            <h2 class="text-3xl font-bold text-slate-800 mb-6"><i class="fas fa-network-wired text-blue-600 mr-3"></i>Part 1: The Neuron - The Building Block</h2>
+            <p class="mb-6">The brain contains roughly 86 billion interconnected neurons. These highly specialized cells are designed to receive, process, and transmit information across the body using electrical and chemical signals.</p>
+            
+            <h3 class="text-2xl font-semibold mb-4 text-blue-800">Anatomy of a Neuron</h3>
+            <ul class="space-y-4 mb-8">
+                <li class="flex items-start">
+                    <span class="text-blue-600 mt-1 mr-3"><i class="fas fa-check-circle"></i></span>
+                    <div><strong>Dendrites:</strong> Branch-like extensions that receive messages from other cells. (Think of them as the "inbox").</div>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-blue-600 mt-1 mr-3"><i class="fas fa-check-circle"></i></span>
+                    <div><strong>Soma (Cell Body):</strong> The cell's life support center, containing the nucleus and genetic material.</div>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-blue-600 mt-1 mr-3"><i class="fas fa-check-circle"></i></span>
+                    <div><strong>Axon:</strong> A long, cable-like structure that passes messages away from the cell body to other neurons, muscles, or glands.</div>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-blue-600 mt-1 mr-3"><i class="fas fa-check-circle"></i></span>
+                    <div><strong>Myelin Sheath:</strong> A fatty layer of tissue that insulates the axon and vastly speeds up neural impulses. (Multiple Sclerosis is caused by the degradation of this sheath).</div>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-blue-600 mt-1 mr-3"><i class="fas fa-check-circle"></i></span>
+                    <div><strong>Terminal Buttons:</strong> The branched endings of the axon that transmit messages to other neurons via neurotransmitters.</div>
+                </li>
+            </ul>
+
+            <h3 class="text-2xl font-semibold mb-4 text-blue-800">The Action Potential: How Neurons "Fire"</h3>
+            <p class="mb-4">Neurons communicate via an electrical charge called an <strong>Action Potential</strong>. This process follows the <em>All-or-None Law</em>: a neuron either fires completely or it does not fire at all—there is no "partial" firing.</p>
+            <div class="bg-white p-4 rounded shadow-sm border border-gray-100">
+                <ol class="list-decimal list-inside space-y-2 text-sm text-gray-700">
+                    <li><strong>Resting Potential:</strong> The neuron is negatively charged inside (-70mV) and positively charged outside. It is polarized and ready to fire.</li>
+                    <li><strong>Depolarization:</strong> If a threshold is reached, ion channels open. Positive sodium ions rush in, causing the inside to become temporarily positive (+40mV).</li>
+                    <li><strong>Repolarization:</strong> Potassium ions flow out to restore the negative charge inside the cell.</li>
+                    <li><strong>Refractory Period:</strong> A brief resting pause where the neuron pumps sodium back out and cannot fire again until the balance is restored.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Section 2: Neurotransmitters (Interactive) -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold mb-2">The Synapse & Neurotransmitters</h2>
+            <p class="mb-6">Neurons don't actually touch. They are separated by a microscopic gap called the <strong>synaptic cleft</strong>. When an action potential reaches the terminal buttons, it triggers the release of chemical messengers called <strong>Neurotransmitters</strong>. These chemicals cross the gap and bind to receptor sites on the receiving neuron like a key fitting into a lock.</p>
+            
+            <h3 class="text-xl font-semibold mb-4 text-center text-gray-600">Interactive Flashcards: Major Neurotransmitters</h3>
+            <p class="text-center text-sm text-gray-500 mb-6"><i class="fas fa-mouse-pointer"></i> Click the cards to reveal their functions and associated disorders.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Card 1 -->
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <i class="fas fa-smile-beam text-4xl text-blue-500 mb-2"></i>
+                            <h4 class="font-bold text-xl">Dopamine</h4>
+                            <span class="text-xs text-gray-400 mt-2">Click to flip</span>
+                        </div>
+                        <div class="flip-card-back">
+                            <h4 class="font-bold border-b border-blue-300 pb-1 mb-2">Dopamine</h4>
+                            <p class="text-sm">Involved in movement, learning, attention, and emotion (the brain's reward system).</p>
+                            <p class="text-xs mt-2 text-red-700 font-semibold">Over-supply: Schizophrenia<br>Under-supply: Parkinson's</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <i class="fas fa-bed text-4xl text-indigo-500 mb-2"></i>
+                            <h4 class="font-bold text-xl">Serotonin</h4>
+                            <span class="text-xs text-gray-400 mt-2">Click to flip</span>
+                        </div>
+                        <div class="flip-card-back">
+                            <h4 class="font-bold border-b border-blue-300 pb-1 mb-2">Serotonin</h4>
+                            <p class="text-sm">Affects mood, hunger, sleep, and arousal.</p>
+                            <p class="text-xs mt-2 text-red-700 font-semibold">Under-supply linked to Depression. SSRI drugs block reuptake.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <i class="fas fa-running text-4xl text-green-500 mb-2"></i>
+                            <h4 class="font-bold text-xl">Acetylcholine (ACh)</h4>
+                            <span class="text-xs text-gray-400 mt-2">Click to flip</span>
+                        </div>
+                        <div class="flip-card-back">
+                            <h4 class="font-bold border-b border-blue-300 pb-1 mb-2">ACh</h4>
+                            <p class="text-sm">Enables muscle action, learning, and memory.</p>
+                            <p class="text-xs mt-2 text-red-700 font-semibold">ACh-producing neurons deteriorate as Alzheimer's disease progresses.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <i class="fas fa-shield-alt text-4xl text-red-500 mb-2"></i>
+                            <h4 class="font-bold text-xl">GABA & Glutamate</h4>
+                            <span class="text-xs text-gray-400 mt-2">Click to flip</span>
+                        </div>
+                        <div class="flip-card-back">
+                            <h4 class="font-bold border-b border-blue-300 pb-1 mb-2">The Regulators</h4>
+                            <p class="text-sm"><strong>GABA:</strong> Major inhibitory neurotransmitter (calms).<br><strong>Glutamate:</strong> Major excitatory neurotransmitter (stimulates).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: The Nervous System (Accordions) -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold mb-6 border-b-2 border-blue-500 pb-2">Part 2: The Nervous System Architecture</h2>
+            <p class="mb-4">Neurons organize into vast communication networks constituting the nervous system. The nervous system is divided into major subsystems to handle specific types of information.</p>
+            
+            <div class="border border-gray-200 rounded-lg shadow-sm">
+                <!-- Accordion Item 1 -->
+                <div class="border-b border-gray-200">
+                    <button class="accordion-button w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 focus:outline-none font-bold text-lg" onclick="toggleAccordion(this)">
+                        <span>The Central Nervous System (CNS)</span>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content bg-white">
+                        <p class="mt-2 mb-4">The CNS consists of the <strong>Brain</strong> and the <strong>Spinal Cord</strong>. It is the "command center" of the body.</p>
+                        <ul class="list-disc ml-6 space-y-2 mb-4">
+                            <li><strong>Spinal Cord:</strong> A two-way information highway connecting the peripheral nervous system and the brain. It is responsible for simple automatic responses to stimuli known as <em>reflexes</em> (like pulling your hand away from a hot stove before your brain even registers the pain).</li>
+                            <li><strong>Brain:</strong> The computing center responsible for our thoughts, feelings, and behaviors.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Accordion Item 2 -->
+                <div class="border-b border-gray-200">
+                    <button class="accordion-button w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 focus:outline-none font-bold text-lg" onclick="toggleAccordion(this)">
+                        <span>The Peripheral Nervous System (PNS)</span>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content bg-white">
+                        <p class="mt-2 mb-4">The PNS gathers information and transmits CNS decisions to other body parts. It links the CNS to the body's sense receptors, muscles, and glands. It has two main components:</p>
+                        <ul class="list-disc ml-6 space-y-2 mb-4">
+                            <li><strong>Somatic Nervous System:</strong> Controls voluntary movements of skeletal muscles. (E.g., Raising your hand).</li>
+                            <li><strong>Autonomic Nervous System (ANS):</strong> Controls self-regulated action of internal organs and glands. (E.g., Heartbeat, digestion).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Accordion Item 3 -->
+                <div class="">
+                    <button class="accordion-button w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 focus:outline-none font-bold text-lg text-red-600" onclick="toggleAccordion(this)">
+                        <span>Deep Dive: Sympathetic vs. Parasympathetic</span>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content bg-red-50">
+                        <p class="mt-2 mb-4 text-sm text-gray-800">The Autonomic Nervous System is further divided into two opposing forces that work together to maintain bodily homeostasis:</p>
+                        <div class="grid md:grid-cols-2 gap-4 mb-4">
+                            <div class="bg-white p-3 border border-red-200 rounded">
+                                <h4 class="font-bold text-red-700"><i class="fas fa-fire mr-1"></i> Sympathetic Nervous System</h4>
+                                <p class="text-sm mt-1"><strong>"Fight or Flight"</strong>. Arouses the body, mobilizing its energy in stressful situations. Accelerates heartbeat, raises blood pressure, slows digestion, raises blood sugar, and cools with perspiration.</p>
+                            </div>
+                            <div class="bg-white p-3 border border-blue-200 rounded">
+                                <h4 class="font-bold text-blue-700"><i class="fas fa-leaf mr-1"></i> Parasympathetic Nervous System</h4>
+                                <p class="text-sm mt-1"><strong>"Rest and Digest"</strong>. Calms the body, conserving its energy. Decreases heartbeat, lowers blood sugar, and stimulates digestion. It brings you back to a steady state after a threat has passed.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: The Brain (Interactive Tabs) -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold mb-4"><i class="fas fa-head-side-brain text-purple-600 mr-2"></i>Part 3: Tour of the Brain</h2>
+            <p class="mb-6">The brain is not just one giant mass; it is composed of highly specialized regions that evolved over millions of years. We can generally divide the brain into the primitive "Older Brain" structures, the emotional "Limbic System," and the advanced "Cerebral Cortex."</p>
+
+            <h3 class="text-xl font-bold text-gray-800 mb-2">The Older Brain Structures</h3>
+            <div class="bg-gray-100 p-4 rounded-lg mb-8 grid md:grid-cols-3 gap-4 text-sm">
+                <div class="bg-white p-3 rounded shadow-sm">
+                    <strong>Medulla:</strong> Base of the brainstem. Controls heartbeat and breathing. Destroy this, and you die instantly.
+                </div>
+                <div class="bg-white p-3 rounded shadow-sm">
+                    <strong>Cerebellum:</strong> The "little brain" at the rear. Coordinates voluntary movement and balance. Also involved in non-verbal learning and memory.
+                </div>
+                <div class="bg-white p-3 rounded shadow-sm">
+                    <strong>Reticular Formation:</strong> A nerve network travelling through the brainstem. Plays an important role in controlling arousal and alertness.
+                </div>
+            </div>
+
+            <h3 class="text-xl font-bold text-gray-800 mb-2">The Limbic System (Emotion & Memory)</h3>
+            <div class="bg-purple-50 p-4 rounded-lg mb-8 grid md:grid-cols-3 gap-4 text-sm border border-purple-100">
+                <div class="bg-white p-3 rounded shadow-sm">
+                    <strong class="text-purple-700">Amygdala:</strong> Two lima-bean-sized neural clusters. Linked strictly to emotion, specifically <em>fear</em> and <em>aggression</em>.
+                </div>
+                <div class="bg-white p-3 rounded shadow-sm">
+                    <strong class="text-purple-700">Hippocampus:</strong> A seahorse-shaped structure critical for processing conscious, explicit memories (like facts and events) for storage.
+                </div>
+                <div class="bg-white p-3 rounded shadow-sm">
+                    <strong class="text-purple-700">Hypothalamus:</strong> Below the thalamus. Directs maintenance activities (eating, drinking, body temperature), helps govern the endocrine system via the pituitary gland, and is linked to emotion and reward.
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center mt-10">The Cerebral Cortex: The 4 Lobes</h3>
+            <p class="text-center text-sm text-gray-500 mb-4">The ultimate control and information-processing center. Select a lobe below to explore its functions.</p>
+
+            <!-- Tabs Navigation -->
+            <div class="flex flex-wrap border-b border-gray-300">
+                <button class="tab-btn active px-4 py-2 bg-blue-600 text-white font-semibold rounded-t-lg mr-1 focus:outline-none transition-colors" onclick="openTab(event, 'frontal')">Frontal Lobe</button>
+                <button class="tab-btn px-4 py-2 bg-gray-200 text-gray-700 font-semibold rounded-t-lg mr-1 hover:bg-gray-300 focus:outline-none transition-colors" onclick="openTab(event, 'parietal')">Parietal Lobe</button>
+                <button class="tab-btn px-4 py-2 bg-gray-200 text-gray-700 font-semibold rounded-t-lg mr-1 hover:bg-gray-300 focus:outline-none transition-colors" onclick="openTab(event, 'temporal')">Temporal Lobe</button>
+                <button class="tab-btn px-4 py-2 bg-gray-200 text-gray-700 font-semibold rounded-t-lg hover:bg-gray-300 focus:outline-none transition-colors" onclick="openTab(event, 'occipital')">Occipital Lobe</button>
+            </div>
+
+            <!-- Tabs Content -->
+            <div class="border border-gray-300 border-t-0 rounded-b-lg p-6 bg-white min-h-[250px]">
+                
+                <div id="frontal" class="tab-content active">
+                    <h4 class="text-xl font-bold text-blue-700 mb-2"><i class="fas fa-brain mr-2"></i>Frontal Lobe</h4>
+                    <p class="mb-4">Located right behind your forehead. This is the "CEO" of the brain, responsible for executive functions, decision-making, planning, judgment, and personality.</p>
+                    <ul class="list-disc ml-6 space-y-2 mb-4 text-sm">
+                        <li><strong>Motor Cortex:</strong> Located at the rear of the frontal lobes, controls voluntary movements. The right hemisphere controls the left side of the body, and vice versa.</li>
+                        <li><strong>Broca's Area:</strong> (Usually in the left hemisphere) controls language expression and muscle movements involved in speech.</li>
+                    </ul>
+                    <div class="bg-gray-100 p-3 rounded text-sm italic border-l-4 border-blue-500">
+                        <strong>Case Study: Phineas Gage (1848).</strong> A railroad worker who had a tamping iron blown through his left frontal lobe. He miraculously survived, but his personality drastically changed from mild-mannered to irritable and impulsive, proving the frontal lobe's role in personality and inhibition.
+                    </div>
+                </div>
+
+                <div id="parietal" class="tab-content">
+                    <h4 class="text-xl font-bold text-blue-700 mb-2"><i class="fas fa-hand-paper mr-2"></i>Parietal Lobe</h4>
+                    <p class="mb-4">Located at the top and to the rear of the head. It receives sensory input for touch and body position.</p>
+                    <ul class="list-disc ml-6 space-y-2 mb-4 text-sm">
+                        <li><strong>Somatosensory Cortex:</strong> Located at the front of the parietal lobes (right behind the motor cortex). It registers and processes body touch and movement sensations.</li>
+                        <li>The more sensitive the body region (like the lips or fingertips), the larger the somatosensory cortex area devoted to it.</li>
+                        <li>Also helps with mathematical and spatial reasoning.</li>
+                    </ul>
+                </div>
+
+                <div id="temporal" class="tab-content">
+                    <h4 class="text-xl font-bold text-blue-700 mb-2"><i class="fas fa-ear-listen mr-2"></i>Temporal Lobe</h4>
+                    <p class="mb-4">Located roughly above the ears. Includes the auditory areas, each receiving information primarily from the opposite ear.</p>
+                    <ul class="list-disc ml-6 space-y-2 mb-4 text-sm">
+                        <li><strong>Auditory Cortex:</strong> Processes sound.</li>
+                        <li><strong>Wernicke's Area:</strong> (Usually in the left temporal lobe) controls language reception—a brain area involved in language comprehension and expression. Damage here leaves a person able to speak, but the words make no sense (Word Salad).</li>
+                        <li>Heavily involved in face recognition. Damage to specific areas can result in <em>prosopagnosia</em> (face blindness).</li>
+                    </ul>
+                </div>
+
+                <div id="occipital" class="tab-content">
+                    <h4 class="text-xl font-bold text-blue-700 mb-2"><i class="fas fa-eye mr-2"></i>Occipital Lobe</h4>
+                    <p class="mb-4">Located at the very back of the head. This lobe is almost exclusively dedicated to vision.</p>
+                    <ul class="list-disc ml-6 space-y-2 mb-4 text-sm">
+                        <li><strong>Visual Cortex:</strong> Receives, integrates, and processes visual information from the retinas.</li>
+                        <li>Visual information from the right half of your visual field goes to the left occipital lobe, and vice versa.</li>
+                        <li>A blow to the back of the head can stimulate the visual cortex, causing you to "see stars."</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 5: The Two Hemispheres -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-4">The Divided Brain</h2>
+            <p class="mb-4">The brain is divided into two hemispheres (Left and Right), connected by a wide band of axon fibers called the <strong>Corpus Callosum</strong>.</p>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white p-5 border-t-4 border-indigo-500 shadow rounded">
+                    <h4 class="font-bold text-lg mb-2 text-indigo-800">Left Hemisphere</h4>
+                    <p class="text-sm">Typically the "logical" side. It excels at making quick, exact interpretations of language. It handles speech production (Broca), language comprehension (Wernicke), mathematical calculation, and literal, linear thinking.</p>
+                </div>
+                <div class="bg-white p-5 border-t-4 border-teal-500 shadow rounded">
+                    <h4 class="font-bold text-lg mb-2 text-teal-800">Right Hemisphere</h4>
+                    <p class="text-sm">Typically the "creative" side. Excels at making inferences, modulating speech to make meaning clear (inflection), recognizing faces, perceiving emotion, and spatial reasoning.</p>
+                </div>
+            </div>
+            <p class="mt-4 text-sm italic text-gray-600">Note: In severe cases of epilepsy, surgeons sometimes cut the Corpus Callosum, creating "Split-Brain" patients. These fascinating case studies reveal how the two sides of the brain operate independently when they can no longer communicate.</p>
+        </section>
+
+        <!-- Interactive Quiz -->
+        <section class="mt-16 bg-slate-100 p-8 rounded-xl border border-slate-300">
+            <h2 class="text-3xl font-bold text-center mb-2"><i class="fas fa-clipboard-check text-green-600 mr-2"></i> Module Knowledge Check</h2>
+            <p class="text-center text-gray-600 mb-8">Test your understanding of the Foundation and the Brain.</p>
+
+            <div id="quiz-container" class="max-w-2xl mx-auto space-y-6">
+                
+                <!-- Question 1 -->
+                <div class="bg-white p-5 rounded shadow-sm border border-gray-200 quiz-q">
+                    <p class="font-bold mb-3">1. Which part of the neuron receives incoming messages from other cells?</p>
+                    <div class="space-y-2">
+                        <label class="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-50 rounded"><input type="radio" name="q1" value="wrong" class="form-radio text-blue-600"> <span>Axon</span></label>
+                        <label class="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-50 rounded"><input type="radio" name="q1" value="wrong" class="form-radio text-blue-600"> <span>Myelin Sheath</span></label>
+                        <label class="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-50 rounded"><input type="radio" name="q1" value="correct" class="form-radio text-blue-600"> <span>Dendrite</span></label>
+                        <label class="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-50 rounded"><input type="radio" name="q1" value="wrong" class="form-radio text-blue-600"> <span>Soma</span></label>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="bg-white p-5 rounded shadow-sm border border-gray-200 quiz-q">
+                    <p class="font-bold mb-3">2. If you see a bear in the woods, your heart races and your pupils dilate. Which system is responsible for this "fight or flight" response?</p>
+                    <div class="space-y-2">
+                        <label class="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-50 rounded"><input type="radio" name="q2" value="wrong" class="form-radio text-blue-600"> <span>Parasympathetic Nervous System</span></label>
+                        <label class="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-50 rounded"><input type="radio" name="q2" value="correct" class="form-radio text-blue-600"> <span>Sympathetic Nervous System</span></label>
+                        <label class="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-50 rounded"><input type="radio" name="q2" value="wrong" class="form-radio text-blue-600"> <span>Somatic Nervous System</span></label>
+                        <label class="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-50 rounded"><input type="radio" name="q2" value="wrong" class="form-radio text-blue-600"> <span>Central Nervous System</span></label>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="bg-white p-5 rounded shadow-sm border border-gray-200 quiz-q">
+                    <p class="font-bold mb-3">3. Phineas Gage experienced a drastic change in personality after an iron rod damaged which lobe of his brain?</p>
+                    <div class="space-y-2">
+                        <label class="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-50 rounded"><input type="radio" name="q3" value="correct" class="form-radio text-blue-600"> <span>Frontal Lobe</span></label>
+                        <label class="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-50 rounded"><input type="radio" name="q3" value="wrong" class="form-radio text-blue-600"> <span>Parietal Lobe</span></label>
+                        <label class="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-50 rounded"><input type="radio" name="q3" value="wrong" class="form-radio text-blue-600"> <span>Occipital Lobe</span></label>
+                        <label class="flex items-center space-x-2 cursor-pointer p-2 hover:bg-gray-50 rounded"><input type="radio" name="q3" value="wrong" class="form-radio text-blue-600"> <span>Temporal Lobe</span></label>
+                    </div>
+                </div>
+
+                <div class="text-center mt-6">
+                    <button onclick="checkQuiz()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105">Submit Answers</button>
+                </div>
+                
+                <div id="quiz-results" class="hidden mt-6 p-4 rounded text-center font-bold text-lg"></div>
+
+            </div>
+        </section>
+        
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-6 text-center text-sm">
+        <p>&copy; 2026 Interactive Psychology LMS Modules. Adapted for Brightspace.</p>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Accordion Logic
+        function toggleAccordion(button) {
+            button.classList.toggle("active");
+            var content = button.nextElementSibling;
+            if (content.classList.contains("open")) {
+                content.classList.remove("open");
+            } else {
+                content.classList.add("open");
+            }
+        }
+
+        // Tabs Logic
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            
+            // Hide all tab content
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove("active");
+            }
+            
+            // Reset all button styles
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" bg-blue-600 text-white", " bg-gray-200 text-gray-700 hover:bg-gray-300");
+            }
+            
+            // Show current tab and apply active styling
+            document.getElementById(tabName).style.display = "block";
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.className = evt.currentTarget.className.replace(" bg-gray-200 text-gray-700 hover:bg-gray-300", " bg-blue-600 text-white");
+        }
+
+        // Quiz Logic
+        function checkQuiz() {
+            let score = 0;
+            const total = 3;
+            const q1 = document.querySelector('input[name="q1"]:checked');
+            const q2 = document.querySelector('input[name="q2"]:checked');
+            const q3 = document.querySelector('input[name="q3"]:checked');
+            
+            const resultsDiv = document.getElementById("quiz-results");
+            
+            if(!q1 || !q2 || !q3) {
+                resultsDiv.innerHTML = "Please answer all questions before submitting.";
+                resultsDiv.className = "mt-6 p-4 rounded text-center font-bold text-lg bg-yellow-100 text-yellow-800 border border-yellow-300 block";
+                return;
+            }
+
+            if(q1.value === "correct") score++;
+            if(q2.value === "correct") score++;
+            if(q3.value === "correct") score++;
+
+            if(score === total) {
+                resultsDiv.innerHTML = `Perfect Score! ${score}/${total} <i class="fas fa-star text-yellow-500 ml-2"></i>`;
+                resultsDiv.className = "mt-6 p-4 rounded text-center font-bold text-lg bg-green-100 text-green-800 border border-green-300 block";
+            } else {
+                resultsDiv.innerHTML = `You scored ${score}/${total}. Review the sections above and try again!`;
+                resultsDiv.className = "mt-6 p-4 rounded text-center font-bold text-lg bg-red-100 text-red-800 border border-red-300 block";
+            }
+        }
+    </script>
+</body>
+</html>

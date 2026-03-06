@@ -1,36 +1,39 @@
 # Session Checklist
 
-## Start
+## Before You Change Code
 
-1. Open `launch-canvas-helper.bat`.
-2. Confirm dependencies install (if first run).
-3. Open Studio and select target project slug.
-4. Read before edits:
-   - `projects/<slug>/meta/project.json`
-   - `projects/<slug>/meta/section-map.json`
-   - `projects/<slug>/meta/style-guide.md`
+1. Identify the target project slug if one exists.
+2. Read `projects/<slug>/meta/prompt-pack.md` first for project work.
+3. Read `AGENTS.md` and `ARCHITECTURE.md` for repo-wide work.
+4. Confirm the owning boundary:
+   - Studio UI
+   - local server
+   - scripts/engine
+   - intelligence collect
+   - intelligence apply
+   - ops/governance docs
 
 ## During Work
 
-1. Keep `projects/<slug>/raw/` unchanged.
-2. Edit only in `projects/<slug>/workspace/`.
-3. Use Split view to compare regressions and behavior parity.
-4. Validate references from `projects/<slug>/references/extracted/` first.
+1. Keep `projects/<slug>/raw/` untouched unless the task explicitly requires raw repair.
+2. Keep `projects/<slug>/exports/` treated as generated output.
+3. Use the current intelligence mode intentionally:
+   - collect-only
+   - advisory
+   - active
+4. Document any boundary spill immediately.
+5. Avoid drive-by refactors.
 
-## Before Handoff
+## Before You Stop
 
-1. Save Studio session log (`Save Session Log` button).
-2. Update preview note from template:
-   - what changed
-   - what still needs validation
-   - exact next command
-3. If needed, run:
-   - `npm.cmd run analyze -- --project <slug>`
-   - `npm.cmd run refs -- --project <slug>`
-   - `npm.cmd run export:brightspace -- --project <slug>`
+1. Run the minimum verification for the touched area.
+2. Update docs if commands, boundaries, or policy changed.
+3. Save any session log required by the task.
+4. Write a handoff using `docs/ops/HANDOFF.md`.
 
-## Done Criteria
+## Done Check
 
-1. Workspace preview reflects intended change.
-2. No raw baseline edits.
-3. Handoff note exists and contains next actions.
+1. Behavior preserved or intentionally documented.
+2. Verification completed and recorded.
+3. Handoff contains exact next command and exact next file to open.
+4. Risks are explicit, not implied.

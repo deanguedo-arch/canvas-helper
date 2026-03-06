@@ -1,4 +1,5 @@
 import { getStringFlag, hasFlag, parseArgs } from "./lib/cli.js";
+import { readCliIntelligenceOverride } from "./lib/intelligence.js";
 import { importProject, resolveLearningSourceOverride } from "./lib/importer.js";
 
 async function main() {
@@ -12,12 +13,14 @@ async function main() {
   }
 
   const source = resolveLearningSourceOverride(getStringFlag(parsedArgs, "source"));
+  const policyOverride = readCliIntelligenceOverride(parsedArgs);
 
   const result = await importProject({
     inputPath,
     slug: getStringFlag(parsedArgs, "slug"),
     force: hasFlag(parsedArgs, "force"),
-    source
+    source,
+    policyOverride
   });
 
   console.log(`Imported project "${result.slug}".`);

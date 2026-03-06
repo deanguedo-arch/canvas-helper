@@ -1,4 +1,5 @@
 import { getStringFlag, hasFlag, parseArgs } from "./lib/cli.js";
+import { readCliIntelligenceOverride } from "./lib/intelligence.js";
 import { rehydrateWorkspace } from "./lib/importer.js";
 
 async function main() {
@@ -9,7 +10,7 @@ async function main() {
     throw new Error('Usage: npm run rehydrate -- --project <slug> [--force]');
   }
 
-  await rehydrateWorkspace(projectSlug, hasFlag(parsedArgs, "force"));
+  await rehydrateWorkspace(projectSlug, hasFlag(parsedArgs, "force"), readCliIntelligenceOverride(parsedArgs));
   console.log(`Rehydrated workspace for "${projectSlug}" from raw/original.html.`);
 }
 

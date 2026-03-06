@@ -19,13 +19,14 @@ import {
 import { refreshProjectIntelligence } from "./intelligence.js";
 import { getProjectPaths, projectsRoot } from "./paths.js";
 import { extractProjectReferences } from "./references.js";
-import type { ImportLog, InputKind, LearningSource, ProjectManifest } from "./types.js";
+import type { ImportLog, InputKind, IntelligencePolicyOverride, LearningSource, ProjectManifest } from "./types.js";
 
 type ImportProjectOptions = {
   inputPath: string;
   slug?: string;
   force?: boolean;
   source?: LearningSource;
+  policyOverride?: IntelligencePolicyOverride;
 };
 
 type AssetReference = {
@@ -771,7 +772,9 @@ export async function importProject(options: ImportProjectOptions) {
     await extractProjectReferences(slug);
     actions.push("Indexed the imported supporting material into references/extracted.");
   }
-  const intelligence = await refreshProjectIntelligence(slug);
+  const intelligence = await refreshProjectIntelligence(slug, {
+    policyOverride: options.policyOverride
+  });
   actions.push(`Learned project patterns (${intelligence.learnedProfilePath}).`);
   actions.push(`Updated local pattern bank (${intelligence.libraryRecordCount} profile(s)).`);
   actions.push(`Generated prompt pack (${intelligence.promptPackPath}).`);
@@ -786,7 +789,7 @@ export async function importProject(options: ImportProjectOptions) {
   };
 }
 
-export async function rehydrateWorkspace(slug: string, force = false) {
+export async function rehydrateWorkspace(slug: string, force = false, policyOverride?: IntelligencePolicyOverride) {
   const paths = getProjectPaths(slug);
   if (!(await fileExists(paths.rawEntrypoint))) {
     throw new Error(`No raw/original.html found for project "${slug}".`);
@@ -806,5 +809,5 @@ export async function rehydrateWorkspace(slug: string, force = false) {
   await ensureDir(paths.workspaceDir);
   await buildWorkspaceFromHtml(rawHtml, paths.workspaceDir, paths.rawDir);
   await analyzeProject(slug);
-  await refreshProjectIntelligence(slug);
+  await refreshProjectIntelligence(slug, { policyOverride });
 }

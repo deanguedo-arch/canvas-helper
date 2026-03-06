@@ -18,6 +18,7 @@
     "refs": "tsx scripts/extract-references.ts",
     "backfill:learning": "tsx scripts/backfill-learning-source.ts",
     "test:learning": "tsx scripts/tests/learning-pipeline-check.ts",
+    "smoke:pipeline": "tsx scripts/smoke-local-pipeline.ts",
     "export:brightspace": "tsx scripts/export-brightspace.ts",
     "export:brightspace:zip": "tsx scripts/export-brightspace-package.ts",
     "export:html": "tsx scripts/export-html.ts",

@@ -8,6 +8,7 @@ export type MemoryKind = "style" | "component" | "tool" | "resource" | "decision
 export type MemoryConfidence = "low" | "medium" | "high";
 export type MemoryOriginCommand = "import" | "analyze" | "refs" | "export" | "plan";
 export type MemoryOriginSource = "pattern" | "workspace" | "reference" | "design-doc" | "export";
+export type IntelligenceMode = "collect-only" | "advisory" | "active";
 export type ReferenceKind =
   | "txt"
   | "md"
@@ -33,6 +34,23 @@ export type ProjectManifest = {
   workspaceApprovedAt?: string;
   createdAt: string;
   updatedAt: string;
+};
+
+export type IntelligencePolicyFlags = {
+  collectPatternBank: boolean;
+  collectMemoryLedger: boolean;
+  applyPatternBankToPromptPack: boolean;
+  applyMemoryLedgerToPromptPack: boolean;
+  applyMemoryLedgerToRecommendations: boolean;
+};
+
+export type IntelligencePolicy = IntelligencePolicyFlags & {
+  mode: IntelligenceMode;
+  source: "repo-default" | "project-override" | "cli-override";
+};
+
+export type IntelligencePolicyOverride = Partial<IntelligencePolicyFlags> & {
+  mode?: IntelligenceMode;
 };
 
 export type SectionManifest = {
@@ -130,6 +148,7 @@ export type ProjectPaths = {
   referenceIndexPath: string;
   importLogPath: string;
   sessionLogPath: string;
+  intelligencePolicyPath: string;
   exportsDir: string;
   brightspaceExportDir: string;
 };

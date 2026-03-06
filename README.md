@@ -1,164 +1,42 @@
 # Canvas Helper
 
-Canvas Helper is a local workspace for importing Canvas-generated interactive HTML, preserving an untouched raw copy, generating a safer editable workspace, previewing both versions side by side with a lightweight studio, and exporting a Brightspace-ready folder.
+Canvas Helper is a local-first Node-powered workbench for importing Canvas course content, preserving immutable raw baselines, editing workspace copies, previewing them in a browser Studio, and exporting Brightspace-ready deliverables.
 
-The editor is Cursor/Codex. This repo provides the project layout, manifests, preview server, reference extraction, and export tooling that make post-editing large generated Canvas pages practical.
+Repo-level intelligence defaults live in `intelligence-policy.json`. Project-specific overrides can live in `projects/<slug>/meta/intelligence-policy.json`.
 
-## What It Does
-- Imports `.html` files or `.txt` files that contain an HTML document.
-- Imports a whole folder that contains one site file plus supporting materials.
-- Preserves the untouched import at `projects/<slug>/raw/original.html`.
-- Generates an editable copy at `projects/<slug>/workspace/`.
-- Splits safe top-level shared components into `workspace/components/` when possible.
-- Generates Codex-friendly metadata in `projects/<slug>/meta/`.
-- Extracts supported reference materials from `references/raw/` into `references/extracted/`.
-- Exports a Brightspace upload bundle from `workspace/`.
+## Quick Start
 
-## Repo Layout
-```text
-app/studio/                  Vite + React studio shell
-scripts/                     Import, analyze, reference, export, and rehydrate commands
-projects/<slug>/raw/         Immutable source copy
-projects/<slug>/workspace/   Editable project files
-projects/<slug>/references/  Source and extracted reference material
-projects/<slug>/meta/        Manifests, outline, style guide, import log
-projects/<slug>/exports/     Brightspace export output
-```
-
-## Setup
-1. Install Node.js.
+1. Install Node.js
 2. Run `npm.cmd install`
+3. Start Studio with `npm.cmd run studio`
+4. Or use `launch-canvas-helper.bat` on Windows
 
-PowerShell note: this machine blocks `npm.ps1`, so use `npm.cmd ...` instead of `npm ...`.
+## Main Commands
 
-## Commands
 - `npm.cmd run studio`
 - `npm.cmd run studio:auto`
-- `npm.cmd run typecheck`
-- `npm.cmd run build:studio`
-- `npm.cmd run import -- "<path-to-html-or-txt-or-folder>"`
-- `npm.cmd run watch:incoming`
+- `npm.cmd run import -- "<path-to-html-or-folder>" --slug <slug>`
 - `npm.cmd run analyze -- --project <slug>`
 - `npm.cmd run refs -- --project <slug>`
 - `npm.cmd run export:brightspace -- --project <slug>`
-- `npm.cmd run rehydrate -- --project <slug> --force`
+- `npm.cmd run export:brightspace:zip -- --project <slug>`
+- `npm.cmd run export:html -- --project <slug>`
+- `npm.cmd run smoke:pipeline`
+- `npm.cmd run typecheck`
+- `npm.cmd run build:studio`
 
-## One-Click Launcher (Windows)
-- Use `launch-canvas-helper.bat` from the repo root for a click-to-run menu.
-- Options:
-  - Studio + Auto Import Watcher (recommended)
-  - Import once + Studio + Auto Import Watcher
-  - Export Brightspace
-- The launcher auto-opens `http://127.0.0.1:5173`.
+## Core Workflow
 
-## Ops Runbook
-- Operational docs live in `docs/ops/`:
-  - `README.md`
-  - `session-checklist.md`
-  - `agent-prompt-templates.md`
-  - `preview-note-template.md`
+1. Put incoming bundles in `projects/_incoming/`
+2. Import into `projects/<slug>/...`
+3. Edit only `projects/<slug>/workspace/`
+4. Use Studio to compare raw vs workspace
+5. Run analyze / refs / export as needed
+6. Capture a handoff before stopping
 
-## Typical Workflow
-1. Import a Canvas export:
-   `npm.cmd run import -- "canvas code and references\CALM MODULE .HTML"`
-2. Or import a whole source bundle folder:
-   `npm.cmd run import -- "projects\_incoming\biology-module" --slug biology-module`
-2. Open the studio:
-   `npm.cmd run studio`
-3. Edit files in `projects/<slug>/workspace/` with Cursor/Codex.
-4. If you imported a folder, supporting files are copied into `references/raw/` and indexed automatically.
-5. If you add more supporting material later, drop it into `projects/<slug>/references/raw/`.
-6. Extract references:
-   `npm.cmd run refs -- --project <slug>`
-7. Export for Brightspace:
-   `npm.cmd run export:brightspace -- --project <slug>`
+## Repo Guides
 
-## Zero-Prompt Incoming Workflow
-Run one command and keep working in Studio while drops in `projects/_incoming/` auto-import:
-
-```powershell
-npm.cmd run studio:auto
-```
-
-What this does:
-- Starts Studio preview server.
-- Watches `projects/_incoming/` for changed folders.
-- Auto-runs import for changed folders (with `--force` behavior).
-- Import now auto-runs analyze, refs indexing (when applicable), pattern learning, and prompt-pack refresh.
-
-Watcher options:
-- One-shot scan now: `npm.cmd run watch:incoming -- --once`
-- Custom incoming root: `npm.cmd run watch:incoming -- --incoming <path>`
-- Disable force replace: `npm.cmd run watch:incoming -- --no-force`
-
-## Recommended Drop-Folder Workflow
-Use a staging folder under `projects/_incoming/` so your source bundle stays separate from the generated project files.
-
-Example:
-```text
-projects/
-  _incoming/
-    biology-module/
-      module.html
-      teacher-notes.pdf
-      activity-ideas.docx
-      source-text/
-        lesson-outline.md
-```
-
-Then run:
-```powershell
-npm.cmd run import -- "projects\_incoming\biology-module" --slug biology-module
-```
-
-What happens:
-- The importer picks the best `.html` or `.txt` file in that folder as the site entrypoint.
-- That file becomes `raw/original.html`.
-- Any local site assets referenced by the HTML are copied into the raw/workspace runtime.
-- All other supporting files are copied into `projects/<slug>/references/raw/`.
-- Supported reference files are indexed into `references/extracted/`.
-
-Do not point a folder import at `projects/<slug>` itself. Use a staging folder such as `projects/_incoming/<slug>` instead.
-
-## Studio
-The studio is intentionally minimal:
-- Lists imported projects
-- Supports `Focus` and `Split` comparison modes
-- Hides/shows the projects rail and details rail
-- Sets independent `Desktop` / `Tablet` / `Mobile` widths per preview side
-- Sets independent zoom per preview side
-- Matches scroll position from one side to the other for faster comparison
-- Shows section metadata from `meta/section-map.json`
-- Surfaces source file paths for opening in Cursor
-- Displays the generated style guide and import log
-- Saves a portable handoff log to `projects/<slug>/meta/studio-session-log.md` via the `Save Session Log` button
-
-Preview routes are served directly from the local `projects/` folder:
-- `/preview/raw/<slug>/original.html`
-- `/preview/workspace/<slug>/index.html`
-
-## Reference Extraction
-Supported extraction in v1:
-- `.txt`
-- `.md`
-- `.html`
-- `.pdf`
-- `.docx`
-
-Unsupported formats are still stored and indexed as `stored-only`.
-
-## Brightspace Export
-Exports are written to:
-`projects/<slug>/exports/brightspace/`
-
-The exporter copies the entire editable workspace, preserves relative paths, and writes `export-report.md` with upload guidance and dependency warnings.
-
-## Included Sample
-This repo now includes an imported sample project generated from:
-- `canvas code and references/`
-
-The sample project slug is:
-- `projects/calm-module/`
-
-Its sample reference extraction uses:
-- `canvas code and references/CALM Module 1 - Personal Choices.pdf`
+- Architecture: [`ARCHITECTURE.md`](./ARCHITECTURE.md)
+- Agent operating rules: [`AGENTS.md`](./AGENTS.md)
+- Contribution rules: [`CONTRIBUTING.md`](./CONTRIBUTING.md)
+- Ops runbook: [`docs/ops/README.md`](./docs/ops/README.md)

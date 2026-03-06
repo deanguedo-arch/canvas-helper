@@ -7,6 +7,7 @@ const currentDir = path.dirname(fileURLToPath(import.meta.url));
 
 export const repoRoot = path.resolve(currentDir, "..", "..");
 export const projectsRoot = path.join(repoRoot, "projects");
+export const repoIntelligencePolicyPath = path.join(repoRoot, "intelligence-policy.json");
 
 export function getProjectPaths(slug: string): ProjectPaths {
   const root = path.join(projectsRoot, slug);
@@ -33,6 +34,7 @@ export function getProjectPaths(slug: string): ProjectPaths {
     referenceIndexPath: path.join(root, "meta", "reference-index.json"),
     importLogPath: path.join(root, "meta", "import-log.md"),
     sessionLogPath: path.join(root, "meta", "studio-session-log.md"),
+    intelligencePolicyPath: path.join(root, "meta", "intelligence-policy.json"),
     exportsDir: path.join(root, "exports"),
     brightspaceExportDir: path.join(root, "exports", "brightspace")
   };
