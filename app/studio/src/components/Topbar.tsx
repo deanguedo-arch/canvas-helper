@@ -3,6 +3,7 @@ import type { PreviewLayoutPreferences, PreviewMode } from "../lib/types";
 type TopbarProps = {
   layoutPreferences: PreviewLayoutPreferences;
   previewMode: PreviewMode;
+  learnerMode: string;
   onSetCompareMode: (compareMode: boolean) => void;
   onSetPreviewMode: (previewMode: PreviewMode) => void;
   onToggleInspector: () => void;
@@ -11,6 +12,7 @@ type TopbarProps = {
 export function Topbar({
   layoutPreferences,
   previewMode,
+  learnerMode,
   onSetCompareMode,
   onSetPreviewMode,
   onToggleInspector
@@ -19,6 +21,7 @@ export function Topbar({
     <header className="topbar topbar-compact">
       <div className="project-summary">
         <h2>Studio</h2>
+        <p className="learner-mode-pill">Learner: {learnerMode}</p>
       </div>
 
       <div className="topbar-actions">

@@ -1,17 +1,31 @@
 import { fileExists, readJsonFile } from "../../fs.js";
+import { getProjectPaths, legacyRepoIntelligencePolicyPath, repoIntelligencePolicyPath } from "../../paths.js";
+
+import {
+  DEFAULT_INTELLIGENCE_MODE,
+  MODE_PRESETS
+} from "./defaults.js";
+import {
+  parseLearnerMode,
+  readProjectLearnerMode,
+  readRepoLearnerMode,
+  resolveLearnerMode,
+  type LearnerMode,
+  type LearnerModeSource
+} from "./learner-mode.js";
 import { getStringFlag, type ParsedArgs } from "../../cli.js";
-import { getProjectPaths, repoIntelligencePolicyPath } from "../../paths.js";
 import type {
-  IntelligenceMode,
   IntelligencePolicy,
   IntelligencePolicyFlags,
   IntelligencePolicyOverride
 } from "../../types.js";
 
-import { DEFAULT_INTELLIGENCE_MODE, MODE_PRESETS } from "./defaults.js";
+function normalizeObject(value: unknown): Record<string, unknown> | null {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    return null;
+  }
 
-function isIntelligenceMode(value: string | undefined): value is IntelligenceMode {
-  return value === "collect-only" || value === "advisory" || value === "active";
+  return value as Record<string, unknown>;
 }
 
 function parseBooleanFlag(value: string | boolean | undefined) {
@@ -35,17 +49,41 @@ function parseBooleanFlag(value: string | boolean | undefined) {
   return undefined;
 }
 
+function normalizePolicySource(source: LearnerModeSource): IntelligencePolicy["source"] {
+  if (source === "cli") {
+    return "cli-override";
+  }
+
+  if (source === "env") {
+    return "env-override";
+  }
+
+  if (source === "project") {
+    return "project-override";
+  }
+
+  if (source === "repo") {
+    return "repo-default";
+  }
+
+  return "default";
+}
+
+function withoutMode<T extends IntelligencePolicyOverride>(override: T): Omit<T, "mode"> {
+  const { mode: _mode, ...rest } = override;
+  return rest as Omit<T, "mode">;
+}
+
 function sanitizeOverride(value: unknown): IntelligencePolicyOverride {
-  if (!value || typeof value !== "object" || Array.isArray(value)) {
+  const input = normalizeObject(value);
+  if (!input) {
     return {};
   }
 
-  const input = value as Record<string, unknown>;
-  const mode = typeof input.mode === "string" && isIntelligenceMode(input.mode) ? input.mode : undefined;
   const override: IntelligencePolicyOverride = {};
 
-  if (mode) {
-    override.mode = mode;
+  if (input.mode !== undefined) {
+    override.mode = parseLearnerMode(input.mode, "intelligence policy mode");
   }
 
   if (typeof input.collectPatternBank === "boolean") {
@@ -72,26 +110,84 @@ function sanitizeOverride(value: unknown): IntelligencePolicyOverride {
 }
 
 function applyOverride(
-  currentPolicy: IntelligencePolicyFlags & { mode: IntelligenceMode },
+  currentPolicy: IntelligencePolicyFlags & { mode: LearnerMode },
   override: IntelligencePolicyOverride
-) {
-  const base = override.mode ? { mode: override.mode, ...MODE_PRESETS[override.mode] } : currentPolicy;
+): IntelligencePolicyFlags & { mode: LearnerMode } {
+  const nextPolicy = override.mode
+    ? { mode: override.mode, ...MODE_PRESETS[override.mode] }
+    : currentPolicy;
+
   return {
-    ...base,
-    collectPatternBank: override.collectPatternBank ?? base.collectPatternBank,
-    collectMemoryLedger: override.collectMemoryLedger ?? base.collectMemoryLedger,
-    applyPatternBankToPromptPack: override.applyPatternBankToPromptPack ?? base.applyPatternBankToPromptPack,
-    applyMemoryLedgerToPromptPack: override.applyMemoryLedgerToPromptPack ?? base.applyMemoryLedgerToPromptPack,
+    ...nextPolicy,
+    collectPatternBank: override.collectPatternBank ?? nextPolicy.collectPatternBank,
+    collectMemoryLedger: override.collectMemoryLedger ?? nextPolicy.collectMemoryLedger,
+    applyPatternBankToPromptPack: override.applyPatternBankToPromptPack ?? nextPolicy.applyPatternBankToPromptPack,
+    applyMemoryLedgerToPromptPack: override.applyMemoryLedgerToPromptPack ?? nextPolicy.applyMemoryLedgerToPromptPack,
     applyMemoryLedgerToRecommendations:
-      override.applyMemoryLedgerToRecommendations ?? base.applyMemoryLedgerToRecommendations
+      override.applyMemoryLedgerToRecommendations ?? nextPolicy.applyMemoryLedgerToRecommendations
   };
 }
 
+function enforceModeSemantics(policy: IntelligencePolicyFlags & { mode: LearnerMode }) {
+  const collectEnabled = policy.mode === "collect" || policy.mode === "apply";
+  const applyEnabled = policy.mode === "apply";
+
+  return {
+    ...policy,
+    collectPatternBank: collectEnabled,
+    collectMemoryLedger: collectEnabled,
+    applyPatternBankToPromptPack: applyEnabled,
+    applyMemoryLedgerToPromptPack: applyEnabled,
+    applyMemoryLedgerToRecommendations: applyEnabled
+  };
+}
+
+function hasKeys(value: IntelligencePolicyOverride) {
+  return Object.keys(value).length > 0;
+}
+
+async function readOptionalJson<T>(filePath: string) {
+  if (!(await fileExists(filePath))) {
+    return null;
+  }
+
+  return readJsonFile<T>(filePath);
+}
+
+async function readPolicyOverride(filePath: string): Promise<IntelligencePolicyOverride> {
+  const data = await readOptionalJson<unknown>(filePath);
+  if (!data) {
+    return {};
+  }
+
+  return sanitizeOverride(data);
+}
+
+async function readRepoPolicyOverride(): Promise<IntelligencePolicyOverride> {
+  const primary = await readPolicyOverride(repoIntelligencePolicyPath);
+  if (hasKeys(primary)) {
+    return primary;
+  }
+
+  return readPolicyOverride(legacyRepoIntelligencePolicyPath);
+}
+
+async function readProjectPolicyOverride(projectSlug: string): Promise<IntelligencePolicyOverride> {
+  const projectPolicyPath = getProjectPaths(projectSlug).intelligencePolicyPath;
+  return readPolicyOverride(projectPolicyPath);
+}
+
 export function readCliIntelligenceOverride(parsedArgs: ParsedArgs): IntelligencePolicyOverride {
-  const modeFlag = getStringFlag(parsedArgs, "intelligence-mode");
+  const learnerModeFlag = getStringFlag(parsedArgs, "learner-mode");
+  const legacyModeFlag = getStringFlag(parsedArgs, "intelligence-mode");
+  const mode = learnerModeFlag
+    ? parseLearnerMode(learnerModeFlag, "--learner-mode flag")
+    : legacyModeFlag
+      ? parseLearnerMode(legacyModeFlag, "--intelligence-mode flag")
+      : undefined;
 
   return sanitizeOverride({
-    mode: isIntelligenceMode(modeFlag) ? modeFlag : undefined,
+    mode,
     collectPatternBank: parseBooleanFlag(parsedArgs.flags["collect-pattern-bank"]),
     collectMemoryLedger: parseBooleanFlag(parsedArgs.flags["collect-memory-ledger"]),
     applyPatternBankToPromptPack: parseBooleanFlag(parsedArgs.flags["apply-pattern-bank-to-prompt-pack"]),
@@ -100,44 +196,57 @@ export function readCliIntelligenceOverride(parsedArgs: ParsedArgs): Intelligenc
   });
 }
 
-async function readOverrideFile(filePath: string) {
-  if (!(await fileExists(filePath))) {
-    return {};
-  }
-
-  return sanitizeOverride(await readJsonFile(filePath));
-}
-
 export async function resolveIntelligencePolicy(
   projectSlug?: string,
   cliOverride: IntelligencePolicyOverride = {}
 ): Promise<IntelligencePolicy> {
-  let policy = {
-    mode: DEFAULT_INTELLIGENCE_MODE,
-    ...MODE_PRESETS[DEFAULT_INTELLIGENCE_MODE]
-  };
-  let source: IntelligencePolicy["source"] = "repo-default";
+  const projectMode = projectSlug ? await readProjectLearnerMode(projectSlug) : undefined;
+  const repoMode = await readRepoLearnerMode();
+  const resolved = resolveLearnerMode({
+    cliMode: cliOverride.mode,
+    envMode: process.env.LEARNER_MODE,
+    projectMode,
+    repoMode,
+    defaultMode: DEFAULT_INTELLIGENCE_MODE
+  });
 
-  const repoOverride = await readOverrideFile(repoIntelligencePolicyPath);
-  if (Object.keys(repoOverride).length > 0) {
-    policy = applyOverride(policy, repoOverride);
+  let policy: IntelligencePolicyFlags & { mode: LearnerMode; source: IntelligencePolicy["source"] } = {
+    mode: resolved.mode,
+    ...MODE_PRESETS[resolved.mode],
+    source: normalizePolicySource(resolved.source)
+  };
+
+  const repoOverride = await readRepoPolicyOverride();
+  if (hasKeys(repoOverride)) {
+    policy = {
+      ...(policy as IntelligencePolicy),
+      ...applyOverride(policy, withoutMode(repoOverride)),
+      source: policy.source
+    };
   }
 
   if (projectSlug) {
-    const projectOverride = await readOverrideFile(getProjectPaths(projectSlug).intelligencePolicyPath);
-    if (Object.keys(projectOverride).length > 0) {
-      policy = applyOverride(policy, projectOverride);
-      source = "project-override";
+    const projectOverride = await readProjectPolicyOverride(projectSlug);
+    if (hasKeys(projectOverride)) {
+      policy = {
+        ...(policy as IntelligencePolicy),
+        ...applyOverride(policy, withoutMode(projectOverride)),
+        source: policy.source
+      };
     }
   }
 
-  if (Object.keys(cliOverride).length > 0) {
-    policy = applyOverride(policy, cliOverride);
-    source = "cli-override";
+  if (hasKeys(cliOverride)) {
+    policy = {
+      ...(policy as IntelligencePolicy),
+      ...applyOverride(policy, withoutMode(cliOverride)),
+      source: normalizePolicySource(resolved.source)
+    };
   }
 
+  const enforced = enforceModeSemantics(policy);
   return {
-    ...policy,
-    source
+    ...enforced,
+    source: policy.source
   };
 }

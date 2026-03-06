@@ -303,6 +303,18 @@ pre {
   font-size: 1.35rem;
 }
 
+.learner-mode-pill {
+  margin: 0.25rem 0 0;
+  padding: 0.24rem 0.68rem;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background: rgba(255, 255, 255, 0.44);
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
 .project-switcher select {
   min-width: 14rem;
   padding: 0.7rem 0.95rem;

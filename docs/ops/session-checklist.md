@@ -18,9 +18,9 @@
 1. Keep `projects/<slug>/raw/` untouched unless the task explicitly requires raw repair.
 2. Keep `projects/<slug>/exports/` treated as generated output.
 3. Use the current intelligence mode intentionally:
-   - collect-only
-   - advisory
-   - active
+   - off
+   - collect
+   - apply
 4. Document any boundary spill immediately.
 5. Avoid drive-by refactors.
 

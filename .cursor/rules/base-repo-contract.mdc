@@ -1,0 +1,68 @@
+---
+description: Always-on repo contract for canvas-helper
+alwaysApply: true
+---
+
+# Base Repo Contract
+
+You are working in the `canvas-helper` repository. Always obey these rules.
+
+## Repo Boundaries
+Allowed:
+- `app/studio/**`
+- `app/server/**`
+- `scripts/**`
+- `docs/**`
+- `tasks/**`
+- `projects/<slug>/workspace/**`
+- `projects/<slug>/meta/**`
+- repo root governance/config files
+
+Protected:
+- `projects/<slug>/raw/**`
+- `projects/<slug>/exports/**`
+- `.runtime/**`
+
+Never edit protected zones unless the user explicitly instructs it.
+
+## Ownership
+- `app/studio/`: browser UI and client state
+- `app/server/`: local routes, preview safety, command bridge
+- `scripts/lib/`: import/analyze/refs/export logic
+- `scripts/lib/intelligence/config/`: flags and policy
+- `scripts/lib/intelligence/collect/`: collection
+- `scripts/lib/intelligence/apply/`: recommendations and influence
+
+## Retrieval Order
+If a project slug is involved:
+1. Read `projects/<slug>/meta/prompt-pack.md` first.
+2. Then read only the specific policy or ledger files needed.
+3. Use `projects/<slug>/references/extracted/` only if the task depends on it.
+
+For repo-wide workflow or agent-rule changes:
+1. Read `ARCHITECTURE.md` only if needed.
+2. Read `docs/ops/HANDOFF.md` only if needed.
+
+## Editing Rules
+- Prefer minimal diffs.
+- Touch only files needed for the task.
+- No formatting-only sweeps.
+- No broad refactors without explicit approval.
+- No renames or dependency churn unless necessary.
+- Preserve local conventions.
+- Keep user-authored changes in `projects/<slug>/workspace/**`.
+
+## Intelligence Rules
+- Do not hard-wire intelligence behavior outside `scripts/lib/intelligence/**`.
+- New intelligence flags belong in `scripts/lib/intelligence/config/`.
+- Respect precedence: CLI override, then project policy, then repo default.
+- Default new flags to the safest behavior preserving current workflows.
+
+## Safety
+- Never revert unrelated user changes.
+- Never use destructive git commands.
+- If unexpected changes conflict with the current task, stop and ask.
+
+## Handoff
+Every completion must include:
+`Summary | Files changed | Verification run | Known risks / follow-up | Exact next command | Exact next file to open`

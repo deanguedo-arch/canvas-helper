@@ -101,9 +101,8 @@ export async function generatePromptPack(projectSlug: string, policy: Intelligen
     })
   );
 
-  const showAdvisorySignals = policy.mode === "advisory";
-  const includeGlobalMemory = policy.applyMemoryLedgerToPromptPack || showAdvisorySignals;
-  const includePatternMatches = policy.applyPatternBankToPromptPack || showAdvisorySignals;
+  const includeGlobalMemory = policy.applyMemoryLedgerToPromptPack;
+  const includePatternMatches = policy.applyPatternBankToPromptPack;
   const globalMemory = includeGlobalMemory ? await getRelevantMemoryForProject(projectSlug, policy, 5) : [];
   const patternMatches = includePatternMatches ? await findPatternMatches(projectSlug, 5) : [];
 
@@ -246,8 +245,8 @@ export async function generatePromptPack(projectSlug: string, policy: Intelligen
     renderMarkdownSection("Style Guide", styleGuideBody),
     renderMarkdownSection("Content Outline", contentOutlineBody),
     renderMarkdownSection("Import Log", importLogBody),
-    renderMarkdownSection(policy.mode === "advisory" ? "Advisory Global Memory" : "Global Memory", globalMemoryBody),
-    renderMarkdownSection(policy.mode === "advisory" ? "Advisory Pattern Matches" : "Pattern Matches", patternBody),
+    renderMarkdownSection("Global Memory", globalMemoryBody),
+    renderMarkdownSection("Pattern Matches", patternBody),
     renderMarkdownSection("Reference Excerpts", referenceBody),
     renderMarkdownSection("Task Stub", taskStubBody)
   ].join("\n");

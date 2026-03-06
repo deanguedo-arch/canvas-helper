@@ -2,6 +2,15 @@
 
 Use this folder to keep local work disciplined, reproducible, and handoff-friendly.
 
+## Learner Mode Workflow
+
+- Use one of the explicit launchers for local runs:
+  - `launch-canvas-helper-off.bat`
+  - `launch-canvas-helper-collect.bat`
+  - `launch-canvas-helper-apply.bat`
+- The effective mode follows `--learner-mode` > `LEARNER_MODE` > project config > repo config > built-in default.
+- Studio status is informational: it reads and shows the effective mode from the same resolver used by commands.
+
 ## Core Operating Loop
 
 1. Read [`AGENTS.md`](../../AGENTS.md)

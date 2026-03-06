@@ -4,6 +4,7 @@ import { readdir, readFile } from "node:fs/promises";
 import { fileExists, latestMtimeMs, listFilesRecursive, readJsonFile, writeJsonFile } from "./fs.js";
 import { getProjectPaths, projectsRoot } from "./paths.js";
 import type { ProjectManifest, ReferenceIndex, SectionMap, StudioProjectBundle } from "./types.js";
+import { resolveIntelligencePolicy } from "./intelligence/config/policy.js";
 
 function normalizeSlash(value: string) {
   return value.replace(/\\/g, "/");
@@ -123,6 +124,7 @@ export async function readStudioProjectBundle(slug: string): Promise<StudioProje
   const [
     sectionMap,
     referenceIndex,
+    intelligencePolicy,
     styleGuide,
     importLog,
     rawRevision,
@@ -132,6 +134,7 @@ export async function readStudioProjectBundle(slug: string): Promise<StudioProje
   ] = await Promise.all([
     readOptionalJson<SectionMap>(paths.sectionMapPath),
     readOptionalJson<ReferenceIndex>(paths.referenceIndexPath),
+    resolveIntelligencePolicy(slug),
     readOptionalFile(paths.styleGuidePath),
     readOptionalFile(paths.importLogPath),
     latestMtimeMs(paths.rawDir),
@@ -160,6 +163,8 @@ export async function readStudioProjectBundle(slug: string): Promise<StudioProje
     },
     styleGuide,
     importLog,
+    effectiveLearnerMode: intelligencePolicy.mode,
+    effectiveLearnerModeSource: intelligencePolicy.source,
     revisions: {
       raw: rawRevision,
       workspace: workspaceRevision

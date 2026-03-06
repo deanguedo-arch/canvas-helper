@@ -46,6 +46,8 @@ export function App() {
     () => projects.find((project) => project.manifest.slug === selectedSlug) ?? null,
     [projects, selectedSlug]
   );
+  const learnerModeLabel = selectedProject ? selectedProject.effectiveLearnerMode : "off";
+  const learnerModeDisplay = learnerModeLabel[0].toUpperCase() + learnerModeLabel.slice(1);
 
   const resolvedWorkspaceHtmlPath = useMemo(() => {
     if (!selectedProject) {
@@ -189,6 +191,7 @@ export function App() {
         <Topbar
           layoutPreferences={layoutPreferences}
           previewMode={previewMode}
+          learnerMode={learnerModeDisplay}
           onSetCompareMode={setCompareMode}
           onSetPreviewMode={handlePreviewModeChange}
           onToggleInspector={() =>

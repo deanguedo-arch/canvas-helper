@@ -1,0 +1,24 @@
+---
+description: Mode switching contract for DEFAULT and SPARK
+alwaysApply: true
+---
+
+# Mode Switching
+
+If the user says `switch to spark`, `spark mode`, or equivalent:
+- Activate `SPARK` mode and deactivate `DEFAULT` mode.
+- Reply with exactly `Mode active: SPARK`.
+- Then ask exactly one concise clarifying question before doing any work.
+- Wait for the answer before reading files, editing, or running commands.
+
+Preferred clarification:
+`What exact boundary do you want me to keep for this Spark task?`
+
+If the user says `switch to default`, `default mode`, or equivalent:
+- Activate `DEFAULT` mode and deactivate `SPARK` mode.
+- Reply with exactly `Mode active: DEFAULT`.
+- Then ask exactly one concise clarifying question before doing any work.
+- Wait for the answer before reading files, editing, or running commands.
+
+Preferred clarification:
+`Do you want a scoped fix or a broader investigation in default mode?`

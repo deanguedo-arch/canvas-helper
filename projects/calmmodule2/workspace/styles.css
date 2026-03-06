@@ -1,0 +1,58 @@
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap');
+        
+        body {
+            background-color: #f8fafc;
+            color: #334155;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Custom Scrollbar for Textareas and window */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        
+        .clay-card {
+            background: white;
+            border-radius: 2rem;
+            border: 2px solid #f1f5f9;
+            box-shadow: 0 8px 0 0 #e2e8f0, 0 15px 40px rgba(0,0,0,0.05);
+        }
+        
+        .clay-input {
+            background-color: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 1rem;
+            transition: all 0.2s ease;
+        }
+        .clay-input:focus {
+            background-color: white;
+            border-color: #8b5cf6;
+            box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.2);
+            outline: none;
+        }
+
+        .clay-btn {
+            background-color: #8b5cf6;
+            color: white;
+            font-weight: bold;
+            border: 2px solid #6d28d9;
+            box-shadow: 0 4px 0 0 #5b21b6;
+            border-radius: 1rem;
+            transition: all 0.1s ease;
+        }
+        .clay-btn:active {
+            transform: translateY(4px);
+            box-shadow: 0 0 0 0 #5b21b6;
+        }
+        .clay-btn-secondary {
+            background-color: #f8fafc;
+            color: #475569;
+            border: 2px solid #e2e8f0;
+            box-shadow: 0 4px 0 0 #cbd5e1;
+        }
+        .clay-btn-secondary:active {
+            box-shadow: 0 0 0 0 #cbd5e1;
+        }
+    

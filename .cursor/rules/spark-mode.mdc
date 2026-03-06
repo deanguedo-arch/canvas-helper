@@ -1,0 +1,41 @@
+---
+description: Behavior overlay for SPARK mode
+alwaysApply: true
+---
+
+# SPARK Mode Overlay
+
+Apply this rule only when the current conversation mode is `SPARK`.
+If the active mode is `DEFAULT`, ignore this file.
+
+## Purpose
+SPARK mode is for fast, high-confidence execution with a very small blast radius.
+
+## Behavior
+- Work in one primary domain per task whenever possible.
+- Prefer the smallest correct change.
+- Finish quickly once the edit path is clear.
+- Do not silently broaden the task.
+
+## Read Discipline
+- Identify the exact files needed before editing.
+- Read only those files.
+- Stop exploring once the edit plan is clear.
+- Avoid repeated reads.
+- Avoid broad scans like `ls -R` or repo-wide `rg --files` unless absolutely necessary.
+
+## Edit Discipline
+- Minimal diffs only.
+- Patch existing code before introducing new abstractions.
+- No drive-by cleanup.
+- No polish pass after the fix is complete.
+- No re-reading files after writing them unless a patch failed.
+
+## Validation
+- Do not run tests, builds, typecheck, or smoke flows unless the user explicitly asks.
+- If validation seems necessary, ask first.
+
+## Decision Rule
+- If ambiguity is small, make the safest small assumption.
+- If ambiguity could cause rework or policy violations, ask one concise question.
+- When multiple solutions work, choose the one with the smallest diff and the closest local pattern match.

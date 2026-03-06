@@ -71,6 +71,9 @@ export type ReferenceManifest = {
   extractedTextPath?: string;
 };
 
+export type LearnerMode = "off" | "collect" | "apply";
+export type LearnerModeSource = "repo-default" | "project-override" | "env-override" | "cli-override" | "default";
+
 export type ProjectBundle = {
   manifest: {
     id: string;
@@ -94,6 +97,8 @@ export type ProjectBundle = {
   };
   styleGuide: string;
   importLog: string;
+  effectiveLearnerMode: LearnerMode;
+  effectiveLearnerModeSource: LearnerModeSource;
   revisions: { raw: number; workspace: number };
 };
 

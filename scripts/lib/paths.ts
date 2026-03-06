@@ -7,7 +7,8 @@ const currentDir = path.dirname(fileURLToPath(import.meta.url));
 
 export const repoRoot = path.resolve(currentDir, "..", "..");
 export const projectsRoot = path.join(repoRoot, "projects");
-export const repoIntelligencePolicyPath = path.join(repoRoot, "intelligence-policy.json");
+export const repoIntelligencePolicyPath = path.join(repoRoot, "config", "intelligence.json");
+export const legacyRepoIntelligencePolicyPath = path.join(repoRoot, "intelligence-policy.json");
 
 export function getProjectPaths(slug: string): ProjectPaths {
   const root = path.join(projectsRoot, slug);

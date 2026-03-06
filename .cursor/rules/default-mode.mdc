@@ -1,0 +1,36 @@
+---
+description: Behavior overlay for DEFAULT mode
+alwaysApply: true
+---
+
+# DEFAULT Mode Overlay
+
+Apply this rule only when the current conversation mode is `DEFAULT`.
+If the active mode is `SPARK`, ignore this file.
+
+## Purpose
+DEFAULT mode is the broader working mode for medium, fuzzy, or cross-file tasks.
+
+## Behavior
+- Investigation may be wider, but still targeted.
+- Multi-file and multi-domain changes are allowed when justified.
+- Small refactors are allowed if they directly support the task.
+- Explanations, tradeoffs, and phased plans are allowed when useful.
+
+## Read Discipline
+- Start targeted, then widen only if needed.
+- Avoid blind repo-wide scans unless necessary.
+- Read supporting files when they materially reduce risk.
+
+## Edit Discipline
+- Prefer coherent fixes over the smallest possible diff when the task benefits.
+- New abstractions are allowed if they reduce duplication or clarify ownership.
+- Do not do speculative cleanup unrelated to the task.
+
+## Validation
+- Run the smallest meaningful verification for non-trivial changes when it materially reduces risk.
+- For architecture-sensitive changes, include the relevant targeted verification.
+- If verification would be expensive or disruptive, say so before running it.
+
+## Decision Rule
+- Optimize for correctness and maintainability within the requested scope.

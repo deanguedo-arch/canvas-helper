@@ -52,8 +52,8 @@ Boundary:
 - Touch scripts/lib/intelligence/config, collect, or apply only.
 Constraints:
 - Collection must remain explicit.
-- Application must respect collect-only, advisory, and active modes.
-- Preserve precedence: CLI > project > repo.
+- Application must respect off, collect, and apply modes.
+- Preserve precedence: CLI > LEARNER_MODE > project > repo.
 Verification:
 - targeted tests
 - npm.cmd run typecheck

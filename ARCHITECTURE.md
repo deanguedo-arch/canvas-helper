@@ -67,20 +67,22 @@ flowchart LR
 The intelligence system is split into explicit layers:
 
 - `collect/`: always-on signal gathering and persistence
-- `apply/`: optional influence on prompt-pack generation, recommendations, and advisory context
+- `apply/`: optional influence on prompt-pack generation and recommendations
 - `config/`: policy defaults, flag resolution, and mode handling
 
 ### Modes
 
-- `collect-only`: update intelligence artifacts but do not influence prompt-pack or recommendation flow
-- `advisory`: collect signals and surface them for review, but do not automatically steer prompt-pack output
-- `active`: collect signals and allow prompt-pack / recommendation flow to use them directly
+- `off`: no learner collection, no learner application
+- `collect`: collection only, no learner application
+- `apply`: collection plus learner application in prompt-pack and recommendation flow
 
 ### Precedence
 
 1. CLI override
-2. project policy override
-3. repo default policy
+2. `LEARNER_MODE` environment variable
+3. project policy override
+4. repo default policy
+5. built-in safe default (`collect`)
 
 ## Core vs Experimental
 
@@ -95,11 +97,20 @@ The intelligence system is split into explicit layers:
 - prompt-pack generation
 - memory ledger and pattern-bank collection
 
-### Experimental / Policy-Controlled
+### Policy-Controlled
 
 - intelligence influence on prompt packs
 - recommendation steering
-- future advisory surfaces
+
+## Learner-mode Resolution
+
+Precedence for the effective learner mode is explicit and deterministic:
+
+1. CLI flag (`--learner-mode`)
+2. `LEARNER_MODE` environment variable
+3. project policy
+4. repo default policy (`config/intelligence.json`)
+5. safe default in `scripts/lib/intelligence/config/defaults.ts`
 
 ## Placement Rules for New Code
 

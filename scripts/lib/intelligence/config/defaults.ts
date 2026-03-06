@@ -1,23 +1,23 @@
 import type { IntelligenceMode, IntelligencePolicyFlags } from "../../types.js";
 
-export const DEFAULT_INTELLIGENCE_MODE: IntelligenceMode = "active";
+export const DEFAULT_INTELLIGENCE_MODE: IntelligenceMode = "collect";
 
 export const MODE_PRESETS: Record<IntelligenceMode, IntelligencePolicyFlags> = {
-  "collect-only": {
+  off: {
+    collectPatternBank: false,
+    collectMemoryLedger: false,
+    applyPatternBankToPromptPack: false,
+    applyMemoryLedgerToPromptPack: false,
+    applyMemoryLedgerToRecommendations: false
+  },
+  collect: {
     collectPatternBank: true,
     collectMemoryLedger: true,
     applyPatternBankToPromptPack: false,
     applyMemoryLedgerToPromptPack: false,
     applyMemoryLedgerToRecommendations: false
   },
-  advisory: {
-    collectPatternBank: true,
-    collectMemoryLedger: true,
-    applyPatternBankToPromptPack: false,
-    applyMemoryLedgerToPromptPack: false,
-    applyMemoryLedgerToRecommendations: false
-  },
-  active: {
+  apply: {
     collectPatternBank: true,
     collectMemoryLedger: true,
     applyPatternBankToPromptPack: true,

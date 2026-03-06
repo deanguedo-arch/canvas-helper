@@ -6,9 +6,11 @@ export type LearningSource = "gemini" | "other";
 export type LearningTrust = "curated" | "auto";
 export type MemoryKind = "style" | "component" | "tool" | "resource" | "decision";
 export type MemoryConfidence = "low" | "medium" | "high";
+export type LearnerMode = "off" | "collect" | "apply";
+export type LearnerModeSource = "repo-default" | "project-override" | "env-override" | "cli-override" | "default";
 export type MemoryOriginCommand = "import" | "analyze" | "refs" | "export" | "plan";
 export type MemoryOriginSource = "pattern" | "workspace" | "reference" | "design-doc" | "export";
-export type IntelligenceMode = "collect-only" | "advisory" | "active";
+export type IntelligenceMode = LearnerMode;
 export type ReferenceKind =
   | "txt"
   | "md"
@@ -31,6 +33,7 @@ export type ProjectManifest = {
   learningSource: LearningSource;
   learningTrust: LearningTrust;
   learningUpdatedAt: string;
+  learnerMode?: LearnerMode;
   workspaceApprovedAt?: string;
   createdAt: string;
   updatedAt: string;
@@ -46,7 +49,7 @@ export type IntelligencePolicyFlags = {
 
 export type IntelligencePolicy = IntelligencePolicyFlags & {
   mode: IntelligenceMode;
-  source: "repo-default" | "project-override" | "cli-override";
+  source: LearnerModeSource;
 };
 
 export type IntelligencePolicyOverride = Partial<IntelligencePolicyFlags> & {
@@ -173,6 +176,8 @@ export type StudioProjectBundle = {
   };
   styleGuide: string;
   importLog: string;
+  effectiveLearnerMode: LearnerMode;
+  effectiveLearnerModeSource: LearnerModeSource;
   revisions: {
     raw: number;
     workspace: number;

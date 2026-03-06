@@ -11,7 +11,7 @@ Canvas Helper is a local-first Node + browser workspace for importing Canvas cou
 - `scripts/`: import, analyze, refs, export, rehydrate, smoke, and task scripts
 - `scripts/lib/intelligence/config/`: intelligence policy and feature-flag resolution
 - `scripts/lib/intelligence/collect/`: always-on learning and signal collection
-- `scripts/lib/intelligence/apply/`: prompt-pack influence, recommendations, and advisory application
+- `scripts/lib/intelligence/apply/`: prompt-pack influence, recommendations, and application
 - `projects/<slug>/raw/`: immutable imported baseline
 - `projects/<slug>/workspace/`: editable working files
 - `projects/<slug>/meta/`: manifests, prompt-pack, logs, handoff artifacts
@@ -69,12 +69,17 @@ Canvas Helper is a local-first Node + browser workspace for importing Canvas cou
 
 ## Intelligence Rules
 
-- Collection is always allowed when the workflow calls it.
-- Application is governed by intelligence policy flags and may be disabled, advisory-only, or active.
+- Collection and application are governed by the explicit learner mode and policy flags.
+- Modes:
+  - `off`: no collection, no application
+  - `collect`: collection only
+  - `apply`: collection + application
 - Respect precedence in this order:
   1. CLI override
-  2. project policy file
-  3. repo default policy
+  2. `LEARNER_MODE` environment variable
+  3. project policy file
+  4. repo default policy
+  5. built-in safe default (`collect`)
 - Do not hard-wire intelligence influence into unrelated commands.
 
 ## Feature Flag Rules

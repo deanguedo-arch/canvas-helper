@@ -8,6 +8,9 @@ set "STUDIO_HOST=127.0.0.1"
 set "STUDIO_PORT="
 set "STUDIO_URL="
 set "NPM_CMD="
+set "LEARNER_MODE_DISPLAY=<repo default from config/intelligence.json>"
+if defined LEARNER_MODE set "LEARNER_MODE_DISPLAY=%LEARNER_MODE%"
+if not defined LEARNER_MODE set "LEARNER_MODE_DISPLAY=collect (safe default)"
 
 if /I "%~1"=="studio" goto studio_only
 if /I "%~1"=="import" goto import_studio
@@ -19,6 +22,8 @@ cls
 echo ==============================================
 echo   Canvas Helper Launcher
 echo ==============================================
+echo.
+echo   Learner Mode: %LEARNER_MODE_DISPLAY%
 echo.
 echo   1. Studio + Auto Import Watcher (Recommended)
 echo   2. Import Once + Studio + Auto Import Watcher
