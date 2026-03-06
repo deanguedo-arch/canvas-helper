@@ -17,7 +17,7 @@ import {
   writeTextFile
 } from "./fs.js";
 import { refreshProjectIntelligence } from "./intelligence.js";
-import { getProjectPaths, projectsRoot } from "./paths.js";
+import { getProjectPaths } from "./paths.js";
 import { extractProjectReferences } from "./references.js";
 import type { ImportLog, InputKind, IntelligencePolicyOverride, LearningSource, ProjectManifest } from "./types.js";
 
@@ -53,16 +53,6 @@ type ResolvedImportInput = {
   discoveryWarnings: string[];
 };
 
-function normalizePathForCompare(value: string) {
-  return path.resolve(value).replace(/[\\/]+/g, path.sep).toLowerCase();
-}
-
-function isPathInsideRoot(targetPath: string, rootPath: string) {
-  const normalizedTarget = normalizePathForCompare(targetPath);
-  const normalizedRoot = normalizePathForCompare(rootPath);
-  return normalizedTarget === normalizedRoot || normalizedTarget.startsWith(`${normalizedRoot}${path.sep}`);
-}
-
 export function resolveLearningSourceOverride(value: string | undefined): LearningSource | undefined {
   if (!value) {
     return undefined;
@@ -75,9 +65,8 @@ export function resolveLearningSourceOverride(value: string | undefined): Learni
   throw new Error(`Invalid --source value "${value}". Expected "gemini" or "other".`);
 }
 
-export function inferLearningSourceFromInputPath(absoluteInputPath: string): LearningSource {
-  const geminiIncomingRoot = path.join(projectsRoot, "_incoming", "gemini");
-  return isPathInsideRoot(absoluteInputPath, geminiIncomingRoot) ? "gemini" : "other";
+export function inferLearningSourceFromInputPath(_absoluteInputPath: string): LearningSource {
+  return "other";
 }
 
 function toLearningTrust(source: LearningSource) {
@@ -677,7 +666,7 @@ export async function importProject(options: ImportProjectOptions) {
   const paths = getProjectPaths(slug);
   if (inputStats.isDirectory() && path.resolve(absoluteInputPath) === path.resolve(paths.root)) {
     throw new Error(
-      `Import folder cannot be the same as the generated project folder. Put source bundles in a staging folder such as projects\\_incoming\\${slug}.`
+      `Import folder cannot be the same as the generated project folder. Put source bundles in a staging folder such as projects\\incoming\\${slug}.`
     );
   }
 
@@ -695,6 +684,7 @@ export async function importProject(options: ImportProjectOptions) {
   await ensureDir(paths.root);
   await ensureDir(paths.rawDir);
   await ensureDir(paths.workspaceDir);
+  await ensureDir(paths.resourceDir);
   await ensureDir(paths.referencesRawDir);
   await ensureDir(paths.referencesExtractedDir);
   await ensureDir(paths.metaDir);
@@ -739,7 +729,7 @@ export async function importProject(options: ImportProjectOptions) {
 
   if (resolvedInput.referenceFiles.length > 0) {
     await copyReferenceFiles(resolvedInput.referenceFiles, resolvedInput.bundlePath, paths.referencesRawDir);
-    actions.push(`Copied ${resolvedInput.referenceFiles.length} supporting file(s) into references/raw.`);
+    actions.push(`Copied ${resolvedInput.referenceFiles.length} supporting file(s) into projects/resources/${slug}/.`);
   }
 
   const timestamp = new Date().toISOString();
@@ -770,7 +760,7 @@ export async function importProject(options: ImportProjectOptions) {
   await analyzeProject(slug);
   if (resolvedInput.referenceFiles.length > 0) {
     await extractProjectReferences(slug);
-    actions.push("Indexed the imported supporting material into references/extracted.");
+    actions.push(`Indexed the imported supporting material into projects/resources/${slug}/_extracted/.`);
   }
   const intelligence = await refreshProjectIntelligence(slug, {
     policyOverride: options.policyOverride

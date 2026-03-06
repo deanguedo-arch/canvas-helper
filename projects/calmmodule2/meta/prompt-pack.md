@@ -1,32 +1,46 @@
 # Prompt Pack
 
 - Project: calmmodule2
-- Generated: 2026-03-05T13:30:01.461Z
+- Generated: 2026-03-06T21:36:25.386Z
 
 ## Rules
 
-- Work in repo-approved zones (`app/studio`, `scripts`, `docs`, `tasks`, root config files).
+- Work in repo-approved zones (`app/studio`, `app/server`, `scripts`, `docs`, `tasks`, root config files).
 - Treat `projects/<slug>/raw` as immutable baseline input.
-- Retrieval order: prompt-pack -> local pattern bank matches -> references/extracted.
+- Retrieval order: prompt-pack -> local pattern bank matches -> projects/resources/<slug>/_extracted.
 - Finish only after typecheck/build and task-specific verification pass.
+
+## Intelligence Policy
+
+- Mode: collect
+- Policy source: env-override
+- Collect pattern bank: on
+- Collect memory ledger: on
+- Apply pattern bank to prompt pack: off
+- Apply memory ledger to prompt pack: off
+- Apply memory ledger to recommendations: off
 
 ## Project Manifest
 
 ```json
 {
-  "id": "c02d0b86-f3ce-46ff-999d-8fe4d1818949",
+  "id": "33591f13-3d65-476b-98c5-39fa0e1d88db",
   "slug": "calmmodule2",
-  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/_incoming/calmmodule2",
+  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\processed\\calmmodule2\\source",
   "inputKind": "text-html",
   "brightspaceTarget": "course-page",
   "previewModes": [
     "raw",
     "workspace"
   ],
-  "workspaceEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calmmodule2/workspace/index.html",
-  "rawEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calmmodule2/raw/original.html",
-  "createdAt": "2026-03-05T13:30:01.124Z",
-  "updatedAt": "2026-03-05T13:30:01.186Z"
+  "workspaceEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\calmmodule2\\workspace\\index.html",
+  "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\calmmodule2\\raw\\original.html",
+  "learningSource": "other",
+  "learningTrust": "auto",
+  "learningUpdatedAt": "2026-03-06T21:36:25.340Z",
+  "createdAt": "2026-03-06T20:40:30.861Z",
+  "updatedAt": "2026-03-06T21:36:25.340Z",
+  "workspaceApprovedAt": "2026-03-06T21:36:25.340Z"
 }
 ```
 
@@ -66,7 +80,7 @@
 # Content Outline
 
 - Project: calmmodule2
-- Source: /Users/deanguedo/Documents/GitHub/canvas-helper/projects/_incoming/calmmodule2
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\_incoming\calmmodule2
 
 ## Sections
 - No structured sections were detected. Edit workspace/main directly.
@@ -74,24 +88,40 @@
 
 ## Import Log
 
-> import-log.md: missing
+```md
+# Import Log
+
+- Generated: 2026-03-06T20:40:30.861Z
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\_incoming\calmmodule2
+
+## Actions
+- Detected "calmmodule2.html.txt" as the site entrypoint inside the source folder.
+- Extracted an HTML document from the source text file into raw/original.html.
+- Preserved the original text input at raw/original-source.txt.
+- Externalized 1 inline style block(s) to workspace/styles.css.
+- Externalized 2 inline script block(s) to workspace/main.jsx.
+- Copied 1 supporting file(s) into references/raw.
+- Indexed the imported supporting material into references/extracted.
+- Learned project patterns (C:\Users\dean.guedo\Documents\GitHub\canvas-helper\.runtime\pattern-bank\auto\calmmodule2.json).
+- Updated local pattern bank (10 profile(s)).
+- Generated prompt pack (C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\calmmodule2\meta\prompt-pack.md).
+
+## Warnings
+- Merged inline scripts with different attributes into one external script. Review workspace/main for compatibility.
+```
+
+## Global Memory
+
+disabled by intelligence policy (collect)
 
 ## Pattern Matches
 
-### calm-module (auto, score 18)
-- Shared sections: none
-- Shared style tokens: amber-100, amber-500, rounded-2xl, rounded-3xl, rounded-full, rounded-xl
-- Shared keywords: none
-
-### calm-module-2-activites-reference (auto, score 12)
-- Shared sections: none
-- Shared style tokens: rounded-2xl, rounded-xl, slate-50, slate-700
-- Shared keywords: none
+disabled by intelligence policy (collect)
 
 ## Reference Excerpts
 
 ### calm-module-2-resourse-choices-pdf (pdf)
-- Source: /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calmmodule2/references/raw/CALM Module 2 - Resourse Choices.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\calmmodule2\CALM Module 2 - Resourse Choices.pdf
 
 ```text
 CALM MODULE TWO – RESOURCE CHOICES 

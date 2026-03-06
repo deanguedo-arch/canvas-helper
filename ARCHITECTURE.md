@@ -16,11 +16,13 @@ Canvas Helper is a local-first course-content workbench. It imports Canvas-gener
 
 ```mermaid
 flowchart LR
-  A["projects/_incoming or source files"] --> B["scripts/lib/importer"]
+  A["projects/incoming/<bundle-or-html>"] --> B["scripts/lib/importer"]
+  A2["projects/resources/<slug>/<file>"] --> R["resource refresh"]
   B --> C["projects/<slug>/raw"]
   B --> D["projects/<slug>/workspace"]
   B --> E["projects/<slug>/meta"]
-  B --> F["projects/<slug>/references"]
+  B --> P["projects/processed/<slug>/source"]
+  R --> F["projects/resources/<slug>/_extracted"]
   D --> G["app/server preview routes"]
   C --> G
   G --> H["app/studio React UI"]
@@ -59,8 +61,17 @@ flowchart LR
 - `raw/`: immutable imported baseline
 - `workspace/`: editable output
 - `meta/`: manifests, logs, prompt-pack, session log, optional policy overrides
-- `references/`: raw support files plus extracted text
+- `projects/resources/<slug>/`: raw support files plus extracted text
 - `exports/`: generated output only
+
+### Intake and Resources
+
+- `projects/incoming/`: one-shot import queue for HTML files and bundle folders
+- `projects/processed/<slug>/source/`: latest kept import snapshot for that project
+- `projects/resources/<slug>/`: canonical original reference files
+- `projects/resources/<slug>/_extracted/`: generated extracted text for Studio and prompt-pack flows
+
+Studio and the watcher both use the same local refresh engine. The `Refresh Intake` button runs a one-shot scan through the local server. The long-running watcher scans both `incoming` and `resources` with the same lock file so the two entry points do not collide.
 
 ## Intelligence Model
 

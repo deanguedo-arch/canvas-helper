@@ -54,6 +54,37 @@ export type StudioCommandResult = {
   stderr: string;
 };
 
+export type IncomingRefreshSummary = {
+  startedAt: string;
+  finishedAt: string;
+  mode: "all" | "projects" | "references";
+  importedProjects: Array<{
+    sourceKey: string;
+    requestedSlug: string;
+    slug: string;
+    archivedTo: string;
+    warnings: string[];
+  }>;
+  skippedProjects: Array<{
+    sourceKey: string;
+    requestedSlug: string;
+    reason: string;
+  }>;
+  syncedReferences: Array<{
+    sourcePath: string;
+    slug: string;
+    targetPath: string;
+    archivedTo?: string;
+  }>;
+  failures: Array<{
+    kind: "project" | "reference";
+    inputPath: string;
+    message: string;
+    archivedTo?: string;
+  }>;
+  archivedPaths: string[];
+};
+
 export type SectionManifest = {
   id: string;
   label: string;
@@ -92,6 +123,8 @@ export type ProjectBundle = {
     workspaceScript?: string;
     workspaceStyles?: string;
     metaDir: string;
+    resourceDir: string;
+    resourceExtractedDir: string;
     referencesDir: string;
     sessionLogPath: string;
   };

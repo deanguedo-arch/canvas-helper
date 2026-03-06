@@ -140,6 +140,8 @@ export type ProjectPaths = {
   workspaceAssetsDir: string;
   workspaceComponentsDir: string;
   workspaceSectionsDir: string;
+  resourceDir: string;
+  resourceExtractedDir: string;
   referencesDir: string;
   referencesRawDir: string;
   referencesExtractedDir: string;
@@ -171,6 +173,8 @@ export type StudioProjectBundle = {
     workspaceScript?: string;
     workspaceStyles?: string;
     metaDir: string;
+    resourceDir: string;
+    resourceExtractedDir: string;
     referencesDir: string;
     sessionLogPath: string;
   };

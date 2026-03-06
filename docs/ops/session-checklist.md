@@ -12,6 +12,10 @@
    - intelligence collect
    - intelligence apply
    - ops/governance docs
+5. If the task touches intake, confirm whether it is about:
+   - project bundles in `projects/incoming/<folder>`
+   - canonical resources in `projects/resources/<slug>/`
+   - processed snapshots in `projects/processed/<slug>/source/`
 
 ## During Work
 
@@ -23,6 +27,7 @@
    - apply
 4. Document any boundary spill immediately.
 5. Avoid drive-by refactors.
+6. Do not treat `projects/processed/` as an editable source folder.
 
 ## Before You Stop
 
@@ -30,6 +35,7 @@
 2. Update docs if commands, boundaries, or policy changed.
 3. Save any session log required by the task.
 4. Write a handoff using `docs/ops/HANDOFF.md`.
+5. If intake behavior changed, verify both one-shot refresh and the long watcher path.
 
 ## Done Check
 

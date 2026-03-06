@@ -7,11 +7,32 @@ const currentDir = path.dirname(fileURLToPath(import.meta.url));
 
 export const repoRoot = path.resolve(currentDir, "..", "..");
 export const projectsRoot = path.join(repoRoot, "projects");
+export const incomingRoot = path.join(projectsRoot, "incoming");
+export const processedRoot = path.join(projectsRoot, "processed");
+export const resourcesRoot = path.join(projectsRoot, "resources");
+export const incomingWatchLockPath = path.join(repoRoot, ".runtime", "incoming-watch.lock");
 export const repoIntelligencePolicyPath = path.join(repoRoot, "config", "intelligence.json");
 export const legacyRepoIntelligencePolicyPath = path.join(repoRoot, "intelligence-policy.json");
 
+export function getResourcePaths(slug: string) {
+  const root = path.join(resourcesRoot, slug);
+  return {
+    root,
+    extractedDir: path.join(root, "_extracted")
+  };
+}
+
+export function getProcessedProjectPaths(slug: string) {
+  const root = path.join(processedRoot, slug);
+  return {
+    root,
+    sourceDir: path.join(root, "source")
+  };
+}
+
 export function getProjectPaths(slug: string): ProjectPaths {
   const root = path.join(projectsRoot, slug);
+  const resourcePaths = getResourcePaths(slug);
 
   return {
     root,
@@ -24,9 +45,11 @@ export function getProjectPaths(slug: string): ProjectPaths {
     workspaceAssetsDir: path.join(root, "workspace", "assets"),
     workspaceComponentsDir: path.join(root, "workspace", "components"),
     workspaceSectionsDir: path.join(root, "workspace", "sections"),
-    referencesDir: path.join(root, "references"),
-    referencesRawDir: path.join(root, "references", "raw"),
-    referencesExtractedDir: path.join(root, "references", "extracted"),
+    resourceDir: resourcePaths.root,
+    resourceExtractedDir: resourcePaths.extractedDir,
+    referencesDir: resourcePaths.root,
+    referencesRawDir: resourcePaths.root,
+    referencesExtractedDir: resourcePaths.extractedDir,
     metaDir: path.join(root, "meta"),
     manifestPath: path.join(root, "meta", "project.json"),
     sectionMapPath: path.join(root, "meta", "section-map.json"),

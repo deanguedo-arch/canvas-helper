@@ -6,18 +6,17 @@ import type { PreviewRoot, ProjectBundle, ReferenceManifest, ReferenceTarget, Re
 
 function findReferenceByTarget(
   references: ReferenceManifest[],
-  referencesDir: string,
+  resourceDir: string,
   target: ReferenceTarget
 ) {
-  const referencesRootPath = normalizeSlashes(referencesDir);
-  const referencesRawRoot = `${referencesRootPath}/raw`;
-  const referencesExtractedRoot = `${referencesRootPath}/extracted`;
+  const resourcesRootPath = normalizeSlashes(resourceDir);
+  const resourcesExtractedRoot = `${resourcesRootPath}/_extracted`;
 
   if (target.resourceRoot === "raw") {
     return (
       references.find(
         (reference) =>
-          toReferenceOptionPath(reference.originalPath, referencesRawRoot) === target.resourcePath
+          toReferenceOptionPath(reference.originalPath, resourcesRootPath) === target.resourcePath
       ) ?? null
     );
   }
@@ -25,7 +24,7 @@ function findReferenceByTarget(
   return (
     references.find(
       (reference) =>
-        toReferenceOptionPath(reference.extractedTextPath, referencesExtractedRoot) === target.resourcePath
+        toReferenceOptionPath(reference.extractedTextPath, resourcesExtractedRoot) === target.resourcePath
     ) ?? null
   );
 }
@@ -46,14 +45,13 @@ export function useReferenceTarget(projects: ProjectBundle[], selectedSlug: stri
         : htmlOptions[0] ?? defaultHtmlFile;
 
     const references = project?.referenceIndex?.references ?? [];
-    const referencesRootPath = project ? normalizeSlashes(project.paths.referencesDir) : "";
-    const referencesRawRoot = referencesRootPath ? `${referencesRootPath}/raw` : "";
-    const referencesExtractedRoot = referencesRootPath ? `${referencesRootPath}/extracted` : "";
+    const resourcesRootPath = project ? normalizeSlashes(project.paths.resourceDir) : "";
+    const resourcesExtractedRoot = project ? normalizeSlashes(project.paths.resourceExtractedDir) : "";
     const resourcesRaw = uniqueStrings(
-      references.map((reference) => toReferenceOptionPath(reference.originalPath, referencesRawRoot))
+      references.map((reference) => toReferenceOptionPath(reference.originalPath, resourcesRootPath))
     );
     const resourcesExtracted = uniqueStrings(
-      references.map((reference) => toReferenceOptionPath(reference.extractedTextPath, referencesExtractedRoot))
+      references.map((reference) => toReferenceOptionPath(reference.extractedTextPath, resourcesExtractedRoot))
     );
     const resourceRoot = referenceTarget.resourceRoot === "extracted" ? "extracted" : "raw";
     const resourcesActive = resourceRoot === "raw" ? resourcesRaw : resourcesExtracted;
@@ -124,7 +122,7 @@ export function useReferenceTarget(projects: ProjectBundle[], selectedSlug: stri
 
     return findReferenceByTarget(
       resolvedReference.project.referenceIndex?.references ?? [],
-      resolvedReference.project.paths.referencesDir,
+      resolvedReference.project.paths.resourceDir,
       resolvedReference.target
     );
   }, [resolvedReference]);
@@ -134,10 +132,9 @@ export function useReferenceTarget(projects: ProjectBundle[], selectedSlug: stri
       return "";
     }
 
-    const referencesRootPath = normalizeSlashes(resolvedReference.project.paths.referencesDir);
     return toReferenceOptionPath(
       selectedResourceReference.extractedTextPath,
-      `${referencesRootPath}/extracted`
+      normalizeSlashes(resolvedReference.project.paths.resourceExtractedDir)
     );
   }, [resolvedReference.project, selectedResourceReference]);
 

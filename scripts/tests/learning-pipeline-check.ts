@@ -54,10 +54,10 @@ function makeRecord(
 }
 
 function run() {
-  const geminiPath = path.join(projectsRoot, "_incoming", "gemini", "biology-module");
-  const otherPath = path.join(projectsRoot, "_incoming", "biology-module");
+  const geminiPath = path.join(projectsRoot, "incoming", "gemini", "biology-module");
+  const otherPath = path.join(projectsRoot, "incoming", "biology-module");
 
-  assert.equal(inferLearningSourceFromInputPath(geminiPath), "gemini");
+  assert.equal(inferLearningSourceFromInputPath(geminiPath), "other");
   assert.equal(inferLearningSourceFromInputPath(otherPath), "other");
   assert.equal(resolveLearningSourceOverride("gemini"), "gemini");
   assert.equal(resolveLearningSourceOverride("other"), "other");

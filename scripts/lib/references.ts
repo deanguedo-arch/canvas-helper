@@ -70,11 +70,16 @@ export async function extractProjectReferences(projectSlug: string) {
   const manifest = await loadProjectManifest(projectSlug);
   const paths = getProjectPaths(projectSlug);
 
-  await ensureDir(paths.referencesRawDir);
+  await ensureDir(paths.resourceDir);
   await removePath(paths.referencesExtractedDir);
   await ensureDir(paths.referencesExtractedDir);
 
-  const files = (await fileExists(paths.referencesRawDir)) ? await listFilesRecursive(paths.referencesRawDir) : [];
+  const files = (await fileExists(paths.referencesRawDir))
+    ? (await listFilesRecursive(paths.referencesRawDir)).filter((filePath) => {
+        const relativePath = path.relative(paths.referencesRawDir, filePath).replace(/\\/g, "/");
+        return relativePath !== "_extracted" && !relativePath.startsWith("_extracted/");
+      })
+    : [];
   const references: ReferenceManifest[] = [];
 
   for (const filePath of files.sort((left, right) => left.localeCompare(right))) {

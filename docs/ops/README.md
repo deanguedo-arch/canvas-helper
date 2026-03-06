@@ -19,6 +19,14 @@ Use this folder to keep local work disciplined, reproducible, and handoff-friend
 4. Use [`HANDOFF.md`](./HANDOFF.md) for every meaningful stop point
 5. Use [`agent-prompt-templates.md`](./agent-prompt-templates.md) only after the architecture and task boundaries are clear
 
+## Intake Loop
+
+1. Drop project bundles into `projects/incoming/<folder>`
+2. Drop project resources into `projects/resources/<slug>/`
+3. Use Studio `Refresh Intake` or `npm.cmd run incoming:refresh`
+4. Confirm the imported bundle or synced references in Studio
+5. Treat `projects/processed/<slug>/source/` as the latest import snapshot, not an editable workspace
+
 ## Key References
 
 - Repo mission and agent rules: [`AGENTS.md`](../../AGENTS.md)

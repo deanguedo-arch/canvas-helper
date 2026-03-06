@@ -8,7 +8,7 @@ async function main() {
 
   if (!inputPath) {
     throw new Error(
-      'Usage: npm run import -- "<path-to-html-or-txt-or-folder>" [--slug project-slug] [--force] [--source gemini|other]'
+      'Usage: npm run import -- "<path-to-html-or-txt-or-folder>" [--slug project-slug] [--force] [--source other]'
     );
   }
 

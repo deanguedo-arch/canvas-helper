@@ -6,6 +6,8 @@ import { getProjectPaths, projectsRoot } from "./paths.js";
 import type { ProjectManifest, ReferenceIndex, SectionMap, StudioProjectBundle } from "./types.js";
 import { resolveIntelligencePolicy } from "./intelligence/config/policy.js";
 
+const RESERVED_PROJECT_DIRS = new Set(["incoming", "processed", "resources"]);
+
 function normalizeSlash(value: string) {
   return value.replace(/\\/g, "/");
 }
@@ -69,7 +71,9 @@ export async function listProjectSlugs() {
   }
 
   const entries = await readdir(projectsRoot, { withFileTypes: true });
-  const candidateSlugs = entries.filter((entry) => entry.isDirectory()).map((entry) => entry.name);
+  const candidateSlugs = entries
+    .filter((entry) => entry.isDirectory() && !RESERVED_PROJECT_DIRS.has(entry.name))
+    .map((entry) => entry.name);
   const availability = await Promise.all(
     candidateSlugs.map(async (slug) => ({
       slug,
@@ -158,6 +162,8 @@ export async function readStudioProjectBundle(slug: string): Promise<StudioProje
       workspaceScript,
       workspaceStyles,
       metaDir: paths.metaDir,
+      resourceDir: paths.resourceDir,
+      resourceExtractedDir: paths.resourceExtractedDir,
       referencesDir: paths.referencesDir,
       sessionLogPath: paths.sessionLogPath
     },

@@ -100,12 +100,16 @@ echo.
 echo Installing dependencies first (node_modules missing)...
 call "%NPM_CMD%" install || exit /b 1
 :deps_ok
+echo.
+echo Normalizing project layout...
+call "%NPM_CMD%" run migrate:projects || exit /b 1
 exit /b 0
 
 :ensure_layout
 if not exist "projects" mkdir "projects"
-if not exist "projects\_incoming" mkdir "projects\_incoming"
-if not exist "projects\_incoming\gemini" mkdir "projects\_incoming\gemini"
+if not exist "projects\incoming" mkdir "projects\incoming"
+if not exist "projects\processed" mkdir "projects\processed"
+if not exist "projects\resources" mkdir "projects\resources"
 exit /b 0
 
 :resolve_node
@@ -147,14 +151,14 @@ exit /b 1
 :warn_if_no_projects
 set "HAS_PROJECTS="
 for /d %%D in ("projects\*") do (
-  if /I not "%%~nxD"=="_incoming" set "HAS_PROJECTS=1"
+  if /I not "%%~nxD"=="incoming" if /I not "%%~nxD"=="processed" if /I not "%%~nxD"=="resources" set "HAS_PROJECTS=1"
 )
 
 if defined HAS_PROJECTS exit /b 0
 
 echo.
 echo No imported projects were found under projects\.
-echo Use option 2 to import one now, or drop a folder into projects\_incoming\.
+echo Use option 2 to import one now, or drop a folder into projects\incoming\.
 echo.
 exit /b 0
 

@@ -77,9 +77,14 @@ export async function latestMtimeMs(dirPath: string): Promise<number> {
     return 0;
   }
 
+  const targetStats = await stat(dirPath);
+  if (targetStats.isFile()) {
+    return targetStats.mtimeMs;
+  }
+
   const files = await listFilesRecursive(dirPath);
   if (files.length === 0) {
-    return (await stat(dirPath)).mtimeMs;
+    return targetStats.mtimeMs;
   }
 
   const mtimes = await Promise.all(files.map(async (filePath) => (await stat(filePath)).mtimeMs));

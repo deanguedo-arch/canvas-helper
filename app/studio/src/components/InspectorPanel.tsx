@@ -50,7 +50,7 @@ export function InspectorPanel({ selectedProject, sourceFiles, onCopyToClipboard
 
       <div className="panel-card">
         <div className="section-header">
-          <h3>References</h3>
+          <h3>Resources</h3>
         </div>
         {selectedProject?.referenceIndex?.references.length ? (
           <div className="token-list">
@@ -62,7 +62,9 @@ export function InspectorPanel({ selectedProject, sourceFiles, onCopyToClipboard
             ))}
           </div>
         ) : (
-          <p className="empty-state">Drop files into references/raw and run `npm run refs`.</p>
+          <p className="empty-state">
+            Drop files into `projects/resources/&lt;project-slug&gt;/`, then use Refresh Intake.
+          </p>
         )}
       </div>
 

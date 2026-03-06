@@ -4,29 +4,89 @@ import os from "node:os";
 import path from "node:path";
 import test from "node:test";
 
-import { listIncomingProjectFolders } from "../lib/incoming-watch.js";
+import {
+  inferSlugFromIncomingItem,
+  listIncomingProjectItems,
+  listResourceProjectDirs,
+  listResourceSourceFiles
+} from "../lib/incoming-watch.js";
 
-function relativeFolders(rootPath: string, folderPaths: string[]) {
-  return folderPaths.map((folderPath) => path.relative(rootPath, folderPath).replace(/\\/g, "/"));
+function relativePaths(rootPath: string, paths: string[]) {
+  return paths.map((currentPath) => path.relative(rootPath, currentPath).replace(/\\/g, "/"));
 }
 
-test("listIncomingProjectFolders skips empty gemini lanes and returns real bundles", async () => {
-  const tempDir = await mkdtemp(path.join(os.tmpdir(), "incoming-watch-"));
-  const incomingRoot = path.join(tempDir, "_incoming");
+test("listIncomingProjectItems returns immediate folders and html/txt files only", async () => {
+  const tempDir = await mkdtemp(path.join(os.tmpdir(), "incoming-watch-items-"));
+  const incomingRoot = path.join(tempDir, "incoming");
 
   try {
-    await mkdir(path.join(incomingRoot, "gemini"), { recursive: true });
-    await mkdir(path.join(incomingRoot, "gemini", "biology-module"), { recursive: true });
-    await mkdir(path.join(incomingRoot, "genpsy"), { recursive: true });
+    await mkdir(path.join(incomingRoot, "biology-module"), { recursive: true });
+    await mkdir(path.join(incomingRoot, "nested", "child"), { recursive: true });
+    await writeFile(path.join(incomingRoot, "biology-module", "index.html"), "<html></html>", "utf8");
+    await writeFile(path.join(incomingRoot, "lesson.html"), "<html></html>", "utf8");
+    await writeFile(path.join(incomingRoot, "notes.txt"), "notes", "utf8");
+    await writeFile(path.join(incomingRoot, "ignore.pdf"), "pdf", "utf8");
 
-    await writeFile(path.join(incomingRoot, "gemini", ".gitkeep"), "", "utf8");
-    await writeFile(path.join(incomingRoot, "gemini", "biology-module", "index.html"), "<html></html>", "utf8");
-    await writeFile(path.join(incomingRoot, "genpsy", "generalpsy20.html"), "<html></html>", "utf8");
+    const items = await listIncomingProjectItems(incomingRoot);
 
-    const folders = await listIncomingProjectFolders(incomingRoot);
-
-    assert.deepEqual(relativeFolders(incomingRoot, folders), ["gemini/biology-module", "genpsy"]);
+    assert.deepEqual(relativePaths(incomingRoot, items), ["biology-module", "lesson.html", "nested", "notes.txt"]);
   } finally {
     await rm(tempDir, { recursive: true, force: true });
   }
+});
+
+test("listIncomingProjectItems skips folders marked with .watch-ignore", async () => {
+  const tempDir = await mkdtemp(path.join(os.tmpdir(), "incoming-watch-ignore-"));
+  const incomingRoot = path.join(tempDir, "incoming");
+
+  try {
+    await mkdir(path.join(incomingRoot, "skip-me"), { recursive: true });
+    await mkdir(path.join(incomingRoot, "keep-me"), { recursive: true });
+    await writeFile(path.join(incomingRoot, "skip-me", ".watch-ignore"), "", "utf8");
+
+    const items = await listIncomingProjectItems(incomingRoot);
+
+    assert.deepEqual(relativePaths(incomingRoot, items), ["keep-me"]);
+  } finally {
+    await rm(tempDir, { recursive: true, force: true });
+  }
+});
+
+test("listResourceProjectDirs returns only top-level slug folders", async () => {
+  const tempDir = await mkdtemp(path.join(os.tmpdir(), "resource-watch-dirs-"));
+  const resourcesRoot = path.join(tempDir, "resources");
+
+  try {
+    await mkdir(path.join(resourcesRoot, "genpsy-studio"), { recursive: true });
+    await mkdir(path.join(resourcesRoot, "calmmodule2"), { recursive: true });
+    await writeFile(path.join(resourcesRoot, ".gitkeep"), "", "utf8");
+
+    const dirs = await listResourceProjectDirs(resourcesRoot);
+
+    assert.deepEqual(relativePaths(resourcesRoot, dirs), ["calmmodule2", "genpsy-studio"]);
+  } finally {
+    await rm(tempDir, { recursive: true, force: true });
+  }
+});
+
+test("listResourceSourceFiles ignores _extracted output files", async () => {
+  const tempDir = await mkdtemp(path.join(os.tmpdir(), "resource-watch-files-"));
+  const resourceDir = path.join(tempDir, "resources", "genpsy-studio");
+
+  try {
+    await mkdir(path.join(resourceDir, "_extracted"), { recursive: true });
+    await writeFile(path.join(resourceDir, "unit-1.pdf"), "pdf", "utf8");
+    await writeFile(path.join(resourceDir, "_extracted", "unit-1.txt"), "text", "utf8");
+
+    const files = await listResourceSourceFiles(resourceDir);
+
+    assert.deepEqual(relativePaths(resourceDir, files), ["unit-1.pdf"]);
+  } finally {
+    await rm(tempDir, { recursive: true, force: true });
+  }
+});
+
+test("inferSlugFromIncomingItem derives a project slug from files and folders", () => {
+  assert.equal(inferSlugFromIncomingItem("C:\\repo\\projects\\incoming\\My Course"), "my-course");
+  assert.equal(inferSlugFromIncomingItem("C:\\repo\\projects\\incoming\\Unit 1.html"), "unit-1");
 });

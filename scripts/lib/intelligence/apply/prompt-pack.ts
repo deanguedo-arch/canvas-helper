@@ -116,7 +116,7 @@ export async function generatePromptPack(projectSlug: string, policy: Intelligen
   const rulesSummary = [
     "- Work in repo-approved zones (`app/studio`, `app/server`, `scripts`, `docs`, `tasks`, root config files).",
     "- Treat `projects/<slug>/raw` as immutable baseline input.",
-    "- Retrieval order: prompt-pack -> local pattern bank matches -> references/extracted.",
+    "- Retrieval order: prompt-pack -> local pattern bank matches -> projects/resources/<slug>/_extracted.",
     "- Finish only after typecheck/build and task-specific verification pass."
   ].join("\n");
 

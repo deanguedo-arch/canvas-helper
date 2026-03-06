@@ -20,7 +20,7 @@ export function getPreviewPath(mode: "raw" | "workspace", slug: string, relative
 
 export function getReferencePreviewPath(mode: "raw" | "extracted", slug: string, relativePath?: string) {
   const paths = getProjectPaths(slug);
-  const baseDir = mode === "raw" ? paths.referencesRawDir : paths.referencesExtractedDir;
+  const baseDir = mode === "raw" ? paths.resourceDir : paths.resourceExtractedDir;
   const requestedPath = relativePath ? decodeURIComponent(relativePath) : "";
 
   if (!requestedPath) {

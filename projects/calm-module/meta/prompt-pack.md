@@ -1,14 +1,24 @@
 # Prompt Pack
 
 - Project: calm-module
-- Generated: 2026-03-06T02:06:47.517Z
+- Generated: 2026-03-06T21:36:25.222Z
 
 ## Rules
 
-- Work in repo-approved zones (`app/studio`, `scripts`, `docs`, `tasks`, root config files).
+- Work in repo-approved zones (`app/studio`, `app/server`, `scripts`, `docs`, `tasks`, root config files).
 - Treat `projects/<slug>/raw` as immutable baseline input.
-- Retrieval order: prompt-pack -> local pattern bank matches -> references/extracted.
+- Retrieval order: prompt-pack -> local pattern bank matches -> projects/resources/<slug>/_extracted.
 - Finish only after typecheck/build and task-specific verification pass.
+
+## Intelligence Policy
+
+- Mode: collect
+- Policy source: env-override
+- Collect pattern bank: on
+- Collect memory ledger: on
+- Apply pattern bank to prompt pack: off
+- Apply memory ledger to prompt pack: off
+- Apply memory ledger to recommendations: off
 
 ## Project Manifest
 
@@ -16,7 +26,7 @@
 {
   "id": "cb6efd51-9046-430f-a9e1-0f8fd3fd6621",
   "slug": "calm-module",
-  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\canvas code and references\\CALM MODULE .HTML",
+  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\processed\\calm-module\\source",
   "inputKind": "html",
   "brightspaceTarget": "course-page",
   "previewModes": [
@@ -27,9 +37,10 @@
   "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\calm-module\\raw\\original.html",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-03-06T02:06:47.292Z",
+  "learningUpdatedAt": "2026-03-06T21:36:25.186Z",
   "createdAt": "2026-03-06T02:06:47.139Z",
-  "updatedAt": "2026-03-06T02:06:47.292Z"
+  "updatedAt": "2026-03-06T21:36:25.186Z",
+  "workspaceApprovedAt": "2026-03-06T21:36:25.186Z"
 }
 ```
 
@@ -106,72 +117,94 @@
 
 ## Import Log
 
-> import-log.md: missing
+```md
+# Import Log
+
+- Generated: 2026-03-06T02:06:47.139Z
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\canvas code and references\CALM MODULE .HTML
+
+## Actions
+- Copied the source HTML into raw/original.html without modifying it.
+- Externalized 1 inline script block(s) to workspace/main.jsx.
+- Learned project patterns (C:\Users\dean.guedo\Documents\GitHub\canvas-helper\.runtime\pattern-bank\auto\calm-module.json).
+- Updated local pattern bank (1 profile(s)).
+- Generated prompt pack (C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\calm-module\meta\prompt-pack.md).
+
+## Warnings
+- None.
+```
 
 ## Global Memory
 
-### Approved style direction from calm-module
-- Kind: style
-- Confidence: high
-- Reinforcement: 1
-- Projects: calm-module
-- Top reasons: Style overlap (+402); Keyword overlap (+138)
-- Keywords: action, addiction, addictions, addictive, after, alcohol, alone, amazing, analysis, answers, back, calm
-- Style tokens: amber-100, amber-200, amber-300, amber-400, amber-50, amber-500, amber-600, amber-700, amber-800, amber-900, blue-100, blue-200
-- Dependencies: none
-- Reference kinds: none
-
-### Reusable sections and components from calm-module
-- Kind: component
-- Confidence: high
-- Reinforcement: 1
-- Projects: calm-module
-- Top reasons: Keyword overlap (+138); Section overlap (+84)
-- Keywords: action, addiction, addictions, addictive, after, alcohol, alone, amazing, analysis, answers, back, calm
-- Style tokens: none
-- Dependencies: none
-- Reference kinds: none
-
-### Approved style direction from calmmodule2
-- Kind: style
-- Confidence: high
-- Reinforcement: 5
-- Projects: calmmodule2
-- Top reasons: Style overlap (+183); Keyword overlap (+12)
-- Keywords: amanda, analysis, assignment, auto, budget, budgeting, calm, case, checklist, communication, completion, conflict
-- Style tokens: amber-100, amber-200, amber-400, amber-50, amber-500, amber-600, amber-700, amber-800, amber-900, blue-100, blue-400, blue-50
-- Dependencies: none
-- Reference kinds: none
-
-### Runtime and tool choices from calm-module
-- Kind: tool
-- Confidence: high
-- Reinforcement: 1
-- Projects: calm-module
-- Top reasons: Keyword overlap (+138); Dependency overlap (+42)
-- Keywords: action, addiction, addictions, addictive, after, alcohol, alone, amazing, analysis, answers, back, calm
-- Style tokens: none
-- Dependencies: https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js, https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>, https://cdn.tailwindcss.com, https://cdn.tailwindcss.com"></script>, https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css, https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">, https://unpkg.com/@babel/standalone/babel.min.js, https://unpkg.com/@babel/standalone/babel.min.js"></script>, https://unpkg.com/react-dom@18/umd/react-dom.development.js, https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>, https://unpkg.com/react@18/umd/react.development.js, https://unpkg.com/react@18/umd/react.development.js"></script>, https://www.youtube.com/embed/yRUAzGQ3nSY?rel=0, https://www.youtube.com/embed/yRUAzGQ3nSY?rel=0"
-- Reference kinds: none
-
-### Approved style direction from calm-module-2-activites-reference
-- Kind: style
-- Confidence: high
-- Reinforcement: 1
-- Projects: calm-module-2-activites-reference
-- Top reasons: Style overlap (+162); Keyword overlap (+14)
-- Keywords: active, activebudgettab, adindex, advertising, analyzer, apply, bottom, boundary, budget, builder, calm, choice
-- Style tokens: amber-100, amber-200, amber-400, amber-50, amber-800, amber-900, blue-100, blue-200, blue-400, blue-50, blue-500, blue-600
-- Dependencies: none
-- Reference kinds: none
+disabled by intelligence policy (collect)
 
 ## Pattern Matches
 
-none
+disabled by intelligence policy (collect)
 
 ## Reference Excerpts
 
-none
+### calm-module-1-personal-choices-pdf (pdf)
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\calm-module\CALM Module 1 - Personal Choices.pdf
+
+```text
+CALM MODULE ONE – PERONSAL CHOICES 
+OUTREACH PROGRAMS – REVISED 2018 
+1 
+ 
+nextstepfortsaskatchewansherwoodpa
+rkvegrevillenextstefortsaskatchewans
+herwoodparkvegrevillenextstepfortsa
+skatchewannextstepsherwoodparkveg
+revillenextstepfortsaskatchewansher
+woodparkvegrevillenextstepfortsaskat
+chewansherwoodparkvegrevillenextst
+epfortsaskatchewansherwoodparkveg
+revillenextstepfortsaskatchewansher
+woodparkvegrevillenextstepfortsaskat
+chewansherwoodparkvegrevillenextst
+epfortsaskatchewansherwoodparkveg
+revillenextstepfortsaskatchewansher
+woodparkvegrevillepfortsaskatchewa
+nsherwoodparkvegrevillenextstepfort
+saskatchewansherwoodparkvegreville
+nextstepfortsaskatchewansherwoodpa
+rkvegrevillenextstepfortsaskatchewan
+sherwoodparkvegrevillenextstepforts
+ 
+STUDENT NAME: 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+Career and 
+Life 
+Management 
+Module 1 
+Personal Choices 
+ 
+SENIOR HIGH SCHOOL 
+Fort Saskatchewan 780 992 0101 
+Sherwood Park 780 464 1899 
+Vegreville 780 632 7998  
+ 
+ 
+ 
+
+  
+CALM MODULE ONE – PERONSAL CHOICES 
+OUTREACH PROGRAMS – REVISED 2018 
+2 
+ 
+COURSE OVERVIEW 
+ 
+CALM is a compulsory course for Alberta High School students.  It is the 
+final component of the grade 1-12 Health Promotion Program.  It is a 3 
+c...
+```
 
 ## Task Stub
 

@@ -503,6 +503,16 @@ pre {
   -webkit-backdrop-filter: blur(18px) saturate(155%);
 }
 
+.picker-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.picker-status {
+  margin: 0;
+}
+
 .workspace-picker {
   align-items: flex-end;
 }

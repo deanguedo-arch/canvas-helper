@@ -86,7 +86,29 @@ Deliver:
 - Follow-up
 ```
 
-## 5. Session Handoff
+## 5. Incoming Intake Change
+
+```text
+Task: Change incoming bundle or tagged reference intake behavior.
+Boundary:
+- Touch scripts, the local server route, and the smallest necessary Studio wiring.
+Constraints:
+- Keep `projects/incoming/` as the import drop zone.
+- Keep `projects/resources/<slug>/` as the canonical resource source.
+- Keep `projects/processed/<slug>/source/` to one latest snapshot per slug.
+- Do not reintroduce Gemini-specific folder lanes.
+Verification:
+- npm.cmd run typecheck
+- npm.cmd run build:studio
+- node --import tsx --test scripts/tests/incoming-watch.test.ts scripts/tests/incoming-intake.test.ts scripts/tests/incoming-route.test.ts scripts/tests/studio-incoming-refresh.test.ts
+Deliver:
+- Intake behavior summary
+- Conflict policy
+- Manual refresh behavior
+- Risks
+```
+
+## 6. Session Handoff
 
 ```text
 Project: <slug or repo-wide>

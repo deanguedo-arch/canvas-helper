@@ -26,6 +26,7 @@ Examples:
 - Studio/server changes: `npm.cmd run typecheck` and `npm.cmd run build:studio`
 - Intelligence changes: targeted tests plus `npm.cmd run typecheck`
 - Pipeline changes: smoke-path verification plus targeted tests
+- Incoming pipeline changes: targeted intake tests plus `npm.cmd run incoming:refresh -- --incoming <temp>` or an equivalent temp-root one-shot check
 
 ## Doc Update Triggers
 
@@ -36,6 +37,7 @@ Update docs when:
 - intelligence policy changes
 - handoff expectations change
 - the quick-start path changes
+- intake, processed snapshot, or resource library behavior changes
 
 ## Test Update Triggers
 
@@ -46,6 +48,7 @@ Add or update tests when:
 - intelligence policy behavior changes
 - prompt-pack behavior changes
 - import/export pipeline behavior changes
+- incoming bundle or shared resource behavior changes
 
 ## Definition of Done
 

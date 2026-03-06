@@ -12,10 +12,13 @@ Canvas Helper is a local-first Node + browser workspace for importing Canvas cou
 - `scripts/lib/intelligence/config/`: intelligence policy and feature-flag resolution
 - `scripts/lib/intelligence/collect/`: always-on learning and signal collection
 - `scripts/lib/intelligence/apply/`: prompt-pack influence, recommendations, and application
+- `projects/incoming/`: intake drop zone for new HTML files and bundle imports
+- `projects/processed/`: latest kept import snapshot per project slug
+- `projects/resources/`: canonical project resource library and extracted text
 - `projects/<slug>/raw/`: immutable imported baseline
 - `projects/<slug>/workspace/`: editable working files
 - `projects/<slug>/meta/`: manifests, prompt-pack, logs, handoff artifacts
-- `projects/<slug>/references/`: raw support material and extracted text
+- `projects/resources/<slug>/`: shared project resource library and extracted text
 - `projects/<slug>/exports/`: generated output only
 - `docs/`: architecture, governance, ops, and plans
 
@@ -28,6 +31,7 @@ Canvas Helper is a local-first Node + browser workspace for importing Canvas cou
 - `tasks/**`
 - `projects/<slug>/workspace/**`
 - `projects/<slug>/meta/**`
+- `projects/incoming/**`, `projects/processed/**`, and `projects/resources/**` for intake and resource-pipeline work only
 - repo root governance/config files
 
 ## Forbidden / Protected Zones
@@ -64,7 +68,7 @@ Canvas Helper is a local-first Node + browser workspace for importing Canvas cou
 
 1. Read `projects/<slug>/meta/prompt-pack.md` first when a project slug exists.
 2. Then read the relevant `.runtime/pattern-bank/` matches or ledger artifacts if the task depends on prior learning.
-3. Use `projects/<slug>/references/extracted/` only after prompt-pack and pattern-bank context.
+3. Use `projects/resources/<slug>/_extracted/` only after prompt-pack and pattern-bank context.
 4. Read `ARCHITECTURE.md` and `docs/ops/HANDOFF.md` for repo-wide changes or mid-stream handoffs.
 
 ## Intelligence Rules
@@ -125,6 +129,8 @@ Use the stricter template in `docs/ops/HANDOFF.md` for ongoing session work.
 - Do not manually edit `projects/<slug>/raw/**` or `projects/<slug>/exports/**` unless the task explicitly requires it.
 - Keep user-authored changes in `projects/<slug>/workspace/**`.
 - Treat `projects/<slug>/meta/**` as generated-plus-operational state that may be updated when workflows require it.
+- Treat `projects/processed/**` as snapshot state, not an editable project workspace.
+- Treat `projects/resources/**` as canonical source material, not a temporary intake queue.
 
 ## Verification Floor
 

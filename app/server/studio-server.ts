@@ -5,6 +5,7 @@ import type { Plugin, ViteDevServer } from "vite";
 import { projectsRoot } from "../../scripts/lib/paths.js";
 
 import { handleCommandsRoute } from "./routes/commands";
+import { handleIncomingRoute } from "./routes/incoming";
 import { handlePreviewRoutes } from "./routes/preview";
 import { handleProjectsRoute } from "./routes/projects";
 import { handleSessionLogRoute } from "./routes/session-log";
@@ -13,6 +14,10 @@ async function handleRequest(server: ViteDevServer, request: import("node:http")
   const url = request.url ? request.url.split("?")[0] : "";
 
   if (await handleProjectsRoute(url, request, response)) {
+    return;
+  }
+
+  if (await handleIncomingRoute(url, request, response)) {
     return;
   }
 

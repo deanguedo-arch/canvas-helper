@@ -14,12 +14,14 @@ Repo-level intelligence defaults live in `config/intelligence.json`. Project-spe
    - `launch-canvas-helper-collect.bat` (default/normal)
    - `launch-canvas-helper-apply.bat`
    - or `launch-canvas-helper.bat` and set `LEARNER_MODE` manually
+5. The Windows launcher auto-runs `npm.cmd run migrate:projects` so older repo layouts are normalized before Studio starts
 
 ## Main Commands
 
 - `npm.cmd run studio`
 - `npm.cmd run studio:auto`
 - `npm.cmd run import -- "<path-to-html-or-folder>" --slug <slug>`
+- `npm.cmd run incoming:refresh`
 - `npm.cmd run analyze -- --project <slug>`
 - `npm.cmd run refs -- --project <slug>`
 - `npm.cmd run export:brightspace -- --project <slug>`
@@ -31,12 +33,14 @@ Repo-level intelligence defaults live in `config/intelligence.json`. Project-spe
 
 ## Core Workflow
 
-1. Put incoming bundles in `projects/_incoming/`
-2. Import into `projects/<slug>/...`
-3. Edit only `projects/<slug>/workspace/`
-4. Use Studio to compare raw vs workspace
-5. Run analyze / refs / export as needed
-6. Capture a handoff before stopping
+1. Drop HTML or bundle imports into `projects/incoming/`
+2. Drop resources directly into `projects/resources/<slug>/`
+3. Use Studio `Refresh Intake` or run `npm.cmd run incoming:refresh`
+4. Imported sources are snapshotted to `projects/processed/<slug>/source/`
+5. Edit only `projects/<slug>/workspace/`
+6. Use Studio to compare raw vs workspace
+7. Run analyze / refs / export as needed
+8. Capture a handoff before stopping
 
 ## Learner modes
 

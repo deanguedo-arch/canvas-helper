@@ -20,7 +20,15 @@ import {
 import { toPreviewUrl, toReferenceResourcePreviewUrl } from "./lib/preview-urls";
 
 export function App() {
-  const { projects, errorMessage, refreshProjects } = useProjects();
+  const {
+    projects,
+    errorMessage,
+    refreshProjects,
+    refreshIncoming,
+    incomingRefreshRunning,
+    incomingRefreshMessage,
+    incomingRefreshIsError
+  } = useProjects();
   const { selectedSlug, setSelectedSlug, previewMode, setPreviewMode } = useStudioSelection(projects);
   const { layoutPreferences, setLayoutPreferences, paneControlsVisible, setPaneControlsVisible } =
     useLayoutPreferences();
@@ -263,6 +271,9 @@ export function App() {
                             projectOptions={referenceProjectOptions}
                             htmlOptions={referenceFileOptions}
                             resourceOptions={referenceResourceOptions}
+                            incomingRefreshRunning={incomingRefreshRunning}
+                            incomingRefreshMessage={incomingRefreshMessage}
+                            incomingRefreshIsError={incomingRefreshIsError}
                             onProjectChange={(slug) => {
                               persistAllVisibleScrollPositions();
                               setReferenceTarget((current) => ({ ...current, projectSlug: slug }));
@@ -287,6 +298,7 @@ export function App() {
                               persistAllVisibleScrollPositions();
                               setReferenceTarget((current) => ({ ...current, resourcePath }));
                             }}
+                            onRefreshIntake={() => void refreshIncoming()}
                           />
                         ) : (
                           <WorkspacePicker

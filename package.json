@@ -10,6 +10,8 @@
     "typecheck": "tsc --noEmit",
     "import": "tsx scripts/import-site.ts",
     "watch:incoming": "tsx scripts/watch-incoming.ts",
+    "incoming:refresh": "tsx scripts/watch-incoming.ts --once",
+    "migrate:projects": "tsx scripts/migrate-project-layout.ts",
     "analyze": "tsx scripts/analyze-site.ts",
     "learn": "tsx scripts/learn-patterns.ts",
     "library": "tsx scripts/build-pattern-library.ts",
