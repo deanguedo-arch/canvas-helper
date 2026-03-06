@@ -6,9 +6,8 @@ dist/
 .DS_Store
 Thumbs.db
 
-# Imported course content (DO NOT COMMIT)
-projects/**
-!projects/.gitkeep
+# Track project source/workspace/meta content
+projects/**/exports/**
 
 # Local intelligence cache
 .runtime/pattern-bank/
