@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: genpsy
-- Generated: 2026-03-06T04:17:58.190Z
+- Generated: 2026-03-06T04:31:47.364Z
 
 ## Rules
 
@@ -37,10 +37,10 @@
   "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\genpsy\\raw\\original.html",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-03-06T04:17:58.090Z",
+  "learningUpdatedAt": "2026-03-06T04:31:47.274Z",
   "createdAt": "2026-03-06T04:15:08.198Z",
-  "updatedAt": "2026-03-06T04:17:58.090Z",
-  "workspaceApprovedAt": "2026-03-06T04:17:58.090Z"
+  "updatedAt": "2026-03-06T04:31:47.274Z",
+  "workspaceApprovedAt": "2026-03-06T04:31:47.274Z"
 }
 ```
 
@@ -59,7 +59,7 @@
 
 ## Visual Signals
 - Tailwind-style color tokens: gray-800, slate-900, blue-400, slate-300, blue-500, yellow-600, slate-50, slate-200, slate-800, blue-600
-- Hex colors: #f8fafc, #ffffff, #3b82f6, #eff6ff, #1e3a8a, #bfdbfe, #1e293b, #fef3c7, #f59e0b
+- Hex colors: #f8fafc, #ffffff, #3b82f6, #eff6ff, #1e3a8a, #bfdbfe, #1e293b, #fef3c7, #f59e0b, #dbeafe
 - Repeated shape tokens: rounded-lg, rounded, rounded-t, rounded-b, rounded-xl, rounded-full
 - Motion and interaction tokens: hover:bg-gray-100, transition-colors, hover:bg-gray-300, hover:bg-gray-50, hover:bg-blue-700, transition-transform, hover:scale-105, transition
 
@@ -112,21 +112,21 @@
 ### Approved style direction from genpsy
 - Kind: style
 - Confidence: high
-- Reinforcement: 3
+- Reinforcement: 4
 - Projects: genpsy
-- Top reasons: Style overlap (+165); Keyword overlap (+108)
-- Keywords: acetylcholine, action, anatomy, architecture, basis, behavior, biological, block, brain, building, cerebral, check
-- Style tokens: blue-200, blue-300, blue-400, blue-500, blue-600, blue-700, blue-800, gray-100, gray-200, gray-300, gray-400, gray-50
+- Top reasons: Style overlap (+180); Keyword overlap (+154)
+- Keywords: acetylcholine, action, anatomy, applied, architecture, basis, behavior, biological, block, brain, builder, building
+- Style tokens: amber-500, blue-100, blue-200, blue-300, blue-400, blue-500, blue-600, blue-700, blue-800, emerald-600, gray-100, gray-200
 - Dependencies: none
 - Reference kinds: none
 
 ### Runtime and tool choices from genpsy
 - Kind: tool
 - Confidence: high
-- Reinforcement: 3
+- Reinforcement: 4
 - Projects: genpsy
-- Top reasons: Keyword overlap (+108); Dependency overlap (+12)
-- Keywords: acetylcholine, action, anatomy, architecture, basis, behavior, biological, block, brain, building, cerebral, check
+- Top reasons: Keyword overlap (+154); Dependency overlap (+12)
+- Keywords: acetylcholine, action, anatomy, applied, architecture, basis, behavior, biological, block, brain, builder, building
 - Style tokens: none
 - Dependencies: https://cdn.tailwindcss.com, https://cdn.tailwindcss.com"></script>, https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css, https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 - Reference kinds: none
@@ -134,10 +134,10 @@
 ### Reference and resource profile from genpsy
 - Kind: resource
 - Confidence: high
-- Reinforcement: 3
+- Reinforcement: 4
 - Projects: genpsy
-- Top reasons: Keyword overlap (+108); Approved bonus (+6)
-- Keywords: acetylcholine, action, anatomy, architecture, basis, behavior, biological, block, brain, building, cerebral, check
+- Top reasons: Keyword overlap (+154); Approved bonus (+6)
+- Keywords: acetylcholine, action, anatomy, applied, architecture, basis, behavior, biological, block, brain, builder, building
 - Style tokens: none
 - Dependencies: none
 - Reference kinds: pdf
@@ -145,10 +145,10 @@
 ### Reusable sections and components from genpsy
 - Kind: component
 - Confidence: high
-- Reinforcement: 3
+- Reinforcement: 4
 - Projects: genpsy
-- Top reasons: Keyword overlap (+108); Approved bonus (+6)
-- Keywords: acetylcholine, action, anatomy, architecture, basis, behavior, biological, block, brain, building, cerebral, check
+- Top reasons: Keyword overlap (+154); Approved bonus (+6)
+- Keywords: acetylcholine, action, anatomy, applied, architecture, basis, behavior, biological, block, brain, builder, building
 - Style tokens: none
 - Dependencies: none
 - Reference kinds: none
@@ -158,7 +158,7 @@
 - Confidence: high
 - Reinforcement: 10
 - Projects: smoke-calm-module
-- Top reasons: Style overlap (+93); Keyword overlap (+6)
+- Top reasons: Style overlap (+108); Keyword overlap (+8)
 - Keywords: action, addiction, addictions, addictive, after, alcohol, alone, amazing, analysis, answers, back, calm
 - Style tokens: amber-100, amber-200, amber-300, amber-400, amber-50, amber-500, amber-600, amber-700, amber-800, amber-900, blue-100, blue-200
 - Dependencies: none
@@ -166,13 +166,13 @@
 
 ## Pattern Matches
 
-### smoke-calm-module (auto/auto, score 126)
+### smoke-calm-module (auto/auto, score 143)
 - Confidence: high
-- Score breakdown: sections 0, keywords 6, references 4, styles 93, colors 1, dependencies 8, curated 0, recency 6, workspace approval 8
-- Top reasons: Style token overlap (+93); Dependency overlap (+8)
+- Score breakdown: sections 0, keywords 8, references 4, styles 108, colors 1, dependencies 8, curated 0, recency 6, workspace approval 8
+- Top reasons: Style token overlap (+108); Keyword overlap (+8)
 - Shared sections: none
-- Shared style tokens: blue-200, blue-300, blue-500, blue-800, green-300, green-800, indigo-500, indigo-800, purple-100, purple-50, purple-600, red-100, red-200, red-300, red-50, red-500, red-600, red-700, red-800, rounded-full, rounded-lg, rounded-xl, slate-100, slate-200, slate-300, slate-400, slate-50, slate-800, slate-900, yellow-300, yellow-800
-- Shared keywords: action, check, module
+- Shared style tokens: amber-500, blue-100, blue-200, blue-300, blue-500, blue-800, emerald-600, green-300, green-800, indigo-100, indigo-500, indigo-600, indigo-800, purple-100, purple-50, purple-600, red-100, red-200, red-300, red-50, red-500, red-600, red-700, red-800, rounded-full, rounded-lg, rounded-xl, slate-100, slate-200, slate-300, slate-400, slate-50, slate-800, slate-900, yellow-300, yellow-800
+- Shared keywords: action, check, high, module
 - Shared reference kinds: pdf
 
 ## Reference Excerpts

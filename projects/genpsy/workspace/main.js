@@ -36,28 +36,37 @@
         // Quiz Logic
         function checkQuiz() {
             let score = 0;
-            const total = 3;
-            const q1 = document.querySelector('input[name="q1"]:checked');
-            const q2 = document.querySelector('input[name="q2"]:checked');
-            const q3 = document.querySelector('input[name="q3"]:checked');
-            
+            const questions = document.querySelectorAll(".quiz-q");
+            const total = questions.length;
+            let answered = 0;
+
             const resultsDiv = document.getElementById("quiz-results");
-            
-            if(!q1 || !q2 || !q3) {
-                resultsDiv.innerHTML = "Please answer all questions before submitting.";
+
+            questions.forEach((question) => {
+                const selected = question.querySelector('input[type="radio"]:checked');
+                if (selected) {
+                    answered += 1;
+                    if (selected.value === "correct") {
+                        score += 1;
+                    }
+                }
+            });
+
+            if (answered !== total) {
+                const unanswered = total - answered;
+                resultsDiv.innerHTML = `Please answer all questions before submitting. (${unanswered} remaining)`;
                 resultsDiv.className = "mt-6 p-4 rounded text-center font-bold text-lg bg-yellow-100 text-yellow-800 border border-yellow-300 block";
                 return;
             }
 
-            if(q1.value === "correct") score++;
-            if(q2.value === "correct") score++;
-            if(q3.value === "correct") score++;
-
-            if(score === total) {
+            if (score === total) {
                 resultsDiv.innerHTML = `Perfect Score! ${score}/${total} <i class="fas fa-star text-yellow-500 ml-2"></i>`;
                 resultsDiv.className = "mt-6 p-4 rounded text-center font-bold text-lg bg-green-100 text-green-800 border border-green-300 block";
+            } else if (score >= Math.ceil(total * 0.75)) {
+                resultsDiv.innerHTML = `Strong work: ${score}/${total}. You're close to mastery - review the missed topics and re-test.`;
+                resultsDiv.className = "mt-6 p-4 rounded text-center font-bold text-lg bg-blue-100 text-blue-800 border border-blue-300 block";
             } else {
-                resultsDiv.innerHTML = `You scored ${score}/${total}. Review the sections above and try again!`;
+                resultsDiv.innerHTML = `You scored ${score}/${total}. Revisit Parts 4-6 and try again.`;
                 resultsDiv.className = "mt-6 p-4 rounded text-center font-bold text-lg bg-red-100 text-red-800 border border-red-300 block";
             }
         }

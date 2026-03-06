@@ -6,7 +6,7 @@
 
 ## Visual Signals
 - Tailwind-style color tokens: gray-800, slate-900, blue-400, slate-300, blue-500, yellow-600, slate-50, slate-200, slate-800, blue-600
-- Hex colors: #f8fafc, #ffffff, #3b82f6, #eff6ff, #1e3a8a, #bfdbfe, #1e293b, #fef3c7, #f59e0b
+- Hex colors: #f8fafc, #ffffff, #3b82f6, #eff6ff, #1e3a8a, #bfdbfe, #1e293b, #fef3c7, #f59e0b, #dbeafe
 - Repeated shape tokens: rounded-lg, rounded, rounded-t, rounded-b, rounded-xl, rounded-full
 - Motion and interaction tokens: hover:bg-gray-100, transition-colors, hover:bg-gray-300, hover:bg-gray-50, hover:bg-blue-700, transition-transform, hover:scale-105, transition
 
