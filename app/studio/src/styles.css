@@ -848,7 +848,234 @@ pre {
   border: 0;
 }
 
+.studio-mode-switch {
+  display: inline-flex;
+  gap: 0.4rem;
+  padding: 0.4rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.72);
+  margin: 0 0 0.8rem;
+}
+
+.studio-mode-switch button {
+  border: 0;
+  border-radius: 999px;
+  padding: 0.42rem 0.95rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  background: transparent;
+}
+
+.studio-mode-switch button.active {
+  background: rgba(70, 116, 203, 0.18);
+  color: var(--ink);
+}
+
+.assessment-mode {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.assessment-status {
+  padding: 0.7rem 0.9rem;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.assessment-shell {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr) 340px;
+  gap: 0.9rem;
+}
+
+.assessment-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.assessment-card {
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  padding: 0.95rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.42)),
+    rgba(255, 255, 255, 0.16);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 12px 24px rgba(31, 52, 87, 0.08);
+}
+
+.assessment-card h3,
+.assessment-card h4 {
+  margin: 0 0 0.65rem;
+}
+
+.assessment-card-header {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+}
+
+.assessment-card-actions {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.assessment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  max-height: 21rem;
+  overflow: auto;
+}
+
+.assessment-list-item {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.6rem 0.65rem;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.72);
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.assessment-list-item.active {
+  border-color: rgba(70, 116, 203, 0.44);
+  background: rgba(70, 116, 203, 0.1);
+}
+
+.assessment-list-item span {
+  color: var(--ink-soft);
+  font-size: 0.84rem;
+}
+
+.assessment-question-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.assessment-question-item {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.55rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.assessment-question-item.active {
+  border-color: rgba(70, 116, 203, 0.44);
+}
+
+.assessment-question-trigger {
+  border: 0;
+  background: transparent;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0;
+}
+
+.assessment-question-trigger span {
+  color: var(--ink-soft);
+  font-size: 0.84rem;
+}
+
+.assessment-item-actions {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.assessment-item-actions .danger,
+.ghost-button.danger {
+  border-color: rgba(201, 84, 84, 0.45);
+  color: #8a2f2f;
+}
+
+.assessment-subsection {
+  margin-top: 0.85rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--line);
+}
+
+.assessment-choice-row,
+.assessment-matching-row {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  align-items: center;
+}
+
+.assessment-choice-row {
+  grid-template-columns: 40px minmax(0, 1fr) auto;
+}
+
+.assessment-matching-row {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.assessment-toggle {
+  display: inline-flex;
+  gap: 0.3rem;
+  align-items: center;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+}
+
+.assessment-toggle input {
+  width: auto;
+}
+
+.assessment-issue-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  max-height: 20rem;
+  overflow: auto;
+}
+
+.assessment-issue {
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  padding: 0.45rem 0.55rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  font-size: 0.88rem;
+}
+
+.assessment-issue.error {
+  border-color: rgba(201, 84, 84, 0.36);
+  background: rgba(252, 231, 231, 0.72);
+}
+
+.assessment-issue.warning {
+  border-color: rgba(204, 148, 53, 0.42);
+  background: rgba(255, 245, 222, 0.74);
+}
+
+.assessment-import-summary ul {
+  margin: 0;
+  padding-left: 1rem;
+}
+
 @media (max-width: 1280px) {
+  .assessment-shell {
+    grid-template-columns: 1fr;
+  }
+
   .workspace-grid.inspector-open {
     grid-template-columns: 1fr;
   }

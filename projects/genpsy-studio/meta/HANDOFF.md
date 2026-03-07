@@ -1,37 +1,60 @@
 # Handoff
 
 - Project: genpsy-studio
-- Task: Refine Unit 1 so the lesson body stays formative and the final Knowledge Check mirrors the Unit 1 booklet structure.
-- Status: in progress
+- Task: Integrate Assessment Factory into Canvas Helper Studio with global assessment library + deterministic import/edit/export flow.
+- Status: ready for validation
 
 ## Files changed
-- projects/genpsy-studio/workspace/index.html
-- projects/genpsy-studio/workspace/main.js
+- app/server/routes/assessments.ts
+- app/server/studio-server.ts
+- app/studio/src/App.tsx
+- app/studio/src/components/AssessmentLibraryMode.tsx
+- app/studio/src/lib/assessment-types.ts
+- app/studio/src/lib/assessments.ts
+- app/studio/src/styles.css
+- scripts/assessment-import.ts
+- scripts/assessment-export.ts
+- scripts/lib/assessments/schema.ts
+- scripts/lib/assessments/model.ts
+- scripts/lib/assessments/validation.ts
+- scripts/lib/assessments/export-brightspace.ts
+- scripts/lib/assessments/question-extraction.ts
+- scripts/lib/assessments/ingest/pdf.ts
+- scripts/lib/assessments/ingest/docx.ts
+- scripts/lib/assessments/library.ts
+- scripts/lib/assessments/index.ts
+- scripts/lib/paths.ts
+- scripts/tests/assessments-engine.test.ts
+- README.md
+- ARCHITECTURE.md
+- package.json
+- package-lock.json
 
 ## What changed
-- Reframed visible Unit 1 language so it reads as a single module instead of foregrounding `Assignment 1` in the lesson body.
-- Kept the interactive learning resources in the body of Unit 1, including the clinic-role work, hypnosis reflection, overt/covert practice, branch matching, and Goldilocks experiment work.
-- Added a new final `Knowledge Check` section with booklet-style multiple choice, matching, and long-answer response builders.
-- Wired new Unit 1 check functions in `main.js` for the final multiple-choice and matching review.
-- Hid the old true/false summary block so it no longer drives the visible Unit 1 ending.
+- Added a new global assessment library at `projects/assessments/<assessment-slug>/`.
+- Ported deterministic assessment engine layers into `scripts/lib/assessments/` (schema, validation, PDF/DOCX ingest, merge, export).
+- Added API endpoints for assessment CRUD/import/export at `/api/assessments...`.
+- Added CLI parity (`assessment:import`, `assessment:export`) and deterministic tests (`test:assessments`).
+- Added Studio top-level mode switch and full `Assessment Library` editor mode (API-backed, no localStorage system of record).
+- Imported fixture `Copy of Personal Psychology 20 Unit 1.pdf` into `copy-of-personal-psychology-20-unit-1-acceptance` with 29 extracted student-facing questions.
 
 ## What still needs validation
-- Manually click through Unit 1 in Studio and confirm the new `Knowledge Check` renders and behaves correctly.
-- Confirm the new end-of-unit structure feels close enough to `Copy of Personal Psychology 20 Unit 1.pdf` for your preference.
-- Decide whether to fully delete the hidden legacy true/false block after confirming the new layout in-browser.
+- Open Studio and validate `Assessment Library` mode end-to-end (import, edit, save, export diagnostics).
+- Validate expected export block behavior for unanswered multiple-choice/true-false questions.
+- Decide whether to add deterministic key-matching from `PerPsy20AB01Key.pdf` to auto-populate `correctAnswers`.
 
 ## Known risks
-- The old true/false summary markup is still present in `index.html` but hidden, so cleanup is still possible later.
-- The final written-response area is booklet-aligned in structure, but it is still styled to match the workspace shell rather than the raw PDF page layout.
-- External CDN/image warnings still exist in the workspace page and were not changed in this pass.
+- Brightspace CSV export currently blocks if required correctness fields are missing (expected behavior, but not one-click for raw student booklet PDFs).
+- Upload endpoint currently writes to temp disk and depends on local file size constraints; no explicit max-size guard added yet.
+- Existing repo tree contains unrelated in-progress changes outside this assessment integration.
 
 ## Exact next command
-`.\launch-canvas-helper.bat`
+`npm.cmd run studio`
 
 ## Exact next file to open
-`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\genpsy-studio\workspace\index.html`
+`/Users/deanguedo/Documents/GitHub/canvas-helper/projects/assessments/copy-of-personal-psychology-20-unit-1-acceptance/assessment.project.json`
 
 ## Do not do next / warnings
-- Do not bring back the old Unit 1 true/false summary as the main ending.
-- Do not treat the assignment key as the lesson content; the lesson page itself is supposed to teach the answers.
-- Do not reintroduce heavy `Assignment 1` framing inside the Unit 1 learning sections unless explicitly requested.
+- Do not treat `PerPsy20AB01Key.pdf` as the student assessment body.
+- Do not bypass validation to force CSV export with unresolved answer keys.
+- Do not move assessment ingest/export logic into Studio frontend code.

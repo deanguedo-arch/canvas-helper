@@ -4,6 +4,7 @@ import { CommandToolbar } from "./components/CommandToolbar";
 import { InspectorPanel } from "./components/InspectorPanel";
 import { PreviewPane } from "./components/PreviewPane";
 import { ReferencePicker } from "./components/ReferencePicker";
+import { AssessmentLibraryMode } from "./components/AssessmentLibraryMode";
 import { Topbar } from "./components/Topbar";
 import { WorkspacePicker } from "./components/WorkspacePicker";
 import { useLayoutPreferences } from "./hooks/useLayoutPreferences";
@@ -49,6 +50,7 @@ export function App() {
   });
 
   const [workspaceHtmlSelections, setWorkspaceHtmlSelections] = useState<Record<string, string>>({});
+  const [studioMode, setStudioMode] = useState<"course" | "assessment">("course");
 
   const selectedProject = useMemo(
     () => projects.find((project) => project.manifest.slug === selectedSlug) ?? null,
@@ -209,149 +211,170 @@ export function App() {
 
         {errorMessage ? <div className="error-banner">{errorMessage}</div> : null}
 
-        <div className={layoutPreferences.inspectorOpen ? "content-grid inspector-open" : "content-grid"}>
-          <section className="preview-workspace">
-            {selectedProject ? (
-              <div className={layoutPreferences.compareMode ? "preview-deck split" : "preview-deck focus"}>
-                {visiblePreviewModes.map((mode) => {
-                  const controlsVisible = paneControlsVisible[mode];
-                  const resourcePreview =
-                    mode === "reference" && resolvedReference.target.source === "resource"
-                      ? {
-                          resourcePath: resolvedReference.target.resourcePath,
-                          resourceRoot: resolvedReference.target.resourceRoot,
-                          previewUrl: previewSources.reference,
-                          extractedFallbackPath: selectedResourceExtractedPath,
-                          onOpenExtractedText: () => {
-                            if (!selectedResourceExtractedPath) {
-                              return;
-                            }
-
-                            persistAllVisibleScrollPositions();
-                            setReferenceTarget((current) => ({
-                              ...current,
-                              source: "resource",
-                              resourceRoot: "extracted",
-                              resourcePath: selectedResourceExtractedPath
-                            }));
-                          },
-                          isViewingSelectedExtractedText:
-                            resolvedReference.target.resourceRoot === "extracted" &&
-                            resolvedReference.target.resourcePath === selectedResourceExtractedPath &&
-                            Boolean(selectedResourceExtractedPath)
-                        }
-                      : undefined;
-
-                  return (
-                    <PreviewPane
-                      key={mode}
-                      mode={mode}
-                      previewMode={previewMode}
-                      layoutPreferences={layoutPreferences}
-                      controlsVisible={controlsVisible}
-                      onToggleControls={(nextMode) =>
-                        setPaneControlsVisible((current) => ({
-                          ...current,
-                          [nextMode]: !current[nextMode]
-                        }))
-                      }
-                      onMatch={(nextMode) =>
-                        copyPreviewModeScrollPosition(nextMode === "workspace" ? "reference" : "workspace", nextMode)
-                      }
-                      onFit={fitPreviewToWidth}
-                      onDeviceChange={handleDeviceChange}
-                      onZoomChange={handleZoomChange}
-                      registerPreviewFrame={registerPreviewFrame}
-                      onPreviewLoad={attachPreviewPersistence}
-                      previewSrc={previewSources[mode]}
-                      picker={
-                        mode === "reference" ? (
-                          <ReferencePicker
-                            target={resolvedReference.target}
-                            projectOptions={referenceProjectOptions}
-                            htmlOptions={referenceFileOptions}
-                            resourceOptions={referenceResourceOptions}
-                            incomingRefreshRunning={incomingRefreshRunning}
-                            incomingRefreshMessage={incomingRefreshMessage}
-                            incomingRefreshIsError={incomingRefreshIsError}
-                            onProjectChange={(slug) => {
-                              persistAllVisibleScrollPositions();
-                              setReferenceTarget((current) => ({ ...current, projectSlug: slug }));
-                            }}
-                            onSourceChange={(source) => {
-                              persistAllVisibleScrollPositions();
-                              setReferenceTarget((current) => ({ ...current, source }));
-                            }}
-                            onRootChange={(root) => {
-                              persistAllVisibleScrollPositions();
-                              setReferenceTarget((current) => ({ ...current, root }));
-                            }}
-                            onHtmlChange={(htmlPath) => {
-                              persistAllVisibleScrollPositions();
-                              setReferenceTarget((current) => ({ ...current, htmlPath }));
-                            }}
-                            onResourceRootChange={(resourceRoot) => {
-                              persistAllVisibleScrollPositions();
-                              setReferenceTarget((current) => ({ ...current, resourceRoot }));
-                            }}
-                            onResourcePathChange={(resourcePath) => {
-                              persistAllVisibleScrollPositions();
-                              setReferenceTarget((current) => ({ ...current, resourcePath }));
-                            }}
-                            onRefreshIntake={() => void refreshIncoming()}
-                          />
-                        ) : (
-                          <WorkspacePicker
-                            selectedSlug={selectedSlug}
-                            projects={projects}
-                            resolvedWorkspaceHtmlPath={resolvedWorkspaceHtmlPath}
-                            workspaceFileOptions={selectedProject.htmlFiles.workspace}
-                            onProjectChange={(slug) => {
-                              persistAllVisibleScrollPositions();
-                              setSelectedSlug(slug);
-                            }}
-                            onHtmlChange={(htmlPath) =>
-                              setWorkspaceHtmlSelections((current) => ({
-                                ...current,
-                                [selectedSlug]: htmlPath
-                              }))
-                            }
-                            onRefresh={() => void refreshProjects()}
-                          />
-                        )
-                      }
-                      toolbar={
-                        mode === "workspace" ? (
-                          <CommandToolbar
-                            commandStatus={commandStatus}
-                            commandOutputVisible={commandOutputVisible}
-                            commandBanner={commandBanner}
-                            commandBannerIsError={commandBannerIsError}
-                            commandLog={commandLog}
-                            anyCommandRunning={anyCommandRunning}
-                            onRunCommand={(command) => void runProjectCommand(command)}
-                            onToggleOutput={() => setCommandOutputVisible((current) => !current)}
-                          />
-                        ) : undefined
-                      }
-                      resourcePreview={resourcePreview}
-                    />
-                  );
-                })}
-              </div>
-            ) : (
-              <div className="empty-preview">Import a project to start previewing it here.</div>
-            )}
-          </section>
-
-          {layoutPreferences.inspectorOpen ? (
-            <InspectorPanel
-              selectedProject={selectedProject}
-              sourceFiles={sourceFiles}
-              onCopyToClipboard={copyToClipboard}
-            />
-          ) : null}
+        <div className="studio-mode-switch" role="tablist" aria-label="Studio mode">
+          <button
+            type="button"
+            className={studioMode === "course" ? "active" : ""}
+            onClick={() => setStudioMode("course")}
+          >
+            Course Studio
+          </button>
+          <button
+            type="button"
+            className={studioMode === "assessment" ? "active" : ""}
+            onClick={() => setStudioMode("assessment")}
+          >
+            Assessment Library
+          </button>
         </div>
+
+        {studioMode === "assessment" ? (
+          <AssessmentLibraryMode />
+        ) : (
+          <div className={layoutPreferences.inspectorOpen ? "content-grid inspector-open" : "content-grid"}>
+            <section className="preview-workspace">
+              {selectedProject ? (
+                <div className={layoutPreferences.compareMode ? "preview-deck split" : "preview-deck focus"}>
+                  {visiblePreviewModes.map((mode) => {
+                    const controlsVisible = paneControlsVisible[mode];
+                    const resourcePreview =
+                      mode === "reference" && resolvedReference.target.source === "resource"
+                        ? {
+                            resourcePath: resolvedReference.target.resourcePath,
+                            resourceRoot: resolvedReference.target.resourceRoot,
+                            previewUrl: previewSources.reference,
+                            extractedFallbackPath: selectedResourceExtractedPath,
+                            onOpenExtractedText: () => {
+                              if (!selectedResourceExtractedPath) {
+                                return;
+                              }
+
+                              persistAllVisibleScrollPositions();
+                              setReferenceTarget((current) => ({
+                                ...current,
+                                source: "resource",
+                                resourceRoot: "extracted",
+                                resourcePath: selectedResourceExtractedPath
+                              }));
+                            },
+                            isViewingSelectedExtractedText:
+                              resolvedReference.target.resourceRoot === "extracted" &&
+                              resolvedReference.target.resourcePath === selectedResourceExtractedPath &&
+                              Boolean(selectedResourceExtractedPath)
+                          }
+                        : undefined;
+
+                    return (
+                      <PreviewPane
+                        key={mode}
+                        mode={mode}
+                        previewMode={previewMode}
+                        layoutPreferences={layoutPreferences}
+                        controlsVisible={controlsVisible}
+                        onToggleControls={(nextMode) =>
+                          setPaneControlsVisible((current) => ({
+                            ...current,
+                            [nextMode]: !current[nextMode]
+                          }))
+                        }
+                        onMatch={(nextMode) =>
+                          copyPreviewModeScrollPosition(nextMode === "workspace" ? "reference" : "workspace", nextMode)
+                        }
+                        onFit={fitPreviewToWidth}
+                        onDeviceChange={handleDeviceChange}
+                        onZoomChange={handleZoomChange}
+                        registerPreviewFrame={registerPreviewFrame}
+                        onPreviewLoad={attachPreviewPersistence}
+                        previewSrc={previewSources[mode]}
+                        picker={
+                          mode === "reference" ? (
+                            <ReferencePicker
+                              target={resolvedReference.target}
+                              projectOptions={referenceProjectOptions}
+                              htmlOptions={referenceFileOptions}
+                              resourceOptions={referenceResourceOptions}
+                              incomingRefreshRunning={incomingRefreshRunning}
+                              incomingRefreshMessage={incomingRefreshMessage}
+                              incomingRefreshIsError={incomingRefreshIsError}
+                              onProjectChange={(slug) => {
+                                persistAllVisibleScrollPositions();
+                                setReferenceTarget((current) => ({ ...current, projectSlug: slug }));
+                              }}
+                              onSourceChange={(source) => {
+                                persistAllVisibleScrollPositions();
+                                setReferenceTarget((current) => ({ ...current, source }));
+                              }}
+                              onRootChange={(root) => {
+                                persistAllVisibleScrollPositions();
+                                setReferenceTarget((current) => ({ ...current, root }));
+                              }}
+                              onHtmlChange={(htmlPath) => {
+                                persistAllVisibleScrollPositions();
+                                setReferenceTarget((current) => ({ ...current, htmlPath }));
+                              }}
+                              onResourceRootChange={(resourceRoot) => {
+                                persistAllVisibleScrollPositions();
+                                setReferenceTarget((current) => ({ ...current, resourceRoot }));
+                              }}
+                              onResourcePathChange={(resourcePath) => {
+                                persistAllVisibleScrollPositions();
+                                setReferenceTarget((current) => ({ ...current, resourcePath }));
+                              }}
+                              onRefreshIntake={() => void refreshIncoming()}
+                            />
+                          ) : (
+                            <WorkspacePicker
+                              selectedSlug={selectedSlug}
+                              projects={projects}
+                              resolvedWorkspaceHtmlPath={resolvedWorkspaceHtmlPath}
+                              workspaceFileOptions={selectedProject.htmlFiles.workspace}
+                              onProjectChange={(slug) => {
+                                persistAllVisibleScrollPositions();
+                                setSelectedSlug(slug);
+                              }}
+                              onHtmlChange={(htmlPath) =>
+                                setWorkspaceHtmlSelections((current) => ({
+                                  ...current,
+                                  [selectedSlug]: htmlPath
+                                }))
+                              }
+                              onRefresh={() => void refreshProjects()}
+                            />
+                          )
+                        }
+                        toolbar={
+                          mode === "workspace" ? (
+                            <CommandToolbar
+                              commandStatus={commandStatus}
+                              commandOutputVisible={commandOutputVisible}
+                              commandBanner={commandBanner}
+                              commandBannerIsError={commandBannerIsError}
+                              commandLog={commandLog}
+                              anyCommandRunning={anyCommandRunning}
+                              onRunCommand={(command) => void runProjectCommand(command)}
+                              onToggleOutput={() => setCommandOutputVisible((current) => !current)}
+                            />
+                          ) : undefined
+                        }
+                        resourcePreview={resourcePreview}
+                      />
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="empty-preview">Import a project to start previewing it here.</div>
+              )}
+            </section>
+
+            {layoutPreferences.inspectorOpen ? (
+              <InspectorPanel
+                selectedProject={selectedProject}
+                sourceFiles={sourceFiles}
+                onCopyToClipboard={copyToClipboard}
+              />
+            ) : null}
+          </div>
+        )}
       </main>
     </div>
   );

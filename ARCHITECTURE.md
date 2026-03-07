@@ -18,16 +18,28 @@ Canvas Helper is a local-first course-content workbench. It imports Canvas-gener
 flowchart LR
   A["projects/incoming/<bundle-or-html>"] --> B["scripts/lib/importer"]
   A2["projects/resources/<slug>/<file>"] --> R["resource refresh"]
+  A3["projects/assessments/<assessment-slug>/source"] --> AS["assessment ingest/export engine"]
   B --> C["projects/<slug>/raw"]
   B --> D["projects/<slug>/workspace"]
   B --> E["projects/<slug>/meta"]
   B --> P["projects/processed/<slug>/source"]
   R --> F["projects/resources/<slug>/_extracted"]
+  R --> RC["meta/resource-catalog.json"]
+  RC --> CB["build-course-blueprint"]
+  RC --> AM["build-assessment-map"]
+  CB --> LP["build-lesson-packets"]
+  AM --> LP
+  CB --> E
+  AM --> E
+  LP --> E
   D --> G["app/server preview routes"]
   C --> G
   G --> H["app/studio React UI"]
   H --> I["app/server API routes"]
   I --> J["scripts/lib analyze/refs/export commands"]
+  H --> IA["app/server assessment routes"]
+  IA --> AS
+  AS --> A3
   J --> E
   J --> K["scripts/lib/intelligence/collect"]
   K --> L["runtime intelligence artifacts"]
@@ -60,8 +72,9 @@ flowchart LR
 - location: `projects/<slug>/...`
 - `raw/`: immutable imported baseline
 - `workspace/`: editable output
-- `meta/`: manifests, logs, prompt-pack, session log, optional policy overrides
+- `meta/`: manifests, logs, prompt-pack, session log, optional policy overrides, and derived planning artifacts such as `resource-catalog.json`, `course-blueprint.json`, `assessment-map.json`, and `lesson-packets/`
 - `projects/resources/<slug>/`: raw support files plus extracted text
+- `projects/assessments/<assessment-slug>/`: global assessment-library items (`source/`, `assessment.project.json`, `import-result.json`, `exports/brightspace/`)
 - `exports/`: generated output only
 
 ### Intake and Resources
@@ -102,6 +115,11 @@ The intelligence system is split into explicit layers:
 - import
 - analyze
 - refs extraction
+- assessment-library ingest (PDF/DOCX), validation, and Brightspace CSV export
+- resource classification and chunk indexing
+- course blueprint generation
+- assessment mapping
+- lesson packet generation
 - Studio preview
 - local command execution
 - Brightspace export/package
@@ -131,6 +149,28 @@ Precedence for the effective learner mode is explicit and deterministic:
 - If it learns from project history, it belongs in `scripts/lib/intelligence/collect/`
 - If it changes how intelligence influences current work, it belongs in `scripts/lib/intelligence/apply/`
 - If it changes policy or defaults, it belongs in `scripts/lib/intelligence/config/`
+
+## Planning Layer
+
+- `refs` remains the explicit resource-ingest step, but now produces classified resource metadata in `meta/resource-catalog.json` and chunk manifests under `projects/resources/<slug>/_extracted/`
+- `blueprint` builds `meta/course-blueprint.json` from outline resources first, then aligns performance demand to assessment resources
+- `assessment-map` builds `meta/assessment-map.json` from assessment resources with task demands, verbs, failure points, and prerequisite knowledge
+- `lesson-packets` builds `meta/lesson-packets/*.json` as the main lesson-construction unit, linking outcomes, assessments, misconceptions, practice, readiness evidence, and targeted source locators
+- `prompt-pack.md` should prioritize blueprint, assessment map, and lesson packets above reference excerpts
+
+## Assessment Library Flow
+
+- Studio `Assessment Library` mode calls local server routes under `/api/assessments`
+- API surface:
+  - `GET /api/assessments`
+  - `POST /api/assessments/import`
+  - `GET /api/assessments/:slug`
+  - `PUT /api/assessments/:slug`
+  - `DELETE /api/assessments/:slug`
+  - `POST /api/assessments/:slug/export/brightspace`
+- The server persists artifacts to `projects/assessments/<assessment-slug>/...` as the system of record
+- PDF ingest uses `scripts/lib/pdf-text.ts` for native-first extraction with OCR fallback, then deterministic question extraction under `scripts/lib/assessments/`
+- DOCX ingest and Brightspace export remain deterministic and filesystem-backed (no browser localStorage repository)
 
 ## Reasoning Rules for New Agents
 

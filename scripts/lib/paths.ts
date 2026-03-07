@@ -7,6 +7,7 @@ const currentDir = path.dirname(fileURLToPath(import.meta.url));
 
 export const repoRoot = path.resolve(currentDir, "..", "..");
 export const projectsRoot = path.join(repoRoot, "projects");
+export const assessmentsRoot = path.join(projectsRoot, "assessments");
 export const incomingRoot = path.join(projectsRoot, "incoming");
 export const processedRoot = path.join(projectsRoot, "processed");
 export const resourcesRoot = path.join(projectsRoot, "resources");
@@ -27,6 +28,19 @@ export function getProcessedProjectPaths(slug: string) {
   return {
     root,
     sourceDir: path.join(root, "source")
+  };
+}
+
+export function getAssessmentPaths(slug: string) {
+  const root = path.join(assessmentsRoot, slug);
+  return {
+    root,
+    sourceDir: path.join(root, "source"),
+    assessmentProjectPath: path.join(root, "assessment.project.json"),
+    importResultPath: path.join(root, "import-result.json"),
+    exportsDir: path.join(root, "exports"),
+    brightspaceExportDir: path.join(root, "exports", "brightspace"),
+    brightspaceCsvPath: path.join(root, "exports", "brightspace", `${slug}-brightspace.csv`)
   };
 }
 
@@ -56,6 +70,11 @@ export function getProjectPaths(slug: string): ProjectPaths {
     styleGuidePath: path.join(root, "meta", "style-guide.md"),
     contentOutlinePath: path.join(root, "meta", "content-outline.md"),
     referenceIndexPath: path.join(root, "meta", "reference-index.json"),
+    resourceCatalogPath: path.join(root, "meta", "resource-catalog.json"),
+    courseBlueprintPath: path.join(root, "meta", "course-blueprint.json"),
+    assessmentMapPath: path.join(root, "meta", "assessment-map.json"),
+    lessonPacketsDir: path.join(root, "meta", "lesson-packets"),
+    lessonPacketsIndexPath: path.join(root, "meta", "lesson-packets", "index.json"),
     importLogPath: path.join(root, "meta", "import-log.md"),
     sessionLogPath: path.join(root, "meta", "studio-session-log.md"),
     intelligencePolicyPath: path.join(root, "meta", "intelligence-policy.json"),
