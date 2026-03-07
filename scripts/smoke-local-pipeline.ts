@@ -59,6 +59,7 @@ async function main() {
     assert.ok(await fileExists(projectPaths.workspaceEntrypoint), "workspace entrypoint missing");
     assert.ok(await fileExists(projectPaths.manifestPath), "project manifest missing");
     assert.ok(await fileExists(projectPaths.referenceIndexPath), "reference index missing");
+    assert.ok(await fileExists(projectPaths.resourceCatalogPath), "resource catalog missing");
     assert.ok(await fileExists(projectPaths.importLogPath), "import log missing");
     assert.ok(await fileExists(projectPaths.styleGuidePath), "style guide missing");
     assert.ok(await fileExists(path.join(projectPaths.metaDir, "prompt-pack.md")), "prompt pack missing");

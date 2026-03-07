@@ -1,0 +1,40 @@
+{
+  "assessmentSlug": "copy-of-personal-psychology-20-unit-1-fixture",
+  "importedAt": "2026-03-07T21:08:10.150Z",
+  "sourceResults": [
+    {
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/assessments/copy-of-personal-psychology-20-unit-1-fixture/source/Copy of Personal Psychology 20 Unit 1.pdf",
+      "fileName": "Copy of Personal Psychology 20 Unit 1.pdf",
+      "sourceDocument": {
+        "sourceDocumentId": "source_220f146d-21d2-42b8-8235-dacd4a5763e4",
+        "name": "Copy of Personal Psychology 20 Unit 1.pdf",
+        "type": "pdf",
+        "origin": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/assessments/copy-of-personal-psychology-20-unit-1-fixture/source/Copy of Personal Psychology 20 Unit 1.pdf",
+        "importedAt": "2026-03-07T21:08:10.154Z"
+      },
+      "confidenceScore": 1,
+      "questionCount": 29,
+      "issues": [
+        {
+          "code": "answer_key_required_for_multiple_choice",
+          "severity": "warning",
+          "message": "Multiple-choice items were detected without answer keys. Mark correct options before export.",
+          "sourcePage": null
+        },
+        {
+          "code": "ocr_applied",
+          "severity": "info",
+          "message": "OCR fallback was applied and produced draft question candidates.",
+          "sourcePage": null
+        }
+      ],
+      "candidateDiagnostics": [],
+      "extractionMethod": "ocr",
+      "pageCount": 13
+    }
+  ],
+  "mergedQuestionCount": 29,
+  "diagnostics": [
+    "Copy of Personal Psychology 20 Unit 1.pdf: parsed 29 question(s), confidence 1.00."
+  ]
+}

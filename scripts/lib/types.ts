@@ -21,6 +21,39 @@ export type ReferenceKind =
   | "other";
 export type ReferenceExtractionStatus = "indexed" | "stored-only" | "failed";
 export type ReferenceExtractionMethod = "native" | "ocr";
+export type ResourceCategory = "outline" | "assessment" | "textbook" | "teacher-note" | "other";
+export type ResourceAuthorityRole =
+  | "assessment-authoritative"
+  | "blueprint-authoritative"
+  | "context-authoritative"
+  | "supporting-only"
+  | "fallback-only";
+export type ReferenceLocatorKind = "page" | "section";
+
+export type ReferenceChunkLocator = {
+  kind: ReferenceLocatorKind;
+  label: string;
+  page?: number;
+  startPage?: number;
+  endPage?: number;
+  sectionHeading?: string;
+};
+
+export type ReferenceChunk = {
+  id: string;
+  index: number;
+  locator: ReferenceChunkLocator;
+  text: string;
+  titleGuess?: string;
+  keywordHints: string[];
+};
+
+export type ReferenceChunkManifest = {
+  projectId: string;
+  referenceId: string;
+  generatedAt: string;
+  chunks: ReferenceChunk[];
+};
 
 export type ProjectManifest = {
   id: string;
@@ -70,11 +103,22 @@ export type SectionManifest = {
 export type ReferenceManifest = {
   id: string;
   originalPath: string;
+  relativePath?: string;
   kind: ReferenceKind;
   extractionStatus: ReferenceExtractionStatus;
   extractionMethod?: ReferenceExtractionMethod;
   extractedTextPath?: string;
   extractionIssue?: string;
+  chunkManifestPath?: string;
+  chunkCount?: number;
+  pageCount?: number;
+  sectionLabels?: string[];
+  titleGuess?: string;
+  resourceCategory?: ResourceCategory;
+  authorityRole?: ResourceAuthorityRole;
+  blueprintSignals?: string[];
+  assessmentSignals?: string[];
+  supportSignals?: string[];
 };
 
 export type SectionMap = {
@@ -87,6 +131,150 @@ export type ReferenceIndex = {
   projectId: string;
   generatedAt: string;
   references: ReferenceManifest[];
+};
+
+export type ResourceCatalogEntry = ReferenceManifest & {
+  relativePath: string;
+  resourceCategory: ResourceCategory;
+  authorityRole: ResourceAuthorityRole;
+  titleGuess: string;
+  chunkCount: number;
+  blueprintSignals: string[];
+  assessmentSignals: string[];
+  supportSignals: string[];
+};
+
+export type ResourceCatalog = {
+  projectId: string;
+  generatedAt: string;
+  resources: ResourceCatalogEntry[];
+  warnings: string[];
+};
+
+export type CourseBlueprintOutcome = {
+  id: string;
+  unitId: string;
+  title: string;
+  description: string;
+  sourceResourceIds: string[];
+  linkedAssessmentIds: string[];
+  mustKnow: string[];
+  niceToKnow: string[];
+  assessedSkills: string[];
+  supportingKnowledge: string[];
+  requiredConcepts: string[];
+  requiredSkills: string[];
+  prerequisiteOutcomeIds: string[];
+  likelyMisconceptions: string[];
+  mandatoryVocabulary: string[];
+};
+
+export type CourseBlueprintUnit = {
+  id: string;
+  title: string;
+  sequence: number;
+  scopeSourceResourceIds: string[];
+  linkedAssessmentIds: string[];
+  prerequisiteUnitIds: string[];
+  mustKnow: string[];
+  niceToKnow: string[];
+  assessedSkills: string[];
+  supportingKnowledge: string[];
+  requiredConcepts: string[];
+  requiredSkills: string[];
+  likelyMisconceptions: string[];
+  mandatoryVocabulary: string[];
+  outcomeIds: string[];
+};
+
+export type CourseBlueprint = {
+  projectId: string;
+  generatedAt: string;
+  authoritySummary: {
+    outlineResourceIds: string[];
+    assessmentResourceIds: string[];
+    supportingResourceIds: string[];
+  };
+  units: CourseBlueprintUnit[];
+  outcomes: CourseBlueprintOutcome[];
+  warnings: string[];
+};
+
+export type AssessmentMapEntry = {
+  id: string;
+  resourceId: string;
+  name: string;
+  taskType: string;
+  deliverable: string;
+  rubricLanguage: string[];
+  successCriteria: string[];
+  skillVerbs: string[];
+  commonFailurePoints: string[];
+  prerequisiteConcepts: string[];
+  prerequisiteVocabulary: string[];
+  relatedUnitIds: string[];
+  relatedOutcomeIds: string[];
+  sourceLocators: ReferenceChunkLocator[];
+};
+
+export type AssessmentMap = {
+  projectId: string;
+  generatedAt: string;
+  assessments: AssessmentMapEntry[];
+  warnings: string[];
+};
+
+export type LessonPacketReference = {
+  resourceId: string;
+  resourceTitle: string;
+  resourceCategory: ResourceCategory;
+  authorityRole: ResourceAuthorityRole;
+  locators: ReferenceChunkLocator[];
+  pageRanges: Array<{
+    startPage: number;
+    endPage: number;
+  }>;
+  whySelected: string;
+  exampleSnippet?: string;
+};
+
+export type LessonPacket = {
+  lessonId: string;
+  lessonTitle: string;
+  unitId: string;
+  targetOutcomes: Array<{
+    id: string;
+    title: string;
+  }>;
+  linkedAssessmentIds: string[];
+  prerequisiteKnowledge: string[];
+  requiredVocabulary: string[];
+  coreConcepts: string[];
+  misconceptions: string[];
+  sourceReferences: LessonPacketReference[];
+  whatThisLessonMustPrepareStudentsToDo: string[];
+  checksForUnderstanding: string[];
+  guidedPracticeIdeas: string[];
+  independentPracticeIdeas: string[];
+  evidenceOfReadinessForAssessment: string[];
+  examplesOrCases: string[];
+  warnings: string[];
+};
+
+export type LessonPacketIndexEntry = {
+  lessonId: string;
+  lessonTitle: string;
+  unitId: string;
+  targetOutcomeIds: string[];
+  linkedAssessmentIds: string[];
+  packetPath: string;
+};
+
+export type LessonPacketIndex = {
+  projectId: string;
+  generatedAt: string;
+  lessonPackets: LessonPacketIndexEntry[];
+  warnings: string[];
 };
 
 export type ImportLog = {
@@ -154,6 +342,11 @@ export type ProjectPaths = {
   styleGuidePath: string;
   contentOutlinePath: string;
   referenceIndexPath: string;
+  resourceCatalogPath: string;
+  courseBlueprintPath: string;
+  assessmentMapPath: string;
+  lessonPacketsDir: string;
+  lessonPacketsIndexPath: string;
   importLogPath: string;
   sessionLogPath: string;
   intelligencePolicyPath: string;

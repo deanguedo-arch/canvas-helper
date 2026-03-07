@@ -106,6 +106,232 @@
             "branch-15": "clinical"
         };
 
+        const unit1KnowledgeCheckData = {
+            multipleChoiceIntro: "Read each item carefully and decide which choice best completes the statement or answers the question.",
+            multipleChoiceQuestions: [
+                { id: "u1-kc-mc-1", number: 1, prompt: "Psychology is the study of", options: ["hypnosis", "the human soul", "human behaviour", "subconscious thoughts"] },
+                { id: "u1-kc-mc-2", number: 2, prompt: "This group of helping professionals have medical degrees and can prescribe medication.", options: ["Counsellors", "Psychiatrists", "Psychologists", "Paraprofessionals"] },
+                { id: "u1-kc-mc-3", number: 3, prompt: "Research in this branch of psychology may involve the effects of hormones on mood.", options: ["Social", "Behavioural", "Physiological", "Developmental"] },
+                { id: "u1-kc-mc-4", number: 4, prompt: "Researchers in this field may study how infants learn to crawl.", options: ["Social", "Behavioural", "Physiological", "Developmental"] },
+                { id: "u1-kc-mc-5", number: 5, prompt: "This branch of psychology may investigate the effects of overcrowding and its relationship to stress.", options: ["Social", "Behavioural", "Physiological", "Developmental"] },
+                { id: "u1-kc-mc-6", number: 6, prompt: "Researchers training monkeys to use sign language would be considered _____ psychologists.", options: ["social", "behavioural", "physiological", "developmental"] },
+                { id: "u1-kc-mc-7", number: 7, prompt: "Researchers in this branch of psychology may study the phenomena of remembering and forgetting.", options: ["Clinical", "Cognitive", "Abnormal", "Parapsychology"] },
+                { id: "u1-kc-mc-8", number: 8, prompt: "These psychologists might conduct research into the causes of anxiety attacks and post-traumatic stress disorder (PTSD).", options: ["Clinical", "Cognitive", "Abnormal", "Parapsychology"] },
+                { id: "u1-kc-mc-9", number: 9, prompt: "A person in this field may look for energy traces or patterns of ghosts and apparitions.", options: ["Clinical", "Cognitive", "Abnormal", "Parapsychology"] },
+                { id: "u1-kc-mc-10", number: 10, prompt: "This type of psychologist might use group therapy to help people with addictions.", options: ["Clinical", "Cognitive", "Abnormal", "Parapsychology"] },
+                { id: "u1-kc-mc-11", number: 11, prompt: "Generally speaking, children and intellectually disabled adults cannot be hypnotized because they", options: ["do not trust others sufficiently", "do not have any serious problems", "are not as intelligent as healthy adults", "are not able to focus and concentrate sufficiently"] },
+                { id: "u1-kc-mc-12", number: 12, prompt: "The independent (or manipulated) variable in Case Study A is", options: ["sailors at sea", "Jell-O colour", "time away from port", "satisfaction level of the sailors"] },
+                { id: "u1-kc-mc-13", number: 13, prompt: "The dependent (or responding) variable in Case Study A is", options: ["sailors at sea", "Jell-O colour", "time away from port", "satisfaction level of the sailors"] },
+                { id: "u1-kc-mc-14", number: 14, prompt: "The independent (or manipulated) variable in Case Study B is the", options: ["amount of popcorn Brad ate", "amount of weight Brad was thought to bench press", "level of hunger Brad was experiencing during the movie", "type of movie Brad was watching while eating the popcorn"] },
+                { id: "u1-kc-mc-15", number: 15, prompt: "The dependent (or responding) variable in Case Study B is", options: ["amount of popcorn Brad ate", "amount of weight Brad was thought to bench press", "level of hunger Brad was experiencing during the movie", "type of movie Brad was watching while eating the popcorn"] },
+                { id: "u1-kc-mc-16", number: 16, prompt: "The difference between a control group and an experimental group is that the _____ group is exposed to the _____ variable.", options: ["control; dependent", "control; independent", "experimental; dependent", "experimental; independent"] },
+                { id: "u1-kc-mc-17", number: 17, prompt: "Which of the following experiments would require a control group?", options: ["Determining which gender moves their hands more when giving a speech.", "Testing to see if mnemonics help people remember grocery lists.", "Investigating if healthy 5 year-old males have better balance than healthy 50 year-old males.", "Exploring who has better hand-eye coordination, left-handed women or right-handed women."] },
+                { id: "u1-kc-mc-18", number: 18, prompt: "The formal term for a predicted outcome of an experiment is a(n)", options: ["theory", "hypothesis", "assumption", "supposition"] },
+                { id: "u1-kc-mc-19", number: 19, prompt: "The independent (manipulated) variable in Case Study C is the", options: ["flavours of jelly beans", "arrangement of jelly beans", "number of jelly beans consumed", "orientation of the university students"] },
+                { id: "u1-kc-mc-20", number: 20, prompt: "The dependent (responding) variable in Case Study C is the", options: ["flavours of jelly beans", "arrangement of jelly beans", "number of jelly beans consumed", "orientation of the university students"] }
+            ],
+            caseStudies: {
+                a: [
+                    "Billy, a galley cook on a Navy ship, was facing daily complaints from the crew about the lemon Jell-O he was serving. Because of an ordering error, lemon was the only flavour of Jell-O purchased for consumption during the four-month exercise. There was no cherry Jell-O and the crew was unhappy.",
+                    "Because the ship was not going to be in port for another two months, Billy had to act in a creative manner: he added red food colouring to the lemon Jell-O. When the red-coloured lemon Jell-O was served to the sailors, no one complained."
+                ],
+                b: [
+                    "One hundred forty male college students were asked to read a summary of a fictitious date between Brad and Barb. The students were divided into two groups of 70 people each. The only difference in the descriptions each group received was the amount of popcorn Brad ate during the movie.",
+                    "In one version Brad ate only a couple of handfuls. In the other version he ate almost all of his popcorn. Researchers then asked the two groups how much weight they thought Brad could bench press."
+                ],
+                c: [
+                    "A group of students starting university were treated to a movie and given popcorn as part of their orientation experience. Before the movie began, the students were also offered jelly beans. Half were presented jelly beans in a tray divided into six sections, with each flavour kept separate.",
+                    "The other half were offered the jelly beans in a mixed container. Researchers calculated the average number of jelly beans taken by individuals in the two groups. When the flavours were separated, students took an average of 12 jelly beans. When the assortment was mixed, students took an average of 23."
+                ],
+                d: [
+                    "The same researchers for Case Study C decided to try an experiment using M&M's candy. With M&M's, the taste of each piece of candy is the same regardless of colour. In this experiment, a group of students were given M&M's to snack on while watching a video.",
+                    "Half of the students were given bowls that had 7 colours of candy while the remaining students were given bowls that had 10 colours. Students who had 7 colours of M&M's ate an average of 56 pieces. Those who had 10 colours ate an average of 99 pieces."
+                ],
+                e: [
+                    "Surgeries occur every minute of every day. Some operations require patients to receive only local anaesthetic while others require patients to be under general anaesthetic. Anaesthesiologists must use patient data such as age, mass, and allergies in their calculations of how much general anaesthetic to use for a given patient.",
+                    "Researcher Daniel Sessler believes the gene that produces red pigment also produces a hormone that increases pain sensitivity. He hypothesizes that people with red hair feel pain more intensely than people with brown hair. To test this theory, Dr. Sessler enlisted ten women with dark brown hair and ten women with red hair, then adjusted anaesthetic gas exposure while monitoring reaction to a mild electric shock.",
+                    "Results showed that the subjects with red hair needed 20% more anaesthetic than subjects with brown hair."
+                ]
+            },
+            trueFalseQuestions: [
+                "To be hypnotized, a person must have a disorder such as an addiction or chronic pain.",
+                "You cannot easily observe covert behaviour.",
+                "Data collected in an experiment is called empirical evidence.",
+                "The unqualified use of hypnosis may disguise serious problems and delay proper treatment.",
+                "The Canadian Council on Animal Care monitors all animal research that occurs in Canada.",
+                "The Canadian Council on Animal Care can influence the research funding a university receives from the government.",
+                "Developmental psychology is concerned with how humans evolved from the apes.",
+                "Brushing your teeth after lunch is an abnormal behaviour.",
+                "Social psychology involves the influences people have on each other.",
+                "Extraneous factors add scientific merit to an experiment."
+            ],
+            writtenResponseQuestions: [
+                { id: "u1-kc-wr-1", number: 1, prompt: "What is an overt behaviour? Provide an original example.", placeholder: "Define overt behaviour and give your own example." },
+                { id: "u1-kc-wr-2", number: 2, prompt: "What is a covert behaviour? Provide an original example.", placeholder: "Define covert behaviour and give your own example." },
+                { id: "u1-kc-wr-3", number: 3, prompt: "Explain why the researchers would need to use participants that liked chocolate and who were not colour-blind.", placeholder: "Explain why both conditions matter for the M&M's case study." },
+                { id: "u1-kc-wr-4", number: 4, prompt: "The M&M's Case Study implies that increased variety can increase food consumption. Provide one reason why a person might want to encourage increased food consumption.", placeholder: "Give one practical reason and explain it." },
+                { id: "u1-kc-wr-5", number: 5, prompt: "What is the independent (manipulated) variable?", placeholder: "Name what was changed in Case Study E." },
+                { id: "u1-kc-wr-6", number: 6, prompt: "What is the dependent (responding) variable?", placeholder: "Name what was measured in Case Study E." },
+                { id: "u1-kc-wr-7", number: 7, prompt: "The women in this study were aware they were going to be shocked. If dogs were used instead of people, they would not understand they would not be severely or permanently hurt. In your opinion, would it be acceptable to conduct a similar test on dogs? Would it matter if the knowledge gained from the experiment would help veterinarians perform surgery on dogs in the future? Explain.", placeholder: "Explain your position on the ethics of the study." }
+            ]
+        };
+
+        function escapeHtml(value) {
+            return String(value)
+                .replaceAll("&", "&amp;")
+                .replaceAll("<", "&lt;")
+                .replaceAll(">", "&gt;")
+                .replaceAll('"', "&quot;")
+                .replaceAll("'", "&#39;");
+        }
+
+        function renderCaseStudyBlock(label, paragraphs) {
+            return `
+                <div class="practice-panel mb-6">
+                    <h4 class="text-xl font-bold text-slate-800 mb-3">Case Study ${escapeHtml(label)}</h4>
+                    <div class="space-y-3 text-sm text-slate-700 leading-relaxed">
+                        ${paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderMultipleChoiceQuestion(question) {
+            return `
+                <div class="quiz-q bg-white p-5 rounded-xl border border-slate-200">
+                    <p class="font-semibold text-slate-800 mb-4">${question.number}. ${escapeHtml(question.prompt)}</p>
+                    <div class="space-y-3">
+                        ${question.options.map((option, index) => {
+                            const letter = String.fromCharCode(65 + index);
+                            return `
+                                <label class="flex items-start gap-3 cursor-pointer p-2 rounded hover:bg-slate-50">
+                                    <input type="radio" name="${question.id}" value="${letter}" data-persist-key="${question.id}" class="form-radio text-blue-600 mt-1">
+                                    <span class="text-sm text-slate-700"><strong>${letter}.</strong> ${escapeHtml(option)}</span>
+                                </label>
+                            `;
+                        }).join("")}
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderTrueFalseQuestion(statement, index) {
+            const persistKey = `u1-kc-tf-${index + 1}`;
+            return `
+                <div class="quiz-q bg-white p-4 rounded border border-gray-200">
+                    <p class="font-semibold mb-2">${index + 1}. ${escapeHtml(statement)}</p>
+                    <div class="flex gap-6">
+                        <label class="flex items-center gap-2">
+                            <input type="radio" name="${persistKey}" value="T" data-persist-key="${persistKey}" class="form-radio text-blue-600">
+                            <span>True</span>
+                        </label>
+                        <label class="flex items-center gap-2">
+                            <input type="radio" name="${persistKey}" value="F" data-persist-key="${persistKey}" class="form-radio text-blue-600">
+                            <span>False</span>
+                        </label>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderWrittenResponseQuestion(question) {
+            return `
+                <div class="practice-panel">
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">${question.number}. ${escapeHtml(question.prompt)}</label>
+                    <textarea class="workbook-input min-h-[130px]" data-persist-key="${question.id}" placeholder="${escapeHtml(question.placeholder)}"></textarea>
+                </div>
+            `;
+        }
+
+        function renderUnit1KnowledgeCheck() {
+            const root = document.getElementById("unit1-knowledge-check-root");
+            if (!root) {
+                return;
+            }
+
+            const baseMultipleChoice = unit1KnowledgeCheckData.multipleChoiceQuestions.slice(0, 11);
+            const caseStudyAQuestions = unit1KnowledgeCheckData.multipleChoiceQuestions.slice(11, 13);
+            const caseStudyBQuestions = unit1KnowledgeCheckData.multipleChoiceQuestions.slice(13, 18);
+            const caseStudyCQuestions = unit1KnowledgeCheckData.multipleChoiceQuestions.slice(18);
+            const writtenIntroQuestions = unit1KnowledgeCheckData.writtenResponseQuestions.slice(0, 2);
+            const caseStudyDQuestions = unit1KnowledgeCheckData.writtenResponseQuestions.slice(2, 4);
+            const caseStudyEQuestions = unit1KnowledgeCheckData.writtenResponseQuestions.slice(4);
+
+            root.innerHTML = `
+                <div class="clay-card p-6">
+                    <div class="flex items-start gap-4 mb-5">
+                        <div class="activity-number">1</div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-800">Part One: Multiple-Choice Items</h3>
+                            <p class="text-slate-600">${escapeHtml(unit1KnowledgeCheckData.multipleChoiceIntro)}</p>
+                        </div>
+                    </div>
+                    <div class="grid xl:grid-cols-2 gap-4">
+                        ${baseMultipleChoice.map(renderMultipleChoiceQuestion).join("")}
+                    </div>
+                    <div class="mt-8">
+                        ${renderCaseStudyBlock("A", unit1KnowledgeCheckData.caseStudies.a)}
+                        <div class="grid xl:grid-cols-2 gap-4">
+                            ${caseStudyAQuestions.map(renderMultipleChoiceQuestion).join("")}
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        ${renderCaseStudyBlock("B", unit1KnowledgeCheckData.caseStudies.b)}
+                        <div class="grid xl:grid-cols-2 gap-4">
+                            ${caseStudyBQuestions.map(renderMultipleChoiceQuestion).join("")}
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        ${renderCaseStudyBlock("C", unit1KnowledgeCheckData.caseStudies.c)}
+                        <div class="grid xl:grid-cols-2 gap-4">
+                            ${caseStudyCQuestions.map(renderMultipleChoiceQuestion).join("")}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clay-card p-6">
+                    <div class="flex items-start gap-4 mb-5">
+                        <div class="activity-number">2</div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-800">Part Two: True or False</h3>
+                            <p class="text-slate-600">Read each item carefully and choose whether the statement is true or false.</p>
+                        </div>
+                    </div>
+                    <div class="grid xl:grid-cols-2 gap-4">
+                        ${unit1KnowledgeCheckData.trueFalseQuestions.map(renderTrueFalseQuestion).join("")}
+                    </div>
+                </div>
+
+                <div class="clay-card p-6">
+                    <div class="flex items-start gap-4 mb-5">
+                        <div class="activity-number">3</div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-800">Part Three: Written-Response Items</h3>
+                            <p class="text-slate-600">Respond to the following items using what you learned from the teaching sections above.</p>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        ${writtenIntroQuestions.map(renderWrittenResponseQuestion).join("")}
+                    </div>
+                    <div class="mt-8">
+                        ${renderCaseStudyBlock("D", unit1KnowledgeCheckData.caseStudies.d)}
+                        <div class="space-y-6">
+                            ${caseStudyDQuestions.map(renderWrittenResponseQuestion).join("")}
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        ${renderCaseStudyBlock("E", unit1KnowledgeCheckData.caseStudies.e)}
+                        <div class="space-y-6">
+                            ${caseStudyEQuestions.map(renderWrittenResponseQuestion).join("")}
+                        </div>
+                    </div>
+                    <div class="workbook-note mt-6">
+                        <p class="text-sm"><strong>Hand-in note:</strong> This final section mirrors the real student knowledge-check PDF. The textbook module above teaches the content; this block is the submission layer.</p>
+                    </div>
+                </div>
+            `;
+        }
+
         function persistWorkbookFields() {
             const data = {};
 
@@ -114,6 +340,25 @@
                 if (!key) {
                     return;
                 }
+
+                if (field.type === "radio") {
+                    if (field.checked) {
+                        data[key] = field.value;
+                    }
+                    return;
+                }
+
+                if (field.type === "checkbox") {
+                    if (!Array.isArray(data[key])) {
+                        data[key] = [];
+                    }
+
+                    if (field.checked) {
+                        data[key].push(field.value);
+                    }
+                    return;
+                }
+
                 data[key] = field.value;
             });
 
@@ -136,10 +381,17 @@
             document.querySelectorAll("[data-persist-key]").forEach((field) => {
                 const key = field.dataset.persistKey;
                 if (key && Object.prototype.hasOwnProperty.call(saved, key)) {
-                    field.value = saved[key];
+                    if (field.type === "radio") {
+                        field.checked = saved[key] === field.value;
+                    } else if (field.type === "checkbox") {
+                        field.checked = Array.isArray(saved[key]) && saved[key].includes(field.value);
+                    } else {
+                        field.value = saved[key];
+                    }
                 }
 
-                field.addEventListener("input", persistWorkbookFields);
+                const eventName = field.type === "radio" || field.type === "checkbox" ? "change" : "input";
+                field.addEventListener(eventName, persistWorkbookFields);
             });
         }
 
@@ -431,216 +683,20 @@
             evt.currentTarget.className = evt.currentTarget.className.replace(" bg-gray-200 text-gray-700 hover:bg-gray-300", " bg-blue-600 text-white");
         }
 
-        function checkKnowledgeCheckMC() {
-            const questionNames = [
-                "kc-mc-1",
-                "kc-mc-2",
-                "kc-mc-3",
-                "kc-mc-4",
-                "kc-mc-5",
-                "kc-mc-6",
-                "kc-mc-7",
-                "kc-mc-8",
-                "kc-mc-9",
-                "kc-mc-10"
-            ];
-
-            let score = 0;
-            const unanswered = [];
-
-            questionNames.forEach((name, index) => {
-                const selected = document.querySelector(`input[name="${name}"]:checked`);
-                if (!selected) {
-                    unanswered.push(index + 1);
-                    return;
-                }
-
-                if (selected.value === "correct") {
-                    score += 1;
-                }
-            });
-
-            if (unanswered.length) {
-                setActivityResult("knowledge-check-mc-results", "warning", `Answer every multiple choice question before checking. Still open: ${unanswered.join(", ")}.`);
-                return;
-            }
-
-            if (score === questionNames.length) {
-                setActivityResult("knowledge-check-mc-results", "success", "10/10. Your core Unit 1 facts are in place.");
-            } else if (score >= 8) {
-                setActivityResult("knowledge-check-mc-results", "success", `You scored ${score}/10. Review the few weak spots, then move on to the written responses.`);
-            } else {
-                setActivityResult("knowledge-check-mc-results", "error", `You scored ${score}/10. Revisit the helper roles, hypnosis, overt/covert, and Goldilocks sections before checking again.`);
-            }
-        }
-
-        function checkKnowledgeCheckMatching() {
+        function gradeFieldActivity(answerKey) {
             const unanswered = [];
             const wrong = [];
-
-            Object.entries(branchAnswerKey).forEach(([id, expected], index) => {
-                const field = document.getElementById(id.replace("branch-", "kc-branch-"));
-                if (!field || !field.value) {
-                    unanswered.push(index + 1);
-                    return;
-                }
-
-                if (field.value !== expected) {
-                    wrong.push(index + 1);
-                }
-            });
-
-            if (unanswered.length) {
-                setActivityResult("knowledge-check-matching-results", "warning", `Finish every branch match before checking. Still open: ${unanswered.join(", ")}.`);
-                return;
-            }
-
-            if (!wrong.length) {
-                setActivityResult("knowledge-check-matching-results", "success", "15/15. Your branch matching is fully aligned with the Unit 1 review.");
-                return;
-            }
-
-            if (wrong.length <= 3) {
-                setActivityResult("knowledge-check-matching-results", "success", `You are close. Recheck match numbers ${wrong.join(", ")} and tighten those branch choices.`);
-                return;
-            }
-
-            setActivityResult("knowledge-check-matching-results", "error", `Several matches still need work. Review items ${wrong.join(", ")} against the branch lesson cards above.`);
-        }
-
-        function checkKnowledgeCheckTF() {
-            const answerKey = {
-                "kc-tf-1": "true",
-                "kc-tf-2": "false",
-                "kc-tf-3": "true",
-                "kc-tf-4": "true",
-                "kc-tf-5": "false",
-                "kc-tf-6": "true",
-                "kc-tf-7": "true",
-                "kc-tf-8": "false",
-                "kc-tf-9": "true",
-                "kc-tf-10": "true",
-                "kc-tf-11": "true",
-                "kc-tf-12": "true",
-                "kc-tf-13": "true",
-                "kc-tf-14": "true",
-                "kc-tf-15": "false",
-                "kc-tf-16": "false",
-                "kc-tf-17": "false",
-                "kc-tf-18": "true",
-                "kc-tf-19": "false",
-                "kc-tf-20": "false"
-            };
-
             let score = 0;
-            const unanswered = [];
-
-            Object.entries(answerKey).forEach(([name, expected], index) => {
-                const selected = document.querySelector(`input[name="${name}"]:checked`);
-                if (!selected) {
-                    unanswered.push(index + 1);
-                    return;
-                }
-
-                if (selected.value === expected) {
-                    score += 1;
-                }
-            });
-
-            if (unanswered.length) {
-                setActivityResult("knowledge-check-tf-results", "warning", `Finish all statements before checking. Still open: ${unanswered.join(", ")}.`);
-                return;
-            }
-
-            if (score === Object.keys(answerKey).length) {
-                setActivityResult("knowledge-check-tf-results", "success", "Perfect score. Your Unit 1 understanding is strong.");
-                return;
-            }
-
-            if (score >= 16) {
-                setActivityResult("knowledge-check-tf-results", "success", `You got ${score}/20. Strong work; review the flagged concepts and try again.`);
-                return;
-            }
-
-            setActivityResult("knowledge-check-tf-results", "error", `You got ${score}/20. Revisit the history section and experiment design notes.`);
-        }
-
-        // --- Quiz Logic Module 2 ---
-        function checkQuizMod2() {
-            const questionNames = Array.from({ length: 17 }, (_, index) => `m2q${index + 1}`);
-            let score = 0;
-            const unanswered = [];
-            const resultsDiv = document.getElementById("quiz2-results");
-
-            questionNames.forEach((name, index) => {
-                const selected = document.querySelector(`input[name="${name}"]:checked`);
-                if (!selected) {
-                    unanswered.push(index + 1);
-                    return;
-                }
-
-                if (selected.value === "correct") {
-                    score += 1;
-                }
-            });
-
-            if (unanswered.length) {
-                resultsDiv.innerHTML = `Answer every Part One item before checking. Still open: ${unanswered.join(", ")}.`;
-                resultsDiv.className = "mt-6 p-4 rounded text-center font-bold text-lg bg-yellow-100 text-yellow-800 border border-yellow-300 block";
-                return;
-            }
-
-            if (score === questionNames.length) {
-                resultsDiv.innerHTML = `Part One complete: ${score}/${questionNames.length}.`;
-                resultsDiv.className = "mt-6 p-4 rounded text-center font-bold text-lg bg-green-100 text-green-800 border border-green-300 block";
-                return;
-            }
-
-            if (score >= 13) {
-                resultsDiv.innerHTML = `Part One score: ${score}/${questionNames.length}. Strong result; review the weaker items and retry.`;
-                resultsDiv.className = "mt-6 p-4 rounded text-center font-bold text-lg bg-emerald-100 text-emerald-800 border border-emerald-300 block";
-                return;
-            }
-
-            resultsDiv.innerHTML = `Part One score: ${score}/${questionNames.length}. Revisit the Unit 2 study guide above before retrying.`;
-            resultsDiv.className = "mt-6 p-4 rounded text-center font-bold text-lg bg-red-100 text-red-800 border border-red-300 block";
-        }
-
-        function checkQuizMod2Matching() {
-            const answerKey = {
-                "m2match-1": "H",
-                "m2match-2": "L",
-                "m2match-3": "E",
-                "m2match-4": "N",
-                "m2match-5": "F",
-                "m2match-6": "B",
-                "m2match-7": "J",
-                "m2match-8": "A",
-                "m2match-9": "D",
-                "m2match-10": "O"
-            };
-
-            let score = 0;
-            const unanswered = [];
-            const wrong = [];
-            const resultsDiv = document.getElementById("quiz2-matching-results");
 
             Object.entries(answerKey).forEach(([id, expected], index) => {
                 const field = document.getElementById(id);
-                if (!field) {
+                const value = field && typeof field.value === "string" ? field.value.trim() : "";
+                if (!value) {
                     unanswered.push(index + 1);
                     return;
                 }
 
-                const rawValue = typeof field.value === "string" ? field.value.trim().toUpperCase() : "";
-                if (!rawValue) {
-                    unanswered.push(index + 1);
-                    return;
-                }
-
-                field.value = rawValue;
-
-                if (rawValue === expected) {
+                if (value === expected) {
                     score += 1;
                     return;
                 }
@@ -648,66 +704,68 @@
                 wrong.push(index + 1);
             });
 
-            if (unanswered.length) {
-                resultsDiv.innerHTML = `Complete all Part Two matches before checking. Missing: ${unanswered.join(", ")}.`;
-                resultsDiv.className = "mt-6 p-4 rounded text-center font-bold text-lg bg-yellow-100 text-yellow-800 border border-yellow-300 block";
-                return;
-            }
-
-            if (!wrong.length) {
-                resultsDiv.innerHTML = `Part Two complete: ${score}/10.`;
-                resultsDiv.className = "mt-6 p-4 rounded text-center font-bold text-lg bg-green-100 text-green-800 border border-green-300 block";
-                return;
-            }
-
-            resultsDiv.innerHTML = `Part Two score: ${score}/10. Recheck items ${wrong.join(", ")}.`;
-            resultsDiv.className = "mt-6 p-4 rounded text-center font-bold text-lg bg-red-100 text-red-800 border border-red-300 block";
+            return {
+                score,
+                unanswered,
+                wrong,
+                total: Object.keys(answerKey).length
+            };
         }
 
-        function checkQuizMod2TF() {
-            const answerKey = {
-                "m2tf1": "false",
-                "m2tf2": "true",
-                "m2tf3": "true",
-                "m2tf4": "false",
-                "m2tf5": "true",
-                "m2tf6": "false",
-                "m2tf7": "false",
-                "m2tf8": "true",
-                "m2tf9": "false",
-                "m2tf10": "false"
-            };
+        function reportFieldActivity(resultId, result, messages) {
+            if (result.unanswered.length) {
+                setActivityResult(resultId, "warning", `${messages.completeFirst} ${result.unanswered.join(", ")}.`);
+                return;
+            }
 
-            let score = 0;
-            const unanswered = [];
-            const resultsDiv = document.getElementById("quiz2-tf-results");
+            if (!result.wrong.length) {
+                setActivityResult(resultId, "success", messages.success);
+                return;
+            }
 
-            Object.entries(answerKey).forEach(([name, expected], index) => {
-                const selected = document.querySelector(`input[name="${name}"]:checked`);
-                if (!selected) {
-                    unanswered.push(index + 1);
-                    return;
-                }
+            if (result.wrong.length <= messages.closeThreshold) {
+                setActivityResult(resultId, "warning", `${messages.close} ${result.wrong.join(", ")}.`);
+                return;
+            }
 
-                if (selected.value === expected) {
-                    score += 1;
-                }
+            setActivityResult(resultId, "error", `${messages.retry} ${result.wrong.join(", ")}.`);
+        }
+
+        function checkUnit2StrategyActivity() {
+            const result = gradeFieldActivity({
+                "u2-strategy-1": "distributed-practice",
+                "u2-strategy-2": "overlearning",
+                "u2-strategy-3": "negative-transfer",
+                "u2-strategy-4": "intensity",
+                "u2-strategy-5": "mnemonic-device",
+                "u2-strategy-6": "insight"
             });
 
-            if (unanswered.length) {
-                resultsDiv.innerHTML = `Complete all Part Three items before checking. Missing: ${unanswered.join(", ")}.`;
-                resultsDiv.className = "mt-6 p-4 rounded text-center font-bold text-lg bg-yellow-100 text-yellow-800 border border-yellow-300 block";
-                return;
-            }
+            reportFieldActivity("u2-strategy-results", result, {
+                completeFirst: "Finish every strategy match before checking. Missing items:",
+                success: "Good. You matched the learning obstacle or support to the right principle instead of treating the unit like a list of terms.",
+                close: "A few strategy matches need another look. Recheck items",
+                retry: "Several strategy matches are still off. Revisit items",
+                closeThreshold: 2
+            });
+        }
 
-            if (score === 10) {
-                resultsDiv.innerHTML = "Part Three complete: 10/10.";
-                resultsDiv.className = "mt-6 p-4 rounded text-center font-bold text-lg bg-green-100 text-green-800 border border-green-300 block";
-                return;
-            }
+        function checkUnit2HabitActivity() {
+            const result = gradeFieldActivity({
+                "u2-habit-1": "classical-conditioning",
+                "u2-habit-2": "operant-conditioning",
+                "u2-habit-3": "negative-reinforcement",
+                "u2-habit-4": "punishment",
+                "u2-habit-5": "visual-learning"
+            });
 
-            resultsDiv.innerHTML = `Part Three score: ${score}/10. Review language development, research methods, and motor-development notes.`;
-            resultsDiv.className = "mt-6 p-4 rounded text-center font-bold text-lg bg-red-100 text-red-800 border border-red-300 block";
+            reportFieldActivity("u2-habit-results", result, {
+                completeFirst: "Finish every habit-builder choice before checking. Missing items:",
+                success: "Good. You can now distinguish conditioning, reinforcement logic, punishment, and study preference without collapsing them into one idea.",
+                close: "You are close. Recheck habit-builder items",
+                retry: "Some habit-builder choices still need correction. Revisit items",
+                closeThreshold: 1
+            });
         }
 
         // --- Tabs Logic for Learning ---
@@ -979,6 +1037,7 @@
 
         function initializeGenPsychStudio() {
             initializeSidebarState();
+            renderUnit1KnowledgeCheck();
             initializeWorkbookFields();
             switchModule(null, 'mod-1');
         }
