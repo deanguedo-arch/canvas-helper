@@ -4,7 +4,6 @@ import path from "node:path";
 
 import { load } from "cheerio";
 import mammoth from "mammoth";
-import pdf from "pdf-parse";
 
 import { analyzeProject } from "./analyzer.js";
 import {
@@ -18,6 +17,7 @@ import {
 } from "./fs.js";
 import { refreshProjectIntelligence } from "./intelligence.js";
 import { getProjectPaths } from "./paths.js";
+import { extractPdfTextWithFallback } from "./pdf-text.js";
 import { extractProjectReferences } from "./references.js";
 import type { ImportLog, InputKind, IntelligencePolicyOverride, LearningSource, ProjectManifest } from "./types.js";
 
@@ -51,6 +51,11 @@ type ResolvedImportInput = {
   referenceFiles: string[];
   discoveryActions: string[];
   discoveryWarnings: string[];
+};
+
+type ExtractedDocumentSource = {
+  text: string;
+  extractionAction?: string;
 };
 
 export function resolveLearningSourceOverride(value: string | undefined): LearningSource | undefined {
@@ -100,16 +105,29 @@ async function extractDocumentBundleText(filePath: string) {
 
   if (extension === ".docx") {
     const result = await mammoth.extractRawText({ path: filePath });
-    return result.value;
+    return {
+      text: result.value
+    } satisfies ExtractedDocumentSource;
   }
 
   if (extension === ".pdf") {
-    const buffer = await readFile(filePath);
-    const parsed = await pdf(buffer);
-    return parsed.text;
+    const extracted = await extractPdfTextWithFallback(filePath);
+    if (extracted.issue) {
+      throw new Error(extracted.issue);
+    }
+
+    return {
+      text: extracted.text ?? "",
+      extractionAction:
+        extracted.method === "ocr"
+          ? `Used OCR to recover text from "${path.basename(filePath)}" because the PDF text layer was unreadable.`
+          : undefined
+    } satisfies ExtractedDocumentSource;
   }
 
-  return "";
+  return {
+    text: ""
+  } satisfies ExtractedDocumentSource;
 }
 
 function cleanDocumentBundleText(text: string) {
@@ -587,18 +605,33 @@ async function resolveImportInput(absoluteInputPath: string): Promise<ResolvedIm
       );
     }
 
-    const extractedTexts = await Promise.all(
+    const extractedSources = await Promise.all(
       documentSources.map(async (filePath) => {
         try {
-          return cleanDocumentBundleText(await extractDocumentBundleText(filePath));
-        } catch {
-          return "";
+          const extracted = await extractDocumentBundleText(filePath);
+          return {
+            text: cleanDocumentBundleText(extracted.text),
+            extractionAction: extracted.extractionAction
+          };
+        } catch (error) {
+          return {
+            text: "",
+            extractionWarning: `Could not extract readable text from "${path.basename(filePath)}": ${
+              error instanceof Error ? error.message : String(error)
+            }`
+          };
         }
       })
     );
-    const primaryText = extractedTexts.find((text) => text.length > 0) ?? "";
+    const primaryText = extractedSources.find((entry) => entry.text.length > 0)?.text ?? "";
     const sourceFiles = documentSources.map((filePath) => path.relative(absoluteInputPath, filePath).replace(/\\/g, "/"));
     const starterTitle = path.basename(documentSources[0], path.extname(documentSources[0])).replace(/\s+/g, " ").trim();
+    const extractionActions = extractedSources
+      .flatMap((entry) => (entry.extractionAction ? [entry.extractionAction] : []))
+      .filter((value, index, values) => values.indexOf(value) === index);
+    const extractionWarnings = extractedSources.flatMap((entry) =>
+      "extractionWarning" in entry && entry.extractionWarning ? [entry.extractionWarning] : []
+    );
 
     return {
       bundlePath: absoluteInputPath,
@@ -607,9 +640,11 @@ async function resolveImportInput(absoluteInputPath: string): Promise<ResolvedIm
       htmlSource: buildDocumentBundleStarterHtml(starterTitle, primaryText, sourceFiles),
       referenceFiles: bundleFiles,
       discoveryActions: [
-        `No HTML entrypoint was found. Generated a starter workspace from ${documentSources.length} document source file(s).`
+        `No HTML entrypoint was found. Generated a starter workspace from ${documentSources.length} document source file(s).`,
+        ...extractionActions
       ],
       discoveryWarnings: [
+        ...extractionWarnings,
         "Imported a document bundle instead of a prebuilt site. Review the generated workspace and replace the starter scaffold."
       ]
     };

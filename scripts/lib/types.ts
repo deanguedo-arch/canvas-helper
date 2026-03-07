@@ -20,6 +20,7 @@ export type ReferenceKind =
   | "image"
   | "other";
 export type ReferenceExtractionStatus = "indexed" | "stored-only" | "failed";
+export type ReferenceExtractionMethod = "native" | "ocr";
 
 export type ProjectManifest = {
   id: string;
@@ -71,7 +72,9 @@ export type ReferenceManifest = {
   originalPath: string;
   kind: ReferenceKind;
   extractionStatus: ReferenceExtractionStatus;
+  extractionMethod?: ReferenceExtractionMethod;
   extractedTextPath?: string;
+  extractionIssue?: string;
 };
 
 export type SectionMap = {

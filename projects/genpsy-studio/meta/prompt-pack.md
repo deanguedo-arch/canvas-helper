@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: genpsy-studio
-- Generated: 2026-03-06T21:36:25.095Z
+- Generated: 2026-03-07T05:30:42.822Z
 
 ## Rules
 
@@ -13,7 +13,7 @@
 ## Intelligence Policy
 
 - Mode: collect
-- Policy source: env-override
+- Policy source: repo-default
 - Collect pattern bank: on
 - Collect memory ledger: on
 - Apply pattern bank to prompt pack: off
@@ -37,10 +37,10 @@
   "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\genpsy-studio\\raw\\original.html",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-03-06T21:36:25.043Z",
+  "learningUpdatedAt": "2026-03-07T05:30:42.763Z",
   "createdAt": "2026-03-06T19:03:24.663Z",
-  "updatedAt": "2026-03-06T21:36:25.043Z",
-  "workspaceApprovedAt": "2026-03-06T21:36:25.043Z"
+  "updatedAt": "2026-03-07T05:30:42.763Z",
+  "workspaceApprovedAt": "2026-03-07T05:30:42.763Z"
 }
 ```
 
@@ -140,22 +140,16 @@ saskatchewansherwoodparkvegreville
 nextstepfortsaskatchewansherwoodpa
 rkvegrevillenextstepfortsaskatchewan
 sherwoodparkvegrevillenextstepforts
- 
+
 STUDENT NAME:
- 
- 
- 
- 
- 
- 
-Personal 
-Psychology 20 
-Unit 1 
- 
- 
-SENIOR HIGH SCHOOL 
-Fort Saskatchewan 780 992 0101 
-Sherwood Park 780 464 1899 
+
+Personal
+Psychology 20
+Unit 1
+
+SENIOR HIGH SCHOOL
+Fort Saskatchewan 780 992 0101
+Sherwood Park 780 464 1899
 Vegreville 780 632 7998
 ```
 
@@ -182,22 +176,16 @@ saskatchewansherwoodparkvegreville
 nextstepfortsaskatchewansherwoodpa
 rkvegrevillenextstepfortsaskatchewan
 sherwoodparkvegrevillenextstepforts
- 
+
 STUDENT NAME:
- 
- 
- 
- 
- 
- 
-Personal 
-Psychology 20 
-Unit 2 
- 
- 
-SENIOR HIGH SCHOOL 
-Fort Saskatchewan 780 992 0101 
-Sherwood Park 780 464 1899 
+
+Personal
+Psychology 20
+Unit 2
+
+SENIOR HIGH SCHOOL
+Fort Saskatchewan 780 992 0101
+Sherwood Park 780 464 1899
 Vegreville 780 632 7998
 ```
 
@@ -224,22 +212,16 @@ saskatchewansherwoodparkvegreville
 nextstepfortsaskatchewansherwoodpa
 rkvegrevillenextstepfortsaskatchewan
 sherwoodparkvegrevillenextstepforts
- 
+
 STUDENT NAME:
- 
- 
- 
- 
- 
- 
-Personal 
-Psychology 20 
-Unit 3 
- 
- 
-SENIOR HIGH SCHOOL 
-Fort Saskatchewan 780 992 0101 
-Sherwood Park 780 464 1899 
+
+Personal
+Psychology 20
+Unit 3
+
+SENIOR HIGH SCHOOL
+Fort Saskatchewan 780 992 0101
+Sherwood Park 780 464 1899
 Vegreville 780 632 7998
 ```
 
@@ -266,22 +248,16 @@ saskatchewansherwoodparkvegreville
 nextstepfortsaskatchewansherwoodpa
 rkvegrevillenextstepfortsaskatchewan
 sherwoodparkvegrevillenextstepforts
- 
+
 STUDENT NAME:
- 
- 
- 
- 
- 
- 
-Personal 
-Psychology 20 
-Unit 4 
- 
- 
-SENIOR HIGH SCHOOL 
-Fort Saskatchewan 780 992 0101 
-Sherwood Park 780 464 1899 
+
+Personal
+Psychology 20
+Unit 4
+
+SENIOR HIGH SCHOOL
+Fort Saskatchewan 780 992 0101
+Sherwood Park 780 464 1899
 Vegreville 780 632 7998
 ```
 
@@ -308,22 +284,16 @@ saskatchewansherwoodparkvegreville
 nextstepfortsaskatchewansherwoodpa
 rkvegrevillenextstepfortsaskatchewan
 sherwoodparkvegrevillenextstepforts
- 
+
 STUDENT NAME:
- 
- 
- 
- 
- 
- 
-Personal 
-Psychology 20 
-Unit 5 
- 
- 
-SENIOR HIGH SCHOOL 
-Fort Saskatchewan 780 992 0101 
-Sherwood Park 780 464 1899 
+
+Personal
+Psychology 20
+Unit 5
+
+SENIOR HIGH SCHOOL
+Fort Saskatchewan 780 992 0101
+Sherwood Park 780 464 1899
 Vegreville 780 632 7998
 ```
 
@@ -350,22 +320,16 @@ saskatchewansherwoodparkvegreville
 nextstepfortsaskatchewansherwoodpa
 rkvegrevillenextstepfortsaskatchewan
 sherwoodparkvegrevillenextstepforts
- 
+
 STUDENT NAME:
- 
- 
- 
- 
- 
- 
-Personal 
-Psychology 20 
-Unit 6 
- 
- 
-SENIOR HIGH SCHOOL 
-Fort Saskatchewan 780 992 0101 
-Sherwood Park 780 464 1899 
+
+Personal
+Psychology 20
+Unit 6
+
+SENIOR HIGH SCHOOL
+Fort Saskatchewan 780 992 0101
+Sherwood Park 780 464 1899
 Vegreville 780 632 7998
 ```
 
@@ -392,22 +356,16 @@ saskatchewansherwoodparkvegreville
 nextstepfortsaskatchewansherwoodpa
 rkvegrevillenextstepfortsaskatchewan
 sherwoodparkvegrevillenextstepforts
- 
+
 STUDENT NAME:
- 
- 
- 
- 
- 
- 
-Personal 
-Psychology 20 
-Unit 7 
- 
- 
-SENIOR HIGH SCHOOL 
-Fort Saskatchewan 780 992 0101 
-Sherwood Park 780 464 1899 
+
+Personal
+Psychology 20
+Unit 7
+
+SENIOR HIGH SCHOOL
+Fort Saskatchewan 780 992 0101
+Sherwood Park 780 464 1899
 Vegreville 780 632 7998
 ```
 
@@ -426,21 +384,21 @@ ISBN:  1-894894-02-2
 Copyright 2010 Alberta Distance Learning Centre
 4601 - 63 Avenue
 Barrhead, Alberta  Canada  T7N 1P4
-All rights reserved.  No part of this courseware may be reproduced, stored in a retrieval system, 
-or transmitted in any form or by any means – electronic, mechanical, photocopying, recording, or 
+All rights reserved.  No part of this courseware may be reproduced, stored in a retrieval system,
+or transmitted in any form or by any means – electronic, mechanical, photocopying, recording, or
 otherwise – without written permission from Alberta Distance Learning Centre.
 Printed in Canada
-Alberta Distance Learning Centre has made every effort to acknowledge original sources and to 
-comply with copyright law.  If errors or omissions are noted, please contact Alberta Distance Learning 
+Alberta Distance Learning Centre has made every effort to acknowledge original sources and to
+comply with copyright law.  If errors or omissions are noted, please contact Alberta Distance Learning
 Centre so that necessary amendments can be made.
 For Users of Alberta Distance Learning Centre Courseware
-Much time and effort involved in preparing learning materials and activities that meet curricular 
-expectations as determined by Alberta Education.  We ask that you respect our work by honouring 
+Much time and effort involved in preparing learning materials and activities that meet curricular
+expectations as determined by Alberta Education.  We ask that you respect our work by honouring
 copyright regulations.
 Acknowledgement
-Alberta Distance Learning Centre wishes to acknowledge McGraw-Hill Ryerson for their 
+Alberta Distance Learning Centre wishes to acknowledge McGraw-Hill Ryerson for their
 generosity in our use of their resources.
-The I...
+The Internet...
 ```
 
 ### perpsy20ab01key-pdf (pdf)
@@ -450,7 +408,7 @@ The I...
 FOR STUDENT USE ONLY
 (if label is missing or incorrect)
 File Number:
-NameAddress 
+NameAddress
 City/Town                Province                Postal                Code
 FOR ADLC USE ONLY
 Student’s Questions
@@ -462,13 +420,13 @@ Mark
              %
 Date received
 Apply Assignment Label Here
-Please use the pre-printed label for this 
+Please use the pre-printed label for this
 course and Assignment Booklet.
 Teacher’s Comments:
 ALBERTA DISTANCE LEARNING CENTRE
 SSN2171:  PERSONAL PSYCHOLOGY 20
 An Introduction to Psychology
-Assignment Booklet  1 
+Assignment Booklet  1
 Revised December 2008
 Possible
 Marks
@@ -487,314 +445,242 @@ Alberta Distance Learning Centre
 Copyright 2007 Alberta Distance Learning Centre
 4601 - 63 Avenue
 Barrhead, Alberta  Canada  T7N 1P4
-All rights reserved.  No part of this courseware may be reproduced, stored in a retrieval system, 
-or transmitted in any form or by any means – electronic, mechanical, photocopying, recording, or 
+All rights reserved.  No part of this courseware may be reproduced, stored in a retrieval system,
+or transmitted in any form or by any means – electronic, mechanical, photocopying, recording, or
 otherwise – without written permission from Alberta Distance Learning Centre.
 Printed in Canada
-Alberta Distance Learning Centre has...
+Alberta Distance Learning Centre has made...
 ```
 
 ### perpsy20ab02key-pdf (pdf)
 - Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\genpsy-studio\PerPsy20AB02Key.pdf
 
 ```text
-ALBERTA  DISTANCE  LEARNING  CENTRE 
-SSN2171 
-Personal Psychology 20  KEY 
- 
-Assignment Booklet 2 
-Student’s Questions and 
-Comments 
-For Student use only For ADLC USE ONLY 
- 
-  
- (If label is missing or incorrect) 
-File Number: 
- 
-  
-Assigned to 
- 
- 
- 
-        
-City/Town               Province           Postal Code
- 
-  Address:
- 
-Name:
- 
-Apply Assignment Label Here
- 
- 
-Marked by 
- 
- 
- 
-Date Received: 
- 
- 
- 
-Summary 
- 
-Possible 
-Marks 
-Your 
-Marks 
-% 
-Part One 
-17 
-  
-Part Two 
-10 
-  
-Part Three 
-10   
-Part Four 
-13 
-  
-TOTAL 
-50 
-  
- 
- 
-Teacher’s Comments 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-       Teacher’s Signature 
-Revised January 2015 
+ALBERTA  DISTANCE  LEARNING  CENTRE
+SSN2171
+Personal Psychology 20  KEY
 
- 
- 
- 
+Assignment Booklet 2
+Student’s Questions and
+Comments
+For Student use only For ADLC USE ONLY
+
+ (If label is missing or incorrect)
+File Number:
+
+Assigned to
+
+City/Town               Province           Postal Code
+
+  Address:
+
+Name:
+
+Apply Assignment Label Here
+
+Marked by
+
+Date Received:
+
+Summary
+
+Possible
+Marks
+Your
+Marks
+%
+Part One
+17
+
+Part Two
+10
+
+Part Three
+10
+Part Four
+13
+
+TOTAL
+50
+
+Teacher’s Comments
+
+       Teacher’s Signature
+Revised January 2015
+
 CANADIAN CATALOGUING IN PUBLICATION DATA
- 
- 
- 
-SSN2171 
-Personal Psychology 20 
-Assignment Booklet Package 
-Copyright © 2014 Alberta Distance Learning Centre 
-4601 - 63 Avenue 
+
+SSN2171
+Personal Psychology 20
+Assignment Booklet Package
+Copyright © 2014 Alberta Distance Learning Centre
+4601 - 63 Avenue
 Barrhead, Alberta, Canada  T7N 1P4
- 
- 
-Permission has been obtained from Distributed Learning Resources Branch to revise this 
-material. 
- 
-All rights reserved.  No part of this courseware may be reproduced, stored in a retrieval system, 
-or transmitted in any form or by any means – electronic, mechanical, photocopying, recording, 
-or otherwise – without written permission from...
+
+Permission has been obtained from Distributed Learning Resources Branch to revise this
+material.
+
+All rights reserved.  No part of this courseware may be reproduced, stored in a retrieval system,
+or transmitted in any form or by any means – electronic, mechanical, photocopying, recording,
+or otherwise – without written permission from Alberta Distance Learning Centre.
+
+Printed in Canada
+
+Alberta Distance Learning Centre has made every effort to acknowledge origi...
 ```
 
 ### perpsy20ab03key-pdf (pdf)
 - Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\genpsy-studio\PerPsy20AB03Key.pdf
 
 ```text
-ALBERTA  DISTANCE  LEARNING  CENTRE 
-SSN2171 
-Personal Psychology 20  KEY 
- 
-Assignment Booklet 3 
-Student’s Questions and 
-Comments 
-For Student use only For ADLC USE ONLY 
- 
-  
- (If label is missing or incorrect) 
-File Number: 
- 
-  
-Assigned to 
- 
- 
- 
-        
-City/Town               Province           Postal Code
- 
-  Address:
- 
-Name:
- 
-Apply Assignment Label Here
- 
- 
-Marked by 
- 
- 
- 
-Date Received: 
- 
- 
- 
-Summary 
- 
-Possible 
-Marks 
-Your 
-Marks 
-% 
-Part One 
-16 
-  
-Part Two 
-10 
-  
-Part Three 
-7   
-Part Four 
-17 
-  
-TOTAL 
-50 
-  
- 
- 
-Teacher’s Comments 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-       Teacher’s Signature 
-Revised January 2015 
+ALBERTA  DISTANCE  LEARNING  CENTRE
+SSN2171
+Personal Psychology 20  KEY
 
- 
- 
- 
+Assignment Booklet 3
+Student’s Questions and
+Comments
+For Student use only For ADLC USE ONLY
+
+ (If label is missing or incorrect)
+File Number:
+
+Assigned to
+
+City/Town               Province           Postal Code
+
+  Address:
+
+Name:
+
+Apply Assignment Label Here
+
+Marked by
+
+Date Received:
+
+Summary
+
+Possible
+Marks
+Your
+Marks
+%
+Part One
+16
+
+Part Two
+10
+
+Part Three
+7
+Part Four
+17
+
+TOTAL
+50
+
+Teacher’s Comments
+
+       Teacher’s Signature
+Revised January 2015
+
 CANADIAN CATALOGUING IN PUBLICATION DATA
- 
- 
- 
-SSN2171 
-Personal Psychology 20 
-Assignment Booklet Package 
-Copyright © 2014 Alberta Distance Learning Centre 
-4601 - 63 Avenue 
+
+SSN2171
+Personal Psychology 20
+Assignment Booklet Package
+Copyright © 2014 Alberta Distance Learning Centre
+4601 - 63 Avenue
 Barrhead, Alberta, Canada  T7N 1P4
- 
- 
-Permission has been obtained from Distributed Learning Resources Branch to revise this 
-material. 
- 
-All rights reserved.  No part of this courseware may be reproduced, stored in a retrieval system, 
-or transmitted in any form or by any means – electronic, mechanical, photocopying, recording, 
-or otherwise – without written permission from ...
+
+Permission has been obtained from Distributed Learning Resources Branch to revise this
+material.
+
+All rights reserved.  No part of this courseware may be reproduced, stored in a retrieval system,
+or transmitted in any form or by any means – electronic, mechanical, photocopying, recording,
+or otherwise – without written permission from Alberta Distance Learning Centre.
+
+Printed in Canada
+
+Alberta Distance Learning Centre has made every effort to acknowledge origin...
 ```
 
 ### perpsy20ab04key-pdf (pdf)
 - Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\genpsy-studio\PerPsy20AB04Key.pdf
 
 ```text
-ALBERTA  DISTANCE  LEARNING  CENTRE 
-SSN2171 
-Personal Psychology 20  KEY 
- 
-Assignment Booklet 4 
-Student’s Questions and 
-Comments 
-For Student use only For ADLC USE ONLY 
- 
-  
- (If label is missing or incorrect) 
-File Number: 
- 
-  
-Assigned to 
- 
- 
- 
-        
-City/Town               Province           Postal Code
- 
-  Address:
- 
-Name:
- 
-Apply Assignment Label Here
- 
- 
-Marked by-- 
- 
- 
- 
-Date Received: 
- 
- 
- 
-Summary 
- 
-Possible 
-Marks 
-Your 
-Marks 
-% 
-Part One 
-12 
-  
-Part Two 
-10 
-  
-Part Three 
-10   
-Part Four 
-19 
-  
-TOTAL 
-51 
-  
- 
- 
-Teacher’s Comments 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-       Teacher’s Signature 
-Revised January 2015 
+ALBERTA  DISTANCE  LEARNING  CENTRE
+SSN2171
+Personal Psychology 20  KEY
 
- 
- 
- 
+Assignment Booklet 4
+Student’s Questions and
+Comments
+For Student use only For ADLC USE ONLY
+
+ (If label is missing or incorrect)
+File Number:
+
+Assigned to
+
+City/Town               Province           Postal Code
+
+  Address:
+
+Name:
+
+Apply Assignment Label Here
+
+Marked by--
+
+Date Received:
+
+Summary
+
+Possible
+Marks
+Your
+Marks
+%
+Part One
+12
+
+Part Two
+10
+
+Part Three
+10
+Part Four
+19
+
+TOTAL
+51
+
+Teacher’s Comments
+
+       Teacher’s Signature
+Revised January 2015
+
 CANADIAN CATALOGUING IN PUBLICATION DATA
- 
- 
- 
-SSN2171 
-Personal Psychology 20 
-Assignment Booklet Package 
-Copyright © 2014 Alberta Distance Learning Centre 
-4601 - 63 Avenue 
+
+SSN2171
+Personal Psychology 20
+Assignment Booklet Package
+Copyright © 2014 Alberta Distance Learning Centre
+4601 - 63 Avenue
 Barrhead, Alberta, Canada  T7N 1P4
- 
- 
-Permission has been obtained from Distributed Learning Resources Branch to revise this 
-material. 
- 
-All rights reserved.  No part of this courseware may be reproduced, stored in a retrieval system, 
-or transmitted in any form or by any means – electronic, mechanical, photocopying, recording, 
-or otherwise – without written permission fr...
+
+Permission has been obtained from Distributed Learning Resources Branch to revise this
+material.
+
+All rights reserved.  No part of this courseware may be reproduced, stored in a retrieval system,
+or transmitted in any form or by any means – electronic, mechanical, photocopying, recording,
+or otherwise – without written permission from Alberta Distance Learning Centre.
+
+Printed in Canada
+
+Alberta Distance Learning Centre has made every effort to acknowledge ori...
 ```
 
 ## Task Stub

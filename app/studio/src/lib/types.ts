@@ -99,7 +99,9 @@ export type ReferenceManifest = {
   originalPath: string;
   kind: string;
   extractionStatus: string;
+  extractionMethod?: string;
   extractedTextPath?: string;
+  extractionIssue?: string;
 };
 
 export type LearnerMode = "off" | "collect" | "apply";

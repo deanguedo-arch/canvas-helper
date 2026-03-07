@@ -57,7 +57,11 @@ export function InspectorPanel({ selectedProject, sourceFiles, onCopyToClipboard
             {selectedProject.referenceIndex.references.map((reference) => (
               <div key={reference.id} className="token-card">
                 <strong>{reference.kind}</strong>
-                <span>{reference.extractionStatus}</span>
+                <span>
+                  {reference.extractionStatus}
+                  {reference.extractionMethod ? ` via ${reference.extractionMethod}` : ""}
+                </span>
+                {reference.extractionIssue ? <span>{reference.extractionIssue}</span> : null}
               </div>
             ))}
           </div>

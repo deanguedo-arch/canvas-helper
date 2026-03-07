@@ -3,12 +3,12 @@ import path from "node:path";
 
 import mammoth from "mammoth";
 import { load } from "cheerio";
-import pdf from "pdf-parse";
 
 import { ensureDir, fileExists, listFilesRecursive, removePath, writeJsonFile, writeTextFile } from "./fs.js";
 import { getProjectPaths } from "./paths.js";
+import { extractPdfTextWithFallback } from "./pdf-text.js";
 import { loadProjectManifest } from "./projects.js";
-import type { ReferenceIndex, ReferenceKind, ReferenceManifest } from "./types.js";
+import type { ReferenceExtractionMethod, ReferenceIndex, ReferenceKind, ReferenceManifest } from "./types.js";
 
 function toReferenceId(relativePath: string) {
   return relativePath
@@ -42,27 +42,55 @@ function kindFromExtension(filePath: string): ReferenceKind {
   }
 }
 
-async function extractText(referencePath: string, kind: ReferenceKind) {
+type ExtractedReferenceText = {
+  text: string | null;
+  extractionMethod: ReferenceExtractionMethod | null;
+  extractionIssue: string | null;
+};
+
+async function extractText(referencePath: string, kind: ReferenceKind): Promise<ExtractedReferenceText> {
   switch (kind) {
     case "txt":
     case "md":
-      return readFile(referencePath, "utf8");
+      return {
+        text: await readFile(referencePath, "utf8"),
+        extractionMethod: "native",
+        extractionIssue: null
+      };
     case "html": {
       const html = await readFile(referencePath, "utf8");
       const $ = load(html);
-      return $.text().replace(/\s+\n/g, "\n").replace(/\n{3,}/g, "\n\n").trim();
+      return {
+        text: $.text().replace(/\s+\n/g, "\n").replace(/\n{3,}/g, "\n\n").trim(),
+        extractionMethod: "native",
+        extractionIssue: null
+      };
     }
-    case "pdf": {
-      const buffer = await readFile(referencePath);
-      const parsed = await pdf(buffer);
-      return parsed.text.trim();
-    }
+    case "pdf":
+      return extractPdfTextWithFallback(referencePath).then((result) => ({
+        text: result.text,
+        extractionMethod: result.method,
+        extractionIssue:
+          result.issue && result.issue.includes("Add an OCR-readable PDF")
+            ? result.issue
+            : result.issue
+              ? `${result.issue} Add an OCR-readable PDF or a clean .txt/.docx copy.`
+              : null
+      }));
     case "docx": {
       const result = await mammoth.extractRawText({ path: referencePath });
-      return result.value.trim();
+      return {
+        text: result.value.trim(),
+        extractionMethod: "native",
+        extractionIssue: null
+      };
     }
     default:
-      return null;
+      return {
+        text: null,
+        extractionMethod: null,
+        extractionIssue: null
+      };
   }
 }
 
@@ -93,15 +121,28 @@ export async function extractProjectReferences(projectSlug: string) {
     };
 
     try {
-      const extractedText = await extractText(filePath, kind);
-      if (extractedText) {
+      const extracted = await extractText(filePath, kind);
+      if (extracted.extractionIssue) {
+        reference.extractionStatus = "failed";
+        reference.extractionIssue = extracted.extractionIssue;
+        console.warn(`[refs] ${projectSlug}/${relativePath}: ${extracted.extractionIssue}`);
+        references.push(reference);
+        continue;
+      }
+
+      if (extracted.text) {
         const outputPath = path.join(paths.referencesExtractedDir, `${reference.id}.txt`);
-        await writeTextFile(outputPath, `${extractedText}\n`);
+        await writeTextFile(outputPath, `${extracted.text}\n`);
+        if (extracted.extractionMethod) {
+          reference.extractionMethod = extracted.extractionMethod;
+        }
         reference.extractedTextPath = outputPath;
         reference.extractionStatus = "indexed";
       }
-    } catch {
+    } catch (error) {
       reference.extractionStatus = "failed";
+      reference.extractionIssue = error instanceof Error ? error.message : String(error);
+      console.warn(`[refs] ${projectSlug}/${relativePath}: ${reference.extractionIssue}`);
     }
 
     references.push(reference);

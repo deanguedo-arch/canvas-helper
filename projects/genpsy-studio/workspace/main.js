@@ -281,6 +281,91 @@
             setActivityResult("branch-activity-results", "error", `You still have branch mix-ups on items ${wrong.join(", ")}. Recheck where the scenario belongs: development, biology, thought, social influence, treatment, the paranormal, or observable behaviour.`);
         }
 
+        function checkHistoryTimelineActivity() {
+            const expectedChronology = {
+                "history-chrono-1": "1",
+                "history-chrono-2": "2",
+                "history-chrono-3": "3",
+                "history-chrono-4": "4",
+                "history-chrono-5": "5"
+            };
+
+            const unanswered = [];
+            const wrong = [];
+            const selectedValues = [];
+
+            Object.entries(expectedChronology).forEach(([id, expected], index) => {
+                const field = document.getElementById(id);
+                if (!field || !field.value) {
+                    unanswered.push(index + 1);
+                    return;
+                }
+
+                selectedValues.push(field.value);
+                if (field.value !== expected) {
+                    wrong.push(index + 1);
+                }
+            });
+
+            const duplicates = selectedValues.filter((value, index) => selectedValues.indexOf(value) !== index);
+
+            if (unanswered.length) {
+                setActivityResult("history-timeline-results", "warning", `Complete the full timeline first. Missing items: ${unanswered.join(", ")}.`);
+                return;
+            }
+
+            if (duplicates.length) {
+                const uniqueDuplicates = Array.from(new Set(duplicates)).sort();
+                setActivityResult("history-timeline-results", "warning", `Your order has duplicate values: ${uniqueDuplicates.join(", ")}. Each step needs a unique rank.`);
+                return;
+            }
+
+            if (!wrong.length) {
+                setActivityResult("history-timeline-results", "success", "Correct timeline. You captured the shift from philosophy to formal science in the right order.");
+                return;
+            }
+
+            setActivityResult("history-timeline-results", "error", `The sequence still needs fixes. Recheck items: ${wrong.join(", ")}.`);
+        }
+
+        function checkSchoolsMatchActivity() {
+            const schoolAnswerKey = {
+                "school-match-1": "psychoanalysis",
+                "school-match-2": "behaviourism",
+                "school-match-3": "humanism",
+                "school-match-4": "eclectic",
+                "school-match-5": "psychoanalysis",
+                "school-match-6": "humanism"
+            };
+
+            const unanswered = [];
+            const wrong = [];
+
+            Object.entries(schoolAnswerKey).forEach(([id, expected], index) => {
+                const field = document.getElementById(id);
+                if (!field || !field.value) {
+                    unanswered.push(index + 1);
+                    return;
+                }
+
+                if (field.value !== expected) {
+                    wrong.push(index + 1);
+                }
+            });
+
+            if (unanswered.length) {
+                setActivityResult("school-match-results", "warning", `Finish every school match before checking. Still open: ${unanswered.join(", ")}.`);
+                return;
+            }
+
+            if (!wrong.length) {
+                setActivityResult("school-match-results", "success", "6/6. The schools map matches the course material.");
+                return;
+            }
+
+            setActivityResult("school-match-results", "error", `You still have school match errors on items ${wrong.join(", ")}.`);
+        }
+
         function checkExperimentLabActivity() {
             const missing = [];
             const expectedValues = {
@@ -423,37 +508,206 @@
             setActivityResult("knowledge-check-matching-results", "error", `Several matches still need work. Review items ${wrong.join(", ")} against the branch lesson cards above.`);
         }
 
-        // --- Quiz Logic Module 2 ---
-        function checkQuizMod2() {
+        function checkKnowledgeCheckTF() {
+            const answerKey = {
+                "kc-tf-1": "true",
+                "kc-tf-2": "false",
+                "kc-tf-3": "true",
+                "kc-tf-4": "true",
+                "kc-tf-5": "false",
+                "kc-tf-6": "true",
+                "kc-tf-7": "true",
+                "kc-tf-8": "false",
+                "kc-tf-9": "true",
+                "kc-tf-10": "true",
+                "kc-tf-11": "true",
+                "kc-tf-12": "true",
+                "kc-tf-13": "true",
+                "kc-tf-14": "true",
+                "kc-tf-15": "false",
+                "kc-tf-16": "false",
+                "kc-tf-17": "false",
+                "kc-tf-18": "true",
+                "kc-tf-19": "false",
+                "kc-tf-20": "false"
+            };
+
             let score = 0;
-            const total = 5;
-            const q1 = document.querySelector('input[name="m2q1"]:checked');
-            const q2 = document.querySelector('input[name="m2q2"]:checked');
-            const q3 = document.querySelector('input[name="m2q3"]:checked');
-            const q4 = document.querySelector('input[name="m2q4"]:checked');
-            const q5 = document.querySelector('input[name="m2q5"]:checked');
-            
-            const resultsDiv = document.getElementById("quiz2-results");
-            
-            if(!q1 || !q2 || !q3 || !q4 || !q5) {
-                resultsDiv.innerHTML = "Please answer all questions before submitting.";
-                resultsDiv.className = "mt-6 p-4 rounded text-center font-bold text-lg bg-yellow-100 text-yellow-800 border border-yellow-300 block animate-pulse";
+            const unanswered = [];
+
+            Object.entries(answerKey).forEach(([name, expected], index) => {
+                const selected = document.querySelector(`input[name="${name}"]:checked`);
+                if (!selected) {
+                    unanswered.push(index + 1);
+                    return;
+                }
+
+                if (selected.value === expected) {
+                    score += 1;
+                }
+            });
+
+            if (unanswered.length) {
+                setActivityResult("knowledge-check-tf-results", "warning", `Finish all statements before checking. Still open: ${unanswered.join(", ")}.`);
                 return;
             }
 
-            if(q1.value === "correct") score++;
-            if(q2.value === "correct") score++;
-            if(q3.value === "correct") score++;
-            if(q4.value === "correct") score++;
-            if(q5.value === "correct") score++;
-
-            if(score === total) {
-                resultsDiv.innerHTML = `Perfect Score! ${score}/${total} <i class="fas fa-star text-yellow-500 ml-2"></i>`;
-                resultsDiv.className = "mt-6 p-4 rounded text-center font-bold text-lg bg-green-100 text-green-800 border border-green-300 block";
-            } else {
-                resultsDiv.innerHTML = `You scored ${score}/${total}. Review the Learning and Development sections and try again!`;
-                resultsDiv.className = "mt-6 p-4 rounded text-center font-bold text-lg bg-red-100 text-red-800 border border-red-300 block";
+            if (score === Object.keys(answerKey).length) {
+                setActivityResult("knowledge-check-tf-results", "success", "Perfect score. Your Unit 1 understanding is strong.");
+                return;
             }
+
+            if (score >= 16) {
+                setActivityResult("knowledge-check-tf-results", "success", `You got ${score}/20. Strong work; review the flagged concepts and try again.`);
+                return;
+            }
+
+            setActivityResult("knowledge-check-tf-results", "error", `You got ${score}/20. Revisit the history section and experiment design notes.`);
+        }
+
+        // --- Quiz Logic Module 2 ---
+        function checkQuizMod2() {
+            const questionNames = Array.from({ length: 17 }, (_, index) => `m2q${index + 1}`);
+            let score = 0;
+            const unanswered = [];
+            const resultsDiv = document.getElementById("quiz2-results");
+
+            questionNames.forEach((name, index) => {
+                const selected = document.querySelector(`input[name="${name}"]:checked`);
+                if (!selected) {
+                    unanswered.push(index + 1);
+                    return;
+                }
+
+                if (selected.value === "correct") {
+                    score += 1;
+                }
+            });
+
+            if (unanswered.length) {
+                resultsDiv.innerHTML = `Answer every Part One item before checking. Still open: ${unanswered.join(", ")}.`;
+                resultsDiv.className = "mt-6 p-4 rounded text-center font-bold text-lg bg-yellow-100 text-yellow-800 border border-yellow-300 block";
+                return;
+            }
+
+            if (score === questionNames.length) {
+                resultsDiv.innerHTML = `Part One complete: ${score}/${questionNames.length}.`;
+                resultsDiv.className = "mt-6 p-4 rounded text-center font-bold text-lg bg-green-100 text-green-800 border border-green-300 block";
+                return;
+            }
+
+            if (score >= 13) {
+                resultsDiv.innerHTML = `Part One score: ${score}/${questionNames.length}. Strong result; review the weaker items and retry.`;
+                resultsDiv.className = "mt-6 p-4 rounded text-center font-bold text-lg bg-emerald-100 text-emerald-800 border border-emerald-300 block";
+                return;
+            }
+
+            resultsDiv.innerHTML = `Part One score: ${score}/${questionNames.length}. Revisit the Unit 2 study guide above before retrying.`;
+            resultsDiv.className = "mt-6 p-4 rounded text-center font-bold text-lg bg-red-100 text-red-800 border border-red-300 block";
+        }
+
+        function checkQuizMod2Matching() {
+            const answerKey = {
+                "m2match-1": "H",
+                "m2match-2": "L",
+                "m2match-3": "E",
+                "m2match-4": "N",
+                "m2match-5": "F",
+                "m2match-6": "B",
+                "m2match-7": "J",
+                "m2match-8": "A",
+                "m2match-9": "D",
+                "m2match-10": "O"
+            };
+
+            let score = 0;
+            const unanswered = [];
+            const wrong = [];
+            const resultsDiv = document.getElementById("quiz2-matching-results");
+
+            Object.entries(answerKey).forEach(([id, expected], index) => {
+                const field = document.getElementById(id);
+                if (!field) {
+                    unanswered.push(index + 1);
+                    return;
+                }
+
+                const rawValue = typeof field.value === "string" ? field.value.trim().toUpperCase() : "";
+                if (!rawValue) {
+                    unanswered.push(index + 1);
+                    return;
+                }
+
+                field.value = rawValue;
+
+                if (rawValue === expected) {
+                    score += 1;
+                    return;
+                }
+
+                wrong.push(index + 1);
+            });
+
+            if (unanswered.length) {
+                resultsDiv.innerHTML = `Complete all Part Two matches before checking. Missing: ${unanswered.join(", ")}.`;
+                resultsDiv.className = "mt-6 p-4 rounded text-center font-bold text-lg bg-yellow-100 text-yellow-800 border border-yellow-300 block";
+                return;
+            }
+
+            if (!wrong.length) {
+                resultsDiv.innerHTML = `Part Two complete: ${score}/10.`;
+                resultsDiv.className = "mt-6 p-4 rounded text-center font-bold text-lg bg-green-100 text-green-800 border border-green-300 block";
+                return;
+            }
+
+            resultsDiv.innerHTML = `Part Two score: ${score}/10. Recheck items ${wrong.join(", ")}.`;
+            resultsDiv.className = "mt-6 p-4 rounded text-center font-bold text-lg bg-red-100 text-red-800 border border-red-300 block";
+        }
+
+        function checkQuizMod2TF() {
+            const answerKey = {
+                "m2tf1": "false",
+                "m2tf2": "true",
+                "m2tf3": "true",
+                "m2tf4": "false",
+                "m2tf5": "true",
+                "m2tf6": "false",
+                "m2tf7": "false",
+                "m2tf8": "true",
+                "m2tf9": "false",
+                "m2tf10": "false"
+            };
+
+            let score = 0;
+            const unanswered = [];
+            const resultsDiv = document.getElementById("quiz2-tf-results");
+
+            Object.entries(answerKey).forEach(([name, expected], index) => {
+                const selected = document.querySelector(`input[name="${name}"]:checked`);
+                if (!selected) {
+                    unanswered.push(index + 1);
+                    return;
+                }
+
+                if (selected.value === expected) {
+                    score += 1;
+                }
+            });
+
+            if (unanswered.length) {
+                resultsDiv.innerHTML = `Complete all Part Three items before checking. Missing: ${unanswered.join(", ")}.`;
+                resultsDiv.className = "mt-6 p-4 rounded text-center font-bold text-lg bg-yellow-100 text-yellow-800 border border-yellow-300 block";
+                return;
+            }
+
+            if (score === 10) {
+                resultsDiv.innerHTML = "Part Three complete: 10/10.";
+                resultsDiv.className = "mt-6 p-4 rounded text-center font-bold text-lg bg-green-100 text-green-800 border border-green-300 block";
+                return;
+            }
+
+            resultsDiv.innerHTML = `Part Three score: ${score}/10. Review language development, research methods, and motor-development notes.`;
+            resultsDiv.className = "mt-6 p-4 rounded text-center font-bold text-lg bg-red-100 text-red-800 border border-red-300 block";
         }
 
         // --- Tabs Logic for Learning ---
