@@ -336,7 +336,15 @@ export function AssessmentLibraryMode() {
       setSelectedSlug(nextItem.slug);
       setSelectedQuestionId(nextItem.project.questions[0]?.questionId ?? null);
       setExportResult(null);
-      setStatusMessage(`Imported ${files.length} source file(s) into "${nextItem.slug}".`);
+      const lowConfidenceSources =
+        nextItem.importResult?.sourceResults.filter((source) =>
+          source.issues.some((issue) => issue.code === "low_confidence_extraction")
+        ).length ?? 0;
+      setStatusMessage(
+        lowConfidenceSources > 0
+          ? `Imported ${files.length} source file(s) into "${nextItem.slug}". ${lowConfidenceSources} source(s) parsed with low confidence.`
+          : `Imported ${files.length} source file(s) into "${nextItem.slug}".`
+      );
     } catch (error) {
       setStatusMessage(error instanceof Error ? error.message : "Assessment import failed.");
     } finally {
@@ -785,10 +793,53 @@ export function AssessmentLibraryMode() {
                 <ul>
                   {item.importResult.sourceResults.map((source) => (
                     <li key={source.sourcePath}>
-                      {source.fileName} | {source.questionCount} q | {source.confidenceScore.toFixed(2)}
+                      {source.fileName} | {source.questionCount} q | confidence {source.confidenceScore.toFixed(2)} | method{" "}
+                      {source.extractionMethod ?? "unknown"}
                     </li>
                   ))}
                 </ul>
+                <div className="assessment-issue-list">
+                  {item.importResult.sourceResults.flatMap((source) =>
+                    source.issues
+                      .filter(
+                        (issue) =>
+                          issue.code === "low_confidence_extraction" ||
+                          issue.code === "ocr_low_confidence_retry" ||
+                          issue.code === "ocr_failed" ||
+                          issue.code === "ocr_applied" ||
+                          issue.code === "ocr_no_candidates"
+                      )
+                      .map((issue) => ({
+                        sourceFile: source.fileName,
+                        issue
+                      }))
+                  ).length === 0 ? (
+                    <p>No extraction warnings for this import.</p>
+                  ) : (
+                    item.importResult.sourceResults
+                      .flatMap((source) =>
+                        source.issues
+                          .filter(
+                            (issue) =>
+                              issue.code === "low_confidence_extraction" ||
+                              issue.code === "ocr_low_confidence_retry" ||
+                              issue.code === "ocr_failed" ||
+                              issue.code === "ocr_applied" ||
+                              issue.code === "ocr_no_candidates"
+                          )
+                          .map((issue) => ({
+                            sourceFile: source.fileName,
+                            issue
+                          }))
+                      )
+                      .map((entry, index) => (
+                        <div key={`${entry.sourceFile}-${entry.issue.code}-${index}`} className={`assessment-issue ${entry.issue.severity}`}>
+                          <strong>{entry.sourceFile}</strong>
+                          <span>{entry.issue.message}</span>
+                        </div>
+                      ))
+                  )}
+                </div>
               </div>
             ) : (
               <p>No import run recorded for this item.</p>

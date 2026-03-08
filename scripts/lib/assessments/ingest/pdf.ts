@@ -12,6 +12,8 @@ import {
   type PdfQuestionCandidate
 } from "../question-extraction.js";
 
+const LOW_CONFIDENCE_THRESHOLD = 0.35;
+
 function clamp(value: number) {
   return Math.min(1, Math.max(0, value));
 }
@@ -228,6 +230,23 @@ function mapCandidateToQuestion(candidate: PdfQuestionCandidate, sourceReference
   });
 }
 
+function mapCandidatesToQuestions(candidates: PdfQuestionCandidate[], sourceReference: string) {
+  const questions = candidates.map((candidate) => mapCandidateToQuestion(candidate, sourceReference));
+  return questions;
+}
+
+function markQuestionForLowConfidence(question: Question): Question {
+  if (question.metadataTags.includes("low_confidence")) {
+    return question;
+  }
+
+  return {
+    ...question,
+    metadataTags: [...question.metadataTags, "low_confidence"],
+    reviewStatus: "needs_review" as const
+  };
+}
+
 function buildIssues(extractedText: string, questions: Question[], ocrApplied: boolean, ocrIssue?: string | null): IngestIssue[] {
   const issues: IngestIssue[] = [];
 
@@ -303,6 +322,8 @@ export async function parsePdfToAssessment(filePath: string): Promise<
   let pageCount = 0;
   let ocrApplied = false;
   let ocrIssue: string | null = null;
+  let confidenceScore = 0;
+  let wasLowConfidence = false;
 
   try {
     const result = await extractPdfTextWithFallback(filePath);
@@ -310,7 +331,7 @@ export async function parsePdfToAssessment(filePath: string): Promise<
     extractionMethod = result.method ?? undefined;
     pageCount = result.pageCount;
     ocrApplied = result.method === "ocr";
-    if (!result.text && result.issue) {
+    if (result.issue) {
       ocrIssue = result.issue;
     }
   } catch (error) {
@@ -324,16 +345,73 @@ export async function parsePdfToAssessment(filePath: string): Promise<
     pageCount = Math.max(pageCount, parsed.numpages ?? 0);
   }
 
-  const candidates = extractDraftQuestionsFromPdfText(extractedText);
-  const questions = candidates.map((candidate) => mapCandidateToQuestion(candidate, sourceDocument.name));
-  const issues = buildIssues(extractedText, questions, ocrApplied, ocrIssue);
-  const confidenceScore = scoreExtractionConfidence({
+  const initialCandidates = extractDraftQuestionsFromPdfText(extractedText);
+  let questions = mapCandidatesToQuestions(initialCandidates, sourceDocument.name);
+  confidenceScore = scoreExtractionConfidence({
     extractedTextLength: extractedText.length,
     questionCandidateCount: questions.length,
     pageCount: Math.max(1, pageCount)
   });
 
-  if (confidenceScore < 0.35) {
+  let fallbackUsed = false;
+  if (confidenceScore < LOW_CONFIDENCE_THRESHOLD && extractionMethod !== "ocr") {
+    fallbackUsed = true;
+    const ocrResult = await extractPdfTextWithFallback(filePath, { forceOcr: true });
+    if (ocrResult.text) {
+      const ocrText = normalizePdfText(ocrResult.text);
+      const ocrCandidates = extractDraftQuestionsFromPdfText(ocrText);
+      const ocrQuestions = mapCandidatesToQuestions(ocrCandidates, sourceDocument.name);
+      const ocrConfidence = scoreExtractionConfidence({
+        extractedTextLength: ocrText.length,
+        questionCandidateCount: ocrQuestions.length,
+        pageCount: Math.max(1, ocrResult.pageCount)
+      });
+
+      if (ocrConfidence > confidenceScore) {
+        extractedText = ocrText;
+        questions = ocrQuestions;
+        confidenceScore = ocrConfidence;
+        extractionMethod = "ocr";
+        ocrApplied = true;
+        pageCount = Math.max(pageCount, ocrResult.pageCount);
+        ocrIssue = ocrResult.issue;
+      } else if (ocrResult.issue) {
+        ocrIssue = ocrIssue ? `${ocrIssue}; ${ocrResult.issue}` : ocrResult.issue;
+      }
+    } else if (ocrResult.issue) {
+      ocrIssue = ocrIssue ? `${ocrIssue}; ${ocrResult.issue}` : ocrResult.issue;
+    }
+  }
+
+  if (confidenceScore < LOW_CONFIDENCE_THRESHOLD) {
+    wasLowConfidence = true;
+    questions = questions.map(markQuestionForLowConfidence);
+  }
+
+  const issues = buildIssues(extractedText, questions, ocrApplied, ocrIssue);
+
+  if (fallbackUsed) {
+    issues.push({
+      code: "ocr_low_confidence_retry",
+      severity: "info",
+      message:
+        questions.length > 0 && extractionMethod === "ocr"
+          ? "OCR retry was run due low-confidence extraction and replaced the final parsed candidate set."
+          : "OCR retry was run due low-confidence extraction but did not improve candidate quality.",
+      sourcePage: null
+    });
+
+    if (!questions.length) {
+      issues.push({
+        code: "low_confidence_extraction",
+        severity: "warning",
+        message: "PDF extraction confidence is low. No reliable candidates were produced.",
+        sourcePage: null
+      });
+    }
+  }
+
+  if (wasLowConfidence && !issues.some((issue) => issue.code === "low_confidence_extraction")) {
     issues.push({
       code: "low_confidence_extraction",
       severity: "warning",

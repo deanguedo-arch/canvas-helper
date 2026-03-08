@@ -24,6 +24,10 @@ export type PdfTextExtractionResult = {
   pageCount: number;
 };
 
+export type PdfTextExtractionOptions = {
+  forceOcr?: boolean;
+};
+
 export function getExecutableNameCandidates(
   commandName: string,
   platform: NodeJS.Platform = process.platform
@@ -288,7 +292,31 @@ async function ocrPdfText(filePath: string) {
   }
 }
 
-export async function extractPdfTextWithFallback(filePath: string): Promise<PdfTextExtractionResult> {
+export async function extractPdfTextWithFallback(
+  filePath: string,
+  options: PdfTextExtractionOptions = {}
+): Promise<PdfTextExtractionResult> {
+  if (options.forceOcr) {
+    try {
+      const ocr = await ocrPdfText(filePath);
+      return {
+        text: cleanExtractedText(ocr.text),
+        method: "ocr",
+        issue: detectPdfTextIssue(ocr.text),
+        pages: ocr.pages,
+        pageCount: ocr.pageCount
+      };
+    } catch (error) {
+      return {
+        text: null,
+        method: null,
+        issue: error instanceof Error ? error.message : String(error),
+        pages: [],
+        pageCount: 0
+      };
+    }
+  }
+
   try {
     const buffer = await readFile(filePath);
     const native = await extractNativePdfText(buffer);
