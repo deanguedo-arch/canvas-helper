@@ -1,0 +1,94 @@
+{
+  "projectId": "project_matching",
+  "title": "Matching Fixture",
+  "description": "Fixture for canonical matching representation.",
+  "courseName": "Geography",
+  "subjectTags": ["matching", "geography"],
+  "sourceDocuments": [
+    {
+      "sourceDocumentId": "source_manual_002",
+      "name": "Matching Activity",
+      "type": "manual",
+      "origin": "teacher-authored",
+      "importedAt": "2026-03-06T00:00:00.000Z"
+    }
+  ],
+  "sections": [],
+  "questions": [
+    {
+      "questionId": "question_match_001",
+      "sectionId": null,
+      "type": "matching",
+      "prompt": "Match each country to its capital.",
+      "stemRichText": null,
+      "choices": [
+        {
+          "choiceId": "country_france",
+          "label": "P1",
+          "text": "France",
+          "isCorrect": false,
+          "orderIndex": 0,
+          "matchKey": "pair_1",
+          "fixedPosition": null,
+          "matchRole": "prompt"
+        },
+        {
+          "choiceId": "country_spain",
+          "label": "P2",
+          "text": "Spain",
+          "isCorrect": false,
+          "orderIndex": 1,
+          "matchKey": "pair_2",
+          "fixedPosition": null,
+          "matchRole": "prompt"
+        },
+        {
+          "choiceId": "capital_paris",
+          "label": "M1",
+          "text": "Paris",
+          "isCorrect": false,
+          "orderIndex": 2,
+          "matchKey": "pair_1",
+          "fixedPosition": null,
+          "matchRole": "match"
+        },
+        {
+          "choiceId": "capital_madrid",
+          "label": "M2",
+          "text": "Madrid",
+          "isCorrect": false,
+          "orderIndex": 3,
+          "matchKey": "pair_2",
+          "fixedPosition": null,
+          "matchRole": "match"
+        }
+      ],
+      "correctAnswers": [
+        {
+          "promptChoiceId": "country_france",
+          "matchChoiceId": "capital_paris"
+        },
+        {
+          "promptChoiceId": "country_spain",
+          "matchChoiceId": "capital_madrid"
+        }
+      ],
+      "points": 2,
+      "feedbackCorrect": "",
+      "feedbackIncorrect": "",
+      "explanation": "",
+      "sourceReference": "Matching Activity",
+      "sourcePage": null,
+      "originText": "Match each country to its capital.",
+      "confidenceScore": 1,
+      "answerStatus": "verified",
+      "reviewStatus": "approved",
+      "exportNotes": "",
+      "metadataTags": ["geography"]
+    }
+  ],
+  "createdAt": "2026-03-06T00:00:00.000Z",
+  "updatedAt": "2026-03-06T00:00:00.000Z",
+  "version": 1,
+  "exportHistory": []
+}

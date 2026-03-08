@@ -1,0 +1,168 @@
+{
+  "projectId": "project_mixed_questions",
+  "title": "Mixed Assessment Fixture",
+  "description": "Fixture covering multiple supported question shapes.",
+  "courseName": "General Studies",
+  "subjectTags": ["mixed", "review"],
+  "sourceDocuments": [
+    {
+      "sourceDocumentId": "source_manual_001",
+      "name": "Manual Entry",
+      "type": "manual",
+      "origin": "teacher-authored",
+      "importedAt": "2026-03-06T00:00:00.000Z"
+    }
+  ],
+  "sections": [
+    {
+      "sectionId": "section_core",
+      "title": "Core Review",
+      "description": "",
+      "instructions": "",
+      "orderIndex": 0,
+      "metadataTags": ["semester-1"]
+    }
+  ],
+  "questions": [
+    {
+      "questionId": "question_tf_001",
+      "sectionId": "section_core",
+      "type": "true_false",
+      "prompt": "The Earth orbits the Sun.",
+      "stemRichText": null,
+      "choices": [
+        {
+          "choiceId": "choice_true",
+          "label": "T",
+          "text": "True",
+          "isCorrect": true,
+          "orderIndex": 0,
+          "matchKey": null,
+          "fixedPosition": null,
+          "matchRole": null
+        },
+        {
+          "choiceId": "choice_false",
+          "label": "F",
+          "text": "False",
+          "isCorrect": false,
+          "orderIndex": 1,
+          "matchKey": null,
+          "fixedPosition": null,
+          "matchRole": null
+        }
+      ],
+      "correctAnswers": ["choice_true"],
+      "points": 1,
+      "feedbackCorrect": "",
+      "feedbackIncorrect": "",
+      "explanation": "",
+      "sourceReference": "Manual Entry",
+      "sourcePage": null,
+      "originText": "The Earth orbits the Sun.",
+      "confidenceScore": 1,
+      "answerStatus": "verified",
+      "reviewStatus": "approved",
+      "exportNotes": "",
+      "metadataTags": ["astronomy"]
+    },
+    {
+      "questionId": "question_ms_001",
+      "sectionId": "section_core",
+      "type": "multi_select",
+      "prompt": "Select all prime numbers.",
+      "stemRichText": null,
+      "choices": [
+        {
+          "choiceId": "choice_2",
+          "label": "A",
+          "text": "2",
+          "isCorrect": true,
+          "orderIndex": 0,
+          "matchKey": null,
+          "fixedPosition": null,
+          "matchRole": null
+        },
+        {
+          "choiceId": "choice_3",
+          "label": "B",
+          "text": "3",
+          "isCorrect": true,
+          "orderIndex": 1,
+          "matchKey": null,
+          "fixedPosition": null,
+          "matchRole": null
+        },
+        {
+          "choiceId": "choice_4",
+          "label": "C",
+          "text": "4",
+          "isCorrect": false,
+          "orderIndex": 2,
+          "matchKey": null,
+          "fixedPosition": null,
+          "matchRole": null
+        }
+      ],
+      "correctAnswers": ["choice_2", "choice_3"],
+      "points": 2,
+      "feedbackCorrect": "",
+      "feedbackIncorrect": "",
+      "explanation": "",
+      "sourceReference": "Manual Entry",
+      "sourcePage": null,
+      "originText": "Select all prime numbers.",
+      "confidenceScore": 1,
+      "answerStatus": "verified",
+      "reviewStatus": "approved",
+      "exportNotes": "",
+      "metadataTags": ["math"]
+    },
+    {
+      "questionId": "question_sa_001",
+      "sectionId": "section_core",
+      "type": "short_answer",
+      "prompt": "Name the largest planet in our solar system.",
+      "stemRichText": null,
+      "choices": [],
+      "correctAnswers": ["Jupiter"],
+      "points": 1,
+      "feedbackCorrect": "",
+      "feedbackIncorrect": "",
+      "explanation": "",
+      "sourceReference": "Manual Entry",
+      "sourcePage": null,
+      "originText": "Name the largest planet in our solar system.",
+      "confidenceScore": 1,
+      "answerStatus": "verified",
+      "reviewStatus": "approved",
+      "exportNotes": "",
+      "metadataTags": ["astronomy"]
+    },
+    {
+      "questionId": "question_wr_001",
+      "sectionId": "section_core",
+      "type": "written_response",
+      "prompt": "Explain why seasons change on Earth.",
+      "stemRichText": null,
+      "choices": [],
+      "correctAnswers": [],
+      "points": 5,
+      "feedbackCorrect": "",
+      "feedbackIncorrect": "",
+      "explanation": "",
+      "sourceReference": "Manual Entry",
+      "sourcePage": null,
+      "originText": "Explain why seasons change on Earth.",
+      "confidenceScore": null,
+      "answerStatus": "missing",
+      "reviewStatus": "needs_review",
+      "exportNotes": "",
+      "metadataTags": ["astronomy", "written"]
+    }
+  ],
+  "createdAt": "2026-03-06T00:00:00.000Z",
+  "updatedAt": "2026-03-06T00:00:00.000Z",
+  "version": 1,
+  "exportHistory": []
+}
