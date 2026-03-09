@@ -1,13 +1,13 @@
 # Prompt Pack
 
 - Project: calmmodule2
-- Generated: 2026-03-06T21:36:25.386Z
+- Generated: 2026-03-09T21:54:36.368Z
 
 ## Rules
 
 - Work in repo-approved zones (`app/studio`, `app/server`, `scripts`, `docs`, `tasks`, root config files).
 - Treat `projects/<slug>/raw` as immutable baseline input.
-- Retrieval order: prompt-pack -> local pattern bank matches -> projects/resources/<slug>/_extracted.
+- Retrieval order: prompt-pack -> course blueprint -> assessment map -> lesson packets -> targeted resource chunks -> pattern matches if enabled.
 - Finish only after typecheck/build and task-specific verification pass.
 
 ## Intelligence Policy
@@ -37,12 +37,53 @@
   "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\calmmodule2\\raw\\original.html",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-03-06T21:36:25.340Z",
+  "learningUpdatedAt": "2026-03-09T21:54:36.330Z",
   "createdAt": "2026-03-06T20:40:30.861Z",
-  "updatedAt": "2026-03-06T21:36:25.340Z",
-  "workspaceApprovedAt": "2026-03-06T21:36:25.340Z"
+  "updatedAt": "2026-03-09T21:54:36.330Z",
+  "workspaceApprovedAt": "2026-03-09T21:54:36.330Z"
 }
 ```
+
+## Resource Authority Rules
+
+- Assessments are the highest authority for performance expectations and success criteria.
+- Outlines are the highest authority for unit naming, scope, and outcome framing.
+- Teacher notes are contextual authority only.
+- Textbook and reference resources are supporting evidence, not lesson generators.
+- Imported Canvas workspace content is fallback context only when outline or assessment evidence is missing.
+- Current classified resource mix: textbook: 1.
+
+## Resource Catalog Summary
+
+### CALM MODULE TWO – RESOURCE CHOICES OUTREACH PROGRAMS – REVISED 2018 (textbook)
+- Authority: supporting-only
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\calmmodule2\CALM Module 2 - Resourse Choices.pdf
+- Extraction: indexed via native
+- Chunks: 22
+- Signals: text:what-is
+
+## Course Blueprint Summary
+
+> course-blueprint.json: missing
+> Next: `npm run blueprint -- --project calmmodule2`
+
+## Assessment Map Summary
+
+> assessment-map.json: missing
+> Next: `npm run assessment-map -- --project calmmodule2`
+
+## Lesson Packet Summary
+
+> lesson-packets/index.json: missing
+> Next: `npm run lesson-packets -- --project calmmodule2`
+
+## Anti-Summary Generation Rules
+
+- Build from outline authority plus assessment demand, not from whole-book excerpts.
+- Never generate a lesson that lacks outcomes, linked assessments, misconceptions, guided practice, independent practice, and readiness evidence.
+- A lesson is a failure if it reads like chapter notes, only defines terms, or cites broad source blobs instead of targeted lesson evidence.
+- Prefer lesson-packet-scoped references and page/section locators over raw document dumps.
+- Use textbook or reference sources only to support a specific outcome and assessment demand.
 
 ## Sections List
 
@@ -120,14 +161,14 @@ disabled by intelligence policy (collect)
 
 ## Reference Excerpts
 
-### calm-module-2-resourse-choices-pdf (pdf)
+### calm-module-2-resourse-choices-pdf (pdf/textbook)
 - Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\calmmodule2\CALM Module 2 - Resourse Choices.pdf
 
 ```text
-CALM MODULE TWO – RESOURCE CHOICES 
-OUTREACH PROGRAMS – REVISED 2018 
-1 
- 
+CALM MODULE TWO – RESOURCE CHOICES
+OUTREACH PROGRAMS – REVISED 2018
+1
+
 nextstepfortsaskatchewansherwoodpa
 rkvegrevillenextstefortsaskatchewans
 herwoodparkvegrevillenextstepfortsa
@@ -145,41 +186,7 @@ woodparkvegrevillepfortsaskatchewa
 nsherwoodparkvegrevillenextstepfort
 saskatchewansherwoodparkvegreville
 nextstepfortsaskatchewansherwoodpa
-rkvegrevillenextstepfortsaskatchewan
-sherwoodparkvegrevillenextstepforts
- 
-STUDENT NAME: 
- 
- 
- 
- 
- 
- 
-  
-Career and 
-Life 
-Management 
-Module 2 
-Resource Choices 
- 
-SENIOR HIGH SCHOOL 
-Fort Saskatchewan 780 992 0101 
-Sherwood Park 780 464 1899 
-Vegreville 780 632 7998  
- 
- 
- 
-
-  
-CALM MODULE TWO – RESOURCE CHOICES 
-OUTREACH PROGRAMS – REVISED 2018 
-2 
- 
-Resources: Who Decides What You Buy 
- 
-Advertising and Consumerism    
- 
-The  Canadian  Code  of  Advertising  Standards  defines  Advertising  as  any  paid  message...
+rkvegrevillenextstepfortsa...
 ```
 
 ## Task Stub

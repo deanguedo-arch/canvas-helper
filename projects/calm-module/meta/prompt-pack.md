@@ -1,13 +1,13 @@
 # Prompt Pack
 
 - Project: calm-module
-- Generated: 2026-03-06T21:36:25.222Z
+- Generated: 2026-03-09T21:54:36.192Z
 
 ## Rules
 
 - Work in repo-approved zones (`app/studio`, `app/server`, `scripts`, `docs`, `tasks`, root config files).
 - Treat `projects/<slug>/raw` as immutable baseline input.
-- Retrieval order: prompt-pack -> local pattern bank matches -> projects/resources/<slug>/_extracted.
+- Retrieval order: prompt-pack -> course blueprint -> assessment map -> lesson packets -> targeted resource chunks -> pattern matches if enabled.
 - Finish only after typecheck/build and task-specific verification pass.
 
 ## Intelligence Policy
@@ -37,12 +37,53 @@
   "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\calm-module\\raw\\original.html",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-03-06T21:36:25.186Z",
+  "learningUpdatedAt": "2026-03-09T21:54:36.150Z",
   "createdAt": "2026-03-06T02:06:47.139Z",
-  "updatedAt": "2026-03-06T21:36:25.186Z",
-  "workspaceApprovedAt": "2026-03-06T21:36:25.186Z"
+  "updatedAt": "2026-03-09T21:54:36.150Z",
+  "workspaceApprovedAt": "2026-03-09T21:54:36.150Z"
 }
 ```
+
+## Resource Authority Rules
+
+- Assessments are the highest authority for performance expectations and success criteria.
+- Outlines are the highest authority for unit naming, scope, and outcome framing.
+- Teacher notes are contextual authority only.
+- Textbook and reference resources are supporting evidence, not lesson generators.
+- Imported Canvas workspace content is fallback context only when outline or assessment evidence is missing.
+- Current classified resource mix: outline: 1.
+
+## Resource Catalog Summary
+
+### CALM MODULE ONE – PERONSAL CHOICES OUTREACH PROGRAMS – REVISED 2018 (outline)
+- Authority: blueprint-authoritative
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\calm-module\CALM Module 1 - Personal Choices.pdf
+- Extraction: indexed via native
+- Chunks: 32
+- Signals: text:outcomes, text:section-heading
+
+## Course Blueprint Summary
+
+> course-blueprint.json: missing
+> Next: `npm run blueprint -- --project calm-module`
+
+## Assessment Map Summary
+
+> assessment-map.json: missing
+> Next: `npm run assessment-map -- --project calm-module`
+
+## Lesson Packet Summary
+
+> lesson-packets/index.json: missing
+> Next: `npm run lesson-packets -- --project calm-module`
+
+## Anti-Summary Generation Rules
+
+- Build from outline authority plus assessment demand, not from whole-book excerpts.
+- Never generate a lesson that lacks outcomes, linked assessments, misconceptions, guided practice, independent practice, and readiness evidence.
+- A lesson is a failure if it reads like chapter notes, only defines terms, or cites broad source blobs instead of targeted lesson evidence.
+- Prefer lesson-packet-scoped references and page/section locators over raw document dumps.
+- Use textbook or reference sources only to support a specific outcome and assessment demand.
 
 ## Sections List
 
@@ -144,14 +185,14 @@ disabled by intelligence policy (collect)
 
 ## Reference Excerpts
 
-### calm-module-1-personal-choices-pdf (pdf)
+### calm-module-1-personal-choices-pdf (pdf/outline)
 - Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\calm-module\CALM Module 1 - Personal Choices.pdf
 
 ```text
-CALM MODULE ONE – PERONSAL CHOICES 
-OUTREACH PROGRAMS – REVISED 2018 
-1 
- 
+CALM MODULE ONE – PERONSAL CHOICES
+OUTREACH PROGRAMS – REVISED 2018
+1
+
 nextstepfortsaskatchewansherwoodpa
 rkvegrevillenextstefortsaskatchewans
 herwoodparkvegrevillenextstepfortsa
@@ -169,41 +210,7 @@ woodparkvegrevillepfortsaskatchewa
 nsherwoodparkvegrevillenextstepfort
 saskatchewansherwoodparkvegreville
 nextstepfortsaskatchewansherwoodpa
-rkvegrevillenextstepfortsaskatchewan
-sherwoodparkvegrevillenextstepforts
- 
-STUDENT NAME: 
- 
- 
- 
- 
- 
- 
-  
-Career and 
-Life 
-Management 
-Module 1 
-Personal Choices 
- 
-SENIOR HIGH SCHOOL 
-Fort Saskatchewan 780 992 0101 
-Sherwood Park 780 464 1899 
-Vegreville 780 632 7998  
- 
- 
- 
-
-  
-CALM MODULE ONE – PERONSAL CHOICES 
-OUTREACH PROGRAMS – REVISED 2018 
-2 
- 
-COURSE OVERVIEW 
- 
-CALM is a compulsory course for Alberta High School students.  It is the 
-final component of the grade 1-12 Health Promotion Program.  It is a 3 
-c...
+rkvegrevillenextstepfortsa...
 ```
 
 ## Task Stub

@@ -1,4 +1,4 @@
-import { open, rename, rm, stat } from "node:fs/promises";
+import { open, readFile, rename, rm, stat } from "node:fs/promises";
 import path from "node:path";
 
 import { copyDirectory, copyFileEnsuringDir, ensureDir, removePath } from "./fs.js";
@@ -88,6 +88,44 @@ function mergeSummaries(target: IncomingRefreshSummary, source: IncomingRefreshS
   target.archivedPaths.push(...source.archivedPaths);
 }
 
+type IncomingLockRecord = {
+  pid?: number;
+  startedAt?: string;
+};
+
+async function readIncomingLockRecord(lockPath: string): Promise<IncomingLockRecord | null> {
+  try {
+    return JSON.parse(await readFile(lockPath, "utf8")) as IncomingLockRecord;
+  } catch {
+    return null;
+  }
+}
+
+function processExists(pid: number | undefined) {
+  if (!Number.isInteger(pid) || (pid ?? 0) <= 0) {
+    return false;
+  }
+
+  const processId = pid as number;
+
+  try {
+    process.kill(processId, 0);
+    return true;
+  } catch (error) {
+    return (error as NodeJS.ErrnoException | undefined)?.code === "EPERM";
+  }
+}
+
+async function clearStaleIncomingLock(lockPath: string) {
+  const record = await readIncomingLockRecord(lockPath);
+  if (!record || processExists(record.pid)) {
+    return false;
+  }
+
+  await rm(lockPath, { force: true });
+  return true;
+}
+
 async function acquireIncomingLock(lockPath: string) {
   await ensureDir(path.dirname(lockPath));
 
@@ -100,6 +138,10 @@ async function acquireIncomingLock(lockPath: string) {
     return handle;
   } catch (error) {
     if ((error as NodeJS.ErrnoException | undefined)?.code === "EEXIST") {
+      if (await clearStaleIncomingLock(lockPath)) {
+        return acquireIncomingLock(lockPath);
+      }
+
       throw new IncomingLockError(lockPath);
     }
 

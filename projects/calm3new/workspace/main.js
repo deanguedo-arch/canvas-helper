@@ -1,0 +1,301 @@
+/* inline script 1 */
+const sections = [
+            { id: 'intro', title: '1. Introduction', icon: 'book-open' },
+            { id: 'attitude', title: '2. Attitude & Learning', icon: 'smile' },
+            { id: 'trends', title: '3. Life/Work Trends', icon: 'target' },
+            { id: 'career_prep', title: '4. Career Preparation', icon: 'file-text' },
+            { id: 'job_search', title: '5. Job Search Skills', icon: 'briefcase' },
+            { id: 'workplace_safety', title: '6. Workplace Safety', icon: 'shield-check' }
+        ];
+
+        let activeSection = 'intro';
+        let progress = {
+            intro: false,
+            attitude: false,
+            trends: false,
+            career_prep: false,
+            job_search: false,
+            workplace_safety: false
+        };
+
+        const contentArea = document.getElementById('content-area');
+        const navLinks = document.getElementById('nav-links');
+        const progressBar = document.getElementById('progress-bar');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+
+        function init() {
+            renderNav();
+            renderSection();
+            lucide.createIcons();
+            
+            prevBtn.addEventListener('click', () => navigate(-1));
+            nextBtn.addEventListener('click', () => {
+                progress[activeSection] = true;
+                navigate(1);
+            });
+        }
+
+        function navigate(dir) {
+            const idx = sections.findIndex(s => s.id === activeSection);
+            const newIdx = idx + dir;
+            if (newIdx >= 0 && newIdx < sections.length) {
+                activeSection = sections[newIdx].id;
+                renderNav();
+                renderSection();
+                updateProgress();
+                window.scrollTo(0, 0);
+            }
+        }
+
+        function renderNav() {
+            navLinks.innerHTML = sections.map(s => `
+                <button onclick="changeSection('${s.id}')" class="flex items-center gap-3 p-3.5 rounded-xl transition-all text-left group ${activeSection === s.id ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-200' : 'hover:bg-indigo-50 text-slate-600'}">
+                    <i data-lucide="${s.icon}" class="w-5 h-5 ${activeSection === s.id ? 'text-white' : 'text-indigo-500 group-hover:text-indigo-600'}"></i>
+                    <span class="font-bold flex-1 text-sm">${s.title}</span>
+                    ${progress[s.id] ? '<i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>' : ''}
+                </button>
+            `).join('');
+            lucide.createIcons();
+
+            prevBtn.disabled = activeSection === sections[0].id;
+            nextBtn.innerHTML = activeSection === sections[sections.length - 1].id ? 'Finish Module' : 'Mark Done & Continue <i data-lucide="chevron-right" class="w-4 h-4"></i>';
+            lucide.createIcons();
+        }
+
+        function changeSection(id) {
+            activeSection = id;
+            renderNav();
+            renderSection();
+            window.scrollTo(0, 0);
+        }
+
+        function updateProgress() {
+            const completed = Object.values(progress).filter(Boolean).length;
+            const percentage = (completed / sections.length) * 100;
+            progressBar.style.width = percentage + '%';
+        }
+
+        function renderSection() {
+            switch(activeSection) {
+                case 'intro': renderIntro(); break;
+                case 'attitude': renderAttitude(); break;
+                case 'trends': renderTrends(); break;
+                case 'career_prep': renderCareerPrep(); break;
+                case 'job_search': renderJobSearch(); break;
+                case 'workplace_safety': renderSafety(); break;
+            }
+            lucide.createIcons();
+        }
+
+        // --- SECTION RENDERS ---
+
+        function renderIntro() {
+            contentArea.innerHTML = `
+                <div class="animate-in">
+                    <div class="bg-indigo-600 text-white p-10 rounded-[2.5rem] mb-12 shadow-2xl relative overflow-hidden">
+                        <i data-lucide="quote" class="absolute -top-6 -right-6 w-48 h-48 opacity-10"></i>
+                        <h2 class="text-4xl font-black mb-4 relative z-10 uppercase tracking-tighter">Oh! The Places You'll Go!</h2>
+                        <p class="text-indigo-100 text-xl italic leading-relaxed relative z-10 max-w-2xl">
+                            "Congratulations! Today is your day. You're off to Great Places! You're off and away!"
+                        </p>
+                    </div>
+
+                    <section class="bg-white p-8 md:p-14 rounded-[2.5rem] border border-slate-200 shadow-sm mb-16 text-center">
+                        <h3 class="text-xl font-bold text-indigo-700 uppercase tracking-widest mt-8 mb-10">Full Poem — By Dr. Seuss</h3>
+                        <div class="space-y-6 text-slate-700 leading-relaxed font-serif text-xl max-w-2xl mx-auto italic">
+                            <p>Congratulations! Today is your day. You’re off to Great Places! You’re off and away!</p>
+                            <p>You have brains in your head. You have feet in your shoes. You can steer yourself any direction you choose. You’re on your own. And you know what you know. And YOU are the guy who’ll decide where to go.</p>
+                            <p>You’ll look up and down streets. Look’em over with care. About some you will say, “I don’t choose to go there.” With your head full of brains and your shoes full of feet, you’re too smart to go down a not-so-good street.</p>
+                            <p>And you may not find any you’ll want to go down. In that case, of course, you’ll head straight out of town. It’s opener there in the wide open air.</p>
+                            <p>Out there things can happen and frequently do to people as brainy and footsy as you.</p>
+                            <p>And when things start to happen, don’t worry. Don’t stew. Just go right along. You’ll start happening too.</p>
+                            <p class="font-black text-indigo-600 text-3xl py-6 non-italic tracking-tighter uppercase">Oh! The Places You’ll Go!</p>
+                            <p>You’ll be on your way up! You’ll be seeing great sights! You’ll join the high fliers who soar to high heights.</p>
+                            <p>You won’t lag behind, because you’ll have the speed. You’ll pass the whole gang and you’ll soon take the lead. Wherever you fly, you’ll be best of the best. Wherever you go, you will top all the rest.</p>
+                            <p class="text-slate-400 italic">Except when you don’t. Because, sometimes, you won’t.</p>
+                            <p>I’m sorry to say so but, sadly, it’s true that Bang-ups and Hang-ups can happen to you. You can get all hung up in a prickle-ly perch. And your gang will fly on. You’ll be left in a Lurch.</p>
+                            <p>You’ll come down from the Lurch with an unpleasant bump. And the chances are, then, that you’ll be in a Slump. And when you’re in a Slump, you’re not in for much fun. Un-slumping yourself is not easily done.</p>
+                            <p>You will come to a place where the streets are not marked. Some windows are lighted. But mostly they’re darked. A place you could sprain both your elbow and chin! Do you dare to stay out? Do you dare to go in? How much can you lose? How much can you win?</p>
+                            <p>And if you go in, should you turn left or right…or right-and-three-quarters? Or, maybe, not quite? Or go around back and sneak in from behind? Simple it’s not, I’m afraid you will find, for a mind-maker-upper to make up his mind.</p>
+                            <p>You can get so confused that you’ll start in to race down long wiggled roads at a break-necking pace and grind on for miles across weirdish wild space, headed, I fear, toward a most useless place.</p>
+                            <p class="font-bold text-slate-300 uppercase tracking-widest text-sm pt-4">The Waiting Place…for people just waiting.</p>
+                            <p class="text-slate-500 text-lg">Everyone is just waiting... for a train to go or a bus to come, or a plane to go or the mail to come, or the rain to go or the phone to ring... or waiting, perhaps, for their Uncle Jake or Another Chance.</p>
+                            <p class="font-black text-indigo-600 text-2xl py-4 uppercase tracking-tighter">No! That’s not for you!</p>
+                            <p>Somehow you'll escape all that waiting and staying. You'll find the bright places where Boom Bands are playing. With banner flip-flapping, once more you’ll ride high! Ready for anything under the sky. Ready because you’re that kind of a guy!</p>
+                            <p>Oh, the places you’ll go! There is fun to be done! There are points to be scored. There are games to be won. Fame! You’ll be famous as famous can be, with the whole wide world watching you win on TV.</p>
+                            <p className="text-slate-400 italic">Except when they don’t. Because, sometimes, they won’t.</p>
+                            <p>All Alone! Whether you like it or not, Alone will be something you’ll be quite a lot. And when you’re alone, there’s a very good chance you’ll meet things that scare you right out of your pants.</p>
+                            <p>But on you will go though the weather be foul. Onward up many a frightening creek, though your arms may get sore and your sneakers may leak. On and on you will hike. And I know you’ll hike far and face up to your problems whatever they are.</p>
+                            <p>You’ll get mixed up, of course, as you already know. You’ll get mixed up with many strange birds as you go. So be sure when you step. Step with care and great tact and remember that Life’s a Great Balancing Act.</p>
+                            <p className="font-black text-indigo-800 text-3xl pt-8 uppercase tracking-tighter">Kid, you’ll move mountains!</p>
+                            <p>Your mountain is waiting. So…get on your way!</p>
+                        </div>
+                    </section>
+
+                    <!-- Quote Analysis Table -->
+                    <section class="bg-white border border-slate-200 rounded-[2.5rem] p-8 md:p-12 mb-16 shadow-sm overflow-hidden">
+                        <h3 class="text-xl font-bold mb-8 text-slate-800 flex items-center gap-2">
+                            <i data-lucide="message-square-quote" class="text-indigo-600"></i> Activity: Quote Analysis Table
+                        </h3>
+                        <table class="w-full border-collapse">
+                            <thead>
+                                <tr class="bg-slate-50">
+                                    <th class="border-y border-slate-200 p-6 text-left text-[11px] font-black text-slate-400 uppercase tracking-[0.2em] w-1/2">The Quote</th>
+                                    <th class="border-y border-slate-200 p-6 text-left text-[11px] font-black text-slate-400 uppercase tracking-[0.2em] w-1/2">My Version of the Message</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${[
+                                    '"You have brains in your head. You have feet in your shoes. You can steer yourself any direction you choose."',
+                                    '"You\'ll look up and down streets. Look \'em over with care. About some you will say, \'I don\'t choose to go there.\'"',
+                                    '"And when you\'re in a Slump, you\'re not in for much fun. Un-slumping yourself is not easily done."',
+                                    '"The Waiting Place... for people just waiting."',
+                                    '"I\'m afraid that some times you\'ll play lonely games too. Games you can\'t win \'cause you\'ll play against you."',
+                                    '"Kid, you\'ll move mountains!"'
+                                ].map(q => `
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="border-b border-slate-100 p-8 text-slate-700 font-serif italic text-lg">${q}</td>
+                                        <td class="border-b border-slate-100 p-4">
+                                            <textarea placeholder="Write interpretation..." class="w-full min-h-[100px] bg-slate-50 border border-slate-100 rounded-2xl p-5 text-sm resize-none focus:ring-2 focus:ring-amber-200 outline-none"></textarea>
+                                        </td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    </section>
+
+                    <!-- Personal Reflections -->
+                    <section class="bg-white border border-slate-200 rounded-[2.5rem] p-10 md:p-14 shadow-sm border-b-8 border-b-rose-500">
+                        <h3 class="text-3xl font-black mb-12 text-slate-800 uppercase tracking-tight">Personal Reflection</h3>
+                        <div class="space-y-12">
+                            ${[
+                                { q: "Where do you see yourself 5 years from now?", hint: "(university? full-time job? living at home? abroad?)" },
+                                { q: "Are you someone who has their life figured out or are you still trying out different things?" },
+                                { q: "Are you someone who takes risks or do you prefer to play it safe?" },
+                                { q: "What do you think is your 'mountain'?" }
+                            ].map((item, idx) => `
+                                <div>
+                                    <label class="block text-xl font-black text-slate-800 mb-4">${idx+1}. ${item.q}</label>
+                                    ${item.hint ? `<p class="text-sm text-slate-400 mb-4 italic ml-14">${item.hint}</p>` : ''}
+                                    <textarea class="w-full bg-slate-50 border border-slate-200 rounded-3xl p-6 text-lg min-h-[160px] md:ml-14 md:w-[calc(100%-3.5rem)] focus:ring-2 focus:ring-rose-400 outline-none"></textarea>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </section>
+                </div>
+            `;
+        }
+
+        function renderAttitude() {
+            contentArea.innerHTML = `
+                <div class="animate-in">
+                    <div class="bg-indigo-600 text-white p-10 rounded-[2.5rem] mb-12 shadow-xl relative overflow-hidden">
+                        <i data-lucide="smile" class="absolute -top-6 -right-6 w-48 h-48 opacity-10"></i>
+                        <h2 class="text-4xl font-black mb-4 uppercase tracking-tighter">Attitude and Learning</h2>
+                        <div class="bg-white/10 p-6 rounded-2xl border border-white/20">
+                           <p class="text-indigo-100 text-xl font-bold italic mb-2">Definition:</p>
+                           <p class="text-white text-2xl font-black leading-tight">
+                             "Attitude is a choice. It is the way you think and feel about things, and it is reflected in your behavior."
+                           </p>
+                        </div>
+                    </div>
+
+                    <!-- Mr. Mackay Scenario -->
+                    <section class="bg-white border border-slate-200 rounded-[2.5rem] p-10 md:p-14 mb-16 shadow-sm">
+                        <div class="flex items-center gap-4 mb-8">
+                            <div class="p-3 bg-amber-100 text-amber-600 rounded-2xl"><i data-lucide="users" class="w-8 h-8"></i></div>
+                            <h3 class="text-2xl font-black text-slate-800 uppercase tracking-tight">The Scenario: Mr. Mackay & P. Park</h3>
+                        </div>
+                        
+                        <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 mb-10 leading-relaxed text-slate-700 text-lg italic">
+                            <p>"Consider the following scenario: Mr. Mackay has just hired P. Park to work for his company. He thinks P. Park is going to be a great employee because P. Park has a 'good attitude'."</p>
+                            <p class="font-bold text-indigo-700 mt-4">What does Mr. Mackay mean by this?</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="bg-emerald-50 border border-emerald-100 p-8 rounded-3xl">
+                                <h4 class="font-black text-emerald-700 uppercase tracking-widest text-xs mb-6 flex items-center gap-2">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4"></i> Positive / Proactive (Winner)
+                                </h4>
+                                <ul class="space-y-4 text-emerald-900 font-bold">
+                                    <li>"How can I solve this problem?"</li>
+                                    <li>"I'm excited to learn something new today."</li>
+                                    <li>"I will do my best even if this task is boring."</li>
+                                </ul>
+                            </div>
+                            <div class="bg-rose-50 border border-rose-100 p-8 rounded-3xl">
+                                <h4 class="font-black text-rose-700 uppercase tracking-widest text-xs mb-6 flex items-center gap-2">
+                                    <i data-lucide="alert-triangle" class="w-4 h-4"></i> Negative / Reactive (Risk)
+                                </h4>
+                                <ul class="space-y-4 text-rose-900 font-bold italic">
+                                    <li>"This is too hard, I quit."</li>
+                                    <li>"I already know everything."</li>
+                                    <li>"I'll do the bare minimum."</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Learning Styles Checklist -->
+                    <section class="mb-16">
+                        <h2 class="text-3xl font-black text-slate-800 uppercase tracking-tighter mb-8 pl-4">Learning Style Discovery</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            ${['Visual', 'Auditory', 'Kinesthetic'].map(style => `
+                                <div class="bg-white border border-slate-200 rounded-[2rem] p-8 shadow-sm">
+                                    <h4 class="text-xl font-black uppercase tracking-tighter mb-6">${style} Learner</h4>
+                                    <div class="space-y-3">
+                                        ${[1,2,3,4,5].map(i => `
+                                            <button onclick="toggleTrait(this)" class="w-full text-left p-4 rounded-2xl text-xs font-bold bg-slate-50 text-slate-600 border border-slate-100 hover:border-slate-300 transition-all flex items-center gap-3">
+                                                <div class="w-4 h-4 rounded bg-white border border-slate-300 flex-shrink-0"></div>
+                                                Trait Checkpoint ${i}
+                                            </button>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </section>
+
+                    <!-- Attitude Assessment -->
+                    <section class="bg-white border-2 border-slate-200 rounded-[2.5rem] p-10 md:p-14 shadow-sm border-b-8 border-b-indigo-500">
+                        <h3 class="text-3xl font-black mb-12 text-slate-800 uppercase tracking-tight">What is your Attitude?</h3>
+                        <div class="space-y-12">
+                            ${[
+                                "How would you describe your attitude toward school and learning?",
+                                "Give two examples of how you have displayed a positive attitude:",
+                                "Do you agree that you have a positive attitude? Why or why not?",
+                                "What is one thing you can do to improve your attitude?"
+                            ].map((q, i) => `
+                                <div>
+                                    <label class="block text-xl font-black text-slate-800 mb-4">${i+1}. ${q}</label>
+                                    <textarea class="w-full bg-slate-50 border border-slate-200 rounded-3xl p-6 text-lg min-h-[160px] md:ml-14 md:w-[calc(100%-3.5rem)] focus:ring-2 focus:ring-indigo-400 outline-none shadow-inner"></textarea>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </section>
+                </div>
+            `;
+        }
+
+        // --- PLACEHOLDER RENDERS FOR OTHER SECTIONS ---
+        function renderTrends() { contentArea.innerHTML = `<h2 class="text-3xl font-black mb-8">Life/Work Trends</h2><div class="bg-white p-10 rounded-[2.5rem] border border-slate-200 shadow-sm"><p>The job market is changing rapidly due to technology and global shifts. Lifelong learning is now a requirement, not an option.</p></div>`; }
+        function renderCareerPrep() { contentArea.innerHTML = `<h2 class="text-3xl font-black mb-8">Career Preparation</h2><div class="bg-white p-10 rounded-[2.5rem] border border-slate-200 shadow-sm"><p>Preparing your Resume, Cover Letter, and References are key steps in your career journey.</p></div>`; }
+        function renderJobSearch() { contentArea.innerHTML = `<h2 class="text-3xl font-black mb-8">Job Search Skills</h2><div class="bg-white p-10 rounded-[2.5rem] border border-slate-200 shadow-sm"><p>Networking and Interviewing skills are essential to accessing the "Hidden Job Market."</p></div>`; }
+        function renderSafety() { contentArea.innerHTML = `<h2 class="text-3xl font-black mb-8">Workplace Safety</h2><div class="bg-white p-10 rounded-[2.5rem] border border-slate-200 shadow-sm"><p>Understand your 3 Fundamental Rights: The Right to Know, the Right to Participate, and the Right to Refuse unsafe work.</p></div>`; }
+
+        // --- HELPERS ---
+        function toggleTrait(el) {
+            const check = el.querySelector('div');
+            if (el.classList.contains('bg-indigo-600')) {
+                el.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-600', 'shadow-lg');
+                el.classList.add('bg-slate-50', 'text-slate-600', 'border-slate-100');
+                check.innerHTML = '';
+            } else {
+                el.classList.add('bg-indigo-600', 'text-white', 'border-indigo-600', 'shadow-lg');
+                el.classList.remove('bg-slate-50', 'text-slate-600', 'border-slate-100');
+                check.innerHTML = '<div class="w-full h-full bg-indigo-600 border-2 border-white rounded-sm"></div>';
+            }
+        }
+
+        window.onload = init;

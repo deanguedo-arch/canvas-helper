@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: calm-module-2-activites-reference
-- Generated: 2026-03-09T21:37:52.511Z
+- Generated: 2026-03-09T21:54:51.630Z
 
 ## Rules
 
@@ -13,7 +13,7 @@
 ## Intelligence Policy
 
 - Mode: collect
-- Policy source: repo-default
+- Policy source: env-override
 - Collect pattern bank: on
 - Collect memory ledger: on
 - Apply pattern bank to prompt pack: off
@@ -37,9 +37,10 @@
   "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\calm-module-2-activites-reference\\raw\\original.html",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-03-09T21:37:52.455Z",
+  "learningUpdatedAt": "2026-03-09T21:54:51.527Z",
   "createdAt": "2026-03-09T21:37:52.321Z",
-  "updatedAt": "2026-03-09T21:37:52.455Z"
+  "updatedAt": "2026-03-09T21:54:51.527Z",
+  "workspaceApprovedAt": "2026-03-09T21:54:51.527Z"
 }
 ```
 
@@ -127,7 +128,26 @@
 
 ## Import Log
 
-> import-log.md: missing
+```md
+# Import Log
+
+- Generated: 2026-03-09T21:37:52.321Z
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\processed\calm-module-2-activites-reference\source
+
+## Actions
+- Detected "original.html" as the site entrypoint inside the source folder.
+- Copied the source HTML into raw/original.html without modifying it.
+- Externalized 1 inline style block(s) to workspace/styles.css.
+- Externalized 1 inline script block(s) to workspace/main.jsx.
+- Copied 1 supporting file(s) into projects/resources/calm-module-2-activites-reference/.
+- Indexed the imported supporting material into projects/resources/calm-module-2-activites-reference/_extracted/.
+- Learned project patterns (C:\Users\dean.guedo\Documents\GitHub\canvas-helper\.runtime\pattern-bank\auto\calm-module-2-activites-reference.json).
+- Updated local pattern bank (16 profile(s)).
+- Generated prompt pack (C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\calm-module-2-activites-reference\meta\prompt-pack.md).
+
+## Warnings
+- Found 2 possible site files. Using "original.html" and treating the rest as supporting material.
+```
 
 ## Global Memory
 

@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: calmmodule3
-- Generated: 2026-03-09T21:26:03.086Z
+- Generated: 2026-03-09T21:54:36.663Z
 
 ## Rules
 
@@ -13,7 +13,7 @@
 ## Intelligence Policy
 
 - Mode: collect
-- Policy source: repo-default
+- Policy source: env-override
 - Collect pattern bank: on
 - Collect memory ledger: on
 - Apply pattern bank to prompt pack: off
@@ -26,7 +26,7 @@
 {
   "id": "d5c08208-2069-407b-9f2f-95898ecef629",
   "slug": "calmmodule3",
-  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\incoming\\calm3module\\calmmodule3.html",
+  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\processed\\calmmodule3\\source",
   "inputKind": "html",
   "brightspaceTarget": "course-page",
   "previewModes": [
@@ -37,9 +37,10 @@
   "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\calmmodule3\\raw\\original.html",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-03-09T21:26:02.954Z",
+  "learningUpdatedAt": "2026-03-09T21:54:36.627Z",
   "createdAt": "2026-03-09T21:26:02.882Z",
-  "updatedAt": "2026-03-09T21:26:02.954Z"
+  "updatedAt": "2026-03-09T21:54:36.627Z",
+  "workspaceApprovedAt": "2026-03-09T21:54:36.627Z"
 }
 ```
 
@@ -50,12 +51,23 @@
 - Teacher notes are contextual authority only.
 - Textbook and reference resources are supporting evidence, not lesson generators.
 - Imported Canvas workspace content is fallback context only when outline or assessment evidence is missing.
-- Current classified resource mix: none.
+- Current classified resource mix: outline: 2.
 
 ## Resource Catalog Summary
 
-> resource-catalog.json: missing
-> Next: `npm run refs -- --project calmmodule3`
+### Career and Life Management MODULE 3 Career and Life Choices (outline)
+- Authority: blueprint-authoritative
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\calmmodule3\CALM Module 3  - Career and Life Choices.docx
+- Extraction: indexed via native
+- Chunks: 80
+- Signals: text:objectives, text:outcomes, text:what-is
+
+### killfkh Career and Life (outline)
+- Authority: blueprint-authoritative
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\calmmodule3\CALM Module 3  - Career and Life Choices.pdf
+- Extraction: indexed via native
+- Chunks: 48
+- Signals: text:objectives, text:outcomes, text:what-is
 
 ## Course Blueprint Summary
 
@@ -124,7 +136,23 @@
 
 ## Import Log
 
-> import-log.md: missing
+```md
+# Import Log
+
+- Generated: 2026-03-09T21:26:02.882Z
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\incoming\calm3module\calmmodule3.html
+
+## Actions
+- Copied the source HTML into raw/original.html without modifying it.
+- Externalized 1 inline style block(s) to workspace/styles.css.
+- Externalized 1 inline script block(s) to workspace/main.js.
+- Learned project patterns (C:\Users\dean.guedo\Documents\GitHub\canvas-helper\.runtime\pattern-bank\auto\calmmodule3.json).
+- Updated local pattern bank (14 profile(s)).
+- Generated prompt pack (C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\calmmodule3\meta\prompt-pack.md).
+
+## Warnings
+- None.
+```
 
 ## Global Memory
 
@@ -136,7 +164,46 @@ disabled by intelligence policy (collect)
 
 ## Reference Excerpts
 
-none
+### calm-module-3-career-and-life-choices-docx (docx/outline)
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\calmmodule3\CALM Module 3  - Career and Life Choices.docx
+
+```text
+Career and Life Management
+```
+
+### calm-module-3-career-and-life-choices-pdf (pdf/outline)
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\calmmodule3\CALM Module 3  - Career and Life Choices.pdf
+
+```text
+nextstepfortsaskatchewansherwoodpa
+rkvegrevillenextstefortsaskatchewans
+herwoodparkvegrevillenextstepfortsa
+skatchewannextstepsherwoodparkveg
+revillenextstepfortsaskatchewansher
+woodparkvegrevillenextstepfortsaskat
+chewansherwoodparkvegrevillenextst
+epfortsaskatchewansherwoodparkveg
+revillenextstepfortsaskatchewansher
+woodparkvegrevillenextstepfortsaskat
+chewansherwoodparkvegrevillenextst
+epfortsaskatchewansherwoodparkveg
+revillenextstepfortsaskatchewansher
+woodparkvegrevillepfortsaskatchewa
+nsherwoodparkvegrevillenextstepfort
+saskatchewansherwoodparkvegreville
+nextstepfortsaskatchewansherwoodpa
+killfkh
+
+STUDENT NAME:
+
+Career and
+Life
+Management
+MODULE 3
+Career and Life Choices
+
+SENIOR HIGH ...
+```
 
 ## Task Stub
 

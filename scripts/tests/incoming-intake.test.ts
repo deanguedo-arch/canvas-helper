@@ -28,6 +28,26 @@ test("withIncomingLock rejects nested use of the same lock path", async () => {
   }
 });
 
+test("withIncomingLock clears a stale lock file left by a dead process", async () => {
+  const tempDir = await mkdtemp(path.join(os.tmpdir(), "incoming-stale-lock-"));
+  const lockPath = path.join(tempDir, "incoming.lock");
+
+  try {
+    await writeFile(
+      lockPath,
+      `${JSON.stringify({ pid: 999999, startedAt: "2026-03-06T00:00:00.000Z" }, null, 2)}\n`,
+      "utf8"
+    );
+
+    const result = await withIncomingLock(async () => "recovered", lockPath);
+
+    assert.equal(result, "recovered");
+    assert.equal(await fileExists(lockPath), false);
+  } finally {
+    await rm(tempDir, { recursive: true, force: true });
+  }
+});
+
 test("runIncomingRefresh returns an empty summary when no intake items exist", async () => {
   const tempDir = await mkdtemp(path.join(os.tmpdir(), "incoming-refresh-empty-"));
   const incomingRoot = path.join(tempDir, "incoming");
