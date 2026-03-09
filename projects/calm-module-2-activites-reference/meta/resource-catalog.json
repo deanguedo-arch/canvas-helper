@@ -1,21 +1,17 @@
 {
   "projectId": "e3de5d41-f060-42d8-8608-ebad84c5620c",
   "generatedAt": "2026-03-09T21:37:52.453Z",
-  "references": [
+  "resources": [
     {
       "id": "original-source-txt",
       "originalPath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\resources\\calm-module-2-activites-reference\\original-source.txt",
       "relativePath": "original-source.txt",
       "kind": "txt",
       "extractionStatus": "indexed",
-      "titleGuess": "<!DOCTYPE html> <html lang=\"en\"> <head>",
-      "resourceCategory": "textbook",
-      "authorityRole": "supporting-only",
-      "blueprintSignals": [],
-      "assessmentSignals": [],
-      "supportSignals": [
-        "text:what-is"
-      ],
+      "extractionMethod": "native",
+      "extractedTextPath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\resources\\calm-module-2-activites-reference\\_extracted\\original-source-txt.txt",
+      "chunkManifestPath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\resources\\calm-module-2-activites-reference\\_extracted\\original-source-txt.chunks.json",
+      "chunkCount": 49,
       "sectionLabels": [
         "{/* HEADER */}",
         "{/* MAIN CONTENT AREA */}",
@@ -30,10 +26,15 @@
         "const NEEDS_WANTS_ITEMS = [",
         "const SOCIAL_SCENARIOS = {"
       ],
-      "chunkCount": 49,
-      "extractionMethod": "native",
-      "extractedTextPath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\resources\\calm-module-2-activites-reference\\_extracted\\original-source-txt.txt",
-      "chunkManifestPath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\resources\\calm-module-2-activites-reference\\_extracted\\original-source-txt.chunks.json"
+      "titleGuess": "<!DOCTYPE html> <html lang=\"en\"> <head>",
+      "resourceCategory": "textbook",
+      "authorityRole": "supporting-only",
+      "blueprintSignals": [],
+      "assessmentSignals": [],
+      "supportSignals": [
+        "text:what-is"
+      ]
     }
-  ]
+  ],
+  "warnings": []
 }

@@ -41,14 +41,15 @@ Repo-level intelligence defaults live in `config/intelligence.json`. Project-spe
 
 1. Drop HTML or bundle imports into `projects/incoming/`
 2. Drop resources directly into `projects/resources/<slug>/`
-3. Use Studio `Refresh Intake` or run `npm.cmd run incoming:refresh`
+3. Use Studio `Refresh Intake` or run `npm.cmd run incoming:refresh` (`npm.cmd run studio:auto` or launcher option `1` keeps the incoming watcher running continuously)
 4. Imported sources are snapshotted to `projects/processed/<slug>/source/`
-5. Edit only `projects/<slug>/workspace/`
-6. Use Studio to compare raw vs workspace
-7. Run `analyze` and `refs` to refresh workspace structure plus classified resource artifacts
-8. Run `blueprint`, `assessment-map`, and `lesson-packets` to build outline-first planning artifacts before generation-heavy work
-9. Run export commands as needed
-10. Capture a handoff before stopping
+5. Studio edits and previews the canonical project at `projects/<slug>/...`; if that canonical root is missing but the processed snapshot still exists, Studio rebuilds it automatically from `projects/processed/<slug>/source/`
+6. Edit only `projects/<slug>/workspace/`
+7. Use Studio to compare raw vs workspace
+8. Run `analyze` and `refs` to refresh workspace structure plus classified resource artifacts
+9. Run `blueprint`, `assessment-map`, and `lesson-packets` to build outline-first planning artifacts before generation-heavy work
+10. Run export commands as needed
+11. Capture a handoff before stopping
 
 ## Planning Workflow
 

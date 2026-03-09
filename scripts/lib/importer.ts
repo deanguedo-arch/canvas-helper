@@ -41,17 +41,27 @@ type WorkspaceBuildResult = {
   warnings: string[];
 };
 
+type ImportSourceMode = "html-document" | "react-module";
+
 type ResolvedImportInput = {
   bundlePath: string;
   siteFilePath?: string;
   inputKind: InputKind;
+  sourceMode: ImportSourceMode;
   sourceDir: string;
   htmlSource: string;
+  reactModuleSource?: string;
   preservedTextSource?: string;
   referenceFiles: string[];
   discoveryActions: string[];
   discoveryWarnings: string[];
 };
+
+const BROWSER_REACT_IMPORTS = {
+  react: "https://unpkg.com/react@19.1.1?module",
+  reactDomClient: "https://unpkg.com/react-dom@19.1.1/client?module",
+  lucideReact: "https://unpkg.com/lucide-react@0.542.0?module"
+} as const;
 
 type ExtractedDocumentSource = {
   text: string;
@@ -98,6 +108,122 @@ function isSiteCandidate(filePath: string) {
 function isDocumentBundleSource(filePath: string) {
   const extension = path.extname(filePath).toLowerCase();
   return extension === ".docx" || extension === ".pdf";
+}
+
+function isBlankSource(value: string) {
+  return value.trim().length === 0;
+}
+
+function looksLikeReactModuleSource(value: string) {
+  const source = value.replace(/^\uFEFF/, "").trim();
+  if (!source || /<!doctype html|<html[\s>]/i.test(source)) {
+    return false;
+  }
+
+  return (
+    /from\s+["']react["']/.test(source) &&
+    /export\s+default\b/.test(source) &&
+    /className=|useState\s*\(|<[A-Z][A-Za-z0-9]*/.test(source)
+  );
+}
+
+function buildReactModulePreviewHtml(title: string) {
+  return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>${title}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script>
+      // Surface runtime errors in-page so preview never fails silently.
+      (function installPreviewErrorOverlay() {
+        function showError(kind, value) {
+          const text = value instanceof Error ? (value.stack || value.message) : String(value);
+          const existing = document.getElementById("__canvas-helper-preview-error");
+          if (existing) {
+            existing.textContent = text;
+            return;
+          }
+
+          const panel = document.createElement("pre");
+          panel.id = "__canvas-helper-preview-error";
+          panel.style.position = "fixed";
+          panel.style.inset = "1rem";
+          panel.style.zIndex = "99999";
+          panel.style.overflow = "auto";
+          panel.style.margin = "0";
+          panel.style.padding = "1rem";
+          panel.style.border = "2px solid #ef4444";
+          panel.style.borderRadius = "12px";
+          panel.style.background = "rgba(17, 24, 39, 0.98)";
+          panel.style.color = "#fecaca";
+          panel.style.font = "12px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+          panel.textContent = kind + "\\n\\n" + text;
+          document.body.appendChild(panel);
+        }
+
+        window.addEventListener("error", function onError(event) {
+          showError("Preview runtime error", event.error || event.message);
+        });
+        window.addEventListener("unhandledrejection", function onRejection(event) {
+          showError("Preview promise rejection", event.reason);
+        });
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script
+      type="text/babel"
+      data-type="module"
+      data-presets="react"
+      src="./main.jsx"
+    ></script>
+  </body>
+</html>`;
+}
+
+function resolveReactModuleExportName(source: string) {
+  const defaultIdentifierMatch = source.match(/export\s+default\s+([A-Za-z_$][\w$]*)\s*;?/);
+  if (defaultIdentifierMatch) {
+    return defaultIdentifierMatch[1];
+  }
+
+  const defaultFunctionMatch = source.match(/export\s+default\s+function\s+([A-Za-z_$][\w$]*)\s*\(/);
+  if (defaultFunctionMatch) {
+    return defaultFunctionMatch[1];
+  }
+
+  const appDeclarationMatch = source.match(/(?:const|function)\s+([A-Za-z_$][\w$]*)\s*=?\s*(?:\(|\(\)\s*=>)/);
+  return appDeclarationMatch?.[1] ?? "App";
+}
+
+function rewriteReactModuleImportsForBrowser(source: string) {
+  return source
+    .replace(/from\s+["']react-dom\/client["']/g, `from "${BROWSER_REACT_IMPORTS.reactDomClient}"`)
+    .replace(/from\s+["']react["']/g, `from "${BROWSER_REACT_IMPORTS.react}"`)
+    .replace(/from\s+["']lucide-react["']/g, `from "${BROWSER_REACT_IMPORTS.lucideReact}"`);
+}
+
+function buildMountedReactModuleSource(source: string) {
+  const trimmed = source.replace(/^\uFEFF/, "").trim();
+  const rewritten = rewriteReactModuleImportsForBrowser(trimmed);
+
+  if (/createRoot\s*\(|ReactDOM\.render\s*\(|root\.render\s*\(/.test(rewritten)) {
+    return `${rewritten}\n`;
+  }
+
+  const exportName = resolveReactModuleExportName(rewritten);
+  return `import __CanvasHelperReactDomClient from "${BROWSER_REACT_IMPORTS.reactDomClient}";
+${rewritten}
+
+const __canvasHelperRootElement = document.getElementById("root");
+if (__canvasHelperRootElement) {
+  __CanvasHelperReactDomClient.createRoot(__canvasHelperRootElement).render(<${exportName} />);
+}
+`;
 }
 
 async function extractDocumentBundleText(filePath: string) {
@@ -519,6 +645,28 @@ async function buildWorkspaceFromHtml(
   };
 }
 
+async function buildWorkspaceFromReactModule(
+  moduleSource: string,
+  workspaceDir: string,
+  title: string
+): Promise<WorkspaceBuildResult> {
+  await ensureDir(path.join(workspaceDir, "assets"));
+  await ensureDir(path.join(workspaceDir, "components"));
+  await ensureDir(path.join(workspaceDir, "sections"));
+
+  await writeTextFile(path.join(workspaceDir, "index.html"), `${buildReactModulePreviewHtml(title)}\n`);
+  await writeTextFile(path.join(workspaceDir, "main.jsx"), buildMountedReactModuleSource(moduleSource));
+
+  return {
+    scriptFile: "main.jsx",
+    actions: [
+      "Generated workspace/index.html to preview the imported React module source.",
+      "Preserved the imported React module as workspace/main.jsx with a preview bootstrap."
+    ],
+    warnings: []
+  };
+}
+
 function createImportLogMarkdown(log: ImportLog) {
   const actionLines = log.actions.length > 0 ? log.actions.map((item) => `- ${item}`).join("\n") : "- None.";
   const warningLines = log.warnings.length > 0 ? log.warnings.map((item) => `- ${item}`).join("\n") : "- None.";
@@ -542,12 +690,38 @@ async function resolveImportInput(absoluteInputPath: string): Promise<ResolvedIm
   if (inputStats.isFile()) {
     const inputKind = inferInputKind(absoluteInputPath);
     if (inputKind === "html") {
+      const htmlSource = await readFile(absoluteInputPath, "utf8");
+      if (isBlankSource(htmlSource)) {
+        throw new Error(
+          `Input HTML file is empty: ${absoluteInputPath}. Re-export the project from Canvas and import the non-empty HTML/text source.`
+        );
+      }
+
+      if (looksLikeReactModuleSource(htmlSource)) {
+        return {
+          bundlePath: path.dirname(absoluteInputPath),
+          siteFilePath: absoluteInputPath,
+          inputKind,
+          sourceMode: "react-module",
+          sourceDir: path.dirname(absoluteInputPath),
+          htmlSource: buildReactModulePreviewHtml(path.basename(absoluteInputPath)),
+          reactModuleSource: htmlSource,
+          preservedTextSource: htmlSource,
+          referenceFiles: [],
+          discoveryActions: [
+            "Detected a React module source file and generated a browser preview shell for it."
+          ],
+          discoveryWarnings: []
+        };
+      }
+
       return {
         bundlePath: path.dirname(absoluteInputPath),
         siteFilePath: absoluteInputPath,
         inputKind,
+        sourceMode: "html-document",
         sourceDir: path.dirname(absoluteInputPath),
-        htmlSource: await readFile(absoluteInputPath, "utf8"),
+        htmlSource,
         referenceFiles: [],
         discoveryActions: [],
         discoveryWarnings: []
@@ -559,6 +733,7 @@ async function resolveImportInput(absoluteInputPath: string): Promise<ResolvedIm
       bundlePath: path.dirname(absoluteInputPath),
       siteFilePath: absoluteInputPath,
       inputKind,
+      sourceMode: "html-document",
       sourceDir: path.dirname(absoluteInputPath),
       htmlSource: extractHtmlFromText(preservedTextSource),
       preservedTextSource,
@@ -575,18 +750,35 @@ async function resolveImportInput(absoluteInputPath: string): Promise<ResolvedIm
   const bundleFiles = (await listFilesRecursive(absoluteInputPath)).filter(
     (filePath) => !isGeneratedArtifactPath(absoluteInputPath, filePath)
   );
-  const siteCandidates = bundleFiles
-    .filter((filePath) => isSiteCandidate(filePath))
-    .sort((left, right) => {
-      const scoreDifference = scoreSiteCandidate(absoluteInputPath, right) - scoreSiteCandidate(absoluteInputPath, left);
-      if (scoreDifference !== 0) {
-        return scoreDifference;
-      }
+  const siteCandidates = await Promise.all(
+    bundleFiles.filter((filePath) => isSiteCandidate(filePath)).map(async (filePath) => {
+      return {
+        filePath,
+        size: (await stat(filePath)).size
+      };
+    })
+  );
+  const nonEmptySiteCandidates = siteCandidates.filter((entry) => entry.size > 0).map((entry) => entry.filePath);
+  const emptySiteCandidates = siteCandidates
+    .filter((entry) => entry.size === 0)
+    .map((entry) => path.relative(absoluteInputPath, entry.filePath).replace(/\\/g, "/"));
 
-      return path.relative(absoluteInputPath, left).localeCompare(path.relative(absoluteInputPath, right));
-    });
+  const sortedSiteCandidates = nonEmptySiteCandidates.sort((left, right) => {
+    const scoreDifference = scoreSiteCandidate(absoluteInputPath, right) - scoreSiteCandidate(absoluteInputPath, left);
+    if (scoreDifference !== 0) {
+      return scoreDifference;
+    }
 
-  if (siteCandidates.length === 0) {
+    return path.relative(absoluteInputPath, left).localeCompare(path.relative(absoluteInputPath, right));
+  });
+
+  if (sortedSiteCandidates.length === 0) {
+    if (emptySiteCandidates.length > 0) {
+      throw new Error(
+        `No usable HTML entrypoint was found in "${absoluteInputPath}", but the following site file(s) were present and empty: ${emptySiteCandidates.join(", ")}. Re-export the project from Canvas.`
+      );
+    }
+
     const documentSources = bundleFiles
       .filter((filePath) => isDocumentBundleSource(filePath))
       .sort((left, right) => {
@@ -636,6 +828,7 @@ async function resolveImportInput(absoluteInputPath: string): Promise<ResolvedIm
     return {
       bundlePath: absoluteInputPath,
       inputKind: "html",
+      sourceMode: "html-document",
       sourceDir: absoluteInputPath,
       htmlSource: buildDocumentBundleStarterHtml(starterTitle, primaryText, sourceFiles),
       referenceFiles: bundleFiles,
@@ -650,12 +843,36 @@ async function resolveImportInput(absoluteInputPath: string): Promise<ResolvedIm
     };
   }
 
-  const siteFilePath = siteCandidates[0];
+  const siteFilePath = sortedSiteCandidates[0];
   const inputKind = inferInputKind(siteFilePath);
   const sourceDir = path.dirname(siteFilePath);
   const preservedTextSource = inputKind === "text-html" ? await readFile(siteFilePath, "utf8") : undefined;
-  const htmlSource =
-    inputKind === "html" ? await readFile(siteFilePath, "utf8") : extractHtmlFromText(preservedTextSource ?? "");
+  const directSource = inputKind === "html" ? await readFile(siteFilePath, "utf8") : undefined;
+  if (inputKind === "html" && directSource && looksLikeReactModuleSource(directSource)) {
+    const chosenRelativePath = path.relative(absoluteInputPath, siteFilePath).replace(/\\/g, "/");
+    const discoveryWarnings =
+      sortedSiteCandidates.length > 1
+        ? [
+            `Found ${sortedSiteCandidates.length} possible site files. Using "${chosenRelativePath}" and treating the rest as supporting material.`
+          ]
+        : [];
+
+    return {
+      bundlePath: absoluteInputPath,
+      siteFilePath,
+      inputKind,
+      sourceMode: "react-module",
+      sourceDir,
+      htmlSource: buildReactModulePreviewHtml(path.basename(siteFilePath)),
+      reactModuleSource: directSource,
+      preservedTextSource: directSource,
+      referenceFiles: bundleFiles.filter((filePath) => filePath !== siteFilePath),
+      discoveryActions: [`Detected "${chosenRelativePath}" as a React module entrypoint inside the source folder.`],
+      discoveryWarnings
+    };
+  }
+
+  const htmlSource = inputKind === "html" ? directSource ?? "" : extractHtmlFromText(preservedTextSource ?? "");
   const referencedAssetPaths = resolveReferencedAssetPaths(collectAssetReferences(htmlSource), sourceDir);
   const referenceFiles = bundleFiles.filter(
     (filePath) => filePath !== siteFilePath && !referencedAssetPaths.has(path.resolve(filePath))
@@ -674,6 +891,7 @@ async function resolveImportInput(absoluteInputPath: string): Promise<ResolvedIm
     bundlePath: absoluteInputPath,
     siteFilePath,
     inputKind,
+    sourceMode: "html-document",
     sourceDir,
     htmlSource,
     preservedTextSource,
@@ -734,7 +952,18 @@ export async function importProject(options: ImportProjectOptions) {
 
   const htmlSource = resolvedInput.htmlSource;
   if (inputKind === "html") {
-    if (resolvedInput.siteFilePath) {
+    if (resolvedInput.sourceMode === "react-module") {
+      if (!resolvedInput.reactModuleSource) {
+        throw new Error("React module imports require the original source code.");
+      }
+
+      await writeTextFile(paths.rawEntrypoint, `${htmlSource}\n`);
+      await writeTextFile(path.join(paths.rawDir, "main.jsx"), buildMountedReactModuleSource(resolvedInput.reactModuleSource));
+      await writeTextFile(paths.rawSourceText, resolvedInput.reactModuleSource);
+      actions.push("Generated raw/original.html as a preview shell for the imported React module source.");
+      actions.push("Preserved the original React module source at raw/original-source.txt.");
+      actions.push("Generated raw/main.jsx with a preview bootstrap for the imported React module.");
+    } else if (resolvedInput.siteFilePath) {
       await copyFile(resolvedInput.siteFilePath, paths.rawEntrypoint);
       actions.push("Copied the source HTML into raw/original.html without modifying it.");
     } else {
@@ -752,13 +981,22 @@ export async function importProject(options: ImportProjectOptions) {
     actions.push("Preserved the original text input at raw/original-source.txt.");
   }
 
-  const assetReferences = collectAssetReferences(htmlSource);
-  await copyReferencedAssets(sourceDir, paths.rawDir, assetReferences, warnings);
-  if (assetReferences.length > 0) {
-    actions.push(`Copied ${assetReferences.length} local asset reference(s) into the raw project copy.`);
+  if (resolvedInput.sourceMode !== "react-module") {
+    const assetReferences = collectAssetReferences(htmlSource);
+    await copyReferencedAssets(sourceDir, paths.rawDir, assetReferences, warnings);
+    if (assetReferences.length > 0) {
+      actions.push(`Copied ${assetReferences.length} local asset reference(s) into the raw project copy.`);
+    }
   }
 
-  const workspaceResult = await buildWorkspaceFromHtml(htmlSource, paths.workspaceDir, sourceDir);
+  const workspaceResult =
+    resolvedInput.sourceMode === "react-module"
+      ? await buildWorkspaceFromReactModule(
+          resolvedInput.reactModuleSource ?? "",
+          paths.workspaceDir,
+          path.basename(resolvedInput.siteFilePath ?? paths.root)
+        )
+      : await buildWorkspaceFromHtml(htmlSource, paths.workspaceDir, sourceDir);
   actions.push(...workspaceResult.actions);
   warnings.push(...workspaceResult.warnings);
 

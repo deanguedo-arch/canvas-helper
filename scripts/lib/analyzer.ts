@@ -34,7 +34,7 @@ type AstSection = {
 
 function createAst(code: string) {
   return parse(code, {
-    sourceType: "script",
+    sourceType: "unambiguous",
     plugins: ["jsx", "typescript"]
   });
 }

@@ -85,6 +85,7 @@ flowchart LR
 - `projects/resources/<slug>/_extracted/`: generated extracted text for Studio and prompt-pack flows
 
 Studio and the watcher both use the same local refresh engine. The `Refresh Intake` button runs a one-shot scan through the local server. The long-running watcher scans both `incoming` and `resources` with the same lock file so the two entry points do not collide.
+If a canonical `projects/<slug>/` root is missing required manifest/raw/workspace artifacts but `projects/processed/<slug>/source/` still exists, project discovery re-imports from that processed snapshot to restore the canonical project automatically.
 
 ## Intelligence Model
 

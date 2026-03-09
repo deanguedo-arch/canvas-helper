@@ -1,0 +1,1029 @@
+{
+  "projectId": "e3de5d41-f060-42d8-8608-ebad84c5620c",
+  "referenceId": "original-source-txt",
+  "generatedAt": "2026-03-09T21:37:52.451Z",
+  "chunks": [
+    {
+      "id": "doctype-html-html-lang-en-head-1",
+      "index": 1,
+      "locator": {
+        "kind": "section",
+        "label": "<!DOCTYPE html> <html lang=\"en\"> <head>",
+        "sectionHeading": "<!DOCTYPE html> <html lang=\"en\"> <head>"
+      },
+      "text": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>CALM Module 2: Resource Choices</title>\n    <script src=\"https://unpkg.com/react@18/umd/react.production.min.js\"></script>\n    <script src=\"https://unpkg.com/react-dom@18/umd/react-dom.production.min.js\"></script>\n    <script src=\"https://unpkg.com/@babel/standalone/babel.min.js\"></script>\n    <script src=\"https://cdn.tailwindcss.com\"></script>\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css\">\n    <script src=\"https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js\"></script>\n    <style>\n        body { font-family: 'Inter', -apple-system, sans-serif; background-color: #f8fafc; color: #0f172a; }\n        @media print {\n            body { background-color: white; }\n            .no-print { display: none !important; }\n            .print-card { border: none !important; box-shadow: none !important; padding: 0 !important; }\n            @page { margin: 1cm; }\n        }\n        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }\n        .animate-fade-in { animation: fadeIn 0.4s ease-out forwards; }\n    </style>\n</head>\n<body>\n    <div id=\"root\"></div>",
+      "titleGuess": "<!DOCTYPE html> <html lang=\"en\"> <head>",
+      "keywordHints": [
+        "script",
+        "https",
+        "important",
+        "react",
+        "body",
+        "color",
+        "none",
+        "print"
+      ]
+    },
+    {
+      "id": "section-2-part-2-2",
+      "index": 2,
+      "locator": {
+        "kind": "section",
+        "label": "Section 2 (Part 2)",
+        "sectionHeading": "Section 2"
+      },
+      "text": "<script type=\"text/babel\">\n        const { useState, useEffect } = React;",
+      "titleGuess": "Section 2",
+      "keywordHints": [
+        "babel",
+        "const",
+        "react",
+        "script",
+        "type",
+        "useeffect",
+        "usestate"
+      ]
+    },
+    {
+      "id": "data-3",
+      "index": 3,
+      "locator": {
+        "kind": "section",
+        "label": "// --- DATA ---",
+        "sectionHeading": "// --- DATA ---"
+      },
+      "text": "const NEEDS_WANTS_ITEMS = [\n            { id: 1, name: \"Winter Coat\", img: \"fa-mitten\", isNeed: true, explanation: \"Protection from the elements is a basic human need.\" },\n            { id: 2, name: \"Latest iPhone\", img: \"fa-mobile-screen\", isNeed: false, explanation: \"Communication is a need, but a $1200 luxury device is a want.\" },\n            { id: 3, name: \"Groceries (Apples, Bread, Beans)\", img: \"fa-apple-whole\", isNeed: true, explanation: \"Nutritious food is required for survival.\" },\n            { id: 4, name: \"UberEats / Dining Out\", img: \"fa-burger\", isNeed: false, explanation: \"Convenience food is a want. Cooking at home fulfills the need.\" },\n            { id: 5, name: \"Basic Internet Access\", img: \"fa-wifi\", isNeed: true, explanation: \"In modern society, internet is required for school, work, and banking.\" },\n            { id: 6, name: \"Netflix Subscription\", img: \"fa-tv\", isNeed: false, explanation: \"Entertainment is nice, but it is not essential for survival.\" }\n        ];",
+      "titleGuess": "// --- DATA ---",
+      "keywordHints": [
+        "explanation",
+        "isneed",
+        "name",
+        "false",
+        "true",
+        "basic",
+        "food",
+        "internet"
+      ]
+    },
+    {
+      "id": "data-part-2-4",
+      "index": 4,
+      "locator": {
+        "kind": "section",
+        "label": "// --- DATA --- (Part 2)",
+        "sectionHeading": "// --- DATA ---"
+      },
+      "text": "const BUDGET_SCENARIOS = {\n            home: {\n                icon: \"fa-house-chimney-user\",\n                title: \"Living at Home\",\n                subtitle: \"(College/Working)\",\n                desc: \"You live with your parents rent-free, but you are responsible for your own phone, car, and personal expenses.\",\n                tips: \"Rent: $0 | Groceries: $150 | Utilities: $0\"\n            },\n            alone: {\n                icon: \"fa-building\",\n                title: \"Living Alone\",\n                subtitle: \"(Working Full-Time)\",\n                desc: \"You got your own 1-bedroom apartment. You value privacy, but you pay for absolutely EVERYTHING yourself.\",\n                tips: \"Rent: $1200+ | Groceries: $400+ | Utilities: $150+\"\n            },\n            roommates: {\n                icon: \"fa-people-roof\",\n                title: \"Living with Roommates\",\n                subtitle: \"(Working/School)\",\n                desc: \"You split a 3-bedroom house with two friends. Bills are shared, saving you money, but conflicts can happen!\",\n                tips: \"Rent: $500-700 | Groceries: $300 | Utilities: $75\"\n            }\n        };",
+      "titleGuess": "// --- DATA ---",
+      "keywordHints": [
+        "rent",
+        "desc",
+        "groceries",
+        "icon",
+        "living",
+        "subtitle",
+        "tips",
+        "title"
+      ]
+    },
+    {
+      "id": "data-part-3-5",
+      "index": 5,
+      "locator": {
+        "kind": "section",
+        "label": "// --- DATA --- (Part 3)",
+        "sectionHeading": "// --- DATA ---"
+      },
+      "text": "const AD_SCENARIOS = [\n            { id: 1, product: \"X-Treme Kicks\", ad: \"Join millions of teens already wearing X-Treme Kicks! Don't be the only one left out.\", tactic: \"Bandwagon\", hint: \"It implies everyone else is doing it.\" },\n            { id: 2, product: \"ClearSkin Pro\", ad: \"Feeling ugly? Lonely? ClearSkin Pro guarantees happiness and a perfect prom date.\", tactic: \"Emotional Appeal\", hint: \"It targets fear and promises happiness.\" },\n            { id: 3, product: \"MegaBurger\", ad: \"Our new burger is REVOLUTIONARY. It's an ALL-NATURAL paradigm shift in flavor!\", tactic: \"Glittering Generalities\", hint: \"It uses big words that don't mean anything specific.\" },\n            { id: 4, product: \"Star-Glow Energy\", ad: \"Pro-Athlete Mike Jenkins drinks Star-Glow every morning. Drink it to be a champion!\", tactic: \"Testimonials/Influencers\", hint: \"It uses a famous person to sell the product.\" },\n            { id: 5, product: \"Lumina Shampoo\", ad: \"Look at the gorgeous model's hair. Lumina makes everything about you better.\", tactic: \"The Halo Effect\", hint: \"It implies if the model is attractive, the product must be good.\" },\n            { id: 6, product: \"Quantum Brain Pills\", ad: \"Clinical studies show 98% of students improve their grades by 2 full letter grades within 3 weeks.\", tactic: \"Facts & Figures\", hint: \"It uses numbers and statistics to sound scientific (even if they are fake).\" },\n            { id: 7, product: \"Diamond Elite Watch\", ad: \"Not everyone can appreciate true luxury. For those who demand the absolute best, and have the wealth to prove it.\", tactic: \"Snob Appeal\", hint: \"It makes you feel like you are part of an exclusive, wealthy club.\" }\n        ];",
+      "titleGuess": "// --- DATA ---",
+      "keywordHints": [
+        "product",
+        "hint",
+        "tactic",
+        "uses",
+        "appeal",
+        "clearskin",
+        "everyone",
+        "glow"
+      ]
+    },
+    {
+      "id": "data-part-4-6",
+      "index": 6,
+      "locator": {
+        "kind": "section",
+        "label": "// --- DATA --- (Part 4)",
+        "sectionHeading": "// --- DATA ---"
+      },
+      "text": "const AD_TACTICS = [\"Bandwagon\", \"Emotional Appeal\", \"Glittering Generalities\", \"Testimonials/Influencers\", \"The Halo Effect\", \"Facts & Figures\", \"Snob Appeal\"];",
+      "titleGuess": "// --- DATA ---",
+      "keywordHints": [
+        "appeal",
+        "bandwagon",
+        "const",
+        "effect",
+        "emotional",
+        "facts",
+        "figures",
+        "generalities"
+      ]
+    },
+    {
+      "id": "data-part-5-7",
+      "index": 7,
+      "locator": {
+        "kind": "section",
+        "label": "// --- DATA --- (Part 5)",
+        "sectionHeading": "// --- DATA ---"
+      },
+      "text": "const SOCIAL_SCENARIOS = {\n            maya: {\n                title: \"Maya & Leticia\", icon: \"fa-person-dress\",\n                nodes: {\n                    start: {\n                        text: \"You are Maya. You notice your friend Leticia is skipping meals again. When offered food, she says she is 'fat.' You also know her boyfriend recently threatened to dump her if she didn't lose weight. What do you say to her?\",\n                        options: [\n                            { text: \"Your boyfriend is toxic. You need to dump him right now.\", next: \"aggressive\" },\n                            { text: \"Hey, I noticed you aren't eating much lately. Are you okay?\", next: \"empathetic\" }\n                        ]\n                    },\n                    aggressive: { text: \"Leticia gets defensive. 'You don't understand him! He actually cares about me!' She storms off. By attacking her boyfriend, you made her put her guard up. Your emotional resources are drained.\", options: [{ text: \"Try again\", next: \"start\" }] },\n                    empathetic: { text: \"Leticia sighs. 'I'm just so stressed. He says I need to look perfect or he'll leave me.'\", options: [{ text: \"Tell her: 'A real partner wouldn't threaten you like that. You deserve better.'\", next: \"supportive\" }, { text: \"Tell her: 'Well, maybe just lose a few pounds to keep him happy?'\", next: \"enabling\" }] },\n                    enabling: { text: \"Leticia nods sadly and skips another meal. You haven't helped her protect her emotional resources; you validated a toxic boundary.\", options: [{ text: \"Try again\", next: \"start\" }] },\n                    supportive: { text: \"Leticia cries a little, but nods. 'I know. It's just hard.' You offer to go with her to the school counselor. You used your social resources to build her up and establish healthy boundaries!\", options: [], success: true }\n                }\n            },\n            tyler: {\n                title: \"Tyler's Concert\", icon: \"fa-ticket\",\n                nodes: {\n                    start: { text: \"Your friend Tyler just got a new job. He wants you to come to a huge music festival this weekend. The tickets are $150, plus food and merch. You are trying to stick to your budget to save for college.\", options: [{ text: \"Put the $150 on your credit card so you don't miss out.\", next: \"credit\" }, { text: \"Tell Tyler you can't afford it right now, but offer a cheaper alternative hangout.\", next: \"boundary\" }] },\n                    credit: { text: \"You go to the festival and have fun, but next month you are hit with 21% interest on your credit card. You are now stressed about money, draining your emotional and financial resources. Tyler didn't even notice you paid on credit.\", options: [{ text: \"Try again\", next: \"start\" }] },\n                    boundary: { text: \"Tyler is bummed at first, but agrees to come over and play video games instead. You protected your financial goals without losing your friend. Setting financial boundaries is a crucial life skill!\", options: [], success: true }\n                }\n            },\n            sam: {\n                title: \"Sam's Schedule\", icon: \"fa-clock\",\n                nodes: {\n                    start: { text: \"You work part-time at a fast-food restaurant. Your manager, Dave, schedules you for 5 shifts this week, including the night before your massive Math Diploma exam. You are already exhausted.\", options: [{ text: \"Skip studying and work the shifts. Dave needs you.\", next: \"work\" }, { text: \"Speak to Dave immediately and explain you need the night before your exam off.\", next: \"communicate\" }] },\n                    work: { text: \"You work the shifts but are falling asleep during your Math exam. You bomb the test. You traded your long-term human resources (education/future) for a short-term minimum wage paycheck.\", options: [{ text: \"Try again\", next: \"start\" }] },\n                    communicate: { text: \"Dave is slightly annoyed but adjusts the schedule. 'School comes first,' he admits. By communicating professionally, you protected your time and energy (Human Resources) while keeping your job.\", options: [], success: true }\n                }\n            }\n        };",
+      "titleGuess": "// --- DATA ---",
+      "keywordHints": [
+        "next",
+        "options",
+        "start",
+        "leticia",
+        "resources",
+        "tyler",
+        "credit",
+        "work"
+      ]
+    },
+    {
+      "id": "ui-components-8",
+      "index": 8,
+      "locator": {
+        "kind": "section",
+        "label": "// --- UI COMPONENTS ---",
+        "sectionHeading": "// --- UI COMPONENTS ---"
+      },
+      "text": "const Card = ({ children, className = \"\" }) => (\n            <div className={`bg-white rounded-2xl shadow-sm border border-slate-200 p-6 ${className}`}>\n                {children}\n            </div>\n        );\n\nconst Btn = ({ children, onClick, color = \"blue\", className = \"\", disabled = false }) => {\n            const colors = {\n                blue: \"bg-blue-600 hover:bg-blue-700 text-white\",\n                slate: \"bg-slate-200 hover:bg-slate-300 text-slate-800\",\n                rose: \"bg-rose-500 hover:bg-rose-600 text-white\",\n                emerald: \"bg-emerald-500 hover:bg-emerald-600 text-white\"\n            };\n            return (\n                <button\n                    disabled={disabled}\n                    onClick={onClick}\n                    className={`px-6 py-3 rounded-xl font-bold transition-all shadow-sm ${colors[color]} ${disabled ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-md hover:-translate-y-0.5'} ${className}`}\n                >\n                    {children}\n                </button>\n            );\n        };",
+      "titleGuess": "// --- UI COMPONENTS ---",
+      "keywordHints": [
+        "classname",
+        "hover",
+        "slate",
+        "blue",
+        "children",
+        "disabled",
+        "white",
+        "const"
+      ]
+    },
+    {
+      "id": "ui-components-part-2-9",
+      "index": 9,
+      "locator": {
+        "kind": "section",
+        "label": "// --- UI COMPONENTS --- (Part 2)",
+        "sectionHeading": "// --- UI COMPONENTS ---"
+      },
+      "text": "const Input = ({ label, type = \"text\", value, onChange, placeholder, prefix }) => (\n            <div>\n                {label && <label className=\"block text-sm font-bold text-slate-700 mb-1\">{label}</label>}\n                <div className=\"relative\">\n                    {prefix && <div className=\"absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400 font-bold\">{prefix}</div>}\n                    <input\n                        type={type}\n                        value={value}\n                        onChange={(e) => onChange(e.target.value)}\n                        placeholder={placeholder}\n                        className={`w-full border-2 border-slate-200 rounded-xl py-2 px-3 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors ${prefix ? 'pl-8' : ''}`}\n                    />\n                </div>\n            </div>\n        );",
+      "titleGuess": "// --- UI COMPONENTS ---",
+      "keywordHints": [
+        "label",
+        "classname",
+        "focus",
+        "prefix",
+        "value",
+        "border",
+        "onchange",
+        "placeholder"
+      ]
+    },
+    {
+      "id": "ui-components-part-3-10",
+      "index": 10,
+      "locator": {
+        "kind": "section",
+        "label": "// --- UI COMPONENTS --- (Part 3)",
+        "sectionHeading": "// --- UI COMPONENTS ---"
+      },
+      "text": "const TextAreaReflect = ({ label, placeholder, value, onChange }) => (\n            <div className=\"mt-6 bg-amber-50 border-2 border-amber-200 p-4 rounded-xl\">\n                <label className=\"block text-sm font-black text-amber-900 mb-2\"><i className=\"fa-solid fa-pen-to-square mr-2\"></i> Teacher Checkpoint: {label}</label>\n                <textarea\n                    className=\"w-full border-2 border-amber-100 rounded-xl py-3 px-4 focus:outline-none focus:border-amber-400 min-h-[100px] text-sm\"\n                    placeholder={placeholder}\n                    value={value}\n                    onChange={(e) => onChange(e.target.value)}\n                />\n            </div>\n        );",
+      "titleGuess": "// --- UI COMPONENTS ---",
+      "keywordHints": [
+        "amber",
+        "border",
+        "classname",
+        "label",
+        "value",
+        "onchange",
+        "placeholder",
+        "focus"
+      ]
+    },
+    {
+      "id": "main-app-11",
+      "index": 11,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APP ---",
+        "sectionHeading": "// --- MAIN APP ---"
+      },
+      "text": "const App = () => {\n            const [activeTab, setActiveTab] = useState(0);\n            const [data, setData] = useState({\n                studentName: '',\n                // Tab 0: Resources\n                needsWantsIndex: 0,\n                // Tab 1: Ads\n                adScore: 0,\n                // Tab 2: Finance (Multi-Scenario)\n                budgets: {\n                    home: { income: { job: '', loans: '', support: '', other: '' }, fixed: { rent: '0', utilities: '0', insurance: '', transit: '', car: '', carIns: '', phone: '', internet: '', subs: '' }, variable: { groceries: '', dining: '', gas: '', personal: '', clothing: '', fun: '' } },\n                    alone: { income: { job: '', loans: '', support: '', other: '' }, fixed: { rent: '', utilities: '', insurance: '', transit: '', car: '', carIns: '', phone: '', internet: '', subs: '' }, variable: { groceries: '', dining: '', gas: '', personal: '', clothing: '', fun: '' } },\n                    roommates: { income: { job: '', loans: '', support: '', other: '' }, fixed: { rent: '', utilities: '', insurance: '', transit: '', car: '', carIns: '', phone: '', internet: '', subs: '' }, variable: { groceries: '', dining: '', gas: '', personal: '', clothing: '', fun: '' } }\n                },\n                lifeEvent: null,\n                // Tab 3: Social\n                completedScenarios: [],\n                // Tab 4: Goals\n                smart: { s: '', m: '', a: '', r: '', t: '' },\n                // WRITTEN REFLECTIONS FOR TEACHER\n                reflections: {\n                    needsWants: '',\n                    adDeconstruction: '',\n                    budgetChoice: '',\n                    socialJustification: ''\n                }\n            });",
+      "titleGuess": "// --- MAIN APP ---",
+      "keywordHints": [
+        "carins",
+        "clothing",
+        "const",
+        "dining",
+        "fixed",
+        "groceries",
+        "income",
+        "insurance"
+      ]
+    },
+    {
+      "id": "main-app-part-2-12",
+      "index": 12,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APP --- (Part 2)",
+        "sectionHeading": "// --- MAIN APP ---"
+      },
+      "text": "// Mini-states\n            const [activeSocialScenario, setActiveSocialScenario] = useState('maya');\n            const [scenarioNodes, setScenarioNodes] = useState({ maya: 'start', tyler: 'start', sam: 'start' });\n            const [adIndex, setAdIndex] = useState(0);\n            const [adFeedback, setAdFeedback] = useState(\"\");\n            const [activeBudgetTab, setActiveBudgetTab] = useState('home');\n\nconst update = (key, val) => setData(prev => ({ ...prev, [key]: val }));\n            const updateNested = (cat, key, val) => setData(prev => ({ ...prev, [cat]: { ...prev[cat], [key]: val } }));\n            const updateReflection = (key, val) => setData(prev => ({ ...prev, reflections: { ...prev.reflections, [key]: val } }));\n\nconst updateBudget = (cat, key, val) => {\n                setData(prev => {\n                    const newBudgets = { ...prev.budgets };\n                    newBudgets[activeBudgetTab] = { ...newBudgets[activeBudgetTab] };\n                    newBudgets[activeBudgetTab][cat] = { ...newBudgets[activeBudgetTab][cat], [key]: val };\n                    return { ...prev, budgets: newBudgets };\n                });\n            };\n\n// Finance Math\n            const calcTotal = (obj) => Object.values(obj).reduce((acc, val) => acc + (Number(val) || 0), 0);",
+      "titleGuess": "// --- MAIN APP ---",
+      "keywordHints": [
+        "const",
+        "prev",
+        "newbudgets",
+        "activebudgettab",
+        "usestate",
+        "setdata",
+        "start",
+        "budgets"
+      ]
+    },
+    {
+      "id": "main-app-part-3-13",
+      "index": 13,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APP --- (Part 3)",
+        "sectionHeading": "// --- MAIN APP ---"
+      },
+      "text": "const getTotals = (scenarioKey) => {\n                const b = data.budgets[scenarioKey];\n                let inc = calcTotal(b.income);\n                let fix = calcTotal(b.fixed);\n                let varExp = calcTotal(b.variable);\n\nif (data.lifeEvent) {\n                    if (data.lifeEvent.type === 'expense') varExp += data.lifeEvent.amount;\n                    if (data.lifeEvent.type === 'income') inc += data.lifeEvent.amount;\n                }\n                return { inc, fix, varExp, net: inc - (fix + varExp) };\n            };\n\nconst currentTotals = getTotals(activeBudgetTab);\n\nconst handleAdGuess = (guess) => {\n                const currentAd = AD_SCENARIOS[adIndex];\n                if (guess === currentAd.tactic) {\n                    setAdFeedback(\"Correct! \" + currentAd.hint);\n                    if (adIndex < AD_SCENARIOS.length - 1) {\n                        setTimeout(() => { setAdIndex(prev => prev + 1); setAdFeedback(\"\"); }, 2000);\n                    } else {\n                        update('adScore', AD_SCENARIOS.length);\n                        confetti();\n                    }\n                } else {\n                    setAdFeedback(\"Not quite. Try again!\");\n                }\n            };",
+      "titleGuess": "// --- MAIN APP ---",
+      "keywordHints": [
+        "data",
+        "const",
+        "lifeevent",
+        "varexp",
+        "calctotal",
+        "currentad",
+        "scenarios",
+        "setadfeedback"
+      ]
+    },
+    {
+      "id": "main-app-part-4-14",
+      "index": 14,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APP --- (Part 4)",
+        "sectionHeading": "// --- MAIN APP ---"
+      },
+      "text": "const triggerLifeEvent = () => {\n                const events = [\n                    { desc: \"Your car broke down (or bus pass prices surged).\", amount: 350, type: 'expense' },\n                    { desc: \"You dropped your phone and cracked the screen.\", amount: 200, type: 'expense' },\n                    { desc: \"You got a bad flu and missed 3 shifts at work.\", amount: 250, type: 'expense' }\n                ];\n                update('lifeEvent', events[Math.floor(Math.random() * events.length)]);\n                confetti({ particleCount: 40, colors: ['#ff0000', '#000000'] });\n            };\n\nconst handleNeedsWants = (isNeedGuess) => {\n                const current = NEEDS_WANTS_ITEMS[data.needsWantsIndex];\n                if (isNeedGuess === current.isNeed) {\n                    if (data.needsWantsIndex < NEEDS_WANTS_ITEMS.length - 1) {\n                        update('needsWantsIndex', data.needsWantsIndex + 1);\n                    } else {\n                        update('needsWantsIndex', NEEDS_WANTS_ITEMS.length);\n                        confetti();\n                    }\n                } else {\n                    alert(`Not quite! ${current.explanation}`);\n                }\n            };",
+      "titleGuess": "// --- MAIN APP ---",
+      "keywordHints": [
+        "needswantsindex",
+        "const",
+        "amount",
+        "current",
+        "data",
+        "desc",
+        "events",
+        "expense"
+      ]
+    },
+    {
+      "id": "main-app-part-5-15",
+      "index": 15,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APP --- (Part 5)",
+        "sectionHeading": "// --- MAIN APP ---"
+      },
+      "text": "const TABS = [\n                { id: 0, title: \"1. Basic Needs\", icon: \"fa-cubes\" },\n                { id: 1, title: \"2. Consumerism\", icon: \"fa-bullhorn\" },\n                { id: 2, title: \"3. Budgeting\", icon: \"fa-wallet\" },\n                { id: 3, title: \"4. Scenarios\", icon: \"fa-users\" },\n                { id: 4, title: \"Final Report\", icon: \"fa-file-signature\" }\n            ];",
+      "titleGuess": "// --- MAIN APP ---",
+      "keywordHints": [
+        "icon",
+        "title",
+        "basic",
+        "budgeting",
+        "bullhorn",
+        "const",
+        "consumerism",
+        "cubes"
+      ]
+    },
+    {
+      "id": "main-app-part-6-16",
+      "index": 16,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APP --- (Part 6)",
+        "sectionHeading": "// --- MAIN APP ---"
+      },
+      "text": "return (\n                <div className=\"min-h-screen pb-20\">\n                    {/* HEADER */}\n                    <header className=\"bg-slate-900 text-white p-6 sticky top-0 z-50 shadow-md no-print\">\n                        <div className=\"max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4\">\n                            <div>\n                                <h1 className=\"text-2xl font-black tracking-tight\"><i className=\"fa-solid fa-compass text-blue-400 mr-2\"></i> CALM MODULE 2</h1>\n                                <p className=\"text-slate-400 text-sm font-medium\">Resource Choices & Consumerism</p>\n                            </div>\n                            <div className=\"w-full md:w-64\">\n                                <input\n                                    type=\"text\"\n                                    placeholder=\"Enter Student Name\"\n                                    className=\"w-full bg-slate-800 border-none rounded-lg py-2 px-3 text-white focus:ring-2 focus:ring-blue-500\"\n                                    value={data.studentName}\n                                    onChange={(e) => update('studentName', e.target.value)}\n                                />\n                            </div>\n                        </div>\n                    </header>",
+      "titleGuess": "// --- MAIN APP ---",
+      "keywordHints": [
+        "classname",
+        "flex",
+        "header",
+        "slate",
+        "blue",
+        "focus",
+        "font",
+        "full"
+      ]
+    },
+    {
+      "id": "main-app-part-7-17",
+      "index": 17,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APP --- (Part 7)",
+        "sectionHeading": "// --- MAIN APP ---"
+      },
+      "text": "{/* NAVIGATION */}\n                    <div className=\"bg-white border-b border-slate-200 sticky top-[88px] z-40 no-print overflow-x-auto\">\n                        <div className=\"max-w-6xl mx-auto flex\">\n                            {TABS.map((tab, i) => (\n                                <button\n                                    key={tab.id}\n                                    onClick={() => setActiveTab(tab.id)}\n                                    className={`flex-1 min-w-[120px] py-4 px-2 text-sm font-bold text-center border-b-4 transition-colors flex flex-col items-center gap-1\n                                        ${activeTab === tab.id ? 'border-blue-600 text-blue-700 bg-blue-50' : 'border-transparent text-slate-500 hover:text-slate-800 hover:bg-slate-50'}\n                                    `}\n                                >\n                                    <i className={`fa-solid ${tab.icon} text-lg`}></i>\n                                    {tab.title}\n                                </button>\n                            ))}\n                        </div>\n                    </div>",
+      "titleGuess": "// --- MAIN APP ---",
+      "keywordHints": [
+        "border",
+        "classname",
+        "flex",
+        "slate",
+        "blue",
+        "auto",
+        "button",
+        "center"
+      ]
+    },
+    {
+      "id": "main-content-area-18",
+      "index": 18,
+      "locator": {
+        "kind": "section",
+        "label": "{/* MAIN CONTENT AREA */}",
+        "sectionHeading": "{/* MAIN CONTENT AREA */}"
+      },
+      "text": "<div className=\"max-w-6xl mx-auto p-4 md:p-6 mt-4\">",
+      "titleGuess": "{/* MAIN CONTENT AREA */}",
+      "keywordHints": [
+        "auto",
+        "classname"
+      ]
+    },
+    {
+      "id": "main-content-area-part-2-19",
+      "index": 19,
+      "locator": {
+        "kind": "section",
+        "label": "{/* MAIN CONTENT AREA */} (Part 2)",
+        "sectionHeading": "{/* MAIN CONTENT AREA */}"
+      },
+      "text": "{/* TAB 0: NEEDS VS WANTS */}\n                        {activeTab === 0 && (\n                            <div className=\"animate-fade-in space-y-6\">\n                                <div className=\"flex flex-col xl:flex-row gap-6\">\n                                    <div className=\"xl:w-1/2\">\n                                        <Card className=\"h-full bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-100\">\n                                            <h2 className=\"text-2xl font-black text-blue-900 mb-4\"><i className=\"fa-solid fa-book-open mr-2 text-blue-500\"></i> Learn: Understanding Resources</h2>\n                                            <div className=\"space-y-4 text-slate-700 text-sm leading-relaxed\">\n                                                <p>Everything you want to do in life requires <strong>resources</strong>. There are three main types:</p>\n                                                <div className=\"grid grid-cols-1 sm:grid-cols-3 gap-3\">\n                                                    <div className=\"bg-white p-3 rounded-xl border border-blue-100 shadow-sm\">\n                                                        <div className=\"text-xl mb-1 text-emerald-500\"><i className=\"fa-solid fa-coins\"></i></div>\n                                                        <h3 className=\"font-bold text-slate-800\">Financial</h3>\n                                                        <p className=\"text-xs text-slate-500 mt-1\">Money, investments, credit, income.</p>\n                                                    </div>\n                                                    <div className=\"bg-white p-3 rounded-xl border border-blue-100 shadow-sm\">\n                                                        <div className=\"text-xl mb-1 text-purple-500\"><i className=\"fa-solid fa-brain\"></i></div>\n                                                        <h3 className=\"font-bold text-slate-800\">Human</h3>\n                                                        <p className=\"text-xs text-slate-500 mt-1\">Time, energy, skills, intelligence.</p>\n                                                    </div>\n                                                    <div className=\"bg-white p-3 rounded-xl border border-blue-100 shadow-sm\">\n                                                        <div className=\"text-xl mb-1 text-rose-500\"><i className=\"fa-solid fa-users\"></i></div>\n                                                        <h3 className=\"font-bold text-slate-800\">Social</h3>\n                                                        <p className=\"text-xs text-slate-500 mt-1\">Family, friends, community support.</p>\n                                                    </div>\n                                                </div>\n                                                <p className=\"bg-white p-3 rounded-lg border-l-4 border-blue-500 text-xs mt-4\">\n                                                    <strong>The Trade-Off:</strong> You almost always have to trade one resource for another. Working a job trades your Human Resource (time/energy) for a Financial Resource (money).\n                                                </p>\n                                            </div>\n                                        </Card>\n                                    </div>",
+      "titleGuess": "{/* MAIN CONTENT AREA */}",
+      "keywordHints": [
+        "classname",
+        "border",
+        "blue",
+        "slate",
+        "font",
+        "rounded",
+        "solid",
+        "strong"
+      ]
+    },
+    {
+      "id": "main-content-area-part-3-20",
+      "index": 20,
+      "locator": {
+        "kind": "section",
+        "label": "{/* MAIN CONTENT AREA */} (Part 3)",
+        "sectionHeading": "{/* MAIN CONTENT AREA */}"
+      },
+      "text": "<div className=\"xl:w-1/2\">\n                                        <Card className=\"h-full relative overflow-hidden\">\n                                            <div className=\"absolute top-0 right-0 bg-slate-100 text-slate-500 px-3 py-1 text-xs font-bold rounded-bl-lg\">Game</div>\n                                            <h2 className=\"text-xl font-black text-slate-800 mb-2\">Need or Want?</h2>\n                                            <p className=\"text-sm text-slate-500 mb-6\">Categorize the following items correctly to proceed.</p>",
+      "titleGuess": "{/* MAIN CONTENT AREA */}",
+      "keywordHints": [
+        "classname",
+        "slate",
+        "font",
+        "absolute",
+        "black",
+        "bold",
+        "card",
+        "categorize"
+      ]
+    },
+    {
+      "id": "main-content-area-part-4-21",
+      "index": 21,
+      "locator": {
+        "kind": "section",
+        "label": "{/* MAIN CONTENT AREA */} (Part 4)",
+        "sectionHeading": "{/* MAIN CONTENT AREA */}"
+      },
+      "text": "{data.needsWantsIndex < NEEDS_WANTS_ITEMS.length ? (\n                                                <div className=\"text-center p-6 bg-slate-50 rounded-2xl border-2 border-slate-200\">\n                                                    <i className={`fa-solid ${NEEDS_WANTS_ITEMS[data.needsWantsIndex].img} text-6xl text-slate-700 mb-4`}></i>\n                                                    <h3 className=\"text-2xl font-black text-slate-800 mb-8\">{NEEDS_WANTS_ITEMS[data.needsWantsIndex].name}</h3>\n                                                    <div className=\"flex gap-4 justify-center\">\n                                                        <Btn color=\"emerald\" onClick={() => handleNeedsWants(true)} className=\"w-32\"><i className=\"fa-solid fa-heart-pulse mr-2\"></i> Need</Btn>\n                                                        <Btn color=\"rose\" onClick={() => handleNeedsWants(false)} className=\"w-32\"><i className=\"fa-solid fa-gem mr-2\"></i> Want</Btn>\n                                                    </div>\n                                                    <div className=\"mt-6 text-xs text-slate-400 font-bold\">Item {data.needsWantsIndex + 1} of {NEEDS_WANTS_ITEMS.length}</div>\n                                                </div>\n                                            ) : (\n                                                <div className=\"text-center p-8 bg-emerald-50 text-emerald-800 rounded-2xl border-2 border-emerald-200\">\n                                                    <i className=\"fa-solid fa-circle-check text-4xl mb-2\"></i>\n                                                    <h3 className=\"font-black text-xl\">Perfect Score!</h3>\n                                                    <p className=\"text-sm mt-2\">You successfully differentiated between needs and wants.</p>\n                                                </div>\n                                            )}\n                                        </Card>\n                                    </div>\n                                </div>",
+      "titleGuess": "{/* MAIN CONTENT AREA */}",
+      "keywordHints": [
+        "classname",
+        "needs",
+        "slate",
+        "wants",
+        "border",
+        "data",
+        "emerald",
+        "items"
+      ]
+    },
+    {
+      "id": "main-content-area-part-5-22",
+      "index": 22,
+      "locator": {
+        "kind": "section",
+        "label": "{/* MAIN CONTENT AREA */} (Part 5)",
+        "sectionHeading": "{/* MAIN CONTENT AREA */}"
+      },
+      "text": "<TextAreaReflect\n                                    label=\"Explain a time you recently confused a 'Want' for a 'Need'. What happened, and how did it affect your resources?\"\n                                    placeholder=\"Type your reflection here... (e.g., I convinced myself I needed new shoes for work, but I actually just wanted the specific brand. It drained my financial resources for that month.)\"\n                                    value={data.reflections.needsWants}\n                                    onChange={(v) => updateReflection('needsWants', v)}\n                                />\n\n<div className=\"flex justify-end\"><Btn disabled={data.needsWantsIndex < NEEDS_WANTS_ITEMS.length || data.reflections.needsWants.length < 10} onClick={() => setActiveTab(1)}>Next Module <i className=\"fa-solid fa-arrow-right ml-2\"></i></Btn></div>\n                            </div>\n                        )}",
+      "titleGuess": "{/* MAIN CONTENT AREA */}",
+      "keywordHints": [
+        "data",
+        "needswants",
+        "classname",
+        "length",
+        "reflections",
+        "resources",
+        "actually",
+        "affect"
+      ]
+    },
+    {
+      "id": "main-content-area-part-6-23",
+      "index": 23,
+      "locator": {
+        "kind": "section",
+        "label": "{/* MAIN CONTENT AREA */} (Part 6)",
+        "sectionHeading": "{/* MAIN CONTENT AREA */}"
+      },
+      "text": "{/* TAB 1: CONSUMERISM & ADS */}\n                        {activeTab === 1 && (\n                            <div className=\"animate-fade-in space-y-6\">\n                                <div className=\"flex flex-col xl:flex-row gap-6\">\n                                    <div className=\"xl:w-1/2\">\n                                        <Card className=\"bg-gradient-to-br from-indigo-50 to-purple-50 border-indigo-100\">\n                                            <h2 className=\"text-2xl font-black text-indigo-900 mb-4\"><i className=\"fa-solid fa-brain mr-2 text-indigo-500\"></i> Learn: Advertising Tactics</h2>\n                                            <div className=\"space-y-3 text-sm text-slate-700\">\n                                                <p>The Canadian Code of Advertising Standards says ads must be honest, but companies still use psychology to manipulate your \"Wants\" into feeling like \"Needs.\"</p>\n                                                <ul className=\"space-y-2 mt-4\">\n                                                    <li className=\"bg-white p-2 rounded border border-indigo-50 shadow-sm\"><strong className=\"text-indigo-700\">Bandwagon:</strong> \"Everyone else is doing it/buying it!\"</li>\n                                                    <li className=\"bg-white p-2 rounded border border-indigo-50 shadow-sm\"><strong className=\"text-indigo-700\">Emotional Appeal:</strong> Targets fear, loneliness, or desire for happiness.</li>\n                                                    <li className=\"bg-white p-2 rounded border border-indigo-50 shadow-sm\"><strong className=\"text-indigo-700\">Testimonial:</strong> Using celebrities or \"experts\" to build fake trust.</li>\n                                                    <li className=\"bg-white p-2 rounded border border-indigo-50 shadow-sm\"><strong className=\"text-indigo-700\">Facts & Figures:</strong> Using statistics (even misleading ones) to sound scientific.</li>\n                                                </ul>\n                                            </div>\n                                        </Card>\n                                    </div>",
+      "titleGuess": "{/* MAIN CONTENT AREA */}",
+      "keywordHints": [
+        "classname",
+        "indigo",
+        "border",
+        "strong",
+        "rounded",
+        "shadow",
+        "white",
+        "flex"
+      ]
+    },
+    {
+      "id": "main-content-area-part-7-24",
+      "index": 24,
+      "locator": {
+        "kind": "section",
+        "label": "{/* MAIN CONTENT AREA */} (Part 7)",
+        "sectionHeading": "{/* MAIN CONTENT AREA */}"
+      },
+      "text": "<div className=\"xl:w-1/2\">\n                                        <Card>\n                                            <h2 className=\"text-2xl font-black text-slate-800 mb-2\"><i className=\"fa-solid fa-magnifying-glass mr-2 text-indigo-500\"></i> Apply: Ad Analyzer</h2>\n                                            <p className=\"text-sm text-slate-500 mb-6\">Read the fake ad below. Which tactic is the company using to manipulate you?</p>\n\n{data.adScore < AD_SCENARIOS.length ? (\n                                                <div className=\"p-6 bg-slate-800 text-white rounded-2xl text-center shadow-lg relative overflow-hidden\">\n                                                    <div className=\"absolute top-0 left-0 bg-yellow-400 text-yellow-900 text-xs font-black px-3 py-1 uppercase tracking-widest rounded-br-xl\">Ad {adIndex + 1} of {AD_SCENARIOS.length}</div>\n                                                    <h3 className=\"font-black text-xl mt-4 mb-2 text-indigo-300\">{AD_SCENARIOS[adIndex].product}</h3>\n                                                    <p className=\"italic text-lg mb-6\">\"{AD_SCENARIOS[adIndex].ad}\"</p>",
+      "titleGuess": "{/* MAIN CONTENT AREA */}",
+      "keywordHints": [
+        "classname",
+        "scenarios",
+        "adindex",
+        "black",
+        "font",
+        "slate",
+        "indigo",
+        "length"
+      ]
+    },
+    {
+      "id": "main-content-area-part-8-25",
+      "index": 25,
+      "locator": {
+        "kind": "section",
+        "label": "{/* MAIN CONTENT AREA */} (Part 8)",
+        "sectionHeading": "{/* MAIN CONTENT AREA */}"
+      },
+      "text": "<div className=\"grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2\">\n                                                        {AD_TACTICS.map(t => (\n                                                            <button key={t} onClick={() => handleAdGuess(t)} className=\"bg-slate-700 hover:bg-slate-600 p-3 rounded-xl font-bold transition-colors text-sm\">{t}</button>\n                                                        ))}\n                                                    </div>\n                                                    {adFeedback && <p className={`mt-4 font-bold ${adFeedback.includes('Correct') ? 'text-emerald-400' : 'text-rose-400'}`}>{adFeedback}</p>}\n                                                </div>\n                                            ) : (\n                                                <div className=\"text-center p-8 bg-emerald-50 text-emerald-800 rounded-2xl border-2 border-emerald-200\">\n                                                    <i className=\"fa-solid fa-shield-halved text-4xl mb-2\"></i>\n                                                    <h3 className=\"font-black\">Immunity Unlocked!</h3>\n                                                    <p className=\"text-sm\">You successfully identified all {AD_SCENARIOS.length} major advertising tactics.</p>\n                                                </div>\n                                            )}\n                                        </Card>\n                                    </div>\n                                </div>",
+      "titleGuess": "{/* MAIN CONTENT AREA */}",
+      "keywordHints": [
+        "classname",
+        "emerald",
+        "grid",
+        "adfeedback",
+        "cols",
+        "font",
+        "bold",
+        "border"
+      ]
+    },
+    {
+      "id": "main-content-area-part-9-26",
+      "index": 26,
+      "locator": {
+        "kind": "section",
+        "label": "{/* MAIN CONTENT AREA */} (Part 9)",
+        "sectionHeading": "{/* MAIN CONTENT AREA */}"
+      },
+      "text": "<TextAreaReflect\n                                    label=\"Deconstruct a Real Brand: Pick a brand you like (e.g., Nike, Apple, Lululemon). What physical product do they sell, and what EMOTION or IDEA are they ACTUALLY selling you?\"\n                                    placeholder=\"Type your reflection here... (e.g., Nike sells shoes, but their ads are actually selling the idea of being an elite athlete and never giving up.)\"\n                                    value={data.reflections.adDeconstruction}\n                                    onChange={(v) => updateReflection('adDeconstruction', v)}\n                                />\n\n<div className=\"mt-8 flex justify-end\"><Btn disabled={data.adScore < AD_SCENARIOS.length || data.reflections.adDeconstruction.length < 10} onClick={() => setActiveTab(2)}>Next Module <i className=\"fa-solid fa-arrow-right ml-2\"></i></Btn></div>\n                            </div>\n                        )}",
+      "titleGuess": "{/* MAIN CONTENT AREA */}",
+      "keywordHints": [
+        "addeconstruction",
+        "data",
+        "actually",
+        "brand",
+        "classname",
+        "idea",
+        "length",
+        "nike"
+      ]
+    },
+    {
+      "id": "main-content-area-part-10-27",
+      "index": 27,
+      "locator": {
+        "kind": "section",
+        "label": "{/* MAIN CONTENT AREA */} (Part 10)",
+        "sectionHeading": "{/* MAIN CONTENT AREA */}"
+      },
+      "text": "{/* TAB 2: FINANCE & BUDGET */}\n                        {activeTab === 2 && (\n                            <div className=\"animate-fade-in space-y-6\">\n                                <Card className=\"bg-emerald-50 border-emerald-100\">\n                                    <h2 className=\"text-2xl font-black text-emerald-900 mb-2\"><i className=\"fa-solid fa-money-check-dollar mr-2\"></i> Learn: Paystubs & Net Pay</h2>\n                                    <div className=\"flex flex-col md:flex-row gap-6 items-center\">\n                                        <div className=\"text-sm font-medium flex-1\">\n                                            <p>Before you budget, you must know your <strong>Net Pay</strong>. Your boss pays you a <strong>Gross Wage</strong>, but the government takes deductions before you see it.</p>\n                                            <ul className=\"mt-2 space-y-1 list-disc pl-4 text-emerald-800\">\n                                                <li><strong>Income Tax:</strong> Pays for schools, roads, hospitals.</li>\n                                                <li><strong>CPP (Canada Pension Plan):</strong> Forced savings for retirement.</li>\n                                                <li><strong>EI (Employment Insurance):</strong> A safety net if you lose your job.</li>\n                                            </ul>\n                                        </div>\n                                        <div className=\"bg-white p-4 rounded-xl border border-emerald-200 shadow-sm w-full md:w-64 text-center\">\n                                            <p className=\"text-xs font-bold text-slate-400 uppercase\">Gross Pay</p>\n                                            <p className=\"font-black text-lg line-through text-slate-400\">$2,000.00</p>\n                                            <p className=\"text-xs font-bold text-rose-400 uppercase mt-2\">Deductions (Taxes)</p>\n                                            <p className=\"font-black text-sm text-rose-500\">-$300.00</p>\n                                            <div className=\"border-t border-slate-100 my-2\"></div>\n                                            <p className=\"text-xs font-bold text-emerald-600 uppercase\">Your Net Pay</p>\n                                            <p className=\"font-black text-2xl text-emerald-600\">$1,700.00</p>\n                                        </div>\n                                    </div>\n                                </Card>",
+      "titleGuess": "{/* MAIN CONTENT AREA */}",
+      "keywordHints": [
+        "classname",
+        "strong",
+        "font",
+        "emerald",
+        "border",
+        "black",
+        "flex",
+        "bold"
+      ]
+    },
+    {
+      "id": "main-content-area-part-11-28",
+      "index": 28,
+      "locator": {
+        "kind": "section",
+        "label": "{/* MAIN CONTENT AREA */} (Part 11)",
+        "sectionHeading": "{/* MAIN CONTENT AREA */}"
+      },
+      "text": "<Card>\n                                    <div className=\"flex justify-between items-end mb-6 pb-4 border-b border-slate-200\">\n                                        <div>\n                                            <h2 className=\"text-2xl font-black text-slate-800\"><i className=\"fa-solid fa-calculator mr-2 text-indigo-500\"></i> The Budget Builder</h2>\n                                            <p className=\"text-sm text-slate-500 font-bold mt-1 text-indigo-600\">Fill out all 3 scenarios to see how your life choices affect your money.</p>\n                                        </div>\n                                    </div>",
+      "titleGuess": "{/* MAIN CONTENT AREA */}",
+      "keywordHints": [
+        "classname",
+        "slate",
+        "border",
+        "font",
+        "indigo",
+        "affect",
+        "black",
+        "bold"
+      ]
+    },
+    {
+      "id": "main-content-area-part-12-29",
+      "index": 29,
+      "locator": {
+        "kind": "section",
+        "label": "{/* MAIN CONTENT AREA */} (Part 12)",
+        "sectionHeading": "{/* MAIN CONTENT AREA */}"
+      },
+      "text": "{/* BUDGET SCENARIO TABS */}\n                                    <div className=\"flex space-x-2 border-b-2 border-slate-200 mb-6 relative\">\n                                        {Object.entries(BUDGET_SCENARIOS).map(([key, sc]) => (\n                                            <button key={key} onClick={() => setActiveBudgetTab(key)}\n                                                className={`flex-1 py-4 px-2 font-black text-sm md:text-base transition-all flex flex-col md:flex-row items-center justify-center gap-2 rounded-t-xl ${activeBudgetTab === key ? 'bg-indigo-600 text-white shadow-md z-10 scale-105 transform origin-bottom border-b-0' : 'bg-slate-100 text-slate-500 hover:bg-slate-200 border-2 border-transparent border-b-0'}`}>\n                                                <i className={`fa-solid ${sc.icon} text-xl md:text-base`}></i>\n                                                <span>{sc.title}</span>\n                                            </button>\n                                        ))}\n                                    </div>",
+      "titleGuess": "{/* MAIN CONTENT AREA */}",
+      "keywordHints": [
+        "border",
+        "flex",
+        "slate",
+        "classname",
+        "base",
+        "budget",
+        "button",
+        "center"
+      ]
+    },
+    {
+      "id": "main-content-area-part-13-30",
+      "index": 30,
+      "locator": {
+        "kind": "section",
+        "label": "{/* MAIN CONTENT AREA */} (Part 13)",
+        "sectionHeading": "{/* MAIN CONTENT AREA */}"
+      },
+      "text": "<div className=\"bg-slate-50 border-2 border-slate-200 p-6 rounded-2xl mb-8 -mt-6\">\n                                        <div className=\"mb-6 flex flex-col md:flex-row gap-4 items-center bg-white p-4 rounded-xl shadow-sm border border-slate-100\">\n                                            <i className={`fa-solid ${BUDGET_SCENARIOS[activeBudgetTab].icon} text-4xl text-indigo-400`}></i>\n                                            <div>\n                                                <h3 className=\"font-black text-lg\">{BUDGET_SCENARIOS[activeBudgetTab].title} {BUDGET_SCENARIOS[activeBudgetTab].subtitle}</h3>\n                                                <p className=\"text-sm text-slate-600 mb-2\">{BUDGET_SCENARIOS[activeBudgetTab].desc}</p>\n                                                <span className=\"bg-yellow-100 text-yellow-800 text-xs font-bold px-2 py-1 rounded\"><i className=\"fa-solid fa-lightbulb mr-1\"></i> Hint: {BUDGET_SCENARIOS[activeBudgetTab].tips}</span>\n                                            </div>\n                                        </div>",
+      "titleGuess": "{/* MAIN CONTENT AREA */}",
+      "keywordHints": [
+        "classname",
+        "activebudgettab",
+        "budget",
+        "scenarios",
+        "border",
+        "slate",
+        "flex",
+        "rounded"
+      ]
+    },
+    {
+      "id": "main-content-area-part-14-31",
+      "index": 31,
+      "locator": {
+        "kind": "section",
+        "label": "{/* MAIN CONTENT AREA */} (Part 14)",
+        "sectionHeading": "{/* MAIN CONTENT AREA */}"
+      },
+      "text": "<div className=\"grid lg:grid-cols-3 gap-6 mb-6\">\n                                            {/* INCOME */}\n                                            <div className=\"bg-blue-50 p-5 rounded-2xl border border-blue-100 shadow-inner\">\n                                                <h3 className=\"font-black text-sm uppercase text-blue-800 mb-4 flex items-center justify-between\">\n                                                    <span>1. Monthly Income</span>\n                                                    <span className=\"bg-blue-200 text-blue-900 px-2 py-1 rounded text-xs\">${currentTotals.inc}</span>\n                                                </h3>\n                                                <div className=\"space-y-3\">\n                                                    <Input prefix=\"$\" type=\"number\" placeholder=\"Net Job Income\" value={data.budgets[activeBudgetTab].income.job} onChange={v => updateBudget('income', 'job', v)} />\n                                                    <Input prefix=\"$\" type=\"number\" placeholder=\"Student Loans / Grants\" value={data.budgets[activeBudgetTab].income.loans} onChange={v => updateBudget('income', 'loans', v)} />\n                                                    <Input prefix=\"$\" type=\"number\" placeholder=\"Family Support\" value={data.budgets[activeBudgetTab].income.support} onChange={v => updateBudget('income', 'support', v)} />\n                                                </div>\n                                            </div>",
+      "titleGuess": "{/* MAIN CONTENT AREA */}",
+      "keywordHints": [
+        "income",
+        "blue",
+        "classname",
+        "span",
+        "activebudgettab",
+        "budgets",
+        "data",
+        "input"
+      ]
+    },
+    {
+      "id": "main-content-area-part-15-32",
+      "index": 32,
+      "locator": {
+        "kind": "section",
+        "label": "{/* MAIN CONTENT AREA */} (Part 15)",
+        "sectionHeading": "{/* MAIN CONTENT AREA */}"
+      },
+      "text": "{/* FIXED EXPENSES */}\n                                            <div className=\"bg-rose-50 p-5 rounded-2xl border border-rose-100 shadow-inner\">\n                                                <h3 className=\"font-black text-sm uppercase text-rose-800 mb-4 flex items-center justify-between\">\n                                                    <span>2. Fixed Expenses</span>\n                                                    <span className=\"bg-rose-200 text-rose-900 px-2 py-1 rounded text-xs\">${currentTotals.fix}</span>\n                                                </h3>\n                                                <div className=\"space-y-3 max-h-[250px] overflow-y-auto pr-2\">\n                                                    <Input prefix=\"$\" type=\"number\" placeholder=\"Rent / Mortgage\" value={data.budgets[activeBudgetTab].fixed.rent} onChange={v => updateBudget('fixed', 'rent', v)} />\n                                                    <Input prefix=\"$\" type=\"number\" placeholder=\"Utilities (Heat/Water)\" value={data.budgets[activeBudgetTab].fixed.utilities} onChange={v => updateBudget('fixed', 'utilities', v)} />\n                                                    <Input prefix=\"$\" type=\"number\" placeholder=\"Internet / Phone\" value={data.budgets[activeBudgetTab].fixed.internet} onChange={v => updateBudget('fixed', 'internet', v)} />\n                                                    <Input prefix=\"$\" type=\"number\" placeholder=\"Car / Transit\" value={data.budgets[activeBudgetTab].fixed.transit} onChange={v => updateBudget('fixed', 'transit', v)} />\n                                                </div>\n                                            </div>",
+      "titleGuess": "{/* MAIN CONTENT AREA */}",
+      "keywordHints": [
+        "fixed",
+        "rose",
+        "activebudgettab",
+        "budgets",
+        "classname",
+        "data",
+        "input",
+        "number"
+      ]
+    },
+    {
+      "id": "main-content-area-part-16-33",
+      "index": 33,
+      "locator": {
+        "kind": "section",
+        "label": "{/* MAIN CONTENT AREA */} (Part 16)",
+        "sectionHeading": "{/* MAIN CONTENT AREA */}"
+      },
+      "text": "{/* VARIABLE EXPENSES */}\n                                            <div className=\"bg-amber-50 p-5 rounded-2xl border border-amber-100 shadow-inner\">\n                                                <h3 className=\"font-black text-sm uppercase text-amber-800 mb-4 flex items-center justify-between\">\n                                                    <span>3. Variable Expenses</span>\n                                                    <span className=\"bg-amber-200 text-amber-900 px-2 py-1 rounded text-xs\">${currentTotals.varExp}</span>\n                                                </h3>\n                                                <div className=\"space-y-3 max-h-[250px] overflow-y-auto pr-2\">\n                                                    <Input prefix=\"$\" type=\"number\" placeholder=\"Groceries\" value={data.budgets[activeBudgetTab].variable.groceries} onChange={v => updateBudget('variable', 'groceries', v)} />\n                                                    <Input prefix=\"$\" type=\"number\" placeholder=\"Dining Out\" value={data.budgets[activeBudgetTab].variable.dining} onChange={v => updateBudget('variable', 'dining', v)} />\n                                                    <Input prefix=\"$\" type=\"number\" placeholder=\"Personal Care\" value={data.budgets[activeBudgetTab].variable.personal} onChange={v => updateBudget('variable', 'personal', v)} />\n                                                    <Input prefix=\"$\" type=\"number\" placeholder=\"Fun / Entertainment\" value={data.budgets[activeBudgetTab].variable.fun} onChange={v => updateBudget('variable', 'fun', v)} />\n                                                </div>\n                                            </div>\n                                        </div>",
+      "titleGuess": "{/* MAIN CONTENT AREA */}",
+      "keywordHints": [
+        "variable",
+        "amber",
+        "activebudgettab",
+        "budgets",
+        "classname",
+        "data",
+        "input",
+        "number"
+      ]
+    },
+    {
+      "id": "main-content-area-part-17-34",
+      "index": 34,
+      "locator": {
+        "kind": "section",
+        "label": "{/* MAIN CONTENT AREA */} (Part 17)",
+        "sectionHeading": "{/* MAIN CONTENT AREA */}"
+      },
+      "text": "<div className={`p-4 rounded-xl text-white flex flex-col md:flex-row justify-between items-center gap-4 ${currentTotals.net >= 0 ? 'bg-slate-800' : 'bg-rose-600'}`}>\n                                            <div>\n                                                <h3 className=\"font-black text-lg\">Active Tab Bottom Line</h3>\n                                                <p className=\"text-xs opacity-80 mt-1\">Income (${currentTotals.inc}) - Expenses (${currentTotals.fix + currentTotals.varExp})</p>\n                                            </div>\n                                            <div className=\"text-3xl font-black text-center md:text-right\">\n                                                ${currentTotals.net.toFixed(2)}\n                                                {currentTotals.net < 0 && <div className=\"text-[10px] text-rose-200 mt-1 uppercase tracking-wider\">You are in debt!</div>}\n                                            </div>\n                                        </div>\n                                    </div>",
+      "titleGuess": "{/* MAIN CONTENT AREA */}",
+      "keywordHints": [
+        "currenttotals",
+        "classname",
+        "flex",
+        "black",
+        "center",
+        "font",
+        "rose",
+        "10px"
+      ]
+    },
+    {
+      "id": "side-by-side-comparison-35",
+      "index": 35,
+      "locator": {
+        "kind": "section",
+        "label": "{/* SIDE BY SIDE COMPARISON */}",
+        "sectionHeading": "{/* SIDE BY SIDE COMPARISON */}"
+      },
+      "text": "<div className=\"mt-8 border-t border-slate-200 pt-8\">\n<h3 className=\"text-xl font-black text-slate-800 mb-4\"><i className=\"fa-solid fa-scale-balanced mr-2 text-indigo-500\"></i> Side-by-Side Comparison</h3>\n\n{!data.lifeEvent && (\n                                            <div className=\"text-center p-4 bg-indigo-50 rounded-xl border-2 border-indigo-200 mb-6 flex justify-between items-center\">\n                                                <div className=\"text-left\">\n                                                    <h4 className=\"font-black text-indigo-900\">Life Happens Curveball</h4>\n                                                    <p className=\"text-xs text-indigo-700\">See how an unexpected event affects all 3 budgets.</p>\n                                                </div>\n                                                <Btn color=\"blue\" onClick={triggerLifeEvent} className=\"text-sm py-2\"><i className=\"fa-solid fa-bolt mr-1\"></i> Draw Card</Btn>\n                                            </div>\n                                        )}",
+      "titleGuess": "{/* SIDE BY SIDE COMPARISON */}",
+      "keywordHints": [
+        "classname",
+        "indigo",
+        "border",
+        "black",
+        "center",
+        "font",
+        "side",
+        "slate"
+      ]
+    },
+    {
+      "id": "side-by-side-comparison-part-2-36",
+      "index": 36,
+      "locator": {
+        "kind": "section",
+        "label": "{/* SIDE BY SIDE COMPARISON */} (Part 2)",
+        "sectionHeading": "{/* SIDE BY SIDE COMPARISON */}"
+      },
+      "text": "{data.lifeEvent && (\n                                            <div className=\"p-4 bg-rose-100 border-2 border-rose-300 rounded-xl mb-6 flex justify-between items-center text-rose-900 font-bold animate-fade-in\">\n                                                <div><i className=\"fa-solid fa-triangle-exclamation mr-2 text-rose-600\"></i> Curveball: {data.lifeEvent.desc} applied to all budgets!</div>\n                                                <div className=\"text-lg\">-${data.lifeEvent.amount}</div>\n                                            </div>\n                                        )}",
+      "titleGuess": "{/* SIDE BY SIDE COMPARISON */}",
+      "keywordHints": [
+        "rose",
+        "classname",
+        "data",
+        "lifeevent",
+        "border",
+        "amount",
+        "animate",
+        "applied"
+      ]
+    },
+    {
+      "id": "side-by-side-comparison-part-3-37",
+      "index": 37,
+      "locator": {
+        "kind": "section",
+        "label": "{/* SIDE BY SIDE COMPARISON */} (Part 3)",
+        "sectionHeading": "{/* SIDE BY SIDE COMPARISON */}"
+      },
+      "text": "<div className=\"grid md:grid-cols-3 gap-4\">\n                                            {Object.keys(BUDGET_SCENARIOS).map(key => {\n                                                const totals = getTotals(key);\n                                                return (\n                                                    <div key={key} className={`p-4 rounded-xl border-2 ${activeBudgetTab === key ? 'border-indigo-500 bg-indigo-50' : 'border-slate-200 bg-white'}`}>\n                                                        <h4 className=\"font-black text-slate-700 mb-2 flex items-center justify-between\">\n                                                            <span><i className={`fa-solid ${BUDGET_SCENARIOS[key].icon} mr-2`}></i> {BUDGET_SCENARIOS[key].title}</span>\n                                                        </h4>\n                                                        <div className=\"space-y-1 text-sm font-medium text-slate-600 mb-3 border-b border-slate-200 pb-3\">\n                                                            <div className=\"flex justify-between\"><span>Income:</span> <span className=\"text-emerald-600\">${totals.inc}</span></div>\n                                                            <div className=\"flex justify-between\"><span>Expenses:</span> <span className=\"text-rose-600\">${totals.fix + totals.varExp}</span></div>\n                                                        </div>\n                                                        <div className={`text-xl font-black text-center ${totals.net >= 0 ? 'text-emerald-600' : 'text-rose-600'}`}>\n                                                            Net: ${totals.net.toFixed(2)}\n                                                        </div>\n                                                    </div>\n                                                );\n                                            })}\n                                        </div>\n                                    </div>\n                                </Card>",
+      "titleGuess": "{/* SIDE BY SIDE COMPARISON */}",
+      "keywordHints": [
+        "classname",
+        "span",
+        "totals",
+        "border",
+        "slate",
+        "budget",
+        "flex",
+        "font"
+      ]
+    },
+    {
+      "id": "side-by-side-comparison-part-4-38",
+      "index": 38,
+      "locator": {
+        "kind": "section",
+        "label": "{/* SIDE BY SIDE COMPARISON */} (Part 4)",
+        "sectionHeading": "{/* SIDE BY SIDE COMPARISON */}"
+      },
+      "text": "<TextAreaReflect\n                                    label=\"Budget Justification: Looking at the 3 scenarios above, which one is most realistic for you right out of high school? What is one major sacrifice you will have to make to ensure you don't go into debt?\"\n                                    placeholder=\"Type your reflection here... (e.g., I plan to live at home so I can save for college. The major sacrifice is my privacy and having to follow my parents' house rules.)\"\n                                    value={data.reflections.budgetChoice}\n                                    onChange={(v) => updateReflection('budgetChoice', v)}\n                                />\n\n<div className=\"mt-8 flex justify-end\">\n                                    <Btn disabled={data.reflections.budgetChoice.length < 10} onClick={() => setActiveTab(3)}>Next Module <i className=\"fa-solid fa-arrow-right ml-2\"></i></Btn>\n                                </div>\n                            </div>\n                        )}",
+      "titleGuess": "{/* SIDE BY SIDE COMPARISON */}",
+      "keywordHints": [
+        "budgetchoice",
+        "classname",
+        "data",
+        "major",
+        "reflections",
+        "right",
+        "sacrifice",
+        "above"
+      ]
+    },
+    {
+      "id": "side-by-side-comparison-part-5-39",
+      "index": 39,
+      "locator": {
+        "kind": "section",
+        "label": "{/* SIDE BY SIDE COMPARISON */} (Part 5)",
+        "sectionHeading": "{/* SIDE BY SIDE COMPARISON */}"
+      },
+      "text": "{/* TAB 3: SOCIAL RESOURCES */}\n                        {activeTab === 3 && (\n                            <div className=\"animate-fade-in space-y-6\">\n                                <Card>\n                                    <div className=\"flex justify-between items-end mb-6 pb-4 border-b border-slate-200\">\n                                        <div>\n                                            <h2 className=\"text-2xl font-black text-slate-800\"><i className=\"fa-solid fa-comments mr-2 text-indigo-500\"></i> Apply: Social & Personal Scenarios</h2>\n                                            <p className=\"text-sm text-slate-500 font-bold mt-1 text-indigo-600\">Navigate the scenarios below to practice protecting your time, energy, and relationships.</p>\n                                        </div>\n                                    </div>",
+      "titleGuess": "{/* SIDE BY SIDE COMPARISON */}",
+      "keywordHints": [
+        "classname",
+        "slate",
+        "border",
+        "font",
+        "indigo",
+        "scenarios",
+        "social",
+        "activetab"
+      ]
+    },
+    {
+      "id": "side-by-side-comparison-part-6-40",
+      "index": 40,
+      "locator": {
+        "kind": "section",
+        "label": "{/* SIDE BY SIDE COMPARISON */} (Part 6)",
+        "sectionHeading": "{/* SIDE BY SIDE COMPARISON */}"
+      },
+      "text": "<div className=\"flex space-x-2 mb-6 overflow-x-auto pb-2\">\n                                        {Object.keys(SOCIAL_SCENARIOS).map(key => (\n                                            <button key={key} onClick={() => setActiveSocialScenario(key)}\n                                                className={`flex-1 py-3 px-2 font-bold text-sm transition-all flex items-center justify-center gap-2 rounded-xl border-2 whitespace-nowrap min-w-[120px] ${activeSocialScenario === key ? 'bg-indigo-600 border-indigo-600 text-white shadow-md' : 'bg-slate-50 border-slate-200 text-slate-500 hover:bg-slate-100'} ${data.completedScenarios.includes(key) ? 'ring-2 ring-emerald-400 ring-offset-2' : ''}`}>\n                                                <i className={`fa-solid ${SOCIAL_SCENARIOS[key].icon}`}></i>\n                                                <span className=\"hidden md:inline\">{SOCIAL_SCENARIOS[key].title}</span>\n                                                {data.completedScenarios.includes(key) && <i className=\"fa-solid fa-check-circle text-emerald-400 ml-1\"></i>}\n                                            </button>\n                                        ))}\n                                    </div>",
+      "titleGuess": "{/* SIDE BY SIDE COMPARISON */}",
+      "keywordHints": [
+        "classname",
+        "slate",
+        "border",
+        "flex",
+        "ring",
+        "scenarios",
+        "social",
+        "button"
+      ]
+    },
+    {
+      "id": "side-by-side-comparison-part-7-41",
+      "index": 41,
+      "locator": {
+        "kind": "section",
+        "label": "{/* SIDE BY SIDE COMPARISON */} (Part 7)",
+        "sectionHeading": "{/* SIDE BY SIDE COMPARISON */}"
+      },
+      "text": "{!data.completedScenarios.includes(activeSocialScenario) ? (\n                                        <div className=\"bg-slate-50 p-6 rounded-2xl border border-slate-200 min-h-[250px] flex flex-col justify-center animate-fade-in\">\n                                            <p className=\"font-bold text-slate-700 text-lg mb-6 leading-relaxed\">{SOCIAL_SCENARIOS[activeSocialScenario].nodes[scenarioNodes[activeSocialScenario]].text}</p>\n                                            <div className=\"space-y-3\">\n                                                {SOCIAL_SCENARIOS[activeSocialScenario].nodes[scenarioNodes[activeSocialScenario]].options.map((opt, i) => (\n                                                    <button key={i} onClick={() => {\n                                                        const nextNode = opt.next;\n                                                        setScenarioNodes(prev => ({ ...prev, [activeSocialScenario]: nextNode }));\n                                                        if (SOCIAL_SCENARIOS[activeSocialScenario].nodes[nextNode].success) {\n                                                            if (!data.completedScenarios.includes(activeSocialScenario)) {\n                                                                update('completedScenarios', [...data.completedScenarios, activeSocialScenario]);\n                                                                confetti();\n                                                            }\n                                                        }\n                                                    }} className=\"w-full text-left p-4 bg-white border-2 border-blue-100 hover:border-blue-500 rounded-xl font-bold text-slate-600 hover:text-blue-700 transition-all shadow-sm\">\n                                                        {opt.text}\n                                                    </button>\n                                                ))}\n                                            </div>\n                                        </div>\n                                    ) : (\n                                        <div className=\"text-center p-8 bg-purple-100 text-purple-900 rounded-2xl border-2 border-purple-300 min-h-[250px] flex flex-col justify-center animate-fade-in\">\n                                            <i className=\"fa-solid fa-hand-holding-heart text-5xl mb-4\"></i>\n                                            <h3 className=\"font-black text-2xl mb-2\">Scenario Mastered</h3>\n                                            <p className=\"font-medium\">You successfully navigated this situation and protected your resources.</p>\n                                        </div>\n                                    )}\n                                </Card>",
+      "titleGuess": "{/* SIDE BY SIDE COMPARISON */}",
+      "keywordHints": [
+        "activesocialscenario",
+        "classname",
+        "border",
+        "completedscenarios",
+        "flex",
+        "font",
+        "slate",
+        "blue"
+      ]
+    },
+    {
+      "id": "side-by-side-comparison-part-8-42",
+      "index": 42,
+      "locator": {
+        "kind": "section",
+        "label": "{/* SIDE BY SIDE COMPARISON */} (Part 8)",
+        "sectionHeading": "{/* SIDE BY SIDE COMPARISON */}"
+      },
+      "text": "<TextAreaReflect\n                                    label=\"Boundary Setting: Pick one of the scenarios above. Why is it so difficult to say 'no' to friends or bosses, and what is the long-term consequence of never setting boundaries?\"\n                                    placeholder=\"Type your reflection here...\"\n                                    value={data.reflections.socialJustification}\n                                    onChange={(v) => updateReflection('socialJustification', v)}\n                                />\n\n<div className=\"mt-8 flex justify-end\">\n                                    <Btn disabled={data.completedScenarios.length < Object.keys(SOCIAL_SCENARIOS).length || data.reflections.socialJustification.length < 10} onClick={() => setActiveTab(4)}>Go to Final Report <i className=\"fa-solid fa-flag-checkered ml-2\"></i></Btn>\n                                </div>\n                            </div>\n                        )}",
+      "titleGuess": "{/* SIDE BY SIDE COMPARISON */}",
+      "keywordHints": [
+        "data",
+        "length",
+        "socialjustification",
+        "classname",
+        "reflections",
+        "scenarios",
+        "setting",
+        "above"
+      ]
+    },
+    {
+      "id": "side-by-side-comparison-part-9-43",
+      "index": 43,
+      "locator": {
+        "kind": "section",
+        "label": "{/* SIDE BY SIDE COMPARISON */} (Part 9)",
+        "sectionHeading": "{/* SIDE BY SIDE COMPARISON */}"
+      },
+      "text": "{/* TAB 4: FINAL REPORT (FOR PRINTING) */}\n                        {activeTab === 4 && (\n                            <div className=\"animate-fade-in\">\n                                <Card className=\"bg-blue-600 text-white mb-6 no-print border-none\">\n                                    <h2 className=\"text-2xl font-black mb-2\">Final Step: Print/Save your Workbook</h2>\n                                    <p className=\"font-medium opacity-90 mb-4\">Review your answers below. Ensure you have elaborated on your reflections so your teacher can grade your critical thinking. When you are ready, print this page to PDF and submit it.</p>\n                                    <div className=\"mt-6 flex justify-end\">\n                                        <Btn color=\"slate\" onClick={() => window.print()} className=\"text-blue-900\"><i className=\"fa-solid fa-file-pdf mr-2\"></i> Print to PDF</Btn>\n                                    </div>\n                                </Card>",
+      "titleGuess": "{/* SIDE BY SIDE COMPARISON */}",
+      "keywordHints": [
+        "classname",
+        "print",
+        "blue",
+        "card",
+        "final",
+        "font",
+        "activetab",
+        "animate"
+      ]
+    },
+    {
+      "id": "side-by-side-comparison-part-10-44",
+      "index": 44,
+      "locator": {
+        "kind": "section",
+        "label": "{/* SIDE BY SIDE COMPARISON */} (Part 10)",
+        "sectionHeading": "{/* SIDE BY SIDE COMPARISON */}"
+      },
+      "text": "{/* PRINTABLE AREA */}\n                                <Card className=\"print-card print:border-none print:shadow-none bg-white\">\n                                    <div className=\"text-center border-b-4 border-slate-800 pb-4 mb-6\">\n                                        <h1 className=\"text-3xl font-black uppercase\">CALM Module 2 Workbook</h1>\n                                        <h2 className=\"text-xl text-slate-500 font-bold mt-1\">Resource Choices & Consumerism</h2>\n                                        <p className=\"text-lg font-black mt-4 bg-slate-100 py-2 rounded-lg\">Student: {data.studentName || '[No Name Entered]'}</p>\n                                    </div>",
+      "titleGuess": "{/* SIDE BY SIDE COMPARISON */}",
+      "keywordHints": [
+        "classname",
+        "border",
+        "font",
+        "print",
+        "slate",
+        "black",
+        "card",
+        "none"
+      ]
+    },
+    {
+      "id": "side-by-side-comparison-part-11-45",
+      "index": 45,
+      "locator": {
+        "kind": "section",
+        "label": "{/* SIDE BY SIDE COMPARISON */} (Part 11)",
+        "sectionHeading": "{/* SIDE BY SIDE COMPARISON */}"
+      },
+      "text": "<div className=\"mb-8\">\n                                        <h3 className=\"font-black text-xl border-b-2 border-slate-200 pb-2 mb-4\">Interactive Competencies Met</h3>\n                                        <div className=\"grid grid-cols-3 gap-4 text-center\">\n                                            <div className=\"bg-slate-50 p-3 rounded border border-slate-200\">\n                                                <i className={`fa-solid fa-${data.needsWantsIndex >= NEEDS_WANTS_ITEMS.length ? 'check text-emerald-500' : 'xmark text-rose-500'} text-2xl mb-2`}></i>\n                                                <p className=\"text-xs font-bold text-slate-600 uppercase\">Needs/Wants</p>\n                                            </div>\n                                            <div className=\"bg-slate-50 p-3 rounded border border-slate-200\">\n                                                <i className={`fa-solid fa-${data.adScore === AD_SCENARIOS.length ? 'check text-emerald-500' : 'xmark text-rose-500'} text-2xl mb-2`}></i>\n                                                <p className=\"text-xs font-bold text-slate-600 uppercase\">Ad Analyzer</p>\n                                            </div>\n                                            <div className=\"bg-slate-50 p-3 rounded border border-slate-200\">\n                                                <i className={`fa-solid fa-${data.completedScenarios.length === Object.keys(SOCIAL_SCENARIOS).length ? 'check text-emerald-500' : 'xmark text-rose-500'} text-2xl mb-2`}></i>\n                                                <p className=\"text-xs font-bold text-slate-600 uppercase\">Social Boundaries</p>\n                                            </div>\n                                        </div>\n                                    </div>",
+      "titleGuess": "{/* SIDE BY SIDE COMPARISON */}",
+      "keywordHints": [
+        "classname",
+        "slate",
+        "border",
+        "font",
+        "length",
+        "bold",
+        "check",
+        "data"
+      ]
+    },
+    {
+      "id": "side-by-side-comparison-part-12-46",
+      "index": 46,
+      "locator": {
+        "kind": "section",
+        "label": "{/* SIDE BY SIDE COMPARISON */} (Part 12)",
+        "sectionHeading": "{/* SIDE BY SIDE COMPARISON */}"
+      },
+      "text": "<div className=\"mb-8\">\n                                        <h3 className=\"font-black text-xl border-b-2 border-slate-200 pb-2 mb-4\">Financial Profile Summary</h3>\n                                        <div className=\"grid grid-cols-3 gap-4\">\n                                            {Object.keys(BUDGET_SCENARIOS).map(key => {\n                                                const totals = getTotals(key);\n                                                return (\n                                                    <div key={key} className=\"border border-slate-200 p-3 rounded text-sm\">\n                                                        <strong className=\"block mb-1 text-slate-700\">{BUDGET_SCENARIOS[key].title}</strong>\n                                                        <div className=\"flex justify-between text-slate-500\"><span>Inc:</span> <span>${totals.inc}</span></div>\n                                                        <div className=\"flex justify-between text-slate-500\"><span>Exp:</span> <span>${totals.fix + totals.varExp}</span></div>\n                                                        <div className={`flex justify-between font-black mt-1 ${totals.net >= 0 ? 'text-emerald-600' : 'text-rose-600'}`}>\n                                                            <span>Net:</span> <span>${totals.net.toFixed(2)}</span>\n                                                        </div>\n                                                    </div>\n                                                )\n                                            })}\n                                        </div>\n                                    </div>",
+      "titleGuess": "{/* SIDE BY SIDE COMPARISON */}",
+      "keywordHints": [
+        "span",
+        "classname",
+        "totals",
+        "slate",
+        "border",
+        "flex",
+        "justify",
+        "black"
+      ]
+    },
+    {
+      "id": "side-by-side-comparison-part-13-47",
+      "index": 47,
+      "locator": {
+        "kind": "section",
+        "label": "{/* SIDE BY SIDE COMPARISON */} (Part 13)",
+        "sectionHeading": "{/* SIDE BY SIDE COMPARISON */}"
+      },
+      "text": "<div>\n                                        <h3 className=\"font-black text-xl border-b-2 border-slate-200 pb-2 mb-4\">Student Written Reflections</h3>\n                                        <div className=\"space-y-6\">\n                                            <div className=\"bg-slate-50 p-4 rounded-xl border border-slate-200 print:bg-white print:border-gray-400\">\n                                                <h4 className=\"font-bold text-sm text-slate-500 mb-2 uppercase tracking-wide\">1. Needs vs Wants Reflection</h4>\n                                                <p className=\"text-slate-800 font-medium whitespace-pre-wrap\">{data.reflections.needsWants || <span className=\"text-rose-400 italic\">No answer provided.</span>}</p>\n                                            </div>\n\n<div className=\"bg-slate-50 p-4 rounded-xl border border-slate-200 print:bg-white print:border-gray-400\">\n                                                <h4 className=\"font-bold text-sm text-slate-500 mb-2 uppercase tracking-wide\">2. Ad Deconstruction</h4>\n                                                <p className=\"text-slate-800 font-medium whitespace-pre-wrap\">{data.reflections.adDeconstruction || <span className=\"text-rose-400 italic\">No answer provided.</span>}</p>\n                                            </div>",
+      "titleGuess": "{/* SIDE BY SIDE COMPARISON */}",
+      "keywordHints": [
+        "classname",
+        "slate",
+        "border",
+        "font",
+        "print",
+        "span",
+        "reflections",
+        "answer"
+      ]
+    },
+    {
+      "id": "side-by-side-comparison-part-14-48",
+      "index": 48,
+      "locator": {
+        "kind": "section",
+        "label": "{/* SIDE BY SIDE COMPARISON */} (Part 14)",
+        "sectionHeading": "{/* SIDE BY SIDE COMPARISON */}"
+      },
+      "text": "<div className=\"bg-slate-50 p-4 rounded-xl border border-slate-200 print:bg-white print:border-gray-400\">\n                                                <h4 className=\"font-bold text-sm text-slate-500 mb-2 uppercase tracking-wide\">3. Budget Choice Justification</h4>\n                                                <p className=\"text-slate-800 font-medium whitespace-pre-wrap\">{data.reflections.budgetChoice || <span className=\"text-rose-400 italic\">No answer provided.</span>}</p>\n                                            </div>\n\n<div className=\"bg-slate-50 p-4 rounded-xl border border-slate-200 print:bg-white print:border-gray-400\">\n                                                <h4 className=\"font-bold text-sm text-slate-500 mb-2 uppercase tracking-wide\">4. Social Boundary Justification</h4>\n                                                <p className=\"text-slate-800 font-medium whitespace-pre-wrap\">{data.reflections.socialJustification || <span className=\"text-rose-400 italic\">No answer provided.</span>}</p>\n                                            </div>\n                                        </div>\n                                    </div>\n                                </Card>\n                            </div>\n                        )}\n                    </div>\n                </div>\n            );\n        };",
+      "titleGuess": "{/* SIDE BY SIDE COMPARISON */}",
+      "keywordHints": [
+        "classname",
+        "slate",
+        "border",
+        "font",
+        "print",
+        "span",
+        "answer",
+        "bold"
+      ]
+    },
+    {
+      "id": "side-by-side-comparison-part-15-49",
+      "index": 49,
+      "locator": {
+        "kind": "section",
+        "label": "{/* SIDE BY SIDE COMPARISON */} (Part 15)",
+        "sectionHeading": "{/* SIDE BY SIDE COMPARISON */}"
+      },
+      "text": "const root = ReactDOM.createRoot(document.getElementById('root'));\n        root.render(<App />);\n    </script>\n</body>\n</html>",
+      "titleGuess": "{/* SIDE BY SIDE COMPARISON */}",
+      "keywordHints": [
+        "root",
+        "body",
+        "const",
+        "createroot",
+        "document",
+        "getelementbyid",
+        "html",
+        "reactdom"
+      ]
+    }
+  ]
+}

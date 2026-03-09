@@ -2,7 +2,7 @@ import path from "node:path";
 import { readdir, readFile } from "node:fs/promises";
 
 import { fileExists, latestMtimeMs, listFilesRecursive, readJsonFile, writeJsonFile } from "./fs.js";
-import { getProjectPaths, projectsRoot } from "./paths.js";
+import { getProcessedProjectPaths, getProjectPaths, processedRoot, projectsRoot } from "./paths.js";
 import type { ProjectManifest, ReferenceIndex, SectionMap, StudioProjectBundle } from "./types.js";
 import { resolveIntelligencePolicy } from "./intelligence/config/policy.js";
 
@@ -46,7 +46,60 @@ function normalizeProjectManifest(manifest: ProjectManifest): ProjectManifest {
   };
 }
 
+async function hasRequiredProjectArtifacts(slug: string) {
+  const paths = getProjectPaths(slug);
+  const [hasManifest, hasRawEntrypoint, hasWorkspaceEntrypoint] = await Promise.all([
+    fileExists(paths.manifestPath),
+    fileExists(paths.rawEntrypoint),
+    fileExists(paths.workspaceEntrypoint)
+  ]);
+
+  return hasManifest && hasRawEntrypoint && hasWorkspaceEntrypoint;
+}
+
+async function hasRecoverableProcessedSnapshot(slug: string) {
+  const processedPaths = getProcessedProjectPaths(slug);
+  if (!(await fileExists(processedPaths.sourceDir))) {
+    return false;
+  }
+
+  const sourceFiles = await listFilesRecursive(processedPaths.sourceDir);
+  return sourceFiles.length > 0;
+}
+
+async function ensureProjectFromProcessedSnapshot(slug: string) {
+  if (await hasRequiredProjectArtifacts(slug)) {
+    return true;
+  }
+
+  if (!(await hasRecoverableProcessedSnapshot(slug))) {
+    return false;
+  }
+
+  const { importProject } = await import("./importer.js");
+  await importProject({
+    inputPath: getProcessedProjectPaths(slug).sourceDir,
+    slug,
+    force: true
+  });
+
+  return hasRequiredProjectArtifacts(slug);
+}
+
+async function listProcessedProjectSlugs() {
+  if (!(await fileExists(processedRoot))) {
+    return [] as string[];
+  }
+
+  const entries = await readdir(processedRoot, { withFileTypes: true });
+  return entries
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => entry.name)
+    .sort((left, right) => left.localeCompare(right));
+}
+
 export async function loadProjectManifest(slug: string) {
+  await ensureProjectFromProcessedSnapshot(slug);
   const paths = getProjectPaths(slug);
   if (!(await fileExists(paths.manifestPath))) {
     throw new Error(`Project manifest not found for "${slug}" at ${paths.manifestPath}.`);
@@ -66,19 +119,39 @@ export async function updateProjectManifest(
 }
 
 export async function listProjectSlugs() {
-  if (!(await fileExists(projectsRoot))) {
+  const [hasProjectsRoot, processedSlugs] = await Promise.all([
+    fileExists(projectsRoot),
+    listProcessedProjectSlugs()
+  ]);
+
+  if (!hasProjectsRoot && processedSlugs.length === 0) {
     return [];
   }
 
-  const entries = await readdir(projectsRoot, { withFileTypes: true });
-  const candidateSlugs = entries
-    .filter((entry) => entry.isDirectory() && !RESERVED_PROJECT_DIRS.has(entry.name))
-    .map((entry) => entry.name);
+  const entries = hasProjectsRoot ? await readdir(projectsRoot, { withFileTypes: true }) : [];
+  const candidateSlugs = new Set(
+    entries
+      .filter((entry) => entry.isDirectory() && !RESERVED_PROJECT_DIRS.has(entry.name))
+      .map((entry) => entry.name)
+  );
+  for (const slug of processedSlugs) {
+    candidateSlugs.add(slug);
+  }
+
   const availability = await Promise.all(
-    candidateSlugs.map(async (slug) => ({
-      slug,
-      hasManifest: await fileExists(getProjectPaths(slug).manifestPath)
-    }))
+    [...candidateSlugs].map(async (slug) => {
+      try {
+        return {
+          slug,
+          hasManifest: await ensureProjectFromProcessedSnapshot(slug)
+        };
+      } catch {
+        return {
+          slug,
+          hasManifest: false
+        };
+      }
+    })
   );
 
   return availability
@@ -118,6 +191,7 @@ async function resolveWorkspaceScriptFile(workspaceDir: string) {
 }
 
 export async function readStudioProjectBundle(slug: string): Promise<StudioProjectBundle> {
+  await ensureProjectFromProcessedSnapshot(slug);
   const manifest = await loadProjectManifest(slug);
   const paths = getProjectPaths(slug);
   const workspaceScript = await resolveWorkspaceScriptFile(paths.workspaceDir);
