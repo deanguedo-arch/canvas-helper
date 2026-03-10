@@ -11,4 +11,265 @@
         ::-webkit-scrollbar-track { background: #f1f5f9; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        .sidebar-toggle {
+            line-height: 0;
+        }
+
+        .sidebar-collapsed #nav-links button {
+            padding-left: 0.8rem;
+            padding-right: 0.8rem;
+        }
+
+        .conversation-line {
+            border-color: #e2e8f0;
+            background: #f8fafc;
+        }
+
+        .conversation-line-mackay {
+            border-left: 4px solid #4f46e5;
+        }
+
+        .conversation-line-parker {
+            border-left: 4px solid #f59e0b;
+        }
+
+        .application-sheet {
+            background: #fff;
+            border: 1px solid #cbd5e1;
+            border-radius: 2rem;
+            padding: 1.5rem;
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+        }
+
+        .application-sheet__header {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            align-items: flex-end;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #0f172a;
+        }
+
+        .application-sheet__brand {
+            font-size: 1.05rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: #0f172a;
+        }
+
+        .application-sheet__subhead {
+            margin-top: 0.4rem;
+            font-size: 0.82rem;
+            color: #64748b;
+            max-width: 40rem;
+        }
+
+        .application-sheet__office {
+            border: 1px solid #cbd5e1;
+            border-radius: 999px;
+            padding: 0.35rem 0.85rem;
+            font-size: 0.65rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: #475569;
+            white-space: nowrap;
+        }
+
+        .application-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .application-grid--2 {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .application-grid--3 {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .application-grid--4 {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .application-section {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .application-label {
+            display: block;
+            margin-bottom: 0.45rem;
+            font-size: 0.62rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: #64748b;
+        }
+
+        .application-input,
+        .application-textarea {
+            width: 100%;
+            font-size: 0.92rem;
+            color: #0f172a;
+            outline: none;
+        }
+
+        .application-input {
+            border: none;
+            border-bottom: 2px solid #cbd5e1;
+            border-radius: 0;
+            background: transparent;
+            padding: 0.35rem 0;
+        }
+
+        .application-input--compact {
+            border-bottom-width: 1px;
+            padding: 0.2rem 0;
+            font-size: 0.85rem;
+        }
+
+        .application-textarea {
+            min-height: 7rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 1rem;
+            background: #f8fafc;
+            padding: 0.9rem 1rem;
+            resize: vertical;
+        }
+
+        .application-options,
+        .application-checklist {
+            display: grid;
+            gap: 0.55rem;
+        }
+
+        .application-option {
+            display: flex;
+            gap: 0.6rem;
+            align-items: center;
+            font-size: 0.88rem;
+            color: #334155;
+        }
+
+        .application-option input,
+        .application-availability__cell input {
+            accent-color: #4f46e5;
+        }
+
+        .application-availability {
+            display: grid;
+            grid-template-columns: 4.5rem repeat(7, minmax(0, 1fr));
+            border: 1px solid #cbd5e1;
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+
+        .application-availability__head,
+        .application-availability__label,
+        .application-availability__cell {
+            min-height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-right: 1px solid #e2e8f0;
+            border-top: 1px solid #e2e8f0;
+            background: #fff;
+        }
+
+        .application-availability__head {
+            background: #f8fafc;
+            border-top: none;
+            font-size: 0.72rem;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            color: #475569;
+        }
+
+        .application-availability__label {
+            justify-content: flex-start;
+            padding-left: 0.75rem;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            color: #475569;
+            background: #f8fafc;
+        }
+
+        .application-table {
+            border: 1px solid #cbd5e1;
+            border-radius: 1rem;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .application-table__row {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+        }
+
+        .application-table__row--history {
+            grid-template-columns: 1.5fr 1fr 0.8fr 0.8fr 1.2fr;
+        }
+
+        .application-table__row--header {
+            background: #f8fafc;
+            color: #475569;
+            font-size: 0.68rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        .application-table__cell,
+        .application-table__row > div {
+            padding: 0.75rem;
+            border-top: 1px solid #e2e8f0;
+            border-right: 1px solid #e2e8f0;
+        }
+
+        .application-table__row > div:last-child,
+        .application-table__cell:last-child {
+            border-right: none;
+        }
+
+        .application-table__row--header > div {
+            border-top: none;
+        }
+
+        .application-table__cell--label {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #334155;
+            background: #f8fafc;
+        }
+
+        .application-sheet__footer {
+            margin-top: 1.25rem;
+            padding-top: 1.25rem;
+            border-top: 2px solid #0f172a;
+        }
+
+        @media (max-width: 1024px) {
+            .application-grid--3,
+            .application-grid--4,
+            .application-grid--2 {
+                grid-template-columns: 1fr;
+            }
+
+            .application-sheet__header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .application-table__row,
+            .application-table__row--history {
+                grid-template-columns: 1fr;
+            }
+        }
     

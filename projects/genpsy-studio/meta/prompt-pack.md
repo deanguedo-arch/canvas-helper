@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: genpsy-studio
-- Generated: 2026-03-09T21:55:05.097Z
+- Generated: 2026-03-10T14:18:39.008Z
 
 ## Rules
 
@@ -13,7 +13,7 @@
 ## Intelligence Policy
 
 - Mode: collect
-- Policy source: env-override
+- Policy source: repo-default
 - Collect pattern bank: on
 - Collect memory ledger: on
 - Apply pattern bank to prompt pack: off
@@ -37,10 +37,10 @@
   "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\genpsy-studio\\raw\\original.html",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-03-09T21:55:05.050Z",
+  "learningUpdatedAt": "2026-03-10T14:18:38.959Z",
   "createdAt": "2026-03-06T19:03:24.663Z",
-  "updatedAt": "2026-03-09T21:55:05.050Z",
-  "workspaceApprovedAt": "2026-03-09T21:55:05.050Z"
+  "updatedAt": "2026-03-10T14:18:38.959Z",
+  "workspaceApprovedAt": "2026-03-10T14:18:38.959Z"
 }
 ```
 

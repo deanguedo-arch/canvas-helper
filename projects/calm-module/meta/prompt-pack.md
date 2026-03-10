@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: calm-module
-- Generated: 2026-03-09T21:54:36.192Z
+- Generated: 2026-03-10T14:18:24.455Z
 
 ## Rules
 
@@ -13,7 +13,7 @@
 ## Intelligence Policy
 
 - Mode: collect
-- Policy source: env-override
+- Policy source: repo-default
 - Collect pattern bank: on
 - Collect memory ledger: on
 - Apply pattern bank to prompt pack: off
@@ -37,10 +37,10 @@
   "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\calm-module\\raw\\original.html",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-03-09T21:54:36.150Z",
+  "learningUpdatedAt": "2026-03-10T14:18:24.321Z",
   "createdAt": "2026-03-06T02:06:47.139Z",
-  "updatedAt": "2026-03-09T21:54:36.150Z",
-  "workspaceApprovedAt": "2026-03-09T21:54:36.150Z"
+  "updatedAt": "2026-03-10T14:18:24.321Z",
+  "workspaceApprovedAt": "2026-03-10T14:18:24.321Z"
 }
 ```
 

@@ -1,10 +1,11 @@
 # Content Outline
 
 - Project: calm3new
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\incoming\CALM3NEW
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\processed\calm3new\source
 
 ## Sections
 - Nav (C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\calm3new\workspace\main.js)
+- Learning Style Cards (C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\calm3new\workspace\main.js)
 - Section (C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\calm3new\workspace\main.js)
 - Intro (C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\calm3new\workspace\main.js)
 - Attitude (C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\calm3new\workspace\main.js)
