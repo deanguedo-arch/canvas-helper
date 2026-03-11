@@ -1,4 +1,12 @@
-export type StudioCommandName = "analyze" | "refs" | "verify" | "export" | "package" | "html";
+export type StudioCommandName =
+  | "analyze"
+  | "refs"
+  | "verify"
+  | "export"
+  | "package"
+  | "scorm2004"
+  | "scorm12"
+  | "html";
 
 export type SessionLogPayload = {
   savedAt?: string;

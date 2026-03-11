@@ -16,6 +16,10 @@ function resolveStudioCommandArgs(slug: string, commandName: StudioCommandName) 
       return ["run", "export:brightspace", "--", "--project", slug];
     case "package":
       return ["run", "export:brightspace:zip", "--", "--project", slug];
+    case "scorm2004":
+      return ["run", "export:scorm", "--", "--project", slug, "--version", "2004"];
+    case "scorm12":
+      return ["run", "export:scorm", "--", "--project", slug, "--version", "1.2"];
     case "html":
       return ["run", "export:html", "--", "--project", slug];
     default:

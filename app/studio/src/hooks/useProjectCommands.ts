@@ -15,6 +15,8 @@ export function useProjectCommands({ selectedSlug, refreshProjects }: UseProject
     verify: "idle",
     export: "idle",
     package: "idle",
+    scorm2004: "idle",
+    scorm12: "idle",
     html: "idle"
   });
   const [commandLog, setCommandLog] = useState("");
@@ -69,7 +71,15 @@ export function useProjectCommands({ selectedSlug, refreshProjects }: UseProject
       }
 
       setCommandBanner(`${command} completed for ${selectedSlug}.`);
-      if (command === "analyze" || command === "refs" || command === "export" || command === "package" || command === "html") {
+      if (
+        command === "analyze" ||
+        command === "refs" ||
+        command === "export" ||
+        command === "package" ||
+        command === "scorm2004" ||
+        command === "scorm12" ||
+        command === "html"
+      ) {
         await refreshProjects();
       }
     } catch (error) {

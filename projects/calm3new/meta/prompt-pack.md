@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: calm3new
-- Generated: 2026-03-10T21:03:51.107Z
+- Generated: 2026-03-11T17:06:39.941Z
 
 ## Rules
 
@@ -13,7 +13,7 @@
 ## Intelligence Policy
 
 - Mode: collect
-- Policy source: env-override
+- Policy source: project-override
 - Collect pattern bank: on
 - Collect memory ledger: on
 - Apply pattern bank to prompt pack: off
@@ -26,7 +26,7 @@
 {
   "id": "0d218bb6-0368-4c7d-a585-0fde793c4c4f",
   "slug": "calm3new",
-  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\processed\\calm3new\\source",
+  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\processed\\calm3new\\source",
   "inputKind": "html",
   "brightspaceTarget": "course-page",
   "previewModes": [
@@ -37,10 +37,10 @@
   "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\calm3new\\raw\\original.html",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-03-10T21:03:50.939Z",
+  "learningUpdatedAt": "2026-03-11T17:06:39.860Z",
   "createdAt": "2026-03-09T21:53:29.563Z",
-  "updatedAt": "2026-03-10T21:03:50.939Z",
-  "workspaceApprovedAt": "2026-03-10T21:03:50.939Z"
+  "updatedAt": "2026-03-11T17:06:39.860Z",
+  "workspaceApprovedAt": "2026-03-11T17:06:39.860Z"
 }
 ```
 

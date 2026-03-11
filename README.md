@@ -30,8 +30,10 @@ Repo-level intelligence defaults live in `config/intelligence.json`. Project-spe
 - `npm.cmd run assessment:import -- --input "<file-or-dir>" [--slug <assessment-slug>]`
 - `npm.cmd run assessment:export -- --assessment <assessment-slug>`
 - `npm.cmd run test:assessments`
+- `npm.cmd run test:scorm`
 - `npm.cmd run export:brightspace -- --project <slug>`
 - `npm.cmd run export:brightspace:zip -- --project <slug>`
+- `npm.cmd run export:scorm -- --project <slug> [--version 2004|1.2]`
 - `npm.cmd run export:html -- --project <slug>`
 - `npm.cmd run smoke:pipeline`
 - `npm.cmd run typecheck`
@@ -50,6 +52,13 @@ Repo-level intelligence defaults live in `config/intelligence.json`. Project-spe
 9. Run `blueprint`, `assessment-map`, and `lesson-packets` to build outline-first planning artifacts before generation-heavy work
 10. Run export commands as needed
 11. Capture a handoff before stopping
+
+### SCORM Export Notes
+
+- `export:scorm` writes a SCORM package to `projects/<slug>/exports/<slug>-scorm-<version>.zip`
+- It also writes an unpacked folder to `projects/<slug>/exports/scorm-2004/` or `projects/<slug>/exports/scorm-1-2/`
+- SCORM 2004 is the recommended default for larger suspend-data payloads
+- The SCORM export injects a bridge script that syncs workspace localStorage state into `cmi.suspend_data`
 
 ## Planning Workflow
 

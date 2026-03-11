@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: calm-module-2-activites-reference
-- Generated: 2026-03-10T14:18:24.583Z
+- Generated: 2026-03-11T16:54:42.668Z
 
 ## Rules
 
@@ -26,7 +26,7 @@
 {
   "id": "e3de5d41-f060-42d8-8608-ebad84c5620c",
   "slug": "calm-module-2-activites-reference",
-  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\processed\\calm-module-2-activites-reference\\source",
+  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\processed\\calm-module-2-activites-reference\\source",
   "inputKind": "html",
   "brightspaceTarget": "course-page",
   "previewModes": [
@@ -37,10 +37,10 @@
   "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\calm-module-2-activites-reference\\raw\\original.html",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-03-10T14:18:24.519Z",
+  "learningUpdatedAt": "2026-03-11T16:54:42.630Z",
   "createdAt": "2026-03-09T21:37:52.321Z",
-  "updatedAt": "2026-03-10T14:18:24.519Z",
-  "workspaceApprovedAt": "2026-03-10T14:18:24.519Z"
+  "updatedAt": "2026-03-11T16:54:42.630Z",
+  "workspaceApprovedAt": "2026-03-11T16:54:42.630Z"
 }
 ```
 
@@ -57,7 +57,7 @@
 
 ### <!DOCTYPE html> <html lang="en"> <head> (textbook)
 - Authority: supporting-only
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\calm-module-2-activites-reference\original-source.txt
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\calm-module-2-activites-reference\original-source.txt
 - Extraction: indexed via native
 - Chunks: 49
 - Signals: text:what-is
@@ -160,7 +160,7 @@ disabled by intelligence policy (collect)
 ## Reference Excerpts
 
 ### original-source-txt (txt/textbook)
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\calm-module-2-activites-reference\original-source.txt
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\calm-module-2-activites-reference\original-source.txt
 
 ```text
 <!DOCTYPE html>

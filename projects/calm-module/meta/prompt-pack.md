@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: calm-module
-- Generated: 2026-03-10T14:18:24.455Z
+- Generated: 2026-03-11T17:15:17.800Z
 
 ## Rules
 
@@ -26,7 +26,7 @@
 {
   "id": "cb6efd51-9046-430f-a9e1-0f8fd3fd6621",
   "slug": "calm-module",
-  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\processed\\calm-module\\source",
+  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\processed\\calm-module\\source",
   "inputKind": "html",
   "brightspaceTarget": "course-page",
   "previewModes": [
@@ -37,10 +37,10 @@
   "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\calm-module\\raw\\original.html",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-03-10T14:18:24.321Z",
+  "learningUpdatedAt": "2026-03-11T17:15:17.719Z",
   "createdAt": "2026-03-06T02:06:47.139Z",
-  "updatedAt": "2026-03-10T14:18:24.321Z",
-  "workspaceApprovedAt": "2026-03-10T14:18:24.321Z"
+  "updatedAt": "2026-03-11T17:15:17.719Z",
+  "workspaceApprovedAt": "2026-03-11T17:15:17.719Z"
 }
 ```
 
@@ -57,7 +57,7 @@
 
 ### CALM MODULE ONE – PERONSAL CHOICES OUTREACH PROGRAMS – REVISED 2018 (outline)
 - Authority: blueprint-authoritative
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\calm-module\CALM Module 1 - Personal Choices.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\calm-module\CALM Module 1 - Personal Choices.pdf
 - Extraction: indexed via native
 - Chunks: 32
 - Signals: text:outcomes, text:section-heading
@@ -186,7 +186,7 @@ disabled by intelligence policy (collect)
 ## Reference Excerpts
 
 ### calm-module-1-personal-choices-pdf (pdf/outline)
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\calm-module\CALM Module 1 - Personal Choices.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\calm-module\CALM Module 1 - Personal Choices.pdf
 
 ```text
 CALM MODULE ONE – PERONSAL CHOICES

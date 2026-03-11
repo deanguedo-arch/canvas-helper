@@ -40,7 +40,15 @@ export type ReferenceTarget = {
   resourcePath: string;
 };
 
-export type StudioCommandName = "analyze" | "refs" | "verify" | "export" | "package" | "html";
+export type StudioCommandName =
+  | "analyze"
+  | "refs"
+  | "verify"
+  | "export"
+  | "package"
+  | "scorm2004"
+  | "scorm12"
+  | "html";
 export type StudioCommandStatus = "idle" | "running" | "success" | "error";
 
 export type StudioCommandResult = {
@@ -159,6 +167,8 @@ export const STUDIO_COMMANDS: Array<{ id: StudioCommandName; label: string }> = 
   { id: "verify", label: "Verify" },
   { id: "export", label: "Export Dir" },
   { id: "package", label: "Package" },
+  { id: "scorm2004", label: "SCORM 2004" },
+  { id: "scorm12", label: "SCORM 1.2" },
   { id: "html", label: "HTML" }
 ];
 

@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: calmmodule3
-- Generated: 2026-03-10T14:18:25.242Z
+- Generated: 2026-03-11T16:54:43.199Z
 
 ## Rules
 
@@ -26,7 +26,7 @@
 {
   "id": "d5c08208-2069-407b-9f2f-95898ecef629",
   "slug": "calmmodule3",
-  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\processed\\calmmodule3\\source",
+  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\processed\\calmmodule3\\source",
   "inputKind": "html",
   "brightspaceTarget": "course-page",
   "previewModes": [
@@ -37,10 +37,10 @@
   "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\calmmodule3\\raw\\original.html",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-03-10T14:18:25.186Z",
+  "learningUpdatedAt": "2026-03-11T16:54:43.161Z",
   "createdAt": "2026-03-09T21:26:02.882Z",
-  "updatedAt": "2026-03-10T14:18:25.186Z",
-  "workspaceApprovedAt": "2026-03-10T14:18:25.186Z"
+  "updatedAt": "2026-03-11T16:54:43.161Z",
+  "workspaceApprovedAt": "2026-03-11T16:54:43.161Z"
 }
 ```
 
@@ -57,14 +57,14 @@
 
 ### Career and Life Management MODULE 3 Career and Life Choices (outline)
 - Authority: blueprint-authoritative
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\calmmodule3\CALM Module 3  - Career and Life Choices.docx
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\calmmodule3\CALM Module 3  - Career and Life Choices.docx
 - Extraction: indexed via native
 - Chunks: 80
 - Signals: text:objectives, text:outcomes, text:what-is
 
 ### killfkh Career and Life (outline)
 - Authority: blueprint-authoritative
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\calmmodule3\CALM Module 3  - Career and Life Choices.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\calmmodule3\CALM Module 3  - Career and Life Choices.pdf
 - Extraction: indexed via native
 - Chunks: 48
 - Signals: text:objectives, text:outcomes, text:what-is
@@ -165,14 +165,14 @@ disabled by intelligence policy (collect)
 ## Reference Excerpts
 
 ### calm-module-3-career-and-life-choices-docx (docx/outline)
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\calmmodule3\CALM Module 3  - Career and Life Choices.docx
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\calmmodule3\CALM Module 3  - Career and Life Choices.docx
 
 ```text
 Career and Life Management
 ```
 
 ### calm-module-3-career-and-life-choices-pdf (pdf/outline)
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\calmmodule3\CALM Module 3  - Career and Life Choices.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\calmmodule3\CALM Module 3  - Career and Life Choices.pdf
 
 ```text
 nextstepfortsaskatchewansherwoodpa

@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: genpsy-studio
-- Generated: 2026-03-10T14:18:39.008Z
+- Generated: 2026-03-11T16:55:18.433Z
 
 ## Rules
 
@@ -26,7 +26,7 @@
 {
   "id": "3aae29ea-522e-4780-a1e9-f62a5ead7f84",
   "slug": "genpsy-studio",
-  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\processed\\genpsy-studio\\source",
+  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\processed\\genpsy-studio\\source",
   "inputKind": "html",
   "brightspaceTarget": "course-page",
   "previewModes": [
@@ -37,10 +37,10 @@
   "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\genpsy-studio\\raw\\original.html",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-03-10T14:18:38.959Z",
+  "learningUpdatedAt": "2026-03-11T16:55:18.383Z",
   "createdAt": "2026-03-06T19:03:24.663Z",
-  "updatedAt": "2026-03-10T14:18:38.959Z",
-  "workspaceApprovedAt": "2026-03-10T14:18:38.959Z"
+  "updatedAt": "2026-03-11T16:55:18.383Z",
+  "workspaceApprovedAt": "2026-03-11T16:55:18.383Z"
 }
 ```
 
@@ -57,56 +57,56 @@
 
 ### Copy of Personal Psychology 20 Unit 1 (textbook)
 - Authority: supporting-only
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\genpsy-studio\Copy of Personal Psychology 20 Unit 1.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\genpsy-studio\Copy of Personal Psychology 20 Unit 1.pdf
 - Extraction: failed
 - Chunks: 0
 - Signals: filename:unit
 
 ### Copy of Personal Psychology 20 Unit 2 (textbook)
 - Authority: supporting-only
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\genpsy-studio\Copy of Personal Psychology 20 Unit 2.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\genpsy-studio\Copy of Personal Psychology 20 Unit 2.pdf
 - Extraction: failed
 - Chunks: 0
 - Signals: filename:unit
 
 ### Copy of Personal Psychology 20 Unit 3 (textbook)
 - Authority: supporting-only
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\genpsy-studio\Copy of Personal Psychology 20 Unit 3.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\genpsy-studio\Copy of Personal Psychology 20 Unit 3.pdf
 - Extraction: failed
 - Chunks: 0
 - Signals: filename:unit
 
 ### Copy of Personal Psychology 20 Unit 4 (textbook)
 - Authority: supporting-only
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\genpsy-studio\Copy of Personal Psychology 20 Unit 4.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\genpsy-studio\Copy of Personal Psychology 20 Unit 4.pdf
 - Extraction: failed
 - Chunks: 0
 - Signals: filename:unit
 
 ### Copy of Personal Psychology 20 Unit 5 (textbook)
 - Authority: supporting-only
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\genpsy-studio\Copy of Personal Psychology 20 Unit 5.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\genpsy-studio\Copy of Personal Psychology 20 Unit 5.pdf
 - Extraction: failed
 - Chunks: 0
 - Signals: filename:unit
 
 ### Copy of Personal Psychology 20 Unit 6 (textbook)
 - Authority: supporting-only
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\genpsy-studio\Copy of Personal Psychology 20 Unit 6.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\genpsy-studio\Copy of Personal Psychology 20 Unit 6.pdf
 - Extraction: failed
 - Chunks: 0
 - Signals: filename:unit
 
 ### Copy of Personal Psychology 20 Unit 7 (textbook)
 - Authority: supporting-only
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\genpsy-studio\Copy of Personal Psychology 20 Unit 7.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\genpsy-studio\Copy of Personal Psychology 20 Unit 7.pdf
 - Extraction: failed
 - Chunks: 0
 - Signals: filename:unit
 
 ### General Psychology 20 Over view (outline)
 - Authority: blueprint-authoritative
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\genpsy-studio\GenPsychOverview.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\genpsy-studio\GenPsychOverview.pdf
 - Extraction: indexed via native
 - Chunks: 34
 - Signals: filename:overview, text:objectives, text:table-of-contents, text:assessment, text:assignment-booklet
@@ -285,7 +285,7 @@ disabled by intelligence policy (collect)
 ## Reference Excerpts
 
 ### perpsy20ab01key-pdf (pdf/assessment)
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\genpsy-studio\PerPsy20AB01Key.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\genpsy-studio\PerPsy20AB01Key.pdf
 
 ```text
 FOR STUDENT USE ONLY
@@ -322,7 +322,7 @@ KEY
 ```
 
 ### perpsy20ab02key-pdf (pdf/assessment)
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\genpsy-studio\PerPsy20AB02Key.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\genpsy-studio\PerPsy20AB02Key.pdf
 
 ```text
 ALBERTA  DISTANCE  LEARNING  CENTRE
@@ -379,7 +379,7 @@ Revised January 2015
 ```
 
 ### perpsy20ab03key-pdf (pdf/assessment)
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\genpsy-studio\PerPsy20AB03Key.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\genpsy-studio\PerPsy20AB03Key.pdf
 
 ```text
 ALBERTA  DISTANCE  LEARNING  CENTRE
@@ -436,7 +436,7 @@ Revised January 2015
 ```
 
 ### perpsy20ab04key-pdf (pdf/assessment)
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\genpsy-studio\PerPsy20AB04Key.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\genpsy-studio\PerPsy20AB04Key.pdf
 
 ```text
 ALBERTA  DISTANCE  LEARNING  CENTRE
@@ -493,7 +493,7 @@ Revised January 2015
 ```
 
 ### perpsy20ab05key-pdf (pdf/assessment)
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\genpsy-studio\PerPsy20AB05Key.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\genpsy-studio\PerPsy20AB05Key.pdf
 
 ```text
 ALBERTA  DISTANCE  LEARNING  CENTRE
@@ -550,7 +550,7 @@ Revised January 2015
 ```
 
 ### perpsy20ab06key-pdf (pdf/assessment)
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\genpsy-studio\PerPsy20AB06Key.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\genpsy-studio\PerPsy20AB06Key.pdf
 
 ```text
 ALBERTA  DISTANCE  LEARNING  CENTRE
@@ -607,7 +607,7 @@ Revised January 2015
 ```
 
 ### perpsy20ab07key-pdf (pdf/assessment)
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\genpsy-studio\PerPsy20AB07Key.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\genpsy-studio\PerPsy20AB07Key.pdf
 
 ```text
 ALBERTA  DISTANCE  LEARNING  CENTRE
@@ -664,7 +664,7 @@ Revised January 2015
 ```
 
 ### genpsychoverview-pdf (pdf/outline)
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\genpsy-studio\GenPsychOverview.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\genpsy-studio\GenPsychOverview.pdf
 
 ```text
 General Psychology 20

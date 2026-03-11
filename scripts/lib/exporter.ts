@@ -9,6 +9,15 @@ import { copyDirectory, ensureDir, fileExists, listFilesRecursive, removePath, w
 import { refreshProjectIntelligence } from "./intelligence.js";
 import { getProjectPaths } from "./paths.js";
 import { loadProjectManifest } from "./projects.js";
+import {
+  buildScormBridgeScript,
+  buildScormManifest,
+  findStorageKeysInScriptSources,
+  getScormExportLabel,
+  getScormZipLabel,
+  injectScormBridgeTag,
+  type ScormVersion
+} from "./scorm.js";
 
 function unique(values: string[]) {
   return [...new Set(values)];
@@ -298,6 +307,21 @@ async function createZipFromDirectory(sourceDir: string, destinationZipPath: str
   }
 }
 
+function toRelativePosixPath(baseDir: string, absolutePath: string) {
+  return path.relative(baseDir, absolutePath).split(path.sep).join("/");
+}
+
+async function detectStorageKeysFromWorkspace(workspaceDir: string, fallbackKey: string) {
+  const workspaceFiles = await listFilesRecursive(workspaceDir);
+  const scriptFiles = workspaceFiles.filter((filePath) => {
+    const ext = path.extname(filePath).toLowerCase();
+    return ext === ".js" || ext === ".mjs" || ext === ".cjs";
+  });
+
+  const scriptSources = await Promise.all(scriptFiles.map((filePath) => readFile(filePath, "utf8")));
+  return findStorageKeysInScriptSources(scriptSources, fallbackKey);
+}
+
 export async function exportProjectToBrightspace(projectSlug: string) {
   const manifest = await loadProjectManifest(projectSlug);
   const paths = getProjectPaths(projectSlug);
@@ -356,6 +380,71 @@ export async function exportProjectToBrightspacePackage(projectSlug: string) {
   return {
     ...brightspaceExport,
     zipPath
+  };
+}
+
+export async function exportProjectToScormPackage(projectSlug: string, version: ScormVersion = "2004") {
+  const manifest = await loadProjectManifest(projectSlug);
+  const paths = getProjectPaths(projectSlug);
+  if (!(await fileExists(paths.workspaceEntrypoint))) {
+    throw new Error(`Workspace entrypoint not found for "${projectSlug}".`);
+  }
+
+  const exportLabel = getScormExportLabel(version);
+  const zipLabel = getScormZipLabel(version);
+  const scormExportDir = path.join(paths.exportsDir, exportLabel);
+  const workspaceEntrypointRelative = toRelativePosixPath(paths.workspaceDir, paths.workspaceEntrypoint);
+  const scormEntrypointPath = path.join(scormExportDir, ...workspaceEntrypointRelative.split("/"));
+  const bridgeRelativePath = "./scorm-bridge.js";
+  const bridgeAbsolutePath = path.join(scormExportDir, "scorm-bridge.js");
+
+  await removePath(scormExportDir);
+  await ensureDir(scormExportDir);
+  await copyDirectory(paths.workspaceDir, scormExportDir);
+
+  if (!(await fileExists(scormEntrypointPath))) {
+    throw new Error(
+      `Workspace entrypoint "${workspaceEntrypointRelative}" was not copied into SCORM export for "${projectSlug}".`
+    );
+  }
+
+  const storageKeys = await detectStorageKeysFromWorkspace(scormExportDir, `${projectSlug}::workspace-state::v1`);
+  const bridgeScript = buildScormBridgeScript({
+    projectSlug,
+    storageKeys,
+    version
+  });
+
+  await writeTextFile(bridgeAbsolutePath, bridgeScript);
+
+  const entrypointHtml = await readFile(scormEntrypointPath, "utf8");
+  const entrypointWithBridge = injectScormBridgeTag(entrypointHtml, bridgeRelativePath);
+  await writeTextFile(scormEntrypointPath, entrypointWithBridge);
+
+  const packageFiles = await listFilesRecursive(scormExportDir);
+  const packageFilePaths = packageFiles.map((filePath) => toRelativePosixPath(scormExportDir, filePath));
+  const scormManifest = buildScormManifest({
+    identifier: `${projectSlug}-${zipLabel}`,
+    title: manifest.slug,
+    entrypoint: workspaceEntrypointRelative,
+    files: packageFilePaths,
+    version
+  });
+
+  await writeTextFile(path.join(scormExportDir, "imsmanifest.xml"), scormManifest);
+
+  const finalFiles = await listFilesRecursive(scormExportDir);
+  const zipPath = path.join(paths.exportsDir, `${projectSlug}-${zipLabel}.zip`);
+  await createZipFromDirectory(scormExportDir, zipPath);
+  await refreshProjectIntelligence(projectSlug, { markWorkspaceApproved: true, command: "export" });
+
+  return {
+    projectSlug,
+    version,
+    fileCount: finalFiles.length,
+    exportDir: scormExportDir,
+    zipPath,
+    storageKeys
   };
 }
 

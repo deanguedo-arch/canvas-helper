@@ -2,7 +2,7 @@
 
 ## What This Repo Is
 
-Canvas Helper is a local-first course-content workbench. It imports Canvas-generated HTML or bundle folders, preserves a raw baseline, creates an editable workspace copy, serves both views locally in Studio, and runs Node-based project commands for analyze, refs, export, packaging, and handoff support.
+Canvas Helper is a local-first course-content workbench. It imports Canvas-generated HTML or bundle folders, preserves a raw baseline, creates an editable workspace copy, serves both views locally in Studio, and runs Node-based project commands for analyze, refs, export, SCORM packaging, and handoff support.
 
 ## Why Local-First
 
@@ -124,6 +124,7 @@ The intelligence system is split into explicit layers:
 - Studio preview
 - local command execution
 - Brightspace export/package
+- SCORM 2004 / 1.2 package export with suspend-data bridge
 - prompt-pack generation
 - memory ledger and pattern-bank collection
 
