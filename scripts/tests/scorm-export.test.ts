@@ -87,3 +87,17 @@ test("buildScormBridgeScript targets the expected SCORM API", () => {
   assert.match(bridge12, /LMSInitialize/);
   assert.match(bridge12, /"maxSuspendChars":3500/);
 });
+
+test("buildScormBridgeScript emits explicit suspend and save-exit flow", () => {
+  const bridge2004 = buildScormBridgeScript({
+    projectSlug: "calm3new",
+    storageKeys: ["calm3new::workspace-state::v1"],
+    version: "2004"
+  });
+
+  assert.match(bridge2004, /cmi\.completion_status/);
+  assert.match(bridge2004, /cmi\.exit/);
+  assert.match(bridge2004, /suspend/);
+  assert.match(bridge2004, /saveAndExit/);
+  assert.match(bridge2004, /Save and Exit/);
+});

@@ -206,11 +206,23 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
 
   const config = ${JSON.stringify(config)};
   const trackedKeySet = new Set(config.storageKeys);
+  const statusModel = config.version === "2004"
+    ? {
+        completionKey: "cmi.completion_status",
+        exitKey: "cmi.exit",
+        incompleteValue: "incomplete"
+      }
+    : {
+        completionKey: "cmi.core.lesson_status",
+        exitKey: "cmi.core.exit",
+        incompleteValue: "incomplete"
+      };
   let api = null;
   let initialized = false;
   let terminated = false;
   let saveTimer = null;
   let localStoragePatched = false;
+  let controlHost = null;
 
   function logWarning(message) {
     try {
@@ -342,6 +354,11 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
     };
   }
 
+  function shouldInitializeIncompleteStatus(value) {
+    const normalized = String(value || "").trim().toLowerCase();
+    return !normalized || normalized === "not attempted" || normalized === "unknown";
+  }
+
   function applyStateToLocalStorage(state) {
     if (!state || typeof state !== "object" || !state.values || typeof state.values !== "object") {
       return;
@@ -359,9 +376,41 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
     }
   }
 
-  function flushToLms(reason) {
+  function ensureCompletionStatus() {
     if (!api || !initialized) {
+      return true;
+    }
+
+    const currentValue = api.getValue(statusModel.completionKey);
+    if (!shouldInitializeIncompleteStatus(currentValue)) {
+      return true;
+    }
+
+    if (!api.setValue(statusModel.completionKey, statusModel.incompleteValue)) {
+      logWarning("Failed to write " + statusModel.completionKey + ".");
+      return false;
+    }
+
+    return true;
+  }
+
+  function announceStatus(message, isError) {
+    if (!controlHost) {
       return;
+    }
+
+    const statusNode = controlHost.querySelector("[data-scorm-status]");
+    if (!statusNode) {
+      return;
+    }
+
+    statusNode.textContent = message;
+    statusNode.style.color = isError ? "#b91c1c" : "#334155";
+  }
+
+  function persistToLms(reason, exitValue) {
+    if (!api || !initialized || terminated) {
+      return false;
     }
 
     const payload = collectStateFromLocalStorage();
@@ -370,15 +419,71 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
 
     if (serialized.length > config.maxSuspendChars) {
       logWarning("State payload exceeded suspend_data budget; skipping save.");
-      return;
+      return false;
+    }
+
+    if (!ensureCompletionStatus()) {
+      return false;
     }
 
     if (!api.setValue("cmi.suspend_data", serialized)) {
       logWarning("Failed to write cmi.suspend_data.");
-      return;
+      return false;
     }
 
-    api.commit();
+    if (exitValue && !api.setValue(statusModel.exitKey, exitValue)) {
+      logWarning("Failed to write " + statusModel.exitKey + ".");
+      return false;
+    }
+
+    if (!api.commit()) {
+      logWarning("Failed to commit SCORM data.");
+      return false;
+    }
+
+    return true;
+  }
+
+  function save() {
+    if (saveTimer) {
+      window.clearTimeout(saveTimer);
+      saveTimer = null;
+    }
+
+    const saved = persistToLms("manual-save");
+    announceStatus(saved ? "Progress saved." : "Save failed. Try again before closing.");
+    return saved;
+  }
+
+  function saveAndExit() {
+    if (!api || !initialized || terminated) {
+      return false;
+    }
+
+    if (saveTimer) {
+      window.clearTimeout(saveTimer);
+      saveTimer = null;
+    }
+
+    const saved = persistToLms("save-and-exit", "suspend");
+    if (!saved) {
+      announceStatus("Save failed. Keep this tab open and try again.", true);
+      return false;
+    }
+
+    api.terminate();
+    terminated = true;
+    announceStatus("Progress saved. Close this tab or window to return to Brightspace.");
+
+    const exitButton = controlHost ? controlHost.querySelector("[data-scorm-save-exit]") : null;
+    if (exitButton) {
+      exitButton.textContent = "Saved";
+      exitButton.setAttribute("disabled", "disabled");
+      exitButton.style.opacity = "0.7";
+      exitButton.style.cursor = "default";
+    }
+
+    return true;
   }
 
   function scheduleFlush(reason) {
@@ -391,7 +496,7 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
     }
 
     saveTimer = window.setTimeout(function () {
-      flushToLms(reason);
+      persistToLms(reason);
     }, 500);
   }
 
@@ -405,9 +510,56 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
       saveTimer = null;
     }
 
-    flushToLms("terminate");
+    persistToLms("terminate", "suspend");
     api.terminate();
     terminated = true;
+  }
+
+  function installControls() {
+    if (controlHost || !document.body) {
+      return;
+    }
+
+    controlHost = document.createElement("div");
+    controlHost.setAttribute("data-scorm-controls", "true");
+    controlHost.setAttribute("aria-live", "polite");
+    controlHost.style.position = "fixed";
+    controlHost.style.right = "16px";
+    controlHost.style.bottom = "16px";
+    controlHost.style.zIndex = "2147483647";
+    controlHost.style.display = "flex";
+    controlHost.style.alignItems = "center";
+    controlHost.style.gap = "12px";
+    controlHost.style.padding = "12px 14px";
+    controlHost.style.borderRadius = "14px";
+    controlHost.style.background = "rgba(15, 23, 42, 0.92)";
+    controlHost.style.boxShadow = "0 16px 40px rgba(15, 23, 42, 0.28)";
+    controlHost.style.fontFamily = "Inter, Arial, sans-serif";
+
+    const statusNode = document.createElement("div");
+    statusNode.setAttribute("data-scorm-status", "true");
+    statusNode.textContent = "Use Save and Exit before closing.";
+    statusNode.style.color = "#e2e8f0";
+    statusNode.style.fontSize = "12px";
+    statusNode.style.lineHeight = "1.4";
+
+    const exitButton = document.createElement("button");
+    exitButton.type = "button";
+    exitButton.setAttribute("data-scorm-save-exit", "true");
+    exitButton.textContent = "Save and Exit";
+    exitButton.style.border = "0";
+    exitButton.style.borderRadius = "999px";
+    exitButton.style.background = "#f8fafc";
+    exitButton.style.color = "#0f172a";
+    exitButton.style.fontWeight = "700";
+    exitButton.style.fontSize = "12px";
+    exitButton.style.padding = "10px 14px";
+    exitButton.style.cursor = "pointer";
+    exitButton.addEventListener("click", saveAndExit);
+
+    controlHost.appendChild(statusNode);
+    controlHost.appendChild(exitButton);
+    document.body.appendChild(controlHost);
   }
 
   function patchLocalStorage() {
@@ -459,14 +611,20 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
       applyStateToLocalStorage(parsedState);
     }
 
+    ensureCompletionStatus();
     patchLocalStorage();
+    installControls();
+    window.__canvasHelperScorm = {
+      save: save,
+      saveAndExit: saveAndExit
+    };
     scheduleFlush("init");
 
     window.addEventListener("beforeunload", terminateSession);
     window.addEventListener("pagehide", terminateSession);
     document.addEventListener("visibilitychange", function () {
       if (document.visibilityState === "hidden") {
-        flushToLms("visibility-hidden");
+        persistToLms("visibility-hidden");
       }
     });
 
