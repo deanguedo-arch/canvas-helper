@@ -1,6 +1,6 @@
 # Canvas Helper
 
-Canvas Helper is a local-first Node-powered workbench for importing Canvas course content, preserving immutable raw baselines, editing workspace copies, previewing them in a browser Studio, and exporting Brightspace-ready deliverables.
+Canvas Helper is a local-first Node-powered workbench for importing Canvas course content, preserving immutable raw baselines, editing workspace copies, previewing them in a browser Studio, and exporting Brightspace, SCORM, and Google-hosted deliverables.
 
 Repo-level intelligence defaults live in `config/intelligence.json`. Project-specific overrides can live in `projects/<slug>/meta/intelligence-policy.json` and/or `projects/<slug>/meta/project.json`.
 
@@ -31,9 +31,12 @@ Repo-level intelligence defaults live in `config/intelligence.json`. Project-spe
 - `npm.cmd run assessment:export -- --assessment <assessment-slug>`
 - `npm.cmd run test:assessments`
 - `npm.cmd run test:scorm`
+- `npm.cmd run test:google-hosted`
+- `npm.cmd run test:exports`
 - `npm.cmd run export:brightspace -- --project <slug>`
 - `npm.cmd run export:brightspace:zip -- --project <slug>`
 - `npm.cmd run export:scorm -- --project <slug> [--version 2004|1.2]`
+- `npm.cmd run export:google-hosted -- --project <slug>`
 - `npm.cmd run export:html -- --project <slug>`
 - `npm.cmd run smoke:pipeline`
 - `npm.cmd run typecheck`
@@ -59,6 +62,19 @@ Repo-level intelligence defaults live in `config/intelligence.json`. Project-spe
 - It also writes an unpacked folder to `projects/<slug>/exports/scorm-2004/` or `projects/<slug>/exports/scorm-1-2/`
 - SCORM 2004 is the recommended default for larger suspend-data payloads
 - The SCORM export injects a bridge script that syncs workspace localStorage state into `cmi.suspend_data`
+- Export commands now only mark the workspace as approved in `project.json`; they do not regenerate prompt-pack or other intelligence artifacts unless you run the intelligence-producing commands explicitly
+
+### Google Hosted Export Notes
+
+- `export:google-hosted` writes a Firebase-ready bundle to `projects/<slug>/exports/google-hosted/`
+- The bundle includes `google-hosted-bridge.js`, `firebase-config.template.json`, `firebase.json`, `.firebaserc.template`, and `README-deploy.md`
+- The runtime bridge prompts the learner to sign in with Google and syncs tracked workspace localStorage state to Firestore at `projects/{slug}/users/{uid}`
+- The repo generates the hosted bundle only; Firebase project setup and deployment remain manual teacher or admin steps outside the repo
+
+## Fast Agent Paths
+
+- Use [docs/ops/FAST_PATHS.md](docs/ops/FAST_PATHS.md) to keep agent retrieval narrow for common tasks
+- Repo-wide or multi-project continuation work should resume from `docs/ops/ACTIVE_HANDOFF.md`
 
 ## Planning Workflow
 

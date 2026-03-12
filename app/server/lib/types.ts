@@ -1,12 +1,4 @@
-export type StudioCommandName =
-  | "analyze"
-  | "refs"
-  | "verify"
-  | "export"
-  | "package"
-  | "scorm2004"
-  | "scorm12"
-  | "html";
+export type { StudioCommandName } from "../../shared/studio-commands.js";
 
 export type SessionLogPayload = {
   savedAt?: string;

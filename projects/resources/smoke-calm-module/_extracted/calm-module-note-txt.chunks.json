@@ -1,0 +1,1876 @@
+{
+  "projectId": "f5b1531c-2850-4719-83f0-6a6449d47138",
+  "referenceId": "calm-module-note-txt",
+  "generatedAt": "2026-03-12T12:24:16.415Z",
+  "chunks": [
+    {
+      "id": "doctype-html-html-lang-en-head-1",
+      "index": 1,
+      "locator": {
+        "kind": "section",
+        "label": "<!DOCTYPE html> <html lang=\"en\"> <head>",
+        "sectionHeading": "<!DOCTYPE html> <html lang=\"en\"> <head>"
+      },
+      "text": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>CALM Module 1 Workbook</title>\n\n<!-- Tailwind CSS for Styling -->\n    <script src=\"https://cdn.tailwindcss.com\"></script>\n\n<!-- FontAwesome for Icons -->\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css\">\n\n<!-- React & ReactDOM (Development versions for better error handling) -->\n    <script src=\"https://unpkg.com/react@18/umd/react.development.js\"></script>\n    <script src=\"https://unpkg.com/react-dom@18/umd/react-dom.development.js\"></script>\n\n<!-- Babel (Translates the code to work in the browser) -->\n    <script src=\"https://unpkg.com/@babel/standalone/babel.min.js\"></script>\n\n<!-- Canvas Confetti -->\n    <script src=\"https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js\"></script>\n</head>\n<body class=\"bg-[#f1f5f9]\">\n    <div id=\"root\"></div>\n\n<script type=\"text/babel\" data-presets=\"react,env\">\n        const { useState, useEffect, useMemo, useRef } = React;",
+      "titleGuess": "<!DOCTYPE html> <html lang=\"en\"> <head>",
+      "keywordHints": [
+        "script",
+        "react",
+        "https",
+        "babel",
+        "confetti",
+        "development",
+        "unpkg",
+        "browser"
+      ]
+    },
+    {
+      "id": "shared-ui-components-2",
+      "index": 2,
+      "locator": {
+        "kind": "section",
+        "label": "// --- SHARED UI COMPONENTS ---",
+        "sectionHeading": "// --- SHARED UI COMPONENTS ---"
+      },
+      "text": "const Card = ({ children, className = '' }) => (\n          <div className={`bg-white rounded-[2rem] p-6 md:p-10 mb-8 border-2 border-slate-100 shadow-[0_8px_0_0_#e2e8f0,0_15px_40px_rgba(0,0,0,0.05)] transition-all duration-300 print:break-inside-avoid print:shadow-none print:border-slate-300 ${className}`}>\n            {children}\n          </div>\n        );\n\nconst SectionTitle = ({ children, subtitle }) => (\n          <div className=\"mb-10 text-center md:text-left print:break-after-avoid\">\n            <h2 className=\"text-3xl md:text-4xl font-black text-slate-800 tracking-tight\">\n              {children}\n            </h2>\n            {subtitle && (\n              <div className=\"mt-3 inline-block bg-violet-100 text-violet-700 px-4 py-1.5 rounded-full text-sm font-bold border-2 border-violet-200 print:border-none print:bg-transparent print:p-0 print:text-slate-600\">\n                {subtitle}\n              </div>\n            )}\n          </div>\n        );\n\nconst Label = ({ children, description }) => (\n          <div className=\"mb-2 mt-6 print:break-after-avoid\">\n            <label className=\"block text-base font-bold text-slate-700\">\n              {children}\n            </label>\n            {description && <p className=\"text-sm font-medium text-slate-500 mt-1\">{description}</p>}\n          </div>\n        );",
+      "titleGuess": "// --- SHARED UI COMPONENTS ---",
+      "keywordHints": [
+        "classname",
+        "print",
+        "border",
+        "children",
+        "slate",
+        "font",
+        "avoid",
+        "break"
+      ]
+    },
+    {
+      "id": "shared-ui-components-part-2-3",
+      "index": 3,
+      "locator": {
+        "kind": "section",
+        "label": "// --- SHARED UI COMPONENTS --- (Part 2)",
+        "sectionHeading": "// --- SHARED UI COMPONENTS ---"
+      },
+      "text": "const HintToggle = ({ example }) => {\n          const [isOpen, setIsOpen] = useState(false);\n          return (\n            <div className=\"mb-3 mt-1 print:hidden\">\n              <button\n                onClick={() => setIsOpen(!isOpen)}\n                className=\"text-xs font-black uppercase tracking-wider text-violet-500 hover:text-violet-700 transition-colors flex items-center bg-violet-50 px-3 py-1.5 rounded-xl border-2 border-violet-100 hover:border-violet-300 active:bg-violet-100\"\n              >\n                <i className=\"fa-solid fa-lightbulb w-4 h-4 mr-2\"></i>\n                {isOpen ? \"Hide Idea\" : \"Need an idea?\"}\n              </button>\n              <div className={`transition-all duration-300 overflow-hidden ${isOpen ? 'max-h-40 opacity-100 mt-2' : 'max-h-0 opacity-0'}`}>\n                <div className=\"p-4 bg-slate-50 text-slate-600 text-sm font-medium rounded-2xl border-2 border-slate-200 border-dashed\">\n                  <strong className=\"text-slate-800 block mb-1\">Example Answer:</strong>\n                  \"{example}\"\n                </div>\n              </div>\n            </div>\n          );\n        };",
+      "titleGuess": "// --- SHARED UI COMPONENTS ---",
+      "keywordHints": [
+        "border",
+        "classname",
+        "violet",
+        "isopen",
+        "slate",
+        "example",
+        "button",
+        "const"
+      ]
+    },
+    {
+      "id": "shared-ui-components-part-3-4",
+      "index": 4,
+      "locator": {
+        "kind": "section",
+        "label": "// --- SHARED UI COMPONENTS --- (Part 3)",
+        "sectionHeading": "// --- SHARED UI COMPONENTS ---"
+      },
+      "text": "const Input = ({ value, onChange, placeholder, type = \"text\" }) => (\n          <input\n            type={type}\n            value={value}\n            onChange={onChange}\n            placeholder={placeholder}\n            className=\"w-full bg-slate-50 border-2 border-slate-200 rounded-2xl px-5 py-4 text-slate-800 font-medium placeholder-slate-400 focus:bg-white focus:ring-4 focus:ring-violet-500/20 focus:border-violet-500 transition-all duration-200 outline-none hover:border-violet-300 print:bg-white print:border-slate-300 print:shadow-none\"\n          />\n        );\n\nconst Textarea = ({ value, onChange, placeholder, rows = 3 }) => {\n          const textareaRef = useRef(null);\n\nuseEffect(() => {\n            if (textareaRef.current) {\n              textareaRef.current.style.height = 'auto';\n              textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;\n            }\n          }, [value]);",
+      "titleGuess": "// --- SHARED UI COMPONENTS ---",
+      "keywordHints": [
+        "border",
+        "placeholder",
+        "slate",
+        "textarearef",
+        "value",
+        "current",
+        "focus",
+        "onchange"
+      ]
+    },
+    {
+      "id": "shared-ui-components-part-4-5",
+      "index": 5,
+      "locator": {
+        "kind": "section",
+        "label": "// --- SHARED UI COMPONENTS --- (Part 4)",
+        "sectionHeading": "// --- SHARED UI COMPONENTS ---"
+      },
+      "text": "return (\n            <textarea\n              ref={textareaRef}\n              value={value}\n              onChange={onChange}\n              placeholder={placeholder}\n              rows={rows}\n              className=\"w-full bg-slate-50 border-2 border-slate-200 rounded-2xl px-5 py-4 text-slate-800 font-medium placeholder-slate-400 focus:bg-white focus:ring-4 focus:ring-violet-500/20 focus:border-violet-500 transition-colors duration-200 outline-none hover:border-violet-300 resize-none leading-relaxed overflow-hidden print:bg-white print:border-slate-300 print:shadow-none\"\n            />\n          );\n        };",
+      "titleGuess": "// --- SHARED UI COMPONENTS ---",
+      "keywordHints": [
+        "border",
+        "slate",
+        "focus",
+        "none",
+        "placeholder",
+        "print",
+        "violet",
+        "onchange"
+      ]
+    },
+    {
+      "id": "shared-ui-components-part-5-6",
+      "index": 6,
+      "locator": {
+        "kind": "section",
+        "label": "// --- SHARED UI COMPONENTS --- (Part 5)",
+        "sectionHeading": "// --- SHARED UI COMPONENTS ---"
+      },
+      "text": "const PillRadioGroup = ({ options, name, value, onChange }) => (\n          <div className=\"flex flex-wrap gap-3 mt-3 mb-6 print:break-inside-avoid\">\n            {options.map((opt) => {\n              const isSelected = value === opt;\n              return (\n                <label\n                  key={opt}\n                  className={`\n                    cursor-pointer select-none inline-flex items-center px-5 py-3 rounded-2xl text-sm font-bold transition-all duration-200 border-2\n                    ${isSelected\n                      ? 'bg-violet-500 border-violet-600 text-white shadow-[0_4px_0_0_#5b21b6] translate-y-[-2px] print:bg-violet-100 print:text-violet-900 print:border-violet-400 print:shadow-none print:translate-y-0'\n                      : 'bg-white border-slate-200 text-slate-600 shadow-[0_4px_0_0_#e2e8f0] hover:border-violet-200 hover:text-violet-600 active:translate-y-[2px] active:shadow-none print:shadow-none'}\n                  `}\n                >\n                  <input\n                    type=\"radio\"\n                    name={name}\n                    value={opt}\n                    checked={isSelected}\n                    onChange={(e) => onChange(e.target.value)}\n                    className=\"sr-only\"\n                  />\n                  {opt}\n                </label>\n              )\n            })}\n          </div>\n        );",
+      "titleGuess": "// --- SHARED UI COMPONENTS ---",
+      "keywordHints": [
+        "print",
+        "violet",
+        "border",
+        "shadow",
+        "none",
+        "value",
+        "classname",
+        "flex"
+      ]
+    },
+    {
+      "id": "shared-ui-components-part-6-7",
+      "index": 7,
+      "locator": {
+        "kind": "section",
+        "label": "// --- SHARED UI COMPONENTS --- (Part 6)",
+        "sectionHeading": "// --- SHARED UI COMPONENTS ---"
+      },
+      "text": "const KnowledgeDrop = ({ title, children, defaultOpen = true, color = \"sky\" }) => {\n          const [isOpen, setIsOpen] = useState(defaultOpen);\n\nconst colorStyles = {\n            sky: \"bg-sky-50 border-sky-200 text-sky-900 shadow-[0_4px_0_0_#bae6fd]\",\n            amber: \"bg-amber-50 border-amber-200 text-amber-900 shadow-[0_4px_0_0_#fde68a]\",\n            emerald: \"bg-emerald-50 border-emerald-200 text-emerald-900 shadow-[0_4px_0_0_#a7f3d0]\",\n            rose: \"bg-rose-50 border-rose-200 text-rose-900 shadow-[0_4px_0_0_#fecdd3]\",\n            violet: \"bg-violet-50 border-violet-200 text-violet-900 shadow-[0_4px_0_0_#ddd6fe]\"\n          };\n\nconst iconColors = {\n            sky: \"bg-sky-200 text-sky-700\",\n            amber: \"bg-amber-200 text-amber-700\",\n            emerald: \"bg-emerald-200 text-emerald-700\",\n            rose: \"bg-rose-200 text-rose-700\",\n            violet: \"bg-violet-200 text-violet-700\"\n          };",
+      "titleGuess": "// --- SHARED UI COMPONENTS ---",
+      "keywordHints": [
+        "amber",
+        "emerald",
+        "rose",
+        "violet",
+        "border",
+        "shadow",
+        "const",
+        "defaultopen"
+      ]
+    },
+    {
+      "id": "shared-ui-components-part-7-8",
+      "index": 8,
+      "locator": {
+        "kind": "section",
+        "label": "// --- SHARED UI COMPONENTS --- (Part 7)",
+        "sectionHeading": "// --- SHARED UI COMPONENTS ---"
+      },
+      "text": "return (\n            <div className={`rounded-2xl border-2 mb-8 transition-all duration-300 overflow-hidden print:break-inside-avoid print:shadow-none ${colorStyles[color]}`}>\n              <button\n                onClick={() => setIsOpen(!isOpen)}\n                className=\"w-full flex items-center justify-between p-4 md:p-5 focus:outline-none focus:bg-white/50 transition-colors print:hidden\"\n              >\n                <div className=\"flex items-center gap-3\">\n                  <div className={`p-2 rounded-xl flex items-center justify-center ${iconColors[color]}`}>\n                    <i className=\"fa-solid fa-lightbulb text-lg\"></i>\n                  </div>\n                  <span className=\"font-black text-lg md:text-xl tracking-tight\">Read This First: {title}</span>\n                </div>\n                {isOpen ? <i className=\"fa-solid fa-chevron-up text-xl opacity-60\"></i> : <i className=\"fa-solid fa-chevron-down text-xl opacity-60\"></i>}\n              </button>\n\n{/* Print-only title */}\n              <div className=\"hidden print:flex items-center gap-3 p-4 border-b-2 border-slate-200\">\n                <i className=\"fa-solid fa-lightbulb w-5 h-5\"></i>\n                <span className=\"font-black text-lg tracking-tight\">Read This First: {title}</span>\n              </div>",
+      "titleGuess": "// --- SHARED UI COMPONENTS ---",
+      "keywordHints": [
+        "classname",
+        "center",
+        "print",
+        "flex",
+        "items",
+        "solid",
+        "span",
+        "border"
+      ]
+    },
+    {
+      "id": "shared-ui-components-part-8-9",
+      "index": 9,
+      "locator": {
+        "kind": "section",
+        "label": "// --- SHARED UI COMPONENTS --- (Part 8)",
+        "sectionHeading": "// --- SHARED UI COMPONENTS ---"
+      },
+      "text": "<div className={`transition-all duration-300 ease-in-out print:max-h-none print:opacity-100 ${isOpen ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'}`}>\n                <div className=\"p-5 md:p-6 pt-0 text-base font-medium leading-relaxed opacity-90 border-t-2 border-white/40 mt-2 print:border-none print:pt-4\">\n                  {children}\n                </div>\n              </div>\n            </div>\n          );\n        };",
+      "titleGuess": "// --- SHARED UI COMPONENTS ---",
+      "keywordHints": [
+        "opacity",
+        "print",
+        "border",
+        "classname",
+        "none",
+        "1000px",
+        "base",
+        "children"
+      ]
+    },
+    {
+      "id": "main-application-10",
+      "index": 10,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION ---",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "function App() {\n          const [activeTab, setActiveTab] = useState('overview');\n          const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);\n          const [printMode, setPrintMode] = useState(false);\n          const [saveStatus, setSaveStatus] = useState('Saved');\n          const prevStatsRef = useRef();",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "const",
+        "usestate",
+        "false",
+        "activetab",
+        "function",
+        "ismobilemenuopen",
+        "prevstatsref",
+        "printmode"
+      ]
+    },
+    {
+      "id": "main-application-part-2-11",
+      "index": 11,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 2)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "// --- STATE FOR FORM DATA ---\n          const defaultFormData = {\n            invSleep: '', invSnacks: '', invEatTimes: '', invEnergyHigh: '', invEnergyLow: '',\n            invExerciseEnergize: '', invExerciseTired: '', invRelax: '',\n            invPencilsPens: '', invOrganized: '', invWriteType: '', invElectronics: '', invMusic: '',\n            invSit: '', invReadFrom: '', invColor: '', invPrintType: '', invSizeSpacing: '', invGoals: '',\n            invDirections: {}, invFocusTricks: '', invTeacherHelp: '',\n            goalAchieve: '', goalMeasure: '', goalWho: '', goalWhat: '', goalWhen: '', goalHow: '',\n            goalAttainable: '', goalRealistic: '', goalTimed: '', goalImportance: '', goalOther: '',\n            romRankings: {}, romEasiest: '', romHardest: '', romNormal: '', romUnhealthyProg: '',\n            evalRels: ['', '', '', '', ''],\n            evalHealthyList: ['', '', '', '', ''], evalUnhealthyList: ['', '', '', '', ''],\n            evalFeelHealthy: '', evalFeelUnhealthy: '', evalWhyStay: '',\n            alcWhyDrink: '', alcThoughts: '', alcCelebrate: '', alcOffered: '', alcHowMuch: '',\n            alcProsCons: [{pro: '', con: ''}, {pro: '', con: ''}, {pro: '', con: ''}], alcResources: '',\n            tobKnow: '', tobNeg: '', tobPos: '', tobWhyStart: '', tobConvince: '',\n            vapeKnow: '', vapeWhy: '', weedThoughts: '',\n            riskRatings: {}, riskHealthy: ['', '', '', '', ''], riskUnhealthy: ['', '', '', '', ''],\n            riskDetermine: '', riskWhyUnhealthy: '',\n            addDefine: '', addTypes: '', addScen1: '', addScen2: '', addScen3: '',\n            mhHardTalk: '', mhEmotions: '', mhKnowWrong: '', mhHelpFriend: '', mhHelpSelf: '',\n            mapAccomplish: '', mapObstacle: '', mapStrategies: '', mapSkills: '', mapImageData: '',\n            ioQ1: '', ioQ2: '', ioQ3: '', ioQ4: '', ioQ5: '', ioQ6: '', ioQ7: '', ioQ8: '', ioQ9: '', ioQ10: ''\n          };",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "adddefine",
+        "addscen1",
+        "addscen2",
+        "addscen3",
+        "addtypes",
+        "alccelebrate",
+        "alchowmuch",
+        "alcoffered"
+      ]
+    },
+    {
+      "id": "main-application-part-3-12",
+      "index": 12,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 3)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "// Safe loader: Prevents crashing if localStorage has old/outdated schema\n          const [formData, setFormData] = useState(() => {\n            try {\n              const saved = localStorage.getItem('calm_workbook_data');\n              if (saved) {\n                const parsed = JSON.parse(saved);\n\n// Helper functions to guarantee array/object types don't load as strings/undefined\n                const getArray = (val, defaultVal) => Array.isArray(val) ? val : defaultVal;\n                const getObj = (val, defaultVal) => (typeof val === 'object' && val !== null) ? val : defaultVal;",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "const",
+        "defaultval",
+        "saved",
+        "array",
+        "localstorage",
+        "object",
+        "calm",
+        "crashing"
+      ]
+    },
+    {
+      "id": "main-application-part-4-13",
+      "index": 13,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 4)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "return {\n                  ...defaultFormData,\n                  ...parsed,\n                  evalRels: getArray(parsed.evalRels, defaultFormData.evalRels),\n                  evalHealthyList: getArray(parsed.evalHealthyList, defaultFormData.evalHealthyList),\n                  evalUnhealthyList: getArray(parsed.evalUnhealthyList, defaultFormData.evalUnhealthyList),\n                  alcProsCons: getArray(parsed.alcProsCons, defaultFormData.alcProsCons),\n                  riskHealthy: getArray(parsed.riskHealthy, defaultFormData.riskHealthy),\n                  riskUnhealthy: getArray(parsed.riskUnhealthy, defaultFormData.riskUnhealthy),\n                  invDirections: getObj(parsed.invDirections, defaultFormData.invDirections),\n                  romRankings: getObj(parsed.romRankings, defaultFormData.romRankings),\n                  riskRatings: getObj(parsed.riskRatings, defaultFormData.riskRatings),\n                };\n              }\n            } catch (e) {\n              console.error(\"Failed to parse saved data, resetting to default.\", e);\n            }\n            return defaultFormData;\n          });",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "defaultformdata",
+        "parsed",
+        "getarray",
+        "alcproscons",
+        "evalhealthylist",
+        "evalrels",
+        "evalunhealthylist",
+        "getobj"
+      ]
+    },
+    {
+      "id": "main-application-part-5-14",
+      "index": 14,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 5)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "// Auto-save effect\n          useEffect(() => {\n            setSaveStatus('Saving...');\n            localStorage.setItem('calm_workbook_data', JSON.stringify(formData));\n            const timeoutId = setTimeout(() => setSaveStatus('Saved'), 500);\n            return () => clearTimeout(timeoutId);\n          }, [formData]);\n\nconst updateForm = (field, value) => setFormData(prev => ({ ...prev, [field]: value }));\n          const updateArrayField = (field, index, value) => {\n            const newArr = [...formData[field]];\n            newArr[index] = value;\n            updateForm(field, newArr);\n          };\n\nconst handleResetWorkbook = () => {\n            if (window.confirm(\"🚨 WARNING: This will completely delete all your answers. Are you sure you want to start over?\")) {\n              setFormData(defaultFormData);\n              localStorage.removeItem('calm_workbook_data');\n              setActiveTab('overview');\n              window.scrollTo(0, 0);\n            }\n          };\n\n// --- PROGRESS TRACKING ENGINE ---\n          const progressData = useMemo(() => {\n            const getCompletedCount = (fields) => {\n              return fields.reduce((acc, f) => {\n                if (typeof f === 'string' && f.trim() !== '') return acc + 1;\n                if (typeof f === 'number') return acc + 1;\n                return acc;\n              }, 0);\n            };",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "const",
+        "field",
+        "return",
+        "value",
+        "formdata",
+        "newarr",
+        "calm",
+        "data"
+      ]
+    },
+    {
+      "id": "main-application-part-6-15",
+      "index": 15,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 6)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "const stats = {\n              overview: { completed: 1, total: 1 },\n              inventory: {\n                completed: getCompletedCount([\n                  formData.invSleep, formData.invSnacks, formData.invEatTimes, formData.invEnergyHigh, formData.invEnergyLow,\n                  formData.invExerciseEnergize, formData.invExerciseTired, formData.invRelax, formData.invPencilsPens,\n                  formData.invOrganized, formData.invWriteType, formData.invElectronics, formData.invMusic, formData.invSit,\n                  formData.invReadFrom, formData.invColor, formData.invPrintType, formData.invSizeSpacing, formData.invGoals,\n                  formData.invFocusTricks, formData.invTeacherHelp\n                ]) + Object.keys(formData.invDirections || {}).length,\n                total: 21 + 8\n              },\n              goals: {\n                completed: getCompletedCount([\n                  formData.goalAchieve, formData.goalMeasure, formData.goalWho, formData.goalHow, formData.goalWhat,\n                  formData.goalWhen, formData.goalAttainable, formData.goalRealistic, formData.goalTimed,\n                  formData.goalImportance, formData.goalOther\n                ]),\n                total: 11\n              },\n              romantic: {\n                completed: getCompletedCount([\n                  formData.romEasiest, formData.romHardest, formData.romNormal, formData.romUnhealthyProg\n                ]) + Object.keys(formData.romRankings || {}).length,\n                total: 4 + 16\n              },\n              evaluating: {\n                completed: getCompletedCount([\n                  ...(formData.evalRels || []), ...(formData.evalHealthyList || []), ...(formData.evalUnhealthyList || []),\n                  formData.evalFeelHealthy, formData.evalFeelUnhealthy, formData.evalWhyStay\n                ]),\n                total: 5 + 5 + 5 + 3\n              },\n              alcohol: {\n                completed: getCompletedCount([\n                  formData.alcWhyDrink, formData.alcThoughts, formData.alcCelebrate, formData.alcOffered, formData.alcHowMuch,\n                  formData.alcResources, ...(formData.alcProsCons || []).flatMap(pc => [pc?.pro || '', pc?.con || ''])\n                ]),\n                total: 6 + 6\n              },\n              tobacco: {\n                completed: getCompletedCount([\n                  formData.tobKnow, formData.tobNeg, formData.tobPos, formData.tobWhyStart, formData.tobConvince,\n                  formData.vapeKnow, formData.vapeWhy, formData.weedThoughts\n                ]),\n                total: 8\n              },\n              risk: {\n                completed: getCompletedCount([\n                  formData.riskDetermine, formData.riskWhyUnhealthy,\n                  ...(formData.riskHealthy || []), ...(formData.riskUnhealthy || [])\n                ]) + Object.keys(formData.riskRatings || {}).length,\n                total: 2 + 10 + 20\n              },\n              addictions: {\n                completed: getCompletedCount([\n                  formData.addDefine, formData.addTypes, formData.addScen1, formData.addScen2, formData.addScen3\n                ]),\n                total: 5\n              },\n              mentalhealth: {\n                completed: getCompletedCount([\n                  formData.mhHardTalk, formData.mhEmotions, formData.mhKnowWrong, formData.mhHelpFriend, formData.mhHelpSelf\n                ]),\n                total: 5\n              },\n              taskA: {\n                completed: getCompletedCount([\n                  formData.mapAccomplish, formData.mapObstacle, formData.mapStrategies, formData.mapSkills, formData.mapImageData\n                ]),\n                total: 5\n              },\n              taskB: {\n                completed: getCompletedCount([\n                  formData.ioQ1, formData.ioQ2, formData.ioQ3, formData.ioQ4, formData.ioQ5,\n                  formData.ioQ6, formData.ioQ7, formData.ioQ8, formData.ioQ9, formData.ioQ10\n                ]),\n                total: 10\n              }\n            };",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "formdata",
+        "completed",
+        "total",
+        "getcompletedcount",
+        "keys",
+        "length",
+        "object",
+        "adddefine"
+      ]
+    },
+    {
+      "id": "main-application-part-7-16",
+      "index": 16,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 7)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "let totalCompleted = 0;\n            let totalFields = 0;\n\nObject.keys(stats).forEach(key => {\n              totalCompleted += stats[key].completed;\n              totalFields += stats[key].total;\n              stats[key].isComplete = stats[key].completed >= stats[key].total;\n            });\n\nconst overallPercentage = totalFields === 0 ? 0 : Math.round((totalCompleted / totalFields) * 100);\n\nreturn { stats, overallPercentage };\n          }, [formData]);\n\n// Confetti Trigger Effect\n          useEffect(() => {\n            if (!prevStatsRef.current) {\n              prevStatsRef.current = progressData.stats;\n              return;\n            }\n\nlet newlyCompleted = false;\n            Object.keys(progressData.stats).forEach(key => {\n              const isNowComplete = progressData.stats[key].isComplete;\n              const wasComplete = prevStatsRef.current[key]?.isComplete;\n\nif (isNowComplete && !wasComplete) {\n                newlyCompleted = true;\n              }\n            });\n\nif (newlyCompleted && window.confetti) {\n              const duration = 2000;\n              const end = Date.now() + duration;",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "stats",
+        "const",
+        "totalfields",
+        "current",
+        "iscomplete",
+        "newlycompleted",
+        "prevstatsref",
+        "progressdata"
+      ]
+    },
+    {
+      "id": "main-application-part-8-17",
+      "index": 17,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 8)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "(function frame() {\n                window.confetti({\n                  particleCount: 5,\n                  angle: 60,\n                  spread: 55,\n                  origin: { x: 0 },\n                  colors: ['#8b5cf6', '#10b981', '#f59e0b', '#f43f5e', '#0ea5e9'],\n                  zIndex: 9999\n                });\n                window.confetti({\n                  particleCount: 5,\n                  angle: 120,\n                  spread: 55,\n                  origin: { x: 1 },\n                  colors: ['#8b5cf6', '#10b981', '#f59e0b', '#f43f5e', '#0ea5e9'],\n                  zIndex: 9999\n                });\n\nif (Date.now() < end) {\n                  requestAnimationFrame(frame);\n                }\n              }());\n            }\n\nprevStatsRef.current = progressData.stats;\n          }, [progressData]);\n\nconst relationshipSteps = [\n            \"Intercourse\", \"Talking On The Phone\", \"Basic Communication (Shared Interests)\",\n            \"Exchanging Messages\", \"\\\"Steady\\\" Dating (Exclusive)\", \"Dating\",\n            \"Basic Trust (Keeping Secrets)\", \"Birth Control and STI Protection\",\n            \"Simple Kissing\", \"Minor Touching (Holding Hands)\", \"Intimacy (Non-Sexual)\",\n            \"Love\", \"Eye Contact\", \"Long-Term Commitment\", \"Touching (Long Embraces)\", \"Flirting\"\n          ];",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "0ea5e9",
+        "10b981",
+        "8b5cf6",
+        "angle",
+        "basic",
+        "colors",
+        "confetti",
+        "dating"
+      ]
+    },
+    {
+      "id": "main-application-part-9-18",
+      "index": 18,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 9)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "const riskQuestions = [\n            \"1. Rate the risk of singing in a choir in front of the entire school.\",\n            \"2. What if there is a long solo part where you have to sing by yourself?\",\n            \"3. How would you rate the risk of trying cannabis at a party for the first time?\",\n            \"4. What if you know people who are dependent on using cannabis on a regular basis?\",\n            \"5. How would you rate driving 15 km over the speed limit on the highway?\",\n            \"6. What if the road is dry and there is hardly any traffic?\",\n            \"7. Rate the risk of standing up for something you strongly believe in?\",\n            \"8. What if your friends are against you and this creates conflict?\",\n            \"9. Rate the risk of drinking two beers before going to a party.\",\n            \"10. What if you have \\\"blacked out\\\" at parties before?\",\n            \"11. Rate the risk of buying a $5.00 raffle ticket.\",\n            \"12. What if it is your last $5.00 until the end of the week?\",\n            \"13. Rate the risk of speaking in a debate.\",\n            \"14. What if your opponent is the Prime Minister of Canada?\",\n            \"15. How risky would you find being involved in a sporting event?\",\n            \"16. What if your skill level is very low in this sport?\",\n            \"17. Rate the risk of injecting a drug using a needle.\",\n            \"18. What if someone else has used the needle before?\",\n            \"19. Rate the risk of smoking a cigarette every so often.\",\n            \"20. What if you knew that this would lead to a pack-a-day habit?\"\n          ];",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "rate",
+        "risk",
+        "would",
+        "cannabis",
+        "needle",
+        "party",
+        "using",
+        "against"
+      ]
+    },
+    {
+      "id": "main-application-part-10-19",
+      "index": 19,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 10)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "const tabs = [\n            { id: 'overview', label: 'Overview', icon: 'fa-solid fa-book-open', color: 'text-sky-500', bg: 'bg-sky-100' },\n            { id: 'inventory', label: 'My Inventory', icon: 'fa-regular fa-square-check', color: 'text-amber-500', bg: 'bg-amber-100' },\n            { id: 'goals', label: 'Goal Setting', icon: 'fa-solid fa-bullseye', color: 'text-emerald-500', bg: 'bg-emerald-100' },\n            { id: 'romantic', label: 'Romance', icon: 'fa-solid fa-heart', color: 'text-rose-500', bg: 'bg-rose-100' },\n            { id: 'evaluating', label: 'Relationships', icon: 'fa-solid fa-users', color: 'text-orange-500', bg: 'bg-orange-100' },\n            { id: 'alcohol', label: 'Alcohol', icon: 'fa-solid fa-wine-glass', color: 'text-fuchsia-500', bg: 'bg-fuchsia-100' },\n            { id: 'tobacco', label: 'Vapes & Tobacco', icon: 'fa-solid fa-ban', color: 'text-slate-500', bg: 'bg-slate-200' },\n            { id: 'risk', label: 'Risk Taking', icon: 'fa-solid fa-triangle-exclamation', color: 'text-red-500', bg: 'bg-red-100' },\n            { id: 'addictions', label: 'Addictions', icon: 'fa-solid fa-wave-square', color: 'text-indigo-500', bg: 'bg-indigo-100' },\n            { id: 'mentalhealth', label: 'Mental Health', icon: 'fa-solid fa-brain', color: 'text-cyan-500', bg: 'bg-cyan-100' },\n            { id: 'taskA', label: 'Life Map', icon: 'fa-solid fa-map', color: 'text-lime-600', bg: 'bg-lime-100' },\n            { id: 'taskB', label: 'Inside Out', icon: 'fa-solid fa-film', color: 'text-purple-500', bg: 'bg-purple-100' },\n            { id: 'submit', label: 'Final Review', icon: 'fa-solid fa-file-circle-check', color: 'text-blue-500', bg: 'bg-blue-100' },\n          ];",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "color",
+        "icon",
+        "label",
+        "solid",
+        "addictions",
+        "alcohol",
+        "amber",
+        "blue"
+      ]
+    },
+    {
+      "id": "main-application-part-11-20",
+      "index": 20,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 11)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "const handlePrint = () => {\n            setPrintMode(true);\n            setTimeout(() => {\n              window.print();\n              setPrintMode(false);\n            }, 500);\n          };\n\nconst handleImageUpload = (e) => {\n            const file = e.target.files[0];\n            if (!file) return;\n\nconst reader = new FileReader();\n            reader.onload = (event) => {\n              const img = new window.Image();\n              img.onload = () => {\n                const canvas = document.createElement('canvas');\n                const MAX_WIDTH = 800;\n                let scaleSize = 1;\n\nif (img.width > MAX_WIDTH) {\n                  scaleSize = MAX_WIDTH / img.width;\n                }\n\ncanvas.width = img.width * scaleSize;\n                canvas.height = img.height * scaleSize;\n\nconst ctx = canvas.getContext('2d');\n                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);\n\nconst compressedDataUrl = canvas.toDataURL('image/jpeg', 0.7);\n                updateForm('mapImageData', compressedDataUrl);\n              };\n              img.src = event.target.result;\n            };\n            reader.readAsDataURL(file);\n          };",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "const",
+        "canvas",
+        "width",
+        "scalesize",
+        "file",
+        "height",
+        "reader",
+        "compresseddataurl"
+      ]
+    },
+    {
+      "id": "main-application-part-12-21",
+      "index": 21,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 12)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "const renderOverview = () => (\n            <Card className=\"border-t-[8px] border-t-violet-500\">\n              <div className=\"flex flex-col items-center text-center mb-12 print:mb-6\">\n                <div className=\"w-20 h-20 bg-violet-100 rounded-[2rem] flex items-center justify-center mb-6 shadow-[0_4px_0_0_#ddd6fe] print:shadow-none print:border-2 print:border-violet-200\">\n                  <i className=\"fa-solid fa-book-open text-4xl text-violet-600\"></i>\n                </div>\n                <h1 className=\"text-4xl md:text-5xl font-black text-slate-800 tracking-tight mb-4\">nextSTEP High School</h1>\n                <div className=\"flex flex-wrap justify-center gap-2\">\n                  <span className=\"bg-slate-100 text-slate-600 px-4 py-2 rounded-xl font-bold text-sm border-2 border-slate-200\">Fort Saskatchewan</span>\n                  <span className=\"bg-slate-100 text-slate-600 px-4 py-2 rounded-xl font-bold text-sm border-2 border-slate-200\">Sherwood Park</span>\n                  <span className=\"bg-slate-100 text-slate-600 px-4 py-2 rounded-xl font-bold text-sm border-2 border-slate-200\">Vegreville</span>\n                </div>\n              </div>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "border",
+        "slate",
+        "classname",
+        "span",
+        "center",
+        "flex",
+        "font",
+        "print"
+      ]
+    },
+    {
+      "id": "main-application-part-13-22",
+      "index": 22,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 13)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"mb-10 bg-blue-50 p-6 rounded-[2rem] border-2 border-blue-100 text-center print:bg-white print:border-2 print:border-slate-300\">\n                <p className=\"font-bold text-blue-800 print:text-slate-800\">\n                  👋 Welcome! Your progress is automatically saved to your browser as you work. When you are finished, click the Final Review tab to verify your answers.\n                </p>\n              </div>\n\n<SectionTitle>Career & Life Management</SectionTitle>\n              <div className=\"text-slate-600 space-y-6 text-lg font-medium leading-relaxed print:text-base\">\n                <p>CALM is a compulsory course for Alberta High School students. It is the final component of the grade 1-12 Health Promotion Program. It is a 3 credit course, and is broken up into 3 modules.</p>\n                <p>The aim of CALM is to enable students to make well informed, considered decisions and choices in all aspects of their lives.</p>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "print",
+        "border",
+        "blue",
+        "classname",
+        "slate",
+        "calm",
+        "final",
+        "font"
+      ]
+    },
+    {
+      "id": "main-application-part-14-23",
+      "index": 23,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 14)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"bg-slate-50 rounded-[2rem] p-8 mt-8 border-2 border-slate-200 shadow-[inset_0_4px_10px_rgba(0,0,0,0.02)] print:bg-white print:shadow-none print:border-slate-300 print:break-inside-avoid\">\n                  <h3 className=\"font-black text-slate-800 mb-6 text-2xl\">The 3 Pillars of Life Choices:</h3>\n                  <div className=\"space-y-4\">\n                    <div className=\"flex items-start bg-white p-4 rounded-2xl border-2 border-slate-100 shadow-sm print:shadow-none print:border-slate-300\">\n                      <div className=\"w-12 h-12 rounded-xl bg-violet-100 text-violet-600 flex items-center justify-center font-black text-xl mr-4 flex-shrink-0\">1</div>\n                      <div>\n                        <strong className=\"text-slate-800 text-lg block mb-1\">Personal Choices</strong>\n                        <span className=\"text-sm\">Apply understanding of well-being and personal health to daily teenage decisions.</span>\n                      </div>\n                    </div>\n                    <div className=\"flex items-start bg-white p-4 rounded-2xl border-2 border-slate-100 shadow-sm print:shadow-none print:border-slate-300\">\n                      <div className=\"w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-black text-xl mr-4 flex-shrink-0\">2</div>\n                      <div>\n                        <strong className=\"text-slate-800 text-lg block mb-1\">Resource Choices</strong>\n                        <span className=\"text-sm\">Understand and make responsible decisions in the use of your resources.</span>\n                      </div>\n                    </div>\n                    <div className=\"flex items-start bg-white p-4 rounded-2xl border-2 border-slate-100 shadow-sm print:shadow-none print:border-slate-300\">\n                      <div className=\"w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center font-black text-xl mr-4 flex-shrink-0\">3</div>\n                      <div>\n                        <strong className=\"text-slate-800 text-lg block mb-1\">Career & Life Choices</strong>\n                        <span className=\"text-sm\">Develop processes for managing personal and lifelong career growth.</span>\n                      </div>\n                    </div>\n                  </div>\n                </div>\n              </div>\n            </Card>\n          );",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "classname",
+        "slate",
+        "border",
+        "print",
+        "flex",
+        "shadow",
+        "rounded",
+        "center"
+      ]
+    },
+    {
+      "id": "main-application-part-15-24",
+      "index": 24,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 15)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "const renderInventory = () => (\n            <Card>\n              <SectionTitle subtitle=\"Consider who you are, what you value, and what works best for you.\">\n                What Works For Me\n              </SectionTitle>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "sectiontitle",
+        "works",
+        "best",
+        "card",
+        "consider",
+        "const",
+        "renderinventory",
+        "subtitle"
+      ]
+    },
+    {
+      "id": "main-application-part-16-25",
+      "index": 25,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 16)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"mb-12 print:break-inside-avoid\">\n                <h3 className=\"text-2xl font-black text-slate-800 mb-6 flex items-center\">\n                  <span className=\"bg-sky-100 text-sky-600 w-10 h-10 rounded-xl flex items-center justify-center mr-3 border-2 border-sky-200 shadow-sm print:shadow-none\">1</span>\n                  Looking after myself\n                </h3>\n                <div className=\"grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2 bg-sky-50 p-6 md:p-8 rounded-[2rem] border-2 border-sky-100 print:bg-white print:border-slate-300\">\n                  <div><Label>How much sleep do I need?</Label><Input value={formData.invSleep} onChange={(e) => updateForm('invSleep', e.target.value)} /></div>\n                  <div><Label>Best snacks for energy?</Label><Input value={formData.invSnacks} onChange={(e) => updateForm('invSnacks', e.target.value)} /></div>\n                  <div><Label>Times of day I need to eat?</Label><Input value={formData.invEatTimes} onChange={(e) => updateForm('invEatTimes', e.target.value)} /></div>\n                  <div><Label>Time I have the MOST energy?</Label><Input value={formData.invEnergyHigh} onChange={(e) => updateForm('invEnergyHigh', e.target.value)} /></div>\n                  <div><Label>Time I have the LEAST energy?</Label><Input value={formData.invEnergyLow} onChange={(e) => updateForm('invEnergyLow', e.target.value)} /></div>\n                  <div><Label>Exercise that energizes me?</Label><Input value={formData.invExerciseEnergize} onChange={(e) => updateForm('invExerciseEnergize', e.target.value)} /></div>\n                  <div className=\"md:col-span-2\"><Label>Activities that help me relax?</Label><Input value={formData.invRelax} onChange={(e) => updateForm('invRelax', e.target.value)} /></div>\n                </div>\n              </div>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "label",
+        "value",
+        "formdata",
+        "input",
+        "onchange",
+        "target",
+        "updateform",
+        "border"
+      ]
+    },
+    {
+      "id": "main-application-part-17-26",
+      "index": 26,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 17)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"mb-12 print:break-inside-avoid\">\n                <h3 className=\"text-2xl font-black text-slate-800 mb-6 flex items-center\">\n                  <span className=\"bg-amber-100 text-amber-600 w-10 h-10 rounded-xl flex items-center justify-center mr-3 border-2 border-amber-200 shadow-sm print:shadow-none\">2</span>\n                  Tools that help me learn\n                </h3>\n                <div className=\"grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2 bg-amber-50 p-6 md:p-8 rounded-[2rem] border-2 border-amber-100 print:bg-white print:border-slate-300\">\n                  <div><Label>Pencils or pens?</Label><Input value={formData.invPencilsPens} onChange={(e) => updateForm('invPencilsPens', e.target.value)} /></div>\n                  <div><Label>How do I stay organized?</Label><Input value={formData.invOrganized} onChange={(e) => updateForm('invOrganized', e.target.value)} /></div>\n                  <div><Label>Write or type assignments?</Label><Input value={formData.invWriteType} onChange={(e) => updateForm('invWriteType', e.target.value)} /></div>\n                  <div><Label>Are electronics distracting?</Label><Input value={formData.invElectronics} onChange={(e) => updateForm('invElectronics', e.target.value)} /></div>\n                  <div className=\"md:col-span-2\"><Label>Does music help me study?</Label><Input value={formData.invMusic} onChange={(e) => updateForm('invMusic', e.target.value)} /></div>\n                </div>\n              </div>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "label",
+        "value",
+        "amber",
+        "border",
+        "classname",
+        "formdata",
+        "input",
+        "onchange"
+      ]
+    },
+    {
+      "id": "main-application-part-18-27",
+      "index": 27,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 18)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"mb-12 print:break-inside-avoid\">\n                <h3 className=\"text-2xl font-black text-slate-800 mb-6 flex items-center\">\n                  <span className=\"bg-emerald-100 text-emerald-600 w-10 h-10 rounded-xl flex items-center justify-center mr-3 border-2 border-emerald-200 shadow-sm print:shadow-none\">3</span>\n                  In the classroom\n                </h3>\n                <div className=\"space-y-2 bg-emerald-50 p-6 md:p-8 rounded-[2rem] border-2 border-emerald-100 print:bg-white print:border-slate-300\">\n                  <div className=\"grid grid-cols-1 md:grid-cols-2 gap-x-6\">\n                    <div><Label>Where do I prefer to sit?</Label><Input value={formData.invSit} onChange={(e) => updateForm('invSit', e.target.value)} /></div>\n                    <div><Label>Best reading format?</Label><Input value={formData.invReadFrom} onChange={(e) => updateForm('invReadFrom', e.target.value)} /></div>\n                    <div><Label>Does paper color matter?</Label><Input value={formData.invColor} onChange={(e) => updateForm('invColor', e.target.value)} /></div>\n                    <div><Label>Does print type matter?</Label><Input value={formData.invPrintType} onChange={(e) => updateForm('invPrintType', e.target.value)} /></div>\n                  </div>\n                  <div><Label>Do I prefer to make my own goals, or have a teacher make them? Explain.</Label><Textarea value={formData.invGoals} onChange={(e) => updateForm('invGoals', e.target.value)} /></div>\n                </div>\n              </div>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "label",
+        "value",
+        "border",
+        "classname",
+        "emerald",
+        "formdata",
+        "onchange",
+        "print"
+      ]
+    },
+    {
+      "id": "main-application-part-19-28",
+      "index": 28,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 19)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"mb-8 print:break-inside-avoid\">\n                <h3 className=\"text-2xl font-black text-slate-800 mb-2 flex items-center\">\n                  <span className=\"bg-purple-100 text-purple-600 w-10 h-10 rounded-xl flex items-center justify-center mr-3 border-2 border-purple-200 shadow-sm print:shadow-none\">4</span>\n                  Directions that work for me\n                </h3>\n                <p className=\"text-sm font-bold text-purple-600 mb-6 ml-14 bg-purple-100 inline-block px-3 py-1 rounded-lg print:bg-transparent print:border-2 print:border-slate-300 print:text-slate-600\">1 = Least Effective, 5 = Most Effective</p>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "print",
+        "purple",
+        "border",
+        "classname",
+        "center",
+        "slate",
+        "effective",
+        "flex"
+      ]
+    },
+    {
+      "id": "main-application-part-20-29",
+      "index": 29,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 20)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"space-y-4 bg-purple-50 p-6 md:p-8 rounded-[2rem] border-2 border-purple-100 print:bg-white print:border-slate-300\">\n                  {[\n                    \"Teacher explains out loud\", \"Teacher writes directions on paper\",\n                    \"Teacher does an example for me\", \"Teacher asks another student to explain\",\n                    \"Teacher reads the instructions to me\", \"I read the directions on my own\",\n                    \"I try it and then check with teacher\", \"I try it and compare with another student\"\n                  ].map((dir) => (\n                    <div key={dir} className=\"flex flex-col md:flex-row md:items-center justify-between bg-white p-4 rounded-2xl border-2 border-purple-100 shadow-sm print:shadow-none print:border-slate-200 print:break-inside-avoid\">\n                      <span className=\"text-slate-800 font-bold text-base md:w-1/2 mb-4 md:mb-0\">{dir}</span>\n                      <div className=\"flex gap-2\">\n                        {[1, 2, 3, 4, 5].map(num => (\n                          <label key={num} className=\"cursor-pointer relative group\">\n                            <input\n                              type=\"radio\"\n                              name={`dir_${dir}`}\n                              className=\"sr-only peer\"\n                              checked={formData.invDirections[dir] === num}\n                              onChange={() => setFormData(prev => ({\n                                ...prev, invDirections: { ...prev.invDirections, [dir]: num }\n                              }))}\n                            />\n                            <div className={`w-10 h-10 md:w-12 md:h-12 rounded-xl border-2 flex items-center justify-center text-base font-black transition-all ${formData.invDirections[dir] === num ? 'bg-purple-500 text-white border-purple-600 shadow-[0_4px_0_0_#7e22ce] -translate-y-1 print:bg-purple-100 print:text-purple-900 print:shadow-none print:translate-y-0' : 'border-slate-200 text-slate-400 bg-white print:border-slate-300'}`}>\n                              {num}\n                            </div>\n                          </label>\n                        ))}\n                      </div>\n                    </div>\n                  ))}\n                </div>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "border",
+        "print",
+        "classname",
+        "purple",
+        "slate",
+        "teacher",
+        "flex",
+        "invdirections"
+      ]
+    },
+    {
+      "id": "main-application-part-21-30",
+      "index": 30,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 21)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"mt-8 space-y-6 print:break-inside-avoid\">\n                  <div><Label>Tricks I use to keep myself focused:</Label><Textarea value={formData.invFocusTricks} onChange={(e) => updateForm('invFocusTricks', e.target.value)} /></div>\n                  <div><Label>Special things teachers can do to help me:</Label><Textarea value={formData.invTeacherHelp} onChange={(e) => updateForm('invTeacherHelp', e.target.value)} /></div>\n                </div>\n              </div>\n            </Card>\n          );\n\nconst renderGoals = () => (\n            <Card>\n              <SectionTitle subtitle=\"Set clear targets (e.g., getting a car, graduating, starting a career).\">\n                Goal Setting Builder\n              </SectionTitle>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "label",
+        "value",
+        "card",
+        "formdata",
+        "invfocustricks",
+        "invteacherhelp",
+        "onchange",
+        "sectiontitle"
+      ]
+    },
+    {
+      "id": "main-application-part-22-31",
+      "index": 31,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 22)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<KnowledgeDrop title=\"The SMART Method\" color=\"emerald\">\n                <p className=\"mb-3\">A goal without a plan is just a wish! To make sure you actually hit your targets, use the <strong>SMART</strong> method. Your goals should be:</p>\n                <ul className=\"space-y-2 list-disc pl-5\">\n                  <li><strong>Specific:</strong> What exactly are you trying to do? (Don't just say \"get better at guitar\", say \"learn to play Wonderwall on guitar\").</li>\n                  <li><strong>Measurable:</strong> How will you know when you've succeeded?</li>\n                  <li><strong>Attainable:</strong> Is it within your power to do this, or does it rely on luck/other people?</li>\n                  <li><strong>Realistic:</strong> Do you have the resources, skill, and time to pull this off right now?</li>\n                  <li><strong>Timed:</strong> When is the exact deadline?</li>\n                </ul>\n              </KnowledgeDrop>\n\n<div className=\"space-y-10\">\n                <div className=\"bg-slate-50 p-6 rounded-[2rem] border-2 border-slate-200 print:bg-white print:border-slate-300 print:break-inside-avoid\">\n                  <Label description=\"e.g.: Learn to speak Spanish\">1. Here's what I want to achieve:</Label>\n                  <Input value={formData.goalAchieve} onChange={(e) => updateForm('goalAchieve', e.target.value)} />\n                </div>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "strong",
+        "classname",
+        "border",
+        "print",
+        "slate",
+        "goalachieve",
+        "guitar",
+        "just"
+      ]
+    },
+    {
+      "id": "main-application-part-23-32",
+      "index": 32,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 23)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"bg-slate-50 p-6 rounded-[2rem] border-2 border-slate-200 print:bg-white print:border-slate-300 print:break-inside-avoid\">\n                  <Label description=\"What will I see/hear/feel when it's done? e.g.: All 10 modules completed.\">\n                    2. My main MEASURE for this achievement:\n                  </Label>\n                  <Textarea value={formData.goalMeasure} onChange={(e) => updateForm('goalMeasure', e.target.value)} />\n                </div>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "border",
+        "print",
+        "slate",
+        "goalmeasure",
+        "label",
+        "value",
+        "2rem",
+        "achievement"
+      ]
+    },
+    {
+      "id": "main-application-part-24-33",
+      "index": 33,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 24)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"bg-emerald-50 p-8 rounded-[2rem] border-2 border-emerald-200 relative print:bg-white print:border-slate-300 print:break-inside-avoid\">\n                  <div className=\"absolute -top-5 right-10 bg-emerald-500 text-white font-black px-6 py-2 rounded-full border-4 border-white shadow-sm transform rotate-3 print:hidden\">Mad Libs Style!</div>\n                  <Label description=\"Combine your answers into one epic sentence.\">\n                    3. Specific Goal Statement:\n                  </Label>\n                  <div className=\"grid grid-cols-1 md:grid-cols-2 gap-6 mt-6\">\n                    <div className=\"bg-white p-4 rounded-2xl border-2 border-emerald-100 print:border-slate-300\">\n                      <label className=\"text-sm font-black text-emerald-600 uppercase mb-2 block print:text-slate-600\">Who?</label>\n                      <Input placeholder=\"I am...\" value={formData.goalWho} onChange={(e) => updateForm('goalWho', e.target.value)} />\n                    </div>\n                    <div className=\"bg-white p-4 rounded-2xl border-2 border-emerald-100 print:border-slate-300\">\n                      <label className=\"text-sm font-black text-emerald-600 uppercase mb-2 block print:text-slate-600\">How?</label>\n                      <Input placeholder=\"proudly finishing...\" value={formData.goalHow} onChange={(e) => updateForm('goalHow', e.target.value)} />\n                    </div>\n                    <div className=\"bg-white p-4 rounded-2xl border-2 border-emerald-100 print:border-slate-300\">\n                      <label className=\"text-sm font-black text-emerald-600 uppercase mb-2 block print:text-slate-600\">What?</label>\n                      <Input placeholder=\"module ten...\" value={formData.goalWhat} onChange={(e) => updateForm('goalWhat', e.target.value)} />\n                    </div>\n                    <div className=\"bg-white p-4 rounded-2xl border-2 border-emerald-100 print:border-slate-300\">\n                      <label className=\"text-sm font-black text-emerald-600 uppercase mb-2 block print:text-slate-600\">When?</label>\n                      <Input placeholder=\"by December 31st.\" value={formData.goalWhen} onChange={(e) => updateForm('goalWhen', e.target.value)} />\n                    </div>\n                  </div>\n                  <div className=\"bg-white p-6 rounded-2xl border-4 border-emerald-400 border-dashed mt-8 text-center transform rotate-1 shadow-sm transition-all duration-300 print:transform-none print:border-slate-300\">\n                    <p className=\"text-sm font-bold text-emerald-600 uppercase tracking-widest mb-3 print:text-slate-600\">Your Dynamic Goal Statement:</p>\n                    <p className=\"text-2xl md:text-3xl font-black text-emerald-800 leading-tight\">\n                      \"{formData.goalWho || '[Who]'} {formData.goalHow || '[How]'} {formData.goalWhat || '[What]'} {formData.goalWhen || '[When]'}\"\n                    </p>\n                  </div>\n                </div>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "border",
+        "print",
+        "classname",
+        "emerald",
+        "slate",
+        "label",
+        "formdata",
+        "value"
+      ]
+    },
+    {
+      "id": "main-application-part-25-34",
+      "index": 34,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 25)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"bg-amber-50 p-8 rounded-[2rem] border-2 border-amber-200 print:bg-white print:border-slate-300 print:break-inside-avoid\">\n                  <Label>4. The Reality Check:</Label>\n                  <div className=\"space-y-4 mt-4\">\n                    <div className=\"p-5 border-2 border-white bg-amber-100/50 rounded-2xl print:bg-white print:border-slate-200\">\n                      <label className=\"flex items-start mb-3 cursor-pointer\">\n                        <input type=\"checkbox\" className=\"mt-1 mr-3 h-6 w-6 rounded-lg border-2 border-amber-300 text-amber-500 focus:ring-amber-500 transition-colors print:border-slate-400\" />\n                        <span className=\"text-base font-bold text-slate-800\">Is it ATTAINABLE (in your control)? Explain.</span>\n                      </label>\n                      <Textarea value={formData.goalAttainable} onChange={(e) => updateForm('goalAttainable', e.target.value)} rows={2} />\n                    </div>\n                    <div className=\"p-5 border-2 border-white bg-amber-100/50 rounded-2xl print:bg-white print:border-slate-200\">\n                      <label className=\"flex items-start mb-3 cursor-pointer\">\n                        <input type=\"checkbox\" className=\"mt-1 mr-3 h-6 w-6 rounded-lg border-2 border-amber-300 text-amber-500 focus:ring-amber-500 transition-colors print:border-slate-400\" />\n                        <span className=\"text-base font-bold text-slate-800\">Is it REALISTIC? Explain.</span>\n                      </label>\n                      <Textarea value={formData.goalRealistic} onChange={(e) => updateForm('goalRealistic', e.target.value)} rows={2} />\n                    </div>\n                    <div className=\"p-5 border-2 border-white bg-amber-100/50 rounded-2xl print:bg-white print:border-slate-200\">\n                      <label className=\"flex items-start mb-3 cursor-pointer\">\n                        <input type=\"checkbox\" className=\"mt-1 mr-3 h-6 w-6 rounded-lg border-2 border-amber-300 text-amber-500 focus:ring-amber-500 transition-colors print:border-slate-400\" />\n                        <span className=\"text-base font-bold text-slate-800\">Is it TIMED (has a deadline)? Explain.</span>\n                      </label>\n                      <Textarea value={formData.goalTimed} onChange={(e) => updateForm('goalTimed', e.target.value)} rows={2} />\n                    </div>\n                  </div>\n                </div>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "border",
+        "amber",
+        "classname",
+        "print",
+        "slate",
+        "label",
+        "rounded",
+        "white"
+      ]
+    },
+    {
+      "id": "main-application-part-26-35",
+      "index": 35,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 26)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"grid grid-cols-1 md:grid-cols-2 gap-6 print:break-inside-avoid\">\n                  <div>\n                    <Label>Why is goal setting important?</Label>\n                    <HintToggle example=\"It gives me a clear roadmap so I don't get distracted. It helps me measure my progress so I know if I'm actually moving forward.\" />\n                    <Textarea value={formData.goalImportance} onChange={(e) => updateForm('goalImportance', e.target.value)} />\n                  </div>\n                  <div>\n                    <Label>What other goals could you set?</Label>\n                    <HintToggle example=\"Saving $500 for a car, getting an 80% in Math, or learning how to cook 3 healthy meals by summer.\" />\n                    <Textarea value={formData.goalOther} onChange={(e) => updateForm('goalOther', e.target.value)} />\n                  </div>\n                </div>\n              </div>\n            </Card>\n          );\n\nconst renderRomantic = () => (\n            <Card>\n              <SectionTitle subtitle=\"Mapping how relationships grow and develop.\">\n                Romantic Relationships\n              </SectionTitle>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "label",
+        "value",
+        "grid",
+        "card",
+        "cols",
+        "example",
+        "formdata",
+        "goalimportance"
+      ]
+    },
+    {
+      "id": "main-application-part-27-36",
+      "index": 36,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 27)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"bg-rose-50 p-8 rounded-[2rem] border-2 border-rose-200 mb-10 shadow-sm relative overflow-hidden print:bg-white print:border-slate-300 print:break-inside-avoid\">\n                <i className=\"fa-solid fa-heart absolute -right-10 -bottom-10 text-[16rem] text-rose-100 opacity-50 print:hidden\"></i>\n                <div className=\"relative z-10\">\n                  <h3 className=\"text-2xl font-black text-rose-900 mb-3\">Relationship Timeline</h3>\n                  <p className=\"text-base font-medium text-rose-700 mb-8 max-w-2xl print:text-slate-600\">Rank the 16 steps below from 1 (First) to 16 (Last) to show how you think a relationship usually progresses.</p>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "classname",
+        "print",
+        "rose",
+        "border",
+        "font",
+        "hidden",
+        "relationship",
+        "relative"
+      ]
+    },
+    {
+      "id": "main-application-part-28-37",
+      "index": 37,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 28)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"grid grid-cols-1 md:grid-cols-2 gap-4\">\n                    {relationshipSteps.map((step, idx) => (\n                      <div key={idx} className=\"flex items-center space-x-4 bg-white p-3 rounded-2xl border-2 border-rose-100 focus-within:border-rose-400 focus-within:shadow-[0_4px_0_0_#fda4af] transition-all group print:border-slate-200 print:shadow-none\">\n                        <input\n                          type=\"number\"\n                          min=\"1\" max=\"16\"\n                          className=\"w-16 h-12 text-center bg-rose-50 border-2 border-rose-200 rounded-xl text-rose-900 font-black text-lg focus:outline-none focus:bg-white focus:border-rose-400 transition-colors print:bg-white print:border-slate-300 print:text-slate-800\"\n                          value={formData.romRankings[step] || ''}\n                          onChange={(e) => setFormData(prev => ({\n                            ...prev, romRankings: { ...prev.romRankings, [step]: e.target.value }\n                          }))}\n                        />\n                        <span className=\"text-sm font-bold text-slate-700 group-hover:text-rose-600 transition-colors\">{step}</span>\n                      </div>\n                    ))}\n                  </div>\n                </div>\n              </div>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "border",
+        "rose",
+        "focus",
+        "print",
+        "classname",
+        "slate",
+        "step",
+        "grid"
+      ]
+    },
+    {
+      "id": "main-application-part-29-38",
+      "index": 38,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 29)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"space-y-6 print:break-inside-avoid\">\n                <div className=\"grid grid-cols-1 md:grid-cols-2 gap-6\">\n                  <div>\n                    <Label>What was easiest to rank? Explain.</Label>\n                    <Textarea value={formData.romEasiest} onChange={(e) => updateForm('romEasiest', e.target.value)} />\n                  </div>\n                  <div>\n                    <Label>What was most difficult? Explain.</Label>\n                    <Textarea value={formData.romHardest} onChange={(e) => updateForm('romHardest', e.target.value)} />\n                  </div>\n                </div>\n                <div>\n                  <Label>Where do your ideas about a 'normal' relationship come from?</Label>\n                  <HintToggle example=\"Mostly from movies, TV shows, and seeing how my parents or older siblings act in their relationships.\" />\n                  <Textarea value={formData.romNormal} onChange={(e) => updateForm('romNormal', e.target.value)} />\n                </div>\n                <div>\n                  <Label>What happens if a relationship skips steps or progresses unhealthily?</Label>\n                  <HintToggle example=\"Someone might get emotionally hurt, trust could be broken, or the relationship might crash and burn because it moved too fast.\" />\n                  <Textarea value={formData.romUnhealthyProg} onChange={(e) => updateForm('romUnhealthyProg', e.target.value)} />\n                </div>\n              </div>\n            </Card>\n          );",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "label",
+        "value",
+        "formdata",
+        "onchange",
+        "target",
+        "textarea",
+        "updateform",
+        "grid"
+      ]
+    },
+    {
+      "id": "main-application-part-30-39",
+      "index": 39,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 30)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "const renderEvaluating = () => (\n            <Card>\n              <SectionTitle subtitle=\"Identify which relationships are supportive and which are toxic.\">\n                Evaluating Relationships\n              </SectionTitle>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "relationships",
+        "sectiontitle",
+        "card",
+        "const",
+        "evaluating",
+        "identify",
+        "renderevaluating",
+        "subtitle"
+      ]
+    },
+    {
+      "id": "main-application-part-31-40",
+      "index": 40,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 31)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"bg-orange-50 p-8 rounded-[2rem] border-2 border-orange-200 mb-10 print:bg-white print:border-slate-300 print:break-inside-avoid\">\n                <Label description=\"List 5 people you have a relationship with (family, school, work, online).\">Your Network Map</Label>\n                <div className=\"space-y-4 mt-6\">\n                  {[0, 1, 2, 3, 4].map(idx => (\n                    <div key={idx} className=\"flex items-center bg-white p-2 rounded-2xl border-2 border-orange-100 print:border-slate-200\">\n                      <div className=\"flex-shrink-0 w-10 h-10 bg-orange-100 text-orange-600 font-black rounded-xl flex items-center justify-center mr-3 print:bg-slate-100 print:text-slate-600 print:border-2 print:border-slate-300\">{idx + 1}</div>\n                      <input\n                        className=\"flex-1 bg-transparent border-none font-bold text-slate-700 focus:outline-none focus:ring-0 px-2\"\n                        placeholder={`Name & Type (e.g., Mom - Family)`}\n                        value={formData.evalRels[idx]}\n                        onChange={(e) => updateArrayField('evalRels', idx, e.target.value)}\n                      />\n                    </div>\n                  ))}\n                </div>\n              </div>\n\n<h3 className=\"text-3xl font-black text-slate-800 mb-8 text-center print:break-before-page print:mt-10\">The Vibe Check</h3>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "print",
+        "border",
+        "slate",
+        "classname",
+        "orange",
+        "center",
+        "flex",
+        "font"
+      ]
+    },
+    {
+      "id": "main-application-part-32-41",
+      "index": 41,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 32)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<KnowledgeDrop title=\"Green Flags vs. Red Flags\" color=\"amber\" defaultOpen={false}>\n                <div className=\"grid md:grid-cols-2 gap-6\">\n                  <div>\n                    <strong className=\"text-emerald-700 block mb-2\">✅ Green Flags (Healthy)</strong>\n                    <ul className=\"list-disc pl-5 space-y-1 text-sm\">\n                      <li>They respect your boundaries and the word \"No\".</li>\n                      <li>You feel energized and happy after hanging out with them.</li>\n                      <li>They celebrate your wins and encourage your goals.</li>\n                      <li>You can communicate openly without fear of them exploding.</li>\n                    </ul>\n                  </div>\n                  <div>\n                    <strong className=\"text-rose-700 block mb-2\">🚩 Red Flags (Unhealthy)</strong>\n                    <ul className=\"list-disc pl-5 space-y-1 text-sm\">\n                      <li>They try to isolate you from your other friends or family.</li>\n                      <li>They constantly make you feel guilty or \"crazy\" (gaslighting).</li>\n                      <li>They pressure you into doing things you aren't comfortable with.</li>\n                      <li>The relationship feels like a rollercoaster (extreme highs and terrible lows).</li>\n                    </ul>\n                  </div>\n                </div>\n              </KnowledgeDrop>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "classname",
+        "flags",
+        "strong",
+        "block",
+        "disc",
+        "feel",
+        "green",
+        "grid"
+      ]
+    },
+    {
+      "id": "main-application-part-33-42",
+      "index": 42,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 33)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12 print:break-inside-avoid\">\n                <div className=\"bg-emerald-50 p-8 rounded-[2rem] border-2 border-emerald-200 shadow-[0_8px_0_0_#a7f3d0] print:bg-white print:border-slate-300 print:shadow-none\">\n                  <h4 className=\"font-black text-emerald-800 text-2xl mb-6 flex items-center print:text-slate-800\">\n                    <span className=\"bg-emerald-200 p-2 rounded-xl mr-3 print:bg-transparent print:p-0\"><i className=\"fa-regular fa-square-check text-emerald-700 text-xl print:text-slate-800\"></i></span>\n                    Green Flags\n                  </h4>\n                  <div className=\"space-y-4\">\n                    {[0, 1, 2, 3, 4].map(idx => (\n                      <Input\n                        key={idx}\n                        placeholder={`Healthy trait ${idx + 1}`}\n                        value={formData.evalHealthyList[idx]}\n                        onChange={(e) => updateArrayField('evalHealthyList', idx, e.target.value)}\n                      />\n                    ))}\n                  </div>\n                </div>\n                <div className=\"bg-rose-50 p-8 rounded-[2rem] border-2 border-rose-200 shadow-[0_8px_0_0_#fecdd3] print:bg-white print:border-slate-300 print:shadow-none\">\n                  <h4 className=\"font-black text-rose-800 text-2xl mb-6 flex items-center print:text-slate-800\">\n                    <span className=\"bg-rose-200 p-2 rounded-xl mr-3 print:bg-transparent print:p-0\"><i className=\"fa-solid fa-triangle-exclamation text-rose-700 text-xl print:text-slate-800\"></i></span>\n                    Red Flags\n                  </h4>\n                  <div className=\"space-y-4\">\n                    {[0, 1, 2, 3, 4].map(idx => (\n                      <Input\n                        key={idx}\n                        placeholder={`Toxic trait ${idx + 1}`}\n                        value={formData.evalUnhealthyList[idx]}\n                        onChange={(e) => updateArrayField('evalUnhealthyList', idx, e.target.value)}\n                      />\n                    ))}\n                  </div>\n                </div>\n              </div>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "print",
+        "classname",
+        "border",
+        "slate",
+        "emerald",
+        "rose",
+        "rounded",
+        "shadow"
+      ]
+    },
+    {
+      "id": "main-application-part-34-43",
+      "index": 43,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 34)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"space-y-6 print:break-inside-avoid\">\n                <div className=\"grid grid-cols-1 md:grid-cols-2 gap-6\">\n                  <div>\n                    <Label>Think about your relationship with {formData.evalRels[0] ? <span className=\"text-orange-600 bg-orange-100 px-2 py-1 rounded-md print:bg-transparent print:border print:border-slate-300\">{formData.evalRels[0]}</span> : \"someone close to you\"}. How do you feel in a healthy relationship?</Label>\n                    <Textarea value={formData.evalFeelHealthy} onChange={(e) => updateForm('evalFeelHealthy', e.target.value)} />\n                  </div>\n                  <div>\n                    <Label>Think about your relationship with {formData.evalRels[1] ? <span className=\"text-orange-600 bg-orange-100 px-2 py-1 rounded-md print:bg-transparent print:border print:border-slate-300\">{formData.evalRels[1]}</span> : \"another person\"}. How do you feel in an unhealthy relationship?</Label>\n                    <Textarea value={formData.evalFeelUnhealthy} onChange={(e) => updateForm('evalFeelUnhealthy', e.target.value)} />\n                  </div>\n                </div>\n                <div>\n                  <Label>Why do people stay in unhealthy relationships?</Label>\n                  <HintToggle example=\"They might be afraid of being alone, they might hope the person will change, or they might not even realize it's toxic because they are used to it.\" />\n                  <Textarea value={formData.evalWhyStay} onChange={(e) => updateForm('evalWhyStay', e.target.value)} />\n                </div>\n              </div>\n            </Card>\n          );",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "formdata",
+        "print",
+        "label",
+        "value",
+        "border",
+        "classname",
+        "evalrels",
+        "orange"
+      ]
+    },
+    {
+      "id": "main-application-part-35-44",
+      "index": 44,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 35)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "const renderAlcohol = () => (\n            <Card>\n              <SectionTitle subtitle=\"Navigating the choices and consequences surrounding drinking.\">\n                Alcohol Awareness\n              </SectionTitle>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "sectiontitle",
+        "alcohol",
+        "awareness",
+        "card",
+        "choices",
+        "consequences",
+        "const",
+        "drinking"
+      ]
+    },
+    {
+      "id": "main-application-part-36-45",
+      "index": 45,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 36)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 print:break-inside-avoid\">\n                <div className=\"bg-slate-50 p-6 rounded-[2rem] border-2 border-slate-200 print:bg-white print:border-slate-300\">\n                  <Label>Why do you think people drink?</Label>\n                  <HintToggle example=\"To fit in, to relax after a stressful day, or because it's socially expected at events like weddings.\" />\n                  <Textarea value={formData.alcWhyDrink} onChange={(e) => updateForm('alcWhyDrink', e.target.value)} />\n                </div>\n                <div className=\"bg-slate-50 p-6 rounded-[2rem] border-2 border-slate-200 print:bg-white print:border-slate-300\">\n                  <Label>What do you personally think about alcohol?</Label>\n                  <Textarea value={formData.alcThoughts} onChange={(e) => updateForm('alcThoughts', e.target.value)} />\n                </div>\n                <div className=\"bg-slate-50 p-6 rounded-[2rem] border-2 border-slate-200 print:bg-white print:border-slate-300\">\n                  <Label>Why is it tied to holidays/celebrations?</Label>\n                  <Textarea value={formData.alcCelebrate} onChange={(e) => updateForm('alcCelebrate', e.target.value)} />\n                </div>\n                <div className=\"bg-slate-50 p-6 rounded-[2rem] border-2 border-slate-200 print:bg-white print:border-slate-300\">\n                  <Label>What would you say if offered a drink?</Label>\n                  <HintToggle example=\"I might say 'No thanks, I'm driving today' or 'I'm good with soda right now'.\" />\n                  <Textarea value={formData.alcOffered} onChange={(e) => updateForm('alcOffered', e.target.value)} />\n                </div>\n                <div className=\"bg-slate-50 p-6 rounded-[2rem] border-2 border-slate-200 md:col-span-2 print:bg-white print:border-slate-300\">\n                  <Label>How much should you drink? Explain.</Label>\n                  <Textarea value={formData.alcHowMuch} onChange={(e) => updateForm('alcHowMuch', e.target.value)} />\n                </div>\n              </div>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "border",
+        "slate",
+        "print",
+        "label",
+        "value",
+        "classname",
+        "2rem",
+        "formdata"
+      ]
+    },
+    {
+      "id": "main-application-part-37-46",
+      "index": 46,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 37)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"bg-fuchsia-50 p-4 md:p-8 rounded-[2rem] border-2 border-fuchsia-200 mb-8 print:bg-white print:border-slate-300 print:break-inside-avoid\">\n                <h3 className=\"text-2xl font-black text-fuchsia-900 mb-6 print:text-slate-800\">Action & Consequence</h3>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "print",
+        "border",
+        "fuchsia",
+        "classname",
+        "slate",
+        "2rem",
+        "action",
+        "avoid"
+      ]
+    },
+    {
+      "id": "main-application-part-38-47",
+      "index": 47,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 38)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"overflow-x-auto\">\n                  <table className=\"min-w-full border-separate border-spacing-y-4\">\n                    <thead>\n                      <tr className=\"text-left text-fuchsia-800 print:text-slate-700\">\n                        <th className=\"px-4 pb-2 font-black uppercase tracking-wider text-sm w-1/4\">The Choice</th>\n                        <th className=\"px-4 pb-2 font-black uppercase tracking-wider text-sm text-emerald-600 print:text-slate-700 w-3/8\">The Good (Pros)</th>\n                        <th className=\"px-4 pb-2 font-black uppercase tracking-wider text-sm text-rose-600 print:text-slate-700 w-3/8\">The Bad (Cons)</th>\n                      </tr>\n                    </thead>\n                    <tbody>\n                      {['Not to Drink', 'Drink Moderately', 'Drink Too Much'].map((choice, idx) => (\n                        <tr key={choice} className=\"bg-white\">\n                          <td className=\"p-4 border-2 border-r-0 border-fuchsia-100 rounded-l-2xl font-black text-slate-800 text-lg print:border-slate-300\">{choice}</td>\n                          <td className=\"p-4 border-y-2 border-fuchsia-100 print:border-slate-300\">\n                            <Textarea\n                              rows={2} placeholder=\"e.g. Healthier body...\"\n                              value={formData.alcProsCons[idx].pro}\n                              onChange={(e) => {\n                                const newArr = [...formData.alcProsCons];\n                                newArr[idx].pro = e.target.value;\n                                updateForm('alcProsCons', newArr);\n                              }}\n                            />\n                          </td>\n                          <td className=\"p-4 border-2 border-l-0 border-fuchsia-100 rounded-r-2xl print:border-slate-300\">\n                            <Textarea\n                              rows={2} placeholder=\"e.g. Missing out socially...\"\n                              value={formData.alcProsCons[idx].con}\n                              onChange={(e) => {\n                                const newArr = [...formData.alcProsCons];\n                                newArr[idx].con = e.target.value;\n                                updateForm('alcProsCons', newArr);\n                              }}\n                            />\n                          </td>\n                        </tr>\n                      ))}\n                    </tbody>\n                  </table>\n                </div>\n              </div>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "border",
+        "classname",
+        "slate",
+        "alcproscons",
+        "newarr",
+        "print",
+        "black",
+        "choice"
+      ]
+    },
+    {
+      "id": "main-application-part-39-48",
+      "index": 48,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 39)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"print:break-inside-avoid\">\n                <Label>Who could you speak to if you wanted to learn more about alcohol? List 2 resources.</Label>\n                <Textarea value={formData.alcResources} onChange={(e) => updateForm('alcResources', e.target.value)} />\n              </div>\n            </Card>\n          );\n\nconst renderTobacco = () => (\n            <Card>\n              <SectionTitle subtitle=\"Understanding the effects and choices surrounding vaping, cannabis, and tobacco use.\">\n                Vaping & Tobacco Awareness\n              </SectionTitle>\n\n<div className=\"bg-red-50 border-4 border-red-500 p-6 md:p-8 rounded-[2rem] mb-10 shadow-[0_8px_0_0_#ef4444] transform rotate-1 print:transform-none print:shadow-none print:border-2 print:border-slate-400 print:bg-white\">\n                <h3 className=\"text-2xl md:text-3xl font-black text-red-700 uppercase tracking-widest flex items-center justify-center print:text-slate-800\">\n                  <i className=\"fa-solid fa-triangle-exclamation mr-4 text-3xl text-red-600 print:text-slate-800\"></i>\n                  Warning: Highly Addictive\n                </h3>\n              </div>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "print",
+        "border",
+        "classname",
+        "slate",
+        "alcresources",
+        "card",
+        "center",
+        "label"
+      ]
+    },
+    {
+      "id": "main-application-part-40-49",
+      "index": 49,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 40)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"space-y-6\">\n                <div className=\"grid grid-cols-1 md:grid-cols-2 gap-6 print:break-inside-avoid\">\n                  <div><Label>What do you know about traditional cigarettes?</Label><Textarea value={formData.tobKnow} onChange={(e) => updateForm('tobKnow', e.target.value)} /></div>\n                  <div><Label>What do you know about Vapes / E-cigarettes?</Label><Textarea value={formData.vapeKnow} onChange={(e) => updateForm('vapeKnow', e.target.value)} /></div>\n                </div>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "label",
+        "value",
+        "grid",
+        "cigarettes",
+        "classname",
+        "cols",
+        "formdata",
+        "know"
+      ]
+    },
+    {
+      "id": "main-application-part-41-50",
+      "index": 50,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 41)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"my-10 p-8 bg-slate-800 text-slate-100 rounded-[2rem] border-4 border-slate-900 shadow-[0_8px_0_0_#0f172a] text-lg font-medium leading-relaxed print:bg-white print:text-slate-800 print:border-2 print:border-slate-300 print:shadow-none print:break-inside-avoid\">\n                  <p className=\"mb-4\">Tobacco and most vape juices contain <strong>nicotine</strong>, a highly addictive chemical that rewires how your developing brain handles stress and reward. People develop a tolerance quickly, needing more just to feel \"normal\".</p>\n                  <p className=\"mb-6\">Vaping carries serious risks for lung health and delivers massive nicotine concentrations. Quitting is tough but highly possible with support!</p>\n                  <div className=\"flex flex-col md:flex-row gap-4 justify-center\">\n                    <div className=\"bg-emerald-400 text-slate-900 px-6 py-4 rounded-xl font-black text-lg text-center shadow-[0_4px_0_0_#047857] -rotate-1 print:transform-none print:bg-transparent print:border-2 print:border-slate-300 print:shadow-none\">\n                      AlbertaQuits: 1-866-710-QUIT\n                    </div>\n                    <div className=\"bg-sky-400 text-slate-900 px-6 py-4 rounded-xl font-black text-lg text-center shadow-[0_4px_0_0_#0369a1] rotate-1 print:transform-none print:bg-transparent print:border-2 print:border-slate-300 print:shadow-none\">\n                      KidsHelpPhone: Text CONNECT to 686868\n                    </div>\n                  </div>\n                </div>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "print",
+        "slate",
+        "border",
+        "classname",
+        "shadow",
+        "none",
+        "center",
+        "flex"
+      ]
+    },
+    {
+      "id": "main-application-part-42-51",
+      "index": 51,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 42)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"grid grid-cols-1 md:grid-cols-2 gap-6 print:break-inside-avoid\">\n                  <div><Label>Why do you think teens start vaping?</Label><Textarea value={formData.vapeWhy} onChange={(e) => updateForm('vapeWhy', e.target.value)} /></div>\n                  <div><Label>Cannabis is legal in Canada. What are your thoughts on its use among teenagers?</Label><Textarea value={formData.weedThoughts} onChange={(e) => updateForm('weedThoughts', e.target.value)} /></div>\n                </div>\n                <div className=\"bg-sky-50 p-6 rounded-[2rem] border-2 border-sky-200 print:bg-white print:border-slate-300 print:break-inside-avoid\">\n                  <Label>If a friend wanted to start vaping or smoking, how would you convince them not to?</Label>\n                  <Textarea value={formData.tobConvince} onChange={(e) => updateForm('tobConvince', e.target.value)} />\n                </div>\n              </div>\n            </Card>\n          );\n\nconst renderRisk = () => (\n            <Card>\n              <SectionTitle subtitle=\"Learning the difference between calculated risks and careless ones.\">\n                Risk Taking\n              </SectionTitle>\n\n<div className=\"mb-12\">\n                <h3 className=\"text-3xl font-black text-slate-800 mb-8\">The Risk Meter</h3>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "label",
+        "value",
+        "classname",
+        "print",
+        "border",
+        "formdata",
+        "grid",
+        "onchange"
+      ]
+    },
+    {
+      "id": "main-application-part-43-52",
+      "index": 52,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 43)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"space-y-6\">\n                  {riskQuestions.map((q, idx) => (\n                    <div key={idx} className=\"bg-slate-50 p-6 md:p-8 rounded-[2rem] border-2 border-slate-200 hover:border-violet-300 transition-colors print:bg-white print:border-slate-300 print:break-inside-avoid\">\n                      <p className=\"font-bold text-slate-800 mb-4 text-lg\">{q}</p>\n                      <PillRadioGroup\n                        options={[\"No risk\", \"Minimal\", \"Some risk\", \"Significant\", \"High risk\"]}\n                        name={`risk_${idx}`}\n                        value={formData.riskRatings[idx]}\n                        onChange={(val) => setFormData(prev => ({\n                          ...prev, riskRatings: { ...prev.riskRatings, [idx]: val }\n                        }))}\n                      />\n                    </div>\n                  ))}\n                </div>\n              </div>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "border",
+        "risk",
+        "slate",
+        "classname",
+        "prev",
+        "print",
+        "riskratings",
+        "2rem"
+      ]
+    },
+    {
+      "id": "main-application-part-44-53",
+      "index": 53,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 44)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"bg-indigo-50 p-6 rounded-[2rem] border-2 border-indigo-200 mb-12 print:bg-white print:border-slate-300 print:break-inside-avoid\">\n                <Label>How did you determine how \"risky\" a situation was? Explain your logic.</Label>\n                <HintToggle example=\"I asked myself: Could this physically hurt me? Could it ruin my reputation or get me arrested? Do the benefits outweigh the potential bad consequences?\" />\n                <Textarea value={formData.riskDetermine} onChange={(e) => updateForm('riskDetermine', e.target.value)} />\n              </div>\n\n<h3 className=\"text-3xl font-black text-slate-800 mb-8 text-center print:break-before-page print:mt-10\">Healthy vs Unhealthy Risks</h3>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "print",
+        "border",
+        "break",
+        "classname",
+        "could",
+        "indigo",
+        "label",
+        "riskdetermine"
+      ]
+    },
+    {
+      "id": "main-application-part-45-54",
+      "index": 54,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 45)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<KnowledgeDrop title=\"Not all risks are bad!\" color=\"sky\">\n                <p className=\"mb-3\">When we hear the word \"risk\", we usually think of danger. But growing up requires taking risks! The trick is knowing the difference:</p>\n                <ul className=\"space-y-3\">\n                  <li>📈 <strong>Healthy Risks:</strong> Pushing yourself outside your comfort zone to grow. The \"worst-case scenario\" might be feeling embarrassed or failing, but you won't get hurt. <em>(e.g., trying out for a play, applying for a hard job, standing up for a friend).</em></li>\n                  <li>☠️ <strong>Unhealthy Risks:</strong> Actions that are needlessly dangerous, illegal, or could cause long-term physical/mental harm to you or others. <em>(e.g., driving drunk, trying addictive drugs, sharing inappropriate photos online).</em></li>\n                </ul>\n              </KnowledgeDrop>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "risks",
+        "strong",
+        "classname",
+        "knowledgedrop",
+        "trying",
+        "actions",
+        "addictive",
+        "applying"
+      ]
+    },
+    {
+      "id": "main-application-part-46-55",
+      "index": 55,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 46)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10 print:break-inside-avoid\">\n                <div className=\"bg-lime-50 p-8 rounded-[2rem] border-2 border-lime-200 shadow-[0_8px_0_0_#d9f99d] print:bg-white print:border-slate-300 print:shadow-none\">\n                  <h4 className=\"font-black text-lime-800 text-2xl mb-2 print:text-slate-800\">Healthy Risks</h4>\n                  <p className=\"text-sm font-bold text-lime-600 mb-6 uppercase tracking-wider print:text-slate-500\">Growth-oriented activities</p>\n                  <div className=\"space-y-4\">\n                    {[0, 1, 2, 3, 4].map(idx => (\n                      <Input key={idx} placeholder={`Good Risk ${idx + 1}`} value={formData.riskHealthy[idx]} onChange={(e) => updateArrayField('riskHealthy', idx, e.target.value)} />\n                    ))}\n                  </div>\n                </div>\n                <div className=\"bg-rose-50 p-8 rounded-[2rem] border-2 border-rose-200 shadow-[0_8px_0_0_#fecdd3] print:bg-white print:border-slate-300 print:shadow-none\">\n                  <h4 className=\"font-black text-rose-800 text-2xl mb-2 print:text-slate-800\">Unhealthy Risks</h4>\n                  <p className=\"text-sm font-bold text-rose-600 mb-6 uppercase tracking-wider print:text-slate-500\">Needlessly dangerous</p>\n                  <div className=\"space-y-4\">\n                    {[0, 1, 2, 3, 4].map(idx => (\n                      <Input key={idx} placeholder={`Bad Risk ${idx + 1}`} value={formData.riskUnhealthy[idx]} onChange={(e) => updateArrayField('riskUnhealthy', idx, e.target.value)} />\n                    ))}\n                  </div>\n                </div>\n              </div>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "print",
+        "classname",
+        "border",
+        "slate",
+        "font",
+        "lime",
+        "rose",
+        "shadow"
+      ]
+    },
+    {
+      "id": "main-application-part-47-56",
+      "index": 56,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 47)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"print:break-inside-avoid\">\n                <Label>Why do you think someone would WANT to take an unhealthy risk?</Label>\n                <Textarea value={formData.riskWhyUnhealthy} onChange={(e) => updateForm('riskWhyUnhealthy', e.target.value)} />\n              </div>\n            </Card>\n          );\n\nconst renderAddictions = () => (\n            <Card>\n              <SectionTitle subtitle=\"Understanding the spectrum of addiction.\">\n                Addictions\n              </SectionTitle>\n\n<div className=\"grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 print:break-inside-avoid\">\n                <div className=\"bg-slate-50 p-6 rounded-[2rem] border-2 border-slate-200 print:bg-white print:border-slate-300\"><Label>Define the term \"addiction\" using a dictionary:</Label><Textarea value={formData.addDefine} onChange={(e) => updateForm('addDefine', e.target.value)} /></div>\n                <div className=\"bg-slate-50 p-6 rounded-[2rem] border-2 border-slate-200 print:bg-white print:border-slate-300\"><Label>List 3 different things people can be addicted to:</Label><Textarea value={formData.addTypes} onChange={(e) => updateForm('addTypes', e.target.value)} /></div>\n              </div>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "border",
+        "label",
+        "print",
+        "slate",
+        "value",
+        "classname",
+        "formdata",
+        "grid"
+      ]
+    },
+    {
+      "id": "main-application-part-48-57",
+      "index": 57,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 48)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"bg-indigo-600 p-8 md:p-10 rounded-[3rem] shadow-[0_12px_0_0_#3730a3] mb-12 text-white print:bg-white print:text-slate-800 print:border-2 print:border-slate-300 print:shadow-none print:break-inside-avoid\">\n                <h3 className=\"text-3xl font-black text-white mb-8 text-center print:text-slate-800\">The Addiction Continuum</h3>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "print",
+        "slate",
+        "white",
+        "border",
+        "classname",
+        "shadow",
+        "12px",
+        "3730a3"
+      ]
+    },
+    {
+      "id": "main-application-part-49-58",
+      "index": 58,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 49)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4\">\n                  <div className=\"p-6 rounded-3xl bg-white/10 border-2 border-white/20 backdrop-blur-sm print:bg-transparent print:border-slate-300\">\n                    <div className=\"w-12 h-12 bg-emerald-400 rounded-2xl flex items-center justify-center font-black text-xl text-emerald-900 mb-4 print:bg-slate-200 print:text-slate-800\">1</div>\n                    <strong className=\"text-xl block mb-2\">No Use</strong>\n                    <p className=\"text-sm font-medium opacity-90 print:opacity-100\">No use due to age, religion, or health risks.</p>\n                  </div>\n                  <div className=\"p-6 rounded-3xl bg-white/10 border-2 border-white/20 backdrop-blur-sm print:bg-transparent print:border-slate-300\">\n                    <div className=\"w-12 h-12 bg-sky-400 rounded-2xl flex items-center justify-center font-black text-xl text-sky-900 mb-4 print:bg-slate-200 print:text-slate-800\">2</div>\n                    <strong className=\"text-xl block mb-2\">Use</strong>\n                    <p className=\"text-sm font-medium opacity-90 print:opacity-100\">Experimentation or \"social use\" to enhance good experiences.</p>\n                  </div>\n                  <div className=\"p-6 rounded-3xl bg-white/10 border-2 border-white/20 backdrop-blur-sm print:bg-transparent print:border-slate-300\">\n                    <div className=\"w-12 h-12 bg-amber-400 rounded-2xl flex items-center justify-center font-black text-xl text-amber-900 mb-4 print:bg-slate-200 print:text-slate-800\">3</div>\n                    <strong className=\"text-xl block mb-2\">Misuse</strong>\n                    <p className=\"text-sm font-medium opacity-90 print:opacity-100\">Experiencing negative consequences (trouble, regret) but ignoring them.</p>\n                  </div>\n                  <div className=\"p-6 rounded-3xl bg-white/10 border-2 border-white/20 backdrop-blur-sm print:bg-transparent print:border-slate-300\">\n                    <div className=\"w-12 h-12 bg-rose-500 rounded-2xl flex items-center justify-center font-black text-xl text-white mb-4 print:bg-slate-200 print:text-slate-800\">4</div>\n                    <strong className=\"text-xl block mb-2\">Dependency</strong>\n                    <p className=\"text-sm font-medium opacity-90 print:opacity-100\">Interferes with major life areas. No longer a choice.</p>\n                  </div>\n                </div>\n              </div>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "print",
+        "classname",
+        "border",
+        "slate",
+        "white",
+        "center",
+        "font",
+        "opacity"
+      ]
+    },
+    {
+      "id": "main-application-part-50-59",
+      "index": 59,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 50)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<h3 className=\"text-3xl font-black text-slate-800 mb-8 print:break-before-page print:mt-10\">Scenario Analysis</h3>\n\n<div className=\"space-y-8\">\n                <div className=\"bg-sky-50 rounded-[2rem] border-2 border-sky-200 overflow-hidden print:bg-white print:border-slate-300 print:break-inside-avoid\">\n                  <div className=\"p-6 bg-sky-100/50 border-b-2 border-sky-200 print:bg-slate-50 print:border-slate-300\">\n                    <p className=\"font-bold text-sky-900 text-lg print:text-slate-800\"><strong>Scenario 1:</strong> Rachel can't wait to finish school so she can get home and start drinking. Every day after school, Rachel has at least 5 beers to mellow her out. Her friends and family have expressed concern. She has a hard time sleeping without it.</p>\n                  </div>\n                  <div className=\"p-6\">\n                    <Textarea value={formData.addScen1} onChange={(e) => updateForm('addScen1', e.target.value)} placeholder=\"Identify the stage and justify...\" />\n                  </div>\n                </div>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "print",
+        "border",
+        "classname",
+        "slate",
+        "addscen1",
+        "break",
+        "font",
+        "rachel"
+      ]
+    },
+    {
+      "id": "main-application-part-51-60",
+      "index": 60,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 51)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"bg-amber-50 rounded-[2rem] border-2 border-amber-200 overflow-hidden print:bg-white print:border-slate-300 print:break-inside-avoid\">\n                  <div className=\"p-6 bg-amber-100/50 border-b-2 border-amber-200 print:bg-slate-50 print:border-slate-300\">\n                    <p className=\"font-bold text-amber-900 text-lg print:text-slate-800\"><strong>Scenario 2:</strong> Antoine has never touched a cigarette. After losing his father to lung cancer, Antoine has decided that he will never try one.</p>\n                  </div>\n                  <div className=\"p-6\">\n                    <Textarea value={formData.addScen2} onChange={(e) => updateForm('addScen2', e.target.value)} placeholder=\"Identify the stage and justify...\" />\n                  </div>\n                </div>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "border",
+        "print",
+        "amber",
+        "classname",
+        "slate",
+        "addscen2",
+        "antoine",
+        "never"
+      ]
+    },
+    {
+      "id": "main-application-part-52-61",
+      "index": 61,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 52)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"bg-rose-50 rounded-[2rem] border-2 border-rose-200 overflow-hidden print:bg-white print:border-slate-300 print:break-inside-avoid\">\n                  <div className=\"p-6 bg-rose-100/50 border-b-2 border-rose-200 print:bg-slate-50 print:border-slate-300\">\n                    <p className=\"font-bold text-rose-900 text-lg print:text-slate-800\"><strong>Scenario 3:</strong> Bailey has a craving. She wants one, but doesn't have one. She notices a half full pack on the table beside her, and decides to steal one when no one is looking.</p>\n                  </div>\n                  <div className=\"p-6\">\n                    <Textarea value={formData.addScen3} onChange={(e) => updateForm('addScen3', e.target.value)} placeholder=\"Identify the stage and justify...\" />\n                  </div>\n                </div>\n              </div>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "border",
+        "print",
+        "rose",
+        "classname",
+        "slate",
+        "addscen3",
+        "strong",
+        "value"
+      ]
+    },
+    {
+      "id": "main-application-part-53-62",
+      "index": 62,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 53)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"mt-12 p-8 bg-slate-900 text-white rounded-[3rem] text-center shadow-[0_8px_0_0_#0f172a] print:bg-white print:border-2 print:border-slate-300 print:text-slate-800 print:shadow-none print:break-inside-avoid\">\n                <i className=\"fa-solid fa-wave-square text-5xl mb-4 text-emerald-400 print:text-slate-800\"></i>\n                <p className=\"font-bold text-slate-300 mb-2 text-lg print:text-slate-800\">For more information, or to find support for addictions, contact Alberta Health Services (AHS):</p>\n                <p className=\"text-sm font-black text-slate-900 bg-emerald-400 inline-block px-6 py-3 rounded-xl mt-4 border-2 border-emerald-500 print:bg-transparent print:border-slate-300\">Addiction Help Line: 1-866-332-2322</p>\n              </div>\n            </Card>\n          );\n\nconst renderMentalHealth = () => (\n            <Card>\n              <SectionTitle subtitle=\"Recognizing signs of depression and seeking support.\">\n                Mental Health\n              </SectionTitle>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "print",
+        "slate",
+        "border",
+        "classname",
+        "emerald",
+        "card",
+        "font",
+        "health"
+      ]
+    },
+    {
+      "id": "main-application-part-54-63",
+      "index": 63,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 54)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 print:break-inside-avoid\">\n                <div className=\"bg-cyan-50 p-8 rounded-[2rem] border-2 border-cyan-200 print:bg-white print:border-slate-300\">\n                  <h3 className=\"text-2xl font-black text-cyan-900 mb-4 print:text-slate-800\">You are not alone</h3>\n                  <p className=\"text-base font-medium text-cyan-800 leading-relaxed print:text-slate-600\">When you're depressed, it can feel like no one understands. But depression is far more common in teens than you may think. It is not a hopeless case. With proper treatment and healthy choices, that fog eventually lifts.</p>\n                </div>\n                <div className=\"bg-rose-50 p-8 rounded-[2rem] border-2 border-rose-200 shadow-[0_8px_0_0_#fecdd3] print:bg-white print:border-slate-300 print:shadow-none\">\n                  <h3 className=\"text-2xl font-black text-rose-900 mb-4 print:text-slate-800\">Warning Signs</h3>\n                  <ul className=\"text-base font-bold text-rose-800 space-y-3 print:text-slate-600\">\n                    <li>🚨 Irritable, sad, or angry</li>\n                    <li>🚨 Nothing seems fun anymore</li>\n                    <li>🚨 Feeling worthless or guilty</li>\n                    <li>🚨 Sleeping too much or not enough</li>\n                    <li className=\"text-red-600 bg-red-100 p-3 rounded-xl mt-4 border-2 border-red-200 print:bg-transparent print:border-slate-300\">🔥 Thinking about death or suicide. (Seek help immediately!)</li>\n                  </ul>\n                </div>\n              </div>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "print",
+        "border",
+        "classname",
+        "slate",
+        "cyan",
+        "font",
+        "rose",
+        "grid"
+      ]
+    },
+    {
+      "id": "main-application-part-55-64",
+      "index": 64,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 55)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 print:break-inside-avoid\">\n                <div className=\"bg-slate-50 p-6 rounded-[2rem] border-2 border-slate-200 print:bg-white print:border-slate-300\">\n                  <Label>Why is it hard to talk about?</Label>\n                  <HintToggle example=\"People often feel embarrassed, worry that others will judge them, or fear being seen as 'weak'.\" />\n                  <Textarea value={formData.mhHardTalk} onChange={(e) => updateForm('mhHardTalk', e.target.value)} />\n                </div>\n                <div className=\"bg-slate-50 p-6 rounded-[2rem] border-2 border-slate-200 print:bg-white print:border-slate-300\">\n                  <Label>Emotions tied to depression?</Label>\n                  <Textarea value={formData.mhEmotions} onChange={(e) => updateForm('mhEmotions', e.target.value)} />\n                </div>\n                <div className=\"bg-slate-50 p-6 rounded-[2rem] border-2 border-slate-200 print:bg-white print:border-slate-300\">\n                  <Label>How to spot it in a friend?</Label>\n                  <Textarea value={formData.mhKnowWrong} onChange={(e) => updateForm('mhKnowWrong', e.target.value)} />\n                </div>\n              </div>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "border",
+        "slate",
+        "print",
+        "label",
+        "value",
+        "classname",
+        "2rem",
+        "formdata"
+      ]
+    },
+    {
+      "id": "main-application-part-56-65",
+      "index": 65,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 56)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"bg-indigo-50 p-8 rounded-[3rem] border-2 border-indigo-200 mb-10 print:bg-white print:border-slate-300 print:break-inside-avoid\">\n                <h3 className=\"text-3xl font-black text-indigo-900 mb-8 text-center print:text-slate-800\">How to fight back</h3>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "print",
+        "border",
+        "indigo",
+        "classname",
+        "slate",
+        "3rem",
+        "avoid",
+        "back"
+      ]
+    },
+    {
+      "id": "main-application-part-57-66",
+      "index": 66,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 57)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"grid grid-cols-1 sm:grid-cols-2 gap-6 text-base font-medium text-indigo-800 print:text-slate-700\">\n                  <div className=\"bg-white border-2 border-indigo-100 p-6 rounded-2xl shadow-sm print:border-slate-300 print:shadow-none\">\n                    <strong className=\"text-xl font-black block mb-2\">1. One day at a time</strong>\n                    Start with small goals. Stay connected.\n                  </div>\n                  <div className=\"bg-white border-2 border-indigo-100 p-6 rounded-2xl shadow-sm print:border-slate-300 print:shadow-none\">\n                    <strong className=\"text-xl font-black block mb-2\">2. Don't isolate</strong>\n                    Spend time with upbeat friends. Avoid toxic people.\n                  </div>\n                  <div className=\"bg-white border-2 border-indigo-100 p-6 rounded-2xl shadow-sm print:border-slate-300 print:shadow-none\">\n                    <strong className=\"text-xl font-black block mb-2\">3. Body Health</strong>\n                    Exercise releases endorphins. Eat good food.\n                  </div>\n                  <div className=\"bg-white border-2 border-indigo-100 p-6 rounded-2xl shadow-sm print:border-slate-300 print:shadow-none\">\n                    <strong className=\"text-xl font-black block mb-2\">4. Ask for help</strong>\n                    Talk to a teacher or doctor. Avoid drugs/alcohol.\n                  </div>\n                </div>\n              </div>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "border",
+        "classname",
+        "print",
+        "shadow",
+        "strong",
+        "font",
+        "indigo",
+        "slate"
+      ]
+    },
+    {
+      "id": "main-application-part-58-67",
+      "index": 67,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 58)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"grid grid-cols-1 md:grid-cols-2 gap-6 print:break-inside-avoid\">\n                <div><Label>How to help a friend who is depressed?</Label><Textarea value={formData.mhHelpFriend} onChange={(e) => updateForm('mhHelpFriend', e.target.value)} /></div>\n                <div><Label>What to do if YOU feel depressed?</Label><Textarea value={formData.mhHelpSelf} onChange={(e) => updateForm('mhHelpSelf', e.target.value)} /></div>\n              </div>\n            </Card>\n          );\n\nconst renderTaskA = () => (\n            <Card>\n              <SectionTitle subtitle=\"Draw your journey so far.\">\n                Summative Task A: Life Map\n              </SectionTitle>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "label",
+        "value",
+        "grid",
+        "card",
+        "cols",
+        "depressed",
+        "formdata",
+        "mhhelpfriend"
+      ]
+    },
+    {
+      "id": "main-application-part-59-68",
+      "index": 68,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 59)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"bg-lime-400 p-8 md:p-10 rounded-[3rem] mb-10 shadow-[0_12px_0_0_#4d7c0f] transform -rotate-1 print:transform-none print:bg-white print:border-2 print:border-slate-300 print:shadow-none print:break-inside-avoid\">\n                <h3 className=\"font-black text-3xl text-lime-900 mb-6 flex items-center print:text-slate-800\">\n                  <i className=\"fa-solid fa-map text-3xl mr-4 text-lime-800 print:text-slate-800\"></i>\n                  The Mission\n                </h3>\n                <ol className=\"list-decimal pl-6 space-y-4 text-lime-900 font-bold text-lg print:text-slate-600\">\n                  <li>Create a colourful map showing your life to date (Physical paper, slides, etc).</li>\n                  <li>Start with birth. Mark the ups and downs along your road.</li>\n                  <li>Identify the TRANSITIONS (How did you get through it? What did you learn?).</li>\n                  <li>Include 10 major events.</li>\n                  <li>Add: Dates, Places, Symbols, Pictures.</li>\n                </ol>\n              </div>\n\n<div className=\"mb-12 print:break-inside-avoid\">\n                <Label>Upload your map</Label>\n                <p className=\"text-sm font-medium text-slate-500 mb-4\">Take a photo of your drawing and upload it here!</p>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "print",
+        "classname",
+        "slate",
+        "lime",
+        "font",
+        "avoid",
+        "border",
+        "break"
+      ]
+    },
+    {
+      "id": "main-application-part-60-69",
+      "index": 69,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 60)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "{formData.mapImageData ? (\n                  <div className=\"relative bg-slate-50 border-4 border-slate-200 p-4 rounded-[2rem] inline-block max-w-full shadow-sm group\">\n                    <img src={formData.mapImageData} alt=\"Student Life Map\" className=\"rounded-2xl max-h-[500px] object-contain print:max-h-full\" />\n                    {!printMode && (\n                      <button\n                        onClick={() => updateForm('mapImageData', '')}\n                        className=\"absolute -top-4 -right-4 bg-rose-500 text-white p-3 rounded-xl border-2 border-rose-600 shadow-[0_4px_0_0_#9f1239] hover:-translate-y-1 hover:shadow-[0_6px_0_0_#9f1239] active:translate-y-[2px] active:shadow-none transition-all flex items-center justify-center opacity-0 group-hover:opacity-100\"\n                      >\n                        <i className=\"fa-solid fa-trash-can text-lg\"></i>\n                      </button>\n                    )}\n                  </div>\n                ) : (\n                  <label className=\"flex flex-col items-center justify-center w-full h-64 bg-lime-50 border-4 border-dashed border-lime-300 rounded-[2rem] cursor-pointer hover:bg-lime-100 hover:border-lime-400 transition-all group shadow-[inset_0_4px_10px_rgba(0,0,0,0.02)] print:bg-white print:border-slate-300 print:shadow-none\">\n                    <div className=\"w-20 h-20 bg-lime-200 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 print:hidden\">\n                      <i className=\"fa-solid fa-cloud-arrow-up text-4xl text-lime-700\"></i>\n                    </div>\n                    <p className=\"font-black text-xl text-lime-800 mb-2 print:text-slate-500\">[ Map Image Will Appear Here ]</p>\n                    <p className=\"text-lime-600 font-medium print:hidden\">JPEG, PNG, or take a photo</p>\n                    <input type=\"file\" accept=\"image/*\" className=\"hidden\" onChange={handleImageUpload} />\n                  </label>\n                )}\n              </div>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "classname",
+        "border",
+        "lime",
+        "print",
+        "center",
+        "hover",
+        "shadow",
+        "rounded"
+      ]
+    },
+    {
+      "id": "main-application-part-61-70",
+      "index": 70,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 61)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"bg-slate-50 p-8 rounded-[2rem] border-2 border-slate-200 print:bg-white print:border-slate-300 print:break-inside-avoid\">\n                <h3 className=\"text-2xl font-black text-slate-800 mb-6\">Reflection</h3>\n                <div className=\"space-y-6\">\n                  <div><Label>1. Proudest accomplishment? Why?</Label><Textarea value={formData.mapAccomplish} onChange={(e) => updateForm('mapAccomplish', e.target.value)} /></div>\n                  <div><Label>2. Hardest obstacle? Why?</Label><Textarea value={formData.mapObstacle} onChange={(e) => updateForm('mapObstacle', e.target.value)} /></div>\n                  <div>\n                    <Label>3. Strategies used to manage changes?</Label>\n                    <HintToggle example=\"I talked to my parents, I took a break from social media, and I started writing my thoughts down.\" />\n                    <Textarea value={formData.mapStrategies} onChange={(e) => updateForm('mapStrategies', e.target.value)} />\n                  </div>\n                  <div><Label>4. Skills gained from obstacles?</Label><Textarea value={formData.mapSkills} onChange={(e) => updateForm('mapSkills', e.target.value)} /></div>\n                </div>\n              </div>\n            </Card>\n          );",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "label",
+        "value",
+        "formdata",
+        "onchange",
+        "slate",
+        "target",
+        "textarea",
+        "updateform"
+      ]
+    },
+    {
+      "id": "main-application-part-62-71",
+      "index": 71,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 62)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "const renderTaskB = () => (\n            <Card>\n              <SectionTitle subtitle=\"Analyze emotions and decision making through film.\">\n                Summative Task B: Inside Out\n              </SectionTitle>\n\n<div className=\"bg-purple-100 border-4 border-purple-300 p-6 md:p-8 rounded-[3rem] mb-10 shadow-[0_8px_0_0_#d8b4fe] print:bg-white print:border-2 print:border-slate-300 print:shadow-none print:break-inside-avoid\">\n\n<div className=\"flex flex-col md:flex-row items-center gap-6 mb-8 print:hidden\">\n                  <i className=\"fa-solid fa-film text-5xl md:text-6xl text-purple-500 flex-shrink-0\"></i>\n                  <p className=\"text-purple-900 text-lg md:text-xl font-bold leading-relaxed\">\n                    Study the Pixar film \"Inside Out\". It explores how emotions drive our decisions. Need a refresher? Watch the trailer below, then answer the questions!\n                  </p>\n                </div>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "print",
+        "border",
+        "classname",
+        "flex",
+        "purple",
+        "film",
+        "inside",
+        "emotions"
+      ]
+    },
+    {
+      "id": "main-application-part-63-72",
+      "index": 72,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 63)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "{/* Embedded Video Player */}\n                <div className=\"relative w-full overflow-hidden rounded-2xl border-4 border-purple-300 shadow-md bg-black print:hidden\" style={{ paddingTop: '56.25%' }}>\n                  <iframe\n                    className=\"absolute top-0 left-0 w-full h-full\"\n                    src=\"https://www.youtube.com/embed/yRUAzGQ3nSY?rel=0\"\n                    title=\"Inside Out Official Trailer\"\n                    allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\"\n                    allowFullScreen\n                  ></iframe>\n                </div>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "full",
+        "border",
+        "classname",
+        "hidden",
+        "iframe",
+        "picture",
+        "absolute",
+        "accelerometer"
+      ]
+    },
+    {
+      "id": "main-application-part-64-73",
+      "index": 73,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 64)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "{/* Character Glossary */}\n                <div className=\"mt-8 bg-white/60 p-6 rounded-2xl border-2 border-purple-200 print:mt-0 print:border-none print:bg-transparent\">\n                  <h4 className=\"font-black text-purple-900 mb-3 print:text-slate-800\">Quick Character Recap:</h4>\n                  <div className=\"flex flex-wrap gap-2 text-sm font-bold\">\n                    <span className=\"bg-yellow-200 text-yellow-800 px-3 py-1.5 rounded-xl border-2 border-yellow-300 print:border-slate-300 print:bg-white print:text-slate-600\">Joy (Yellow)</span>\n                    <span className=\"bg-blue-200 text-blue-800 px-3 py-1.5 rounded-xl border-2 border-blue-300 print:border-slate-300 print:bg-white print:text-slate-600\">Sadness (Blue)</span>\n                    <span className=\"bg-red-200 text-red-800 px-3 py-1.5 rounded-xl border-2 border-red-300 print:border-slate-300 print:bg-white print:text-slate-600\">Anger (Red)</span>\n                    <span className=\"bg-green-200 text-green-800 px-3 py-1.5 rounded-xl border-2 border-green-300 print:border-slate-300 print:bg-white print:text-slate-600\">Disgust (Green)</span>\n                    <span className=\"bg-purple-200 text-purple-800 px-3 py-1.5 rounded-xl border-2 border-purple-300 print:border-slate-300 print:bg-white print:text-slate-600\">Fear (Purple)</span>\n                  </div>\n                </div>\n              </div>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "print",
+        "border",
+        "slate",
+        "span",
+        "classname",
+        "purple",
+        "rounded",
+        "white"
+      ]
+    },
+    {
+      "id": "main-application-part-65-74",
+      "index": 74,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 65)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<div className=\"space-y-8 bg-slate-50 p-6 md:p-8 rounded-[2rem] border-2 border-slate-200 print:bg-transparent print:border-none print:p-0\">\n                {[\n                  { id: 'ioQ1', q: \"1. Joy is usually in charge of Riley. Which emotion(s) do you feel most often? Explain.\" },\n                  { id: 'ioQ2', q: \"2. Riley moves to San Francisco. Have you ever gone through a big transition? Explain.\" },\n                  { id: 'ioQ3', q: \"3. How are the glowing 'core memories' made? What might yours be?\" },\n                  { id: 'ioQ4', q: \"4. What do the core memories have to do with Riley's personality? Explain.\" },\n                  { id: 'ioQ5', q: \"5. Sadness colors a memory blue. Can our current moods color our past memories? Explain.\" },\n                  { id: 'ioQ6', q: \"6. Were the core memories changed forever, or just temporarily filtered? Explain.\" },\n                  { id: 'ioQ7', q: \"7. Riley feels pressure to be a 'happy girl'. Is this fair of her mom to ask? Explain.\" },\n                  { id: 'ioQ8', q: \"8. Does society value certain emotions over others? Which ones? Explain.\" },\n                  { id: 'ioQ9', q: \"9. Why does Joy learn that Sadness is also important?\" },\n                  { id: 'ioQ10', q: \"10. Is it easier for certain demographics (age/gender) to express different emotions? Why?\" },\n                ].map(({ id, q }) => (\n                  <div key={id} className=\"bg-white p-6 rounded-2xl border-2 border-slate-100 shadow-sm transition-all focus-within:border-purple-300 print:break-inside-avoid print:border-slate-300 print:shadow-none\">\n                    <Label>{q}</Label>\n                    <Textarea value={formData[id]} onChange={(e) => updateForm(id, e.target.value)} />\n                  </div>\n                ))}\n              </div>\n            </Card>\n          );",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "border",
+        "explain",
+        "print",
+        "memories",
+        "riley",
+        "slate",
+        "core",
+        "value"
+      ]
+    },
+    {
+      "id": "main-application-part-66-75",
+      "index": 75,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 66)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "const renderSubmit = () => {\n            const is100Percent = progressData.overallPercentage === 100;\n\nreturn (\n              <Card className=\"border-t-[8px] border-t-blue-500\">\n                <SectionTitle subtitle=\"Let's make sure you haven't missed anything!\">\n                  Final Review\n                </SectionTitle>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "border",
+        "const",
+        "sectiontitle",
+        "anything",
+        "blue",
+        "card",
+        "classname",
+        "final"
+      ]
+    },
+    {
+      "id": "main-application-part-67-76",
+      "index": 76,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 67)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "{!is100Percent && (\n                  <div className=\"bg-amber-50 border-4 border-amber-400 p-6 md:p-8 rounded-[2rem] mb-10 shadow-sm flex flex-col md:flex-row items-center md:items-start gap-6 text-center md:text-left transform -rotate-1 print:hidden\">\n                    <div className=\"w-16 h-16 bg-amber-200 rounded-full flex items-center justify-center flex-shrink-0 shadow-[0_4px_0_0_#f59e0b]\">\n                      <i className=\"fa-solid fa-triangle-exclamation text-3xl text-amber-700\"></i>\n                    </div>\n                    <div>\n                      <h4 className=\"font-black text-amber-900 text-2xl mb-2\">Wait up! You have missing answers.</h4>\n                      <p className=\"text-amber-800 font-medium text-lg leading-relaxed\">\n                        Your workbook is only <strong className=\"text-xl bg-amber-200 px-2 py-1 rounded-lg\">{progressData.overallPercentage}%</strong> complete. Review the checklist below to see which sections still need attention.\n                      </p>\n                    </div>\n                  </div>\n                )}",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "amber",
+        "classname",
+        "flex",
+        "center",
+        "items",
+        "rounded",
+        "border",
+        "font"
+      ]
+    },
+    {
+      "id": "main-application-part-68-77",
+      "index": 77,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 68)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "{is100Percent && (\n                  <div className=\"bg-emerald-50 border-4 border-emerald-400 p-6 md:p-8 rounded-[2rem] mb-10 shadow-[0_8px_0_0_#34d399] flex flex-col md:flex-row items-center md:items-start gap-6 text-center md:text-left transform rotate-1 print:hidden\">\n                    <div className=\"w-16 h-16 bg-emerald-400 rounded-full flex items-center justify-center flex-shrink-0 shadow-[0_4px_0_0_#059669]\">\n                      <i className=\"fa-solid fa-check text-4xl text-white\"></i>\n                    </div>\n                    <div>\n                      <h4 className=\"font-black text-emerald-900 text-2xl mb-2\">Amazing job! 100% Complete!</h4>\n                      <p className=\"text-emerald-800 font-medium text-lg leading-relaxed\">\n                        You've answered every single question in the workbook. Give yourself a well-deserved high-five! You have officially finished this activity.\n                      </p>\n                    </div>\n                  </div>\n                )}",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "classname",
+        "emerald",
+        "flex",
+        "center",
+        "items",
+        "border",
+        "font",
+        "rounded"
+      ]
+    },
+    {
+      "id": "main-application-part-69-78",
+      "index": 78,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 69)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<h3 className=\"text-2xl font-black text-slate-800 mb-6 print:hidden\">Module Checklist</h3>\n                <div className=\"grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12 print:hidden\">\n                  {tabs.filter(t => t.id !== 'submit').map(tab => {\n                    const stats = progressData.stats[tab.id];\n                    const isComplete = stats?.isComplete;\n                    return (\n                      <button\n                        key={tab.id}\n                        onClick={() => {\n                          setActiveTab(tab.id);\n                          window.scrollTo({ top: 0, behavior: 'smooth' });\n                        }}\n                        className={`p-4 rounded-2xl border-4 flex items-center justify-between transition-all hover:-translate-y-1 active:translate-y-0 text-left ${isComplete ? 'bg-emerald-50 border-emerald-200 hover:border-emerald-300' : 'bg-slate-50 border-slate-200 hover:border-slate-300 shadow-[0_4px_0_0_#e2e8f0]'}`}\n                      >\n                        <div className=\"flex items-center gap-3\">\n                          <div className={`p-2 rounded-xl flex items-center justify-center w-10 h-10 ${isComplete ? 'bg-emerald-200' : 'bg-slate-200'}`}>\n                            <i className={`${tab.icon} ${isComplete ? 'text-emerald-700' : 'text-slate-500'} text-lg`}></i>\n                          </div>\n                          <span className={`font-bold text-lg ${isComplete ? 'text-emerald-900' : 'text-slate-700'}`}>{tab.label}</span>\n                        </div>\n                        <span className={`font-black text-sm px-3 py-1 rounded-xl ${isComplete ? 'bg-emerald-400 text-emerald-900' : 'bg-white border-2 border-slate-200 text-slate-600'}`}>\n                          {stats?.completed}/{stats?.total}\n                        </span>\n                      </button>\n                    );\n                  })}\n                </div>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "slate",
+        "classname",
+        "emerald",
+        "border",
+        "iscomplete",
+        "stats",
+        "center",
+        "span"
+      ]
+    },
+    {
+      "id": "main-application-part-70-79",
+      "index": 79,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 70)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "{/* Danger Zone: Reset Workbook */}\n                <div className=\"mt-16 pt-8 border-t-2 border-slate-200 border-dashed text-center print:hidden\">\n                  <p className=\"text-slate-500 font-medium mb-4\">Sharing this computer with another student? Clear your data so they can start fresh.</p>\n                  <button\n                    onClick={handleResetWorkbook}\n                    className=\"inline-flex items-center px-6 py-3 bg-white text-rose-600 font-bold border-2 border-rose-200 hover:border-rose-500 hover:bg-rose-50 rounded-2xl transition-all shadow-sm\"\n                  >\n                    <i className=\"fa-solid fa-rotate-left w-5 h-5 mr-2\"></i>\n                    Reset entire workbook\n                  </button>\n                </div>\n              </Card>\n            );\n          };",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "border",
+        "classname",
+        "rose",
+        "button",
+        "center",
+        "font",
+        "hover",
+        "reset"
+      ]
+    },
+    {
+      "id": "main-application-part-71-80",
+      "index": 80,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 71)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "const renderContent = () => {\n            switch (activeTab) {\n              case 'overview': return renderOverview();\n              case 'inventory': return renderInventory();\n              case 'goals': return renderGoals();\n              case 'romantic': return renderRomantic();\n              case 'evaluating': return renderEvaluating();\n              case 'alcohol': return renderAlcohol();\n              case 'tobacco': return renderTobacco();\n              case 'risk': return renderRisk();\n              case 'addictions': return renderAddictions();\n              case 'mentalhealth': return renderMentalHealth();\n              case 'taskA': return renderTaskA();\n              case 'taskB': return renderTaskB();\n              case 'submit': return renderSubmit();\n              default: return renderOverview();\n            }\n          };\n\nreturn (\n            <div className=\"min-h-screen bg-[#f1f5f9] flex flex-col md:flex-row font-sans selection:bg-violet-300 selection:text-violet-900 print:bg-white\">",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "return",
+        "case",
+        "flex",
+        "renderoverview",
+        "selection",
+        "violet",
+        "activetab",
+        "addictions"
+      ]
+    },
+    {
+      "id": "main-application-part-72-81",
+      "index": 81,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 72)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "{/* MOBILE HEADER */}\n              <div className=\"md:hidden bg-violet-600 text-white p-4 flex justify-between items-center sticky top-0 z-50 border-b-4 border-violet-800 print:hidden\">\n                <div className=\"font-black text-xl tracking-tight\">CALM Workbook</div>\n                <div className=\"flex gap-2\">\n                  <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className=\"p-2 bg-violet-500 hover:bg-violet-400 rounded-xl transition-colors border-2 border-violet-400\">\n                    {isMobileMenuOpen ? <i className=\"fa-solid fa-xmark text-xl\"></i> : <i className=\"fa-solid fa-bars text-xl\"></i>}\n                  </button>\n                </div>\n              </div>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "classname",
+        "violet",
+        "border",
+        "button",
+        "flex",
+        "hidden",
+        "ismobilemenuopen",
+        "solid"
+      ]
+    },
+    {
+      "id": "main-application-part-73-82",
+      "index": 82,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 73)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "{/* SIDEBAR NAVIGATION - PLAYFUL VIBRANT */}\n              <div className={`\n                ${isMobileMenuOpen ? 'block' : 'hidden'}\n                md:flex w-full md:w-72 lg:w-80 bg-violet-600 text-violet-100 flex-shrink-0 flex-col h-auto md:h-screen md:sticky md:top-0 z-40 overflow-y-auto shadow-[8px_0_30px_rgba(0,0,0,0.1)] border-r-4 border-violet-800 print:hidden\n              `}>\n                <div className=\"p-8 hidden md:block border-b-4 border-violet-500/50\">\n                  <div className=\"w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-violet-600 font-black text-4xl mb-6 shadow-[0_6px_0_0_#4c1d95] transform -rotate-3\">C</div>\n                  <h1 className=\"text-3xl font-black text-white mb-2 tracking-tight\">CALM</h1>\n                  <h2 className=\"text-sm font-bold bg-violet-800 text-violet-200 inline-block px-3 py-1 rounded-lg uppercase tracking-widest\">Module 1</h2>\n                </div>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "violet",
+        "classname",
+        "border",
+        "flex",
+        "block",
+        "font",
+        "hidden",
+        "auto"
+      ]
+    },
+    {
+      "id": "main-application-part-74-83",
+      "index": 83,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 74)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "<nav className=\"flex-1 px-4 py-6 space-y-2\">\n                  {/* PROGRESS BAR COMPONENT */}\n                  <div className=\"mb-8 bg-violet-700/40 p-5 rounded-2xl border-2 border-violet-500/50 shadow-inner\">\n                    <div className=\"flex justify-between items-center mb-3\">\n                      <span className=\"text-sm font-black text-violet-200 uppercase tracking-widest\">Progress</span>\n                      <span className=\"text-sm font-black text-white bg-violet-500 px-3 py-1 rounded-xl shadow-[0_2px_0_0_#4c1d95]\">{progressData.overallPercentage}%</span>\n                    </div>\n                    <div className=\"h-4 bg-violet-900/60 rounded-full overflow-hidden border-2 border-violet-800/80 shadow-inner\">\n                      <div\n                        className=\"h-full bg-gradient-to-r from-emerald-400 to-emerald-300 rounded-full transition-all duration-1000 ease-out relative\"\n                        style={{ width: `${progressData.overallPercentage}%` }}\n                      >\n                        <div className=\"absolute top-0 left-0 w-full h-full bg-white/20\"></div>\n                      </div>\n                    </div>\n                  </div>\n\n{tabs.map((tab) => {\n                    const isActive = activeTab === tab.id;\n                    const tabStats = progressData.stats[tab.id];",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "classname",
+        "violet",
+        "full",
+        "border",
+        "rounded",
+        "span",
+        "progressdata",
+        "shadow"
+      ]
+    },
+    {
+      "id": "main-application-part-75-84",
+      "index": 84,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 75)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "return (\n                      <button\n                        key={tab.id}\n                        onClick={() => {\n                          setActiveTab(tab.id);\n                          setIsMobileMenuOpen(false);\n                          window.scrollTo({ top: 0, behavior: 'smooth' });\n                        }}\n                        className={`w-full flex items-center px-4 py-4 rounded-2xl text-base font-bold transition-all duration-200 border-2 ${\n                          isActive\n                            ? `bg-white text-slate-800 border-white shadow-[0_4px_0_0_#4c1d95] transform scale-[1.02] z-10 relative`\n                            : 'bg-violet-500/30 border-transparent text-violet-100 hover:bg-violet-500/50 hover:border-violet-400'\n                        }`}\n                      >\n                        <div className={`w-10 h-10 rounded-xl flex items-center justify-center mr-4 ${isActive ? tab.bg : 'bg-violet-500/50'}`}>\n                          <i className={`${tab.icon} text-lg ${isActive ? tab.color : 'text-violet-200'}`}></i>\n                        </div>\n                        {tab.label}",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "violet",
+        "border",
+        "center",
+        "classname",
+        "isactive",
+        "flex",
+        "hover",
+        "items"
+      ]
+    },
+    {
+      "id": "main-application-part-76-85",
+      "index": 85,
+      "locator": {
+        "kind": "section",
+        "label": "// --- MAIN APPLICATION --- (Part 76)",
+        "sectionHeading": "// --- MAIN APPLICATION ---"
+      },
+      "text": "{/* COMPLETION INDICATORS */}\n                        {tabStats?.isComplete && tab.id !== 'submit' ? (\n                          <div className=\"ml-auto w-7 h-7 bg-emerald-400 text-emerald-900 rounded-[0.6rem] flex items-center justify-center shadow-[0_3px_0_0_#059669] transform rotate-3\">\n                            <i className=\"fa-solid fa-check font-black\"></i>\n                          </div>\n                        ) : tabStats?.completed > 0 && tab.id !== 'submit' ? (\n                          <div className={`ml-auto text-xs font-black px-2 py-1.5 rounded-xl border-2 ${isActive ? 'bg-slate-100 text-slate-500 border-slate-200' : 'bg-violet-800/50 text-violet-300 border-violet-500/30'}`}>\n                            {tabStats.completed}/{tabStats.total}\n                          </div>\n                        ) : null}\n                      </button>\n                    )\n                  })}\n                </nav>\n              </div>",
+      "titleGuess": "// --- MAIN APPLICATION ---",
+      "keywordHints": [
+        "tabstats",
+        "border",
+        "classname",
+        "slate",
+        "violet",
+        "auto",
+        "black",
+        "center"
+      ]
+    },
+    {
+      "id": "main-content-area-86",
+      "index": 86,
+      "locator": {
+        "kind": "section",
+        "label": "{/* MAIN CONTENT AREA */}",
+        "sectionHeading": "{/* MAIN CONTENT AREA */}"
+      },
+      "text": "<div className=\"flex-1 max-w-5xl mx-auto w-full p-4 md:p-10 lg:p-14 overflow-y-auto print:p-0 print:max-w-full print:overflow-visible\">\n\n{/* Save Banner */}\n                <div className=\"mb-10 flex flex-wrap items-center justify-end gap-4 print:hidden\">\n                  <div className=\"inline-flex items-center bg-white px-4 py-2 rounded-xl shadow-[0_4px_0_0_#e2e8f0] border-2 border-slate-200 transform rotate-1\">\n                    <i className={`fa-solid fa-floppy-disk w-4 h-4 mr-2 transition-colors ${saveStatus === 'Saving...' ? 'text-amber-500 animate-pulse' : 'text-emerald-500'}`}></i>\n                    <span className=\"text-sm font-bold text-slate-600\">{saveStatus}</span>\n                  </div>\n                </div>\n\n<div className=\"animate-in fade-in slide-in-from-bottom-8 duration-500 print:animate-none\">\n                  {renderContent()}\n                </div>\n\n{/* Module Completion Banner & Navigation */}\n                <div className=\"mt-12 space-y-6 print:hidden\">",
+      "titleGuess": "{/* MAIN CONTENT AREA */}",
+      "keywordHints": [
+        "classname",
+        "print",
+        "flex",
+        "animate",
+        "auto",
+        "banner",
+        "border",
+        "center"
+      ]
+    },
+    {
+      "id": "main-content-area-part-2-87",
+      "index": 87,
+      "locator": {
+        "kind": "section",
+        "label": "{/* MAIN CONTENT AREA */} (Part 2)",
+        "sectionHeading": "{/* MAIN CONTENT AREA */}"
+      },
+      "text": "{/* Dynamic Celebration Banner */}\n                  {progressData.stats[activeTab]?.isComplete && activeTab !== 'submit' && (\n                    <div className=\"bg-emerald-400 p-6 rounded-[2rem] border-4 border-emerald-500 shadow-[0_8px_0_0_#059669] flex flex-col sm:flex-row items-center justify-between text-emerald-900 animate-in zoom-in duration-500\">\n                      <div className=\"flex items-center mb-4 sm:mb-0\">\n                        <div className=\"w-12 h-12 bg-white rounded-full flex items-center justify-center mr-4\">\n                          <span className=\"text-2xl\">🎉</span>\n                        </div>\n                        <h3 className=\"text-2xl font-black\">Section Complete!</h3>\n                      </div>\n                      <button\n                        onClick={() => {\n                          const idx = tabs.findIndex(t => t.id === activeTab);\n                          if (idx < tabs.length - 1) {\n                            setActiveTab(tabs[idx+1].id);\n                            window.scrollTo({ top: 0, behavior: 'smooth' });\n                          }\n                        }}\n                        className=\"w-full sm:w-auto px-6 py-3 bg-white text-emerald-700 font-black rounded-xl hover:bg-emerald-50 hover:scale-105 active:scale-95 transition-all shadow-sm\"\n                      >\n                        Go to Next Module <i className=\"fa-solid fa-arrow-right ml-2\"></i>\n                      </button>\n                    </div>\n                  )}",
+      "titleGuess": "{/* MAIN CONTENT AREA */}",
+      "keywordHints": [
+        "classname",
+        "emerald",
+        "flex",
+        "center",
+        "activetab",
+        "items",
+        "rounded",
+        "tabs"
+      ]
+    },
+    {
+      "id": "main-content-area-part-3-88",
+      "index": 88,
+      "locator": {
+        "kind": "section",
+        "label": "{/* MAIN CONTENT AREA */} (Part 3)",
+        "sectionHeading": "{/* MAIN CONTENT AREA */}"
+      },
+      "text": "<div className=\"flex justify-between items-center px-2\">\n                    <button\n                      className={`flex items-center px-6 py-4 bg-white border-2 border-slate-200 rounded-2xl shadow-[0_6px_0_0_#e2e8f0] text-slate-700 font-black text-lg hover:bg-slate-50 hover:-translate-y-1 hover:shadow-[0_8px_0_0_#e2e8f0] active:translate-y-[6px] active:shadow-none transition-all ${tabs.findIndex(t => t.id === activeTab) === 0 ? 'opacity-0 pointer-events-none' : ''}`}\n                      onClick={() => {\n                        const idx = tabs.findIndex(t => t.id === activeTab);\n                        if (idx > 0) {\n                          setActiveTab(tabs[idx-1].id);\n                          window.scrollTo({ top: 0, behavior: 'smooth' });\n                        }\n                      }}\n                      tabIndex={tabs.findIndex(t => t.id === activeTab) === 0 ? -1 : 0}\n                    >\n                      <i className=\"fa-solid fa-chevron-left w-6 h-6 mr-2\"></i>\n                      Back\n                    </button>",
+      "titleGuess": "{/* MAIN CONTENT AREA */}",
+      "keywordHints": [
+        "tabs",
+        "activetab",
+        "classname",
+        "findindex",
+        "hover",
+        "shadow",
+        "slate",
+        "active"
+      ]
+    },
+    {
+      "id": "main-content-area-part-4-89",
+      "index": 89,
+      "locator": {
+        "kind": "section",
+        "label": "{/* MAIN CONTENT AREA */} (Part 4)",
+        "sectionHeading": "{/* MAIN CONTENT AREA */}"
+      },
+      "text": "<button\n                      className={`flex items-center px-8 py-4 bg-violet-500 border-2 border-violet-600 rounded-2xl shadow-[0_6px_0_0_#5b21b6] text-white font-black text-lg hover:bg-violet-400 hover:-translate-y-1 hover:shadow-[0_8px_0_0_#5b21b6] active:translate-y-[6px] active:shadow-none transition-all ${tabs.findIndex(t => t.id === activeTab) === tabs.length - 1 ? 'opacity-0 pointer-events-none' : ''}`}\n                      onClick={() => {\n                        const idx = tabs.findIndex(t => t.id === activeTab);\n                        if (idx < tabs.length - 1) {\n                          setActiveTab(tabs[idx+1].id);\n                          window.scrollTo({ top: 0, behavior: 'smooth' });\n                        }\n                      }}\n                      tabIndex={tabs.findIndex(t => t.id === activeTab) === tabs.length - 1 ? -1 : 0}\n                    >\n                      Next\n                      <i className=\"fa-solid fa-chevron-right w-6 h-6 ml-2\"></i>\n                    </button>\n                  </div>\n                </div>\n              </div>\n\n</div>\n          );\n        }\n\nconst root = ReactDOM.createRoot(document.getElementById('root'));\n        root.render(<App />);\n    </script>\n</body>\n</html>",
+      "titleGuess": "{/* MAIN CONTENT AREA */}",
+      "keywordHints": [
+        "tabs",
+        "activetab",
+        "findindex",
+        "hover",
+        "length",
+        "root",
+        "shadow",
+        "violet"
+      ]
+    }
+  ]
+}

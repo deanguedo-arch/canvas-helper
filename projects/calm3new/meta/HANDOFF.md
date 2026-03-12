@@ -1,42 +1,47 @@
 # Handoff
 
-- Project: repo-wide (calm3new + calm-module + calmmodule2)
-- Task: Add explicit SCORM suspend semantics and a Save and Exit flow so Brightspace resumes learner state reliably.
+- Project: repo-wide
+- Task: Implement the planned `google-hosted` export target with Firebase-ready runtime, CLI, Studio/server wiring, docs, and smoke/test coverage.
 - Status: complete
 
 ## Files changed
-- scripts/lib/scorm.ts
-- scripts/tests/scorm-export.test.ts
-- docs/plans/2026-03-11-scorm-suspend-resume-fix.md
-- docs/plans/2026-03-11-google-hosted-export-design.md
-- docs/plans/2026-03-11-google-hosted-export.md
+- scripts/lib/google-hosted.ts
+- scripts/lib/exporter.ts
+- scripts/export-google-hosted.ts
+- scripts/tests/google-hosted-export.test.ts
+- scripts/smoke-local-pipeline.ts
+- app/server/lib/types.ts
+- app/server/lib/command-runner.ts
+- app/studio/src/lib/types.ts
+- app/studio/src/hooks/useProjectCommands.ts
+- package.json
+- README.md
+- ARCHITECTURE.md
 - projects/calm3new/meta/HANDOFF.md
 
 ## What changed
-- Updated the generated SCORM bridge to initialize incomplete status, write `cmi.exit = "suspend"` during save and terminate, and commit suspend data through an explicit save path.
-- Added a SCORM-only `Save and Exit` control and exposed `window.__canvasHelperScorm.save()` and `window.__canvasHelperScorm.saveAndExit()` in exported packages.
-- Added regression coverage for suspend semantics in `npm.cmd run test:scorm`.
-- Regenerated `projects/calm3new/exports/calm3new-scorm-2004.zip`.
-- Regenerated `projects/calm3new/exports/calm3new-scorm-1-2.zip`.
-- Regenerated `projects/calm-module/exports/calm-module-scorm-2004.zip`.
-- Regenerated `projects/calmmodule2/exports/calmmodule2-scorm-2004.zip`.
-- Captured the approved design and execution plan for a future `google-hosted` export target backed by Firebase Hosting, Google sign-in, and Firestore resume.
+- Added `scripts/lib/google-hosted.ts` to generate the hosted runtime bridge, Firebase config templates, hosting config, deploy docs, and HTML bridge injection.
+- Added `exportProjectToGoogleHosted(projectSlug)` and `npm.cmd run export:google-hosted -- --project <slug>`.
+- Wired `Google Hosted` into Studio/server command routing.
+- Added regression coverage for bundle shape, bridge injection, runtime content, and CLI exposure in `scripts/tests/google-hosted-export.test.ts`.
+- Extended `npm.cmd run smoke:pipeline` to generate and assert a `projects/<slug>/exports/google-hosted/` bundle.
+- Updated `README.md` and `ARCHITECTURE.md` to document the new target and its Firebase deployment boundary.
 
 ## What still needs validation
-- None. User confirmed Brightspace persistence works with the updated SCORM package flow.
+- Manual Firebase deployment and cross-device learner verification on a real school or test Google account.
 
 ## Known risks
-- Learner resume is most reliable when the exported `Save and Exit` control is used before closing the SCO.
-- SCORM 1.2 has lower suspend-data capacity; long free-text states can exceed limits.
-- `google-hosted` is planned only in this commit; no Firebase-backed export implementation exists yet.
+- The hosted bridge depends on Firebase web config being filled before deployment; placeholder configs fail fast.
+- Cross-device resume still depends on school popup-auth policy allowing `signInWithPopup`.
+- The bridge relies on detected localStorage keys; projects with nonstandard persistence keys may need targeted adjustment.
 
 ## Exact next command
-`Get-Content docs/plans/2026-03-11-google-hosted-export.md`
+`npm.cmd run export:google-hosted -- --project calm3new`
 
 ## Exact next file to open
-`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\docs\plans\2026-03-11-google-hosted-export.md`
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\calm3new\exports\google-hosted\README-deploy.md`
 
 ## Do not do next / warnings
-- Do not rely on Brightspace impersonation alone when validating cross-browser resume.
-- Do not commit regenerated runtime or prompt-pack noise unrelated to this SCORM fix.
-- Do not assume Google Sites alone can provide cross-device resume; the planned Google path depends on Firebase-backed identity and storage.
+- Do not deploy the bundle without replacing Firebase placeholder values first.
+- Do not broaden Firestore rules beyond `request.auth.uid == userId` for v1.
+- Do not assume Google Sites alone provides resume; the persistence contract is Firebase Hosting + Auth + Firestore.

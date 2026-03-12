@@ -43,3 +43,5 @@ Every meaningful stop point must produce a handoff that another human or agent c
 - Include one exact next file to open.
 - Call out blockers directly.
 - Do not hide missing verification.
+- For repo-wide or multi-project work, the active cursor belongs in `docs/ops/ACTIVE_HANDOFF.md`.
+- For project-specific work, keep the active cursor in `projects/<slug>/meta/HANDOFF.md`.

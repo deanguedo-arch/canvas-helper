@@ -1,3 +1,6 @@
+import { STUDIO_COMMANDS as SHARED_STUDIO_COMMANDS } from "../../../shared/studio-commands.js";
+import type { StudioCommandName as SharedStudioCommandName } from "../../../shared/studio-commands.js";
+
 export const previewModes = ["reference", "workspace"] as const;
 export const deviceModes = ["desktop", "tablet", "mobile"] as const;
 
@@ -40,15 +43,7 @@ export type ReferenceTarget = {
   resourcePath: string;
 };
 
-export type StudioCommandName =
-  | "analyze"
-  | "refs"
-  | "verify"
-  | "export"
-  | "package"
-  | "scorm2004"
-  | "scorm12"
-  | "html";
+export type StudioCommandName = SharedStudioCommandName;
 export type StudioCommandStatus = "idle" | "running" | "success" | "error";
 
 export type StudioCommandResult = {
@@ -161,16 +156,7 @@ export type CaptureResult = {
   selectors: string[];
 };
 
-export const STUDIO_COMMANDS: Array<{ id: StudioCommandName; label: string }> = [
-  { id: "analyze", label: "Analyze" },
-  { id: "refs", label: "Refs" },
-  { id: "verify", label: "Verify" },
-  { id: "export", label: "Export Dir" },
-  { id: "package", label: "Package" },
-  { id: "scorm2004", label: "SCORM 2004" },
-  { id: "scorm12", label: "SCORM 1.2" },
-  { id: "html", label: "HTML" }
-];
+export const STUDIO_COMMANDS: Array<{ id: StudioCommandName; label: string }> = SHARED_STUDIO_COMMANDS;
 
 export const DEVICE_PRESETS: Record<DeviceMode, { label: string; width: string }> = {
   desktop: { label: "Desktop", width: "100%" },

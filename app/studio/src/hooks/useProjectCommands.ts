@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 
+import { STUDIO_COMMANDS, shouldRefreshProjectsAfterCommand } from "../../../shared/studio-commands.js";
 import { loadCommandOutputVisible, saveCommandOutputVisible } from "../lib/storage";
 import type { StudioCommandName, StudioCommandResult, StudioCommandStatus } from "../lib/types";
 
@@ -9,16 +10,12 @@ type UseProjectCommandsOptions = {
 };
 
 export function useProjectCommands({ selectedSlug, refreshProjects }: UseProjectCommandsOptions) {
-  const [commandStatus, setCommandStatus] = useState<Record<StudioCommandName, StudioCommandStatus>>({
-    analyze: "idle",
-    refs: "idle",
-    verify: "idle",
-    export: "idle",
-    package: "idle",
-    scorm2004: "idle",
-    scorm12: "idle",
-    html: "idle"
-  });
+  const [commandStatus, setCommandStatus] = useState<Record<StudioCommandName, StudioCommandStatus>>(() =>
+    Object.fromEntries(STUDIO_COMMANDS.map((command) => [command.id, "idle"])) as Record<
+      StudioCommandName,
+      StudioCommandStatus
+    >
+  );
   const [commandLog, setCommandLog] = useState("");
   const [commandBanner, setCommandBanner] = useState("");
   const [commandBannerIsError, setCommandBannerIsError] = useState(false);
@@ -71,15 +68,7 @@ export function useProjectCommands({ selectedSlug, refreshProjects }: UseProject
       }
 
       setCommandBanner(`${command} completed for ${selectedSlug}.`);
-      if (
-        command === "analyze" ||
-        command === "refs" ||
-        command === "export" ||
-        command === "package" ||
-        command === "scorm2004" ||
-        command === "scorm12" ||
-        command === "html"
-      ) {
+      if (shouldRefreshProjectsAfterCommand(command)) {
         await refreshProjects();
       }
     } catch (error) {

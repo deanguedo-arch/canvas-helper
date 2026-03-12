@@ -1,31 +1,9 @@
 import { spawn } from "node:child_process";
 
 import { repoRoot } from "../../../scripts/lib/paths.js";
+import { resolveStudioCommandArgs } from "../../shared/studio-commands.js";
 
 import type { StudioCommandName } from "./types";
-
-function resolveStudioCommandArgs(slug: string, commandName: StudioCommandName) {
-  switch (commandName) {
-    case "analyze":
-      return ["run", "analyze", "--", "--project", slug];
-    case "refs":
-      return ["run", "refs", "--", "--project", slug];
-    case "verify":
-      return ["run", "verify", "--", "--project", slug, "--mode", "workspace"];
-    case "export":
-      return ["run", "export:brightspace", "--", "--project", slug];
-    case "package":
-      return ["run", "export:brightspace:zip", "--", "--project", slug];
-    case "scorm2004":
-      return ["run", "export:scorm", "--", "--project", slug, "--version", "2004"];
-    case "scorm12":
-      return ["run", "export:scorm", "--", "--project", slug, "--version", "1.2"];
-    case "html":
-      return ["run", "export:html", "--", "--project", slug];
-    default:
-      return null;
-  }
-}
 
 function trimCommandOutput(value: string, maxChars = 12000) {
   if (value.length <= maxChars) {

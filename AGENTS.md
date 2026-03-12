@@ -8,7 +8,9 @@ Canvas Helper is a local-first Node + browser workspace for importing Canvas cou
 
 - `app/studio/`: React/Vite browser shell only
 - `app/server/`: local request handlers, preview serving, command execution bridge
+- `app/shared/`: command contracts and other browser/server-safe shared definitions
 - `scripts/`: import, analyze, refs, export, rehydrate, smoke, and task scripts
+- `scripts/lib/exports/`: export target orchestration only
 - `scripts/lib/intelligence/config/`: intelligence policy and feature-flag resolution
 - `scripts/lib/intelligence/collect/`: always-on learning and signal collection
 - `scripts/lib/intelligence/apply/`: prompt-pack influence, recommendations, and application
@@ -45,7 +47,9 @@ Canvas Helper is a local-first Node + browser workspace for importing Canvas cou
 
 - Studio UI state, components, and browser behavior belong in `app/studio/`
 - Local request routing, preview path validation, and command execution belong in `app/server/`
+- Shared Studio/server command definitions belong in `app/shared/`
 - Filesystem import/analyze/refs/export logic belongs in `scripts/lib/`
+- Export target orchestration belongs in `scripts/lib/exports/`
 - Intelligence collection belongs in `scripts/lib/intelligence/collect/`
 - Intelligence application and prompt-pack influence belong in `scripts/lib/intelligence/apply/`
 - Intelligence policy, defaults, and feature flags belong in `scripts/lib/intelligence/config/`
@@ -66,10 +70,12 @@ Canvas Helper is a local-first Node + browser workspace for importing Canvas cou
 
 ## Retrieval Defaults
 
-1. Read `projects/<slug>/meta/prompt-pack.md` first when a project slug exists.
-2. Then read the relevant `.runtime/pattern-bank/` matches or ledger artifacts if the task depends on prior learning.
-3. Use `projects/resources/<slug>/_extracted/` only after prompt-pack and pattern-bank context.
-4. Read `ARCHITECTURE.md` and `docs/ops/HANDOFF.md` for repo-wide changes or mid-stream handoffs.
+0. Read `docs/ops/FAST_PATHS.md` first for common task-specific retrieval shortcuts.
+1. For repo-wide or multi-project continuation work, read `docs/ops/ACTIVE_HANDOFF.md` first.
+2. Read `projects/<slug>/meta/prompt-pack.md` first when a project slug exists.
+3. Then read the relevant `.runtime/pattern-bank/` matches or ledger artifacts if the task depends on prior learning.
+4. Use `projects/resources/<slug>/_extracted/` only after prompt-pack and pattern-bank context.
+5. Read `ARCHITECTURE.md` and `docs/ops/HANDOFF.md` for repo-wide changes or handoff rules.
 
 ## Intelligence Rules
 
@@ -123,6 +129,7 @@ Every task handoff must include:
 6. Exact next file to open
 
 Use the stricter template in `docs/ops/HANDOFF.md` for ongoing session work.
+For repo-wide or multi-project work, keep the active handoff in `docs/ops/ACTIVE_HANDOFF.md`.
 
 ## Editing Rules for Project Data
 

@@ -118,6 +118,16 @@ export async function updateProjectManifest(
   await writeJsonFile(paths.manifestPath, normalizeProjectManifest(updater(currentManifest)));
 }
 
+export async function markProjectWorkspaceApproved(slug: string, approvedAt = new Date().toISOString()) {
+  await updateProjectManifest(slug, (manifest) => ({
+    ...manifest,
+    workspaceApprovedAt: approvedAt,
+    updatedAt: approvedAt
+  }));
+
+  return approvedAt;
+}
+
 export async function listProjectSlugs() {
   const [hasProjectsRoot, processedSlugs] = await Promise.all([
     fileExists(projectsRoot),

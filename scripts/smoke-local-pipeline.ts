@@ -3,7 +3,12 @@ import path from "node:path";
 
 import { analyzeProject } from "./lib/analyzer.js";
 import { getStringFlag, hasFlag, parseArgs } from "./lib/cli.js";
-import { exportProjectToBrightspace, exportProjectToBrightspacePackage, exportProjectToSingleHtml } from "./lib/exporter.js";
+import {
+  exportProjectToBrightspace,
+  exportProjectToBrightspacePackage,
+  exportProjectToGoogleHosted,
+  exportProjectToSingleHtml
+} from "./lib/exporter.js";
 import { fileExists, removePath } from "./lib/fs.js";
 import { readCliIntelligenceOverride, refreshProjectIntelligence } from "./lib/intelligence.js";
 import { importProject } from "./lib/importer.js";
@@ -52,6 +57,9 @@ async function main() {
     console.log("[smoke] exporting single html");
     const singleHtml = await exportProjectToSingleHtml(projectSlug);
 
+    console.log("[smoke] exporting google hosted bundle");
+    const googleHosted = await exportProjectToGoogleHosted(projectSlug);
+
     console.log("[smoke] verifying workspace and brightspace outputs");
     const workspaceVerify = await verifyProjectBundle(projectSlug, "workspace");
     const brightspaceVerify = await verifyProjectBundle(projectSlug, "brightspace");
@@ -66,6 +74,14 @@ async function main() {
     assert.ok(await fileExists(path.join(projectPaths.brightspaceExportDir, "index.html")), "brightspace export missing");
     assert.ok(await fileExists(brightspacePackage.zipPath), "brightspace package zip missing");
     assert.ok(await fileExists(singleHtml.outputPath), "single html export missing");
+    assert.ok(await fileExists(path.join(googleHosted.exportDir, "index.html")), "google hosted export missing");
+    assert.ok(await fileExists(path.join(googleHosted.exportDir, "google-hosted-bridge.js")), "google hosted bridge missing");
+    assert.ok(await fileExists(path.join(googleHosted.exportDir, "firebase.json")), "google hosted firebase.json missing");
+    assert.ok(
+      await fileExists(path.join(googleHosted.exportDir, "firebase-config.template.json")),
+      "google hosted firebase config missing"
+    );
+    assert.ok(await fileExists(path.join(googleHosted.exportDir, "README-deploy.md")), "google hosted deploy guide missing");
     assert.ok(references.references.length > 0, "reference extraction produced no references");
     assert.equal(workspaceVerify.missingAssets.length, 0, "workspace verification found missing assets");
     assert.equal(brightspaceVerify.missingAssets.length, 0, "brightspace verification found missing assets");
@@ -77,6 +93,7 @@ async function main() {
     console.log(`- prompt-pack matches: ${intelligence.patternMatches}`);
     console.log(`- brightspace files: ${brightspace.fileCount}`);
     console.log(`- brightspace zip: ${brightspacePackage.zipPath}`);
+    console.log(`- google hosted: ${googleHosted.exportDir}`);
     console.log(`- single html: ${singleHtml.outputPath}`);
   } finally {
     if (!keepProject) {

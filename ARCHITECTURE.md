@@ -2,7 +2,7 @@
 
 ## What This Repo Is
 
-Canvas Helper is a local-first course-content workbench. It imports Canvas-generated HTML or bundle folders, preserves a raw baseline, creates an editable workspace copy, serves both views locally in Studio, and runs Node-based project commands for analyze, refs, export, SCORM packaging, and handoff support.
+Canvas Helper is a local-first course-content workbench. It imports Canvas-generated HTML or bundle folders, preserves a raw baseline, creates an editable workspace copy, serves both views locally in Studio, and runs Node-based project commands for analyze, refs, export, SCORM packaging, Google-hosted bundle generation, and handoff support.
 
 ## Why Local-First
 
@@ -67,6 +67,8 @@ flowchart LR
 - responsibility: import, analyze, refs, export, packaging, rehydrate, smoke verification
 - not responsible for: browser UI behavior
 
+Export target orchestration now lives under `scripts/lib/exports/`, while target-specific runtime bridges stay beside their owning protocol modules such as `scripts/lib/scorm.ts` and `scripts/lib/google-hosted.ts`.
+
 ### Project Data
 
 - location: `projects/<slug>/...`
@@ -125,6 +127,7 @@ The intelligence system is split into explicit layers:
 - local command execution
 - Brightspace export/package
 - SCORM 2004 / 1.2 package export with suspend-data bridge
+- Google-hosted export with Firebase Auth / Firestore resume bridge
 - prompt-pack generation
 - memory ledger and pattern-bank collection
 
@@ -142,6 +145,17 @@ Precedence for the effective learner mode is explicit and deterministic:
 3. project policy
 4. repo default policy (`config/intelligence.json`)
 5. safe default in `scripts/lib/intelligence/config/defaults.ts`
+
+## Export Targets
+
+- Brightspace folder/package: copies the workspace for LMS upload and optional zip packaging.
+- SCORM 2004 / 1.2: copies the workspace, injects `scripts/lib/scorm.ts`, and emits LMS packages plus manifests.
+- Google Hosted: copies the workspace, injects `scripts/lib/google-hosted.ts`, and emits a Firebase Hosting bundle under `projects/<slug>/exports/google-hosted/`.
+- Single HTML: inlines local assets into one deliverable for static/offline handoff.
+
+The Google-hosted path stops at deterministic bundle generation. Firebase deployment, project selection, auth domain setup, and Firestore rules remain explicit post-export operator steps outside the repo.
+
+Exports now avoid implicit intelligence regeneration. Export commands copy the workspace, generate delivery artifacts, and only mark the workspace approved in project manifest state. Prompt-pack, pattern-bank, and other intelligence artifacts refresh through their explicit commands.
 
 ## Placement Rules for New Code
 
