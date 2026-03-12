@@ -15,12 +15,30 @@ type BuildGoogleHostedDeployReadmeOptions = {
   storageKeys: string[];
 };
 
+type DecideGoogleHostedNoRemoteActionOptions = {
+  hasLocalState: boolean;
+  localMetaUid: string | null;
+  userUid: string;
+};
+
 function unique(values: string[]) {
   return [...new Set(values)];
 }
 
 function normalizeStorageKeys(projectSlug: string, storageKeys: string[]) {
   return storageKeys.length > 0 ? unique(storageKeys) : [`${projectSlug}::workspace-state::v1`];
+}
+
+export function decideGoogleHostedNoRemoteAction(options: DecideGoogleHostedNoRemoteActionOptions) {
+  if (!options.hasLocalState) {
+    return "ready";
+  }
+
+  if (options.localMetaUid && options.localMetaUid !== options.userUid) {
+    return "clear-local";
+  }
+
+  return "persist-local";
 }
 
 export function getGoogleHostedExportLabel() {
@@ -703,7 +721,28 @@ export function buildGoogleHostedBridgeScript(options: BuildGoogleHostedBridgeSc
     const localMeta = readSyncMetadata();
 
     if (!remoteSnapshot.exists) {
-      if (Object.keys(localSnapshot.storageValues).length > 0) {
+      const noRemoteAction = ${decideGoogleHostedNoRemoteAction.toString()}({
+        hasLocalState: Object.keys(localSnapshot.storageValues).length > 0,
+        localMetaUid: typeof localMeta.uid === "string" ? localMeta.uid : null,
+        userUid: user.uid
+      });
+
+      if (noRemoteAction === "clear-local") {
+        setStatus("No saved progress found for this Google account. Reloading a clean workbook...", "working");
+        restoring = true;
+        try {
+          applyStorageValues({}, "", user.uid);
+        } finally {
+          restoring = false;
+        }
+
+        window.setTimeout(() => {
+          window.location.reload();
+        }, 50);
+        return;
+      }
+
+      if (noRemoteAction === "persist-local") {
         await persistCurrentState("initial-sync");
       } else {
         setStatus("Signed in. Autosave ready.", "saved");

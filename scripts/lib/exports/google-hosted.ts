@@ -16,6 +16,24 @@ import { loadProjectManifest, markProjectWorkspaceApproved } from "../projects.j
 
 import { copyWorkspaceToExportDir, detectStorageKeysFromWorkspace, toRelativePosixPath } from "./shared.js";
 
+async function readPreservedDeployFiles(exportDir: string) {
+  const preservedFileNames = ["firebase-config.json", ".firebaserc"];
+  const preservedFiles = new Map<string, string>();
+
+  await Promise.all(
+    preservedFileNames.map(async (fileName) => {
+      const filePath = path.join(exportDir, fileName);
+      if (!(await fileExists(filePath))) {
+        return;
+      }
+
+      preservedFiles.set(fileName, await readFile(filePath, "utf8"));
+    })
+  );
+
+  return preservedFiles;
+}
+
 export async function exportProjectToGoogleHosted(projectSlug: string) {
   const manifest = await loadProjectManifest(projectSlug);
   const paths = getProjectPaths(projectSlug);
@@ -28,6 +46,7 @@ export async function exportProjectToGoogleHosted(projectSlug: string) {
   const workspaceEntrypointRelative = toRelativePosixPath(paths.workspaceDir, paths.workspaceEntrypoint);
   const googleHostedEntrypointPath = path.join(googleHostedExportDir, ...workspaceEntrypointRelative.split("/"));
   const bridgeRelativePath = "./google-hosted-bridge.js";
+  const preservedDeployFiles = await readPreservedDeployFiles(googleHostedExportDir);
 
   await copyWorkspaceToExportDir(paths.workspaceDir, googleHostedExportDir);
 
@@ -57,6 +76,9 @@ export async function exportProjectToGoogleHosted(projectSlug: string) {
         projectTitle: manifest.slug,
         storageKeys
       })
+    ),
+    ...[...preservedDeployFiles.entries()].map(([fileName, content]) =>
+      writeTextFile(path.join(googleHostedExportDir, fileName), content)
     )
   ]);
 

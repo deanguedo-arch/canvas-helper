@@ -6,9 +6,10 @@ import test from "node:test";
 import { exportProjectToGoogleHosted } from "../lib/exporter.js";
 import {
   buildGoogleHostedBridgeScript,
+  decideGoogleHostedNoRemoteAction,
   injectGoogleHostedBridgeTag
 } from "../lib/google-hosted.js";
-import { fileExists, readJsonFile } from "../lib/fs.js";
+import { fileExists, readJsonFile, writeTextFile } from "../lib/fs.js";
 import { repoRoot } from "../lib/paths.js";
 import { cleanupProjectFixture, createProjectFixture } from "./helpers/project-fixture.js";
 
@@ -45,6 +46,33 @@ test("buildGoogleHostedBridgeScript includes auth, firestore, project binding, a
   assert.match(bridge, /"projectSlug":"calm3new"/);
   assert.match(bridge, /Autosave ready/);
   assert.match(bridge, /window\.__canvasHelperGoogleHosted/);
+});
+
+test("decideGoogleHostedNoRemoteAction clears local state when it belongs to a different user", () => {
+  assert.equal(
+    decideGoogleHostedNoRemoteAction({
+      hasLocalState: true,
+      localMetaUid: "user-a",
+      userUid: "user-b"
+    }),
+    "clear-local"
+  );
+  assert.equal(
+    decideGoogleHostedNoRemoteAction({
+      hasLocalState: true,
+      localMetaUid: "user-a",
+      userUid: "user-a"
+    }),
+    "persist-local"
+  );
+  assert.equal(
+    decideGoogleHostedNoRemoteAction({
+      hasLocalState: false,
+      localMetaUid: "user-a",
+      userUid: "user-b"
+    }),
+    "ready"
+  );
 });
 
 test("exportProjectToGoogleHosted writes the expected bundle and injects the bridge", async () => {
@@ -102,6 +130,88 @@ test("exportProjectToGoogleHosted writes the expected bundle and injects the bri
     assert.equal(await fileExists(path.join(paths.metaDir, "prompt-pack.md")), false);
   } finally {
     await cleanupProjectFixture(TEST_PROJECT_SLUG);
+  }
+});
+
+test("exportProjectToGoogleHosted detects localStorage keys from jsx workspaces", async () => {
+  const jsxProjectSlug = `${TEST_PROJECT_SLUG}-jsx`;
+  await createProjectFixture({
+    slug: jsxProjectSlug,
+    workspaceHtml: [
+      "<!doctype html>",
+      "<html>",
+      "  <head>",
+      "    <meta charset=\"utf-8\">",
+      "    <title>Google Hosted JSX Fixture</title>",
+      "  </head>",
+      "  <body>",
+      "    <div id=\"app\"></div>",
+      "    <script src=\"./main.jsx\"></script>",
+      "  </body>",
+      "</html>",
+      ""
+    ].join("\n"),
+    workspaceFiles: {
+      "main.jsx": [
+        "function boot() {",
+        "  const saved = localStorage.getItem('calm_workbook_data');",
+        "  localStorage.setItem('calm_workbook_data', saved || JSON.stringify({ answer: 1 }));",
+        "}",
+        "boot();",
+        ""
+      ].join("\n")
+    }
+  });
+
+  try {
+    const result = await exportProjectToGoogleHosted(jsxProjectSlug);
+
+    assert.deepEqual(result.storageKeys, ["calm_workbook_data"]);
+  } finally {
+    await cleanupProjectFixture(jsxProjectSlug);
+  }
+});
+
+test("exportProjectToGoogleHosted preserves firebase deploy config across re-export", async () => {
+  const preserveProjectSlug = `${TEST_PROJECT_SLUG}-preserve-config`;
+  await createProjectFixture({
+    slug: preserveProjectSlug,
+    workspaceFiles: {
+      "main.js": [
+        'localStorage.setItem("calm_workbook_data", JSON.stringify({ answer: 1 }));',
+        ""
+      ].join("\n")
+    }
+  });
+
+  try {
+    const firstExport = await exportProjectToGoogleHosted(preserveProjectSlug);
+    const customFirebaseConfig = [
+      "{",
+      '  "apiKey": "custom-key",',
+      '  "appId": "custom-app",',
+      '  "authDomain": "custom.firebaseapp.com",',
+      '  "messagingSenderId": "custom-sender",',
+      '  "projectId": "custom-project",',
+      '  "storageBucket": "custom.firebasestorage.app",',
+      '  "allowedEmailDomains": ["example.org"],',
+      `  "projectSlug": "${preserveProjectSlug}"`,
+      "}",
+      ""
+    ].join("\n");
+    const customFirebaseRc = ['{', '  "projects": {', '    "default": "custom-project"', "  }", "}", ""].join("\n");
+
+    await writeTextFile(path.join(firstExport.exportDir, "firebase-config.json"), customFirebaseConfig);
+    await writeTextFile(path.join(firstExport.exportDir, ".firebaserc"), customFirebaseRc);
+
+    const secondExport = await exportProjectToGoogleHosted(preserveProjectSlug);
+    const preservedFirebaseConfig = await readFile(path.join(secondExport.exportDir, "firebase-config.json"), "utf8");
+    const preservedFirebaseRc = await readFile(path.join(secondExport.exportDir, ".firebaserc"), "utf8");
+
+    assert.equal(preservedFirebaseConfig, customFirebaseConfig);
+    assert.equal(preservedFirebaseRc, customFirebaseRc);
+  } finally {
+    await cleanupProjectFixture(preserveProjectSlug);
   }
 });
 

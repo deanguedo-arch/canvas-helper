@@ -304,7 +304,7 @@ export async function detectStorageKeysFromWorkspace(workspaceDir: string, fallb
   const workspaceFiles = await listFilesRecursive(workspaceDir);
   const scriptFiles = workspaceFiles.filter((filePath) => {
     const ext = path.extname(filePath).toLowerCase();
-    return ext === ".js" || ext === ".mjs" || ext === ".cjs";
+    return ext === ".js" || ext === ".jsx" || ext === ".mjs" || ext === ".cjs" || ext === ".ts" || ext === ".tsx";
   });
 
   const scriptSources = await Promise.all(scriptFiles.map((filePath) => readFile(filePath, "utf8")));

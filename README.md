@@ -37,6 +37,7 @@ Repo-level intelligence defaults live in `config/intelligence.json`. Project-spe
 - `npm.cmd run export:brightspace:zip -- --project <slug>`
 - `npm.cmd run export:scorm -- --project <slug> [--version 2004|1.2]`
 - `npm.cmd run export:google-hosted -- --project <slug>`
+- `npm.cmd run deploy:google-hosted`
 - `npm.cmd run export:html -- --project <slug>`
 - `npm.cmd run smoke:pipeline`
 - `npm.cmd run typecheck`
@@ -70,6 +71,28 @@ Repo-level intelligence defaults live in `config/intelligence.json`. Project-spe
 - The bundle includes `google-hosted-bridge.js`, `firebase-config.template.json`, `firebase.json`, `.firebaserc.template`, and `README-deploy.md`
 - The runtime bridge prompts the learner to sign in with Google and syncs tracked workspace localStorage state to Firestore at `projects/{slug}/users/{uid}`
 - The repo generates the hosted bundle only; Firebase project setup and deployment remain manual teacher or admin steps outside the repo
+
+### Google Hosted Deploy Tool
+
+- Add per-slug deploy metadata in `projects/<slug>/meta/google-hosted.deploy.json`
+- Required fields:
+
+```json
+{
+  "enabled": true,
+  "firebaseProjectId": "subject-course-one",
+  "hostingSiteId": "module-site-id"
+}
+```
+
+- A slug appears in the deploy picker only when all of these exist:
+  - `projects/<slug>/meta/google-hosted.deploy.json`
+  - `projects/<slug>/exports/google-hosted/`
+  - `projects/<slug>/exports/google-hosted/firebase-config.json`
+  - `projects/<slug>/exports/google-hosted/.firebaserc`
+- Run `npm.cmd run deploy:google-hosted` or `deploy-google-hosted.bat`
+- The deploy tool shows only configured slugs, lets you pick one or many, validates the Firebase Hosting site, and deploys to the configured project/site
+- Firebase projects and Hosting sites must already exist; the deploy tool does not create infrastructure
 
 ## Fast Agent Paths
 

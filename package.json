@@ -34,6 +34,7 @@
     "export:brightspace:zip": "tsx scripts/export-brightspace-package.ts",
     "export:scorm": "tsx scripts/export-scorm.ts",
     "export:google-hosted": "tsx scripts/export-google-hosted.ts",
+    "deploy:google-hosted": "tsx scripts/deploy-google-hosted.ts",
     "export:html": "tsx scripts/export-html.ts",
     "rehydrate": "tsx scripts/rehydrate-workspace.ts"
   },

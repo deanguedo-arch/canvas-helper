@@ -13,7 +13,7 @@ test("teacher export uses styled html print report instead of plain text downloa
     'window.open("", "_blank")',
     'printWindow.document.write(reportHtml)',
     'printWindow.print()',
-    'Export Teacher Report'
+    'Print Teacher Report'
   ];
 
   for (const snippet of expectedSnippets) {

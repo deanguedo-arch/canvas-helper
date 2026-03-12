@@ -53,6 +53,363 @@ const { useState, useEffect, useRef } = React;
             { id: 'finish', title: 'Review & Submit', icon: 'fa-flag-checkered' }
         ];
 
+        const hasTeacherReportValue = (value) => {
+            if (typeof value === "string") return value.trim().length > 0;
+            if (value === null || value === undefined) return false;
+            return true;
+        };
+
+        const escapeTeacherReportHtml = (value) => String(value)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#39;");
+
+        const renderTeacherReportAnswer = (value) => {
+            if (!hasTeacherReportValue(value)) {
+                return '<span class="answer-empty-chip">Not answered</span>';
+            }
+
+            return `<div class="report-answer">${escapeTeacherReportHtml(String(value)).replace(/\n/g, "<br>")}</div>`;
+        };
+
+        const renderTeacherReportCardGrid = (items) => items.map((item) => `
+            <article class="report-card">
+                <h3>${escapeTeacherReportHtml(item.label)}</h3>
+                ${renderTeacherReportAnswer(item.value)}
+            </article>
+        `).join("");
+
+        const renderTeacherReportListCard = (label, items) => {
+            if (!items.length) {
+                return `
+                    <article class="report-card report-card-wide">
+                        <h3>${escapeTeacherReportHtml(label)}</h3>
+                        ${renderTeacherReportAnswer("")}
+                    </article>
+                `;
+            }
+
+            return `
+                <article class="report-card report-card-wide">
+                    <h3>${escapeTeacherReportHtml(label)}</h3>
+                    <div class="report-answer">
+                        <ul class="report-list">
+                            ${items.map((item) => `<li>${item}</li>`).join("")}
+                        </ul>
+                    </div>
+                </article>
+            `;
+        };
+
+        const buildTeacherReportSection = (eyebrow, title, content) => `
+            <section class="report-section">
+                <div class="report-section-heading">
+                    <p class="report-section-eyebrow">${escapeTeacherReportHtml(eyebrow)}</p>
+                    <h2>${escapeTeacherReportHtml(title)}</h2>
+                </div>
+                ${content}
+            </section>
+        `;
+
+        const parseTeacherReportMoney = (value) => {
+            if (typeof value !== "string" || value.trim().length === 0) return null;
+            const numeric = Number(value.replace(/[^0-9.-]/g, ""));
+            return Number.isFinite(numeric) ? numeric : null;
+        };
+
+        const formatTeacherReportMoneyCell = (value) => {
+            const numeric = parseTeacherReportMoney(value);
+            if (numeric === null) {
+                return '<span class="answer-empty-chip">Not entered</span>';
+            }
+
+            return `$${numeric.toFixed(2)}`;
+        };
+
+        const collectTeacherReportValues = (fd) => [
+            fd.studentName,
+            fd.defMarketing, fd.defPackaging, fd.influenceExample, fd.favoriteStore, fd.biggestInfluence,
+            ...fd.purchases.flatMap((purchase) => [purchase.item, purchase.influence]),
+            fd.joeDecision, fd.sallyDecision, fd.betterDecision,
+            fd.purchaseReflection, fd.incomeCurrent, fd.incomeFuture, fd.purchaseDecision, fd.purchaseFactors,
+            ...Object.values(fd.budget),
+            fd.budgetWhereFrom, fd.budgetWhereGo, fd.budgetEndMonth, fd.budgetChange,
+            fd.honestyNorma, fd.honestyGertrude, fd.honestyHerman, fd.honestyAsif, fd.honestyFrank, fd.honestyCharlotte, fd.honestySalima,
+            fd.honestyImportant, fd.honestyAcceptable, fd.honestyEasiest, fd.honestyHardest, fd.honestyReflection1, fd.honestyReflection2,
+            fd.defConflict, fd.conflictAbout, fd.conflictResolve, fd.conflictEffective,
+            ...fd.commSkills.map((skill) => skill.good),
+            fd.caseJonCraig1, fd.caseJonCraig2, fd.caseJonCraig3,
+            fd.caseAmandaJoanne1, fd.caseAmandaJoanne2, fd.caseAmandaJoanne3,
+            fd.caseMayaLeticia1, fd.caseMayaLeticia2, fd.caseMayaLeticia3,
+            fd.supplementaryImage
+        ];
+
+        function buildCalmModule2TeacherReport(fd, { completedSections, answeredCount, responseCount }) {
+            const purchaseItems = fd.purchases
+                .filter((purchase) => hasTeacherReportValue(purchase.item) || hasTeacherReportValue(purchase.influence))
+                .map((purchase, index) => `${index + 1}. <strong>${escapeTeacherReportHtml(purchase.item || "Item not named")}</strong>${hasTeacherReportValue(purchase.influence) ? ` <span class="muted-inline">(${escapeTeacherReportHtml(purchase.influence)})</span>` : ""}`);
+
+            const communicationItems = fd.commSkills
+                .filter((skill, index) => index > 1 && hasTeacherReportValue(skill.good))
+                .map((skill) => `<strong>${escapeTeacherReportHtml(skill.poor)}</strong> -> ${escapeTeacherReportHtml(skill.good)}`);
+
+            const incomeRows = [
+                { label: "Job", amount: fd.budget.job, note: "" },
+                { label: "Parents", amount: fd.budget.parents, note: "" },
+                { label: "Other", amount: fd.budget.other, note: fd.budget.otherExp }
+            ];
+            const expenseRows = [
+                { label: "Rent", amount: fd.budget.rent, note: "" },
+                { label: "Utilities", amount: fd.budget.utilities, note: "" },
+                { label: "Phone", amount: fd.budget.phone, note: "" },
+                { label: "Groceries", amount: fd.budget.groceries, note: "" },
+                { label: "Car", amount: fd.budget.car, note: "" },
+                { label: "Insurance", amount: fd.budget.insurance, note: "" },
+                { label: "Gas", amount: fd.budget.gas, note: "" },
+                { label: "Entertainment", amount: fd.budget.entertainment, note: "" },
+                { label: "Dining", amount: fd.budget.dining, note: "" },
+                { label: "Clothes", amount: fd.budget.clothes, note: "" },
+                { label: "Etc", amount: fd.budget.etc, note: fd.budget.etcExp }
+            ];
+
+            const incomeTotal = incomeRows.reduce((sum, row) => sum + (parseTeacherReportMoney(row.amount) ?? 0), 0);
+            const expenseTotal = expenseRows.reduce((sum, row) => sum + (parseTeacherReportMoney(row.amount) ?? 0), 0);
+            const budgetDifference = incomeTotal - expenseTotal;
+            const budgetNote = (!incomeRows.some((row) => parseTeacherReportMoney(row.amount) !== null) && !expenseRows.some((row) => parseTeacherReportMoney(row.amount) !== null))
+                ? "Enter monthly dollar amounts in the workbook to compare income and expenses automatically."
+                : budgetDifference > 0
+                    ? `Budget snapshot shows a monthly surplus of $${budgetDifference.toFixed(2)}.`
+                    : budgetDifference < 0
+                        ? `Budget snapshot shows a monthly shortfall of $${Math.abs(budgetDifference).toFixed(2)}.`
+                        : "Budget snapshot is currently balanced at $0.00.";
+
+            const advertisingSection = buildTeacherReportSection(
+                "Section 1",
+                "Advertising and Consumerism",
+                `
+                    <div class="report-grid">
+                        ${renderTeacherReportCardGrid([
+                            { label: "Marketing Definition", value: fd.defMarketing },
+                            { label: "Packaging Definition", value: fd.defPackaging },
+                            { label: "Influence Example", value: fd.influenceExample },
+                            { label: "Favorite Store or Brand", value: fd.favoriteStore },
+                            { label: "Biggest Influence", value: fd.biggestInfluence }
+                        ])}
+                        ${renderTeacherReportListCard("Purchase Influence Tracker", purchaseItems)}
+                    </div>
+                `
+            );
+
+            const waitingSection = buildTeacherReportSection(
+                "Section 2",
+                "What Are You Waiting For?",
+                `
+                    <div class="report-grid">
+                        ${renderTeacherReportCardGrid([
+                            { label: "Why Joe Bought the Camaro", value: fd.joeDecision },
+                            { label: "Why Sally Bought the Escort", value: fd.sallyDecision },
+                            { label: "Who Made the Better Decision", value: fd.betterDecision }
+                        ])}
+                    </div>
+                `
+            );
+
+            const moneySection = buildTeacherReportSection(
+                "Section 3",
+                "Managing Money",
+                `
+                    <div class="report-grid">
+                        ${renderTeacherReportCardGrid([
+                            { label: "Purchase Reflection", value: fd.purchaseReflection },
+                            { label: "Current Income Sources", value: fd.incomeCurrent },
+                            { label: "Future Income Sources", value: fd.incomeFuture },
+                            { label: "How Purchases Are Decided", value: fd.purchaseDecision },
+                            { label: "Decision Factors", value: fd.purchaseFactors },
+                            { label: "Where Most Money Comes From", value: fd.budgetWhereFrom },
+                            { label: "Where Most Money Goes", value: fd.budgetWhereGo },
+                            { label: "End of Month Outcome", value: fd.budgetEndMonth },
+                            { label: "One Budget Change", value: fd.budgetChange }
+                        ])}
+                    </div>
+                    <div class="budget-wrap">
+                        <table class="budget-compare-table">
+                            <thead>
+                                <tr>
+                                    <th>Budget Type</th>
+                                    <th>Category</th>
+                                    <th>Amount</th>
+                                    <th>Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${incomeRows.map((row) => `
+                                    <tr>
+                                        <td><span class="budget-type-chip budget-type-income">Income</span></td>
+                                        <td>${escapeTeacherReportHtml(row.label)}</td>
+                                        <td>${formatTeacherReportMoneyCell(row.amount)}</td>
+                                        <td>${hasTeacherReportValue(row.note) ? escapeTeacherReportHtml(row.note) : '<span class="answer-empty-chip">No note</span>'}</td>
+                                    </tr>
+                                `).join("")}
+                                ${expenseRows.map((row) => `
+                                    <tr>
+                                        <td><span class="budget-type-chip budget-type-expense">Expense</span></td>
+                                        <td>${escapeTeacherReportHtml(row.label)}</td>
+                                        <td>${formatTeacherReportMoneyCell(row.amount)}</td>
+                                        <td>${hasTeacherReportValue(row.note) ? escapeTeacherReportHtml(row.note) : '<span class="answer-empty-chip">No note</span>'}</td>
+                                    </tr>
+                                `).join("")}
+                            </tbody>
+                        </table>
+                        <p class="budget-compare-note">${escapeTeacherReportHtml(budgetNote)}</p>
+                    </div>
+                `
+            );
+
+            const honestySection = buildTeacherReportSection(
+                "Section 4",
+                "Honesty Quiz and Reflection",
+                `
+                    <div class="report-grid">
+                        ${renderTeacherReportCardGrid([
+                            { label: "Norma: Found $100", value: fd.honestyNorma },
+                            { label: "Gertrude: Graffiti", value: fd.honestyGertrude },
+                            { label: "Herman: Lying to a Friend", value: fd.honestyHerman },
+                            { label: "Asif: Wrong Change", value: fd.honestyAsif },
+                            { label: "Frank: Found Phone", value: fd.honestyFrank },
+                            { label: "Charlotte: Test Answers", value: fd.honestyCharlotte },
+                            { label: "Salima: Tracing Art", value: fd.honestySalima },
+                            { label: "When Honesty Matters Most", value: fd.honestyImportant },
+                            { label: "When Lying Might Feel Acceptable", value: fd.honestyAcceptable },
+                            { label: "Easiest Scenario", value: fd.honestyEasiest },
+                            { label: "Hardest Scenario", value: fd.honestyHardest },
+                            { label: "A Time I Chose to Lie", value: fd.honestyReflection1 },
+                            { label: "Why Honesty Matters in Relationships", value: fd.honestyReflection2 }
+                        ])}
+                    </div>
+                `
+            );
+
+            const relationshipsSection = buildTeacherReportSection(
+                "Section 5",
+                "Maintaining Relationships",
+                `
+                    <div class="report-grid">
+                        ${renderTeacherReportCardGrid([
+                            { label: "Conflict Definition", value: fd.defConflict },
+                            { label: "Conflict Topic", value: fd.conflictAbout },
+                            { label: "Resolution Attempt", value: fd.conflictResolve },
+                            { label: "Was It Effective?", value: fd.conflictEffective }
+                        ])}
+                        ${renderTeacherReportListCard("Communication Skill Rewrites", communicationItems)}
+                    </div>
+                `
+            );
+
+            const caseStudySection = buildTeacherReportSection(
+                "Section 6",
+                "Case Studies",
+                `
+                    <div class="report-grid">
+                        ${renderTeacherReportCardGrid([
+                            { label: "Joe and Craig: How Should Joe Handle It?", value: fd.caseJonCraig1 },
+                            { label: "Joe and Craig: How Will Craig React?", value: fd.caseJonCraig2 },
+                            { label: "Joe and Craig: What If He Needs the Car Fixed?", value: fd.caseJonCraig3 },
+                            { label: "Amanda and Joanne: How Should Amanda Handle It?", value: fd.caseAmandaJoanne1 },
+                            { label: "Amanda and Joanne: How Will Joanne React?", value: fd.caseAmandaJoanne2 },
+                            { label: "Amanda and Joanne: What If Joanne Could Be Kicked Out?", value: fd.caseAmandaJoanne3 },
+                            { label: "Maya and Leticia: How Should Maya Handle It?", value: fd.caseMayaLeticia1 },
+                            { label: "Maya and Leticia: How Will Leticia React?", value: fd.caseMayaLeticia2 },
+                            { label: "Maya and Leticia: What If Her Boyfriend Threatens to Leave?", value: fd.caseMayaLeticia3 }
+                        ])}
+                    </div>
+                `
+            );
+
+            const evidenceSection = buildTeacherReportSection(
+                "Supplementary Evidence",
+                "Optional Uploaded Image",
+                fd.supplementaryImage
+                    ? `
+                        <div class="image-card">
+                            <img src="${fd.supplementaryImage}" alt="Student supplementary evidence" />
+                        </div>
+                    `
+                    : `<div class="report-card">${renderTeacherReportAnswer("")}</div>`
+            );
+
+            const reportHtml = `<!DOCTYPE html>
+            <html lang="en">
+                <head>
+                    <meta charset="UTF-8" />
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                    <title>CALM Module 2 Teacher Report</title>
+                    <style>
+                        :root { color-scheme: light; --ink: #0f172a; --muted: #475569; --line: #dbe4f0; --panel: #ffffff; --panel-soft: #f8fafc; --accent: #6d28d9; --accent-soft: #f5f3ff; --success: #047857; --success-soft: #ecfdf5; --warning: #92400e; --warning-soft: #fff7ed; }
+                        * { box-sizing: border-box; }
+                        body { margin: 0; padding: 2rem; background: #eef2ff; color: var(--ink); font-family: Inter, "Segoe UI", Arial, sans-serif; }
+                        .report-shell { max-width: 1100px; margin: 0 auto; }
+                        .report-hero { background: linear-gradient(135deg, #4c1d95, #7c3aed 52%, #c4b5fd); color: white; border-radius: 2rem; padding: 2rem; margin-bottom: 1.5rem; box-shadow: 0 24px 60px rgba(76, 29, 149, 0.22); }
+                        .report-hero h1 { margin: 0 0 0.6rem; font-size: 2rem; line-height: 1.05; }
+                        .report-hero p { margin: 0; color: rgba(255, 255, 255, 0.88); font-size: 1rem; }
+                        .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 0.9rem; margin-top: 1.4rem; }
+                        .summary-stat { background: rgba(255, 255, 255, 0.14); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 1.25rem; padding: 0.95rem 1rem; }
+                        .summary-stat-label { display: block; font-size: 0.72rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255, 255, 255, 0.74); margin-bottom: 0.35rem; }
+                        .summary-stat-value { font-size: 1.05rem; font-weight: 800; line-height: 1.35; }
+                        .report-section { background: var(--panel); border: 1px solid var(--line); border-radius: 1.8rem; padding: 1.4rem; margin-bottom: 1.2rem; box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06); }
+                        .report-section-heading { margin-bottom: 1rem; }
+                        .report-section-eyebrow { margin: 0 0 0.3rem; font-size: 0.72rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+                        .report-section-heading h2 { margin: 0; font-size: 1.45rem; line-height: 1.15; }
+                        .report-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0.9rem; }
+                        .report-card { background: var(--panel-soft); border: 1px solid var(--line); border-radius: 1.25rem; padding: 1rem; break-inside: avoid; }
+                        .report-card-wide { grid-column: 1 / -1; }
+                        .report-card h3 { margin: 0 0 0.65rem; font-size: 0.75rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+                        .report-answer { font-size: 0.95rem; line-height: 1.6; color: var(--ink); }
+                        .answer-empty-chip { display: inline-flex; align-items: center; gap: 0.35rem; border-radius: 999px; padding: 0.3rem 0.7rem; background: var(--warning-soft); color: var(--warning); font-size: 0.8rem; font-weight: 700; }
+                        .report-list { margin: 0; padding-left: 1.2rem; }
+                        .report-list li + li { margin-top: 0.45rem; }
+                        .muted-inline { color: var(--muted); }
+                        .budget-wrap { display: grid; gap: 1rem; }
+                        .budget-compare-table { width: 100%; border-collapse: collapse; overflow: hidden; border-radius: 1.25rem; border: 1px solid var(--line); background: white; }
+                        .budget-compare-table th, .budget-compare-table td { padding: 0.85rem 0.9rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; font-size: 0.9rem; }
+                        .budget-compare-table thead th { font-size: 0.75rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); background: #eff6ff; }
+                        .budget-compare-table tbody tr:last-child td { border-bottom: 0; }
+                        .budget-type-chip { display: inline-flex; align-items: center; border-radius: 999px; padding: 0.2rem 0.55rem; font-size: 0.72rem; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; }
+                        .budget-type-income { background: var(--success-soft); color: var(--success); }
+                        .budget-type-expense { background: #fef2f2; color: #b91c1c; }
+                        .budget-compare-note { margin: 0; padding: 0.95rem 1rem; border-radius: 1rem; background: var(--accent-soft); color: #5b21b6; font-size: 0.92rem; font-weight: 700; }
+                        .image-card { background: white; border: 1px solid var(--line); border-radius: 1.5rem; padding: 1rem; }
+                        .image-card img { display: block; max-width: 100%; height: auto; border-radius: 1rem; border: 1px solid var(--line); }
+                        @media print { body { background: white; padding: 0; } .report-hero { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+                    </style>
+                </head>
+                <body>
+                    <div class="report-shell">
+                        <header class="report-hero">
+                            <h1>CALM Module 2 Teacher Report</h1>
+                            <p>Resource Choices response summary for review, printing, and discussion.</p>
+                            <div class="summary-grid">
+                                <div class="summary-stat"><span class="summary-stat-label">Student</span><div class="summary-stat-value">${hasTeacherReportValue(fd.studentName) ? escapeTeacherReportHtml(fd.studentName) : "Not provided"}</div></div>
+                                <div class="summary-stat"><span class="summary-stat-label">Sections Complete</span><div class="summary-stat-value">${completedSections} / ${SECTIONS.length - 1}</div></div>
+                                <div class="summary-stat"><span class="summary-stat-label">Answered Prompts</span><div class="summary-stat-value">${answeredCount} / ${responseCount}</div></div>
+                                <div class="summary-stat"><span class="summary-stat-label">Generated</span><div class="summary-stat-value">${escapeTeacherReportHtml(new Date().toLocaleString())}</div></div>
+                            </div>
+                        </header>
+                        ${advertisingSection}
+                        ${waitingSection}
+                        ${moneySection}
+                        ${honestySection}
+                        ${relationshipsSection}
+                        ${caseStudySection}
+                        ${evidenceSection}
+                    </div>
+                </body>
+            </html>`;
+
+            return reportHtml;
+        }
+
         // --- HELPER COMPONENTS ---
         
         const AutoExpandingTextarea = ({ value, onChange, placeholder, className = "" }) => {
@@ -285,85 +642,33 @@ const { useState, useEffect, useRef } = React;
             };
 
             const generateTeacherExport = () => {
-                const fd = formData;
-                let out = `========================================================\n`;
-                out += `  CALM MODULE 2: RESOURCE CHOICES - STUDENT SUBMISSION  \n`;
-                out += `========================================================\n`;
-                out += `Student Name: ${fd.studentName || "Not provided"}\n\n`;
-
-                out += `--- 1. ADVERTISING & CONSUMERISM ---\n`;
-                out += `Marketing Definition: ${fd.defMarketing}\n`;
-                out += `Packaging Definition: ${fd.defPackaging}\n`;
-                out += `Influence of friends/family: ${fd.influenceExample}\n`;
-                out += `Favorite Store/Brand & Why: ${fd.favoriteStore}\n`;
-                out += `Purchases:\n`;
-                fd.purchases.forEach((p, i) => { if(p.item) out += `  ${i+1}. ${p.item} (Influence: ${p.influence})\n` });
-                out += `Biggest Influence: ${fd.biggestInfluence}\n\n`;
-
-                out += `--- 2. WHAT ARE YOU WAITING FOR? ---\n`;
-                out += `Why Joe bought Camaro: ${fd.joeDecision}\n`;
-                out += `Why Sally bought Escort: ${fd.sallyDecision}\n`;
-                out += `Who made the better decision: ${fd.betterDecision}\n\n`;
-
-                out += `--- 3. MANAGING MONEY ---\n`;
-                out += `Purchase Reflection: ${fd.purchaseReflection}\n`;
-                out += `Current income sources: ${fd.incomeCurrent}\n`;
-                out += `Future income sources: ${fd.incomeFuture}\n`;
-                out += `How decide what to purchase: ${fd.purchaseDecision}\n`;
-                out += `Factors influencing decisions: ${fd.purchaseFactors}\n`;
-                out += `Budget Income -> Job: ${fd.budget.job}, Parents: ${fd.budget.parents}, Other: ${fd.budget.other} (${fd.budget.otherExp})\n`;
-                out += `Budget Exp -> Rent: ${fd.budget.rent}, Utils: ${fd.budget.utilities}, Phone: ${fd.budget.phone}, Groceries: ${fd.budget.groceries}\n`;
-                out += `Budget Exp -> Car: ${fd.budget.car}, Ins: ${fd.budget.insurance}, Gas: ${fd.budget.gas}, Ent: ${fd.budget.entertainment}, Dining: ${fd.budget.dining}, Clothes: ${fd.budget.clothes}, Etc: ${fd.budget.etc} (${fd.budget.etcExp})\n`;
-                out += `Where most money comes from: ${fd.budgetWhereFrom}\n`;
-                out += `Where most money goes: ${fd.budgetWhereGo}\n`;
-                out += `Saving or debt/Plans: ${fd.budgetEndMonth}\n`;
-                out += `One thing to do differently: ${fd.budgetChange}\n\n`;
-
-                out += `--- 4. HONESTY ---\n`;
-                out += `Norma (Found $100): ${fd.honestyNorma}\n`;
-                out += `Gertrude (Graffiti): ${fd.honestyGertrude}\n`;
-                out += `Herman (Lying to friend): ${fd.honestyHerman}\n`;
-                out += `Asif (Wrong change): ${fd.honestyAsif}\n`;
-                out += `Frank (Found phone): ${fd.honestyFrank}\n`;
-                out += `Charlotte (Test answers): ${fd.honestyCharlotte}\n`;
-                out += `Salima (Tracing art): ${fd.honestySalima}\n`;
-                out += `When important to be honest: ${fd.honestyImportant}\n`;
-                out += `When acceptable to lie: ${fd.honestyAcceptable}\n`;
-                out += `Easiest scenario: ${fd.honestyEasiest}\n`;
-                out += `Hardest scenario: ${fd.honestyHardest}\n`;
-                out += `Reflection (Time chose to lie): ${fd.honestyReflection1}\n`;
-                out += `Reflection (Is honesty important?): ${fd.honestyReflection2}\n\n`;
-
-                out += `--- 5. MAINTAINING RELATIONSHIPS ---\n`;
-                out += `Conflict Definition: ${fd.defConflict}\n`;
-                out += `Past Conflict (What about?): ${fd.conflictAbout}\n`;
-                out += `Past Conflict (How resolved?): ${fd.conflictResolve}\n`;
-                out += `Past Conflict (Was it effective?): ${fd.conflictEffective}\n`;
-                out += `Communication Skills:\n`;
-                fd.commSkills.forEach((s, i) => { if(i>1 && s.good) out += `  Instead of "${s.poor}" -> "${s.good}"\n` });
-                out += `\n`;
-
-                out += `--- 5. TASK: CASE STUDIES ---\n`;
-                out += `Case 1 (Joe/Craig) - How handle: ${fd.caseJonCraig1}\n`;
-                out += `Case 1 (Joe/Craig) - How react: ${fd.caseJonCraig2}\n`;
-                out += `Case 1 (Joe/Craig) - What if fixing car: ${fd.caseJonCraig3}\n`;
-                out += `Case 2 (Amanda/Joanne) - How handle: ${fd.caseAmandaJoanne1}\n`;
-                out += `Case 2 (Amanda/Joanne) - How react: ${fd.caseAmandaJoanne2}\n`;
-                out += `Case 2 (Amanda/Joanne) - What if kicked out: ${fd.caseAmandaJoanne3}\n`;
-                out += `Case 3 (Maya/Leticia) - How handle: ${fd.caseMayaLeticia1}\n`;
-                out += `Case 3 (Maya/Leticia) - How react: ${fd.caseMayaLeticia2}\n`;
-                out += `Case 3 (Maya/Leticia) - What if BF threatens: ${fd.caseMayaLeticia3}\n`;
-                
-                if (fd.supplementaryImage) {
-                    out += `\n[NOTE: Student attached an image to their submission. Please check the digital LMS view for the image.]\n`;
+                const answeredCount = collectTeacherReportValues(formData).filter(hasTeacherReportValue).length;
+                if (answeredCount === 0) {
+                    window.alert("There is nothing to print yet. Add some responses first.");
+                    return;
                 }
 
-                const blob = new Blob([out], { type: "text/plain" });
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement("a");
-                a.href = url;
-                a.download = `CALM_Mod2_${fd.studentName.replace(/\s+/g, '_') || "Student"}.txt`;
-                a.click();
+                const completedSections = SECTIONS.filter((section) => section.id !== "finish" && calcProgress(section.id).isDone).length;
+                const responseCount = collectTeacherReportValues(DEFAULT_STATE).length;
+                const reportHtml = buildCalmModule2TeacherReport(formData, {
+                    completedSections,
+                    answeredCount,
+                    responseCount
+                });
+                const printWindow = window.open("", "_blank");
+
+                if (!printWindow) {
+                    window.alert("Print preview was blocked. Allow pop-ups for this site and try again.");
+                    return;
+                }
+
+                printWindow.document.open();
+                printWindow.document.write(reportHtml);
+                printWindow.document.close();
+                window.setTimeout(() => {
+                    printWindow.focus();
+                    printWindow.print();
+                }, 250);
             };
 
             const nextTab = () => {
@@ -1005,14 +1310,14 @@ const { useState, useEffect, useRef } = React;
                                     </div>
 
                                     <div className="clay-card p-8 text-center bg-violet-600 border-violet-700 text-white shadow-[0_8px_0_0_#4c1d95]">
-                                        <h3 className="font-black text-2xl mb-4">Ready to Submit?</h3>
-                                        <p className="text-violet-200 mb-8 max-w-lg mx-auto">This will generate a text file with all of your responses, formatted cleanly for your teacher to grade. Upload this file to your LMS drop box.</p>
+                                        <h3 className="font-black text-2xl mb-4">Ready to Print?</h3>
+                                        <p className="text-violet-200 mb-8 max-w-lg mx-auto">Open a clean teacher-facing print report with your responses, budget snapshot, and case-study answers in one place.</p>
                                         
                                         <button 
                                             onClick={generateTeacherExport}
                                             className="bg-white text-violet-600 hover:bg-slate-50 font-black py-4 px-8 rounded-2xl shadow-[0_6px_0_0_#e2e8f0] active:translate-y-[6px] active:shadow-none transition-all text-xl"
                                         >
-                                            <i className="fa-solid fa-file-export mr-2"></i> Export Teacher View (.txt)
+                                            <i className="fa-solid fa-print mr-2"></i> Print Teacher Report
                                         </button>
                                     </div>
                                 </div>
