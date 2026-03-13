@@ -8,6 +8,9 @@ export type MemoryKind = "style" | "component" | "tool" | "resource" | "decision
 export type MemoryConfidence = "low" | "medium" | "high";
 export type LearnerMode = "off" | "collect" | "apply";
 export type LearnerModeSource = "repo-default" | "project-override" | "env-override" | "cli-override" | "default";
+export type AuthoringPreferenceScope = "repo" | "project";
+export type AuthoringSourceSupportMode = "hidden-by-default" | "optional" | "visible";
+export type AuthoringRuleSeverity = "error" | "warn";
 export type MemoryOriginCommand = "import" | "analyze" | "refs" | "export" | "plan";
 export type MemoryOriginSource = "pattern" | "workspace" | "reference" | "design-doc" | "export";
 export type IntelligenceMode = LearnerMode;
@@ -320,6 +323,86 @@ export type MemoryLedger = {
   entries: MemoryLedgerEntry[];
 };
 
+export type AuthoringPreferenceRule = {
+  id: string;
+  description: string;
+  pattern: string;
+  severity?: AuthoringRuleSeverity;
+};
+
+export type AuthoringAcceptedRule = {
+  ruleId: string;
+  reason: string;
+  updatedAt: string;
+  scope: AuthoringPreferenceScope;
+};
+
+export type AuthoringPreferences = {
+  schemaVersion: 1;
+  flow: {
+    sourceSupportMode?: AuthoringSourceSupportMode;
+    preferredBenchmarkId?: string;
+  };
+  rules?: {
+    require?: AuthoringPreferenceRule[];
+    forbid?: AuthoringPreferenceRule[];
+    accepted?: AuthoringAcceptedRule[];
+  };
+  quality: {
+    maxConsecutiveParagraphBlocks?: number;
+  };
+  learning: {
+    defaultScope: AuthoringPreferenceScope;
+  };
+};
+
+export type AuthoringPreferencesOverride = Partial<{
+  flow: Partial<AuthoringPreferences["flow"]>;
+  rules: Partial<AuthoringPreferences["rules"]>;
+  quality: Partial<NonNullable<AuthoringPreferences["quality"]>>;
+  learning: Partial<AuthoringPreferences["learning"]>;
+}>;
+
+export type AuthoringPreferenceSource = "repo" | "benchmark" | "project" | "cli";
+
+export type ResolvedAuthoringPreferences = {
+  preferences: AuthoringPreferences;
+  sourceOrder: AuthoringPreferenceSource[];
+};
+
+export type AuthoringSurfaceKind = "course-html" | "workspace-runtime" | "export";
+
+export type AuthoringSurfaceInput = {
+  kind: AuthoringSurfaceKind;
+  filePath: string;
+  content?: string;
+};
+
+export type AuthoringDeviation = {
+  ruleId: string;
+  severity: AuthoringRuleSeverity;
+  surface: AuthoringSurfaceKind;
+  location: string;
+  why: string;
+  evidence: string;
+};
+
+export type AuthoringDeviationAcceptance = {
+  acceptDeviations: string[] | "all";
+  because?: string;
+  updatePreferences?: boolean;
+  preferenceScope?: AuthoringPreferenceScope;
+};
+
+export type AuthoringDeviationReport = {
+  schemaVersion: 1;
+  projectSlug: string;
+  generatedAt: string;
+  pass: boolean;
+  deviations: AuthoringDeviation[];
+  acceptedDeviations: AuthoringDeviation[];
+};
+
 export type ProjectPaths = {
   root: string;
   rawDir: string;
@@ -347,9 +430,13 @@ export type ProjectPaths = {
   assessmentMapPath: string;
   lessonPacketsDir: string;
   lessonPacketsIndexPath: string;
+  benchmarkSelectionPath: string;
   importLogPath: string;
   sessionLogPath: string;
   intelligencePolicyPath: string;
+  authoringPreferencesPath: string;
+  deviationReportJsonPath: string;
+  deviationReportMarkdownPath: string;
   exportsDir: string;
   brightspaceExportDir: string;
 };

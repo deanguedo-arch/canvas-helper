@@ -2,7 +2,7 @@ import path from "node:path";
 import { readdir, stat } from "node:fs/promises";
 
 import { fileExists, listFilesRecursive } from "./fs.js";
-import { resourcesRoot } from "./paths.js";
+import { projectsRoot, resourcesRoot } from "./paths.js";
 
 const IMPORTABLE_SOURCE_EXTENSIONS = new Set([".html", ".htm", ".txt"]);
 const WATCH_IGNORE_MARKERS = new Set([".watch-ignore", ".canvas-helper-ignore"]);
@@ -65,16 +65,30 @@ export async function listIncomingProjectItems(incomingRoot: string) {
   return items.sort((left, right) => left.localeCompare(right));
 }
 
-export async function listResourceProjectDirs(resourceRoot = resourcesRoot) {
+export async function listResourceProjectDirs(resourceRoot = resourcesRoot, projectsRootDir = projectsRoot) {
   if (!(await fileExists(resourceRoot))) {
     return [] as string[];
   }
 
   const entries = await readdir(resourceRoot, { withFileTypes: true });
-  return entries
-    .filter((entry) => entry.isDirectory() && isVisibleEntry(entry.name))
-    .map((entry) => path.join(resourceRoot, entry.name))
-    .sort((left, right) => left.localeCompare(right));
+  const candidateDirs = entries.filter((entry) => entry.isDirectory() && isVisibleEntry(entry.name));
+  const dirs: string[] = [];
+
+  for (const entry of candidateDirs) {
+    const resourceDir = path.join(resourceRoot, entry.name);
+    if (await hasWatchIgnoreMarker(resourceDir)) {
+      continue;
+    }
+
+    const manifestPath = path.join(projectsRootDir, entry.name, "meta", "project.json");
+    if (!(await fileExists(manifestPath))) {
+      continue;
+    }
+
+    dirs.push(resourceDir);
+  }
+
+  return dirs.sort((left, right) => left.localeCompare(right));
 }
 
 export async function listResourceSourceFiles(resourceDir: string) {

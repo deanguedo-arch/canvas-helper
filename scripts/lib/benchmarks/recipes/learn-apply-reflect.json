@@ -1,0 +1,31 @@
+{
+  "id": "learn-apply-reflect",
+  "family": "lesson-flow",
+  "summary": "Primary workbook sequence for teaching, practice, and reflection inside one authored section.",
+  "inputs": [
+    "learnBlocks",
+    "practiceBlocks",
+    "reflectionPrompt"
+  ],
+  "optionalInputs": [
+    "practiceIntro",
+    "successCriteria",
+    "sourceSupport"
+  ],
+  "renderingRules": [
+    "Render learn content in authored cards before any practice interaction.",
+    "Place practice directly after the teaching it checks.",
+    "End the sequence with reflection or readiness writing."
+  ],
+  "interactionRules": [
+    "Practice blocks may use inline checking, matching, sorting, or scenario choice patterns.",
+    "Reflection should support persisted learner writing."
+  ],
+  "persistenceRules": [
+    "Persist learner responses for reflection fields and practice inputs when save keys are provided."
+  ],
+  "constraints": [
+    "Do not separate practice into a different tab from the teaching it supports.",
+    "Do not show source support by default inside the core lesson flow."
+  ]
+}

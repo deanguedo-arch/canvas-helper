@@ -8,39 +8,12 @@ set "STUDIO_HOST=127.0.0.1"
 set "STUDIO_PORT="
 set "STUDIO_URL="
 set "NPM_CMD="
-set "LEARNER_MODE_DISPLAY=<repo default from config/intelligence.json>"
-if defined LEARNER_MODE set "LEARNER_MODE_DISPLAY=%LEARNER_MODE%"
-if not defined LEARNER_MODE set "LEARNER_MODE_DISPLAY=collect (safe default)"
-
+if /I "%~1"=="watch" goto watch_only
+if /I "%~1"=="refresh" goto refresh_only
 if /I "%~1"=="studio" goto studio_only
-if /I "%~1"=="import" goto import_studio
-if /I "%~1"=="export" goto export_only
-if /I "%~1"=="exit" goto end
-
-:menu
-cls
-echo ==============================================
-echo   Canvas Helper Launcher
-echo ==============================================
-echo.
-echo   Learner Mode: %LEARNER_MODE_DISPLAY%
-echo.
-echo   1. Studio + Auto Import Watcher (Recommended)
-echo   2. Import Once + Studio + Auto Import Watcher
-echo   3. Export Brightspace
-echo   4. Exit
-echo.
-set /p CHOICE=Select an option [1-4]: 
-
-if "%CHOICE%"=="1" goto studio_only
-if "%CHOICE%"=="2" goto import_studio
-if "%CHOICE%"=="3" goto export_only
-if "%CHOICE%"=="4" goto end
-
-echo.
-echo Invalid option. Try again.
-timeout /t 2 >nul
-goto menu
+if /I "%~1"=="help" goto show_help
+if /I "%~1"=="--help" goto show_help
+if /I "%~1"=="-h" goto show_help
 
 :studio_only
 call :ensure_deps || goto failed
@@ -48,49 +21,44 @@ call :warn_if_no_projects
 call :resolve_studio_port || goto failed
 call :open_studio_when_ready
 echo.
-echo Starting studio with incoming watcher on %STUDIO_URL%...
-call "%NPM_CMD%" run studio:auto -- --host "%STUDIO_HOST%" --port "%STUDIO_PORT%"
+echo ==============================================
+echo   Canvas Helper Launcher
+echo ==============================================
+echo.
+if defined LEARNER_MODE (
+  echo Learner Mode override: %LEARNER_MODE%
+) else (
+  echo Learner Mode: repo/project policy
+)
+echo Studio URL: %STUDIO_URL%
+echo.
+echo Starting stable Studio session...
+call "%NPM_CMD%" run studio -- --host "%STUDIO_HOST%" --port "%STUDIO_PORT%"
 goto end
 
-:import_studio
+:refresh_only
 call :ensure_deps || goto failed
 echo.
-set /p IMPORT_SOURCE=Enter source path (html, txt, or folder): 
-if "%IMPORT_SOURCE%"=="" (
-  echo Source path is required.
-  goto pause_return
-)
-set /p IMPORT_SLUG=Enter project slug: 
-if "%IMPORT_SLUG%"=="" (
-  echo Project slug is required.
-  goto pause_return
-)
-
-echo.
-echo Running import...
-call "%NPM_CMD%" run import -- "%IMPORT_SOURCE%" --slug "%IMPORT_SLUG%" || goto failed
-
-call :resolve_studio_port || goto failed
-call :open_studio_when_ready
-echo.
-echo Starting studio with incoming watcher on %STUDIO_URL%...
-call "%NPM_CMD%" run studio:auto -- --host "%STUDIO_HOST%" --port "%STUDIO_PORT%"
+echo Refreshing incoming and resources once...
+call "%NPM_CMD%" run incoming:refresh
 goto end
 
-:export_only
+:watch_only
 call :ensure_deps || goto failed
 echo.
-set /p EXPORT_SLUG=Enter project slug to export: 
-if "%EXPORT_SLUG%"=="" (
-  echo Project slug is required.
-  goto pause_return
-)
+echo Starting incoming watcher (optional mode)...
+call "%NPM_CMD%" run watch:incoming
+goto end
 
+:show_help
 echo.
-call "%NPM_CMD%" run export:brightspace -- --project "%EXPORT_SLUG%" || goto failed
+echo Usage:
+echo   launch-canvas-helper.bat             Start Studio only (default)
+echo   launch-canvas-helper.bat studio      Start Studio only
+echo   launch-canvas-helper.bat refresh     Run one intake refresh and exit
+echo   launch-canvas-helper.bat watch       Run incoming watcher only
 echo.
-echo Export complete: projects\%EXPORT_SLUG%\exports\brightspace
-goto pause_return
+goto end
 
 :ensure_deps
 call :ensure_layout || exit /b 1
@@ -158,7 +126,7 @@ if defined HAS_PROJECTS exit /b 0
 
 echo.
 echo No imported projects were found under projects\.
-echo Use option 2 to import one now, or drop a folder into projects\incoming\.
+echo Drop a folder into projects\incoming\ and run `launch-canvas-helper.bat refresh`.
 echo.
 exit /b 0
 
@@ -191,12 +159,7 @@ exit /b 0
 :failed
 echo.
 echo Command failed. Review output above.
-goto pause_return
-
-:pause_return
-echo.
-pause
-goto menu
+goto end
 
 :end
 endlocal

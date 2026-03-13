@@ -162,6 +162,307 @@ const { useState, useEffect, useMemo, useRef } = React;
           );
         };
 
+        // --- TEACHER REPORTING FUNCTIONS ---
+        const hasTeacherReportValue = (value) => {
+            if (typeof value === "string") return value.trim().length > 0;
+            if (value === null || value === undefined) return false;
+            if (Array.isArray(value)) return value.some(item => hasTeacherReportValue(item));
+            if (typeof value === 'object') return Object.values(value).some(item => hasTeacherReportValue(item));
+            return true;
+        };
+
+        const escapeTeacherReportHtml = (value) => String(value)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#39;");
+
+        const renderTeacherReportAnswer = (value) => {
+            if (!hasTeacherReportValue(value)) {
+                return '<span class="answer-empty-chip">Not answered</span>';
+            }
+            return `<div class="report-answer">${escapeTeacherReportHtml(String(value)).replace(/\n/g, "<br>")}</div>`;
+        };
+
+        const renderTeacherReportCardGrid = (items) => items.map((item) => `
+            <article class="report-card">
+                <h3>${escapeTeacherReportHtml(item.label)}</h3>
+                ${renderTeacherReportAnswer(item.value)}
+            </article>
+        `).join("");
+        
+        const renderTeacherReportListCard = (label, items) => {
+            if (!items.length) {
+                return `
+                    <article class="report-card report-card-wide">
+                        <h3>${escapeTeacherReportHtml(label)}</h3>
+                        ${renderTeacherReportAnswer("")}
+                    </article>
+                `;
+            }
+
+            return `
+                <article class="report-card report-card-wide">
+                    <h3>${escapeTeacherReportHtml(label)}</h3>
+                    <div class="report-answer">
+                        <ul class="report-list">
+                            ${items.map((item) => `<li>${item}</li>`).join("")}
+                        </ul>
+                    </div>
+                </article>
+            `;
+        };
+
+        const buildTeacherReportSection = (eyebrow, title, content) => `
+            <section class="report-section">
+                <div class="report-section-heading">
+                    <p class="report-section-eyebrow">${escapeTeacherReportHtml(eyebrow)}</p>
+                    <h2>${escapeTeacherReportHtml(title)}</h2>
+                </div>
+                ${content}
+            </section>
+        `;
+
+        function buildCalmModule1TeacherReport(fd, { overallPercentage }) {
+            
+            const inventorySection = buildTeacherReportSection(
+                "Module 1",
+                "My Inventory",
+                `<div class="report-grid">
+                    ${renderTeacherReportCardGrid([
+                        { label: "How much sleep do I need?", value: fd.invSleep },
+                        { label: "Best snacks for energy?", value: fd.invSnacks },
+                        { label: "Times of day I need to eat?", value: fd.invEatTimes },
+                        { label: "Time I have the MOST energy?", value: fd.invEnergyHigh },
+                        { label: "Time I have the LEAST energy?", value: fd.invEnergyLow },
+                        { label: "Exercise that energizes me?", value: fd.invExerciseEnergize },
+                        { label: "Activities that help me relax?", value: fd.invRelax },
+                        { label: "Pencils or pens?", value: fd.invPencilsPens },
+                        { label: "How do I stay organized?", value: fd.invOrganized },
+                        { label: "Write or type assignments?", value: fd.invWriteType },
+                        { label: "Are electronics distracting?", value: fd.invElectronics },
+                        { label: "Does music help me study?", value: fd.invMusic },
+                        { label: "Where do I prefer to sit?", value: fd.invSit },
+                        { label: "Best reading format?", value: fd.invReadFrom },
+                        { label: "Does paper color matter?", value: fd.invColor },
+                        { label: "Does print type matter?", value: fd.invPrintType },
+                        { label: "Do I prefer to make my own goals, or have a teacher make them? Explain.", value: fd.invGoals },
+                        { label: "Tricks I use to keep myself focused:", value: fd.invFocusTricks },
+                        { label: "Special things teachers can do to help me:", value: fd.invTeacherHelp }
+                    ])}
+                 </div>`
+            );
+
+            const goalsSection = buildTeacherReportSection(
+                "Module 2",
+                "Goal Setting",
+                `<div class="report-grid">
+                    ${renderTeacherReportCardGrid([
+                        { label: "Here's what I want to achieve", value: fd.goalAchieve },
+                        { label: "My main MEASURE for this achievement", value: fd.goalMeasure },
+                        { label: "Who?", value: fd.goalWho },
+                        { label: "How?", value: fd.goalHow },
+                        { label: "What?", value: fd.goalWhat },
+                        { label: "When?", value: fd.goalWhen },
+                        { label: "Is it ATTAINABLE (in your control)? Explain.", value: fd.goalAttainable },
+                        { label: "Is it REALISTIC? Explain.", value: fd.goalRealistic },
+                        { label: "Is it TIMED (has a deadline)? Explain.", value: fd.goalTimed },
+                        { label: "Why is goal setting important?", value: fd.goalImportance },
+                        { label: "What other goals could you set?", value: fd.goalOther },
+                    ])}
+                </div>`
+            );
+            
+            const romanticSection = buildTeacherReportSection(
+                "Module 3",
+                "Romantic Relationships",
+                `<div class="report-grid">
+                     ${renderTeacherReportCardGrid([
+                        { label: "What was easiest to rank? Explain.", value: fd.romEasiest },
+                        { label: "What was most difficult? Explain.", value: fd.romHardest },
+                        { label: "Where do your ideas about a 'normal' relationship come from?", value: fd.romNormal },
+                        { label: "What happens if a relationship skips steps or progresses unhealthily?", value: fd.romUnhealthyProg },
+                     ])}
+                </div>`
+            );
+
+            const evaluatingSection = buildTeacherReportSection(
+                "Module 4",
+                "Evaluating Relationships",
+                `<div class="report-grid">
+                    ${renderTeacherReportCardGrid([
+                        { label: "How do you feel in a healthy relationship?", value: fd.evalFeelHealthy },
+                        { label: "How do you feel in an unhealthy relationship?", value: fd.evalFeelUnhealthy },
+                        { label: "Why do people stay in unhealthy relationships?", value: fd.evalWhyStay },
+                    ])}
+                </div>`
+            );
+            
+            const alcoholSection = buildTeacherReportSection(
+                "Module 5",
+                "Alcohol Awareness",
+                `<div class="report-grid">
+                    ${renderTeacherReportCardGrid([
+                        { label: "Why do you think people drink?", value: fd.alcWhyDrink },
+                        { label: "What do you personally think about alcohol?", value: fd.alcThoughts },
+                        { label: "Why is it tied to holidays/celebrations?", value: fd.alcCelebrate },
+                        { label: "What would you say if offered a drink?", value: fd.alcOffered },
+                        { label: "How much should you drink? Explain.", value: fd.alcHowMuch },
+                        { label: "Who could you speak to if you wanted to learn more about alcohol? List 2 resources.", value: fd.alcResources },
+                    ])}
+                </div>`
+            );
+
+            const tobaccoSection = buildTeacherReportSection(
+                "Module 6",
+                "Vaping & Tobacco Awareness",
+                `<div class="report-grid">
+                    ${renderTeacherReportCardGrid([
+                        { label: "What do you know about traditional cigarettes?", value: fd.tobKnow },
+                        { label: "What do you know about Vapes / E-cigarettes?", value: fd.vapeKnow },
+                        { label: "Why do you think teens start vaping?", value: fd.vapeWhy },
+                        { label: "Cannabis is legal in Canada. What are your thoughts on its use among teenagers?", value: fd.weedThoughts },
+                        { label: "If a friend wanted to start vaping or smoking, how would you convince them not to?", value: fd.tobConvince },
+                    ])}
+                </div>`
+            );
+
+            const riskSection = buildTeacherReportSection(
+                "Module 7",
+                "Risk Taking",
+                `<div class="report-grid">
+                    ${renderTeacherReportCardGrid([
+                        { label: "How did you determine how 'risky' a situation was? Explain your logic.", value: fd.riskDetermine },
+                        { label: "Why do you think someone would WANT to take an unhealthy risk?", value: fd.riskWhyUnhealthy },
+                    ])}
+                </div>`
+            );
+
+            const addictionsSection = buildTeacherReportSection(
+                "Module 8",
+                "Addictions",
+                `<div class="report-grid">
+                    ${renderTeacherReportCardGrid([
+                        { label: "Define the term 'addiction' using a dictionary", value: fd.addDefine },
+                        { label: "List 3 different things people can be addicted to", value: fd.addTypes },
+                        { label: "Scenario 1: Rachel", value: fd.addScen1 },
+                        { label: "Scenario 2: Antoine", value: fd.addScen2 },
+                        { label: "Scenario 3: Bailey", value: fd.addScen3 },
+                    ])}
+                </div>`
+            );
+
+            const mentalHealthSection = buildTeacherReportSection(
+                "Module 9",
+                "Mental Health",
+                `<div class="report-grid">
+                    ${renderTeacherReportCardGrid([
+                        { label: "Why is it hard to talk about?", value: fd.mhHardTalk },
+                        { label: "Emotions tied to depression?", value: fd.mhEmotions },
+                        { label: "How to spot it in a friend?", value: fd.mhKnowWrong },
+                        { label: "How to help a friend who is depressed?", value: fd.mhHelpFriend },
+                        { label: "What to do if YOU feel depressed?", value: fd.mhHelpSelf },
+                    ])}
+                </div>`
+            );
+
+            const taskASection = buildTeacherReportSection(
+                "Summative Task A",
+                "Life Map",
+                `<div class="report-grid">
+                    ${renderTeacherReportCardGrid([
+                        { label: "Proudest accomplishment? Why?", value: fd.mapAccomplish },
+                        { label: "Hardest obstacle? Why?", value: fd.mapObstacle },
+                        { label: "Strategies used to manage changes?", value: fd.mapStrategies },
+                        { label: "Skills gained from obstacles?", value: fd.mapSkills },
+                    ])}
+                </div>
+                ${fd.mapImageData ? `<div class="image-card"><img src="${fd.mapImageData}" alt="Student Life Map" /></div>` : ''}
+                `
+            );
+
+            const taskBSection = buildTeacherReportSection(
+                "Summative Task B",
+                "Inside Out",
+                `<div class="report-grid">
+                    ${renderTeacherReportCardGrid([
+                        { label: "1. Joy is usually in charge of Riley. Which emotion(s) do you feel most often? Explain.", value: fd.ioQ1 },
+                        { label: "2. Riley moves to San Francisco. Have you ever gone through a big transition? Explain.", value: fd.ioQ2 },
+                        { label: "3. How are the glowing 'core memories' made? What might yours be?", value: fd.ioQ3 },
+                        { label: "4. What do the core memories have to do with Riley's personality? Explain.", value: fd.ioQ4 },
+                        { label: "5. Sadness colors a memory blue. Can our current moods color our past memories? Explain.", value: fd.ioQ5 },
+                        { label: "6. Were the core memories changed forever, or just temporarily filtered? Explain.", value: fd.ioQ6 },
+                        { label: "7. Riley feels pressure to be a 'happy girl'. Is this fair of her mom to ask? Explain.", value: fd.ioQ7 },
+                        { label: "8. Does society value certain emotions over others? Which ones? Explain.", value: fd.ioQ8 },
+                        { label: "9. Why does Joy learn that Sadness is also important?", value: fd.ioQ9 },
+                        { label: "10. Is it easier for certain demographics (age/gender) to express different emotions? Why?", value: fd.ioQ10 },
+                    ])}
+                </div>`
+            );
+            
+            const reportHtml = `<!DOCTYPE html>
+            <html lang="en">
+                <head>
+                    <meta charset="UTF-8" />
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                    <title>CALM Module 1 Teacher Report</title>
+                    <style>
+                        :root { color-scheme: light; --ink: #0f172a; --muted: #475569; --line: #dbe4f0; --panel: #ffffff; --panel-soft: #f8fafc; --accent: #6d28d9; --accent-soft: #f5f3ff; --warning: #92400e; --warning-soft: #fff7ed; }
+                        * { box-sizing: border-box; }
+                        body { margin: 0; padding: 2rem; background: #f1f5f9; color: var(--ink); font-family: Inter, "Segoe UI", Arial, sans-serif; }
+                        .report-shell { max-width: 1100px; margin: 0 auto; }
+                        .report-hero { background: linear-gradient(135deg, #4c1d95, #7c3aed 52%, #c4b5fd); color: white; border-radius: 2rem; padding: 2rem; margin-bottom: 1.5rem; box-shadow: 0 24px 60px rgba(76, 29, 149, 0.22); }
+                        .report-hero h1 { margin: 0 0 0.6rem; font-size: 2rem; line-height: 1.05; }
+                        .report-hero p { margin: 0; color: rgba(255, 255, 255, 0.88); font-size: 1rem; }
+                        .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 0.9rem; margin-top: 1.4rem; }
+                        .summary-stat { background: rgba(255, 255, 255, 0.14); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 1.25rem; padding: 0.95rem 1rem; }
+                        .summary-stat-label { display: block; font-size: 0.72rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255, 255, 255, 0.74); margin-bottom: 0.35rem; }
+                        .summary-stat-value { font-size: 1.05rem; font-weight: 800; line-height: 1.35; }
+                        .report-section { background: var(--panel); border: 1px solid var(--line); border-radius: 1.8rem; padding: 1.4rem; margin-bottom: 1.2rem; box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06); }
+                        .report-section-heading { margin-bottom: 1rem; }
+                        .report-section-eyebrow { margin: 0 0 0.3rem; font-size: 0.72rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+                        .report-section-heading h2 { margin: 0; font-size: 1.45rem; line-height: 1.15; }
+                        .report-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0.9rem; }
+                        .report-card { background: var(--panel-soft); border: 1px solid var(--line); border-radius: 1.25rem; padding: 1rem; break-inside: avoid; }
+                        .report-card-wide { grid-column: 1 / -1; }
+                        .report-card h3 { margin: 0 0 0.65rem; font-size: 0.75rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+                        .report-answer { font-size: 0.95rem; line-height: 1.6; color: var(--ink); }
+                        .answer-empty-chip { display: inline-flex; align-items: center; gap: 0.35rem; border-radius: 999px; padding: 0.3rem 0.7rem; background: var(--warning-soft); color: var(--warning); font-size: 0.8rem; font-weight: 700; }
+                        .image-card { background: white; border: 1px solid var(--line); border-radius: 1.5rem; padding: 1rem; margin-top: 1rem; }
+                        .image-card img { display: block; max-width: 100%; height: auto; border-radius: 1rem; border: 1px solid var(--line); }
+                        @media print { body { background: white; padding: 0; } .report-hero { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+                    </style>
+                </head>
+                <body>
+                    <div class="report-shell">
+                        <header class="report-hero">
+                            <h1>CALM Module 1 Teacher Report</h1>
+                            <p>Personal Choices response summary for review, printing, and discussion.</p>
+                            <div class="summary-grid">
+                                <div class="summary-stat"><span class="summary-stat-label">Student</span><div class="summary-stat-value">${hasTeacherReportValue(fd.studentName) ? escapeTeacherReportHtml(fd.studentName) : "Not provided"}</div></div>
+                                <div class="summary-stat"><span class="summary-stat-label">Progress</span><div class="summary-stat-value">${overallPercentage}%</div></div>
+                                <div class="summary-stat"><span class="summary-stat-label">Generated</span><div class="summary-stat-value">${escapeTeacherReportHtml(new Date().toLocaleString())}</div></div>
+                            </div>
+                        </header>
+                        ${inventorySection}
+                        ${goalsSection}
+                        ${romanticSection}
+                        ${evaluatingSection}
+                        ${alcoholSection}
+                        ${tobaccoSection}
+                        ${riskSection}
+                        ${addictionsSection}
+                        ${mentalHealthSection}
+                        ${taskASection}
+                        ${taskBSection}
+                    </div>
+                </body>
+            </html>`;
+
+            return reportHtml;
+        }
+
         // --- MAIN APPLICATION ---
 
         function App() {
@@ -173,6 +474,7 @@ const { useState, useEffect, useMemo, useRef } = React;
 
           // --- STATE FOR FORM DATA ---
           const defaultFormData = {
+            studentName: '',
             invSleep: '', invSnacks: '', invEatTimes: '', invEnergyHigh: '', invEnergyLow: '',
             invExerciseEnergize: '', invExerciseTired: '', invRelax: '',
             invPencilsPens: '', invOrganized: '', invWriteType: '', invElectronics: '', invMusic: '',
@@ -210,6 +512,7 @@ const { useState, useEffect, useMemo, useRef } = React;
                 return {
                   ...defaultFormData,
                   ...parsed,
+                  studentName: parsed.studentName || '',
                   evalRels: getArray(parsed.evalRels, defaultFormData.evalRels),
                   evalHealthyList: getArray(parsed.evalHealthyList, defaultFormData.evalHealthyList),
                   evalUnhealthyList: getArray(parsed.evalUnhealthyList, defaultFormData.evalUnhealthyList),
@@ -257,6 +560,8 @@ const { useState, useEffect, useMemo, useRef } = React;
               return fields.reduce((acc, f) => {
                 if (typeof f === 'string' && f.trim() !== '') return acc + 1;
                 if (typeof f === 'number') return acc + 1;
+                if (Array.isArray(f) && f.length > 0) return acc + f.filter(v => String(v).trim() !== '').length;
+                if (typeof f === 'object' && f !== null && Object.keys(f).length > 0) return acc + Object.values(f).filter(v => String(v).trim() !== '').length;
                 return acc;
               }, 0);
             };
@@ -269,9 +574,9 @@ const { useState, useEffect, useMemo, useRef } = React;
                   formData.invExerciseEnergize, formData.invExerciseTired, formData.invRelax, formData.invPencilsPens,
                   formData.invOrganized, formData.invWriteType, formData.invElectronics, formData.invMusic, formData.invSit,
                   formData.invReadFrom, formData.invColor, formData.invPrintType, formData.invSizeSpacing, formData.invGoals,
-                  formData.invFocusTricks, formData.invTeacherHelp
-                ]) + Object.keys(formData.invDirections || {}).length, 
-                total: 21 + 8 
+                  formData.invFocusTricks, formData.invTeacherHelp, formData.invDirections
+                ]), 
+                total: 22
               },
               goals: { 
                 completed: getCompletedCount([
@@ -283,23 +588,23 @@ const { useState, useEffect, useMemo, useRef } = React;
               },
               romantic: { 
                 completed: getCompletedCount([
-                  formData.romEasiest, formData.romHardest, formData.romNormal, formData.romUnhealthyProg
-                ]) + Object.keys(formData.romRankings || {}).length, 
-                total: 4 + 16 
+                  formData.romEasiest, formData.romHardest, formData.romNormal, formData.romUnhealthyProg, formData.romRankings
+                ]), 
+                total: 5 
               },
               evaluating: { 
                 completed: getCompletedCount([
-                  ...(formData.evalRels || []), ...(formData.evalHealthyList || []), ...(formData.evalUnhealthyList || []),
+                  formData.evalRels, formData.evalHealthyList, formData.evalUnhealthyList,
                   formData.evalFeelHealthy, formData.evalFeelUnhealthy, formData.evalWhyStay
                 ]), 
-                total: 5 + 5 + 5 + 3 
+                total: 6 
               },
               alcohol: { 
                 completed: getCompletedCount([
                   formData.alcWhyDrink, formData.alcThoughts, formData.alcCelebrate, formData.alcOffered, formData.alcHowMuch,
-                  formData.alcResources, ...(formData.alcProsCons || []).flatMap(pc => [pc?.pro || '', pc?.con || ''])
+                  formData.alcResources, formData.alcProsCons
                 ]), 
-                total: 6 + 6 
+                total: 7
               },
               tobacco: { 
                 completed: getCompletedCount([
@@ -311,9 +616,9 @@ const { useState, useEffect, useMemo, useRef } = React;
               risk: { 
                 completed: getCompletedCount([
                   formData.riskDetermine, formData.riskWhyUnhealthy,
-                  ...(formData.riskHealthy || []), ...(formData.riskUnhealthy || [])
-                ]) + Object.keys(formData.riskRatings || {}).length, 
-                total: 2 + 10 + 20 
+                  formData.riskHealthy, formData.riskUnhealthy, formData.riskRatings
+                ]), 
+                total: 5 
               },
               addictions: { 
                 completed: getCompletedCount([
@@ -489,10 +794,34 @@ const { useState, useEffect, useMemo, useRef } = React;
             reader.readAsDataURL(file);
           };
 
+          const generateTeacherExport = () => {
+            const { overallPercentage } = progressData;
+            if (overallPercentage === 0) {
+                window.alert("There is nothing to print yet. Add some responses first.");
+                return;
+            }
+
+            const reportHtml = buildCalmModule1TeacherReport(formData, { overallPercentage });
+            const printWindow = window.open("", "_blank");
+
+            if (!printWindow) {
+                window.alert("Print preview was blocked. Allow pop-ups for this site and try again.");
+                return;
+            }
+
+            printWindow.document.open();
+            printWindow.document.write(reportHtml);
+            printWindow.document.close();
+            window.setTimeout(() => {
+                printWindow.focus();
+                printWindow.print();
+            }, 250);
+          };
+
           const renderOverview = () => (
             <Card className="border-t-[8px] border-t-violet-500">
               <div className="flex flex-col items-center text-center mb-12 print:mb-6">
-                <div className="w-20 h-20 bg-violet-100 rounded-[2rem] flex items-center justify-center mb-6 shadow-[0_4px_0_0_#ddd6fe] print:shadow-none print:border-2 print:border-violet-200">
+                 <div className="w-20 h-20 bg-violet-100 rounded-[2rem] flex items-center justify-center mb-6 shadow-[0_4px_0_0_#ddd6fe] print:shadow-none print:border-2 print:border-violet-200">
                   <i className="fa-solid fa-book-open text-4xl text-violet-600"></i>
                 </div>
                 <h1 className="text-4xl md:text-5xl font-black text-slate-800 tracking-tight mb-4">nextSTEP High School</h1>
@@ -504,9 +833,13 @@ const { useState, useEffect, useMemo, useRef } = React;
               </div>
               
               <div className="mb-10 bg-blue-50 p-6 rounded-[2rem] border-2 border-blue-100 text-center print:bg-white print:border-2 print:border-slate-300">
-                <p className="font-bold text-blue-800 print:text-slate-800">
+                 <p className="font-bold text-blue-800 print:text-slate-800">
                   👋 Welcome! Your progress is automatically saved to your browser as you work. When you are finished, click the Final Review tab to verify your answers.
                 </p>
+                <div className="mt-4">
+                  <Label>Student Name</Label>
+                  <Input value={formData.studentName} onChange={(e) => updateForm('studentName', e.target.value)} placeholder="Enter your name here" />
+                </div>
               </div>
 
               <SectionTitle>Career & Life Management</SectionTitle>
@@ -1438,6 +1771,17 @@ const { useState, useEffect, useMemo, useRef } = React;
                   })}
                 </div>
 
+                <div className="mt-8 text-center print:hidden">
+                  <p className="text-slate-500 font-medium mb-4">When you are ready, you can generate a report for your teacher.</p>
+                  <button 
+                    onClick={generateTeacherExport}
+                    className="inline-flex items-center px-8 py-4 bg-violet-500 border-2 border-violet-600 rounded-2xl shadow-[0_6px_0_0_#5b21b6] text-white font-black text-lg hover:bg-violet-400 hover:-translate-y-1 hover:shadow-[0_8px_0_0_#5b21b6] active:translate-y-[6px] active:shadow-none transition-all"
+                  >
+                    <i className="fa-solid fa-print mr-2"></i>
+                    Print Teacher Report
+                  </button>
+                </div>
+
                 {/* Danger Zone: Reset Workbook */}
                 <div className="mt-16 pt-8 border-t-2 border-slate-200 border-dashed text-center print:hidden">
                   <p className="text-slate-500 font-medium mb-4">Sharing this computer with another student? Clear your data so they can start fresh.</p>
@@ -1557,7 +1901,7 @@ const { useState, useEffect, useMemo, useRef } = React;
                 
                 {/* Save Banner */}
                 <div className="mb-10 flex flex-wrap items-center justify-end gap-4 print:hidden">
-                  <div className="inline-flex items-center bg-white px-4 py-2 rounded-xl shadow-[0_4px_0_0_#e2e8f0] border-2 border-slate-200 transform rotate-1">
+                   <div className="inline-flex items-center bg-white px-4 py-2 rounded-xl shadow-[0_4px_0_0_#e2e8f0] border-2 border-slate-200 transform rotate-1">
                     <i className={`fa-solid fa-floppy-disk w-4 h-4 mr-2 transition-colors ${saveStatus === 'Saving...' ? 'text-amber-500 animate-pulse' : 'text-emerald-500'}`}></i>
                     <span className="text-sm font-bold text-slate-600">{saveStatus}</span>
                   </div>

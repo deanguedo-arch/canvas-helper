@@ -1,56 +1,84 @@
 # Handoff
 
-- Project: repo-wide
-- Task: Reduce agent/file churn by decoupling exports from intelligence refresh, centralizing Studio command metadata, splitting export target modules, adding fast-path ops guidance, and adding popup-to-redirect auth fallback for Google-hosted sign-in.
+- Project: authoring preference enforcement
+- Task: enforce style/decision preferences across conversion/export/deploy with fail-fast deviations and preference-learning overrides
 - Status: complete
 
 ## Files changed
-- app/shared/studio-commands.ts
+- config/authoring-preferences.json
+- docs/plans/2026-03-13-authoring-preference-enforcement-design.md
+- docs/plans/2026-03-13-authoring-preference-enforcement.md
+- scripts/lib/types.ts
+- scripts/lib/paths.ts
+- scripts/lib/intelligence/config/authoring-preferences.ts
+- scripts/lib/intelligence/apply/deviation-gate.ts
+- scripts/lib/conversion/hss1010.ts
+- scripts/convert-hss1010.ts
 - scripts/lib/exports/shared.ts
+- scripts/lib/exports/google-hosted.ts
 - scripts/lib/exports/brightspace.ts
 - scripts/lib/exports/scorm-package.ts
-- scripts/lib/exports/google-hosted.ts
 - scripts/lib/exports/single-html.ts
-- scripts/lib/exporter.ts
-- scripts/lib/projects.ts
-- scripts/tests/helpers/project-fixture.ts
+- scripts/export-google-hosted.ts
+- scripts/export-brightspace.ts
+- scripts/export-brightspace-package.ts
+- scripts/export-html.ts
+- scripts/export-scorm.ts
+- scripts/deploy-google-hosted.ts
+- scripts/tests/authoring-preferences.test.ts
+- scripts/tests/deviation-gate.test.ts
+- scripts/tests/hss1010-conversion.test.ts
 - scripts/tests/google-hosted-export.test.ts
-- scripts/lib/google-hosted.ts
-- app/server/lib/types.ts
-- app/server/lib/command-runner.ts
-- app/studio/src/lib/types.ts
-- app/studio/src/hooks/useProjectCommands.ts
-- package.json
 - README.md
 - ARCHITECTURE.md
-- docs/ops/FAST_PATHS.md
-- docs/ops/HANDOFF.md
+- CONTRIBUTING.md
 - docs/ops/ACTIVE_HANDOFF.md
 
 ## What changed
-- Export commands now mark the workspace approved without regenerating prompt-pack or other intelligence artifacts.
-- Studio command ids, labels, refresh behavior, and CLI args now come from `app/shared/studio-commands.ts`.
-- Export target orchestration was split into `scripts/lib/exports/` modules with `scripts/lib/exporter.ts` as a thin facade.
-- Added reusable test fixture helpers for export tests.
-- Added fast retrieval guidance and standardized repo-wide handoff location.
-- Google-hosted runtime now falls back to redirect auth when popup sign-in is blocked or cancelled, and resumes via `getRedirectResult()`.
+- Added explicit repo/project authoring preference model with deterministic precedence:
+  - CLI override
+  - project override
+  - selected benchmark defaults
+  - repo defaults
+- Added fail-fast deviation gate:
+  - writes `meta/deviation-report.json` and `meta/deviation-report.md`
+  - blocks on `error` deviations
+  - supports explicit acceptance with reason
+  - supports updating repo/project preferences from accepted deviations
+- Wired gate into:
+  - `convert:hss1010`
+  - export targets (google-hosted, brightspace, scorm, single-html)
+  - `deploy:google-hosted` precheck before Firebase deploy
+- Added CLI override flags on convert/export/deploy scripts:
+  - `--accept-deviations`
+  - `--because`
+  - `--update-preferences`
+  - `--preference-scope`
+- Added tests for:
+  - preference resolution precedence
+  - deviation gate behavior and report output
+  - conversion fail-fast + acceptance update path
+  - google-hosted export fail-fast + acceptance update path
 
-## What still needs validation
-- Confirm the updated export flow feels materially faster during normal Studio use on a real project loop.
-- Confirm popup-blocked environments can complete Google-hosted sign-in via redirect and still restore state.
+## Verification run
+- `npx tsx --test scripts/tests/authoring-preferences.test.ts`
+- `npx tsx --test scripts/tests/deviation-gate.test.ts`
+- `npx tsx --test scripts/tests/hss1010-conversion.test.ts`
+- `npx tsx --test scripts/tests/google-hosted-export.test.ts`
+- `npm.cmd run typecheck`
+- `npm.cmd run build:studio`
 
 ## Known risks
-- Any hidden caller that relied on exports to regenerate prompt-pack will now need an explicit intelligence command.
-- Future Studio commands should use `app/shared/studio-commands.ts`; bypassing it reintroduces drift.
-- Redirect auth can trigger full-page reloads in locked-down environments; the bridge assumes Firebase redirect handling is allowed.
+- Default repo preference rules are advisory (`warn`) to avoid blocking existing projects. Teams that want strict enforcement should promote rules to `error`.
+- Deviation checks currently run on file-content heuristics (pattern-based), not semantic AST-level analysis.
+- Deploy precheck assumes exported `index.html` as primary entrypoint.
 
 ## Exact next command
-`npm run export:google-hosted -- --project calm3new`
+`npm.cmd run export:google-hosted -- --project <slug>`
 
 ## Exact next file to open
-`/Users/deanguedo/Documents/GitHub/canvas-helper/docs/ops/FAST_PATHS.md`
+`C:/Users/dean.guedo/Documents/GitHub/canvas-helper/config/authoring-preferences.json`
 
 ## Do not do next / warnings
-- Do not reintroduce `refreshProjectIntelligence(...)` inside export targets unless the user explicitly asks for coupled export-plus-intelligence behavior.
-- Do not add new Studio commands by editing only one side of the stack; use the shared command contract.
-- Do not assume popup auth is available in school browsers; verify redirect flow on a real deployment.
+- Do not set aggressive repo-wide `error` rules without validating existing course outputs first.
+- Do not use `--accept-deviations` without `--because`; this now fails by design.

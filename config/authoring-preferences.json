@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "flow": {
+    "sourceSupportMode": "hidden-by-default",
+    "preferredBenchmarkId": "calm-module-2-workbook"
+  },
+  "rules": {
+    "require": [
+      {
+        "id": "require-interactive-shell",
+        "description": "Generated learning surfaces should keep interactive structure cues.",
+        "pattern": "lesson-shell",
+        "severity": "warn"
+      }
+    ],
+    "forbid": [
+      {
+        "id": "forbid-visible-source-dump",
+        "description": "Source support should not dominate the default visible lesson surface.",
+        "pattern": "source-support-panel",
+        "severity": "warn"
+      }
+    ],
+    "accepted": []
+  },
+  "quality": {
+    "maxConsecutiveParagraphBlocks": 5
+  },
+  "learning": {
+    "defaultScope": "repo"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "source-support-drawer",
+  "family": "source-support",
+  "summary": "Hidden-by-default source evidence container for learners who need more detail without crowding the lesson.",
+  "inputs": [
+    "title",
+    "supportBlocks"
+  ],
+  "optionalInputs": [
+    "pageReferences",
+    "citationLabel"
+  ],
+  "renderingRules": [
+    "Render as a collapsed drawer or reveal panel, not as a default visible lesson block.",
+    "Keep citations compact and secondary to the authored learning flow.",
+    "Allow source blocks to use cards, tables, or continuation notes when helpful."
+  ],
+  "interactionRules": [
+    "Learners may open and close the drawer on demand.",
+    "Opening source support must not reset study progress."
+  ],
+  "persistenceRules": [
+    "Drawer open state may be ephemeral; source content itself does not require persistence."
+  ],
+  "constraints": [
+    "Do not place source support ahead of the authored lesson.",
+    "Do not let the source drawer dominate the visible section layout."
+  ]
+}

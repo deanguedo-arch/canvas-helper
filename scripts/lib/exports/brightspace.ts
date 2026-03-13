@@ -5,15 +5,26 @@ import { fileExists, listFilesRecursive, writeTextFile } from "../fs.js";
 import { getProjectPaths } from "../paths.js";
 import { loadProjectManifest, markProjectWorkspaceApproved } from "../projects.js";
 
-import { copyWorkspaceToExportDir, createZipFromDirectory, unique } from "./shared.js";
+import {
+  copyWorkspaceToExportDir,
+  createZipFromDirectory,
+  runExportAuthoringPreflight,
+  unique,
+  type ExportAuthoringGateOptions
+} from "./shared.js";
 
-export async function exportProjectToBrightspace(projectSlug: string) {
+export async function exportProjectToBrightspace(
+  projectSlug: string,
+  gateOptions: ExportAuthoringGateOptions = {}
+) {
   const manifest = await loadProjectManifest(projectSlug);
   const paths = getProjectPaths(projectSlug);
 
   if (!(await fileExists(paths.workspaceEntrypoint))) {
     throw new Error(`Workspace entrypoint not found for "${projectSlug}".`);
   }
+
+  await runExportAuthoringPreflight(projectSlug, paths.workspaceEntrypoint, gateOptions, "export");
 
   await copyWorkspaceToExportDir(paths.workspaceDir, paths.brightspaceExportDir);
 
@@ -54,8 +65,11 @@ ${externalDependencies.length > 0 ? "- This export still depends on external CDN
   };
 }
 
-export async function exportProjectToBrightspacePackage(projectSlug: string) {
-  const brightspaceExport = await exportProjectToBrightspace(projectSlug);
+export async function exportProjectToBrightspacePackage(
+  projectSlug: string,
+  gateOptions: ExportAuthoringGateOptions = {}
+) {
+  const brightspaceExport = await exportProjectToBrightspace(projectSlug, gateOptions);
   const paths = getProjectPaths(projectSlug);
   const zipPath = path.join(paths.exportsDir, `${projectSlug}-brightspace.zip`);
 

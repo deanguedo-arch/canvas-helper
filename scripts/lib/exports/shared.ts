@@ -6,7 +6,51 @@ import { load } from "cheerio";
 import { lookup as lookupMimeType } from "mime-types";
 
 import { copyDirectory, ensureDir, fileExists, listFilesRecursive, removePath } from "../fs.js";
+import { runAuthoringDeviationGate } from "../intelligence/apply/deviation-gate.js";
 import { findStorageKeysInScriptSources } from "../scorm.js";
+import type {
+  AuthoringDeviationAcceptance,
+  AuthoringPreferencesOverride,
+  AuthoringSurfaceKind
+} from "../types.js";
+
+export type ExportAuthoringGateOptions = {
+  authoringAcceptance?: AuthoringDeviationAcceptance;
+  repoAuthoringPreferencesPath?: string;
+  projectAuthoringPreferencesPath?: string;
+  benchmarkSelectionPath?: string;
+  authoringCliOverride?: AuthoringPreferencesOverride;
+};
+
+export async function runExportAuthoringPreflight(
+  projectSlug: string,
+  workspaceEntrypoint: string,
+  options: ExportAuthoringGateOptions = {},
+  surfaceKind: AuthoringSurfaceKind = "course-html"
+) {
+  const gateResult = await runAuthoringDeviationGate({
+    projectSlug,
+    repoPreferencesPath: options.repoAuthoringPreferencesPath,
+    projectPreferencesPath: options.projectAuthoringPreferencesPath,
+    benchmarkSelectionPath: options.benchmarkSelectionPath,
+    cliOverride: options.authoringCliOverride,
+    acceptance: options.authoringAcceptance,
+    surfaces: [
+      {
+        kind: surfaceKind,
+        filePath: workspaceEntrypoint
+      }
+    ]
+  });
+
+  if (!gateResult.pass) {
+    throw new Error(
+      `Authoring preference deviations blocked export for "${projectSlug}". See ${gateResult.reportMarkdownPath}.`
+    );
+  }
+
+  return gateResult;
+}
 
 export function unique(values: string[]) {
   return [...new Set(values)];

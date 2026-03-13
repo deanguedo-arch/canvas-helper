@@ -17,15 +17,23 @@ import {
   copyWorkspaceToExportDir,
   createZipFromDirectory,
   detectStorageKeysFromWorkspace,
+  runExportAuthoringPreflight,
   toRelativePosixPath
 } from "./shared.js";
+import type { ExportAuthoringGateOptions } from "./shared.js";
 
-export async function exportProjectToScormPackage(projectSlug: string, version: ScormVersion = "2004") {
+export async function exportProjectToScormPackage(
+  projectSlug: string,
+  version: ScormVersion = "2004",
+  gateOptions: ExportAuthoringGateOptions = {}
+) {
   const manifest = await loadProjectManifest(projectSlug);
   const paths = getProjectPaths(projectSlug);
   if (!(await fileExists(paths.workspaceEntrypoint))) {
     throw new Error(`Workspace entrypoint not found for "${projectSlug}".`);
   }
+
+  await runExportAuthoringPreflight(projectSlug, paths.workspaceEntrypoint, gateOptions, "export");
 
   const exportLabel = getScormExportLabel(version);
   const zipLabel = getScormZipLabel(version);

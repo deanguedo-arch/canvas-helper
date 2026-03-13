@@ -1,0 +1,31 @@
+{
+  "id": "lesson-hero",
+  "family": "shell",
+  "summary": "Launches a study section with a strong title, short framing copy, and visible learner outcomes.",
+  "inputs": [
+    "title",
+    "summary",
+    "outcomes"
+  ],
+  "optionalInputs": [
+    "eyebrow",
+    "supportLabel",
+    "heroBadge"
+  ],
+  "renderingRules": [
+    "Render a bold workbook section header on a bright card surface.",
+    "Show no more than three concise learner outcomes in the hero area.",
+    "Keep source support secondary to the authored lesson framing."
+  ],
+  "interactionRules": [
+    "Do not require interaction to advance beyond the hero.",
+    "Allow the hero to open an optional support drawer when supportLabel is present."
+  ],
+  "persistenceRules": [
+    "No persisted learner input is required for the hero itself."
+  ],
+  "constraints": [
+    "The hero must not become a source dump.",
+    "The hero must stay above the first learn block."
+  ]
+}

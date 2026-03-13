@@ -1,5 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
+import { mkdtemp } from "node:fs/promises";
+import os from "node:os";
 import path from "node:path";
 import test from "node:test";
 
@@ -9,7 +11,7 @@ import {
   decideGoogleHostedNoRemoteAction,
   injectGoogleHostedBridgeTag
 } from "../lib/google-hosted.js";
-import { fileExists, readJsonFile, writeTextFile } from "../lib/fs.js";
+import { fileExists, readJsonFile, removePath, writeJsonFile, writeTextFile } from "../lib/fs.js";
 import { repoRoot } from "../lib/paths.js";
 import { cleanupProjectFixture, createProjectFixture } from "./helpers/project-fixture.js";
 
@@ -46,6 +48,17 @@ test("buildGoogleHostedBridgeScript includes auth, firestore, project binding, a
   assert.match(bridge, /"projectSlug":"calm3new"/);
   assert.match(bridge, /Autosave ready/);
   assert.match(bridge, /window\.__canvasHelperGoogleHosted/);
+});
+
+test("buildGoogleHostedBridgeScript includes reload-loop guard for restore flows", () => {
+  const bridge = buildGoogleHostedBridgeScript({
+    projectSlug: "calm-module",
+    storageKeys: ["calm_workbook_data"]
+  });
+
+  assert.match(bridge, /sessionStorage/);
+  assert.match(bridge, /reload-loop guard/);
+  assert.match(bridge, /skipReloadIfRepeated/);
 });
 
 test("decideGoogleHostedNoRemoteAction clears local state when it belongs to a different user", () => {
@@ -212,6 +225,125 @@ test("exportProjectToGoogleHosted preserves firebase deploy config across re-exp
     assert.equal(preservedFirebaseRc, customFirebaseRc);
   } finally {
     await cleanupProjectFixture(preserveProjectSlug);
+  }
+});
+
+test("exportProjectToGoogleHosted fails when authoring deviation gate blocks export", async () => {
+  const blockedSlug = `${TEST_PROJECT_SLUG}-blocked`;
+  const paths = await createProjectFixture({
+    slug: blockedSlug,
+    workspaceHtml: [
+      "<!doctype html>",
+      "<html>",
+      "  <head><meta charset=\"utf-8\"></head>",
+      "  <body>",
+      "    <div class=\"source-support-panel\">Visible source dump</div>",
+      "    <script src=\"./main.js\"></script>",
+      "  </body>",
+      "</html>",
+      ""
+    ].join("\n"),
+    workspaceFiles: {
+      "main.js": "console.log('fixture');\n"
+    }
+  });
+
+  await writeJsonFile(path.join(paths.metaDir, "authoring-preferences.json"), {
+    schemaVersion: 1,
+    flow: {
+      sourceSupportMode: "hidden-by-default"
+    },
+    rules: {
+      forbid: [
+        {
+          id: "forbid-visible-source-panel",
+          description: "Do not show source support panel by default.",
+          pattern: "source-support-panel"
+        }
+      ]
+    },
+    learning: {
+      defaultScope: "project"
+    }
+  });
+
+  try {
+    await assert.rejects(
+      () => exportProjectToGoogleHosted(blockedSlug),
+      /Authoring preference deviations blocked export/
+    );
+    assert.equal(await fileExists(path.join(paths.metaDir, "deviation-report.json")), true);
+  } finally {
+    await cleanupProjectFixture(blockedSlug);
+  }
+});
+
+test("exportProjectToGoogleHosted accepts deviations and updates repo preferences", async () => {
+  const acceptedSlug = `${TEST_PROJECT_SLUG}-accepted`;
+  const tempDir = await mkdtemp(path.join(os.tmpdir(), "canvas-helper-export-gate-"));
+  const repoPreferencesPath = path.join(tempDir, "authoring-preferences.json");
+
+  await writeJsonFile(repoPreferencesPath, {
+    schemaVersion: 1,
+    flow: {
+      sourceSupportMode: "hidden-by-default"
+    },
+    rules: {
+      forbid: [
+        {
+          id: "forbid-visible-source-panel",
+          description: "Do not show source support panel by default.",
+          pattern: "source-support-panel"
+        }
+      ]
+    },
+    learning: {
+      defaultScope: "repo"
+    }
+  });
+
+  await createProjectFixture({
+    slug: acceptedSlug,
+    workspaceHtml: [
+      "<!doctype html>",
+      "<html>",
+      "  <head><meta charset=\"utf-8\"></head>",
+      "  <body>",
+      "    <div class=\"source-support-panel\">Visible source dump</div>",
+      "    <script src=\"./main.js\"></script>",
+      "  </body>",
+      "</html>",
+      ""
+    ].join("\n"),
+    workspaceFiles: {
+      "main.js": "console.log('fixture');\n"
+    }
+  });
+
+  try {
+    const result = await exportProjectToGoogleHosted(acceptedSlug, {
+      repoAuthoringPreferencesPath: repoPreferencesPath,
+      authoringAcceptance: {
+        acceptDeviations: ["forbid-visible-source-panel"],
+        because: "Intentional for this rollout.",
+        updatePreferences: true,
+        preferenceScope: "repo"
+      }
+    });
+    assert.ok(result.fileCount > 0);
+
+    const updatedRepoPreferences = await readJsonFile<{
+      rules?: { accepted?: Array<{ ruleId: string; reason: string }> };
+    }>(repoPreferencesPath);
+    assert.equal(
+      updatedRepoPreferences.rules?.accepted?.some(
+        (entry) => entry.ruleId === "forbid-visible-source-panel" && /Intentional/.test(entry.reason)
+      ),
+      true
+    );
+  } finally {
+    await cleanupProjectFixture(acceptedSlug);
+    await removePath(tempDir);
   }
 });
 

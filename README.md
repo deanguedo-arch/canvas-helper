@@ -3,27 +3,29 @@
 Canvas Helper is a local-first Node-powered workbench for importing Canvas course content, preserving immutable raw baselines, editing workspace copies, previewing them in a browser Studio, and exporting Brightspace, SCORM, and Google-hosted deliverables.
 
 Repo-level intelligence defaults live in `config/intelligence.json`. Project-specific overrides can live in `projects/<slug>/meta/intelligence-policy.json` and/or `projects/<slug>/meta/project.json`.
+Repo-level authoring enforcement defaults live in `config/authoring-preferences.json`. Project-specific overrides can live in `projects/<slug>/meta/authoring-preferences.json`.
 
 ## Quick Start
 
 1. Install Node.js
 2. Run `npm.cmd install`
 3. Start Studio with `npm.cmd run studio`
-4. On Windows, use explicit mode launchers:
-   - `launch-canvas-helper-off.bat`
-   - `launch-canvas-helper-collect.bat` (default/normal)
-   - `launch-canvas-helper-apply.bat`
-   - or `launch-canvas-helper.bat` and set `LEARNER_MODE` manually
-5. The Windows launcher auto-runs `npm.cmd run migrate:projects` so older repo layouts are normalized before Studio starts
+4. On Windows, use `launch-canvas-helper.bat` for a stable one-click Studio start
+5. Optional advanced commands from the launcher:
+   - `launch-canvas-helper.bat refresh`
+   - `launch-canvas-helper.bat watch`
+6. The Windows launcher auto-runs `npm.cmd run migrate:projects` so older repo layouts are normalized before Studio starts
 
 ## Main Commands
 
 - `npm.cmd run studio`
-- `npm.cmd run studio:auto`
+- `npm.cmd run studio:auto` (optional advanced mode: Studio + watcher orchestration)
 - `npm.cmd run import -- "<path-to-html-or-folder>" --slug <slug>`
 - `npm.cmd run incoming:refresh`
 - `npm.cmd run analyze -- --project <slug>`
 - `npm.cmd run refs -- --project <slug>`
+- `npm.cmd run convert:hss1010 -- --project hss1010`
+- `npm.cmd run sync:course-images -- --project <slug>`
 - `npm.cmd run blueprint -- --project <slug>`
 - `npm.cmd run assessment-map -- --project <slug>`
 - `npm.cmd run lesson-packets -- --project <slug>`
@@ -47,7 +49,7 @@ Repo-level intelligence defaults live in `config/intelligence.json`. Project-spe
 
 1. Drop HTML or bundle imports into `projects/incoming/`
 2. Drop resources directly into `projects/resources/<slug>/`
-3. Use Studio `Refresh Intake` or run `npm.cmd run incoming:refresh` (`npm.cmd run studio:auto` or launcher option `1` keeps the incoming watcher running continuously)
+3. Use Studio `Refresh Intake` or run `npm.cmd run incoming:refresh` (recommended); continuous watcher mode is optional (`npm.cmd run watch:incoming`)
 4. Imported sources are snapshotted to `projects/processed/<slug>/source/`
 5. Studio edits and previews the canonical project at `projects/<slug>/...`; if that canonical root is missing but the processed snapshot still exists, Studio rebuilds it automatically from `projects/processed/<slug>/source/`
 6. Edit only `projects/<slug>/workspace/`
@@ -91,8 +93,67 @@ Repo-level intelligence defaults live in `config/intelligence.json`. Project-spe
   - `projects/<slug>/exports/google-hosted/firebase-config.json`
   - `projects/<slug>/exports/google-hosted/.firebaserc`
 - Run `npm.cmd run deploy:google-hosted` or `deploy-google-hosted.bat`
+- Deploy runs the same authoring deviation gate against exported `index.html` before Firebase deploy.
+- Use the same override flags when needed:
+  - `--accept-deviations all|<rule-id,rule-id>`
+  - `--because "<reason>"`
+  - `--update-preferences`
+  - `--preference-scope repo|project`
 - The deploy tool shows only configured slugs, lets you pick one or many, validates the Firebase Hosting site, and deploys to the configured project/site
 - Firebase projects and Hosting sites must already exist; the deploy tool does not create infrastructure
+
+### HSS1010 Section-Tab Conversion
+
+- `convert:hss1010` transforms the legacy HSS1010 monolith into structured JSON + data-backed workspace output.
+- `convert:hss1010` runs authoring-preference deviation checks before writing output.
+- Blocking deviations fail fast and write:
+  - `projects/<slug>/meta/deviation-report.json`
+  - `projects/<slug>/meta/deviation-report.md`
+- It writes:
+  - `projects/hss1010/meta/course.json`
+  - `projects/hss1010/meta/assessment.json`
+  - `projects/hss1010/meta/source-map.json`
+  - `projects/hss1010/meta/coverage-report.json`
+  - `projects/hss1010/workspace/data/course.json`
+  - `projects/hss1010/workspace/data/assessment.json`
+- It regenerates:
+  - `projects/hss1010/workspace/index.html`
+  - `projects/hss1010/workspace/main.js`
+
+Optional override flags for convert/export/deploy:
+
+- `--accept-deviations all` or `--accept-deviations <rule-id,rule-id>`
+- `--because "<reason>"`
+- `--update-preferences`
+- `--preference-scope repo|project`
+
+### Course Image Manifest Sync
+
+- `sync:course-images` validates approved images from `projects/<slug>/meta/images-manifest.json` and syncs them into course model blocks.
+- Approved image entries must point to files under `projects/<slug>/workspace/assets/images/`.
+- For `hss1010`, the command also refreshes workspace output (`index.html`, `main.js`, `hss-study.css`) using the already-interactive course model.
+- First-time setup:
+  - `npm.cmd run sync:course-images -- --project <slug> --init`
+- Example manifest:
+
+```json
+{
+  "schemaVersion": 1,
+  "projectSlug": "hss1010",
+  "images": [
+    {
+      "id": "anatomy-joint-motion",
+      "sectionId": "anatomy",
+      "src": "./assets/images/anatomy-joint-motion.webp",
+      "alt": "Shoulder joint movement diagram",
+      "title": "Joint Movement Overview",
+      "caption": "Use this diagram during movement-mechanics practice.",
+      "status": "approved",
+      "insertAfterBlockId": "anatomy-interactive-movement"
+    }
+  ]
+}
+```
 
 ## Fast Agent Paths
 
@@ -162,7 +223,22 @@ The workflow is controlled by an explicit learner mode, resolved in this order:
 - application: enabled
 - best for: trusted repeated project types
 
-`launch-canvas-helper-collect.bat` is the default explicit startup path.
+`launch-canvas-helper.bat` is the default startup path.
+
+## Authoring Preference Enforcement
+
+The pipeline now enforces style/decision guardrails in conversion/export/deploy paths:
+
+1. Resolve preferences from CLI/project/benchmark/repo sources.
+2. Run deviation gate checks on generated/exported surfaces.
+3. Fail fast on blocking deviations with concrete evidence.
+4. Allow intentional override with explicit reason and optional preference updates.
+
+Preference update behavior:
+
+- `--accept-deviations ...` requires `--because`.
+- Add `--update-preferences` to persist accepted deviations.
+- Use `--preference-scope repo` when the decision should propagate across courses.
 
 ## Repo Guides
 

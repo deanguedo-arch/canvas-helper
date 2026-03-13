@@ -13,6 +13,7 @@ export const processedRoot = path.join(projectsRoot, "processed");
 export const resourcesRoot = path.join(projectsRoot, "resources");
 export const incomingWatchLockPath = path.join(repoRoot, ".runtime", "incoming-watch.lock");
 export const repoIntelligencePolicyPath = path.join(repoRoot, "config", "intelligence.json");
+export const repoAuthoringPreferencesPath = path.join(repoRoot, "config", "authoring-preferences.json");
 export const legacyRepoIntelligencePolicyPath = path.join(repoRoot, "intelligence-policy.json");
 
 export function getResourcePaths(slug: string) {
@@ -75,9 +76,13 @@ export function getProjectPaths(slug: string): ProjectPaths {
     assessmentMapPath: path.join(root, "meta", "assessment-map.json"),
     lessonPacketsDir: path.join(root, "meta", "lesson-packets"),
     lessonPacketsIndexPath: path.join(root, "meta", "lesson-packets", "index.json"),
+    benchmarkSelectionPath: path.join(root, "meta", "benchmark-selection.json"),
     importLogPath: path.join(root, "meta", "import-log.md"),
     sessionLogPath: path.join(root, "meta", "studio-session-log.md"),
     intelligencePolicyPath: path.join(root, "meta", "intelligence-policy.json"),
+    authoringPreferencesPath: path.join(root, "meta", "authoring-preferences.json"),
+    deviationReportJsonPath: path.join(root, "meta", "deviation-report.json"),
+    deviationReportMarkdownPath: path.join(root, "meta", "deviation-report.md"),
     exportsDir: path.join(root, "exports"),
     brightspaceExportDir: path.join(root, "exports", "brightspace")
   };

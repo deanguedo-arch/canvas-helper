@@ -19,6 +19,7 @@ import type {
 
 import { getRelevantMemoryForProject } from "./memory-ledger.js";
 import { findPatternMatches } from "./pattern-bank.js";
+import { resolveProjectBenchmarkSelection } from "../../benchmarks/project-selection.js";
 
 type IndexedReference = {
   id: string;
@@ -197,6 +198,31 @@ function renderAntiSummaryRules() {
   ].join("\n");
 }
 
+function renderSelectedBenchmarkBody(
+  resolvedBenchmark: Awaited<ReturnType<typeof resolveProjectBenchmarkSelection>>
+) {
+  if (!resolvedBenchmark.selection || !resolvedBenchmark.bundle) {
+    return "none";
+  }
+
+  const { selection, bundle } = resolvedBenchmark;
+  const benchmark = bundle.benchmark;
+  const lines = [
+    `- Benchmark: ${benchmark.id} (${benchmark.label})`,
+    `- Source project: ${benchmark.sourceProjectSlug}`,
+    `- Summary: ${benchmark.summary ?? "none"}`,
+    `- Source support mode: ${selection.sourceSupportMode ?? benchmark.sourceSupportPolicy.mode}`,
+    `- Section flow: ${benchmark.sectionFlow.join(" -> ")}`,
+    `- Recipes: ${bundle.recipes.map((recipe) => recipe.id).join(", ")}`
+  ];
+
+  if (selection.notes?.length) {
+    lines.push(`- Project notes: ${selection.notes.join("; ")}`);
+  }
+
+  return lines.join("\n");
+}
+
 async function readLessonPackets(index: LessonPacketIndex | null) {
   if (!index) {
     return [] as LessonPacket[];
@@ -290,6 +316,7 @@ export async function generatePromptPack(projectSlug: string, policy: Intelligen
     readOptionalJson<AssessmentMap>(paths.assessmentMapPath),
     readOptionalJson<LessonPacketIndex>(paths.lessonPacketsIndexPath)
   ]);
+  const resolvedBenchmark = await resolveProjectBenchmarkSelection({ projectSlug });
 
   const lessonPackets = await readLessonPackets(lessonPacketIndex);
   const referenceExcerpts = await buildReferenceExcerpts(resourceCatalog, lessonPackets);
@@ -450,6 +477,7 @@ export async function generatePromptPack(projectSlug: string, policy: Intelligen
     "",
     renderMarkdownSection("Rules", rulesSummary),
     renderMarkdownSection("Intelligence Policy", intelligenceSummary),
+    renderMarkdownSection("Selected Benchmark", renderSelectedBenchmarkBody(resolvedBenchmark)),
     renderMarkdownSection("Project Manifest", manifestBody),
     renderMarkdownSection("Resource Authority Rules", renderResourceAuthorityRules(resourceCatalog)),
     renderMarkdownSection("Resource Catalog Summary", resourceCatalogBody),

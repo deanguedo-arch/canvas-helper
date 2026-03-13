@@ -3,7 +3,8 @@ import { spawn, type ChildProcess } from "node:child_process";
 import {
   buildNpmSpawnPlan,
   buildStudioArgs,
-  parseStudioAutoOptions
+  parseStudioAutoOptions,
+  shouldShutdownStudioAutoOnExit
 } from "./lib/studio-auto.js";
 
 function startProcess(label: string, args: string[]) {
@@ -57,15 +58,29 @@ async function main() {
   };
 
   studio.on("exit", (code) => {
-    if (!shuttingDown) {
+    if (!shuttingDown && shouldShutdownStudioAutoOnExit("studio")) {
       shutdown(code ?? 0);
     }
   });
 
   watcher.on("exit", (code) => {
-    if (!shuttingDown) {
-      shutdown(code ?? 0);
+    if (shuttingDown) {
+      return;
     }
+
+    if (shouldShutdownStudioAutoOnExit("watch:incoming")) {
+      shutdown(code ?? 0);
+      return;
+    }
+
+    const exitCode = code ?? 0;
+    if (exitCode === 0) {
+      console.log("[studio:auto] incoming watcher stopped; Studio is still running.");
+      return;
+    }
+
+    console.error("[studio:auto] incoming watcher crashed; Studio is still running.");
+    console.error("[studio:auto] run `npm.cmd run watch:incoming` manually if you still need watcher mode.");
   });
 
   process.on("SIGINT", () => shutdown(0));

@@ -98,6 +98,7 @@ export function buildGoogleHostedBridgeScript(options: BuildGoogleHostedBridgeSc
   const config = ${JSON.stringify(config)};
   const sdkSources = ${JSON.stringify(sdkSources)};
   const trackedKeySet = new Set(config.storageKeys);
+  const reloadGuardKey = config.metaKey + "__reload_guard";
   let firebaseReadyPromise = null;
   let lifecycleBound = false;
   let localStoragePatched = false;
@@ -398,6 +399,27 @@ export function buildGoogleHostedBridgeScript(options: BuildGoogleHostedBridgeSc
     } catch (error) {
       logWarning(error instanceof Error ? error.message : String(error));
     }
+  }
+
+  function buildReloadSignature(reason, uid, savedAt, storageValues) {
+    const orderedValues = config.storageKeys
+      .map((key) => key + ":" + (Object.prototype.hasOwnProperty.call(storageValues || {}, key) ? String(storageValues[key]) : ""))
+      .join("|");
+    return [config.projectSlug, reason || "", uid || "", savedAt || "", orderedValues].join("::");
+  }
+
+  // reload-loop guard: prevent repeated reloads from the same restore payload.
+  function skipReloadIfRepeated(signature) {
+    try {
+      const lastSignature = sessionStorage.getItem(reloadGuardKey);
+      if (lastSignature === signature) {
+        return true;
+      }
+      sessionStorage.setItem(reloadGuardKey, signature);
+    } catch (_error) {
+      // No-op. If sessionStorage is unavailable, allow a normal reload.
+    }
+    return false;
   }
 
   function serializeStoredValue(value) {
@@ -736,6 +758,12 @@ export function buildGoogleHostedBridgeScript(options: BuildGoogleHostedBridgeSc
           restoring = false;
         }
 
+        const reloadSignature = buildReloadSignature("clear-local", user.uid, "", {});
+        if (skipReloadIfRepeated(reloadSignature)) {
+          setStatus("Cloud state mismatch detected. Reload skipped to prevent a loop.", "error");
+          return;
+        }
+
         window.setTimeout(() => {
           window.location.reload();
         }, 50);
@@ -771,6 +799,12 @@ export function buildGoogleHostedBridgeScript(options: BuildGoogleHostedBridgeSc
         applyStorageValues(remoteStorageValues, remoteSavedAt, user.uid);
       } finally {
         restoring = false;
+      }
+
+      const reloadSignature = buildReloadSignature("remote-restore", user.uid, remoteSavedAt, remoteStorageValues);
+      if (skipReloadIfRepeated(reloadSignature)) {
+        setStatus("Cloud restore completed. Reload skipped to prevent a loop.", "saved");
+        return;
       }
 
       window.setTimeout(() => {

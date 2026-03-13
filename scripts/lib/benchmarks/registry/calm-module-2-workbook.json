@@ -1,0 +1,64 @@
+{
+  "id": "calm-module-2-workbook",
+  "label": "CALM Module 2 Workbook",
+  "sourceProjectSlug": "calm-module-2-activites-reference",
+  "status": "approved",
+  "tags": [
+    "workbook",
+    "learn-apply-reflect",
+    "reflection-driven",
+    "scenario-heavy",
+    "tailwind-runtime"
+  ],
+  "intendedUse": [
+    "module rebuilds",
+    "course conversion",
+    "interactive study tabs",
+    "assignment-prep lesson sequences"
+  ],
+  "summary": "Workbook-first study surface with authored lesson cards, inline practice, amber teacher checkpoints, and source support hidden until needed.",
+  "visualSystem": {
+    "surface": "module-2-workbook",
+    "palette": "slate-blue-amber",
+    "typography": "inter-heavy-sans"
+  },
+  "sectionFlow": [
+    "hero",
+    "learn",
+    "apply",
+    "reflect",
+    "deepen"
+  ],
+  "activityFamilies": [
+    "sort-and-check",
+    "scenario-branch",
+    "quick-check",
+    "reflection-write-in"
+  ],
+  "checkpointFamilies": [
+    "teacher-checkpoint",
+    "readiness-check"
+  ],
+  "sourceSupportPolicy": {
+    "mode": "hidden-by-default",
+    "label": "Optional source support"
+  },
+  "recipeRefs": [
+    {
+      "id": "lesson-hero",
+      "purpose": "section launch"
+    },
+    {
+      "id": "learn-apply-reflect",
+      "purpose": "default section shell"
+    },
+    {
+      "id": "teacher-checkpoint",
+      "purpose": "authored reflection and assignment bridge"
+    },
+    {
+      "id": "source-support-drawer",
+      "purpose": "hidden source-backed deepen layer"
+    }
+  ]
+}

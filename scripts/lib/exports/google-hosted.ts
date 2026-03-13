@@ -14,7 +14,13 @@ import {
 import { getProjectPaths } from "../paths.js";
 import { loadProjectManifest, markProjectWorkspaceApproved } from "../projects.js";
 
-import { copyWorkspaceToExportDir, detectStorageKeysFromWorkspace, toRelativePosixPath } from "./shared.js";
+import {
+  copyWorkspaceToExportDir,
+  detectStorageKeysFromWorkspace,
+  runExportAuthoringPreflight,
+  toRelativePosixPath,
+  type ExportAuthoringGateOptions
+} from "./shared.js";
 
 async function readPreservedDeployFiles(exportDir: string) {
   const preservedFileNames = ["firebase-config.json", ".firebaserc"];
@@ -34,12 +40,17 @@ async function readPreservedDeployFiles(exportDir: string) {
   return preservedFiles;
 }
 
-export async function exportProjectToGoogleHosted(projectSlug: string) {
+export async function exportProjectToGoogleHosted(
+  projectSlug: string,
+  gateOptions: ExportAuthoringGateOptions = {}
+) {
   const manifest = await loadProjectManifest(projectSlug);
   const paths = getProjectPaths(projectSlug);
   if (!(await fileExists(paths.workspaceEntrypoint))) {
     throw new Error(`Workspace entrypoint not found for "${projectSlug}".`);
   }
+
+  await runExportAuthoringPreflight(projectSlug, paths.workspaceEntrypoint, gateOptions, "export");
 
   const exportLabel = getGoogleHostedExportLabel();
   const googleHostedExportDir = path.join(paths.exportsDir, exportLabel);

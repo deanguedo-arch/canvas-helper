@@ -4,7 +4,8 @@ import test from "node:test";
 import {
   buildNpmSpawnPlan,
   buildStudioArgs,
-  parseStudioAutoOptions
+  parseStudioAutoOptions,
+  shouldShutdownStudioAutoOnExit
 } from "../lib/studio-auto.js";
 
 test("parseStudioAutoOptions reads forwarded host and port flags", () => {
@@ -49,4 +50,12 @@ test("buildNpmSpawnPlan uses direct npm invocation on non-windows", () => {
     args: ["run", "studio"],
     shell: false
   });
+});
+
+test("shouldShutdownStudioAutoOnExit stops orchestration when studio exits", () => {
+  assert.equal(shouldShutdownStudioAutoOnExit("studio"), true);
+});
+
+test("shouldShutdownStudioAutoOnExit keeps studio alive when watcher exits", () => {
+  assert.equal(shouldShutdownStudioAutoOnExit("watch:incoming"), false);
 });

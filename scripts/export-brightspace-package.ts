@@ -1,15 +1,19 @@
 import { getStringFlag, parseArgs } from "./lib/cli.js";
 import { exportProjectToBrightspacePackage } from "./lib/exporter.js";
+import { readDeviationAcceptanceFromCli } from "./lib/intelligence/apply/deviation-gate.js";
 
 async function main() {
   const parsedArgs = parseArgs(process.argv.slice(2));
   const projectSlug = getStringFlag(parsedArgs, "project") ?? parsedArgs.positionals[0];
+  const authoringAcceptance = readDeviationAcceptanceFromCli(parsedArgs);
 
   if (!projectSlug) {
     throw new Error('Usage: npm run export:brightspace:zip -- --project <slug>');
   }
 
-  const result = await exportProjectToBrightspacePackage(projectSlug);
+  const result = await exportProjectToBrightspacePackage(projectSlug, {
+    authoringAcceptance
+  });
   console.log(
     `Packaged "${result.projectSlug}" to ${result.zipPath} (${result.fileCount} file(s) copied to ${result.exportDir}).`
   );

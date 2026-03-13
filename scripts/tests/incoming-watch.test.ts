@@ -55,15 +55,43 @@ test("listIncomingProjectItems skips folders marked with .watch-ignore", async (
 test("listResourceProjectDirs returns only top-level slug folders", async () => {
   const tempDir = await mkdtemp(path.join(os.tmpdir(), "resource-watch-dirs-"));
   const resourcesRoot = path.join(tempDir, "resources");
+  const projectsRoot = path.join(tempDir, "projects");
 
   try {
     await mkdir(path.join(resourcesRoot, "genpsy-studio"), { recursive: true });
     await mkdir(path.join(resourcesRoot, "calmmodule2"), { recursive: true });
+    await mkdir(path.join(resourcesRoot, "test-fixture"), { recursive: true });
     await writeFile(path.join(resourcesRoot, ".gitkeep"), "", "utf8");
+    await mkdir(path.join(projectsRoot, "genpsy-studio", "meta"), { recursive: true });
+    await mkdir(path.join(projectsRoot, "calmmodule2", "meta"), { recursive: true });
+    await writeFile(path.join(projectsRoot, "genpsy-studio", "meta", "project.json"), "{}", "utf8");
+    await writeFile(path.join(projectsRoot, "calmmodule2", "meta", "project.json"), "{}", "utf8");
 
-    const dirs = await listResourceProjectDirs(resourcesRoot);
+    const dirs = await listResourceProjectDirs(resourcesRoot, projectsRoot);
 
     assert.deepEqual(relativePaths(resourcesRoot, dirs), ["calmmodule2", "genpsy-studio"]);
+  } finally {
+    await rm(tempDir, { recursive: true, force: true });
+  }
+});
+
+test("listResourceProjectDirs skips resource dirs marked with .watch-ignore", async () => {
+  const tempDir = await mkdtemp(path.join(os.tmpdir(), "resource-watch-ignore-"));
+  const resourcesRoot = path.join(tempDir, "resources");
+  const projectsRoot = path.join(tempDir, "projects");
+
+  try {
+    await mkdir(path.join(resourcesRoot, "skip-me"), { recursive: true });
+    await mkdir(path.join(resourcesRoot, "keep-me"), { recursive: true });
+    await writeFile(path.join(resourcesRoot, "skip-me", ".watch-ignore"), "", "utf8");
+    await mkdir(path.join(projectsRoot, "skip-me", "meta"), { recursive: true });
+    await mkdir(path.join(projectsRoot, "keep-me", "meta"), { recursive: true });
+    await writeFile(path.join(projectsRoot, "skip-me", "meta", "project.json"), "{}", "utf8");
+    await writeFile(path.join(projectsRoot, "keep-me", "meta", "project.json"), "{}", "utf8");
+
+    const dirs = await listResourceProjectDirs(resourcesRoot, projectsRoot);
+
+    assert.deepEqual(relativePaths(resourcesRoot, dirs), ["keep-me"]);
   } finally {
     await rm(tempDir, { recursive: true, force: true });
   }

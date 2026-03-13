@@ -3,6 +3,7 @@ import path from "node:path";
 import process from "node:process";
 import { createInterface } from "node:readline/promises";
 
+import { parseArgs } from "./lib/cli.js";
 import { readJsonFile, writeJsonFile } from "./lib/fs.js";
 import {
   buildGoogleHostedDeployContext,
@@ -13,6 +14,7 @@ import {
   listDeployableGoogleHostedProjects,
   parseGoogleHostedDeploySelection
 } from "./lib/google-hosted-deploy.js";
+import { readDeviationAcceptanceFromCli, runAuthoringDeviationGate } from "./lib/intelligence/apply/deviation-gate.js";
 
 type FirebaseSitesListResponse = {
   result?: {
@@ -135,7 +137,32 @@ async function prepareDeployFiles(
   return deployFiles.deployTargetName;
 }
 
+async function ensureDeployDeviationPass(
+  context: ReturnType<typeof buildGoogleHostedDeployContext>,
+  acceptance: ReturnType<typeof readDeviationAcceptanceFromCli>
+) {
+  const exportEntrypointPath = path.join(context.exportDir, "index.html");
+  const gateResult = await runAuthoringDeviationGate({
+    projectSlug: context.slug,
+    acceptance,
+    surfaces: [
+      {
+        kind: "export",
+        filePath: exportEntrypointPath
+      }
+    ]
+  });
+
+  if (!gateResult.pass) {
+    throw new Error(
+      `Authoring preference deviations blocked deploy for "${context.slug}". See ${gateResult.reportMarkdownPath}.`
+    );
+  }
+}
+
 async function main() {
+  const parsedArgs = parseArgs(process.argv.slice(2));
+  const authoringAcceptance = readDeviationAcceptanceFromCli(parsedArgs);
   const firebaseCommand = getFirebaseCliCommand();
   const deployableProjects = await listDeployableGoogleHostedProjects();
   if (deployableProjects.length === 0) {
@@ -154,6 +181,7 @@ async function main() {
     console.log(`Preparing deploy for ${project.slug}...`);
 
     try {
+      await ensureDeployDeviationPass(project, authoringAcceptance);
       await ensureHostingSiteExists(project.firebaseProjectId, project.hostingSiteId, project.exportDir);
       const deployTargetName = await prepareDeployFiles(project, project.firebaseProjectId, project.hostingSiteId);
       const exitCode = await runCommandStreaming(

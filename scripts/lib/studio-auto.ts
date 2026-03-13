@@ -5,6 +5,8 @@ export type StudioAutoOptions = {
   port?: string;
 };
 
+export type StudioAutoChildLabel = "studio" | "watch:incoming";
+
 export type NpmSpawnPlan = {
   command: string;
   args: string[];
@@ -48,4 +50,8 @@ export function buildNpmSpawnPlan(args: string[], platform = process.platform): 
     args: isWindows ? [] : args,
     shell: isWindows
   };
+}
+
+export function shouldShutdownStudioAutoOnExit(label: StudioAutoChildLabel) {
+  return label === "studio";
 }

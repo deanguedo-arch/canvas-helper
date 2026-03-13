@@ -74,7 +74,7 @@ Export target orchestration now lives under `scripts/lib/exports/`, while target
 - location: `projects/<slug>/...`
 - `raw/`: immutable imported baseline
 - `workspace/`: editable output
-- `meta/`: manifests, logs, prompt-pack, session log, optional policy overrides, and derived planning artifacts such as `resource-catalog.json`, `course-blueprint.json`, `assessment-map.json`, and `lesson-packets/`
+- `meta/`: manifests, logs, prompt-pack, session log, optional policy overrides, benchmark selection (`benchmark-selection.json`), authoring overrides (`authoring-preferences.json`), deviation reports (`deviation-report.json`, `deviation-report.md`), and derived planning artifacts such as `resource-catalog.json`, `course-blueprint.json`, `assessment-map.json`, and `lesson-packets/`
 - `projects/resources/<slug>/`: raw support files plus extracted text
 - `projects/assessments/<assessment-slug>/`: global assessment-library items (`source/`, `assessment.project.json`, `import-result.json`, `exports/brightspace/`)
 - `exports/`: generated output only
@@ -96,6 +96,30 @@ The intelligence system is split into explicit layers:
 - `collect/`: always-on signal gathering and persistence
 - `apply/`: optional influence on prompt-pack generation and recommendations
 - `config/`: policy defaults, flag resolution, and mode handling
+
+Authoring preference enforcement is now part of the intelligence boundary:
+
+- repo defaults: `config/authoring-preferences.json`
+- project overrides: `projects/<slug>/meta/authoring-preferences.json`
+- gate engine: `scripts/lib/intelligence/apply/deviation-gate.ts`
+- resolver: `scripts/lib/intelligence/config/authoring-preferences.ts`
+- outputs: per-project deviation reports in `meta/`
+
+### Benchmark-Driven Generation
+
+Approved generation patterns now live in `scripts/lib/benchmarks/`:
+
+- `registry/`: benchmark records promoted from approved projects
+- `recipes/`: reusable lesson and activity recipe definitions
+- `load.ts`: deterministic JSON loading for registry assets
+- `project-selection.ts`: project-level benchmark selection resolution from `projects/<slug>/meta/benchmark-selection.json`
+
+This layer sits above observational intelligence and below project converters:
+
+- pattern bank and memory ledger remain observational
+- benchmark registry becomes the authoritative reuse layer for generation
+- prompt packs can surface selected benchmark context
+- converters such as `hss1010` can resolve benchmark + recipes intentionally instead of inferring style from memory alone
 
 ### Modes
 
@@ -130,6 +154,7 @@ The intelligence system is split into explicit layers:
 - Google-hosted export with Firebase Auth / Firestore resume bridge
 - prompt-pack generation
 - memory ledger and pattern-bank collection
+- benchmark registry and recipe-driven generation selection
 
 ### Policy-Controlled
 
@@ -153,6 +178,8 @@ Precedence for the effective learner mode is explicit and deterministic:
 - Google Hosted: copies the workspace, injects `scripts/lib/google-hosted.ts`, and emits a Firebase Hosting bundle under `projects/<slug>/exports/google-hosted/`.
 - Single HTML: inlines local assets into one deliverable for static/offline handoff.
 
+All conversion/export/deploy flows now run an authoring deviation preflight. Blocking deviations fail fast and write report artifacts before exiting.
+
 The Google-hosted path stops at deterministic bundle generation. Firebase deployment, project selection, auth domain setup, and Firestore rules remain explicit post-export operator steps outside the repo.
 
 Google-hosted deploy metadata lives per slug in `projects/<slug>/meta/google-hosted.deploy.json`. Local deploy orchestration belongs in `scripts/`, not Studio, so a Windows launcher or CLI script can scan deployable slugs without depending on Studio UI logic. The intended long-term shape is one Firebase project per subject and one Hosting site per module slug.
@@ -167,6 +194,7 @@ Exports now avoid implicit intelligence regeneration. Export commands copy the w
 - If it learns from project history, it belongs in `scripts/lib/intelligence/collect/`
 - If it changes how intelligence influences current work, it belongs in `scripts/lib/intelligence/apply/`
 - If it changes policy or defaults, it belongs in `scripts/lib/intelligence/config/`
+- If it defines approved generation benchmarks or recipes, it belongs in `scripts/lib/benchmarks/`
 
 ## Planning Layer
 
@@ -175,6 +203,19 @@ Exports now avoid implicit intelligence regeneration. Export commands copy the w
 - `assessment-map` builds `meta/assessment-map.json` from assessment resources with task demands, verbs, failure points, and prerequisite knowledge
 - `lesson-packets` builds `meta/lesson-packets/*.json` as the main lesson-construction unit, linking outcomes, assessments, misconceptions, practice, readiness evidence, and targeted source locators
 - `prompt-pack.md` should prioritize blueprint, assessment map, and lesson packets above reference excerpts
+- when a project opts into a benchmark, prompt-pack should surface the selected benchmark, source-support mode, and recipe set explicitly
+
+## Course Conversion Pipeline (HSS1010)
+
+- conversion modules live in `scripts/lib/conversion/`
+- current conversion entrypoint is `scripts/convert-hss1010.ts` (`npm.cmd run convert:hss1010 -- --project hss1010`)
+- pipeline responsibilities:
+  - parse source chunks (`parseSource.ts`)
+  - extract structured course and assessment models from legacy workspace HTML (`normalizeBlocks.ts`)
+  - build source mapping (`buildSourceMap.ts`)
+  - generate coverage audit (`auditCoverage.ts`)
+  - render section-tab workspace shell/runtime (`renderCourse.ts`, `renderAssessment.ts`, `hss1010.ts`)
+- generated project artifacts are written to `projects/<slug>/meta/` and `projects/<slug>/workspace/data/`
 
 ## Assessment Library Flow
 

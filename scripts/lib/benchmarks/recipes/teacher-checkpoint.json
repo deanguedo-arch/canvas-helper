@@ -1,0 +1,30 @@
+{
+  "id": "teacher-checkpoint",
+  "family": "checkpoint",
+  "summary": "Amber workbook panel used to bridge study content into assignment-ready thinking.",
+  "inputs": [
+    "prompt",
+    "saveKey"
+  ],
+  "optionalInputs": [
+    "hint",
+    "successCriteria",
+    "rows"
+  ],
+  "renderingRules": [
+    "Render on an amber-tinted surface with strong label language.",
+    "Use a single focused writing prompt instead of multiple weak prompts.",
+    "Keep the checkpoint compact and visibly tied to the lesson above it."
+  ],
+  "interactionRules": [
+    "Persist the learner response using the supplied saveKey.",
+    "Allow optional successCriteria text to frame what a strong answer includes."
+  ],
+  "persistenceRules": [
+    "Checkpoint textareas must survive save, load, and backup export."
+  ],
+  "constraints": [
+    "A checkpoint should follow teaching and practice, not precede them.",
+    "A checkpoint must not replace the assignment itself."
+  ]
+}

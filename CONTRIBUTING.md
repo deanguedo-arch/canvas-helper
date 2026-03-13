@@ -25,6 +25,7 @@ Examples:
 - Small UI-only changes: `npm.cmd run typecheck`
 - Studio/server changes: `npm.cmd run typecheck` and `npm.cmd run build:studio`
 - Intelligence changes: targeted tests plus `npm.cmd run typecheck`
+- Authoring enforcement changes: targeted deviation/preference tests plus `npm.cmd run typecheck`
 - Pipeline changes: smoke-path verification plus targeted tests
 - Incoming pipeline changes: targeted intake tests plus `npm.cmd run incoming:refresh -- --incoming <temp>` or an equivalent temp-root one-shot check
 
@@ -35,6 +36,7 @@ Update docs when:
 - commands change
 - ownership boundaries change
 - intelligence policy changes
+- authoring preference defaults or deviation-gate behavior changes
 - handoff expectations change
 - the quick-start path changes
 - intake, processed snapshot, or resource library behavior changes
@@ -46,6 +48,7 @@ Add or update tests when:
 - route behavior changes
 - path validation changes
 - intelligence policy behavior changes
+- authoring preference resolution or deviation-gate behavior changes
 - prompt-pack behavior changes
 - import/export pipeline behavior changes
 - incoming bundle or shared resource behavior changes

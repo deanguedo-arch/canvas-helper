@@ -273,6 +273,50 @@
                 }
             };
 
+            const generateTeacherExport = () => {
+                const fd = data;
+                let out = `========================================================\n`;
+                out += `  CALM MODULE 2: RESOURCE CHOICES - STUDENT SUBMISSION  \n`;
+                out += `========================================================\n`;
+                out += `Student Name: ${fd.studentName || "Not provided"}\n\n`;
+
+                out += `--- 1. NEEDS VS WANTS ---\n`;
+                out += `Score: ${fd.needsWantsIndex}/${NEEDS_WANTS_ITEMS.length}\n`;
+                out += `Reflection: ${fd.reflections.needsWants}\n\n`;
+
+                out += `--- 2. CONSUMERISM & ADS ---\n`;
+                out += `Ad Analyzer Score: ${fd.adScore}/${AD_SCENARIOS.length}\n`;
+                out += `Reflection (Brand Deconstruction): ${fd.reflections.adDeconstruction}\n\n`;
+
+                out += `--- 3. BUDGETING ---\n`;
+                out += `Active Scenario: ${BUDGET_SCENARIOS[activeBudgetTab].title}\n`;
+                
+                const b = fd.budgets[activeBudgetTab];
+                let inc = calcTotal(b.income);
+                let fix = calcTotal(b.fixed);
+                let varExp = calcTotal(b.variable);
+                
+                if (fd.lifeEvent) {
+                    if (fd.lifeEvent.type === 'expense') varExp += fd.lifeEvent.amount;
+                    if (fd.lifeEvent.type === 'income') inc += fd.lifeEvent.amount;
+                }
+                
+                out += `Total Income: $${inc.toFixed(2)}\n`;
+                out += `Total Expenses: $${(fix + varExp).toFixed(2)}\n`;
+                out += `Net: $${(inc - (fix + varExp)).toFixed(2)}\n`;
+                out += `Reflection (Budget Choice): ${fd.reflections.budgetChoice}\n\n`;
+
+                out += `--- 4. SOCIAL SCENARIOS ---\n`;
+                out += `Scenarios Completed: ${fd.completedScenarios.join(', ')}\n`;
+                out += `Reflection (Boundaries): ${fd.reflections.socialJustification}\n\n`;
+
+                const blob = new Blob([out], { type: "text/plain" });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = `CALM_Mod2_${(fd.studentName || "Student").replace(/\s+/g, '_')}.txt`;
+                a.click();
+            };
 
             const TABS = [
                 { id: 0, title: "1. Basic Needs", icon: "fa-cubes" },
@@ -690,7 +734,8 @@
                                 <Card className="bg-blue-600 text-white mb-6 no-print border-none">
                                     <h2 className="text-2xl font-black mb-2">Final Step: Print/Save your Workbook</h2>
                                     <p className="font-medium opacity-90 mb-4">Review your answers below. Ensure you have elaborated on your reflections so your teacher can grade your critical thinking. When you are ready, print this page to PDF and submit it.</p>
-                                    <div className="mt-6 flex justify-end">
+                                    <div className="mt-6 flex justify-end gap-3">
+                                        <Btn color="emerald" onClick={generateTeacherExport} className="bg-white text-emerald-600 hover:bg-emerald-50"><i className="fa-solid fa-file-export mr-2"></i> Export to Text</Btn>
                                         <Btn color="slate" onClick={() => window.print()} className="text-blue-900"><i className="fa-solid fa-file-pdf mr-2"></i> Print to PDF</Btn>
                                     </div>
                                 </Card>

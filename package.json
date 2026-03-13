@@ -35,6 +35,8 @@
     "export:scorm": "tsx scripts/export-scorm.ts",
     "export:google-hosted": "tsx scripts/export-google-hosted.ts",
     "deploy:google-hosted": "tsx scripts/deploy-google-hosted.ts",
+    "convert:hss1010": "tsx scripts/convert-hss1010.ts",
+    "sync:course-images": "tsx scripts/sync-course-images.ts",
     "export:html": "tsx scripts/export-html.ts",
     "rehydrate": "tsx scripts/rehydrate-workspace.ts"
   },

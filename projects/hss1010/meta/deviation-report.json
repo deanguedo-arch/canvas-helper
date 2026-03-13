@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "hss1010",
+  "generatedAt": "2026-03-13T20:43:58.792Z",
+  "pass": true,
+  "deviations": [
+    {
+      "ruleId": "quality-max-consecutive-paragraph-blocks",
+      "severity": "warn",
+      "surface": "course-html",
+      "location": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\hss1010\\workspace\\index.html",
+      "why": "Detected 848 paragraph blocks but max allowed is 5.",
+      "evidence": "<p> count = 848"
+    },
+    {
+      "ruleId": "require-interactive-shell",
+      "severity": "warn",
+      "surface": "workspace-runtime",
+      "location": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\hss1010\\workspace/main.js",
+      "why": "Required pattern \"lesson-shell\" is missing.",
+      "evidence": "Missing pattern: lesson-shell"
+    },
+    {
+      "ruleId": "forbid-visible-source-dump",
+      "severity": "warn",
+      "surface": "workspace-runtime",
+      "location": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\hss1010\\workspace/main.js",
+      "why": "Forbidden pattern \"source-support-panel\" is present.",
+      "evidence": "rt(panelId) { const panel = document.querySelector(`[data-source-support-panel=\"${panelId}\"]`); const trigger = document.querySelector(`"
+    }
+  ],
+  "acceptedDeviations": []
+}

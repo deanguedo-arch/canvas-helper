@@ -4,14 +4,19 @@ import { fileExists, ensureDir, writeTextFile } from "../fs.js";
 import { getProjectPaths } from "../paths.js";
 import { markProjectWorkspaceApproved } from "../projects.js";
 
-import { buildSingleHtmlOutput } from "./shared.js";
+import { buildSingleHtmlOutput, runExportAuthoringPreflight, type ExportAuthoringGateOptions } from "./shared.js";
 
-export async function exportProjectToSingleHtml(projectSlug: string) {
+export async function exportProjectToSingleHtml(
+  projectSlug: string,
+  gateOptions: ExportAuthoringGateOptions = {}
+) {
   const paths = getProjectPaths(projectSlug);
 
   if (!(await fileExists(paths.workspaceEntrypoint))) {
     throw new Error(`Workspace entrypoint not found for "${projectSlug}".`);
   }
+
+  await runExportAuthoringPreflight(projectSlug, paths.workspaceEntrypoint, gateOptions, "export");
 
   const { html, inlinedAssetCount } = await buildSingleHtmlOutput(paths.workspaceDir, paths.workspaceEntrypoint);
   const singleHtmlExportDir = path.join(paths.exportsDir, "single-html");
