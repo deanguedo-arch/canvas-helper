@@ -17,7 +17,7 @@
 - projects/hss1010/meta/coverage-report.json
 - projects/hss1010/meta/deviation-report.json
 - projects/hss1010/meta/deviation-report.md
-- docs/ops/ACTIVE_HANDOFF.md
+- projects/hss1010/meta/HANDOFF.md
 
 ## What changed
 - Updated Lifestyle test expectations to require 5 named modules and activity IDs:
