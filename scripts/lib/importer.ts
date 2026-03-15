@@ -58,9 +58,9 @@ type ResolvedImportInput = {
 };
 
 const BROWSER_REACT_IMPORTS = {
-  react: "https://unpkg.com/react@19.1.1?module",
-  reactDomClient: "https://unpkg.com/react-dom@19.1.1/client?module",
-  lucideReact: "https://unpkg.com/lucide-react@0.542.0?module"
+  react: "https://esm.sh/react@19.1.1",
+  reactDomClient: "https://esm.sh/react-dom@19.1.1/client",
+  lucideReact: "https://esm.sh/lucide-react@0.542.0?deps=react@19.1.1"
 } as const;
 
 type ExtractedDocumentSource = {
@@ -134,6 +134,7 @@ function buildReactModulePreviewHtml(title: string) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>${title}</title>
+    <link rel="icon" href="data:," />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script>
@@ -186,14 +187,19 @@ function buildReactModulePreviewHtml(title: string) {
 }
 
 function resolveReactModuleExportName(source: string) {
-  const defaultIdentifierMatch = source.match(/export\s+default\s+([A-Za-z_$][\w$]*)\s*;?/);
-  if (defaultIdentifierMatch) {
-    return defaultIdentifierMatch[1];
-  }
-
   const defaultFunctionMatch = source.match(/export\s+default\s+function\s+([A-Za-z_$][\w$]*)\s*\(/);
   if (defaultFunctionMatch) {
     return defaultFunctionMatch[1];
+  }
+
+  const defaultClassMatch = source.match(/export\s+default\s+class\s+([A-Za-z_$][\w$]*)\b/);
+  if (defaultClassMatch) {
+    return defaultClassMatch[1];
+  }
+
+  const defaultIdentifierMatch = source.match(/export\s+default\s+([A-Za-z_$][\w$]*)\s*;?/);
+  if (defaultIdentifierMatch) {
+    return defaultIdentifierMatch[1];
   }
 
   const appDeclarationMatch = source.match(/(?:const|function)\s+([A-Za-z_$][\w$]*)\s*=?\s*(?:\(|\(\)\s*=>)/);

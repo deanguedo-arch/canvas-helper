@@ -7,6 +7,7 @@ import { getProjectPaths } from "../../paths.js";
 import type {
   AssessmentMap,
   CourseBlueprint,
+  D2LCourseMap,
   IntelligencePolicy,
   LessonPacket,
   LessonPacketIndex,
@@ -198,6 +199,33 @@ function renderAntiSummaryRules() {
   ].join("\n");
 }
 
+function renderD2LCourseMapSummary(courseMap: D2LCourseMap | null, projectSlug: string) {
+  if (!courseMap) {
+    return renderMissing("d2l-course-map.json", `npm run d2l-map -- --project ${projectSlug}`);
+  }
+
+  const moduleLines = courseMap.modules.slice(0, 8).map((moduleNode) => {
+    const childCount = moduleNode.children.length;
+    return `- ${moduleNode.title} (${childCount} direct item${childCount === 1 ? "" : "s"})`;
+  });
+
+  return [
+    `- Course title: ${courseMap.courseTitle}`,
+    `- Modules: ${courseMap.summary.moduleCount}`,
+    `- Items: ${courseMap.summary.itemCount}`,
+    `- Lessons: ${courseMap.summary.lessonCount}`,
+    `- Assignments: ${courseMap.summary.assignmentCount}`,
+    `- Quizzes: ${courseMap.summary.quizCount}`,
+    `- PDFs: ${courseMap.summary.pdfCount}`,
+    `- HTML pages: ${courseMap.summary.htmlCount}`,
+    moduleLines.length ? "" : "",
+    moduleLines.length ? "Top modules:" : "",
+    moduleLines.length ? moduleLines.join("\n") : ""
+  ]
+    .filter(Boolean)
+    .join("\n");
+}
+
 function renderSelectedBenchmarkBody(
   resolvedBenchmark: Awaited<ReturnType<typeof resolveProjectBenchmarkSelection>>
 ) {
@@ -301,6 +329,7 @@ export async function generatePromptPack(projectSlug: string, policy: Intelligen
     importLog,
     referenceIndex,
     resourceCatalog,
+    d2lCourseMap,
     courseBlueprint,
     assessmentMap,
     lessonPacketIndex
@@ -312,6 +341,7 @@ export async function generatePromptPack(projectSlug: string, policy: Intelligen
     readOptionalText(paths.importLogPath),
     readOptionalJson<ReferenceIndex>(paths.referenceIndexPath),
     readOptionalJson<ResourceCatalog>(paths.resourceCatalogPath),
+    readOptionalJson<D2LCourseMap>(paths.d2lCourseMapPath),
     readOptionalJson<CourseBlueprint>(paths.courseBlueprintPath),
     readOptionalJson<AssessmentMap>(paths.assessmentMapPath),
     readOptionalJson<LessonPacketIndex>(paths.lessonPacketsIndexPath)
@@ -336,7 +366,7 @@ export async function generatePromptPack(projectSlug: string, policy: Intelligen
   const rulesSummary = [
     "- Work in repo-approved zones (`app/studio`, `app/server`, `scripts`, `docs`, `tasks`, root config files).",
     "- Treat `projects/<slug>/raw` as immutable baseline input.",
-    "- Retrieval order: prompt-pack -> course blueprint -> assessment map -> lesson packets -> targeted resource chunks -> pattern matches if enabled.",
+    `- Retrieval order: prompt-pack -> ${d2lCourseMap ? "d2l course map -> " : ""}course blueprint -> assessment map -> lesson packets -> targeted resource chunks -> pattern matches if enabled.`,
     "- Finish only after typecheck/build and task-specific verification pass."
   ].join("\n");
 
@@ -481,6 +511,7 @@ export async function generatePromptPack(projectSlug: string, policy: Intelligen
     renderMarkdownSection("Project Manifest", manifestBody),
     renderMarkdownSection("Resource Authority Rules", renderResourceAuthorityRules(resourceCatalog)),
     renderMarkdownSection("Resource Catalog Summary", resourceCatalogBody),
+    renderMarkdownSection("D2L Course Map Summary", renderD2LCourseMapSummary(d2lCourseMap, projectSlug)),
     renderMarkdownSection("Course Blueprint Summary", renderBlueprintSummary(courseBlueprint, projectSlug)),
     renderMarkdownSection("Assessment Map Summary", renderAssessmentMapSummary(assessmentMap, projectSlug)),
     renderMarkdownSection("Lesson Packet Summary", renderLessonPacketSummary(lessonPacketIndex, lessonPackets, projectSlug)),

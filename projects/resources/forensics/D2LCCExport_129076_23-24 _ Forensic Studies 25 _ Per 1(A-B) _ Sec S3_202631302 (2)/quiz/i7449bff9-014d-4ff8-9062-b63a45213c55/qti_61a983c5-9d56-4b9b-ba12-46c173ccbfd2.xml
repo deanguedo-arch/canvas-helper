@@ -1,0 +1,806 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/profile/cc/ccv1p3/ccv1p3_qtiasiv1p2p1_v1p0.xsd">
+  <assessment ident="i9184e14f-11bf-4fd6-b5f3-f950c75cb3bd" title="Student Centred Learning Self Reflection">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>cc_profile</fieldlabel>
+        <fieldentry>cc.exam.v0p1</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_assessmenttype</fieldlabel>
+        <fieldentry>Examination</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>1</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_timelimit</fieldlabel>
+        <fieldentry>0</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    <section ident="i80fa6b50-d0bb-4e68-8394-95425d4ba817">
+      <item ident="i07ae0a55-8973-4efc-9b69-862f79aef005">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>3</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;I am able to meet deadlines and complete course work.&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i3f3fdc22-2532-49c5-995e-cd33432f7e89" rcardinality="Single">
+            <render_choice>
+              <response_label ident="ide33301f-e507-4646-b177-604afd63e615">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Minimal&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ia55d844c-ae75-44b5-bfae-7b5ab9e7e9e1">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Proficient&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i29dc6d8a-e0df-48fa-84a2-5097fbc9f078">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Excellent&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i3f3fdc22-2532-49c5-995e-cd33432f7e89">ide33301f-e507-4646-b177-604afd63e615</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i3f3fdc22-2532-49c5-995e-cd33432f7e89">ia55d844c-ae75-44b5-bfae-7b5ab9e7e9e1</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i3f3fdc22-2532-49c5-995e-cd33432f7e89">i29dc6d8a-e0df-48fa-84a2-5097fbc9f078</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ic58c5d40-d274-4d57-892b-58dc07fa45b9">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>3</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;I am able to demonstrate self-advocacy (letting teachers know what I need help with).&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i980bb6de-a3a8-4461-840c-2b7782bac3df" rcardinality="Single">
+            <render_choice>
+              <response_label ident="idb20a4da-399e-4c00-9102-1f31d10edba8">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Minimal&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i7e3cf64f-5f23-46e2-9107-79187f0008a8">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Proficient&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i4364436a-394c-4a70-ade7-ef821f9ceebc">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Excellent&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i980bb6de-a3a8-4461-840c-2b7782bac3df">idb20a4da-399e-4c00-9102-1f31d10edba8</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i980bb6de-a3a8-4461-840c-2b7782bac3df">i7e3cf64f-5f23-46e2-9107-79187f0008a8</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i980bb6de-a3a8-4461-840c-2b7782bac3df">i4364436a-394c-4a70-ade7-ef821f9ceebc</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ia3436dea-80fd-4f59-ac1d-715d2f8b8a98">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>3</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;I am able to develop interpersonal relationship with teachers (connecting with teachers).&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i76d473f9-d5ac-4ee9-b068-bce803b95915" rcardinality="Single">
+            <render_choice>
+              <response_label ident="iaec9b76c-1eb3-48c2-840d-a4016ece8534">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Minimal&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i786e53f4-aac6-4d10-86b5-980c0575f1a6">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Proficient&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i7abb4f22-9e25-4eb9-a887-a7ca1873cf24">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Excellent&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i76d473f9-d5ac-4ee9-b068-bce803b95915">iaec9b76c-1eb3-48c2-840d-a4016ece8534</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i76d473f9-d5ac-4ee9-b068-bce803b95915">i786e53f4-aac6-4d10-86b5-980c0575f1a6</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i76d473f9-d5ac-4ee9-b068-bce803b95915">i7abb4f22-9e25-4eb9-a887-a7ca1873cf24</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i84ba2ffe-2526-4f85-b4f0-580c95cc70d9">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>3</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;I am able to use information processing platforms (BrightSpace and Google Docs).&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="iee48d90e-5640-4329-b9a9-32999753804b" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i104cdd96-f550-4f6f-b92d-46465d63cc55">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Minimal&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ib1b8453d-9e3f-49c1-99c0-b305d1a975c8">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Proficient&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="iaf911d71-4046-48e1-a150-7c0fa1be005a">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Excellent&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="iee48d90e-5640-4329-b9a9-32999753804b">i104cdd96-f550-4f6f-b92d-46465d63cc55</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="iee48d90e-5640-4329-b9a9-32999753804b">ib1b8453d-9e3f-49c1-99c0-b305d1a975c8</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="iee48d90e-5640-4329-b9a9-32999753804b">iaf911d71-4046-48e1-a150-7c0fa1be005a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i3e4aa135-bf07-43e6-84ef-8bd2c9299433">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>3</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;I am able to prepare for tests and implement test taking strategies.&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i0d0d054f-404c-4615-9526-c363dec68973" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i0a576cf0-fffe-4f32-98cc-b2ee1d244559">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Minimal&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i8a6a845f-4eca-4962-a6f6-45168586e5dd">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Proficient&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="if64841e9-9556-461a-b05b-4aded02f19c4">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Excellent&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i0d0d054f-404c-4615-9526-c363dec68973">i0a576cf0-fffe-4f32-98cc-b2ee1d244559</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i0d0d054f-404c-4615-9526-c363dec68973">i8a6a845f-4eca-4962-a6f6-45168586e5dd</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i0d0d054f-404c-4615-9526-c363dec68973">if64841e9-9556-461a-b05b-4aded02f19c4</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ie975983e-453e-49d3-a46a-23008050d188">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>3</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;I am able to demonstrate the attitudes necessary to be a student-centred learner.&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i17a2bdd2-41b1-4be7-9021-9157696fcf2c" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i8f811333-e000-4a92-bf77-e556c436ae80">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Minimal&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ib8013a27-bbb4-478f-84d6-2dcb0c638c60">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Proficient&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="idb000b4c-f2fe-40e8-a709-ba0d3e41f66d">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Excellent&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i17a2bdd2-41b1-4be7-9021-9157696fcf2c">i8f811333-e000-4a92-bf77-e556c436ae80</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i17a2bdd2-41b1-4be7-9021-9157696fcf2c">ib8013a27-bbb4-478f-84d6-2dcb0c638c60</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i17a2bdd2-41b1-4be7-9021-9157696fcf2c">idb000b4c-f2fe-40e8-a709-ba0d3e41f66d</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ied51cb6d-0c84-4fb4-850d-6dd375aafa9f">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>3</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;I am able to demonstrate the attitudes necessary to be a student-centred learner.&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="iabbd0fd0-687e-445f-87e2-a4e7b0258b84" rcardinality="Single">
+            <render_choice>
+              <response_label ident="ieed4a576-557b-42e4-b6b2-8c010e184b17">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Minimal&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i5a5a92fa-e67b-42fa-91a6-ce939f98b152">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Proficient&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i892aa010-a8bf-47d6-a7d4-05b9d318e0e9">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Excellent&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="iabbd0fd0-687e-445f-87e2-a4e7b0258b84">ieed4a576-557b-42e4-b6b2-8c010e184b17</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="iabbd0fd0-687e-445f-87e2-a4e7b0258b84">i5a5a92fa-e67b-42fa-91a6-ce939f98b152</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="iabbd0fd0-687e-445f-87e2-a4e7b0258b84">i892aa010-a8bf-47d6-a7d4-05b9d318e0e9</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ib97a4a16-d97e-491f-991d-2e8471ceed8e">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>3</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;I am able to investigate, reflect upon and prioritize areas of growth to overcome barriers to learning (growth as a learner).&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i10a7049d-97f2-44b5-98bc-ba07ab8dd4f4" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i38071819-b35f-4aa2-ae30-d210068393c0">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Minimal&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i37199da7-81ea-415e-88a3-9cec990e1216">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Proficient&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i8d7efa7b-9f82-42a3-8142-db0b14dce0df">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Excellent&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i10a7049d-97f2-44b5-98bc-ba07ab8dd4f4">i38071819-b35f-4aa2-ae30-d210068393c0</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i10a7049d-97f2-44b5-98bc-ba07ab8dd4f4">i37199da7-81ea-415e-88a3-9cec990e1216</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i10a7049d-97f2-44b5-98bc-ba07ab8dd4f4">i8d7efa7b-9f82-42a3-8142-db0b14dce0df</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i47624b2e-e9e5-40b2-9710-613557b4cf3a">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>3</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;I have an awareness of the opportunities available to prepare for assessments. (connect with teachers prior to assessments)&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="ifc526ba2-0049-4ee6-b5fe-2a09b5e66b75" rcardinality="Single">
+            <render_choice>
+              <response_label ident="ie99c4551-f056-48c0-b8e5-ba23b1dad1b6">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Minimal&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i4806ce5e-0e2a-45d2-9d28-3a0ca4c21b0e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Proficient&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i158959e4-c962-496a-bb32-cfee78bd2f18">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Excellent&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ifc526ba2-0049-4ee6-b5fe-2a09b5e66b75">ie99c4551-f056-48c0-b8e5-ba23b1dad1b6</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ifc526ba2-0049-4ee6-b5fe-2a09b5e66b75">i4806ce5e-0e2a-45d2-9d28-3a0ca4c21b0e</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ifc526ba2-0049-4ee6-b5fe-2a09b5e66b75">i158959e4-c962-496a-bb32-cfee78bd2f18</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ibc2ac787-cb8e-4b9e-b2e2-c46d75d7859c">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.essay.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>qmd_computerscored</fieldlabel>
+              <fieldentry>No</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>2</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;What are your two greatest strengths as a student-centred learner?&lt;/p&gt;</mattext>
+          </material>
+          <response_str ident="i5c0ddf5f-f591-4087-bcb0-26809b372878">
+            <render_fib>
+              <response_label ident="i1a41ee25-a8b5-43d4-99d0-84de98bee743" />
+            </render_fib>
+          </response_str>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <other />
+            </conditionvar>
+            <displayfeedback feedbacktype="Response" linkrefid="general_fb" />
+            <displayfeedback feedbacktype="Solution" linkrefid="solution" />
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="solution">
+          <solution>
+            <solutionmaterial>
+              <flow_mat>
+                <material>
+                  <mattext texttype="text/html"></mattext>
+                </material>
+              </flow_mat>
+            </solutionmaterial>
+          </solution>
+        </itemfeedback>
+        <itemfeedback ident="general_fb">
+          <flow_mat>
+            <material>
+              <mattext texttype="text/html"></mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+      <item ident="i283d38bc-d1b8-45d7-9b50-bc571c10982b">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.essay.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>qmd_computerscored</fieldlabel>
+              <fieldentry>No</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>2</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;How do you use these strengths to enhance your learning? &amp;#160;&lt;/p&gt;</mattext>
+          </material>
+          <response_str ident="iac0a7f35-f69a-44a4-a563-ca5e4f59c38b">
+            <render_fib>
+              <response_label ident="i5cbcd5e3-60af-42e3-a02c-aa863f39a132" />
+            </render_fib>
+          </response_str>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <other />
+            </conditionvar>
+            <displayfeedback feedbacktype="Response" linkrefid="general_fb" />
+            <displayfeedback feedbacktype="Solution" linkrefid="solution" />
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="solution">
+          <solution>
+            <solutionmaterial>
+              <flow_mat>
+                <material>
+                  <mattext texttype="text/html"></mattext>
+                </material>
+              </flow_mat>
+            </solutionmaterial>
+          </solution>
+        </itemfeedback>
+        <itemfeedback ident="general_fb">
+          <flow_mat>
+            <material>
+              <mattext texttype="text/html"></mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+      <item ident="if6309b4c-6258-421c-8e26-187f5b2191d9">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.essay.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>qmd_computerscored</fieldlabel>
+              <fieldentry>No</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>2</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;In which areas do you need to grow as a student-centred learner?&lt;/p&gt;</mattext>
+          </material>
+          <response_str ident="iea618c31-7a09-42e5-ae20-16559827e189">
+            <render_fib>
+              <response_label ident="i2764ba5d-ee21-419a-b6ea-39c4fc154e3a" />
+            </render_fib>
+          </response_str>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <other />
+            </conditionvar>
+            <displayfeedback feedbacktype="Response" linkrefid="general_fb" />
+            <displayfeedback feedbacktype="Solution" linkrefid="solution" />
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="solution">
+          <solution>
+            <solutionmaterial>
+              <flow_mat>
+                <material>
+                  <mattext texttype="text/html"></mattext>
+                </material>
+              </flow_mat>
+            </solutionmaterial>
+          </solution>
+        </itemfeedback>
+        <itemfeedback ident="general_fb">
+          <flow_mat>
+            <material>
+              <mattext texttype="text/html"></mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+      <item ident="i6dcb9202-f835-441b-a483-598ae5dfe677">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.essay.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>qmd_computerscored</fieldlabel>
+              <fieldentry>No</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>2</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;How does understanding your weaknesses influence your learning as a student-centred learner?&lt;/p&gt;</mattext>
+          </material>
+          <response_str ident="i0ed99056-34d2-4a0f-a2d9-5ffc35131b6f">
+            <render_fib>
+              <response_label ident="i49edbfc6-1c26-4c7b-a5d1-58627b6f24a2" />
+            </render_fib>
+          </response_str>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <other />
+            </conditionvar>
+            <displayfeedback feedbacktype="Response" linkrefid="general_fb" />
+            <displayfeedback feedbacktype="Solution" linkrefid="solution" />
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="solution">
+          <solution>
+            <solutionmaterial>
+              <flow_mat>
+                <material>
+                  <mattext texttype="text/html"></mattext>
+                </material>
+              </flow_mat>
+            </solutionmaterial>
+          </solution>
+        </itemfeedback>
+        <itemfeedback ident="general_fb">
+          <flow_mat>
+            <material>
+              <mattext texttype="text/html"></mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+    </section>
+  </assessment>
+</questestinterop>

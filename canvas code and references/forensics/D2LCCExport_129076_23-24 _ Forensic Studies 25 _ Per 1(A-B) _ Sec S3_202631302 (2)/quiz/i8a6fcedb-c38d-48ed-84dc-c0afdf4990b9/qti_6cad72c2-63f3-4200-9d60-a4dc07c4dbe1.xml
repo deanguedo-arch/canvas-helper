@@ -1,0 +1,716 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/profile/cc/ccv1p3/ccv1p3_qtiasiv1p2p1_v1p0.xsd">
+  <assessment ident="i2bad94f7-b385-4714-877f-a56e16df2316" title="M3 Trace Evidence Assessment">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>cc_profile</fieldlabel>
+        <fieldentry>cc.exam.v0p1</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_assessmenttype</fieldlabel>
+        <fieldentry>Examination</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>1</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_timelimit</fieldlabel>
+        <fieldentry>30</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    <section ident="i6d439d1d-27b6-4aea-ae21-3c50de8c7432">
+      <item ident="i598c449a-9abb-46fa-8dfd-5faef3a817f0">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;All of the trace evidence listed below is considered Organic/Natural evidence EXCEPT: &lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="ie8bae8cf-0287-4ca5-94ff-a24d5bab40cd" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i24984949-6b3e-4cbd-816b-f2e68c2eb7d4">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Cotton&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="iff6ebb36-74c9-4dbd-a6a5-36e553acf805">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Hemp&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i27f933cf-b88d-44b5-8e2b-27df94996243">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Nylon&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ie1c9cc00-75d8-4993-9dfe-76c279a936ae">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Silk&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ie8bae8cf-0287-4ca5-94ff-a24d5bab40cd">i24984949-6b3e-4cbd-816b-f2e68c2eb7d4</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ie8bae8cf-0287-4ca5-94ff-a24d5bab40cd">iff6ebb36-74c9-4dbd-a6a5-36e553acf805</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ie8bae8cf-0287-4ca5-94ff-a24d5bab40cd">i27f933cf-b88d-44b5-8e2b-27df94996243</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ie8bae8cf-0287-4ca5-94ff-a24d5bab40cd">ie1c9cc00-75d8-4993-9dfe-76c279a936ae</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i7d7bfaed-29f2-4de8-927f-34ab253906b7">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;A forensic scientist is trying to identify the source of numerous hair samples found on a homicide victim.&amp;nbsp; The hairs all display frayed root tips, spinous cuticle scales and unisereal medullas. What is the source of this hair?&lt;br&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="id5cbce2a-bad3-4bde-8ffa-3f73a68d477d" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ie547575c-0d89-419d-81e8-ec71326ba4ee">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;a cat&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i510afc9d-fb53-4281-bb60-53952fb35ed0">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;a dog&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i58398bf2-e74e-447e-927d-3703db87040a">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;a human&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ia5e85313-4695-4e3a-adee-991b74cb99c9">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;a rabbit&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="id5cbce2a-bad3-4bde-8ffa-3f73a68d477d">ie547575c-0d89-419d-81e8-ec71326ba4ee</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="id5cbce2a-bad3-4bde-8ffa-3f73a68d477d">i510afc9d-fb53-4281-bb60-53952fb35ed0</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="id5cbce2a-bad3-4bde-8ffa-3f73a68d477d">i58398bf2-e74e-447e-927d-3703db87040a</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="id5cbce2a-bad3-4bde-8ffa-3f73a68d477d">ia5e85313-4695-4e3a-adee-991b74cb99c9</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i6b3c1bd9-2c93-4f2e-b9b8-4b30e3e29c52">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;When forensic experts examine a piece of trace evidence with a microscope, the first thing they try and do is to:&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i819b3578-c6cb-4806-b206-29b3062d99b3" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i23e319cf-f7b2-49c8-8e8c-ea4e43665c39">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Identify the evidence.&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i592a827f-eefb-4d64-9c58-5b2b24b605f5">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Secure the evidence.&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i6f4cb3c9-f708-47e3-8f85-a0dbe7566aea">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Process the evidence. &lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i762eab9c-e432-456b-ae4e-4fffa7ddb147">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Individualize the evidence.&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i819b3578-c6cb-4806-b206-29b3062d99b3">i23e319cf-f7b2-49c8-8e8c-ea4e43665c39</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i819b3578-c6cb-4806-b206-29b3062d99b3">i592a827f-eefb-4d64-9c58-5b2b24b605f5</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i819b3578-c6cb-4806-b206-29b3062d99b3">i6f4cb3c9-f708-47e3-8f85-a0dbe7566aea</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i819b3578-c6cb-4806-b206-29b3062d99b3">i762eab9c-e432-456b-ae4e-4fffa7ddb147</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i4585cf02-e353-4c4b-8874-711d24b1d9a0">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Two methods that help to individualize hair evidence are&lt;br&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="icfbe6e69-3888-4d4b-9693-9cf632ca302e" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i40534e76-9652-42fb-b958-8fbf1c2c7f7f">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;DNA analysis and cyanoacrylate fumigation&lt;br&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i2b8a7059-dd59-4755-91b4-9abc9049fea6">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;iodine fumigation and cyanoacrylate fumigation&lt;br&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i95a65e63-58a8-40d0-8384-40902b610a89">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;microscopy and DNA analysis&lt;br&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i214ad8bd-9c09-4534-b9d2-94e3687ee942">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;microscopy and iodine fumigation&lt;br&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="icfbe6e69-3888-4d4b-9693-9cf632ca302e">i40534e76-9652-42fb-b958-8fbf1c2c7f7f</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="icfbe6e69-3888-4d4b-9693-9cf632ca302e">i2b8a7059-dd59-4755-91b4-9abc9049fea6</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="icfbe6e69-3888-4d4b-9693-9cf632ca302e">i95a65e63-58a8-40d0-8384-40902b610a89</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="icfbe6e69-3888-4d4b-9693-9cf632ca302e">i214ad8bd-9c09-4534-b9d2-94e3687ee942</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="if866357a-cf6b-473b-966e-481b837f99a2">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;A trait that distinguishes colour-treated hair from untreated hair is that a colour-treated hair exhibits&lt;br&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="icda3a583-70ef-478e-8a93-ac3ada2cb55c" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i0b663bb7-a1b5-4814-92e3-d098a033e681">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;darker coronal scales in the cuticle&lt;br&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="if5f07e89-f323-4200-b90f-5f537c513c5d">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;lighter pigmentation in the root&lt;br&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i1290b2ee-b8ef-4545-ab56-13a176872663">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;frayed hair tips&lt;br&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i25513da5-fd61-438f-a12e-03ff6d53e00e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;little colour variation in the medulla&lt;br&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="icda3a583-70ef-478e-8a93-ac3ada2cb55c">i0b663bb7-a1b5-4814-92e3-d098a033e681</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="icda3a583-70ef-478e-8a93-ac3ada2cb55c">if5f07e89-f323-4200-b90f-5f537c513c5d</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="icda3a583-70ef-478e-8a93-ac3ada2cb55c">i1290b2ee-b8ef-4545-ab56-13a176872663</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="icda3a583-70ef-478e-8a93-ac3ada2cb55c">i25513da5-fd61-438f-a12e-03ff6d53e00e</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="id08cdf3b-f84f-4eaa-8f9c-74a708a9ec1d">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;If the follicle of a hair root is still attached to the root (the follicle looks like transparent skin around the root), then the hair was:&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="iaa03be96-e598-4a5e-97b6-67588e5cb1e7" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i676a0d51-c515-44c9-8d3c-7bc074f51aef">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;forcibly removed.&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i5144d8ed-97c3-4248-b85a-a2f061e4c8f7">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;shed after the person died.&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i68c19a19-9426-4d67-84a0-fe1c6584518e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;likely from a cat.&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i054ed753-5ad5-4a2e-a6e0-ad1820f58fe2">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;recently cut.&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="iaa03be96-e598-4a5e-97b6-67588e5cb1e7">i676a0d51-c515-44c9-8d3c-7bc074f51aef</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="iaa03be96-e598-4a5e-97b6-67588e5cb1e7">i5144d8ed-97c3-4248-b85a-a2f061e4c8f7</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="iaa03be96-e598-4a5e-97b6-67588e5cb1e7">i68c19a19-9426-4d67-84a0-fe1c6584518e</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="iaa03be96-e598-4a5e-97b6-67588e5cb1e7">i054ed753-5ad5-4a2e-a6e0-ad1820f58fe2</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ie5ed30ed-1891-4255-9ad2-58eaf48baab5">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;What shape is the root of a human hair?&lt;br&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i115ceeaa-f1aa-465e-9154-af1876c728fd" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i4e9a586a-f6e5-4a53-aad4-36f9b0af934e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Frayed&lt;br&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ic4fb4497-f351-46ff-8b2d-90502f0d5086">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Wine-glass&lt;br&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ie249e97d-4867-4239-8b33-3b681b1f4791">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Spade&lt;br&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="idcd9bdf0-dbe4-4268-8957-ba4762fdeaba">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Club&lt;br&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i115ceeaa-f1aa-465e-9154-af1876c728fd">i4e9a586a-f6e5-4a53-aad4-36f9b0af934e</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i115ceeaa-f1aa-465e-9154-af1876c728fd">ic4fb4497-f351-46ff-8b2d-90502f0d5086</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i115ceeaa-f1aa-465e-9154-af1876c728fd">ie249e97d-4867-4239-8b33-3b681b1f4791</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i115ceeaa-f1aa-465e-9154-af1876c728fd">idcd9bdf0-dbe4-4268-8957-ba4762fdeaba</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i71d52b8b-c364-4e57-b3f8-a47fd6ff03e7">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;A general feature that distinguishes human hair from animal hair is that human hairs tend to have a&lt;br&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="ib41d994c-2eb1-4788-a854-cfa57a8cf8e9" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ifd699496-2bae-4469-8d37-0fe0c4913fdb">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;straight and narrow medulla&lt;br&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i236cb171-81ee-436f-ac99-d76ec94dadd7">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;coronal-shaped scales on the cuticle&lt;br&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i676207ad-f80b-4a0f-b618-515def5f200e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;consistent colour throughout the shaft&lt;br&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i26b1d1f7-6a09-4b39-9b15-6ad5d4474f18">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;wine-glass shaped root&lt;br&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ib41d994c-2eb1-4788-a854-cfa57a8cf8e9">ifd699496-2bae-4469-8d37-0fe0c4913fdb</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ib41d994c-2eb1-4788-a854-cfa57a8cf8e9">i236cb171-81ee-436f-ac99-d76ec94dadd7</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ib41d994c-2eb1-4788-a854-cfa57a8cf8e9">i676207ad-f80b-4a0f-b618-515def5f200e</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ib41d994c-2eb1-4788-a854-cfa57a8cf8e9">i26b1d1f7-6a09-4b39-9b15-6ad5d4474f18</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ib7b8f666-6193-4552-b6e8-a631843736ef">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;The shaft of the hair is the region found between the root and the tip. The three parts of the hair shaft are the cuticle, cortex, and medulla. The outermost layer of the hair shaft is called the cuticle, a layer of scales covering the outside of the hair shaft. &lt;/p&gt;
+&lt;p&gt;An &lt;em&gt;imbricate culticle&lt;/em&gt; is a scale pattern found in all:&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i4a0090be-71fc-4cbf-bdf9-75de8d3e5603" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ic3c5ad0d-5529-4373-a70d-4e7dfe16725a">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;bats and small rodents. &lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ib336a438-b6e7-4a0d-a9a7-7a375fb0742a">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;human hairs and some animals.&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ie5edfdd5-9bad-4b11-9b0b-4c2695ddee78">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;minks, seals and cats.&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i051ffd14-c102-437a-9ddc-65ae0059b11e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;dogs, foxes and cattle.&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i4a0090be-71fc-4cbf-bdf9-75de8d3e5603">ic3c5ad0d-5529-4373-a70d-4e7dfe16725a</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i4a0090be-71fc-4cbf-bdf9-75de8d3e5603">ib336a438-b6e7-4a0d-a9a7-7a375fb0742a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i4a0090be-71fc-4cbf-bdf9-75de8d3e5603">ie5edfdd5-9bad-4b11-9b0b-4c2695ddee78</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i4a0090be-71fc-4cbf-bdf9-75de8d3e5603">i051ffd14-c102-437a-9ddc-65ae0059b11e</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i16a51ac0-f000-402e-975a-0b8ac8e025c3">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;The most common animal fibre in fabrics is:&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i674b4d0b-7f21-4e62-883c-f8091ffbb787" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i02b3bcef-39b5-43b3-8e66-377405b6b44c">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;cashmere&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="icf9b1e04-124c-4a57-b1b6-d650caf9471e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;wool&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i14794d9e-a7d8-4efd-9a1c-03960db32ed3">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;cotton&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i4ddf1b2e-4ded-40bb-8a8d-8df0e1650ced">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;camel&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i674b4d0b-7f21-4e62-883c-f8091ffbb787">i02b3bcef-39b5-43b3-8e66-377405b6b44c</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i674b4d0b-7f21-4e62-883c-f8091ffbb787">icf9b1e04-124c-4a57-b1b6-d650caf9471e</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i674b4d0b-7f21-4e62-883c-f8091ffbb787">i14794d9e-a7d8-4efd-9a1c-03960db32ed3</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i674b4d0b-7f21-4e62-883c-f8091ffbb787">i4ddf1b2e-4ded-40bb-8a8d-8df0e1650ced</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+    </section>
+  </assessment>
+</questestinterop>

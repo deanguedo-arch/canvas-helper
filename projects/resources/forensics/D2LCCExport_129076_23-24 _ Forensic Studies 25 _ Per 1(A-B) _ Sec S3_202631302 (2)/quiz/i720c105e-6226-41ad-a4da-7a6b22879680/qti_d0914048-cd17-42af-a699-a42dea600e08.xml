@@ -1,0 +1,1267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/profile/cc/ccv1p3/ccv1p3_qtiasiv1p2p1_v1p0.xsd">
+  <assessment ident="i910aa55f-b48b-4e11-b9ec-f30267e25b12" title="M5 Impaired Driving and Alcohol Assessment">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>cc_profile</fieldlabel>
+        <fieldentry>cc.exam.v0p1</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_assessmenttype</fieldlabel>
+        <fieldentry>Examination</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>1</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_timelimit</fieldlabel>
+        <fieldentry>120</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    <section ident="if7041c0c-87d6-4c27-8877-fc69a78e79a7">
+      <item ident="ie32076bf-d3b9-4270-b24f-32c5dcdc8669">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">The accurate chemical name for the alcohol found in alcoholic beverages is</mattext>
+          </material>
+          <response_lid ident="if3859444-573e-4326-9889-7fab27ad384b" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i8ad532b7-d8a7-4a39-9350-9e6e1477b4f4">
+                <material>
+                  <mattext texttype="text/html">methyl alcohol</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ie1eda1d9-b999-4441-8025-71a1eb1d3bb8">
+                <material>
+                  <mattext texttype="text/html">methanol</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ide5cb69a-864f-40a2-a2f3-7a7e1d6cdca4">
+                <material>
+                  <mattext texttype="text/html">isopropanol</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ia8ea0630-ed98-4234-a711-fdbeb5a8062a">
+                <material>
+                  <mattext texttype="text/html">ethanol</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if3859444-573e-4326-9889-7fab27ad384b">i8ad532b7-d8a7-4a39-9350-9e6e1477b4f4</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if3859444-573e-4326-9889-7fab27ad384b">ie1eda1d9-b999-4441-8025-71a1eb1d3bb8</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if3859444-573e-4326-9889-7fab27ad384b">ide5cb69a-864f-40a2-a2f3-7a7e1d6cdca4</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="if3859444-573e-4326-9889-7fab27ad384b">ia8ea0630-ed98-4234-a711-fdbeb5a8062a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="id859b07c-eb83-4506-aeb1-2a7e44511f77">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">Alcohol is created through a process known as</mattext>
+          </material>
+          <response_lid ident="i0a981fb7-8905-439a-9c56-b7bb7331c4dc" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="if2d7a5c8-ebbd-47e4-828a-8cc16042d711">
+                <material>
+                  <mattext texttype="text/html">oxidation</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ic56a259c-2355-4983-81ae-6c4ac42ae38c">
+                <material>
+                  <mattext texttype="text/html">concentration</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i22bf7bc8-1f30-4414-babe-2a3f1c5c67c8">
+                <material>
+                  <mattext texttype="text/html">diffusion</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i16205c7b-5d77-4a58-b0a3-6a7568da5cea">
+                <material>
+                  <mattext texttype="text/html">fermenation</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i0a981fb7-8905-439a-9c56-b7bb7331c4dc">if2d7a5c8-ebbd-47e4-828a-8cc16042d711</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i0a981fb7-8905-439a-9c56-b7bb7331c4dc">ic56a259c-2355-4983-81ae-6c4ac42ae38c</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i0a981fb7-8905-439a-9c56-b7bb7331c4dc">i22bf7bc8-1f30-4414-babe-2a3f1c5c67c8</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i0a981fb7-8905-439a-9c56-b7bb7331c4dc">i16205c7b-5d77-4a58-b0a3-6a7568da5cea</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i06c66b8a-b4d8-4f9a-bfe4-e1fd1688cac0">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">Which type of alcoholic beverage has the highest concentration of alcohol by volume?</mattext>
+          </material>
+          <response_lid ident="i9812d594-e6b3-4741-9177-c7953eb3c809" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ie1341107-1326-4c3f-aa86-1036fea358e4">
+                <material>
+                  <mattext texttype="text/html">Distilled spirits</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i13bb548b-7ff2-4a30-a616-6b6b25580555">
+                <material>
+                  <mattext texttype="text/html">Beer </mattext>
+                </material>
+              </response_label>
+              <response_label ident="i6e1f07e0-b2a8-4404-92b5-938a35078526">
+                <material>
+                  <mattext texttype="text/html">Red wine</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i4e9ef3c6-6cf3-459e-baad-1e84f456dbcf">
+                <material>
+                  <mattext texttype="text/html">Champagne</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i9812d594-e6b3-4741-9177-c7953eb3c809">ie1341107-1326-4c3f-aa86-1036fea358e4</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i9812d594-e6b3-4741-9177-c7953eb3c809">i13bb548b-7ff2-4a30-a616-6b6b25580555</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i9812d594-e6b3-4741-9177-c7953eb3c809">i6e1f07e0-b2a8-4404-92b5-938a35078526</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i9812d594-e6b3-4741-9177-c7953eb3c809">i4e9ef3c6-6cf3-459e-baad-1e84f456dbcf</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="idbcc7967-e9c2-4d28-936e-ee47fed2caf7">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Which area of the brain is the first to be affected noticeably by alcohol that is absorbed into the body?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i9b2a9e59-2570-4c66-b8d1-b063c2244a69" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i02fffe0f-13fb-4568-bfe5-a52434722c33">
+                <material>
+                  <mattext texttype="text/html">Cerebrum</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i4f0f2d0d-6c8f-4d0c-91b5-58843f99eabd">
+                <material>
+                  <mattext texttype="text/html">Cerebellum</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i5a33e3cf-561d-4553-b6f9-32eb359a8c30">
+                <material>
+                  <mattext texttype="text/html">Pituitary gland</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i3268089a-2961-485f-bfd8-5dd2fd8b4390">
+                <material>
+                  <mattext texttype="text/html">Medulla oblongata</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i9b2a9e59-2570-4c66-b8d1-b063c2244a69">i02fffe0f-13fb-4568-bfe5-a52434722c33</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i9b2a9e59-2570-4c66-b8d1-b063c2244a69">i4f0f2d0d-6c8f-4d0c-91b5-58843f99eabd</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i9b2a9e59-2570-4c66-b8d1-b063c2244a69">i5a33e3cf-561d-4553-b6f9-32eb359a8c30</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i9b2a9e59-2570-4c66-b8d1-b063c2244a69">i3268089a-2961-485f-bfd8-5dd2fd8b4390</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i899f61f4-32bc-4c89-9978-a53e00385165">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">People are considered to be legally impaired in Canada if they</mattext>
+          </material>
+          <response_lid ident="i44c61e7e-3e2b-494f-b34a-7e2c602e8542" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i177d433b-1803-4a4d-ad95-ac8b4cd42336">
+                <material>
+                  <mattext texttype="text/html">drink one glass of wine in three hours</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i6a145721-1173-4888-8645-e11dbcb7353f">
+                <material>
+                  <mattext texttype="text/html">	 have more than 80 mg of alcohol per 100 ml of blood </mattext>
+                </material>
+              </response_label>
+              <response_label ident="i49c17228-8f37-42f6-b7a2-e4d86086915e">
+                <material>
+                  <mattext texttype="text/html">have more than 50 mg of alcohol in 100 ml of blood</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i3055055f-a68c-4824-bd9d-89f004ed6ab5">
+                <material>
+                  <mattext texttype="text/html">drink two cans of beer in two hours </mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i44c61e7e-3e2b-494f-b34a-7e2c602e8542">i177d433b-1803-4a4d-ad95-ac8b4cd42336</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i44c61e7e-3e2b-494f-b34a-7e2c602e8542">i6a145721-1173-4888-8645-e11dbcb7353f</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i44c61e7e-3e2b-494f-b34a-7e2c602e8542">i49c17228-8f37-42f6-b7a2-e4d86086915e</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i44c61e7e-3e2b-494f-b34a-7e2c602e8542">i3055055f-a68c-4824-bd9d-89f004ed6ab5</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i9c0590b8-4c5f-48b6-89e2-294a5a554ff8">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">The blood alcohol concentration of a person increases</mattext>
+          </material>
+          <response_lid ident="i52659ba0-d505-4641-8ad3-474241270849" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i1bf14d46-b6a6-47e4-aac6-b0d0998d18a3">
+                <material>
+                  <mattext texttype="text/html">more quickly if something haws been eaten </mattext>
+                </material>
+              </response_label>
+              <response_label ident="ic055b3d2-388c-4f31-bc9b-ad9e9fa88d92">
+                <material>
+                  <mattext texttype="text/html">	 more slowly if some vigorous exercise has been completed</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i38e5abe2-4a35-4c57-8ed5-82f5a372b5dd">
+                <material>
+                  <mattext texttype="text/html">one hour after drinking alcohol</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ib2322baf-fcc3-477e-a954-91551828ca19">
+                <material>
+                  <mattext texttype="text/html">twenty minutes after drinking alcohol </mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i52659ba0-d505-4641-8ad3-474241270849">i1bf14d46-b6a6-47e4-aac6-b0d0998d18a3</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i52659ba0-d505-4641-8ad3-474241270849">ic055b3d2-388c-4f31-bc9b-ad9e9fa88d92</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i52659ba0-d505-4641-8ad3-474241270849">i38e5abe2-4a35-4c57-8ed5-82f5a372b5dd</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i52659ba0-d505-4641-8ad3-474241270849">ib2322baf-fcc3-477e-a954-91551828ca19</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="if6a29098-1197-42c6-8aa9-a63893076110">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;img src="Content\image_questiondb.png" /&gt;&lt;br /&gt;&lt;br /&gt;Which country has a higher BAC legal limit than Canada?&lt;br /&gt;</mattext>
+          </material>
+          <response_lid ident="icb449c48-4595-4302-a7b9-854fe9967090" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ia1743b67-e426-44c9-bafd-7df6cb06ee8e">
+                <material>
+                  <mattext texttype="text/html">Swaziland</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i029dd838-da9f-483a-9c2a-1f3b441071c3">
+                <material>
+                  <mattext texttype="text/html">Albania</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ib71a5c92-99b4-48b1-8d3d-dc53e58a39ed">
+                <material>
+                  <mattext texttype="text/html">China </mattext>
+                </material>
+              </response_label>
+              <response_label ident="icdb523fa-2d86-4a8e-9f01-c861e0022895">
+                <material>
+                  <mattext texttype="text/html">United States</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="icb449c48-4595-4302-a7b9-854fe9967090">ia1743b67-e426-44c9-bafd-7df6cb06ee8e</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="icb449c48-4595-4302-a7b9-854fe9967090">i029dd838-da9f-483a-9c2a-1f3b441071c3</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="icb449c48-4595-4302-a7b9-854fe9967090">ib71a5c92-99b4-48b1-8d3d-dc53e58a39ed</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="icb449c48-4595-4302-a7b9-854fe9967090">icdb523fa-2d86-4a8e-9f01-c861e0022895</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i57e623ec-795f-435b-95bb-160413fe462e">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">How does the concentration of alcohol in blood compare with the concentration of alcohol in the alveoli?</mattext>
+          </material>
+          <response_lid ident="i702737d4-d2b5-4117-98b7-388463014bfe" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ic50599a2-a4b4-4fd8-97a5-e28e2b306087">
+                <material>
+                  <mattext texttype="text/html">	 Alcohol is broken down into acetic acid in the alveoli.</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i2daea7ef-5840-4f4b-9f28-1cb8380e5e13">
+                <material>
+                  <mattext texttype="text/html">The alcohol concentration is 2100 times greater in blood.</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ic9672ca6-a7cd-4974-909c-b6f54b3ca8da">
+                <material>
+                  <mattext texttype="text/html">The alcohol concentration is the same in both. </mattext>
+                </material>
+              </response_label>
+              <response_label ident="i3f7a2c99-8029-4e79-9140-626aa150269d">
+                <material>
+                  <mattext texttype="text/html">Alcohol is converted into sulfuric acid by the liver.</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i702737d4-d2b5-4117-98b7-388463014bfe">ic50599a2-a4b4-4fd8-97a5-e28e2b306087</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i702737d4-d2b5-4117-98b7-388463014bfe">i2daea7ef-5840-4f4b-9f28-1cb8380e5e13</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i702737d4-d2b5-4117-98b7-388463014bfe">ic9672ca6-a7cd-4974-909c-b6f54b3ca8da</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i702737d4-d2b5-4117-98b7-388463014bfe">i3f7a2c99-8029-4e79-9140-626aa150269d</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i22e28f23-cd7e-4c27-9a0e-42a74019ed69">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">The Breathalyzer became more popular with law enforcement agencies than the Drunkometer because it</mattext>
+          </material>
+          <response_lid ident="i189cfd8a-11a1-4908-8875-cf24ec3f35cc" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i0865b67c-5f5b-4097-be9d-cd65d8af7fed">
+                <material>
+                  <mattext texttype="text/html">	 could determine if a person had consumed any drugs</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i6184944e-3c0b-4550-8ed7-b9ec36d2be4c">
+                <material>
+                  <mattext texttype="text/html">could prove what type of alcoholic beverage was consumed</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i008878cf-b0f1-4643-886c-0f002757ab6a">
+                <material>
+                  <mattext texttype="text/html">was less expensive and did not need any repairs</mattext>
+                </material>
+              </response_label>
+              <response_label ident="id768fe10-21d9-4cc3-8c5f-6616b56a2dbe">
+                <material>
+                  <mattext texttype="text/html">was more portable and did not need recalibration every time it was moved</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i189cfd8a-11a1-4908-8875-cf24ec3f35cc">i0865b67c-5f5b-4097-be9d-cd65d8af7fed</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i189cfd8a-11a1-4908-8875-cf24ec3f35cc">i6184944e-3c0b-4550-8ed7-b9ec36d2be4c</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i189cfd8a-11a1-4908-8875-cf24ec3f35cc">i008878cf-b0f1-4643-886c-0f002757ab6a</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i189cfd8a-11a1-4908-8875-cf24ec3f35cc">id768fe10-21d9-4cc3-8c5f-6616b56a2dbe</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i206540d5-b19e-4d94-b280-6b6fd376beb1">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">Which reactant in the test vial of the Breathalyzer is a catalyst?</mattext>
+          </material>
+          <response_lid ident="i1dbc9057-290a-49b3-8be1-40942e54ba9a" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i0f805c35-3188-42c9-813e-a9d6e9695a5e">
+                <material>
+                  <mattext texttype="text/html">Potassium dichromate </mattext>
+                </material>
+              </response_label>
+              <response_label ident="i3fd93d18-9527-4d81-8485-096048b667cb">
+                <material>
+                  <mattext texttype="text/html">Water </mattext>
+                </material>
+              </response_label>
+              <response_label ident="ibcde8acf-5b5b-4305-bdc8-72d82bd0143c">
+                <material>
+                  <mattext texttype="text/html">Silver nitrate</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ie4a777cf-57da-4c4d-b48f-9000b485f002">
+                <material>
+                  <mattext texttype="text/html">Alcohol </mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i1dbc9057-290a-49b3-8be1-40942e54ba9a">i0f805c35-3188-42c9-813e-a9d6e9695a5e</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i1dbc9057-290a-49b3-8be1-40942e54ba9a">i3fd93d18-9527-4d81-8485-096048b667cb</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i1dbc9057-290a-49b3-8be1-40942e54ba9a">ibcde8acf-5b5b-4305-bdc8-72d82bd0143c</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i1dbc9057-290a-49b3-8be1-40942e54ba9a">ie4a777cf-57da-4c4d-b48f-9000b485f002</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i71d89ead-c9c5-4974-9ed5-b2de3b85f04b">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">When alcohol is absorbed into the blood and while it is transported through the blood, it does not</mattext>
+          </material>
+          <response_lid ident="ibca03ed4-95f3-4128-bf51-ff1054861b00" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ib7d928d3-9722-467a-aa50-22a0d784135f">
+                <material>
+                  <mattext texttype="text/html">become absorbed by the liver</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i6b0ec286-1072-4772-a571-07512084b313">
+                <material>
+                  <mattext texttype="text/html">change chemically in any way</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i4da12fba-d534-42f5-8b04-eb0dbbc2aa29">
+                <material>
+                  <mattext texttype="text/html">remain in its original state</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ibdfb409d-d3ae-430c-8d28-153d858b0a61">
+                <material>
+                  <mattext texttype="text/html">contain any hydroxide ions</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ibca03ed4-95f3-4128-bf51-ff1054861b00">ib7d928d3-9722-467a-aa50-22a0d784135f</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ibca03ed4-95f3-4128-bf51-ff1054861b00">i6b0ec286-1072-4772-a571-07512084b313</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ibca03ed4-95f3-4128-bf51-ff1054861b00">i4da12fba-d534-42f5-8b04-eb0dbbc2aa29</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ibca03ed4-95f3-4128-bf51-ff1054861b00">ibdfb409d-d3ae-430c-8d28-153d858b0a61</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i0a04262c-555d-45a2-a2a3-939fe777024f">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">After the solution in a test vial has been exposed to alcohol, it is</mattext>
+          </material>
+          <response_lid ident="i67023d23-1112-45a8-9396-ac47b7348484" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i31edffa3-b9a5-4d76-b602-0a700c31935c">
+                <material>
+                  <mattext texttype="text/html">compared with a solution in a control vial</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i21096299-440e-476b-af2c-8aa3146b275f">
+                <material>
+                  <mattext texttype="text/html">absorbed by silver nitrate</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ifa35f90f-7fe2-40a9-bcd8-769ec248cd09">
+                <material>
+                  <mattext texttype="text/html">converted into sulfuric acid</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i605eb8c6-ea1c-434e-ba51-757029b4bd24">
+                <material>
+                  <mattext texttype="text/html">analyzed under the microscope</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i67023d23-1112-45a8-9396-ac47b7348484">i31edffa3-b9a5-4d76-b602-0a700c31935c</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i67023d23-1112-45a8-9396-ac47b7348484">i21096299-440e-476b-af2c-8aa3146b275f</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i67023d23-1112-45a8-9396-ac47b7348484">ifa35f90f-7fe2-40a9-bcd8-769ec248cd09</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i67023d23-1112-45a8-9396-ac47b7348484">i605eb8c6-ea1c-434e-ba51-757029b4bd24</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ia1e9373a-b80c-4f23-b92e-8b0a9ea38da8">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">The primary colour change that occurs in the solution of a test vial that has been exposed to alcohol is</mattext>
+          </material>
+          <response_lid ident="i746049f8-5779-4e0b-a940-9ad09463e238" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i6f7eee1b-b36f-45cc-876f-10b4a5cd3f8b">
+                <material>
+                  <mattext texttype="text/html">dark green =&gt;  yellowish-green</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i3acf7dd7-7b13-42ca-b5e3-2d8a111a6e22">
+                <material>
+                  <mattext texttype="text/html">dark orange =&gt; light orange</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i1cb69df1-7529-4423-ab17-a9b69c0c674d">
+                <material>
+                  <mattext texttype="text/html">light orange =&gt;  green </mattext>
+                </material>
+              </response_label>
+              <response_label ident="ib00839bb-4737-4d9e-aaee-f45123cfa7a7">
+                <material>
+                  <mattext texttype="text/html">orange =&gt;  clear </mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i746049f8-5779-4e0b-a940-9ad09463e238">i6f7eee1b-b36f-45cc-876f-10b4a5cd3f8b</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i746049f8-5779-4e0b-a940-9ad09463e238">i3acf7dd7-7b13-42ca-b5e3-2d8a111a6e22</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i746049f8-5779-4e0b-a940-9ad09463e238">i1cb69df1-7529-4423-ab17-a9b69c0c674d</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i746049f8-5779-4e0b-a940-9ad09463e238">ib00839bb-4737-4d9e-aaee-f45123cfa7a7</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i0fe0ef85-fd23-400e-ab59-3963cf4ee977">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;The reactants found in the glass test vial before an individual breathes into the Breathalyzer are&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i0520a76d-18e0-4dcb-980a-c51bd1baf20e" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i2a503628-95a7-4406-96d0-42fc41ff37fc">
+                <material>
+                  <mattext texttype="text/html">acetic acid, sulfuric acid, silver nitrate, and water</mattext>
+                </material>
+              </response_label>
+              <response_label ident="id381d885-f5c3-4267-80ee-129b437282a8">
+                <material>
+                  <mattext texttype="text/html">alcohol, potassium dichromate, sulfuric acid, water, and silver nitrate</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i77cea18c-6904-4a00-92a2-44075f30d2ab">
+                <material>
+                  <mattext texttype="text/html">potassium dichromate, sulfuric acid, water, and silver nitrate</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i15082c84-374a-446b-8dc3-1f14653f3046">
+                <material>
+                  <mattext texttype="text/html">chromium sulfate, potassium sulfate, acetic acid, water, and silver nitrate</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i0520a76d-18e0-4dcb-980a-c51bd1baf20e">i2a503628-95a7-4406-96d0-42fc41ff37fc</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i0520a76d-18e0-4dcb-980a-c51bd1baf20e">id381d885-f5c3-4267-80ee-129b437282a8</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i0520a76d-18e0-4dcb-980a-c51bd1baf20e">i77cea18c-6904-4a00-92a2-44075f30d2ab</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i0520a76d-18e0-4dcb-980a-c51bd1baf20e">i15082c84-374a-446b-8dc3-1f14653f3046</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ib28770f8-25de-4a33-ad3c-d6acdc5943fa">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">The type of technology the Intoxilyzer uses to analyze an alcohol breath sample is</mattext>
+          </material>
+          <response_lid ident="i0437f407-1112-4eb4-8a89-570e8c2e5617" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i399becf7-7dba-4454-a5cf-546ea268889e">
+                <material>
+                  <mattext texttype="text/html">chemical analysis </mattext>
+                </material>
+              </response_label>
+              <response_label ident="ibc136aa8-2077-41b4-ae54-9f637aa73f6e">
+                <material>
+                  <mattext texttype="text/html">infrared spectroscopy </mattext>
+                </material>
+              </response_label>
+              <response_label ident="i724b909e-a2ba-4bf7-bcac-a7c77aca4a7a">
+                <material>
+                  <mattext texttype="text/html">electrical impulses </mattext>
+                </material>
+              </response_label>
+              <response_label ident="i50a03a7e-a06a-48d3-8299-9aa3d77c619d">
+                <material>
+                  <mattext texttype="text/html">microscopic examination </mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i0437f407-1112-4eb4-8a89-570e8c2e5617">i399becf7-7dba-4454-a5cf-546ea268889e</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i0437f407-1112-4eb4-8a89-570e8c2e5617">ibc136aa8-2077-41b4-ae54-9f637aa73f6e</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i0437f407-1112-4eb4-8a89-570e8c2e5617">i724b909e-a2ba-4bf7-bcac-a7c77aca4a7a</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i0437f407-1112-4eb4-8a89-570e8c2e5617">i50a03a7e-a06a-48d3-8299-9aa3d77c619d</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i6e11e0d6-a811-40c1-bc84-1f6a5e04e54a">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">The ideal temperature of a breath sample blown into an Intoxilyzer is</mattext>
+          </material>
+          <response_lid ident="i0a003751-1329-4813-a631-d76bc7e459e1" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i97f66bd1-d156-47da-9b05-61512ef471e1">
+                <material>
+                  <mattext texttype="text/html">30 degrees C</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i981c6f44-8cd7-4d5f-9d91-352f7a8771db">
+                <material>
+                  <mattext texttype="text/html">7 degrees C</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i15af429f-d423-4d84-8782-098d74dfb048">
+                <material>
+                  <mattext texttype="text/html">22 degrees C</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i2cf43f5b-f292-47b2-8cec-199bf2a228f8">
+                <material>
+                  <mattext texttype="text/html">34 degrees C</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i0a003751-1329-4813-a631-d76bc7e459e1">i97f66bd1-d156-47da-9b05-61512ef471e1</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i0a003751-1329-4813-a631-d76bc7e459e1">i981c6f44-8cd7-4d5f-9d91-352f7a8771db</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i0a003751-1329-4813-a631-d76bc7e459e1">i15af429f-d423-4d84-8782-098d74dfb048</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i0a003751-1329-4813-a631-d76bc7e459e1">i2cf43f5b-f292-47b2-8cec-199bf2a228f8</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ia89af089-cd7e-45b6-937d-32751e3f3492">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">In the Intoxilyzer, when infrared light absorbed by alcohol passes through the spinning filter wheel to the photocell system, it is converted into</mattext>
+          </material>
+          <response_lid ident="i5a5097ff-ece5-4768-a752-e7da89b59252" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i16025b31-2a1b-4818-8a96-87ea58398342">
+                <material>
+                  <mattext texttype="text/html">an electrical pulse</mattext>
+                </material>
+              </response_label>
+              <response_label ident="icefa8b3d-caa2-4d02-8fdb-37ae6915fd8a">
+                <material>
+                  <mattext texttype="text/html">a solid   </mattext>
+                </material>
+              </response_label>
+              <response_label ident="i4d87da00-fd3a-40bd-a472-b3fe80b6c02e">
+                <material>
+                  <mattext texttype="text/html">a digital calculation</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i48236a72-c0e9-42db-9861-1f8da90ab5f3">
+                <material>
+                  <mattext texttype="text/html">a liquid</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i5a5097ff-ece5-4768-a752-e7da89b59252">i16025b31-2a1b-4818-8a96-87ea58398342</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5a5097ff-ece5-4768-a752-e7da89b59252">icefa8b3d-caa2-4d02-8fdb-37ae6915fd8a</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5a5097ff-ece5-4768-a752-e7da89b59252">i4d87da00-fd3a-40bd-a472-b3fe80b6c02e</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5a5097ff-ece5-4768-a752-e7da89b59252">i48236a72-c0e9-42db-9861-1f8da90ab5f3</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i49377723-dd8b-468e-a6f7-166b3fd35e17">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">Unlike the Breathalyzer, the Intoxilyzer eliminates the need for</mattext>
+          </material>
+          <response_lid ident="i1e164bd5-fa8b-4d5d-982e-005b55600f86" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i0e066593-478f-4d81-8f14-823731aabad2">
+                <material>
+                  <mattext texttype="text/html">large breath sample</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i946c6ffd-d41f-4db8-b999-7a3be98d13ce">
+                <material>
+                  <mattext texttype="text/html">trained breath technician </mattext>
+                </material>
+              </response_label>
+              <response_label ident="ief95a6d8-40c5-4377-9042-857e66735acc">
+                <material>
+                  <mattext texttype="text/html">chemical compounds </mattext>
+                </material>
+              </response_label>
+              <response_label ident="i5246fca4-6110-42c0-9783-ca94cc033780">
+                <material>
+                  <mattext texttype="text/html">electrical energy</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i1e164bd5-fa8b-4d5d-982e-005b55600f86">i0e066593-478f-4d81-8f14-823731aabad2</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i1e164bd5-fa8b-4d5d-982e-005b55600f86">i946c6ffd-d41f-4db8-b999-7a3be98d13ce</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i1e164bd5-fa8b-4d5d-982e-005b55600f86">ief95a6d8-40c5-4377-9042-857e66735acc</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i1e164bd5-fa8b-4d5d-982e-005b55600f86">i5246fca4-6110-42c0-9783-ca94cc033780</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+    </section>
+  </assessment>
+</questestinterop>

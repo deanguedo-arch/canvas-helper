@@ -24,6 +24,17 @@ const App = () => {
 export default App;
 `;
 
+const namedDefaultFunctionSource = `import React from "react";
+
+export default function NamedPreview() {
+  return (
+    <main className="min-h-screen bg-slate-50 text-slate-900">
+      <h1>Named default export</h1>
+    </main>
+  );
+}
+`;
+
 test("importProject preserves React module sources disguised as html files", async () => {
   const slug = `react-module-import-${Date.now()}`;
   const paths = getProjectPaths(slug);
@@ -61,9 +72,39 @@ test("importProject preserves React module sources disguised as html files", asy
     assert.match(workspaceHtml, /src="\.\/main\.jsx"/);
 
     assert.match(workspaceScript, /export default App;/);
-    assert.match(workspaceScript, /import __CanvasHelperReactDomClient from "https:\/\/unpkg\.com\/react-dom@19\.1\.1\/client\?module";/);
+    assert.match(workspaceScript, /import __CanvasHelperReactDomClient from "https:\/\/esm\.sh\/react-dom@19\.1\.1\/client";/);
     assert.match(workspaceScript, /__CanvasHelperReactDomClient\.createRoot/);
     assert.equal(rawSourceText, reactModuleSource);
+  } finally {
+    await removePath(paths.root);
+    await removePath(paths.resourceDir);
+    await removePath(sourceDir);
+  }
+});
+
+test("importProject mounts named default function exports with the correct component name", async () => {
+  const slug = `react-module-default-function-${Date.now()}`;
+  const paths = getProjectPaths(slug);
+  const sourceDir = path.resolve(".runtime", "test-fixtures", slug);
+  const sourcePath = path.join(sourceDir, "FORensics.HTML");
+
+  await removePath(paths.root);
+  await removePath(paths.resourceDir);
+  await removePath(sourceDir);
+  await ensureDir(sourceDir);
+  await writeFile(sourcePath, namedDefaultFunctionSource, "utf8");
+
+  try {
+    await importProject({
+      inputPath: sourcePath,
+      slug,
+      force: true
+    });
+
+    const workspaceScript = await readFile(path.join(paths.workspaceDir, "main.jsx"), "utf8");
+    assert.match(workspaceScript, /export default function NamedPreview\(\)/);
+    assert.match(workspaceScript, /createRoot\(__canvasHelperRootElement\)\.render\(<NamedPreview \/>/);
+    assert.doesNotMatch(workspaceScript, /render\(<function \/>/);
   } finally {
     await removePath(paths.root);
     await removePath(paths.resourceDir);

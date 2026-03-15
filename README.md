@@ -24,6 +24,7 @@ Repo-level authoring enforcement defaults live in `config/authoring-preferences.
 - `npm.cmd run incoming:refresh`
 - `npm.cmd run analyze -- --project <slug>`
 - `npm.cmd run refs -- --project <slug>`
+- `npm.cmd run d2l-map -- --project <slug>`
 - `npm.cmd run convert:hss1010 -- --project hss1010`
 - `npm.cmd run sync:course-images -- --project <slug>`
 - `npm.cmd run blueprint -- --project <slug>`
@@ -58,6 +59,14 @@ Repo-level authoring enforcement defaults live in `config/authoring-preferences.
 9. Run `blueprint`, `assessment-map`, and `lesson-packets` to build outline-first planning artifacts before generation-heavy work
 10. Run export commands as needed
 11. Capture a handoff before stopping
+
+### D2L / Common Cartridge Mapping
+
+- `d2l-map` scans `projects/resources/<slug>/` for `imsmanifest.xml`
+- It writes:
+  - `projects/<slug>/meta/d2l-course-map.json`
+  - `projects/<slug>/meta/d2l-course-map.md`
+- Prompt-pack generation includes a D2L course-map summary when this artifact exists
 
 ### SCORM Export Notes
 

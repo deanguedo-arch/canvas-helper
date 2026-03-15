@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>chatgptcanvascreationexample.html</title>
+    <link rel="icon" href="data:," />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Surface runtime errors in-page so preview never fails silently.
+      (function installPreviewErrorOverlay() {
+        function showError(kind, value) {
+          const text = value instanceof Error ? (value.stack || value.message) : String(value);
+          const existing = document.getElementById("__canvas-helper-preview-error");
+          if (existing) {
+            existing.textContent = text;
+            return;
+          }
+
+          const panel = document.createElement("pre");
+          panel.id = "__canvas-helper-preview-error";
+          panel.style.position = "fixed";
+          panel.style.inset = "1rem";
+          panel.style.zIndex = "99999";
+          panel.style.overflow = "auto";
+          panel.style.margin = "0";
+          panel.style.padding = "1rem";
+          panel.style.border = "2px solid #ef4444";
+          panel.style.borderRadius = "12px";
+          panel.style.background = "rgba(17, 24, 39, 0.98)";
+          panel.style.color = "#fecaca";
+          panel.style.font = "12px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+          panel.textContent = kind + "\n\n" + text;
+          document.body.appendChild(panel);
+        }
+
+        window.addEventListener("error", function onError(event) {
+          showError("Preview runtime error", event.error || event.message);
+        });
+        window.addEventListener("unhandledrejection", function onRejection(event) {
+          showError("Preview promise rejection", event.reason);
+        });
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

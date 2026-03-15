@@ -1,0 +1,371 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/profile/cc/ccv1p3/ccv1p3_qtiasiv1p2p1_v1p0.xsd">
+  <assessment ident="i2f2c0108-31bd-46e6-ad39-a6b3265dee5f" title="M1 Introduction to Crime Scenes Quiz">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>cc_profile</fieldlabel>
+        <fieldentry>cc.exam.v0p1</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_assessmenttype</fieldlabel>
+        <fieldentry>Examination</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>1</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_timelimit</fieldlabel>
+        <fieldentry>120</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    <section ident="ia7e88aab-2d91-468f-be47-1fe4c7b82e59">
+      <item ident="icf267028-5a16-4f1f-a1d5-4433af5b748b">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;The reason it is important to seperate the witnesses at the crime scene is to:&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="iac83fe24-b4a0-4d76-83fa-54282edc23ec" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i611ca6d3-7585-420e-84a7-efe46761c47a">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Prevent contamination of the evidence&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i29fba478-0472-4c8f-a37f-faefe086308c">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Prevent fighting among the witnesses&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ic3f1455e-dc36-47d8-a43f-c7964be40929">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Prevent the witnesses from talking to each other&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="if7f753ca-ab63-447a-a112-51ba1f6d8644">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Prevent them from seeing the perpetrator&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="iac83fe24-b4a0-4d76-83fa-54282edc23ec">i611ca6d3-7585-420e-84a7-efe46761c47a</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="iac83fe24-b4a0-4d76-83fa-54282edc23ec">i29fba478-0472-4c8f-a37f-faefe086308c</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="iac83fe24-b4a0-4d76-83fa-54282edc23ec">ic3f1455e-dc36-47d8-a43f-c7964be40929</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="iac83fe24-b4a0-4d76-83fa-54282edc23ec">if7f753ca-ab63-447a-a112-51ba1f6d8644</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i33bbae6b-7da2-4023-bd1e-3e95bbdce503">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Locard's exchange principle implies all of the following &lt;strong&gt;excep&lt;/strong&gt;t:&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i60b565c1-f234-46ee-9070-218a9c447234" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i9a87d2c3-833c-4177-890f-f2490259b94b">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Fibers can be transferred from one person to another&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i796e0bd2-14f3-438e-adc3-8129eec8bd71">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Blood spatter can be used to identify blood type&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i984175cf-dbb1-418d-8776-ba91dba623e8">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Cat hair can be transferred to your pants&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i83e895a8-3788-4000-8a48-a7ec9a3e315b">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Soil samples can be carried from the yard into your home&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i60b565c1-f234-46ee-9070-218a9c447234">i9a87d2c3-833c-4177-890f-f2490259b94b</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i60b565c1-f234-46ee-9070-218a9c447234">i796e0bd2-14f3-438e-adc3-8129eec8bd71</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i60b565c1-f234-46ee-9070-218a9c447234">i984175cf-dbb1-418d-8776-ba91dba623e8</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i60b565c1-f234-46ee-9070-218a9c447234">i83e895a8-3788-4000-8a48-a7ec9a3e315b</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i586089ee-f5be-4838-a8d8-ed95749336e7">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;strong&gt;Identify the error in the following scenerio:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;At the scene of the crime, the evidence collector found a damp, bloody shirt. The evidence collector quickly wrapped the shirt in a paper bindle. He inserted the paper bindle with the shirt into an evidence bag. The bag was sealed with tape, and the collector wrote his name across the tape. The evidence collection log was completed and taped to the evidence bag. &lt;/em&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="id84a8901-b2cc-47b7-a93c-e972802c8e04" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i2420a8b4-ee58-4668-b19c-8b773976a085">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;The evidence collector did not store the bloody shirt in a breathable container.&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ib39fd1f3-ada0-4229-becf-5665df1b32ec">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;The evidence collection log should not have been filled out until the evidence had been to the lab.&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ic672e4e4-38e6-4fea-b147-f923c1eecea0">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;The evidence bag should not have been sealed until the district attorney had acquired a search warrant.&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i10d4dcbd-bdb4-4b5d-aa33-7ae522e49bf4">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;There should not be any name written on the tape until after the hearing in court.&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="id84a8901-b2cc-47b7-a93c-e972802c8e04">i2420a8b4-ee58-4668-b19c-8b773976a085</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="id84a8901-b2cc-47b7-a93c-e972802c8e04">ib39fd1f3-ada0-4229-becf-5665df1b32ec</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="id84a8901-b2cc-47b7-a93c-e972802c8e04">ic672e4e4-38e6-4fea-b147-f923c1eecea0</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="id84a8901-b2cc-47b7-a93c-e972802c8e04">i10d4dcbd-bdb4-4b5d-aa33-7ae522e49bf4</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ie402c8e7-ef46-456c-9700-aef925ec6cf1">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;After walking through the crime scene and identifying evidence, the crime-scene investigators document the scene by: &lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i4302a74b-cc06-48a6-a01b-8fe76dd5d4d5" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i990c2714-3730-45da-8bd7-3b256104a4e2">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Taking photographs &lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i3b95e978-56bf-4d97-ac14-f33a09bd8adb">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Talking to all of the witnesses&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i6e0112c8-5fe6-41dd-bc15-bc3d95b3c7f9">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Securing the collected evidence&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i808aa6fa-eaff-494a-8a68-e784076f4f76">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Performing a grid search of the scene&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i4302a74b-cc06-48a6-a01b-8fe76dd5d4d5">i990c2714-3730-45da-8bd7-3b256104a4e2</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i4302a74b-cc06-48a6-a01b-8fe76dd5d4d5">i3b95e978-56bf-4d97-ac14-f33a09bd8adb</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i4302a74b-cc06-48a6-a01b-8fe76dd5d4d5">i6e0112c8-5fe6-41dd-bc15-bc3d95b3c7f9</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i4302a74b-cc06-48a6-a01b-8fe76dd5d4d5">i808aa6fa-eaff-494a-8a68-e784076f4f76</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i3d980902-130b-4617-a9dd-95765b16cea4">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Evidence must be properly handled, collected and labeled so that the _________________ is maintained. &lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i6663efd7-0774-4859-b9e2-7e6f6120834f" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i0bc58355-d35c-4942-b09a-8965a917a089">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Chain of Custody&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i1e39f679-a465-4da0-83dc-5e6a243b17eb">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Search Warrant&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i792028e7-371f-4018-8774-975d96336134">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Trace Evidence&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i15e7bb79-bfc1-4ba5-bd2b-ff522491329f">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Crime Scene &lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i6663efd7-0774-4859-b9e2-7e6f6120834f">i0bc58355-d35c-4942-b09a-8965a917a089</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i6663efd7-0774-4859-b9e2-7e6f6120834f">i1e39f679-a465-4da0-83dc-5e6a243b17eb</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i6663efd7-0774-4859-b9e2-7e6f6120834f">i792028e7-371f-4018-8774-975d96336134</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i6663efd7-0774-4859-b9e2-7e6f6120834f">i15e7bb79-bfc1-4ba5-bd2b-ff522491329f</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+    </section>
+  </assessment>
+</questestinterop>

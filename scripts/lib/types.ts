@@ -32,6 +32,7 @@ export type ResourceAuthorityRole =
   | "supporting-only"
   | "fallback-only";
 export type ReferenceLocatorKind = "page" | "section";
+export type D2LNodeKind = "module" | "folder" | "lesson" | "assignment" | "quiz" | "pdf" | "html" | "resource";
 
 export type ReferenceChunkLocator = {
   kind: ReferenceLocatorKind;
@@ -280,6 +281,42 @@ export type LessonPacketIndex = {
   warnings: string[];
 };
 
+export type D2LCourseMapResource = {
+  identifierRef: string;
+  hrefs: string[];
+};
+
+export type D2LCourseMapNode = {
+  id: string;
+  title: string;
+  kind: D2LNodeKind;
+  depth: number;
+  identifierRef?: string;
+  resource?: D2LCourseMapResource;
+  children: D2LCourseMapNode[];
+};
+
+export type D2LCourseMapSummary = {
+  moduleCount: number;
+  itemCount: number;
+  lessonCount: number;
+  assignmentCount: number;
+  quizCount: number;
+  pdfCount: number;
+  htmlCount: number;
+};
+
+export type D2LCourseMap = {
+  schemaVersion: 1;
+  projectId: string;
+  projectSlug: string;
+  generatedAt: string;
+  manifestPath: string;
+  courseTitle: string;
+  summary: D2LCourseMapSummary;
+  modules: D2LCourseMapNode[];
+};
+
 export type ImportLog = {
   generatedAt: string;
   sourcePath: string;
@@ -430,6 +467,8 @@ export type ProjectPaths = {
   assessmentMapPath: string;
   lessonPacketsDir: string;
   lessonPacketsIndexPath: string;
+  d2lCourseMapPath: string;
+  d2lCourseMapMarkdownPath: string;
   benchmarkSelectionPath: string;
   importLogPath: string;
   sessionLogPath: string;

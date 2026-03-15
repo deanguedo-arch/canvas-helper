@@ -1,0 +1,2598 @@
+const d2lCourseMapData = {
+  "exportRoot": "D2LCCExport_129076_23-24 _ Forensic Studies 25 _ Per 1(A-B) _ Sec S3_202631302 (2)",
+  "courseTitle": "23-24 | Forensic Studies 25 | Per 1(A-B) | Sec S3",
+  "summary": {
+    "moduleCount": 12,
+    "itemCount": 194,
+    "lessonCount": 3,
+    "assignmentCount": 12,
+    "quizCount": 9,
+    "pdfCount": 4,
+    "htmlCount": 147
+  },
+  "modules": [
+    {
+      "id": "ib7ee5bf4-9b7d-4317-aef9-941056c1a919",
+      "title": "Course Information",
+      "kind": "module",
+      "depth": 0,
+      "children": [
+        {
+          "id": "i4031cb8c-ff6d-4d7c-94af-dad177b0bfcd",
+          "title": "Disclaimer (Please Read)",
+          "kind": "html",
+          "depth": 1,
+          "identifierRef": "i38bb199b-4241-4c0b-926c-a4b722720f94_R",
+          "resource": {
+            "identifierRef": "i38bb199b-4241-4c0b-926c-a4b722720f94_R",
+            "hrefs": [
+              "сontent/ib526d33e-efed-4365-93ee-351aec4b56ab/Content/label_3489.html"
+            ]
+          },
+          "children": []
+        },
+        {
+          "id": "i15cf36f7-0c7f-406e-9759-050b45de7d0d",
+          "title": "Course outline (MUST READ)",
+          "kind": "pdf",
+          "depth": 1,
+          "identifierRef": "ic32e45ce-ad53-44d9-aa2f-6b98fb94a3b8_R",
+          "resource": {
+            "identifierRef": "ic32e45ce-ad53-44d9-aa2f-6b98fb94a3b8_R",
+            "hrefs": [
+              "сontent/idd074817-3b63-4e7f-b095-637a00ea461e/FS25 outline (summer school).pdf"
+            ]
+          },
+          "children": []
+        },
+        {
+          "id": "i5a614480-0679-43e6-aaeb-edf3fe3c8ed5",
+          "title": "How to Be Successful in an Independent Study Course (1)",
+          "kind": "pdf",
+          "depth": 1,
+          "identifierRef": "i6518e920-07ec-4fb7-b6f7-91566dac9383_R",
+          "resource": {
+            "identifierRef": "i6518e920-07ec-4fb7-b6f7-91566dac9383_R",
+            "hrefs": [
+              "сontent/i3838d916-02d0-4c57-bfa7-2032c66a71c4/How to Be Successful in an Independent Study Course (1).pdf"
+            ]
+          },
+          "children": []
+        },
+        {
+          "id": "ieb61da0b-5827-4907-a7d3-a7799094eaf2",
+          "title": "How to Properly Cite Sources",
+          "kind": "html",
+          "depth": 1,
+          "identifierRef": "ic655ee15-2fb7-4c53-ae86-38e8cac66c84_R",
+          "resource": {
+            "identifierRef": "ic655ee15-2fb7-4c53-ae86-38e8cac66c84_R",
+            "hrefs": [
+              "сontent/i0d0b4605-e0e8-481c-84d0-9813d78b146d/How to Properly Cite Sources.html"
+            ]
+          },
+          "children": []
+        },
+        {
+          "id": "i15f84f1f-5d31-415d-8d74-6c737bfff702",
+          "title": "Enabling Brightspace Notifications",
+          "kind": "pdf",
+          "depth": 1,
+          "identifierRef": "ia9180c55-d251-4f65-aab7-03101ce4a73f_R",
+          "resource": {
+            "identifierRef": "ia9180c55-d251-4f65-aab7-03101ce4a73f_R",
+            "hrefs": [
+              "сontent/ib7a62d52-13b2-4e83-b033-ce43a865602c/Enabling Brightspace Notifications (3).pdf"
+            ]
+          },
+          "children": []
+        },
+        {
+          "id": "iabcbb368-5629-4c2a-9bac-d4e514e2d2c4",
+          "title": "Assignment Submission",
+          "kind": "html",
+          "depth": 1,
+          "identifierRef": "i4c0326d7-addb-4891-af08-1c23b6494da5_R",
+          "resource": {
+            "identifierRef": "i4c0326d7-addb-4891-af08-1c23b6494da5_R",
+            "hrefs": [
+              "сontent/i1b9d5df3-0b57-4109-9a00-d3f42192d5e2/Assignment Submission.html"
+            ]
+          },
+          "children": []
+        },
+        {
+          "id": "i374cef97-56e7-48ab-a1b1-87788cb09763",
+          "title": "Course Outline (Please Read)",
+          "kind": "lesson",
+          "depth": 1,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "i5bef5e19-bdd8-4b3a-a194-f04e803f08a0",
+      "title": "1 Introduction to Crime Scenes",
+      "kind": "module",
+      "depth": 0,
+      "children": [
+        {
+          "id": "ie691ad24-9085-4ef2-8b5b-3309cd26ae7d",
+          "title": "Introduction to Crime Scenes Assignment",
+          "kind": "assignment",
+          "depth": 1,
+          "identifierRef": "ic5a980cb-8064-4ad8-a24d-1a9a87d051ba_R",
+          "resource": {
+            "identifierRef": "ic5a980cb-8064-4ad8-a24d-1a9a87d051ba_R",
+            "hrefs": [
+              "assignment/i85281f98-0aa9-4147-93a9-d14de5638519/assignment_b6a8e263-9662-47af-aa54-308b48f20040.xml"
+            ]
+          },
+          "children": []
+        },
+        {
+          "id": "i577559fe-804d-4b3a-bb3d-a68a5e436048",
+          "title": "M1 Introduction to Crime Scenes Quiz",
+          "kind": "quiz",
+          "depth": 1,
+          "identifierRef": "i689833ea-a32c-4f20-b6f7-c4d4cf3c3b8a_R",
+          "resource": {
+            "identifierRef": "i689833ea-a32c-4f20-b6f7-c4d4cf3c3b8a_R",
+            "hrefs": [
+              "quiz/ia861a9ae-dc07-4f6b-99b0-024595a223ae/qti_b450f83a-7ca7-4007-af5b-164602338fea.xml"
+            ]
+          },
+          "children": []
+        },
+        {
+          "id": "i7a192f83-d7fe-4dc0-bae3-698e7b672649",
+          "title": "Introduction to Crime Scenes",
+          "kind": "folder",
+          "depth": 1,
+          "children": [
+            {
+              "id": "if635b481-6c84-438c-86c3-4ea7508fccef",
+              "title": "An Introduction to the Crime Scene",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i98877856-7f61-4ee3-a5d4-7dccaae09c9c_R",
+              "resource": {
+                "identifierRef": "i98877856-7f61-4ee3-a5d4-7dccaae09c9c_R",
+                "hrefs": [
+                  "сontent/ib4f8e92c-f47c-458f-92db-bcfce642e0ac/Content/book_1408/chapter_11885.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i28e73c00-c21b-48af-9437-29460e0aff5f",
+              "title": "Real Life CSI - Crime Scene Cleaners",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i75752d61-5d26-4c0c-a791-1792d082a17d_R",
+              "resource": {
+                "identifierRef": "i75752d61-5d26-4c0c-a791-1792d082a17d_R",
+                "hrefs": [
+                  "сontent/i145c4276-895a-4176-b79e-d1ff5e43abab/Content/book_1408/chapter_11883.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i43da7f8f-b64f-4b0f-8cf1-67ce20e0d307",
+              "title": "16x9 - Behind the Yellow Line: Real CSI Documentary",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "idac80810-54cd-4e71-bd5f-1d7e01b03e69_R",
+              "resource": {
+                "identifierRef": "idac80810-54cd-4e71-bd5f-1d7e01b03e69_R",
+                "hrefs": [
+                  "сontent/i78f7ffe3-b9d9-4c70-b311-76b6ce197989/Content/book_1408/chapter_11884.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i7de2e2bd-1ab4-47eb-a512-0380408d555f",
+              "title": "Processing the Crime Scene",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "id4dbc1cd-1c1f-4990-8a1f-7cc75c011175_R",
+              "resource": {
+                "identifierRef": "id4dbc1cd-1c1f-4990-8a1f-7cc75c011175_R",
+                "hrefs": [
+                  "сontent/i21c03e04-97e1-45c3-958f-505b4cb31daf/Content/book_1408/chapter_11886.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i0801837c-bd67-4bfa-af9d-c115d15ffa79",
+              "title": "Police Officers",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "ie3965912-004b-4d81-9ffd-6b7609c9795f_R",
+              "resource": {
+                "identifierRef": "ie3965912-004b-4d81-9ffd-6b7609c9795f_R",
+                "hrefs": [
+                  "сontent/ic8944dad-2388-45f0-a664-0df82c726799/Content/book_1408/chapter_11887.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i8705d170-c99b-47d4-8ac6-b2e67ffe983b",
+              "title": "CSI",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i47c646f6-2bff-4fbd-be79-c4a1af2aba54_R",
+              "resource": {
+                "identifierRef": "i47c646f6-2bff-4fbd-be79-c4a1af2aba54_R",
+                "hrefs": [
+                  "сontent/ibf0b130b-7eab-4e5e-ae32-62ee711d10cc/Content/book_1408/chapter_11888.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i4b166187-370a-45bc-9d01-59dff699d2b4",
+              "title": "District Attorney",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "ic5cb2d87-7657-40e6-8cda-8e06e4bd73d5_R",
+              "resource": {
+                "identifierRef": "ic5cb2d87-7657-40e6-8cda-8e06e4bd73d5_R",
+                "hrefs": [
+                  "сontent/i8aaaf903-004c-45c5-ba4f-1c91252f4db2/Content/book_1408/chapter_11889.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i0b08118c-951d-48c4-801c-3c1706e5e8a4",
+              "title": "Medical Examiner",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i548e6c0b-1e65-481b-a063-c304f5fc74b8_R",
+              "resource": {
+                "identifierRef": "i548e6c0b-1e65-481b-a063-c304f5fc74b8_R",
+                "hrefs": [
+                  "сontent/i1dd32948-6d00-43ba-947d-c27925c5cc42/Content/book_1408/chapter_11890.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "ib2cdc574-a087-47f6-b1a9-19784ed07404",
+              "title": "Specialists",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "idd1789cb-66a9-4cfd-acb3-a40e24fa9383_R",
+              "resource": {
+                "identifierRef": "idd1789cb-66a9-4cfd-acb3-a40e24fa9383_R",
+                "hrefs": [
+                  "сontent/i723a2fd3-09bd-40ec-af8a-7e3670629895/Content/book_1408/chapter_11891.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i088ed9d1-2761-4243-a167-992f8b076581",
+              "title": "The Seven S's Of Crime Scene Investigation",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "iec754e54-58db-4556-aa49-598dcbfa2afb_R",
+              "resource": {
+                "identifierRef": "iec754e54-58db-4556-aa49-598dcbfa2afb_R",
+                "hrefs": [
+                  "сontent/i7c8b5b16-2ade-4e08-b175-fae7381f6a99/Content/book_1408/chapter_11892.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "id31b1a83-13b0-4eb6-a71c-582921e6f2a0",
+              "title": "Securing",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i0827201a-5918-4e34-9cba-07d3027507d2_R",
+              "resource": {
+                "identifierRef": "i0827201a-5918-4e34-9cba-07d3027507d2_R",
+                "hrefs": [
+                  "сontent/iebd03ccd-7d17-4c19-b2cf-d0fc179923f1/Content/book_1408/chapter_11893.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i444613c4-96a7-4f69-80c2-5844a6268701",
+              "title": "Separating",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i3df8bf70-3e80-4781-a778-6cc537f00def_R",
+              "resource": {
+                "identifierRef": "i3df8bf70-3e80-4781-a778-6cc537f00def_R",
+                "hrefs": [
+                  "сontent/iad4dd2d3-6578-41b4-a79e-eca9af51e72d/Content/book_1408/chapter_11894.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i469d0eb5-df5f-41a6-a43a-6b5b3afc6e53",
+              "title": "Scanning",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "ifce8a3b5-2059-43e1-819b-16874f371cf1_R",
+              "resource": {
+                "identifierRef": "ifce8a3b5-2059-43e1-819b-16874f371cf1_R",
+                "hrefs": [
+                  "сontent/i5f78a9ae-c5f4-462c-8d7b-2aaab7b14ece/Content/book_1408/chapter_11895.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i1edd54e0-b197-45a1-924b-03ea06bfc230",
+              "title": "Seeing",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "ib2e483d9-9893-4734-885d-02fb7734d6c1_R",
+              "resource": {
+                "identifierRef": "ib2e483d9-9893-4734-885d-02fb7734d6c1_R",
+                "hrefs": [
+                  "сontent/i04eaaf96-15f3-4d22-8c72-1f8893c40a00/Content/book_1408/chapter_11896.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i8e4417e1-d832-4b81-963c-f99a5fed5af8",
+              "title": "Sketching",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "if71156f1-f90f-49e8-9648-c4157eac00a5_R",
+              "resource": {
+                "identifierRef": "if71156f1-f90f-49e8-9648-c4157eac00a5_R",
+                "hrefs": [
+                  "сontent/i27904728-efdb-495c-b96e-e3217f61e36b/Content/book_1408/chapter_11897.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "if4d6203a-9bb3-4e8b-ad73-8bacf38b2d8f",
+              "title": "Sample Sketch",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "if170f16c-d926-4fde-8971-bc80c032804a_R",
+              "resource": {
+                "identifierRef": "if170f16c-d926-4fde-8971-bc80c032804a_R",
+                "hrefs": [
+                  "сontent/i6a54d984-7139-4715-8bfc-64907cac2062/Content/book_1408/chapter_11898.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i73308cba-b0ed-428b-9122-1669046027ca",
+              "title": "Searching",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i4576a0f6-fd9d-434d-9ede-28a14226767c_R",
+              "resource": {
+                "identifierRef": "i4576a0f6-fd9d-434d-9ede-28a14226767c_R",
+                "hrefs": [
+                  "сontent/ife0cae32-5e92-4d0a-8430-e84d30b74a9b/Content/book_1408/chapter_11899.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i5017bb69-db41-48b1-9f36-b5f3c309c12f",
+              "title": "Search Patterns",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "ie7117700-083a-4597-a052-f3397cec9c6b_R",
+              "resource": {
+                "identifierRef": "ie7117700-083a-4597-a052-f3397cec9c6b_R",
+                "hrefs": [
+                  "сontent/i21b757e3-5303-4251-9ff3-90b3781291f0/Content/book_1408/chapter_11900.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i73a9f57d-db7d-42ff-8017-d1078d0b3f73",
+              "title": "Securing and Collecting Evidence",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i87ec3a3d-311f-462b-a28c-1fc755c8c9f4_R",
+              "resource": {
+                "identifierRef": "i87ec3a3d-311f-462b-a28c-1fc755c8c9f4_R",
+                "hrefs": [
+                  "сontent/id1e21dce-1088-42b4-b312-58e35f9f7093/Content/book_1408/chapter_11901.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i35ef7b92-372b-4702-a0b5-0c3f5001a22d",
+              "title": "Paper Bindle",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "idbb9c2fc-9a35-440a-9530-f3158fa3577e_R",
+              "resource": {
+                "identifierRef": "idbb9c2fc-9a35-440a-9530-f3158fa3577e_R",
+                "hrefs": [
+                  "сontent/i81a11c1b-42d8-4fc3-ad60-8b9e1f9ca83c/Content/book_1408/chapter_11902.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i7dfddcda-d76d-4d9e-ba05-75dd8cb1c169",
+              "title": "Chain of Custody",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "idcf2cd48-edb8-47e1-821a-3a49d92100da_R",
+              "resource": {
+                "identifierRef": "idcf2cd48-edb8-47e1-821a-3a49d92100da_R",
+                "hrefs": [
+                  "сontent/ica867618-581c-46c7-be97-e1a5c991ab16/Content/book_1408/chapter_11903.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i56942e9b-1237-4c64-9e7a-751cb8e4a30c",
+              "title": "Crime Scene Safety",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "ic59c7133-477b-42f1-82fb-5270f2e48ba8_R",
+              "resource": {
+                "identifierRef": "ic59c7133-477b-42f1-82fb-5270f2e48ba8_R",
+                "hrefs": [
+                  "сontent/i17370884-5a56-416d-91ab-8541069a5e81/Content/book_1408/chapter_12201.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i43d92514-0888-49b8-b553-44ebaa05d320",
+              "title": "Unit Assessments",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i3fcc2f7f-746e-452b-856d-d9170bfe0dfa_R",
+              "resource": {
+                "identifierRef": "i3fcc2f7f-746e-452b-856d-d9170bfe0dfa_R",
+                "hrefs": [
+                  "сontent/id39fc4c9-5340-4b3b-a8de-25fddcdab307/Content/book_1408/chapter_12262.html"
+                ]
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "i7f42688c-2c36-4fef-a4ee-92c49843d548",
+      "title": "2 Types of Evidence and Fingerprint Analysis",
+      "kind": "module",
+      "depth": 0,
+      "children": [
+        {
+          "id": "i0692fe9d-7a5b-4d0b-b651-bdaca5cccc42",
+          "title": "Types of Evidence and Fingerprint Analysis Assignment",
+          "kind": "assignment",
+          "depth": 1,
+          "identifierRef": "i471fcd5a-ad4c-40db-b2c4-d7ec0bccebfa_R",
+          "resource": {
+            "identifierRef": "i471fcd5a-ad4c-40db-b2c4-d7ec0bccebfa_R",
+            "hrefs": [
+              "assignment/i0073cf68-ef89-4190-b368-d429ee0816f0/assignment_80f86dff-581e-4e9f-abe9-d5407d926f3f.xml"
+            ]
+          },
+          "children": []
+        },
+        {
+          "id": "i01cf0e72-5d16-4908-84ba-6790a0b5a19e",
+          "title": "Fingerprint Case Studies Assignment",
+          "kind": "assignment",
+          "depth": 1,
+          "identifierRef": "i84d48ef1-1ee0-495c-aeaa-df311123a7e3_R",
+          "resource": {
+            "identifierRef": "i84d48ef1-1ee0-495c-aeaa-df311123a7e3_R",
+            "hrefs": [
+              "assignment/i20dfab48-a342-491f-8077-34397a216ad6/assignment_5c66b2fe-5be0-4060-a68e-a6ca11dd1ffb.xml"
+            ]
+          },
+          "children": []
+        },
+        {
+          "id": "ic7df97dd-4c5c-4963-b961-250a0a2b4bda",
+          "title": "M2 Types of Evidence and Fingerprint Analysis Assessment",
+          "kind": "quiz",
+          "depth": 1,
+          "identifierRef": "i176fee22-2598-4845-9c48-9e2765af3e15_R",
+          "resource": {
+            "identifierRef": "i176fee22-2598-4845-9c48-9e2765af3e15_R",
+            "hrefs": [
+              "quiz/i0649d126-890d-4d3e-b83f-c563065521db/qti_c38fc56d-87c6-481d-958a-c13ba81b9304.xml"
+            ]
+          },
+          "children": []
+        },
+        {
+          "id": "ia2efde08-69f4-498c-b6ed-fe7d89264bd3",
+          "title": "Types of Evidence and Fingerprint Analysis",
+          "kind": "folder",
+          "depth": 1,
+          "children": [
+            {
+              "id": "i3f489113-2c72-43ca-a716-1567961c928f",
+              "title": "Types of Evidence and Fingerprint Analysis",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i2814bd16-f341-4468-8c86-7a1661fbda17_R",
+              "resource": {
+                "identifierRef": "i2814bd16-f341-4468-8c86-7a1661fbda17_R",
+                "hrefs": [
+                  "сontent/i2fbe29e6-e968-4c68-8cd5-dde0abd398b1/Content/book_1412/chapter_11952.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "iefe2acfb-b9bc-4f52-938c-017c14008e9b",
+              "title": "Evidence Types",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i7bb29dee-babd-4866-82e2-ba9d2b009bcc_R",
+              "resource": {
+                "identifierRef": "i7bb29dee-babd-4866-82e2-ba9d2b009bcc_R",
+                "hrefs": [
+                  "сontent/i01a08fc7-ba72-40e7-83cd-07fe01d50d49/Content/book_1412/chapter_11953.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "ie3ea3edf-3164-45fb-becf-6e9246104bce",
+              "title": "Value of Evidence",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "id9fcc2df-5471-4248-8e0a-409a4c8971f9_R",
+              "resource": {
+                "identifierRef": "id9fcc2df-5471-4248-8e0a-409a4c8971f9_R",
+                "hrefs": [
+                  "сontent/i7024e9f0-219f-4bb5-9972-3b3b58365841/Content/book_1412/chapter_11954.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i7dba649c-68b2-488b-bb6e-d058382c4763",
+              "title": "Evidence Types Case Study",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "idb335369-56f2-4ec3-904a-38faee17f7cf_R",
+              "resource": {
+                "identifierRef": "idb335369-56f2-4ec3-904a-38faee17f7cf_R",
+                "hrefs": [
+                  "сontent/i57b023f1-0b7e-4404-9d89-c9ef9914a6ac/Content/book_1412/chapter_11955.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "ibb5a600f-9796-48f5-82ca-1ac1b4064289",
+              "title": "Brief History of Fingerprinting",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i9b321a90-dc82-47c7-a7b7-7cd2621e7fb4_R",
+              "resource": {
+                "identifierRef": "i9b321a90-dc82-47c7-a7b7-7cd2621e7fb4_R",
+                "hrefs": [
+                  "сontent/ided21828-5e62-49a3-aae1-6cf000ed83f6/Content/book_1412/chapter_11957.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i3da31399-83fb-46ec-8111-0f8101649c16",
+              "title": "Fingerprint Analysis",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "iabe762d4-8a2a-49d9-b390-12417df7c6f4_R",
+              "resource": {
+                "identifierRef": "iabe762d4-8a2a-49d9-b390-12417df7c6f4_R",
+                "hrefs": [
+                  "сontent/i2e500d83-0ea4-4c77-b639-f6acc6f291bd/Content/book_1412/chapter_11978.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "ie8ceb5e7-f6b4-4812-8049-f030724e39ee",
+              "title": "Types of Fingerprint Evidence",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "id46b28f1-2eba-41ec-b655-77ec1ceadade_R",
+              "resource": {
+                "identifierRef": "id46b28f1-2eba-41ec-b655-77ec1ceadade_R",
+                "hrefs": [
+                  "сontent/i6090376e-1b88-4285-b676-c3fa0cee7a43/Content/book_1412/chapter_11958.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i3bbffc17-f0e1-4f8f-bf76-6b419e5653ea",
+              "title": "How a Match is Made",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "ibb246754-f237-4fa7-85f2-a6b1713d65d4_R",
+              "resource": {
+                "identifierRef": "ibb246754-f237-4fa7-85f2-a6b1713d65d4_R",
+                "hrefs": [
+                  "сontent/i61d13a78-3d18-40e9-a7f7-3a44fbf59e80/Content/book_1412/chapter_11959.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "if711e164-853a-487d-9ec6-f8fd5b1e8a7a",
+              "title": "Fingerprint Case Study: John Dillinger",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i1cccae0c-9255-4aaa-a02e-ec53f607b7a2_R",
+              "resource": {
+                "identifierRef": "i1cccae0c-9255-4aaa-a02e-ec53f607b7a2_R",
+                "hrefs": [
+                  "сontent/i6fc5f283-0bc6-4999-9efe-01ac5381f0b7/Content/book_1412/chapter_11960.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "ie2ca1b88-2376-4300-987b-24ca0bbb36e0",
+              "title": "Latent Fingerprint Enhancement",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i474328c9-5a30-45b0-8005-3d96d6b0c88e_R",
+              "resource": {
+                "identifierRef": "i474328c9-5a30-45b0-8005-3d96d6b0c88e_R",
+                "hrefs": [
+                  "сontent/iab21127f-086e-4953-8181-f8bb4215377c/Content/book_1412/chapter_11962.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i8a066e90-e61c-41fa-9267-59886b94e2bc",
+              "title": "Latent Fingerprint Enhancement (2)",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i0a2de926-241c-4b2b-a594-8fc00186cd05_R",
+              "resource": {
+                "identifierRef": "i0a2de926-241c-4b2b-a594-8fc00186cd05_R",
+                "hrefs": [
+                  "сontent/i9ec10d7b-a450-4c8b-a353-b07095a6ce0d/Content/book_1412/chapter_11963.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i55418e5b-ff27-4c80-9a18-b8bbb418822f",
+              "title": "Latent Fingerprint Enhancement (3)",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i5ab56310-cc1a-47d4-8210-09e900001ac1_R",
+              "resource": {
+                "identifierRef": "i5ab56310-cc1a-47d4-8210-09e900001ac1_R",
+                "hrefs": [
+                  "сontent/iadb4c43b-aea4-42c7-b8a1-b9af3831ec0a/Content/book_1412/chapter_11964.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i8eee8412-0c11-46f1-a1f3-2331506dc29d",
+              "title": "Experiment : Short-Term vs Long-Term Latent Fingerprint Samples (Optional)",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "ie3402ea0-3bce-4de2-b4d4-7f01ea08e975_R",
+              "resource": {
+                "identifierRef": "ie3402ea0-3bce-4de2-b4d4-7f01ea08e975_R",
+                "hrefs": [
+                  "сontent/i7086da89-4a39-41df-95b6-f5475be69bd3/Content/book_1412/chapter_11965.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i693e8526-037b-4861-903a-02900dacc3af",
+              "title": "Experiment: Finding and Lifiting Latent Fingerprints Using Lifting Powders (Optional)",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i467c8053-11ed-4b51-b7d4-421ed507f170_R",
+              "resource": {
+                "identifierRef": "i467c8053-11ed-4b51-b7d4-421ed507f170_R",
+                "hrefs": [
+                  "сontent/i90b6e6d0-c199-4ca3-b49c-6d3bd91c111d/Content/book_1412/chapter_11966.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i97613a11-8c67-432b-aebd-79e6cf528bf8",
+              "title": "Case Study: The Zodiac Killer",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "ie8ef5078-5f0a-44e7-a112-627685db1f9c_R",
+              "resource": {
+                "identifierRef": "ie8ef5078-5f0a-44e7-a112-627685db1f9c_R",
+                "hrefs": [
+                  "сontent/i13e076dd-cf2b-46f6-86bc-7534a3937931/Content/book_1412/chapter_11972.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "ia1103986-abd1-4261-a6b9-bd2e3204f7c2",
+              "title": "Case Study: The Zodiac Killer (continued)",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i1d4f4ee7-89d8-496f-8f8b-1c779935b6b1_R",
+              "resource": {
+                "identifierRef": "i1d4f4ee7-89d8-496f-8f8b-1c779935b6b1_R",
+                "hrefs": [
+                  "сontent/i15a39b8f-ec37-4634-8131-2bbce7798ca9/Content/book_1412/chapter_11973.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i9a164b82-0c08-4401-b651-0a2fbadc1ad0",
+              "title": "Case Study: Bank Robbery Mystery",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i3844fa0d-4c00-4090-9919-8d822031b091_R",
+              "resource": {
+                "identifierRef": "i3844fa0d-4c00-4090-9919-8d822031b091_R",
+                "hrefs": [
+                  "сontent/i865e453c-30d0-4618-b4a7-cccf59e06d95/Content/book_1412/chapter_11974.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "if4bb7013-26ee-428c-8d36-e0f8293a1c20",
+              "title": "Evidence and Fingerprints Online Activity (Optional)",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i9c907f48-b101-4d72-ba2d-d85b1f7bdcdd_R",
+              "resource": {
+                "identifierRef": "i9c907f48-b101-4d72-ba2d-d85b1f7bdcdd_R",
+                "hrefs": [
+                  "сontent/iee4cbe70-dce6-45f9-844f-a33022c2b3e8/Content/book_1412/chapter_11977.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i244a337d-c251-4b42-ab64-daa3048bf20e",
+              "title": "Unit Assessments",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i6c4132b2-8117-4512-b700-525e1aea2dcd_R",
+              "resource": {
+                "identifierRef": "i6c4132b2-8117-4512-b700-525e1aea2dcd_R",
+                "hrefs": [
+                  "сontent/ic7ec92a5-2b40-41dd-bb6a-630476029c2f/Content/book_1412/chapter_12263.html"
+                ]
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ifee2fd69-90bc-4e96-940f-1f499df7e3e5",
+      "title": "3 Trace Evidence",
+      "kind": "module",
+      "depth": 0,
+      "children": [
+        {
+          "id": "i004dee17-c08d-468a-a71e-f42c16522d5d",
+          "title": "Trace Evidence Assignment",
+          "kind": "assignment",
+          "depth": 1,
+          "identifierRef": "i4f233cb8-246e-4242-a2d3-275fc2ee3bb8_R",
+          "resource": {
+            "identifierRef": "i4f233cb8-246e-4242-a2d3-275fc2ee3bb8_R",
+            "hrefs": [
+              "assignment/ia4effbb5-11e6-405e-a610-94c25bdcd18e/assignment_ed348d79-dd81-485b-be5f-fefe59594acb.xml"
+            ]
+          },
+          "children": []
+        },
+        {
+          "id": "i6b06beb6-d60d-48d2-9e72-f9c4bfc409bf",
+          "title": "Trace Evidence Case Studies Assignment",
+          "kind": "assignment",
+          "depth": 1,
+          "identifierRef": "iee56c695-81e2-415f-89f9-17a173d1571e_R",
+          "resource": {
+            "identifierRef": "iee56c695-81e2-415f-89f9-17a173d1571e_R",
+            "hrefs": [
+              "assignment/id0a71404-7f00-4bd1-b380-ae695903a2fb/assignment_156bf40b-261a-4e73-9bf3-354be6aaf4a7.xml"
+            ]
+          },
+          "children": []
+        },
+        {
+          "id": "i22936ee3-59e8-47b9-a747-2c86ab6feac7",
+          "title": "M3 Trace Evidence Assessment",
+          "kind": "quiz",
+          "depth": 1,
+          "identifierRef": "i3d4d0fb0-e744-45dc-8571-36bab3ee90de_R",
+          "resource": {
+            "identifierRef": "i3d4d0fb0-e744-45dc-8571-36bab3ee90de_R",
+            "hrefs": [
+              "quiz/i8a6fcedb-c38d-48ed-84dc-c0afdf4990b9/qti_6cad72c2-63f3-4200-9d60-a4dc07c4dbe1.xml"
+            ]
+          },
+          "children": []
+        },
+        {
+          "id": "i1b0a0e85-56bb-422e-aa6c-140a75263dcc",
+          "title": "Trace Evidence",
+          "kind": "folder",
+          "depth": 1,
+          "children": [
+            {
+              "id": "i6f51abd7-313e-4432-8cd6-bd38a727f349",
+              "title": "What is Trace Evidence?",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "ib8676a0e-69c8-4f0d-bf97-4026bd162d25_R",
+              "resource": {
+                "identifierRef": "ib8676a0e-69c8-4f0d-bf97-4026bd162d25_R",
+                "hrefs": [
+                  "сontent/i768ac1ae-b062-42f8-8c3d-1f70191c5808/Content/book_1413/chapter_11979.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i49c910bd-6b1b-4b6c-9278-0ae877f06f7c",
+              "title": "Identifying Trace Evidence",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "ifa3f0b49-e42a-429f-a690-e2cf2ca8d405_R",
+              "resource": {
+                "identifierRef": "ifa3f0b49-e42a-429f-a690-e2cf2ca8d405_R",
+                "hrefs": [
+                  "сontent/i15e6ef30-f8fe-4a0a-856e-16275d9a167b/Content/book_1413/chapter_11980.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i161e15d4-843d-4349-bf28-647eabb110f0",
+              "title": "Collection of Trace Evidence",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "iaba02f9a-d02e-417a-8ac8-08ef7f6e399e_R",
+              "resource": {
+                "identifierRef": "iaba02f9a-d02e-417a-8ac8-08ef7f6e399e_R",
+                "hrefs": [
+                  "сontent/ica1ea031-d879-4f12-bdbb-f2c344cca0c0/Content/book_1413/chapter_11981.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "ie30a22ce-2f0a-48af-a679-f2bf1acee29e",
+              "title": "Collecting Trace Evidence at Home",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "iaf43e709-34d5-4159-93a3-868e768c4a1b_R",
+              "resource": {
+                "identifierRef": "iaf43e709-34d5-4159-93a3-868e768c4a1b_R",
+                "hrefs": [
+                  "сontent/ie3d6727a-8313-4c39-bc2e-9d14b0d5185a/Content/book_1413/chapter_11982.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "ie032f9d3-cf53-43f7-9f3d-cb3f81967e62",
+              "title": "Microscopic Analysis of Hair",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i461fb075-30d8-4f68-b2c3-3d0da552d977_R",
+              "resource": {
+                "identifierRef": "i461fb075-30d8-4f68-b2c3-3d0da552d977_R",
+                "hrefs": [
+                  "сontent/i01769305-1d04-4b96-ae17-df848a52c31f/Content/book_1413/chapter_12223.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "ied799bb6-cf86-4eea-b59f-449553aed5b8",
+              "title": "Hair Evidence",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i7f0f44cd-2fa9-44c2-acff-80dc588f9f56_R",
+              "resource": {
+                "identifierRef": "i7f0f44cd-2fa9-44c2-acff-80dc588f9f56_R",
+                "hrefs": [
+                  "сontent/i55c747ee-6cb8-43b0-b421-10feff383073/Content/book_1413/chapter_12224.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i42063c03-7639-429b-82f4-24f56c2cfe91",
+              "title": "Useful Types of Hair Samples",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i09e83891-c13d-4416-b3a1-598b76846ac9_R",
+              "resource": {
+                "identifierRef": "i09e83891-c13d-4416-b3a1-598b76846ac9_R",
+                "hrefs": [
+                  "сontent/i1e97890f-81bf-446d-ab50-004a1547d227/Content/book_1413/chapter_12225.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "ic5b0b4ca-471a-4498-be94-eb07ca414de5",
+              "title": "Animal Hair",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i7cf2d86e-e278-4c6b-9638-051821ee7d52_R",
+              "resource": {
+                "identifierRef": "i7cf2d86e-e278-4c6b-9638-051821ee7d52_R",
+                "hrefs": [
+                  "сontent/iecafb11f-ca0d-4ad8-a0e7-43d399f4371a/Content/book_1413/chapter_12226.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "ied152132-70d7-4bcc-a3f4-3b45940e71a8",
+              "title": "Features of Hair",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i77f690c2-2b4f-4d0c-8a81-dab79e49c55b_R",
+              "resource": {
+                "identifierRef": "i77f690c2-2b4f-4d0c-8a81-dab79e49c55b_R",
+                "hrefs": [
+                  "сontent/i140bff09-0cf0-4230-8bf1-25cf6daf71f2/Content/book_1413/chapter_12227.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i3b0d5c8a-a85b-4406-9b0d-defc6b36e516",
+              "title": "Crime Case Study - The Central Park Five",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i0b186bb0-178e-4c77-b193-64d4bdcca851_R",
+              "resource": {
+                "identifierRef": "i0b186bb0-178e-4c77-b193-64d4bdcca851_R",
+                "hrefs": [
+                  "сontent/i09fc2f90-b5a6-46d8-a876-6a6e38b8956f/Content/book_1413/chapter_12228.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "if564a995-6f4a-44e6-81fc-740e1bdd14bb",
+              "title": "Fibre Analysis",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "ic719c0c7-2c47-43f9-8735-6432052fb72d_R",
+              "resource": {
+                "identifierRef": "ic719c0c7-2c47-43f9-8735-6432052fb72d_R",
+                "hrefs": [
+                  "сontent/iab328ad4-59b6-47fe-95ca-ea0efa2a4f0e/Content/book_1413/chapter_12229.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i8e95acb1-9fa0-4d3a-bdd9-e8491e30173a",
+              "title": "Fibre Evidence",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i4edb837d-ff46-420d-96a7-c83aea15762f_R",
+              "resource": {
+                "identifierRef": "i4edb837d-ff46-420d-96a7-c83aea15762f_R",
+                "hrefs": [
+                  "сontent/if1ac80aa-363d-4683-9fbc-9311d6a6ff50/Fibre Evidence.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i3b377c89-24f8-459f-8094-618da18fb4ac",
+              "title": "Crime Case Study - Samuel Morgan",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i78f51f39-1487-47a4-8c3f-e400efee0e84_R",
+              "resource": {
+                "identifierRef": "i78f51f39-1487-47a4-8c3f-e400efee0e84_R",
+                "hrefs": [
+                  "сontent/i6ab2040d-c5b1-490e-ba4c-3f876aa81850/Content/book_1413/chapter_12230.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i0612faea-6f92-4051-a7b8-981508f390f4",
+              "title": "Real CSI Hair and Fiber Analysis",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i3669c1ae-e9c8-4e09-ba17-60346a4eb646_R",
+              "resource": {
+                "identifierRef": "i3669c1ae-e9c8-4e09-ba17-60346a4eb646_R",
+                "hrefs": [
+                  "сontent/i92f88147-44ef-4d6c-97f9-d770b6676aab/Content/book_1413/chapter_12231.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i9105e7e8-47b1-4e0f-bf27-69e59a3ad5e0",
+              "title": "Unit Assessments",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i259654b3-ad73-4e7a-aa26-89ec63d530d7_R",
+              "resource": {
+                "identifierRef": "i259654b3-ad73-4e7a-aa26-89ec63d530d7_R",
+                "hrefs": [
+                  "сontent/if41b09c7-b23d-40cb-9002-9f552abf2c20/Content/book_1413/chapter_12264.html"
+                ]
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "i880135f2-de82-4381-887f-255d14069eba",
+      "title": "4 Body Fluid Evidence",
+      "kind": "module",
+      "depth": 0,
+      "children": [
+        {
+          "id": "ibcf723e3-4183-4163-95a3-69f8bd5cbe32",
+          "title": "Body Fluid Assignment",
+          "kind": "assignment",
+          "depth": 1,
+          "identifierRef": "i840aab1c-38b7-437f-b3b3-7eb7812a9743_R",
+          "resource": {
+            "identifierRef": "i840aab1c-38b7-437f-b3b3-7eb7812a9743_R",
+            "hrefs": [
+              "assignment/i2f6d626c-a477-4b3d-ace8-63aa9fc45fdc/assignment_a20c2933-ad33-4b9d-9221-9eee7272528c.xml"
+            ]
+          },
+          "children": []
+        },
+        {
+          "id": "i96f27a7d-c688-4c44-a775-c85345b95014",
+          "title": "Body Fluid Evidence Case Studies Assignment",
+          "kind": "assignment",
+          "depth": 1,
+          "identifierRef": "id6db1fe6-1014-43c7-a5bb-07c6b436ebb0_R",
+          "resource": {
+            "identifierRef": "id6db1fe6-1014-43c7-a5bb-07c6b436ebb0_R",
+            "hrefs": [
+              "assignment/i16176291-5154-45bd-8891-b2c9517b1a3c/assignment_701e84be-65c1-4997-b793-347fd65867af.xml"
+            ]
+          },
+          "children": []
+        },
+        {
+          "id": "i3f3ea2bd-7610-4cc3-ae3e-23df4f71f622",
+          "title": "M4 Body Fluid Evidence Assessment",
+          "kind": "quiz",
+          "depth": 1,
+          "identifierRef": "ide47a03e-e200-48b8-870b-4794f4ba9f27_R",
+          "resource": {
+            "identifierRef": "ide47a03e-e200-48b8-870b-4794f4ba9f27_R",
+            "hrefs": [
+              "quiz/i812c9f87-9415-4069-8a6b-de07d58d1d65/qti_73c126d9-c527-4dd8-821c-9b217bfbc484.xml"
+            ]
+          },
+          "children": []
+        },
+        {
+          "id": "i67a670b7-b438-4eee-b282-27358e5b2f17",
+          "title": "All About Blood",
+          "kind": "folder",
+          "depth": 1,
+          "children": [
+            {
+              "id": "ic0de1ba6-d3ad-4d26-819a-23bfa8b64357",
+              "title": "Body Fluid Evidence",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i3ba12bb7-9080-4168-92be-42cd80c81116_R",
+              "resource": {
+                "identifierRef": "i3ba12bb7-9080-4168-92be-42cd80c81116_R",
+                "hrefs": [
+                  "сontent/ie2c27177-23ad-417f-b0ec-34dd4f47add4/Content/book_1416/chapter_11992.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "ifc2054dc-56c1-4a44-ab91-2e0befb57d2a",
+              "title": "Blood Components",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i50af7670-7ab9-464e-aef2-a527b45f927a_R",
+              "resource": {
+                "identifierRef": "i50af7670-7ab9-464e-aef2-a527b45f927a_R",
+                "hrefs": [
+                  "сontent/iaa3f78e9-0e4d-4433-9909-e9f94598ef9b/Content/book_1416/chapter_11993.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i24e3a273-a2d7-4e05-992c-76956617a827",
+              "title": "Blood Typing",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i9114e431-1a8f-40c1-a8c2-ef72d08ed6d0_R",
+              "resource": {
+                "identifierRef": "i9114e431-1a8f-40c1-a8c2-ef72d08ed6d0_R",
+                "hrefs": [
+                  "сontent/i2ce3b936-b6db-4d86-9174-1bfa407805e8/Content/book_1416/chapter_11994.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i10c64a73-f7b5-4381-86ac-f02ed84ffb27",
+              "title": "Lesson One - All About Blood",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "icf09851d-1d57-4aac-893a-ef1488a5a3c2_R",
+              "resource": {
+                "identifierRef": "icf09851d-1d57-4aac-893a-ef1488a5a3c2_R",
+                "hrefs": [
+                  "сontent/i3e9bc723-a8fd-4f14-a0c8-b8ba53d493a5/Content/book_1416/chapter_11995.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i67687164-6bfb-449a-8055-a884aa95a7e9",
+              "title": "Lesson 2 Blood Evidence",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i61c2d2ac-014f-4070-8e70-6047bb600f00_R",
+              "resource": {
+                "identifierRef": "i61c2d2ac-014f-4070-8e70-6047bb600f00_R",
+                "hrefs": [
+                  "сontent/ic503e56b-480c-4035-8911-fd2e03231c0a/Content/book_1416/chapter_11996.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i8d52afe1-21f5-4915-84b2-7bfe5bfaebc0",
+              "title": "Blood Evidence - Phenolphthalein",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i4da22585-42a8-4678-8920-7393b5ce7a8f_R",
+              "resource": {
+                "identifierRef": "i4da22585-42a8-4678-8920-7393b5ce7a8f_R",
+                "hrefs": [
+                  "сontent/i205ddaa3-0c3e-4015-b814-bcfd45b83422/Content/book_1416/chapter_11997.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i8baaa418-dd6f-47c8-896b-af74433074e1",
+              "title": "Phenolphthalein: Confirming that it IS blood",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i3243b1fa-b9cb-4475-b7f5-b3d97e2a84da_R",
+              "resource": {
+                "identifierRef": "i3243b1fa-b9cb-4475-b7f5-b3d97e2a84da_R",
+                "hrefs": [
+                  "сontent/ia75e99a0-4dca-4672-b2a6-7732eee561b9/Content/book_1416/chapter_12092.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "ibea2612e-ac26-4e9f-8482-a8bfa67ed3fc",
+              "title": "Blood Evidence - The Luminol Test",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i2473a472-7bf4-4ecc-a766-fd8319cb05d7_R",
+              "resource": {
+                "identifierRef": "i2473a472-7bf4-4ecc-a766-fd8319cb05d7_R",
+                "hrefs": [
+                  "сontent/ic6856f52-3e5a-447d-8054-f101d18b7e83/Content/book_1416/chapter_11998.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i3bbb0203-9471-4cd4-8e00-094950396fd0",
+              "title": "Blood Splatter Evidence",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i559eaa3e-f43b-40fc-8e9c-e89fff7a733b_R",
+              "resource": {
+                "identifierRef": "i559eaa3e-f43b-40fc-8e9c-e89fff7a733b_R",
+                "hrefs": [
+                  "сontent/i7be4c40f-f204-43dd-abe1-ab2d1ce0d168/Content/book_1416/chapter_11999.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "ia9959851-1614-46dc-a1fd-780244e0b8c4",
+              "title": "Lesson 3 - Other Body Fluid Evidence",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i55542b45-084e-40be-83df-300b199e0de1_R",
+              "resource": {
+                "identifierRef": "i55542b45-084e-40be-83df-300b199e0de1_R",
+                "hrefs": [
+                  "сontent/id48e1acc-4b2a-454b-90ea-2b6e674c34b7/Content/book_1416/chapter_12000.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i236f879e-3feb-4667-89be-410c82757543",
+              "title": "Other Body Fluid Evidence",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i2b4f1cd6-6653-4832-8487-a5d85dd094cc_R",
+              "resource": {
+                "identifierRef": "i2b4f1cd6-6653-4832-8487-a5d85dd094cc_R",
+                "hrefs": [
+                  "сontent/i0cf5b8a9-296e-4e86-999b-cc1b41e7bedb/Content/book_1416/chapter_12001.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "ib7cb9b29-d15f-4746-b340-34156cb9c6c8",
+              "title": "Semen",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i7b6115bd-759e-417d-96e5-427316491ecf_R",
+              "resource": {
+                "identifierRef": "i7b6115bd-759e-417d-96e5-427316491ecf_R",
+                "hrefs": [
+                  "сontent/i3797c9c5-f2ad-4efa-85f5-b8076db01e9f/Content/book_1416/chapter_12002.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i40e489d5-4dca-41da-a913-485b57695690",
+              "title": "Sexual Assault (Rape) Kits",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i913e4725-c0ee-4cb3-8460-f1c48f351ebe_R",
+              "resource": {
+                "identifierRef": "i913e4725-c0ee-4cb3-8460-f1c48f351ebe_R",
+                "hrefs": [
+                  "сontent/if532604f-6158-49b3-b6d8-a62c92b9fa61/Content/book_1416/chapter_12003.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i77bd444a-2112-4a07-ad54-93a36b8401b9",
+              "title": "Lesson 4 - Case Studies",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "ia634471d-25dd-4ffe-912a-b9f01eb892a4_R",
+              "resource": {
+                "identifierRef": "ia634471d-25dd-4ffe-912a-b9f01eb892a4_R",
+                "hrefs": [
+                  "сontent/idb2aad29-9fb4-49f3-b708-a4ab6cc8f3f7/Content/book_1416/chapter_12004.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i32897cf2-9a8a-4922-b4d0-1691a63fb4e2",
+              "title": "Cases Involving Body Fluid Evidence",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i958a050a-cd7e-47b5-be39-0e355b154d82_R",
+              "resource": {
+                "identifierRef": "i958a050a-cd7e-47b5-be39-0e355b154d82_R",
+                "hrefs": [
+                  "сontent/id1c5d466-6de5-40d1-b769-f2ff1a8539da/Content/book_1416/chapter_12005.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i190ce663-f1c9-48d2-b7d1-19bf265e49e0",
+              "title": "Historical Crime Case #1",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "if8a759b7-e5e9-46ad-a843-93cf5a93b665_R",
+              "resource": {
+                "identifierRef": "if8a759b7-e5e9-46ad-a843-93cf5a93b665_R",
+                "hrefs": [
+                  "сontent/i29afd473-aa24-4b9f-8e36-623197d67aae/Historical Crime Case 1.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "ib2ecd5a9-c9f6-4796-9b3c-084f40096d5b",
+              "title": "Historical Crime Case #2",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "ie8d603d1-5051-4c8c-b98a-1f5ddbe8322f_R",
+              "resource": {
+                "identifierRef": "ie8d603d1-5051-4c8c-b98a-1f5ddbe8322f_R",
+                "hrefs": [
+                  "сontent/if2691d26-8a13-400b-a2a9-5f2ce94b6451/Historical Crime Case 2.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i6ca4511a-7de5-4d6d-86e4-5311483b965d",
+              "title": "Fictional Crime Case #1",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i7026667f-1290-4cfe-ba77-893a0685eb83_R",
+              "resource": {
+                "identifierRef": "i7026667f-1290-4cfe-ba77-893a0685eb83_R",
+                "hrefs": [
+                  "сontent/ia99eccc6-303b-41ad-b23c-79a8ac38bb7a/Content/book_1416/chapter_12006.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "ie396a8c3-19cc-46b3-b107-1e3521a32e52",
+              "title": "Fictional Crime Case #2",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i06374291-336b-4a56-a021-b1b24d4e10c4_R",
+              "resource": {
+                "identifierRef": "i06374291-336b-4a56-a021-b1b24d4e10c4_R",
+                "hrefs": [
+                  "сontent/i6225ab1a-cfcc-4c23-9234-75205f061981/Fictional Crime Case 2.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "ibf949d55-b81b-4099-a96f-ca901c7bc859",
+              "title": "What is Blood?",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "ie2b616e0-16eb-4633-af14-5c1d4720770a_R",
+              "resource": {
+                "identifierRef": "ie2b616e0-16eb-4633-af14-5c1d4720770a_R",
+                "hrefs": [
+                  "сontent/i828a8600-f807-4ec3-bb74-0b84f53999f5/Content/book_1416/chapter_12088.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i5ed42cdd-d044-4b4b-9503-56c79f36e465",
+              "title": "Blood Types",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i3ae1f9b3-107e-42bc-9aae-50144d481f6f_R",
+              "resource": {
+                "identifierRef": "i3ae1f9b3-107e-42bc-9aae-50144d481f6f_R",
+                "hrefs": [
+                  "сontent/i9242df94-c9b7-489b-b1a6-57dc75d05f46/Content/book_1416/chapter_12089.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i5e715fc6-8cf0-46f4-8d5c-cee4fc30dce5",
+              "title": "Identifying Blood Types",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i85edba16-f0c7-4c0e-b098-d6ca18d4c29a_R",
+              "resource": {
+                "identifierRef": "i85edba16-f0c7-4c0e-b098-d6ca18d4c29a_R",
+                "hrefs": [
+                  "сontent/i427da8fa-a34c-4cad-8a56-cac73b0234b8/Content/book_1416/chapter_12090.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "icd07765e-4ff3-4daf-86d1-4832ad2482b4",
+              "title": "Blood Typing in a Lab",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "idb79d5f7-ebfb-43fb-b5e1-b0ebf68ef3fa_R",
+              "resource": {
+                "identifierRef": "idb79d5f7-ebfb-43fb-b5e1-b0ebf68ef3fa_R",
+                "hrefs": [
+                  "сontent/i48ddaf17-e5b6-4a93-8959-251d8dc39ee2/Content/book_1416/chapter_12091.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i6891a99c-54ba-46c8-9879-0fde9d69a923",
+              "title": "Unit Assessments",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i5f965f62-e7d7-4e38-b0a3-a0c57c124a05_R",
+              "resource": {
+                "identifierRef": "i5f965f62-e7d7-4e38-b0a3-a0c57c124a05_R",
+                "hrefs": [
+                  "сontent/i5888a0ec-c4ab-403d-a497-3448599b51ee/Content/book_1416/chapter_12265.html"
+                ]
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ife102be2-d324-438d-93bd-7b57b1a24c27",
+      "title": "5 Forensic Detection of Impaired Driving",
+      "kind": "module",
+      "depth": 0,
+      "children": [
+        {
+          "id": "i33e63085-dae2-41cc-a3f7-1a0a8ae53bc1",
+          "title": "Forensic Detection of Impaired Driving",
+          "kind": "html",
+          "depth": 1,
+          "identifierRef": "ie1714b63-ba3a-4d06-a5fc-ae603680f9c9_R",
+          "resource": {
+            "identifierRef": "ie1714b63-ba3a-4d06-a5fc-ae603680f9c9_R",
+            "hrefs": [
+              "сontent/i828b93d1-ea6b-427c-bde2-90c72532124b/Content/section_2945.html"
+            ]
+          },
+          "children": []
+        },
+        {
+          "id": "ic860eb8e-e4e6-4f27-ab65-bd7d6d49fef2",
+          "title": "Impaired Driving Assignment",
+          "kind": "assignment",
+          "depth": 1,
+          "identifierRef": "id2a49b3a-e5dd-4404-b13c-16650ade8d68_R",
+          "resource": {
+            "identifierRef": "id2a49b3a-e5dd-4404-b13c-16650ade8d68_R",
+            "hrefs": [
+              "assignment/i316fb168-8139-44c3-819d-919e8ff64c4f/assignment_cb1120b8-2590-498d-99d3-ad5d436c8b3f.xml"
+            ]
+          },
+          "children": []
+        },
+        {
+          "id": "i9d28e287-64f3-4166-a240-d818a548bab1",
+          "title": "M5 Impaired Driving and Alcohol Assessment",
+          "kind": "quiz",
+          "depth": 1,
+          "identifierRef": "ic00f9459-ea23-43cd-b4a2-0f4bd2f50d26_R",
+          "resource": {
+            "identifierRef": "ic00f9459-ea23-43cd-b4a2-0f4bd2f50d26_R",
+            "hrefs": [
+              "quiz/i720c105e-6226-41ad-a4da-7a6b22879680/qti_d0914048-cd17-42af-a699-a42dea600e08.xml"
+            ]
+          },
+          "children": []
+        },
+        {
+          "id": "ia3aade88-5edf-4551-9b35-29d2d8634d47",
+          "title": "Forensic Detection of Impaired Driving",
+          "kind": "folder",
+          "depth": 1,
+          "children": [
+            {
+              "id": "i2a3368bf-47cb-4d26-982d-28ca1a3ccf32",
+              "title": "Forensic Detection of Impaired Driving",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "icac393a1-1532-49cd-93c7-f84c0dcadb05_R",
+              "resource": {
+                "identifierRef": "icac393a1-1532-49cd-93c7-f84c0dcadb05_R",
+                "hrefs": [
+                  "сontent/i18824365-5daf-43b4-868a-2443fe223d70/Content/book_1417/chapter_12007.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i82c0c4e2-d6b6-4ccf-a331-63c376ad7120",
+              "title": "Lesson 1 Alcohol and its Effects Upon the Body",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i7bfdaebe-ea37-4c3b-8dde-43a52d6f7c5f_R",
+              "resource": {
+                "identifierRef": "i7bfdaebe-ea37-4c3b-8dde-43a52d6f7c5f_R",
+                "hrefs": [
+                  "сontent/icf90943a-6519-4195-81c6-97709fc6665f/Content/book_1417/chapter_12008.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i2b08dc3e-eed2-4044-9de7-dcfa0a554583",
+              "title": "Scientifc Description of Alcohol",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i9c485c52-7bf5-44c2-a857-4ffcd32a6fef_R",
+              "resource": {
+                "identifierRef": "i9c485c52-7bf5-44c2-a857-4ffcd32a6fef_R",
+                "hrefs": [
+                  "сontent/i94056bde-11ed-48f9-aad5-0e89433d1c42/Content/book_1417/chapter_12009.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i8dc7b4b2-1f47-4e3b-889b-854f1b01a028",
+              "title": "The Breakdown of Alcohol by the Body",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i7ded033e-007c-483b-8eec-1b6e61dc900c_R",
+              "resource": {
+                "identifierRef": "i7ded033e-007c-483b-8eec-1b6e61dc900c_R",
+                "hrefs": [
+                  "сontent/ib7ddc073-af51-4d55-af05-3050a838decd/Content/book_1417/chapter_12010.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "ifd0882e9-e466-4ebe-915a-250d3a16f966",
+              "title": "Behavioral Effects of Alcohol Consumption",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i2e91e393-dafc-436e-b827-859307a9a69a_R",
+              "resource": {
+                "identifierRef": "i2e91e393-dafc-436e-b827-859307a9a69a_R",
+                "hrefs": [
+                  "сontent/i308b5599-08d0-4eae-851b-a20de4c7a092/Content/book_1417/chapter_12011.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "ie6f5a9b3-fc83-4396-b6de-635270750d90",
+              "title": "The Drunkometer",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i203dac19-285c-4086-8e0a-793bca6c6409_R",
+              "resource": {
+                "identifierRef": "i203dac19-285c-4086-8e0a-793bca6c6409_R",
+                "hrefs": [
+                  "сontent/ie400334c-7162-4600-b3f3-f341d5dc39e3/Content/book_1417/chapter_12012.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i23acb7d3-78be-47a6-92f9-1fd57831bb63",
+              "title": "Lesson 2 - The Breathalyzer",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i20d7a24f-ada5-487d-b5f2-a36db8e19f43_R",
+              "resource": {
+                "identifierRef": "i20d7a24f-ada5-487d-b5f2-a36db8e19f43_R",
+                "hrefs": [
+                  "сontent/i62193d4d-642f-42e4-9055-a182d989d8be/Content/book_1417/chapter_12013.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "id653775b-8d57-4c58-be9a-0bdd58e7a2a6",
+              "title": "The Breathalyzer",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i720bb18d-e1eb-4118-94d1-061e2745eadf_R",
+              "resource": {
+                "identifierRef": "i720bb18d-e1eb-4118-94d1-061e2745eadf_R",
+                "hrefs": [
+                  "сontent/i7c28a6cf-9418-4bcb-849b-8ae4d26e1ba3/Content/book_1417/chapter_12014.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "ic5605436-2f8e-4ce3-8a8a-b96abe20893b",
+              "title": "Determining BAC",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i4eeae54d-f10b-4146-9849-fc13420c3872_R",
+              "resource": {
+                "identifierRef": "i4eeae54d-f10b-4146-9849-fc13420c3872_R",
+                "hrefs": [
+                  "сontent/ie628f048-15ec-445c-adf8-77ff7c591aae/Content/book_1417/chapter_12015.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i8bc2feea-862d-4b83-9c79-4f084a43ccdc",
+              "title": "Drawbacks to The Breathalyzer",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "if44dd7f3-38e7-4b55-9e78-f785615e3372_R",
+              "resource": {
+                "identifierRef": "if44dd7f3-38e7-4b55-9e78-f785615e3372_R",
+                "hrefs": [
+                  "сontent/ic28f2325-81d0-4f37-ad27-b7256b039ccb/Content/book_1417/chapter_12016.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "ifec80eb7-abe0-4bec-ae2f-9cb0ec581ff1",
+              "title": "The Intoxilyzer & Consequences of Impaired Driving",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "ida9099b2-fc2a-4e19-a0e1-59df119e06ec_R",
+              "resource": {
+                "identifierRef": "ida9099b2-fc2a-4e19-a0e1-59df119e06ec_R",
+                "hrefs": [
+                  "сontent/ib8d3d327-12ff-4bfd-82fd-b80ac6183481/Content/book_1417/chapter_12017.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i2f0c0a2a-1789-4978-bf9f-a393a2473b51",
+              "title": "The Intoxilyzer",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "iaba8b4e6-3290-4757-9872-053285b0c997_R",
+              "resource": {
+                "identifierRef": "iaba8b4e6-3290-4757-9872-053285b0c997_R",
+                "hrefs": [
+                  "сontent/i6d24cb51-52f6-4a9b-8065-d30e619f26a6/Content/book_1417/chapter_12018.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "ib8f798be-cc13-489e-a188-4cf60d1e4106",
+              "title": "Operation of BAC Testing Devices",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i6eb182e0-0bf0-48e1-b697-eacfcf517d69_R",
+              "resource": {
+                "identifierRef": "i6eb182e0-0bf0-48e1-b697-eacfcf517d69_R",
+                "hrefs": [
+                  "сontent/i6cbc2e88-2f07-4d56-93f2-d921a0193630/Content/book_1417/chapter_12019.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "ia7c70001-8fe3-411a-9db8-80e24b692ce1",
+              "title": "Refusal to Provide a Breath Sample",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "ia5e9301b-e410-4934-bf5a-e98e0eba3d84_R",
+              "resource": {
+                "identifierRef": "ia5e9301b-e410-4934-bf5a-e98e0eba3d84_R",
+                "hrefs": [
+                  "сontent/i56adc209-55ac-4897-9106-b794a97c179d/Content/book_1417/chapter_12020.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i6174533b-0c9f-4e06-8249-185466ed3e1f",
+              "title": "Lesson 4 - Criminal Cases Involving Impaired Driving",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i35af9480-2c1c-4277-9c32-e9d7fee32bd1_R",
+              "resource": {
+                "identifierRef": "i35af9480-2c1c-4277-9c32-e9d7fee32bd1_R",
+                "hrefs": [
+                  "сontent/i5e596270-8345-44b2-85ec-7f2112a41913/Content/book_1417/chapter_12021.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "if1d015fc-d40c-4937-9b23-d8a48e377f73",
+              "title": "The Drunken Russian Diplomat",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "ie90cb1f9-9604-406a-8710-3a20893efe7e_R",
+              "resource": {
+                "identifierRef": "ie90cb1f9-9604-406a-8710-3a20893efe7e_R",
+                "hrefs": [
+                  "сontent/i0216cc8c-cf1f-4893-aa90-74eb3b43fcda/Content/book_1417/chapter_12022.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i1ca4687a-d747-44ed-ab2e-ee81f18b5db0",
+              "title": "The Death of Princess Diana",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "iadc85a4b-800a-41fe-8de7-cd045dac0c6b_R",
+              "resource": {
+                "identifierRef": "iadc85a4b-800a-41fe-8de7-cd045dac0c6b_R",
+                "hrefs": [
+                  "сontent/i2b5fcc4e-bc3b-4fed-ab4c-e39906258b3f/Content/book_1417/chapter_12023.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i8b619587-8182-42c3-9953-84404be9fecd",
+              "title": "Unit Assessments",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i25145ab9-98d0-4148-adea-327375bd2d6d_R",
+              "resource": {
+                "identifierRef": "i25145ab9-98d0-4148-adea-327375bd2d6d_R",
+                "hrefs": [
+                  "сontent/ieca1c862-c709-473e-89df-73127a3c47e8/Content/book_1417/chapter_12266.html"
+                ]
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "i10403f8a-20b2-468c-8b8c-fb9a5328a9bc",
+      "title": "6 Polygraphing and Document Analysis",
+      "kind": "module",
+      "depth": 0,
+      "children": [
+        {
+          "id": "i28f58d4e-408f-4fcd-ac74-ae9ae7ab0a97",
+          "title": "Polygraphing and Forensic Writing Analysis Assignment",
+          "kind": "assignment",
+          "depth": 1,
+          "identifierRef": "ief70a777-5de9-4616-9102-33b7799af1fb_R",
+          "resource": {
+            "identifierRef": "ief70a777-5de9-4616-9102-33b7799af1fb_R",
+            "hrefs": [
+              "assignment/i5416ee1b-c173-4bcc-80e8-e3c1fae36848/assignment_be6af394-1214-4204-8113-714364f1d5c9.xml"
+            ]
+          },
+          "children": []
+        },
+        {
+          "id": "i2b17b59b-4f80-476e-8983-c08839be1893",
+          "title": "Polygraphing and Forensic Writing Case Studies Assignment",
+          "kind": "assignment",
+          "depth": 1,
+          "identifierRef": "i9a9dd6fd-0f6a-4702-a904-6f6882738e49_R",
+          "resource": {
+            "identifierRef": "i9a9dd6fd-0f6a-4702-a904-6f6882738e49_R",
+            "hrefs": [
+              "assignment/i545d89a9-d9bd-4555-91b4-35ef6d318388/assignment_2ed7a9ba-d16e-4e5e-bdb0-61b4dd95bf84.xml"
+            ]
+          },
+          "children": []
+        },
+        {
+          "id": "icad04973-39d6-4778-83e6-e0f334adafe3",
+          "title": "M6 The Polygraph and Writing Analysis Assessment",
+          "kind": "quiz",
+          "depth": 1,
+          "identifierRef": "i16e388c7-dd47-434e-9d23-3ab5677bf427_R",
+          "resource": {
+            "identifierRef": "i16e388c7-dd47-434e-9d23-3ab5677bf427_R",
+            "hrefs": [
+              "quiz/ibae7c23f-6c67-4b1b-8b38-1501622aa4e6/qti_551f8e26-6682-4b3d-a8da-8e22ebdcf220.xml"
+            ]
+          },
+          "children": []
+        },
+        {
+          "id": "ibf9f696b-7ebc-4348-9905-696a9654685d",
+          "title": "Polygraphing and Document Analysis",
+          "kind": "folder",
+          "depth": 1,
+          "children": [
+            {
+              "id": "i152b409a-ea91-4ab2-b850-4642bc7f6d36",
+              "title": "Polygraph Testing & Forensic Document Analysis",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "iedc24bbd-742f-4f85-bc5c-9b8d2f83c739_R",
+              "resource": {
+                "identifierRef": "iedc24bbd-742f-4f85-bc5c-9b8d2f83c739_R",
+                "hrefs": [
+                  "сontent/i21fc9773-877f-49ab-893d-c4f7c2c19448/Content/book_1418/chapter_12024.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "ie4a5c05a-2261-4bfa-b514-10f913a2b702",
+              "title": "Lesson 1 - The Polygraph Instrument",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "ia4a8f3bd-dbef-47f4-b5f4-f03d48b59566_R",
+              "resource": {
+                "identifierRef": "ia4a8f3bd-dbef-47f4-b5f4-f03d48b59566_R",
+                "hrefs": [
+                  "сontent/ia5c7c2b4-1e9b-4279-9c4e-efd45abb03ae/Content/book_1418/chapter_12025.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "ic513ade1-d651-4e7c-a9c4-b4548ebc4106",
+              "title": "The Human Nervous System",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i9abff1b5-0f29-4482-9145-a6f795731a6d_R",
+              "resource": {
+                "identifierRef": "i9abff1b5-0f29-4482-9145-a6f795731a6d_R",
+                "hrefs": [
+                  "сontent/ia2ca2ecb-3750-4094-9486-e6e0e2d522ea/Content/book_1418/chapter_12026.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i93a14c6f-1845-4b2a-ac62-e89e3ee9854f",
+              "title": "The Sympathetic Nervous System",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i2bd67098-4622-478e-9138-601cecb5711d_R",
+              "resource": {
+                "identifierRef": "i2bd67098-4622-478e-9138-601cecb5711d_R",
+                "hrefs": [
+                  "сontent/ic94b2b09-e90f-495d-9084-0cb905e08fe8/Content/book_1418/chapter_12027.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i646d6543-46d6-42db-a139-255ae601dcb1",
+              "title": "The Invention of the Polygraph",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "id6ff2cd8-6da6-40c2-a84b-a0629d5e7bdb_R",
+              "resource": {
+                "identifierRef": "id6ff2cd8-6da6-40c2-a84b-a0629d5e7bdb_R",
+                "hrefs": [
+                  "сontent/i38c48eab-1542-4f6d-8852-1d3643a3d094/Content/book_1418/chapter_12028.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i94bb5fae-f9de-4277-a4e2-4512dacf9829",
+              "title": "Polograph Data",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i19d58e4a-7b57-4d75-888b-d7a181369b93_R",
+              "resource": {
+                "identifierRef": "i19d58e4a-7b57-4d75-888b-d7a181369b93_R",
+                "hrefs": [
+                  "сontent/ieede7310-7252-4ea7-b239-ae98402ce479/Content/book_1418/chapter_12029.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "ibb4bd4dc-3feb-483a-99fc-838656e1998f",
+              "title": "Lesson 2 - The Polygraph Exam",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "ifbcb047a-1e48-4cb4-97fa-004e22b05639_R",
+              "resource": {
+                "identifierRef": "ifbcb047a-1e48-4cb4-97fa-004e22b05639_R",
+                "hrefs": [
+                  "сontent/ieb74262a-13e6-4bcb-b504-562d8053d730/Content/book_1418/chapter_12030.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "ifa7febe5-04b3-4457-89e8-e5cd0665f43d",
+              "title": "Phases of the Exam",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i857dcda7-fef7-4b8c-b237-5fe135619aa3_R",
+              "resource": {
+                "identifierRef": "i857dcda7-fef7-4b8c-b237-5fe135619aa3_R",
+                "hrefs": [
+                  "сontent/i3ef76257-9096-4f62-8f92-b296e1386cc9/Content/book_1418/chapter_12031.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i42d027ae-cef3-4383-9a36-d4862c4e6ef0",
+              "title": "Phases of the Exam II",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i9634a12e-3254-43b9-a9b9-c9e92d0f711b_R",
+              "resource": {
+                "identifierRef": "i9634a12e-3254-43b9-a9b9-c9e92d0f711b_R",
+                "hrefs": [
+                  "сontent/i8edf298b-e9ff-4bb0-89de-dbf1e5e2f7a4/Content/book_1418/chapter_12032.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "id2c5c1a9-6ad2-4385-ba8d-ca6762fbb131",
+              "title": "Polygraph Readings",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "id7c3f5c2-1d95-4429-9ef5-9e26651102d0_R",
+              "resource": {
+                "identifierRef": "id7c3f5c2-1d95-4429-9ef5-9e26651102d0_R",
+                "hrefs": [
+                  "сontent/i389226fa-4098-4e3b-8744-dffc641fac3a/Content/book_1418/chapter_12033.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i21302c7d-169a-4b50-bb27-3294b129f5b5",
+              "title": "Polygraph Examinar Training",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i027746bd-e651-4b7e-a53f-3e8f52a19d8c_R",
+              "resource": {
+                "identifierRef": "i027746bd-e651-4b7e-a53f-3e8f52a19d8c_R",
+                "hrefs": [
+                  "сontent/i8c6713da-9c8b-41e3-8877-5889ba9d71a2/Content/book_1418/chapter_12034.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "ic24d3403-6fec-4e2d-aa02-1e0e156496b7",
+              "title": "Case Study - The JonBenet Ramsey Case",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i1a1298a8-2621-41f2-8d9b-1045a4526436_R",
+              "resource": {
+                "identifierRef": "i1a1298a8-2621-41f2-8d9b-1045a4526436_R",
+                "hrefs": [
+                  "сontent/i3c41cc47-cbc8-40f2-8763-d225cbee3378/Content/book_1418/chapter_12035.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i85f3a8ed-3124-48c8-8979-5cd61bf379e5",
+              "title": "Lesson 3 - Forensic Writing Analysis",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i49d4ee1e-cb90-4fc7-bae8-32b829ac2de5_R",
+              "resource": {
+                "identifierRef": "i49d4ee1e-cb90-4fc7-bae8-32b829ac2de5_R",
+                "hrefs": [
+                  "сontent/i0f26b308-575d-4298-b45e-2b628913bd42/Content/book_1418/chapter_12036.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i20fa92a5-b5e3-4ac7-984e-79bef4233699",
+              "title": "Graphology",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i864ded23-2ae0-491c-a714-b2f0aae5adab_R",
+              "resource": {
+                "identifierRef": "i864ded23-2ae0-491c-a714-b2f0aae5adab_R",
+                "hrefs": [
+                  "сontent/i88bfb601-8b90-4e70-beb3-9bbfc67f6212/Content/book_1418/chapter_12037.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i09e967d7-ebba-4282-89ec-e1e8586c6ddc",
+              "title": "Writing Style",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "ia71d0c65-2af2-4ef7-b23d-019c977548da_R",
+              "resource": {
+                "identifierRef": "ia71d0c65-2af2-4ef7-b23d-019c977548da_R",
+                "hrefs": [
+                  "сontent/i6a149735-6b5b-48e0-a47a-95549fa6faa9/Content/book_1418/chapter_12038.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i1b5a467d-921a-4015-9836-90cdec917170",
+              "title": "Document Criminal Profiling",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i7d56ebab-b131-4500-bddf-618956cffdd3_R",
+              "resource": {
+                "identifierRef": "i7d56ebab-b131-4500-bddf-618956cffdd3_R",
+                "hrefs": [
+                  "сontent/iebace7d3-648a-4ec1-a080-ddfcef46a54d/Content/book_1418/chapter_12039.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i4efea31a-0d5b-4386-a9ed-d0586e2fe1d3",
+              "title": "Case Study - The 9/11 Letters",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i840d0a66-0d71-4701-8dca-e99f3a62b92a_R",
+              "resource": {
+                "identifierRef": "i840d0a66-0d71-4701-8dca-e99f3a62b92a_R",
+                "hrefs": [
+                  "сontent/i00a14084-6c73-4470-8732-7f5422e60dfe/Content/book_1418/chapter_12040.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i5d1e99cd-ace7-4d2f-a257-09d52e9a3afc",
+              "title": "Chromatography",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i7a4fd071-c9c2-4b85-b33e-7a6cf6bdd538_R",
+              "resource": {
+                "identifierRef": "i7a4fd071-c9c2-4b85-b33e-7a6cf6bdd538_R",
+                "hrefs": [
+                  "сontent/i2bc0fb46-6a9c-45e6-9505-39ec39daa7cd/Content/book_1418/chapter_12041.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "id766d846-6f1c-4d37-b9e0-af7cbfa7d983",
+              "title": "Lesson 4 Polygraphing & Writing Analysis Case Studies",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i2e82967c-28ca-4513-8da6-2cbcc6dbf080_R",
+              "resource": {
+                "identifierRef": "i2e82967c-28ca-4513-8da6-2cbcc6dbf080_R",
+                "hrefs": [
+                  "сontent/i28f50839-9318-4d75-bd15-457ab3d3cc04/Content/book_1418/chapter_12042.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i9e086559-da88-4939-b1b9-56b2aa0c8d1e",
+              "title": "Susan Smith",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i0ea5096e-356e-4d20-9f45-cfd6e2f85839_R",
+              "resource": {
+                "identifierRef": "i0ea5096e-356e-4d20-9f45-cfd6e2f85839_R",
+                "hrefs": [
+                  "сontent/i9de295d9-d55b-4a60-ac4a-1e9ca89e7f72/Content/book_1418/chapter_12043.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i8b641114-9993-4c14-be1c-d370a652aece",
+              "title": "The Lindbergh Baby",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i4c326970-f6f9-4f0e-bf84-7aca1758ce5c_R",
+              "resource": {
+                "identifierRef": "i4c326970-f6f9-4f0e-bf84-7aca1758ce5c_R",
+                "hrefs": [
+                  "сontent/i7d5f46b8-ccf0-4b56-a4a6-c2c0fa7a94aa/Content/book_1418/chapter_12044.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i001473d9-09cc-4d36-90ef-92e5fe6cfab7",
+              "title": "Unit Assessments",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "ib51f571d-2624-4dcd-9502-a3a9b5d439bb_R",
+              "resource": {
+                "identifierRef": "ib51f571d-2624-4dcd-9502-a3a9b5d439bb_R",
+                "hrefs": [
+                  "сontent/ie5b53cfb-42a4-4b54-9c00-95598a5e4fbf/Content/book_1418/chapter_12267.html"
+                ]
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "i744be06f-bedc-4aeb-a959-f982bfa0e928",
+      "title": "7 Forensic Genetics",
+      "kind": "module",
+      "depth": 0,
+      "children": [
+        {
+          "id": "ibdccf79a-307d-4890-87df-9391e81ea330",
+          "title": "Forensic DNA Evidence Assignment",
+          "kind": "assignment",
+          "depth": 1,
+          "identifierRef": "id3354df4-298d-4bff-908f-3e4879e0c059_R",
+          "resource": {
+            "identifierRef": "id3354df4-298d-4bff-908f-3e4879e0c059_R",
+            "hrefs": [
+              "assignment/iab670b44-d54f-4cb2-b05f-3a4159f485cb/assignment_b6123174-aa7b-484e-a261-e2c6b8664d06.xml"
+            ]
+          },
+          "children": []
+        },
+        {
+          "id": "i86d8ded5-314d-47ff-bf2d-263f881c1b3c",
+          "title": "M7 Forensic Genetics Assessment",
+          "kind": "quiz",
+          "depth": 1,
+          "identifierRef": "i8cf2b025-fb09-4d27-8985-9b42463fc24e_R",
+          "resource": {
+            "identifierRef": "i8cf2b025-fb09-4d27-8985-9b42463fc24e_R",
+            "hrefs": [
+              "quiz/if2023d59-0710-42dd-b018-74b36116bbbc/qti_46edd57d-5104-4ccd-a042-91f57b9a12c2.xml"
+            ]
+          },
+          "children": []
+        },
+        {
+          "id": "ic31622c6-6311-46fe-99bd-f32c6240dc0d",
+          "title": "Forensic Genetics",
+          "kind": "folder",
+          "depth": 1,
+          "children": [
+            {
+              "id": "ia27ffb41-a84d-4ae6-9ede-ef0bc6aa3523",
+              "title": "Forensic Genetics",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i8e89d5be-42d7-4206-8a4c-11dc9b28274a_R",
+              "resource": {
+                "identifierRef": "i8e89d5be-42d7-4206-8a4c-11dc9b28274a_R",
+                "hrefs": [
+                  "сontent/i5ab5b8bc-ea65-480c-9da5-effe6a5367a6/Content/book_1419/chapter_12045.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i699f20fd-0595-4266-b77b-7cadf2b64f50",
+              "title": "Lesson 1 DNA",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "iec3752b6-92fc-4a21-b949-0662624680aa_R",
+              "resource": {
+                "identifierRef": "iec3752b6-92fc-4a21-b949-0662624680aa_R",
+                "hrefs": [
+                  "сontent/i5d4f2f7c-e59a-46c8-9c32-c75ed83f90e6/Content/book_1419/chapter_12046.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i9e3fcee3-43ab-48be-94bb-a8fee127cd9c",
+              "title": "The Cell",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i061b9287-18e6-499a-b46b-61e2d8c21b48_R",
+              "resource": {
+                "identifierRef": "i061b9287-18e6-499a-b46b-61e2d8c21b48_R",
+                "hrefs": [
+                  "сontent/if7f77bcb-3fd8-4082-8c3f-1846bd6ab392/Content/book_1419/chapter_12047.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "ie515d9ab-c167-404a-821f-7322f32b6e86",
+              "title": "DNA",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i932ea864-38fe-4f20-b8a7-751341d307d7_R",
+              "resource": {
+                "identifierRef": "i932ea864-38fe-4f20-b8a7-751341d307d7_R",
+                "hrefs": [
+                  "сontent/i71043ac1-3088-4bee-bbd4-206b7b84385f/Content/book_1419/chapter_12048.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i15c25b4f-2232-4c28-a99c-cb86c8f40154",
+              "title": "DNA Analysis",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i8a2068f2-f341-40ef-8700-9bf4bfa6499f_R",
+              "resource": {
+                "identifierRef": "i8a2068f2-f341-40ef-8700-9bf4bfa6499f_R",
+                "hrefs": [
+                  "сontent/i4f858c22-ca10-4f32-93ce-ceffae7d291a/Content/book_1419/chapter_12049.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i29333480-1510-422f-bca5-6463ba01af04",
+              "title": "RFLP vs PCR",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "iefd4b1a1-3b51-4d2b-8b25-cc06619f3886_R",
+              "resource": {
+                "identifierRef": "iefd4b1a1-3b51-4d2b-8b25-cc06619f3886_R",
+                "hrefs": [
+                  "сontent/i0f9723f9-0ae9-4109-a1ef-5ff80cae7681/Content/book_1419/chapter_12050.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i48bf5822-254b-44b3-b7b1-4eb518c89682",
+              "title": "RFLP Step-by-Step",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i4416aec6-832b-4a63-85ef-abc58d960d88_R",
+              "resource": {
+                "identifierRef": "i4416aec6-832b-4a63-85ef-abc58d960d88_R",
+                "hrefs": [
+                  "сontent/i9af372bf-bd8b-4b30-bfb5-f143a26fd95a/Content/book_1419/chapter_12051.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i6ead9656-6d03-4ffd-9188-1185cbb484be",
+              "title": "Lesson 2 mtDNA",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "ib9979f3b-6135-4bbe-982b-c18a49509f02_R",
+              "resource": {
+                "identifierRef": "ib9979f3b-6135-4bbe-982b-c18a49509f02_R",
+                "hrefs": [
+                  "сontent/i17dc985a-a256-48e6-ac53-7d6e6be9945e/Content/book_1419/chapter_12052.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "iede6e816-e881-4b3e-8f09-f94ad54e314c",
+              "title": "Mitochondrial DNA",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i9054667f-373a-46df-be7c-a4676bb23ad9_R",
+              "resource": {
+                "identifierRef": "i9054667f-373a-46df-be7c-a4676bb23ad9_R",
+                "hrefs": [
+                  "сontent/i148eaf13-e685-4f16-b445-643f7511fbf0/Content/book_1419/chapter_12053.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i5130b58c-5934-4e1b-8e08-dacb591b976c",
+              "title": "mtDNA vs. nuclear DNA",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i903ab2b9-fb08-458b-8b33-5d7e7a275d66_R",
+              "resource": {
+                "identifierRef": "i903ab2b9-fb08-458b-8b33-5d7e7a275d66_R",
+                "hrefs": [
+                  "сontent/ic0d89ebf-700c-4baa-a78d-5f8f50f59d3c/Content/book_1419/chapter_12054.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "id8a4ee3b-6f38-41db-ae76-fd0c2f8c9864",
+              "title": "Case Study - Unknown Soldiers",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "ic2ca4ca0-d2f2-4652-b2c2-82d9f6f20d55_R",
+              "resource": {
+                "identifierRef": "ic2ca4ca0-d2f2-4652-b2c2-82d9f6f20d55_R",
+                "hrefs": [
+                  "сontent/i864f0f6f-54b2-4d9d-aae2-cc3872177ec8/Content/book_1419/chapter_12055.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i941ac936-af73-41f4-b66e-5afe2f84795c",
+              "title": "Case Study: 9-11",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i13fca346-3a28-4939-8757-26c5f3eb0903_R",
+              "resource": {
+                "identifierRef": "i13fca346-3a28-4939-8757-26c5f3eb0903_R",
+                "hrefs": [
+                  "сontent/i16157390-e22b-49f6-b519-ab6887cba9b3/Content/book_1419/chapter_12056.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i8a71a99c-4314-486a-8cf7-433f5fe5a7df",
+              "title": "Lesson 3 - DNA Profiling and Population Frequency",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "ib1a3c9d5-3d3c-47e7-a31a-4382bb207404_R",
+              "resource": {
+                "identifierRef": "ib1a3c9d5-3d3c-47e7-a31a-4382bb207404_R",
+                "hrefs": [
+                  "сontent/i533446d7-727a-47e8-80c9-77dec9de40e8/Content/book_1419/chapter_12057.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "if95855d4-2528-499d-88e6-4713f1865135",
+              "title": "Population Frequency",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i29ff042b-27c0-4625-92cb-42cac081701d_R",
+              "resource": {
+                "identifierRef": "i29ff042b-27c0-4625-92cb-42cac081701d_R",
+                "hrefs": [
+                  "сontent/ida124b68-5b7d-43eb-aa93-2ca97b516eb9/Content/book_1419/chapter_12058.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i374a9770-41ea-4526-af99-03173651dc2f",
+              "title": "Probability Ratios",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i6499942d-a0a9-4291-8d1a-e140a37e5d66_R",
+              "resource": {
+                "identifierRef": "i6499942d-a0a9-4291-8d1a-e140a37e5d66_R",
+                "hrefs": [
+                  "сontent/iff6599cd-22b5-4ddb-9dd8-588b092451ba/Content/book_1419/chapter_12059.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "ieeec08ce-43e6-4f35-ab5d-725eeeee883c",
+              "title": "DNA Matching",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "iebaeef10-13c4-4167-8fa8-bf14df8e8c24_R",
+              "resource": {
+                "identifierRef": "iebaeef10-13c4-4167-8fa8-bf14df8e8c24_R",
+                "hrefs": [
+                  "сontent/i72306f28-aaf6-4150-a663-00ad493b2588/Content/book_1419/chapter_12060.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i0768bd9a-9aee-4de7-bba8-380a113f6d02",
+              "title": "DNA & The Law",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "i953da15a-a1ed-4824-822e-548075b6a702_R",
+              "resource": {
+                "identifierRef": "i953da15a-a1ed-4824-822e-548075b6a702_R",
+                "hrefs": [
+                  "сontent/i73921e7a-03fe-4d7e-991e-0209b5fd9ec8/Content/book_1419/chapter_12061.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i03999c9b-d045-4bd5-a0a9-9aaf4b6654e7",
+              "title": "Case Study - OJ Simpson",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "id323b870-6e36-407a-99f6-d7c9ec8c89a5_R",
+              "resource": {
+                "identifierRef": "id323b870-6e36-407a-99f6-d7c9ec8c89a5_R",
+                "hrefs": [
+                  "сontent/i42d255ea-4a86-47e1-9752-2824b5a18232/Content/book_1419/chapter_12062.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i34457469-131a-4633-a3b4-72f724968929",
+              "title": "Lesson 4 - Forensic Genetics Case Studies",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "iff42d57a-bb7f-437d-afa6-fca9bc61244d_R",
+              "resource": {
+                "identifierRef": "iff42d57a-bb7f-437d-afa6-fca9bc61244d_R",
+                "hrefs": [
+                  "сontent/id02bf765-6520-4f5c-8952-f223950c5123/Content/book_1419/chapter_12063.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i8c5491e0-81f6-43a8-b04a-0189102cf190",
+              "title": "Punky Gustavson",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "ief4c7bd9-bfd5-47e6-8c7d-5e5aeeae6569_R",
+              "resource": {
+                "identifierRef": "ief4c7bd9-bfd5-47e6-8c7d-5e5aeeae6569_R",
+                "hrefs": [
+                  "сontent/i2d953e88-05b7-46e8-ab99-8bbdc6aa7e88/Content/book_1419/chapter_12064.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i2a2d8f2a-b2db-4459-9b5f-23dd065f3d7e",
+              "title": "A Case of Wrongful Conviction",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "ibd525447-e193-4018-adcd-12c236002940_R",
+              "resource": {
+                "identifierRef": "ibd525447-e193-4018-adcd-12c236002940_R",
+                "hrefs": [
+                  "сontent/i8fca4d43-9030-4991-9ce9-e078260f3c51/Content/book_1419/chapter_12065.html"
+                ]
+              },
+              "children": []
+            },
+            {
+              "id": "i479e1855-9f92-43e6-aaf6-c9767874f48f",
+              "title": "Unit Assessments",
+              "kind": "html",
+              "depth": 2,
+              "identifierRef": "ibbc5631f-6beb-4260-b4e9-e6de25dc60c8_R",
+              "resource": {
+                "identifierRef": "ibbc5631f-6beb-4260-b4e9-e6de25dc60c8_R",
+                "hrefs": [
+                  "сontent/i00aa5552-393f-4865-a8aa-b1cc8ab39953/Content/book_1419/chapter_12268.html"
+                ]
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "i76f36ae7-4dfa-4a4c-b6bc-cf2cf066a2da",
+      "title": "8 Careers in Forensic Science",
+      "kind": "module",
+      "depth": 0,
+      "children": [
+        {
+          "id": "i8708b7ac-9c45-49fe-a9cf-cde5c14d53d4",
+          "title": "Careers in Forensic Science Assignment",
+          "kind": "assignment",
+          "depth": 1,
+          "identifierRef": "i7b8973b9-b4cd-4cf8-b888-df6d273753b0_R",
+          "resource": {
+            "identifierRef": "i7b8973b9-b4cd-4cf8-b888-df6d273753b0_R",
+            "hrefs": [
+              "assignment/i24fee453-9acd-4444-8071-e09f3820538b/assignment_08f87e49-036a-44cd-83ce-c62f268fd692.xml"
+            ]
+          },
+          "children": []
+        },
+        {
+          "id": "ic0c05870-9869-4108-bef1-79ac92d0862d",
+          "title": "Careers in Forensic Science",
+          "kind": "lesson",
+          "depth": 1,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "i83a6cafa-5fc7-400f-b391-32a704f33bd1",
+      "title": "FINAL EXAM",
+      "kind": "module",
+      "depth": 0,
+      "children": [
+        {
+          "id": "i64fca951-f77a-48d0-a583-0e59c608e561",
+          "title": "Final Exam",
+          "kind": "quiz",
+          "depth": 1,
+          "identifierRef": "ia12fd0f7-b6b5-4c2d-86a5-962a7ee76f85_R",
+          "resource": {
+            "identifierRef": "ia12fd0f7-b6b5-4c2d-86a5-962a7ee76f85_R",
+            "hrefs": [
+              "quiz/iff8bcc71-7b4c-4375-97b0-34578e035807/qti_4632d8f3-6ca3-4b63-b1da-7529406b7280.xml"
+            ]
+          },
+          "children": []
+        },
+        {
+          "id": "i1814558a-4b52-477e-9d2a-6dc6e2a1abe8",
+          "title": "Final Exam Instructions",
+          "kind": "lesson",
+          "depth": 1,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "iee0264ff-100f-4543-9003-b1a3625c56e2",
+      "title": "Extra Credits",
+      "kind": "module",
+      "depth": 0,
+      "children": [
+        {
+          "id": "i71d5f8f5-d477-46f5-a52d-db5b80892052",
+          "title": "Student Centred Learning Self Reflection",
+          "kind": "quiz",
+          "depth": 1,
+          "identifierRef": "iabd09d7a-56de-480b-a5be-a2c673faffbc_R",
+          "resource": {
+            "identifierRef": "iabd09d7a-56de-480b-a5be-a2c673faffbc_R",
+            "hrefs": [
+              "quiz/if6c0c29f-ed1a-455a-bc1b-2d0cf76d2723/qti_8b1686f5-fbce-4017-9acf-5954776ae9e7.xml"
+            ]
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "id3fcf94d-6bad-4431-92a2-a163243cac4b",
+      "title": "Teacher Resources (KEEP HIDDEN)",
+      "kind": "module",
+      "depth": 0,
+      "children": [
+        {
+          "id": "iab8d080b-5ae5-489e-8d12-4818e7304517",
+          "title": "Forensic Science 25 Answer Keys",
+          "kind": "pdf",
+          "depth": 1,
+          "identifierRef": "i11a1c4a8-757c-4946-827a-e8a102e7aa4c_R",
+          "resource": {
+            "identifierRef": "i11a1c4a8-757c-4946-827a-e8a102e7aa4c_R",
+            "hrefs": [
+              "сontent/ie0299797-cf54-494f-af1d-80d66242ee26/Forensic Science 25 Answer Keys.pdf"
+            ]
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+};
+
+export default d2lCourseMapData;

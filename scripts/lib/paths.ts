@@ -76,6 +76,8 @@ export function getProjectPaths(slug: string): ProjectPaths {
     assessmentMapPath: path.join(root, "meta", "assessment-map.json"),
     lessonPacketsDir: path.join(root, "meta", "lesson-packets"),
     lessonPacketsIndexPath: path.join(root, "meta", "lesson-packets", "index.json"),
+    d2lCourseMapPath: path.join(root, "meta", "d2l-course-map.json"),
+    d2lCourseMapMarkdownPath: path.join(root, "meta", "d2l-course-map.md"),
     benchmarkSelectionPath: path.join(root, "meta", "benchmark-selection.json"),
     importLogPath: path.join(root, "meta", "import-log.md"),
     sessionLogPath: path.join(root, "meta", "studio-session-log.md"),
