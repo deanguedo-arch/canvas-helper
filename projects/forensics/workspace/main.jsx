@@ -290,10 +290,12 @@ function flattenCourseNodes(nodes) {
 }
 
 function mapKindToLessonType(kind, sourceFile, title) {
+  const normalizedTitle = String(title || "");
   if (kind === "assignment" || sourceFile?.includes("/assignment/")) return "assignment";
   if (kind === "quiz" || sourceFile?.includes("/quiz/") || sourceFile?.includes("qti_")) return "quiz";
   if (kind === "pdf" || sourceFile?.toLowerCase().endsWith(".pdf")) return "pdf";
-  if (/real life csi|documentary|video/i.test(title || "")) return "embedded-video";
+  if (/real life csi|documentary|video|youtube|vimeo/i.test(normalizedTitle)) return "embedded-video";
+  if (/slide|photo|image|gallery/i.test(normalizedTitle)) return "image-slide";
   if (kind === "html" || sourceFile?.toLowerCase().endsWith(".html") || sourceFile?.toLowerCase().endsWith(".htm")) return "html-reading";
   return "html-reading";
 }
@@ -440,12 +442,32 @@ function stripScriptsAndRewriteLinks(html, sourceFile, exportRoot) {
   const parser = new DOMParser();
   const doc = parser.parseFromString(html, "text/html");
 
-  doc.querySelectorAll("script, link[rel='stylesheet']").forEach((el) => el.remove());
+  doc.querySelectorAll("script, style, link[rel='stylesheet']").forEach((el) => el.remove());
+  doc.querySelectorAll("meta, title, head").forEach((el) => el.remove());
+  doc.querySelectorAll("[aria-hidden='true'], .sr-only, .visually-hidden").forEach((el) => el.remove());
+
+  const remapRootPath = (value) => {
+    const normalized = String(value || "");
+    if (!normalized.startsWith("/")) return "";
+    const trimmed = normalized.slice(1);
+    if (/^(content|assignment|quiz|сontent)\//i.test(trimmed)) {
+      return exportRoot ? joinPath(exportRoot, trimmed) : trimmed;
+    }
+    return "";
+  };
 
   const rewriteAttr = (selector, attr) => {
     doc.querySelectorAll(selector).forEach((el) => {
       const value = el.getAttribute(attr);
       if (!value) return;
+      if (/^(https?:|data:|#|mailto:|tel:)/i.test(value)) return;
+
+      const remappedRoot = remapRootPath(value);
+      if (remappedRoot) {
+        el.setAttribute(attr, buildReferenceUrl(remappedRoot));
+        return;
+      }
+
       const resolved = resolveRelativePath(sourceFile, value);
       if (!resolved || resolved.startsWith("/")) return;
       const withRoot = exportRoot ? joinPath(exportRoot, resolved) : resolved;
@@ -456,8 +478,76 @@ function stripScriptsAndRewriteLinks(html, sourceFile, exportRoot) {
   rewriteAttr("img[src]", "src");
   rewriteAttr("a[href]", "href");
   rewriteAttr("source[src]", "src");
+  rewriteAttr("iframe[src]", "src");
+  rewriteAttr("video[src]", "src");
+  rewriteAttr("object[data]", "data");
+
+  doc.querySelectorAll("p").forEach((paragraph) => {
+    const text = paragraph.textContent?.replace(/\u00a0/g, " ").trim() || "";
+    if (!text && !paragraph.querySelector("img, a, iframe, video")) {
+      paragraph.remove();
+    }
+  });
+
+  doc.querySelectorAll("footer").forEach((footer) => {
+    const text = footer.textContent?.replace(/\u00a0/g, " ").trim() || "";
+    if (!text && !footer.querySelector("img, a")) {
+      footer.remove();
+    }
+  });
 
   return doc.body.innerHTML || html;
+}
+
+function hasMeaningfulHtmlContent(html) {
+  if (!html) return false;
+  const doc = new DOMParser().parseFromString(`<div>${html}</div>`, "text/html");
+  const text = (doc.body.textContent || "").replace(/\u00a0/g, " ").replace(/\s+/g, " ").trim();
+  const mediaLike = doc.querySelectorAll("img, table, iframe, video, object, ul li, ol li").length;
+  return text.length >= 40 || mediaLike > 0;
+}
+
+function splitHtmlIntoSections(html) {
+  if (!html) return [];
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(`<div>${html}</div>`, "text/html");
+  const root = doc.body.firstElementChild || doc.body;
+  const nodes = Array.from(root.childNodes || []);
+  const sections = [];
+  let current = null;
+  let untitledIndex = 1;
+
+  const pushCurrent = () => {
+    if (!current) return;
+    const content = current.parts.join("").trim();
+    if (!content) return;
+    sections.push({
+      id: `section-${sections.length + 1}`,
+      title: current.title,
+      html: content,
+    });
+  };
+
+  for (const node of nodes) {
+    const tag = node.nodeType === 1 ? node.tagName.toLowerCase() : "";
+    const outer = node.nodeType === 1 ? node.outerHTML : node.textContent?.trim() ? `<p>${node.textContent}</p>` : "";
+    if (!outer) continue;
+
+    if (/^h[1-3]$/.test(tag)) {
+      pushCurrent();
+      const headingText = node.textContent?.trim() || `Section ${untitledIndex++}`;
+      current = { title: headingText, parts: [outer] };
+      continue;
+    }
+
+    if (!current) {
+      current = { title: `Section ${untitledIndex++}`, parts: [] };
+    }
+    current.parts.push(outer);
+  }
+
+  pushCurrent();
+  return sections;
 }
 
 function decodeHtmlEntities(value) {
@@ -471,22 +561,60 @@ function getElementsByLocalName(root, localName) {
   return Array.from(root.getElementsByTagName("*")).filter((el) => el.localName === localName);
 }
 
-function parseAssignmentXml(xmlText) {
+function normalizeAssignmentHtml(html, sourceFile, exportRoot) {
+  if (!html) return "";
+  return stripScriptsAndRewriteLinks(`<div>${html}</div>`, sourceFile, exportRoot)
+    .replace(/^<div>/i, "")
+    .replace(/<\/div>\s*$/i, "");
+}
+
+function parseAssignmentXml(xmlText, sourceFile, exportRoot) {
   const xml = new DOMParser().parseFromString(xmlText, "application/xml");
   const title = getElementsByLocalName(xml, "title")[0]?.textContent?.trim() || "Assignment";
   const textNode = getElementsByLocalName(xml, "instructor_text")[0];
-  const textHtml = decodeHtmlEntities(textNode?.textContent || "");
+  const rawHtml = decodeHtmlEntities(textNode?.textContent || "");
+  const textHtml = normalizeAssignmentHtml(rawHtml, sourceFile, exportRoot);
   const pointsRaw = getElementsByLocalName(xml, "gradable")[0]?.getAttribute("points_possible");
-  const formatNode = getElementsByLocalName(xml, "format")[0];
+  const formatNodes = getElementsByLocalName(xml, "format");
+  const textOnly = textHtml.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+
+  const sentenceChunks = textOnly
+    .split(/(?<=[.!?])\s+/)
+    .map((chunk) => chunk.trim())
+    .filter(Boolean);
+
+  const taskSentence =
+    sentenceChunks.find((chunk) => /\b(complete|submit|upload|click|make a copy)\b/i.test(chunk)) ||
+    sentenceChunks[0] ||
+    "";
+  const reminderSentence =
+    sentenceChunks.find((chunk) => /\b(refresher|remember|if you need)\b/i.test(chunk)) ||
+    sentenceChunks[sentenceChunks.length - 1] ||
+    "";
+
+  const links = [];
+  const linkDoc = new DOMParser().parseFromString(`<div>${textHtml}</div>`, "text/html");
+  linkDoc.querySelectorAll("a[href]").forEach((anchor) => {
+    const href = anchor.getAttribute("href") || "";
+    const label = (anchor.textContent || "").trim() || href;
+    if (!href) return;
+    links.push({ href, label });
+  });
 
   return {
     title,
     assignmentMeta: {
       points: Number(pointsRaw || 0) || 0,
-      submissionType: formatNode?.getAttribute("type") || "submission",
+      submissionType: formatNodes[0]?.getAttribute("type") || "submission",
+      submissionFormats: formatNodes
+        .map((node) => node.getAttribute("type") || "")
+        .filter(Boolean),
     },
     assignmentXml: {
-      intro: textHtml,
+      intro: rawHtml,
+      task: taskSentence,
+      reminder: reminderSentence,
+      links,
     },
   };
 }
@@ -494,23 +622,35 @@ function parseAssignmentXml(xmlText) {
 function parseQuizXml(xmlText) {
   const xml = new DOMParser().parseFromString(xmlText, "application/xml");
   const items = getElementsByLocalName(xml, "item");
-  const firstItem = items[0];
-  if (!firstItem) return null;
+  if (!items.length) return null;
 
-  const matTexts = getElementsByLocalName(firstItem, "mattext").map((el) => decodeHtmlEntities(el.textContent || ""));
-  const question = matTexts[0] || "Quiz question";
-  const choiceNodes = getElementsByLocalName(firstItem, "response_label");
-  const choices = choiceNodes.map((node) => {
-    const text = getElementsByLocalName(node, "mattext")[0]?.textContent || "";
-    return decodeHtmlEntities(text).replace(/<[^>]+>/g, "").trim();
-  });
+  const questions = items
+    .map((item, itemIndex) => {
+      const matTexts = getElementsByLocalName(item, "mattext").map((el) => decodeHtmlEntities(el.textContent || ""));
+      const question = matTexts[0] || `Quiz question ${itemIndex + 1}`;
+      const choiceNodes = getElementsByLocalName(item, "response_label");
+      const choices = choiceNodes.map((node) => {
+        const text = getElementsByLocalName(node, "mattext")[0]?.textContent || "";
+        return decodeHtmlEntities(text).replace(/<[^>]+>/g, "").trim();
+      });
 
-  const correctId = getElementsByLocalName(firstItem, "respcondition")
-    .find((node) => getElementsByLocalName(node, "setvar").length > 0)
-    ?.getElementsByTagName("varequal")[0]
-    ?.textContent?.trim();
-  const choiceIds = choiceNodes.map((node) => node.getAttribute("ident"));
-  const answerIndex = correctId ? Math.max(0, choiceIds.indexOf(correctId)) : 0;
+      const correctId = getElementsByLocalName(item, "respcondition")
+        .find((node) => getElementsByLocalName(node, "setvar").length > 0)
+        ?.getElementsByTagName("varequal")[0]
+        ?.textContent?.trim();
+      const choiceIds = choiceNodes.map((node) => node.getAttribute("ident"));
+      const answerIndex = correctId ? Math.max(0, choiceIds.indexOf(correctId)) : 0;
+
+      return {
+        id: item.getAttribute("ident") || `item-${itemIndex + 1}`,
+        question: question.replace(/<[^>]+>/g, "").trim(),
+        choices: choices.filter(Boolean),
+        answerIndex,
+      };
+    })
+    .filter((question) => question.question && question.choices.length > 0);
+
+  if (!questions.length) return null;
 
   const metadataFields = getElementsByLocalName(xml, "qtimetadatafield");
   const readMeta = (label) => {
@@ -525,12 +665,10 @@ function parseQuizXml(xmlText) {
       profile: readMeta("qmd_assessmenttype") || "Assessment",
       attempts: Number(readMeta("cc_maxattempts") || 1),
       timeLimitMinutes: Number(readMeta("qmd_timelimit") || 0),
+      questionCount: questions.length,
     },
-    quizSample: {
-      question: question.replace(/<[^>]+>/g, "").trim(),
-      choices: choices.filter(Boolean),
-      answerIndex,
-    },
+    quizSample: questions[0],
+    quizQuestions: questions,
   };
 }
 
@@ -592,13 +730,77 @@ function SidebarItem({ active, completed, lesson, onClick }) {
 }
 
 function HtmlRenderer({ html }) {
+  const sections = useMemo(() => splitHtmlIntoSections(html), [html]);
+  const [sectionMode, setSectionMode] = useState(false);
+  const [collapsedSections, setCollapsedSections] = useState({});
+
+  useEffect(() => {
+    setSectionMode(false);
+    setCollapsedSections({});
+  }, [html]);
+
+  const collapseAll = () => {
+    setCollapsedSections(Object.fromEntries(sections.map((section) => [section.id, true])));
+  };
+
+  const expandAll = () => {
+    setCollapsedSections({});
+  };
+
   return (
     <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-      <div className="mb-4 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">HTML renderer</div>
-      <div
-        className="max-w-none text-slate-700 [&_.image-banner]:my-4 [&_.image-banner]:rounded-2xl [&_.image-banner]:border [&_.image-banner]:border-slate-200 [&_.image-banner]:bg-slate-50 [&_.image-banner]:p-8 [&_.image-banner]:text-center [&_h1]:mb-4 [&_h1]:text-3xl [&_h1]:font-semibold [&_h1]:tracking-tight [&_h2]:mb-3 [&_h2]:text-2xl [&_h2]:font-semibold [&_h3]:mb-2 [&_h3]:mt-5 [&_h3]:text-lg [&_h3]:font-semibold [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:mb-4 [&_p]:leading-7 [&_table]:mt-4 [&_table]:w-full [&_table]:border-collapse [&_td]:border [&_td]:border-slate-300 [&_td]:p-3 [&_th]:border [&_th]:border-slate-300 [&_th]:bg-slate-50 [&_th]:p-3 [&_ul]:list-disc [&_ul]:pl-6"
-        dangerouslySetInnerHTML={{ __html: html }}
-      />
+      <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+        <div className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">HTML renderer</div>
+        {sections.length > 1 && (
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={() => setSectionMode((prev) => !prev)}
+              className="rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700"
+            >
+              {sectionMode ? "Single flow" : "Section mode"}
+            </button>
+            {sectionMode && (
+              <>
+                <button onClick={expandAll} className="rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700">
+                  Expand all
+                </button>
+                <button onClick={collapseAll} className="rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700">
+                  Collapse all
+                </button>
+              </>
+            )}
+          </div>
+        )}
+      </div>
+      {sectionMode && sections.length > 1 ? (
+        <div className="space-y-3">
+          {sections.map((section) => {
+            const collapsed = !!collapsedSections[section.id];
+            return (
+              <div key={section.id} className="rounded-2xl border border-slate-200">
+                <button
+                  onClick={() => setCollapsedSections((prev) => ({ ...prev, [section.id]: !prev[section.id] }))}
+                  className="flex w-full items-center justify-between px-4 py-3 text-left"
+                >
+                  <span className="text-sm font-semibold text-slate-900">{section.title}</span>
+                  <span className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{collapsed ? "Expand" : "Collapse"}</span>
+                </button>
+                {!collapsed && (
+                  <div
+                    className="max-w-none border-t border-slate-200 px-4 py-4 text-slate-700 [&_.image-banner]:my-4 [&_.image-banner]:rounded-2xl [&_.image-banner]:border [&_.image-banner]:border-slate-200 [&_.image-banner]:bg-slate-50 [&_.image-banner]:p-8 [&_.image-banner]:text-center [&_h1]:mb-4 [&_h1]:text-3xl [&_h1]:font-semibold [&_h1]:tracking-tight [&_h2]:mb-3 [&_h2]:text-2xl [&_h2]:font-semibold [&_h3]:mb-2 [&_h3]:mt-5 [&_h3]:text-lg [&_h3]:font-semibold [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:mb-4 [&_p]:leading-7 [&_table]:mt-4 [&_table]:w-full [&_table]:border-collapse [&_td]:border [&_td]:border-slate-300 [&_td]:p-3 [&_th]:border [&_th]:border-slate-300 [&_th]:bg-slate-50 [&_th]:p-3 [&_ul]:list-disc [&_ul]:pl-6"
+                    dangerouslySetInnerHTML={{ __html: section.html }}
+                  />
+                )}
+              </div>
+            );
+          })}
+        </div>
+      ) : (
+        <div
+          className="max-w-none text-slate-700 [&_.image-banner]:my-4 [&_.image-banner]:rounded-2xl [&_.image-banner]:border [&_.image-banner]:border-slate-200 [&_.image-banner]:bg-slate-50 [&_.image-banner]:p-8 [&_.image-banner]:text-center [&_h1]:mb-4 [&_h1]:text-3xl [&_h1]:font-semibold [&_h1]:tracking-tight [&_h2]:mb-3 [&_h2]:text-2xl [&_h2]:font-semibold [&_h3]:mb-2 [&_h3]:mt-5 [&_h3]:text-lg [&_h3]:font-semibold [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:mb-4 [&_p]:leading-7 [&_table]:mt-4 [&_table]:w-full [&_table]:border-collapse [&_td]:border [&_td]:border-slate-300 [&_td]:p-3 [&_th]:border [&_th]:border-slate-300 [&_th]:bg-slate-50 [&_th]:p-3 [&_ul]:list-disc [&_ul]:pl-6"
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
+      )}
     </div>
   );
 }
@@ -701,6 +903,7 @@ function AssignmentRenderer({ data, meta, title }) {
         <div className="flex gap-2">
           <Badge>{meta?.points || 0} pts</Badge>
           <Badge>{meta?.submissionType || "submission"}</Badge>
+          {meta?.submissionFormats?.length > 1 && <Badge>{meta.submissionFormats.length} formats</Badge>}
         </div>
       </div>
       <div className="grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
@@ -732,6 +935,20 @@ function AssignmentRenderer({ data, meta, title }) {
             <p className="mt-2 text-sm leading-7 text-slate-700">{data?.task}</p>
             <p className="mt-3 text-sm text-slate-500">{data?.reminder}</p>
           </div>
+          {(data?.links || []).length > 0 && (
+            <div className="rounded-2xl border border-slate-200 bg-white p-4">
+              <div className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-600">Linked resources</div>
+              <ul className="mt-3 space-y-2 text-sm text-slate-700">
+                {(data?.links || []).slice(0, 6).map((link, idx) => (
+                  <li key={idx} className="truncate">
+                    <a href={link.href} target="_blank" rel="noopener noreferrer" className="text-sky-700 underline underline-offset-2">
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
           <div className="rounded-2xl border border-slate-200 bg-white p-4">
             <div className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-600">Submission flow</div>
             <ul className="mt-3 space-y-2 text-sm text-slate-700">
@@ -747,8 +964,24 @@ function AssignmentRenderer({ data, meta, title }) {
   );
 }
 
-function QuizRenderer({ quiz, meta, selected, setSelected, showFeedback, setShowFeedback }) {
-  const correct = selected === quiz?.answerIndex;
+function QuizRenderer({ quiz, questions, meta }) {
+  const parsedQuestions = questions?.length ? questions : quiz ? [quiz] : [];
+  const [questionIndex, setQuestionIndex] = useState(0);
+  const [answersByQuestion, setAnswersByQuestion] = useState({});
+  const [feedbackByQuestion, setFeedbackByQuestion] = useState({});
+  const activeQuestion = parsedQuestions[questionIndex] || parsedQuestions[0];
+  const activeQuestionId = activeQuestion?.id || `question-${questionIndex}`;
+  const currentSelected = answersByQuestion[activeQuestionId];
+  const showFeedback = !!feedbackByQuestion[activeQuestionId];
+  const correct = currentSelected === activeQuestion?.answerIndex;
+  const answeredCount = parsedQuestions.filter((question) => answersByQuestion[question.id] !== undefined).length;
+
+  useEffect(() => {
+    setQuestionIndex(0);
+    setAnswersByQuestion({});
+    setFeedbackByQuestion({});
+  }, [questions, quiz]);
+
   return (
     <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
       <div className="mb-5 flex items-center justify-between">
@@ -760,21 +993,46 @@ function QuizRenderer({ quiz, meta, selected, setSelected, showFeedback, setShow
           <Badge>{meta?.profile || "Assessment"}</Badge>
           <Badge>{meta?.attempts || 1} attempt</Badge>
           <Badge>{meta?.timeLimitMinutes || 0} min</Badge>
+          <Badge>{parsedQuestions.length} questions</Badge>
+          <Badge>{answeredCount}/{parsedQuestions.length} answered</Badge>
         </div>
       </div>
       <div className="grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
         <div>
-          <p className="text-sm leading-7 text-slate-700">{quiz?.question}</p>
+          {parsedQuestions.length > 1 && (
+            <div className="mb-4 flex flex-wrap gap-2">
+              {parsedQuestions.map((question, idx) => (
+                <button
+                  key={question.id}
+                  onClick={() => {
+                    setQuestionIndex(idx);
+                  }}
+                  className={`rounded-xl border px-3 py-1.5 text-xs font-semibold ${
+                    questionIndex === idx ? "border-sky-300 bg-sky-50 text-sky-700" : "border-slate-200 bg-white text-slate-600"
+                  }`}
+                >
+                  Q{idx + 1} {answersByQuestion[question.id] !== undefined ? "•" : ""}
+                </button>
+              ))}
+            </div>
+          )}
+          <div className="mb-4 h-2 overflow-hidden rounded-full bg-slate-100">
+            <div
+              className="h-full rounded-full bg-sky-500"
+              style={{ width: `${parsedQuestions.length ? (answeredCount / parsedQuestions.length) * 100 : 0}%` }}
+            />
+          </div>
+          <p className="text-sm leading-7 text-slate-700">{activeQuestion?.question || "No quiz question parsed."}</p>
           <div className="mt-5 space-y-3">
-            {quiz?.choices?.map((choice, idx) => (
+            {activeQuestion?.choices?.map((choice, idx) => (
               <button
                 key={idx}
                 onClick={() => {
-                  setSelected(idx);
-                  setShowFeedback(false);
+                  setAnswersByQuestion((prev) => ({ ...prev, [activeQuestionId]: idx }));
+                  setFeedbackByQuestion((prev) => ({ ...prev, [activeQuestionId]: false }));
                 }}
                 className={`w-full rounded-2xl border p-4 text-left text-sm transition ${
-                  selected === idx ? "border-sky-300 bg-sky-50" : "border-slate-200 hover:bg-slate-50"
+                  currentSelected === idx ? "border-sky-300 bg-sky-50" : "border-slate-200 hover:bg-slate-50"
                 }`}
               >
                 {choice}
@@ -782,24 +1040,39 @@ function QuizRenderer({ quiz, meta, selected, setSelected, showFeedback, setShow
             ))}
           </div>
           <div className="mt-5 flex gap-3">
-            <button onClick={() => setShowFeedback(true)} className="rounded-2xl bg-sky-500 px-4 py-2.5 text-sm font-medium text-white">
+            <button
+              onClick={() => setFeedbackByQuestion((prev) => ({ ...prev, [activeQuestionId]: true }))}
+              className="rounded-2xl bg-sky-500 px-4 py-2.5 text-sm font-medium text-white"
+            >
               Check answer
             </button>
             <button
               onClick={() => {
-                setSelected(undefined);
-                setShowFeedback(false);
+                setAnswersByQuestion((prev) => ({ ...prev, [activeQuestionId]: undefined }));
+                setFeedbackByQuestion((prev) => ({ ...prev, [activeQuestionId]: false }));
               }}
               className="rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700"
             >
               Reset
             </button>
+            {parsedQuestions.length > 1 && (
+              <button
+                onClick={() => {
+                  if (questionIndex < parsedQuestions.length - 1) {
+                    setQuestionIndex((idx) => idx + 1);
+                  }
+                }}
+                className="rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700"
+              >
+                Next question
+              </button>
+            )}
           </div>
-          {showFeedback && selected !== undefined && (
+          {showFeedback && currentSelected !== undefined && (
             <div className={`mt-5 rounded-2xl border p-4 ${correct ? "border-emerald-200 bg-emerald-50" : "border-rose-200 bg-rose-50"}`}>
               <div className={`text-sm font-semibold ${correct ? "text-emerald-800" : "text-rose-800"}`}>{correct ? "Correct" : "Wrong"}</div>
               <p className={`mt-2 text-sm leading-7 ${correct ? "text-emerald-950" : "text-rose-950"}`}>
-                In the exported quiz, the correct identified evidence example is <strong>{quiz?.choices?.[quiz?.answerIndex]}</strong>.
+                In the exported quiz, the correct answer is <strong>{activeQuestion?.choices?.[activeQuestion?.answerIndex]}</strong>.
               </p>
             </div>
           )}
@@ -846,6 +1119,97 @@ function VideoRenderer({ title }) {
   );
 }
 
+function SourceFallback({ activeLesson, sourcePreview }) {
+  const exportRoot = normalizePath(d2lCourseMapData.exportRoot || "");
+  const normalizedSource = normalizePath(activeLesson?.sourceFile || "");
+  const primaryPath = joinPath(exportRoot, normalizedSource);
+  const fallbackPath = normalizedSource;
+  const primaryUrl = primaryPath ? buildReferenceUrl(primaryPath) : "";
+  const fallbackUrl = fallbackPath ? buildReferenceUrl(fallbackPath) : "";
+
+  return (
+    <div className="rounded-3xl border border-amber-200 bg-amber-50 p-6 shadow-sm">
+      <div className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-amber-800">Source fallback</div>
+      <h4 className="text-lg font-semibold text-amber-950">Node preserved, renderer incomplete</h4>
+      <p className="mt-3 text-sm leading-7 text-amber-900">
+        This node is still in course sequence, but the source parser/renderer hit a gap. The raw source path is preserved below.
+      </p>
+      <div className="mt-4 space-y-2 rounded-2xl border border-amber-200 bg-white p-4 text-xs text-slate-700">
+        <div><strong>Node type:</strong> {typeLabel(activeLesson?.type)}</div>
+        <div className="break-all"><strong>Source file:</strong> {activeLesson?.sourceFile || "missing"}</div>
+        {sourcePreview?.error && <div><strong>Error:</strong> {sourcePreview.error}</div>}
+      </div>
+      <div className="mt-4 flex flex-wrap gap-2">
+        {primaryUrl && (
+          <a href={primaryUrl} target="_blank" rel="noopener noreferrer" className="rounded-xl border border-amber-300 bg-white px-3 py-1.5 text-xs font-semibold text-amber-900">
+            Open mapped source
+          </a>
+        )}
+        {fallbackUrl && fallbackUrl !== primaryUrl && (
+          <a href={fallbackUrl} target="_blank" rel="noopener noreferrer" className="rounded-xl border border-amber-300 bg-white px-3 py-1.5 text-xs font-semibold text-amber-900">
+            Open fallback source
+          </a>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function QuickCheckpoints({ activeLesson }) {
+  const prompts = useMemo(() => {
+    if (activeLesson.type === "assignment") {
+      return [
+        "What is the exact submission artifact expected from this assignment?",
+        "What prerequisite or reminder is easy to miss before submission?",
+        "What source link or file should be opened first to complete this task?"
+      ];
+    }
+    if (activeLesson.type === "quiz") {
+      return [
+        "What concept does this quiz item set emphasize?",
+        "Which question type seems easiest to miss on first pass?",
+        "What evidence from the preceding lesson supports your answer choices?"
+      ];
+    }
+    return [
+      "What is the main claim or idea in this lesson section?",
+      "Which example from the source best supports that claim?",
+      "What would you write as a one-sentence checkpoint summary?"
+    ];
+  }, [activeLesson.type]);
+
+  const [revealed, setRevealed] = useState({});
+
+  useEffect(() => {
+    setRevealed({});
+  }, [activeLesson.id]);
+
+  return (
+    <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+      <div className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">Quick checkpoints</div>
+      <div className="mt-4 space-y-4">
+        {prompts.map((prompt, idx) => (
+          <div key={idx} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+            <div className="text-sm font-medium text-slate-900">Checkpoint {idx + 1}</div>
+            <p className="mt-2 text-sm leading-7 text-slate-700">{prompt}</p>
+            <button
+              onClick={() => setRevealed((prev) => ({ ...prev, [idx]: !prev[idx] }))}
+              className="mt-3 rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700"
+            >
+              {revealed[idx] ? "Hide self-check" : "Show self-check"}
+            </button>
+            {revealed[idx] && (
+              <p className="mt-3 text-xs leading-6 text-slate-600">
+                Self-check against the live source content and source file path shown in the lesson header before marking complete.
+              </p>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function renderNodePreview(activeLesson, quizState, sourcePreview) {
   const isSourceCritical = ["html-reading", "pdf", "assignment", "quiz"].includes(activeLesson.type);
 
@@ -854,11 +1218,7 @@ function renderNodePreview(activeLesson, quizState, sourcePreview) {
   }
 
   if (isSourceCritical && sourcePreview?.status === "error") {
-    return (
-      <div className="rounded-3xl border border-rose-200 bg-rose-50 p-6 shadow-sm text-sm text-rose-800">
-        Source preview failed: {sourcePreview.error}
-      </div>
-    );
+    return <SourceFallback activeLesson={activeLesson} sourcePreview={sourcePreview} />;
   }
 
   if (activeLesson.type === "html-reading") {
@@ -877,11 +1237,12 @@ function renderNodePreview(activeLesson, quizState, sourcePreview) {
   }
   if (activeLesson.type === "quiz") {
     const quiz = sourcePreview?.kind === "quiz" ? sourcePreview.quizSample : activeLesson.quizSample;
+    const questions = sourcePreview?.kind === "quiz" ? sourcePreview.quizQuestions : activeLesson.quizQuestions;
     const meta = sourcePreview?.kind === "quiz" ? sourcePreview.quizMeta : activeLesson.quizMeta;
-    return <QuizRenderer quiz={quiz} meta={meta} {...quizState} />;
+    return <QuizRenderer quiz={quiz} questions={questions} meta={meta} {...quizState} />;
   }
   if (activeLesson.type === "embedded-video") return <VideoRenderer title={activeLesson.title} />;
-  return <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm text-sm text-slate-600">No renderer preview available for this node yet.</div>;
+  return <SourceFallback activeLesson={activeLesson} sourcePreview={sourcePreview} />;
 }
 
 export default function ForensicCoursePlayerPreviewRestored() {
@@ -995,12 +1356,15 @@ export default function ForensicCoursePlayerPreviewRestored() {
           const text = await response.text();
           if (activeLesson.type === "html-reading") {
             const html = stripScriptsAndRewriteLinks(text, sourcePath, exportRoot);
+            if (!hasMeaningfulHtmlContent(html)) {
+              continue;
+            }
             if (!cancelled) setSourcePreview({ status: "ready", kind: "html", html, sourcePath: candidate });
             return;
           }
 
           if (activeLesson.type === "assignment") {
-            const parsed = parseAssignmentXml(text);
+            const parsed = parseAssignmentXml(text, sourcePath, exportRoot);
             if (!cancelled) setSourcePreview({ status: "ready", kind: "assignment", ...parsed, sourcePath: candidate });
             return;
           }
@@ -1052,9 +1416,9 @@ export default function ForensicCoursePlayerPreviewRestored() {
   const hasLearn = !!activeLesson.learn;
 
   return (
-    <div className="min-h-screen bg-slate-100 text-slate-900">
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top,_#e0f2fe_0%,_#f8fafc_35%,_#eef2ff_100%)] text-slate-900">
       <div className="flex min-h-screen">
-        <aside className="hidden w-20 shrink-0 border-r border-slate-200 bg-slate-950 text-white md:flex md:flex-col md:items-center md:gap-3 md:px-3 md:py-5">
+        <aside className="hidden w-20 shrink-0 border-r border-slate-800/60 bg-[linear-gradient(180deg,_#0f172a_0%,_#020617_100%)] text-white md:flex md:flex-col md:items-center md:gap-3 md:px-3 md:py-5">
           <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-2xl bg-sky-500/20 ring-1 ring-white/10">
             <ShieldCheck className="h-5 w-5 text-sky-300" />
           </div>
@@ -1077,14 +1441,14 @@ export default function ForensicCoursePlayerPreviewRestored() {
           ))}
         </aside>
 
-        <aside className="w-[340px] shrink-0 border-r border-slate-200 bg-slate-50">
+        <aside className="w-[340px] shrink-0 border-r border-slate-200/80 bg-white/80 backdrop-blur">
           <div className="border-b border-slate-200 px-5 py-5">
             <div className="mb-3">
               <div className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">Course</div>
               <h1 className="mt-1 text-xl font-semibold">{course.title}</h1>
               <p className="mt-1 text-sm text-slate-500">{course.subtitle}</p>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-3 shadow-sm">
+            <div className="rounded-2xl border border-slate-200 bg-white p-3 shadow-[0_8px_30px_rgba(15,23,42,0.05)]">
               <div className="mb-2 flex items-center justify-between text-sm">
                 <span className="font-medium text-slate-700">Preview progress</span>
                 <span className="font-semibold text-slate-900">{progress}%</span>
@@ -1122,9 +1486,9 @@ export default function ForensicCoursePlayerPreviewRestored() {
             </div>
           </div>
 
-          <div className="h-[calc(100vh-245px)] overflow-y-auto px-3 py-3">
+          <div className="h-[calc(100vh-245px)] overflow-y-auto px-3 py-4">
             {filteredModules.map((module) => (
-              <div key={module.id} className="mb-3 rounded-2xl border border-slate-200 bg-white p-2 shadow-sm">
+              <div key={module.id} className="mb-3 rounded-2xl border border-slate-200 bg-white p-2 shadow-[0_10px_25px_rgba(15,23,42,0.04)]">
                 <button
                   onClick={() => setExpanded((prev) => ({ ...prev, [module.id]: !prev[module.id] }))}
                   className="flex w-full items-center justify-between rounded-xl px-2 py-2 text-left hover:bg-slate-50"
@@ -1155,7 +1519,7 @@ export default function ForensicCoursePlayerPreviewRestored() {
         </aside>
 
         <main className="flex-1 overflow-y-auto">
-          <div className="sticky top-0 z-10 border-b border-slate-200 bg-white/95 backdrop-blur">
+          <div className="sticky top-0 z-10 border-b border-slate-200 bg-white/95 shadow-[0_8px_20px_rgba(15,23,42,0.04)] backdrop-blur">
             <div className="px-8 py-5">
               <div className="mb-2 flex flex-wrap items-center gap-2 text-sm text-slate-500">
                 <span>Home</span>
@@ -1170,7 +1534,7 @@ export default function ForensicCoursePlayerPreviewRestored() {
               </div>
               <div className="flex items-start justify-between gap-6">
                 <div>
-                  <h2 className="text-3xl font-semibold tracking-tight">{activeLesson.title}</h2>
+                  <h2 className="text-3xl font-semibold tracking-tight text-slate-950">{activeLesson.title}</h2>
                   <p className="mt-2 max-w-4xl text-sm text-slate-500">
                     This preview uses the real uploaded export structure and real node types. The shell and renderer strategy are no longer fictional.
                   </p>
@@ -1178,13 +1542,13 @@ export default function ForensicCoursePlayerPreviewRestored() {
                 <div className="flex shrink-0 gap-3">
                   <button
                     onClick={toggleSaved}
-                    className="rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 shadow-sm hover:bg-slate-50"
+                    className="rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:bg-slate-50"
                   >
                     {saved[activeLessonId] ? "Saved" : "Save"}
                   </button>
                   <button
                     onClick={markComplete}
-                    className="rounded-2xl bg-sky-500 px-4 py-2.5 text-sm font-medium text-white shadow-sm hover:bg-sky-600"
+                    className="rounded-2xl bg-sky-500 px-4 py-2.5 text-sm font-medium text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-sky-600"
                   >
                     Mark Complete
                   </button>
@@ -1229,11 +1593,11 @@ export default function ForensicCoursePlayerPreviewRestored() {
             </div>
           </div>
 
-          <div className="mx-auto max-w-7xl px-8 py-8">
+          <div className="mx-auto max-w-7xl px-8 py-10">
             {activeTab === "learn" && (
               <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_300px]">
                 <div className="space-y-6">
-                  <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+                  <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-[0_16px_40px_rgba(15,23,42,0.06)]">
                     <div className="mb-6 flex items-center gap-2">
                       <Badge>source-preserving model</Badge>
                       <Badge>{activeLesson.moduleLessonCount} items in module</Badge>
@@ -1275,8 +1639,10 @@ export default function ForensicCoursePlayerPreviewRestored() {
 
                   {renderNodePreview(activeLesson, quizState, sourcePreview)}
 
+                  <QuickCheckpoints activeLesson={activeLesson} />
+
                   <section className="grid gap-6 lg:grid-cols-2">
-                    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_12px_30px_rgba(15,23,42,0.05)]">
                       <div className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">What Phase 2 proves</div>
                       <div className="mt-4 space-y-3 text-sm leading-7 text-slate-700">
                         <p>HTML lessons can be normalized and rendered as readable in-app pages.</p>
@@ -1285,7 +1651,7 @@ export default function ForensicCoursePlayerPreviewRestored() {
                         <p>QTI quiz XML can be surfaced as usable assessment content instead of opaque package junk.</p>
                       </div>
                     </div>
-                    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_12px_30px_rgba(15,23,42,0.05)]">
                       <div className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">What Phase 3 proves</div>
                       <div className="mt-4 space-y-3 text-sm leading-7 text-slate-700">
                         <p>The lesson header gives users sequence, module, and context.</p>
@@ -1298,7 +1664,7 @@ export default function ForensicCoursePlayerPreviewRestored() {
                 </div>
 
                 <aside className="space-y-6">
-                  <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
+                  <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-[0_12px_30px_rgba(15,23,42,0.05)]">
                     <div className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Lesson tools</div>
                     <div className="mt-4 space-y-3 text-sm text-slate-700">
                       <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-4">
@@ -1308,7 +1674,7 @@ export default function ForensicCoursePlayerPreviewRestored() {
                       <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">View linked resources</div>
                     </div>
                   </div>
-                  <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
+                  <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-[0_12px_30px_rgba(15,23,42,0.05)]">
                     <div className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Node summary</div>
                     <div className="mt-4 space-y-3 text-sm leading-7 text-slate-700">
                       <p><strong>Module:</strong> {activeLesson.moduleTitle}</p>
@@ -1460,7 +1826,7 @@ export default function ForensicCoursePlayerPreviewRestored() {
               </div>
             )}
 
-            <div className="mt-8 flex items-center justify-between rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
+            <div className="mt-10 flex items-center justify-between rounded-3xl border border-slate-200 bg-white p-5 shadow-[0_12px_30px_rgba(15,23,42,0.05)]">
               <button
                 onClick={goPrev}
                 disabled={lessonIndex === 0}

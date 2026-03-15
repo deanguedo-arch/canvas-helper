@@ -1,6 +1,6 @@
 # Task
 ## Goal
-Complete Phase 3 for `forensics` as a faithful D2L course player: preserve real source sequence and meaning, render real node types reliably, and enforce learner-safe default visibility with explicit archive mode.
+Execute Phase 6 for `forensics`: QA and hardening on top of the completed faithful-player, interaction, and visual passes.
 
 ## Constraints
 - Keep `projects/forensics/raw/**` and `projects/resources/forensics/**` immutable.
@@ -8,27 +8,23 @@ Complete Phase 3 for `forensics` as a faithful D2L course player: preserve real 
 - No new dependencies.
 - No renames.
 - No broad refactors.
-- No interaction/visual polish work beyond what is required for source-faithful rendering.
+- No new feature scope.
+- No structural rewrites.
+- No visual redesign work.
 
 ## Acceptance tests
-- Learner mode hides teacher/admin-only content (for example `Teacher Resources (KEEP HIDDEN)`).
-- Archive mode reveals hidden/admin content in the same mapped hierarchy.
-- Final exam and extra-credit nodes remain visible in sequence.
-- Representative node types render from real source files:
-  - HTML
-  - PDF
-  - assignment XML
-  - quiz/QTI XML
-- Rendering failures degrade to structured in-shell fallback, not a blank preview or runtime crash.
+- Existing faithful-player acceptance remains true (visibility modes + real source rendering + fallback behavior).
+- Interaction layer remains additive and non-destructive (section mode + checkpoints + quiz navigation/progress).
+- Visual shell remains coherent and readable after recent polish pass.
 - `npm run verify -- --project forensics` passes.
 - `npm run typecheck` passes.
 - `npm run build:studio` passes.
 
-## Known Parser/Renderer Gaps
-- [ ] `quiz` XML variants with multi-item sections: parse all items, not only first item.
-- [ ] `assignment` XML variants: extract richer structure (task, reminders, links) when present.
-- [ ] `html` pages with Brightspace-template dependencies: retain readability after script/style stripping.
-- [ ] media-first nodes currently mapped as `html-reading`: add better node-kind mapping and renderer routing.
+## QA / Hardening Gaps
+- [ ] Validate representative nodes across all major modules in learner mode and archive mode.
+- [ ] Confirm hidden/admin content never appears in learner mode.
+- [ ] Confirm assignment/quiz renderers fail soft on unmapped variants with structured fallback panel.
+- [ ] Audit for unnecessary file churn before commit.
 
 ## Expected files to change
 - `tasks/active.md`

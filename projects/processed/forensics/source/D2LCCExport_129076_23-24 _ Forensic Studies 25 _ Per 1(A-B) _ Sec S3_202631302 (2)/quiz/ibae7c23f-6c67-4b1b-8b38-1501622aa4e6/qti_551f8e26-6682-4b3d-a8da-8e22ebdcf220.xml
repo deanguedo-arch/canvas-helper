@@ -1,0 +1,1743 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/profile/cc/ccv1p3/ccv1p3_qtiasiv1p2p1_v1p0.xsd">
+  <assessment ident="iad32e940-d84e-4604-ae88-17e5014deaac" title="M6 The Polygraph and Writing Analysis Assessment">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>cc_profile</fieldlabel>
+        <fieldentry>cc.exam.v0p1</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_assessmenttype</fieldlabel>
+        <fieldentry>Examination</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>1</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_timelimit</fieldlabel>
+        <fieldentry>120</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    <section ident="i11dc5f79-e321-4bd6-9599-01fe9f67a18d">
+      <item ident="i12612cf0-1a39-4bf1-a040-afe2abe24c6e">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;During the stress of lying, the body's involuntary actions are controlled by the&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i5e378268-bf46-4227-880e-b62f90c355a5" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i86fd692f-930a-4baf-8dc7-79cef6b0b46c">
+                <material>
+                  <mattext texttype="text/html">central nervous system</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i50a7b4a2-4b67-4ee3-aa23-c7ceb147167e">
+                <material>
+                  <mattext texttype="text/html">parasympathetic nervous system</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ia5bf8924-25cc-4d9e-b9bd-6119061f363c">
+                <material>
+                  <mattext texttype="text/html">sympathetic nervous system</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i0190aa2a-43ee-4151-a9fb-c791371ae3b9">
+                <material>
+                  <mattext texttype="text/html">somatic nervous system</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5e378268-bf46-4227-880e-b62f90c355a5">i86fd692f-930a-4baf-8dc7-79cef6b0b46c</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5e378268-bf46-4227-880e-b62f90c355a5">i50a7b4a2-4b67-4ee3-aa23-c7ceb147167e</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i5e378268-bf46-4227-880e-b62f90c355a5">ia5bf8924-25cc-4d9e-b9bd-6119061f363c</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5e378268-bf46-4227-880e-b62f90c355a5">i0190aa2a-43ee-4151-a9fb-c791371ae3b9</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i9cb8d1df-fc36-436d-a552-cf216f520ab9">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">A large supply of blood is directed to the limbs during stress to</mattext>
+          </material>
+          <response_lid ident="i050cd634-3311-49f6-88d6-627599c7ad53" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="iaa5cc35e-013e-4701-b0e5-4fb364b4c2fe">
+                <material>
+                  <mattext texttype="text/html">allow quick movements if necessary</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i786672b9-7ad9-4bc9-8926-b61b863e2439">
+                <material>
+                  <mattext texttype="text/html">prevent the feeling of any pain</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ib18ff008-e54d-4449-991d-050248a0bdf1">
+                <material>
+                  <mattext texttype="text/html">prevent any aggressive reactions</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i9970356f-b9e8-4b30-ba5e-0f28e07337c7">
+                <material>
+                  <mattext texttype="text/html">save energy that may be needed later</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i050cd634-3311-49f6-88d6-627599c7ad53">iaa5cc35e-013e-4701-b0e5-4fb364b4c2fe</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i050cd634-3311-49f6-88d6-627599c7ad53">i786672b9-7ad9-4bc9-8926-b61b863e2439</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i050cd634-3311-49f6-88d6-627599c7ad53">ib18ff008-e54d-4449-991d-050248a0bdf1</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i050cd634-3311-49f6-88d6-627599c7ad53">i9970356f-b9e8-4b30-ba5e-0f28e07337c7</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i75bbac78-0a9b-40e6-8b5f-ba514da92e24">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">The stress responses that are monitored by the polygraph instrument are</mattext>
+          </material>
+          <response_lid ident="i5a71de65-b9f0-4f2b-a690-4632852d1d94" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="if159263b-1bfc-4602-b8f1-2bc268bc3d5f">
+                <material>
+                  <mattext texttype="text/html">	 blood pressure, digestive activities, and blood glucose levels </mattext>
+                </material>
+              </response_label>
+              <response_label ident="i918c9b01-cde1-49be-a4c2-5df347f8ee3c">
+                <material>
+                  <mattext texttype="text/html">perspiration, heart rate, blood pressure, and breathing rate</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i62d3f91e-8014-4790-af63-bdb8db8c17ac">
+                <material>
+                  <mattext texttype="text/html">	 heart rate, blood pressure, digestive activities, and pupil dilation</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ie01e3420-2758-4e81-b46b-e0dfc2131b5e">
+                <material>
+                  <mattext texttype="text/html">perspiration, heart rate, pupil dilation, and glycogen conversion</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5a71de65-b9f0-4f2b-a690-4632852d1d94">if159263b-1bfc-4602-b8f1-2bc268bc3d5f</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i5a71de65-b9f0-4f2b-a690-4632852d1d94">i918c9b01-cde1-49be-a4c2-5df347f8ee3c</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5a71de65-b9f0-4f2b-a690-4632852d1d94">i62d3f91e-8014-4790-af63-bdb8db8c17ac</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5a71de65-b9f0-4f2b-a690-4632852d1d94">ie01e3420-2758-4e81-b46b-e0dfc2131b5e</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i57c01580-cd77-4bcf-9fe0-0ccdfa403e88">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_response.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>4</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Select the four physiological activities below that occur when a person is telling a lie.&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="if45a4950-6877-499a-ba4a-2093e80502e7" rcardinality="Multiple">
+            <render_choice shuffle="Yes">
+              <response_label ident="i659ed78b-b0d0-4627-b715-dc24f464b63e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Increase in digestive activities&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="id68c6842-611e-4efb-a10d-6f41c7c59e03">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Decrease in digestive activities&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i4b4bb7e1-30a9-48cc-8569-0fcb984533bb">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Increase in perspiration&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i420cd73d-8010-4ad5-a105-6277ac7fdf0e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Increase in heart rate and blood pressure&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i8e01345c-5a4a-445a-b3d8-f0c48c454389">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Increase in breathing rate&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i8a51325b-40a4-4924-8d57-9fa619aac6f0">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Decrease in perspiration&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ie57e77bb-a409-453a-b202-f1622b3a3054">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Decrease in breathing rate&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="iad092702-12fb-44a2-9d6a-bb81882368d9">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Decrease in heart rate and blood pressure&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <and>
+                <not>
+                  <varequal respident="if45a4950-6877-499a-ba4a-2093e80502e7">i659ed78b-b0d0-4627-b715-dc24f464b63e</varequal>
+                </not>
+                <varequal respident="if45a4950-6877-499a-ba4a-2093e80502e7">id68c6842-611e-4efb-a10d-6f41c7c59e03</varequal>
+                <varequal respident="if45a4950-6877-499a-ba4a-2093e80502e7">i4b4bb7e1-30a9-48cc-8569-0fcb984533bb</varequal>
+                <varequal respident="if45a4950-6877-499a-ba4a-2093e80502e7">i420cd73d-8010-4ad5-a105-6277ac7fdf0e</varequal>
+                <varequal respident="if45a4950-6877-499a-ba4a-2093e80502e7">i8e01345c-5a4a-445a-b3d8-f0c48c454389</varequal>
+                <not>
+                  <varequal respident="if45a4950-6877-499a-ba4a-2093e80502e7">i8a51325b-40a4-4924-8d57-9fa619aac6f0</varequal>
+                </not>
+                <not>
+                  <varequal respident="if45a4950-6877-499a-ba4a-2093e80502e7">ie57e77bb-a409-453a-b202-f1622b3a3054</varequal>
+                </not>
+                <not>
+                  <varequal respident="if45a4950-6877-499a-ba4a-2093e80502e7">iad092702-12fb-44a2-9d6a-bb81882368d9</varequal>
+                </not>
+              </and>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if45a4950-6877-499a-ba4a-2093e80502e7">i659ed78b-b0d0-4627-b715-dc24f464b63e</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if45a4950-6877-499a-ba4a-2093e80502e7">id68c6842-611e-4efb-a10d-6f41c7c59e03</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if45a4950-6877-499a-ba4a-2093e80502e7">i4b4bb7e1-30a9-48cc-8569-0fcb984533bb</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if45a4950-6877-499a-ba4a-2093e80502e7">i420cd73d-8010-4ad5-a105-6277ac7fdf0e</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if45a4950-6877-499a-ba4a-2093e80502e7">i8e01345c-5a4a-445a-b3d8-f0c48c454389</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if45a4950-6877-499a-ba4a-2093e80502e7">i8a51325b-40a4-4924-8d57-9fa619aac6f0</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if45a4950-6877-499a-ba4a-2093e80502e7">ie57e77bb-a409-453a-b202-f1622b3a3054</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if45a4950-6877-499a-ba4a-2093e80502e7">iad092702-12fb-44a2-9d6a-bb81882368d9</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i5f541148-842c-4a42-bb48-b2b9a3246f79">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">Another name for the response that occurs during stress is</mattext>
+          </material>
+          <response_lid ident="i81c461cc-a53a-4ff0-a8ac-9100784bdf54" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i258a9cc4-b89f-433e-8f55-b7a0cfe962b2">
+                <material>
+                  <mattext texttype="text/html">fight or fight</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i3f9a06e2-7006-4fab-a930-d7e8486392fb">
+                <material>
+                  <mattext texttype="text/html">rest and digest</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i3ed563e3-1afa-46c5-9625-81066251b5fd">
+                <material>
+                  <mattext texttype="text/html">scrap or scream</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ief830bef-dafa-4e62-85ca-2a360c96ea20">
+                <material>
+                  <mattext texttype="text/html">relax and absorb</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i81c461cc-a53a-4ff0-a8ac-9100784bdf54">i258a9cc4-b89f-433e-8f55-b7a0cfe962b2</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i81c461cc-a53a-4ff0-a8ac-9100784bdf54">i3f9a06e2-7006-4fab-a930-d7e8486392fb</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i81c461cc-a53a-4ff0-a8ac-9100784bdf54">i3ed563e3-1afa-46c5-9625-81066251b5fd</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i81c461cc-a53a-4ff0-a8ac-9100784bdf54">ief830bef-dafa-4e62-85ca-2a360c96ea20</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i9aeeb7a3-2dd1-4343-86dd-c0d64e86af3b">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">What did Leonarde Keeler add to the polygraph instrument developed by John Larson?</mattext>
+          </material>
+          <response_lid ident="i8ba02ee6-f1e4-4081-afc0-a14f0d1143ef" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i19c041a1-8d06-45e2-b38b-2b71a664a1a0">
+                <material>
+                  <mattext texttype="text/html">Cardiospymograph </mattext>
+                </material>
+              </response_label>
+              <response_label ident="i571c0d88-f753-4ace-871d-40bde01bdcec">
+                <material>
+                  <mattext texttype="text/html">Pneumograph </mattext>
+                </material>
+              </response_label>
+              <response_label ident="i1bafc479-462e-4cc5-b3a1-40d83380ee67">
+                <material>
+                  <mattext texttype="text/html">Galvanometer</mattext>
+                </material>
+              </response_label>
+              <response_label ident="idc68e36c-6c5a-4b06-87bd-abe5c75bfe4b">
+                <material>
+                  <mattext texttype="text/html">Sphygomometer  </mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i8ba02ee6-f1e4-4081-afc0-a14f0d1143ef">i19c041a1-8d06-45e2-b38b-2b71a664a1a0</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i8ba02ee6-f1e4-4081-afc0-a14f0d1143ef">i571c0d88-f753-4ace-871d-40bde01bdcec</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i8ba02ee6-f1e4-4081-afc0-a14f0d1143ef">i1bafc479-462e-4cc5-b3a1-40d83380ee67</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i8ba02ee6-f1e4-4081-afc0-a14f0d1143ef">idc68e36c-6c5a-4b06-87bd-abe5c75bfe4b</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ibb508caf-24b4-4f0b-a914-966f0ab2f3ea">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">The first polygraph instrument developed by Dr. William Marston measured</mattext>
+          </material>
+          <response_lid ident="i09b7e6d4-d9e0-4276-b020-4513816467cf" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i0945e7aa-8440-4a08-93a7-7051dc7ff4ae">
+                <material>
+                  <mattext texttype="text/html">blood pressure</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i47604073-b40a-485d-9696-55e56c368bc1">
+                <material>
+                  <mattext texttype="text/html">breathing rate</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i2c9c2226-832e-4e9b-95d4-e0d6209df7f6">
+                <material>
+                  <mattext texttype="text/html">pupil dilation</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ieb2669e1-7ee0-4247-a2d5-8758e7a95feb">
+                <material>
+                  <mattext texttype="text/html">heart rate</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i09b7e6d4-d9e0-4276-b020-4513816467cf">i0945e7aa-8440-4a08-93a7-7051dc7ff4ae</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i09b7e6d4-d9e0-4276-b020-4513816467cf">i47604073-b40a-485d-9696-55e56c368bc1</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i09b7e6d4-d9e0-4276-b020-4513816467cf">i2c9c2226-832e-4e9b-95d4-e0d6209df7f6</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i09b7e6d4-d9e0-4276-b020-4513816467cf">ieb2669e1-7ee0-4247-a2d5-8758e7a95feb</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ied2651d6-88de-4a44-b12b-d1498fc36a0e">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">What do the two pneumographs of the polygraph instrument measure?</mattext>
+          </material>
+          <response_lid ident="ie6215967-27e3-4424-aa48-43d7375aee0b" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i58b725b2-b79b-462a-a2b1-f8a7eab76383">
+                <material>
+                  <mattext texttype="text/html">blood pressure</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i02b576f9-f724-4f2a-9b7c-d112cf2bb962">
+                <material>
+                  <mattext texttype="text/html">heart rate</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i712ad5ca-a28a-4a8d-9e9a-7599c5239899">
+                <material>
+                  <mattext texttype="text/html">skin conductivity</mattext>
+                </material>
+              </response_label>
+              <response_label ident="id13bfc32-8294-448b-b675-7bbab741534d">
+                <material>
+                  <mattext texttype="text/html">breathing rate</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ie6215967-27e3-4424-aa48-43d7375aee0b">i58b725b2-b79b-462a-a2b1-f8a7eab76383</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ie6215967-27e3-4424-aa48-43d7375aee0b">i02b576f9-f724-4f2a-9b7c-d112cf2bb962</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ie6215967-27e3-4424-aa48-43d7375aee0b">i712ad5ca-a28a-4a8d-9e9a-7599c5239899</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ie6215967-27e3-4424-aa48-43d7375aee0b">id13bfc32-8294-448b-b675-7bbab741534d</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i3100ca76-8ed2-4318-afc8-e293c6a927c8">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">Why is the galvanometer in the polygraph instrument able to measure perspiration levels using electricity?</mattext>
+          </material>
+          <response_lid ident="i73106c8b-c135-45aa-8883-6aa0fd57d24b" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="icd90845e-042e-4212-b85b-cb4d2d43cc8c">
+                <material>
+                  <mattext texttype="text/html">Oils in sweat absorb some electric currents.</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i44163bc8-cbb1-48eb-b9f0-df10f2431cd2">
+                <material>
+                  <mattext texttype="text/html">Water and salt in sweat conduct electricity.</mattext>
+                </material>
+              </response_label>
+              <response_label ident="icf8f9372-d97c-46f9-98d1-e012ec89a428">
+                <material>
+                  <mattext texttype="text/html">Heat generated during perspiration conducts electricity.</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i8e8a3dbf-8748-4097-9b50-132070a08310">
+                <material>
+                  <mattext texttype="text/html">Sodium in sweat creates a small electric current. </mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i73106c8b-c135-45aa-8883-6aa0fd57d24b">icd90845e-042e-4212-b85b-cb4d2d43cc8c</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i73106c8b-c135-45aa-8883-6aa0fd57d24b">i44163bc8-cbb1-48eb-b9f0-df10f2431cd2</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i73106c8b-c135-45aa-8883-6aa0fd57d24b">icf8f9372-d97c-46f9-98d1-e012ec89a428</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i73106c8b-c135-45aa-8883-6aa0fd57d24b">i8e8a3dbf-8748-4097-9b50-132070a08310</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="id45da7a2-0382-4e69-b4c9-b6bb5a42b2bf">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;The device that records electrical conductivity by sending an electric current onto the skin is called a:&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i1731387d-9528-4731-ae6b-26a53af65674" rcardinality="Single">
+            <render_choice>
+              <response_label ident="ib706d3b8-f564-4abb-a400-33fc0a24cb29">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;cardiospymograph&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i023c710e-a870-4332-b889-5ee3baafec5e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;electrocardiogram&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ib06dc6ea-b6dd-4706-83e0-037673712be9">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;pneumograph&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i4f021e7c-af64-4900-84d3-1cb7992391df">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;ultrasound&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i1731387d-9528-4731-ae6b-26a53af65674">ib706d3b8-f564-4abb-a400-33fc0a24cb29</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i1731387d-9528-4731-ae6b-26a53af65674">i023c710e-a870-4332-b889-5ee3baafec5e</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i1731387d-9528-4731-ae6b-26a53af65674">ib06dc6ea-b6dd-4706-83e0-037673712be9</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i1731387d-9528-4731-ae6b-26a53af65674">i4f021e7c-af64-4900-84d3-1cb7992391df</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i67f8c2d3-c2a1-4bb9-8239-3d3a5a6d8a19">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;The device that takes a reading of a person&amp;#39;s heart rate and blood pressure is called a:&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="iee03f3f5-3061-45bc-93f6-ea05fb0ab9ee" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i316ea1ec-954a-442d-8d9e-7a09ea174118">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;cardiograph&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i67a42913-e628-4674-8b3e-63bd06f13052">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;cardiospymograph&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i54edec4c-9ede-4017-bb25-c31fefc5ae92">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;pneumograph&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i3199ab40-53bb-44cc-bcae-04ab10e08a81">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;electrocardiogram&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="iee03f3f5-3061-45bc-93f6-ea05fb0ab9ee">i316ea1ec-954a-442d-8d9e-7a09ea174118</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="iee03f3f5-3061-45bc-93f6-ea05fb0ab9ee">i67a42913-e628-4674-8b3e-63bd06f13052</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="iee03f3f5-3061-45bc-93f6-ea05fb0ab9ee">i54edec4c-9ede-4017-bb25-c31fefc5ae92</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="iee03f3f5-3061-45bc-93f6-ea05fb0ab9ee">i3199ab40-53bb-44cc-bcae-04ab10e08a81</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i0eabbf8b-6244-48bd-9fd7-bb8ee7dc3cb0">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;The device that allows for the volume of air within its tubes to change during breathing is called a:&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i8dda806e-1c08-4cca-830b-8cec67487ca2" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="id05cf043-2b75-456f-a014-f77945b68c53">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;pneumograph&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="idf27212b-00e6-48c6-9734-c2dce6e18909">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;cardiospymograph&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i450d6c65-7525-47fa-bcaf-517479f7edbf">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;breathalyzer&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ieff24dfc-9f2d-4b11-81ab-7d7f94c97bde">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;pneumogram&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i8dda806e-1c08-4cca-830b-8cec67487ca2">id05cf043-2b75-456f-a014-f77945b68c53</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i8dda806e-1c08-4cca-830b-8cec67487ca2">idf27212b-00e6-48c6-9734-c2dce6e18909</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i8dda806e-1c08-4cca-830b-8cec67487ca2">i450d6c65-7525-47fa-bcaf-517479f7edbf</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i8dda806e-1c08-4cca-830b-8cec67487ca2">ieff24dfc-9f2d-4b11-81ab-7d7f94c97bde</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i8ab659ac-febd-4ddf-a977-8ba8024e4a5a">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">Which choice correctly identifies the three phases of a polygraph examination?</mattext>
+          </material>
+          <response_lid ident="i0034331a-abdb-4db2-8f4e-dab000e276a0" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ifbcffdb5-6882-43cf-815e-2ff788f0ce7b">
+                <material>
+                  <mattext texttype="text/html">Stimulation test, Questioning procedure, Control Question Technique</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ic5d8116b-b61a-47d2-a850-7dc00dc8033e">
+                <material>
+                  <mattext texttype="text/html">Stimulation test, Post-test interview, Control Question Technique</mattext>
+                </material>
+              </response_label>
+              <response_label ident="id754e3e1-6d15-484f-a993-26e88644f4d3">
+                <material>
+                  <mattext texttype="text/html">Pre-test interview, Stimulation test, Questioning procedure</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ie2377669-12e4-4b64-a7c4-070820fb3974">
+                <material>
+                  <mattext texttype="text/html">Pre-test interview, Questioning procedure, Post-test interview/analysis</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i0034331a-abdb-4db2-8f4e-dab000e276a0">ifbcffdb5-6882-43cf-815e-2ff788f0ce7b</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i0034331a-abdb-4db2-8f4e-dab000e276a0">ic5d8116b-b61a-47d2-a850-7dc00dc8033e</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i0034331a-abdb-4db2-8f4e-dab000e276a0">id754e3e1-6d15-484f-a993-26e88644f4d3</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i0034331a-abdb-4db2-8f4e-dab000e276a0">ie2377669-12e4-4b64-a7c4-070820fb3974</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ia1ec1923-1da8-43f6-850f-efc0fd55a555">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">The underlying goal of the pre-test interview is to</mattext>
+          </material>
+          <response_lid ident="i0c34db52-4278-466c-8a77-a6a9022de431" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ibefa917c-4cf7-4d46-ac27-ddd7249069c7">
+                <material>
+                  <mattext texttype="text/html">impress upon the subject that lying will be easily spotted</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ia538f1d0-f9cd-4705-b096-c2074e8fdb3a">
+                <material>
+                  <mattext texttype="text/html">	 resolve any of the subject's anxieties and uncertainties</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i8beab4e7-79cf-4696-a62f-5c00657a4355">
+                <material>
+                  <mattext texttype="text/html">inform the subject of all of his or her legal rights</mattext>
+                </material>
+              </response_label>
+              <response_label ident="iae6654ed-122d-404c-b10b-5ca6c75fdcc1">
+                <material>
+                  <mattext texttype="text/html">question the subject about his or her personal opinions and beliefs  </mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i0c34db52-4278-466c-8a77-a6a9022de431">ibefa917c-4cf7-4d46-ac27-ddd7249069c7</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i0c34db52-4278-466c-8a77-a6a9022de431">ia538f1d0-f9cd-4705-b096-c2074e8fdb3a</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i0c34db52-4278-466c-8a77-a6a9022de431">i8beab4e7-79cf-4696-a62f-5c00657a4355</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i0c34db52-4278-466c-8a77-a6a9022de431">iae6654ed-122d-404c-b10b-5ca6c75fdcc1</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="id53cc910-077b-4823-86ab-8458678a2ac0">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">What type of polygraph questioning technique is used in criminal investigations?</mattext>
+          </material>
+          <response_lid ident="i62ba0db0-c458-438b-9ddc-32e0e6ce9a8e" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i6ee71516-d3db-45a0-aa60-8e9e59c374a6">
+                <material>
+                  <mattext texttype="text/html">Stimulation Test Technique  (STT)</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ie30aec2f-cc5b-424b-9e9d-9ddc2d091768">
+                <material>
+                  <mattext texttype="text/html">Concealed Information Technique  (CIT)</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i6a5c9d50-d16b-43bd-b572-01be3fa78b81">
+                <material>
+                  <mattext texttype="text/html">Control Question Technique (CQT)</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i64a751d3-a471-4b83-9c6b-518db4ead013">
+                <material>
+                  <mattext texttype="text/html">Relevant/Irrelevant Technique  (R/I)</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i62ba0db0-c458-438b-9ddc-32e0e6ce9a8e">i6ee71516-d3db-45a0-aa60-8e9e59c374a6</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i62ba0db0-c458-438b-9ddc-32e0e6ce9a8e">ie30aec2f-cc5b-424b-9e9d-9ddc2d091768</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i62ba0db0-c458-438b-9ddc-32e0e6ce9a8e">i6a5c9d50-d16b-43bd-b572-01be3fa78b81</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i62ba0db0-c458-438b-9ddc-32e0e6ce9a8e">i64a751d3-a471-4b83-9c6b-518db4ead013</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i67c50933-d873-4ebd-816a-534df8020713">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">During a polygraph examination for a criminal investigation, it is important that the subject does not</mattext>
+          </material>
+          <response_lid ident="i75405a95-94ca-4cc8-bf7e-85235979a93a" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i8aa135bc-5eba-49b0-94c4-f25594462192">
+                <material>
+                  <mattext texttype="text/html">	 know whether he or she is being asked control or relevant questions</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ieac3a952-88c3-4eb4-ba86-7638ff51ade3">
+                <material>
+                  <mattext texttype="text/html">identify any of the guilty suspects involved with the crime</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i954c725c-33a8-40ce-a53d-67bc2f727abd">
+                <material>
+                  <mattext texttype="text/html">demonstrate any painful or negative emotions</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i03454120-f75a-41e9-a428-2d52381aff78">
+                <material>
+                  <mattext texttype="text/html">understand the difference between truth and deception </mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i75405a95-94ca-4cc8-bf7e-85235979a93a">i8aa135bc-5eba-49b0-94c4-f25594462192</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i75405a95-94ca-4cc8-bf7e-85235979a93a">ieac3a952-88c3-4eb4-ba86-7638ff51ade3</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i75405a95-94ca-4cc8-bf7e-85235979a93a">i954c725c-33a8-40ce-a53d-67bc2f727abd</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i75405a95-94ca-4cc8-bf7e-85235979a93a">i03454120-f75a-41e9-a428-2d52381aff78</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i3a7f6bff-55ba-44a2-910b-3132bb3e58ca">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">During the pre-test interview a suspect becomes involved in the creation of the</mattext>
+          </material>
+          <response_lid ident="id00824cd-ff0a-49f0-89d4-0791c0be591a" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i1053fdb2-a3e4-48db-af22-cc339ec7524e">
+                <material>
+                  <mattext texttype="text/html">concealed questions</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i3307d128-8777-4b60-bbfb-4e3fa4ff8d5b">
+                <material>
+                  <mattext texttype="text/html">irrelevant questions</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i74a85118-4e33-415d-b32e-3d3931b7aff3">
+                <material>
+                  <mattext texttype="text/html">relevant questions</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i54d073a1-d508-43f3-a8e1-0118980504a2">
+                <material>
+                  <mattext texttype="text/html">control questions </mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="id00824cd-ff0a-49f0-89d4-0791c0be591a">i1053fdb2-a3e4-48db-af22-cc339ec7524e</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="id00824cd-ff0a-49f0-89d4-0791c0be591a">i3307d128-8777-4b60-bbfb-4e3fa4ff8d5b</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="id00824cd-ff0a-49f0-89d4-0791c0be591a">i74a85118-4e33-415d-b32e-3d3931b7aff3</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="id00824cd-ff0a-49f0-89d4-0791c0be591a">i54d073a1-d508-43f3-a8e1-0118980504a2</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i2db5b680-8de8-4e08-9bc5-50f9c99d7261">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">What type of questions focus upon behaviours that are similar in nature to the crime being investigated?</mattext>
+          </material>
+          <response_lid ident="i8583b42d-fc09-49f2-8531-ccff5a127908" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i1ed19ac8-c589-4445-8df9-64c39d13cb01">
+                <material>
+                  <mattext texttype="text/html">Relevant  </mattext>
+                </material>
+              </response_label>
+              <response_label ident="i4e300854-0e78-43b2-a2a0-64bd18453809">
+                <material>
+                  <mattext texttype="text/html">Concealed</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i25b860b1-54ed-44b2-b8cf-219d355af42b">
+                <material>
+                  <mattext texttype="text/html">Control </mattext>
+                </material>
+              </response_label>
+              <response_label ident="i0005a058-0d28-44aa-aaf3-fa61572509a9">
+                <material>
+                  <mattext texttype="text/html">Irrelevant  </mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i8583b42d-fc09-49f2-8531-ccff5a127908">i1ed19ac8-c589-4445-8df9-64c39d13cb01</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i8583b42d-fc09-49f2-8531-ccff5a127908">i4e300854-0e78-43b2-a2a0-64bd18453809</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i8583b42d-fc09-49f2-8531-ccff5a127908">i25b860b1-54ed-44b2-b8cf-219d355af42b</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i8583b42d-fc09-49f2-8531-ccff5a127908">i0005a058-0d28-44aa-aaf3-fa61572509a9</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i4f9e1f81-8dce-4256-97d5-6612b0df0ae3">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">A polygraph examination is an effective criminal investigative tool used to</mattext>
+          </material>
+          <response_lid ident="idccd958e-8bff-4b5c-83b6-67011e0cfdeb" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i53a4f8e1-5e20-4e71-9efe-dec48dc60fcd">
+                <material>
+                  <mattext texttype="text/html">argue whether a suspect's alibi is accurate  </mattext>
+                </material>
+              </response_label>
+              <response_label ident="i962d1a62-848e-489e-a6f3-4f61e276c8d7">
+                <material>
+                  <mattext texttype="text/html">understand a suspect's motive for committing the crime</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i4bf2a0ad-a4a5-474e-9e9a-2b05479d5f18">
+                <material>
+                  <mattext texttype="text/html">question a suspect's knowledge of crime scene details</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i0718e802-09be-44c7-9b27-f1e55b157c5d">
+                <material>
+                  <mattext texttype="text/html">interrogate a suspect in the hope of getting a confession</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="idccd958e-8bff-4b5c-83b6-67011e0cfdeb">i53a4f8e1-5e20-4e71-9efe-dec48dc60fcd</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="idccd958e-8bff-4b5c-83b6-67011e0cfdeb">i962d1a62-848e-489e-a6f3-4f61e276c8d7</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="idccd958e-8bff-4b5c-83b6-67011e0cfdeb">i4bf2a0ad-a4a5-474e-9e9a-2b05479d5f18</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="idccd958e-8bff-4b5c-83b6-67011e0cfdeb">i0718e802-09be-44c7-9b27-f1e55b157c5d</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="id92d24a8-af74-4964-95a2-7caf9f2b9214">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">Those trained to administer polygraph tests to criminal suspects are usually</mattext>
+          </material>
+          <response_lid ident="i8bd15f85-a664-465d-92d2-12472f3d0015" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i362130ba-f228-48b8-89b7-8e8e34936754">
+                <material>
+                  <mattext texttype="text/html">psychologists</mattext>
+                </material>
+              </response_label>
+              <response_label ident="iebed592d-8301-4fe2-bdc1-38562c14bddc">
+                <material>
+                  <mattext texttype="text/html">lawyers</mattext>
+                </material>
+              </response_label>
+              <response_label ident="iabcf4da8-9061-42ca-bce3-5a5fa0b1a804">
+                <material>
+                  <mattext texttype="text/html">social workers</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i9917039a-a21c-4a43-b73c-da1465e9b0e5">
+                <material>
+                  <mattext texttype="text/html">police officers</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i8bd15f85-a664-465d-92d2-12472f3d0015">i362130ba-f228-48b8-89b7-8e8e34936754</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i8bd15f85-a664-465d-92d2-12472f3d0015">iebed592d-8301-4fe2-bdc1-38562c14bddc</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i8bd15f85-a664-465d-92d2-12472f3d0015">iabcf4da8-9061-42ca-bce3-5a5fa0b1a804</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i8bd15f85-a664-465d-92d2-12472f3d0015">i9917039a-a21c-4a43-b73c-da1465e9b0e5</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i96011e44-b2a1-49ce-9b40-0a18a4d08be6">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;The forensic analysis of handwriting is based upon the premise that&lt;br&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i278b8204-4af2-46ef-af5f-1797c4685e09" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i640fe51f-52d5-42c6-a201-f79b49691968">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;each person has a unique handwriting style&lt;br&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="iab53e1f3-0e74-4ba5-b5af-3333b132d487">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;each person writes certain words the same way&lt;br&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="id13f30fa-aa58-4b5c-84dc-e446457fab4d">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;each person's writing tends to change according to his or her mood&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="if458966a-a010-42e5-8a5b-b8700674d645">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;each person's writing tends to remain the same since childhood&lt;br&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i278b8204-4af2-46ef-af5f-1797c4685e09">i640fe51f-52d5-42c6-a201-f79b49691968</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i278b8204-4af2-46ef-af5f-1797c4685e09">iab53e1f3-0e74-4ba5-b5af-3333b132d487</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i278b8204-4af2-46ef-af5f-1797c4685e09">id13f30fa-aa58-4b5c-84dc-e446457fab4d</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i278b8204-4af2-46ef-af5f-1797c4685e09">if458966a-a010-42e5-8a5b-b8700674d645</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i420167f3-7fee-4cc7-a103-8f8daec456eb">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;The slope of handwritten text is the most noticeable when&lt;br&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i5de4d385-1050-4a28-93f9-a2f93f82bb2d" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ic24fae5c-6cc1-4537-a612-17e40d808be2">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;the writer uses a pencil&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i0a52bf37-3279-447c-a6e3-1274a4fc5122">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;the writer uses a black pen&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="icb19b1d9-524b-426e-9052-4d786e2c51c8">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;it is written upon yellow paper&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="iff8010ee-69b2-4e9c-9869-56baa22c3c56">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;it is written upon unlined paper&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5de4d385-1050-4a28-93f9-a2f93f82bb2d">ic24fae5c-6cc1-4537-a612-17e40d808be2</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5de4d385-1050-4a28-93f9-a2f93f82bb2d">i0a52bf37-3279-447c-a6e3-1274a4fc5122</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5de4d385-1050-4a28-93f9-a2f93f82bb2d">icb19b1d9-524b-426e-9052-4d786e2c51c8</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i5de4d385-1050-4a28-93f9-a2f93f82bb2d">iff8010ee-69b2-4e9c-9869-56baa22c3c56</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i38d9f3bc-e403-4a69-b28a-a58182ea87d0">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Often, the letters written in a deliberately disguised way are&lt;br&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i5feb2745-acaf-4c70-a4f4-4022fd0b0cd7" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i706f5bf1-a207-4dc3-900e-516faf7d4bef">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;larger than normal&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i2591389d-cd87-4f33-bc38-1279c5ab0509">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;smaller than normal&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ifaaa09d8-7c33-4ae2-8e8e-0d65e8f284cb">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;more simple than normal&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="if2fc262f-9465-4390-8238-f26591f5a563">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;more complex than normal&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i5feb2745-acaf-4c70-a4f4-4022fd0b0cd7">i706f5bf1-a207-4dc3-900e-516faf7d4bef</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5feb2745-acaf-4c70-a4f4-4022fd0b0cd7">i2591389d-cd87-4f33-bc38-1279c5ab0509</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5feb2745-acaf-4c70-a4f4-4022fd0b0cd7">ifaaa09d8-7c33-4ae2-8e8e-0d65e8f284cb</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5feb2745-acaf-4c70-a4f4-4022fd0b0cd7">if2fc262f-9465-4390-8238-f26591f5a563</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ia7b05498-7cb6-4857-9b41-ff53453e78c9">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;What technique can be used to help individualize the type of ink used in a questionable document?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i7e53a0f3-3245-4efd-a046-567a43deb558" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i6081d0fc-cd75-4b80-8ced-31ec598a3473">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Graphology&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i2c183960-4250-46fa-92f3-34feed954d7b">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Chromatography&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i3f881620-dca9-4cde-a5b4-b80741ecc2ea">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Intoxilyzer testing&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i62f58ab0-dc90-44b5-a832-682d4c0a0f66">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Criminal profiling&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i7e53a0f3-3245-4efd-a046-567a43deb558">i6081d0fc-cd75-4b80-8ced-31ec598a3473</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i7e53a0f3-3245-4efd-a046-567a43deb558">i2c183960-4250-46fa-92f3-34feed954d7b</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i7e53a0f3-3245-4efd-a046-567a43deb558">i3f881620-dca9-4cde-a5b4-b80741ecc2ea</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i7e53a0f3-3245-4efd-a046-567a43deb558">i62f58ab0-dc90-44b5-a832-682d4c0a0f66</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+    </section>
+  </assessment>
+</questestinterop>
