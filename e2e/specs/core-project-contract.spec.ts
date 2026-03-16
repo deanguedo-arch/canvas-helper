@@ -4,10 +4,13 @@ import {
   loadProjectContractBySlug,
   type ProjectE2EContract
 } from "../lib/load-project-contract";
+import { assertRequiredTestIds } from "../lib/contract-preflight";
 import { openProjectInStudio } from "../lib/project-open";
 
 const ROOT_DIR = process.cwd();
 const PROJECT_ENV_SLUG = process.env.E2E_PROJECT_SLUG || "";
+const PROJECT_MODE = process.env.E2E_PROJECT_MODE || "";
+const REQUIRE_PROJECT_SLUG = PROJECT_MODE === "project-contract";
 
 function escapeRegExp(value: string) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -16,9 +19,7 @@ function escapeRegExp(value: string) {
 async function runContractChecks(contract: ProjectE2EContract, page: Parameters<typeof test>[0]["page"]) {
   await openProjectInStudio(page, contract.projectSlug);
 
-  for (const testId of contract.requiredTestIds || []) {
-    await expect(page.getByTestId(testId)).toBeVisible();
-  }
+  await assertRequiredTestIds(page, contract.requiredTestIds || []);
 
   const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
 
@@ -69,12 +70,12 @@ async function runContractChecks(contract: ProjectE2EContract, page: Parameters<
       }
     }
     await lessonButton.first().click({ timeout: 10_000 });
-    await expect(workspaceFrame.getByText("Assessment preview")).toBeVisible();
+    await expect(workspaceFrame.getByTestId("renderer-quiz")).toBeVisible();
 
     if (contract.quiz.answerChoiceLabel) {
       await workspaceFrame.getByRole("button", { name: contract.quiz.answerChoiceLabel }).click();
     } else {
-      await workspaceFrame.locator("div.mt-5.space-y-3 button").first().click();
+      await workspaceFrame.getByTestId("quiz-answer-choice").first().click();
     }
 
     const progressPattern = contract.quiz.progressPattern || "answered";
@@ -97,7 +98,13 @@ test("@smoke core project contract: e2e-fixture", async ({ page }) => {
 });
 
 test("@project core project contract: selected slug", async ({ page }) => {
-  test.skip(!PROJECT_ENV_SLUG, "Set E2E_PROJECT_SLUG to run project contract checks.");
+  if (!PROJECT_ENV_SLUG) {
+    if (REQUIRE_PROJECT_SLUG) {
+      throw new Error("Missing E2E_PROJECT_SLUG for project-contract run.");
+    }
+    test.skip(true, "Set E2E_PROJECT_SLUG to run project contract checks.");
+    return;
+  }
   const contract = await loadProjectContractBySlug(ROOT_DIR, PROJECT_ENV_SLUG);
   await runContractChecks(contract, page);
 });

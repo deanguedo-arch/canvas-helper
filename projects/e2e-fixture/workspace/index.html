@@ -158,8 +158,8 @@
         <h2 data-testid="lesson-title">Quiz Lesson</h2>
         <div data-testid="quiz-progress">0/2 answered</div>
         <div data-testid="quiz-question-nav">
-          <button type="button" data-testid="quiz-question-button">Q1</button>
-          <button type="button" data-testid="quiz-question-button">Q2</button>
+          <button type="button" data-testid="quiz-question-button" data-current="true">Q1</button>
+          <button type="button" data-testid="quiz-question-button" data-current="false">Q2</button>
         </div>
         <div class="quiz-choices">
           <button type="button" data-testid="quiz-answer-choice">Choice A</button>
@@ -203,12 +203,15 @@
       const sectionToggle = document.querySelector("[data-testid='section-mode-toggle']");
       const quizProgress = document.querySelector("[data-testid='quiz-progress']");
       const quizChoices = Array.from(document.querySelectorAll("[data-testid='quiz-answer-choice']"));
+      const quizQuestionButtons = Array.from(document.querySelectorAll("[data-testid='quiz-question-button']"));
+      const quizNext = document.querySelector("[data-testid='quiz-next-question']");
       const nodeCounter = document.querySelector("[data-testid='node-counter']");
 
       const lessonOrder = lessonButtons.map((button) => button.getAttribute("data-lesson-title"));
       let currentIndex = 0;
       let isArchive = false;
       let answered = 0;
+      let currentQuestionIndex = 0;
 
       function setMode(nextArchive) {
         isArchive = nextArchive;
@@ -274,8 +277,28 @@
         });
       });
 
+      function setCurrentQuestion(index) {
+        currentQuestionIndex = Math.max(0, Math.min(index, quizQuestionButtons.length - 1));
+        quizQuestionButtons.forEach((button, idx) => {
+          button.setAttribute("data-current", idx === currentQuestionIndex ? "true" : "false");
+        });
+      }
+
+      quizQuestionButtons.forEach((button, idx) => {
+        button.addEventListener("click", () => setCurrentQuestion(idx));
+      });
+
+      if (quizNext) {
+        quizNext.addEventListener("click", () => {
+          if (currentQuestionIndex < quizQuestionButtons.length - 1) {
+            setCurrentQuestion(currentQuestionIndex + 1);
+          }
+        });
+      }
+
       setMode(false);
       setActiveLesson(0);
+      setCurrentQuestion(0);
     </script>
   </body>
 </html>

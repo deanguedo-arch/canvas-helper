@@ -31,7 +31,8 @@ async function main() {
     stdio: "inherit",
     env: {
       ...process.env,
-      E2E_PROJECT_SLUG: project
+      E2E_PROJECT_SLUG: project,
+      E2E_PROJECT_MODE: "project-contract"
     }
   });
 

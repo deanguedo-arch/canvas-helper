@@ -6,63 +6,54 @@
 
 ## Files changed
 - package.json
-- package-lock.json
 - scripts/run-e2e-project.ts
-- e2e/playwright.config.ts
 - e2e/specs/core-project-contract.spec.ts
 - e2e/specs/deep-project-contract.spec.ts
 - e2e/lib/load-project-contract.ts
-- e2e/lib/project-open.ts
+- e2e/lib/project-contract-schema.ts
+- e2e/lib/contract-preflight.ts
+- e2e/lib/contract-assertions.ts
 - e2e/project-e2e-contract.schema.json
-- projects/e2e-fixture/raw/original.html
 - projects/e2e-fixture/workspace/index.html
-- projects/e2e-fixture/meta/project.json
 - projects/e2e-fixture/meta/e2e-contract.json
 - projects/forensics/meta/e2e-contract.json
-- app/studio/src/App.tsx
-- app/studio/src/components/Topbar.tsx
-- app/studio/src/components/WorkspacePicker.tsx
-- app/studio/src/components/PreviewPane.tsx
-- AGENTS.md
-- .cursorrules
-- tasks/active.md
-- ARCHITECTURE.md
-- CONTRIBUTING.md
-- docs/ops/FAST_PATHS.md
-- README.md
-- projects/forensics/workspace/index.html
-- projects/forensics/workspace/main.js
 - projects/forensics/workspace/main.jsx
-- projects/forensics/meta/residue-audit.md
+- projects/forensics/workspace/main.js
+- projects/forensics/workspace/index.html
+- AGENTS.md
+- docs/ops/FAST_PATHS.md
+- scripts/tests/e2e-contract-harness.test.ts
+- scripts/tests/fixtures/e2e-contracts/invalid-unknown-check.json
+- scripts/tests/fixtures/e2e-contracts/invalid-extra-property.json
+- scripts/tests/fixtures/e2e-contracts/invalid-mode.json
+- scripts/tests/fixtures/e2e-contracts/invalid-empty-deep.json
+- scripts/tests/fixtures/e2e-contracts/invalid-bad-assertion-profile.json
 - docs/ops/ACTIVE_HANDOFF.md
 
 ## What changed
-- Landed Playwright-based e2e platform MVP with repo-level config, reusable contract loader, and reusable core project contract spec.
-- Added deterministic `e2e-fixture` project and a forensics project contract.
-- Added stable shared Studio test selectors (`data-testid`) for shell/project root/mode controls/preview frame/fallback panel.
-- Added e2e commands: `test:e2e`, `test:e2e:smoke`, `test:e2e:project`.
-- Updated AGENTS/cursor/task policy so interaction-heavy tasks require e2e before completion.
-- Updated architecture/contributing/fast-path/readme docs for e2e workflow.
-- Added explicit high-confidence suite plan in `tasks/active.md` for 1-2 day follow-up.
-- Implemented the high-confidence deep contract spec and extended the project contract schema for assertion profiles, module pass targets, and visibility checks.
-- Added project-agnostic `data-testid` hooks in the forensics workspace and expanded the fixture workspace to exercise deterministic mode/quiz/fallback checks.
-- Updated AGENTS + FAST_PATHS workflow guidance for the reusable suite.
+- Added strict project-contract schema validation (Zod) with deep-target requirements and assertion profile checks.
+- Added preflight required `data-testid` enforcement plus helper assertions for state-change checks.
+- Tightened deep project-contract spec to fail fast on missing slug/empty targets and assert state transitions for mode, lesson open, quiz, section mode, and node nav.
+- Added deterministic quiz navigation state in fixture + forensics (`data-current`) and lesson active hooks (`data-active`).
+- Added harness tests and invalid contract fixtures for the strict contract path.
+- Updated FAST_PATHS + AGENTS to document strict project-contract expectations.
+- Hardened forensics workspace preview to never render an empty shell during e2e runs (fallback course, safe lesson/module lists, query-expands module sections).
+- Deep spec now resets to learner mode before module targets, clears search after lesson select, and makes node-nav check use enabled controls.
 
 ## What still needs validation
-- Run the deep suite: `npm run test:e2e:project -- --project forensics` and `npm run test:e2e:project -- --project e2e-fixture`.
+- Run harness validation: `npm run test:e2e:harness`.
+- Run fixture deep suite: `npm run test:e2e:project -- --project e2e-fixture`.
 - Run smoke: `npm run test:e2e:smoke`.
-- Execute manual Phase 6A representative module pass list in learner and archive modes.
 
 ## Known risks
-- Forensics deep checks currently rely on lesson search + module expansion behavior; further selector hardening is expected in high-confidence phase.
-- Existing unrelated untracked repo noise remains (`MY OWN BUILT QUIZ GENERATOR/`, `projects/processed/**`).
-- `verify` still warns about external Tailwind CDN dependency.
+- Quiz navigation checks now require `data-current` on quiz question buttons; additional projects will need that hook when they opt-in.
+- Forensics deep checks rely on lesson search + module expansion behavior; if the module list UI changes, update `data-testid` hooks.
 
 ## Exact next command
-`npm run test:e2e:project -- --project forensics`
+`npm run test:e2e:harness`
 
 ## Exact next file to open
-`/Users/deanguedo/Documents/GitHub/canvas-helper/tasks/active.md`
+`/Users/deanguedo/Documents/GitHub/canvas-helper/e2e/specs/deep-project-contract.spec.ts`
 
 ## Do not do next / warnings
 - Do not edit `projects/forensics/raw/**` or `projects/resources/forensics/**` directly.

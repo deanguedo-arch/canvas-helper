@@ -2,6 +2,28 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "canvas-helper/e2e/project-contract.schema.json",
   "title": "Canvas Helper Project E2E Contract",
+  "$defs": {
+    "deepCheck": {
+      "type": "string",
+      "enum": [
+        "renderer-html",
+        "renderer-assignment",
+        "renderer-quiz",
+        "renderer-pdf",
+        "renderer-fallback",
+        "renderer-video",
+        "renderer-slide",
+        "section-mode",
+        "quick-checkpoints",
+        "quiz-answer",
+        "quiz-progress",
+        "quiz-nav",
+        "quiz-next-question",
+        "node-nav",
+        "node-counter"
+      ]
+    }
+  },
   "type": "object",
   "additionalProperties": false,
   "required": ["projectSlug"],
@@ -62,7 +84,8 @@
         "properties": {
           "checks": {
             "type": "array",
-            "items": { "type": "string", "minLength": 1 }
+            "minItems": 1,
+            "items": { "$ref": "#/$defs/deepCheck" }
           },
           "mode": { "type": "string", "enum": ["learner", "archive"] }
         }
@@ -80,7 +103,8 @@
           "assertionProfile": { "type": "string", "minLength": 1 },
           "checks": {
             "type": "array",
-            "items": { "type": "string", "minLength": 1 }
+            "minItems": 1,
+            "items": { "$ref": "#/$defs/deepCheck" }
           },
           "mode": { "type": "string", "enum": ["learner", "archive"] }
         }

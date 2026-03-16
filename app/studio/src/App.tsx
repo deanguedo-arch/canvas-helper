@@ -101,31 +101,38 @@ export function App() {
     if (!selectedProject || !workspaceTarget) {
       return { reference: "", workspace: "" };
     }
+    const isE2E = typeof window !== "undefined" && window.location.search.includes("e2e=1");
+    const withE2E = (value: string) => {
+      if (!isE2E || !value) return value;
+      if (value.includes("e2e=1")) return value;
+      const joiner = value.includes("?") ? "&" : "?";
+      return `${value}${joiner}e2e=1`;
+    };
 
-    const workspaceSrc = toPreviewUrl(
+    const workspaceSrc = withE2E(toPreviewUrl(
       "workspace",
       selectedProject.manifest.slug,
       workspaceTarget.htmlPath,
       selectedProject.revisions.workspace
-    );
+    ));
 
     const referenceSrc =
       resolvedReference.project && resolvedReference.target.projectSlug
         ? resolvedReference.target.source === "resource"
           ? resolvedReference.target.resourcePath
-            ? toReferenceResourcePreviewUrl(
+            ? withE2E(toReferenceResourcePreviewUrl(
                 resolvedReference.target.resourceRoot,
                 resolvedReference.target.projectSlug,
                 resolvedReference.target.resourcePath,
                 referenceRevision
-              )
+              ))
             : ""
-          : toPreviewUrl(
+          : withE2E(toPreviewUrl(
               resolvedReference.target.root,
               resolvedReference.target.projectSlug,
               resolvedReference.target.htmlPath,
               referenceRevision
-            )
+            ))
         : "";
 
     return { reference: referenceSrc, workspace: workspaceSrc };

@@ -46,6 +46,7 @@ Touch docs when behavior or policy changes:
 Verification floor:
 - `npm run test:e2e:smoke`
 - `npm run test:e2e:project -- --project <slug>` (when project contract changes)
+- `npm run test:e2e:harness` (when contract validation or deep checks change)
 - `npm run typecheck`
 
 ## Intelligence Policy Work
@@ -80,6 +81,7 @@ Before: manual learner/archive passes + spot checks + `verify/typecheck/build`.
 Now: define a project contract (`projects/<slug>/meta/e2e-contract.json`) with `assertionProfiles`, `modulePassTargets`, and `visibilityChecks`, then run:
 - `npm run test:e2e:project -- --project <slug>`
 - `npm run test:e2e:smoke`
+- `npm run test:e2e:harness` (when validation/contract strictness changes)
 - `npm run verify -- --project <slug>`
 - `npm run typecheck`
 - `npm run build:studio`

@@ -1,0 +1,12 @@
+{
+  "$schema": "../../../e2e/project-e2e-contract.schema.json",
+  "projectSlug": "fixture-extra-property",
+  "extra": true,
+  "modulePassTargets": [
+    {
+      "moduleTitle": "Module A",
+      "itemTitle": "Lesson A",
+      "checks": ["renderer-html"]
+    }
+  ]
+}

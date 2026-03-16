@@ -31,6 +31,7 @@
     "test:e2e": "playwright test -c e2e/playwright.config.ts",
     "test:e2e:smoke": "playwright test -c e2e/playwright.config.ts --grep @smoke",
     "test:e2e:project": "tsx scripts/run-e2e-project.ts",
+    "test:e2e:harness": "tsx --test scripts/tests/e2e-contract-harness.test.ts",
     "backfill:learning": "tsx scripts/backfill-learning-source.ts",
     "test:learning": "tsx scripts/tests/learning-pipeline-check.ts",
     "smoke:pipeline": "tsx scripts/smoke-local-pipeline.ts",

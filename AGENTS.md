@@ -133,6 +133,7 @@ Rules:
 - If UI behavior changed, update stable `data-testid` selectors as needed.
 - If project behavior expectations changed, update `projects/<slug>/meta/e2e-contract.json`.
 - Keep the high-confidence suite project-agnostic by defining `assertionProfiles`, `modulePassTargets`, and `visibilityChecks` in the project contract when deeper coverage is needed.
+- Project-contract runs are strict: missing slug/contract, invalid schema, empty deep targets, or missing required `data-testid` hooks must fail fast.
 - A task touching critical interaction flows is not complete until the required E2E command passes.
 
 ## Commit Rules

@@ -1,0 +1,16 @@
+{
+  "$schema": "../../../e2e/project-e2e-contract.schema.json",
+  "projectSlug": "fixture-bad-profile",
+  "assertionProfiles": {
+    "html": {
+      "checks": ["renderer-html"]
+    }
+  },
+  "modulePassTargets": [
+    {
+      "moduleTitle": "Module A",
+      "itemTitle": "Lesson A",
+      "assertionProfile": "missing-profile"
+    }
+  ]
+}

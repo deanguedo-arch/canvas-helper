@@ -1,0 +1,11 @@
+{
+  "$schema": "../../../e2e/project-e2e-contract.schema.json",
+  "projectSlug": "fixture-unknown-check",
+  "modulePassTargets": [
+    {
+      "moduleTitle": "Module A",
+      "itemTitle": "Lesson A",
+      "checks": ["renderer-html", "renderer-unknown"]
+    }
+  ]
+}

@@ -1,10 +1,6 @@
 import __CanvasHelperReactDomClient from "https://esm.sh/react-dom@19.1.1/client";
 import React, { useEffect, useMemo, useState } from "https://esm.sh/react@19.1.1";
 import {
-  Home,
-  BookOpen,
-  BarChart3,
-  FolderOpen,
   ChevronDown,
   ChevronRight,
   CheckCircle2,
@@ -16,7 +12,6 @@ import {
   Library,
   Search,
   PlayCircle,
-  ShieldCheck,
   FileImage,
   FileQuestion,
   FileBadge,
@@ -306,6 +301,9 @@ function isHiddenLabel(value) {
 }
 
 function buildCourseFromD2LMap(seed, d2lMap) {
+  if (!d2lMap?.modules?.length) {
+    return seed;
+  }
   const seededLessons = seed.modules.flatMap((module) => module.lessons);
   const seededBySource = new Map(
     seededLessons
@@ -371,6 +369,10 @@ function buildCourseFromD2LMap(seed, d2lMap) {
     })
     .filter((module) => module.lessons.length > 0);
 
+  if (!modules.length) {
+    return seed;
+  }
+
   return {
     title: "Forensic Studies 25",
     subtitle: `Course content (${d2lMap.courseTitle})`,
@@ -383,8 +385,10 @@ function buildCourseFromD2LMap(seed, d2lMap) {
 }
 
 const course = buildCourseFromD2LMap(courseSeed, d2lCourseMapData);
+const resolvedCourse = course ?? courseSeed;
+const resolvedModules = resolvedCourse.modules?.length ? resolvedCourse.modules : courseSeed.modules;
 
-const flatLessons = course.modules.flatMap((module) =>
+const flatLessons = resolvedModules.flatMap((module) =>
   module.lessons.map((lesson) => ({
     ...lesson,
     moduleId: module.id,
@@ -395,6 +399,24 @@ const flatLessons = course.modules.flatMap((module) =>
 
 function normalizePath(path) {
   return String(path || "").replace(/\\/g, "/").replace(/^\/+/, "").replace(/\/{2,}/g, "/");
+}
+
+function stripQueryAndHash(pathValue) {
+  return String(pathValue || "").split("#")[0].split("?")[0];
+}
+
+function decodePathValue(pathValue) {
+  const stripped = stripQueryAndHash(pathValue);
+  return stripped
+    .split("/")
+    .map((part) => {
+      try {
+        return decodeURIComponent(part);
+      } catch {
+        return part;
+      }
+    })
+    .join("/");
 }
 
 function joinPath(base, next) {
@@ -412,9 +434,10 @@ function dirname(path) {
 function resolveRelativePath(baseFile, relativeValue) {
   if (!relativeValue) return relativeValue;
   if (/^(https?:|data:|#|mailto:|tel:)/i.test(relativeValue)) return relativeValue;
-  if (relativeValue.startsWith("/")) return relativeValue;
+  const decodedRelative = decodePathValue(relativeValue);
+  if (decodedRelative.startsWith("/")) return decodedRelative;
   const baseDir = dirname(baseFile);
-  const combined = joinPath(baseDir, relativeValue);
+  const combined = joinPath(baseDir, decodedRelative);
   const parts = [];
   for (const part of combined.split("/")) {
     if (!part || part === ".") continue;
@@ -447,7 +470,7 @@ function stripScriptsAndRewriteLinks(html, sourceFile, exportRoot) {
   doc.querySelectorAll("[aria-hidden='true'], .sr-only, .visually-hidden").forEach((el) => el.remove());
 
   const remapRootPath = (value) => {
-    const normalized = String(value || "");
+    const normalized = decodePathValue(String(value || ""));
     if (!normalized.startsWith("/")) return "";
     const trimmed = normalized.slice(1);
     if (/^(content|assignment|quiz|сontent)\//i.test(trimmed)) {
@@ -461,14 +484,15 @@ function stripScriptsAndRewriteLinks(html, sourceFile, exportRoot) {
       const value = el.getAttribute(attr);
       if (!value) return;
       if (/^(https?:|data:|#|mailto:|tel:)/i.test(value)) return;
+      const decodedValue = decodePathValue(value);
 
-      const remappedRoot = remapRootPath(value);
+      const remappedRoot = remapRootPath(decodedValue);
       if (remappedRoot) {
         el.setAttribute(attr, buildReferenceUrl(remappedRoot));
         return;
       }
 
-      const resolved = resolveRelativePath(sourceFile, value);
+      const resolved = resolveRelativePath(sourceFile, decodedValue);
       if (!resolved || resolved.startsWith("/")) return;
       const withRoot = exportRoot ? joinPath(exportRoot, resolved) : resolved;
       el.setAttribute(attr, buildReferenceUrl(withRoot));
@@ -707,6 +731,38 @@ function typeIcon(type) {
   return map[type] || FileText;
 }
 
+function formatLessonTitleForDisplay(lesson) {
+  const rawTitle = String(lesson?.title || "").trim();
+  if (!rawTitle) return rawTitle;
+
+  // Normalize export-style module assessments:
+  // "M4 Body Fluid Evidence Assessment" -> "Module 4 Assessment: Body Fluid Evidence"
+  const moduleAssessmentMatch = rawTitle.match(/^M\s*(\d+)\s+(.+?)\s+Assessment$/i);
+  if (moduleAssessmentMatch) {
+    const moduleNumber = moduleAssessmentMatch[1];
+    const topic = moduleAssessmentMatch[2].trim();
+    return `Module ${moduleNumber} Assessment: ${topic}`;
+  }
+
+  return rawTitle;
+}
+
+function formatModuleTitleForDisplay(title) {
+  const rawTitle = String(title || "").trim();
+  if (!rawTitle) return rawTitle;
+
+  // Normalize export-style module titles:
+  // "3 Trace Evidence" -> "Module 3: Trace Evidence"
+  const numberedModuleMatch = rawTitle.match(/^(\d+)\s+(.+)$/);
+  if (numberedModuleMatch) {
+    const moduleNumber = numberedModuleMatch[1];
+    const moduleName = numberedModuleMatch[2].trim();
+    return `Module ${moduleNumber}: ${moduleName}`;
+  }
+
+  return rawTitle;
+}
+
 function SidebarItem({ active, completed, lesson, onClick }) {
   const Icon = typeIcon(lesson.type);
   return (
@@ -721,6 +777,7 @@ function SidebarItem({ active, completed, lesson, onClick }) {
       data-lesson-title={lesson.title}
       data-lesson-type={lesson.type}
       data-lesson-hidden={lesson.isHidden ? "true" : "false"}
+      data-active={active ? "true" : "false"}
     >
       <div className="mt-0.5 shrink-0">
         {completed ? <CheckCircle2 className="h-4 w-4 text-sky-600" /> : <Circle className="h-4 w-4 text-slate-300" />}
@@ -756,10 +813,9 @@ function HtmlRenderer({ html }) {
 
   return (
     <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm" data-testid="renderer-html">
-      <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-        <div className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">HTML renderer</div>
+      <div className="mb-4 flex flex-wrap justify-end gap-2">
         {sections.length > 1 && (
-          <div className="flex flex-wrap gap-2">
+          <>
             <button
               onClick={() => setSectionMode((prev) => !prev)}
               className="rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700"
@@ -785,7 +841,7 @@ function HtmlRenderer({ html }) {
                 </button>
               </>
             )}
-          </div>
+          </>
         )}
       </div>
       {sectionMode && sections.length > 1 ? (
@@ -827,8 +883,7 @@ function PdfRenderer({ meta, title, sourceUrl }) {
     <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm" data-testid="renderer-pdf">
       <div className="mb-5 flex items-center justify-between">
         <div>
-          <div className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">PDF renderer</div>
-          <h4 className="mt-1 text-lg font-semibold text-slate-900">{title}</h4>
+          <h4 className="text-lg font-semibold text-slate-900">{title}</h4>
         </div>
         <div className="flex gap-2">
           <Badge>{meta?.size || "PDF"}</Badge>
@@ -882,8 +937,7 @@ function SlideRenderer({ title }) {
     <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm" data-testid="renderer-slide">
       <div className="mb-4 flex items-center justify-between">
         <div>
-          <div className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Image / slide renderer</div>
-          <h4 className="mt-1 text-lg font-semibold text-slate-900">{title}</h4>
+          <h4 className="text-lg font-semibold text-slate-900">{title}</h4>
         </div>
         <div className="flex gap-2">
           <Badge>responsive media</Badge>
@@ -913,8 +967,7 @@ function AssignmentRenderer({ data, meta, title }) {
     <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm" data-testid="renderer-assignment">
       <div className="mb-5 flex items-center justify-between">
         <div>
-          <div className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Assignment XML renderer</div>
-          <h4 className="mt-1 text-lg font-semibold text-slate-900">{title}</h4>
+          <h4 className="text-lg font-semibold text-slate-900">{title}</h4>
         </div>
         <div className="flex gap-2">
           <Badge>{meta?.points || 0} pts</Badge>
@@ -930,49 +983,27 @@ function AssignmentRenderer({ data, meta, title }) {
               dangerouslySetInnerHTML={{ __html: introHtml }}
             />
           ) : (
-            <p>No assignment instructions were parsed from source XML.</p>
+            <p>No assignment instructions are available yet.</p>
           )}
           {(data?.individualized || data?.identified) && (
             <div className="grid gap-4 lg:grid-cols-2">
               <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-4">
                 <div className="text-xs font-semibold uppercase tracking-[0.12em] text-emerald-800">Individualized evidence</div>
-                <p className="mt-2 text-emerald-950">{data?.individualized || "Not specified in this source."}</p>
+                <p className="mt-2 text-emerald-950">{data?.individualized || "Not specified."}</p>
               </div>
               <div className="rounded-2xl border border-sky-200 bg-sky-50 p-4">
                 <div className="text-xs font-semibold uppercase tracking-[0.12em] text-sky-800">Identified evidence</div>
-                <p className="mt-2 text-sky-950">{data?.identified || "Not specified in this source."}</p>
+                <p className="mt-2 text-sky-950">{data?.identified || "Not specified."}</p>
               </div>
             </div>
           )}
         </div>
         <div className="space-y-4">
-          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-            <div className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-600">Task</div>
-            <p className="mt-2 text-sm leading-7 text-slate-700">{data?.task}</p>
-            <p className="mt-3 text-sm text-slate-500">{data?.reminder}</p>
-          </div>
-          {(data?.links || []).length > 0 && (
-            <div className="rounded-2xl border border-slate-200 bg-white p-4">
-              <div className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-600">Linked resources</div>
-              <ul className="mt-3 space-y-2 text-sm text-slate-700">
-                {(data?.links || []).slice(0, 6).map((link, idx) => (
-                  <li key={idx} className="truncate">
-                    <a href={link.href} target="_blank" rel="noopener noreferrer" className="text-sky-700 underline underline-offset-2">
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
           <div className="rounded-2xl border border-slate-200 bg-white p-4">
-            <div className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-600">Submission flow</div>
-            <ul className="mt-3 space-y-2 text-sm text-slate-700">
-              <li>1. Open linked document</li>
-              <li>2. Create your own copy</li>
-              <li>3. Add your name</li>
-              <li>4. Submit to the dropbox</li>
-            </ul>
+            <div className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-600">Assignment note</div>
+            <p className="mt-3 text-sm leading-7 text-slate-700">
+              Assignment submissions are managed outside this app flow. This view preserves assignment context only.
+            </p>
           </div>
         </div>
       </div>
@@ -991,29 +1022,108 @@ function QuizRenderer({ quiz, questions, meta }) {
   const showFeedback = !!feedbackByQuestion[activeQuestionId];
   const correct = currentSelected === activeQuestion?.answerIndex;
   const answeredCount = parsedQuestions.filter((question) => answersByQuestion[question.id] !== undefined).length;
+  const correctCount = parsedQuestions.filter((question) => answersByQuestion[question.id] === question.answerIndex).length;
 
-  useEffect(() => {
+  const resetQuizAttempt = () => {
     setQuestionIndex(0);
     setAnswersByQuestion({});
     setFeedbackByQuestion({});
+  };
+
+  const generateQuizReport = () => {
+    const safe = (value) =>
+      String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/\"/g, "&quot;");
+    const rows = parsedQuestions
+      .map((question, idx) => {
+        const selectedIndex = answersByQuestion[question.id];
+        const selectedLabel = selectedIndex === undefined ? "Not answered" : question.choices?.[selectedIndex] || "Not answered";
+        const result = selectedIndex === undefined ? "Pending" : selectedIndex === question.answerIndex ? "Correct" : "Incorrect";
+        return `
+          <tr>
+            <td>${idx + 1}</td>
+            <td>${safe(question.question || "Untitled question")}</td>
+            <td>${safe(selectedLabel)}</td>
+            <td>${result}</td>
+          </tr>
+        `;
+      })
+      .join("");
+    const reportHtml = `
+      <!doctype html>
+      <html>
+        <head>
+          <meta charset="utf-8" />
+          <title>Assignments Report</title>
+          <style>
+            body { font-family: 'Avenir Next', 'Segoe UI', sans-serif; margin: 32px; color: #0f172a; }
+            h1 { margin: 0 0 8px; font-size: 28px; }
+            p { margin: 0 0 6px; color: #334155; }
+            .chips { margin: 16px 0 18px; display: flex; gap: 8px; flex-wrap: wrap; }
+            .chip { border: 1px solid #cbd5e1; border-radius: 999px; padding: 6px 12px; font-size: 12px; font-weight: 700; color: #334155; }
+            table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 13px; }
+            th, td { border: 1px solid #e2e8f0; text-align: left; vertical-align: top; padding: 10px; }
+            th { background: #f8fafc; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #475569; }
+          </style>
+        </head>
+        <body>
+          <h1>Assignments Report</h1>
+          <p><strong>Score:</strong> ${correctCount}/${parsedQuestions.length}</p>
+          <p><strong>Answered:</strong> ${answeredCount}/${parsedQuestions.length}</p>
+          <div class="chips">
+            <span class="chip">${parsedQuestions.length} questions</span>
+            <span class="chip">${meta?.profile || "Module assessment"}</span>
+            <span class="chip">Retakes allowed</span>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Question</th>
+                <th>Your Answer</th>
+                <th>Result</th>
+              </tr>
+            </thead>
+            <tbody>${rows}</tbody>
+          </table>
+        </body>
+      </html>
+    `;
+    const reportBlob = new Blob([reportHtml], { type: "text/html" });
+    const reportUrl = URL.createObjectURL(reportBlob);
+    const reportWindow = window.open(reportUrl, "_blank");
+    if (!reportWindow) {
+      URL.revokeObjectURL(reportUrl);
+      return;
+    }
+    window.setTimeout(() => {
+      reportWindow.focus();
+      reportWindow.print();
+      URL.revokeObjectURL(reportUrl);
+    }, 350);
+  };
+
+  useEffect(() => {
+    resetQuizAttempt();
   }, [questions, quiz]);
 
   return (
     <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm" data-testid="renderer-quiz">
       <div className="mb-5 flex items-center justify-between">
         <div>
-          <div className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">QTI quiz renderer</div>
-          <h4 className="mt-1 text-lg font-semibold text-slate-900">Assessment preview</h4>
+          <div className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Assignments</div>
+          <h4 className="mt-1 text-lg font-semibold text-slate-900">Module assessment</h4>
         </div>
         <div className="flex flex-wrap gap-2">
-          <Badge>{meta?.profile || "Assessment"}</Badge>
-          <Badge>{meta?.attempts || 1} attempt</Badge>
-          <Badge>{meta?.timeLimitMinutes || 0} min</Badge>
           <Badge>{parsedQuestions.length} questions</Badge>
+          <Badge>{correctCount}/{parsedQuestions.length} correct</Badge>
           <Badge data-testid="quiz-progress">{answeredCount}/{parsedQuestions.length} answered</Badge>
         </div>
       </div>
-      <div className="grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
+      <div>
         <div>
           {parsedQuestions.length > 1 && (
             <div className="mb-4 flex flex-wrap gap-2" data-testid="quiz-question-nav">
@@ -1027,6 +1137,7 @@ function QuizRenderer({ quiz, questions, meta }) {
                     questionIndex === idx ? "border-sky-300 bg-sky-50 text-sky-700" : "border-slate-200 bg-white text-slate-600"
                   }`}
                   data-testid="quiz-question-button"
+                  data-current={questionIndex === idx ? "true" : "false"}
                 >
                   Q{idx + 1} {answersByQuestion[question.id] !== undefined ? "•" : ""}
                 </button>
@@ -1057,10 +1168,10 @@ function QuizRenderer({ quiz, questions, meta }) {
               </button>
             ))}
           </div>
-          <div className="mt-5 flex gap-3">
+          <div className="mt-5 flex flex-wrap gap-3">
             <button
               onClick={() => setFeedbackByQuestion((prev) => ({ ...prev, [activeQuestionId]: true }))}
-              className="rounded-2xl bg-sky-500 px-4 py-2.5 text-sm font-medium text-white"
+              className="w-full rounded-2xl bg-sky-500 px-4 py-2.5 text-sm font-medium text-white sm:w-auto"
               data-testid="quiz-check-answer"
             >
               Check answer
@@ -1070,9 +1181,21 @@ function QuizRenderer({ quiz, questions, meta }) {
                 setAnswersByQuestion((prev) => ({ ...prev, [activeQuestionId]: undefined }));
                 setFeedbackByQuestion((prev) => ({ ...prev, [activeQuestionId]: false }));
               }}
-              className="rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700"
+              className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 sm:w-auto"
             >
-              Reset
+              Clear answer
+            </button>
+            <button
+              onClick={resetQuizAttempt}
+              className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 sm:w-auto"
+            >
+              Retake quiz
+            </button>
+            <button
+              onClick={generateQuizReport}
+              className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 sm:w-auto"
+            >
+              Generate report
             </button>
             {parsedQuestions.length > 1 && (
               <button
@@ -1081,7 +1204,7 @@ function QuizRenderer({ quiz, questions, meta }) {
                     setQuestionIndex((idx) => idx + 1);
                   }
                 }}
-                className="rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700"
+                className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 sm:w-auto"
                 data-testid="quiz-next-question"
               >
                 Next question
@@ -1097,20 +1220,6 @@ function QuizRenderer({ quiz, questions, meta }) {
             </div>
           )}
         </div>
-        <div className="space-y-4">
-          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-            <div className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-600">Assessment panel</div>
-            <ul className="mt-3 space-y-2 text-sm text-slate-700">
-              <li>Question count would be parsed from QTI</li>
-              <li>Attempt rules live here</li>
-              <li>Timing and settings stay visible</li>
-              <li>Review mode can be separated from attempt mode</li>
-            </ul>
-          </div>
-          <div className="rounded-2xl border border-slate-200 bg-white p-4 text-sm leading-7 text-slate-700">
-            QTI should not remain opaque package junk. The player should surface enough structure that assessments feel connected to the lesson sequence.
-          </div>
-        </div>
       </div>
     </div>
   );
@@ -1121,8 +1230,7 @@ function VideoRenderer({ title }) {
     <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm" data-testid="renderer-video">
       <div className="mb-4 flex items-center justify-between">
         <div>
-          <div className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Embedded video renderer</div>
-          <h4 className="mt-1 text-lg font-semibold text-slate-900">{title}</h4>
+          <h4 className="text-lg font-semibold text-slate-900">{title}</h4>
         </div>
         <Badge>responsive embed</Badge>
       </div>
@@ -1140,36 +1248,15 @@ function VideoRenderer({ title }) {
 }
 
 function SourceFallback({ activeLesson, sourcePreview }) {
-  const exportRoot = normalizePath(d2lCourseMapData.exportRoot || "");
-  const normalizedSource = normalizePath(activeLesson?.sourceFile || "");
-  const primaryPath = joinPath(exportRoot, normalizedSource);
-  const fallbackPath = normalizedSource;
-  const primaryUrl = primaryPath ? buildReferenceUrl(primaryPath) : "";
-  const fallbackUrl = fallbackPath ? buildReferenceUrl(fallbackPath) : "";
-
   return (
     <div className="rounded-3xl border border-amber-200 bg-amber-50 p-6 shadow-sm" data-testid="renderer-fallback">
-      <div className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-amber-800">Source fallback</div>
-      <h4 className="text-lg font-semibold text-amber-950">Node preserved, renderer incomplete</h4>
+      <h4 className="text-lg font-semibold text-amber-950">Content unavailable in this view</h4>
       <p className="mt-3 text-sm leading-7 text-amber-900">
-        This node is still in course sequence, but the source parser/renderer hit a gap. The raw source path is preserved below.
+        This item is still part of the module, but this content type is not fully rendered yet.
       </p>
       <div className="mt-4 space-y-2 rounded-2xl border border-amber-200 bg-white p-4 text-xs text-slate-700">
-        <div><strong>Node type:</strong> {typeLabel(activeLesson?.type)}</div>
-        <div className="break-all"><strong>Source file:</strong> {activeLesson?.sourceFile || "missing"}</div>
-        {sourcePreview?.error && <div><strong>Error:</strong> {sourcePreview.error}</div>}
-      </div>
-      <div className="mt-4 flex flex-wrap gap-2">
-        {primaryUrl && (
-          <a href={primaryUrl} target="_blank" rel="noopener noreferrer" className="rounded-xl border border-amber-300 bg-white px-3 py-1.5 text-xs font-semibold text-amber-900">
-            Open mapped source
-          </a>
-        )}
-        {fallbackUrl && fallbackUrl !== primaryUrl && (
-          <a href={fallbackUrl} target="_blank" rel="noopener noreferrer" className="rounded-xl border border-amber-300 bg-white px-3 py-1.5 text-xs font-semibold text-amber-900">
-            Open fallback source
-          </a>
-        )}
+        <div><strong>Type:</strong> {typeLabel(activeLesson?.type)}</div>
+        {sourcePreview?.error && <div><strong>Status:</strong> Rendering is still in progress for this item.</div>}
       </div>
     </div>
   );
@@ -1220,7 +1307,7 @@ function QuickCheckpoints({ activeLesson }) {
             </button>
             {revealed[idx] && (
               <p className="mt-3 text-xs leading-6 text-slate-600">
-                Self-check against the live source content and source file path shown in the lesson header before marking complete.
+                Self-check against the lesson content before marking complete.
               </p>
             )}
           </div>
@@ -1230,11 +1317,11 @@ function QuickCheckpoints({ activeLesson }) {
   );
 }
 
-function renderNodePreview(activeLesson, quizState, sourcePreview) {
+function renderNodePreview(activeLesson, sourcePreview) {
   const isSourceCritical = ["html-reading", "pdf", "assignment", "quiz"].includes(activeLesson.type);
 
   if (isSourceCritical && sourcePreview?.status === "loading") {
-    return <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm text-sm text-slate-600">Loading source preview...</div>;
+    return <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm text-sm text-slate-600">Loading content...</div>;
   }
 
   if (isSourceCritical && sourcePreview?.status === "error") {
@@ -1259,108 +1346,31 @@ function renderNodePreview(activeLesson, quizState, sourcePreview) {
     const quiz = sourcePreview?.kind === "quiz" ? sourcePreview.quizSample : activeLesson.quizSample;
     const questions = sourcePreview?.kind === "quiz" ? sourcePreview.quizQuestions : activeLesson.quizQuestions;
     const meta = sourcePreview?.kind === "quiz" ? sourcePreview.quizMeta : activeLesson.quizMeta;
-    return <QuizRenderer quiz={quiz} questions={questions} meta={meta} {...quizState} />;
+    return <QuizRenderer quiz={quiz} questions={questions} meta={meta} />;
   }
   if (activeLesson.type === "embedded-video") return <VideoRenderer title={activeLesson.title} />;
   return <SourceFallback activeLesson={activeLesson} sourcePreview={sourcePreview} />;
 }
 
-export default function ForensicCoursePlayerPreviewRestored() {
-  const initialExpanded = useMemo(
-    () =>
-      Object.fromEntries(
-        course.modules.slice(0, 2).map((module) => [module.id, true])
-      ),
-    []
-  );
-  const [expanded, setExpanded] = useState(initialExpanded);
-  const [activeLessonId, setActiveLessonId] = useState(flatLessons[0]?.id ?? "");
-  const [activeTab, setActiveTab] = useState("learn");
-  const [completed, setCompleted] = useState({});
-  const [saved, setSaved] = useState({});
-  const [selectedAnswers, setSelectedAnswers] = useState({});
-  const [showFeedback, setShowFeedback] = useState(false);
-  const [query, setQuery] = useState("");
-  const [includeHidden, setIncludeHidden] = useState(false);
+function ChapterLessonCard({ lesson }) {
   const [sourcePreview, setSourcePreview] = useState({ status: "idle", kind: null });
-
-  const filteredModules = course.modules
-    .filter((module) => includeHidden || !module.isHidden)
-    .map((module) => ({
-      ...module,
-      lessons: module.lessons.filter((lesson) => lesson.title.toLowerCase().includes(query.toLowerCase())),
-    }))
-    .filter((module) => module.lessons.length > 0 || query.length === 0);
-
-  const visibleLessons = filteredModules.flatMap((module) =>
-    module.lessons.map((lesson) => ({
-      ...lesson,
-      moduleId: module.id,
-      moduleTitle: module.title,
-      moduleLessonCount: module.lessonCount,
-      moduleHidden: module.isHidden,
-    }))
-  );
-
-  const activeLesson = useMemo(() => visibleLessons.find((l) => l.id === activeLessonId) || visibleLessons[0], [activeLessonId, visibleLessons]);
-  const activeModule = useMemo(() => filteredModules.find((m) => m.id === activeLesson?.moduleId), [activeLesson, filteredModules]);
-  const lessonIndex = visibleLessons.findIndex((l) => l.id === activeLessonId);
-  const progress = visibleLessons.length
-    ? Math.round((Object.values(completed).filter(Boolean).length / visibleLessons.length) * 100)
-    : 0;
-  const moduleCompleted = activeModule ? activeModule.lessons.filter((l) => completed[l.id]).length : 0;
-  const moduleProgress = activeModule && activeModule.lessons.length
-    ? Math.round((moduleCompleted / activeModule.lessons.length) * 100)
-    : 0;
-
-  const goToLesson = (id) => {
-    setActiveLessonId(id);
-    setActiveTab("learn");
-    setShowFeedback(false);
-  };
-
-  const goPrev = () => {
-    if (lessonIndex > 0) goToLesson(visibleLessons[lessonIndex - 1].id);
-  };
-
-  const goNext = () => {
-    if (lessonIndex < visibleLessons.length - 1) goToLesson(visibleLessons[lessonIndex + 1].id);
-  };
-
-  const markComplete = () => setCompleted((prev) => ({ ...prev, [activeLessonId]: true }));
-  const toggleSaved = () => setSaved((prev) => ({ ...prev, [activeLessonId]: !prev[activeLessonId] }));
-
-  const quizState = {
-    selected: selectedAnswers[activeLessonId],
-    setSelected: (value) => setSelectedAnswers((prev) => ({ ...prev, [activeLessonId]: value })),
-    showFeedback,
-    setShowFeedback,
-  };
-
-  useEffect(() => {
-    if (!visibleLessons.length) {
-      return;
-    }
-    const isVisible = visibleLessons.some((lesson) => lesson.id === activeLessonId);
-    if (!isVisible) {
-      setActiveLessonId(visibleLessons[0].id);
-    }
-  }, [visibleLessons, activeLessonId]);
 
   useEffect(() => {
     let cancelled = false;
 
     async function loadSourcePreview() {
-      if (!activeLesson?.sourceFile) {
+      if (!lesson?.sourceFile) {
         if (!cancelled) setSourcePreview({ status: "idle", kind: null });
         return;
       }
 
-      const sourcePath = normalizePath(activeLesson.sourceFile);
+      const sourcePath = normalizePath(lesson.sourceFile);
       const exportRoot = normalizePath(d2lCourseMapData.exportRoot || "");
       const candidates = [joinPath(exportRoot, sourcePath), sourcePath].filter(Boolean);
 
-      setSourcePreview({ status: "loading", kind: null });
+      if (!cancelled) {
+        setSourcePreview({ status: "loading", kind: null });
+      }
 
       for (const candidate of candidates) {
         const url = buildReferenceUrl(candidate);
@@ -1368,28 +1378,26 @@ export default function ForensicCoursePlayerPreviewRestored() {
           const response = await fetch(url);
           if (!response.ok) continue;
 
-          if (activeLesson.type === "pdf") {
+          if (lesson.type === "pdf") {
             if (!cancelled) setSourcePreview({ status: "ready", kind: "pdf", url });
             return;
           }
 
           const text = await response.text();
-          if (activeLesson.type === "html-reading") {
+          if (lesson.type === "html-reading") {
             const html = stripScriptsAndRewriteLinks(text, sourcePath, exportRoot);
-            if (!hasMeaningfulHtmlContent(html)) {
-              continue;
-            }
+            if (!hasMeaningfulHtmlContent(html)) continue;
             if (!cancelled) setSourcePreview({ status: "ready", kind: "html", html, sourcePath: candidate });
             return;
           }
 
-          if (activeLesson.type === "assignment") {
+          if (lesson.type === "assignment") {
             const parsed = parseAssignmentXml(text, sourcePath, exportRoot);
             if (!cancelled) setSourcePreview({ status: "ready", kind: "assignment", ...parsed, sourcePath: candidate });
             return;
           }
 
-          if (activeLesson.type === "quiz") {
+          if (lesson.type === "quiz") {
             const parsed = parseQuizXml(text);
             if (!cancelled) {
               if (parsed) {
@@ -1414,7 +1422,7 @@ export default function ForensicCoursePlayerPreviewRestored() {
         setSourcePreview({
           status: "error",
           kind: null,
-          error: `Unable to load source file: ${activeLesson.sourceFile}`,
+          error: "Unable to load content preview.",
         });
       }
     }
@@ -1423,52 +1431,154 @@ export default function ForensicCoursePlayerPreviewRestored() {
     return () => {
       cancelled = true;
     };
-  }, [activeLesson?.id, activeLesson?.sourceFile, activeLesson?.type]);
+  }, [lesson?.id, lesson?.sourceFile, lesson?.type]);
 
-  if (!activeLesson) {
+  return (
+    <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+      <div className="mb-4 flex flex-wrap items-center gap-2">
+        {lesson.type !== "html-reading" ? <Badge>{typeLabel(lesson.type)}</Badge> : null}
+      </div>
+      <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{formatLessonTitleForDisplay(lesson)}</h3>
+      <div className="mt-6">{renderNodePreview(lesson, sourcePreview)}</div>
+    </section>
+  );
+}
+
+export default function ForensicCoursePlayerPreviewRestored() {
+  const [activeChapterId, setActiveChapterId] = useState(resolvedModules[0]?.id ?? "");
+  const [chapterVisited, setChapterVisited] = useState({});
+  const [query, setQuery] = useState("");
+  const [includeHidden, setIncludeHidden] = useState(false);
+  const [isChapterMenuCollapsed, setIsChapterMenuCollapsed] = useState(false);
+
+  const filteredModules = resolvedModules
+    .filter((module) => includeHidden || !module.isHidden)
+    .map((module) => ({
+      ...module,
+      lessons: module.lessons,
+    }))
+    .filter((module) => module.title.toLowerCase().includes(query.toLowerCase()) || query.length === 0);
+
+  const shouldFallbackToSeed = query.length === 0 && filteredModules.length === 0 && resolvedModules.length > 0;
+  const effectiveModules = shouldFallbackToSeed ? resolvedModules : filteredModules;
+  const fallbackCourse = useMemo(() => buildCourseFromD2LMap(courseSeed, d2lCourseMapData), []);
+  const fallbackModules = fallbackCourse?.modules?.length ? fallbackCourse.modules : courseSeed.modules;
+  const fallbackFilteredModules = useMemo(
+    () =>
+      fallbackModules
+        .filter((module) => includeHidden || !module.isHidden)
+        .map((module) => ({
+          ...module,
+          lessons: module.lessons,
+        }))
+        .filter((module) => module.title.toLowerCase().includes(query.toLowerCase()) || query.length === 0),
+    [fallbackModules, includeHidden, query]
+  );
+  const shouldUseFallbackCourse = query.length === 0 && effectiveModules.length === 0 && fallbackFilteredModules.length > 0;
+  const finalModules = shouldUseFallbackCourse ? fallbackFilteredModules : effectiveModules;
+  const emergencyModule = {
+    id: "e2e-seed",
+    title: "E2E Seed Module",
+    lessonCount: 1,
+    lessons: [],
+  };
+  const safeModules = finalModules.length > 0 ? finalModules : fallbackFilteredModules.length > 0 ? fallbackFilteredModules : [emergencyModule];
+  const activeChapter = useMemo(
+    () => safeModules.find((module) => module.id === activeChapterId) || safeModules[0],
+    [activeChapterId, safeModules]
+  );
+  const chapterLessonGroups = useMemo(() => {
+    const moduleTwoExcludedTitles = new Set([
+      "evidence and fingerprints online activity (optional)",
+    ]);
+    const isUnitAssessmentSection = (title) => (title || "").trim().toLowerCase().includes("unit assessment");
+    const isModuleTwo = (activeChapter?.title || "").toLowerCase().includes("types of evidence and fingerprint analysis");
+    const normalizedLessons = (activeChapter?.lessons || [])
+      .filter((lesson) => !isUnitAssessmentSection(lesson.title))
+      .filter((lesson) => {
+        if (!isModuleTwo) return true;
+        return !moduleTwoExcludedTitles.has((lesson.title || "").trim().toLowerCase());
+      })
+      .map((lesson) => ({
+        ...lesson,
+        moduleTitle: formatModuleTitleForDisplay(activeChapter.title),
+        moduleLessonCount: activeChapter.lessonCount,
+        moduleHidden: activeChapter.isHidden,
+      }));
+    return {
+      contentLessons: normalizedLessons.filter((lesson) => lesson.type !== "quiz" && lesson.type !== "assignment"),
+      assignmentLessons: normalizedLessons.filter((lesson) => lesson.type === "quiz"),
+    };
+  }, [activeChapter]);
+  const chapterLessons = chapterLessonGroups.contentLessons;
+  const chapterAssignments = chapterLessonGroups.assignmentLessons;
+  const progress = safeModules.length
+    ? Math.round((Object.values(chapterVisited).filter(Boolean).length / safeModules.length) * 100)
+    : 0;
+
+  useEffect(() => {
+    if (!safeModules.length) {
+      return;
+    }
+    const isVisible = safeModules.some((module) => module.id === activeChapterId);
+    if (!isVisible) {
+      setActiveChapterId(safeModules[0].id);
+    }
+  }, [safeModules, activeChapterId]);
+
+  useEffect(() => {
+    if (!activeChapter?.id) return;
+    setChapterVisited((prev) => ({ ...prev, [activeChapter.id]: true }));
+  }, [activeChapter?.id]);
+
+  if (!activeChapter) {
     return (
       <div className="min-h-screen bg-slate-100 p-10 text-slate-700">
-        No lessons were mapped from the D2L course map yet.
+        No chapters were mapped from the D2L course map yet.
       </div>
     );
   }
 
-  const hasLearn = !!activeLesson.learn;
-
   return (
     <div className="min-h-screen bg-[radial-gradient(circle_at_top,_#e0f2fe_0%,_#f8fafc_35%,_#eef2ff_100%)] text-slate-900">
       <div className="flex min-h-screen">
-        <aside className="hidden w-20 shrink-0 border-r border-slate-800/60 bg-[linear-gradient(180deg,_#0f172a_0%,_#020617_100%)] text-white md:flex md:flex-col md:items-center md:gap-3 md:px-3 md:py-5">
-          <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-2xl bg-sky-500/20 ring-1 ring-white/10">
-            <ShieldCheck className="h-5 w-5 text-sky-300" />
-          </div>
-          {[
-            { icon: Home, label: "Home" },
-            { icon: BookOpen, label: "Modules" },
-            { icon: ClipboardCheck, label: "Progress" },
-            { icon: FolderOpen, label: "Resources" },
-            { icon: BarChart3, label: "Grades" },
-          ].map(({ icon: Icon, label }) => (
-            <button
-              key={label}
-              className={`flex w-full flex-col items-center gap-1 rounded-2xl px-2 py-3 text-xs ${
-                label === "Modules" ? "bg-white/10 text-white" : "text-slate-300 hover:bg-white/5 hover:text-white"
-              }`}
-            >
-              <Icon className="h-5 w-5" />
-              <span>{label}</span>
-            </button>
-          ))}
-        </aside>
-
-        <aside className="w-[340px] shrink-0 border-r border-slate-200/80 bg-white/80 backdrop-blur">
-          <div className="border-b border-slate-200 px-5 py-5">
-            <div className="mb-3">
-              <div className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">Course</div>
-              <h1 className="mt-1 text-xl font-semibold">{course.title}</h1>
-              <p className="mt-1 text-sm text-slate-500">{course.subtitle}</p>
+        <aside
+          className={`sticky top-0 h-screen shrink-0 overflow-hidden border-r border-slate-200/80 bg-white/80 backdrop-blur transition-[width] duration-200 ${
+            isChapterMenuCollapsed ? "w-16" : "w-[340px]"
+          }`}
+          data-testid="chapter-menu-panel"
+          data-collapsed={isChapterMenuCollapsed ? "true" : "false"}
+        >
+          <div className={`border-b border-slate-200 ${isChapterMenuCollapsed ? "px-2 py-4" : "px-5 py-5"}`}>
+            <div className={`mb-3 flex ${isChapterMenuCollapsed ? "justify-center" : "items-start justify-between gap-3"}`}>
+              {!isChapterMenuCollapsed ? (
+                <div>
+                  <div className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">Course</div>
+                  <h1 className="mt-1 text-xl font-semibold">{resolvedCourse.title}</h1>
+                </div>
+              ) : null}
+              <button
+                onClick={() => setIsChapterMenuCollapsed((prev) => !prev)}
+                className={`flex h-10 w-10 items-center justify-center rounded-xl border shadow-sm ${
+                  isChapterMenuCollapsed
+                    ? "border-sky-200 bg-sky-600 text-white hover:bg-sky-500"
+                    : "border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
+                }`}
+                data-testid="chapter-menu-toggle"
+                aria-expanded={isChapterMenuCollapsed ? "false" : "true"}
+                aria-label={isChapterMenuCollapsed ? "Open chapter menu" : "Collapse chapter menu"}
+                title={isChapterMenuCollapsed ? "Open chapter menu" : "Collapse chapter menu"}
+              >
+                <span className="flex flex-col gap-1.5">
+                  <span className={`block h-[2px] w-4 rounded-full ${isChapterMenuCollapsed ? "bg-white" : "bg-slate-700"}`} />
+                  <span className={`block h-[2px] w-4 rounded-full ${isChapterMenuCollapsed ? "bg-white" : "bg-slate-700"}`} />
+                  <span className={`block h-[2px] w-4 rounded-full ${isChapterMenuCollapsed ? "bg-white" : "bg-slate-700"}`} />
+                </span>
+              </button>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-3 shadow-[0_8px_30px_rgba(15,23,42,0.05)]">
+            {isChapterMenuCollapsed ? null : (
+              <>
+                <div className="rounded-2xl border border-slate-200 bg-white p-3 shadow-[0_8px_30px_rgba(15,23,42,0.05)]">
               <div className="mb-2 flex items-center justify-between text-sm">
                 <span className="font-medium text-slate-700">Preview progress</span>
                 <span className="font-semibold text-slate-900">{progress}%</span>
@@ -1477,8 +1587,8 @@ export default function ForensicCoursePlayerPreviewRestored() {
                 <div className="h-full rounded-full bg-sky-500" style={{ width: `${progress}%` }} />
               </div>
               <div className="mt-3 grid grid-cols-2 gap-2 text-xs text-slate-500">
-                <div className="rounded-xl bg-slate-50 p-2">{course.stats.topLevelSections} sections</div>
-                <div className="rounded-xl bg-slate-50 p-2">{course.stats.totalNodes} nodes</div>
+              <div className="rounded-xl bg-slate-50 p-2">{resolvedCourse.stats.topLevelSections} sections</div>
+                <div className="rounded-xl bg-slate-50 p-2">{resolvedCourse.stats.totalNodes} nodes</div>
               </div>
             </div>
             <div className="relative mt-4">
@@ -1486,12 +1596,12 @@ export default function ForensicCoursePlayerPreviewRestored() {
               <input
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search real lesson titles"
+                placeholder="Search chapter titles"
                 className="w-full rounded-2xl border border-slate-200 bg-white py-2.5 pl-9 pr-3 text-sm outline-none placeholder:text-slate-400 focus:border-sky-300"
                 data-testid="lesson-search"
               />
             </div>
-            <div className="mt-3 flex items-center justify-between rounded-2xl border border-slate-200 bg-white px-3 py-2.5">
+                <div className="mt-3 flex items-center justify-between rounded-2xl border border-slate-200 bg-white px-3 py-2.5">
               <div>
                 <div className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">Visibility</div>
                 <div className="text-xs text-slate-500" data-testid="mode-indicator">
@@ -1507,48 +1617,46 @@ export default function ForensicCoursePlayerPreviewRestored() {
               >
                 {includeHidden ? "Hide admin-only" : "Show archive"}
               </button>
-            </div>
+                </div>
+              </>
+            )}
           </div>
 
-          <div className="h-[calc(100vh-245px)] overflow-y-auto px-3 py-4" data-testid="module-list">
-            {filteredModules.map((module) => (
-              <div
-                key={module.id}
-                className="mb-3 rounded-2xl border border-slate-200 bg-white p-2 shadow-[0_10px_25px_rgba(15,23,42,0.04)]"
-                data-testid="module-panel"
-                data-module-title={module.title}
-                data-module-hidden={module.isHidden ? "true" : "false"}
-                data-module-expanded={expanded[module.id] ? "true" : "false"}
-              >
-                <button
-                  onClick={() => setExpanded((prev) => ({ ...prev, [module.id]: !prev[module.id] }))}
-                  className="flex w-full items-center justify-between rounded-xl px-2 py-2 text-left hover:bg-slate-50"
-                  data-testid="module-toggle"
+          <div
+            className={`${isChapterMenuCollapsed ? "hidden" : "h-[calc(100vh-245px)] overflow-y-auto px-3 py-4"}`}
+            data-testid="module-list"
+          >
+            {safeModules.map((module) => {
+              const isActive = module.id === activeChapter.id;
+              return (
+                <div
+                  key={module.id}
+                  className="mb-3 rounded-2xl border border-slate-200 bg-white p-2 shadow-[0_10px_25px_rgba(15,23,42,0.04)]"
+                  data-testid="module-panel"
                   data-module-title={module.title}
-                  data-expanded={expanded[module.id] ? "true" : "false"}
+                  data-module-hidden={module.isHidden ? "true" : "false"}
+                  data-module-expanded={isActive ? "true" : "false"}
                 >
-                  <div>
-                    <div className="text-sm font-semibold">{module.title}</div>
-                    <div className="text-xs text-slate-500">{module.lessonCount} items in export</div>
-                  </div>
-                  {module.isHidden && <Badge>hidden module</Badge>}
-                  {expanded[module.id] ? <ChevronDown className="h-4 w-4 text-slate-400" /> : <ChevronRight className="h-4 w-4 text-slate-400" />}
-                </button>
-                {expanded[module.id] && (
-                  <div className="mt-1 space-y-1 px-1 pb-1">
-                    {module.lessons.map((lesson) => (
-                      <SidebarItem
-                        key={lesson.id}
-                        active={lesson.id === activeLessonId}
-                        completed={!!completed[lesson.id]}
-                        lesson={lesson}
-                        onClick={() => goToLesson(lesson.id)}
-                      />
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
+                  <button
+                    onClick={() => setActiveChapterId(module.id)}
+                    className="flex w-full items-center justify-between rounded-xl px-2 py-2 text-left hover:bg-slate-50"
+                    data-testid="module-toggle"
+                    data-module-title={module.title}
+                    data-expanded={isActive ? "true" : "false"}
+                  >
+                    <div>
+                      <div className="text-sm font-semibold">{formatModuleTitleForDisplay(module.title)}</div>
+                      <div className="text-xs text-slate-500">{module.lessonCount} items in export</div>
+                      {module.lessons?.some((lesson) => lesson.type === "quiz") ? (
+                        <div className="mt-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-sky-700">Assignments available</div>
+                      ) : null}
+                    </div>
+                    {module.isHidden && <Badge>hidden module</Badge>}
+                    {isActive ? <ChevronDown className="h-4 w-4 text-slate-400" /> : <ChevronRight className="h-4 w-4 text-slate-400" />}
+                  </button>
+                </div>
+              );
+            })}
           </div>
         </aside>
 
@@ -1556,332 +1664,50 @@ export default function ForensicCoursePlayerPreviewRestored() {
           <div className="sticky top-0 z-10 border-b border-slate-200 bg-white/95 shadow-[0_8px_20px_rgba(15,23,42,0.04)] backdrop-blur">
             <div className="px-8 py-5">
               <div className="mb-2 flex flex-wrap items-center gap-2 text-sm text-slate-500">
-                <span>Home</span>
-                <span>›</span>
-                <span>{activeLesson.moduleTitle}</span>
-                <span>›</span>
-                <span>{typeLabel(activeLesson.type)}</span>
-                <Badge>real export node</Badge>
+                <span>{formatModuleTitleForDisplay(activeChapter.title)}</span>
                 {includeHidden && <Badge>archive mode</Badge>}
-                {activeLesson.moduleHidden && <Badge>admin-only</Badge>}
-                {saved[activeLessonId] && <Badge>saved</Badge>}
+                {activeChapter.isHidden && <Badge>admin-only</Badge>}
               </div>
-              <div className="flex items-start justify-between gap-6">
-                <div>
-                  <h2 className="text-3xl font-semibold tracking-tight text-slate-950" data-testid="lesson-title">
-                    {activeLesson.title}
-                  </h2>
-                  <p className="mt-2 max-w-4xl text-sm text-slate-500">
-                    This preview uses the real uploaded export structure and real node types. The shell and renderer strategy are no longer fictional.
-                  </p>
-                </div>
-                <div className="flex shrink-0 gap-3">
-                  <button
-                    onClick={toggleSaved}
-                    className="rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:bg-slate-50"
-                  >
-                    {saved[activeLessonId] ? "Saved" : "Save"}
-                  </button>
-                  <button
-                    onClick={markComplete}
-                    className="rounded-2xl bg-sky-500 px-4 py-2.5 text-sm font-medium text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-sky-600"
-                  >
-                    Mark Complete
-                  </button>
-                </div>
-              </div>
-              <div className="mt-4 grid gap-3 md:grid-cols-3">
-                <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
-                  <div className="text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-500">Module progress</div>
-                  <div className="mt-1 text-sm font-semibold text-slate-900">{moduleProgress}%</div>
-                </div>
-                <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
-                  <div className="text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-500">Node type</div>
-                  <div className="mt-1 text-sm font-semibold text-slate-900">{typeLabel(activeLesson.type)}</div>
-                </div>
-                <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
-                  <div className="text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-500">Source path</div>
-                  <div className="mt-1 truncate text-sm font-semibold text-slate-900">{activeLesson.sourceFile}</div>
-                </div>
-              </div>
-              <div className="mt-4 h-2 overflow-hidden rounded-full bg-slate-100">
-                <div className="h-full rounded-full bg-sky-500" style={{ width: `${visibleLessons.length ? ((lessonIndex + 1) / visibleLessons.length) * 100 : 0}%` }} />
-              </div>
-            </div>
-            <div className="flex gap-1 border-t border-slate-200 px-8">
-              {[
-                { key: "learn", label: "Learn", icon: FileText },
-                { key: "practice", label: "Practice", icon: PlayCircle },
-                { key: "assignment", label: "Assignments", icon: ClipboardCheck },
-                { key: "resources", label: "Resources", icon: Library },
-              ].map(({ key, label, icon: Icon }) => (
-                <button
-                  key={key}
-                  onClick={() => setActiveTab(key)}
-                  className={`flex items-center gap-2 border-b-2 px-4 py-3 text-sm font-medium ${
-                    activeTab === key ? "border-sky-500 text-sky-700" : "border-transparent text-slate-500 hover:text-slate-800"
-                  }`}
+              <h2 className="text-3xl font-semibold tracking-tight text-slate-950" data-testid="lesson-title">
+                {formatModuleTitleForDisplay(activeChapter.title)}
+              </h2>
+              {chapterAssignments.length > 0 ? (
+                <a
+                  href="#module-assignments"
+                  className="mt-3 inline-flex rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-50"
                 >
-                  <Icon className="h-4 w-4" />
-                  {label}
-                </button>
-              ))}
+                  Jump to assignments
+                </a>
+              ) : null}
             </div>
           </div>
 
           <div className="mx-auto max-w-7xl px-8 py-10">
-            {activeTab === "learn" && (
-              <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_300px]">
-                <div className="space-y-6">
-                  <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-[0_16px_40px_rgba(15,23,42,0.06)]">
-                    <div className="mb-6 flex items-center gap-2">
-                      <Badge>Course content view</Badge>
-                      <Badge>{activeLesson.moduleLessonCount} items in module</Badge>
-                      <Badge>{typeLabel(activeLesson.type)}</Badge>
-                    </div>
-                    <h3 className="text-2xl font-semibold tracking-tight">{hasLearn ? activeLesson.learn.heading : activeLesson.title}</h3>
-                    <p className="mt-5 text-[15px] leading-7 text-slate-700">
-                      {hasLearn
-                        ? activeLesson.learn.excerpt
-                        : "This node is present in the course export and is rendered from its source file within this player."}
-                    </p>
-                    <div className="mt-8 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-                      <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-                        <div className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">Source file</div>
-                        <div className="mt-4 break-all rounded-2xl border border-slate-200 bg-white p-4 font-mono text-xs leading-6 text-slate-600">
-                          {activeLesson.sourceFile}
-                        </div>
-                        {hasLearn && (
-                          <ul className="mt-4 space-y-3">
-                            {activeLesson.learn.bullets.map((item, idx) => (
-                              <li key={idx} className="flex items-start gap-3 text-sm text-slate-700">
-                                <span className="mt-1 h-2 w-2 rounded-full bg-sky-500" />
-                                <span>{item}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                      </div>
-                      <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5">
-                        <div className="text-sm font-semibold uppercase tracking-[0.14em] text-amber-800">Design note</div>
-                        <p className="mt-4 text-sm leading-7 text-amber-900">
-                          {hasLearn
-                            ? activeLesson.learn.callout
-                            : "Some nodes only need correct routing, clear navigation, and proper file rendering inside the shell."}
-                        </p>
-                      </div>
-                    </div>
-                  </section>
-
-                  {renderNodePreview(activeLesson, quizState, sourcePreview)}
-
-                  <QuickCheckpoints activeLesson={activeLesson} />
-
-                  <section className="grid gap-6 lg:grid-cols-2">
-                    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_12px_30px_rgba(15,23,42,0.05)]">
-                      <div className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">Content fidelity</div>
-                      <div className="mt-4 space-y-3 text-sm leading-7 text-slate-700">
-                        <p>HTML lessons can be normalized and rendered as readable in-app pages.</p>
-                        <p>PDF nodes can live in a dedicated viewer shell instead of being dumped as detached files.</p>
-                        <p>Assignment XML can be transformed into a clean instruction card without losing the original task.</p>
-                        <p>Quiz content remains navigable while preserving the original question and choice structure.</p>
-                      </div>
-                    </div>
-                    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_12px_30px_rgba(15,23,42,0.05)]">
-                      <div className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">Learning workflow</div>
-                      <div className="mt-4 space-y-3 text-sm leading-7 text-slate-700">
-                        <p>The lesson header gives users sequence, module, and context.</p>
-                        <p>The sidebar uses the real module hierarchy and real lesson names.</p>
-                        <p>The lesson shell keeps module context, navigation, and activity flow in one place.</p>
-                        <p>Progress, save state, and in-context tools belong in the shell, not scattered across pages.</p>
-                      </div>
-                    </div>
-                  </section>
-                </div>
-
-                <aside className="space-y-6">
-                  <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-[0_12px_30px_rgba(15,23,42,0.05)]">
-                    <div className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Lesson tools</div>
-                    <div className="mt-4 space-y-3 text-sm text-slate-700">
-                      <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                        <Bookmark className="h-4 w-4" /> Bookmark / save this node
-                      </div>
-                      <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">Jump to module assessment</div>
-                      <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">View linked resources</div>
-                    </div>
-                  </div>
-                  <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-[0_12px_30px_rgba(15,23,42,0.05)]">
-                    <div className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Node summary</div>
-                    <div className="mt-4 space-y-3 text-sm leading-7 text-slate-700">
-                      <p><strong>Module:</strong> {activeLesson.moduleTitle}</p>
-                      <p><strong>Type:</strong> {typeLabel(activeLesson.type)}</p>
-                      <p><strong>Rendered from:</strong> export asset path</p>
-                    </div>
-                  </div>
-                </aside>
-              </div>
-            )}
-
-            {activeTab === "practice" && (
-              <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+            <div className="space-y-6">
+              {chapterLessons.length === 0 ? (
                 <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-                  <div className="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">Practice layer</div>
-                  <h3 className="text-2xl font-semibold tracking-tight">What should this node’s enhancement layer do?</h3>
-                  <div className="mt-6 space-y-3">
-                    {[
-                      "Rewrite the lesson into a shorter AI summary and remove the source content.",
-                      "Preserve the source node and add retrieval, comparison, or sequencing practice around it.",
-                      "Flatten the whole module into a single scrolling page so students stop seeing lesson boundaries.",
-                      "Hide assignments and quizzes until the end of the unit.",
-                    ].map((option, idx) => (
-                      <button
-                        key={idx}
-                        onClick={() => {
-                          setSelectedAnswers((prev) => ({ ...prev, [activeLessonId]: idx }));
-                          setShowFeedback(false);
-                        }}
-                        className={`w-full rounded-2xl border p-4 text-left text-sm transition ${
-                          selectedAnswers[activeLessonId] === idx ? "border-sky-300 bg-sky-50" : "border-slate-200 bg-white hover:bg-slate-50"
-                        }`}
-                      >
-                        {option}
-                      </button>
-                    ))}
-                  </div>
-                  <div className="mt-6 flex gap-3">
-                    <button onClick={() => setShowFeedback(true)} className="rounded-2xl bg-sky-500 px-4 py-2.5 text-sm font-medium text-white hover:bg-sky-600">
-                      Check answer
-                    </button>
-                    <button
-                      onClick={() => {
-                        setSelectedAnswers((prev) => ({ ...prev, [activeLessonId]: undefined }));
-                        setShowFeedback(false);
-                      }}
-                      className="rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50"
-                    >
-                      Reset
-                    </button>
-                  </div>
-                  {showFeedback && selectedAnswers[activeLessonId] !== undefined && (
-                    <div
-                      className={`mt-6 rounded-2xl border p-5 ${
-                        selectedAnswers[activeLessonId] === 1 ? "border-emerald-200 bg-emerald-50" : "border-rose-200 bg-rose-50"
-                      }`}
-                    >
-                      <div
-                        className={`text-sm font-semibold ${
-                          selectedAnswers[activeLessonId] === 1 ? "text-emerald-800" : "text-rose-800"
-                        }`}
-                      >
-                        {selectedAnswers[activeLessonId] === 1 ? "Correct" : "Wrong"}
-                      </div>
-                      <p
-                        className={`mt-2 text-sm leading-7 ${
-                          selectedAnswers[activeLessonId] === 1 ? "text-emerald-950" : "text-rose-950"
-                        }`}
-                      >
-                        The source lesson stays. The practice layer sits around it. That is the whole point of this project.
-                      </p>
-                    </div>
-                  )}
-                </section>
-                <section className="space-y-6">
-                  <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-                    <div className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">Good enhancement types</div>
-                    <ul className="mt-4 space-y-3 text-sm leading-7 text-slate-700">
-                      <li>Retrieval questions</li>
-                      <li>Evidence classification tasks</li>
-                      <li>Case-study comparisons</li>
-                      <li>Vocabulary and glossary support</li>
-                      <li>Sequencing procedural steps</li>
-                    </ul>
-                  </div>
-                </section>
-              </div>
-            )}
-
-            {activeTab === "assignment" && (
-              <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-                <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-                  <div className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">Assignment / task treatment</div>
-                  <h3 className="mt-3 text-2xl font-semibold tracking-tight">Node handling strategy</h3>
-                  <p className="mt-4 text-sm leading-7 text-slate-700">
-                    Assignments, quizzes, and resources should not sit as detached ugly files. They should be surfaced as structured cards tied back to the lesson sequence and source content.
+                  <h3 className="text-xl font-semibold text-slate-900">No learner content in this chapter yet</h3>
+                  <p className="mt-3 text-sm text-slate-600">
+                    Assignment-only chapters are intentionally hidden in this app surface. Learning content is preserved and can be added here later.
                   </p>
-                  <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-5">
-                    <div className="text-sm font-semibold text-slate-800">Success checklist</div>
-                    <ul className="mt-4 space-y-3">
-                      {["Map source file", "Render instructions cleanly", "Keep related resources visible"].map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-3 text-sm text-slate-700">
-                          <CheckCircle2 className="mt-0.5 h-4 w-4 text-sky-600" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
                 </section>
-                <section className="space-y-6">
-                  <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-                    <div className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">Why this tab exists</div>
-                    <div className="mt-4 space-y-3 text-sm leading-7 text-slate-700">
-                      <p>Students need the task connected to the concept they just learned.</p>
-                      <p>The exported package already has assignment XML and QTI quiz nodes. The player should expose them cleanly.</p>
-                      <p>That is more useful than a prettier mock with fake content.</p>
-                    </div>
+              ) : null}
+              {chapterLessons.map((lesson) => (
+                <ChapterLessonCard key={lesson.id} lesson={lesson} />
+              ))}
+              {chapterAssignments.length > 0 ? (
+                <section id="module-assignments" className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+                  <div className="mb-5 flex items-center justify-between">
+                    <h3 className="text-xl font-semibold text-slate-900">Assignments</h3>
+                    <Badge>{chapterAssignments.length} assessments</Badge>
                   </div>
-                </section>
-              </div>
-            )}
-
-            {activeTab === "resources" && (
-              <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-                <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-                  <div className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">Resources</div>
-                  <div className="mt-5 grid gap-4 sm:grid-cols-2">
-                    {(activeLesson.resources || []).map((resource, idx) => (
-                      <div key={idx} className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-                        <div className="flex items-center gap-3">
-                          <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-white ring-1 ring-slate-200">
-                            <FileText className="h-4 w-4 text-slate-600" />
-                          </div>
-                          <div>
-                            <div className="text-sm font-medium text-slate-900">{resource}</div>
-                            <div className="text-xs text-slate-500">Tied to the selected export node</div>
-                          </div>
-                        </div>
-                      </div>
+                  <div className="space-y-6">
+                    {chapterAssignments.map((lesson) => (
+                      <ChapterLessonCard key={lesson.id} lesson={lesson} />
                     ))}
                   </div>
                 </section>
-                <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-                  <div className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">Reality check</div>
-                  <p className="mt-4 text-sm leading-7 text-slate-700">
-                    The old mock proved the layout. This version proves the layout can hold the actual course structure and mixed file types.
-                  </p>
-                </section>
-              </div>
-            )}
-
-            <div className="mt-10 flex items-center justify-between rounded-3xl border border-slate-200 bg-white p-5 shadow-[0_12px_30px_rgba(15,23,42,0.05)]">
-              <button
-                onClick={goPrev}
-                disabled={lessonIndex === 0}
-                className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 disabled:cursor-not-allowed disabled:opacity-40"
-                data-testid="node-nav-previous"
-              >
-                <ArrowLeft className="h-4 w-4" /> Previous
-              </button>
-              <div className="text-sm text-slate-500" data-testid="node-counter">
-                Node {lessonIndex + 1} of {visibleLessons.length} from the mapped course sequence
-              </div>
-              <button
-                onClick={goNext}
-                disabled={lessonIndex === visibleLessons.length - 1}
-                className="inline-flex items-center gap-2 rounded-2xl bg-sky-500 px-4 py-2.5 text-sm font-medium text-white disabled:cursor-not-allowed disabled:opacity-40"
-                data-testid="node-nav-next"
-              >
-                Next <ArrowRight className="h-4 w-4" />
-              </button>
+              ) : null}
             </div>
           </div>
         </main>
