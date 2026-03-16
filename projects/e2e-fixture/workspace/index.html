@@ -4,11 +4,278 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>E2E Fixture Workspace</title>
+    <style>
+      body {
+        font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+        background: #f8fafc;
+        color: #0f172a;
+        margin: 0;
+      }
+      main {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 24px;
+      }
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 16px;
+        padding: 16px 20px;
+        margin-bottom: 16px;
+      }
+      .module {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 16px;
+        padding: 12px;
+        margin-bottom: 16px;
+      }
+      .lesson-list {
+        display: grid;
+        gap: 8px;
+        margin-top: 10px;
+      }
+      .lesson-item {
+        text-align: left;
+        border-radius: 12px;
+        border: 1px solid #e2e8f0;
+        padding: 10px 12px;
+        background: #f8fafc;
+        cursor: pointer;
+      }
+      .lesson-item[data-active="true"] {
+        border-color: #38bdf8;
+        background: #e0f2fe;
+      }
+      .renderer {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 16px;
+        padding: 16px;
+        margin: 16px 0;
+      }
+      .controls {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 16px;
+        padding: 12px 16px;
+      }
+      button {
+        border: 1px solid #cbd5f5;
+        background: #ffffff;
+        padding: 8px 12px;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+      button.primary {
+        background: #38bdf8;
+        color: #0f172a;
+        border-color: #38bdf8;
+      }
+      .quiz-choices button {
+        width: 100%;
+        text-align: left;
+        margin-top: 8px;
+      }
+      .hidden {
+        display: none;
+      }
+    </style>
   </head>
   <body>
     <main data-testid="fixture-root">
-      <h1>E2E Fixture Workspace</h1>
-      <p>Deterministic fixture project for platform smoke coverage.</p>
+      <header>
+        <div>
+          <h1>E2E Fixture Workspace</h1>
+          <p>Deterministic fixture project for platform smoke coverage.</p>
+        </div>
+        <div>
+          <div data-testid="mode-indicator">Learner mode</div>
+          <button type="button" data-testid="mode-toggle">Show archive</button>
+        </div>
+      </header>
+
+      <div class="module" data-testid="module-panel" data-module-title="Fixture Module" data-module-expanded="true">
+        <button type="button" data-testid="module-toggle" data-module-title="Fixture Module" data-expanded="true">
+          Fixture Module
+        </button>
+        <div class="lesson-list">
+          <button class="lesson-item" data-testid="lesson-item" data-lesson-title="HTML Lesson" data-lesson-type="html-reading">
+            HTML Lesson
+          </button>
+          <button class="lesson-item" data-testid="lesson-item" data-lesson-title="Assignment Lesson" data-lesson-type="assignment">
+            Assignment Lesson
+          </button>
+          <button class="lesson-item" data-testid="lesson-item" data-lesson-title="Quiz Lesson" data-lesson-type="quiz">
+            Quiz Lesson
+          </button>
+          <button class="lesson-item" data-testid="lesson-item" data-lesson-title="PDF Lesson" data-lesson-type="pdf">
+            PDF Lesson
+          </button>
+          <button class="lesson-item" data-testid="lesson-item" data-lesson-title="Fallback Lesson" data-lesson-type="fallback">
+            Fallback Lesson
+          </button>
+          <button
+            class="lesson-item"
+            data-testid="lesson-item"
+            data-lesson-title="Hidden Lesson"
+            data-lesson-type="html-reading"
+            data-lesson-hidden="true"
+          >
+            Hidden Lesson
+          </button>
+        </div>
+      </div>
+
+      <div class="renderer" data-testid="renderer-html">
+        <h2 data-testid="lesson-title">HTML Lesson</h2>
+        <div class="controls">
+          <button type="button" data-testid="section-mode-toggle">Section mode</button>
+          <button type="button" data-testid="section-expand-all">Expand all</button>
+          <button type="button" data-testid="section-collapse-all">Collapse all</button>
+        </div>
+        <div data-testid="section-container" class="hidden">Section 1 content</div>
+      </div>
+
+      <div class="renderer hidden" data-testid="renderer-assignment">
+        <h2 data-testid="lesson-title">Assignment Lesson</h2>
+        <p>Assignment instructions render here.</p>
+      </div>
+
+      <div class="renderer hidden" data-testid="renderer-quiz">
+        <h2 data-testid="lesson-title">Quiz Lesson</h2>
+        <div data-testid="quiz-progress">0/2 answered</div>
+        <div data-testid="quiz-question-nav">
+          <button type="button" data-testid="quiz-question-button">Q1</button>
+          <button type="button" data-testid="quiz-question-button">Q2</button>
+        </div>
+        <div class="quiz-choices">
+          <button type="button" data-testid="quiz-answer-choice">Choice A</button>
+          <button type="button" data-testid="quiz-answer-choice">Choice B</button>
+        </div>
+        <div class="controls">
+          <button type="button" data-testid="quiz-check-answer" class="primary">Check answer</button>
+          <button type="button" data-testid="quiz-next-question">Next question</button>
+        </div>
+      </div>
+
+      <div class="renderer hidden" data-testid="renderer-pdf">
+        <h2 data-testid="lesson-title">PDF Lesson</h2>
+        <p>PDF viewer placeholder.</p>
+      </div>
+
+      <div class="renderer hidden" data-testid="renderer-fallback">
+        <h2 data-testid="lesson-title">Fallback Lesson</h2>
+        <p>Fallback panel is visible.</p>
+      </div>
+
+      <section class="renderer" data-testid="quick-checkpoints">
+        <h3>Quick checkpoints</h3>
+        <p>Checkpoint prompt placeholder.</p>
+      </section>
+
+      <div class="nav">
+        <button type="button" data-testid="node-nav-previous">Previous</button>
+        <div data-testid="node-counter">Node 1 of 6 from the mapped course sequence</div>
+        <button type="button" data-testid="node-nav-next">Next</button>
+      </div>
+
+      <input type="text" data-testid="lesson-search" placeholder="Search real lesson titles" class="hidden" />
     </main>
+
+    <script>
+      const lessonButtons = Array.from(document.querySelectorAll("[data-testid='lesson-item']"));
+      const modeToggle = document.querySelector("[data-testid='mode-toggle']");
+      const modeIndicator = document.querySelector("[data-testid='mode-indicator']");
+      const sectionContainer = document.querySelector("[data-testid='section-container']");
+      const sectionToggle = document.querySelector("[data-testid='section-mode-toggle']");
+      const quizProgress = document.querySelector("[data-testid='quiz-progress']");
+      const quizChoices = Array.from(document.querySelectorAll("[data-testid='quiz-answer-choice']"));
+      const nodeCounter = document.querySelector("[data-testid='node-counter']");
+
+      const lessonOrder = lessonButtons.map((button) => button.getAttribute("data-lesson-title"));
+      let currentIndex = 0;
+      let isArchive = false;
+      let answered = 0;
+
+      function setMode(nextArchive) {
+        isArchive = nextArchive;
+        modeIndicator.textContent = isArchive ? "Archive mode" : "Learner mode";
+        modeToggle.textContent = isArchive ? "Hide admin-only" : "Show archive";
+        lessonButtons.forEach((button) => {
+          const hidden = button.getAttribute("data-lesson-hidden") === "true";
+          if (hidden) {
+            button.style.display = isArchive ? "block" : "none";
+          }
+        });
+      }
+
+      function updateRenderer(title) {
+        document.querySelectorAll("[data-testid^='renderer-']").forEach((node) => node.classList.add("hidden"));
+        const type = lessonButtons.find((button) => button.getAttribute("data-lesson-title") === title)?.getAttribute("data-lesson-type");
+        const rendererId = type === "html-reading" ? "renderer-html" : type === "fallback" ? "renderer-fallback" : `renderer-${type}`;
+        const renderer = document.querySelector(`[data-testid='${rendererId}']`);
+        if (renderer) {
+          renderer.classList.remove("hidden");
+        }
+        document.querySelectorAll("[data-testid='lesson-title']").forEach((node) => {
+          node.textContent = title;
+        });
+      }
+
+      function setActiveLesson(index) {
+        currentIndex = index;
+        const title = lessonOrder[index];
+        lessonButtons.forEach((button) => {
+          button.setAttribute("data-active", button.getAttribute("data-lesson-title") === title ? "true" : "false");
+        });
+        updateRenderer(title);
+        nodeCounter.textContent = `Node ${index + 1} of ${lessonOrder.length} from the mapped course sequence`;
+      }
+
+      lessonButtons.forEach((button, index) => {
+        button.addEventListener("click", () => setActiveLesson(index));
+      });
+
+      document.querySelector("[data-testid='node-nav-previous']").addEventListener("click", () => {
+        if (currentIndex > 0) {
+          setActiveLesson(currentIndex - 1);
+        }
+      });
+
+      document.querySelector("[data-testid='node-nav-next']").addEventListener("click", () => {
+        if (currentIndex < lessonOrder.length - 1) {
+          setActiveLesson(currentIndex + 1);
+        }
+      });
+
+      modeToggle.addEventListener("click", () => setMode(!isArchive));
+
+      sectionToggle.addEventListener("click", () => {
+        sectionContainer.classList.toggle("hidden");
+      });
+
+      quizChoices.forEach((button) => {
+        button.addEventListener("click", () => {
+          answered = Math.min(2, answered + 1);
+          quizProgress.textContent = `${answered}/2 answered`;
+        });
+      });
+
+      setMode(false);
+      setActiveLesson(0);
+    </script>
   </body>
 </html>

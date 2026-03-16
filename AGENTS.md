@@ -132,6 +132,7 @@ Rules:
 - Do not run broad E2E for non-UI scripting work unless the task explicitly requires it.
 - If UI behavior changed, update stable `data-testid` selectors as needed.
 - If project behavior expectations changed, update `projects/<slug>/meta/e2e-contract.json`.
+- Keep the high-confidence suite project-agnostic by defining `assertionProfiles`, `modulePassTargets`, and `visibilityChecks` in the project contract when deeper coverage is needed.
 - A task touching critical interaction flows is not complete until the required E2E command passes.
 
 ## Commit Rules

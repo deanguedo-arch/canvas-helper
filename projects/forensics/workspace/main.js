@@ -588,8 +588,12 @@ function parseQuizXml(xmlText) {
     quizQuestions: questions
   };
 }
-function Badge({ children }) {
-  return /* @__PURE__ */ React.createElement("span", { className: "rounded-full border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-600" }, children);
+function Badge({ children, className = "", ...props }) {
+  return /* @__PURE__ */ React.createElement(
+    "span",
+    { ...props, className: `rounded-full border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-600 ${className}`.trim() },
+    children
+  );
 }
 function typeLabel(type) {
   const map = {
@@ -619,7 +623,11 @@ function SidebarItem({ active, completed, lesson, onClick }) {
     "button",
     {
       onClick,
-      className: `flex w-full items-start gap-3 rounded-xl border px-3 py-3 text-left transition ${active ? "border-sky-200 bg-sky-50 text-slate-900 shadow-sm" : "border-transparent bg-transparent text-slate-700 hover:border-slate-200 hover:bg-white"}`
+      className: `flex w-full items-start gap-3 rounded-xl border px-3 py-3 text-left transition ${active ? "border-sky-200 bg-sky-50 text-slate-900 shadow-sm" : "border-transparent bg-transparent text-slate-700 hover:border-slate-200 hover:bg-white"}`,
+      "data-testid": "lesson-item",
+      "data-lesson-title": lesson.title,
+      "data-lesson-type": lesson.type,
+      "data-lesson-hidden": lesson.isHidden ? "true" : "false"
     },
     /* @__PURE__ */ React.createElement("div", { className: "mt-0.5 shrink-0" }, completed ? /* @__PURE__ */ React.createElement(CheckCircle2, { className: "h-4 w-4 text-sky-600" }) : /* @__PURE__ */ React.createElement(Circle, { className: "h-4 w-4 text-slate-300" })),
     /* @__PURE__ */ React.createElement("div", { className: "min-w-0 flex-1" }, /* @__PURE__ */ React.createElement("div", { className: "flex items-center gap-2" }, /* @__PURE__ */ React.createElement(Icon, { className: "h-3.5 w-3.5 text-slate-400" }), /* @__PURE__ */ React.createElement("div", { className: "truncate text-sm font-medium" }, lesson.title)), /* @__PURE__ */ React.createElement("div", { className: "mt-1 text-[11px] uppercase tracking-[0.12em] text-slate-400" }, typeLabel(lesson.type)))
@@ -639,16 +647,17 @@ function HtmlRenderer({ html }) {
   const expandAll = () => {
     setCollapsedSections({});
   };
-  return /* @__PURE__ */ React.createElement("div", { className: "rounded-3xl border border-slate-200 bg-white p-6 shadow-sm" }, /* @__PURE__ */ React.createElement("div", { className: "mb-4 flex flex-wrap items-center justify-between gap-3" }, /* @__PURE__ */ React.createElement("div", { className: "text-xs font-semibold uppercase tracking-[0.14em] text-slate-500" }, "HTML renderer"), sections.length > 1 && /* @__PURE__ */ React.createElement("div", { className: "flex flex-wrap gap-2" }, /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ React.createElement("div", { className: "rounded-3xl border border-slate-200 bg-white p-6 shadow-sm", "data-testid": "renderer-html" }, /* @__PURE__ */ React.createElement("div", { className: "mb-4 flex flex-wrap items-center justify-between gap-3" }, /* @__PURE__ */ React.createElement("div", { className: "text-xs font-semibold uppercase tracking-[0.14em] text-slate-500" }, "HTML renderer"), sections.length > 1 && /* @__PURE__ */ React.createElement("div", { className: "flex flex-wrap gap-2" }, /* @__PURE__ */ React.createElement(
     "button",
     {
       onClick: () => setSectionMode((prev) => !prev),
-      className: "rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700"
+      className: "rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700",
+      "data-testid": "section-mode-toggle"
     },
     sectionMode ? "Single flow" : "Section mode"
-  ), sectionMode && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("button", { onClick: expandAll, className: "rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700" }, "Expand all"), /* @__PURE__ */ React.createElement("button", { onClick: collapseAll, className: "rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700" }, "Collapse all")))), sectionMode && sections.length > 1 ? /* @__PURE__ */ React.createElement("div", { className: "space-y-3" }, sections.map((section) => {
+  ), sectionMode && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("button", { onClick: expandAll, className: "rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700", "data-testid": "section-expand-all" }, "Expand all"), /* @__PURE__ */ React.createElement("button", { onClick: collapseAll, className: "rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700", "data-testid": "section-collapse-all" }, "Collapse all")))), sectionMode && sections.length > 1 ? /* @__PURE__ */ React.createElement("div", { className: "space-y-3" }, sections.map((section) => {
     const collapsed = !!collapsedSections[section.id];
-    return /* @__PURE__ */ React.createElement("div", { key: section.id, className: "rounded-2xl border border-slate-200" }, /* @__PURE__ */ React.createElement(
+    return /* @__PURE__ */ React.createElement("div", { key: section.id, className: "rounded-2xl border border-slate-200", "data-testid": "section-container" }, /* @__PURE__ */ React.createElement(
       "button",
       {
         onClick: () => setCollapsedSections((prev) => ({ ...prev, [section.id]: !prev[section.id] })),
@@ -673,7 +682,7 @@ function HtmlRenderer({ html }) {
 }
 function PdfRenderer({ meta, title, sourceUrl }) {
   const pages = meta?.pages || 1;
-  return /* @__PURE__ */ React.createElement("div", { className: "rounded-3xl border border-slate-200 bg-white p-6 shadow-sm" }, /* @__PURE__ */ React.createElement("div", { className: "mb-5 flex items-center justify-between" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "text-xs font-semibold uppercase tracking-[0.14em] text-slate-500" }, "PDF renderer"), /* @__PURE__ */ React.createElement("h4", { className: "mt-1 text-lg font-semibold text-slate-900" }, title)), /* @__PURE__ */ React.createElement("div", { className: "flex gap-2" }, /* @__PURE__ */ React.createElement(Badge, null, meta?.size || "PDF"), /* @__PURE__ */ React.createElement(Badge, null, pages, " pages"))), /* @__PURE__ */ React.createElement("div", { className: "grid gap-4 lg:grid-cols-[180px_1fr]" }, /* @__PURE__ */ React.createElement("div", { className: "rounded-2xl border border-slate-200 bg-slate-50 p-3" }, /* @__PURE__ */ React.createElement("div", { className: "mb-3 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500" }, "Pages"), /* @__PURE__ */ React.createElement("div", { className: "space-y-2" }, Array.from({ length: Math.min(pages, 6) }).map((_, i) => /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ React.createElement("div", { className: "rounded-3xl border border-slate-200 bg-white p-6 shadow-sm", "data-testid": "renderer-pdf" }, /* @__PURE__ */ React.createElement("div", { className: "mb-5 flex items-center justify-between" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "text-xs font-semibold uppercase tracking-[0.14em] text-slate-500" }, "PDF renderer"), /* @__PURE__ */ React.createElement("h4", { className: "mt-1 text-lg font-semibold text-slate-900" }, title)), /* @__PURE__ */ React.createElement("div", { className: "flex gap-2" }, /* @__PURE__ */ React.createElement(Badge, null, meta?.size || "PDF"), /* @__PURE__ */ React.createElement(Badge, null, pages, " pages"))), /* @__PURE__ */ React.createElement("div", { className: "grid gap-4 lg:grid-cols-[180px_1fr]" }, /* @__PURE__ */ React.createElement("div", { className: "rounded-2xl border border-slate-200 bg-slate-50 p-3" }, /* @__PURE__ */ React.createElement("div", { className: "mb-3 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500" }, "Pages"), /* @__PURE__ */ React.createElement("div", { className: "space-y-2" }, Array.from({ length: Math.min(pages, 6) }).map((_, i) => /* @__PURE__ */ React.createElement(
     "div",
     {
       key: i,
@@ -691,11 +700,11 @@ function PdfRenderer({ meta, title, sourceUrl }) {
   ) : /* @__PURE__ */ React.createElement("div", { className: "mx-auto flex min-h-[520px] max-w-[760px] items-center justify-center rounded-xl border border-slate-300 bg-white p-8 text-center text-sm leading-7 text-slate-500 shadow-inner" }, "PDF page canvas would render here with real pagination, zoom, and outline support."))));
 }
 function SlideRenderer({ title }) {
-  return /* @__PURE__ */ React.createElement("div", { className: "rounded-3xl border border-slate-200 bg-white p-6 shadow-sm" }, /* @__PURE__ */ React.createElement("div", { className: "mb-4 flex items-center justify-between" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "text-xs font-semibold uppercase tracking-[0.14em] text-slate-500" }, "Image / slide renderer"), /* @__PURE__ */ React.createElement("h4", { className: "mt-1 text-lg font-semibold text-slate-900" }, title)), /* @__PURE__ */ React.createElement("div", { className: "flex gap-2" }, /* @__PURE__ */ React.createElement(Badge, null, "responsive media"), /* @__PURE__ */ React.createElement(Badge, null, "zoom ready"))), /* @__PURE__ */ React.createElement("div", { className: "overflow-hidden rounded-2xl border border-slate-200 bg-slate-950/95" }, /* @__PURE__ */ React.createElement("div", { className: "flex min-h-[460px] items-center justify-center bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.15),_transparent_35%),linear-gradient(180deg,_#1e293b,_#020617)] p-10 text-center" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-3xl bg-white/10 ring-1 ring-white/10" }, /* @__PURE__ */ React.createElement(FileImage, { className: "h-7 w-7 text-sky-300" })), /* @__PURE__ */ React.createElement("h4", { className: "text-2xl font-semibold text-white" }, title), /* @__PURE__ */ React.createElement("p", { className: "mx-auto mt-3 max-w-xl text-sm leading-7 text-slate-300" }, "Original exported slide/image asset would render here with preserved visuals, zoom support, and optional caption treatment.")))));
+  return /* @__PURE__ */ React.createElement("div", { className: "rounded-3xl border border-slate-200 bg-white p-6 shadow-sm", "data-testid": "renderer-slide" }, /* @__PURE__ */ React.createElement("div", { className: "mb-4 flex items-center justify-between" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "text-xs font-semibold uppercase tracking-[0.14em] text-slate-500" }, "Image / slide renderer"), /* @__PURE__ */ React.createElement("h4", { className: "mt-1 text-lg font-semibold text-slate-900" }, title)), /* @__PURE__ */ React.createElement("div", { className: "flex gap-2" }, /* @__PURE__ */ React.createElement(Badge, null, "responsive media"), /* @__PURE__ */ React.createElement(Badge, null, "zoom ready"))), /* @__PURE__ */ React.createElement("div", { className: "overflow-hidden rounded-2xl border border-slate-200 bg-slate-950/95" }, /* @__PURE__ */ React.createElement("div", { className: "flex min-h-[460px] items-center justify-center bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.15),_transparent_35%),linear-gradient(180deg,_#1e293b,_#020617)] p-10 text-center" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-3xl bg-white/10 ring-1 ring-white/10" }, /* @__PURE__ */ React.createElement(FileImage, { className: "h-7 w-7 text-sky-300" })), /* @__PURE__ */ React.createElement("h4", { className: "text-2xl font-semibold text-white" }, title), /* @__PURE__ */ React.createElement("p", { className: "mx-auto mt-3 max-w-xl text-sm leading-7 text-slate-300" }, "Original exported slide/image asset would render here with preserved visuals, zoom support, and optional caption treatment.")))));
 }
 function AssignmentRenderer({ data, meta, title }) {
   const introHtml = data?.intro || "";
-  return /* @__PURE__ */ React.createElement("div", { className: "rounded-3xl border border-slate-200 bg-white p-6 shadow-sm" }, /* @__PURE__ */ React.createElement("div", { className: "mb-5 flex items-center justify-between" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "text-xs font-semibold uppercase tracking-[0.14em] text-slate-500" }, "Assignment XML renderer"), /* @__PURE__ */ React.createElement("h4", { className: "mt-1 text-lg font-semibold text-slate-900" }, title)), /* @__PURE__ */ React.createElement("div", { className: "flex gap-2" }, /* @__PURE__ */ React.createElement(Badge, null, meta?.points || 0, " pts"), /* @__PURE__ */ React.createElement(Badge, null, meta?.submissionType || "submission"), meta?.submissionFormats?.length > 1 && /* @__PURE__ */ React.createElement(Badge, null, meta.submissionFormats.length, " formats"))), /* @__PURE__ */ React.createElement("div", { className: "grid gap-5 lg:grid-cols-[1.1fr_0.9fr]" }, /* @__PURE__ */ React.createElement("div", { className: "space-y-4 text-sm leading-7 text-slate-700" }, introHtml ? /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ React.createElement("div", { className: "rounded-3xl border border-slate-200 bg-white p-6 shadow-sm", "data-testid": "renderer-assignment" }, /* @__PURE__ */ React.createElement("div", { className: "mb-5 flex items-center justify-between" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "text-xs font-semibold uppercase tracking-[0.14em] text-slate-500" }, "Assignment XML renderer"), /* @__PURE__ */ React.createElement("h4", { className: "mt-1 text-lg font-semibold text-slate-900" }, title)), /* @__PURE__ */ React.createElement("div", { className: "flex gap-2" }, /* @__PURE__ */ React.createElement(Badge, null, meta?.points || 0, " pts"), /* @__PURE__ */ React.createElement(Badge, null, meta?.submissionType || "submission"), meta?.submissionFormats?.length > 1 && /* @__PURE__ */ React.createElement(Badge, null, meta.submissionFormats.length, " formats"))), /* @__PURE__ */ React.createElement("div", { className: "grid gap-5 lg:grid-cols-[1.1fr_0.9fr]" }, /* @__PURE__ */ React.createElement("div", { className: "space-y-4 text-sm leading-7 text-slate-700" }, introHtml ? /* @__PURE__ */ React.createElement(
     "div",
     {
       className: "max-w-none [&_img]:mx-auto [&_img]:my-4 [&_img]:h-auto [&_img]:max-w-full [&_p]:mb-3",
@@ -719,14 +728,15 @@ function QuizRenderer({ quiz, questions, meta }) {
     setAnswersByQuestion({});
     setFeedbackByQuestion({});
   }, [questions, quiz]);
-  return /* @__PURE__ */ React.createElement("div", { className: "rounded-3xl border border-slate-200 bg-white p-6 shadow-sm" }, /* @__PURE__ */ React.createElement("div", { className: "mb-5 flex items-center justify-between" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "text-xs font-semibold uppercase tracking-[0.14em] text-slate-500" }, "QTI quiz renderer"), /* @__PURE__ */ React.createElement("h4", { className: "mt-1 text-lg font-semibold text-slate-900" }, "Assessment preview")), /* @__PURE__ */ React.createElement("div", { className: "flex flex-wrap gap-2" }, /* @__PURE__ */ React.createElement(Badge, null, meta?.profile || "Assessment"), /* @__PURE__ */ React.createElement(Badge, null, meta?.attempts || 1, " attempt"), /* @__PURE__ */ React.createElement(Badge, null, meta?.timeLimitMinutes || 0, " min"), /* @__PURE__ */ React.createElement(Badge, null, parsedQuestions.length, " questions"), /* @__PURE__ */ React.createElement(Badge, null, answeredCount, "/", parsedQuestions.length, " answered"))), /* @__PURE__ */ React.createElement("div", { className: "grid gap-5 lg:grid-cols-[1.1fr_0.9fr]" }, /* @__PURE__ */ React.createElement("div", null, parsedQuestions.length > 1 && /* @__PURE__ */ React.createElement("div", { className: "mb-4 flex flex-wrap gap-2" }, parsedQuestions.map((question, idx) => /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ React.createElement("div", { className: "rounded-3xl border border-slate-200 bg-white p-6 shadow-sm", "data-testid": "renderer-quiz" }, /* @__PURE__ */ React.createElement("div", { className: "mb-5 flex items-center justify-between" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "text-xs font-semibold uppercase tracking-[0.14em] text-slate-500" }, "QTI quiz renderer"), /* @__PURE__ */ React.createElement("h4", { className: "mt-1 text-lg font-semibold text-slate-900" }, "Assessment preview")), /* @__PURE__ */ React.createElement("div", { className: "flex flex-wrap gap-2" }, /* @__PURE__ */ React.createElement(Badge, null, meta?.profile || "Assessment"), /* @__PURE__ */ React.createElement(Badge, null, meta?.attempts || 1, " attempt"), /* @__PURE__ */ React.createElement(Badge, null, meta?.timeLimitMinutes || 0, " min"), /* @__PURE__ */ React.createElement(Badge, null, parsedQuestions.length, " questions"), /* @__PURE__ */ React.createElement(Badge, { "data-testid": "quiz-progress" }, answeredCount, "/", parsedQuestions.length, " answered"))), /* @__PURE__ */ React.createElement("div", { className: "grid gap-5 lg:grid-cols-[1.1fr_0.9fr]" }, /* @__PURE__ */ React.createElement("div", null, parsedQuestions.length > 1 && /* @__PURE__ */ React.createElement("div", { className: "mb-4 flex flex-wrap gap-2", "data-testid": "quiz-question-nav" }, parsedQuestions.map((question, idx) => /* @__PURE__ */ React.createElement(
     "button",
     {
       key: question.id,
       onClick: () => {
         setQuestionIndex(idx);
       },
-      className: `rounded-xl border px-3 py-1.5 text-xs font-semibold ${questionIndex === idx ? "border-sky-300 bg-sky-50 text-sky-700" : "border-slate-200 bg-white text-slate-600"}`
+      className: `rounded-xl border px-3 py-1.5 text-xs font-semibold ${questionIndex === idx ? "border-sky-300 bg-sky-50 text-sky-700" : "border-slate-200 bg-white text-slate-600"}`,
+      "data-testid": "quiz-question-button"
     },
     "Q",
     idx + 1,
@@ -746,14 +756,16 @@ function QuizRenderer({ quiz, questions, meta }) {
         setAnswersByQuestion((prev) => ({ ...prev, [activeQuestionId]: idx }));
         setFeedbackByQuestion((prev) => ({ ...prev, [activeQuestionId]: false }));
       },
-      className: `w-full rounded-2xl border p-4 text-left text-sm transition ${currentSelected === idx ? "border-sky-300 bg-sky-50" : "border-slate-200 hover:bg-slate-50"}`
+      className: `w-full rounded-2xl border p-4 text-left text-sm transition ${currentSelected === idx ? "border-sky-300 bg-sky-50" : "border-slate-200 hover:bg-slate-50"}`,
+      "data-testid": "quiz-answer-choice"
     },
     choice
   ))), /* @__PURE__ */ React.createElement("div", { className: "mt-5 flex gap-3" }, /* @__PURE__ */ React.createElement(
     "button",
     {
       onClick: () => setFeedbackByQuestion((prev) => ({ ...prev, [activeQuestionId]: true })),
-      className: "rounded-2xl bg-sky-500 px-4 py-2.5 text-sm font-medium text-white"
+      className: "rounded-2xl bg-sky-500 px-4 py-2.5 text-sm font-medium text-white",
+      "data-testid": "quiz-check-answer"
     },
     "Check answer"
   ), /* @__PURE__ */ React.createElement(
@@ -774,13 +786,14 @@ function QuizRenderer({ quiz, questions, meta }) {
           setQuestionIndex((idx) => idx + 1);
         }
       },
-      className: "rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700"
+      className: "rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700",
+      "data-testid": "quiz-next-question"
     },
     "Next question"
   )), showFeedback && currentSelected !== void 0 && /* @__PURE__ */ React.createElement("div", { className: `mt-5 rounded-2xl border p-4 ${correct ? "border-emerald-200 bg-emerald-50" : "border-rose-200 bg-rose-50"}` }, /* @__PURE__ */ React.createElement("div", { className: `text-sm font-semibold ${correct ? "text-emerald-800" : "text-rose-800"}` }, correct ? "Correct" : "Wrong"), /* @__PURE__ */ React.createElement("p", { className: `mt-2 text-sm leading-7 ${correct ? "text-emerald-950" : "text-rose-950"}` }, "In the exported quiz, the correct answer is ", /* @__PURE__ */ React.createElement("strong", null, activeQuestion?.choices?.[activeQuestion?.answerIndex]), "."))), /* @__PURE__ */ React.createElement("div", { className: "space-y-4" }, /* @__PURE__ */ React.createElement("div", { className: "rounded-2xl border border-slate-200 bg-slate-50 p-4" }, /* @__PURE__ */ React.createElement("div", { className: "text-xs font-semibold uppercase tracking-[0.12em] text-slate-600" }, "Assessment panel"), /* @__PURE__ */ React.createElement("ul", { className: "mt-3 space-y-2 text-sm text-slate-700" }, /* @__PURE__ */ React.createElement("li", null, "Question count would be parsed from QTI"), /* @__PURE__ */ React.createElement("li", null, "Attempt rules live here"), /* @__PURE__ */ React.createElement("li", null, "Timing and settings stay visible"), /* @__PURE__ */ React.createElement("li", null, "Review mode can be separated from attempt mode"))), /* @__PURE__ */ React.createElement("div", { className: "rounded-2xl border border-slate-200 bg-white p-4 text-sm leading-7 text-slate-700" }, "QTI should not remain opaque package junk. The player should surface enough structure that assessments feel connected to the lesson sequence."))));
 }
 function VideoRenderer({ title }) {
-  return /* @__PURE__ */ React.createElement("div", { className: "rounded-3xl border border-slate-200 bg-white p-6 shadow-sm" }, /* @__PURE__ */ React.createElement("div", { className: "mb-4 flex items-center justify-between" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "text-xs font-semibold uppercase tracking-[0.14em] text-slate-500" }, "Embedded video renderer"), /* @__PURE__ */ React.createElement("h4", { className: "mt-1 text-lg font-semibold text-slate-900" }, title)), /* @__PURE__ */ React.createElement(Badge, null, "responsive embed")), /* @__PURE__ */ React.createElement("div", { className: "overflow-hidden rounded-2xl border border-slate-200 bg-slate-950" }, /* @__PURE__ */ React.createElement("div", { className: "flex aspect-video items-center justify-center bg-[linear-gradient(135deg,_#0f172a,_#111827)]" }, /* @__PURE__ */ React.createElement("div", { className: "text-center" }, /* @__PURE__ */ React.createElement(PlayCircle, { className: "mx-auto h-14 w-14 text-sky-300" }), /* @__PURE__ */ React.createElement("div", { className: "mt-3 text-lg font-semibold text-white" }, title), /* @__PURE__ */ React.createElement("p", { className: "mt-2 max-w-lg text-sm text-slate-300" }, "The real build would embed the exported video page cleanly here instead of leaving it as an awkward detached Brightspace wrapper.")))));
+  return /* @__PURE__ */ React.createElement("div", { className: "rounded-3xl border border-slate-200 bg-white p-6 shadow-sm", "data-testid": "renderer-video" }, /* @__PURE__ */ React.createElement("div", { className: "mb-4 flex items-center justify-between" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "text-xs font-semibold uppercase tracking-[0.14em] text-slate-500" }, "Embedded video renderer"), /* @__PURE__ */ React.createElement("h4", { className: "mt-1 text-lg font-semibold text-slate-900" }, title)), /* @__PURE__ */ React.createElement(Badge, null, "responsive embed")), /* @__PURE__ */ React.createElement("div", { className: "overflow-hidden rounded-2xl border border-slate-200 bg-slate-950" }, /* @__PURE__ */ React.createElement("div", { className: "flex aspect-video items-center justify-center bg-[linear-gradient(135deg,_#0f172a,_#111827)]" }, /* @__PURE__ */ React.createElement("div", { className: "text-center" }, /* @__PURE__ */ React.createElement(PlayCircle, { className: "mx-auto h-14 w-14 text-sky-300" }), /* @__PURE__ */ React.createElement("div", { className: "mt-3 text-lg font-semibold text-white" }, title), /* @__PURE__ */ React.createElement("p", { className: "mt-2 max-w-lg text-sm text-slate-300" }, "The real build would embed the exported video page cleanly here instead of leaving it as an awkward detached Brightspace wrapper.")))));
 }
 function SourceFallback({ activeLesson, sourcePreview }) {
   const exportRoot = normalizePath(d2lCourseMapData.exportRoot || "");
@@ -789,7 +802,7 @@ function SourceFallback({ activeLesson, sourcePreview }) {
   const fallbackPath = normalizedSource;
   const primaryUrl = primaryPath ? buildReferenceUrl(primaryPath) : "";
   const fallbackUrl = fallbackPath ? buildReferenceUrl(fallbackPath) : "";
-  return /* @__PURE__ */ React.createElement("div", { className: "rounded-3xl border border-amber-200 bg-amber-50 p-6 shadow-sm" }, /* @__PURE__ */ React.createElement("div", { className: "mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-amber-800" }, "Source fallback"), /* @__PURE__ */ React.createElement("h4", { className: "text-lg font-semibold text-amber-950" }, "Node preserved, renderer incomplete"), /* @__PURE__ */ React.createElement("p", { className: "mt-3 text-sm leading-7 text-amber-900" }, "This node is still in course sequence, but the source parser/renderer hit a gap. The raw source path is preserved below."), /* @__PURE__ */ React.createElement("div", { className: "mt-4 space-y-2 rounded-2xl border border-amber-200 bg-white p-4 text-xs text-slate-700" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("strong", null, "Node type:"), " ", typeLabel(activeLesson?.type)), /* @__PURE__ */ React.createElement("div", { className: "break-all" }, /* @__PURE__ */ React.createElement("strong", null, "Source file:"), " ", activeLesson?.sourceFile || "missing"), sourcePreview?.error && /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("strong", null, "Error:"), " ", sourcePreview.error)), /* @__PURE__ */ React.createElement("div", { className: "mt-4 flex flex-wrap gap-2" }, primaryUrl && /* @__PURE__ */ React.createElement("a", { href: primaryUrl, target: "_blank", rel: "noopener noreferrer", className: "rounded-xl border border-amber-300 bg-white px-3 py-1.5 text-xs font-semibold text-amber-900" }, "Open mapped source"), fallbackUrl && fallbackUrl !== primaryUrl && /* @__PURE__ */ React.createElement("a", { href: fallbackUrl, target: "_blank", rel: "noopener noreferrer", className: "rounded-xl border border-amber-300 bg-white px-3 py-1.5 text-xs font-semibold text-amber-900" }, "Open fallback source")));
+  return /* @__PURE__ */ React.createElement("div", { className: "rounded-3xl border border-amber-200 bg-amber-50 p-6 shadow-sm", "data-testid": "renderer-fallback" }, /* @__PURE__ */ React.createElement("div", { className: "mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-amber-800" }, "Source fallback"), /* @__PURE__ */ React.createElement("h4", { className: "text-lg font-semibold text-amber-950" }, "Node preserved, renderer incomplete"), /* @__PURE__ */ React.createElement("p", { className: "mt-3 text-sm leading-7 text-amber-900" }, "This node is still in course sequence, but the source parser/renderer hit a gap. The raw source path is preserved below."), /* @__PURE__ */ React.createElement("div", { className: "mt-4 space-y-2 rounded-2xl border border-amber-200 bg-white p-4 text-xs text-slate-700" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("strong", null, "Node type:"), " ", typeLabel(activeLesson?.type)), /* @__PURE__ */ React.createElement("div", { className: "break-all" }, /* @__PURE__ */ React.createElement("strong", null, "Source file:"), " ", activeLesson?.sourceFile || "missing"), sourcePreview?.error && /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("strong", null, "Error:"), " ", sourcePreview.error)), /* @__PURE__ */ React.createElement("div", { className: "mt-4 flex flex-wrap gap-2" }, primaryUrl && /* @__PURE__ */ React.createElement("a", { href: primaryUrl, target: "_blank", rel: "noopener noreferrer", className: "rounded-xl border border-amber-300 bg-white px-3 py-1.5 text-xs font-semibold text-amber-900" }, "Open mapped source"), fallbackUrl && fallbackUrl !== primaryUrl && /* @__PURE__ */ React.createElement("a", { href: fallbackUrl, target: "_blank", rel: "noopener noreferrer", className: "rounded-xl border border-amber-300 bg-white px-3 py-1.5 text-xs font-semibold text-amber-900" }, "Open fallback source")));
 }
 function QuickCheckpoints({ activeLesson }) {
   const prompts = useMemo(() => {
@@ -817,7 +830,7 @@ function QuickCheckpoints({ activeLesson }) {
   useEffect(() => {
     setRevealed({});
   }, [activeLesson.id]);
-  return /* @__PURE__ */ React.createElement("section", { className: "rounded-3xl border border-slate-200 bg-white p-6 shadow-sm" }, /* @__PURE__ */ React.createElement("div", { className: "text-sm font-semibold uppercase tracking-[0.14em] text-slate-500" }, "Quick checkpoints"), /* @__PURE__ */ React.createElement("div", { className: "mt-4 space-y-4" }, prompts.map((prompt, idx) => /* @__PURE__ */ React.createElement("div", { key: idx, className: "rounded-2xl border border-slate-200 bg-slate-50 p-4" }, /* @__PURE__ */ React.createElement("div", { className: "text-sm font-medium text-slate-900" }, "Checkpoint ", idx + 1), /* @__PURE__ */ React.createElement("p", { className: "mt-2 text-sm leading-7 text-slate-700" }, prompt), /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ React.createElement("section", { className: "rounded-3xl border border-slate-200 bg-white p-6 shadow-sm", "data-testid": "quick-checkpoints" }, /* @__PURE__ */ React.createElement("div", { className: "text-sm font-semibold uppercase tracking-[0.14em] text-slate-500" }, "Quick checkpoints"), /* @__PURE__ */ React.createElement("div", { className: "mt-4 space-y-4" }, prompts.map((prompt, idx) => /* @__PURE__ */ React.createElement("div", { key: idx, className: "rounded-2xl border border-slate-200 bg-slate-50 p-4" }, /* @__PURE__ */ React.createElement("div", { className: "text-sm font-medium text-slate-900" }, "Checkpoint ", idx + 1), /* @__PURE__ */ React.createElement("p", { className: "mt-2 text-sm leading-7 text-slate-700" }, prompt), /* @__PURE__ */ React.createElement(
     "button",
     {
       onClick: () => setRevealed((prev) => ({ ...prev, [idx]: !prev[idx] })),
@@ -1010,20 +1023,25 @@ function ForensicCoursePlayerPreviewRestored() {
       value: query,
       onChange: (e) => setQuery(e.target.value),
       placeholder: "Search real lesson titles",
-      className: "w-full rounded-2xl border border-slate-200 bg-white py-2.5 pl-9 pr-3 text-sm outline-none placeholder:text-slate-400 focus:border-sky-300"
+      className: "w-full rounded-2xl border border-slate-200 bg-white py-2.5 pl-9 pr-3 text-sm outline-none placeholder:text-slate-400 focus:border-sky-300",
+      "data-testid": "lesson-search"
     }
-  )), /* @__PURE__ */ React.createElement("div", { className: "mt-3 flex items-center justify-between rounded-2xl border border-slate-200 bg-white px-3 py-2.5" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "text-xs font-semibold uppercase tracking-[0.12em] text-slate-500" }, "Visibility"), /* @__PURE__ */ React.createElement("div", { className: "text-xs text-slate-500" }, includeHidden ? "Archive mode" : "Learner mode")), /* @__PURE__ */ React.createElement(
+  )), /* @__PURE__ */ React.createElement("div", { className: "mt-3 flex items-center justify-between rounded-2xl border border-slate-200 bg-white px-3 py-2.5" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "text-xs font-semibold uppercase tracking-[0.12em] text-slate-500" }, "Visibility"), /* @__PURE__ */ React.createElement("div", { className: "text-xs text-slate-500", "data-testid": "mode-indicator" }, includeHidden ? "Archive mode" : "Learner mode")), /* @__PURE__ */ React.createElement(
     "button",
     {
       onClick: () => setIncludeHidden((prev) => !prev),
-      className: `rounded-xl px-3 py-1.5 text-xs font-semibold ${includeHidden ? "bg-amber-100 text-amber-800" : "bg-sky-100 text-sky-800"}`
+      className: `rounded-xl px-3 py-1.5 text-xs font-semibold ${includeHidden ? "bg-amber-100 text-amber-800" : "bg-sky-100 text-sky-800"}`,
+      "data-testid": "mode-toggle"
     },
     includeHidden ? "Hide admin-only" : "Show archive"
-  ))), /* @__PURE__ */ React.createElement("div", { className: "h-[calc(100vh-245px)] overflow-y-auto px-3 py-4" }, filteredModules.map((module) => /* @__PURE__ */ React.createElement("div", { key: module.id, className: "mb-3 rounded-2xl border border-slate-200 bg-white p-2 shadow-[0_10px_25px_rgba(15,23,42,0.04)]" }, /* @__PURE__ */ React.createElement(
+  ))), /* @__PURE__ */ React.createElement("div", { className: "h-[calc(100vh-245px)] overflow-y-auto px-3 py-4", "data-testid": "module-list" }, filteredModules.map((module) => /* @__PURE__ */ React.createElement("div", { key: module.id, className: "mb-3 rounded-2xl border border-slate-200 bg-white p-2 shadow-[0_10px_25px_rgba(15,23,42,0.04)]", "data-testid": "module-panel", "data-module-title": module.title, "data-module-hidden": module.isHidden ? "true" : "false", "data-module-expanded": expanded[module.id] ? "true" : "false" }, /* @__PURE__ */ React.createElement(
     "button",
     {
       onClick: () => setExpanded((prev) => ({ ...prev, [module.id]: !prev[module.id] })),
-      className: "flex w-full items-center justify-between rounded-xl px-2 py-2 text-left hover:bg-slate-50"
+      className: "flex w-full items-center justify-between rounded-xl px-2 py-2 text-left hover:bg-slate-50",
+      "data-testid": "module-toggle",
+      "data-module-title": module.title,
+      "data-expanded": expanded[module.id] ? "true" : "false"
     },
     /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "text-sm font-semibold" }, module.title), /* @__PURE__ */ React.createElement("div", { className: "text-xs text-slate-500" }, module.lessonCount, " items in export")),
     module.isHidden && /* @__PURE__ */ React.createElement(Badge, null, "hidden module"),
@@ -1037,7 +1055,7 @@ function ForensicCoursePlayerPreviewRestored() {
       lesson,
       onClick: () => goToLesson(lesson.id)
     }
-  ))))))), /* @__PURE__ */ React.createElement("main", { className: "flex-1 overflow-y-auto" }, /* @__PURE__ */ React.createElement("div", { className: "sticky top-0 z-10 border-b border-slate-200 bg-white/95 shadow-[0_8px_20px_rgba(15,23,42,0.04)] backdrop-blur" }, /* @__PURE__ */ React.createElement("div", { className: "px-8 py-5" }, /* @__PURE__ */ React.createElement("div", { className: "mb-2 flex flex-wrap items-center gap-2 text-sm text-slate-500" }, /* @__PURE__ */ React.createElement("span", null, "Home"), /* @__PURE__ */ React.createElement("span", null, "\u203A"), /* @__PURE__ */ React.createElement("span", null, activeLesson.moduleTitle), /* @__PURE__ */ React.createElement("span", null, "\u203A"), /* @__PURE__ */ React.createElement("span", null, typeLabel(activeLesson.type)), /* @__PURE__ */ React.createElement(Badge, null, "real export node"), includeHidden && /* @__PURE__ */ React.createElement(Badge, null, "archive mode"), activeLesson.moduleHidden && /* @__PURE__ */ React.createElement(Badge, null, "admin-only"), saved[activeLessonId] && /* @__PURE__ */ React.createElement(Badge, null, "saved")), /* @__PURE__ */ React.createElement("div", { className: "flex items-start justify-between gap-6" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("h2", { className: "text-3xl font-semibold tracking-tight text-slate-950" }, activeLesson.title), /* @__PURE__ */ React.createElement("p", { className: "mt-2 max-w-4xl text-sm text-slate-500" }, "This preview uses the real uploaded export structure and real node types. The shell and renderer strategy are no longer fictional.")), /* @__PURE__ */ React.createElement("div", { className: "flex shrink-0 gap-3" }, /* @__PURE__ */ React.createElement(
+  ))))))), /* @__PURE__ */ React.createElement("main", { className: "flex-1 overflow-y-auto" }, /* @__PURE__ */ React.createElement("div", { className: "sticky top-0 z-10 border-b border-slate-200 bg-white/95 shadow-[0_8px_20px_rgba(15,23,42,0.04)] backdrop-blur" }, /* @__PURE__ */ React.createElement("div", { className: "px-8 py-5" }, /* @__PURE__ */ React.createElement("div", { className: "mb-2 flex flex-wrap items-center gap-2 text-sm text-slate-500" }, /* @__PURE__ */ React.createElement("span", null, "Home"), /* @__PURE__ */ React.createElement("span", null, "\u203A"), /* @__PURE__ */ React.createElement("span", null, activeLesson.moduleTitle), /* @__PURE__ */ React.createElement("span", null, "\u203A"), /* @__PURE__ */ React.createElement("span", null, typeLabel(activeLesson.type)), /* @__PURE__ */ React.createElement(Badge, null, "real export node"), includeHidden && /* @__PURE__ */ React.createElement(Badge, null, "archive mode"), activeLesson.moduleHidden && /* @__PURE__ */ React.createElement(Badge, null, "admin-only"), saved[activeLessonId] && /* @__PURE__ */ React.createElement(Badge, null, "saved")), /* @__PURE__ */ React.createElement("div", { className: "flex items-start justify-between gap-6" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("h2", { className: "text-3xl font-semibold tracking-tight text-slate-950", "data-testid": "lesson-title" }, activeLesson.title), /* @__PURE__ */ React.createElement("p", { className: "mt-2 max-w-4xl text-sm text-slate-500" }, "This preview uses the real uploaded export structure and real node types. The shell and renderer strategy are no longer fictional.")), /* @__PURE__ */ React.createElement("div", { className: "flex shrink-0 gap-3" }, /* @__PURE__ */ React.createElement(
     "button",
     {
       onClick: toggleSaved,
@@ -1115,16 +1133,18 @@ function ForensicCoursePlayerPreviewRestored() {
     {
       onClick: goPrev,
       disabled: lessonIndex === 0,
-      className: "inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 disabled:cursor-not-allowed disabled:opacity-40"
+      className: "inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 disabled:cursor-not-allowed disabled:opacity-40",
+      "data-testid": "node-nav-previous"
     },
     /* @__PURE__ */ React.createElement(ArrowLeft, { className: "h-4 w-4" }),
     " Previous"
-  ), /* @__PURE__ */ React.createElement("div", { className: "text-sm text-slate-500" }, "Node ", lessonIndex + 1, " of ", visibleLessons.length, " from the mapped course sequence"), /* @__PURE__ */ React.createElement(
+  ), /* @__PURE__ */ React.createElement("div", { className: "text-sm text-slate-500", "data-testid": "node-counter" }, "Node ", lessonIndex + 1, " of ", visibleLessons.length, " from the mapped course sequence"), /* @__PURE__ */ React.createElement(
     "button",
     {
       onClick: goNext,
       disabled: lessonIndex === visibleLessons.length - 1,
-      className: "inline-flex items-center gap-2 rounded-2xl bg-sky-500 px-4 py-2.5 text-sm font-medium text-white disabled:cursor-not-allowed disabled:opacity-40"
+      className: "inline-flex items-center gap-2 rounded-2xl bg-sky-500 px-4 py-2.5 text-sm font-medium text-white disabled:cursor-not-allowed disabled:opacity-40",
+      "data-testid": "node-nav-next"
     },
     "Next ",
     /* @__PURE__ */ React.createElement(ArrowRight, { className: "h-4 w-4" })

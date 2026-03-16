@@ -72,3 +72,16 @@ For repo-wide or multi-project work:
 
 For single-project work:
 - open `projects/<slug>/meta/HANDOFF.md`
+
+## Workflow Shift (High-Confidence E2E)
+
+Before: manual learner/archive passes + spot checks + `verify/typecheck/build`.
+
+Now: define a project contract (`projects/<slug>/meta/e2e-contract.json`) with `assertionProfiles`, `modulePassTargets`, and `visibilityChecks`, then run:
+- `npm run test:e2e:project -- --project <slug>`
+- `npm run test:e2e:smoke`
+- `npm run verify -- --project <slug>`
+- `npm run typecheck`
+- `npm run build:studio`
+
+Opt-in new projects by adding their contract and stable `data-testid` hooks in the workspace/player UI so the deep suite can drive module passes consistently.

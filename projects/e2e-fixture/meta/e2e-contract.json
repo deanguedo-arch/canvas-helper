@@ -9,16 +9,76 @@
     "workspace-preview-frame"
   ],
   "modes": {
-    "enabled": false
+    "enabled": true,
+    "toggleRoleName": "Show archive",
+    "learnerIndicator": "Learner mode",
+    "archiveIndicator": "Archive mode"
   },
   "navigation": {
-    "enabled": false
+    "enabled": true,
+    "nextRoleName": "Next",
+    "previousRoleName": "Previous",
+    "nodeCounterPattern": "Node\\s+\\d+\\s+of\\s+\\d+"
   },
   "quiz": {
-    "enabled": false,
-    "lessonTitle": ""
+    "enabled": true,
+    "lessonTitle": "Quiz Lesson",
+    "progressPattern": "answered",
+    "checkAnswerRoleName": "Check answer"
   },
   "fallbackPanel": {
     "enabled": false
-  }
+  },
+  "assertionProfiles": {
+    "html": {
+      "checks": ["renderer-html", "section-mode", "quick-checkpoints", "node-counter"]
+    },
+    "assignment": {
+      "checks": ["renderer-assignment", "quick-checkpoints"]
+    },
+    "quiz": {
+      "checks": ["renderer-quiz", "quiz-answer", "quiz-progress", "quiz-nav", "quiz-next-question", "quick-checkpoints"]
+    },
+    "pdf": {
+      "checks": ["renderer-pdf"]
+    },
+    "fallback": {
+      "checks": ["renderer-fallback"]
+    }
+  },
+  "modulePassTargets": [
+    {
+      "moduleTitle": "Fixture Module",
+      "itemTitle": "HTML Lesson",
+      "assertionProfile": "html"
+    },
+    {
+      "moduleTitle": "Fixture Module",
+      "itemTitle": "Assignment Lesson",
+      "assertionProfile": "assignment"
+    },
+    {
+      "moduleTitle": "Fixture Module",
+      "itemTitle": "Quiz Lesson",
+      "assertionProfile": "quiz"
+    },
+    {
+      "moduleTitle": "Fixture Module",
+      "itemTitle": "PDF Lesson",
+      "assertionProfile": "pdf"
+    },
+    {
+      "moduleTitle": "Fixture Module",
+      "itemTitle": "Fallback Lesson",
+      "assertionProfile": "fallback"
+    }
+  ],
+  "visibilityChecks": [
+    {
+      "moduleTitle": "Fixture Module",
+      "itemTitle": "Hidden Lesson",
+      "learnerVisible": false,
+      "archiveVisible": true
+    }
+  ]
 }

@@ -10,6 +10,7 @@
 - scripts/run-e2e-project.ts
 - e2e/playwright.config.ts
 - e2e/specs/core-project-contract.spec.ts
+- e2e/specs/deep-project-contract.spec.ts
 - e2e/lib/load-project-contract.ts
 - e2e/lib/project-open.ts
 - e2e/project-e2e-contract.schema.json
@@ -43,10 +44,14 @@
 - Updated AGENTS/cursor/task policy so interaction-heavy tasks require e2e before completion.
 - Updated architecture/contributing/fast-path/readme docs for e2e workflow.
 - Added explicit high-confidence suite plan in `tasks/active.md` for 1-2 day follow-up.
+- Implemented the high-confidence deep contract spec and extended the project contract schema for assertion profiles, module pass targets, and visibility checks.
+- Added project-agnostic `data-testid` hooks in the forensics workspace and expanded the fixture workspace to exercise deterministic mode/quiz/fallback checks.
+- Updated AGENTS + FAST_PATHS workflow guidance for the reusable suite.
 
 ## What still needs validation
+- Run the deep suite: `npm run test:e2e:project -- --project forensics` and `npm run test:e2e:project -- --project e2e-fixture`.
+- Run smoke: `npm run test:e2e:smoke`.
 - Execute manual Phase 6A representative module pass list in learner and archive modes.
-- Execute the high-confidence suite plan from `tasks/active.md` (expanded module coverage and stronger assertions).
 
 ## Known risks
 - Forensics deep checks currently rely on lesson search + module expansion behavior; further selector hardening is expected in high-confidence phase.

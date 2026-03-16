@@ -1,5 +1,5 @@
 import __CanvasHelperReactDomClient from "https://esm.sh/react-dom@19.1.1/client";
-import React, { useEffect, useMemo, useState } from "https://esm.sh/react@19.1.1";
+import React, { useMemo, useState } from "https://esm.sh/react@19.1.1";
 import {
   Home,
   BookOpen,
@@ -22,7 +22,6 @@ import {
   FileBadge,
   Bookmark,
 } from "https://esm.sh/lucide-react@0.542.0?deps=react@19.1.1";
-import d2lCourseMapData from "./d2l-map-data.js";
 
 const actualHtmlSamples = {
   citeSources: `
@@ -87,9 +86,9 @@ const actualHtmlSamples = {
   `,
 };
 
-const courseSeed = {
+const course = {
   title: "Forensic Studies 25",
-  subtitle: "Course content mapped from the Brightspace export",
+  subtitle: "Manifest-based course player preview built from the uploaded Brightspace export",
   stats: { topLevelSections: 12, totalNodes: 172 },
   modules: [
     {
@@ -150,7 +149,7 @@ const courseSeed = {
               "Course operations support page",
               "Should be easy to find, not buried",
             ],
-            callout: "Operational pages matter because learners need quick access to submission help and course procedures.",
+            callout: "Operational pages matter because if the site hides them you answer the same dumb questions all term.",
           },
           resources: ["Original HTML instructions", "Drive/Brightspace workflow"],
         },
@@ -268,122 +267,6 @@ const courseSeed = {
   ],
 };
 
-function slugify(value) {
-  return value
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "")
-    .replace(/-{2,}/g, "-");
-}
-
-function flattenCourseNodes(nodes) {
-  const results = [];
-  for (const node of nodes || []) {
-    if (node.resource?.hrefs?.length) {
-      results.push(node);
-    }
-    if (node.children?.length) {
-      results.push(...flattenCourseNodes(node.children));
-    }
-  }
-  return results;
-}
-
-function mapKindToLessonType(kind, sourceFile, title) {
-  const normalizedTitle = String(title || "");
-  if (kind === "assignment" || sourceFile?.includes("/assignment/")) return "assignment";
-  if (kind === "quiz" || sourceFile?.includes("/quiz/") || sourceFile?.includes("qti_")) return "quiz";
-  if (kind === "pdf" || sourceFile?.toLowerCase().endsWith(".pdf")) return "pdf";
-  if (/real life csi|documentary|video|youtube|vimeo/i.test(normalizedTitle)) return "embedded-video";
-  if (/slide|photo|image|gallery/i.test(normalizedTitle)) return "image-slide";
-  if (kind === "html" || sourceFile?.toLowerCase().endsWith(".html") || sourceFile?.toLowerCase().endsWith(".htm")) return "html-reading";
-  return "html-reading";
-}
-
-function isHiddenLabel(value) {
-  const label = String(value || "").toLowerCase();
-  return label.includes("keep hidden") || label.includes("teacher resources") || label.includes("instructor only");
-}
-
-function buildCourseFromD2LMap(seed, d2lMap) {
-  const seededLessons = seed.modules.flatMap((module) => module.lessons);
-  const seededBySource = new Map(
-    seededLessons
-      .filter((lesson) => lesson.sourceFile)
-      .map((lesson) => [lesson.sourceFile, lesson])
-  );
-  const seededByTitle = new Map(
-    seededLessons.map((lesson) => [lesson.title.trim().toLowerCase(), lesson])
-  );
-
-  const modules = (d2lMap.modules || [])
-    .map((moduleNode) => {
-      const moduleHidden = isHiddenLabel(moduleNode.title);
-      const leaves = flattenCourseNodes(moduleNode.children);
-      const lessons = leaves.map((node, index) => {
-        const sourceFile = node.resource?.hrefs?.[0] ?? "";
-        const seeded =
-          seededBySource.get(sourceFile) ??
-          seededByTitle.get((node.title || "").trim().toLowerCase());
-        const type = mapKindToLessonType(node.kind, sourceFile, node.title);
-        const id = slugify(node.id || `${moduleNode.id}-${index}-${node.title}`);
-        const lessonHidden = moduleHidden || isHiddenLabel(node.title);
-
-        if (seeded) {
-          return {
-            ...seeded,
-            id,
-            title: node.title || seeded.title,
-            type: seeded.type || type,
-            sourceFile: sourceFile || seeded.sourceFile,
-            resources: seeded.resources?.length ? seeded.resources : sourceFile ? [sourceFile] : [],
-            isHidden: lessonHidden,
-          };
-        }
-
-        return {
-          id,
-          title: node.title || `Lesson ${index + 1}`,
-          type,
-          sourceFile: sourceFile || `manifest:${node.id}`,
-          resources: sourceFile ? [sourceFile] : [],
-          isHidden: lessonHidden,
-          learn: {
-            heading: node.title || `Lesson ${index + 1}`,
-            excerpt: "Mapped from the D2L manifest hierarchy. This node is included in the shell so navigation follows the real course sequence.",
-            bullets: [
-              "Manifest-derived lesson title",
-              "Source path preserved for traceability",
-              "Supports richer renderer mappings when available"
-            ],
-            callout: "This lesson is mapped from the course manifest with normalized module and lesson labels."
-          }
-        };
-      });
-
-      return {
-        id: slugify(moduleNode.id || moduleNode.title || "module"),
-        title: moduleNode.title,
-        lessonCount: lessons.length,
-        isHidden: moduleHidden,
-        lessons
-      };
-    })
-    .filter((module) => module.lessons.length > 0);
-
-  return {
-    title: "Forensic Studies 25",
-    subtitle: `Course content (${d2lMap.courseTitle})`,
-    stats: {
-      topLevelSections: d2lMap.summary?.moduleCount ?? modules.length,
-      totalNodes: d2lMap.summary?.itemCount ?? modules.reduce((sum, module) => sum + module.lessons.length, 0)
-    },
-    modules
-  };
-}
-
-const course = buildCourseFromD2LMap(courseSeed, d2lCourseMapData);
-
 const flatLessons = course.modules.flatMap((module) =>
   module.lessons.map((lesson) => ({
     ...lesson,
@@ -393,291 +276,9 @@ const flatLessons = course.modules.flatMap((module) =>
   }))
 );
 
-function normalizePath(path) {
-  return String(path || "").replace(/\\/g, "/").replace(/^\/+/, "").replace(/\/{2,}/g, "/");
-}
-
-function joinPath(base, next) {
-  if (!base) return normalizePath(next);
-  if (!next) return normalizePath(base);
-  return normalizePath(`${base.replace(/\/+$/, "")}/${next.replace(/^\/+/, "")}`);
-}
-
-function dirname(path) {
-  const normalized = normalizePath(path);
-  const index = normalized.lastIndexOf("/");
-  return index === -1 ? "" : normalized.slice(0, index);
-}
-
-function resolveRelativePath(baseFile, relativeValue) {
-  if (!relativeValue) return relativeValue;
-  if (/^(https?:|data:|#|mailto:|tel:)/i.test(relativeValue)) return relativeValue;
-  if (relativeValue.startsWith("/")) return relativeValue;
-  const baseDir = dirname(baseFile);
-  const combined = joinPath(baseDir, relativeValue);
-  const parts = [];
-  for (const part of combined.split("/")) {
-    if (!part || part === ".") continue;
-    if (part === "..") {
-      parts.pop();
-      continue;
-    }
-    parts.push(part);
-  }
-  return parts.join("/");
-}
-
-function encodePath(path) {
-  return normalizePath(path)
-    .split("/")
-    .map((part) => encodeURIComponent(part))
-    .join("/");
-}
-
-function buildReferenceUrl(relativePath) {
-  return `/preview/references/raw/forensics/${encodePath(relativePath)}`;
-}
-
-function stripScriptsAndRewriteLinks(html, sourceFile, exportRoot) {
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(html, "text/html");
-
-  doc.querySelectorAll("script, style, link[rel='stylesheet']").forEach((el) => el.remove());
-  doc.querySelectorAll("meta, title, head").forEach((el) => el.remove());
-  doc.querySelectorAll("[aria-hidden='true'], .sr-only, .visually-hidden").forEach((el) => el.remove());
-
-  const remapRootPath = (value) => {
-    const normalized = String(value || "");
-    if (!normalized.startsWith("/")) return "";
-    const trimmed = normalized.slice(1);
-    if (/^(content|assignment|quiz|сontent)\//i.test(trimmed)) {
-      return exportRoot ? joinPath(exportRoot, trimmed) : trimmed;
-    }
-    return "";
-  };
-
-  const rewriteAttr = (selector, attr) => {
-    doc.querySelectorAll(selector).forEach((el) => {
-      const value = el.getAttribute(attr);
-      if (!value) return;
-      if (/^(https?:|data:|#|mailto:|tel:)/i.test(value)) return;
-
-      const remappedRoot = remapRootPath(value);
-      if (remappedRoot) {
-        el.setAttribute(attr, buildReferenceUrl(remappedRoot));
-        return;
-      }
-
-      const resolved = resolveRelativePath(sourceFile, value);
-      if (!resolved || resolved.startsWith("/")) return;
-      const withRoot = exportRoot ? joinPath(exportRoot, resolved) : resolved;
-      el.setAttribute(attr, buildReferenceUrl(withRoot));
-    });
-  };
-
-  rewriteAttr("img[src]", "src");
-  rewriteAttr("a[href]", "href");
-  rewriteAttr("source[src]", "src");
-  rewriteAttr("iframe[src]", "src");
-  rewriteAttr("video[src]", "src");
-  rewriteAttr("object[data]", "data");
-
-  doc.querySelectorAll("p").forEach((paragraph) => {
-    const text = paragraph.textContent?.replace(/\u00a0/g, " ").trim() || "";
-    if (!text && !paragraph.querySelector("img, a, iframe, video")) {
-      paragraph.remove();
-    }
-  });
-
-  doc.querySelectorAll("footer").forEach((footer) => {
-    const text = footer.textContent?.replace(/\u00a0/g, " ").trim() || "";
-    if (!text && !footer.querySelector("img, a")) {
-      footer.remove();
-    }
-  });
-
-  return doc.body.innerHTML || html;
-}
-
-function hasMeaningfulHtmlContent(html) {
-  if (!html) return false;
-  const doc = new DOMParser().parseFromString(`<div>${html}</div>`, "text/html");
-  const text = (doc.body.textContent || "").replace(/\u00a0/g, " ").replace(/\s+/g, " ").trim();
-  const mediaLike = doc.querySelectorAll("img, table, iframe, video, object, ul li, ol li").length;
-  return text.length >= 40 || mediaLike > 0;
-}
-
-function splitHtmlIntoSections(html) {
-  if (!html) return [];
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(`<div>${html}</div>`, "text/html");
-  const root = doc.body.firstElementChild || doc.body;
-  const nodes = Array.from(root.childNodes || []);
-  const sections = [];
-  let current = null;
-  let untitledIndex = 1;
-
-  const pushCurrent = () => {
-    if (!current) return;
-    const content = current.parts.join("").trim();
-    if (!content) return;
-    sections.push({
-      id: `section-${sections.length + 1}`,
-      title: current.title,
-      html: content,
-    });
-  };
-
-  for (const node of nodes) {
-    const tag = node.nodeType === 1 ? node.tagName.toLowerCase() : "";
-    const outer = node.nodeType === 1 ? node.outerHTML : node.textContent?.trim() ? `<p>${node.textContent}</p>` : "";
-    if (!outer) continue;
-
-    if (/^h[1-3]$/.test(tag)) {
-      pushCurrent();
-      const headingText = node.textContent?.trim() || `Section ${untitledIndex++}`;
-      current = { title: headingText, parts: [outer] };
-      continue;
-    }
-
-    if (!current) {
-      current = { title: `Section ${untitledIndex++}`, parts: [] };
-    }
-    current.parts.push(outer);
-  }
-
-  pushCurrent();
-  return sections;
-}
-
-function decodeHtmlEntities(value) {
-  if (!value) return "";
-  const node = document.createElement("textarea");
-  node.innerHTML = value;
-  return node.value;
-}
-
-function getElementsByLocalName(root, localName) {
-  return Array.from(root.getElementsByTagName("*")).filter((el) => el.localName === localName);
-}
-
-function normalizeAssignmentHtml(html, sourceFile, exportRoot) {
-  if (!html) return "";
-  return stripScriptsAndRewriteLinks(`<div>${html}</div>`, sourceFile, exportRoot)
-    .replace(/^<div>/i, "")
-    .replace(/<\/div>\s*$/i, "");
-}
-
-function parseAssignmentXml(xmlText, sourceFile, exportRoot) {
-  const xml = new DOMParser().parseFromString(xmlText, "application/xml");
-  const title = getElementsByLocalName(xml, "title")[0]?.textContent?.trim() || "Assignment";
-  const textNode = getElementsByLocalName(xml, "instructor_text")[0];
-  const rawHtml = decodeHtmlEntities(textNode?.textContent || "");
-  const textHtml = normalizeAssignmentHtml(rawHtml, sourceFile, exportRoot);
-  const pointsRaw = getElementsByLocalName(xml, "gradable")[0]?.getAttribute("points_possible");
-  const formatNodes = getElementsByLocalName(xml, "format");
-  const textOnly = textHtml.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
-
-  const sentenceChunks = textOnly
-    .split(/(?<=[.!?])\s+/)
-    .map((chunk) => chunk.trim())
-    .filter(Boolean);
-
-  const taskSentence =
-    sentenceChunks.find((chunk) => /\b(complete|submit|upload|click|make a copy)\b/i.test(chunk)) ||
-    sentenceChunks[0] ||
-    "";
-  const reminderSentence =
-    sentenceChunks.find((chunk) => /\b(refresher|remember|if you need)\b/i.test(chunk)) ||
-    sentenceChunks[sentenceChunks.length - 1] ||
-    "";
-
-  const links = [];
-  const linkDoc = new DOMParser().parseFromString(`<div>${textHtml}</div>`, "text/html");
-  linkDoc.querySelectorAll("a[href]").forEach((anchor) => {
-    const href = anchor.getAttribute("href") || "";
-    const label = (anchor.textContent || "").trim() || href;
-    if (!href) return;
-    links.push({ href, label });
-  });
-
-  return {
-    title,
-    assignmentMeta: {
-      points: Number(pointsRaw || 0) || 0,
-      submissionType: formatNodes[0]?.getAttribute("type") || "submission",
-      submissionFormats: formatNodes
-        .map((node) => node.getAttribute("type") || "")
-        .filter(Boolean),
-    },
-    assignmentXml: {
-      intro: rawHtml,
-      task: taskSentence,
-      reminder: reminderSentence,
-      links,
-    },
-  };
-}
-
-function parseQuizXml(xmlText) {
-  const xml = new DOMParser().parseFromString(xmlText, "application/xml");
-  const items = getElementsByLocalName(xml, "item");
-  if (!items.length) return null;
-
-  const questions = items
-    .map((item, itemIndex) => {
-      const matTexts = getElementsByLocalName(item, "mattext").map((el) => decodeHtmlEntities(el.textContent || ""));
-      const question = matTexts[0] || `Quiz question ${itemIndex + 1}`;
-      const choiceNodes = getElementsByLocalName(item, "response_label");
-      const choices = choiceNodes.map((node) => {
-        const text = getElementsByLocalName(node, "mattext")[0]?.textContent || "";
-        return decodeHtmlEntities(text).replace(/<[^>]+>/g, "").trim();
-      });
-
-      const correctId = getElementsByLocalName(item, "respcondition")
-        .find((node) => getElementsByLocalName(node, "setvar").length > 0)
-        ?.getElementsByTagName("varequal")[0]
-        ?.textContent?.trim();
-      const choiceIds = choiceNodes.map((node) => node.getAttribute("ident"));
-      const answerIndex = correctId ? Math.max(0, choiceIds.indexOf(correctId)) : 0;
-
-      return {
-        id: item.getAttribute("ident") || `item-${itemIndex + 1}`,
-        question: question.replace(/<[^>]+>/g, "").trim(),
-        choices: choices.filter(Boolean),
-        answerIndex,
-      };
-    })
-    .filter((question) => question.question && question.choices.length > 0);
-
-  if (!questions.length) return null;
-
-  const metadataFields = getElementsByLocalName(xml, "qtimetadatafield");
-  const readMeta = (label) => {
-    const field = metadataFields.find(
-      (node) => getElementsByLocalName(node, "fieldlabel")[0]?.textContent?.trim() === label
-    );
-    return getElementsByLocalName(field || xml, "fieldentry")[0]?.textContent?.trim();
-  };
-
-  return {
-    quizMeta: {
-      profile: readMeta("qmd_assessmenttype") || "Assessment",
-      attempts: Number(readMeta("cc_maxattempts") || 1),
-      timeLimitMinutes: Number(readMeta("qmd_timelimit") || 0),
-      questionCount: questions.length,
-    },
-    quizSample: questions[0],
-    quizQuestions: questions,
-  };
-}
-
-function Badge({ children, className = "", ...props }) {
+function Badge({ children }) {
   return (
-    <span
-      {...props}
-      className={`rounded-full border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-600 ${className}`.trim()}
-    >
+    <span className="rounded-full border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-600">
       {children}
     </span>
   );
@@ -717,10 +318,6 @@ function SidebarItem({ active, completed, lesson, onClick }) {
           ? "border-sky-200 bg-sky-50 text-slate-900 shadow-sm"
           : "border-transparent bg-transparent text-slate-700 hover:border-slate-200 hover:bg-white"
       }`}
-      data-testid="lesson-item"
-      data-lesson-title={lesson.title}
-      data-lesson-type={lesson.type}
-      data-lesson-hidden={lesson.isHidden ? "true" : "false"}
     >
       <div className="mt-0.5 shrink-0">
         {completed ? <CheckCircle2 className="h-4 w-4 text-sky-600" /> : <Circle className="h-4 w-4 text-slate-300" />}
@@ -737,94 +334,21 @@ function SidebarItem({ active, completed, lesson, onClick }) {
 }
 
 function HtmlRenderer({ html }) {
-  const sections = useMemo(() => splitHtmlIntoSections(html), [html]);
-  const [sectionMode, setSectionMode] = useState(false);
-  const [collapsedSections, setCollapsedSections] = useState({});
-
-  useEffect(() => {
-    setSectionMode(false);
-    setCollapsedSections({});
-  }, [html]);
-
-  const collapseAll = () => {
-    setCollapsedSections(Object.fromEntries(sections.map((section) => [section.id, true])));
-  };
-
-  const expandAll = () => {
-    setCollapsedSections({});
-  };
-
   return (
-    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm" data-testid="renderer-html">
-      <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-        <div className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">HTML renderer</div>
-        {sections.length > 1 && (
-          <div className="flex flex-wrap gap-2">
-            <button
-              onClick={() => setSectionMode((prev) => !prev)}
-              className="rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700"
-              data-testid="section-mode-toggle"
-            >
-              {sectionMode ? "Single flow" : "Section mode"}
-            </button>
-            {sectionMode && (
-              <>
-                <button
-                  onClick={expandAll}
-                  className="rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700"
-                  data-testid="section-expand-all"
-                >
-                  Expand all
-                </button>
-                <button
-                  onClick={collapseAll}
-                  className="rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700"
-                  data-testid="section-collapse-all"
-                >
-                  Collapse all
-                </button>
-              </>
-            )}
-          </div>
-        )}
-      </div>
-      {sectionMode && sections.length > 1 ? (
-        <div className="space-y-3">
-          {sections.map((section) => {
-            const collapsed = !!collapsedSections[section.id];
-            return (
-              <div key={section.id} className="rounded-2xl border border-slate-200" data-testid="section-container">
-                <button
-                  onClick={() => setCollapsedSections((prev) => ({ ...prev, [section.id]: !prev[section.id] }))}
-                  className="flex w-full items-center justify-between px-4 py-3 text-left"
-                >
-                  <span className="text-sm font-semibold text-slate-900">{section.title}</span>
-                  <span className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{collapsed ? "Expand" : "Collapse"}</span>
-                </button>
-                {!collapsed && (
-                  <div
-                    className="max-w-none border-t border-slate-200 px-4 py-4 text-slate-700 [&_.image-banner]:my-4 [&_.image-banner]:rounded-2xl [&_.image-banner]:border [&_.image-banner]:border-slate-200 [&_.image-banner]:bg-slate-50 [&_.image-banner]:p-8 [&_.image-banner]:text-center [&_h1]:mb-4 [&_h1]:text-3xl [&_h1]:font-semibold [&_h1]:tracking-tight [&_h2]:mb-3 [&_h2]:text-2xl [&_h2]:font-semibold [&_h3]:mb-2 [&_h3]:mt-5 [&_h3]:text-lg [&_h3]:font-semibold [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:mb-4 [&_p]:leading-7 [&_table]:mt-4 [&_table]:w-full [&_table]:border-collapse [&_td]:border [&_td]:border-slate-300 [&_td]:p-3 [&_th]:border [&_th]:border-slate-300 [&_th]:bg-slate-50 [&_th]:p-3 [&_ul]:list-disc [&_ul]:pl-6"
-                    dangerouslySetInnerHTML={{ __html: section.html }}
-                  />
-                )}
-              </div>
-            );
-          })}
-        </div>
-      ) : (
-        <div
-          className="max-w-none text-slate-700 [&_.image-banner]:my-4 [&_.image-banner]:rounded-2xl [&_.image-banner]:border [&_.image-banner]:border-slate-200 [&_.image-banner]:bg-slate-50 [&_.image-banner]:p-8 [&_.image-banner]:text-center [&_h1]:mb-4 [&_h1]:text-3xl [&_h1]:font-semibold [&_h1]:tracking-tight [&_h2]:mb-3 [&_h2]:text-2xl [&_h2]:font-semibold [&_h3]:mb-2 [&_h3]:mt-5 [&_h3]:text-lg [&_h3]:font-semibold [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:mb-4 [&_p]:leading-7 [&_table]:mt-4 [&_table]:w-full [&_table]:border-collapse [&_td]:border [&_td]:border-slate-300 [&_td]:p-3 [&_th]:border [&_th]:border-slate-300 [&_th]:bg-slate-50 [&_th]:p-3 [&_ul]:list-disc [&_ul]:pl-6"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
-      )}
+    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+      <div className="mb-4 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">HTML renderer</div>
+      <div
+        className="max-w-none text-slate-700 [&_.image-banner]:my-4 [&_.image-banner]:rounded-2xl [&_.image-banner]:border [&_.image-banner]:border-slate-200 [&_.image-banner]:bg-slate-50 [&_.image-banner]:p-8 [&_.image-banner]:text-center [&_h1]:mb-4 [&_h1]:text-3xl [&_h1]:font-semibold [&_h1]:tracking-tight [&_h2]:mb-3 [&_h2]:text-2xl [&_h2]:font-semibold [&_h3]:mb-2 [&_h3]:mt-5 [&_h3]:text-lg [&_h3]:font-semibold [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:mb-4 [&_p]:leading-7 [&_table]:mt-4 [&_table]:w-full [&_table]:border-collapse [&_td]:border [&_td]:border-slate-300 [&_td]:p-3 [&_th]:border [&_th]:border-slate-300 [&_th]:bg-slate-50 [&_th]:p-3 [&_ul]:list-disc [&_ul]:pl-6"
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
     </div>
   );
 }
 
-function PdfRenderer({ meta, title, sourceUrl }) {
+function PdfRenderer({ meta, title }) {
   const pages = meta?.pages || 1;
   return (
-    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm" data-testid="renderer-pdf">
+    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
       <div className="mb-5 flex items-center justify-between">
         <div>
           <div className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">PDF renderer</div>
@@ -860,17 +384,9 @@ function PdfRenderer({ meta, title, sourceUrl }) {
               <button className="rounded-xl border border-slate-200 bg-white px-3 py-1.5">+</button>
             </div>
           </div>
-          {sourceUrl ? (
-            <iframe
-              src={sourceUrl}
-              title={title}
-              className="mx-auto min-h-[520px] w-full max-w-[760px] rounded-xl border border-slate-300 bg-white shadow-inner"
-            />
-          ) : (
-            <div className="mx-auto flex min-h-[520px] max-w-[760px] items-center justify-center rounded-xl border border-slate-300 bg-white p-8 text-center text-sm leading-7 text-slate-500 shadow-inner">
-              PDF page canvas would render here with real pagination, zoom, and outline support.
-            </div>
-          )}
+          <div className="mx-auto flex min-h-[520px] max-w-[760px] items-center justify-center rounded-xl border border-slate-300 bg-white p-8 text-center text-sm leading-7 text-slate-500 shadow-inner">
+            PDF page canvas would render here with real pagination, zoom, and outline support.
+          </div>
         </div>
       </div>
     </div>
@@ -879,7 +395,7 @@ function PdfRenderer({ meta, title, sourceUrl }) {
 
 function SlideRenderer({ title }) {
   return (
-    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm" data-testid="renderer-slide">
+    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
       <div className="mb-4 flex items-center justify-between">
         <div>
           <div className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Image / slide renderer</div>
@@ -908,9 +424,8 @@ function SlideRenderer({ title }) {
 }
 
 function AssignmentRenderer({ data, meta, title }) {
-  const introHtml = data?.intro || "";
   return (
-    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm" data-testid="renderer-assignment">
+    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
       <div className="mb-5 flex items-center justify-between">
         <div>
           <div className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Assignment XML renderer</div>
@@ -919,31 +434,21 @@ function AssignmentRenderer({ data, meta, title }) {
         <div className="flex gap-2">
           <Badge>{meta?.points || 0} pts</Badge>
           <Badge>{meta?.submissionType || "submission"}</Badge>
-          {meta?.submissionFormats?.length > 1 && <Badge>{meta.submissionFormats.length} formats</Badge>}
         </div>
       </div>
       <div className="grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
         <div className="space-y-4 text-sm leading-7 text-slate-700">
-          {introHtml ? (
-            <div
-              className="max-w-none [&_img]:mx-auto [&_img]:my-4 [&_img]:h-auto [&_img]:max-w-full [&_p]:mb-3"
-              dangerouslySetInnerHTML={{ __html: introHtml }}
-            />
-          ) : (
-            <p>No assignment instructions were parsed from source XML.</p>
-          )}
-          {(data?.individualized || data?.identified) && (
-            <div className="grid gap-4 lg:grid-cols-2">
-              <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-4">
-                <div className="text-xs font-semibold uppercase tracking-[0.12em] text-emerald-800">Individualized evidence</div>
-                <p className="mt-2 text-emerald-950">{data?.individualized || "Not specified in this source."}</p>
-              </div>
-              <div className="rounded-2xl border border-sky-200 bg-sky-50 p-4">
-                <div className="text-xs font-semibold uppercase tracking-[0.12em] text-sky-800">Identified evidence</div>
-                <p className="mt-2 text-sky-950">{data?.identified || "Not specified in this source."}</p>
-              </div>
+          <p>{data?.intro}</p>
+          <div className="grid gap-4 lg:grid-cols-2">
+            <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-4">
+              <div className="text-xs font-semibold uppercase tracking-[0.12em] text-emerald-800">Individualized evidence</div>
+              <p className="mt-2 text-emerald-950">{data?.individualized}</p>
             </div>
-          )}
+            <div className="rounded-2xl border border-sky-200 bg-sky-50 p-4">
+              <div className="text-xs font-semibold uppercase tracking-[0.12em] text-sky-800">Identified evidence</div>
+              <p className="mt-2 text-sky-950">{data?.identified}</p>
+            </div>
+          </div>
         </div>
         <div className="space-y-4">
           <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
@@ -951,20 +456,6 @@ function AssignmentRenderer({ data, meta, title }) {
             <p className="mt-2 text-sm leading-7 text-slate-700">{data?.task}</p>
             <p className="mt-3 text-sm text-slate-500">{data?.reminder}</p>
           </div>
-          {(data?.links || []).length > 0 && (
-            <div className="rounded-2xl border border-slate-200 bg-white p-4">
-              <div className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-600">Linked resources</div>
-              <ul className="mt-3 space-y-2 text-sm text-slate-700">
-                {(data?.links || []).slice(0, 6).map((link, idx) => (
-                  <li key={idx} className="truncate">
-                    <a href={link.href} target="_blank" rel="noopener noreferrer" className="text-sky-700 underline underline-offset-2">
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
           <div className="rounded-2xl border border-slate-200 bg-white p-4">
             <div className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-600">Submission flow</div>
             <ul className="mt-3 space-y-2 text-sm text-slate-700">
@@ -980,26 +471,10 @@ function AssignmentRenderer({ data, meta, title }) {
   );
 }
 
-function QuizRenderer({ quiz, questions, meta }) {
-  const parsedQuestions = questions?.length ? questions : quiz ? [quiz] : [];
-  const [questionIndex, setQuestionIndex] = useState(0);
-  const [answersByQuestion, setAnswersByQuestion] = useState({});
-  const [feedbackByQuestion, setFeedbackByQuestion] = useState({});
-  const activeQuestion = parsedQuestions[questionIndex] || parsedQuestions[0];
-  const activeQuestionId = activeQuestion?.id || `question-${questionIndex}`;
-  const currentSelected = answersByQuestion[activeQuestionId];
-  const showFeedback = !!feedbackByQuestion[activeQuestionId];
-  const correct = currentSelected === activeQuestion?.answerIndex;
-  const answeredCount = parsedQuestions.filter((question) => answersByQuestion[question.id] !== undefined).length;
-
-  useEffect(() => {
-    setQuestionIndex(0);
-    setAnswersByQuestion({});
-    setFeedbackByQuestion({});
-  }, [questions, quiz]);
-
+function QuizRenderer({ quiz, meta, selected, setSelected, showFeedback, setShowFeedback }) {
+  const correct = selected === quiz?.answerIndex;
   return (
-    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm" data-testid="renderer-quiz">
+    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
       <div className="mb-5 flex items-center justify-between">
         <div>
           <div className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">QTI quiz renderer</div>
@@ -1009,90 +484,46 @@ function QuizRenderer({ quiz, questions, meta }) {
           <Badge>{meta?.profile || "Assessment"}</Badge>
           <Badge>{meta?.attempts || 1} attempt</Badge>
           <Badge>{meta?.timeLimitMinutes || 0} min</Badge>
-          <Badge>{parsedQuestions.length} questions</Badge>
-          <Badge data-testid="quiz-progress">{answeredCount}/{parsedQuestions.length} answered</Badge>
         </div>
       </div>
       <div className="grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
         <div>
-          {parsedQuestions.length > 1 && (
-            <div className="mb-4 flex flex-wrap gap-2" data-testid="quiz-question-nav">
-              {parsedQuestions.map((question, idx) => (
-                <button
-                  key={question.id}
-                  onClick={() => {
-                    setQuestionIndex(idx);
-                  }}
-                  className={`rounded-xl border px-3 py-1.5 text-xs font-semibold ${
-                    questionIndex === idx ? "border-sky-300 bg-sky-50 text-sky-700" : "border-slate-200 bg-white text-slate-600"
-                  }`}
-                  data-testid="quiz-question-button"
-                >
-                  Q{idx + 1} {answersByQuestion[question.id] !== undefined ? "•" : ""}
-                </button>
-              ))}
-            </div>
-          )}
-          <div className="mb-4 h-2 overflow-hidden rounded-full bg-slate-100">
-            <div
-              className="h-full rounded-full bg-sky-500"
-              style={{ width: `${parsedQuestions.length ? (answeredCount / parsedQuestions.length) * 100 : 0}%` }}
-            />
-          </div>
-          <p className="text-sm leading-7 text-slate-700">{activeQuestion?.question || "No quiz question parsed."}</p>
+          <p className="text-sm leading-7 text-slate-700">{quiz?.question}</p>
           <div className="mt-5 space-y-3">
-            {activeQuestion?.choices?.map((choice, idx) => (
+            {quiz?.choices?.map((choice, idx) => (
               <button
                 key={idx}
                 onClick={() => {
-                  setAnswersByQuestion((prev) => ({ ...prev, [activeQuestionId]: idx }));
-                  setFeedbackByQuestion((prev) => ({ ...prev, [activeQuestionId]: false }));
+                  setSelected(idx);
+                  setShowFeedback(false);
                 }}
                 className={`w-full rounded-2xl border p-4 text-left text-sm transition ${
-                  currentSelected === idx ? "border-sky-300 bg-sky-50" : "border-slate-200 hover:bg-slate-50"
+                  selected === idx ? "border-sky-300 bg-sky-50" : "border-slate-200 hover:bg-slate-50"
                 }`}
-                data-testid="quiz-answer-choice"
               >
                 {choice}
               </button>
             ))}
           </div>
           <div className="mt-5 flex gap-3">
-            <button
-              onClick={() => setFeedbackByQuestion((prev) => ({ ...prev, [activeQuestionId]: true }))}
-              className="rounded-2xl bg-sky-500 px-4 py-2.5 text-sm font-medium text-white"
-              data-testid="quiz-check-answer"
-            >
+            <button onClick={() => setShowFeedback(true)} className="rounded-2xl bg-sky-500 px-4 py-2.5 text-sm font-medium text-white">
               Check answer
             </button>
             <button
               onClick={() => {
-                setAnswersByQuestion((prev) => ({ ...prev, [activeQuestionId]: undefined }));
-                setFeedbackByQuestion((prev) => ({ ...prev, [activeQuestionId]: false }));
+                setSelected(undefined);
+                setShowFeedback(false);
               }}
               className="rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700"
             >
               Reset
             </button>
-            {parsedQuestions.length > 1 && (
-              <button
-                onClick={() => {
-                  if (questionIndex < parsedQuestions.length - 1) {
-                    setQuestionIndex((idx) => idx + 1);
-                  }
-                }}
-                className="rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700"
-                data-testid="quiz-next-question"
-              >
-                Next question
-              </button>
-            )}
           </div>
-          {showFeedback && currentSelected !== undefined && (
+          {showFeedback && selected !== undefined && (
             <div className={`mt-5 rounded-2xl border p-4 ${correct ? "border-emerald-200 bg-emerald-50" : "border-rose-200 bg-rose-50"}`}>
               <div className={`text-sm font-semibold ${correct ? "text-emerald-800" : "text-rose-800"}`}>{correct ? "Correct" : "Wrong"}</div>
               <p className={`mt-2 text-sm leading-7 ${correct ? "text-emerald-950" : "text-rose-950"}`}>
-                In the exported quiz, the correct answer is <strong>{activeQuestion?.choices?.[activeQuestion?.answerIndex]}</strong>.
+                In the exported quiz, the correct identified evidence example is <strong>{quiz?.choices?.[quiz?.answerIndex]}</strong>.
               </p>
             </div>
           )}
@@ -1118,7 +549,7 @@ function QuizRenderer({ quiz, questions, meta }) {
 
 function VideoRenderer({ title }) {
   return (
-    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm" data-testid="renderer-video">
+    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
       <div className="mb-4 flex items-center justify-between">
         <div>
           <div className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Embedded video renderer</div>
@@ -1139,179 +570,39 @@ function VideoRenderer({ title }) {
   );
 }
 
-function SourceFallback({ activeLesson, sourcePreview }) {
-  const exportRoot = normalizePath(d2lCourseMapData.exportRoot || "");
-  const normalizedSource = normalizePath(activeLesson?.sourceFile || "");
-  const primaryPath = joinPath(exportRoot, normalizedSource);
-  const fallbackPath = normalizedSource;
-  const primaryUrl = primaryPath ? buildReferenceUrl(primaryPath) : "";
-  const fallbackUrl = fallbackPath ? buildReferenceUrl(fallbackPath) : "";
-
-  return (
-    <div className="rounded-3xl border border-amber-200 bg-amber-50 p-6 shadow-sm" data-testid="renderer-fallback">
-      <div className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-amber-800">Source fallback</div>
-      <h4 className="text-lg font-semibold text-amber-950">Node preserved, renderer incomplete</h4>
-      <p className="mt-3 text-sm leading-7 text-amber-900">
-        This node is still in course sequence, but the source parser/renderer hit a gap. The raw source path is preserved below.
-      </p>
-      <div className="mt-4 space-y-2 rounded-2xl border border-amber-200 bg-white p-4 text-xs text-slate-700">
-        <div><strong>Node type:</strong> {typeLabel(activeLesson?.type)}</div>
-        <div className="break-all"><strong>Source file:</strong> {activeLesson?.sourceFile || "missing"}</div>
-        {sourcePreview?.error && <div><strong>Error:</strong> {sourcePreview.error}</div>}
-      </div>
-      <div className="mt-4 flex flex-wrap gap-2">
-        {primaryUrl && (
-          <a href={primaryUrl} target="_blank" rel="noopener noreferrer" className="rounded-xl border border-amber-300 bg-white px-3 py-1.5 text-xs font-semibold text-amber-900">
-            Open mapped source
-          </a>
-        )}
-        {fallbackUrl && fallbackUrl !== primaryUrl && (
-          <a href={fallbackUrl} target="_blank" rel="noopener noreferrer" className="rounded-xl border border-amber-300 bg-white px-3 py-1.5 text-xs font-semibold text-amber-900">
-            Open fallback source
-          </a>
-        )}
-      </div>
-    </div>
-  );
-}
-
-function QuickCheckpoints({ activeLesson }) {
-  const prompts = useMemo(() => {
-    if (activeLesson.type === "assignment") {
-      return [
-        "What is the exact submission artifact expected from this assignment?",
-        "What prerequisite or reminder is easy to miss before submission?",
-        "What source link or file should be opened first to complete this task?"
-      ];
-    }
-    if (activeLesson.type === "quiz") {
-      return [
-        "What concept does this quiz item set emphasize?",
-        "Which question type seems easiest to miss on first pass?",
-        "What evidence from the preceding lesson supports your answer choices?"
-      ];
-    }
-    return [
-      "What is the main claim or idea in this lesson section?",
-      "Which example from the source best supports that claim?",
-      "What would you write as a one-sentence checkpoint summary?"
-    ];
-  }, [activeLesson.type]);
-
-  const [revealed, setRevealed] = useState({});
-
-  useEffect(() => {
-    setRevealed({});
-  }, [activeLesson.id]);
-
-  return (
-    <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm" data-testid="quick-checkpoints">
-      <div className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">Quick checkpoints</div>
-      <div className="mt-4 space-y-4">
-        {prompts.map((prompt, idx) => (
-          <div key={idx} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-            <div className="text-sm font-medium text-slate-900">Checkpoint {idx + 1}</div>
-            <p className="mt-2 text-sm leading-7 text-slate-700">{prompt}</p>
-            <button
-              onClick={() => setRevealed((prev) => ({ ...prev, [idx]: !prev[idx] }))}
-              className="mt-3 rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700"
-            >
-              {revealed[idx] ? "Hide self-check" : "Show self-check"}
-            </button>
-            {revealed[idx] && (
-              <p className="mt-3 text-xs leading-6 text-slate-600">
-                Self-check against the live source content and source file path shown in the lesson header before marking complete.
-              </p>
-            )}
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function renderNodePreview(activeLesson, quizState, sourcePreview) {
-  const isSourceCritical = ["html-reading", "pdf", "assignment", "quiz"].includes(activeLesson.type);
-
-  if (isSourceCritical && sourcePreview?.status === "loading") {
-    return <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm text-sm text-slate-600">Loading source preview...</div>;
-  }
-
-  if (isSourceCritical && sourcePreview?.status === "error") {
-    return <SourceFallback activeLesson={activeLesson} sourcePreview={sourcePreview} />;
-  }
-
-  if (activeLesson.type === "html-reading") {
-    const html = sourcePreview?.kind === "html" ? sourcePreview.html : activeLesson.htmlSample;
-    if (html) return <HtmlRenderer html={html} />;
-  }
-  if (activeLesson.type === "pdf") {
-    const sourceUrl = sourcePreview?.kind === "pdf" ? sourcePreview.url : undefined;
-    return <PdfRenderer meta={activeLesson.pdfMeta} title={activeLesson.title} sourceUrl={sourceUrl} />;
-  }
+function renderNodePreview(activeLesson, quizState) {
+  if (activeLesson.type === "html-reading" && activeLesson.htmlSample) return <HtmlRenderer html={activeLesson.htmlSample} />;
+  if (activeLesson.type === "pdf") return <PdfRenderer meta={activeLesson.pdfMeta} title={activeLesson.title} />;
   if (activeLesson.type === "image-slide") return <SlideRenderer title={activeLesson.title} />;
-  if (activeLesson.type === "assignment") {
-    const parsedData = sourcePreview?.kind === "assignment" ? sourcePreview.assignmentXml : activeLesson.assignmentXml;
-    const parsedMeta = sourcePreview?.kind === "assignment" ? sourcePreview.assignmentMeta : activeLesson.assignmentMeta;
-    return <AssignmentRenderer data={parsedData} meta={parsedMeta} title={activeLesson.title} />;
-  }
-  if (activeLesson.type === "quiz") {
-    const quiz = sourcePreview?.kind === "quiz" ? sourcePreview.quizSample : activeLesson.quizSample;
-    const questions = sourcePreview?.kind === "quiz" ? sourcePreview.quizQuestions : activeLesson.quizQuestions;
-    const meta = sourcePreview?.kind === "quiz" ? sourcePreview.quizMeta : activeLesson.quizMeta;
-    return <QuizRenderer quiz={quiz} questions={questions} meta={meta} {...quizState} />;
-  }
+  if (activeLesson.type === "assignment") return <AssignmentRenderer data={activeLesson.assignmentXml} meta={activeLesson.assignmentMeta} title={activeLesson.title} />;
+  if (activeLesson.type === "quiz") return <QuizRenderer quiz={activeLesson.quizSample} meta={activeLesson.quizMeta} {...quizState} />;
   if (activeLesson.type === "embedded-video") return <VideoRenderer title={activeLesson.title} />;
-  return <SourceFallback activeLesson={activeLesson} sourcePreview={sourcePreview} />;
+  return <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm text-sm text-slate-600">No renderer preview available for this node yet.</div>;
 }
 
 export default function ForensicCoursePlayerPreviewRestored() {
-  const initialExpanded = useMemo(
-    () =>
-      Object.fromEntries(
-        course.modules.slice(0, 2).map((module) => [module.id, true])
-      ),
-    []
-  );
-  const [expanded, setExpanded] = useState(initialExpanded);
-  const [activeLessonId, setActiveLessonId] = useState(flatLessons[0]?.id ?? "");
+  const [expanded, setExpanded] = useState({ "course-info": true, "m2-evidence-fingerprints": true });
+  const [activeLessonId, setActiveLessonId] = useState("overview");
   const [activeTab, setActiveTab] = useState("learn");
-  const [completed, setCompleted] = useState({});
+  const [completed, setCompleted] = useState({ outline: true, cite: true, overview: false });
   const [saved, setSaved] = useState({});
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [showFeedback, setShowFeedback] = useState(false);
   const [query, setQuery] = useState("");
-  const [includeHidden, setIncludeHidden] = useState(false);
-  const [sourcePreview, setSourcePreview] = useState({ status: "idle", kind: null });
+
+  const activeLesson = useMemo(() => flatLessons.find((l) => l.id === activeLessonId) || flatLessons[0], [activeLessonId]);
+  const activeModule = useMemo(() => course.modules.find((m) => m.id === activeLesson.moduleId), [activeLesson]);
+  const lessonIndex = flatLessons.findIndex((l) => l.id === activeLessonId);
+  const progress = Math.round((Object.values(completed).filter(Boolean).length / flatLessons.length) * 100);
+  const moduleCompleted = activeModule ? activeModule.lessons.filter((l) => completed[l.id]).length : 0;
+  const moduleProgress = activeModule ? Math.round((moduleCompleted / activeModule.lessons.length) * 100) : 0;
 
   const filteredModules = course.modules
-    .filter((module) => includeHidden || !module.isHidden)
     .map((module) => ({
       ...module,
       lessons: module.lessons.filter((lesson) => lesson.title.toLowerCase().includes(query.toLowerCase())),
     }))
     .filter((module) => module.lessons.length > 0 || query.length === 0);
-
-  const visibleLessons = filteredModules.flatMap((module) =>
-    module.lessons.map((lesson) => ({
-      ...lesson,
-      moduleId: module.id,
-      moduleTitle: module.title,
-      moduleLessonCount: module.lessonCount,
-      moduleHidden: module.isHidden,
-    }))
-  );
-
-  const activeLesson = useMemo(() => visibleLessons.find((l) => l.id === activeLessonId) || visibleLessons[0], [activeLessonId, visibleLessons]);
-  const activeModule = useMemo(() => filteredModules.find((m) => m.id === activeLesson?.moduleId), [activeLesson, filteredModules]);
-  const lessonIndex = visibleLessons.findIndex((l) => l.id === activeLessonId);
-  const progress = visibleLessons.length
-    ? Math.round((Object.values(completed).filter(Boolean).length / visibleLessons.length) * 100)
-    : 0;
-  const moduleCompleted = activeModule ? activeModule.lessons.filter((l) => completed[l.id]).length : 0;
-  const moduleProgress = activeModule && activeModule.lessons.length
-    ? Math.round((moduleCompleted / activeModule.lessons.length) * 100)
-    : 0;
 
   const goToLesson = (id) => {
     setActiveLessonId(id);
@@ -1320,11 +611,11 @@ export default function ForensicCoursePlayerPreviewRestored() {
   };
 
   const goPrev = () => {
-    if (lessonIndex > 0) goToLesson(visibleLessons[lessonIndex - 1].id);
+    if (lessonIndex > 0) goToLesson(flatLessons[lessonIndex - 1].id);
   };
 
   const goNext = () => {
-    if (lessonIndex < visibleLessons.length - 1) goToLesson(visibleLessons[lessonIndex + 1].id);
+    if (lessonIndex < flatLessons.length - 1) goToLesson(flatLessons[lessonIndex + 1].id);
   };
 
   const markComplete = () => setCompleted((prev) => ({ ...prev, [activeLessonId]: true }));
@@ -1337,108 +628,12 @@ export default function ForensicCoursePlayerPreviewRestored() {
     setShowFeedback,
   };
 
-  useEffect(() => {
-    if (!visibleLessons.length) {
-      return;
-    }
-    const isVisible = visibleLessons.some((lesson) => lesson.id === activeLessonId);
-    if (!isVisible) {
-      setActiveLessonId(visibleLessons[0].id);
-    }
-  }, [visibleLessons, activeLessonId]);
-
-  useEffect(() => {
-    let cancelled = false;
-
-    async function loadSourcePreview() {
-      if (!activeLesson?.sourceFile) {
-        if (!cancelled) setSourcePreview({ status: "idle", kind: null });
-        return;
-      }
-
-      const sourcePath = normalizePath(activeLesson.sourceFile);
-      const exportRoot = normalizePath(d2lCourseMapData.exportRoot || "");
-      const candidates = [joinPath(exportRoot, sourcePath), sourcePath].filter(Boolean);
-
-      setSourcePreview({ status: "loading", kind: null });
-
-      for (const candidate of candidates) {
-        const url = buildReferenceUrl(candidate);
-        try {
-          const response = await fetch(url);
-          if (!response.ok) continue;
-
-          if (activeLesson.type === "pdf") {
-            if (!cancelled) setSourcePreview({ status: "ready", kind: "pdf", url });
-            return;
-          }
-
-          const text = await response.text();
-          if (activeLesson.type === "html-reading") {
-            const html = stripScriptsAndRewriteLinks(text, sourcePath, exportRoot);
-            if (!hasMeaningfulHtmlContent(html)) {
-              continue;
-            }
-            if (!cancelled) setSourcePreview({ status: "ready", kind: "html", html, sourcePath: candidate });
-            return;
-          }
-
-          if (activeLesson.type === "assignment") {
-            const parsed = parseAssignmentXml(text, sourcePath, exportRoot);
-            if (!cancelled) setSourcePreview({ status: "ready", kind: "assignment", ...parsed, sourcePath: candidate });
-            return;
-          }
-
-          if (activeLesson.type === "quiz") {
-            const parsed = parseQuizXml(text);
-            if (!cancelled) {
-              if (parsed) {
-                setSourcePreview({ status: "ready", kind: "quiz", ...parsed, sourcePath: candidate });
-              } else {
-                setSourcePreview({ status: "error", kind: null, error: "Could not parse quiz XML content." });
-              }
-            }
-            return;
-          }
-
-          if (!cancelled) {
-            setSourcePreview({ status: "ready", kind: "text", text, sourcePath: candidate });
-          }
-          return;
-        } catch {
-          // Keep trying the next candidate path.
-        }
-      }
-
-      if (!cancelled) {
-        setSourcePreview({
-          status: "error",
-          kind: null,
-          error: `Unable to load source file: ${activeLesson.sourceFile}`,
-        });
-      }
-    }
-
-    loadSourcePreview();
-    return () => {
-      cancelled = true;
-    };
-  }, [activeLesson?.id, activeLesson?.sourceFile, activeLesson?.type]);
-
-  if (!activeLesson) {
-    return (
-      <div className="min-h-screen bg-slate-100 p-10 text-slate-700">
-        No lessons were mapped from the D2L course map yet.
-      </div>
-    );
-  }
-
   const hasLearn = !!activeLesson.learn;
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top,_#e0f2fe_0%,_#f8fafc_35%,_#eef2ff_100%)] text-slate-900">
+    <div className="min-h-screen bg-slate-100 text-slate-900">
       <div className="flex min-h-screen">
-        <aside className="hidden w-20 shrink-0 border-r border-slate-800/60 bg-[linear-gradient(180deg,_#0f172a_0%,_#020617_100%)] text-white md:flex md:flex-col md:items-center md:gap-3 md:px-3 md:py-5">
+        <aside className="hidden w-20 shrink-0 border-r border-slate-200 bg-slate-950 text-white md:flex md:flex-col md:items-center md:gap-3 md:px-3 md:py-5">
           <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-2xl bg-sky-500/20 ring-1 ring-white/10">
             <ShieldCheck className="h-5 w-5 text-sky-300" />
           </div>
@@ -1461,14 +656,14 @@ export default function ForensicCoursePlayerPreviewRestored() {
           ))}
         </aside>
 
-        <aside className="w-[340px] shrink-0 border-r border-slate-200/80 bg-white/80 backdrop-blur">
+        <aside className="w-[340px] shrink-0 border-r border-slate-200 bg-slate-50">
           <div className="border-b border-slate-200 px-5 py-5">
             <div className="mb-3">
               <div className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">Course</div>
               <h1 className="mt-1 text-xl font-semibold">{course.title}</h1>
               <p className="mt-1 text-sm text-slate-500">{course.subtitle}</p>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-3 shadow-[0_8px_30px_rgba(15,23,42,0.05)]">
+            <div className="rounded-2xl border border-slate-200 bg-white p-3 shadow-sm">
               <div className="mb-2 flex items-center justify-between text-sm">
                 <span className="font-medium text-slate-700">Preview progress</span>
                 <span className="font-semibold text-slate-900">{progress}%</span>
@@ -1488,50 +683,21 @@ export default function ForensicCoursePlayerPreviewRestored() {
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search real lesson titles"
                 className="w-full rounded-2xl border border-slate-200 bg-white py-2.5 pl-9 pr-3 text-sm outline-none placeholder:text-slate-400 focus:border-sky-300"
-                data-testid="lesson-search"
               />
-            </div>
-            <div className="mt-3 flex items-center justify-between rounded-2xl border border-slate-200 bg-white px-3 py-2.5">
-              <div>
-                <div className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">Visibility</div>
-                <div className="text-xs text-slate-500" data-testid="mode-indicator">
-                  {includeHidden ? "Archive mode" : "Learner mode"}
-                </div>
-              </div>
-              <button
-                onClick={() => setIncludeHidden((prev) => !prev)}
-                className={`rounded-xl px-3 py-1.5 text-xs font-semibold ${
-                  includeHidden ? "bg-amber-100 text-amber-800" : "bg-sky-100 text-sky-800"
-                }`}
-                data-testid="mode-toggle"
-              >
-                {includeHidden ? "Hide admin-only" : "Show archive"}
-              </button>
             </div>
           </div>
 
-          <div className="h-[calc(100vh-245px)] overflow-y-auto px-3 py-4" data-testid="module-list">
+          <div className="h-[calc(100vh-245px)] overflow-y-auto px-3 py-3">
             {filteredModules.map((module) => (
-              <div
-                key={module.id}
-                className="mb-3 rounded-2xl border border-slate-200 bg-white p-2 shadow-[0_10px_25px_rgba(15,23,42,0.04)]"
-                data-testid="module-panel"
-                data-module-title={module.title}
-                data-module-hidden={module.isHidden ? "true" : "false"}
-                data-module-expanded={expanded[module.id] ? "true" : "false"}
-              >
+              <div key={module.id} className="mb-3 rounded-2xl border border-slate-200 bg-white p-2 shadow-sm">
                 <button
                   onClick={() => setExpanded((prev) => ({ ...prev, [module.id]: !prev[module.id] }))}
                   className="flex w-full items-center justify-between rounded-xl px-2 py-2 text-left hover:bg-slate-50"
-                  data-testid="module-toggle"
-                  data-module-title={module.title}
-                  data-expanded={expanded[module.id] ? "true" : "false"}
                 >
                   <div>
                     <div className="text-sm font-semibold">{module.title}</div>
                     <div className="text-xs text-slate-500">{module.lessonCount} items in export</div>
                   </div>
-                  {module.isHidden && <Badge>hidden module</Badge>}
                   {expanded[module.id] ? <ChevronDown className="h-4 w-4 text-slate-400" /> : <ChevronRight className="h-4 w-4 text-slate-400" />}
                 </button>
                 {expanded[module.id] && (
@@ -1553,7 +719,7 @@ export default function ForensicCoursePlayerPreviewRestored() {
         </aside>
 
         <main className="flex-1 overflow-y-auto">
-          <div className="sticky top-0 z-10 border-b border-slate-200 bg-white/95 shadow-[0_8px_20px_rgba(15,23,42,0.04)] backdrop-blur">
+          <div className="sticky top-0 z-10 border-b border-slate-200 bg-white/95 backdrop-blur">
             <div className="px-8 py-5">
               <div className="mb-2 flex flex-wrap items-center gap-2 text-sm text-slate-500">
                 <span>Home</span>
@@ -1562,15 +728,11 @@ export default function ForensicCoursePlayerPreviewRestored() {
                 <span>›</span>
                 <span>{typeLabel(activeLesson.type)}</span>
                 <Badge>real export node</Badge>
-                {includeHidden && <Badge>archive mode</Badge>}
-                {activeLesson.moduleHidden && <Badge>admin-only</Badge>}
                 {saved[activeLessonId] && <Badge>saved</Badge>}
               </div>
               <div className="flex items-start justify-between gap-6">
                 <div>
-                  <h2 className="text-3xl font-semibold tracking-tight text-slate-950" data-testid="lesson-title">
-                    {activeLesson.title}
-                  </h2>
+                  <h2 className="text-3xl font-semibold tracking-tight">{activeLesson.title}</h2>
                   <p className="mt-2 max-w-4xl text-sm text-slate-500">
                     This preview uses the real uploaded export structure and real node types. The shell and renderer strategy are no longer fictional.
                   </p>
@@ -1578,13 +740,13 @@ export default function ForensicCoursePlayerPreviewRestored() {
                 <div className="flex shrink-0 gap-3">
                   <button
                     onClick={toggleSaved}
-                    className="rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:bg-slate-50"
+                    className="rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 shadow-sm hover:bg-slate-50"
                   >
                     {saved[activeLessonId] ? "Saved" : "Save"}
                   </button>
                   <button
                     onClick={markComplete}
-                    className="rounded-2xl bg-sky-500 px-4 py-2.5 text-sm font-medium text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-sky-600"
+                    className="rounded-2xl bg-sky-500 px-4 py-2.5 text-sm font-medium text-white shadow-sm hover:bg-sky-600"
                   >
                     Mark Complete
                   </button>
@@ -1605,7 +767,7 @@ export default function ForensicCoursePlayerPreviewRestored() {
                 </div>
               </div>
               <div className="mt-4 h-2 overflow-hidden rounded-full bg-slate-100">
-                <div className="h-full rounded-full bg-sky-500" style={{ width: `${visibleLessons.length ? ((lessonIndex + 1) / visibleLessons.length) * 100 : 0}%` }} />
+                <div className="h-full rounded-full bg-sky-500" style={{ width: `${((lessonIndex + 1) / flatLessons.length) * 100}%` }} />
               </div>
             </div>
             <div className="flex gap-1 border-t border-slate-200 px-8">
@@ -1629,13 +791,13 @@ export default function ForensicCoursePlayerPreviewRestored() {
             </div>
           </div>
 
-          <div className="mx-auto max-w-7xl px-8 py-10">
+          <div className="mx-auto max-w-7xl px-8 py-8">
             {activeTab === "learn" && (
               <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_300px]">
                 <div className="space-y-6">
-                  <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-[0_16px_40px_rgba(15,23,42,0.06)]">
+                  <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
                     <div className="mb-6 flex items-center gap-2">
-                      <Badge>Course content view</Badge>
+                      <Badge>source-preserving model</Badge>
                       <Badge>{activeLesson.moduleLessonCount} items in module</Badge>
                       <Badge>{typeLabel(activeLesson.type)}</Badge>
                     </div>
@@ -1643,7 +805,7 @@ export default function ForensicCoursePlayerPreviewRestored() {
                     <p className="mt-5 text-[15px] leading-7 text-slate-700">
                       {hasLearn
                         ? activeLesson.learn.excerpt
-                        : "This node is present in the course export and is rendered from its source file within this player."}
+                        : "This node is present in the real export and would be rendered directly from its underlying file in the next build stage."}
                     </p>
                     <div className="mt-8 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
                       <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
@@ -1673,26 +835,24 @@ export default function ForensicCoursePlayerPreviewRestored() {
                     </div>
                   </section>
 
-                  {renderNodePreview(activeLesson, quizState, sourcePreview)}
-
-                  <QuickCheckpoints activeLesson={activeLesson} />
+                  {renderNodePreview(activeLesson, quizState)}
 
                   <section className="grid gap-6 lg:grid-cols-2">
-                    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_12px_30px_rgba(15,23,42,0.05)]">
-                      <div className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">Content fidelity</div>
+                    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                      <div className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">What Phase 2 proves</div>
                       <div className="mt-4 space-y-3 text-sm leading-7 text-slate-700">
                         <p>HTML lessons can be normalized and rendered as readable in-app pages.</p>
                         <p>PDF nodes can live in a dedicated viewer shell instead of being dumped as detached files.</p>
                         <p>Assignment XML can be transformed into a clean instruction card without losing the original task.</p>
-                        <p>Quiz content remains navigable while preserving the original question and choice structure.</p>
+                        <p>QTI quiz XML can be surfaced as usable assessment content instead of opaque package junk.</p>
                       </div>
                     </div>
-                    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_12px_30px_rgba(15,23,42,0.05)]">
-                      <div className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">Learning workflow</div>
+                    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                      <div className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">What Phase 3 proves</div>
                       <div className="mt-4 space-y-3 text-sm leading-7 text-slate-700">
                         <p>The lesson header gives users sequence, module, and context.</p>
                         <p>The sidebar uses the real module hierarchy and real lesson names.</p>
-                        <p>The lesson shell keeps module context, navigation, and activity flow in one place.</p>
+                        <p>The shell now behaves like an LMS instead of a dressed-up file viewer.</p>
                         <p>Progress, save state, and in-context tools belong in the shell, not scattered across pages.</p>
                       </div>
                     </div>
@@ -1700,7 +860,7 @@ export default function ForensicCoursePlayerPreviewRestored() {
                 </div>
 
                 <aside className="space-y-6">
-                  <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-[0_12px_30px_rgba(15,23,42,0.05)]">
+                  <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
                     <div className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Lesson tools</div>
                     <div className="mt-4 space-y-3 text-sm text-slate-700">
                       <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-4">
@@ -1710,7 +870,7 @@ export default function ForensicCoursePlayerPreviewRestored() {
                       <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">View linked resources</div>
                     </div>
                   </div>
-                  <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-[0_12px_30px_rgba(15,23,42,0.05)]">
+                  <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
                     <div className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Node summary</div>
                     <div className="mt-4 space-y-3 text-sm leading-7 text-slate-700">
                       <p><strong>Module:</strong> {activeLesson.moduleTitle}</p>
@@ -1725,7 +885,7 @@ export default function ForensicCoursePlayerPreviewRestored() {
             {activeTab === "practice" && (
               <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
                 <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-                  <div className="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">Practice layer</div>
+                  <div className="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">Prototype practice layer</div>
                   <h3 className="text-2xl font-semibold tracking-tight">What should this node’s enhancement layer do?</h3>
                   <div className="mt-6 space-y-3">
                     {[
@@ -1862,23 +1022,19 @@ export default function ForensicCoursePlayerPreviewRestored() {
               </div>
             )}
 
-            <div className="mt-10 flex items-center justify-between rounded-3xl border border-slate-200 bg-white p-5 shadow-[0_12px_30px_rgba(15,23,42,0.05)]">
+            <div className="mt-8 flex items-center justify-between rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
               <button
                 onClick={goPrev}
                 disabled={lessonIndex === 0}
                 className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 disabled:cursor-not-allowed disabled:opacity-40"
-                data-testid="node-nav-previous"
               >
                 <ArrowLeft className="h-4 w-4" /> Previous
               </button>
-              <div className="text-sm text-slate-500" data-testid="node-counter">
-                Node {lessonIndex + 1} of {visibleLessons.length} from the mapped course sequence
-              </div>
+              <div className="text-sm text-slate-500">Node {lessonIndex + 1} of {flatLessons.length} shown in this canvas subset</div>
               <button
                 onClick={goNext}
-                disabled={lessonIndex === visibleLessons.length - 1}
+                disabled={lessonIndex === flatLessons.length - 1}
                 className="inline-flex items-center gap-2 rounded-2xl bg-sky-500 px-4 py-2.5 text-sm font-medium text-white disabled:cursor-not-allowed disabled:opacity-40"
-                data-testid="node-nav-next"
               >
                 Next <ArrowRight className="h-4 w-4" />
               </button>

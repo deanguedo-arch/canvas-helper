@@ -4,6 +4,20 @@ import { readFile } from "node:fs/promises";
 export type ProjectE2EContract = {
   projectSlug: string;
   requiredTestIds?: string[];
+  assertionProfiles?: Record<string, { checks: string[]; mode?: "learner" | "archive" }>;
+  modulePassTargets?: Array<{
+    moduleTitle: string;
+    itemTitle: string;
+    assertionProfile?: string;
+    checks?: string[];
+    mode?: "learner" | "archive";
+  }>;
+  visibilityChecks?: Array<{
+    moduleTitle: string;
+    itemTitle: string;
+    learnerVisible: boolean;
+    archiveVisible: boolean;
+  }>;
   modes?: {
     enabled: boolean;
     toggleRoleName?: string;
@@ -40,6 +54,18 @@ function assertContractShape(value: unknown, sourcePath: string): asserts value 
 
   if (contract.requiredTestIds && !Array.isArray(contract.requiredTestIds)) {
     throw new Error(`Invalid e2e contract at ${sourcePath}: requiredTestIds must be an array.`);
+  }
+
+  if (contract.assertionProfiles && typeof contract.assertionProfiles !== "object") {
+    throw new Error(`Invalid e2e contract at ${sourcePath}: assertionProfiles must be an object.`);
+  }
+
+  if (contract.modulePassTargets && !Array.isArray(contract.modulePassTargets)) {
+    throw new Error(`Invalid e2e contract at ${sourcePath}: modulePassTargets must be an array.`);
+  }
+
+  if (contract.visibilityChecks && !Array.isArray(contract.visibilityChecks)) {
+    throw new Error(`Invalid e2e contract at ${sourcePath}: visibilityChecks must be an array.`);
   }
 }
 
