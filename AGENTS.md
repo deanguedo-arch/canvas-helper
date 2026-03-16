@@ -111,6 +111,29 @@ Canvas Helper is a local-first Node + browser workspace for importing Canvas cou
 - Add a smoke-path update when changing the core import/analyze/refs/export flow.
 - Do not ship architecture changes without at least targeted verification for the affected boundary.
 
+## E2E Automation Policy
+
+Use browser automation as a regression gate for interaction-heavy work.
+
+Run E2E before finishing a task when any of the following changed:
+- shared Studio/player UI
+- learner/archive mode logic
+- module navigation logic
+- quiz rendering, progress, or answer state
+- conditional visibility/fallback panel behavior
+- project e2e contract files
+- shared selectors used by tests
+
+Default commands:
+- platform smoke: `npm run test:e2e:smoke`
+- project contract run: `npm run test:e2e:project -- --project <slug>`
+
+Rules:
+- Do not run broad E2E for non-UI scripting work unless the task explicitly requires it.
+- If UI behavior changed, update stable `data-testid` selectors as needed.
+- If project behavior expectations changed, update `projects/<slug>/meta/e2e-contract.json`.
+- A task touching critical interaction flows is not complete until the required E2E command passes.
+
 ## Commit Rules
 
 - Use `type(scope): concise action`

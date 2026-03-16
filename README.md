@@ -36,6 +36,9 @@ Repo-level authoring enforcement defaults live in `config/authoring-preferences.
 - `npm.cmd run test:scorm`
 - `npm.cmd run test:google-hosted`
 - `npm.cmd run test:exports`
+- `npm.cmd run test:e2e`
+- `npm.cmd run test:e2e:smoke`
+- `npm.cmd run test:e2e:project -- --project <slug>`
 - `npm.cmd run export:brightspace -- --project <slug>`
 - `npm.cmd run export:brightspace:zip -- --project <slug>`
 - `npm.cmd run export:scorm -- --project <slug> [--version 2004|1.2]`

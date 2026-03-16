@@ -20,6 +20,18 @@ Execute Phase 6 for `forensics`: QA and hardening on top of the completed faithf
 - `npm run typecheck` passes.
 - `npm run build:studio` passes.
 
+## E2E requirement
+Required
+
+## E2E command
+`npm run test:e2e:project -- --project forensics`
+
+## E2E trigger
+This task touches learner/archive visibility, module navigation, quiz progress/state, and fallback behavior.
+
+## Completion gate
+Task is not complete unless the required E2E command passes.
+
 ## QA / Hardening Gaps
 - [ ] Validate representative nodes across all major modules in learner mode and archive mode.
 - [ ] Learner vs archive: verify the mode toggle works and content visibility changes accordingly.
@@ -39,6 +51,53 @@ Execute Phase 6 for `forensics`: QA and hardening on top of the completed faithf
 - [ ] Quick checkpoints in Learn view render and do not disrupt content flow.
 - [ ] Visual shell remains coherent after polish (spacing, hierarchy, contrast, no clipped content).
 - [ ] Audit for unnecessary file churn before commit.
+
+## Phase 6 Execution Checklist
+### Phase 6A — QA / hardening
+- [ ] Run learner-mode pass across representative module list.
+- [ ] Run archive-mode pass across representative module list.
+- [ ] Confirm hidden/admin nodes are excluded from learner mode.
+- [ ] Confirm hidden/admin nodes are available in archive mode.
+- [ ] Confirm fallback panel renders for weak/unmapped nodes.
+- [ ] Confirm quiz navigation, state persistence, and progress indicators.
+- [ ] Confirm assignment + PDF + external node rendering behavior.
+- [ ] Confirm final exam and extra-credit ordering.
+- [ ] Run: `npm run verify -- --project forensics`
+- [ ] Run: `npm run typecheck`
+- [ ] Run: `npm run build:studio`
+
+### Phase 6B — productionization / residue purge
+- [x] Produce residue audit at `projects/forensics/meta/residue-audit.md`.
+- [x] Remove learner-facing phase/prototype/build language from workspace UI.
+- [x] Replace placeholder page title and temporary learner-visible naming.
+- [x] Keep required fallback/support scaffolding where removal would regress behavior.
+- [x] Isolate or remove any dev-only scaffolding that leaks into learner-facing views.
+- [x] Re-run Phase 6A command floor after residue cleanup.
+
+### Phase 7 (optional) — release candidate validation
+- [ ] Optional ship/no-ship review for export naming, packaging, and final acceptance.
+
+## Next Plan — High-Confidence Suite (1-2 days)
+Goal: expand from contract smoke checks to full module-pass confidence with stronger assertions and deterministic fixtures.
+
+### Day 1 scope
+- [ ] Add missing stable `data-testid` hooks for in-player navigation, quiz controls/progress, section containers, and source fallback states.
+- [ ] Extend project contract schema with optional module-pass targets and assertion profiles.
+- [ ] Add one reusable deep-contract spec that can iterate a declared module pass list and assert no runtime regressions.
+- [ ] Add richer forensics contract coverage for representative module rows (HTML, assignment, quiz, PDF, external, hidden/admin).
+
+### Day 2 scope
+- [ ] Add deterministic fixture content that exercises mode switching, quiz interactions, fallback rendering, and sequencing assertions.
+- [ ] Add stronger assertions for learner/archive visibility behavior and hidden/admin filtering.
+- [ ] Add stronger quiz assertions (per-question navigation, answer persistence, progress indicator changes).
+- [ ] Add fallback and source-render assertions for weak/unmapped node handling.
+- [ ] Run full verify floor plus e2e smoke + project suite and document residual gaps.
+
+### Deliverables
+- [ ] Expanded e2e contracts + schema
+- [ ] Deep reusable spec(s) for module-pass checks
+- [ ] Fixture updates for deterministic high-confidence checks
+- [ ] Updated docs for when to run smoke vs contract vs deep suite
 
 ## Module Pass List (Representative Nodes)
 Use this list to click through one representative item per module. Mark the QA checkboxes above once all rows are validated in learner and archive modes.

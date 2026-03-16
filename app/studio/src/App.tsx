@@ -196,7 +196,7 @@ export function App() {
   };
 
   return (
-    <div className="shell">
+    <div className="shell" data-testid="studio-shell">
       <main className="main-panel">
         <Topbar
           layoutPreferences={layoutPreferences}
@@ -211,11 +211,12 @@ export function App() {
 
         {errorMessage ? <div className="error-banner">{errorMessage}</div> : null}
 
-        <div className="studio-mode-switch" role="tablist" aria-label="Studio mode">
+        <div className="studio-mode-switch" role="tablist" aria-label="Studio mode" data-testid="studio-mode-switch">
           <button
             type="button"
             className={studioMode === "course" ? "active" : ""}
             onClick={() => setStudioMode("course")}
+            data-testid="course-studio-tab"
           >
             Course Studio
           </button>
@@ -223,6 +224,7 @@ export function App() {
             type="button"
             className={studioMode === "assessment" ? "active" : ""}
             onClick={() => setStudioMode("assessment")}
+            data-testid="assessment-studio-tab"
           >
             Assessment Library
           </button>
@@ -232,9 +234,12 @@ export function App() {
           <AssessmentLibraryMode />
         ) : (
           <div className={layoutPreferences.inspectorOpen ? "content-grid inspector-open" : "content-grid"}>
-            <section className="preview-workspace">
+            <section className="preview-workspace" data-testid="preview-workspace">
               {selectedProject ? (
-                <div className={layoutPreferences.compareMode ? "preview-deck split" : "preview-deck focus"}>
+                <div
+                  className={layoutPreferences.compareMode ? "preview-deck split" : "preview-deck focus"}
+                  data-testid="project-root"
+                >
                   {visiblePreviewModes.map((mode) => {
                     const controlsVisible = paneControlsVisible[mode];
                     const resourcePreview =
@@ -362,7 +367,9 @@ export function App() {
                   })}
                 </div>
               ) : (
-                <div className="empty-preview">Import a project to start previewing it here.</div>
+                <div className="empty-preview" data-testid="empty-preview">
+                  Import a project to start previewing it here.
+                </div>
               )}
             </section>
 

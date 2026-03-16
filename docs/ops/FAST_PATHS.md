@@ -29,6 +29,25 @@ Read first:
 
 Do not start by searching the whole repo. The shared command contract is the source of truth.
 
+## E2E Platform Work
+
+Read first:
+- `e2e/playwright.config.ts`
+- `e2e/specs/core-project-contract.spec.ts`
+- `e2e/lib/load-project-contract.ts`
+- `e2e/lib/project-open.ts`
+- `projects/<slug>/meta/e2e-contract.json`
+
+Touch docs when behavior or policy changes:
+- `ARCHITECTURE.md`
+- `CONTRIBUTING.md`
+- `AGENTS.md`
+
+Verification floor:
+- `npm run test:e2e:smoke`
+- `npm run test:e2e:project -- --project <slug>` (when project contract changes)
+- `npm run typecheck`
+
 ## Intelligence Policy Work
 
 Read first:

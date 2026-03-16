@@ -89,7 +89,7 @@ const actualHtmlSamples = {
 
 const courseSeed = {
   title: "Forensic Studies 25",
-  subtitle: "Manifest-based course player preview built from the uploaded Brightspace export",
+  subtitle: "Course content mapped from the Brightspace export",
   stats: { topLevelSections: 12, totalNodes: 172 },
   modules: [
     {
@@ -150,7 +150,7 @@ const courseSeed = {
               "Course operations support page",
               "Should be easy to find, not buried",
             ],
-            callout: "Operational pages matter because if the site hides them you answer the same dumb questions all term.",
+            callout: "Operational pages matter because learners need quick access to submission help and course procedures.",
           },
           resources: ["Original HTML instructions", "Drive/Brightspace workflow"],
         },
@@ -354,9 +354,9 @@ function buildCourseFromD2LMap(seed, d2lMap) {
             bullets: [
               "Manifest-derived lesson title",
               "Source path preserved for traceability",
-              "Eligible for richer renderer mapping in later passes"
+              "Supports richer renderer mappings when available"
             ],
-            callout: "Phase 2 goal is full course-map coverage with normalized module and lesson labels."
+            callout: "This lesson is mapped from the course manifest with normalized module and lesson labels."
           }
         };
       });
@@ -373,7 +373,7 @@ function buildCourseFromD2LMap(seed, d2lMap) {
 
   return {
     title: "Forensic Studies 25",
-    subtitle: `Manifest-synced shell (${d2lMap.courseTitle})`,
+    subtitle: `Course content (${d2lMap.courseTitle})`,
     stats: {
       topLevelSections: d2lMap.summary?.moduleCount ?? modules.length,
       totalNodes: d2lMap.summary?.itemCount ?? modules.reduce((sum, module) => sum + module.lessons.length, 0)
@@ -1599,7 +1599,7 @@ export default function ForensicCoursePlayerPreviewRestored() {
                 <div className="space-y-6">
                   <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-[0_16px_40px_rgba(15,23,42,0.06)]">
                     <div className="mb-6 flex items-center gap-2">
-                      <Badge>source-preserving model</Badge>
+                      <Badge>Course content view</Badge>
                       <Badge>{activeLesson.moduleLessonCount} items in module</Badge>
                       <Badge>{typeLabel(activeLesson.type)}</Badge>
                     </div>
@@ -1607,7 +1607,7 @@ export default function ForensicCoursePlayerPreviewRestored() {
                     <p className="mt-5 text-[15px] leading-7 text-slate-700">
                       {hasLearn
                         ? activeLesson.learn.excerpt
-                        : "This node is present in the real export and would be rendered directly from its underlying file in the next build stage."}
+                        : "This node is present in the course export and is rendered from its source file within this player."}
                     </p>
                     <div className="mt-8 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
                       <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
@@ -1643,20 +1643,20 @@ export default function ForensicCoursePlayerPreviewRestored() {
 
                   <section className="grid gap-6 lg:grid-cols-2">
                     <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_12px_30px_rgba(15,23,42,0.05)]">
-                      <div className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">What Phase 2 proves</div>
+                      <div className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">Content fidelity</div>
                       <div className="mt-4 space-y-3 text-sm leading-7 text-slate-700">
                         <p>HTML lessons can be normalized and rendered as readable in-app pages.</p>
                         <p>PDF nodes can live in a dedicated viewer shell instead of being dumped as detached files.</p>
                         <p>Assignment XML can be transformed into a clean instruction card without losing the original task.</p>
-                        <p>QTI quiz XML can be surfaced as usable assessment content instead of opaque package junk.</p>
+                        <p>Quiz content remains navigable while preserving the original question and choice structure.</p>
                       </div>
                     </div>
                     <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_12px_30px_rgba(15,23,42,0.05)]">
-                      <div className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">What Phase 3 proves</div>
+                      <div className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">Learning workflow</div>
                       <div className="mt-4 space-y-3 text-sm leading-7 text-slate-700">
                         <p>The lesson header gives users sequence, module, and context.</p>
                         <p>The sidebar uses the real module hierarchy and real lesson names.</p>
-                        <p>The shell now behaves like an LMS instead of a dressed-up file viewer.</p>
+                        <p>The lesson shell keeps module context, navigation, and activity flow in one place.</p>
                         <p>Progress, save state, and in-context tools belong in the shell, not scattered across pages.</p>
                       </div>
                     </div>
@@ -1689,7 +1689,7 @@ export default function ForensicCoursePlayerPreviewRestored() {
             {activeTab === "practice" && (
               <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
                 <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-                  <div className="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">Prototype practice layer</div>
+                  <div className="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">Practice layer</div>
                   <h3 className="text-2xl font-semibold tracking-tight">What should this node’s enhancement layer do?</h3>
                   <div className="mt-6 space-y-3">
                     {[

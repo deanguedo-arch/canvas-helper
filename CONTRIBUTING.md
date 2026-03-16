@@ -24,6 +24,7 @@ Examples:
 
 - Small UI-only changes: `npm.cmd run typecheck`
 - Studio/server changes: `npm.cmd run typecheck` and `npm.cmd run build:studio`
+- Interaction-heavy Studio/player changes: run E2E (`npm run test:e2e:smoke` for shared UI, `npm run test:e2e:project -- --project <slug>` for project contracts)
 - Intelligence changes: targeted tests plus `npm.cmd run typecheck`
 - Authoring enforcement changes: targeted deviation/preference tests plus `npm.cmd run typecheck`
 - Pipeline changes: smoke-path verification plus targeted tests
@@ -46,6 +47,7 @@ Update docs when:
 Add or update tests when:
 
 - route behavior changes
+- Studio/player interaction behavior changes (mode toggles, navigation, quiz behavior, fallback rendering)
 - path validation changes
 - intelligence policy behavior changes
 - authoring preference resolution or deviation-gate behavior changes

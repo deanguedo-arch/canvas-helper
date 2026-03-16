@@ -1,0 +1,32 @@
+{
+  "$schema": "../../../e2e/project-e2e-contract.schema.json",
+  "projectSlug": "forensics",
+  "requiredTestIds": [
+    "studio-shell",
+    "course-studio-tab",
+    "workspace-project-select",
+    "project-root",
+    "workspace-preview-frame"
+  ],
+  "modes": {
+    "enabled": true,
+    "toggleRoleName": "Show archive",
+    "learnerIndicator": "Learner mode",
+    "archiveIndicator": "Archive mode"
+  },
+  "navigation": {
+    "enabled": true,
+    "nextRoleName": "Next",
+    "previousRoleName": "Previous",
+    "nodeCounterPattern": "Node\\s+\\d+\\s+of\\s+\\d+"
+  },
+  "quiz": {
+    "enabled": true,
+    "lessonTitle": "M2 Types of Evidence and Fingerprint Analysis Assessment",
+    "progressPattern": "answered",
+    "checkAnswerRoleName": "Check answer"
+  },
+  "fallbackPanel": {
+    "enabled": false
+  }
+}

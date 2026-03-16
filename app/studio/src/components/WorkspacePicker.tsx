@@ -23,7 +23,12 @@ export function WorkspacePicker({
     <div className="reference-picker workspace-picker">
       <label className="mini-field">
         <span>Project</span>
-        <select className="mini-select" value={selectedSlug} onChange={(event) => onProjectChange(event.target.value)}>
+        <select
+          className="mini-select"
+          value={selectedSlug}
+          onChange={(event) => onProjectChange(event.target.value)}
+          data-testid="workspace-project-select"
+        >
           {projects.map((project) => (
             <option key={project.manifest.id} value={project.manifest.slug}>
               {project.manifest.slug}
@@ -41,7 +46,12 @@ export function WorkspacePicker({
 
       <label className="mini-field mini-field-wide">
         <span>HTML</span>
-        <select className="mini-select" value={resolvedWorkspaceHtmlPath} onChange={(event) => onHtmlChange(event.target.value)}>
+        <select
+          className="mini-select"
+          value={resolvedWorkspaceHtmlPath}
+          onChange={(event) => onHtmlChange(event.target.value)}
+          data-testid="workspace-html-select"
+        >
           {workspaceFileOptions.length ? (
             workspaceFileOptions.map((file) => (
               <option key={file} value={file}>
@@ -54,7 +64,12 @@ export function WorkspacePicker({
         </select>
       </label>
 
-      <button className="ghost-button compact picker-refresh" type="button" onClick={onRefresh}>
+      <button
+        className="ghost-button compact picker-refresh"
+        type="button"
+        onClick={onRefresh}
+        data-testid="workspace-refresh-button"
+      >
         Refresh
       </button>
     </div>

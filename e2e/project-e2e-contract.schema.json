@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "canvas-helper/e2e/project-contract.schema.json",
+  "title": "Canvas Helper Project E2E Contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["projectSlug"],
+  "properties": {
+    "projectSlug": { "type": "string", "minLength": 1 },
+    "requiredTestIds": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "modes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["enabled"],
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "toggleRoleName": { "type": "string" },
+        "learnerIndicator": { "type": "string" },
+        "archiveIndicator": { "type": "string" }
+      }
+    },
+    "navigation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["enabled"],
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "nextRoleName": { "type": "string" },
+        "previousRoleName": { "type": "string" },
+        "nodeCounterPattern": { "type": "string" }
+      }
+    },
+    "quiz": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["enabled", "lessonTitle"],
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "lessonTitle": { "type": "string" },
+        "answerChoiceLabel": { "type": "string" },
+        "progressPattern": { "type": "string" },
+        "checkAnswerRoleName": { "type": "string" }
+      }
+    },
+    "fallbackPanel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["enabled"],
+      "properties": {
+        "enabled": { "type": "boolean" }
+      }
+    }
+  }
+}

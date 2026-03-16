@@ -60,7 +60,7 @@ export function PreviewPane({
   const shouldUseResourceFallback = Boolean(resourcePreview && resourceRenderMode === "fallback");
 
   return (
-    <article key={mode} className="preview-pane">
+    <article key={mode} className="preview-pane" data-testid={`${mode}-preview-pane`}>
       <div className="preview-pane-header">
         <h3>{title}</h3>
 
@@ -130,7 +130,7 @@ export function PreviewPane({
         {shouldUseResourceFallback && resourcePreview ? (
           <div className="preview-canvas-shell" data-preview-shell={mode}>
             <div className={`preview-canvas preview-canvas-${layoutPreferences.devices[mode]}`} style={previewCanvasStyle}>
-              <div className="resource-fallback">
+              <div className="resource-fallback" data-testid="fallback-panel" data-fallback-mode={mode}>
                 <h4>Inline preview unavailable</h4>
                 <p>
                   {resourcePreview.resourcePath
@@ -163,7 +163,7 @@ export function PreviewPane({
                 type="application/pdf"
                 aria-label={`${resourcePreview.resourcePath} preview`}
               >
-                <div className="resource-fallback">
+                <div className="resource-fallback" data-testid="fallback-panel" data-fallback-mode={mode}>
                   <h4>Inline PDF preview unavailable</h4>
                   <p>
                     {resourcePreview.resourcePath
@@ -196,6 +196,7 @@ export function PreviewPane({
                 className={layoutPreferences.compareMode || previewMode === mode ? "preview-frame" : "preview-frame is-hidden"}
                 src={previewSrc}
                 title={`${mode} preview`}
+                data-testid={`${mode}-preview-frame`}
                 sandbox="allow-same-origin allow-scripts allow-forms allow-modals allow-popups allow-downloads"
                 aria-hidden={!layoutPreferences.compareMode && previewMode !== mode}
                 onLoad={() => onPreviewLoad(mode)}

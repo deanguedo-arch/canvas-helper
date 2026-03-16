@@ -18,7 +18,7 @@ export function Topbar({
   onToggleInspector
 }: TopbarProps) {
   return (
-    <header className="topbar topbar-compact">
+    <header className="topbar topbar-compact" data-testid="studio-topbar">
       <div className="project-summary">
         <h2>Studio</h2>
         <p className="learner-mode-pill">Learner: {learnerMode}</p>
@@ -30,6 +30,7 @@ export function Topbar({
             type="button"
             className={layoutPreferences.compareMode ? "segmented-button" : "segmented-button active"}
             onClick={() => onSetCompareMode(false)}
+            data-testid="layout-focus-toggle"
           >
             Focus
           </button>
@@ -37,6 +38,7 @@ export function Topbar({
             type="button"
             className={layoutPreferences.compareMode ? "segmented-button active" : "segmented-button"}
             onClick={() => onSetCompareMode(true)}
+            data-testid="layout-split-toggle"
           >
             Split
           </button>
@@ -48,6 +50,7 @@ export function Topbar({
               type="button"
               className={previewMode === "reference" ? "segmented-button active" : "segmented-button"}
               onClick={() => onSetPreviewMode("reference")}
+              data-testid="preview-reference-toggle"
             >
               Ref
             </button>
@@ -55,6 +58,7 @@ export function Topbar({
               type="button"
               className={previewMode === "workspace" ? "segmented-button active" : "segmented-button"}
               onClick={() => onSetPreviewMode("workspace")}
+              data-testid="preview-workspace-toggle"
             >
               Workspace
             </button>
@@ -65,6 +69,7 @@ export function Topbar({
           type="button"
           className={layoutPreferences.inspectorOpen ? "ghost-button compact" : "ghost-button compact active-toggle"}
           onClick={onToggleInspector}
+          data-testid="inspector-toggle"
         >
           {layoutPreferences.inspectorOpen ? "Hide Details" : "Details"}
         </button>

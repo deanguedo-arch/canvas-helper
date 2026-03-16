@@ -6,3 +6,9 @@
 - Read projects/<slug>/meta/prompt-pack.md before broad repo scans.
 - Prefer .runtime/pattern-bank matches before digging into raw references.
 - Provide final output in the format required by AGENTS.md.
+- If a task changes Studio/player interaction behavior, run the required E2E command before final output.
+- Prefer `npm run test:e2e:project -- --project <slug>` for project-specific UI work.
+- Prefer `npm run test:e2e:smoke` for shared platform UI changes.
+- If selectors needed by tests are unstable or missing, add or update stable `data-testid` hooks.
+- If project behavior changed, update `projects/<slug>/meta/e2e-contract.json`.
+- Do not run E2E for unrelated non-UI tasks unless explicitly required.

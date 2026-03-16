@@ -54,6 +54,7 @@ flowchart LR
 - location: `app/studio/`
 - responsibility: UI state, controls, preview composition, command output display
 - not responsible for: filesystem access, route logic, path validation, or direct command spawning
+- shared e2e selectors (`data-testid`) for core Studio interactions live here
 
 ### Local Server
 
@@ -155,6 +156,27 @@ This layer sits above observational intelligence and below project converters:
 - prompt-pack generation
 - memory ledger and pattern-bank collection
 - benchmark registry and recipe-driven generation selection
+- Playwright-based Studio e2e automation with contract-driven project checks
+
+## E2E Automation Layer
+
+Browser automation is implemented as a small platform layer under `e2e/`:
+
+- `e2e/playwright.config.ts`: shared runner and local Studio web-server boot
+- `e2e/specs/core-project-contract.spec.ts`: reusable core checks
+- `e2e/lib/load-project-contract.ts`: contract loading/validation
+- `e2e/lib/project-open.ts`: common Studio project-open flow
+
+Project-specific expectations are declarative:
+
+- `projects/<slug>/meta/e2e-contract.json`
+
+Contract files define which checks are enabled for that project (mode toggles, navigation, quiz behaviors, fallback expectations) so coverage depth can vary by project without bespoke test sprawl.
+
+Default command paths:
+
+- platform smoke: `npm run test:e2e:smoke`
+- project contract gate: `npm run test:e2e:project -- --project <slug>`
 
 ### Policy-Controlled
 
