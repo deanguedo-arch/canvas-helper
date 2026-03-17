@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-03-15T12:23:17.847Z",
+  "generatedAt": "2026-03-17T21:13:00.868Z",
   "entries": [
     {
       "kind": "component",
@@ -7429,11 +7429,17 @@
           "source": "design-doc",
           "command": "plan",
           "observedAt": "2026-03-14T13:26:58.733Z"
+        },
+        {
+          "id": "decision:design-doc:2026-03-14-practice-engine-roadmap-design:5c64369b6a00",
+          "source": "design-doc",
+          "command": "plan",
+          "observedAt": "2026-03-17T21:12:45.499Z"
         }
       ],
       "projectSlugs": [],
-      "reinforcementCount": 1,
-      "lastSeenAt": "2026-03-14T13:26:58.733Z",
+      "reinforcementCount": 2,
+      "lastSeenAt": "2026-03-17T21:12:45.499Z",
       "confidence": "high",
       "approved": true
     },
@@ -9361,6 +9367,48 @@
       "reinforcementCount": 3,
       "lastSeenAt": "2026-03-14T13:27:13.540Z",
       "confidence": "high",
+      "approved": true
+    },
+    {
+      "kind": "resource",
+      "key": "resource:forensics35",
+      "summary": "Reference and resource profile from forensics35",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [],
+        "referenceKinds": [
+          "docx",
+          "html",
+          "image",
+          "other",
+          "pdf"
+        ]
+      },
+      "origins": [
+        {
+          "id": "resource:reference:forensics35:import:2026-03-17T21:12:45.499Z:resource",
+          "projectSlug": "forensics35",
+          "source": "reference",
+          "command": "import",
+          "observedAt": "2026-03-17T21:12:45.499Z"
+        },
+        {
+          "id": "resource:reference:forensics35:plan:2026-03-17T21:13:00.868Z:resource",
+          "projectSlug": "forensics35",
+          "source": "reference",
+          "command": "plan",
+          "observedAt": "2026-03-17T21:13:00.868Z"
+        }
+      ],
+      "projectSlugs": [
+        "forensics35"
+      ],
+      "reinforcementCount": 2,
+      "lastSeenAt": "2026-03-17T21:13:00.868Z",
+      "confidence": "medium",
       "approved": true
     },
     {
@@ -18464,6 +18512,45 @@
       "reinforcementCount": 3,
       "lastSeenAt": "2026-03-14T13:27:13.540Z",
       "confidence": "high",
+      "approved": true
+    },
+    {
+      "kind": "tool",
+      "key": "tool:forensics35",
+      "summary": "Runtime and tool choices from forensics35",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [
+          "https://eips.brightspace.com//content/enforced/16663-20-21_S1_ForensicStudies35_Per1(A",
+          "https://eips.brightspace.com//content/enforced/16663-20-21_S1_ForensicStudies35_Per1(A)_Sec/stop-emoticon.jpg?_&amp;d2lSessionVal=cnyUdyos4v2jatdhc8LWT61aC&amp;ou=16663"
+        ],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "tool:pattern:forensics35:import:2026-03-17T21:12:45.499Z:tool",
+          "projectSlug": "forensics35",
+          "source": "pattern",
+          "command": "import",
+          "observedAt": "2026-03-17T21:12:45.499Z"
+        },
+        {
+          "id": "tool:pattern:forensics35:plan:2026-03-17T21:13:00.868Z:tool",
+          "projectSlug": "forensics35",
+          "source": "pattern",
+          "command": "plan",
+          "observedAt": "2026-03-17T21:13:00.868Z"
+        }
+      ],
+      "projectSlugs": [
+        "forensics35"
+      ],
+      "reinforcementCount": 2,
+      "lastSeenAt": "2026-03-17T21:13:00.868Z",
+      "confidence": "medium",
       "approved": true
     },
     {

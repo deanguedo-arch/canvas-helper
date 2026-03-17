@@ -1,0 +1,715 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/profile/cc/ccv1p3/ccv1p3_qtiasiv1p2p1_v1p0.xsd">
+  <assessment ident="i30abf090-846e-4557-b2d6-820c3053a14e" title="D. Crime Case Studies Involving Arson and Explosives">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>cc_profile</fieldlabel>
+        <fieldentry>cc.exam.v0p1</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_assessmenttype</fieldlabel>
+        <fieldentry>Examination</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>3</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_timelimit</fieldlabel>
+        <fieldentry>120</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    <section ident="i33ab8c82-d7a9-4545-a402-0ffee19c263f">
+      <item ident="icdf8e1b2-1ac7-4568-a785-fa1dabd8e91f">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Five firefighters died in the Esperanza Fire trying to save a&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="ibc5160af-b315-41db-8ea1-700cf3081737" rcardinality="Single">
+            <render_choice>
+              <response_label ident="id140da2a-b400-46fc-b6a6-2ee202918adb">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;vacant, partially built home&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ia5ffde69-2311-4e35-b7cb-3a31fb229c5b">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;house containing a family of four&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i8678359f-d133-44b0-af1e-1afa55737505">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;animal facility containing numerous dogs&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i10207545-d8a2-42b9-92c1-5210a23c0f39">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;gas station containing explosive hydrocarbons&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ibc5160af-b315-41db-8ea1-700cf3081737">id140da2a-b400-46fc-b6a6-2ee202918adb</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ibc5160af-b315-41db-8ea1-700cf3081737">ia5ffde69-2311-4e35-b7cb-3a31fb229c5b</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ibc5160af-b315-41db-8ea1-700cf3081737">i8678359f-d133-44b0-af1e-1afa55737505</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ibc5160af-b315-41db-8ea1-700cf3081737">i10207545-d8a2-42b9-92c1-5210a23c0f39</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i5a697a25-5b93-4307-a1c1-58cd9144dc37">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;What occurred after Raymond Lee Oyler was arrested?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="icacb5a00-11df-4f91-81f5-bbadfe3e7ed6" rcardinality="Single">
+            <render_choice>
+              <response_label ident="ie249dc24-2373-4b64-bbd0-406c7d6c779a">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Oyler confessed to setting the Esperanza Fire.&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i903c18e6-f023-46ea-80c9-3262a69d94b4">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Oyler's fi ngerprints were found at the Old Fire site.&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i1a5c4e6c-0ba7-4085-8e59-54815201ed00">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;No new arson fi res occurred in the area near Oyler's home.&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ibb8e2001-66f3-45b8-a32e-6dcea46b7713">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Several new arson fi res occurred in the area near Olyler's home.&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="icacb5a00-11df-4f91-81f5-bbadfe3e7ed6">ie249dc24-2373-4b64-bbd0-406c7d6c779a</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="icacb5a00-11df-4f91-81f5-bbadfe3e7ed6">i903c18e6-f023-46ea-80c9-3262a69d94b4</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="icacb5a00-11df-4f91-81f5-bbadfe3e7ed6">i1a5c4e6c-0ba7-4085-8e59-54815201ed00</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="icacb5a00-11df-4f91-81f5-bbadfe3e7ed6">ibb8e2001-66f3-45b8-a32e-6dcea46b7713</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i5f34ad56-f479-4a4a-8bb9-2b71dda40fd2">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Serial arsonists are often predictable in that they tend to&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i8f88c89c-5008-4c77-a629-ad9c50b8e19d" rcardinality="Single">
+            <render_choice>
+              <response_label ident="ic1ba5bbf-ea65-4e7b-97bb-4b5137a35f46">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;create the same type of diversion&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ibb1089d2-37f9-4b86-baee-3fddb2268c23">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;use the same type of getaway vehicle&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i6b5b22c8-1b62-43cc-87c0-81c327427f9e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;start their fires at the same time of day&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ic14d8517-9231-46fe-8944-a43fe4b0bfd3">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;use the same type of incendiary device&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i8f88c89c-5008-4c77-a629-ad9c50b8e19d">ic1ba5bbf-ea65-4e7b-97bb-4b5137a35f46</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i8f88c89c-5008-4c77-a629-ad9c50b8e19d">ibb1089d2-37f9-4b86-baee-3fddb2268c23</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i8f88c89c-5008-4c77-a629-ad9c50b8e19d">i6b5b22c8-1b62-43cc-87c0-81c327427f9e</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i8f88c89c-5008-4c77-a629-ad9c50b8e19d">ic14d8517-9231-46fe-8944-a43fe4b0bfd3</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i4746ae1c-c47d-41ed-a29b-24852752a592">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Which of the following types of incendiary devices caused the Old Fire and the Esperanza Fire?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i01b16ba4-ab11-4f9a-9ea7-6a5eda166086" rcardinality="Single">
+            <render_choice>
+              <response_label ident="ic8d65d0e-d3cf-4dbd-90be-bb0dd41c3c12">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Jar filled with liquid fertilizer&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i74a77df9-a36a-45f8-8468-a89fc3876aaa">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Wine bottle filled with kerosene&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="iec779876-c9ae-4bef-a890-87bfa1b997e9">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Matches wrapped around a cigarette&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="icb6424c8-0ad0-4ccf-9f92-ecd53b869847">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Box containing two sticks of dynamite&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i01b16ba4-ab11-4f9a-9ea7-6a5eda166086">ic8d65d0e-d3cf-4dbd-90be-bb0dd41c3c12</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i01b16ba4-ab11-4f9a-9ea7-6a5eda166086">i74a77df9-a36a-45f8-8468-a89fc3876aaa</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i01b16ba4-ab11-4f9a-9ea7-6a5eda166086">iec779876-c9ae-4bef-a890-87bfa1b997e9</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i01b16ba4-ab11-4f9a-9ea7-6a5eda166086">icb6424c8-0ad0-4ccf-9f92-ecd53b869847</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i8d6d8e76-8f3a-4939-a8c1-ddcc911e4b34">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Which of the following types of evidence linked Raymond Lee Oyler directly to two of his arson fires?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i891a4ca5-b7a4-4454-a172-ce862c11898a" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i2563c52b-2283-409d-9beb-40d904e6eef6">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;DNA&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i6842c57f-d045-4b93-b152-6dc33796a610">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Footprints&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i4d2e4c83-3604-49b7-83a0-83a0a83712ae">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Fingerprints&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i79bf5b65-0414-4fa5-913d-b9909755d37f">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Inorganic fibres&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i891a4ca5-b7a4-4454-a172-ce862c11898a">i2563c52b-2283-409d-9beb-40d904e6eef6</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i891a4ca5-b7a4-4454-a172-ce862c11898a">i6842c57f-d045-4b93-b152-6dc33796a610</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i891a4ca5-b7a4-4454-a172-ce862c11898a">i4d2e4c83-3604-49b7-83a0-83a0a83712ae</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i891a4ca5-b7a4-4454-a172-ce862c11898a">i79bf5b65-0414-4fa5-913d-b9909755d37f</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i667ebbc3-41ba-4417-9a96-134ae07c0701">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Many children died in the Oklahoma City Bombing because the bomb was placed&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="ia80fd7e7-3eec-48f0-b815-c5bb6fe19f27" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i7a544326-74d0-44d0-8fdd-8bc79c9325d9">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;near a playground&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i7a00c31c-fd1b-465a-9f02-7c2825e45a86">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;beside a school bus&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i82a30e54-fa54-42cb-abfd-120b1bf45331">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;close to a play school&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ib146335d-d30a-4ec3-9d78-0a87a8047d04">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;under a daycare centre&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ia80fd7e7-3eec-48f0-b815-c5bb6fe19f27">i7a544326-74d0-44d0-8fdd-8bc79c9325d9</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ia80fd7e7-3eec-48f0-b815-c5bb6fe19f27">i7a00c31c-fd1b-465a-9f02-7c2825e45a86</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ia80fd7e7-3eec-48f0-b815-c5bb6fe19f27">i82a30e54-fa54-42cb-abfd-120b1bf45331</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ia80fd7e7-3eec-48f0-b815-c5bb6fe19f27">ib146335d-d30a-4ec3-9d78-0a87a8047d04</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i89eb592e-4399-4e1e-ba3c-ac16d6f1c6e3">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;The explosive device used in the Oklahoma City Bombing was hidden in a&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="if7499837-1e56-4308-bfc0-94fe96fe3a82" rcardinality="Single">
+            <render_choice>
+              <response_label ident="ife30ff9d-73b2-46e8-892e-02f892732884">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&amp;#160;stolen car&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ib2ba0410-fb47-42b6-905b-701dce1d977a">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;parcel box&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i63813687-202e-49b1-b444-6bb3475c8709">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;rental truck&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i4cf0798b-b0e8-41c0-abfd-0fb7fead16d6">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;plastic bucket&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if7499837-1e56-4308-bfc0-94fe96fe3a82">ife30ff9d-73b2-46e8-892e-02f892732884</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if7499837-1e56-4308-bfc0-94fe96fe3a82">ib2ba0410-fb47-42b6-905b-701dce1d977a</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="if7499837-1e56-4308-bfc0-94fe96fe3a82">i63813687-202e-49b1-b444-6bb3475c8709</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if7499837-1e56-4308-bfc0-94fe96fe3a82">i4cf0798b-b0e8-41c0-abfd-0fb7fead16d6</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i359ce150-1c11-4269-8876-e39ac9195196">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Which compound in the bomb created by Timothy McVeigh and Terry Nichols serve as the oxidizing agent?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="ied3b60cc-d72e-4102-8775-8d8414f4ef51" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i489f6f21-d9ae-4acb-852c-ee989eab8d26">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Tovex&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i2f9614ba-4b60-473a-97f0-2e5fe27fbffb">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;TNT&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i31a1229f-9a47-4bde-a02c-7b7a1ad854dd">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Nitromethane&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ib8550d63-8263-48aa-bd53-0cc65e643063">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Ammonium nitrate&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ied3b60cc-d72e-4102-8775-8d8414f4ef51">i489f6f21-d9ae-4acb-852c-ee989eab8d26</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ied3b60cc-d72e-4102-8775-8d8414f4ef51">i2f9614ba-4b60-473a-97f0-2e5fe27fbffb</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ied3b60cc-d72e-4102-8775-8d8414f4ef51">i31a1229f-9a47-4bde-a02c-7b7a1ad854dd</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ied3b60cc-d72e-4102-8775-8d8414f4ef51">ib8550d63-8263-48aa-bd53-0cc65e643063</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ib3876ba1-8d38-424e-b3e3-d8418e5d18b6">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Why was Timothy McVeigh arrested so soon after the bombing?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="iae24b373-66a0-41e0-a238-781647f8e1da" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i015c6731-03ca-4dae-9ffa-1314cdb517bf">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;He stole a car.&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i3992810e-0815-4e30-8374-f574ff940955">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;He turned himself in.&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i06ef0f6d-ae76-4acf-a25a-84e5ff204ac9">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;His car had no licence plate.&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i123c3438-3947-42fc-8735-d96ae0218670">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;The rental car agency phoned police.&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="iae24b373-66a0-41e0-a238-781647f8e1da">i015c6731-03ca-4dae-9ffa-1314cdb517bf</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="iae24b373-66a0-41e0-a238-781647f8e1da">i3992810e-0815-4e30-8374-f574ff940955</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="iae24b373-66a0-41e0-a238-781647f8e1da">i06ef0f6d-ae76-4acf-a25a-84e5ff204ac9</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="iae24b373-66a0-41e0-a238-781647f8e1da">i123c3438-3947-42fc-8735-d96ae0218670</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ibcca187c-7774-4ca6-97e8-0c99def4f866">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;If the detonation device devised by Timothy McVeigh failed, he intended to&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="if90ded31-f3a4-4a08-8365-8457bb9f1e64" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i94948f67-9f49-4dc4-a71a-83438ac633e0">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;commit suicide&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i3308ef75-d212-4d8e-9712-5d43d2628244">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;turn himself in to police&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ie877336e-5b38-4d5e-a782-c0b7b90fc830">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;trigger a second time-delay detonator&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i3ce53372-e614-46f3-b768-add42f1f8b37">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;ignite extra explosives with a handgun&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if90ded31-f3a4-4a08-8365-8457bb9f1e64">i94948f67-9f49-4dc4-a71a-83438ac633e0</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if90ded31-f3a4-4a08-8365-8457bb9f1e64">i3308ef75-d212-4d8e-9712-5d43d2628244</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if90ded31-f3a4-4a08-8365-8457bb9f1e64">ie877336e-5b38-4d5e-a782-c0b7b90fc830</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="if90ded31-f3a4-4a08-8365-8457bb9f1e64">i3ce53372-e614-46f3-b768-add42f1f8b37</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+    </section>
+  </assessment>
+</questestinterop>

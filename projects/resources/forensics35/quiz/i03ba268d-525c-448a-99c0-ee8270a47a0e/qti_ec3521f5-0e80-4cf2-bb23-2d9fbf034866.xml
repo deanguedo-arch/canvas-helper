@@ -1,0 +1,854 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/profile/cc/ccv1p3/ccv1p3_qtiasiv1p2p1_v1p0.xsd">
+  <assessment ident="id8f7adef-465f-4ec8-86fb-5bc7ce45b356" title="D. Crime Case Studies Involving Forensic Anthropology and Forensic Entomology">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>cc_profile</fieldlabel>
+        <fieldentry>cc.exam.v0p1</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_assessmenttype</fieldlabel>
+        <fieldentry>Examination</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>3</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_timelimit</fieldlabel>
+        <fieldentry>120</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    <section ident="i387c7430-9264-45d7-bcbf-32fb8ecbcc3b">
+      <item ident="i0ec1300f-f96d-4a03-ae8b-04538448e15f">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;The faces of the victims were damaged by rifle butts. The type of trauma that this would have caused to the skull of each victim is&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i77a22dde-e90f-4f28-87cd-a37cd231b8b1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="ib8b991a0-a697-47f4-9fe4-7c0dd1acae5d">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;projectile trauma&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i69dcc4ba-c40d-477b-90c5-c6c438f44dd5">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;blunt force trauma&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ia52a244c-11c2-40e4-ad8c-0705e8cde86b">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;sharp force trauma&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i8b166d51-c2ad-4261-ba11-d7af36ee44a4">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;strangulation trauma&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i77a22dde-e90f-4f28-87cd-a37cd231b8b1">ib8b991a0-a697-47f4-9fe4-7c0dd1acae5d</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i77a22dde-e90f-4f28-87cd-a37cd231b8b1">i69dcc4ba-c40d-477b-90c5-c6c438f44dd5</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i77a22dde-e90f-4f28-87cd-a37cd231b8b1">ia52a244c-11c2-40e4-ad8c-0705e8cde86b</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i77a22dde-e90f-4f28-87cd-a37cd231b8b1">i8b166d51-c2ad-4261-ba11-d7af36ee44a4</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="id41432ea-535f-41ba-abf9-890d3c285828">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Which of the following rows identifies the types of trauma caused by both the bullet and the bayonet wounds that each victim suffered?&lt;/p&gt;
+&lt;p&gt;&lt;img src="PastedImage_o8k0z4vqkq63o3wcynr7lmg9siemit7r0014934821.png" style="max-width: 100%;"/&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="iddad7f95-fe5d-4b3b-8117-ba4c25d4dc25" rcardinality="Single">
+            <render_choice>
+              <response_label ident="ib95b8eee-a46a-42fd-bee9-d108c0a79fba">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;A&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i4f6c9c9e-24e8-4634-a981-cd2a706aa34b">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;B&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i8c0eea26-00f8-4351-8e22-0c05d27f3a1d">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;C&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ic88d7941-64fe-4d93-af6f-92372715ad94">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;D&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="iddad7f95-fe5d-4b3b-8117-ba4c25d4dc25">ib95b8eee-a46a-42fd-bee9-d108c0a79fba</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="iddad7f95-fe5d-4b3b-8117-ba4c25d4dc25">i4f6c9c9e-24e8-4634-a981-cd2a706aa34b</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="iddad7f95-fe5d-4b3b-8117-ba4c25d4dc25">i8c0eea26-00f8-4351-8e22-0c05d27f3a1d</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="iddad7f95-fe5d-4b3b-8117-ba4c25d4dc25">ic88d7941-64fe-4d93-af6f-92372715ad94</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i0edbb74e-2b03-4f4d-9a05-b7afe41597cf">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;What did DNA testing of the skeletal remains confirm?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i5b3d9830-de82-4af9-819c-fa8ff1868423" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i738a4cc8-f4a4-4228-8882-ca50ca3fcbaa">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Two skeletons belonging to the Romanov family were missing.&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="idd5ba53f-0393-43e5-8798-67908fbba7cf">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Three skeletons were male and six skeletons were female.&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i38b68eba-98a0-4261-8ed1-350c58e306a0">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Nine skeletons suffered from multiple bullet and bayonet wounds.&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ifd119051-9939-4c63-b4af-9e7a888ffa04">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Five skeletons were part of the same family and four skeletons were unrelated.&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5b3d9830-de82-4af9-819c-fa8ff1868423">i738a4cc8-f4a4-4228-8882-ca50ca3fcbaa</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5b3d9830-de82-4af9-819c-fa8ff1868423">idd5ba53f-0393-43e5-8798-67908fbba7cf</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5b3d9830-de82-4af9-819c-fa8ff1868423">i38b68eba-98a0-4261-8ed1-350c58e306a0</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i5b3d9830-de82-4af9-819c-fa8ff1868423">ifd119051-9939-4c63-b4af-9e7a888ffa04</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="if1b618ab-cc98-4c90-9f82-69a33301e80c">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Three parts of each skeleton that would have helped forensic anthropologists to determine the sex of the victim are the&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i7ed3b043-9bac-4293-998f-12a2ea4c2e72" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i31d418d0-5bba-4b4b-a87c-7c7777185c9b">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;femur, the pelvis, and the skull&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="if008f3d9-dbb8-4748-8627-a21eeab5ae68">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;hyoid, the ribs, and the upper arm&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ie4c2305d-7059-490a-945e-0acce266a6e0">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;head region, the trochanter, and the tubercle&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ie37fa1cf-b9f9-4fd9-80f0-0e835dfda4c9">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;interorbitals, the orbitals, and the nasal region&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i7ed3b043-9bac-4293-998f-12a2ea4c2e72">i31d418d0-5bba-4b4b-a87c-7c7777185c9b</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i7ed3b043-9bac-4293-998f-12a2ea4c2e72">if008f3d9-dbb8-4748-8627-a21eeab5ae68</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i7ed3b043-9bac-4293-998f-12a2ea4c2e72">ie4c2305d-7059-490a-945e-0acce266a6e0</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i7ed3b043-9bac-4293-998f-12a2ea4c2e72">ie37fa1cf-b9f9-4fd9-80f0-0e835dfda4c9</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i0354702a-3bd2-4041-af5d-e35864a41497">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;What types of trauma would have been evident on the skull of the victim?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="ia7197471-9ac4-4d5c-b107-d298a0113a7f" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i3231471b-5ddc-472b-a735-297ec18bbe07">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Sharp force trauma and projectile trauma&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i6f2458d9-e83c-483a-bbda-6fbf590789c4">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Blunt force trauma and sharp force trauma&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i9198eced-2bcb-40cb-b527-b4a4fabef42e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Projectile trauma and strangulation trauma&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i357be115-8871-47cb-83b1-bad13dd83fdb">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Strangulation trauma and blunt force trauma&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ia7197471-9ac4-4d5c-b107-d298a0113a7f">i3231471b-5ddc-472b-a735-297ec18bbe07</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ia7197471-9ac4-4d5c-b107-d298a0113a7f">i6f2458d9-e83c-483a-bbda-6fbf590789c4</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ia7197471-9ac4-4d5c-b107-d298a0113a7f">i9198eced-2bcb-40cb-b527-b4a4fabef42e</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ia7197471-9ac4-4d5c-b107-d298a0113a7f">i357be115-8871-47cb-83b1-bad13dd83fdb</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i931a31e2-c854-46da-b7df-ea6a90590e26">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Blowflies most likely would have laid their eggs in or near the victim's&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i00c09c4b-013c-4788-9e85-908740a8e6e0" rcardinality="Single">
+            <render_choice>
+              <response_label ident="ic02b3e15-3d61-405f-a858-13130e18797d">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;eyes and ears&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i47f22762-ac25-4493-8799-6c8ab6b12ca6">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;head and neck&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i2e425475-5ea9-433e-8965-c967eaa07aa7">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;hair and abdomen&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i69c8baf4-35c6-40a3-be6d-c159fc792500">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;chest and anogenital region&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i00c09c4b-013c-4788-9e85-908740a8e6e0">ic02b3e15-3d61-405f-a858-13130e18797d</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i00c09c4b-013c-4788-9e85-908740a8e6e0">i47f22762-ac25-4493-8799-6c8ab6b12ca6</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i00c09c4b-013c-4788-9e85-908740a8e6e0">i2e425475-5ea9-433e-8965-c967eaa07aa7</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i00c09c4b-013c-4788-9e85-908740a8e6e0">i69c8baf4-35c6-40a3-be6d-c159fc792500</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ia646d3b2-4fee-4b96-92d6-7b91ab5d6113">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;The insect evidence indicated that the victim had likely died on&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i5f4d9a99-6d7d-4325-987b-d27f4fea9e4d" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i78fce53d-9951-4a20-ae09-177a86d299bd">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;May 31st&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="iba8d76a7-7ed8-4f60-9ce4-ef13b53e167a">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;June 1st&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i554cb0a3-3c4d-4961-976c-34979e3ca6a6">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;June 3rd&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ib4f00222-10db-4970-899d-aa519d21fabc">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;June 4th&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i5f4d9a99-6d7d-4325-987b-d27f4fea9e4d">i78fce53d-9951-4a20-ae09-177a86d299bd</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5f4d9a99-6d7d-4325-987b-d27f4fea9e4d">iba8d76a7-7ed8-4f60-9ce4-ef13b53e167a</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5f4d9a99-6d7d-4325-987b-d27f4fea9e4d">i554cb0a3-3c4d-4961-976c-34979e3ca6a6</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5f4d9a99-6d7d-4325-987b-d27f4fea9e4d">ib4f00222-10db-4970-899d-aa519d21fabc</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i34dcac4b-b639-4e52-95f4-aa006903f86c">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;What type of insect evidence indicated that this victim had been dead for approximately 4 to 5 days?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i94a22f38-77a9-4c3f-9059-e4bab1a14d0e" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i297c56c2-b80a-4d71-9284-b4a0e38cab64">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Beetles&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i37ed9690-b558-4902-b833-6ec2a6983aa6">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Maggots&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i95b00b27-fae2-44a1-acba-d63766fd937f">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Blowfly eggs&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ieccf2a78-9312-4634-864f-1f334ad4373c">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Blowfly pupae&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i94a22f38-77a9-4c3f-9059-e4bab1a14d0e">i297c56c2-b80a-4d71-9284-b4a0e38cab64</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i94a22f38-77a9-4c3f-9059-e4bab1a14d0e">i37ed9690-b558-4902-b833-6ec2a6983aa6</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i94a22f38-77a9-4c3f-9059-e4bab1a14d0e">i95b00b27-fae2-44a1-acba-d63766fd937f</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i94a22f38-77a9-4c3f-9059-e4bab1a14d0e">ieccf2a78-9312-4634-864f-1f334ad4373c</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i8788af28-f001-4f99-b115-34ea71d0aaf7">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Which of the following groups of skeletal features indicate that the victim was a female?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="ia497a289-8b49-47b8-9d63-094d3dd107e3" rcardinality="Single">
+            <render_choice>
+              <response_label ident="if216d502-7fff-4902-9453-38fcea5e5861">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Forehead, ribs, and skull&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i51884b51-bc99-421e-8b0c-4df9d5e3efcb">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Nasal area, orbitals, and pelvis&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i4f5cb057-0e81-42a9-8e6a-b6591d4cf58f">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Teeth, pelvis, and supraorbital ridges&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ief5b4be9-edbe-4786-9a5f-a085ddcedf1e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Hyoid, lower arms, and anogenital region&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ia497a289-8b49-47b8-9d63-094d3dd107e3">if216d502-7fff-4902-9453-38fcea5e5861</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ia497a289-8b49-47b8-9d63-094d3dd107e3">i51884b51-bc99-421e-8b0c-4df9d5e3efcb</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ia497a289-8b49-47b8-9d63-094d3dd107e3">i4f5cb057-0e81-42a9-8e6a-b6591d4cf58f</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ia497a289-8b49-47b8-9d63-094d3dd107e3">ief5b4be9-edbe-4786-9a5f-a085ddcedf1e</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i3de30ca4-d26d-4055-9e49-af7e0c36dac3">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;The parry fractures observed in the lower arm bones indicate that the victim was&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i084bbd67-fe16-48a3-a3a3-8f43bd74353d" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i9510e25d-7011-4fcf-8a5d-315759bce0fa">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;injured as a child&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i93da9d6b-defe-4330-adfa-7ab047b641d1">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;sexually abused as a child&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i82a35b51-71d2-42c2-83be-708148b112bb">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;sexually abused as a child&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i6bc8d84a-2e18-403d-b73b-a7f85d7f5c50">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;trying to defend herself from her attacker&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i084bbd67-fe16-48a3-a3a3-8f43bd74353d">i9510e25d-7011-4fcf-8a5d-315759bce0fa</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i084bbd67-fe16-48a3-a3a3-8f43bd74353d">i93da9d6b-defe-4330-adfa-7ab047b641d1</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i084bbd67-fe16-48a3-a3a3-8f43bd74353d">i82a35b51-71d2-42c2-83be-708148b112bb</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i084bbd67-fe16-48a3-a3a3-8f43bd74353d">i6bc8d84a-2e18-403d-b73b-a7f85d7f5c50</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i49d62ef6-d071-47fb-8144-089bde350856">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;The fractures in the hyoid bone of the victim likely indicate that the victim was&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="ib35da15b-b872-46f9-b441-b6516352680d" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i4c706c25-1f69-4dd2-8423-e44836b1d185">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;stabbed&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i33024304-95c4-44f6-a981-04c8628f5bfb">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;strangled&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ia55c4607-180b-455b-afd7-7ad2c9598572">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;dismembered&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ib1de4938-6806-4dd5-a4ea-bf77bad7e73a">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;sexually assaulted&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ib35da15b-b872-46f9-b441-b6516352680d">i4c706c25-1f69-4dd2-8423-e44836b1d185</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ib35da15b-b872-46f9-b441-b6516352680d">i33024304-95c4-44f6-a981-04c8628f5bfb</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ib35da15b-b872-46f9-b441-b6516352680d">ia55c4607-180b-455b-afd7-7ad2c9598572</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ib35da15b-b872-46f9-b441-b6516352680d">ib1de4938-6806-4dd5-a4ea-bf77bad7e73a</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i426a4a98-b1b2-44da-8bb6-1835a25d5afd">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;The blowfly pupae membranes found in the anogenital area of the victim indicate that the victim was&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i989494b5-83a4-46de-825c-7e42a601627c" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i2ba2d63d-6b83-4d22-8f09-8c00a5a6fb57">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;stabbed&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i3ade2f91-8265-424a-b07f-6c639060caea">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;strangled&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ide31ef17-6afd-431a-bd1c-5cc5d0ec67b0">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;dismembered&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ia6e74ca3-1e76-4618-8d9d-57bc752315a7">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;sexually assaulted&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i989494b5-83a4-46de-825c-7e42a601627c">i2ba2d63d-6b83-4d22-8f09-8c00a5a6fb57</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i989494b5-83a4-46de-825c-7e42a601627c">i3ade2f91-8265-424a-b07f-6c639060caea</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i989494b5-83a4-46de-825c-7e42a601627c">ide31ef17-6afd-431a-bd1c-5cc5d0ec67b0</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i989494b5-83a4-46de-825c-7e42a601627c">ia6e74ca3-1e76-4618-8d9d-57bc752315a7</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+    </section>
+  </assessment>
+</questestinterop>

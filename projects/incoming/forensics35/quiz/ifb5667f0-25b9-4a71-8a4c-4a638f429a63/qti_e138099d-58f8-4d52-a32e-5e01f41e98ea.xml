@@ -1,0 +1,715 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/profile/cc/ccv1p3/ccv1p3_qtiasiv1p2p1_v1p0.xsd">
+  <assessment ident="ib65c2def-b747-46dd-ae35-c7cdc89b68ce" title="A. Determining Traumatic Injuries from Skeletal Remains">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>cc_profile</fieldlabel>
+        <fieldentry>cc.exam.v0p1</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_assessmenttype</fieldlabel>
+        <fieldentry>Examination</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>3</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_timelimit</fieldlabel>
+        <fieldentry>120</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    <section ident="if9d5b8ab-68a5-4467-a177-ebacbaf0c76b">
+      <item ident="i92ab7486-af35-4428-9bad-d7fe6dbff38f">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;When trying to determine the type of traumatic injury that has occurred, the most useful skeletal evidence is&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i1685ee93-a060-4683-b671-943aaf55a2a4" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i1e08be38-f2bb-4ea7-bd51-045eb65b59a5">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;fractures&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i6f4f4ef7-54e7-4199-bc59-4d10df6e162d">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;ridges&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i65584b6b-cb0f-4167-a6d7-342f5856a9ec">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;bone colouration&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="if8d66548-dc50-49c6-bb3b-6f706cbd6f88">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;bone density&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i1685ee93-a060-4683-b671-943aaf55a2a4">i1e08be38-f2bb-4ea7-bd51-045eb65b59a5</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i1685ee93-a060-4683-b671-943aaf55a2a4">i6f4f4ef7-54e7-4199-bc59-4d10df6e162d</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i1685ee93-a060-4683-b671-943aaf55a2a4">i65584b6b-cb0f-4167-a6d7-342f5856a9ec</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i1685ee93-a060-4683-b671-943aaf55a2a4">if8d66548-dc50-49c6-bb3b-6f706cbd6f88</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i1ef9fa2b-9767-41ce-a8cc-3ffb5efdd8c8">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;The type of bone fracture that occurs is dependent upon the&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i5f0015d5-b635-4e98-8e03-3fbfe922bf21" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i084ba9a2-92ad-4154-adff-894d6d1cbe34">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;race and height of the victim&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i35fff659-69db-4f51-8147-d96b7de578ab">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;age and weight of the victim&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i582891d5-d078-4b43-9f50-218f8bfbe38c">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;time at which force is applied&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i473762b2-d520-4aef-af2b-a216a0cb7e88">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;direction from which force is applied&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5f0015d5-b635-4e98-8e03-3fbfe922bf21">i084ba9a2-92ad-4154-adff-894d6d1cbe34</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5f0015d5-b635-4e98-8e03-3fbfe922bf21">i35fff659-69db-4f51-8147-d96b7de578ab</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5f0015d5-b635-4e98-8e03-3fbfe922bf21">i582891d5-d078-4b43-9f50-218f8bfbe38c</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i5f0015d5-b635-4e98-8e03-3fbfe922bf21">i473762b2-d520-4aef-af2b-a216a0cb7e88</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i84ab4a9f-c9de-427d-baca-3d6449e610b1">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;What is the most common type of force that causes traumatic injury?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="icd021b9b-9a17-4928-923b-6ca1acf715f0" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i3b570f10-861d-46ad-9f08-67f753c8c43b">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Tension&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i4bed26b2-88c1-40a5-a03e-8a473c799416">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Bending&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="id185e0e7-1e6d-4251-96fb-3b79a38799e9">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Shearing&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i965c01d8-eaaa-427b-90ed-6e73acaf1fe2">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Compression&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="icd021b9b-9a17-4928-923b-6ca1acf715f0">i3b570f10-861d-46ad-9f08-67f753c8c43b</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="icd021b9b-9a17-4928-923b-6ca1acf715f0">i4bed26b2-88c1-40a5-a03e-8a473c799416</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="icd021b9b-9a17-4928-923b-6ca1acf715f0">id185e0e7-1e6d-4251-96fb-3b79a38799e9</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="icd021b9b-9a17-4928-923b-6ca1acf715f0">i965c01d8-eaaa-427b-90ed-6e73acaf1fe2</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i92461bd6-8d81-48b8-9efd-67eea1eaed40">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;A force that pushes inward from the end of a bone and causes numerous fractures radiating from the point of impact is known as&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i902e3f12-b728-4209-bb8f-b275a8bdebed" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i286b8c0e-8923-49bc-9d4c-7859ed60ea9a">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;torsion&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="iad28259b-68d1-4116-856b-1aa397700efd">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;bending&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i9546c3ac-250a-44ff-a54f-dff11ac5fcf4">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;shearing&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i8df326c4-8ba0-4783-a003-eb25af7cd356">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;compression&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i902e3f12-b728-4209-bb8f-b275a8bdebed">i286b8c0e-8923-49bc-9d4c-7859ed60ea9a</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i902e3f12-b728-4209-bb8f-b275a8bdebed">iad28259b-68d1-4116-856b-1aa397700efd</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i902e3f12-b728-4209-bb8f-b275a8bdebed">i9546c3ac-250a-44ff-a54f-dff11ac5fcf4</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i902e3f12-b728-4209-bb8f-b275a8bdebed">i8df326c4-8ba0-4783-a003-eb25af7cd356</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i4ac2982d-bc8b-49c6-b086-41b71acd4914">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Often when a person holds out his or her arms in self-defence, he or she will suffer a&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="iaa269437-5f44-4acb-bf2d-eec868043612" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i1ba4f674-3a89-4e0d-9d74-6c7767b964be">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;parry fracture&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i05342ba2-7c0b-46de-b755-fd14f523aaca">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;bone displacement&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ie688a8c7-3b15-48cd-b5a3-ed2a2e58d54e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;shearing fracture&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ief5aa17b-9191-4258-af97-f37d340ac22c">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;bone dislocation&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="iaa269437-5f44-4acb-bf2d-eec868043612">i1ba4f674-3a89-4e0d-9d74-6c7767b964be</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="iaa269437-5f44-4acb-bf2d-eec868043612">i05342ba2-7c0b-46de-b755-fd14f523aaca</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="iaa269437-5f44-4acb-bf2d-eec868043612">ie688a8c7-3b15-48cd-b5a3-ed2a2e58d54e</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="iaa269437-5f44-4acb-bf2d-eec868043612">ief5aa17b-9191-4258-af97-f37d340ac22c</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i2e6b0bc3-ee44-4787-b0ac-198cf7ecac03">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;An injury caused by a blow from a large instrument with a flat or round surface is known as&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i3687498c-10fb-48ed-8ead-533165a2356a" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i92ab38b3-56b9-4311-b8fe-8114e65c48e0">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;projectile trauma&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i2ccc9528-76d4-45c3-9db8-4d5d22ff3f25">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;blunt force trauma&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i44336f1d-5852-46d9-a19d-637bade0f03c">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;sharp force trauma&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i2a415ff3-1beb-4403-9ce9-1b4f2877112c">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;strangulation trauma&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i3687498c-10fb-48ed-8ead-533165a2356a">i92ab38b3-56b9-4311-b8fe-8114e65c48e0</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i3687498c-10fb-48ed-8ead-533165a2356a">i2ccc9528-76d4-45c3-9db8-4d5d22ff3f25</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i3687498c-10fb-48ed-8ead-533165a2356a">i44336f1d-5852-46d9-a19d-637bade0f03c</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i3687498c-10fb-48ed-8ead-533165a2356a">i2a415ff3-1beb-4403-9ce9-1b4f2877112c</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ic5ff1c1b-3c62-4812-8c17-2bd1a2843630">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Which of the following observations describes the bone injury that is most often caused by projectile trauma?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i69ad0a68-ce4d-4e8e-9022-0425fb744217" rcardinality="Single">
+            <render_choice>
+              <response_label ident="ib2b1ad9e-7013-48b4-a87f-c4f63c3112ef">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Fractures over a large surface area&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i2ffe245d-5cae-435b-a0d7-9d0fc48b49bb">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Fractures over many different parts of the skeleton&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i3fb9ff77-7a7a-46c1-be88-f1925cc786f0">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Puncture wounds in bone with grazing cut marks from the point of impact&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i95432136-2411-45b9-9caa-8f0bc219df17">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Displacement of bone with radiating fracture lines from the point of impact&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i69ad0a68-ce4d-4e8e-9022-0425fb744217">ib2b1ad9e-7013-48b4-a87f-c4f63c3112ef</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i69ad0a68-ce4d-4e8e-9022-0425fb744217">i2ffe245d-5cae-435b-a0d7-9d0fc48b49bb</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i69ad0a68-ce4d-4e8e-9022-0425fb744217">i3fb9ff77-7a7a-46c1-be88-f1925cc786f0</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i69ad0a68-ce4d-4e8e-9022-0425fb744217">i95432136-2411-45b9-9caa-8f0bc219df17</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i5fb3679c-7c1c-44a1-a631-c98a514b86ac">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Which of the following objects is most likely to cause projectile trauma?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i9c281e65-684f-482c-b4a8-ae22aea930f2" rcardinality="Single">
+            <render_choice>
+              <response_label ident="ic3fec4e3-657c-4899-bb6d-9043492a8cba">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Brick&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i70a95622-608f-4039-9218-bc4f6a305aef">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Knife&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i962e4605-c6c7-4ab0-9784-bd815c400554">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Bullet&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i59c56842-17bf-4964-93ff-6638a8b4fe26">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Hammer&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i9c281e65-684f-482c-b4a8-ae22aea930f2">ic3fec4e3-657c-4899-bb6d-9043492a8cba</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i9c281e65-684f-482c-b4a8-ae22aea930f2">i70a95622-608f-4039-9218-bc4f6a305aef</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i9c281e65-684f-482c-b4a8-ae22aea930f2">i962e4605-c6c7-4ab0-9784-bd815c400554</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i9c281e65-684f-482c-b4a8-ae22aea930f2">i59c56842-17bf-4964-93ff-6638a8b4fe26</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i23efa282-0aa0-4cf5-8966-b0324915b873">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;What will appear in bone if the force during sharp force trauma is perpendicular?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i2e65a5cc-8fc2-44d6-98da-5df3b3b9bfa3" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i89ecb19b-c28c-4b31-a575-bb965bee7d2e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Parry fracture&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i8f9fc741-5a20-48b2-b275-de002ebc710d">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Puncture wound&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="id99925cf-81fd-48a0-b3d5-853e8f41c05e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Bone displacement&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i1a9ae007-67c0-4d83-a776-c791ba919316">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Comminuted fracture&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i2e65a5cc-8fc2-44d6-98da-5df3b3b9bfa3">i89ecb19b-c28c-4b31-a575-bb965bee7d2e</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i2e65a5cc-8fc2-44d6-98da-5df3b3b9bfa3">i8f9fc741-5a20-48b2-b275-de002ebc710d</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i2e65a5cc-8fc2-44d6-98da-5df3b3b9bfa3">id99925cf-81fd-48a0-b3d5-853e8f41c05e</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i2e65a5cc-8fc2-44d6-98da-5df3b3b9bfa3">i1a9ae007-67c0-4d83-a776-c791ba919316</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i070b7d92-2b41-4081-9729-0673d20dd6a8">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Which of the following bones is often fractured in victims of strangulation?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="ied16f8dc-42a4-43ac-832b-2ff75644248c" rcardinality="Single">
+            <render_choice>
+              <response_label ident="iaaf54470-132d-4cb2-b115-eed28009e441">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Jaw&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="if0ae0c68-7854-4acb-b9c9-a4b051d32109">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Skull&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="idd453aed-8754-4516-a5d2-b96c0e12837a">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Hyoid&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i5ba3598d-fef2-4ab4-b6af-9e0e8f6ebac7">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Femur&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ied16f8dc-42a4-43ac-832b-2ff75644248c">iaaf54470-132d-4cb2-b115-eed28009e441</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ied16f8dc-42a4-43ac-832b-2ff75644248c">if0ae0c68-7854-4acb-b9c9-a4b051d32109</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ied16f8dc-42a4-43ac-832b-2ff75644248c">idd453aed-8754-4516-a5d2-b96c0e12837a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ied16f8dc-42a4-43ac-832b-2ff75644248c">i5ba3598d-fef2-4ab4-b6af-9e0e8f6ebac7</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+    </section>
+  </assessment>
+</questestinterop>

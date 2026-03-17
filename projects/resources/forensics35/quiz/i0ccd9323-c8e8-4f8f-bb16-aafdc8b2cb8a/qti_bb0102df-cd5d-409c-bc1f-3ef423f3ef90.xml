@@ -1,0 +1,715 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/profile/cc/ccv1p3/ccv1p3_qtiasiv1p2p1_v1p0.xsd">
+  <assessment ident="ie6c7e08d-284e-4b6a-a19d-b83af4763ff0" title="C. Geographic Profiling">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>cc_profile</fieldlabel>
+        <fieldentry>cc.exam.v0p1</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_assessmenttype</fieldlabel>
+        <fieldentry>Examination</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>3</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_timelimit</fieldlabel>
+        <fieldentry>120</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    <section ident="i097e28b3-a7d3-4b99-a1db-7615d8ae09e3">
+      <item ident="if524ff3e-5229-4396-b9a5-a50e90928ae3">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Geographic profiling analyzes the locations of a related series of crimes to determine the&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i7455735c-c552-4130-bf93-a28ff2c4bfb8" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i12350666-9cfa-4ca7-9950-4d036411ded8">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;location that the offender will hit next&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i94dc8203-3235-4315-b2b6-b9c8fd28d79d">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;location that the offender hid his or her weapon&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ic9496cc7-7775-404b-aa35-41415e796c05">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;most likely location of an offender's family or place of birth&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ic77dc0d9-fb0a-4d25-a7fb-4b077a0c6797">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;most probable location of an offender's residence or place of work&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i7455735c-c552-4130-bf93-a28ff2c4bfb8">i12350666-9cfa-4ca7-9950-4d036411ded8</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i7455735c-c552-4130-bf93-a28ff2c4bfb8">i94dc8203-3235-4315-b2b6-b9c8fd28d79d</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i7455735c-c552-4130-bf93-a28ff2c4bfb8">ic9496cc7-7775-404b-aa35-41415e796c05</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i7455735c-c552-4130-bf93-a28ff2c4bfb8">ic77dc0d9-fb0a-4d25-a7fb-4b077a0c6797</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i86f15175-7093-4ebc-b359-e83db160f5ca">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Where did geographic profiling research originate?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="ic1302262-c252-44c8-9abd-7faa0b10d0e2" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i9963ebb8-eab0-402c-9ba8-753708ddc05a">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Britain&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i55438a83-287e-4e72-9166-2305d62690ea">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Ontario&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i3359f562-0fdb-453a-bb39-5ea0ca118b91">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Washington, DC&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i4d31ccaf-98a5-427c-ac6d-5ee2f5d7ce57">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;British Columbia&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ic1302262-c252-44c8-9abd-7faa0b10d0e2">i9963ebb8-eab0-402c-9ba8-753708ddc05a</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ic1302262-c252-44c8-9abd-7faa0b10d0e2">i55438a83-287e-4e72-9166-2305d62690ea</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ic1302262-c252-44c8-9abd-7faa0b10d0e2">i3359f562-0fdb-453a-bb39-5ea0ca118b91</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ic1302262-c252-44c8-9abd-7faa0b10d0e2">i4d31ccaf-98a5-427c-ac6d-5ee2f5d7ce57</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="if35b830f-a001-4592-b3be-0a69180e6345">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Offenders often maintain a buffer zone around their homes in which they&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i99f004b4-a207-45e4-a278-d51bb5b9f5f3" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i594ab932-0322-44fe-a158-95a1cb447085">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;lure and abduct their victims&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i9fe239ff-4a8b-477f-a13f-e7ed98f5c82c">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;choose and stalk their victims&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ieea4f2fc-13fc-471f-8090-509a541bc683">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;avoid committing crimes to protect their anonymity&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i9aab9232-a47b-43fd-b663-420277c1b84e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;spend little time at to prevent recognition by neighbours&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i99f004b4-a207-45e4-a278-d51bb5b9f5f3">i594ab932-0322-44fe-a158-95a1cb447085</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i99f004b4-a207-45e4-a278-d51bb5b9f5f3">i9fe239ff-4a8b-477f-a13f-e7ed98f5c82c</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i99f004b4-a207-45e4-a278-d51bb5b9f5f3">ieea4f2fc-13fc-471f-8090-509a541bc683</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i99f004b4-a207-45e4-a278-d51bb5b9f5f3">i9aab9232-a47b-43fd-b663-420277c1b84e</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i448c485d-8f3e-4fa1-94f0-207155ef85ce">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;According to the distance decay theory, most offenders are not interested in&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="ie5b47a8c-7d05-40fb-a42c-df24eb248bc6" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i267fd3c6-0d27-461a-b969-4508a0568ff4">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;travelling long distances to commit crimes&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i4fa4364c-1efd-4b65-9709-dd868bbab97f">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;venturing great distances to create an alibi&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i64bbfade-617a-44c4-bd04-54fbb2e3853e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;driving a short distance to lure their victims&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i6e7013e7-b7e0-403c-bfe1-10811a7d9070">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;committing crimes close to their places of work&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ie5b47a8c-7d05-40fb-a42c-df24eb248bc6">i267fd3c6-0d27-461a-b969-4508a0568ff4</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ie5b47a8c-7d05-40fb-a42c-df24eb248bc6">i4fa4364c-1efd-4b65-9709-dd868bbab97f</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ie5b47a8c-7d05-40fb-a42c-df24eb248bc6">i64bbfade-617a-44c4-bd04-54fbb2e3853e</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ie5b47a8c-7d05-40fb-a42c-df24eb248bc6">i6e7013e7-b7e0-403c-bfe1-10811a7d9070</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ia9d7cb94-a4f9-4416-b21e-1a9674aa7968">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;What was the profession of the person who developed the algorithm used in geographic profiling?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i0ee7e5d4-cd20-4940-83a3-c2097da62149" rcardinality="Single">
+            <render_choice>
+              <response_label ident="ia607c41d-0d7e-4b5d-a8bb-d14567739034">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Professor&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="id8f1e2d3-a24f-467f-827c-f63ded00aa16">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;FBI agent&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i6d02a52a-da26-4340-886f-277ab37cb79a">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Police officer&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i851a8b1e-f41a-4c57-b483-75cc22decb9d">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Mathematician&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i0ee7e5d4-cd20-4940-83a3-c2097da62149">ia607c41d-0d7e-4b5d-a8bb-d14567739034</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i0ee7e5d4-cd20-4940-83a3-c2097da62149">id8f1e2d3-a24f-467f-827c-f63ded00aa16</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i0ee7e5d4-cd20-4940-83a3-c2097da62149">i6d02a52a-da26-4340-886f-277ab37cb79a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i0ee7e5d4-cd20-4940-83a3-c2097da62149">i851a8b1e-f41a-4c57-b483-75cc22decb9d</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i451b1172-4dad-4158-8d34-a6857efbd6ba">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Criminal behaviour results from a decision-making process based on a balance between the&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="ic7bc514b-3f57-42bd-8945-79973c4b7628" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i095f995f-845a-45d3-b0d7-7c32fd7d3306">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;type of victim targeted and the absence of a guardian figure&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i894d4361-a880-440e-838a-60c0c9e1a39f">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;size of the buffer zone and the type of transportation available&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ia1767b01-83bd-4429-9254-21322465bdde">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;number of witnesses present and the amount of disposable cash available&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ie26d4fb1-b26b-4e39-8432-1098ddbf605a">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;probability of being caught and the amount of effort needed to commit crime&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ic7bc514b-3f57-42bd-8945-79973c4b7628">i095f995f-845a-45d3-b0d7-7c32fd7d3306</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ic7bc514b-3f57-42bd-8945-79973c4b7628">i894d4361-a880-440e-838a-60c0c9e1a39f</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ic7bc514b-3f57-42bd-8945-79973c4b7628">ia1767b01-83bd-4429-9254-21322465bdde</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ic7bc514b-3f57-42bd-8945-79973c4b7628">ie26d4fb1-b26b-4e39-8432-1098ddbf605a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i36c403ed-8d05-4ce8-b3e1-c80e6749eeb4">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;In terms of generating a geographic profile, an increase in suspect's criminal activity will often&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="id443d253-fbb7-4d6d-a70e-aad5ab93d6de" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i520f6317-d235-42ff-8017-ea6ab5b3c244">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;decrease the odds the suspect will be arrested&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="iafb3572e-963c-4ff5-b5b7-ec5a676a680e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;increase the likelihood of eyewitness sightings&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i0b8551fe-f3d9-48d4-a0dc-b398c9383d44">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;increase the chances the suspect will be apprehended&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i2bd60683-9a40-4b52-8d36-a04165debbd3">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;decrease the probability that several more murders will occur&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="id443d253-fbb7-4d6d-a70e-aad5ab93d6de">i520f6317-d235-42ff-8017-ea6ab5b3c244</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="id443d253-fbb7-4d6d-a70e-aad5ab93d6de">iafb3572e-963c-4ff5-b5b7-ec5a676a680e</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="id443d253-fbb7-4d6d-a70e-aad5ab93d6de">i0b8551fe-f3d9-48d4-a0dc-b398c9383d44</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="id443d253-fbb7-4d6d-a70e-aad5ab93d6de">i2bd60683-9a40-4b52-8d36-a04165debbd3</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i7aa6bb62-b26d-44e9-ba6c-409d38065194">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;What are the three principle elements for analyzing geographical patterns of criminals?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i8664b9fa-163c-4aef-b893-24dfb290a8e2" rcardinality="Single">
+            <render_choice>
+              <response_label ident="if541c407-d286-459d-a565-45163c55de60">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Barriers, roads, and transportation&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="iba1af65b-a8f9-4ab0-93b5-26c3dee92381">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Distance, mental map, and mobility&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="iad442c20-f58c-4114-b2fb-c5be6c952e45">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Buffer zone, hot spots, and jeopardy surface&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i4337da91-703f-4083-870c-7f399e1fe51e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Sex, cognitive abilities, and personal security&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i8664b9fa-163c-4aef-b893-24dfb290a8e2">if541c407-d286-459d-a565-45163c55de60</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i8664b9fa-163c-4aef-b893-24dfb290a8e2">iba1af65b-a8f9-4ab0-93b5-26c3dee92381</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i8664b9fa-163c-4aef-b893-24dfb290a8e2">iad442c20-f58c-4114-b2fb-c5be6c952e45</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i8664b9fa-163c-4aef-b893-24dfb290a8e2">i4337da91-703f-4083-870c-7f399e1fe51e</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i0f83c7e3-b5d0-472f-928f-bfccf68f2be5">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;In geographic profiling, "awareness spaces" are considered to be&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="ie49ec440-f100-44ca-9310-965b78e5f85f" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i05625d90-a192-4082-b0f8-bfaf9c20990e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;sites where vulnerable victims are abducted and attacked&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i8e2df942-735c-4f4e-ad21-cc5c120e3908">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;areas where a suspect's fragile mental state breaks down&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i4a5175f4-a810-4c37-91e2-639359095dd5">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;places where a suspect feels comfortable to seek out victims&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i4fcfee23-9a10-407b-a694-661edff257d3">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;locations where family members become aware of a suspect's behaviour&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ie49ec440-f100-44ca-9310-965b78e5f85f">i05625d90-a192-4082-b0f8-bfaf9c20990e</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ie49ec440-f100-44ca-9310-965b78e5f85f">i8e2df942-735c-4f4e-ad21-cc5c120e3908</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ie49ec440-f100-44ca-9310-965b78e5f85f">i4a5175f4-a810-4c37-91e2-639359095dd5</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ie49ec440-f100-44ca-9310-965b78e5f85f">i4fcfee23-9a10-407b-a694-661edff257d3</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ia0a7a7cd-9f52-4d23-b16e-939caa6c57f0">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Geographic profiling helps police investigators prioritize information in&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="ia163afcb-6364-4ba3-a181-83ec54593c61" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i165e29c2-3e02-408e-beb9-a122776ec338">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;serious investigators with one transient suspect&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i0113ffa1-a8ae-41a9-a371-1ef165e35ed8">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;serial crime investigations with no suspects available&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i0770968e-9e37-44b8-89c9-33c4a0d394c0">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;murder investigations where the suspect has a serious mental disorder&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i9de5455a-8cdb-4994-85cf-89e965b76a36">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;large-scale investigations where hundreds of tips or suspects are available&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ia163afcb-6364-4ba3-a181-83ec54593c61">i165e29c2-3e02-408e-beb9-a122776ec338</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ia163afcb-6364-4ba3-a181-83ec54593c61">i0113ffa1-a8ae-41a9-a371-1ef165e35ed8</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ia163afcb-6364-4ba3-a181-83ec54593c61">i0770968e-9e37-44b8-89c9-33c4a0d394c0</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ia163afcb-6364-4ba3-a181-83ec54593c61">i9de5455a-8cdb-4994-85cf-89e965b76a36</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+    </section>
+  </assessment>
+</questestinterop>

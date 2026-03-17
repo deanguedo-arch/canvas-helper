@@ -1,0 +1,715 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/profile/cc/ccv1p3/ccv1p3_qtiasiv1p2p1_v1p0.xsd">
+  <assessment ident="i5cd29d09-c2cf-47c1-9a8e-92522cbaa817" title="A. The Effects of Illegal Drugs Upon the Human Body Quiz">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>cc_profile</fieldlabel>
+        <fieldentry>cc.exam.v0p1</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_assessmenttype</fieldlabel>
+        <fieldentry>Examination</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>3</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_timelimit</fieldlabel>
+        <fieldentry>120</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    <section ident="i7f564e73-6656-4fbc-9d4f-53a00d4c9b92">
+      <item ident="i02297baa-603d-4641-8bd7-32ecb2cba14c">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Forensic toxicology helps solve crimes by detecting and identifying:&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i7cf256d0-f08a-4825-a6a4-c7728741b50c" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i91ef6c97-7b37-4083-9995-e5495dfaa39c">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;drugs and poisons&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i358d47f5-04e8-44dd-a9e6-2b0e070a30b0">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;pollutants and toxins&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i748b6d59-fba4-46ab-9d37-95325645c5eb">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;drugs and body fluids&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ie8d85397-23d5-4bfc-9d73-c0c0842568fd">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;pollutants and body fluids&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i7cf256d0-f08a-4825-a6a4-c7728741b50c">i91ef6c97-7b37-4083-9995-e5495dfaa39c</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i7cf256d0-f08a-4825-a6a4-c7728741b50c">i358d47f5-04e8-44dd-a9e6-2b0e070a30b0</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i7cf256d0-f08a-4825-a6a4-c7728741b50c">i748b6d59-fba4-46ab-9d37-95325645c5eb</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i7cf256d0-f08a-4825-a6a4-c7728741b50c">ie8d85397-23d5-4bfc-9d73-c0c0842568fd</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ib385875a-5334-49fd-a641-876aaec76bb1">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;The two general types of illegal psychoactive drugs are&amp;nbsp;&lt;span style="box-sizing: border-box; color: #2f6473; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: #def2f8; text-decoration: underline;"&gt;&amp;nbsp;&amp;nbsp;i&amp;nbsp;&amp;nbsp;&lt;/span&gt;&amp;nbsp;that can cause drowsiness and&amp;nbsp;&lt;span style="box-sizing: border-box; color: #2f6473; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: #def2f8; text-decoration: underline;"&gt;&amp;nbsp;&amp;nbsp;ii&amp;nbsp;&amp;nbsp;&lt;/span&gt;&amp;nbsp;that can cause hyperactivity.&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i7c36a054-0b37-47f8-9b0b-4e3219c173ff" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="if502b3c5-4bda-4e7e-b6d2-3d66fbc3109a">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span id="yui_3_17_2_1_1607378992456_165"&gt;&amp;nbsp;&lt;/span&gt;i: Poisons and ii: toxins&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i10c222a1-ee29-4d57-a3da-2b012f16564f">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;i: Narcotics and ii: opiates&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ie014916e-c013-480b-9012-4e491b3b81fb">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;i: Depressants and ii: stimulants&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ia0a79c23-e35c-4fee-bd9a-6fced29bc6e5">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;i: Barbiturates and ii: neurotransmitters&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i7c36a054-0b37-47f8-9b0b-4e3219c173ff">if502b3c5-4bda-4e7e-b6d2-3d66fbc3109a</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i7c36a054-0b37-47f8-9b0b-4e3219c173ff">i10c222a1-ee29-4d57-a3da-2b012f16564f</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i7c36a054-0b37-47f8-9b0b-4e3219c173ff">ie014916e-c013-480b-9012-4e491b3b81fb</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i7c36a054-0b37-47f8-9b0b-4e3219c173ff">ia0a79c23-e35c-4fee-bd9a-6fced29bc6e5</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i479a73af-9436-4322-99ee-a713763aa5c6">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Before a drug can have its desired effect, it must first be absorbed by the:&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i4b9f232a-fc80-4dd2-8fd4-b9b27017763d" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="idfd72694-df8a-4542-9ad0-ea4de376ef8a">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;liver&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i443f8dae-f479-44ea-a85d-48083388c672">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;nose&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="if12142f9-39fb-436b-be4d-c6162b3e5b84">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;blood&amp;nbsp;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ic7973701-62d6-4766-b9c6-ddbc40b13849">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;kidneys&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i4b9f232a-fc80-4dd2-8fd4-b9b27017763d">idfd72694-df8a-4542-9ad0-ea4de376ef8a</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i4b9f232a-fc80-4dd2-8fd4-b9b27017763d">i443f8dae-f479-44ea-a85d-48083388c672</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i4b9f232a-fc80-4dd2-8fd4-b9b27017763d">if12142f9-39fb-436b-be4d-c6162b3e5b84</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i4b9f232a-fc80-4dd2-8fd4-b9b27017763d">ic7973701-62d6-4766-b9c6-ddbc40b13849</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i4516fb36-5727-4dd3-95d2-a21e4c767c38">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Drugs are broken down either in the region they affect or in the:&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="ia96980ea-3a42-45ed-92df-411197890a74" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i786d4ad9-f29a-4fd3-b01e-892185aafe19">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;liver&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i758c018c-1943-4079-a25c-a1581f866888">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;brain&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ifa291e53-6cc2-4cb0-b372-08f16c3a2408">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;blood&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i01e67fe3-ebcb-4802-81db-f7ea2c6aa299">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;kidneys&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ia96980ea-3a42-45ed-92df-411197890a74">i786d4ad9-f29a-4fd3-b01e-892185aafe19</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ia96980ea-3a42-45ed-92df-411197890a74">i758c018c-1943-4079-a25c-a1581f866888</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ia96980ea-3a42-45ed-92df-411197890a74">ifa291e53-6cc2-4cb0-b372-08f16c3a2408</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ia96980ea-3a42-45ed-92df-411197890a74">i01e67fe3-ebcb-4802-81db-f7ea2c6aa299</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i443d447b-1fa8-4956-b44e-caefa7788de1">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Most psychoactive drugs target cells within the:&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="idec00c72-eed5-488a-8652-03ae399b20dd" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="iab345ecc-837b-4589-a0be-3ac17f06fff1">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;nose and lungs&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="iaff4d703-b68a-4da6-adb1-514458d1a653">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;blood and urine&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ie4687157-aa7a-4786-b56f-11ac86602110">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;liver and kidneys&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="icff09279-7e35-4c84-b0de-14890ea4dc6b">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;brain and spinal cord&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="idec00c72-eed5-488a-8652-03ae399b20dd">iab345ecc-837b-4589-a0be-3ac17f06fff1</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="idec00c72-eed5-488a-8652-03ae399b20dd">iaff4d703-b68a-4da6-adb1-514458d1a653</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="idec00c72-eed5-488a-8652-03ae399b20dd">ie4687157-aa7a-4786-b56f-11ac86602110</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="idec00c72-eed5-488a-8652-03ae399b20dd">icff09279-7e35-4c84-b0de-14890ea4dc6b</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ib4de5e01-9980-4d00-b665-4430778a651b">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;What do psychoactive drugs change or mimic in the human body?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i4f2a8b24-738c-4913-b8a2-4fa5334b5205" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i2246865d-c7fd-44d1-94d8-2f1341fc364b">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;blood&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i94b78938-cc15-47aa-815a-e9f74dbbd1d2">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;neuron&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="if83c1dbb-c171-4421-b24b-767643ecbbbf">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;synapse&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ia1f5567f-6ecb-450d-b1d9-6f54339454cf">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;neurotransmitters&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i4f2a8b24-738c-4913-b8a2-4fa5334b5205">i2246865d-c7fd-44d1-94d8-2f1341fc364b</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i4f2a8b24-738c-4913-b8a2-4fa5334b5205">i94b78938-cc15-47aa-815a-e9f74dbbd1d2</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i4f2a8b24-738c-4913-b8a2-4fa5334b5205">if83c1dbb-c171-4421-b24b-767643ecbbbf</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i4f2a8b24-738c-4913-b8a2-4fa5334b5205">ia1f5567f-6ecb-450d-b1d9-6f54339454cf</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i132d8914-2f0c-4d32-a54a-b2ef9ebb0cb1">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;An individual who has consumed a depressant typically feels:&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i679e3a78-decf-4189-959a-c05bb9a8e1fe" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i91e1126c-1a00-4fc1-868c-75a4e709f65e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;alert, dizzy, and hyperactive&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i8205fa0e-d01f-41a5-acdc-d94d311e1837">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;clumsy, euphoric, and anxious&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ia17a738d-0b24-478e-99ae-632920e56a51">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&amp;nbsp;drowsy, relaxed, and pain-free&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="idb02cfd4-aa87-4277-8f65-22c91f897c1b">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;sleepy, hungry, and sexually aroused&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i679e3a78-decf-4189-959a-c05bb9a8e1fe">i91e1126c-1a00-4fc1-868c-75a4e709f65e</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i679e3a78-decf-4189-959a-c05bb9a8e1fe">i8205fa0e-d01f-41a5-acdc-d94d311e1837</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i679e3a78-decf-4189-959a-c05bb9a8e1fe">ia17a738d-0b24-478e-99ae-632920e56a51</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i679e3a78-decf-4189-959a-c05bb9a8e1fe">idb02cfd4-aa87-4277-8f65-22c91f897c1b</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ice313905-df6c-4c57-a898-5b68f01a32d9">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Which of the following pairs of drugs are stimulants?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="ic615bc64-6758-4832-b2a8-f757c4e7021b" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i7cf81565-0c28-4671-81d4-ed042b15c41d">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Hashish and heroin&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i52d1648d-3204-41da-bad6-cb0c130343fa">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Alcohol and nicotine&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="iadbfa71d-f2d4-42ef-b469-353e66065aba">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Ecstasy and marijuana&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ib1a03471-cfe8-4063-95c4-bdae57bae97c">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Cocaine and amphetamines&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ic615bc64-6758-4832-b2a8-f757c4e7021b">i7cf81565-0c28-4671-81d4-ed042b15c41d</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ic615bc64-6758-4832-b2a8-f757c4e7021b">i52d1648d-3204-41da-bad6-cb0c130343fa</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ic615bc64-6758-4832-b2a8-f757c4e7021b">iadbfa71d-f2d4-42ef-b469-353e66065aba</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ic615bc64-6758-4832-b2a8-f757c4e7021b">ib1a03471-cfe8-4063-95c4-bdae57bae97c</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ibe809fe9-c8e1-4dde-aa00-e8030daa2b47">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Illegal drug use has been linked to high levels of:&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="if5bc50d6-2aec-4f9f-ab96-9d414b62253a" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i58d92925-ba3f-4644-b92b-67e200d5a183">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;fraud and abductions&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ia4199609-8404-4355-ae5d-e76d71bc56e5">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;property crime and petty theft&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i053b3688-fc66-44d8-a4ba-16cb47699547">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;sexual assaults and armed robberies&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i8ceda0b9-e8f0-44a3-9176-408a5afb375a">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;motor vehicle thefts and traffic accidents&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if5bc50d6-2aec-4f9f-ab96-9d414b62253a">i58d92925-ba3f-4644-b92b-67e200d5a183</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="if5bc50d6-2aec-4f9f-ab96-9d414b62253a">ia4199609-8404-4355-ae5d-e76d71bc56e5</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if5bc50d6-2aec-4f9f-ab96-9d414b62253a">i053b3688-fc66-44d8-a4ba-16cb47699547</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if5bc50d6-2aec-4f9f-ab96-9d414b62253a">i8ceda0b9-e8f0-44a3-9176-408a5afb375a</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i5e6ad3be-27aa-49e2-83cd-536e5ae1d1c1">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;In the past thirty years, levels of drug-related arrests have:&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i88882d30-f756-441b-ba86-948d2ad04d5b" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i963cd2dd-b6cc-45d2-9b8c-ab47830c25d1">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;tripled&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i3c5c6424-4567-4f2d-a3ea-74f1b194cb92">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;doubled&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i10b82cd5-b437-41cb-9acf-0e0d345672d9">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;been cut in half&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i51bfee01-ebd3-48eb-a792-09a5bb64473c">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;remained the same&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i88882d30-f756-441b-ba86-948d2ad04d5b">i963cd2dd-b6cc-45d2-9b8c-ab47830c25d1</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i88882d30-f756-441b-ba86-948d2ad04d5b">i3c5c6424-4567-4f2d-a3ea-74f1b194cb92</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i88882d30-f756-441b-ba86-948d2ad04d5b">i10b82cd5-b437-41cb-9acf-0e0d345672d9</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i88882d30-f756-441b-ba86-948d2ad04d5b">i51bfee01-ebd3-48eb-a792-09a5bb64473c</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+    </section>
+  </assessment>
+</questestinterop>

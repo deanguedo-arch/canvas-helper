@@ -5214,15 +5214,31 @@ function ForensicCoursePlayerPreviewRestored() {
       "body fluid assignment",
       "body fluid evidence case studies assignment"
     ]);
+    const moduleFiveExcludedTitles = /* @__PURE__ */ new Set([
+      "impaired driving assignment"
+    ]);
+    const moduleSixExcludedTitles = /* @__PURE__ */ new Set([
+      "polygraphing and forensic writing analysis assignment",
+      "polygraphing and forensic writing case studies assignment"
+    ]);
+    const moduleSevenExcludedTitles = /* @__PURE__ */ new Set([
+      "forensic dna evidence assignment"
+    ]);
     const isUnitAssessmentSection = (title) => (title || "").trim().toLowerCase().includes("unit assessment");
     const isModuleTwo = (activeChapter?.title || "").toLowerCase().includes("types of evidence and fingerprint analysis");
     const isModuleThreeForFilter = (activeChapter?.title || "").toLowerCase().includes("trace evidence");
     const isModuleFourForFilter = (activeChapter?.title || "").toLowerCase().includes("body fluid evidence");
+    const isModuleFiveForFilter = (activeChapter?.title || "").toLowerCase().includes("forensic detection of impaired driving");
+    const isModuleSixForFilter = (activeChapter?.title || "").toLowerCase().includes("polygraphing and document analysis");
+    const isModuleSevenForFilter = (activeChapter?.title || "").toLowerCase().includes("forensic genetics");
     const normalizedLessons = (activeChapter?.lessons || []).filter((lesson) => !isUnitAssessmentSection(lesson.title)).filter((lesson) => {
       const normalizedTitle = (lesson.title || "").trim().toLowerCase();
       if (isModuleTwo) return !moduleTwoExcludedTitles.has(normalizedTitle);
       if (isModuleThreeForFilter) return !moduleThreeExcludedTitles.has(normalizedTitle);
       if (isModuleFourForFilter) return !moduleFourExcludedTitles.has(normalizedTitle);
+      if (isModuleFiveForFilter) return !moduleFiveExcludedTitles.has(normalizedTitle);
+      if (isModuleSixForFilter) return !moduleSixExcludedTitles.has(normalizedTitle);
+      if (isModuleSevenForFilter) return !moduleSevenExcludedTitles.has(normalizedTitle);
       return true;
     }).map((lesson) => ({
       ...lesson,
@@ -5244,6 +5260,9 @@ function ForensicCoursePlayerPreviewRestored() {
     );
     const moduleFourCaseStudiesImage = buildReferenceUrl(
       joinPath(exportRoot, "assignment/i16176291-5154-45bd-8891-b2c9517b1a3c/Content/170829-F-DB515-0024.JPG")
+    );
+    const moduleSixPolygraphImage = buildReferenceUrl(
+      joinPath(exportRoot, "assignment/i5416ee1b-c173-4bcc-80e8-e3c1fae36848/Content/3034903278_5ef70f6f09_b.jpg")
     );
     const moduleTwoFingerprintLabIntro = [
       '<div class="space-y-5">',
@@ -5272,6 +5291,26 @@ function ForensicCoursePlayerPreviewRestored() {
       "<p>Body fluid evidence is one of the most common pieces of evidence that can be found at a crime scene, especially when a violent crime has occurred. This evidence can be extremely useful in helping investigators piece together the events of a crime. In this assignment you will demonstrate your understanding of body fluid evidence.</p>",
       `<p style="text-align: center;"><img src="${moduleFourCaseStudiesImage}" alt="blood evidence" width="500" height="334" class="img-responsive atto_image_button_text-bottom"></p>`,
       "<p>There are a number of historical case studies where blood stain and/or spatter evidence was used to successfully solve a crime and convict the perpetrator(s). Demonstrate your understanding of forensic serology by completing the following assignment.</p>",
+      "<p><strong>When you have completed the assignment, upload your generated reports to your respective online classroom.</strong></p>",
+      "</div>"
+    ].join("");
+    const moduleFiveImpairedDrivingLabIntro = [
+      "<div>",
+      "<p>Impaired driving is a crime that kills and injures too many Canadians each year. The tools and training that police officers use are important in the prevention of more accidents. In this unit you explored many of the useful tools that police use to detect impaired driving. Demonstrate your understanding of these tools in the assignment below.</p>",
+      "<p><strong>When you have completed the assignment, upload your generated reports to your respective online classroom.</strong></p>",
+      "</div>"
+    ].join("");
+    const moduleSixPolygraphLabIntro = [
+      "<div>",
+      `<p style="text-align: center;"><img src="${moduleSixPolygraphImage}" alt="polygraph" width="501" height="333" class="img-responsive atto_image_button_text-bottom"></p>`,
+      "<p>Polygraphing is a common tool used by investigators. Although it has been controversial, it has undeniable value to investigators when trying to solve crimes. Writing analysis is another common investigative tool that has been used to solve a number of crimes. In the assignment below, you will demonstrate your understanding of these forensic techniques.</p>",
+      "<p><strong>When you have completed the assignment, upload your generated reports to your respective online classroom.</strong></p>",
+      "</div>"
+    ].join("");
+    const moduleSevenGeneticsLabIntro = [
+      "<div>",
+      '<p style="text-align: center;"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Agarose_gel_slab_for_DNA_Analysis%2C_after_the_Electrophoresis_run.jpg" alt="Image result for DNA analysis" width="399" height="263" class="img-responsive atto_image_button_text-bottom"></p>',
+      "<p>Forensic DNA Analysis has been one of the most powerful and important tools that investigators use today. It can give strong evidence for a suspect's guilt or innocence and is an indispensable tool in the forensic world. The assignment below will allow you to demonstrate your understanding of DNA analysis in the context of forensic investigations.</p>",
       "<p><strong>When you have completed the assignment, upload your generated reports to your respective online classroom.</strong></p>",
       "</div>"
     ].join("");
@@ -5350,6 +5389,7 @@ function ForensicCoursePlayerPreviewRestored() {
         embedPath: MODULE5_ASSIGNMENT_EMBED_PATH,
         sourceFile: MODULE5_ASSIGNMENT_EMBED_PATH,
         resources: [MODULE5_ASSIGNMENT_EMBED_PATH],
+        assignmentXml: { intro: moduleFiveImpairedDrivingLabIntro },
         moduleTitle: formatModuleTitleForDisplay(activeChapter.title),
         moduleLessonCount: activeChapter.lessonCount,
         moduleHidden: activeChapter.isHidden
@@ -5363,6 +5403,7 @@ function ForensicCoursePlayerPreviewRestored() {
         embedPath: MODULE6_ASSIGNMENT_EMBED_PATH,
         sourceFile: MODULE6_ASSIGNMENT_EMBED_PATH,
         resources: [MODULE6_ASSIGNMENT_EMBED_PATH],
+        assignmentXml: { intro: moduleSixPolygraphLabIntro },
         moduleTitle: formatModuleTitleForDisplay(activeChapter.title),
         moduleLessonCount: activeChapter.lessonCount,
         moduleHidden: activeChapter.isHidden
@@ -5376,6 +5417,7 @@ function ForensicCoursePlayerPreviewRestored() {
         embedPath: MODULE7_ASSIGNMENT_EMBED_PATH,
         sourceFile: MODULE7_ASSIGNMENT_EMBED_PATH,
         resources: [MODULE7_ASSIGNMENT_EMBED_PATH],
+        assignmentXml: { intro: moduleSevenGeneticsLabIntro },
         moduleTitle: formatModuleTitleForDisplay(activeChapter.title),
         moduleLessonCount: activeChapter.lessonCount,
         moduleHidden: activeChapter.isHidden
