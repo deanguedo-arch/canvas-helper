@@ -14,7 +14,7 @@ const { useState, useEffect, useRef } = React;
         const DEFAULT_STATE = {
             studentName: "",
             defMarketing: "", defPackaging: "", influenceExample: "", favoriteStore: "",
-            purchases: Array(10).fill({ item: "", influence: "" }),
+            purchases: Array.from({ length: 10 }, () => ({ item: "", influence: "" })),
             biggestInfluence: "",
             joeDecision: "", sallyDecision: "", betterDecision: "",
             purchaseReflection: "",

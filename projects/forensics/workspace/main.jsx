@@ -439,6 +439,10 @@ function buildReferenceUrl(relativePath) {
   return `/preview/references/raw/forensics/${encodePath(relativePath)}`;
 }
 
+function buildWorkspaceAssetUrl(relativePath) {
+  return `/preview/workspace/forensics/${encodePath(relativePath)}`;
+}
+
 const module4RemoteImageFallbacks = {
   "https://lh4.googleusercontent.com/mwvzxUf61aqdm9oG9VyiGdKou-VQ2yHvqtFDv6rJT9lgiNDEOhwvS2rHpeSWwBtmKhimbxnLOPTOjHx7_JBnMDMJBFuozH4mS0chn5BF4uQMRbkyn4j1DGPaWhCdK4DJghQ6TBo-eZKgBPjbBQ":
     "сontent/i2ce3b936-b6db-4d86-9174-1bfa407805e8/Content/Blood Typing.jpg",
@@ -450,9 +454,15 @@ const module4RemoteImageFallbacks = {
     "сontent/i2ce3b936-b6db-4d86-9174-1bfa407805e8/Content/Blood Typing.jpg",
 };
 
+const MODULE4_TAMMY_PARROT_COMIC_PATH = "assets/module4/tammy-parrot-comic.png";
+const MODULE4_BLOOD_SPILL_PATH = "assets/module4/blood-spill.jpg";
+
 function stripScriptsAndRewriteLinks(html, sourceFile, exportRoot) {
   const parser = new DOMParser();
   const doc = parser.parseFromString(html, "text/html");
+  const normalizedSource = normalizePath(sourceFile || "");
+  const normalizedSourceNoQuery = normalizedSource.split("?")[0].split("#")[0];
+  const normalizedSourceLower = normalizedSourceNoQuery.toLowerCase();
 
   doc.querySelectorAll("script, style, link[rel='stylesheet']").forEach((el) => el.remove());
   doc.querySelectorAll("meta, title, head").forEach((el) => el.remove());
@@ -468,6 +478,23 @@ function stripScriptsAndRewriteLinks(html, sourceFile, exportRoot) {
     return "";
   };
 
+  if (
+    normalizedSourceLower.endsWith("chapter_12006.html") ||
+    normalizedSourceLower.includes("chapter_12006")
+  ) {
+    const paragraphs = Array.from(doc.body.querySelectorAll("p")).filter((p) => (p.textContent || "").trim());
+    const insertAfter = paragraphs.length ? paragraphs[paragraphs.length - 1] : doc.body.lastElementChild;
+    if (insertAfter) {
+      const wrapper = doc.createElement("div");
+      const img = doc.createElement("img");
+      img.setAttribute("src", buildWorkspaceAssetUrl(MODULE4_TAMMY_PARROT_COMIC_PATH));
+      img.setAttribute("alt", "Tammy's Parrot case summary");
+      img.setAttribute("style", "max-width:100%;display:block;margin:16px auto;");
+      wrapper.appendChild(img);
+      insertAfter.parentNode?.insertBefore(wrapper, insertAfter.nextSibling);
+    }
+  }
+
   const rewriteAttr = (selector, attr) => {
     doc.querySelectorAll(selector).forEach((el) => {
       const value = el.getAttribute(attr);
@@ -480,6 +507,20 @@ function stripScriptsAndRewriteLinks(html, sourceFile, exportRoot) {
         if (fallbackPath) {
           const withRoot = exportRoot ? joinPath(exportRoot, fallbackPath) : fallbackPath;
           el.setAttribute(attr, buildReferenceUrl(withRoot));
+          return;
+        }
+      }
+
+      if (
+        attr === "src" &&
+        (normalizedSourceLower.endsWith("historical crime case 2.html") ||
+          normalizedSourceLower.includes("historical%20crime%20case%202.html") ||
+          normalizedSourceLower.includes("historicalcrimecase2") ||
+          normalizedSourceLower.includes("historical%20crime%20case%202"))
+      ) {
+        const normalizedValue = decodePathValue(value);
+        if (normalizedValue.toLowerCase().includes("hallway.png")) {
+          el.setAttribute(attr, buildWorkspaceAssetUrl(MODULE4_BLOOD_SPILL_PATH));
           return;
         }
       }
@@ -709,8 +750,13 @@ const FORENSIC_THEME = {
   overline: "text-[11px] font-semibold uppercase tracking-[0.18em] text-[#6b7280]",
 };
 
+const MODULE1_ASSIGNMENT_EMBED_PATH = "./assets/module1assignment.html";
+const MODULE2_ASSIGNMENT_EMBED_PATH = "./assets/module2assignment.html";
+const MODULE3_ASSIGNMENT_EMBED_PATH = "./assets/module3assignment.html";
 const MODULE4_ASSIGNMENT_EMBED_PATH = "./assets/module4assignment.html";
 const MODULE5_ASSIGNMENT_EMBED_PATH = "./assets/module5assignment.html";
+const MODULE6_ASSIGNMENT_EMBED_PATH = "./assets/module6assignment.html";
+const MODULE7_ASSIGNMENT_EMBED_PATH = "./assets/module7assignment.html";
 
 function Badge({ children, className = "", ...props }) {
   return (
@@ -1044,11 +1090,11 @@ function EmbeddedAssignmentRenderer({ title, srcPath }) {
         </div>
         <Badge>interactive lab</Badge>
       </div>
-      <div className="overflow-hidden rounded-2xl border border-white/[0.12] bg-[#0f172a]">
+      <div className="rounded-2xl border border-white/[0.12] bg-[#0f172a]">
         <iframe
           src={srcPath}
           title={title}
-          className="min-h-[900px] w-full"
+          className="h-[1600px] min-h-[1600px] w-full md:h-[1800px] md:min-h-[1800px] xl:h-[2000px] xl:min-h-[2000px]"
         />
       </div>
     </div>
@@ -1560,9 +1606,52 @@ export default function ForensicCoursePlayerPreviewRestored() {
       }));
 
     const chapterTitleLower = (activeChapter?.title || "").toLowerCase();
+    const isModuleOne = chapterTitleLower.includes("introduction to crime scenes");
+    const isModuleThree = chapterTitleLower.includes("trace evidence");
     const isModuleFour = chapterTitleLower.includes("body fluid evidence");
     const isModuleFive = chapterTitleLower.includes("forensic detection of impaired driving");
+    const isModuleSix = chapterTitleLower.includes("polygraphing and document analysis");
+    const isModuleSeven = chapterTitleLower.includes("forensic genetics");
     const syntheticLessons = [];
+    if (isModuleTwo) {
+      syntheticLessons.push({
+        id: "module2-fingerprint-analysis-lab",
+        title: "Fingerprint Analysis Lab Assignment",
+        type: "lab-assignment",
+        embedPath: MODULE2_ASSIGNMENT_EMBED_PATH,
+        sourceFile: MODULE2_ASSIGNMENT_EMBED_PATH,
+        resources: [MODULE2_ASSIGNMENT_EMBED_PATH],
+        moduleTitle: formatModuleTitleForDisplay(activeChapter.title),
+        moduleLessonCount: activeChapter.lessonCount,
+        moduleHidden: activeChapter.isHidden,
+      });
+    }
+    if (isModuleOne) {
+      syntheticLessons.push({
+        id: "module1-crime-scene-lab",
+        title: "Crime Scene Certification Lab",
+        type: "lab-assignment",
+        embedPath: MODULE1_ASSIGNMENT_EMBED_PATH,
+        sourceFile: MODULE1_ASSIGNMENT_EMBED_PATH,
+        resources: [MODULE1_ASSIGNMENT_EMBED_PATH],
+        moduleTitle: formatModuleTitleForDisplay(activeChapter.title),
+        moduleLessonCount: activeChapter.lessonCount,
+        moduleHidden: activeChapter.isHidden,
+      });
+    }
+    if (isModuleThree) {
+      syntheticLessons.push({
+        id: "module3-trace-evidence-lab",
+        title: "Trace Evidence Lab Assignment",
+        type: "lab-assignment",
+        embedPath: MODULE3_ASSIGNMENT_EMBED_PATH,
+        sourceFile: MODULE3_ASSIGNMENT_EMBED_PATH,
+        resources: [MODULE3_ASSIGNMENT_EMBED_PATH],
+        moduleTitle: formatModuleTitleForDisplay(activeChapter.title),
+        moduleLessonCount: activeChapter.lessonCount,
+        moduleHidden: activeChapter.isHidden,
+      });
+    }
     if (isModuleFour) {
       syntheticLessons.push({
         id: "module4-body-fluid-analysis-lab",
@@ -1584,6 +1673,32 @@ export default function ForensicCoursePlayerPreviewRestored() {
         embedPath: MODULE5_ASSIGNMENT_EMBED_PATH,
         sourceFile: MODULE5_ASSIGNMENT_EMBED_PATH,
         resources: [MODULE5_ASSIGNMENT_EMBED_PATH],
+        moduleTitle: formatModuleTitleForDisplay(activeChapter.title),
+        moduleLessonCount: activeChapter.lessonCount,
+        moduleHidden: activeChapter.isHidden,
+      });
+    }
+    if (isModuleSix) {
+      syntheticLessons.push({
+        id: "module6-polygraph-document-lab",
+        title: "Polygraph and Document Analysis Lab",
+        type: "lab-assignment",
+        embedPath: MODULE6_ASSIGNMENT_EMBED_PATH,
+        sourceFile: MODULE6_ASSIGNMENT_EMBED_PATH,
+        resources: [MODULE6_ASSIGNMENT_EMBED_PATH],
+        moduleTitle: formatModuleTitleForDisplay(activeChapter.title),
+        moduleLessonCount: activeChapter.lessonCount,
+        moduleHidden: activeChapter.isHidden,
+      });
+    }
+    if (isModuleSeven) {
+      syntheticLessons.push({
+        id: "module7-forensic-genetics-lab",
+        title: "Forensic Genetics Lab Assignment",
+        type: "lab-assignment",
+        embedPath: MODULE7_ASSIGNMENT_EMBED_PATH,
+        sourceFile: MODULE7_ASSIGNMENT_EMBED_PATH,
+        resources: [MODULE7_ASSIGNMENT_EMBED_PATH],
         moduleTitle: formatModuleTitleForDisplay(activeChapter.title),
         moduleLessonCount: activeChapter.lessonCount,
         moduleHidden: activeChapter.isHidden,
