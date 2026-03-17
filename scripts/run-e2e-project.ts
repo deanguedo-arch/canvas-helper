@@ -25,14 +25,21 @@ async function main() {
   }
 
   const command = process.platform === "win32" ? "npx.cmd" : "npx";
-  const args = ["playwright", "test", "-c", "e2e/playwright.config.ts", "--grep", "@project", ...passthrough];
+  const args = [
+    "playwright",
+    "test",
+    "-c",
+    "e2e/playwright.config.ts",
+    "--grep",
+    "@project core project contract",
+    ...passthrough
+  ];
 
   const child = spawn(command, args, {
     stdio: "inherit",
     env: {
       ...process.env,
-      E2E_PROJECT_SLUG: project,
-      E2E_PROJECT_MODE: "project-contract"
+      E2E_PROJECT_SLUG: project
     }
   });
 

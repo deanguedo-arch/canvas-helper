@@ -872,7 +872,7 @@ function HtmlRenderer({ html }) {
                 </button>
                 {!collapsed && (
                   <div
-                    className="max-w-none border-t border-white/[0.08] px-4 py-4 text-[#cbd5e1] [&_.image-banner]:my-4 [&_.image-banner]:rounded-xl [&_.image-banner]:border [&_.image-banner]:border-white/[0.1] [&_.image-banner]:bg-white/[0.04] [&_.image-banner]:p-8 [&_.image-banner]:text-center [&_h1]:mb-4 [&_h1]:text-3xl [&_h1]:font-semibold [&_h1]:tracking-tight [&_h1]:text-[#f3f4f6] [&_h2]:mb-3 [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:text-[#f3f4f6] [&_h3]:mb-2 [&_h3]:mt-5 [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-[#e5e7eb] [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:mb-4 [&_p]:leading-7 [&_table]:mt-4 [&_table]:w-full [&_table]:border-collapse [&_td]:border [&_td]:border-white/[0.12] [&_td]:p-3 [&_th]:border [&_th]:border-white/[0.14] [&_th]:bg-white/[0.06] [&_th]:p-3 [&_ul]:list-disc [&_ul]:pl-6"
+                    className="max-w-none border-t border-white/[0.08] px-4 py-4 text-[#cbd5e1] [&_*]:!text-[#e5e7eb] [&_.image-banner]:my-4 [&_.image-banner]:rounded-xl [&_.image-banner]:border [&_.image-banner]:border-white/[0.1] [&_.image-banner]:bg-white/[0.04] [&_.image-banner]:p-8 [&_.image-banner]:text-center [&_h1]:mb-4 [&_h1]:text-3xl [&_h1]:font-semibold [&_h1]:tracking-tight [&_h1]:!text-[#f8fafc] [&_h2]:mb-3 [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:!text-[#f8fafc] [&_h3]:mb-2 [&_h3]:mt-5 [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:!text-[#f1f5f9] [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:mb-4 [&_p]:leading-7 [&_p]:!text-[#e5e7eb] [&_li]:!text-[#e5e7eb] [&_strong]:!text-[#f8fafc] [&_em]:!text-[#e2e8f0] [&_table]:mt-4 [&_table]:w-full [&_table]:border-collapse [&_td]:border [&_td]:border-white/[0.12] [&_td]:p-3 [&_th]:border [&_th]:border-white/[0.14] [&_th]:bg-white/[0.06] [&_th]:p-3 [&_ul]:list-disc [&_ul]:pl-6"
                     dangerouslySetInnerHTML={{ __html: section.html }}
                   />
                 )}
@@ -882,9 +882,9 @@ function HtmlRenderer({ html }) {
         </div>
       ) : (
         <div
-          className="max-w-none text-[#cbd5e1] [&_.image-banner]:my-4 [&_.image-banner]:rounded-xl [&_.image-banner]:border [&_.image-banner]:border-white/[0.1] [&_.image-banner]:bg-white/[0.04] [&_.image-banner]:p-8 [&_.image-banner]:text-center [&_h1]:mb-4 [&_h1]:text-3xl [&_h1]:font-semibold [&_h1]:tracking-tight [&_h1]:text-[#f3f4f6] [&_h2]:mb-3 [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:text-[#f3f4f6] [&_h3]:mb-2 [&_h3]:mt-5 [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-[#e5e7eb] [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:mb-4 [&_p]:leading-7 [&_table]:mt-4 [&_table]:w-full [&_table]:border-collapse [&_td]:border [&_td]:border-white/[0.12] [&_td]:p-3 [&_th]:border [&_th]:border-white/[0.14] [&_th]:bg-white/[0.06] [&_th]:p-3 [&_ul]:list-disc [&_ul]:pl-6"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
+        className="max-w-none text-[#cbd5e1] [&_*]:!text-[#e5e7eb] [&_.image-banner]:my-4 [&_.image-banner]:rounded-xl [&_.image-banner]:border [&_.image-banner]:border-white/[0.1] [&_.image-banner]:bg-white/[0.04] [&_.image-banner]:p-8 [&_.image-banner]:text-center [&_h1]:mb-4 [&_h1]:text-3xl [&_h1]:font-semibold [&_h1]:tracking-tight [&_h1]:!text-[#f8fafc] [&_h2]:mb-3 [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:!text-[#f8fafc] [&_h3]:mb-2 [&_h3]:mt-5 [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:!text-[#f1f5f9] [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:mb-4 [&_p]:leading-7 [&_p]:!text-[#e5e7eb] [&_li]:!text-[#e5e7eb] [&_strong]:!text-[#f8fafc] [&_em]:!text-[#e2e8f0] [&_table]:mt-4 [&_table]:w-full [&_table]:border-collapse [&_td]:border [&_td]:border-white/[0.12] [&_td]:p-3 [&_th]:border [&_th]:border-white/[0.14] [&_th]:bg-white/[0.06] [&_th]:p-3 [&_ul]:list-disc [&_ul]:pl-6"
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
       )}
     </div>
   );
@@ -1457,7 +1457,7 @@ function ChapterLessonCard({ lesson }) {
   }, [lesson?.id, lesson?.sourceFile, lesson?.type]);
 
   return (
-    <section className={`${FORENSIC_THEME.panel} p-8`}>
+    <section className={`${FORENSIC_THEME.panel} p-8`} data-testid="chapter-lesson-card" data-lesson-type={lesson.type}>
       <div className="mb-4 flex flex-wrap items-center gap-2">
         {lesson.type !== "html-reading" ? <Badge>{typeLabel(lesson.type)}</Badge> : null}
       </div>
@@ -1469,6 +1469,7 @@ function ChapterLessonCard({ lesson }) {
 
 export default function ForensicCoursePlayerPreviewRestored() {
   const [activeChapterId, setActiveChapterId] = useState(resolvedModules[0]?.id ?? "");
+  const [activeModuleView, setActiveModuleView] = useState("content");
   const [chapterVisited, setChapterVisited] = useState({});
   const [query, setQuery] = useState("");
   const [includeHidden, setIncludeHidden] = useState(false);
@@ -1530,7 +1531,7 @@ export default function ForensicCoursePlayerPreviewRestored() {
       }));
     return {
       contentLessons: normalizedLessons.filter((lesson) => lesson.type !== "quiz" && lesson.type !== "assignment"),
-      assignmentLessons: normalizedLessons.filter((lesson) => lesson.type === "quiz"),
+      assignmentLessons: normalizedLessons.filter((lesson) => lesson.type === "quiz" || lesson.type === "assignment"),
     };
   }, [activeChapter]);
   const chapterLessons = chapterLessonGroups.contentLessons;
@@ -1548,6 +1549,12 @@ export default function ForensicCoursePlayerPreviewRestored() {
       setActiveChapterId(safeModules[0].id);
     }
   }, [safeModules, activeChapterId]);
+
+  useEffect(() => {
+    if (activeModuleView !== "assignments") return;
+    if (chapterAssignments.length > 0) return;
+    setActiveModuleView("content");
+  }, [activeModuleView, chapterAssignments.length]);
 
   useEffect(() => {
     if (!activeChapter?.id) return;
@@ -1678,7 +1685,10 @@ export default function ForensicCoursePlayerPreviewRestored() {
                   data-module-expanded={isActive ? "true" : "false"}
                 >
                   <button
-                    onClick={() => setActiveChapterId(module.id)}
+                    onClick={() => {
+                      setActiveChapterId(module.id);
+                      setActiveModuleView("content");
+                    }}
                     className="flex w-full items-center justify-between rounded-lg px-2 py-2 text-left transition duration-200 hover:bg-white/[0.04]"
                     data-testid="module-toggle"
                     data-module-title={module.title}
@@ -1687,13 +1697,33 @@ export default function ForensicCoursePlayerPreviewRestored() {
                     <div>
                       <div className="text-sm font-semibold text-[#f3f4f6]">{formatModuleTitleForDisplay(module.title)}</div>
                       <div className="text-xs text-[#6b7280]">{module.lessonCount} items in export</div>
-                      {module.lessons?.some((lesson) => lesson.type === "quiz") ? (
-                        <div className="mt-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#fca5a5]">Assignments available</div>
-                      ) : null}
                     </div>
                     {module.isHidden && <Badge>hidden module</Badge>}
                     {isActive ? <ChevronDown className="h-4 w-4 text-[#a1a8b3]" /> : <ChevronRight className="h-4 w-4 text-[#6b7280]" />}
                   </button>
+                  {isActive && module.lessons?.some((lesson) => lesson.type === "quiz" || lesson.type === "assignment") ? (
+                    <div className="mt-1 rounded-lg border border-white/[0.08] bg-white/[0.03] p-1" data-testid="module-submenu">
+                      <button
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          setActiveChapterId(module.id);
+                          setActiveModuleView("assignments");
+                        }}
+                        className={`flex w-full items-center justify-between rounded-md px-2 py-1.5 text-left text-xs font-semibold uppercase tracking-[0.12em] transition ${
+                          activeModuleView === "assignments"
+                            ? "bg-[#1f1014] text-[#fecaca] ring-1 ring-[#dc2626]/45"
+                            : "text-[#a1a8b3] hover:bg-white/[0.06] hover:text-[#f3f4f6]"
+                        }`}
+                        data-testid="module-assignments-tab"
+                        data-module-title={module.title}
+                      >
+                        <span>Assignments</span>
+                        <span className="text-[10px] text-[#6b7280]">
+                          {module.lessons.filter((lesson) => lesson.type === "quiz" || lesson.type === "assignment").length}
+                        </span>
+                      </button>
+                    </div>
+                  ) : null}
                 </div>
               );
             })}
@@ -1704,51 +1734,59 @@ export default function ForensicCoursePlayerPreviewRestored() {
           <div className="sticky top-0 z-10 border-b border-white/[0.08] bg-[#101216]/95 shadow-[0_10px_24px_rgba(0,0,0,0.45)] backdrop-blur-xl">
             <div className="px-8 py-5">
               <div className="mb-2 flex flex-wrap items-center gap-2 text-sm text-[#a1a8b3]">
-                <span>{formatModuleTitleForDisplay(activeChapter.title)}</span>
+                <span className="text-[#f3f4f6]">{formatModuleTitleForDisplay(activeChapter.title)}</span>
                 {includeHidden && <Badge>archive mode</Badge>}
                 {activeChapter.isHidden && <Badge>admin-only</Badge>}
               </div>
               <h2 className="text-3xl font-semibold tracking-tight text-[#f3f4f6]" data-testid="lesson-title">
                 {formatModuleTitleForDisplay(activeChapter.title)}
               </h2>
-              {chapterAssignments.length > 0 ? (
-                <a
-                  href="#module-assignments"
-                  className="mt-3 inline-flex rounded-lg border border-white/[0.14] bg-white/[0.03] px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-[#d1d5db] transition duration-200 hover:border-white/[0.3] hover:bg-white/[0.08] hover:text-[#f3f4f6]"
-                >
-                  Jump to assignments
-                </a>
-              ) : null}
+              <div className="mt-3">
+                <Badge>{activeModuleView === "assignments" ? "assignments view" : "content view"}</Badge>
+              </div>
             </div>
           </div>
 
           <div className="mx-auto max-w-7xl px-8 py-10">
-            <div className="space-y-6">
-              {chapterLessons.length === 0 ? (
+            {activeModuleView === "assignments" ? (
+              <div className="space-y-6" data-testid="module-assignments-view">
                 <section className={`${FORENSIC_THEME.panel} p-8`}>
-                  <h3 className="text-xl font-semibold text-[#f3f4f6]">No learner content in this chapter yet</h3>
-                  <p className="mt-3 text-sm text-[#a1a8b3]">
-                    Assignment-only chapters are intentionally hidden in this app surface. Learning content is preserved and can be added here later.
-                  </p>
-                </section>
-              ) : null}
-              {chapterLessons.map((lesson) => (
-                <ChapterLessonCard key={lesson.id} lesson={lesson} />
-              ))}
-              {chapterAssignments.length > 0 ? (
-                <section id="module-assignments" className={`${FORENSIC_THEME.panel} p-8`}>
                   <div className="mb-5 flex items-center justify-between">
                     <h3 className="text-xl font-semibold text-[#f3f4f6]">Assignments</h3>
                     <Badge>{chapterAssignments.length} assessments</Badge>
                   </div>
-                  <div className="space-y-6">
-                    {chapterAssignments.map((lesson) => (
-                      <ChapterLessonCard key={lesson.id} lesson={lesson} />
-                    ))}
-                  </div>
+                  <p className="text-sm text-[#a1a8b3]">
+                    Assessment items for {formatModuleTitleForDisplay(activeChapter.title)} are grouped in this dedicated view.
+                  </p>
                 </section>
-              ) : null}
-            </div>
+                {chapterAssignments.length === 0 ? (
+                  <section className={`${FORENSIC_THEME.panel} p-8`}>
+                    <h3 className="text-xl font-semibold text-[#f3f4f6]">No assignments in this module</h3>
+                    <p className="mt-3 text-sm text-[#a1a8b3]">
+                      Return to the module content view or choose another module with assessment items.
+                    </p>
+                  </section>
+                ) : (
+                  chapterAssignments.map((lesson) => (
+                    <ChapterLessonCard key={lesson.id} lesson={lesson} />
+                  ))
+                )}
+              </div>
+            ) : (
+              <div className="space-y-6" data-testid="module-content-view">
+                {chapterLessons.length === 0 ? (
+                  <section className={`${FORENSIC_THEME.panel} p-8`}>
+                    <h3 className="text-xl font-semibold text-[#f3f4f6]">No learner content in this module</h3>
+                    <p className="mt-3 text-sm text-[#a1a8b3]">
+                      This module currently contains only assessment items. Use the Assignments tab under the module name.
+                    </p>
+                  </section>
+                ) : null}
+                {chapterLessons.map((lesson) => (
+                  <ChapterLessonCard key={lesson.id} lesson={lesson} />
+                ))}
+              </div>
+            )}
           </div>
         </main>
       </div>

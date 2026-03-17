@@ -44,6 +44,7 @@ const QuizSchema = z
   .object({
     enabled: z.boolean(),
     lessonTitle: NonEmptyString,
+    moduleTitle: z.string().optional(),
     answerChoiceLabel: z.string().optional(),
     progressPattern: z.string().optional(),
     checkAnswerRoleName: z.string().optional()
@@ -53,6 +54,14 @@ const QuizSchema = z
 const FallbackPanelSchema = z
   .object({
     enabled: z.boolean()
+  })
+  .strict();
+
+const ModuleAssignmentsSchema = z
+  .object({
+    enabled: z.boolean(),
+    moduleWithAssignments: NonEmptyString,
+    moduleWithoutAssignments: NonEmptyString.optional()
   })
   .strict();
 
@@ -91,6 +100,7 @@ export const ProjectE2EContractSchema = z
     navigation: NavigationSchema.optional(),
     quiz: QuizSchema.optional(),
     fallbackPanel: FallbackPanelSchema.optional(),
+    moduleAssignments: ModuleAssignmentsSchema.optional(),
     assertionProfiles: z.record(AssertionProfileSchema).optional(),
     modulePassTargets: z.array(ModulePassTargetSchema).optional(),
     visibilityChecks: z.array(VisibilityCheckSchema).optional()

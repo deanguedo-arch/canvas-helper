@@ -62,6 +62,7 @@
       "properties": {
         "enabled": { "type": "boolean" },
         "lessonTitle": { "type": "string" },
+        "moduleTitle": { "type": "string" },
         "answerChoiceLabel": { "type": "string" },
         "progressPattern": { "type": "string" },
         "checkAnswerRoleName": { "type": "string" }
@@ -73,6 +74,16 @@
       "required": ["enabled"],
       "properties": {
         "enabled": { "type": "boolean" }
+      }
+    },
+    "moduleAssignments": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["enabled", "moduleWithAssignments"],
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "moduleWithAssignments": { "type": "string", "minLength": 1 },
+        "moduleWithoutAssignments": { "type": "string", "minLength": 1 }
       }
     },
     "assertionProfiles": {

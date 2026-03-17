@@ -15,19 +15,25 @@
     "archiveIndicator": "Archive mode"
   },
   "navigation": {
-    "enabled": true,
+    "enabled": false,
     "nextRoleName": "Next",
     "previousRoleName": "Previous",
     "nodeCounterPattern": "Node\\s+\\d+\\s+of\\s+\\d+"
   },
   "quiz": {
     "enabled": true,
-    "lessonTitle": "M2 Types of Evidence and Fingerprint Analysis Assessment",
+    "moduleTitle": "2 Types of Evidence and Fingerprint Analysis",
+    "lessonTitle": "Module 2 Assessment: Types of Evidence and Fingerprint Analysis",
     "progressPattern": "answered",
     "checkAnswerRoleName": "Check answer"
   },
   "fallbackPanel": {
     "enabled": false
+  },
+  "moduleAssignments": {
+    "enabled": true,
+    "moduleWithAssignments": "1 Introduction to Crime Scenes",
+    "moduleWithoutAssignments": "Course Information"
   },
   "assertionProfiles": {
     "html-default": {

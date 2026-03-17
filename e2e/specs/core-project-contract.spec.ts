@@ -54,6 +54,16 @@ async function runContractChecks(contract: ProjectE2EContract, page: Parameters<
   }
 
   if (contract.quiz?.enabled) {
+    if (contract.quiz.moduleTitle) {
+      const quizModulePanel = workspaceFrame
+        .locator(`[data-testid="module-panel"][data-module-title="${contract.quiz.moduleTitle}"]`)
+        .first();
+      await quizModulePanel.getByTestId("module-toggle").click();
+      if (await quizModulePanel.getByTestId("module-assignments-tab").count()) {
+        await quizModulePanel.getByTestId("module-assignments-tab").click();
+      }
+    }
+
     const lessonButton = workspaceFrame.getByRole("button", {
       name: new RegExp(escapeRegExp(contract.quiz.lessonTitle), "i")
     });
@@ -69,7 +79,19 @@ async function runContractChecks(contract: ProjectE2EContract, page: Parameters<
         await moduleButtons.nth(index).click();
       }
     }
-    await lessonButton.first().click({ timeout: 10_000 });
+    if (!(await lessonButton.first().isVisible())) {
+      const assignmentTabs = workspaceFrame.getByTestId("module-assignments-tab");
+      const tabCount = await assignmentTabs.count();
+      for (let index = 0; index < tabCount; index += 1) {
+        await assignmentTabs.nth(index).click();
+        if (await lessonButton.first().isVisible()) {
+          break;
+        }
+      }
+    }
+    if (await lessonButton.first().isVisible()) {
+      await lessonButton.first().click({ timeout: 10_000 });
+    }
     await expect(workspaceFrame.getByTestId("renderer-quiz")).toBeVisible();
 
     if (contract.quiz.answerChoiceLabel) {
@@ -89,6 +111,34 @@ async function runContractChecks(contract: ProjectE2EContract, page: Parameters<
 
   if (contract.fallbackPanel?.enabled) {
     await expect(page.getByTestId("fallback-panel").first()).toBeVisible();
+  }
+
+  if (contract.moduleAssignments?.enabled) {
+    const withAssignmentsTitle = contract.moduleAssignments.moduleWithAssignments;
+    const withAssignmentsPanel = workspaceFrame
+      .locator(`[data-testid="module-panel"][data-module-title="${withAssignmentsTitle}"]`)
+      .first();
+    await withAssignmentsPanel.getByTestId("module-toggle").click();
+    await expect(withAssignmentsPanel.getByTestId("module-assignments-tab")).toBeVisible();
+    await withAssignmentsPanel.getByTestId("module-assignments-tab").click();
+
+    await expect(workspaceFrame.getByTestId("module-assignments-view")).toBeVisible();
+    await expect(workspaceFrame.getByTestId("module-content-view")).toHaveCount(0);
+    await expect(
+      workspaceFrame.locator(
+        '[data-testid="chapter-lesson-card"]:not([data-lesson-type="quiz"]):not([data-lesson-type="assignment"])'
+      )
+    ).toHaveCount(0);
+
+    const withoutAssignmentsTitle = contract.moduleAssignments.moduleWithoutAssignments;
+    if (withoutAssignmentsTitle) {
+      const withoutAssignmentsPanel = workspaceFrame
+        .locator(`[data-testid="module-panel"][data-module-title="${withoutAssignmentsTitle}"]`)
+        .first();
+      await withoutAssignmentsPanel.getByTestId("module-toggle").click();
+      await expect(withoutAssignmentsPanel.getByTestId("module-assignments-tab")).toHaveCount(0);
+      await expect(workspaceFrame.getByTestId("module-content-view")).toBeVisible();
+    }
   }
 }
 
