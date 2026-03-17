@@ -1,0 +1,209 @@
+# Page snapshot
+
+```yaml
+- main [ref=e4]:
+  - generic [ref=e5]:
+    - generic [ref=e6]:
+      - heading "Studio" [level=2] [ref=e7]
+      - paragraph [ref=e8]: "Learner: Collect"
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - button "Focus" [ref=e11] [cursor=pointer]
+        - button "Split" [ref=e12] [cursor=pointer]
+      - button "Details" [ref=e13] [cursor=pointer]
+  - tablist "Studio mode" [ref=e14]:
+    - button "Course Studio" [ref=e15]
+    - button "Assessment Library" [ref=e16]
+  - generic [ref=e19]:
+    - article [ref=e20]:
+      - generic [ref=e21]:
+        - heading "Reference" [level=3] [ref=e22]
+        - generic [ref=e23]:
+          - button "Match" [ref=e24] [cursor=pointer]
+          - button "Hide Controls" [ref=e25] [cursor=pointer]
+      - generic [ref=e27]:
+        - generic [ref=e28]:
+          - generic [ref=e29]: Project
+          - combobox "Project" [ref=e30]:
+            - option "calm-module" [selected]
+            - option "calm-module-2-activites-reference"
+            - option "calm3new"
+            - option "calmmodule2"
+            - option "calmmodule3"
+            - option "e2e-fixture"
+            - option "forensics"
+            - option "genpsy-studio"
+            - option "hss1010"
+        - generic [ref=e31]:
+          - generic [ref=e32]: Source
+          - combobox "Source" [ref=e33]:
+            - option "html" [selected]
+            - option "resource"
+        - generic [ref=e34]:
+          - generic [ref=e35]: Root
+          - combobox "Root" [ref=e36]:
+            - option "raw" [selected]
+            - option "workspace"
+        - generic [ref=e37]:
+          - generic [ref=e38]: HTML
+          - combobox "HTML" [ref=e39]:
+            - option "original.html" [selected]
+        - button "Refresh Intake" [ref=e40] [cursor=pointer]
+      - generic [ref=e41]:
+        - generic [ref=e42]:
+          - button "Desktop" [ref=e43] [cursor=pointer]
+          - button "Tablet" [ref=e44] [cursor=pointer]
+          - button "Mobile" [ref=e45] [cursor=pointer]
+        - generic [ref=e46]:
+          - button "Fit" [ref=e47] [cursor=pointer]
+          - generic [ref=e48]:
+            - generic [ref=e49]: Zoom
+            - slider "Zoom 90%" [ref=e50]: "90"
+            - strong [ref=e51]: 90%
+      - iframe [ref=e55]:
+        - generic [ref=f3e3]:
+          - generic [ref=f3e4]:
+            - generic [ref=f3e5]: CALM Workbook
+            - button "" [ref=f3e7] [cursor=pointer]:
+              - generic [ref=f3e8]: 
+          - text:              
+          - generic [ref=f3e9]:
+            - generic [ref=f3e11]:
+              - generic [ref=f3e12]: 
+              - generic [ref=f3e13]: Saved
+            - generic [ref=f3e15]:
+              - generic [ref=f3e16]:
+                - generic [ref=f3e18]: 
+                - heading "nextSTEP High School" [level=1] [ref=f3e19]
+                - generic [ref=f3e20]:
+                  - generic [ref=f3e21]: Fort Saskatchewan
+                  - generic [ref=f3e22]: Sherwood Park
+                  - generic [ref=f3e23]: Vegreville
+              - paragraph [ref=f3e25]: 👋 Welcome! Your progress is automatically saved to your browser as you work. When you are finished, click the Final Review tab to verify your answers.
+              - heading "Career & Life Management" [level=2] [ref=f3e27]
+              - generic [ref=f3e28]:
+                - paragraph [ref=f3e29]: CALM is a compulsory course for Alberta High School students. It is the final component of the grade 1-12 Health Promotion Program. It is a 3 credit course, and is broken up into 3 modules.
+                - paragraph [ref=f3e30]: The aim of CALM is to enable students to make well informed, considered decisions and choices in all aspects of their lives.
+                - generic [ref=f3e31]:
+                  - heading "The 3 Pillars of Life Choices:" [level=3] [ref=f3e32]
+                  - generic [ref=f3e33]:
+                    - generic [ref=f3e34]:
+                      - generic [ref=f3e35]: "1"
+                      - generic [ref=f3e36]:
+                        - strong [ref=f3e37]: Personal Choices
+                        - text: Apply understanding of well-being and personal health to daily teenage decisions.
+                    - generic [ref=f3e38]:
+                      - generic [ref=f3e39]: "2"
+                      - generic [ref=f3e40]:
+                        - strong [ref=f3e41]: Resource Choices
+                        - text: Understand and make responsible decisions in the use of your resources.
+                    - generic [ref=f3e42]:
+                      - generic [ref=f3e43]: "3"
+                      - generic [ref=f3e44]:
+                        - strong [ref=f3e45]: Career & Life Choices
+                        - text: Develop processes for managing personal and lifelong career growth.
+            - generic [ref=f3e46]:
+              - generic [ref=f3e47]:
+                - generic [ref=f3e48]:
+                  - generic [ref=f3e50]: 🎉
+                  - heading "Section Complete!" [level=3] [ref=f3e51]
+                - button "Go to Next Module " [ref=f3e52] [cursor=pointer]:
+                  - text: Go to Next Module
+                  - generic [ref=f3e53]: 
+              - generic [ref=f3e54]:
+                - button " Back":
+                  - generic: 
+                  - text: Back
+                - button "Next " [ref=f3e55] [cursor=pointer]:
+                  - text: Next
+                  - generic [ref=f3e56]: 
+    - article [ref=e56]:
+      - generic [ref=e57]:
+        - heading "Workspace" [level=3] [ref=e58]
+        - generic [ref=e59]:
+          - button "Match" [ref=e60] [cursor=pointer]
+          - button "Hide Controls" [ref=e61] [cursor=pointer]
+      - generic [ref=e62]:
+        - generic [ref=e63]:
+          - generic [ref=e64]: Project
+          - combobox "Project" [ref=e65]:
+            - option "calm-module"
+            - option "calm-module-2-activites-reference"
+            - option "calm3new"
+            - option "calmmodule2"
+            - option "calmmodule3"
+            - option "e2e-fixture"
+            - option "forensics" [selected]
+            - option "genpsy-studio"
+            - option "hss1010"
+        - generic [ref=e66]:
+          - generic [ref=e67]: Root
+          - combobox "Root" [disabled] [ref=e68]:
+            - option "workspace" [selected]
+        - generic [ref=e69]:
+          - generic [ref=e70]: HTML
+          - combobox "HTML" [ref=e71]:
+            - option "index.html" [selected]
+        - button "Refresh" [ref=e72] [cursor=pointer]
+      - generic [ref=e73]:
+        - generic [ref=e74]:
+          - button "Desktop" [ref=e75] [cursor=pointer]
+          - button "Tablet" [ref=e76] [cursor=pointer]
+          - button "Mobile" [ref=e77] [cursor=pointer]
+        - generic [ref=e78]:
+          - button "Fit" [ref=e79] [cursor=pointer]
+          - generic [ref=e80]:
+            - generic [ref=e81]: Zoom
+            - slider "Zoom 100%" [ref=e82]: "100"
+            - strong [ref=e83]: 100%
+      - iframe [active] [ref=e87]:
+        - generic [ref=f4e4]:
+          - complementary [ref=f4e5]:
+            - generic [ref=f4e6]:
+              - generic [ref=f4e7]:
+                - generic [ref=f4e8]:
+                  - generic [ref=f4e9]: Case file
+                  - heading "Forensic Studies 25" [level=1] [ref=f4e10]
+                - button "Collapse chapter menu" [expanded] [ref=f4e11] [cursor=pointer]
+              - generic [ref=f4e16]:
+                - generic [ref=f4e17]:
+                  - generic [ref=f4e18]: Progress
+                  - generic [ref=f4e19]: 200%
+                - generic [ref=f4e22]:
+                  - generic [ref=f4e23]: 12 sections
+                  - generic [ref=f4e24]: 194 nodes
+              - generic [ref=f4e25]:
+                - img
+                - textbox "Search chapter titles" [active] [ref=f4e26]: Forensic Science 25 Answer Keys
+              - generic [ref=f4e27]:
+                - generic [ref=f4e28]:
+                  - generic [ref=f4e29]: Visibility
+                  - generic [ref=f4e30]: Archive mode
+                - button "Hide admin-only" [ref=f4e31] [cursor=pointer]
+            - button "E2E Seed Module 1 items in export" [ref=f4e34] [cursor=pointer]:
+              - generic [ref=f4e35]:
+                - generic [ref=f4e36]: E2E Seed Module
+                - generic [ref=f4e37]: 1 items in export
+              - img [ref=f4e38]
+          - main [ref=f4e40]:
+            - generic [ref=f4e42]:
+              - generic [ref=f4e43]:
+                - generic [ref=f4e44]: E2E Seed Module
+                - generic [ref=f4e45]: archive mode
+              - heading "E2E Seed Module" [level=2] [ref=f4e46]
+            - generic [ref=f4e49]:
+              - heading "No learner content in this chapter yet" [level=3] [ref=f4e50]
+              - paragraph [ref=f4e51]: Assignment-only chapters are intentionally hidden in this app surface. Learning content is preserved and can be added here later.
+      - generic [ref=e89]:
+        - generic [ref=e90]:
+          - button "Analyze" [ref=e91] [cursor=pointer]
+          - button "Refs" [ref=e92] [cursor=pointer]
+          - button "Verify" [ref=e93] [cursor=pointer]
+          - button "Export Dir" [ref=e94] [cursor=pointer]
+          - button "Package" [ref=e95] [cursor=pointer]
+          - button "SCORM 2004" [ref=e96] [cursor=pointer]
+          - button "SCORM 1.2" [ref=e97] [cursor=pointer]
+          - button "Google Hosted" [ref=e98] [cursor=pointer]
+          - button "HTML" [ref=e99] [cursor=pointer]
+        - button "Show Output" [ref=e100] [cursor=pointer]
+```

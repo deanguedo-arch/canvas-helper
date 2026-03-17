@@ -697,11 +697,23 @@ function parseQuizXml(xmlText) {
   };
 }
 
+const FORENSIC_THEME = {
+  panel:
+    "rounded-2xl border border-white/[0.08] bg-[#141821] shadow-[0_18px_40px_rgba(0,0,0,0.45)]",
+  panelSoft:
+    "rounded-2xl border border-white/[0.08] bg-[#101216] shadow-[0_16px_36px_rgba(0,0,0,0.4)]",
+  buttonPrimary:
+    "rounded-lg border border-[#dc2626]/70 bg-[#b91c1c] px-4 py-2.5 text-sm font-semibold text-[#f3f4f6] transition duration-200 hover:bg-[#dc2626] hover:shadow-[0_0_0_1px_rgba(220,38,38,0.35),0_10px_24px_rgba(185,28,28,0.28)]",
+  buttonSecondary:
+    "rounded-lg border border-white/[0.12] bg-white/[0.03] px-4 py-2.5 text-sm font-semibold text-[#d1d5db] transition duration-200 hover:border-white/[0.26] hover:bg-white/[0.07] hover:text-[#f3f4f6]",
+  overline: "text-[11px] font-semibold uppercase tracking-[0.18em] text-[#6b7280]",
+};
+
 function Badge({ children, className = "", ...props }) {
   return (
     <span
       {...props}
-      className={`rounded-full border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-600 ${className}`.trim()}
+      className={`rounded-md border border-white/[0.12] bg-white/[0.03] px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#a1a8b3] ${className}`.trim()}
     >
       {children}
     </span>
@@ -771,8 +783,8 @@ function SidebarItem({ active, completed, lesson, onClick }) {
       onClick={onClick}
       className={`flex w-full items-start gap-3 rounded-xl border px-3 py-3 text-left transition ${
         active
-          ? "border-sky-200 bg-sky-50 text-slate-900 shadow-sm"
-          : "border-transparent bg-transparent text-slate-700 hover:border-slate-200 hover:bg-white"
+          ? "border-[#b91c1c]/70 bg-[#1a1215] text-[#f3f4f6] shadow-[0_10px_24px_rgba(185,28,28,0.2)]"
+          : "border-transparent bg-transparent text-[#a1a8b3] hover:border-white/[0.1] hover:bg-white/[0.04] hover:text-[#f3f4f6]"
       }`}
       data-testid="lesson-item"
       data-lesson-title={lesson.title}
@@ -781,14 +793,14 @@ function SidebarItem({ active, completed, lesson, onClick }) {
       data-active={active ? "true" : "false"}
     >
       <div className="mt-0.5 shrink-0">
-        {completed ? <CheckCircle2 className="h-4 w-4 text-sky-600" /> : <Circle className="h-4 w-4 text-slate-300" />}
+        {completed ? <CheckCircle2 className="h-4 w-4 text-[#dc2626]" /> : <Circle className="h-4 w-4 text-white/30" />}
       </div>
       <div className="min-w-0 flex-1">
         <div className="flex items-center gap-2">
-          <Icon className="h-3.5 w-3.5 text-slate-400" />
+          <Icon className="h-3.5 w-3.5 text-white/45" />
           <div className="truncate text-sm font-medium">{lesson.title}</div>
         </div>
-        <div className="mt-1 text-[11px] uppercase tracking-[0.12em] text-slate-400">{typeLabel(lesson.type)}</div>
+        <div className="mt-1 text-[10px] uppercase tracking-[0.16em] text-[#6b7280]">{typeLabel(lesson.type)}</div>
       </div>
     </button>
   );
@@ -813,13 +825,13 @@ function HtmlRenderer({ html }) {
   };
 
   return (
-    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm" data-testid="renderer-html">
+    <div className={`${FORENSIC_THEME.panel} p-6`} data-testid="renderer-html">
       <div className="mb-4 flex flex-wrap justify-end gap-2">
         {sections.length > 1 && (
           <>
             <button
               onClick={() => setSectionMode((prev) => !prev)}
-              className="rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700"
+              className={FORENSIC_THEME.buttonSecondary}
               data-testid="section-mode-toggle"
             >
               {sectionMode ? "Single flow" : "Section mode"}
@@ -828,14 +840,14 @@ function HtmlRenderer({ html }) {
               <>
                 <button
                   onClick={expandAll}
-                  className="rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700"
+                  className={FORENSIC_THEME.buttonSecondary}
                   data-testid="section-expand-all"
                 >
                   Expand all
                 </button>
                 <button
                   onClick={collapseAll}
-                  className="rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700"
+                  className={FORENSIC_THEME.buttonSecondary}
                   data-testid="section-collapse-all"
                 >
                   Collapse all
@@ -850,17 +862,17 @@ function HtmlRenderer({ html }) {
           {sections.map((section) => {
             const collapsed = !!collapsedSections[section.id];
             return (
-              <div key={section.id} className="rounded-2xl border border-slate-200" data-testid="section-container">
+              <div key={section.id} className="rounded-xl border border-white/[0.1] bg-white/[0.02]" data-testid="section-container">
                 <button
                   onClick={() => setCollapsedSections((prev) => ({ ...prev, [section.id]: !prev[section.id] }))}
-                  className="flex w-full items-center justify-between px-4 py-3 text-left"
+                  className="flex w-full items-center justify-between px-4 py-3 text-left transition duration-200 hover:bg-white/[0.03]"
                 >
-                  <span className="text-sm font-semibold text-slate-900">{section.title}</span>
-                  <span className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{collapsed ? "Expand" : "Collapse"}</span>
+                  <span className="text-sm font-semibold text-[#f3f4f6]">{section.title}</span>
+                  <span className={FORENSIC_THEME.overline}>{collapsed ? "Expand" : "Collapse"}</span>
                 </button>
                 {!collapsed && (
                   <div
-                    className="max-w-none border-t border-slate-200 px-4 py-4 text-slate-700 [&_.image-banner]:my-4 [&_.image-banner]:rounded-2xl [&_.image-banner]:border [&_.image-banner]:border-slate-200 [&_.image-banner]:bg-slate-50 [&_.image-banner]:p-8 [&_.image-banner]:text-center [&_h1]:mb-4 [&_h1]:text-3xl [&_h1]:font-semibold [&_h1]:tracking-tight [&_h2]:mb-3 [&_h2]:text-2xl [&_h2]:font-semibold [&_h3]:mb-2 [&_h3]:mt-5 [&_h3]:text-lg [&_h3]:font-semibold [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:mb-4 [&_p]:leading-7 [&_table]:mt-4 [&_table]:w-full [&_table]:border-collapse [&_td]:border [&_td]:border-slate-300 [&_td]:p-3 [&_th]:border [&_th]:border-slate-300 [&_th]:bg-slate-50 [&_th]:p-3 [&_ul]:list-disc [&_ul]:pl-6"
+                    className="max-w-none border-t border-white/[0.08] px-4 py-4 text-[#cbd5e1] [&_.image-banner]:my-4 [&_.image-banner]:rounded-xl [&_.image-banner]:border [&_.image-banner]:border-white/[0.1] [&_.image-banner]:bg-white/[0.04] [&_.image-banner]:p-8 [&_.image-banner]:text-center [&_h1]:mb-4 [&_h1]:text-3xl [&_h1]:font-semibold [&_h1]:tracking-tight [&_h1]:text-[#f3f4f6] [&_h2]:mb-3 [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:text-[#f3f4f6] [&_h3]:mb-2 [&_h3]:mt-5 [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-[#e5e7eb] [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:mb-4 [&_p]:leading-7 [&_table]:mt-4 [&_table]:w-full [&_table]:border-collapse [&_td]:border [&_td]:border-white/[0.12] [&_td]:p-3 [&_th]:border [&_th]:border-white/[0.14] [&_th]:bg-white/[0.06] [&_th]:p-3 [&_ul]:list-disc [&_ul]:pl-6"
                     dangerouslySetInnerHTML={{ __html: section.html }}
                   />
                 )}
@@ -870,7 +882,7 @@ function HtmlRenderer({ html }) {
         </div>
       ) : (
         <div
-          className="max-w-none text-slate-700 [&_.image-banner]:my-4 [&_.image-banner]:rounded-2xl [&_.image-banner]:border [&_.image-banner]:border-slate-200 [&_.image-banner]:bg-slate-50 [&_.image-banner]:p-8 [&_.image-banner]:text-center [&_h1]:mb-4 [&_h1]:text-3xl [&_h1]:font-semibold [&_h1]:tracking-tight [&_h2]:mb-3 [&_h2]:text-2xl [&_h2]:font-semibold [&_h3]:mb-2 [&_h3]:mt-5 [&_h3]:text-lg [&_h3]:font-semibold [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:mb-4 [&_p]:leading-7 [&_table]:mt-4 [&_table]:w-full [&_table]:border-collapse [&_td]:border [&_td]:border-slate-300 [&_td]:p-3 [&_th]:border [&_th]:border-slate-300 [&_th]:bg-slate-50 [&_th]:p-3 [&_ul]:list-disc [&_ul]:pl-6"
+          className="max-w-none text-[#cbd5e1] [&_.image-banner]:my-4 [&_.image-banner]:rounded-xl [&_.image-banner]:border [&_.image-banner]:border-white/[0.1] [&_.image-banner]:bg-white/[0.04] [&_.image-banner]:p-8 [&_.image-banner]:text-center [&_h1]:mb-4 [&_h1]:text-3xl [&_h1]:font-semibold [&_h1]:tracking-tight [&_h1]:text-[#f3f4f6] [&_h2]:mb-3 [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:text-[#f3f4f6] [&_h3]:mb-2 [&_h3]:mt-5 [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-[#e5e7eb] [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:mb-4 [&_p]:leading-7 [&_table]:mt-4 [&_table]:w-full [&_table]:border-collapse [&_td]:border [&_td]:border-white/[0.12] [&_td]:p-3 [&_th]:border [&_th]:border-white/[0.14] [&_th]:bg-white/[0.06] [&_th]:p-3 [&_ul]:list-disc [&_ul]:pl-6"
           dangerouslySetInnerHTML={{ __html: html }}
         />
       )}
@@ -881,10 +893,11 @@ function HtmlRenderer({ html }) {
 function PdfRenderer({ meta, title, sourceUrl }) {
   const pages = meta?.pages || 1;
   return (
-    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm" data-testid="renderer-pdf">
+    <div className={`${FORENSIC_THEME.panel} p-6`} data-testid="renderer-pdf">
       <div className="mb-5 flex items-center justify-between">
         <div>
-          <h4 className="text-lg font-semibold text-slate-900">{title}</h4>
+          <div className={FORENSIC_THEME.overline}>Course PDF</div>
+          <h4 className="mt-1 text-lg font-semibold text-[#f3f4f6]">{title}</h4>
         </div>
         <div className="flex gap-2">
           <Badge>{meta?.size || "PDF"}</Badge>
@@ -892,14 +905,16 @@ function PdfRenderer({ meta, title, sourceUrl }) {
         </div>
       </div>
       <div className="grid gap-4 lg:grid-cols-[180px_1fr]">
-        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-3">
-          <div className="mb-3 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">Pages</div>
+        <div className={`${FORENSIC_THEME.panelSoft} p-3`}>
+          <div className={`mb-3 ${FORENSIC_THEME.overline}`}>Pages</div>
           <div className="space-y-2">
             {Array.from({ length: Math.min(pages, 6) }).map((_, i) => (
               <div
                 key={i}
                 className={`rounded-xl border px-3 py-2 text-sm ${
-                  i === 0 ? "border-sky-200 bg-sky-50 text-sky-700" : "border-slate-200 bg-white text-slate-600"
+                  i === 0
+                    ? "border-[#b91c1c]/70 bg-[#1a1215] text-[#fecaca]"
+                    : "border-white/[0.1] bg-white/[0.02] text-[#a1a8b3]"
                 }`}
               >
                 Page {i + 1}
@@ -907,23 +922,23 @@ function PdfRenderer({ meta, title, sourceUrl }) {
             ))}
           </div>
         </div>
-        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-          <div className="mb-4 flex items-center justify-between text-sm text-slate-600">
+        <div className={`${FORENSIC_THEME.panelSoft} p-4`}>
+          <div className="mb-4 flex items-center justify-between text-sm text-[#a1a8b3]">
             <span>Page 1 of {pages}</span>
             <div className="flex gap-2">
-              <button className="rounded-xl border border-slate-200 bg-white px-3 py-1.5">Fit</button>
-              <button className="rounded-xl border border-slate-200 bg-white px-3 py-1.5">−</button>
-              <button className="rounded-xl border border-slate-200 bg-white px-3 py-1.5">+</button>
+              <button className={FORENSIC_THEME.buttonSecondary}>Fit</button>
+              <button className={FORENSIC_THEME.buttonSecondary}>−</button>
+              <button className={FORENSIC_THEME.buttonSecondary}>+</button>
             </div>
           </div>
           {sourceUrl ? (
             <iframe
               src={sourceUrl}
               title={title}
-              className="mx-auto min-h-[520px] w-full max-w-[760px] rounded-xl border border-slate-300 bg-white shadow-inner"
+              className="mx-auto min-h-[520px] w-full max-w-[760px] rounded-xl border border-white/20 bg-white shadow-[inset_0_1px_0_rgba(255,255,255,0.45)]"
             />
           ) : (
-            <div className="mx-auto flex min-h-[520px] max-w-[760px] items-center justify-center rounded-xl border border-slate-300 bg-white p-8 text-center text-sm leading-7 text-slate-500 shadow-inner">
+            <div className="mx-auto flex min-h-[520px] max-w-[760px] items-center justify-center rounded-xl border border-white/20 bg-white/[0.02] p-8 text-center text-sm leading-7 text-[#a1a8b3] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
               PDF page canvas would render here with real pagination, zoom, and outline support.
             </div>
           )}
@@ -935,24 +950,25 @@ function PdfRenderer({ meta, title, sourceUrl }) {
 
 function SlideRenderer({ title }) {
   return (
-    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm" data-testid="renderer-slide">
+    <div className={`${FORENSIC_THEME.panel} p-6`} data-testid="renderer-slide">
       <div className="mb-4 flex items-center justify-between">
         <div>
-          <h4 className="text-lg font-semibold text-slate-900">{title}</h4>
+          <div className={FORENSIC_THEME.overline}>Evidence media</div>
+          <h4 className="mt-1 text-lg font-semibold text-[#f3f4f6]">{title}</h4>
         </div>
         <div className="flex gap-2">
           <Badge>responsive media</Badge>
           <Badge>zoom ready</Badge>
         </div>
       </div>
-      <div className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-950/95">
-        <div className="flex min-h-[460px] items-center justify-center bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.15),_transparent_35%),linear-gradient(180deg,_#1e293b,_#020617)] p-10 text-center">
+      <div className="overflow-hidden rounded-2xl border border-white/[0.12] bg-slate-950/95">
+        <div className="flex min-h-[460px] items-center justify-center bg-[radial-gradient(circle_at_top,_rgba(185,28,28,0.18),_transparent_36%),linear-gradient(180deg,_#141821,_#090a0d)] p-10 text-center">
           <div>
-            <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-3xl bg-white/10 ring-1 ring-white/10">
-              <FileImage className="h-7 w-7 text-sky-300" />
+            <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 ring-1 ring-white/15">
+              <FileImage className="h-7 w-7 text-[#fecaca]" />
             </div>
-            <h4 className="text-2xl font-semibold text-white">{title}</h4>
-            <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-slate-300">
+            <h4 className="text-2xl font-semibold text-[#f3f4f6]">{title}</h4>
+            <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-[#cbd5e1]">
               Original exported slide/image asset would render here with preserved visuals, zoom support, and optional caption treatment.
             </p>
           </div>
@@ -965,10 +981,11 @@ function SlideRenderer({ title }) {
 function AssignmentRenderer({ data, meta, title }) {
   const introHtml = data?.intro || "";
   return (
-    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm" data-testid="renderer-assignment">
+    <div className={`${FORENSIC_THEME.panel} p-6`} data-testid="renderer-assignment">
       <div className="mb-5 flex items-center justify-between">
         <div>
-          <h4 className="text-lg font-semibold text-slate-900">{title}</h4>
+          <div className={FORENSIC_THEME.overline}>Case assignment</div>
+          <h4 className="mt-1 text-lg font-semibold text-[#f3f4f6]">{title}</h4>
         </div>
         <div className="flex gap-2">
           <Badge>{meta?.points || 0} pts</Badge>
@@ -977,7 +994,7 @@ function AssignmentRenderer({ data, meta, title }) {
         </div>
       </div>
       <div className="grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
-        <div className="space-y-4 text-sm leading-7 text-slate-700">
+        <div className="space-y-4 text-sm leading-7 text-[#cbd5e1]">
           {introHtml ? (
             <div
               className="max-w-none [&_img]:mx-auto [&_img]:my-4 [&_img]:h-auto [&_img]:max-w-full [&_p]:mb-3"
@@ -988,21 +1005,21 @@ function AssignmentRenderer({ data, meta, title }) {
           )}
           {(data?.individualized || data?.identified) && (
             <div className="grid gap-4 lg:grid-cols-2">
-              <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-4">
-                <div className="text-xs font-semibold uppercase tracking-[0.12em] text-emerald-800">Individualized evidence</div>
-                <p className="mt-2 text-emerald-950">{data?.individualized || "Not specified."}</p>
+              <div className="rounded-xl border border-white/[0.12] bg-[#112015] p-4">
+                <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#86efac]">Individualized evidence</div>
+                <p className="mt-2 text-[#dcfce7]">{data?.individualized || "Not specified."}</p>
               </div>
-              <div className="rounded-2xl border border-sky-200 bg-sky-50 p-4">
-                <div className="text-xs font-semibold uppercase tracking-[0.12em] text-sky-800">Identified evidence</div>
-                <p className="mt-2 text-sky-950">{data?.identified || "Not specified."}</p>
+              <div className="rounded-xl border border-white/[0.12] bg-[#111d2a] p-4">
+                <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#93c5fd]">Identified evidence</div>
+                <p className="mt-2 text-[#dbeafe]">{data?.identified || "Not specified."}</p>
               </div>
             </div>
           )}
         </div>
         <div className="space-y-4">
-          <div className="rounded-2xl border border-slate-200 bg-white p-4">
-            <div className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-600">Assignment note</div>
-            <p className="mt-3 text-sm leading-7 text-slate-700">
+          <div className={`${FORENSIC_THEME.panelSoft} p-4`}>
+            <div className={FORENSIC_THEME.overline}>Assignment note</div>
+            <p className="mt-3 text-sm leading-7 text-[#cbd5e1]">
               Assignment submissions are managed outside this app flow. This view preserves assignment context only.
             </p>
           </div>
@@ -1112,11 +1129,11 @@ function QuizRenderer({ quiz, questions, meta }) {
   }, [questions, quiz]);
 
   return (
-    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm" data-testid="renderer-quiz">
+    <div className={`${FORENSIC_THEME.panel} p-6`} data-testid="renderer-quiz">
       <div className="mb-5 flex items-center justify-between">
         <div>
-          <div className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Assignments</div>
-          <h4 className="mt-1 text-lg font-semibold text-slate-900">Module assessment</h4>
+          <div className={FORENSIC_THEME.overline}>Assignments</div>
+          <h4 className="mt-1 text-lg font-semibold text-[#f3f4f6]">Module assessment</h4>
         </div>
         <div className="flex flex-wrap gap-2">
           <Badge>{parsedQuestions.length} questions</Badge>
@@ -1134,8 +1151,10 @@ function QuizRenderer({ quiz, questions, meta }) {
                   onClick={() => {
                     setQuestionIndex(idx);
                   }}
-                  className={`rounded-xl border px-3 py-1.5 text-xs font-semibold ${
-                    questionIndex === idx ? "border-sky-300 bg-sky-50 text-sky-700" : "border-slate-200 bg-white text-slate-600"
+                  className={`rounded-lg border px-3 py-1.5 text-xs font-semibold transition duration-200 ${
+                    questionIndex === idx
+                      ? "border-[#b91c1c]/70 bg-[#1a1215] text-[#fecaca]"
+                      : "border-white/[0.12] bg-white/[0.02] text-[#a1a8b3] hover:border-white/[0.24] hover:text-[#f3f4f6]"
                   }`}
                   data-testid="quiz-question-button"
                   data-current={questionIndex === idx ? "true" : "false"}
@@ -1145,13 +1164,13 @@ function QuizRenderer({ quiz, questions, meta }) {
               ))}
             </div>
           )}
-          <div className="mb-4 h-2 overflow-hidden rounded-full bg-slate-100">
+          <div className="mb-4 h-2 overflow-hidden rounded-full bg-white/[0.08]">
             <div
-              className="h-full rounded-full bg-sky-500"
+              className="h-full rounded-full bg-[#b91c1c]"
               style={{ width: `${parsedQuestions.length ? (answeredCount / parsedQuestions.length) * 100 : 0}%` }}
             />
           </div>
-          <p className="text-sm leading-7 text-slate-700">{activeQuestion?.question || "No quiz question parsed."}</p>
+          <p className="text-sm leading-7 text-[#d1d5db]">{activeQuestion?.question || "No quiz question parsed."}</p>
           <div className="mt-5 space-y-3">
             {activeQuestion?.choices?.map((choice, idx) => (
               <button
@@ -1161,7 +1180,9 @@ function QuizRenderer({ quiz, questions, meta }) {
                   setFeedbackByQuestion((prev) => ({ ...prev, [activeQuestionId]: false }));
                 }}
                 className={`w-full rounded-2xl border p-4 text-left text-sm transition ${
-                  currentSelected === idx ? "border-sky-300 bg-sky-50" : "border-slate-200 hover:bg-slate-50"
+                  currentSelected === idx
+                    ? "border-[#b91c1c]/70 bg-[#1a1215] text-[#f3f4f6]"
+                    : "border-white/[0.12] bg-white/[0.02] text-[#cbd5e1] hover:border-white/[0.24] hover:bg-white/[0.05]"
                 }`}
                 data-testid="quiz-answer-choice"
               >
@@ -1172,7 +1193,7 @@ function QuizRenderer({ quiz, questions, meta }) {
           <div className="mt-5 flex flex-wrap gap-3">
             <button
               onClick={() => setFeedbackByQuestion((prev) => ({ ...prev, [activeQuestionId]: true }))}
-              className="w-full rounded-2xl bg-sky-500 px-4 py-2.5 text-sm font-medium text-white sm:w-auto"
+              className={`w-full sm:w-auto ${FORENSIC_THEME.buttonPrimary}`}
               data-testid="quiz-check-answer"
             >
               Check answer
@@ -1182,19 +1203,19 @@ function QuizRenderer({ quiz, questions, meta }) {
                 setAnswersByQuestion((prev) => ({ ...prev, [activeQuestionId]: undefined }));
                 setFeedbackByQuestion((prev) => ({ ...prev, [activeQuestionId]: false }));
               }}
-              className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 sm:w-auto"
+              className={`w-full sm:w-auto ${FORENSIC_THEME.buttonSecondary}`}
             >
               Clear answer
             </button>
             <button
               onClick={resetQuizAttempt}
-              className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 sm:w-auto"
+              className={`w-full sm:w-auto ${FORENSIC_THEME.buttonSecondary}`}
             >
               Retake quiz
             </button>
             <button
               onClick={generateQuizReport}
-              className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 sm:w-auto"
+              className={`w-full sm:w-auto ${FORENSIC_THEME.buttonSecondary}`}
             >
               Generate report
             </button>
@@ -1205,7 +1226,7 @@ function QuizRenderer({ quiz, questions, meta }) {
                     setQuestionIndex((idx) => idx + 1);
                   }
                 }}
-                className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 sm:w-auto"
+                className={`w-full sm:w-auto ${FORENSIC_THEME.buttonSecondary}`}
                 data-testid="quiz-next-question"
               >
                 Next question
@@ -1213,9 +1234,9 @@ function QuizRenderer({ quiz, questions, meta }) {
             )}
           </div>
           {showFeedback && currentSelected !== undefined && (
-            <div className={`mt-5 rounded-2xl border p-4 ${correct ? "border-emerald-200 bg-emerald-50" : "border-rose-200 bg-rose-50"}`}>
-              <div className={`text-sm font-semibold ${correct ? "text-emerald-800" : "text-rose-800"}`}>{correct ? "Correct" : "Wrong"}</div>
-              <p className={`mt-2 text-sm leading-7 ${correct ? "text-emerald-950" : "text-rose-950"}`}>
+            <div className={`mt-5 rounded-2xl border p-4 ${correct ? "border-emerald-400/35 bg-emerald-950/30" : "border-[#dc2626]/45 bg-[#2d0f14]"}`}>
+              <div className={`text-sm font-semibold ${correct ? "text-emerald-300" : "text-rose-300"}`}>{correct ? "Correct" : "Wrong"}</div>
+              <p className={`mt-2 text-sm leading-7 ${correct ? "text-emerald-100" : "text-rose-100"}`}>
                 In the exported quiz, the correct answer is <strong>{activeQuestion?.choices?.[activeQuestion?.answerIndex]}</strong>.
               </p>
             </div>
@@ -1228,19 +1249,20 @@ function QuizRenderer({ quiz, questions, meta }) {
 
 function VideoRenderer({ title }) {
   return (
-    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm" data-testid="renderer-video">
+    <div className={`${FORENSIC_THEME.panel} p-6`} data-testid="renderer-video">
       <div className="mb-4 flex items-center justify-between">
         <div>
-          <h4 className="text-lg font-semibold text-slate-900">{title}</h4>
+          <div className={FORENSIC_THEME.overline}>Media sequence</div>
+          <h4 className="mt-1 text-lg font-semibold text-[#f3f4f6]">{title}</h4>
         </div>
         <Badge>responsive embed</Badge>
       </div>
-      <div className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-950">
-        <div className="flex aspect-video items-center justify-center bg-[linear-gradient(135deg,_#0f172a,_#111827)]">
+      <div className="overflow-hidden rounded-2xl border border-white/[0.12] bg-slate-950">
+        <div className="flex aspect-video items-center justify-center bg-[radial-gradient(circle_at_top,rgba(185,28,28,0.16),transparent_42%),linear-gradient(135deg,#101216,#08090c)]">
           <div className="text-center">
-            <PlayCircle className="mx-auto h-14 w-14 text-sky-300" />
-            <div className="mt-3 text-lg font-semibold text-white">{title}</div>
-            <p className="mt-2 max-w-lg text-sm text-slate-300">The real build would embed the exported video page cleanly here instead of leaving it as an awkward detached Brightspace wrapper.</p>
+            <PlayCircle className="mx-auto h-14 w-14 text-[#fecaca]" />
+            <div className="mt-3 text-lg font-semibold text-[#f3f4f6]">{title}</div>
+            <p className="mt-2 max-w-lg text-sm text-[#cbd5e1]">The real build would embed the exported video page cleanly here instead of leaving it as an awkward detached Brightspace wrapper.</p>
           </div>
         </div>
       </div>
@@ -1250,12 +1272,12 @@ function VideoRenderer({ title }) {
 
 function SourceFallback({ activeLesson, sourcePreview }) {
   return (
-    <div className="rounded-3xl border border-amber-200 bg-amber-50 p-6 shadow-sm" data-testid="renderer-fallback">
-      <h4 className="text-lg font-semibold text-amber-950">Content unavailable in this view</h4>
-      <p className="mt-3 text-sm leading-7 text-amber-900">
+    <div className="rounded-2xl border border-[#b91c1c]/45 bg-[#2a1216] p-6 shadow-[0_16px_34px_rgba(0,0,0,0.45)]" data-testid="renderer-fallback">
+      <h4 className="text-lg font-semibold text-[#fecaca]">Content unavailable in this view</h4>
+      <p className="mt-3 text-sm leading-7 text-[#fee2e2]">
         This item is still part of the module, but this content type is not fully rendered yet.
       </p>
-      <div className="mt-4 space-y-2 rounded-2xl border border-amber-200 bg-white p-4 text-xs text-slate-700">
+      <div className="mt-4 space-y-2 rounded-xl border border-white/[0.12] bg-white/[0.04] p-4 text-xs text-[#e2e8f0]">
         <div><strong>Type:</strong> {typeLabel(activeLesson?.type)}</div>
         {sourcePreview?.error && <div><strong>Status:</strong> Rendering is still in progress for this item.</div>}
       </div>
@@ -1293,21 +1315,21 @@ function QuickCheckpoints({ activeLesson }) {
   }, [activeLesson.id]);
 
   return (
-    <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm" data-testid="quick-checkpoints">
-      <div className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">Quick checkpoints</div>
+    <section className={`${FORENSIC_THEME.panel} p-6`} data-testid="quick-checkpoints">
+      <div className={FORENSIC_THEME.overline}>Quick checkpoints</div>
       <div className="mt-4 space-y-4">
         {prompts.map((prompt, idx) => (
-          <div key={idx} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-            <div className="text-sm font-medium text-slate-900">Checkpoint {idx + 1}</div>
-            <p className="mt-2 text-sm leading-7 text-slate-700">{prompt}</p>
+          <div key={idx} className="rounded-xl border border-white/[0.12] bg-white/[0.03] p-4">
+            <div className="text-sm font-medium text-[#f3f4f6]">Checkpoint {idx + 1}</div>
+            <p className="mt-2 text-sm leading-7 text-[#cbd5e1]">{prompt}</p>
             <button
               onClick={() => setRevealed((prev) => ({ ...prev, [idx]: !prev[idx] }))}
-              className="mt-3 rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700"
+              className={`mt-3 ${FORENSIC_THEME.buttonSecondary}`}
             >
               {revealed[idx] ? "Hide self-check" : "Show self-check"}
             </button>
             {revealed[idx] && (
-              <p className="mt-3 text-xs leading-6 text-slate-600">
+              <p className="mt-3 text-xs leading-6 text-[#a1a8b3]">
                 Self-check against the lesson content before marking complete.
               </p>
             )}
@@ -1322,7 +1344,7 @@ function renderNodePreview(activeLesson, sourcePreview) {
   const isSourceCritical = ["html-reading", "pdf", "assignment", "quiz"].includes(activeLesson.type);
 
   if (isSourceCritical && sourcePreview?.status === "loading") {
-    return <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm text-sm text-slate-600">Loading content...</div>;
+    return <div className={`${FORENSIC_THEME.panelSoft} p-6 text-sm text-[#a1a8b3]`}>Loading content...</div>;
   }
 
   if (isSourceCritical && sourcePreview?.status === "error") {
@@ -1435,11 +1457,11 @@ function ChapterLessonCard({ lesson }) {
   }, [lesson?.id, lesson?.sourceFile, lesson?.type]);
 
   return (
-    <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+    <section className={`${FORENSIC_THEME.panel} p-8`}>
       <div className="mb-4 flex flex-wrap items-center gap-2">
         {lesson.type !== "html-reading" ? <Badge>{typeLabel(lesson.type)}</Badge> : null}
       </div>
-      <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{formatLessonTitleForDisplay(lesson)}</h3>
+      <h3 className="text-2xl font-semibold tracking-tight text-[#f3f4f6]">{formatLessonTitleForDisplay(lesson)}</h3>
       <div className="mt-6">{renderNodePreview(lesson, sourcePreview)}</div>
     </section>
   );
@@ -1534,36 +1556,51 @@ export default function ForensicCoursePlayerPreviewRestored() {
 
   if (!activeChapter) {
     return (
-      <div className="min-h-screen bg-slate-100 p-10 text-slate-700">
+      <div className="forensic-app min-h-screen bg-[#0a0b0d] p-10 text-[#a1a8b3]">
         No chapters were mapped from the D2L course map yet.
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top,_#e0f2fe_0%,_#f8fafc_35%,_#eef2ff_100%)] text-slate-900">
+    <div className="forensic-app min-h-screen bg-[radial-gradient(circle_at_18%_-10%,rgba(185,28,28,0.2),transparent_36%),radial-gradient(circle_at_84%_0%,rgba(148,163,184,0.12),transparent_34%),#0a0b0d] text-[#f3f4f6]">
+      <style>{`
+        .forensic-app {
+          font-family: "Manrope", "Inter", "Segoe UI", sans-serif;
+        }
+        .forensic-app h1,
+        .forensic-app h2,
+        .forensic-app h3,
+        .forensic-app h4 {
+          font-family: "Space Grotesk", "Manrope", "Inter", sans-serif;
+          letter-spacing: -0.015em;
+        }
+        .forensic-app * {
+          transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+        }
+      `}</style>
       <div className="flex min-h-screen">
         <aside
-          className={`sticky top-0 h-screen shrink-0 overflow-hidden border-r border-slate-200/80 bg-white/80 backdrop-blur transition-[width] duration-200 ${
+          className={`sticky top-0 h-screen shrink-0 overflow-hidden border-r border-white/[0.08] bg-[#101216]/90 backdrop-blur-xl transition-[width] duration-200 ${
             isChapterMenuCollapsed ? "w-16" : "w-[340px]"
           }`}
           data-testid="chapter-menu-panel"
           data-collapsed={isChapterMenuCollapsed ? "true" : "false"}
         >
-          <div className={`border-b border-slate-200 ${isChapterMenuCollapsed ? "px-2 py-4" : "px-5 py-5"}`}>
+          <div className={`border-b border-white/[0.08] ${isChapterMenuCollapsed ? "px-2 py-4" : "px-5 py-5"}`}>
             <div className={`mb-3 flex ${isChapterMenuCollapsed ? "justify-center" : "items-start justify-between gap-3"}`}>
               {!isChapterMenuCollapsed ? (
                 <div>
-                  <div className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">Course</div>
-                  <h1 className="mt-1 text-xl font-semibold">{resolvedCourse.title}</h1>
+                  <div className={FORENSIC_THEME.overline}>Case file</div>
+                  <h1 className="mt-1 text-xl font-semibold text-[#f3f4f6]">{resolvedCourse.title}</h1>
                 </div>
               ) : null}
               <button
                 onClick={() => setIsChapterMenuCollapsed((prev) => !prev)}
-                className={`flex h-10 w-10 items-center justify-center rounded-xl border shadow-sm ${
+                className={`flex h-10 w-10 items-center justify-center rounded-lg border transition duration-200 ${
                   isChapterMenuCollapsed
-                    ? "border-sky-200 bg-sky-600 text-white hover:bg-sky-500"
-                    : "border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
+                    ? "border-[#dc2626]/70 bg-[#b91c1c] text-[#fef2f2] hover:bg-[#dc2626] hover:shadow-[0_0_0_1px_rgba(220,38,38,0.45)]"
+                    : "border-white/[0.14] bg-white/[0.04] text-[#d1d5db] hover:border-white/[0.28] hover:bg-white/[0.08] hover:text-[#f3f4f6]"
                 }`}
                 data-testid="chapter-menu-toggle"
                 aria-expanded={isChapterMenuCollapsed ? "false" : "true"}
@@ -1571,48 +1608,50 @@ export default function ForensicCoursePlayerPreviewRestored() {
                 title={isChapterMenuCollapsed ? "Open chapter menu" : "Collapse chapter menu"}
               >
                 <span className="flex flex-col gap-1.5">
-                  <span className={`block h-[2px] w-4 rounded-full ${isChapterMenuCollapsed ? "bg-white" : "bg-slate-700"}`} />
-                  <span className={`block h-[2px] w-4 rounded-full ${isChapterMenuCollapsed ? "bg-white" : "bg-slate-700"}`} />
-                  <span className={`block h-[2px] w-4 rounded-full ${isChapterMenuCollapsed ? "bg-white" : "bg-slate-700"}`} />
+                  <span className={`block h-[2px] w-4 rounded-full ${isChapterMenuCollapsed ? "bg-[#fef2f2]" : "bg-[#d1d5db]"}`} />
+                  <span className={`block h-[2px] w-4 rounded-full ${isChapterMenuCollapsed ? "bg-[#fef2f2]" : "bg-[#d1d5db]"}`} />
+                  <span className={`block h-[2px] w-4 rounded-full ${isChapterMenuCollapsed ? "bg-[#fef2f2]" : "bg-[#d1d5db]"}`} />
                 </span>
               </button>
             </div>
             {isChapterMenuCollapsed ? null : (
               <>
-                <div className="rounded-2xl border border-slate-200 bg-white p-3 shadow-[0_8px_30px_rgba(15,23,42,0.05)]">
+                <div className={`${FORENSIC_THEME.panelSoft} p-3`}>
               <div className="mb-2 flex items-center justify-between text-sm">
-                <span className="font-medium text-slate-700">Preview progress</span>
-                <span className="font-semibold text-slate-900">{progress}%</span>
+                <span className="font-medium text-[#a1a8b3]">Progress</span>
+                <span className="font-semibold text-[#f3f4f6]">{progress}%</span>
               </div>
-              <div className="h-2 overflow-hidden rounded-full bg-slate-100">
-                <div className="h-full rounded-full bg-sky-500" style={{ width: `${progress}%` }} />
+              <div className="h-2 overflow-hidden rounded-full bg-white/[0.08]">
+                <div className="h-full rounded-full bg-[#b91c1c]" style={{ width: `${progress}%` }} />
               </div>
-              <div className="mt-3 grid grid-cols-2 gap-2 text-xs text-slate-500">
-              <div className="rounded-xl bg-slate-50 p-2">{resolvedCourse.stats.topLevelSections} sections</div>
-                <div className="rounded-xl bg-slate-50 p-2">{resolvedCourse.stats.totalNodes} nodes</div>
+              <div className="mt-3 grid grid-cols-2 gap-2 text-xs text-[#6b7280]">
+              <div className="rounded-lg border border-white/[0.08] bg-white/[0.03] p-2">{resolvedCourse.stats.topLevelSections} sections</div>
+                <div className="rounded-lg border border-white/[0.08] bg-white/[0.03] p-2">{resolvedCourse.stats.totalNodes} nodes</div>
               </div>
             </div>
             <div className="relative mt-4">
-              <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+              <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#6b7280]" />
               <input
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search chapter titles"
-                className="w-full rounded-2xl border border-slate-200 bg-white py-2.5 pl-9 pr-3 text-sm outline-none placeholder:text-slate-400 focus:border-sky-300"
+                className="w-full rounded-lg border border-white/[0.12] bg-white/[0.03] py-2.5 pl-9 pr-3 text-sm text-[#e5e7eb] outline-none placeholder:text-[#6b7280] focus:border-[#b91c1c]/70"
                 data-testid="lesson-search"
               />
             </div>
-                <div className="mt-3 flex items-center justify-between rounded-2xl border border-slate-200 bg-white px-3 py-2.5">
+                <div className="mt-3 flex items-center justify-between rounded-xl border border-white/[0.1] bg-white/[0.03] px-3 py-2.5">
               <div>
-                <div className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">Visibility</div>
-                <div className="text-xs text-slate-500" data-testid="mode-indicator">
+                <div className={FORENSIC_THEME.overline}>Visibility</div>
+                <div className="text-xs text-[#a1a8b3]" data-testid="mode-indicator">
                   {includeHidden ? "Archive mode" : "Learner mode"}
                 </div>
               </div>
               <button
                 onClick={() => setIncludeHidden((prev) => !prev)}
-                className={`rounded-xl px-3 py-1.5 text-xs font-semibold ${
-                  includeHidden ? "bg-amber-100 text-amber-800" : "bg-sky-100 text-sky-800"
+                className={`rounded-lg border px-3 py-1.5 text-xs font-semibold transition duration-200 ${
+                  includeHidden
+                    ? "border-[#f59e0b]/40 bg-[#3b2b11] text-[#fcd34d]"
+                    : "border-[#b91c1c]/55 bg-[#1a1215] text-[#fecaca]"
                 }`}
                 data-testid="mode-toggle"
               >
@@ -1632,7 +1671,7 @@ export default function ForensicCoursePlayerPreviewRestored() {
               return (
                 <div
                   key={module.id}
-                  className="mb-3 rounded-2xl border border-slate-200 bg-white p-2 shadow-[0_10px_25px_rgba(15,23,42,0.04)]"
+                  className="mb-3 rounded-xl border border-white/[0.1] bg-[#141821] p-2 shadow-[0_14px_30px_rgba(0,0,0,0.35)]"
                   data-testid="module-panel"
                   data-module-title={module.title}
                   data-module-hidden={module.isHidden ? "true" : "false"}
@@ -1640,20 +1679,20 @@ export default function ForensicCoursePlayerPreviewRestored() {
                 >
                   <button
                     onClick={() => setActiveChapterId(module.id)}
-                    className="flex w-full items-center justify-between rounded-xl px-2 py-2 text-left hover:bg-slate-50"
+                    className="flex w-full items-center justify-between rounded-lg px-2 py-2 text-left transition duration-200 hover:bg-white/[0.04]"
                     data-testid="module-toggle"
                     data-module-title={module.title}
                     data-expanded={isActive ? "true" : "false"}
                   >
                     <div>
-                      <div className="text-sm font-semibold">{formatModuleTitleForDisplay(module.title)}</div>
-                      <div className="text-xs text-slate-500">{module.lessonCount} items in export</div>
+                      <div className="text-sm font-semibold text-[#f3f4f6]">{formatModuleTitleForDisplay(module.title)}</div>
+                      <div className="text-xs text-[#6b7280]">{module.lessonCount} items in export</div>
                       {module.lessons?.some((lesson) => lesson.type === "quiz") ? (
-                        <div className="mt-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-sky-700">Assignments available</div>
+                        <div className="mt-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#fca5a5]">Assignments available</div>
                       ) : null}
                     </div>
                     {module.isHidden && <Badge>hidden module</Badge>}
-                    {isActive ? <ChevronDown className="h-4 w-4 text-slate-400" /> : <ChevronRight className="h-4 w-4 text-slate-400" />}
+                    {isActive ? <ChevronDown className="h-4 w-4 text-[#a1a8b3]" /> : <ChevronRight className="h-4 w-4 text-[#6b7280]" />}
                   </button>
                 </div>
               );
@@ -1662,20 +1701,20 @@ export default function ForensicCoursePlayerPreviewRestored() {
         </aside>
 
         <main className="flex-1 overflow-y-auto">
-          <div className="sticky top-0 z-10 border-b border-slate-200 bg-white/95 shadow-[0_8px_20px_rgba(15,23,42,0.04)] backdrop-blur">
+          <div className="sticky top-0 z-10 border-b border-white/[0.08] bg-[#101216]/95 shadow-[0_10px_24px_rgba(0,0,0,0.45)] backdrop-blur-xl">
             <div className="px-8 py-5">
-              <div className="mb-2 flex flex-wrap items-center gap-2 text-sm text-slate-500">
+              <div className="mb-2 flex flex-wrap items-center gap-2 text-sm text-[#a1a8b3]">
                 <span>{formatModuleTitleForDisplay(activeChapter.title)}</span>
                 {includeHidden && <Badge>archive mode</Badge>}
                 {activeChapter.isHidden && <Badge>admin-only</Badge>}
               </div>
-              <h2 className="text-3xl font-semibold tracking-tight text-slate-950" data-testid="lesson-title">
+              <h2 className="text-3xl font-semibold tracking-tight text-[#f3f4f6]" data-testid="lesson-title">
                 {formatModuleTitleForDisplay(activeChapter.title)}
               </h2>
               {chapterAssignments.length > 0 ? (
                 <a
                   href="#module-assignments"
-                  className="mt-3 inline-flex rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-50"
+                  className="mt-3 inline-flex rounded-lg border border-white/[0.14] bg-white/[0.03] px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-[#d1d5db] transition duration-200 hover:border-white/[0.3] hover:bg-white/[0.08] hover:text-[#f3f4f6]"
                 >
                   Jump to assignments
                 </a>
@@ -1686,9 +1725,9 @@ export default function ForensicCoursePlayerPreviewRestored() {
           <div className="mx-auto max-w-7xl px-8 py-10">
             <div className="space-y-6">
               {chapterLessons.length === 0 ? (
-                <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-                  <h3 className="text-xl font-semibold text-slate-900">No learner content in this chapter yet</h3>
-                  <p className="mt-3 text-sm text-slate-600">
+                <section className={`${FORENSIC_THEME.panel} p-8`}>
+                  <h3 className="text-xl font-semibold text-[#f3f4f6]">No learner content in this chapter yet</h3>
+                  <p className="mt-3 text-sm text-[#a1a8b3]">
                     Assignment-only chapters are intentionally hidden in this app surface. Learning content is preserved and can be added here later.
                   </p>
                 </section>
@@ -1697,9 +1736,9 @@ export default function ForensicCoursePlayerPreviewRestored() {
                 <ChapterLessonCard key={lesson.id} lesson={lesson} />
               ))}
               {chapterAssignments.length > 0 ? (
-                <section id="module-assignments" className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+                <section id="module-assignments" className={`${FORENSIC_THEME.panel} p-8`}>
                   <div className="mb-5 flex items-center justify-between">
-                    <h3 className="text-xl font-semibold text-slate-900">Assignments</h3>
+                    <h3 className="text-xl font-semibold text-[#f3f4f6]">Assignments</h3>
                     <Badge>{chapterAssignments.length} assessments</Badge>
                   </div>
                   <div className="space-y-6">

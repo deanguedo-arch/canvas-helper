@@ -4477,12 +4477,19 @@ function parseQuizXml(xmlText) {
     quizQuestions: questions
   };
 }
+var FORENSIC_THEME = {
+  panel: "rounded-2xl border border-white/[0.08] bg-[#141821] shadow-[0_18px_40px_rgba(0,0,0,0.45)]",
+  panelSoft: "rounded-2xl border border-white/[0.08] bg-[#101216] shadow-[0_16px_36px_rgba(0,0,0,0.4)]",
+  buttonPrimary: "rounded-lg border border-[#dc2626]/70 bg-[#b91c1c] px-4 py-2.5 text-sm font-semibold text-[#f3f4f6] transition duration-200 hover:bg-[#dc2626] hover:shadow-[0_0_0_1px_rgba(220,38,38,0.35),0_10px_24px_rgba(185,28,28,0.28)]",
+  buttonSecondary: "rounded-lg border border-white/[0.12] bg-white/[0.03] px-4 py-2.5 text-sm font-semibold text-[#d1d5db] transition duration-200 hover:border-white/[0.26] hover:bg-white/[0.07] hover:text-[#f3f4f6]",
+  overline: "text-[11px] font-semibold uppercase tracking-[0.18em] text-[#6b7280]"
+};
 function Badge({ children, className = "", ...props }) {
   return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
     "span",
     {
       ...props,
-      className: `rounded-full border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-600 ${className}`.trim(),
+      className: `rounded-md border border-white/[0.12] bg-white/[0.03] px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#a1a8b3] ${className}`.trim(),
       children
     }
   );
@@ -4534,13 +4541,13 @@ function HtmlRenderer({ html }) {
   const expandAll = () => {
     setCollapsedSections({});
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "rounded-3xl border border-slate-200 bg-white p-6 shadow-sm", "data-testid": "renderer-html", children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: `${FORENSIC_THEME.panel} p-6`, "data-testid": "renderer-html", children: [
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "mb-4 flex flex-wrap justify-end gap-2", children: sections.length > 1 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
         "button",
         {
           onClick: () => setSectionMode((prev) => !prev),
-          className: "rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700",
+          className: FORENSIC_THEME.buttonSecondary,
           "data-testid": "section-mode-toggle",
           children: sectionMode ? "Single flow" : "Section mode"
         }
@@ -4550,7 +4557,7 @@ function HtmlRenderer({ html }) {
           "button",
           {
             onClick: expandAll,
-            className: "rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700",
+            className: FORENSIC_THEME.buttonSecondary,
             "data-testid": "section-expand-all",
             children: "Expand all"
           }
@@ -4559,7 +4566,7 @@ function HtmlRenderer({ html }) {
           "button",
           {
             onClick: collapseAll,
-            className: "rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700",
+            className: FORENSIC_THEME.buttonSecondary,
             "data-testid": "section-collapse-all",
             children: "Collapse all"
           }
@@ -4568,22 +4575,22 @@ function HtmlRenderer({ html }) {
     ] }) }),
     sectionMode && sections.length > 1 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "space-y-3", children: sections.map((section) => {
       const collapsed = !!collapsedSections[section.id];
-      return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "rounded-2xl border border-slate-200", "data-testid": "section-container", children: [
+      return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "rounded-xl border border-white/[0.1] bg-white/[0.02]", "data-testid": "section-container", children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
           "button",
           {
             onClick: () => setCollapsedSections((prev) => ({ ...prev, [section.id]: !prev[section.id] })),
-            className: "flex w-full items-center justify-between px-4 py-3 text-left",
+            className: "flex w-full items-center justify-between px-4 py-3 text-left transition duration-200 hover:bg-white/[0.03]",
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "text-sm font-semibold text-slate-900", children: section.title }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "text-xs font-semibold uppercase tracking-[0.12em] text-slate-500", children: collapsed ? "Expand" : "Collapse" })
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "text-sm font-semibold text-[#f3f4f6]", children: section.title }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: FORENSIC_THEME.overline, children: collapsed ? "Expand" : "Collapse" })
             ]
           }
         ),
         !collapsed && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
           "div",
           {
-            className: "max-w-none border-t border-slate-200 px-4 py-4 text-slate-700 [&_.image-banner]:my-4 [&_.image-banner]:rounded-2xl [&_.image-banner]:border [&_.image-banner]:border-slate-200 [&_.image-banner]:bg-slate-50 [&_.image-banner]:p-8 [&_.image-banner]:text-center [&_h1]:mb-4 [&_h1]:text-3xl [&_h1]:font-semibold [&_h1]:tracking-tight [&_h2]:mb-3 [&_h2]:text-2xl [&_h2]:font-semibold [&_h3]:mb-2 [&_h3]:mt-5 [&_h3]:text-lg [&_h3]:font-semibold [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:mb-4 [&_p]:leading-7 [&_table]:mt-4 [&_table]:w-full [&_table]:border-collapse [&_td]:border [&_td]:border-slate-300 [&_td]:p-3 [&_th]:border [&_th]:border-slate-300 [&_th]:bg-slate-50 [&_th]:p-3 [&_ul]:list-disc [&_ul]:pl-6",
+            className: "max-w-none border-t border-white/[0.08] px-4 py-4 text-[#cbd5e1] [&_.image-banner]:my-4 [&_.image-banner]:rounded-xl [&_.image-banner]:border [&_.image-banner]:border-white/[0.1] [&_.image-banner]:bg-white/[0.04] [&_.image-banner]:p-8 [&_.image-banner]:text-center [&_h1]:mb-4 [&_h1]:text-3xl [&_h1]:font-semibold [&_h1]:tracking-tight [&_h1]:text-[#f3f4f6] [&_h2]:mb-3 [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:text-[#f3f4f6] [&_h3]:mb-2 [&_h3]:mt-5 [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-[#e5e7eb] [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:mb-4 [&_p]:leading-7 [&_table]:mt-4 [&_table]:w-full [&_table]:border-collapse [&_td]:border [&_td]:border-white/[0.12] [&_td]:p-3 [&_th]:border [&_th]:border-white/[0.14] [&_th]:bg-white/[0.06] [&_th]:p-3 [&_ul]:list-disc [&_ul]:pl-6",
             dangerouslySetInnerHTML: { __html: section.html }
           }
         )
@@ -4591,7 +4598,7 @@ function HtmlRenderer({ html }) {
     }) }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
       "div",
       {
-        className: "max-w-none text-slate-700 [&_.image-banner]:my-4 [&_.image-banner]:rounded-2xl [&_.image-banner]:border [&_.image-banner]:border-slate-200 [&_.image-banner]:bg-slate-50 [&_.image-banner]:p-8 [&_.image-banner]:text-center [&_h1]:mb-4 [&_h1]:text-3xl [&_h1]:font-semibold [&_h1]:tracking-tight [&_h2]:mb-3 [&_h2]:text-2xl [&_h2]:font-semibold [&_h3]:mb-2 [&_h3]:mt-5 [&_h3]:text-lg [&_h3]:font-semibold [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:mb-4 [&_p]:leading-7 [&_table]:mt-4 [&_table]:w-full [&_table]:border-collapse [&_td]:border [&_td]:border-slate-300 [&_td]:p-3 [&_th]:border [&_th]:border-slate-300 [&_th]:bg-slate-50 [&_th]:p-3 [&_ul]:list-disc [&_ul]:pl-6",
+        className: "max-w-none text-[#cbd5e1] [&_.image-banner]:my-4 [&_.image-banner]:rounded-xl [&_.image-banner]:border [&_.image-banner]:border-white/[0.1] [&_.image-banner]:bg-white/[0.04] [&_.image-banner]:p-8 [&_.image-banner]:text-center [&_h1]:mb-4 [&_h1]:text-3xl [&_h1]:font-semibold [&_h1]:tracking-tight [&_h1]:text-[#f3f4f6] [&_h2]:mb-3 [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:text-[#f3f4f6] [&_h3]:mb-2 [&_h3]:mt-5 [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-[#e5e7eb] [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:mb-4 [&_p]:leading-7 [&_table]:mt-4 [&_table]:w-full [&_table]:border-collapse [&_td]:border [&_td]:border-white/[0.12] [&_td]:p-3 [&_th]:border [&_th]:border-white/[0.14] [&_th]:bg-white/[0.06] [&_th]:p-3 [&_ul]:list-disc [&_ul]:pl-6",
         dangerouslySetInnerHTML: { __html: html }
       }
     )
@@ -4599,9 +4606,12 @@ function HtmlRenderer({ html }) {
 }
 function PdfRenderer({ meta, title, sourceUrl }) {
   const pages = meta?.pages || 1;
-  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "rounded-3xl border border-slate-200 bg-white p-6 shadow-sm", "data-testid": "renderer-pdf", children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: `${FORENSIC_THEME.panel} p-6`, "data-testid": "renderer-pdf", children: [
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mb-5 flex items-center justify-between", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { className: "text-lg font-semibold text-slate-900", children: title }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: FORENSIC_THEME.overline, children: "Course PDF" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { className: "mt-1 text-lg font-semibold text-[#f3f4f6]", children: title })
+      ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex gap-2", children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Badge, { children: meta?.size || "PDF" }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Badge, { children: [
@@ -4611,12 +4621,12 @@ function PdfRenderer({ meta, title, sourceUrl }) {
       ] })
     ] }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "grid gap-4 lg:grid-cols-[180px_1fr]", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "rounded-2xl border border-slate-200 bg-slate-50 p-3", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "mb-3 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500", children: "Pages" }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: `${FORENSIC_THEME.panelSoft} p-3`, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: `mb-3 ${FORENSIC_THEME.overline}`, children: "Pages" }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "space-y-2", children: Array.from({ length: Math.min(pages, 6) }).map((_, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
           "div",
           {
-            className: `rounded-xl border px-3 py-2 text-sm ${i === 0 ? "border-sky-200 bg-sky-50 text-sky-700" : "border-slate-200 bg-white text-slate-600"}`,
+            className: `rounded-xl border px-3 py-2 text-sm ${i === 0 ? "border-[#b91c1c]/70 bg-[#1a1215] text-[#fecaca]" : "border-white/[0.1] bg-white/[0.02] text-[#a1a8b3]"}`,
             children: [
               "Page ",
               i + 1
@@ -4625,16 +4635,16 @@ function PdfRenderer({ meta, title, sourceUrl }) {
           i
         )) })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "rounded-2xl border border-slate-200 bg-slate-50 p-4", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mb-4 flex items-center justify-between text-sm text-slate-600", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: `${FORENSIC_THEME.panelSoft} p-4`, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mb-4 flex items-center justify-between text-sm text-[#a1a8b3]", children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [
             "Page 1 of ",
             pages
           ] }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex gap-2", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "rounded-xl border border-slate-200 bg-white px-3 py-1.5", children: "Fit" }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "rounded-xl border border-slate-200 bg-white px-3 py-1.5", children: "\u2212" }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "rounded-xl border border-slate-200 bg-white px-3 py-1.5", children: "+" })
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: FORENSIC_THEME.buttonSecondary, children: "Fit" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: FORENSIC_THEME.buttonSecondary, children: "\u2212" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: FORENSIC_THEME.buttonSecondary, children: "+" })
           ] })
         ] }),
         sourceUrl ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
@@ -4642,34 +4652,40 @@ function PdfRenderer({ meta, title, sourceUrl }) {
           {
             src: sourceUrl,
             title,
-            className: "mx-auto min-h-[520px] w-full max-w-[760px] rounded-xl border border-slate-300 bg-white shadow-inner"
+            className: "mx-auto min-h-[520px] w-full max-w-[760px] rounded-xl border border-white/20 bg-white shadow-[inset_0_1px_0_rgba(255,255,255,0.45)]"
           }
-        ) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "mx-auto flex min-h-[520px] max-w-[760px] items-center justify-center rounded-xl border border-slate-300 bg-white p-8 text-center text-sm leading-7 text-slate-500 shadow-inner", children: "PDF page canvas would render here with real pagination, zoom, and outline support." })
+        ) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "mx-auto flex min-h-[520px] max-w-[760px] items-center justify-center rounded-xl border border-white/20 bg-white/[0.02] p-8 text-center text-sm leading-7 text-[#a1a8b3] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]", children: "PDF page canvas would render here with real pagination, zoom, and outline support." })
       ] })
     ] })
   ] });
 }
 function SlideRenderer({ title }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "rounded-3xl border border-slate-200 bg-white p-6 shadow-sm", "data-testid": "renderer-slide", children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: `${FORENSIC_THEME.panel} p-6`, "data-testid": "renderer-slide", children: [
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mb-4 flex items-center justify-between", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { className: "text-lg font-semibold text-slate-900", children: title }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: FORENSIC_THEME.overline, children: "Evidence media" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { className: "mt-1 text-lg font-semibold text-[#f3f4f6]", children: title })
+      ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex gap-2", children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Badge, { children: "responsive media" }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Badge, { children: "zoom ready" })
       ] })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "overflow-hidden rounded-2xl border border-slate-200 bg-slate-950/95", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "flex min-h-[460px] items-center justify-center bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.15),_transparent_35%),linear-gradient(180deg,_#1e293b,_#020617)] p-10 text-center", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-3xl bg-white/10 ring-1 ring-white/10", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FileImage, { className: "h-7 w-7 text-sky-300" }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { className: "text-2xl font-semibold text-white", children: title }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "mx-auto mt-3 max-w-xl text-sm leading-7 text-slate-300", children: "Original exported slide/image asset would render here with preserved visuals, zoom support, and optional caption treatment." })
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "overflow-hidden rounded-2xl border border-white/[0.12] bg-slate-950/95", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "flex min-h-[460px] items-center justify-center bg-[radial-gradient(circle_at_top,_rgba(185,28,28,0.18),_transparent_36%),linear-gradient(180deg,_#141821,_#090a0d)] p-10 text-center", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 ring-1 ring-white/15", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FileImage, { className: "h-7 w-7 text-[#fecaca]" }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { className: "text-2xl font-semibold text-[#f3f4f6]", children: title }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "mx-auto mt-3 max-w-xl text-sm leading-7 text-[#cbd5e1]", children: "Original exported slide/image asset would render here with preserved visuals, zoom support, and optional caption treatment." })
     ] }) }) })
   ] });
 }
 function AssignmentRenderer({ data, meta, title }) {
   const introHtml = data?.intro || "";
-  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "rounded-3xl border border-slate-200 bg-white p-6 shadow-sm", "data-testid": "renderer-assignment", children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: `${FORENSIC_THEME.panel} p-6`, "data-testid": "renderer-assignment", children: [
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mb-5 flex items-center justify-between", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { className: "text-lg font-semibold text-slate-900", children: title }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: FORENSIC_THEME.overline, children: "Case assignment" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { className: "mt-1 text-lg font-semibold text-[#f3f4f6]", children: title })
+      ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex gap-2", children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Badge, { children: [
           meta?.points || 0,
@@ -4683,7 +4699,7 @@ function AssignmentRenderer({ data, meta, title }) {
       ] })
     ] }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "grid gap-5 lg:grid-cols-[1.1fr_0.9fr]", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-4 text-sm leading-7 text-slate-700", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-4 text-sm leading-7 text-[#cbd5e1]", children: [
         introHtml ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
           "div",
           {
@@ -4692,19 +4708,19 @@ function AssignmentRenderer({ data, meta, title }) {
           }
         ) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "No assignment instructions are available yet." }),
         (data?.individualized || data?.identified) && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "grid gap-4 lg:grid-cols-2", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "rounded-2xl border border-emerald-200 bg-emerald-50 p-4", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "text-xs font-semibold uppercase tracking-[0.12em] text-emerald-800", children: "Individualized evidence" }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "mt-2 text-emerald-950", children: data?.individualized || "Not specified." })
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "rounded-xl border border-white/[0.12] bg-[#112015] p-4", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "text-[11px] font-semibold uppercase tracking-[0.14em] text-[#86efac]", children: "Individualized evidence" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "mt-2 text-[#dcfce7]", children: data?.individualized || "Not specified." })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "rounded-2xl border border-sky-200 bg-sky-50 p-4", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "text-xs font-semibold uppercase tracking-[0.12em] text-sky-800", children: "Identified evidence" }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "mt-2 text-sky-950", children: data?.identified || "Not specified." })
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "rounded-xl border border-white/[0.12] bg-[#111d2a] p-4", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "text-[11px] font-semibold uppercase tracking-[0.14em] text-[#93c5fd]", children: "Identified evidence" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "mt-2 text-[#dbeafe]", children: data?.identified || "Not specified." })
           ] })
         ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "space-y-4", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "rounded-2xl border border-slate-200 bg-white p-4", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "text-xs font-semibold uppercase tracking-[0.12em] text-slate-600", children: "Assignment note" }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "mt-3 text-sm leading-7 text-slate-700", children: "Assignment submissions are managed outside this app flow. This view preserves assignment context only." })
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "space-y-4", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: `${FORENSIC_THEME.panelSoft} p-4`, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: FORENSIC_THEME.overline, children: "Assignment note" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "mt-3 text-sm leading-7 text-[#cbd5e1]", children: "Assignment submissions are managed outside this app flow. This view preserves assignment context only." })
       ] }) })
     ] })
   ] });
@@ -4797,11 +4813,11 @@ function QuizRenderer({ quiz, questions, meta }) {
   useEffect(() => {
     resetQuizAttempt();
   }, [questions, quiz]);
-  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "rounded-3xl border border-slate-200 bg-white p-6 shadow-sm", "data-testid": "renderer-quiz", children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: `${FORENSIC_THEME.panel} p-6`, "data-testid": "renderer-quiz", children: [
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mb-5 flex items-center justify-between", children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "text-xs font-semibold uppercase tracking-[0.14em] text-slate-500", children: "Assignments" }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { className: "mt-1 text-lg font-semibold text-slate-900", children: "Module assessment" })
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: FORENSIC_THEME.overline, children: "Assignments" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { className: "mt-1 text-lg font-semibold text-[#f3f4f6]", children: "Module assessment" })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex flex-wrap gap-2", children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Badge, { children: [
@@ -4829,7 +4845,7 @@ function QuizRenderer({ quiz, questions, meta }) {
           onClick: () => {
             setQuestionIndex(idx);
           },
-          className: `rounded-xl border px-3 py-1.5 text-xs font-semibold ${questionIndex === idx ? "border-sky-300 bg-sky-50 text-sky-700" : "border-slate-200 bg-white text-slate-600"}`,
+          className: `rounded-lg border px-3 py-1.5 text-xs font-semibold transition duration-200 ${questionIndex === idx ? "border-[#b91c1c]/70 bg-[#1a1215] text-[#fecaca]" : "border-white/[0.12] bg-white/[0.02] text-[#a1a8b3] hover:border-white/[0.24] hover:text-[#f3f4f6]"}`,
           "data-testid": "quiz-question-button",
           "data-current": questionIndex === idx ? "true" : "false",
           children: [
@@ -4841,14 +4857,14 @@ function QuizRenderer({ quiz, questions, meta }) {
         },
         question.id
       )) }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "mb-4 h-2 overflow-hidden rounded-full bg-slate-100", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "mb-4 h-2 overflow-hidden rounded-full bg-white/[0.08]", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
         "div",
         {
-          className: "h-full rounded-full bg-sky-500",
+          className: "h-full rounded-full bg-[#b91c1c]",
           style: { width: `${parsedQuestions.length ? answeredCount / parsedQuestions.length * 100 : 0}%` }
         }
       ) }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-sm leading-7 text-slate-700", children: activeQuestion?.question || "No quiz question parsed." }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-sm leading-7 text-[#d1d5db]", children: activeQuestion?.question || "No quiz question parsed." }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "mt-5 space-y-3", children: activeQuestion?.choices?.map((choice, idx) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
         "button",
         {
@@ -4856,7 +4872,7 @@ function QuizRenderer({ quiz, questions, meta }) {
             setAnswersByQuestion((prev) => ({ ...prev, [activeQuestionId]: idx }));
             setFeedbackByQuestion((prev) => ({ ...prev, [activeQuestionId]: false }));
           },
-          className: `w-full rounded-2xl border p-4 text-left text-sm transition ${currentSelected === idx ? "border-sky-300 bg-sky-50" : "border-slate-200 hover:bg-slate-50"}`,
+          className: `w-full rounded-2xl border p-4 text-left text-sm transition ${currentSelected === idx ? "border-[#b91c1c]/70 bg-[#1a1215] text-[#f3f4f6]" : "border-white/[0.12] bg-white/[0.02] text-[#cbd5e1] hover:border-white/[0.24] hover:bg-white/[0.05]"}`,
           "data-testid": "quiz-answer-choice",
           children: choice
         },
@@ -4867,7 +4883,7 @@ function QuizRenderer({ quiz, questions, meta }) {
           "button",
           {
             onClick: () => setFeedbackByQuestion((prev) => ({ ...prev, [activeQuestionId]: true })),
-            className: "w-full rounded-2xl bg-sky-500 px-4 py-2.5 text-sm font-medium text-white sm:w-auto",
+            className: `w-full sm:w-auto ${FORENSIC_THEME.buttonPrimary}`,
             "data-testid": "quiz-check-answer",
             children: "Check answer"
           }
@@ -4879,7 +4895,7 @@ function QuizRenderer({ quiz, questions, meta }) {
               setAnswersByQuestion((prev) => ({ ...prev, [activeQuestionId]: void 0 }));
               setFeedbackByQuestion((prev) => ({ ...prev, [activeQuestionId]: false }));
             },
-            className: "w-full rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 sm:w-auto",
+            className: `w-full sm:w-auto ${FORENSIC_THEME.buttonSecondary}`,
             children: "Clear answer"
           }
         ),
@@ -4887,7 +4903,7 @@ function QuizRenderer({ quiz, questions, meta }) {
           "button",
           {
             onClick: resetQuizAttempt,
-            className: "w-full rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 sm:w-auto",
+            className: `w-full sm:w-auto ${FORENSIC_THEME.buttonSecondary}`,
             children: "Retake quiz"
           }
         ),
@@ -4895,7 +4911,7 @@ function QuizRenderer({ quiz, questions, meta }) {
           "button",
           {
             onClick: generateQuizReport,
-            className: "w-full rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 sm:w-auto",
+            className: `w-full sm:w-auto ${FORENSIC_THEME.buttonSecondary}`,
             children: "Generate report"
           }
         ),
@@ -4907,15 +4923,15 @@ function QuizRenderer({ quiz, questions, meta }) {
                 setQuestionIndex((idx) => idx + 1);
               }
             },
-            className: "w-full rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 sm:w-auto",
+            className: `w-full sm:w-auto ${FORENSIC_THEME.buttonSecondary}`,
             "data-testid": "quiz-next-question",
             children: "Next question"
           }
         )
       ] }),
-      showFeedback && currentSelected !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: `mt-5 rounded-2xl border p-4 ${correct ? "border-emerald-200 bg-emerald-50" : "border-rose-200 bg-rose-50"}`, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: `text-sm font-semibold ${correct ? "text-emerald-800" : "text-rose-800"}`, children: correct ? "Correct" : "Wrong" }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { className: `mt-2 text-sm leading-7 ${correct ? "text-emerald-950" : "text-rose-950"}`, children: [
+      showFeedback && currentSelected !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: `mt-5 rounded-2xl border p-4 ${correct ? "border-emerald-400/35 bg-emerald-950/30" : "border-[#dc2626]/45 bg-[#2d0f14]"}`, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: `text-sm font-semibold ${correct ? "text-emerald-300" : "text-rose-300"}`, children: correct ? "Correct" : "Wrong" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { className: `mt-2 text-sm leading-7 ${correct ? "text-emerald-100" : "text-rose-100"}`, children: [
           "In the exported quiz, the correct answer is ",
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: activeQuestion?.choices?.[activeQuestion?.answerIndex] }),
           "."
@@ -4925,23 +4941,26 @@ function QuizRenderer({ quiz, questions, meta }) {
   ] });
 }
 function VideoRenderer({ title }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "rounded-3xl border border-slate-200 bg-white p-6 shadow-sm", "data-testid": "renderer-video", children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: `${FORENSIC_THEME.panel} p-6`, "data-testid": "renderer-video", children: [
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mb-4 flex items-center justify-between", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { className: "text-lg font-semibold text-slate-900", children: title }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: FORENSIC_THEME.overline, children: "Media sequence" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { className: "mt-1 text-lg font-semibold text-[#f3f4f6]", children: title })
+      ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Badge, { children: "responsive embed" })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "overflow-hidden rounded-2xl border border-slate-200 bg-slate-950", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "flex aspect-video items-center justify-center bg-[linear-gradient(135deg,_#0f172a,_#111827)]", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "text-center", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PlayCircle, { className: "mx-auto h-14 w-14 text-sky-300" }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "mt-3 text-lg font-semibold text-white", children: title }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "mt-2 max-w-lg text-sm text-slate-300", children: "The real build would embed the exported video page cleanly here instead of leaving it as an awkward detached Brightspace wrapper." })
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "overflow-hidden rounded-2xl border border-white/[0.12] bg-slate-950", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "flex aspect-video items-center justify-center bg-[radial-gradient(circle_at_top,rgba(185,28,28,0.16),transparent_42%),linear-gradient(135deg,#101216,#08090c)]", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "text-center", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PlayCircle, { className: "mx-auto h-14 w-14 text-[#fecaca]" }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "mt-3 text-lg font-semibold text-[#f3f4f6]", children: title }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "mt-2 max-w-lg text-sm text-[#cbd5e1]", children: "The real build would embed the exported video page cleanly here instead of leaving it as an awkward detached Brightspace wrapper." })
     ] }) }) })
   ] });
 }
 function SourceFallback({ activeLesson, sourcePreview }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "rounded-3xl border border-amber-200 bg-amber-50 p-6 shadow-sm", "data-testid": "renderer-fallback", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { className: "text-lg font-semibold text-amber-950", children: "Content unavailable in this view" }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "mt-3 text-sm leading-7 text-amber-900", children: "This item is still part of the module, but this content type is not fully rendered yet." }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mt-4 space-y-2 rounded-2xl border border-amber-200 bg-white p-4 text-xs text-slate-700", children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "rounded-2xl border border-[#b91c1c]/45 bg-[#2a1216] p-6 shadow-[0_16px_34px_rgba(0,0,0,0.45)]", "data-testid": "renderer-fallback", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { className: "text-lg font-semibold text-[#fecaca]", children: "Content unavailable in this view" }),
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "mt-3 text-sm leading-7 text-[#fee2e2]", children: "This item is still part of the module, but this content type is not fully rendered yet." }),
+    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mt-4 space-y-2 rounded-xl border border-white/[0.12] bg-white/[0.04] p-4 text-xs text-[#e2e8f0]", children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "Type:" }),
         " ",
@@ -4957,7 +4976,7 @@ function SourceFallback({ activeLesson, sourcePreview }) {
 function renderNodePreview(activeLesson, sourcePreview) {
   const isSourceCritical = ["html-reading", "pdf", "assignment", "quiz"].includes(activeLesson.type);
   if (isSourceCritical && sourcePreview?.status === "loading") {
-    return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "rounded-3xl border border-slate-200 bg-white p-6 shadow-sm text-sm text-slate-600", children: "Loading content..." });
+    return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: `${FORENSIC_THEME.panelSoft} p-6 text-sm text-[#a1a8b3]`, children: "Loading content..." });
   }
   if (isSourceCritical && sourcePreview?.status === "error") {
     return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SourceFallback, { activeLesson, sourcePreview });
@@ -5052,9 +5071,9 @@ function ChapterLessonCard({ lesson }) {
       cancelled = true;
     };
   }, [lesson?.id, lesson?.sourceFile, lesson?.type]);
-  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { className: "rounded-3xl border border-slate-200 bg-white p-8 shadow-sm", children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { className: `${FORENSIC_THEME.panel} p-8`, children: [
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "mb-4 flex flex-wrap items-center gap-2", children: lesson.type !== "html-reading" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Badge, { children: typeLabel(lesson.type) }) : null }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "text-2xl font-semibold tracking-tight text-slate-950", children: formatLessonTitleForDisplay(lesson) }),
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "text-2xl font-semibold tracking-tight text-[#f3f4f6]", children: formatLessonTitleForDisplay(lesson) }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "mt-6", children: renderNodePreview(lesson, sourcePreview) })
   ] });
 }
@@ -5129,172 +5148,189 @@ function ForensicCoursePlayerPreviewRestored() {
     setChapterVisited((prev) => ({ ...prev, [activeChapter.id]: true }));
   }, [activeChapter?.id]);
   if (!activeChapter) {
-    return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "min-h-screen bg-slate-100 p-10 text-slate-700", children: "No chapters were mapped from the D2L course map yet." });
+    return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "forensic-app min-h-screen bg-[#0a0b0d] p-10 text-[#a1a8b3]", children: "No chapters were mapped from the D2L course map yet." });
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "min-h-screen bg-[radial-gradient(circle_at_top,_#e0f2fe_0%,_#f8fafc_35%,_#eef2ff_100%)] text-slate-900", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex min-h-screen", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
-      "aside",
-      {
-        className: `sticky top-0 h-screen shrink-0 overflow-hidden border-r border-slate-200/80 bg-white/80 backdrop-blur transition-[width] duration-200 ${isChapterMenuCollapsed ? "w-16" : "w-[340px]"}`,
-        "data-testid": "chapter-menu-panel",
-        "data-collapsed": isChapterMenuCollapsed ? "true" : "false",
-        children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: `border-b border-slate-200 ${isChapterMenuCollapsed ? "px-2 py-4" : "px-5 py-5"}`, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: `mb-3 flex ${isChapterMenuCollapsed ? "justify-center" : "items-start justify-between gap-3"}`, children: [
-              !isChapterMenuCollapsed ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "text-xs font-semibold uppercase tracking-[0.16em] text-slate-500", children: "Course" }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { className: "mt-1 text-xl font-semibold", children: resolvedCourse.title })
-              ] }) : null,
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-                "button",
-                {
-                  onClick: () => setIsChapterMenuCollapsed((prev) => !prev),
-                  className: `flex h-10 w-10 items-center justify-center rounded-xl border shadow-sm ${isChapterMenuCollapsed ? "border-sky-200 bg-sky-600 text-white hover:bg-sky-500" : "border-slate-200 bg-white text-slate-700 hover:bg-slate-50"}`,
-                  "data-testid": "chapter-menu-toggle",
-                  "aria-expanded": isChapterMenuCollapsed ? "false" : "true",
-                  "aria-label": isChapterMenuCollapsed ? "Open chapter menu" : "Collapse chapter menu",
-                  title: isChapterMenuCollapsed ? "Open chapter menu" : "Collapse chapter menu",
-                  children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { className: "flex flex-col gap-1.5", children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: `block h-[2px] w-4 rounded-full ${isChapterMenuCollapsed ? "bg-white" : "bg-slate-700"}` }),
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: `block h-[2px] w-4 rounded-full ${isChapterMenuCollapsed ? "bg-white" : "bg-slate-700"}` }),
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: `block h-[2px] w-4 rounded-full ${isChapterMenuCollapsed ? "bg-white" : "bg-slate-700"}` })
-                  ] })
-                }
-              )
-            ] }),
-            isChapterMenuCollapsed ? null : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "rounded-2xl border border-slate-200 bg-white p-3 shadow-[0_8px_30px_rgba(15,23,42,0.05)]", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mb-2 flex items-center justify-between text-sm", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "font-medium text-slate-700", children: "Preview progress" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { className: "font-semibold text-slate-900", children: [
-                    progress,
-                    "%"
-                  ] })
-                ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-2 overflow-hidden rounded-full bg-slate-100", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-full rounded-full bg-sky-500", style: { width: `${progress}%` } }) }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mt-3 grid grid-cols-2 gap-2 text-xs text-slate-500", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "rounded-xl bg-slate-50 p-2", children: [
-                    resolvedCourse.stats.topLevelSections,
-                    " sections"
-                  ] }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "rounded-xl bg-slate-50 p-2", children: [
-                    resolvedCourse.stats.totalNodes,
-                    " nodes"
-                  ] })
-                ] })
-              ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "relative mt-4", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Search, { className: "pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-                  "input",
-                  {
-                    value: query,
-                    onChange: (e) => setQuery(e.target.value),
-                    placeholder: "Search chapter titles",
-                    className: "w-full rounded-2xl border border-slate-200 bg-white py-2.5 pl-9 pr-3 text-sm outline-none placeholder:text-slate-400 focus:border-sky-300",
-                    "data-testid": "lesson-search"
-                  }
-                )
-              ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mt-3 flex items-center justify-between rounded-2xl border border-slate-200 bg-white px-3 py-2.5", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "text-xs font-semibold uppercase tracking-[0.12em] text-slate-500", children: "Visibility" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "text-xs text-slate-500", "data-testid": "mode-indicator", children: includeHidden ? "Archive mode" : "Learner mode" })
-                ] }),
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "forensic-app min-h-screen bg-[radial-gradient(circle_at_18%_-10%,rgba(185,28,28,0.2),transparent_36%),radial-gradient(circle_at_84%_0%,rgba(148,163,184,0.12),transparent_34%),#0a0b0d] text-[#f3f4f6]", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("style", { children: `
+        .forensic-app {
+          font-family: "Manrope", "Inter", "Segoe UI", sans-serif;
+        }
+        .forensic-app h1,
+        .forensic-app h2,
+        .forensic-app h3,
+        .forensic-app h4 {
+          font-family: "Space Grotesk", "Manrope", "Inter", sans-serif;
+          letter-spacing: -0.015em;
+        }
+        .forensic-app * {
+          transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+        }
+      ` }),
+    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex min-h-screen", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+        "aside",
+        {
+          className: `sticky top-0 h-screen shrink-0 overflow-hidden border-r border-white/[0.08] bg-[#101216]/90 backdrop-blur-xl transition-[width] duration-200 ${isChapterMenuCollapsed ? "w-16" : "w-[340px]"}`,
+          "data-testid": "chapter-menu-panel",
+          "data-collapsed": isChapterMenuCollapsed ? "true" : "false",
+          children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: `border-b border-white/[0.08] ${isChapterMenuCollapsed ? "px-2 py-4" : "px-5 py-5"}`, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: `mb-3 flex ${isChapterMenuCollapsed ? "justify-center" : "items-start justify-between gap-3"}`, children: [
+                !isChapterMenuCollapsed ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: FORENSIC_THEME.overline, children: "Case file" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { className: "mt-1 text-xl font-semibold text-[#f3f4f6]", children: resolvedCourse.title })
+                ] }) : null,
                 /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
                   "button",
                   {
-                    onClick: () => setIncludeHidden((prev) => !prev),
-                    className: `rounded-xl px-3 py-1.5 text-xs font-semibold ${includeHidden ? "bg-amber-100 text-amber-800" : "bg-sky-100 text-sky-800"}`,
-                    "data-testid": "mode-toggle",
-                    children: includeHidden ? "Hide admin-only" : "Show archive"
+                    onClick: () => setIsChapterMenuCollapsed((prev) => !prev),
+                    className: `flex h-10 w-10 items-center justify-center rounded-lg border transition duration-200 ${isChapterMenuCollapsed ? "border-[#dc2626]/70 bg-[#b91c1c] text-[#fef2f2] hover:bg-[#dc2626] hover:shadow-[0_0_0_1px_rgba(220,38,38,0.45)]" : "border-white/[0.14] bg-white/[0.04] text-[#d1d5db] hover:border-white/[0.28] hover:bg-white/[0.08] hover:text-[#f3f4f6]"}`,
+                    "data-testid": "chapter-menu-toggle",
+                    "aria-expanded": isChapterMenuCollapsed ? "false" : "true",
+                    "aria-label": isChapterMenuCollapsed ? "Open chapter menu" : "Collapse chapter menu",
+                    title: isChapterMenuCollapsed ? "Open chapter menu" : "Collapse chapter menu",
+                    children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { className: "flex flex-col gap-1.5", children: [
+                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: `block h-[2px] w-4 rounded-full ${isChapterMenuCollapsed ? "bg-[#fef2f2]" : "bg-[#d1d5db]"}` }),
+                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: `block h-[2px] w-4 rounded-full ${isChapterMenuCollapsed ? "bg-[#fef2f2]" : "bg-[#d1d5db]"}` }),
+                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: `block h-[2px] w-4 rounded-full ${isChapterMenuCollapsed ? "bg-[#fef2f2]" : "bg-[#d1d5db]"}` })
+                    ] })
                   }
                 )
+              ] }),
+              isChapterMenuCollapsed ? null : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: `${FORENSIC_THEME.panelSoft} p-3`, children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mb-2 flex items-center justify-between text-sm", children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "font-medium text-[#a1a8b3]", children: "Progress" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { className: "font-semibold text-[#f3f4f6]", children: [
+                      progress,
+                      "%"
+                    ] })
+                  ] }),
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-2 overflow-hidden rounded-full bg-white/[0.08]", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-full rounded-full bg-[#b91c1c]", style: { width: `${progress}%` } }) }),
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mt-3 grid grid-cols-2 gap-2 text-xs text-[#6b7280]", children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "rounded-lg border border-white/[0.08] bg-white/[0.03] p-2", children: [
+                      resolvedCourse.stats.topLevelSections,
+                      " sections"
+                    ] }),
+                    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "rounded-lg border border-white/[0.08] bg-white/[0.03] p-2", children: [
+                      resolvedCourse.stats.totalNodes,
+                      " nodes"
+                    ] })
+                  ] })
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "relative mt-4", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Search, { className: "pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#6b7280]" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                    "input",
+                    {
+                      value: query,
+                      onChange: (e) => setQuery(e.target.value),
+                      placeholder: "Search chapter titles",
+                      className: "w-full rounded-lg border border-white/[0.12] bg-white/[0.03] py-2.5 pl-9 pr-3 text-sm text-[#e5e7eb] outline-none placeholder:text-[#6b7280] focus:border-[#b91c1c]/70",
+                      "data-testid": "lesson-search"
+                    }
+                  )
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mt-3 flex items-center justify-between rounded-xl border border-white/[0.1] bg-white/[0.03] px-3 py-2.5", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: FORENSIC_THEME.overline, children: "Visibility" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "text-xs text-[#a1a8b3]", "data-testid": "mode-indicator", children: includeHidden ? "Archive mode" : "Learner mode" })
+                  ] }),
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                    "button",
+                    {
+                      onClick: () => setIncludeHidden((prev) => !prev),
+                      className: `rounded-lg border px-3 py-1.5 text-xs font-semibold transition duration-200 ${includeHidden ? "border-[#f59e0b]/40 bg-[#3b2b11] text-[#fcd34d]" : "border-[#b91c1c]/55 bg-[#1a1215] text-[#fecaca]"}`,
+                      "data-testid": "mode-toggle",
+                      children: includeHidden ? "Hide admin-only" : "Show archive"
+                    }
+                  )
+                ] })
               ] })
-            ] })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            "div",
-            {
-              className: `${isChapterMenuCollapsed ? "hidden" : "h-[calc(100vh-245px)] overflow-y-auto px-3 py-4"}`,
-              "data-testid": "module-list",
-              children: safeModules.map((module) => {
-                const isActive = module.id === activeChapter.id;
-                return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-                  "div",
-                  {
-                    className: "mb-3 rounded-2xl border border-slate-200 bg-white p-2 shadow-[0_10px_25px_rgba(15,23,42,0.04)]",
-                    "data-testid": "module-panel",
-                    "data-module-title": module.title,
-                    "data-module-hidden": module.isHidden ? "true" : "false",
-                    "data-module-expanded": isActive ? "true" : "false",
-                    children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
-                      "button",
-                      {
-                        onClick: () => setActiveChapterId(module.id),
-                        className: "flex w-full items-center justify-between rounded-xl px-2 py-2 text-left hover:bg-slate-50",
-                        "data-testid": "module-toggle",
-                        "data-module-title": module.title,
-                        "data-expanded": isActive ? "true" : "false",
-                        children: [
-                          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-                            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "text-sm font-semibold", children: formatModuleTitleForDisplay(module.title) }),
-                            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "text-xs text-slate-500", children: [
-                              module.lessonCount,
-                              " items in export"
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              "div",
+              {
+                className: `${isChapterMenuCollapsed ? "hidden" : "h-[calc(100vh-245px)] overflow-y-auto px-3 py-4"}`,
+                "data-testid": "module-list",
+                children: safeModules.map((module) => {
+                  const isActive = module.id === activeChapter.id;
+                  return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                    "div",
+                    {
+                      className: "mb-3 rounded-xl border border-white/[0.1] bg-[#141821] p-2 shadow-[0_14px_30px_rgba(0,0,0,0.35)]",
+                      "data-testid": "module-panel",
+                      "data-module-title": module.title,
+                      "data-module-hidden": module.isHidden ? "true" : "false",
+                      "data-module-expanded": isActive ? "true" : "false",
+                      children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+                        "button",
+                        {
+                          onClick: () => setActiveChapterId(module.id),
+                          className: "flex w-full items-center justify-between rounded-lg px-2 py-2 text-left transition duration-200 hover:bg-white/[0.04]",
+                          "data-testid": "module-toggle",
+                          "data-module-title": module.title,
+                          "data-expanded": isActive ? "true" : "false",
+                          children: [
+                            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+                              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "text-sm font-semibold text-[#f3f4f6]", children: formatModuleTitleForDisplay(module.title) }),
+                              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "text-xs text-[#6b7280]", children: [
+                                module.lessonCount,
+                                " items in export"
+                              ] }),
+                              module.lessons?.some((lesson) => lesson.type === "quiz") ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "mt-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#fca5a5]", children: "Assignments available" }) : null
                             ] }),
-                            module.lessons?.some((lesson) => lesson.type === "quiz") ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "mt-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-sky-700", children: "Assignments available" }) : null
-                          ] }),
-                          module.isHidden && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Badge, { children: "hidden module" }),
-                          isActive ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronDown, { className: "h-4 w-4 text-slate-400" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronRight, { className: "h-4 w-4 text-slate-400" })
-                        ]
-                      }
-                    )
-                  },
-                  module.id
-                );
-              })
-            }
-          )
-        ]
-      }
-    ),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("main", { className: "flex-1 overflow-y-auto", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "sticky top-0 z-10 border-b border-slate-200 bg-white/95 shadow-[0_8px_20px_rgba(15,23,42,0.04)] backdrop-blur", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "px-8 py-5", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mb-2 flex flex-wrap items-center gap-2 text-sm text-slate-500", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: formatModuleTitleForDisplay(activeChapter.title) }),
-          includeHidden && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Badge, { children: "archive mode" }),
-          activeChapter.isHidden && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Badge, { children: "admin-only" })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "text-3xl font-semibold tracking-tight text-slate-950", "data-testid": "lesson-title", children: formatModuleTitleForDisplay(activeChapter.title) }),
-        chapterAssignments.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-          "a",
-          {
-            href: "#module-assignments",
-            className: "mt-3 inline-flex rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-50",
-            children: "Jump to assignments"
-          }
-        ) : null
-      ] }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "mx-auto max-w-7xl px-8 py-10", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-6", children: [
-        chapterLessons.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { className: "rounded-3xl border border-slate-200 bg-white p-8 shadow-sm", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "text-xl font-semibold text-slate-900", children: "No learner content in this chapter yet" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "mt-3 text-sm text-slate-600", children: "Assignment-only chapters are intentionally hidden in this app surface. Learning content is preserved and can be added here later." })
-        ] }) : null,
-        chapterLessons.map((lesson) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChapterLessonCard, { lesson }, lesson.id)),
-        chapterAssignments.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { id: "module-assignments", className: "rounded-3xl border border-slate-200 bg-white p-8 shadow-sm", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mb-5 flex items-center justify-between", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "text-xl font-semibold text-slate-900", children: "Assignments" }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Badge, { children: [
-              chapterAssignments.length,
-              " assessments"
-            ] })
+                            module.isHidden && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Badge, { children: "hidden module" }),
+                            isActive ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronDown, { className: "h-4 w-4 text-[#a1a8b3]" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronRight, { className: "h-4 w-4 text-[#6b7280]" })
+                          ]
+                        }
+                      )
+                    },
+                    module.id
+                  );
+                })
+              }
+            )
+          ]
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("main", { className: "flex-1 overflow-y-auto", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "sticky top-0 z-10 border-b border-white/[0.08] bg-[#101216]/95 shadow-[0_10px_24px_rgba(0,0,0,0.45)] backdrop-blur-xl", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "px-8 py-5", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mb-2 flex flex-wrap items-center gap-2 text-sm text-[#a1a8b3]", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: formatModuleTitleForDisplay(activeChapter.title) }),
+            includeHidden && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Badge, { children: "archive mode" }),
+            activeChapter.isHidden && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Badge, { children: "admin-only" })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "space-y-6", children: chapterAssignments.map((lesson) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChapterLessonCard, { lesson }, lesson.id)) })
-        ] }) : null
-      ] }) })
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "text-3xl font-semibold tracking-tight text-[#f3f4f6]", "data-testid": "lesson-title", children: formatModuleTitleForDisplay(activeChapter.title) }),
+          chapterAssignments.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            "a",
+            {
+              href: "#module-assignments",
+              className: "mt-3 inline-flex rounded-lg border border-white/[0.14] bg-white/[0.03] px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-[#d1d5db] transition duration-200 hover:border-white/[0.3] hover:bg-white/[0.08] hover:text-[#f3f4f6]",
+              children: "Jump to assignments"
+            }
+          ) : null
+        ] }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "mx-auto max-w-7xl px-8 py-10", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-6", children: [
+          chapterLessons.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { className: `${FORENSIC_THEME.panel} p-8`, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "text-xl font-semibold text-[#f3f4f6]", children: "No learner content in this chapter yet" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "mt-3 text-sm text-[#a1a8b3]", children: "Assignment-only chapters are intentionally hidden in this app surface. Learning content is preserved and can be added here later." })
+          ] }) : null,
+          chapterLessons.map((lesson) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChapterLessonCard, { lesson }, lesson.id)),
+          chapterAssignments.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { id: "module-assignments", className: `${FORENSIC_THEME.panel} p-8`, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mb-5 flex items-center justify-between", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "text-xl font-semibold text-[#f3f4f6]", children: "Assignments" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Badge, { children: [
+                chapterAssignments.length,
+                " assessments"
+              ] })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "space-y-6", children: chapterAssignments.map((lesson) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChapterLessonCard, { lesson }, lesson.id)) })
+          ] }) : null
+        ] }) })
+      ] })
     ] })
-  ] }) });
+  ] });
 }
 var __canvasHelperRootElement = document.getElementById("root");
 if (__canvasHelperRootElement) {
