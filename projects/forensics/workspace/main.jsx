@@ -27,27 +27,6 @@ const actualHtmlSamples = {
       <p><strong>External citation helper:</strong> EasyBib / Chegg citation guidance link</p>
     </div>
   `,
-  assignmentSubmission: `
-    <div class="lesson-html">
-      <h1>Submission Instructions</h1>
-      <p>When submitting your assignments go to the corresponding drop box and follow the instructions below for the format you are using.</p>
-      <h3>For Digital (Online) Assignments - Submit from Google Drive</h3>
-      <ol>
-        <li>Authorize Google Apps in Brightspace if needed.</li>
-        <li>Select <strong>Choose Existing</strong>.</li>
-        <li>Select <strong>Google Drive</strong>.</li>
-        <li>Search for the file and click <strong>Add</strong>.</li>
-        <li>Click <strong>Submit</strong>.</li>
-      </ol>
-      <h3>For Print Assignments - Scan using Adobe Scan</h3>
-      <ol>
-        <li>Scan using the Adobe Scan instructions.</li>
-        <li>Select <strong>Upload</strong>.</li>
-        <li>Locate the file and click <strong>Add</strong>.</li>
-        <li>Click <strong>Submit</strong>.</li>
-      </ol>
-    </div>
-  `,
   evidenceOverview: `
     <div class="lesson-html">
       <h3>Module Overview</h3>
@@ -90,7 +69,7 @@ const courseSeed = {
     {
       id: "course-info",
       title: "Course Information",
-      lessonCount: 6,
+      lessonCount: 2,
       lessons: [
         {
           id: "outline",
@@ -129,25 +108,6 @@ const courseSeed = {
             callout: "This is the kind of page builders oversimplify when they should just render it cleanly.",
           },
           resources: ["Original HTML page", "External citation help link"],
-        },
-        {
-          id: "submission",
-          title: "Assignment Submission",
-          type: "html-reading",
-          sourceFile: "сontent/i1b9d5df3-0b57-4109-9a00-d3f42192d5e2/Assignment Submission.html",
-          htmlSample: actualHtmlSamples.assignmentSubmission,
-          learn: {
-            heading: "Assignment Submission",
-            excerpt: "The real exported page includes step-by-step directions for digital submissions through Brightspace and Google Drive.",
-            bullets: [
-              "Step-by-step instructions",
-              "Digital submission workflow",
-              "Course operations support page",
-              "Should be easy to find, not buried",
-            ],
-            callout: "Operational pages matter because learners need quick access to submission help and course procedures.",
-          },
-          resources: ["Original HTML instructions", "Drive/Brightspace workflow"],
         },
       ],
     },
@@ -318,7 +278,18 @@ function buildCourseFromD2LMap(seed, d2lMap) {
     .map((moduleNode) => {
       const moduleHidden = isHiddenLabel(moduleNode.title);
       const leaves = flattenCourseNodes(moduleNode.children);
-      const lessons = leaves.map((node, index) => {
+      const isCourseInfoModule = (moduleNode.title || "").trim().toLowerCase() === "course information";
+      const courseInfoExcludedTitles = new Set([
+        "assignment submission",
+        "enabling brightspace notifications",
+      ]);
+      const filteredLeaves = leaves.filter((node) => {
+        if (!isCourseInfoModule) return true;
+        const title = (node.title || "").trim().toLowerCase();
+        return !courseInfoExcludedTitles.has(title);
+      });
+
+      const lessons = filteredLeaves.map((node, index) => {
         const sourceFile = node.resource?.hrefs?.[0] ?? "";
         const seeded =
           seededBySource.get(sourceFile) ??
@@ -407,7 +378,14 @@ function stripQueryAndHash(pathValue) {
 
 function decodePathValue(pathValue) {
   const stripped = stripQueryAndHash(pathValue);
-  return stripped
+  let decoded = stripped;
+  try {
+    decoded = decodeURIComponent(stripped);
+  } catch {
+    decoded = stripped;
+  }
+  return decoded
+    .replace(/\\\\/g, "/")
     .split("/")
     .map((part) => {
       try {
@@ -461,6 +439,17 @@ function buildReferenceUrl(relativePath) {
   return `/preview/references/raw/forensics/${encodePath(relativePath)}`;
 }
 
+const module4RemoteImageFallbacks = {
+  "https://lh4.googleusercontent.com/mwvzxUf61aqdm9oG9VyiGdKou-VQ2yHvqtFDv6rJT9lgiNDEOhwvS2rHpeSWwBtmKhimbxnLOPTOjHx7_JBnMDMJBFuozH4mS0chn5BF4uQMRbkyn4j1DGPaWhCdK4DJghQ6TBo-eZKgBPjbBQ":
+    "сontent/i2ce3b936-b6db-4d86-9174-1bfa407805e8/Content/Blood Typing.jpg",
+  "https://lh6.googleusercontent.com/pM26gAa_Xhvbfdoj1ema-YP6WFlsgY2Ucg_CByG1J7coyB-aJXwZD3eu0cS6tGg30N1LVPr-B-Np9xmD3_WYZfNMn7xO-VyfIbdUNsGv8dCDR81Upd7nRCc-YGYmtUfKHHHzpyS2H0cBD_pwOA":
+    "сontent/i828a8600-f807-4ec3-bb74-0b84f53999f5/Content/Red Blood Cells.PNG",
+  "https://lh3.googleusercontent.com/gj7N2Oif-4X2zfjkub58PbgAWt3XKxxCk-GF_PI9pnLmzig9Sm-eZDKfWtM_CLkbEesr_3iWfQ3qJg1c1REQKy3BkrxOSC0BLI60QrltkcCrT-HwPZUZRQ8ZlsTID5FaxZA3X7SOLscM14fouA":
+    "сontent/i828a8600-f807-4ec3-bb74-0b84f53999f5/Content/White Blood Cells.PNG",
+  "https://lh6.googleusercontent.com/A0XYWVnt-KsIFRtn-iJ2fyit8XQWxuznFqmFZe0i3FL17baTAZI6OvGjbKvJoYjGB4K0tlWQpY5ERY0LTOSqip1J3luRdNyzy983phkU37RgGpp7vUfqXKBUqtDQOJLohFxZJZwzURYrNLjKLw":
+    "сontent/i2ce3b936-b6db-4d86-9174-1bfa407805e8/Content/Blood Typing.jpg",
+};
+
 function stripScriptsAndRewriteLinks(html, sourceFile, exportRoot) {
   const parser = new DOMParser();
   const doc = parser.parseFromString(html, "text/html");
@@ -483,6 +472,18 @@ function stripScriptsAndRewriteLinks(html, sourceFile, exportRoot) {
     doc.querySelectorAll(selector).forEach((el) => {
       const value = el.getAttribute(attr);
       if (!value) return;
+
+      // Some exported module 4 image links point to dead external hosts.
+      // Remap those known URLs to stable local assets from the same course export.
+      if (attr === "src" && /^https?:/i.test(value)) {
+        const fallbackPath = module4RemoteImageFallbacks[value];
+        if (fallbackPath) {
+          const withRoot = exportRoot ? joinPath(exportRoot, fallbackPath) : fallbackPath;
+          el.setAttribute(attr, buildReferenceUrl(withRoot));
+          return;
+        }
+      }
+
       if (/^(https?:|data:|#|mailto:|tel:)/i.test(value)) return;
       const decodedValue = decodePathValue(value);
 
