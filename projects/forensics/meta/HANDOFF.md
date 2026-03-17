@@ -1,37 +1,42 @@
 # Handoff
 
 - Project: forensics
-- Task: complete Phase 6 QA/hardening with a detailed module pass list
-- Status: in progress
+- Task: add Module 4 + Module 5 embedded assignments with reliable print/save PDF exports; fix Module 5 white screen
+- Status: ready for validation
 
 ## Files changed
-- tasks/active.md
-- projects/forensics/meta/HANDOFF.md
-- docs/ops/ACTIVE_HANDOFF.md
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics/workspace/main.jsx
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics/workspace/main.js
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics/workspace/index.html
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics/workspace/assets/module4assignment.html
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics/workspace/assets/module5assignment.jsx
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics/workspace/assets/module5assignment.app.js
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics/workspace/assets/module5assignment.html
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics/workspace/assets/module5assignment.source.txt
 
 ## What changed
-- Expanded Phase 6 QA checklist with explicit checks per node type (HTML, assignment, quiz, PDF, external).
-- Added a module-based pass list derived from the course map to drive consistent manual QA coverage.
+- Injected Module 4 and Module 5 synthetic lab assignments into their module assignments view (kept existing placeholders).
+- Module 4 assignment export now prints from a hidden iframe (no popups) with a clean report layout.
+- Module 5 assignment added as a standalone embedded React app (HTML wrapper + compiled module JS).
+- Fixed Module 5 white screen by forcing ESM JSX runtime import in compiled app.
+- Added Module 5 assignment report export via iframe print and a Print/Save PDF button.
+- Added a runtime error overlay in Module 5 assignment HTML to surface failures instead of white screen.
 
 ## What still needs validation
-- Run the detailed module pass list in learner and archive modes and check off `tasks/active.md`.
-- Verify hidden/admin content never appears in learner mode and remains visible in archive mode.
-- Confirm fallback panel appears for weak/unmapped nodes.
-- Run required commands: `npm run verify -- --project forensics`, `npm run typecheck`, `npm run build:studio`.
+- Open Module 5 assignment and confirm no white screen (error overlay should stay hidden).
+- Use Print/Save PDF in Module 5 assignment and confirm it opens the browser print dialog.
+- Use Print/Save PDF in Module 4 assignment and confirm report includes answers from all module sections.
 
 ## Known risks
-- Unrelated metadata changes exist in multiple `projects/*/meta/project.json` files.
-- `MY OWN BUILT QUIZ GENERATOR/` is untracked and should not be committed by accident.
-- `projects/processed/forensics/` is untracked generated state.
-- `scripts/build-unit1-knowledge-check.ts` has type checking disabled.
+- Module 5 app uses external ESM dependencies; any network blockage could still cause blank render (overlay will show details).
+- If embedded iframe permissions change in the host, print dialogs may be blocked again.
 
 ## Exact next command
-`npm run studio`
+`npm run verify -- --project forensics`
 
 ## Exact next file to open
-`/Users/deanguedo/Documents/GitHub/canvas-helper/tasks/active.md`
+`/Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics/workspace/assets/module5assignment.html`
 
 ## Do not do next / warnings
-- Do not edit `projects/forensics/raw/**` or `projects/resources/forensics/**` directly.
-- Do not start Phase 6 fixes until QA findings are captured first.
-- Do not commit untracked quiz-generator or processed snapshot folders unless intentionally scoped.
+- Do not edit `projects/forensics/raw/**` or `projects/resources/forensics/**`.
+- Do not delete existing assignment placeholders; they are intentionally kept.
