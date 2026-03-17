@@ -4460,7 +4460,7 @@ function parseAssignmentXml(xmlText, sourceFile, exportRoot) {
       submissionFormats: formatNodes.map((node) => node.getAttribute("type") || "").filter(Boolean)
     },
     assignmentXml: {
-      intro: rawHtml,
+      intro: textHtml,
       task: taskSentence,
       reminder: reminderSentence,
       links

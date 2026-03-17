@@ -21729,7 +21729,6 @@
   var IconStub = () => null;
   var Search = IconStub;
   var Shield = IconStub;
-  var FileText = IconStub;
   var Users = IconStub;
   var Database = IconStub;
   var CheckCircle = IconStub;
@@ -21737,6 +21736,9 @@
   var Maximize2 = IconStub;
   var Crosshair = IconStub;
   var Fingerprint = IconStub;
+  var BookOpen = IconStub;
+  var ClipboardCheck = IconStub;
+  var AlertCircle = IconStub;
   var PATTERN_TYPES = [
     "Plain Whorl",
     "Central Pocket Whorl",
@@ -21755,9 +21757,41 @@
   ];
   var SUSPECTS = [
     { id: "s_lyons", name: "Joseph Lyons", desc: `Male, 5'10", Brown Hair`, bookingId: "394-882A", avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&h=250&auto=format&fit=crop", prints: ["loop_ulnar", "whorl_plain"] },
-    { id: "s_banes", name: "Doug Banes", desc: `Male, 6'2", Brown Hair`, bookingId: "992-104B", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&h=250&auto=format&fit=crop", prints: ["arch_tented", "loop_radial"] },
+    { id: "s_banes", name: "Doug Banes", desc: `Male, 6'2", Blonde Hair`, bookingId: "992-104B", avatar: "https://images.unsplash.com/photo-1541647376583-8934aaf3448a?q=80&w=200&h=250&auto=format&fit=crop", prints: ["arch_tented", "loop_radial"] },
     { id: "s_chapman", name: "Reynold Chapman", desc: `Male, 5'8", Black Hair`, bookingId: "112-909C", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&h=250&auto=format&fit=crop", prints: ["whorl_plain", "whorl_plain"] },
-    { id: "s_atkins", name: "Troy Atkins", desc: `Male, 6'0", Black Hair`, bookingId: "445-221D", avatar: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?q=80&w=200&h=250&auto=format&fit=crop", prints: ["arch_plain", "loop_ulnar"] }
+    { id: "s_atkins", name: "Troy Atkins", desc: `Male, 6'0", Red Hair`, bookingId: "445-221D", avatar: "https://images.unsplash.com/photo-1563122870-6b0b48a0af09?q=80&w=200&h=250&auto=format&fit=crop", prints: ["arch_plain", "loop_ulnar"] }
+  ];
+  var CASE_STUDIES = [
+    {
+      id: "case1",
+      title: "Crime Case 1: Hit-and-Run",
+      scenario: "One night a hit-and-run collision occurs; a vehicle that lost control at an intersection strikes a parked car. The suspected vehicle speeds away after the collision. Although a license plate number was not obtained, a witness noted that the suspected vehicle was a blue half-ton truck. In addition to fragments of blue paint, police officers find one half of a distinctive plastic license plate frame at the scene and determine that it does not belong to the victim\u2019s car. Several hours after the collision, police officers find a damaged blue half-ton truck that has half a plastic license plate frame that matches the fragments of frame found at the earlier collision.",
+      questions: [
+        { id: "q1_1", label: "Is the license plate frame Individualized or Identified?", type: "select", options: ["Individualized", "Identified"] },
+        { id: "q1_2", label: "Explain the plate evidence classification with details from the scenario:", type: "textarea" },
+        { id: "q1_3", label: "What type of physical evidence are the paint fragments?", type: "select", options: ["Individualized", "Identified"] },
+        { id: "q1_4", label: "Explain the paint evidence classification:", type: "textarea" }
+      ]
+    },
+    {
+      id: "case2",
+      title: "Crime Case 2: Red Cotton Fibers",
+      scenario: "Several red cotton fibres are found upon the ledge of a window that had been broken to gain entry into a home. A person wearing a torn red cotton jacket is apprehended nearby. Tests conducted later show that the fibres from the crime scene and the fibres from the person\u2019s jacket have identical physical properties.",
+      questions: [
+        { id: "q2_1", label: "Explain why the jacket would be considered identified evidence rather than individualized:", type: "textarea" }
+      ]
+    },
+    {
+      id: "case3",
+      title: "Crime Case 3: Laci Peterson Case",
+      scenario: "Laci Peterson was a 27 year-old woman from Modesto, California, who was eight months pregnant at the time of her disappearance on Christmas Eve 2002. Despite an extensive search, not until four months later were the bodies of Laci and her unborn child found off the coast of the San Francisco Bay. After a two-month investigation, Laci' s husband, Scott Peterson, was charged with two counts of murder. At Scott Peterson's criminal trial, the prosecution team presented only one piece of physical evidence while the remainder of their evidence was based on his actions, unusual behaviors, and conversations with others. The one piece of physical evidence submitted at trial was a human hair found on a pair of pliers in a boat that Scott had secretly purchased and hidden in a warehouse. Forensic DNA analysis of the hair indicated that the mitochondrial DNA (mtDNA) within the hair matched the mtDNA of Laci Peterson. Scott Peterson's defense team argued that mtDNA analysis was not as reliable as nuclear DNA testing and that the evidence was mishandled and tampered with as two hairs had actually been presented at the trial. The prosecution team fought back by arguing that analysis of mtDNA has been an accepted scientific method for over twenty years. They concluded by pointing out that the hair had not been mishandled or tampered with; it simply broke into two pieces within the container in which it had been enclosed. This single piece of physical evidence, combined with other circumstantial evidence from the trial, proved to be credible. On December 13, 2004, a jury found Scott Peterson guilty of murdering his wife and unborn child and sentenced him to death by lethal injection.",
+      questions: [
+        { id: "q3_1", label: "State how the Prosecution would have categorized the hair (Justify):", type: "textarea" },
+        { id: "q3_2", label: "State how the Defense Team would have categorized the hair (Justify):", type: "textarea" },
+        { id: "q3_3", label: "State how the Jury would have categorized the hair (Justify):", type: "textarea" },
+        { id: "q3_4", label: "Why was this single piece of physical evidence useful in helping the jury convict Scott Peterson?", type: "textarea" }
+      ]
+    }
   ];
   var FingerprintGraphic = ({ pattern, showOverlay, className = "w-48 h-48" }) => {
     const BASE_IMAGES = {
@@ -21766,71 +21800,14 @@
       arch: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Fingerprint_Arch.jpg/400px-Fingerprint_Arch.jpg"
     };
     const PATTERN_CONFIG = {
-      "Plain Whorl": {
-        src: BASE_IMAGES.whorl,
-        transform: "scale(1)",
-        markers: [
-          { type: "core", top: "48%", left: "48%" },
-          { type: "delta", top: "75%", left: "20%" },
-          { type: "delta", top: "72%", left: "80%" }
-        ]
-      },
-      "Central Pocket Whorl": {
-        src: BASE_IMAGES.whorl,
-        transform: "scale(1.2) rotate(15deg)",
-        markers: [
-          { type: "core", top: "48%", left: "48%" },
-          { type: "delta", top: "75%", left: "20%" },
-          { type: "delta", top: "72%", left: "80%" }
-        ]
-      },
-      "Double Loop Whorl": {
-        src: BASE_IMAGES.whorl,
-        transform: "scale(-1, 1) rotate(20deg)",
-        markers: [
-          { type: "core", top: "48%", left: "48%" },
-          { type: "delta", top: "75%", left: "20%" },
-          { type: "delta", top: "72%", left: "80%" }
-        ]
-      },
-      "Accidental Whorl": {
-        src: BASE_IMAGES.whorl,
-        transform: "scale(1, -1) rotate(-10deg)",
-        markers: [
-          { type: "core", top: "48%", left: "48%" },
-          { type: "delta", top: "75%", left: "20%" },
-          { type: "delta", top: "72%", left: "80%" }
-        ]
-      },
-      "Ulnar Loop": {
-        src: BASE_IMAGES.loop,
-        transform: "scale(1)",
-        markers: [
-          { type: "core", top: "45%", left: "45%" },
-          { type: "delta", top: "75%", left: "18%" }
-        ]
-      },
-      "Radial Loop": {
-        src: BASE_IMAGES.loop,
-        transform: "scale(-1, 1)",
-        // Flips it horizontally
-        markers: [
-          { type: "core", top: "45%", left: "45%" },
-          { type: "delta", top: "75%", left: "18%" }
-        ]
-      },
-      "Plain Arch": {
-        src: BASE_IMAGES.arch,
-        transform: "scale(1)",
-        markers: []
-        // No true core/delta
-      },
-      "Tented Arch": {
-        src: BASE_IMAGES.arch,
-        transform: "scaleX(0.7) scaleY(1.2)",
-        // Squeezes horizontally to create a "tent" peak
-        markers: []
-      }
+      "Plain Whorl": { src: BASE_IMAGES.whorl, transform: "scale(1)", markers: [{ type: "core", top: "48%", left: "48%" }, { type: "delta", top: "75%", left: "20%" }, { type: "delta", top: "72%", left: "80%" }] },
+      "Central Pocket Whorl": { src: BASE_IMAGES.whorl, transform: "scale(1.2) rotate(15deg)", markers: [{ type: "core", top: "48%", left: "48%" }, { type: "delta", top: "75%", left: "20%" }, { type: "delta", top: "72%", left: "80%" }] },
+      "Double Loop Whorl": { src: BASE_IMAGES.whorl, transform: "scale(-1, 1) rotate(20deg)", markers: [{ type: "core", top: "48%", left: "48%" }, { type: "delta", top: "75%", left: "20%" }, { type: "delta", top: "72%", left: "80%" }] },
+      "Accidental Whorl": { src: BASE_IMAGES.whorl, transform: "scale(1, -1) rotate(-10deg)", markers: [{ type: "core", top: "48%", left: "48%" }, { type: "delta", top: "75%", left: "20%" }, { type: "delta", top: "72%", left: "80%" }] },
+      "Ulnar Loop": { src: BASE_IMAGES.loop, transform: "scale(1)", markers: [{ type: "core", top: "45%", left: "45%" }, { type: "delta", top: "75%", left: "18%" }] },
+      "Radial Loop": { src: BASE_IMAGES.loop, transform: "scale(-1, 1)", markers: [{ type: "core", top: "45%", left: "45%" }, { type: "delta", top: "75%", left: "18%" }] },
+      "Plain Arch": { src: BASE_IMAGES.arch, transform: "scale(1)", markers: [] },
+      "Tented Arch": { src: BASE_IMAGES.arch, transform: "scaleX(0.7) scaleY(1.2)", markers: [] }
     };
     PATTERN_CONFIG["whorl_plain"] = PATTERN_CONFIG["Plain Whorl"];
     PATTERN_CONFIG["loop_ulnar"] = PATTERN_CONFIG["Ulnar Loop"];
@@ -21838,7 +21815,7 @@
     PATTERN_CONFIG["arch_plain"] = PATTERN_CONFIG["Plain Arch"];
     PATTERN_CONFIG["arch_tented"] = PATTERN_CONFIG["Tented Arch"];
     const config = PATTERN_CONFIG[pattern] || PATTERN_CONFIG["Plain Whorl"];
-    const [imgError, setImgError] = import_react.default.useState(false);
+    const [imgError, setImgError] = (0, import_react.useState)(false);
     return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: `relative bg-slate-200 rounded-lg overflow-hidden flex items-center justify-center border-2 border-slate-400 shadow-inner ${className}`, children: [
       !imgError ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "absolute inset-0 flex items-center justify-center pointer-events-none", style: { transform: config.transform, transition: "transform 0.3s ease" }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
@@ -21867,11 +21844,11 @@
       showOverlay && !imgError && config.markers.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 flex items-center justify-center pointer-events-none z-20", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "bg-black/80 text-yellow-400 text-sm font-mono px-4 py-2 rounded-lg border border-yellow-400 backdrop-blur-sm", children: "NO TRUE CORE/DELTA" }) }),
       showOverlay && !imgError && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "absolute top-3 right-3 text-xs bg-slate-900/95 text-slate-200 px-3 py-2 rounded shadow flex flex-col gap-2 border border-slate-700 z-30", children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { className: "flex items-center gap-2 font-bold", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "w-3 h-3 rounded-full bg-red-500 border border-red-300 inline-block shadow-[0_0_8px_rgba(239,68,68,0.8)]" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "w-3 h-3 rounded-full bg-red-500 border border-red-300 inline-block" }),
           " CORE"
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { className: "flex items-center gap-2 font-bold", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "w-3 h-3 rounded-full bg-blue-500 border border-blue-300 inline-block shadow-[0_0_8px_rgba(59,130,246,0.8)]" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "w-3 h-3 rounded-full bg-blue-500 border border-blue-300 inline-block" }),
           " DELTA"
         ] })
       ] }),
@@ -21880,48 +21857,35 @@
   };
   function App() {
     const [activeTab, setActiveTab] = (0, import_react.useState)("training");
-    const [trainingData, setTrainingData] = (0, import_react.useState)(
-      PATTERN_TYPES.reduce((acc, type) => ({ ...acc, [type]: { definition: "" } }), {})
-    );
+    const [trainingData, setTrainingData] = (0, import_react.useState)(PATTERN_TYPES.reduce((acc, type) => ({ ...acc, [type]: { definition: "", source: "" } }), {}));
     const [selectedTrainingPattern, setSelectedTrainingPattern] = (0, import_react.useState)(PATTERN_TYPES[0]);
     const [showOverlay, setShowOverlay] = (0, import_react.useState)(false);
+    const [theoryAnswers, setTheoryAnswers] = (0, import_react.useState)({ altered: "", reliability: "", elements: "", latent: "" });
+    const [caseAnswers, setCaseAnswers] = (0, import_react.useState)({});
     const [evidenceTags, setEvidenceTags] = (0, import_react.useState)({});
     const [suspectTags, setSuspectTags] = (0, import_react.useState)({});
     const [afisLeft, setAfisLeft] = (0, import_react.useState)(null);
     const [afisRight, setAfisRight] = (0, import_react.useState)(null);
-    const [reportData, setReportData] = (0, import_react.useState)({
-      guilty1: "",
-      guilty2: "",
-      handImportance: "",
-      evidenceExplanation: ""
-    });
+    const [reportData, setReportData] = (0, import_react.useState)({ guilty1: "", guilty2: "", handImportance: "", evidenceExplanation: "" });
     const handleTrainingUpdate = (type, field, value) => {
       setTrainingData((prev) => ({ ...prev, [type]: { ...prev[type], [field]: value } }));
     };
-    const handleEvidenceTag = (id, value) => {
-      setEvidenceTags((prev) => ({ ...prev, [id]: value }));
-    };
-    const handleSuspectTag = (suspectId, printIndex, value) => {
-      setSuspectTags((prev) => ({
-        ...prev,
-        [suspectId]: { ...prev[suspectId] || {}, [printIndex]: value }
-      }));
-    };
-    const renderNav = () => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("nav", { className: "bg-slate-900 border-b border-cyan-900 p-4 flex gap-4 print:hidden", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex items-center text-cyan-400 font-bold text-xl mr-8", children: [
+    const renderNav = () => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("nav", { className: "bg-slate-900 border-b border-cyan-900 p-4 flex gap-2 overflow-x-auto no-scrollbar print:hidden", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex items-center text-cyan-400 font-bold text-xl mr-8 whitespace-nowrap", children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Shield, { className: "mr-2" }),
-        " AFIS Terminal V2.0"
+        " AFIS V2.5"
       ] }),
       [
-        { id: "training", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FileText, { size: 18 }), label: "1. Training Manual" },
-        { id: "evidence", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Search, { size: 18 }), label: "2. Evidence Locker" },
-        { id: "suspects", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Users, { size: 18 }), label: "3. Suspect Database" },
-        { id: "report", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Database, { size: 18 }), label: "4. Final Report" }
+        { id: "training", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BookOpen, { size: 18 }), label: "1. Training" },
+        { id: "cases", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ClipboardCheck, { size: 18 }), label: "2. Case Studies" },
+        { id: "evidence", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Search, { size: 18 }), label: "3. Evidence" },
+        { id: "suspects", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Users, { size: 18 }), label: "4. Suspects" },
+        { id: "report", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Database, { size: 18 }), label: "5. Report" }
       ].map((tab) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
         "button",
         {
           onClick: () => setActiveTab(tab.id),
-          className: `flex items-center gap-2 px-4 py-2 rounded transition-colors ${activeTab === tab.id ? "bg-cyan-900 text-cyan-100 border border-cyan-500" : "text-slate-400 hover:bg-slate-800 hover:text-cyan-300"}`,
+          className: `flex items-center gap-2 px-3 py-2 rounded transition-colors whitespace-nowrap ${activeTab === tab.id ? "bg-cyan-900 text-cyan-100 border border-cyan-500" : "text-slate-400 hover:bg-slate-800 hover:text-cyan-300"}`,
           children: [
             tab.icon,
             " ",
@@ -21931,10 +21895,10 @@
         tab.id
       ))
     ] });
-    const renderTraining = () => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex h-full animate-fadeIn", children: [
+    const renderTraining = () => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex h-full animate-fadeIn overflow-hidden", children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "w-1/3 border-r border-slate-700 p-4 overflow-y-auto", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "text-xl font-bold text-slate-200 mb-4 border-b border-slate-700 pb-2", children: "Fingerprint Classes" }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "space-y-2", children: PATTERN_TYPES.map((type) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "text-xl font-bold text-slate-200 mb-4 border-b border-slate-700 pb-2", children: "Pattern Training" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "space-y-2 mb-8", children: PATTERN_TYPES.map((type) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
           "button",
           {
             onClick: () => setSelectedTrainingPattern(type),
@@ -21945,47 +21909,92 @@
             ]
           },
           type
-        )) })
+        )) }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", { className: "text-xl font-bold text-slate-200 mb-4 border-b border-slate-700 pb-2 flex items-center gap-2", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AlertCircle, { size: 18, className: "text-yellow-400" }),
+          " Fingerprint Theory"
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-4 pr-2", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { className: "text-xs font-bold text-slate-400", children: "Can fingerprints be altered or disguised? Explain thoroughly:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("textarea", { value: theoryAnswers.altered, onChange: (e) => setTheoryAnswers({ ...theoryAnswers, altered: e.target.value }), className: "w-full bg-slate-900 border border-slate-700 rounded p-2 text-xs text-slate-200 mt-1", rows: "2" })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { className: "text-xs font-bold text-slate-400", children: "How reliable is fingerprint identification? (Include specific examples):" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("textarea", { value: theoryAnswers.reliability, onChange: (e) => setTheoryAnswers({ ...theoryAnswers, reliability: e.target.value }), className: "w-full bg-slate-900 border border-slate-700 rounded p-2 text-xs text-slate-200 mt-1", rows: "2" })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { className: "text-xs font-bold text-slate-400", children: "Identify two specific elements (parts) analyzed:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("textarea", { value: theoryAnswers.elements, onChange: (e) => setTheoryAnswers({ ...theoryAnswers, elements: e.target.value }), className: "w-full bg-slate-900 border border-slate-700 rounded p-2 text-xs text-slate-200 mt-1", rows: "2" })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { className: "text-xs font-bold text-slate-400", children: "What is a Latent Print & how is it collected?" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("textarea", { value: theoryAnswers.latent, onChange: (e) => setTheoryAnswers({ ...theoryAnswers, latent: e.target.value }), className: "w-full bg-slate-900 border border-slate-700 rounded p-2 text-xs text-slate-200 mt-1", rows: "2" })
+          ] })
+        ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "w-2/3 p-8 flex flex-col gap-6", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "w-2/3 p-8 flex flex-col gap-6 overflow-y-auto", children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex justify-between items-center", children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "text-3xl font-bold text-cyan-400", children: selectedTrainingPattern }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
-            "button",
-            {
-              onClick: () => setShowOverlay(!showOverlay),
-              className: `px-4 py-2 rounded flex items-center gap-2 font-bold ${showOverlay ? "bg-cyan-500 text-slate-900" : "bg-slate-700 text-slate-300"}`,
-              children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Crosshair, { size: 18 }),
-                " ",
-                showOverlay ? "Scanner: ON" : "Scanner: OFF"
-              ]
-            }
-          )
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", { onClick: () => setShowOverlay(!showOverlay), className: `px-4 py-2 rounded flex items-center gap-2 font-bold ${showOverlay ? "bg-cyan-500 text-slate-900" : "bg-slate-700 text-slate-300"}`, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Crosshair, { size: 18 }),
+            " ",
+            showOverlay ? "Scanner: ON" : "Scanner: OFF"
+          ] })
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "flex justify-center p-8 bg-slate-800 rounded-xl border border-slate-600 shadow-inner", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FingerprintGraphic, { pattern: selectedTrainingPattern, showOverlay, className: "w-64 h-64" }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "space-y-4", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { className: "block text-slate-400 mb-1 font-mono text-sm", children: "DEFINITION RECORD:" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-4", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { className: "block text-slate-400 mb-1 font-mono text-sm", children: "DEFINITION RECORD:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("textarea", { value: trainingData[selectedTrainingPattern].definition, onChange: (e) => handleTrainingUpdate(selectedTrainingPattern, "definition", e.target.value), className: "w-full bg-slate-900 border border-slate-600 rounded p-3 text-slate-200 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 h-32", placeholder: "Research and type the definition here..." })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { className: "block text-slate-400 mb-1 font-mono text-sm", children: "SOURCE CITATION:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", { type: "text", value: trainingData[selectedTrainingPattern].source, onChange: (e) => handleTrainingUpdate(selectedTrainingPattern, "source", e.target.value), className: "w-full bg-slate-900 border border-slate-600 rounded p-2 text-slate-200 focus:border-cyan-500", placeholder: "URL or Book Title..." })
+          ] })
+        ] })
+      ] })
+    ] });
+    const renderCases = () => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "p-8 h-full overflow-y-auto animate-fadeIn max-w-5xl mx-auto", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "text-3xl font-bold text-slate-100 mb-2", children: "Individualized & Identified Evidence" }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-slate-400 mb-8 font-mono border-b border-slate-700 pb-4", children: "Read the following real-world scenarios and classify the physical evidence." }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "space-y-12 pb-20", children: CASE_STUDIES.map((caseStudy) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "bg-slate-800 border-l-4 border-cyan-600 rounded-r-lg p-6 shadow-xl", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "text-xl font-bold text-cyan-400 mb-3", children: caseStudy.title }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "bg-slate-950/50 p-4 rounded mb-6 text-slate-300 leading-relaxed italic border border-slate-700/50 text-sm", children: caseStudy.scenario }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-6", children: caseStudy.questions.map((q) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { className: "block text-sm font-bold text-slate-400 mb-2", children: q.label }),
+          q.type === "select" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+            "select",
+            {
+              value: caseAnswers[q.id] || "",
+              onChange: (e) => setCaseAnswers({ ...caseAnswers, [q.id]: e.target.value }),
+              className: "w-full bg-slate-900 border border-slate-700 rounded p-2 text-slate-200",
+              children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { value: "", children: "-- Select --" }),
+                q.options.map((opt) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { value: opt, children: opt }, opt))
+              ]
+            }
+          ) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
             "textarea",
             {
-              value: trainingData[selectedTrainingPattern].definition,
-              onChange: (e) => handleTrainingUpdate(selectedTrainingPattern, "definition", e.target.value),
-              className: "w-full bg-slate-900 border border-slate-600 rounded p-3 text-slate-200 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 h-32",
-              placeholder: "Research and type the definition here..."
+              value: caseAnswers[q.id] || "",
+              onChange: (e) => setCaseAnswers({ ...caseAnswers, [q.id]: e.target.value }),
+              className: "w-full bg-slate-900 border border-slate-700 rounded p-2 text-slate-200 text-sm",
+              rows: "3",
+              placeholder: "Justify with details from the scenario..."
             }
           )
-        ] }) })
-      ] })
+        ] }, q.id)) })
+      ] }, caseStudy.id)) })
     ] });
     const renderEvidence = () => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "p-8 h-full overflow-y-auto animate-fadeIn", children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", { className: "text-2xl font-bold text-slate-200 mb-6 flex items-center gap-2", children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Search, { className: "text-cyan-400" }),
         " Crime Scene Evidence Tags"
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-slate-400 mb-8", children: "Analyze the prints lifted from the crime scene. Use the dropdown to tag the pattern type. *Assume all prints are from a right hand.*" }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-slate-400 mb-8", children: "Analyze the prints lifted from the bank heist. Use the dropdown to tag the pattern type." }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-6", children: EVIDENCE_ITEMS.map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "bg-slate-800 border border-slate-700 rounded-lg p-6 flex gap-6 hover:border-cyan-700 transition-colors", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "group relative cursor-crosshair", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "group relative cursor-crosshair shrink-0", children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 bg-cyan-400/10 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg pointer-events-none border border-cyan-400 shadow-[0_0_15px_rgba(34,211,238,0.5)] z-10 scale-105" }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FingerprintGraphic, { pattern: item.type, className: "w-32 h-32" }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mt-2 text-center text-xs text-slate-500 font-mono", children: [
@@ -21993,26 +22002,18 @@
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Maximize2, { size: 12, className: "inline" })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex-1 flex flex-col justify-center", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "text-xl font-bold text-slate-200 mb-1", children: item.name }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex-1 flex flex-col justify-center min-w-0", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "text-xl font-bold text-slate-200 mb-1 truncate", children: item.name }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { className: "text-slate-500 text-sm font-mono mb-4", children: [
             "ITEM ID: #",
             item.id.toUpperCase()
           ] }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { className: "block text-cyan-400 text-xs font-bold mb-2", children: "IDENTIFIED PATTERN:" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
-            "select",
-            {
-              value: evidenceTags[item.id] || "",
-              onChange: (e) => handleEvidenceTag(item.id, e.target.value),
-              className: "w-full bg-slate-900 border border-slate-600 rounded p-2 text-slate-200 focus:border-cyan-500",
-              children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { value: "", children: "-- Select Pattern --" }),
-                PATTERN_TYPES.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { value: p, children: p }, p))
-              ]
-            }
-          ),
-          evidenceTags[item.id] && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mt-3 text-xs text-green-400 flex items-center gap-1 font-mono bg-green-900/20 p-2 rounded", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("select", { value: evidenceTags[item.id] || "", onChange: (e) => setEvidenceTags((prev) => ({ ...prev, [item.id]: e.target.value })), className: "w-full bg-slate-900 border border-slate-600 rounded p-2 text-slate-200 focus:border-cyan-500", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { value: "", children: "-- Select Pattern --" }),
+            PATTERN_TYPES.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { value: p, children: p }, p))
+          ] }),
+          evidenceTags[item.id] && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mt-3 text-xs text-green-400 flex items-center gap-1 font-mono bg-green-900/20 p-2 rounded truncate", children: [
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CheckCircle, { size: 14 }),
             " Logged in Database"
           ] })
@@ -22020,204 +22021,147 @@
       ] }, item.id)) })
     ] });
     const renderSuspects = () => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex flex-col h-full animate-fadeIn", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "h-1/2 border-b border-slate-700 bg-slate-950 p-4 flex flex-col", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "h-2/5 border-b border-slate-700 bg-slate-950 p-4 flex flex-col", children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", { className: "text-sm font-mono text-cyan-500 mb-2 flex items-center justify-between", children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "AFIS COMPARISON TERMINAL" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "text-slate-500", children: "Select prints below to load into terminal" })
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "text-slate-500 text-[10px] hidden sm:inline", children: "Select suspect prints below to load into terminal" })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex-1 flex gap-4", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex-1 flex gap-4 min-h-0", children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex-1 border border-slate-800 rounded bg-slate-900 flex flex-col items-center justify-center relative overflow-hidden", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute top-2 left-2 text-xs font-mono text-slate-500", children: "EVIDENCE BUFFER" }),
-            afisLeft ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FingerprintGraphic, { pattern: afisLeft.type, className: "w-48 h-48 scale-150 opacity-80 mix-blend-screen" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "text-slate-700 font-mono", children: "AWAITING INPUT" }),
-            afisLeft && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute bottom-2 left-0 w-full text-center text-cyan-400 font-bold bg-black/50 py-1", children: afisLeft.name })
+            afisLeft ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FingerprintGraphic, { pattern: afisLeft.type, className: "w-48 h-48 scale-150 opacity-80 mix-blend-screen" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "text-slate-700 font-mono text-xs", children: "EVIDENCE BUFFER" }),
+            afisLeft && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute bottom-2 left-0 w-full text-center text-cyan-400 font-bold bg-black/50 py-1 z-20 text-xs", children: afisLeft.name })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "w-12 flex flex-col items-center justify-center gap-2", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-full w-px bg-slate-800" }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Search, { className: "text-cyan-600" }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-full w-px bg-slate-800" })
-          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-8 flex flex-col items-center justify-center", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Search, { className: "text-cyan-600 w-4 h-4" }) }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex-1 border border-slate-800 rounded bg-slate-900 flex flex-col items-center justify-center relative overflow-hidden", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute top-2 right-2 text-xs font-mono text-slate-500", children: "SUSPECT BUFFER" }),
-            afisRight ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FingerprintGraphic, { pattern: afisRight.type, className: "w-48 h-48 scale-150 opacity-80 mix-blend-screen" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "text-slate-700 font-mono", children: "AWAITING INPUT" }),
-            afisRight && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute bottom-2 left-0 w-full text-center text-red-400 font-bold bg-black/50 py-1", children: afisRight.name })
+            afisRight ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FingerprintGraphic, { pattern: afisRight.type, className: "w-48 h-48 scale-150 opacity-80 mix-blend-screen" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "text-slate-700 font-mono text-xs", children: "SUSPECT BUFFER" }),
+            afisRight && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute bottom-2 left-0 w-full text-center text-red-400 font-bold bg-black/50 py-1 z-20 text-xs", children: afisRight.name })
           ] })
         ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-1/2 p-4 overflow-y-auto bg-slate-900", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-4", children: SUSPECTS.map((suspect) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "bg-slate-800 border border-slate-700 rounded p-4 flex gap-4", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-28 h-32 bg-slate-700 rounded-sm flex flex-col items-center justify-center text-slate-500 border border-slate-500 overflow-hidden shrink-0 relative shadow-md", children: suspect.avatar ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            "img",
-            {
-              src: suspect.avatar,
-              alt: `Mugshot of ${suspect.name}`,
-              className: "w-full h-full object-cover z-10",
-              style: { filter: "contrast(1.1) brightness(0.95)" }
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "absolute bottom-2 w-11/12 bg-black/90 border border-white/30 flex flex-col items-center justify-center z-20 py-0.5 rounded-sm shadow-lg", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "text-[6px] text-white/70 font-mono tracking-widest leading-none mb-0.5", children: "POLICE DEPT" }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "text-[10px] text-white font-mono font-bold leading-none", children: suspect.bookingId })
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "flex-1 p-4 overflow-y-auto bg-slate-900", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-4", children: SUSPECTS.map((suspect) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "bg-slate-800 border border-slate-700 rounded p-4 flex gap-4", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "w-24 h-28 bg-slate-700 rounded-sm flex flex-col items-center justify-center text-slate-500 border border-slate-500 overflow-hidden shrink-0 relative shadow-md", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: suspect.avatar, alt: suspect.name, className: "w-full h-full object-cover z-10", style: { filter: "contrast(1.1) brightness(0.95)" } }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "absolute bottom-1.5 w-11/12 bg-black/90 border border-white/30 flex flex-col items-center justify-center z-20 py-0.5 rounded-sm", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "text-[5px] text-white/70 font-mono tracking-widest leading-none mb-0.5 uppercase", children: "Booking ID" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "text-[9px] text-white font-mono font-bold leading-none", children: suspect.bookingId })
           ] })
-        ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Users, { size: 40 }) }),
+        ] }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex-1 min-w-0", children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "text-lg font-bold text-slate-200 truncate", children: suspect.name }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-xs text-slate-400 font-mono mb-3 truncate", children: suspect.desc }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "flex gap-4", children: [0, 1].map((printIdx) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex-1 bg-slate-900 p-2 rounded border border-slate-700", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              "div",
-              {
-                className: "cursor-pointer hover:ring-2 hover:ring-red-500 rounded flex justify-center bg-slate-200 mb-2",
-                onClick: () => setAfisRight({ name: `${suspect.name} - Print ${printIdx + 1}`, type: suspect.prints[printIdx] }),
-                title: "Load to AFIS Terminal",
-                children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FingerprintGraphic, { pattern: suspect.prints[printIdx], className: "w-16 h-16" })
-              }
-            ),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
-              "select",
-              {
-                value: suspectTags[suspect.id]?.[printIdx] || "",
-                onChange: (e) => handleSuspectTag(suspect.id, printIdx, e.target.value),
-                className: "w-full bg-slate-800 border border-slate-600 rounded p-1 text-xs text-slate-200 focus:border-red-500",
-                children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { value: "", children: "Tag Pattern..." }),
-                  PATTERN_TYPES.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { value: p, children: p }, p))
-                ]
-              }
-            )
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-[10px] text-slate-400 font-mono mb-2 truncate uppercase", children: suspect.desc }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "flex gap-2", children: [0, 1].map((printIdx) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex-1 bg-slate-900 p-2 rounded border border-slate-700", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "cursor-pointer hover:ring-2 hover:ring-red-500 rounded flex justify-center bg-slate-200 mb-2 overflow-hidden", onClick: () => setAfisRight({ name: `${suspect.name} - P${printIdx + 1}`, type: suspect.prints[printIdx] }), children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FingerprintGraphic, { pattern: suspect.prints[printIdx], className: "w-12 h-12" }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("select", { value: suspectTags[suspect.id]?.[printIdx] || "", onChange: (e) => setSuspectTags((prev) => ({ ...prev, [suspect.id]: { ...prev[suspect.id] || {}, [printIdx]: e.target.value } })), className: "w-full bg-slate-800 border border-slate-600 rounded p-0.5 text-[10px] text-slate-200", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { value: "", children: "Tag..." }),
+              PATTERN_TYPES.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { value: p, children: p }, p))
+            ] })
           ] }, printIdx)) })
         ] })
       ] }, suspect.id)) }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "absolute bottom-4 right-4 bg-slate-800 border border-cyan-700 p-3 rounded-lg shadow-xl shadow-black max-w-xs", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { className: "text-xs font-bold text-cyan-400 mb-2 font-mono", children: "EVIDENCE QUICK-LOAD" }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "flex gap-2", children: EVIDENCE_ITEMS.map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-          "button",
-          {
-            onClick: () => setAfisLeft({ name: item.name, type: item.type }),
-            className: "p-1 bg-slate-900 rounded border border-slate-600 hover:border-cyan-400",
-            title: `Load ${item.name}`,
-            children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FingerprintGraphic, { pattern: item.type, className: "w-8 h-8" })
-          },
-          item.id
-        )) })
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "fixed bottom-4 right-4 bg-slate-800 border border-cyan-700 p-2 rounded-lg shadow-xl shadow-black z-50", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { className: "text-[10px] font-bold text-cyan-400 mb-2 font-mono uppercase text-center", children: "Quick Load" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "flex gap-2", children: EVIDENCE_ITEMS.map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { onClick: () => setAfisLeft({ name: item.name, type: item.type }), className: "p-1 bg-slate-900 rounded border border-slate-600 hover:border-cyan-400 transition-all", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FingerprintGraphic, { pattern: item.type, className: "w-8 h-8" }) }, item.id)) })
       ] })
     ] });
-    const renderReport = () => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "p-8 h-full overflow-y-auto animate-fadeIn bg-slate-100", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "max-w-4xl mx-auto bg-white p-8 md:p-12 shadow-2xl rounded", children: [
+    const renderReport = () => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "p-8 h-full overflow-y-auto animate-fadeIn bg-slate-100 text-slate-800", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "max-w-4xl mx-auto bg-white p-8 md:p-12 shadow-2xl rounded", children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "border-b-4 border-slate-800 pb-6 mb-8 flex justify-between items-end", children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { className: "text-4xl font-black text-slate-900 tracking-tighter uppercase", children: "Official Case Report" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-slate-500 font-mono mt-2", children: "DEPT. OF FORENSIC SCIENCES // MORINVILLE BANK HEIST" })
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { className: "text-4xl font-black text-slate-900 tracking-tighter uppercase", children: "Integrated Forensics Report" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-slate-500 font-mono mt-2 tracking-widest", children: "DEPT. OF FORENSICS // CASE CONSOLIDATION" })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
-          "button",
-          {
-            onClick: () => window.print(),
-            className: "print:hidden bg-slate-900 text-white px-4 py-2 rounded shadow hover:bg-slate-800 flex items-center gap-2 font-bold",
-            children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Printer, { size: 18 }),
-              " Print / Export PDF"
-            ]
-          }
-        )
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", { onClick: () => window.print(), className: "print:hidden bg-slate-900 text-white px-4 py-2 rounded shadow hover:bg-slate-800 flex items-center gap-2 font-bold", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Printer, { size: 18 }),
+          " Print Report"
+        ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-8 text-slate-800", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "bg-slate-50 p-6 rounded border border-slate-200", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "text-lg font-bold border-b border-slate-300 pb-2 mb-4", children: "I. Suspect Identification" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "mb-4 text-sm text-slate-600", children: "Based on the AFIS comparison, identify the TWO suspects responsible for the robbery." }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex gap-4", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex-1", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { className: "block text-sm font-bold mb-1", children: "Guilty Suspect 1:" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
-                "select",
-                {
-                  value: reportData.guilty1,
-                  onChange: (e) => setReportData({ ...reportData, guilty1: e.target.value }),
-                  className: "w-full border-slate-300 rounded p-2 bg-white",
-                  children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { value: "", children: "Select Suspect..." }),
-                    SUSPECTS.map((s) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { value: s.name, children: s.name }, s.id))
-                  ]
-                }
-              )
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-10", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "text-xl font-bold border-b-2 border-slate-200 pb-2 mb-4 text-slate-900", children: "I. Fingerprint Analysis Training" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "grid grid-cols-2 gap-4 text-xs", children: PATTERN_TYPES.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "border p-2 rounded", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { className: "font-bold text-slate-700", children: [
+              p,
+              ":"
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex-1", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { className: "block text-sm font-bold mb-1", children: "Guilty Suspect 2:" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
-                "select",
-                {
-                  value: reportData.guilty2,
-                  onChange: (e) => setReportData({ ...reportData, guilty2: e.target.value }),
-                  className: "w-full border-slate-300 rounded p-2 bg-white",
-                  children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { value: "", children: "Select Suspect..." }),
-                    SUSPECTS.map((s) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { value: s.name, children: s.name }, s.id))
-                  ]
-                }
-              )
+            " ",
+            trainingData[p].definition || /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "text-red-400 italic", children: "No record entered" })
+          ] }, p)) }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mt-4 p-4 bg-slate-50 rounded border text-sm italic", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "Forensic Theory Summary:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+            "Alteration: ",
+            theoryAnswers.altered || "...",
+            " ",
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+            "Reliability: ",
+            theoryAnswers.reliability || "...",
+            " ",
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+            "Latent: ",
+            theoryAnswers.latent || "..."
+          ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "text-xl font-bold border-b-2 border-slate-200 pb-2 mb-4 text-slate-900", children: "II. Evidence Classification (Case Studies)" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-4 text-sm", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "border p-3 rounded", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "Hit-and-Run Plate Frame:" }),
+              " ",
+              caseAnswers.q1_1,
+              " \u2014 ",
+              caseAnswers.q1_2
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "border p-3 rounded", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "Hit-and-Run Paint:" }),
+              " ",
+              caseAnswers.q1_3,
+              " \u2014 ",
+              caseAnswers.q1_4
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "border p-3 rounded", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "Jacket Classification:" }),
+              " ",
+              caseAnswers.q2_1
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "border p-3 rounded bg-slate-50", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "Peterson Case Summary:" }),
+              " Prosecution (",
+              caseAnswers.q3_1,
+              "), Defense (",
+              caseAnswers.q3_2,
+              "), Jury (",
+              caseAnswers.q3_3,
+              ")"
             ] })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "text-lg font-bold mb-2", children: "II. Forensic Theory" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { className: "block text-sm font-bold mb-1 text-slate-600", children: "Why is determining if a set of fingerprints is from the right or left hand important? (2 Marks)" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            "textarea",
-            {
-              value: reportData.handImportance,
-              onChange: (e) => setReportData({ ...reportData, handImportance: e.target.value }),
-              className: "w-full border border-slate-300 rounded p-3 h-24",
-              placeholder: "Enter your analysis here..."
-            }
-          )
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "text-lg font-bold mb-2", children: "III. Evidentiary Justification" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { className: "block text-sm font-bold mb-1 text-slate-600", children: "Give three pieces of evidence to support your conclusion of the guilty suspects. (3 Marks)" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            "textarea",
-            {
-              value: reportData.evidenceExplanation,
-              onChange: (e) => setReportData({ ...reportData, evidenceExplanation: e.target.value }),
-              className: "w-full border border-slate-300 rounded p-3 h-32",
-              placeholder: "1. ...\n2. ...\n3. ..."
-            }
-          )
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "hidden print:block mt-8 pt-8 border-t-2 border-dashed border-slate-300", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "text-md font-bold mb-4 uppercase text-slate-500", children: "Appendix: Raw Database Entries" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "text-xs font-mono grid grid-cols-2 gap-4", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "EVIDENCE TAGS:" }),
-              EVIDENCE_ITEMS.map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-                "- ",
-                item.name,
-                ": ",
-                evidenceTags[item.id] || "UNTAGGED"
-              ] }, item.id))
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "text-xl font-bold border-b-2 border-slate-200 pb-2 mb-4 text-slate-900", children: "III. Suspect Identification (Bank Heist)" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "flex gap-4 mb-6", children: ["guilty1", "guilty2"].map((field) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex-1", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", { className: "block text-xs font-bold mb-1 uppercase text-slate-500", children: [
+              field === "guilty1" ? "Identified Suspect 1" : "Identified Suspect 2",
+              ":"
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "SUSPECT TAGS:" }),
-              SUSPECTS.map((s) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-                "- ",
-                s.name,
-                ": P1(",
-                suspectTags[s.id]?.[0] || "?",
-                "), P2(",
-                suspectTags[s.id]?.[1] || "?",
-                ")"
-              ] }, s.id))
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("select", { value: reportData[field], onChange: (e) => setReportData({ ...reportData, [field]: e.target.value }), className: "w-full border-2 border-slate-300 rounded p-2 bg-white font-bold", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { value: "", children: "Select..." }),
+              SUSPECTS.map((s) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { value: s.name, children: s.name }, s.id))
             ] })
-          ] })
+          ] }, field)) }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { className: "block text-xs font-bold mb-1 uppercase text-slate-500", children: "Evidence Summary Justification:" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("textarea", { value: reportData.evidenceExplanation, onChange: (e) => setReportData({ ...reportData, evidenceExplanation: e.target.value }), className: "w-full border-2 border-slate-300 rounded p-3 h-32", placeholder: "List three specific evidentiary links found in the AFIS terminal..." })
         ] })
       ] })
     ] }) });
     return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex flex-col h-screen bg-slate-900 text-slate-200 font-sans", children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("style", { children: `
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } } 
         .animate-fadeIn { animation: fadeIn 0.3s ease-in-out; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
       ` }),
       renderNav(),
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("main", { className: "flex-1 overflow-hidden relative", children: [
         activeTab === "training" && renderTraining(),
+        activeTab === "cases" && renderCases(),
         activeTab === "evidence" && renderEvidence(),
         activeTab === "suspects" && renderSuspects(),
         activeTab === "report" && renderReport()

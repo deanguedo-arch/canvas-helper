@@ -677,7 +677,7 @@ function parseAssignmentXml(xmlText, sourceFile, exportRoot) {
         .filter(Boolean),
     },
     assignmentXml: {
-      intro: rawHtml,
+      intro: textHtml,
       task: taskSentence,
       reminder: reminderSentence,
       links,
