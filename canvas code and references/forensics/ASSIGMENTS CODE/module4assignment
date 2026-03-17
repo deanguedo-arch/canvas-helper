@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forensic Lab: Body Fluid Analysis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        .glass {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .card-active {
+            border-left: 4px solid #ef4444;
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        .briefing-box {
+            background: rgba(15, 23, 42, 0.95);
+            border-left: 4px solid #3b82f6;
+            padding: 2.5rem;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #cbd5e1;
+            box-shadow: inset 0 2px 10px 0 rgba(0, 0, 0, 0.5);
+        }
+
+        .briefing-box h4 {
+            color: #60a5fa;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+            padding-bottom: 0.5rem;
+        }
+
+        .briefing-box p {
+            margin-bottom: 1.25rem;
+        }
+
+        input[type="text"], textarea, select {
+            background: #1e293b;
+            border: 1px solid #334155;
+            color: #f1f5f9;
+            transition: all 0.2s;
+        }
+
+        input[type="text"]:focus, textarea:focus {
+            border-color: #ef4444;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
+        }
+
+        .blood-drop {
+            fill: #7f1d1d;
+            filter: drop-shadow(0 1px 1px rgba(0,0,0,0.8));
+        }
+
+        .satellite-drop {
+            fill: #7f1d1d;
+            opacity: 0.7;
+        }
+
+        @media print {
+            .no-print { display: none; }
+            body { background: white; color: black; }
+            .glass { border: none; background: transparent; }
+            .briefing-box { border: 1px solid #ccc; color: black; background: #f8fafc; }
+            textarea { border: 1px solid #000; height: auto !important; }
+            select { border: 1px solid #000; }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 glass border-b border-slate-700 px-6 py-4 flex justify-between items-center no-print">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-red-600 rounded flex items-center justify-center shadow-lg shadow-red-900/20">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+                <h1 class="text-xl font-bold tracking-tight mono text-white">FORENSIC ANALYSIS LAB</h1>
+                <p class="text-[10px] text-slate-400 uppercase tracking-[0.2em]">Full Case Investigation Suite</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <div id="progress-container" class="hidden md:flex flex-col items-end">
+                <span class="text-[10px] uppercase text-slate-500 font-bold mb-1">Assignment Progress</span>
+                <div class="w-48 h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                    <div id="progress-bar" class="h-full bg-red-500 transition-all duration-500" style="width: 0%"></div>
+                </div>
+            </div>
+            <button onclick="window.print()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 border border-slate-600 rounded-md text-sm font-medium transition-colors text-white">
+                Export Lab Report
+            </button>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto p-6 grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- Sidebar Navigation -->
+        <nav class="lg:col-span-3 space-y-2 no-print">
+            <h2 class="text-xs font-bold text-slate-500 uppercase px-3 mb-4">Laboratory Modules</h2>
+            <button onclick="showModule('general')" id="btn-general" class="w-full text-left p-3 rounded-lg transition-all hover:bg-slate-800 flex items-center gap-3 card-active group">
+                <span class="text-slate-400 group-hover:text-red-400 mono">01</span>
+                <span class="font-semibold text-sm">Theory Assignment</span>
+            </button>
+            
+            <div class="pt-6">
+                <h2 class="text-xs font-bold text-slate-500 uppercase px-3 mb-4">Detailed Case Studies</h2>
+                <div class="space-y-1">
+                    <button onclick="showModule('case1')" id="btn-case1" class="w-full text-left p-3 rounded-lg transition-all hover:bg-slate-800 flex items-center gap-3 text-sm">
+                        <span class="text-slate-500 mono">I</span> <span>Walter Dinivan</span>
+                    </button>
+                    <button onclick="showModule('case2')" id="btn-case2" class="w-full text-left p-3 rounded-lg transition-all hover:bg-slate-800 flex items-center gap-3 text-sm">
+                        <span class="text-slate-500 mono">II</span> <span>Graham Backhouse</span>
+                    </button>
+                    <button onclick="showModule('case3')" id="btn-case3" class="w-full text-left p-3 rounded-lg transition-all hover:bg-slate-800 flex items-center gap-3 text-sm">
+                        <span class="text-slate-500 mono">III</span> <span>Tammy's Parrot</span>
+                    </button>
+                    <button onclick="showModule('case4')" id="btn-case4" class="w-full text-left p-3 rounded-lg transition-all hover:bg-slate-800 flex items-center gap-3 text-sm">
+                        <span class="text-slate-500 mono">IV</span> <span>Phil Beardman</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Content Area -->
+        <div class="lg:col-span-9 space-y-10">
+            
+            <!-- Module: General Evidence -->
+            <section id="mod-general" class="module space-y-6">
+                <div class="border-b border-slate-700 pb-4">
+                    <h2 class="text-3xl font-bold text-white">Body Fluid Evidence Assignment</h2>
+                    <p class="text-slate-400 mt-2">Core identification and analytical methodology (21 Marks Total).</p>
+                </div>
+
+                <div class="glass p-6 rounded-xl space-y-4">
+                    <h3 class="font-bold text-lg text-red-400 flex items-center gap-2 uppercase tracking-widest text-xs">
+                        1. Biological Evidence Utility (8 Marks)
+                    </h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="text-left border-b border-slate-700 text-slate-500">
+                                    <th class="py-3 px-2 font-bold w-1/4">Type of Evidence</th>
+                                    <th class="py-3 px-2 font-bold">Why it is useful</th>
+                                    <th class="py-3 px-2 font-bold">Type of crime scene</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-800">
+                                <tr>
+                                    <td class="py-4 px-2 font-mono text-red-400">Blood</td>
+                                    <td class="py-2 px-2"><textarea class="w-full p-2 rounded text-xs" rows="2"></textarea></td>
+                                    <td class="py-2 px-2"><textarea class="w-full p-2 rounded text-xs" rows="2"></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4 px-2 font-mono text-red-400">Saliva</td>
+                                    <td class="py-2 px-2"><textarea class="w-full p-2 rounded text-xs" rows="2"></textarea></td>
+                                    <td class="py-2 px-2"><textarea class="w-full p-2 rounded text-xs" rows="2"></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4 px-2 font-mono text-red-400">Semen</td>
+                                    <td class="py-2 px-2"><textarea class="w-full p-2 rounded text-xs" rows="2"></textarea></td>
+                                    <td class="py-2 px-2"><textarea class="w-full p-2 rounded text-xs" rows="2"></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4 px-2 font-mono text-red-400">Skin</td>
+                                    <td class="py-2 px-2"><textarea class="w-full p-2 rounded text-xs" rows="2"></textarea></td>
+                                    <td class="py-2 px-2"><textarea class="w-full p-2 rounded text-xs" rows="2"></textarea></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="glass p-6 rounded-xl space-y-4">
+                    <h3 class="font-bold text-lg text-red-400 flex items-center gap-2 uppercase tracking-widest text-xs">
+                        2. Analytical Forensic Tools (8 Marks)
+                    </h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="text-left border-b border-slate-700 text-slate-500">
+                                    <th class="py-3 px-2 font-bold">Tool</th>
+                                    <th class="py-3 px-2 font-bold">How it is used</th>
+                                    <th class="py-3 px-2 font-bold">Why it is used</th>
+                                    <th class="py-3 px-2 font-bold">Advantages</th>
+                                    <th class="py-3 px-2 font-bold">Disadvantages</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-800">
+                                <tr>
+                                    <td class="py-4 px-2 font-mono text-blue-400">Phenolphthalein</td>
+                                    <td class="p-2"><textarea class="w-full p-2 rounded text-xs" rows="2"></textarea></td>
+                                    <td class="p-2"><textarea class="w-full p-2 rounded text-xs" rows="2"></textarea></td>
+                                    <td class="p-2"><textarea class="w-full p-2 rounded text-xs" rows="2"></textarea></td>
+                                    <td class="p-2"><textarea class="w-full p-2 rounded text-xs" rows="2"></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4 px-2 font-mono text-blue-400">Luminol</td>
+                                    <td class="p-2"><textarea class="w-full p-2 rounded text-xs" rows="2"></textarea></td>
+                                    <td class="p-2"><textarea class="w-full p-2 rounded text-xs" rows="2"></textarea></td>
+                                    <td class="p-2"><textarea class="w-full p-2 rounded text-xs" rows="2"></textarea></td>
+                                    <td class="p-2"><textarea class="w-full p-2 rounded text-xs" rows="2"></textarea></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="glass p-6 rounded-xl">
+                        <label class="block font-bold mb-2 text-sm text-white">Investigation: Missed Traces (3 Marks)</label>
+                        <p class="text-xs text-slate-400 mb-3 italic">Suggest possible areas within the house that investigators could check for small traces of blood that the culprit may have missed while cleaning up.</p>
+                        <textarea class="w-full p-3 rounded h-24 text-sm" placeholder="List specific locations..."></textarea>
+                    </div>
+                    <div class="glass p-6 rounded-xl">
+                        <label class="block font-bold mb-2 text-sm text-white">The 'Secretor' Factor (2 Marks)</label>
+                        <p class="text-xs text-slate-400 mb-3 italic">Explain how being able to prove that a suspect is a ‘secretor’ be helpful to investigators?</p>
+                        <textarea class="w-full p-3 rounded h-24 text-sm"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Module: Case 1 - Walter Dinivan -->
+            <section id="mod-case1" class="module hidden space-y-6">
+                <div class="border-b border-slate-700 pb-4">
+                    <h2 class="text-3xl font-bold text-white uppercase tracking-tight">Crime Case Study #1</h2>
+                    <h3 class="text-xl text-red-500 font-bold uppercase tracking-tighter">Unconvincing Circumstantial Evidence</h3>
+                </div>
+
+                <div class="briefing-box rounded-lg">
+                    <h4>COMPLETE CASE NARRATIVE</h4>
+                    <p>On the evening of May 21, 1939 the dead body of a widowed 64-year-old man named Walter Dinivan was found in his living room. The murderer had attempted to strangle Walter, but when this failed they killed him by crushing his skull with a hammer.</p>
+                    <p>Investigation of the crime scene revealed that a large sum of money had been stolen from a small safe owned by the victim. In the victim’s kitchen, an unknown fingerprint was found on a drinking glass. In the victim’s living room, a brown paper bag was found on the floor crumpled up and soaked with the victim’s blood. As well, numerous cigarette butts found in the living room were collected and analyzed as Walter Dinivan did not smoke. Tests upon the cigarette butts revealed that the smoker was type AB+.</p>
+                    <p>When family and acquaintances of Walter Dinivan’s were interviewed an individual of interest to investigators was Joseph Williams. Williams had told police that he was angry with Dinivan as he had refused to give him a small loan of money. Interestingly, a background check of Williams revealed that days after Walter Dinivan was murdered he paid off part of a debt he owed the bank. When Williams was asked by police for his fingerprints he refused and since there was no solid evidence against Joseph Williams he could not be forced to cooperate.</p>
+                    <p>Having no other strong suspect, police decided to keep Joseph Williams under surveillance. One night when Williams went into a pub the police investigator who had asked him for his fingerprints went into the pub to speak to him. The police officer gave Williams the impression that he was there for a social call as he bought him a drink and some cigarettes. At the end of the evening, the investigating officer gathered the ashtray containing all of Williams’s cigarette butts. Analysis of these butts indicated that Williams was type AB+.</p>
+                    <p>John Williams was brought in for questioning in the hopes that the evidence that they had collected thus far would lead Williams to confess. Williams did not confess, however he did allow police to search his home. The only thing that investigators found of significance was a large stash of brown paper bags that were identical to the bag found in the victim’s home. When Williams was confronted with this he angrily denied the allegation that he murdered Walter Dinivan again and he offered to give police his fingerprints. Williams right thumbprint matched the unknown print found in Dinivan’s home.</p>
+                    <p>John Williams was finally arrested and put on trial for the murder of Walter Dinivan. Williams pleaded not guilty and he had a strong defense lawyer who argued and convinced the jury all the evidence found was purely circumstantial. The jury found John Williams not guilty of the murder charge.</p>
+                    <p>Sadly, shortly after the not guilty verdict was announced a drunken John Williams confessed to a local reporter he had been celebrating with that he had murdered Walter Dinivan. The reporter did not reveal this confession until after John Williams had died in 1951.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="glass p-6 rounded-xl space-y-4">
+                        <label class="block font-bold text-sm text-white">1. How could the killer's blood type be determined from cigarette butts? (2)</label>
+                        <textarea class="w-full p-3 rounded h-24 text-sm"></textarea>
+                    </div>
+                    <div class="glass p-6 rounded-xl space-y-4">
+                        <label class="block font-bold text-sm text-white">2. Why was the AB+ blood type an important piece of evidence? (2)</label>
+                        <textarea class="w-full p-3 rounded h-24 text-sm"></textarea>
+                    </div>
+                </div>
+
+                <div class="glass p-6 rounded-xl">
+                    <h3 class="font-bold mb-4 text-white uppercase text-xs tracking-widest">Evidence Classification (4 Marks)</h3>
+                    <table class="w-full text-sm">
+                        <tbody class="divide-y divide-slate-800">
+                            <tr>
+                                <td class="py-3 px-2 text-slate-300">Paid off bank loan</td>
+                                <td class="py-3 px-2"><select class="p-1 rounded text-xs w-full"><option>Select...</option><option>Identified</option><option>Individualized</option></select></td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-2 text-slate-300">Brown paper bag</td>
+                                <td class="py-3 px-2"><select class="p-1 rounded text-xs w-full"><option>Select...</option><option>Identified</option><option>Individualized</option></select></td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-2 text-slate-300">Cigarette butts</td>
+                                <td class="py-3 px-2"><select class="p-1 rounded text-xs w-full"><option>Select...</option><option>Identified</option><option>Individualized</option></select></td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-2 text-slate-300">Fingerprint on glass</td>
+                                <td class="py-3 px-2"><select class="p-1 rounded text-xs w-full"><option>Select...</option><option>Identified</option><option>Individualized</option></select></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Module: Case 2 - Graham Backhouse -->
+            <section id="mod-case2" class="module hidden space-y-6">
+                <div class="border-b border-slate-700 pb-4">
+                    <h2 class="text-3xl font-bold text-white uppercase tracking-tight">Crime Case Study #2</h2>
+                    <h3 class="text-xl text-red-500 font-bold uppercase tracking-tighter">Which Neighbour is a Killer?</h3>
+                </div>
+
+                <div class="briefing-box rounded-lg">
+                    <h4>OFFICIAL CASE RECORD</h4>
+                    <p>On April 30th, 1984, police rushed to a local farm after getting a frenzied 911 call from Graham Backhouse. When they arrived he could barely stand, as he had several deep cuts on his face and left shoulder. Lying dead on the ground in front of Backhouse’s back door was his neighbor, Colyn Bedale-Taylor. Colyn had died from two gunshots wounds to his chest and he had a large knife in his hand.</p>
+                    <p>Graham said that Colyn had tried to murder him with the knife and that after he had fought him off he frantically ran down the hall to get his gun while bleeding from the initial attack. Colyn pursued Graham down the hall with his knife even after Graham told him he was getting his gun. Because Colyn kept coming after him with the knife, Graham told police he had no choice but to shoot him twice in self-defense. After he had shot and killed Colyn Graham he called police. Officers found the following blood spatter evidence on the floor of Graham’s hallway.</p>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="glass p-6 rounded-xl">
+                        <h4 class="text-xs font-bold text-slate-400 uppercase mb-4 tracking-widest text-center">EXHIBIT A: HALLWAY FLOOR SPATTER</h4>
+                        <!-- SVG Recreation of image_5afb85.jpg -->
+                        <div class="bg-[#d2b48c] rounded-lg h-64 relative overflow-hidden shadow-inner border-4 border-[#8b4513]">
+                            <svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 1000 400">
+                                <rect width="100%" height="100%" fill="#d2b48c" />
+                                <!-- Fine wood grains -->
+                                <line x1="0" y1="50" x2="1000" y2="50" stroke="#c19a6b" stroke-width="1" />
+                                <line x1="0" y1="100" x2="1000" y2="100" stroke="#c19a6b" stroke-width="1" />
+                                <line x1="0" y1="150" x2="1000" y2="150" stroke="#c19a6b" stroke-width="1" />
+                                <line x1="0" y1="200" x2="1000" y2="200" stroke="#c19a6b" stroke-width="1" />
+                                <line x1="0" y1="250" x2="1000" y2="250" stroke="#c19a6b" stroke-width="1" />
+                                <line x1="0" y1="300" x2="1000" y2="300" stroke="#c19a6b" stroke-width="1" />
+                                
+                                <!-- Realistic Passive Drip Pattern Clusters as seen in the source image -->
+                                <g class="blood-group">
+                                    <!-- Left Cluster -->
+                                    <circle cx="50" cy="200" r="6" class="blood-drop" />
+                                    <circle cx="80" cy="180" r="5" class="blood-drop" />
+                                    <circle cx="120" cy="220" r="7" class="blood-drop" />
+                                    <circle cx="150" cy="190" r="6.5" class="blood-drop" />
+                                    <circle cx="140" cy="250" r="4" class="blood-drop" />
+                                    <circle cx="110" cy="280" r="5" class="blood-drop" />
+                                    <circle cx="90" cy="320" r="6" class="blood-drop" />
+                                    
+                                    <!-- Center Left -->
+                                    <circle cx="220" cy="240" r="5.5" class="blood-drop" />
+                                    <circle cx="250" cy="260" r="6.2" class="blood-drop" />
+                                    <circle cx="280" cy="245" r="5" class="blood-drop" />
+                                    <circle cx="300" cy="220" r="7" class="blood-drop" />
+                                    <circle cx="320" cy="280" r="4.5" class="blood-drop" />
+                                    
+                                    <!-- Main Dense Cluster -->
+                                    <circle cx="380" cy="260" r="5.5" class="blood-drop" />
+                                    <circle cx="440" cy="180" r="6" class="blood-drop" />
+                                    <circle cx="470" cy="120" r="7.5" class="blood-drop" />
+                                    <circle cx="485" cy="110" r="5" class="blood-drop" />
+                                    <circle cx="500" cy="130" r="6" class="blood-drop" />
+                                    <circle cx="510" cy="150" r="5.5" class="blood-drop" />
+                                    <circle cx="515" cy="155" r="0.8" class="satellite-drop" />
+                                    <circle cx="530" cy="140" r="6.5" class="blood-drop" />
+                                    <circle cx="550" cy="80" r="5" class="blood-drop" />
+                                    <circle cx="570" cy="90" r="5.2" class="blood-drop" />
+                                    
+                                    <!-- Scattered Right -->
+                                    <circle cx="520" cy="230" r="6.8" class="blood-drop" />
+                                    <circle cx="620" cy="310" r="5.5" class="blood-drop" />
+                                    <circle cx="650" cy="250" r="6" class="blood-drop" />
+                                    <circle cx="710" cy="150" r="6.2" class="blood-drop" />
+                                    <circle cx="750" cy="210" r="5" class="blood-drop" />
+                                    <circle cx="780" cy="260" r="5.8" class="blood-drop" />
+                                    <circle cx="810" cy="280" r="6" class="blood-drop" />
+                                    <circle cx="820" cy="320" r="5" class="blood-drop" />
+                                    <circle cx="850" cy="180" r="6.5" class="blood-drop" />
+                                    <circle cx="880" cy="220" r="5.5" class="blood-drop" />
+                                    <circle cx="950" cy="250" r="7" class="blood-drop" />
+                                    <circle cx="980" cy="350" r="6" class="blood-drop" />
+                                </g>
+                            </svg>
+                        </div>
+                        <p class="text-[10px] text-slate-400 mt-2 italic text-center uppercase tracking-widest">
+                            Fig 2: Blood Spatter Evidence Cluster Found in Hallway.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="glass p-6 rounded-xl">
+                            <label class="block font-bold text-sm mb-2 text-white">1. Pursuit Story Analysis (2)</label>
+                            <p class="text-[10px] text-slate-400 mb-2 italic">Why does the spatter residue indicate that it was unlikely Graham was pursued?</p>
+                            <textarea class="w-full p-3 rounded h-32 text-sm"></textarea>
+                        </div>
+                        <div class="glass p-6 rounded-xl">
+                            <label class="block font-bold text-sm mb-2 text-white">2. Expected Pattern (2)</label>
+                            <p class="text-[10px] text-slate-400 mb-2 italic">What type of spatter should have appeared if he shot Colyn in self-defense?</p>
+                            <textarea class="w-full p-3 rounded h-32 text-sm"></textarea>
+                        </div>
+                        <div class="glass p-6 rounded-xl">
+                            <label class="block font-bold text-sm mb-2 text-white">3. Analysis of Events (2)</label>
+                            <p class="text-[10px] text-slate-400 mb-2 italic">Explain what the blood spatter evidence indicates about the actual events.</p>
+                            <textarea class="w-full p-3 rounded h-32 text-sm"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Module: Case 3 - Tammy's Parrot -->
+            <section id="mod-case3" class="module hidden space-y-6">
+                <div class="border-b border-slate-700 pb-4">
+                    <h2 class="text-3xl font-bold text-white uppercase tracking-tight">Crime Case Study #3</h2>
+                    <h3 class="text-xl text-red-500 font-bold uppercase tracking-tighter">The Death of Tammy's Parrot</h3>
+                </div>
+
+                <div class="briefing-box rounded-lg">
+                    <h4>CASE SUMMARY</h4>
+                    <p>Police get a hysterical phone call from an individual named Tammy Ingland who says her ex-husband tried to kill her during an argument. Tammy is well known to the police as the type of person who engages in ‘attention seeking behavior’ as she has a history of making prank calls to the police. However despite Tammy’s long history, police officers must take this call seriously because she could be in danger.</p>
+                    <p>When officers arrive at Tammy’s apartment they discover Tammy lying on the floor. A large volume of blood is found smeared all over Tammy’s hands, upper body and on many of the walls in her apartment. After looking through Tammy’s apartment a police officer discovers a parrot stabbed to death under a sofa. When asked about this parrot, Tammy began sobbing saying that her ex-husband killed her parrot after he assaulted her.</p>
+                    <p>Officers become suspicious of Tammy’s story after close examination of her injuries by paramedics indicate that she had only a few small superficial cuts on her face and lower arms. Also, neighbours interviewed reveal that they had not seen Tammy’s ex-husband around the apartment in over a month and that they did not hear any loud arguing from the apartment on the day in question.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="space-y-4">
+                        <div class="glass p-6 rounded-xl">
+                            <label class="block font-bold text-sm mb-2 text-white">1. Suspicion Analysis (2)</label>
+                            <p class="text-xs text-slate-400 mb-2 italic">Explain why police became suspicious of Tammy's story after discovering the superficial cuts.</p>
+                            <textarea class="w-full p-3 rounded h-24 text-sm"></textarea>
+                        </div>
+                        <div class="glass p-6 rounded-xl">
+                            <label class="block font-bold text-sm mb-2 text-white">2. Probable Source (2)</label>
+                            <p class="text-xs text-slate-400 mb-2 italic">Describe the most probable source of the majority of blood smeared on Tammy and the walls.</p>
+                            <textarea class="w-full p-3 rounded h-24 text-sm"></textarea>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="glass p-6 rounded-xl">
+                            <label class="block font-bold text-sm mb-2 text-white">3. Microscopic Analysis (2)</label>
+                            <div class="p-3 bg-blue-900/20 border border-blue-500/30 rounded text-xs text-blue-300 italic mb-2">
+                                Lab Clue: Compare the structure of human red blood cells to those of non-mammalian vertebrates.
+                            </div>
+                            <textarea class="w-full p-3 rounded h-32 text-sm" placeholder="Explain how cellular structure identifies the source..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Module: Case 4 - Phil Beardman -->
+            <section id="mod-case4" class="module hidden space-y-6">
+                <div class="border-b border-slate-700 pb-4">
+                    <h2 class="text-3xl font-bold text-white uppercase tracking-tight">Crime Case Study #4</h2>
+                    <h3 class="text-xl text-red-500 font-bold uppercase tracking-tighter">How did Phil Beardman die?</h3>
+                </div>
+
+                <div class="briefing-box rounded-lg">
+                    <h4>INCIDENT NARRATIVE</h4>
+                    <p>Late one night a 911 emergency operator received a frantic phone call from a female named Susan stating that “...her boyfriend had fallen down the stairs and hurt himself”. When paramedics arrived they found a 45-year-old advertising executive named Phil Beardman lying unconscious at the bottom of the stairs in his condo. Shortly, thereafter he is pronounced dead and the police are called to the scene. Police find a large pool of blood at the bottom of the stairs and blood spatter patterns on a wall near the top of the stairs.</p>
+                    <p>Phil’s sister reported talking to him on the phone around 4:00 pm that day. He told her that he was going to end his relationship with Susan that evening. Also, neighbours reported hearing loud arguing between a man and a woman that night.</p>
+                    <p>When Susan was questioned, she explained that she and Phil had spent an uneventful night watching TV and made no mention of an argument. Susan said that Phil was going downstairs to get something to eat, she then heard Phil shout “Whoa!” and a few seconds later she heard a series of loud thuds as he fell down the stairs. She thought that he accidentally slipped and hit his head on the stair railing as he fell down the stairs. When police check the stair railing for blood they found nothing, only blood at the top of the stairs and beside his body at the bottom of the stairs.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="space-y-4">
+                        <div class="glass p-6 rounded-xl">
+                            <h4 class="text-[10px] font-bold text-slate-500 uppercase mb-4 tracking-widest text-center">EXHIBIT C: STAIRWELL WALL (BLUE INTERIOR)</h4>
+                            <div class="bg-[#7fa8c9] aspect-[3/4] rounded-md shadow-inner overflow-hidden relative border-4 border-[#334155]">
+                                <!-- Recreating the blue wall with specific cast-off patterns from source -->
+                                <svg class="w-full h-full" viewBox="0 0 100 130">
+                                    <!-- Door area -->
+                                    <rect x="75" y="15" width="25" height="115" fill="#f1f5f9" />
+                                    <rect x="75" y="15" width="2" height="115" fill="#94a3b8" />
+                                    <!-- Door knob -->
+                                    <circle cx="85" cy="65" r="3" fill="#64748b" />
+                                    
+                                    <!-- Cast-off Arcs (Replicating the source image arcs) -->
+                                    <g stroke="#7f1d1d" stroke-width="0.8" stroke-linecap="round" opacity="0.9">
+                                        <!-- Arc 1 -->
+                                        <path d="M45 15 Q55 25 70 35" fill="none" />
+                                        <circle cx="70" cy="35" r="0.6" fill="#7f1d1d" stroke="none" />
+                                        
+                                        <!-- Arc 2 -->
+                                        <path d="M35 30 Q50 45 75 55" fill="none" />
+                                        <circle cx="75" cy="55" r="0.6" fill="#7f1d1d" stroke="none" />
+                                        
+                                        <!-- Arc 3 -->
+                                        <path d="M30 50 Q45 65 72 80" fill="none" />
+                                        <circle cx="72" cy="80" r="0.6" fill="#7f1d1d" stroke="none" />
+                                        
+                                        <!-- Arc 4 (lower) -->
+                                        <path d="M35 80 Q50 95 70 110" fill="none" />
+                                        
+                                        <!-- Vertical Drips on wall base -->
+                                        <line x1="20" y1="90" x2="20" y2="100" stroke-width="0.4" />
+                                        <line x1="25" y1="92" x2="25" y2="98" stroke-width="0.4" />
+                                    </g>
+                                    
+                                    <!-- Individual scattered spots -->
+                                    <circle cx="20" cy="40" r="0.4" fill="#7f1d1d" />
+                                    <circle cx="55" cy="60" r="0.5" fill="#7f1d1d" />
+                                    <circle cx="40" cy="20" r="0.3" fill="#7f1d1d" />
+                                </svg>
+                            </div>
+                            <p class="text-[10px] text-slate-500 mt-2 text-center uppercase">Wall spatter found above the top stair.</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="glass p-6 rounded-xl">
+                            <label class="block font-bold text-sm mb-2 text-white">1. Spatter Indication (2)</label>
+                            <p class="text-[10px] text-slate-400 mb-2 italic">What does the blood spatter evidence found on the wall indicate?</p>
+                            <textarea class="w-full p-3 rounded h-24 text-sm"></textarea>
+                        </div>
+
+                        <div class="glass p-6 rounded-xl">
+                            <h4 class="font-bold text-sm mb-4 text-white">Sequence Reconstruction (4 Marks)</h4>
+                            <p class="text-[10px] text-slate-400 mb-2 italic">Order the most likely sequence of events from 1 (First) to 4 (Last). You do not need to use all of the events.</p>
+                            <div class="space-y-2 text-xs">
+                                <div class="flex items-center gap-2 p-2 bg-slate-800/50 rounded">
+                                    <select class="p-1 rounded bg-slate-900 border-slate-700 w-16"><option>-</option><option>1</option><option>2</option><option>3</option><option>4</option></select>
+                                    <span class="text-slate-300">Susan pushed Phil down the stairs.</span>
+                                </div>
+                                <div class="flex items-center gap-2 p-2 bg-slate-800/50 rounded">
+                                    <select class="p-1 rounded bg-slate-900 border-slate-700 w-16"><option>-</option><option>1</option><option>2</option><option>3</option><option>4</option></select>
+                                    <span class="text-slate-300">Phil began bleeding from his injuries.</span>
+                                </div>
+                                <div class="flex items-center gap-2 p-2 bg-slate-800/50 rounded">
+                                    <select class="p-1 rounded bg-slate-900 border-slate-700 w-16"><option>-</option><option>1</option><option>2</option><option>3</option><option>4</option></select>
+                                    <span class="text-slate-300">Phil and Susan had a loud argument.</span>
+                                </div>
+                                <div class="flex items-center gap-2 p-2 bg-slate-800/50 rounded">
+                                    <select class="p-1 rounded bg-slate-900 border-slate-700 w-16"><option>-</option><option>1</option><option>2</option><option>3</option><option>4</option></select>
+                                    <span class="text-slate-300">Phil accidentally slipped and fell down the stairs.</span>
+                                </div>
+                                <div class="flex items-center gap-2 p-2 bg-slate-800/50 rounded">
+                                    <select class="p-1 rounded bg-slate-900 border-slate-700 w-16"><option>-</option><option>1</option><option>2</option><option>3</option><option>4</option></select>
+                                    <span class="text-slate-300">Susan hit Phil with an object at the top of the stairs.</span>
+                                </div>
+                                <div class="flex items-center gap-2 p-2 bg-slate-800/50 rounded">
+                                    <select class="p-1 rounded bg-slate-900 border-slate-700 w-16"><option>-</option><option>1</option><option>2</option><option>3</option><option>4</option></select>
+                                    <span class="text-slate-300">Susan hit Phil with an object at the bottom of the stairs.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="glass p-6 rounded-xl">
+                            <label class="block font-bold text-sm mb-2 text-white">3. Accidental Fall Rebuttal (2)</label>
+                            <p class="text-[10px] text-slate-400 mb-2 italic">Why does the spatter indicate it's unlikely Phil fell accidentally as Susan suggested?</p>
+                            <textarea class="w-full p-3 rounded h-24 text-sm" placeholder="Compare the rail vs wall evidence..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="mt-12 py-8 border-t border-slate-800 text-center text-slate-500 text-[10px] mono no-print uppercase tracking-widest">
+        Forensic Science Bureau Assignment Portal // Secure Session: Active // Marks: 49 Total
+    </footer>
+
+    <script>
+        function showModule(modId) {
+            document.querySelectorAll('.module').forEach(m => m.classList.add('hidden'));
+            document.querySelectorAll('nav button').forEach(b => b.classList.remove('card-active', 'bg-slate-800'));
+            const targetMod = document.getElementById('mod-' + modId);
+            const targetBtn = document.getElementById('btn-' + modId);
+            if(targetMod) targetMod.classList.remove('hidden');
+            if(targetBtn) targetBtn.classList.add('card-active', 'bg-slate-800');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function updateProgress() {
+            const inputs = document.querySelectorAll('textarea, select');
+            let filled = 0;
+            let total = inputs.length;
+            inputs.forEach(input => {
+                if(input.value && input.value !== '-' && input.value !== 'Select...') filled++;
+            });
+            const progress = (filled / total) * 100;
+            const bar = document.getElementById('progress-bar');
+            if(bar) bar.style.width = progress + '%';
+        }
+
+        document.addEventListener('input', updateProgress);
+        window.onload = updateProgress;
+    </script>
+</body>
+</html>

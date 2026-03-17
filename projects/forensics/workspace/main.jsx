@@ -709,6 +709,9 @@ const FORENSIC_THEME = {
   overline: "text-[11px] font-semibold uppercase tracking-[0.18em] text-[#6b7280]",
 };
 
+const MODULE4_ASSIGNMENT_EMBED_PATH = "./assets/module4assignment.html";
+const MODULE5_ASSIGNMENT_EMBED_PATH = "./assets/module5assignment.html";
+
 function Badge({ children, className = "", ...props }) {
   return (
     <span
@@ -723,6 +726,7 @@ function Badge({ children, className = "", ...props }) {
 function typeLabel(type) {
   const map = {
     assignment: "ASSIGNMENT",
+    "lab-assignment": "ASSIGNMENT",
     quiz: "QUIZ",
     pdf: "PDF",
     "embedded-video": "VIDEO",
@@ -735,6 +739,7 @@ function typeLabel(type) {
 function typeIcon(type) {
   const map = {
     assignment: ClipboardCheck,
+    "lab-assignment": ClipboardCheck,
     quiz: FileQuestion,
     pdf: FileBadge,
     "embedded-video": PlayCircle,
@@ -1024,6 +1029,27 @@ function AssignmentRenderer({ data, meta, title }) {
             </p>
           </div>
         </div>
+      </div>
+    </div>
+  );
+}
+
+function EmbeddedAssignmentRenderer({ title, srcPath }) {
+  return (
+    <div className={`${FORENSIC_THEME.panel} p-6`} data-testid="renderer-assignment">
+      <div className="mb-5 flex items-center justify-between">
+        <div>
+          <div className={FORENSIC_THEME.overline}>Case assignment</div>
+          <h4 className="mt-1 text-lg font-semibold text-[#f3f4f6]">{title}</h4>
+        </div>
+        <Badge>interactive lab</Badge>
+      </div>
+      <div className="overflow-hidden rounded-2xl border border-white/[0.12] bg-[#0f172a]">
+        <iframe
+          src={srcPath}
+          title={title}
+          className="min-h-[900px] w-full"
+        />
       </div>
     </div>
   );
@@ -1365,6 +1391,9 @@ function renderNodePreview(activeLesson, sourcePreview) {
     const parsedMeta = sourcePreview?.kind === "assignment" ? sourcePreview.assignmentMeta : activeLesson.assignmentMeta;
     return <AssignmentRenderer data={parsedData} meta={parsedMeta} title={activeLesson.title} />;
   }
+  if (activeLesson.type === "lab-assignment") {
+    return <EmbeddedAssignmentRenderer title={activeLesson.title} srcPath={activeLesson.embedPath || MODULE4_ASSIGNMENT_EMBED_PATH} />;
+  }
   if (activeLesson.type === "quiz") {
     const quiz = sourcePreview?.kind === "quiz" ? sourcePreview.quizSample : activeLesson.quizSample;
     const questions = sourcePreview?.kind === "quiz" ? sourcePreview.quizQuestions : activeLesson.quizQuestions;
@@ -1529,9 +1558,45 @@ export default function ForensicCoursePlayerPreviewRestored() {
         moduleLessonCount: activeChapter.lessonCount,
         moduleHidden: activeChapter.isHidden,
       }));
+
+    const chapterTitleLower = (activeChapter?.title || "").toLowerCase();
+    const isModuleFour = chapterTitleLower.includes("body fluid evidence");
+    const isModuleFive = chapterTitleLower.includes("forensic detection of impaired driving");
+    const syntheticLessons = [];
+    if (isModuleFour) {
+      syntheticLessons.push({
+        id: "module4-body-fluid-analysis-lab",
+        title: "Body Fluid Analysis Lab Assignment",
+        type: "lab-assignment",
+        embedPath: MODULE4_ASSIGNMENT_EMBED_PATH,
+        sourceFile: MODULE4_ASSIGNMENT_EMBED_PATH,
+        resources: [MODULE4_ASSIGNMENT_EMBED_PATH],
+        moduleTitle: formatModuleTitleForDisplay(activeChapter.title),
+        moduleLessonCount: activeChapter.lessonCount,
+        moduleHidden: activeChapter.isHidden,
+      });
+    }
+    if (isModuleFive) {
+      syntheticLessons.push({
+        id: "module5-impaired-driving-lab",
+        title: "Impaired Driving Assignment Lab",
+        type: "lab-assignment",
+        embedPath: MODULE5_ASSIGNMENT_EMBED_PATH,
+        sourceFile: MODULE5_ASSIGNMENT_EMBED_PATH,
+        resources: [MODULE5_ASSIGNMENT_EMBED_PATH],
+        moduleTitle: formatModuleTitleForDisplay(activeChapter.title),
+        moduleLessonCount: activeChapter.lessonCount,
+        moduleHidden: activeChapter.isHidden,
+      });
+    }
+    const lessonsWithSynthetic = [...syntheticLessons, ...normalizedLessons];
     return {
-      contentLessons: normalizedLessons.filter((lesson) => lesson.type !== "quiz" && lesson.type !== "assignment"),
-      assignmentLessons: normalizedLessons.filter((lesson) => lesson.type === "quiz" || lesson.type === "assignment"),
+      contentLessons: lessonsWithSynthetic.filter(
+        (lesson) => lesson.type !== "quiz" && lesson.type !== "assignment" && lesson.type !== "lab-assignment"
+      ),
+      assignmentLessons: lessonsWithSynthetic.filter(
+        (lesson) => lesson.type === "quiz" || lesson.type === "assignment" || lesson.type === "lab-assignment"
+      ),
     };
   }, [activeChapter]);
   const chapterLessons = chapterLessonGroups.contentLessons;

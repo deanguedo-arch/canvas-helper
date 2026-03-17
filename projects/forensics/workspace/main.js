@@ -604,6 +604,8 @@ const FORENSIC_THEME = {
   buttonSecondary: "rounded-lg border border-white/[0.12] bg-white/[0.03] px-4 py-2.5 text-sm font-semibold text-[#d1d5db] transition duration-200 hover:border-white/[0.26] hover:bg-white/[0.07] hover:text-[#f3f4f6]",
   overline: "text-[11px] font-semibold uppercase tracking-[0.18em] text-[#6b7280]"
 };
+const MODULE4_ASSIGNMENT_EMBED_PATH = "./assets/module4assignment.html";
+const MODULE5_ASSIGNMENT_EMBED_PATH = "./assets/module5assignment.html";
 function Badge({ children, className = "", ...props }) {
   return /* @__PURE__ */ jsx(
     "span",
@@ -617,6 +619,7 @@ function Badge({ children, className = "", ...props }) {
 function typeLabel(type) {
   const map = {
     assignment: "ASSIGNMENT",
+    "lab-assignment": "ASSIGNMENT",
     quiz: "QUIZ",
     pdf: "PDF",
     "embedded-video": "VIDEO",
@@ -628,6 +631,7 @@ function typeLabel(type) {
 function typeIcon(type) {
   const map = {
     assignment: ClipboardCheck,
+    "lab-assignment": ClipboardCheck,
     quiz: FileQuestion,
     pdf: FileBadge,
     "embedded-video": PlayCircle,
@@ -746,7 +750,7 @@ function HtmlRenderer({ html }) {
         !collapsed && /* @__PURE__ */ jsx(
           "div",
           {
-                    className: "max-w-none border-t border-white/[0.08] px-4 py-4 text-[#cbd5e1] [&_*]:!text-[#e5e7eb] [&_.image-banner]:my-4 [&_.image-banner]:rounded-xl [&_.image-banner]:border [&_.image-banner]:border-white/[0.1] [&_.image-banner]:bg-white/[0.04] [&_.image-banner]:p-8 [&_.image-banner]:text-center [&_h1]:mb-4 [&_h1]:text-3xl [&_h1]:font-semibold [&_h1]:tracking-tight [&_h1]:!text-[#f8fafc] [&_h2]:mb-3 [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:!text-[#f8fafc] [&_h3]:mb-2 [&_h3]:mt-5 [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:!text-[#f1f5f9] [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:mb-4 [&_p]:leading-7 [&_p]:!text-[#e5e7eb] [&_li]:!text-[#e5e7eb] [&_strong]:!text-[#f8fafc] [&_em]:!text-[#e2e8f0] [&_table]:mt-4 [&_table]:w-full [&_table]:border-collapse [&_td]:border [&_td]:border-white/[0.12] [&_td]:p-3 [&_th]:border [&_th]:border-white/[0.14] [&_th]:bg-white/[0.06] [&_th]:p-3 [&_ul]:list-disc [&_ul]:pl-6",
+            className: "max-w-none border-t border-white/[0.08] px-4 py-4 text-[#cbd5e1] [&_*]:!text-[#e5e7eb] [&_.image-banner]:my-4 [&_.image-banner]:rounded-xl [&_.image-banner]:border [&_.image-banner]:border-white/[0.1] [&_.image-banner]:bg-white/[0.04] [&_.image-banner]:p-8 [&_.image-banner]:text-center [&_h1]:mb-4 [&_h1]:text-3xl [&_h1]:font-semibold [&_h1]:tracking-tight [&_h1]:!text-[#f8fafc] [&_h2]:mb-3 [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:!text-[#f8fafc] [&_h3]:mb-2 [&_h3]:mt-5 [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:!text-[#f1f5f9] [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:mb-4 [&_p]:leading-7 [&_p]:!text-[#e5e7eb] [&_li]:!text-[#e5e7eb] [&_strong]:!text-[#f8fafc] [&_em]:!text-[#e2e8f0] [&_table]:mt-4 [&_table]:w-full [&_table]:border-collapse [&_td]:border [&_td]:border-white/[0.12] [&_td]:p-3 [&_th]:border [&_th]:border-white/[0.14] [&_th]:bg-white/[0.06] [&_th]:p-3 [&_ul]:list-disc [&_ul]:pl-6",
             dangerouslySetInnerHTML: { __html: section.html }
           }
         )
@@ -879,6 +883,25 @@ function AssignmentRenderer({ data, meta, title }) {
         /* @__PURE__ */ jsx("p", { className: "mt-3 text-sm leading-7 text-[#cbd5e1]", children: "Assignment submissions are managed outside this app flow. This view preserves assignment context only." })
       ] }) })
     ] })
+  ] });
+}
+function EmbeddedAssignmentRenderer({ title, srcPath }) {
+  return /* @__PURE__ */ jsxs("div", { className: `${FORENSIC_THEME.panel} p-6`, "data-testid": "renderer-assignment", children: [
+    /* @__PURE__ */ jsxs("div", { className: "mb-5 flex items-center justify-between", children: [
+      /* @__PURE__ */ jsxs("div", { children: [
+        /* @__PURE__ */ jsx("div", { className: FORENSIC_THEME.overline, children: "Case assignment" }),
+        /* @__PURE__ */ jsx("h4", { className: "mt-1 text-lg font-semibold text-[#f3f4f6]", children: title })
+      ] }),
+      /* @__PURE__ */ jsx(Badge, { children: "interactive lab" })
+    ] }),
+    /* @__PURE__ */ jsx("div", { className: "overflow-hidden rounded-2xl border border-white/[0.12] bg-[#0f172a]", children: /* @__PURE__ */ jsx(
+      "iframe",
+      {
+        src: srcPath,
+        title,
+        className: "min-h-[900px] w-full"
+      }
+    ) })
   ] });
 }
 function QuizRenderer({ quiz, questions, meta }) {
@@ -1197,6 +1220,9 @@ function renderNodePreview(activeLesson, sourcePreview) {
     const parsedMeta = sourcePreview?.kind === "assignment" ? sourcePreview.assignmentMeta : activeLesson.assignmentMeta;
     return /* @__PURE__ */ jsx(AssignmentRenderer, { data: parsedData, meta: parsedMeta, title: activeLesson.title });
   }
+  if (activeLesson.type === "lab-assignment") {
+    return /* @__PURE__ */ jsx(EmbeddedAssignmentRenderer, { title: activeLesson.title, srcPath: activeLesson.embedPath || MODULE4_ASSIGNMENT_EMBED_PATH });
+  }
   if (activeLesson.type === "quiz") {
     const quiz = sourcePreview?.kind === "quiz" ? sourcePreview.quizSample : activeLesson.quizSample;
     const questions = sourcePreview?.kind === "quiz" ? sourcePreview.quizQuestions : activeLesson.quizQuestions;
@@ -1329,9 +1355,44 @@ function ForensicCoursePlayerPreviewRestored() {
       moduleLessonCount: activeChapter.lessonCount,
       moduleHidden: activeChapter.isHidden
     }));
+    const chapterTitleLower = (activeChapter?.title || "").toLowerCase();
+    const isModuleFour = chapterTitleLower.includes("body fluid evidence");
+    const isModuleFive = chapterTitleLower.includes("forensic detection of impaired driving");
+    const syntheticLessons = [];
+    if (isModuleFour) {
+      syntheticLessons.push({
+        id: "module4-body-fluid-analysis-lab",
+        title: "Body Fluid Analysis Lab Assignment",
+        type: "lab-assignment",
+        embedPath: MODULE4_ASSIGNMENT_EMBED_PATH,
+        sourceFile: MODULE4_ASSIGNMENT_EMBED_PATH,
+        resources: [MODULE4_ASSIGNMENT_EMBED_PATH],
+        moduleTitle: formatModuleTitleForDisplay(activeChapter.title),
+        moduleLessonCount: activeChapter.lessonCount,
+        moduleHidden: activeChapter.isHidden
+      });
+    }
+    if (isModuleFive) {
+      syntheticLessons.push({
+        id: "module5-impaired-driving-lab",
+        title: "Impaired Driving Assignment Lab",
+        type: "lab-assignment",
+        embedPath: MODULE5_ASSIGNMENT_EMBED_PATH,
+        sourceFile: MODULE5_ASSIGNMENT_EMBED_PATH,
+        resources: [MODULE5_ASSIGNMENT_EMBED_PATH],
+        moduleTitle: formatModuleTitleForDisplay(activeChapter.title),
+        moduleLessonCount: activeChapter.lessonCount,
+        moduleHidden: activeChapter.isHidden
+      });
+    }
+    const lessonsWithSynthetic = [...syntheticLessons, ...normalizedLessons];
     return {
-      contentLessons: normalizedLessons.filter((lesson) => lesson.type !== "quiz" && lesson.type !== "assignment"),
-      assignmentLessons: normalizedLessons.filter((lesson) => lesson.type === "quiz" || lesson.type === "assignment")
+      contentLessons: lessonsWithSynthetic.filter(
+        (lesson) => lesson.type !== "quiz" && lesson.type !== "assignment" && lesson.type !== "lab-assignment"
+      ),
+      assignmentLessons: lessonsWithSynthetic.filter(
+        (lesson) => lesson.type === "quiz" || lesson.type === "assignment" || lesson.type === "lab-assignment"
+      )
     };
   }, [activeChapter]);
   const chapterLessons = chapterLessonGroups.contentLessons;
