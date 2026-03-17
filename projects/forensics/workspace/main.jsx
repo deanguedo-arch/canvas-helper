@@ -634,12 +634,40 @@ function normalizeAssignmentHtml(html, sourceFile, exportRoot) {
     .replace(/<\/div>\s*$/i, "");
 }
 
+const ASSIGNMENT_SUBMISSION_PHRASE =
+  "When you have completed the assignment, upload your generated reports to your respective online classroom";
+
+function dedupeAssignmentSubmissionLine(html) {
+  if (!html) return "";
+  const doc = new DOMParser().parseFromString(`<div>${html}</div>`, "text/html");
+  let seen = false;
+
+  doc.body.querySelectorAll("h1, h2, h3, h4, h5, h6, p, div, span, li").forEach((el) => {
+    const text = (el.textContent || "").replace(/\s+/g, " ").trim();
+    if (text !== ASSIGNMENT_SUBMISSION_PHRASE) return;
+    if (seen) {
+      el.remove();
+      return;
+    }
+    seen = true;
+  });
+
+  doc.body.querySelectorAll("p, h1, h2, h3, h4, h5, h6, div, span, li").forEach((el) => {
+    const text = (el.textContent || "").replace(/\u00a0/g, " ").trim();
+    if (!text && !el.querySelector("img, a, iframe, video, source, object")) {
+      el.remove();
+    }
+  });
+
+  return doc.body.innerHTML.replace(/^<div>/i, "").replace(/<\/div>\s*$/i, "");
+}
+
 function parseAssignmentXml(xmlText, sourceFile, exportRoot) {
   const xml = new DOMParser().parseFromString(xmlText, "application/xml");
   const title = getElementsByLocalName(xml, "title")[0]?.textContent?.trim() || "Assignment";
   const textNode = getElementsByLocalName(xml, "instructor_text")[0];
   const rawHtml = decodeHtmlEntities(textNode?.textContent || "");
-  const textHtml = normalizeAssignmentHtml(rawHtml, sourceFile, exportRoot);
+  const textHtml = dedupeAssignmentSubmissionLine(normalizeAssignmentHtml(rawHtml, sourceFile, exportRoot));
   const pointsRaw = getElementsByLocalName(xml, "gradable")[0]?.getAttribute("points_possible");
   const formatNodes = getElementsByLocalName(xml, "format");
   const textOnly = textHtml.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
@@ -1044,43 +1072,33 @@ function AssignmentRenderer({ data, meta, title }) {
           {meta?.submissionFormats?.length > 1 && <Badge>{meta.submissionFormats.length} formats</Badge>}
         </div>
       </div>
-      <div className="grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
-        <div className="space-y-4 text-sm leading-7 text-[#cbd5e1]">
-          {introHtml ? (
-            <div
-              className="max-w-none [&_img]:mx-auto [&_img]:my-4 [&_img]:h-auto [&_img]:max-w-full [&_p]:mb-3"
-              dangerouslySetInnerHTML={{ __html: introHtml }}
-            />
-          ) : (
-            <p>No assignment instructions are available yet.</p>
-          )}
-          {(data?.individualized || data?.identified) && (
-            <div className="grid gap-4 lg:grid-cols-2">
-              <div className="rounded-xl border border-white/[0.12] bg-[#112015] p-4">
-                <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#86efac]">Individualized evidence</div>
-                <p className="mt-2 text-[#dcfce7]">{data?.individualized || "Not specified."}</p>
-              </div>
-              <div className="rounded-xl border border-white/[0.12] bg-[#111d2a] p-4">
-                <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#93c5fd]">Identified evidence</div>
-                <p className="mt-2 text-[#dbeafe]">{data?.identified || "Not specified."}</p>
-              </div>
+      <div className="space-y-4 text-sm leading-7 text-[#cbd5e1]">
+        {introHtml ? (
+          <div
+            className="max-w-none [&_img]:mx-auto [&_img]:my-4 [&_img]:h-auto [&_img]:max-w-full [&_p]:mb-3"
+            dangerouslySetInnerHTML={{ __html: introHtml }}
+          />
+        ) : (
+          <p>No assignment instructions are available yet.</p>
+        )}
+        {(data?.individualized || data?.identified) && (
+          <div className="grid gap-4 lg:grid-cols-2">
+            <div className="rounded-xl border border-white/[0.12] bg-[#112015] p-4">
+              <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#86efac]">Individualized evidence</div>
+              <p className="mt-2 text-[#dcfce7]">{data?.individualized || "Not specified."}</p>
             </div>
-          )}
-        </div>
-        <div className="space-y-4">
-          <div className={`${FORENSIC_THEME.panelSoft} p-4`}>
-            <div className={FORENSIC_THEME.overline}>Assignment note</div>
-            <p className="mt-3 text-sm leading-7 text-[#cbd5e1]">
-              Assignment submissions are managed outside this app flow. This view preserves assignment context only.
-            </p>
+            <div className="rounded-xl border border-white/[0.12] bg-[#111d2a] p-4">
+              <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#93c5fd]">Identified evidence</div>
+              <p className="mt-2 text-[#dbeafe]">{data?.identified || "Not specified."}</p>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
 }
 
-function EmbeddedAssignmentRenderer({ title, srcPath }) {
+function EmbeddedAssignmentRenderer({ title, srcPath, introHtml = "" }) {
   return (
     <div className={`${FORENSIC_THEME.panel} p-6`} data-testid="renderer-assignment">
       <div className="mb-5 flex items-center justify-between">
@@ -1090,6 +1108,12 @@ function EmbeddedAssignmentRenderer({ title, srcPath }) {
         </div>
         <Badge>interactive lab</Badge>
       </div>
+      {introHtml ? (
+        <div
+          className="mb-5 max-w-none text-sm leading-7 text-[#cbd5e1] [&_img]:mx-auto [&_img]:my-4 [&_img]:h-auto [&_img]:max-w-full [&_p]:mb-3 [&_strong]:text-[#f3f4f6]"
+          dangerouslySetInnerHTML={{ __html: introHtml }}
+        />
+      ) : null}
       <div className="rounded-2xl border border-white/[0.12] bg-[#0f172a]">
         <iframe
           src={srcPath}
@@ -1438,7 +1462,13 @@ function renderNodePreview(activeLesson, sourcePreview) {
     return <AssignmentRenderer data={parsedData} meta={parsedMeta} title={activeLesson.title} />;
   }
   if (activeLesson.type === "lab-assignment") {
-    return <EmbeddedAssignmentRenderer title={activeLesson.title} srcPath={activeLesson.embedPath || MODULE4_ASSIGNMENT_EMBED_PATH} />;
+    return (
+      <EmbeddedAssignmentRenderer
+        title={activeLesson.title}
+        srcPath={activeLesson.embedPath || MODULE4_ASSIGNMENT_EMBED_PATH}
+        introHtml={activeLesson.assignmentXml?.intro || activeLesson.introHtml || ""}
+      />
+    );
   }
   if (activeLesson.type === "quiz") {
     const quiz = sourcePreview?.kind === "quiz" ? sourcePreview.quizSample : activeLesson.quizSample;
@@ -1589,14 +1619,29 @@ export default function ForensicCoursePlayerPreviewRestored() {
   const chapterLessonGroups = useMemo(() => {
     const moduleTwoExcludedTitles = new Set([
       "evidence and fingerprints online activity (optional)",
+      "types of evidence and fingerprint analysis assignment",
+      "fingerprint case studies assignment",
+    ]);
+    const moduleThreeExcludedTitles = new Set([
+      "trace evidence assignment",
+      "trace evidence case studies assignment",
+    ]);
+    const moduleFourExcludedTitles = new Set([
+      "body fluid assignment",
+      "body fluid evidence case studies assignment",
     ]);
     const isUnitAssessmentSection = (title) => (title || "").trim().toLowerCase().includes("unit assessment");
     const isModuleTwo = (activeChapter?.title || "").toLowerCase().includes("types of evidence and fingerprint analysis");
+    const isModuleThreeForFilter = (activeChapter?.title || "").toLowerCase().includes("trace evidence");
+    const isModuleFourForFilter = (activeChapter?.title || "").toLowerCase().includes("body fluid evidence");
     const normalizedLessons = (activeChapter?.lessons || [])
       .filter((lesson) => !isUnitAssessmentSection(lesson.title))
       .filter((lesson) => {
-        if (!isModuleTwo) return true;
-        return !moduleTwoExcludedTitles.has((lesson.title || "").trim().toLowerCase());
+        const normalizedTitle = (lesson.title || "").trim().toLowerCase();
+        if (isModuleTwo) return !moduleTwoExcludedTitles.has(normalizedTitle);
+        if (isModuleThreeForFilter) return !moduleThreeExcludedTitles.has(normalizedTitle);
+        if (isModuleFourForFilter) return !moduleFourExcludedTitles.has(normalizedTitle);
+        return true;
       })
       .map((lesson) => ({
         ...lesson,
@@ -1612,11 +1657,62 @@ export default function ForensicCoursePlayerPreviewRestored() {
     const isModuleFive = chapterTitleLower.includes("forensic detection of impaired driving");
     const isModuleSix = chapterTitleLower.includes("polygraphing and document analysis");
     const isModuleSeven = chapterTitleLower.includes("forensic genetics");
+    const exportRoot = normalizePath(d2lCourseMapData.exportRoot || "");
+    const moduleThreeCaseStudiesImage =
+      "https://upload.wikimedia.org/wikipedia/commons/2/2c/CSIRO_ScienceImage_8115_Human_hair_and_Merino_wool_fibre.jpg";
+    const moduleThreeTraceImage = buildReferenceUrl(
+      joinPath(exportRoot, "assignment/ia4effbb5-11e6-405e-a610-94c25bdcd18e/Content/hair evidence.jpg")
+    );
+    const moduleFourCaseStudiesImage = buildReferenceUrl(
+      joinPath(exportRoot, "assignment/i16176291-5154-45bd-8891-b2c9517b1a3c/Content/170829-F-DB515-0024.JPG")
+    );
+    const moduleTwoFingerprintLabIntro = [
+      '<div class="space-y-5">',
+      "<p>After a crime has occurred, criminal investigators use scientific techniques and/or forensic science experts to help identify and interpret physical evidence from the crime scene.</p>",
+      "<p>Physical evidence from a crime scene can include fingerprints, hair, blood, saliva, semen, skin, bone, bullets, bullet casings, paint fragments, and fibres.</p>",
+      "<h4 style=\"margin-top:10px;\">Individualized Physical Evidence</h4>",
+      "<p>Unique evidence that can be directly linked to a specific person and/or source. Examples: fingerprints, DNA, bullets, and dental impressions.</p>",
+      "<h4 style=\"margin-top:10px;\">Identified Physical Evidence</h4>",
+      "<p>Evidence that shares a common source and can be grouped into a class of items with similar properties. Examples: clothing, shoe prints, and blood type.</p>",
+      "<p>Fingerprint analysis has been used in many crime scenes as individualized evidence to tie a suspect to a crime scene. You will examine some of these historical cases in the following assignment.</p>",
+      "<p>Complete the following assignment about using fingerprint analysis to solve crimes. If you need a refresher on how to cite sources, please check out the <strong>How to Cite Sources</strong> tab in the Course Information section. Click on the image below to make a copy of the Fingerprint Analysis Case Studies Assignment. Remember to double click on the header to open it and add your name to the document.</p>",
+      "<p><strong>When you have completed the assignment, upload your generated reports to your respective online classroom.</strong></p>",
+      "</div>",
+    ].join("");
+    const moduleThreeTraceLabIntro = [
+      "<div>",
+      `<p style="text-align: center;"><img src="${moduleThreeCaseStudiesImage}" alt="Image result for hair microscope" width="501" height="401" class="img-responsive atto_image_button_text-bottom"></p>`,
+      "<p>Hair and fiber evidence has been used in many cases in the past to connect suspects with a crime. Occasionally, these cases are overturned with DNA evidence in the future. Despite this, trace evidence such as hair and fiber has many valuable uses in solving crimes. The following assignment will have you examine some of these cases.</p>",
+      `<p style="text-align: center;"><img src="${moduleThreeTraceImage}" alt="hair evidence" width="500" height="333" class="img-responsive atto_image_button_text-bottom"></p>`,
+      "<p>Microscopic evidence at a crime scene is called Trace Evidence. Hair and fiber are examples of this type of evidence and they can be valuable in an investigation. Although most hair and fiber are identified and not individualized, they can still be used in court to support cases.</p>",
+      "<p><strong>When you have completed the assignment, upload your generated reports to your respective online classroom.</strong></p>",
+      "</div>",
+    ].join("");
+    const moduleFourBodyFluidLabIntro = [
+      "<div>",
+      "<p>Body fluid evidence is one of the most common pieces of evidence that can be found at a crime scene, especially when a violent crime has occurred. This evidence can be extremely useful in helping investigators piece together the events of a crime. In this assignment you will demonstrate your understanding of body fluid evidence.</p>",
+      `<p style="text-align: center;"><img src="${moduleFourCaseStudiesImage}" alt="blood evidence" width="500" height="334" class="img-responsive atto_image_button_text-bottom"></p>`,
+      "<p>There are a number of historical case studies where blood stain and/or spatter evidence was used to successfully solve a crime and convict the perpetrator(s). Demonstrate your understanding of forensic serology by completing the following assignment.</p>",
+      "<p><strong>When you have completed the assignment, upload your generated reports to your respective online classroom.</strong></p>",
+      "</div>",
+    ].join("");
     const syntheticLessons = [];
     if (isModuleTwo) {
       syntheticLessons.push({
-        id: "module2-fingerprint-analysis-lab",
+        id: "module2-fingerprint-analysis-description",
         title: "Fingerprint Analysis Lab Assignment",
+        type: "assignment",
+        sourceFile: "",
+        resources: [],
+        assignmentMeta: { points: 35, submissionType: "file", submissionFormats: ["file"] },
+        assignmentXml: { intro: moduleTwoFingerprintLabIntro },
+        moduleTitle: formatModuleTitleForDisplay(activeChapter.title),
+        moduleLessonCount: activeChapter.lessonCount,
+        moduleHidden: activeChapter.isHidden,
+      });
+      syntheticLessons.push({
+        id: "module2-fingerprint-analysis-lab",
+        title: "Fingerprint Analysis Interactive Assignment",
         type: "lab-assignment",
         embedPath: MODULE2_ASSIGNMENT_EMBED_PATH,
         sourceFile: MODULE2_ASSIGNMENT_EMBED_PATH,
@@ -1647,6 +1743,7 @@ export default function ForensicCoursePlayerPreviewRestored() {
         embedPath: MODULE3_ASSIGNMENT_EMBED_PATH,
         sourceFile: MODULE3_ASSIGNMENT_EMBED_PATH,
         resources: [MODULE3_ASSIGNMENT_EMBED_PATH],
+        assignmentXml: { intro: moduleThreeTraceLabIntro },
         moduleTitle: formatModuleTitleForDisplay(activeChapter.title),
         moduleLessonCount: activeChapter.lessonCount,
         moduleHidden: activeChapter.isHidden,
@@ -1660,6 +1757,7 @@ export default function ForensicCoursePlayerPreviewRestored() {
         embedPath: MODULE4_ASSIGNMENT_EMBED_PATH,
         sourceFile: MODULE4_ASSIGNMENT_EMBED_PATH,
         resources: [MODULE4_ASSIGNMENT_EMBED_PATH],
+        assignmentXml: { intro: moduleFourBodyFluidLabIntro },
         moduleTitle: formatModuleTitleForDisplay(activeChapter.title),
         moduleLessonCount: activeChapter.lessonCount,
         moduleHidden: activeChapter.isHidden,
@@ -1704,7 +1802,19 @@ export default function ForensicCoursePlayerPreviewRestored() {
         moduleHidden: activeChapter.isHidden,
       });
     }
-    const lessonsWithSynthetic = [...syntheticLessons, ...normalizedLessons];
+    let lessonsWithSynthetic = [...syntheticLessons, ...normalizedLessons];
+    if (isModuleOne) {
+      const moduleOneLabId = "module1-crime-scene-lab";
+      const labIndex = lessonsWithSynthetic.findIndex((lesson) => lesson.id === moduleOneLabId);
+      if (labIndex !== -1) {
+        const [labLesson] = lessonsWithSynthetic.splice(labIndex, 1);
+        const introIndex = lessonsWithSynthetic.findIndex(
+          (lesson) => (lesson.title || "").trim().toLowerCase() === "introduction to crime scenes assignment"
+        );
+        const insertIndex = introIndex === -1 ? lessonsWithSynthetic.length : introIndex + 1;
+        lessonsWithSynthetic.splice(insertIndex, 0, labLesson);
+      }
+    }
     return {
       contentLessons: lessonsWithSynthetic.filter(
         (lesson) => lesson.type !== "quiz" && lesson.type !== "assignment" && lesson.type !== "lab-assignment"
