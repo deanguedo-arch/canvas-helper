@@ -164,6 +164,18 @@ For repo-wide or multi-project work, keep the active handoff in `docs/ops/ACTIVE
 - Treat `projects/processed/**` as snapshot state, not an editable project workspace.
 - Treat `projects/resources/**` as canonical source material, not a temporary intake queue.
 
+## Generative & Aesthetic Design Rules (God Tier Requirements)
+
+When generating new components, editing HTML, or writing CSS within this project, YOU MUST adhere to the following strict design standards to match top-tier consumer web applications:
+
+1. **Typography**: ALWAYS import and use premium Google Fonts (e.g., `Inter`, `Outfit`, `Plus Jakarta Sans`). Do not use default fonts. Ensure excellent contrast and responsive `line-height` for readability.
+2. **CSS Variables & Theming**: ALWAYS use cohesive, professional color palettes. Use vibrant, accessible HSL/RGB values instead of flat named colors like "blue" or "red".
+3. **Glassmorphism & Depth**: Wrap core content areas or interactive cards in stylish glassmorphism containers. Use `backdrop-filter: blur(12px)`, subtle semi-transparent backgrounds, and soft, multi-layered `box-shadow` to create physical depth.
+4. **Micro-Interactions**: The UI MUST feel alive. Apply transitions (e.g., `transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1)`) to all interactive elements. Buttons and cards MUST have distinct `:hover` and `:active` states (scaling, shadow changes).
+5. **Spacious Layouts**: Use generous padding/margins (e.g., `padding: 2rem`, `gap: 1.5rem`). Let elements breathe. Avoid cramped text walls.
+6. **Empty/Loading States**: Include beautiful, styled empty states or skeleton loaders with gentle animations for complex components.
+- *Failure to include these specific CSS techniques is unacceptable. All generated code must be visually breathtaking out-of-the-box.*
+
 ## Verification Floor
 
 - Run the smallest meaningful set of checks for the touched area.
