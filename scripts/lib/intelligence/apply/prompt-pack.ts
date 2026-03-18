@@ -21,6 +21,7 @@ import type {
 import { getRelevantMemoryForProject } from "./memory-ledger.js";
 import { findPatternMatches } from "./pattern-bank.js";
 import { resolveProjectBenchmarkSelection } from "../../benchmarks/project-selection.js";
+import { readSubagentModeFromEnv } from "../../agent-session.js";
 
 type IndexedReference = {
   id: string;
@@ -318,8 +319,17 @@ async function buildReferenceExcerpts(
   );
 }
 
-export async function generatePromptPack(projectSlug: string, policy: IntelligencePolicy) {
+export type GeneratePromptPackOptions = {
+  subagentMode?: boolean;
+};
+
+export async function generatePromptPack(
+  projectSlug: string,
+  policy: IntelligencePolicy,
+  options: GeneratePromptPackOptions = {}
+) {
   const paths = getProjectPaths(projectSlug);
+  const subagentMode = options.subagentMode ?? readSubagentModeFromEnv();
 
   const [
     manifest,
@@ -364,10 +374,26 @@ export async function generatePromptPack(projectSlug: string, policy: Intelligen
     : [];
 
   const rulesSummary = [
+    "- Start with the narrowest useful retrieval path.",
+    "- Prefer known entrypoints, targeted reads, and `rg` over broad discovery.",
+    "- Do not expand scope or change behavior unless the current context is insufficient.",
+    "- If broader retrieval is needed, stop and ask for approval with the reason, added scope, and expected cost.",
+    "- Keep follow-up reads minimal even after approval.",
+    "- If the user explicitly says this is a subagent, or says to act as a subagent, treat the task as subagent mode automatically.",
+    "- If the signal is ambiguous, ask exactly once: `Should I apply subagent rules for this task?`",
+    "- Keep subagent mode on for the rest of the task once confirmed unless the user changes the scope.",
+    "- Do not keep asking whether to apply subagent rules after confirmation.",
     "- Work in repo-approved zones (`app/studio`, `app/server`, `scripts`, `docs`, `tasks`, root config files).",
     "- Treat `projects/<slug>/raw` as immutable baseline input.",
     `- Retrieval order: prompt-pack -> ${d2lCourseMap ? "d2l course map -> " : ""}course blueprint -> assessment map -> lesson packets -> targeted resource chunks -> pattern matches if enabled.`,
     "- Finish only after typecheck/build and task-specific verification pass."
+  ].join("\n");
+
+  const sessionModeSummary = [
+    `- Subagent mode: ${subagentMode ? "on" : "off"}`,
+    subagentMode
+      ? "- Use subagent rules automatically; ask for approval before widening scope."
+      : "- Use standard task mode."
   ].join("\n");
 
   const intelligenceSummary = [
@@ -506,6 +532,7 @@ export async function generatePromptPack(projectSlug: string, policy: Intelligen
     `- Generated: ${new Date().toISOString()}`,
     "",
     renderMarkdownSection("Rules", rulesSummary),
+    renderMarkdownSection("Session Mode", sessionModeSummary),
     renderMarkdownSection("Intelligence Policy", intelligenceSummary),
     renderMarkdownSection("Selected Benchmark", renderSelectedBenchmarkBody(resolvedBenchmark)),
     renderMarkdownSection("Project Manifest", manifestBody),

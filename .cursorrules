@@ -6,6 +6,10 @@
 - Read projects/<slug>/meta/prompt-pack.md before broad repo scans.
 - Prefer .runtime/pattern-bank matches before digging into raw references.
 - Provide final output in the format required by AGENTS.md.
+- If the user explicitly says this is a subagent, or says to act as a subagent, treat the task as subagent mode automatically.
+- If the signal is ambiguous, ask exactly once: "Should I apply subagent rules for this task?"
+- In subagent mode, start with the smallest useful retrieval path and keep the narrow rules on for the rest of the task unless the user changes scope.
+- Do not keep asking whether to apply subagent rules after confirmation.
 - If a task changes Studio/player interaction behavior, run the required E2E command before final output.
 - Prefer `npm run test:e2e:project -- --project <slug>` for project-specific UI work.
 - Prefer `npm run test:e2e:smoke` for shared platform UI changes.

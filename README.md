@@ -171,6 +171,7 @@ Optional override flags for convert/export/deploy:
 
 - Use [docs/ops/FAST_PATHS.md](docs/ops/FAST_PATHS.md) to keep agent retrieval narrow for common tasks
 - Repo-wide or multi-project continuation work should resume from `docs/ops/ACTIVE_HANDOFF.md`
+- Use `npm run pack:subagent -- --project <slug>` when you want prompt-pack generation to start in subagent mode automatically
 
 ## Planning Workflow
 

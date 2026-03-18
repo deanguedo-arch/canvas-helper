@@ -22402,9 +22402,9 @@
       suspect2: [25, 55, 85],
       suspect3: [25, 40, 55, 70]
     };
-    const renderLane = (title, bands) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex flex-col items-center", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "text-[10px] font-black mb-5 text-slate-500 h-10 text-center uppercase tracking-[0.2em] w-24 leading-tight flex items-end justify-center", children: title }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: `w-16 h-[500px] border-x border-slate-700 relative transition-all duration-700 shadow-2xl ${uvLight ? "bg-slate-800" : "bg-slate-950"}`, children: [
+    const renderLane = (title, bands) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex shrink-0 flex-col items-center", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "mb-5 flex h-10 w-[clamp(3.5rem,5vw,4.25rem)] items-end justify-center text-center text-[9px] font-black uppercase tracking-[0.2em] text-slate-500 leading-tight", children: title }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: `h-[500px] w-[clamp(3.5rem,5vw,4.25rem)] border-x border-slate-700 relative transition-all duration-700 shadow-2xl ${uvLight ? "bg-slate-800" : "bg-slate-950"}`, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-12 h-3 border border-slate-600 mx-auto mt-2 rounded-sm bg-slate-900 shadow-inner" }),
         bands.map((pos, idx) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
           "div",
@@ -22444,13 +22444,13 @@
             ] })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: `p-20 lg:w-full flex justify-center gap-6 md:gap-12 relative transition-colors duration-1000 ${uvLight ? "bg-slate-900" : "bg-black"}`, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: `w-full overflow-x-auto overscroll-x-contain px-8 py-12 md:px-12 md:py-16 lg:w-full relative transition-colors duration-1000 ${uvLight ? "bg-slate-900" : "bg-black"}`, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex min-w-max justify-start gap-4 md:gap-6 xl:justify-center xl:gap-8", children: [
           renderLane("DNA Ladder", DNA_PROFILES.marker),
           renderLane("Marker A", DNA_PROFILES.evidence),
           renderLane("Suspect 1", DNA_PROFILES.suspect1),
           renderLane("Suspect 2", DNA_PROFILES.suspect2),
           renderLane("Suspect 3", DNA_PROFILES.suspect3)
-        ] })
+        ] }) })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "bg-white p-16 rounded-[4rem] shadow-sm border border-slate-200", children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h3", { className: "text-2xl font-black text-slate-900 mb-8 flex items-center justify-between italic tracking-tighter uppercase", children: [

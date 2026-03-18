@@ -22,6 +22,12 @@ DEFAULT mode is the broader working mode for medium, fuzzy, or cross-file tasks.
 - Avoid blind repo-wide scans unless necessary.
 - Read supporting files when they materially reduce risk.
 
+## Subagent Mode
+- If the user explicitly says this is a subagent, or says to act as a subagent, treat the task as subagent mode automatically.
+- If the signal is ambiguous, ask exactly once: `Should I apply subagent rules for this task?`
+- Keep subagent mode on for the rest of the task once confirmed unless the user changes the scope.
+- Do not keep asking whether to apply subagent rules after confirmation.
+
 ## Edit Discipline
 - Prefer coherent fixes over the smallest possible diff when the task benefits.
 - New abstractions are allowed if they reduce duplication or clarify ownership.

@@ -1,42 +1,38 @@
 # Handoff
 
 - Project: forensics
-- Task: add Module 4 + Module 5 embedded assignments with reliable print/save PDF exports; fix Module 5 white screen
+- Task: split the Module 8 interactive assignment into separate activity files and keep the Module 7 DNA lab responsive
 - Status: ready for validation
 
 ## Files changed
-- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics/workspace/main.jsx
-- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics/workspace/main.js
-- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics/workspace/index.html
-- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics/workspace/assets/module4assignment.html
-- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics/workspace/assets/module5assignment.jsx
-- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics/workspace/assets/module5assignment.app.js
-- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics/workspace/assets/module5assignment.html
-- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics/workspace/assets/module5assignment.source.txt
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics/workspace/assets/module7assignment-app.jsx
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics/workspace/assets/module7assignment.bundle.js
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics/workspace/assets/module7assignment.html
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics/workspace/assets/module8assignment.html
+- /Users/deanguedo/Documents/GitHub/canvas-helper/canvas code and references/forensics/ASSIGMENTS CODE/module8assignment-career-matcher.jsx
+- /Users/deanguedo/Documents/GitHub/canvas-helper/canvas code and references/forensics/ASSIGMENTS CODE/module8assignment-day-in-life.jsx
+- /Users/deanguedo/Documents/GitHub/canvas-helper/canvas code and references/forensics/ASSIGMENTS CODE/module8assignment-case-role.jsx
 
 ## What changed
-- Injected Module 4 and Module 5 synthetic lab assignments into their module assignments view (kept existing placeholders).
-- Module 4 assignment export now prints from a hidden iframe (no popups) with a clean report layout.
-- Module 5 assignment added as a standalone embedded React app (HTML wrapper + compiled module JS).
-- Fixed Module 5 white screen by forcing ESM JSX runtime import in compiled app.
-- Added Module 5 assignment report export via iframe print and a Print/Save PDF button.
-- Added a runtime error overlay in Module 5 assignment HTML to surface failures instead of white screen.
+- Made the Module 7 DNA lab lanes responsive by shrinking the lane width and allowing horizontal scroll instead of clipping the ladder and suspect lanes.
+- Expanded the Module 8 page into three interactive formats on the same assignment page: career matcher, day-in-the-life picker, and case-role simulation.
+- Added separate source files for those three Module 8 activities in the reference folder so each activity can be opened or reused on its own.
 
 ## What still needs validation
-- Open Module 5 assignment and confirm no white screen (error overlay should stay hidden).
-- Use Print/Save PDF in Module 5 assignment and confirm it opens the browser print dialog.
-- Use Print/Save PDF in Module 4 assignment and confirm report includes answers from all module sections.
+- Open Module 7 DNA lab and confirm the ladder, Marker A, and suspect lanes are fully reachable without clipping.
+- Open Module 8 assignment and confirm the three activity sections render and switch correctly.
+- If you plan to use the split Module 8 source files in Studio, wire them into the app flow.
 
 ## Known risks
-- Module 5 app uses external ESM dependencies; any network blockage could still cause blank render (overlay will show details).
-- If embedded iframe permissions change in the host, print dialogs may be blocked again.
+- The split Module 8 files are reference/source files only and are not yet wired into the workspace navigation.
+- `module7assignment.bundle.js` was patched directly to match the JSX source, so any future rebuild should keep the bundle aligned.
 
 ## Exact next command
-`npm run verify -- --project forensics`
+`/Users/deanguedo/Documents/GitHub/canvas-helper/launch-canvas-helper.command`
 
 ## Exact next file to open
-`/Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics/workspace/assets/module5assignment.html`
+`/Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics/workspace/assets/module8assignment.html`
 
 ## Do not do next / warnings
 - Do not edit `projects/forensics/raw/**` or `projects/resources/forensics/**`.
-- Do not delete existing assignment placeholders; they are intentionally kept.
+- Do not overwrite the split Module 8 reference files unless you are intentionally changing their standalone versions.

@@ -368,12 +368,21 @@ test("generatePromptPack includes selected benchmark context when a project opts
       applyPatternBankToPromptPack: false,
       applyMemoryLedgerToPromptPack: false,
       applyMemoryLedgerToRecommendations: false
+    }, {
+      subagentMode: true
     });
 
     const output = await readFile(result.outputPath, "utf8");
     assert.match(output, /## Selected Benchmark/i);
     assert.match(output, /calm-module-2-workbook/i);
     assert.match(output, /hidden-by-default/i);
+    assert.match(output, /## Rules/i);
+    assert.match(output, /## Session Mode/i);
+    assert.match(output, /Subagent mode: on/i);
+    assert.match(output, /Start with the narrowest useful retrieval path/i);
+    assert.match(output, /If broader retrieval is needed, stop and ask for approval/i);
+    assert.match(output, /If the user explicitly says this is a subagent/i);
+    assert.match(output, /Should I apply subagent rules for this task\?/i);
   } finally {
     await cleanupProjectFixture(slug);
   }

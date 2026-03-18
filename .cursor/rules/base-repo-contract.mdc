@@ -52,6 +52,12 @@ For repo-wide workflow or agent-rule changes:
 - Preserve local conventions.
 - Keep user-authored changes in `projects/<slug>/workspace/**`.
 
+## Subagent Mode
+- If the user explicitly says this is a subagent, or says to act as a subagent, treat the task as subagent mode automatically.
+- If the signal is ambiguous, ask exactly once: `Should I apply subagent rules for this task?`
+- When subagent mode is active, start with the smallest useful retrieval path and keep the surgical rules on for the rest of the task unless the user changes the scope.
+- Do not keep asking whether to apply subagent rules after confirmation.
+
 ## Intelligence Rules
 - Do not hard-wire intelligence behavior outside `scripts/lib/intelligence/**`.
 - New intelligence flags belong in `scripts/lib/intelligence/config/`.

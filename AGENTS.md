@@ -77,6 +77,23 @@ Canvas Helper is a local-first Node + browser workspace for importing Canvas cou
 4. Use `projects/resources/<slug>/_extracted/` only after prompt-pack and pattern-bank context.
 5. Read `ARCHITECTURE.md` and `docs/ops/HANDOFF.md` for repo-wide changes or handoff rules.
 
+## Surgical Default Rules
+
+- Start with the smallest file set that can answer the task.
+- Prefer targeted reads, `rg`, and known entrypoints over broad repo scans.
+- Expand scope only when the current context is insufficient to act safely.
+- If broader retrieval or different behavior is needed, stop and ask for approval before continuing.
+- When asking, state the reason, the extra scope requested, and the expected cost in time or tokens.
+- Do not widen scope preemptively "just in case."
+- Keep follow-up reads minimal even after approval.
+
+## Subagent Mode
+
+- If the user explicitly says this is a subagent, or says to act as a subagent, treat the task as subagent mode automatically.
+- If the signal is ambiguous, ask exactly once: `Should I apply subagent rules for this task?`
+- When subagent mode is active, keep the surgical-default rules on for the rest of the task unless the user changes the scope.
+- Do not keep asking whether to apply subagent rules after subagent mode is confirmed.
+
 ## Intelligence Rules
 
 - Collection and application are governed by the explicit learner mode and policy flags.

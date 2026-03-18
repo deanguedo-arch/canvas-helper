@@ -494,9 +494,9 @@ const DnaLab = ({ answers, setAnswers }) => {
   };
 
   const renderLane = (title, bands) => (
-    <div className="flex flex-col items-center">
-      <div className="text-[10px] font-black mb-5 text-slate-500 h-10 text-center uppercase tracking-[0.2em] w-24 leading-tight flex items-end justify-center">{title}</div>
-      <div className={`w-16 h-[500px] border-x border-slate-700 relative transition-all duration-700 shadow-2xl ${uvLight ? 'bg-slate-800' : 'bg-slate-950'}`}>
+    <div className="flex shrink-0 flex-col items-center">
+      <div className="mb-5 flex h-10 w-[clamp(3.5rem,5vw,4.25rem)] items-end justify-center text-center text-[9px] font-black uppercase tracking-[0.2em] text-slate-500 leading-tight">{title}</div>
+      <div className={`h-[500px] w-[clamp(3.5rem,5vw,4.25rem)] border-x border-slate-700 relative transition-all duration-700 shadow-2xl ${uvLight ? 'bg-slate-800' : 'bg-slate-950'}`}>
         <div className="w-12 h-3 border border-slate-600 mx-auto mt-2 rounded-sm bg-slate-900 shadow-inner"></div>
         {bands.map((pos, idx) => (
           <div 
@@ -544,12 +544,14 @@ const DnaLab = ({ answers, setAnswers }) => {
           </div>
         </div>
 
-        <div className={`p-20 lg:w-full flex justify-center gap-6 md:gap-12 relative transition-colors duration-1000 ${uvLight ? 'bg-slate-900' : 'bg-black'}`}>
+        <div className={`w-full overflow-x-auto overscroll-x-contain px-8 py-12 md:px-12 md:py-16 lg:w-full relative transition-colors duration-1000 ${uvLight ? 'bg-slate-900' : 'bg-black'}`}>
+          <div className="flex min-w-max justify-start gap-4 md:gap-6 xl:justify-center xl:gap-8">
           {renderLane('DNA Ladder', DNA_PROFILES.marker)}
           {renderLane('Marker A', DNA_PROFILES.evidence)}
           {renderLane('Suspect 1', DNA_PROFILES.suspect1)}
           {renderLane('Suspect 2', DNA_PROFILES.suspect2)}
           {renderLane('Suspect 3', DNA_PROFILES.suspect3)}
+          </div>
         </div>
       </div>
 

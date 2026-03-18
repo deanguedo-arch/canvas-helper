@@ -16,6 +16,7 @@
     "learn": "tsx scripts/learn-patterns.ts",
     "library": "tsx scripts/build-pattern-library.ts",
     "pack": "tsx scripts/pack-agent.ts",
+    "pack:subagent": "tsx scripts/pack-agent.ts --subagent",
     "verify": "tsx scripts/verify-project.ts",
     "refs": "tsx scripts/extract-references.ts",
     "d2l-map": "tsx scripts/d2l-map.ts",

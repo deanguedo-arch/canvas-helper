@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module 8 Career Path Simulation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #07090d;
+      --panel: rgba(16, 20, 28, 0.82);
+      --panel-strong: rgba(12, 15, 22, 0.92);
+      --line: rgba(255, 255, 255, 0.08);
+      --line-strong: rgba(255, 255, 255, 0.14);
+      --text: #f5f7fb;
+      --muted: #aeb6c4;
+      --soft: #d9e0ea;
+      --accent: #cc2f3a;
+      --accent-soft: rgba(204, 47, 58, 0.18);
+      --accent-gold: #f59e0b;
+      --accent-cyan: #22d3ee;
+      --shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background:
+        radial-gradient(circle at top left, rgba(204, 47, 58, 0.26), transparent 32%),
+        radial-gradient(circle at 80% 10%, rgba(34, 211, 238, 0.12), transparent 22%),
+        radial-gradient(circle at 50% 100%, rgba(245, 158, 11, 0.10), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      font-family: "Inter", "Segoe UI", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 28px;
+      color: var(--text);
+    }
+
+    button, textarea {
+      font: inherit;
+    }
+
+    .shell {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      gap: 20px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: calc(var(--radius-xl) + 8px);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01)), var(--panel);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+      padding: 28px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -20% auto auto -6%;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(204, 47, 58, 0.22), transparent 62%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -12% -30% auto;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(34, 211, 238, 0.14), transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-top {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #ffb7be;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow span {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-gold));
+      box-shadow: 0 0 0 6px rgba(204, 47, 58, 0.12);
+    }
+
+    h1 {
+      margin: 12px 0 10px;
+      font-family: "Space Grotesk", "Inter", sans-serif;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+    }
+
+    .lede {
+      max-width: 66ch;
+      margin: 0;
+      color: var(--soft);
+      line-height: 1.75;
+      font-size: 15px;
+    }
+
+    .hero-grid {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .mini-card {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      min-height: 96px;
+      box-shadow: 0 18px 30px rgba(0, 0, 0, 0.22);
+    }
+
+    .mini-card label {
+      display: block;
+      color: #95a0b1;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 11px;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .mini-card strong {
+      display: block;
+      font-size: 15px;
+      line-height: 1.45;
+      color: var(--text);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(320px, 0.8fr);
+      gap: 20px;
+      align-items: start;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 14%), var(--panel);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+      overflow: hidden;
+    }
+
+    .panel-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 22px 22px 0;
+    }
+
+    .panel-head h2 {
+      margin: 0;
+      font-family: "Space Grotesk", "Inter", sans-serif;
+      font-size: 22px;
+      letter-spacing: -0.03em;
+    }
+
+    .panel-head p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 14px;
+      max-width: 64ch;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      border-radius: 999px;
+      border: 1px solid var(--line-strong);
+      background: rgba(255, 255, 255, 0.03);
+      padding: 10px 14px;
+      color: var(--soft);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .status-pill i {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-gold));
+      box-shadow: 0 0 0 6px rgba(204, 47, 58, 0.12);
+      display: inline-block;
+    }
+
+    .progress-wrap {
+      padding: 18px 22px 0;
+    }
+
+    .progress-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .progress-bar {
+      position: relative;
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.07);
+      overflow: hidden;
+    }
+
+    .progress-bar span {
+      position: absolute;
+      inset: 0 auto 0 0;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--accent), var(--accent-gold));
+      transition: width 280ms ease;
+    }
+
+    .content {
+      padding: 22px;
+    }
+
+    .extra-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .mode-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .mode-button {
+      text-align: left;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text);
+      border-radius: 18px;
+      padding: 16px;
+      cursor: pointer;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+    }
+
+    .mode-button:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .mode-button.active {
+      border-color: rgba(204, 47, 58, 0.75);
+      background: linear-gradient(180deg, rgba(204, 47, 58, 0.18), rgba(255, 255, 255, 0.03));
+      box-shadow: 0 0 0 1px rgba(204, 47, 58, 0.25), 0 16px 28px rgba(0, 0, 0, 0.22);
+    }
+
+    .mode-button h3 {
+      margin: 0;
+      font-family: "Space Grotesk", "Inter", sans-serif;
+      font-size: 18px;
+      letter-spacing: -0.03em;
+    }
+
+    .mode-button p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 13px;
+    }
+
+    .detail-card {
+      margin-top: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 22px;
+      padding: 18px;
+    }
+
+    .detail-card h3 {
+      margin: 0;
+      font-family: "Space Grotesk", "Inter", sans-serif;
+      font-size: 24px;
+      letter-spacing: -0.04em;
+    }
+
+    .detail-card p {
+      margin: 10px 0 0;
+      color: var(--soft);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .detail-list {
+      margin-top: 14px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .detail-item {
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.02);
+      padding: 12px 14px;
+    }
+
+    .detail-item label {
+      display: block;
+      color: #9aa4b4;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 10px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .detail-item strong {
+      display: block;
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .role-board {
+      display: grid;
+      grid-template-columns: minmax(0, 0.88fr) minmax(280px, 0.62fr);
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .role-card {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 22px;
+      padding: 18px;
+    }
+
+    .role-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .role-chip {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--soft);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 180ms ease;
+    }
+
+    .role-chip.active {
+      color: #fff;
+      border-color: rgba(204, 47, 58, 0.7);
+      background: rgba(204, 47, 58, 0.18);
+    }
+
+    .scenario-title {
+      margin: 0;
+      font-family: "Space Grotesk", "Inter", sans-serif;
+      font-size: 20px;
+      letter-spacing: -0.03em;
+    }
+
+    .scenario-card {
+      margin-top: 14px;
+      border: 1px solid var(--line);
+      background: rgba(0, 0, 0, 0.16);
+      border-radius: 20px;
+      padding: 16px;
+    }
+
+    .scenario-card p {
+      margin: 0;
+      color: var(--soft);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .scenario-list {
+      margin-top: 12px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .scenario-step {
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.02);
+      padding: 12px 14px;
+    }
+
+    .scenario-step label {
+      display: block;
+      color: #9aa4b4;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 10px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .scenario-step strong {
+      display: block;
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .question-shell {
+      display: grid;
+      grid-template-columns: minmax(0, 0.72fr) minmax(250px, 0.28fr);
+      gap: 18px;
+    }
+
+    .question-card,
+    .sidebar-card,
+    .result-card {
+      border: 1px solid var(--line);
+      background: var(--panel-strong);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.24);
+    }
+
+    .question-card {
+      padding: 20px;
+    }
+
+    .question-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      border: 1px solid var(--line-strong);
+      background: rgba(255, 255, 255, 0.03);
+      padding: 8px 12px;
+      color: var(--soft);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .tag b {
+      color: #fff;
+      letter-spacing: 0.08em;
+    }
+
+    .question-card h3 {
+      margin: 0;
+      font-family: "Space Grotesk", "Inter", sans-serif;
+      font-size: clamp(1.4rem, 2vw, 2rem);
+      letter-spacing: -0.04em;
+      line-height: 1.08;
+    }
+
+    .question-card .helper {
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .choices {
+      margin-top: 20px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .choice {
+      text-align: left;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text);
+      border-radius: 18px;
+      padding: 16px;
+      cursor: pointer;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+    }
+
+    .choice:hover {
+      transform: translateY(-1px);
+      border-color: rgba(204, 47, 58, 0.45);
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.22);
+    }
+
+    .choice.selected {
+      border-color: rgba(204, 47, 58, 0.7);
+      background: linear-gradient(180deg, rgba(204, 47, 58, 0.18), rgba(255, 255, 255, 0.03));
+      box-shadow: 0 0 0 1px rgba(204, 47, 58, 0.26), 0 16px 32px rgba(0, 0, 0, 0.22);
+    }
+
+    .choice-title {
+      font-weight: 700;
+      line-height: 1.4;
+      font-size: 15px;
+    }
+
+    .choice-desc {
+      margin-top: 6px;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 13px;
+    }
+
+    .nav-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn {
+      border: 1px solid var(--line-strong);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text);
+      border-radius: 14px;
+      padding: 12px 16px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255, 255, 255, 0.24);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .btn.primary {
+      border-color: rgba(204, 47, 58, 0.72);
+      background: linear-gradient(180deg, rgba(204, 47, 58, 0.96), rgba(150, 28, 41, 0.96));
+      box-shadow: 0 14px 28px rgba(204, 47, 58, 0.22);
+    }
+
+    .btn.primary:hover {
+      box-shadow: 0 16px 32px rgba(204, 47, 58, 0.3);
+    }
+
+    .btn:disabled {
+      opacity: 0.48;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .sidebar-card {
+      padding: 18px;
+    }
+
+    .sidebar-card h4 {
+      margin: 0;
+      font-family: "Space Grotesk", "Inter", sans-serif;
+      font-size: 18px;
+      letter-spacing: -0.03em;
+    }
+
+    .sidebar-card p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 13px;
+    }
+
+    .career-list {
+      margin-top: 16px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .career-item {
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.02);
+      padding: 14px;
+    }
+
+    .career-item.active {
+      border-color: rgba(204, 47, 58, 0.5);
+      background: linear-gradient(180deg, rgba(204, 47, 58, 0.16), rgba(255, 255, 255, 0.03));
+    }
+
+    .career-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .career-name {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    .career-score {
+      color: #fff;
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    .bar {
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+    }
+
+    .bar span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--accent), var(--accent-gold));
+      transition: width 250ms ease;
+    }
+
+    .sidebar-footer {
+      margin-top: 16px;
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+      display: grid;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .result-wrap {
+      padding: 22px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .result-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+      gap: 16px;
+    }
+
+    .result-card {
+      padding: 18px;
+    }
+
+    .result-title {
+      margin: 0 0 8px;
+      font-family: "Space Grotesk", "Inter", sans-serif;
+      font-size: 26px;
+      letter-spacing: -0.04em;
+    }
+
+    .result-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(204, 47, 58, 0.45);
+      background: rgba(204, 47, 58, 0.16);
+      color: #ffd1d5;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .result-copy {
+      margin: 14px 0 0;
+      color: var(--soft);
+      line-height: 1.75;
+      font-size: 14px;
+    }
+
+    .result-stats {
+      display: grid;
+      gap: 12px;
+    }
+
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 14px;
+    }
+
+    .stat label {
+      display: block;
+      color: #9aa4b4;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .reflection {
+      margin-top: 8px;
+    }
+
+    .reflection textarea {
+      width: 100%;
+      min-height: 160px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text);
+      border-radius: 18px;
+      padding: 14px;
+      resize: vertical;
+      line-height: 1.7;
+      outline: none;
+      transition: border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .reflection textarea:focus {
+      border-color: rgba(34, 211, 238, 0.45);
+      box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.1);
+    }
+
+    .fineprint {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @media (max-width: 1080px) {
+      .layout,
+      .question-shell,
+      .result-grid,
+      .role-board {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .mode-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      body {
+        padding: 16px;
+      }
+
+      .hero,
+      .panel,
+      .question-card,
+      .sidebar-card,
+      .result-card {
+        border-radius: 22px;
+      }
+
+      .hero {
+        padding: 20px;
+      }
+
+      .panel-head,
+      .content,
+      .result-wrap {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .question-card,
+      .sidebar-card,
+      .result-card {
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-top">
+        <div>
+          <div class="eyebrow"><span></span> Module 8 Interactive Assignment</div>
+          <h1>Career Path Simulation</h1>
+          <p class="lede">
+            Explore forensic science careers through short scenario choices, then compare your result to the job descriptions below.
+            Use the result as a starting point for reflection on what kind of evidence, pace, and work setting fits you best.
+          </p>
+        </div>
+        <div class="status-pill"><i></i> Interactive lab</div>
+      </div>
+
+      <div class="hero-grid">
+        <div class="mini-card">
+          <label>What you will do</label>
+          <strong>Answer 5 short scenarios, review your match, and write a brief reflection.</strong>
+        </div>
+        <div class="mini-card">
+          <label>Best for</label>
+          <strong>Students who want to compare Module 2 fingerprint work, Module 3 trace evidence, lab work, digital analysis, and human-focused careers.</strong>
+        </div>
+        <div class="mini-card">
+          <label>Submission idea</label>
+          <strong>Save or copy the result summary, then add your own reflection in the course workspace.</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="layout">
+      <section class="panel" id="quizPanel">
+        <div class="panel-head">
+          <div>
+            <div class="eyebrow"><span></span> Path Finder</div>
+            <h2 id="screenTitle">Find your best forensic fit</h2>
+            <p id="screenDescription">
+              Pick the choice that feels most like you. There are no wrong answers here. The goal is to see which type of forensic work matches your interests and strengths.
+            </p>
+          </div>
+          <div class="status-pill" id="statusPill"><i></i> Step 1 of 5</div>
+        </div>
+
+        <div class="progress-wrap">
+          <div class="progress-row">
+            <span id="progressLabel">Progress</span>
+            <span id="progressCount">0 of 5 answered</span>
+          </div>
+          <div class="progress-bar"><span id="progressFill" style="width: 0%"></span></div>
+        </div>
+
+        <div class="content">
+          <div id="questionView" class="question-shell"></div>
+          <div id="resultView" class="result-wrap hidden"></div>
+        </div>
+      </section>
+
+      <aside class="sidebar-card">
+        <h4>Career scoreboard</h4>
+        <p>As you answer, the meter will move toward the roles that fit your choices best.</p>
+        <div id="careerList" class="career-list"></div>
+        <div class="sidebar-footer">
+          <div><strong>Tip:</strong> If you get a result you do not expect, change one answer and see how the score shifts.</div>
+          <div><strong>Reflection prompt:</strong> Which career fit your personality best, and what skill would you need to build for it?</div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="layout extra-layout">
+      <section class="panel" id="dayLifePanel">
+        <div class="panel-head">
+          <div>
+            <div class="eyebrow"><span></span> Day-In-The-Life Path Picker</div>
+            <h2>See what the job does</h2>
+            <p>Choose a role to reveal its daily work, evidence focus, and the kind of pace that job usually has.</p>
+          </div>
+          <div class="status-pill"><i></i> Choose a role</div>
+        </div>
+
+        <div class="content">
+          <div class="mode-grid" id="dayLifeButtons"></div>
+          <div class="detail-card" id="dayLifeDetail"></div>
+        </div>
+      </section>
+    </section>
+
+    <section class="layout extra-layout">
+      <section class="panel" id="caseRolePanel">
+        <div class="panel-head">
+          <div>
+            <div class="eyebrow"><span></span> Case-Role Simulation</div>
+            <h2>Pick the role you would take</h2>
+            <p>Work through a mock investigation and choose the job you would want on the team. The reveal shows what that role would do next.</p>
+          </div>
+          <div class="status-pill"><i></i> Mock investigation</div>
+        </div>
+
+        <div class="content">
+          <div class="role-board">
+            <div class="role-card">
+              <h3 class="scenario-title">Investigation brief</h3>
+              <div class="scenario-card">
+                <p>
+                  A bank-van robbery ends in a burned vehicle, recovered disguises, and mixed evidence from the glove compartment and cargo area.
+                  The team needs to decide who does what first so the evidence can be processed cleanly.
+                </p>
+              </div>
+
+              <div class="role-chip-row" id="caseRoleButtons"></div>
+            </div>
+
+            <div class="role-card" id="caseRoleDetail"></div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    const careers = [
+      {
+        id: "fingerprints",
+        name: "Fingerprint Examiner",
+        summary: "Compares latent prints, ridge detail, and known print cards.",
+        day: "Examines print lifts, marks ridge characteristics, and compares suspects to evidence samples.",
+        fit: "Strong fit if you enjoy visual detail, pattern matching, and careful comparison work.",
+        skills: ["Ridge analysis", "Pattern matching", "Observation"],
+        education: "Often forensic science, criminal justice, or a lab-focused science degree.",
+      },
+      {
+        id: "trace",
+        name: "Trace Evidence Analyst",
+        summary: "Studies hair, fibers, paint, glass, and other microscopic transfer evidence.",
+        day: "Uses microscopes and reference collections to compare tiny evidence samples from scenes.",
+        fit: "Strong fit if you like microscopic detail and connecting small clues to a bigger story.",
+        skills: ["Microscopy", "Comparison work", "Evidence classification"],
+        education: "Usually forensic science, chemistry, biology, or microscopy-heavy lab training.",
+      },
+      {
+        id: "csi",
+        name: "Crime Scene Investigator",
+        summary: "Field-focused evidence collection, photography, and chain-of-custody work.",
+        day: "Responds to scenes, documents evidence, maps rooms, and coordinates with detectives.",
+        fit: "Strong fit if you like active environments, observation, and organized scene work.",
+        skills: ["Observation", "Documentation", "Evidence handling"],
+        education: "Often a degree in forensic science, criminal justice, or a related science.",
+      },
+      {
+        id: "analyst",
+        name: "Forensic Lab Analyst",
+        summary: "Careful lab processing of biological, trace, and physical evidence.",
+        day: "Prepares samples, runs instruments, records results, and writes formal reports.",
+        fit: "Strong fit if you like precision, patience, and working through evidence step by step.",
+        skills: ["Accuracy", "Lab technique", "Report writing"],
+        education: "Usually a science degree with lab coursework and instrument training.",
+      },
+      {
+        id: "digital",
+        name: "Digital Forensics Analyst",
+        summary: "Searches devices and digital records for hidden timelines and metadata.",
+        day: "Recovers files, examines phones and computers, and builds timelines from digital traces.",
+        fit: "Strong fit if you like technology, patterns, and solving technical puzzles.",
+        skills: ["Technology", "Pattern recognition", "Chain-of-custody"],
+        education: "Computer science, information security, or forensic technology training.",
+      },
+      {
+        id: "toxicology",
+        name: "Forensic Toxicologist",
+        summary: "Studies chemicals, drugs, and poisons in biological samples.",
+        day: "Analyzes blood or tissue, interprets toxicology results, and helps explain exposure.",
+        fit: "Strong fit if you like chemistry, lab detail, and investigation with clear technical methods.",
+        skills: ["Chemistry", "Instrument analysis", "Interpretation"],
+        education: "Typically chemistry, biochemistry, or forensic science with lab specialization.",
+      },
+      {
+        id: "psychology",
+        name: "Forensic Psychologist",
+        summary: "Focuses on behavior, interviews, and the human side of investigations.",
+        day: "Works with legal teams, evaluates behavior, and helps interpret motives and risk.",
+        fit: "Strong fit if you like people, communication, and understanding behavior.",
+        skills: ["Interviewing", "Communication", "Behavior analysis"],
+        education: "Usually psychology with graduate study and field-specific training.",
+      },
+      {
+        id: "pathology",
+        name: "Forensic Pathologist",
+        summary: "Examines causes of injury or death and works closely with medical evidence.",
+        day: "Reviews medical findings, performs detailed examinations, and explains cause-of-death evidence.",
+        fit: "Strong fit if you like medicine, anatomy, and high-detail case work.",
+        skills: ["Anatomy", "Medical interpretation", "Case analysis"],
+        education: "Medical school plus pathology and forensic training.",
+      },
+    ];
+
+    const questions = [
+      {
+        prompt: "Where would you rather spend most of your time?",
+        helper: "Choose the setting that sounds most natural to you.",
+        options: [
+          {
+            label: "At a crime scene with a camera, sketch pad, and evidence markers.",
+            desc: "I like active, real-world investigation and moving through a scene carefully.",
+            weights: { csi: 4, psychology: 1, pathology: 1 },
+          },
+          {
+            label: "At a comparison bench studying fingerprints and trace evidence samples.",
+            desc: "I like detailed visual work and sorting out small forensic clues.",
+            weights: { fingerprints: 4, trace: 3, analyst: 1 },
+          },
+          {
+            label: "In a controlled lab with samples, notes, and instruments.",
+            desc: "I prefer calm, focused work where accuracy matters most.",
+            weights: { analyst: 4, toxicology: 3, pathology: 1 },
+          },
+          {
+            label: "At a workstation pulling data from phones, computers, and logs.",
+            desc: "I like technical problems and digital clues.",
+            weights: { digital: 4, analyst: 1, csi: 1 },
+          },
+          {
+            label: "Talking to people, interviewing, or thinking about behavior.",
+            desc: "I enjoy human stories and the psychological side of a case.",
+            weights: { psychology: 4, csi: 1, pathology: 1 },
+          },
+        ],
+      },
+      {
+        prompt: "Which kind of evidence sounds most interesting?",
+        helper: "Pick the evidence type you would be most curious to examine.",
+        options: [
+          {
+            label: "Fingerprints, shoe prints, and scene photographs.",
+            desc: "Visible physical clues that connect people and places.",
+            weights: { fingerprints: 4, csi: 2, trace: 1 },
+          },
+          {
+            label: "Hair, fibers, paint chips, and other microscopic trace evidence.",
+            desc: "Tiny evidence that needs comparison under a microscope.",
+            weights: { trace: 4, analyst: 2, fingerprints: 1 },
+          },
+          {
+            label: "DNA, blood, and other biological samples.",
+            desc: "Evidence that needs careful lab work and interpretation.",
+            weights: { analyst: 3, toxicology: 2, pathology: 2 },
+          },
+          {
+            label: "Phones, emails, browser history, and metadata.",
+            desc: "Digital evidence that can reveal a timeline.",
+            weights: { digital: 4, csi: 1, psychology: 1 },
+          },
+          {
+            label: "Statements, behavior, motives, and decision-making.",
+            desc: "Clues that help explain why someone acted the way they did.",
+            weights: { psychology: 4, csi: 1, pathology: 1 },
+          },
+        ],
+      },
+      {
+        prompt: "Which work pace feels most satisfying?",
+        helper: "Think about the kind of day you would enjoy most.",
+        options: [
+          {
+            label: "Fast-moving and unpredictable.",
+            desc: "I like switching tasks and responding to new information quickly.",
+            weights: { csi: 4, digital: 1, pathology: 1 },
+          },
+          {
+            label: "Detailed comparison work with reference charts and microscopes.",
+            desc: "I enjoy slow, exact work that depends on seeing tiny differences.",
+            weights: { fingerprints: 4, trace: 4, analyst: 1 },
+          },
+          {
+            label: "Methodical and precise.",
+            desc: "I like steady progress and careful checking.",
+            weights: { analyst: 4, toxicology: 2, pathology: 1 },
+          },
+          {
+            label: "Technical problem solving with deep focus.",
+            desc: "I enjoy digging into data until the pattern becomes clear.",
+            weights: { digital: 4, analyst: 1, toxicology: 1 },
+          },
+          {
+            label: "Discussion, interviews, and interpretation.",
+            desc: "I prefer explaining what evidence means in human terms.",
+            weights: { psychology: 4, pathology: 2, csi: 1 },
+          },
+        ],
+      },
+      {
+        prompt: "What part of forensic work sounds most rewarding?",
+        helper: "Choose the part you would be proudest to do well.",
+        options: [
+          {
+            label: "Finding and documenting evidence nobody else noticed.",
+            desc: "I like being the person who notices important details first.",
+            weights: { csi: 4, fingerprints: 1, trace: 1 },
+          },
+          {
+            label: "Matching prints or microscopic fibers that others missed.",
+            desc: "I like making a careful comparison that changes the direction of a case.",
+            weights: { fingerprints: 4, trace: 4, analyst: 1 },
+          },
+          {
+            label: "Producing a careful lab result that can stand up in court.",
+            desc: "I like work that is accurate, repeatable, and defensible.",
+            weights: { analyst: 4, toxicology: 3, pathology: 1 },
+          },
+          {
+            label: "Recovering hidden data and building a digital timeline.",
+            desc: "I like technical recovery work and tracing a sequence of events.",
+            weights: { digital: 4, csi: 1, psychology: 1 },
+          },
+          {
+            label: "Helping explain the human side of a case.",
+            desc: "I like connecting evidence to behavior and decision-making.",
+            weights: { psychology: 4, pathology: 2, csi: 1 },
+          },
+        ],
+      },
+      {
+        prompt: "Which skill do you most want to use every day?",
+        helper: "This should feel like the skill you naturally enjoy practicing.",
+        options: [
+          {
+            label: "Scene organization and evidence handling.",
+            desc: "I like structure, order, and keeping track of details.",
+            weights: { csi: 4, fingerprints: 1, trace: 1, pathology: 1 },
+          },
+          {
+            label: "Fingerprint comparison and trace sampling.",
+            desc: "I like evidence work where tiny patterns matter.",
+            weights: { fingerprints: 4, trace: 4, analyst: 1 },
+          },
+          {
+            label: "Lab precision and instrument work.",
+            desc: "I enjoy careful measurements and technical procedures.",
+            weights: { analyst: 4, toxicology: 3, pathology: 1 },
+          },
+          {
+            label: "Technology troubleshooting and data analysis.",
+            desc: "I like solving problems with computers and records.",
+            weights: { digital: 4, analyst: 1, csi: 1 },
+          },
+          {
+            label: "Communication and interpretation.",
+            desc: "I like talking through complex information clearly.",
+            weights: { psychology: 4, pathology: 2, csi: 1 },
+          },
+        ],
+      },
+    ];
+
+    const state = {
+      step: 0,
+      selected: Array.from({ length: questions.length }, () => null),
+      view: "quiz",
+    };
+
+    const nodes = {
+      screenTitle: document.getElementById("screenTitle"),
+      screenDescription: document.getElementById("screenDescription"),
+      statusPill: document.getElementById("statusPill"),
+      progressFill: document.getElementById("progressFill"),
+      progressLabel: document.getElementById("progressLabel"),
+      progressCount: document.getElementById("progressCount"),
+      questionView: document.getElementById("questionView"),
+      resultView: document.getElementById("resultView"),
+      careerList: document.getElementById("careerList"),
+    };
+
+    function computeScores() {
+      const scores = Object.fromEntries(careers.map((career) => [career.id, 0]));
+      state.selected.forEach((choiceIndex, questionIndex) => {
+        if (choiceIndex === null || choiceIndex === undefined) {
+          return;
+        }
+        const weights = questions[questionIndex].options[choiceIndex].weights || {};
+        Object.entries(weights).forEach(([careerId, value]) => {
+          scores[careerId] = (scores[careerId] || 0) + value;
+        });
+      });
+      return scores;
+    }
+
+    function getRankedCareers() {
+      const scores = computeScores();
+      return careers
+        .map((career) => ({ ...career, score: scores[career.id] || 0 }))
+        .sort((a, b) => b.score - a.score || a.name.localeCompare(b.name));
+    }
+
+    function updateSidebar() {
+      const ranked = getRankedCareers();
+      nodes.careerList.innerHTML = ranked
+        .map((career, index) => {
+          const maxScore = Math.max(...ranked.map((item) => item.score), 1);
+          const width = Math.max(8, Math.round((career.score / maxScore) * 100));
+          return `
+            <div class="career-item ${index === 0 ? "active" : ""}">
+              <div class="career-row">
+                <div class="career-name">${career.name}</div>
+                <div class="career-score">${career.score} pts</div>
+              </div>
+              <div class="bar"><span style="width:${width}%"></span></div>
+            </div>
+          `;
+        })
+        .join("");
+    }
+
+    function renderQuestion() {
+      const question = questions[state.step];
+      nodes.screenTitle.textContent = "Find your best forensic fit";
+      nodes.screenDescription.textContent = question.helper;
+      nodes.statusPill.innerHTML = `<i></i> Step ${state.step + 1} of ${questions.length}`;
+      nodes.progressFill.style.width = `${(state.selected.filter((item) => item !== null).length / questions.length) * 100}%`;
+      nodes.progressLabel.textContent = "Progress";
+      nodes.progressCount.textContent = `${state.selected.filter((item) => item !== null).length} of ${questions.length} answered`;
+      nodes.questionView.classList.remove("hidden");
+      nodes.resultView.classList.add("hidden");
+      nodes.questionView.innerHTML = `
+        <article class="question-card">
+          <div class="question-meta">
+            <span class="tag"><b>Question ${state.step + 1}</b> / ${questions.length}</span>
+            <span class="tag">Choose one answer</span>
+          </div>
+          <h3>${question.prompt}</h3>
+          <p class="helper">${question.helper}</p>
+          <div class="choices">
+            ${question.options
+              .map((option, index) => {
+                const selected = state.selected[state.step] === index ? "selected" : "";
+                return `
+                  <button class="choice ${selected}" data-choice="${index}">
+                    <div class="choice-title">${option.label}</div>
+                    <div class="choice-desc">${option.desc}</div>
+                  </button>
+                `;
+              })
+              .join("")}
+          </div>
+          <div class="nav-row">
+            <button class="btn" id="backBtn" ${state.step === 0 ? "disabled" : ""}>Back</button>
+            <button class="btn primary" id="nextBtn" ${state.selected[state.step] === null ? "disabled" : ""}>
+              ${state.step === questions.length - 1 ? "See result" : "Continue"}
+            </button>
+            <button class="btn" id="restartBtn">Restart</button>
+          </div>
+        </article>
+      `;
+
+      nodes.questionView.querySelectorAll("[data-choice]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const choice = Number(button.dataset.choice);
+          state.selected[state.step] = choice;
+          render();
+        });
+      });
+
+      const nextBtn = document.getElementById("nextBtn");
+      const backBtn = document.getElementById("backBtn");
+      const restartBtn = document.getElementById("restartBtn");
+
+      backBtn?.addEventListener("click", () => {
+        if (state.step > 0) {
+          state.step -= 1;
+          render();
+        }
+      });
+
+      nextBtn?.addEventListener("click", () => {
+        if (state.selected[state.step] === null) {
+          return;
+        }
+        if (state.step < questions.length - 1) {
+          state.step += 1;
+          render();
+          return;
+        }
+        state.view = "result";
+        render();
+      });
+
+      restartBtn?.addEventListener("click", restart);
+      updateSidebar();
+    }
+
+    function createReportText() {
+      const ranked = getRankedCareers();
+      const top = ranked[0];
+      const lines = [
+        "Module 8 Career Path Simulation",
+        "",
+        `Top Match: ${top.name} (${top.score} points)`,
+        `Secondary Match: ${ranked[1].name} (${ranked[1].score} points)`,
+        "",
+        "Selected Answers:",
+      ];
+      questions.forEach((question, index) => {
+        const selectedIndex = state.selected[index];
+        const answer = selectedIndex === null ? "Not answered" : question.options[selectedIndex].label;
+        lines.push(`${index + 1}. ${question.prompt}`);
+        lines.push(`   ${answer}`);
+      });
+      lines.push("");
+      lines.push("Reflection prompt:");
+      lines.push("Explain why your top match fits you and one skill you would need to strengthen.");
+      return lines.join("\n");
+    }
+
+    function downloadReport() {
+      const blob = new Blob([createReportText()], { type: "text/plain;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "module8-career-path-simulation.txt";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.setTimeout(() => URL.revokeObjectURL(url), 1200);
+    }
+
+    function renderResult() {
+      const ranked = getRankedCareers();
+      const top = ranked[0];
+      const runnerUp = ranked[1];
+      const maxScore = Math.max(...ranked.map((career) => career.score), 1);
+
+      nodes.screenTitle.textContent = "Your career match";
+      nodes.screenDescription.textContent = "Review the result, compare the descriptions, and write a short reflection about what felt accurate or surprising.";
+      nodes.statusPill.innerHTML = `<i></i> Career profile ready`;
+      nodes.progressFill.style.width = "100%";
+      nodes.progressCount.textContent = `${questions.length} of ${questions.length} answered`;
+      nodes.questionView.classList.add("hidden");
+      nodes.resultView.classList.remove("hidden");
+      nodes.resultView.innerHTML = `
+        <div class="result-grid">
+          <section class="result-card">
+            <span class="result-badge">Top match</span>
+            <h3 class="result-title">${top.name}</h3>
+            <p class="result-copy">${top.summary}</p>
+            <p class="result-copy"><strong>Why this fit showed up:</strong> ${top.fit}</p>
+            <div class="result-stats">
+              <div class="stat">
+                <label>What this role does</label>
+                <strong>${top.day}</strong>
+              </div>
+              <div class="stat">
+                <label>Education path</label>
+                <strong>${top.education}</strong>
+              </div>
+              <div class="stat">
+                <label>Best matched skills</label>
+                <strong>${top.skills.join(", ")}</strong>
+              </div>
+            </div>
+            <div class="nav-row" style="margin-top: 16px;">
+              <button class="btn primary" id="downloadBtn">Download summary</button>
+              <button class="btn" id="retakeBtn">Retake</button>
+            </div>
+          </section>
+
+          <section class="result-card">
+            <span class="result-badge">Score breakdown</span>
+            <div class="result-stats" style="margin-top: 14px;">
+              ${ranked
+                .map((career, index) => {
+                  const width = Math.max(8, Math.round((career.score / maxScore) * 100));
+                  return `
+                    <div class="stat">
+                      <label>${index + 1}. ${career.name} - ${career.score} pts</label>
+                      <div class="bar" style="margin-bottom: 10px;"><span style="width:${width}%"></span></div>
+                      <strong>${career.summary}</strong>
+                    </div>
+                  `;
+                })
+                .join("")}
+              <div class="stat">
+                <label>Runner-up</label>
+                <strong>${runnerUp.name} sits close behind, which means you have more than one strong direction to explore.</strong>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <section class="result-card reflection">
+          <span class="result-badge">Reflection</span>
+          <p class="result-copy">
+            Write 3 to 5 sentences about whether the result feels accurate. Mention one skill you already have and one skill you would need to build for this career path.
+          </p>
+          <textarea id="reflectionBox" placeholder="Type your reflection here before copying or submitting..."></textarea>
+          <p class="fineprint">This response is for your own course notes unless your instructor asks you to submit it separately.</p>
+        </section>
+      `;
+
+      document.getElementById("downloadBtn")?.addEventListener("click", downloadReport);
+      document.getElementById("retakeBtn")?.addEventListener("click", restart);
+      updateSidebar();
+    }
+
+    function restart() {
+      state.step = 0;
+      state.selected = Array.from({ length: questions.length }, () => null);
+      state.view = "quiz";
+      render();
+    }
+
+    function render() {
+      if (state.view === "result" && state.selected.some((item) => item === null)) {
+        state.view = "quiz";
+      }
+      if (state.view === "result") {
+        renderResult();
+        return;
+      }
+      renderQuestion();
+    }
+
+    render();
+  </script>
+  <script>
+    (() => {
+      const dayLifeRoles = [
+        {
+          id: "fingerprints",
+          name: "Fingerprint Examiner",
+          what: "Compares prints from evidence against known cards and searches for ridge detail that can confirm a match.",
+          where: "Usually works at a comparison bench with print scans, reference records, and careful visual review.",
+          pace: "Slow, exact, and detail-heavy. One tiny ridge pattern can change the result.",
+          tools: "Print lifts, ridge maps, reference files, and magnification tools.",
+        },
+        {
+          id: "trace",
+          name: "Trace Evidence Analyst",
+          what: "Studies hair, fibers, paint, and glass under a microscope to connect small transfers to a larger case story.",
+          where: "Works mostly in a lab, often moving between microscope work, reference samples, and report writing.",
+          pace: "Measured and methodical. The job rewards patience and tiny observations.",
+          tools: "Microscopes, comparison charts, reference collections, and sample logs.",
+        },
+        {
+          id: "csi",
+          name: "Crime Scene Investigator",
+          what: "Documents scenes, photographs evidence, packages items, and keeps the scene organized for later analysis.",
+          where: "Splits time between the field, evidence intake, and follow-up notes for detectives and labs.",
+          pace: "Fast and responsive. Scenes change quickly and the work has to stay organized.",
+          tools: "Camera, evidence markers, sketch notes, gloves, and chain-of-custody forms.",
+        },
+        {
+          id: "analyst",
+          name: "Forensic Lab Analyst",
+          what: "Processes samples, runs instruments, and writes formal reports that can be used in court.",
+          where: "Spends most of the day in a controlled lab environment with clear procedures.",
+          pace: "Careful and repetitive. Accuracy matters more than speed.",
+          tools: "Lab instruments, sample prep materials, and documentation systems.",
+        },
+      ];
+
+      const caseRoles = [
+        {
+          id: "lead",
+          title: "Evidence Lead",
+          focus: "Decides the order of collection, keeps the scene organized, and protects chain of custody.",
+          next: "Secure the van, document the scene, and hand off items in a clean processing order.",
+        },
+        {
+          id: "fingerprints",
+          title: "Fingerprint Examiner",
+          focus: "Looks for latent prints on the bandanas, glove compartment, and any touched surfaces.",
+          next: "Compare lifted prints to known samples and flag the strongest visual matches first.",
+        },
+        {
+          id: "trace",
+          title: "Trace Evidence Analyst",
+          focus: "Targets hair, fibers, soot, and tiny transfer evidence from the burned vehicle and disguises.",
+          next: "Microscope the samples and compare them to known references for class characteristics.",
+        },
+        {
+          id: "lab",
+          title: "Forensic Lab Analyst",
+          focus: "Receives the packaged evidence, processes samples, and prepares results for later reporting.",
+          next: "Catalog the items, prep the samples, and write the first round of findings.",
+        },
+      ];
+
+      const dayButtons = document.getElementById("dayLifeButtons");
+      const dayDetail = document.getElementById("dayLifeDetail");
+      const caseButtons = document.getElementById("caseRoleButtons");
+      const caseDetail = document.getElementById("caseRoleDetail");
+
+      function renderDayRole(roleId) {
+        const role = dayLifeRoles.find((item) => item.id === roleId) || dayLifeRoles[0];
+        dayButtons.querySelectorAll("[data-day-role]").forEach((button) => {
+          button.classList.toggle("active", button.dataset.dayRole === role.id);
+        });
+        dayDetail.innerHTML = `
+          <h3>${role.name}</h3>
+          <p>${role.what}</p>
+          <div class="detail-list">
+            <div class="detail-item">
+              <label>Where the job happens</label>
+              <strong>${role.where}</strong>
+            </div>
+            <div class="detail-item">
+              <label>Typical pace</label>
+              <strong>${role.pace}</strong>
+            </div>
+            <div class="detail-item">
+              <label>Common tools</label>
+              <strong>${role.tools}</strong>
+            </div>
+          </div>
+        `;
+      }
+
+      function renderCaseRole(roleId) {
+        const role = caseRoles.find((item) => item.id === roleId) || caseRoles[0];
+        caseButtons.querySelectorAll("[data-case-role]").forEach((button) => {
+          button.classList.toggle("active", button.dataset.caseRole === role.id);
+        });
+        caseDetail.innerHTML = `
+          <h3 class="scenario-title">${role.title}</h3>
+          <div class="scenario-card">
+            <p><strong>What you would focus on:</strong> ${role.focus}</p>
+          </div>
+          <div class="scenario-list">
+            <div class="scenario-step">
+              <label>First move</label>
+              <strong>${role.next}</strong>
+            </div>
+            <div class="scenario-step">
+              <label>Why this role matters</label>
+              <strong>Each role helps the team attack the same case from a different angle, which is why the evidence gets stronger when the jobs work together.</strong>
+            </div>
+          </div>
+        `;
+      }
+
+      dayButtons.innerHTML = dayLifeRoles
+        .map(
+          (role, index) => `
+            <button class="mode-button ${index === 0 ? "active" : ""}" data-day-role="${role.id}">
+              <h3>${role.name}</h3>
+              <p>${role.what}</p>
+            </button>
+          `
+        )
+        .join("");
+
+      caseButtons.innerHTML = caseRoles
+        .map(
+          (role, index) => `
+            <button class="role-chip ${index === 0 ? "active" : ""}" data-case-role="${role.id}">
+              ${role.title}
+            </button>
+          `
+        )
+        .join("");
+
+      dayButtons.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-day-role]");
+        if (!button) return;
+        renderDayRole(button.dataset.dayRole);
+      });
+
+      caseButtons.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-case-role]");
+        if (!button) return;
+        renderCaseRole(button.dataset.caseRole);
+      });
+
+      renderDayRole(dayLifeRoles[0].id);
+      renderCaseRole(caseRoles[0].id);
+    })();
+  </script>
+</body>
+</html>

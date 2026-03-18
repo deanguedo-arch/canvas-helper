@@ -2,6 +2,21 @@
 
 These templates assume the repo follows the current architecture and governance contract.
 
+## Shared Retrieval Rule
+
+- Start surgical.
+- Read only the smallest file set that can answer the task.
+- Do not widen scope preemptively.
+- If the task needs broader retrieval or a different behavior, stop and ask for approval before continuing.
+- When asking, include the reason, the extra scope requested, and the expected token or time cost.
+
+## Shared Subagent Rule
+
+- If the user explicitly says this is a subagent, or says to act as a subagent, treat the task as subagent mode automatically.
+- If the signal is ambiguous, ask exactly once: `Should I apply subagent rules for this task?`
+- Keep subagent mode on for the rest of the task once confirmed unless the user changes the scope.
+- Do not keep asking whether to apply subagent rules after confirmation.
+
 ## 1. Studio UI Change
 
 ```text

@@ -4544,6 +4544,7 @@ var MODULE4_ASSIGNMENT_EMBED_PATH = "./assets/module4assignment.html";
 var MODULE5_ASSIGNMENT_EMBED_PATH = "./assets/module5assignment.html";
 var MODULE6_ASSIGNMENT_EMBED_PATH = "./assets/module6assignment.html";
 var MODULE7_ASSIGNMENT_EMBED_PATH = "./assets/module7assignment.html";
+var MODULE8_ASSIGNMENT_EMBED_PATH = "./assets/module8assignment.html";
 function Badge({ children, className = "", ...props }) {
   return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
     "span",
@@ -5253,6 +5254,7 @@ function ForensicCoursePlayerPreviewRestored() {
     const isModuleFive = chapterTitleLower.includes("forensic detection of impaired driving");
     const isModuleSix = chapterTitleLower.includes("polygraphing and document analysis");
     const isModuleSeven = chapterTitleLower.includes("forensic genetics");
+    const isModuleEight = chapterTitleLower.includes("careers in forensic science");
     const exportRoot = normalizePath(d2lCourseMapData.exportRoot || "");
     const moduleThreeCaseStudiesImage = "https://upload.wikimedia.org/wikipedia/commons/2/2c/CSIRO_ScienceImage_8115_Human_hair_and_Merino_wool_fibre.jpg";
     const moduleThreeTraceImage = buildReferenceUrl(
@@ -5311,6 +5313,13 @@ function ForensicCoursePlayerPreviewRestored() {
       "<div>",
       '<p style="text-align: center;"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Agarose_gel_slab_for_DNA_Analysis%2C_after_the_Electrophoresis_run.jpg" alt="Image result for DNA analysis" width="399" height="263" class="img-responsive atto_image_button_text-bottom"></p>',
       "<p>Forensic DNA Analysis has been one of the most powerful and important tools that investigators use today. It can give strong evidence for a suspect's guilt or innocence and is an indispensable tool in the forensic world. The assignment below will allow you to demonstrate your understanding of DNA analysis in the context of forensic investigations.</p>",
+      "<p><strong>When you have completed the assignment, upload your generated reports to your respective online classroom.</strong></p>",
+      "</div>"
+    ].join("");
+    const moduleEightCareerLabIntro = [
+      "<div>",
+      "<p>Forensic science includes many different career paths, and each one uses a different mix of skills. In this interactive assignment, you will work through short scenarios, compare your preferences, and see which forensic career best matches your strengths.</p>",
+      "<p>Use the result as a starting point for reflection. Think about what kind of evidence, work setting, and pace fit you best, then compare that result with the careers described in the lesson.</p>",
       "<p><strong>When you have completed the assignment, upload your generated reports to your respective online classroom.</strong></p>",
       "</div>"
     ].join("");
@@ -5418,6 +5427,20 @@ function ForensicCoursePlayerPreviewRestored() {
         sourceFile: MODULE7_ASSIGNMENT_EMBED_PATH,
         resources: [MODULE7_ASSIGNMENT_EMBED_PATH],
         assignmentXml: { intro: moduleSevenGeneticsLabIntro },
+        moduleTitle: formatModuleTitleForDisplay(activeChapter.title),
+        moduleLessonCount: activeChapter.lessonCount,
+        moduleHidden: activeChapter.isHidden
+      });
+    }
+    if (isModuleEight) {
+      syntheticLessons.push({
+        id: "module8-career-path-simulation",
+        title: "Career Path Simulation Lab",
+        type: "lab-assignment",
+        embedPath: MODULE8_ASSIGNMENT_EMBED_PATH,
+        sourceFile: MODULE8_ASSIGNMENT_EMBED_PATH,
+        resources: [MODULE8_ASSIGNMENT_EMBED_PATH],
+        assignmentXml: { intro: moduleEightCareerLabIntro },
         moduleTitle: formatModuleTitleForDisplay(activeChapter.title),
         moduleLessonCount: activeChapter.lessonCount,
         moduleHidden: activeChapter.isHidden
