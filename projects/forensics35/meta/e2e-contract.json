@@ -1,0 +1,52 @@
+{
+  "$schema": "../../../e2e/project-e2e-contract.schema.json",
+  "projectSlug": "forensics35",
+  "requiredTestIds": [
+    "studio-shell",
+    "course-studio-tab",
+    "workspace-project-select",
+    "project-root",
+    "workspace-preview-frame"
+  ],
+  "modes": {
+    "enabled": false
+  },
+  "navigation": {
+    "enabled": false
+  },
+  "quiz": {
+    "enabled": false,
+    "lessonTitle": "Module 2 Law Enforcement Equipment Assessment",
+    "progressPattern": "answered",
+    "checkAnswerRoleName": "Check answer"
+  },
+  "fallbackPanel": {
+    "enabled": false
+  },
+  "moduleAssignments": {
+    "enabled": false,
+    "moduleWithAssignments": "1. Forensic Toxicology"
+  },
+  "assertionProfiles": {
+    "html-default": {
+      "checks": ["renderer-html"]
+    },
+    "assignment-default": {
+      "checks": ["renderer-assignment"]
+    },
+    "quiz-default": {
+      "checks": ["renderer-quiz", "quiz-answer", "quiz-progress", "quiz-nav", "quiz-next-question", "quick-checkpoints"]
+    },
+    "pdf-default": {
+      "checks": ["renderer-pdf"]
+    }
+  },
+  "modulePassTargets": [
+    {
+      "moduleTitle": "1. Forensic Toxicology",
+      "itemTitle": "M1 Assignment Submission",
+      "assertionProfile": "assignment-default"
+    }
+  ],
+  "visibilityChecks": []
+}

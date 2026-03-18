@@ -18,30 +18,43 @@ function parseArgs(argv: string[]) {
   return { project, passthrough };
 }
 
+function quoteForWindowsShell(value: string) {
+  return /[ \t"]/u.test(value) ? `"${value.replace(/"/g, '\\"')}"` : value;
+}
+
 async function main() {
   const { project, passthrough } = parseArgs(process.argv.slice(2));
   if (!project) {
     throw new Error("Missing required argument: --project <slug>");
   }
 
-  const command = process.platform === "win32" ? "npx.cmd" : "npx";
-  const args = [
+  const baseArgs = [
     "playwright",
     "test",
     "-c",
     "e2e/playwright.config.ts",
+    "e2e/specs/core-project-contract.spec.ts",
     "--grep",
-    "@project core project contract",
+    "@project",
     ...passthrough
   ];
 
-  const child = spawn(command, args, {
-    stdio: "inherit",
-    env: {
-      ...process.env,
-      E2E_PROJECT_SLUG: project
-    }
-  });
+  const child =
+    process.platform === "win32"
+      ? spawn("cmd.exe", ["/d", "/s", "/c", `npx ${baseArgs.map(quoteForWindowsShell).join(" ")}`], {
+          stdio: "inherit",
+          env: {
+            ...process.env,
+            E2E_PROJECT_SLUG: project
+          }
+        })
+      : spawn("npx", baseArgs, {
+          stdio: "inherit",
+          env: {
+            ...process.env,
+            E2E_PROJECT_SLUG: project
+          }
+        });
 
   const exitCode: number = await new Promise((resolve, reject) => {
     child.on("error", reject);

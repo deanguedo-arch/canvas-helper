@@ -1,0 +1,283 @@
+# D2L Course Map
+
+- Project: forensics35
+- Generated: 2026-03-18T20:17:13.352Z
+- Manifest: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics35\imsmanifest.xml
+- Course title: 23-24 | Forensic Studies 35 | Per 1(A-B) | Sec S3
+
+## Summary
+- Modules: 10
+- Items: 266
+- Lessons: 7
+- Assignments: 6
+- Quizzes: 32
+- PDFs: 17
+- HTML pages: 169
+
+## Structure
+- [module] Course Information
+  - [html] Disclaimer -> сontent/i798b6ea7-edd4-4ad1-bb72-b48a381b0b19/Content/section_115.html
+  - [pdf] Course outline (MUST READ) -> сontent/i99b0af31-4d98-4547-88a4-c26ee05e28d0/FS35 outline (summer school).pdf
+  - [pdf] How to Be Successful in an Independent Study Course (1) -> сontent/id802b638-4042-4fe7-a1f2-9f9ec9f038ff/How to Be Successful in an Independent Study Course (1).pdf
+  - [html] Assignment Submission -> сontent/ia7111e00-26da-49ec-b7b5-4b86971a1faf/Assignment Submission.html
+- [module] 1. Forensic Toxicology
+  - [html] Overview -> сontent/i1cc0d3da-0402-41c1-9623-05538f2dbec6/Content/book_2/chapter_3.html
+  - [pdf] Module 1 Assignment (Print) -> сontent/i52456243-2654-4885-942e-a9f26c5bf4cb/NXT FS35-3 Module 1 Assignment.pdf
+  - [html] Module 1 Assignment (Online) -> сontent/iae1ba046-a520-46a2-a0d7-b11c6cbefc06/Module 1 Assignment (Online).html
+  - [html] Module 1: Forensic Toxicology Assessment -> сontent/i4051e20c-066f-40bf-b637-c607b7743ae4/Content/book_2/chapter_5.html
+  - [assignment] M1 Assignment Submission -> assignment/i3acf59cc-be15-4305-a21e-1cf2237ee486/assignment_f472e564-10f8-4b02-a05f-28d147d97773.xml
+  - [quiz] Module 1 Forensic Toxicology Assessment -> quiz/i9ce03756-8940-44f8-849e-038799e3180d/qti_7657b869-7c63-4c50-9e1b-4da975fdc6e3.xml
+  - [lesson] Module 1 Forensic Toxicology
+  - [folder] Lesson A: The Effect of Illegal Drugs Upon the Human Body
+    - [html] Defining Forensic Toxicology -> сontent/i6b9ab463-ab08-444a-b570-c77092b98266/Content/Lesson_9/page_38.html
+    - [html] How Drugs Affect the Human Body (1) -> сontent/i85befa0a-b3e7-4f5a-ba36-65dc60566449/Content/Lesson_9/page_40.html
+    - [html] How Drugs Affect the Human Body (2) -> сontent/i1df46601-c0f6-437a-a946-0267fc5ca1a9/Content/Lesson_9/page_42.html
+    - [html] Psychoactive Drugs -> сontent/i91d6b5d1-a70a-4820-8701-4ea7952c6b95/Content/Lesson_9/page_44.html
+    - [html] Depressants -> сontent/i0de00804-4162-4c31-a0c7-d393db1b3d14/Content/Lesson_9/page_45.html
+    - [html] Opiates -> сontent/ib2fc3146-037b-4240-8532-b687b0b66f59/Content/Lesson_9/page_46.html
+    - [html] Marijuana -> сontent/i10f6f0c3-bf3e-424a-8c20-fefda9b052b7/Content/Lesson_9/page_47.html
+    - [html] Barbiturates -> сontent/ie220cd46-f93d-486a-84d0-8bea76c33179/Content/Lesson_9/page_55.html
+    - [html] Stimulants -> сontent/ia7a34ea9-8ceb-4288-b983-5a5d3b4104ee/Content/Lesson_9/page_49.html
+    - [html] Cocaine -> сontent/i66fc6671-5c16-4d15-a6fc-5c6e61555101/Content/Lesson_9/page_50.html
+    - [html] Amphetamines -> сontent/idda4d460-e174-42d3-b6b1-2a791daeafbb/Content/Lesson_9/page_56.html
+    - [html] Drug Use and Crime -> сontent/iace930a3-17db-4f6a-a595-6c04c21c41cd/Content/Lesson_9/page_52.html
+    - [html] Case Study: Drug-Impaired Driving - A Deadly Mix -> сontent/i49561369-e0cc-4720-ac81-2cae2f032490/Content/Lesson_9/page_53.html
+    - [quiz] A. The Effects of Illegal Drugs Upon the Human Body Quiz -> quiz/i7df7a07c-b722-4055-853c-ccb9b82a957e/qti_852249e6-acf9-4526-8ba8-c078cca5d7f6.xml
+  - [folder] Lesson B: The Effects of Poisons and Toxins
+    - [html] What is a Poison? -> сontent/id72c4bad-decf-4587-8c90-c1b3a4ccf6ba/Content/Lesson_10/page_57.html
+    - [html] Examples of Poisons -> сontent/i15878b93-f9d9-4370-a886-d44a5c985e10/Content/Lesson_10/page_60.html
+    - [html] Common Poisons -> сontent/i1edebdc3-d746-49a9-890d-afb65ed5db62/Content/Lesson_10/page_63.html
+    - [html] Incidence of Poisoning -> сontent/i00639453-9984-4de4-bc8f-ee866e389c59/Content/Lesson_10/page_62.html
+    - [html] Case Study: The Tylenol Murders -> сontent/icd32e0a4-49e4-402b-bd2b-dc6358fa29fe/Content/Lesson_10/page_65.html
+    - [quiz] B. The Effects of Poisons and Toxins Quiz -> quiz/ic11f2fcc-51e4-429a-8c91-2d7f2d8ad3c5/qti_a5e535c6-d734-4e86-8a4a-a56cb67771b9.xml
+  - [folder] Lesson C: Forensic Toxicology Testing Techniques
+    - [html] The Role of Toxicology in Forensic Investigations -> сontent/i74559aae-5e54-463b-917a-aa0540afa64b/Content/Lesson_11/page_68.html
+    - [html] Extraction of Drugs, Toxins, or Poisons -> сontent/iaec122a3-f9c9-42c5-b873-4dbf6d48e30f/Content/Lesson_11/page_70.html
+    - [html] Initial Screening for Drugs or Poisons -> сontent/i3623f618-9b81-4e78-a431-88a905ea07cd/Content/Lesson_11/page_71.html
+    - [html] Colour Testing -> сontent/i6fff40f9-9335-4937-8c26-3f4c1b1ccad7/Content/Lesson_11/page_72.html
+    - [html] Microcrystallline Testing -> сontent/i16ef244c-e2c1-4044-864d-d2eaaca2443c/Content/Lesson_11/page_73.html
+    - [html] Immunoassay Testing -> сontent/i0c8a099a-e2a8-4dc3-b91a-aa375badf979/Content/Lesson_11/page_74.html
+    - [html] Gas Chromatography -> сontent/i5268e070-7860-404a-b8ab-f945b2618a86/Content/Lesson_11/page_76.html
+    - [html] Confirmation Testing for Drugs, Toxins, or Poisons -> сontent/i811657b2-d1a8-43e8-99a6-e510747b745d/Content/Lesson_11/page_78.html
+    - [html] Mass Spectrometry -> сontent/i9a588742-b75c-4318-b87d-8eaf7b1ef841/Content/Lesson_11/page_79.html
+    - [html] Criminal Case Study -  Poisoning of an Ex KGB Agent -> сontent/i23ad958c-d932-4494-861a-c4da7e60e9a9/Content/Lesson_12/page_82.html
+    - [quiz] C. Forensic Toxicology Testing Techniques -> quiz/i7f444df0-0e63-474a-859c-06ffa2fb6b5c/qti_3e3ac1f8-fc71-4bda-a0ac-7064f033ac56.xml
+  - [folder] Lesson D: Criminal Case Studies Involving Forensic Toxicology
+    - [html] Case Studies Overview -> сontent/i82e339d9-12b3-4d5f-93b7-372a11cb40f7/Content/Lesson_12/page_81.html
+    - [html] Case Study #1 The Poisoning of a Politician -> сontent/ie264ae97-57c7-42c9-bf5e-5c7a18f2a0c4/Content/Lesson_12/page_87.html
+    - [html] Case Study #2 The Jonestown Tragedy -> сontent/if68900e5-4bc2-430e-b2fc-d182cb9f7bf4/Content/Lesson_12/page_85.html
+    - [html] Case Study #3: Drug Overdose or Intentional Poisoning ? That is the Question -> сontent/i1aeeb331-1e37-463e-8194-8847bb5a0f96/Case Study 3 Drug Overdose or Intentional Poisoning  That is the Question.html
+    - [quiz] D. Crime Case Studies Involving Forensic Toxicology Quiz -> quiz/i63814fb1-4578-4b00-b96c-271220346b44/qti_17a42f7c-4a6b-4ba4-851f-62104ee74647.xml
+- [module] 2. Law Enforcement Equipment
+  - [html] Overview -> сontent/idcee46cb-0182-4729-94a4-a577eb36c986/Content/book_3/chapter_6.html
+  - [pdf] Module 2 Assignment -> сontent/i9d7bb690-e4ea-414f-b8a8-334ca3b7f49f/NXT FS35-3 Module 2 Assignment - Copy.pdf
+  - [html] Module 2 Assignment (Online) -> сontent/i5b868f43-fb54-4dee-8384-cd5a40dae987/Module 2 Assignment (Online).html
+  - [html] Module 2 Assessment -> сontent/i2dfd85cb-a6c4-4a98-8710-2d1d7fb3da73/Module 2 Assessment.html
+  - [assignment] M2 Assignment Submission -> assignment/i0d13383d-713c-4b67-989e-833b135fa42b/assignment_47c57ef5-f797-429b-8a84-73246e9fc1d9.xml
+  - [lesson] Module 2 Law Enforcement Equipment
+  - [quiz] Module 2 Law Enforcement Equipment Assessment -> quiz/i85bb0d48-5294-4741-a1a8-fc118351db50/qti_2a1ad64b-bdda-457c-b026-000e20ef9a1f.xml
+  - [folder] Lesson A: Bullet-Resistant Vests
+    - [html] Body Armour -> сontent/iae919666-c131-4040-9224-1dbffccbf195/Content/Lesson_13/page_88.html
+    - [html] Bullet-Resistant Vest -> сontent/i43212b97-8225-466a-a764-9c44ee5780eb/Content/Lesson_13/page_90.html
+    - [html] The Invention and Make-up of Kevlar -> сontent/i42e019ee-6a3a-4786-a7ac-8d54921d4f57/Content/Lesson_13/page_93.html
+    - [html] Properties and Uses of Kevlar -> сontent/ie1933266-5c5d-4be2-bb1a-616ae0fcb158/Content/Lesson_13/page_94.html
+    - [html] Case Study: Testing of the First Bullet-Resistant Vest -> сontent/iaa717c57-be8c-49f6-8571-5abdae7c336f/Content/Lesson_13/page_96.html
+    - [quiz] A. Bullet-Resistant Vests Quiz -> quiz/i7d3ee5c8-eb22-43fb-a518-57c3c33ec831/qti_bbe527b8-3897-4bf8-9efc-89a143e4b72a.xml
+  - [folder] Lesson B. The Conducted Energy Device (CED)
+    - [html] The Conducted Energy Device (CED) -> сontent/i5bde860d-777c-4ba8-b7c2-c2c309c6d9c1/Content/Lesson_14/page_97.html
+    - [html] Principles Behind CED Function -> сontent/icf4127db-4f24-48a7-bb8f-c6c762c137e0/Content/Lesson_14/page_99.html
+    - [html] Police Use of the CED -> сontent/i70d8d3fc-b336-4a6d-8038-62907b896765/Content/Lesson_14/page_101.html
+    - [html] Other Unique Uses of the CED -> сontent/icaae23e5-0302-4239-819f-cfb8cbb385b0/Other Unique Uses of the CED.html
+    - [html] Crime Case Study: The Axe Wielding Parolee -> сontent/i6c238259-a7ac-4aaa-83f4-2b5a5a103179/Crime Case Study The Axe Wielding Parolee.html
+    - [quiz] B. The Conducted Energy Device (CED) Quiz -> quiz/i05125139-9394-4b06-bac6-32a7c5e2e2ae/qti_bd94872a-d802-415c-9665-98ccb0758d38.xml
+  - [folder] Lesson C: Pepper Spray and Tear Gas
+    - [html] Pepper Spray -> сontent/i76edd222-96b9-4d58-9ff5-923553a3a392/Content/Lesson_15/page_103.html
+    - [html] Physiological Effects of Pepper Spray -> сontent/i2d0eaadb-9a50-4235-b424-67440dd3be04/Content/Lesson_15/page_105.html
+    - [html] Practical Use of Pepper Spray by Police -> сontent/i8d8b8919-825f-4250-b7ec-0ef3314db33d/Content/Lesson_15/page_107.html
+    - [html] Risks Related to Pepper Spray Exposure -> сontent/i930d288b-fa75-4a13-a7ae-8c6d95023ba2/Content/Lesson_15/page_109.html
+    - [html] Tear Gas -> сontent/ifb25fb0c-9dc5-4c2b-90b9-267a12b20176/Content/Lesson_16/page_110.html
+    - [html] Properties of Tear Gas -> сontent/ic463b5fb-b4a8-42a5-a685-c3daebd81b69/Content/Lesson_16/page_111.html
+    - [html] Physiological Effects of Tear Gas Exposure -> сontent/i4d950c80-d47d-452e-817d-e0f4ccefde5e/Content/Lesson_16/page_113.html
+    - [html] Practical Use of Tear Gas by Police -> сontent/i0e9423b4-4198-4ee9-a0fe-f5ebf09047e9/Content/Lesson_16/page_115.html
+    - [html] Effects of Exposure to Tear Gas -> сontent/i67ebf2a9-2d2c-42e0-b961-7aa8694cd3ce/Content/Lesson_16/page_116.html
+    - [html] Crime Case Study: Tear Gas - The 1997 APEC Summit -> сontent/i0ef20174-7b01-41e2-947d-ac3c931bf0dd/Crime Case Study Tear Gas - The 1997 APEC Summit.html
+    - [quiz] C. Pepper Spray and Tear Gas Quiz -> quiz/i24336f07-e37c-497e-b5ec-690cd3fb9bda/qti_ea6a8220-f1f6-4e9c-bc7d-3a2e0ba8a0d1.xml
+  - [folder] Lesson D:  Case Study Involving Law Enforcement Safety Equipment
+    - [html] Overview -> сontent/i5fd116b3-5611-4f7a-8b96-d3be229b8361/Content/Lesson_17/page_118.html
+    - [html] Case Study: The North Hollywood Shootout -> сontent/ia9019c09-86dc-48f8-acc2-fe3cb9bd4969/Content/Lesson_17/page_119.html
+    - [html] Case Study: Murder Suspect Spends 48 Hours on a Crane -> сontent/i781f0c3b-3c6d-4ce8-89c4-ffece936d9ca/Case Study Murder Suspect Spends 48 Hours on a Crane.html
+    - [html] Case Study: Police Response to a "Party out of Control" -> сontent/ib09cb6d2-f6ff-4d7a-a99e-e0e577f3832e/Case Study Police Response to a Party out of Control.html
+    - [quiz] D. Case Study Involving Law Enforcement Safety Equipment -> quiz/ide3f7e25-97cc-4e10-bffb-2f2742be1297/qti_c368b1ee-1f5c-4fd9-bf6a-f99b00660bbd.xml
+- [module] 3. Arson and Explosives
+  - [html] Overview -> сontent/i7f8f0169-e345-4c5f-b663-7e56c371109f/Content/book_4/chapter_9.html
+  - [pdf] Module 3 Assignment -> сontent/i2d93491b-9486-496f-93d5-1da498a68375/NXT FS35-3 Module 3 Assignment - Copy.pdf
+  - [html] Module 3 Assignment (Online) -> сontent/id8143c17-8c3c-4511-a1d2-cfb13de39cca/Module 3 Assignment (Online).html
+  - [html] Module 3 Assessment -> сontent/i45b5c2ec-3cf3-4e20-941d-5273ae5f096a/Module 3 Assessment.html
+  - [lesson] Module 3 Arson and Explosives
+  - [assignment] M3 Assignment Submission -> assignment/i6928e61b-0e33-4c30-96be-9a2513ff8161/assignment_ff4a62e3-8119-4045-9b16-f1ecb70a7b22.xml
+  - [quiz] Module 3 Arson and Explosives Assessment -> quiz/idade441b-a493-4a4a-95f2-9ef7beb630a4/qti_274e053e-0558-46bc-bf8f-d244f484d55f.xml
+  - [folder] Lesson A: Combustion and Arson
+    - [html] Combustion -> сontent/i7f982384-da2c-4d71-b762-5d9207cf1681/Content/Lesson_18/page_122.html
+    - [html] Fuel in Combustion Reactions -> сontent/i1d3b57f1-0466-407d-8a5a-5fca66a37c28/Content/Lesson_18/page_124.html
+    - [html] Oxidents in Combustion Reactions -> сontent/i5daf6d07-52bf-4d3b-a3be-d85cdeb21042/Content/Lesson_18/page_127.html
+    - [html] The Products of Combustion -> сontent/id3228c18-7e70-4678-bab7-20eccbec546b/Content/Lesson_18/page_126.html
+    - [html] Speed of Ignition -> сontent/i87f5074a-ac3f-44cf-b3b1-9cf58237d6f9/Content/Lesson_18/page_129.html
+    - [html] Sites Targeted by Arsonists -> сontent/id2243e94-7635-488b-bf0d-f2ef503d3d7f/Content/Lesson_19/page_131.html
+    - [html] Motives for Arson -> сontent/i88d08ae2-b710-45ea-8008-2a644f70aa98/Content/Lesson_19/page_132.html
+    - [html] Profile of an Arsonist -> сontent/ib3d071e4-f60e-4d59-87c0-a928f5cc8859/Content/Lesson_19/page_134.html
+    - [html] Fatal Home Fires in Alberta -> сontent/i209e200e-da18-4e9f-ba1c-a3ade4968a83/Content/Lesson_19/page_136.html
+    - [quiz] A. Combustion and Arson -> quiz/id9984a11-803c-4318-ba23-87e3fbebf69e/qti_cfb20697-0e49-4502-9f2f-1afdac9e3c6b.xml
+  - [folder] Lesson B: Investigating Arson Fires
+    - [html] Investigating Arson Fires -> сontent/i8edd24d5-f776-4555-ad2a-1e916ab56921/Content/Lesson_20/page_138.html
+    - [html] Recognition of an Arson Fire -> сontent/ic6f473e7-df82-4153-b79b-4123b1aca787/Content/Lesson_20/page_140.html
+    - [html] Four Areas of an Arson Investigation -> сontent/i7323e8fd-0a7a-4a44-ac5f-3b2129e39acc/Content/Lesson_20/page_141.html
+    - [html] Indoor Fire Scene Investigation Tasks -> сontent/if0793bbd-5860-48a5-9f7c-5209e8f2935a/Content/Lesson_20/page_142.html
+    - [html] Burn Patterns -> сontent/i419ff834-22e4-4b3b-98df-e289630433d5/Content/Lesson_20/page_144.html
+    - [html] Great Chicago Fire -> сontent/ib673f419-8d16-4e55-8ef2-fa0a70d1da4a/Content/Lesson_20/page_146.html
+    - [html] Collection of Fire Scene Evidence -> сontent/idf677d24-ceb4-405d-a244-3583a738d9eb/Content/Lesson_20/page_147.html
+    - [html] Analysis of Fire Scene Evidence -> сontent/i58dec3bf-2ef2-41b4-b0c7-901c9f81181f/Content/Lesson_20/page_148.html
+    - [html] Case Study: The Expert Fire Setter -> сontent/ia36b8c42-104f-4e02-aed6-3117dff77628/Content/Lesson_20/page_150.html
+    - [quiz] B. Investigating Arson Fires -> quiz/i68a861c0-b69c-47df-85e2-928a1e1e7352/qti_dbdb4dde-04b0-4322-ba48-9b3a4363d7bf.xml
+  - [folder] Lesson C: Explosives
+    - [html] Explosives -> сontent/i36b0379d-8579-4c66-80ac-dcad3d75253b/Content/Lesson_21/page_151.html
+    - [html] Parts of an Explosive -> сontent/ie740331b-3714-4693-8b6b-e9995f52838a/Content/Lesson_21/page_152.html
+    - [html] Fire Vs Explosion -> сontent/i5b9fc3f2-588f-4f87-82dc-89508eafd57a/Content/Lesson_21/page_154.html
+    - [html] Categories of Explosives -> сontent/i0d4103c5-af88-440b-8465-6e33b9663aa1/Content/Lesson_21/page_159.html
+    - [html] Forensic Explosion Detection and Identification -> сontent/i9c35c415-84e2-4061-961d-46b02d279ea8/Content/Lesson_21/page_157.html
+    - [html] The Lockerbie Air Disaster -> сontent/ie2b3119d-04e5-478b-a465-9c99622ad970/The Lockerbie Air Disaster.html
+    - [quiz] C. Explosives -> quiz/i3c7f0313-6fd5-47e1-b7ca-420b44063f89/qti_0007d544-9467-4ff3-bbcc-0337e82efd8d.xml
+  - [folder] Lesson D: Crime Case Studies Involving Arson and Explosives
+    - [html] A Deadly Serial Arsonist -> сontent/i09a0a670-1b28-477b-8835-d28420d82a95/A Deadly Serial Arsonist.html
+    - [html] The Oklahoma City Bombing -> сontent/i6a954f47-19f4-4ed8-8ea1-676a65410dfb/The Oklahoma City Bombing.html
+    - [quiz] D. Crime Case Studies Involving Arson and Explosives -> quiz/i363b1fe0-e16d-4673-a003-db0a474efcc0/qti_9fad6894-625a-4570-9e75-589fc8f816bb.xml
+- [module] 4. Forensic Ballistics
+  - [html] Overview -> сontent/i3b29ee1f-507b-419b-b9a0-bab83b861ed4/Content/book_5/chapter_12.html
+  - [pdf] Module 4 Assignment (Print) -> сontent/i11dc3b58-7fab-4f69-bc85-44133b04f33d/NXT FS35-3 Module 4 Assignment.pdf
+  - [html] Module 4 Assignment (Online) -> сontent/i08f89347-30da-4099-baaa-8f3bc3afae82/Module 4 Assignment (Online).html
+  - [html] Module Assessment -> сontent/if8b0b1d1-9fa9-448f-9bfc-b1f882b73a55/Content/book_5/chapter_14.html
+  - [assignment] M4 Assignment Submission -> assignment/i2d9c8718-037d-422f-ba3e-fe55e0111030/assignment_8715ada3-b323-4c65-b3b0-2f862bf16119.xml
+  - [lesson] Module 4 Ballisitic Fingerprinting and Wound Ballistics Quiz
+  - [quiz] Module 4 Ballisitic Fingerprinting and Wound Ballistics Assessment -> quiz/i9ed41d54-71bf-4ea4-9ffe-d2ec7a24a358/qti_5ce8883e-ef10-4ec3-aaf2-7185bb119a76.xml
+  - [folder] Lesson A: Fire Arm Basics
+    - [html] Internal, External and Terminal Ballistics -> сontent/i12e1c424-69bd-448c-b74c-dd7492034a62/Content/Lesson_23/page_165.html
+    - [html] Hand Guns - The Revolver -> сontent/i949477a2-9782-4a22-8d76-c68c3fc7230e/Content/Lesson_23/page_166.html
+    - [html] Hand Guns - The Pistol -> сontent/i815fd613-475b-4496-a128-5730d10725de/Content/Lesson_23/page_168.html
+    - [html] Long Arms - The Rifle -> сontent/i7027d62b-46aa-43f7-83df-e572f704a293/Content/Lesson_23/page_170.html
+    - [html] Long Arms - The Shotgun -> сontent/ic6281ac9-efeb-432d-8d5e-e1d6f0d6411f/Content/Lesson_23/page_172.html
+    - [html] Firearm Cartridge Main Parts -> сontent/i24309556-fa09-4bf2-8856-b6fdcb3da41c/Content/Lesson_24/page_174.html
+    - [html] A Handgun Cartridge -> сontent/i52e6a2be-8ac2-4c96-8f1b-faa06afe6a99/Content/Lesson_24/page_175.html
+    - [html] A Rifle Cartridge -> сontent/i2dafe366-8cda-4059-b3ae-ca28b2af5a57/Content/Lesson_24/page_176.html
+    - [html] Velocity, Kinetic Energy, and Trajectory of Firearms -> сontent/i8d6d3241-1f46-4d98-ab40-0d06dd19bdf7/Content/Lesson_24/page_177.html
+    - [html] Comparison of the VELOCITY of Ammunition Fired from Various Firearms -> сontent/ifb13f762-2daf-45ad-b1a9-ebb82f944bd5/Content/Lesson_24/page_178.html
+    - [quiz] A. Firearm Basics -> quiz/i85fb504e-8b31-43dd-9909-fefc50ff86c9/qti_2de3d47c-9eff-4d88-b8af-b12cb394155b.xml
+  - [folder] Lesson B: Ballistic Fingerprinting and Wound Ballistics
+    - [html] Cartridge Identification Methods -> сontent/i5c639b95-14f3-42c9-961a-41db99f7c25e/Content/Lesson_25/page_181.html
+    - [html] Ballisitics Databases -> сontent/i105ded10-b5a5-488e-bcd5-5c62c28151ef/Content/Lesson_25/page_183.html
+    - [html] Wound Ballistics -> сontent/iabeaf8d6-e84f-4090-9621-cb9a1ac1c285/Wound Ballistics.html
+    - [html] Crime Case Study: The JFK Assasination -> сontent/if360829e-c006-4528-a067-95a8ee5ca3c1/Content/Lesson_25/page_184.html
+    - [quiz] B. Ballistic Fingerprinting and Wound Ballistics -> quiz/id587754d-8cbf-4657-b810-4d33f5507965/qti_20a63b5c-f4e0-488b-a5d9-5926b790431b.xml
+  - [folder] Lesson C: Testing for Gunshot Residue
+    - [html] Overview -> сontent/i6a6d99c1-8251-4d30-ab32-5ccb86404b50/Content/Lesson_26/page_187.html
+    - [html] The Evolution of Firearms and Gunpowder -> сontent/i4a8e29cd-ac87-4371-8a95-b5943972e0ba/Content/Lesson_26/page_188.html
+    - [html] Gun Shot Residue Testing -> сontent/i5e23223d-12a3-4d2e-b7e8-a41c47c47d60/Content/Lesson_26/page_190.html
+    - [html] Gunshot Residue Analysis -> сontent/i294e966b-09ae-44e5-9a9a-4cbcb0c19775/Content/Lesson_26/page_192.html
+    - [html] Gun Residue Tests -> сontent/i0b488c06-2053-4b21-a708-ea48da47ac22/Content/Lesson_26/page_193.html
+    - [html] Validity of Gunshot Residue -> сontent/i8d794e4b-07ad-4c83-a460-832fba1cc8c2/Content/Lesson_26/page_197.html
+    - [html] The Mysterious Murder of a Hollywood Star's Wife -> сontent/i6791c041-77cb-4efb-b0a2-8cbf8800a623/Content/Lesson_27/page_198.html
+    - [quiz] C. Testing for Gunshot Residue -> quiz/i1c932935-dc32-4d1a-8a10-548f4f959a68/qti_f0c06206-62ab-4a80-87dc-64bac00f8cf4.xml
+  - [folder] Lesson D: Criminal Case Studies Involving Gunshot Residue
+    - [html] The Beltway Snipers -> сontent/i30bcd3b9-e06e-43f9-a4d2-a90d1bd180c1/Content/Lesson_27/page_199.html
+    - [html] Case Study: Distance, Shielding, and Movement - Critical Incident Response -> сontent/ic213f42e-dc6c-4903-991a-7ced4d837246/Case Study Distance, Shielding, and Movement - Critical Incident Response.html
+    - [quiz] D. Crime Case Studies Involving Forensic Ballistics -> quiz/i173422c9-ad1b-482e-b616-dd032d5fa231/qti_b0179a50-5670-4d27-b392-58f713126815.xml
+- [module] 5. Criminal Profiling
+  - [html] Overview -> сontent/ic26c5a65-3f82-4e29-b06c-f53cb787554b/Content/book_6/chapter_15.html
+  - [pdf] Module 5 Assignment (Print) -> сontent/i413e11fe-ec10-4433-9105-ed56cd2480dd/NXT FS35-3 Module 5 Assignment.pdf
+  - [html] Module 5 Assignment (Online) -> сontent/i943b7b99-513c-43db-8867-d0ae4ff0ec19/Module 5 Assignment (Online).html
+  - [html] Module 5 Assessment -> сontent/id5a81e7a-49c9-466d-a781-2969ae054c79/Content/book_6/chapter_17.html
+  - [assignment] M5 Assignment Submission -> assignment/i431c722d-b304-40b7-8c7e-4ab0dfe60987/assignment_cf3b343e-b244-4ba4-9aac-34c3deb73207.xml
+  - [lesson] Module 5 Criminal Profiling Quiz
+  - [quiz] Module 5 Criminal Profiling Assessment -> quiz/if83e971a-3a8f-40fe-b1ca-c9bf287cf7cd/qti_4f57ed9e-0afe-4fff-b6b4-cd5dbb5c77bc.xml
+  - [folder] Lesson A: Creating a Criminal Profile
+    - [html] Overview -> сontent/ic9018858-5230-4425-8d4f-3cae425034f7/Content/Lesson_28/page_202.html
+    - [html] History of Criminal Profiling -> сontent/ia9082fa0-9413-40f8-87ef-61b7fdfe1d82/Content/Lesson_28/page_204.html
+    - [html] The FBI Criminal Profiling Method -> сontent/i87e5e797-4685-497e-b8a9-286fbe8e02dc/Content/Lesson_28/page_207.html
+    - [html] Steps Involved in Criminal Profiling -> сontent/ic206a8b7-2646-4897-a735-6222c830a687/Content/Lesson_28/page_205.html
+    - [html] Personality and Behavioural Characteristics of a Criminal -> сontent/i62149581-8b6d-46c1-ad34-cb27ce4d40ee/Content/Lesson_28/page_208.html
+    - [html] Personality and Behavioural Characteristics of a Criminal Page 2 -> сontent/i460e29fd-2fd1-43bd-a0c5-128843fe7540/Content/Lesson_28/page_210.html
+    - [html] Criminal Profiling Case Study: The Mad Bomber -> сontent/iaef7d959-9a4c-4f4e-a9cd-81c504391399/Content/Lesson_28/page_212.html
+    - [quiz] A. Creating a Criminal Profile -> quiz/i77c8e457-97e2-4311-accb-3089f1832a13/qti_cadf59c6-7482-494f-bfe2-b11e3b8069aa.xml
+  - [folder] Lesson B: The Use of Criminal Profiling in Homicide Investigations
+    - [html] Overview -> сontent/i11772419-adfc-416c-a08f-fd986faaddb7/Content/Lesson_29/page_213.html
+    - [html] Types of Murderers -> сontent/i2b9e1973-8e53-4b28-8a7f-bc9230f37f92/Content/Lesson_29/page_214.html
+    - [html] Organized Offenders or Disorganized Offenders -> сontent/ie49357ff-da60-48f1-ba75-1f5d9c593948/Content/Lesson_29/page_216.html
+    - [html] Combination Offenders -> сontent/ia1e26f8b-46c4-447b-945e-c8d1403ce48e/Content/Lesson_29/page_219.html
+    - [html] Organized Offender Case Study: Ted Bundy -> сontent/i583373f1-a76b-4aaf-85be-5d4cc0599c4d/Content/Lesson_29/page_220.html
+    - [html] Disorganized Offender Case Study: Richard Trenton Chase -> сontent/i0fbf1bec-63c6-4f82-9f6d-d5686250f2b2/Content/Lesson_29/page_222.html
+    - [html] Disorganized Offender Case Study: Jeffrey Dahmer -> сontent/i2ea99dc3-98a4-4282-a285-5f587b76935f/Content/Lesson_29/page_225.html
+    - [quiz] B. The Use of Criminal Profiling in Homicide Investigations -> quiz/i6e80f95f-4e8e-4d60-bbe4-fc8099221194/qti_205398f8-0b90-4d56-b357-1ad2707c9d68.xml
+  - [folder] Lesson C: Geographic Profiling
+    - [html] General Description -> сontent/i377b3730-fc8c-43ef-8cb9-b4cf1bc6ef3e/Content/Lesson_30/page_226.html
+    - [html] History -> сontent/i5673c8e0-11d0-4b77-8049-d9115aee2320/Content/Lesson_30/page_227.html
+    - [html] Creation of Geographic Profiles -> сontent/id5afbd77-c387-45e6-8880-2f25b3fcb73b/Content/Lesson_30/page_229.html
+    - [html] The Use of Geographic Profiling by Law Enforcement -> сontent/icfc22e7e-1a35-4576-8fc7-56169a3322ee/Content/Lesson_30/page_231.html
+    - [html] How Police Construct a Geographic Profile -> сontent/iba82a801-bede-44b1-95ed-424a2c4ee87b/Content/Lesson_30/page_232.html
+    - [html] Crime Case Study: Clifford Robert Olson -> сontent/iba85bad6-99aa-4ae1-82c7-ef6d4a9a3e98/Content/Lesson_30/page_234.html
+    - [quiz] C. Geographic Profiling -> quiz/i0ccd9323-c8e8-4f8f-bb16-aafdc8b2cb8a/qti_bb0102df-cd5d-409c-bc1f-3ef423f3ef90.xml
+  - [folder] Lesson D: Criminal Profiling Crime Case Studies
+    - [html] The Railway Killers -> сontent/i9b652248-a39f-44ab-94aa-c4a4340e6b8d/Content/Lesson_31/page_236.html
+    - [html] The BTK Strangler -> сontent/ie4bcb2ae-06d6-48ef-b504-e0cf4e9d7281/Content/Lesson_31/page_239.html
+    - [quiz] D. Criminal Profiling in Homicide Crime Case Studies -> quiz/ia2da3f99-e192-41b9-874f-cd0fb9b3d9b5/qti_cd823fd1-757c-45a5-a999-90be859e91c0.xml
+- [module] 6. Anthropology and Entomology
+  - [html] Overview -> сontent/i71f31a8f-0454-49c6-8ea5-1abd1bfb3a6f/Content/book_7/chapter_18.html
+  - [pdf] Module 6 Assignment (Print) -> сontent/if764fb3b-c224-4652-8384-7abcb395f836/NXT FS35-3 Module 6 Assignment.pdf
+  - [html] Module 6 Assignment (Online) -> сontent/idb266520-4da3-4db1-ac56-65cd81982e71/Module 6 Assignment (Online).html
+  - [html] Module 6 Assessment -> сontent/ib27eef14-6843-4aa9-9720-098971333d1d/Content/book_7/chapter_20.html
+  - [assignment] M6 Assignment Submission -> assignment/i6c7fd40f-05be-475b-919a-c7e1bde19f75/assignment_1b34dbb8-5ef7-4914-b9ab-f53995f44c2e.xml
+  - [lesson] Module 6 Bone and Bugs Quiz
+  - [quiz] Module 6 Bone and Bugs Assessment -> quiz/i14a342f6-c744-4b1b-8c03-9dfd038ed461/qti_e3afa34b-2824-466b-8a80-f2a914b7c0af.xml
+  - [folder] Lesson A: Determining Traumatic Injuries from Skeletal Remains
+    - [html] Inferring the Cause of Death from Skeletal Remains -> сontent/ida8af3eb-2c88-4f45-8f25-5420c2433337/Content/Lesson_32/page_241.html
+    - [html] Force and Type of Bone Fractures -> сontent/ie4ab8990-3b0c-495b-bbdf-7725ff92c44f/Content/Lesson_32/page_242.html
+    - [html] Determination of Trauma from Skeletal Remains -> сontent/i6e61d424-4f0d-4b2b-a594-6560e952774d/Content/Lesson_32/page_247.html
+    - [html] Case Study: The Infamous Serial Killer John Wayne Gacy -> сontent/if58b20ff-fb47-408e-b320-2497bed117da/Content/Lesson_32/page_249.html
+    - [quiz] A. Determining Traumatic Injuries from Skeletal Remains -> quiz/ifb5667f0-25b9-4a71-8a4c-4a638f429a63/qti_e138099d-58f8-4d52-a32e-5e01f41e98ea.xml
+  - [folder] Lesson B: Determining Ancestry and Sex from Human Skeletal Remains
+    - [html] Overview -> сontent/i505992ba-df56-43ce-bc39-1a502e5fe271/Content/Lesson_33/page_251.html
+    - [html] Using Bones to Determine Ancestry -> сontent/iaaf84800-6929-45d9-8fcd-3f269845ae01/Content/Lesson_33/page_257.html
+    - [html] Distinctions Between Human Bone and Animal Bone ~ Ribs -> сontent/i20d7c7b7-a212-44ca-86fc-17937b9c3000/Content/Lesson_33/page_252.html
+    - [html] Using Bones to Determine Ancestry ~ Comparison of Cranial Features -> сontent/ibf9b10f2-3e30-4823-954b-fb1bbc545481/Content/Lesson_33/page_258.html
+    - [html] Using Bones to Determine Sex of an Individual -> сontent/ia57ca4cc-c99d-46d7-a91b-1edb079f2f6f/Content/Lesson_33/page_260.html
+    - [quiz] B. Determining Ancestry and Sex from Skeletal Remains -> quiz/i7526bfbb-668d-4bc4-a78e-3c6e7d839fcd/qti_e78358cc-af9a-498c-8efb-ae7c8f81bfbd.xml
+  - [folder] Lesson C: The Use of Forensic Entomology in Criminal Investigations
+    - [html] Overview -> сontent/ifd6f897b-7a49-4518-9677-c71822c1275d/Content/Lesson_35/page_271.html
+    - [html] Defining Forensic Entomology -> сontent/i2340a88b-7f0a-4412-aa74-f80e72776c1f/Content/Lesson_35/page_272.html
+    - [html] Estimating Time Since Death with Forensic Entomology -> сontent/i8f2c26ef-2027-40be-b694-00ae0231078f/Content/Lesson_35/page_274.html
+    - [html] Initial Infestation of Human Remains -> сontent/i7121ceb1-b477-4b1d-ac2f-fc03f1991b9f/Content/Lesson_35/page_276.html
+    - [html] The Effects of Weather Conditions upon Insect Infestation -> сontent/i1885017c-d6d8-4ba1-b006-9148abb68265/Content/Lesson_35/page_280.html
+    - [html] Determining the Cause of Death using Forensic Entomology -> сontent/idfe3f283-60fa-4408-b492-98a0d9b6739f/Content/Lesson_35/page_282.html
+    - [html] Using Forensic Entomology to Determine if a Body has been Moved after Death -> сontent/i2743d412-0aa0-4798-8bfc-e79b52ad826a/Content/Lesson_35/page_284.html
+    - [html] Case Study: The Scientific Study of Insect Succession upon Dead Remains -> сontent/i535108ef-f395-4e1a-a811-41b0dbd752d5/Content/Lesson_34/page_263.html
+    - [quiz] C. The Use of Forensic Entomology in Criminal Investigations -> quiz/i9a6dda79-7f2c-4ed4-bb70-a77256937abf/qti_306b25e7-ff7f-45b7-a456-7c2cab316bff.xml
+  - [folder] Lesson D: Bones and Bugs Case Studies
+    - [html] Crime Case Studies Involving Forensic Anthropology and Forensic Entomology -> сontent/i17bbbbec-5f8a-4dab-8c2d-ffee6c802a55/Crime Case Studies Involving Forensic Anthropology and Forensic Entomology.html
+    - [html] Case Study : The Bones that Were Worth a Thousand Words -> сontent/i132d62ca-5a1b-40ae-b49d-c90a23291d4a/Content/Lesson_34/page_265.html
+    - [html] Case Study: The Girl, The Army Sergeant, and The Bugs -> сontent/ia7706767-ec0a-4768-83b1-e03636c42936/Content/Lesson_34/page_270.html
+    - [html] Case Study: The Farmhouse Murder -> сontent/i3dece114-fd15-4728-92cf-a9a649ddb0e7/Content/Lesson_34/page_268.html
+    - [quiz] D. Crime Case Studies Involving Forensic Anthropology and Forensic Entomology -> quiz/i03ba268d-525c-448a-99c0-ee8270a47a0e/qti_ec3521f5-0e80-4cf2-bb23-2d9fbf034866.xml
+- [module] 7. Final Exam
+  - [html] 7. Final Exam -> сontent/i13aa3342-8a5f-42dd-92e6-d505cbfc4c02/Content/section_122.html
+  - [lesson] Final Exam
+  - [quiz] FS35 Final Exam -> quiz/i5e4e8c9c-6600-421a-bd00-e34958764d99/qti_cb37bc33-3b8d-4052-b2bb-6c976fd140be.xml
+- [module] Extra Credits
+  - [quiz] Student Centred Learning Self Reflection -> quiz/i20e5136a-beb0-4171-8e56-c17abb770178/qti_6b0d20f9-cb2d-46cc-8d6c-79cf22a710f6.xml
+- [module] Teacher Resources (Keep Hidden)
+  - [resource] M1 Assignment Answer Key -> сontent/idbc9f9eb-37f0-4020-9d9c-de65b2c232aa/NXT FS35 M1 Assignment Answer Key.docx
+  - [pdf] M2 Assignment Answer Key -> сontent/ie52c443c-bd5e-4d83-96a2-4982a07cc9e1/NXT FS35 M2 Assignment Answer Key.pdf
+  - [pdf] M3 Assignment Answer Key -> сontent/i44370b44-5116-4fe5-9e13-776481563145/NXT FS35-3 M3 Assignment Answer Key - Copy.pdf
+  - [pdf] M4 Assignment Answer Key -> сontent/id7e4717a-786f-4019-874a-8321d2ee7fc9/_NXT FS35-3 Module 4 Assignment Answer Key.pdf
+  - [pdf] Forensics_35_AB01_Key -> сontent/ie9f2b656-c9d8-4fee-9ac1-6bbd550d946e/Forensics_35_AB01_Key.pdf
+  - [pdf] Forensics_35_AB02_Key -> сontent/ib1ff4a56-96e9-497e-ad09-cd540a83ab86/Forensics_35_AB02_Key.pdf
+  - [pdf] Forensics_35_AB03_Key -> сontent/i7b309871-a372-4cf2-b08a-cf4d4b1ce691/Forensics_35_AB03_Key.pdf
+  - [pdf] Forensics_35_AB04_Key -> сontent/i85fabbb6-cd20-40d6-a26d-48effc136e3a/Forensics_35_AB04_Key.pdf
+  - [pdf] Forensics_35_AB05_Key -> сontent/idfe46fee-6d79-4f80-a7e2-67c388101569/Forensics_35_AB05_Key.pdf
+  - [pdf] Forensics_35_AB06_Key -> сontent/i6ba75a57-bb56-40b1-9727-51576d8d6b4c/Forensics_35_AB06_Key.pdf

@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: forensics35
-- Generated: 2026-03-18T14:44:06.337Z
+- Generated: 2026-03-18T20:17:29.581Z
 
 ## Rules
 
@@ -16,7 +16,7 @@
 - Do not keep asking whether to apply subagent rules after confirmation.
 - Work in repo-approved zones (`app/studio`, `app/server`, `scripts`, `docs`, `tasks`, root config files).
 - Treat `projects/<slug>/raw` as immutable baseline input.
-- Retrieval order: prompt-pack -> course blueprint -> assessment map -> lesson packets -> targeted resource chunks -> pattern matches if enabled.
+- Retrieval order: prompt-pack -> d2l course map -> course blueprint -> assessment map -> lesson packets -> targeted resource chunks -> pattern matches if enabled.
 - Finish only after typecheck/build and task-specific verification pass.
 
 ## Session Mode
@@ -55,9 +55,9 @@ none
   "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\forensics35\\raw\\original.html",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-03-18T14:44:06.308Z",
+  "learningUpdatedAt": "2026-03-18T20:17:29.541Z",
   "createdAt": "2026-03-18T14:44:01.332Z",
-  "updatedAt": "2026-03-18T14:44:06.308Z",
+  "updatedAt": "2026-03-18T20:17:29.541Z",
   "workspaceApprovedAt": "2026-03-18T14:44:06.308Z"
 }
 ```
@@ -131,23 +131,120 @@ none
 
 ## D2L Course Map Summary
 
-> d2l-course-map.json: missing
-> Next: `npm run d2l-map -- --project forensics35`
+- Course title: 23-24 | Forensic Studies 35 | Per 1(A-B) | Sec S3
+- Modules: 10
+- Items: 266
+- Lessons: 7
+- Assignments: 6
+- Quizzes: 32
+- PDFs: 17
+- HTML pages: 169
+Top modules:
+- Course Information (4 direct items)
+- 1. Forensic Toxicology (11 direct items)
+- 2. Law Enforcement Equipment (11 direct items)
+- 3. Arson and Explosives (11 direct items)
+- 4. Forensic Ballistics (11 direct items)
+- 5. Criminal Profiling (11 direct items)
+- 6. Anthropology and Entomology (11 direct items)
+- 7. Final Exam (3 direct items)
 
 ## Course Blueprint Summary
 
-> course-blueprint.json: missing
-> Next: `npm run blueprint -- --project forensics35`
+### Forensic Toxicology Overview Module Learner Objectives
+- Outcomes: analyze historical crime cases and/or fictional crime cases that involves forensic toxicology; explain how the toxicological testing technique of mass spectrometry is used to confirm the presence of specific drugs or poisons within the human body; identify various types of poisons (e.g., cyanide, carbon monoxide, arsenic, strychnine) and their harmful side-effects upon the human body
+- Linked assessments: ontent-ie9f2b656-c9d8-4fee-9ac1-6bbd550d946e-forensics-35-ab01-key-pdf, ontent-i52456243-2654-4885-942e-a9f26c5bf4cb-nxt-fs35-3-module-1-assignment-pdf, ontent-idbc9f9eb-37f0-4020-9d9c-de65b2c232aa-nxt-fs35-m1-assignment-answer-key-docx, ontent-i6ba75a57-bb56-40b1-9727-51576d8d6b4c-forensics-35-ab06-key-pdf, ontent-idfe46fee-6d79-4f80-a7e2-67c388101569-forensics-35-ab05-key-pdf, ontent-i08f89347-30da-4099-baaa-8f3bc3afae82-module-4-assignment-online-html, ontent-idb266520-4da3-4db1-ac56-65cd81982e71-module-6-assignment-online-html, ontent-i7b309871-a372-4cf2-b08a-cf4d4b1ce691-forensics-35-ab03-key-pdf, ontent-i85fabbb6-cd20-40d6-a26d-48effc136e3a-forensics-35-ab04-key-pdf, ontent-ib1ff4a56-96e9-497e-ad09-cd540a83ab86-forensics-35-ab02-key-pdf, ontent-iae1ba046-a520-46a2-a0d7-b11c6cbefc06-module-1-assignment-online-html, ontent-i943b7b99-513c-43db-8867-d0ae4ff0ec19-module-5-assignment-online-html, ontent-i2d93491b-9486-496f-93d5-1da498a68375-nxt-fs35-3-module-3-assignment-copy-pdf, ontent-i11dc3b58-7fab-4f69-bc85-44133b04f33d-nxt-fs35-3-module-4-assignment-pdf, ontent-i413e11fe-ec10-4433-9105-ed56cd2480dd-nxt-fs35-3-module-5-assignment-pdf, ontent-if764fb3b-c224-4652-8384-7abcb395f836-nxt-fs35-3-module-6-assignment-pdf, ontent-id7e4717a-786f-4019-874a-8321d2ee7fc9-nxt-fs35-3-module-4-assignment-answer-key-pdf, ontent-i45b5c2ec-3cf3-4e20-941d-5273ae5f096a-module-3-assessment-html, ontent-ibf9b10f2-3e30-4823-954b-fb1bbc545481-content-lesson-33-page-258-html
+- Must know: analyze historical crime cases and/or fictional crime cases that involves forensic toxicology; explain how the toxicological testing technique of mass spectrometry is used to confirm the presence of specific drugs or poisons within the human body; identify various types of poisons (e.g., cyanide, carbon monoxide, arsenic, strychnine) and their harmful side-effects upon the human body; understand the mechanics of various toxicology testing procedures used to screen for drugs or poisons (e.g., color testing, microcrystalline testing, immunoassay testing, gas chromatography)
+- Assessed skills: list, provide, complete, identify, apply, describe, explain, analyze
+- Mandatory vocabulary: Body, Cases, Crime, Crimes, Drug, Drugs, Effects, Forensic
 
 ## Assessment Map Summary
 
-> assessment-map.json: missing
-> Next: `npm run assessment-map -- --project forensics35`
+### Module 4 Assignment (Online) (assignment)
+- Deliverable: Submitted assignment responses
+- Skill verbs: list, provide, complete, identify, apply, describe, explain, analyze
+- Related units: unit-1
+- Related outcomes: unit-1--analyze-historical-crime-cases-and-or-fictional-crime-cases-that-involves-forensic-toxicology, unit-1--explain-how-the-toxicological-testing-technique-of-mass-spectrometry-is-used-to-confirm-the-presence-of-specific-drugs-or-poisons-within-the-human-body, unit-1--identify-various-types-of-poisons-e-g-cyanide-carbon-monoxide-arsenic-strychnine-and-their-harmful-side-effects-upon-the-human-body, unit-1--understand-the-mechanics-of-various-toxicology-testing-procedures-used-to-screen-for-drugs-or-poisons-e-g-color-testing-microcrystalline-testing-immunoassay-testing-gas-chromatography
+- Failure points: Students may attempt to list without using the required vocabulary or evidence.; Students may attempt to provide without using the required vocabulary or evidence.; Students may attempt to complete without using the required vocabulary or evidence.; Students may name terms correctly but fail to connect them to examples or evidence.; Students may attempt to apply without using the required vocabulary or evidence.; Students may attempt to describe without using the required vocabulary or evidence.
+
+### Gun Residue Tests Paraffin Test Sodium Rhodizonate Test (written-response)
+- Deliverable: Completed written responses
+- Skill verbs: analyze, list, provide, complete, identify, apply, describe, explain
+- Related units: unit-1
+- Related outcomes: unit-1--analyze-historical-crime-cases-and-or-fictional-crime-cases-that-involves-forensic-toxicology, unit-1--explain-how-the-toxicological-testing-technique-of-mass-spectrometry-is-used-to-confirm-the-presence-of-specific-drugs-or-poisons-within-the-human-body, unit-1--identify-various-types-of-poisons-e-g-cyanide-carbon-monoxide-arsenic-strychnine-and-their-harmful-side-effects-upon-the-human-body, unit-1--understand-the-mechanics-of-various-toxicology-testing-procedures-used-to-screen-for-drugs-or-poisons-e-g-color-testing-microcrystalline-testing-immunoassay-testing-gas-chromatography
+- Failure points: Students may give surface summaries instead of cause-and-effect or evidence-based explanations.; Students may attempt to list without using the required vocabulary or evidence.; Students may attempt to provide without using the required vocabulary or evidence.; Students may attempt to complete without using the required vocabulary or evidence.; Students may name terms correctly but fail to connect them to examples or evidence.; Students may attempt to apply without using the required vocabulary or evidence.
+
+### Forensic Studies 35-3 Name: Module 4 Assignment: Forensic Ballistics (assignment)
+- Deliverable: Submitted assignment responses
+- Skill verbs: explain, identify, describe, discuss, analyze, justify, list, provide
+- Related units: unit-1
+- Related outcomes: unit-1--explain-how-the-toxicological-testing-technique-of-mass-spectrometry-is-used-to-confirm-the-presence-of-specific-drugs-or-poisons-within-the-human-body, unit-1--explain-how-combustion-differs-from-an-explosion, unit-1--analyze-historical-crime-cases-and-or-fictional-crime-cases-that-involves-forensic-toxicology, unit-1--identify-various-types-of-poisons-e-g-cyanide-carbon-monoxide-arsenic-strychnine-and-their-harmful-side-effects-upon-the-human-body
+- Failure points: Students may give surface summaries instead of cause-and-effect or evidence-based explanations.; Students may name terms correctly but fail to connect them to examples or evidence.; Students may attempt to describe without using the required vocabulary or evidence.; Students may attempt to discuss without using the required vocabulary or evidence.; Students may provide unsupported opinions instead of organized, criteria-aligned responses.; Students may attempt to list without using the required vocabulary or evidence.
+
+### Forensic Studies 35-3 Name: Module 3 Assignment: Arson and Explosives (assignment)
+- Deliverable: Submitted assignment responses
+- Skill verbs: describe, explain, identify, list, provide, complete, apply, analyze
+- Related units: unit-1
+- Related outcomes: unit-1--identify-and-describe-various-types-of-explosive-devices-including-gunpowder-dynamite-nitroglycerin-saltpetre-guncotton-tnt-petn-picric-acid-plastic-explosives, unit-1--identify-various-motivations-for-arson-and-possible-strategies-to-eliminate-this-crime, unit-1--explain-how-the-toxicological-testing-technique-of-mass-spectrometry-is-used-to-confirm-the-presence-of-specific-drugs-or-poisons-within-the-human-body, unit-1--compare-the-numbers-of-human-fatalities-and-human-injuries-caused-by-arson-using-graphed-data
+- Failure points: Students may attempt to describe without using the required vocabulary or evidence.; Students may give surface summaries instead of cause-and-effect or evidence-based explanations.; Students may name terms correctly but fail to connect them to examples or evidence.; Students may attempt to list without using the required vocabulary or evidence.; Students may attempt to provide without using the required vocabulary or evidence.; Students may attempt to complete without using the required vocabulary or evidence.
+
+### Forensic Studies 35-3 Name: Module 5 Assignment: Criminal Profiling (assignment)
+- Deliverable: Submitted assignment responses
+- Skill verbs: identify, explain, support, describe, create, discuss, list, provide
+- Related units: unit-1
+- Related outcomes: unit-1--identify-the-components-necessary-for-a-combustion-reaction, unit-1--identify-the-three-basic-components-of-an-explosive-device-fuel-source-oxidizer-and-ignition, unit-1--identify-various-motivations-for-arson-and-possible-strategies-to-eliminate-this-crime, unit-1--analyze-historical-crime-cases-and-or-fictional-crime-cases-that-involves-forensic-toxicology
+- Failure points: Students may name terms correctly but fail to connect them to examples or evidence.; Students may give surface summaries instead of cause-and-effect or evidence-based explanations.; Students may attempt to support without using the required vocabulary or evidence.; Students may attempt to describe without using the required vocabulary or evidence.; Students may attempt to create without using the required vocabulary or evidence.; Students may attempt to discuss without using the required vocabulary or evidence.
+
+### Forensic Studies 35-3ANSWER KEY Name: Module 3 Assignment: Arson and Explosives (assignment)
+- Deliverable: Submitted assignment responses
+- Skill verbs: describe, explain, identify, list, provide, complete, apply, analyze
+- Related units: unit-1
+- Related outcomes: unit-1--compare-the-numbers-of-human-fatalities-and-human-injuries-caused-by-arson-using-graphed-data, unit-1--identify-and-describe-various-types-of-explosive-devices-including-gunpowder-dynamite-nitroglycerin-saltpetre-guncotton-tnt-petn-picric-acid-plastic-explosives, unit-1--identify-the-three-basic-components-of-an-explosive-device-fuel-source-oxidizer-and-ignition, unit-1--identify-various-motivations-for-arson-and-possible-strategies-to-eliminate-this-crime
+- Failure points: Students may attempt to describe without using the required vocabulary or evidence.; Students may give surface summaries instead of cause-and-effect or evidence-based explanations.; Students may name terms correctly but fail to connect them to examples or evidence.; Students may attempt to list without using the required vocabulary or evidence.; Students may attempt to provide without using the required vocabulary or evidence.; Students may attempt to complete without using the required vocabulary or evidence.
 
 ## Lesson Packet Summary
 
-> lesson-packets/index.json: missing
-> Next: `npm run lesson-packets -- --project forensics35`
+### Forensic Toxicology Overview Module Learner Objectives: analyze historical crime cases and/or fictional crime cases that involves forensic toxicology
+- Outcomes: analyze historical crime cases and/or fictional crime cases that involves forensic toxicology
+- Linked assessments: ontent-i08f89347-30da-4099-baaa-8f3bc3afae82-module-4-assignment-online-html, ontent-i0b488c06-2053-4b21-a708-ea48da47ac22-content-lesson-26-page-193-html, ontent-i11dc3b58-7fab-4f69-bc85-44133b04f33d-nxt-fs35-3-module-4-assignment-pdf, ontent-i2d93491b-9486-496f-93d5-1da498a68375-nxt-fs35-3-module-3-assignment-copy-pdf, ontent-i413e11fe-ec10-4433-9105-ed56cd2480dd-nxt-fs35-3-module-5-assignment-pdf, ontent-i44370b44-5116-4fe5-9e13-776481563145-nxt-fs35-3-m3-assignment-answer-key-copy-pdf
+- Core concepts: Drugs, Illegal, Testing, Toxicology, Body, Forensic, Poisons, Crimes
+- Guided practice: Model how to list using the lesson vocabulary and one cited source example.; Walk through one assignment prompt from Module 4 Assignment (Online) and annotate what a successful response has to include.
+- Readiness evidence: Student can list Drugs accurately without reverting to chapter-note summary.; Student uses Body, Cases, Crime in context.
+
+### Forensic Toxicology Overview Module Learner Objectives: explain how the toxicological testing technique of mass spectrometry is used to confirm the presence of specific drugs or poisons within the human body
+- Outcomes: explain how the toxicological testing technique of mass spectrometry is used to confirm the presence of specific drugs or poisons within the human body
+- Linked assessments: ontent-i08f89347-30da-4099-baaa-8f3bc3afae82-module-4-assignment-online-html, ontent-i0b488c06-2053-4b21-a708-ea48da47ac22-content-lesson-26-page-193-html, ontent-i11dc3b58-7fab-4f69-bc85-44133b04f33d-nxt-fs35-3-module-4-assignment-pdf, ontent-i2d93491b-9486-496f-93d5-1da498a68375-nxt-fs35-3-module-3-assignment-copy-pdf, ontent-i413e11fe-ec10-4433-9105-ed56cd2480dd-nxt-fs35-3-module-5-assignment-pdf, ontent-i44370b44-5116-4fe5-9e13-776481563145-nxt-fs35-3-m3-assignment-answer-key-copy-pdf
+- Core concepts: Drugs, Illegal, Testing, Toxicology, Body, Forensic, Poisons, Crimes
+- Guided practice: Model how to list using the lesson vocabulary and one cited source example.; Walk through one assignment prompt from Module 4 Assignment (Online) and annotate what a successful response has to include.
+- Readiness evidence: Student can list Drugs accurately without reverting to chapter-note summary.; Student uses Body, Cases, Crime in context.
+
+### Forensic Toxicology Overview Module Learner Objectives: identify various types of poisons (e.g., cyanide, carbon monoxide, arsenic, strychnine) and their harmful side-effects upon the human body
+- Outcomes: identify various types of poisons (e.g., cyanide, carbon monoxide, arsenic, strychnine) and their harmful side-effects upon the human body
+- Linked assessments: ontent-i08f89347-30da-4099-baaa-8f3bc3afae82-module-4-assignment-online-html, ontent-i0b488c06-2053-4b21-a708-ea48da47ac22-content-lesson-26-page-193-html, ontent-i11dc3b58-7fab-4f69-bc85-44133b04f33d-nxt-fs35-3-module-4-assignment-pdf, ontent-i2d93491b-9486-496f-93d5-1da498a68375-nxt-fs35-3-module-3-assignment-copy-pdf, ontent-i413e11fe-ec10-4433-9105-ed56cd2480dd-nxt-fs35-3-module-5-assignment-pdf, ontent-i44370b44-5116-4fe5-9e13-776481563145-nxt-fs35-3-m3-assignment-answer-key-copy-pdf
+- Core concepts: Drugs, Illegal, Testing, Toxicology, Body, Forensic, Poisons, Crimes
+- Guided practice: Model how to list using the lesson vocabulary and one cited source example.; Walk through one assignment prompt from Module 4 Assignment (Online) and annotate what a successful response has to include.
+- Readiness evidence: Student can list Drugs accurately without reverting to chapter-note summary.; Student uses Body, Cases, Crime in context.
+
+### Forensic Toxicology Overview Module Learner Objectives: understand the mechanics of various toxicology testing procedures used to screen for drugs or poisons (e.g., color testing, microcrystalline testing, immunoassay testing, gas chromatography)
+- Outcomes: understand the mechanics of various toxicology testing procedures used to screen for drugs or poisons (e.g., color testing, microcrystalline testing, immunoassay testing, gas chromatography)
+- Linked assessments: ontent-i08f89347-30da-4099-baaa-8f3bc3afae82-module-4-assignment-online-html, ontent-i0b488c06-2053-4b21-a708-ea48da47ac22-content-lesson-26-page-193-html, ontent-i11dc3b58-7fab-4f69-bc85-44133b04f33d-nxt-fs35-3-module-4-assignment-pdf, ontent-i2d93491b-9486-496f-93d5-1da498a68375-nxt-fs35-3-module-3-assignment-copy-pdf, ontent-i413e11fe-ec10-4433-9105-ed56cd2480dd-nxt-fs35-3-module-5-assignment-pdf, ontent-i44370b44-5116-4fe5-9e13-776481563145-nxt-fs35-3-m3-assignment-answer-key-copy-pdf
+- Core concepts: Drugs, Illegal, Testing, Toxicology, Body, Forensic, Poisons, Crimes
+- Guided practice: Model how to explain using the lesson vocabulary and one cited source example.; Walk through one assignment prompt from Module 4 Assignment (Online) and annotate what a successful response has to include.
+- Readiness evidence: Student can explain Drugs accurately without reverting to chapter-note summary.; Student uses Body, Cases, Crime in context.
+
+### Forensic Toxicology Overview Module Learner Objectives: compare the numbers of human fatalities and human injuries caused by arson using graphed data
+- Outcomes: compare the numbers of human fatalities and human injuries caused by arson using graphed data
+- Linked assessments: ontent-i08f89347-30da-4099-baaa-8f3bc3afae82-module-4-assignment-online-html, ontent-i0b488c06-2053-4b21-a708-ea48da47ac22-content-lesson-26-page-193-html, ontent-i11dc3b58-7fab-4f69-bc85-44133b04f33d-nxt-fs35-3-module-4-assignment-pdf, ontent-i2d93491b-9486-496f-93d5-1da498a68375-nxt-fs35-3-module-3-assignment-copy-pdf, ontent-i413e11fe-ec10-4433-9105-ed56cd2480dd-nxt-fs35-3-module-5-assignment-pdf, ontent-i44370b44-5116-4fe5-9e13-776481563145-nxt-fs35-3-m3-assignment-answer-key-copy-pdf
+- Core concepts: Drugs, Illegal, Testing, Toxicology, Body, Forensic, Poisons, Crimes
+- Guided practice: Model how to list using the lesson vocabulary and one cited source example.; Walk through one assignment prompt from Module 4 Assignment (Online) and annotate what a successful response has to include.
+- Readiness evidence: Student can list Drugs accurately without reverting to chapter-note summary.; Student uses Body, Cases, Crime in context.
+
+### Forensic Toxicology Overview Module Learner Objectives: explain how combustion differs from an explosion
+- Outcomes: explain how combustion differs from an explosion
+- Linked assessments: ontent-i08f89347-30da-4099-baaa-8f3bc3afae82-module-4-assignment-online-html, ontent-i0b488c06-2053-4b21-a708-ea48da47ac22-content-lesson-26-page-193-html, ontent-i11dc3b58-7fab-4f69-bc85-44133b04f33d-nxt-fs35-3-module-4-assignment-pdf, ontent-i2d93491b-9486-496f-93d5-1da498a68375-nxt-fs35-3-module-3-assignment-copy-pdf, ontent-i413e11fe-ec10-4433-9105-ed56cd2480dd-nxt-fs35-3-module-5-assignment-pdf, ontent-i44370b44-5116-4fe5-9e13-776481563145-nxt-fs35-3-m3-assignment-answer-key-copy-pdf
+- Core concepts: Drugs, Illegal, Testing, Toxicology, Body, Forensic, Poisons, Crimes
+- Guided practice: Model how to describe using the lesson vocabulary and one cited source example.; Walk through one assignment prompt from Module 4 Assignment (Online) and annotate what a successful response has to include.
+- Readiness evidence: Student can describe Drugs accurately without reverting to chapter-note summary.; Student uses Body, Cases, Crime in context.
 
 ## Anti-Summary Generation Rules
 
@@ -227,6 +324,89 @@ disabled by intelligence policy (collect)
 disabled by intelligence policy (collect)
 
 ## Reference Excerpts
+
+### ontent-ie9f2b656-c9d8-4fee-9ac1-6bbd550d946e-forensics-35-ab01-key-pdf (pdf/assessment)
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics35\сontent\ie9f2b656-c9d8-4fee-9ac1-6bbd550d946e\Forensics_35_AB01_Key.pdf
+
+```text
+FOR STUDENT USE ONLY
+(If label is missing or incorrect)
+NameAddress
+City/Town                Province                Postal                Code
+Student’s Questions
+and Comments
+Apply Assignment Label Here
+Please use the correct preprinted label for this
+course and Assignment Booklet.
+Teacher’s Comments
+ALBERTA  DISTANCE  LEARNING  CENTRE
+Forensic Science 35
+Assignment Booklet 1
+FOR ADLC USE ONLY
+Assigned to
+Marked by
+Mark:                               %
+Date Received:
+File Number:
+Summary
+Reprint September 2008
+Teacher’s Signature
+Total
+Possible
+Marks
+Your
+Marks
+TOTAL
+Lesson 1
+Lesson 2
+Lesson 3
+Lesson 4
+23
+29
+22
+26
+100
+KEY
+```
+
+### ontent-i1cc0d3da-0402-41c1-9623-05538f2dbec6-content-book-2-chapter-3-html (html/outline)
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics35\сontent\i1cc0d3da-0402-41c1-9623-05538f2dbec6\Content\book_2\chapter_3.html
+
+```text
+Forensic Toxicology Overview
+The sale and distribution of illegal drugs involves a global black market with an estimated retail value totalling more than US$ 320 billion. Law enforcement agencies have engaged in attempts to prevent the distribution and sale of illegal drugs since the growing problem was first recognized in the early 1960s.
+Financial incentives drive the sale of illegal drugs: dealers want to get rich and be powerful. The result is often high levels of property crime, murder, and social disorder. Law enforcement agencies, therefore, work towards reducing the extent of the drug trade to prevent such crimes from becoming more frequent..
+Each year, numerous injuries and deaths r...
+```
+
+### ontent-i505992ba-df56-43ce-bc39-1a502e5fe271-content-lesson-33-page-251-html (html/textbook)
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics35\сontent\i505992ba-df56-43ce-bc39-1a502e5fe271\Content\Lesson_33\page_251.html
+
+```text
+Anthropology is the study of the biological and cultural aspects of humankind in any place at any time. Two sub-fields of anthropology are cultural anthropology – the observation over time of norms, customs, political, economic, and religious systems in a culture
+physical or biological anthropology – the identification and interpretation of human evolution and variation in humans
+Forensic anthropology is a specialized field of forensic science in which the goal is to analyze and interpret the human remains of unexplained deaths. Forensic anthropologists conduct their work by analyzing human skeletons or decomposing remains to extract as much information about the person and the circumstances...
+```
+
+### ontent-i6b9ab463-ab08-444a-b570-c77092b98266-content-lesson-9-page-38-html (html/other)
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics35\сontent\i6b9ab463-ab08-444a-b570-c77092b98266\Content\Lesson_9\page_38.html
+
+```text
+Defining Forensic Toxicology
+In Canada in 2005, criminal charges related to marijuana possession were down 12% from the previous year, criminal charges involving cocaine possession increased by 11%, and criminal charges related to the possession of other drugs (such as ecstasy and methamphetamines) increased by 39%.
+Toxicology is the study of the origin, nature, and properties of various drugs, poisons, and toxins. Toxicological specialists work in hospitals where the identification of an overdose can mean life or death.
+The terms drugs, poisons, and toxins have subtle and often overlapping definitions.
+Drugs are usually substances ingested intentionally to produce a change that results in b...
+```
+
+### ontent-id72c4bad-decf-4587-8c90-c1b3a4ccf6ba-content-lesson-10-page-57-html (html/textbook)
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics35\сontent\id72c4bad-decf-4587-8c90-c1b3a4ccf6ba\Content\Lesson_10\page_57.html
+
+```text
+What is a Poison?
+Poisons are chemical compounds that can cause injury, illness, or death when sufficient quantities are absorbed. They cause damage by inhibiting normal chemical reactions occurring in the body. Poisons can cause harm through a single massive dose or after high levels accumulate over time. Poisons are most commonly absorbed through ingestion (eating) and inhalation (breathing).
+Prompt treatment combats poisons. Treatments vary according to the specific type of poison absorbed. If a poisoning is not treated swiftly, permanent damage or death is possible. Organ damage caused by poisons is often repairable; however, when a poison targets the brain or spinal cord, damage is ofte...
+```
 
 ### ontent-i6ba75a57-bb56-40b1-9727-51576d8d6b4c-forensics-35-ab06-key-pdf (pdf/assessment)
 - Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics35\сontent\i6ba75a57-bb56-40b1-9727-51576d8d6b4c\Forensics_35_AB06_Key.pdf
@@ -358,152 +538,6 @@ Lesson 4
 24
 90
 KEY
-```
-
-### ontent-ib1ff4a56-96e9-497e-ad09-cd540a83ab86-forensics-35-ab02-key-pdf (pdf/assessment)
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics35\сontent\ib1ff4a56-96e9-497e-ad09-cd540a83ab86\Forensics_35_AB02_Key.pdf
-
-```text
-FOR STUDENT USE ONLY
-(If label is missing or incorrect)
-NameAddress
-City/Town               Province               Postal               Code
-Student’s Questions
-and Comments
-Apply Assignment Label Here
-Please use the correct preprinted label for this
-course and Assignment Booklet.
-Teacher’s Comments
-ALBERTA  DISTANCE  LEARNING  CENTRE
-Forensic Science 35
-Assignment Booklet 2
-FOR ADLC USE ONLY
-Assigned to
-Marked by
-Mark:                               %
-Date Received:
-File Number:
-Summary
-New February 2008
-Teacher’s Signature
-Total
-Possible
-Marks
-Your
-Marks
-TOTAL
-Lesson 1
-Lesson 2
-Lesson 3
-Lesson 4
-23
-19
-23
-20
-85
-KEY
-```
-
-### ontent-idfe46fee-6d79-4f80-a7e2-67c388101569-forensics-35-ab05-key-pdf (pdf/assessment)
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics35\сontent\idfe46fee-6d79-4f80-a7e2-67c388101569\Forensics_35_AB05_Key.pdf
-
-```text
-FOR STUDENT USE ONLY
-(If label is missing or incorrect)
-NameAddress
-City/Town               Province               Postal               Code
-Student’s Questions
-and Comments
-Apply Assignment Label Here
-Please use the correct preprinted label for this
-course and Assignment Booklet.
-Teacher’s Comments
-ALBERTA  DISTANCE  LEARNING  CENTRE
-Forensic Science 35
-Assignment Booklet 5
-FOR ADLC USE ONLY
-Assigned to
-Marked by
-Mark:                               %
-Date Received:
-File Number:
-Summary
-New February 2008
-Teacher’s Signature
-Total
-Possible
-Marks
-Your
-Marks
-TOTAL
-Lesson 1
-Lesson 2
-Lesson 3
-Lesson 4
-20
-25
-23
-22
-90
-KEY
-```
-
-### ontent-ie9f2b656-c9d8-4fee-9ac1-6bbd550d946e-forensics-35-ab01-key-pdf (pdf/assessment)
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics35\сontent\ie9f2b656-c9d8-4fee-9ac1-6bbd550d946e\Forensics_35_AB01_Key.pdf
-
-```text
-FOR STUDENT USE ONLY
-(If label is missing or incorrect)
-NameAddress
-City/Town                Province                Postal                Code
-Student’s Questions
-and Comments
-Apply Assignment Label Here
-Please use the correct preprinted label for this
-course and Assignment Booklet.
-Teacher’s Comments
-ALBERTA  DISTANCE  LEARNING  CENTRE
-Forensic Science 35
-Assignment Booklet 1
-FOR ADLC USE ONLY
-Assigned to
-Marked by
-Mark:                               %
-Date Received:
-File Number:
-Summary
-Reprint September 2008
-Teacher’s Signature
-Total
-Possible
-Marks
-Your
-Marks
-TOTAL
-Lesson 1
-Lesson 2
-Lesson 3
-Lesson 4
-23
-29
-22
-26
-100
-KEY
-```
-
-### ontent-i5b868f43-fb54-4dee-8384-cd5a40dae987-module-2-assignment-online-html (html/assessment)
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics35\сontent\i5b868f43-fb54-4dee-8384-cd5a40dae987\Module 2 Assignment (Online).html
-
-```text
-Click on the following link to make a copy of the M2 Law Enforcement Equipment Assignment.
-```
-
-### ontent-id8143c17-8c3c-4511-a1d2-cfb13de39cca-module-3-assignment-online-html (html/assessment)
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics35\сontent\id8143c17-8c3c-4511-a1d2-cfb13de39cca\Module 3 Assignment (Online).html
-
-```text
-Click on the following link to make a copy of the M3 Arson and Explosives Assignment.
 ```
 
 ## Task Stub

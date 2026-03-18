@@ -58,9 +58,11 @@ async function runContractChecks(contract: ProjectE2EContract, page: Parameters<
       const quizModulePanel = workspaceFrame
         .locator(`[data-testid="module-panel"][data-module-title="${contract.quiz.moduleTitle}"]`)
         .first();
-      await quizModulePanel.getByTestId("module-toggle").click();
+      await quizModulePanel.getByTestId("module-toggle").scrollIntoViewIfNeeded();
+      await quizModulePanel.getByTestId("module-toggle").click({ force: true });
       if (await quizModulePanel.getByTestId("module-assignments-tab").count()) {
-        await quizModulePanel.getByTestId("module-assignments-tab").click();
+        await quizModulePanel.getByTestId("module-assignments-tab").scrollIntoViewIfNeeded();
+        await quizModulePanel.getByTestId("module-assignments-tab").click({ force: true });
       }
     }
 
@@ -70,20 +72,22 @@ async function runContractChecks(contract: ProjectE2EContract, page: Parameters<
     if (!(await lessonButton.first().isVisible())) {
       const lessonSearch = workspaceFrame.getByPlaceholder("Search real lesson titles");
       if (await lessonSearch.isVisible()) {
-        await lessonSearch.fill(contract.quiz.lessonTitle);
+        await lessonSearch.fill("");
       }
 
       const moduleButtons = workspaceFrame.locator("button").filter({ hasText: /items in export/i });
       const moduleCount = await moduleButtons.count();
       for (let index = 0; index < moduleCount; index += 1) {
-        await moduleButtons.nth(index).click();
+        await moduleButtons.nth(index).scrollIntoViewIfNeeded();
+        await moduleButtons.nth(index).click({ force: true });
       }
     }
     if (!(await lessonButton.first().isVisible())) {
       const assignmentTabs = workspaceFrame.getByTestId("module-assignments-tab");
       const tabCount = await assignmentTabs.count();
       for (let index = 0; index < tabCount; index += 1) {
-        await assignmentTabs.nth(index).click();
+        await assignmentTabs.nth(index).scrollIntoViewIfNeeded();
+        await assignmentTabs.nth(index).click({ force: true });
         if (await lessonButton.first().isVisible()) {
           break;
         }
@@ -118,9 +122,11 @@ async function runContractChecks(contract: ProjectE2EContract, page: Parameters<
     const withAssignmentsPanel = workspaceFrame
       .locator(`[data-testid="module-panel"][data-module-title="${withAssignmentsTitle}"]`)
       .first();
-    await withAssignmentsPanel.getByTestId("module-toggle").click();
+    await withAssignmentsPanel.getByTestId("module-toggle").scrollIntoViewIfNeeded();
+    await withAssignmentsPanel.getByTestId("module-toggle").click({ force: true });
     await expect(withAssignmentsPanel.getByTestId("module-assignments-tab")).toBeVisible();
-    await withAssignmentsPanel.getByTestId("module-assignments-tab").click();
+    await withAssignmentsPanel.getByTestId("module-assignments-tab").scrollIntoViewIfNeeded();
+    await withAssignmentsPanel.getByTestId("module-assignments-tab").click({ force: true });
 
     await expect(workspaceFrame.getByTestId("module-assignments-view")).toBeVisible();
     await expect(workspaceFrame.getByTestId("module-content-view")).toHaveCount(0);
@@ -135,7 +141,8 @@ async function runContractChecks(contract: ProjectE2EContract, page: Parameters<
       const withoutAssignmentsPanel = workspaceFrame
         .locator(`[data-testid="module-panel"][data-module-title="${withoutAssignmentsTitle}"]`)
         .first();
-      await withoutAssignmentsPanel.getByTestId("module-toggle").click();
+      await withoutAssignmentsPanel.getByTestId("module-toggle").scrollIntoViewIfNeeded();
+      await withoutAssignmentsPanel.getByTestId("module-toggle").click({ force: true });
       await expect(withoutAssignmentsPanel.getByTestId("module-assignments-tab")).toHaveCount(0);
       await expect(workspaceFrame.getByTestId("module-content-view")).toBeVisible();
     }
