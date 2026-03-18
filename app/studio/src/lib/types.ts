@@ -17,6 +17,7 @@ export type PreviewLayoutPreferences = {
   compareMode: boolean;
   sidebarOpen: boolean;
   inspectorOpen: boolean;
+  generatorOpen: boolean;
   devices: Record<PreviewMode, DeviceMode>;
   zooms: Record<PreviewMode, number>;
 };
@@ -168,6 +169,7 @@ export const DEFAULT_LAYOUT_PREFERENCES: PreviewLayoutPreferences = {
   compareMode: true,
   sidebarOpen: true,
   inspectorOpen: false,
+  generatorOpen: false,
   devices: {
     reference: "tablet",
     workspace: "desktop"

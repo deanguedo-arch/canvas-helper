@@ -7,6 +7,7 @@ type TopbarProps = {
   onSetCompareMode: (compareMode: boolean) => void;
   onSetPreviewMode: (previewMode: PreviewMode) => void;
   onToggleInspector: () => void;
+  onToggleGenerator: () => void;
 };
 
 export function Topbar({
@@ -15,7 +16,8 @@ export function Topbar({
   learnerMode,
   onSetCompareMode,
   onSetPreviewMode,
-  onToggleInspector
+  onToggleInspector,
+  onToggleGenerator
 }: TopbarProps) {
   return (
     <header className="topbar topbar-compact" data-testid="studio-topbar">
@@ -64,6 +66,15 @@ export function Topbar({
             </button>
           </div>
         ) : null}
+
+        <button
+          type="button"
+          className={layoutPreferences.generatorOpen ? "ghost-button compact" : "ghost-button compact active-toggle"}
+          onClick={onToggleGenerator}
+          data-testid="generator-toggle"
+        >
+          {layoutPreferences.generatorOpen ? "Hide Assistant" : "Assistant"}
+        </button>
 
         <button
           type="button"

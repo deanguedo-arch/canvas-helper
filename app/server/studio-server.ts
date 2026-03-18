@@ -10,9 +10,14 @@ import { handleAssessmentsRoute } from "./routes/assessments";
 import { handlePreviewRoutes } from "./routes/preview";
 import { handleProjectsRoute } from "./routes/projects";
 import { handleSessionLogRoute } from "./routes/session-log";
+import { handleGenerateRoute } from "./routes/generate";
 
 async function handleRequest(server: ViteDevServer, request: import("node:http").IncomingMessage, response: import("node:http").ServerResponse, next: () => void) {
   const url = request.url ? request.url.split("?")[0] : "";
+
+  if (await handleGenerateRoute(url, request, response)) {
+    return;
+  }
 
   if (await handleProjectsRoute(url, request, response)) {
     return;

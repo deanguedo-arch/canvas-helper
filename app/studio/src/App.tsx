@@ -7,6 +7,7 @@ import { ReferencePicker } from "./components/ReferencePicker";
 import { AssessmentLibraryMode } from "./components/AssessmentLibraryMode";
 import { Topbar } from "./components/Topbar";
 import { WorkspacePicker } from "./components/WorkspacePicker";
+import { GenerativePanel } from "./components/GenerativePanel";
 import { useLayoutPreferences } from "./hooks/useLayoutPreferences";
 import { usePreviewScrollSync } from "./hooks/usePreviewScrollSync";
 import { useProjectCommands } from "./hooks/useProjectCommands";
@@ -214,6 +215,9 @@ export function App() {
           onToggleInspector={() =>
             setLayoutPreferences((current) => ({ ...current, inspectorOpen: !current.inspectorOpen }))
           }
+          onToggleGenerator={() =>
+            setLayoutPreferences((current) => ({ ...current, generatorOpen: !current.generatorOpen }))
+          }
         />
 
         {errorMessage ? <div className="error-banner">{errorMessage}</div> : null}
@@ -385,6 +389,13 @@ export function App() {
                 selectedProject={selectedProject}
                 sourceFiles={sourceFiles}
                 onCopyToClipboard={copyToClipboard}
+              />
+            ) : null}
+
+            {layoutPreferences.generatorOpen ? (
+              <GenerativePanel
+                selectedProject={selectedProject}
+                onClose={() => setLayoutPreferences(current => ({ ...current, generatorOpen: false }))}
               />
             ) : null}
           </div>
