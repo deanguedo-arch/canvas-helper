@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { 
   FileText, Download, CheckCircle2,
   Database, Microscope, Fingerprint, Lightbulb,
@@ -28,6 +28,37 @@ const SUSPECTS = [
   { id: 2, name: "Marcus Vance", age: 29, height: "6'1\"", history: "Armed robbery (2019), Aggravated assault (2021). Known to carry firearms.", status: "Apprehended near scene." },
   { id: 3, name: "David 'Wheels' Smith", age: 22, height: "5'8\"", history: "Grand theft auto, fleeing police. Known getaway driver.", status: "Apprehended near scene." }
 ];
+
+const MODULE7_ASSIGNMENT_STORAGE_KEY = 'forensics::module7assignment::v1';
+
+function readModule7AssignmentState() {
+  if (typeof window === 'undefined') {
+    return null;
+  }
+
+  try {
+    const raw = window.localStorage.getItem('forensics::module7assignment::v1');
+    if (!raw) {
+      return null;
+    }
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === 'object' ? parsed : null;
+  } catch (_error) {
+    return null;
+  }
+}
+
+function writeModule7AssignmentState(state) {
+  if (typeof window === 'undefined') {
+    return;
+  }
+
+  try {
+    window.localStorage.setItem('forensics::module7assignment::v1', JSON.stringify(state));
+  } catch (_error) {
+    // Ignore storage write failures.
+  }
+}
 
 // --- COMPONENTS ---
 
@@ -701,11 +732,33 @@ const FinalReport = ({ answers, discovered }) => {
 };
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState('theory');
-  const [answers, setAnswers] = useState(INITIAL_ANSWERS);
-  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+  const [persistedState] = useState(() => readModule7AssignmentState());
+  const [activeTab, setActiveTab] = useState(persistedState?.activeTab || 'theory');
+  const [answers, setAnswers] = useState(
+    persistedState?.answers && typeof persistedState.answers === 'object'
+      ? { ...INITIAL_ANSWERS, ...persistedState.answers }
+      : INITIAL_ANSWERS
+  );
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(Boolean(persistedState?.isSidebarCollapsed));
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [caseEvidence, setCaseEvidence] = useState({ bandanas: false, gun: false, cash: false });
+  const [caseEvidence, setCaseEvidence] = useState(
+    persistedState?.caseEvidence && typeof persistedState.caseEvidence === 'object'
+      ? {
+          bandanas: Boolean(persistedState.caseEvidence.bandanas),
+          gun: Boolean(persistedState.caseEvidence.gun),
+          cash: Boolean(persistedState.caseEvidence.cash)
+        }
+      : { bandanas: false, gun: false, cash: false }
+  );
+
+  useEffect(() => {
+    writeModule7AssignmentState({
+      activeTab,
+      answers,
+      isSidebarCollapsed,
+      caseEvidence
+    });
+  }, [activeTab, answers, isSidebarCollapsed, caseEvidence]);
 
   const tabs = [
     { id: 'theory', label: 'Theory & Policy', icon: Database },

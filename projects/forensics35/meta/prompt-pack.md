@@ -1,14 +1,28 @@
 # Prompt Pack
 
 - Project: forensics35
-- Generated: 2026-03-17T21:13:00.925Z
+- Generated: 2026-03-18T14:44:06.337Z
 
 ## Rules
 
+- Start with the narrowest useful retrieval path.
+- Prefer known entrypoints, targeted reads, and `rg` over broad discovery.
+- Do not expand scope or change behavior unless the current context is insufficient.
+- If broader retrieval is needed, stop and ask for approval with the reason, added scope, and expected cost.
+- Keep follow-up reads minimal even after approval.
+- If the user explicitly says this is a subagent, or says to act as a subagent, treat the task as subagent mode automatically.
+- If the signal is ambiguous, ask exactly once: `Should I apply subagent rules for this task?`
+- Keep subagent mode on for the rest of the task once confirmed unless the user changes the scope.
+- Do not keep asking whether to apply subagent rules after confirmation.
 - Work in repo-approved zones (`app/studio`, `app/server`, `scripts`, `docs`, `tasks`, root config files).
 - Treat `projects/<slug>/raw` as immutable baseline input.
-- Retrieval order: prompt-pack -> d2l course map -> course blueprint -> assessment map -> lesson packets -> targeted resource chunks -> pattern matches if enabled.
+- Retrieval order: prompt-pack -> course blueprint -> assessment map -> lesson packets -> targeted resource chunks -> pattern matches if enabled.
 - Finish only after typecheck/build and task-specific verification pass.
+
+## Session Mode
+
+- Subagent mode: off
+- Use standard task mode.
 
 ## Intelligence Policy
 
@@ -28,9 +42,9 @@ none
 
 ```json
 {
-  "id": "cd13848b-03fd-45b2-8e5a-05663680f8de",
+  "id": "74bb82fa-ebed-44b8-8dcf-ceaa6e21df03",
   "slug": "forensics35",
-  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\incoming\\forensics35",
+  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\processed\\forensics35\\source",
   "inputKind": "html",
   "brightspaceTarget": "course-page",
   "previewModes": [
@@ -41,9 +55,10 @@ none
   "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\forensics35\\raw\\original.html",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-03-17T21:13:00.868Z",
-  "createdAt": "2026-03-17T21:12:39.963Z",
-  "updatedAt": "2026-03-17T21:13:00.868Z"
+  "learningUpdatedAt": "2026-03-18T14:44:06.308Z",
+  "createdAt": "2026-03-18T14:44:01.332Z",
+  "updatedAt": "2026-03-18T14:44:06.308Z",
+  "workspaceApprovedAt": "2026-03-18T14:44:06.308Z"
 }
 ```
 
@@ -116,23 +131,8 @@ none
 
 ## D2L Course Map Summary
 
-- Course title: 23-24 | Forensic Studies 35 | Per 1(A-B) | Sec S3
-- Modules: 10
-- Items: 266
-- Lessons: 7
-- Assignments: 6
-- Quizzes: 32
-- PDFs: 17
-- HTML pages: 169
-Top modules:
-- Course Information (4 direct items)
-- 1. Forensic Toxicology (11 direct items)
-- 2. Law Enforcement Equipment (11 direct items)
-- 3. Arson and Explosives (11 direct items)
-- 4. Forensic Ballistics (11 direct items)
-- 5. Criminal Profiling (11 direct items)
-- 6. Anthropology and Entomology (11 direct items)
-- 7. Final Exam (3 direct items)
+> d2l-course-map.json: missing
+> Next: `npm run d2l-map -- --project forensics35`
 
 ## Course Blueprint Summary
 
@@ -202,7 +202,7 @@ Top modules:
 ```md
 # Import Log
 
-- Generated: 2026-03-17T21:12:39.963Z
+- Generated: 2026-03-18T14:44:01.332Z
 - Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\incoming\forensics35
 
 ## Actions

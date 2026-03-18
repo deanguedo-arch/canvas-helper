@@ -18,12 +18,48 @@ const FileText = IconStub;
 const Crosshair = IconStub;
 const Droplet = IconStub;
 
+const MODULE1_ASSIGNMENT_STORAGE_KEY = 'forensics::module1assignment::v1';
+
+function readModule1AssignmentState() {
+  if (typeof window === 'undefined') {
+    return null;
+  }
+
+  try {
+    const raw = window.localStorage.getItem('forensics::module1assignment::v1');
+    if (!raw) {
+      return null;
+    }
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === 'object' ? parsed : null;
+  } catch (_error) {
+    return null;
+  }
+}
+
+function writeModule1AssignmentState(state) {
+  if (typeof window === 'undefined') {
+    return;
+  }
+
+  try {
+    window.localStorage.setItem('forensics::module1assignment::v1', JSON.stringify(state));
+  } catch (_error) {
+    // Ignore storage write failures in locked/private contexts.
+  }
+}
+
 const App = () => {
-  const [step, setStep] = useState('intro');
-  const [activeHotspot, setActiveHotspot] = useState(null);
+  const [persistedState] = useState(() => readModule1AssignmentState());
+  const [step, setStep] = useState(persistedState?.step || 'intro');
+  const [activeHotspot, setActiveHotspot] = useState(persistedState?.activeHotspot || null);
   
   // Part 1 State
-  const [securingAnswers, setSecuringAnswers] = useState({ r1: '', r2: '' });
+  const [securingAnswers, setSecuringAnswers] = useState(
+    persistedState?.securingAnswers && typeof persistedState.securingAnswers === 'object'
+      ? { r1: persistedState.securingAnswers.r1 || '', r2: persistedState.securingAnswers.r2 || '' }
+      : { r1: '', r2: '' }
+  );
   
   // Part 2 State
   const stepsData = [
@@ -35,14 +71,51 @@ const App = () => {
     { name: 'Searching', icon: <Search className="w-8 h-8" />, key: 'searching', hint: "Using a grid/spiral pattern for missed items.", desc: "Systematic physical search for all trace evidence." },
     { name: 'Collecting', icon: <Package className="w-8 h-8" />, key: 'collecting', hint: "Packaging and labeling items correctly.", desc: "Maintaining the chain of custody." },
   ];
-  const [stepDescriptions, setStepDescriptions] = useState({});
-  const [activeStepModal, setActiveStepModal] = useState(null);
+  const [stepDescriptions, setStepDescriptions] = useState(
+    persistedState?.stepDescriptions && typeof persistedState.stepDescriptions === 'object'
+      ? persistedState.stepDescriptions
+      : {}
+  );
+  const [activeStepModal, setActiveStepModal] = useState(persistedState?.activeStepModal || null);
 
   // Part 3 State
-  const [safetyAnswers, setSafetyAnswers] = useState({ p1: '', d1: '', p2: '', d2: '' });
-  const [flashlightPos, setFlashlightPos] = useState({ x: 50, y: 50 });
-  const [discoveredHazards, setDiscoveredHazards] = useState({ glass: false, chemical: false });
+  const [safetyAnswers, setSafetyAnswers] = useState(
+    persistedState?.safetyAnswers && typeof persistedState.safetyAnswers === 'object'
+      ? {
+          p1: persistedState.safetyAnswers.p1 || '',
+          d1: persistedState.safetyAnswers.d1 || '',
+          p2: persistedState.safetyAnswers.p2 || '',
+          d2: persistedState.safetyAnswers.d2 || ''
+        }
+      : { p1: '', d1: '', p2: '', d2: '' }
+  );
+  const [flashlightPos, setFlashlightPos] = useState(
+    persistedState?.flashlightPos && typeof persistedState.flashlightPos === 'object'
+      ? { x: Number(persistedState.flashlightPos.x) || 50, y: Number(persistedState.flashlightPos.y) || 50 }
+      : { x: 50, y: 50 }
+  );
+  const [discoveredHazards, setDiscoveredHazards] = useState(
+    persistedState?.discoveredHazards && typeof persistedState.discoveredHazards === 'object'
+      ? {
+          glass: Boolean(persistedState.discoveredHazards.glass),
+          chemical: Boolean(persistedState.discoveredHazards.chemical)
+        }
+      : { glass: false, chemical: false }
+  );
   const roomRef = useRef(null);
+
+  useEffect(() => {
+    writeModule1AssignmentState({
+      step,
+      activeHotspot,
+      securingAnswers,
+      stepDescriptions,
+      activeStepModal,
+      safetyAnswers,
+      flashlightPos,
+      discoveredHazards
+    });
+  }, [step, activeHotspot, securingAnswers, stepDescriptions, activeStepModal, safetyAnswers, flashlightPos, discoveredHazards]);
 
   const handleFlashlight = (e) => {
     if (!roomRef.current) return;

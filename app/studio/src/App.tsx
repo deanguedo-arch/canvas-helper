@@ -244,7 +244,7 @@ export function App() {
         {studioMode === "assessment" ? (
           <AssessmentLibraryMode />
         ) : (
-          <div className={layoutPreferences.inspectorOpen ? "content-grid inspector-open" : "content-grid"}>
+          <div className={layoutPreferences.inspectorOpen ? "workspace-grid inspector-open" : "workspace-grid"}>
             <section className="preview-workspace" data-testid="preview-workspace">
               {selectedProject ? (
                 <div

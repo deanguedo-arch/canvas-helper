@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-03-17T21:13:00.868Z",
+  "generatedAt": "2026-03-18T14:44:06.308Z",
   "entries": [
     {
       "kind": "component",
@@ -1884,6 +1884,45 @@
     },
     {
       "kind": "component",
+      "key": "component:e2e-fixture",
+      "summary": "Reusable sections and components from e2e-fixture",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "assignment",
+          "checkpoints",
+          "fallback",
+          "fixture",
+          "html",
+          "lesson",
+          "quick",
+          "quiz",
+          "workspace"
+        ],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "component:pattern:e2e-fixture:refs:2026-03-18T14:44:04.818Z:component",
+          "projectSlug": "e2e-fixture",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-03-18T14:44:04.818Z"
+        }
+      ],
+      "projectSlugs": [
+        "e2e-fixture"
+      ],
+      "reinforcementCount": 1,
+      "lastSeenAt": "2026-03-18T14:44:04.818Z",
+      "confidence": "medium",
+      "approved": true
+    },
+    {
+      "kind": "component",
       "key": "component:forensics",
       "summary": "Reusable sections and components from forensics",
       "signals": {
@@ -1920,13 +1959,20 @@
           "source": "pattern",
           "command": "refs",
           "observedAt": "2026-03-14T13:27:13.540Z"
+        },
+        {
+          "id": "component:pattern:forensics:refs:2026-03-18T14:44:05.427Z:component",
+          "projectSlug": "forensics",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-03-18T14:44:05.427Z"
         }
       ],
       "projectSlugs": [
         "forensics"
       ],
-      "reinforcementCount": 3,
-      "lastSeenAt": "2026-03-14T13:27:13.540Z",
+      "reinforcementCount": 4,
+      "lastSeenAt": "2026-03-18T14:44:05.427Z",
       "confidence": "high",
       "approved": true
     },
@@ -9319,6 +9365,45 @@
     },
     {
       "kind": "resource",
+      "key": "resource:e2e-fixture",
+      "summary": "Reference and resource profile from e2e-fixture",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "assignment",
+          "checkpoints",
+          "fallback",
+          "fixture",
+          "html",
+          "lesson",
+          "quick",
+          "quiz",
+          "workspace"
+        ],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "resource:reference:e2e-fixture:refs:2026-03-18T14:44:04.818Z:resource",
+          "projectSlug": "e2e-fixture",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-03-18T14:44:04.818Z"
+        }
+      ],
+      "projectSlugs": [
+        "e2e-fixture"
+      ],
+      "reinforcementCount": 1,
+      "lastSeenAt": "2026-03-18T14:44:04.818Z",
+      "confidence": "medium",
+      "approved": true
+    },
+    {
+      "kind": "resource",
       "key": "resource:forensics",
       "summary": "Reference and resource profile from forensics",
       "signals": {
@@ -9359,13 +9444,20 @@
           "source": "reference",
           "command": "refs",
           "observedAt": "2026-03-14T13:27:13.540Z"
+        },
+        {
+          "id": "resource:reference:forensics:refs:2026-03-18T14:44:05.427Z:resource",
+          "projectSlug": "forensics",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-03-18T14:44:05.427Z"
         }
       ],
       "projectSlugs": [
         "forensics"
       ],
-      "reinforcementCount": 3,
-      "lastSeenAt": "2026-03-14T13:27:13.540Z",
+      "reinforcementCount": 4,
+      "lastSeenAt": "2026-03-18T14:44:05.427Z",
       "confidence": "high",
       "approved": true
     },
@@ -9401,14 +9493,28 @@
           "source": "reference",
           "command": "plan",
           "observedAt": "2026-03-17T21:13:00.868Z"
+        },
+        {
+          "id": "resource:reference:forensics35:import:2026-03-18T14:44:04.685Z:resource",
+          "projectSlug": "forensics35",
+          "source": "reference",
+          "command": "import",
+          "observedAt": "2026-03-18T14:44:04.685Z"
+        },
+        {
+          "id": "resource:reference:forensics35:refs:2026-03-18T14:44:06.308Z:resource",
+          "projectSlug": "forensics35",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-03-18T14:44:06.308Z"
         }
       ],
       "projectSlugs": [
         "forensics35"
       ],
-      "reinforcementCount": 2,
-      "lastSeenAt": "2026-03-17T21:13:00.868Z",
-      "confidence": "medium",
+      "reinforcementCount": 4,
+      "lastSeenAt": "2026-03-18T14:44:06.308Z",
+      "confidence": "high",
       "approved": true
     },
     {
@@ -13817,6 +13923,53 @@
     },
     {
       "kind": "style",
+      "key": "style:e2e-fixture",
+      "summary": "Approved style direction from e2e-fixture",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "assignment",
+          "checkpoints",
+          "fallback",
+          "fixture",
+          "html",
+          "lesson",
+          "quick",
+          "quiz",
+          "workspace"
+        ],
+        "styleTokens": [],
+        "hexColors": [
+          "#0f172a",
+          "#38bdf8",
+          "#cbd5f5",
+          "#e0f2fe",
+          "#e2e8f0",
+          "#f8fafc",
+          "#ffffff"
+        ],
+        "externalDependencies": [],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "style:pattern:e2e-fixture:refs:2026-03-18T14:44:04.818Z:style",
+          "projectSlug": "e2e-fixture",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-03-18T14:44:04.818Z"
+        }
+      ],
+      "projectSlugs": [
+        "e2e-fixture"
+      ],
+      "reinforcementCount": 1,
+      "lastSeenAt": "2026-03-18T14:44:04.818Z",
+      "confidence": "high",
+      "approved": true
+    },
+    {
+      "kind": "style",
       "key": "style:forensics",
       "summary": "Approved style direction from forensics",
       "signals": {
@@ -13830,11 +13983,17 @@
           "amber-50",
           "amber-800",
           "amber-900",
+          "duration-200",
+          "emerald-100",
           "emerald-200",
+          "emerald-300",
+          "emerald-400",
           "emerald-50",
           "emerald-800",
           "emerald-950",
+          "rose-100",
           "rose-200",
+          "rose-300",
           "rose-50",
           "rose-800",
           "rose-950",
@@ -13864,11 +14023,44 @@
         ],
         "hexColors": [
           "#020617",
+          "#08090c",
+          "#090a0d",
+          "#0a0b0d",
           "#0f172a",
+          "#101216",
           "#111827",
+          "#111d2a",
+          "#112015",
+          "#141821",
+          "#1a1215",
           "#1e293b",
+          "#1f1014",
+          "#2a1216",
+          "#2d0f14",
+          "#334155",
+          "#3b2b11",
+          "#475569",
+          "#6b7280",
+          "#86efac",
+          "#93c5fd",
+          "#a1a8b3",
+          "#b91c1c",
+          "#cbd5e1",
+          "#d1d5db",
+          "#dbeafe",
+          "#dc2626",
+          "#dcfce7",
+          "#e2e8f0",
+          "#e5e7eb",
           "#ef4444",
-          "#fecaca"
+          "#f1f5f9",
+          "#f3f4f6",
+          "#f59e0b",
+          "#f8fafc",
+          "#fcd34d",
+          "#fecaca",
+          "#fee2e2",
+          "#fef2f2"
         ],
         "externalDependencies": [],
         "referenceKinds": []
@@ -13894,13 +14086,20 @@
           "source": "pattern",
           "command": "refs",
           "observedAt": "2026-03-14T13:27:13.540Z"
+        },
+        {
+          "id": "style:pattern:forensics:refs:2026-03-18T14:44:05.427Z:style",
+          "projectSlug": "forensics",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-03-18T14:44:05.427Z"
         }
       ],
       "projectSlugs": [
         "forensics"
       ],
-      "reinforcementCount": 3,
-      "lastSeenAt": "2026-03-14T13:27:13.540Z",
+      "reinforcementCount": 4,
+      "lastSeenAt": "2026-03-18T14:44:05.427Z",
       "confidence": "high",
       "approved": true
     },
@@ -18459,6 +18658,45 @@
     },
     {
       "kind": "tool",
+      "key": "tool:e2e-fixture",
+      "summary": "Runtime and tool choices from e2e-fixture",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "assignment",
+          "checkpoints",
+          "fallback",
+          "fixture",
+          "html",
+          "lesson",
+          "quick",
+          "quiz",
+          "workspace"
+        ],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "tool:pattern:e2e-fixture:refs:2026-03-18T14:44:04.818Z:tool",
+          "projectSlug": "e2e-fixture",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-03-18T14:44:04.818Z"
+        }
+      ],
+      "projectSlugs": [
+        "e2e-fixture"
+      ],
+      "reinforcementCount": 1,
+      "lastSeenAt": "2026-03-18T14:44:04.818Z",
+      "confidence": "medium",
+      "approved": true
+    },
+    {
+      "kind": "tool",
       "key": "tool:forensics",
       "summary": "Runtime and tool choices from forensics",
       "signals": {
@@ -18472,6 +18710,16 @@
         "externalDependencies": [
           "https://cdn.tailwindcss.com",
           "https://cdn.tailwindcss.com\"></script>",
+          "https://esm.sh/lucide-react@0.542.0?deps=react@19.1.1\";",
+          "https://esm.sh/react-dom@19.1.1/client\";",
+          "https://esm.sh/react@19.1.1\";",
+          "https://fonts.googleapis.com\"",
+          "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap\"",
+          "https://fonts.gstatic.com\"",
+          "https://lh3.googleusercontent.com/gj7N2Oif-4X2zfjkub58PbgAWt3XKxxCk-GF_PI9pnLmzig9Sm-eZDKfWtM_CLkbEesr_3iWfQ3qJg1c1REQKy3BkrxOSC0BLI60QrltkcCrT-HwPZUZRQ8ZlsTID5FaxZA3X7SOLscM14fouA\":",
+          "https://lh4.googleusercontent.com/mwvzxUf61aqdm9oG9VyiGdKou-VQ2yHvqtFDv6rJT9lgiNDEOhwvS2rHpeSWwBtmKhimbxnLOPTOjHx7_JBnMDMJBFuozH4mS0chn5BF4uQMRbkyn4j1DGPaWhCdK4DJghQ6TBo-eZKgBPjbBQ\":",
+          "https://lh6.googleusercontent.com/A0XYWVnt-KsIFRtn-iJ2fyit8XQWxuznFqmFZe0i3FL17baTAZI6OvGjbKvJoYjGB4K0tlWQpY5ERY0LTOSqip1J3luRdNyzy983phkU37RgGpp7vUfqXKBUqtDQOJLohFxZJZwzURYrNLjKLw\":",
+          "https://lh6.googleusercontent.com/pM26gAa_Xhvbfdoj1ema-YP6WFlsgY2Ucg_CByG1J7coyB-aJXwZD3eu0cS6tGg30N1LVPr-B-Np9xmD3_WYZfNMn7xO-VyfIbdUNsGv8dCDR81Upd7nRCc-YGYmtUfKHHHzpyS2H0cBD_pwOA\":",
           "https://unpkg.com/@babel/standalone/babel.min.js",
           "https://unpkg.com/@babel/standalone/babel.min.js\"></script>",
           "https://unpkg.com/lucide-react@0.542.0?module",
@@ -18479,7 +18727,9 @@
           "https://unpkg.com/react-dom@19.1.1/client?module",
           "https://unpkg.com/react-dom@19.1.1/client?module\";",
           "https://unpkg.com/react@19.1.1?module",
-          "https://unpkg.com/react@19.1.1?module\";"
+          "https://unpkg.com/react@19.1.1?module\";",
+          "https://upload.wikimedia.org/wikipedia/commons/2/2c/CSIRO_ScienceImage_8115_Human_hair_and_Merino_wool_fibre.jpg\";",
+          "https://upload.wikimedia.org/wikipedia/commons/c/cb/Agarose_gel_slab_for_DNA_Analysis%2C_after_the_Electrophoresis_run.jpg\""
         ],
         "referenceKinds": []
       },
@@ -18504,13 +18754,20 @@
           "source": "pattern",
           "command": "refs",
           "observedAt": "2026-03-14T13:27:13.540Z"
+        },
+        {
+          "id": "tool:pattern:forensics:refs:2026-03-18T14:44:05.427Z:tool",
+          "projectSlug": "forensics",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-03-18T14:44:05.427Z"
         }
       ],
       "projectSlugs": [
         "forensics"
       ],
-      "reinforcementCount": 3,
-      "lastSeenAt": "2026-03-14T13:27:13.540Z",
+      "reinforcementCount": 4,
+      "lastSeenAt": "2026-03-18T14:44:05.427Z",
       "confidence": "high",
       "approved": true
     },
@@ -18543,14 +18800,28 @@
           "source": "pattern",
           "command": "plan",
           "observedAt": "2026-03-17T21:13:00.868Z"
+        },
+        {
+          "id": "tool:pattern:forensics35:import:2026-03-18T14:44:04.685Z:tool",
+          "projectSlug": "forensics35",
+          "source": "pattern",
+          "command": "import",
+          "observedAt": "2026-03-18T14:44:04.685Z"
+        },
+        {
+          "id": "tool:pattern:forensics35:refs:2026-03-18T14:44:06.308Z:tool",
+          "projectSlug": "forensics35",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-03-18T14:44:06.308Z"
         }
       ],
       "projectSlugs": [
         "forensics35"
       ],
-      "reinforcementCount": 2,
-      "lastSeenAt": "2026-03-17T21:13:00.868Z",
-      "confidence": "medium",
+      "reinforcementCount": 4,
+      "lastSeenAt": "2026-03-18T14:44:06.308Z",
+      "confidence": "high",
       "approved": true
     },
     {

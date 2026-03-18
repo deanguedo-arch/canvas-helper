@@ -21972,6 +21972,30 @@
     q6_suspect_match: "",
     q7_pcr_rflp: ""
   };
+  function readModule7AssignmentState() {
+    if (typeof window === "undefined") {
+      return null;
+    }
+    try {
+      const raw = window.localStorage.getItem("forensics::module7assignment::v1");
+      if (!raw) {
+        return null;
+      }
+      const parsed = JSON.parse(raw);
+      return parsed && typeof parsed === "object" ? parsed : null;
+    } catch (_error) {
+      return null;
+    }
+  }
+  function writeModule7AssignmentState(state) {
+    if (typeof window === "undefined") {
+      return;
+    }
+    try {
+      window.localStorage.setItem("forensics::module7assignment::v1", JSON.stringify(state));
+    } catch (_error) {
+    }
+  }
   var TheoryLab = ({ answers, setAnswers }) => {
     const [methodScale, setMethodScale] = (0, import_react3.useState)(0);
     const handleChange = (e) => setAnswers({ ...answers, [e.target.name]: e.target.value });
@@ -22581,11 +22605,28 @@
   };
   function App() {
     var _a;
-    const [activeTab, setActiveTab] = (0, import_react3.useState)("theory");
-    const [answers, setAnswers] = (0, import_react3.useState)(INITIAL_ANSWERS);
-    const [isSidebarCollapsed, setIsSidebarCollapsed] = (0, import_react3.useState)(false);
+    const [persistedState] = (0, import_react3.useState)(() => readModule7AssignmentState());
+    const [activeTab, setActiveTab] = (0, import_react3.useState)((persistedState == null ? void 0 : persistedState.activeTab) || "theory");
+    const [answers, setAnswers] = (0, import_react3.useState)(
+      (persistedState == null ? void 0 : persistedState.answers) && typeof persistedState.answers === "object" ? { ...INITIAL_ANSWERS, ...persistedState.answers } : INITIAL_ANSWERS
+    );
+    const [isSidebarCollapsed, setIsSidebarCollapsed] = (0, import_react3.useState)(Boolean(persistedState == null ? void 0 : persistedState.isSidebarCollapsed));
     const [isMobileMenuOpen, setIsMobileMenuOpen] = (0, import_react3.useState)(false);
-    const [caseEvidence, setCaseEvidence] = (0, import_react3.useState)({ bandanas: false, gun: false, cash: false });
+    const [caseEvidence, setCaseEvidence] = (0, import_react3.useState)(
+      (persistedState == null ? void 0 : persistedState.caseEvidence) && typeof persistedState.caseEvidence === "object" ? {
+        bandanas: Boolean(persistedState.caseEvidence.bandanas),
+        gun: Boolean(persistedState.caseEvidence.gun),
+        cash: Boolean(persistedState.caseEvidence.cash)
+      } : { bandanas: false, gun: false, cash: false }
+    );
+    (0, import_react3.useEffect)(() => {
+      writeModule7AssignmentState({
+        activeTab,
+        answers,
+        isSidebarCollapsed,
+        caseEvidence
+      });
+    }, [activeTab, answers, isSidebarCollapsed, caseEvidence]);
     const tabs = [
       { id: "theory", label: "Theory & Policy", icon: Database },
       { id: "case", label: "Crime Scene", icon: Camera },

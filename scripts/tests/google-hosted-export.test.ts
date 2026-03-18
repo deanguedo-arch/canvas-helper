@@ -12,7 +12,7 @@ import {
   injectGoogleHostedBridgeTag
 } from "../lib/google-hosted.js";
 import { fileExists, readJsonFile, removePath, writeJsonFile, writeTextFile } from "../lib/fs.js";
-import { repoRoot } from "../lib/paths.js";
+import { getResourcePaths, repoRoot } from "../lib/paths.js";
 import { cleanupProjectFixture, createProjectFixture } from "./helpers/project-fixture.js";
 
 const TEST_PROJECT_SLUG = "test-google-hosted-export";
@@ -48,6 +48,7 @@ test("buildGoogleHostedBridgeScript includes auth, firestore, project binding, a
   assert.match(bridge, /"projectSlug":"calm3new"/);
   assert.match(bridge, /Autosave ready/);
   assert.match(bridge, /window\.__canvasHelperGoogleHosted/);
+  assert.match(bridge, /preview\/references\/raw/);
 });
 
 test("buildGoogleHostedBridgeScript includes reload-loop guard for restore flows", () => {
@@ -179,9 +180,57 @@ test("exportProjectToGoogleHosted detects localStorage keys from jsx workspaces"
   try {
     const result = await exportProjectToGoogleHosted(jsxProjectSlug);
 
-    assert.deepEqual(result.storageKeys, ["calm_workbook_data"]);
+    assert.deepEqual(result.storageKeys, [`${jsxProjectSlug}::workspace-state::v1`, "calm_workbook_data"]);
   } finally {
     await cleanupProjectFixture(jsxProjectSlug);
+  }
+});
+
+test("exportProjectToGoogleHosted transpiles main.jsx to browser-safe main.js when needed", async () => {
+  const jsxTranspileSlug = `${TEST_PROJECT_SLUG}-jsx-transpile`;
+  await createProjectFixture({
+    slug: jsxTranspileSlug,
+    workspaceHtml: [
+      "<!doctype html>",
+      "<html>",
+      "  <head>",
+      "    <meta charset=\"utf-8\">",
+      "    <title>Google Hosted JSX Transpile Fixture</title>",
+      "  </head>",
+      "  <body>",
+      "    <div id=\"app\"></div>",
+      "    <script type=\"module\" src=\"./main.js\"></script>",
+      "  </body>",
+      "</html>",
+      ""
+    ].join("\n"),
+    workspaceFiles: {
+      "main.jsx": [
+        'import React from "react";',
+        'import ReactDOM from "react-dom/client";',
+        "",
+        "const App = () => <div>fixture</div>;",
+        "const root = document.getElementById(\"app\");",
+        "if (root) {",
+        "  ReactDOM.createRoot(root).render(<App />);",
+        "}",
+        ""
+      ].join("\n")
+    }
+  });
+
+  try {
+    const result = await exportProjectToGoogleHosted(jsxTranspileSlug);
+    const transpiledMainJsPath = path.join(result.exportDir, "main.js");
+    const transpiledMainJs = await readFile(transpiledMainJsPath, "utf8");
+
+    assert.equal(await fileExists(transpiledMainJsPath), true);
+    assert.match(transpiledMainJs, /https:\/\/esm\.sh\/react@19\.1\.1\/jsx-runtime/);
+    assert.doesNotMatch(transpiledMainJs, /from "react\/jsx-runtime"/);
+    assert.doesNotMatch(transpiledMainJs, /from "react-dom\/client"/);
+    assert.doesNotMatch(transpiledMainJs, /from "react";/);
+  } finally {
+    await cleanupProjectFixture(jsxTranspileSlug);
   }
 });
 
@@ -225,6 +274,42 @@ test("exportProjectToGoogleHosted preserves firebase deploy config across re-exp
     assert.equal(preservedFirebaseRc, customFirebaseRc);
   } finally {
     await cleanupProjectFixture(preserveProjectSlug);
+  }
+});
+
+test("exportProjectToGoogleHosted copies D2L export root reference files for hosted runtime", async () => {
+  const slug = `${TEST_PROJECT_SLUG}-references`;
+  const exportRoot = "D2LCCExport_Test";
+  const resourcePaths = getResourcePaths(slug);
+  const sourceReferenceFile = path.join(resourcePaths.root, exportRoot, "content", "sample.html");
+
+  await createProjectFixture({
+    slug,
+    workspaceFiles: {
+      "main.js": [
+        'localStorage.setItem("calm_workbook_data", JSON.stringify({ answer: 1 }));',
+        ""
+      ].join("\n"),
+      "d2l-map-data.js": [
+        "const d2lCourseMapData = {",
+        `  \"exportRoot\": \"${exportRoot}\"`,
+        "};",
+        "",
+        "export default d2lCourseMapData;",
+        ""
+      ].join("\n")
+    }
+  });
+
+  await writeTextFile(sourceReferenceFile, "<html><body>sample reference</body></html>\n");
+
+  try {
+    const result = await exportProjectToGoogleHosted(slug);
+    const copiedReferenceFile = path.join(result.exportDir, exportRoot, "content", "sample.html");
+    assert.equal(await fileExists(copiedReferenceFile), true);
+  } finally {
+    await cleanupProjectFixture(slug);
+    await removePath(resourcePaths.root);
   }
 });
 

@@ -258,7 +258,7 @@ pre {
   flex-direction: column;
   gap: 1rem;
   min-width: 0;
-  padding: 0.9rem 1.15rem 1.15rem;
+  padding: 0.65rem 0.85rem 0.85rem;
 }
 
 .topbar {
@@ -385,7 +385,7 @@ pre {
 }
 
 .workspace-grid.inspector-open {
-  grid-template-columns: minmax(0, 1fr) 360px;
+  grid-template-columns: minmax(0, 1fr) 300px;
 }
 
 .preview-workspace,
@@ -403,7 +403,7 @@ pre {
 }
 
 .preview-workspace {
-  padding: 0.85rem;
+  padding: 0.65rem;
 }
 
 .preview-deck {
@@ -423,7 +423,7 @@ pre {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  padding: 0.85rem;
+  padding: 0.7rem;
   border-radius: 22px;
   border: 1px solid rgba(255, 255, 255, 0.52);
   background:
@@ -670,7 +670,7 @@ pre {
 
 .preview-canvas {
   --zoom-scale: 1;
-  --frame-height: clamp(38rem, 76vh, 64rem);
+  --frame-height: clamp(40rem, 82vh, 72rem);
   width: calc(min(100%, var(--device-width)) / var(--zoom-scale));
   max-width: none;
   transform: scale(var(--zoom-scale));

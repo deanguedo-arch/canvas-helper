@@ -3,7 +3,7 @@ import path from "node:path";
 import process from "node:process";
 import { createInterface } from "node:readline/promises";
 
-import { parseArgs } from "./lib/cli.js";
+import { getStringFlag, parseArgs } from "./lib/cli.js";
 import { readJsonFile, writeJsonFile } from "./lib/fs.js";
 import {
   buildGoogleHostedDeployContext,
@@ -169,10 +169,39 @@ async function main() {
     throw new Error("No deployable Google Hosted projects were found.");
   }
 
-  const choiceLines = formatDeployableGoogleHostedProjects(deployableProjects);
-  const selection = await promptForSelection(choiceLines);
-  const selectedIndexes = parseGoogleHostedDeploySelection(selection, deployableProjects.length);
-  const selectedProjects = selectedIndexes.map((index) => deployableProjects[index]).map(buildGoogleHostedDeployContext);
+  const projectFlag = getStringFlag(parsedArgs, "project");
+  let selectedProjects: ReturnType<typeof buildGoogleHostedDeployContext>[];
+
+  if (projectFlag) {
+    const requestedSlugs = projectFlag
+      .split(",")
+      .map((value) => value.trim())
+      .filter(Boolean);
+
+    if (requestedSlugs.length === 0) {
+      throw new Error('The "--project" flag requires at least one slug.');
+    }
+
+    const requestedSet = new Set(requestedSlugs);
+    const matchingProjects = deployableProjects.filter((project) => requestedSet.has(project.slug));
+    const missingSlugs = requestedSlugs.filter(
+      (slug) => !deployableProjects.some((project) => project.slug === slug)
+    );
+
+    if (missingSlugs.length > 0) {
+      throw new Error(
+        `Requested project(s) are not deployable: ${missingSlugs.join(", ")}. ` +
+          "Ensure export exists, firebase-config.json exists, .firebaserc exists, and deploy config has enabled=true."
+      );
+    }
+
+    selectedProjects = matchingProjects.map(buildGoogleHostedDeployContext);
+  } else {
+    const choiceLines = formatDeployableGoogleHostedProjects(deployableProjects);
+    const selection = await promptForSelection(choiceLines);
+    const selectedIndexes = parseGoogleHostedDeploySelection(selection, deployableProjects.length);
+    selectedProjects = selectedIndexes.map((index) => deployableProjects[index]).map(buildGoogleHostedDeployContext);
+  }
 
   const failures: string[] = [];
 

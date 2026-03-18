@@ -21741,10 +21741,37 @@
   var X = IconStub;
   var FileText = IconStub;
   var Crosshair = IconStub;
+  function readModule1AssignmentState() {
+    if (typeof window === "undefined") {
+      return null;
+    }
+    try {
+      const raw = window.localStorage.getItem("forensics::module1assignment::v1");
+      if (!raw) {
+        return null;
+      }
+      const parsed = JSON.parse(raw);
+      return parsed && typeof parsed === "object" ? parsed : null;
+    } catch (_error) {
+      return null;
+    }
+  }
+  function writeModule1AssignmentState(state) {
+    if (typeof window === "undefined") {
+      return;
+    }
+    try {
+      window.localStorage.setItem("forensics::module1assignment::v1", JSON.stringify(state));
+    } catch (_error) {
+    }
+  }
   var App = () => {
-    const [step, setStep] = (0, import_react.useState)("intro");
-    const [activeHotspot, setActiveHotspot] = (0, import_react.useState)(null);
-    const [securingAnswers, setSecuringAnswers] = (0, import_react.useState)({ r1: "", r2: "" });
+    const [persistedState] = (0, import_react.useState)(() => readModule1AssignmentState());
+    const [step, setStep] = (0, import_react.useState)((persistedState == null ? void 0 : persistedState.step) || "intro");
+    const [activeHotspot, setActiveHotspot] = (0, import_react.useState)((persistedState == null ? void 0 : persistedState.activeHotspot) || null);
+    const [securingAnswers, setSecuringAnswers] = (0, import_react.useState)(
+      (persistedState == null ? void 0 : persistedState.securingAnswers) && typeof persistedState.securingAnswers === "object" ? { r1: persistedState.securingAnswers.r1 || "", r2: persistedState.securingAnswers.r2 || "" } : { r1: "", r2: "" }
+    );
     const stepsData = [
       { name: "Securing", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Shield, { className: "w-8 h-8" }), key: "securing", hint: "Establishing the perimeter and log.", desc: "First responder's priority. Preserve life and protect the area." },
       { name: "Separating", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Users, { className: "w-8 h-8" }), key: "separating", hint: "Keeping witnesses apart to prevent collusion.", desc: "Ensure witnesses don't create a shared narrative." },
@@ -21754,12 +21781,40 @@
       { name: "Searching", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Search, { className: "w-8 h-8" }), key: "searching", hint: "Using a grid/spiral pattern for missed items.", desc: "Systematic physical search for all trace evidence." },
       { name: "Collecting", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Package, { className: "w-8 h-8" }), key: "collecting", hint: "Packaging and labeling items correctly.", desc: "Maintaining the chain of custody." }
     ];
-    const [stepDescriptions, setStepDescriptions] = (0, import_react.useState)({});
-    const [activeStepModal, setActiveStepModal] = (0, import_react.useState)(null);
-    const [safetyAnswers, setSafetyAnswers] = (0, import_react.useState)({ p1: "", d1: "", p2: "", d2: "" });
-    const [flashlightPos, setFlashlightPos] = (0, import_react.useState)({ x: 50, y: 50 });
-    const [discoveredHazards, setDiscoveredHazards] = (0, import_react.useState)({ glass: false, chemical: false });
+    const [stepDescriptions, setStepDescriptions] = (0, import_react.useState)(
+      (persistedState == null ? void 0 : persistedState.stepDescriptions) && typeof persistedState.stepDescriptions === "object" ? persistedState.stepDescriptions : {}
+    );
+    const [activeStepModal, setActiveStepModal] = (0, import_react.useState)((persistedState == null ? void 0 : persistedState.activeStepModal) || null);
+    const [safetyAnswers, setSafetyAnswers] = (0, import_react.useState)(
+      (persistedState == null ? void 0 : persistedState.safetyAnswers) && typeof persistedState.safetyAnswers === "object" ? {
+        p1: persistedState.safetyAnswers.p1 || "",
+        d1: persistedState.safetyAnswers.d1 || "",
+        p2: persistedState.safetyAnswers.p2 || "",
+        d2: persistedState.safetyAnswers.d2 || ""
+      } : { p1: "", d1: "", p2: "", d2: "" }
+    );
+    const [flashlightPos, setFlashlightPos] = (0, import_react.useState)(
+      (persistedState == null ? void 0 : persistedState.flashlightPos) && typeof persistedState.flashlightPos === "object" ? { x: Number(persistedState.flashlightPos.x) || 50, y: Number(persistedState.flashlightPos.y) || 50 } : { x: 50, y: 50 }
+    );
+    const [discoveredHazards, setDiscoveredHazards] = (0, import_react.useState)(
+      (persistedState == null ? void 0 : persistedState.discoveredHazards) && typeof persistedState.discoveredHazards === "object" ? {
+        glass: Boolean(persistedState.discoveredHazards.glass),
+        chemical: Boolean(persistedState.discoveredHazards.chemical)
+      } : { glass: false, chemical: false }
+    );
     const roomRef = (0, import_react.useRef)(null);
+    (0, import_react.useEffect)(() => {
+      writeModule1AssignmentState({
+        step,
+        activeHotspot,
+        securingAnswers,
+        stepDescriptions,
+        activeStepModal,
+        safetyAnswers,
+        flashlightPos,
+        discoveredHazards
+      });
+    }, [step, activeHotspot, securingAnswers, stepDescriptions, activeStepModal, safetyAnswers, flashlightPos, discoveredHazards]);
     const handleFlashlight = (e) => {
       if (!roomRef.current) return;
       const rect = roomRef.current.getBoundingClientRect();
@@ -21933,7 +21988,8 @@
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "bg-[#8b5a2b] p-8 rounded-xl border-[12px] border-[#5c3a21] shadow-inner relative min-h-[500px]", children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 opacity-20", style: { backgroundImage: `radial-gradient(#4a2f18 1px, transparent 1px)`, backgroundSize: "10px 10px" } }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "grid grid-cols-2 md:grid-cols-4 gap-6 relative z-10", children: stepsData.map((s, index) => {
-          const isFilled = stepDescriptions[s.key]?.trim().length > 5;
+          var _a;
+          const isFilled = ((_a = stepDescriptions[s.key]) == null ? void 0 : _a.trim().length) > 5;
           const rotation = index % 2 === 0 ? `rotate-${index % 3 + 1}` : `-rotate-${index % 3 + 1}`;
           return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
             "div",

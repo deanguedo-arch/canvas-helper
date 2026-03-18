@@ -98,6 +98,7 @@ export function buildGoogleHostedBridgeScript(options: BuildGoogleHostedBridgeSc
   const config = ${JSON.stringify(config)};
   const sdkSources = ${JSON.stringify(sdkSources)};
   const trackedKeySet = new Set(config.storageKeys);
+  const hostedReferencePrefix = "/preview/references/raw/" + config.projectSlug + "/";
   const reloadGuardKey = config.metaKey + "__reload_guard";
   let firebaseReadyPromise = null;
   let lifecycleBound = false;
@@ -115,6 +116,86 @@ export function buildGoogleHostedBridgeScript(options: BuildGoogleHostedBridgeSc
   let statusNode = null;
   let lastStatusMessage = "Preparing cloud resume...";
   let lastStatusTone = "working";
+  let referenceRewritesInstalled = false;
+
+  function safeDecodePath(value) {
+    try {
+      return decodeURIComponent(value);
+    } catch {
+      return value;
+    }
+  }
+
+  function rewriteHostedReferenceUrl(rawUrl) {
+    if (typeof rawUrl !== "string" || rawUrl.length === 0) {
+      return rawUrl;
+    }
+
+    try {
+      const asUrl = new URL(rawUrl, window.location.href);
+      const pathname = asUrl.pathname || "";
+      if (!pathname.startsWith(hostedReferencePrefix)) {
+        return rawUrl;
+      }
+
+      const encodedRelativePath = pathname.slice(hostedReferencePrefix.length).replace(/^\\/+/, "");
+      const decodedRelativePath = encodedRelativePath
+        .split("/")
+        .map((part) => safeDecodePath(part))
+        .join("/")
+        .replace(/\\\\/g, "/")
+        .replace(/^\\/+/, "");
+
+      return "./" + decodedRelativePath;
+    } catch {
+      return rawUrl;
+    }
+  }
+
+  function installHostedReferenceRewrites() {
+    if (referenceRewritesInstalled || typeof window === "undefined") {
+      return;
+    }
+    referenceRewritesInstalled = true;
+
+    if (typeof window.fetch === "function") {
+      const originalFetch = window.fetch.bind(window);
+      window.fetch = function (input, init) {
+        let nextInput = input;
+
+        if (typeof input === "string") {
+          nextInput = rewriteHostedReferenceUrl(input);
+        } else if (input instanceof Request) {
+          const rewritten = rewriteHostedReferenceUrl(input.url);
+          if (typeof rewritten === "string" && rewritten !== input.url) {
+            nextInput = new Request(rewritten, input);
+          }
+        }
+
+        return originalFetch(nextInput, init);
+      };
+    }
+
+    const elementProto = typeof Element !== "undefined" ? Element.prototype : null;
+    if (!elementProto || typeof elementProto.setAttribute !== "function") {
+      return;
+    }
+
+    const originalSetAttribute = elementProto.setAttribute;
+    elementProto.setAttribute = function (name, value) {
+      if (
+        typeof name === "string" &&
+        typeof value === "string" &&
+        /^(src|href|poster|data)$/i.test(name)
+      ) {
+        return originalSetAttribute.call(this, name, rewriteHostedReferenceUrl(value));
+      }
+
+      return originalSetAttribute.call(this, name, value);
+    };
+  }
+
+  installHostedReferenceRewrites();
 
   function logWarning(message) {
     try {

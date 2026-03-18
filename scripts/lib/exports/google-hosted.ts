@@ -1,7 +1,9 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 
-import { fileExists, listFilesRecursive, writeTextFile } from "../fs.js";
+import ts from "typescript";
+
+import { copyDirectory, fileExists, listFilesRecursive, writeTextFile } from "../fs.js";
 import {
   buildFirebaseConfigTemplate,
   buildFirebaseHostingConfig,
@@ -22,6 +24,14 @@ import {
   type ExportAuthoringGateOptions
 } from "./shared.js";
 
+const GOOGLE_HOSTED_REACT_VERSION = "19.1.1";
+const GOOGLE_HOSTED_REACT_IMPORT_REWRITES: Array<[from: string, to: string]> = [
+  ["react", `https://esm.sh/react@${GOOGLE_HOSTED_REACT_VERSION}`],
+  ["react/jsx-runtime", `https://esm.sh/react@${GOOGLE_HOSTED_REACT_VERSION}/jsx-runtime`],
+  ["react/jsx-dev-runtime", `https://esm.sh/react@${GOOGLE_HOSTED_REACT_VERSION}/jsx-dev-runtime`],
+  ["react-dom/client", `https://esm.sh/react-dom@${GOOGLE_HOSTED_REACT_VERSION}/client`]
+];
+
 async function readPreservedDeployFiles(exportDir: string) {
   const preservedFileNames = ["firebase-config.json", ".firebaserc"];
   const preservedFiles = new Map<string, string>();
@@ -38,6 +48,95 @@ async function readPreservedDeployFiles(exportDir: string) {
   );
 
   return preservedFiles;
+}
+
+function escapeRegExp(value: string) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function rewriteReactImportsToEsmSh(source: string) {
+  let rewritten = source;
+  for (const [from, to] of GOOGLE_HOSTED_REACT_IMPORT_REWRITES) {
+    const pattern = new RegExp(`(["'])${escapeRegExp(from)}\\1`, "g");
+    rewritten = rewritten.replace(pattern, `"${to}"`);
+  }
+  return rewritten;
+}
+
+function formatTsDiagnostics(diagnostics: readonly ts.Diagnostic[]) {
+  return diagnostics
+    .map((diagnostic) => {
+      const message = ts.flattenDiagnosticMessageText(diagnostic.messageText, "\n").trim();
+      if (!diagnostic.file || typeof diagnostic.start !== "number") {
+        return message;
+      }
+      const position = diagnostic.file.getLineAndCharacterOfPosition(diagnostic.start);
+      return `${position.line + 1}:${position.character + 1} ${message}`;
+    })
+    .join("; ");
+}
+
+async function transpileHostedMainJsx(exportDir: string) {
+  const mainJsxPath = path.join(exportDir, "main.jsx");
+  if (!(await fileExists(mainJsxPath))) {
+    return false;
+  }
+
+  const mainJsxSource = await readFile(mainJsxPath, "utf8");
+  const transpileResult = ts.transpileModule(mainJsxSource, {
+    compilerOptions: {
+      jsx: ts.JsxEmit.ReactJSX,
+      module: ts.ModuleKind.ES2020,
+      target: ts.ScriptTarget.ES2020,
+      allowJs: true
+    },
+    fileName: "main.jsx",
+    reportDiagnostics: true
+  });
+
+  const diagnostics = (transpileResult.diagnostics ?? []).filter(
+    (diagnostic) => diagnostic.category === ts.DiagnosticCategory.Error
+  );
+  if (diagnostics.length > 0) {
+    throw new Error(`Failed to transpile main.jsx for Google Hosted export: ${formatTsDiagnostics(diagnostics)}`);
+  }
+
+  const browserSafeModule = rewriteReactImportsToEsmSh(transpileResult.outputText);
+  await writeTextFile(path.join(exportDir, "main.js"), browserSafeModule);
+  return true;
+}
+
+function extractD2LExportRoot(mapSource: string) {
+  const match = mapSource.match(/["']exportRoot["']\s*:\s*["']([^"']+)["']/);
+  return match?.[1]?.trim() || null;
+}
+
+async function copyHostedReferenceAssets(projectSlug: string, workspaceDir: string, exportDir: string) {
+  const d2lMapCandidates = [path.join(workspaceDir, "d2l-map-data.js"), path.join(workspaceDir, "assets", "d2l-map-data.js")];
+  let exportRoot: string | null = null;
+
+  for (const candidatePath of d2lMapCandidates) {
+    if (!(await fileExists(candidatePath))) {
+      continue;
+    }
+    const mapSource = await readFile(candidatePath, "utf8");
+    exportRoot = extractD2LExportRoot(mapSource);
+    if (exportRoot) {
+      break;
+    }
+  }
+
+  if (!exportRoot) {
+    return;
+  }
+
+  const paths = getProjectPaths(projectSlug);
+  const sourceReferenceRoot = path.join(paths.referencesDir, exportRoot);
+  if (!(await fileExists(sourceReferenceRoot))) {
+    return;
+  }
+
+  await copyDirectory(sourceReferenceRoot, path.join(exportDir, exportRoot));
 }
 
 export async function exportProjectToGoogleHosted(
@@ -60,6 +159,8 @@ export async function exportProjectToGoogleHosted(
   const preservedDeployFiles = await readPreservedDeployFiles(googleHostedExportDir);
 
   await copyWorkspaceToExportDir(paths.workspaceDir, googleHostedExportDir);
+  await transpileHostedMainJsx(googleHostedExportDir);
+  await copyHostedReferenceAssets(projectSlug, paths.workspaceDir, googleHostedExportDir);
 
   if (!(await fileExists(googleHostedEntrypointPath))) {
     throw new Error(
@@ -67,7 +168,9 @@ export async function exportProjectToGoogleHosted(
     );
   }
 
-  const storageKeys = await detectStorageKeysFromWorkspace(googleHostedExportDir, `${projectSlug}::workspace-state::v1`);
+  const fallbackStorageKey = `${projectSlug}::workspace-state::v1`;
+  const detectedStorageKeys = await detectStorageKeysFromWorkspace(googleHostedExportDir, fallbackStorageKey);
+  const storageKeys = [...new Set([fallbackStorageKey, ...detectedStorageKeys])];
 
   await Promise.all([
     writeTextFile(

@@ -1,5 +1,5 @@
 import __CanvasHelperReactDomClient from "https://esm.sh/react-dom@19.1.1/client";
-import React, { useEffect, useMemo, useState } from "https://esm.sh/react@19.1.1";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "https://esm.sh/react@19.1.1";
 import {
   ChevronDown,
   ChevronRight,
@@ -573,6 +573,48 @@ function hasMeaningfulHtmlContent(html) {
   return text.length >= 40 || mediaLike > 0;
 }
 
+function normalizeEmbedUrl(urlValue) {
+  const trimmed = String(urlValue || "").trim();
+  if (!trimmed) return "";
+  if (trimmed.startsWith("//")) return `https:${trimmed}`;
+  if (/^http:/i.test(trimmed)) return `https${trimmed.slice(4)}`;
+  return trimmed;
+}
+
+function parseEmbeddedVideoFromSource(htmlText, sourceFile, exportRoot) {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(htmlText, "text/html");
+  const rawIframe = doc.querySelector("iframe[src]")?.getAttribute("src");
+  const rawVideo = doc.querySelector("video source[src]")?.getAttribute("src");
+  const rawDirectVideo = doc.querySelector("video[src]")?.getAttribute("src");
+  const rawSource = rawIframe || rawVideo || rawDirectVideo || "";
+
+  if (!rawSource) {
+    return null;
+  }
+
+  if (/^\s*javascript:/i.test(rawSource) || /^\s*data:/i.test(rawSource)) {
+    return null;
+  }
+
+  const normalizedSource = normalizeEmbedUrl(rawSource);
+  const isRemote = /^(https?:)?\/\//i.test(normalizedSource);
+
+  if (isRemote) {
+    return {
+      embedUrl: normalizedSource,
+      rawSource,
+    };
+  }
+
+  const resolvedSource = resolveRelativePath(sourceFile, rawSource);
+  const withRoot = exportRoot ? joinPath(exportRoot, resolvedSource) : resolvedSource;
+  return {
+    embedUrl: buildReferenceUrl(withRoot),
+    rawSource: withRoot,
+  };
+}
+
 function splitHtmlIntoSections(html) {
   if (!html) return [];
   const parser = new DOMParser();
@@ -785,7 +827,103 @@ const MODULE4_ASSIGNMENT_EMBED_PATH = "./assets/module4assignment.html";
 const MODULE5_ASSIGNMENT_EMBED_PATH = "./assets/module5assignment.html";
 const MODULE6_ASSIGNMENT_EMBED_PATH = "./assets/module6assignment.html";
 const MODULE7_ASSIGNMENT_EMBED_PATH = "./assets/module7assignment.html";
-const MODULE8_ASSIGNMENT_EMBED_PATH = "./assets/module8assignment.html";
+const MODULE8_ASSIGNMENT_EMBED_PATH = "./assets/module8assignment.html?rev=20260318-5";
+const FORENSICS_WORKSPACE_STATE_KEY = "forensics::workspace-state::v1";
+
+function readForensicsWorkspaceState() {
+  if (typeof window === "undefined" || !window.localStorage) {
+    return null;
+  }
+
+  try {
+    const raw = window.localStorage.getItem(FORENSICS_WORKSPACE_STATE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === "object" ? parsed : null;
+  } catch {
+    return null;
+  }
+}
+
+function writeForensicsWorkspaceState(state) {
+  if (typeof window === "undefined" || !window.localStorage) {
+    return;
+  }
+
+  try {
+    window.localStorage.setItem(FORENSICS_WORKSPACE_STATE_KEY, JSON.stringify(state));
+  } catch {
+    // Keep preview interactive even if localStorage is blocked.
+  }
+}
+
+function buildPersistFieldKey(element, fallbackIndex) {
+  const explicitKey =
+    element.getAttribute("data-persist-key") ||
+    element.getAttribute("name") ||
+    element.getAttribute("id") ||
+    element.getAttribute("data-testid");
+  if (explicitKey) {
+    return `${element.tagName.toLowerCase()}:${explicitKey}`;
+  }
+  return `${element.tagName.toLowerCase()}:index-${fallbackIndex}`;
+}
+
+function captureIframeFormState(iframeNode) {
+  try {
+    const doc = iframeNode?.contentDocument;
+    if (!doc) return null;
+    const fields = {};
+    const elements = Array.from(doc.querySelectorAll("input, textarea, select"));
+    elements.forEach((element, index) => {
+      const key = buildPersistFieldKey(element, index);
+      const tag = element.tagName.toLowerCase();
+      if (tag === "input") {
+        const inputType = String(element.type || "text").toLowerCase();
+        if (inputType === "checkbox" || inputType === "radio") {
+          fields[key] = { type: "checked", value: !!element.checked };
+        } else {
+          fields[key] = { type: "value", value: String(element.value ?? "") };
+        }
+        return;
+      }
+      fields[key] = { type: "value", value: String(element.value ?? "") };
+    });
+    return {
+      schemaVersion: 1,
+      fields,
+      savedAt: new Date().toISOString(),
+    };
+  } catch {
+    return null;
+  }
+}
+
+function applyIframeFormState(iframeNode, draft) {
+  if (!draft || typeof draft !== "object" || !draft.fields || typeof draft.fields !== "object") {
+    return;
+  }
+
+  try {
+    const doc = iframeNode?.contentDocument;
+    if (!doc) return;
+    const elements = Array.from(doc.querySelectorAll("input, textarea, select"));
+    elements.forEach((element, index) => {
+      const key = buildPersistFieldKey(element, index);
+      const fieldState = draft.fields[key];
+      if (!fieldState || typeof fieldState !== "object") return;
+      if (fieldState.type === "checked") {
+        element.checked = !!fieldState.value;
+      } else {
+        element.value = String(fieldState.value ?? "");
+      }
+      element.dispatchEvent(new Event("input", { bubbles: true }));
+      element.dispatchEvent(new Event("change", { bubbles: true }));
+    });
+  } catch {
+    // Ignore restore failures for cross-document edge cases.
+  }
+}
 
 function Badge({ children, className = "", ...props }) {
   return (
@@ -1099,7 +1237,67 @@ function AssignmentRenderer({ data, meta, title }) {
   );
 }
 
-function EmbeddedAssignmentRenderer({ title, srcPath, introHtml = "" }) {
+function EmbeddedAssignmentRenderer({ title, srcPath, introHtml = "", lessonId, draft, onDraftChange }) {
+  const frameRef = useRef(null);
+  const cleanupRef = useRef(() => {});
+  const draftRef = useRef(draft);
+  const [mobileScale, setMobileScale] = useState(() =>
+    typeof window !== "undefined" && window.matchMedia("(max-width: 640px)").matches ? 0.8 : 1
+  );
+
+  useEffect(() => {
+    draftRef.current = draft;
+  }, [draft]);
+
+  const persistFormState = useCallback(() => {
+    if (!lessonId || typeof onDraftChange !== "function") return;
+    const nextDraft = captureIframeFormState(frameRef.current);
+    if (!nextDraft) return;
+    onDraftChange(lessonId, nextDraft);
+  }, [lessonId, onDraftChange]);
+
+  const handleFrameLoad = useCallback(() => {
+    const iframeNode = frameRef.current;
+    if (!iframeNode) return;
+
+    cleanupRef.current();
+    applyIframeFormState(iframeNode, draftRef.current);
+
+    const doc = iframeNode.contentDocument;
+    if (!doc) return;
+
+    const onFieldChange = () => {
+      persistFormState();
+    };
+
+    doc.addEventListener("input", onFieldChange, true);
+    doc.addEventListener("change", onFieldChange, true);
+    cleanupRef.current = () => {
+      doc.removeEventListener("input", onFieldChange, true);
+      doc.removeEventListener("change", onFieldChange, true);
+    };
+  }, [persistFormState]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const query = window.matchMedia("(max-width: 640px)");
+    const applyScale = () => setMobileScale(query.matches ? 0.8 : 1);
+    applyScale();
+    if (typeof query.addEventListener === "function") {
+      query.addEventListener("change", applyScale);
+      return () => query.removeEventListener("change", applyScale);
+    }
+    query.addListener(applyScale);
+    return () => query.removeListener(applyScale);
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      cleanupRef.current();
+      persistFormState();
+    };
+  }, [persistFormState]);
+
   return (
     <div className={`${FORENSIC_THEME.panel} p-6`} data-testid="renderer-assignment">
       <div className="mb-5 flex items-center justify-between">
@@ -1117,20 +1315,29 @@ function EmbeddedAssignmentRenderer({ title, srcPath, introHtml = "" }) {
       ) : null}
       <div className="rounded-2xl border border-white/[0.12] bg-[#0f172a]">
         <iframe
+          ref={frameRef}
           src={srcPath}
           title={title}
+          onLoad={handleFrameLoad}
           className="h-[1600px] min-h-[1600px] w-full md:h-[1800px] md:min-h-[1800px] xl:h-[2000px] xl:min-h-[2000px]"
+          style={mobileScale < 1 ? { zoom: mobileScale, width: `${100 / mobileScale}%` } : undefined}
         />
       </div>
     </div>
   );
 }
 
-function QuizRenderer({ quiz, questions, meta }) {
+function QuizRenderer({ quiz, questions, meta, lessonId, quizDraft, onQuizDraftChange }) {
   const parsedQuestions = questions?.length ? questions : quiz ? [quiz] : [];
-  const [questionIndex, setQuestionIndex] = useState(0);
-  const [answersByQuestion, setAnswersByQuestion] = useState({});
-  const [feedbackByQuestion, setFeedbackByQuestion] = useState({});
+  const [questionIndex, setQuestionIndex] = useState(() =>
+    Number.isInteger(quizDraft?.questionIndex) ? quizDraft.questionIndex : 0
+  );
+  const [answersByQuestion, setAnswersByQuestion] = useState(() =>
+    quizDraft?.answersByQuestion && typeof quizDraft.answersByQuestion === "object" ? quizDraft.answersByQuestion : {}
+  );
+  const [feedbackByQuestion, setFeedbackByQuestion] = useState(() =>
+    quizDraft?.feedbackByQuestion && typeof quizDraft.feedbackByQuestion === "object" ? quizDraft.feedbackByQuestion : {}
+  );
   const activeQuestion = parsedQuestions[questionIndex] || parsedQuestions[0];
   const activeQuestionId = activeQuestion?.id || `question-${questionIndex}`;
   const currentSelected = answersByQuestion[activeQuestionId];
@@ -1138,6 +1345,7 @@ function QuizRenderer({ quiz, questions, meta }) {
   const correct = currentSelected === activeQuestion?.answerIndex;
   const answeredCount = parsedQuestions.filter((question) => answersByQuestion[question.id] !== undefined).length;
   const correctCount = parsedQuestions.filter((question) => answersByQuestion[question.id] === question.answerIndex).length;
+  const questionSignature = parsedQuestions.map((question) => question.id).join("|");
 
   const resetQuizAttempt = () => {
     setQuestionIndex(0);
@@ -1222,8 +1430,28 @@ function QuizRenderer({ quiz, questions, meta }) {
   };
 
   useEffect(() => {
-    resetQuizAttempt();
-  }, [questions, quiz]);
+    const validQuestionIds = new Set(parsedQuestions.map((question) => question.id));
+    setQuestionIndex((prev) => {
+      if (!parsedQuestions.length) return 0;
+      return Math.min(Math.max(prev, 0), parsedQuestions.length - 1);
+    });
+    setAnswersByQuestion((prev) =>
+      Object.fromEntries(Object.entries(prev).filter(([questionId]) => validQuestionIds.has(questionId)))
+    );
+    setFeedbackByQuestion((prev) =>
+      Object.fromEntries(Object.entries(prev).filter(([questionId]) => validQuestionIds.has(questionId)))
+    );
+  }, [questionSignature]);
+
+  useEffect(() => {
+    if (!lessonId || typeof onQuizDraftChange !== "function") return;
+    onQuizDraftChange(lessonId, {
+      questionIndex,
+      answersByQuestion,
+      feedbackByQuestion,
+      savedAt: new Date().toISOString(),
+    });
+  }, [lessonId, questionIndex, answersByQuestion, feedbackByQuestion, onQuizDraftChange]);
 
   return (
     <div className={`${FORENSIC_THEME.panel} p-6`} data-testid="renderer-quiz">
@@ -1344,7 +1572,8 @@ function QuizRenderer({ quiz, questions, meta }) {
   );
 }
 
-function VideoRenderer({ title }) {
+function VideoRenderer({ title, video }) {
+  const embedUrl = video?.embedUrl;
   return (
     <div className={`${FORENSIC_THEME.panel} p-6`} data-testid="renderer-video">
       <div className="mb-4 flex items-center justify-between">
@@ -1355,13 +1584,39 @@ function VideoRenderer({ title }) {
         <Badge>responsive embed</Badge>
       </div>
       <div className="overflow-hidden rounded-2xl border border-white/[0.12] bg-slate-950">
-        <div className="flex aspect-video items-center justify-center bg-[radial-gradient(circle_at_top,rgba(185,28,28,0.16),transparent_42%),linear-gradient(135deg,#101216,#08090c)]">
-          <div className="text-center">
-            <PlayCircle className="mx-auto h-14 w-14 text-[#fecaca]" />
-            <div className="mt-3 text-lg font-semibold text-[#f3f4f6]">{title}</div>
-            <p className="mt-2 max-w-lg text-sm text-[#cbd5e1]">The real build would embed the exported video page cleanly here instead of leaving it as an awkward detached Brightspace wrapper.</p>
+        {embedUrl ? (
+          <iframe
+            src={embedUrl}
+            title={`Video for ${title}`}
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="aspect-video w-full border-0"
+          />
+        ) : (
+          <div className="flex aspect-video items-center justify-center bg-[radial-gradient(circle_at_top,rgba(185,28,28,0.16),transparent_42%),linear-gradient(135deg,#101216,#08090c)]">
+            <div className="text-center">
+              <PlayCircle className="mx-auto h-14 w-14 text-[#fecaca]" />
+              <div className="mt-3 text-lg font-semibold text-[#f3f4f6]">{title}</div>
+              <p className="mt-2 max-w-lg text-sm text-[#cbd5e1]">
+                Could not detect a supported embedded media source. Use the direct source link if needed.
+              </p>
+            </div>
           </div>
-        </div>
+        )}
+      </div>
+      {video?.sourcePath ? (
+        <a
+          href={video.sourcePath}
+          target="_blank"
+          rel="noreferrer"
+          className={`mt-4 inline-flex ${FORENSIC_THEME.buttonSecondary}`}
+        >
+          Open source in new tab
+        </a>
+      ) : null}
+      <div className="mt-3 text-xs text-[#94a3b8]">
+        If this shows a blank frame, open the source in a new tab and allow embedded content from that provider.
       </div>
     </div>
   );
@@ -1376,7 +1631,14 @@ function SourceFallback({ activeLesson, sourcePreview }) {
       </p>
       <div className="mt-4 space-y-2 rounded-xl border border-white/[0.12] bg-white/[0.04] p-4 text-xs text-[#e2e8f0]">
         <div><strong>Type:</strong> {typeLabel(activeLesson?.type)}</div>
-        {sourcePreview?.error && <div><strong>Status:</strong> Rendering is still in progress for this item.</div>}
+        {sourcePreview?.error && (
+          <div>
+            <strong>Details:</strong> {sourcePreview.error}
+            {sourcePreview.error.includes("401") || sourcePreview.error.includes("403") || sourcePreview.error.includes("Unauthorized")
+              ? " This usually means the current host/domain is not allowed for embedded content."
+              : null}
+          </div>
+        )}
       </div>
     </div>
   );
@@ -1437,8 +1699,8 @@ function QuickCheckpoints({ activeLesson }) {
   );
 }
 
-function renderNodePreview(activeLesson, sourcePreview) {
-  const isSourceCritical = ["html-reading", "pdf", "assignment", "quiz"].includes(activeLesson.type);
+function renderNodePreview(activeLesson, sourcePreview, persistedState) {
+  const isSourceCritical = ["html-reading", "pdf", "assignment", "quiz", "embedded-video"].includes(activeLesson.type);
 
   if (isSourceCritical && sourcePreview?.status === "loading") {
     return <div className={`${FORENSIC_THEME.panelSoft} p-6 text-sm text-[#a1a8b3]`}>Loading content...</div>;
@@ -1468,6 +1730,9 @@ function renderNodePreview(activeLesson, sourcePreview) {
         title={activeLesson.title}
         srcPath={activeLesson.embedPath || MODULE4_ASSIGNMENT_EMBED_PATH}
         introHtml={activeLesson.assignmentXml?.intro || activeLesson.introHtml || ""}
+        lessonId={activeLesson.id}
+        draft={persistedState?.labDrafts?.[activeLesson.id]}
+        onDraftChange={persistedState?.onLabDraftChange}
       />
     );
   }
@@ -1475,13 +1740,25 @@ function renderNodePreview(activeLesson, sourcePreview) {
     const quiz = sourcePreview?.kind === "quiz" ? sourcePreview.quizSample : activeLesson.quizSample;
     const questions = sourcePreview?.kind === "quiz" ? sourcePreview.quizQuestions : activeLesson.quizQuestions;
     const meta = sourcePreview?.kind === "quiz" ? sourcePreview.quizMeta : activeLesson.quizMeta;
-    return <QuizRenderer quiz={quiz} questions={questions} meta={meta} />;
+    return (
+      <QuizRenderer
+        quiz={quiz}
+        questions={questions}
+        meta={meta}
+        lessonId={activeLesson.id}
+        quizDraft={persistedState?.quizDrafts?.[activeLesson.id]}
+        onQuizDraftChange={persistedState?.onQuizDraftChange}
+      />
+    );
   }
-  if (activeLesson.type === "embedded-video") return <VideoRenderer title={activeLesson.title} />;
+  if (activeLesson.type === "embedded-video") {
+    const video = sourcePreview?.kind === "embedded-video" ? sourcePreview.video : activeLesson.video;
+    return <VideoRenderer title={activeLesson.title} video={video} />;
+  }
   return <SourceFallback activeLesson={activeLesson} sourcePreview={sourcePreview} />;
 }
 
-function ChapterLessonCard({ lesson }) {
+function ChapterLessonCard({ lesson, quizDrafts, onQuizDraftChange, labDrafts, onLabDraftChange }) {
   const [sourcePreview, setSourcePreview] = useState({ status: "idle", kind: null });
 
   useEffect(() => {
@@ -1538,6 +1815,30 @@ function ChapterLessonCard({ lesson }) {
             return;
           }
 
+          if (lesson.type === "embedded-video") {
+            const parsed = parseEmbeddedVideoFromSource(text, sourcePath, exportRoot);
+            if (!cancelled) {
+              if (parsed?.embedUrl) {
+                setSourcePreview({
+                  status: "ready",
+                  kind: "embedded-video",
+                  video: {
+                    ...parsed,
+                    sourcePath: buildReferenceUrl(candidate),
+                  },
+                  sourcePath: candidate,
+                });
+              } else {
+                setSourcePreview({
+                  status: "error",
+                  kind: null,
+                  error: "Could not extract an embedded video source from this lesson.",
+                });
+              }
+            }
+            return;
+          }
+
           if (!cancelled) {
             setSourcePreview({ status: "ready", kind: "text", text, sourcePath: candidate });
           }
@@ -1568,21 +1869,72 @@ function ChapterLessonCard({ lesson }) {
         {lesson.type !== "html-reading" ? <Badge>{typeLabel(lesson.type)}</Badge> : null}
       </div>
       <h3 className="text-2xl font-semibold tracking-tight text-[#f3f4f6]">{formatLessonTitleForDisplay(lesson)}</h3>
-      <div className="mt-6">{renderNodePreview(lesson, sourcePreview)}</div>
+      <div className="mt-6">
+        {renderNodePreview(lesson, sourcePreview, {
+          quizDrafts,
+          onQuizDraftChange,
+          labDrafts,
+          onLabDraftChange,
+        })}
+      </div>
     </section>
   );
 }
 
 export default function ForensicCoursePlayerPreviewRestored() {
-  const [activeChapterId, setActiveChapterId] = useState(resolvedModules[0]?.id ?? "");
-  const [activeModuleView, setActiveModuleView] = useState("content");
-  const [chapterVisited, setChapterVisited] = useState({});
-  const [query, setQuery] = useState("");
-  const [includeHidden, setIncludeHidden] = useState(false);
-  const [isChapterMenuCollapsed, setIsChapterMenuCollapsed] = useState(false);
+  const initialWorkspaceState = useMemo(() => readForensicsWorkspaceState(), []);
+  const initialUiState = initialWorkspaceState?.ui && typeof initialWorkspaceState.ui === "object"
+    ? initialWorkspaceState.ui
+    : {};
+  const [activeChapterId, setActiveChapterId] = useState(
+    typeof initialUiState.activeChapterId === "string" ? initialUiState.activeChapterId : resolvedModules[0]?.id ?? ""
+  );
+  const [activeModuleView, setActiveModuleView] = useState(
+    initialUiState.activeModuleView === "assignments" ? "assignments" : "content"
+  );
+  const [chapterVisited, setChapterVisited] = useState(
+    initialUiState.chapterVisited && typeof initialUiState.chapterVisited === "object" ? initialUiState.chapterVisited : {}
+  );
+  const [query, setQuery] = useState(typeof initialUiState.query === "string" ? initialUiState.query : "");
+  const [isChapterMenuCollapsed, setIsChapterMenuCollapsed] = useState(Boolean(initialUiState.isChapterMenuCollapsed));
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [quizDrafts, setQuizDrafts] = useState(
+    initialWorkspaceState?.quizDrafts && typeof initialWorkspaceState.quizDrafts === "object"
+      ? initialWorkspaceState.quizDrafts
+      : {}
+  );
+  const [labDrafts, setLabDrafts] = useState(
+    initialWorkspaceState?.labDrafts && typeof initialWorkspaceState.labDrafts === "object"
+      ? initialWorkspaceState.labDrafts
+      : {}
+  );
+  const handleQuizDraftChange = useCallback((lessonId, draft) => {
+    if (!lessonId || !draft || typeof draft !== "object") return;
+    setQuizDrafts((prev) => {
+      const nextValue = { ...prev, [lessonId]: draft };
+      return nextValue;
+    });
+  }, []);
+  const handleLabDraftChange = useCallback((lessonId, draft) => {
+    if (!lessonId || !draft || typeof draft !== "object") return;
+    setLabDrafts((prev) => {
+      const nextValue = { ...prev, [lessonId]: draft };
+      return nextValue;
+    });
+  }, []);
+  const isExcludedModuleTitle = (title) => {
+    const normalizedTitle = (title || "").trim().toLowerCase();
+    return (
+      normalizedTitle === "course information" ||
+      normalizedTitle === "final exam" ||
+      normalizedTitle.includes("teacher resources") ||
+      normalizedTitle.includes("extra credit")
+    );
+  };
 
   const filteredModules = resolvedModules
-    .filter((module) => includeHidden || !module.isHidden)
+    .filter((module) => !module.isHidden)
+    .filter((module) => !isExcludedModuleTitle(module.title))
     .map((module) => ({
       ...module,
       lessons: module.lessons,
@@ -1596,13 +1948,14 @@ export default function ForensicCoursePlayerPreviewRestored() {
   const fallbackFilteredModules = useMemo(
     () =>
       fallbackModules
-        .filter((module) => includeHidden || !module.isHidden)
+        .filter((module) => !module.isHidden)
+        .filter((module) => !isExcludedModuleTitle(module.title))
         .map((module) => ({
           ...module,
           lessons: module.lessons,
         }))
         .filter((module) => module.title.toLowerCase().includes(query.toLowerCase()) || query.length === 0),
-    [fallbackModules, includeHidden, query]
+    [fallbackModules, query]
   );
   const shouldUseFallbackCourse = query.length === 0 && effectiveModules.length === 0 && fallbackFilteredModules.length > 0;
   const finalModules = shouldUseFallbackCourse ? fallbackFilteredModules : effectiveModules;
@@ -1641,6 +1994,9 @@ export default function ForensicCoursePlayerPreviewRestored() {
     const moduleSevenExcludedTitles = new Set([
       "forensic dna evidence assignment",
     ]);
+    const moduleEightExcludedTitles = new Set([
+      "careers in forensic science assignment",
+    ]);
     const isUnitAssessmentSection = (title) => (title || "").trim().toLowerCase().includes("unit assessment");
     const isModuleTwo = (activeChapter?.title || "").toLowerCase().includes("types of evidence and fingerprint analysis");
     const isModuleThreeForFilter = (activeChapter?.title || "").toLowerCase().includes("trace evidence");
@@ -1648,6 +2004,7 @@ export default function ForensicCoursePlayerPreviewRestored() {
     const isModuleFiveForFilter = (activeChapter?.title || "").toLowerCase().includes("forensic detection of impaired driving");
     const isModuleSixForFilter = (activeChapter?.title || "").toLowerCase().includes("polygraphing and document analysis");
     const isModuleSevenForFilter = (activeChapter?.title || "").toLowerCase().includes("forensic genetics");
+    const isModuleEightForFilter = (activeChapter?.title || "").toLowerCase().includes("careers in forensic science");
     const normalizedLessons = (activeChapter?.lessons || [])
       .filter((lesson) => !isUnitAssessmentSection(lesson.title))
       .filter((lesson) => {
@@ -1658,6 +2015,7 @@ export default function ForensicCoursePlayerPreviewRestored() {
         if (isModuleFiveForFilter) return !moduleFiveExcludedTitles.has(normalizedTitle);
         if (isModuleSixForFilter) return !moduleSixExcludedTitles.has(normalizedTitle);
         if (isModuleSevenForFilter) return !moduleSevenExcludedTitles.has(normalizedTitle);
+        if (isModuleEightForFilter) return !moduleEightExcludedTitles.has(normalizedTitle);
         return true;
       })
       .map((lesson) => ({
@@ -1891,8 +2249,9 @@ export default function ForensicCoursePlayerPreviewRestored() {
   }, [activeChapter]);
   const chapterLessons = chapterLessonGroups.contentLessons;
   const chapterAssignments = chapterLessonGroups.assignmentLessons;
+  const completedSectionCount = Object.values(chapterVisited).filter(Boolean).length;
   const progress = safeModules.length
-    ? Math.round((Object.values(chapterVisited).filter(Boolean).length / safeModules.length) * 100)
+    ? Math.round((completedSectionCount / safeModules.length) * 100)
     : 0;
 
   useEffect(() => {
@@ -1916,9 +2275,51 @@ export default function ForensicCoursePlayerPreviewRestored() {
     setChapterVisited((prev) => ({ ...prev, [activeChapter.id]: true }));
   }, [activeChapter?.id]);
 
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [activeChapterId, activeModuleView]);
+
+  useEffect(() => {
+    writeForensicsWorkspaceState({
+      schemaVersion: 1,
+      savedAt: new Date().toISOString(),
+      ui: {
+        activeChapterId,
+        activeModuleView,
+        chapterVisited,
+        query,
+        isChapterMenuCollapsed,
+      },
+      quizDrafts,
+      labDrafts,
+      reportSnapshot: {
+        progressPercent: progress,
+        completedSections: completedSectionCount,
+        totalSections: safeModules.length,
+        activeModuleId: activeChapter?.id || "",
+        activeModuleTitle: activeChapter?.title || "",
+      },
+    });
+  }, [
+    activeChapterId,
+    activeModuleView,
+    chapterVisited,
+    query,
+    isChapterMenuCollapsed,
+    quizDrafts,
+    labDrafts,
+    progress,
+    completedSectionCount,
+    safeModules.length,
+    activeChapter?.id,
+    activeChapter?.title,
+  ]);
+
+  const isMenuCollapsed = isChapterMenuCollapsed && !isMobileMenuOpen;
+
   if (!activeChapter) {
     return (
-      <div className="forensic-app min-h-screen bg-[#0a0b0d] p-10 text-[#a1a8b3]">
+      <div className="forensic-app min-h-screen bg-[#0a0b0d] p-4 text-[#a1a8b3] sm:p-8">
         No chapters were mapped from the D2L course map yet.
       </div>
     );
@@ -1942,41 +2343,61 @@ export default function ForensicCoursePlayerPreviewRestored() {
         }
       `}</style>
       <div className="flex min-h-screen">
+        <button
+          type="button"
+          className={`fixed inset-0 z-30 bg-black/65 transition-opacity duration-200 lg:hidden ${
+            isMobileMenuOpen ? "opacity-100" : "pointer-events-none opacity-0"
+          }`}
+          aria-hidden={isMobileMenuOpen ? "false" : "true"}
+          onClick={() => setIsMobileMenuOpen(false)}
+          title="Close menu overlay"
+        />
         <aside
-          className={`sticky top-0 h-screen shrink-0 overflow-hidden border-r border-white/[0.08] bg-[#101216]/90 backdrop-blur-xl transition-[width] duration-200 ${
-            isChapterMenuCollapsed ? "w-16" : "w-[340px]"
+          className={`fixed inset-y-0 left-0 z-40 h-screen shrink-0 overflow-hidden border-r border-white/[0.08] bg-[#101216]/95 backdrop-blur-xl transition-[width,transform] duration-200 lg:sticky lg:top-0 lg:z-0 lg:bg-[#101216]/90 ${
+            isMobileMenuOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
+          } ${isMenuCollapsed ? "lg:w-16" : "w-[86vw] max-w-[340px] lg:w-[340px]"}
           }`}
           data-testid="chapter-menu-panel"
-          data-collapsed={isChapterMenuCollapsed ? "true" : "false"}
+          data-collapsed={isMenuCollapsed ? "true" : "false"}
         >
-          <div className={`border-b border-white/[0.08] ${isChapterMenuCollapsed ? "px-2 py-4" : "px-5 py-5"}`}>
-            <div className={`mb-3 flex ${isChapterMenuCollapsed ? "justify-center" : "items-start justify-between gap-3"}`}>
-              {!isChapterMenuCollapsed ? (
+          <div className={`border-b border-white/[0.08] ${isMenuCollapsed ? "px-2 py-4" : "px-5 py-5"}`}>
+            <div className={`mb-3 flex ${isMenuCollapsed ? "justify-center" : "items-start justify-between gap-3"}`}>
+              {!isMenuCollapsed ? (
                 <div>
                   <div className={FORENSIC_THEME.overline}>Case file</div>
                   <h1 className="mt-1 text-xl font-semibold text-[#f3f4f6]">{resolvedCourse.title}</h1>
                 </div>
               ) : null}
               <button
+                type="button"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/[0.14] bg-white/[0.04] text-[#d1d5db] transition duration-200 hover:border-white/[0.28] hover:bg-white/[0.08] hover:text-[#f3f4f6] lg:hidden"
+                aria-label="Close chapter menu"
+                title="Close chapter menu"
+              >
+                <span className="text-lg leading-none">×</span>
+              </button>
+              <button
+                type="button"
                 onClick={() => setIsChapterMenuCollapsed((prev) => !prev)}
-                className={`flex h-10 w-10 items-center justify-center rounded-lg border transition duration-200 ${
-                  isChapterMenuCollapsed
+                className={`hidden h-10 w-10 items-center justify-center rounded-lg border transition duration-200 lg:flex ${
+                  isMenuCollapsed
                     ? "border-[#dc2626]/70 bg-[#b91c1c] text-[#fef2f2] hover:bg-[#dc2626] hover:shadow-[0_0_0_1px_rgba(220,38,38,0.45)]"
                     : "border-white/[0.14] bg-white/[0.04] text-[#d1d5db] hover:border-white/[0.28] hover:bg-white/[0.08] hover:text-[#f3f4f6]"
                 }`}
                 data-testid="chapter-menu-toggle"
-                aria-expanded={isChapterMenuCollapsed ? "false" : "true"}
-                aria-label={isChapterMenuCollapsed ? "Open chapter menu" : "Collapse chapter menu"}
-                title={isChapterMenuCollapsed ? "Open chapter menu" : "Collapse chapter menu"}
+                aria-expanded={isMenuCollapsed ? "false" : "true"}
+                aria-label={isMenuCollapsed ? "Open chapter menu" : "Collapse chapter menu"}
+                title={isMenuCollapsed ? "Open chapter menu" : "Collapse chapter menu"}
               >
                 <span className="flex flex-col gap-1.5">
-                  <span className={`block h-[2px] w-4 rounded-full ${isChapterMenuCollapsed ? "bg-[#fef2f2]" : "bg-[#d1d5db]"}`} />
-                  <span className={`block h-[2px] w-4 rounded-full ${isChapterMenuCollapsed ? "bg-[#fef2f2]" : "bg-[#d1d5db]"}`} />
-                  <span className={`block h-[2px] w-4 rounded-full ${isChapterMenuCollapsed ? "bg-[#fef2f2]" : "bg-[#d1d5db]"}`} />
+                  <span className={`block h-[2px] w-4 rounded-full ${isMenuCollapsed ? "bg-[#fef2f2]" : "bg-[#d1d5db]"}`} />
+                  <span className={`block h-[2px] w-4 rounded-full ${isMenuCollapsed ? "bg-[#fef2f2]" : "bg-[#d1d5db]"}`} />
+                  <span className={`block h-[2px] w-4 rounded-full ${isMenuCollapsed ? "bg-[#fef2f2]" : "bg-[#d1d5db]"}`} />
                 </span>
               </button>
             </div>
-            {isChapterMenuCollapsed ? null : (
+            {isMenuCollapsed ? null : (
               <>
                 <div className={`${FORENSIC_THEME.panelSoft} p-3`}>
               <div className="mb-2 flex items-center justify-between text-sm">
@@ -2001,31 +2422,12 @@ export default function ForensicCoursePlayerPreviewRestored() {
                 data-testid="lesson-search"
               />
             </div>
-                <div className="mt-3 flex items-center justify-between rounded-xl border border-white/[0.1] bg-white/[0.03] px-3 py-2.5">
-              <div>
-                <div className={FORENSIC_THEME.overline}>Visibility</div>
-                <div className="text-xs text-[#a1a8b3]" data-testid="mode-indicator">
-                  {includeHidden ? "Archive mode" : "Learner mode"}
-                </div>
-              </div>
-              <button
-                onClick={() => setIncludeHidden((prev) => !prev)}
-                className={`rounded-lg border px-3 py-1.5 text-xs font-semibold transition duration-200 ${
-                  includeHidden
-                    ? "border-[#f59e0b]/40 bg-[#3b2b11] text-[#fcd34d]"
-                    : "border-[#b91c1c]/55 bg-[#1a1215] text-[#fecaca]"
-                }`}
-                data-testid="mode-toggle"
-              >
-                {includeHidden ? "Hide admin-only" : "Show archive"}
-              </button>
-                </div>
               </>
             )}
           </div>
 
           <div
-            className={`${isChapterMenuCollapsed ? "hidden" : "h-[calc(100vh-245px)] overflow-y-auto px-3 py-4"}`}
+            className={`${isMenuCollapsed ? "hidden" : "h-[calc(100vh-245px)] overflow-y-auto px-3 py-4"}`}
             data-testid="module-list"
           >
             {safeModules.map((module) => {
@@ -2085,13 +2487,24 @@ export default function ForensicCoursePlayerPreviewRestored() {
           </div>
         </aside>
 
-        <main className="flex-1 overflow-y-auto">
+        <main className="min-w-0 flex-1 overflow-x-hidden overflow-y-auto">
           <div className="sticky top-0 z-10 border-b border-white/[0.08] bg-[#101216]/95 shadow-[0_10px_24px_rgba(0,0,0,0.45)] backdrop-blur-xl">
-            <div className="px-8 py-5">
+            <div className="px-4 py-4 sm:px-6 lg:px-8 lg:py-5">
               <div className="mb-2 flex flex-wrap items-center gap-2 text-sm text-[#a1a8b3]">
+                <button
+                  type="button"
+                  onClick={() => setIsMobileMenuOpen(true)}
+                  className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/[0.14] bg-white/[0.04] text-[#d1d5db] transition duration-200 hover:border-white/[0.28] hover:bg-white/[0.08] hover:text-[#f3f4f6] lg:hidden"
+                  aria-label="Open chapter menu"
+                  title="Open chapter menu"
+                >
+                  <span className="flex flex-col gap-1.5">
+                    <span className="block h-[2px] w-4 rounded-full bg-[#d1d5db]" />
+                    <span className="block h-[2px] w-4 rounded-full bg-[#d1d5db]" />
+                    <span className="block h-[2px] w-4 rounded-full bg-[#d1d5db]" />
+                  </span>
+                </button>
                 <span className="text-[#f3f4f6]">{formatModuleTitleForDisplay(activeChapter.title)}</span>
-                {includeHidden && <Badge>archive mode</Badge>}
-                {activeChapter.isHidden && <Badge>admin-only</Badge>}
               </div>
               <h2 className="text-3xl font-semibold tracking-tight text-[#f3f4f6]" data-testid="lesson-title">
                 {formatModuleTitleForDisplay(activeChapter.title)}
@@ -2102,7 +2515,7 @@ export default function ForensicCoursePlayerPreviewRestored() {
             </div>
           </div>
 
-          <div className="mx-auto max-w-7xl px-8 py-10">
+          <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 lg:py-10">
             {activeModuleView === "assignments" ? (
               <div className="space-y-6" data-testid="module-assignments-view">
                 <section className={`${FORENSIC_THEME.panel} p-8`}>
@@ -2123,7 +2536,14 @@ export default function ForensicCoursePlayerPreviewRestored() {
                   </section>
                 ) : (
                   chapterAssignments.map((lesson) => (
-                    <ChapterLessonCard key={lesson.id} lesson={lesson} />
+                    <ChapterLessonCard
+                      key={lesson.id}
+                      lesson={lesson}
+                      quizDrafts={quizDrafts}
+                      onQuizDraftChange={handleQuizDraftChange}
+                      labDrafts={labDrafts}
+                      onLabDraftChange={handleLabDraftChange}
+                    />
                   ))
                 )}
               </div>
@@ -2138,7 +2558,14 @@ export default function ForensicCoursePlayerPreviewRestored() {
                   </section>
                 ) : null}
                 {chapterLessons.map((lesson) => (
-                  <ChapterLessonCard key={lesson.id} lesson={lesson} />
+                  <ChapterLessonCard
+                    key={lesson.id}
+                    lesson={lesson}
+                    quizDrafts={quizDrafts}
+                    onQuizDraftChange={handleQuizDraftChange}
+                    labDrafts={labDrafts}
+                    onLabDraftChange={handleLabDraftChange}
+                  />
                 ))}
               </div>
             )}
