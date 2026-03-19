@@ -3,6 +3,7 @@ import __CanvasHelperReactDomClient from "https://esm.sh/react-dom@19.1.1/client
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "https://esm.sh/react@19.1.1";
 import { ChevronDown, ChevronRight, CheckCircle2, Circle, ArrowLeft, ArrowRight, FileText, ClipboardCheck, Library, Search, PlayCircle, FileImage, FileQuestion, FileBadge, Bookmark, } from "https://esm.sh/lucide-react@0.542.0?deps=react@19.1.1";
 import d2lCourseMapData from "./d2l-map-data.js";
+import courseShellData from "./course-shell-data.js";
 const actualHtmlSamples = {
     citeSources: `
     <div class="lesson-html">
@@ -248,6 +249,11 @@ function buildCourseFromD2LMap(seed, d2lMap) {
     if (!d2lMap?.modules?.length) {
         return seed;
     }
+    const shellActivities = (courseShellData?.modules || []).flatMap((module) => module.activities || []);
+    const shellBySource = new Map(shellActivities
+        .filter((activity) => activity?.sourceHref)
+        .map((activity) => [normalizePath(activity.sourceHref), activity]));
+    const shellByTitle = new Map(shellActivities.map((activity) => [(activity?.title || "").trim().toLowerCase(), activity]));
     const seededLessons = seed.modules.flatMap((module) => module.lessons);
     const seededBySource = new Map(seededLessons
         .filter((lesson) => lesson.sourceFile)
@@ -270,11 +276,16 @@ function buildCourseFromD2LMap(seed, d2lMap) {
         });
         const lessons = filteredLeaves.map((node, index) => {
             const sourceFile = node.resource?.hrefs?.[0] ?? "";
+            const shellActivity = shellBySource.get(normalizePath(sourceFile))
+                ?? shellByTitle.get((node.title || "").trim().toLowerCase());
             const seeded = seededBySource.get(sourceFile) ??
                 seededByTitle.get((node.title || "").trim().toLowerCase());
             const type = mapKindToLessonType(node.kind, sourceFile, node.title);
             const id = slugify(node.id || `${moduleNode.id}-${index}-${node.title}`);
             const lessonHidden = moduleHidden || isHiddenLabel(node.title);
+            const contentPreview = (shellActivity?.contentPreview && String(shellActivity.contentPreview).trim())
+                || (seeded?.contentPreview && String(seeded.contentPreview).trim())
+                || "";
             if (seeded) {
                 return {
                     ...seeded,
@@ -283,6 +294,7 @@ function buildCourseFromD2LMap(seed, d2lMap) {
                     type: seeded.type || type,
                     sourceFile: sourceFile || seeded.sourceFile,
                     resources: seeded.resources?.length ? seeded.resources : sourceFile ? [sourceFile] : [],
+                    contentPreview,
                     isHidden: lessonHidden,
                 };
             }
@@ -292,6 +304,8 @@ function buildCourseFromD2LMap(seed, d2lMap) {
                 type,
                 sourceFile: sourceFile || `manifest:${node.id}`,
                 resources: sourceFile ? [sourceFile] : [],
+                description: shellActivity?.description || "Course content item",
+                contentPreview,
                 isHidden: lessonHidden,
                 learn: {
                     heading: node.title || `Lesson ${index + 1}`,
@@ -337,7 +351,28 @@ const flatLessons = resolvedModules.flatMap((module) => module.lessons.map((less
     moduleLessonCount: module.lessonCount,
 })));
 function normalizePath(path) {
-    return String(path || "").replace(/\\/g, "/").replace(/^\/+/, "").replace(/\/{2,}/g, "/");
+    return String(path || "")
+        .replace(/\\/g, "/")
+        .replace(/^\/+/, "")
+        .replace(/\/{2,}/g, "/")
+        .replace(/^content\//i, "content/");
+}
+const CYRILLIC_CONTENT_ROOT = "\u0441ontent";
+const MOJIBAKE_CONTENT_ROOT = "\u00D1\u0081ontent";
+function buildReferencePathVariants(pathValue) {
+    const normalized = normalizePath(pathValue);
+    if (!normalized)
+        return [];
+    const variants = new Set([normalized]);
+    const slashIndex = normalized.indexOf("/");
+    const root = slashIndex === -1 ? normalized : normalized.slice(0, slashIndex);
+    const remainder = slashIndex === -1 ? "" : normalized.slice(slashIndex);
+    if (root.toLowerCase() === "content" || root === CYRILLIC_CONTENT_ROOT || root === MOJIBAKE_CONTENT_ROOT) {
+        variants.add(`content${remainder}`);
+        variants.add(`${CYRILLIC_CONTENT_ROOT}${remainder}`);
+        variants.add(`${MOJIBAKE_CONTENT_ROOT}${remainder}`);
+    }
+    return [...variants];
 }
 function stripQueryAndHash(pathValue) {
     return String(pathValue || "").split("#")[0].split("?")[0];
@@ -605,6 +640,28 @@ function decodeHtmlEntities(value) {
     const node = document.createElement("textarea");
     node.innerHTML = value;
     return node.value;
+}
+function escapeHtml(value) {
+    return String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+}
+function buildReadingFallbackHtml(lesson) {
+    if (lesson?.htmlSample)
+        return lesson.htmlSample;
+    const previewText = String(lesson?.contentPreview || lesson?.description || "").trim();
+    if (!previewText)
+        return "";
+    const paragraphs = previewText
+        .split(/\n+/)
+        .map((line) => line.trim())
+        .filter(Boolean)
+        .map((line) => `<p>${escapeHtml(line)}</p>`)
+        .join("");
+    return `<div class="space-y-4">${paragraphs}</div>`;
 }
 function getElementsByLocalName(root, localName) {
     return Array.from(root.getElementsByTagName("*")).filter((el) => el.localName === localName);
@@ -1161,16 +1218,22 @@ function QuickCheckpoints({ activeLesson }) {
 }
 function renderNodePreview(activeLesson, sourcePreview, persistedState) {
     const isSourceCritical = ["html-reading", "pdf", "assignment", "quiz", "embedded-video"].includes(activeLesson.type);
+    if (activeLesson.type === "html-reading") {
+        const html = sourcePreview?.kind === "html" ? sourcePreview.html : buildReadingFallbackHtml(activeLesson);
+        if (html)
+            return _jsx(HtmlRenderer, { html: html });
+        if (sourcePreview?.status === "loading") {
+            return _jsx("div", { className: `${FORENSIC_THEME.panelSoft} p-6 text-sm text-[#a1a8b3]`, children: "Loading content..." });
+        }
+        if (sourcePreview?.status === "error") {
+            return _jsx(SourceFallback, { activeLesson: activeLesson, sourcePreview: sourcePreview });
+        }
+    }
     if (isSourceCritical && sourcePreview?.status === "loading") {
         return _jsx("div", { className: `${FORENSIC_THEME.panelSoft} p-6 text-sm text-[#a1a8b3]`, children: "Loading content..." });
     }
     if (isSourceCritical && sourcePreview?.status === "error") {
         return _jsx(SourceFallback, { activeLesson: activeLesson, sourcePreview: sourcePreview });
-    }
-    if (activeLesson.type === "html-reading") {
-        const html = sourcePreview?.kind === "html" ? sourcePreview.html : activeLesson.htmlSample;
-        if (html)
-            return _jsx(HtmlRenderer, { html: html });
     }
     if (activeLesson.type === "pdf") {
         const sourceUrl = sourcePreview?.kind === "pdf" ? sourcePreview.url : undefined;
@@ -1208,9 +1271,17 @@ function ChapterLessonCard({ lesson, quizDrafts, onQuizDraftChange, labDrafts, o
                     setSourcePreview({ status: "idle", kind: null });
                 return;
             }
-            const sourcePath = normalizePath(lesson.sourceFile);
+                        const sourcePath = normalizePath(lesson.sourceFile);
             const exportRoot = normalizePath(d2lCourseMapData.exportRoot || "");
-            const candidates = [joinPath(exportRoot, sourcePath), sourcePath].filter(Boolean);
+            const sourceVariants = buildReferencePathVariants(sourcePath);
+            const candidateSet = new Set();
+            for (const variant of sourceVariants) {
+                candidateSet.add(variant);
+                if (exportRoot) {
+                    candidateSet.add(joinPath(exportRoot, variant));
+                }
+            }
+            const candidates = [...candidateSet].filter(Boolean);
             if (!cancelled) {
                 setSourcePreview({ status: "loading", kind: null });
             }
@@ -1284,10 +1355,24 @@ function ChapterLessonCard({ lesson, quizDrafts, onQuizDraftChange, labDrafts, o
                 catch {
                     // Keep trying the next candidate path.
                 }
+        }
+        if (lesson.type === "html-reading") {
+            const fallbackHtml = buildReadingFallbackHtml(lesson);
+            if (fallbackHtml) {
+                if (!cancelled) {
+                    setSourcePreview({
+                        status: "ready",
+                        kind: "html",
+                        html: fallbackHtml,
+                        sourcePath: sourcePath || "",
+                    });
+                }
+                return;
             }
-            if (!cancelled) {
-                setSourcePreview({
-                    status: "error",
+        }
+        if (!cancelled) {
+            setSourcePreview({
+                status: "error",
                     kind: null,
                     error: "Unable to load content preview.",
                 });
@@ -1338,7 +1423,14 @@ export default function ForensicCoursePlayerPreviewRestored() {
             return nextValue;
         });
     }, []);
-    const isExcludedModuleTitle = (_title) => false;
+    const isExcludedModuleTitle = (title) => {
+        const normalizedTitle = (title || "").trim().toLowerCase();
+        const compactTitle = normalizedTitle.replace(/\s+/g, " ");
+        return (normalizedTitle.includes("course information")
+            || normalizedTitle.includes("teacher resources")
+            || normalizedTitle.includes("extra credit")
+            || compactTitle.includes("final exam"));
+    };
     const filteredModules = resolvedModules
         .filter((module) => !isExcludedModuleTitle(module.title))
         .map((module) => ({
@@ -1368,25 +1460,46 @@ export default function ForensicCoursePlayerPreviewRestored() {
     const safeModules = finalModules.length > 0 ? finalModules : fallbackFilteredModules.length > 0 ? fallbackFilteredModules : [emergencyModule];
     const activeChapter = useMemo(() => safeModules.find((module) => module.id === activeChapterId) || safeModules[0], [activeChapterId, safeModules]);
     const chapterLessonGroups = useMemo(() => {
+        const moduleOneExcludedTitles = new Set([
+            "module 1 assignment (print)",
+            "module 1 assignment (online)",
+            "module 1: forensic toxicology assessment",
+            "module 1 forensic toxicology assessment",
+        ]);
         const moduleTwoExcludedTitles = new Set([
             "evidence and fingerprints online activity (optional)",
             "types of evidence and fingerprint analysis assignment",
             "fingerprint case studies assignment",
+            "module 2 assignment",
+            "module 2 assignment (online)",
+            "module 2 assessment",
         ]);
         const moduleThreeExcludedTitles = new Set([
             "trace evidence assignment",
             "trace evidence case studies assignment",
+            "module 3 assignment",
+            "module 3 assignment (online)",
+            "module 3 assessment",
         ]);
         const moduleFourExcludedTitles = new Set([
             "body fluid assignment",
             "body fluid evidence case studies assignment",
+            "module 4 assignment (print)",
+            "module 4 assignment (online)",
+            "module assessment",
         ]);
         const moduleFiveExcludedTitles = new Set([
             "impaired driving assignment",
+            "module 5 assignment (print)",
+            "module 5 assignment (online)",
+            "module 5 assessment",
         ]);
         const moduleSixExcludedTitles = new Set([
             "polygraphing and forensic writing analysis assignment",
             "polygraphing and forensic writing case studies assignment",
+            "module 6 assignment (print)",
+            "module 6 assignment (online)",
+            "module 6 assessment",
         ]);
         const moduleSevenExcludedTitles = new Set([
             "forensic dna evidence assignment",
@@ -1395,18 +1508,30 @@ export default function ForensicCoursePlayerPreviewRestored() {
             "careers in forensic science assignment",
         ]);
         const isUnitAssessmentSection = (title) => (title || "").trim().toLowerCase().includes("unit assessment");
-        const isModuleTwo = (activeChapter?.title || "").toLowerCase().includes("types of evidence and fingerprint analysis");
-        const isModuleThreeForFilter = (activeChapter?.title || "").toLowerCase().includes("trace evidence");
-        const isModuleFourForFilter = (activeChapter?.title || "").toLowerCase().includes("body fluid evidence");
-        const isModuleFiveForFilter = (activeChapter?.title || "").toLowerCase().includes("forensic detection of impaired driving");
-        const isModuleSixForFilter = (activeChapter?.title || "").toLowerCase().includes("polygraphing and document analysis");
+        const activeChapterTitleLower = (activeChapter?.title || "").toLowerCase();
+        const isModuleOneForFilter = activeChapterTitleLower.includes("forensic toxicology");
+        const isModuleTwoForSynthetic = activeChapterTitleLower.includes("types of evidence and fingerprint analysis");
+        const isModuleTwoForFilter = activeChapterTitleLower.includes("types of evidence and fingerprint analysis")
+            || activeChapterTitleLower.includes("law enforcement equipment");
+        const isModuleThreeForFilter = activeChapterTitleLower.includes("trace evidence")
+            || activeChapterTitleLower.includes("arson and explosives");
+        const isModuleFourForFilter = activeChapterTitleLower.includes("body fluid evidence")
+            || activeChapterTitleLower.includes("forensic ballistics");
+        const isModuleFiveForFilter = activeChapterTitleLower.includes("forensic detection of impaired driving")
+            || activeChapterTitleLower.includes("criminal profiling");
+        const isModuleSixForFilter = activeChapterTitleLower.includes("polygraphing and document analysis")
+            || activeChapterTitleLower.includes("anthropology and entomology");
         const isModuleSevenForFilter = (activeChapter?.title || "").toLowerCase().includes("forensic genetics");
         const isModuleEightForFilter = (activeChapter?.title || "").toLowerCase().includes("careers in forensic science");
         const normalizedLessons = (activeChapter?.lessons || [])
             .filter((lesson) => !isUnitAssessmentSection(lesson.title))
             .filter((lesson) => {
             const normalizedTitle = (lesson.title || "").trim().toLowerCase();
-            if (isModuleTwo)
+            if (normalizedTitle.includes("assignment submission"))
+                return false;
+            if (isModuleOneForFilter)
+                return !moduleOneExcludedTitles.has(normalizedTitle);
+            if (isModuleTwoForFilter)
                 return !moduleTwoExcludedTitles.has(normalizedTitle);
             if (isModuleThreeForFilter)
                 return !moduleThreeExcludedTitles.has(normalizedTitle);
@@ -1499,7 +1624,7 @@ export default function ForensicCoursePlayerPreviewRestored() {
             "</div>",
         ].join("");
         const syntheticLessons = [];
-        if (isModuleTwo) {
+        if (isModuleTwoForSynthetic) {
             syntheticLessons.push({
                 id: "module2-fingerprint-analysis-description",
                 title: "Fingerprint Analysis Lab Assignment",
@@ -1639,10 +1764,6 @@ export default function ForensicCoursePlayerPreviewRestored() {
     }, [activeChapter]);
     const chapterLessons = chapterLessonGroups.contentLessons;
     const chapterAssignments = chapterLessonGroups.assignmentLessons;
-    const completedSectionCount = Object.values(chapterVisited).filter(Boolean).length;
-    const progress = safeModules.length
-        ? Math.round((completedSectionCount / safeModules.length) * 100)
-        : 0;
     useEffect(() => {
         if (!safeModules.length) {
             return;
@@ -1681,8 +1802,8 @@ export default function ForensicCoursePlayerPreviewRestored() {
             quizDrafts,
             labDrafts,
             reportSnapshot: {
-                progressPercent: progress,
-                completedSections: completedSectionCount,
+                progressPercent: 0,
+                completedSections: Object.values(chapterVisited).filter(Boolean).length,
                 totalSections: safeModules.length,
                 activeModuleId: activeChapter?.id || "",
                 activeModuleTitle: activeChapter?.title || "",
@@ -1696,8 +1817,6 @@ export default function ForensicCoursePlayerPreviewRestored() {
         isChapterMenuCollapsed,
         quizDrafts,
         labDrafts,
-        progress,
-        completedSectionCount,
         safeModules.length,
         activeChapter?.id,
         activeChapter?.title,
@@ -1723,7 +1842,7 @@ export default function ForensicCoursePlayerPreviewRestored() {
       ` }), _jsxs("div", { className: "flex min-h-screen", children: [_jsx("button", { type: "button", className: `fixed inset-0 z-30 bg-black/65 transition-opacity duration-200 lg:hidden ${isMobileMenuOpen ? "opacity-100" : "pointer-events-none opacity-0"}`, "aria-hidden": isMobileMenuOpen ? "false" : "true", onClick: () => setIsMobileMenuOpen(false), title: "Close menu overlay" }), _jsxs("aside", { className: `fixed inset-y-0 left-0 z-40 h-screen shrink-0 overflow-hidden border-r border-white/[0.08] bg-[#101216]/95 backdrop-blur-xl transition-[width,transform] duration-200 lg:sticky lg:top-0 lg:z-0 lg:bg-[#101216]/90 ${isMobileMenuOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"} ${isMenuCollapsed ? "lg:w-16" : "w-[86vw] max-w-[340px] lg:w-[340px]"}
           }`, "data-testid": "chapter-menu-panel", "data-collapsed": isMenuCollapsed ? "true" : "false", children: [_jsxs("div", { className: `border-b border-white/[0.08] ${isMenuCollapsed ? "px-2 py-4" : "px-5 py-5"}`, children: [_jsxs("div", { className: `mb-3 flex ${isMenuCollapsed ? "justify-center" : "items-start justify-between gap-3"}`, children: [!isMenuCollapsed ? (_jsxs("div", { children: [_jsx("div", { className: FORENSIC_THEME.overline, children: "Case file" }), _jsx("h1", { className: "mt-1 text-xl font-semibold text-[#f3f4f6]", children: resolvedCourse.title })] })) : null, _jsx("button", { type: "button", onClick: () => setIsMobileMenuOpen(false), className: "flex h-10 w-10 items-center justify-center rounded-lg border border-white/[0.14] bg-white/[0.04] text-[#d1d5db] transition duration-200 hover:border-white/[0.28] hover:bg-white/[0.08] hover:text-[#f3f4f6] lg:hidden", "aria-label": "Close chapter menu", title: "Close chapter menu", children: _jsx("span", { className: "text-lg leading-none", children: "\u00D7" }) }), _jsx("button", { type: "button", onClick: () => setIsChapterMenuCollapsed((prev) => !prev), className: `hidden h-10 w-10 items-center justify-center rounded-lg border transition duration-200 lg:flex ${isMenuCollapsed
                                                     ? "border-[#dc2626]/70 bg-[#b91c1c] text-[#fef2f2] hover:bg-[#dc2626] hover:shadow-[0_0_0_1px_rgba(220,38,38,0.45)]"
-                                                    : "border-white/[0.14] bg-white/[0.04] text-[#d1d5db] hover:border-white/[0.28] hover:bg-white/[0.08] hover:text-[#f3f4f6]"}`, "data-testid": "chapter-menu-toggle", "aria-expanded": isMenuCollapsed ? "false" : "true", "aria-label": isMenuCollapsed ? "Open chapter menu" : "Collapse chapter menu", title: isMenuCollapsed ? "Open chapter menu" : "Collapse chapter menu", children: _jsxs("span", { className: "flex flex-col gap-1.5", children: [_jsx("span", { className: `block h-[2px] w-4 rounded-full ${isMenuCollapsed ? "bg-[#fef2f2]" : "bg-[#d1d5db]"}` }), _jsx("span", { className: `block h-[2px] w-4 rounded-full ${isMenuCollapsed ? "bg-[#fef2f2]" : "bg-[#d1d5db]"}` }), _jsx("span", { className: `block h-[2px] w-4 rounded-full ${isMenuCollapsed ? "bg-[#fef2f2]" : "bg-[#d1d5db]"}` })] }) })] }), isMenuCollapsed ? null : (_jsxs(_Fragment, { children: [_jsxs("div", { className: `${FORENSIC_THEME.panelSoft} p-3`, children: [_jsxs("div", { className: "mb-2 flex items-center justify-between text-sm", children: [_jsx("span", { className: "font-medium text-[#a1a8b3]", children: "Progress" }), _jsxs("span", { className: "font-semibold text-[#f3f4f6]", children: [progress, "%"] })] }), _jsx("div", { className: "h-2 overflow-hidden rounded-full bg-white/[0.08]", children: _jsx("div", { className: "h-full rounded-full bg-[#b91c1c]", style: { width: `${progress}%` } }) }), _jsxs("div", { className: "mt-3 grid grid-cols-2 gap-2 text-xs text-[#6b7280]", children: [_jsxs("div", { className: "rounded-lg border border-white/[0.08] bg-white/[0.03] p-2", children: [resolvedCourse.stats.topLevelSections, " sections"] }), _jsxs("div", { className: "rounded-lg border border-white/[0.08] bg-white/[0.03] p-2", children: [resolvedCourse.stats.totalNodes, " nodes"] })] })] }), _jsxs("div", { className: "relative mt-4", children: [_jsx(Search, { className: "pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#6b7280]" }), _jsx("input", { value: query, onChange: (e) => setQuery(e.target.value), placeholder: "Search chapter titles", className: "w-full rounded-lg border border-white/[0.12] bg-white/[0.03] py-2.5 pl-9 pr-3 text-sm text-[#e5e7eb] outline-none placeholder:text-[#6b7280] focus:border-[#b91c1c]/70", "data-testid": "lesson-search" })] })] }))] }), _jsx("div", { className: `${isMenuCollapsed ? "hidden" : "h-[calc(100vh-245px)] overflow-y-auto px-3 py-4"}`, "data-testid": "module-list", children: safeModules.map((module) => {
+                                                    : "border-white/[0.14] bg-white/[0.04] text-[#d1d5db] hover:border-white/[0.28] hover:bg-white/[0.08] hover:text-[#f3f4f6]"}`, "data-testid": "chapter-menu-toggle", "aria-expanded": isMenuCollapsed ? "false" : "true", "aria-label": isMenuCollapsed ? "Open chapter menu" : "Collapse chapter menu", title: isMenuCollapsed ? "Open chapter menu" : "Collapse chapter menu", children: _jsxs("span", { className: "flex flex-col gap-1.5", children: [_jsx("span", { className: `block h-[2px] w-4 rounded-full ${isMenuCollapsed ? "bg-[#fef2f2]" : "bg-[#d1d5db]"}` }), _jsx("span", { className: `block h-[2px] w-4 rounded-full ${isMenuCollapsed ? "bg-[#fef2f2]" : "bg-[#d1d5db]"}` }), _jsx("span", { className: `block h-[2px] w-4 rounded-full ${isMenuCollapsed ? "bg-[#fef2f2]" : "bg-[#d1d5db]"}` })] }) })] }), isMenuCollapsed ? null : (_jsxs(_Fragment, { children: [_jsxs("div", { className: "relative", children: [_jsx(Search, { className: "pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#6b7280]" }), _jsx("input", { value: query, onChange: (e) => setQuery(e.target.value), placeholder: "Search chapter titles", className: "w-full rounded-lg border border-white/[0.12] bg-white/[0.03] py-2.5 pl-9 pr-3 text-sm text-[#e5e7eb] outline-none placeholder:text-[#6b7280] focus:border-[#b91c1c]/70", "data-testid": "lesson-search" })] })] }))] }), _jsx("div", { className: `${isMenuCollapsed ? "hidden" : "h-[calc(100vh-245px)] overflow-y-auto px-3 py-4"}`, "data-testid": "module-list", children: safeModules.map((module) => {
                                     const isActive = module.id === activeChapter.id;
                                     return (_jsxs("div", { className: "mb-3 rounded-xl border border-white/[0.1] bg-[#141821] p-2 shadow-[0_14px_30px_rgba(0,0,0,0.35)]", "data-testid": "module-panel", "data-module-title": module.title, "data-module-hidden": module.isHidden ? "true" : "false", "data-module-expanded": isActive ? "true" : "false", children: [_jsxs("button", { onClick: () => {
                                                     setActiveChapterId(module.id);
@@ -1741,3 +1860,4 @@ const __canvasHelperRootElement = document.getElementById("root");
 if (__canvasHelperRootElement) {
     __CanvasHelperReactDomClient.createRoot(__canvasHelperRootElement).render(_jsx(ForensicCoursePlayerPreviewRestored, {}));
 }
+

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-03-18T14:44:06.308Z",
+  "generatedAt": "2026-03-19T18:00:26.529Z",
   "entries": [
     {
       "kind": "component",
@@ -1049,6 +1049,44 @@
       "reinforcementCount": 2,
       "lastSeenAt": "2026-03-06T20:53:40.094Z",
       "confidence": "high",
+      "approved": true
+    },
+    {
+      "kind": "component",
+      "key": "component:calm-module-4",
+      "summary": "Reusable sections and components from calm-module-4",
+      "signals": {
+        "sectionLabels": [
+          "Activity",
+          "App",
+          "Field",
+          "Main"
+        ],
+        "keywords": [
+          "activity",
+          "field",
+          "main"
+        ],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "component:pattern:calm-module-4:import:2026-03-19T18:00:26.529Z:component",
+          "projectSlug": "calm-module-4",
+          "source": "pattern",
+          "command": "import",
+          "observedAt": "2026-03-19T18:00:26.529Z"
+        }
+      ],
+      "projectSlugs": [
+        "calm-module-4"
+      ],
+      "reinforcementCount": 1,
+      "lastSeenAt": "2026-03-19T18:00:26.529Z",
+      "confidence": "medium",
       "approved": true
     },
     {
@@ -5189,11 +5227,17 @@
           "source": "design-doc",
           "command": "plan",
           "observedAt": "2026-03-12T12:11:54.755Z"
+        },
+        {
+          "id": "decision:design-doc:2026-03-11-google-hosted-export-design:42a22b7caaca",
+          "source": "design-doc",
+          "command": "plan",
+          "observedAt": "2026-03-19T18:00:26.529Z"
         }
       ],
       "projectSlugs": [],
-      "reinforcementCount": 1,
-      "lastSeenAt": "2026-03-12T12:11:54.755Z",
+      "reinforcementCount": 2,
+      "lastSeenAt": "2026-03-19T18:00:26.529Z",
       "confidence": "high",
       "approved": true
     },
@@ -5419,11 +5463,17 @@
           "source": "design-doc",
           "command": "plan",
           "observedAt": "2026-03-12T19:28:57.270Z"
+        },
+        {
+          "id": "decision:design-doc:2026-03-12-google-hosted-deploy-tool-design:71afe96d4b4b",
+          "source": "design-doc",
+          "command": "plan",
+          "observedAt": "2026-03-19T18:00:26.529Z"
         }
       ],
       "projectSlugs": [],
-      "reinforcementCount": 1,
-      "lastSeenAt": "2026-03-12T19:28:57.270Z",
+      "reinforcementCount": 2,
+      "lastSeenAt": "2026-03-19T18:00:26.529Z",
       "confidence": "high",
       "approved": true
     },
@@ -5629,11 +5679,17 @@
           "source": "design-doc",
           "command": "plan",
           "observedAt": "2026-03-13T16:29:38.813Z"
+        },
+        {
+          "id": "decision:design-doc:2026-03-12-hss1010-conversion-design:dfa13834c1a6",
+          "source": "design-doc",
+          "command": "plan",
+          "observedAt": "2026-03-19T18:00:26.529Z"
         }
       ],
       "projectSlugs": [],
-      "reinforcementCount": 1,
-      "lastSeenAt": "2026-03-13T16:29:38.813Z",
+      "reinforcementCount": 2,
+      "lastSeenAt": "2026-03-19T18:00:26.529Z",
       "confidence": "high",
       "approved": true
     },
@@ -5963,11 +6019,17 @@
           "source": "design-doc",
           "command": "plan",
           "observedAt": "2026-03-13T16:29:38.813Z"
+        },
+        {
+          "id": "decision:design-doc:2026-03-12-hss1010-study-skeleton-restoration-design:636f1d3dd555",
+          "source": "design-doc",
+          "command": "plan",
+          "observedAt": "2026-03-19T18:00:26.529Z"
         }
       ],
       "projectSlugs": [],
-      "reinforcementCount": 1,
-      "lastSeenAt": "2026-03-13T16:29:38.813Z",
+      "reinforcementCount": 2,
+      "lastSeenAt": "2026-03-19T18:00:26.529Z",
       "confidence": "high",
       "approved": true
     },
@@ -6215,11 +6277,17 @@
           "source": "design-doc",
           "command": "plan",
           "observedAt": "2026-03-14T13:26:58.733Z"
+        },
+        {
+          "id": "decision:design-doc:2026-03-13-authoring-preference-enforcement-design:f02f8a736564",
+          "source": "design-doc",
+          "command": "plan",
+          "observedAt": "2026-03-19T18:00:26.529Z"
         }
       ],
       "projectSlugs": [],
-      "reinforcementCount": 1,
-      "lastSeenAt": "2026-03-14T13:26:58.733Z",
+      "reinforcementCount": 2,
+      "lastSeenAt": "2026-03-19T18:00:26.529Z",
       "confidence": "high",
       "approved": true
     },
@@ -6530,11 +6598,17 @@
           "source": "design-doc",
           "command": "plan",
           "observedAt": "2026-03-13T16:29:38.813Z"
+        },
+        {
+          "id": "decision:design-doc:2026-03-13-generation-first-benchmark-system-design:4a54f09d6d93",
+          "source": "design-doc",
+          "command": "plan",
+          "observedAt": "2026-03-19T18:00:26.529Z"
         }
       ],
       "projectSlugs": [],
-      "reinforcementCount": 1,
-      "lastSeenAt": "2026-03-13T16:29:38.813Z",
+      "reinforcementCount": 2,
+      "lastSeenAt": "2026-03-19T18:00:26.529Z",
       "confidence": "high",
       "approved": true
     },
@@ -7136,11 +7210,17 @@
           "source": "design-doc",
           "command": "plan",
           "observedAt": "2026-03-13T16:29:38.813Z"
+        },
+        {
+          "id": "decision:design-doc:2026-03-13-hss1010-interactive-rebuild-design:f956fd39f136",
+          "source": "design-doc",
+          "command": "plan",
+          "observedAt": "2026-03-19T18:00:26.529Z"
         }
       ],
       "projectSlugs": [],
-      "reinforcementCount": 1,
-      "lastSeenAt": "2026-03-13T16:29:38.813Z",
+      "reinforcementCount": 2,
+      "lastSeenAt": "2026-03-19T18:00:26.529Z",
       "confidence": "high",
       "approved": true
     },
@@ -8530,6 +8610,39 @@
       "reinforcementCount": 2,
       "lastSeenAt": "2026-03-06T20:53:40.094Z",
       "confidence": "high",
+      "approved": true
+    },
+    {
+      "kind": "resource",
+      "key": "resource:calm-module-4",
+      "summary": "Reference and resource profile from calm-module-4",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "activity",
+          "field",
+          "main"
+        ],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "resource:reference:calm-module-4:import:2026-03-19T18:00:26.529Z:resource",
+          "projectSlug": "calm-module-4",
+          "source": "reference",
+          "command": "import",
+          "observedAt": "2026-03-19T18:00:26.529Z"
+        }
+      ],
+      "projectSlugs": [
+        "calm-module-4"
+      ],
+      "reinforcementCount": 1,
+      "lastSeenAt": "2026-03-19T18:00:26.529Z",
+      "confidence": "medium",
       "approved": true
     },
     {
@@ -12700,6 +12813,53 @@
       ],
       "reinforcementCount": 2,
       "lastSeenAt": "2026-03-06T20:53:40.094Z",
+      "confidence": "high",
+      "approved": true
+    },
+    {
+      "kind": "style",
+      "key": "style:calm-module-4",
+      "summary": "Approved style direction from calm-module-4",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "activity",
+          "field",
+          "main"
+        ],
+        "styleTokens": [],
+        "hexColors": [
+          "#020617",
+          "#0f172a",
+          "#22c55e",
+          "#38bdf8",
+          "#64748b",
+          "#8b5cf6",
+          "#94a3b8",
+          "#bbf7d0",
+          "#c4b5fd",
+          "#cbd5e1",
+          "#dbeafe",
+          "#e2e8f0",
+          "#f8fafc"
+        ],
+        "externalDependencies": [],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "style:pattern:calm-module-4:import:2026-03-19T18:00:26.529Z:style",
+          "projectSlug": "calm-module-4",
+          "source": "pattern",
+          "command": "import",
+          "observedAt": "2026-03-19T18:00:26.529Z"
+        }
+      ],
+      "projectSlugs": [
+        "calm-module-4"
+      ],
+      "reinforcementCount": 1,
+      "lastSeenAt": "2026-03-19T18:00:26.529Z",
       "confidence": "high",
       "approved": true
     },
@@ -17690,6 +17850,48 @@
       ],
       "reinforcementCount": 2,
       "lastSeenAt": "2026-03-06T20:53:40.094Z",
+      "confidence": "high",
+      "approved": true
+    },
+    {
+      "kind": "tool",
+      "key": "tool:calm-module-4",
+      "summary": "Runtime and tool choices from calm-module-4",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "activity",
+          "field",
+          "main"
+        ],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [
+          "https://fonts.googleapis.com",
+          "https://fonts.googleapis.com\"",
+          "https://fonts.googleapis.com\">",
+          "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap",
+          "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap\"",
+          "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap\"",
+          "https://fonts.gstatic.com",
+          "https://fonts.gstatic.com\""
+        ],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "tool:pattern:calm-module-4:import:2026-03-19T18:00:26.529Z:tool",
+          "projectSlug": "calm-module-4",
+          "source": "pattern",
+          "command": "import",
+          "observedAt": "2026-03-19T18:00:26.529Z"
+        }
+      ],
+      "projectSlugs": [
+        "calm-module-4"
+      ],
+      "reinforcementCount": 1,
+      "lastSeenAt": "2026-03-19T18:00:26.529Z",
       "confidence": "high",
       "approved": true
     },

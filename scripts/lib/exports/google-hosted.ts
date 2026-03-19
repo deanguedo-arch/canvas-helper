@@ -3,7 +3,7 @@ import path from "node:path";
 
 import ts from "typescript";
 
-import { copyDirectory, fileExists, listFilesRecursive, writeTextFile } from "../fs.js";
+import { copyDirectory, copyFileEnsuringDir, fileExists, listFilesRecursive, writeTextFile } from "../fs.js";
 import {
   buildFirebaseConfigTemplate,
   buildFirebaseHostingConfig,
@@ -114,6 +114,8 @@ function extractD2LExportRoot(mapSource: string) {
 async function copyHostedReferenceAssets(projectSlug: string, workspaceDir: string, exportDir: string) {
   const d2lMapCandidates = [path.join(workspaceDir, "d2l-map-data.js"), path.join(workspaceDir, "assets", "d2l-map-data.js")];
   let exportRoot: string | null = null;
+  const cyrillicContentRootName = "\u0441ontent";
+  const mojibakeContentRootName = "\u00D1\u0081ontent";
 
   for (const candidatePath of d2lMapCandidates) {
     if (!(await fileExists(candidatePath))) {
@@ -126,19 +128,57 @@ async function copyHostedReferenceAssets(projectSlug: string, workspaceDir: stri
     }
   }
 
-  if (!exportRoot) {
-    return;
-  }
-
   const paths = getProjectPaths(projectSlug);
-  const sourceReferenceRoot = path.join(paths.referencesDir, exportRoot);
-  if (!(await fileExists(sourceReferenceRoot))) {
-    return;
+  const copiedRoots = new Set<string>();
+
+  function normalizeReferenceRoot(value: string | null) {
+    if (!value) {
+      return null;
+    }
+    const normalized = value.replace(/\\/g, "/").replace(/^\.\/+/, "").replace(/^\/+/, "");
+    const [firstSegmentRaw] = normalized.split("/");
+    const firstSegment = firstSegmentRaw?.trim();
+    if (!firstSegment) {
+      return null;
+    }
+    if (firstSegment === cyrillicContentRootName || firstSegment === mojibakeContentRootName) {
+      return cyrillicContentRootName;
+    }
+    return firstSegment;
   }
 
-  await copyDirectory(sourceReferenceRoot, path.join(exportDir, exportRoot));
-}
+  async function copyReferenceRoot(relativeRoot: string) {
+    if (!relativeRoot || copiedRoots.has(relativeRoot)) {
+      return;
+    }
+    const sourceRoot = path.join(paths.referencesDir, relativeRoot);
+    if (!(await fileExists(sourceRoot))) {
+      return;
+    }
+    await copyDirectory(sourceRoot, path.join(exportDir, relativeRoot));
+    copiedRoots.add(relativeRoot);
+  }
 
+  const rootsToCopy = new Set<string>(["assignment", "quiz", "content", cyrillicContentRootName]);
+  const normalizedExportRoot = normalizeReferenceRoot(exportRoot);
+  if (normalizedExportRoot) {
+    rootsToCopy.add(normalizedExportRoot);
+  }
+
+  for (const root of rootsToCopy) {
+    await copyReferenceRoot(root);
+  }
+
+  const cyrillicContentRoot = path.join(paths.referencesDir, cyrillicContentRootName);
+  if (await fileExists(cyrillicContentRoot)) {
+    await copyDirectory(cyrillicContentRoot, path.join(exportDir, "content"));
+  }
+
+  const manifestPath = path.join(paths.referencesDir, "imsmanifest.xml");
+  if (await fileExists(manifestPath)) {
+    await copyFileEnsuringDir(manifestPath, path.join(exportDir, "imsmanifest.xml"));
+  }
+}
 export async function exportProjectToGoogleHosted(
   projectSlug: string,
   gateOptions: ExportAuthoringGateOptions = {}
@@ -210,3 +250,4 @@ export async function exportProjectToGoogleHosted(
     storageKeys
   };
 }
+
