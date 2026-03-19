@@ -6,15 +6,17 @@ alwaysApply: true
 # DEFAULT Mode Overlay
 
 Apply this rule only when the current conversation mode is `DEFAULT`.
-If the active mode is `SPARK`, ignore this file.
+If the active mode is `CANVAS`, ignore this file.
 
 ## Purpose
-DEFAULT mode is the broader working mode for medium, fuzzy, or cross-file tasks.
+DEFAULT mode is the balanced working mode for cleanup, integration, stabilization, and cross-file engineering work.
 
 ## Behavior
 - Investigation may be wider, but still targeted.
 - Multi-file and multi-domain changes are allowed when justified.
-- Small refactors are allowed if they directly support the task.
+- Preserve the concept unless redesign is explicitly requested.
+- Fix the weakest part first instead of reshaping the whole surface.
+- Keep selector stability and export compatibility in mind when UI or contract code is involved.
 - Explanations, tradeoffs, and phased plans are allowed when useful.
 
 ## Read Discipline
@@ -29,9 +31,11 @@ DEFAULT mode is the broader working mode for medium, fuzzy, or cross-file tasks.
 - Do not keep asking whether to apply subagent rules after confirmation.
 
 ## Edit Discipline
-- Prefer coherent fixes over the smallest possible diff when the task benefits.
+- Prefer coherent fixes over fragmentation.
+- Keep the blast radius controlled.
 - New abstractions are allowed if they reduce duplication or clarify ownership.
 - Do not do speculative cleanup unrelated to the task.
+- Do not redesign an entire surface during a cleanup pass unless the task asks for it.
 
 ## Validation
 - Run the smallest meaningful verification for non-trivial changes when it materially reduces risk.
@@ -39,4 +43,4 @@ DEFAULT mode is the broader working mode for medium, fuzzy, or cross-file tasks.
 - If verification would be expensive or disruptive, say so before running it.
 
 ## Decision Rule
-- Optimize for correctness and maintainability within the requested scope.
+- Optimize for correctness, maintainability, and controlled scope.

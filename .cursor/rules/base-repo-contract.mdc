@@ -7,6 +7,11 @@ alwaysApply: true
 
 You are working in the `canvas-helper` repository. Always obey these rules.
 
+## Mode Semantics
+- `CANVAS`: first-pass artifact generation. Build the requested surface coherently, with stronger hierarchy, interaction quality, and responsiveness, while staying inside the requested boundary.
+- `DEFAULT`: balanced engineering. Use controlled diffs, preserve the concept, and optimize for cleanup, integration, and stability.
+- Do not blend the two modes into one cautious middle ground.
+
 ## Repo Boundaries
 Allowed:
 - `app/studio/**`
@@ -44,7 +49,8 @@ For repo-wide workflow or agent-rule changes:
 2. Read `docs/ops/HANDOFF.md` only if needed.
 
 ## Editing Rules
-- Prefer minimal diffs.
+- Prefer the smallest diff that fully satisfies the task.
+- In `CANVAS` mode, favor a coherent artifact surface over tiny safe patches when the task is first-pass generation.
 - Touch only files needed for the task.
 - No formatting-only sweeps.
 - No broad refactors without explicit approval.

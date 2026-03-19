@@ -61,6 +61,15 @@ Canvas Helper is a local-first Node + browser workspace for importing Canvas cou
 - Touch only the domains needed for the task.
 - If a task expands past the planned boundary, document why in the handoff output.
 
+## Authoring Modes
+
+The repo supports two distinct authoring goals and they must not be blended:
+
+- `CANVAS`: first-pass artifact generation inside the requested boundary. Use this when the task is to create or reshape a surface so the output feels complete, coherent, and polished on the first pass.
+- `DEFAULT`: balanced engineering mode for cleanup, integration, stabilization, and iterative fixes. Use this when the task is primarily about correctness, compatibility, or controlled refinement.
+
+Mode selection should match the task. Do not average the two behaviors together. When the task is a first-pass generation request, optimize for artifact quality and completeness. When the task is a refinement request, optimize for small blast radius and stability.
+
 ## No Drive-By Refactors
 
 - No formatting sweeps.
@@ -86,6 +95,16 @@ Canvas Helper is a local-first Node + browser workspace for importing Canvas cou
 - When asking, state the reason, the extra scope requested, and the expected cost in time or tokens.
 - Do not widen scope preemptively "just in case."
 - Keep follow-up reads minimal even after approval.
+
+## Refinement Rules
+
+- Preserve the concept unless redesign is explicitly requested.
+- Fix the weakest part first instead of redesigning the entire surface.
+- Keep the blast radius controlled and stay within the requested files and flows.
+- Preserve stable selectors, contracts, and exported behavior when UI or automation depends on them.
+- Prefer the smallest diff that fully resolves the refinement task.
+- Do not turn a cleanup pass into a new visual direction.
+- Do not introduce unrelated cleanup, abstraction churn, or broad repo edits.
 
 ## Subagent Mode
 
@@ -181,17 +200,28 @@ For repo-wide or multi-project work, keep the active handoff in `docs/ops/ACTIVE
 - Treat `projects/processed/**` as snapshot state, not an editable project workspace.
 - Treat `projects/resources/**` as canonical source material, not a temporary intake queue.
 
-## Generative & Aesthetic Design Rules (God Tier Requirements)
+## First-Pass Generation Rules
 
-When generating new components, editing HTML, or writing CSS within this project, YOU MUST adhere to the following strict design standards to match top-tier consumer web applications:
+- Build the requested artifact as a coherent surface, not a loose set of patches.
+- Prefer complete layout hierarchy, clear visual grouping, and meaningful states over timid partial edits when the task is first-pass generation.
+- Use richer interaction patterns when they improve comprehension, engagement, or task flow.
+- Avoid generic educational templates, overused collapse or accordion patterns, and placeholder chrome when the requested artifact needs a stronger surface.
+- Make the output responsive from the start, including mobile spacing, touch targets, and reflow behavior.
+- Keep the work inside the requested project boundary and the files needed to support the artifact.
+- Do not widen into unrelated repo cleanup just because the generation task is open-ended.
 
-1. **Typography**: ALWAYS import and use premium Google Fonts (e.g., `Inter`, `Outfit`, `Plus Jakarta Sans`). Do not use default fonts. Ensure excellent contrast and responsive `line-height` for readability.
-2. **CSS Variables & Theming**: ALWAYS use cohesive, professional color palettes. Use vibrant, accessible HSL/RGB values instead of flat named colors like "blue" or "red".
-3. **Glassmorphism & Depth**: Wrap core content areas or interactive cards in stylish glassmorphism containers. Use `backdrop-filter: blur(12px)`, subtle semi-transparent backgrounds, and soft, multi-layered `box-shadow` to create physical depth.
-4. **Micro-Interactions**: The UI MUST feel alive. Apply transitions (e.g., `transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1)`) to all interactive elements. Buttons and cards MUST have distinct `:hover` and `:active` states (scaling, shadow changes).
-5. **Spacious Layouts**: Use generous padding/margins (e.g., `padding: 2rem`, `gap: 1.5rem`). Let elements breathe. Avoid cramped text walls.
-6. **Empty/Loading States**: Include beautiful, styled empty states or skeleton loaders with gentle animations for complex components.
-- *Failure to include these specific CSS techniques is unacceptable. All generated code must be visually breathtaking out-of-the-box.*
+## Generative & Aesthetic Design Rules
+
+When generating new components, editing HTML, or writing CSS within this project, follow these standards:
+
+1. **Typography**: Use a premium web font stack when you are creating a new UI surface. Prefer `Inter`, `Outfit`, or `Plus Jakarta Sans` over default browser fonts. Establish a readable scale with strong contrast and comfortable line height.
+2. **Color System**: Define cohesive CSS variables and build the palette from them. Prefer accessible HSL or RGB values with clear semantic roles instead of flat named colors.
+3. **Hierarchy and Structure**: Compose the page with clear sections, labels, and spacing rhythms. The first read should be obvious without decorative clutter.
+4. **Depth and Surfaces**: Use depth deliberately. Glassmorphism, shadows, borders, and translucency are useful when they clarify layers and interaction, not as decoration for its own sake.
+5. **Interaction Quality**: Interactive elements should have intentional hover, focus, and active states. Transitions should support clarity and responsiveness, not distract.
+6. **Responsive Behavior**: Design for mobile and desktop together. Preserve hierarchy and usability when the viewport shrinks.
+7. **Meaningful States**: Include loading, empty, error, and fallback states when they improve the experience. Do not leave complex surfaces unfinished.
+8. **Polish Standard**: Prefer a coherent, production-like first draft over a minimal scaffold when the task is generation.
 
 ## Verification Floor
 
