@@ -1,0 +1,671 @@
+import React, { useState } from 'react';
+import { 
+  Briefcase, 
+  GraduationCap, 
+  Lightbulb, 
+  CheckSquare, 
+  FileText, 
+  Printer, 
+  LayoutTemplate,
+  Check,
+  ExternalLink,
+  BookOpen
+} from 'lucide-react';
+
+// --- INITIAL STATE & DATA CONFIGURATION ---
+
+const INITIAL_STATE = {
+  careers: [
+    { type: 'Apprenticeship / On-the-job', name: '', duties: '', outlook: '', inDemand: '', salary: '', wage: '', courses: '', length: '', requirements: '', schools: '', conditions: '', skills: '', interest: '' },
+    { type: 'College or University Degree', name: '', duties: '', outlook: '', inDemand: '', salary: '', wage: '', courses: '', length: '', requirements: '', schools: '', conditions: '', skills: '', interest: '' },
+    { type: 'Any Career of Your Choice', name: '', duties: '', outlook: '', inDemand: '', salary: '', wage: '', courses: '', length: '', requirements: '', schools: '', conditions: '', skills: '', interest: '' }
+  ],
+  reflection: { q1: '', q2: '', q3: '' },
+  institutions: [
+    { name: '', address: '', website: '', programs: '', athletic: '', residences: '', interesting: '', why: '', requirements: '', cost: '' },
+    { name: '', address: '', website: '', programs: '', athletic: '', residences: '', interesting: '', why: '', requirements: '', cost: '' }
+  ],
+  courses: {
+    english: { done: [], need: [] },
+    social: { done: [], need: [] },
+    math: { done: [], need: [] },
+    science: { done: [], need: [] },
+    physed: { done: [], need: [] },
+    calm: { done: [], need: [] },
+    other: { done: [], need: [] }
+  }
+};
+
+const COURSE_CATALOG = {
+  english: { title: "English (15 credits to 30 level)", courses: ["10-1", "10-2", "20-1", "20-2", "30-1", "30-2"] },
+  social: { title: "Social Studies (15 credits to 30 level)", courses: ["10-1", "10-2", "20-1", "20-2", "30-1", "30-2"] },
+  math: { title: "Mathematics (10 credits to 20 level)", courses: ["10-C", "10-3", "10-4", "20-1", "20-2", "20-3", "20-4", "30-1", "30-2", "30-3", "31"] },
+  science: { title: "Sciences (10 credits to 20 or 24 level)", courses: ["Science 10", "Science 14", "Science 20", "Science 24", "Science 30", "Biology 20", "Chemistry 20", "Physics 20", "Biology 30", "Chemistry 30", "Physics 30"] },
+  physed: { title: "Physical Education (3+ credits)", courses: ["Phys Ed 10", "Phys Ed 20", "Phys Ed 30"] },
+  calm: { title: "Career and Life Management", courses: ["CALM 20"] },
+  other: { title: "CTS, Fine Art, or Second Languages", courses: ["Option 10 Level", "Option 20 Level", "Option 30 Level"] }
+};
+
+// --- REUSABLE UI COMPONENTS (DARK MODE) ---
+
+const GlassPanel = ({ children, className = '' }) => (
+  <div className={`bg-[#131620] border border-slate-800/80 rounded-2xl shadow-lg ${className}`}>
+    {children}
+  </div>
+);
+
+const InputField = ({ label, value, onChange, placeholder = '', isTextArea = false }) => (
+  <div className="flex flex-col space-y-1.5 w-full">
+    <label className="text-xs font-semibold tracking-wide text-slate-400 uppercase">{label}</label>
+    {isTextArea ? (
+      <textarea 
+        value={value} 
+        onChange={onChange} 
+        placeholder={placeholder} 
+        className="w-full bg-[#0B0D14] border border-slate-800 rounded-xl p-3.5 text-slate-100 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-pink-500/40 focus:border-pink-500 transition-all duration-300 min-h-[120px] resize-y"
+      />
+    ) : (
+      <input 
+        type="text" 
+        value={value} 
+        onChange={onChange} 
+        placeholder={placeholder} 
+        className="w-full bg-[#0B0D14] border border-slate-800 rounded-xl p-3.5 text-slate-100 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-pink-500/40 focus:border-pink-500 transition-all duration-300"
+      />
+    )}
+  </div>
+);
+
+// --- MAIN APPLICATION ---
+
+export default function App() {
+  const [data, setData] = useState(INITIAL_STATE);
+  const [activeTab, setActiveTab] = useState('instructions');
+
+  // State Updaters
+  const updateCareer = (index, field, value) => {
+    const newCareers = [...data.careers];
+    newCareers[index][field] = value;
+    setData({ ...data, careers: newCareers });
+  };
+
+  const updateInstitution = (index, field, value) => {
+    const newInst = [...data.institutions];
+    newInst[index][field] = value;
+    setData({ ...data, institutions: newInst });
+  };
+
+  const updateReflection = (field, value) => {
+    setData({ ...data, reflection: { ...data.reflection, [field]: value } });
+  };
+
+  const toggleCourse = (category, courseName, type) => {
+    const currentList = data.courses[category][type];
+    const isChecked = currentList.includes(courseName);
+    const newList = isChecked 
+      ? currentList.filter(c => c !== courseName)
+      : [...currentList, courseName];
+      
+    setData({
+      ...data,
+      courses: {
+        ...data.courses,
+        [category]: {
+          ...data.courses[category],
+          [type]: newList
+        }
+      }
+    });
+  };
+
+  const handlePrint = () => window.print();
+
+  // Navigation Config
+  const tabs = [
+    { id: 'instructions', label: 'Instructions', icon: BookOpen },
+    { id: 'careers', label: 'Career Exploration', icon: Briefcase },
+    { id: 'institutions', label: 'Post-Secondary', icon: GraduationCap },
+    { id: 'reflection', label: 'Reflection', icon: Lightbulb },
+    { id: 'courses', label: 'Course Planner', icon: CheckSquare }
+  ];
+
+  return (
+    <div className="min-h-screen bg-[#0B0D14] text-slate-200 font-sans selection:bg-pink-500/30">
+      
+      {/* ------------------------------------------------------------- */}
+      {/* INTERACTIVE UI (HIDDEN ON PRINT)                              */}
+      {/* ------------------------------------------------------------- */}
+      <div className="print:hidden flex flex-col h-screen overflow-hidden">
+        
+        {/* Top Navigation Bar */}
+        <header className="flex-none bg-slate-900/60 backdrop-blur-2xl border-b border-white/5 sticky top-0 z-50">
+          <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-fuchsia-500 to-indigo-600 flex items-center justify-center shadow-[0_0_20px_rgba(192,38,211,0.3)]">
+                <LayoutTemplate className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <h1 className="text-xl font-bold bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent tracking-tight">The Master Plan</h1>
+                <p className="text-xs text-fuchsia-400 font-medium tracking-wider uppercase">Module 4 Project</p>
+              </div>
+            </div>
+
+            <nav className="hidden md:flex space-x-1 p-1 bg-slate-950/50 rounded-xl border border-slate-800">
+              {tabs.map(tab => {
+                const Icon = tab.icon;
+                const isActive = activeTab === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`flex items-center space-x-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ${
+                      isActive 
+                        ? 'bg-slate-800 text-white shadow-md'
+                        : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
+                    }`}
+                  >
+                    <Icon className="w-4 h-4" />
+                    <span>{tab.label}</span>
+                  </button>
+                );
+              })}
+            </nav>
+            
+            <div className="flex items-center space-x-3">
+              {/* --- Generate Report Button --- */}
+              <button 
+                onClick={handlePrint}
+                className="flex items-center space-x-2 bg-gradient-to-r from-pink-600 to-fuchsia-600 hover:from-pink-500 hover:to-fuchsia-500 text-white px-4 py-2 sm:px-5 sm:py-2.5 rounded-lg font-bold transition-all shadow-[0_0_15px_rgba(236,72,153,0.4)] hover:shadow-[0_0_20px_rgba(236,72,153,0.6)] transform hover:-translate-y-0.5"
+              >
+                <Printer className="w-4 h-4" />
+                <span className="hidden lg:inline">Generate Report</span>
+              </button>
+
+              {/* Mobile Nav Trigger (Simplified for demonstration) */}
+              <button className="md:hidden p-2 text-slate-400">
+                <div className="space-y-1.5">
+                  <div className="w-6 h-0.5 bg-current rounded-full"></div>
+                  <div className="w-6 h-0.5 bg-current rounded-full"></div>
+                  <div className="w-6 h-0.5 bg-current rounded-full"></div>
+                </div>
+              </button>
+            </div>
+          </div>
+        </header>
+
+        {/* Main Scrolling Content Area */}
+        <main className="flex-1 overflow-y-auto p-6 md:p-10 custom-scrollbar">
+          <div className="max-w-5xl mx-auto space-y-8 pb-20">
+            
+            {/* TAB: INSTRUCTIONS */}
+            {activeTab === 'instructions' && (
+              <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                <div className="mb-8">
+                  <h2 className="text-4xl font-extrabold bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-300 bg-clip-text text-transparent mb-3 tracking-tight">Module 4 Final Project</h2>
+                  <div className="h-1 w-24 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mb-6"></div>
+                  <p className="text-slate-300 text-lg leading-relaxed">Welcome to your Master Plan. Please read the project requirements below before beginning your research.</p>
+                </div>
+
+                <GlassPanel className="p-8">
+                  <div className="flex items-center space-x-4 mb-6 border-b border-slate-700/50 pb-4">
+                    <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 border border-blue-500/30">
+                      <Briefcase className="w-6 h-6" />
+                    </div>
+                    <h3 className="text-xl font-bold text-white">Part 1: Career Exploration</h3>
+                  </div>
+                  <div className="space-y-4 text-slate-300 leading-relaxed">
+                    <p>Now that you have a good idea what your interests are, you are now going to explore <strong>3 careers of your choice</strong>. In the Career Exploration tab, you will research:</p>
+                    <ul className="list-disc pl-6 space-y-2 text-slate-400">
+                      <li><strong className="text-slate-200">1 career that requires an APPRENTICESHIP</strong> (on-the-job training). <em>Example: Welder, electrician, mechanic, health care services, etc.</em></li>
+                      <li><strong className="text-slate-200">1 career that requires a College or University Degree</strong>. <em>Example: Teacher, engineer, nurse.</em></li>
+                      <li><strong className="text-slate-200">1 more career of your choice</strong> (Wildcard).</li>
+                    </ul>
+                    <p>It's highly recommended that you choose three careers you would be interested in pursuing. You may want to refer to the list of suggested careers in your ALIS profile. Use the <strong>ALIS website</strong> to find the answers you need!</p>
+                  </div>
+                </GlassPanel>
+
+                <GlassPanel className="p-8">
+                  <div className="flex items-center space-x-4 mb-6 border-b border-slate-700/50 pb-4">
+                    <div className="w-12 h-12 rounded-full bg-fuchsia-500/20 flex items-center justify-center text-fuchsia-400 border border-fuchsia-500/30">
+                      <GraduationCap className="w-6 h-6" />
+                    </div>
+                    <h3 className="text-xl font-bold text-white">Part 2: Post-Secondary Exploration</h3>
+                  </div>
+                  <div className="space-y-4 text-slate-300 leading-relaxed">
+                    <p>Choose <strong>two post-secondary institutions</strong> you would be interested in attending and research them.</p>
+                    <p>Use the large pink <strong>"RESEARCH HERE"</strong> buttons inside the Post-Secondary tab to open the admission checker and program research tools to help you find accurate information on requirements, housing, and costs.</p>
+                  </div>
+                </GlassPanel>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <GlassPanel className="p-8">
+                    <div className="flex items-center space-x-4 mb-6 border-b border-slate-700/50 pb-4">
+                      <div className="w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center text-amber-400 border border-amber-500/30">
+                        <Lightbulb className="w-5 h-5" />
+                      </div>
+                      <h3 className="text-lg font-bold text-white">Part 3: Reflection</h3>
+                    </div>
+                    <p className="text-slate-300 leading-relaxed">
+                      Look back at the findings from your career and institution research. Reflect deeply on which career path aligns best with your interests, values, and personality, and outline the concrete steps you'll take to get there.
+                    </p>
+                  </GlassPanel>
+
+                  <GlassPanel className="p-8">
+                    <div className="flex items-center space-x-4 mb-6 border-b border-slate-700/50 pb-4">
+                      <div className="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 border border-emerald-500/30">
+                        <CheckSquare className="w-5 h-5" />
+                      </div>
+                      <h3 className="text-lg font-bold text-white">Part 4: Course Planner</h3>
+                    </div>
+                    <p className="text-slate-300 leading-relaxed">
+                      Identify the courses you have already completed (mark as Done). Then, mark the courses you still need to take to graduate high school and prepare for your chosen post-secondary program.
+                    </p>
+                  </GlassPanel>
+                </div>
+                
+                <div className="flex justify-end pt-4">
+                  <button 
+                    onClick={() => setActiveTab('careers')}
+                    className="bg-gradient-to-r from-fuchsia-600 to-indigo-600 hover:from-fuchsia-500 hover:to-indigo-500 text-white px-8 py-3 rounded-xl font-bold transition-all shadow-lg shadow-fuchsia-500/25 flex items-center space-x-2"
+                  >
+                    <span>Start Project</span>
+                    <Briefcase className="w-5 h-5" />
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* TAB: CAREERS */}
+            {activeTab === 'careers' && (
+              <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                <div className="mb-8">
+                  <h2 className="text-4xl font-extrabold bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-300 bg-clip-text text-transparent mb-3 tracking-tight">Career Exploration</h2>
+                  <div className="h-1 w-24 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mb-6"></div>
+                  <p className="text-slate-300 text-lg leading-relaxed">Research three careers of your choice. Ensure you cover an apprenticeship, a degree-required career, and a wildcard choice.</p>
+                </div>
+
+                {data.careers.map((career, idx) => (
+                  <GlassPanel key={idx} className="p-8">
+                    <div className="flex items-center space-x-4 mb-8 border-b border-slate-700/50 pb-4">
+                      <div className="w-12 h-12 rounded-full bg-indigo-500/20 flex items-center justify-center text-indigo-400 font-bold text-xl border border-indigo-500/30">
+                        {idx + 1}
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold text-white">{career.type}</h3>
+                        <p className="text-sm text-slate-400">Career Pathway Requirement</p>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="md:col-span-2">
+                        <InputField label="Name of Career" value={career.name} onChange={(e) => updateCareer(idx, 'name', e.target.value)} />
+                      </div>
+                      <div className="md:col-span-2">
+                        <InputField label="Brief description (Main Duties)" value={career.duties} onChange={(e) => updateCareer(idx, 'duties', e.target.value)} isTextArea />
+                      </div>
+                      <InputField label="Outlook" value={career.outlook} onChange={(e) => updateCareer(idx, 'outlook', e.target.value)} />
+                      <InputField label="In Demand?" value={career.inDemand} onChange={(e) => updateCareer(idx, 'inDemand', e.target.value)} />
+                      <InputField label="Average Salary" value={career.salary} onChange={(e) => updateCareer(idx, 'salary', e.target.value)} />
+                      <InputField label="Average Hourly Wage" value={career.wage} onChange={(e) => updateCareer(idx, 'wage', e.target.value)} />
+                      <div className="md:col-span-2">
+                        <InputField label="Required High School Courses" value={career.courses} onChange={(e) => updateCareer(idx, 'courses', e.target.value)} isTextArea />
+                      </div>
+                      <div className="md:col-span-2">
+                        <InputField label="Program / Apprenticeship Length" value={career.length} onChange={(e) => updateCareer(idx, 'length', e.target.value)} />
+                      </div>
+                      <div className="md:col-span-2">
+                        <InputField label="Minimum Requirements & Employment Options" value={career.requirements} onChange={(e) => updateCareer(idx, 'requirements', e.target.value)} isTextArea />
+                      </div>
+                      <div className="md:col-span-2">
+                        <InputField label="List 2 Schools/Colleges Offering This" value={career.schools} onChange={(e) => updateCareer(idx, 'schools', e.target.value)} isTextArea />
+                      </div>
+                      <div className="md:col-span-2">
+                        <InputField label="Typical Working Conditions" value={career.conditions} onChange={(e) => updateCareer(idx, 'conditions', e.target.value)} isTextArea />
+                      </div>
+                      <div className="md:col-span-2">
+                        <InputField label="Important Skills" value={career.skills} onChange={(e) => updateCareer(idx, 'skills', e.target.value)} isTextArea />
+                      </div>
+                      <div className="md:col-span-2">
+                        <InputField label="What interested you about this career?" value={career.interest} onChange={(e) => updateCareer(idx, 'interest', e.target.value)} isTextArea />
+                      </div>
+                    </div>
+                  </GlassPanel>
+                ))}
+              </div>
+            )}
+
+            {/* TAB: INSTITUTIONS */}
+            {activeTab === 'institutions' && (
+              <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                <div className="mb-8">
+                  <h2 className="text-4xl font-extrabold bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-300 bg-clip-text text-transparent mb-3 tracking-tight">Post-Secondary Exploration</h2>
+                  <div className="h-1 w-24 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mb-6"></div>
+                  <p className="text-slate-300 text-lg leading-relaxed">Choose two post-secondary institutions you would be interested in attending and research them.</p>
+                </div>
+
+                {data.institutions.map((inst, idx) => (
+                  <GlassPanel key={idx} className="p-8">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 border-b border-slate-700/50 pb-4">
+                      <div className="flex items-center space-x-4">
+                        <div className="w-12 h-12 rounded-full bg-fuchsia-500/20 flex items-center justify-center text-fuchsia-400 font-bold text-xl border border-fuchsia-500/30">
+                          {idx + 1}
+                        </div>
+                        <h3 className="text-xl font-bold text-white">Institution Research #{idx + 1}</h3>
+                      </div>
+                      
+                      {/* --- Added RESEARCH HERE Button --- */}
+                      <a 
+                        href="https://sites.google.com/eips.ca/admission-checker/admission-researcher"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center space-x-2 bg-gradient-to-r from-pink-600 to-fuchsia-600 hover:from-pink-500 hover:to-fuchsia-500 text-white px-5 py-2.5 rounded-lg shadow-[0_0_15px_rgba(236,72,153,0.4)] hover:shadow-[0_0_20px_rgba(236,72,153,0.6)] transition-all font-bold text-sm transform hover:-translate-y-0.5"
+                      >
+                        <span>RESEARCH HERE</span>
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="md:col-span-2">
+                        <InputField label="Name of School" value={inst.name} onChange={(e) => updateInstitution(idx, 'name', e.target.value)} />
+                      </div>
+                      <InputField label="Address / Location" value={inst.address} onChange={(e) => updateInstitution(idx, 'address', e.target.value)} />
+                      <InputField label="Website URL" value={inst.website} onChange={(e) => updateInstitution(idx, 'website', e.target.value)} />
+                      <div className="md:col-span-2">
+                        <InputField label="Programs of Interest" value={inst.programs} onChange={(e) => updateInstitution(idx, 'programs', e.target.value)} isTextArea />
+                      </div>
+                      <InputField label="Athletic Program & Team Name" value={inst.athletic} onChange={(e) => updateInstitution(idx, 'athletic', e.target.value)} />
+                      <InputField label="Residences / Housing Options" value={inst.residences} onChange={(e) => updateInstitution(idx, 'residences', e.target.value)} />
+                      <div className="md:col-span-2">
+                        <InputField label="5 Interesting Facts" placeholder="1. ...&#10;2. ...&#10;3. ..." value={inst.interesting} onChange={(e) => updateInstitution(idx, 'interesting', e.target.value)} isTextArea />
+                      </div>
+                      <div className="md:col-span-2">
+                        <InputField label="Why did you choose to research this school?" value={inst.why} onChange={(e) => updateInstitution(idx, 'why', e.target.value)} isTextArea />
+                      </div>
+                      <div className="md:col-span-2">
+                        <InputField label="Admission Requirements for chosen program" value={inst.requirements} onChange={(e) => updateInstitution(idx, 'requirements', e.target.value)} isTextArea />
+                      </div>
+                      <div className="md:col-span-2">
+                        <InputField label="Estimated Total Cost (Tuition, Books, Living)" value={inst.cost} onChange={(e) => updateInstitution(idx, 'cost', e.target.value)} />
+                      </div>
+                    </div>
+                  </GlassPanel>
+                ))}
+              </div>
+            )}
+
+            {/* TAB: REFLECTION */}
+            {activeTab === 'reflection' && (
+              <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                 <div className="mb-8">
+                  <h2 className="text-4xl font-extrabold bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-300 bg-clip-text text-transparent mb-3 tracking-tight">Career Reflection</h2>
+                  <div className="h-1 w-24 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mb-6"></div>
+                  <p className="text-slate-300 text-lg leading-relaxed">Look back at your findings and align them with your personal goals.</p>
+                </div>
+                
+                <GlassPanel className="p-8 space-y-6">
+                  <InputField 
+                    label="1. Which career did you feel best met your interests, values, and personality?" 
+                    value={data.reflection.q1} 
+                    onChange={(e) => updateReflection('q1', e.target.value)} 
+                    isTextArea 
+                  />
+                  <InputField 
+                    label="2. Why?" 
+                    value={data.reflection.q2} 
+                    onChange={(e) => updateReflection('q2', e.target.value)} 
+                    isTextArea 
+                  />
+                  <InputField 
+                    label="3. What steps might you take in order to pursue your career of choice?" 
+                    value={data.reflection.q3} 
+                    onChange={(e) => updateReflection('q3', e.target.value)} 
+                    isTextArea 
+                  />
+                </GlassPanel>
+              </div>
+            )}
+
+            {/* TAB: COURSES */}
+            {activeTab === 'courses' && (
+              <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                <div className="mb-8 flex justify-between items-end">
+                  <div>
+                    <h2 className="text-4xl font-extrabold bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-300 bg-clip-text text-transparent mb-3 tracking-tight">High School Course Planner</h2>
+                    <div className="h-1 w-24 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mb-6"></div>
+                    <p className="text-slate-300 text-lg leading-relaxed max-w-3xl">Identify the courses you have already completed, and mark the ones you still need to take to graduate and prepare for your chosen post-secondary program.</p>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  {Object.entries(COURSE_CATALOG).map(([key, category]) => (
+                    <GlassPanel key={key} className="p-6">
+                      <h3 className="text-lg font-bold text-fuchsia-400 mb-4 pb-2 border-b border-slate-700/50">{category.title}</h3>
+                      <div className="space-y-3">
+                        {/* Header Row */}
+                        <div className="flex items-center text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
+                          <div className="flex-1">Course Name</div>
+                          <div className="w-20 text-center">Done</div>
+                          <div className="w-20 text-center">Need</div>
+                        </div>
+                        {/* Course Rows */}
+                        {category.courses.map(course => (
+                          <div key={course} className="flex items-center group hover:bg-slate-800/30 p-2 rounded-lg transition-colors">
+                            <div className="flex-1 text-slate-300 font-medium">{course}</div>
+                            
+                            {/* DONE Checkbox */}
+                            <div className="w-20 flex justify-center">
+                              <button 
+                                onClick={() => toggleCourse(key, course, 'done')}
+                                className={`w-6 h-6 rounded border flex items-center justify-center transition-all ${
+                                  data.courses[key].done.includes(course) 
+                                    ? 'bg-emerald-500/20 border-emerald-500 text-emerald-400' 
+                                    : 'border-slate-600 hover:border-slate-400 text-transparent'
+                                }`}
+                              >
+                                <Check className="w-4 h-4" />
+                              </button>
+                            </div>
+
+                            {/* NEED Checkbox */}
+                            <div className="w-20 flex justify-center">
+                              <button 
+                                onClick={() => toggleCourse(key, course, 'need')}
+                                className={`w-6 h-6 rounded border flex items-center justify-center transition-all ${
+                                  data.courses[key].need.includes(course) 
+                                    ? 'bg-amber-500/20 border-amber-500 text-amber-400' 
+                                    : 'border-slate-600 hover:border-slate-400 text-transparent'
+                                }`}
+                              >
+                                <Check className="w-4 h-4" />
+                              </button>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </GlassPanel>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </main>
+      </div>
+
+
+      {/* ------------------------------------------------------------- */}
+      {/* PRINT-ONLY UI (HIDDEN ON SCREEN)                              */}
+      {/* ------------------------------------------------------------- */}
+      <div className="hidden print:block bg-white text-black min-h-screen">
+        <PrintLayout data={data} />
+      </div>
+
+    </div>
+  );
+}
+
+// --- PRINT LAYOUT COMPONENT ---
+// This is pure, unstyled HTML/Tailwind designed strictly for clean white paper printing.
+
+const PrintLayout = ({ data }) => {
+  return (
+    <div className="p-8 max-w-[1000px] mx-auto text-[13px] leading-relaxed font-serif bg-white text-black">
+      
+      {/* --- PAGE 1-3: CAREERS --- */}
+      <h1 className="text-2xl font-bold mb-6 text-center underline uppercase">Module 4 Final Project</h1>
+      
+      {data.careers.map((career, idx) => (
+        <div key={idx} className="mb-10 print:break-inside-avoid">
+          <h2 className="text-lg font-bold mb-3 border-b-2 border-black pb-1">
+            Career #{idx + 1} - {career.type}
+          </h2>
+          
+          <table className="w-full border-collapse border border-black mb-4">
+            <tbody>
+              <tr>
+                <td className="border border-black p-2 font-bold w-1/4 bg-gray-100">Name of Career:</td>
+                <td className="border border-black p-2 w-3/4" colSpan="3">{career.name || '-'}</td>
+              </tr>
+              <tr>
+                <td className="border border-black p-2 font-bold w-1/4 bg-gray-100 align-top">Brief Description:</td>
+                <td className="border border-black p-2 w-3/4" colSpan="3">
+                  <div className="whitespace-pre-wrap min-h-[40px]">{career.duties || '-'}</div>
+                </td>
+              </tr>
+              <tr>
+                <td className="border border-black p-2 font-bold w-1/4 bg-gray-100">Outlook:</td>
+                <td className="border border-black p-2 w-1/4">{career.outlook || '-'}</td>
+                <td className="border border-black p-2 font-bold w-1/4 bg-gray-100">In Demand:</td>
+                <td className="border border-black p-2 w-1/4">{career.inDemand || '-'}</td>
+              </tr>
+              <tr>
+                <td className="border border-black p-2 font-bold w-1/4 bg-gray-100">Average Salary:</td>
+                <td className="border border-black p-2 w-1/4">{career.salary || '-'}</td>
+                <td className="border border-black p-2 font-bold w-1/4 bg-gray-100">Avg Hourly Wage:</td>
+                <td className="border border-black p-2 w-1/4">{career.wage || '-'}</td>
+              </tr>
+              <tr>
+                <td className="border border-black p-2 font-bold bg-gray-100">High School Courses Needed:</td>
+                <td className="border border-black p-2" colSpan="3">{career.courses || '-'}</td>
+              </tr>
+              <tr>
+                <td className="border border-black p-2 font-bold bg-gray-100">Program Length:</td>
+                <td className="border border-black p-2" colSpan="3">{career.length || '-'}</td>
+              </tr>
+              <tr>
+                <td className="border border-black p-2 font-bold bg-gray-100 align-top">Requirements/Options:</td>
+                <td className="border border-black p-2" colSpan="3">
+                  <div className="whitespace-pre-wrap min-h-[40px]">{career.requirements || '-'}</div>
+                </td>
+              </tr>
+              <tr>
+                <td className="border border-black p-2 font-bold bg-gray-100 align-top">Schools Offering Program:</td>
+                <td className="border border-black p-2" colSpan="3">
+                  <div className="whitespace-pre-wrap min-h-[40px]">{career.schools || '-'}</div>
+                </td>
+              </tr>
+              <tr>
+                <td className="border border-black p-2 font-bold bg-gray-100 align-top">Working Conditions:</td>
+                <td className="border border-black p-2" colSpan="3">
+                  <div className="whitespace-pre-wrap min-h-[40px]">{career.conditions || '-'}</div>
+                </td>
+              </tr>
+              <tr>
+                <td className="border border-black p-2 font-bold bg-gray-100 align-top">Important Skills:</td>
+                <td className="border border-black p-2" colSpan="3">
+                  <div className="whitespace-pre-wrap min-h-[40px]">{career.skills || '-'}</div>
+                </td>
+              </tr>
+              <tr>
+                <td className="border border-black p-2 font-bold bg-gray-100 align-top">Why Interested:</td>
+                <td className="border border-black p-2" colSpan="3">
+                  <div className="whitespace-pre-wrap min-h-[40px]">{career.interest || '-'}</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      ))}
+
+      {/* --- PAGE BREAK FOR REFLECTION --- */}
+      <div className="print:break-before-page pt-8 mb-10">
+        <h2 className="text-xl font-bold mb-4 border-b-2 border-black pb-1">Career Exploration Reflection</h2>
+        <div className="space-y-6">
+          <div>
+            <p className="font-bold mb-2">1. Which career did you feel best met your interests, values, and personality?</p>
+            <div className="border border-black p-3 min-h-[60px] whitespace-pre-wrap">{data.reflection.q1 || '-'}</div>
+          </div>
+          <div>
+            <p className="font-bold mb-2">2. Why?</p>
+            <div className="border border-black p-3 min-h-[100px] whitespace-pre-wrap">{data.reflection.q2 || '-'}</div>
+          </div>
+          <div>
+            <p className="font-bold mb-2">3. What steps might you take in order to pursue your career of choice?</p>
+            <div className="border border-black p-3 min-h-[100px] whitespace-pre-wrap">{data.reflection.q3 || '-'}</div>
+          </div>
+        </div>
+      </div>
+
+      {/* --- PAGE BREAK FOR INSTITUTIONS --- */}
+      <div className="print:break-before-page pt-8">
+        <h2 className="text-xl font-bold mb-6 border-b-2 border-black pb-1">Post-Secondary Exploration</h2>
+        
+        {data.institutions.map((inst, idx) => (
+          <div key={idx} className="mb-10 print:break-inside-avoid">
+            <h3 className="font-bold text-lg mb-3 bg-gray-100 p-2 border border-black">Institution #{idx + 1}</h3>
+            <table className="w-full border-collapse border border-black">
+              <tbody>
+                <tr><td className="border border-black p-2 font-bold w-1/3">1. Name of School:</td><td className="border border-black p-2">{inst.name || '-'}</td></tr>
+                <tr><td className="border border-black p-2 font-bold">2. Location/Address:</td><td className="border border-black p-2">{inst.address || '-'}</td></tr>
+                <tr><td className="border border-black p-2 font-bold">3. Website:</td><td className="border border-black p-2">{inst.website || '-'}</td></tr>
+                <tr><td className="border border-black p-2 font-bold">4. Programs of Interest:</td><td className="border border-black p-2">{inst.programs || '-'}</td></tr>
+                <tr><td className="border border-black p-2 font-bold">5. Athletic Program/Team:</td><td className="border border-black p-2">{inst.athletic || '-'}</td></tr>
+                <tr><td className="border border-black p-2 font-bold">6. Residences:</td><td className="border border-black p-2">{inst.residences || '-'}</td></tr>
+                <tr><td className="border border-black p-2 font-bold align-top">7. 5 Interesting Things:</td><td className="border border-black p-2 whitespace-pre-wrap min-h-[60px]">{inst.interesting || '-'}</td></tr>
+                <tr><td className="border border-black p-2 font-bold align-top">8. Why chose to research?:</td><td className="border border-black p-2 whitespace-pre-wrap min-h-[60px]">{inst.why || '-'}</td></tr>
+                <tr><td className="border border-black p-2 font-bold align-top">9. Admission Requirements:</td><td className="border border-black p-2 whitespace-pre-wrap min-h-[60px]">{inst.requirements || '-'}</td></tr>
+                <tr><td className="border border-black p-2 font-bold">10. Estimated Cost:</td><td className="border border-black p-2">{inst.cost || '-'}</td></tr>
+              </tbody>
+            </table>
+          </div>
+        ))}
+      </div>
+
+      {/* --- PAGE BREAK FOR COURSES --- */}
+      <div className="print:break-before-page pt-8">
+        <h2 className="text-xl font-bold mb-4 border-b-2 border-black pb-1">High School Course Planner</h2>
+        
+        <div className="grid grid-cols-2 gap-8">
+          {Object.entries(COURSE_CATALOG).map(([categoryKey, category]) => (
+            <div key={categoryKey} className="mb-4 print:break-inside-avoid">
+              <h3 className="font-bold bg-gray-100 p-2 border border-black border-b-0">{category.title}</h3>
+              <table className="w-full border-collapse border border-black text-xs">
+                <thead>
+                  <tr>
+                    <th className="border border-black p-1 text-left w-3/5">Course</th>
+                    <th className="border border-black p-1 text-center w-1/5">Done</th>
+                    <th className="border border-black p-1 text-center w-1/5">Need</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {category.courses.map((course) => {
+                    const isDone = data.courses[categoryKey].done.includes(course);
+                    const isNeed = data.courses[categoryKey].need.includes(course);
+                    return (
+                      <tr key={course}>
+                        <td className="border border-black p-1 pl-2">{course}</td>
+                        <td className="border border-black p-1 text-center font-bold text-lg leading-none">{isDone ? 'X' : ''}</td>
+                        <td className="border border-black p-1 text-center font-bold text-lg leading-none">{isNeed ? 'X' : ''}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  );
+};

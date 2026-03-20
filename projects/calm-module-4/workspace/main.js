@@ -1330,7 +1330,7 @@
           return dispatcher;
         }
         "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(Error());
-        var React2 = require_react(), Internals = {
+        var React7 = require_react(), Internals = {
           d: {
             f: noop,
             r: function() {
@@ -1348,7 +1348,7 @@
           },
           p: 0,
           findDOMNode: null
-        }, REACT_PORTAL_TYPE = /* @__PURE__ */ Symbol.for("react.portal"), ReactSharedInternals = React2.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE;
+        }, REACT_PORTAL_TYPE = /* @__PURE__ */ Symbol.for("react.portal"), ReactSharedInternals = React7.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE;
         "function" === typeof Map && null != Map.prototype && "function" === typeof Map.prototype.forEach && "function" === typeof Set && null != Set.prototype && "function" === typeof Set.prototype.clear && "function" === typeof Set.prototype.forEach || console.error(
           "React depends on Map and Set built-in types. Make sure that you load a polyfill in older browsers. https://reactjs.org/link/react-polyfills"
         );
@@ -2883,7 +2883,7 @@
           "number" === type && getActiveElement(node.ownerDocument) === node || node.defaultValue === "" + value || (node.defaultValue = "" + value);
         }
         function validateOptionProps(element, props) {
-          null == props.value && ("object" === typeof props.children && null !== props.children ? React2.Children.forEach(props.children, function(child) {
+          null == props.value && ("object" === typeof props.children && null !== props.children ? React7.Children.forEach(props.children, function(child) {
             null == child || "string" === typeof child || "number" === typeof child || "bigint" === typeof child || didWarnInvalidChild || (didWarnInvalidChild = true, console.error(
               "Cannot infer the option value of complex children. Pass a `value` prop or use a plain string as children to <option>."
             ));
@@ -18515,14 +18515,14 @@
           ));
         }
         "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(Error());
-        var Scheduler = require_scheduler(), React2 = require_react(), ReactDOM = require_react_dom(), assign = Object.assign, REACT_LEGACY_ELEMENT_TYPE = /* @__PURE__ */ Symbol.for("react.element"), REACT_ELEMENT_TYPE = /* @__PURE__ */ Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = /* @__PURE__ */ Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = /* @__PURE__ */ Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = /* @__PURE__ */ Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = /* @__PURE__ */ Symbol.for("react.profiler"), REACT_CONSUMER_TYPE = /* @__PURE__ */ Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = /* @__PURE__ */ Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = /* @__PURE__ */ Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = /* @__PURE__ */ Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = /* @__PURE__ */ Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = /* @__PURE__ */ Symbol.for("react.memo"), REACT_LAZY_TYPE = /* @__PURE__ */ Symbol.for("react.lazy");
+        var Scheduler = require_scheduler(), React7 = require_react(), ReactDOM = require_react_dom(), assign = Object.assign, REACT_LEGACY_ELEMENT_TYPE = /* @__PURE__ */ Symbol.for("react.element"), REACT_ELEMENT_TYPE = /* @__PURE__ */ Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = /* @__PURE__ */ Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = /* @__PURE__ */ Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = /* @__PURE__ */ Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = /* @__PURE__ */ Symbol.for("react.profiler"), REACT_CONSUMER_TYPE = /* @__PURE__ */ Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = /* @__PURE__ */ Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = /* @__PURE__ */ Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = /* @__PURE__ */ Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = /* @__PURE__ */ Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = /* @__PURE__ */ Symbol.for("react.memo"), REACT_LAZY_TYPE = /* @__PURE__ */ Symbol.for("react.lazy");
         /* @__PURE__ */ Symbol.for("react.scope");
         var REACT_ACTIVITY_TYPE = /* @__PURE__ */ Symbol.for("react.activity");
         /* @__PURE__ */ Symbol.for("react.legacy_hidden");
         /* @__PURE__ */ Symbol.for("react.tracing_marker");
         var REACT_MEMO_CACHE_SENTINEL = /* @__PURE__ */ Symbol.for("react.memo_cache_sentinel");
         /* @__PURE__ */ Symbol.for("react.view_transition");
-        var MAYBE_ITERATOR_SYMBOL = Symbol.iterator, REACT_CLIENT_REFERENCE = /* @__PURE__ */ Symbol.for("react.client.reference"), isArrayImpl = Array.isArray, ReactSharedInternals = React2.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, ReactDOMSharedInternals = ReactDOM.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, NotPending = Object.freeze({
+        var MAYBE_ITERATOR_SYMBOL = Symbol.iterator, REACT_CLIENT_REFERENCE = /* @__PURE__ */ Symbol.for("react.client.reference"), isArrayImpl = Array.isArray, ReactSharedInternals = React7.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, ReactDOMSharedInternals = ReactDOM.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, NotPending = Object.freeze({
           pending: false,
           data: null,
           method: null,
@@ -21310,7 +21310,7 @@
           }
         };
         (function() {
-          var isomorphicReactPackageVersion = React2.version;
+          var isomorphicReactPackageVersion = React7.version;
           if ("19.2.4" !== isomorphicReactPackageVersion)
             throw Error(
               'Incompatible React versions: The "react" and "react-dom" packages must have the exact same version. Instead got:\n  - react:      ' + (isomorphicReactPackageVersion + "\n  - react-dom:  19.2.4\nLearn more: https://react.dev/warnings/version-mismatch")
@@ -21664,18 +21664,18 @@
         function isValidElement(object) {
           return "object" === typeof object && null !== object && object.$$typeof === REACT_ELEMENT_TYPE;
         }
-        var React2 = require_react(), REACT_ELEMENT_TYPE = /* @__PURE__ */ Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = /* @__PURE__ */ Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = /* @__PURE__ */ Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = /* @__PURE__ */ Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = /* @__PURE__ */ Symbol.for("react.profiler"), REACT_CONSUMER_TYPE = /* @__PURE__ */ Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = /* @__PURE__ */ Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = /* @__PURE__ */ Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = /* @__PURE__ */ Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = /* @__PURE__ */ Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = /* @__PURE__ */ Symbol.for("react.memo"), REACT_LAZY_TYPE = /* @__PURE__ */ Symbol.for("react.lazy"), REACT_ACTIVITY_TYPE = /* @__PURE__ */ Symbol.for("react.activity"), REACT_CLIENT_REFERENCE = /* @__PURE__ */ Symbol.for("react.client.reference"), ReactSharedInternals = React2.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, hasOwnProperty = Object.prototype.hasOwnProperty, isArrayImpl = Array.isArray, createTask = console.createTask ? console.createTask : function() {
+        var React7 = require_react(), REACT_ELEMENT_TYPE = /* @__PURE__ */ Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = /* @__PURE__ */ Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = /* @__PURE__ */ Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = /* @__PURE__ */ Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = /* @__PURE__ */ Symbol.for("react.profiler"), REACT_CONSUMER_TYPE = /* @__PURE__ */ Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = /* @__PURE__ */ Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = /* @__PURE__ */ Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = /* @__PURE__ */ Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = /* @__PURE__ */ Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = /* @__PURE__ */ Symbol.for("react.memo"), REACT_LAZY_TYPE = /* @__PURE__ */ Symbol.for("react.lazy"), REACT_ACTIVITY_TYPE = /* @__PURE__ */ Symbol.for("react.activity"), REACT_CLIENT_REFERENCE = /* @__PURE__ */ Symbol.for("react.client.reference"), ReactSharedInternals = React7.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, hasOwnProperty = Object.prototype.hasOwnProperty, isArrayImpl = Array.isArray, createTask = console.createTask ? console.createTask : function() {
           return null;
         };
-        React2 = {
+        React7 = {
           react_stack_bottom_frame: function(callStackForError) {
             return callStackForError();
           }
         };
         var specialPropKeyWarningShown;
         var didWarnAboutElementRef = {};
-        var unknownOwnerDebugStack = React2.react_stack_bottom_frame.bind(
-          React2,
+        var unknownOwnerDebugStack = React7.react_stack_bottom_frame.bind(
+          React7,
           UnknownOwner
         )();
         var unknownOwnerDebugTask = createTask(getTaskName(UnknownOwner));
@@ -21720,7 +21720,7 @@
   });
 
   // projects/calm-module-4/workspace/main.jsx
-  var import_react3 = __toESM(require_react(), 1);
+  var import_react8 = __toESM(require_react(), 1);
   var import_client = __toESM(require_client(), 1);
 
   // node_modules/lucide-react/dist/esm/createLucideIcon.js
@@ -21812,8 +21812,21 @@
     return Component;
   };
 
-  // node_modules/lucide-react/dist/esm/icons/book-open.js
+  // node_modules/lucide-react/dist/esm/icons/award.js
   var __iconNode = [
+    [
+      "path",
+      {
+        d: "m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526",
+        key: "1yiouv"
+      }
+    ],
+    ["circle", { cx: "12", cy: "8", r: "6", key: "1vp47v" }]
+  ];
+  var Award = createLucideIcon("award", __iconNode);
+
+  // node_modules/lucide-react/dist/esm/icons/book-open.js
+  var __iconNode2 = [
     ["path", { d: "M12 7v14", key: "1akyts" }],
     [
       "path",
@@ -21823,17 +21836,41 @@
       }
     ]
   ];
-  var BookOpen = createLucideIcon("book-open", __iconNode);
+  var BookOpen = createLucideIcon("book-open", __iconNode2);
+
+  // node_modules/lucide-react/dist/esm/icons/brain-circuit.js
+  var __iconNode3 = [
+    [
+      "path",
+      {
+        d: "M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z",
+        key: "l5xja"
+      }
+    ],
+    ["path", { d: "M9 13a4.5 4.5 0 0 0 3-4", key: "10igwf" }],
+    ["path", { d: "M6.003 5.125A3 3 0 0 0 6.401 6.5", key: "105sqy" }],
+    ["path", { d: "M3.477 10.896a4 4 0 0 1 .585-.396", key: "ql3yin" }],
+    ["path", { d: "M6 18a4 4 0 0 1-1.967-.516", key: "2e4loj" }],
+    ["path", { d: "M12 13h4", key: "1ku699" }],
+    ["path", { d: "M12 18h6a2 2 0 0 1 2 2v1", key: "105ag5" }],
+    ["path", { d: "M12 8h8", key: "1lhi5i" }],
+    ["path", { d: "M16 8V5a2 2 0 0 1 2-2", key: "u6izg6" }],
+    ["circle", { cx: "16", cy: "13", r: ".5", key: "ry7gng" }],
+    ["circle", { cx: "18", cy: "3", r: ".5", key: "1aiba7" }],
+    ["circle", { cx: "20", cy: "21", r: ".5", key: "yhc1fs" }],
+    ["circle", { cx: "20", cy: "8", r: ".5", key: "1e43v0" }]
+  ];
+  var BrainCircuit = createLucideIcon("brain-circuit", __iconNode3);
 
   // node_modules/lucide-react/dist/esm/icons/briefcase.js
-  var __iconNode2 = [
+  var __iconNode4 = [
     ["path", { d: "M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16", key: "jecpp" }],
     ["rect", { width: "20", height: "14", x: "2", y: "6", rx: "2", key: "i6l2r4" }]
   ];
-  var Briefcase = createLucideIcon("briefcase", __iconNode2);
+  var Briefcase = createLucideIcon("briefcase", __iconNode4);
 
   // node_modules/lucide-react/dist/esm/icons/building.js
-  var __iconNode3 = [
+  var __iconNode5 = [
     ["path", { d: "M12 10h.01", key: "1nrarc" }],
     ["path", { d: "M12 14h.01", key: "1etili" }],
     ["path", { d: "M12 6h.01", key: "1vi96p" }],
@@ -21846,42 +21883,111 @@
     ["path", { d: "M9 22v-3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3", key: "cabbwy" }],
     ["rect", { x: "4", y: "2", width: "16", height: "20", rx: "2", key: "1uxh74" }]
   ];
-  var Building = createLucideIcon("building", __iconNode3);
+  var Building = createLucideIcon("building", __iconNode5);
+
+  // node_modules/lucide-react/dist/esm/icons/check.js
+  var __iconNode6 = [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]];
+  var Check = createLucideIcon("check", __iconNode6);
+
+  // node_modules/lucide-react/dist/esm/icons/chevron-down.js
+  var __iconNode7 = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
+  var ChevronDown = createLucideIcon("chevron-down", __iconNode7);
 
   // node_modules/lucide-react/dist/esm/icons/chevron-left.js
-  var __iconNode4 = [["path", { d: "m15 18-6-6 6-6", key: "1wnfg3" }]];
-  var ChevronLeft = createLucideIcon("chevron-left", __iconNode4);
+  var __iconNode8 = [["path", { d: "m15 18-6-6 6-6", key: "1wnfg3" }]];
+  var ChevronLeft = createLucideIcon("chevron-left", __iconNode8);
 
   // node_modules/lucide-react/dist/esm/icons/chevron-right.js
-  var __iconNode5 = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
-  var ChevronRight = createLucideIcon("chevron-right", __iconNode5);
+  var __iconNode9 = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
+  var ChevronRight = createLucideIcon("chevron-right", __iconNode9);
+
+  // node_modules/lucide-react/dist/esm/icons/chevron-up.js
+  var __iconNode10 = [["path", { d: "m18 15-6-6-6 6", key: "153udz" }]];
+  var ChevronUp = createLucideIcon("chevron-up", __iconNode10);
+
+  // node_modules/lucide-react/dist/esm/icons/circle-alert.js
+  var __iconNode11 = [
+    ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+    ["line", { x1: "12", x2: "12", y1: "8", y2: "12", key: "1pkeuh" }],
+    ["line", { x1: "12", x2: "12.01", y1: "16", y2: "16", key: "4dfq90" }]
+  ];
+  var CircleAlert = createLucideIcon("circle-alert", __iconNode11);
 
   // node_modules/lucide-react/dist/esm/icons/circle-check-big.js
-  var __iconNode6 = [
+  var __iconNode12 = [
     ["path", { d: "M21.801 10A10 10 0 1 1 17 3.335", key: "yps3ct" }],
     ["path", { d: "m9 11 3 3L22 4", key: "1pflzl" }]
   ];
-  var CircleCheckBig = createLucideIcon("circle-check-big", __iconNode6);
+  var CircleCheckBig = createLucideIcon("circle-check-big", __iconNode12);
 
   // node_modules/lucide-react/dist/esm/icons/circle-check.js
-  var __iconNode7 = [
+  var __iconNode13 = [
     ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
     ["path", { d: "m9 12 2 2 4-4", key: "dzmm74" }]
   ];
-  var CircleCheck = createLucideIcon("circle-check", __iconNode7);
+  var CircleCheck = createLucideIcon("circle-check", __iconNode13);
+
+  // node_modules/lucide-react/dist/esm/icons/circle-x.js
+  var __iconNode14 = [
+    ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+    ["path", { d: "m15 9-6 6", key: "1uzhvr" }],
+    ["path", { d: "m9 9 6 6", key: "z0biqf" }]
+  ];
+  var CircleX = createLucideIcon("circle-x", __iconNode14);
+
+  // node_modules/lucide-react/dist/esm/icons/copy.js
+  var __iconNode15 = [
+    ["rect", { width: "14", height: "14", x: "8", y: "8", rx: "2", ry: "2", key: "17jyea" }],
+    ["path", { d: "M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2", key: "zix9uf" }]
+  ];
+  var Copy = createLucideIcon("copy", __iconNode15);
+
+  // node_modules/lucide-react/dist/esm/icons/external-link.js
+  var __iconNode16 = [
+    ["path", { d: "M15 3h6v6", key: "1q9fwt" }],
+    ["path", { d: "M10 14 21 3", key: "gplh6r" }],
+    ["path", { d: "M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6", key: "a6xqqp" }]
+  ];
+  var ExternalLink = createLucideIcon("external-link", __iconNode16);
 
   // node_modules/lucide-react/dist/esm/icons/file-text.js
-  var __iconNode8 = [
+  var __iconNode17 = [
     ["path", { d: "M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z", key: "1rqfz7" }],
     ["path", { d: "M14 2v4a2 2 0 0 0 2 2h4", key: "tnqrlb" }],
     ["path", { d: "M10 9H8", key: "b1mrlr" }],
     ["path", { d: "M16 13H8", key: "t4e002" }],
     ["path", { d: "M16 17H8", key: "z1uh3a" }]
   ];
-  var FileText = createLucideIcon("file-text", __iconNode8);
+  var FileText = createLucideIcon("file-text", __iconNode17);
+
+  // node_modules/lucide-react/dist/esm/icons/graduation-cap.js
+  var __iconNode18 = [
+    [
+      "path",
+      {
+        d: "M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z",
+        key: "j76jl0"
+      }
+    ],
+    ["path", { d: "M22 10v6", key: "1lu8f3" }],
+    ["path", { d: "M6 12.5V16a6 3 0 0 0 12 0v-3.5", key: "1r8lef" }]
+  ];
+  var GraduationCap = createLucideIcon("graduation-cap", __iconNode18);
+
+  // node_modules/lucide-react/dist/esm/icons/heart-handshake.js
+  var __iconNode19 = [
+    [
+      "path",
+      {
+        d: "M19.414 14.414C21 12.828 22 11.5 22 9.5a5.5 5.5 0 0 0-9.591-3.676.6.6 0 0 1-.818.001A5.5 5.5 0 0 0 2 9.5c0 2.3 1.5 4 3 5.5l5.535 5.362a2 2 0 0 0 2.879.052 2.12 2.12 0 0 0-.004-3 2.124 2.124 0 1 0 3-3 2.124 2.124 0 0 0 3.004 0 2 2 0 0 0 0-2.828l-1.881-1.882a2.41 2.41 0 0 0-3.409 0l-1.71 1.71a2 2 0 0 1-2.828 0 2 2 0 0 1 0-2.828l2.823-2.762",
+        key: "17lmqv"
+      }
+    ]
+  ];
+  var HeartHandshake = createLucideIcon("heart-handshake", __iconNode19);
 
   // node_modules/lucide-react/dist/esm/icons/heart.js
-  var __iconNode9 = [
+  var __iconNode20 = [
     [
       "path",
       {
@@ -21890,10 +21996,35 @@
       }
     ]
   ];
-  var Heart = createLucideIcon("heart", __iconNode9);
+  var Heart = createLucideIcon("heart", __iconNode20);
+
+  // node_modules/lucide-react/dist/esm/icons/info.js
+  var __iconNode21 = [
+    ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+    ["path", { d: "M12 16v-4", key: "1dtifu" }],
+    ["path", { d: "M12 8h.01", key: "e9boi3" }]
+  ];
+  var Info = createLucideIcon("info", __iconNode21);
+
+  // node_modules/lucide-react/dist/esm/icons/layout-dashboard.js
+  var __iconNode22 = [
+    ["rect", { width: "7", height: "9", x: "3", y: "3", rx: "1", key: "10lvy0" }],
+    ["rect", { width: "7", height: "5", x: "14", y: "3", rx: "1", key: "16une8" }],
+    ["rect", { width: "7", height: "9", x: "14", y: "12", rx: "1", key: "1hutg5" }],
+    ["rect", { width: "7", height: "5", x: "3", y: "16", rx: "1", key: "ldoo1y" }]
+  ];
+  var LayoutDashboard = createLucideIcon("layout-dashboard", __iconNode22);
+
+  // node_modules/lucide-react/dist/esm/icons/layout-template.js
+  var __iconNode23 = [
+    ["rect", { width: "18", height: "7", x: "3", y: "3", rx: "1", key: "f1a2em" }],
+    ["rect", { width: "9", height: "7", x: "3", y: "14", rx: "1", key: "jqznyg" }],
+    ["rect", { width: "5", height: "7", x: "16", y: "14", rx: "1", key: "q5h2i8" }]
+  ];
+  var LayoutTemplate = createLucideIcon("layout-template", __iconNode23);
 
   // node_modules/lucide-react/dist/esm/icons/lightbulb.js
-  var __iconNode10 = [
+  var __iconNode24 = [
     [
       "path",
       {
@@ -21904,28 +22035,101 @@
     ["path", { d: "M9 18h6", key: "x1upvd" }],
     ["path", { d: "M10 22h4", key: "ceow96" }]
   ];
-  var Lightbulb = createLucideIcon("lightbulb", __iconNode10);
+  var Lightbulb = createLucideIcon("lightbulb", __iconNode24);
+
+  // node_modules/lucide-react/dist/esm/icons/list.js
+  var __iconNode25 = [
+    ["path", { d: "M3 12h.01", key: "nlz23k" }],
+    ["path", { d: "M3 18h.01", key: "1tta3j" }],
+    ["path", { d: "M3 6h.01", key: "1rqtza" }],
+    ["path", { d: "M8 12h13", key: "1za7za" }],
+    ["path", { d: "M8 18h13", key: "1lx6n3" }],
+    ["path", { d: "M8 6h13", key: "ik3vkj" }]
+  ];
+  var List = createLucideIcon("list", __iconNode25);
+
+  // node_modules/lucide-react/dist/esm/icons/mail.js
+  var __iconNode26 = [
+    ["path", { d: "m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7", key: "132q7q" }],
+    ["rect", { x: "2", y: "4", width: "20", height: "16", rx: "2", key: "izxlao" }]
+  ];
+  var Mail = createLucideIcon("mail", __iconNode26);
 
   // node_modules/lucide-react/dist/esm/icons/menu.js
-  var __iconNode11 = [
+  var __iconNode27 = [
     ["path", { d: "M4 12h16", key: "1lakjw" }],
     ["path", { d: "M4 18h16", key: "19g7jn" }],
     ["path", { d: "M4 6h16", key: "1o0s65" }]
   ];
-  var Menu = createLucideIcon("menu", __iconNode11);
+  var Menu = createLucideIcon("menu", __iconNode27);
 
   // node_modules/lucide-react/dist/esm/icons/network.js
-  var __iconNode12 = [
+  var __iconNode28 = [
     ["rect", { x: "16", y: "16", width: "6", height: "6", rx: "1", key: "4q2zg0" }],
     ["rect", { x: "2", y: "16", width: "6", height: "6", rx: "1", key: "8cvhb9" }],
     ["rect", { x: "9", y: "2", width: "6", height: "6", rx: "1", key: "1egb70" }],
     ["path", { d: "M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3", key: "1jsf9p" }],
     ["path", { d: "M12 12V8", key: "2874zd" }]
   ];
-  var Network = createLucideIcon("network", __iconNode12);
+  var Network = createLucideIcon("network", __iconNode28);
+
+  // node_modules/lucide-react/dist/esm/icons/pen-line.js
+  var __iconNode29 = [
+    ["path", { d: "M13 21h8", key: "1jsn5i" }],
+    [
+      "path",
+      {
+        d: "M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z",
+        key: "1a8usu"
+      }
+    ]
+  ];
+  var PenLine = createLucideIcon("pen-line", __iconNode29);
+
+  // node_modules/lucide-react/dist/esm/icons/pen-tool.js
+  var __iconNode30 = [
+    [
+      "path",
+      {
+        d: "M15.707 21.293a1 1 0 0 1-1.414 0l-1.586-1.586a1 1 0 0 1 0-1.414l5.586-5.586a1 1 0 0 1 1.414 0l1.586 1.586a1 1 0 0 1 0 1.414z",
+        key: "nt11vn"
+      }
+    ],
+    [
+      "path",
+      {
+        d: "m18 13-1.375-6.874a1 1 0 0 0-.746-.776L3.235 2.028a1 1 0 0 0-1.207 1.207L5.35 15.879a1 1 0 0 0 .776.746L13 18",
+        key: "15qc1e"
+      }
+    ],
+    ["path", { d: "m2.3 2.3 7.286 7.286", key: "1wuzzi" }],
+    ["circle", { cx: "11", cy: "11", r: "2", key: "xmgehs" }]
+  ];
+  var PenTool = createLucideIcon("pen-tool", __iconNode30);
+
+  // node_modules/lucide-react/dist/esm/icons/plus.js
+  var __iconNode31 = [
+    ["path", { d: "M5 12h14", key: "1ays0h" }],
+    ["path", { d: "M12 5v14", key: "s699le" }]
+  ];
+  var Plus = createLucideIcon("plus", __iconNode31);
+
+  // node_modules/lucide-react/dist/esm/icons/printer.js
+  var __iconNode32 = [
+    [
+      "path",
+      {
+        d: "M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2",
+        key: "143wyd"
+      }
+    ],
+    ["path", { d: "M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6", key: "1itne7" }],
+    ["rect", { x: "6", y: "14", width: "12", height: "8", rx: "1", key: "1ue0tg" }]
+  ];
+  var Printer = createLucideIcon("printer", __iconNode32);
 
   // node_modules/lucide-react/dist/esm/icons/quote.js
-  var __iconNode13 = [
+  var __iconNode33 = [
     [
       "path",
       {
@@ -21941,10 +22145,10 @@
       }
     ]
   ];
-  var Quote = createLucideIcon("quote", __iconNode13);
+  var Quote = createLucideIcon("quote", __iconNode33);
 
   // node_modules/lucide-react/dist/esm/icons/save.js
-  var __iconNode14 = [
+  var __iconNode34 = [
     [
       "path",
       {
@@ -21955,45 +22159,3223 @@
     ["path", { d: "M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7", key: "1ydtos" }],
     ["path", { d: "M7 3v4a1 1 0 0 0 1 1h7", key: "t51u73" }]
   ];
-  var Save = createLucideIcon("save", __iconNode14);
+  var Save = createLucideIcon("save", __iconNode34);
+
+  // node_modules/lucide-react/dist/esm/icons/settings.js
+  var __iconNode35 = [
+    [
+      "path",
+      {
+        d: "M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915",
+        key: "1i5ecw"
+      }
+    ],
+    ["circle", { cx: "12", cy: "12", r: "3", key: "1v7zrd" }]
+  ];
+  var Settings = createLucideIcon("settings", __iconNode35);
+
+  // node_modules/lucide-react/dist/esm/icons/sparkles.js
+  var __iconNode36 = [
+    [
+      "path",
+      {
+        d: "M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z",
+        key: "1s2grr"
+      }
+    ],
+    ["path", { d: "M20 2v4", key: "1rf3ol" }],
+    ["path", { d: "M22 4h-4", key: "gwowj6" }],
+    ["circle", { cx: "4", cy: "20", r: "2", key: "6kqj1y" }]
+  ];
+  var Sparkles = createLucideIcon("sparkles", __iconNode36);
+
+  // node_modules/lucide-react/dist/esm/icons/square-check-big.js
+  var __iconNode37 = [
+    [
+      "path",
+      { d: "M21 10.656V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h12.344", key: "2acyp4" }
+    ],
+    ["path", { d: "m9 11 3 3L22 4", key: "1pflzl" }]
+  ];
+  var SquareCheckBig = createLucideIcon("square-check-big", __iconNode37);
 
   // node_modules/lucide-react/dist/esm/icons/target.js
-  var __iconNode15 = [
+  var __iconNode38 = [
     ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
     ["circle", { cx: "12", cy: "12", r: "6", key: "1vlfrh" }],
     ["circle", { cx: "12", cy: "12", r: "2", key: "1c9p78" }]
   ];
-  var Target = createLucideIcon("target", __iconNode15);
+  var Target = createLucideIcon("target", __iconNode38);
+
+  // node_modules/lucide-react/dist/esm/icons/trash-2.js
+  var __iconNode39 = [
+    ["path", { d: "M10 11v6", key: "nco0om" }],
+    ["path", { d: "M14 11v6", key: "outv1u" }],
+    ["path", { d: "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6", key: "miytrc" }],
+    ["path", { d: "M3 6h18", key: "d0wm0j" }],
+    ["path", { d: "M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2", key: "e791ji" }]
+  ];
+  var Trash2 = createLucideIcon("trash-2", __iconNode39);
+
+  // node_modules/lucide-react/dist/esm/icons/user-plus.js
+  var __iconNode40 = [
+    ["path", { d: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2", key: "1yyitq" }],
+    ["circle", { cx: "9", cy: "7", r: "4", key: "nufk8" }],
+    ["line", { x1: "19", x2: "19", y1: "8", y2: "14", key: "1bvyxn" }],
+    ["line", { x1: "22", x2: "16", y1: "11", y2: "11", key: "1shjgl" }]
+  ];
+  var UserPlus = createLucideIcon("user-plus", __iconNode40);
 
   // node_modules/lucide-react/dist/esm/icons/user.js
-  var __iconNode16 = [
+  var __iconNode41 = [
     ["path", { d: "M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2", key: "975kel" }],
     ["circle", { cx: "12", cy: "7", r: "4", key: "17ys0d" }]
   ];
-  var User = createLucideIcon("user", __iconNode16);
+  var User = createLucideIcon("user", __iconNode41);
 
   // node_modules/lucide-react/dist/esm/icons/users.js
-  var __iconNode17 = [
+  var __iconNode42 = [
     ["path", { d: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2", key: "1yyitq" }],
     ["path", { d: "M16 3.128a4 4 0 0 1 0 7.744", key: "16gr8j" }],
     ["path", { d: "M22 21v-2a4 4 0 0 0-3-3.87", key: "kshegd" }],
     ["circle", { cx: "9", cy: "7", r: "4", key: "nufk8" }]
   ];
-  var Users = createLucideIcon("users", __iconNode17);
+  var Users = createLucideIcon("users", __iconNode42);
+
+  // node_modules/lucide-react/dist/esm/icons/wrench.js
+  var __iconNode43 = [
+    [
+      "path",
+      {
+        d: "M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z",
+        key: "1ngwbx"
+      }
+    ]
+  ];
+  var Wrench = createLucideIcon("wrench", __iconNode43);
+
+  // projects/calm-module-4/workspace/components/careerplanning.reference.jsx
+  var import_react3 = __toESM(require_react(), 1);
+  var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
+  var App = () => {
+    const [formData, setFormData] = (0, import_react3.useState)({
+      interests: { rank1: "", rank2: "", rank3: "", desc1: "", desc2: "", desc3: "", summary: "", occupations: "" },
+      abilities: { rank1: "", rank2: "", rank3: "", desc1: "", desc2: "", desc3: "", summary: "", occupations: "" },
+      workValues: { top5: "" },
+      intelligences: { intel1: "", intel2: "", intel3: "", summary: "", strat1: "", strat2: "", strat3: "" },
+      experiences: { exp1Desc: "", exp1Proud: "", exp2Desc: "", exp2Proud: "", helpCareer: "" },
+      skills: { difference: "", top10: "", helpCareer: "" },
+      traits: { definition: "", top10: "", helpCareer: "" },
+      conditions: { top5: "", helpCareer: "" }
+    });
+    const [activeSection, setActiveSection] = (0, import_react3.useState)("instructions");
+    const handleChange = (section, field, value) => {
+      setFormData((prev) => ({
+        ...prev,
+        [section]: {
+          ...prev[section],
+          [field]: value
+        }
+      }));
+    };
+    const handlePrint = () => {
+      window.print();
+    };
+    const navItems = [
+      { id: "instructions", label: "Start Here", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BookOpen, { size: 16 }) },
+      { id: "interests", label: "1. Interests", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Target, { size: 16 }) },
+      { id: "abilities", label: "2. Abilities", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BrainCircuit, { size: 16 }) },
+      { id: "workValues", label: "3. Work Values", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(HeartHandshake, { size: 16 }) },
+      { id: "intelligences", label: "4. Multiple Intelligences", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Lightbulb, { size: 16 }) },
+      { id: "experiences", label: "5. Experiences", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Briefcase, { size: 16 }) },
+      { id: "skills", label: "6. Skills", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Award, { size: 16 }) },
+      { id: "traits", label: "7. Traits", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(UserPlus, { size: 16 }) },
+      { id: "conditions", label: "8. Working Conditions", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Settings, { size: 16 }) }
+    ];
+    const activeIndex = navItems.findIndex((item) => item.id === activeSection);
+    const progressPercentage = Math.max(5, Math.round(activeIndex / (navItems.length - 1) * 100));
+    const InputGroup2 = ({ label, value, onChange, placeholder, type = "text", rows = 3 }) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mb-8", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { className: "block text-[11px] font-extrabold uppercase tracking-widest text-[#9AA0B8] mb-3", children: label }),
+      type === "textarea" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+        "textarea",
+        {
+          value,
+          onChange: (e) => onChange(e.target.value),
+          placeholder: placeholder || "Your thoughts...",
+          rows,
+          className: "w-full bg-[#111322] border border-[#2A2D4A] rounded-xl p-4 text-white placeholder-[#4A4D6A] focus:outline-none focus:border-[#E8437D] transition-colors resize-y shadow-sm"
+        }
+      ) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+        "input",
+        {
+          type,
+          value,
+          onChange: (e) => onChange(e.target.value),
+          placeholder: placeholder || "Enter value...",
+          className: "w-full bg-[#111322] border border-[#2A2D4A] rounded-xl p-4 text-white placeholder-[#4A4D6A] focus:outline-none focus:border-[#E8437D] transition-colors shadow-sm"
+        }
+      )
+    ] });
+    const SectionCard = ({ id, title, icon, children }) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { id, className: `transition-opacity duration-300 ${activeSection === id ? "block" : "hidden"}`, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "bg-[#1A1D36] rounded-2xl p-8 relative overflow-hidden border border-[#2A2D4A]", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-[#E8437D] to-[#8B5CF6]" }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex items-center gap-3 mb-8", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "p-2.5 bg-[#E8437D]/10 text-[#E8437D] rounded-full ring-1 ring-[#E8437D]/30", children: icon }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "text-2xl font-extrabold text-white tracking-tight", children: title })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "space-y-6", children })
+    ] }) });
+    return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "min-h-screen flex flex-col bg-[#090A10] text-slate-200 font-sans selection:bg-[#E8437D]/30", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("style", { dangerouslySetInnerHTML: { __html: `
+        @media print {
+          body { background: white !important; color: black !important; -webkit-print-color-adjust: exact; }
+          .no-print { display: none !important; }
+          .print-only { display: block !important; }
+          @page { margin: 20mm; }
+          h1, h2, h3, h4 { color: #111827 !important; }
+          p, span, div { color: #374151 !important; }
+          .print-section { page-break-inside: avoid; margin-bottom: 30px; }
+          .print-field { margin-bottom: 15px; }
+          .print-label { font-weight: bold; font-size: 0.9em; margin-bottom: 4px; color: #4b5563 !important; text-transform: uppercase; letter-spacing: 0.05em; }
+          .print-value { padding: 10px; border: 1px solid #d1d5db; border-radius: 4px; min-height: 40px; background: #f9fafb !important; white-space: pre-wrap; }
+        }
+      ` } }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("nav", { className: "no-print border-b border-white/10 bg-white/5 backdrop-blur-md overflow-visible transition-all duration-300", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "w-full px-4 sm:px-6 lg:px-8", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex items-center justify-between gap-4 h-16", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex items-center gap-3 min-w-0", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "p-2 bg-gradient-to-br from-fuchsia-600 to-indigo-600 rounded-lg shadow-lg shadow-fuchsia-900/20", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LayoutDashboard, { className: "w-5 h-5 text-white" }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "min-w-0", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-400 to-indigo-400", children: "Career Planner" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "hidden sm:block text-[10px] font-bold uppercase tracking-[0.32em] text-slate-500", children: "Career & Portfolio" })
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex items-center gap-2 sm:gap-3", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "hidden md:flex items-center gap-4 bg-[#131526] px-4 py-2 rounded-full border border-[#2A2D4A] shadow-inner", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "text-[10px] font-extrabold text-[#9AA0B8] uppercase tracking-widest", children: "Progress" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-24 h-1.5 bg-[#2A2D4A] rounded-full overflow-hidden", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                "div",
+                {
+                  className: "h-full bg-gradient-to-r from-[#E8437D] to-[#8B5CF6] transition-all duration-500 ease-out",
+                  style: { width: `${progressPercentage}%` }
+                }
+              ) }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { className: "text-[10px] font-extrabold text-white w-6", children: [
+                progressPercentage,
+                "%"
+              ] })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+              "button",
+              {
+                onClick: handlePrint,
+                className: "flex items-center gap-2 bg-[#1A1D36] hover:bg-[#232747] border border-[#2A2D4A] transition-colors px-4 sm:px-5 py-2.5 rounded-lg text-xs font-bold text-white tracking-widest uppercase shadow-sm",
+                children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Save, { size: 14 }),
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "hidden sm:inline", children: "Save Draft" })
+                ]
+              }
+            )
+          ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "border-t border-white/10", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex items-start gap-3 py-3", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "hidden sm:inline-flex text-[10px] font-extrabold uppercase tracking-[0.35em] text-slate-500 shrink-0 pr-2 pt-2", children: "Topics" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "grid flex-1 min-w-0 grid-cols-[repeat(auto-fit,minmax(10rem,1fr))] gap-2", children: navItems.map((item) => {
+            const isActive = activeSection === item.id;
+            return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+              "button",
+              {
+                onClick: () => setActiveSection(item.id),
+                className: `flex w-full items-center gap-2 px-3.5 py-2 rounded-md text-xs sm:text-sm font-medium transition-all duration-200 whitespace-nowrap border ${isActive ? "bg-gradient-to-r from-fuchsia-600 to-indigo-600 text-white border-fuchsia-400/30 shadow-lg shadow-indigo-900/20" : "text-slate-400 border-white/10 hover:text-white hover:bg-white/5 hover:border-white/20"}`,
+                children: [
+                  item.icon,
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: item.label })
+                ]
+              },
+              item.id
+            );
+          }) })
+        ] }) })
+      ] }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "no-print flex flex-col flex-1 min-h-0 overflow-hidden bg-[#090A10]", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "flex-1 flex flex-col h-full min-w-0 relative overflow-hidden bg-[#090A10]", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("main", { className: "flex-1 overflow-y-auto px-4 sm:px-6 lg:px-8 pt-6 pb-24 relative", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "w-full max-w-none mt-4", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { id: "instructions", className: `transition-opacity duration-300 ${activeSection === "instructions" ? "block" : "hidden"}`, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "bg-[#1A1D36] rounded-2xl p-10 relative overflow-hidden border border-[#2A2D4A]", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-[#E8437D] to-[#8B5CF6]" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BookOpen, { size: 40, className: "text-[#E8437D] mb-6" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "text-3xl font-extrabold text-white mb-4 tracking-tight", children: "Online Career Planning Tools" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-[#9AA0B8] mb-8 leading-relaxed max-w-5xl text-sm", children: "Welcome to your digital career planner. Follow the instructions below to complete your ALIS assessments, then record your insights here to generate a comprehensive career plan document." }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "bg-[#111322] border border-[#2A2D4A] p-6 rounded-xl inline-flex flex-col items-start w-full max-w-4xl mb-8", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-xs font-bold text-[#9AA0B8] uppercase tracking-wider mb-4", children: "Action Required" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-sm text-white mb-4", children: "Go to alis.alberta.ca or search ALIS on Google" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", { href: "https://alis.alberta.ca", target: "_blank", rel: "noreferrer", className: "flex items-center justify-center gap-2 bg-[#E8437D] hover:bg-[#D43A70] text-white px-6 py-3 rounded-lg font-bold text-sm transition-colors w-full shadow-lg shadow-[#E8437D]/20", children: [
+              "Open ALIS Platform ",
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ExternalLink, { size: 16 })
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-4 text-sm text-[#9AA0B8] max-w-5xl", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex gap-4", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "font-bold text-[#E8437D]", children: "01" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "Sign Up or Sign In with a Guest Account." })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex gap-4", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "font-bold text-[#E8437D]", children: "02" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: 'Go to "My Account" \u2192 "My Career Plan" \u2192 "Explore Quizzes".' })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex gap-4", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "font-bold text-[#E8437D]", children: "03" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: 'Find the "Know Yourself" section.' })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex gap-4", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "font-bold text-[#E8437D]", children: "04" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "Complete the 9 exercises and answer the corresponding questions in this tool." })
+            ] })
+          ] })
+        ] }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(SectionCard, { id: "interests", title: "Interests Exercise", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Target, { size: 24 }), children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-6", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { label: "Rank 1 Interest Code", value: formData.interests.rank1, onChange: (v) => handleChange("interests", "rank1", v), placeholder: "E.g., R" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { label: "Rank 2 Interest Code", value: formData.interests.rank2, onChange: (v) => handleChange("interests", "rank2", v), placeholder: "E.g., I" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { label: "Rank 3 Interest Code", value: formData.interests.rank3, onChange: (v) => handleChange("interests", "rank3", v), placeholder: "E.g., A" })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-2 mt-4", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-sm text-white font-bold mb-4", children: "Brief description of your interest codes:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { label: "Code 1 Description", value: formData.interests.desc1, onChange: (v) => handleChange("interests", "desc1", v) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { label: "Code 2 Description", value: formData.interests.desc2, onChange: (v) => handleChange("interests", "desc2", v) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { label: "Code 3 Description", value: formData.interests.desc3, onChange: (v) => handleChange("interests", "desc3", v) })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            InputGroup2,
+            {
+              type: "textarea",
+              label: "Do these descriptions sound like a good summary of YOUR interests? Add or take away anything?",
+              value: formData.interests.summary,
+              onChange: (v) => handleChange("interests", "summary", v)
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            InputGroup2,
+            {
+              type: "textarea",
+              label: "List three matching occupations that stand out to you:",
+              value: formData.interests.occupations,
+              onChange: (v) => handleChange("interests", "occupations", v)
+            }
+          )
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(SectionCard, { id: "abilities", title: "Abilities Exercise", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BrainCircuit, { size: 24 }), children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-6", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { label: "Rank 1 Ability", value: formData.abilities.rank1, onChange: (v) => handleChange("abilities", "rank1", v) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { label: "Rank 2 Ability", value: formData.abilities.rank2, onChange: (v) => handleChange("abilities", "rank2", v) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { label: "Rank 3 Ability", value: formData.abilities.rank3, onChange: (v) => handleChange("abilities", "rank3", v) })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-2 mt-4", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-sm text-white font-bold mb-4", children: "Brief description of your top 3 abilities:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { label: "Ability 1 Description", value: formData.abilities.desc1, onChange: (v) => handleChange("abilities", "desc1", v) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { label: "Ability 2 Description", value: formData.abilities.desc2, onChange: (v) => handleChange("abilities", "desc2", v) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { label: "Ability 3 Description", value: formData.abilities.desc3, onChange: (v) => handleChange("abilities", "desc3", v) })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            InputGroup2,
+            {
+              type: "textarea",
+              label: "Do you agree with these top three abilities? Explain.",
+              value: formData.abilities.summary,
+              onChange: (v) => handleChange("abilities", "summary", v)
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            InputGroup2,
+            {
+              type: "textarea",
+              label: "List three NEW matching occupations that stand out to you based on interests & abilities:",
+              value: formData.abilities.occupations,
+              onChange: (v) => handleChange("abilities", "occupations", v)
+            }
+          )
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SectionCard, { id: "workValues", title: "Work Values Quiz", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(HeartHandshake, { size: 24 }), children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+          InputGroup2,
+          {
+            type: "textarea",
+            rows: 6,
+            label: "What are the 5 work values that you selected as being the most important to you?",
+            value: formData.workValues.top5,
+            onChange: (v) => handleChange("workValues", "top5", v),
+            placeholder: "1.\n2.\n3.\n4.\n5."
+          }
+        ) }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(SectionCard, { id: "intelligences", title: "Multiple Intelligences Quiz", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Lightbulb, { size: 24 }), children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-2", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-sm text-white font-bold mb-4", children: "List and describe your top 3 Multiple Intelligences:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { label: "Intelligence #1", value: formData.intelligences.intel1, onChange: (v) => handleChange("intelligences", "intel1", v) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { label: "Intelligence #2", value: formData.intelligences.intel2, onChange: (v) => handleChange("intelligences", "intel2", v) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { label: "Intelligence #3", value: formData.intelligences.intel3, onChange: (v) => handleChange("intelligences", "intel3", v) })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            InputGroup2,
+            {
+              type: "textarea",
+              label: "Do these Multiple Intelligences sound like you? Anything to add or take away?",
+              value: formData.intelligences.summary,
+              onChange: (v) => handleChange("intelligences", "summary", v)
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-2 mt-8", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { className: "text-sm text-white font-bold mb-4 leading-relaxed", children: [
+              "List learning strategies for each intelligence:",
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "text-[#9AA0B8] font-normal text-xs", children: "Include ones you've tried and at least 1 new strategy." })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { type: "textarea", label: "Strategies for Intelligence #1", value: formData.intelligences.strat1, onChange: (v) => handleChange("intelligences", "strat1", v) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { type: "textarea", label: "Strategies for Intelligence #2", value: formData.intelligences.strat2, onChange: (v) => handleChange("intelligences", "strat2", v) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { type: "textarea", label: "Strategies for Intelligence #3", value: formData.intelligences.strat3, onChange: (v) => handleChange("intelligences", "strat3", v) })
+          ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(SectionCard, { id: "experiences", title: "Identify Your Experiences", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Briefcase, { size: 24 }), children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "p-4 bg-[#111322] border-l-2 border-[#E8437D] rounded-r-xl mb-8", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { className: "text-[#9AA0B8] text-sm", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { className: "text-white", children: "Note:" }),
+            ' Provide responses here. You can type "na" on the ALIS website to quickly progress forward.'
+          ] }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-10", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h3", { className: "text-lg font-extrabold text-white mb-6 flex items-center gap-3", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "bg-[#2A2D4A] text-white text-xs px-2 py-1 rounded", children: "01" }),
+                "Significant Experience #1"
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { type: "textarea", label: "Describe your experience:", value: formData.experiences.exp1Desc, onChange: (v) => handleChange("experiences", "exp1Desc", v) }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { type: "textarea", label: "Why are you proud of this experience?", value: formData.experiences.exp1Proud, onChange: (v) => handleChange("experiences", "exp1Proud", v) })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "pt-8 border-t border-[#2A2D4A]", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h3", { className: "text-lg font-extrabold text-white mb-6 flex items-center gap-3", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "bg-[#2A2D4A] text-white text-xs px-2 py-1 rounded", children: "02" }),
+                "Significant Experience #2"
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { type: "textarea", label: "Describe your experience:", value: formData.experiences.exp2Desc, onChange: (v) => handleChange("experiences", "exp2Desc", v) }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { type: "textarea", label: "Why are you proud of this experience?", value: formData.experiences.exp2Proud, onChange: (v) => handleChange("experiences", "exp2Proud", v) })
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "mt-10 pt-8 border-t border-[#2A2D4A]", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            InputGroup2,
+            {
+              type: "textarea",
+              label: "How do you think these experiences can help you in deciding what kind of career might be right for you?",
+              value: formData.experiences.helpCareer,
+              onChange: (v) => handleChange("experiences", "helpCareer", v)
+            }
+          ) })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(SectionCard, { id: "skills", title: "Skills Quiz", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Award, { size: 24 }), children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            InputGroup2,
+            {
+              type: "textarea",
+              label: "How would you describe the difference between a skill and an ability?",
+              value: formData.skills.difference,
+              onChange: (v) => handleChange("skills", "difference", v)
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            InputGroup2,
+            {
+              type: "textarea",
+              rows: 6,
+              label: "What are your top 10 Skills?",
+              value: formData.skills.top10,
+              onChange: (v) => handleChange("skills", "top10", v)
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            InputGroup2,
+            {
+              type: "textarea",
+              label: "How does knowing and recognizing your top 10 skills help you in deciding what kind of career might be right for you?",
+              value: formData.skills.helpCareer,
+              onChange: (v) => handleChange("skills", "helpCareer", v)
+            }
+          )
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(SectionCard, { id: "traits", title: "Traits Quiz", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(UserPlus, { size: 24 }), children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            InputGroup2,
+            {
+              type: "textarea",
+              label: "What are traits?",
+              value: formData.traits.definition,
+              onChange: (v) => handleChange("traits", "definition", v)
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            InputGroup2,
+            {
+              type: "textarea",
+              rows: 6,
+              label: "What are your top 10 traits?",
+              value: formData.traits.top10,
+              onChange: (v) => handleChange("traits", "top10", v)
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            InputGroup2,
+            {
+              type: "textarea",
+              label: "How does knowing and recognizing your top 10 traits help you in deciding what kind of career might be right for you?",
+              value: formData.traits.helpCareer,
+              onChange: (v) => handleChange("traits", "helpCareer", v)
+            }
+          )
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(SectionCard, { id: "conditions", title: "Preferred Working Conditions Quiz", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Settings, { size: 24 }), children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            InputGroup2,
+            {
+              type: "textarea",
+              rows: 6,
+              label: "What are the 5 working conditions that are most important to you?",
+              value: formData.conditions.top5,
+              onChange: (v) => handleChange("conditions", "top5", v)
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            InputGroup2,
+            {
+              type: "textarea",
+              label: "How does knowing and recognizing your top 5 working conditions help you in deciding what kind of career might be right for you?",
+              value: formData.conditions.helpCareer,
+              onChange: (v) => handleChange("conditions", "helpCareer", v)
+            }
+          )
+        ] }),
+        activeSection !== "instructions" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mt-8 flex justify-between items-center bg-[#1A1D36] border border-[#2A2D4A] p-6 rounded-2xl", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "text-[#9AA0B8] text-xs font-bold uppercase tracking-wider", children: "All changes auto-saved" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+            "button",
+            {
+              onClick: handlePrint,
+              className: "bg-[#E8437D] hover:bg-[#D43A70] text-white px-6 py-3 rounded-lg font-bold text-sm transition-colors flex items-center gap-2 shadow-lg shadow-[#E8437D]/20",
+              children: [
+                "Generate PDF ",
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Save, { size: 16 })
+              ]
+            }
+          )
+        ] })
+      ] }) }) }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "hidden print-only bg-white text-black p-8 max-w-4xl mx-auto font-sans", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "border-b-2 border-gray-800 pb-4 mb-8", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { className: "text-3xl font-extrabold text-black uppercase tracking-wider", children: "Career Planning Workbook" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-gray-600 mt-1", children: "Based on ALIS CAREERinsite Tools" })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "print-section", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "text-xl font-bold text-black border-b border-gray-300 pb-1 mb-4", children: "1. Interests Exercise" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "grid grid-cols-3 gap-4 mb-4", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-label", children: "Rank 1 Interest" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-value", children: formData.interests.rank1 || " " })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-label", children: "Rank 2 Interest" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-value", children: formData.interests.rank2 || " " })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-label", children: "Rank 3 Interest" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-value", children: formData.interests.rank3 || " " })
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "print-field", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-label", children: "Descriptions of top 3 interests:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "print-value", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "1:" }),
+              " ",
+              formData.interests.desc1,
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "2:" }),
+              " ",
+              formData.interests.desc2,
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "3:" }),
+              " ",
+              formData.interests.desc3
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "print-field", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-label", children: "Do these descriptions sound like a good summary of YOUR interests? Add/take away:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-value", children: formData.interests.summary || " " })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "print-field", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-label", children: "Three matching occupations to explore deeper:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-value", children: formData.interests.occupations || " " })
+          ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "print-section", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "text-xl font-bold text-black border-b border-gray-300 pb-1 mb-4", children: "2. Abilities Exercise" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "grid grid-cols-3 gap-4 mb-4", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-label", children: "Rank 1 Ability" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-value", children: formData.abilities.rank1 || " " })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-label", children: "Rank 2 Ability" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-value", children: formData.abilities.rank2 || " " })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-label", children: "Rank 3 Ability" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-value", children: formData.abilities.rank3 || " " })
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "print-field", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-label", children: "Descriptions of top 3 abilities:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "print-value", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "1:" }),
+              " ",
+              formData.abilities.desc1,
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "2:" }),
+              " ",
+              formData.abilities.desc2,
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "3:" }),
+              " ",
+              formData.abilities.desc3
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "print-field", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-label", children: "Do you agree with these top three abilities? Add/take away:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-value", children: formData.abilities.summary || " " })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "print-field", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-label", children: "Three NEW matching occupations based on interests & abilities:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-value", children: formData.abilities.occupations || " " })
+          ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "print-section", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "text-xl font-bold text-black border-b border-gray-300 pb-1 mb-4", children: "3. Work Values Quiz" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "print-field", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-label", children: "The 5 work values that are most important to you:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-value min-h-[100px]", children: formData.workValues.top5 || " " })
+          ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "print-section", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "text-xl font-bold text-black border-b border-gray-300 pb-1 mb-4", children: "4. Multiple Intelligences Quiz" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "print-field", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-label", children: "Top 3 Multiple Intelligences:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "print-value", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "1:" }),
+              " ",
+              formData.intelligences.intel1,
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "2:" }),
+              " ",
+              formData.intelligences.intel2,
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "3:" }),
+              " ",
+              formData.intelligences.intel3
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "print-field", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-label", children: "Do these sound like you? Anything to add or take away?" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-value", children: formData.intelligences.summary || " " })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "print-field", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-label", children: "Learning strategies for each intelligence:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "print-value", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "Intel #1 Strategies:" }),
+              " ",
+              formData.intelligences.strat1,
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "Intel #2 Strategies:" }),
+              " ",
+              formData.intelligences.strat2,
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "Intel #3 Strategies:" }),
+              " ",
+              formData.intelligences.strat3
+            ] })
+          ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "print-section", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "text-xl font-bold text-black border-b border-gray-300 pb-1 mb-4", children: "5. Identify Your Experiences" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "print-field mb-6", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "font-bold mb-2", children: "Significant Experience #1" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-label", children: "Description:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-value mb-2", children: formData.experiences.exp1Desc || " " }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-label", children: "Why are you proud of this experience?" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-value", children: formData.experiences.exp1Proud || " " })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "print-field mb-6", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "font-bold mb-2", children: "Significant Experience #2" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-label", children: "Description:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-value mb-2", children: formData.experiences.exp2Desc || " " }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-label", children: "Why are you proud of this experience?" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-value", children: formData.experiences.exp2Proud || " " })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "print-field", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-label", children: "How can these experiences help you in deciding your career?" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-value", children: formData.experiences.helpCareer || " " })
+          ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "print-section", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "text-xl font-bold text-black border-b border-gray-300 pb-1 mb-4", children: "6. Skills Quiz" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "print-field", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-label", children: "Difference between a skill and an ability:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-value", children: formData.skills.difference || " " })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "print-field", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-label", children: "Top 10 Skills:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-value min-h-[150px]", children: formData.skills.top10 || " " })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "print-field", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-label", children: "How knowing your top 10 skills helps decide a career:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-value", children: formData.skills.helpCareer || " " })
+          ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "print-section", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "text-xl font-bold text-black border-b border-gray-300 pb-1 mb-4", children: "7. Traits Quiz" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "print-field", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-label", children: "What are traits?" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-value", children: formData.traits.definition || " " })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "print-field", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-label", children: "Top 10 Traits:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-value min-h-[150px]", children: formData.traits.top10 || " " })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "print-field", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-label", children: "How knowing your top 10 traits helps decide a career:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-value", children: formData.traits.helpCareer || " " })
+          ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "print-section", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "text-xl font-bold text-black border-b border-gray-300 pb-1 mb-4", children: "8. Preferred Working Conditions Quiz" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "print-field", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-label", children: "5 working conditions that are most important to you:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-value min-h-[100px]", children: formData.conditions.top5 || " " })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "print-field", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-label", children: "How knowing your top 5 conditions helps decide a career:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "print-value", children: formData.conditions.helpCareer || " " })
+          ] })
+        ] })
+      ] })
+    ] });
+  };
+  var careerplanning_reference_default = App;
+
+  // projects/calm-module-4/workspace/components/resourcefulpeople.reference.jsx
+  var import_react4 = __toESM(require_react(), 1);
+  var import_jsx_runtime2 = __toESM(require_jsx_runtime(), 1);
+  var App2 = () => {
+    const [activeTab, setActiveTab] = (0, import_react4.useState)("article");
+    const [reflections, setReflections] = (0, import_react4.useState)({
+      q1: "",
+      q2: "",
+      q3: "",
+      q4: ""
+    });
+    const [resources, setResources] = (0, import_react4.useState)({
+      postSecondary: [
+        { id: 1, name: "", contact: "", criteria: "", info: "" },
+        { id: 2, name: "", contact: "", criteria: "", info: "" }
+      ],
+      financial: [
+        { id: 1, name: "", contact: "", criteria: "", info: "" },
+        { id: 2, name: "", contact: "", criteria: "", info: "" }
+      ],
+      scholarships: [
+        { id: 1, name: "", contact: "", criteria: "", info: "" },
+        { id: 2, name: "", contact: "", criteria: "", info: "" }
+      ],
+      contacts: [
+        { id: 1, name: "", contact: "", criteria: "", info: "" },
+        { id: 2, name: "", contact: "", criteria: "", info: "" }
+      ]
+    });
+    const handleReflectionChange = (q, value) => {
+      setReflections((prev) => ({ ...prev, [q]: value }));
+    };
+    const handleResourceChange = (category, index, field, value) => {
+      setResources((prev) => {
+        const newCategory = [...prev[category]];
+        newCategory[index] = { ...newCategory[index], [field]: value };
+        return { ...prev, [category]: newCategory };
+      });
+    };
+    const questions = [
+      { id: "q1", text: 'What does it mean to be a "resourceful" person?' },
+      { id: "q2", text: "Why is being resourceful important to success?" },
+      { id: "q3", text: "What are some ways that you consider yourself to be a resourceful person?" },
+      { id: "q4", text: "What are some of the characteristics of a resourceful person that you would like to personally work on or improve? Why?" }
+    ];
+    const resourceCategories = [
+      { key: "postSecondary", title: "Possible Post-Secondary Institutions" },
+      { key: "financial", title: "Financial Institutions (Student Loans)" },
+      { key: "scholarships", title: "Scholarships / Bursaries" },
+      { key: "contacts", title: "Career Contacts OR Apprenticeship Opportunities" }
+    ];
+    return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "min-h-screen bg-[#07090E] text-slate-300 font-sans selection:bg-fuchsia-500/30", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("nav", { className: "sticky top-0 z-50 bg-[#07090E]/80 backdrop-blur-xl border-b border-white/10", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "max-w-6xl mx-auto px-4 sm:px-6 lg:px-8", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "flex items-center justify-between h-16", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "flex items-center gap-3", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "w-8 h-8 rounded-lg bg-gradient-to-br from-fuchsia-500 to-indigo-600 flex items-center justify-center shadow-[0_0_15px_rgba(217,70,239,0.4)]", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(FileText, { className: "w-5 h-5 text-white" }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { className: "font-bold text-xl tracking-tight text-white", children: [
+              "Resourceful",
+              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { className: "text-fuchsia-400", children: "People" })
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "hidden md:flex items-center space-x-1", children: [
+            { id: "article", icon: BookOpen, label: "Article" },
+            { id: "reflection", icon: PenLine, label: "Reflection" },
+            { id: "resources", icon: List, label: "Resource List" }
+          ].map((tab) => /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
+            "button",
+            {
+              onClick: () => setActiveTab(tab.id),
+              className: `flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${activeTab === tab.id ? "bg-white/10 text-white shadow-[0_0_10px_rgba(255,255,255,0.05)] border border-white/10" : "text-slate-400 hover:text-slate-200 hover:bg-white/5"}`,
+              children: [
+                /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(tab.icon, { className: "w-4 h-4" }),
+                tab.label
+              ]
+            },
+            tab.id
+          )) })
+        ] }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "md:hidden flex overflow-x-auto border-t border-white/5 px-2 py-2 hide-scrollbar", children: [
+          { id: "article", label: "Article" },
+          { id: "reflection", label: "Reflection" },
+          { id: "resources", label: "Resources" }
+        ].map((tab) => /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+          "button",
+          {
+            onClick: () => setActiveTab(tab.id),
+            className: `flex-shrink-0 px-4 py-2 mx-1 rounded-full text-xs font-medium transition-all ${activeTab === tab.id ? "bg-indigo-500/20 text-indigo-300 border border-indigo-500/30" : "text-slate-400 bg-white/5"}`,
+            children: tab.label
+          },
+          tab.id
+        )) })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("main", { className: "max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8", children: [
+        activeTab === "article" && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("header", { className: "text-center max-w-3xl mx-auto mb-12", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("h1", { className: "text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400 mb-4", children: "5 Characteristics of Resourceful People" }),
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", { className: "text-lg text-indigo-300/80", children: "Discover the traits of well-organized, motivated, and successful individuals." })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "bg-white/5 border border-white/10 backdrop-blur-md p-6 md:p-8 rounded-2xl text-slate-300 leading-relaxed shadow-xl", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", { className: "mb-8 text-lg", children: "It is known that those who are resourceful are more successful. But, what are the characteristics of these seemingly well organized, motivated people? We did some research and compiled our top favourite characteristics for you to look at." }),
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "space-y-10", children: [
+              {
+                title: "1. Open Minded.",
+                content: "The number one trait seems to be, having an open mind. Successful business people, entrepreneurs and all around resourceful people seem to be positively working at breaking boundaries and redefining what is possible and what is not. You must be able to be positive and willing to give new things a try and hope for the best outcome always. This seems like an impossibility when facing the daily struggles life throws at us, but maybe, just maybe being open-minded to trying new things could be the cure. Push yourself to go to that new event in town or meet that person you spoke to online. Stretch your horizon to new opportunities and in turn welcome new people into your life as well as letting go of the positive energy thieves. You never know what lies around the corner."
+              },
+              {
+                title: "2. They read.",
+                content: "Read a book, then another and then another. You can never read too much. Reading opens doors to imagination, education, and information like no other past time can. Resourceful people seem to be valuable to others because of the wealth of knowledge they have found through reading. If you struggle to think of conversational topics or icebreakers, pick up a book. You don't have to read an academic journal if that isn't your thing, but maybe try reading a book on animal behaviour or motivational speeches and watch your conversations flourish. When you find content that you like, follow the author or writer and keep up to date with their latest publications. You will never find a resourceful person lost for words."
+              },
+              {
+                title: "3. Imaginative.",
+                content: "Resourceful people ask the right questions, draw the right pictures, and say the right words. By this, we mean they never regret not asking someone that question they have on the tip of the tongue or find themselves regretting not being more observant. Being imaginative is not necessarily about creating something and is more to do with ingenuity. By making things look better and old things work more efficiently you are making yourself endlessly resourceful. Creative thoughts come and go quickly, one idea may not work but try another. One of those ideas may lead you to the solution you have been looking for."
+              },
+              {
+                title: "4. Resilient.",
+                content: "This is tough as we all have those bad days. Days where unfortunately we are not able to pick ourselves back up from something that shook us. Resourceful people, however, seem to have an ability to compartmentalize those things that throw us off balance, enabling them to power through and succeed. There is no such thing as procrastination in the mindset of those who are resourceful. Instead, they understand that what motivates them is what must come first. There is no sitting around, only doing. When opportunities arise (and they will) do not overthink the situation for fear of talking yourself out of them. Get on board and don't be a passive observer. Take life by the hands and grab at it."
+              },
+              {
+                title: "5. Honesty.",
+                content: `This is perhaps the most important trait that can be found in resourceful people. You will never find someone who is resourceful lie about a task or a promise. They are known for delivering not over-promising on things they cannot achieve. It is okay to say "no" or "I don't know" because in the end, it will waste more time to lie then it would be spending the time researching and learning through others. Instead of dreading the task because of your lie, resourceful people will remain hopeful that a solution can be found for any task. Train yourself to see the benefits of all situations. If you don't know something - great! It is an opportunity to learn.`
+              }
+            ].map((item, idx) => /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "group", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("h3", { className: "text-xl font-semibold text-white mb-3 flex items-center gap-3", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { className: "flex items-center justify-center w-8 h-8 rounded-full bg-fuchsia-500/10 text-fuchsia-400 border border-fuchsia-500/20 text-sm", children: idx + 1 }),
+                item.title.substring(3)
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", { className: "pl-11 text-slate-400 group-hover:text-slate-300 transition-colors", children: item.content })
+            ] }, idx)) }),
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "mt-12 p-6 rounded-xl bg-gradient-to-r from-indigo-900/40 to-fuchsia-900/40 border border-indigo-500/20 text-center", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", { className: "text-xl font-medium text-white", children: "Are you resourceful? The likely answer is YES. We are resourceful in our own way. It is about harnessing these abilities to be successful in our lives." }) })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "flex justify-end mt-8", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
+            "button",
+            {
+              onClick: () => setActiveTab("reflection"),
+              className: "flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all",
+              children: [
+                "Proceed to Reflection ",
+                /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(ChevronRight, { className: "w-4 h-4" })
+              ]
+            }
+          ) })
+        ] }),
+        activeTab === "reflection" && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "mb-8", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("h2", { className: "text-3xl font-bold text-white mb-2", children: "Self Reflection" }),
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", { className: "text-slate-400", children: "Answer the following questions to explore your own resourcefulness." })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "grid gap-6", children: questions.map((q, index) => /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "bg-white/5 border border-white/10 backdrop-blur-md rounded-xl p-6 focus-within:border-fuchsia-500/50 focus-within:shadow-[0_0_20px_rgba(217,70,239,0.15)] transition-all duration-300", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("label", { htmlFor: q.id, className: "block text-lg font-medium text-white mb-4", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { className: "text-fuchsia-400 mr-2", children: [
+                index + 1,
+                "."
+              ] }),
+              " ",
+              q.text
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+              "textarea",
+              {
+                id: q.id,
+                rows: 4,
+                value: reflections[q.id],
+                onChange: (e) => handleReflectionChange(q.id, e.target.value),
+                placeholder: "Type your reflection here...",
+                className: "w-full bg-black/40 border border-white/10 rounded-lg p-4 text-slate-200 placeholder-slate-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all resize-y"
+              }
+            )
+          ] }, q.id)) }),
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "flex justify-between mt-8", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+              "button",
+              {
+                onClick: () => setActiveTab("article"),
+                className: "flex items-center gap-2 px-6 py-3 text-slate-400 hover:text-white transition-all",
+                children: "Back"
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
+              "button",
+              {
+                onClick: () => setActiveTab("resources"),
+                className: "flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all",
+                children: [
+                  "Proceed to Resource List ",
+                  /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(ChevronRight, { className: "w-4 h-4" })
+                ]
+              }
+            )
+          ] })
+        ] }),
+        activeTab === "resources" && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "mb-8", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("h2", { className: "text-3xl font-bold text-white mb-4", children: "Resource List Activity" }),
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", { className: "text-slate-400 leading-relaxed bg-indigo-900/20 border border-indigo-500/20 p-4 rounded-lg", children: "The following chart is an activity to help you pull together a list of resources to help you make a decision about your potential career path and post-secondary education. You will need to research and provide information on two post-secondary institutions, two financial institutions, two scholarships or bursaries, and name two people that can specifically help you get connected." })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "space-y-12", children: resourceCategories.map((category) => /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "space-y-4", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("h3", { className: "text-xl font-semibold text-fuchsia-400 border-b border-fuchsia-500/20 pb-2", children: category.title }),
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-6", children: resources[category.key].map((item, index) => /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "bg-white/5 border border-white/10 backdrop-blur-md rounded-xl p-5 space-y-4", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "flex items-center gap-2 mb-2", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "w-6 h-6 rounded-full bg-indigo-500/20 text-indigo-300 flex items-center justify-center text-xs font-bold", children: index + 1 }),
+                /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+                  "input",
+                  {
+                    type: "text",
+                    placeholder: "Name / Institution...",
+                    value: item.name,
+                    onChange: (e) => handleResourceChange(category.key, index, "name", e.target.value),
+                    className: "bg-transparent border-b border-white/10 focus:border-indigo-400 focus:outline-none text-white font-medium px-2 py-1 w-full"
+                  }
+                )
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "space-y-3", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("label", { className: "block text-xs text-slate-500 uppercase tracking-wider mb-1", children: "Phone/Contact Info" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+                    "input",
+                    {
+                      type: "text",
+                      value: item.contact,
+                      onChange: (e) => handleResourceChange(category.key, index, "contact", e.target.value),
+                      className: "w-full bg-black/40 border border-white/10 rounded md p-2 text-sm text-slate-300 focus:outline-none focus:border-indigo-500"
+                    }
+                  )
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("label", { className: "block text-xs text-slate-500 uppercase tracking-wider mb-1", children: "Qualification Criteria" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+                    "input",
+                    {
+                      type: "text",
+                      value: item.criteria,
+                      onChange: (e) => handleResourceChange(category.key, index, "criteria", e.target.value),
+                      className: "w-full bg-black/40 border border-white/10 rounded md p-2 text-sm text-slate-300 focus:outline-none focus:border-indigo-500"
+                    }
+                  )
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("label", { className: "block text-xs text-slate-500 uppercase tracking-wider mb-1", children: "Important Info (Deadlines, etc.)" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+                    "input",
+                    {
+                      type: "text",
+                      value: item.info,
+                      onChange: (e) => handleResourceChange(category.key, index, "info", e.target.value),
+                      className: "w-full bg-black/40 border border-white/10 rounded md p-2 text-sm text-slate-300 focus:outline-none focus:border-indigo-500"
+                    }
+                  )
+                ] })
+              ] })
+            ] }, item.id)) })
+          ] }, category.key)) }),
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "flex justify-between mt-12", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+              "button",
+              {
+                onClick: () => setActiveTab("reflection"),
+                className: "flex items-center gap-2 px-6 py-3 text-slate-400 hover:text-white transition-all",
+                children: "Back"
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
+              "button",
+              {
+                onClick: () => setActiveTab("article"),
+                className: "flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-fuchsia-600 to-indigo-600 hover:from-fuchsia-500 hover:to-indigo-500 text-white font-bold rounded-lg shadow-[0_0_20px_rgba(99,102,241,0.4)] transition-all",
+                children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(CircleCheckBig, { className: "w-5 h-5" }),
+                  "Finish Activity"
+                ]
+              }
+            )
+          ] })
+        ] })
+      ] })
+    ] });
+  };
+  var resourcefulpeople_reference_default = App2;
+
+  // projects/calm-module-4/workspace/components/masterplan.reference.jsx
+  var import_react5 = __toESM(require_react(), 1);
+  var import_jsx_runtime3 = __toESM(require_jsx_runtime(), 1);
+  var INITIAL_STATE = {
+    careers: [
+      { type: "Apprenticeship / On-the-job", name: "", duties: "", outlook: "", inDemand: "", salary: "", wage: "", courses: "", length: "", requirements: "", schools: "", conditions: "", skills: "", interest: "" },
+      { type: "College or University Degree", name: "", duties: "", outlook: "", inDemand: "", salary: "", wage: "", courses: "", length: "", requirements: "", schools: "", conditions: "", skills: "", interest: "" },
+      { type: "Any Career of Your Choice", name: "", duties: "", outlook: "", inDemand: "", salary: "", wage: "", courses: "", length: "", requirements: "", schools: "", conditions: "", skills: "", interest: "" }
+    ],
+    reflection: { q1: "", q2: "", q3: "" },
+    institutions: [
+      { name: "", address: "", website: "", programs: "", athletic: "", residences: "", interesting: "", why: "", requirements: "", cost: "" },
+      { name: "", address: "", website: "", programs: "", athletic: "", residences: "", interesting: "", why: "", requirements: "", cost: "" }
+    ],
+    courses: {
+      english: { done: [], need: [] },
+      social: { done: [], need: [] },
+      math: { done: [], need: [] },
+      science: { done: [], need: [] },
+      physed: { done: [], need: [] },
+      calm: { done: [], need: [] },
+      other: { done: [], need: [] }
+    }
+  };
+  var COURSE_CATALOG = {
+    english: { title: "English (15 credits to 30 level)", courses: ["10-1", "10-2", "20-1", "20-2", "30-1", "30-2"] },
+    social: { title: "Social Studies (15 credits to 30 level)", courses: ["10-1", "10-2", "20-1", "20-2", "30-1", "30-2"] },
+    math: { title: "Mathematics (10 credits to 20 level)", courses: ["10-C", "10-3", "10-4", "20-1", "20-2", "20-3", "20-4", "30-1", "30-2", "30-3", "31"] },
+    science: { title: "Sciences (10 credits to 20 or 24 level)", courses: ["Science 10", "Science 14", "Science 20", "Science 24", "Science 30", "Biology 20", "Chemistry 20", "Physics 20", "Biology 30", "Chemistry 30", "Physics 30"] },
+    physed: { title: "Physical Education (3+ credits)", courses: ["Phys Ed 10", "Phys Ed 20", "Phys Ed 30"] },
+    calm: { title: "Career and Life Management", courses: ["CALM 20"] },
+    other: { title: "CTS, Fine Art, or Second Languages", courses: ["Option 10 Level", "Option 20 Level", "Option 30 Level"] }
+  };
+  var GlassPanel = ({ children, className = "" }) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: `bg-[#131620] border border-slate-800/80 rounded-2xl shadow-lg ${className}`, children });
+  var InputField = ({ label, value, onChange, placeholder = "", isTextArea = false }) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "flex flex-col space-y-1.5 w-full", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("label", { className: "text-xs font-semibold tracking-wide text-slate-400 uppercase", children: label }),
+    isTextArea ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+      "textarea",
+      {
+        value,
+        onChange,
+        placeholder,
+        className: "w-full bg-[#0B0D14] border border-slate-800 rounded-xl p-3.5 text-slate-100 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-pink-500/40 focus:border-pink-500 transition-all duration-300 min-h-[120px] resize-y"
+      }
+    ) : /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+      "input",
+      {
+        type: "text",
+        value,
+        onChange,
+        placeholder,
+        className: "w-full bg-[#0B0D14] border border-slate-800 rounded-xl p-3.5 text-slate-100 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-pink-500/40 focus:border-pink-500 transition-all duration-300"
+      }
+    )
+  ] });
+  function App3() {
+    const [data, setData] = (0, import_react5.useState)(INITIAL_STATE);
+    const [activeTab, setActiveTab] = (0, import_react5.useState)("instructions");
+    const updateCareer = (index, field, value) => {
+      const newCareers = [...data.careers];
+      newCareers[index][field] = value;
+      setData({ ...data, careers: newCareers });
+    };
+    const updateInstitution = (index, field, value) => {
+      const newInst = [...data.institutions];
+      newInst[index][field] = value;
+      setData({ ...data, institutions: newInst });
+    };
+    const updateReflection = (field, value) => {
+      setData({ ...data, reflection: { ...data.reflection, [field]: value } });
+    };
+    const toggleCourse = (category, courseName, type) => {
+      const currentList = data.courses[category][type];
+      const isChecked = currentList.includes(courseName);
+      const newList = isChecked ? currentList.filter((c) => c !== courseName) : [...currentList, courseName];
+      setData({
+        ...data,
+        courses: {
+          ...data.courses,
+          [category]: {
+            ...data.courses[category],
+            [type]: newList
+          }
+        }
+      });
+    };
+    const handlePrint = () => window.print();
+    const tabs = [
+      { id: "instructions", label: "Instructions", icon: BookOpen },
+      { id: "careers", label: "Career Exploration", icon: Briefcase },
+      { id: "institutions", label: "Post-Secondary", icon: GraduationCap },
+      { id: "reflection", label: "Reflection", icon: Lightbulb },
+      { id: "courses", label: "Course Planner", icon: SquareCheckBig }
+    ];
+    return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "min-h-screen bg-[#0B0D14] text-slate-200 font-sans selection:bg-pink-500/30", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "print:hidden flex flex-col h-screen overflow-hidden", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("header", { className: "flex-none bg-slate-900/60 backdrop-blur-2xl border-b border-white/5 sticky top-0 z-50", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "flex items-center justify-between gap-4", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "flex items-center space-x-3 min-w-0", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "w-10 h-10 rounded-xl bg-gradient-to-br from-fuchsia-500 to-indigo-600 flex items-center justify-center shadow-[0_0_20px_rgba(192,38,211,0.3)]", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(LayoutTemplate, { className: "w-5 h-5 text-white" }) }),
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h1", { className: "text-xl font-bold bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent tracking-tight", children: "The Master Plan" }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "text-xs text-fuchsia-400 font-medium tracking-wider uppercase", children: "Module 4 Project" })
+              ] })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+              "button",
+              {
+                onClick: handlePrint,
+                className: "xl:hidden flex items-center space-x-2 bg-gradient-to-r from-pink-600 to-fuchsia-600 hover:from-pink-500 hover:to-fuchsia-500 text-white px-4 py-2 rounded-lg font-bold transition-all shadow-[0_0_15px_rgba(236,72,153,0.4)] hover:shadow-[0_0_20px_rgba(236,72,153,0.6)] transform hover:-translate-y-0.5",
+                children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Printer, { className: "w-4 h-4" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "hidden sm:inline", children: "Generate Report" })
+                ]
+              }
+            )
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("nav", { className: "hidden md:flex flex-wrap gap-2 p-1 bg-slate-950/50 rounded-xl border border-slate-800 w-full xl:w-auto", children: tabs.map((tab) => {
+            const Icon2 = tab.icon;
+            const isActive = activeTab === tab.id;
+            return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+              "button",
+              {
+                onClick: () => setActiveTab(tab.id),
+                className: `flex items-center space-x-2 px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-300 whitespace-nowrap ${isActive ? "bg-slate-800 text-white shadow-md" : "text-slate-400 hover:text-white hover:bg-slate-800/50"}`,
+                children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Icon2, { className: "w-4 h-4" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { children: tab.label })
+                ]
+              },
+              tab.id
+            );
+          }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "hidden xl:flex items-center space-x-3", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+            "button",
+            {
+              onClick: handlePrint,
+              className: "flex items-center space-x-2 bg-gradient-to-r from-pink-600 to-fuchsia-600 hover:from-pink-500 hover:to-fuchsia-500 text-white px-4 py-2 sm:px-5 sm:py-2.5 rounded-lg font-bold transition-all shadow-[0_0_15px_rgba(236,72,153,0.4)] hover:shadow-[0_0_20px_rgba(236,72,153,0.6)] transform hover:-translate-y-0.5",
+              children: [
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Printer, { className: "w-4 h-4" }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { children: "Generate Report" })
+              ]
+            }
+          ) })
+        ] }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("main", { className: "flex-1 overflow-y-auto p-6 md:p-10 custom-scrollbar", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "max-w-5xl mx-auto space-y-8 pb-20", children: [
+          activeTab === "instructions" && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "mb-8", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h2", { className: "text-4xl font-extrabold bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-300 bg-clip-text text-transparent mb-3 tracking-tight", children: "Module 4 Final Project" }),
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "h-1 w-24 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mb-6" }),
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "text-slate-300 text-lg leading-relaxed", children: "Welcome to your Master Plan. Please read the project requirements below before beginning your research." })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(GlassPanel, { className: "p-8", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "flex items-center space-x-4 mb-6 border-b border-slate-700/50 pb-4", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 border border-blue-500/30", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Briefcase, { className: "w-6 h-6" }) }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h3", { className: "text-xl font-bold text-white", children: "Part 1: Career Exploration" })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "space-y-4 text-slate-300 leading-relaxed", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("p", { children: [
+                  "Now that you have a good idea what your interests are, you are now going to explore ",
+                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("strong", { children: "3 careers of your choice" }),
+                  ". In the Career Exploration tab, you will research:"
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("ul", { className: "list-disc pl-6 space-y-2 text-slate-400", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("li", { children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("strong", { className: "text-slate-200", children: "1 career that requires an APPRENTICESHIP" }),
+                    " (on-the-job training). ",
+                    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("em", { children: "Example: Welder, electrician, mechanic, health care services, etc." })
+                  ] }),
+                  /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("li", { children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("strong", { className: "text-slate-200", children: "1 career that requires a College or University Degree" }),
+                    ". ",
+                    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("em", { children: "Example: Teacher, engineer, nurse." })
+                  ] }),
+                  /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("li", { children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("strong", { className: "text-slate-200", children: "1 more career of your choice" }),
+                    " (Wildcard)."
+                  ] })
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("p", { children: [
+                  "It's highly recommended that you choose three careers you would be interested in pursuing. You may want to refer to the list of suggested careers in your ALIS profile. Use the ",
+                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("strong", { children: "ALIS website" }),
+                  " to find the answers you need!"
+                ] })
+              ] })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(GlassPanel, { className: "p-8", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "flex items-center space-x-4 mb-6 border-b border-slate-700/50 pb-4", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "w-12 h-12 rounded-full bg-fuchsia-500/20 flex items-center justify-center text-fuchsia-400 border border-fuchsia-500/30", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(GraduationCap, { className: "w-6 h-6" }) }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h3", { className: "text-xl font-bold text-white", children: "Part 2: Post-Secondary Exploration" })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "space-y-4 text-slate-300 leading-relaxed", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("p", { children: [
+                  "Choose ",
+                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("strong", { children: "two post-secondary institutions" }),
+                  " you would be interested in attending and research them."
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("p", { children: [
+                  "Use the large pink ",
+                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("strong", { children: '"RESEARCH HERE"' }),
+                  " buttons inside the Post-Secondary tab to open the admission checker and program research tools to help you find accurate information on requirements, housing, and costs."
+                ] })
+              ] })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-8", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(GlassPanel, { className: "p-8", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "flex items-center space-x-4 mb-6 border-b border-slate-700/50 pb-4", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center text-amber-400 border border-amber-500/30", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Lightbulb, { className: "w-5 h-5" }) }),
+                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h3", { className: "text-lg font-bold text-white", children: "Part 3: Reflection" })
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "text-slate-300 leading-relaxed", children: "Look back at the findings from your career and institution research. Reflect deeply on which career path aligns best with your interests, values, and personality, and outline the concrete steps you'll take to get there." })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(GlassPanel, { className: "p-8", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "flex items-center space-x-4 mb-6 border-b border-slate-700/50 pb-4", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 border border-emerald-500/30", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(SquareCheckBig, { className: "w-5 h-5" }) }),
+                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h3", { className: "text-lg font-bold text-white", children: "Part 4: Course Planner" })
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "text-slate-300 leading-relaxed", children: "Identify the courses you have already completed (mark as Done). Then, mark the courses you still need to take to graduate high school and prepare for your chosen post-secondary program." })
+              ] })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "flex justify-end pt-4", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+              "button",
+              {
+                onClick: () => setActiveTab("careers"),
+                className: "bg-gradient-to-r from-fuchsia-600 to-indigo-600 hover:from-fuchsia-500 hover:to-indigo-500 text-white px-8 py-3 rounded-xl font-bold transition-all shadow-lg shadow-fuchsia-500/25 flex items-center space-x-2",
+                children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { children: "Start Project" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Briefcase, { className: "w-5 h-5" })
+                ]
+              }
+            ) })
+          ] }),
+          activeTab === "careers" && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "mb-8", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h2", { className: "text-4xl font-extrabold bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-300 bg-clip-text text-transparent mb-3 tracking-tight", children: "Career Exploration" }),
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "h-1 w-24 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mb-6" }),
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "text-slate-300 text-lg leading-relaxed", children: "Research three careers of your choice. Ensure you cover an apprenticeship, a degree-required career, and a wildcard choice." })
+            ] }),
+            data.careers.map((career, idx) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(GlassPanel, { className: "p-8", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "flex items-center space-x-4 mb-8 border-b border-slate-700/50 pb-4", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "w-12 h-12 rounded-full bg-indigo-500/20 flex items-center justify-center text-indigo-400 font-bold text-xl border border-indigo-500/30", children: idx + 1 }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h3", { className: "text-xl font-bold text-white", children: career.type }),
+                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "text-sm text-slate-400", children: "Career Pathway Requirement" })
+                ] })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-6", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "md:col-span-2", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(InputField, { label: "Name of Career", value: career.name, onChange: (e) => updateCareer(idx, "name", e.target.value) }) }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "md:col-span-2", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(InputField, { label: "Brief description (Main Duties)", value: career.duties, onChange: (e) => updateCareer(idx, "duties", e.target.value), isTextArea: true }) }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(InputField, { label: "Outlook", value: career.outlook, onChange: (e) => updateCareer(idx, "outlook", e.target.value) }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(InputField, { label: "In Demand?", value: career.inDemand, onChange: (e) => updateCareer(idx, "inDemand", e.target.value) }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(InputField, { label: "Average Salary", value: career.salary, onChange: (e) => updateCareer(idx, "salary", e.target.value) }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(InputField, { label: "Average Hourly Wage", value: career.wage, onChange: (e) => updateCareer(idx, "wage", e.target.value) }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "md:col-span-2", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(InputField, { label: "Required High School Courses", value: career.courses, onChange: (e) => updateCareer(idx, "courses", e.target.value), isTextArea: true }) }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "md:col-span-2", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(InputField, { label: "Program / Apprenticeship Length", value: career.length, onChange: (e) => updateCareer(idx, "length", e.target.value) }) }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "md:col-span-2", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(InputField, { label: "Minimum Requirements & Employment Options", value: career.requirements, onChange: (e) => updateCareer(idx, "requirements", e.target.value), isTextArea: true }) }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "md:col-span-2", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(InputField, { label: "List 2 Schools/Colleges Offering This", value: career.schools, onChange: (e) => updateCareer(idx, "schools", e.target.value), isTextArea: true }) }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "md:col-span-2", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(InputField, { label: "Typical Working Conditions", value: career.conditions, onChange: (e) => updateCareer(idx, "conditions", e.target.value), isTextArea: true }) }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "md:col-span-2", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(InputField, { label: "Important Skills", value: career.skills, onChange: (e) => updateCareer(idx, "skills", e.target.value), isTextArea: true }) }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "md:col-span-2", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(InputField, { label: "What interested you about this career?", value: career.interest, onChange: (e) => updateCareer(idx, "interest", e.target.value), isTextArea: true }) })
+              ] })
+            ] }, idx))
+          ] }),
+          activeTab === "institutions" && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "mb-8", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h2", { className: "text-4xl font-extrabold bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-300 bg-clip-text text-transparent mb-3 tracking-tight", children: "Post-Secondary Exploration" }),
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "h-1 w-24 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mb-6" }),
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "text-slate-300 text-lg leading-relaxed", children: "Choose two post-secondary institutions you would be interested in attending and research them." })
+            ] }),
+            data.institutions.map((inst, idx) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(GlassPanel, { className: "p-8", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 border-b border-slate-700/50 pb-4", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "flex items-center space-x-4", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "w-12 h-12 rounded-full bg-fuchsia-500/20 flex items-center justify-center text-fuchsia-400 font-bold text-xl border border-fuchsia-500/30", children: idx + 1 }),
+                  /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("h3", { className: "text-xl font-bold text-white", children: [
+                    "Institution Research #",
+                    idx + 1
+                  ] })
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+                  "a",
+                  {
+                    href: "https://sites.google.com/eips.ca/admission-checker/admission-researcher",
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                    className: "flex items-center justify-center space-x-2 bg-gradient-to-r from-pink-600 to-fuchsia-600 hover:from-pink-500 hover:to-fuchsia-500 text-white px-5 py-2.5 rounded-lg shadow-[0_0_15px_rgba(236,72,153,0.4)] hover:shadow-[0_0_20px_rgba(236,72,153,0.6)] transition-all font-bold text-sm transform hover:-translate-y-0.5",
+                    children: [
+                      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { children: "RESEARCH HERE" }),
+                      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(ExternalLink, { className: "w-4 h-4" })
+                    ]
+                  }
+                )
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-6", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "md:col-span-2", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(InputField, { label: "Name of School", value: inst.name, onChange: (e) => updateInstitution(idx, "name", e.target.value) }) }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(InputField, { label: "Address / Location", value: inst.address, onChange: (e) => updateInstitution(idx, "address", e.target.value) }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(InputField, { label: "Website URL", value: inst.website, onChange: (e) => updateInstitution(idx, "website", e.target.value) }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "md:col-span-2", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(InputField, { label: "Programs of Interest", value: inst.programs, onChange: (e) => updateInstitution(idx, "programs", e.target.value), isTextArea: true }) }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(InputField, { label: "Athletic Program & Team Name", value: inst.athletic, onChange: (e) => updateInstitution(idx, "athletic", e.target.value) }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(InputField, { label: "Residences / Housing Options", value: inst.residences, onChange: (e) => updateInstitution(idx, "residences", e.target.value) }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "md:col-span-2", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(InputField, { label: "5 Interesting Facts", placeholder: "1. ...\n2. ...\n3. ...", value: inst.interesting, onChange: (e) => updateInstitution(idx, "interesting", e.target.value), isTextArea: true }) }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "md:col-span-2", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(InputField, { label: "Why did you choose to research this school?", value: inst.why, onChange: (e) => updateInstitution(idx, "why", e.target.value), isTextArea: true }) }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "md:col-span-2", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(InputField, { label: "Admission Requirements for chosen program", value: inst.requirements, onChange: (e) => updateInstitution(idx, "requirements", e.target.value), isTextArea: true }) }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "md:col-span-2", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(InputField, { label: "Estimated Total Cost (Tuition, Books, Living)", value: inst.cost, onChange: (e) => updateInstitution(idx, "cost", e.target.value) }) })
+              ] })
+            ] }, idx))
+          ] }),
+          activeTab === "reflection" && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "mb-8", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h2", { className: "text-4xl font-extrabold bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-300 bg-clip-text text-transparent mb-3 tracking-tight", children: "Career Reflection" }),
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "h-1 w-24 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mb-6" }),
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "text-slate-300 text-lg leading-relaxed", children: "Look back at your findings and align them with your personal goals." })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(GlassPanel, { className: "p-8 space-y-6", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+                InputField,
+                {
+                  label: "1. Which career did you feel best met your interests, values, and personality?",
+                  value: data.reflection.q1,
+                  onChange: (e) => updateReflection("q1", e.target.value),
+                  isTextArea: true
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+                InputField,
+                {
+                  label: "2. Why?",
+                  value: data.reflection.q2,
+                  onChange: (e) => updateReflection("q2", e.target.value),
+                  isTextArea: true
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+                InputField,
+                {
+                  label: "3. What steps might you take in order to pursue your career of choice?",
+                  value: data.reflection.q3,
+                  onChange: (e) => updateReflection("q3", e.target.value),
+                  isTextArea: true
+                }
+              )
+            ] })
+          ] }),
+          activeTab === "courses" && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "mb-8 flex justify-between items-end", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h2", { className: "text-4xl font-extrabold bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-300 bg-clip-text text-transparent mb-3 tracking-tight", children: "High School Course Planner" }),
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "h-1 w-24 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mb-6" }),
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "text-slate-300 text-lg leading-relaxed max-w-3xl", children: "Identify the courses you have already completed, and mark the ones you still need to take to graduate and prepare for your chosen post-secondary program." })
+            ] }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-6", children: Object.entries(COURSE_CATALOG).map(([key, category]) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(GlassPanel, { className: "p-6", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h3", { className: "text-lg font-bold text-fuchsia-400 mb-4 pb-2 border-b border-slate-700/50", children: category.title }),
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "space-y-3", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "flex items-center text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "flex-1", children: "Course Name" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "w-20 text-center", children: "Done" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "w-20 text-center", children: "Need" })
+                ] }),
+                category.courses.map((course) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "flex items-center group hover:bg-slate-800/30 p-2 rounded-lg transition-colors", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "flex-1 text-slate-300 font-medium", children: course }),
+                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "w-20 flex justify-center", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+                    "button",
+                    {
+                      onClick: () => toggleCourse(key, course, "done"),
+                      className: `w-6 h-6 rounded border flex items-center justify-center transition-all ${data.courses[key].done.includes(course) ? "bg-emerald-500/20 border-emerald-500 text-emerald-400" : "border-slate-600 hover:border-slate-400 text-transparent"}`,
+                      children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Check, { className: "w-4 h-4" })
+                    }
+                  ) }),
+                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "w-20 flex justify-center", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+                    "button",
+                    {
+                      onClick: () => toggleCourse(key, course, "need"),
+                      className: `w-6 h-6 rounded border flex items-center justify-center transition-all ${data.courses[key].need.includes(course) ? "bg-amber-500/20 border-amber-500 text-amber-400" : "border-slate-600 hover:border-slate-400 text-transparent"}`,
+                      children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Check, { className: "w-4 h-4" })
+                    }
+                  ) })
+                ] }, course))
+              ] })
+            ] }, key)) })
+          ] })
+        ] }) })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "hidden print:block bg-white text-black min-h-screen", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(PrintLayout, { data }) })
+    ] });
+  }
+  var PrintLayout = ({ data }) => {
+    return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "p-8 max-w-[1000px] mx-auto text-[13px] leading-relaxed font-serif bg-white text-black", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h1", { className: "text-2xl font-bold mb-6 text-center underline uppercase", children: "Module 4 Final Project" }),
+      data.careers.map((career, idx) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "mb-10 print:break-inside-avoid", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("h2", { className: "text-lg font-bold mb-3 border-b-2 border-black pb-1", children: [
+          "Career #",
+          idx + 1,
+          " - ",
+          career.type
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("table", { className: "w-full border-collapse border border-black mb-4", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("tbody", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("tr", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2 font-bold w-1/4 bg-gray-100", children: "Name of Career:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2 w-3/4", colSpan: "3", children: career.name || "-" })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("tr", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2 font-bold w-1/4 bg-gray-100 align-top", children: "Brief Description:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2 w-3/4", colSpan: "3", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "whitespace-pre-wrap min-h-[40px]", children: career.duties || "-" }) })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("tr", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2 font-bold w-1/4 bg-gray-100", children: "Outlook:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2 w-1/4", children: career.outlook || "-" }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2 font-bold w-1/4 bg-gray-100", children: "In Demand:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2 w-1/4", children: career.inDemand || "-" })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("tr", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2 font-bold w-1/4 bg-gray-100", children: "Average Salary:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2 w-1/4", children: career.salary || "-" }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2 font-bold w-1/4 bg-gray-100", children: "Avg Hourly Wage:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2 w-1/4", children: career.wage || "-" })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("tr", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2 font-bold bg-gray-100", children: "High School Courses Needed:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2", colSpan: "3", children: career.courses || "-" })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("tr", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2 font-bold bg-gray-100", children: "Program Length:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2", colSpan: "3", children: career.length || "-" })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("tr", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2 font-bold bg-gray-100 align-top", children: "Requirements/Options:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2", colSpan: "3", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "whitespace-pre-wrap min-h-[40px]", children: career.requirements || "-" }) })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("tr", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2 font-bold bg-gray-100 align-top", children: "Schools Offering Program:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2", colSpan: "3", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "whitespace-pre-wrap min-h-[40px]", children: career.schools || "-" }) })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("tr", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2 font-bold bg-gray-100 align-top", children: "Working Conditions:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2", colSpan: "3", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "whitespace-pre-wrap min-h-[40px]", children: career.conditions || "-" }) })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("tr", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2 font-bold bg-gray-100 align-top", children: "Important Skills:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2", colSpan: "3", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "whitespace-pre-wrap min-h-[40px]", children: career.skills || "-" }) })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("tr", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2 font-bold bg-gray-100 align-top", children: "Why Interested:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2", colSpan: "3", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "whitespace-pre-wrap min-h-[40px]", children: career.interest || "-" }) })
+          ] })
+        ] }) })
+      ] }, idx)),
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "print:break-before-page pt-8 mb-10", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h2", { className: "text-xl font-bold mb-4 border-b-2 border-black pb-1", children: "Career Exploration Reflection" }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "space-y-6", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "font-bold mb-2", children: "1. Which career did you feel best met your interests, values, and personality?" }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "border border-black p-3 min-h-[60px] whitespace-pre-wrap", children: data.reflection.q1 || "-" })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "font-bold mb-2", children: "2. Why?" }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "border border-black p-3 min-h-[100px] whitespace-pre-wrap", children: data.reflection.q2 || "-" })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "font-bold mb-2", children: "3. What steps might you take in order to pursue your career of choice?" }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "border border-black p-3 min-h-[100px] whitespace-pre-wrap", children: data.reflection.q3 || "-" })
+          ] })
+        ] })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "print:break-before-page pt-8", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h2", { className: "text-xl font-bold mb-6 border-b-2 border-black pb-1", children: "Post-Secondary Exploration" }),
+        data.institutions.map((inst, idx) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "mb-10 print:break-inside-avoid", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("h3", { className: "font-bold text-lg mb-3 bg-gray-100 p-2 border border-black", children: [
+            "Institution #",
+            idx + 1
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("table", { className: "w-full border-collapse border border-black", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("tbody", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("tr", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2 font-bold w-1/3", children: "1. Name of School:" }),
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2", children: inst.name || "-" })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("tr", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2 font-bold", children: "2. Location/Address:" }),
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2", children: inst.address || "-" })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("tr", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2 font-bold", children: "3. Website:" }),
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2", children: inst.website || "-" })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("tr", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2 font-bold", children: "4. Programs of Interest:" }),
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2", children: inst.programs || "-" })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("tr", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2 font-bold", children: "5. Athletic Program/Team:" }),
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2", children: inst.athletic || "-" })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("tr", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2 font-bold", children: "6. Residences:" }),
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2", children: inst.residences || "-" })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("tr", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2 font-bold align-top", children: "7. 5 Interesting Things:" }),
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2 whitespace-pre-wrap min-h-[60px]", children: inst.interesting || "-" })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("tr", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2 font-bold align-top", children: "8. Why chose to research?:" }),
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2 whitespace-pre-wrap min-h-[60px]", children: inst.why || "-" })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("tr", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2 font-bold align-top", children: "9. Admission Requirements:" }),
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2 whitespace-pre-wrap min-h-[60px]", children: inst.requirements || "-" })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("tr", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2 font-bold", children: "10. Estimated Cost:" }),
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-2", children: inst.cost || "-" })
+            ] })
+          ] }) })
+        ] }, idx))
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "print:break-before-page pt-8", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h2", { className: "text-xl font-bold mb-4 border-b-2 border-black pb-1", children: "High School Course Planner" }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "grid grid-cols-2 gap-8", children: Object.entries(COURSE_CATALOG).map(([categoryKey, category]) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "mb-4 print:break-inside-avoid", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h3", { className: "font-bold bg-gray-100 p-2 border border-black border-b-0", children: category.title }),
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("table", { className: "w-full border-collapse border border-black text-xs", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("tr", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("th", { className: "border border-black p-1 text-left w-3/5", children: "Course" }),
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("th", { className: "border border-black p-1 text-center w-1/5", children: "Done" }),
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("th", { className: "border border-black p-1 text-center w-1/5", children: "Need" })
+            ] }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("tbody", { children: category.courses.map((course) => {
+              const isDone = data.courses[categoryKey].done.includes(course);
+              const isNeed = data.courses[categoryKey].need.includes(course);
+              return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("tr", { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-1 pl-2", children: course }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-1 text-center font-bold text-lg leading-none", children: isDone ? "X" : "" }),
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { className: "border border-black p-1 text-center font-bold text-lg leading-none", children: isNeed ? "X" : "" })
+              ] }, course);
+            }) })
+          ] })
+        ] }, categoryKey)) })
+      ] })
+    ] });
+  };
+
+  // projects/calm-module-4/workspace/components/resumebuilder.reference.jsx
+  var import_react6 = __toESM(require_react(), 1);
+  var import_jsx_runtime4 = __toESM(require_jsx_runtime(), 1);
+  var softSkills = [
+    "Achievement Oriented",
+    "Adaptive",
+    "Analytical",
+    "Articulate",
+    "Committed",
+    "Communication",
+    "Confident",
+    "Courageous",
+    "Creative",
+    "Credible",
+    "Decisive",
+    "Dedicated",
+    "Dependable",
+    "Detail-oriented",
+    "Determined",
+    "Disciplined",
+    "Efficient",
+    "Energetic",
+    "Entrepreneurial",
+    "Goal-Oriented",
+    "Able to handle stress",
+    "Self-Motivated",
+    "Innovative",
+    "Insightful",
+    "Integrity",
+    "Interpersonal",
+    "Intuitive",
+    "Lateral thinker",
+    "Leadership",
+    "Listening",
+    "Logical",
+    "Minimum supervision",
+    "Objective",
+    "Open-minded",
+    "Optimistic",
+    "Organized",
+    "Persuasive",
+    "Positive Attitude",
+    "Productive",
+    "Reliable",
+    "Resourceful",
+    "Respects deadlines",
+    "Responsible",
+    "Results-oriented",
+    "Self-starter",
+    "Strategic thinker",
+    "Strives for excellence",
+    "Task Driven",
+    "Team Building",
+    "Team Player",
+    "Trouble shooter",
+    "Versatile",
+    "Sets priorities",
+    "Personable",
+    "Outgoing",
+    "Fair",
+    "Problem-solver"
+  ];
+  var hardSkills = [
+    "Babysitting",
+    "Cashier",
+    "Customer Service",
+    "Retail Sales",
+    "Cleaning",
+    "Housekeeping",
+    "Prep/Line Cooking",
+    "Freight Receiver",
+    "Waitress",
+    "Dishwasher",
+    "Filing",
+    "Organizing",
+    "Accounts Payable",
+    "Accounts Receivable",
+    "Payroll",
+    "Composing Letters",
+    "Telephone Skills",
+    "Tour Guide",
+    "Clerical Work",
+    "Merchandising",
+    "Problem Solver",
+    "Manual Labour",
+    "Landscaping",
+    "Roofing",
+    "Mechanical Ability",
+    "Siding",
+    "Laying Sod",
+    "Heavy Machinery",
+    "Gardening",
+    "Maintenance",
+    "Planning Things",
+    "Training Others",
+    "Record Keeping",
+    "Farm Machinery",
+    "Equipment Operation",
+    "Supervising Others",
+    "Public Speaking",
+    "Greenskeeper",
+    "Stocking Shelves",
+    "Data Entry",
+    "Communication Skills",
+    "Able to Set Priorities",
+    "Punctual",
+    "Team Player",
+    "Typing/Keyboarding",
+    "Internet User",
+    "Newspaper Delivery",
+    "Telemarketing Skills",
+    "Livestock",
+    "Fencing",
+    "Computer Skills"
+  ];
+  var tips = [
+    "Tailor your r\xE9sum\xE9. Include information associated with the specific job you are applying for.",
+    "Use action words. Focus on things you have accomplished, and avoid starting every sentence with 'I'.",
+    "Proofread. Never rely on spell check. Even one misspelled word could put you in the 'do not consider' pile.",
+    "Make it presentable. Use clean, white paper and a font that's easy to read (Times New Roman, Calibri, Arial).",
+    "Keep it concise. Try to keep it as short as possible\u2014ideally one page, two pages maximum.",
+    "Be honest. Lying on your r\xE9sum\xE9 is never a good idea.",
+    "Be professional. Don't include unnecessary embellishments like flashy paper or a picture of yourself."
+  ];
+  var sectionDetails = {
+    general: {
+      title: "General Tips & Tricks",
+      icon: CircleAlert,
+      color: "text-amber-400",
+      bgColor: "bg-amber-400/10",
+      borderColor: "border-amber-400/20",
+      bulletColor: "text-amber-400",
+      items: tips
+    },
+    personal: {
+      title: "Personal Information",
+      icon: User,
+      color: "text-blue-400",
+      bgColor: "bg-blue-400/10",
+      borderColor: "border-blue-400/20",
+      bulletColor: "text-blue-400",
+      items: [
+        "Name: Use your full, legal name. Do not use nicknames.",
+        "Address: Include your complete mailing address and postal code.",
+        "Phone: Provide reliable contact numbers (Home and Cell). Make sure your voicemail greeting is mature and professional.",
+        "Email: Ensure your email address is appropriate (e.g., first.last@email.com). If in doubt, ask an adult!",
+        "Do NOT include personal details like your birth date, marital status, or a photograph."
+      ]
+    },
+    education: {
+      title: "Education History",
+      icon: GraduationCap,
+      color: "text-purple-400",
+      bgColor: "bg-purple-400/10",
+      borderColor: "border-purple-400/20",
+      bulletColor: "text-purple-400",
+      items: [
+        "Start with your most recent educational experience and work backwards.",
+        "Include the exact name of the school you attended.",
+        "Specify the course taken, your major subjects studied, or current grade level.",
+        "Include the year of completion. If you are currently attending, use 'Present' as your end date.",
+        "Highlight academic achievements, honors, or specific relevant coursework if you lack formal work experience."
+      ]
+    },
+    skills: {
+      title: "Skills & Strengths",
+      icon: Award,
+      color: "text-emerald-400",
+      bgColor: "bg-emerald-400/10",
+      borderColor: "border-emerald-400/20",
+      bulletColor: "text-emerald-400",
+      items: [
+        "This is a list of your core strengths. Tailor these to the job description!",
+        "Include 'Soft Skills': These describe your personal traits or characteristics (e.g., reliable, analytical, team player, goal-oriented).",
+        "Include 'Hard Skills': These are learned abilities or experience with specific tools (e.g., cashier experience, data entry, bilingual, heavy machinery).",
+        "Don't just list them\u2014be prepared to give examples of these skills during an interview."
+      ]
+    },
+    experience: {
+      title: "Work Experience",
+      icon: Briefcase,
+      color: "text-sky-400",
+      bgColor: "bg-sky-400/10",
+      borderColor: "border-sky-400/20",
+      bulletColor: "text-sky-400",
+      items: [
+        "List jobs in reverse chronological order (most recent first).",
+        "Include the business name, location, your position title, and the dates you worked there.",
+        "Provide a description of your tasks. Use Action Words! (e.g., 'Maintained', 'Served', 'Provided', 'Organized').",
+        "Focus on things you have accomplished and quantified (e.g., 'Served over 50 customers daily' rather than just 'Served customers').",
+        "Avoid starting every sentence with 'I'."
+      ]
+    },
+    volunteer: {
+      title: "Volunteer & Extra-Curricular",
+      icon: Heart,
+      color: "text-rose-400",
+      bgColor: "bg-rose-400/10",
+      borderColor: "border-rose-400/20",
+      bulletColor: "text-rose-400",
+      items: [
+        "Volunteer experience can be included in its own section or grouped with work experience.",
+        "Include extra-curricular activities like student council, sports teams (e.g., Volleyball, Little League), or music.",
+        "This section is fantastic for showing leadership, commitment, and community involvement, especially if you have limited paid work experience.",
+        "Include the organization name, your role, and the dates of involvement."
+      ]
+    },
+    references: {
+      title: "Professional References",
+      icon: Users,
+      color: "text-orange-400",
+      bgColor: "bg-orange-400/10",
+      borderColor: "border-orange-400/20",
+      bulletColor: "text-orange-400",
+      items: [
+        "Provide a minimum of 3 adults. Do NOT use friends or family members.",
+        "Acceptable references include teachers, managers, coaches, or former employers.",
+        "ALWAYS ask permission first before listing someone as a reference.",
+        "Include their full name, professional title, organization, complete mailing address, and phone number.",
+        "Let your references know what kind of jobs you are applying for so they are prepared if called."
+      ]
+    }
+  };
+  function App4() {
+    const [activeTab, setActiveTab] = (0, import_react6.useState)("learn");
+    const [resumeStyle, setResumeStyle] = (0, import_react6.useState)("1");
+    const [isToolbarCollapsed, setIsToolbarCollapsed] = (0, import_react6.useState)(false);
+    const [resume, setResume] = (0, import_react6.useState)({
+      personal: { name: "", address: "", homePhone: "", cellPhone: "", email: "" },
+      education: [{ id: 1, school: "", degree: "", year: "" }],
+      skills: [],
+      experience: [{ id: 1, company: "", location: "", position: "", startDate: "", endDate: "", responsibilities: "" }],
+      volunteer: [],
+      references: [{ id: 1, name: "", title: "", organization: "", address: "", phone: "" }]
+    });
+    return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "flex flex-col h-screen bg-[#07090E] font-sans text-slate-300 overflow-hidden print:block print:h-auto print:bg-white print:text-black", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("header", { className: `bg-[#0B0E17] border-b border-white/5 flex-shrink-0 relative z-20 shadow-lg print:hidden overflow-hidden transition-all duration-300 ${isToolbarCollapsed ? "mb-6" : ""}`, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "w-full px-4 sm:px-6 lg:px-8", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: `flex ${isToolbarCollapsed ? "flex-row items-center justify-between h-16 py-3" : "flex-col sm:flex-row justify-between items-center h-auto sm:h-20 py-4 sm:py-0 gap-4"}`, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "flex items-center space-x-3 text-white", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "bg-fuchsia-600 p-2 rounded-lg shadow-[0_0_15px_rgba(192,38,211,0.5)]", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(BookOpen, { className: "w-5 h-5 text-white" }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h1", { className: "text-xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400", children: "Resume Pro" })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "flex items-center gap-2 sm:gap-3 ml-auto", children: [
+          !isToolbarCollapsed && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_jsx_runtime4.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "flex items-center space-x-2 sm:space-x-4 w-full sm:w-auto overflow-x-auto pb-2 sm:pb-0 custom-scrollbar", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("nav", { className: "flex space-x-2", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+                TopBarButton,
+                {
+                  active: activeTab === "learn",
+                  onClick: () => setActiveTab("learn"),
+                  icon: BookOpen,
+                  label: "Learning"
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+                TopBarButton,
+                {
+                  active: activeTab === "exemplar",
+                  onClick: () => setActiveTab("exemplar"),
+                  icon: FileText,
+                  label: "Example"
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+                TopBarButton,
+                {
+                  active: activeTab === "build",
+                  onClick: () => setActiveTab("build"),
+                  icon: Wrench,
+                  label: "Workshop"
+                }
+              )
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "h-8 w-px bg-white/10 mx-2 hidden sm:block" }),
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
+              "button",
+              {
+                onClick: () => window.print(),
+                className: "hidden sm:flex items-center space-x-2 bg-[#15192B] hover:bg-fuchsia-600/10 border border-white/5 hover:border-fuchsia-500/50 text-slate-300 hover:text-fuchsia-400 px-4 py-2.5 rounded-xl transition-all duration-300 whitespace-nowrap",
+                children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Printer, { className: "w-4 h-4" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "font-medium text-sm", children: "Print / Save PDF" })
+                ]
+              }
+            )
+          ] }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
+            "button",
+            {
+              onClick: () => setIsToolbarCollapsed((prev) => !prev),
+              className: "flex items-center gap-2 bg-[#15192B] hover:bg-white/10 border border-white/5 text-slate-300 hover:text-white px-3 py-2 rounded-xl transition-all duration-300 whitespace-nowrap",
+              "aria-expanded": !isToolbarCollapsed,
+              "aria-label": isToolbarCollapsed ? "Expand toolbar" : "Collapse toolbar",
+              children: [
+                isToolbarCollapsed ? /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(ChevronDown, { className: "w-4 h-4" }) : /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(ChevronUp, { className: "w-4 h-4" }),
+                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "font-medium text-sm hidden sm:inline", children: isToolbarCollapsed ? "Expand" : "Collapse" })
+              ]
+            }
+          )
+        ] })
+      ] }) }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("main", { className: `flex-1 overflow-y-auto relative print:overflow-visible print:w-full ${isToolbarCollapsed ? "pt-6" : ""}`, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "absolute top-[0%] left-[-10%] w-[40%] h-[40%] rounded-full bg-fuchsia-900/10 blur-[120px] pointer-events-none print:hidden" }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-indigo-900/10 blur-[120px] pointer-events-none print:hidden" }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "w-full max-w-none px-4 sm:px-6 lg:px-8 py-6 sm:py-8 print:p-0 print:m-0 relative z-10", children: activeTab === "learn" ? /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(LearnSection, {}) : activeTab === "exemplar" ? /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(ExemplarSection, {}) : /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+          BuildSection,
+          {
+            resume,
+            setResume,
+            resumeStyle,
+            setResumeStyle,
+            isToolbarCollapsed
+          }
+        ) })
+      ] })
+    ] });
+  }
+  function TopBarButton({ active, onClick, icon: Icon2, label }) {
+    return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
+      "button",
+      {
+        onClick,
+        className: `flex items-center space-x-2 px-3 sm:px-4 py-2.5 rounded-xl transition-all duration-300 group whitespace-nowrap ${active ? "bg-gradient-to-r from-fuchsia-500/10 to-transparent border border-fuchsia-500/30 text-fuchsia-400" : "hover:bg-white/5 text-slate-400 hover:text-slate-200 border border-transparent"}`,
+        children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Icon2, { className: `w-4 h-4 ${active ? "text-fuchsia-400" : "text-slate-500 group-hover:text-slate-300"}` }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: `font-medium text-sm ${active ? "text-fuchsia-100" : ""}`, children: label }),
+          active && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(CircleCheck, { className: "w-4 h-4 text-fuchsia-500 hidden sm:block ml-1" })
+        ]
+      }
+    );
+  }
+  function LearnSection() {
+    const [activeDetail, setActiveDetail] = (0, import_react6.useState)("general");
+    const activeData = sectionDetails[activeDetail] || sectionDetails.general;
+    const ActiveIcon = activeData.icon;
+    return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "space-y-8 animate-in fade-in duration-500", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "bg-[#15192B] rounded-2xl p-6 sm:p-8 border border-white/5 shadow-lg relative overflow-hidden", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "absolute top-0 left-0 w-1 h-full bg-fuchsia-600" }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h2", { className: "text-2xl font-bold text-white mb-4", children: "What is a Resume?" }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { className: "text-slate-400 leading-relaxed text-lg", children: '"A r\xE9sum\xE9 is a document containing a summary or listing of relevant job experience and education, usually for the purpose of securing a new job. Often the r\xE9sum\xE9 is the first item a potential employer encounters regarding the job seeker, and therefore a large amount of importance is often ascribed to it."' })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "grid grid-cols-1 lg:grid-cols-12 gap-8", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "lg:col-span-5 space-y-6", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "flex justify-between items-end", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("h3", { className: "text-xl font-bold flex items-center text-white", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(CircleCheck, { className: "w-5 h-5 mr-2 text-fuchsia-500" }),
+            " What to Include"
+          ] }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { className: "text-sm text-slate-500 -mt-4 mb-2", children: "Click a section below to see detailed tips." }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "bg-[#15192B] rounded-2xl border border-white/5 overflow-hidden divide-y divide-white/5 shadow-lg", children: [
+            { id: "personal", title: "Personal Information", icon: User, desc: "Full name, Address, Phone, Email" },
+            { id: "education", title: "Education", icon: GraduationCap, desc: "Schools, majors, and graduation years" },
+            { id: "skills", title: "Skills", icon: Award, desc: "Soft traits and hard learned abilities" },
+            { id: "experience", title: "Work Experience", icon: Briefcase, desc: "Past jobs, positions, and responsibilities" },
+            { id: "volunteer", title: "Volunteer & Extra-Curricular", icon: Heart, desc: "Community service and activities" },
+            { id: "references", title: "References", icon: Users, desc: "3 reliable adults who can vouch for you" }
+          ].map((item) => /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
+            "button",
+            {
+              onClick: () => setActiveDetail(item.id),
+              className: `w-full text-left p-4 transition-all duration-200 flex items-center justify-between group ${activeDetail === item.id ? "bg-fuchsia-500/10 border-l-4 border-l-fuchsia-500" : "hover:bg-white/5 border-l-4 border-l-transparent"}`,
+              children: [
+                /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("h4", { className: `font-semibold flex items-center ${activeDetail === item.id ? "text-fuchsia-300" : "text-slate-300"}`, children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(item.icon, { className: `w-4 h-4 mr-2 ${activeDetail === item.id ? "text-fuchsia-400" : "text-slate-500 group-hover:text-fuchsia-400"}` }),
+                    item.title
+                  ] }),
+                  /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { className: "text-sm text-slate-500 mt-1", children: item.desc })
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(ChevronRight, { className: `w-5 h-5 ${activeDetail === item.id ? "text-fuchsia-500 opacity-100" : "text-slate-600 opacity-0 group-hover:opacity-100 transition-opacity"}` })
+              ]
+            },
+            item.id
+          )) }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "text-center pt-2", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+            "button",
+            {
+              onClick: () => setActiveDetail("general"),
+              className: `text-sm font-medium transition-colors hover:underline ${activeDetail === "general" ? "text-amber-400 underline" : "text-slate-500 hover:text-amber-400"}`,
+              children: "View General Tips & Tricks"
+            }
+          ) })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "lg:col-span-7 space-y-6", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("h3", { className: `text-xl font-bold flex items-center ${activeData.color}`, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(ActiveIcon, { className: "w-6 h-6 mr-2" }),
+            " ",
+            activeData.title
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: `${activeData.bgColor} rounded-2xl border ${activeData.borderColor} p-6 sm:p-8 transition-all duration-300 min-h-[400px] shadow-[0_0_30px_rgba(0,0,0,0.2)]`, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("ul", { className: "space-y-5", children: activeData.items.map((tip, idx) => /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("li", { className: "flex items-start animate-in slide-in-from-right-4 fade-in duration-500", style: { animationFillMode: "both", animationDelay: `${idx * 75}ms` }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: `${activeData.bulletColor} mr-4 mt-1 text-lg drop-shadow-md`, children: "\u2022" }),
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "text-slate-200 leading-relaxed text-[15px]", children: tip })
+          ] }, `${activeDetail}-${idx}`)) }) })
+        ] })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "bg-[#15192B] rounded-2xl shadow-lg p-6 sm:p-8 border border-white/5", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h3", { className: "text-xl font-bold text-white mb-6", children: "Skills Inspiration" }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-8", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h4", { className: "font-semibold text-fuchsia-400 mb-3 border-b border-white/10 pb-2", children: "Soft Skills (Personal Traits)" }),
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "flex flex-wrap gap-2 max-h-64 overflow-y-auto pr-2 pb-2 custom-scrollbar", children: softSkills.map((skill, i) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "bg-fuchsia-500/10 text-fuchsia-300 text-xs px-2 py-1 rounded-md border border-fuchsia-500/20", children: skill }, i)) })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h4", { className: "font-semibold text-indigo-400 mb-3 border-b border-white/10 pb-2", children: "Hard Skills (Acquired/Trained)" }),
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "flex flex-wrap gap-2 max-h-64 overflow-y-auto pr-2 pb-2 custom-scrollbar", children: hardSkills.map((skill, i) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "bg-indigo-500/10 text-indigo-300 text-xs px-2 py-1 rounded-md border border-indigo-500/20", children: skill }, i)) })
+          ] })
+        ] })
+      ] })
+    ] });
+  }
+  function BuildSection({ resume, setResume, resumeStyle, setResumeStyle, isToolbarCollapsed }) {
+    return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "flex flex-col lg:flex-row gap-8 animate-in fade-in duration-500 print:block", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "w-full lg:w-[42%] min-w-0 space-y-6 print:hidden", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "flex justify-between items-center bg-[#15192B] p-5 rounded-2xl border border-white/5 shadow-lg", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h2", { className: "text-xl font-bold text-white", children: "Your Details" }),
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { className: "text-sm text-slate-400", children: "Fill out the sections below" })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+            "button",
+            {
+              onClick: () => window.print(),
+              className: "sm:hidden flex items-center justify-center p-2.5 bg-[#15192B] border border-white/10 text-slate-300 rounded-lg hover:bg-fuchsia-600/20 hover:text-fuchsia-400",
+              children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Printer, { className: "w-5 h-5" })
+            }
+          )
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "bg-[#15192B] rounded-2xl border border-white/5 overflow-hidden shadow-lg", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "max-h-[calc(100vh-280px)] overflow-y-auto p-4 sm:p-6 space-y-8 custom-scrollbar", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(PersonalInfoForm, { data: resume.personal, update: (data) => setResume({ ...resume, personal: data }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("hr", { className: "border-white/5" }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(EducationForm, { data: resume.education, update: (data) => setResume({ ...resume, education: data }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("hr", { className: "border-white/5" }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(SkillsForm, { data: resume.skills, update: (data) => setResume({ ...resume, skills: data }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("hr", { className: "border-white/5" }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(ExperienceForm, { data: resume.experience, update: (data) => setResume({ ...resume, experience: data }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("hr", { className: "border-white/5" }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(VolunteerForm, { data: resume.volunteer, update: (data) => setResume({ ...resume, volunteer: data }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("hr", { className: "border-white/5" }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(ReferencesForm, { data: resume.references, update: (data) => setResume({ ...resume, references: data }) })
+        ] }) })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "w-full lg:w-[58%] min-w-0 print:w-full print:m-0 print:p-0", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: `sticky ${isToolbarCollapsed ? "top-16" : "top-0"} pt-2 xl:pt-0`, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 print:hidden gap-4", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "text-sm font-semibold text-slate-400 uppercase tracking-wider flex items-center", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(LayoutTemplate, { className: "w-4 h-4 mr-2 text-fuchsia-500" }),
+            " Live Preview"
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "flex bg-[#0B0E17] p-1 rounded-lg border border-white/10 shadow-inner", children: [
+            { id: "1", label: "Classic" },
+            { id: "2", label: "Modern" },
+            { id: "3", label: "Elegant" }
+          ].map((style) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+            "button",
+            {
+              onClick: () => setResumeStyle(style.id),
+              className: `px-4 py-1.5 text-xs font-bold rounded-md transition-all duration-200 ${resumeStyle === style.id ? "bg-fuchsia-600 text-white shadow-md" : "text-slate-400 hover:text-slate-200 hover:bg-white/5"}`,
+              children: style.label
+            },
+            style.id
+          )) })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(ResumePreview, { data: resume, styleId: resumeStyle })
+      ] }) })
+    ] });
+  }
+  function InputGroup({ label, placeholder, value, onChange, type = "text", className = "" }) {
+    return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: `flex flex-col ${className}`, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("label", { className: "text-xs font-semibold text-slate-400 mb-1.5", children: label }),
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+        "input",
+        {
+          type,
+          placeholder,
+          value,
+          onChange,
+          className: "px-3 py-2.5 bg-[#0B0E17] border border-white/10 rounded-lg focus:outline-none focus:ring-1 focus:ring-fuchsia-500 focus:border-fuchsia-500 text-sm text-slate-200 placeholder-slate-600 transition-colors"
+        }
+      )
+    ] });
+  }
+  function TextAreaGroup({ label, placeholder, value, onChange, className = "" }) {
+    return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: `flex flex-col ${className}`, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("label", { className: "text-xs font-semibold text-slate-400 mb-1.5", children: label }),
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+        "textarea",
+        {
+          placeholder,
+          value,
+          onChange,
+          rows: 3,
+          className: "px-3 py-2.5 bg-[#0B0E17] border border-white/10 rounded-lg focus:outline-none focus:ring-1 focus:ring-fuchsia-500 focus:border-fuchsia-500 text-sm text-slate-200 placeholder-slate-600 resize-none transition-colors"
+        }
+      )
+    ] });
+  }
+  function PersonalInfoForm({ data, update }) {
+    const handleChange = (field) => (e) => update({ ...data, [field]: e.target.value });
+    return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "space-y-4", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("h3", { className: "text-lg font-bold flex items-center text-white", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(User, { className: "w-5 h-5 mr-2 text-blue-400" }),
+        " Personal Information"
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "Full Name", placeholder: "Peter Parker", value: data.name, onChange: handleChange("name") }),
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "Address & Postal Code", placeholder: "PO Box 123, Redcliff, AB T0J 2P0", value: data.address, onChange: handleChange("address") }),
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "Home Phone", placeholder: "(780) 555-1234", value: data.homePhone, onChange: handleChange("homePhone") }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "Cell Phone", placeholder: "(780) 555-5678", value: data.cellPhone, onChange: handleChange("cellPhone") })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "Email Address", type: "email", placeholder: "peter@example.com", value: data.email, onChange: handleChange("email") })
+    ] });
+  }
+  function EducationForm({ data, update }) {
+    const addEdu = () => update([...data, { id: Date.now(), school: "", degree: "", year: "" }]);
+    const updateEdu = (id, field, val) => update(data.map((e) => e.id === id ? { ...e, [field]: val } : e));
+    const removeEdu = (id) => update(data.filter((e) => e.id !== id));
+    return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "space-y-4", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "flex justify-between items-center", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("h3", { className: "text-lg font-bold flex items-center text-white", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(GraduationCap, { className: "w-5 h-5 mr-2 text-purple-400" }),
+          " Education"
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("button", { onClick: addEdu, className: "text-fuchsia-400 hover:text-fuchsia-300 text-sm font-medium flex items-center bg-fuchsia-500/10 px-2 py-1 rounded-md", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Plus, { className: "w-4 h-4 mr-1" }),
+          " Add"
+        ] })
+      ] }),
+      data.map((edu, idx) => /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "p-4 bg-[#0B0E17] border border-white/5 rounded-xl relative group", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { onClick: () => removeEdu(edu.id), className: "absolute top-2 right-2 text-slate-500 hover:text-red-400 transition-colors", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Trash2, { className: "w-4 h-4" }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "space-y-3", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "School Name", placeholder: "Eagle Butte High School", value: edu.school, onChange: (e) => updateEdu(edu.id, "school", e.target.value) }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "Course/Major", placeholder: "Completing Grade 10", value: edu.degree, onChange: (e) => updateEdu(edu.id, "degree", e.target.value) }),
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "Year Completed", placeholder: "2006-Present", value: edu.year, onChange: (e) => updateEdu(edu.id, "year", e.target.value) })
+          ] })
+        ] })
+      ] }, edu.id))
+    ] });
+  }
+  function SkillsForm({ data, update }) {
+    const [skillInput, setSkillInput] = (0, import_react6.useState)("");
+    const addSkill = (e) => {
+      e.preventDefault();
+      if (skillInput.trim() && !data.includes(skillInput.trim())) {
+        update([...data, skillInput.trim()]);
+        setSkillInput("");
+      }
+    };
+    const removeSkill = (skillToRemove) => {
+      update(data.filter((s) => s !== skillToRemove));
+    };
+    return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "space-y-4", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("h3", { className: "text-lg font-bold flex items-center text-white", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Award, { className: "w-5 h-5 mr-2 text-emerald-400" }),
+        " Skills & Abilities"
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { className: "text-xs text-slate-400", children: "Add your soft and hard skills (e.g., Reliable, Typing, Customer Service)." }),
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("form", { onSubmit: addSkill, className: "flex space-x-2", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+          "input",
+          {
+            type: "text",
+            placeholder: "Type a skill and press Enter...",
+            value: skillInput,
+            onChange: (e) => setSkillInput(e.target.value),
+            className: "flex-1 px-3 py-2.5 bg-[#0B0E17] border border-white/10 rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 text-sm text-slate-200 placeholder-slate-600"
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { type: "submit", className: "bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 px-4 py-2 rounded-lg font-medium text-sm border border-emerald-500/20 transition-colors", children: "Add" })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "flex flex-wrap gap-2", children: data.map((skill, i) => /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("span", { className: "bg-[#0B0E17] border border-white/10 text-slate-300 text-sm px-3 py-1.5 rounded-full flex items-center", children: [
+        skill,
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { onClick: () => removeSkill(skill), className: "ml-2 text-slate-500 hover:text-red-400", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Trash2, { className: "w-3 h-3" }) })
+      ] }, i)) })
+    ] });
+  }
+  function ExperienceForm({ data, update }) {
+    const addExp = () => update([...data, { id: Date.now(), company: "", location: "", position: "", startDate: "", endDate: "", responsibilities: "" }]);
+    const updateExp = (id, field, val) => update(data.map((e) => e.id === id ? { ...e, [field]: val } : e));
+    const removeExp = (id) => update(data.filter((e) => e.id !== id));
+    return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "space-y-4", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "flex justify-between items-center", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("h3", { className: "text-lg font-bold flex items-center text-white", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Briefcase, { className: "w-5 h-5 mr-2 text-sky-400" }),
+          " Work Experience"
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("button", { onClick: addExp, className: "text-fuchsia-400 hover:text-fuchsia-300 text-sm font-medium flex items-center bg-fuchsia-500/10 px-2 py-1 rounded-md", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Plus, { className: "w-4 h-4 mr-1" }),
+          " Add"
+        ] })
+      ] }),
+      data.map((exp, idx) => /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "p-4 bg-[#0B0E17] border border-white/5 rounded-xl relative group space-y-3", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { onClick: () => removeExp(exp.id), className: "absolute top-2 right-2 text-slate-500 hover:text-red-400", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Trash2, { className: "w-4 h-4" }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "Business Name", placeholder: "Home Depot", value: exp.company, onChange: (e) => updateExp(exp.id, "company", e.target.value) }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "Location", placeholder: "Medicine Hat", value: exp.location, onChange: (e) => updateExp(exp.id, "location", e.target.value) })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "Position", placeholder: "Cashier", value: exp.position, onChange: (e) => updateExp(exp.id, "position", e.target.value) }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "Start Date", placeholder: "June 2006", value: exp.startDate, onChange: (e) => updateExp(exp.id, "startDate", e.target.value) }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "End Date", placeholder: "Present", value: exp.endDate, onChange: (e) => updateExp(exp.id, "endDate", e.target.value) })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(TextAreaGroup, { label: "Responsibilities (Tip: Use action words!)", placeholder: "Handled cash sales, provided product information...", value: exp.responsibilities, onChange: (e) => updateExp(exp.id, "responsibilities", e.target.value) })
+      ] }, exp.id))
+    ] });
+  }
+  function VolunteerForm({ data, update }) {
+    const addVol = () => update([...data, { id: Date.now(), role: "", organization: "", date: "", responsibilities: "" }]);
+    const updateVol = (id, field, val) => update(data.map((e) => e.id === id ? { ...e, [field]: val } : e));
+    const removeVol = (id) => update(data.filter((e) => e.id !== id));
+    return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "space-y-4", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "flex justify-between items-center", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("h3", { className: "text-lg font-bold flex items-center text-white", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Heart, { className: "w-5 h-5 mr-2 text-rose-400" }),
+          " Volunteer Activities"
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("button", { onClick: addVol, className: "text-fuchsia-400 hover:text-fuchsia-300 text-sm font-medium flex items-center bg-fuchsia-500/10 px-2 py-1 rounded-md", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Plus, { className: "w-4 h-4 mr-1" }),
+          " Add"
+        ] })
+      ] }),
+      data.map((vol, idx) => /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "p-4 bg-[#0B0E17] border border-white/5 rounded-xl relative group space-y-3", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { onClick: () => removeVol(vol.id), className: "absolute top-2 right-2 text-slate-500 hover:text-red-400", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Trash2, { className: "w-4 h-4" }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "Role", placeholder: "Coach", value: vol.role, onChange: (e) => updateVol(vol.id, "role", e.target.value) }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "Organization", placeholder: "Girls Little League", value: vol.organization, onChange: (e) => updateVol(vol.id, "organization", e.target.value) })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "Date", placeholder: "Summer 2006", value: vol.date, onChange: (e) => updateVol(vol.id, "date", e.target.value) }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(TextAreaGroup, { label: "Responsibilities (Optional)", placeholder: "Coached children...", value: vol.responsibilities, onChange: (e) => updateVol(vol.id, "responsibilities", e.target.value) })
+      ] }, vol.id))
+    ] });
+  }
+  function ReferencesForm({ data, update }) {
+    const addRef = () => update([...data, { id: Date.now(), name: "", title: "", organization: "", address: "", phone: "" }]);
+    const updateRef = (id, field, val) => update(data.map((e) => e.id === id ? { ...e, [field]: val } : e));
+    const removeRef = (id) => update(data.filter((e) => e.id !== id));
+    return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "space-y-4", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "flex justify-between items-center", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("h3", { className: "text-lg font-bold flex items-center text-white", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Users, { className: "w-5 h-5 mr-2 text-orange-400" }),
+          " References"
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("button", { onClick: addRef, className: "text-fuchsia-400 hover:text-fuchsia-300 text-sm font-medium flex items-center bg-fuchsia-500/10 px-2 py-1 rounded-md", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Plus, { className: "w-4 h-4 mr-1" }),
+          " Add"
+        ] })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { className: "text-xs text-orange-400 bg-orange-400/10 p-3 rounded-lg border border-orange-400/20", children: "Remember: Do not use friends. References must be adults (teachers, coaches, employers). Minimum of 3 recommended." }),
+      data.map((ref, idx) => /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "p-4 bg-[#0B0E17] border border-white/5 rounded-xl relative group space-y-3", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { onClick: () => removeRef(ref.id), className: "absolute top-2 right-2 text-slate-500 hover:text-red-400", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Trash2, { className: "w-4 h-4" }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "Name", placeholder: "Heather Laturnas", value: ref.name, onChange: (e) => updateRef(ref.id, "name", e.target.value) }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "Title/Relationship", placeholder: "Teacher", value: ref.title, onChange: (e) => updateRef(ref.id, "title", e.target.value) })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "Organization", placeholder: "Eagle Butte High School", value: ref.organization, onChange: (e) => updateRef(ref.id, "organization", e.target.value) }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "Mailing Address", placeholder: "PO Box 281, Dunmore, AB", value: ref.address, onChange: (e) => updateRef(ref.id, "address", e.target.value) }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "Phone Number", placeholder: "(403) 528-1996", value: ref.phone, onChange: (e) => updateRef(ref.id, "phone", e.target.value) })
+      ] }, ref.id))
+    ] });
+  }
+  function ResumePreview({ data, styleId = "1" }) {
+    const styles = {
+      "1": {
+        // Classic - Matches original PDF rules perfectly
+        fontFamily: '"Times New Roman", Times, serif',
+        nameClass: "text-2xl font-bold mb-2 uppercase text-center",
+        contactClass: "text-[10pt] text-center space-y-0.5",
+        headerClass: "font-bold text-base tracking-widest uppercase pb-1 border-b-[1.5px] border-black mb-4 mt-6",
+        subheadClass: "font-bold",
+        italicClass: "italic",
+        dateClass: "text-right font-bold",
+        bulletClass: "list-disc pl-5 space-y-1 mt-1",
+        pageLayout: "p-8 sm:p-12 text-[11pt] leading-tight"
+      },
+      "2": {
+        // Modern - Clean sans-serif
+        fontFamily: '"Inter", "Helvetica Neue", Arial, sans-serif',
+        nameClass: "text-3xl font-black mb-1 text-slate-800 tracking-tight",
+        contactClass: "text-[9.5pt] text-slate-500 flex flex-wrap gap-x-3 gap-y-1 mb-6 pb-4 border-b border-slate-200",
+        headerClass: "font-bold text-sm tracking-widest uppercase text-slate-500 mb-3 mt-6",
+        subheadClass: "font-bold text-slate-800",
+        italicClass: "text-slate-600",
+        dateClass: "text-right text-slate-500 text-sm font-medium",
+        bulletClass: "list-disc pl-4 space-y-1 mt-2 text-slate-700 marker:text-slate-300",
+        pageLayout: "p-8 sm:p-12 text-[10pt] leading-relaxed"
+      },
+      "3": {
+        // Elegant - Airy, centered serif
+        fontFamily: "Georgia, serif",
+        nameClass: "text-4xl font-normal mb-2 text-center text-slate-900 tracking-wide",
+        contactClass: "text-[10pt] text-center text-slate-600 space-y-0.5",
+        headerClass: "font-normal text-lg text-center uppercase border-t border-b border-slate-300 py-1.5 mb-5 mt-8 tracking-[0.2em]",
+        subheadClass: "font-bold text-slate-800 text-base",
+        italicClass: "italic text-slate-600",
+        dateClass: "text-right italic text-slate-500",
+        bulletClass: "list-[circle] pl-6 space-y-1.5 mt-2 text-slate-800",
+        pageLayout: "p-8 sm:p-14 text-[10.5pt] leading-relaxed"
+      }
+    };
+    const currentStyle = styles[styleId];
+    const SectionHeader = ({ title }) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h2", { className: currentStyle.headerClass, children: title });
+    return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
+      "div",
+      {
+        className: `bg-white shadow-2xl rounded-sm print:shadow-none print:rounded-none mx-auto print:max-w-none text-black min-h-[1056px] w-full max-w-[816px] overflow-hidden transition-all duration-500 ${currentStyle.pageLayout}`,
+        style: { fontFamily: currentStyle.fontFamily },
+        children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: styleId === "2" ? "text-left" : "text-center", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h1", { className: currentStyle.nameClass, children: data.personal.name || "Your Name" }),
+            styleId === "2" ? (
+              // Modern format inline contact info
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: currentStyle.contactClass, children: [
+                data.personal.address && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { children: data.personal.address }),
+                data.personal.homePhone && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("span", { children: [
+                  "\u2022 ",
+                  data.personal.homePhone
+                ] }),
+                data.personal.cellPhone && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("span", { children: [
+                  "\u2022 ",
+                  data.personal.cellPhone
+                ] }),
+                data.personal.email && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("span", { children: [
+                  "\u2022 ",
+                  data.personal.email
+                ] })
+              ] })
+            ) : (
+              // Classic & Elegant stacked format
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: currentStyle.contactClass, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { children: data.personal.address || "Your Address" }),
+                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { children: [data.personal.homePhone, data.personal.cellPhone, data.personal.email].filter(Boolean).join(" \u2022 ") })
+              ] })
+            )
+          ] }),
+          data.education.some((e) => e.school || e.degree) && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(SectionHeader, { title: "Education" }),
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "space-y-4", children: data.education.map((edu, i) => (edu.school || edu.degree) && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "flex justify-between items-start", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: currentStyle.subheadClass, children: edu.school }),
+                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: currentStyle.italicClass, children: edu.degree })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: `${currentStyle.dateClass} pl-4 whitespace-nowrap`, children: edu.year })
+            ] }, i)) })
+          ] }),
+          data.skills.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(SectionHeader, { title: "Skills & Abilities" }),
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("ul", { className: currentStyle.bulletClass, children: data.skills.map((skill, i) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("li", { children: skill }, i)) })
+          ] }),
+          data.experience.some((e) => e.company || e.position) && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(SectionHeader, { title: "Work Experience" }),
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "space-y-6", children: data.experience.map((exp, i) => (exp.company || exp.position) && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "flex justify-between items-start", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: currentStyle.subheadClass, children: exp.position }),
+                  styleId === "1" && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("br", {}),
+                  styleId !== "1" && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "mx-2 text-slate-300", children: "|" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("span", { className: currentStyle.italicClass, children: [
+                    exp.company,
+                    exp.location ? `, ${exp.location}` : ""
+                  ] })
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: `${currentStyle.dateClass} pl-4 whitespace-nowrap`, children: [exp.startDate, exp.endDate].filter(Boolean).join(" - ") })
+              ] }),
+              exp.responsibilities && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("ul", { className: currentStyle.bulletClass, children: exp.responsibilities.split("\n").filter((r) => r.trim()).map((resp, j) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("li", { children: resp }, j)) })
+            ] }, i)) })
+          ] }),
+          data.volunteer.some((v) => v.role || v.organization) && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(SectionHeader, { title: "Volunteer Activities" }),
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "space-y-4", children: data.volunteer.map((vol, i) => (vol.role || vol.organization) && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "flex justify-between items-start", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: currentStyle.subheadClass, children: vol.role }),
+                  styleId === "1" && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("br", {}),
+                  styleId !== "1" && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "mx-2 text-slate-300", children: "|" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: currentStyle.italicClass, children: vol.organization })
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: `${currentStyle.dateClass} pl-4 whitespace-nowrap`, children: vol.date })
+              ] }),
+              vol.responsibilities && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { className: `mt-1 text-[0.95em] ${styleId === "1" ? "pl-5" : "pl-4 text-slate-700"}`, children: vol.responsibilities })
+            ] }, i)) })
+          ] }),
+          data.references.some((r) => r.name || r.organization) && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "print:break-inside-avoid", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(SectionHeader, { title: "References" }),
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "grid grid-cols-1 sm:grid-cols-2 gap-6 print:grid-cols-2", children: data.references.map((ref, i) => (ref.name || ref.organization) && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "text-[0.95em] space-y-0.5", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: currentStyle.subheadClass, children: [
+                ref.name,
+                ref.title ? `, ${ref.title}` : ""
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { children: ref.organization }),
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { children: ref.address }),
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { children: ref.phone })
+            ] }, i)) })
+          ] })
+        ]
+      }
+    );
+  }
+  function InteractiveRegion({ children, tip, placement = "bottom-left", className = "block w-full" }) {
+    const placementClasses = {
+      bottom: "top-full left-1/2 -translate-x-1/2 mt-3",
+      "bottom-left": "top-full left-0 mt-3",
+      "bottom-right": "top-full right-0 mt-3",
+      top: "bottom-full left-1/2 -translate-x-1/2 mb-3",
+      "top-left": "bottom-full left-0 mb-3",
+      "top-right": "bottom-full right-0 mb-3"
+    };
+    const arrowClasses = {
+      bottom: "-top-1.5 left-1/2 -translate-x-1/2 border-t border-l",
+      "bottom-left": "-top-1.5 left-6 border-t border-l",
+      "bottom-right": "-top-1.5 right-6 border-t border-l",
+      top: "-bottom-1.5 left-1/2 -translate-x-1/2 border-b border-r",
+      "top-left": "-bottom-1.5 left-6 border-b border-r",
+      "top-right": "-bottom-1.5 right-6 border-b border-r"
+    };
+    return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: `relative group rounded-md -m-1.5 p-1.5 border-2 border-transparent hover:border-fuchsia-500/50 hover:bg-fuchsia-500/10 transition-all cursor-help ${className}`, children: [
+      children,
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: `absolute z-50 w-64 sm:w-72 p-4 bg-[#15192B] border border-fuchsia-500/30 text-white text-sm rounded-xl shadow-[0_0_20px_rgba(192,38,211,0.3)] opacity-0 pointer-events-none group-hover:opacity-100 transition-all duration-300 scale-95 group-hover:scale-100 ${placementClasses[placement]}`, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "font-bold flex items-center mb-2 text-fuchsia-400 tracking-wide uppercase text-xs", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Info, { className: "w-4 h-4 mr-1.5" }),
+          " Guide Tip"
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { className: "leading-relaxed text-slate-300", children: tip }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: `absolute w-3 h-3 bg-[#15192B] border-fuchsia-500/30 transform rotate-45 hidden sm:block ${arrowClasses[placement]}` })
+      ] })
+    ] });
+  }
+  function ExemplarSection() {
+    const SectionHeader = ({ title }) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "mb-4 mt-6", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h2", { className: "font-bold text-base tracking-widest uppercase pb-1 border-b-[1.5px] border-black text-black", children: title }) });
+    return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "space-y-8 animate-in fade-in duration-500", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "bg-[#15192B] rounded-2xl shadow-lg p-6 sm:p-8 border border-white/5 relative overflow-hidden", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "absolute top-0 left-0 w-1 h-full bg-indigo-500" }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h2", { className: "text-2xl font-bold text-white mb-2", children: "Resume Exemplar" }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("p", { className: "text-slate-400 text-lg", children: [
+          "Hover over the ",
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "inline-block px-2 py-0.5 bg-fuchsia-500/10 border border-fuchsia-500/30 text-fuchsia-400 rounded text-sm font-medium mx-1", children: "highlighted areas" }),
+          "on this sample resume to see the rules and formatting tips in action."
+        ] })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "flex justify-center overflow-visible pb-12 px-4 sm:px-12", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "bg-white shadow-[0_0_40px_rgba(0,0,0,0.5)] rounded-sm text-black p-8 sm:p-12 text-[11pt] leading-tight font-serif w-full max-w-[816px]", style: { fontFamily: '"Times New Roman", Times, serif' }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InteractiveRegion, { tip: "Center name and mailing address. Ensure phone numbers and emails are professional.", placement: "bottom", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "text-center mb-8", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h1", { className: "text-2xl font-bold mb-2 uppercase", children: "Peter Parker" }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "text-[10pt] space-y-0.5", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { children: "PO Box 123" }),
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { children: "Redcliff, AB T0J 2P0" }),
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { children: "(780) 555-1234" })
+          ] })
+        ] }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InteractiveRegion, { tip: "Be consistent with spacing, capitalization and font style and sizes. Leave two blank lines before a main heading.", placement: "bottom-left", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(SectionHeader, { title: "Education" }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "space-y-4", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "flex justify-between items-start", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "font-bold", children: "Eagle Butte High School" }),
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { children: "Currently completing grade 10" })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InteractiveRegion, { tip: "Set a tab to line up dates to keep everything neat.", placement: "bottom-right", className: "inline-block w-auto", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "text-right whitespace-nowrap pl-4 font-bold", children: "2006 - Present" }) })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InteractiveRegion, { tip: "Use reverse chronological order. Put your most recent achievements first.", placement: "bottom-left", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "flex justify-between items-start", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "font-bold", children: "St. John's Ambulance Emergency First Aid Course" }),
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "text-right whitespace-nowrap pl-4 font-bold", children: "November 2006" })
+          ] }) })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(SectionHeader, { title: "Skills & Abilities" }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InteractiveRegion, { tip: "Include at least 5 skills. Group them nicely using bullet points.", placement: "bottom-left", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("ul", { className: "list-disc pl-5 space-y-1", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("li", { children: "Working with small children and seniors" }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("li", { children: "Proven ability to work as part of a team" }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("li", { children: "Reliable and dependable" }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("li", { children: "Excellent organizational skills" }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("li", { children: "Ability to key 40 CWAM" }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("li", { children: [
+            "Computer skills include:",
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("br", {}),
+            "Microsoft Word, Excel, Access and PowerPoint"
+          ] })
+        ] }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(SectionHeader, { title: "Work Experience" }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "space-y-5", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InteractiveRegion, { tip: "Include your position, place of employment and a description of the tasks. Use Action Words!", placement: "bottom-left", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "flex justify-between items-start mb-1", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "font-bold", children: "Cashier" }),
+                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("br", {}),
+                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { children: "Home Depot, Medicine Hat" })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "text-right whitespace-nowrap pl-4 font-bold", children: "June 2006 - Present" })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("ul", { className: "list-disc pl-5 mt-2 space-y-1", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("li", { children: "Handled hundreds of cash sales at hardware show. These transactions involved processing cash, credit card and debit card payments." }),
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("li", { children: "Provided product information and answered general inquiries in both French and English." })
+            ] })
+          ] }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "flex justify-between items-start mb-1", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "font-bold", children: "Babysitter" }),
+                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("br", {}),
+                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { children: "Jim and Patti Smith" })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "text-right whitespace-nowrap pl-4 font-bold", children: "2005 - Present" })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("ul", { className: "list-disc pl-5 mt-2 space-y-1", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("li", { children: "Responsible for feeding, entertaining and caring for the personal needs of four small children." }) })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "flex justify-between items-start mb-1", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "font-bold", children: "Lawn Care Attendant" }),
+                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("br", {}),
+                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { children: "Luscious Lawns, Medicine Hat" })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "text-right whitespace-nowrap pl-4 font-bold", children: "Summer 2005 & 2006" })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("ul", { className: "list-disc pl-5 mt-2 space-y-1", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("li", { children: "Served customers politely and provided excellent lawn care service. This increased business by twenty customers." }),
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("li", { children: "Trimmed lawns, moved outdoor furniture, maintained and repaired equipment. These tasks required careful attention to detail." })
+            ] })
+          ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(SectionHeader, { title: "Volunteer Activities" }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InteractiveRegion, { tip: "Volunteer experience can be included separately or with work experience. It's great if you have limited paid experience!", placement: "top-left", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "flex justify-between items-start", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "font-bold", children: "Coach" }),
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("br", {}),
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { children: "Girls Little League Team" })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "text-right whitespace-nowrap pl-4 font-bold", children: "Summer 2006" })
+        ] }) }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InteractiveRegion, { tip: "Include a header on the second page only with your name and page number.", placement: "top-left", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(SectionHeader, { title: "Extra-Curricular Activities" }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("ul", { className: "list-disc pl-5 space-y-1", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("li", { children: "Student council" }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("li", { children: "Volleyball" }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("li", { children: "Guitar" }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("li", { children: "Snowboarding" })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InteractiveRegion, { tip: "Include 3 references with complete mailing address and phone number. Refer to the instructions about who is an acceptable reference (No friends!).", placement: "top-left", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(SectionHeader, { title: "References" }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "grid grid-cols-1 sm:grid-cols-2 gap-6", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "text-[10pt] leading-tight space-y-0.5", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "font-bold", children: "Heather Laturnas, Teacher" }),
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { children: "Eagle Butte High School" }),
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { children: "PO Box 281" }),
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { children: "Dunmore, AB T0J 1A0" }),
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { children: "(403) 528-1996" })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "text-[10pt] leading-tight space-y-0.5", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "font-bold", children: "Violet Taylor, Manager" }),
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { children: "Luscious Lawns" }),
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { children: "1234 13th Street" }),
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { children: "Medicine Hat, AB T1A 1Z9" }),
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { children: "(403) 504-5555" })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "text-[10pt] leading-tight space-y-0.5", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "font-bold", children: "Jim Smith, President" }),
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { children: "Sunset Bay Hot Tubs" }),
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { children: "1111 Dunmore Road" }),
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { children: "Medicine Hat, AB T1B 1C9" }),
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { children: "(403) 529-1111" })
+            ] })
+          ] })
+        ] }) })
+      ] }) })
+    ] });
+  }
+
+  // projects/calm-module-4/workspace/components/coverletterbuilder.reference.jsx
+  var import_react7 = __toESM(require_react(), 1);
+  var import_jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
+  var guideTopics = [
+    {
+      id: "header",
+      title: "Header & Contact Info",
+      description: "The very top of your letter should clearly present who you are and who you are writing to. It sets a professional tone immediately.",
+      dos: [
+        "Use a professional email address (e.g., firstname.lastname@email.com).",
+        "Include your phone number and city/province.",
+        "Include the date you are submitting the application.",
+        "List the specific name and title of the hiring manager if known."
+      ],
+      donts: [
+        "Include highly personal info like your SIN or marital status.",
+        "Use an unprofessional email (e.g., skater_boi_99@hotmail.com).",
+        "Forget to double-check the spelling of the employer's name."
+      ]
+    },
+    {
+      id: "salutation",
+      title: "Professional Salutation",
+      description: "Your greeting matters. It shows you have done your research and respect the reader.",
+      dos: [
+        'Address the letter to a specific person whenever possible (e.g., "Dear Ms. Smith,").',
+        `Use "Dear Hiring Manager," or "To the [Department] Team," if a name isn't available.`,
+        "Ensure you have the correct spelling and title."
+      ],
+      donts: [
+        'Use "To Whom It May Concern" unless absolutely necessary (it feels outdated and generic).',
+        'Use casual greetings like "Hi," "Hey," or "Dear Sir/Madam".'
+      ]
+    },
+    {
+      id: "intro",
+      title: "The Hook / Intro",
+      description: "The first paragraph should explain where you heard about the job and state exactly which role you are applying for. Grab their attention.",
+      dos: [
+        "Clearly state the job title you are applying for.",
+        "Mention where you found the listing or who referred you.",
+        'Include a "hook" \u2013 a brief statement of why you are excited about the role or company.'
+      ],
+      donts: [
+        'Start with a boring "I am writing to apply for..." if you can avoid it.',
+        "Talk about what the company can do for YOU. Focus on what you offer THEM."
+      ]
+    },
+    {
+      id: "body",
+      title: "Body Paragraphs / Selling Yourself",
+      description: "This is where you connect your skills to their needs. Explain specific experiences that make you the perfect person for the job.",
+      dos: [
+        "Tailor your skills clearly to the requirements listed in the job posting.",
+        "Use specific examples of past successes or projects.",
+        "Highlight transferable skills if you lack direct experience.",
+        "Keep it focused on how you can solve their problems or add value."
+      ],
+      donts: [
+        "Just repeat your resume word-for-word. Tell a story instead.",
+        "Exaggerate or lie about your qualifications.",
+        "Write huge blocks of text. Break it into 1-2 concise paragraphs."
+      ]
+    },
+    {
+      id: "conclusion",
+      title: "Conclusion & Call to Action",
+      description: "Restate your interest, point them to your resume, and confidently ask for an interview.",
+      dos: [
+        "Reiterate your enthusiasm for the position.",
+        "Direct them to your enclosed/attached resume.",
+        'Include a clear call to action (e.g., "I look forward to discussing this opportunity in an interview").',
+        "Provide your availability or preferred contact method."
+      ],
+      donts: [
+        "Sound desperate or aggressive.",
+        "Forget to actually ask for the interview."
+      ]
+    },
+    {
+      id: "signoff",
+      title: "Professional Sign-off",
+      description: "A formal and polite closing to your letter.",
+      dos: [
+        'Use professional closings like "Sincerely,", "Best regards,", or "Respectfully,".',
+        "Leave space for a physical signature if printing.",
+        "Type your full name clearly at the bottom."
+      ],
+      donts: [
+        'Use casual sign-offs like "Cheers,", "Yours truly,", or "Talk soon,".',
+        'Use emojis or text slang (e.g., "thx").'
+      ]
+    }
+  ];
+  var emptyFormData = {
+    yourName: "",
+    yourAddress: "",
+    yourCity: "",
+    yourPhone: "",
+    yourEmail: "",
+    date: "",
+    recipientName: "",
+    recipientTitle: "",
+    companyName: "",
+    companyAddress: "",
+    companyCity: "",
+    salutation: "",
+    openingParagraph: "",
+    bodyParagraphs: "",
+    closingParagraph: "",
+    signOff: ""
+  };
+  var dummyFormData = {
+    yourName: "Ine Dajobb",
+    yourAddress: "123 Sesame Street",
+    yourCity: "Fort Saskatchewan, Alberta T8A 4H5",
+    yourPhone: "(780) 123-4567",
+    yourEmail: "ine.dajobb@email.ca",
+    date: "January 1, 2026",
+    recipientName: "Jane Doe",
+    recipientTitle: "Human Resources Director",
+    companyName: "Acme Innovations Inc.",
+    companyAddress: "456 Business Blvd",
+    companyCity: "Edmonton, AB T5J 2R4",
+    salutation: "Dear Ms. Doe,",
+    openingParagraph: "I am writing to express my strong interest in the Junior Developer position at Acme Innovations Inc., as advertised on your company website. With a solid foundation in modern web technologies and a passion for creating intuitive user experiences, I am eager to contribute to your award-winning development team.",
+    bodyParagraphs: "During my recent studies and personal projects, I have developed strong skills in React, JavaScript, and Tailwind CSS. Specifically, I spearheaded a collaborative academic project where we built a fully functional e-commerce prototype. This experience taught me how to write clean, maintainable code and collaborate effectively using version control. I noticed your job posting emphasized a need for responsive design skills, which is an area I have dedicated significant time to mastering over the past year.\n\nFurthermore, my previous part-time experience in customer service has equipped me with excellent communication skills and the ability to solve problems under pressure\u2014traits I believe are essential for understanding user needs and debugging complex software issues.",
+    closingParagraph: "I am highly motivated to bring my technical skills and enthusiasm to Acme Innovations. I have attached my resume for your review. I would welcome the opportunity to discuss how my background, skills, and certifications will be of benefit to your company. Please feel free to contact me at (780) 123-4567 to arrange an interview at your earliest convenience.",
+    signOff: "Sincerely,"
+  };
+  function CoverLetterBuilder() {
+    const [activeTab, setActiveTab] = (0, import_react7.useState)("workshop");
+    const [formData, setFormData] = (0, import_react7.useState)(emptyFormData);
+    const [docStyle, setDocStyle] = (0, import_react7.useState)("modern");
+    const [isToolbarCollapsed, setIsToolbarCollapsed] = (0, import_react7.useState)(false);
+    const handlePrint = () => {
+      window.print();
+    };
+    return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "min-h-screen bg-[#07090E] text-slate-300 font-sans selection:bg-fuchsia-500/30", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("style", { children: `
+        @media print {
+          body { background-color: white !important; -webkit-print-color-adjust: exact; }
+          .no-print { display: none !important; }
+          .print-only { display: block !important; }
+          @page { margin: 1in; size: letter portrait; }
+        }
+      ` }),
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("nav", { className: "no-print border-b border-white/10 bg-white/5 backdrop-blur-md overflow-hidden transition-all duration-300", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "w-full px-4 sm:px-6 lg:px-8", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: `flex ${isToolbarCollapsed ? "items-center justify-between h-14 py-2" : "justify-between h-16 items-center"}`, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "flex items-center gap-2", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "p-2 bg-gradient-to-br from-fuchsia-600 to-indigo-600 rounded-lg shadow-lg shadow-fuchsia-900/20", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(PenTool, { className: "w-5 h-5 text-white" }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: "text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-400 to-indigo-400", children: "LetterForge" })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "flex items-center gap-2", children: [
+          !isToolbarCollapsed && /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_jsx_runtime5.Fragment, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "flex space-x-1 bg-black/40 p-1 rounded-lg border border-white/5", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+                TabButton,
+                {
+                  active: activeTab === "guide",
+                  onClick: () => setActiveTab("guide"),
+                  icon: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(BookOpen, { className: "w-4 h-4" }),
+                  label: "Learning Guide"
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+                TabButton,
+                {
+                  active: activeTab === "exemplar",
+                  onClick: () => setActiveTab("exemplar"),
+                  icon: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(FileText, { className: "w-4 h-4" }),
+                  label: "Exemplar"
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+                TabButton,
+                {
+                  active: activeTab === "workshop",
+                  onClick: () => setActiveTab("workshop"),
+                  icon: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(LayoutTemplate, { className: "w-4 h-4" }),
+                  label: "Workshop"
+                }
+              )
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
+              "button",
+              {
+                onClick: handlePrint,
+                className: "flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 border border-white/10 rounded-md transition-all text-sm font-medium text-white hover:shadow-lg hover:shadow-white/5",
+                children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Printer, { className: "w-4 h-4" }),
+                  "Export PDF"
+                ]
+              }
+            )
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
+            "button",
+            {
+              onClick: () => setIsToolbarCollapsed((prev) => !prev),
+              className: "flex items-center gap-2 px-3 py-2 bg-black/40 hover:bg-white/10 border border-white/10 rounded-md transition-all text-sm font-medium text-white",
+              "aria-expanded": !isToolbarCollapsed,
+              "aria-label": isToolbarCollapsed ? "Expand toolbar" : "Collapse toolbar",
+              children: [
+                isToolbarCollapsed ? /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(ChevronDown, { className: "w-4 h-4" }) : /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(ChevronUp, { className: "w-4 h-4" }),
+                /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: "hidden sm:inline", children: isToolbarCollapsed ? "Expand" : "Collapse" })
+              ]
+            }
+          )
+        ] })
+      ] }) }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("main", { className: `no-print w-full max-w-none px-4 sm:px-6 lg:px-8 py-6 sm:py-8 ${isToolbarCollapsed ? "pt-6" : ""}`, children: [
+        activeTab === "guide" && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(LearningGuide, {}),
+        activeTab === "exemplar" && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Exemplar, {}),
+        activeTab === "workshop" && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+          Workshop,
+          {
+            formData,
+            setFormData,
+            docStyle,
+            setDocStyle
+          }
+        )
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "hidden print-only absolute top-0 left-0 w-full h-full bg-white text-black m-0 p-0", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(PrintableDocument, { data: formData, docStyle }) })
+    ] });
+  }
+  function TabButton({ active, onClick, icon, label }) {
+    return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
+      "button",
+      {
+        onClick,
+        className: `flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${active ? "bg-gradient-to-r from-fuchsia-600 to-indigo-600 text-white shadow-lg shadow-indigo-900/20" : "text-slate-400 hover:text-white hover:bg-white/5"}`,
+        children: [
+          icon,
+          label
+        ]
+      }
+    );
+  }
+  function LearningGuide() {
+    const [activeTopicId, setActiveTopicId] = (0, import_react7.useState)(guideTopics[0].id);
+    const activeTopic = guideTopics.find((t) => t.id === activeTopicId);
+    return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "flex flex-col gap-6 animate-in fade-in duration-500 slide-in-from-bottom-4", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-6", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "col-span-1 bg-white/5 border border-white/10 rounded-xl overflow-hidden backdrop-blur-sm", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "p-4 border-b border-white/10 bg-white/[0.02]", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("h2", { className: "text-lg font-semibold text-white flex items-center gap-2", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(BookOpen, { className: "w-5 h-5 text-indigo-400" }),
+            "What to Include"
+          ] }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "p-2", children: guideTopics.map((topic) => /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
+            "button",
+            {
+              onClick: () => setActiveTopicId(topic.id),
+              className: `w-full text-left px-4 py-3 rounded-lg mb-1 flex items-center justify-between transition-all ${activeTopicId === topic.id ? "bg-white/10 text-white border-l-2 border-fuchsia-500" : "text-slate-400 hover:bg-white/5 hover:text-slate-200"}`,
+              children: [
+                /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: "text-sm font-medium", children: topic.title }),
+                /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(ChevronRight, { className: `w-4 h-4 transition-transform ${activeTopicId === topic.id ? "translate-x-1 text-fuchsia-400" : "opacity-0"}` })
+              ]
+            },
+            topic.id
+          )) })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "col-span-1 md:col-span-2 bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-sm relative overflow-hidden", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "absolute top-0 right-0 w-64 h-64 bg-fuchsia-600/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "relative z-10", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h2", { className: "text-2xl font-bold text-white mb-2", children: activeTopic.title }),
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "text-slate-300 mb-8 text-lg leading-relaxed", children: activeTopic.description }),
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "grid grid-cols-1 sm:grid-cols-2 gap-6", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "bg-emerald-900/20 border border-emerald-500/20 rounded-lg p-5", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("h3", { className: "text-emerald-400 font-semibold mb-4 flex items-center gap-2", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(CircleCheckBig, { className: "w-5 h-5" }),
+                  " Dos"
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("ul", { className: "space-y-3", children: activeTopic.dos.map((item, i) => /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("li", { className: "flex items-start gap-3 text-sm text-emerald-100/80", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 flex-shrink-0" }),
+                  item
+                ] }, i)) })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "bg-rose-900/20 border border-rose-500/20 rounded-lg p-5", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("h3", { className: "text-rose-400 font-semibold mb-4 flex items-center gap-2", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(CircleX, { className: "w-5 h-5" }),
+                  " Don'ts"
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("ul", { className: "space-y-3", children: activeTopic.donts.map((item, i) => /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("li", { className: "flex items-start gap-3 text-sm text-rose-100/80", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "w-1.5 h-1.5 rounded-full bg-rose-500 mt-1.5 flex-shrink-0" }),
+                  item
+                ] }, i)) })
+              ] })
+            ] })
+          ] })
+        ] })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(InteractivePhraseBuilder, {})
+    ] });
+  }
+  function InteractivePhraseBuilder() {
+    const [opening, setOpening] = (0, import_react7.useState)("");
+    const [verb, setVerb] = (0, import_react7.useState)("");
+    const [accomplishment, setAccomplishment] = (0, import_react7.useState)("");
+    const [signOff, setSignOff] = (0, import_react7.useState)("");
+    const [copied, setCopied] = (0, import_react7.useState)(false);
+    const hooks = [
+      "I am writing to express my strong interest in the open position.",
+      "I was thrilled to see this opening, as I have long admired your company.",
+      "With a proven track record of dedication, I am eager to apply for this role."
+    ];
+    const verbs = [
+      "Spearheaded",
+      "Optimized",
+      "Implemented",
+      "Cultivated",
+      "Streamlined",
+      "Engineered",
+      "Collaborated on"
+    ];
+    const signOffs = [
+      "Sincerely,",
+      "Best regards,",
+      "Respectfully yours,",
+      "Kind regards,"
+    ];
+    const generatedText = `${opening ? opening : "[Your Hook]"} During my recent experiences, I successfully ${verb ? verb.toLowerCase() : "[action verb]"} ${accomplishment ? accomplishment : "[your accomplishment/project]"}. I believe these skills make me an excellent fit for your team.
+
+${signOff ? signOff : "[Your Sign-off]"}
+[Your Name]`;
+    const handleCopy = () => {
+      try {
+        navigator.clipboard.writeText(generatedText);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2e3);
+      } catch (err) {
+        const textArea = document.createElement("textarea");
+        textArea.value = generatedText;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textArea);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2e3);
+      }
+    };
+    return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-sm", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "mb-6", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("h2", { className: "text-xl font-bold text-white flex items-center gap-2", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Sparkles, { className: "w-5 h-5 text-indigo-400" }),
+          "Practice Activity: The Sentence Builder"
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "text-slate-400 text-sm mt-1", children: "Combine strong professional phrases with your own experiences to practice writing impactful paragraphs. Select options below to see how they flow together." })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-8", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "space-y-6", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h3", { className: "text-sm font-semibold text-slate-300 mb-2", children: "1. Choose a Strong Opening" }),
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "flex flex-col gap-2", children: hooks.map((hook, i) => /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+              "button",
+              {
+                onClick: () => setOpening(hook),
+                className: `text-left px-4 py-2 rounded border text-sm transition-all ${opening === hook ? "bg-fuchsia-500/20 border-fuchsia-500/50 text-fuchsia-200 shadow-inner" : "bg-black/40 border-white/5 text-slate-400 hover:bg-white/10 hover:text-slate-200"}`,
+                children: hook
+              },
+              i
+            )) })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h3", { className: "text-sm font-semibold text-slate-300 mb-2", children: "2. Pick an Action Verb" }),
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "flex flex-wrap gap-2", children: verbs.map((v, i) => /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+              "button",
+              {
+                onClick: () => setVerb(v),
+                className: `px-3 py-1.5 rounded-full border text-sm transition-all ${verb === v ? "bg-indigo-500/20 border-indigo-500/50 text-indigo-300 shadow-inner" : "bg-black/40 border-white/5 text-slate-400 hover:bg-white/10 hover:text-slate-200"}`,
+                children: v
+              },
+              i
+            )) })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h3", { className: "text-sm font-semibold text-slate-300 mb-2", children: "3. Describe the Accomplishment" }),
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+              "input",
+              {
+                type: "text",
+                placeholder: "e.g., a school project that raised $500 for charity",
+                value: accomplishment,
+                onChange: (e) => setAccomplishment(e.target.value),
+                className: "w-full bg-black/40 border border-white/10 rounded-md px-4 py-2.5 text-sm text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all placeholder:text-slate-600"
+              }
+            )
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h3", { className: "text-sm font-semibold text-slate-300 mb-2", children: "4. Select a Sign-off" }),
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "flex flex-wrap gap-2", children: signOffs.map((so, i) => /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+              "button",
+              {
+                onClick: () => setSignOff(so),
+                className: `px-3 py-1.5 rounded border text-sm transition-all ${signOff === so ? "bg-emerald-500/20 border-emerald-500/50 text-emerald-300 shadow-inner" : "bg-black/40 border-white/5 text-slate-400 hover:bg-white/10 hover:text-slate-200"}`,
+                children: so
+              },
+              i
+            )) })
+          ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "bg-[#0b0e14] border border-white/10 rounded-xl p-6 flex flex-col relative overflow-hidden", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "absolute top-0 right-0 w-32 h-32 bg-indigo-600/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("h3", { className: "text-sm font-semibold text-indigo-400 mb-4 uppercase tracking-wider flex items-center justify-between", children: [
+            "Your Constructed Draft",
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
+              "button",
+              {
+                onClick: handleCopy,
+                className: "flex items-center gap-1.5 px-3 py-1 bg-white/5 hover:bg-white/10 border border-white/10 rounded text-xs text-white transition-all z-10",
+                children: [
+                  copied ? /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Check, { className: "w-3.5 h-3.5 text-emerald-400" }) : /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Copy, { className: "w-3.5 h-3.5" }),
+                  copied ? "Copied!" : "Copy Text"
+                ]
+              }
+            )
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "flex-1 bg-black/50 border border-white/5 rounded-lg p-5 font-serif text-[15px] leading-relaxed text-slate-300 whitespace-pre-wrap relative z-10", children: [
+            opening ? /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: "text-white", children: opening }) : /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: "text-fuchsia-400/50 italic", children: "[Your Hook]" }),
+            " ",
+            "During my recent experiences, I successfully",
+            " ",
+            verb ? /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: "text-indigo-300 font-bold", children: verb.toLowerCase() }) : /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: "text-indigo-400/50 italic", children: "[action verb]" }),
+            " ",
+            accomplishment ? /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: "text-emerald-300", children: accomplishment }) : /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: "text-emerald-400/50 italic", children: "[your accomplishment/project]" }),
+            ". I believe these skills make me an excellent fit for your team.",
+            "\n\n",
+            signOff ? /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: "text-white", children: signOff }) : /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: "text-white/50 italic", children: "[Your Sign-off]" }),
+            "\n",
+            "[Your Name]"
+          ] })
+        ] })
+      ] })
+    ] });
+  }
+  function Exemplar() {
+    return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "flex flex-col items-center animate-in fade-in duration-500 slide-in-from-bottom-4", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("p", { className: "text-slate-400 mb-6 flex items-center gap-2 text-sm bg-indigo-900/30 px-4 py-2 rounded-full border border-indigo-500/20", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Info, { className: "w-4 h-4 text-indigo-400" }),
+        "Hover over the highlighted sections to reveal pro tips and structural rules."
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "bg-white max-w-3xl w-full rounded-sm shadow-2xl p-10 md:p-16 text-black font-serif text-[15px] leading-relaxed relative mx-auto", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "mb-8", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Tooltip, { text: "Make sure your name stands out. Bold it or make it slightly larger.", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h1", { className: "text-2xl font-bold mb-1", children: "Ine Dajobb" }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Tooltip, { text: "Ensure your contact information is professional and up-to-date. No unprofessional emails!", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "text-gray-600", children: [
+            "123 Sesame Street",
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("br", {}),
+            "Fort Saskatchewan, Alberta T8A 4H5",
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("br", {}),
+            "(780) 123-4567",
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("br", {}),
+            "appropriate_email@hotmail.ca"
+          ] }) })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "mb-6", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Tooltip, { text: "Spell out the date formally. Always update this to the day you actually send the application.", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { children: "January 1, 2026" }) }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "mb-6", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Tooltip, { text: "If you can find out exactly who makes the hiring decision, address it to them. It shows initiative.", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("strong", { children: "Jane Doe" }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("br", {}),
+          "Human Resources Director",
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("br", {}),
+          "Acme Innovations Inc.",
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("br", {}),
+          "456 Business Blvd",
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("br", {}),
+          "Edmonton, AB T5J 2R4"
+        ] }) }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "mb-6", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Tooltip, { text: "Use a formal salutation. 'Dear [Name]' is best. Avoid 'To Whom It May Concern' if possible.", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { children: "Dear Ms. Doe," }) }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "mb-4", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Tooltip, { text: "The Hook: State clearly what job you are applying for and where you found it. Add a brief sentence about why you are a great fit.", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { children: "I am writing to express my strong interest in the Junior Developer position at Acme Innovations Inc., as advertised on your company website. With a solid foundation in modern web technologies and a passion for creating intuitive user experiences, I am eager to contribute to your award-winning development team." }) }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "mb-4", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Tooltip, { text: "The Body: Highlight specific skills that match their job posting. Use concrete examples of past projects or experiences. Don't just list traits; prove them.", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "mb-4", children: "During my recent studies and personal projects, I have developed strong skills in React, JavaScript, and Tailwind CSS. Specifically, I spearheaded a collaborative academic project where we built a fully functional e-commerce prototype. This experience taught me how to write clean, maintainable code and collaborate effectively using version control. I noticed your job posting emphasized a need for responsive design skills, which is an area I have dedicated significant time to mastering over the past year." }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Tooltip, { text: "Transferable Skills: Even part-time or unrelated jobs can demonstrate soft skills like problem-solving, communication, or teamwork.", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { children: "Furthermore, my previous part-time experience in customer service has equipped me with excellent communication skills and the ability to solve problems under pressure\u2014traits I believe are essential for understanding user needs and debugging complex software issues." }) })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "mb-8", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Tooltip, { text: "Call to Action: Restate your interest, mention your enclosed resume, and confidently ask for an interview. Provide your contact details again.", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { children: "I am highly motivated to bring my technical skills and enthusiasm to Acme Innovations. I have attached my resume for your review. I would welcome the opportunity to discuss how my background, skills, and certifications will be of benefit to your company. Please feel free to contact me at (780) 123-4567 to arrange an interview at your earliest convenience." }) }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Tooltip, { text: "Use a professional closing. Leave space (about 3-4 lines) for a physical signature if you are printing it.", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "mb-8", children: "Sincerely," }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Tooltip, { text: "Type your full name.", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("strong", { children: "Ine Dajobb" }) }) })
+        ] })
+      ] })
+    ] });
+  }
+  function Tooltip({ children, text }) {
+    return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "block", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "relative group inline-block cursor-help max-w-full align-top", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "group-hover:bg-fuchsia-200/50 group-hover:text-fuchsia-900 transition-colors duration-200 rounded px-1 -mx-1", children }),
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "absolute opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-3 bg-gray-900 text-white text-sm rounded-lg shadow-xl shadow-fuchsia-900/20 border border-fuchsia-500/30 text-left font-sans leading-tight pointer-events-none", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "flex gap-2 items-start", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Sparkles, { className: "w-4 h-4 text-fuchsia-400 mt-0.5 flex-shrink-0" }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { children: text })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-900" })
+      ] })
+    ] }) });
+  }
+  function Workshop({ formData, setFormData, docStyle, setDocStyle }) {
+    const handleChange = (e) => {
+      const { name, value } = e.target;
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    };
+    const fillDummyData = () => {
+      setFormData(dummyFormData);
+    };
+    const clearData = () => {
+      setFormData(emptyFormData);
+    };
+    return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "min-h-[calc(100vh-8rem)] flex flex-col lg:flex-row gap-6 xl:gap-8 animate-in fade-in duration-500 slide-in-from-bottom-4", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "w-full lg:w-[44%] min-w-0 flex flex-col bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm overflow-hidden", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "p-4 border-b border-white/10 bg-black/20 flex justify-between items-center shrink-0", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("h2", { className: "text-lg font-semibold flex items-center gap-2", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(PenTool, { className: "w-5 h-5 text-fuchsia-400" }),
+            "Letter Content"
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "flex gap-2", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("button", { onClick: clearData, className: "px-3 py-1 text-xs rounded bg-white/5 hover:bg-white/10 text-slate-300 transition-colors border border-white/10", children: "Clear" }),
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("button", { onClick: fillDummyData, className: "px-3 py-1 text-xs rounded bg-indigo-600/20 hover:bg-indigo-600/40 text-indigo-300 transition-colors border border-indigo-500/30", children: "Auto-fill Example" })
+          ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "p-6 overflow-y-auto custom-scrollbar flex-1 space-y-8", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("section", { className: "space-y-4", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h3", { className: "text-sm font-bold uppercase tracking-wider text-fuchsia-400 border-b border-white/10 pb-2", children: "Your Contact Info" }),
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-4", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(InputField2, { label: "Full Name", name: "yourName", value: formData.yourName, onChange: handleChange }),
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(InputField2, { label: "Phone", name: "yourPhone", value: formData.yourPhone, onChange: handleChange }),
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(InputField2, { label: "Email", name: "yourEmail", value: formData.yourEmail, onChange: handleChange }),
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(InputField2, { label: "Address (Street)", name: "yourAddress", value: formData.yourAddress, onChange: handleChange }),
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(InputField2, { label: "City, Prov, Postal", name: "yourCity", value: formData.yourCity, onChange: handleChange })
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("section", { className: "space-y-4", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h3", { className: "text-sm font-bold uppercase tracking-wider text-fuchsia-400 border-b border-white/10 pb-2", children: "Document Date" }),
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(InputField2, { label: "Date (e.g., January 1, 2026)", name: "date", value: formData.date, onChange: handleChange })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("section", { className: "space-y-4", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h3", { className: "text-sm font-bold uppercase tracking-wider text-fuchsia-400 border-b border-white/10 pb-2", children: "Employer Info" }),
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-4", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(InputField2, { label: "Recipient Name", name: "recipientName", value: formData.recipientName, onChange: handleChange, placeholder: "e.g. Jane Doe" }),
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(InputField2, { label: "Recipient Title", name: "recipientTitle", value: formData.recipientTitle, onChange: handleChange, placeholder: "e.g. Hiring Manager" }),
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(InputField2, { label: "Company Name", name: "companyName", value: formData.companyName, onChange: handleChange }),
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(InputField2, { label: "Company Address", name: "companyAddress", value: formData.companyAddress, onChange: handleChange }),
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(InputField2, { label: "Company City/Postal", name: "companyCity", value: formData.companyCity, onChange: handleChange })
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("section", { className: "space-y-4", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h3", { className: "text-sm font-bold uppercase tracking-wider text-fuchsia-400 border-b border-white/10 pb-2", children: "Letter Body" }),
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(InputField2, { label: "Salutation", name: "salutation", value: formData.salutation, onChange: handleChange, placeholder: "e.g. Dear Ms. Doe," }),
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+              TextAreaField,
+              {
+                label: "Opening Paragraph (The Hook)",
+                name: "openingParagraph",
+                value: formData.openingParagraph,
+                onChange: handleChange,
+                rows: 3,
+                placeholder: "State the job you are applying for and why you are excited..."
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+              TextAreaField,
+              {
+                label: "Body Paragraph(s) (Selling Yourself)",
+                name: "bodyParagraphs",
+                value: formData.bodyParagraphs,
+                onChange: handleChange,
+                rows: 6,
+                placeholder: "Detail your relevant skills and experiences. Connect them to the job requirements..."
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+              TextAreaField,
+              {
+                label: "Closing Paragraph (Call to Action)",
+                name: "closingParagraph",
+                value: formData.closingParagraph,
+                onChange: handleChange,
+                rows: 3,
+                placeholder: "Restate interest, point to resume, ask for interview..."
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(InputField2, { label: "Sign-off", name: "signOff", value: formData.signOff, onChange: handleChange, placeholder: "e.g. Sincerely," })
+          ] })
+        ] })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "w-full lg:w-[56%] min-w-0 flex flex-col gap-4", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "bg-white/5 border border-white/10 p-2 rounded-xl backdrop-blur-sm flex justify-center gap-2 shrink-0", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(StyleButton, { active: docStyle === "classic", onClick: () => setDocStyle("classic"), label: "Classic" }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(StyleButton, { active: docStyle === "modern", onClick: () => setDocStyle("modern"), label: "Modern" }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(StyleButton, { active: docStyle === "elegant", onClick: () => setDocStyle("elegant"), label: "Elegant" })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "flex-1 bg-[#1a1c23] border border-white/10 rounded-xl overflow-hidden relative flex justify-center items-start p-4 md:p-8 overflow-y-auto custom-scrollbar", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none" }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "w-full max-w-[816px] min-h-[1056px] bg-white shadow-2xl relative shrink-0 transition-all duration-300 origin-top", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(PrintableDocument, { data: formData, docStyle, isPreview: true }) })
+        ] })
+      ] })
+    ] });
+  }
+  function InputField2({ label, name, value, onChange, placeholder }) {
+    return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "flex flex-col gap-1.5", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("label", { className: "text-xs font-semibold text-slate-400", children: label }),
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+        "input",
+        {
+          type: "text",
+          name,
+          value,
+          onChange,
+          placeholder,
+          className: "w-full bg-black/30 border border-white/10 rounded-md px-3 py-2 text-sm text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all placeholder:text-slate-600"
+        }
+      )
+    ] });
+  }
+  function TextAreaField({ label, name, value, onChange, rows = 4, placeholder }) {
+    return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "flex flex-col gap-1.5", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("label", { className: "text-xs font-semibold text-slate-400", children: label }),
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+        "textarea",
+        {
+          name,
+          value,
+          onChange,
+          rows,
+          placeholder,
+          className: "w-full bg-black/30 border border-white/10 rounded-md px-3 py-2 text-sm text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all placeholder:text-slate-600 resize-y"
+        }
+      )
+    ] });
+  }
+  function StyleButton({ active, onClick, label }) {
+    return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+      "button",
+      {
+        onClick,
+        className: `px-4 py-1.5 rounded-lg text-sm font-medium transition-all ${active ? "bg-white text-black shadow-md" : "text-slate-400 hover:text-white hover:bg-white/10"}`,
+        children: label
+      }
+    );
+  }
+  function PrintableDocument({ data, docStyle, isPreview = false }) {
+    const styleConfig = {
+      classic: {
+        fontFamily: "font-serif",
+        headerAlign: "text-left",
+        headerBg: "bg-transparent",
+        nameText: "text-3xl font-bold mb-2",
+        contactText: "text-gray-700",
+        divider: "border-b-2 border-gray-800 mb-6 pb-6"
+      },
+      modern: {
+        fontFamily: "font-sans",
+        headerAlign: "text-left",
+        headerBg: "bg-gray-100 p-8 -mx-8 -mt-8 mb-8 rounded-t-sm",
+        nameText: "text-4xl font-black text-gray-900 tracking-tight mb-2",
+        contactText: "text-gray-600 flex flex-wrap gap-x-4",
+        divider: "hidden"
+      },
+      elegant: {
+        fontFamily: "font-serif",
+        headerAlign: "text-center",
+        headerBg: "bg-transparent",
+        nameText: "text-3xl uppercase tracking-widest mb-3 text-gray-900",
+        contactText: "text-gray-500 flex justify-center gap-3 text-sm",
+        divider: "border-b border-gray-300 mb-8 pb-8 mt-6 w-32 mx-auto"
+      }
+    };
+    const config = styleConfig[docStyle] || styleConfig.classic;
+    const formattedBody = data.bodyParagraphs.split("\n").filter((p) => p.trim() !== "");
+    return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: `w-full h-full text-black bg-white ${config.fontFamily} ${isPreview ? "p-8 md:p-12" : "p-0"}`, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: `${config.headerBg} ${config.divider}`, children: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: config.headerAlign, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h1", { className: config.nameText, children: data.yourName || "Your Name" }),
+        docStyle === "modern" || docStyle === "elegant" ? (
+          // Inline contact layout for Modern/Elegant
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: config.contactText, children: [
+            data.yourEmail && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { children: data.yourEmail }),
+            data.yourEmail && data.yourPhone && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { children: "\u2022" }),
+            data.yourPhone && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { children: data.yourPhone }),
+            (data.yourEmail || data.yourPhone) && (data.yourAddress || data.yourCity) && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { children: "\u2022" }),
+            (data.yourAddress || data.yourCity) && /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("span", { children: [
+              data.yourAddress,
+              " ",
+              data.yourCity
+            ] })
+          ] })
+        ) : (
+          // Stacked contact layout for Classic
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: config.contactText, children: [
+            data.yourAddress && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { children: data.yourAddress }),
+            data.yourCity && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { children: data.yourCity }),
+            data.yourPhone && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { children: data.yourPhone }),
+            data.yourEmail && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { children: data.yourEmail })
+          ] })
+        )
+      ] }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "text-[11pt] leading-relaxed text-gray-800 space-y-6", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { children: data.date || "Date" }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "leading-snug", children: [
+          data.recipientName && /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("strong", { children: [
+            data.recipientName,
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("br", {})
+          ] }),
+          data.recipientTitle && /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_jsx_runtime5.Fragment, { children: [
+            data.recipientTitle,
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("br", {})
+          ] }),
+          data.companyName && /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_jsx_runtime5.Fragment, { children: [
+            data.companyName,
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("br", {})
+          ] }),
+          data.companyAddress && /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_jsx_runtime5.Fragment, { children: [
+            data.companyAddress,
+            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("br", {})
+          ] }),
+          data.companyCity && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_jsx_runtime5.Fragment, { children: data.companyCity }),
+          !data.recipientName && !data.companyName && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: "text-gray-400 italic", children: "[Employer Information]" })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { children: data.salutation || "Dear [Hiring Manager]," }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "space-y-4", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { children: data.openingParagraph || /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: "text-gray-400 italic", children: "[Opening paragraph outlining the role you are applying for and your hook...]" }) }),
+          formattedBody.length > 0 ? formattedBody.map((paragraph, index) => /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { children: paragraph }, index)) : /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "text-gray-400 italic", children: "[Body paragraphs detailing your relevant skills, experiences, and why you are the perfect fit for the job...]" }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { children: data.closingParagraph || /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: "text-gray-400 italic", children: "[Closing paragraph with a call to action and interview request...]" }) })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "pt-4", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "mb-8", children: data.signOff || "Sincerely," }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "font-bold", children: data.yourName || "Your Name" })
+        ] })
+      ] })
+    ] });
+  }
 
   // projects/calm-module-4/workspace/main.jsx
-  var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
+  var import_jsx_runtime6 = __toESM(require_jsx_runtime(), 1);
   var MODULE_UNITS = [
     { id: "intro", title: "Career Exploration", icon: BookOpen },
-    { id: "portfolio", title: "Building Your Portfolio", icon: Briefcase },
+    { id: "portfolio", title: "Career Planner", icon: Briefcase },
+    { id: "resourceful-people", title: "Resourceful People", icon: Users },
+    { id: "master-plan", title: "Master Plan", icon: FileText },
+    { id: "resume-builder", title: "Resume Builder", icon: PenTool },
+    { id: "cover-letter-builder", title: "Cover Letter Builder", icon: Mail },
     { id: "reflection", title: "Module Reflection", icon: FileText, isInteractive: true }
   ];
-  function App() {
-    const [isSidebarOpen, setIsSidebarOpen] = (0, import_react3.useState)(true);
-    const [activeUnitId, setActiveUnitId] = (0, import_react3.useState)(MODULE_UNITS[0].id);
-    const [completedUnits, setCompletedUnits] = (0, import_react3.useState)(["intro"]);
-    const [isSaving, setIsSaving] = (0, import_react3.useState)(false);
-    const [formData, setFormData] = (0, import_react3.useState)({
+  function App5() {
+    const [isSidebarOpen, setIsSidebarOpen] = (0, import_react8.useState)(true);
+    const [activeUnitId, setActiveUnitId] = (0, import_react8.useState)(MODULE_UNITS[0].id);
+    const [completedUnits, setCompletedUnits] = (0, import_react8.useState)(["intro"]);
+    const [isSaving, setIsSaving] = (0, import_react8.useState)(false);
+    const [formData, setFormData] = (0, import_react8.useState)({
       // Career Exploration (Shadowing & Volunteering)
       jobShadow1: "",
       jobShadow2: "",
@@ -22014,6 +25396,8 @@
     });
     const activeUnitIndex = MODULE_UNITS.findIndex((u) => u.id === activeUnitId);
     const activeUnit = MODULE_UNITS[activeUnitIndex];
+    const isBuilderUnit = activeUnitId === "resume-builder" || activeUnitId === "cover-letter-builder";
+    const isWideUnit = isBuilderUnit || activeUnitId === "portfolio" || activeUnitId === "resourceful-people" || activeUnitId === "master-plan";
     const progressPercentage = Math.round(completedUnits.length / MODULE_UNITS.length * 100);
     const handleNext = () => {
       if (!completedUnits.includes(activeUnitId)) {
@@ -22039,81 +25423,81 @@
     const renderContent = () => {
       switch (activeUnitId) {
         case "intro":
-          return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-16 max-w-4xl mx-auto pb-10", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 mb-4 tracking-tight", children: "Career Exploration" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-24 h-1.5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mb-8" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-slate-300 leading-relaxed text-xl font-medium", children: 'There are many ways to explore jobs and careers to help determine what type of job you would like to pursue. We are going to quickly look at four effective ways to "test-drive" a job and get some hands-on experience.' })
+          return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "space-y-16 max-w-4xl mx-auto pb-10", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h2", { className: "text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 mb-4 tracking-tight", children: "Career Exploration" }),
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "w-24 h-1.5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mb-8" }),
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "text-slate-300 leading-relaxed text-xl font-medium", children: 'There are many ways to explore jobs and careers to help determine what type of job you would like to pursue. We are going to quickly look at four effective ways to "test-drive" a job and get some hands-on experience.' })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "bg-gradient-to-br from-slate-800/80 to-slate-900/80 p-8 rounded-3xl border border-slate-700/50 shadow-[0_8px_30px_rgb(0,0,0,0.12)] relative overflow-hidden group", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-purple-500 to-pink-500" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute -right-20 -top-20 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl group-hover:bg-purple-500/20 transition-all duration-700" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h3", { className: "text-2xl font-bold text-white mb-4 flex items-center gap-3", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Target, { className: "text-pink-400" }),
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "bg-gradient-to-br from-slate-800/80 to-slate-900/80 p-8 rounded-3xl border border-slate-700/50 shadow-[0_8px_30px_rgb(0,0,0,0.12)] relative overflow-hidden group", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-purple-500 to-pink-500" }),
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "absolute -right-20 -top-20 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl group-hover:bg-purple-500/20 transition-all duration-700" }),
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("h3", { className: "text-2xl font-bold text-white mb-4 flex items-center gap-3", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Target, { className: "text-pink-400" }),
                 "Why test-drive?"
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-slate-300 leading-relaxed text-lg relative z-10", children: "Getting hands-on experience is extremely valuable because some jobs seem great on paper but, in real life, it may not be as enjoyable as you thought. The reverse can also be true, it may seem like a horrible job on paper but, in real life, it could be your dream job. How else will you know unless you try?" })
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "text-slate-300 leading-relaxed text-lg relative z-10", children: "Getting hands-on experience is extremely valuable because some jobs seem great on paper but, in real life, it may not be as enjoyable as you thought. The reverse can also be true, it may seem like a horrible job on paper but, in real life, it could be your dream job. How else will you know unless you try?" })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-8", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex items-center gap-4 border-b border-slate-700/50 pb-4", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "p-3 bg-indigo-500/20 rounded-xl text-indigo-400", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Briefcase, { size: 28 }) }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "text-3xl font-bold text-white", children: "Job Shadowing" })
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "space-y-8", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex items-center gap-4 border-b border-slate-700/50 pb-4", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "p-3 bg-indigo-500/20 rounded-xl text-indigo-400", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Briefcase, { size: 28 }) }),
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h3", { className: "text-3xl font-bold text-white", children: "Job Shadowing" })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "text-slate-300 space-y-4 text-lg", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "Job shadowing can be an important career step for anyone who is looking to break into a new field or learn more about the job of their dreams. You can find opportunities to shadow a new position in almost any field." }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "It is an important process of observing the day-to-day tasks of a job in order to learn whether or not it is a good fit for your skills and interests. Job shadowing is often targeted at people who are deciding on a career path or are in the early phases of career planning. It usually entails following an employee while they complete their regular duties and daily routine. You could even work on some light skill development, but since these are usually short programs that sometimes only last a day or two, they are more associated with observation than skill development." })
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "text-slate-300 space-y-4 text-lg", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { children: "Job shadowing can be an important career step for anyone who is looking to break into a new field or learn more about the job of their dreams. You can find opportunities to shadow a new position in almost any field." }),
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { children: "It is an important process of observing the day-to-day tasks of a job in order to learn whether or not it is a good fit for your skills and interests. Job shadowing is often targeted at people who are deciding on a career path or are in the early phases of career planning. It usually entails following an employee while they complete their regular duties and daily routine. You could even work on some light skill development, but since these are usually short programs that sometimes only last a day or two, they are more associated with observation than skill development." })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "pt-4", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { className: "text-xl font-bold text-white mb-6", children: "What are the benefits of job shadowing?" }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "grid grid-cols-1 sm:grid-cols-2 gap-4", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "bg-slate-800/40 p-6 rounded-2xl border border-slate-700/50 hover:bg-slate-700/40 transition-colors group", children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Lightbulb, { className: "text-yellow-400 mb-4 group-hover:scale-110 transition-transform", size: 32 }),
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h5", { className: "font-bold text-white text-lg mb-2", children: "Important Insight" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-slate-400", children: "Partaking in a job-shadowing program offers important insights about the career and the profession that will help you decide if it's the right fit for you." })
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "pt-4", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h4", { className: "text-xl font-bold text-white mb-6", children: "What are the benefits of job shadowing?" }),
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "grid grid-cols-1 sm:grid-cols-2 gap-4", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "bg-slate-800/40 p-6 rounded-2xl border border-slate-700/50 hover:bg-slate-700/40 transition-colors group", children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Lightbulb, { className: "text-yellow-400 mb-4 group-hover:scale-110 transition-transform", size: 32 }),
+                    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h5", { className: "font-bold text-white text-lg mb-2", children: "Important Insight" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "text-slate-400", children: "Partaking in a job-shadowing program offers important insights about the career and the profession that will help you decide if it's the right fit for you." })
                   ] }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "bg-slate-800/40 p-6 rounded-2xl border border-slate-700/50 hover:bg-slate-700/40 transition-colors group", children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Building, { className: "text-blue-400 mb-4 group-hover:scale-110 transition-transform", size: 32 }),
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h5", { className: "font-bold text-white text-lg mb-2", children: "Organizational Info" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-slate-400", children: "By job shadowing, you gain information about an organization or industry you might want to work in. This can be important for setting the right expectations." })
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "bg-slate-800/40 p-6 rounded-2xl border border-slate-700/50 hover:bg-slate-700/40 transition-colors group", children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Building, { className: "text-blue-400 mb-4 group-hover:scale-110 transition-transform", size: 32 }),
+                    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h5", { className: "font-bold text-white text-lg mb-2", children: "Organizational Info" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "text-slate-400", children: "By job shadowing, you gain information about an organization or industry you might want to work in. This can be important for setting the right expectations." })
                   ] }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "bg-slate-800/40 p-6 rounded-2xl border border-slate-700/50 hover:bg-slate-700/40 transition-colors group", children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Network, { className: "text-purple-400 mb-4 group-hover:scale-110 transition-transform", size: 32 }),
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h5", { className: "font-bold text-white text-lg mb-2", children: "Networking" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-slate-400", children: "Job shadowing is a good way to network and meet important people in fields you might want to work in." })
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "bg-slate-800/40 p-6 rounded-2xl border border-slate-700/50 hover:bg-slate-700/40 transition-colors group", children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Network, { className: "text-purple-400 mb-4 group-hover:scale-110 transition-transform", size: 32 }),
+                    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h5", { className: "font-bold text-white text-lg mb-2", children: "Networking" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "text-slate-400", children: "Job shadowing is a good way to network and meet important people in fields you might want to work in." })
                   ] }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "bg-slate-800/40 p-6 rounded-2xl border border-slate-700/50 hover:bg-slate-700/40 transition-colors group", children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Users, { className: "text-emerald-400 mb-4 group-hover:scale-110 transition-transform", size: 32 }),
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h5", { className: "font-bold text-white text-lg mb-2", children: "Skill Development" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-slate-400", children: "Job shadowing could result in light skill development." })
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "bg-slate-800/40 p-6 rounded-2xl border border-slate-700/50 hover:bg-slate-700/40 transition-colors group", children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Users, { className: "text-emerald-400 mb-4 group-hover:scale-110 transition-transform", size: 32 }),
+                    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h5", { className: "font-bold text-white text-lg mb-2", children: "Skill Development" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "text-slate-400", children: "Job shadowing could result in light skill development." })
                   ] })
                 ] })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "bg-[#0f172a] p-8 rounded-3xl border border-slate-700/50 space-y-6", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h5", { className: "text-pink-400 font-bold mb-2 uppercase tracking-wide text-sm", children: "Can I get paid for job shadowing?" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-slate-300", children: "Generally, there is no payment associated with job shadowing. It\u2019s a short-term commitment that allows potential applicants to explore jobs and their own interests in order to develop skills and experience as the main objective." })
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "bg-[#0f172a] p-8 rounded-3xl border border-slate-700/50 space-y-6", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h5", { className: "text-pink-400 font-bold mb-2 uppercase tracking-wide text-sm", children: "Can I get paid for job shadowing?" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "text-slate-300", children: "Generally, there is no payment associated with job shadowing. It\u2019s a short-term commitment that allows potential applicants to explore jobs and their own interests in order to develop skills and experience as the main objective." })
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h5", { className: "text-pink-400 font-bold mb-2 uppercase tracking-wide text-sm", children: "Can I include job shadowing on my resume?" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-slate-300", children: "Job shadowing can be used on your resume. In most cases, job shadowing is included at the bottom of a resume where you would normally list awards, scholarships, volunteer experience or publications. You may choose to include it within the work experience of a chronological resume format. In a functional resume, job shadowing could be included in a more prominent way if it makes sense to the job you are applying for." })
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h5", { className: "text-pink-400 font-bold mb-2 uppercase tracking-wide text-sm", children: "Can I include job shadowing on my resume?" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "text-slate-300", children: "Job shadowing can be used on your resume. In most cases, job shadowing is included at the bottom of a resume where you would normally list awards, scholarships, volunteer experience or publications. You may choose to include it within the work experience of a chronological resume format. In a functional resume, job shadowing could be included in a more prominent way if it makes sense to the job you are applying for." })
                 ] })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "relative bg-gradient-to-br from-indigo-900/40 to-purple-900/40 p-8 sm:p-10 rounded-3xl border border-indigo-500/30 overflow-hidden", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Quote, { className: "absolute top-6 right-6 text-indigo-500/20 rotate-180", size: 80 }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "relative z-10", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "bg-indigo-500/30 text-indigo-200 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4 inline-block", children: "Real World Scenario" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { className: "text-2xl font-bold text-white mb-4", children: "Example of Job Shadow Training" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-indigo-100/80 leading-relaxed mb-4 text-lg", children: "Gail works at a restaurant and has expressed interest in moving from a serving position to an open management position. After discussing the position with Gail, Gail\u2019s manager, Rose, has decided that she can shadow her for a week to decide if she wants to take the job." }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { className: "text-indigo-100/80 leading-relaxed text-lg", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "relative bg-gradient-to-br from-indigo-900/40 to-purple-900/40 p-8 sm:p-10 rounded-3xl border border-indigo-500/30 overflow-hidden", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Quote, { className: "absolute top-6 right-6 text-indigo-500/20 rotate-180", size: 80 }),
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "relative z-10", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "bg-indigo-500/30 text-indigo-200 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4 inline-block", children: "Real World Scenario" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h4", { className: "text-2xl font-bold text-white mb-4", children: "Example of Job Shadow Training" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "text-indigo-100/80 leading-relaxed mb-4 text-lg", children: "Gail works at a restaurant and has expressed interest in moving from a serving position to an open management position. After discussing the position with Gail, Gail\u2019s manager, Rose, has decided that she can shadow her for a week to decide if she wants to take the job." }),
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("p", { className: "text-indigo-100/80 leading-relaxed text-lg", children: [
                     "During this time, Gail watches how Rose performs her essential duties like opening the restaurant, counting down the till and doing bank deposits. Gail is given the opportunity after each shift to ask questions. By the end of the week, Gail has started performing some of Rose\u2019s duties while shadowing and is gaining the essential skills she needs to be successful in the role. ",
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { className: "text-white", children: "Most importantly, however, Gail learns it\u2019s the right fit for her." })
+                    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("strong", { className: "text-white", children: "Most importantly, however, Gail learns it\u2019s the right fit for her." })
                   ] })
                 ] })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "bg-slate-800/30 p-8 rounded-3xl border border-slate-700/50 mt-8", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { className: "block text-sm font-bold uppercase tracking-widest text-pink-400 mb-4", children: "If you had the opportunity to job shadow anywhere in the work force, where would it be? (List at least two jobs/places)" }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-4", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "bg-slate-800/30 p-8 rounded-3xl border border-slate-700/50 mt-8", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("label", { className: "block text-sm font-bold uppercase tracking-widest text-pink-400 mb-4", children: "If you had the opportunity to job shadow anywhere in the work force, where would it be? (List at least two jobs/places)" }),
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "space-y-4", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
                     "input",
                     {
                       type: "text",
@@ -22124,7 +25508,7 @@
                       placeholder: "1. First dream job or company..."
                     }
                   ),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
                     "input",
                     {
                       type: "text",
@@ -22138,70 +25522,70 @@
                 ] })
               ] })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-10 pt-10 border-t border-slate-700/50 mt-10", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex items-center gap-4 border-b border-slate-700/50 pb-4", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "p-3 bg-pink-500/20 rounded-xl text-pink-400", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Heart, { size: 28 }) }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "text-3xl font-bold text-white", children: "Volunteering" })
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "space-y-10 pt-10 border-t border-slate-700/50 mt-10", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex items-center gap-4 border-b border-slate-700/50 pb-4", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "p-3 bg-pink-500/20 rounded-xl text-pink-400", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Heart, { size: 28 }) }),
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h3", { className: "text-3xl font-bold text-white", children: "Volunteering" })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { className: "text-slate-300 text-lg leading-relaxed", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("p", { className: "text-slate-300 text-lg leading-relaxed", children: [
                 "Getting volunteer experience in your community can be a helpful step in the career exploration process and can assist all of us greatly in discovering our skills and strengths. ",
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { className: "text-pink-400", children: "Plus, volunteering looks GREAT on a resume!" }),
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("strong", { className: "text-pink-400", children: "Plus, volunteering looks GREAT on a resume!" }),
                 " If you are having trouble finding a job because you have no work experience, start volunteering today!"
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-slate-400 italic", children: "Read the two articles below regarding youth and volunteerism and then answer the related questions." }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", { className: "bg-slate-900 rounded-3xl overflow-hidden border border-slate-700/50 shadow-xl", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "bg-slate-800 p-8 sm:px-12 border-b border-slate-700/50 relative overflow-hidden", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute right-0 top-0 w-1/2 h-full bg-gradient-to-l from-purple-500/10 to-transparent pointer-events-none" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "text-3xl sm:text-4xl font-black text-white mb-3 leading-tight tracking-tight relative z-10", children: "Youth Who Volunteer Get Better Grades and Become Active Citizens" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex items-center gap-3 relative z-10", children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-8 h-8 rounded-full bg-pink-500 flex items-center justify-center text-white font-bold text-xs", children: "DV" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-pink-400 text-sm font-bold tracking-widest uppercase", children: "By Devorah Vineburg" })
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "text-slate-400 italic", children: "Read the two articles below regarding youth and volunteerism and then answer the related questions." }),
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("article", { className: "bg-slate-900 rounded-3xl overflow-hidden border border-slate-700/50 shadow-xl", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "bg-slate-800 p-8 sm:px-12 border-b border-slate-700/50 relative overflow-hidden", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "absolute right-0 top-0 w-1/2 h-full bg-gradient-to-l from-purple-500/10 to-transparent pointer-events-none" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h3", { className: "text-3xl sm:text-4xl font-black text-white mb-3 leading-tight tracking-tight relative z-10", children: "Youth Who Volunteer Get Better Grades and Become Active Citizens" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex items-center gap-3 relative z-10", children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "w-8 h-8 rounded-full bg-pink-500 flex items-center justify-center text-white font-bold text-xs", children: "DV" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "text-pink-400 text-sm font-bold tracking-widest uppercase", children: "By Devorah Vineburg" })
                   ] })
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "p-8 sm:p-12 space-y-6 text-slate-300 text-lg leading-relaxed bg-[#020617]/50", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "float-left text-6xl font-black text-slate-500 mr-2 -mt-2", children: "V" }),
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "p-8 sm:p-12 space-y-6 text-slate-300 text-lg leading-relaxed bg-[#020617]/50", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("p", { children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "float-left text-6xl font-black text-slate-500 mr-2 -mt-2", children: "V" }),
                     "olunteering amongst High School students has reached the highest levels in the past 50 years. Research has shown that those people who have volunteered when they are young, and who have seen their parents volunteer, become the most generous adults for charitable and philanthropic causes."
                   ] }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { className: "text-2xl font-bold text-white mt-8 mb-4", children: "Why Is It Important for Youth to Volunteer?" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "Youth who volunteer are twice as likely to volunteer as adults. The Independent Sector, a leading organization doing research on charity and philanthropy in the United States, has shown that 6 out of 10 volunteers, started volunteering by age 14. When surveyed, 70% of teens that volunteer reported that volunteering gave them a new perspective on community issues." }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "Volunteering not only creates engaged young citizens. As a result of their volunteer efforts, teens report doing better in school, improved grades, developing new career goals and of learning about new career options." }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "bg-slate-800/40 p-6 rounded-2xl border border-slate-700/50 my-8", children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h5", { className: "font-bold text-pink-400 mb-4 tracking-wide uppercase text-sm", children: "Other significant benefits of youth volunteerism include:" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", { className: "grid grid-cols-1 sm:grid-cols-2 gap-3", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h4", { className: "text-2xl font-bold text-white mt-8 mb-4", children: "Why Is It Important for Youth to Volunteer?" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { children: "Youth who volunteer are twice as likely to volunteer as adults. The Independent Sector, a leading organization doing research on charity and philanthropy in the United States, has shown that 6 out of 10 volunteers, started volunteering by age 14. When surveyed, 70% of teens that volunteer reported that volunteering gave them a new perspective on community issues." }),
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { children: "Volunteering not only creates engaged young citizens. As a result of their volunteer efforts, teens report doing better in school, improved grades, developing new career goals and of learning about new career options." }),
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "bg-slate-800/40 p-6 rounded-2xl border border-slate-700/50 my-8", children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h5", { className: "font-bold text-pink-400 mb-4 tracking-wide uppercase text-sm", children: "Other significant benefits of youth volunteerism include:" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("ul", { className: "grid grid-cols-1 sm:grid-cols-2 gap-3", children: [
                       "Learning how to respect others",
                       "Learning how to be helpful and kind",
                       "Understanding people different from themselves",
                       "Developing leadership skills",
                       "Becoming more patient",
                       "Understanding qualities of good citizenship"
-                    ].map((item, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", { className: "flex items-start gap-3", children: [
-                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, { size: 18, className: "text-emerald-400 shrink-0 mt-1" }),
-                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "text-slate-300 text-base", children: item })
+                    ].map((item, i) => /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("li", { className: "flex items-start gap-3", children: [
+                      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(CircleCheck, { size: 18, className: "text-emerald-400 shrink-0 mt-1" }),
+                      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "text-slate-300 text-base", children: item })
                     ] }, i)) })
                   ] }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "From their volunteer experiences teens learn how to solve community problems, enhanced understanding of good citizenship, to become more aware of community programs, and more about how government and voluntary organizations work." }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "Adults who began volunteering as youth, are twice as likely to volunteer, as compared to those who did not volunteer when they were younger. Today, 44% of adults volunteer. Of these adult volunteers, 2/3 of these volunteers began volunteering when they were young." }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "text-center pt-6", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-xl font-bold text-white italic", children: '"Encourage a young person to get involved in the community today!"' }) })
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { children: "From their volunteer experiences teens learn how to solve community problems, enhanced understanding of good citizenship, to become more aware of community programs, and more about how government and voluntary organizations work." }),
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { children: "Adults who began volunteering as youth, are twice as likely to volunteer, as compared to those who did not volunteer when they were younger. Today, 44% of adults volunteer. Of these adult volunteers, 2/3 of these volunteers began volunteering when they were young." }),
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "text-center pt-6", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "text-xl font-bold text-white italic", children: '"Encourage a young person to get involved in the community today!"' }) })
                 ] })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", { className: "bg-slate-900 rounded-3xl overflow-hidden border border-slate-700/50 shadow-xl mt-12", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "bg-slate-800 p-8 sm:px-12 border-b border-slate-700/50 relative overflow-hidden", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute right-0 top-0 w-1/2 h-full bg-gradient-to-l from-emerald-500/10 to-transparent pointer-events-none" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "text-3xl sm:text-4xl font-black text-white mb-3 leading-tight tracking-tight relative z-10", children: "Volunteering is Great for You Too!" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex items-center gap-3 relative z-10", children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-8 h-8 rounded-full bg-pink-500 flex items-center justify-center text-white font-bold text-xs", children: "DV" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-emerald-400 text-sm font-bold tracking-widest uppercase", children: "By Devorah Vineburg" })
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("article", { className: "bg-slate-900 rounded-3xl overflow-hidden border border-slate-700/50 shadow-xl mt-12", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "bg-slate-800 p-8 sm:px-12 border-b border-slate-700/50 relative overflow-hidden", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "absolute right-0 top-0 w-1/2 h-full bg-gradient-to-l from-emerald-500/10 to-transparent pointer-events-none" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h3", { className: "text-3xl sm:text-4xl font-black text-white mb-3 leading-tight tracking-tight relative z-10", children: "Volunteering is Great for You Too!" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex items-center gap-3 relative z-10", children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "w-8 h-8 rounded-full bg-pink-500 flex items-center justify-center text-white font-bold text-xs", children: "DV" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "text-emerald-400 text-sm font-bold tracking-widest uppercase", children: "By Devorah Vineburg" })
                   ] })
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "p-8 sm:p-12 space-y-8 text-slate-300 text-lg leading-relaxed bg-[#020617]/50", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "text-center px-4 py-8 bg-slate-800/30 rounded-3xl border border-slate-700/30 mb-10", children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-2xl sm:text-3xl font-serif italic text-white leading-relaxed", children: '"Never doubt that a small, group of thoughtful, committed citizens can change the world. Indeed, it is the only thing that ever has."' }),
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-emerald-400 font-bold uppercase tracking-widest mt-4 text-sm", children: "\u2014 Margaret Mead" })
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "p-8 sm:p-12 space-y-8 text-slate-300 text-lg leading-relaxed bg-[#020617]/50", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "text-center px-4 py-8 bg-slate-800/30 rounded-3xl border border-slate-700/30 mb-10", children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "text-2xl sm:text-3xl font-serif italic text-white leading-relaxed", children: '"Never doubt that a small, group of thoughtful, committed citizens can change the world. Indeed, it is the only thing that ever has."' }),
+                    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "text-emerald-400 font-bold uppercase tracking-widest mt-4 text-sm", children: "\u2014 Margaret Mead" })
                   ] }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "Our world benefits from all of the good works that volunteers do. Did you ever stop to realize however, some of the benefits volunteering brings to you, yourself, also?" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { className: "text-2xl font-bold text-white mt-8 mb-6", children: "Top 10 Reasons to Volunteer (For Yourself!)" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "space-y-4", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { children: "Our world benefits from all of the good works that volunteers do. Did you ever stop to realize however, some of the benefits volunteering brings to you, yourself, also?" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h4", { className: "text-2xl font-bold text-white mt-8 mb-6", children: "Top 10 Reasons to Volunteer (For Yourself!)" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "space-y-4", children: [
                     "Volunteering builds self-confidence.",
                     "Volunteering helps you learn new skills.",
                     "Volunteering helps you meet new people and make new friends.",
@@ -22212,27 +25596,27 @@
                     "Volunteering helps you share a lifetime of experience.",
                     "Volunteering helps build a common bond with others in our community. (Instead of discussing the weather, try telling them about your volunteer projects!)",
                     "Volunteering with our children helps to teach them important values. Be a role model!"
-                  ].map((reason, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex gap-4 items-start bg-slate-800/20 p-4 rounded-2xl border border-slate-700/30 hover:bg-slate-800/40 transition-colors", children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center text-emerald-400 font-black text-xl shrink-0", children: i + 1 }),
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-slate-200 pt-1.5", children: reason })
+                  ].map((reason, i) => /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex gap-4 items-start bg-slate-800/20 p-4 rounded-2xl border border-slate-700/30 hover:bg-slate-800/40 transition-colors", children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center text-emerald-400 font-black text-xl shrink-0", children: i + 1 }),
+                    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "text-slate-200 pt-1.5", children: reason })
                   ] }, i)) }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { className: "text-xl font-medium text-white text-center pt-8 border-t border-slate-700/50", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("p", { className: "text-xl font-medium text-white text-center pt-8 border-t border-slate-700/50", children: [
                     "So, the next time you step out the door to get involved in a project in your community remember, volunteering is not just great for our communities. ",
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "text-emerald-400", children: "It is a great activity that keeps you happy and healthy too!" })
+                    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "text-emerald-400", children: "It is a great activity that keeps you happy and healthy too!" })
                   ] })
                 ] })
               ] })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mt-16 bg-slate-800/30 p-8 sm:p-10 rounded-3xl border border-slate-700/50 shadow-2xl relative overflow-hidden", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute top-0 right-0 w-full h-full bg-gradient-to-b from-pink-900/5 to-transparent pointer-events-none" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mb-10 text-center relative z-10", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "text-3xl font-extrabold text-white mb-2 tracking-tight", children: "Community Action Plan" }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-slate-400", children: "Reflect on your own potential as a volunteer in your community." })
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "mt-16 bg-slate-800/30 p-8 sm:p-10 rounded-3xl border border-slate-700/50 shadow-2xl relative overflow-hidden", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "absolute top-0 right-0 w-full h-full bg-gradient-to-b from-pink-900/5 to-transparent pointer-events-none" }),
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "mb-10 text-center relative z-10", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h3", { className: "text-3xl font-extrabold text-white mb-2 tracking-tight", children: "Community Action Plan" }),
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "text-slate-400", children: "Reflect on your own potential as a volunteer in your community." })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-8 relative z-10", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-3 group", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { className: "block text-xs font-bold uppercase tracking-widest text-pink-300/80 group-focus-within:text-pink-400 transition-colors", children: "Why do people volunteer?" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "space-y-8 relative z-10", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "space-y-3 group", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("label", { className: "block text-xs font-bold uppercase tracking-widest text-pink-300/80 group-focus-within:text-pink-400 transition-colors", children: "Why do people volunteer?" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
                     "textarea",
                     {
                       name: "whyVolunteer",
@@ -22242,9 +25626,9 @@
                     }
                   )
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-3 group", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { className: "block text-xs font-bold uppercase tracking-widest text-pink-300/80 group-focus-within:text-pink-400 transition-colors", children: "What skills do you have that would be helpful to a community organization? List as many as you can think of:" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "space-y-3 group", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("label", { className: "block text-xs font-bold uppercase tracking-widest text-pink-300/80 group-focus-within:text-pink-400 transition-colors", children: "What skills do you have that would be helpful to a community organization? List as many as you can think of:" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
                     "textarea",
                     {
                       name: "volunteerSkills",
@@ -22254,9 +25638,9 @@
                     }
                   )
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-3 group", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { className: "block text-xs font-bold uppercase tracking-widest text-pink-300/80 group-focus-within:text-pink-400 transition-colors", children: "What kind of volunteer experience do you have?" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "space-y-3 group", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("label", { className: "block text-xs font-bold uppercase tracking-widest text-pink-300/80 group-focus-within:text-pink-400 transition-colors", children: "What kind of volunteer experience do you have?" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
                     "textarea",
                     {
                       name: "volunteerExperience",
@@ -22266,9 +25650,9 @@
                     }
                   )
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-3 group", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { className: "block text-xs font-bold uppercase tracking-widest text-pink-300/80 group-focus-within:text-pink-400 transition-colors", children: "If you had to volunteer in your community, what would you like to spend your time doing?" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "space-y-3 group", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("label", { className: "block text-xs font-bold uppercase tracking-widest text-pink-300/80 group-focus-within:text-pink-400 transition-colors", children: "If you had to volunteer in your community, what would you like to spend your time doing?" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
                     "textarea",
                     {
                       name: "idealVolunteer",
@@ -22278,9 +25662,9 @@
                     }
                   )
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-3 group", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { className: "block text-xs font-bold uppercase tracking-widest text-pink-300/80 group-focus-within:text-pink-400 transition-colors", children: "Why would a young person want to include some volunteer experience on their resume?" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "space-y-3 group", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("label", { className: "block text-xs font-bold uppercase tracking-widest text-pink-300/80 group-focus-within:text-pink-400 transition-colors", children: "Why would a young person want to include some volunteer experience on their resume?" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
                     "textarea",
                     {
                       name: "volunteerResume",
@@ -22290,9 +25674,9 @@
                     }
                   )
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-3 group", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { className: "block text-xs font-bold uppercase tracking-widest text-pink-300/80 group-focus-within:text-pink-400 transition-colors", children: "Based on the articles, do you think youth should be required to do some sort of volunteer work during their high school years? Explain." }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "space-y-3 group", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("label", { className: "block text-xs font-bold uppercase tracking-widest text-pink-300/80 group-focus-within:text-pink-400 transition-colors", children: "Based on the articles, do you think youth should be required to do some sort of volunteer work during their high school years? Explain." }),
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
                     "textarea",
                     {
                       name: "mandatoryVolunteer",
@@ -22305,18 +25689,28 @@
               ] })
             ] })
           ] });
+        case "resume-builder":
+          return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(App4, {});
+        case "cover-letter-builder":
+          return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(CoverLetterBuilder, {});
+        case "portfolio":
+          return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(careerplanning_reference_default, {});
+        case "resourceful-people":
+          return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(resourcefulpeople_reference_default, {});
+        case "master-plan":
+          return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(App3, {});
         case "reflection":
-          return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-8 max-w-3xl", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mb-10", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 mb-2 tracking-tight", children: "Final Reflection Questions" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-20 h-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mb-6" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-slate-400 text-lg font-medium", children: "Complete the following questions based on your learning, experiences, and thoughts throughout this module." })
+          return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "space-y-8 max-w-3xl", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "mb-10", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h2", { className: "text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 mb-2 tracking-tight", children: "Final Reflection Questions" }),
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "w-20 h-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mb-6" }),
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "text-slate-400 text-lg font-medium", children: "Complete the following questions based on your learning, experiences, and thoughts throughout this module." })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-10 bg-slate-800/30 p-8 sm:p-10 rounded-3xl border border-slate-700/50 shadow-2xl relative overflow-hidden", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute top-0 right-0 w-full h-full bg-gradient-to-b from-purple-900/5 to-transparent pointer-events-none" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-3 group relative z-10", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { className: "block text-xs font-bold uppercase tracking-widest text-purple-300/80 group-focus-within:text-pink-400 transition-colors", children: "Do you believe that what you love can be what you do? Explain." }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "space-y-10 bg-slate-800/30 p-8 sm:p-10 rounded-3xl border border-slate-700/50 shadow-2xl relative overflow-hidden", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "absolute top-0 right-0 w-full h-full bg-gradient-to-b from-purple-900/5 to-transparent pointer-events-none" }),
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "space-y-3 group relative z-10", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("label", { className: "block text-xs font-bold uppercase tracking-widest text-purple-300/80 group-focus-within:text-pink-400 transition-colors", children: "Do you believe that what you love can be what you do? Explain." }),
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
                   "textarea",
                   {
                     name: "loveWhatYouDo",
@@ -22327,9 +25721,9 @@
                   }
                 )
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-3 group relative z-10", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { className: "block text-xs font-bold uppercase tracking-widest text-purple-300/80 group-focus-within:text-pink-400 transition-colors", children: "What are some of the major influences in your life right now that affect your career decision making process?" }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "space-y-3 group relative z-10", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("label", { className: "block text-xs font-bold uppercase tracking-widest text-purple-300/80 group-focus-within:text-pink-400 transition-colors", children: "What are some of the major influences in your life right now that affect your career decision making process?" }),
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
                   "textarea",
                   {
                     name: "influences",
@@ -22340,9 +25734,9 @@
                   }
                 )
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-3 group relative z-10", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { className: "block text-xs font-bold uppercase tracking-widest text-purple-300/80 group-focus-within:text-pink-400 transition-colors", children: "Once you have a job, what do you feel are the most important skills, attitudes, and behaviors necessary in order to keep your job?" }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "space-y-3 group relative z-10", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("label", { className: "block text-xs font-bold uppercase tracking-widest text-purple-300/80 group-focus-within:text-pink-400 transition-colors", children: "Once you have a job, what do you feel are the most important skills, attitudes, and behaviors necessary in order to keep your job?" }),
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
                   "textarea",
                   {
                     name: "jobSkills",
@@ -22353,9 +25747,9 @@
                   }
                 )
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-3 group relative z-10", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { className: "block text-xs font-bold uppercase tracking-widest text-purple-300/80 group-focus-within:text-pink-400 transition-colors", children: "What do you feel would be the personal benefits of having a portfolio, both now and in the future?" }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "space-y-3 group relative z-10", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("label", { className: "block text-xs font-bold uppercase tracking-widest text-purple-300/80 group-focus-within:text-pink-400 transition-colors", children: "What do you feel would be the personal benefits of having a portfolio, both now and in the future?" }),
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
                   "textarea",
                   {
                     name: "portfolioBenefits",
@@ -22366,9 +25760,9 @@
                   }
                 )
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-3 group relative z-10", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { className: "block text-xs font-bold uppercase tracking-widest text-purple-300/80 group-focus-within:text-pink-400 transition-colors", children: "What kind of adjustments would you make to your portfolio when applying to completely different types of jobs?" }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "space-y-3 group relative z-10", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("label", { className: "block text-xs font-bold uppercase tracking-widest text-purple-300/80 group-focus-within:text-pink-400 transition-colors", children: "What kind of adjustments would you make to your portfolio when applying to completely different types of jobs?" }),
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
                   "textarea",
                   {
                     name: "portfolioAdjustments",
@@ -22379,9 +25773,9 @@
                   }
                 )
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-3 group relative z-10", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { className: "block text-xs font-bold uppercase tracking-widest text-purple-300/80 group-focus-within:text-pink-400 transition-colors", children: "What do you think is the purpose of having you do a mission statement as part of your portfolio?" }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "space-y-3 group relative z-10", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("label", { className: "block text-xs font-bold uppercase tracking-widest text-purple-300/80 group-focus-within:text-pink-400 transition-colors", children: "What do you think is the purpose of having you do a mission statement as part of your portfolio?" }),
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
                   "textarea",
                   {
                     name: "missionPurpose",
@@ -22392,9 +25786,9 @@
                   }
                 )
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-3 group relative z-10", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { className: "block text-xs font-bold uppercase tracking-widest text-purple-300/80 group-focus-within:text-pink-400 transition-colors", children: "Explain the importance of ongoing self-assessment and self-appraisal" }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "space-y-3 group relative z-10", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("label", { className: "block text-xs font-bold uppercase tracking-widest text-purple-300/80 group-focus-within:text-pink-400 transition-colors", children: "Explain the importance of ongoing self-assessment and self-appraisal" }),
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
                   "textarea",
                   {
                     name: "selfAssessment",
@@ -22408,120 +25802,116 @@
             ] })
           ] });
         default:
-          return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex flex-col items-center justify-center h-[50vh] text-center space-y-6", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-20 h-20 bg-slate-800/80 rounded-2xl border border-slate-700 shadow-2xl flex items-center justify-center text-slate-400 transform rotate-3 hover:rotate-0 transition-transform duration-500", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(activeUnit.icon, { size: 40 }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "text-3xl font-bold text-white tracking-tight", children: activeUnit.title }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-slate-400 max-w-md text-lg", children: "This unit is wired up and ready for content. You can navigate to it using the sidebar." })
+          return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex flex-col items-center justify-center h-[50vh] text-center space-y-6", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "w-20 h-20 bg-slate-800/80 rounded-2xl border border-slate-700 shadow-2xl flex items-center justify-center text-slate-400 transform rotate-3 hover:rotate-0 transition-transform duration-500", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(activeUnit.icon, { size: 40 }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h2", { className: "text-3xl font-bold text-white tracking-tight", children: activeUnit.title }),
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "text-slate-400 max-w-md text-lg", children: "This unit is wired up and ready for content. You can navigate to it using the sidebar." })
           ] });
       }
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex h-screen bg-[#020617] text-slate-200 font-sans overflow-hidden relative selection:bg-purple-500/30", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-purple-600/10 rounded-full blur-[120px] pointer-events-none" }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-pink-600/10 rounded-full blur-[120px] pointer-events-none" }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex h-screen bg-[#020617] text-slate-200 font-sans overflow-hidden relative selection:bg-purple-500/30", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-purple-600/10 rounded-full blur-[120px] pointer-events-none" }),
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-pink-600/10 rounded-full blur-[120px] pointer-events-none" }),
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
         "aside",
         {
-          className: `${isSidebarOpen ? "w-80" : "w-0"} transition-all duration-300 ease-in-out relative flex flex-col border-r border-slate-700/50 bg-slate-900/60 backdrop-blur-2xl z-20 shrink-0 shadow-[4px_0_24px_rgba(0,0,0,0.2)]`,
+          className: `${isSidebarOpen ? "w-72 xl:w-80 overflow-visible" : "w-0 overflow-hidden"} transition-all duration-300 ease-in-out relative flex flex-col border-r border-slate-700/50 bg-slate-900/60 backdrop-blur-2xl z-20 shrink-0 min-w-0 shadow-[4px_0_24px_rgba(0,0,0,0.2)]`,
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex-1 overflow-y-auto overflow-x-hidden min-w-[320px]", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "p-8 border-b border-slate-700/50 bg-slate-900/40", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", { className: "flex items-center text-slate-400 hover:text-pink-400 transition-colors text-xs font-bold uppercase tracking-widest mb-6 group", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronLeft, { size: 16, className: "mr-1 group-hover:-translate-x-1 transition-transform" }),
-                  "Dashboard"
-                ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { className: "text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400 tracking-tight", children: "Module 4" }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-sm text-pink-400 font-bold uppercase tracking-wider mt-2", children: "Career & Portfolio" })
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: `flex-1 overflow-y-auto overflow-x-hidden min-w-0 transition-opacity duration-200 ${isSidebarOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "p-8 border-b border-slate-700/50 bg-slate-900/40", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h1", { className: "text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400 tracking-tight", children: "Module 4" }),
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "text-sm text-pink-400 font-bold uppercase tracking-wider mt-2", children: "Career & Portfolio" })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "p-4 space-y-2", children: MODULE_UNITS.map((unit, index) => {
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "p-4 space-y-2", children: MODULE_UNITS.map((unit, index) => {
                 const isActive = activeUnitId === unit.id;
                 const isCompleted = completedUnits.includes(unit.id);
                 const Icon2 = unit.icon;
-                return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+                return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
                   "button",
                   {
                     onClick: () => setActiveUnitId(unit.id),
                     className: `w-full flex items-center p-3.5 rounded-xl transition-all duration-300 text-left group relative overflow-hidden
                     ${isActive ? "bg-gradient-to-r from-purple-500/10 to-pink-500/5 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] border border-purple-500/20" : "text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 border border-transparent"}`,
                     children: [
-                      isActive && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-purple-500 to-pink-500" }),
-                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: `mr-4 p-2 rounded-lg transition-all duration-300 shadow-sm ${isActive ? "bg-gradient-to-br from-purple-500 to-pink-500 text-white shadow-purple-500/20" : "bg-slate-800 text-slate-400 group-hover:bg-slate-700 group-hover:text-slate-200"}`, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icon2, { size: 18, className: isActive ? "animate-pulse" : "" }) }),
-                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: `flex-1 text-sm font-semibold tracking-wide ${isActive ? "text-white" : ""}`, children: unit.title }),
-                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "ml-2 flex-shrink-0", children: isCompleted ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheckBig, { size: 18, className: "text-emerald-400 drop-shadow-[0_0_8px_rgba(52,211,153,0.4)]" }) : isActive ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-2.5 h-2.5 rounded-full bg-pink-500 shadow-[0_0_12px_rgba(236,72,153,0.8)]" }) : null })
+                      isActive && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-purple-500 to-pink-500" }),
+                      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: `mr-4 p-2 rounded-lg transition-all duration-300 shadow-sm ${isActive ? "bg-gradient-to-br from-purple-500 to-pink-500 text-white shadow-purple-500/20" : "bg-slate-800 text-slate-400 group-hover:bg-slate-700 group-hover:text-slate-200"}`, children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Icon2, { size: 18, className: isActive ? "animate-pulse" : "" }) }),
+                      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: `flex-1 text-sm font-semibold tracking-wide ${isActive ? "text-white" : ""}`, children: unit.title }),
+                      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "ml-2 flex-shrink-0", children: isCompleted ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(CircleCheckBig, { size: 18, className: "text-emerald-400 drop-shadow-[0_0_8px_rgba(52,211,153,0.4)]" }) : isActive ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "w-2.5 h-2.5 rounded-full bg-pink-500 shadow-[0_0_12px_rgba(236,72,153,0.8)]" }) : null })
                     ]
                   },
                   unit.id
                 );
               }) })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
               "button",
               {
                 onClick: () => setIsSidebarOpen(!isSidebarOpen),
                 className: "absolute -right-3.5 top-8 bg-slate-800 border border-slate-600 text-slate-300 hover:text-white rounded-full p-1.5 z-30 shadow-xl hover:bg-slate-700 hover:scale-110 transition-all",
-                children: isSidebarOpen ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronLeft, { size: 16 }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronRight, { size: 16 })
+                children: isSidebarOpen ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(ChevronLeft, { size: 16 }) : /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(ChevronRight, { size: 16 })
               }
             )
           ]
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("main", { className: "flex-1 flex flex-col min-w-0 bg-transparent relative z-10", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("header", { className: "h-20 border-b border-slate-700/50 bg-[#020617]/40 backdrop-blur-xl flex items-center justify-between px-8 shrink-0 sticky top-0 z-10 shadow-sm", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex items-center gap-6", children: [
-            !isSidebarOpen && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("main", { className: "flex-1 flex flex-col min-w-0 bg-transparent relative z-10", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("header", { className: "h-20 border-b border-slate-700/50 bg-[#020617]/40 backdrop-blur-xl flex items-center justify-between px-8 shrink-0 sticky top-0 z-10 shadow-sm", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex items-center gap-6", children: [
+            !isSidebarOpen && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
               "button",
               {
                 onClick: () => setIsSidebarOpen(true),
                 className: "text-slate-400 hover:text-white mr-2 bg-slate-800/50 p-2 rounded-lg hover:bg-slate-700 transition-all",
-                children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Menu, { size: 20 })
+                children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Menu, { size: 20 })
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex items-center gap-4 bg-[#0f172a]/80 px-4 py-2.5 rounded-2xl border border-slate-700/50 shadow-inner", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "text-xs font-bold uppercase tracking-widest text-slate-400", children: "Progress" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-24 h-2 bg-slate-800 rounded-full overflow-hidden shadow-inner", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex items-center gap-4 bg-[#0f172a]/80 px-4 py-2.5 rounded-2xl border border-slate-700/50 shadow-inner", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "text-xs font-bold uppercase tracking-widest text-slate-400", children: "Progress" }),
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "w-24 h-2 bg-slate-800 rounded-full overflow-hidden shadow-inner", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
                 "div",
                 {
                   className: "h-full bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 transition-all duration-700 ease-out",
                   style: { width: `${progressPercentage}%` }
                 }
               ) }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { className: "text-sm font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("span", { className: "text-sm font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400", children: [
                 progressPercentage,
                 "%"
               ] })
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex items-center gap-5", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex items-center gap-5", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
               "button",
               {
                 onClick: handleSaveDraft,
                 className: `flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold tracking-wide transition-all shadow-lg hover:-translate-y-0.5
                 ${isSaving ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/50 shadow-emerald-500/20" : "bg-slate-800/80 text-slate-300 hover:bg-slate-700 border border-slate-600/50 hover:border-slate-500 hover:text-white"}`,
                 children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Save, { size: 18, className: isSaving ? "animate-pulse" : "" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Save, { size: 18, className: isSaving ? "animate-pulse" : "" }),
                   isSaving ? "SAVED!" : "SAVE DRAFT"
                 ]
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-10 w-10 rounded-full bg-gradient-to-tr from-purple-500 to-pink-500 p-0.5 shadow-[0_0_15px_rgba(236,72,153,0.3)] cursor-pointer hover:scale-105 transition-transform", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-full w-full bg-slate-900 rounded-full flex items-center justify-center border-2 border-transparent", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(User, { size: 18, className: "text-pink-100" }) }) })
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "h-10 w-10 rounded-full bg-gradient-to-tr from-purple-500 to-pink-500 p-0.5 shadow-[0_0_15px_rgba(236,72,153,0.3)] cursor-pointer hover:scale-105 transition-transform", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "h-full w-full bg-slate-900 rounded-full flex items-center justify-center border-2 border-transparent", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(User, { size: 18, className: "text-pink-100" }) }) })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "flex-1 overflow-y-auto", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "max-w-5xl mx-auto px-8 sm:px-12 py-12", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "min-h-[60vh] relative z-10", children: renderContent() }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mt-20 pt-8 border-t border-slate-700/50 flex items-center justify-between relative z-10 pb-12", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "flex-1 overflow-y-auto", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: isWideUnit ? "w-full max-w-none px-4 sm:px-6 lg:px-8 py-6 sm:py-8" : "max-w-5xl mx-auto px-8 sm:px-12 py-12", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "min-h-[60vh] relative z-10", children: renderContent() }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "mt-20 pt-8 border-t border-slate-700/50 flex items-center justify-between relative z-10 pb-12", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
               "button",
               {
                 onClick: handlePrev,
                 disabled: activeUnitIndex === 0,
                 className: "flex items-center gap-3 px-6 py-3.5 rounded-xl font-bold tracking-wide text-slate-400 hover:text-white hover:bg-slate-800/80 border border-transparent hover:border-slate-700 transition-all duration-300 disabled:opacity-20 disabled:hover:bg-transparent disabled:hover:border-transparent disabled:cursor-not-allowed group",
                 children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronLeft, { size: 20, className: "group-hover:-translate-x-1 transition-transform" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(ChevronLeft, { size: 20, className: "group-hover:-translate-x-1 transition-transform" }),
                   "PREVIOUS"
                 ]
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
               "button",
               {
                 onClick: handleNext,
@@ -22529,7 +25919,7 @@
                 className: "flex items-center gap-3 px-8 py-3.5 rounded-xl font-bold tracking-wider bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white transition-all duration-300 shadow-[0_0_20px_rgba(219,39,119,0.3)] hover:shadow-[0_0_30px_rgba(219,39,119,0.5)] hover:-translate-y-0.5 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:translate-y-0 group",
                 children: [
                   activeUnitIndex === MODULE_UNITS.length - 2 ? "FINISH MODULE" : "NEXT UNIT",
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronRight, { size: 20, className: "group-hover:translate-x-1 transition-transform" })
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(ChevronRight, { size: 20, className: "group-hover:translate-x-1 transition-transform" })
                 ]
               }
             )
@@ -22540,7 +25930,7 @@
   }
   var root = document.getElementById("root");
   if (root) {
-    (0, import_client.createRoot)(root).render(/* @__PURE__ */ (0, import_jsx_runtime.jsx)(App, {}));
+    (0, import_client.createRoot)(root).render(/* @__PURE__ */ (0, import_jsx_runtime6.jsx)(App5, {}));
   }
 })();
 /*! Bundled license information:
@@ -22604,23 +25994,49 @@ lucide-react/dist/esm/shared/src/utils.js:
 lucide-react/dist/esm/defaultAttributes.js:
 lucide-react/dist/esm/Icon.js:
 lucide-react/dist/esm/createLucideIcon.js:
+lucide-react/dist/esm/icons/award.js:
 lucide-react/dist/esm/icons/book-open.js:
+lucide-react/dist/esm/icons/brain-circuit.js:
 lucide-react/dist/esm/icons/briefcase.js:
 lucide-react/dist/esm/icons/building.js:
+lucide-react/dist/esm/icons/check.js:
+lucide-react/dist/esm/icons/chevron-down.js:
 lucide-react/dist/esm/icons/chevron-left.js:
 lucide-react/dist/esm/icons/chevron-right.js:
+lucide-react/dist/esm/icons/chevron-up.js:
+lucide-react/dist/esm/icons/circle-alert.js:
 lucide-react/dist/esm/icons/circle-check-big.js:
 lucide-react/dist/esm/icons/circle-check.js:
+lucide-react/dist/esm/icons/circle-x.js:
+lucide-react/dist/esm/icons/copy.js:
+lucide-react/dist/esm/icons/external-link.js:
 lucide-react/dist/esm/icons/file-text.js:
+lucide-react/dist/esm/icons/graduation-cap.js:
+lucide-react/dist/esm/icons/heart-handshake.js:
 lucide-react/dist/esm/icons/heart.js:
+lucide-react/dist/esm/icons/info.js:
+lucide-react/dist/esm/icons/layout-dashboard.js:
+lucide-react/dist/esm/icons/layout-template.js:
 lucide-react/dist/esm/icons/lightbulb.js:
+lucide-react/dist/esm/icons/list.js:
+lucide-react/dist/esm/icons/mail.js:
 lucide-react/dist/esm/icons/menu.js:
 lucide-react/dist/esm/icons/network.js:
+lucide-react/dist/esm/icons/pen-line.js:
+lucide-react/dist/esm/icons/pen-tool.js:
+lucide-react/dist/esm/icons/plus.js:
+lucide-react/dist/esm/icons/printer.js:
 lucide-react/dist/esm/icons/quote.js:
 lucide-react/dist/esm/icons/save.js:
+lucide-react/dist/esm/icons/settings.js:
+lucide-react/dist/esm/icons/sparkles.js:
+lucide-react/dist/esm/icons/square-check-big.js:
 lucide-react/dist/esm/icons/target.js:
+lucide-react/dist/esm/icons/trash-2.js:
+lucide-react/dist/esm/icons/user-plus.js:
 lucide-react/dist/esm/icons/user.js:
 lucide-react/dist/esm/icons/users.js:
+lucide-react/dist/esm/icons/wrench.js:
 lucide-react/dist/esm/lucide-react.js:
   (**
    * @license lucide-react v0.542.0 - ISC

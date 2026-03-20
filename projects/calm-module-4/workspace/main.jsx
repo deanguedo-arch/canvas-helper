@@ -18,15 +18,26 @@ import {
   Lightbulb,
   Building,
   Network,
-  Users,
-  Quote,
-  CheckCircle2
+  Users, 
+  Quote, 
+  CheckCircle2,
+  PenTool,
+  Mail
 } from 'lucide-react';
+import CareerPlanning from './components/careerplanning.reference.jsx';
+import ResourcefulPeople from './components/resourcefulpeople.reference.jsx';
+import MasterPlan from './components/masterplan.reference.jsx';
+import ResumeBuilder from './components/resumebuilder.reference.jsx';
+import CoverLetterBuilder from './components/coverletterbuilder.reference.jsx';
 
 // Define the units based on the CALM Module 4 PDFs
 const MODULE_UNITS = [
   { id: 'intro', title: 'Career Exploration', icon: BookOpen },
-  { id: 'portfolio', title: 'Building Your Portfolio', icon: Briefcase },
+  { id: 'portfolio', title: 'Career Planner', icon: Briefcase },
+  { id: 'resourceful-people', title: 'Resourceful People', icon: Users },
+  { id: 'master-plan', title: 'Master Plan', icon: FileText },
+  { id: 'resume-builder', title: 'Resume Builder', icon: PenTool },
+  { id: 'cover-letter-builder', title: 'Cover Letter Builder', icon: Mail },
   { id: 'reflection', title: 'Module Reflection', icon: FileText, isInteractive: true },
 ];
 
@@ -59,6 +70,8 @@ export default function App() {
 
   const activeUnitIndex = MODULE_UNITS.findIndex(u => u.id === activeUnitId);
   const activeUnit = MODULE_UNITS[activeUnitIndex];
+  const isBuilderUnit = activeUnitId === 'resume-builder' || activeUnitId === 'cover-letter-builder';
+  const isWideUnit = isBuilderUnit || activeUnitId === 'portfolio' || activeUnitId === 'resourceful-people' || activeUnitId === 'master-plan';
   
   // Calculate progress
   const progressPercentage = Math.round((completedUnits.length / MODULE_UNITS.length) * 100);
@@ -452,6 +465,21 @@ export default function App() {
             </div>
           </div>
         );
+
+      case 'resume-builder':
+        return <ResumeBuilder />;
+
+      case 'cover-letter-builder':
+        return <CoverLetterBuilder />;
+
+      case 'portfolio':
+        return <CareerPlanning />;
+
+      case 'resourceful-people':
+        return <ResourcefulPeople />;
+
+      case 'master-plan':
+        return <MasterPlan />;
       
       case 'reflection':
         return (
@@ -586,15 +614,11 @@ export default function App() {
 
       {/* --- Sidebar --- */}
       <aside 
-        className={`${isSidebarOpen ? 'w-80' : 'w-0'} transition-all duration-300 ease-in-out relative flex flex-col border-r border-slate-700/50 bg-slate-900/60 backdrop-blur-2xl z-20 shrink-0 shadow-[4px_0_24px_rgba(0,0,0,0.2)]`}
+        className={`${isSidebarOpen ? 'w-72 xl:w-80 overflow-visible' : 'w-0 overflow-hidden'} transition-all duration-300 ease-in-out relative flex flex-col border-r border-slate-700/50 bg-slate-900/60 backdrop-blur-2xl z-20 shrink-0 min-w-0 shadow-[4px_0_24px_rgba(0,0,0,0.2)]`}
       >
-        <div className="flex-1 overflow-y-auto overflow-x-hidden min-w-[320px]">
+        <div className={`flex-1 overflow-y-auto overflow-x-hidden min-w-0 transition-opacity duration-200 ${isSidebarOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
           {/* Sidebar Header */}
           <div className="p-8 border-b border-slate-700/50 bg-slate-900/40">
-            <button className="flex items-center text-slate-400 hover:text-pink-400 transition-colors text-xs font-bold uppercase tracking-widest mb-6 group">
-              <ChevronLeft size={16} className="mr-1 group-hover:-translate-x-1 transition-transform" />
-              Dashboard
-            </button>
             <h1 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400 tracking-tight">Module 4</h1>
             <p className="text-sm text-pink-400 font-bold uppercase tracking-wider mt-2">Career & Portfolio</p>
           </div>
@@ -699,7 +723,7 @@ export default function App() {
 
         {/* Scrolling Content Container */}
         <div className="flex-1 overflow-y-auto">
-          <div className="max-w-5xl mx-auto px-8 sm:px-12 py-12">
+          <div className={isWideUnit ? 'w-full max-w-none px-4 sm:px-6 lg:px-8 py-6 sm:py-8' : 'max-w-5xl mx-auto px-8 sm:px-12 py-12'}>
             
             {/* Active Content Rendering */}
             <div className="min-h-[60vh] relative z-10">

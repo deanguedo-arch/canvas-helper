@@ -1,0 +1,1109 @@
+import React, { useState } from 'react';
+import { 
+  BookOpen, 
+  Wrench, 
+  User, 
+  GraduationCap, 
+  Briefcase, 
+  Award, 
+  Users, 
+  Printer,
+  Plus,
+  Trash2,
+  CheckCircle2,
+  AlertCircle,
+  Heart,
+  ChevronRight,
+  ChevronUp,
+  ChevronDown,
+  FileText,
+  Info,
+  LayoutTemplate
+} from 'lucide-react';
+
+// --- DATA FROM PDF ---
+const softSkills = [
+  "Achievement Oriented", "Adaptive", "Analytical", "Articulate", "Committed", "Communication",
+  "Confident", "Courageous", "Creative", "Credible", "Decisive", "Dedicated", "Dependable",
+  "Detail-oriented", "Determined", "Disciplined", "Efficient", "Energetic", "Entrepreneurial",
+  "Goal-Oriented", "Able to handle stress", "Self-Motivated", "Innovative", "Insightful",
+  "Integrity", "Interpersonal", "Intuitive", "Lateral thinker", "Leadership", "Listening",
+  "Logical", "Minimum supervision", "Objective", "Open-minded", "Optimistic", "Organized",
+  "Persuasive", "Positive Attitude", "Productive", "Reliable", "Resourceful", "Respects deadlines",
+  "Responsible", "Results-oriented", "Self-starter", "Strategic thinker", "Strives for excellence",
+  "Task Driven", "Team Building", "Team Player", "Trouble shooter", "Versatile", "Sets priorities",
+  "Personable", "Outgoing", "Fair", "Problem-solver"
+];
+
+const hardSkills = [
+  "Babysitting", "Cashier", "Customer Service", "Retail Sales", "Cleaning", "Housekeeping",
+  "Prep/Line Cooking", "Freight Receiver", "Waitress", "Dishwasher", "Filing", "Organizing",
+  "Accounts Payable", "Accounts Receivable", "Payroll", "Composing Letters", "Telephone Skills",
+  "Tour Guide", "Clerical Work", "Merchandising", "Problem Solver", "Manual Labour", "Landscaping",
+  "Roofing", "Mechanical Ability", "Siding", "Laying Sod", "Heavy Machinery", "Gardening",
+  "Maintenance", "Planning Things", "Training Others", "Record Keeping", "Farm Machinery",
+  "Equipment Operation", "Supervising Others", "Public Speaking", "Greenskeeper", "Stocking Shelves",
+  "Data Entry", "Communication Skills", "Able to Set Priorities", "Punctual", "Team Player",
+  "Typing/Keyboarding", "Internet User", "Newspaper Delivery", "Telemarketing Skills", "Livestock",
+  "Fencing", "Computer Skills"
+];
+
+const tips = [
+  "Tailor your résumé. Include information associated with the specific job you are applying for.",
+  "Use action words. Focus on things you have accomplished, and avoid starting every sentence with 'I'.",
+  "Proofread. Never rely on spell check. Even one misspelled word could put you in the 'do not consider' pile.",
+  "Make it presentable. Use clean, white paper and a font that's easy to read (Times New Roman, Calibri, Arial).",
+  "Keep it concise. Try to keep it as short as possible—ideally one page, two pages maximum.",
+  "Be honest. Lying on your résumé is never a good idea.",
+  "Be professional. Don't include unnecessary embellishments like flashy paper or a picture of yourself."
+];
+
+const sectionDetails = {
+  general: {
+    title: "General Tips & Tricks",
+    icon: AlertCircle,
+    color: "text-amber-400",
+    bgColor: "bg-amber-400/10",
+    borderColor: "border-amber-400/20",
+    bulletColor: "text-amber-400",
+    items: tips
+  },
+  personal: {
+    title: "Personal Information",
+    icon: User,
+    color: "text-blue-400",
+    bgColor: "bg-blue-400/10",
+    borderColor: "border-blue-400/20",
+    bulletColor: "text-blue-400",
+    items: [
+      "Name: Use your full, legal name. Do not use nicknames.",
+      "Address: Include your complete mailing address and postal code.",
+      "Phone: Provide reliable contact numbers (Home and Cell). Make sure your voicemail greeting is mature and professional.",
+      "Email: Ensure your email address is appropriate (e.g., first.last@email.com). If in doubt, ask an adult!",
+      "Do NOT include personal details like your birth date, marital status, or a photograph."
+    ]
+  },
+  education: {
+    title: "Education History",
+    icon: GraduationCap,
+    color: "text-purple-400",
+    bgColor: "bg-purple-400/10",
+    borderColor: "border-purple-400/20",
+    bulletColor: "text-purple-400",
+    items: [
+      "Start with your most recent educational experience and work backwards.",
+      "Include the exact name of the school you attended.",
+      "Specify the course taken, your major subjects studied, or current grade level.",
+      "Include the year of completion. If you are currently attending, use 'Present' as your end date.",
+      "Highlight academic achievements, honors, or specific relevant coursework if you lack formal work experience."
+    ]
+  },
+  skills: {
+    title: "Skills & Strengths",
+    icon: Award,
+    color: "text-emerald-400",
+    bgColor: "bg-emerald-400/10",
+    borderColor: "border-emerald-400/20",
+    bulletColor: "text-emerald-400",
+    items: [
+      "This is a list of your core strengths. Tailor these to the job description!",
+      "Include 'Soft Skills': These describe your personal traits or characteristics (e.g., reliable, analytical, team player, goal-oriented).",
+      "Include 'Hard Skills': These are learned abilities or experience with specific tools (e.g., cashier experience, data entry, bilingual, heavy machinery).",
+      "Don't just list them—be prepared to give examples of these skills during an interview."
+    ]
+  },
+  experience: {
+    title: "Work Experience",
+    icon: Briefcase,
+    color: "text-sky-400",
+    bgColor: "bg-sky-400/10",
+    borderColor: "border-sky-400/20",
+    bulletColor: "text-sky-400",
+    items: [
+      "List jobs in reverse chronological order (most recent first).",
+      "Include the business name, location, your position title, and the dates you worked there.",
+      "Provide a description of your tasks. Use Action Words! (e.g., 'Maintained', 'Served', 'Provided', 'Organized').",
+      "Focus on things you have accomplished and quantified (e.g., 'Served over 50 customers daily' rather than just 'Served customers').",
+      "Avoid starting every sentence with 'I'."
+    ]
+  },
+  volunteer: {
+    title: "Volunteer & Extra-Curricular",
+    icon: Heart,
+    color: "text-rose-400",
+    bgColor: "bg-rose-400/10",
+    borderColor: "border-rose-400/20",
+    bulletColor: "text-rose-400",
+    items: [
+      "Volunteer experience can be included in its own section or grouped with work experience.",
+      "Include extra-curricular activities like student council, sports teams (e.g., Volleyball, Little League), or music.",
+      "This section is fantastic for showing leadership, commitment, and community involvement, especially if you have limited paid work experience.",
+      "Include the organization name, your role, and the dates of involvement."
+    ]
+  },
+  references: {
+    title: "Professional References",
+    icon: Users,
+    color: "text-orange-400",
+    bgColor: "bg-orange-400/10",
+    borderColor: "border-orange-400/20",
+    bulletColor: "text-orange-400",
+    items: [
+      "Provide a minimum of 3 adults. Do NOT use friends or family members.",
+      "Acceptable references include teachers, managers, coaches, or former employers.",
+      "ALWAYS ask permission first before listing someone as a reference.",
+      "Include their full name, professional title, organization, complete mailing address, and phone number.",
+      "Let your references know what kind of jobs you are applying for so they are prepared if called."
+    ]
+  }
+};
+
+// --- MAIN COMPONENT ---
+export default function App() {
+  const [activeTab, setActiveTab] = useState('learn'); // 'learn', 'exemplar', or 'build'
+  const [resumeStyle, setResumeStyle] = useState('1'); // '1', '2', or '3'
+  const [isToolbarCollapsed, setIsToolbarCollapsed] = useState(false);
+
+  // Resume State
+  const [resume, setResume] = useState({
+    personal: { name: '', address: '', homePhone: '', cellPhone: '', email: '' },
+    education: [{ id: 1, school: '', degree: '', year: '' }],
+    skills: [],
+    experience: [{ id: 1, company: '', location: '', position: '', startDate: '', endDate: '', responsibilities: '' }],
+    volunteer: [],
+    references: [{ id: 1, name: '', title: '', organization: '', address: '', phone: '' }]
+  });
+
+  return (
+    <div className="flex flex-col h-screen bg-[#07090E] font-sans text-slate-300 overflow-hidden print:block print:h-auto print:bg-white print:text-black">
+      
+      {/* TOP NAVBAR - Dark, Sleek, Neon Theme */}
+      <header className={`bg-[#0B0E17] border-b border-white/5 flex-shrink-0 relative z-20 shadow-lg print:hidden overflow-hidden transition-all duration-300 ${isToolbarCollapsed ? 'mb-6' : ''}`}>
+        <div className="w-full px-4 sm:px-6 lg:px-8">
+          <div className={`flex ${isToolbarCollapsed ? 'flex-row items-center justify-between h-16 py-3' : 'flex-col sm:flex-row justify-between items-center h-auto sm:h-20 py-4 sm:py-0 gap-4'}`}>
+            
+            {/* Logo */}
+            <div className="flex items-center space-x-3 text-white">
+              <div className="bg-fuchsia-600 p-2 rounded-lg shadow-[0_0_15px_rgba(192,38,211,0.5)]">
+                <BookOpen className="w-5 h-5 text-white" />
+              </div>
+              <h1 className="text-xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400">
+                Resume Pro
+              </h1>
+            </div>
+
+            <div className="flex items-center gap-2 sm:gap-3 ml-auto">
+              {!isToolbarCollapsed && (
+                <>
+                  {/* Navigation & Actions */}
+                  <div className="flex items-center space-x-2 sm:space-x-4 w-full sm:w-auto overflow-x-auto pb-2 sm:pb-0 custom-scrollbar">
+                    <nav className="flex space-x-2">
+                      <TopBarButton 
+                        active={activeTab === 'learn'} 
+                        onClick={() => setActiveTab('learn')} 
+                        icon={BookOpen} 
+                        label="Learning" 
+                      />
+                      <TopBarButton 
+                        active={activeTab === 'exemplar'} 
+                        onClick={() => setActiveTab('exemplar')} 
+                        icon={FileText} 
+                        label="Example" 
+                      />
+                      <TopBarButton 
+                        active={activeTab === 'build'} 
+                        onClick={() => setActiveTab('build')} 
+                        icon={Wrench} 
+                        label="Workshop" 
+                      />
+                    </nav>
+
+                    <div className="h-8 w-px bg-white/10 mx-2 hidden sm:block"></div>
+
+                    <button 
+                      onClick={() => window.print()}
+                      className="hidden sm:flex items-center space-x-2 bg-[#15192B] hover:bg-fuchsia-600/10 border border-white/5 hover:border-fuchsia-500/50 text-slate-300 hover:text-fuchsia-400 px-4 py-2.5 rounded-xl transition-all duration-300 whitespace-nowrap"
+                    >
+                      <Printer className="w-4 h-4" />
+                      <span className="font-medium text-sm">Print / Save PDF</span>
+                    </button>
+                  </div>
+                </>
+              )}
+
+              <button
+                onClick={() => setIsToolbarCollapsed(prev => !prev)}
+                className="flex items-center gap-2 bg-[#15192B] hover:bg-white/10 border border-white/5 text-slate-300 hover:text-white px-3 py-2 rounded-xl transition-all duration-300 whitespace-nowrap"
+                aria-expanded={!isToolbarCollapsed}
+                aria-label={isToolbarCollapsed ? 'Expand toolbar' : 'Collapse toolbar'}
+              >
+                {isToolbarCollapsed ? <ChevronDown className="w-4 h-4" /> : <ChevronUp className="w-4 h-4" />}
+                <span className="font-medium text-sm hidden sm:inline">
+                  {isToolbarCollapsed ? 'Expand' : 'Collapse'}
+                </span>
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </header>
+
+      {/* Main Content Area */}
+      <main className={`flex-1 overflow-y-auto relative print:overflow-visible print:w-full ${isToolbarCollapsed ? 'pt-6' : ''}`}>
+        {/* Subtle background glow */}
+        <div className="absolute top-[0%] left-[-10%] w-[40%] h-[40%] rounded-full bg-fuchsia-900/10 blur-[120px] pointer-events-none print:hidden"></div>
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-indigo-900/10 blur-[120px] pointer-events-none print:hidden"></div>
+
+        <div className="w-full max-w-none px-4 sm:px-6 lg:px-8 py-6 sm:py-8 print:p-0 print:m-0 relative z-10">
+          {activeTab === 'learn' ? (
+            <LearnSection />
+          ) : activeTab === 'exemplar' ? (
+            <ExemplarSection />
+          ) : (
+            <BuildSection 
+              resume={resume} 
+              setResume={setResume} 
+              resumeStyle={resumeStyle} 
+              setResumeStyle={setResumeStyle}
+              isToolbarCollapsed={isToolbarCollapsed}
+            />
+          )}
+        </div>
+      </main>
+    </div>
+  );
+}
+
+// --- TOP NAVBAR BUTTON ---
+function TopBarButton({ active, onClick, icon: Icon, label }) {
+  return (
+    <button
+      onClick={onClick}
+      className={`flex items-center space-x-2 px-3 sm:px-4 py-2.5 rounded-xl transition-all duration-300 group whitespace-nowrap ${
+        active 
+          ? 'bg-gradient-to-r from-fuchsia-500/10 to-transparent border border-fuchsia-500/30 text-fuchsia-400' 
+          : 'hover:bg-white/5 text-slate-400 hover:text-slate-200 border border-transparent'
+      }`}
+    >
+      <Icon className={`w-4 h-4 ${active ? 'text-fuchsia-400' : 'text-slate-500 group-hover:text-slate-300'}`} />
+      <span className={`font-medium text-sm ${active ? 'text-fuchsia-100' : ''}`}>{label}</span>
+      {active && <CheckCircle2 className="w-4 h-4 text-fuchsia-500 hidden sm:block ml-1" />}
+    </button>
+  );
+}
+
+// --- LEARN SECTION ---
+function LearnSection() {
+  const [activeDetail, setActiveDetail] = useState('general');
+
+  const activeData = sectionDetails[activeDetail] || sectionDetails.general;
+  const ActiveIcon = activeData.icon;
+
+  return (
+    <div className="space-y-8 animate-in fade-in duration-500">
+      
+      {/* Intro */}
+      <div className="bg-[#15192B] rounded-2xl p-6 sm:p-8 border border-white/5 shadow-lg relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-1 h-full bg-fuchsia-600"></div>
+        <h2 className="text-2xl font-bold text-white mb-4">What is a Resume?</h2>
+        <p className="text-slate-400 leading-relaxed text-lg">
+          "A résumé is a document containing a summary or listing of relevant job experience and education, 
+          usually for the purpose of securing a new job. Often the résumé is the first item a potential employer 
+          encounters regarding the job seeker, and therefore a large amount of importance is often ascribed to it."
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        {/* Components Guide (Interactive List) */}
+        <div className="lg:col-span-5 space-y-6">
+          <div className="flex justify-between items-end">
+            <h3 className="text-xl font-bold flex items-center text-white">
+              <CheckCircle2 className="w-5 h-5 mr-2 text-fuchsia-500" /> What to Include
+            </h3>
+          </div>
+          <p className="text-sm text-slate-500 -mt-4 mb-2">Click a section below to see detailed tips.</p>
+          
+          <div className="bg-[#15192B] rounded-2xl border border-white/5 overflow-hidden divide-y divide-white/5 shadow-lg">
+            {[
+              { id: 'personal', title: 'Personal Information', icon: User, desc: 'Full name, Address, Phone, Email' },
+              { id: 'education', title: 'Education', icon: GraduationCap, desc: 'Schools, majors, and graduation years' },
+              { id: 'skills', title: 'Skills', icon: Award, desc: 'Soft traits and hard learned abilities' },
+              { id: 'experience', title: 'Work Experience', icon: Briefcase, desc: 'Past jobs, positions, and responsibilities' },
+              { id: 'volunteer', title: 'Volunteer & Extra-Curricular', icon: Heart, desc: 'Community service and activities' },
+              { id: 'references', title: 'References', icon: Users, desc: '3 reliable adults who can vouch for you' },
+            ].map((item) => (
+              <button 
+                key={item.id}
+                onClick={() => setActiveDetail(item.id)}
+                className={`w-full text-left p-4 transition-all duration-200 flex items-center justify-between group ${
+                  activeDetail === item.id 
+                    ? 'bg-fuchsia-500/10 border-l-4 border-l-fuchsia-500' 
+                    : 'hover:bg-white/5 border-l-4 border-l-transparent'
+                }`}
+              >
+                <div>
+                  <h4 className={`font-semibold flex items-center ${activeDetail === item.id ? 'text-fuchsia-300' : 'text-slate-300'}`}>
+                    <item.icon className={`w-4 h-4 mr-2 ${activeDetail === item.id ? 'text-fuchsia-400' : 'text-slate-500 group-hover:text-fuchsia-400'}`}/> 
+                    {item.title}
+                  </h4>
+                  <p className="text-sm text-slate-500 mt-1">{item.desc}</p>
+                </div>
+                <ChevronRight className={`w-5 h-5 ${activeDetail === item.id ? 'text-fuchsia-500 opacity-100' : 'text-slate-600 opacity-0 group-hover:opacity-100 transition-opacity'}`} />
+              </button>
+            ))}
+          </div>
+
+          <div className="text-center pt-2">
+            <button 
+              onClick={() => setActiveDetail('general')}
+              className={`text-sm font-medium transition-colors hover:underline ${activeDetail === 'general' ? 'text-amber-400 underline' : 'text-slate-500 hover:text-amber-400'}`}
+            >
+              View General Tips & Tricks
+            </button>
+          </div>
+        </div>
+
+        {/* Dynamic Details Panel */}
+        <div className="lg:col-span-7 space-y-6">
+          <h3 className={`text-xl font-bold flex items-center ${activeData.color}`}>
+            <ActiveIcon className="w-6 h-6 mr-2" /> {activeData.title}
+          </h3>
+          <div className={`${activeData.bgColor} rounded-2xl border ${activeData.borderColor} p-6 sm:p-8 transition-all duration-300 min-h-[400px] shadow-[0_0_30px_rgba(0,0,0,0.2)]`}>
+            <ul className="space-y-5">
+              {activeData.items.map((tip, idx) => (
+                <li key={`${activeDetail}-${idx}`} className="flex items-start animate-in slide-in-from-right-4 fade-in duration-500" style={{ animationFillMode: 'both', animationDelay: `${idx * 75}ms` }}>
+                  <span className={`${activeData.bulletColor} mr-4 mt-1 text-lg drop-shadow-md`}>•</span>
+                  <span className="text-slate-200 leading-relaxed text-[15px]">{tip}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Skills Database */}
+      <div className="bg-[#15192B] rounded-2xl shadow-lg p-6 sm:p-8 border border-white/5">
+        <h3 className="text-xl font-bold text-white mb-6">Skills Inspiration</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <h4 className="font-semibold text-fuchsia-400 mb-3 border-b border-white/10 pb-2">Soft Skills (Personal Traits)</h4>
+            <div className="flex flex-wrap gap-2 max-h-64 overflow-y-auto pr-2 pb-2 custom-scrollbar">
+              {softSkills.map((skill, i) => (
+                <span key={i} className="bg-fuchsia-500/10 text-fuchsia-300 text-xs px-2 py-1 rounded-md border border-fuchsia-500/20">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div>
+            <h4 className="font-semibold text-indigo-400 mb-3 border-b border-white/10 pb-2">Hard Skills (Acquired/Trained)</h4>
+            <div className="flex flex-wrap gap-2 max-h-64 overflow-y-auto pr-2 pb-2 custom-scrollbar">
+              {hardSkills.map((skill, i) => (
+                <span key={i} className="bg-indigo-500/10 text-indigo-300 text-xs px-2 py-1 rounded-md border border-indigo-500/20">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+// --- BUILD SECTION (WORKSHOP) ---
+function BuildSection({ resume, setResume, resumeStyle, setResumeStyle, isToolbarCollapsed }) {
+  
+  return (
+    <div className="flex flex-col lg:flex-row gap-8 animate-in fade-in duration-500 print:block">
+      
+      {/* LEFT: Form Controls - Hidden on Print */}
+      <div className="w-full lg:w-[42%] min-w-0 space-y-6 print:hidden">
+        <div className="flex justify-between items-center bg-[#15192B] p-5 rounded-2xl border border-white/5 shadow-lg">
+          <div>
+            <h2 className="text-xl font-bold text-white">Your Details</h2>
+            <p className="text-sm text-slate-400">Fill out the sections below</p>
+          </div>
+          
+          <button 
+            onClick={() => window.print()}
+            className="sm:hidden flex items-center justify-center p-2.5 bg-[#15192B] border border-white/10 text-slate-300 rounded-lg hover:bg-fuchsia-600/20 hover:text-fuchsia-400"
+          >
+            <Printer className="w-5 h-5" />
+          </button>
+        </div>
+
+        <div className="bg-[#15192B] rounded-2xl border border-white/5 overflow-hidden shadow-lg">
+          
+          {/* Form Sections */}
+          <div className="max-h-[calc(100vh-280px)] overflow-y-auto p-4 sm:p-6 space-y-8 custom-scrollbar">
+            <PersonalInfoForm data={resume.personal} update={(data) => setResume({...resume, personal: data})} />
+            <hr className="border-white/5"/>
+            <EducationForm data={resume.education} update={(data) => setResume({...resume, education: data})} />
+            <hr className="border-white/5"/>
+            <SkillsForm data={resume.skills} update={(data) => setResume({...resume, skills: data})} />
+            <hr className="border-white/5"/>
+            <ExperienceForm data={resume.experience} update={(data) => setResume({...resume, experience: data})} />
+            <hr className="border-white/5"/>
+            <VolunteerForm data={resume.volunteer} update={(data) => setResume({...resume, volunteer: data})} />
+            <hr className="border-white/5"/>
+            <ReferencesForm data={resume.references} update={(data) => setResume({...resume, references: data})} />
+          </div>
+
+        </div>
+      </div>
+
+      {/* RIGHT: Live Preview - Takes full width on print */}
+      <div className="w-full lg:w-[58%] min-w-0 print:w-full print:m-0 print:p-0">
+        <div className={`sticky ${isToolbarCollapsed ? 'top-16' : 'top-0'} pt-2 xl:pt-0`}>
+          
+          {/* Controls Bar (Above Preview) */}
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 print:hidden gap-4">
+            <div className="text-sm font-semibold text-slate-400 uppercase tracking-wider flex items-center">
+              <LayoutTemplate className="w-4 h-4 mr-2 text-fuchsia-500"/> Live Preview
+            </div>
+
+            {/* STYLE SELECTOR */}
+            <div className="flex bg-[#0B0E17] p-1 rounded-lg border border-white/10 shadow-inner">
+              {[
+                { id: '1', label: 'Classic' },
+                { id: '2', label: 'Modern' },
+                { id: '3', label: 'Elegant' }
+              ].map((style) => (
+                <button
+                  key={style.id}
+                  onClick={() => setResumeStyle(style.id)}
+                  className={`px-4 py-1.5 text-xs font-bold rounded-md transition-all duration-200 ${
+                    resumeStyle === style.id 
+                      ? 'bg-fuchsia-600 text-white shadow-md' 
+                      : 'text-slate-400 hover:text-slate-200 hover:bg-white/5'
+                  }`}
+                >
+                  {style.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Actual Resume Canvas */}
+          <ResumePreview data={resume} styleId={resumeStyle} />
+        </div>
+      </div>
+      
+    </div>
+  );
+}
+
+// --- FORM COMPONENTS (Dark Mode Styled) ---
+
+function InputGroup({ label, placeholder, value, onChange, type="text", className="" }) {
+  return (
+    <div className={`flex flex-col ${className}`}>
+      <label className="text-xs font-semibold text-slate-400 mb-1.5">{label}</label>
+      <input
+        type={type}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        className="px-3 py-2.5 bg-[#0B0E17] border border-white/10 rounded-lg focus:outline-none focus:ring-1 focus:ring-fuchsia-500 focus:border-fuchsia-500 text-sm text-slate-200 placeholder-slate-600 transition-colors"
+      />
+    </div>
+  );
+}
+
+function TextAreaGroup({ label, placeholder, value, onChange, className="" }) {
+  return (
+    <div className={`flex flex-col ${className}`}>
+      <label className="text-xs font-semibold text-slate-400 mb-1.5">{label}</label>
+      <textarea
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        rows={3}
+        className="px-3 py-2.5 bg-[#0B0E17] border border-white/10 rounded-lg focus:outline-none focus:ring-1 focus:ring-fuchsia-500 focus:border-fuchsia-500 text-sm text-slate-200 placeholder-slate-600 resize-none transition-colors"
+      />
+    </div>
+  );
+}
+
+function PersonalInfoForm({ data, update }) {
+  const handleChange = (field) => (e) => update({ ...data, [field]: e.target.value });
+  return (
+    <div className="space-y-4">
+      <h3 className="text-lg font-bold flex items-center text-white"><User className="w-5 h-5 mr-2 text-blue-400"/> Personal Information</h3>
+      <InputGroup label="Full Name" placeholder="Peter Parker" value={data.name} onChange={handleChange('name')} />
+      <InputGroup label="Address & Postal Code" placeholder="PO Box 123, Redcliff, AB T0J 2P0" value={data.address} onChange={handleChange('address')} />
+      <div className="grid grid-cols-2 gap-4">
+        <InputGroup label="Home Phone" placeholder="(780) 555-1234" value={data.homePhone} onChange={handleChange('homePhone')} />
+        <InputGroup label="Cell Phone" placeholder="(780) 555-5678" value={data.cellPhone} onChange={handleChange('cellPhone')} />
+      </div>
+      <InputGroup label="Email Address" type="email" placeholder="peter@example.com" value={data.email} onChange={handleChange('email')} />
+    </div>
+  );
+}
+
+function EducationForm({ data, update }) {
+  const addEdu = () => update([...data, { id: Date.now(), school: '', degree: '', year: '' }]);
+  const updateEdu = (id, field, val) => update(data.map(e => e.id === id ? { ...e, [field]: val } : e));
+  const removeEdu = (id) => update(data.filter(e => e.id !== id));
+
+  return (
+    <div className="space-y-4">
+      <div className="flex justify-between items-center">
+        <h3 className="text-lg font-bold flex items-center text-white"><GraduationCap className="w-5 h-5 mr-2 text-purple-400"/> Education</h3>
+        <button onClick={addEdu} className="text-fuchsia-400 hover:text-fuchsia-300 text-sm font-medium flex items-center bg-fuchsia-500/10 px-2 py-1 rounded-md"><Plus className="w-4 h-4 mr-1"/> Add</button>
+      </div>
+      {data.map((edu, idx) => (
+        <div key={edu.id} className="p-4 bg-[#0B0E17] border border-white/5 rounded-xl relative group">
+          <button onClick={() => removeEdu(edu.id)} className="absolute top-2 right-2 text-slate-500 hover:text-red-400 transition-colors"><Trash2 className="w-4 h-4"/></button>
+          <div className="space-y-3">
+            <InputGroup label="School Name" placeholder="Eagle Butte High School" value={edu.school} onChange={(e) => updateEdu(edu.id, 'school', e.target.value)} />
+            <div className="grid grid-cols-2 gap-4">
+              <InputGroup label="Course/Major" placeholder="Completing Grade 10" value={edu.degree} onChange={(e) => updateEdu(edu.id, 'degree', e.target.value)} />
+              <InputGroup label="Year Completed" placeholder="2006-Present" value={edu.year} onChange={(e) => updateEdu(edu.id, 'year', e.target.value)} />
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function SkillsForm({ data, update }) {
+  const [skillInput, setSkillInput] = useState('');
+  
+  const addSkill = (e) => {
+    e.preventDefault();
+    if (skillInput.trim() && !data.includes(skillInput.trim())) {
+      update([...data, skillInput.trim()]);
+      setSkillInput('');
+    }
+  };
+
+  const removeSkill = (skillToRemove) => {
+    update(data.filter(s => s !== skillToRemove));
+  };
+
+  return (
+    <div className="space-y-4">
+      <h3 className="text-lg font-bold flex items-center text-white"><Award className="w-5 h-5 mr-2 text-emerald-400"/> Skills & Abilities</h3>
+      <p className="text-xs text-slate-400">Add your soft and hard skills (e.g., Reliable, Typing, Customer Service).</p>
+      
+      <form onSubmit={addSkill} className="flex space-x-2">
+        <input 
+          type="text" 
+          placeholder="Type a skill and press Enter..." 
+          value={skillInput}
+          onChange={(e) => setSkillInput(e.target.value)}
+          className="flex-1 px-3 py-2.5 bg-[#0B0E17] border border-white/10 rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 text-sm text-slate-200 placeholder-slate-600"
+        />
+        <button type="submit" className="bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 px-4 py-2 rounded-lg font-medium text-sm border border-emerald-500/20 transition-colors">Add</button>
+      </form>
+
+      <div className="flex flex-wrap gap-2">
+        {data.map((skill, i) => (
+          <span key={i} className="bg-[#0B0E17] border border-white/10 text-slate-300 text-sm px-3 py-1.5 rounded-full flex items-center">
+            {skill}
+            <button onClick={() => removeSkill(skill)} className="ml-2 text-slate-500 hover:text-red-400">
+              <Trash2 className="w-3 h-3" />
+            </button>
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ExperienceForm({ data, update }) {
+  const addExp = () => update([...data, { id: Date.now(), company: '', location: '', position: '', startDate: '', endDate: '', responsibilities: '' }]);
+  const updateExp = (id, field, val) => update(data.map(e => e.id === id ? { ...e, [field]: val } : e));
+  const removeExp = (id) => update(data.filter(e => e.id !== id));
+
+  return (
+    <div className="space-y-4">
+      <div className="flex justify-between items-center">
+        <h3 className="text-lg font-bold flex items-center text-white"><Briefcase className="w-5 h-5 mr-2 text-sky-400"/> Work Experience</h3>
+        <button onClick={addExp} className="text-fuchsia-400 hover:text-fuchsia-300 text-sm font-medium flex items-center bg-fuchsia-500/10 px-2 py-1 rounded-md"><Plus className="w-4 h-4 mr-1"/> Add</button>
+      </div>
+      {data.map((exp, idx) => (
+        <div key={exp.id} className="p-4 bg-[#0B0E17] border border-white/5 rounded-xl relative group space-y-3">
+          <button onClick={() => removeExp(exp.id)} className="absolute top-2 right-2 text-slate-500 hover:text-red-400"><Trash2 className="w-4 h-4"/></button>
+          <div className="grid grid-cols-2 gap-4">
+            <InputGroup label="Business Name" placeholder="Home Depot" value={exp.company} onChange={(e) => updateExp(exp.id, 'company', e.target.value)} />
+            <InputGroup label="Location" placeholder="Medicine Hat" value={exp.location} onChange={(e) => updateExp(exp.id, 'location', e.target.value)} />
+          </div>
+          <InputGroup label="Position" placeholder="Cashier" value={exp.position} onChange={(e) => updateExp(exp.id, 'position', e.target.value)} />
+          <div className="grid grid-cols-2 gap-4">
+            <InputGroup label="Start Date" placeholder="June 2006" value={exp.startDate} onChange={(e) => updateExp(exp.id, 'startDate', e.target.value)} />
+            <InputGroup label="End Date" placeholder="Present" value={exp.endDate} onChange={(e) => updateExp(exp.id, 'endDate', e.target.value)} />
+          </div>
+          <TextAreaGroup label="Responsibilities (Tip: Use action words!)" placeholder="Handled cash sales, provided product information..." value={exp.responsibilities} onChange={(e) => updateExp(exp.id, 'responsibilities', e.target.value)} />
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function VolunteerForm({ data, update }) {
+  const addVol = () => update([...data, { id: Date.now(), role: '', organization: '', date: '', responsibilities: '' }]);
+  const updateVol = (id, field, val) => update(data.map(e => e.id === id ? { ...e, [field]: val } : e));
+  const removeVol = (id) => update(data.filter(e => e.id !== id));
+
+  return (
+    <div className="space-y-4">
+      <div className="flex justify-between items-center">
+        <h3 className="text-lg font-bold flex items-center text-white"><Heart className="w-5 h-5 mr-2 text-rose-400"/> Volunteer Activities</h3>
+        <button onClick={addVol} className="text-fuchsia-400 hover:text-fuchsia-300 text-sm font-medium flex items-center bg-fuchsia-500/10 px-2 py-1 rounded-md"><Plus className="w-4 h-4 mr-1"/> Add</button>
+      </div>
+      {data.map((vol, idx) => (
+        <div key={vol.id} className="p-4 bg-[#0B0E17] border border-white/5 rounded-xl relative group space-y-3">
+          <button onClick={() => removeVol(vol.id)} className="absolute top-2 right-2 text-slate-500 hover:text-red-400"><Trash2 className="w-4 h-4"/></button>
+          <div className="grid grid-cols-2 gap-4">
+            <InputGroup label="Role" placeholder="Coach" value={vol.role} onChange={(e) => updateVol(vol.id, 'role', e.target.value)} />
+            <InputGroup label="Organization" placeholder="Girls Little League" value={vol.organization} onChange={(e) => updateVol(vol.id, 'organization', e.target.value)} />
+          </div>
+          <InputGroup label="Date" placeholder="Summer 2006" value={vol.date} onChange={(e) => updateVol(vol.id, 'date', e.target.value)} />
+          <TextAreaGroup label="Responsibilities (Optional)" placeholder="Coached children..." value={vol.responsibilities} onChange={(e) => updateVol(vol.id, 'responsibilities', e.target.value)} />
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function ReferencesForm({ data, update }) {
+  const addRef = () => update([...data, { id: Date.now(), name: '', title: '', organization: '', address: '', phone: '' }]);
+  const updateRef = (id, field, val) => update(data.map(e => e.id === id ? { ...e, [field]: val } : e));
+  const removeRef = (id) => update(data.filter(e => e.id !== id));
+
+  return (
+    <div className="space-y-4">
+      <div className="flex justify-between items-center">
+        <h3 className="text-lg font-bold flex items-center text-white"><Users className="w-5 h-5 mr-2 text-orange-400"/> References</h3>
+        <button onClick={addRef} className="text-fuchsia-400 hover:text-fuchsia-300 text-sm font-medium flex items-center bg-fuchsia-500/10 px-2 py-1 rounded-md"><Plus className="w-4 h-4 mr-1"/> Add</button>
+      </div>
+      <p className="text-xs text-orange-400 bg-orange-400/10 p-3 rounded-lg border border-orange-400/20">
+        Remember: Do not use friends. References must be adults (teachers, coaches, employers). Minimum of 3 recommended.
+      </p>
+      {data.map((ref, idx) => (
+        <div key={ref.id} className="p-4 bg-[#0B0E17] border border-white/5 rounded-xl relative group space-y-3">
+          <button onClick={() => removeRef(ref.id)} className="absolute top-2 right-2 text-slate-500 hover:text-red-400"><Trash2 className="w-4 h-4"/></button>
+          <div className="grid grid-cols-2 gap-4">
+            <InputGroup label="Name" placeholder="Heather Laturnas" value={ref.name} onChange={(e) => updateRef(ref.id, 'name', e.target.value)} />
+            <InputGroup label="Title/Relationship" placeholder="Teacher" value={ref.title} onChange={(e) => updateRef(ref.id, 'title', e.target.value)} />
+          </div>
+          <InputGroup label="Organization" placeholder="Eagle Butte High School" value={ref.organization} onChange={(e) => updateRef(ref.id, 'organization', e.target.value)} />
+          <InputGroup label="Mailing Address" placeholder="PO Box 281, Dunmore, AB" value={ref.address} onChange={(e) => updateRef(ref.id, 'address', e.target.value)} />
+          <InputGroup label="Phone Number" placeholder="(403) 528-1996" value={ref.phone} onChange={(e) => updateRef(ref.id, 'phone', e.target.value)} />
+        </div>
+      ))}
+    </div>
+  );
+}
+
+
+// --- LIVE PREVIEW COMPONENT (Handles Styles) ---
+function ResumePreview({ data, styleId = '1' }) {
+  
+  // Define the styling rules based on the selected toggle (1, 2, or 3)
+  const styles = {
+    '1': { // Classic - Matches original PDF rules perfectly
+      fontFamily: '"Times New Roman", Times, serif',
+      nameClass: 'text-2xl font-bold mb-2 uppercase text-center',
+      contactClass: 'text-[10pt] text-center space-y-0.5',
+      headerClass: 'font-bold text-base tracking-widest uppercase pb-1 border-b-[1.5px] border-black mb-4 mt-6',
+      subheadClass: 'font-bold',
+      italicClass: 'italic',
+      dateClass: 'text-right font-bold',
+      bulletClass: 'list-disc pl-5 space-y-1 mt-1',
+      pageLayout: 'p-8 sm:p-12 text-[11pt] leading-tight'
+    },
+    '2': { // Modern - Clean sans-serif
+      fontFamily: '"Inter", "Helvetica Neue", Arial, sans-serif',
+      nameClass: 'text-3xl font-black mb-1 text-slate-800 tracking-tight',
+      contactClass: 'text-[9.5pt] text-slate-500 flex flex-wrap gap-x-3 gap-y-1 mb-6 pb-4 border-b border-slate-200',
+      headerClass: 'font-bold text-sm tracking-widest uppercase text-slate-500 mb-3 mt-6',
+      subheadClass: 'font-bold text-slate-800',
+      italicClass: 'text-slate-600',
+      dateClass: 'text-right text-slate-500 text-sm font-medium',
+      bulletClass: 'list-disc pl-4 space-y-1 mt-2 text-slate-700 marker:text-slate-300',
+      pageLayout: 'p-8 sm:p-12 text-[10pt] leading-relaxed'
+    },
+    '3': { // Elegant - Airy, centered serif
+      fontFamily: 'Georgia, serif',
+      nameClass: 'text-4xl font-normal mb-2 text-center text-slate-900 tracking-wide',
+      contactClass: 'text-[10pt] text-center text-slate-600 space-y-0.5',
+      headerClass: 'font-normal text-lg text-center uppercase border-t border-b border-slate-300 py-1.5 mb-5 mt-8 tracking-[0.2em]',
+      subheadClass: 'font-bold text-slate-800 text-base',
+      italicClass: 'italic text-slate-600',
+      dateClass: 'text-right italic text-slate-500',
+      bulletClass: 'list-[circle] pl-6 space-y-1.5 mt-2 text-slate-800',
+      pageLayout: 'p-8 sm:p-14 text-[10.5pt] leading-relaxed'
+    }
+  };
+
+  const currentStyle = styles[styleId];
+
+  const SectionHeader = ({ title }) => (
+    <h2 className={currentStyle.headerClass}>{title}</h2>
+  );
+
+  return (
+    <div 
+      className={`bg-white shadow-2xl rounded-sm print:shadow-none print:rounded-none mx-auto print:max-w-none text-black min-h-[1056px] w-full max-w-[816px] overflow-hidden transition-all duration-500 ${currentStyle.pageLayout}`} 
+      style={{ fontFamily: currentStyle.fontFamily }}
+    >
+      
+      {/* HEADER */}
+      <div className={styleId === '2' ? 'text-left' : 'text-center'}>
+        <h1 className={currentStyle.nameClass}>{data.personal.name || 'Your Name'}</h1>
+        
+        {styleId === '2' ? (
+           // Modern format inline contact info
+          <div className={currentStyle.contactClass}>
+             {data.personal.address && <span>{data.personal.address}</span>}
+             {data.personal.homePhone && <span>• {data.personal.homePhone}</span>}
+             {data.personal.cellPhone && <span>• {data.personal.cellPhone}</span>}
+             {data.personal.email && <span>• {data.personal.email}</span>}
+          </div>
+        ) : (
+          // Classic & Elegant stacked format
+          <div className={currentStyle.contactClass}>
+            <div>{data.personal.address || 'Your Address'}</div>
+            <div>
+              {[data.personal.homePhone, data.personal.cellPhone, data.personal.email].filter(Boolean).join(' • ')}
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* EDUCATION */}
+      {data.education.some(e => e.school || e.degree) && (
+        <div>
+          <SectionHeader title="Education" />
+          <div className="space-y-4">
+            {data.education.map((edu, i) => (
+              (edu.school || edu.degree) && (
+                <div key={i} className="flex justify-between items-start">
+                  <div>
+                    <div className={currentStyle.subheadClass}>{edu.school}</div>
+                    <div className={currentStyle.italicClass}>{edu.degree}</div>
+                  </div>
+                  <div className={`${currentStyle.dateClass} pl-4 whitespace-nowrap`}>{edu.year}</div>
+                </div>
+              )
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* SKILLS */}
+      {data.skills.length > 0 && (
+        <div>
+          <SectionHeader title="Skills & Abilities" />
+          <ul className={currentStyle.bulletClass}>
+            {data.skills.map((skill, i) => (
+              <li key={i}>{skill}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {/* WORK EXPERIENCE */}
+      {data.experience.some(e => e.company || e.position) && (
+        <div>
+          <SectionHeader title="Work Experience" />
+          <div className="space-y-6">
+            {data.experience.map((exp, i) => (
+              (exp.company || exp.position) && (
+                <div key={i}>
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <span className={currentStyle.subheadClass}>{exp.position}</span>
+                      {styleId === '1' && <br/>}
+                      {styleId !== '1' && <span className="mx-2 text-slate-300">|</span>}
+                      <span className={currentStyle.italicClass}>{exp.company}{exp.location ? `, ${exp.location}` : ''}</span>
+                    </div>
+                    <div className={`${currentStyle.dateClass} pl-4 whitespace-nowrap`}>
+                      {[exp.startDate, exp.endDate].filter(Boolean).join(' - ')}
+                    </div>
+                  </div>
+                  {exp.responsibilities && (
+                    <ul className={currentStyle.bulletClass}>
+                      {exp.responsibilities.split('\n').filter(r => r.trim()).map((resp, j) => (
+                        <li key={j}>{resp}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              )
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* VOLUNTEER */}
+      {data.volunteer.some(v => v.role || v.organization) && (
+        <div>
+          <SectionHeader title="Volunteer Activities" />
+          <div className="space-y-4">
+            {data.volunteer.map((vol, i) => (
+              (vol.role || vol.organization) && (
+                <div key={i}>
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <span className={currentStyle.subheadClass}>{vol.role}</span>
+                      {styleId === '1' && <br/>}
+                      {styleId !== '1' && <span className="mx-2 text-slate-300">|</span>}
+                      <span className={currentStyle.italicClass}>{vol.organization}</span>
+                    </div>
+                    <div className={`${currentStyle.dateClass} pl-4 whitespace-nowrap`}>{vol.date}</div>
+                  </div>
+                  {vol.responsibilities && (
+                    <p className={`mt-1 text-[0.95em] ${styleId === '1' ? 'pl-5' : 'pl-4 text-slate-700'}`}>{vol.responsibilities}</p>
+                  )}
+                </div>
+              )
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* REFERENCES */}
+      {data.references.some(r => r.name || r.organization) && (
+        <div className="print:break-inside-avoid">
+          <SectionHeader title="References" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 print:grid-cols-2">
+            {data.references.map((ref, i) => (
+              (ref.name || ref.organization) && (
+                <div key={i} className="text-[0.95em] space-y-0.5">
+                  <div className={currentStyle.subheadClass}>{ref.name}{ref.title ? `, ${ref.title}` : ''}</div>
+                  <div>{ref.organization}</div>
+                  <div>{ref.address}</div>
+                  <div>{ref.phone}</div>
+                </div>
+              )
+            ))}
+          </div>
+        </div>
+      )}
+
+    </div>
+  );
+}
+
+// --- EXEMPLAR SECTION ---
+
+function InteractiveRegion({ children, tip, placement = 'bottom-left', className = "block w-full" }) {
+  
+  // Smart placement classes to prevent tooltips from getting cut off on edges
+  const placementClasses = {
+    bottom: "top-full left-1/2 -translate-x-1/2 mt-3",
+    "bottom-left": "top-full left-0 mt-3", 
+    "bottom-right": "top-full right-0 mt-3", 
+    top: "bottom-full left-1/2 -translate-x-1/2 mb-3",
+    "top-left": "bottom-full left-0 mb-3",
+    "top-right": "bottom-full right-0 mb-3",
+  };
+
+  const arrowClasses = {
+    bottom: "-top-1.5 left-1/2 -translate-x-1/2 border-t border-l",
+    "bottom-left": "-top-1.5 left-6 border-t border-l",
+    "bottom-right": "-top-1.5 right-6 border-t border-l",
+    top: "-bottom-1.5 left-1/2 -translate-x-1/2 border-b border-r",
+    "top-left": "-bottom-1.5 left-6 border-b border-r",
+    "top-right": "-bottom-1.5 right-6 border-b border-r",
+  };
+
+  return (
+    <div className={`relative group rounded-md -m-1.5 p-1.5 border-2 border-transparent hover:border-fuchsia-500/50 hover:bg-fuchsia-500/10 transition-all cursor-help ${className}`}>
+      {children}
+      <div className={`absolute z-50 w-64 sm:w-72 p-4 bg-[#15192B] border border-fuchsia-500/30 text-white text-sm rounded-xl shadow-[0_0_20px_rgba(192,38,211,0.3)] opacity-0 pointer-events-none group-hover:opacity-100 transition-all duration-300 scale-95 group-hover:scale-100 ${placementClasses[placement]}`}>
+        <div className="font-bold flex items-center mb-2 text-fuchsia-400 tracking-wide uppercase text-xs">
+          <Info className="w-4 h-4 mr-1.5"/> Guide Tip
+        </div>
+        <p className="leading-relaxed text-slate-300">{tip}</p>
+        <div className={`absolute w-3 h-3 bg-[#15192B] border-fuchsia-500/30 transform rotate-45 hidden sm:block ${arrowClasses[placement]}`}></div>
+      </div>
+    </div>
+  );
+}
+
+function ExemplarSection() {
+  const SectionHeader = ({ title }) => (
+    <div className="mb-4 mt-6">
+      <h2 className="font-bold text-base tracking-widest uppercase pb-1 border-b-[1.5px] border-black text-black">{title}</h2>
+    </div>
+  );
+
+  return (
+    <div className="space-y-8 animate-in fade-in duration-500">
+      
+      {/* Intro Header */}
+      <div className="bg-[#15192B] rounded-2xl shadow-lg p-6 sm:p-8 border border-white/5 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-1 h-full bg-indigo-500"></div>
+        <h2 className="text-2xl font-bold text-white mb-2">Resume Exemplar</h2>
+        <p className="text-slate-400 text-lg">
+          Hover over the <span className="inline-block px-2 py-0.5 bg-fuchsia-500/10 border border-fuchsia-500/30 text-fuchsia-400 rounded text-sm font-medium mx-1">highlighted areas</span> 
+          on this sample resume to see the rules and formatting tips in action.
+        </p>
+      </div>
+
+      {/* Interactive Resume Canvas - KEEPS WHITE BACKGROUND INTENTIONALLY */}
+      <div className="flex justify-center overflow-visible pb-12 px-4 sm:px-12">
+        <div className="bg-white shadow-[0_0_40px_rgba(0,0,0,0.5)] rounded-sm text-black p-8 sm:p-12 text-[11pt] leading-tight font-serif w-full max-w-[816px]" style={{ fontFamily: '"Times New Roman", Times, serif' }}>
+          
+          <InteractiveRegion tip="Center name and mailing address. Ensure phone numbers and emails are professional." placement="bottom">
+            <div className="text-center mb-8">
+              <h1 className="text-2xl font-bold mb-2 uppercase">Peter Parker</h1>
+              <div className="text-[10pt] space-y-0.5">
+                <div>PO Box 123</div>
+                <div>Redcliff, AB T0J 2P0</div>
+                <div>(780) 555-1234</div>
+              </div>
+            </div>
+          </InteractiveRegion>
+
+          <InteractiveRegion tip="Be consistent with spacing, capitalization and font style and sizes. Leave two blank lines before a main heading." placement="bottom-left">
+            <SectionHeader title="Education" />
+          </InteractiveRegion>
+          
+          <div className="space-y-4">
+            <div className="flex justify-between items-start">
+              <div>
+                <div className="font-bold">Eagle Butte High School</div>
+                <div>Currently completing grade 10</div>
+              </div>
+              <InteractiveRegion tip="Set a tab to line up dates to keep everything neat." placement="bottom-right" className="inline-block w-auto">
+                <div className="text-right whitespace-nowrap pl-4 font-bold">2006 - Present</div>
+              </InteractiveRegion>
+            </div>
+            
+            <InteractiveRegion tip="Use reverse chronological order. Put your most recent achievements first." placement="bottom-left">
+              <div className="flex justify-between items-start">
+                <div className="font-bold">St. John's Ambulance Emergency First Aid Course</div>
+                <div className="text-right whitespace-nowrap pl-4 font-bold">November 2006</div>
+              </div>
+            </InteractiveRegion>
+          </div>
+
+          <SectionHeader title="Skills & Abilities" />
+          <InteractiveRegion tip="Include at least 5 skills. Group them nicely using bullet points." placement="bottom-left">
+            <ul className="list-disc pl-5 space-y-1">
+              <li>Working with small children and seniors</li>
+              <li>Proven ability to work as part of a team</li>
+              <li>Reliable and dependable</li>
+              <li>Excellent organizational skills</li>
+              <li>Ability to key 40 CWAM</li>
+              <li>Computer skills include:<br/>Microsoft Word, Excel, Access and PowerPoint</li>
+            </ul>
+          </InteractiveRegion>
+
+          <SectionHeader title="Work Experience" />
+          <div className="space-y-5">
+            <InteractiveRegion tip="Include your position, place of employment and a description of the tasks. Use Action Words!" placement="bottom-left">
+              <div>
+                <div className="flex justify-between items-start mb-1">
+                  <div>
+                    <span className="font-bold">Cashier</span>
+                    <br />
+                    <span>Home Depot, Medicine Hat</span>
+                  </div>
+                  <div className="text-right whitespace-nowrap pl-4 font-bold">June 2006 - Present</div>
+                </div>
+                <ul className="list-disc pl-5 mt-2 space-y-1">
+                  <li>Handled hundreds of cash sales at hardware show. These transactions involved processing cash, credit card and debit card payments.</li>
+                  <li>Provided product information and answered general inquiries in both French and English.</li>
+                </ul>
+              </div>
+            </InteractiveRegion>
+
+            <div>
+              <div className="flex justify-between items-start mb-1">
+                <div>
+                  <span className="font-bold">Babysitter</span>
+                  <br />
+                  <span>Jim and Patti Smith</span>
+                </div>
+                <div className="text-right whitespace-nowrap pl-4 font-bold">2005 - Present</div>
+              </div>
+              <ul className="list-disc pl-5 mt-2 space-y-1">
+                <li>Responsible for feeding, entertaining and caring for the personal needs of four small children.</li>
+              </ul>
+            </div>
+
+            <div>
+              <div className="flex justify-between items-start mb-1">
+                <div>
+                  <span className="font-bold">Lawn Care Attendant</span>
+                  <br />
+                  <span>Luscious Lawns, Medicine Hat</span>
+                </div>
+                <div className="text-right whitespace-nowrap pl-4 font-bold">Summer 2005 & 2006</div>
+              </div>
+              <ul className="list-disc pl-5 mt-2 space-y-1">
+                <li>Served customers politely and provided excellent lawn care service. This increased business by twenty customers.</li>
+                <li>Trimmed lawns, moved outdoor furniture, maintained and repaired equipment. These tasks required careful attention to detail.</li>
+              </ul>
+            </div>
+          </div>
+
+          <SectionHeader title="Volunteer Activities" />
+          <InteractiveRegion tip="Volunteer experience can be included separately or with work experience. It's great if you have limited paid experience!" placement="top-left">
+            <div>
+              <div className="flex justify-between items-start">
+                <div>
+                  <span className="font-bold">Coach</span>
+                  <br/>
+                  <span>Girls Little League Team</span>
+                </div>
+                <div className="text-right whitespace-nowrap pl-4 font-bold">Summer 2006</div>
+              </div>
+            </div>
+          </InteractiveRegion>
+
+          <InteractiveRegion tip="Include a header on the second page only with your name and page number." placement="top-left">
+            <SectionHeader title="Extra-Curricular Activities" />
+          </InteractiveRegion>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>Student council</li>
+            <li>Volleyball</li>
+            <li>Guitar</li>
+            <li>Snowboarding</li>
+          </ul>
+
+          <InteractiveRegion tip="Include 3 references with complete mailing address and phone number. Refer to the instructions about who is an acceptable reference (No friends!)." placement="top-left">
+            <div>
+              <SectionHeader title="References" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="text-[10pt] leading-tight space-y-0.5">
+                  <div className="font-bold">Heather Laturnas, Teacher</div>
+                  <div>Eagle Butte High School</div>
+                  <div>PO Box 281</div>
+                  <div>Dunmore, AB T0J 1A0</div>
+                  <div>(403) 528-1996</div>
+                </div>
+                <div className="text-[10pt] leading-tight space-y-0.5">
+                  <div className="font-bold">Violet Taylor, Manager</div>
+                  <div>Luscious Lawns</div>
+                  <div>1234 13th Street</div>
+                  <div>Medicine Hat, AB T1A 1Z9</div>
+                  <div>(403) 504-5555</div>
+                </div>
+                <div className="text-[10pt] leading-tight space-y-0.5">
+                  <div className="font-bold">Jim Smith, President</div>
+                  <div>Sunset Bay Hot Tubs</div>
+                  <div>1111 Dunmore Road</div>
+                  <div>Medicine Hat, AB T1B 1C9</div>
+                  <div>(403) 529-1111</div>
+                </div>
+              </div>
+            </div>
+          </InteractiveRegion>
+
+        </div>
+      </div>
+    </div>
+  );
+}
