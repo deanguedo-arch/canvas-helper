@@ -1,0 +1,28 @@
+{
+  "$schema": "../../../e2e/project-e2e-contract.schema.json",
+  "projectSlug": "calm-module-4",
+  "requiredTestIds": [
+    "studio-shell",
+    "course-studio-tab",
+    "workspace-project-select",
+    "project-root",
+    "workspace-preview-frame"
+  ],
+  "modes": {
+    "enabled": false
+  },
+  "navigation": {
+    "enabled": true,
+    "nextRoleName": "NEXT UNIT",
+    "previousRoleName": "PREVIOUS"
+  },
+  "quiz": {
+    "enabled": false,
+    "lessonTitle": "Module Reflection",
+    "progressPattern": "answered",
+    "checkAnswerRoleName": "Check answer"
+  },
+  "fallbackPanel": {
+    "enabled": false
+  }
+}
