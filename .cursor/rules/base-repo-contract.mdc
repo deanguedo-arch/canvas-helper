@@ -5,14 +5,26 @@ alwaysApply: true
 
 # Base Repo Contract
 
-You are working in the `canvas-helper` repository. Always obey these rules.
+You are working in the `canvas-helper` repository.
+
+## Operating Truth
+
+Canvas Helper is a post-generation production environment for course artifacts:
+`import -> normalize -> edit -> expand -> integrate -> export`.
+
+Supported workflows:
+- `conversion`
+- `generated-course`
+- `injection/integration`
 
 ## Mode Semantics
-- `CANVAS`: first-pass artifact generation. Build the requested surface coherently, with stronger hierarchy, interaction quality, and responsiveness, while staying inside the requested boundary.
-- `DEFAULT`: balanced engineering. Use controlled diffs, preserve the concept, and optimize for cleanup, integration, and stability.
-- Do not blend the two modes into one cautious middle ground.
+
+- `CANVAS`: artifact-focused generation, expansion, and restructuring inside the requested boundary.
+- `DEFAULT`: controlled integration, refinement, conversion cleanup, and export-safe engineering.
+- Never blend the two modes into one cautious middle ground.
 
 ## Repo Boundaries
+
 Allowed:
 - `app/studio/**`
 - `app/server/**`
@@ -28,53 +40,37 @@ Protected:
 - `projects/<slug>/exports/**`
 - `.runtime/**`
 
-Never edit protected zones unless the user explicitly instructs it.
+Never edit protected zones unless explicitly requested.
 
-## Ownership
-- `app/studio/`: browser UI and client state
-- `app/server/`: local routes, preview safety, command bridge
-- `scripts/lib/`: import/analyze/refs/export logic
-- `scripts/lib/intelligence/config/`: flags and policy
-- `scripts/lib/intelligence/collect/`: collection
-- `scripts/lib/intelligence/apply/`: recommendations and influence
+## Source-of-Truth Rules
+
+- Active migrated projects must declare canonical source-of-truth metadata in `projects/<slug>/meta/project.json`.
+- Runtime bundles and generated outputs are never canonical sources.
+- If generated outputs are tracked, declare regeneration path/command.
+- Direct bundle patches are emergency-only and must be documented.
 
 ## Retrieval Order
-If a project slug is involved:
-1. Read `projects/<slug>/meta/prompt-pack.md` first.
-2. Then read only the specific policy or ledger files needed.
-3. Use `projects/<slug>/references/extracted/` only if the task depends on it.
 
-For repo-wide workflow or agent-rule changes:
-1. Read `ARCHITECTURE.md` only if needed.
-2. Read `docs/ops/HANDOFF.md` only if needed.
+1. Read `docs/ops/ACTIVE_HANDOFF.md`.
+2. If workflow is known, read the matching `docs/workflows/*.md` guide.
+3. For project work, read `projects/<slug>/meta/prompt-pack.md`.
+4. Expand retrieval only when needed to resolve real ambiguity.
 
 ## Editing Rules
-- Prefer the smallest diff that fully satisfies the task.
-- In `CANVAS` mode, favor a coherent artifact surface over tiny safe patches when the task is first-pass generation.
+
+- Prefer the smallest diff that fully resolves the task.
 - Touch only files needed for the task.
 - No formatting-only sweeps.
 - No broad refactors without explicit approval.
 - No renames or dependency churn unless necessary.
-- Preserve local conventions.
-- Keep user-authored changes in `projects/<slug>/workspace/**`.
-
-## Subagent Mode
-- If the user explicitly says this is a subagent, or says to act as a subagent, treat the task as subagent mode automatically.
-- If the signal is ambiguous, ask exactly once: `Should I apply subagent rules for this task?`
-- When subagent mode is active, start with the smallest useful retrieval path and keep the surgical rules on for the rest of the task unless the user changes the scope.
-- Do not keep asking whether to apply subagent rules after confirmation.
-
-## Intelligence Rules
-- Do not hard-wire intelligence behavior outside `scripts/lib/intelligence/**`.
-- New intelligence flags belong in `scripts/lib/intelligence/config/`.
-- Respect precedence: CLI override, then project policy, then repo default.
-- Default new flags to the safest behavior preserving current workflows.
+- Keep user-authored edits in `projects/<slug>/workspace/**`.
 
 ## Safety
+
 - Never revert unrelated user changes.
 - Never use destructive git commands.
-- If unexpected changes conflict with the current task, stop and ask.
+- If unexpected conflicting changes appear, stop and ask.
 
 ## Handoff
-Every completion must include:
-`Summary | Files changed | Verification run | Known risks / follow-up | Exact next command | Exact next file to open`
+
+Completion output must follow `docs/ops/HANDOFF.md`.

@@ -5,6 +5,7 @@ import { fileExists, latestMtimeMs, listFilesRecursive, readJsonFile, writeJsonF
 import { getProcessedProjectPaths, getProjectPaths, processedRoot, projectsRoot } from "./paths.js";
 import type { ProjectManifest, ReferenceIndex, SectionMap, StudioProjectBundle } from "./types.js";
 import { resolveIntelligencePolicy } from "./intelligence/config/policy.js";
+import { normalizeProjectManifestPolicy } from "./project-manifest-policy.js";
 
 const RESERVED_PROJECT_DIRS = new Set(["incoming", "processed", "resources"]);
 
@@ -36,13 +37,14 @@ function normalizeLearningTrust(value: string | undefined) {
 }
 
 function normalizeProjectManifest(manifest: ProjectManifest): ProjectManifest {
+  const policyNormalizedManifest = normalizeProjectManifestPolicy(manifest);
   const fallbackLearningTimestamp = manifest.updatedAt ?? manifest.createdAt ?? new Date().toISOString();
   return {
-    ...manifest,
-    learningSource: normalizeLearningSource(manifest.learningSource),
-    learningTrust: normalizeLearningTrust(manifest.learningTrust),
-    learningUpdatedAt: manifest.learningUpdatedAt ?? fallbackLearningTimestamp,
-    workspaceApprovedAt: manifest.workspaceApprovedAt
+    ...policyNormalizedManifest,
+    learningSource: normalizeLearningSource(policyNormalizedManifest.learningSource),
+    learningTrust: normalizeLearningTrust(policyNormalizedManifest.learningTrust),
+    learningUpdatedAt: policyNormalizedManifest.learningUpdatedAt ?? fallbackLearningTimestamp,
+    workspaceApprovedAt: policyNormalizedManifest.workspaceApprovedAt
   };
 }
 

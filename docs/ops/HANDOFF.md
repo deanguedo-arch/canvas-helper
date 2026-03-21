@@ -19,6 +19,18 @@ Every meaningful stop point must produce a handoff that another human or agent c
 - <fact>
 - <fact>
 
+## Why this changed
+- <reason>
+
+## Source of truth
+- <canonical entry + canonical sources>
+
+## Fragile areas / watchouts
+- <what may drift>
+
+## Next prompt should assume
+- <starting assumptions for next operator>
+
 ## What still needs validation
 - <specific check>
 
@@ -43,5 +55,7 @@ Every meaningful stop point must produce a handoff that another human or agent c
 - Include one exact next file to open.
 - Call out blockers directly.
 - Do not hide missing verification.
-- For repo-wide or multi-project work, the active cursor belongs in `docs/ops/ACTIVE_HANDOFF.md`.
-- For project-specific work, keep the active cursor in `projects/<slug>/meta/HANDOFF.md`.
+- Explicitly record source-of-truth location and fragile areas.
+- Add assumptions the next prompt should start with.
+- Keep the single active handoff in `docs/ops/ACTIVE_HANDOFF.md` for all work.
+- When switching tasks or machines, append the previous entry to `docs/ops/ARCHIVED_HANDOFFS.md` before overwriting the active handoff.

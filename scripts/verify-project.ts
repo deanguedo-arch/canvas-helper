@@ -1,4 +1,6 @@
 import { getStringFlag, parseArgs } from "./lib/cli.js";
+import { validateProjectManifestPolicy } from "./lib/project-manifest-policy.js";
+import { loadProjectManifest } from "./lib/projects.js";
 import { normalizeVerifyMode, verifyProjectBundle } from "./lib/verification.js";
 
 async function main() {
@@ -10,6 +12,28 @@ async function main() {
   }
 
   const mode = normalizeVerifyMode(getStringFlag(parsedArgs, "mode"));
+  const manifest = await loadProjectManifest(projectSlug);
+  const manifestValidation = validateProjectManifestPolicy(manifest);
+  if (manifestValidation.status === "invalid") {
+    throw new Error(
+      `Project metadata validation failed for "${projectSlug}":\n${manifestValidation.errors.map((line) => `- ${line}`).join("\n")}`
+    );
+  }
+
+  if (manifestValidation.status === "skipped-legacy") {
+    console.log("Metadata policy: skipped (legacy manifest)");
+  } else {
+    console.log("Metadata policy: passed");
+  }
+
+  if (manifestValidation.warnings.length > 0) {
+    console.log("Metadata warnings:");
+    for (const warning of manifestValidation.warnings) {
+      console.log(`- ${warning}`);
+    }
+    console.log("");
+  }
+
   const result = await verifyProjectBundle(projectSlug, mode);
 
   console.log(`Mode: ${result.mode}`);

@@ -13,6 +13,75 @@
   "learningSource": "other",
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-03-19T18:00:26.529Z",
+  "migrationState": "migrated",
+  "projectType": "generated-course",
+  "preferredWorkflows": [
+    "generated-course",
+    "injection/integration"
+  ],
+  "canonicalEntry": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\calm-module-4\\workspace\\index.html",
+  "canonicalSources": [
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\calm-module-4\\workspace\\index.html",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\calm-module-4\\workspace\\main.jsx",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\calm-module-4\\workspace\\main.js",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\calm-module-4\\workspace\\styles.css",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\calm-module-4\\workspace\\components\\careerplanning.reference.jsx",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\calm-module-4\\workspace\\components\\resourcefulpeople.reference.jsx",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\calm-module-4\\workspace\\components\\masterplan.reference.jsx",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\calm-module-4\\workspace\\components\\resumebuilder.reference.jsx",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\calm-module-4\\workspace\\components\\coverletterbuilder.reference.jsx"
+  ],
+  "generatedOutputs": [],
+  "injectedComponents": [
+    {
+      "id": "career-planner",
+      "source": "projects/calm-module-4/workspace/components/careerplanning.reference.jsx",
+      "target": "projects/calm-module-4/workspace/main.jsx",
+      "status": "active"
+    },
+    {
+      "id": "resourceful-people",
+      "source": "projects/calm-module-4/workspace/components/resourcefulpeople.reference.jsx",
+      "target": "projects/calm-module-4/workspace/main.jsx",
+      "status": "active"
+    },
+    {
+      "id": "master-plan",
+      "source": "projects/calm-module-4/workspace/components/masterplan.reference.jsx",
+      "target": "projects/calm-module-4/workspace/main.jsx",
+      "status": "active"
+    },
+    {
+      "id": "resume-builder",
+      "source": "projects/calm-module-4/workspace/components/resumebuilder.reference.jsx",
+      "target": "projects/calm-module-4/workspace/main.jsx",
+      "status": "active"
+    },
+    {
+      "id": "cover-letter-builder",
+      "source": "projects/calm-module-4/workspace/components/coverletterbuilder.reference.jsx",
+      "target": "projects/calm-module-4/workspace/main.jsx",
+      "status": "active"
+    }
+  ],
+  "importedFirstPassOrigin": {
+    "sourceSystem": "gemini-canvas",
+    "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\processed\\calm-module-4\\source"
+  },
+  "exportTargets": [
+    {
+      "target": "brightspace",
+      "enabled": true
+    },
+    {
+      "target": "google-hosted",
+      "enabled": false,
+      "notes": "Enable after google-hosted.deploy.json is configured."
+    }
+  ],
+  "authoringStatus": "blocked",
+  "referenceOnly": [],
+  "sourceOfTruthNotes": "Treat workspace/index.html + main runtime/component sources as canonical. Export bundles are derived output.",
   "createdAt": "2026-03-19T18:00:26.397Z",
   "updatedAt": "2026-03-20T14:21:18.574Z",
   "workspaceApprovedAt": "2026-03-19T22:01:20.021Z"

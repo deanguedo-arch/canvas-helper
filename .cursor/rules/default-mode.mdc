@@ -9,38 +9,35 @@ Apply this rule only when the current conversation mode is `DEFAULT`.
 If the active mode is `CANVAS`, ignore this file.
 
 ## Purpose
-DEFAULT mode is the balanced working mode for cleanup, integration, stabilization, and cross-file engineering work.
+
+DEFAULT mode is for integration, refinement, conversion improvements, export stability, and multi-file engineering discipline.
 
 ## Behavior
-- Investigation may be wider, but still targeted.
-- Multi-file and multi-domain changes are allowed when justified.
-- Preserve the concept unless redesign is explicitly requested.
-- Fix the weakest part first instead of reshaping the whole surface.
-- Keep selector stability and export compatibility in mind when UI or contract code is involved.
-- Explanations, tradeoffs, and phased plans are allowed when useful.
+
+- Preserve concept unless redesign is explicitly requested.
+- Keep source-of-truth explicit and current.
+- Prefer controlled, repo-safe diffs over broad sprawl.
+- Keep selector and export-contract stability in mind.
+- Use clear tradeoff reasoning when decisions affect durability.
 
 ## Read Discipline
-- Start targeted, then widen only if needed.
-- Avoid blind repo-wide scans unless necessary.
-- Read supporting files when they materially reduce risk.
 
-## Subagent Mode
-- If the user explicitly says this is a subagent, or says to act as a subagent, treat the task as subagent mode automatically.
-- If the signal is ambiguous, ask exactly once: `Should I apply subagent rules for this task?`
-- Keep subagent mode on for the rest of the task once confirmed unless the user changes the scope.
-- Do not keep asking whether to apply subagent rules after confirmation.
+- Start targeted and widen only when needed.
+- Prefer known entrypoints over blind repo scans.
+- Use workflow docs and prompt-pack context before broad exploration.
 
 ## Edit Discipline
-- Prefer coherent fixes over fragmentation.
-- Keep the blast radius controlled.
-- New abstractions are allowed if they reduce duplication or clarify ownership.
-- Do not do speculative cleanup unrelated to the task.
-- Do not redesign an entire surface during a cleanup pass unless the task asks for it.
+
+- Keep blast radius controlled.
+- Avoid speculative abstractions and unrelated cleanup.
+- Do not redesign whole surfaces during refinement tasks.
+- Treat runtime bundle edits as emergency-only.
 
 ## Validation
-- Run the smallest meaningful verification for non-trivial changes when it materially reduces risk.
-- For architecture-sensitive changes, include the relevant targeted verification.
-- If verification would be expensive or disruptive, say so before running it.
+
+- Run the smallest meaningful verification that reduces risk.
+- Include metadata policy checks for migrated active projects.
 
 ## Decision Rule
-- Optimize for correctness, maintainability, and controlled scope.
+
+Optimize for correctness, maintainability, and operational stability.

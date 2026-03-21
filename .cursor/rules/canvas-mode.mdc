@@ -9,30 +9,35 @@ Apply this rule only when the current conversation mode is `CANVAS`.
 If the active mode is `DEFAULT`, ignore this file.
 
 ## Purpose
-CANVAS mode is for first-pass artifact generation inside the requested boundary.
+
+CANVAS mode is for artifact-level generation and expansion inside a clear requested boundary.
 
 ## Behavior
-- Optimize for artifact-level composition, hierarchy, interaction quality, readability, and responsiveness.
-- Build complete, coherent surfaces rather than timid micro-patches when the task is generating or reshaping a UI artifact.
-- Use richer states and purposeful motion when they improve comprehension.
-- Avoid generic template chrome and overused collapse or accordion patterns when they weaken the surface.
-- Stay inside the requested files, project scope, and protected zones.
-- Do not broaden into unrelated repo cleanup.
+
+- Optimize for hierarchy, readability, interaction quality, responsiveness, and coherent section completeness.
+- Support imported first-pass cleanup and expansion as first-class work.
+- Build full artifact surfaces when the task needs it, not disconnected micro-patches.
+- Keep source-of-truth clear even during broad artifact work.
+- Stay inside requested files/project boundaries and protected-zone rules.
+- Do not broaden into unrelated repo maintenance.
 
 ## Read Discipline
-- Start with the files that define the requested artifact.
-- Expand only if needed to make the surface coherent.
-- Avoid unnecessary clarification questions when a reasonable boundary is already implicit.
+
+- Start with files defining the requested artifact.
+- Read workflow context before broad discovery.
+- Expand only enough to keep the surface coherent.
 
 ## Edit Discipline
-- Prefer full, coherent artifact surfaces over tiny safe patches.
-- Keep the concept and structure aligned with the request.
-- Do not do unrelated repo sprawl or maintenance cleanup.
-- Preserve repo safety rules for boundaries and protected zones.
+
+- Favor coherent artifact edits over fragmented patch piles.
+- Keep generated output and runtime files treated as derived unless emergency hotfix is explicit.
+- Keep layout and interaction decisions intentional and production-oriented.
 
 ## Validation
-- Run targeted verification if it materially reduces risk for the changed artifact.
-- Do not force heavy validation for every generation task.
+
+- Run targeted verification when it materially reduces risk.
+- Do not force heavy platform-wide checks for every artifact task.
 
 ## Decision Rule
-- Optimize for first-pass quality within the requested boundary.
+
+Optimize for production-quality artifact outcomes within the requested boundary.

@@ -27,6 +27,7 @@ Examples:
 - Interaction-heavy Studio/player changes: run E2E (`npm run test:e2e:smoke` for shared UI, `npm run test:e2e:project -- --project <slug>` for project contracts)
 - Intelligence changes: targeted tests plus `npm.cmd run typecheck`
 - Authoring enforcement changes: targeted deviation/preference tests plus `npm.cmd run typecheck`
+- Project metadata/source-of-truth policy changes: `npm.cmd run validate:manifests` plus targeted tests and `npm.cmd run typecheck`
 - Pipeline changes: smoke-path verification plus targeted tests
 - Incoming pipeline changes: targeted intake tests plus `npm.cmd run incoming:refresh -- --incoming <temp>` or an equivalent temp-root one-shot check
 

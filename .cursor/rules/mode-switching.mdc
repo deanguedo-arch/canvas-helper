@@ -5,6 +5,8 @@ alwaysApply: true
 
 # Mode Switching
 
+Only two modes are valid in this repo: `CANVAS` and `DEFAULT`.
+
 If the user says `switch to canvas`, `canvas mode`, or equivalent:
 - Activate `CANVAS` mode and deactivate `DEFAULT` mode.
 - Reply with exactly `Mode active: CANVAS`.

@@ -1012,6 +1012,15 @@ export async function importProject(options: ImportProjectOptions) {
   }
 
   const timestamp = new Date().toISOString();
+  const inferredProjectType = learningSource === "gemini" ? "generated-course" : "conversion";
+  const canonicalSources = [paths.workspaceEntrypoint];
+  if (workspaceResult.scriptFile && !canonicalSources.includes(workspaceResult.scriptFile)) {
+    canonicalSources.push(workspaceResult.scriptFile);
+  }
+  if (workspaceResult.styleFile && !canonicalSources.includes(workspaceResult.styleFile)) {
+    canonicalSources.push(workspaceResult.styleFile);
+  }
+
   const manifest: ProjectManifest = {
     id: randomUUID(),
     slug,
@@ -1024,6 +1033,29 @@ export async function importProject(options: ImportProjectOptions) {
     learningSource,
     learningTrust,
     learningUpdatedAt: timestamp,
+    migrationState: "migrated",
+    projectType: inferredProjectType,
+    preferredWorkflows: [inferredProjectType],
+    canonicalEntry: paths.workspaceEntrypoint,
+    canonicalSources,
+    generatedOutputs: [],
+    injectedComponents: [],
+    importedFirstPassOrigin: {
+      sourceSystem: learningSource === "gemini" ? "gemini-canvas" : "other",
+      sourcePath: absoluteInputPath,
+      importedAt: timestamp
+    },
+    exportTargets: [
+      {
+        target: "brightspace",
+        enabled: true,
+        notes: "Default export target for imported projects."
+      }
+    ],
+    authoringStatus: "active",
+    referenceOnly: [],
+    sourceOfTruthNotes:
+      "Edit workspace sources listed in canonicalSources. Treat generated exports and runtime bundles as derived output.",
     createdAt: timestamp,
     updatedAt: timestamp
   };

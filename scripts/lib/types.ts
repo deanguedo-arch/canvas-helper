@@ -1,6 +1,11 @@
 export type InputKind = "html" | "text-html";
 export type PreviewMode = "raw" | "workspace";
 export type BrightspaceTarget = "course-page";
+export type ProjectType = "conversion" | "generated-course" | "hybrid";
+export type WorkflowType = "conversion" | "generated-course" | "injection/integration";
+export type ManifestMigrationState = "legacy" | "migrated";
+export type ProjectAuthoringStatus = "active" | "blocked" | "ready-for-export" | "reference-only" | "archived";
+export type InjectedComponentStatus = "active" | "reference-only" | "planned" | "archived";
 export type SourceKind = "function" | "dom" | "heuristic";
 export type LearningSource = "gemini" | "other";
 export type LearningTrust = "curated" | "auto";
@@ -73,6 +78,34 @@ export type ProjectManifest = {
   learningUpdatedAt: string;
   learnerMode?: LearnerMode;
   workspaceApprovedAt?: string;
+  migrationState?: ManifestMigrationState;
+  projectType?: ProjectType;
+  preferredWorkflows?: WorkflowType[];
+  canonicalEntry?: string;
+  canonicalSources?: string[];
+  generatedOutputs?: string[];
+  regenerateCommand?: string;
+  injectedComponents?: {
+    id: string;
+    source: string;
+    target: string;
+    status: InjectedComponentStatus;
+    notes?: string;
+  }[];
+  importedFirstPassOrigin?: {
+    sourceSystem: "gemini-canvas" | "d2l" | "brightspace" | "manual" | "other";
+    sourcePath?: string;
+    importedAt?: string;
+    notes?: string;
+  };
+  exportTargets?: {
+    target: "brightspace" | "scorm" | "google-hosted" | "html";
+    enabled?: boolean;
+    notes?: string;
+  }[];
+  authoringStatus?: ProjectAuthoringStatus;
+  referenceOnly?: string[];
+  sourceOfTruthNotes?: string;
   createdAt: string;
   updatedAt: string;
 };

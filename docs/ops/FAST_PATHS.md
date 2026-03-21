@@ -68,11 +68,16 @@ Read first:
 
 ## Handoff Resume
 
-For repo-wide or multi-project work:
 - open `docs/ops/ACTIVE_HANDOFF.md`
 
-For single-project work:
-- open `projects/<slug>/meta/HANDOFF.md`
+## Workflow-Aware Resume
+
+When workflow type is known, read the matching workflow guide immediately after `ACTIVE_HANDOFF`:
+
+- `docs/workflows/conversion.md`
+- `docs/workflows/generated-course.md`
+- `docs/workflows/injection-integration.md`
+- `docs/workflows/prompt-contract.md` for prompt structure
 
 ## Workflow Shift (High-Confidence E2E)
 

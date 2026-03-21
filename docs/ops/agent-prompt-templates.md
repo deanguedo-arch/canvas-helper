@@ -128,14 +128,22 @@ Deliver:
 ```text
 Project: <slug or repo-wide>
 Task: Produce a strict handoff.
-Use docs/ops/HANDOFF.md exactly.
+Use docs/ops/HANDOFF.md exactly and write it to docs/ops/ACTIVE_HANDOFF.md.
 Include:
 - Status
 - Files changed
 - What changed
+- Why this changed
+- Source of truth
+- Fragile areas / watchouts
+- Next prompt should assume
 - What still needs validation
 - Known risks
 - Exact next command
 - Exact next file to open
 - Do not do next / warnings
 ```
+
+## 7. Workflow Prompt Contract
+
+Use `docs/workflows/prompt-contract.md` for day-to-day prompt shape.

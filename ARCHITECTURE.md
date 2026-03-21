@@ -2,7 +2,15 @@
 
 ## What This Repo Is
 
-Canvas Helper is a local-first course-content workbench. It imports Canvas-generated HTML or bundle folders, preserves a raw baseline, creates an editable workspace copy, serves both views locally in Studio, and runs Node-based project commands for analyze, refs, export, SCORM packaging, Google-hosted bundle generation, and handoff support.
+Canvas Helper is a local-first post-generation course-content workbench. It imports course artifacts (including external first-pass outputs), preserves a raw baseline, creates an editable workspace copy, serves both views locally in Studio, and runs Node-based commands for normalization, analysis, references, export, packaging, and handoff support.
+
+Its production pipeline is:
+`import -> normalize -> edit -> expand -> integrate -> export`.
+
+Official workflows:
+- `conversion`
+- `generated-course`
+- `injection/integration`
 
 ## Why Local-First
 
@@ -79,6 +87,14 @@ Export target orchestration now lives under `scripts/lib/exports/`, while target
 - `projects/resources/<slug>/`: raw support files plus extracted text
 - `projects/assessments/<assessment-slug>/`: global assessment-library items (`source/`, `assessment.project.json`, `import-result.json`, `exports/brightspace/`)
 - `exports/`: generated output only
+
+`projects/<slug>/meta/project.json` is the source-of-truth manifest contract for active authoring state.
+Migrated active projects should explicitly declare:
+- project/workflow classification (`projectType`, `preferredWorkflows`)
+- canonical source-of-truth (`canonicalEntry`, `canonicalSources`)
+- regeneration contract (`generatedOutputs`, `regenerateCommand`) where needed
+- integration provenance (`injectedComponents`, `importedFirstPassOrigin`)
+- lifecycle/export posture (`authoringStatus`, `exportTargets`, `referenceOnly`)
 
 ### Intake and Resources
 

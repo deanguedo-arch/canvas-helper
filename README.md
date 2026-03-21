@@ -2,6 +2,10 @@
 
 Canvas Helper is a local-first Node-powered workbench for importing Canvas course content, preserving immutable raw baselines, editing workspace copies, previewing them in a browser Studio, and exporting Brightspace, SCORM, and Google-hosted deliverables.
 
+Canvas Helper is a post-generation production environment:
+`import -> normalize -> edit -> expand -> integrate -> export`.
+External first-pass generation is officially supported, and Canvas Helper is where those artifacts are disciplined into export-ready course surfaces.
+
 Repo-level intelligence defaults live in `config/intelligence.json`. Project-specific overrides can live in `projects/<slug>/meta/intelligence-policy.json` and/or `projects/<slug>/meta/project.json`.
 Repo-level authoring enforcement defaults live in `config/authoring-preferences.json`. Project-specific overrides can live in `projects/<slug>/meta/authoring-preferences.json`.
 
@@ -30,6 +34,7 @@ Repo-level authoring enforcement defaults live in `config/authoring-preferences.
 - `npm.cmd run blueprint -- --project <slug>`
 - `npm.cmd run assessment-map -- --project <slug>`
 - `npm.cmd run lesson-packets -- --project <slug>`
+- `npm.cmd run validate:manifests`
 - `npm.cmd run assessment:import -- --input "<file-or-dir>" [--slug <assessment-slug>]`
 - `npm.cmd run assessment:export -- --assessment <assessment-slug>`
 - `npm.cmd run test:assessments`
@@ -61,7 +66,18 @@ Repo-level authoring enforcement defaults live in `config/authoring-preferences.
 8. Run `analyze` and `refs` to refresh workspace structure plus classified resource artifacts
 9. Run `blueprint`, `assessment-map`, and `lesson-packets` to build outline-first planning artifacts before generation-heavy work
 10. Run export commands as needed
-11. Capture a handoff before stopping
+11. Run `validate:manifests` when project source-of-truth metadata changed
+12. Capture a handoff before stopping
+
+## Workflow Types
+
+Canvas Helper supports three official workflows:
+
+- `conversion`: fidelity-first cleanup/enhancement for D2L/Brightspace-derived projects
+- `generated-course`: import first-pass artifacts and expand them into complete production surfaces
+- `injection/integration`: import and surgically place external activities while keeping provenance clear
+
+Workflow guidance and prompt contracts live under `docs/workflows/`.
 
 ### D2L / Common Cartridge Mapping
 
@@ -171,6 +187,7 @@ Optional override flags for convert/export/deploy:
 
 - Use [docs/ops/FAST_PATHS.md](docs/ops/FAST_PATHS.md) to keep agent retrieval narrow for common tasks
 - Repo-wide or multi-project continuation work should resume from `docs/ops/ACTIVE_HANDOFF.md`
+- If workflow is known, read [docs/workflows/README.md](docs/workflows/README.md) and the matching workflow guide before broad repo scans
 - Use `npm run pack:subagent -- --project <slug>` when you want prompt-pack generation to start in subagent mode automatically
 
 ## Planning Workflow
