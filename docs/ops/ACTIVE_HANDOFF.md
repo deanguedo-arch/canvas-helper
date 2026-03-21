@@ -1,89 +1,76 @@
 # Handoff
 
 - Project: repo-wide
-- Task: Refactor Canvas Helper operating model around workflow-aware rules, enforceable source-of-truth metadata, and two-mode prompting
+- Task: Complete workflow operating-system refactor and deterministic clarification policy, then leave one clean continuation point
 - Status: ready for validation
 
 ## Files changed
-- AGENTS.md
-- .cursorrules
-- .cursor/rules/base-repo-contract.mdc
-- .cursor/rules/default-mode.mdc
-- .cursor/rules/canvas-mode.mdc
-- .cursor/rules/mode-switching.mdc
-- scripts/lib/types.ts
-- scripts/lib/projects.ts
-- scripts/lib/importer.ts
-- scripts/lib/engine/context-builder.ts
-- scripts/lib/project-manifest-policy.ts
-- scripts/validate-project-metadata.ts
-- scripts/verify-project.ts
-- scripts/tests/project-manifest-policy.test.ts
-- scripts/tests/generation-context-builder.test.ts
-- package.json
-- README.md
-- ARCHITECTURE.md
-- CONTRIBUTING.md
-- docs/ops/HANDOFF.md
-- docs/ops/FAST_PATHS.md
-- docs/ops/README.md
-- docs/ops/session-checklist.md
-- docs/ops/agent-prompt-templates.md
-- docs/workflows/README.md
-- docs/workflows/conversion.md
-- docs/workflows/generated-course.md
-- docs/workflows/injection-integration.md
-- docs/workflows/prompt-contract.md
-- projects/forensics/meta/project.json
-- projects/forensics35/meta/project.json
-- projects/calm-module-4/meta/project.json
-- docs/ops/ARCHIVED_HANDOFFS.md
-- docs/ops/ACTIVE_HANDOFF.md
+- /Users/deanguedo/Documents/GitHub/canvas-helper/AGENTS.md
+- /Users/deanguedo/Documents/GitHub/canvas-helper/.cursorrules
+- /Users/deanguedo/Documents/GitHub/canvas-helper/.cursor/rules/base-repo-contract.mdc
+- /Users/deanguedo/Documents/GitHub/canvas-helper/.cursor/rules/canvas-mode.mdc
+- /Users/deanguedo/Documents/GitHub/canvas-helper/.cursor/rules/default-mode.mdc
+- /Users/deanguedo/Documents/GitHub/canvas-helper/.cursor/rules/mode-switching.mdc
+- /Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/types.ts
+- /Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/projects.ts
+- /Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/importer.ts
+- /Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/project-manifest-policy.ts
+- /Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/engine/context-builder.ts
+- /Users/deanguedo/Documents/GitHub/canvas-helper/scripts/validate-project-metadata.ts
+- /Users/deanguedo/Documents/GitHub/canvas-helper/scripts/verify-project.ts
+- /Users/deanguedo/Documents/GitHub/canvas-helper/scripts/tests/project-manifest-policy.test.ts
+- /Users/deanguedo/Documents/GitHub/canvas-helper/scripts/tests/generation-context-builder.test.ts
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/workflows/README.md
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/workflows/conversion.md
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/workflows/generated-course.md
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/workflows/injection-integration.md
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/workflows/prompt-contract.md
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/ops/FAST_PATHS.md
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/ops/HANDOFF.md
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/ops/README.md
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/ops/session-checklist.md
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/ops/agent-prompt-templates.md
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/ops/ARCHIVED_HANDOFFS.md
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/ops/ACTIVE_HANDOFF.md
+- /Users/deanguedo/Documents/GitHub/canvas-helper/README.md
+- /Users/deanguedo/Documents/GitHub/canvas-helper/ARCHITECTURE.md
+- /Users/deanguedo/Documents/GitHub/canvas-helper/CONTRIBUTING.md
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics/meta/project.json
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics35/meta/project.json
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-module-4/meta/project.json
 
 ## What changed
-- Reframed repo contract and Cursor rule surfaces around three official workflows: `conversion`, `generated-course`, and `injection/integration`.
-- Kept only the two active modes (`CANVAS`, `DEFAULT`) with behavior split aligned to artifact work vs integration/stability work.
-- Added explicit artifact-role, source-of-truth, and regeneration discipline in governance docs.
-- Extended project manifest schema in `scripts/lib/types.ts` with workflow/project/source-of-truth metadata fields.
-- Added manifest policy normalization + validation in `scripts/lib/project-manifest-policy.ts`.
-- Added a lightweight manifest validation command: `npm run validate:manifests`.
-- Hooked project metadata validation into `npm run verify` so migrated active projects must declare required fields.
-- Updated importer defaults to write migrated metadata for new imports.
-- Rewrote generation system context to support imported-first-pass expansion, conversion enhancement, and injection/integration work.
-- Added workflow pattern library and prompt contract docs under `docs/workflows/`.
-- Backfilled exemplar project metadata for:
-  - `forensics35` (conversion)
-  - `calm-module-4` (generated-course)
-  - `forensics` (hybrid/integration)
+- Reframed the repo around three official workflows (`conversion`, `generated-course`, `injection/integration`) with explicit two-mode behavior (`CANVAS`, `DEFAULT`).
+- Added source-of-truth metadata schema fields and migrated exemplar project manifests.
+- Added lightweight manifest policy enforcement and CLI validation command (`validate:manifests`), plus verify-time policy checks.
+- Rewrote generation context guidance to support imported-first-pass expansion, conversion enhancement, and injection/integration.
+- Added deterministic clarification policy in `AGENTS.md` plus mode-specific clarification behavior in Cursor mode rules.
+- Added prompt-layer clarification rule in `docs/workflows/prompt-contract.md`.
 
 ## Why this changed
-- Current project work was outpacing operational discipline (source drift, reference ambiguity, mixed prompting behavior).
-- The repo needed enforceable metadata and clearer workflow/mode contracts to reduce re-discovery and improve consistency across sessions and machines.
+- To reduce source-of-truth drift and repetitive clarification loops while keeping workflow quality high and prompts more surgical.
 
 ## Source of truth
-- Governance/rules source of truth: `AGENTS.md` + `.cursor/rules/*` + `.cursorrules`.
-- Workflow memory/prompting source of truth: `docs/workflows/*` + `docs/ops/*`.
-- Metadata policy source of truth: `scripts/lib/project-manifest-policy.ts`.
-- Project metadata source of truth: `projects/<slug>/meta/project.json`.
+- Repo operating policy: `AGENTS.md` + `.cursor/rules/*` + `.cursorrules`
+- Metadata policy enforcement: `scripts/lib/project-manifest-policy.ts`
+- Prompt behavior contract: `docs/workflows/prompt-contract.md`
 
 ## Fragile areas / watchouts
-- Existing non-backfilled projects still normalize to `migrationState: legacy`; validation intentionally skips them until migrated.
-- Some projects may require metadata backfill before strict migrated validation can be rolled out repo-wide.
-- Forensics bundle regeneration remains documented as manual; future automation can replace that note with an executable command.
+- Legacy projects remain intentionally skipped by strict metadata validation until migrated.
+- Manifest discipline still depends on maintaining `canonicalSources` and injected-component statuses during future edits.
+- Forensics bundle regeneration is still documented as manual; this can be automated later.
 
 ## Next prompt should assume
-- Workflow model is now official and should be included in prompts (`Mode + Workflow + Canonical entry + Boundary + Source-of-truth constraints + Success criteria`).
-- Active migrated projects should pass `validate:manifests` and `verify` metadata policy checks.
-- Continue CALM Module 4 deploy work only after adding `projects/calm-module-4/meta/google-hosted.deploy.json`.
+- Complete prompts with required fields should execute immediately; ambiguous prompts should trigger exactly one high-leverage question.
+- Migrated active projects should pass `validate:manifests` and verify-time metadata checks.
 
 ## What still needs validation
-- Run `npm run validate:manifests` across all projects and decide migration/backfill priority for any remaining legacy slugs.
-- Manual sanity check in Studio that exemplar metadata backfill aligns with active file reality (especially injected-component statuses).
-- Confirm team preference on eventually enforcing migrated metadata for all active projects (timeline decision).
+- Run behavior spot-checks on one task per workflow type to confirm clarification behavior in practice.
+- Decide migration schedule for remaining legacy project manifests.
 
 ## Known risks
-- Legacy projects can still bypass strict metadata validation by design until migrated.
-- Metadata accuracy depends on ongoing handoff discipline; stale `canonicalSources` can still happen if updates are not maintained.
+- This is still policy-driven behavior, not a hard runtime prompt form; quality depends on consistent prompt discipline.
+- Policy drift is possible if future rule edits are not kept synchronized.
 
 ## Exact next command
 `npm run validate:manifests`
@@ -92,5 +79,5 @@
 `/Users/deanguedo/Documents/GitHub/canvas-helper/docs/workflows/prompt-contract.md`
 
 ## Do not do next / warnings
-- Do not edit `projects/<slug>/raw/**` or `projects/<slug>/exports/**` by hand.
-- Do not mark legacy projects as migrated without completing canonical/source-of-truth fields.
+- Do not edit `projects/<slug>/raw/**` or `projects/<slug>/exports/**` directly.
+- Do not mark legacy projects as migrated until required source-of-truth fields are populated.

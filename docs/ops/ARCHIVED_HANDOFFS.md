@@ -3,11 +3,17 @@
 This file retains previous handoffs after the single active handoff was standardized.
 
 ## Archive Index
+
+Entries are listed in file order (older to newer within this archive).
+
 - 2026-03-21: projects/forensics/meta/HANDOFF.md
 - 2026-03-21: projects/hss1010/meta/HANDOFF.md
 - 2026-03-21: projects/calm3new/meta/HANDOFF.md
 - 2026-03-21: projects/calm-module-4/meta/HANDOFF.md
+- 2026-03-21: docs/ops/ACTIVE_HANDOFF.md (pre-consolidation)
+- 2026-03-21: docs/ops/ACTIVE_HANDOFF.md (pre-clarification-policy)
 - 2026-03-21: projects/forensics35/meta/HANDOFF.md
+- 2026-03-21: docs/ops/ACTIVE_HANDOFF.md (pre-workflow-refactor)
 
 ---
 
@@ -211,6 +217,38 @@ This file retains previous handoffs after the single active handoff was standard
 
 ## Exact next file to open
 `C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\calm-module-4\meta\google-hosted.deploy.json`
+
+---
+
+## 2026-03-21 | docs/ops/ACTIVE_HANDOFF.md (pre-consolidation)
+
+# Handoff
+
+- Project: repo-wide
+- Task: Add deterministic clarification-question policy to rule and prompt layers without widening scope
+- Status: complete
+
+## Exact next command
+`rg -n "Clarification Policy|Clarification Behavior|Clarification Rule" AGENTS.md .cursor/rules/canvas-mode.mdc .cursor/rules/default-mode.mdc docs/workflows/prompt-contract.md`
+
+## Exact next file to open
+`/Users/deanguedo/Documents/GitHub/canvas-helper/docs/workflows/prompt-contract.md`
+
+---
+
+## 2026-03-21 | docs/ops/ACTIVE_HANDOFF.md (pre-clarification-policy)
+
+# Handoff
+
+- Project: repo-wide
+- Task: Refactor Canvas Helper operating model around workflow-aware rules, enforceable source-of-truth metadata, and two-mode prompting
+- Status: ready for validation
+
+## Exact next command
+`npm run validate:manifests`
+
+## Exact next file to open
+`/Users/deanguedo/Documents/GitHub/canvas-helper/docs/workflows/prompt-contract.md`
 
 ## Do not do next / warnings
 - Do not edit `projects/calm-module-4/raw/**` or `projects/calm-module-4/exports/**` by hand.

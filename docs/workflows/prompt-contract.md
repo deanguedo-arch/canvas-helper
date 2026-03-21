@@ -12,6 +12,12 @@ Use this structure for high-signal, surgical prompts in Canvas Helper.
 - `Source-of-truth constraints`: what can and cannot be edited
 - `Success criteria`: what must work and what must remain unchanged
 
+## Clarification Rule
+
+If all required fields are present and non-conflicting, do not ask clarification questions. Execute.
+
+Ask exactly one clarification question only if a required field is missing, ambiguous, or conflicts with another constraint.
+
 ## Template
 
 ```text

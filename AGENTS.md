@@ -149,6 +149,36 @@ The repo supports two distinct authoring goals and they must not be blended:
 
 Mode selection should match the task. Do not average the two behaviors together.
 
+## Clarification Policy
+
+Ask no clarification questions when all of the following are clear from the prompt or project metadata:
+
+- mode
+- workflow
+- project slug
+- canonical entry
+- boundary
+- source-of-truth constraints
+- success criteria
+
+Execute directly when those are clear.
+
+Ask exactly one clarification question only when a missing or conflicting constraint prevents safe action.
+
+Valid reasons to ask:
+- canonical entry is unknown
+- boundary is ambiguous
+- source-of-truth is unclear
+- the request may require editing protected zones, runtime bundles, or reference-only files
+- the request mixes redesign and preservation in a conflicting way
+- success criteria are missing or contradictory
+
+When clarification is needed:
+- ask exactly one highest-leverage question
+- do not ask for confirmation on obvious next steps inside the approved boundary
+- do not repeatedly ask for scope confirmation once the boundary is explicit
+- after the answer is provided, proceed without re-asking unless the user changes scope
+
 ## `CANVAS` Mode Behavior
 
 - Optimize for coherent artifact quality, not timid micro-patches.

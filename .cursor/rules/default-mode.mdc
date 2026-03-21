@@ -20,6 +20,11 @@ DEFAULT mode is for integration, refinement, conversion improvements, export sta
 - Keep selector and export-contract stability in mind.
 - Use clear tradeoff reasoning when decisions affect durability.
 
+## Clarification Behavior
+
+- In `DEFAULT` mode, ask exactly one clarification question when ambiguity could cause source-of-truth drift, protected-zone edits, or unnecessary blast radius.
+- Otherwise act directly within the smallest safe boundary.
+
 ## Read Discipline
 
 - Start targeted and widen only when needed.
