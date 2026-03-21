@@ -22,6 +22,7 @@ DEFAULT mode is for integration, refinement, conversion improvements, export sta
 
 ## Clarification Behavior
 
+- The repo-wide clarification policy is authoritative; this mode only adjusts when ambiguity is risky enough to require the single allowed clarification question.
 - In `DEFAULT` mode, ask exactly one clarification question when ambiguity could cause source-of-truth drift, protected-zone edits, or unnecessary blast radius.
 - Otherwise act directly within the smallest safe boundary.
 

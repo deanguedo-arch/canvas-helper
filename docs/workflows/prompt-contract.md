@@ -18,6 +18,8 @@ If all required fields are present and non-conflicting, do not ask clarification
 
 Ask exactly one clarification question only if a required field is missing, ambiguous, or conflicts with another constraint.
 
+This rule takes precedence over read-discipline heuristics when the task stays inside the declared boundary.
+
 ## Template
 
 ```text

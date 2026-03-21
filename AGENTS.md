@@ -179,6 +179,14 @@ When clarification is needed:
 - do not repeatedly ask for scope confirmation once the boundary is explicit
 - after the answer is provided, proceed without re-asking unless the user changes scope
 
+## Clarification Precedence
+
+The clarification policy controls whether the agent asks a question before acting.
+
+If the prompt contract is complete and non-conflicting, execute without asking.
+
+Read-discipline, surgical-default, and mode-overlay rules must be interpreted inside that decision. They may narrow retrieval behavior, but they do not create extra clarification questions unless the task would cross the approved boundary or violate source-of-truth constraints.
+
 ## `CANVAS` Mode Behavior
 
 - Optimize for coherent artifact quality, not timid micro-patches.
@@ -217,10 +225,10 @@ When clarification is needed:
 - Start with the smallest file set that can answer the task.
 - Prefer targeted reads, `rg`, and known entrypoints over broad repo scans.
 - Expand scope only when the current context is insufficient to act safely.
-- If broader retrieval or different behavior is needed, stop and ask for approval before continuing.
-- When asking, state the reason, the extra scope requested, and the expected cost in time or tokens.
+- If the prompt contract and clarification policy are already satisfied, do not ask for approval just because additional targeted reads are needed inside the approved boundary.
+- Ask exactly one clarification question only when broader retrieval would cross the declared boundary, risk protected-zone edits, or conflict with source-of-truth constraints.
 - Do not widen scope preemptively "just in case."
-- Keep follow-up reads minimal even after approval.
+- Keep follow-up reads minimal.
 
 ## Refinement Rules
 

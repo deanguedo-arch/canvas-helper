@@ -220,6 +220,22 @@ Entries are listed in file order (older to newer within this archive).
 
 ---
 
+## 2026-03-21 | docs/ops/ACTIVE_HANDOFF.md (pre-clarification-precedence-tightening)
+
+# Handoff
+
+- Project: repo-wide
+- Task: Complete workflow operating-system refactor and deterministic clarification policy, then leave one clean continuation point
+- Status: ready for validation
+
+## Exact next command
+`npm run validate:manifests`
+
+## Exact next file to open
+`/Users/deanguedo/Documents/GitHub/canvas-helper/docs/workflows/prompt-contract.md`
+
+---
+
 ## 2026-03-21 | docs/ops/ACTIVE_HANDOFF.md (pre-consolidation)
 
 # Handoff
