@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { 
   ChevronLeft, 
@@ -7,7 +7,7 @@ import {
   Circle, 
   BookOpen, 
   User, 
-  Save, 
+  Printer,
   LayoutDashboard,
   Menu,
   Briefcase,
@@ -29,6 +29,14 @@ import ResourcefulPeople from './components/resourcefulpeople.reference.jsx';
 import MasterPlan from './components/masterplan.reference.jsx';
 import ResumeBuilder from './components/resumebuilder.reference.jsx';
 import CoverLetterBuilder from './components/coverletterbuilder.reference.jsx';
+import {
+  CALM_MODULE_4_CAREER_PLANNER_STORAGE_KEY,
+  CALM_MODULE_4_COVER_LETTER_STORAGE_KEY,
+  CALM_MODULE_4_MAIN_STORAGE_KEY,
+  CALM_MODULE_4_MASTER_PLAN_STORAGE_KEY,
+  CALM_MODULE_4_RESOURCEFUL_PEOPLE_STORAGE_KEY,
+  CALM_MODULE_4_RESUME_BUILDER_STORAGE_KEY
+} from './components/storageKeys.js';
 
 // Define the units based on the CALM Module 4 PDFs
 const MODULE_UNITS = [
@@ -41,32 +49,147 @@ const MODULE_UNITS = [
   { id: 'reflection', title: 'Module Reflection', icon: FileText, isInteractive: true },
 ];
 
+const DEFAULT_MAIN_FORM_DATA = {
+  // Career Exploration (Shadowing & Volunteering)
+  jobShadow1: '',
+  jobShadow2: '',
+  whyVolunteer: '',
+  volunteerSkills: '',
+  volunteerExperience: '',
+  idealVolunteer: '',
+  volunteerResume: '',
+  mandatoryVolunteer: '',
+  // Module Reflection
+  loveWhatYouDo: '',
+  influences: '',
+  jobSkills: '',
+  portfolioBenefits: '',
+  portfolioAdjustments: '',
+  missionPurpose: '',
+  selfAssessment: ''
+};
+
+const readStoredJson = (storageKey) => {
+  try {
+    const raw = window.localStorage.getItem(storageKey);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === 'object' ? parsed : null;
+  } catch (error) {
+    return null;
+  }
+};
+
+const prettifyPathSegment = (segment) => {
+  if (typeof segment === 'number') {
+    return `Item ${segment + 1}`;
+  }
+
+  const source = String(segment)
+    .replace(/([a-z0-9])([A-Z])/g, '$1 $2')
+    .replace(/[_-]+/g, ' ')
+    .trim();
+
+  return source.replace(/\b\w/g, (char) => char.toUpperCase());
+};
+
+const flattenAnsweredEntries = (value, path = [], entries = []) => {
+  if (typeof value === 'string') {
+    const trimmed = value.trim();
+    if (trimmed.length > 0) {
+      entries.push({
+        label: path.map(prettifyPathSegment).join(' / '),
+        value: trimmed
+      });
+    }
+    return entries;
+  }
+
+  if (typeof value === 'number') {
+    if (Number.isFinite(value)) {
+      entries.push({
+        label: path.map(prettifyPathSegment).join(' / '),
+        value: String(value)
+      });
+    }
+    return entries;
+  }
+
+  if (typeof value === 'boolean') {
+    entries.push({
+      label: path.map(prettifyPathSegment).join(' / '),
+      value: value ? 'Yes' : 'No'
+    });
+    return entries;
+  }
+
+  if (Array.isArray(value)) {
+    value.forEach((item, index) => flattenAnsweredEntries(item, [...path, index], entries));
+    return entries;
+  }
+
+  if (value && typeof value === 'object') {
+    Object.entries(value).forEach(([key, nestedValue]) => {
+      flattenAnsweredEntries(nestedValue, [...path, key], entries);
+    });
+  }
+
+  return entries;
+};
+
 export default function App() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  const [activeUnitId, setActiveUnitId] = useState(MODULE_UNITS[0].id);
-  const [completedUnits, setCompletedUnits] = useState(['intro']);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(() => {
+    const saved = readStoredJson(CALM_MODULE_4_MAIN_STORAGE_KEY);
+    return typeof saved?.isSidebarOpen === 'boolean' ? saved.isSidebarOpen : true;
+  });
+
+  const [activeUnitId, setActiveUnitId] = useState(() => {
+    const saved = readStoredJson(CALM_MODULE_4_MAIN_STORAGE_KEY);
+    const savedUnitId = typeof saved?.activeUnitId === 'string' ? saved.activeUnitId : null;
+    return MODULE_UNITS.some((unit) => unit.id === savedUnitId)
+      ? savedUnitId
+      : MODULE_UNITS[0].id;
+  });
+
+  const [completedUnits, setCompletedUnits] = useState(() => {
+    const saved = readStoredJson(CALM_MODULE_4_MAIN_STORAGE_KEY);
+    const savedUnits = Array.isArray(saved?.completedUnits)
+      ? saved.completedUnits.filter((unitId) => MODULE_UNITS.some((unit) => unit.id === unitId))
+      : [];
+
+    if (!savedUnits.includes('intro')) {
+      savedUnits.unshift('intro');
+    }
+
+    return [...new Set(savedUnits)];
+  });
+
   const [isSaving, setIsSaving] = useState(false);
 
   // Form state for the final reflection questions
-  const [formData, setFormData] = useState({
-    // Career Exploration (Shadowing & Volunteering)
-    jobShadow1: '',
-    jobShadow2: '',
-    whyVolunteer: '',
-    volunteerSkills: '',
-    volunteerExperience: '',
-    idealVolunteer: '',
-    volunteerResume: '',
-    mandatoryVolunteer: '',
-    // Module Reflection
-    loveWhatYouDo: '',
-    influences: '',
-    jobSkills: '',
-    portfolioBenefits: '',
-    portfolioAdjustments: '',
-    missionPurpose: '',
-    selfAssessment: ''
+  const [formData, setFormData] = useState(() => {
+    const saved = readStoredJson(CALM_MODULE_4_MAIN_STORAGE_KEY);
+    return {
+      ...DEFAULT_MAIN_FORM_DATA,
+      ...(saved?.formData || {})
+    };
   });
+
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(
+        CALM_MODULE_4_MAIN_STORAGE_KEY,
+        JSON.stringify({
+          isSidebarOpen,
+          activeUnitId,
+          completedUnits,
+          formData
+        })
+      );
+    } catch (error) {
+      // Ignore storage quota/privacy errors and keep the UI interactive.
+    }
+  }, [isSidebarOpen, activeUnitId, completedUnits, formData]);
 
   const activeUnitIndex = MODULE_UNITS.findIndex(u => u.id === activeUnitId);
   const activeUnit = MODULE_UNITS[activeUnitIndex];
@@ -91,14 +214,218 @@ export default function App() {
     }
   };
 
-  const handleSaveDraft = () => {
+  const handleGenerateReport = () => {
     setIsSaving(true);
-    setTimeout(() => setIsSaving(false), 1000);
+    const reportWindow = window.open('about:blank', '_blank');
+    if (!reportWindow) {
+      setIsSaving(false);
+      return;
+    }
+
+    try {
+      const html = buildTeacherReportHtml();
+      reportWindow.document.open();
+      reportWindow.document.write(html);
+      reportWindow.document.close();
+      reportWindow.focus();
+      window.setTimeout(() => {
+        reportWindow.print();
+        setIsSaving(false);
+      }, 200);
+    } catch (error) {
+      reportWindow.document.body.innerHTML = '<pre style="padding:16px;font-family:monospace;">Report generation failed.</pre>';
+      setIsSaving(false);
+    }
   };
 
   const handleFormChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const reportDate = new Date().toLocaleString();
+  const reportQuestions = [
+    { key: 'jobShadow1', label: 'Job Shadowing Choice 1' },
+    { key: 'jobShadow2', label: 'Job Shadowing Choice 2' },
+    { key: 'whyVolunteer', label: 'Why do people volunteer?' },
+    { key: 'volunteerSkills', label: 'Skills helpful to community organizations' },
+    { key: 'volunteerExperience', label: 'Volunteer experience' },
+    { key: 'idealVolunteer', label: 'Ideal way to volunteer in the community' },
+    { key: 'volunteerResume', label: 'Why volunteer work belongs on a resume' },
+    { key: 'mandatoryVolunteer', label: 'Should youth volunteer work be required?' },
+    { key: 'loveWhatYouDo', label: 'Can what you love become what you do?' },
+    { key: 'influences', label: 'Major influences on career decisions' },
+    { key: 'jobSkills', label: 'Skills and behaviors needed to keep a job' },
+    { key: 'portfolioBenefits', label: 'Benefits of having a portfolio' },
+    { key: 'portfolioAdjustments', label: 'How to adjust a portfolio for different jobs' },
+    { key: 'missionPurpose', label: 'Purpose of a mission statement' },
+    { key: 'selfAssessment', label: 'Importance of ongoing self-assessment' }
+  ];
+
+  const introReflectionEntries = reportQuestions
+    .map((question) => ({
+      label: question.label,
+      value: String(formData[question.key] ?? '').trim()
+    }))
+    .filter((entry) => entry.value.length > 0);
+
+  const careerPlannerState = readStoredJson(CALM_MODULE_4_CAREER_PLANNER_STORAGE_KEY);
+  const resourcefulPeopleState = readStoredJson(CALM_MODULE_4_RESOURCEFUL_PEOPLE_STORAGE_KEY);
+  const masterPlanState = readStoredJson(CALM_MODULE_4_MASTER_PLAN_STORAGE_KEY);
+  const resumeBuilderState = readStoredJson(CALM_MODULE_4_RESUME_BUILDER_STORAGE_KEY);
+  const coverLetterState = readStoredJson(CALM_MODULE_4_COVER_LETTER_STORAGE_KEY);
+
+  const reportSections = [
+    {
+      eyebrow: 'Core Workbook',
+      title: 'Career Exploration & Reflection',
+      entries: introReflectionEntries
+    },
+    {
+      eyebrow: 'Career Planner',
+      title: 'Portfolio Workbook Responses',
+      entries: flattenAnsweredEntries(careerPlannerState?.formData || {})
+    },
+    {
+      eyebrow: 'Resourceful People',
+      title: 'Reflection & Resource List',
+      entries: flattenAnsweredEntries({
+        reflections: resourcefulPeopleState?.reflections || {},
+        resources: resourcefulPeopleState?.resources || {}
+      })
+    },
+    {
+      eyebrow: 'Master Plan',
+      title: 'Career, Post-Secondary, and Course Planning',
+      entries: flattenAnsweredEntries(masterPlanState?.data || {})
+    },
+    {
+      eyebrow: 'Resume Builder',
+      title: 'Resume Workshop Responses',
+      entries: flattenAnsweredEntries(resumeBuilderState?.resume || {})
+    },
+    {
+      eyebrow: 'Cover Letter Builder',
+      title: 'Cover Letter Workshop Responses',
+      entries: flattenAnsweredEntries(coverLetterState?.formData || {})
+    }
+  ];
+
+  const allReportEntries = reportSections.flatMap((section) =>
+    section.entries.map((entry) => ({
+      label: `${section.title} / ${entry.label}`,
+      value: entry.value
+    }))
+  );
+
+  const totalAnsweredCount = reportSections.reduce((total, section) => total + section.entries.length, 0);
+  const sectionsWithAnswers = reportSections.filter((section) => section.entries.length > 0).length;
+
+  const hasTeacherReportValue = (value) => {
+    if (typeof value === 'string') return value.trim().length > 0;
+    if (typeof value === 'number') return Number.isFinite(value);
+    return Boolean(value);
+  };
+
+  const escapeTeacherReportHtml = (value) => String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+
+  const renderTeacherReportValue = (value) => {
+    if (!hasTeacherReportValue(value)) {
+      return '<span class="answer-empty-chip">No response provided</span>';
+    }
+    return escapeTeacherReportHtml(value).replace(/\n/g, '<br />');
+  };
+
+  const buildTeacherReportSection = (eyebrow, title, bodyHtml) => `
+    <section class="report-section">
+      <div class="report-section-heading">
+        <p class="report-section-eyebrow">${escapeTeacherReportHtml(eyebrow)}</p>
+        <h2>${escapeTeacherReportHtml(title)}</h2>
+      </div>
+      ${bodyHtml}
+    </section>
+  `;
+
+  const renderTeacherReportCardGrid = (items) => items.map((item) => `
+      <article class="report-card report-card-wide">
+        <h3>${escapeTeacherReportHtml(item.label)}</h3>
+        <div class="report-answer">${renderTeacherReportValue(item.value)}</div>
+      </article>
+    `).join('');
+
+  const buildTeacherReportHtml = () => {
+    const responseSections = reportSections.map((section) => {
+      if (section.entries.length === 0) {
+        return buildTeacherReportSection(
+          section.eyebrow,
+          section.title,
+          `<div class="report-grid">
+            <article class="report-card report-card-wide">
+              <h3>No responses captured yet</h3>
+              <div class="report-answer">Complete this section in Module 4, then generate the report again.</div>
+            </article>
+          </div>`
+        );
+      }
+
+      return buildTeacherReportSection(
+        section.eyebrow,
+        section.title,
+        `<div class="report-grid">${renderTeacherReportCardGrid(section.entries)}</div>`
+      );
+    }).join('');
+
+    return `<!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CALM Module 4 Teacher Report</title>
+        <style>
+          :root { color-scheme: light; --ink: #0f172a; --muted: #475569; --line: #dbe4f0; --panel: #ffffff; --panel-soft: #f8fafc; --accent: #6d28d9; --warning: #92400e; --warning-soft: #fff7ed; }
+          * { box-sizing: border-box; }
+          body { margin: 0; padding: 2rem; background: #eef2ff; color: var(--ink); font-family: Inter, "Segoe UI", Arial, sans-serif; }
+          .report-shell { max-width: 1100px; margin: 0 auto; }
+          .report-hero { background: linear-gradient(135deg, #4c1d95, #7c3aed 52%, #c4b5fd); color: white; border-radius: 2rem; padding: 2rem; margin-bottom: 1.5rem; box-shadow: 0 24px 60px rgba(76, 29, 149, 0.22); }
+          .report-hero h1 { margin: 0 0 0.6rem; font-size: 2rem; line-height: 1.05; }
+          .report-hero p { margin: 0; color: rgba(255, 255, 255, 0.88); font-size: 1rem; }
+          .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 0.9rem; margin-top: 1.4rem; }
+          .summary-stat { background: rgba(255, 255, 255, 0.14); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 1.25rem; padding: 0.95rem 1rem; }
+          .summary-stat-label { display: block; font-size: 0.72rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255, 255, 255, 0.74); margin-bottom: 0.35rem; }
+          .summary-stat-value { font-size: 1.05rem; font-weight: 800; line-height: 1.35; }
+          .report-section { background: var(--panel); border: 1px solid var(--line); border-radius: 1.8rem; padding: 1.4rem; margin-bottom: 1.2rem; box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06); }
+          .report-section-heading { margin-bottom: 1rem; }
+          .report-section-eyebrow { margin: 0 0 0.3rem; font-size: 0.72rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+          .report-section-heading h2 { margin: 0; font-size: 1.45rem; line-height: 1.15; }
+          .report-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0.9rem; }
+          .report-card { background: var(--panel-soft); border: 1px solid var(--line); border-radius: 1.25rem; padding: 1rem; break-inside: avoid; }
+          .report-card-wide { grid-column: 1 / -1; }
+          .report-card h3 { margin: 0 0 0.65rem; font-size: 0.75rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+          .report-answer { font-size: 0.95rem; line-height: 1.6; color: var(--ink); }
+          .answer-empty-chip { display: inline-flex; align-items: center; gap: 0.35rem; border-radius: 999px; padding: 0.3rem 0.7rem; background: var(--warning-soft); color: var(--warning); font-size: 0.8rem; font-weight: 700; }
+          @media print { body { background: white; padding: 0; } .report-hero { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+        </style>
+      </head>
+      <body>
+        <div class="report-shell">
+          <header class="report-hero">
+            <h1>CALM Module 4 Teacher Report</h1>
+            <p>Career, portfolio, resume, and cover letter responses for review, printing, and discussion.</p>
+            <div class="summary-grid">
+              <div class="summary-stat"><span class="summary-stat-label">Answered Fields</span><div class="summary-stat-value">${totalAnsweredCount}</div></div>
+              <div class="summary-stat"><span class="summary-stat-label">Sections With Answers</span><div class="summary-stat-value">${sectionsWithAnswers} / ${reportSections.length}</div></div>
+              <div class="summary-stat"><span class="summary-stat-label">Generated</span><div class="summary-stat-value">${escapeTeacherReportHtml(reportDate)}</div></div>
+            </div>
+          </header>
+          ${responseSections}
+        </div>
+      </body>
+    </html>`;
   };
 
   // --- Content Renderers ---
@@ -607,6 +934,124 @@ export default function App() {
 
   return (
     <div className="flex h-screen bg-[#020617] text-slate-200 font-sans overflow-hidden relative selection:bg-purple-500/30">
+      <style dangerouslySetInnerHTML={{ __html: `
+        @media print {
+          @page { size: letter portrait; margin: 0.6in; }
+          body {
+            background: #ffffff !important;
+            color: #0f172a !important;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+          }
+          #root {
+            min-height: auto !important;
+          }
+          .no-print {
+            display: none !important;
+          }
+          .print-only {
+            display: block !important;
+          }
+          .print-page {
+            display: grid;
+            gap: 16px;
+            font-family: "Plus Jakarta Sans", Inter, ui-sans-serif, system-ui, sans-serif;
+          }
+          .print-hero {
+            border: 1px solid #cbd5e1;
+            border-radius: 24px;
+            padding: 24px;
+            background: linear-gradient(135deg, #fff1f7 0%, #fff 42%, #f8fafc 100%);
+          }
+          .print-section {
+            break-inside: avoid;
+            page-break-inside: avoid;
+            margin-top: 6px;
+          }
+          .print-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 18px;
+            background: #ffffff;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+          }
+          .print-heading {
+            color: #0f172a !important;
+            letter-spacing: -0.04em;
+          }
+          .print-muted {
+            color: #475569 !important;
+          }
+          .print-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+          }
+          .print-stat {
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 14px;
+            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+          }
+          .print-stat-label {
+            margin: 0 0 4px;
+            color: #e11d48 !important;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+          }
+          .print-stat-value {
+            margin: 0;
+            color: #0f172a !important;
+            font-size: 1.02rem;
+            font-weight: 800;
+          }
+          .print-list {
+            display: grid;
+            gap: 10px;
+          }
+          .print-list-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 12px 14px;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            background: #f8fafc;
+          }
+          .print-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.35rem 0.7rem;
+            border-radius: 999px;
+            background: #fce7f3;
+            color: #be185d !important;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+          }
+          .print-field {
+            display: grid;
+            gap: 0.4rem;
+          }
+          .print-label {
+            color: #be185d !important;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+          }
+          .print-value {
+            color: #0f172a !important;
+            white-space: pre-wrap;
+            line-height: 1.6;
+          }
+        }
+      `}} />
       
       {/* Ambient Background Effects */}
       <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-purple-600/10 rounded-full blur-[120px] pointer-events-none"></div>
@@ -702,15 +1147,11 @@ export default function App() {
 
           <div className="flex items-center gap-5">
             <button 
-              onClick={handleSaveDraft}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold tracking-wide transition-all shadow-lg hover:-translate-y-0.5
-                ${isSaving 
-                  ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/50 shadow-emerald-500/20' 
-                  : 'bg-slate-800/80 text-slate-300 hover:bg-slate-700 border border-slate-600/50 hover:border-slate-500 hover:text-white'
-                }`}
+              onClick={handleGenerateReport}
+              className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold tracking-wide transition-all duration-300 shadow-lg bg-gradient-to-r from-pink-600 to-fuchsia-600 hover:from-pink-500 hover:to-fuchsia-500 text-white border border-pink-400/30 hover:-translate-y-0.5 hover:shadow-[0_0_22px_rgba(236,72,153,0.45)]"
             >
-              <Save size={18} className={isSaving ? 'animate-pulse' : ''} />
-              {isSaving ? 'SAVED!' : 'SAVE DRAFT'}
+              <Printer size={18} className={isSaving ? 'animate-pulse' : ''} />
+              {isSaving ? 'GENERATING...' : 'GENERATE REPORT'}
             </button>
             
             <div className="h-10 w-10 rounded-full bg-gradient-to-tr from-purple-500 to-pink-500 p-0.5 shadow-[0_0_15px_rgba(236,72,153,0.3)] cursor-pointer hover:scale-105 transition-transform">
@@ -755,6 +1196,52 @@ export default function App() {
         </div>
 
       </main>
+
+      <div className="hidden print-only">
+        <div className="print-page">
+          <section className="print-hero print-section">
+            <div className="flex items-start justify-between gap-6">
+              <div className="min-w-0">
+                <div className="inline-flex items-center gap-2 rounded-full bg-pink-100 px-3 py-1 text-[10px] font-extrabold uppercase tracking-[0.22em] text-pink-700">
+                  CALM Module 4 Report
+                </div>
+                <h1 className="print-heading mt-4 text-4xl font-black">
+                  Career, Portfolio, Resume, and Letter Responses
+                </h1>
+                <p className="print-muted mt-3 max-w-3xl text-sm leading-7">
+                  Print-ready answers from every completed response field in this module.
+                </p>
+              </div>
+              <div className="shrink-0 rounded-2xl border border-pink-200 bg-white px-4 py-3 shadow-sm">
+                <p className="print-stat-label">Generated</p>
+                <p className="print-stat-value">{reportDate}</p>
+              </div>
+            </div>
+          </section>
+
+          <section className="print-section print-card">
+            <div className="mb-4">
+              <p className="print-stat-label">Responses</p>
+              <h2 className="print-heading text-2xl font-black">Filled Answers ({allReportEntries.length})</h2>
+            </div>
+            <div className="grid gap-4">
+              {allReportEntries.length === 0 ? (
+                <div className="print-field">
+                  <div className="print-label">No responses found</div>
+                  <div className="print-value">Complete at least one question in the module before generating the report.</div>
+                </div>
+              ) : (
+                allReportEntries.map((entry) => (
+                  <div className="print-field" key={entry.label}>
+                    <div className="print-label">{entry.label}</div>
+                    <div className="print-value">{entry.value}</div>
+                  </div>
+                ))
+              )}
+            </div>
+          </section>
+        </div>
+      </div>
     </div>
   );
 }

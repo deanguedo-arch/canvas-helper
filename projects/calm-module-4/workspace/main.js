@@ -22147,22 +22147,8 @@
   ];
   var Quote = createLucideIcon("quote", __iconNode33);
 
-  // node_modules/lucide-react/dist/esm/icons/save.js
-  var __iconNode34 = [
-    [
-      "path",
-      {
-        d: "M15.2 3a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z",
-        key: "1c8476"
-      }
-    ],
-    ["path", { d: "M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7", key: "1ydtos" }],
-    ["path", { d: "M7 3v4a1 1 0 0 0 1 1h7", key: "t51u73" }]
-  ];
-  var Save = createLucideIcon("save", __iconNode34);
-
   // node_modules/lucide-react/dist/esm/icons/settings.js
-  var __iconNode35 = [
+  var __iconNode34 = [
     [
       "path",
       {
@@ -22172,10 +22158,10 @@
     ],
     ["circle", { cx: "12", cy: "12", r: "3", key: "1v7zrd" }]
   ];
-  var Settings = createLucideIcon("settings", __iconNode35);
+  var Settings = createLucideIcon("settings", __iconNode34);
 
   // node_modules/lucide-react/dist/esm/icons/sparkles.js
-  var __iconNode36 = [
+  var __iconNode35 = [
     [
       "path",
       {
@@ -22187,63 +22173,63 @@
     ["path", { d: "M22 4h-4", key: "gwowj6" }],
     ["circle", { cx: "4", cy: "20", r: "2", key: "6kqj1y" }]
   ];
-  var Sparkles = createLucideIcon("sparkles", __iconNode36);
+  var Sparkles = createLucideIcon("sparkles", __iconNode35);
 
   // node_modules/lucide-react/dist/esm/icons/square-check-big.js
-  var __iconNode37 = [
+  var __iconNode36 = [
     [
       "path",
       { d: "M21 10.656V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h12.344", key: "2acyp4" }
     ],
     ["path", { d: "m9 11 3 3L22 4", key: "1pflzl" }]
   ];
-  var SquareCheckBig = createLucideIcon("square-check-big", __iconNode37);
+  var SquareCheckBig = createLucideIcon("square-check-big", __iconNode36);
 
   // node_modules/lucide-react/dist/esm/icons/target.js
-  var __iconNode38 = [
+  var __iconNode37 = [
     ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
     ["circle", { cx: "12", cy: "12", r: "6", key: "1vlfrh" }],
     ["circle", { cx: "12", cy: "12", r: "2", key: "1c9p78" }]
   ];
-  var Target = createLucideIcon("target", __iconNode38);
+  var Target = createLucideIcon("target", __iconNode37);
 
   // node_modules/lucide-react/dist/esm/icons/trash-2.js
-  var __iconNode39 = [
+  var __iconNode38 = [
     ["path", { d: "M10 11v6", key: "nco0om" }],
     ["path", { d: "M14 11v6", key: "outv1u" }],
     ["path", { d: "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6", key: "miytrc" }],
     ["path", { d: "M3 6h18", key: "d0wm0j" }],
     ["path", { d: "M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2", key: "e791ji" }]
   ];
-  var Trash2 = createLucideIcon("trash-2", __iconNode39);
+  var Trash2 = createLucideIcon("trash-2", __iconNode38);
 
   // node_modules/lucide-react/dist/esm/icons/user-plus.js
-  var __iconNode40 = [
+  var __iconNode39 = [
     ["path", { d: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2", key: "1yyitq" }],
     ["circle", { cx: "9", cy: "7", r: "4", key: "nufk8" }],
     ["line", { x1: "19", x2: "19", y1: "8", y2: "14", key: "1bvyxn" }],
     ["line", { x1: "22", x2: "16", y1: "11", y2: "11", key: "1shjgl" }]
   ];
-  var UserPlus = createLucideIcon("user-plus", __iconNode40);
+  var UserPlus = createLucideIcon("user-plus", __iconNode39);
 
   // node_modules/lucide-react/dist/esm/icons/user.js
-  var __iconNode41 = [
+  var __iconNode40 = [
     ["path", { d: "M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2", key: "975kel" }],
     ["circle", { cx: "12", cy: "7", r: "4", key: "17ys0d" }]
   ];
-  var User = createLucideIcon("user", __iconNode41);
+  var User = createLucideIcon("user", __iconNode40);
 
   // node_modules/lucide-react/dist/esm/icons/users.js
-  var __iconNode42 = [
+  var __iconNode41 = [
     ["path", { d: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2", key: "1yyitq" }],
     ["path", { d: "M16 3.128a4 4 0 0 1 0 7.744", key: "16gr8j" }],
     ["path", { d: "M22 21v-2a4 4 0 0 0-3-3.87", key: "kshegd" }],
     ["circle", { cx: "9", cy: "7", r: "4", key: "nufk8" }]
   ];
-  var Users = createLucideIcon("users", __iconNode42);
+  var Users = createLucideIcon("users", __iconNode41);
 
   // node_modules/lucide-react/dist/esm/icons/wrench.js
-  var __iconNode43 = [
+  var __iconNode42 = [
     [
       "path",
       {
@@ -22252,23 +22238,76 @@
       }
     ]
   ];
-  var Wrench = createLucideIcon("wrench", __iconNode43);
+  var Wrench = createLucideIcon("wrench", __iconNode42);
 
   // projects/calm-module-4/workspace/components/careerplanning.reference.jsx
   var import_react3 = __toESM(require_react(), 1);
+
+  // projects/calm-module-4/workspace/components/storageKeys.js
+  var CALM_MODULE_4_MAIN_STORAGE_KEY = "calmModule4MainState";
+  var CALM_MODULE_4_CAREER_PLANNER_STORAGE_KEY = "calmModule4CareerPlannerState";
+  var CALM_MODULE_4_RESOURCEFUL_PEOPLE_STORAGE_KEY = "calmModule4ResourcefulPeopleState";
+  var CALM_MODULE_4_MASTER_PLAN_STORAGE_KEY = "calmModule4MasterPlanState";
+  var CALM_MODULE_4_RESUME_BUILDER_STORAGE_KEY = "calmModule4ResumeBuilderState";
+  var CALM_MODULE_4_COVER_LETTER_STORAGE_KEY = "calmModule4CoverLetterState";
+
+  // projects/calm-module-4/workspace/components/careerplanning.reference.jsx
   var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
+  var DEFAULT_FORM_DATA = {
+    interests: { rank1: "", rank2: "", rank3: "", desc1: "", desc2: "", desc3: "", summary: "", occupations: "" },
+    abilities: { rank1: "", rank2: "", rank3: "", desc1: "", desc2: "", desc3: "", summary: "", occupations: "" },
+    workValues: { top5: "" },
+    intelligences: { intel1: "", intel2: "", intel3: "", summary: "", strat1: "", strat2: "", strat3: "" },
+    experiences: { exp1Desc: "", exp1Proud: "", exp2Desc: "", exp2Proud: "", helpCareer: "" },
+    skills: { difference: "", top10: "", helpCareer: "" },
+    traits: { definition: "", top10: "", helpCareer: "" },
+    conditions: { top5: "", helpCareer: "" }
+  };
+  var loadSavedCareerPlannerState = () => {
+    try {
+      const raw = window.localStorage.getItem(CALM_MODULE_4_CAREER_PLANNER_STORAGE_KEY);
+      if (!raw) return null;
+      const parsed = JSON.parse(raw);
+      return parsed && typeof parsed === "object" ? parsed : null;
+    } catch (error) {
+      return null;
+    }
+  };
   var App = () => {
-    const [formData, setFormData] = (0, import_react3.useState)({
-      interests: { rank1: "", rank2: "", rank3: "", desc1: "", desc2: "", desc3: "", summary: "", occupations: "" },
-      abilities: { rank1: "", rank2: "", rank3: "", desc1: "", desc2: "", desc3: "", summary: "", occupations: "" },
-      workValues: { top5: "" },
-      intelligences: { intel1: "", intel2: "", intel3: "", summary: "", strat1: "", strat2: "", strat3: "" },
-      experiences: { exp1Desc: "", exp1Proud: "", exp2Desc: "", exp2Proud: "", helpCareer: "" },
-      skills: { difference: "", top10: "", helpCareer: "" },
-      traits: { definition: "", top10: "", helpCareer: "" },
-      conditions: { top5: "", helpCareer: "" }
+    const [formData, setFormData] = (0, import_react3.useState)(() => {
+      const saved = loadSavedCareerPlannerState();
+      const savedFormData = saved?.formData;
+      if (!savedFormData || typeof savedFormData !== "object") {
+        return DEFAULT_FORM_DATA;
+      }
+      return {
+        ...DEFAULT_FORM_DATA,
+        interests: { ...DEFAULT_FORM_DATA.interests, ...savedFormData.interests || {} },
+        abilities: { ...DEFAULT_FORM_DATA.abilities, ...savedFormData.abilities || {} },
+        workValues: { ...DEFAULT_FORM_DATA.workValues, ...savedFormData.workValues || {} },
+        intelligences: { ...DEFAULT_FORM_DATA.intelligences, ...savedFormData.intelligences || {} },
+        experiences: { ...DEFAULT_FORM_DATA.experiences, ...savedFormData.experiences || {} },
+        skills: { ...DEFAULT_FORM_DATA.skills, ...savedFormData.skills || {} },
+        traits: { ...DEFAULT_FORM_DATA.traits, ...savedFormData.traits || {} },
+        conditions: { ...DEFAULT_FORM_DATA.conditions, ...savedFormData.conditions || {} }
+      };
     });
-    const [activeSection, setActiveSection] = (0, import_react3.useState)("instructions");
+    const [activeSection, setActiveSection] = (0, import_react3.useState)(() => {
+      const saved = loadSavedCareerPlannerState();
+      return typeof saved?.activeSection === "string" && saved.activeSection.length > 0 ? saved.activeSection : "instructions";
+    });
+    (0, import_react3.useEffect)(() => {
+      try {
+        window.localStorage.setItem(
+          CALM_MODULE_4_CAREER_PLANNER_STORAGE_KEY,
+          JSON.stringify({
+            activeSection,
+            formData
+          })
+        );
+      } catch (error) {
+      }
+    }, [activeSection, formData]);
     const handleChange = (section, field, value) => {
       setFormData((prev) => ({
         ...prev,
@@ -22367,10 +22406,10 @@
               "button",
               {
                 onClick: handlePrint,
-                className: "flex items-center gap-2 bg-[#1A1D36] hover:bg-[#232747] border border-[#2A2D4A] transition-colors px-4 sm:px-5 py-2.5 rounded-lg text-xs font-bold text-white tracking-widest uppercase shadow-sm",
+                className: "flex items-center gap-2 bg-gradient-to-r from-pink-600 to-fuchsia-600 hover:from-pink-500 hover:to-fuchsia-500 border border-pink-400/30 transition-all duration-300 px-4 sm:px-5 py-2.5 rounded-lg text-xs font-bold text-white tracking-widest uppercase shadow-[0_0_15px_rgba(236,72,153,0.28)] hover:shadow-[0_0_22px_rgba(236,72,153,0.45)] transform hover:-translate-y-0.5",
                 children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Save, { size: 14 }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "hidden sm:inline", children: "Save Draft" })
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Printer, { size: 14 }),
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "hidden sm:inline", children: "Generate Report" })
                 ]
               }
             )
@@ -22862,32 +22901,94 @@
   // projects/calm-module-4/workspace/components/resourcefulpeople.reference.jsx
   var import_react4 = __toESM(require_react(), 1);
   var import_jsx_runtime2 = __toESM(require_jsx_runtime(), 1);
+  var DEFAULT_REFLECTIONS = {
+    q1: "",
+    q2: "",
+    q3: "",
+    q4: ""
+  };
+  var DEFAULT_RESOURCES = {
+    postSecondary: [
+      { id: 1, name: "", contact: "", criteria: "", info: "" },
+      { id: 2, name: "", contact: "", criteria: "", info: "" }
+    ],
+    financial: [
+      { id: 1, name: "", contact: "", criteria: "", info: "" },
+      { id: 2, name: "", contact: "", criteria: "", info: "" }
+    ],
+    scholarships: [
+      { id: 1, name: "", contact: "", criteria: "", info: "" },
+      { id: 2, name: "", contact: "", criteria: "", info: "" }
+    ],
+    contacts: [
+      { id: 1, name: "", contact: "", criteria: "", info: "" },
+      { id: 2, name: "", contact: "", criteria: "", info: "" }
+    ]
+  };
+  var normalizeResourceRows = (rows = []) => {
+    const normalized = Array.isArray(rows) ? rows.slice(0, 2).map((row, index) => ({
+      id: index + 1,
+      name: typeof row?.name === "string" ? row.name : "",
+      contact: typeof row?.contact === "string" ? row.contact : "",
+      criteria: typeof row?.criteria === "string" ? row.criteria : "",
+      info: typeof row?.info === "string" ? row.info : ""
+    })) : [];
+    while (normalized.length < 2) {
+      normalized.push({
+        id: normalized.length + 1,
+        name: "",
+        contact: "",
+        criteria: "",
+        info: ""
+      });
+    }
+    return normalized;
+  };
+  var loadSavedResourcefulPeopleState = () => {
+    try {
+      const raw = window.localStorage.getItem(CALM_MODULE_4_RESOURCEFUL_PEOPLE_STORAGE_KEY);
+      if (!raw) return null;
+      const parsed = JSON.parse(raw);
+      return parsed && typeof parsed === "object" ? parsed : null;
+    } catch (error) {
+      return null;
+    }
+  };
   var App2 = () => {
-    const [activeTab, setActiveTab] = (0, import_react4.useState)("article");
-    const [reflections, setReflections] = (0, import_react4.useState)({
-      q1: "",
-      q2: "",
-      q3: "",
-      q4: ""
+    const [activeTab, setActiveTab] = (0, import_react4.useState)(() => {
+      const saved = loadSavedResourcefulPeopleState();
+      return typeof saved?.activeTab === "string" && saved.activeTab.length > 0 ? saved.activeTab : "article";
     });
-    const [resources, setResources] = (0, import_react4.useState)({
-      postSecondary: [
-        { id: 1, name: "", contact: "", criteria: "", info: "" },
-        { id: 2, name: "", contact: "", criteria: "", info: "" }
-      ],
-      financial: [
-        { id: 1, name: "", contact: "", criteria: "", info: "" },
-        { id: 2, name: "", contact: "", criteria: "", info: "" }
-      ],
-      scholarships: [
-        { id: 1, name: "", contact: "", criteria: "", info: "" },
-        { id: 2, name: "", contact: "", criteria: "", info: "" }
-      ],
-      contacts: [
-        { id: 1, name: "", contact: "", criteria: "", info: "" },
-        { id: 2, name: "", contact: "", criteria: "", info: "" }
-      ]
+    const [reflections, setReflections] = (0, import_react4.useState)(() => {
+      const saved = loadSavedResourcefulPeopleState();
+      return {
+        ...DEFAULT_REFLECTIONS,
+        ...saved?.reflections || {}
+      };
     });
+    const [resources, setResources] = (0, import_react4.useState)(() => {
+      const saved = loadSavedResourcefulPeopleState();
+      const savedResources = saved?.resources || {};
+      return {
+        postSecondary: normalizeResourceRows(savedResources.postSecondary || DEFAULT_RESOURCES.postSecondary),
+        financial: normalizeResourceRows(savedResources.financial || DEFAULT_RESOURCES.financial),
+        scholarships: normalizeResourceRows(savedResources.scholarships || DEFAULT_RESOURCES.scholarships),
+        contacts: normalizeResourceRows(savedResources.contacts || DEFAULT_RESOURCES.contacts)
+      };
+    });
+    (0, import_react4.useEffect)(() => {
+      try {
+        window.localStorage.setItem(
+          CALM_MODULE_4_RESOURCEFUL_PEOPLE_STORAGE_KEY,
+          JSON.stringify({
+            activeTab,
+            reflections,
+            resources
+          })
+        );
+      } catch (error) {
+      }
+    }, [activeTab, reflections, resources]);
     const handleReflectionChange = (q, value) => {
       setReflections((prev) => ({ ...prev, [q]: value }));
     };
@@ -23170,6 +23271,42 @@
     calm: { title: "Career and Life Management", courses: ["CALM 20"] },
     other: { title: "CTS, Fine Art, or Second Languages", courses: ["Option 10 Level", "Option 20 Level", "Option 30 Level"] }
   };
+  var cloneInitialState = () => JSON.parse(JSON.stringify(INITIAL_STATE));
+  var normalizeCourseCategory = (category) => ({
+    done: Array.isArray(category?.done) ? category.done : [],
+    need: Array.isArray(category?.need) ? category.need : []
+  });
+  var normalizeMasterPlanState = (savedData) => {
+    const base = cloneInitialState();
+    if (!savedData || typeof savedData !== "object") {
+      return base;
+    }
+    return {
+      ...base,
+      careers: Array.isArray(savedData.careers) ? base.careers.map((career, index) => ({ ...career, ...savedData.careers[index] || {} })) : base.careers,
+      reflection: { ...base.reflection, ...savedData.reflection || {} },
+      institutions: Array.isArray(savedData.institutions) ? base.institutions.map((institution, index) => ({ ...institution, ...savedData.institutions[index] || {} })) : base.institutions,
+      courses: {
+        english: normalizeCourseCategory(savedData?.courses?.english),
+        social: normalizeCourseCategory(savedData?.courses?.social),
+        math: normalizeCourseCategory(savedData?.courses?.math),
+        science: normalizeCourseCategory(savedData?.courses?.science),
+        physed: normalizeCourseCategory(savedData?.courses?.physed),
+        calm: normalizeCourseCategory(savedData?.courses?.calm),
+        other: normalizeCourseCategory(savedData?.courses?.other)
+      }
+    };
+  };
+  var loadSavedMasterPlanState = () => {
+    try {
+      const raw = window.localStorage.getItem(CALM_MODULE_4_MASTER_PLAN_STORAGE_KEY);
+      if (!raw) return null;
+      const parsed = JSON.parse(raw);
+      return parsed && typeof parsed === "object" ? parsed : null;
+    } catch (error) {
+      return null;
+    }
+  };
   var GlassPanel = ({ children, className = "" }) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: `bg-[#131620] border border-slate-800/80 rounded-2xl shadow-lg ${className}`, children });
   var InputField = ({ label, value, onChange, placeholder = "", isTextArea = false }) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "flex flex-col space-y-1.5 w-full", children: [
     /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("label", { className: "text-xs font-semibold tracking-wide text-slate-400 uppercase", children: label }),
@@ -23193,8 +23330,26 @@
     )
   ] });
   function App3() {
-    const [data, setData] = (0, import_react5.useState)(INITIAL_STATE);
-    const [activeTab, setActiveTab] = (0, import_react5.useState)("instructions");
+    const [data, setData] = (0, import_react5.useState)(() => {
+      const saved = loadSavedMasterPlanState();
+      return normalizeMasterPlanState(saved?.data);
+    });
+    const [activeTab, setActiveTab] = (0, import_react5.useState)(() => {
+      const saved = loadSavedMasterPlanState();
+      return typeof saved?.activeTab === "string" && saved.activeTab.length > 0 ? saved.activeTab : "instructions";
+    });
+    (0, import_react5.useEffect)(() => {
+      try {
+        window.localStorage.setItem(
+          CALM_MODULE_4_MASTER_PLAN_STORAGE_KEY,
+          JSON.stringify({
+            activeTab,
+            data
+          })
+        );
+      } catch (error) {
+      }
+    }, [activeTab, data]);
     const updateCareer = (index, field, value) => {
       const newCareers = [...data.careers];
       newCareers[index][field] = value;
@@ -23897,18 +24052,101 @@
       ]
     }
   };
+  var DEFAULT_RESUME_STATE = {
+    personal: { name: "", address: "", homePhone: "", cellPhone: "", email: "" },
+    education: [{ id: 1, school: "", degree: "", year: "" }],
+    skills: [],
+    experience: [{ id: 1, company: "", location: "", position: "", startDate: "", endDate: "", responsibilities: "" }],
+    volunteer: [],
+    references: [{ id: 1, name: "", title: "", organization: "", address: "", phone: "" }]
+  };
+  var normalizeRows = (rows, makeFallbackRow) => {
+    if (!Array.isArray(rows)) {
+      return [makeFallbackRow(1)];
+    }
+    const normalized = rows.map((row, index) => makeFallbackRow(index + 1, row));
+    return normalized.length > 0 ? normalized : [makeFallbackRow(1)];
+  };
+  var normalizeResumeState = (resume) => {
+    if (!resume || typeof resume !== "object") {
+      return DEFAULT_RESUME_STATE;
+    }
+    return {
+      personal: { ...DEFAULT_RESUME_STATE.personal, ...resume.personal || {} },
+      education: normalizeRows(resume.education, (fallbackId, row = {}) => ({
+        id: typeof row.id === "number" ? row.id : fallbackId,
+        school: typeof row.school === "string" ? row.school : "",
+        degree: typeof row.degree === "string" ? row.degree : "",
+        year: typeof row.year === "string" ? row.year : ""
+      })),
+      skills: Array.isArray(resume.skills) ? resume.skills.filter((skill) => typeof skill === "string") : [],
+      experience: normalizeRows(resume.experience, (fallbackId, row = {}) => ({
+        id: typeof row.id === "number" ? row.id : fallbackId,
+        company: typeof row.company === "string" ? row.company : "",
+        location: typeof row.location === "string" ? row.location : "",
+        position: typeof row.position === "string" ? row.position : "",
+        startDate: typeof row.startDate === "string" ? row.startDate : "",
+        endDate: typeof row.endDate === "string" ? row.endDate : "",
+        responsibilities: typeof row.responsibilities === "string" ? row.responsibilities : ""
+      })),
+      volunteer: Array.isArray(resume.volunteer) ? resume.volunteer.map((row, index) => ({
+        id: typeof row?.id === "number" ? row.id : index + 1,
+        role: typeof row?.role === "string" ? row.role : "",
+        organization: typeof row?.organization === "string" ? row.organization : "",
+        date: typeof row?.date === "string" ? row.date : "",
+        responsibilities: typeof row?.responsibilities === "string" ? row.responsibilities : ""
+      })) : [],
+      references: normalizeRows(resume.references, (fallbackId, row = {}) => ({
+        id: typeof row.id === "number" ? row.id : fallbackId,
+        name: typeof row.name === "string" ? row.name : "",
+        title: typeof row.title === "string" ? row.title : "",
+        organization: typeof row.organization === "string" ? row.organization : "",
+        address: typeof row.address === "string" ? row.address : "",
+        phone: typeof row.phone === "string" ? row.phone : ""
+      }))
+    };
+  };
+  var loadSavedResumeBuilderState = () => {
+    try {
+      const raw = window.localStorage.getItem(CALM_MODULE_4_RESUME_BUILDER_STORAGE_KEY);
+      if (!raw) return null;
+      const parsed = JSON.parse(raw);
+      return parsed && typeof parsed === "object" ? parsed : null;
+    } catch (error) {
+      return null;
+    }
+  };
   function App4() {
-    const [activeTab, setActiveTab] = (0, import_react6.useState)("learn");
-    const [resumeStyle, setResumeStyle] = (0, import_react6.useState)("1");
-    const [isToolbarCollapsed, setIsToolbarCollapsed] = (0, import_react6.useState)(false);
-    const [resume, setResume] = (0, import_react6.useState)({
-      personal: { name: "", address: "", homePhone: "", cellPhone: "", email: "" },
-      education: [{ id: 1, school: "", degree: "", year: "" }],
-      skills: [],
-      experience: [{ id: 1, company: "", location: "", position: "", startDate: "", endDate: "", responsibilities: "" }],
-      volunteer: [],
-      references: [{ id: 1, name: "", title: "", organization: "", address: "", phone: "" }]
+    const [activeTab, setActiveTab] = (0, import_react6.useState)(() => {
+      const saved = loadSavedResumeBuilderState();
+      return typeof saved?.activeTab === "string" && saved.activeTab.length > 0 ? saved.activeTab : "learn";
     });
+    const [resumeStyle, setResumeStyle] = (0, import_react6.useState)(() => {
+      const saved = loadSavedResumeBuilderState();
+      return typeof saved?.resumeStyle === "string" && saved.resumeStyle.length > 0 ? saved.resumeStyle : "1";
+    });
+    const [isToolbarCollapsed, setIsToolbarCollapsed] = (0, import_react6.useState)(() => {
+      const saved = loadSavedResumeBuilderState();
+      return Boolean(saved?.isToolbarCollapsed);
+    });
+    const [resume, setResume] = (0, import_react6.useState)(() => {
+      const saved = loadSavedResumeBuilderState();
+      return normalizeResumeState(saved?.resume);
+    });
+    (0, import_react6.useEffect)(() => {
+      try {
+        window.localStorage.setItem(
+          CALM_MODULE_4_RESUME_BUILDER_STORAGE_KEY,
+          JSON.stringify({
+            activeTab,
+            resume,
+            resumeStyle,
+            isToolbarCollapsed
+          })
+        );
+      } catch (error) {
+      }
+    }, [activeTab, resume, resumeStyle, isToolbarCollapsed]);
     return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "flex flex-col h-screen bg-[#07090E] font-sans text-slate-300 overflow-hidden print:block print:h-auto print:bg-white print:text-black", children: [
       /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("header", { className: `bg-[#0B0E17] border-b border-white/5 flex-shrink-0 relative z-20 shadow-lg print:hidden overflow-hidden transition-all duration-300 ${isToolbarCollapsed ? "mb-6" : ""}`, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "w-full px-4 sm:px-6 lg:px-8", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: `flex ${isToolbarCollapsed ? "flex-row items-center justify-between h-16 py-3" : "flex-col sm:flex-row justify-between items-center h-auto sm:h-20 py-4 sm:py-0 gap-4"}`, children: [
         /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "flex items-center space-x-3 text-white", children: [
@@ -24763,11 +25001,47 @@
     closingParagraph: "I am highly motivated to bring my technical skills and enthusiasm to Acme Innovations. I have attached my resume for your review. I would welcome the opportunity to discuss how my background, skills, and certifications will be of benefit to your company. Please feel free to contact me at (780) 123-4567 to arrange an interview at your earliest convenience.",
     signOff: "Sincerely,"
   };
+  var loadSavedCoverLetterBuilderState = () => {
+    try {
+      const raw = window.localStorage.getItem(CALM_MODULE_4_COVER_LETTER_STORAGE_KEY);
+      if (!raw) return null;
+      const parsed = JSON.parse(raw);
+      return parsed && typeof parsed === "object" ? parsed : null;
+    } catch (error) {
+      return null;
+    }
+  };
   function CoverLetterBuilder() {
-    const [activeTab, setActiveTab] = (0, import_react7.useState)("workshop");
-    const [formData, setFormData] = (0, import_react7.useState)(emptyFormData);
-    const [docStyle, setDocStyle] = (0, import_react7.useState)("modern");
-    const [isToolbarCollapsed, setIsToolbarCollapsed] = (0, import_react7.useState)(false);
+    const [activeTab, setActiveTab] = (0, import_react7.useState)(() => {
+      const saved = loadSavedCoverLetterBuilderState();
+      return typeof saved?.activeTab === "string" && saved.activeTab.length > 0 ? saved.activeTab : "workshop";
+    });
+    const [formData, setFormData] = (0, import_react7.useState)(() => {
+      const saved = loadSavedCoverLetterBuilderState();
+      return { ...emptyFormData, ...saved?.formData || {} };
+    });
+    const [docStyle, setDocStyle] = (0, import_react7.useState)(() => {
+      const saved = loadSavedCoverLetterBuilderState();
+      return typeof saved?.docStyle === "string" && saved.docStyle.length > 0 ? saved.docStyle : "modern";
+    });
+    const [isToolbarCollapsed, setIsToolbarCollapsed] = (0, import_react7.useState)(() => {
+      const saved = loadSavedCoverLetterBuilderState();
+      return Boolean(saved?.isToolbarCollapsed);
+    });
+    (0, import_react7.useEffect)(() => {
+      try {
+        window.localStorage.setItem(
+          CALM_MODULE_4_COVER_LETTER_STORAGE_KEY,
+          JSON.stringify({
+            activeTab,
+            formData,
+            docStyle,
+            isToolbarCollapsed
+          })
+        );
+      } catch (error) {
+      }
+    }, [activeTab, formData, docStyle, isToolbarCollapsed]);
     const handlePrint = () => {
       window.print();
     };
@@ -25370,30 +25644,120 @@ ${signOff ? signOff : "[Your Sign-off]"}
     { id: "cover-letter-builder", title: "Cover Letter Builder", icon: Mail },
     { id: "reflection", title: "Module Reflection", icon: FileText, isInteractive: true }
   ];
+  var DEFAULT_MAIN_FORM_DATA = {
+    // Career Exploration (Shadowing & Volunteering)
+    jobShadow1: "",
+    jobShadow2: "",
+    whyVolunteer: "",
+    volunteerSkills: "",
+    volunteerExperience: "",
+    idealVolunteer: "",
+    volunteerResume: "",
+    mandatoryVolunteer: "",
+    // Module Reflection
+    loveWhatYouDo: "",
+    influences: "",
+    jobSkills: "",
+    portfolioBenefits: "",
+    portfolioAdjustments: "",
+    missionPurpose: "",
+    selfAssessment: ""
+  };
+  var readStoredJson = (storageKey) => {
+    try {
+      const raw = window.localStorage.getItem(storageKey);
+      if (!raw) return null;
+      const parsed = JSON.parse(raw);
+      return parsed && typeof parsed === "object" ? parsed : null;
+    } catch (error) {
+      return null;
+    }
+  };
+  var prettifyPathSegment = (segment) => {
+    if (typeof segment === "number") {
+      return `Item ${segment + 1}`;
+    }
+    const source = String(segment).replace(/([a-z0-9])([A-Z])/g, "$1 $2").replace(/[_-]+/g, " ").trim();
+    return source.replace(/\b\w/g, (char) => char.toUpperCase());
+  };
+  var flattenAnsweredEntries = (value, path = [], entries = []) => {
+    if (typeof value === "string") {
+      const trimmed = value.trim();
+      if (trimmed.length > 0) {
+        entries.push({
+          label: path.map(prettifyPathSegment).join(" / "),
+          value: trimmed
+        });
+      }
+      return entries;
+    }
+    if (typeof value === "number") {
+      if (Number.isFinite(value)) {
+        entries.push({
+          label: path.map(prettifyPathSegment).join(" / "),
+          value: String(value)
+        });
+      }
+      return entries;
+    }
+    if (typeof value === "boolean") {
+      entries.push({
+        label: path.map(prettifyPathSegment).join(" / "),
+        value: value ? "Yes" : "No"
+      });
+      return entries;
+    }
+    if (Array.isArray(value)) {
+      value.forEach((item, index) => flattenAnsweredEntries(item, [...path, index], entries));
+      return entries;
+    }
+    if (value && typeof value === "object") {
+      Object.entries(value).forEach(([key, nestedValue]) => {
+        flattenAnsweredEntries(nestedValue, [...path, key], entries);
+      });
+    }
+    return entries;
+  };
   function App5() {
-    const [isSidebarOpen, setIsSidebarOpen] = (0, import_react8.useState)(true);
-    const [activeUnitId, setActiveUnitId] = (0, import_react8.useState)(MODULE_UNITS[0].id);
-    const [completedUnits, setCompletedUnits] = (0, import_react8.useState)(["intro"]);
-    const [isSaving, setIsSaving] = (0, import_react8.useState)(false);
-    const [formData, setFormData] = (0, import_react8.useState)({
-      // Career Exploration (Shadowing & Volunteering)
-      jobShadow1: "",
-      jobShadow2: "",
-      whyVolunteer: "",
-      volunteerSkills: "",
-      volunteerExperience: "",
-      idealVolunteer: "",
-      volunteerResume: "",
-      mandatoryVolunteer: "",
-      // Module Reflection
-      loveWhatYouDo: "",
-      influences: "",
-      jobSkills: "",
-      portfolioBenefits: "",
-      portfolioAdjustments: "",
-      missionPurpose: "",
-      selfAssessment: ""
+    const [isSidebarOpen, setIsSidebarOpen] = (0, import_react8.useState)(() => {
+      const saved = readStoredJson(CALM_MODULE_4_MAIN_STORAGE_KEY);
+      return typeof saved?.isSidebarOpen === "boolean" ? saved.isSidebarOpen : true;
     });
+    const [activeUnitId, setActiveUnitId] = (0, import_react8.useState)(() => {
+      const saved = readStoredJson(CALM_MODULE_4_MAIN_STORAGE_KEY);
+      const savedUnitId = typeof saved?.activeUnitId === "string" ? saved.activeUnitId : null;
+      return MODULE_UNITS.some((unit) => unit.id === savedUnitId) ? savedUnitId : MODULE_UNITS[0].id;
+    });
+    const [completedUnits, setCompletedUnits] = (0, import_react8.useState)(() => {
+      const saved = readStoredJson(CALM_MODULE_4_MAIN_STORAGE_KEY);
+      const savedUnits = Array.isArray(saved?.completedUnits) ? saved.completedUnits.filter((unitId) => MODULE_UNITS.some((unit) => unit.id === unitId)) : [];
+      if (!savedUnits.includes("intro")) {
+        savedUnits.unshift("intro");
+      }
+      return [...new Set(savedUnits)];
+    });
+    const [isSaving, setIsSaving] = (0, import_react8.useState)(false);
+    const [formData, setFormData] = (0, import_react8.useState)(() => {
+      const saved = readStoredJson(CALM_MODULE_4_MAIN_STORAGE_KEY);
+      return {
+        ...DEFAULT_MAIN_FORM_DATA,
+        ...saved?.formData || {}
+      };
+    });
+    (0, import_react8.useEffect)(() => {
+      try {
+        window.localStorage.setItem(
+          CALM_MODULE_4_MAIN_STORAGE_KEY,
+          JSON.stringify({
+            isSidebarOpen,
+            activeUnitId,
+            completedUnits,
+            formData
+          })
+        );
+      } catch (error) {
+      }
+    }, [isSidebarOpen, activeUnitId, completedUnits, formData]);
     const activeUnitIndex = MODULE_UNITS.findIndex((u) => u.id === activeUnitId);
     const activeUnit = MODULE_UNITS[activeUnitIndex];
     const isBuilderUnit = activeUnitId === "resume-builder" || activeUnitId === "cover-letter-builder";
@@ -25412,13 +25776,195 @@ ${signOff ? signOff : "[Your Sign-off]"}
         setActiveUnitId(MODULE_UNITS[activeUnitIndex - 1].id);
       }
     };
-    const handleSaveDraft = () => {
+    const handleGenerateReport = () => {
       setIsSaving(true);
-      setTimeout(() => setIsSaving(false), 1e3);
+      const reportWindow = window.open("about:blank", "_blank");
+      if (!reportWindow) {
+        setIsSaving(false);
+        return;
+      }
+      try {
+        const html = buildTeacherReportHtml();
+        reportWindow.document.open();
+        reportWindow.document.write(html);
+        reportWindow.document.close();
+        reportWindow.focus();
+        window.setTimeout(() => {
+          reportWindow.print();
+          setIsSaving(false);
+        }, 200);
+      } catch (error) {
+        reportWindow.document.body.innerHTML = '<pre style="padding:16px;font-family:monospace;">Report generation failed.</pre>';
+        setIsSaving(false);
+      }
     };
     const handleFormChange = (e) => {
       const { name, value } = e.target;
       setFormData((prev) => ({ ...prev, [name]: value }));
+    };
+    const reportDate = (/* @__PURE__ */ new Date()).toLocaleString();
+    const reportQuestions = [
+      { key: "jobShadow1", label: "Job Shadowing Choice 1" },
+      { key: "jobShadow2", label: "Job Shadowing Choice 2" },
+      { key: "whyVolunteer", label: "Why do people volunteer?" },
+      { key: "volunteerSkills", label: "Skills helpful to community organizations" },
+      { key: "volunteerExperience", label: "Volunteer experience" },
+      { key: "idealVolunteer", label: "Ideal way to volunteer in the community" },
+      { key: "volunteerResume", label: "Why volunteer work belongs on a resume" },
+      { key: "mandatoryVolunteer", label: "Should youth volunteer work be required?" },
+      { key: "loveWhatYouDo", label: "Can what you love become what you do?" },
+      { key: "influences", label: "Major influences on career decisions" },
+      { key: "jobSkills", label: "Skills and behaviors needed to keep a job" },
+      { key: "portfolioBenefits", label: "Benefits of having a portfolio" },
+      { key: "portfolioAdjustments", label: "How to adjust a portfolio for different jobs" },
+      { key: "missionPurpose", label: "Purpose of a mission statement" },
+      { key: "selfAssessment", label: "Importance of ongoing self-assessment" }
+    ];
+    const introReflectionEntries = reportQuestions.map((question) => ({
+      label: question.label,
+      value: String(formData[question.key] ?? "").trim()
+    })).filter((entry) => entry.value.length > 0);
+    const careerPlannerState = readStoredJson(CALM_MODULE_4_CAREER_PLANNER_STORAGE_KEY);
+    const resourcefulPeopleState = readStoredJson(CALM_MODULE_4_RESOURCEFUL_PEOPLE_STORAGE_KEY);
+    const masterPlanState = readStoredJson(CALM_MODULE_4_MASTER_PLAN_STORAGE_KEY);
+    const resumeBuilderState = readStoredJson(CALM_MODULE_4_RESUME_BUILDER_STORAGE_KEY);
+    const coverLetterState = readStoredJson(CALM_MODULE_4_COVER_LETTER_STORAGE_KEY);
+    const reportSections = [
+      {
+        eyebrow: "Core Workbook",
+        title: "Career Exploration & Reflection",
+        entries: introReflectionEntries
+      },
+      {
+        eyebrow: "Career Planner",
+        title: "Portfolio Workbook Responses",
+        entries: flattenAnsweredEntries(careerPlannerState?.formData || {})
+      },
+      {
+        eyebrow: "Resourceful People",
+        title: "Reflection & Resource List",
+        entries: flattenAnsweredEntries({
+          reflections: resourcefulPeopleState?.reflections || {},
+          resources: resourcefulPeopleState?.resources || {}
+        })
+      },
+      {
+        eyebrow: "Master Plan",
+        title: "Career, Post-Secondary, and Course Planning",
+        entries: flattenAnsweredEntries(masterPlanState?.data || {})
+      },
+      {
+        eyebrow: "Resume Builder",
+        title: "Resume Workshop Responses",
+        entries: flattenAnsweredEntries(resumeBuilderState?.resume || {})
+      },
+      {
+        eyebrow: "Cover Letter Builder",
+        title: "Cover Letter Workshop Responses",
+        entries: flattenAnsweredEntries(coverLetterState?.formData || {})
+      }
+    ];
+    const allReportEntries = reportSections.flatMap(
+      (section) => section.entries.map((entry) => ({
+        label: `${section.title} / ${entry.label}`,
+        value: entry.value
+      }))
+    );
+    const totalAnsweredCount = reportSections.reduce((total, section) => total + section.entries.length, 0);
+    const sectionsWithAnswers = reportSections.filter((section) => section.entries.length > 0).length;
+    const hasTeacherReportValue = (value) => {
+      if (typeof value === "string") return value.trim().length > 0;
+      if (typeof value === "number") return Number.isFinite(value);
+      return Boolean(value);
+    };
+    const escapeTeacherReportHtml = (value) => String(value ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+    const renderTeacherReportValue = (value) => {
+      if (!hasTeacherReportValue(value)) {
+        return '<span class="answer-empty-chip">No response provided</span>';
+      }
+      return escapeTeacherReportHtml(value).replace(/\n/g, "<br />");
+    };
+    const buildTeacherReportSection = (eyebrow, title, bodyHtml) => `
+    <section class="report-section">
+      <div class="report-section-heading">
+        <p class="report-section-eyebrow">${escapeTeacherReportHtml(eyebrow)}</p>
+        <h2>${escapeTeacherReportHtml(title)}</h2>
+      </div>
+      ${bodyHtml}
+    </section>
+  `;
+    const renderTeacherReportCardGrid = (items) => items.map((item) => `
+      <article class="report-card report-card-wide">
+        <h3>${escapeTeacherReportHtml(item.label)}</h3>
+        <div class="report-answer">${renderTeacherReportValue(item.value)}</div>
+      </article>
+    `).join("");
+    const buildTeacherReportHtml = () => {
+      const responseSections = reportSections.map((section) => {
+        if (section.entries.length === 0) {
+          return buildTeacherReportSection(
+            section.eyebrow,
+            section.title,
+            `<div class="report-grid">
+            <article class="report-card report-card-wide">
+              <h3>No responses captured yet</h3>
+              <div class="report-answer">Complete this section in Module 4, then generate the report again.</div>
+            </article>
+          </div>`
+          );
+        }
+        return buildTeacherReportSection(
+          section.eyebrow,
+          section.title,
+          `<div class="report-grid">${renderTeacherReportCardGrid(section.entries)}</div>`
+        );
+      }).join("");
+      return `<!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CALM Module 4 Teacher Report</title>
+        <style>
+          :root { color-scheme: light; --ink: #0f172a; --muted: #475569; --line: #dbe4f0; --panel: #ffffff; --panel-soft: #f8fafc; --accent: #6d28d9; --warning: #92400e; --warning-soft: #fff7ed; }
+          * { box-sizing: border-box; }
+          body { margin: 0; padding: 2rem; background: #eef2ff; color: var(--ink); font-family: Inter, "Segoe UI", Arial, sans-serif; }
+          .report-shell { max-width: 1100px; margin: 0 auto; }
+          .report-hero { background: linear-gradient(135deg, #4c1d95, #7c3aed 52%, #c4b5fd); color: white; border-radius: 2rem; padding: 2rem; margin-bottom: 1.5rem; box-shadow: 0 24px 60px rgba(76, 29, 149, 0.22); }
+          .report-hero h1 { margin: 0 0 0.6rem; font-size: 2rem; line-height: 1.05; }
+          .report-hero p { margin: 0; color: rgba(255, 255, 255, 0.88); font-size: 1rem; }
+          .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 0.9rem; margin-top: 1.4rem; }
+          .summary-stat { background: rgba(255, 255, 255, 0.14); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 1.25rem; padding: 0.95rem 1rem; }
+          .summary-stat-label { display: block; font-size: 0.72rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255, 255, 255, 0.74); margin-bottom: 0.35rem; }
+          .summary-stat-value { font-size: 1.05rem; font-weight: 800; line-height: 1.35; }
+          .report-section { background: var(--panel); border: 1px solid var(--line); border-radius: 1.8rem; padding: 1.4rem; margin-bottom: 1.2rem; box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06); }
+          .report-section-heading { margin-bottom: 1rem; }
+          .report-section-eyebrow { margin: 0 0 0.3rem; font-size: 0.72rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+          .report-section-heading h2 { margin: 0; font-size: 1.45rem; line-height: 1.15; }
+          .report-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0.9rem; }
+          .report-card { background: var(--panel-soft); border: 1px solid var(--line); border-radius: 1.25rem; padding: 1rem; break-inside: avoid; }
+          .report-card-wide { grid-column: 1 / -1; }
+          .report-card h3 { margin: 0 0 0.65rem; font-size: 0.75rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+          .report-answer { font-size: 0.95rem; line-height: 1.6; color: var(--ink); }
+          .answer-empty-chip { display: inline-flex; align-items: center; gap: 0.35rem; border-radius: 999px; padding: 0.3rem 0.7rem; background: var(--warning-soft); color: var(--warning); font-size: 0.8rem; font-weight: 700; }
+          @media print { body { background: white; padding: 0; } .report-hero { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+        </style>
+      </head>
+      <body>
+        <div class="report-shell">
+          <header class="report-hero">
+            <h1>CALM Module 4 Teacher Report</h1>
+            <p>Career, portfolio, resume, and cover letter responses for review, printing, and discussion.</p>
+            <div class="summary-grid">
+              <div class="summary-stat"><span class="summary-stat-label">Answered Fields</span><div class="summary-stat-value">${totalAnsweredCount}</div></div>
+              <div class="summary-stat"><span class="summary-stat-label">Sections With Answers</span><div class="summary-stat-value">${sectionsWithAnswers} / ${reportSections.length}</div></div>
+              <div class="summary-stat"><span class="summary-stat-label">Generated</span><div class="summary-stat-value">${escapeTeacherReportHtml(reportDate)}</div></div>
+            </div>
+          </header>
+          ${responseSections}
+        </div>
+      </body>
+    </html>`;
     };
     const renderContent = () => {
       switch (activeUnitId) {
@@ -25810,6 +26356,124 @@ ${signOff ? signOff : "[Your Sign-off]"}
       }
     };
     return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex h-screen bg-[#020617] text-slate-200 font-sans overflow-hidden relative selection:bg-purple-500/30", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("style", { dangerouslySetInnerHTML: { __html: `
+        @media print {
+          @page { size: letter portrait; margin: 0.6in; }
+          body {
+            background: #ffffff !important;
+            color: #0f172a !important;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+          }
+          #root {
+            min-height: auto !important;
+          }
+          .no-print {
+            display: none !important;
+          }
+          .print-only {
+            display: block !important;
+          }
+          .print-page {
+            display: grid;
+            gap: 16px;
+            font-family: "Plus Jakarta Sans", Inter, ui-sans-serif, system-ui, sans-serif;
+          }
+          .print-hero {
+            border: 1px solid #cbd5e1;
+            border-radius: 24px;
+            padding: 24px;
+            background: linear-gradient(135deg, #fff1f7 0%, #fff 42%, #f8fafc 100%);
+          }
+          .print-section {
+            break-inside: avoid;
+            page-break-inside: avoid;
+            margin-top: 6px;
+          }
+          .print-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 18px;
+            background: #ffffff;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+          }
+          .print-heading {
+            color: #0f172a !important;
+            letter-spacing: -0.04em;
+          }
+          .print-muted {
+            color: #475569 !important;
+          }
+          .print-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+          }
+          .print-stat {
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 14px;
+            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+          }
+          .print-stat-label {
+            margin: 0 0 4px;
+            color: #e11d48 !important;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+          }
+          .print-stat-value {
+            margin: 0;
+            color: #0f172a !important;
+            font-size: 1.02rem;
+            font-weight: 800;
+          }
+          .print-list {
+            display: grid;
+            gap: 10px;
+          }
+          .print-list-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 12px 14px;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            background: #f8fafc;
+          }
+          .print-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.35rem 0.7rem;
+            border-radius: 999px;
+            background: #fce7f3;
+            color: #be185d !important;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+          }
+          .print-field {
+            display: grid;
+            gap: 0.4rem;
+          }
+          .print-label {
+            color: #be185d !important;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+          }
+          .print-value {
+            color: #0f172a !important;
+            white-space: pre-wrap;
+            line-height: 1.6;
+          }
+        }
+      ` } }),
       /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-purple-600/10 rounded-full blur-[120px] pointer-events-none" }),
       /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-pink-600/10 rounded-full blur-[120px] pointer-events-none" }),
       /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
@@ -25884,12 +26548,11 @@ ${signOff ? signOff : "[Your Sign-off]"}
             /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
               "button",
               {
-                onClick: handleSaveDraft,
-                className: `flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold tracking-wide transition-all shadow-lg hover:-translate-y-0.5
-                ${isSaving ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/50 shadow-emerald-500/20" : "bg-slate-800/80 text-slate-300 hover:bg-slate-700 border border-slate-600/50 hover:border-slate-500 hover:text-white"}`,
+                onClick: handleGenerateReport,
+                className: "flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold tracking-wide transition-all duration-300 shadow-lg bg-gradient-to-r from-pink-600 to-fuchsia-600 hover:from-pink-500 hover:to-fuchsia-500 text-white border border-pink-400/30 hover:-translate-y-0.5 hover:shadow-[0_0_22px_rgba(236,72,153,0.45)]",
                 children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Save, { size: 18, className: isSaving ? "animate-pulse" : "" }),
-                  isSaving ? "SAVED!" : "SAVE DRAFT"
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Printer, { size: 18, className: isSaving ? "animate-pulse" : "" }),
+                  isSaving ? "GENERATING..." : "GENERATE REPORT"
                 ]
               }
             ),
@@ -25925,7 +26588,37 @@ ${signOff ? signOff : "[Your Sign-off]"}
             )
           ] })
         ] }) })
-      ] })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "hidden print-only", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "print-page", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("section", { className: "print-hero print-section", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex items-start justify-between gap-6", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "min-w-0", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "inline-flex items-center gap-2 rounded-full bg-pink-100 px-3 py-1 text-[10px] font-extrabold uppercase tracking-[0.22em] text-pink-700", children: "CALM Module 4 Report" }),
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h1", { className: "print-heading mt-4 text-4xl font-black", children: "Career, Portfolio, Resume, and Letter Responses" }),
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "print-muted mt-3 max-w-3xl text-sm leading-7", children: "Print-ready answers from every completed response field in this module." })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "shrink-0 rounded-2xl border border-pink-200 bg-white px-4 py-3 shadow-sm", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "print-stat-label", children: "Generated" }),
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "print-stat-value", children: reportDate })
+          ] })
+        ] }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("section", { className: "print-section print-card", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "mb-4", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "print-stat-label", children: "Responses" }),
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("h2", { className: "print-heading text-2xl font-black", children: [
+              "Filled Answers (",
+              allReportEntries.length,
+              ")"
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "grid gap-4", children: allReportEntries.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "print-field", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "print-label", children: "No responses found" }),
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "print-value", children: "Complete at least one question in the module before generating the report." })
+          ] }) : allReportEntries.map((entry) => /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "print-field", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "print-label", children: entry.label }),
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "print-value", children: entry.value })
+          ] }, entry.label)) })
+        ] })
+      ] }) })
     ] });
   }
   var root = document.getElementById("root");
@@ -26027,7 +26720,6 @@ lucide-react/dist/esm/icons/pen-tool.js:
 lucide-react/dist/esm/icons/plus.js:
 lucide-react/dist/esm/icons/printer.js:
 lucide-react/dist/esm/icons/quote.js:
-lucide-react/dist/esm/icons/save.js:
 lucide-react/dist/esm/icons/settings.js:
 lucide-react/dist/esm/icons/sparkles.js:
 lucide-react/dist/esm/icons/square-check-big.js:

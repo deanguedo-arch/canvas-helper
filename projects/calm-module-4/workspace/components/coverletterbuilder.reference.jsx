@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   BookOpen, 
   FileText, 
@@ -15,6 +15,7 @@ import {
   Copy,
   Check
 } from 'lucide-react';
+import { CALM_MODULE_4_COVER_LETTER_STORAGE_KEY } from './storageKeys.js';
 
 // --- DATA STRUCTURES ---
 
@@ -140,13 +141,59 @@ const dummyFormData = {
   signOff: 'Sincerely,'
 };
 
+const loadSavedCoverLetterBuilderState = () => {
+  try {
+    const raw = window.localStorage.getItem(CALM_MODULE_4_COVER_LETTER_STORAGE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === 'object' ? parsed : null;
+  } catch (error) {
+    return null;
+  }
+};
+
 // --- MAIN APPLICATION ---
 
 export default function CoverLetterBuilder() {
-  const [activeTab, setActiveTab] = useState('workshop');
-  const [formData, setFormData] = useState(emptyFormData);
-  const [docStyle, setDocStyle] = useState('modern'); // 'classic', 'modern', 'elegant'
-  const [isToolbarCollapsed, setIsToolbarCollapsed] = useState(false);
+  const [activeTab, setActiveTab] = useState(() => {
+    const saved = loadSavedCoverLetterBuilderState();
+    return typeof saved?.activeTab === 'string' && saved.activeTab.length > 0
+      ? saved.activeTab
+      : 'workshop';
+  });
+
+  const [formData, setFormData] = useState(() => {
+    const saved = loadSavedCoverLetterBuilderState();
+    return { ...emptyFormData, ...(saved?.formData || {}) };
+  });
+
+  const [docStyle, setDocStyle] = useState(() => {
+    const saved = loadSavedCoverLetterBuilderState();
+    return typeof saved?.docStyle === 'string' && saved.docStyle.length > 0
+      ? saved.docStyle
+      : 'modern';
+  }); // 'classic', 'modern', 'elegant'
+
+  const [isToolbarCollapsed, setIsToolbarCollapsed] = useState(() => {
+    const saved = loadSavedCoverLetterBuilderState();
+    return Boolean(saved?.isToolbarCollapsed);
+  });
+
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(
+        CALM_MODULE_4_COVER_LETTER_STORAGE_KEY,
+        JSON.stringify({
+          activeTab,
+          formData,
+          docStyle,
+          isToolbarCollapsed
+        })
+      );
+    } catch (error) {
+      // Ignore storage quota/privacy errors and keep the UI interactive.
+    }
+  }, [activeTab, formData, docStyle, isToolbarCollapsed]);
 
   // Print function
   const handlePrint = () => {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   BookOpen, 
   Edit3, 
@@ -7,37 +7,112 @@ import {
   CheckCircle,
   FileText
 } from 'lucide-react';
+import { CALM_MODULE_4_RESOURCEFUL_PEOPLE_STORAGE_KEY } from './storageKeys.js';
+
+const DEFAULT_REFLECTIONS = {
+  q1: '',
+  q2: '',
+  q3: '',
+  q4: ''
+};
+
+const DEFAULT_RESOURCES = {
+  postSecondary: [
+    { id: 1, name: '', contact: '', criteria: '', info: '' },
+    { id: 2, name: '', contact: '', criteria: '', info: '' }
+  ],
+  financial: [
+    { id: 1, name: '', contact: '', criteria: '', info: '' },
+    { id: 2, name: '', contact: '', criteria: '', info: '' }
+  ],
+  scholarships: [
+    { id: 1, name: '', contact: '', criteria: '', info: '' },
+    { id: 2, name: '', contact: '', criteria: '', info: '' }
+  ],
+  contacts: [
+    { id: 1, name: '', contact: '', criteria: '', info: '' },
+    { id: 2, name: '', contact: '', criteria: '', info: '' }
+  ]
+};
+
+const normalizeResourceRows = (rows = []) => {
+  const normalized = Array.isArray(rows)
+    ? rows.slice(0, 2).map((row, index) => ({
+      id: index + 1,
+      name: typeof row?.name === 'string' ? row.name : '',
+      contact: typeof row?.contact === 'string' ? row.contact : '',
+      criteria: typeof row?.criteria === 'string' ? row.criteria : '',
+      info: typeof row?.info === 'string' ? row.info : ''
+    }))
+    : [];
+
+  while (normalized.length < 2) {
+    normalized.push({
+      id: normalized.length + 1,
+      name: '',
+      contact: '',
+      criteria: '',
+      info: ''
+    });
+  }
+
+  return normalized;
+};
+
+const loadSavedResourcefulPeopleState = () => {
+  try {
+    const raw = window.localStorage.getItem(CALM_MODULE_4_RESOURCEFUL_PEOPLE_STORAGE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === 'object' ? parsed : null;
+  } catch (error) {
+    return null;
+  }
+};
 
 const App = () => {
-  const [activeTab, setActiveTab] = useState('article');
+  const [activeTab, setActiveTab] = useState(() => {
+    const saved = loadSavedResourcefulPeopleState();
+    return typeof saved?.activeTab === 'string' && saved.activeTab.length > 0
+      ? saved.activeTab
+      : 'article';
+  });
   
   // State for Reflection Questions
-  const [reflections, setReflections] = useState({
-    q1: '',
-    q2: '',
-    q3: '',
-    q4: ''
+  const [reflections, setReflections] = useState(() => {
+    const saved = loadSavedResourcefulPeopleState();
+    return {
+      ...DEFAULT_REFLECTIONS,
+      ...(saved?.reflections || {})
+    };
   });
 
   // State for Resource List
-  const [resources, setResources] = useState({
-    postSecondary: [
-      { id: 1, name: '', contact: '', criteria: '', info: '' },
-      { id: 2, name: '', contact: '', criteria: '', info: '' }
-    ],
-    financial: [
-      { id: 1, name: '', contact: '', criteria: '', info: '' },
-      { id: 2, name: '', contact: '', criteria: '', info: '' }
-    ],
-    scholarships: [
-      { id: 1, name: '', contact: '', criteria: '', info: '' },
-      { id: 2, name: '', contact: '', criteria: '', info: '' }
-    ],
-    contacts: [
-      { id: 1, name: '', contact: '', criteria: '', info: '' },
-      { id: 2, name: '', contact: '', criteria: '', info: '' }
-    ]
+  const [resources, setResources] = useState(() => {
+    const saved = loadSavedResourcefulPeopleState();
+    const savedResources = saved?.resources || {};
+    return {
+      postSecondary: normalizeResourceRows(savedResources.postSecondary || DEFAULT_RESOURCES.postSecondary),
+      financial: normalizeResourceRows(savedResources.financial || DEFAULT_RESOURCES.financial),
+      scholarships: normalizeResourceRows(savedResources.scholarships || DEFAULT_RESOURCES.scholarships),
+      contacts: normalizeResourceRows(savedResources.contacts || DEFAULT_RESOURCES.contacts)
+    };
   });
+
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(
+        CALM_MODULE_4_RESOURCEFUL_PEOPLE_STORAGE_KEY,
+        JSON.stringify({
+          activeTab,
+          reflections,
+          resources
+        })
+      );
+    } catch (error) {
+      // Ignore storage quota/privacy errors and keep the UI interactive.
+    }
+  }, [activeTab, reflections, resources]);
 
   const handleReflectionChange = (q, value) => {
     setReflections(prev => ({ ...prev, [q]: value }));

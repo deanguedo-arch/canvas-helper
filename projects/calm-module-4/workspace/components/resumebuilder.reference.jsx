@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   BookOpen, 
   Wrench, 
@@ -20,6 +20,7 @@ import {
   Info,
   LayoutTemplate
 } from 'lucide-react';
+import { CALM_MODULE_4_RESUME_BUILDER_STORAGE_KEY } from './storageKeys.js';
 
 // --- DATA FROM PDF ---
 const softSkills = [
@@ -158,21 +159,122 @@ const sectionDetails = {
   }
 };
 
+const DEFAULT_RESUME_STATE = {
+  personal: { name: '', address: '', homePhone: '', cellPhone: '', email: '' },
+  education: [{ id: 1, school: '', degree: '', year: '' }],
+  skills: [],
+  experience: [{ id: 1, company: '', location: '', position: '', startDate: '', endDate: '', responsibilities: '' }],
+  volunteer: [],
+  references: [{ id: 1, name: '', title: '', organization: '', address: '', phone: '' }]
+};
+
+const normalizeRows = (rows, makeFallbackRow) => {
+  if (!Array.isArray(rows)) {
+    return [makeFallbackRow(1)];
+  }
+
+  const normalized = rows.map((row, index) => makeFallbackRow(index + 1, row));
+  return normalized.length > 0 ? normalized : [makeFallbackRow(1)];
+};
+
+const normalizeResumeState = (resume) => {
+  if (!resume || typeof resume !== 'object') {
+    return DEFAULT_RESUME_STATE;
+  }
+
+  return {
+    personal: { ...DEFAULT_RESUME_STATE.personal, ...(resume.personal || {}) },
+    education: normalizeRows(resume.education, (fallbackId, row = {}) => ({
+      id: typeof row.id === 'number' ? row.id : fallbackId,
+      school: typeof row.school === 'string' ? row.school : '',
+      degree: typeof row.degree === 'string' ? row.degree : '',
+      year: typeof row.year === 'string' ? row.year : ''
+    })),
+    skills: Array.isArray(resume.skills)
+      ? resume.skills.filter((skill) => typeof skill === 'string')
+      : [],
+    experience: normalizeRows(resume.experience, (fallbackId, row = {}) => ({
+      id: typeof row.id === 'number' ? row.id : fallbackId,
+      company: typeof row.company === 'string' ? row.company : '',
+      location: typeof row.location === 'string' ? row.location : '',
+      position: typeof row.position === 'string' ? row.position : '',
+      startDate: typeof row.startDate === 'string' ? row.startDate : '',
+      endDate: typeof row.endDate === 'string' ? row.endDate : '',
+      responsibilities: typeof row.responsibilities === 'string' ? row.responsibilities : ''
+    })),
+    volunteer: Array.isArray(resume.volunteer)
+      ? resume.volunteer.map((row, index) => ({
+        id: typeof row?.id === 'number' ? row.id : index + 1,
+        role: typeof row?.role === 'string' ? row.role : '',
+        organization: typeof row?.organization === 'string' ? row.organization : '',
+        date: typeof row?.date === 'string' ? row.date : '',
+        responsibilities: typeof row?.responsibilities === 'string' ? row.responsibilities : ''
+      }))
+      : [],
+    references: normalizeRows(resume.references, (fallbackId, row = {}) => ({
+      id: typeof row.id === 'number' ? row.id : fallbackId,
+      name: typeof row.name === 'string' ? row.name : '',
+      title: typeof row.title === 'string' ? row.title : '',
+      organization: typeof row.organization === 'string' ? row.organization : '',
+      address: typeof row.address === 'string' ? row.address : '',
+      phone: typeof row.phone === 'string' ? row.phone : ''
+    }))
+  };
+};
+
+const loadSavedResumeBuilderState = () => {
+  try {
+    const raw = window.localStorage.getItem(CALM_MODULE_4_RESUME_BUILDER_STORAGE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === 'object' ? parsed : null;
+  } catch (error) {
+    return null;
+  }
+};
+
 // --- MAIN COMPONENT ---
 export default function App() {
-  const [activeTab, setActiveTab] = useState('learn'); // 'learn', 'exemplar', or 'build'
-  const [resumeStyle, setResumeStyle] = useState('1'); // '1', '2', or '3'
-  const [isToolbarCollapsed, setIsToolbarCollapsed] = useState(false);
+  const [activeTab, setActiveTab] = useState(() => {
+    const saved = loadSavedResumeBuilderState();
+    return typeof saved?.activeTab === 'string' && saved.activeTab.length > 0
+      ? saved.activeTab
+      : 'learn';
+  }); // 'learn', 'exemplar', or 'build'
+
+  const [resumeStyle, setResumeStyle] = useState(() => {
+    const saved = loadSavedResumeBuilderState();
+    return typeof saved?.resumeStyle === 'string' && saved.resumeStyle.length > 0
+      ? saved.resumeStyle
+      : '1';
+  }); // '1', '2', or '3'
+
+  const [isToolbarCollapsed, setIsToolbarCollapsed] = useState(() => {
+    const saved = loadSavedResumeBuilderState();
+    return Boolean(saved?.isToolbarCollapsed);
+  });
 
   // Resume State
-  const [resume, setResume] = useState({
-    personal: { name: '', address: '', homePhone: '', cellPhone: '', email: '' },
-    education: [{ id: 1, school: '', degree: '', year: '' }],
-    skills: [],
-    experience: [{ id: 1, company: '', location: '', position: '', startDate: '', endDate: '', responsibilities: '' }],
-    volunteer: [],
-    references: [{ id: 1, name: '', title: '', organization: '', address: '', phone: '' }]
+  const [resume, setResume] = useState(() => {
+    const saved = loadSavedResumeBuilderState();
+    return normalizeResumeState(saved?.resume);
   });
+
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(
+        CALM_MODULE_4_RESUME_BUILDER_STORAGE_KEY,
+        JSON.stringify({
+          activeTab,
+          resume,
+          resumeStyle,
+          isToolbarCollapsed
+        })
+      );
+    } catch (error) {
+      // Ignore storage quota/privacy errors and keep the UI interactive.
+    }
+  }, [activeTab, resume, resumeStyle, isToolbarCollapsed]);
 
   return (
     <div className="flex flex-col h-screen bg-[#07090E] font-sans text-slate-300 overflow-hidden print:block print:h-auto print:bg-white print:text-black">

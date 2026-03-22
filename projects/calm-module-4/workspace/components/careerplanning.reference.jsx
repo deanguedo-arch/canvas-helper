@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  Save, 
+  Printer,
   ExternalLink, 
   BrainCircuit, 
   Target, 
@@ -13,21 +13,73 @@ import {
   LayoutDashboard,
   BookOpen
 } from 'lucide-react';
+import { CALM_MODULE_4_CAREER_PLANNER_STORAGE_KEY } from './storageKeys.js';
+
+const DEFAULT_FORM_DATA = {
+  interests: { rank1: '', rank2: '', rank3: '', desc1: '', desc2: '', desc3: '', summary: '', occupations: '' },
+  abilities: { rank1: '', rank2: '', rank3: '', desc1: '', desc2: '', desc3: '', summary: '', occupations: '' },
+  workValues: { top5: '' },
+  intelligences: { intel1: '', intel2: '', intel3: '', summary: '', strat1: '', strat2: '', strat3: '' },
+  experiences: { exp1Desc: '', exp1Proud: '', exp2Desc: '', exp2Proud: '', helpCareer: '' },
+  skills: { difference: '', top10: '', helpCareer: '' },
+  traits: { definition: '', top10: '', helpCareer: '' },
+  conditions: { top5: '', helpCareer: '' }
+};
+
+const loadSavedCareerPlannerState = () => {
+  try {
+    const raw = window.localStorage.getItem(CALM_MODULE_4_CAREER_PLANNER_STORAGE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === 'object' ? parsed : null;
+  } catch (error) {
+    return null;
+  }
+};
 
 const App = () => {
   // --- STATE MANAGEMENT ---
-  const [formData, setFormData] = useState({
-    interests: { rank1: '', rank2: '', rank3: '', desc1: '', desc2: '', desc3: '', summary: '', occupations: '' },
-    abilities: { rank1: '', rank2: '', rank3: '', desc1: '', desc2: '', desc3: '', summary: '', occupations: '' },
-    workValues: { top5: '' },
-    intelligences: { intel1: '', intel2: '', intel3: '', summary: '', strat1: '', strat2: '', strat3: '' },
-    experiences: { exp1Desc: '', exp1Proud: '', exp2Desc: '', exp2Proud: '', helpCareer: '' },
-    skills: { difference: '', top10: '', helpCareer: '' },
-    traits: { definition: '', top10: '', helpCareer: '' },
-    conditions: { top5: '', helpCareer: '' }
+  const [formData, setFormData] = useState(() => {
+    const saved = loadSavedCareerPlannerState();
+    const savedFormData = saved?.formData;
+    if (!savedFormData || typeof savedFormData !== 'object') {
+      return DEFAULT_FORM_DATA;
+    }
+
+    return {
+      ...DEFAULT_FORM_DATA,
+      interests: { ...DEFAULT_FORM_DATA.interests, ...(savedFormData.interests || {}) },
+      abilities: { ...DEFAULT_FORM_DATA.abilities, ...(savedFormData.abilities || {}) },
+      workValues: { ...DEFAULT_FORM_DATA.workValues, ...(savedFormData.workValues || {}) },
+      intelligences: { ...DEFAULT_FORM_DATA.intelligences, ...(savedFormData.intelligences || {}) },
+      experiences: { ...DEFAULT_FORM_DATA.experiences, ...(savedFormData.experiences || {}) },
+      skills: { ...DEFAULT_FORM_DATA.skills, ...(savedFormData.skills || {}) },
+      traits: { ...DEFAULT_FORM_DATA.traits, ...(savedFormData.traits || {}) },
+      conditions: { ...DEFAULT_FORM_DATA.conditions, ...(savedFormData.conditions || {}) }
+    };
   });
 
-  const [activeSection, setActiveSection] = useState('instructions');
+  const [activeSection, setActiveSection] = useState(() => {
+    const saved = loadSavedCareerPlannerState();
+    return typeof saved?.activeSection === 'string' && saved.activeSection.length > 0
+      ? saved.activeSection
+      : 'instructions';
+  });
+
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(
+        CALM_MODULE_4_CAREER_PLANNER_STORAGE_KEY,
+        JSON.stringify({
+          activeSection,
+          formData
+        })
+      );
+    } catch (error) {
+      // Ignore storage quota/privacy errors and keep the UI interactive.
+    }
+  }, [activeSection, formData]);
+
   // Helper to handle nested state updates
   const handleChange = (section, field, value) => {
     setFormData(prev => ({
@@ -156,10 +208,10 @@ const App = () => {
 
               <button
                 onClick={handlePrint}
-                className="flex items-center gap-2 bg-[#1A1D36] hover:bg-[#232747] border border-[#2A2D4A] transition-colors px-4 sm:px-5 py-2.5 rounded-lg text-xs font-bold text-white tracking-widest uppercase shadow-sm"
+                className="flex items-center gap-2 bg-gradient-to-r from-pink-600 to-fuchsia-600 hover:from-pink-500 hover:to-fuchsia-500 border border-pink-400/30 transition-all duration-300 px-4 sm:px-5 py-2.5 rounded-lg text-xs font-bold text-white tracking-widest uppercase shadow-[0_0_15px_rgba(236,72,153,0.28)] hover:shadow-[0_0_22px_rgba(236,72,153,0.45)] transform hover:-translate-y-0.5"
               >
-                <Save size={14} />
-                <span className="hidden sm:inline">Save Draft</span>
+                <Printer size={14} />
+                <span className="hidden sm:inline">Generate Report</span>
               </button>
             </div>
           </div>

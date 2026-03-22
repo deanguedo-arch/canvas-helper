@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Briefcase, 
   GraduationCap, 
@@ -11,6 +11,7 @@ import {
   ExternalLink,
   BookOpen
 } from 'lucide-react';
+import { CALM_MODULE_4_MASTER_PLAN_STORAGE_KEY } from './storageKeys.js';
 
 // --- INITIAL STATE & DATA CONFIGURATION ---
 
@@ -46,6 +47,51 @@ const COURSE_CATALOG = {
   other: { title: "CTS, Fine Art, or Second Languages", courses: ["Option 10 Level", "Option 20 Level", "Option 30 Level"] }
 };
 
+const cloneInitialState = () => JSON.parse(JSON.stringify(INITIAL_STATE));
+
+const normalizeCourseCategory = (category) => ({
+  done: Array.isArray(category?.done) ? category.done : [],
+  need: Array.isArray(category?.need) ? category.need : []
+});
+
+const normalizeMasterPlanState = (savedData) => {
+  const base = cloneInitialState();
+  if (!savedData || typeof savedData !== 'object') {
+    return base;
+  }
+
+  return {
+    ...base,
+    careers: Array.isArray(savedData.careers)
+      ? base.careers.map((career, index) => ({ ...career, ...(savedData.careers[index] || {}) }))
+      : base.careers,
+    reflection: { ...base.reflection, ...(savedData.reflection || {}) },
+    institutions: Array.isArray(savedData.institutions)
+      ? base.institutions.map((institution, index) => ({ ...institution, ...(savedData.institutions[index] || {}) }))
+      : base.institutions,
+    courses: {
+      english: normalizeCourseCategory(savedData?.courses?.english),
+      social: normalizeCourseCategory(savedData?.courses?.social),
+      math: normalizeCourseCategory(savedData?.courses?.math),
+      science: normalizeCourseCategory(savedData?.courses?.science),
+      physed: normalizeCourseCategory(savedData?.courses?.physed),
+      calm: normalizeCourseCategory(savedData?.courses?.calm),
+      other: normalizeCourseCategory(savedData?.courses?.other)
+    }
+  };
+};
+
+const loadSavedMasterPlanState = () => {
+  try {
+    const raw = window.localStorage.getItem(CALM_MODULE_4_MASTER_PLAN_STORAGE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === 'object' ? parsed : null;
+  } catch (error) {
+    return null;
+  }
+};
+
 // --- REUSABLE UI COMPONENTS (DARK MODE) ---
 
 const GlassPanel = ({ children, className = '' }) => (
@@ -79,8 +125,31 @@ const InputField = ({ label, value, onChange, placeholder = '', isTextArea = fal
 // --- MAIN APPLICATION ---
 
 export default function App() {
-  const [data, setData] = useState(INITIAL_STATE);
-  const [activeTab, setActiveTab] = useState('instructions');
+  const [data, setData] = useState(() => {
+    const saved = loadSavedMasterPlanState();
+    return normalizeMasterPlanState(saved?.data);
+  });
+
+  const [activeTab, setActiveTab] = useState(() => {
+    const saved = loadSavedMasterPlanState();
+    return typeof saved?.activeTab === 'string' && saved.activeTab.length > 0
+      ? saved.activeTab
+      : 'instructions';
+  });
+
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(
+        CALM_MODULE_4_MASTER_PLAN_STORAGE_KEY,
+        JSON.stringify({
+          activeTab,
+          data
+        })
+      );
+    } catch (error) {
+      // Ignore storage quota/privacy errors and keep the UI interactive.
+    }
+  }, [activeTab, data]);
 
   // State Updaters
   const updateCareer = (index, field, value) => {
