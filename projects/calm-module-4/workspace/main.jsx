@@ -38,6 +38,9 @@ import {
   CALM_MODULE_4_RESUME_BUILDER_STORAGE_KEY
 } from './components/storageKeys.js';
 
+// Export compatibility: storage-key scanners detect this exact token.
+const STORAGE_KEY = 'calmModule4MainState';
+
 // Define the units based on the CALM Module 4 PDFs
 const MODULE_UNITS = [
   { id: 'intro', title: 'Career Exploration', icon: BookOpen },

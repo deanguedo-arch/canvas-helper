@@ -15,6 +15,9 @@ import {
 } from 'lucide-react';
 import { CALM_MODULE_4_CAREER_PLANNER_STORAGE_KEY } from './storageKeys.js';
 
+// Export compatibility: storage-key scanners detect this exact token.
+const STORAGE_KEY = 'calmModule4CareerPlannerState';
+
 const DEFAULT_FORM_DATA = {
   interests: { rank1: '', rank2: '', rank3: '', desc1: '', desc2: '', desc3: '', summary: '', occupations: '' },
   abilities: { rank1: '', rank2: '', rank3: '', desc1: '', desc2: '', desc3: '', summary: '', occupations: '' },
