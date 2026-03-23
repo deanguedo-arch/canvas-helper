@@ -82,6 +82,18 @@ async function transpileHostedMainJsx(exportDir: string) {
     return false;
   }
 
+  const mainJsPath = path.join(exportDir, "main.js");
+  if (await fileExists(mainJsPath)) {
+    const existingMainJsSource = await readFile(mainJsPath, "utf8");
+    const hasEsmSyntax = /^\s*(?:import|export)\s/m.test(existingMainJsSource);
+
+    // Preserve prebuilt browser bundles (IIFE/CJS-style) copied from workspace.
+    // Overwriting these with a non-bundled transpile can break hosted runtime loading.
+    if (!hasEsmSyntax) {
+      return false;
+    }
+  }
+
   const mainJsxSource = await readFile(mainJsxPath, "utf8");
   const transpileResult = ts.transpileModule(mainJsxSource, {
     compilerOptions: {
@@ -250,4 +262,3 @@ export async function exportProjectToGoogleHosted(
     storageKeys
   };
 }
-
