@@ -22690,7 +22690,7 @@
               className: "bg-[#E8437D] hover:bg-[#D43A70] text-white px-6 py-3 rounded-lg font-bold text-sm transition-colors flex items-center gap-2 shadow-lg shadow-[#E8437D]/20",
               children: [
                 "Generate PDF ",
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Save, { size: 16 })
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Printer, { size: 16 })
               ]
             }
           )

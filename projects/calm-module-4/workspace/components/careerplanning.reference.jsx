@@ -443,7 +443,7 @@ const App = () => {
                     onClick={handlePrint}
                     className="bg-[#E8437D] hover:bg-[#D43A70] text-white px-6 py-3 rounded-lg font-bold text-sm transition-colors flex items-center gap-2 shadow-lg shadow-[#E8437D]/20"
                   >
-                    Generate PDF <Save size={16}/>
+                    Generate PDF <Printer size={16}/>
                   </button>
                 </div>
               )}
