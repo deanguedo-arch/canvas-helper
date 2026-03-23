@@ -1,0 +1,72 @@
+[debug] [2026-03-23T12:14:49.249Z] ----------------------------------------------------------------------
+[debug] [2026-03-23T12:14:49.252Z] Command:       /usr/local/bin/node /Users/deanguedo/.npm/_npx/7750544ccf494d8b/node_modules/.bin/firebase login --no-localhost
+[debug] [2026-03-23T12:14:49.252Z] CLI Version:   15.11.0
+[debug] [2026-03-23T12:14:49.252Z] Platform:      darwin
+[debug] [2026-03-23T12:14:49.252Z] Node Version:  v24.13.0
+[debug] [2026-03-23T12:14:49.252Z] Time:          Mon Mar 23 2026 06:14:49 GMT-0600 (Mountain Daylight Time)
+[debug] [2026-03-23T12:14:49.252Z] ----------------------------------------------------------------------
+[debug] 
+[info] i  The Firebase CLI’s MCP server feature can optionally make use of Gemini in Firebase. Learn more about Gemini in Firebase and how it uses your data: https://firebase.google.com/docs/gemini-in-firebase#how-gemini-in-firebase-uses-your-data 
+[info] 
+[info] i  Firebase optionally collects CLI and Emulator Suite usage and error reporting information to help improve our products. Data is collected in accordance with Google's privacy policy (https://policies.google.com/privacy) and is not used to identify you. 
+[debug] [2026-03-23T12:15:04.630Z] >>> [apiv2][query] POST https://auth.firebase.tools/attest [none]
+[debug] [2026-03-23T12:15:04.630Z] >>> [apiv2][body] POST https://auth.firebase.tools/attest {"session_id":"164a3f66-16c4-404c-a0a0-92951ee619e7"}
+[debug] [2026-03-23T12:15:05.049Z] <<< [apiv2][status] POST https://auth.firebase.tools/attest 200
+[debug] [2026-03-23T12:15:05.050Z] <<< [apiv2][body] POST https://auth.firebase.tools/attest {"token":"JEpc9-7GJtNdSJdvKAzGIrjNpAVs6KTjEnqaOxQgJZQ"}
+[info] 
+[info] To sign in to the Firebase CLI:
+[info] 
+[info] 1. Take note of your session ID:
+[info] 
+[info]    164A3
+[info] 
+[info] 2. Visit the URL below on any device and follow the instructions to get your code:
+[info] 
+[info]    https://auth.firebase.tools/login?code_challenge=ooath4mxk7yZGyrZiSXrCjY2K-G9V_-051CnH0sju4s&session=164a3f66-16c4-404c-a0a0-92951ee619e7&attest=JEpc9-7GJtNdSJdvKAzGIrjNpAVs6KTjEnqaOxQgJZQ
+[info] 
+[info] 3. Paste or enter the authorization code below once you have it:
+[info] 
+[debug] [2026-03-23T12:16:11.545Z] >>> [apiv2][query] POST https://accounts.google.com/o/oauth2/token [none]
+[debug] [2026-03-23T12:16:11.545Z] >>> [apiv2][body] POST https://accounts.google.com/o/oauth2/token [omitted]
+[debug] [2026-03-23T12:16:11.672Z] <<< [apiv2][status] POST https://accounts.google.com/o/oauth2/token 400
+[debug] [2026-03-23T12:16:11.672Z] <<< [apiv2][body] POST https://accounts.google.com/o/oauth2/token [omitted]
+[debug] [2026-03-23T12:16:11.674Z] Token Fetch Error: FirebaseError: Request to https://accounts.google.com/o/oauth2/token had HTTP Error: 400, invalid_grant
+    at responseToError (/Users/deanguedo/.npm/_npx/7750544ccf494d8b/node_modules/firebase-tools/lib/responseToError.js:53:12)
+    at RetryOperation._fn (/Users/deanguedo/.npm/_npx/7750544ccf494d8b/node_modules/firebase-tools/lib/apiv2.js:333:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+[error] Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[error] 
+[error] Error: Unable to authenticate using the provided code. Please try again.
+[debug] [2026-03-23T12:16:21.378Z] ----------------------------------------------------------------------
+[debug] [2026-03-23T12:16:21.381Z] Command:       /usr/local/bin/node /Users/deanguedo/.npm/_npx/7750544ccf494d8b/node_modules/.bin/firebase login --no-localhost
+[debug] [2026-03-23T12:16:21.381Z] CLI Version:   15.11.0
+[debug] [2026-03-23T12:16:21.381Z] Platform:      darwin
+[debug] [2026-03-23T12:16:21.381Z] Node Version:  v24.13.0
+[debug] [2026-03-23T12:16:21.381Z] Time:          Mon Mar 23 2026 06:16:21 GMT-0600 (Mountain Daylight Time)
+[debug] [2026-03-23T12:16:21.381Z] ----------------------------------------------------------------------
+[debug] 
+[info] i  The Firebase CLI’s MCP server feature can optionally make use of Gemini in Firebase. Learn more about Gemini in Firebase and how it uses your data: https://firebase.google.com/docs/gemini-in-firebase#how-gemini-in-firebase-uses-your-data 
+[info] 
+[info] i  Firebase optionally collects CLI and Emulator Suite usage and error reporting information to help improve our products. Data is collected in accordance with Google's privacy policy (https://policies.google.com/privacy) and is not used to identify you. 
+[debug] [2026-03-23T12:16:38.841Z] >>> [apiv2][query] POST https://auth.firebase.tools/attest [none]
+[debug] [2026-03-23T12:16:38.841Z] >>> [apiv2][body] POST https://auth.firebase.tools/attest {"session_id":"f42e5c70-0a62-4067-8325-638362e47b9b"}
+[debug] [2026-03-23T12:16:39.161Z] <<< [apiv2][status] POST https://auth.firebase.tools/attest 200
+[debug] [2026-03-23T12:16:39.161Z] <<< [apiv2][body] POST https://auth.firebase.tools/attest {"token":"LeRqGLD5rROwbgZBievbbyxv-z2LSWnlUPvZSUy_sek"}
+[info] 
+[info] To sign in to the Firebase CLI:
+[info] 
+[info] 1. Take note of your session ID:
+[info] 
+[info]    F42E5
+[info] 
+[info] 2. Visit the URL below on any device and follow the instructions to get your code:
+[info] 
+[info]    https://auth.firebase.tools/login?code_challenge=-evaUYN_-1x200Hv8fwyMkK447c9XQAX5nUjsPd3zBw&session=f42e5c70-0a62-4067-8325-638362e47b9b&attest=LeRqGLD5rROwbgZBievbbyxv-z2LSWnlUPvZSUy_sek
+[info] 
+[info] 3. Paste or enter the authorization code below once you have it:
+[info] 
+[debug] [2026-03-23T12:17:22.514Z] >>> [apiv2][query] POST https://accounts.google.com/o/oauth2/token [none]
+[debug] [2026-03-23T12:17:22.514Z] >>> [apiv2][body] POST https://accounts.google.com/o/oauth2/token [omitted]
+[debug] [2026-03-23T12:17:22.697Z] <<< [apiv2][status] POST https://accounts.google.com/o/oauth2/token 200
