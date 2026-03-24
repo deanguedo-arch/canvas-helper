@@ -3,7 +3,7 @@ import test from "node:test";
 
 import { buildAssessmentMapFromCatalog } from "../lib/assessment-map.js";
 import { buildCourseBlueprintFromCatalog } from "../lib/course-blueprint.js";
-import { classifyResource } from "../lib/curriculum-heuristics.js";
+import { classifyResource, toStableId } from "../lib/curriculum-heuristics.js";
 import { buildLessonPacketsFromArtifacts } from "../lib/lesson-packets.js";
 import type { ReferenceChunk, ResourceCatalog, ResourceCatalogEntry } from "../lib/types.js";
 
@@ -176,4 +176,18 @@ test("planning artifacts prioritize outline scope and assessment demand", () => 
     lessonPackets.packets.every((packet) => packet.guidedPracticeIdeas.length > 0 && packet.evidenceOfReadinessForAssessment.length > 0),
     true
   );
+});
+
+test("toStableId stays filesystem-safe for very long extracted statements", () => {
+  const longValue =
+    "Some scientists, the most problematic statistical illusion relates to observational studies in which correlation is often confused with causation. " +
+    "For example, you may have heard the statement that people who consume a moderate amount of alcohol have less heart disease than people who consume either no alcohol or too much alcohol. " +
+    "People who report the news might inadvertently present this information in such a way that the public is led to believe that alcohol prevents heart disease. " +
+    "In fact, this claim cannot be made. Correlation is not causation.";
+
+  const stableId = toStableId(longValue);
+
+  assert.equal(stableId.length <= 80, true);
+  assert.match(stableId, /^[a-z0-9-]+$/);
+  assert.equal(stableId, toStableId(longValue));
 });

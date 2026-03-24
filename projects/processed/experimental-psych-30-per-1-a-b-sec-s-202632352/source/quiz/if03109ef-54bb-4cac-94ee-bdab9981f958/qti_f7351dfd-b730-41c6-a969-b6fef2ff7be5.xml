@@ -1,0 +1,1543 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/profile/cc/ccv1p3/ccv1p3_qtiasiv1p2p1_v1p0.xsd">
+  <assessment ident="ic753511c-fdca-4236-a135-0a82afe6857d" title="Module 3 Assessment">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>cc_profile</fieldlabel>
+        <fieldentry>cc.exam.v0p1</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_assessmenttype</fieldlabel>
+        <fieldentry>Examination</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>1</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_timelimit</fieldlabel>
+        <fieldentry>120</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    <section ident="i6cf9a886-bb2f-4c4d-b250-843ccc6ff9f3">
+      <item ident="i948e0f18-f7cb-4f1d-8a9b-242930d4da3c">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Which of the following sampling methods involves selecting every nth member of a population to be included in the sample?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="ia1121da9-9201-47d7-858b-52410373f85f" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i0f6fb5be-1bdc-4c89-a0fe-350b133dcbf2">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Random sampling&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i3ee291dc-9df4-4e7f-b5ba-09f4a54ecaa0">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Stratified sampling&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i8ffe32ed-c8fd-4054-aaac-943a419521c4">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Systematic sampling&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ieb0e65b2-ec4e-4a35-932a-97a815de425a">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Convenience sampling&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ia1121da9-9201-47d7-858b-52410373f85f">i0f6fb5be-1bdc-4c89-a0fe-350b133dcbf2</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ia1121da9-9201-47d7-858b-52410373f85f">i3ee291dc-9df4-4e7f-b5ba-09f4a54ecaa0</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ia1121da9-9201-47d7-858b-52410373f85f">i8ffe32ed-c8fd-4054-aaac-943a419521c4</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ia1121da9-9201-47d7-858b-52410373f85f">ieb0e65b2-ec4e-4a35-932a-97a815de425a</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i5fee3214-918e-4117-93a9-4fa0ef27429b">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;A researcher wants to ensure that their sample reflects the diversity of a population. Which sampling method would be most appropriate?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i7ac7b18e-9838-4ee2-a340-d9fc2b1153fd" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i33221cd8-3181-4960-aece-23161516d690">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Snowball sampling&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i751823d8-b02e-417c-ad60-3ecf41447880">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Quota sampling&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i6e3712ce-800f-43f4-8bce-7d457bb6cd68">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Cluster sampling&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ib6aa3090-1087-484c-b7e4-7dd31daac48f">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Judgement sampling&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i7ac7b18e-9838-4ee2-a340-d9fc2b1153fd">i33221cd8-3181-4960-aece-23161516d690</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i7ac7b18e-9838-4ee2-a340-d9fc2b1153fd">i751823d8-b02e-417c-ad60-3ecf41447880</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i7ac7b18e-9838-4ee2-a340-d9fc2b1153fd">i6e3712ce-800f-43f4-8bce-7d457bb6cd68</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i7ac7b18e-9838-4ee2-a340-d9fc2b1153fd">ib6aa3090-1087-484c-b7e4-7dd31daac48f</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="if012abdb-55ea-4620-9604-dca60e850191">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;What is the primary advantage of using random sampling in research?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i18b23419-5871-4d5a-b0cc-d4c9cda44f5a" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i03a7e49d-c4c3-4b69-90e6-e2c543fbffe6">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;It is cost-effective&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i023ffb20-71cf-488c-9df8-4c67dba94775">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;It guarantees a representative sample&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ifcbda938-4713-4459-9c03-6b889ade9c5e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;It allows for convenient participant selection&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="iae7fad8c-37a5-45f9-ad86-8f1d1d489416">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;It reduces the risk of selection bias&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i18b23419-5871-4d5a-b0cc-d4c9cda44f5a">i03a7e49d-c4c3-4b69-90e6-e2c543fbffe6</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i18b23419-5871-4d5a-b0cc-d4c9cda44f5a">i023ffb20-71cf-488c-9df8-4c67dba94775</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i18b23419-5871-4d5a-b0cc-d4c9cda44f5a">ifcbda938-4713-4459-9c03-6b889ade9c5e</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i18b23419-5871-4d5a-b0cc-d4c9cda44f5a">iae7fad8c-37a5-45f9-ad86-8f1d1d489416</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i001e5219-2f2d-4126-86d8-a55fcdf393be">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;When conducting research involving human participants, which ethical principle is crucial to consider?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="ie9874160-d301-4fb4-b24f-53b04f08c967" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i0d3929c6-c965-4371-9685-7d08c59f1742">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Informed consent&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i84deb5ae-2317-46e7-93d9-e199df636a85">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Animal welfare&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i18ec7f05-79c2-4eca-a930-a6481bb7be0a">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Research approval&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i80ade3b9-884d-45bb-886d-fb706661ee85">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Sampling bias&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ie9874160-d301-4fb4-b24f-53b04f08c967">i0d3929c6-c965-4371-9685-7d08c59f1742</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ie9874160-d301-4fb4-b24f-53b04f08c967">i84deb5ae-2317-46e7-93d9-e199df636a85</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ie9874160-d301-4fb4-b24f-53b04f08c967">i18ec7f05-79c2-4eca-a930-a6481bb7be0a</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ie9874160-d301-4fb4-b24f-53b04f08c967">i80ade3b9-884d-45bb-886d-fb706661ee85</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="iaee77f68-4c51-4b11-8613-b55348751724">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;A researcher is studying the effects of a new therapy on patients with depression. What is an essential step before beginning the study?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="ibbf413fe-8586-46cd-b043-992bf52b5559" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i20630189-104f-4914-aaa3-547196105e55">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Obtain approval from a institutional review board (IRB)&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i998ae10a-5ef8-4f2b-8149-f69238b0c667">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Randomly assign patients to therapy or control groups&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i414ca9b4-d0cb-400e-9971-66feab09b0fe">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Select a convenient sample of patients&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i27473e41-cc5e-48f9-8a28-629db3f1f8d7">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Collect informed consent from participants&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ibbf413fe-8586-46cd-b043-992bf52b5559">i20630189-104f-4914-aaa3-547196105e55</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ibbf413fe-8586-46cd-b043-992bf52b5559">i998ae10a-5ef8-4f2b-8149-f69238b0c667</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ibbf413fe-8586-46cd-b043-992bf52b5559">i414ca9b4-d0cb-400e-9971-66feab09b0fe</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ibbf413fe-8586-46cd-b043-992bf52b5559">i27473e41-cc5e-48f9-8a28-629db3f1f8d7</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ibc34fcf7-a98f-4587-9e27-7fc098343d41">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Which type of data display is most suitable for showing the distribution of a single continuous variable, such as age or weight?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i5e305210-5cc2-43fd-bb7c-ec7480af9421" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ic2b61f65-e332-4588-badd-957ceeccdf70">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Bar chart&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ica2f3e9d-09c1-456e-bd95-08904f784748">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Pie chart&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ie083f27f-8af9-493b-9c14-50fa8a2e07e9">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Histogram&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="if6cc2a8a-c2fc-4d7b-a8a9-07e9de020b2d">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Line graph&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5e305210-5cc2-43fd-bb7c-ec7480af9421">ic2b61f65-e332-4588-badd-957ceeccdf70</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5e305210-5cc2-43fd-bb7c-ec7480af9421">ica2f3e9d-09c1-456e-bd95-08904f784748</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i5e305210-5cc2-43fd-bb7c-ec7480af9421">ie083f27f-8af9-493b-9c14-50fa8a2e07e9</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5e305210-5cc2-43fd-bb7c-ec7480af9421">if6cc2a8a-c2fc-4d7b-a8a9-07e9de020b2d</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="iae74c037-325d-4c18-8f03-3daccefaf6b8">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;When creating a line graph, which variable is typically placed on the x-axis (horizontal)?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i64706d5c-aa27-4b64-8d88-477e2b7daca3" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i0335a5d8-04c4-4235-92a0-0ba3a2c41edc">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Independent variable&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i8af43f18-3c11-40a0-a0b2-e4c070586dec">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Dependent variable&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ie7ed5ede-4ba9-4ee1-9404-3b03240e0841">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Categorical variable&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ib588620a-f2b6-48d5-b79f-22e2223d3fbd">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Nominal variable&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i64706d5c-aa27-4b64-8d88-477e2b7daca3">i0335a5d8-04c4-4235-92a0-0ba3a2c41edc</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i64706d5c-aa27-4b64-8d88-477e2b7daca3">i8af43f18-3c11-40a0-a0b2-e4c070586dec</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i64706d5c-aa27-4b64-8d88-477e2b7daca3">ie7ed5ede-4ba9-4ee1-9404-3b03240e0841</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i64706d5c-aa27-4b64-8d88-477e2b7daca3">ib588620a-f2b6-48d5-b79f-22e2223d3fbd</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i251a346c-8744-415d-bfd8-4aced0752c6c">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;In an experimental psychology study, researchers collect data on reaction times for two groups. They want to display the results graphically. What type of graph is most appropriate for this purpose?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i6860beb2-f330-4b46-98b1-72a293398adb" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i36c53537-906c-41c0-bf60-ce1aa32cb22a">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Pie chart&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i04941bec-9a6d-47a5-8467-6884347d7df2">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Histogram&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="id0b12425-4bb8-4138-a936-13df605f0e7a">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Scatter plot&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i0cf47bf6-de49-4d65-9107-19138b675c71">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Bar Graph&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i6860beb2-f330-4b46-98b1-72a293398adb">i36c53537-906c-41c0-bf60-ce1aa32cb22a</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i6860beb2-f330-4b46-98b1-72a293398adb">i04941bec-9a6d-47a5-8467-6884347d7df2</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i6860beb2-f330-4b46-98b1-72a293398adb">id0b12425-4bb8-4138-a936-13df605f0e7a</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i6860beb2-f330-4b46-98b1-72a293398adb">i0cf47bf6-de49-4d65-9107-19138b675c71</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ib5fc7386-e987-4998-ac35-9092b45ffc5c">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;In a bar graph, what does the length of each bar typically represent?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i4c2aecb0-9926-45f9-8a94-f88a309ab327" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i0fe56788-3ab6-4fb8-8c2e-c0f064c8776f">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;The frequency of each category&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i69d5941c-166a-48fb-8a22-a015cd38b213">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;The percentage of the whole&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i3fc4114b-79c7-4a4f-a695-510036f1395e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;The relationship between two variables&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="if8c9d552-5457-49da-b0e6-405832deaa65">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;The standard deviation of the data&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i4c2aecb0-9926-45f9-8a94-f88a309ab327">i0fe56788-3ab6-4fb8-8c2e-c0f064c8776f</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i4c2aecb0-9926-45f9-8a94-f88a309ab327">i69d5941c-166a-48fb-8a22-a015cd38b213</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i4c2aecb0-9926-45f9-8a94-f88a309ab327">i3fc4114b-79c7-4a4f-a695-510036f1395e</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i4c2aecb0-9926-45f9-8a94-f88a309ab327">if8c9d552-5457-49da-b0e6-405832deaa65</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i247ecf7f-0569-4131-a443-859e2bf8c7a7">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;A pie chart is most suitable for displaying data when:&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i08a75af0-bd01-425c-bbfd-0a411ac9c5d7" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="if373b7c7-1eb4-4ced-9b77-008295ed4ffd">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;There is only one category of data&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i9b09c4e3-23d3-49e7-ae71-5002e709fbd5">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;The data involves multiple continuous variables&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i102553f5-0d23-4a9b-a185-e6cab8d5aa7d">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;You want to show the distribution of categories within a whole&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="iad082eea-e932-4ed2-89a0-34c54ca019d1">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;You want to compare changes over time&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i08a75af0-bd01-425c-bbfd-0a411ac9c5d7">if373b7c7-1eb4-4ced-9b77-008295ed4ffd</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i08a75af0-bd01-425c-bbfd-0a411ac9c5d7">i9b09c4e3-23d3-49e7-ae71-5002e709fbd5</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i08a75af0-bd01-425c-bbfd-0a411ac9c5d7">i102553f5-0d23-4a9b-a185-e6cab8d5aa7d</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i08a75af0-bd01-425c-bbfd-0a411ac9c5d7">iad082eea-e932-4ed2-89a0-34c54ca019d1</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i0333c720-31cb-437c-9240-12bcd28f950a">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;What does the &amp;quot;legend&amp;quot; or &amp;quot;key&amp;quot; on a graph or chart typically represent?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i9be03e56-938f-4426-aae9-420d6de0ff1d" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i9fb5ee9e-aaa1-49fb-91a0-4c0881990fbe">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;The title of the graph&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="if2e84b4e-bb00-4397-b83d-148edb4ce6e0">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;The data source&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i9ad3d9ad-88cd-4edb-8693-790267640718">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;The labels for different data series or categories&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i36f991b0-9734-4e2e-82b3-7d16b1d1f823">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;The axis labels&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i9be03e56-938f-4426-aae9-420d6de0ff1d">i9fb5ee9e-aaa1-49fb-91a0-4c0881990fbe</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i9be03e56-938f-4426-aae9-420d6de0ff1d">if2e84b4e-bb00-4397-b83d-148edb4ce6e0</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i9be03e56-938f-4426-aae9-420d6de0ff1d">i9ad3d9ad-88cd-4edb-8693-790267640718</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i9be03e56-938f-4426-aae9-420d6de0ff1d">i36f991b0-9734-4e2e-82b3-7d16b1d1f823</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ic82b8deb-2a51-4c71-9fae-e4d813dfbc35">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;In experimental psychology, when is it appropriate to use animals in research?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i25f0d441-9ec3-4883-9ec9-2c3c07dbfd3b" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i21de34eb-4a84-445b-85b6-70feeec5dba3">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Whenever it is convenient for the researcher&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ica7a9256-1ea3-4f86-b85a-8862f92d0709">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;When there are no human participants available&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ic57c96df-ba1b-4847-9097-214510d0e38a">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;When the research question cannot be addressed through other means and follows ethical guidelines&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="id4259376-b462-4134-abe5-f9331c1e4958">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Only in studies involving neuroscience and biology&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i25f0d441-9ec3-4883-9ec9-2c3c07dbfd3b">i21de34eb-4a84-445b-85b6-70feeec5dba3</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i25f0d441-9ec3-4883-9ec9-2c3c07dbfd3b">ica7a9256-1ea3-4f86-b85a-8862f92d0709</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i25f0d441-9ec3-4883-9ec9-2c3c07dbfd3b">ic57c96df-ba1b-4847-9097-214510d0e38a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i25f0d441-9ec3-4883-9ec9-2c3c07dbfd3b">id4259376-b462-4134-abe5-f9331c1e4958</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i0d827811-248e-4d27-843c-18d1486ef6c9">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;In experimental psychology research, what is the primary purpose of obtaining informed consent from participants?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="ib3637c97-a947-464c-91db-7d0eda9b3a24" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i0d66af95-b3ea-4110-bd59-05cd4e93c401">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;To ensure that participants are paid for their participation&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i26d48a1b-1fb2-45e3-b8b5-bafa863e324e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;To provide a legal basis for conducting the research&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ibd98c760-31ee-47f6-b615-fa1b1d12e809">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;To inform participants about the research procedures, potential risks, and their rights&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i318d8e16-d3b4-4447-aa0f-466a147e822e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;To guarantee that participants complete the study as planned&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ib3637c97-a947-464c-91db-7d0eda9b3a24">i0d66af95-b3ea-4110-bd59-05cd4e93c401</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ib3637c97-a947-464c-91db-7d0eda9b3a24">i26d48a1b-1fb2-45e3-b8b5-bafa863e324e</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ib3637c97-a947-464c-91db-7d0eda9b3a24">ibd98c760-31ee-47f6-b615-fa1b1d12e809</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ib3637c97-a947-464c-91db-7d0eda9b3a24">i318d8e16-d3b4-4447-aa0f-466a147e822e</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i1ab37b66-673c-42fc-80c2-fd5981f2a6d7">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;In the context of virtual experiments, what is a potential advantage of using virtual environments in psychological research?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="iec3a33d4-14ce-4334-b696-f13dd74500de" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i7d7f7c1c-a372-4eae-9e55-3b0f86769ce2">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Reduced ecological validity&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i3487b3bf-634e-4911-a86e-16890eaa523d">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Limited control over experimental conditions&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i6da4dc8d-ea25-497b-950a-4dce43137e5b">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Increased participant discomfort&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ief41dfaa-567c-44a4-9b01-934700c0688d">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Enhanced experimental control and realism&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="iec3a33d4-14ce-4334-b696-f13dd74500de">i7d7f7c1c-a372-4eae-9e55-3b0f86769ce2</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="iec3a33d4-14ce-4334-b696-f13dd74500de">i3487b3bf-634e-4911-a86e-16890eaa523d</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="iec3a33d4-14ce-4334-b696-f13dd74500de">i6da4dc8d-ea25-497b-950a-4dce43137e5b</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="iec3a33d4-14ce-4334-b696-f13dd74500de">ief41dfaa-567c-44a4-9b01-934700c0688d</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="if75cfbe8-190c-4f20-bce3-94cd702d4e23">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;When studying the effects of brain damage on behavior, researchers often rely on which type of animal models?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i03db2dd0-5998-4a84-802e-64be3201d0af" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i00e8e739-f7e7-45bf-b7c6-37041de64d6c">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Invertebrates&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i662aa1c9-ee4f-4335-8160-1e4f062bb974">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Fish&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i26cb9cf2-db7d-4c8b-b13a-082351249678">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Rodents&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="if65af839-bf19-45c5-9670-8b481c94c21d">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Birds&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i03db2dd0-5998-4a84-802e-64be3201d0af">i00e8e739-f7e7-45bf-b7c6-37041de64d6c</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i03db2dd0-5998-4a84-802e-64be3201d0af">i662aa1c9-ee4f-4335-8160-1e4f062bb974</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i03db2dd0-5998-4a84-802e-64be3201d0af">i26cb9cf2-db7d-4c8b-b13a-082351249678</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i03db2dd0-5998-4a84-802e-64be3201d0af">if65af839-bf19-45c5-9670-8b481c94c21d</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i599c6dce-f104-4714-bb1a-f809c1a5a4e7">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;The Milgram Obedience Experiment, conducted by Stanley Milgram, primarily focused on the influence of:&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i8a6a4d3c-890d-4e61-8e3b-ef7096a97f85" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i9b826c87-e203-4fa7-af28-2851998a1008">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Social norms on behaviour&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i2062283c-4525-4f99-bc13-0c5eb045b45f">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;The presence of authority figures on obedience&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i3ab11468-63de-4830-8d48-8722f5224749">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Virtual reality on decision-making&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ibe944324-6c3e-480d-8bc3-a425c70e8033">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Learned helplessness in humans&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i8a6a4d3c-890d-4e61-8e3b-ef7096a97f85">i9b826c87-e203-4fa7-af28-2851998a1008</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i8a6a4d3c-890d-4e61-8e3b-ef7096a97f85">i2062283c-4525-4f99-bc13-0c5eb045b45f</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i8a6a4d3c-890d-4e61-8e3b-ef7096a97f85">i3ab11468-63de-4830-8d48-8722f5224749</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i8a6a4d3c-890d-4e61-8e3b-ef7096a97f85">ibe944324-6c3e-480d-8bc3-a425c70e8033</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i2f50e8c5-e73c-4fcc-95c5-324985e64ef2">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;The Zimbardo Prison Experiment is often cited as an example of ethical concerns in research because:&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="icbddd36b-88df-4c3c-97b8-89e41484d4fe" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ibdf96211-58ac-4672-8ab4-7da8b1f7c89a">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;It involved the sue of animals without proper approval&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i1fc2d69c-e609-4a4c-b715-86456d76c98c">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;It caused severe psychological harm to participants&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ic6166b90-bca9-43c1-bab0-abadf84302d2">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;It was conducted without informed consent from participants&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i461b8db1-585b-405f-b54e-de2fba5a4e14">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;It did not include appropriate control groups&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="icbddd36b-88df-4c3c-97b8-89e41484d4fe">ibdf96211-58ac-4672-8ab4-7da8b1f7c89a</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="icbddd36b-88df-4c3c-97b8-89e41484d4fe">i1fc2d69c-e609-4a4c-b715-86456d76c98c</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="icbddd36b-88df-4c3c-97b8-89e41484d4fe">ic6166b90-bca9-43c1-bab0-abadf84302d2</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="icbddd36b-88df-4c3c-97b8-89e41484d4fe">i461b8db1-585b-405f-b54e-de2fba5a4e14</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i28d1a1e6-df57-45a6-98da-22b498088afb">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;In the context of classical conditioning, what did Ivan Pavlov&amp;#39;s experiments with dogs primarily demonstrate?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i7127b6c3-92ac-4c87-bd34-5d4241798e01" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ic4ee9651-a4b6-4389-89d2-96f680a680ab">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;The role of cognitive processes in learning&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i8d6bddf0-1cdd-4837-b026-04eb0344a8c8">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;The importance of observational learning&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="id9ada1d1-98f6-4c91-98ea-e1e7c1d0421b">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;The formation of conditioned responses to neutral stimuli&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ie9efb0fd-4693-4ebf-8812-ec052aa80671">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;The effects of operant conditioning on behaviour&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i7127b6c3-92ac-4c87-bd34-5d4241798e01">ic4ee9651-a4b6-4389-89d2-96f680a680ab</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i7127b6c3-92ac-4c87-bd34-5d4241798e01">i8d6bddf0-1cdd-4837-b026-04eb0344a8c8</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i7127b6c3-92ac-4c87-bd34-5d4241798e01">id9ada1d1-98f6-4c91-98ea-e1e7c1d0421b</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i7127b6c3-92ac-4c87-bd34-5d4241798e01">ie9efb0fd-4693-4ebf-8812-ec052aa80671</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i8d556bc9-d529-4521-9ab7-8eb9770e91a8">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Pellagra is a condition characterized by skin rashes, dementia, and diarrhea, primarily caused by a deficiency of which nutrient?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i4a814303-9152-429d-9a47-edbc368167ea" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i5db4fb5e-c5f5-4f2b-803b-d4b0a7fb83fa">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Vitamin C&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ifbbf6d4a-590e-400d-9b15-1b76e9696f3e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Vitamin B12&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i12d83bcd-62c5-42a0-9f9c-7c02e296864c">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Niacin (Vitamin B3)&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ib2d70579-0be2-4cc8-bef2-c3a3029ba25f">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Iron&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i4a814303-9152-429d-9a47-edbc368167ea">i5db4fb5e-c5f5-4f2b-803b-d4b0a7fb83fa</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i4a814303-9152-429d-9a47-edbc368167ea">ifbbf6d4a-590e-400d-9b15-1b76e9696f3e</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i4a814303-9152-429d-9a47-edbc368167ea">i12d83bcd-62c5-42a0-9f9c-7c02e296864c</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i4a814303-9152-429d-9a47-edbc368167ea">ib2d70579-0be2-4cc8-bef2-c3a3029ba25f</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i7ec0e370-63d4-4356-a5d6-803c51a69434">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;In the context of classical conditioning, who conducted the &amp;quot;Little Albert&amp;quot; experiment, which demonstrated how emotional reactions could be learned and generalized to similar stimuli?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i58904b22-3768-4246-a248-21cb99019bcf" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ide6d7505-7ced-4c8c-8182-fcf78889f7dc">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Ivan Pavlov&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="idad7947d-e437-433d-998a-50388b5ca17d">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;B.F. Skinner&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="id743aa46-63c2-4755-a791-f85ddeeba8b5">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;John Watson and Rosalie Rayner&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="iedd2d505-e215-4bff-9f81-c61fb2f9d852">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Sigmund Freud&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i58904b22-3768-4246-a248-21cb99019bcf">ide6d7505-7ced-4c8c-8182-fcf78889f7dc</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i58904b22-3768-4246-a248-21cb99019bcf">idad7947d-e437-433d-998a-50388b5ca17d</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i58904b22-3768-4246-a248-21cb99019bcf">id743aa46-63c2-4755-a791-f85ddeeba8b5</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i58904b22-3768-4246-a248-21cb99019bcf">iedd2d505-e215-4bff-9f81-c61fb2f9d852</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ia1aa0683-40e6-4531-ba2a-95c67974a104">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;In the context of clinical studies involving new drugs or medical devices, what role does the FDA (U.S. Food and Drug Administration) play in the approval process?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="if4db5e54-823d-4363-8173-d1788788487f" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i2f488b79-f4d9-4722-9152-a8b3431562d6">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;The FDA conducts the clinical trials independently to ensure objectivity&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ie5943c65-67e5-44de-bb6f-46c6ce1785da">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;The FDA provides funding for clinical studies to support your validity&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i39291155-003f-4e7a-beea-fe705be5e516">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;The FDA reviews and approves study protocols, monitors safety, and evaluates study results before allowing the product&amp;#39;s marketing&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="id3209ffd-665f-4adf-a226-4527a86696a7">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;The FDA offers guidance to researchers but does not actively participate in the approval process&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if4db5e54-823d-4363-8173-d1788788487f">i2f488b79-f4d9-4722-9152-a8b3431562d6</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if4db5e54-823d-4363-8173-d1788788487f">ie5943c65-67e5-44de-bb6f-46c6ce1785da</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="if4db5e54-823d-4363-8173-d1788788487f">i39291155-003f-4e7a-beea-fe705be5e516</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if4db5e54-823d-4363-8173-d1788788487f">id3209ffd-665f-4adf-a226-4527a86696a7</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ie76bef72-f272-4a9e-940c-21f320638da9">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;The APA Guidelines for Ethical Conduct in the Care and Use of Animals suggest that "there should be a reasonable expectation that the research will…&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i4bdb0ab0-c1bc-4a97-a281-170efbe446ca" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i805960c8-31cc-48f6-bcb0-cf45465dff7f">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Increase knowledge of the processes underlying the evolution, development, maintenance, alteration, control, or biological significance of behaviour&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i236fba18-e668-417a-8669-c0be181aa8e5">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Increase understanding of the species under study&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i0c459640-23c1-4a0a-b42b-5272e72a6184">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Provide results that benefit the health or welfare of humans or other animals&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="if342c3ff-b1e9-4992-8cf4-1b6de3780a16">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;All of the above&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i4bdb0ab0-c1bc-4a97-a281-170efbe446ca">i805960c8-31cc-48f6-bcb0-cf45465dff7f</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i4bdb0ab0-c1bc-4a97-a281-170efbe446ca">i236fba18-e668-417a-8669-c0be181aa8e5</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i4bdb0ab0-c1bc-4a97-a281-170efbe446ca">i0c459640-23c1-4a0a-b42b-5272e72a6184</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i4bdb0ab0-c1bc-4a97-a281-170efbe446ca">if342c3ff-b1e9-4992-8cf4-1b6de3780a16</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+    </section>
+  </assessment>
+</questestinterop>

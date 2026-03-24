@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import path from "node:path";
 
 import type {
@@ -153,6 +154,8 @@ const TEXTBOOK_PATTERNS = [
   { reason: "text:section-heading", pattern: /\bsection\s+(one|two|three|four|five|\d+)/i, weight: 3 }
 ];
 
+const STABLE_ID_MAX_LENGTH = 80;
+
 type ScoredCategory = {
   category: ResourceCategory;
   score: number;
@@ -181,10 +184,19 @@ export function normalizeText(value: string) {
 }
 
 export function toStableId(value: string) {
-  return value
+  const cleaned = value
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
+
+  if (cleaned.length <= STABLE_ID_MAX_LENGTH) {
+    return cleaned;
+  }
+
+  const hash = createHash("sha1").update(cleaned).digest("hex").slice(0, 8);
+  const prefixLength = Math.max(0, STABLE_ID_MAX_LENGTH - hash.length - 1);
+  const prefix = cleaned.slice(0, prefixLength).replace(/-+$/g, "");
+  return prefix.length > 0 ? `${prefix}-${hash}` : hash;
 }
 
 export function cleanDisplayTitle(value: string) {
