@@ -415,19 +415,27 @@ export function classifyResource(relativePath: string, titleGuess: string, extra
 }
 
 export function extractUnitNumber(...values: Array<string | null | undefined>) {
+  const numberPatterns = [
+    /\b(?:unit|module)\s*#?\s*(\d+)\b/i,
+    /\b(?:u|m)\s*#?\s*(\d+)\b/i,
+    /\b(?:assignment(?: booklet)?)\s*#?\s*(\d+)\b/i
+  ];
+
   for (const value of values) {
     if (!value) {
       continue;
     }
 
-    const unitMatch = value.match(/\bunit\s+(\d+)\b/i);
-    if (unitMatch) {
-      return Number(unitMatch[1]);
-    }
-
-    const assignmentMatch = value.match(/\bassignment(?: booklet)?\s*#?\s*(\d+)\b/i);
-    if (assignmentMatch) {
-      return Number(assignmentMatch[1]);
+    for (const pattern of numberPatterns) {
+      const match = value.match(pattern);
+      if (!match) {
+        continue;
+      }
+      const parsed = Number(match[1]);
+      if (!Number.isFinite(parsed)) {
+        continue;
+      }
+      return parsed;
     }
   }
 

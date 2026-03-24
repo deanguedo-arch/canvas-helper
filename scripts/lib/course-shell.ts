@@ -422,7 +422,20 @@ function buildReportSections(
 export function buildCourseShellPlan(options: BuildCourseShellPlanOptions): CourseShellPlan {
   const modules = options.courseMap?.modules?.length
     ? options.courseMap.modules
-        .slice()
+        .map((module, index) => {
+          const explicitSequenceMatch =
+            module.title.match(/\b(?:module|unit)\s*(\d+)\b/i) || module.title.match(/^(\d+)\b/);
+          const hasExplicitSequence = Boolean(explicitSequenceMatch);
+          const sequence = hasExplicitSequence ? Number(explicitSequenceMatch?.[1]) : extractModuleSequence(module.title, index + 1);
+          return { module, index, sequence, hasExplicitSequence };
+        })
+        .sort((left, right) => {
+          if (left.hasExplicitSequence && right.hasExplicitSequence) {
+            return left.sequence - right.sequence || left.index - right.index;
+          }
+          return left.index - right.index;
+        })
+        .map((entry) => entry.module)
         .filter((module) => module.title.trim().length > 0)
         .map((module, index) => {
           const sequence = extractModuleSequence(module.title, index + 1);

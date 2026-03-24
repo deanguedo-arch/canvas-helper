@@ -1,7 +1,7 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 
-import { getStringFlag, parseArgs } from "./lib/cli.js";
+import { getStringFlag, hasFlag, parseArgs } from "./lib/cli.js";
 import { buildCourseShellSourceMetadataByHref } from "./lib/course-shell-resources.js";
 import { buildCourseShellPlan } from "./lib/course-shell.js";
 import { ensureDir, writeTextFile } from "./lib/fs.js";
@@ -18,9 +18,29 @@ async function loadOptionalJson<T>(filePath: string) {
   }
 }
 
+function collectDetectedModuleNumbers(...values: string[]) {
+  const numbers = new Set<number>();
+  const pattern = /\b(?:module|unit)\s*#?\s*(\d+)\b/gi;
+
+  for (const value of values) {
+    if (!value) {
+      continue;
+    }
+    for (const match of value.matchAll(pattern)) {
+      const parsed = Number(match[1]);
+      if (Number.isFinite(parsed)) {
+        numbers.add(parsed);
+      }
+    }
+  }
+
+  return numbers;
+}
+
 async function main() {
   const parsedArgs = parseArgs(process.argv.slice(2));
   const projectSlug = getStringFlag(parsedArgs, "project") ?? parsedArgs.positionals[0];
+  const allowSingleModuleLock = hasFlag(parsedArgs, "allow-single-module-lock");
 
   if (!projectSlug) {
     throw new Error("Usage: npm run build:course-shell -- --project <slug>");
@@ -56,6 +76,26 @@ async function main() {
     lessonPacketIndex,
     activitySourceMetadataByHref
   });
+
+  if (!allowSingleModuleLock) {
+    const detectedNumbers = collectDetectedModuleNumbers(
+      ...(courseMap?.modules.map((module) => module.title) ?? []),
+      ...blueprint.units.map((unit) => unit.title),
+      ...assessmentMap.assessments.map((assessment) => assessment.name),
+      ...assessmentMap.assessments.flatMap((assessment) => assessment.relatedUnitIds)
+    );
+
+    if (plan.modules.length <= 1 && detectedNumbers.size >= 2) {
+      throw new Error(
+        [
+          `Lock-in blocked for ${projectSlug}: generated shell has ${plan.modules.length} module.`,
+          `Detected numbered module evidence: ${[...detectedNumbers].sort((a, b) => a - b).join(", ")}.`,
+          "Fix structure derivation first, then rerun build:course-shell.",
+          "Override only if intentional: --allow-single-module-lock"
+        ].join(" ")
+      );
+    }
+  }
 
   await ensureDir(paths.workspaceDir);
   const outputPath = path.join(paths.workspaceDir, "course-shell-data.js");

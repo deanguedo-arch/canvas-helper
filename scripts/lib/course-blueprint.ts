@@ -151,6 +151,64 @@ function findOutlineSegmentTitle(segmentText: string, fallbackTitle: string, seq
   return sequence > 0 ? `${fallbackTitle} Part ${sequence}` : fallbackTitle;
 }
 
+function extractModuleOrUnitSegmentsFromOutline(text: string) {
+  const lines = text.replace(/\r/g, "").split("\n");
+  const headers: Array<{ index: number; sequence: number; title: string }> = [];
+  const headingPattern = /^\s*(?:module|unit)\s*#?\s*(\d+)\s*[:.)-]?\s*(.*)$/i;
+
+  for (const [lineIndex, rawLine] of lines.entries()) {
+    const line = rawLine.trim();
+    if (!line) {
+      continue;
+    }
+
+    const match = line.match(headingPattern);
+    if (!match) {
+      continue;
+    }
+
+    const sequence = Number(match[1]);
+    if (!Number.isFinite(sequence)) {
+      continue;
+    }
+
+    const trailingTitle = match[2]?.trim();
+    const title = trailingTitle ? `Unit ${sequence}: ${trailingTitle}` : `Unit ${sequence}`;
+    const previous = headers.at(-1);
+    if (previous && previous.sequence === sequence && lineIndex - previous.index <= 2) {
+      continue;
+    }
+
+    headers.push({
+      index: lineIndex,
+      sequence,
+      title
+    });
+  }
+
+  if (headers.length === 0) {
+    return [] as OutlineSegment[];
+  }
+
+  const segments: OutlineSegment[] = [];
+  for (const [headerIndex, header] of headers.entries()) {
+    const segmentStart = header.index;
+    const segmentEnd = headers[headerIndex + 1]?.index ?? lines.length;
+    const segmentText = lines.slice(segmentStart, segmentEnd).join("\n").trim();
+    if (!segmentText) {
+      continue;
+    }
+    segments.push({
+      sequence: header.sequence,
+      unitNumber: header.sequence,
+      title: header.title,
+      text: segmentText
+    });
+  }
+
+  return segments;
+}
+
 function extractOutlineSegments(resource: ResourceCatalogEntry, text: string) {
   const segments: OutlineSegment[] = [];
   const assignmentPattern = /Assignment\s*#?\s*(\d+)\s+Overview([\s\S]*?)(?=Assignment\s*#?\s*\d+\s+Overview|$)/gi;
@@ -168,6 +226,11 @@ function extractOutlineSegments(resource: ResourceCatalogEntry, text: string) {
 
   if (segments.length > 0) {
     return segments;
+  }
+
+  const moduleOrUnitSegments = extractModuleOrUnitSegmentsFromOutline(text);
+  if (moduleOrUnitSegments.length > 0) {
+    return moduleOrUnitSegments;
   }
 
   const unitNumber = extractUnitNumber(resource.relativePath, resource.titleGuess, text);
@@ -351,9 +414,61 @@ export function buildCourseBlueprintFromCatalog(
     }
   }
 
+  const assessmentResourceById = new Map(assessmentResources.map((resource) => [resource.id, resource]));
+  const assessmentUnitNumbers = [
+    ...new Set(
+      assessmentSignals
+        .map((signal) => signal.unitNumber)
+        .filter((value): value is number => typeof value === "number")
+    )
+  ].sort((left, right) => left - right);
+
+  if (assessmentUnitNumbers.length > 1 && unitSeeds.size <= 1) {
+    for (const unitNumber of assessmentUnitNumbers) {
+      const unitId = `unit-${unitNumber}`;
+      if (unitSeeds.has(unitId)) {
+        continue;
+      }
+
+      const seedAssessment = assessmentSignals.find((signal) => signal.unitNumber === unitNumber);
+      const seedResource = seedAssessment ? assessmentResourceById.get(seedAssessment.id) : null;
+
+      unitSeeds.set(unitId, {
+        id: unitId,
+        sequence: unitNumber,
+        title: seedResource?.titleGuess ? `Unit ${unitNumber}: ${seedResource.titleGuess}` : `Unit ${unitNumber}`,
+        unitNumber,
+        scopeSourceResourceIds: [],
+        linkedAssessmentIds: seedAssessment ? [seedAssessment.id] : [],
+        objectiveStatements: [],
+        requiredConcepts: [],
+        requiredSkills: [],
+        mandatoryVocabulary: [],
+        sectionHeadings: [],
+        supportingKnowledge: []
+      });
+    }
+
+    warnings.push(
+      "Outline segmentation resolved to one unit while assessments referenced multiple module/unit numbers. Added missing unit seeds from assessment numbering."
+    );
+  }
+
   const unitList = [...unitSeeds.values()].sort((left, right) => left.sequence - right.sequence || left.title.localeCompare(right.title));
 
   for (const unit of unitList) {
+    const explicitMatches =
+      unit.unitNumber === null
+        ? []
+        : assessmentSignals
+            .filter((assessment) => assessment.unitNumber === unit.unitNumber)
+            .map((assessment) => assessment.id);
+
+    if (explicitMatches.length > 0) {
+      unit.linkedAssessmentIds = compactUnique(explicitMatches);
+      continue;
+    }
+
     const linkedAssessments = assessmentSignals
       .map((assessment) => ({
         id: assessment.id,

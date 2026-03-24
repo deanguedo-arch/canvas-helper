@@ -17,13 +17,11 @@ function loadState() {
     const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
     return {
       selectedModuleId: typeof parsed.selectedModuleId === "string" ? parsed.selectedModuleId : "",
-      activeView: parsed.activeView === "assignments" ? "assignments" : "content",
       completed: parsed.completed && typeof parsed.completed === "object" ? parsed.completed : {}
     };
   } catch {
     return {
       selectedModuleId: "",
-      activeView: "content",
       completed: {}
     };
   }
@@ -38,11 +36,6 @@ function ensureSelection() {
   if (!state.selectedModuleId || !courseShellData.modules.some((module) => module.id === state.selectedModuleId)) {
     state.selectedModuleId = firstModule?.id ?? "";
   }
-
-  if (state.activeView !== "content" && state.activeView !== "assignments") {
-    state.activeView = "content";
-  }
-
   saveState();
 }
 
@@ -52,13 +45,6 @@ function getSelectedModule() {
 
 function setSelectedModule(moduleId) {
   state.selectedModuleId = moduleId;
-  state.activeView = "content";
-  saveState();
-  render();
-}
-
-function setActiveView(view) {
-  state.activeView = view === "assignments" ? "assignments" : "content";
   saveState();
   render();
 }
@@ -127,7 +113,13 @@ function isAssignment(activity) {
 function getModuleBuckets(module) {
   const activities = module?.activities || [];
   const assignments = activities.filter((activity) => isAssignment(activity));
-  const content = activities.filter((activity) => !isAssignment(activity));
+  const content = activities.filter((activity) => {
+    if (isAssignment(activity)) {
+      return false;
+    }
+
+    return String(activity?.kind || "").toLowerCase() !== "overview";
+  });
 
   return { content, assignments };
 }
@@ -389,37 +381,16 @@ function injectStyles() {
       line-height: 1.45;
     }
 
-    .view-tabs {
-      display: flex;
-      gap: 0.35rem;
-      margin-top: 0.7rem;
-      flex-wrap: wrap;
-    }
-
-    .view-tab {
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.03);
-      color: var(--muted);
-      border-radius: 999px;
-      padding: 0.32rem 0.62rem;
-      font-size: 0.72rem;
-      font-weight: 700;
-      cursor: pointer;
-      text-transform: uppercase;
-      letter-spacing: 0.09em;
-    }
-
-    .view-tab.active {
-      border-color: var(--line-strong);
-      background: rgba(127, 29, 29, 0.35);
-      color: #fee2e2;
+    .stack {
+      display: grid;
+      gap: 0.8rem;
     }
 
     .list {
       padding: 0.75rem;
       display: grid;
       gap: 0.62rem;
-      max-height: calc(100vh - 250px);
+      max-height: min(46vh, 420px);
       overflow: auto;
     }
 
@@ -570,43 +541,36 @@ function renderActivityCard(activity) {
 
 function renderCurrentView(module) {
   const { content, assignments } = getModuleBuckets(module);
-  const showingAssignments = state.activeView === "assignments";
-  const items = showingAssignments ? assignments : content;
 
   return `
-    <section class="panel">
-      <div class="panel-head">
-        <h3>${showingAssignments ? "Assignments" : "Module Content"}</h3>
-        <p>${escapeHtml(module?.summary || courseShellData.overview)}</p>
-        <div class="view-tabs">
-          <button
-            type="button"
-            class="view-tab ${state.activeView === "content" ? "active" : ""}"
-            data-view="content"
-          >
-            Content (${content.length})
-          </button>
-          <button
-            type="button"
-            class="view-tab ${state.activeView === "assignments" ? "active" : ""}"
-            data-view="assignments"
-            data-testid="module-assignments-tab"
-          >
-            Assignments (${assignments.length})
-          </button>
+    <div class="stack">
+      <section class="panel">
+        <div class="panel-head">
+          <h3>Module Content</h3>
+          <p>${escapeHtml(module?.summary || courseShellData.overview)}</p>
         </div>
-      </div>
-      <div
-        class="list"
-        data-testid="${showingAssignments ? "module-assignments-view" : "module-content-view"}"
-      >
-        ${
-          items.length
-            ? items.map((item) => renderActivityCard(item)).join("")
-            : `<div class="empty">No ${showingAssignments ? "assignments" : "content"} found in this module.</div>`
-        }
-      </div>
-    </section>
+        <div class="list" data-testid="module-content-view">
+          ${
+            content.length
+              ? content.map((item) => renderActivityCard(item)).join("")
+              : `<div class="empty">No content found in this module.</div>`
+          }
+        </div>
+      </section>
+      <section class="panel" data-testid="module-assignments-tab">
+        <div class="panel-head">
+          <h3>Assignments</h3>
+          <p>Assessment items for this module are grouped below the module content.</p>
+        </div>
+        <div class="list" data-testid="module-assignments-view">
+          ${
+            assignments.length
+              ? assignments.map((item) => renderActivityCard(item)).join("")
+              : `<div class="empty">No assignments found in this module.</div>`
+          }
+        </div>
+      </section>
+    </div>
   `;
 }
 
@@ -659,10 +623,6 @@ function render() {
 
   root.querySelectorAll("[data-module]").forEach((btn) => {
     btn.addEventListener("click", () => setSelectedModule(btn.getAttribute("data-module") || ""));
-  });
-
-  root.querySelectorAll("[data-view]").forEach((btn) => {
-    btn.addEventListener("click", () => setActiveView(btn.getAttribute("data-view") || "content"));
   });
 
   root.querySelectorAll("[data-toggle-complete]").forEach((btn) => {

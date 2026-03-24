@@ -31,6 +31,18 @@ function getResourceText(resource: ResourceCatalogEntry, chunkMap: Map<string, R
 
 function relatedUnitIds(resource: ResourceCatalogEntry, text: string, blueprint: CourseBlueprint) {
   const unitNumber = extractUnitNumber(resource.relativePath, resource.titleGuess, text);
+  if (unitNumber !== null) {
+    const explicitMatch = blueprint.units.find(
+      (unit) =>
+        unit.id === `unit-${unitNumber}` ||
+        unit.sequence === unitNumber ||
+        new RegExp(`\\b(?:unit|module)\\s*${unitNumber}\\b`, "i").test(unit.title)
+    );
+    if (explicitMatch) {
+      return [explicitMatch.id];
+    }
+  }
+
   const keywords = extractTopKeywords(`${resource.titleGuess}\n${text}`, 10);
 
   const scored = blueprint.units.map((unit) => {

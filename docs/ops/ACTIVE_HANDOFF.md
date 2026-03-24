@@ -1,59 +1,68 @@
 # Handoff
 
 - Project: experimental-psych-30-per-1-a-b-sec-s-202632352
-- Task: Build the initial conversion pass for the imported Experimental Psychology 30 D2L export and make the planning artifacts filesystem-safe
+- Task: Lock module framing first (content then assignments) and harden planning derivation/linking so Experimental Psych can expand module-by-module using the forensics process
 - Status: complete
 
 ## Files changed
 - /Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/curriculum-heuristics.ts
+- /Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/course-blueprint.ts
+- /Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/assessment-map.ts
+- /Users/deanguedo/Documents/GitHub/canvas-helper/scripts/build-course-shell.ts
+- /Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/course-shell.ts
 - /Users/deanguedo/Documents/GitHub/canvas-helper/scripts/tests/course-planning.test.ts
-- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/meta/project.json
 - /Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/meta/d2l-course-map.json
 - /Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/meta/d2l-course-map.md
 - /Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/meta/course-blueprint.json
 - /Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/meta/assessment-map.json
 - /Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/meta/lesson-packets/index.json
 - /Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/meta/lesson-packets/unit-1--some-scientists-the-most-problematic-statistical-illusion-relates-to-ob-cc1840f3.json
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/meta/lesson-packets/unit-2--use-unit-2-answer-key-experimental-psychology-30-assignment-2-concepts-59dd4c3d.json
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/meta/lesson-packets/unit-3--use-unit-3-answer-key-experimental-psychology-30-assignment-3-concepts-4404f3a7.json
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/meta/lesson-packets/unit-4--use-unit-4-answer-key-experimental-psychology-30-assignment-4-concepts-2076bdd0.json
 - /Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/workspace/course-shell-data.js
-- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/workspace/index.html
 - /Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/workspace/main.js
-- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/meta/import-log.md
-- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/meta/prompt-pack.md
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/ops/ACTIVE_HANDOFF.md
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/ops/ARCHIVED_HANDOFFS.md
 
 ## What changed
-- Imported the D2L ZIP into `projects/incoming/experimental-psych-30-per-1-a-b-sec-s-202632352` using `bsdtar` because the archive used nonstandard encoded folder names that `unzip` could not extract on macOS.
-- Created the new conversion project and generated D2L mapping, course blueprint, assessment map, lesson packets, and course shell data for the imported course.
-- Replaced the raw imported page with a custom course shell in `workspace/index.html` and `workspace/main.js` that reads the generated shell data, browses modules and activities, and tracks local completion state.
-- Updated the project manifest so `workspace/main.js` is a canonical source, `workspace/course-shell-data.js` is a generated output, and the regen command is recorded.
-- Fixed `toStableId(...)` so very long extracted statements are truncated and hashed, which keeps lesson packet filenames under filesystem limits without changing the underlying learning text.
-- Added a regression test that proves long extracted statements still produce safe, repeatable stable IDs.
+- Hardened unit/module number detection to parse `Module N`, `Unit N`, and shorthand `M#`/`U#` patterns during planning.
+- Added outline segmentation fallback that can derive units from `Module`/`Unit` headers when `Assignment #N Overview` blocks are missing.
+- Added deterministic assessment linking: explicit module/unit number match is applied first, keyword fallback only when explicit match is absent.
+- Added shell-build lock guard: if generated shell collapses to one module while multiple module/unit numbers are detectable, build fails unless `--allow-single-module-lock` is passed.
+- Updated module rendering framing for Experimental Psych: active module now always renders `Module Content` first and `Assignments` second in stacked sections.
+- Added explicit empty states: `No content found in this module.` and `No assignments found in this module.`
+- Removed global content/assignment mode toggle for Experimental Psych and kept module-local grouping behavior.
+- Regenerated planning artifacts in strict order (`d2l-map -> blueprint -> assessment-map -> lesson-packets -> build:course-shell`).
+- Added/updated planning tests to cover number extraction and deterministic explicit assessment-to-unit mapping.
 
 ## Why this changed
-- The imported D2L export needed a working conversion baseline, not just raw intake.
-- The first lesson-packet build failed because one outcome title was derived from an extremely long extracted statement, so the ID generator needed to become filesystem-safe.
+- The project needed the same forensics workflow gate: structure lock first, then expansion.
+- Experimental Psych framing needed to match module-local assignment grouping before adding more module content.
+- The previous derivation risked collapsing structure when heading styles differed from `Assignment #N Overview` patterns.
 
 ## Source of truth
-- Canonical editable source: `/Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/workspace/index.html`
-- Canonical source files currently tracked in the manifest: `/Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/workspace/index.html`, `/Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/workspace/main.js`
-- Generated planning artifacts: `projects/experimental-psych-30-per-1-a-b-sec-s-202632352/meta/**`
-- Derived build output: `/Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/workspace/course-shell-data.js`
+- Canonical editable entry: `/Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/workspace/main.js`
+- Canonical planning logic: `/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/course-blueprint.ts`, `/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/assessment-map.ts`, `/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/curriculum-heuristics.ts`, `/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/build-course-shell.ts`
+- Generated shell artifact: `/Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/workspace/course-shell-data.js` (regenerate; do not hand-edit)
 
 ## Fragile areas / watchouts
-- The D2L import still references shared HTML template assets that are not present locally, so verify warnings will continue until those paths are replaced or removed.
-- OCR fallback is unavailable in this environment, so PDF-derived references that need OCR may remain under-processed.
-- The blueprint currently collapsed to one unit, which means the next conversion pass likely needs manual structure refinement if the course should reflect the full 7-module D2L outline.
+- Course map ordering can still reflect source title ambiguity where titles lack explicit module numbers (for this dataset, `Extra Credits` appears before `Module 4` because `Extra Credits` has no explicit sequence label).
+- Assignment classification still depends on metadata (`kind/resourceKind/renderHint`) and may need further tightening if imports use nonstandard labels.
+- The archived backup `projects/processed/experimental-psych-30-per-1-a-b-sec-s-202632352/source.backup-20260324-073924/` is safety state and should not be committed.
 
 ## Next prompt should assume
-- The import and first planning pass are complete.
-- The workspace now has a dedicated course shell; next work should focus on content refinement, module naming, and any manual restructuring needed to better match the full D2L export.
+- Module 1 framing lock is implemented and validated in automation.
+- Expansion to modules `2+` should reuse this framing and bucketing behavior without one-off UI overrides.
+- Planning artifacts should continue to be regenerated by pipeline commands, not hand-edited.
 
 ## What still needs validation
-- Studio review of `workspace/index.html`, `workspace/main.js`, and `workspace/course-shell-data.js`.
-- Manual refinement of the course structure if the one-unit blueprint is too compressed for the actual course intent.
+- Manual Studio QA for Module 1 readability and framing against the forensics reference surface.
+- Human sign-off on module ordering policy for non-numbered titles (`Extra Credits`) versus strict numeric resequencing.
 
 ## Known risks
-- The imported course content may still need substantial human-guided normalization because the automated blueprint is overly coarse.
-- Generated planning artifacts are derived output and should be regenerated rather than edited by hand.
+- If source titles stay inconsistent, auto-sequencing may continue to produce edge-case ordering that is technically stable but not instructor-preferred.
+- Existing unrelated repo changes remain in working tree and were intentionally excluded from scoped commit.
 
 ## Exact next command
 `npm run studio`
@@ -63,5 +72,5 @@
 
 ## Do not do next / warnings
 - Do not edit `projects/experimental-psych-30-per-1-a-b-sec-s-202632352/raw/**`.
-- Do not hand-patch generated planning outputs unless you are intentionally fixing a regeneration bug.
-- Do not treat the current one-unit blueprint as authoritative for final course structure without review.
+- Do not hand-patch `workspace/course-shell-data.js`; rerun the planning pipeline.
+- Do not commit the processed source backup directory.

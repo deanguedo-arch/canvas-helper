@@ -3,7 +3,7 @@ import test from "node:test";
 
 import { buildAssessmentMapFromCatalog } from "../lib/assessment-map.js";
 import { buildCourseBlueprintFromCatalog } from "../lib/course-blueprint.js";
-import { classifyResource, toStableId } from "../lib/curriculum-heuristics.js";
+import { classifyResource, extractUnitNumber, toStableId } from "../lib/curriculum-heuristics.js";
 import { buildLessonPacketsFromArtifacts } from "../lib/lesson-packets.js";
 import type { ReferenceChunk, ResourceCatalog, ResourceCatalogEntry } from "../lib/types.js";
 
@@ -69,6 +69,13 @@ test("classifyResource distinguishes outline and assessment authority", () => {
   assert.equal(outline.authorityRole, "blueprint-authoritative");
   assert.equal(assessment.resourceCategory, "assessment");
   assert.equal(assessment.authorityRole, "assessment-authoritative");
+});
+
+test("extractUnitNumber detects unit and module numbering patterns", () => {
+  assert.equal(extractUnitNumber("Unit 2: Research Design"), 2);
+  assert.equal(extractUnitNumber("Module 4 Conducting Research Assessment"), 4);
+  assert.equal(extractUnitNumber("M3 assessment"), 3);
+  assert.equal(extractUnitNumber("Assignment Booklet 5 Key"), 5);
 });
 
 test("planning artifacts prioritize outline scope and assessment demand", () => {
@@ -138,7 +145,7 @@ test("planning artifacts prioritize outline scope and assessment demand", () => 
 
   const blueprint = buildCourseBlueprintFromCatalog("project-1", catalog, chunkMap);
   assert.equal(blueprint.units.length, 1);
-  assert.equal(blueprint.units[0]?.title, "Unit 1 Overview");
+  assert.equal(blueprint.units[0]?.title, "Unit 1: Overview");
   assert.equal(blueprint.outcomes.length >= 2, true);
   assert.equal(blueprint.outcomes.some((outcome) => outcome.assessedSkills.includes("compare")), true);
   assert.equal(blueprint.outcomes.some((outcome) => outcome.linkedAssessmentIds.includes(assessment.id)), true);
@@ -176,6 +183,95 @@ test("planning artifacts prioritize outline scope and assessment demand", () => 
     lessonPackets.packets.every((packet) => packet.guidedPracticeIdeas.length > 0 && packet.evidenceOfReadinessForAssessment.length > 0),
     true
   );
+});
+
+test("planning artifacts split unit headings and keep explicit assessment-to-unit links deterministic", () => {
+  const outline = createResource({
+    id: "ep-outline",
+    titleGuess: "Experimental Psychology Outline",
+    resourceCategory: "outline",
+    authorityRole: "blueprint-authoritative",
+    blueprintSignals: ["text:objectives"]
+  });
+  const assessmentOne = createResource({
+    id: "module-1-assessment",
+    titleGuess: "Module 1 Assessment",
+    resourceCategory: "assessment",
+    authorityRole: "assessment-authoritative",
+    assessmentSignals: ["text:assessment"]
+  });
+  const assessmentTwo = createResource({
+    id: "module-2-assessment",
+    titleGuess: "Module 2 Assessment",
+    resourceCategory: "assessment",
+    authorityRole: "assessment-authoritative",
+    assessmentSignals: ["text:assessment"]
+  });
+
+  const catalog: ResourceCatalog = {
+    projectId: "project-ep",
+    generatedAt: new Date().toISOString(),
+    resources: [outline, assessmentOne, assessmentTwo],
+    warnings: []
+  };
+
+  const chunkMap = new Map<string, ReferenceChunk[]>([
+    [
+      outline.id,
+      [
+        createChunk(
+          outline.id,
+          [
+            "Unit 1: Experimental Psychology Overview",
+            "Objectives:",
+            "- Explain what experimental psychology is.",
+            "- Define independent and dependent variables.",
+            "",
+            "Unit 2: Statistics and Research Design",
+            "Objectives:",
+            "- Compare descriptive and inferential statistics.",
+            "- Analyze validity and reliability."
+          ].join("\n"),
+          "Outline"
+        )
+      ]
+    ],
+    [
+      assessmentOne.id,
+      [
+        createChunk(
+          assessmentOne.id,
+          "Module 1 Assessment\nComplete all questions and explain each response with evidence.",
+          "Page 1",
+          1
+        )
+      ]
+    ],
+    [
+      assessmentTwo.id,
+      [
+        createChunk(
+          assessmentTwo.id,
+          "Module 2 Assessment\nCompare and analyze the study design choices shown in each scenario.",
+          "Page 1",
+          1
+        )
+      ]
+    ]
+  ]);
+
+  const blueprint = buildCourseBlueprintFromCatalog("project-ep", catalog, chunkMap);
+  assert.equal(blueprint.units.length, 2);
+  assert.equal(blueprint.units[0]?.id, "unit-1");
+  assert.equal(blueprint.units[1]?.id, "unit-2");
+  assert.deepEqual(blueprint.units[0]?.linkedAssessmentIds, [assessmentOne.id]);
+  assert.deepEqual(blueprint.units[1]?.linkedAssessmentIds, [assessmentTwo.id]);
+
+  const assessmentMap = buildAssessmentMapFromCatalog("project-ep", catalog, blueprint, chunkMap);
+  const mappedOne = assessmentMap.assessments.find((assessment) => assessment.id === assessmentOne.id);
+  const mappedTwo = assessmentMap.assessments.find((assessment) => assessment.id === assessmentTwo.id);
+  assert.deepEqual(mappedOne?.relatedUnitIds, ["unit-1"]);
+  assert.deepEqual(mappedTwo?.relatedUnitIds, ["unit-2"]);
 });
 
 test("toStableId stays filesystem-safe for very long extracted statements", () => {
