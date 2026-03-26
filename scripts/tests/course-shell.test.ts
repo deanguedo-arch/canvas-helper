@@ -165,7 +165,7 @@ test("buildCourseShellPlan hydrates source metadata and preview fields from cour
     modules: [
       {
         id: "module-hidden",
-        title: "Teacher Resources (Keep Hidden)",
+        title: "Module 1: Research Methods",
         kind: "module",
         depth: 0,
         children: [
@@ -222,9 +222,244 @@ test("buildCourseShellPlan hydrates source metadata and preview fields from cour
   assert.equal(readingActivity?.resourceKind, "html");
   assert.equal(readingActivity?.renderHint, "reading");
   assert.equal(readingActivity?.contentPreview, "This is a extracted preview snippet.");
-  assert.equal(readingActivity?.moduleVisibilityLabel, "hidden");
 
   assert.ok(quizActivity);
   assert.equal(quizActivity?.resourceKind, "quiz");
   assert.equal(quizActivity?.renderHint, "assessment");
+  assert.equal(readingActivity?.moduleVisibilityLabel, "visible");
+});
+
+test("buildCourseShellPlan omits course information, extra credits, and hidden teacher modules", () => {
+  const blueprint: CourseBlueprint = {
+    projectId: "experimental-psych",
+    generatedAt: "2026-03-18T00:00:00.000Z",
+    authoritySummary: {
+      outlineResourceIds: [],
+      assessmentResourceIds: [],
+      supportingResourceIds: []
+    },
+    units: [],
+    outcomes: [],
+    warnings: []
+  };
+
+  const assessmentMap: AssessmentMap = {
+    projectId: "experimental-psych",
+    generatedAt: "2026-03-18T00:00:00.000Z",
+    assessments: [],
+    warnings: []
+  };
+
+  const lessonPacketIndex: LessonPacketIndex = {
+    projectId: "experimental-psych",
+    generatedAt: "2026-03-18T00:00:00.000Z",
+    lessonPackets: [],
+    warnings: []
+  };
+
+  const courseMap: D2LCourseMap = {
+    schemaVersion: 1,
+    projectId: "experimental-psych",
+    projectSlug: "experimental-psych",
+    generatedAt: "2026-03-18T00:00:00.000Z",
+    manifestPath: "imsmanifest.xml",
+    courseTitle: "Experimental Psychology 30",
+    summary: {
+      moduleCount: 4,
+      itemCount: 4,
+      lessonCount: 4,
+      assignmentCount: 0,
+      quizCount: 0,
+      pdfCount: 0,
+      htmlCount: 4
+    },
+    modules: [
+      {
+        id: "course-info",
+        title: "Course Information",
+        kind: "module",
+        depth: 0,
+        children: [
+          {
+            id: "intro-item",
+            title: "Welcome",
+            kind: "html",
+            depth: 1,
+            children: []
+          }
+        ]
+      },
+      {
+        id: "module-1",
+        title: "Module 1: Experimental Psychology Overview",
+        kind: "module",
+        depth: 0,
+        children: [
+          {
+            id: "module-1-item",
+            title: "What is Experimental Psychology?",
+            kind: "html",
+            depth: 1,
+            children: []
+          }
+        ]
+      },
+      {
+        id: "extra-credits",
+        title: "Extra Credits",
+        kind: "module",
+        depth: 0,
+        children: [
+          {
+            id: "extra-item",
+            title: "Student Centred Learning Self Reflection",
+            kind: "html",
+            depth: 1,
+            children: []
+          }
+        ]
+      },
+      {
+        id: "teacher-resources",
+        title: "Teacher Resources (Keep Hidden)",
+        kind: "module",
+        depth: 0,
+        children: [
+          {
+            id: "teacher-item",
+            title: "Rubric",
+            kind: "html",
+            depth: 1,
+            children: []
+          }
+        ]
+      }
+    ]
+  };
+
+  const plan = buildCourseShellPlan({
+    projectSlug: "experimental-psych",
+    courseTitle: "Experimental Psychology 30",
+    overview: "Overview",
+    blueprint,
+    assessmentMap,
+    lessonPacketIndex,
+    courseMap
+  });
+
+  assert.equal(plan.modules.length, 1);
+  assert.equal(plan.modules[0]?.title, "Module 1: Experimental Psychology Overview");
+  assert.equal(plan.modules[0]?.activities.some((activity) => activity.title === "What is Experimental Psychology?"), true);
+});
+
+test("buildCourseShellPlan preserves section titles from nested course-map folders", () => {
+  const blueprint: CourseBlueprint = {
+    projectId: "experimental-psych",
+    generatedAt: "2026-03-18T00:00:00.000Z",
+    authoritySummary: {
+      outlineResourceIds: [],
+      assessmentResourceIds: [],
+      supportingResourceIds: []
+    },
+    units: [],
+    outcomes: [],
+    warnings: []
+  };
+
+  const assessmentMap: AssessmentMap = {
+    projectId: "experimental-psych",
+    generatedAt: "2026-03-18T00:00:00.000Z",
+    assessments: [],
+    warnings: []
+  };
+
+  const lessonPacketIndex: LessonPacketIndex = {
+    projectId: "experimental-psych",
+    generatedAt: "2026-03-18T00:00:00.000Z",
+    lessonPackets: [],
+    warnings: []
+  };
+
+  const courseMap: D2LCourseMap = {
+    schemaVersion: 1,
+    projectId: "experimental-psych",
+    projectSlug: "experimental-psych",
+    generatedAt: "2026-03-18T00:00:00.000Z",
+    manifestPath: "imsmanifest.xml",
+    courseTitle: "Experimental Psychology 30",
+    summary: {
+      moduleCount: 1,
+      itemCount: 3,
+      lessonCount: 3,
+      assignmentCount: 0,
+      quizCount: 0,
+      pdfCount: 0,
+      htmlCount: 3
+    },
+    modules: [
+      {
+        id: "module-1",
+        title: "Module 1: Experimental Psychology Overview",
+        kind: "module",
+        depth: 0,
+        children: [
+          {
+            id: "section-1",
+            title: "Section 1: Experimental Psychology Defined",
+            kind: "folder",
+            depth: 1,
+            children: [
+              {
+                id: "node-1",
+                title: "What is Experimental Psychology?",
+                kind: "html",
+                depth: 2,
+                children: []
+              }
+            ]
+          },
+          {
+            id: "node-2",
+            title: "Section 1 Conclusion",
+            kind: "html",
+            depth: 1,
+            children: []
+          },
+          {
+            id: "section-2",
+            title: "Section 2: Research Methodologies",
+            kind: "folder",
+            depth: 1,
+            children: [
+              {
+                id: "node-3",
+                title: "Research Methodology",
+                kind: "html",
+                depth: 2,
+                children: []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  };
+
+  const plan = buildCourseShellPlan({
+    projectSlug: "experimental-psych",
+    courseTitle: "Experimental Psychology 30",
+    overview: "Overview",
+    blueprint,
+    assessmentMap,
+    lessonPacketIndex,
+    courseMap
+  });
+
+  const sectionOneLesson = plan.modules[0]?.activities.find((activity) => activity.title === "What is Experimental Psychology?");
+  const sectionOneConclusion = plan.modules[0]?.activities.find((activity) => activity.title === "Section 1 Conclusion");
+  const sectionTwoLesson = plan.modules[0]?.activities.find((activity) => activity.title === "Research Methodology");
+
+  assert.equal(sectionOneLesson?.sectionTitle, "Section 1: Experimental Psychology Defined");
+  assert.equal(sectionOneConclusion?.sectionTitle, "");
+  assert.equal(sectionTwoLesson?.sectionTitle, "Section 2: Research Methodologies");
 });

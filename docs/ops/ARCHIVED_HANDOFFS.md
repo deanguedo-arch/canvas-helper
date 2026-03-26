@@ -16,6 +16,7 @@ Entries are listed in file order (older to newer within this archive).
 - 2026-03-21: docs/ops/ACTIVE_HANDOFF.md (pre-workflow-refactor)
 - 2026-03-23: docs/ops/ACTIVE_HANDOFF.md (pre-experimental-psych-conversion)
 - 2026-03-24: docs/ops/ACTIVE_HANDOFF.md (pre-experimental-psych-module1-lock-in)
+- 2026-03-24: docs/ops/ACTIVE_HANDOFF.md (pre-experimental-psych-style-refinement)
 
 ---
 
@@ -257,6 +258,108 @@ Entries are listed in file order (older to newer within this archive).
 - Adjusted the Career Planning and Master Plan layouts so they fit better with the open sidebar and the widened workspace shell.
 - Rebuilt the workspace bundle and verified the calm-module-4 project contract after the layout and ordering changes.
 - The Firebase app upload is still pending. This slug does not yet have a `projects/calm-module-4/meta/google-hosted.deploy.json` file, so the deploy path is not ready yet.
+
+---
+
+## 2026-03-24 | docs/ops/ACTIVE_HANDOFF.md (pre-experimental-psych-style-refinement)
+
+# Handoff
+
+- Project: experimental-psych-30-per-1-a-b-sec-s-202632352
+- Task: Lock module framing first (content then assignments) and harden planning derivation/linking so Experimental Psych can expand module-by-module using the forensics process
+- Status: complete
+
+## Files changed
+- /Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/curriculum-heuristics.ts
+- /Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/course-blueprint.ts
+- /Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/assessment-map.ts
+- /Users/deanguedo/Documents/GitHub/canvas-helper/scripts/build-course-shell.ts
+- /Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/course-shell.ts
+- /Users/deanguedo/Documents/GitHub/canvas-helper/scripts/tests/course-planning.test.ts
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/meta/d2l-course-map.json
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/meta/d2l-course-map.md
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/meta/course-blueprint.json
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/meta/assessment-map.json
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/meta/lesson-packets/index.json
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/meta/lesson-packets/unit-1--some-scientists-the-most-problematic-statistical-illusion-relates-to-ob-cc1840f3.json
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/meta/lesson-packets/unit-2--use-unit-2-answer-key-experimental-psychology-30-assignment-2-concepts-59dd4c3d.json
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/meta/lesson-packets/unit-3--use-unit-3-answer-key-experimental-psychology-30-assignment-3-concepts-4404f3a7.json
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/meta/lesson-packets/unit-4--use-unit-4-answer-key-experimental-psychology-30-assignment-4-concepts-2076bdd0.json
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/workspace/course-shell-data.js
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/workspace/main.js
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/ops/ACTIVE_HANDOFF.md
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/ops/ARCHIVED_HANDOFFS.md
+
+## What changed
+- Hardened unit/module number detection to parse `Module N`, `Unit N`, and shorthand `M#`/`U#` patterns during planning.
+- Added outline segmentation fallback that can derive units from `Module`/`Unit` headers when `Assignment #N Overview` blocks are missing.
+- Added deterministic assessment linking: explicit module/unit number match is applied first, keyword fallback only when explicit match is absent.
+- Added shell-build lock guard: if generated shell collapses to one module while multiple module/unit numbers are detectable, build fails unless `--allow-single-module-lock` is passed.
+- Updated module rendering framing for Experimental Psych: active module now always renders `Module Content` first and `Assignments` second in stacked sections.
+- Added explicit empty states: `No content found in this module.` and `No assignments found in this module.`
+- Removed global content/assignment mode toggle for Experimental Psych and kept module-local grouping behavior.
+- Filtered non-instructional course-map modules from the generated shell so the workspace now keeps only the core modules and content, excluding `Course Information`, `Extra Credits`, and hidden teacher-resource buckets.
+- Hydrated the shell with full extracted content bodies so workspace rendering can show the real lesson and assignment text instead of preview snippets.
+- Reworked the workspace renderer to present content as readable article blocks and removed the Brightspace-style mark-complete controls.
+- Reworked the workspace renderer again to remove wall-of-text behavior: each module section now uses an item list + selected-content reader pane, and HTML lessons load from source files with sanitized structure so headings, emphasis, and images render closer to Brightspace.
+- Removed the duplicate inner sidebar from the workspace layout and moved lesson/assignment navigation into the active module card dropdown in the single left module rail.
+- Added module-card click toggle behavior (expand/collapse on repeat click) and a topbar hamburger control to hide/show the main module sidebar for wider reading space.
+- Added section-title propagation from nested Brightspace section folders into generated course-shell activities.
+- Updated module dropdown rendering to group lessons by section title and added subsection-level collapse/uncollapse controls.
+- Persisted subsection collapse state in local storage so expanded/collapsed section state survives rerenders.
+- Regenerated `workspace/course-shell-data.js` so activities now carry `sectionTitle` metadata.
+- Regenerated planning artifacts in strict order (`d2l-map -> blueprint -> assessment-map -> lesson-packets -> build:course-shell`).
+- Added/updated planning tests to cover number extraction and deterministic explicit assessment-to-unit mapping.
+- Added shell-plan regression coverage for excluding course information, extra credits, and hidden teacher modules.
+- Added shell-plan regression coverage for section-title propagation from nested course-map folders.
+
+## Why this changed
+- The project needed the same forensics workflow gate: structure lock first, then expansion.
+- Experimental Psych framing needed to match module-local assignment grouping before adding more module content.
+- The previous derivation risked collapsing structure when heading styles differed from `Assignment #N Overview` patterns.
+
+## Source of truth
+- Canonical editable entry: `/Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/workspace/main.js`
+- Canonical planning logic: `/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/course-blueprint.ts`, `/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/assessment-map.ts`, `/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/curriculum-heuristics.ts`, `/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/build-course-shell.ts`
+- Generated shell artifact: `/Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/workspace/course-shell-data.js` (regenerate; do not hand-edit)
+
+## Fragile areas / watchouts
+- Course map ordering can still reflect source title ambiguity where titles lack explicit module numbers (for this dataset, `Extra Credits` appears before `Module 4` because `Extra Credits` has no explicit sequence label).
+- Assignment classification still depends on metadata (`kind/resourceKind/renderHint`) and may need further tightening if imports use nonstandard labels.
+- The archived backup `projects/processed/experimental-psych-30-per-1-a-b-sec-s-202632352/source.backup-20260324-073924/` is safety state and should not be committed.
+
+## Next prompt should assume
+- Module 1 framing lock is implemented and validated in automation.
+- The workspace shell now shows only the core instructional modules and content.
+- The workspace now renders full lesson and assignment bodies rather than preview cards and completion toggles.
+- The workspace now renders one selected lesson/assignment at a time in a dedicated reader pane instead of expanding all items inline.
+- The workspace uses one module sidebar only; content and assignments for the active module are selected from that module's dropdown.
+- Module dropdowns now expand inline without an internal scroll box, so expanded modules push subsequent modules down in the same rail.
+- Section headings inside expanded modules are now clickable and can be collapsed/uncollapsed independently.
+- Expansion to modules `2+` should reuse this framing and bucketing behavior without one-off UI overrides.
+- Planning artifacts should continue to be regenerated by pipeline commands, not hand-edited.
+
+## What still needs validation
+- Manual Studio QA for Module 1 readability and framing against the forensics reference surface.
+- Manual Studio QA for section-group collapse behavior (expanded by default, toggle close/open, selection continuity after toggle).
+- Human sign-off on final HTML sanitization/display rules for edge-case lesson pages that include template-specific assets or unusual inline markup.
+- Project E2E contract run currently cannot execute for this slug until `projects/<slug>/meta/e2e-contract.json` exists.
+
+## Known risks
+- If source titles stay inconsistent, auto-sequencing may still produce edge-case ordering within the remaining instructional modules, even though the non-instructional buckets are now excluded.
+- Contract-driven E2E remains blocked for this project due to missing `meta/e2e-contract.json`.
+- Existing unrelated repo changes remain in working tree and were intentionally excluded from scoped commit.
+
+## Exact next command
+`npm run studio`
+
+## Exact next file to open
+`/Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/workspace/main.js`
+
+## Do not do next / warnings
+- Do not edit `projects/experimental-psych-30-per-1-a-b-sec-s-202632352/raw/**`.
+- Do not hand-patch `workspace/course-shell-data.js`; rerun the planning pipeline.
+- Do not commit the processed source backup directory.
 
 ## What still needs validation
 - Create `projects/calm-module-4/meta/google-hosted.deploy.json` with the Firebase project id and hosting site id for this module.

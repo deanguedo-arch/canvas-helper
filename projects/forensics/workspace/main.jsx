@@ -810,14 +810,14 @@ function parseQuizXml(xmlText) {
 
 const FORENSIC_THEME = {
   panel:
-    "rounded-2xl border border-white/[0.08] bg-[#141821] shadow-[0_18px_40px_rgba(0,0,0,0.45)]",
+    "rounded-xl border border-[#312b29] bg-[#181819] shadow-[0_12px_28px_rgba(0,0,0,0.34)]",
   panelSoft:
-    "rounded-2xl border border-white/[0.08] bg-[#101216] shadow-[0_16px_36px_rgba(0,0,0,0.4)]",
+    "rounded-xl border border-[#2a2523] bg-[#121213] shadow-[0_10px_24px_rgba(0,0,0,0.28)]",
   buttonPrimary:
-    "rounded-lg border border-[#dc2626]/70 bg-[#b91c1c] px-4 py-2.5 text-sm font-semibold text-[#f3f4f6] transition duration-200 hover:bg-[#dc2626] hover:shadow-[0_0_0_1px_rgba(220,38,38,0.35),0_10px_24px_rgba(185,28,28,0.28)]",
+    "rounded-lg border border-[#a85a4a]/70 bg-[#7e3b32] px-4 py-2.5 text-sm font-semibold text-[#f2eee7] transition duration-200 hover:border-[#bb6d5c] hover:bg-[#945043]",
   buttonSecondary:
-    "rounded-lg border border-white/[0.12] bg-white/[0.03] px-4 py-2.5 text-sm font-semibold text-[#d1d5db] transition duration-200 hover:border-white/[0.26] hover:bg-white/[0.07] hover:text-[#f3f4f6]",
-  overline: "text-[11px] font-semibold uppercase tracking-[0.18em] text-[#6b7280]",
+    "rounded-lg border border-[#3a3431] bg-[#211f1d] px-4 py-2.5 text-sm font-semibold text-[#cfc5bb] transition duration-200 hover:border-[#514944] hover:bg-[#2a2724] hover:text-[#f2eee7]",
+  overline: "text-[11px] font-semibold tracking-[0.08em] text-[#8f8478]",
 };
 
 const MODULE1_ASSIGNMENT_EMBED_PATH = "./assets/module1assignment.html";
@@ -929,7 +929,7 @@ function Badge({ children, className = "", ...props }) {
   return (
     <span
       {...props}
-      className={`rounded-md border border-white/[0.12] bg-white/[0.03] px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#a1a8b3] ${className}`.trim()}
+      className={`rounded-md border border-[#3a3431] bg-[#211f1d] px-2.5 py-1 text-[11px] font-semibold tracking-[0.08em] text-[#b6ada2] ${className}`.trim()}
     >
       {children}
     </span>
@@ -1001,8 +1001,8 @@ function SidebarItem({ active, completed, lesson, onClick }) {
       onClick={onClick}
       className={`flex w-full items-start gap-3 rounded-xl border px-3 py-3 text-left transition ${
         active
-          ? "border-[#b91c1c]/70 bg-[#1a1215] text-[#f3f4f6] shadow-[0_10px_24px_rgba(185,28,28,0.2)]"
-          : "border-transparent bg-transparent text-[#a1a8b3] hover:border-white/[0.1] hover:bg-white/[0.04] hover:text-[#f3f4f6]"
+          ? "border-[#a85a4a]/55 bg-[#221917] text-[#f2eee7] shadow-[0_8px_18px_rgba(0,0,0,0.18)]"
+          : "border-transparent bg-transparent text-[#b6ada2] hover:border-[#312b29] hover:bg-[#201e1b] hover:text-[#f2eee7]"
       }`}
       data-testid="lesson-item"
       data-lesson-title={lesson.title}
@@ -1011,14 +1011,14 @@ function SidebarItem({ active, completed, lesson, onClick }) {
       data-active={active ? "true" : "false"}
     >
       <div className="mt-0.5 shrink-0">
-        {completed ? <CheckCircle2 className="h-4 w-4 text-[#dc2626]" /> : <Circle className="h-4 w-4 text-white/30" />}
+        {completed ? <CheckCircle2 className="h-4 w-4 text-[#a85a4a]" /> : <Circle className="h-4 w-4 text-white/30" />}
       </div>
       <div className="min-w-0 flex-1">
         <div className="flex items-center gap-2">
           <Icon className="h-3.5 w-3.5 text-white/45" />
           <div className="truncate text-sm font-medium">{lesson.title}</div>
         </div>
-        <div className="mt-1 text-[10px] uppercase tracking-[0.16em] text-[#6b7280]">{typeLabel(lesson.type)}</div>
+        <div className="mt-1 text-[10px] tracking-[0.12em] text-[#8f8478]">{typeLabel(lesson.type)}</div>
       </div>
     </button>
   );
@@ -2319,23 +2319,23 @@ export default function ForensicCoursePlayerPreviewRestored() {
 
   if (!activeChapter) {
     return (
-      <div className="forensic-app min-h-screen bg-[#0a0b0d] p-4 text-[#a1a8b3] sm:p-8">
+    <div className="forensic-app min-h-screen bg-[#0f0f10] p-4 text-[#b6ada2] sm:p-8">
         No chapters were mapped from the D2L course map yet.
       </div>
     );
   }
 
   return (
-    <div className="forensic-app min-h-screen bg-[radial-gradient(circle_at_18%_-10%,rgba(185,28,28,0.2),transparent_36%),radial-gradient(circle_at_84%_0%,rgba(148,163,184,0.12),transparent_34%),#0a0b0d] text-[#f3f4f6]">
+    <div className="forensic-app min-h-screen bg-[#0f0f10] text-[#f2eee7]">
       <style>{`
         .forensic-app {
-          font-family: "Manrope", "Inter", "Segoe UI", sans-serif;
+          font-family: "IBM Plex Sans", "Avenir Next", sans-serif;
         }
         .forensic-app h1,
         .forensic-app h2,
         .forensic-app h3,
         .forensic-app h4 {
-          font-family: "Space Grotesk", "Manrope", "Inter", sans-serif;
+          font-family: "IBM Plex Sans", "Avenir Next", sans-serif;
           letter-spacing: -0.015em;
         }
         .forensic-app * {
@@ -2353,25 +2353,25 @@ export default function ForensicCoursePlayerPreviewRestored() {
           title="Close menu overlay"
         />
         <aside
-          className={`fixed inset-y-0 left-0 z-40 h-screen shrink-0 overflow-hidden border-r border-white/[0.08] bg-[#101216]/95 backdrop-blur-xl transition-[width,transform] duration-200 lg:sticky lg:top-0 lg:z-0 lg:bg-[#101216]/90 ${
+          className={`fixed inset-y-0 left-0 z-40 h-screen shrink-0 overflow-hidden border-r border-[#2c2725] bg-[#141415] transition-[width,transform] duration-200 lg:sticky lg:top-0 lg:z-0 lg:bg-[#141415] ${
             isMobileMenuOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
           } ${isMenuCollapsed ? "lg:w-16" : "w-[86vw] max-w-[340px] lg:w-[340px]"}
           }`}
           data-testid="chapter-menu-panel"
           data-collapsed={isMenuCollapsed ? "true" : "false"}
         >
-          <div className={`border-b border-white/[0.08] ${isMenuCollapsed ? "px-2 py-4" : "px-5 py-5"}`}>
+          <div className={`border-b border-[#2c2725] ${isMenuCollapsed ? "px-2 py-4" : "px-5 py-5"}`}>
             <div className={`mb-3 flex ${isMenuCollapsed ? "justify-center" : "items-start justify-between gap-3"}`}>
               {!isMenuCollapsed ? (
                 <div>
                   <div className={FORENSIC_THEME.overline}>Case file</div>
-                  <h1 className="mt-1 text-xl font-semibold text-[#f3f4f6]">{resolvedCourse.title}</h1>
+                  <h1 className="mt-1 text-xl font-semibold text-[#f2eee7]">{resolvedCourse.title}</h1>
                 </div>
               ) : null}
               <button
                 type="button"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/[0.14] bg-white/[0.04] text-[#d1d5db] transition duration-200 hover:border-white/[0.28] hover:bg-white/[0.08] hover:text-[#f3f4f6] lg:hidden"
+                className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#3a3431] bg-[#211f1d] text-[#cfc5bb] transition duration-200 hover:border-[#514944] hover:bg-[#2a2724] hover:text-[#f2eee7] lg:hidden"
                 aria-label="Close chapter menu"
                 title="Close chapter menu"
               >
@@ -2382,8 +2382,8 @@ export default function ForensicCoursePlayerPreviewRestored() {
                 onClick={() => setIsChapterMenuCollapsed((prev) => !prev)}
                 className={`hidden h-10 w-10 items-center justify-center rounded-lg border transition duration-200 lg:flex ${
                   isMenuCollapsed
-                    ? "border-[#dc2626]/70 bg-[#b91c1c] text-[#fef2f2] hover:bg-[#dc2626] hover:shadow-[0_0_0_1px_rgba(220,38,38,0.45)]"
-                    : "border-white/[0.14] bg-white/[0.04] text-[#d1d5db] hover:border-white/[0.28] hover:bg-white/[0.08] hover:text-[#f3f4f6]"
+                    ? "border-[#a85a4a]/70 bg-[#7e3b32] text-[#f2eee7] hover:bg-[#945043]"
+                    : "border-[#3a3431] bg-[#211f1d] text-[#cfc5bb] hover:border-[#514944] hover:bg-[#2a2724] hover:text-[#f2eee7]"
                 }`}
                 data-testid="chapter-menu-toggle"
                 aria-expanded={isMenuCollapsed ? "false" : "true"}
@@ -2391,9 +2391,9 @@ export default function ForensicCoursePlayerPreviewRestored() {
                 title={isMenuCollapsed ? "Open chapter menu" : "Collapse chapter menu"}
               >
                 <span className="flex flex-col gap-1.5">
-                  <span className={`block h-[2px] w-4 rounded-full ${isMenuCollapsed ? "bg-[#fef2f2]" : "bg-[#d1d5db]"}`} />
-                  <span className={`block h-[2px] w-4 rounded-full ${isMenuCollapsed ? "bg-[#fef2f2]" : "bg-[#d1d5db]"}`} />
-                  <span className={`block h-[2px] w-4 rounded-full ${isMenuCollapsed ? "bg-[#fef2f2]" : "bg-[#d1d5db]"}`} />
+                  <span className={`block h-[2px] w-4 rounded-full ${isMenuCollapsed ? "bg-[#f2eee7]" : "bg-[#cfc5bb]"}`} />
+                  <span className={`block h-[2px] w-4 rounded-full ${isMenuCollapsed ? "bg-[#f2eee7]" : "bg-[#cfc5bb]"}`} />
+                  <span className={`block h-[2px] w-4 rounded-full ${isMenuCollapsed ? "bg-[#f2eee7]" : "bg-[#cfc5bb]"}`} />
                 </span>
               </button>
             </div>
@@ -2401,24 +2401,24 @@ export default function ForensicCoursePlayerPreviewRestored() {
               <>
                 <div className={`${FORENSIC_THEME.panelSoft} p-3`}>
               <div className="mb-2 flex items-center justify-between text-sm">
-                <span className="font-medium text-[#a1a8b3]">Progress</span>
-                <span className="font-semibold text-[#f3f4f6]">{progress}%</span>
+                <span className="font-medium text-[#b6ada2]">Progress</span>
+                <span className="font-semibold text-[#f2eee7]">{progress}%</span>
               </div>
-              <div className="h-2 overflow-hidden rounded-full bg-white/[0.08]">
-                <div className="h-full rounded-full bg-[#b91c1c]" style={{ width: `${progress}%` }} />
+              <div className="h-2 overflow-hidden rounded-full bg-[#262220]">
+                <div className="h-full rounded-full bg-[#7e3b32]" style={{ width: `${progress}%` }} />
               </div>
-              <div className="mt-3 grid grid-cols-2 gap-2 text-xs text-[#6b7280]">
-              <div className="rounded-lg border border-white/[0.08] bg-white/[0.03] p-2">{resolvedCourse.stats.topLevelSections} sections</div>
-                <div className="rounded-lg border border-white/[0.08] bg-white/[0.03] p-2">{resolvedCourse.stats.totalNodes} nodes</div>
+              <div className="mt-3 grid grid-cols-2 gap-2 text-xs text-[#8f8478]">
+              <div className="rounded-lg border border-[#312b29] bg-[#201d1b] p-2">{resolvedCourse.stats.topLevelSections} sections</div>
+                <div className="rounded-lg border border-[#312b29] bg-[#201d1b] p-2">{resolvedCourse.stats.totalNodes} nodes</div>
               </div>
             </div>
             <div className="relative mt-4">
-              <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#6b7280]" />
+              <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#8f8478]" />
               <input
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search chapter titles"
-                className="w-full rounded-lg border border-white/[0.12] bg-white/[0.03] py-2.5 pl-9 pr-3 text-sm text-[#e5e7eb] outline-none placeholder:text-[#6b7280] focus:border-[#b91c1c]/70"
+                className="w-full rounded-lg border border-[#3a3431] bg-[#201d1b] py-2.5 pl-9 pr-3 text-sm text-[#eee7dc] outline-none placeholder:text-[#8f8478] focus:border-[#a85a4a]/70"
                 data-testid="lesson-search"
               />
             </div>
@@ -2435,7 +2435,7 @@ export default function ForensicCoursePlayerPreviewRestored() {
               return (
                 <div
                   key={module.id}
-                  className="mb-3 rounded-xl border border-white/[0.1] bg-[#141821] p-2 shadow-[0_14px_30px_rgba(0,0,0,0.35)]"
+                  className="mb-3 rounded-xl border border-[#312b29] bg-[#181819] p-2 shadow-[0_12px_24px_rgba(0,0,0,0.24)]"
                   data-testid="module-panel"
                   data-module-title={module.title}
                   data-module-hidden={module.isHidden ? "true" : "false"}
@@ -2446,36 +2446,36 @@ export default function ForensicCoursePlayerPreviewRestored() {
                       setActiveChapterId(module.id);
                       setActiveModuleView("content");
                     }}
-                    className="flex w-full items-center justify-between rounded-lg px-2 py-2 text-left transition duration-200 hover:bg-white/[0.04]"
+                    className="flex w-full items-center justify-between rounded-lg px-2 py-2 text-left transition duration-200 hover:bg-[#221f1d]"
                     data-testid="module-toggle"
                     data-module-title={module.title}
                     data-expanded={isActive ? "true" : "false"}
                   >
                     <div>
-                      <div className="text-sm font-semibold text-[#f3f4f6]">{formatModuleTitleForDisplay(module.title)}</div>
-                      <div className="text-xs text-[#6b7280]">{module.lessonCount} items in export</div>
+                      <div className="text-sm font-semibold text-[#f2eee7]">{formatModuleTitleForDisplay(module.title)}</div>
+                      <div className="text-xs text-[#8f8478]">{module.lessonCount} items in export</div>
                     </div>
                     {module.isHidden && <Badge>hidden module</Badge>}
-                    {isActive ? <ChevronDown className="h-4 w-4 text-[#a1a8b3]" /> : <ChevronRight className="h-4 w-4 text-[#6b7280]" />}
+                    {isActive ? <ChevronDown className="h-4 w-4 text-[#b6ada2]" /> : <ChevronRight className="h-4 w-4 text-[#8f8478]" />}
                   </button>
                   {isActive && module.lessons?.some((lesson) => lesson.type === "quiz" || lesson.type === "assignment") ? (
-                    <div className="mt-1 rounded-lg border border-white/[0.08] bg-white/[0.03] p-1" data-testid="module-submenu">
+                    <div className="mt-1 rounded-lg border border-[#312b29] bg-[#211f1d] p-1" data-testid="module-submenu">
                       <button
                         onClick={(event) => {
                           event.stopPropagation();
                           setActiveChapterId(module.id);
                           setActiveModuleView("assignments");
                         }}
-                        className={`flex w-full items-center justify-between rounded-md px-2 py-1.5 text-left text-xs font-semibold uppercase tracking-[0.12em] transition ${
+                        className={`flex w-full items-center justify-between rounded-md px-2 py-1.5 text-left text-xs font-semibold tracking-[0.1em] transition ${
                           activeModuleView === "assignments"
-                            ? "bg-[#1f1014] text-[#fecaca] ring-1 ring-[#dc2626]/45"
-                            : "text-[#a1a8b3] hover:bg-white/[0.06] hover:text-[#f3f4f6]"
+                            ? "bg-[#2a1d1a] text-[#d7b0a2] ring-1 ring-[#a85a4a]/35"
+                            : "text-[#b6ada2] hover:bg-[#2a2622] hover:text-[#f2eee7]"
                         }`}
                         data-testid="module-assignments-tab"
                         data-module-title={module.title}
                       >
                         <span>Assignments</span>
-                        <span className="text-[10px] text-[#6b7280]">
+                        <span className="text-[10px] text-[#8f8478]">
                           {module.lessons.filter((lesson) => lesson.type === "quiz" || lesson.type === "assignment").length}
                         </span>
                       </button>
@@ -2488,25 +2488,25 @@ export default function ForensicCoursePlayerPreviewRestored() {
         </aside>
 
         <main className="min-w-0 flex-1 overflow-x-hidden overflow-y-auto">
-          <div className="sticky top-0 z-10 border-b border-white/[0.08] bg-[#101216]/95 shadow-[0_10px_24px_rgba(0,0,0,0.45)] backdrop-blur-xl">
+          <div className="sticky top-0 z-10 border-b border-[#2c2725] bg-[#141415] shadow-[0_8px_18px_rgba(0,0,0,0.22)]">
             <div className="px-4 py-4 sm:px-6 lg:px-8 lg:py-5">
-              <div className="mb-2 flex flex-wrap items-center gap-2 text-sm text-[#a1a8b3]">
+              <div className="mb-2 flex flex-wrap items-center gap-2 text-sm text-[#b6ada2]">
                 <button
                   type="button"
                   onClick={() => setIsMobileMenuOpen(true)}
-                  className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/[0.14] bg-white/[0.04] text-[#d1d5db] transition duration-200 hover:border-white/[0.28] hover:bg-white/[0.08] hover:text-[#f3f4f6] lg:hidden"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#3a3431] bg-[#211f1d] text-[#cfc5bb] transition duration-200 hover:border-[#514944] hover:bg-[#2a2724] hover:text-[#f2eee7] lg:hidden"
                   aria-label="Open chapter menu"
                   title="Open chapter menu"
                 >
                   <span className="flex flex-col gap-1.5">
-                    <span className="block h-[2px] w-4 rounded-full bg-[#d1d5db]" />
-                    <span className="block h-[2px] w-4 rounded-full bg-[#d1d5db]" />
-                    <span className="block h-[2px] w-4 rounded-full bg-[#d1d5db]" />
+                    <span className="block h-[2px] w-4 rounded-full bg-[#cfc5bb]" />
+                    <span className="block h-[2px] w-4 rounded-full bg-[#cfc5bb]" />
+                    <span className="block h-[2px] w-4 rounded-full bg-[#cfc5bb]" />
                   </span>
                 </button>
-                <span className="text-[#f3f4f6]">{formatModuleTitleForDisplay(activeChapter.title)}</span>
+                <span className="text-[#f2eee7]">{formatModuleTitleForDisplay(activeChapter.title)}</span>
               </div>
-              <h2 className="text-3xl font-semibold tracking-tight text-[#f3f4f6]" data-testid="lesson-title">
+              <h2 className="text-3xl font-semibold tracking-tight text-[#f2eee7]" data-testid="lesson-title">
                 {formatModuleTitleForDisplay(activeChapter.title)}
               </h2>
               <div className="mt-3">
@@ -2520,17 +2520,17 @@ export default function ForensicCoursePlayerPreviewRestored() {
               <div className="space-y-6" data-testid="module-assignments-view">
                 <section className={`${FORENSIC_THEME.panel} p-8`}>
                   <div className="mb-5 flex items-center justify-between">
-                    <h3 className="text-xl font-semibold text-[#f3f4f6]">Assignments</h3>
+                    <h3 className="text-xl font-semibold text-[#f2eee7]">Assignments</h3>
                     <Badge>{chapterAssignments.length} assessments</Badge>
                   </div>
-                  <p className="text-sm text-[#a1a8b3]">
+                  <p className="text-sm text-[#b6ada2]">
                     Assessment items for {formatModuleTitleForDisplay(activeChapter.title)} are grouped in this dedicated view.
                   </p>
                 </section>
                 {chapterAssignments.length === 0 ? (
                   <section className={`${FORENSIC_THEME.panel} p-8`}>
-                    <h3 className="text-xl font-semibold text-[#f3f4f6]">No assignments in this module</h3>
-                    <p className="mt-3 text-sm text-[#a1a8b3]">
+                    <h3 className="text-xl font-semibold text-[#f2eee7]">No assignments in this module</h3>
+                    <p className="mt-3 text-sm text-[#b6ada2]">
                       Return to the module content view or choose another module with assessment items.
                     </p>
                   </section>
@@ -2551,8 +2551,8 @@ export default function ForensicCoursePlayerPreviewRestored() {
               <div className="space-y-6" data-testid="module-content-view">
                 {chapterLessons.length === 0 ? (
                   <section className={`${FORENSIC_THEME.panel} p-8`}>
-                    <h3 className="text-xl font-semibold text-[#f3f4f6]">No learner content in this module</h3>
-                    <p className="mt-3 text-sm text-[#a1a8b3]">
+                    <h3 className="text-xl font-semibold text-[#f2eee7]">No learner content in this module</h3>
+                    <p className="mt-3 text-sm text-[#b6ada2]">
                       This module currently contains only assessment items. Use the Assignments tab under the module name.
                     </p>
                   </section>

@@ -43,6 +43,10 @@ test("buildCourseShellSourceMetadataByHref extracts normalized preview text by r
     metadata["сontent/i123/Content/lesson.html"]?.contentPreview,
     "This is the first sentence. This is the second sentence with extra spacing."
   );
+  assert.equal(
+    metadata["сontent/i123/Content/lesson.html"]?.contentBody,
+    "This is the first sentence.\n\nThis is the second sentence with extra spacing."
+  );
 
   await removePath(tempDir);
 });
@@ -88,6 +92,7 @@ test("buildCourseShellSourceMetadataByHref falls back to resource catalog and tr
 
   assert.equal(metadata["assignment/i123/assignment.xml"]?.contentPreview.endsWith("…"), true);
   assert.equal(metadata["assignment/i123/assignment.xml"]?.contentPreview.length <= 40, true);
+  assert.equal(metadata["assignment/i123/assignment.xml"]?.contentBody, "A".repeat(90));
 
   await removePath(tempDir);
 });

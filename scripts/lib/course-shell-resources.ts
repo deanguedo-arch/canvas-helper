@@ -4,6 +4,7 @@ import { fileExists } from "./fs.js";
 import type { ReferenceIndex, ResourceCatalog, ResourceCatalogEntry, ReferenceManifest } from "./types.js";
 
 export type CourseShellActivitySourceMetadata = {
+  contentBody: string;
   contentPreview: string;
 };
 
@@ -28,22 +29,24 @@ function normalizePreview(value: string, maxLength: number) {
   return `${flattened.slice(0, Math.max(0, maxLength - 1)).trimEnd()}…`;
 }
 
-async function previewFromExtractedText(
+function normalizeBody(value: string) {
+  return value.replace(/\r/g, "").replace(/\u00a0/g, " ").trim();
+}
+
+async function readExtractedText(
   reference: ReferenceManifest | ResourceCatalogEntry,
-  previewMaxLength: number
 ) {
   const extractedPath = reference.extractedTextPath;
   if (!extractedPath) {
-    return "";
+    return null;
   }
   if (!(await fileExists(extractedPath))) {
-    return "";
+    return null;
   }
   try {
-    const text = await readFile(extractedPath, "utf8");
-    return normalizePreview(text, previewMaxLength);
+    return await readFile(extractedPath, "utf8");
   } catch {
-    return "";
+    return null;
   }
 }
 
@@ -67,13 +70,14 @@ export async function buildCourseShellSourceMetadataByHref(
       continue;
     }
 
-    const contentPreview = await previewFromExtractedText(reference, previewMaxLength);
-    if (!contentPreview) {
+    const extractedText = await readExtractedText(reference);
+    if (!extractedText) {
       continue;
     }
 
     sourceMetadataByHref[relativePath] = {
-      contentPreview
+      contentBody: normalizeBody(extractedText),
+      contentPreview: normalizePreview(extractedText, previewMaxLength)
     };
   }
 

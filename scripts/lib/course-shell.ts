@@ -19,6 +19,8 @@ export type CourseShellActivity = {
   moduleTitle: string;
   moduleSequence: number;
   moduleVisibilityLabel: string;
+  sectionTitle?: string;
+  contentBody: string;
   contentPreview: string;
   renderHint: CourseShellRenderHint;
 };
@@ -84,6 +86,7 @@ export type BuildCourseShellPlanOptions = {
   activitySourceMetadataByHref?: Record<
     string,
     {
+      contentBody?: string;
       contentPreview?: string;
     }
   >;
@@ -119,6 +122,15 @@ function extractModuleSequence(title: string, fallbackSequence: number) {
 
 function moduleVisibilityLabelFromTitle(title: string) {
   return /keep hidden|teacher resources|instructor only/i.test(title) ? "hidden" : "visible";
+}
+
+function shouldIncludeCourseMapModule(module: D2LCourseMapNode) {
+  const title = module.title.trim();
+  if (!title) {
+    return false;
+  }
+
+  return !/course information|extra credits|teacher resources|keep hidden|introduction/i.test(title);
 }
 
 function inferResourceKind(kind: string, sourceHref: string): CourseShellResourceKind {
@@ -168,6 +180,17 @@ function resolveContentPreview(
   return String(metadataByHref[normalizedHref]?.contentPreview || "").trim();
 }
 
+function resolveContentBody(
+  sourceHref: string,
+  metadataByHref: BuildCourseShellPlanOptions["activitySourceMetadataByHref"]
+) {
+  const normalizedHref = normalizePath(sourceHref);
+  if (!normalizedHref || !metadataByHref) {
+    return "";
+  }
+  return String(metadataByHref[normalizedHref]?.contentBody || "").trim();
+}
+
 type ActivityMetadata = {
   moduleTitle: string;
   moduleSequence: number;
@@ -175,6 +198,7 @@ type ActivityMetadata = {
   sourceHref: string;
   resourceKind: CourseShellResourceKind;
   contentPreview: string;
+  contentBody: string;
   renderHint: CourseShellRenderHint;
 };
 
@@ -197,6 +221,7 @@ function buildActivityMetadata(
     moduleVisibilityLabel: options.moduleVisibilityLabel,
     sourceHref,
     resourceKind,
+    contentBody: resolveContentBody(sourceHref, options.activitySourceMetadataByHref),
     contentPreview: resolveContentPreview(sourceHref, options.activitySourceMetadataByHref),
     renderHint: inferRenderHint(resourceKind, options.title)
   };
@@ -211,6 +236,34 @@ function flattenCourseNodes(nodes: D2LCourseMapNode[]) {
       results.push(...flattenCourseNodes(node.children));
     }
   }
+  return results;
+}
+
+type FlattenedCourseLeaf = {
+  node: D2LCourseMapNode;
+  sectionTitle: string;
+};
+
+function flattenCourseNodesWithSection(nodes: D2LCourseMapNode[], inheritedSectionTitle = "") {
+  const results: FlattenedCourseLeaf[] = [];
+
+  for (const node of nodes) {
+    const hasResource = Boolean(node.resource?.hrefs?.length);
+    const isLeaf = hasResource || node.children.length === 0;
+    const isSectionFolder = !hasResource && node.children.length > 0 && node.depth >= 1;
+    const nextSectionTitle = isSectionFolder ? node.title.trim() : inheritedSectionTitle;
+
+    if (isLeaf) {
+      results.push({
+        node,
+        sectionTitle: inheritedSectionTitle
+      });
+      continue;
+    }
+
+    results.push(...flattenCourseNodesWithSection(node.children, nextSectionTitle));
+  }
+
   return results;
 }
 
@@ -324,7 +377,7 @@ function buildActivitiesFromCourseMap(
   lessonPacketIndex: LessonPacketIndex,
   activitySourceMetadataByHref?: BuildCourseShellPlanOptions["activitySourceMetadataByHref"]
 ) {
-  const leaves = flattenCourseNodes(module.children);
+  const leaves = flattenCourseNodesWithSection(module.children);
   const sequence = extractModuleSequence(module.title, 1);
   const moduleTitle = titleFromSequence(sequence, module.title);
   const moduleVisibilityLabel = moduleVisibilityLabelFromTitle(module.title);
@@ -350,7 +403,8 @@ function buildActivitiesFromCourseMap(
 
   const activities: CourseShellActivity[] = [overviewActivity];
 
-  for (const [index, leaf] of leaves.entries()) {
+  for (const [index, flattenedLeaf] of leaves.entries()) {
+    const leaf = flattenedLeaf.node;
     const leafTitle = leaf.title.trim();
     const lowerTitle = leafTitle.toLowerCase();
     const isAssessment = leaf.kind === "assignment" || leaf.kind === "quiz" || /assessment|assignment|quiz/i.test(lowerTitle);
@@ -381,6 +435,7 @@ function buildActivitiesFromCourseMap(
         ...(matchingPacket?.targetOutcomeIds ?? [])
       ]),
       status: "pending",
+      sectionTitle: flattenedLeaf.sectionTitle,
       ...buildActivityMetadata({
         moduleTitle,
         moduleSequence: sequence,
@@ -436,7 +491,7 @@ export function buildCourseShellPlan(options: BuildCourseShellPlanOptions): Cour
           return left.index - right.index;
         })
         .map((entry) => entry.module)
-        .filter((module) => module.title.trim().length > 0)
+        .filter((module) => shouldIncludeCourseMapModule(module))
         .map((module, index) => {
           const sequence = extractModuleSequence(module.title, index + 1);
           const activities = buildActivitiesFromCourseMap(
