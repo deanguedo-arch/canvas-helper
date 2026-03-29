@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: calm-module-4
-- Generated: 2026-03-19T18:00:26.642Z
+- Generated: 2026-03-29T14:10:42.004Z
 
 ## Rules
 
@@ -21,8 +21,8 @@
 
 ## Session Mode
 
-- Subagent mode: off
-- Use standard task mode.
+- Subagent mode: on
+- Use subagent rules automatically; ask for approval before widening scope.
 
 ## Intelligence Policy
 
@@ -44,7 +44,7 @@ none
 {
   "id": "44e9f0f1-f4f2-4a41-9d60-81cabca28a1e",
   "slug": "calm-module-4",
-  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\incoming\\calm-module-4-stage",
+  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/calm-module-4/source",
   "inputKind": "html",
   "brightspaceTarget": "course-page",
   "previewModes": [
@@ -56,8 +56,78 @@ none
   "learningSource": "other",
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-03-19T18:00:26.529Z",
+  "migrationState": "migrated",
+  "projectType": "generated-course",
+  "preferredWorkflows": [
+    "generated-course",
+    "injection/integration"
+  ],
+  "canonicalEntry": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\calm-module-4\\workspace\\index.html",
+  "canonicalSources": [
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\calm-module-4\\workspace\\index.html",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\calm-module-4\\workspace\\main.jsx",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\calm-module-4\\workspace\\main.js",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\calm-module-4\\workspace\\styles.css",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\calm-module-4\\workspace\\components\\careerplanning.reference.jsx",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\calm-module-4\\workspace\\components\\resourcefulpeople.reference.jsx",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\calm-module-4\\workspace\\components\\masterplan.reference.jsx",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\calm-module-4\\workspace\\components\\resumebuilder.reference.jsx",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\calm-module-4\\workspace\\components\\coverletterbuilder.reference.jsx"
+  ],
+  "generatedOutputs": [],
+  "injectedComponents": [
+    {
+      "id": "career-planner",
+      "source": "projects/calm-module-4/workspace/components/careerplanning.reference.jsx",
+      "target": "projects/calm-module-4/workspace/main.jsx",
+      "status": "active"
+    },
+    {
+      "id": "resourceful-people",
+      "source": "projects/calm-module-4/workspace/components/resourcefulpeople.reference.jsx",
+      "target": "projects/calm-module-4/workspace/main.jsx",
+      "status": "active"
+    },
+    {
+      "id": "master-plan",
+      "source": "projects/calm-module-4/workspace/components/masterplan.reference.jsx",
+      "target": "projects/calm-module-4/workspace/main.jsx",
+      "status": "active"
+    },
+    {
+      "id": "resume-builder",
+      "source": "projects/calm-module-4/workspace/components/resumebuilder.reference.jsx",
+      "target": "projects/calm-module-4/workspace/main.jsx",
+      "status": "active"
+    },
+    {
+      "id": "cover-letter-builder",
+      "source": "projects/calm-module-4/workspace/components/coverletterbuilder.reference.jsx",
+      "target": "projects/calm-module-4/workspace/main.jsx",
+      "status": "active"
+    }
+  ],
+  "importedFirstPassOrigin": {
+    "sourceSystem": "gemini-canvas",
+    "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\processed\\calm-module-4\\source"
+  },
+  "exportTargets": [
+    {
+      "target": "brightspace",
+      "enabled": true
+    },
+    {
+      "target": "google-hosted",
+      "enabled": false,
+      "notes": "Enable after google-hosted.deploy.json is configured."
+    }
+  ],
+  "authoringStatus": "blocked",
+  "referenceOnly": [],
+  "sourceOfTruthNotes": "Treat workspace/index.html + main runtime/component sources as canonical. Export bundles are derived output.",
   "createdAt": "2026-03-19T18:00:26.397Z",
-  "updatedAt": "2026-03-19T18:00:26.529Z"
+  "updatedAt": "2026-03-24T13:04:53.178Z",
+  "workspaceApprovedAt": "2026-03-23T13:58:05.427Z"
 }
 ```
 
@@ -151,7 +221,24 @@ none
 
 ## Import Log
 
-> import-log.md: missing
+```md
+# Import Log
+
+- Generated: 2026-03-19T18:00:26.397Z
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\incoming\calm-module-4-stage
+
+## Actions
+- Detected "index.html" as the site entrypoint inside the source folder.
+- Copied the source HTML into raw/original.html without modifying it.
+- Copied 3 local asset reference(s) into the raw project copy.
+- Copied 3 local asset reference(s) into the workspace.
+- Learned project patterns (C:\Users\dean.guedo\Documents\GitHub\canvas helper\.runtime\pattern-bank\auto\calm-module-4.json).
+- Updated local pattern bank (7 profile(s)).
+- Generated prompt pack (C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\calm-module-4\meta\prompt-pack.md).
+
+## Warnings
+- None.
+```
 
 ## Global Memory
 

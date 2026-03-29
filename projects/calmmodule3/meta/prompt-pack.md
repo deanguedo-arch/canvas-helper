@@ -1,14 +1,28 @@
 # Prompt Pack
 
 - Project: calmmodule3
-- Generated: 2026-03-11T16:54:43.199Z
+- Generated: 2026-03-29T14:10:42.013Z
 
 ## Rules
 
+- Start with the narrowest useful retrieval path.
+- Prefer known entrypoints, targeted reads, and `rg` over broad discovery.
+- Do not expand scope or change behavior unless the current context is insufficient.
+- If broader retrieval is needed, stop and ask for approval with the reason, added scope, and expected cost.
+- Keep follow-up reads minimal even after approval.
+- If the user explicitly says this is a subagent, or says to act as a subagent, treat the task as subagent mode automatically.
+- If the signal is ambiguous, ask exactly once: `Should I apply subagent rules for this task?`
+- Keep subagent mode on for the rest of the task once confirmed unless the user changes the scope.
+- Do not keep asking whether to apply subagent rules after confirmation.
 - Work in repo-approved zones (`app/studio`, `app/server`, `scripts`, `docs`, `tasks`, root config files).
 - Treat `projects/<slug>/raw` as immutable baseline input.
 - Retrieval order: prompt-pack -> course blueprint -> assessment map -> lesson packets -> targeted resource chunks -> pattern matches if enabled.
 - Finish only after typecheck/build and task-specific verification pass.
+
+## Session Mode
+
+- Subagent mode: on
+- Use subagent rules automatically; ask for approval before widening scope.
 
 ## Intelligence Policy
 
@@ -20,13 +34,17 @@
 - Apply memory ledger to prompt pack: off
 - Apply memory ledger to recommendations: off
 
+## Selected Benchmark
+
+none
+
 ## Project Manifest
 
 ```json
 {
   "id": "d5c08208-2069-407b-9f2f-95898ecef629",
   "slug": "calmmodule3",
-  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\processed\\calmmodule3\\source",
+  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/calmmodule3/source",
   "inputKind": "html",
   "brightspaceTarget": "course-page",
   "previewModes": [
@@ -39,8 +57,16 @@
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-03-11T16:54:43.161Z",
   "createdAt": "2026-03-09T21:26:02.882Z",
-  "updatedAt": "2026-03-11T16:54:43.161Z",
-  "workspaceApprovedAt": "2026-03-11T16:54:43.161Z"
+  "updatedAt": "2026-03-24T13:04:53.191Z",
+  "workspaceApprovedAt": "2026-03-11T16:54:43.161Z",
+  "migrationState": "legacy",
+  "preferredWorkflows": [],
+  "canonicalSources": [],
+  "generatedOutputs": [],
+  "injectedComponents": [],
+  "exportTargets": [],
+  "authoringStatus": "active",
+  "referenceOnly": []
 }
 ```
 
@@ -68,6 +94,11 @@
 - Extraction: indexed via native
 - Chunks: 48
 - Signals: text:objectives, text:outcomes, text:what-is
+
+## D2L Course Map Summary
+
+> d2l-course-map.json: missing
+> Next: `npm run d2l-map -- --project calmmodule3`
 
 ## Course Blueprint Summary
 
@@ -167,43 +198,12 @@ disabled by intelligence policy (collect)
 ### calm-module-3-career-and-life-choices-docx (docx/outline)
 - Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\calmmodule3\CALM Module 3  - Career and Life Choices.docx
 
-```text
-Career and Life Management
-```
+- Extracted chunk text missing.
 
 ### calm-module-3-career-and-life-choices-pdf (pdf/outline)
 - Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\calmmodule3\CALM Module 3  - Career and Life Choices.pdf
 
-```text
-nextstepfortsaskatchewansherwoodpa
-rkvegrevillenextstefortsaskatchewans
-herwoodparkvegrevillenextstepfortsa
-skatchewannextstepsherwoodparkveg
-revillenextstepfortsaskatchewansher
-woodparkvegrevillenextstepfortsaskat
-chewansherwoodparkvegrevillenextst
-epfortsaskatchewansherwoodparkveg
-revillenextstepfortsaskatchewansher
-woodparkvegrevillenextstepfortsaskat
-chewansherwoodparkvegrevillenextst
-epfortsaskatchewansherwoodparkveg
-revillenextstepfortsaskatchewansher
-woodparkvegrevillepfortsaskatchewa
-nsherwoodparkvegrevillenextstepfort
-saskatchewansherwoodparkvegreville
-nextstepfortsaskatchewansherwoodpa
-killfkh
-
-STUDENT NAME:
-
-Career and
-Life
-Management
-MODULE 3
-Career and Life Choices
-
-SENIOR HIGH ...
-```
+- Extracted chunk text missing.
 
 ## Task Stub
 

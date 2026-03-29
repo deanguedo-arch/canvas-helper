@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: forensics
-- Generated: 2026-03-18T14:44:05.470Z
+- Generated: 2026-03-29T14:10:42.035Z
 
 ## Rules
 
@@ -21,8 +21,8 @@
 
 ## Session Mode
 
-- Subagent mode: off
-- Use standard task mode.
+- Subagent mode: on
+- Use subagent rules automatically; ask for approval before widening scope.
 
 ## Intelligence Policy
 
@@ -44,7 +44,7 @@ none
 {
   "id": "92b81c7c-1321-40e0-9b0a-a69b09442d64",
   "slug": "forensics",
-  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\processed\\forensics\\source",
+  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/forensics/source",
   "inputKind": "html",
   "brightspaceTarget": "course-page",
   "previewModes": [
@@ -56,9 +56,75 @@ none
   "learningSource": "other",
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-03-18T14:44:05.427Z",
+  "migrationState": "migrated",
+  "projectType": "hybrid",
+  "preferredWorkflows": [
+    "conversion",
+    "injection/integration"
+  ],
+  "canonicalEntry": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics/workspace/index.html",
+  "canonicalSources": [
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics/workspace/index.html",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics/workspace/main.jsx",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics/workspace/main.js",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics/workspace/assets/module8assignment.html",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics/workspace/assets/module8assignment-app.jsx"
+  ],
+  "generatedOutputs": [
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics/workspace/assets/module7assignment.bundle.js",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics/workspace/assets/module8assignment.bundle.js"
+  ],
+  "regenerateCommand": "Manual: rebuild assignment bundle files from matching *-app.jsx sources before export.",
+  "injectedComponents": [
+    {
+      "id": "module8-assignment",
+      "source": "projects/forensics/workspace/assets/module8assignment-app.jsx",
+      "target": "projects/forensics/workspace/assets/module8assignment.html",
+      "status": "active"
+    },
+    {
+      "id": "module8-career-matcher-reference",
+      "source": "projects/forensics/workspace/assets/module8assignment-career-matcher.jsx",
+      "target": "projects/forensics/workspace/assets/module8assignment.html",
+      "status": "reference-only"
+    },
+    {
+      "id": "module8-day-in-life-reference",
+      "source": "projects/forensics/workspace/assets/module8assignment-day-in-life.jsx",
+      "target": "projects/forensics/workspace/assets/module8assignment.html",
+      "status": "reference-only"
+    },
+    {
+      "id": "module8-case-role-reference",
+      "source": "projects/forensics/workspace/assets/module8assignment-case-role.jsx",
+      "target": "projects/forensics/workspace/assets/module8assignment.html",
+      "status": "reference-only"
+    }
+  ],
+  "importedFirstPassOrigin": {
+    "sourceSystem": "brightspace",
+    "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\processed\\forensics\\source"
+  },
+  "exportTargets": [
+    {
+      "target": "brightspace",
+      "enabled": true
+    },
+    {
+      "target": "scorm",
+      "enabled": true
+    }
+  ],
+  "authoringStatus": "active",
+  "referenceOnly": [
+    "projects/forensics/workspace/assets/module8assignment-career-matcher.jsx",
+    "projects/forensics/workspace/assets/module8assignment-day-in-life.jsx",
+    "projects/forensics/workspace/assets/module8assignment-case-role.jsx"
+  ],
+  "sourceOfTruthNotes": "Module 8 split files stay reference-only unless explicitly activated in the assignment flow.",
   "createdAt": "2026-03-14T13:26:57.855Z",
-  "updatedAt": "2026-03-18T14:44:05.427Z",
-  "workspaceApprovedAt": "2026-03-18T14:44:05.427Z"
+  "updatedAt": "2026-03-29T00:53:40.572Z",
+  "workspaceApprovedAt": "2026-03-29T00:53:40.572Z"
 }
 ```
 
@@ -250,108 +316,42 @@ disabled by intelligence policy (collect)
 ### d2lccexport-129076-23-24-forensic-studies-25-per-1-a-b-sec-s3-202631302-2-assignment-ibf8741ec-ded8-4c2a-9594-f9ab5f78eea0-content-experiment-1-latent-fingerprints-docx (docx/assessment)
 - Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics\D2LCCExport_129076_23-24 _ Forensic Studies 25 _ Per 1(A-B) _ Sec S3_202631302 (2)\assignment\ibf8741ec-ded8-4c2a-9594-f9ab5f78eea0\Content\Experiment 1 - Latent Fingerprints.docx
 
-```text
-Experiment 1
-
-Short-term vs. Long-term Latent Fingerprint Samples
-
-33 Marks
-```
+- Extracted chunk text missing.
 
 ### d2lccexport-129076-23-24-forensic-studies-25-per-1-a-b-sec-s3-202631302-2-assignment-if3a4e6a4-91ac-4aef-813d-76a771b488bf-content-experiment-2-lifting-fingerprints-docx (docx/assessment)
 - Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics\D2LCCExport_129076_23-24 _ Forensic Studies 25 _ Per 1(A-B) _ Sec S3_202631302 (2)\assignment\if3a4e6a4-91ac-4aef-813d-76a771b488bf\Content\Experiment 2 - Lifting Fingerprints.docx
 
-```text
-Experiment 2
-
-Finding and Lifting Fingerprints Using Lifting Powders
-
-24 marks
-
-(10 marks included for your photos of the lab)
-```
+- Extracted chunk text missing.
 
 ### d2lccexport-129076-23-24-forensic-studies-25-per-1-a-b-sec-s3-202631302-2-ontent-ie0299797-cf54-494f-af1d-80d66242ee26-forensic-science-25-answer-keys-pdf (pdf/assessment)
 - Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics\D2LCCExport_129076_23-24 _ Forensic Studies 25 _ Per 1(A-B) _ Sec S3_202631302 (2)\сontent\ie0299797-cf54-494f-af1d-80d66242ee26\Forensic Science 25 Answer Keys.pdf
 
-```text
-Forensic Science 25 Answer Keys
-M1 Introduction to Crime Scenes Assignment
-12 marks
-1.One of the first things that investigators do when approaching a crime scene is to
-make it secure.  Givetworeasons why it’s importantto properly secure a crime
-scene. (2 marks)
-1)Evidence can be lost or contaminated 2) Anyone can enter the crime scene
-and disrupt evidence
-2.In a crime scene, there are 7 steps that investigators take in order to ensure that
-protocols are being followed.  Complete the table below by describing the 7 steps
-in your own words. (7 marks)
-StepDescription
-SecuringMake sure no one enters the crime scene; track any who do
-SeparatingSeparate the witnesses so they do not compare storie...
-```
+- Extracted chunk text missing.
 
 ### d2lccexport-129076-23-24-forensic-studies-25-per-1-a-b-sec-s3-202631302-2-ontent-i205ddaa3-0c3e-4015-b814-bcfd45b83422-content-book-1416-chapter-11997-html (html/assessment)
 - Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics\D2LCCExport_129076_23-24 _ Forensic Studies 25 _ Per 1(A-B) _ Sec S3_202631302 (2)\сontent\i205ddaa3-0c3e-4015-b814-bcfd45b83422\Content\book_1416\chapter_11997.html
 
-```text
-Identification of Blood Evidence
-The first step that a forensic investigator must take in a crime scene where blood evidence is suspected is confirming that the evidence found is blood. Some liquids when spilled and left to dry can be mistaken for blood such as paint, stain, juices, food coloring, or hair dyes. Forensic scientists use various chemical tests to confirm that the residue left behind at a crime scene is blood. In this lesson two popular chemical blood identification tests will be examined - phenolphthalein and luminal.
-The Phenolphthalein Test
-Trying to clean up every trace of blood after a violent crime is very difficult especially if there is great deal of blood. Often crimina...
-```
+- Extracted chunk text missing.
 
 ### d2lccexport-129076-23-24-forensic-studies-25-per-1-a-b-sec-s3-202631302-2-ontent-i3838d916-02d0-4c57-bfa7-2032c66a71c4-how-to-be-successful-in-an-independent-study-course-1-pdf (pdf/assessment)
 - Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics\D2LCCExport_129076_23-24 _ Forensic Studies 25 _ Per 1(A-B) _ Sec S3_202631302 (2)\сontent\i3838d916-02d0-4c57-bfa7-2032c66a71c4\How to Be Successful in an Independent Study Course (1).pdf
 
-```text
-Steps to Being Successful in an Independent Study Course
-1. Take Responsibility
-You have enrolled in this course because you have a need to learn outside a traditional classroom and a
-desire to be successful.  Are you prepared to do what it takes to achieve success?  Be disciplined and
-committed.  Be willing to problem solve and search for answers.  Actively seek help when you need it - not just
-from your teacher, but from all the resources you have access to.  In an independent study environment, your
-teacher is a facilitator of learning; they do not simply deliver the knowledge and you simply open your mind to
-receive it.  Confidently seek it and pursue learning.  It may take some time to ...
-```
+- Extracted chunk text missing.
 
 ### d2lccexport-129076-23-24-forensic-studies-25-per-1-a-b-sec-s3-202631302-2-ontent-i1b9d5df3-0b57-4109-9a00-d3f42192d5e2-assignment-submission-html (html/assessment)
 - Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics\D2LCCExport_129076_23-24 _ Forensic Studies 25 _ Per 1(A-B) _ Sec S3_202631302 (2)\сontent\i1b9d5df3-0b57-4109-9a00-d3f42192d5e2\Assignment Submission.html
 
-```text
-Submission Instructions
-When submitting your assignments go to the corresponding drop box and follow the instructions below for the format you are using.
-For Digital (Online) Assignments - Submit from Google Drive:
-Step 0: (You only need to do this step once in Brightspace. If you have already done this, skip to Step 1).
-Go to the Brightspace Homepage by clicking on the EIPS logo on the top left corner.
-Scroll down to the bottom until you see the Google Apps widget and select Authorize
-Step 1: In the box, select Choose Existing
-Step 2: Select Google Drive (If you do not see "Google Drive" make sure you do Step 0!)
-Step 3: Search for the file you want to submit and hit Add.
-Step 4: Hit Submit...
-```
+- Extracted chunk text missing.
 
 ### d2lccexport-129076-23-24-forensic-studies-25-per-1-a-b-sec-s3-202631302-2-ontent-ic6856f52-3e5a-447d-8054-f101d18b7e83-content-book-1416-chapter-11998-html (html/assessment)
 - Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics\D2LCCExport_129076_23-24 _ Forensic Studies 25 _ Per 1(A-B) _ Sec S3_202631302 (2)\сontent\ic6856f52-3e5a-447d-8054-f101d18b7e83\Content\book_1416\chapter_11998.html
 
-```text
-The Luminol Test
-At a crime scene, large pools of blood are easy to spot, but what if all the blood has been cleaned up by the assailant?  It too can be detected using a powerful chemiluminescent compound called LUMINOL (3-aminophthalhydazide). Luminol reacts with a portion of the hemoglobin of red blood cells called 'heme'. When luminol comes into contact with ‘heme’ it reacts producing a unique product - a greenish-blue light. Luminol is very sensitive; it can detect blood at 1 part to 300 000.
-Investigators use luminol at crime scenes where there is no visible blood whatsoever. They spray it over a wide area in near-total darkness so that any reaction is obvious. Officers then photograph/...
-```
+- Extracted chunk text missing.
 
 ### d2lccexport-129076-23-24-forensic-studies-25-per-1-a-b-sec-s3-202631302-2-ontent-ie2c27177-23ad-417f-b0ec-34dd4f47add4-content-book-1416-chapter-11992-html (html/outline)
 - Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics\D2LCCExport_129076_23-24 _ Forensic Studies 25 _ Per 1(A-B) _ Sec S3_202631302 (2)\сontent\ie2c27177-23ad-417f-b0ec-34dd4f47add4\Content\book_1416\chapter_11992.html
 
-```text
-Body Fluid Evidence
-This module will explore the significance of body fluid evidence found at crime scenes. The two main types of body fluids that may be found at a crime scene or upon the bodies of the individuals involved with a particular crime are blood and semen. The lessons in this module will:
-outline some of the basic features of blood.
-explore how latent blood residue can be enhanced and how blood spatter patterns can be interpreted.
-focus upon the information that semen collected from a sexual assault yields.
-examine a historical crime and a fictional crime that both involve body fluid evidence.
-The body fluid that is most often found at crime scene involving injuries (ie. traffic ...
-```
+- Extracted chunk text missing.
 
 ## Task Stub
 

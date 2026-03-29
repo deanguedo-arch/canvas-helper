@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: e2e-fixture
-- Generated: 2026-03-18T14:44:04.852Z
+- Generated: 2026-03-29T14:10:42.015Z
 
 ## Rules
 
@@ -21,8 +21,8 @@
 
 ## Session Mode
 
-- Subagent mode: off
-- Use standard task mode.
+- Subagent mode: on
+- Use subagent rules automatically; ask for approval before widening scope.
 
 ## Intelligence Policy
 
@@ -44,7 +44,7 @@ none
 {
   "id": "ee7ac6f4-3ab4-46ca-b57f-2e7c120b08c6",
   "slug": "e2e-fixture",
-  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\processed\\e2e-fixture\\source",
+  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/e2e-fixture/source",
   "inputKind": "html",
   "brightspaceTarget": "course-page",
   "previewModes": [
@@ -57,8 +57,16 @@ none
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-03-18T14:44:04.818Z",
   "createdAt": "2026-03-16T00:00:00.000Z",
-  "updatedAt": "2026-03-18T14:44:04.818Z",
-  "workspaceApprovedAt": "2026-03-18T14:44:04.818Z"
+  "updatedAt": "2026-03-24T13:04:53.194Z",
+  "workspaceApprovedAt": "2026-03-18T14:44:04.818Z",
+  "migrationState": "legacy",
+  "preferredWorkflows": [],
+  "canonicalSources": [],
+  "generatedOutputs": [],
+  "injectedComponents": [],
+  "exportTargets": [],
+  "authoringStatus": "active",
+  "referenceOnly": []
 }
 ```
 

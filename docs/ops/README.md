@@ -16,10 +16,11 @@ Use this folder to keep local work disciplined, reproducible, and handoff-friend
 1. Read [`AGENTS.md`](../../AGENTS.md)
 2. Read [`ARCHITECTURE.md`](../../ARCHITECTURE.md)
 3. Use [`session-checklist.md`](./session-checklist.md) before and during work
-4. After restoring from [`ACTIVE_HANDOFF.md`](./ACTIVE_HANDOFF.md), ask once whether to start Headroom when working in Cursor or Codex and Headroom is available
-5. Use [`HANDOFF.md`](./HANDOFF.md) for every meaningful stop point and write it into [`ACTIVE_HANDOFF.md`](./ACTIVE_HANDOFF.md)
-6. If workflow is known, read the matching guide under [`docs/workflows/`](../workflows/README.md)
-7. Use [`agent-prompt-templates.md`](./agent-prompt-templates.md) only after architecture, workflow, and task boundaries are clear
+4. After restoring from [`ACTIVE_HANDOFF.md`](./ACTIVE_HANDOFF.md), ask once whether to start Headroom when working in Cursor or Codex
+5. If Headroom is unavailable on the machine, use `npm run headroom` as the repo-native context fallback
+6. Use [`HANDOFF.md`](./HANDOFF.md) for every meaningful stop point and write it into [`ACTIVE_HANDOFF.md`](./ACTIVE_HANDOFF.md)
+7. If workflow is known, read the matching guide under [`docs/workflows/`](../workflows/README.md)
+8. Use [`agent-prompt-templates.md`](./agent-prompt-templates.md) only after architecture, workflow, and task boundaries are clear
 
 ## Surgical Default
 

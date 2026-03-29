@@ -1,14 +1,28 @@
 # Prompt Pack
 
 - Project: calmmodule2
-- Generated: 2026-03-11T17:15:17.657Z
+- Generated: 2026-03-29T14:10:42.010Z
 
 ## Rules
 
+- Start with the narrowest useful retrieval path.
+- Prefer known entrypoints, targeted reads, and `rg` over broad discovery.
+- Do not expand scope or change behavior unless the current context is insufficient.
+- If broader retrieval is needed, stop and ask for approval with the reason, added scope, and expected cost.
+- Keep follow-up reads minimal even after approval.
+- If the user explicitly says this is a subagent, or says to act as a subagent, treat the task as subagent mode automatically.
+- If the signal is ambiguous, ask exactly once: `Should I apply subagent rules for this task?`
+- Keep subagent mode on for the rest of the task once confirmed unless the user changes the scope.
+- Do not keep asking whether to apply subagent rules after confirmation.
 - Work in repo-approved zones (`app/studio`, `app/server`, `scripts`, `docs`, `tasks`, root config files).
 - Treat `projects/<slug>/raw` as immutable baseline input.
 - Retrieval order: prompt-pack -> course blueprint -> assessment map -> lesson packets -> targeted resource chunks -> pattern matches if enabled.
 - Finish only after typecheck/build and task-specific verification pass.
+
+## Session Mode
+
+- Subagent mode: on
+- Use subagent rules automatically; ask for approval before widening scope.
 
 ## Intelligence Policy
 
@@ -20,13 +34,17 @@
 - Apply memory ledger to prompt pack: off
 - Apply memory ledger to recommendations: off
 
+## Selected Benchmark
+
+none
+
 ## Project Manifest
 
 ```json
 {
   "id": "33591f13-3d65-476b-98c5-39fa0e1d88db",
   "slug": "calmmodule2",
-  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\processed\\calmmodule2\\source",
+  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/calmmodule2/source",
   "inputKind": "text-html",
   "brightspaceTarget": "course-page",
   "previewModes": [
@@ -39,8 +57,16 @@
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-03-11T17:15:17.595Z",
   "createdAt": "2026-03-06T20:40:30.861Z",
-  "updatedAt": "2026-03-11T17:15:17.595Z",
-  "workspaceApprovedAt": "2026-03-11T17:15:17.595Z"
+  "updatedAt": "2026-03-29T00:53:37.006Z",
+  "workspaceApprovedAt": "2026-03-29T00:53:37.006Z",
+  "migrationState": "legacy",
+  "preferredWorkflows": [],
+  "canonicalSources": [],
+  "generatedOutputs": [],
+  "injectedComponents": [],
+  "exportTargets": [],
+  "authoringStatus": "active",
+  "referenceOnly": []
 }
 ```
 
@@ -61,6 +87,11 @@
 - Extraction: indexed via native
 - Chunks: 22
 - Signals: text:what-is
+
+## D2L Course Map Summary
+
+> d2l-course-map.json: missing
+> Next: `npm run d2l-map -- --project calmmodule2`
 
 ## Course Blueprint Summary
 
@@ -164,30 +195,7 @@ disabled by intelligence policy (collect)
 ### calm-module-2-resourse-choices-pdf (pdf/textbook)
 - Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\calmmodule2\CALM Module 2 - Resourse Choices.pdf
 
-```text
-CALM MODULE TWO – RESOURCE CHOICES
-OUTREACH PROGRAMS – REVISED 2018
-1
-
-nextstepfortsaskatchewansherwoodpa
-rkvegrevillenextstefortsaskatchewans
-herwoodparkvegrevillenextstepfortsa
-skatchewannextstepsherwoodparkveg
-revillenextstepfortsaskatchewansher
-woodparkvegrevillenextstepfortsaskat
-chewansherwoodparkvegrevillenextst
-epfortsaskatchewansherwoodparkveg
-revillenextstepfortsaskatchewansher
-woodparkvegrevillenextstepfortsaskat
-chewansherwoodparkvegrevillenextst
-epfortsaskatchewansherwoodparkveg
-revillenextstepfortsaskatchewansher
-woodparkvegrevillepfortsaskatchewa
-nsherwoodparkvegrevillenextstepfort
-saskatchewansherwoodparkvegreville
-nextstepfortsaskatchewansherwoodpa
-rkvegrevillenextstepfortsa...
-```
+- Extracted chunk text missing.
 
 ## Task Stub
 

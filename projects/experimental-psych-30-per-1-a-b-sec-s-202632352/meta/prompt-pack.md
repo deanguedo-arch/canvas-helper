@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: experimental-psych-30-per-1-a-b-sec-s-202632352
-- Generated: 2026-03-24T13:46:40.241Z
+- Generated: 2026-03-29T14:10:42.025Z
 
 ## Rules
 
@@ -21,8 +21,8 @@
 
 ## Session Mode
 
-- Subagent mode: off
-- Use standard task mode.
+- Subagent mode: on
+- Use subagent rules automatically; ask for approval before widening scope.
 
 ## Intelligence Policy
 
@@ -64,7 +64,8 @@ none
   "canonicalEntry": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/workspace/index.html",
   "canonicalSources": [
     "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/workspace/index.html",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/workspace/main.js"
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/workspace/main.js",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/workspace/assessment-delivery.js"
   ],
   "generatedOutputs": [
     "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/workspace/course-shell-data.js"
@@ -85,7 +86,7 @@ none
   ],
   "authoringStatus": "active",
   "referenceOnly": [],
-  "sourceOfTruthNotes": "Edit workspace sources listed in canonicalSources. Treat generated outputs such as course-shell-data.js and runtime bundles as derived output.",
+  "sourceOfTruthNotes": "Edit workspace sources listed in canonicalSources. The assessment-delivery mapping lives in workspace/assessment-delivery.js. Treat generated outputs such as course-shell-data.js and runtime bundles as derived output.",
   "createdAt": "2026-03-23T14:33:43.141Z",
   "updatedAt": "2026-03-24T13:46:40.210Z"
 }

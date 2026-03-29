@@ -17,6 +17,8 @@
     "library": "tsx scripts/build-pattern-library.ts",
     "pack": "tsx scripts/pack-agent.ts",
     "pack:subagent": "tsx scripts/pack-agent.ts --subagent",
+    "headroom": "tsx scripts/headroom.ts",
+    "headroom:all": "tsx scripts/headroom.ts --all",
     "verify": "tsx scripts/verify-project.ts",
     "validate:manifests": "tsx scripts/validate-project-metadata.ts",
     "refs": "tsx scripts/extract-references.ts",

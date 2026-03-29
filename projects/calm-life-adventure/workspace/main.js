@@ -139,7 +139,7 @@ const ROOMS = {
       { noun: "flyers", label: "Flyer Stand", aliases: ["flyers", "flyer", "stand", "notebook"], x: 14, y: 66, w: 12, h: 18, kind: "object" },
       { noun: "phone", label: "Payphone", aliases: ["phone", "telephone", "payphone"], x: 24, y: 14, w: 14, h: 56, kind: "object" },
       { noun: "poster", label: "Street Poster", aliases: ["poster", "board", "sign"], x: 62, y: 8, w: 18, h: 18, kind: "object" },
-      { noun: "door", label: "Front Door", aliases: ["door", "lounge", "inside"], x: 43, y: 48, w: 18, h: 28, kind: "exit" }
+      { noun: "door", label: "Front Door", aliases: ["door", "lounge", "inside"], x: 43, y: 48, w: 18, h: 28, kind: "exit", target: "hallway" }
     ],
     walkTo: { x: 46, y: 83 }
   },
@@ -160,8 +160,8 @@ const ROOMS = {
       { noun: "maya", label: "Maya", aliases: ["maya", "friend"], x: 20, y: 54, w: 12, h: 24, kind: "person" },
       { noun: "bench", label: "Bench", aliases: ["bench", "seat"], x: 18, y: 58, w: 16, h: 10, kind: "object" },
       { noun: "poster", label: "Boundary Poster", aliases: ["poster", "relationship poster", "wall"], x: 84, y: 8, w: 14, h: 18, kind: "object" },
-      { noun: "classroom", label: "Lounge Door", aliases: ["classroom", "class", "lounge", "door"], x: 82, y: 22, w: 14, h: 28, kind: "exit" },
-      { noun: "outside", label: "Street Exit", aliases: ["outside", "street", "exit"], x: 44, y: 76, w: 12, h: 12, kind: "exit" }
+      { noun: "classroom", label: "Lounge Door", aliases: ["classroom", "class", "lounge", "door"], x: 82, y: 22, w: 14, h: 28, kind: "exit", target: "classroom" },
+      { noun: "outside", label: "Street Exit", aliases: ["outside", "street", "exit"], x: 44, y: 76, w: 12, h: 12, kind: "exit", target: "bedroom" }
     ],
     walkTo: { x: 50, y: 84 }
   },
@@ -180,8 +180,8 @@ const ROOMS = {
       { noun: "teacher", label: "Mentor", aliases: ["teacher", "mentor", "bartender"], x: 46, y: 42, w: 14, h: 28, kind: "person" },
       { noun: "basket", label: "Counter Packet", aliases: ["basket", "worksheet", "worksheets", "packet"], x: 58, y: 54, w: 28, h: 12, kind: "object" },
       { noun: "board", label: "Board", aliases: ["board", "counter board", "shelf"], x: 62, y: 8, w: 20, h: 12, kind: "object" },
-      { noun: "hallway", label: "Hallway Door", aliases: ["hallway", "hall", "door"], x: 8, y: 28, w: 16, h: 28, kind: "exit" },
-      { noun: "office", label: "Back Room", aliases: ["office", "backroom", "back room"], x: 86, y: 36, w: 14, h: 28, kind: "exit" }
+      { noun: "hallway", label: "Hallway Door", aliases: ["hallway", "hall", "door"], x: 8, y: 28, w: 16, h: 28, kind: "exit", target: "hallway" },
+      { noun: "office", label: "Back Room", aliases: ["office", "backroom", "back room"], x: 86, y: 36, w: 14, h: 28, kind: "exit", target: "counselor" }
     ],
     walkTo: { x: 50, y: 84 }
   },
@@ -200,7 +200,7 @@ const ROOMS = {
       { noun: "counselor", label: "Ms. Singh", aliases: ["counselor", "singh", "ms singh"], x: 76, y: 44, w: 10, h: 22, kind: "person" },
       { noun: "rack", label: "Pamphlet Rack", aliases: ["rack", "pamphlet", "pamphlet rack"], x: 18, y: 26, w: 16, h: 28, kind: "object" },
       { noun: "desk", label: "Planning Desk", aliases: ["desk", "planning desk"], x: 36, y: 64, w: 24, h: 14, kind: "object" },
-      { noun: "hallway", label: "Lounge Door", aliases: ["hallway", "hall", "door", "lounge"], x: 6, y: 48, w: 10, h: 22, kind: "exit" }
+      { noun: "hallway", label: "Lounge Door", aliases: ["hallway", "hall", "door", "lounge"], x: 6, y: 48, w: 10, h: 22, kind: "exit", target: "hallway" }
     ],
     walkTo: { x: 50, y: 84 }
   }
@@ -827,7 +827,12 @@ function runCommand(rawCommand) {
   }
 
   if (resolved?.type === "exit" && verb === "go") {
-    moveToRoom(resolved.target.target);
+    const targetRoom = resolved.target?.target;
+    if (typeof targetRoom === "string" && targetRoom.length > 0) {
+      moveToRoom(targetRoom);
+      return;
+    }
+    pushTranscript("That way is blocked for now.");
     return;
   }
 
@@ -871,20 +876,35 @@ function resetGame() {
 }
 
 function handleArrowMovement(event) {
+  const target = event.target;
+  const isTypingField =
+    target instanceof HTMLElement &&
+    (target.tagName === "INPUT" ||
+      target.tagName === "TEXTAREA" ||
+      target.tagName === "SELECT" ||
+      target.isContentEditable);
+  if (isTypingField) {
+    return;
+  }
+
   const step = 3;
   if (event.key === "ArrowLeft") {
+    event.preventDefault();
     state.facing = "left";
     state.stepFrame += 1;
     setPlayerPosition(state.player.x - step, state.player.y);
   } else if (event.key === "ArrowRight") {
+    event.preventDefault();
     state.facing = "right";
     state.stepFrame += 1;
     setPlayerPosition(state.player.x + step, state.player.y);
   } else if (event.key === "ArrowUp") {
+    event.preventDefault();
     state.facing = "up";
     state.stepFrame += 1;
     setPlayerPosition(state.player.x, state.player.y - step);
   } else if (event.key === "ArrowDown") {
+    event.preventDefault();
     state.facing = "down";
     state.stepFrame += 1;
     setPlayerPosition(state.player.x, state.player.y + step);
@@ -1168,19 +1188,30 @@ function escapeHtml(value) {
 function bindEvents(root) {
   const form = root.querySelector("[data-command-form]");
   const input = root.querySelector("#command-input");
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
+  if (!(form instanceof HTMLFormElement) || !(input instanceof HTMLInputElement)) {
+    return;
+  }
+
+  const submitCommand = () => {
     const command = input.value.trim();
     if (!command) {
       pushTranscript("Type a command.");
       persistState();
       render();
-      return;
+      focusCommandInput();
+      return false;
     }
     runCommand(command);
     state.commandBuffer = "";
     persistState();
     render();
+    focusCommandInput();
+    return true;
+  };
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    submitCommand();
   });
 
   input.addEventListener("input", (event) => {
@@ -1229,6 +1260,14 @@ function bindEvents(root) {
 
   const resetButton = root.querySelector("[data-reset]");
   resetButton.addEventListener("click", resetGame);
+}
+
+function focusCommandInput() {
+  const input = document.querySelector("#command-input");
+  if (input instanceof HTMLInputElement) {
+    input.focus();
+    input.setSelectionRange(input.value.length, input.value.length);
+  }
 }
 
 function render() {

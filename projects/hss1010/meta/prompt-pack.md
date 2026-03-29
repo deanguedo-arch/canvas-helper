@@ -1,14 +1,28 @@
 # Prompt Pack
 
 - Project: hss1010
-- Generated: 2026-03-12T19:38:10.623Z
+- Generated: 2026-03-29T14:10:42.053Z
 
 ## Rules
 
+- Start with the narrowest useful retrieval path.
+- Prefer known entrypoints, targeted reads, and `rg` over broad discovery.
+- Do not expand scope or change behavior unless the current context is insufficient.
+- If broader retrieval is needed, stop and ask for approval with the reason, added scope, and expected cost.
+- Keep follow-up reads minimal even after approval.
+- If the user explicitly says this is a subagent, or says to act as a subagent, treat the task as subagent mode automatically.
+- If the signal is ambiguous, ask exactly once: `Should I apply subagent rules for this task?`
+- Keep subagent mode on for the rest of the task once confirmed unless the user changes the scope.
+- Do not keep asking whether to apply subagent rules after confirmation.
 - Work in repo-approved zones (`app/studio`, `app/server`, `scripts`, `docs`, `tasks`, root config files).
 - Treat `projects/<slug>/raw` as immutable baseline input.
 - Retrieval order: prompt-pack -> course blueprint -> assessment map -> lesson packets -> targeted resource chunks -> pattern matches if enabled.
 - Finish only after typecheck/build and task-specific verification pass.
+
+## Session Mode
+
+- Subagent mode: on
+- Use subagent rules automatically; ask for approval before widening scope.
 
 ## Intelligence Policy
 
@@ -20,13 +34,23 @@
 - Apply memory ledger to prompt pack: off
 - Apply memory ledger to recommendations: off
 
+## Selected Benchmark
+
+- Benchmark: calm-module-2-workbook (CALM Module 2 Workbook)
+- Source project: calm-module-2-activites-reference
+- Summary: Workbook-first study surface with authored lesson cards, inline practice, amber teacher checkpoints, and source support hidden until needed.
+- Source support mode: hidden-by-default
+- Section flow: hero -> learn -> apply -> reflect -> deepen
+- Recipes: lesson-hero, learn-apply-reflect, teacher-checkpoint, source-support-drawer
+- Project notes: Use the Module 2 workbook surface for the study side.; Keep source support available on demand instead of visible in the main lesson flow.
+
 ## Project Manifest
 
 ```json
 {
   "id": "852b8632-b6fa-4f37-a7f8-78c1a8b996da",
   "slug": "hss1010",
-  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\processed\\hss1010\\source",
+  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/hss1010/source",
   "inputKind": "html",
   "brightspaceTarget": "course-page",
   "previewModes": [
@@ -39,8 +63,16 @@
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-03-12T19:38:10.569Z",
   "createdAt": "2026-03-12T19:28:57.168Z",
-  "updatedAt": "2026-03-12T19:38:10.569Z",
-  "workspaceApprovedAt": "2026-03-12T19:38:10.569Z"
+  "updatedAt": "2026-03-24T13:04:53.313Z",
+  "workspaceApprovedAt": "2026-03-12T19:38:10.569Z",
+  "migrationState": "legacy",
+  "preferredWorkflows": [],
+  "canonicalSources": [],
+  "generatedOutputs": [],
+  "injectedComponents": [],
+  "exportTargets": [],
+  "authoringStatus": "active",
+  "referenceOnly": []
 }
 ```
 
@@ -61,6 +93,11 @@
 - Extraction: indexed via native
 - Chunks: 66
 - Signals: text:objectives, text:outcomes, text:assessment, text:assignment-booklet, text:section-heading
+
+## D2L Course Map Summary
+
+> d2l-course-map.json: missing
+> Next: `npm run d2l-map -- --project hss1010`
 
 ## Course Blueprint Summary
 
@@ -161,14 +198,7 @@ disabled by intelligence policy (collect)
 ### health-services-foundations-pdf (pdf/assessment)
 - Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\hss1010\Health Services Foundations.pdf
 
-```text
-HSS 1010 | Health Services Foundations 0
-
-Black Gold Outreach School - Black Gold Regional Schools
-HSS
-1010
-HEALTH SERVICES FOUNDATIONS
-```
+- Extracted chunk text missing.
 
 ## Task Stub
 

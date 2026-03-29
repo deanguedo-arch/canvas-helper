@@ -187,6 +187,8 @@ Optional override flags for convert/export/deploy:
 
 - Use [docs/ops/FAST_PATHS.md](docs/ops/FAST_PATHS.md) to keep agent retrieval narrow for common tasks
 - Repo-wide or multi-project continuation work should resume from `docs/ops/ACTIVE_HANDOFF.md`
+- Use `npm run headroom` to regenerate prompt-pack context from the active handoff project, or `npm run headroom -- --project <slug>` / `npm run headroom -- --all` for explicit targeting
+- Use `npm run headroom:all` when you want Canvas Helper-wide context refresh across active projects
 - If workflow is known, read [docs/workflows/README.md](docs/workflows/README.md) and the matching workflow guide before broad repo scans
 - Use `npm run pack:subagent -- --project <slug>` when you want prompt-pack generation to start in subagent mode automatically
 
