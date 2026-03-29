@@ -527,6 +527,15 @@ function isAssignment(activity) {
   return kind === "assessment" || resourceKind === "assignment" || resourceKind === "quiz" || renderHint === "assessment";
 }
 
+function isWorkspaceAssignment(activity) {
+  if (!isAssignment(activity)) {
+    return false;
+  }
+
+  const delivery = getAssessmentDelivery(activity);
+  return !delivery || delivery.deliveryMode === "workspace-quiz";
+}
+
 function shouldHideActivityFromModuleList(module, activity) {
   const moduleTitle = String(module?.title || "");
   const sectionTitle = String(activity?.sectionTitle || "");
@@ -549,7 +558,7 @@ function shouldHideActivityFromModuleList(module, activity) {
 function getModuleBuckets(module) {
   const activities = module?.activities || [];
   const visibleActivities = activities.filter((activity) => !shouldHideActivityFromModuleList(module, activity));
-  const assignments = visibleActivities.filter((activity) => isAssignment(activity));
+  const assignments = visibleActivities.filter((activity) => isWorkspaceAssignment(activity));
   const content = visibleActivities.filter(
     (activity) => !isAssignment(activity) && String(activity?.kind || "").toLowerCase() !== "overview"
   );

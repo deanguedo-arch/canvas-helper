@@ -20,6 +20,18 @@ Entries are listed in file order (older to newer within this archive).
 - 2026-03-26: docs/ops/ACTIVE_HANDOFF.md (pre-experimental-psych-assessment-delivery)
 - 2026-03-26: docs/ops/ACTIVE_HANDOFF.md (pre-experimental-psych-release-conditions)
 - 2026-03-26: docs/ops/ACTIVE_HANDOFF.md (pre-headroom-resume-prompt)
+- 2026-03-27: docs/ops/ACTIVE_HANDOFF.md (pre-experimental-psych-hide-external-handins)
+- 2026-03-28: docs/ops/ACTIVE_HANDOFF.md (pre-calmmodule2-responsive-sidebar-fix)
+- 2026-03-28: docs/ops/ACTIVE_HANDOFF.md (pre-calmmodule2-activity-restore)
+- 2026-03-28: docs/ops/ACTIVE_HANDOFF.md (pre-firebase-relaunch-batch)
+- 2026-03-29: docs/ops/ACTIVE_HANDOFF.md (pre-calm-life-adventure-prototype)
+- 2026-03-29: docs/ops/ACTIVE_HANDOFF.md (pre-calm-life-adventure-module1-rebuild)
+- 2026-03-29: docs/ops/ACTIVE_HANDOFF.md (pre-calm-life-adventure-agi-parser-rebuild)
+- 2026-03-29: docs/ops/ACTIVE_HANDOFF.md (pre-calm-life-adventure-parser-leniency-art-pass)
+- 2026-03-29: docs/ops/ACTIVE_HANDOFF.md (pre-calm-life-adventure-agi-screen-rebuild)
+- 2026-03-29: docs/ops/ACTIVE_HANDOFF.md (pre-calm-life-adventure-view-asset-extraction)
+- 2026-03-29: docs/ops/ACTIVE_HANDOFF.md (pre-calm-life-adventure-pic-background-extraction)
+- 2026-03-29: docs/ops/ACTIVE_HANDOFF.md (pre-calm-life-adventure-room-remap-stripdown)
 
 ---
 
@@ -170,6 +182,424 @@ Entries are listed in file order (older to newer within this archive).
 
 ## Exact next file to open
 - `/Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/workspace/main.js`
+
+---
+
+## 2026-03-27 | docs/ops/ACTIVE_HANDOFF.md (pre-experimental-psych-hide-external-handins)
+
+# Handoff
+
+- Project: repo-wide
+- Task: Add a resume-time Headroom prompt to the ops workflow so Cursor/Codex sessions ask before starting Headroom
+- Status: complete
+
+## Files changed
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/ops/session-checklist.md
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/ops/README.md
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/ops/ACTIVE_HANDOFF.md
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/ops/ARCHIVED_HANDOFFS.md
+
+## What changed
+- Added a `Before You Change Code` step requiring a one-time Headroom prompt after reading `ACTIVE_HANDOFF.md` when resuming in Cursor or Codex and Headroom is available.
+- Made the rule explicit that Headroom should not start automatically during handoff restore.
+
+---
+
+## 2026-03-29 | docs/ops/ACTIVE_HANDOFF.md (pre-calm-life-adventure-agi-screen-rebuild)
+
+# Handoff
+
+- Project: calm-life-adventure
+- Task: Add parser leniency and replace the rough block scenes with more illustrated AGI-style room art for the Module 1 slice
+- Status: ready for validation
+
+## Files changed
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/main.js
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/styles.css
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/ops/ACTIVE_HANDOFF.md
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/ops/ARCHIVED_HANDOFFS.md
+
+## What changed
+- Added fuzzy parser normalization so commands no longer need to match the exact phrase; the runtime now tolerates near-miss spellings, extra filler words, and rough natural phrasing before resolving the verb/noun pair.
+- Expanded the command grammar with additional synonyms and phrase normalization so input like `check out the desk`, `grab planner`, or `head to office` can still land on the intended action.
+- Reworked noun resolution to fuzzy-match room objects, exits, and inventory aliases instead of requiring exact alias text.
+- Replaced the hard block scene backgrounds with inline illustrated SVG room art for the bedroom, hallway, classroom, and counselor office.
+- Softened the hotspot treatment and shifted the screen typography so the rooms feel less like wireframes and more like authored retro scenes.
+
+## Verification run
+- `node --check projects/calm-life-adventure/workspace/main.js`
+- `npx tsx -e "import { loadProjectManifest } from './scripts/lib/projects.ts'; const main = async () => { const manifest = await loadProjectManifest('calm-life-adventure'); console.log(manifest.slug, manifest.workspaceEntrypoint); }; main().catch((error) => { console.error(error); process.exit(1); });"`
+
+## Why this changed
+- The user specifically asked for leniency in typed input and called out that the previous rooms still looked nothing like a real Leisure Suit Larry/AGI-inspired scene.
+- This pass tightens the interaction quality and moves the art direction closer to a usable retro adventure reference without changing the Module 1 puzzle structure again.
+
+## Source of truth
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/index.html
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/main.js
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/styles.css
+
+## Fragile areas / watchouts
+- The parser is more forgiving now, but it is still a bounded prototype grammar rather than a full freeform parser.
+- The rooms are illustrated SVG backdrops, not imported AGI scene assets, so they are still interpretive rather than authentic recreations.
+- Hotspots remain visible/assistive so the prototype stays usable in a browser even while the parser gets stronger.
+
+## Next prompt should assume
+- `calm-life-adventure` still focuses on Module 1 only, but the parser now supports looser phrasing and mild misspellings.
+- The room art is more illustrated and less blocky, though it is still custom browser art rather than true AGI asset reconstruction.
+- The next big quality pass should focus on better character sprites/NPC animation, deeper parser responses, and stronger room-specific puzzle feedback.
+
+## What still needs validation
+- Open the project in Studio/Canvas Builder and try sloppy inputs like `look at the desk`, `grab the planner`, `go to office`, `talk with maya`, `check poster`, and mild misspellings to confirm the parser feels more forgiving.
+- Review the four room screens visually and decide whether the new art is finally in the right direction or if we should pursue imported pixel-art scene assets next.
+- Check that the puzzle still completes cleanly after the parser changes.
+
+## Known risks
+- If the input gets too loose, the parser may occasionally over-resolve to the wrong noun when multiple aliases are similar.
+- The visual direction is improved, but still not a literal match to Sierra-authored painted backgrounds.
+
+## Exact next command
+`npm run studio`
+
+## Exact next file to open
+`/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/main.js`
+
+## Do not do next / warnings
+- Do not widen scope into Modules 2-4 until the parser feel and room art are actually approved.
+- Do not move art/logic into `raw/original.html`; keep iterating in the workspace source files.
+
+---
+
+## 2026-03-29 | docs/ops/ACTIVE_HANDOFF.md (pre-calm-life-adventure-view-asset-extraction)
+
+# Handoff
+
+- Project: calm-life-adventure
+- Task: Rebuild the Module 1 prototype into a more authentic AGI-style screen using the Leisure Suit Larry source bundle as the structural reference
+- Status: ready for validation
+
+## Files changed
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/main.js
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/styles.css
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/ops/ACTIVE_HANDOFF.md
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/ops/ARCHIVED_HANDOFFS.md
+
+## What changed
+- Kept the existing Module 1 multi-step puzzle flow, but refit the presentation around a tighter AGI-style runtime: room-numbered status line, score state, single-screen monitor framing, and a more game-like message window.
+- Reworked the room art into lower-resolution, crisp-edged SVG scenes that read more like authored AGI rooms instead of broad gradient panels.
+- Added explicit room numbers to the CALM rooms and surfaced score, path count, plan state, and inventory count in the top status bar.
+- Simplified the parser area into an AGI-like message window plus command line and quick word insert strip, while preserving the newer fuzzy parser behavior.
+- Restyled the notebook and status panels so they support the game instead of dominating it like a lesson dashboard.
+
+## Verification run
+- `node --check projects/calm-life-adventure/workspace/main.js`
+- `npx tsx -e "import { loadProjectManifest } from './scripts/lib/projects.ts'; const main = async () => { const manifest = await loadProjectManifest('calm-life-adventure'); console.log(manifest.slug, manifest.workspaceEntrypoint); }; main().catch((error) => { console.error(error); process.exit(1); });"`
+- `curl -I --max-time 5 http://localhost:5173/`
+
+## Why this changed
+- The user called out that the earlier version still felt like clicking through a course artifact instead of playing something that actually resembles a Leisure Suit Larry / AGI adventure game.
+- The extracted LSL source bundle confirmed the right reference model is room logic + message banks + object tables + a single low-resolution game screen, so this pass pivots the workspace toward that structure.
+
+## Source of truth
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/index.html
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/main.js
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/styles.css
+
+## Fragile areas / watchouts
+- The visuals are now much closer to an AGI screen, but they are still hand-authored browser SVG scenes rather than decoded original AGI PIC/VIEW assets.
+- The parser is intentionally lenient, so if more nouns get added later the fuzzy matching thresholds may need retuning to avoid ambiguous resolutions.
+- The project still covers Module 1 only; the room-number/status treatment should stay consistent before Modules 2-4 are added.
+
+## Next prompt should assume
+- `calm-life-adventure` is still a standalone Studio project and currently covers only Module 1.
+- The workspace now uses an AGI-style screen layout with room numbers, score, message window, parser, and lower-resolution room art.
+- The next meaningful quality step is either true AGI asset decoding/reference extraction from the LSL source bundle or deeper room scripting/NPC animation, not another generic layout rewrite.
+
+## What still needs validation
+- Open `calm-life-adventure` in Studio/Canvas Builder and confirm the new screen feels materially closer to an AGI game.
+- Play through the Module 1 path with short commands and sloppy phrasing to confirm the parser still feels forgiving after the UI rebuild.
+- Check that the hotspots still line up with the new room art and that the score/plan state advances correctly through completion.
+
+## Known risks
+- Without actual decoded PIC/VIEW assets, this is still an adaptation of the source structure rather than a literal visual reconstruction.
+- The side panels are quieter now, but if you want the screen to go even more authentic the next pass should probably remove more helper UI instead of adding new dashboard pieces.
+
+## Exact next command
+`npm run studio`
+
+## Exact next file to open
+`/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/main.js`
+
+## Do not do next / warnings
+- Do not widen this into Modules 2-4 until the Module 1 room feel is actually approved.
+- Do not move authoring into `raw/original.html`; keep the game logic and art in the workspace source files.
+- Added the same expectation to the ops runbook core operating loop so resume behavior is documented in the main repo workflow docs.
+
+## Why this changed
+- To make Headroom opt-in at resume time instead of an implicit background step, keeping the workflow reversible and user-directed.
+
+## Source of truth
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/ops/session-checklist.md
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/ops/README.md
+
+## Fragile areas / watchouts
+- This is a docs/policy change only; there is no automated restore hook enforcing it.
+- Future agent prompts or local launcher docs could drift if they restate resume behavior separately.
+
+## Next prompt should assume
+- After reading `docs/ops/ACTIVE_HANDOFF.md`, ask once whether to start Headroom when resuming in Cursor or Codex and Headroom is installed.
+- Do not start Headroom automatically as part of handoff restore.
+
+## What still needs validation
+- Behavioral validation in the next resumed Cursor or Codex session to confirm the prompt happens at the right time.
+
+## Known risks
+- Agents that ignore ops docs or rely only on external instructions may still miss the prompt until their local rule stack is updated.
+
+## Exact next command
+`sed -n '1,40p' docs/ops/session-checklist.md`
+
+---
+
+## 2026-03-28 | docs/ops/ACTIVE_HANDOFF.md (pre-calmmodule2-activity-restore)
+
+# Handoff
+
+- Project: calmmodule2
+- Task: Fix tablet/phone hamburger behavior and make the main sidebar collapsible in the CALM Module 2 workspace
+- Status: ready for validation
+
+## Files changed
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calmmodule2/workspace/main.jsx
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/ops/ACTIVE_HANDOFF.md
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/ops/ARCHIVED_HANDOFFS.md
+
+## What changed
+- Added `isSidebarOpen` state to the CALM Module 2 workspace shell with a desktop-open/mobile-closed default.
+- Reworked the left navigation into a responsive drawer so it slides over content on smaller screens and closes from a backdrop or close button.
+- Added a sticky top bar in the main content area with a real menu toggle, so the sidebar can be opened on tablet/phone and collapsed again on larger screens.
+- Updated section navigation clicks to close the drawer on smaller screens after selecting a section, which keeps the content readable on phones.
+
+## Why this changed
+- The previous shell had a permanently visible sidebar with no hamburger state, so the layout did not adapt cleanly to tablet or cellphone widths and the main navigation could not be collapsed.
+
+## Source of truth
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calmmodule2/workspace/main.jsx
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calmmodule2/workspace/index.html
+
+## Fragile areas / watchouts
+- This workspace is a legacy standalone React/Babel page, so responsive behavior is defined directly in `main.jsx` rather than a shared app shell.
+- Sidebar default-open behavior uses `window.innerWidth >= 1024`; if a later task changes the layout breakpoint, that threshold should move with it.
+- The desktop collapsed state currently fully hides the sidebar rather than converting it to a mini-icon rail.
+
+## Next prompt should assume
+- CALM Module 2 now has one shared sidebar state for mobile, tablet, and desktop.
+- On small screens the menu behaves like a drawer with a backdrop and closes after section selection.
+- On larger screens the top-bar button can still collapse and reopen the main sidebar.
+
+## What still needs validation
+
+---
+
+## 2026-03-28 | docs/ops/ACTIVE_HANDOFF.md (pre-firebase-relaunch-batch)
+
+# Handoff
+
+- Project: calmmodule2
+- Task: Restore the richer advertising analyzer and three-scenario budget builder into the CALM Module 2 workspace, then bring Honesty and Maintaining content back into closer alignment with the original source material
+- Status: ready for validation
+
+## Files changed
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calmmodule2/workspace/main.jsx
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/ops/ACTIVE_HANDOFF.md
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/ops/ARCHIVED_HANDOFFS.md
+
+## What changed
+- Reintroduced the historical `Ad Analyzer` activity to the Advertising section, including tactic scenarios, answer feedback, completion tracking, and the brand-deconstruction checkpoint prompt.
+- Replaced the worksheet-style Managing Money assignment with the earlier `Budget Builder` experience, including the three living-situation tabs, side-by-side totals, and the random life-curveball control.
+- Added the older budget/analyzer state helpers back into the current workspace runtime, while preserving the newer collapsible sidebar and mobile drawer shell.
+- Updated progress counting and the teacher print/export report so the restored advertising and budgeting activities are represented in completion state and print output.
+- Restored fuller source wording in the Honesty prompts and added back the missing conflict-context sentence plus more faithful communication activity copy in Maintaining Relationships.
+
+## Why this changed
+- The current CALM Module 2 workspace had drifted back to a simpler worksheet-style advertising/money flow, but the user wanted the richer previously-converted activities restored in the live source of truth.
+- Honesty and Maintaining were not structurally reverted the same way, but they had condensed some original course wording, so the content was tightened back toward the source material without redesigning those sections.
+
+## Source of truth
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calmmodule2/workspace/main.jsx
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calmmodule2/workspace/index.html
+
+## Fragile areas / watchouts
+- This workspace is still a legacy standalone React/Babel page, so the restored interactions, state migrations, and shell behavior all live in one large `main.jsx` file.
+- Saved localStorage data can contain older section shapes; the load path now merges legacy and restored fields, but browser validation is still needed on a previously-used workspace.
+- There is no `projects/calmmodule2/meta/e2e-contract.json`, so this change was verified with a focused bundle build rather than project E2E automation.
+
+## Next prompt should assume
+- CALM Module 2 now keeps the newer responsive sidebar shell, has the restored `Ad Analyzer` and three-scenario `Budget Builder`, and includes more source-faithful Honesty and Maintaining copy in the live workspace.
+- Advertising progress now includes the analyzer/brand deconstruction pieces, and Managing Money progress now follows the scenario builder plus justification flow.
+
+## What still needs validation
+- Manual browser QA for the restored advertising and money sections, especially the analyzer progression, budget tab switching, curveball impact, and mobile/tablet wrapping inside the restored cards.
+- Spot-check the Honesty and Maintaining sections to confirm the fuller prompt copy still reads well and does not create awkward wrapping on smaller screens.
+- Confirm that previously-saved local data loads cleanly and that the teacher print report still opens with the restored section content.
+
+## Known risks
+- The teacher report now favors the restored scenario-based money data instead of the simpler worksheet budget table, so any old saved worksheet-only answers will be less prominent in print output.
+
+## Exact next command
+`npm run studio`
+
+## Exact next file to open
+`/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calmmodule2/workspace/main.jsx`
+
+## Do not do next / warnings
+- Do not edit `projects/calmmodule2/raw/**`; keep the restore work in the workspace source of truth only.
+
+---
+
+## 2026-03-29 | docs/ops/ACTIVE_HANDOFF.md (pre-calm-life-adventure-prototype)
+
+# Handoff
+
+- Project: repo-wide
+- Task: Relaunch the updated CALM Module 2 workspace on Firebase and republish the `forensics35` and `forensics` hosted builds
+- Status: complete
+
+## Files changed
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calmmodule2/workspace/main.jsx
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics35/exports/google-hosted/firebase-config.json
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics35/exports/google-hosted/.firebaserc
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics/exports/google-hosted/firebase-config.json
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics/exports/google-hosted/.firebaserc
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/ops/ACTIVE_HANDOFF.md
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/ops/ARCHIVED_HANDOFFS.md
+
+## What changed
+- Kept the latest CALM Module 2 workspace edits in place, including the restored activities, source-faithful content pass, and the desktop sidebar rail with the shared hamburger position.
+- Re-exported Google-hosted builds for `calmmodule2`, `forensics35`, and `forensics`.
+- Seeded deployable Firebase config files for `forensics35` and `forensics` from the same known-good `calm-module-one` Firebase web-app config already used by `calmmodule2`, changing only the `projectSlug` and local `.firebaserc` values needed for deploy.
+- Published the three hosted builds to Firebase Hosting and verified that each site responds live over HTTPS.
+
+## Verification run
+- `npx esbuild projects/calmmodule2/workspace/main.jsx --bundle --format=esm --platform=browser --outfile=/tmp/calmmodule2-main-check.js`
+- `npm run export:google-hosted -- --project calmmodule2`
+- `npm run export:google-hosted -- --project forensics35`
+- `npm run export:google-hosted -- --project forensics`
+- `PATH="/tmp/canvas-helper-bin:$PATH" npm run deploy:google-hosted -- --project calmmodule2,forensics35,forensics`
+- `curl -I -L --max-time 20 https://calmmodule2.web.app`
+- `curl -I -L --max-time 20 https://forensics35.web.app`
+- `curl -I -L --max-time 20 https://forensics25.web.app`
+
+## Why this changed
+- The user asked to relaunch CALM Module 2 on Firebase after the workspace fixes and to do the same for the two forensics projects.
+- `forensics35` and `forensics` exported only template Firebase config files, so the deploy step needed minimal reversible config seeding before the existing deploy script could run successfully.
+
+## Source of truth
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calmmodule2/workspace/main.jsx
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calmmodule2/meta/google-hosted.deploy.json
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics35/meta/google-hosted.deploy.json
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics/meta/google-hosted.deploy.json
+
+## Fragile areas / watchouts
+- `forensics35` and `forensics` now have explicit Firebase deploy config files in `exports/google-hosted/`; if the shared Firebase app config changes later, those seeded files can drift from the `calmmodule2` baseline.
+- The live `forensics` Hosting site id is `forensics25`, not `forensics`, because that is what the project deploy metadata points to.
+- Export outputs and some project metadata files were regenerated by the export/deploy flow; treat the workspace files as canonical, not the generated hosting artifacts.
+
+## Next prompt should assume
+- `calmmodule2`, `forensics35`, and `forensics` have all been republished to Firebase Hosting on March 28, 2026.
+- Live URLs currently responding with `HTTP 200` are `https://calmmodule2.web.app`, `https://forensics35.web.app`, and `https://forensics25.web.app`.
+- CALM Module 2 still needs browser-level validation for the restored activities and latest sidebar behavior.
+
+## What still needs validation
+- Open the three live sites in a browser and confirm the intended content renders beyond the HTTP health check.
+- For CALM Module 2 specifically, manually validate the desktop sidebar rail, tablet/mobile drawer behavior, restored advertising analyzer, and restored budget scenarios in the live hosted build.
+- If future deploys are expected for `forensics35` and `forensics`, confirm whether the seeded `firebase-config.json` files should become part of the normal regeneration path instead of a one-off deploy aid.
+
+## Known risks
+- Because `forensics35` and `forensics` needed seeded Firebase config files, a future clean export that removes those files would block deploys again unless the export pipeline is updated.
+
+## Exact next command
+`open https://calmmodule2.web.app`
+
+## Exact next file to open
+`/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calmmodule2/workspace/main.jsx`
+
+## Do not do next / warnings
+- Do not treat `projects/*/exports/google-hosted/**` as canonical authoring sources; keep content changes in the workspace files and regenerate exports from there.
+- Manual Studio/browser QA at phone, tablet, and desktop widths to confirm the drawer opens, closes, and does not trap content.
+- Visual check that the sticky top bar and collapsed desktop state feel acceptable with long sections.
+
+## Known risks
+- The new drawer overlay may need minor spacing tuning if any section content relies on unusual top-of-page positioning.
+
+## Exact next command
+`npx esbuild projects/calmmodule2/workspace/main.jsx --bundle --format=esm --platform=browser --outfile=/tmp/calmmodule2-main-check.js`
+
+## Exact next file to open
+`/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calmmodule2/workspace/main.jsx`
+
+## Do not do next / warnings
+- Do not edit `projects/calmmodule2/raw/**`; keep the responsive fix in the workspace runtime only.
+
+## Exact next file to open
+`/Users/deanguedo/Documents/GitHub/canvas-helper/docs/ops/session-checklist.md`
+
+## Do not do next / warnings
+- Do not turn this into automatic Headroom startup without an explicit user request.
+
+---
+
+## 2026-03-28 | docs/ops/ACTIVE_HANDOFF.md (pre-calmmodule2-responsive-sidebar-fix)
+
+# Handoff
+
+- Project: experimental-psych-30-per-1-a-b-sec-s-202632352
+- Task: Hide external hand-in assignments from the module assignments view while keeping workspace quiz assessments available
+- Status: ready for validation
+
+## Files changed
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/workspace/main.js
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/ops/ACTIVE_HANDOFF.md
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/ops/ARCHIVED_HANDOFFS.md
+
+## What changed
+- Added an `isWorkspaceAssignment()` guard in the workspace shell so assignment lists only include items that are native workspace quizzes or have no external delivery override.
+- Updated `getModuleBuckets()` so external hand-in assignments no longer appear in the module assignments tab or assignment counts.
+- Left the existing reader-side quiz rendering untouched, so the in-workspace assessment flow still uses the existing XML-driven quiz UI.
+- Kept Headroom running locally on `http://127.0.0.1:8787` for this session after the user explicitly asked to keep it on.
+
+## Why this changed
+- The user wanted external hand-in assignment surfaces hidden from the current Experimental Psychology workspace while preserving the built-in workspace quiz experience.
+
+## Source of truth
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/workspace/main.js
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/workspace/assessment-delivery.js
+
+## Fragile areas / watchouts
+- This change filters assignment visibility at the bucket level; any future assignment metadata change in `assessment-delivery.js` can change what appears in the assignments tab.
+- External hand-in activities still exist in project data; they are hidden from the current workspace assignment flow rather than deleted or converted.
+- If a future task needs some external assignments visible again, the visibility rule should be widened intentionally instead of patching individual titles.
+
+## Next prompt should assume
+- The assignments tab should now surface only workspace-native quiz assessments.
+- External hand-in assignments remain in source data but are hidden from the current module assignment view.
+- The existing quiz renderer and quiz draft state were intentionally preserved.
+
+## What still needs validation
+- Manual Studio QA to confirm each module assignments tab now shows only the quiz items and no external hand-in cards.
+- Manual check that module assignment counts and unlock messaging still feel correct after the filtered assignment set.
+
+## Known risks
+- Modules that only had external hand-ins may now show no assignments in the assignments tab, which is intentional for this pass but should be confirmed visually.
+
+## Exact next command
+`npm run studio`
+
+## Exact next file to open
+`/Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/workspace/main.js`
+
+## Do not do next / warnings
+- Do not reintroduce external hand-in cards by patching individual activity titles; keep the visibility rule centralized.
 
 ---
 
@@ -695,3 +1125,228 @@ Entries are listed in file order (older to newer within this archive).
 - Do not edit `projects/experimental-psych-30-per-1-a-b-sec-s-202632352/raw/**`.
 - Do not hand-patch generated planning outputs unless you are intentionally fixing a regeneration bug.
 - Do not treat the current one-unit blueprint as authoritative for final course structure without review.
+
+---
+
+## 2026-03-29 | docs/ops/ACTIVE_HANDOFF.md (pre-calm-life-adventure-module1-rebuild)
+
+# Handoff
+
+- Project: calm-life-adventure
+- Task: Create a first playable standalone CALM adventure game project that opens in Studio/Canvas Builder and establishes the retro chapter-based direction
+- Status: ready for validation
+
+## Files changed
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/raw/original.html
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/index.html
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/main.js
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/styles.css
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/meta/project.json
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/ops/ACTIVE_HANDOFF.md
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/ops/ARCHIVED_HANDOFFS.md
+
+## What changed
+- Added a brand-new standalone project slug, `calm-life-adventure`, so the concept can be opened directly in Studio/Canvas Builder instead of being embedded into the current CALM module projects.
+- Built a workspace-first retro adventure shell with four CALM chapters, room-to-room movement, stateful choices, stats, inventory, and a local story log.
+- Mapped the first playable vertical slice across Modules 1-4: personal choices, resource choices, career/life choices, and transition/launch.
+- Added localStorage-backed progress so the run can be reset or resumed while you work on the concept in the builder.
+- Added a minimal raw placeholder only because Studio project discovery requires both raw and workspace entrypoints to register the project cleanly.
+
+## Verification run
+- `node --check projects/calm-life-adventure/workspace/main.js`
+- `npx tsx -e "import { loadProjectManifest, listProjectSlugs } from './scripts/lib/projects.ts'; const main = async () => { const slugs = await listProjectSlugs(); console.log(slugs.includes('calm-life-adventure') ? 'FOUND' : 'MISSING'); const manifest = await loadProjectManifest('calm-life-adventure'); console.log(manifest.slug, manifest.canonicalEntry, manifest.authoringStatus); }; main().catch((error) => { console.error(error); process.exit(1); });"`
+
+## Why this changed
+- The user wanted to stop at planning and see a working version inside Canvas Builder, not just a design doc.
+- A standalone project boundary is the safest way to iterate on the game direction without disturbing the existing CALM 1-4 course surfaces.
+
+## Source of truth
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/index.html
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/main.js
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/styles.css
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/meta/project.json
+
+## Fragile areas / watchouts
+- This is a workspace-authored prototype, not yet a content-complete game; the scene data is intentionally compact and should be treated as a playable vertical slice.
+- The raw file is a registration placeholder, not a real import baseline.
+- Firebase deploy metadata has not been configured yet, so this project is builder-ready before it is deploy-ready.
+
+## Next prompt should assume
+- `calm-life-adventure` now appears as a Studio project and can be opened like the rest of the repo projects.
+- The current version is a retro browser adventure slice with four CALM chapters, simple room navigation, stat meters, inventory, and chapter completion gates.
+- Future work should deepen content, add richer scene art/interaction, and then wire Firebase Hosting once the game direction is stable.
+
+## What still needs validation
+- Open the new project in Studio/Canvas Builder and confirm the project lists correctly, renders on desktop/tablet/mobile, and feels good enough to keep iterating.
+- Play through the full vertical slice and make sure the chapter progression, item gating, and reset loop feel understandable.
+- Decide whether the next pass should prioritize richer room art, more scenes per chapter, verb-style interactions, or Firebase deployment.
+
+## Known risks
+- The current vertical slice leans on button-based actions rather than a full Sierra-style verb parser, so the adventure feel is present but still lightweight.
+- Since the project was created manually instead of through the importer, optional meta files like prompt packs and section maps are not generated yet.
+
+## Exact next command
+`npm run studio`
+
+## Exact next file to open
+`/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/main.js`
+
+## Do not do next / warnings
+- Do not move content authoring into `raw/original.html`; keep the game in the workspace files.
+- Do not wire Firebase deploy config yet unless the gameplay direction survives the first builder review.
+
+---
+
+## 2026-03-29 | docs/ops/ACTIVE_HANDOFF.md (pre-calm-life-adventure-room-remap-stripdown)
+
+# Handoff
+
+- Project: calm-life-adventure
+- Task: Start using decoded AGI room pictures and sprites from the Leisure Suit Larry source bundle so the game style comes from the real source data
+- Status: ready for validation
+
+## Files changed
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/meta/extract-agi-view-assets.py
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/meta/extract-agi-pic-assets.py
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/main.js
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/styles.css
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/assets/agi/views/vEgo/manifest.json
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/assets/agi/views/vReceptionist/manifest.json
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/assets/agi/pics/pic-10/manifest.json
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/assets/agi/pics/pic-11/manifest.json
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/assets/agi/pics/pic-14/manifest.json
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/assets/agi/pics/pic-15/manifest.json
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/assets/agi/pics/pic-16/manifest.json
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/assets/agi/pics/pic-21/manifest.json
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/assets/agi/pics/pic-22/manifest.json
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/assets/agi/pics/pic-31/manifest.json
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/meta/project.json
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/ops/ACTIVE_HANDOFF.md
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/ops/ARCHIVED_HANDOFFS.md
+
+## What changed
+- Added a reproducible AGI `PIC` extraction script that decodes original vector picture files into SVG room backgrounds using the AGI picture spec for colors, line actions, corner actions, relative/absolute lines, and fills.
+- Exported real LSL room pictures into `workspace/assets/agi/pics/` and wired the live scene renderer to use decoded room backgrounds instead of the earlier hand-authored scene art.
+- Kept the real decoded `VIEW` pipeline and `vEgo` sprite integration from the previous pass, so the player character and the room backgrounds are now both coming from source-derived AGI assets.
+- Remapped the current Module 1 slice to use AGI room/picture ids that line up with real extracted rooms, and softened hotspot outlines so the current CALM nouns can sit on the original backgrounds while the deeper content remap is still in progress.
+- Updated project metadata so both extraction scripts and the generated `PIC`/`VIEW` assets are part of the official regeneration path.
+
+## Verification run
+- `python3 -m py_compile projects/calm-life-adventure/meta/extract-agi-view-assets.py`
+- `python3 -m py_compile projects/calm-life-adventure/meta/extract-agi-pic-assets.py`
+- `python3 projects/calm-life-adventure/meta/extract-agi-view-assets.py --view 0 --view 166`
+- `python3 projects/calm-life-adventure/meta/extract-agi-pic-assets.py --pic 10 --pic 11 --pic 14 --pic 15 --pic 16 --pic 21 --pic 22 --pic 31`
+- `node --check projects/calm-life-adventure/workspace/main.js`
+- `curl -I --max-time 5 http://localhost:5173/`
+
+## Why this changed
+- The user explicitly said the previous pass only changed the character and that we should not be afraid to strip the project down and use the actual LSL source bundle for the game style.
+- This pass moves the project from “AGI-inspired custom art” to a real hybrid built from decoded AGI source assets, which is much closer to the actual request.
+
+## Source of truth
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/meta/extract-agi-view-assets.py
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/meta/extract-agi-pic-assets.py
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/main.js
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/styles.css
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/meta/project.json
+
+## Fragile areas / watchouts
+- The `PIC` decoder currently supports the common AGI actions and works for the rooms exported in this pass, but it does not yet implement the brush/pen plotting path used by a smaller subset of original pictures.
+- The current Module 1 room logic and nouns are still CALM-driven while the backgrounds are now original LSL-style rooms, so the project is visually much more authentic but still semantically hybrid.
+- Generated SVGs under `workspace/assets/agi/pics/**` and `workspace/assets/agi/views/**` should be regenerated, not hand-edited.
+
+## Next prompt should assume
+- `calm-life-adventure` now uses real decoded AGI room backgrounds and player sprite assets from the LSL source bundle.
+- The next best step is likely a deeper content remap so the room hotspots, nouns, and scripted interactions match the imported AGI spaces more naturally while keeping CALM Module 1 learning goals.
+- A later extractor pass can add support for the remaining pen-opcode pictures if we want full picture coverage from the original bundle.
+
+## What still needs validation
+- Open the project in Studio/Canvas Builder and confirm the new AGI background pictures actually render in the live preview.
+- Check whether the new room/picture pairing feels materially closer to the target style, even before the deeper room-content rewrite.
+- Decide which direction to take next: fully remap the room logic/content around the original AGI spaces, or continue expanding the decoder coverage first.
+
+## Known risks
+- I verified the picture extraction pipeline and visually sanity-checked the exported room images outside the app, but I did not complete a full in-browser interaction pass after the background swap.
+- Because the content logic is still partly CALM-first while the environments are now LSL-derived, some hotspots may still feel semantically mismatched until the next rewrite pass.
+
+## Exact next command
+`npm run studio`
+
+## Exact next file to open
+`/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/meta/extract-agi-pic-assets.py`
+
+## Do not do next / warnings
+- Do not hand-edit the generated AGI SVG assets under `workspace/assets/agi/**`; regenerate them from the extraction scripts.
+- Do not broaden into Modules 2-4 yet; the best next investment is reconciling Module 1’s room logic with the now-real AGI environments.
+
+---
+
+## 2026-03-29 | docs/ops/ACTIVE_HANDOFF.md (pre-calm-life-adventure-pic-background-extraction)
+
+# Handoff
+
+- Project: calm-life-adventure
+- Task: Start using decoded AGI source assets from the Leisure Suit Larry bundle instead of only hand-authored browser art
+- Status: ready for validation
+
+## Files changed
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/meta/extract-agi-view-assets.py
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/main.js
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/styles.css
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/assets/agi/views/vEgo/manifest.json
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/assets/agi/views/vReceptionist/manifest.json
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/meta/project.json
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/ops/ACTIVE_HANDOFF.md
+- /Users/deanguedo/Documents/GitHub/canvas-helper/docs/ops/ARCHIVED_HANDOFFS.md
+
+## What changed
+- Added a reproducible AGI `VIEW` extraction script that decodes source `VIEW.<id>` files from the extracted LSL bundle into SVG sprite assets using only Python stdlib and the AGI resource spec.
+- Exported real LSL sprite sets into the workspace under `workspace/assets/agi/views/`, including `vEgo` and `vReceptionist`, with per-view `manifest.json` files and per-loop/per-cel SVG outputs.
+- Replaced the placeholder CSS box-man in the runtime with actual decoded `vEgo` sprite frames, including directional loop selection and frame cycling as the player moves.
+- Updated project metadata so the AGI extraction script and generated SVG sprite outputs are now part of the documented regeneration story for this project.
+
+## Verification run
+- `python3 -m py_compile projects/calm-life-adventure/meta/extract-agi-view-assets.py`
+- `python3 projects/calm-life-adventure/meta/extract-agi-view-assets.py --view 0 --view 166`
+- `node --check projects/calm-life-adventure/workspace/main.js`
+- `npx tsx -e "import { loadProjectManifest } from './scripts/lib/projects.ts'; const main = async () => { const manifest = await loadProjectManifest('calm-life-adventure'); console.log(manifest.slug, manifest.workspaceEntrypoint); }; main().catch((error) => { console.error(error); process.exit(1); });"`
+- `curl -I --max-time 5 http://localhost:5173/`
+
+## Why this changed
+- The user explicitly said we should be using the real LSL source bundle instead of continuing to fake the AGI look from scratch.
+- `VIEW` resources are the cleanest first step because they can be decoded directly from the published AGI resource format and immediately improve the game with real source-derived sprite art.
+
+## Source of truth
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/meta/extract-agi-view-assets.py
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/main.js
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/styles.css
+- /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/meta/project.json
+
+## Fragile areas / watchouts
+- The runtime now uses real decoded `VIEW` assets, but the room backgrounds are still custom SVG scenes because `PIC` extraction has not been implemented yet.
+- The exported AGI SVG files are generated artifacts; they should be regenerated with the metadata script rather than hand-edited.
+- The `vReceptionist` export is currently reference material only and is not yet wired into the room scenes.
+
+## Next prompt should assume
+- `calm-life-adventure` now includes a real AGI asset pipeline for `VIEW` files.
+- The player sprite on screen comes from decoded LSL `vEgo` assets, not the earlier placeholder div sprite.
+- The next serious authenticity step is a `PIC` decoder/exporter so room backgrounds can also come from the source bundle.
+
+## What still needs validation
+- Open the project in Studio/Canvas Builder and confirm the new player sprite renders correctly and advances frames while moving.
+- Check that the relative `assets/agi/views/...` paths resolve correctly in the Builder preview.
+- Decide whether the next pass should target `PIC` background extraction first or start wiring additional decoded NPC view assets into the current rooms.
+
+## Known risks
+- I verified the extraction pipeline and file outputs, but I did not fully automate a browser assertion that Studio resolves the new SVG asset paths in preview, so that still needs a real visual check.
+- Because the room art is still hand-authored, the game is now a hybrid of real decoded AGI sprites plus custom browser backgrounds.
+
+## Exact next command
+`npm run studio`
+
+## Exact next file to open
+`/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/meta/extract-agi-view-assets.py`
+
+## Do not do next / warnings
+- Do not hand-edit the generated SVG sprites under `workspace/assets/agi/views/**`; regenerate them from the extraction script.
+- Do not widen into Modules 2-4 yet; the best next investment is finishing the source-asset path for Module 1 first.

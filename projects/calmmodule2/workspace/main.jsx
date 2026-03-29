@@ -11,11 +11,151 @@ tailwind.config = {
 const { useState, useEffect, useRef } = React;
 
         // --- CONSTANTS & INITIAL STATE ---
+        const BUDGET_SCENARIOS = {
+            home: {
+                icon: "fa-house-chimney-user",
+                title: "Living at Home",
+                subtitle: "(College / Working)",
+                desc: "You live with your parents rent-free, but you still need to cover your own phone, transportation, food extras, and fun spending.",
+                tips: "Typical hint: Rent $0, Utilities $0, Groceries around $150"
+            },
+            alone: {
+                icon: "fa-building",
+                title: "Living Alone",
+                subtitle: "(Working Full-Time)",
+                desc: "You have your own place and total independence, but every bill is now your responsibility.",
+                tips: "Typical hint: Rent $1,200+, Utilities $150+, Groceries $400+"
+            },
+            roommates: {
+                icon: "fa-people-roof",
+                title: "Living with Roommates",
+                subtitle: "(School / Working)",
+                desc: "You split rent and utilities with other people, which saves money, but you also give up privacy and flexibility.",
+                tips: "Typical hint: Rent $500-700, Utilities $75-100, Groceries around $300"
+            }
+        };
+
+        const BUDGET_FIELD_GROUPS = {
+            income: [
+                { key: "job", label: "Net Job Income", placeholder: "Net Job Income" },
+                { key: "loans", label: "Student Loans / Grants", placeholder: "Student Loans / Grants" },
+                { key: "support", label: "Family Support", placeholder: "Family Support" }
+            ],
+            fixed: [
+                { key: "rent", label: "Rent / Room & Board", placeholder: "Rent / Room & Board" },
+                { key: "utilities", label: "Utilities", placeholder: "Utilities" },
+                { key: "internetPhone", label: "Internet / Phone", placeholder: "Internet / Phone" },
+                { key: "transit", label: "Car / Transit", placeholder: "Car / Transit" }
+            ],
+            variable: [
+                { key: "groceries", label: "Groceries", placeholder: "Groceries" },
+                { key: "dining", label: "Dining Out", placeholder: "Dining Out" },
+                { key: "personal", label: "Personal Care", placeholder: "Personal Care" },
+                { key: "fun", label: "Fun / Entertainment", placeholder: "Fun / Entertainment" }
+            ]
+        };
+
+        const BUDGET_PANEL_STYLES = {
+            income: {
+                wrapper: "bg-violet-50 border-violet-100",
+                heading: "text-violet-700",
+                badge: "bg-violet-200 text-violet-900"
+            },
+            fixed: {
+                wrapper: "bg-rose-50 border-rose-100",
+                heading: "text-rose-600",
+                badge: "bg-rose-200 text-rose-900"
+            },
+            variable: {
+                wrapper: "bg-amber-50 border-amber-100",
+                heading: "text-amber-700",
+                badge: "bg-amber-200 text-amber-900"
+            }
+        };
+
+        const BUDGET_CURVEBALLS = [
+            { desc: "Your car needs an unexpected repair.", amount: 350, type: "expense" },
+            { desc: "You crack your phone screen and need to replace it.", amount: 200, type: "expense" },
+            { desc: "You get sick and miss shifts at work.", amount: 250, type: "expense" },
+            { desc: "You pick up a bonus shift this month.", amount: 120, type: "income" }
+        ];
+
+        const AD_SCENARIOS = [
+            { id: 1, product: "X-Treme Kicks", ad: "Join millions of teens already wearing X-Treme Kicks! Don't be the only one left out.", tactic: "Bandwagon", hint: "It implies everyone else is doing it." },
+            { id: 2, product: "ClearSkin Pro", ad: "Feeling ugly? Lonely? ClearSkin Pro guarantees happiness and a perfect prom date.", tactic: "Emotional Appeal", hint: "It targets fear and promises happiness." },
+            { id: 3, product: "MegaBurger", ad: "Our new burger is REVOLUTIONARY. It's an ALL-NATURAL paradigm shift in flavor!", tactic: "Glittering Generalities", hint: "It uses big words that don't mean anything specific." },
+            { id: 4, product: "Star-Glow Energy", ad: "Pro-Athlete Mike Jenkins drinks Star-Glow every morning. Drink it to be a champion!", tactic: "Testimonials/Influencers", hint: "It uses a famous person to sell the product." },
+            { id: 5, product: "Lumina Shampoo", ad: "Look at the gorgeous model's hair. Lumina makes everything about you better.", tactic: "The Halo Effect", hint: "It implies if the model is attractive, the product must be good." },
+            { id: 6, product: "Quantum Brain Pills", ad: "Clinical studies show 98% of students improve their grades by 2 full letter grades within 3 weeks.", tactic: "Facts & Figures", hint: "It uses numbers and statistics to sound scientific (even if they are fake)." },
+            { id: 7, product: "Diamond Elite Watch", ad: "Not everyone can appreciate true luxury. For those who demand the absolute best, and have the wealth to prove it.", tactic: "Snob Appeal", hint: "It makes you feel like you are part of an exclusive, wealthy club." }
+        ];
+
+        const AD_TACTICS = ["Bandwagon", "Emotional Appeal", "Glittering Generalities", "Testimonials/Influencers", "The Halo Effect", "Facts & Figures", "Snob Appeal"];
+
+        const createDefaultBudgetScenarios = () => ({
+            home: {
+                income: { job: "", loans: "", support: "" },
+                fixed: { rent: "0", utilities: "0", internetPhone: "", transit: "" },
+                variable: { groceries: "", dining: "", personal: "", fun: "" }
+            },
+            alone: {
+                income: { job: "", loans: "", support: "" },
+                fixed: { rent: "", utilities: "", internetPhone: "", transit: "" },
+                variable: { groceries: "", dining: "", personal: "", fun: "" }
+            },
+            roommates: {
+                income: { job: "", loans: "", support: "" },
+                fixed: { rent: "", utilities: "", internetPhone: "", transit: "" },
+                variable: { groceries: "", dining: "", personal: "", fun: "" }
+            }
+        });
+
+        const BUDGET_SCENARIO_DEFAULTS = createDefaultBudgetScenarios();
+
+        const collectProgressValues = (value) => {
+            if (Array.isArray(value)) return value.flatMap(collectProgressValues);
+            if (value && typeof value === "object") return Object.values(value).flatMap(collectProgressValues);
+            return [value];
+        };
+
+        const calculateBudgetTotal = (group) => Object.values(group || {}).reduce((sum, value) => sum + (Number(value) || 0), 0);
+
+        const getBudgetScenarioState = (data, scenarioKey) => data.budgetScenarios?.[scenarioKey] || BUDGET_SCENARIO_DEFAULTS[scenarioKey];
+
+        const getBudgetTotalsForState = (data, scenarioKey) => {
+            const scenario = getBudgetScenarioState(data, scenarioKey);
+            let income = calculateBudgetTotal(scenario.income);
+            const fixed = calculateBudgetTotal(scenario.fixed);
+            let variable = calculateBudgetTotal(scenario.variable);
+
+            if (data.budgetLifeEvent) {
+                if (data.budgetLifeEvent.type === "expense") variable += data.budgetLifeEvent.amount;
+                if (data.budgetLifeEvent.type === "income") income += data.budgetLifeEvent.amount;
+            }
+
+            return {
+                income,
+                fixed,
+                variable,
+                expenses: fixed + variable,
+                net: income - (fixed + variable)
+            };
+        };
+
+        const formatMoney = (value) => new Intl.NumberFormat("en-CA", {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 2
+        }).format(Number(value) || 0);
+
         const DEFAULT_STATE = {
             studentName: "",
             defMarketing: "", defPackaging: "", influenceExample: "", favoriteStore: "",
             purchases: Array.from({ length: 10 }, () => ({ item: "", influence: "" })),
             biggestInfluence: "",
+            adAnalyzerIndex: 0,
+            adAnalyzerScore: 0,
+            adAnalyzerFeedback: "",
+            adDeconstruction: "",
             joeDecision: "", sallyDecision: "", betterDecision: "",
             purchaseReflection: "",
             honestyNorma: "", honestyGertrude: "", honestyHerman: "", honestyAsif: "", honestyFrank: "", honestyCharlotte: "", honestySalima: "",
@@ -35,6 +175,9 @@ const { useState, useEffect, useRef } = React;
                 job: "", parents: "", other: "", otherExp: "",
                 rent: "", utilities: "", phone: "", groceries: "", car: "", insurance: "", gas: "", entertainment: "", dining: "", clothes: "", etc: "", etcExp: ""
             },
+            budgetScenarios: createDefaultBudgetScenarios(),
+            budgetLifeEvent: null,
+            budgetChoice: "",
             budgetWhereFrom: "", budgetWhereGo: "", budgetEndMonth: "", budgetChange: "",
             caseJonCraig1: "", caseJonCraig2: "", caseJonCraig3: "",
             caseAmandaJoanne1: "", caseAmandaJoanne2: "", caseAmandaJoanne3: "",
@@ -128,14 +271,18 @@ const { useState, useEffect, useRef } = React;
             return `$${numeric.toFixed(2)}`;
         };
 
+        const formatTeacherReportMoneySummary = (value) => `$${formatMoney(value)}`;
+
         const collectTeacherReportValues = (fd) => [
             fd.studentName,
             fd.defMarketing, fd.defPackaging, fd.influenceExample, fd.favoriteStore, fd.biggestInfluence,
             ...fd.purchases.flatMap((purchase) => [purchase.item, purchase.influence]),
+            fd.adDeconstruction,
+            fd.adAnalyzerScore === AD_SCENARIOS.length ? "complete" : "",
             fd.joeDecision, fd.sallyDecision, fd.betterDecision,
-            fd.purchaseReflection, fd.incomeCurrent, fd.incomeFuture, fd.purchaseDecision, fd.purchaseFactors,
-            ...Object.values(fd.budget),
-            fd.budgetWhereFrom, fd.budgetWhereGo, fd.budgetEndMonth, fd.budgetChange,
+            fd.purchaseReflection,
+            ...collectProgressValues(fd.budgetScenarios),
+            fd.budgetChoice,
             fd.honestyNorma, fd.honestyGertrude, fd.honestyHerman, fd.honestyAsif, fd.honestyFrank, fd.honestyCharlotte, fd.honestySalima,
             fd.honestyImportant, fd.honestyAcceptable, fd.honestyEasiest, fd.honestyHardest, fd.honestyReflection1, fd.honestyReflection2,
             fd.defConflict, fd.conflictAbout, fd.conflictResolve, fd.conflictEffective,
@@ -155,35 +302,22 @@ const { useState, useEffect, useRef } = React;
                 .filter((skill, index) => index > 1 && hasTeacherReportValue(skill.good))
                 .map((skill) => `<strong>${escapeTeacherReportHtml(skill.poor)}</strong> -> ${escapeTeacherReportHtml(skill.good)}`);
 
-            const incomeRows = [
-                { label: "Job", amount: fd.budget.job, note: "" },
-                { label: "Parents", amount: fd.budget.parents, note: "" },
-                { label: "Other", amount: fd.budget.other, note: fd.budget.otherExp }
-            ];
-            const expenseRows = [
-                { label: "Rent", amount: fd.budget.rent, note: "" },
-                { label: "Utilities", amount: fd.budget.utilities, note: "" },
-                { label: "Phone", amount: fd.budget.phone, note: "" },
-                { label: "Groceries", amount: fd.budget.groceries, note: "" },
-                { label: "Car", amount: fd.budget.car, note: "" },
-                { label: "Insurance", amount: fd.budget.insurance, note: "" },
-                { label: "Gas", amount: fd.budget.gas, note: "" },
-                { label: "Entertainment", amount: fd.budget.entertainment, note: "" },
-                { label: "Dining", amount: fd.budget.dining, note: "" },
-                { label: "Clothes", amount: fd.budget.clothes, note: "" },
-                { label: "Etc", amount: fd.budget.etc, note: fd.budget.etcExp }
-            ];
+            const budgetScenarioCards = Object.entries(BUDGET_SCENARIOS).map(([scenarioKey, scenarioMeta]) => {
+                const totals = getBudgetTotalsForState(fd, scenarioKey);
+                const scenario = getBudgetScenarioState(fd, scenarioKey);
 
-            const incomeTotal = incomeRows.reduce((sum, row) => sum + (parseTeacherReportMoney(row.amount) ?? 0), 0);
-            const expenseTotal = expenseRows.reduce((sum, row) => sum + (parseTeacherReportMoney(row.amount) ?? 0), 0);
-            const budgetDifference = incomeTotal - expenseTotal;
-            const budgetNote = (!incomeRows.some((row) => parseTeacherReportMoney(row.amount) !== null) && !expenseRows.some((row) => parseTeacherReportMoney(row.amount) !== null))
-                ? "Enter monthly dollar amounts in the workbook to compare income and expenses automatically."
-                : budgetDifference > 0
-                    ? `Budget snapshot shows a monthly surplus of $${budgetDifference.toFixed(2)}.`
-                    : budgetDifference < 0
-                        ? `Budget snapshot shows a monthly shortfall of $${Math.abs(budgetDifference).toFixed(2)}.`
-                        : "Budget snapshot is currently balanced at $0.00.";
+                return `
+                    <article class="report-card">
+                        <h3>${escapeTeacherReportHtml(`${scenarioMeta.title} ${scenarioMeta.subtitle}`)}</h3>
+                        <div class="report-answer">
+                            <p><strong>Income:</strong> Job ${escapeTeacherReportHtml(scenario.income.job || "0")}, Loans/Grants ${escapeTeacherReportHtml(scenario.income.loans || "0")}, Family ${escapeTeacherReportHtml(scenario.income.support || "0")}</p>
+                            <p><strong>Fixed:</strong> Rent ${escapeTeacherReportHtml(scenario.fixed.rent || "0")}, Utilities ${escapeTeacherReportHtml(scenario.fixed.utilities || "0")}, Internet/Phone ${escapeTeacherReportHtml(scenario.fixed.internetPhone || "0")}, Car/Transit ${escapeTeacherReportHtml(scenario.fixed.transit || "0")}</p>
+                            <p><strong>Variable:</strong> Groceries ${escapeTeacherReportHtml(scenario.variable.groceries || "0")}, Dining ${escapeTeacherReportHtml(scenario.variable.dining || "0")}, Personal ${escapeTeacherReportHtml(scenario.variable.personal || "0")}, Fun ${escapeTeacherReportHtml(scenario.variable.fun || "0")}</p>
+                            <p><strong>Totals:</strong> Income ${formatTeacherReportMoneySummary(totals.income)} | Expenses ${formatTeacherReportMoneySummary(totals.expenses)} | Net ${formatTeacherReportMoneySummary(totals.net)}</p>
+                        </div>
+                    </article>
+                `;
+            }).join("");
 
             const advertisingSection = buildTeacherReportSection(
                 "Section 1",
@@ -195,7 +329,9 @@ const { useState, useEffect, useRef } = React;
                             { label: "Packaging Definition", value: fd.defPackaging },
                             { label: "Influence Example", value: fd.influenceExample },
                             { label: "Favorite Store or Brand", value: fd.favoriteStore },
-                            { label: "Biggest Influence", value: fd.biggestInfluence }
+                            { label: "Biggest Influence", value: fd.biggestInfluence },
+                            { label: "Ad Analyzer Score", value: `${fd.adAnalyzerScore} / ${AD_SCENARIOS.length}` },
+                            { label: "Brand Deconstruction", value: fd.adDeconstruction }
                         ])}
                         ${renderTeacherReportListCard("Purchase Influence Tracker", purchaseItems)}
                     </div>
@@ -223,46 +359,15 @@ const { useState, useEffect, useRef } = React;
                     <div class="report-grid">
                         ${renderTeacherReportCardGrid([
                             { label: "Purchase Reflection", value: fd.purchaseReflection },
-                            { label: "Current Income Sources", value: fd.incomeCurrent },
-                            { label: "Future Income Sources", value: fd.incomeFuture },
-                            { label: "How Purchases Are Decided", value: fd.purchaseDecision },
-                            { label: "Decision Factors", value: fd.purchaseFactors },
-                            { label: "Where Most Money Comes From", value: fd.budgetWhereFrom },
-                            { label: "Where Most Money Goes", value: fd.budgetWhereGo },
-                            { label: "End of Month Outcome", value: fd.budgetEndMonth },
-                            { label: "One Budget Change", value: fd.budgetChange }
+                            { label: "Budget Choice Justification", value: fd.budgetChoice },
+                            { label: "Curveball Event", value: fd.budgetLifeEvent ? `${fd.budgetLifeEvent.desc} (${fd.budgetLifeEvent.type === "expense" ? "-" : "+"}$${fd.budgetLifeEvent.amount})` : "" }
                         ])}
-                    </div>
-                    <div class="budget-wrap">
-                        <table class="budget-compare-table">
-                            <thead>
-                                <tr>
-                                    <th>Budget Type</th>
-                                    <th>Category</th>
-                                    <th>Amount</th>
-                                    <th>Notes</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                ${incomeRows.map((row) => `
-                                    <tr>
-                                        <td><span class="budget-type-chip budget-type-income">Income</span></td>
-                                        <td>${escapeTeacherReportHtml(row.label)}</td>
-                                        <td>${formatTeacherReportMoneyCell(row.amount)}</td>
-                                        <td>${hasTeacherReportValue(row.note) ? escapeTeacherReportHtml(row.note) : '<span class="answer-empty-chip">No note</span>'}</td>
-                                    </tr>
-                                `).join("")}
-                                ${expenseRows.map((row) => `
-                                    <tr>
-                                        <td><span class="budget-type-chip budget-type-expense">Expense</span></td>
-                                        <td>${escapeTeacherReportHtml(row.label)}</td>
-                                        <td>${formatTeacherReportMoneyCell(row.amount)}</td>
-                                        <td>${hasTeacherReportValue(row.note) ? escapeTeacherReportHtml(row.note) : '<span class="answer-empty-chip">No note</span>'}</td>
-                                    </tr>
-                                `).join("")}
-                            </tbody>
-                        </table>
-                        <p class="budget-compare-note">${escapeTeacherReportHtml(budgetNote)}</p>
+                        <div class="report-card report-card-wide">
+                            <h3>Budget Scenario Comparison</h3>
+                            <div class="report-grid">
+                                ${budgetScenarioCards}
+                            </div>
+                        </div>
                     </div>
                 `
             );
@@ -534,7 +639,12 @@ const { useState, useEffect, useRef } = React;
         const App = () => {
             const [formData, setFormData] = useState(DEFAULT_STATE);
             const [activeTab, setActiveTab] = useState('intro');
+            const [activeBudgetTab, setActiveBudgetTab] = useState('home');
             const [isLoaded, setIsLoaded] = useState(false);
+            const [isSidebarOpen, setIsSidebarOpen] = useState(() => {
+                if (typeof window === "undefined") return true;
+                return window.innerWidth >= 1024;
+            });
             const completedSectionsRef = useRef(new Set());
 
             // 1. Auto-Load Data
@@ -544,7 +654,37 @@ const { useState, useEffect, useRef } = React;
                     try {
                         const parsed = JSON.parse(saved);
                         // Merge parsed with default to ensure no missing keys crash the app
-                        setFormData(prev => ({ ...prev, ...parsed }));
+                        setFormData((prev) => ({
+                            ...prev,
+                            ...parsed,
+                            purchases: Array.isArray(parsed.purchases) ? parsed.purchases : prev.purchases,
+                            commSkills: Array.isArray(parsed.commSkills) ? parsed.commSkills : prev.commSkills,
+                            budget: { ...prev.budget, ...(parsed.budget || {}) },
+                            budgetScenarios: {
+                                ...prev.budgetScenarios,
+                                ...Object.fromEntries(
+                                    Object.keys(BUDGET_SCENARIOS).map((scenarioKey) => [
+                                        scenarioKey,
+                                        {
+                                            ...prev.budgetScenarios[scenarioKey],
+                                            ...(parsed.budgetScenarios?.[scenarioKey] || {}),
+                                            income: {
+                                                ...prev.budgetScenarios[scenarioKey].income,
+                                                ...(parsed.budgetScenarios?.[scenarioKey]?.income || {})
+                                            },
+                                            fixed: {
+                                                ...prev.budgetScenarios[scenarioKey].fixed,
+                                                ...(parsed.budgetScenarios?.[scenarioKey]?.fixed || {})
+                                            },
+                                            variable: {
+                                                ...prev.budgetScenarios[scenarioKey].variable,
+                                                ...(parsed.budgetScenarios?.[scenarioKey]?.variable || {})
+                                            }
+                                        }
+                                    ])
+                                )
+                            }
+                        }));
                     } catch (e) {
                         console.error("Failed to parse saved data", e);
                     }
@@ -576,6 +716,57 @@ const { useState, useEffect, useRef } = React;
                 });
             };
 
+            const updateBudgetField = (group, key, value) => {
+                setFormData((prev) => {
+                    const currentScenario = getBudgetScenarioState(prev, activeBudgetTab);
+                    return {
+                        ...prev,
+                        budgetScenarios: {
+                            ...prev.budgetScenarios,
+                            [activeBudgetTab]: {
+                                ...currentScenario,
+                                [group]: {
+                                    ...currentScenario[group],
+                                    [key]: value
+                                }
+                            }
+                        }
+                    };
+                });
+            };
+
+            const triggerBudgetCurveball = () => {
+                const event = BUDGET_CURVEBALLS[Math.floor(Math.random() * BUDGET_CURVEBALLS.length)];
+                updateField("budgetLifeEvent", event);
+                confetti({ particleCount: 40, spread: 70, colors: ['#8b5cf6', '#f59e0b', '#ef4444'] });
+            };
+
+            const handleAdAnalyzerGuess = (guess) => {
+                const currentAd = AD_SCENARIOS[formData.adAnalyzerIndex];
+                if (!currentAd || formData.adAnalyzerScore >= AD_SCENARIOS.length) return;
+
+                if (guess === currentAd.tactic) {
+                    updateField("adAnalyzerScore", Math.max(formData.adAnalyzerScore, formData.adAnalyzerIndex + 1));
+                    updateField("adAnalyzerFeedback", `Correct! ${currentAd.hint}`);
+                    if (formData.adAnalyzerIndex < AD_SCENARIOS.length - 1) {
+                        window.setTimeout(() => {
+                            setFormData((prev) => ({
+                                ...prev,
+                                adAnalyzerIndex: prev.adAnalyzerIndex + 1,
+                                adAnalyzerFeedback: ""
+                            }));
+                        }, 1600);
+                    } else {
+                        confetti({ particleCount: 70, spread: 75, colors: ['#6366f1', '#22c55e', '#f59e0b'] });
+                    }
+                } else {
+                    updateField("adAnalyzerFeedback", "Not quite. Try again!");
+                }
+            };
+
+            const activeBudgetScenario = getBudgetScenarioState(formData, activeBudgetTab);
+            const currentBudgetTotals = getBudgetTotalsForState(formData, activeBudgetTab);
+
             // Calculate Progress 
             const calcProgress = (sectionId) => {
                 const fd = formData;
@@ -583,17 +774,24 @@ const { useState, useEffect, useRef } = React;
                 switch(sectionId) {
                     case 'intro': fields = [fd.studentName]; break;
                     case 'advertising': 
-                        fields = [fd.defMarketing, fd.defPackaging, fd.influenceExample, fd.favoriteStore, fd.biggestInfluence];
+                        fields = [
+                            fd.defMarketing,
+                            fd.defPackaging,
+                            fd.influenceExample,
+                            fd.favoriteStore,
+                            fd.biggestInfluence,
+                            fd.adDeconstruction,
+                            fd.adAnalyzerScore === AD_SCENARIOS.length ? "complete" : ""
+                        ];
                         fd.purchases.forEach(p => { fields.push(p.item, p.influence) });
                         break;
                     case 'waiting': fields = [fd.joeDecision, fd.sallyDecision, fd.betterDecision]; break;
                     case 'money': 
                         fields = [
                             fd.purchaseReflection,
-                            fd.incomeCurrent, fd.incomeFuture, fd.purchaseDecision, fd.purchaseFactors, 
-                            fd.budgetWhereFrom, fd.budgetWhereGo, fd.budgetEndMonth, fd.budgetChange
+                            fd.budgetChoice,
+                            ...collectProgressValues(fd.budgetScenarios)
                         ];
-                        Object.values(fd.budget).forEach(v => fields.push(v));
                         break; 
                     case 'honesty': fields = [fd.honestyNorma, fd.honestyGertrude, fd.honestyHerman, fd.honestyAsif, fd.honestyFrank, fd.honestyCharlotte, fd.honestySalima, fd.honestyImportant, fd.honestyAcceptable, fd.honestyEasiest, fd.honestyHardest, fd.honestyReflection1, fd.honestyReflection2]; break;
                     case 'maintaining': 
@@ -679,17 +877,65 @@ const { useState, useEffect, useRef } = React;
                 }
             };
 
+            const selectTab = (tabId) => {
+                setActiveTab(tabId);
+                if (typeof window !== "undefined" && window.innerWidth < 1024) {
+                    setIsSidebarOpen(false);
+                }
+                window.scrollTo(0, 0);
+            };
+
             if (!isLoaded) return <div className="min-h-screen flex items-center justify-center font-bold text-slate-400">Loading your workbook...</div>;
 
             return (
-                <div className="flex flex-col md:flex-row min-h-screen">
+                <div className="flex min-h-screen bg-slate-50">
+                    {isSidebarOpen && (
+                        <button
+                            type="button"
+                            className="fixed inset-0 z-20 bg-slate-950/35 backdrop-blur-[1px] lg:hidden"
+                            aria-label="Close navigation menu"
+                            onClick={() => setIsSidebarOpen(false)}
+                        />
+                    )}
                     
                     {/* SIDEBAR NAVIGATION */}
-                    <div className="md:w-72 bg-white border-r-2 border-slate-100 p-6 flex flex-col md:h-screen sticky top-0 shadow-[4px_0_24px_rgba(0,0,0,0.02)] z-10 shrink-0">
-                        <div className="mb-8">
+                    <div className={`fixed inset-y-0 left-0 z-30 flex w-72 max-w-[88vw] shrink-0 flex-col border-r-2 border-slate-100 bg-white p-6 shadow-[4px_0_24px_rgba(0,0,0,0.08)] transition-all duration-300 lg:sticky lg:top-0 lg:h-screen lg:max-w-none lg:shadow-[4px_0_24px_rgba(0,0,0,0.02)] ${isSidebarOpen ? 'translate-x-0 lg:w-72 lg:min-w-[18rem]' : '-translate-x-full lg:w-20 lg:min-w-[5rem] lg:translate-x-0 lg:p-3'}`}>
+                        {!isSidebarOpen && (
+                            <div className="hidden lg:flex h-full w-full flex-col items-center pt-3">
+                                <button
+                                    type="button"
+                                    className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border-2 border-slate-200 bg-slate-50 text-slate-500 transition-all hover:bg-slate-100"
+                                    aria-label="Open navigation sidebar"
+                                    aria-expanded={false}
+                                    onClick={() => setIsSidebarOpen(true)}
+                                >
+                                    <i className="fa-solid fa-bars text-base"></i>
+                                </button>
+                            </div>
+                        )}
+                        <div className={`flex h-full flex-col ${isSidebarOpen ? 'opacity-100' : 'hidden lg:hidden'} transition-opacity duration-200`}>
+                        <div className="mb-8 flex items-start justify-between gap-4">
                             <h1 className="text-2xl font-black tracking-tighter text-slate-800 leading-tight">CALM <span className="text-violet-500">Module 2</span></h1>
-                            <p className="text-sm text-slate-500 font-semibold mt-1">Resource Choices</p>
+                            <div className="flex items-center gap-2">
+                                <button
+                                    type="button"
+                                    className="hidden lg:inline-flex h-11 w-11 items-center justify-center rounded-2xl border-2 border-slate-200 bg-slate-50 text-slate-500 transition-all hover:bg-slate-100"
+                                    aria-label="Collapse navigation sidebar"
+                                    onClick={() => setIsSidebarOpen(false)}
+                                >
+                                    <i className="fa-solid fa-bars text-base"></i>
+                                </button>
+                                <button
+                                    type="button"
+                                    className="lg:hidden inline-flex h-11 w-11 items-center justify-center rounded-2xl border-2 border-slate-200 bg-slate-50 text-slate-500 transition-all hover:bg-slate-100"
+                                    aria-label="Close navigation menu"
+                                    onClick={() => setIsSidebarOpen(false)}
+                                >
+                                    <i className="fa-solid fa-xmark text-lg"></i>
+                                </button>
+                            </div>
                         </div>
+                        <p className="text-sm text-slate-500 font-semibold mt-1 mb-8">Resource Choices</p>
                         
                         <nav className="flex-1 overflow-y-auto space-y-2 pr-2">
                             {SECTIONS.map(sec => {
@@ -698,7 +944,7 @@ const { useState, useEffect, useRef } = React;
                                 return (
                                     <button 
                                         key={sec.id}
-                                        onClick={() => setActiveTab(sec.id)}
+                                        onClick={() => selectTab(sec.id)}
                                         className={`w-full flex items-center justify-between p-3 rounded-2xl transition-all ${isActive ? 'bg-violet-500 text-white shadow-[0_4px_0_0_#5b21b6] font-bold' : 'bg-slate-50 text-slate-600 hover:bg-slate-100 font-medium border-2 border-transparent'}`}
                                         style={isActive ? { transform: 'translateY(-2px)' } : {}}
                                     >
@@ -722,10 +968,30 @@ const { useState, useEffect, useRef } = React;
                                 <div className="h-full bg-emerald-400 transition-all duration-500" style={{ width: `${(SECTIONS.filter(s => s.id!=='finish' && calcProgress(s.id).isDone).length / (SECTIONS.length-1)) * 100}%` }}></div>
                             </div>
                         </div>
+                        </div>
                     </div>
 
                     {/* MAIN CONTENT AREA */}
-                    <div className="flex-1 p-6 md:p-12 overflow-y-auto bg-slate-50 relative">
+                    <div className="flex-1 overflow-y-auto relative min-w-0">
+                        <div className="sticky top-0 z-10 border-b border-slate-200/80 bg-slate-50/95 px-4 py-3 backdrop-blur md:px-6 lg:px-8">
+                            <div className="mx-auto flex max-w-4xl items-center justify-between gap-3">
+                                <div className="min-w-0">
+                                    <div className="text-[0.7rem] font-black uppercase tracking-[0.22em] text-violet-500">CALM Module 2</div>
+                                    <div className="truncate text-sm font-semibold text-slate-500">Resource Choices</div>
+                                </div>
+                                <button
+                                    type="button"
+                                    className="inline-flex lg:hidden items-center gap-2 rounded-2xl border-2 border-slate-200 bg-white px-4 py-2.5 text-sm font-bold text-slate-700 shadow-[0_4px_0_0_#e2e8f0] transition-all active:translate-y-[4px] active:shadow-none"
+                                    aria-label={isSidebarOpen ? "Collapse navigation sidebar" : "Open navigation sidebar"}
+                                    aria-expanded={isSidebarOpen}
+                                    onClick={() => setIsSidebarOpen((prev) => !prev)}
+                                >
+                                    <i className={`fa-solid ${isSidebarOpen ? 'fa-panel-left' : 'fa-bars'}`}></i>
+                                    <span className="hidden sm:inline">{isSidebarOpen ? 'Collapse menu' : 'Open menu'}</span>
+                                </button>
+                            </div>
+                        </div>
+                    <div className="p-4 md:p-8 lg:p-12 bg-slate-50 relative">
                         <div className="max-w-4xl mx-auto space-y-8 pb-32">
                             
                             {/* TAB: INTRO */}
@@ -825,6 +1091,72 @@ const { useState, useEffect, useRef } = React;
                                             <label className="block font-bold mb-2 text-violet-600">Looking at your list, what has been the BIGGEST influence on what you have purchased?</label>
                                             <AutoExpandingTextarea value={formData.biggestInfluence} onChange={e => updateField('biggestInfluence', e.target.value)} placeholder="The biggest influence seems to be..." />
                                         </div>
+                                    </div>
+
+                                    <div className="flex flex-col xl:flex-row gap-6 mt-8">
+                                        <div className="xl:w-1/2">
+                                            <div className="clay-card p-8 bg-gradient-to-br from-indigo-50 to-purple-50 border-indigo-100">
+                                                <h2 className="text-2xl font-black text-indigo-900 mb-4"><i className="fa-solid fa-brain mr-2 text-indigo-500"></i> Learn: Advertising Tactics</h2>
+                                                <div className="space-y-3 text-sm text-slate-700">
+                                                    <p>The Canadian Code of Advertising Standards says ads must be honest, but companies still use psychology to manipulate your "wants" into feeling like "needs."</p>
+                                                    <ul className="space-y-2 mt-4">
+                                                        <li className="bg-white p-2 rounded border border-indigo-50 shadow-sm"><strong className="text-indigo-700">Bandwagon:</strong> "Everyone else is doing it/buying it!"</li>
+                                                        <li className="bg-white p-2 rounded border border-indigo-50 shadow-sm"><strong className="text-indigo-700">Emotional Appeal:</strong> Targets fear, loneliness, or desire for happiness.</li>
+                                                        <li className="bg-white p-2 rounded border border-indigo-50 shadow-sm"><strong className="text-indigo-700">Testimonials/Influencers:</strong> Using celebrities or "experts" to build fake trust.</li>
+                                                        <li className="bg-white p-2 rounded border border-indigo-50 shadow-sm"><strong className="text-indigo-700">Facts & Figures:</strong> Using statistics to sound scientific, even when they are misleading.</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="xl:w-1/2">
+                                            <div className="clay-card p-8">
+                                                <h2 className="text-2xl font-black text-slate-800 mb-2"><i className="fa-solid fa-magnifying-glass mr-2 text-indigo-500"></i> Apply: Ad Analyzer</h2>
+                                                <p className="text-sm text-slate-500 mb-6">Read the fake ad below. Which tactic is the company using to manipulate you?</p>
+                                                
+                                                {formData.adAnalyzerScore < AD_SCENARIOS.length ? (
+                                                    <div className="p-6 bg-slate-800 text-white rounded-2xl text-center shadow-lg relative overflow-hidden">
+                                                        <div className="absolute top-0 left-0 bg-yellow-400 text-yellow-900 text-xs font-black px-3 py-1 uppercase tracking-widest rounded-br-xl">Ad {formData.adAnalyzerIndex + 1} of {AD_SCENARIOS.length}</div>
+                                                        <h3 className="font-black text-xl mt-4 mb-2 text-indigo-300">{AD_SCENARIOS[formData.adAnalyzerIndex].product}</h3>
+                                                        <p className="italic text-lg mb-6">"{AD_SCENARIOS[formData.adAnalyzerIndex].ad}"</p>
+                                                        
+                                                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                                                            {AD_TACTICS.map((tactic) => (
+                                                                <button
+                                                                    key={tactic}
+                                                                    type="button"
+                                                                    onClick={() => handleAdAnalyzerGuess(tactic)}
+                                                                    className="bg-slate-700 hover:bg-slate-600 p-3 rounded-xl font-bold transition-colors text-sm"
+                                                                >
+                                                                    {tactic}
+                                                                </button>
+                                                            ))}
+                                                        </div>
+                                                        {formData.adAnalyzerFeedback && (
+                                                            <p className={`mt-4 font-bold ${formData.adAnalyzerFeedback.includes('Correct') ? 'text-emerald-400' : 'text-rose-400'}`}>
+                                                                {formData.adAnalyzerFeedback}
+                                                            </p>
+                                                        )}
+                                                    </div>
+                                                ) : (
+                                                    <div className="text-center p-8 bg-emerald-50 text-emerald-800 rounded-2xl border-2 border-emerald-200">
+                                                        <i className="fa-solid fa-shield-halved text-4xl mb-2"></i>
+                                                        <h3 className="font-black">Immunity Unlocked!</h3>
+                                                        <p className="text-sm">You successfully identified all {AD_SCENARIOS.length} major advertising tactics.</p>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="mt-6 bg-amber-50 border-2 border-amber-200 p-4 rounded-xl">
+                                        <label className="block text-sm font-black text-amber-900 mb-2"><i className="fa-solid fa-pen-to-square mr-2"></i> Teacher Checkpoint: Deconstruct a Real Brand. Pick a brand you like. What physical product do they sell, and what emotion or idea are they actually selling you?</label>
+                                        <textarea
+                                            className="w-full border-2 border-amber-100 rounded-xl py-3 px-4 focus:outline-none focus:border-amber-400 min-h-[120px] text-sm"
+                                            placeholder="Type your reflection here..."
+                                            value={formData.adDeconstruction}
+                                            onChange={(e) => updateField('adDeconstruction', e.target.value)}
+                                        />
                                     </div>
                                 </div>
                             )}
@@ -942,110 +1274,242 @@ const { useState, useEffect, useRef } = React;
 
                                     <div className="h-px w-full bg-slate-200 my-10"></div>
 
-                                    <div className="flex items-center gap-3 mb-6">
+                                    <KnowledgeDrop title="Net Pay and Deductions" defaultOpen={false}>
+                                        <div className="flex flex-col lg:flex-row gap-5 items-stretch">
+                                            <div className="flex-1 text-sm text-amber-900 space-y-2">
+                                                <p>Before you build a budget, think about your <strong>net pay</strong>, not just the hourly wage or salary someone offers you.</p>
+                                                <ul className="list-disc pl-5 space-y-1">
+                                                    <li><strong>Gross pay</strong> is the full amount you earn before deductions.</li>
+                                                    <li><strong>Net pay</strong> is the money you actually get to use after deductions.</li>
+                                                    <li>Taxes, CPP, EI, and other deductions mean your real spending money is always lower than your gross wage.</li>
+                                                </ul>
+                                                <p className="text-xs font-semibold uppercase tracking-wide text-amber-700">Budget with the money that really lands in your account.</p>
+                                            </div>
+                                            <div className="bg-white rounded-2xl border border-amber-200 p-5 w-full lg:w-80 shadow-sm">
+                                                <p className="text-xs font-black uppercase tracking-[0.2em] text-slate-400">Sample Paycheque</p>
+                                                <div className="mt-3 space-y-2">
+                                                    <div className="flex items-center justify-between text-sm font-semibold text-slate-600">
+                                                        <span>Gross Pay</span>
+                                                        <span className="line-through">$2,000</span>
+                                                    </div>
+                                                    <div className="flex items-center justify-between text-sm font-semibold text-rose-500">
+                                                        <span>Deductions</span>
+                                                        <span>-$300</span>
+                                                    </div>
+                                                    <div className="h-px bg-slate-100 my-3"></div>
+                                                    <div className="flex items-center justify-between">
+                                                        <span className="font-black text-slate-800">Net Pay</span>
+                                                        <span className="font-black text-2xl text-violet-600">$1,700</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </KnowledgeDrop>
+
+                                    <div className="flex items-center gap-3 mb-6 mt-8">
                                         <div className="bg-amber-400 text-amber-900 font-bold px-3 py-1 rounded-full text-sm tracking-wider uppercase">Task</div>
-                                        <h3 className="text-2xl font-black">Budgeting Assignment</h3>
+                                        <h3 className="text-2xl font-black">Budget Builder Assignment</h3>
                                     </div>
 
-                                    <div className="clay-card p-8 space-y-6 mb-8">
-                                        <div>
-                                            <label className="block font-bold mb-2">1. List your current source(s) of income.</label>
-                                            <AutoExpandingTextarea value={formData.incomeCurrent} onChange={e => updateField('incomeCurrent', e.target.value)} placeholder="I make money from..." />
-                                        </div>
-                                        <div>
-                                            <label className="block font-bold mb-2">2. What do you expect to be your source(s) of income in the near future?</label>
-                                            <AutoExpandingTextarea value={formData.incomeFuture} onChange={e => updateField('incomeFuture', e.target.value)} placeholder="In the future, I expect to earn from..." />
-                                        </div>
-                                        <div>
-                                            <label className="block font-bold mb-2">3. How do you decide what to purchase?</label>
-                                            <AutoExpandingTextarea value={formData.purchaseDecision} onChange={e => updateField('purchaseDecision', e.target.value)} placeholder="I decide by..." />
-                                        </div>
-                                        <div>
-                                            <label className="block font-bold mb-2">4. What factors do you think influence your purchasing decisions?</label>
-                                            <AutoExpandingTextarea value={formData.purchaseFactors} onChange={e => updateField('purchaseFactors', e.target.value)} placeholder="Factors include..." />
-                                        </div>
-                                    </div>
+                                    <div className="clay-card p-8 space-y-8 mb-8">
+                                        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5 pb-6 border-b-2 border-slate-100">
+                                            <div>
+                                                <h3 className="font-black text-3xl text-slate-800 flex items-center gap-3">
+                                                    <span className="w-12 h-12 rounded-2xl bg-violet-100 text-violet-500 flex items-center justify-center text-2xl">
+                                                        <i className="fa-solid fa-wallet"></i>
+                                                    </span>
+                                                    The Budget Builder
+                                                </h3>
+                                                <p className="text-slate-500 font-semibold mt-3">
+                                                    Fill out all three scenarios to compare how your living situation changes your money.
+                                                </p>
+                                            </div>
 
-                                    {/* BUDGET SHEET */}
-                                    <div className="clay-card p-0 overflow-hidden mb-8 border-violet-200">
-                                        <div className="bg-violet-500 p-6 text-white text-center">
-                                            <h3 className="font-black text-2xl">Monthly Personal Budget</h3>
-                                            <p className="text-violet-200 text-sm">Fill in estimated amounts (use $0 if not applicable)</p>
+                                            <button
+                                                onClick={triggerBudgetCurveball}
+                                                className="clay-btn py-3 px-5 text-sm flex items-center gap-2 self-start lg:self-auto"
+                                            >
+                                                <i className="fa-solid fa-bolt"></i> Draw Life Curveball
+                                            </button>
                                         </div>
-                                        
-                                        <div className="p-6 md:p-8 flex flex-col md:flex-row gap-8">
-                                            {/* INCOME */}
-                                            <div className="flex-1 space-y-4">
-                                                <h4 className="font-black text-xl text-emerald-600 flex items-center gap-2 border-b-2 border-emerald-100 pb-2"><i className="fa-solid fa-arrow-down"></i> Income (+)</h4>
-                                                
-                                                <div className="flex justify-between items-center gap-4">
-                                                    <label className="font-semibold text-slate-600">Job</label>
-                                                    <input type="number" className="clay-input w-32 p-2 text-right font-bold text-slate-800" placeholder="$" value={formData.budget.job} onChange={e => updateNested('budget', 'job', e.target.value)} />
-                                                </div>
-                                                <div className="flex justify-between items-center gap-4">
-                                                    <label className="font-semibold text-slate-600">Parents/Family</label>
-                                                    <input type="number" className="clay-input w-32 p-2 text-right font-bold text-slate-800" placeholder="$" value={formData.budget.parents} onChange={e => updateNested('budget', 'parents', e.target.value)} />
-                                                </div>
-                                                <div className="flex flex-col gap-2">
-                                                    <div className="flex justify-between items-center gap-4">
-                                                        <label className="font-semibold text-slate-600">Other</label>
-                                                        <input type="number" className="clay-input w-32 p-2 text-right font-bold text-slate-800" placeholder="$" value={formData.budget.other} onChange={e => updateNested('budget', 'other', e.target.value)} />
+
+                                        <div className="flex flex-col md:flex-row gap-3">
+                                            {Object.entries(BUDGET_SCENARIOS).map(([scenarioKey, scenarioMeta]) => (
+                                                <button
+                                                    key={scenarioKey}
+                                                    onClick={() => setActiveBudgetTab(scenarioKey)}
+                                                    className={`flex-1 rounded-2xl px-5 py-4 border-2 text-left transition-all ${
+                                                        activeBudgetTab === scenarioKey
+                                                            ? 'bg-violet-500 text-white border-violet-600 shadow-[0_6px_0_0_#5b21b6] -translate-y-1'
+                                                            : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-white'
+                                                    }`}
+                                                >
+                                                    <div className="flex items-center gap-3">
+                                                        <i className={`fa-solid ${scenarioMeta.icon} text-xl ${activeBudgetTab === scenarioKey ? 'text-violet-200' : 'text-slate-400'}`}></i>
+                                                        <div>
+                                                            <div className="font-black">{scenarioMeta.title}</div>
+                                                            <div className={`text-xs font-semibold ${activeBudgetTab === scenarioKey ? 'text-violet-100' : 'text-slate-400'}`}>{scenarioMeta.subtitle}</div>
+                                                        </div>
                                                     </div>
-                                                    <input type="text" className="clay-input w-full p-2 text-sm" placeholder="Explain 'Other'..." value={formData.budget.otherExp} onChange={e => updateNested('budget', 'otherExp', e.target.value)} />
+                                                </button>
+                                            ))}
+                                        </div>
+
+                                        <div className="bg-slate-50 border-2 border-slate-200 rounded-[2rem] p-6 md:p-7">
+                                            <div className="bg-white border border-slate-100 rounded-[1.5rem] p-5 md:p-6 shadow-sm mb-6 flex flex-col md:flex-row gap-4 md:items-center">
+                                                <div className="w-16 h-16 rounded-3xl bg-violet-100 text-violet-500 flex items-center justify-center text-3xl shrink-0">
+                                                    <i className={`fa-solid ${BUDGET_SCENARIOS[activeBudgetTab].icon}`}></i>
+                                                </div>
+                                                <div>
+                                                    <h4 className="font-black text-2xl text-slate-800">
+                                                        {BUDGET_SCENARIOS[activeBudgetTab].title} <span className="text-slate-400 text-lg">{BUDGET_SCENARIOS[activeBudgetTab].subtitle}</span>
+                                                    </h4>
+                                                    <p className="text-slate-600 font-medium mt-2">{BUDGET_SCENARIOS[activeBudgetTab].desc}</p>
+                                                    <div className="inline-flex items-center gap-2 mt-3 text-xs font-black uppercase tracking-wide bg-amber-100 text-amber-800 px-3 py-2 rounded-full">
+                                                        <i className="fa-solid fa-lightbulb"></i>
+                                                        {BUDGET_SCENARIOS[activeBudgetTab].tips}
+                                                    </div>
                                                 </div>
                                             </div>
 
-                                            {/* EXPENSES */}
-                                            <div className="flex-1 space-y-4">
-                                                <h4 className="font-black text-xl text-rose-500 flex items-center gap-2 border-b-2 border-rose-100 pb-2"><i className="fa-solid fa-arrow-up"></i> Expenses (-)</h4>
-                                                
-                                                {[
-                                                    { label: 'Rent/Room & Board', key: 'rent' },
-                                                    { label: 'Utilities', key: 'utilities' },
-                                                    { label: 'Phone', key: 'phone' },
-                                                    { label: 'Groceries', key: 'groceries' },
-                                                    { label: 'Car Payments', key: 'car' },
-                                                    { label: 'Insurance', key: 'insurance' },
-                                                    { label: 'Gas', key: 'gas' },
-                                                    { label: 'Entertainment', key: 'entertainment' },
-                                                    { label: 'Dining Out', key: 'dining' },
-                                                    { label: 'Clothes', key: 'clothes' }
-                                                ].map(item => (
-                                                    <div key={item.key} className="flex justify-between items-center gap-4">
-                                                        <label className="font-semibold text-slate-600 text-sm">{item.label}</label>
-                                                        <input type="number" className="clay-input w-32 p-2 text-right font-bold text-slate-800" placeholder="$" value={formData.budget[item.key]} onChange={e => updateNested('budget', item.key, e.target.value)} />
+                                            {formData.budgetLifeEvent && (
+                                                <div className={`mb-6 rounded-2xl border-2 p-4 md:p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-3 ${
+                                                    formData.budgetLifeEvent.type === 'expense'
+                                                        ? 'bg-rose-50 border-rose-200 text-rose-800'
+                                                        : 'bg-emerald-50 border-emerald-200 text-emerald-800'
+                                                }`}>
+                                                    <div className="font-bold">
+                                                        <i className={`fa-solid ${formData.budgetLifeEvent.type === 'expense' ? 'fa-triangle-exclamation' : 'fa-circle-plus'} mr-2`}></i>
+                                                        Curveball: {formData.budgetLifeEvent.desc}
                                                     </div>
-                                                ))}
-
-                                                <div className="flex flex-col gap-2">
-                                                    <div className="flex justify-between items-center gap-4">
-                                                        <label className="font-semibold text-slate-600 text-sm">Etc.</label>
-                                                        <input type="number" className="clay-input w-32 p-2 text-right font-bold text-slate-800" placeholder="$" value={formData.budget.etc} onChange={e => updateNested('budget', 'etc', e.target.value)} />
+                                                    <div className="font-black text-2xl">
+                                                        {formData.budgetLifeEvent.type === 'expense' ? '-' : '+'}${formatMoney(formData.budgetLifeEvent.amount)}
                                                     </div>
-                                                    <input type="text" className="clay-input w-full p-2 text-sm" placeholder="Explain 'Etc'..." value={formData.budget.etcExp} onChange={e => updateNested('budget', 'etcExp', e.target.value)} />
                                                 </div>
+                                            )}
+
+                                            <div className="grid xl:grid-cols-3 gap-5">
+                                                {Object.entries(BUDGET_FIELD_GROUPS).map(([groupKey, fields]) => {
+                                                    const panelStyle = BUDGET_PANEL_STYLES[groupKey];
+                                                    const totalValue =
+                                                        groupKey === 'income'
+                                                            ? currentBudgetTotals.income
+                                                            : groupKey === 'fixed'
+                                                                ? currentBudgetTotals.fixed
+                                                                : currentBudgetTotals.variable;
+                                                    const title =
+                                                        groupKey === 'income'
+                                                            ? '1. Monthly Income'
+                                                            : groupKey === 'fixed'
+                                                                ? '2. Fixed Expenses'
+                                                                : '3. Variable Expenses';
+
+                                                    return (
+                                                        <div key={groupKey} className={`rounded-[1.75rem] border p-5 shadow-inner ${panelStyle.wrapper}`}>
+                                                            <div className="flex items-center justify-between gap-3 mb-4 pb-3 border-b border-white/70">
+                                                                <h5 className={`font-black uppercase tracking-wide text-sm ${panelStyle.heading}`}>{title}</h5>
+                                                                <span className={`text-xs font-black px-3 py-2 rounded-full ${panelStyle.badge}`}>${formatMoney(totalValue)}</span>
+                                                            </div>
+
+                                                            <div className="space-y-3">
+                                                                {fields.map((field) => (
+                                                                    <div key={field.key} className="space-y-2">
+                                                                        <label className="block text-sm font-bold text-slate-600">{field.label}</label>
+                                                                        <div className="relative">
+                                                                            <span className="absolute inset-y-0 left-0 flex items-center pl-4 text-slate-400 font-black">$</span>
+                                                                            <input
+                                                                                type="number"
+                                                                                className="clay-input w-full p-3 pl-9 text-slate-700 font-semibold"
+                                                                                placeholder={field.placeholder}
+                                                                                value={activeBudgetScenario[groupKey][field.key]}
+                                                                                onChange={e => updateBudgetField(groupKey, field.key, e.target.value)}
+                                                                            />
+                                                                        </div>
+                                                                    </div>
+                                                                ))}
+                                                            </div>
+                                                        </div>
+                                                    );
+                                                })}
+                                            </div>
+
+                                            <div className={`mt-6 rounded-[1.5rem] px-5 py-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4 ${
+                                                currentBudgetTotals.net >= 0 ? 'bg-slate-800 text-white' : 'bg-rose-600 text-white'
+                                            }`}>
+                                                <div>
+                                                    <h4 className="font-black text-2xl">Active Scenario Bottom Line</h4>
+                                                    <p className={`text-sm font-medium mt-1 ${currentBudgetTotals.net >= 0 ? 'text-slate-300' : 'text-rose-100'}`}>
+                                                        Income (${formatMoney(currentBudgetTotals.income)}) - Expenses (${formatMoney(currentBudgetTotals.expenses)})
+                                                    </p>
+                                                </div>
+                                                <div className="text-left md:text-right">
+                                                    <div className="text-4xl font-black">${formatMoney(currentBudgetTotals.net)}</div>
+                                                    {currentBudgetTotals.net < 0 && (
+                                                        <div className="text-xs font-black uppercase tracking-[0.2em] text-rose-100 mt-1">You are in debt</div>
+                                                    )}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="pt-2">
+                                            <div className="flex items-center gap-3 mb-4">
+                                                <i className="fa-solid fa-scale-balanced text-2xl text-violet-500"></i>
+                                                <h4 className="font-black text-2xl text-slate-800">Side-by-Side Comparison</h4>
+                                            </div>
+
+                                            <div className="grid md:grid-cols-3 gap-4">
+                                                {Object.entries(BUDGET_SCENARIOS).map(([scenarioKey, scenarioMeta]) => {
+                                                    const totals = getBudgetTotalsForState(formData, scenarioKey);
+                                                    return (
+                                                        <div
+                                                            key={scenarioKey}
+                                                            className={`rounded-[1.5rem] border-2 p-5 ${
+                                                                activeBudgetTab === scenarioKey
+                                                                    ? 'border-violet-300 bg-violet-50'
+                                                                    : 'border-slate-200 bg-white'
+                                                            }`}
+                                                        >
+                                                            <div className="flex items-center gap-3 mb-4">
+                                                                <div className="w-11 h-11 rounded-2xl bg-slate-100 text-slate-500 flex items-center justify-center">
+                                                                    <i className={`fa-solid ${scenarioMeta.icon}`}></i>
+                                                                </div>
+                                                                <div>
+                                                                    <div className="font-black text-slate-800">{scenarioMeta.title}</div>
+                                                                    <div className="text-xs font-semibold text-slate-400">{scenarioMeta.subtitle}</div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div className="space-y-2 text-sm font-semibold text-slate-600 border-b border-slate-100 pb-3">
+                                                                <div className="flex items-center justify-between">
+                                                                    <span>Income</span>
+                                                                    <span className="text-violet-600">${formatMoney(totals.income)}</span>
+                                                                </div>
+                                                                <div className="flex items-center justify-between">
+                                                                    <span>Expenses</span>
+                                                                    <span className="text-rose-500">${formatMoney(totals.expenses)}</span>
+                                                                </div>
+                                                            </div>
+
+                                                            <div className={`mt-4 text-center text-2xl font-black ${totals.net >= 0 ? 'text-emerald-600' : 'text-rose-600'}`}>
+                                                                Net ${formatMoney(totals.net)}
+                                                            </div>
+                                                        </div>
+                                                    );
+                                                })}
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div className="clay-card p-8 space-y-6">
-                                        <h3 className="font-black text-xl mb-4">Budget Analysis</h3>
-                                        <div>
-                                            <label className="block font-bold mb-2">Where does most of your money come from?</label>
-                                            <AutoExpandingTextarea value={formData.budgetWhereFrom} onChange={e => updateField('budgetWhereFrom', e.target.value)} placeholder="..." />
-                                        </div>
-                                        <div>
-                                            <label className="block font-bold mb-2">Where does most of your money go?</label>
-                                            <AutoExpandingTextarea value={formData.budgetWhereGo} onChange={e => updateField('budgetWhereGo', e.target.value)} placeholder="..." />
-                                        </div>
-                                        <div>
-                                            <label className="block font-bold mb-2">At the end of the month, are you saving money or going into debt? What are your plans for the money?</label>
-                                            <AutoExpandingTextarea value={formData.budgetEndMonth} onChange={e => updateField('budgetEndMonth', e.target.value)} placeholder="..." />
-                                        </div>
-                                        <div>
-                                            <label className="block font-bold mb-2 text-violet-600">Looking at your budget, what is one thing you would like to do differently? Explain.</label>
-                                            <AutoExpandingTextarea value={formData.budgetChange} onChange={e => updateField('budgetChange', e.target.value)} placeholder="I would like to change..." />
-                                        </div>
+                                    <div className="clay-card p-8 space-y-4">
+                                        <h3 className="font-black text-2xl text-slate-800">Budget Choice Justification</h3>
+                                        <p className="text-slate-500 font-medium">
+                                            Looking at the three scenarios above, which one is most realistic for you right out of high school? What major sacrifice would you have to make to stay out of debt?
+                                        </p>
+                                        <AutoExpandingTextarea
+                                            value={formData.budgetChoice}
+                                            onChange={e => updateField('budgetChoice', e.target.value)}
+                                            placeholder="The most realistic option for me is... One sacrifice I would have to make is..."
+                                        />
                                     </div>
                                 </div>
                             )}
@@ -1076,16 +1540,16 @@ const { useState, useEffect, useRef } = React;
                                             <i className="fa-solid fa-scale-balanced text-3xl text-violet-500"></i>
                                             <h3 className="font-black text-2xl">Honesty Quiz</h3>
                                         </div>
-                                        <p className="font-bold text-slate-500">For each situation, answer whether or not the individual is justified. Explain your reasoning (Yes or No? Why?).</p>
+                                        <p className="font-bold text-slate-500">For each of the following situations, answer whether or not the individual is justified in their actions. Question: Yes or No? Explain.</p>
 
                                         <div className="space-y-6">
                                             {[
-                                                { key: 'honestyNorma', text: "Norma sees a wealthy person drop $100. Norma is low on rent and finds it hard to make ends meet. She knows she needs it more. Is she justified in keeping the money?" },
-                                                { key: 'honestyGertrude', text: "Gertrude sees her friend Ethyl tagging a wall with a homophobic slur. No one else witnesses it. The principal asks anyone with information to come forward. Is Gertrude justified in not reporting this?" },
-                                                { key: 'honestyHerman', text: "Herman overheard Ollie's new girlfriend saying mean things. Ollie asks Herman what he thinks of her, and Herman says she is 'nice' to avoid hurting his feelings. Is Herman justified?" },
-                                                { key: 'honestyAsif', text: "Asif is given $4 too much change at Tim Horton's. He is running late and realizes outside. Should Asif feel guilty for keeping the money?" },
-                                                { key: 'honestyFrank', text: "Frank finds an iPhone in the school washroom. He wants a smartphone and knows a friend who can unlock it. Is Frank justified in keeping the phone?" },
-                                                { key: 'honestyCharlotte', text: "Charlotte sees the teacher left the answer key on the chalkboard during a test. Is Charlotte justified in copying the answers?" },
+                                                { key: 'honestyNorma', text: "Norma sees a wealthy person drop money while exiting a limousine. On the ground she finds $100. Norma is low on rent money and finds it hard to make ends meet. Norma knows she needs the money more than the person who dropped it. Is she justified in keeping the money?" },
+                                                { key: 'honestyGertrude', text: "Gertrude sees her friend Ethyl tagging the wall with a homophobic slur. Ethyl sees Gertrude but no one else witnesses this happening. Later that day the principal asks anyone with information to come forward. Is Gertrude justified in not reporting this?" },
+                                                { key: 'honestyHerman', text: "Herman's best friend Ollie has a new girlfriend, Krystaal. Herman has overheard Krystaal say mean things to her friends about Ollie. Ollie asks Herman what he thinks of her, and Herman says she is 'nice.' Herman knows that Ollie is head over heels for his girlfriend and doesn't want to hurt Ollie's feelings. Is Herman justified in his response?" },
+                                                { key: 'honestyAsif', text: "Asif goes to Tim Horton's and they give him back too much change. Once outside the store, he realizes they gave him $4 extra back. Since it wasn't his mistake and he is running late, should Asif feel guilty for keeping the money?" },
+                                                { key: 'honestyFrank', text: "Frank finds an iPhone in the washroom at school. He has always wanted a smart phone and knows a friend who can unlock it for him. Is Frank justified in keeping the phone?" },
+                                                { key: 'honestyCharlotte', text: "Charlotte is writing a test and realizes the teacher has accidentally left the answer key on the chalkboard. Is Charlotte justified in copying the answers?" },
                                                 { key: 'honestySalima', text: "Salima is given homework to draw an object from observation, but traces it from a magazine instead. Is this plagiarism?" },
                                             ].map((q, idx) => (
                                                 <div key={idx} className="bg-slate-50 p-5 rounded-2xl border border-slate-200">
@@ -1144,13 +1608,8 @@ const { useState, useEffect, useRef } = React;
                                         </div>
                                     </div>
 
-                                    <KnowledgeDrop title="Conflict: A Fact of Life">
-                                        <p>Conflict between people is a fact of life – and it's not necessarily a bad thing. A relationship with frequent conflict may be healthier than one with no observable conflict.</p>
-                                        <p>Once you are in a conflict, it is important to reduce the emotional charge so you can communicate rationally. Good communication skills are essential to resolving conflict quickly and effectively.</p>
-                                    </KnowledgeDrop>
-
                                     <div className="clay-card p-8 space-y-6">
-                                        <h3 className="font-black text-xl text-slate-800">Think of a time you were in a conflict with a friend or family member.</h3>
+                                        <h3 className="font-black text-xl text-slate-800">Think of a time in your life when you were in a conflict with a friend or family member.</h3>
                                         <div>
                                             <label className="block font-bold mb-2">What were you fighting or arguing about?</label>
                                             <AutoExpandingTextarea value={formData.conflictAbout} onChange={e => updateField('conflictAbout', e.target.value)} placeholder="We argued about..." />
@@ -1165,9 +1624,16 @@ const { useState, useEffect, useRef } = React;
                                         </div>
                                     </div>
 
+                                    <KnowledgeDrop title="Conflict: A Fact of Life">
+                                        <p>Conflict between people is a fact of life - and it's not necessarily a bad thing. In fact, a relationship with frequent conflict may be healthier than one with no observable conflict.</p>
+                                        <p>Conflicts occur at all levels of interaction - at work among friends, within families and between relationship partners.</p>
+                                        <p>Once you find yourself in a conflicted situation with someone else, it is important to reduce the emotional charge from the situation so that you and the other person can communicate rationally about the conflict and resolve it. Good communication skills are essential to resolving conflict quickly and effectively.</p>
+                                    </KnowledgeDrop>
+
                                     <div className="clay-card p-8 space-y-6 mt-8">
                                         <h3 className="font-black text-xl mb-4">Communication Skills Translator</h3>
-                                        <p className="text-sm text-slate-500 mb-6">For each example of poor communication skills, provide an alternative example of good communication skills.</p>
+                                        <p className="text-sm text-slate-500 mb-2">Below, you will find examples of poor communication skills. For each example, provide an example of good communication skills.</p>
+                                        <p className="text-xs font-black uppercase tracking-[0.18em] text-slate-400 mb-6">Examples Of Poor Communication Skills {"->"} Examples Of Good Communication Skills</p>
                                         
                                         <div className="space-y-4">
                                             {formData.commSkills.map((skill, idx) => (
@@ -1323,7 +1789,7 @@ const { useState, useEffect, useRef } = React;
                                 </div>
                             )}
 
-                            {/* NEXT BUTTON (Floating Bottom Right within container) */}
+                    {/* NEXT BUTTON (Floating Bottom Right within container) */}
                             {activeTab !== 'finish' && (
                                 <div className="mt-12 flex justify-end">
                                     <button 
@@ -1335,6 +1801,7 @@ const { useState, useEffect, useRef } = React;
                                 </div>
                             )}
                         </div>
+                    </div>
                     </div>
                 </div>
             );
