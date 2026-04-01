@@ -1,0 +1,703 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/profile/cc/ccv1p3/ccv1p3_qtiasiv1p2p1_v1p0.xsd">
+  <assessment ident="ifa8ff3ee-7c10-4266-83d5-65717f905c4d" title="Theories of Motivation Quiz">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>cc_profile</fieldlabel>
+        <fieldentry>cc.exam.v0p1</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_assessmenttype</fieldlabel>
+        <fieldentry>Examination</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>3</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_timelimit</fieldlabel>
+        <fieldentry>30</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    <section ident="i4f10cf75-347f-4381-a4b8-8fe334fe6d2e">
+      <item ident="ia7367795-a3af-4344-9bbf-8516adaf7e6e">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;When your body is deprived of something, a(n) _____ is created that arouses the body; that arousal is a(n) _____.&lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i0c17866a-ae62-4773-a825-25b54146403f" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i0dead50f-c09b-4e8c-84a9-dfd3feb42db7">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;need; drive&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i1b667489-22c8-4300-9ff9-86dd9610aab9">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;drive; need&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i29a11353-93cf-45e2-81f5-2ef9ab13f73b">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;instinct; motivation&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i435df11e-eb7c-479c-9eb8-b4e72bd75128">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;motivation; instinct&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i0c17866a-ae62-4773-a825-25b54146403f">i0dead50f-c09b-4e8c-84a9-dfd3feb42db7</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i0c17866a-ae62-4773-a825-25b54146403f">i1b667489-22c8-4300-9ff9-86dd9610aab9</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i0c17866a-ae62-4773-a825-25b54146403f">i29a11353-93cf-45e2-81f5-2ef9ab13f73b</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i0c17866a-ae62-4773-a825-25b54146403f">i435df11e-eb7c-479c-9eb8-b4e72bd75128</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="id29695c9-066a-42b7-b0ea-2bec4973fe90">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Maslow's theory would state that which of the following needs would have to be met first?&lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i831a4c01-a1c2-4257-a9aa-43d9cd5e0014" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ia530afc3-622b-45e9-a636-540b345d74fb">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Shelter&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i0c3ff7e7-0f0c-4a8b-9461-43f753fb7792">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;self-actualization&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i34acc095-af49-42cd-88f3-54688b6c6e47">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;self-esteem&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i953da46e-1f3d-4a31-939e-d243558fc292">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;sex&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i831a4c01-a1c2-4257-a9aa-43d9cd5e0014">ia530afc3-622b-45e9-a636-540b345d74fb</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i831a4c01-a1c2-4257-a9aa-43d9cd5e0014">i0c3ff7e7-0f0c-4a8b-9461-43f753fb7792</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i831a4c01-a1c2-4257-a9aa-43d9cd5e0014">i34acc095-af49-42cd-88f3-54688b6c6e47</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i831a4c01-a1c2-4257-a9aa-43d9cd5e0014">i953da46e-1f3d-4a31-939e-d243558fc292</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ib24e00f7-8d87-4576-8861-ab6f60f08610">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Evolutionary theories focus mostly on domains of life relevant to&lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i7013477d-bb61-4b79-902a-08eb6caf997c" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i1d174581-01f5-441b-b843-c0701a525da4">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;reproduction.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i4ef60b04-f8db-44e0-88d9-9e5c9832b67c">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;drive reduction.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i5cdc4a58-60d8-46af-8de0-c8cdffc2278b">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;self-actualization.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i894e331c-5786-452c-9ade-cb7418e92ee7">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;homeostasis.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i7013477d-bb61-4b79-902a-08eb6caf997c">i1d174581-01f5-441b-b843-c0701a525da4</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i7013477d-bb61-4b79-902a-08eb6caf997c">i4ef60b04-f8db-44e0-88d9-9e5c9832b67c</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i7013477d-bb61-4b79-902a-08eb6caf997c">i5cdc4a58-60d8-46af-8de0-c8cdffc2278b</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i7013477d-bb61-4b79-902a-08eb6caf997c">i894e331c-5786-452c-9ade-cb7418e92ee7</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="iac10478a-d1bf-43e7-aec2-c1416b6e4936">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Drive reduction theories focus mostly on domains of life relevant to&lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i094fdfd4-c0c8-48fc-8e82-03edbe2b56c0" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i7f65ed2e-9f76-47dd-ad89-3e1b317962fa">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;homeostasis.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i438c7c34-b7d4-4e53-b590-04dd0669405e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;self-actualization.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i53cbb797-3708-4db1-ab09-46c366dc183e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;reproduction.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i4679d673-a368-4cbb-a060-6c72864b5701">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;incentives.&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i094fdfd4-c0c8-48fc-8e82-03edbe2b56c0">i7f65ed2e-9f76-47dd-ad89-3e1b317962fa</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i094fdfd4-c0c8-48fc-8e82-03edbe2b56c0">i438c7c34-b7d4-4e53-b590-04dd0669405e</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i094fdfd4-c0c8-48fc-8e82-03edbe2b56c0">i53cbb797-3708-4db1-ab09-46c366dc183e</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i094fdfd4-c0c8-48fc-8e82-03edbe2b56c0">i4679d673-a368-4cbb-a060-6c72864b5701</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i2fa6ddce-2586-492d-ad4b-43ef1d45db0e">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Maslow's hierarchy is &lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i4d52408d-1b88-4f21-9ccd-21f71f576300" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i4cbe6363-cab8-4237-a87a-c8e10d7d8545">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;a dynamic idea. Motivations can skip around within it. &lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ic4a5dc2c-8c04-4fa4-a211-72270646e51a">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;a static idea. Motivations are linear through it. &lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i54a2f5b5-89f4-4f1e-aad1-c03c96ad9589">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;backed by a lot of empirical research.&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i4d52408d-1b88-4f21-9ccd-21f71f576300">i4cbe6363-cab8-4237-a87a-c8e10d7d8545</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i4d52408d-1b88-4f21-9ccd-21f71f576300">ic4a5dc2c-8c04-4fa4-a211-72270646e51a</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i4d52408d-1b88-4f21-9ccd-21f71f576300">i54a2f5b5-89f4-4f1e-aad1-c03c96ad9589</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i617adc2c-001a-4819-a3cf-900ca563f7a2">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Khan feels thirsty, drinks a glass of water, and no longer feels thirsty. In terms of drive reduction theory, Khan has&lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="if8780bbd-0f2e-4589-b2f2-37214cf29e27" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="iea20104c-f4ac-472e-be91-4d63e1fb80a6">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;achieved homeostasis.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i99fb3276-9b62-4990-90a4-d8888aeb5e2c">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;been motivated by an expectancy.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="if4624a53-2b69-4cec-a966-826a6a7c17b8">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;been motivated by an incentive.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i0754d393-c1ad-44ce-93a6-51a55f16f140">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;engaged in a fixed action pattern.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="if8780bbd-0f2e-4589-b2f2-37214cf29e27">iea20104c-f4ac-472e-be91-4d63e1fb80a6</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if8780bbd-0f2e-4589-b2f2-37214cf29e27">i99fb3276-9b62-4990-90a4-d8888aeb5e2c</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if8780bbd-0f2e-4589-b2f2-37214cf29e27">if4624a53-2b69-4cec-a966-826a6a7c17b8</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if8780bbd-0f2e-4589-b2f2-37214cf29e27">i0754d393-c1ad-44ce-93a6-51a55f16f140</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i7b0f516a-1584-41b2-b115-b7ac57b42b84">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;The motivation to avoid boredom and stress best describes the&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i36b0f278-1010-43aa-88be-429f5faeb501" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="if9d980fd-025e-4255-9dc7-a3dc1a58af1b">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;optimal arousal theory&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ica4569d2-f300-4991-9924-018dacdf23dd">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;evolutionary theory&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i29814baf-5078-45d0-bf60-4948b4bb9d0b">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;drive reduction theory&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i93984bb9-5620-43e6-a42d-f4380db61093">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;hierarchy theory of Maslow&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i36b0f278-1010-43aa-88be-429f5faeb501">if9d980fd-025e-4255-9dc7-a3dc1a58af1b</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i36b0f278-1010-43aa-88be-429f5faeb501">ica4569d2-f300-4991-9924-018dacdf23dd</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i36b0f278-1010-43aa-88be-429f5faeb501">i29814baf-5078-45d0-bf60-4948b4bb9d0b</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i36b0f278-1010-43aa-88be-429f5faeb501">i93984bb9-5620-43e6-a42d-f4380db61093</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="iba974f64-9a40-4c8f-9b6c-3a707dcf26e9">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;A thing that motivates or encourages one to do something is&lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i0931653b-1f22-457b-95bd-eb844beea988" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i0398550f-1dee-4247-be96-8656969ff63f">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;an incentive&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i284ccc60-7266-4c0d-83e9-ed61062d8e5a">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;ostracism &lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i945ddd6f-88e3-41bf-a2cf-93ca0afc30c4">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;homeostasis &lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="icd62f7bf-f1d2-457a-8c5c-98005c7d9359">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;instinct&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i0931653b-1f22-457b-95bd-eb844beea988">i0398550f-1dee-4247-be96-8656969ff63f</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i0931653b-1f22-457b-95bd-eb844beea988">i284ccc60-7266-4c0d-83e9-ed61062d8e5a</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i0931653b-1f22-457b-95bd-eb844beea988">i945ddd6f-88e3-41bf-a2cf-93ca0afc30c4</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i0931653b-1f22-457b-95bd-eb844beea988">icd62f7bf-f1d2-457a-8c5c-98005c7d9359</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ia0ef6e9e-8d41-44a8-81b3-56340609df1a">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Social bonding &lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i1c396bf3-f0d9-4c16-8bdc-013067f0735f" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i1707cc00-4e31-4555-906a-9b1a319da8c4">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;helps us to survive.&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i0190c8e8-b405-4993-85a6-b6cd7dd5af51">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;leads to ostracism &lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ib7808184-48ec-4eae-ad4d-487e11b488e7">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;is a reflex. &lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i1c396bf3-f0d9-4c16-8bdc-013067f0735f">i1707cc00-4e31-4555-906a-9b1a319da8c4</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i1c396bf3-f0d9-4c16-8bdc-013067f0735f">i0190c8e8-b405-4993-85a6-b6cd7dd5af51</varequal>
+            </conditionvar>
+            <displayfeedback feedbacktype="Response" linkrefid="i0190c8e8-b405-4993-85a6-b6cd7dd5af51_fb" />
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i1c396bf3-f0d9-4c16-8bdc-013067f0735f">ib7808184-48ec-4eae-ad4d-487e11b488e7</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="i0190c8e8-b405-4993-85a6-b6cd7dd5af51_fb">
+          <flow_mat>
+            <material>
+              <mattext texttype="text/html">&lt;p&gt;leads to independence  &lt;/p&gt;</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+      <item ident="i26626972-5f63-4dbe-a7e1-0ad8be694deb">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Which of the following is NOT an example of ostracism? &lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i82386354-fa8b-4389-81ec-cc55b71b7cd6" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i3bd9fe80-86f0-4843-8142-c005bce4d6c1">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Minnesota starvation experiment &lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i1f724d2e-8aad-41b7-bad1-ff05fb5b717f">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Solitary confinement&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i299d6205-d53f-4e09-8f49-002aa759dda3">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;time out &lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ie95385c9-7f03-4369-90a9-54ace28679be">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;exile&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i82386354-fa8b-4389-81ec-cc55b71b7cd6">i3bd9fe80-86f0-4843-8142-c005bce4d6c1</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i82386354-fa8b-4389-81ec-cc55b71b7cd6">i1f724d2e-8aad-41b7-bad1-ff05fb5b717f</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i82386354-fa8b-4389-81ec-cc55b71b7cd6">i299d6205-d53f-4e09-8f49-002aa759dda3</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i82386354-fa8b-4389-81ec-cc55b71b7cd6">ie95385c9-7f03-4369-90a9-54ace28679be</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+    </section>
+  </assessment>
+</questestinterop>

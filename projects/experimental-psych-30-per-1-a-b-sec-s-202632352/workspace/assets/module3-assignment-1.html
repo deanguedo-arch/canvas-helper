@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 3 Assignment 1 Interactive</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body class="bg-transparent">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: transparent;
+    }
+  </style>
+  <div id="app" class="w-full p-2 sm:p-4 text-slate-500 font-serif">
+    Loading assignment...
+  </div>
+  <pre id="runtime-error" class="hidden whitespace-pre-wrap max-w-5xl mx-auto my-8 p-4 border border-red-300 bg-red-50 text-red-900 text-sm"></pre>
+
+  <script>
+    (async () => {
+      const appNode = document.getElementById("app");
+      const errorNode = document.getElementById("runtime-error");
+
+      const showError = (message) => {
+        appNode.className = "hidden";
+        errorNode.className = "whitespace-pre-wrap max-w-5xl mx-auto my-8 p-4 border border-red-300 bg-red-50 text-red-900 text-sm";
+        errorNode.textContent = message;
+      };
+
+      const normalizeSource = (source) =>
+        source
+          .replace(/^\s*import\s+React\s*,\s*\{[\s\S]*?\}\s+from\s+['"]react['"];?\s*$/m, "")
+          .replace(/^\s*import\s+\{[\s\S]*?\}\s+from\s+['"]lucide-react['"];?\s*$/m, "")
+          .replace(/^\s*export\s+default\s+function\s+App\s*\(/m, "function App(");
+
+      try {
+        const response = await fetch("./module3section1and2.source.jsx?v=20260330b");
+        if (!response.ok) {
+          throw new Error("Could not load source file for Module 3 Assignment 1.");
+        }
+
+        const source = await response.text();
+        const stripped = normalizeSource(source);
+
+        const prelude = [
+          "const { useState, useEffect } = React;",
+          "const iconFactory = () => function Icon() {",
+          "  return null;",
+          "};",
+          "const Activity = iconFactory();",
+          "const CheckCircle = iconFactory();",
+          "const BarChart2 = iconFactory();",
+          "const PieChart = iconFactory();",
+          "const Printer = iconFactory();",
+          "const CheckSquare = iconFactory();",
+          "const Square = iconFactory();",
+          "const FileText = iconFactory();"
+        ].join("\n");
+
+        const boot = [
+          "const root = ReactDOM.createRoot(document.getElementById('app'));",
+          "root.render(<App />);"
+        ].join("\n");
+
+        const fullScript = `${prelude}\n${stripped}\n${boot}\n`;
+        const compiled = Babel.transform(fullScript, { presets: ["react"] }).code;
+        new Function(compiled)();
+      } catch (error) {
+        const details = error && error.stack ? error.stack : String(error);
+        showError(`Module 3 assignment failed to load.\n\n${details}`);
+      }
+    })();
+  </script>
+</body>
+</html>

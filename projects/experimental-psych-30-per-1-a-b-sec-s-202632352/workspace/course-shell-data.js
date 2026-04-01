@@ -9,7 +9,7 @@ export default {
       "id": "i2b44416a-ee5b-4a62-aac4-bfe853fff091",
       "title": "Module 1: Experimental Psychology Overview",
       "overline": "Module 1",
-      "summary": "Assessment",
+      "summary": "Practice Quiz",
       "sequence": 1,
       "lessonCount": 33,
       "assessmentCount": 3,
@@ -37,7 +37,7 @@ export default {
         {
           "id": "experimental-psych-30-per-1-a-b-sec-s-202632352::ib1ceba9f-e5c7-40fa-8ef8-e87ce79ceddf",
           "kind": "assessment",
-          "title": "Module 1 Assessment",
+          "title": "Module 1 Practice Quiz",
           "description": "Assessment item",
           "order": 1,
           "linkedAssessmentIds": [],
@@ -303,7 +303,7 @@ export default {
         {
           "id": "experimental-psych-30-per-1-a-b-sec-s-202632352::icb988b35-3f9c-4ea7-b754-a11afaad4fa5",
           "kind": "assessment",
-          "title": "Assignment 1 (M1 S1 and S2)",
+          "title": "Module 1 Assignment 1",
           "description": "Assessment item",
           "order": 15,
           "linkedAssessmentIds": [],
@@ -695,14 +695,14 @@ export default {
           "moduleVisibilityLabel": "visible",
           "sourceHref": "сontent/i4ad2ee24-9c63-4785-b430-45099312fd87/Section 4 Summary.html",
           "resourceKind": "html",
-          "contentBody": "Conclusion Page\nSection 4 Summary\nYou have reached the end of Section 4. You are almost done Module 1.\nNext Steps\nComplete Assignment 2 that covers the concepts learned in Section 3 and Section 4.\nWhen you have received feedback from your teacher, you will be provided with access to the Module 1 Assessment. Complete the assessment when you are ready (you do not need to complete the first assessment before moving on to Module 2).",
+          "contentBody": "Conclusion Page\nSection 4 Summary\nYou have reached the end of Section 4. You are almost done Module 1.\nNext Steps\nComplete Assignment 2 that covers the concepts learned in Section 3 and Section 4.\nWhen you have received feedback from your teacher, you will be provided with access to the Module 1 Practice Quiz. Complete the assessment when you are ready (you do not need to complete the first assessment before moving on to Module 2).",
           "contentPreview": "Conclusion Page Section 4 Summary You have reached the end of Section 4. You are almost done Module 1. Next Steps Complete Assignment 2 that covers the concepts learned in Section 3 and Section 4. When you have received…",
           "renderHint": "reading"
         },
         {
           "id": "experimental-psych-30-per-1-a-b-sec-s-202632352::i44adafd4-4851-47a1-9b49-7ff0bcb538f2",
           "kind": "assessment",
-          "title": "Assignment 2 (M1 S3 and S4)",
+          "title": "Module 1 Assignment 2",
           "description": "Assessment item",
           "order": 36,
           "linkedAssessmentIds": [],
@@ -724,7 +724,7 @@ export default {
       "id": "i42250139-45c8-4efc-9312-b6113ca2ae44",
       "title": "Module 2: Statistics",
       "overline": "Module 2",
-      "summary": "Assessment",
+      "summary": "Practice Quiz",
       "sequence": 2,
       "lessonCount": 27,
       "assessmentCount": 3,
@@ -752,7 +752,7 @@ export default {
         {
           "id": "experimental-psych-30-per-1-a-b-sec-s-202632352::i049592c8-da88-493a-9713-8fc089414345",
           "kind": "assessment",
-          "title": "Module 2 Assessment",
+          "title": "Module 2 Practice Quiz",
           "description": "Assessment item",
           "order": 1,
           "linkedAssessmentIds": [],
@@ -1037,7 +1037,7 @@ export default {
         {
           "id": "experimental-psych-30-per-1-a-b-sec-s-202632352::ie47df4ed-60c4-43a2-ba5a-55c1fbff8876",
           "kind": "assessment",
-          "title": "Assignment 3 (M2 S1 and S2)",
+          "title": "Module 2 Assignment 1",
           "description": "Assessment item",
           "order": 16,
           "linkedAssessmentIds": [],
@@ -1296,7 +1296,7 @@ export default {
           "moduleVisibilityLabel": "visible",
           "sourceHref": "сontent/ib688abb7-7458-4213-a7e3-713459396c06/Section 4 Summary - Copy.html",
           "resourceKind": "html",
-          "contentBody": "Conclusion Page\nSection 4 Summary\nYou have now completed Module 2 Section 4.\nNext Steps\nUsing Section 3 and Section 4 as a  guideline, complete Assignment 4.  When you have completed the assignment, upload it to Brightspace.\nOnce you receive feedback you will be given access to the Module 2 Assessment. You do not need to complete this assessment before moving on with Module 3.",
+          "contentBody": "Conclusion Page\nSection 4 Summary\nYou have now completed Module 2 Section 4.\nNext Steps\nUsing Section 3 and Section 4 as a  guideline, complete Assignment 4.  When you have completed the assignment, upload it to Brightspace.\nOnce you receive feedback you will be given access to the Module 2 Practice Quiz. You do not need to complete this assessment before moving on with Module 3.",
           "contentPreview": "Conclusion Page Section 4 Summary You have now completed Module 2 Section 4. Next Steps Using Section 3 and Section 4 as a guideline, complete Assignment 4. When you have completed the assignment, upload it to Brightspa…",
           "renderHint": "reading"
         },
@@ -1325,7 +1325,7 @@ export default {
       "id": "i020e3b7e-49e3-4c6e-b0dc-b41df95a5e49",
       "title": "Module 3: Conducting Research",
       "overline": "Module 3",
-      "summary": "Assessment",
+      "summary": "Practice Quiz",
       "sequence": 3,
       "lessonCount": 39,
       "assessmentCount": 3,
@@ -1353,7 +1353,7 @@ export default {
         {
           "id": "experimental-psych-30-per-1-a-b-sec-s-202632352::i8d06840c-e85f-423c-afd0-cf325a93692e",
           "kind": "assessment",
-          "title": "Module 3 Assessment",
+          "title": "Module 3 Practice Quiz",
           "description": "Assessment item",
           "order": 1,
           "linkedAssessmentIds": [],
@@ -1657,7 +1657,7 @@ export default {
         {
           "id": "experimental-psych-30-per-1-a-b-sec-s-202632352::i1aa75cee-bf99-440b-8778-88a0c821f708",
           "kind": "assessment",
-          "title": "Assignment 5 (M3 S1 and S2)",
+          "title": "Module 3 Assignment 1",
           "description": "Assessment item",
           "order": 17,
           "linkedAssessmentIds": [],
@@ -2125,14 +2125,14 @@ export default {
           "moduleVisibilityLabel": "visible",
           "sourceHref": "сontent/i7d647901-2618-476b-8124-3ced6a0c2ffe/Section 4 Summary - Copy (1).html",
           "resourceKind": "html",
-          "contentBody": "Conclusion Page\nSection 4 Summary\nYou have now completed Section 4 of Module 3.\nNext Steps\nUsing content from Section 3 and Section 4 you can complete Assignment 6.  When you are done, submit your assignment to Brightspace.  Once you receive feedback from your teacher, you will be given access to the Module 3 Assessment.",
+          "contentBody": "Conclusion Page\nSection 4 Summary\nYou have now completed Section 4 of Module 3.\nNext Steps\nUsing content from Section 3 and Section 4 you can complete Assignment 6.  When you are done, submit your assignment to Brightspace.  Once you receive feedback from your teacher, you will be given access to the Module 3 Practice Quiz.",
           "contentPreview": "Conclusion Page Section 4 Summary You have now completed Section 4 of Module 3. Next Steps Using content from Section 3 and Section 4 you can complete Assignment 6. When you are done, submit your assignment to Brightspa…",
           "renderHint": "reading"
         },
         {
           "id": "experimental-psych-30-per-1-a-b-sec-s-202632352::ibccc0d6e-3b86-49b2-bf94-96679fb80bc2",
           "kind": "assessment",
-          "title": "Assignment 6 (M3 S3 and S4)",
+          "title": "Module 3 Assignment 2",
           "description": "Assessment item",
           "order": 42,
           "linkedAssessmentIds": [],
@@ -2335,10 +2335,10 @@ export default {
         "id": "i2b44416a-ee5b-4a62-aac4-bfe853fff091",
         "title": "Module 1: Experimental Psychology Overview",
         "type": "module",
-        "summary": "Assessment",
+      "summary": "Practice Quiz",
         "items": [
           "Module 1: Experimental Psychology Overview: Assessment",
-          "Module 1 Assessment: Assessment item",
+          "Module 1 Practice Quiz: Assessment item",
           "What is Experimental Psychology?: Course content item",
           "Behavioural and Biological Perspectives: Course content item",
           "History of Experimental Psychology: Course content item",
@@ -2352,7 +2352,7 @@ export default {
           "Real Life Inspiration for Research: Course content item",
           "The Bystander Effect: Course content item",
           "Section 2 Conclusion: Course content item",
-          "Assignment 1 (M1 S1 and S2): Assessment item",
+          "Module 1 Assignment 1: Assessment item",
           "Scientific Method Defined: Course content item",
           "Step 1: Stating the Question or Problem: Course content item",
           "Step 2: Stating the Hypothesis: Course content item",
@@ -2373,17 +2373,17 @@ export default {
           "Let There Be Light!: Course content item",
           "The Power of Words and Behaviour: Course content item",
           "Section 4 Summary: Course content item",
-          "Assignment 2 (M1 S3 and S4): Assessment item"
+"Module 1 Assignment 2: Assessment item"
         ]
       },
       {
         "id": "i42250139-45c8-4efc-9312-b6113ca2ae44",
         "title": "Module 2: Statistics",
         "type": "module",
-        "summary": "Assessment",
+      "summary": "Practice Quiz",
         "items": [
           "Module 2: Statistics: Assessment",
-          "Module 2 Assessment: Assessment item",
+          "Module 2 Practice Quiz: Assessment item",
           "EP30 Module Two Readings.docx: Course content item",
           "Means, Modes, and Other Measures of Central Tendancy: Course content item",
           "Mode, Median, and Mean: Course content item",
@@ -2398,7 +2398,7 @@ export default {
           "Cognitive Systems: Course content item",
           "Transferability of Research Results: Course content item",
           "Section 2 Summary: Course content item",
-          "Assignment 3 (M2 S1 and S2): Assessment item",
+          "Module 2 Assignment 1: Assessment item",
           "Blinded Research: Course content item",
           "Double-Blind Experiments: Course content item",
           "The Placebo Effect: Course content item",
@@ -2419,10 +2419,10 @@ export default {
         "id": "i020e3b7e-49e3-4c6e-b0dc-b41df95a5e49",
         "title": "Module 3: Conducting Research",
         "type": "module",
-        "summary": "Assessment",
+      "summary": "Practice Quiz",
         "items": [
           "Module 3: Conducting Research: Assessment",
-          "Module 3 Assessment: Assessment item",
+          "Module 3 Practice Quiz: Assessment item",
           "Sampling: Course content item",
           "Sampling Methods: Course content item",
           "Probability Sampling: Course content item",
@@ -2438,7 +2438,7 @@ export default {
           "Data Analysis and Checklist Review: Course content item",
           "Understanding Graphs: Course content item",
           "Section 2 Summary: Course content item",
-          "Assignment 5 (M3 S1 and S2): Assessment item",
+"Module 3 Assignment 1: Assessment item",
           "Humans in Research: Course content item",
           "Animals in Research: Course content item",
           "Approval Process: Course content item",
@@ -2463,7 +2463,7 @@ export default {
           "Baby Albert: Course content item",
           "CS#16: Baby Albert: Course content item",
           "Section 4 Summary: Course content item",
-          "Assignment 6 (M3 S3 and S4): Assessment item"
+          "Module 3 Assignment 2: Assessment item"
         ]
       },
       {

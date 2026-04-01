@@ -1,0 +1,377 @@
+import React, { useState } from 'react';
+import { ChevronRight, ChevronLeft, CheckSquare, Copy, ArrowRight, BookOpen, AlertCircle } from 'lucide-react';
+
+const questionsA = [
+  { id: 'a1', text: "Is conducting research on children who cannot consent to participate acceptable?" },
+  { id: 'a2', text: "Is it a bad act, an acceptable option, or perhaps even a duty of kindness to hasten the death for a suffering person who wants to die?" },
+  { id: 'a3', text: "Is it acceptable to choose or engineer the genetic traits of one's child?" },
+  { id: 'a4', text: "Is it acceptable to transplant the heart of a pig into a human being with heart failure?" }
+];
+
+const sectionBTopics = [
+  { 
+    id: 'topic1',
+    title: "Topic 1: Treatment Decisions",
+    questions: [
+      "Who should decide which treatment a patient gets – doctors, insurance company, government regulators, patient, patient's family?",
+      "What if the treatment is dangerous, extremely expensive, or usually doesn't work? Would that make a difference?"
+    ]
+  },
+  { 
+    id: 'topic2',
+    title: "Topic 2: Freedom vs. Public Health",
+    questions: [
+      "Should we force people to stop smoking or wear seatbelts, or should people be free to injure themselves?",
+      "Is it fair to make people who take avoidable risks pay more for health care?"
+    ]
+  },
+  { 
+    id: 'topic3',
+    title: "Topic 3: Defining Health & Disability",
+    questions: [
+      "What exactly do the words 'health', 'disease' and 'disability' mean? Who gets to define these terms, and for what purposes?",
+      "How do we avoid stigma for people identified as disabled or mentally ill?"
+    ]
+  }
+];
+
+export default function App() {
+  const [step, setStep] = useState(1);
+  const [section, setSection] = useState(null);
+  const [selectedQuestion, setSelectedQuestion] = useState(null);
+  const [drafts, setDrafts] = useState({});
+  const [copied, setCopied] = useState(false);
+
+  const handleNext = () => setStep(prev => prev + 1);
+  const handleBack = () => setStep(prev => prev - 1);
+
+  const handleDraftChange = (key, value) => {
+    setDrafts(prev => ({ ...prev, [key]: value }));
+  };
+
+  const copyToClipboard = () => {
+    let textToCopy = `--- FORM EP-30: ETHICS OUTLINE (SECTION ${section}) ---\n\n`;
+    
+    if (section === 'A') {
+      const q = questionsA.find(q => q.id === selectedQuestion)?.text;
+      textToCopy += `QUESTION:\n${q}\n\n`;
+      textToCopy += `[PARAGRAPH 1 & 2: STANCE AND REASONS]\n${drafts.a_stance || 'No notes yet.'}\n\n`;
+      textToCopy += `[FINAL PARAGRAPH: ALTERNATIVE PERSPECTIVE]\n${drafts.a_counter || 'No notes yet.'}\n`;
+    } else {
+      textToCopy += `COMPREHENSIVE ANALYSIS OF ALL SECTION B TOPICS\n\n`;
+      sectionBTopics.forEach((topic) => {
+        textToCopy += `[${topic.title.toUpperCase()}]\n`;
+        topic.questions.forEach(q => textToCopy += `- ${q}\n`);
+        textToCopy += `RESPONSE: ${drafts[topic.id] || 'No notes yet.'}\n\n`;
+      });
+    }
+
+    navigator.clipboard.writeText(textToCopy);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const renderStep1 = () => (
+    <div className="space-y-8 animate-in fade-in duration-300">
+      <div className="border-b-4 border-slate-900 pb-4 mb-8">
+        <h2 className="text-3xl font-serif font-bold text-slate-900 flex items-center gap-3">
+          <BookOpen className="text-slate-900" size={32} />
+          Structural Selection
+        </h2>
+        <p className="font-mono text-sm uppercase tracking-widest text-slate-600 mt-2">
+          Directive: Choose preferred academic format.
+        </p>
+      </div>
+      
+      <div className="grid md:grid-cols-2 gap-8">
+        <button 
+          onClick={() => { setSection('A'); setSelectedQuestion(null); handleNext(); }}
+          className="p-8 bg-white border-2 border-slate-900 shadow-[6px_6px_0px_rgba(30,41,59,1)] hover:-translate-y-1 hover:shadow-[8px_8px_0px_rgba(30,41,59,1)] active:translate-y-0 active:shadow-[2px_2px_0px_rgba(30,41,59,1)] transition-all text-left rounded-none group relative"
+        >
+          <div className="absolute top-0 right-0 bg-slate-900 text-white font-mono text-xs uppercase tracking-widest px-2 py-1">Mode 01</div>
+          <h3 className="text-2xl font-serif font-bold text-slate-900 mb-4 border-b-2 border-slate-200 pb-2 group-hover:border-slate-900 transition-colors">Section A: Focus</h3>
+          <p className="text-base font-serif text-slate-700 mb-6 leading-relaxed">Choose ONE deep ethical question. Requires heavy argumentative depth and a counter-perspective paragraph.</p>
+          <ul className="text-xs font-mono text-slate-600 uppercase tracking-wider space-y-2">
+            <li className="flex items-center gap-2"><ChevronRight size={14}/> 2-3 paragraphs for your view</li>
+            <li className="flex items-center gap-2"><ChevronRight size={14}/> 1 paragraph for opposing view</li>
+          </ul>
+        </button>
+
+        <button 
+          onClick={() => { setSection('B'); setSelectedQuestion('all-b'); handleNext(); }}
+          className="p-8 bg-white border-2 border-slate-900 shadow-[6px_6px_0px_rgba(30,41,59,1)] hover:-translate-y-1 hover:shadow-[8px_8px_0px_rgba(30,41,59,1)] active:translate-y-0 active:shadow-[2px_2px_0px_rgba(30,41,59,1)] transition-all text-left rounded-none group relative"
+        >
+          <div className="absolute top-0 right-0 bg-slate-900 text-white font-mono text-xs uppercase tracking-widest px-2 py-1">Mode 02</div>
+          <h3 className="text-2xl font-serif font-bold text-slate-900 mb-4 border-b-2 border-slate-200 pb-2 group-hover:border-slate-900 transition-colors">Section B: Breadth</h3>
+          <p className="text-base font-serif text-slate-700 mb-6 leading-relaxed">Respond to ALL topics within the section. Requires broad analysis of treatment, freedom, and health definitions.</p>
+          <ul className="text-xs font-mono text-slate-600 uppercase tracking-wider space-y-2">
+            <li className="flex items-center gap-2"><ChevronRight size={14}/> Individual boxes for 3 ethical areas</li>
+            <li className="flex items-center gap-2"><ChevronRight size={14}/> Comprehensive response format</li>
+          </ul>
+        </button>
+      </div>
+    </div>
+  );
+
+  const renderStep2 = () => {
+    if (section === 'B') {
+        handleNext();
+        return null;
+    }
+
+    return (
+      <div className="space-y-8 animate-in fade-in duration-300">
+        <button onClick={handleBack} className="flex items-center font-mono text-xs uppercase tracking-widest text-slate-500 hover:text-slate-900 transition-colors">
+          <ChevronLeft size={16} className="mr-1" /> Back to Selection
+        </button>
+        
+        <div className="border-b-4 border-slate-900 pb-4">
+          <h2 className="text-3xl font-serif font-bold text-slate-900">
+            Topic Designation: Section A
+          </h2>
+          <p className="font-mono text-sm uppercase tracking-widest text-slate-600 mt-2">
+            Directive: Select a primary question for focused analysis.
+          </p>
+        </div>
+
+        <div className="space-y-4">
+          {questionsA.map((q) => (
+            <div 
+              key={q.id}
+              onClick={() => setSelectedQuestion(q.id)}
+              className={`p-6 border-2 rounded-none cursor-pointer transition-all flex items-start gap-4 relative
+                ${selectedQuestion === q.id 
+                  ? 'border-slate-900 bg-slate-900 text-[#faf9f6] shadow-[4px_4px_0px_rgba(30,41,59,1)]' 
+                  : 'border-slate-300 bg-white hover:border-slate-900 text-slate-800'}`}
+            >
+              <div className={`mt-1 flex-shrink-0 ${selectedQuestion === q.id ? 'text-[#f0fdf4]' : 'text-slate-300'}`}>
+                <CheckSquare size={24} fill={selectedQuestion === q.id ? 'currentColor' : 'none'} className={selectedQuestion === q.id ? 'text-slate-900' : ''} />
+              </div>
+              <p className={`font-serif text-lg leading-relaxed ${selectedQuestion === q.id ? 'font-bold' : ''}`}>
+                {q.text}
+              </p>
+            </div>
+          ))}
+        </div>
+        
+        <div className="flex justify-end pt-6 border-t-2 border-slate-200">
+          <button 
+            disabled={!selectedQuestion}
+            onClick={handleNext}
+            className={`flex items-center gap-2 px-8 py-4 font-mono text-sm font-bold uppercase tracking-widest rounded-none transition-all
+              ${selectedQuestion 
+                ? 'bg-[#f0fdf4] text-emerald-900 border-2 border-slate-900 shadow-[4px_4px_0px_rgba(30,41,59,1)] hover:-translate-y-1 hover:shadow-[6px_6px_0px_rgba(30,41,59,1)] active:translate-y-0 active:shadow-none' 
+                : 'bg-slate-200 text-slate-400 border-2 border-slate-300 cursor-not-allowed'}`}
+          >
+            Initialize Draft <ArrowRight size={18} />
+          </button>
+        </div>
+      </div>
+    );
+  };
+
+  const renderStep3 = () => {
+    return (
+      <div className="space-y-8 animate-in fade-in duration-300">
+        <button onClick={handleBack} className="flex items-center font-mono text-xs uppercase tracking-widest text-slate-500 hover:text-slate-900 transition-colors">
+          <ChevronLeft size={16} className="mr-1" /> {section === 'A' ? 'Back to Topics' : 'Back to Selection'}
+        </button>
+        
+        <div className="border-b-4 border-slate-900 pb-4">
+          <h2 className="text-3xl font-serif font-bold text-slate-900">
+            Drafting Console
+          </h2>
+          <p className="font-mono text-sm uppercase tracking-widest text-slate-600 mt-2">
+            Directive: Input academic arguments for Section {section}.
+          </p>
+        </div>
+        
+        <div className="p-4 bg-slate-200 border-l-4 border-slate-900 flex gap-3">
+          <AlertCircle className="text-slate-900 flex-shrink-0" />
+          <p className="font-serif text-slate-800 text-sm">
+            {section === 'A' 
+              ? "Requirement: Construct 2-3 paragraphs defending your view, AND a final paragraph explaining why someone might disagree."
+              : "Requirement: You must provide a separate response for each of the three topics listed below."}
+          </p>
+        </div>
+
+        {section === 'A' ? (
+          <div className="space-y-8">
+            <div className="space-y-3">
+              <label className="font-mono text-xs font-bold uppercase tracking-widest text-slate-900 bg-slate-200 px-2 py-1 inline-block">
+                Part 1: Stance & Reasons (2-3 Paragraphs)
+              </label>
+              <textarea 
+                className="w-full h-40 p-4 bg-slate-50 border-2 border-slate-400 rounded-none focus:bg-white focus:border-slate-900 focus:ring-0 focus:shadow-[4px_4px_0px_rgba(30,41,59,1)] outline-none resize-y font-serif text-slate-800 transition-all print:border-none print:shadow-none"
+                placeholder="State your position clearly. Provide multiple supporting arguments..."
+                value={drafts.a_stance || ''}
+                onChange={(e) => handleDraftChange('a_stance', e.target.value)}
+              />
+            </div>
+            <div className="space-y-3">
+              <label className="font-mono text-xs font-bold uppercase tracking-widest text-slate-900 bg-slate-200 px-2 py-1 inline-block">
+                Part 2: Opposing View (Final Paragraph)
+              </label>
+              <textarea 
+                className="w-full h-32 p-4 bg-slate-50 border-2 border-slate-400 rounded-none focus:bg-white focus:border-slate-900 focus:ring-0 focus:shadow-[4px_4px_0px_rgba(30,41,59,1)] outline-none resize-y font-serif text-slate-800 transition-all print:border-none print:shadow-none"
+                placeholder="Conversely, an opponent might argue that..."
+                value={drafts.a_counter || ''}
+                onChange={(e) => handleDraftChange('a_counter', e.target.value)}
+              />
+            </div>
+          </div>
+        ) : (
+          <div className="space-y-12">
+            {sectionBTopics.map((topic, tIdx) => (
+              <div key={tIdx} className="space-y-4">
+                <div className="bg-slate-100 p-6 border-l-4 border-slate-900 space-y-3">
+                  <h3 className="font-serif font-bold text-lg text-slate-900">{topic.title}</h3>
+                  <ul className="list-disc list-inside font-serif text-slate-700 text-sm space-y-1">
+                    {topic.questions.map((q, qIdx) => (
+                      <li key={qIdx}>{q}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="space-y-3">
+                  <label className="font-mono text-xs font-bold uppercase tracking-widest text-slate-900 bg-slate-200 px-2 py-1 inline-block">
+                    Topic {tIdx + 1} Response
+                  </label>
+                  <textarea 
+                    className="w-full h-48 p-4 bg-slate-50 border-2 border-slate-400 rounded-none focus:bg-white focus:border-slate-900 focus:ring-0 focus:shadow-[4px_4px_0px_rgba(30,41,59,1)] outline-none resize-y font-serif text-slate-800 transition-all print:border-none print:shadow-none"
+                    placeholder={`Enter your analysis for ${topic.title}...`}
+                    value={drafts[topic.id] || ''}
+                    onChange={(e) => handleDraftChange(topic.id, e.target.value)}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        <div className="flex justify-end pt-8 border-t-2 border-slate-200">
+          <button 
+            onClick={handleNext}
+            className="flex items-center gap-2 px-8 py-4 bg-slate-900 text-white border-2 border-slate-900 font-mono text-sm font-bold uppercase tracking-widest shadow-[4px_4px_0px_rgba(30,41,59,1)] hover:-translate-y-1 hover:shadow-[6px_6px_0px_rgba(30,41,59,1)] active:translate-y-0 active:shadow-none transition-all rounded-none"
+          >
+            Review & Export <ArrowRight size={18} />
+          </button>
+        </div>
+      </div>
+    );
+  };
+
+  const renderStep4 = () => {
+    return (
+      <div className="space-y-8 animate-in fade-in duration-300">
+        <div className="border-b-4 border-slate-900 pb-4 mb-8">
+          <h2 className="text-3xl font-serif font-bold text-slate-900">
+            Final Output Generated
+          </h2>
+          <p className="font-mono text-sm uppercase tracking-widest text-slate-600 mt-2">
+            Directive: Copy contents for submission to Brightspace.
+          </p>
+        </div>
+
+        <div className="bg-white border-2 border-slate-900 p-8 md:p-12 shadow-[8px_8px_0px_rgba(30,41,59,1)] relative print:shadow-none print:border-none print:p-0">
+          
+          <div className="absolute top-8 right-8 font-mono text-xs uppercase tracking-widest text-slate-400 text-right print:hidden">
+            Document ID: {Math.random().toString(36).substring(2, 10).toUpperCase()}<br/>
+            Status: Final Review
+          </div>
+          
+          <div className="absolute -top-4 -left-4 bg-[#f0fdf4] text-emerald-900 border-2 border-slate-900 px-4 py-2 font-mono text-xs font-bold uppercase -rotate-2 shadow-[4px_4px_0px_rgba(30,41,59,1)] print:hidden z-10">
+            Action Required
+          </div>
+
+          <button 
+            onClick={copyToClipboard}
+            className="absolute -bottom-4 -right-4 bg-slate-900 text-white border-2 border-slate-900 px-6 py-3 font-mono text-sm font-bold uppercase tracking-widest shadow-[4px_4px_0px_rgba(203,213,225,1)] hover:-translate-y-1 hover:shadow-[6px_6px_0px_rgba(203,213,225,1)] active:translate-y-0 active:shadow-none transition-all flex items-center gap-2 print:hidden z-10"
+          >
+            {copied ? <><CheckSquare size={16}/> Copied to Clipboard</> : <><Copy size={16} /> Copy to Clipboard</>}
+          </button>
+          
+          <div className="whitespace-pre-wrap font-serif text-base text-slate-900 mt-8 relative z-0">
+            <div className="font-mono text-xs uppercase tracking-widest text-slate-500 mb-8 pb-4 border-b-2 border-slate-200">
+              --- EP-30: Assignment Outline (Section {section}) ---
+            </div>
+            
+            {section === 'A' ? (
+              <>
+                <div className="font-mono text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">Selected Question</div>
+                <div className="text-xl font-bold mb-8">{questionsA.find(q => q.id === selectedQuestion)?.text}</div>
+                
+                <div className="font-mono text-xs font-bold uppercase tracking-widest text-slate-500 mb-2 border-l-4 border-slate-900 pl-2">Paragraph 1 & 2: Stance and Reasons</div>
+                <div className="mb-8 leading-relaxed italic">{drafts.a_stance || 'No data entered.'}</div>
+                
+                <div className="font-mono text-xs font-bold uppercase tracking-widest text-slate-500 mb-2 border-l-4 border-slate-900 pl-2">Final Paragraph: The Alternative Perspective</div>
+                <div className="leading-relaxed italic">{drafts.a_counter || 'No data entered.'}</div>
+              </>
+            ) : (
+              <>
+                <div className="font-mono text-xs font-bold uppercase tracking-widest text-slate-500 mb-6 border-b border-slate-200 pb-2 text-center">Multi-Topic Comprehensive Report</div>
+                
+                {sectionBTopics.map((topic, idx) => (
+                  <div key={idx} className="mb-10">
+                    <div className="font-mono text-xs font-bold uppercase tracking-widest text-slate-500 mb-2 border-l-4 border-slate-900 pl-2">
+                      {topic.title}
+                    </div>
+                    <div className="leading-relaxed italic bg-slate-50 p-4 border border-slate-200">
+                      {drafts[topic.id] || 'No data entered for this topic.'}
+                    </div>
+                  </div>
+                ))}
+              </>
+            )}
+          </div>
+        </div>
+
+        <div className="flex justify-center pt-12 print:hidden">
+          <button 
+            onClick={() => {setStep(1); setDrafts({}); setSection(null); setSelectedQuestion(null);}}
+            className="font-mono text-xs uppercase tracking-widest text-slate-500 hover:text-slate-900 border-b border-transparent hover:border-slate-900 transition-all pb-1"
+          >
+            Restart Process
+          </button>
+        </div>
+      </div>
+    );
+  };
+
+  return (
+    <>
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+        .font-serif { font-family: 'Lora', serif; }
+        .font-mono { font-family: 'Space Mono', monospace; }
+      `}} />
+      <div className="min-h-screen bg-slate-200 flex items-center justify-center p-4 md:p-8 font-serif print:bg-white print:p-0">
+        
+        <div className="max-w-4xl w-full bg-[#faf9f6] border-t-8 border-slate-900 border-x-2 border-b-2 shadow-[12px_12px_0px_rgba(30,41,59,1)] relative overflow-hidden print:border-none print:shadow-none print:bg-white">
+          
+          <div className="absolute top-1/2 -left-32 -translate-y-1/2 -rotate-90 opacity-5 pointer-events-none font-mono text-8xl font-black text-slate-900 tracking-widest whitespace-nowrap z-0 print:hidden">
+            FORM EP-30
+          </div>
+          
+          <div className="flex bg-slate-100 border-b-2 border-slate-900 h-12 items-center px-6 font-mono text-xs uppercase tracking-widest text-slate-500 relative z-10 print:hidden">
+            <span className="font-bold text-slate-900 mr-4">SYSTEM_STATUS</span>
+            <div className="flex-1 h-3 bg-slate-200 border-2 border-slate-900 relative">
+              <div 
+                className="absolute top-0 left-0 h-full bg-slate-900 transition-all duration-500 ease-out" 
+                style={{ width: `${(step / 4) * 100}%` }}
+              />
+            </div>
+            <span className="ml-4 font-bold text-slate-900 bg-white px-2 py-1 border-2 border-slate-900">STEP {step}/4</span>
+          </div>
+          
+          <div className="p-8 md:p-14 relative z-10 print:p-0">
+            {step === 1 && renderStep1()}
+            {step === 2 && renderStep2()}
+            {step === 3 && renderStep3()}
+            {step === 4 && renderStep4()}
+          </div>
+          
+        </div>
+      </div>
+    </>
+  );
+}

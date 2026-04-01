@@ -1,0 +1,391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/profile/cc/ccv1p3/ccv1p3_qtiasiv1p2p1_v1p0.xsd">
+  <assessment ident="ia426bfe8-f304-415a-9d38-c36a0afe3963" title="Cognition Quiz">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>cc_profile</fieldlabel>
+        <fieldentry>cc.exam.v0p1</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_assessmenttype</fieldlabel>
+        <fieldentry>Examination</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>3</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_timelimit</fieldlabel>
+        <fieldentry>30</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    <section ident="i14016b1b-82bd-4635-a18c-fb284233d1cf">
+      <item ident="i4c4dc329-9ad6-4623-bf61-f4d678004acb">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;table border="0" cellspacing="0" cellpadding="0"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td colspan="2" align="left" valign="top"&gt;A problem-solving rule or procedure that, when followed step by step, assures that a correct solution will be found is known as:&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</mattext>
+          </material>
+          <response_lid ident="ic2b8ded5-5068-4fe2-a9f9-3611f21d1320" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i8c9a0482-23f0-499f-93d1-23fef4f9f7a2">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;algorithm&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i4b92059e-508b-4890-9c76-15ff46b090b0">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;mental set&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i29b44994-d9ae-4e4a-9b44-7738f821232b">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;br /&gt;&lt;span&gt;trial and error&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ic240c334-d1b3-448a-8612-4fbf23a2c3a6">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;br /&gt;&lt;span&gt;insight&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ic2b8ded5-5068-4fe2-a9f9-3611f21d1320">i8c9a0482-23f0-499f-93d1-23fef4f9f7a2</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ic2b8ded5-5068-4fe2-a9f9-3611f21d1320">i4b92059e-508b-4890-9c76-15ff46b090b0</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ic2b8ded5-5068-4fe2-a9f9-3611f21d1320">i29b44994-d9ae-4e4a-9b44-7738f821232b</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ic2b8ded5-5068-4fe2-a9f9-3611f21d1320">ic240c334-d1b3-448a-8612-4fbf23a2c3a6</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i348ffaf6-64ce-4a81-82b1-a9d04335609c">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt; &lt;/p&gt;
+&lt;table style="width: 796px; height: 13px;" border="0" cellspacing="0" cellpadding="0"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td colspan="2" align="left" valign="top"&gt;A(n) ________ represents a general principle that guides problem solving, though it does not guarantee a correct solution.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</mattext>
+          </material>
+          <response_lid ident="i9706a803-e53e-43ed-a7ed-fe7d8deb1ce7" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ibb668875-803c-45a3-83fd-1c8fa1034767">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;heuristic&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i0317684b-d409-48a2-a0d9-09179c0ba927">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;mental set&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="if6e8ff1d-b5a0-4eeb-92bd-4eff9b30b415">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;algorithm&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ibb50b3dc-e4eb-47ea-8faa-14314e544962">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;insight&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i9706a803-e53e-43ed-a7ed-fe7d8deb1ce7">ibb668875-803c-45a3-83fd-1c8fa1034767</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i9706a803-e53e-43ed-a7ed-fe7d8deb1ce7">i0317684b-d409-48a2-a0d9-09179c0ba927</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i9706a803-e53e-43ed-a7ed-fe7d8deb1ce7">if6e8ff1d-b5a0-4eeb-92bd-4eff9b30b415</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i9706a803-e53e-43ed-a7ed-fe7d8deb1ce7">ibb50b3dc-e4eb-47ea-8faa-14314e544962</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i6bbe2566-367d-4410-a986-ab2919d246a9">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt; &lt;/p&gt;
+&lt;table style="width: 100%;" border="0" cellspacing="0" cellpadding="0"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img src="http://highered.mheducation.com/olcweb/styles/shared/spacer.gif" alt="" width="5" height="2" /&gt;&lt;/td&gt;
+&lt;td colspan="2" align="left" valign="top"&gt;In decision making, the _______ represents the tendency to estimate the probability of an event by how easily relevant instances of it come to mind.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</mattext>
+          </material>
+          <response_lid ident="idcf83a7d-f710-4d34-ba17-574d84c495fd" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ia33c3422-cb73-491f-aa25-a7faa5ac9068">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;availability heuristic&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i62f120e8-bef5-4a64-b160-58cec3c334e1">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;br /&gt;&lt;span&gt;representative heuristic&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="idb94c6d2-7730-4b13-b7bb-1b9028cb88b7">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;framing effects&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ie3ecfe84-5a25-4709-b552-da2f9c763f79">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;functional fixedness&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="idcf83a7d-f710-4d34-ba17-574d84c495fd">ia33c3422-cb73-491f-aa25-a7faa5ac9068</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="idcf83a7d-f710-4d34-ba17-574d84c495fd">i62f120e8-bef5-4a64-b160-58cec3c334e1</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="idcf83a7d-f710-4d34-ba17-574d84c495fd">idb94c6d2-7730-4b13-b7bb-1b9028cb88b7</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="idcf83a7d-f710-4d34-ba17-574d84c495fd">ie3ecfe84-5a25-4709-b552-da2f9c763f79</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i09b0c0be-9cf0-4e2a-b40e-3ae56f80c088">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Patient Jones is told that an operation has a 10 percent chance of failure, whereas patient Smith is told that the same operation has a 90 percent chance of success. If Jones chooses not to have the surgery, while Smith chooses to have the surgery, to what psychological phenomenon could you attribute this outcome?&lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i7c2fc2f7-bdc7-4dd6-81b7-e2ddf607efdf" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i072b16dc-f3b6-43de-b103-e6e82dc19b8c">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;framing effects&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i200275e4-58ff-4d18-a77b-53ebd40d2756">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;availability heuristic&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="if953974a-74cc-4b3f-a0c5-74cf87860125">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;functional fixedness&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i3bb277a0-6d0f-457e-9590-7e488ef08afd">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;representative heuristic&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i7c2fc2f7-bdc7-4dd6-81b7-e2ddf607efdf">i072b16dc-f3b6-43de-b103-e6e82dc19b8c</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i7c2fc2f7-bdc7-4dd6-81b7-e2ddf607efdf">i200275e4-58ff-4d18-a77b-53ebd40d2756</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i7c2fc2f7-bdc7-4dd6-81b7-e2ddf607efdf">if953974a-74cc-4b3f-a0c5-74cf87860125</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i7c2fc2f7-bdc7-4dd6-81b7-e2ddf607efdf">i3bb277a0-6d0f-457e-9590-7e488ef08afd</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i64634ab4-26cb-4099-b96e-904e48535f7a">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;The inability to realize that a problem can be solved by using a familiar object in an unusual way is likely due to a mental set known as:&lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i683a5f4f-b806-407c-a66f-ccb9147e3b0c" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i887bec09-454c-4f84-bd0c-6b93a9504f66">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;functional fixedness&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ia9ec65d9-30b7-456b-967e-26e26a261273">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;divergent thinking&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i750f5165-0277-484e-844d-ad88f3506c07">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;convergent thinking&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i8ef4cc26-39d0-48ee-b0d8-d477ff63f9e5">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;creative thinking&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i683a5f4f-b806-407c-a66f-ccb9147e3b0c">i887bec09-454c-4f84-bd0c-6b93a9504f66</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i683a5f4f-b806-407c-a66f-ccb9147e3b0c">ia9ec65d9-30b7-456b-967e-26e26a261273</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i683a5f4f-b806-407c-a66f-ccb9147e3b0c">i750f5165-0277-484e-844d-ad88f3506c07</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i683a5f4f-b806-407c-a66f-ccb9147e3b0c">i8ef4cc26-39d0-48ee-b0d8-d477ff63f9e5</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+    </section>
+  </assessment>
+</questestinterop>

@@ -1,0 +1,706 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/profile/cc/ccv1p3/ccv1p3_qtiasiv1p2p1_v1p0.xsd">
+  <assessment ident="i103c27f8-7eaa-4c79-b4d4-d8eedf7639b1" title="Conditioning Quiz">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>cc_profile</fieldlabel>
+        <fieldentry>cc.exam.v0p1</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_assessmenttype</fieldlabel>
+        <fieldentry>Examination</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>3</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_timelimit</fieldlabel>
+        <fieldentry>30</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    <section ident="i68a54fb6-d9b5-4ef0-aa6f-e9720a47f1be">
+      <item ident="i9f70dd72-3829-4cb2-b575-d4198e73f3f3">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;In classical conditioning, an unlearned, inborn reaction to an unconditioned stimulus is a(n)&lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i7ce6115a-615b-4fd7-af7a-ab7c7c6ddd8e" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i5dc02573-9cc3-45b9-96e0-1fcb429d9f95">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;unconditioned response&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i51e79227-b4af-4a66-ab66-88cdbd4946cb">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;unconditioned stimulus&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ib45f16c3-5f62-4b38-83b2-9371c6d3227e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;br /&gt;&lt;span&gt;conditioned stimulus&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i646939e9-91e5-43b2-9f8e-926845ddcbe3">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;br /&gt;&lt;span&gt;conditioned response&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i7ce6115a-615b-4fd7-af7a-ab7c7c6ddd8e">i5dc02573-9cc3-45b9-96e0-1fcb429d9f95</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i7ce6115a-615b-4fd7-af7a-ab7c7c6ddd8e">i51e79227-b4af-4a66-ab66-88cdbd4946cb</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i7ce6115a-615b-4fd7-af7a-ab7c7c6ddd8e">ib45f16c3-5f62-4b38-83b2-9371c6d3227e</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i7ce6115a-615b-4fd7-af7a-ab7c7c6ddd8e">i646939e9-91e5-43b2-9f8e-926845ddcbe3</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i7299c0a4-59ce-4191-9f05-2b52c88e2be0">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;In Pavlov's classic experiment, meat powder was the&lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i04dc05b9-e97d-4c8d-9ca9-4e14000ee6c5" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i3407b0df-af71-4786-9ba2-f675d605cc11">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;unconditioned stimulus&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i91c6d9c3-11aa-4bf6-8155-f0ad65cb4941">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;unconditioned response&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i2ddf7d55-bed8-4805-ba8e-54745b4ab624">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;conditioned stimulus&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i5c7e0fe6-1bf1-4509-8a34-9c43f3318625">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;conditioned response&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i04dc05b9-e97d-4c8d-9ca9-4e14000ee6c5">i3407b0df-af71-4786-9ba2-f675d605cc11</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i04dc05b9-e97d-4c8d-9ca9-4e14000ee6c5">i91c6d9c3-11aa-4bf6-8155-f0ad65cb4941</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i04dc05b9-e97d-4c8d-9ca9-4e14000ee6c5">i2ddf7d55-bed8-4805-ba8e-54745b4ab624</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i04dc05b9-e97d-4c8d-9ca9-4e14000ee6c5">i5c7e0fe6-1bf1-4509-8a34-9c43f3318625</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i3c4a4f83-9658-4c3f-889c-5f0772702547">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Learning that results from the consequences of behaviors is called&lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="id0b2f6c2-34e9-45b7-b2b5-dd8565e1da79" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ib13e9eda-7982-4242-86c5-e9fcaea16147">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;operant conditioning&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i5d2c29bc-4582-47b6-a8c1-82271184aa8f">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;classical &lt;span&gt;conditioning&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i47782c82-bf2f-4c09-b4e9-5b18c94607ba">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;extinction &lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i052310c6-59d2-4a14-8722-971780d1e056">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;positive punishment &lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="id0b2f6c2-34e9-45b7-b2b5-dd8565e1da79">ib13e9eda-7982-4242-86c5-e9fcaea16147</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="id0b2f6c2-34e9-45b7-b2b5-dd8565e1da79">i5d2c29bc-4582-47b6-a8c1-82271184aa8f</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="id0b2f6c2-34e9-45b7-b2b5-dd8565e1da79">i47782c82-bf2f-4c09-b4e9-5b18c94607ba</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="id0b2f6c2-34e9-45b7-b2b5-dd8565e1da79">i052310c6-59d2-4a14-8722-971780d1e056</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i8f907c9d-8435-4419-ae7c-6bbefd6fa0f0">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Jill was trying to operantly condition her dog to roll over. Each time her dog rolled over she immediately said "good dog." However, the dog did not roll over on command. Which of the following may best explain why?&lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="ic7ad89b7-48da-4e7e-8ce7-8ac88e85e6de" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ic5f71a43-20a7-488e-97c2-d3cac32e8436">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;br /&gt;&lt;span&gt;saying "good dog" was not reinforcing to her dog&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i6acaab4a-c5d3-460d-802f-9f5fa9d4e42c">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Jill should have delayed reinforcement&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i2e7f8581-c90f-4ce3-86b9-c359736cf0a4">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Jill used inconsistent reinforcement&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i776e20bc-d087-4a00-8041-61cc15b88686">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;the CS did not match the CR&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ic7ad89b7-48da-4e7e-8ce7-8ac88e85e6de">ic5f71a43-20a7-488e-97c2-d3cac32e8436</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ic7ad89b7-48da-4e7e-8ce7-8ac88e85e6de">i6acaab4a-c5d3-460d-802f-9f5fa9d4e42c</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ic7ad89b7-48da-4e7e-8ce7-8ac88e85e6de">i2e7f8581-c90f-4ce3-86b9-c359736cf0a4</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ic7ad89b7-48da-4e7e-8ce7-8ac88e85e6de">i776e20bc-d087-4a00-8041-61cc15b88686</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ic022e3d4-2d9e-497a-9ee2-a56adf833105">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Reinforcers that are innately reinforcing, such as food, water, and warmth are called&lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="id2e24798-ec89-42ae-9703-5a2565b8ea05" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i2d2f9052-a963-47ce-9f9d-85dd77eb6ec0">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;br /&gt;&lt;span&gt;primary reinforcers&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ifa5973fb-250b-4d49-a525-099278c7c32d">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;br /&gt;&lt;span&gt;secondary reinforcers&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ifd648e96-d896-419a-a193-52c3e339dbd1">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;extinguished reinforcers&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i52e7dc76-f575-45d0-b781-db9d2928f0c6">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;punishers &lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="id2e24798-ec89-42ae-9703-5a2565b8ea05">i2d2f9052-a963-47ce-9f9d-85dd77eb6ec0</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="id2e24798-ec89-42ae-9703-5a2565b8ea05">ifa5973fb-250b-4d49-a525-099278c7c32d</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="id2e24798-ec89-42ae-9703-5a2565b8ea05">ifd648e96-d896-419a-a193-52c3e339dbd1</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="id2e24798-ec89-42ae-9703-5a2565b8ea05">i52e7dc76-f575-45d0-b781-db9d2928f0c6</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ice314359-2b39-4f0a-ba1a-6592aa0d13bf">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Which of the following is correct?&lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="idedf4900-dd1e-4b8e-9c28-8e2f3d428e88" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i1ca89e0b-5e0a-4313-b018-d3336cea9cf2">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Classical conditioning usually involves reflexive behavior, while operant conditioning usually involves more complicated, spontaneous behavior.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i44a75578-86ad-4901-9190-f24ab7988f4a">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;br /&gt;&lt;span&gt;Classical conditioning usually involves more complicated, spontaneous behavior, while operant conditioning involves reflexive behavior.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ib802c4c0-1e62-464c-9d4c-fc7ffd09f036">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;In classical conditioning, the reinforcement is contingent on the behavior of the learner.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i1a79dc7c-b27a-4783-b143-4d9f07245dfd">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;In operant conditioning the UCS and CS occur independently of the learner's behavior.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="idedf4900-dd1e-4b8e-9c28-8e2f3d428e88">i1ca89e0b-5e0a-4313-b018-d3336cea9cf2</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="idedf4900-dd1e-4b8e-9c28-8e2f3d428e88">i44a75578-86ad-4901-9190-f24ab7988f4a</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="idedf4900-dd1e-4b8e-9c28-8e2f3d428e88">ib802c4c0-1e62-464c-9d4c-fc7ffd09f036</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="idedf4900-dd1e-4b8e-9c28-8e2f3d428e88">i1a79dc7c-b27a-4783-b143-4d9f07245dfd</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i75304b42-a854-4698-afed-b0d044af158a">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;After Little Albert was conditioned to fear a white rat, he also displayed fear responses to a white rabbit and a white coat. This is an example of&lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="ia938aa74-3374-486e-8a28-5c637531e9f0" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ic8d57cd7-fc68-4256-806e-e9d7cbd06fa5">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;stimulus generalization&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i5c2e5dfe-4154-4ce5-9a51-feabbb64f9d1">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;stimulus discrimination &lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="id0f19e81-2f28-44c9-954e-a1668c1c9bc8">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;intermittent &lt;span&gt;reinforcement&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i1d112a4e-86da-4a81-8b13-c717fd63d50f">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;operant conditioning &lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ia938aa74-3374-486e-8a28-5c637531e9f0">ic8d57cd7-fc68-4256-806e-e9d7cbd06fa5</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ia938aa74-3374-486e-8a28-5c637531e9f0">i5c2e5dfe-4154-4ce5-9a51-feabbb64f9d1</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ia938aa74-3374-486e-8a28-5c637531e9f0">id0f19e81-2f28-44c9-954e-a1668c1c9bc8</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ia938aa74-3374-486e-8a28-5c637531e9f0">i1d112a4e-86da-4a81-8b13-c717fd63d50f</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i8ada0c9d-3db4-4089-b5fa-190848ad023f">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;When Sandy's disruptive classroom behavior stops because the teacher and other students no longer pay attention to the behavior, the process is called&lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="iff115d90-0ba9-469f-afd0-a7178218bfcc" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i0c9ae7b4-6e3d-441e-a3cb-7262286f6149">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;extinction &lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i73ee4618-504f-4d31-9da5-4d2cff15415c">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;stimulus discrimination&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i5d81091e-f14b-49ca-8a2e-db2767be3a9f">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;punishment&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="id9202142-7a16-4a6b-baba-00b0f71b8984">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;punishment&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;stimulus generalization&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="iff115d90-0ba9-469f-afd0-a7178218bfcc">i0c9ae7b4-6e3d-441e-a3cb-7262286f6149</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="iff115d90-0ba9-469f-afd0-a7178218bfcc">i73ee4618-504f-4d31-9da5-4d2cff15415c</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="iff115d90-0ba9-469f-afd0-a7178218bfcc">i5d81091e-f14b-49ca-8a2e-db2767be3a9f</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="iff115d90-0ba9-469f-afd0-a7178218bfcc">id9202142-7a16-4a6b-baba-00b0f71b8984</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i9d2956b4-e8d2-4cc6-ac78-743db4e4e6fc">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Behaviors that appear to be extinguished but return are called&lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="ia0ab13b5-88b4-4620-8390-65e05bd2a8f4" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ibbaa4e94-c20b-46dd-a2a6-1b1cb643a58c">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;spontaneous recovery&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ie4eba8b6-8130-4229-8886-edb7f27dbc60">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;stimulus generalization&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i55296b70-ece6-4a25-aabf-b382dc4d4e09">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;br /&gt;&lt;span&gt;stimulus discrimination&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ia0ab13b5-88b4-4620-8390-65e05bd2a8f4">ibbaa4e94-c20b-46dd-a2a6-1b1cb643a58c</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ia0ab13b5-88b4-4620-8390-65e05bd2a8f4">ie4eba8b6-8130-4229-8886-edb7f27dbc60</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ia0ab13b5-88b4-4620-8390-65e05bd2a8f4">i55296b70-ece6-4a25-aabf-b382dc4d4e09</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i718c5e86-835a-4a27-a849-dfd0541a9666">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;A college student with a fear of taking tests is taught a relaxation technique by a counseling psychologist. Before a test, the psychologist has the student imagine himself studying for the test, taking the test, using the relaxation technique each time he begins to feel anxious. Finally, the psychologist takes the student to the room in which the test will be administered and has the student use the relaxation technique until he is comfortable in the room. The psychologist is applying _______________.&lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i7f4f8029-30e9-403d-9169-9f56f77ce4ed" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i617e331f-4901-4203-99fa-78fb959c597d">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;counterconditioning&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i8b7375e9-2d83-4675-997e-5b8aca75a21e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;extinction&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ifbbe0175-13f2-47f2-9cf5-e2f10ad6cec0">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;positive reinforcement&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="if7ab0b63-4140-4631-a889-542c57d8d449">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;response generalization&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i7f4f8029-30e9-403d-9169-9f56f77ce4ed">i617e331f-4901-4203-99fa-78fb959c597d</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i7f4f8029-30e9-403d-9169-9f56f77ce4ed">i8b7375e9-2d83-4675-997e-5b8aca75a21e</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i7f4f8029-30e9-403d-9169-9f56f77ce4ed">ifbbe0175-13f2-47f2-9cf5-e2f10ad6cec0</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i7f4f8029-30e9-403d-9169-9f56f77ce4ed">if7ab0b63-4140-4631-a889-542c57d8d449</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+    </section>
+  </assessment>
+</questestinterop>

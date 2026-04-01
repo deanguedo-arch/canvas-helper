@@ -1,0 +1,357 @@
+import React, { useState } from 'react';
+import { Activity, CheckCircle, BarChart2, PieChart, Printer, CheckSquare, Square, FileText } from 'lucide-react';
+
+const SLEEP_QUESTIONS = [
+  "1. Sleep is a time when your body and brain shut down for rest and relaxation.",
+  "2. If you regularly doze off unintentionally during the day, you may need more than just a good night's sleep.",
+  "3. If you snore loudly and persistently at night and are sleepy during the day, you may have a sleep disorder.",
+  "4. Opening the car window or turning the radio up will keep the drowsy driver awake.",
+  "5. Narcolepsy is a sleep disorder marked by \"sleep attacks.\"",
+  "6. The primary cause of insomnia is worry.",
+  "7. One cause of not getting enough sleep is restless legs syndrome.",
+  "8. The body has a natural ability to adjust to different sleep schedules such as working different shifts or traveling through multiple time zones quickly.",
+  "9. People need less sleep as they grow older.",
+  "10. More people doze off at the wheel of a car in the early morning or mid-afternoon than in the evening."
+];
+
+const CORRECT_ANSWERS = ['F', 'T', 'T', 'F', 'T', 'F', 'T', 'F', 'F', 'T'];
+
+const PIE_DATA = [
+  { label: 'Advanced\nDegree', percent: 0.098, color: '#FF00FF', fontSize: '11', radiusFactor: 0.75 },
+  { label: 'University\nDegree', percent: 0.216, color: '#8A2BE2', fontSize: '14', radiusFactor: 0.65 },
+  { label: 'High\nSchool\nGraduate', percent: 0.294, color: '#8493ED', fontSize: '14', radiusFactor: 0.60 },
+  { label: 'High School\nDropout', percent: 0.127, color: '#FF1493', fontSize: '12', radiusFactor: 0.70 },
+  { label: 'Some\nUniversity', percent: 0.265, color: '#800080', fontSize: '14', radiusFactor: 0.65 },
+];
+
+const PieChartComponent = () => {
+  let cumulativePercent = 0;
+  const radius = 120;
+  const cx = 150;
+  const cy = 150;
+
+  return (
+    <svg viewBox="0 0 300 300" className="w-full max-w-sm h-auto drop-shadow-md mx-auto">
+      {PIE_DATA.map((slice, i) => {
+        const startAngle = cumulativePercent * 2 * Math.PI - Math.PI / 2;
+        const midAngle = startAngle + (slice.percent * Math.PI);
+        cumulativePercent += slice.percent;
+        const endAngle = cumulativePercent * 2 * Math.PI - Math.PI / 2;
+
+        const startX = cx + radius * Math.cos(startAngle);
+        const startY = cy + radius * Math.sin(startAngle);
+        const endX = cx + radius * Math.cos(endAngle);
+        const endY = cy + radius * Math.sin(endAngle);
+        const largeArcFlag = slice.percent > 0.5 ? 1 : 0;
+        const pathData = `M ${cx} ${cy} L ${startX} ${startY} A ${radius} ${radius} 0 ${largeArcFlag} 1 ${endX} ${endY} Z`;
+
+        const labelRadius = radius * slice.radiusFactor;
+        const labelX = cx + labelRadius * Math.cos(midAngle);
+        const labelY = cy + labelRadius * Math.sin(midAngle);
+        const lines = slice.label.split('\n');
+
+        return (
+          <g key={i}>
+            <path d={pathData} fill={slice.color} stroke="#000" strokeWidth="1" />
+            <text x={labelX} y={labelY} textAnchor="middle" dominantBaseline="middle" fill="#ffffff" fontFamily="Times New Roman, serif" fontSize={slice.fontSize} fontWeight="bold">
+              {lines.map((line, li) => (
+                <tspan x={labelX} dy={li === 0 ? `-${(lines.length - 1) * 0.5}em` : '1.1em'} key={li}>{line}</tspan>
+              ))}
+            </text>
+          </g>
+        );
+      })}
+    </svg>
+  );
+};
+
+export default function App() {
+  const [answers, setAnswers] = useState({ q4: '', q5: '', q6: '' });
+  const [surveyData, setSurveyData] = useState([
+    Array(10).fill(''),
+    ['T', 'T', 'F', 'F', 'T', 'F', 'T', 'F', 'F', 'T'],
+    ['T', 'T', 'T', 'F', 'T', 'T', 'F', 'F', 'T', 'T'],
+    ['F', 'T', 'F', 'T', 'T', 'F', 'F', 'T', 'F', 'T'],
+    ['T', 'F', 'T', 'F', 'F', 'F', 'T', 'F', 'F', 'T'],
+    ['T', 'T', 'F', 'F', 'T', 'F', 'F', 'F', 'F', 'F'],
+    ['F', 'T', 'F', 'F', 'T', 'T', 'F', 'F', 'T', 'T'],
+    ['T', 'T', 'T', 'T', 'T', 'F', 'T', 'F', 'F', 'T'],
+    ['T', 'F', 'F', 'F', 'T', 'F', 'T', 'T', 'F', 'T'],
+    ['F', 'T', 'F', 'F', 'T', 'F', 'F', 'F', 'T', 'F'],
+    ['T', 'T', 'T', 'F', 'F', 'T', 'T', 'F', 'F', 'T'],
+    ['T', 'T', 'F', 'F', 'T', 'F', 'F', 'T', 'F', 'T'],
+    ['F', 'F', 'T', 'F', 'T', 'F', 'F', 'F', 'T', 'T'],
+    ['T', 'T', 'F', 'T', 'T', 'T', 'T', 'F', 'F', 'T'],
+    ['T', 'F', 'F', 'F', 'F', 'F', 'F', 'T', 'T', 'F']
+  ]);
+
+  const [table1, setTable1] = useState({ title: 'Frequency of Sleep Survey Scores', col1Title: 'Score (out of 10)', col2Title: 'Count', rows: Array(11).fill('') });
+  const [table2, setTable2] = useState({ title: 'Correct Responses per Question', col1Title: 'Question', col2Title: 'Count', rows: ['4', '10', '5', '11', '11', '10', '6', '10', '9', '11'] });
+  const [graph1, setGraph1] = useState({ title: '', xAxis: '', yAxis: '', type: 'bar' });
+  const [graph2, setGraph2] = useState({ title: '', xAxis: '', yAxis: '', type: 'bar' });
+  const [tableChecks, setTableChecks] = useState(Array(6).fill(false));
+  const [graphChecks, setGraphChecks] = useState(Array(7).fill(null));
+
+  const handleSurveyChange = (pIndex, qIndex, val) => {
+    const normalized = String(val || '').toUpperCase();
+    if (normalized !== '' && normalized !== 'T' && normalized !== 'F') {
+      return;
+    }
+    const newData = [...surveyData];
+    newData[pIndex][qIndex] = normalized;
+    setSurveyData(newData);
+  };
+
+  const tfHighlightClass = (value) => {
+    const normalized = String(value || '').toUpperCase();
+    if (normalized === 'T') {
+      return 'bg-[#f0fdf4] text-emerald-900 ring-1 ring-emerald-400/70';
+    }
+    if (normalized === 'F') {
+      return 'bg-[#fff1f2] text-rose-900 ring-1 ring-rose-400/70';
+    }
+    return 'bg-white text-slate-700';
+  };
+
+  return (
+    <div className="text-slate-900 p-0 font-serif selection:bg-slate-900 selection:text-white">
+      <div className="bg-transparent w-full max-w-5xl mx-auto p-3 sm:p-4 md:p-8 border-0 shadow-none relative">
+        
+        {/* Header */}
+        <header className="border-b-8 border-slate-900 pb-8 mb-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+          <div>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-slate-900">Experimental Psychology 30</h1>
+            <div className="flex items-center gap-3 mt-4">
+              <span className="bg-slate-900 text-white font-mono text-xs uppercase tracking-widest px-3 py-1">Module 3 Assignment 1</span>
+              <span className="text-slate-700 font-mono text-xs uppercase tracking-widest">Data Display Assessment</span>
+            </div>
+          </div>
+          <div className="flex flex-col items-start md:items-end gap-2 print:hidden">
+            <button onClick={() => window.print()} className="flex items-center gap-2 bg-[#f0fdf4] text-emerald-900 border-2 border-slate-900 px-6 py-3 font-mono text-xs uppercase tracking-wider shadow-[4px_4px_0px_rgba(30,41,59,1)] hover:translate-y-[2px] hover:translate-x-[2px] transition-all">
+              <Printer size={18} /> Generate Report
+            </button>
+            <p className="text-[11px] font-mono uppercase tracking-wider text-slate-600">
+              Creates a stylized PDF for Google Classroom
+            </p>
+          </div>
+        </header>
+
+        {/* Part 2 Section */}
+        <section className="mb-16">
+          <div className="bg-slate-900 text-white px-4 sm:px-6 py-4 flex justify-between items-center mb-8">
+            <h2 className="text-sm font-mono uppercase tracking-widest flex items-center gap-2">
+              <Activity size={18} /> Part Two: Data Analysis
+            </h2>
+          </div>
+          
+          <div className="space-y-16">
+            {/* Bar Graph Area */}
+            <div>
+              <p className="font-bold text-xl mb-6 leading-relaxed">Questions 4-6 refer to data collected from 500 people at an oil extraction operation regarding education levels.</p>
+              <h3 className="font-bold text-xl sm:text-2xl mb-8 flex items-center gap-2">4. Examine the Bar Graph</h3>
+              <div className="bg-white border-4 border-slate-900 p-4 sm:p-10 max-w-3xl mx-auto shadow-[8px_8px_0px_rgba(30,41,59,1)] mb-10">
+                <div className="flex h-64 sm:h-80 items-end gap-2 sm:gap-4 relative ml-10 sm:ml-12 mb-16">
+                  <div className="absolute -left-14 sm:-left-16 top-0 bottom-0 flex flex-col items-center justify-between py-4 text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] sm:tracking-[0.3em] [writing-mode:vertical-lr] rotate-180">PERCENTAGE</div>
+                  <div className="absolute left-0 top-0 bottom-0 flex flex-col justify-between text-[10px] sm:text-sm pr-2 sm:pr-4 border-r-4 border-slate-900 w-8 sm:w-10 font-mono font-bold">
+                    <span>35</span><span>30</span><span>25</span><span>20</span><span>15</span><span>10</span><span>5</span><span>0</span>
+                  </div>
+                  <div className="flex-1 flex justify-around items-end h-full pl-5 sm:pl-8 border-b-4 border-slate-900">
+                    <div className="w-[15%] bg-[#ff1493] border-2 border-slate-900" style={{height: '37%'}}></div>
+                    <div className="w-[15%] bg-[#8493ed] border-2 border-slate-900" style={{height: '85%'}}></div>
+                    <div className="w-[15%] bg-[#800080] border-2 border-slate-900" style={{height: '77%'}}></div>
+                    <div className="w-[15%] bg-[#8a2be2] border-2 border-slate-900" style={{height: '62%'}}></div>
+                    <div className="w-[15%] bg-[#ff00ff] border-2 border-slate-900" style={{height: '28%'}}></div>
+                  </div>
+                  <div className="absolute -bottom-14 left-8 sm:left-10 right-0 flex justify-around text-[10px] sm:text-xs text-center font-bold font-mono">
+                    <span className="w-[15%] leading-tight">Dropout</span><span className="w-[15%] leading-tight">Graduate</span><span className="w-[15%] leading-tight">Some Uni</span><span className="w-[15%] leading-tight">Uni Deg</span><span className="w-[15%] leading-tight">Adv Deg</span>
+                  </div>
+                </div>
+                <div className="text-center font-bold text-base sm:text-xl uppercase tracking-widest pt-4">Education Level</div>
+              </div>
+              <textarea 
+                placeholder="What is an alternative way to rearrange this data? Why?"
+                className="w-full p-4 sm:p-6 border-4 border-slate-900 bg-white shadow-inner font-serif text-base sm:text-lg focus:bg-white transition-colors"
+                rows="3"
+                value={answers.q4}
+                onChange={e => setAnswers({...answers, q4: e.target.value})}
+              />
+            </div>
+
+            {/* Fixed Pie Chart Area */}
+            <div>
+              <h3 className="font-bold text-xl sm:text-2xl mb-8">5. Examine the Pie Chart</h3>
+              <div className="bg-white border-4 border-slate-900 p-4 sm:p-12 max-w-lg mx-auto shadow-[8px_8px_0px_rgba(30,41,59,1)] mb-10">
+                <PieChartComponent />
+              </div>
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="space-y-4">
+                  <label className="font-bold text-lg">What is missing? (1 mark)</label>
+                  <textarea className="w-full p-4 border-4 border-slate-900" rows="2" value={answers.q5} onChange={e => setAnswers({...answers, q5: e.target.value})} />
+                </div>
+                <div className="space-y-4">
+                  <label className="font-bold text-lg">6. What is wrong with the wedge arrangement? (2 marks)</label>
+                  <textarea className="w-full p-4 border-4 border-slate-900" rows="2" value={answers.q6} onChange={e => setAnswers({...answers, q6: e.target.value})} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Survey Data Collection */}
+        <section className="mt-20">
+          <div className="bg-slate-900 text-white px-4 sm:px-6 py-4 flex justify-between items-center mb-8">
+            <h2 className="text-sm font-mono uppercase tracking-widest flex items-center gap-2">
+              <FileText size={18} /> Part Three: Survey & Tables
+            </h2>
+          </div>
+          
+          <div className="border-4 border-slate-900 shadow-[8px_8px_0px_rgba(30,41,59,1)] bg-white mb-16">
+            <div className="px-4 py-3 border-b-2 border-slate-200 bg-slate-50 text-xs font-mono uppercase tracking-widest text-slate-700">
+              True/False entries are highlighted automatically (`T` = green, `F` = pink)
+            </div>
+            <div className="sm:hidden p-3 space-y-3">
+              {surveyData.map((participant, pIndex) => (
+                <div key={pIndex} className="border-2 border-slate-900 bg-[#faf9f6]">
+                  <div className="px-3 py-2 bg-slate-900 text-white font-mono text-[10px] uppercase tracking-widest">
+                    Participant P{pIndex + 1}
+                  </div>
+                  <div className="grid grid-cols-5 gap-2 p-3">
+                    {participant.map((ans, qIndex) => (
+                      <label key={qIndex} className="block">
+                        <span className="font-mono text-[10px] uppercase tracking-wide text-slate-600">Q{qIndex + 1}</span>
+                        <input
+                          type="text"
+                          maxLength="1"
+                          value={ans}
+                          onChange={(e) => handleSurveyChange(pIndex, qIndex, e.target.value)}
+                          className={`mt-1 w-full p-2 text-center text-xs font-bold outline-none border-2 border-slate-200 focus:border-slate-900 transition-colors ${tfHighlightClass(ans)}`}
+                        />
+                      </label>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="hidden sm:block overflow-x-auto">
+              <table className="w-full text-sm font-mono">
+                <thead className="bg-slate-900 text-white">
+                  <tr>
+                    <th className="p-2 md:p-4 uppercase tracking-widest text-left">Partic.</th>
+                    {Array.from({length: 10}).map((_, i) => <th key={i} className="p-2 md:p-4 border-l border-slate-700">Q{i+1}</th>)}
+                  </tr>
+                </thead>
+                <tbody>
+                  {surveyData.map((participant, pIndex) => (
+                    <tr key={pIndex} className="border-b-2 border-slate-200">
+                      <td className="p-2 md:p-4 font-bold bg-slate-100 border-r-2 border-slate-900">P{pIndex + 1}</td>
+                      {participant.map((ans, qIndex) => (
+                        <td key={qIndex} className="p-0 border-r border-slate-100">
+                          <input
+                            type="text"
+                            maxLength="1"
+                            value={ans}
+                            onChange={(e) => handleSurveyChange(pIndex, qIndex, e.target.value)}
+                            className={`w-full p-2 md:p-4 text-center text-xs md:text-sm font-bold outline-none transition-colors focus:bg-slate-100 ${tfHighlightClass(ans)}`}
+                          />
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div className="grid 2xl:grid-cols-2 gap-12">
+            {/* Table 1 */}
+            <div className="border-4 border-slate-900 p-4 sm:p-8 bg-white shadow-[8px_8px_0px_rgba(30,41,59,1)]">
+              <input value={table1.title} onChange={e=>setTable1({...table1, title: e.target.value})} className="w-full text-xl font-bold mb-6 text-center border-b-4 border-slate-900 bg-transparent outline-none pb-2" />
+              <table className="w-full border-4 border-slate-900">
+                <thead className="bg-slate-100 font-mono text-xs uppercase font-bold">
+                  <tr>
+                    <th className="border-2 border-slate-900 p-4">{table1.col1Title}</th>
+                    <th className="border-2 border-slate-900 p-4">{table1.col2Title}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {table1.rows.map((val, i) => (
+                    <tr key={i}>
+                      <td className="border-2 border-slate-900 p-3 text-center bg-slate-50 font-bold">{10-i}/10</td>
+                      <td className="border-2 border-slate-900 p-0">
+                        <input className="w-full p-3 text-center outline-none" value={val} onChange={e => {
+                          const r = [...table1.rows]; r[i] = e.target.value; setTable1({...table1, rows: r});
+                        }} />
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            {/* Table 2 */}
+            <div className="border-4 border-slate-900 p-4 sm:p-8 bg-white shadow-[8px_8px_0px_rgba(30,41,59,1)]">
+              <input value={table2.title} onChange={e=>setTable2({...table2, title: e.target.value})} className="w-full text-xl font-bold mb-6 text-center border-b-4 border-slate-900 bg-transparent outline-none pb-2" />
+              <table className="w-full border-4 border-slate-900">
+                <thead className="bg-slate-100 font-mono text-xs uppercase font-bold">
+                  <tr>
+                    <th className="border-2 border-slate-900 p-4">{table2.col1Title}</th>
+                    <th className="border-2 border-slate-900 p-4">{table2.col2Title}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {table2.rows.map((val, i) => (
+                    <tr key={i}>
+                      <td className="border-2 border-slate-900 p-3 text-center bg-slate-50 font-bold whitespace-nowrap">Q{i+1}</td>
+                      <td className="border-2 border-slate-900 p-0">
+                        <input className="w-full p-3 text-center outline-none" value={val} onChange={e => {
+                          const r = [...table2.rows]; r[i] = e.target.value; setTable2({...table2, rows: r});
+                        }} />
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        {/* Final Graphing Section */}
+        <section className="mt-20">
+          <div className="bg-slate-900 text-white px-4 sm:px-6 py-4 mb-8">
+            <h2 className="text-sm font-mono uppercase tracking-widest flex items-center gap-2">
+              <PieChart size={18} /> Graph Generation
+            </h2>
+          </div>
+          <div className="grid 2xl:grid-cols-2 gap-12">
+            {[graph1, graph2].map((g, gi) => (
+              <div key={gi} className="border-4 border-slate-900 p-4 sm:p-8 bg-[#faf9f6] shadow-[8px_8px_0px_rgba(30,41,59,1)]">
+                <div className="space-y-4 mb-8 font-mono text-sm print:hidden">
+                  <input placeholder="TITLE" className="w-full p-3 sm:p-4 border-2 border-slate-900" value={g.title} onChange={e => gi === 0 ? setGraph1({...graph1, title: e.target.value}) : setGraph2({...graph2, title: e.target.value})} />
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                    <input placeholder="Y-AXIS" className="flex-1 p-3 sm:p-4 border-2 border-slate-900" value={g.yAxis} onChange={e => gi === 0 ? setGraph1({...graph1, yAxis: e.target.value}) : setGraph2({...graph2, yAxis: e.target.value})} />
+                    <input placeholder="X-AXIS" className="flex-1 p-3 sm:p-4 border-2 border-slate-900" value={g.xAxis} onChange={e => gi === 0 ? setGraph1({...graph1, xAxis: e.target.value}) : setGraph2({...graph2, xAxis: e.target.value})} />
+                  </div>
+                </div>
+                <div className="bg-white border-4 border-slate-900 p-4 sm:p-8 h-64 sm:h-80 relative flex items-end overflow-hidden">
+                   <div className="absolute top-3 sm:top-4 left-0 right-0 text-center font-bold px-4 text-sm sm:text-base">{g.title || "TITLE"}</div>
+                   <div className="absolute left-1 sm:left-2 top-1/2 -translate-y-1/2 -rotate-90 text-[9px] sm:text-[10px] font-bold uppercase tracking-widest whitespace-nowrap">{g.yAxis || "Y-AXIS"}</div>
+                   <div className="flex-1 flex items-end justify-around h-[70%] border-l-4 border-b-4 border-slate-900 ml-6 sm:ml-8 mb-6 sm:mb-8">
+                      {(gi === 0 ? table1.rows.slice().reverse() : table2.rows).map((v, i) => (
+                        <div key={i} className="flex-1 flex flex-col items-center justify-end h-full">
+                          <div className="w-[60%] bg-slate-900" style={{height: `${Math.min(100, (parseInt(v)||0)/15*100)}%`}}></div>
+                          <span className="absolute -bottom-5 sm:-bottom-6 font-mono text-[9px] sm:text-[10px]">{gi === 0 ? i : `Q${i+1}`}</span>
+                        </div>
+                      ))}
+                   </div>
+                   <div className="absolute bottom-1 sm:bottom-2 left-0 right-0 text-center text-[9px] sm:text-[10px] font-bold uppercase tracking-widest">{g.xAxis || "X-AXIS"}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+      </div>
+    </div>
+  );
+}

@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
   "projectSlug": "forensics",
-  "generatedAt": "2026-03-29T00:54:18.186Z",
+  "generatedAt": "2026-03-31T18:26:24.482Z",
   "pass": true,
   "deviations": [
     {
       "ruleId": "require-interactive-shell",
       "severity": "warn",
       "surface": "export",
-      "location": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics/exports/google-hosted/index.html",
+      "location": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\forensics\\workspace\\index.html",
       "why": "Required pattern \"lesson-shell\" is missing.",
       "evidence": "Missing pattern: lesson-shell"
     }

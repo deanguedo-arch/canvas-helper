@@ -1,0 +1,555 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/profile/cc/ccv1p3/ccv1p3_qtiasiv1p2p1_v1p0.xsd">
+  <assessment ident="i3249d0fa-05ea-47ab-874a-3bd09c8a6f9b" title="Aggression and Conflict Quiz">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>cc_profile</fieldlabel>
+        <fieldentry>cc.exam.v0p1</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_assessmenttype</fieldlabel>
+        <fieldentry>Examination</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>3</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_timelimit</fieldlabel>
+        <fieldentry>30</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    <section ident="if829882c-5420-487e-ab80-7a42fd594829">
+      <item ident="ic94f11d4-3416-4d1c-a45d-5f530f2eeb63">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt; &lt;span&gt;What does the frustration-aggression hypothesis state?&lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i96ab95e7-1f45-4125-b72b-5602774a2087" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ifda0ccc8-5e34-4bd3-8392-810b871ea1d7">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt; Aggression is always caused by frustration&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i85f3bace-eb59-4478-9f40-05ccb3d4a2b2">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Aggression always follows frustration&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i179566cb-a702-4d29-9ae7-24ae30b37e21">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Aggression and frustration occur simultaneously&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="id58ef3b9-4540-4576-a5c1-33b1977ec72e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Aggression always precedes frustration&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i96ab95e7-1f45-4125-b72b-5602774a2087">ifda0ccc8-5e34-4bd3-8392-810b871ea1d7</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i96ab95e7-1f45-4125-b72b-5602774a2087">i85f3bace-eb59-4478-9f40-05ccb3d4a2b2</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i96ab95e7-1f45-4125-b72b-5602774a2087">i179566cb-a702-4d29-9ae7-24ae30b37e21</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i96ab95e7-1f45-4125-b72b-5602774a2087">id58ef3b9-4540-4576-a5c1-33b1977ec72e</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="if7adea71-4a13-4e73-bb89-8a241df0a54c">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt; &lt;/p&gt;
+&lt;table style="width: 100%;" border="0" cellspacing="0" cellpadding="0"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td colspan="2" align="left" valign="top"&gt;A source of stress characterized by the inability to satisfy a motive is called&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</mattext>
+          </material>
+          <response_lid ident="i06ee453e-c4cb-4a6d-85d2-29a8d8dcbab3" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ibb6b4aec-2c36-4efb-a432-f19a50a5cb84">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;frustration&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i540e7c00-4bec-4f6b-a23b-dd08c2c324ce">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;conflict&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="iae5f1c0d-9d84-4d7a-bc78-2fc3fa3653cf">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;life events&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i58e22160-7883-46c7-94ed-c271e8c86b4a">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;pressure&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i06ee453e-c4cb-4a6d-85d2-29a8d8dcbab3">ibb6b4aec-2c36-4efb-a432-f19a50a5cb84</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i06ee453e-c4cb-4a6d-85d2-29a8d8dcbab3">i540e7c00-4bec-4f6b-a23b-dd08c2c324ce</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i06ee453e-c4cb-4a6d-85d2-29a8d8dcbab3">iae5f1c0d-9d84-4d7a-bc78-2fc3fa3653cf</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i06ee453e-c4cb-4a6d-85d2-29a8d8dcbab3">i58e22160-7883-46c7-94ed-c271e8c86b4a</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i82df90fb-7a1a-4968-a84c-32c41ec291f9">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;table style="width: 100%;" border="0" cellspacing="0" cellpadding="0"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td colspan="2" valign="top"&gt;What is meant by the term "bystander effect"?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</mattext>
+          </material>
+          <response_lid ident="i3fe6a5ad-2a90-41d6-a62c-dd5705b8ebff" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="iff31bd00-4f29-4a08-97b7-eaff5b53fa4a">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;People are less likely to provide help when there are other bystanders.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i3330f5b2-6d59-4c8a-b20c-77caae11f349">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;People are more likely to provide aid when there are helping models present.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="id243419b-562b-4205-9c84-67d9686a5bd3">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;People who gather at the scene of a fire frequently hamper firefighters' operations.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i888827fc-0a4e-45ed-a7d7-15d316f256cf">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;People are likely to gather at the scene of a serious accident.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i3fe6a5ad-2a90-41d6-a62c-dd5705b8ebff">iff31bd00-4f29-4a08-97b7-eaff5b53fa4a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i3fe6a5ad-2a90-41d6-a62c-dd5705b8ebff">i3330f5b2-6d59-4c8a-b20c-77caae11f349</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i3fe6a5ad-2a90-41d6-a62c-dd5705b8ebff">id243419b-562b-4205-9c84-67d9686a5bd3</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i3fe6a5ad-2a90-41d6-a62c-dd5705b8ebff">i888827fc-0a4e-45ed-a7d7-15d316f256cf</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i0d5ad08e-f0d1-4e8e-abf2-17fb59917182">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt; &lt;/p&gt;
+&lt;table style="width: 100%;" border="0" cellspacing="0" cellpadding="0"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td colspan="2" valign="top"&gt;&lt;img src="http://highered.mheducation.com/olcweb/styles/shared/spacer.gif" alt="" width="1" height="5" /&gt;&lt;br /&gt;The statement, "There is no duty more indispensable than that of returning a kindness," reflects the __________________ norm.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</mattext>
+          </material>
+          <response_lid ident="i3c479825-6f2b-4420-805d-07833f6244b0" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="icc8c2500-3206-4f93-aa36-08f5b46a5d23">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;reciprocity&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="if4d04cdb-784f-4b75-baf2-12c9f0c0e092">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;restitution &lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ice2f08db-f2f7-4670-a677-e0ee047cd64b">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;social-responsibility&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="if5f2abd9-2839-4141-bb61-8da513991ab8">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;equity &lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i3c479825-6f2b-4420-805d-07833f6244b0">icc8c2500-3206-4f93-aa36-08f5b46a5d23</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i3c479825-6f2b-4420-805d-07833f6244b0">if4d04cdb-784f-4b75-baf2-12c9f0c0e092</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i3c479825-6f2b-4420-805d-07833f6244b0">ice2f08db-f2f7-4670-a677-e0ee047cd64b</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i3c479825-6f2b-4420-805d-07833f6244b0">if5f2abd9-2839-4141-bb61-8da513991ab8</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i87645b2b-6f63-4c50-b6ca-c8cfdd8e9bef">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;table style="width: 100%;" border="0" cellspacing="0" cellpadding="0"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td colspan="3" valign="top"&gt;A motive to increase another's welfare without conscious regard for one's self-interests is&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</mattext>
+          </material>
+          <response_lid ident="i395f8017-4a85-4cd9-ad28-02516c986b7e" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ifab03aab-edb5-4f68-bfa3-86c67abb3e15">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;altruism&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i268a744a-515d-48b7-9e43-af960df00b11">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;empathy&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i2ee2ed43-d297-4681-bfd9-286318347fd8">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;reciprocity&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i0f297d42-5b04-4009-a4e7-0f2631a004ba">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;aggression &lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i395f8017-4a85-4cd9-ad28-02516c986b7e">ifab03aab-edb5-4f68-bfa3-86c67abb3e15</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i395f8017-4a85-4cd9-ad28-02516c986b7e">i268a744a-515d-48b7-9e43-af960df00b11</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i395f8017-4a85-4cd9-ad28-02516c986b7e">i2ee2ed43-d297-4681-bfd9-286318347fd8</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i395f8017-4a85-4cd9-ad28-02516c986b7e">i0f297d42-5b04-4009-a4e7-0f2631a004ba</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i7611b620-bcf1-4c60-93d6-0cee2f0c08ce">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;An expectation that people will help those dependent upon them is&lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i92d83f5e-2a3e-4c99-809a-681f85c0408b" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i02a569d0-49c8-4673-a7eb-ee8f2f35a2f9">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;social-responsibility norm.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i4a987bb1-4e10-4c10-bbb3-94368e684cd4">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;reciprocity norm.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="if6d6ae1f-aa38-4a25-8d7b-d0a1685a667c">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;social norm.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i4d5599cf-08e3-4bba-9d4b-009387c03605">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;dependent norm.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i92d83f5e-2a3e-4c99-809a-681f85c0408b">i02a569d0-49c8-4673-a7eb-ee8f2f35a2f9</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i92d83f5e-2a3e-4c99-809a-681f85c0408b">i4a987bb1-4e10-4c10-bbb3-94368e684cd4</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i92d83f5e-2a3e-4c99-809a-681f85c0408b">if6d6ae1f-aa38-4a25-8d7b-d0a1685a667c</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i92d83f5e-2a3e-4c99-809a-681f85c0408b">i4d5599cf-08e3-4bba-9d4b-009387c03605</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="id38e8cca-d714-45ab-a732-5c0a7ee9554c" title="Types of Conflict">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.fib.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>9</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Fill in the blanks following each description with the following types of conflict: &lt;strong&gt;approach-approach conflict, avoidance-avoidance conflict, &lt;/strong&gt;or&lt;strong&gt; approach-avoidance conflict.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;1. Conflict whereby one must choose between two more or less equally undesirable or unattractive goals.&lt;/p&gt; _______ 2. Choose between doing unwanted homework or doing unwanted house chores _______ 3. Whatever choice is made will not be satisfying, so you simply have to decide which is the "lesser of two evils", and hence the least stressful. _______ 4. Conflict whereby&amp;nbsp;one must choose between two desirable or attractive goals. _______ 5. Choose between two appealing destinations for your vacation, for example, Mexico vs. the Caribbean. _______ 6. one of the least stressful conflicts, although in situations where you need to make important decisions (e.g. deciding between two good career opportunities), it can result in some increased stress. It typically results from limitations on one's time, space, energy and personal and financial resources. _______ 7. A fairly common type of conflict that can provoke a significant level of stress. In these types of situations, people tend to vacilate, going back and forth between decisions. They are sometimes referred to as a "mixed blessing" because you have to accept some negative and some positive features no matter which choice is made _______ 8. Tanya has been with Company X for 12 years. She is offered a job promotion as vice president of the company. It would pay her much more than she is currently making. However, if she was to accept this position, she would have to move to a city that was far away from her extended family and where the weather was much colder. _______ 9. Conflict involving a decision regarding whether to pursue or avoid something that has both positive and negative aspects to it. _______ </mattext>
+          </material>
+          <response_str ident="399631">
+            <render_fib>
+              <response_label ident="i4d988748-32e7-4b07-b9ac-26c793f6e2f8" />
+            </render_fib>
+          </response_str>
+          <response_str ident="399621">
+            <render_fib>
+              <response_label ident="ie264c0da-5063-44a2-af46-734a756d53d1" />
+            </render_fib>
+          </response_str>
+          <response_str ident="399629">
+            <render_fib>
+              <response_label ident="i0036e4c9-9251-441c-93a2-c1f591411f67" />
+            </render_fib>
+          </response_str>
+          <response_str ident="399619">
+            <render_fib>
+              <response_label ident="ie24b476d-b210-4ba2-b8bb-a2ac83fef8a9" />
+            </render_fib>
+          </response_str>
+          <response_str ident="399623">
+            <render_fib>
+              <response_label ident="ic5326de2-62c0-4192-a777-77aebf1facc7" />
+            </render_fib>
+          </response_str>
+          <response_str ident="399625">
+            <render_fib>
+              <response_label ident="id66a8b3f-2c2a-4128-8bfb-5160b130b55b" />
+            </render_fib>
+          </response_str>
+          <response_str ident="399615">
+            <render_fib>
+              <response_label ident="i9b0be7e1-ae3f-4716-ba33-39782b0a8381" />
+            </render_fib>
+          </response_str>
+          <response_str ident="399627">
+            <render_fib>
+              <response_label ident="ic5b61c05-cdeb-4625-a92b-4dc15df753dc" />
+            </render_fib>
+          </response_str>
+          <response_str ident="399617">
+            <render_fib>
+              <response_label ident="ibdb49ee5-1e21-44d5-bb86-9ee4dcd03a73" />
+            </render_fib>
+          </response_str>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal case="No" respident="399631">approach-avoidance conflict</varequal>
+              <varequal case="No" respident="399621">approach-approach conflict</varequal>
+              <varequal case="No" respident="399629">approach-avoidance conflict</varequal>
+              <varequal case="No" respident="399619">avoidance-avoidance conflict</varequal>
+              <varequal case="No" respident="399623">approach-approach conflict</varequal>
+              <varequal case="No" respident="399625">approach-approach conflict</varequal>
+              <varequal case="No" respident="399615">avoidance-avoidance conflict</varequal>
+              <varequal case="No" respident="399627">approach-avoidance conflict</varequal>
+              <varequal case="No" respident="399617">avoidance-avoidance conflict</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition continue="Yes">
+            <conditionvar>
+              <other />
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">0</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+    </section>
+  </assessment>
+</questestinterop>

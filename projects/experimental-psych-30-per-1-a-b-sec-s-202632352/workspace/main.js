@@ -168,7 +168,7 @@ function normalizeLearnerCopy(value) {
       "When you're done with your break, please complete Assignment One in this module. You can then continue with Module 1 Section 3."
     )
     .replace(
-      /Complete Assignment 2 that covers the concepts learned in Section 3 and Section 4\.\s*When you have received feedback from your teacher, you will be provided with access to the Module 1 Assessment\. Complete the assessment when you are ready \(you do not need to complete the first assessment before moving on to Module 2\)\./gi,
+      /Complete Assignment 2 that covers the concepts learned in Section 3 and Section 4\.\s*When you have received feedback from your teacher, you will be provided with access to the Module 1 (?:Assessment|Practice Quiz)\. Complete the assessment when you are ready \(you do not need to complete the first assessment before moving on to Module 2\)\./gi,
       "Complete Assignment 2 that covers the concepts learned in Section 3 and Section 4 in this module."
     )
     .replace(
@@ -176,7 +176,7 @@ function normalizeLearnerCopy(value) {
       "Using Sections 1 and 2 as your guide, complete Assignment 3 in this module, then continue on with Section 3."
     )
     .replace(
-      /Using Section 3 and Section 4 as a\s+guideline, complete Assignment 4\.\s*When you have completed the assignment, upload it to Brightspace\.\s*Once you receive feedback you will be given access to the Module 2 Assessment\. You do not need to complete this assessment before moving on with Module 3\./gi,
+      /Using Section 3 and Section 4 as a\s+guideline, complete Assignment 4\.\s*When you have completed the assignment, upload it to Brightspace\.\s*Once you receive feedback you will be given access to the Module 2 (?:Assessment|Practice Quiz)\. You do not need to complete this assessment before moving on with Module 3\./gi,
       "Using Section 3 and Section 4 as a guideline, complete Assignment 4 in this module."
     )
     .replace(
@@ -184,7 +184,7 @@ function normalizeLearnerCopy(value) {
       "Using the information in Section 1 and Section 2, complete Assignment 5 in this module, then continue with Section 3."
     )
     .replace(
-      /Using content from Section 3 and Section 4 you can complete Assignment 6\.\s*When you are done, submit your assignment to Brightspace\.\s*Once you receive feedback from your teacher, you will be given access to the Module 3 Assessment\./gi,
+      /Using content from Section 3 and Section 4 you can complete Assignment 6\.\s*When you are done, submit your assignment to Brightspace\.\s*Once you receive feedback from your teacher, you will be given access to the Module 3 (?:Assessment|Practice Quiz)\./gi,
       "Using content from Section 3 and Section 4, complete Assignment 6 in this module."
     )
     .replace(/upload it to Brightspace/gi, "complete it in this module")
@@ -192,9 +192,9 @@ function normalizeLearnerCopy(value) {
     .replace(/submit it on Brightspace/gi, "complete it in this module")
     .replace(/teacher can provide feedback/gi, "you can keep working through the module")
     .replace(/While waiting for feedback/gi, "After that")
-    .replace(/When you have received feedback from your teacher, you will be provided with access to the Module \d+ Assessment\./gi, "")
-    .replace(/Once you receive feedback from your teacher, you will be given access to the Module \d+ Assessment\./gi, "")
-    .replace(/Once you receive feedback you will be given access to the Module \d+ Assessment\./gi, "")
+    .replace(/When you have received feedback from your teacher, you will be provided with access to the Module \d+ (?:Assessment|Practice Quiz)\./gi, "")
+    .replace(/Once you receive feedback from your teacher, you will be given access to the Module \d+ (?:Assessment|Practice Quiz)\./gi, "")
+    .replace(/Once you receive feedback you will be given access to the Module \d+ (?:Assessment|Practice Quiz)\./gi, "")
     .replace(/Complete the assessment when you are ready\s*\(you do not need to complete the first assessment before moving on to Module \d+\)\./gi, "")
     .replace(/You do not need to complete this assessment before moving on with Module \d+\./gi, "")
     .replace(/\s{2,}/g, " ")
@@ -229,6 +229,10 @@ function activityMetaLabel(activity) {
   const delivery = getAssessmentDelivery(activity);
   if (delivery?.deliveryMode === "workspace-quiz") {
     return "Workspace quiz";
+  }
+
+  if (delivery?.deliveryMode === "workspace-embed") {
+    return "Workspace assignment";
   }
 
   if (delivery && delivery.deliveryMode !== "hidden") {
@@ -303,6 +307,18 @@ function resolveRelativePath(baseFile, relativeValue) {
 function buildReferenceRawUrl(pathValue) {
   const slug = encodeURIComponent(courseShellData.projectSlug);
   return `/preview/references/raw/${slug}/${encodePath(pathValue)}`;
+}
+
+function buildWorkspaceAssetUrl(pathValue) {
+  const resolved = String(pathValue || "").trim();
+  if (!resolved) {
+    return "";
+  }
+  if (!resolved.startsWith("./assets/")) {
+    return resolved;
+  }
+  const joiner = resolved.includes("?") ? "&" : "?";
+  return `${resolved}${joiner}v=20260330b`;
 }
 
 function getElementsByLocalName(rootNode, localName) {
@@ -533,26 +549,39 @@ function isWorkspaceAssignment(activity) {
   }
 
   const delivery = getAssessmentDelivery(activity);
-  return !delivery || delivery.deliveryMode === "workspace-quiz";
+  return !delivery || delivery.deliveryMode === "workspace-quiz" || delivery.deliveryMode === "workspace-embed";
 }
 
 function shouldHideActivityFromModuleList(module, activity) {
   const moduleTitle = String(module?.title || "");
   const sectionTitle = String(activity?.sectionTitle || "");
   const activityTitle = String(activity?.title || "");
+  const normalizedModuleTitle = normalizeSectionTitle(moduleTitle).toLowerCase();
+  const normalizedSectionTitle = normalizeSectionTitle(sectionTitle).toLowerCase();
+  const normalizedActivityTitle = normalizeSectionTitle(activityTitle).toLowerCase();
 
-  if (moduleTitle !== "Module 2: Statistics" || sectionTitle !== "Section 1: Measurements") {
+  if (normalizedModuleTitle.includes("module 4: experiment examples and practice project")) {
+    if (normalizedSectionTitle === "section 2: practice project") {
+      return true;
+    }
+
+    if (["practice project background", "practice project instructions", "lab report"].includes(normalizedActivityTitle)) {
+      return true;
+    }
+  }
+
+  if (normalizedModuleTitle !== "module 2: statistics" || normalizedSectionTitle !== "section 1: measurements") {
     return false;
   }
 
   return [
-    "Means, Modes, and Other Measures of Central Tendancy",
-    "Mode, Median, and Mean",
-    "Measures of Variability",
-    "Practice with Percentiles",
-    "Normal vs. Abnormal",
-    "Reliability and Validity"
-  ].includes(activityTitle);
+    "means, modes, and other measures of central tendancy",
+    "mode, median, and mean",
+    "measures of variability",
+    "practice with percentiles",
+    "normal vs. abnormal",
+    "reliability and validity"
+  ].includes(normalizedActivityTitle);
 }
 
 function getModuleBuckets(module) {
@@ -880,6 +909,158 @@ function renderAssessmentHandIn(activity, delivery) {
   `;
 }
 
+function renderEmbeddedAssignment(activity, delivery) {
+  const embedHref = buildWorkspaceAssetUrl(delivery?.embedPath || delivery?.ctaUrl || "");
+  const sectionJumpHash = String(delivery?.sectionJumpHash || "").trim();
+  const normalizedJumpHash = sectionJumpHash ? (sectionJumpHash.startsWith("#") ? sectionJumpHash : `#${sectionJumpHash}`) : "";
+  const sectionJumpHref = embedHref && normalizedJumpHash ? `${embedHref}${normalizedJumpHash}` : "";
+  const sectionJumpLabel = delivery?.sectionJumpLabel || "Jump to assignment section";
+  const supportHref = delivery?.resourcePath ? buildReferenceRawUrl(delivery.resourcePath) : "";
+  const secondaryHref = delivery?.secondaryResourcePath ? buildReferenceRawUrl(delivery.secondaryResourcePath) : "";
+  const statusText =
+    delivery?.statusText || "Complete this interactive assignment in the workspace, then export the finished report for submission.";
+  const summary =
+    delivery?.summary || "This assignment now runs directly in the workspace so students can complete the interactive handout in place.";
+  const handInNote =
+    delivery?.handInNote || "Complete the assignment, export the finished work, and submit it through your course hand-in flow.";
+
+  return `
+    <div class="assignment-embed-shell">
+      <div class="assignment-handoff-head">
+        <div>
+          <div class="assignment-handoff-label">Interactive assignment</div>
+          <h5>${escapeHtml(activity.title)}</h5>
+        </div>
+        <div class="assignment-handoff-state">Workspace lab</div>
+      </div>
+      <p class="assignment-handoff-summary">${escapeHtml(summary)}</p>
+      <div class="assignment-handoff-note">
+        <strong>How to use it</strong>
+        <span>${escapeHtml(statusText)}</span>
+      </div>
+      <div class="assignment-links">
+        ${embedHref ? renderActionLink(embedHref, delivery?.ctaLabel || "Open assignment in a new tab", "assignment-link primary") : ""}
+        ${sectionJumpHref ? renderActionLink(sectionJumpHref, sectionJumpLabel) : ""}
+        ${supportHref ? renderActionLink(supportHref, delivery.resourceLabel || "Review assignment support") : ""}
+        ${
+          secondaryHref
+            ? renderActionLink(secondaryHref, delivery.secondaryResourceLabel || "Open supporting document", "assignment-link secondary")
+            : ""
+        }
+      </div>
+      ${
+        embedHref
+          ? `
+        <div class="assignment-embed-frame-wrap">
+          <iframe
+            class="assignment-embed-frame"
+            src="${escapeHtml(embedHref)}"
+            title="${escapeHtml(activity.title)}"
+            loading="eager"
+            scrolling="no"
+          ></iframe>
+        </div>
+      `
+          : `<div class="assignment-link-placeholder">Interactive assignment file not added yet.</div>`
+      }
+      <p class="assignment-handoff-footnote">${escapeHtml(handInNote)}</p>
+    </div>
+  `;
+}
+
+function measureEmbedFrameContentHeight(frame) {
+  try {
+    const doc = frame.contentDocument || frame.contentWindow?.document;
+    if (!doc) {
+      return null;
+    }
+    const body = doc.body;
+    const html = doc.documentElement;
+    if (!body || !html) {
+      return null;
+    }
+    return Math.max(
+      body.scrollHeight,
+      body.offsetHeight,
+      body.clientHeight,
+      html.scrollHeight,
+      html.offsetHeight,
+      html.clientHeight
+    );
+  } catch {
+    return null;
+  }
+}
+
+function resizeEmbedFrame(frame) {
+  const measured = measureEmbedFrameContentHeight(frame);
+  if (!measured) {
+    return;
+  }
+  const minHeight = window.matchMedia("(max-width: 560px)").matches ? 1350 : 980;
+  const nextHeight = Math.max(minHeight, measured + 18);
+  const currentHeight = Number.parseInt(frame.style.height || "0", 10);
+  if (Number.isFinite(currentHeight) && Math.abs(nextHeight - currentHeight) < 2) {
+    return;
+  }
+  frame.style.height = `${nextHeight}px`;
+}
+
+function bindEmbedFrameAutoResize(frame) {
+  if (!frame || frame.dataset.resizeBound === "true") {
+    return;
+  }
+  frame.dataset.resizeBound = "true";
+
+  let rafToken = 0;
+  const scheduleResize = () => {
+    if (rafToken) {
+      return;
+    }
+    rafToken = window.requestAnimationFrame(() => {
+      rafToken = 0;
+      resizeEmbedFrame(frame);
+    });
+  };
+
+  const schedulePasses = () => {
+    scheduleResize();
+    [120, 420, 900, 1700, 2600].forEach((delay) => {
+      window.setTimeout(scheduleResize, delay);
+    });
+    const pollHandle = window.setInterval(scheduleResize, 1200);
+    window.setTimeout(() => window.clearInterval(pollHandle), 14000);
+  };
+
+  const onLoad = () => {
+    schedulePasses();
+    try {
+      const doc = frame.contentDocument || frame.contentWindow?.document;
+      const target = doc?.body || doc?.documentElement;
+      if (!target || typeof MutationObserver === "undefined") {
+        return;
+      }
+      const observer = new MutationObserver(() => scheduleResize());
+      observer.observe(target, { childList: true, subtree: true, attributes: true });
+      window.setTimeout(() => observer.disconnect(), 16000);
+    } catch {
+      // Same-origin guards or transient load states can fail safely.
+    }
+  };
+
+  frame.addEventListener("load", onLoad);
+
+  if (frame.contentDocument?.readyState === "complete") {
+    onLoad();
+  }
+}
+
+function bindEmbeddedFrames() {
+  root.querySelectorAll(".assignment-embed-frame").forEach((frame) => {
+    bindEmbedFrameAutoResize(frame);
+  });
+}
+
 function renderQuiz(activity, quizData) {
   const questions = quizData?.quizQuestions || [];
   if (!questions.length) {
@@ -1008,6 +1189,10 @@ function renderActivityBody(activity) {
   }
 
   const delivery = getAssessmentDelivery(activity);
+  if (delivery?.deliveryMode === "workspace-embed") {
+    return renderEmbeddedAssignment(activity, delivery);
+  }
+
   if (delivery && delivery.deliveryMode !== "workspace-quiz") {
     return renderAssessmentHandIn(activity, delivery);
   }
@@ -1449,6 +1634,8 @@ function render() {
       }));
     });
   });
+
+  bindEmbeddedFrames();
 }
 
 function injectStyles() {
@@ -2255,6 +2442,44 @@ function injectStyles() {
       gap: 1rem;
     }
 
+    .assignment-embed-shell {
+      display: grid;
+      gap: 1rem;
+      color: #f5ece3;
+    }
+
+    .assignment-embed-shell .assignment-handoff-label {
+      color: #f0d8c4 !important;
+    }
+
+    .assignment-embed-shell .assignment-handoff-head h5 {
+      color: #fff5ec !important;
+    }
+
+    .assignment-embed-shell .assignment-handoff-state {
+      background: #3a2a21;
+      border-color: #8f6a56;
+      color: #fff0e2;
+    }
+
+    .assignment-embed-shell .assignment-handoff-summary,
+    .assignment-embed-shell .assignment-handoff-footnote {
+      color: #f1dfd0 !important;
+    }
+
+    .assignment-embed-shell .assignment-handoff-note {
+      background: #2f231c;
+      border-color: #6e5242;
+    }
+
+    .assignment-embed-shell .assignment-handoff-note strong {
+      color: #fff0e2;
+    }
+
+    .assignment-embed-shell .assignment-handoff-note span {
+      color: #f2dfd1;
+    }
+
     .assignment-handoff-head {
       display: flex;
       justify-content: space-between;
@@ -2325,6 +2550,24 @@ function injectStyles() {
       display: flex;
       flex-wrap: wrap;
       gap: 0.7rem;
+    }
+
+    .assignment-embed-frame-wrap {
+      border: 1px solid #d8cbbe;
+      border-radius: 16px;
+      background: #f7efe5;
+      padding: 0.85rem;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    }
+
+    .assignment-embed-frame {
+      width: 100%;
+      height: 1100px;
+      min-height: 980px;
+      border: 1px solid #d6c7b7;
+      border-radius: 12px;
+      background: #ffffff;
+      display: block;
     }
 
     .assignment-link,
@@ -2668,6 +2911,16 @@ function injectStyles() {
         width: 100%;
       }
 
+      .assignment-embed-frame-wrap {
+        padding: 0.55rem;
+        border-radius: 12px;
+      }
+
+      .assignment-embed-frame {
+        min-height: 1180px;
+        border-radius: 10px;
+      }
+
       .lesson-completion-card {
         align-items: stretch;
       }
@@ -2701,6 +2954,14 @@ function injectStyles() {
       .sidebar-toggle {
         width: 1.9rem;
         height: 1.9rem;
+      }
+
+      .assignment-embed-frame-wrap {
+        padding: 0.4rem;
+      }
+
+      .assignment-embed-frame {
+        min-height: 1380px;
       }
     }
   `;

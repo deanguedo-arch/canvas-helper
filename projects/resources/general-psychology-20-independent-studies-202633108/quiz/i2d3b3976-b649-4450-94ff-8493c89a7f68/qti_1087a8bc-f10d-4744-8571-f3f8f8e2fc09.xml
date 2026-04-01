@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/profile/cc/ccv1p3/ccv1p3_qtiasiv1p2p1_v1p0.xsd">
+  <assessment ident="i43276ab8-8f0d-4e0d-92d8-0b5f3a3bf23a" title="Introduction to Behaviour Disorders and Their Treatment Quiz">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>cc_profile</fieldlabel>
+        <fieldentry>cc.exam.v0p1</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_assessmenttype</fieldlabel>
+        <fieldentry>Examination</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>3</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_timelimit</fieldlabel>
+        <fieldentry>30</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    <section ident="i4e06eb24-6d59-4034-a15d-d1ff994839cb">
+      <item ident="i95cdf29c-b202-41fb-9b28-f67c12de6193">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Mental illness was viewed as ____________ from the beginning, which has now evolved. &lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="ie3fe006b-72a8-475d-aa3d-29ceca1dff57" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i298c9218-b6ad-424d-aa1c-5e4321842af6">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;A reversible condition. &lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i388e875c-bd96-40aa-b39c-83d28b6db313">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;An irreversible condition. &lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i498d1de7-fa23-4fa7-b811-d2a538625280">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Nothing, it was not noticed&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ic7720f01-47ff-4cde-afd1-e8864c2da82b">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Something that made you better than everyone else&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ie3fe006b-72a8-475d-aa3d-29ceca1dff57">i298c9218-b6ad-424d-aa1c-5e4321842af6</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ie3fe006b-72a8-475d-aa3d-29ceca1dff57">i388e875c-bd96-40aa-b39c-83d28b6db313</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ie3fe006b-72a8-475d-aa3d-29ceca1dff57">i498d1de7-fa23-4fa7-b811-d2a538625280</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ie3fe006b-72a8-475d-aa3d-29ceca1dff57">ic7720f01-47ff-4cde-afd1-e8864c2da82b</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i3822b55a-6e2e-44fc-8b0a-23560b8ab738">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;The acronym for the Diagnostic and Statistical Manual of Mental Disorders is _____&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="idec3a779-e65d-459a-8579-0168ed92dce1" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ib02d6a69-5ad5-4960-8381-4ae42c0cc8db">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;DMD&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ia9c8c7ac-7254-4b3a-b1ab-5822b7fd505a">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;SMD&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i5a71039f-732c-4343-af1b-3a891843a0a3">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;DSMMD&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i158477b0-5a11-4f43-82f3-df7d57419288">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;DSM&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="idec3a779-e65d-459a-8579-0168ed92dce1">ib02d6a69-5ad5-4960-8381-4ae42c0cc8db</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="idec3a779-e65d-459a-8579-0168ed92dce1">ia9c8c7ac-7254-4b3a-b1ab-5822b7fd505a</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="idec3a779-e65d-459a-8579-0168ed92dce1">i5a71039f-732c-4343-af1b-3a891843a0a3</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="idec3a779-e65d-459a-8579-0168ed92dce1">i158477b0-5a11-4f43-82f3-df7d57419288</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ifa04100f-307c-4f99-810d-5191a5b7fcc3">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;The Diagnostic and Statistical Manual of Mental Disorders is to be used as a ________&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i8fd58fd1-57ac-4a13-93ba-8c2b9954e9b5" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="iaaf78865-9031-43c3-92d8-8f21ad2bbf13">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;a valuable tool that is always being revised.&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i6c718c2f-3939-4f67-aced-0011ffd46cdd">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;as tool that is being revised but has no real value.&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i80664d0a-480e-4831-a86d-61b6b0417824">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;as the rules of diagnosing that does not have to be revised. &lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="iadd45bc1-1c4c-4cdc-8d52-b494fe3c6e7c">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;as a tool that is never changing.&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i8fd58fd1-57ac-4a13-93ba-8c2b9954e9b5">iaaf78865-9031-43c3-92d8-8f21ad2bbf13</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i8fd58fd1-57ac-4a13-93ba-8c2b9954e9b5">i6c718c2f-3939-4f67-aced-0011ffd46cdd</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i8fd58fd1-57ac-4a13-93ba-8c2b9954e9b5">i80664d0a-480e-4831-a86d-61b6b0417824</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i8fd58fd1-57ac-4a13-93ba-8c2b9954e9b5">iadd45bc1-1c4c-4cdc-8d52-b494fe3c6e7c</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="idf625650-2883-4e58-8804-fee79921082d">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.true_false.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Psychological disorders only develop from psychological influences, not social-cultural or biological influences. &lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i7aba84f6-ac11-4484-83fe-82cb3c5f2851" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i83f662f3-1271-48a9-b523-efa343a293a3">
+                <material>
+                  <mattext>True</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i4f176ccc-fcba-46aa-afbf-ce3fc33160a1">
+                <material>
+                  <mattext>False</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i7aba84f6-ac11-4484-83fe-82cb3c5f2851">i83f662f3-1271-48a9-b523-efa343a293a3</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i7aba84f6-ac11-4484-83fe-82cb3c5f2851">i4f176ccc-fcba-46aa-afbf-ce3fc33160a1</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="icf231d61-0d12-4e47-9ee9-12a3e868b15c">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.true_false.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Critics argue that giving a person a diagnostic label can be harmful &lt;/span&gt;&lt;br /&gt;&lt;span&gt;because a label can become a self-fulfilling prophecy.&lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="id0f7f582-7ef7-4e0c-97e7-00574183df85" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i28497b46-84e5-4240-902c-d4dea8cc8ada">
+                <material>
+                  <mattext>True</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i17be4311-c94f-4b25-895a-23961ca0d7a2">
+                <material>
+                  <mattext>False</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="id0f7f582-7ef7-4e0c-97e7-00574183df85">i28497b46-84e5-4240-902c-d4dea8cc8ada</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="id0f7f582-7ef7-4e0c-97e7-00574183df85">i17be4311-c94f-4b25-895a-23961ca0d7a2</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+    </section>
+  </assessment>
+</questestinterop>

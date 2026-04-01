@@ -2230,7 +2230,14 @@ function ForensicCoursePlayerPreviewRestored() {
                           {
                             onClick: () => {
                               setActiveChapterId(module.id);
-                              setActiveModuleView("content");
+                              const hasAssignments = module.lessons?.some(
+                                (lesson) => lesson.type === "quiz" || lesson.type === "assignment" || lesson.type === "lab-assignment"
+                              );
+                              if (activeModuleView === "assignments" && hasAssignments) {
+                                setActiveModuleView("assignments");
+                              } else {
+                                setActiveModuleView("content");
+                              }
                             },
                             className: "flex w-full items-center justify-between rounded-lg px-2 py-2 text-left transition duration-200 hover:bg-[#262320]",
                             "data-testid": "module-toggle",
@@ -2249,7 +2256,7 @@ function ForensicCoursePlayerPreviewRestored() {
                             ]
                           }
                         ),
-                        isActive && module.lessons?.some((lesson) => lesson.type === "quiz" || lesson.type === "assignment") ? /* @__PURE__ */ jsx("div", { className: "mt-1 rounded-lg border border-[#353331] bg-[#23211f] p-1", "data-testid": "module-submenu", children: /* @__PURE__ */ jsxs(
+                        isActive && module.lessons?.some((lesson) => lesson.type === "quiz" || lesson.type === "assignment" || lesson.type === "lab-assignment") ? /* @__PURE__ */ jsx("div", { className: "mt-1 rounded-lg border border-[#353331] bg-[#23211f] p-1", "data-testid": "module-submenu", children: /* @__PURE__ */ jsxs(
                           "button",
                           {
                             onClick: (event) => {
@@ -2262,7 +2269,7 @@ function ForensicCoursePlayerPreviewRestored() {
                             "data-module-title": module.title,
                             children: [
                               /* @__PURE__ */ jsx("span", { children: "Assignments" }),
-                              /* @__PURE__ */ jsx("span", { className: "text-[10px] text-[#8c857b]", children: module.lessons.filter((lesson) => lesson.type === "quiz" || lesson.type === "assignment").length })
+                              /* @__PURE__ */ jsx("span", { className: "text-[10px] text-[#8c857b]", children: module.lessons.filter((lesson) => lesson.type === "quiz" || lesson.type === "assignment" || lesson.type === "lab-assignment").length })
                             ]
                           }
                         ) }) : null

@@ -1,0 +1,555 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/profile/cc/ccv1p3/ccv1p3_qtiasiv1p2p1_v1p0.xsd">
+  <assessment ident="idfbbcec1-8ad7-4c35-884c-e822e67f08f7" title="Human Development Quiz">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>cc_profile</fieldlabel>
+        <fieldentry>cc.exam.v0p1</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_assessmenttype</fieldlabel>
+        <fieldentry>Examination</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>3</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_timelimit</fieldlabel>
+        <fieldentry>30</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    <section ident="i0d7c4182-8d98-4c21-b729-e2fda3d71eb5">
+      <item ident="if0229054-66c6-4c3a-a186-b18b8ae65435">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Piaget assumed that children are __________ in constructing understanding of the world.&lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i541eab6e-661e-4363-b2ef-9e34eba00238" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="id667077e-00d3-4644-a82d-0da6636a2520">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;active&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ic72a8019-1d36-4d9a-b111-d08e02b11e28">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;passive&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ic2878ca4-9c2d-4c84-91da-aed21b2f564b">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;neutral &lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i5cd5218f-ba9d-47fa-9d60-6de13227d7b9">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;bystanders&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i541eab6e-661e-4363-b2ef-9e34eba00238">id667077e-00d3-4644-a82d-0da6636a2520</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i541eab6e-661e-4363-b2ef-9e34eba00238">ic72a8019-1d36-4d9a-b111-d08e02b11e28</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i541eab6e-661e-4363-b2ef-9e34eba00238">ic2878ca4-9c2d-4c84-91da-aed21b2f564b</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i541eab6e-661e-4363-b2ef-9e34eba00238">i5cd5218f-ba9d-47fa-9d60-6de13227d7b9</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i7b9486a5-c313-48c1-aa17-6403588d944a">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;span&gt; Jane's mother has two crackers, both of equal size. She breaks one of the crackers up into four pieces. Jane says she wants the one with the most and immediately chooses the four pieces, even though the two amounts are equal. Jane's choice illustrates Piaget's concept of:&lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i0d156f71-c7fd-4c9f-90f5-a9bc9059b0df" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i188bc83e-eb39-40a7-b8c4-5c57be61d636">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Conservation &lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i9169d884-05c2-4778-80ab-931e92b866dc">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Accommodation&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="icd820ea2-e04a-42d8-82a0-42224fb341d0">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Egocentrism&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i0d156f71-c7fd-4c9f-90f5-a9bc9059b0df">i188bc83e-eb39-40a7-b8c4-5c57be61d636</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i0d156f71-c7fd-4c9f-90f5-a9bc9059b0df">i9169d884-05c2-4778-80ab-931e92b866dc</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i0d156f71-c7fd-4c9f-90f5-a9bc9059b0df">icd820ea2-e04a-42d8-82a0-42224fb341d0</varequal>
+            </conditionvar>
+            <displayfeedback feedbacktype="Response" linkrefid="icd820ea2-e04a-42d8-82a0-42224fb341d0_fb" />
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="icd820ea2-e04a-42d8-82a0-42224fb341d0_fb">
+          <flow_mat>
+            <material>
+              <mattext texttype="text/html">&lt;p&gt;Scaffolding &lt;/p&gt;</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+      <item ident="ie6ab56e8-5f37-4307-bd39-eb10198bc00e">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;A schema is a:&lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i32bdc593-a69e-4785-9d44-3f709f311f93" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i0016d005-7187-44b3-abff-26409cca8186">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Category of knowledge that allows us to interpret and understand the world.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i0e3aaeb8-eda6-4f74-913b-6a1a69f6827a">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Process of taking in new information.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="id2ece808-88e7-4ced-9bcd-29ac4331bb68">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Process of balancing old knowledge and new information.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i32bdc593-a69e-4785-9d44-3f709f311f93">i0016d005-7187-44b3-abff-26409cca8186</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i32bdc593-a69e-4785-9d44-3f709f311f93">i0e3aaeb8-eda6-4f74-913b-6a1a69f6827a</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i32bdc593-a69e-4785-9d44-3f709f311f93">id2ece808-88e7-4ced-9bcd-29ac4331bb68</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i3fcd0a6f-f0ed-40a0-ad11-94d42c9a5285">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;The ability to think abstractly and systematically solve problems emerges during the:&lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i1ddf2e38-da32-44f9-9573-628556fedc9d" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i471ff1c3-d652-4f8e-9411-653ffa7c4426">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Formal Operational Stage&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i5e3b8ff4-9a18-4315-bfc3-262799acd40c">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Concrete Operational Stage&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ia4e8bd12-d423-4a46-8e55-ea50dfbe568b">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Sensorimotor Stage&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i17d6281f-f9a0-41d3-8df8-3a343b2ec44b">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Preoperational Stage&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i1ddf2e38-da32-44f9-9573-628556fedc9d">i471ff1c3-d652-4f8e-9411-653ffa7c4426</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i1ddf2e38-da32-44f9-9573-628556fedc9d">i5e3b8ff4-9a18-4315-bfc3-262799acd40c</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i1ddf2e38-da32-44f9-9573-628556fedc9d">ia4e8bd12-d423-4a46-8e55-ea50dfbe568b</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i1ddf2e38-da32-44f9-9573-628556fedc9d">i17d6281f-f9a0-41d3-8df8-3a343b2ec44b</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="id10fc4f7-f077-405e-af8e-01f74f650ace">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Piaget believed that children in the preoperational stage have difficulty taking the perspective of another person. This is known as:&lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="if7897b84-0831-475a-8d53-691034652da8" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i4cfb4e0a-9777-4eeb-bbf2-106fc2224e8c">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Egocentrism&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ie092befc-caef-484b-a3f6-6d7149505381">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Reversibility&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ibc260d3c-cf64-4b07-9256-656d4d599918">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Metacognition&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i781429f7-40d4-4c5a-a4d2-e68452e723a3">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Centration &lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="if7897b84-0831-475a-8d53-691034652da8">i4cfb4e0a-9777-4eeb-bbf2-106fc2224e8c</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if7897b84-0831-475a-8d53-691034652da8">ie092befc-caef-484b-a3f6-6d7149505381</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if7897b84-0831-475a-8d53-691034652da8">ibc260d3c-cf64-4b07-9256-656d4d599918</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if7897b84-0831-475a-8d53-691034652da8">i781429f7-40d4-4c5a-a4d2-e68452e723a3</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i772a30c7-61d7-4290-a16b-b61032b2ba65">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;The Piagetian stage characterized by the ability to develop goal-directed behavior, means-end thinking, and object permanence.&lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="ife4f5196-2140-4f51-82d0-4e09793f38dc" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i2e8a57e6-a1a0-4735-b1f3-13d1280fcb04">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;sensorimotor&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i48200ef2-e34b-4932-b872-d2e69ffb85a7">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;preoperations&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ibaf46054-0741-4b5d-9500-db30994fd5e5">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;formal operations&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i04be6ed7-aa7a-4d88-ab0d-47f9d62c93b9">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;concrete operations&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ife4f5196-2140-4f51-82d0-4e09793f38dc">i2e8a57e6-a1a0-4735-b1f3-13d1280fcb04</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ife4f5196-2140-4f51-82d0-4e09793f38dc">i48200ef2-e34b-4932-b872-d2e69ffb85a7</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ife4f5196-2140-4f51-82d0-4e09793f38dc">ibaf46054-0741-4b5d-9500-db30994fd5e5</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ife4f5196-2140-4f51-82d0-4e09793f38dc">i04be6ed7-aa7a-4d88-ab0d-47f9d62c93b9</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ice7083eb-26d5-40dc-b9aa-7e00ac3dc08a">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Which of the following is a difference between the theories of Piaget and Vygotsky?Which of the following is a difference between the theories of Piaget and Vygotsky?&lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i648593e1-252a-4e51-aa4d-4ec688da42ef" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i9ed401b7-7f73-41aa-b639-3947f9263144">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Vygotsky places greater importance on the role of language in cognitive development.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i30cd4b85-65b7-4d03-84b8-f8883f5bb553">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;br /&gt;&lt;span&gt;Piaget places greater importance on the role of language in cognitive development.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i0f2e4b13-a56f-49af-8b8a-62fbcc60c6a2">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Piaget did not believe in distinct stages of cognitive development.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i54c0530c-7b61-43b3-8ad7-1e82464843cd">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Piaget was a social constructivist&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i648593e1-252a-4e51-aa4d-4ec688da42ef">i9ed401b7-7f73-41aa-b639-3947f9263144</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i648593e1-252a-4e51-aa4d-4ec688da42ef">i30cd4b85-65b7-4d03-84b8-f8883f5bb553</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i648593e1-252a-4e51-aa4d-4ec688da42ef">i0f2e4b13-a56f-49af-8b8a-62fbcc60c6a2</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i648593e1-252a-4e51-aa4d-4ec688da42ef">i54c0530c-7b61-43b3-8ad7-1e82464843cd</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ida403ea0-f0b0-4269-a6ad-8a15920a9d71">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Which of the following words/phrases cannot be related to Vygotsky:&lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="id597b559-e519-43ec-82e3-9d388928cfb2" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i428cd68a-de60-4ef1-ab5a-980b391d1510">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;schemas&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i65c74590-fa1c-4b74-8d79-3925fed439a0">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;scaffolding&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ida42adf6-a15b-44f8-ba19-13bd6238471f">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;development is cultural&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="id597b559-e519-43ec-82e3-9d388928cfb2">i428cd68a-de60-4ef1-ab5a-980b391d1510</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="id597b559-e519-43ec-82e3-9d388928cfb2">i65c74590-fa1c-4b74-8d79-3925fed439a0</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="id597b559-e519-43ec-82e3-9d388928cfb2">ida42adf6-a15b-44f8-ba19-13bd6238471f</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+    </section>
+  </assessment>
+</questestinterop>

@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/profile/cc/ccv1p3/ccv1p3_qtiasiv1p2p1_v1p0.xsd">
+  <assessment ident="i51e181da-5fb4-46c4-8785-1e70bf5f3159" title="Treatment Quiz">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>cc_profile</fieldlabel>
+        <fieldentry>cc.exam.v0p1</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_assessmenttype</fieldlabel>
+        <fieldentry>Examination</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>3</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_timelimit</fieldlabel>
+        <fieldentry>120</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    <section ident="iaf3323bc-27c9-43f3-b913-3214ba82ccca">
+      <item ident="i81c3110f-1b0d-4cf2-b54c-5dea6a4d51b7">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;_____________ &lt;/span&gt;is medical treatment that treats and corrects the fundamental physiological or biochemical problems that is causing the disease. &lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i30e70579-4022-4608-9229-75252d03b966" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ia04c3b77-5308-409a-ba15-890c24e9b81d">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Biomedical treatment &lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ibea3eb27-2778-4951-be2b-6dc2a9c1cb3c">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Organic psychosis &lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ib6d709d5-4979-4a5c-96cd-93ea8be1e2da">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Functional psychosis&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ie8758d7e-d751-4b5e-9331-a1c0998e0342">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Psychotherapy&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i30e70579-4022-4608-9229-75252d03b966">ia04c3b77-5308-409a-ba15-890c24e9b81d</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i30e70579-4022-4608-9229-75252d03b966">ibea3eb27-2778-4951-be2b-6dc2a9c1cb3c</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i30e70579-4022-4608-9229-75252d03b966">ib6d709d5-4979-4a5c-96cd-93ea8be1e2da</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i30e70579-4022-4608-9229-75252d03b966">ie8758d7e-d751-4b5e-9331-a1c0998e0342</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i24420cfb-a41e-4b53-8242-968ce4fb83cc">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.true_false.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Biomedical treatment&lt;span&gt; treats the physical root cause of the problem and returns the body to a state of health.&lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i04b8d0f9-c05e-474e-a99e-4f0a44ef37d5" rcardinality="Single">
+            <render_choice>
+              <response_label ident="ibc937257-d36c-4816-ba3f-03abf5c3857d">
+                <material>
+                  <mattext>True</mattext>
+                </material>
+              </response_label>
+              <response_label ident="iaa53cd8d-7282-48c9-a2d5-1eac2beac6c1">
+                <material>
+                  <mattext>False</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i04b8d0f9-c05e-474e-a99e-4f0a44ef37d5">ibc937257-d36c-4816-ba3f-03abf5c3857d</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i04b8d0f9-c05e-474e-a99e-4f0a44ef37d5">iaa53cd8d-7282-48c9-a2d5-1eac2beac6c1</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i8f8f4b3a-17ea-4a85-bdcc-7a67f6557f44">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;In ______________, psychologists apply scientifically validated procedures to help people develop healthier, more &lt;/span&gt;effect&lt;span&gt;ive habits.&lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="ifa0e3e22-e6eb-4a5a-bcd6-c586463a66bd" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="if16ddcf4-faf4-4757-b7f5-0e255160b119">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Biomedical treatment &lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i69409b68-e3de-4ccd-b7ba-d591e01f51d0">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Psychotherapy &lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i4570c892-2fda-4062-b86c-cf28ceb49fe9">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Organic psychosis&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i37edb315-156e-42f8-8dca-2c5987443793">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Functional psychosis&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ifa0e3e22-e6eb-4a5a-bcd6-c586463a66bd">if16ddcf4-faf4-4757-b7f5-0e255160b119</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ifa0e3e22-e6eb-4a5a-bcd6-c586463a66bd">i69409b68-e3de-4ccd-b7ba-d591e01f51d0</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ifa0e3e22-e6eb-4a5a-bcd6-c586463a66bd">i4570c892-2fda-4062-b86c-cf28ceb49fe9</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ifa0e3e22-e6eb-4a5a-bcd6-c586463a66bd">i37edb315-156e-42f8-8dca-2c5987443793</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i0caf7556-c55d-44ad-9f57-18ff7592dde6">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.true_false.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Psychotherapy is an individual treatment based on a psychologist. &lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i58a3d1c6-a9a2-4935-8290-5d23903f500a" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i9f71e745-c3e9-4f4f-8cbb-e5e507ef6374">
+                <material>
+                  <mattext>True</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i306b384d-7583-4394-9dcc-bfeedee764c8">
+                <material>
+                  <mattext>False</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i58a3d1c6-a9a2-4935-8290-5d23903f500a">i9f71e745-c3e9-4f4f-8cbb-e5e507ef6374</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i58a3d1c6-a9a2-4935-8290-5d23903f500a">i306b384d-7583-4394-9dcc-bfeedee764c8</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i51dcce32-aca1-408f-b961-d6395c459aa6">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.true_false.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Most therapists don't tie themselves to any one approach. Instead, they blend elements from different approaches and tailor their treatment according to each client's needs.&lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="ic7630283-bc80-4bc9-bca9-bbb4feea3305" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i3f7a51f8-02aa-4932-a529-489dbc6e5ab8">
+                <material>
+                  <mattext>True</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i5f6b6881-f076-4f12-9464-d9f30ee737f0">
+                <material>
+                  <mattext>False</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ic7630283-bc80-4bc9-bca9-bbb4feea3305">i3f7a51f8-02aa-4932-a529-489dbc6e5ab8</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ic7630283-bc80-4bc9-bca9-bbb4feea3305">i5f6b6881-f076-4f12-9464-d9f30ee737f0</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+    </section>
+  </assessment>
+</questestinterop>

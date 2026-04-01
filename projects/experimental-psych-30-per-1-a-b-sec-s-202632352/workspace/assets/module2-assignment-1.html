@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psychology Lab Notebook</title>
+    
+    <!-- Google Fonts: Lora (Serif) & Space Mono (Monospace) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Lora', 'serif'],
+                        mono: ['Space Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom UI behaviors */
+        input[type="radio"] {
+            accent-color: #1e293b; /* slate-800 */
+        }
+        
+        textarea {
+            resize: none; /* Prevent manual resize, JS will auto-expand for PDF */
+        }
+
+        /* Print-ready styles for browser Save as PDF */
+        @media print {
+            body { background: white !important; padding: 0 !important; }
+            #paper-container { box-shadow: none !important; border: none !important; padding: 0 !important; max-width: 100% !important; }
+            .interactive-only, button, .watermark { display: none !important; }
+            textarea { border: none !important; border-bottom: 1px solid #000 !important; background: transparent !important; box-shadow: none !important; height: auto !important; }
+            input[type="number"] { border: none !important; border-bottom: 1px solid #000 !important; background: transparent !important; box-shadow: none !important; }
+            .data-cruncher-box { background: white !important; border: 2px solid black !important; box-shadow: none !important; }
+            .scenario-box { background: transparent !important; border-left: 4px solid black !important; box-shadow: none !important; }
+            .page-break { page-break-before: always; }
+        }
+    </style>
+</head>
+<body class="bg-transparent text-slate-900 font-serif antialiased min-h-screen py-0 px-0">
+
+    <!-- The "Paper" Container -->
+    <div id="paper-container" class="w-full max-w-none mx-0 bg-[#faf9f6] border-t-8 border-slate-800 shadow-[8px_8px_0px_rgba(30,41,59,1)] p-4 sm:p-6 md:p-10 relative overflow-hidden">
+
+        <!-- Institutional Details (Watermark & Tab) -->
+        <div class="watermark absolute top-[30%] -right-32 rotate-90 opacity-5 font-mono text-8xl text-slate-900 font-bold select-none pointer-events-none tracking-tighter">
+            FORM EP-30
+        </div>
+        <div class="interactive-only absolute top-0 right-8 bg-slate-800 text-white font-mono text-xs uppercase px-4 py-1 tracking-widest rounded-b-sm shadow-[2px_2px_0px_rgba(100,116,139,0.5)]">
+            Action Required
+        </div>
+
+        <!-- Header -->
+        <header class="border-b-4 border-slate-800 pb-6 mb-10 mt-4 relative z-10">
+            <h1 class="text-3xl md:text-5xl font-bold text-slate-900 mb-2">Psychology Lab Notebook</h1>
+            <p class="font-mono text-sm text-slate-600 uppercase tracking-widest">Doc Ref: Interactive Study Guide & Data Analysis</p>
+        </header>
+
+        <!-- PART ONE: MULTIPLE CHOICE -->
+        <section class="mb-16 relative z-10">
+            <div class="border-b-2 border-slate-300 pb-2 mb-6 flex items-baseline justify-between">
+                <h2 class="text-2xl font-bold text-slate-900">Part One: Multiple-Choice</h2>
+                <span class="font-mono text-xs uppercase tracking-widest text-slate-500 interactive-only">Response Capture Active</span>
+            </div>
+            
+            <p class="text-slate-700 mb-8 italic">Read the scenarios and select the best answer. Your response will be recorded for review.</p>
+
+            <!-- Scenario 1: Hockey -->
+            <div class="scenario-box bg-slate-100 border-l-4 border-slate-800 p-5 mb-6 shadow-[3px_3px_0px_rgba(203,213,225,1)] rounded-sm">
+                <span class="font-mono text-xs uppercase tracking-widest text-slate-500 block mb-1">Scenario 01</span>
+                <p class="m-0 text-slate-900">A local hockey player scored the following number of goals over their last 5 games: <strong>1, 2, 2, 4, 6</strong></p>
+            </div>
+
+            <div class="mb-8 pl-2">
+                <p class="font-bold mb-3">1. The mean score was:</p>
+                <div class="space-y-2 font-mono text-sm">
+                    <label class="block cursor-pointer hover:bg-slate-200 p-2 rounded-sm transition-colors border border-transparent hover:border-slate-300"><input type="radio" name="q1" value="A" onclick="checkMCQ('q1', 'B')" class="mr-2"> A. 2</label>
+                    <label class="block cursor-pointer hover:bg-slate-200 p-2 rounded-sm transition-colors border border-transparent hover:border-slate-300"><input type="radio" name="q1" value="B" onclick="checkMCQ('q1', 'B')" class="mr-2"> B. 3</label>
+                    <label class="block cursor-pointer hover:bg-slate-200 p-2 rounded-sm transition-colors border border-transparent hover:border-slate-300"><input type="radio" name="q1" value="C" onclick="checkMCQ('q1', 'B')" class="mr-2"> C. 4</label>
+                    <label class="block cursor-pointer hover:bg-slate-200 p-2 rounded-sm transition-colors border border-transparent hover:border-slate-300"><input type="radio" name="q1" value="D" onclick="checkMCQ('q1', 'B')" class="mr-2"> D. 5</label>
+                </div>
+                <div id="feedback-q1" class="mt-2 min-h-[24px]"></div>
+            </div>
+
+            <div class="mb-8 pl-2">
+                <p class="font-bold mb-3">2. The mode was:</p>
+                <div class="space-y-2 font-mono text-sm">
+                    <label class="block cursor-pointer hover:bg-slate-200 p-2 rounded-sm transition-colors border border-transparent hover:border-slate-300"><input type="radio" name="q2" value="A" onclick="checkMCQ('q2', 'A')" class="mr-2"> A. 2</label>
+                    <label class="block cursor-pointer hover:bg-slate-200 p-2 rounded-sm transition-colors border border-transparent hover:border-slate-300"><input type="radio" name="q2" value="B" onclick="checkMCQ('q2', 'A')" class="mr-2"> B. 3</label>
+                    <label class="block cursor-pointer hover:bg-slate-200 p-2 rounded-sm transition-colors border border-transparent hover:border-slate-300"><input type="radio" name="q2" value="C" onclick="checkMCQ('q2', 'A')" class="mr-2"> C. 4</label>
+                    <label class="block cursor-pointer hover:bg-slate-200 p-2 rounded-sm transition-colors border border-transparent hover:border-slate-300"><input type="radio" name="q2" value="D" onclick="checkMCQ('q2', 'A')" class="mr-2"> D. 5</label>
+                </div>
+                <div id="feedback-q2" class="mt-2 min-h-[24px]"></div>
+            </div>
+
+            <div class="mb-10 pl-2">
+                <p class="font-bold mb-3">3. The median was:</p>
+                <div class="space-y-2 font-mono text-sm">
+                    <label class="block cursor-pointer hover:bg-slate-200 p-2 rounded-sm transition-colors border border-transparent hover:border-slate-300"><input type="radio" name="q3" value="A" onclick="checkMCQ('q3', 'A')" class="mr-2"> A. 2</label>
+                    <label class="block cursor-pointer hover:bg-slate-200 p-2 rounded-sm transition-colors border border-transparent hover:border-slate-300"><input type="radio" name="q3" value="B" onclick="checkMCQ('q3', 'A')" class="mr-2"> B. 3</label>
+                    <label class="block cursor-pointer hover:bg-slate-200 p-2 rounded-sm transition-colors border border-transparent hover:border-slate-300"><input type="radio" name="q3" value="C" onclick="checkMCQ('q3', 'A')" class="mr-2"> C. 4</label>
+                    <label class="block cursor-pointer hover:bg-slate-200 p-2 rounded-sm transition-colors border border-transparent hover:border-slate-300"><input type="radio" name="q3" value="D" onclick="checkMCQ('q3', 'A')" class="mr-2"> D. 5</label>
+                </div>
+                <div id="feedback-q3" class="mt-2 min-h-[24px]"></div>
+            </div>
+
+            <!-- General Theory -->
+            <div class="mb-8 pl-2">
+                <p class="font-bold mb-3">4. When a researcher calculates a large standard deviation, the numbers in the data set are:</p>
+                <div class="space-y-2 font-mono text-sm">
+                    <label class="block cursor-pointer hover:bg-slate-200 p-2 rounded-sm transition-colors border border-transparent hover:border-slate-300"><input type="radio" name="q13" value="A" onclick="checkMCQ('q13', 'C')" class="mr-2"> A. very small values</label>
+                    <label class="block cursor-pointer hover:bg-slate-200 p-2 rounded-sm transition-colors border border-transparent hover:border-slate-300"><input type="radio" name="q13" value="B" onclick="checkMCQ('q13', 'C')" class="mr-2"> B. clumped closely together</label>
+                    <label class="block cursor-pointer hover:bg-slate-200 p-2 rounded-sm transition-colors border border-transparent hover:border-slate-300"><input type="radio" name="q13" value="C" onclick="checkMCQ('q13', 'C')" class="mr-2"> C. spread far apart</label>
+                    <label class="block cursor-pointer hover:bg-slate-200 p-2 rounded-sm transition-colors border border-transparent hover:border-slate-300"><input type="radio" name="q13" value="D" onclick="checkMCQ('q13', 'C')" class="mr-2"> D. very large values</label>
+                </div>
+                <div id="feedback-q13" class="mt-2 min-h-[24px]"></div>
+            </div>
+
+            <div class="mb-8 pl-2">
+                <p class="font-bold mb-3">5. Which of the following is a measure of variability?</p>
+                <div class="space-y-2 font-mono text-sm">
+                    <label class="block cursor-pointer hover:bg-slate-200 p-2 rounded-sm transition-colors border border-transparent hover:border-slate-300"><input type="radio" name="q14" value="A" onclick="checkMCQ('q14', 'A')" class="mr-2"> A. Range</label>
+                    <label class="block cursor-pointer hover:bg-slate-200 p-2 rounded-sm transition-colors border border-transparent hover:border-slate-300"><input type="radio" name="q14" value="B" onclick="checkMCQ('q14', 'A')" class="mr-2"> B. Mean</label>
+                    <label class="block cursor-pointer hover:bg-slate-200 p-2 rounded-sm transition-colors border border-transparent hover:border-slate-300"><input type="radio" name="q14" value="C" onclick="checkMCQ('q14', 'A')" class="mr-2"> C. Mode</label>
+                    <label class="block cursor-pointer hover:bg-slate-200 p-2 rounded-sm transition-colors border border-transparent hover:border-slate-300"><input type="radio" name="q14" value="D" onclick="checkMCQ('q14', 'A')" class="mr-2"> D. Distribution</label>
+                </div>
+                <div id="feedback-q14" class="mt-2 min-h-[24px]"></div>
+            </div>
+        </section>
+
+        <!-- Page Break for Print -->
+        <div class="page-break"></div>
+
+        <!-- PART TWO: WRITTEN RESPONSES -->
+        <section class="mb-16 relative z-10">
+            <div class="border-b-2 border-slate-300 pb-2 mb-6 flex items-baseline justify-between mt-12 md:mt-0">
+                <h2 class="text-2xl font-bold text-slate-900">Part Two: Conceptual Analysis</h2>
+                <span class="font-mono text-xs uppercase tracking-widest text-slate-500 interactive-only">Manual Entry</span>
+            </div>
+            
+            <p class="text-slate-700 mb-8 italic">Draft your responses below. Use the tool to check your logic against psychological principles.</p>
+
+            <div class="space-y-10">
+                <!-- Q1 -->
+                <div>
+                    <label class="block font-bold mb-2">1. Is it possible to score in the 65th percentile yet not pass an exam? Explain.</label>
+                    <textarea class="auto-expand w-full bg-slate-50 border border-slate-300 p-3 font-serif text-slate-800 focus:bg-white focus:border-slate-800 focus:ring-0 focus:outline-none rounded-none transition-colors shadow-[3px_3px_0px_rgba(203,213,225,0.6)] mb-3 min-h-[96px] overflow-hidden" placeholder="Enter your rationale..." oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px'"></textarea>
+                    
+                    <button onclick="toggleHint('hint1')" class="interactive-only font-mono text-xs border-2 border-slate-800 bg-white px-4 py-2 text-slate-900 font-bold uppercase tracking-wider shadow-[3px_3px_0px_rgba(30,41,59,1)] active:shadow-none active:translate-y-[3px] active:translate-x-[3px] transition-all">
+                        Reveal Logic Check
+                    </button>
+                    <div id="hint1" class="hidden mt-4 bg-slate-100 border-l-4 border-slate-800 p-4 font-mono text-sm text-slate-700 shadow-[2px_2px_0px_rgba(203,213,225,1)]">
+                        <span class="font-bold text-slate-900 uppercase tracking-widest text-xs block mb-1">System Hint</span>
+                        Think about what a percentile actually measures. It compares you to *other people*, not to the raw score of the test itself. If everyone did poorly, doing better than 65% of people might still mean a failing raw score!
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div>
+                    <label class="block font-bold mb-2">2. Define reliability as it pertains to scientific experimentation and state why it is important.</label>
+                    <textarea class="auto-expand w-full bg-slate-50 border border-slate-300 p-3 font-serif text-slate-800 focus:bg-white focus:border-slate-800 focus:ring-0 focus:outline-none rounded-none transition-colors shadow-[3px_3px_0px_rgba(203,213,225,0.6)] mb-3 min-h-[96px] overflow-hidden" placeholder="Enter your rationale..." oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px'"></textarea>
+                    
+                    <button onclick="toggleHint('hint2')" class="interactive-only font-mono text-xs border-2 border-slate-800 bg-white px-4 py-2 text-slate-900 font-bold uppercase tracking-wider shadow-[3px_3px_0px_rgba(30,41,59,1)] active:shadow-none active:translate-y-[3px] active:translate-x-[3px] transition-all">
+                        Reveal Logic Check
+                    </button>
+                    <div id="hint2" class="hidden mt-4 bg-slate-100 border-l-4 border-slate-800 p-4 font-mono text-sm text-slate-700 shadow-[2px_2px_0px_rgba(203,213,225,1)]">
+                        <span class="font-bold text-slate-900 uppercase tracking-widest text-xs block mb-1">System Hint</span>
+                        Reliability is all about <em>consistency</em>. If you use a measuring tape to measure a board three times, you should get the exact same number three times. Without it, you can't trust your tools!
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div>
+                    <label class="block font-bold mb-2">3. Define negative feedback and provide an example of a system that uses it.</label>
+                    <textarea class="auto-expand w-full bg-slate-50 border border-slate-300 p-3 font-serif text-slate-800 focus:bg-white focus:border-slate-800 focus:ring-0 focus:outline-none rounded-none transition-colors shadow-[3px_3px_0px_rgba(203,213,225,0.6)] mb-3 min-h-[96px] overflow-hidden" placeholder="Enter your rationale..." oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px'"></textarea>
+                    
+                    <button onclick="toggleHint('hint3')" class="interactive-only font-mono text-xs border-2 border-slate-800 bg-white px-4 py-2 text-slate-900 font-bold uppercase tracking-wider shadow-[3px_3px_0px_rgba(30,41,59,1)] active:shadow-none active:translate-y-[3px] active:translate-x-[3px] transition-all">
+                        Reveal Logic Check
+                    </button>
+                    <div id="hint3" class="hidden mt-4 bg-slate-100 border-l-4 border-slate-800 p-4 font-mono text-sm text-slate-700 shadow-[2px_2px_0px_rgba(203,213,225,1)]">
+                        <span class="font-bold text-slate-900 uppercase tracking-widest text-xs block mb-1">System Hint</span>
+                        Negative feedback counteracts a change to bring a system back to a stable baseline (homeostasis). Think about cruise control in a car, or how your pupils react to bright light.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page Break for Print -->
+        <div class="page-break"></div>
+
+        <!-- PART THREE: INTERACTIVE DATA CRUNCHER -->
+        <section class="relative z-10">
+            <div class="border-b-2 border-slate-300 pb-2 mb-6 flex items-baseline justify-between mt-12 md:mt-0">
+                <h2 class="text-2xl font-bold text-slate-900">Part Three: The Data Cruncher</h2>
+                <span class="font-mono text-xs uppercase tracking-widest text-emerald-700 interactive-only">Live Calc Active</span>
+            </div>
+            
+            <p class="text-slate-700 mb-6 italic">Calculate the central tendencies and variability for the hand widths of 10 grade four students. Inputs will illuminate <span class="text-emerald-700 font-bold">green</span> upon exact verification.</p>
+            
+            <div class="data-cruncher-box bg-[#f0fdf4] border-2 border-emerald-900 p-6 md:p-8 shadow-[6px_6px_0px_rgba(6,78,59,1)] relative">
+                
+                <!-- Dataset Ribbon -->
+                <div class="bg-emerald-900 text-white font-mono text-sm sm:text-lg text-center p-3 mb-8 tracking-widest shadow-inner relative -mx-2">
+                    7<span class="text-emerald-400 text-xs">cm</span> &middot; 
+                    11<span class="text-emerald-400 text-xs">cm</span> &middot; 
+                    10<span class="text-emerald-400 text-xs">cm</span> &middot; 
+                    8<span class="text-emerald-400 text-xs">cm</span> &middot; 
+                    8<span class="text-emerald-400 text-xs">cm</span> &middot; 
+                    7<span class="text-emerald-400 text-xs">cm</span> &middot; 
+                    9<span class="text-emerald-400 text-xs">cm</span> &middot; 
+                    12<span class="text-emerald-400 text-xs">cm</span> &middot; 
+                    10<span class="text-emerald-400 text-xs">cm</span> &middot; 
+                    8<span class="text-emerald-400 text-xs">cm</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-8">
+                    
+                    <div class="flex items-center justify-between border-b border-emerald-200 pb-3">
+                        <div>
+                            <span class="block font-bold text-slate-900">1. Mode:</span>
+                            <span class="font-mono text-[10px] uppercase tracking-widest text-emerald-800">Most frequent</span>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="number" id="ansMode" onkeyup="checkMath('ansMode', 8)" class="bg-[#f8fafc] border-2 border-slate-800 p-2 font-mono text-center w-20 text-slate-900 focus:outline-none focus:bg-white rounded-none transition-colors mr-2">
+                            <span class="font-mono text-xs text-slate-500">cm</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between border-b border-emerald-200 pb-3">
+                        <div>
+                            <span class="block font-bold text-slate-900">2. Median:</span>
+                            <span class="font-mono text-[10px] uppercase tracking-widest text-emerald-800">Middle value</span>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="number" step="0.1" id="ansMedian" onkeyup="checkMath('ansMedian', 8.5)" class="bg-[#f8fafc] border-2 border-slate-800 p-2 font-mono text-center w-20 text-slate-900 focus:outline-none focus:bg-white rounded-none transition-colors mr-2">
+                            <span class="font-mono text-xs text-slate-500">cm</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between border-b border-emerald-200 pb-3">
+                        <div>
+                            <span class="block font-bold text-slate-900">3. Mean:</span>
+                            <span class="font-mono text-[10px] uppercase tracking-widest text-emerald-800">Math average</span>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="number" step="0.1" id="ansMean" onkeyup="checkMath('ansMean', 9)" class="bg-[#f8fafc] border-2 border-slate-800 p-2 font-mono text-center w-20 text-slate-900 focus:outline-none focus:bg-white rounded-none transition-colors mr-2">
+                            <span class="font-mono text-xs text-slate-500">cm</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between border-b border-emerald-200 pb-3">
+                        <div>
+                            <span class="block font-bold text-slate-900">4. Range:</span>
+                            <span class="font-mono text-[10px] uppercase tracking-widest text-emerald-800">High minus low</span>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="number" id="ansRange" onkeyup="checkMath('ansRange', 5)" class="bg-[#f8fafc] border-2 border-slate-800 p-2 font-mono text-center w-20 text-slate-900 focus:outline-none focus:bg-white rounded-none transition-colors mr-2">
+                            <span class="font-mono text-xs text-slate-500">cm</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between border-b border-emerald-200 pb-3">
+                        <div>
+                            <span class="block font-bold text-slate-900">5. Variance:</span>
+                            <span class="font-mono text-[10px] uppercase tracking-widest text-emerald-800">Pop: 2.6 / Sam: 2.89</span>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="number" step="0.01" id="ansVar" onkeyup="checkMultiple('ansVar', [2.6, 2.89, 2.9])" class="bg-[#f8fafc] border-2 border-slate-800 p-2 font-mono text-center w-20 text-slate-900 focus:outline-none focus:bg-white rounded-none transition-colors mr-2">
+                            <span class="font-mono text-xs text-transparent">cm</span> <!-- Spacer -->
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between border-b border-emerald-200 pb-3">
+                        <div>
+                            <span class="block font-bold text-slate-900">6. Std. Deviation:</span>
+                            <span class="font-mono text-[10px] uppercase tracking-widest text-emerald-800">Pop: 1.61 / Sam: 1.7</span>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="number" step="0.01" id="ansSD" onkeyup="checkMultiple('ansSD', [1.61, 1.7, 1.70])" class="bg-[#f8fafc] border-2 border-slate-800 p-2 font-mono text-center w-20 text-slate-900 focus:outline-none focus:bg-white rounded-none transition-colors mr-2">
+                            <span class="font-mono text-xs text-transparent">cm</span> <!-- Spacer -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GENERATE REPORT BUTTON -->
+        <div class="mt-16 pt-8 border-t-4 border-slate-800 text-center interactive-only">
+            <button onclick="generateReport()" class="bg-slate-800 text-white font-mono text-lg uppercase tracking-widest py-4 px-6 md:px-12 shadow-[6px_6px_0px_rgba(100,116,139,1)] hover:bg-slate-700 hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-[4px_4px_0px_rgba(100,116,139,1)] active:shadow-none active:translate-y-[6px] active:translate-x-[6px] transition-all duration-150 flex items-center justify-center w-full md:w-auto mx-auto font-bold border-2 border-slate-900">
+                <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                Generate Report
+            </button>
+            <p class="font-serif text-sm text-slate-500 mt-4 italic">Creates a stylized PDF for Google Classroom.</p>
+        </div>
+
+    </div>
+
+    <script>
+        // MCQ capture function (records selection without revealing answer keys)
+        function checkMCQ(questionName) {
+            var radios = document.getElementsByName(questionName);
+            var selectedValue = "";
+            for (var i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    selectedValue = radios[i].value;
+                    break;
+                }
+            }
+            
+            var feedbackSpan = document.getElementById('feedback-' + questionName);
+            feedbackSpan.className = "font-mono text-sm uppercase font-bold tracking-wider mt-2 block";
+
+            if (selectedValue) {
+                feedbackSpan.innerHTML = "[ RESPONSE LOGGED ]";
+                feedbackSpan.classList.add("text-slate-700");
+                feedbackSpan.classList.remove("text-rose-600");
+                feedbackSpan.classList.remove("text-emerald-700");
+            } else {
+                feedbackSpan.innerHTML = "";
+            }
+        }
+
+        // Hint Toggle Function
+        function toggleHint(hintId) {
+            var x = document.getElementById(hintId);
+            if (x.classList.contains("hidden")) {
+                x.classList.remove("hidden");
+            } else {
+                x.classList.add("hidden");
+            }
+        }
+
+        // Math Checking Functions
+        function checkMath(elementId, correctAnswer) {
+            var inputField = document.getElementById(elementId);
+            var studentAnswer = parseFloat(inputField.value);
+            if (studentAnswer === correctAnswer) {
+                inputField.style.borderColor = "#047857"; 
+                inputField.style.backgroundColor = "#d1fae5"; 
+            } else {
+                inputField.style.borderColor = "#1e293b"; 
+                inputField.style.backgroundColor = "#f8fafc"; 
+            }
+        }
+
+        function checkMultiple(elementId, correctAnswersArray) {
+            var inputField = document.getElementById(elementId);
+            var studentAnswer = parseFloat(inputField.value);
+            if (correctAnswersArray.includes(studentAnswer)) {
+                inputField.style.borderColor = "#047857"; 
+                inputField.style.backgroundColor = "#d1fae5"; 
+            } else {
+                inputField.style.borderColor = "#1e293b"; 
+                inputField.style.backgroundColor = "#f8fafc"; 
+            }
+        }
+
+        // Stylized print report
+        function generateReport() {
+            // Ensure all textareas are fully expanded before print preview opens.
+            const textareas = document.querySelectorAll('textarea.auto-expand');
+            textareas.forEach(ta => {
+                ta.style.height = 'auto';
+                ta.style.height = ta.scrollHeight + 'px';
+            });
+
+            // Students can choose "Save as PDF" from the browser print dialog.
+            window.print();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experimental Psychology 30 - Practice Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+        body { font-family: 'Lora', serif; background-color: #e2e8f0; color: #1e293b; }
+        
+        /* Typography specifics */
+        h1, h2, h3, h4 { font-family: 'Lora', serif; tracking: tight; }
+        .font-mono { font-family: 'Space Mono', monospace; }
+        
+        /* Print Styles for Stylized Lab Report */
+        @media print {
+            body { background-color: white; font-family: 'Times New Roman', Times, serif; color: black; }
+            .no-print { display: none !important; }
+            .print-only { display: block !important; }
+            
+            /* Hide Part 1 instructions and only print the final formal report */
+            #part-one, .page-break, #part-two > p { display: none !important; }
+            
+            /* Style the Lab Report to look like a formal document */
+            #part-two { border: none; margin-top: 0; padding-top: 0; }
+            #part-two h3 { text-align: center; font-size: 24pt; border: none; margin-bottom: 2.5rem; }
+            
+            /* Transform inputs into regular document text */
+            .interactive-box { border: none !important; background: transparent !important; padding: 0 !important; margin-bottom: 1.5rem !important; }
+            input[type="text"], textarea { 
+                resize: none; 
+                overflow: hidden; 
+                border: none !important; 
+                background: transparent !important; 
+                font-family: 'Times New Roman', Times, serif;
+                font-size: 12pt;
+                padding: 0 !important;
+                margin: 0 !important;
+                color: black !important;
+            }
+            label { font-size: 14pt; color: black !important; border-bottom: 1px solid #ccc; padding-bottom: 4px; margin-bottom: 8px; display: inline-block; width: 100%; }
+            
+            main { padding: 0 !important; margin: 0 !important; max-width: 100% !important; box-shadow: none !important; }
+        }
+        
+        /* Custom scrollbar for textareas */
+        textarea::-webkit-scrollbar { width: 8px; }
+        textarea::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
+        textarea::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 4px; }
+        textarea::-webkit-scrollbar-thumb:hover { background: #a8a8a8; }
+    </style>
+</head>
+<body class="antialiased py-8">
+
+    <!-- Sticky Toolbar -->
+    <div class="no-print fixed top-0 left-0 right-0 bg-white border-b-2 border-slate-300 shadow-sm z-50 px-6 py-3 flex justify-between items-center font-mono text-sm">
+        <div class="font-semibold text-slate-600">
+            <span class="text-slate-900 font-bold uppercase tracking-widest">SYSTEM:</span> Auto-Save Active.
+        </div>
+        <button onclick="window.print()" class="bg-slate-800 hover:bg-slate-900 text-white px-4 py-2 rounded-sm font-bold tracking-wide transition flex items-center gap-2 shadow-sm uppercase text-xs">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+            Generate Report
+        </button>
+    </div>
+
+    <main class="max-w-4xl mx-auto mt-12 bg-[#faf9f6] shadow-2xl border-t-8 border-slate-800 p-8 md:p-12 relative">
+        
+        <!-- Academic watermark/decoration -->
+        <div class="absolute top-0 right-12 w-16 h-24 bg-slate-200 opacity-50 no-print flex items-end justify-center pb-2">
+            <span class="font-mono text-xs text-slate-500 font-bold rotate-90 mb-4 whitespace-nowrap tracking-widest">FORM EP-30</span>
+        </div>
+
+        <!-- Header Section -->
+        <header class="border-b-2 border-slate-800 pb-6 mb-8 no-print pr-20">
+            <h1 class="text-3xl font-bold text-slate-900 mb-2 uppercase tracking-wide">Experimental Psychology 30<br><span class="text-2xl text-slate-600">Practice Project</span></h1>
+            <h2 class="text-lg text-slate-600 font-bold font-mono mt-4">MODULE 4 SECTION 2</h2>
+            <div class="mt-4 inline-block bg-white border-2 border-slate-800 text-slate-900 px-4 py-1 font-mono text-sm font-bold uppercase tracking-widest shadow-[3px_3px_0px_rgba(30,41,59,1)]">
+                Total Score: &nbsp;&nbsp;&nbsp;/46
+            </div>
+        </header>
+
+        <!-- Part One -->
+        <section id="part-one" class="space-y-6 text-slate-800 leading-relaxed text-lg">
+            <h3 class="text-2xl font-bold text-slate-900 border-b border-slate-300 pb-2 font-mono uppercase tracking-widest">Part One: Background & Instructions</h3>
+            
+            <p>When engaged in conversation, do men and women move their hands similar amounts? Expanding on the research interests of Kimura, you will observe people and determine the answer.</p>
+            
+            <p>Before you can perform the experiment you must make a hypothesis, define your variables, create a list of materials and obtain them, write and follow a procedure, then collect data based on your observations. Only after these tasks have been completed can you prepare your lab report.</p>
+            
+            <p>Experiments often stem from questions researchers are curious about. The question this practice experiment relates to may be as simple as "Do hand movements differ in men and women during conversation?" One hypothesis might be that men move their hands more than women or that women move their hands more than men. One might even hypothesize that there is no significant difference in hand movements. What would you choose for a hypothesis?</p>
+
+            <!-- Interactive Box: Hypothesis -->
+            <div class="bg-white border-2 border-slate-300 shadow-[4px_4px_0px_rgba(203,213,225,0.5)] p-6 my-8 interactive-box relative">
+                <div class="absolute -top-3 left-4 bg-[#faf9f6] px-2 font-mono text-xs font-bold text-slate-500 tracking-widest">ACTION REQUIRED</div>
+                <label for="draft-hypothesis" class="block font-bold text-slate-900 mb-2 font-mono uppercase">Draft Your Hypothesis:</label>
+                <textarea id="draft-hypothesis" rows="3" class="w-full p-3 border border-slate-300 bg-slate-50 rounded-none focus:ring-0 focus:border-slate-800 focus:bg-white transition-colors outline-none font-serif text-lg" placeholder="Type your hypothesis here..."></textarea>
+            </div>
+
+            <p>You must create a list of materials . Based on the information that follows (next page), you will need paper and pencil to record your observations, a watch or timing device, and people to observe!</p>
+
+            <!-- Interactive Box: Materials -->
+            <div class="bg-white border-2 border-slate-300 shadow-[4px_4px_0px_rgba(203,213,225,0.5)] p-6 my-8 interactive-box no-print relative">
+                <div class="absolute -top-3 left-4 bg-[#faf9f6] px-2 font-mono text-xs font-bold text-slate-500 tracking-widest">CHECKLIST</div>
+                <label class="block font-bold text-slate-900 mb-3 font-mono uppercase">Materials Required:</label>
+                <div class="space-y-3 font-mono text-sm">
+                    <label class="flex items-center space-x-3 cursor-pointer"><input type="checkbox" id="mat1" class="w-5 h-5 text-slate-800 rounded-none focus:ring-slate-800"><span class="text-slate-700">Paper</span></label>
+                    <label class="flex items-center space-x-3 cursor-pointer"><input type="checkbox" id="mat2" class="w-5 h-5 text-slate-800 rounded-none focus:ring-slate-800"><span class="text-slate-700">Pencil</span></label>
+                    <label class="flex items-center space-x-3 cursor-pointer"><input type="checkbox" id="mat3" class="w-5 h-5 text-slate-800 rounded-none focus:ring-slate-800"><span class="text-slate-700">Watch or timing device</span></label>
+                    <label class="flex items-center space-x-3 cursor-pointer"><input type="checkbox" id="mat4" class="w-5 h-5 text-slate-800 rounded-none focus:ring-slate-800"><span class="text-slate-700">People to observe</span></label>
+                </div>
+            </div>
+
+            <p>Defining terms is an important task to complete before you begin your observations. Any definition should be placed in the procedure section of the lab report. For this experiment, you need to define self-touching and free movement. Self-touching, for example, needs to be clearly defined before you can determine which column a tick-mark should be placed. Scratching an arm, twisting a strand of hair, or brushing a twig off a pant leg are all considered self-touching movements. If a subject waves a hand in the air, taps a finger on a table, or points to an object, the tick-mark should go in the free movement cell.</p>
+            
+            <p>Next, determine what the manipulated and responding and controlled variables are and include them in your report. If you require assistance in determining these variables, please contact your teacher.</p>
+
+            <!-- Interactive Box: Variables -->
+            <div class="bg-white border-2 border-slate-300 shadow-[4px_4px_0px_rgba(203,213,225,0.5)] p-6 my-8 interactive-box relative">
+                <div class="absolute -top-3 left-4 bg-[#faf9f6] px-2 font-mono text-xs font-bold text-slate-500 tracking-widest">ACTION REQUIRED</div>
+                <label class="block font-bold text-slate-900 mb-4 font-mono uppercase">Define Your Variables:</label>
+                <div class="space-y-5">
+                    <div>
+                        <label for="var-manipulated" class="block text-sm font-bold font-mono text-slate-700 mb-1">Manipulated Variable:</label>
+                        <input type="text" id="var-manipulated" class="w-full p-2 border border-slate-300 bg-slate-50 rounded-none outline-none focus:border-slate-800 focus:bg-white font-serif text-lg transition-colors">
+                    </div>
+                    <div>
+                        <label for="var-responding" class="block text-sm font-bold font-mono text-slate-700 mb-1">Responding Variable:</label>
+                        <input type="text" id="var-responding" class="w-full p-2 border border-slate-300 bg-slate-50 rounded-none outline-none focus:border-slate-800 focus:bg-white font-serif text-lg transition-colors">
+                    </div>
+                    <div>
+                        <label for="var-controlled" class="block text-sm font-bold font-mono text-slate-700 mb-1">Controlled Variables:</label>
+                        <textarea id="var-controlled" rows="2" class="w-full p-2 border border-slate-300 bg-slate-50 rounded-none outline-none focus:border-slate-800 focus:bg-white font-serif text-lg transition-colors"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <p>Note: Although the information below forms the basis of the procedure you will follow when completing the experiment, you must write the instructions in step-by-step fashion.</p>
+            
+            <p>First, make a table to record your data. You may create one large table to record data for all subjects or you could create individual tables for each subject. An example of the second option is presented below.</p>
+
+            <div class="bg-slate-800 text-slate-100 p-5 rounded-sm my-6 font-mono text-sm overflow-x-auto shadow-inner border-l-4 border-slate-500">
+                Person One - Male<br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,Left Hand,Right Hand,Both Hands<br>
+                Self-Touching, , , <br>
+                Free Movement, , , 
+            </div>
+
+            <!-- Interactive Box: Tally Tool -->
+            <div class="bg-[#f0fdf4] border-2 border-emerald-900 shadow-[4px_4px_0px_rgba(6,78,59,0.15)] p-6 my-8 no-print relative">
+                <div class="absolute -top-3 left-4 bg-[#f0fdf4] px-2 font-mono text-xs font-bold text-emerald-800 tracking-widest">DATA COLLECTION TOOL</div>
+                <h4 class="font-bold text-emerald-900 mb-2 font-mono uppercase tracking-wide">Observation Counter (Optional)</h4>
+                <p class="text-sm text-emerald-800 mb-5 font-serif">Use this built-in counter to tally your observations for a subject, then copy the final numbers into your report table.</p>
+                
+                <div class="grid grid-cols-4 gap-3 text-center text-sm font-mono">
+                    <div class="font-bold border-b-2 border-emerald-200 pb-2 text-emerald-900 uppercase">Category</div>
+                    <div class="font-bold border-b-2 border-emerald-200 pb-2 text-emerald-900 uppercase">Left Hand</div>
+                    <div class="font-bold border-b-2 border-emerald-200 pb-2 text-emerald-900 uppercase">Right Hand</div>
+                    <div class="font-bold border-b-2 border-emerald-200 pb-2 text-emerald-900 uppercase">Both Hands</div>
+                    
+                    <div class="flex items-center font-bold text-emerald-800 text-xs text-left">Self-Touching</div>
+                    <div class="flex flex-col items-center justify-center p-3 bg-white rounded-sm border-2 border-emerald-200">
+                        <span id="tally-st-l" class="text-2xl font-bold mb-2 font-mono text-slate-800">0</span>
+                        <div class="flex gap-1 w-full"><button onclick="adjustTally('tally-st-l', 1)" class="flex-1 bg-slate-200 hover:bg-slate-300 rounded-sm font-bold text-lg leading-none py-1">+</button><button onclick="adjustTally('tally-st-l', -1)" class="flex-1 bg-slate-200 hover:bg-slate-300 rounded-sm font-bold text-lg leading-none py-1">-</button></div>
+                    </div>
+                    <div class="flex flex-col items-center justify-center p-3 bg-white rounded-sm border-2 border-emerald-200">
+                        <span id="tally-st-r" class="text-2xl font-bold mb-2 font-mono text-slate-800">0</span>
+                        <div class="flex gap-1 w-full"><button onclick="adjustTally('tally-st-r', 1)" class="flex-1 bg-slate-200 hover:bg-slate-300 rounded-sm font-bold text-lg leading-none py-1">+</button><button onclick="adjustTally('tally-st-r', -1)" class="flex-1 bg-slate-200 hover:bg-slate-300 rounded-sm font-bold text-lg leading-none py-1">-</button></div>
+                    </div>
+                    <div class="flex flex-col items-center justify-center p-3 bg-white rounded-sm border-2 border-emerald-200">
+                        <span id="tally-st-b" class="text-2xl font-bold mb-2 font-mono text-slate-800">0</span>
+                        <div class="flex gap-1 w-full"><button onclick="adjustTally('tally-st-b', 1)" class="flex-1 bg-slate-200 hover:bg-slate-300 rounded-sm font-bold text-lg leading-none py-1">+</button><button onclick="adjustTally('tally-st-b', -1)" class="flex-1 bg-slate-200 hover:bg-slate-300 rounded-sm font-bold text-lg leading-none py-1">-</button></div>
+                    </div>
+
+                    <div class="flex items-center font-bold text-emerald-800 text-xs text-left mt-2">Free Movement</div>
+                    <div class="flex flex-col items-center justify-center p-3 bg-white rounded-sm border-2 border-emerald-200 mt-2">
+                        <span id="tally-fm-l" class="text-2xl font-bold mb-2 font-mono text-slate-800">0</span>
+                        <div class="flex gap-1 w-full"><button onclick="adjustTally('tally-fm-l', 1)" class="flex-1 bg-slate-200 hover:bg-slate-300 rounded-sm font-bold text-lg leading-none py-1">+</button><button onclick="adjustTally('tally-fm-l', -1)" class="flex-1 bg-slate-200 hover:bg-slate-300 rounded-sm font-bold text-lg leading-none py-1">-</button></div>
+                    </div>
+                    <div class="flex flex-col items-center justify-center p-3 bg-white rounded-sm border-2 border-emerald-200 mt-2">
+                        <span id="tally-fm-r" class="text-2xl font-bold mb-2 font-mono text-slate-800">0</span>
+                        <div class="flex gap-1 w-full"><button onclick="adjustTally('tally-fm-r', 1)" class="flex-1 bg-slate-200 hover:bg-slate-300 rounded-sm font-bold text-lg leading-none py-1">+</button><button onclick="adjustTally('tally-fm-r', -1)" class="flex-1 bg-slate-200 hover:bg-slate-300 rounded-sm font-bold text-lg leading-none py-1">-</button></div>
+                    </div>
+                    <div class="flex flex-col items-center justify-center p-3 bg-white rounded-sm border-2 border-emerald-200 mt-2">
+                        <span id="tally-fm-b" class="text-2xl font-bold mb-2 font-mono text-slate-800">0</span>
+                        <div class="flex gap-1 w-full"><button onclick="adjustTally('tally-fm-b', 1)" class="flex-1 bg-slate-200 hover:bg-slate-300 rounded-sm font-bold text-lg leading-none py-1">+</button><button onclick="adjustTally('tally-fm-b', -1)" class="flex-1 bg-slate-200 hover:bg-slate-300 rounded-sm font-bold text-lg leading-none py-1">-</button></div>
+                    </div>
+                </div>
+                <button onclick="resetTallies()" class="mt-5 text-xs text-red-700 hover:bg-red-100 px-3 py-1 rounded-sm border border-transparent hover:border-red-300 transition-colors uppercase font-bold tracking-widest block w-max mx-auto">Reset Counters</button>
+            </div>
+
+            <p>Second, find someone you can watch for five minutes. This person must be engaged in conversation with someone other than you. The subjects could be in a restaurant, on a bus, in a park, or at a wedding for example. You do not need to know the subject. As the subject speaks, you will record his or her hand movements.</p>
+            
+            <p>Each time a subject moves his or her hand, you will place a tick-mark in the appropriate cell in the table. Please note that you must differentiate between right-hand movements, left-hand movements, and movements involving both hands at the same time. In some instances, watching a home movie of a family gathering is ideal because you can replay the tape or DVD many times to count movements correctly.</p>
+            
+            <p>The sample size for the purposes of this exercise is small. You are to collect data on only four males over the age of 12 and four females over the age of 12. However, you may observe more people; this will increase the validity of your results. Researchers like Kimura observe hundreds of people in this type of study.</p>
+
+            <p>After you collect your data you must organize it in a summary table and create a set of graphs to display the data.</p>
+            
+            <p>In the Analysis and Conclusion section of your report, you will summarize the results. You will confirm or refute your hypothesis. You may wish to comment on right-hand movements compared to left-hand movements. Did one gender motion with one hand more than the other gender?</p>
+            
+            <p>If the practice experiment was a real experiment, you would conduct background research on the topic. You might learn about which side of the brain controls movement of the right hand and of the left hand.</p>
+            
+            <p>At the end of the report you are to provide two possible sources of error. A Reference section is not required, but feel free to include one.</p>
+        </section>
+
+        <!-- Page Break for Printing -->
+        <div class="page-break no-print"></div>
+
+        <!-- Part Two: Lab Report -->
+        <section id="part-two" class="mt-12 pt-8 border-t-2 border-slate-800 space-y-6 relative">
+            
+            <h3 class="text-2xl font-bold text-slate-900 border-b border-slate-300 pb-2 font-mono uppercase tracking-widest">Part Two: The Lab Report <span class="no-print text-slate-500 text-lg font-normal tracking-normal">(46 marks)</span></h3>
+            
+            <p class="text-slate-800 no-print text-lg">The sections below are required to demonstrate your understanding of the content that would be included in a lab report communicating the results of the practice experiment outlined in Part One. You can use the template below to complete the required sections or feel free to complete the report as a separate document.</p>
+
+            <form class="space-y-8 mt-8">
+                
+                <!-- Title -->
+                <div>
+                    <label for="report-title" class="block font-bold text-slate-900 mb-2 font-mono uppercase tracking-wide text-sm border-b-2 border-slate-200 pb-1">Title <span class="text-slate-400 font-normal">(1 mark)</span></label>
+                    <input type="text" id="report-title" class="w-full p-3 border border-slate-300 bg-white rounded-none outline-none focus:border-slate-800 focus:bg-[#faf9f6] transition-colors font-serif text-lg interactive-box shadow-sm">
+                </div>
+
+                <!-- Abstract -->
+                <div>
+                    <label for="report-abstract" class="block font-bold text-slate-900 mb-2 font-mono uppercase tracking-wide text-sm border-b-2 border-slate-200 pb-1">Abstract <span class="text-slate-400 font-normal">(3 marks)</span></label>
+                    <textarea id="report-abstract" rows="4" class="w-full p-3 border border-slate-300 bg-white rounded-none outline-none focus:border-slate-800 focus:bg-[#faf9f6] transition-colors font-serif text-lg interactive-box shadow-sm"></textarea>
+                </div>
+
+                <!-- Question/Problem -->
+                <div>
+                    <label for="report-question" class="block font-bold text-slate-900 mb-2 font-mono uppercase tracking-wide text-sm border-b-2 border-slate-200 pb-1">Question/Problem <span class="text-slate-400 font-normal">(1 mark)</span></label>
+                    <input type="text" id="report-question" class="w-full p-3 border border-slate-300 bg-white rounded-none outline-none focus:border-slate-800 focus:bg-[#faf9f6] transition-colors font-serif text-lg interactive-box shadow-sm">
+                </div>
+
+                <!-- Hypothesis -->
+                <div>
+                    <div class="flex justify-between items-end mb-2 border-b-2 border-slate-200 pb-1">
+                        <label for="report-hypothesis" class="block font-bold text-slate-900 font-mono uppercase tracking-wide text-sm">Hypothesis <span class="text-slate-400 font-normal">(2 marks)</span></label>
+                        <button type="button" onclick="copyField('draft-hypothesis', 'report-hypothesis')" class="no-print text-xs bg-slate-200 hover:bg-slate-300 text-slate-800 font-mono px-3 py-1 rounded-sm border border-slate-300 font-bold uppercase tracking-wider">Copy from draft ↑</button>
+                    </div>
+                    <textarea id="report-hypothesis" rows="3" class="w-full p-3 border border-slate-300 bg-white rounded-none outline-none focus:border-slate-800 focus:bg-[#faf9f6] transition-colors font-serif text-lg interactive-box shadow-sm"></textarea>
+                </div>
+
+                <!-- Variables -->
+                <div>
+                    <label for="report-variables" class="block font-bold text-slate-900 mb-2 font-mono uppercase tracking-wide text-sm border-b-2 border-slate-200 pb-1">Variables <span class="text-slate-400 font-normal">(6 marks)</span></label>
+                    <textarea id="report-variables" rows="4" class="w-full p-3 border border-slate-300 bg-white rounded-none outline-none focus:border-slate-800 focus:bg-[#faf9f6] transition-colors font-serif text-lg interactive-box shadow-sm" placeholder="Manipulated: ...&#10;Responding: ...&#10;Controlled: ..."></textarea>
+                </div>
+
+                <!-- Materials -->
+                <div>
+                    <label for="report-materials" class="block font-bold text-slate-900 mb-2 font-mono uppercase tracking-wide text-sm border-b-2 border-slate-200 pb-1">Materials <span class="text-slate-400 font-normal">(2 marks)</span></label>
+                    <textarea id="report-materials" rows="3" class="w-full p-3 border border-slate-300 bg-white rounded-none outline-none focus:border-slate-800 focus:bg-[#faf9f6] transition-colors font-serif text-lg interactive-box shadow-sm"></textarea>
+                </div>
+
+                <!-- Procedure -->
+                <div>
+                    <label for="report-procedure" class="block font-bold text-slate-900 mb-2 font-mono uppercase tracking-wide text-sm border-b-2 border-slate-200 pb-1">Procedure <span class="text-slate-400 font-normal">(5 + 4 marks)</span></label>
+                    <textarea id="report-procedure" rows="6" class="w-full p-3 border border-slate-300 bg-white rounded-none outline-none focus:border-slate-800 focus:bg-[#faf9f6] transition-colors font-serif text-lg interactive-box shadow-sm" placeholder="1. ...&#10;2. ...&#10;(Include step-by-step instructions and definitions of self-touching and free movement)"></textarea>
+                </div>
+
+                <!-- Observations and Data -->
+                <div>
+                    <label for="report-data" class="block font-bold text-slate-900 mb-2 font-mono uppercase tracking-wide text-sm border-b-2 border-slate-200 pb-1">Observations and Data <span class="text-slate-400 font-normal">(15 marks)</span></label>
+                    <textarea id="report-data" rows="8" class="w-full p-3 border border-slate-300 bg-white rounded-none outline-none focus:border-slate-800 focus:bg-[#faf9f6] transition-colors font-mono text-sm interactive-box shadow-sm" placeholder="Record your summary table data here. Note: You may need to upload graphs separately."></textarea>
+                </div>
+
+                <!-- Analysis and Conclusion -->
+                <div>
+                    <label for="report-analysis" class="block font-bold text-slate-900 mb-2 font-mono uppercase tracking-wide text-sm border-b-2 border-slate-200 pb-1">Analysis and Conclusion <span class="text-slate-400 font-normal">(5 marks)</span></label>
+                    <textarea id="report-analysis" rows="6" class="w-full p-3 border border-slate-300 bg-white rounded-none outline-none focus:border-slate-800 focus:bg-[#faf9f6] transition-colors font-serif text-lg interactive-box shadow-sm"></textarea>
+                </div>
+
+                <!-- Sources of Error -->
+                <div>
+                    <label class="block font-bold text-slate-900 mb-2 font-mono uppercase tracking-wide text-sm border-b-2 border-slate-200 pb-1">Sources of Error <span class="text-slate-400 font-normal">(2 marks)</span></label>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <span class="font-mono text-slate-500 font-bold mr-3">1.</span>
+                            <input type="text" id="report-error1" class="w-full p-3 border border-slate-300 bg-white rounded-none outline-none focus:border-slate-800 focus:bg-[#faf9f6] transition-colors font-serif text-lg interactive-box shadow-sm">
+                        </div>
+                        <div class="flex items-center">
+                            <span class="font-mono text-slate-500 font-bold mr-3">2.</span>
+                            <input type="text" id="report-error2" class="w-full p-3 border border-slate-300 bg-white rounded-none outline-none focus:border-slate-800 focus:bg-[#faf9f6] transition-colors font-serif text-lg interactive-box shadow-sm">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <!-- Footer -->
+        <footer class="no-print mt-16 pt-8 border-t-4 border-slate-800 text-center text-slate-600 bg-slate-100 -mx-8 -mb-8 p-8">
+            <h4 class="font-bold text-slate-900 mb-3 font-mono uppercase tracking-widest text-lg">End of Practice Project</h4>
+            <p class="font-serif">Make sure to click "Generate Report" to save this as a PDF, and then upload it to your <strong>Google Classroom</strong> to submit it to your teacher. If you have separate documents for the graphs/tables and are not sure how to incorporate them into your report, you may attach those to the Google Classroom assignment separately as well.</p>
+        </footer>
+    </main>
+
+    <script>
+        const textareas = document.querySelectorAll('textarea');
+        textareas.forEach(el => {
+            el.addEventListener('input', function() {
+                this.style.height = 'auto';
+                this.style.height = (this.scrollHeight) + 'px';
+            });
+        });
+
+        // Local Storage functionality to save answers
+        const saveableElements = document.querySelectorAll('input[type="text"], textarea, input[type="checkbox"]');
+        
+        // Load saved data
+        saveableElements.forEach(el => {
+            const savedValue = localStorage.getItem('ep30_' + el.id);
+            if (savedValue !== null) {
+                if (el.type === 'checkbox') {
+                    el.checked = savedValue === 'true';
+                } else {
+                    el.value = savedValue;
+                    // Trigger height adjustment for loaded textareas
+                    if(el.tagName.toLowerCase() === 'textarea') {
+                         setTimeout(() => {
+                             el.style.height = 'auto';
+                             el.style.height = (el.scrollHeight) + 'px';
+                         }, 10);
+                    }
+                }
+            }
+            
+            // Add event listener to save data
+            el.addEventListener('input', () => {
+                const valueToSave = el.type === 'checkbox' ? el.checked : el.value;
+                localStorage.setItem('ep30_' + el.id, valueToSave);
+            });
+        });
+
+        // Helper to copy draft to final report
+        function copyField(sourceId, targetId) {
+            const source = document.getElementById(sourceId);
+            const target = document.getElementById(targetId);
+            target.value = source.value;
+            
+            // Manually trigger input event to update local storage and resize
+            const event = new Event('input', { bubbles: true });
+            target.dispatchEvent(event);
+        }
+
+        // Tally Counter functionality
+        function adjustTally(id, amount) {
+            const el = document.getElementById(id);
+            let val = parseInt(el.innerText);
+            val += amount;
+            if (val < 0) val = 0;
+            el.innerText = val;
+            localStorage.setItem('ep30_' + id, val);
+        }
+
+        function resetTallies() {
+            if(confirm("Are you sure you want to reset all tally counters?")) {
+                const ids = ['tally-st-l', 'tally-st-r', 'tally-st-b', 'tally-fm-l', 'tally-fm-r', 'tally-fm-b'];
+                ids.forEach(id => {
+                    document.getElementById(id).innerText = '0';
+                    localStorage.setItem('ep30_' + id, '0');
+                });
+            }
+        }
+
+        // Load saved tallies on start
+        window.addEventListener('DOMContentLoaded', () => {
+            const ids = ['tally-st-l', 'tally-st-r', 'tally-st-b', 'tally-fm-l', 'tally-fm-r', 'tally-fm-b'];
+            ids.forEach(id => {
+                const saved = localStorage.getItem('ep30_' + id);
+                if(saved !== null) document.getElementById(id).innerText = saved;
+            });
+        });
+    </script>
+</body>
+</html>
