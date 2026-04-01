@@ -100,6 +100,13 @@ function setSelectedModule(moduleId) {
     return;
   }
 
+  if (state.selectedModuleId === moduleId && state.expandedModuleId === moduleId) {
+    state.expandedModuleId = "";
+    saveState();
+    render();
+    return;
+  }
+
   state.selectedModuleId = moduleId;
   state.expandedModuleId = moduleId;
   if (!state.moduleViewByModuleId[moduleId]) {
@@ -544,6 +551,60 @@ function buildWorkspaceAssetUrl(pathValue) {
   }
   const joiner = resolved.includes("?") ? "&" : "?";
   return `${resolved}${joiner}v=20260330b`;
+}
+
+function tryAlternatePreviewContentPath(urlValue) {
+  const url = String(urlValue || "");
+  if (!url.includes("/preview/references/raw/")) {
+    return "";
+  }
+
+  if (url.includes("/content/")) {
+    return url.replace("/content/", "/%D1%81ontent/");
+  }
+
+  if (/%d1%81ontent/i.test(url)) {
+    return url.replace(/%d1%81ontent/gi, "content");
+  }
+
+  return "";
+}
+
+function bindImageFallbacks() {
+  root.querySelectorAll(".reader-html img, .reader-text img, .reader-document img").forEach((image) => {
+    if (image.dataset.fallbackBound === "1") {
+      return;
+    }
+
+    image.dataset.fallbackBound = "1";
+    image.addEventListener("error", () => {
+      if (image.dataset.fallbackRecovered === "1") {
+        return;
+      }
+
+      const alternate = image.dataset.fallbackAttempted === "1"
+        ? ""
+        : tryAlternatePreviewContentPath(image.currentSrc || image.src);
+
+      if (alternate && alternate !== image.src) {
+        image.dataset.fallbackAttempted = "1";
+        image.src = alternate;
+        return;
+      }
+
+      image.dataset.fallbackRecovered = "1";
+      image.style.display = "none";
+
+      if (image.nextElementSibling?.classList?.contains("image-missing-note")) {
+        return;
+      }
+
+      const note = document.createElement("div");
+      note.className = "image-missing-note";
+      note.textContent = "Image unavailable in source export";
+      image.insertAdjacentElement("afterend", note);
+    });
+  });
 }
 
 function getElementsByLocalName(rootNode, localName) {
@@ -2253,6 +2314,7 @@ function render() {
   });
 
   bindEmbeddedFrames();
+  bindImageFallbacks();
 }
 
 function injectStyles() {
@@ -3032,6 +3094,18 @@ function injectStyles() {
       margin: 0.9rem auto;
       border: 1px solid #cec3b2;
       background: #fff;
+    }
+
+    .image-missing-note {
+      margin: 0.8rem auto;
+      max-width: 520px;
+      border: 1px dashed #c8b9a5;
+      border-radius: 4px;
+      padding: 0.5rem 0.7rem;
+      font-size: 0.8rem;
+      color: #6f5d50;
+      background: #f8f0e5;
+      text-align: center;
     }
 
     .reader-html .card {
