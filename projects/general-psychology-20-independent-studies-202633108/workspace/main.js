@@ -48,6 +48,8 @@ function loadState() {
         parsed.moduleViewByModuleId && typeof parsed.moduleViewByModuleId === "object"
           ? parsed.moduleViewByModuleId
           : {},
+      sidebarLibraryView:
+        parsed.sidebarLibraryView === "quizzes" ? "quizzes" : "modules",
       completedActivityById:
         parsed.completedActivityById && typeof parsed.completedActivityById === "object"
           ? parsed.completedActivityById
@@ -65,6 +67,7 @@ function loadState() {
       collapsedSectionByKey: {},
       selectedByBucket: {},
       moduleViewByModuleId: {},
+      sidebarLibraryView: "modules",
       completedActivityById: {},
       quizDraftByActivityId: {}
     };
@@ -128,6 +131,12 @@ function getModuleView(moduleId) {
 
 function setModuleView(moduleId, view) {
   state.moduleViewByModuleId[moduleId] = view === "assignments" ? "assignments" : "content";
+  saveState();
+  render();
+}
+
+function setSidebarLibraryView(view) {
+  state.sidebarLibraryView = view === "quizzes" ? "quizzes" : "modules";
   saveState();
   render();
 }
@@ -2076,6 +2085,84 @@ function renderActivityListItem(moduleId, bucket, activity, active, className = 
   `;
 }
 
+function isQuizLibraryItem(activity) {
+  const resourceKind = String(activity?.resourceKind || "").toLowerCase();
+  if (resourceKind === "quiz") {
+    return true;
+  }
+
+  const title = String(activity?.title || "");
+  if (/\bquiz\b/i.test(title)) {
+    return true;
+  }
+
+  const delivery = getAssessmentDelivery(activity);
+  return isQuizDeliveryActivity(activity, delivery);
+}
+
+function getSidebarLibraryCollections() {
+  const quizModules = [];
+  const assignmentModules = [];
+
+  courseShellData.modules.forEach((module) => {
+    const buckets = getModuleBuckets(module);
+    const assignmentItems = buckets.assignments || [];
+    if (!assignmentItems.length) {
+      return;
+    }
+
+    const quizItems = assignmentItems.filter((activity) => isQuizLibraryItem(activity));
+    const nonQuizAssignments = assignmentItems.filter((activity) => !isQuizLibraryItem(activity));
+
+    if (quizItems.length) {
+      quizModules.push({ module, items: quizItems });
+    }
+
+    if (nonQuizAssignments.length) {
+      assignmentModules.push({ module, items: nonQuizAssignments });
+    }
+  });
+
+  return { quizModules, assignmentModules };
+}
+
+function renderSidebarLibraryModuleBlock(collectionTitle, rows, selectedModuleId = "", selectedActivityId = "") {
+  if (!rows.length) {
+    return `<div class="library-empty">No ${escapeHtml(collectionTitle.toLowerCase())} found yet.</div>`;
+  }
+
+  const blocks = rows
+    .map(({ module, items }) => {
+      const moduleLabel = escapeHtml(module?.title || "Module");
+      const itemButtons = items
+        .map((activity) =>
+          renderActivityListItem(
+            module.id,
+            "assignments",
+            activity,
+            module.id === selectedModuleId && activity.id === selectedActivityId,
+            "library-item-btn"
+          )
+        )
+        .join("");
+
+      return `
+        <section class="library-module-block">
+          <h4>${moduleLabel}</h4>
+          <div class="library-module-items">${itemButtons}</div>
+        </section>
+      `;
+    })
+    .join("");
+
+  return `
+    <section class="library-section">
+      <h3>${escapeHtml(collectionTitle)}</h3>
+      ${blocks}
+    </section>
+  `;
+}
+
 function renderReader(activity) {
   if (!activity) {
     return `<div class="empty">Select a content item from the active module.</div>`;
@@ -2137,25 +2224,30 @@ function render() {
           <p class="brand-note">Select a module, then open one lesson or assignment at a time in the reading pane.</p>
         </div>
 
-        <div class="unit-card">
-          <div class="unit-icon" aria-hidden="true">U7</div>
-          <div>
-            <div class="unit-title">Unit 734</div>
-            <div class="unit-subtitle">Lead analyst</div>
-          </div>
-        </div>
-
         <nav class="side-nav-ghost" aria-label="Workspace sections">
-          <button type="button" class="side-nav-item">Evidence locker</button>
-          <button type="button" class="side-nav-item active">Case modules</button>
-          <button type="button" class="side-nav-item">Data streams</button>
+          <button type="button" class="side-nav-item ${state.sidebarLibraryView !== "quizzes" ? "active" : ""}" data-library-view="modules">Case modules</button>
+          <button type="button" class="side-nav-item ${state.sidebarLibraryView === "quizzes" ? "active" : ""}" data-library-view="quizzes">Quizzes</button>
         </nav>
 
-        <div class="module-list" data-testid="module-list">
-          ${courseShellData.modules
-            .map((item) => renderModuleButton(item, item.id === state.expandedModuleId, item.id === module?.id))
-            .join("")}
-        </div>
+        ${
+          state.sidebarLibraryView === "quizzes"
+            ? (() => {
+                const collections = getSidebarLibraryCollections();
+                return `
+                  <div class="library-list" data-testid="quiz-library">
+                    ${renderSidebarLibraryModuleBlock("Quizzes", collections.quizModules, module?.id || "", selectedActivity?.id || "")}
+                    ${renderSidebarLibraryModuleBlock("Assignments", collections.assignmentModules, module?.id || "", selectedActivity?.id || "")}
+                  </div>
+                `;
+              })()
+            : `
+              <div class="module-list" data-testid="module-list">
+                ${courseShellData.modules
+                  .map((item) => renderModuleButton(item, item.id === state.expandedModuleId, item.id === module?.id))
+                  .join("")}
+              </div>
+            `
+        }
       </aside>
 
       <section class="main">
@@ -2215,6 +2307,13 @@ function render() {
 
   root.querySelectorAll("[data-toggle-sidebar]").forEach((button) => {
     button.addEventListener("click", () => toggleSidebar());
+  });
+
+  root.querySelectorAll("[data-library-view]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const view = button.getAttribute("data-library-view") || "modules";
+      setSidebarLibraryView(view);
+    });
   });
 
   root.querySelectorAll("[data-toggle-section]").forEach((button) => {
@@ -2447,63 +2546,18 @@ function injectStyles() {
       max-width: 28ch;
     }
 
-    .unit-card {
-      margin: 0.75rem 0.65rem 0.5rem;
-      padding: 0.55rem;
-      border: 1px solid #3a383d;
-      border-radius: 4px;
-      background: linear-gradient(180deg, #232328 0%, #1a1b1f 100%);
-      display: grid;
-      grid-template-columns: 34px minmax(0, 1fr);
-      gap: 0.55rem;
-      align-items: center;
-    }
-
-    .unit-icon {
-      width: 34px;
-      height: 34px;
-      border: 1px solid #7f4337;
-      background: #7e3b32;
-      color: #ffdad5;
-      font-family: "Space Grotesk", "Inter", sans-serif;
-      font-size: 0.68rem;
-      font-weight: 700;
-      display: grid;
-      place-items: center;
-      border-radius: 2px;
-      letter-spacing: 0.02em;
-    }
-
-    .unit-title {
-      margin: 0;
-      color: #ffb4a9;
-      font-size: 0.74rem;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      font-family: "Space Grotesk", "Inter", sans-serif;
-      line-height: 1.3;
-    }
-
-    .unit-subtitle {
-      margin: 0.1rem 0 0;
-      color: var(--muted);
-      font-size: 0.64rem;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      font-family: "Space Grotesk", "Inter", sans-serif;
-    }
-
     .side-nav-ghost {
-      margin: 0 0.65rem 0.55rem;
+      margin: 0.7rem 0.65rem 0.55rem;
       display: grid;
-      gap: 0.2rem;
+      gap: 0.26rem;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 0.62rem;
     }
 
     .side-nav-item {
-      border: 1px solid transparent;
+      border: 1px solid #323238;
       border-radius: 3px;
-      background: transparent;
+      background: #1c1c20;
       color: #9e9ba1;
       text-align: left;
       padding: 0.42rem 0.5rem;
@@ -2512,16 +2566,24 @@ function injectStyles() {
       font-size: 0.65rem;
       font-weight: 700;
       font-family: "Space Grotesk", "Inter", sans-serif;
-      cursor: default;
+      cursor: pointer;
+      transition: border-color 0.16s ease, background 0.16s ease, color 0.16s ease;
+    }
+
+    .side-nav-item:hover {
+      border-color: #534c50;
+      color: #cec3c1;
+      background: #232329;
     }
 
     .side-nav-item.active {
-      background: rgba(126, 59, 50, 0.25);
+      background: rgba(126, 59, 50, 0.32);
       border-color: rgba(255, 180, 169, 0.2);
       color: #ffb4a9;
     }
 
-    .module-list {
+    .module-list,
+    .library-list {
       padding: 0.65rem;
       overflow: auto;
       min-height: 0;
@@ -2529,6 +2591,57 @@ function injectStyles() {
       display: grid;
       gap: 0.38rem;
       align-content: start;
+    }
+
+    .library-list {
+      gap: 0.74rem;
+    }
+
+    .library-section {
+      display: grid;
+      gap: 0.42rem;
+    }
+
+    .library-section h3 {
+      margin: 0;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #f0c0b8;
+      font-family: "Space Grotesk", "Inter", sans-serif;
+    }
+
+    .library-module-block {
+      border: 1px solid #2f2f34;
+      border-radius: 5px;
+      background: #1a1a1f;
+      padding: 0.46rem;
+      display: grid;
+      gap: 0.34rem;
+    }
+
+    .library-module-block h4 {
+      margin: 0;
+      font-size: 0.7rem;
+      line-height: 1.35;
+      color: var(--muted-strong);
+      font-family: "Space Grotesk", "Inter", sans-serif;
+      font-weight: 700;
+    }
+
+    .library-module-items {
+      display: grid;
+      gap: 0.32rem;
+    }
+
+    .library-empty {
+      border: 1px dashed #454048;
+      border-radius: 4px;
+      background: #1a1a1f;
+      color: #9f9494;
+      padding: 0.55rem;
+      font-size: 0.74rem;
+      text-align: center;
     }
 
     .module-card {
@@ -2799,6 +2912,37 @@ function injectStyles() {
     .module-item-btn.active {
       border-color: var(--line-strong);
       background: #392725;
+    }
+
+    .library-item-btn {
+      border: 1px solid #3a3840;
+      border-radius: 5px;
+      background: #25252b;
+      color: #e7e2e1;
+      text-align: left;
+      padding: 0.5rem 0.55rem;
+      cursor: pointer;
+      transition: border-color 0.16s ease, background 0.16s ease;
+    }
+
+    .library-item-btn .item-title {
+      font-size: 0.73rem;
+      line-height: 1.34;
+    }
+
+    .library-item-btn .item-meta {
+      font-size: 0.65rem;
+      margin-top: 0.14rem;
+    }
+
+    .library-item-btn:hover {
+      border-color: #59535c;
+      background: #303039;
+    }
+
+    .library-item-btn.active {
+      border-color: var(--line-strong);
+      background: #3a2724;
     }
 
     .module-btn:focus-visible,
@@ -3741,7 +3885,6 @@ function injectStyles() {
     }
 
     @media (max-width: 860px) {
-      .unit-card,
       .side-nav-ghost {
         margin-left: 0.6rem;
         margin-right: 0.6rem;
@@ -3791,7 +3934,8 @@ function injectStyles() {
         z-index: 20;
       }
 
-      .module-list {
+      .module-list,
+      .library-list {
         overflow: auto;
       }
 
@@ -3874,10 +4018,6 @@ function injectStyles() {
     }
 
     @media (max-width: 560px) {
-      .side-nav-ghost {
-        display: none;
-      }
-
       .sidebar {
         width: min(92vw, 340px);
       }
@@ -3890,7 +4030,8 @@ function injectStyles() {
         padding: 0.9rem 0.9rem 0.85rem;
       }
 
-      .module-list {
+      .module-list,
+      .library-list {
         padding: 0.6rem;
       }
 
