@@ -2127,6 +2127,7 @@ function render() {
     (sum, current) => sum + getModuleBuckets(current).assignments.length,
     0
   );
+  const moduleCode = String(module?.overline || "MOD 01").replace(/module\s*/i, "MOD ").toUpperCase();
 
   root.innerHTML = `
     <div class="app ${state.sidebarHidden ? "sidebar-hidden" : ""}">
@@ -2135,6 +2136,20 @@ function render() {
           <h1>General Psychology 20</h1>
           <p class="brand-note">Select a module, then open one lesson or assignment at a time in the reading pane.</p>
         </div>
+
+        <div class="unit-card">
+          <div class="unit-icon" aria-hidden="true">U7</div>
+          <div>
+            <div class="unit-title">Unit 734</div>
+            <div class="unit-subtitle">Lead analyst</div>
+          </div>
+        </div>
+
+        <nav class="side-nav-ghost" aria-label="Workspace sections">
+          <button type="button" class="side-nav-item">Evidence locker</button>
+          <button type="button" class="side-nav-item active">Case modules</button>
+          <button type="button" class="side-nav-item">Data streams</button>
+        </nav>
 
         <div class="module-list" data-testid="module-list">
           ${courseShellData.modules
@@ -2158,11 +2173,19 @@ function render() {
                 <span></span><span></span><span></span>
               </button>
               <div class="topbar-copy">
-                <div class="topbar-kicker">${escapeHtml(module?.overline || "Module")}</div>
+                <div class="topbar-kicker">Training phase / ${escapeHtml(moduleCode)} / Digital forensics</div>
                 <h2>${escapeHtml(module?.title || "Course")}</h2>
               </div>
             </div>
-            <div class="stats">
+            <div class="stats top-telemetry">
+              <span class="stat telemetry-card">
+                <span>Current latency</span>
+                <strong>12.4ms</strong>
+              </span>
+              <span class="stat telemetry-card">
+                <span>Active alerts</span>
+                <strong>02</strong>
+              </span>
               <span class="stat"><strong>${moduleCount}</strong><span> modules</span></span>
               <span class="stat"><strong>${contentCount}</strong><span> content items</span></span>
               <span class="stat"><strong>${assignmentCount}</strong><span> assignments</span></span>
@@ -2422,6 +2445,80 @@ function injectStyles() {
       line-height: 1.45;
       color: var(--muted);
       max-width: 28ch;
+    }
+
+    .unit-card {
+      margin: 0.75rem 0.65rem 0.5rem;
+      padding: 0.55rem;
+      border: 1px solid #3a383d;
+      border-radius: 4px;
+      background: linear-gradient(180deg, #232328 0%, #1a1b1f 100%);
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 0.55rem;
+      align-items: center;
+    }
+
+    .unit-icon {
+      width: 34px;
+      height: 34px;
+      border: 1px solid #7f4337;
+      background: #7e3b32;
+      color: #ffdad5;
+      font-family: "Space Grotesk", "Inter", sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      display: grid;
+      place-items: center;
+      border-radius: 2px;
+      letter-spacing: 0.02em;
+    }
+
+    .unit-title {
+      margin: 0;
+      color: #ffb4a9;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      font-family: "Space Grotesk", "Inter", sans-serif;
+      line-height: 1.3;
+    }
+
+    .unit-subtitle {
+      margin: 0.1rem 0 0;
+      color: var(--muted);
+      font-size: 0.64rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-family: "Space Grotesk", "Inter", sans-serif;
+    }
+
+    .side-nav-ghost {
+      margin: 0 0.65rem 0.55rem;
+      display: grid;
+      gap: 0.2rem;
+    }
+
+    .side-nav-item {
+      border: 1px solid transparent;
+      border-radius: 3px;
+      background: transparent;
+      color: #9e9ba1;
+      text-align: left;
+      padding: 0.42rem 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.65rem;
+      font-weight: 700;
+      font-family: "Space Grotesk", "Inter", sans-serif;
+      cursor: default;
+    }
+
+    .side-nav-item.active {
+      background: rgba(126, 59, 50, 0.25);
+      border-color: rgba(255, 180, 169, 0.2);
+      color: #ffb4a9;
     }
 
     .module-list {
@@ -2806,6 +2903,10 @@ function injectStyles() {
       flex-wrap: wrap;
     }
 
+    .top-telemetry {
+      align-items: stretch;
+    }
+
     .stat {
       border: 1px solid var(--line);
       border-radius: 4px;
@@ -2816,6 +2917,32 @@ function injectStyles() {
       background: #1a1a1d;
       white-space: nowrap;
       font-family: "Space Grotesk", "Inter", sans-serif;
+    }
+
+    .telemetry-card {
+      min-width: 132px;
+      display: grid;
+      gap: 0.12rem;
+      align-content: center;
+      border-color: #6c3f35;
+      background: linear-gradient(180deg, #2d2324 0%, #1c1a1d 100%);
+      color: #ffd6ce;
+    }
+
+    .telemetry-card span {
+      margin: 0;
+      font-size: 0.57rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #f0b9ad;
+      line-height: 1.2;
+    }
+
+    .telemetry-card strong {
+      margin: 0;
+      font-size: 1.05rem;
+      line-height: 1.05;
+      color: #fff1ec;
     }
 
     .stat strong {
@@ -3614,6 +3741,16 @@ function injectStyles() {
     }
 
     @media (max-width: 860px) {
+      .unit-card,
+      .side-nav-ghost {
+        margin-left: 0.6rem;
+        margin-right: 0.6rem;
+      }
+
+      .side-nav-ghost {
+        margin-bottom: 0.4rem;
+      }
+
       .app {
         grid-template-columns: 1fr;
       }
@@ -3676,6 +3813,10 @@ function injectStyles() {
         flex: 1 1 140px;
       }
 
+      .telemetry-card {
+        min-width: 0;
+      }
+
       .content {
         padding: 0.75rem;
       }
@@ -3733,6 +3874,10 @@ function injectStyles() {
     }
 
     @media (max-width: 560px) {
+      .side-nav-ghost {
+        display: none;
+      }
+
       .sidebar {
         width: min(92vw, 340px);
       }
