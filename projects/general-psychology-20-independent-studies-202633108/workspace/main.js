@@ -2327,10 +2327,10 @@ function injectStyles() {
   style.textContent = `
     :root {
       --bg: #131314;
-      --bg-elevated: #1c1b1c;
-      --bg-sidebar: #1c1b1c;
-      --bg-subtle: #2a2a2b;
-      --surface-3: #313134;
+      --bg-elevated: #171719;
+      --bg-sidebar: #171719;
+      --bg-subtle: #222225;
+      --surface-3: #2d2d31;
       --paper: #f5f0e8;
       --paper-alt: #fbf7f0;
       --paper-line: #d2c3b1;
@@ -2343,7 +2343,7 @@ function injectStyles() {
       --muted-strong: #d9c1be;
       --accent: #ffb4a9;
       --accent-soft: #ffb4a9;
-      --line: #353436;
+      --line: #2f2f33;
       --line-strong: #7e3b32;
       --focus: rgba(255, 180, 169, 0.45);
       --shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
@@ -2363,7 +2363,7 @@ function injectStyles() {
     html, body {
       margin: 0;
       min-height: 100%;
-      background: var(--bg);
+      background: radial-gradient(circle at 20% 0%, #202125 0%, #131314 38%, #101012 100%);
       color: var(--text);
       font-family: "Inter", "Segoe UI", sans-serif;
     }
@@ -2385,7 +2385,7 @@ function injectStyles() {
 
     .sidebar {
       border-right: 1px solid var(--line);
-      background: var(--bg-sidebar);
+      background: linear-gradient(180deg, #1a1a1d 0%, #141416 100%);
       display: flex;
       flex-direction: column;
       min-height: 100vh;
@@ -2404,6 +2404,7 @@ function injectStyles() {
     .brand {
       padding: 1rem 0.95rem 0.9rem;
       border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255, 180, 169, 0.08) 0%, rgba(255, 180, 169, 0) 100%);
     }
 
     .brand h1 {
@@ -2438,11 +2439,12 @@ function injectStyles() {
       border-radius: 6px;
       background: var(--bg-elevated);
       overflow: hidden;
+      box-shadow: inset 0 0 0 1px rgba(255, 180, 169, 0.03);
     }
 
     .module-card.expanded {
       border-color: var(--line-strong);
-      background: #26211f;
+      background: #201b1b;
     }
 
     .module-card.selected:not(.expanded) {
@@ -2462,7 +2464,7 @@ function injectStyles() {
     }
 
     .module-btn:hover {
-      background: #222123;
+      background: #252528;
     }
 
     .module-btn.expanded,
@@ -2510,7 +2512,7 @@ function injectStyles() {
       padding: 0.18rem 0.42rem;
       font-weight: 600;
       border-radius: 4px;
-      background: #232225;
+      background: #202024;
       white-space: nowrap;
     }
 
@@ -2533,7 +2535,7 @@ function injectStyles() {
     .module-progress-track {
       height: 0.34rem;
       border-radius: 3px;
-      background: #29292b;
+      background: #232328;
       overflow: hidden;
     }
 
@@ -2550,7 +2552,7 @@ function injectStyles() {
       gap: 0.46rem;
       max-height: none;
       overflow: visible;
-      background: #181819;
+      background: #151517;
     }
 
     .group-block {
@@ -2567,7 +2569,7 @@ function injectStyles() {
     .module-view-btn {
       border: 1px solid var(--line);
       border-radius: 4px;
-      background: #242426;
+      background: #1f1f22;
       color: var(--muted-strong);
       padding: 0.42rem 0.62rem;
       font-size: 0.72rem;
@@ -2579,13 +2581,13 @@ function injectStyles() {
 
     .module-view-btn:hover {
       border-color: #6a5a53;
-      background: #2f2f31;
+      background: #28282c;
       color: var(--text-strong);
     }
 
     .module-view-btn.active {
       border-color: var(--line-strong);
-      background: #322321;
+      background: #3a2724;
       color: var(--text-strong);
     }
 
@@ -2598,7 +2600,7 @@ function injectStyles() {
     .release-condition-card {
       border: 1px dashed #544340;
       border-radius: 4px;
-      background: #232124;
+      background: #1f1b1f;
       padding: 0.72rem;
       display: grid;
       gap: 0.26rem;
@@ -2694,12 +2696,12 @@ function injectStyles() {
 
     .module-item-btn:hover {
       border-color: #5a5555;
-      background: #313033;
+      background: #2c2c31;
     }
 
     .module-item-btn.active {
       border-color: var(--line-strong);
-      background: #3a2a27;
+      background: #392725;
     }
 
     .module-btn:focus-visible,
@@ -2729,7 +2731,7 @@ function injectStyles() {
     .topbar {
       z-index: 8;
       border-bottom: 1px solid var(--line);
-      background: #131314;
+      background: linear-gradient(180deg, #17171a 0%, #111114 100%);
     }
 
     .topbar-inner {
@@ -2811,7 +2813,7 @@ function injectStyles() {
       font-size: 0.73rem;
       font-weight: 600;
       color: var(--muted);
-      background: #1d1d1e;
+      background: #1a1a1d;
       white-space: nowrap;
       font-family: "Space Grotesk", "Inter", sans-serif;
     }
@@ -2829,13 +2831,14 @@ function injectStyles() {
       padding: 1rem;
       background-image: radial-gradient(circle at 1px 1px, rgba(255, 180, 169, 0.09) 1px, transparent 0);
       background-size: 20px 20px;
+      background-color: #101012;
     }
 
     .panel {
       border: 1px solid var(--line);
       border-radius: 6px;
       background: var(--bg-elevated);
-      box-shadow: 0 0 0 1px rgba(255, 180, 169, 0.05);
+      box-shadow: 0 0 0 1px rgba(255, 180, 169, 0.05), 0 14px 24px rgba(0, 0, 0, 0.3);
       overflow: hidden;
     }
 
@@ -2923,7 +2926,7 @@ function injectStyles() {
     .reader-head {
       border-bottom: 1px solid var(--line);
       padding: 0.8rem 0.9rem;
-      background: #1f1f20;
+      background: #17181c;
       display: flex;
       flex-wrap: wrap;
       gap: 0.55rem;
@@ -2962,6 +2965,7 @@ function injectStyles() {
       padding: 0.9rem;
       overflow: visible;
       max-height: none;
+      background: linear-gradient(180deg, rgba(255, 180, 169, 0.03) 0%, rgba(255, 180, 169, 0) 30%);
     }
 
     .html-reader-content {
@@ -2978,7 +2982,7 @@ function injectStyles() {
       border-radius: 6px;
       color: var(--text-body);
       padding: 1.1rem 1.15rem;
-      max-width: 860px;
+      max-width: 920px;
       margin: 0 auto;
       box-shadow: var(--paper-shadow);
     }
@@ -3205,8 +3209,8 @@ function injectStyles() {
       display: grid;
       gap: 1rem;
       color: #f5ece3;
-      background: #1a1a1c;
-      border: 1px solid #403734;
+      background: linear-gradient(180deg, #1b1b1f 0%, #141419 100%);
+      border: 1px solid #4a3b38;
       border-radius: 6px;
       padding: 1rem;
     }
@@ -3318,7 +3322,7 @@ function injectStyles() {
     .assignment-embed-frame-wrap {
       border: 1px solid #544340;
       border-radius: 6px;
-      background: #141416;
+      background: #111217;
       padding: 0.55rem;
       box-shadow: none;
     }
@@ -3366,8 +3370,8 @@ function injectStyles() {
 
     .assignment-link.primary,
     .quiz-action.primary {
-      background: #7e3b32;
-      border-color: #7e3b32;
+      background: linear-gradient(135deg, #8a4338 0%, #7e3b32 100%);
+      border-color: #8d4a3f;
       color: #ffdad5;
     }
 
@@ -3461,7 +3465,7 @@ function injectStyles() {
       gap: 0.9rem;
       border: 1px solid #ded2c3;
       border-radius: 6px;
-      background: #fffdfa;
+      background: #fffaf3;
       padding: 1rem;
     }
 
