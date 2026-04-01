@@ -917,6 +917,55 @@ function moduleCompletion(module) {
   };
 }
 
+function getNextContentActivity(moduleId, activityId) {
+  if (!moduleId || !activityId) {
+    return null;
+  }
+
+  const module = courseShellData.modules.find((entry) => entry.id === moduleId);
+  if (!module) {
+    return null;
+  }
+
+  const { content } = getModuleBuckets(module);
+  const index = content.findIndex((activity) => activity.id === activityId);
+  if (index === -1 || index >= content.length - 1) {
+    return null;
+  }
+
+  return content[index + 1];
+}
+
+function completeAndAdvanceLesson(moduleId, activityId) {
+  if (!moduleId || !activityId) {
+    return;
+  }
+
+  const module = courseShellData.modules.find((entry) => entry.id === moduleId);
+  if (!module) {
+    return;
+  }
+
+  const { content } = getModuleBuckets(module);
+  const currentIndex = content.findIndex((activity) => activity.id === activityId);
+  if (currentIndex === -1) {
+    return;
+  }
+
+  state.completedActivityById[activityId] = true;
+  const nextActivity = content[currentIndex + 1] || null;
+  if (nextActivity) {
+    state.selectedModuleId = moduleId;
+    state.expandedModuleId = moduleId;
+    state.selectedByBucket[bucketStateKey(moduleId, "content")] = nextActivity.id;
+    state.moduleViewByModuleId[moduleId] = "content";
+    state.sidebarLibraryView = "modules";
+  }
+
+  saveState();
+  render();
+}
+
 function looksLikeAssignmentTitle(title) {
   const text = String(title || "").trim();
   if (!text) {
@@ -1834,26 +1883,43 @@ function renderQuiz(activity, quizData) {
   `;
 }
 
-function renderLessonCompletionFooter(activity) {
+function renderLessonCompletionFooter(activity, moduleId) {
   if (!activity || isAssignment(activity)) {
     return "";
   }
 
   const completed = isLessonCompleted(activity.id);
+  const nextActivity = getNextContentActivity(moduleId, activity.id);
   return `
     <div class="lesson-completion-card">
       <div>
         <strong>${completed ? "Lesson completed" : "Mark this lesson complete"}</strong>
-        <span>${completed ? "This lesson now counts toward the module release condition." : "Complete every lesson in the module to unlock the assignments tab."}</span>
+        <span>${completed ? "This lesson now counts toward the module release condition." : "Complete every lesson in the module to unlock that module's quizzes and assignments."}</span>
       </div>
-      <button
-        class="lesson-completion-btn ${completed ? "completed" : ""}"
-        type="button"
-        data-complete-lesson="${escapeHtml(activity.id)}"
-        data-completed="${completed ? "true" : "false"}"
-      >
-        ${completed ? "Completed" : "Mark complete"}
-      </button>
+      <div class="lesson-completion-actions">
+        <button
+          class="lesson-completion-btn ${completed ? "completed" : ""}"
+          type="button"
+          data-complete-lesson="${escapeHtml(activity.id)}"
+          data-completed="${completed ? "true" : "false"}"
+        >
+          ${completed ? "Completed" : "Mark complete"}
+        </button>
+        ${
+          nextActivity
+            ? `
+        <button
+          class="lesson-next-btn"
+          type="button"
+          data-complete-next="${escapeHtml(activity.id)}"
+          data-module-id="${escapeHtml(moduleId || "")}"
+        >
+          ${completed ? "Next content" : "Mark complete + next"}
+        </button>
+        `
+            : ""
+        }
+      </div>
     </div>
   `;
 }
@@ -2129,7 +2195,7 @@ function renderSidebarLibraryModuleBlock(collectionTitle, rows, selectedModuleId
   `;
 }
 
-function renderReader(activity) {
+function renderReader(activity, moduleId) {
   if (!activity) {
     return `<div class="empty">Select a content item from the active module.</div>`;
   }
@@ -2157,7 +2223,7 @@ function renderReader(activity) {
         }
         <div class="reader-content ${isHtmlReader ? "html-reader-content" : ""}">
           ${renderActivityBody(activity)}
-          ${renderLessonCompletionFooter(activity)}
+          ${renderLessonCompletionFooter(activity, moduleId)}
         </div>
       </div>
     </section>
@@ -2262,7 +2328,7 @@ function render() {
         </header>
 
         <div class="content">
-          ${renderReader(selectedActivity)}
+          ${renderReader(selectedActivity, module?.id || "")}
         </div>
       </section>
     </div>
@@ -2313,6 +2379,14 @@ function render() {
       const activityId = button.getAttribute("data-complete-lesson") || "";
       const completed = button.getAttribute("data-completed") === "true";
       setLessonCompleted(activityId, !completed);
+    });
+  });
+
+  root.querySelectorAll("[data-complete-next]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const activityId = button.getAttribute("data-complete-next") || "";
+      const moduleId = button.getAttribute("data-module-id") || "";
+      completeAndAdvanceLesson(moduleId, activityId);
     });
   });
 
@@ -2928,7 +3002,8 @@ function injectStyles() {
     .quiz-nav-btn:focus-visible,
     .quiz-choice:focus-visible,
     .quiz-action:focus-visible,
-    .assignment-link:focus-visible {
+    .assignment-link:focus-visible,
+    .lesson-next-btn:focus-visible {
       outline: 2px solid var(--focus);
       outline-offset: 2px;
     }
@@ -3818,6 +3893,13 @@ function injectStyles() {
       max-width: 44rem;
     }
 
+    .lesson-completion-actions {
+      display: flex;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
     .lesson-completion-btn {
       border: 1px solid #cbb9a6;
       border-radius: 4px;
@@ -3840,6 +3922,24 @@ function injectStyles() {
       border-color: #8f745f;
       background: #efe2d4;
       color: #2f251f;
+    }
+
+    .lesson-next-btn {
+      border: 1px solid #8f745f;
+      border-radius: 4px;
+      background: #efe2d4;
+      color: #2f251f;
+      min-height: 2.45rem;
+      padding: 0.52rem 0.82rem;
+      font-size: 0.84rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: border-color 0.16s ease, background 0.16s ease, color 0.16s ease;
+    }
+
+    .lesson-next-btn:hover {
+      border-color: #7a604d;
+      background: #e8d7c5;
     }
 
     .loading {
@@ -3988,7 +4088,15 @@ function injectStyles() {
         align-items: stretch;
       }
 
+      .lesson-completion-actions {
+        display: grid;
+      }
+
       .lesson-completion-btn {
+        width: 100%;
+      }
+
+      .lesson-next-btn {
         width: 100%;
       }
     }

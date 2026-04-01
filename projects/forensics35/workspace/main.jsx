@@ -2714,6 +2714,34 @@ export default function ForensicCoursePlayerPreviewRestored() {
   const isActiveLessonMarkedComplete = Boolean(
     isActiveContentLesson && chapterCompletionMap[activeLesson.id]
   );
+  const nextContentLesson = useMemo(() => {
+    if (!isContentView || !activeLesson?.id) {
+      return null;
+    }
+    const currentIndex = chapterLessons.findIndex((lesson) => lesson.id === activeLesson.id);
+    if (currentIndex === -1 || currentIndex >= chapterLessons.length - 1) {
+      return null;
+    }
+    return chapterLessons[currentIndex + 1];
+  }, [isContentView, activeLesson?.id, chapterLessons]);
+
+  const handleCompleteAndAdvance = useCallback(() => {
+    if (!activeChapter?.id || !activeLesson?.id) return;
+    handleMarkContentComplete(activeChapter.id, activeLesson.id);
+    if (!nextContentLesson?.id) return;
+    setActiveChapterId(activeChapter.id);
+    setExpandedChapterId(activeChapter.id);
+    setSidebarLibraryView("modules");
+    setSelectedLessonByBucket((prev) => ({
+      ...prev,
+      [bucketStateKey(activeChapter.id, "content")]: nextContentLesson.id,
+    }));
+  }, [
+    activeChapter?.id,
+    activeLesson?.id,
+    nextContentLesson?.id,
+    handleMarkContentComplete,
+  ]);
 
   const isMenuCollapsed = isChapterMenuCollapsed && !isMobileMenuOpen;
 
@@ -3095,21 +3123,33 @@ export default function ForensicCoursePlayerPreviewRestored() {
                             Completing this item unlocks the next content lesson in the module.
                           </p>
                         </div>
-                        <button
-                          type="button"
-                          onClick={() => {
-                            if (!activeChapter?.id || !activeLesson?.id) return;
-                            if (isActiveLessonMarkedComplete) {
-                              handleMarkContentIncomplete(activeChapter.id, activeLesson.id);
-                              return;
-                            }
-                            handleMarkContentComplete(activeChapter.id, activeLesson.id);
-                          }}
-                          className={isActiveLessonMarkedComplete ? FORENSIC_THEME.buttonSecondary : FORENSIC_THEME.buttonPrimary}
-                          data-testid="mark-complete-button"
-                        >
-                          {isActiveLessonMarkedComplete ? "Mark incomplete" : "Mark complete"}
-                        </button>
+                        <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row sm:items-center">
+                          <button
+                            type="button"
+                            onClick={() => {
+                              if (!activeChapter?.id || !activeLesson?.id) return;
+                              if (isActiveLessonMarkedComplete) {
+                                handleMarkContentIncomplete(activeChapter.id, activeLesson.id);
+                                return;
+                              }
+                              handleMarkContentComplete(activeChapter.id, activeLesson.id);
+                            }}
+                            className={isActiveLessonMarkedComplete ? FORENSIC_THEME.buttonSecondary : FORENSIC_THEME.buttonPrimary}
+                            data-testid="mark-complete-button"
+                          >
+                            {isActiveLessonMarkedComplete ? "Mark incomplete" : "Mark complete"}
+                          </button>
+                          {nextContentLesson ? (
+                            <button
+                              type="button"
+                              onClick={handleCompleteAndAdvance}
+                              className={FORENSIC_THEME.buttonSecondary}
+                              data-testid="mark-complete-next-button"
+                            >
+                              {isActiveLessonMarkedComplete ? "Next content" : "Mark complete + next"}
+                            </button>
+                          ) : null}
+                        </div>
                       </div>
                       <div className="mt-4 h-2 overflow-hidden rounded-full bg-[#2d2c2c]">
                         <div

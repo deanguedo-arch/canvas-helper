@@ -43,6 +43,10 @@ function loadState() {
         parsed.moduleViewByModuleId && typeof parsed.moduleViewByModuleId === "object"
           ? parsed.moduleViewByModuleId
           : {},
+      sidebarLibraryView:
+        parsed.sidebarLibraryView === "quizzes" || parsed.sidebarLibraryView === "assignments"
+          ? parsed.sidebarLibraryView
+          : "modules",
       completedActivityById:
         parsed.completedActivityById && typeof parsed.completedActivityById === "object"
           ? parsed.completedActivityById
@@ -60,6 +64,7 @@ function loadState() {
       collapsedSectionByKey: {},
       selectedByBucket: {},
       moduleViewByModuleId: {},
+      sidebarLibraryView: "modules",
       completedActivityById: {},
       quizDraftByActivityId: {}
     };
@@ -95,11 +100,16 @@ function setSelectedModule(moduleId) {
     return;
   }
 
+  if (state.selectedModuleId === moduleId && state.expandedModuleId === moduleId) {
+    state.expandedModuleId = "";
+    saveState();
+    render();
+    return;
+  }
+
   state.selectedModuleId = moduleId;
   state.expandedModuleId = moduleId;
-  if (!state.moduleViewByModuleId[moduleId]) {
-    state.moduleViewByModuleId[moduleId] = "content";
-  }
+  state.moduleViewByModuleId[moduleId] = "content";
   saveState();
   render();
 }
@@ -116,6 +126,12 @@ function getModuleView(moduleId) {
 
 function setModuleView(moduleId, view) {
   state.moduleViewByModuleId[moduleId] = view === "assignments" ? "assignments" : "content";
+  saveState();
+  render();
+}
+
+function setSidebarLibraryView(view) {
+  state.sidebarLibraryView = view === "quizzes" || view === "assignments" ? view : "modules";
   saveState();
   render();
 }
@@ -225,6 +241,19 @@ function getAssessmentDelivery(activity) {
   return assessmentDeliveryByActivityId.get(activity?.id) || null;
 }
 
+function isQuizDeliveryActivity(activity, delivery = null) {
+  const resourceKind = String(activity?.resourceKind || "").toLowerCase();
+  if (resourceKind === "quiz") {
+    return true;
+  }
+
+  const combined = `${activity?.title || ""} ${delivery?.statusText || ""} ${delivery?.summary || ""} ${delivery?.ctaLabel || ""}`
+    .replace(/\s+/g, " ")
+    .trim()
+    .toLowerCase();
+  return /\bquiz\b/.test(combined);
+}
+
 function activityMetaLabel(activity) {
   const delivery = getAssessmentDelivery(activity);
   if (delivery?.deliveryMode === "workspace-quiz") {
@@ -232,7 +261,7 @@ function activityMetaLabel(activity) {
   }
 
   if (delivery?.deliveryMode === "workspace-embed") {
-    return "Workspace assignment";
+    return isQuizDeliveryActivity(activity, delivery) ? "Workspace quiz" : "Workspace assignment";
   }
 
   if (delivery && delivery.deliveryMode !== "hidden") {
@@ -534,6 +563,69 @@ function moduleCompletion(module) {
     percent,
     isUnlocked: totalCount > 0 && completedCount === totalCount
   };
+}
+
+function buildUnlockedContentItems(contentItems) {
+  const items = Array.isArray(contentItems) ? contentItems : [];
+  if (!items.length) {
+    return [];
+  }
+
+  const nextIndex = items.findIndex((activity) => !isLessonCompleted(activity.id));
+  if (nextIndex === -1) {
+    return items;
+  }
+
+  return items.slice(0, nextIndex + 1);
+}
+
+function getNextContentActivity(moduleId, activityId) {
+  if (!moduleId || !activityId) {
+    return null;
+  }
+
+  const module = courseShellData.modules.find((entry) => entry.id === moduleId);
+  if (!module) {
+    return null;
+  }
+
+  const { content } = getModuleBuckets(module);
+  const index = content.findIndex((activity) => activity.id === activityId);
+  if (index === -1 || index >= content.length - 1) {
+    return null;
+  }
+
+  return content[index + 1];
+}
+
+function completeAndAdvanceLesson(moduleId, activityId) {
+  if (!moduleId || !activityId) {
+    return;
+  }
+
+  const module = courseShellData.modules.find((entry) => entry.id === moduleId);
+  if (!module) {
+    return;
+  }
+
+  const { content } = getModuleBuckets(module);
+  const currentIndex = content.findIndex((activity) => activity.id === activityId);
+  if (currentIndex === -1) {
+    return;
+  }
+
+  state.completedActivityById[activityId] = true;
+  const nextActivity = content[currentIndex + 1] || null;
+  if (nextActivity) {
+    state.selectedModuleId = moduleId;
+    state.expandedModuleId = moduleId;
+    state.selectedByBucket[bucketStateKey(moduleId, "content")] = nextActivity.id;
+    state.moduleViewByModuleId[moduleId] = "content";
+    state.sidebarLibraryView = "modules";
+  }
+
+  saveState();
+  render();
 }
 
 function isAssignment(activity) {
@@ -1159,26 +1251,43 @@ function renderQuiz(activity, quizData) {
   `;
 }
 
-function renderLessonCompletionFooter(activity) {
+function renderLessonCompletionFooter(activity, moduleId) {
   if (!activity || isAssignment(activity)) {
     return "";
   }
 
   const completed = isLessonCompleted(activity.id);
+  const nextActivity = getNextContentActivity(moduleId, activity.id);
   return `
     <div class="lesson-completion-card">
       <div>
         <strong>${completed ? "Lesson completed" : "Mark this lesson complete"}</strong>
-        <span>${completed ? "This lesson now counts toward the module release condition." : "Complete every lesson in the module to unlock the assignments tab."}</span>
+        <span>${completed ? "This lesson now counts toward the module release condition." : "Complete every lesson in the module to unlock that module's quizzes and assignments."}</span>
       </div>
-      <button
-        class="lesson-completion-btn ${completed ? "completed" : ""}"
-        type="button"
-        data-complete-lesson="${escapeHtml(activity.id)}"
-        data-completed="${completed ? "true" : "false"}"
-      >
-        ${completed ? "Completed" : "Mark complete"}
-      </button>
+      <div class="lesson-completion-actions">
+        <button
+          class="lesson-completion-btn ${completed ? "completed" : ""}"
+          type="button"
+          data-complete-lesson="${escapeHtml(activity.id)}"
+          data-completed="${completed ? "true" : "false"}"
+        >
+          ${completed ? "Completed" : "Mark complete"}
+        </button>
+        ${
+          nextActivity
+            ? `
+        <button
+          class="lesson-next-btn"
+          type="button"
+          data-complete-next="${escapeHtml(activity.id)}"
+          data-module-id="${escapeHtml(moduleId || "")}"
+        >
+          ${completed ? "Next content" : "Mark complete + next"}
+        </button>
+        `
+            : ""
+        }
+      </div>
     </div>
   `;
 }
@@ -1291,15 +1400,10 @@ function renderContentGroups(moduleId, content, selectedActivityId) {
 }
 
 function renderModuleButton(module, expanded, selected) {
-  const counts = moduleCounts(module);
   const { content, assignments } = getModuleBuckets(module);
+  const unlockedContent = buildUnlockedContentItems(content);
   const completion = moduleCompletion(module);
-  const moduleView = getModuleView(module.id);
-  const effectiveModuleView = moduleView === "assignments" ? "assignments" : "content";
-  const visibleItems = effectiveModuleView === "assignments" ? assignments : content;
-  const selectedItem = expanded
-    ? getSelectedActivity(module.id, effectiveModuleView === "assignments" ? "assignments" : "content", visibleItems)
-    : null;
+  const selectedItem = expanded ? getSelectedActivity(module.id, "content", unlockedContent) : null;
 
   return `
     <article class="module-card ${expanded ? "expanded" : ""} ${selected ? "selected" : ""}">
@@ -1318,9 +1422,9 @@ function renderModuleButton(module, expanded, selected) {
             ${
               assignments.length
                 ? completion.isUnlocked
-                  ? `Assignments unlocked`
-                  : `Assignments recommended after 100% completion`
-                : `No assignments in this module`
+                  ? `Quizzes and assignments unlocked`
+                  : `Quizzes and assignments recommended after 100% completion`
+                : `No assessments in this module`
             }
           </div>
         </div>
@@ -1329,49 +1433,9 @@ function renderModuleButton(module, expanded, selected) {
         expanded
           ? `
       <div class="module-dropdown">
-        <div class="module-view-switcher">
-          <button
-            class="module-view-btn ${effectiveModuleView === "content" ? "active" : ""}"
-            type="button"
-            data-module-view="${escapeHtml(module.id)}"
-            data-view="content"
-          >
-            Content
-          </button>
-          ${
-            assignments.length
-              ? `
-          <button
-            class="module-view-btn ${effectiveModuleView === "assignments" ? "active" : ""}"
-            type="button"
-            data-module-view="${escapeHtml(module.id)}"
-            data-view="assignments"
-          >
-            Assignments
-          </button>
-          `
-              : ""
-          }
-        </div>
-        ${
-          effectiveModuleView === "assignments"
-            ? `
-        <div class="group-block" data-testid="module-assignments-view">
-          ${assignments.length
-            ? assignments
-                .map((activity) =>
-                  renderActivityListItem(module.id, "assignments", activity, selectedItem?.id === activity.id, "module-item-btn")
-                )
-                .join("")
-            : `<div class="empty compact-empty">No assignments.</div>`}
-        </div>
-        `
-            : `
         <div class="group-block" data-testid="module-content-view">
-          ${renderContentGroups(module.id, content, selectedItem?.id)}
+          ${renderContentGroups(module.id, unlockedContent, selectedItem?.id)}
         </div>
-        `
-        }
       </div>
     `
           : ""
@@ -1380,16 +1444,17 @@ function renderModuleButton(module, expanded, selected) {
   `;
 }
 
-function renderActivityListItem(moduleId, bucket, activity, active, className = "item-btn") {
+function renderActivityListItem(moduleId, bucket, activity, active, className = "item-btn", disabled = false) {
   const metaLabel = activityMetaLabel(activity);
   const completed = !isAssignment(activity) && isLessonCompleted(activity.id);
   return `
     <button
-      class="${className} ${active ? "active" : ""}"
+      class="${className} ${active ? "active" : ""} ${disabled ? "locked" : ""}"
       type="button"
       data-select-activity="${escapeHtml(activity.id)}"
       data-module-id="${escapeHtml(moduleId)}"
       data-bucket="${escapeHtml(bucket)}"
+      ${disabled ? "disabled" : ""}
     >
       <div class="item-row">
         <div class="item-title">${escapeHtml(activity.title)}</div>
@@ -1400,7 +1465,92 @@ function renderActivityListItem(moduleId, bucket, activity, active, className = 
   `;
 }
 
-function renderReader(activity) {
+function isQuizLibraryItem(activity) {
+  const resourceKind = String(activity?.resourceKind || "").toLowerCase();
+  if (resourceKind === "quiz") {
+    return true;
+  }
+
+  const title = String(activity?.title || "");
+  if (/\bquiz\b/i.test(title)) {
+    return true;
+  }
+
+  const delivery = getAssessmentDelivery(activity);
+  return isQuizDeliveryActivity(activity, delivery);
+}
+
+function getSidebarLibraryCollections() {
+  const quizModules = [];
+  const assignmentModules = [];
+
+  courseShellData.modules.forEach((module) => {
+    const buckets = getModuleBuckets(module);
+    const assignmentItems = buckets.assignments || [];
+    if (!assignmentItems.length) {
+      return;
+    }
+
+    const quizItems = assignmentItems.filter((activity) => isQuizLibraryItem(activity));
+    const nonQuizAssignments = assignmentItems.filter((activity) => !isQuizLibraryItem(activity));
+
+    if (quizItems.length) {
+      quizModules.push({ module, items: quizItems });
+    }
+
+    if (nonQuizAssignments.length) {
+      assignmentModules.push({ module, items: nonQuizAssignments });
+    }
+  });
+
+  return { quizModules, assignmentModules };
+}
+
+function renderSidebarLibraryModuleBlock(collectionTitle, rows, selectedModuleId = "", selectedActivityId = "") {
+  if (!rows.length) {
+    return `<div class="library-empty">No ${escapeHtml(collectionTitle.toLowerCase())} found yet.</div>`;
+  }
+
+  const blocks = rows
+    .map(({ module, items }) => {
+      const moduleLabel = escapeHtml(module?.title || "Module");
+      const completion = moduleCompletion(module);
+      const isUnlocked = completion.isUnlocked;
+      const itemButtons = items
+        .map((activity) =>
+          renderActivityListItem(
+            module.id,
+            "assignments",
+            activity,
+            module.id === selectedModuleId && activity.id === selectedActivityId,
+            "library-item-btn",
+            !isUnlocked
+          )
+        )
+        .join("");
+
+      return `
+        <section class="library-module-block">
+          <div class="library-module-head">
+            <h4>${moduleLabel}</h4>
+            <span class="library-lock-chip ${isUnlocked ? "unlocked" : "locked"}">${isUnlocked ? "Unlocked" : "Locked"}</span>
+          </div>
+          <div class="library-module-items">${itemButtons}</div>
+          ${!isUnlocked ? `<p class="library-lock-note">Complete all content lessons in this module to unlock ${escapeHtml(collectionTitle.toLowerCase())}.</p>` : ""}
+        </section>
+      `;
+    })
+    .join("");
+
+  return `
+    <section class="library-section">
+      <h3>${escapeHtml(collectionTitle)}</h3>
+      ${blocks}
+    </section>
+  `;
+}
+
+function renderReader(activity, moduleId) {
   if (!activity) {
     return `<div class="empty">Select a content item from the active module.</div>`;
   }
@@ -1427,7 +1577,7 @@ function renderReader(activity) {
         }
         <div class="reader-content ${isHtmlReader ? "html-reader-content" : ""}">
           ${renderActivityBody(activity)}
-          ${renderLessonCompletionFooter(activity)}
+          ${renderLessonCompletionFooter(activity, moduleId)}
         </div>
       </div>
     </section>
@@ -1435,12 +1585,28 @@ function renderReader(activity) {
 }
 
 function render() {
-  const module = getSelectedModule();
-  const moduleView = module ? getModuleView(module.id) : "content";
-  const buckets = module ? getModuleBuckets(module) : { content: [], assignments: [] };
-  const activeBucket = moduleView === "assignments" ? "assignments" : "content";
-  const moduleReaderItems = activeBucket === "assignments" ? buckets.assignments : buckets.content;
-  const selectedActivity = module ? getSelectedActivity(module.id, activeBucket, moduleReaderItems) : null;
+  let module = getSelectedModule();
+  const collections = getSidebarLibraryCollections();
+  let selectedActivity = null;
+
+  if (state.sidebarLibraryView === "modules") {
+    const buckets = module ? getModuleBuckets(module) : { content: [], assignments: [] };
+    const unlockedContent = buildUnlockedContentItems(buckets.content);
+    selectedActivity = module ? getSelectedActivity(module.id, "content", unlockedContent) : null;
+  } else {
+    const rows = state.sidebarLibraryView === "assignments" ? collections.assignmentModules : collections.quizModules;
+    const matchingRow = rows.find((row) => row.module.id === module?.id) || null;
+    const firstUnlockedRow = rows.find((row) => moduleCompletion(row.module).isUnlocked) || null;
+    const activeRow = (matchingRow && moduleCompletion(matchingRow.module).isUnlocked ? matchingRow : null) || firstUnlockedRow || matchingRow || rows[0] || null;
+    if (activeRow) {
+      module = activeRow.module;
+      selectedActivity = moduleCompletion(activeRow.module).isUnlocked
+        ? getSelectedActivity(activeRow.module.id, "assignments", activeRow.items)
+        : null;
+    }
+  }
+
+  const moduleCount = Array.isArray(courseShellData.modules) ? courseShellData.modules.length : 0;
   const contentCount = courseShellData.modules.reduce(
     (sum, current) => sum + getModuleBuckets(current).content.length,
     0
@@ -1458,11 +1624,31 @@ function render() {
           <p class="brand-note">Select a module, then open one lesson or assignment at a time in the reading pane.</p>
         </div>
 
-        <div class="module-list" data-testid="module-list">
-          ${courseShellData.modules
-            .map((item) => renderModuleButton(item, item.id === state.expandedModuleId, item.id === module?.id))
-            .join("")}
-        </div>
+        <nav class="side-nav-ghost" aria-label="Workspace sections">
+          <button type="button" class="side-nav-item ${state.sidebarLibraryView === "modules" ? "active" : ""}" data-library-view="modules">Case modules</button>
+          <button type="button" class="side-nav-item ${state.sidebarLibraryView === "quizzes" ? "active" : ""}" data-library-view="quizzes">Quizzes</button>
+          <button type="button" class="side-nav-item ${state.sidebarLibraryView === "assignments" ? "active" : ""}" data-library-view="assignments">Assignments</button>
+        </nav>
+
+        ${
+          state.sidebarLibraryView !== "modules"
+            ? `
+          <div class="library-list" data-testid="quiz-library">
+            ${
+              state.sidebarLibraryView === "assignments"
+                ? renderSidebarLibraryModuleBlock("Assignments", collections.assignmentModules, module?.id || "", selectedActivity?.id || "")
+                : renderSidebarLibraryModuleBlock("Quizzes", collections.quizModules, module?.id || "", selectedActivity?.id || "")
+            }
+          </div>
+        `
+            : `
+          <div class="module-list" data-testid="module-list">
+            ${courseShellData.modules
+              .map((item) => renderModuleButton(item, item.id === state.expandedModuleId, item.id === module?.id))
+              .join("")}
+          </div>
+        `
+        }
       </aside>
 
       <section class="main">
@@ -1485,7 +1671,7 @@ function render() {
               </div>
             </div>
             <div class="stats">
-              <span class="stat"><strong>${courseShellData.stats.moduleCount}</strong><span> modules</span></span>
+              <span class="stat"><strong>${moduleCount}</strong><span> modules</span></span>
               <span class="stat"><strong>${contentCount}</strong><span> content items</span></span>
               <span class="stat"><strong>${assignmentCount}</strong><span> assignments</span></span>
             </div>
@@ -1493,7 +1679,7 @@ function render() {
         </header>
 
         <div class="content">
-          ${renderReader(selectedActivity)}
+          ${renderReader(selectedActivity, module?.id || "")}
         </div>
       </section>
     </div>
@@ -1516,6 +1702,13 @@ function render() {
     button.addEventListener("click", () => toggleSidebar());
   });
 
+  root.querySelectorAll("[data-library-view]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const view = button.getAttribute("data-library-view") || "modules";
+      setSidebarLibraryView(view);
+    });
+  });
+
   root.querySelectorAll("[data-toggle-section]").forEach((button) => {
     button.addEventListener("click", () => {
       const moduleId = button.getAttribute("data-module-id") || "";
@@ -1524,19 +1717,19 @@ function render() {
     });
   });
 
-  root.querySelectorAll("[data-module-view]").forEach((button) => {
-    button.addEventListener("click", () => {
-      const moduleId = button.getAttribute("data-module-view") || "";
-      const view = button.getAttribute("data-view") || "content";
-      setModuleView(moduleId, view);
-    });
-  });
-
   root.querySelectorAll("[data-complete-lesson]").forEach((button) => {
     button.addEventListener("click", () => {
       const activityId = button.getAttribute("data-complete-lesson") || "";
       const completed = button.getAttribute("data-completed") === "true";
       setLessonCompleted(activityId, !completed);
+    });
+  });
+
+  root.querySelectorAll("[data-complete-next]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const activityId = button.getAttribute("data-complete-next") || "";
+      const moduleId = button.getAttribute("data-module-id") || "";
+      completeAndAdvanceLesson(moduleId, activityId);
     });
   });
 
@@ -1731,6 +1924,42 @@ function injectStyles() {
       max-width: 28ch;
     }
 
+    .side-nav-ghost {
+      margin: 0.72rem 0.72rem 0.58rem;
+      display: grid;
+      gap: 0.26rem;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 0.64rem;
+    }
+
+    .side-nav-item {
+      border: 1px solid #323238;
+      border-radius: 7px;
+      background: #1c1c20;
+      color: #9e9ba1;
+      text-align: left;
+      padding: 0.44rem 0.56rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.66rem;
+      font-weight: 700;
+      font-family: "Space Grotesk", "IBM Plex Sans", sans-serif;
+      cursor: pointer;
+      transition: border-color 0.16s ease, background 0.16s ease, color 0.16s ease;
+    }
+
+    .side-nav-item:hover {
+      border-color: #534c50;
+      color: #cec3c1;
+      background: #232329;
+    }
+
+    .side-nav-item.active {
+      background: rgba(163, 90, 69, 0.35);
+      border-color: rgba(194, 141, 121, 0.4);
+      color: #f2d1c8;
+    }
+
     .module-list {
       padding: 0.75rem;
       overflow: auto;
@@ -1739,6 +1968,102 @@ function injectStyles() {
       display: grid;
       gap: 0.42rem;
       align-content: start;
+    }
+
+    .library-list {
+      padding: 0.75rem;
+      overflow: auto;
+      min-height: 0;
+      flex: 1 1 auto;
+      display: grid;
+      gap: 0.74rem;
+      align-content: start;
+    }
+
+    .library-section {
+      display: grid;
+      gap: 0.42rem;
+    }
+
+    .library-section h3 {
+      margin: 0;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent-soft);
+      font-family: "Space Grotesk", "IBM Plex Sans", sans-serif;
+      font-weight: 700;
+    }
+
+    .library-module-block {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #1a1a1f;
+      padding: 0.46rem;
+      display: grid;
+      gap: 0.34rem;
+    }
+
+    .library-module-block h4 {
+      margin: 0;
+      font-size: 0.7rem;
+      line-height: 1.35;
+      color: var(--muted-strong);
+      font-family: "Space Grotesk", "IBM Plex Sans", sans-serif;
+      font-weight: 700;
+    }
+
+    .library-module-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.45rem;
+    }
+
+    .library-lock-chip {
+      border: 1px solid #5f5348;
+      border-radius: 999px;
+      padding: 0.12rem 0.44rem;
+      font-size: 0.62rem;
+      line-height: 1.2;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+
+    .library-lock-chip.unlocked {
+      border-color: #3e715c;
+      background: #1f3b30;
+      color: #b8ead4;
+    }
+
+    .library-lock-chip.locked {
+      border-color: #665145;
+      background: #3a2a24;
+      color: #efcabf;
+    }
+
+    .library-module-items {
+      display: grid;
+      gap: 0.32rem;
+    }
+
+    .library-lock-note {
+      margin: 0;
+      font-size: 0.68rem;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+
+    .library-empty {
+      border: 1px dashed #454048;
+      border-radius: 8px;
+      background: #1a1a1f;
+      color: #9f9494;
+      padding: 0.55rem;
+      font-size: 0.74rem;
+      text-align: center;
     }
 
     .module-card {
@@ -1984,7 +2309,8 @@ function injectStyles() {
       font-weight: 700;
     }
 
-    .module-item-btn {
+    .module-item-btn,
+    .library-item-btn {
       border: 1px solid var(--line);
       border-radius: 8px;
       background: var(--bg-subtle);
@@ -1995,24 +2321,38 @@ function injectStyles() {
       transition: border-color 0.16s ease, background 0.16s ease;
     }
 
-    .module-item-btn:hover {
+    .module-item-btn:hover,
+    .library-item-btn:hover {
       border-color: #474039;
       background: #2a2622;
     }
 
-    .module-item-btn.active {
+    .module-item-btn.active,
+    .library-item-btn.active {
       border-color: var(--line-strong);
       background: #332823;
     }
 
+    .module-item-btn.locked,
+    .library-item-btn.locked {
+      opacity: 0.5;
+      cursor: not-allowed;
+      background: #1f1d1c;
+      border-color: #3a3531;
+      color: #a59b91;
+    }
+
     .module-btn:focus-visible,
     .module-item-btn:focus-visible,
+    .library-item-btn:focus-visible,
+    .side-nav-item:focus-visible,
     .subgroup-toggle:focus-visible,
     .sidebar-toggle:focus-visible,
     .quiz-nav-btn:focus-visible,
     .quiz-choice:focus-visible,
     .quiz-action:focus-visible,
-    .assignment-link:focus-visible {
+    .assignment-link:focus-visible,
+    .lesson-next-btn:focus-visible {
       outline: 2px solid var(--focus);
       outline-offset: 2px;
     }
@@ -2793,6 +3133,13 @@ function injectStyles() {
       max-width: 44rem;
     }
 
+    .lesson-completion-actions {
+      display: flex;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
     .lesson-completion-btn {
       border: 1px solid #cbb9a6;
       border-radius: 8px;
@@ -2815,6 +3162,24 @@ function injectStyles() {
       border-color: #8f745f;
       background: #efe2d4;
       color: #2f251f;
+    }
+
+    .lesson-next-btn {
+      border: 1px solid #8f745f;
+      border-radius: 8px;
+      background: #efe2d4;
+      color: #2f251f;
+      min-height: 2.45rem;
+      padding: 0.52rem 0.82rem;
+      font-size: 0.84rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: border-color 0.16s ease, background 0.16s ease, color 0.16s ease;
+    }
+
+    .lesson-next-btn:hover {
+      border-color: #7a604d;
+      background: #e8d7c5;
     }
 
     .loading {
@@ -2925,7 +3290,12 @@ function injectStyles() {
         align-items: stretch;
       }
 
-      .lesson-completion-btn {
+      .lesson-completion-actions {
+        width: 100%;
+      }
+
+      .lesson-completion-btn,
+      .lesson-next-btn {
         width: 100%;
       }
     }
