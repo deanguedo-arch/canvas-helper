@@ -895,6 +895,130 @@ const MODULE7_ASSIGNMENT_EMBED_PATH = "./assets/module7assignment.html";
 const MODULE8_ASSIGNMENT_EMBED_PATH = "./assets/module8assignment.html?rev=20260318-5";
 const FORENSICS_WORKSPACE_STATE_KEY = "forensics35::workspace-state::v1";
 
+function normalizeSidebarLibraryView(value) {
+  if (value === "quizzes") return value;
+  return "modules";
+}
+
+function isQuizLesson(lesson) {
+  return lesson?.type === "quiz";
+}
+
+function isAssignmentOnlyLesson(lesson) {
+  return lesson?.type === "assignment" || lesson?.type === "lab-assignment";
+}
+
+function bucketStateKey(moduleId, bucket) {
+  return `${moduleId}::${bucket}`;
+}
+
+function readCompletionMapForModule(allCompletions, moduleId) {
+  if (!allCompletions || typeof allCompletions !== "object") return {};
+  const candidate = allCompletions[moduleId];
+  if (!candidate || typeof candidate !== "object") return {};
+  return candidate;
+}
+
+function buildUnlockedContentLessons(lessons, completionMap) {
+  if (!Array.isArray(lessons) || lessons.length === 0) return [];
+  const nextIndex = lessons.findIndex((lesson) => !completionMap[lesson.id]);
+  if (nextIndex === -1) return lessons;
+  return lessons.slice(0, nextIndex + 1);
+}
+
+function computeLessonCompletionProgress(lessons, completionMap) {
+  const total = Array.isArray(lessons) ? lessons.length : 0;
+  if (!total) {
+    return {
+      total: 0,
+      completed: 0,
+      percent: 0,
+      isComplete: true,
+    };
+  }
+  let completed = 0;
+  for (const lesson of lessons) {
+    if (!completionMap[lesson.id]) break;
+    completed += 1;
+  }
+  const percent = Math.round((completed / total) * 100);
+  return {
+    total,
+    completed,
+    percent,
+    isComplete: completed >= total,
+  };
+}
+
+function buildSyntheticLessonsForModule(module) {
+  const moduleTitleLower = (module?.title || "").toLowerCase();
+  const syntheticLessons = [];
+
+  if (moduleTitleLower.includes("types of evidence and fingerprint analysis")) {
+    syntheticLessons.push({
+      id: "module2-fingerprint-analysis-description",
+      title: "Fingerprint Analysis Lab Assignment",
+      type: "assignment"
+    });
+    syntheticLessons.push({
+      id: "module2-fingerprint-analysis-lab",
+      title: "Fingerprint Analysis Interactive Assignment",
+      type: "lab-assignment"
+    });
+  }
+  if (moduleTitleLower.includes("introduction to crime scenes")) {
+    syntheticLessons.push({
+      id: "module1-crime-scene-lab",
+      title: "Crime Scene Certification Lab",
+      type: "lab-assignment"
+    });
+  }
+  if (moduleTitleLower.includes("trace evidence")) {
+    syntheticLessons.push({
+      id: "module3-trace-evidence-lab",
+      title: "Trace Evidence Lab Assignment",
+      type: "lab-assignment"
+    });
+  }
+  if (moduleTitleLower.includes("body fluid evidence")) {
+    syntheticLessons.push({
+      id: "module4-body-fluid-analysis-lab",
+      title: "Body Fluid Analysis Lab Assignment",
+      type: "lab-assignment"
+    });
+  }
+  if (moduleTitleLower.includes("forensic detection of impaired driving")) {
+    syntheticLessons.push({
+      id: "module5-impaired-driving-lab",
+      title: "Impaired Driving Assignment Lab",
+      type: "lab-assignment"
+    });
+  }
+  if (moduleTitleLower.includes("polygraphing and document analysis")) {
+    syntheticLessons.push({
+      id: "module6-polygraph-document-lab",
+      title: "Polygraph and Document Analysis Lab",
+      type: "lab-assignment"
+    });
+  }
+  if (moduleTitleLower.includes("forensic genetics")) {
+    syntheticLessons.push({
+      id: "module7-forensic-genetics-lab",
+      title: "Forensic Genetics Lab Assignment",
+      type: "lab-assignment"
+    });
+  }
+  if (moduleTitleLower.includes("careers in forensic science")) {
+    syntheticLessons.push({
+      id: "module8-career-path-simulation",
+      title: "Career Path Simulation Lab",
+      type: "lab-assignment"
+    });
+  }
+
+  return syntheticLessons;
+}
+
 function readForensicsWorkspaceState() {
   if (typeof window === "undefined" || !window.localStorage) {
     return null;
@@ -1986,11 +2110,31 @@ export default function ForensicCoursePlayerPreviewRestored() {
   const [activeChapterId, setActiveChapterId] = useState(
     typeof initialUiState.activeChapterId === "string" ? initialUiState.activeChapterId : resolvedModules[0]?.id ?? ""
   );
-  const [activeModuleView, setActiveModuleView] = useState(
-    initialUiState.activeModuleView === "assignments" ? "assignments" : "content"
+  const [expandedChapterId, setExpandedChapterId] = useState(
+    typeof initialUiState.expandedChapterId === "string"
+      ? initialUiState.expandedChapterId
+      : typeof initialUiState.activeChapterId === "string"
+        ? initialUiState.activeChapterId
+        : resolvedModules[0]?.id ?? ""
+  );
+  const [sidebarLibraryView, setSidebarLibraryView] = useState(
+    normalizeSidebarLibraryView(
+      initialUiState.sidebarLibraryView ||
+        (initialUiState.activeModuleView === "assignments" ? "quizzes" : "modules")
+    )
   );
   const [chapterVisited, setChapterVisited] = useState(
     initialUiState.chapterVisited && typeof initialUiState.chapterVisited === "object" ? initialUiState.chapterVisited : {}
+  );
+  const [selectedLessonByBucket, setSelectedLessonByBucket] = useState(
+    initialUiState.selectedLessonByBucket && typeof initialUiState.selectedLessonByBucket === "object"
+      ? initialUiState.selectedLessonByBucket
+      : {}
+  );
+  const [contentCompletedByModule, setContentCompletedByModule] = useState(
+    initialUiState.contentCompletedByModule && typeof initialUiState.contentCompletedByModule === "object"
+      ? initialUiState.contentCompletedByModule
+      : {}
   );
   const [query, setQuery] = useState(typeof initialUiState.query === "string" ? initialUiState.query : "");
   const [isChapterMenuCollapsed, setIsChapterMenuCollapsed] = useState(Boolean(initialUiState.isChapterMenuCollapsed));
@@ -2379,6 +2523,93 @@ export default function ForensicCoursePlayerPreviewRestored() {
   }, [activeChapter]);
   const chapterLessons = chapterLessonGroups.contentLessons;
   const chapterAssignments = chapterLessonGroups.assignmentLessons;
+  const chapterQuizzes = chapterAssignments.filter(isQuizLesson);
+  const chapterCompletionMap = readCompletionMapForModule(contentCompletedByModule, activeChapter?.id || "");
+  const unlockedChapterLessons = buildUnlockedContentLessons(chapterLessons, chapterCompletionMap);
+  const chapterContentProgress = computeLessonCompletionProgress(chapterLessons, chapterCompletionMap);
+  const activeBucket = sidebarLibraryView === "quizzes" ? "quizzes" : "content";
+  const activeBucketLessons = activeBucket === "quizzes"
+    ? (chapterContentProgress.isComplete ? chapterQuizzes : [])
+    : unlockedChapterLessons;
+  const selectedBucketKey = activeChapter?.id ? bucketStateKey(activeChapter.id, activeBucket) : "";
+  const selectedLessonId = selectedBucketKey ? selectedLessonByBucket[selectedBucketKey] : "";
+  const activeLesson = activeBucketLessons.find((lesson) => lesson.id === selectedLessonId) || activeBucketLessons[0] || null;
+
+  const moduleLibraryRows = useMemo(() => {
+    return safeModules
+      .map((module) => {
+        const moduleLessons = module.lessons || [];
+        const syntheticLessons = buildSyntheticLessonsForModule(module).filter(
+          (synthetic) => !moduleLessons.some((lesson) => lesson.id === synthetic.id)
+        );
+        const mergedLessons = [...syntheticLessons, ...moduleLessons];
+        const fallbackContentLessons = mergedLessons.filter(
+          (lesson) => !isQuizLesson(lesson) && !isAssignmentOnlyLesson(lesson)
+        );
+        const contentLessons = module.id === activeChapter?.id ? chapterLessons : fallbackContentLessons;
+        const quizzes = module.id === activeChapter?.id ? chapterQuizzes : mergedLessons.filter(isQuizLesson);
+        const completionMap = readCompletionMapForModule(contentCompletedByModule, module.id);
+        const contentProgress = computeLessonCompletionProgress(contentLessons, completionMap);
+        return {
+          module,
+          contentLessons,
+          quizzes,
+          contentProgress,
+          quizzesUnlocked: contentProgress.isComplete,
+        };
+      })
+      .filter(Boolean);
+  }, [safeModules, activeChapter?.id, chapterLessons, chapterQuizzes, contentCompletedByModule]);
+  const quizLibraryRows = moduleLibraryRows.filter((row) => row.quizzes.length > 0);
+  const overallContentProgress = useMemo(() => {
+    const total = moduleLibraryRows.reduce((sum, row) => sum + row.contentProgress.total, 0);
+    const completed = moduleLibraryRows.reduce((sum, row) => sum + row.contentProgress.completed, 0);
+    const percent = total > 0 ? Math.round((completed / total) * 100) : 0;
+    return { total, completed, percent };
+  }, [moduleLibraryRows]);
+  const completedModuleCount = useMemo(
+    () => moduleLibraryRows.reduce((sum, row) => sum + (row.contentProgress.isComplete ? 1 : 0), 0),
+    [moduleLibraryRows]
+  );
+
+  const handleSelectLesson = useCallback((moduleId, bucket, lessonId) => {
+    if (!moduleId || !lessonId) return;
+    setActiveChapterId(moduleId);
+    setExpandedChapterId(moduleId);
+    setSidebarLibraryView(bucket === "content" ? "modules" : bucket);
+    setSelectedLessonByBucket((prev) => ({ ...prev, [bucketStateKey(moduleId, bucket)]: lessonId }));
+  }, []);
+
+  const handleMarkContentComplete = useCallback((moduleId, lessonId) => {
+    if (!moduleId || !lessonId) return;
+    setContentCompletedByModule((prev) => {
+      const previousModuleMap = readCompletionMapForModule(prev, moduleId);
+      return {
+        ...prev,
+        [moduleId]: {
+          ...previousModuleMap,
+          [lessonId]: true,
+        },
+      };
+    });
+  }, []);
+
+  const handleMarkContentIncomplete = useCallback((moduleId, lessonId) => {
+    if (!moduleId || !lessonId) return;
+    setContentCompletedByModule((prev) => {
+      const previousModuleMap = readCompletionMapForModule(prev, moduleId);
+      if (!previousModuleMap[lessonId]) return prev;
+      const nextModuleMap = { ...previousModuleMap };
+      delete nextModuleMap[lessonId];
+      const nextState = { ...prev };
+      if (Object.keys(nextModuleMap).length) {
+        nextState[moduleId] = nextModuleMap;
+      } else {
+        delete nextState[moduleId];
+      }
+      return nextState;
+    });
+  }, []);
 
   useEffect(() => {
     if (!safeModules.length) {
@@ -2391,10 +2622,40 @@ export default function ForensicCoursePlayerPreviewRestored() {
   }, [safeModules, activeChapterId]);
 
   useEffect(() => {
-    if (activeModuleView !== "assignments") return;
-    if (chapterAssignments.length > 0) return;
-    setActiveModuleView("content");
-  }, [activeModuleView, chapterAssignments.length]);
+    if (!safeModules.length) return;
+    if (!expandedChapterId) return;
+    const isVisible = safeModules.some((module) => module.id === expandedChapterId);
+    if (!isVisible) {
+      setExpandedChapterId(
+        safeModules.some((module) => module.id === activeChapterId) ? activeChapterId : ""
+      );
+    }
+  }, [safeModules, expandedChapterId, activeChapterId]);
+
+  useEffect(() => {
+    if (!activeChapter?.id) return;
+    setSelectedLessonByBucket((prev) => {
+      let changed = false;
+      const next = { ...prev };
+      const ensureBucketSelection = (bucket, lessons) => {
+        const key = bucketStateKey(activeChapter.id, bucket);
+        if (!lessons.length) {
+          if (next[key]) {
+            delete next[key];
+            changed = true;
+          }
+          return;
+        }
+        if (!lessons.some((lesson) => lesson.id === next[key])) {
+          next[key] = lessons[0].id;
+          changed = true;
+        }
+      };
+      ensureBucketSelection("content", chapterLessons);
+      ensureBucketSelection("quizzes", chapterQuizzes);
+      return changed ? next : prev;
+    });
+  }, [activeChapter?.id, chapterLessons, chapterQuizzes]);
 
   useEffect(() => {
     if (!activeChapter?.id) return;
@@ -2403,7 +2664,7 @@ export default function ForensicCoursePlayerPreviewRestored() {
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
-  }, [activeChapterId, activeModuleView]);
+  }, [activeChapterId, sidebarLibraryView]);
 
   useEffect(() => {
     writeForensicsWorkspaceState({
@@ -2411,16 +2672,20 @@ export default function ForensicCoursePlayerPreviewRestored() {
       savedAt: new Date().toISOString(),
       ui: {
         activeChapterId,
-        activeModuleView,
+        activeModuleView: sidebarLibraryView === "modules" ? "content" : "assignments",
+        sidebarLibraryView,
+        expandedChapterId,
         chapterVisited,
+        selectedLessonByBucket,
+        contentCompletedByModule,
         query,
         isChapterMenuCollapsed,
       },
       quizDrafts,
       labDrafts,
       reportSnapshot: {
-        progressPercent: 0,
-        completedSections: Object.values(chapterVisited).filter(Boolean).length,
+        progressPercent: overallContentProgress.percent,
+        completedSections: completedModuleCount,
         totalSections: safeModules.length,
         activeModuleId: activeChapter?.id || "",
         activeModuleTitle: activeChapter?.title || "",
@@ -2428,16 +2693,27 @@ export default function ForensicCoursePlayerPreviewRestored() {
     });
   }, [
     activeChapterId,
-    activeModuleView,
+    sidebarLibraryView,
+    expandedChapterId,
     chapterVisited,
+    selectedLessonByBucket,
+    contentCompletedByModule,
     query,
     isChapterMenuCollapsed,
     quizDrafts,
     labDrafts,
     safeModules.length,
+    overallContentProgress.percent,
+    completedModuleCount,
     activeChapter?.id,
     activeChapter?.title,
   ]);
+
+  const isContentView = sidebarLibraryView === "modules";
+  const isActiveContentLesson = Boolean(isContentView && activeLesson);
+  const isActiveLessonMarkedComplete = Boolean(
+    isActiveContentLesson && chapterCompletionMap[activeLesson.id]
+  );
 
   const isMenuCollapsed = isChapterMenuCollapsed && !isMobileMenuOpen;
 
@@ -2453,13 +2729,13 @@ export default function ForensicCoursePlayerPreviewRestored() {
     <div className="forensic-app min-h-screen bg-[#121314] text-[#f3f1eb]">
       <style>{`
         .forensic-app {
-          font-family: "IBM Plex Sans", "Avenir Next", sans-serif;
+          font-family: "Inter", "Avenir Next", sans-serif;
         }
         .forensic-app h1,
         .forensic-app h2,
         .forensic-app h3,
         .forensic-app h4 {
-          font-family: "IBM Plex Sans", "Avenir Next", sans-serif;
+          font-family: "Space Grotesk", "Inter", sans-serif;
           letter-spacing: -0.015em;
         }
         .forensic-app * {
@@ -2537,65 +2813,203 @@ export default function ForensicCoursePlayerPreviewRestored() {
             )}
           </div>
 
-          <div
-            className={`${isMenuCollapsed ? "hidden" : "h-[calc(100vh-245px)] overflow-y-auto px-3 py-4"}`}
-            data-testid="module-list"
-          >
-            {safeModules.map((module) => {
-              const isActive = module.id === activeChapter.id;
-              return (
-                <div
-                  key={module.id}
-                  className="mb-3 rounded-xl border border-[#353331] bg-[#1c1d1f] p-2 shadow-[0_12px_24px_rgba(0,0,0,0.22)]"
-                  data-testid="module-panel"
-                  data-module-title={module.title}
-                  data-module-hidden={module.isHidden ? "true" : "false"}
-                  data-module-expanded={isActive ? "true" : "false"}
-                >
-                  <button
-                    onClick={() => {
-                      setActiveChapterId(module.id);
-                      setActiveModuleView("content");
-                    }}
-                    className="flex w-full items-center justify-between rounded-lg px-2 py-2 text-left transition duration-200 hover:bg-[#262320]"
-                    data-testid="module-toggle"
+          {isMenuCollapsed ? null : (
+            <nav className="grid gap-1 border-b border-[#302d2a] px-3 py-3" aria-label="Workspace sections">
+              <button
+                type="button"
+                className={`rounded-md border px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-[0.08em] transition ${
+                  sidebarLibraryView === "modules"
+                    ? "border-[#b07a58]/45 bg-[#30241d] text-[#e0c0a8]"
+                    : "border-[#3a3633] bg-[#1f1f22] text-[#9f9991] hover:border-[#57514b] hover:text-[#f3f1eb]"
+                }`}
+                data-library-view="modules"
+                onClick={() => setSidebarLibraryView("modules")}
+              >
+                Case Modules
+              </button>
+              <button
+                type="button"
+                className={`rounded-md border px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-[0.08em] transition ${
+                  sidebarLibraryView === "quizzes"
+                    ? "border-[#b07a58]/45 bg-[#30241d] text-[#e0c0a8]"
+                    : "border-[#3a3633] bg-[#1f1f22] text-[#9f9991] hover:border-[#57514b] hover:text-[#f3f1eb]"
+                }`}
+                data-library-view="quizzes"
+                onClick={() => setSidebarLibraryView("quizzes")}
+              >
+                Quizzes
+              </button>
+            </nav>
+          )}
+
+          {isMenuCollapsed ? null : sidebarLibraryView === "modules" ? (
+            <div className="h-[calc(100vh-302px)] overflow-y-auto px-3 py-4" data-testid="module-list">
+              {safeModules.map((module) => {
+                const isSelected = module.id === activeChapter.id;
+                const isExpanded = module.id === expandedChapterId;
+                const moduleGroups = moduleLibraryRows.find((row) => row.module.id === module.id);
+                const moduleCompletionMap = readCompletionMapForModule(contentCompletedByModule, module.id);
+                const moduleContentLessons = module.id === activeChapter.id
+                  ? chapterLessons
+                  : moduleGroups?.contentLessons || [];
+                const unlockedModuleContentLessons = module.id === activeChapter.id
+                  ? unlockedChapterLessons
+                  : buildUnlockedContentLessons(moduleContentLessons, moduleCompletionMap);
+                const moduleContentProgress = moduleGroups?.contentProgress || computeLessonCompletionProgress(moduleContentLessons, moduleCompletionMap);
+                const activeContentKey = isExpanded ? bucketStateKey(module.id, "content") : "";
+                const activeContentLessonId = isExpanded
+                  ? selectedLessonByBucket[activeContentKey] || unlockedModuleContentLessons[0]?.id
+                  : "";
+                return (
+                  <div
+                    key={module.id}
+                    className={`mb-3 rounded-xl border p-2 shadow-[0_12px_24px_rgba(0,0,0,0.22)] transition ${
+                      isSelected
+                        ? "border-[#8a5a3c] bg-[#231f1d]"
+                        : "border-[#353331] bg-[#1c1d1f]"
+                    }`}
+                    data-testid="module-panel"
                     data-module-title={module.title}
-                    data-expanded={isActive ? "true" : "false"}
+                    data-module-hidden={module.isHidden ? "true" : "false"}
+                    data-module-expanded={isExpanded ? "true" : "false"}
                   >
-                    <div>
-                      <div className="text-sm font-semibold text-[#f3f1eb]">{formatModuleTitleForDisplay(module.title)}</div>
-                      <div className="text-xs text-[#8c857b]">{module.lessonCount} items in export</div>
+                    <button
+                      onClick={() => {
+                        if (isExpanded) {
+                          setExpandedChapterId("");
+                          return;
+                        }
+                        setActiveChapterId(module.id);
+                        setExpandedChapterId(module.id);
+                      }}
+                      className="flex w-full items-center justify-between rounded-lg px-2 py-2 text-left transition duration-200 hover:bg-[#262320]"
+                      data-testid="module-toggle"
+                      data-module-title={module.title}
+                      data-expanded={isExpanded ? "true" : "false"}
+                    >
+                      <div>
+                        <div className="text-sm font-semibold text-[#f3f1eb]">{formatModuleTitleForDisplay(module.title)}</div>
+                        <div className="mt-1 text-xs text-[#8c857b]">
+                          {moduleContentProgress.completed}/{moduleContentProgress.total} completed
+                        </div>
+                      </div>
+                      {module.isHidden && <Badge>hidden module</Badge>}
+                      {isExpanded ? <ChevronDown className="h-4 w-4 text-[#b8b2a8]" /> : <ChevronRight className="h-4 w-4 text-[#8c857b]" />}
+                    </button>
+                    <div className="mt-2 px-2">
+                      <div className="h-1.5 overflow-hidden rounded-full bg-[#2e2d2c]">
+                        <div
+                          className="h-full rounded-full bg-[#b07a58] transition-all duration-300"
+                          style={{ width: `${moduleContentProgress.percent}%` }}
+                        />
+                      </div>
+                      <div className="mt-1 text-[10px] uppercase tracking-[0.08em] text-[#8e8882]">
+                        {moduleContentProgress.percent}% content complete
+                      </div>
                     </div>
-                    {module.isHidden && <Badge>hidden module</Badge>}
-                    {isActive ? <ChevronDown className="h-4 w-4 text-[#b8b2a8]" /> : <ChevronRight className="h-4 w-4 text-[#8c857b]" />}
-                  </button>
-                  {isActive && module.lessons?.some((lesson) => lesson.type === "quiz" || lesson.type === "assignment") ? (
-                    <div className="mt-1 rounded-lg border border-[#353331] bg-[#23211f] p-1" data-testid="module-submenu">
-                      <button
-                        onClick={(event) => {
-                          event.stopPropagation();
-                          setActiveChapterId(module.id);
-                          setActiveModuleView("assignments");
-                        }}
-                        className={`flex w-full items-center justify-between rounded-md px-2 py-1.5 text-left text-xs font-semibold tracking-[0.1em] transition ${
-                          activeModuleView === "assignments"
-                            ? "bg-[#30241d] text-[#e0c0a8] ring-1 ring-[#b07a58]/35"
-                            : "text-[#b8b2a8] hover:bg-[#2d2a27] hover:text-[#f3f1eb]"
-                        }`}
-                        data-testid="module-assignments-tab"
-                        data-module-title={module.title}
-                      >
-                        <span>Assignments</span>
-                        <span className="text-[10px] text-[#8c857b]">
-                          {module.lessons.filter((lesson) => lesson.type === "quiz" || lesson.type === "assignment").length}
+                    {isExpanded ? (
+                      <div className="mt-2 grid gap-1.5 rounded-lg border border-[#353331] bg-[#1a1a1e] p-1.5" data-testid="module-content-items">
+                        {unlockedModuleContentLessons.length ? (
+                          unlockedModuleContentLessons.map((lesson) => {
+                            const lessonActive = activeContentLessonId === lesson.id;
+                            const isLessonComplete = Boolean(moduleCompletionMap[lesson.id]);
+                            return (
+                              <button
+                                key={lesson.id}
+                                type="button"
+                                onClick={(event) => {
+                                  event.stopPropagation();
+                                  handleSelectLesson(module.id, "content", lesson.id);
+                                }}
+                                className={`rounded-md border px-2 py-2 text-left text-xs transition ${
+                                  lessonActive
+                                    ? "border-[#b07a58]/55 bg-[#32241d] text-[#f3f1eb]"
+                                    : "border-[#343233] bg-[#202025] text-[#c8c1b8] hover:border-[#57514b] hover:bg-[#29292f]"
+                                }`}
+                                data-testid="module-content-item-btn"
+                              >
+                                <div className="font-semibold leading-snug">{formatLessonTitleForDisplay(lesson)}</div>
+                                <div className="mt-1 text-[10px] uppercase tracking-[0.08em] text-[#8e8882]">
+                                  {isLessonComplete ? "Completed" : "Content"}
+                                </div>
+                              </button>
+                            );
+                          })
+                        ) : (
+                          <div className="rounded-md border border-[#3b3938] bg-[#212125] px-2 py-2 text-xs text-[#9f9991]">
+                            No content items in this module.
+                          </div>
+                        )}
+                        {!moduleContentProgress.isComplete && moduleContentProgress.total > 0 ? (
+                          <div className="rounded-md border border-[#3b3938] bg-[#212125] px-2 py-2 text-[11px] text-[#9f9991]">
+                            Mark each lesson complete to unlock the next item and release this module's quizzes.
+                          </div>
+                        ) : null}
+                      </div>
+                    ) : null}
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <div
+              className="h-[calc(100vh-302px)] overflow-y-auto px-3 py-4"
+              data-testid="sidebar-quizzes-library"
+            >
+              {quizLibraryRows
+                .map((row) => {
+                  const lessons = row.quizzes;
+                  if (!lessons.length) return null;
+                  const activeKey = bucketStateKey(row.module.id, "quizzes");
+                  const selectedId = selectedLessonByBucket[activeKey] || lessons[0]?.id;
+                  return (
+                    <section key={`quizzes-${row.module.id}`} className="mb-3 rounded-lg border border-[#2f2d2b] bg-[#1b1b1f] p-2">
+                      <div className="mb-2 flex items-center justify-between gap-2">
+                        <h4 className="text-[12px] font-semibold text-[#d9c1be]">{formatModuleTitleForDisplay(row.module.title)}</h4>
+                        <span
+                          className={`rounded-full border px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.08em] ${
+                            row.quizzesUnlocked
+                              ? "border-emerald-400/30 bg-emerald-400/10 text-emerald-200"
+                              : "border-[#4f4a44] bg-[#252424] text-[#b8b2a8]"
+                          }`}
+                        >
+                          {row.quizzesUnlocked ? "Unlocked" : "Locked"}
                         </span>
-                      </button>
-                    </div>
-                  ) : null}
-                </div>
-              );
-            })}
-          </div>
+                      </div>
+                      <div className="grid gap-1.5">
+                        {lessons.map((lesson) => {
+                          const isActive = row.module.id === activeChapter.id && selectedId === lesson.id;
+                          return (
+                            <button
+                              key={lesson.id}
+                              type="button"
+                              onClick={() => handleSelectLesson(row.module.id, "quizzes", lesson.id)}
+                              disabled={!row.quizzesUnlocked}
+                              className={`rounded-md border px-2 py-2 text-left text-xs transition ${
+                                isActive
+                                  ? "border-[#b07a58]/55 bg-[#32241d] text-[#f3f1eb]"
+                                  : "border-[#343233] bg-[#202025] text-[#c8c1b8] hover:border-[#57514b] hover:bg-[#29292f]"
+                              } ${!row.quizzesUnlocked ? "cursor-not-allowed opacity-45 hover:border-[#343233] hover:bg-[#202025]" : ""}`}
+                              data-testid="library-item-btn"
+                              data-library-bucket="quizzes"
+                            >
+                              <div className="font-semibold leading-snug">{formatLessonTitleForDisplay(lesson)}</div>
+                              <div className="mt-1 text-[10px] uppercase tracking-[0.08em] text-[#8e8882]">Workspace quiz</div>
+                            </button>
+                          );
+                        })}
+                      </div>
+                      {!row.quizzesUnlocked ? (
+                        <p className="mt-2 text-[11px] text-[#9f9991]">
+                          Complete all content lessons in this module to unlock quizzes.
+                        </p>
+                      ) : null}
+                    </section>
+                  );
+                })
+                .filter(Boolean)}
+            </div>
+          )}
         </aside>
 
         <main className="min-w-0 flex-1 overflow-x-hidden overflow-y-auto">
@@ -2621,65 +3035,96 @@ export default function ForensicCoursePlayerPreviewRestored() {
                 {formatModuleTitleForDisplay(activeChapter.title)}
               </h2>
               <div className="mt-3">
-                <Badge>{activeModuleView === "assignments" ? "assignments view" : "content view"}</Badge>
+                <Badge>
+                  {sidebarLibraryView === "modules" ? "content view" : "quizzes view"}
+                </Badge>
+              </div>
+              <div className="mt-4 max-w-md rounded-lg border border-[#343233] bg-[#1f1f23] p-3">
+                <div className="mb-2 flex items-center justify-between text-[11px] uppercase tracking-[0.08em] text-[#a7a096]">
+                  <span>Course progress</span>
+                  <span>{overallContentProgress.completed}/{overallContentProgress.total}</span>
+                </div>
+                <div className="h-2 overflow-hidden rounded-full bg-[#2d2c2c]">
+                  <div
+                    className="h-full rounded-full bg-[#b07a58] transition-all duration-300"
+                    style={{ width: `${overallContentProgress.percent}%` }}
+                  />
+                </div>
+                <div className="mt-2 text-xs text-[#b8b2a8]">{overallContentProgress.percent}% complete</div>
               </div>
             </div>
           </div>
 
           <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 lg:py-10">
-            {activeModuleView === "assignments" ? (
-              <div className="space-y-6" data-testid="module-assignments-view">
+            <div
+              className="space-y-6"
+              data-testid={sidebarLibraryView === "modules" ? "module-content-view" : "module-library-reader-view"}
+            >
+              {!activeLesson ? (
                 <section className={`${FORENSIC_THEME.panel} p-8`}>
-                  <div className="mb-5 flex items-center justify-between">
-                    <h3 className="text-xl font-semibold text-[#f3f1eb]">Assignments</h3>
-                    <Badge>{chapterAssignments.length} assessments</Badge>
-                  </div>
-                  <p className="text-sm text-[#b8b2a8]">
-                    Assessment items for {formatModuleTitleForDisplay(activeChapter.title)} are grouped in this dedicated view.
+                  <h3 className="text-xl font-semibold text-[#f3f1eb]">
+                    {sidebarLibraryView === "modules"
+                      ? "No learner content in this module"
+                      : "No quizzes in this module"}
+                  </h3>
+                  <p className="mt-3 text-sm text-[#b8b2a8]">
+                    {sidebarLibraryView === "modules"
+                      ? "Choose another module from the sidebar."
+                      : chapterContentProgress.isComplete
+                        ? "Choose another module from the sidebar list."
+                        : "Complete all module content lessons first to unlock this module's quizzes."}
                   </p>
                 </section>
-                {chapterAssignments.length === 0 ? (
-                  <section className={`${FORENSIC_THEME.panel} p-8`}>
-                    <h3 className="text-xl font-semibold text-[#f3f1eb]">No assignments in this module</h3>
-                    <p className="mt-3 text-sm text-[#b8b2a8]">
-                      Return to the module content view or choose another module with assessment items.
-                    </p>
-                  </section>
-                ) : (
-                  chapterAssignments.map((lesson) => (
-                    <ChapterLessonCard
-                      key={lesson.id}
-                      lesson={lesson}
-                      quizDrafts={quizDrafts}
-                      onQuizDraftChange={handleQuizDraftChange}
-                      labDrafts={labDrafts}
-                      onLabDraftChange={handleLabDraftChange}
-                    />
-                  ))
-                )}
-              </div>
-            ) : (
-              <div className="space-y-6" data-testid="module-content-view">
-                {chapterLessons.length === 0 ? (
-                  <section className={`${FORENSIC_THEME.panel} p-8`}>
-                    <h3 className="text-xl font-semibold text-[#f3f1eb]">No learner content in this module</h3>
-                    <p className="mt-3 text-sm text-[#b8b2a8]">
-                      This module currently contains only assessment items. Use the Assignments tab under the module name.
-                    </p>
-                  </section>
-                ) : null}
-                {chapterLessons.map((lesson) => (
+              ) : (
+                <>
                   <ChapterLessonCard
-                    key={lesson.id}
-                    lesson={lesson}
+                    key={activeLesson.id}
+                    lesson={activeLesson}
                     quizDrafts={quizDrafts}
                     onQuizDraftChange={handleQuizDraftChange}
                     labDrafts={labDrafts}
                     onLabDraftChange={handleLabDraftChange}
                   />
-                ))}
-              </div>
-            )}
+                  {isContentView ? (
+                    <section className={`${FORENSIC_THEME.panelSoft} p-5`} data-testid="mark-complete-panel">
+                      <div className="flex flex-wrap items-center justify-between gap-3">
+                        <div>
+                          <div className={FORENSIC_THEME.overline}>Progress control</div>
+                          <h3 className="mt-1 text-lg font-semibold text-[#f3f1eb]">Mark this lesson complete</h3>
+                          <p className="mt-1 text-sm text-[#b8b2a8]">
+                            Completing this item unlocks the next content lesson in the module.
+                          </p>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            if (!activeChapter?.id || !activeLesson?.id) return;
+                            if (isActiveLessonMarkedComplete) {
+                              handleMarkContentIncomplete(activeChapter.id, activeLesson.id);
+                              return;
+                            }
+                            handleMarkContentComplete(activeChapter.id, activeLesson.id);
+                          }}
+                          className={isActiveLessonMarkedComplete ? FORENSIC_THEME.buttonSecondary : FORENSIC_THEME.buttonPrimary}
+                          data-testid="mark-complete-button"
+                        >
+                          {isActiveLessonMarkedComplete ? "Mark incomplete" : "Mark complete"}
+                        </button>
+                      </div>
+                      <div className="mt-4 h-2 overflow-hidden rounded-full bg-[#2d2c2c]">
+                        <div
+                          className="h-full rounded-full bg-[#b07a58] transition-all duration-300"
+                          style={{ width: `${chapterContentProgress.percent}%` }}
+                        />
+                      </div>
+                      <p className="mt-2 text-xs text-[#a7a096]">
+                        {chapterContentProgress.completed}/{chapterContentProgress.total} completed in this module
+                      </p>
+                    </section>
+                  ) : null}
+                </>
+              )}
+            </div>
           </div>
         </main>
       </div>

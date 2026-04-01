@@ -735,6 +735,85 @@ const MODULE6_ASSIGNMENT_EMBED_PATH = "./assets/module6assignment.html";
 const MODULE7_ASSIGNMENT_EMBED_PATH = "./assets/module7assignment.html";
 const MODULE8_ASSIGNMENT_EMBED_PATH = "./assets/module8assignment.html?rev=20260318-5";
 const FORENSICS_WORKSPACE_STATE_KEY = "forensics35::workspace-state::v1";
+function normalizeSidebarLibraryView(value) {
+  if (value === "quizzes" || value === "assignments") return value;
+  return "modules";
+}
+function isQuizLesson(lesson) {
+  return lesson?.type === "quiz";
+}
+function isAssignmentOnlyLesson(lesson) {
+  return lesson?.type === "assignment" || lesson?.type === "lab-assignment";
+}
+function bucketStateKey(moduleId, bucket) {
+  return `${moduleId}::${bucket}`;
+}
+function buildSyntheticLessonsForModule(module) {
+  const moduleTitleLower = (module?.title || "").toLowerCase();
+  const syntheticLessons = [];
+  if (moduleTitleLower.includes("types of evidence and fingerprint analysis")) {
+    syntheticLessons.push({
+      id: "module2-fingerprint-analysis-description",
+      title: "Fingerprint Analysis Lab Assignment",
+      type: "assignment"
+    });
+    syntheticLessons.push({
+      id: "module2-fingerprint-analysis-lab",
+      title: "Fingerprint Analysis Interactive Assignment",
+      type: "lab-assignment"
+    });
+  }
+  if (moduleTitleLower.includes("introduction to crime scenes")) {
+    syntheticLessons.push({
+      id: "module1-crime-scene-lab",
+      title: "Crime Scene Certification Lab",
+      type: "lab-assignment"
+    });
+  }
+  if (moduleTitleLower.includes("trace evidence")) {
+    syntheticLessons.push({
+      id: "module3-trace-evidence-lab",
+      title: "Trace Evidence Lab Assignment",
+      type: "lab-assignment"
+    });
+  }
+  if (moduleTitleLower.includes("body fluid evidence")) {
+    syntheticLessons.push({
+      id: "module4-body-fluid-analysis-lab",
+      title: "Body Fluid Analysis Lab Assignment",
+      type: "lab-assignment"
+    });
+  }
+  if (moduleTitleLower.includes("forensic detection of impaired driving")) {
+    syntheticLessons.push({
+      id: "module5-impaired-driving-lab",
+      title: "Impaired Driving Assignment Lab",
+      type: "lab-assignment"
+    });
+  }
+  if (moduleTitleLower.includes("polygraphing and document analysis")) {
+    syntheticLessons.push({
+      id: "module6-polygraph-document-lab",
+      title: "Polygraph and Document Analysis Lab",
+      type: "lab-assignment"
+    });
+  }
+  if (moduleTitleLower.includes("forensic genetics")) {
+    syntheticLessons.push({
+      id: "module7-forensic-genetics-lab",
+      title: "Forensic Genetics Lab Assignment",
+      type: "lab-assignment"
+    });
+  }
+  if (moduleTitleLower.includes("careers in forensic science")) {
+    syntheticLessons.push({
+      id: "module8-career-path-simulation",
+      title: "Career Path Simulation Lab",
+      type: "lab-assignment"
+    });
+  }
+  return syntheticLessons;
+}
 function readForensicsWorkspaceState() {
   if (typeof window === "undefined" || !window.localStorage) {
     return null;
@@ -1705,12 +1784,21 @@ function ForensicCoursePlayerPreviewRestored() {
   const [activeChapterId, setActiveChapterId] = useState(
     typeof initialUiState.activeChapterId === "string" ? initialUiState.activeChapterId : resolvedModules[0]?.id ?? ""
   );
-  const [activeModuleView, setActiveModuleView] = useState(
-    initialUiState.activeModuleView === "assignments" ? "assignments" : "content"
+  const [sidebarLibraryView, setSidebarLibraryView] = useState(
+    normalizeSidebarLibraryView(
+      initialUiState.sidebarLibraryView || (initialUiState.activeModuleView === "assignments" ? "assignments" : "modules")
+    )
   );
   const [chapterVisited, setChapterVisited] = useState(
     initialUiState.chapterVisited && typeof initialUiState.chapterVisited === "object" ? initialUiState.chapterVisited : {}
   );
+  const [selectedLessonByBucket, setSelectedLessonByBucket] = useState(
+    initialUiState.selectedLessonByBucket && typeof initialUiState.selectedLessonByBucket === "object" ? initialUiState.selectedLessonByBucket : {}
+  );
+  const activeModuleView = sidebarLibraryView === "modules" ? "content" : "assignments";
+  const setActiveModuleView = useCallback((view) => {
+    setSidebarLibraryView(view === "assignments" ? "assignments" : "modules");
+  }, []);
   const [query, setQuery] = useState(typeof initialUiState.query === "string" ? initialUiState.query : "");
   const [isChapterMenuCollapsed, setIsChapterMenuCollapsed] = useState(Boolean(initialUiState.isChapterMenuCollapsed));
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -2067,6 +2155,31 @@ function ForensicCoursePlayerPreviewRestored() {
   }, [activeChapter]);
   const chapterLessons = chapterLessonGroups.contentLessons;
   const chapterAssignments = chapterLessonGroups.assignmentLessons;
+  const chapterQuizzes = chapterAssignments.filter(isQuizLesson);
+  const chapterAssignmentsOnly = chapterAssignments.filter(isAssignmentOnlyLesson);
+  const activeBucket = sidebarLibraryView === "quizzes" ? "quizzes" : sidebarLibraryView === "assignments" ? "assignments" : "content";
+  const activeBucketLessons = activeBucket === "quizzes" ? chapterQuizzes : activeBucket === "assignments" ? chapterAssignmentsOnly : chapterLessons;
+  const selectedBucketKey = activeChapter?.id ? bucketStateKey(activeChapter.id, activeBucket) : "";
+  const selectedLessonId = selectedBucketKey ? selectedLessonByBucket[selectedBucketKey] : "";
+  const activeLesson = activeBucketLessons.find((lesson) => lesson.id === selectedLessonId) || activeBucketLessons[0] || null;
+  const moduleLibraryRows = useMemo(() => {
+    return safeModules.map((module) => {
+      const moduleLessons = module.lessons || [];
+      const syntheticLessons = buildSyntheticLessonsForModule(module).filter(
+        (synthetic) => !moduleLessons.some((lesson) => lesson.id === synthetic.id)
+      );
+      const mergedLessons = [...syntheticLessons, ...moduleLessons];
+      const quizzes = mergedLessons.filter(isQuizLesson);
+      const assignments = mergedLessons.filter(isAssignmentOnlyLesson);
+      return { module, quizzes, assignments };
+    }).filter((row) => row.quizzes.length > 0 || row.assignments.length > 0);
+  }, [safeModules]);
+  const handleSelectLesson = useCallback((moduleId, bucket, lessonId) => {
+    if (!moduleId || !lessonId) return;
+    setActiveChapterId(moduleId);
+    setSidebarLibraryView(bucket === "content" ? "modules" : bucket);
+    setSelectedLessonByBucket((prev) => ({ ...prev, [bucketStateKey(moduleId, bucket)]: lessonId }));
+  }, []);
   useEffect(() => {
     if (!safeModules.length) {
       return;
@@ -2077,25 +2190,47 @@ function ForensicCoursePlayerPreviewRestored() {
     }
   }, [safeModules, activeChapterId]);
   useEffect(() => {
-    if (activeModuleView !== "assignments") return;
-    if (chapterAssignments.length > 0) return;
-    setActiveModuleView("content");
-  }, [activeModuleView, chapterAssignments.length]);
+    if (!activeChapter?.id) return;
+    setSelectedLessonByBucket((prev) => {
+      let changed = false;
+      const next = { ...prev };
+      const ensureBucketSelection = (bucket, lessons) => {
+        const key = bucketStateKey(activeChapter.id, bucket);
+        if (!lessons.length) {
+          if (next[key]) {
+            delete next[key];
+            changed = true;
+          }
+          return;
+        }
+        if (!lessons.some((lesson) => lesson.id === next[key])) {
+          next[key] = lessons[0].id;
+          changed = true;
+        }
+      };
+      ensureBucketSelection("content", chapterLessons);
+      ensureBucketSelection("quizzes", chapterQuizzes);
+      ensureBucketSelection("assignments", chapterAssignmentsOnly);
+      return changed ? next : prev;
+    });
+  }, [activeChapter?.id, chapterLessons, chapterQuizzes, chapterAssignmentsOnly]);
   useEffect(() => {
     if (!activeChapter?.id) return;
     setChapterVisited((prev) => ({ ...prev, [activeChapter.id]: true }));
   }, [activeChapter?.id]);
   useEffect(() => {
     setIsMobileMenuOpen(false);
-  }, [activeChapterId, activeModuleView]);
+  }, [activeChapterId, sidebarLibraryView]);
   useEffect(() => {
     writeForensicsWorkspaceState({
       schemaVersion: 1,
       savedAt: (/* @__PURE__ */ new Date()).toISOString(),
       ui: {
         activeChapterId,
-        activeModuleView,
+        activeModuleView: sidebarLibraryView === "modules" ? "content" : "assignments",
+        sidebarLibraryView,
         chapterVisited,
+        selectedLessonByBucket,
         query,
         isChapterMenuCollapsed
       },
@@ -2111,8 +2246,9 @@ function ForensicCoursePlayerPreviewRestored() {
     });
   }, [
     activeChapterId,
-    activeModuleView,
+    sidebarLibraryView,
     chapterVisited,
+    selectedLessonByBucket,
     query,
     isChapterMenuCollapsed,
     quizDrafts,
@@ -2128,13 +2264,13 @@ function ForensicCoursePlayerPreviewRestored() {
   return /* @__PURE__ */ jsxs("div", { className: "forensic-app min-h-screen bg-[#121314] text-[#f3f1eb]", children: [
     /* @__PURE__ */ jsx("style", { children: `
         .forensic-app {
-          font-family: "IBM Plex Sans", "Avenir Next", sans-serif;
+          font-family: "Inter", "Avenir Next", sans-serif;
         }
         .forensic-app h1,
         .forensic-app h2,
         .forensic-app h3,
         .forensic-app h4 {
-          font-family: "IBM Plex Sans", "Avenir Next", sans-serif;
+          font-family: "Space Grotesk", "Inter", sans-serif;
           letter-spacing: -0.015em;
         }
         .forensic-app * {

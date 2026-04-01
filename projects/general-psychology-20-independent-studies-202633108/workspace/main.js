@@ -49,7 +49,9 @@ function loadState() {
           ? parsed.moduleViewByModuleId
           : {},
       sidebarLibraryView:
-        parsed.sidebarLibraryView === "quizzes" ? "quizzes" : "modules",
+        parsed.sidebarLibraryView === "quizzes" || parsed.sidebarLibraryView === "assignments"
+          ? parsed.sidebarLibraryView
+          : "modules",
       completedActivityById:
         parsed.completedActivityById && typeof parsed.completedActivityById === "object"
           ? parsed.completedActivityById
@@ -112,9 +114,7 @@ function setSelectedModule(moduleId) {
 
   state.selectedModuleId = moduleId;
   state.expandedModuleId = moduleId;
-  if (!state.moduleViewByModuleId[moduleId]) {
-    state.moduleViewByModuleId[moduleId] = "content";
-  }
+  state.moduleViewByModuleId[moduleId] = "content";
   saveState();
   render();
 }
@@ -136,7 +136,7 @@ function setModuleView(moduleId, view) {
 }
 
 function setSidebarLibraryView(view) {
-  state.sidebarLibraryView = view === "quizzes" ? "quizzes" : "modules";
+  state.sidebarLibraryView = view === "quizzes" || view === "assignments" ? view : "modules";
   saveState();
   render();
 }
@@ -1940,7 +1940,21 @@ function renderContentGroups(moduleId, content, selectedActivityId) {
 
   return sectionGroups
     .map((group) => {
-      const label = group.sectionTitle || "General Content";
+      if (!group.sectionTitle) {
+        return `
+          <div class="subgroup subgroup-plain">
+            <div class="subgroup-items">
+              ${group.items
+                .map((activity) =>
+                  renderActivityListItem(moduleId, "content", activity, selectedActivityId === activity.id, "module-item-btn")
+                )
+                .join("")}
+            </div>
+          </div>
+        `;
+      }
+
+      const label = group.sectionTitle;
       const collapsed = isSectionCollapsed(moduleId, group.key);
       return `
         <div class="subgroup ${collapsed ? "collapsed" : ""}">
@@ -1969,15 +1983,9 @@ function renderContentGroups(moduleId, content, selectedActivityId) {
 }
 
 function renderModuleButton(module, expanded, selected) {
-  const counts = moduleCounts(module);
   const { content, assignments } = getModuleBuckets(module);
   const completion = moduleCompletion(module);
-  const moduleView = getModuleView(module.id);
-  const effectiveModuleView = moduleView === "assignments" ? "assignments" : "content";
-  const visibleItems = effectiveModuleView === "assignments" ? assignments : content;
-  const selectedItem = expanded
-    ? getSelectedActivity(module.id, effectiveModuleView === "assignments" ? "assignments" : "content", visibleItems)
-    : null;
+  const selectedItem = expanded ? getSelectedActivity(module.id, "content", content) : null;
 
   return `
     <article class="module-card ${expanded ? "expanded" : ""} ${selected ? "selected" : ""}">
@@ -1995,9 +2003,7 @@ function renderModuleButton(module, expanded, selected) {
           <div class="module-progress-note">
             ${
               assignments.length
-                ? completion.isUnlocked
-                  ? `Assignments unlocked`
-                  : `Assignments recommended after 100% completion`
+                ? `${assignments.length} assignment${assignments.length === 1 ? "" : "s"} available in Assignments`
                 : `No assignments in this module`
             }
           </div>
@@ -2007,49 +2013,9 @@ function renderModuleButton(module, expanded, selected) {
         expanded
           ? `
       <div class="module-dropdown">
-        <div class="module-view-switcher">
-          <button
-            class="module-view-btn ${effectiveModuleView === "content" ? "active" : ""}"
-            type="button"
-            data-module-view="${escapeHtml(module.id)}"
-            data-view="content"
-          >
-            Content
-          </button>
-          ${
-            assignments.length
-              ? `
-          <button
-            class="module-view-btn ${effectiveModuleView === "assignments" ? "active" : ""}"
-            type="button"
-            data-module-view="${escapeHtml(module.id)}"
-            data-view="assignments"
-          >
-            Assignments
-          </button>
-          `
-              : ""
-          }
-        </div>
-        ${
-          effectiveModuleView === "assignments"
-            ? `
-        <div class="group-block" data-testid="module-assignments-view">
-          ${assignments.length
-            ? assignments
-                .map((activity) =>
-                  renderActivityListItem(module.id, "assignments", activity, selectedItem?.id === activity.id, "module-item-btn")
-                )
-                .join("")
-            : `<div class="empty compact-empty">No assignments.</div>`}
-        </div>
-        `
-            : `
         <div class="group-block" data-testid="module-content-view">
           ${renderContentGroups(module.id, content, selectedItem?.id)}
         </div>
-        `
-        }
       </div>
     `
           : ""
@@ -2225,18 +2191,28 @@ function render() {
         </div>
 
         <nav class="side-nav-ghost" aria-label="Workspace sections">
-          <button type="button" class="side-nav-item ${state.sidebarLibraryView !== "quizzes" ? "active" : ""}" data-library-view="modules">Case modules</button>
+          <button type="button" class="side-nav-item ${state.sidebarLibraryView === "modules" ? "active" : ""}" data-library-view="modules">Case modules</button>
           <button type="button" class="side-nav-item ${state.sidebarLibraryView === "quizzes" ? "active" : ""}" data-library-view="quizzes">Quizzes</button>
+          <button type="button" class="side-nav-item ${state.sidebarLibraryView === "assignments" ? "active" : ""}" data-library-view="assignments">Assignments</button>
         </nav>
 
         ${
-          state.sidebarLibraryView === "quizzes"
+          state.sidebarLibraryView !== "modules"
             ? (() => {
                 const collections = getSidebarLibraryCollections();
+                const showAssignments = state.sidebarLibraryView === "assignments";
                 return `
                   <div class="library-list" data-testid="quiz-library">
-                    ${renderSidebarLibraryModuleBlock("Quizzes", collections.quizModules, module?.id || "", selectedActivity?.id || "")}
-                    ${renderSidebarLibraryModuleBlock("Assignments", collections.assignmentModules, module?.id || "", selectedActivity?.id || "")}
+                    ${
+                      showAssignments
+                        ? renderSidebarLibraryModuleBlock(
+                            "Assignments",
+                            collections.assignmentModules,
+                            module?.id || "",
+                            selectedActivity?.id || ""
+                          )
+                        : renderSidebarLibraryModuleBlock("Quizzes", collections.quizModules, module?.id || "", selectedActivity?.id || "")
+                    }
                   </div>
                 `;
               })()
