@@ -11,6 +11,10 @@ Use them after reading `docs/ops/ACTIVE_HANDOFF.md` and before broad repo discov
 - `injection-integration.md`
 - `prompt-contract.md`
 
+## High-Use Entry
+
+If the task is D2L/Brightspace migration, start with `conversion.md` and follow its ordered playbook/checklist end-to-end before ad-hoc fixes.
+
 ## Purpose
 
 This folder is for durable operational patterns, not runtime intelligence artifacts.

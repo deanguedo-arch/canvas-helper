@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Identifying Behaviour Disorders Quiz</title>
+    <style>
+      body { margin: 0; font-family: "Segoe UI", Arial, sans-serif; background: #f5f7fb; color: #1f2b3f; }
+      .wrap { max-width: 1120px; margin: 0 auto; padding: 1.25rem; }
+      .card { background: #fff; border: 1px solid #ccd4e1; border-radius: 12px; padding: 1.1rem; }
+      h1 { margin: 0 0 0.35rem; font-size: 1.8rem; }
+      p.sub { margin: 0 0 1rem; color: #4d5c76; }
+      .grid { display: grid; grid-template-columns: 1fr; gap: 0.65rem; }
+      .row { border: 1px solid #d8dfeb; border-radius: 10px; padding: 0.65rem; background: #fafcff; }
+      .term { font-weight: 700; margin-bottom: 0.4rem; }
+      select { width: 100%; max-width: 860px; padding: 0.5rem; border-radius: 8px; border: 1px solid #b8c4d8; background: #fff; }
+      .actions { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 1rem; }
+      button { border: 1px solid #2a4469; background: #2d4b75; color: #fff; border-radius: 8px; font-weight: 700; padding: 0.56rem 0.9rem; cursor: pointer; }
+      button.secondary { background: #f7fafc; color: #1f2d44; border-color: #9fb0c8; }
+      #report { margin-top: 1rem; border: 1px dashed #9db0c8; border-radius: 10px; background: #f8fbff; padding: 0.85rem; white-space: pre-wrap; font-size: 0.92rem; }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <section class="card">
+        <h1>Identifying Behaviour Disorders Quiz</h1>
+        <p class="sub">Match each disorder to the best description, then generate your report for submission.</p>
+        <div class="grid" id="grid"></div>
+        <div class="actions">
+          <button id="generate" type="button">Generate report</button>
+          <button id="print" class="secondary" type="button">Print / Save PDF</button>
+        </div>
+        <div id="report">No report generated yet.</div>
+      </section>
+    </main>
+    <script>
+      const key = "gp20-identifying-behaviour-disorders-v1";
+      const terms = [
+        "Organic Psychosis",
+        "Personality Disorder",
+        "Bipolar",
+        "Anorexia Nervosa",
+        "Functional Psychosis",
+        "Anxiety",
+        "Depression",
+        "OCD",
+        "Bulimia Nervosa"
+      ];
+      const choices = [
+        "A. A feeling of worry, nervousness, or unease, typically about an imminent event or uncertain outcome",
+        "B. An anxiety disorder in which people have unwanted/repeated thoughts or behaviors",
+        "C. A mood disorder that causes persistent sadness and loss of interest",
+        "D. A mental illness that brings severe high and low moods",
+        "E. An obsessive desire to lose weight by refusing to eat",
+        "F. Consumption of large amounts of food followed by purging or excessive exercise",
+        "G. A chronic, inflexible, maladaptive pattern of relating to the world",
+        "H. Altered brain function associated with hallucinations and delusions in psychiatric disorders",
+        "I. Abnormal brain function caused by a known physical abnormality"
+      ];
+      const grid = document.getElementById("grid");
+      const reportEl = document.getElementById("report");
+      terms.forEach((term, idx) => {
+        const row = document.createElement("div");
+        row.className = "row";
+        row.innerHTML = `
+          <div class="term">${idx + 1}. ${term}</div>
+          <select id="m${idx}">
+            <option value="">Select a description...</option>
+            ${choices.map((c) => `<option value="${c}">${c}</option>`).join("")}
+          </select>
+        `;
+        grid.appendChild(row);
+      });
+      function saveDraft() {
+        const data = {};
+        terms.forEach((_, idx) => { data[`m${idx}`] = document.getElementById(`m${idx}`).value; });
+        localStorage.setItem(key, JSON.stringify(data));
+      }
+      function restoreDraft() {
+        try {
+          const data = JSON.parse(localStorage.getItem(key) || "{}");
+          terms.forEach((_, idx) => { document.getElementById(`m${idx}`).value = data[`m${idx}`] || ""; });
+        } catch {}
+      }
+      function buildReport() {
+        const lines = ["Identifying Behaviour Disorders Quiz Report", `Generated: ${new Date().toLocaleString()}`, ""];
+        terms.forEach((term, idx) => {
+          lines.push(`${idx + 1}. ${term} -> ${document.getElementById(`m${idx}`).value || "(no response)"}`);
+        });
+        return lines.join("\n");
+      }
+      document.getElementById("generate").addEventListener("click", () => { saveDraft(); reportEl.textContent = buildReport(); });
+      document.getElementById("print").addEventListener("click", () => { saveDraft(); reportEl.textContent = buildReport(); window.print(); });
+      document.querySelectorAll("select").forEach((el) => el.addEventListener("change", saveDraft));
+      restoreDraft();
+    </script>
+  </body>
+</html>

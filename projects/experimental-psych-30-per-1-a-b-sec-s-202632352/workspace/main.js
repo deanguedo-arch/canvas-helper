@@ -4,7 +4,8 @@ import * as pdfjsLib from "https://esm.sh/pdfjs-dist@4.10.38/legacy/build/pdf.mj
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = "https://esm.sh/pdfjs-dist@4.10.38/legacy/build/pdf.worker.mjs";
 
-const STORAGE_KEY = `${courseShellData.storageKey}::assessment-layout::v5`;
+const STORAGE_KEY = String(courseShellData.storageKey || "experimental-psych-30-per-1-a-b-sec-s-202632352::workspace-state::v1");
+const LEGACY_STORAGE_KEY = `${courseShellData.storageKey}::assessment-layout::v5`;
 const root = document.getElementById("root");
 const assessmentDeliveryByActivityId = new Map(assessmentDelivery.map((entry) => [entry.activityId, entry]));
 
@@ -28,7 +29,12 @@ render();
 
 function loadState() {
   try {
-    const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+    const rawPrimary = localStorage.getItem(STORAGE_KEY);
+    const rawLegacy = localStorage.getItem(LEGACY_STORAGE_KEY);
+    const parsed = JSON.parse(rawPrimary || rawLegacy || "{}");
+    if (!rawPrimary && rawLegacy) {
+      localStorage.setItem(STORAGE_KEY, rawLegacy);
+    }
     return {
       selectedModuleId: typeof parsed.selectedModuleId === "string" ? parsed.selectedModuleId : "",
       expandedModuleId: typeof parsed.expandedModuleId === "string" ? parsed.expandedModuleId : "",
@@ -213,6 +219,16 @@ function normalizeLearnerCopy(value) {
     .replace(/Once you receive feedback you will be given access to the Module \d+ (?:Assessment|Practice Quiz)\./gi, "")
     .replace(/Complete the assessment when you are ready\s*\(you do not need to complete the first assessment before moving on to Module \d+\)\./gi, "")
     .replace(/You do not need to complete this assessment before moving on with Module \d+\./gi, "")
+    // Repair malformed copied helper text from source exports:
+    // e.g. "https://youtu.be/vJG698U2Mvothis link opens in a new window/tab)"
+    .replace(
+      /(https?:\/\/(?:youtu\.be\/|www\.youtube\.com\/watch\?v=)[^\s)]+?)(this\s+link\s+opens\s+in\s+a\s+new\s+window\/tab\)?)/gi,
+      "$1 (this link opens in a new window/tab)"
+    )
+    .replace(
+      /(Direct Link:\s*https?:\/\/[^\s)]+?)(this\s+link\s+opens\s+in\s+a\s+new\s+window\/tab\)?)/gi,
+      "$1 (this link opens in a new window/tab)"
+    )
     .replace(/\s{2,}/g, " ")
     .replace(/\n{3,}/g, "\n\n")
     .trim();

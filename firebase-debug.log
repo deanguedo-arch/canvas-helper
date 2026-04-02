@@ -1,125 +1,146 @@
-[debug] [2026-03-23T12:14:49.249Z] ----------------------------------------------------------------------
-[debug] [2026-03-23T12:14:49.252Z] Command:       /usr/local/bin/node /Users/deanguedo/.npm/_npx/7750544ccf494d8b/node_modules/.bin/firebase login --no-localhost
-[debug] [2026-03-23T12:14:49.252Z] CLI Version:   15.11.0
-[debug] [2026-03-23T12:14:49.252Z] Platform:      darwin
-[debug] [2026-03-23T12:14:49.252Z] Node Version:  v24.13.0
-[debug] [2026-03-23T12:14:49.252Z] Time:          Mon Mar 23 2026 06:14:49 GMT-0600 (Mountain Daylight Time)
-[debug] [2026-03-23T12:14:49.252Z] ----------------------------------------------------------------------
+[debug] [2026-04-02T16:39:59.701Z] ----------------------------------------------------------------------
+[debug] [2026-04-02T16:39:59.704Z] Command:       C:\Users\dean.guedo\AppData\Local\Microsoft\WinGet\Packages\OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe\node-v24.14.1-win-x64\node.exe C:\Users\dean.guedo\Documents\GitHub\canvas-helper\node_modules\firebase-tools\lib\bin\firebase.js login:list
+[debug] [2026-04-02T16:39:59.704Z] CLI Version:   15.11.0
+[debug] [2026-04-02T16:39:59.704Z] Platform:      win32
+[debug] [2026-04-02T16:39:59.705Z] Node Version:  v24.14.1
+[debug] [2026-04-02T16:39:59.705Z] Time:          Thu Apr 02 2026 10:39:59 GMT-0600 (Mountain Daylight Time)
+[debug] [2026-04-02T16:39:59.705Z] ----------------------------------------------------------------------
 [debug] 
-[info] i  The Firebase CLI’s MCP server feature can optionally make use of Gemini in Firebase. Learn more about Gemini in Firebase and how it uses your data: https://firebase.google.com/docs/gemini-in-firebase#how-gemini-in-firebase-uses-your-data 
-[info] 
-[info] i  Firebase optionally collects CLI and Emulator Suite usage and error reporting information to help improve our products. Data is collected in accordance with Google's privacy policy (https://policies.google.com/privacy) and is not used to identify you. 
-[debug] [2026-03-23T12:15:04.630Z] >>> [apiv2][query] POST https://auth.firebase.tools/attest [none]
-[debug] [2026-03-23T12:15:04.630Z] >>> [apiv2][body] POST https://auth.firebase.tools/attest {"session_id":"164a3f66-16c4-404c-a0a0-92951ee619e7"}
-[debug] [2026-03-23T12:15:05.049Z] <<< [apiv2][status] POST https://auth.firebase.tools/attest 200
-[debug] [2026-03-23T12:15:05.050Z] <<< [apiv2][body] POST https://auth.firebase.tools/attest {"token":"JEpc9-7GJtNdSJdvKAzGIrjNpAVs6KTjEnqaOxQgJZQ"}
-[info] 
-[info] To sign in to the Firebase CLI:
-[info] 
-[info] 1. Take note of your session ID:
-[info] 
-[info]    164A3
-[info] 
-[info] 2. Visit the URL below on any device and follow the instructions to get your code:
-[info] 
-[info]    https://auth.firebase.tools/login?code_challenge=ooath4mxk7yZGyrZiSXrCjY2K-G9V_-051CnH0sju4s&session=164a3f66-16c4-404c-a0a0-92951ee619e7&attest=JEpc9-7GJtNdSJdvKAzGIrjNpAVs6KTjEnqaOxQgJZQ
-[info] 
-[info] 3. Paste or enter the authorization code below once you have it:
-[info] 
-[debug] [2026-03-23T12:16:11.545Z] >>> [apiv2][query] POST https://accounts.google.com/o/oauth2/token [none]
-[debug] [2026-03-23T12:16:11.545Z] >>> [apiv2][body] POST https://accounts.google.com/o/oauth2/token [omitted]
-[debug] [2026-03-23T12:16:11.672Z] <<< [apiv2][status] POST https://accounts.google.com/o/oauth2/token 400
-[debug] [2026-03-23T12:16:11.672Z] <<< [apiv2][body] POST https://accounts.google.com/o/oauth2/token [omitted]
-[debug] [2026-03-23T12:16:11.674Z] Token Fetch Error: FirebaseError: Request to https://accounts.google.com/o/oauth2/token had HTTP Error: 400, invalid_grant
-    at responseToError (/Users/deanguedo/.npm/_npx/7750544ccf494d8b/node_modules/firebase-tools/lib/responseToError.js:53:12)
-    at RetryOperation._fn (/Users/deanguedo/.npm/_npx/7750544ccf494d8b/node_modules/firebase-tools/lib/apiv2.js:333:77)
-    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
-[error] Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
-
-For CI servers and headless environments, generate a new token with firebase login:ci
-[error] 
-[error] Error: Unable to authenticate using the provided code. Please try again.
-[debug] [2026-03-23T12:16:21.378Z] ----------------------------------------------------------------------
-[debug] [2026-03-23T12:16:21.381Z] Command:       /usr/local/bin/node /Users/deanguedo/.npm/_npx/7750544ccf494d8b/node_modules/.bin/firebase login --no-localhost
-[debug] [2026-03-23T12:16:21.381Z] CLI Version:   15.11.0
-[debug] [2026-03-23T12:16:21.381Z] Platform:      darwin
-[debug] [2026-03-23T12:16:21.381Z] Node Version:  v24.13.0
-[debug] [2026-03-23T12:16:21.381Z] Time:          Mon Mar 23 2026 06:16:21 GMT-0600 (Mountain Daylight Time)
-[debug] [2026-03-23T12:16:21.381Z] ----------------------------------------------------------------------
+[info] Logged in as dean.guedo@eips.ca
+[debug] [2026-04-02T16:39:59.704Z] ----------------------------------------------------------------------
+[debug] [2026-04-02T16:39:59.708Z] Command:       C:\Users\dean.guedo\AppData\Local\Microsoft\WinGet\Packages\OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe\node-v24.14.1-win-x64\node.exe C:\Users\dean.guedo\Documents\GitHub\canvas-helper\node_modules\firebase-tools\lib\bin\firebase.js hosting:sites:list --project calm-module-one --json --non-interactive
+[debug] [2026-04-02T16:39:59.709Z] CLI Version:   15.11.0
+[debug] [2026-04-02T16:39:59.709Z] Platform:      win32
+[debug] [2026-04-02T16:39:59.709Z] Node Version:  v24.14.1
+[debug] [2026-04-02T16:39:59.709Z] Time:          Thu Apr 02 2026 10:39:59 GMT-0600 (Mountain Daylight Time)
+[debug] [2026-04-02T16:39:59.709Z] ----------------------------------------------------------------------
 [debug] 
-[info] i  The Firebase CLI’s MCP server feature can optionally make use of Gemini in Firebase. Learn more about Gemini in Firebase and how it uses your data: https://firebase.google.com/docs/gemini-in-firebase#how-gemini-in-firebase-uses-your-data 
-[info] 
-[info] i  Firebase optionally collects CLI and Emulator Suite usage and error reporting information to help improve our products. Data is collected in accordance with Google's privacy policy (https://policies.google.com/privacy) and is not used to identify you. 
-[debug] [2026-03-23T12:16:38.841Z] >>> [apiv2][query] POST https://auth.firebase.tools/attest [none]
-[debug] [2026-03-23T12:16:38.841Z] >>> [apiv2][body] POST https://auth.firebase.tools/attest {"session_id":"f42e5c70-0a62-4067-8325-638362e47b9b"}
-[debug] [2026-03-23T12:16:39.161Z] <<< [apiv2][status] POST https://auth.firebase.tools/attest 200
-[debug] [2026-03-23T12:16:39.161Z] <<< [apiv2][body] POST https://auth.firebase.tools/attest {"token":"LeRqGLD5rROwbgZBievbbyxv-z2LSWnlUPvZSUy_sek"}
-[info] 
-[info] To sign in to the Firebase CLI:
-[info] 
-[info] 1. Take note of your session ID:
-[info] 
-[info]    F42E5
-[info] 
-[info] 2. Visit the URL below on any device and follow the instructions to get your code:
-[info] 
-[info]    https://auth.firebase.tools/login?code_challenge=-evaUYN_-1x200Hv8fwyMkK447c9XQAX5nUjsPd3zBw&session=f42e5c70-0a62-4067-8325-638362e47b9b&attest=LeRqGLD5rROwbgZBievbbyxv-z2LSWnlUPvZSUy_sek
-[info] 
-[info] 3. Paste or enter the authorization code below once you have it:
-[info] 
-[debug] [2026-03-23T12:17:22.514Z] >>> [apiv2][query] POST https://accounts.google.com/o/oauth2/token [none]
-[debug] [2026-03-23T12:17:22.514Z] >>> [apiv2][body] POST https://accounts.google.com/o/oauth2/token [omitted]
-[debug] [2026-03-23T12:17:22.697Z] <<< [apiv2][status] POST https://accounts.google.com/o/oauth2/token 200
-[debug] [2026-03-29T00:52:35.613Z] ----------------------------------------------------------------------
-[debug] [2026-03-29T00:52:35.615Z] Command:       /Users/deanguedo/.nvm/versions/node/v24.14.0/bin/node /Users/deanguedo/.npm/_npx/7750544ccf494d8b/node_modules/.bin/firebase hosting:sites:list --project calm-module-one --json --non-interactive
-[debug] [2026-03-29T00:52:35.615Z] CLI Version:   15.12.0
-[debug] [2026-03-29T00:52:35.615Z] Platform:      darwin
-[debug] [2026-03-29T00:52:35.615Z] Node Version:  v24.14.0
-[debug] [2026-03-29T00:52:35.615Z] Time:          Sat Mar 28 2026 18:52:35 GMT-0600 (Mountain Daylight Time)
-[debug] [2026-03-29T00:52:35.615Z] ----------------------------------------------------------------------
-[debug] 
-[debug] [2026-03-29T00:52:35.616Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
-[debug] [2026-03-29T00:52:35.631Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2026-03-29T00:52:35.631Z] > authorizing via signed-in user (dean.guedo@eips.ca)
-[debug] [2026-03-29T00:52:35.631Z] [iam] checking project calm-module-one for permissions ["firebase.projects.get","firebasehosting.sites.get"]
-[debug] [2026-03-29T00:52:35.631Z] Checked if tokens are valid: false, expires at: 1773771344632
-[debug] [2026-03-29T00:52:35.631Z] Checked if tokens are valid: false, expires at: 1773771344632
-[debug] [2026-03-29T00:52:35.632Z] > refreshing access token with scopes: []
-[debug] [2026-03-29T00:52:35.632Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
-[debug] [2026-03-29T00:52:35.632Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
-[debug] [2026-03-29T00:52:35.775Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
-[debug] [2026-03-29T00:52:35.775Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
-[debug] [2026-03-29T00:52:35.787Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/calm-module-one:testIamPermissions [none]
-[debug] [2026-03-29T00:52:35.787Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/calm-module-one:testIamPermissions  x-goog-user-project=calm-module-one
-[debug] [2026-03-29T00:52:35.787Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/calm-module-one:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.get"]}
-[debug] [2026-03-29T00:52:35.897Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
-[debug] [2026-03-29T00:52:35.897Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
-[debug] [2026-03-29T00:52:36.001Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/calm-module-one:testIamPermissions 200
-[debug] [2026-03-29T00:52:36.001Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/calm-module-one:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.get"]}
-[debug] [2026-03-29T00:52:36.001Z] Checked if tokens are valid: true, expires at: 1774749154775
-[debug] [2026-03-29T00:52:36.001Z] Checked if tokens are valid: true, expires at: 1774749154775
-[debug] [2026-03-29T00:52:36.001Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/calm-module-one/sites pageToken=&pageSize=10
-[debug] [2026-03-29T00:52:36.911Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/calm-module-one/sites 200
-[debug] [2026-03-29T00:52:36.911Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/calm-module-one/sites {"sites":[{"name":"projects/calm-module-one/sites/calm-module-one","defaultUrl":"https://calm-module-one.web.app","appId":"1:217802069551:web:c69255ec9afd3258a798da","type":"DEFAULT_SITE"},{"name":"projects/calm-module-one/sites/calm-module-one-3a6b7","defaultUrl":"https://calm-module-one-3a6b7.web.app","appId":"1:217802069551:web:673dcff84a4818eca798da","type":"USER_SITE"},{"name":"projects/calm-module-one/sites/calm-module-one-74850","defaultUrl":"https://calm-module-one-74850.web.app","appId":"1:217802069551:web:86211a3e765bbf0ba798da","type":"USER_SITE"},{"name":"projects/calm-module-one/sites/calm3new","defaultUrl":"https://calm3new.web.app","type":"USER_SITE"},{"name":"projects/calm-module-one/sites/calmmodule2","defaultUrl":"https://calmmodule2.web.app","type":"USER_SITE"},{"name":"projects/calm-module-one/sites/calmmodule4","defaultUrl":"https://calmmodule4.web.app","appId":"1:217802069551:web:a3f29eafa11200d2a798da","type":"USER_SITE"},{"name":"projects/calm-module-one/sites/forensics25","defaultUrl":"https://forensics25.web.app","type":"USER_SITE"},{"name":"projects/calm-module-one/sites/forensics35","defaultUrl":"https://forensics35.web.app","appId":"1:217802069551:web:6692b9d96485d9c2a798da","type":"USER_SITE"}]}
+[debug] [2026-04-02T16:39:59.725Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-04-02T16:39:59.726Z] > authorizing via signed-in user (dean.guedo@eips.ca)
+[debug] [2026-04-02T16:39:59.726Z] [iam] checking project calm-module-one for permissions ["firebase.projects.get","firebasehosting.sites.get"]
+[debug] [2026-04-02T16:39:59.727Z] Checked if tokens are valid: true, expires at: 1775151568865
+[debug] [2026-04-02T16:39:59.727Z] Checked if tokens are valid: true, expires at: 1775151568865
+[debug] [2026-04-02T16:39:59.728Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/calm-module-one:testIamPermissions [none]
+[debug] [2026-04-02T16:39:59.728Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/calm-module-one:testIamPermissions  x-goog-user-project=calm-module-one
+[debug] [2026-04-02T16:39:59.728Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/calm-module-one:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.get"]}
+[debug] [2026-04-02T16:40:00.326Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/calm-module-one:testIamPermissions 200
+[debug] [2026-04-02T16:40:00.327Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/calm-module-one:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.get"]}
+[debug] [2026-04-02T16:40:00.327Z] Checked if tokens are valid: true, expires at: 1775151568865
+[debug] [2026-04-02T16:40:00.328Z] Checked if tokens are valid: true, expires at: 1775151568865
+[debug] [2026-04-02T16:40:00.328Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/calm-module-one/sites pageToken=&pageSize=10
+[debug] [2026-04-02T16:40:01.516Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/calm-module-one/sites 200
+[debug] [2026-04-02T16:40:01.516Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/calm-module-one/sites {"sites":[{"name":"projects/calm-module-one/sites/calm-module-one","defaultUrl":"https://calm-module-one.web.app","appId":"1:217802069551:web:c69255ec9afd3258a798da","type":"DEFAULT_SITE"},{"name":"projects/calm-module-one/sites/calm-module-one-3a6b7","defaultUrl":"https://calm-module-one-3a6b7.web.app","appId":"1:217802069551:web:673dcff84a4818eca798da","type":"USER_SITE"},{"name":"projects/calm-module-one/sites/calm-module-one-74850","defaultUrl":"https://calm-module-one-74850.web.app","appId":"1:217802069551:web:86211a3e765bbf0ba798da","type":"USER_SITE"},{"name":"projects/calm-module-one/sites/calm3new","defaultUrl":"https://calm3new.web.app","type":"USER_SITE"},{"name":"projects/calm-module-one/sites/calmmodule2","defaultUrl":"https://calmmodule2.web.app","type":"USER_SITE"},{"name":"projects/calm-module-one/sites/calmmodule4","defaultUrl":"https://calmmodule4.web.app","appId":"1:217802069551:web:a3f29eafa11200d2a798da","type":"USER_SITE"},{"name":"projects/calm-module-one/sites/experimentalpsychology","defaultUrl":"https://experimentalpsychology.web.app","appId":"1:217802069551:web:37210f4b606b155ca798da","type":"USER_SITE"},{"name":"projects/calm-module-one/sites/forensics25","defaultUrl":"https://forensics25.web.app","type":"USER_SITE"},{"name":"projects/calm-module-one/sites/forensics35","defaultUrl":"https://forensics35.web.app","appId":"1:217802069551:web:6692b9d96485d9c2a798da","type":"USER_SITE"},{"name":"projects/calm-module-one/sites/generalpsychology","defaultUrl":"https://generalpsychology.web.app","appId":"1:217802069551:web:e1d2d45ac0e38546a798da","type":"USER_SITE"}]}
 [info] 
 [info] Sites for project calm-module-one
 [info] 
-[info] ┌───────────────────────┬───────────────────────────────────────┬───────────────────────────────────────────┐
-│ Site ID               │ Default URL                           │ App ID (if set)                           │
-├───────────────────────┼───────────────────────────────────────┼───────────────────────────────────────────┤
-│ calm-module-one       │ https://calm-module-one.web.app       │ 1:217802069551:web:c69255ec9afd3258a798da │
-├───────────────────────┼───────────────────────────────────────┼───────────────────────────────────────────┤
-│ calm-module-one-3a6b7 │ https://calm-module-one-3a6b7.web.app │ 1:217802069551:web:673dcff84a4818eca798da │
-├───────────────────────┼───────────────────────────────────────┼───────────────────────────────────────────┤
-│ calm-module-one-74850 │ https://calm-module-one-74850.web.app │ 1:217802069551:web:86211a3e765bbf0ba798da │
-├───────────────────────┼───────────────────────────────────────┼───────────────────────────────────────────┤
-│ calm3new              │ https://calm3new.web.app              │ --                                        │
-├───────────────────────┼───────────────────────────────────────┼───────────────────────────────────────────┤
-│ calmmodule2           │ https://calmmodule2.web.app           │ --                                        │
-├───────────────────────┼───────────────────────────────────────┼───────────────────────────────────────────┤
-│ calmmodule4           │ https://calmmodule4.web.app           │ 1:217802069551:web:a3f29eafa11200d2a798da │
-├───────────────────────┼───────────────────────────────────────┼───────────────────────────────────────────┤
-│ forensics25           │ https://forensics25.web.app           │ --                                        │
-├───────────────────────┼───────────────────────────────────────┼───────────────────────────────────────────┤
-│ forensics35           │ https://forensics35.web.app           │ 1:217802069551:web:6692b9d96485d9c2a798da │
-└───────────────────────┴───────────────────────────────────────┴───────────────────────────────────────────┘
+[info] ┌────────────────────────┬────────────────────────────────────────┬───────────────────────────────────────────┐
+│ Site ID                │ Default URL                            │ App ID (if set)                           │
+├────────────────────────┼────────────────────────────────────────┼───────────────────────────────────────────┤
+│ calm-module-one        │ https://calm-module-one.web.app        │ 1:217802069551:web:c69255ec9afd3258a798da │
+├────────────────────────┼────────────────────────────────────────┼───────────────────────────────────────────┤
+│ calm-module-one-3a6b7  │ https://calm-module-one-3a6b7.web.app  │ 1:217802069551:web:673dcff84a4818eca798da │
+├────────────────────────┼────────────────────────────────────────┼───────────────────────────────────────────┤
+│ calm-module-one-74850  │ https://calm-module-one-74850.web.app  │ 1:217802069551:web:86211a3e765bbf0ba798da │
+├────────────────────────┼────────────────────────────────────────┼───────────────────────────────────────────┤
+│ calm3new               │ https://calm3new.web.app               │ --                                        │
+├────────────────────────┼────────────────────────────────────────┼───────────────────────────────────────────┤
+│ calmmodule2            │ https://calmmodule2.web.app            │ --                                        │
+├────────────────────────┼────────────────────────────────────────┼───────────────────────────────────────────┤
+│ calmmodule4            │ https://calmmodule4.web.app            │ 1:217802069551:web:a3f29eafa11200d2a798da │
+├────────────────────────┼────────────────────────────────────────┼───────────────────────────────────────────┤
+│ experimentalpsychology │ https://experimentalpsychology.web.app │ 1:217802069551:web:37210f4b606b155ca798da │
+├────────────────────────┼────────────────────────────────────────┼───────────────────────────────────────────┤
+│ forensics25            │ https://forensics25.web.app            │ --                                        │
+├────────────────────────┼────────────────────────────────────────┼───────────────────────────────────────────┤
+│ forensics35            │ https://forensics35.web.app            │ 1:217802069551:web:6692b9d96485d9c2a798da │
+├────────────────────────┼────────────────────────────────────────┼───────────────────────────────────────────┤
+│ generalpsychology      │ https://generalpsychology.web.app      │ 1:217802069551:web:e1d2d45ac0e38546a798da │
+└────────────────────────┴────────────────────────────────────────┴───────────────────────────────────────────┘
+[debug] [2026-04-02T16:51:04.181Z] ----------------------------------------------------------------------
+[debug] [2026-04-02T16:51:04.181Z] ----------------------------------------------------------------------
+[debug] [2026-04-02T16:51:04.184Z] Command:       C:\Users\dean.guedo\AppData\Local\Microsoft\WinGet\Packages\OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe\node-v24.14.1-win-x64\node.exe C:\Users\dean.guedo\Documents\GitHub\canvas-helper\node_modules\firebase-tools\lib\bin\firebase.js apps:sdkconfig WEB 1:217802069551:web:37210f4b606b155ca798da --project calm-module-one
+[debug] [2026-04-02T16:51:04.184Z] CLI Version:   15.11.0
+[debug] [2026-04-02T16:51:04.184Z] Platform:      win32
+[debug] [2026-04-02T16:51:04.184Z] Node Version:  v24.14.1
+[debug] [2026-04-02T16:51:04.184Z] Time:          Thu Apr 02 2026 10:51:04 GMT-0600 (Mountain Daylight Time)
+[debug] [2026-04-02T16:51:04.184Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-04-02T16:51:04.288Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-04-02T16:51:04.290Z] > authorizing via signed-in user (dean.guedo@eips.ca)
+[debug] [2026-04-02T16:51:04.295Z] Checked if tokens are valid: true, expires at: 1775151568865
+[debug] [2026-04-02T16:51:04.295Z] Checked if tokens are valid: true, expires at: 1775151568865
+[debug] [2026-04-02T16:51:04.297Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:217802069551:web:37210f4b606b155ca798da/config [none]
+[debug] [2026-04-02T16:51:04.184Z] Command:       C:\Users\dean.guedo\AppData\Local\Microsoft\WinGet\Packages\OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe\node-v24.14.1-win-x64\node.exe C:\Users\dean.guedo\Documents\GitHub\canvas-helper\node_modules\firebase-tools\lib\bin\firebase.js apps:sdkconfig WEB 1:217802069551:web:e1d2d45ac0e38546a798da --project calm-module-one
+[debug] [2026-04-02T16:51:04.184Z] CLI Version:   15.11.0
+[debug] [2026-04-02T16:51:04.185Z] Platform:      win32
+[debug] [2026-04-02T16:51:04.185Z] Node Version:  v24.14.1
+[debug] [2026-04-02T16:51:04.185Z] Time:          Thu Apr 02 2026 10:51:04 GMT-0600 (Mountain Daylight Time)
+[debug] [2026-04-02T16:51:04.185Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-04-02T16:51:04.289Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-04-02T16:51:04.290Z] > authorizing via signed-in user (dean.guedo@eips.ca)
+[debug] [2026-04-02T16:51:04.295Z] Checked if tokens are valid: true, expires at: 1775151568865
+[debug] [2026-04-02T16:51:04.295Z] Checked if tokens are valid: true, expires at: 1775151568865
+[debug] [2026-04-02T16:51:04.296Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:217802069551:web:e1d2d45ac0e38546a798da/config [none]
+[debug] [2026-04-02T16:51:04.180Z] ----------------------------------------------------------------------
+[debug] [2026-04-02T16:51:04.183Z] Command:       C:\Users\dean.guedo\AppData\Local\Microsoft\WinGet\Packages\OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe\node-v24.14.1-win-x64\node.exe C:\Users\dean.guedo\Documents\GitHub\canvas-helper\node_modules\firebase-tools\lib\bin\firebase.js apps:list --project calm-module-one
+[debug] [2026-04-02T16:51:04.184Z] CLI Version:   15.11.0
+[debug] [2026-04-02T16:51:04.184Z] Platform:      win32
+[debug] [2026-04-02T16:51:04.184Z] Node Version:  v24.14.1
+[debug] [2026-04-02T16:51:04.184Z] Time:          Thu Apr 02 2026 10:51:04 GMT-0600 (Mountain Daylight Time)
+[debug] [2026-04-02T16:51:04.184Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-04-02T16:51:04.288Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-04-02T16:51:04.290Z] > authorizing via signed-in user (dean.guedo@eips.ca)
+[debug] [2026-04-02T16:51:04.294Z] Checked if tokens are valid: true, expires at: 1775151568865
+[debug] [2026-04-02T16:51:04.294Z] Checked if tokens are valid: true, expires at: 1775151568865
+[debug] [2026-04-02T16:51:04.296Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/calm-module-one:searchApps pageSize=100
+[debug] [2026-04-02T16:51:04.852Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/calm-module-one:searchApps 200
+[debug] [2026-04-02T16:51:04.852Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/calm-module-one:searchApps {"apps":[{"name":"projects/calm-module-one/webApps/1:217802069551:web:2e5588a396536c57a798da","displayName":"Forensics 35","platform":"WEB","appId":"1:217802069551:web:2e5588a396536c57a798da","namespace":"OWU1OWMzNmEtMTExMy00ZTQ1LWFjNTYtYWQwMzY4N2QwM2Vh","apiKeyId":"e5298112-24af-4375-b574-3327a7408979","state":"ACTIVE","expireTime":"1970-01-01T00:00:00Z"},{"name":"projects/calm-module-one/webApps/1:217802069551:web:37210f4b606b155ca798da","displayName":"experimentalpsychology","platform":"WEB","appId":"1:217802069551:web:37210f4b606b155ca798da","namespace":"N2FkNTRhOWMtYzc5Yi00MDRjLTg0NDQtZGJhY2YyNmJkNGZl","apiKeyId":"e5298112-24af-4375-b574-3327a7408979","state":"ACTIVE","expireTime":"1970-01-01T00:00:00Z"},{"name":"projects/calm-module-one/webApps/1:217802069551:web:6692b9d96485d9c2a798da","displayName":"forensics25","platform":"WEB","appId":"1:217802069551:web:6692b9d96485d9c2a798da","namespace":"YzVlZWQ3YjEtM2Q4My00MDg3LWFhMzUtMTNkNjQ0N2UzYjA4","apiKeyId":"e5298112-24af-4375-b574-3327a7408979","state":"ACTIVE","expireTime":"1970-01-01T00:00:00Z"},{"name":"projects/calm-module-one/webApps/1:217802069551:web:673dcff84a4818eca798da","displayName":"CALM MODULE 2","platform":"WEB","appId":"1:217802069551:web:673dcff84a4818eca798da","namespace":"NGMzZGRjZTItY2JiZC00NTQ4LTg5OWMtYmFjMGU5NWYzYjhh","apiKeyId":"e5298112-24af-4375-b574-3327a7408979","state":"ACTIVE","expireTime":"1970-01-01T00:00:00Z"},{"name":"projects/calm-module-one/webApps/1:217802069551:web:86211a3e765bbf0ba798da","displayName":"CALM MODULE 3","platform":"WEB","appId":"1:217802069551:web:86211a3e765bbf0ba798da","namespace":"YmE2NmJjN2QtOWNkMS00OWRjLWFkODMtOTA1ODc5MjA5YmUy","apiKeyId":"e5298112-24af-4375-b574-3327a7408979","state":"ACTIVE","expireTime":"1970-01-01T00:00:00Z"},{"name":"projects/calm-module-one/webApps/1:217802069551:web:a3f29eafa11200d2a798da","displayName":"calmmodule4","platform":"WEB","appId":"1:217802069551:web:a3f29eafa11200d2a798da","namespace":"ZDU1NmRlZGEtODA4Yy00OGVhLWE2NTAtNDJjZGVkYzNmMTVj","apiKeyId":"e5298112-24af-4375-b574-3327a7408979","state":"ACTIVE","expireTime":"1970-01-01T00:00:00Z"},{"name":"projects/calm-module-one/webApps/1:217802069551:web:c69255ec9afd3258a798da","displayName":"CALM MODULE 1","platform":"WEB","appId":"1:217802069551:web:c69255ec9afd3258a798da","namespace":"NzIxNGEwOWEtMTM5OS00MzJkLWFjODYtYTg3MWZiYTdiNDBm","apiKeyId":"e5298112-24af-4375-b574-3327a7408979","state":"ACTIVE","expireTime":"1970-01-01T00:00:00Z"},{"name":"projects/calm-module-one/webApps/1:217802069551:web:e1d2d45ac0e38546a798da","displayName":"generalpsychology","platform":"WEB","appId":"1:217802069551:web:e1d2d45ac0e38546a798da","namespace":"ZTc0YTIxZjQtMjJmZC00MjIyLTg1YzEtZGFlMjJkYzIzYzRl","apiKeyId":"e5298112-24af-4375-b574-3327a7408979","state":"ACTIVE","expireTime":"1970-01-01T00:00:00Z"}]}
+[info] ┌────────────────────────┬───────────────────────────────────────────┬──────────┐
+│ App Display Name       │ App ID                                    │ Platform │
+├────────────────────────┼───────────────────────────────────────────┼──────────┤
+│ Forensics 35           │ 1:217802069551:web:2e5588a396536c57a798da │ WEB      │
+├────────────────────────┼───────────────────────────────────────────┼──────────┤
+│ experimentalpsychology │ 1:217802069551:web:37210f4b606b155ca798da │ WEB      │
+├────────────────────────┼───────────────────────────────────────────┼──────────┤
+│ forensics25            │ 1:217802069551:web:6692b9d96485d9c2a798da │ WEB      │
+├────────────────────────┼───────────────────────────────────────────┼──────────┤
+│ CALM MODULE 2          │ 1:217802069551:web:673dcff84a4818eca798da │ WEB      │
+├────────────────────────┼───────────────────────────────────────────┼──────────┤
+│ CALM MODULE 3          │ 1:217802069551:web:86211a3e765bbf0ba798da │ WEB      │
+├────────────────────────┼───────────────────────────────────────────┼──────────┤
+│ calmmodule4            │ 1:217802069551:web:a3f29eafa11200d2a798da │ WEB      │
+├────────────────────────┼───────────────────────────────────────────┼──────────┤
+│ CALM MODULE 1          │ 1:217802069551:web:c69255ec9afd3258a798da │ WEB      │
+├────────────────────────┼───────────────────────────────────────────┼──────────┤
+│ generalpsychology      │ 1:217802069551:web:e1d2d45ac0e38546a798da │ WEB      │
+└────────────────────────┴───────────────────────────────────────────┴──────────┘
+[info] 
+[info] 8 app(s) total.
+[debug] [2026-04-02T16:51:05.036Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:217802069551:web:e1d2d45ac0e38546a798da/config 200
+[debug] [2026-04-02T16:51:05.037Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:217802069551:web:e1d2d45ac0e38546a798da/config {"projectId":"calm-module-one","appId":"1:217802069551:web:e1d2d45ac0e38546a798da","storageBucket":"calm-module-one.firebasestorage.app","apiKey":"AIzaSyA52m1X_WjbTlj1I3YWbInMxFLFX6h0fiw","authDomain":"calm-module-one.firebaseapp.com","messagingSenderId":"217802069551","measurementId":"G-4WJ5G3YKPK","projectNumber":"217802069551","version":"2"}
+[info] {
+  "projectId": "calm-module-one",
+  "appId": "1:217802069551:web:e1d2d45ac0e38546a798da",
+  "storageBucket": "calm-module-one.firebasestorage.app",
+  "apiKey": "AIzaSyA52m1X_WjbTlj1I3YWbInMxFLFX6h0fiw",
+  "authDomain": "calm-module-one.firebaseapp.com",
+  "messagingSenderId": "217802069551",
+  "measurementId": "G-4WJ5G3YKPK",
+  "projectNumber": "217802069551",
+  "version": "2"
+}
+[debug] [2026-04-02T16:51:05.068Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:217802069551:web:37210f4b606b155ca798da/config 200
+[debug] [2026-04-02T16:51:05.069Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:217802069551:web:37210f4b606b155ca798da/config {"projectId":"calm-module-one","appId":"1:217802069551:web:37210f4b606b155ca798da","storageBucket":"calm-module-one.firebasestorage.app","apiKey":"AIzaSyA52m1X_WjbTlj1I3YWbInMxFLFX6h0fiw","authDomain":"calm-module-one.firebaseapp.com","messagingSenderId":"217802069551","measurementId":"G-NMDHM4B5ZW","projectNumber":"217802069551","version":"2"}
+[info] {
+  "projectId": "calm-module-one",
+  "appId": "1:217802069551:web:37210f4b606b155ca798da",
+  "storageBucket": "calm-module-one.firebasestorage.app",
+  "apiKey": "AIzaSyA52m1X_WjbTlj1I3YWbInMxFLFX6h0fiw",
+  "authDomain": "calm-module-one.firebaseapp.com",
+  "messagingSenderId": "217802069551",
+  "measurementId": "G-NMDHM4B5ZW",
+  "projectNumber": "217802069551",
+  "version": "2"
+}

@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Humanism Quiz</title>
+    <style>
+      body { margin: 0; font-family: "Segoe UI", Arial, sans-serif; background: #f5f7fb; color: #1f2b3f; }
+      .wrap { max-width: 980px; margin: 0 auto; padding: 1.25rem; }
+      .card { background: #fff; border: 1px solid #ccd4e1; border-radius: 12px; padding: 1.1rem; }
+      h1 { margin: 0 0 0.35rem; font-size: 2rem; }
+      p.sub { margin: 0 0 1rem; color: #4d5c76; }
+      fieldset { border: 1px solid #ccd4e1; border-radius: 10px; margin: 0 0 0.9rem; padding: 0.9rem; }
+      legend { font-weight: 700; }
+      label { display: block; margin: 0.35rem 0; line-height: 1.45; }
+      select { width: 100%; max-width: 520px; padding: 0.5rem; border-radius: 8px; border: 1px solid #b8c4d8; }
+      .actions { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 1rem; }
+      button { border: 1px solid #2a4469; background: #2d4b75; color: #fff; border-radius: 8px; font-weight: 700; padding: 0.56rem 0.9rem; cursor: pointer; }
+      button.secondary { background: #f7fafc; color: #1f2d44; border-color: #9fb0c8; }
+      #report { margin-top: 1rem; border: 1px dashed #9db0c8; border-radius: 10px; background: #f8fbff; padding: 0.85rem; white-space: pre-wrap; font-size: 0.92rem; }
+      .note { margin-top: 0.75rem; color: #536178; font-size: 0.9rem; }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <section class="card">
+        <h1>Humanism Quiz</h1>
+        <p class="sub">Built from your print quiz source. Complete and generate your response report for hand-in.</p>
+
+        <fieldset>
+          <legend>1. Maslow's concept of hierarchy of needs assumes that:</legend>
+          <label><input type="radio" name="q1" value="higher needs have dominance over lower needs" /> higher needs have prepotency (dominance) over lower needs</label>
+          <label><input type="radio" name="q1" value="lower needs have dominance over higher needs" /> lower needs have prepotency (dominance) over higher needs</label>
+          <label><input type="radio" name="q1" value="love needs are more basic than physiological needs" /> love needs are more basic than physiological needs</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>2. Feelings of self-worth, confidence, and competence were considered by Maslow to be:</legend>
+          <label><input type="radio" name="q2" value="self-actualization needs" /> self-actualization needs</label>
+          <label><input type="radio" name="q2" value="safety needs" /> safety needs</label>
+          <label><input type="radio" name="q2" value="unnecessary for self-actualization" /> unnecessary for self-actualization</label>
+          <label><input type="radio" name="q2" value="esteem needs" /> esteem needs</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>3. Which of the following was NOT listed by Maslow as a characteristic of self-actualizing people?</legend>
+          <label><input type="radio" name="q3" value="acceptance of self, others, and nature" /> acceptance of self, others, and nature</label>
+          <label><input type="radio" name="q3" value="people-centered" /> people-centered</label>
+          <label><input type="radio" name="q3" value="social interest" /> social interest</label>
+          <label><input type="radio" name="q3" value="autonomy" /> autonomy</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>4. Maslow is a:</legend>
+          <label><input type="radio" name="q4" value="humanist" /> humanist</label>
+          <label><input type="radio" name="q4" value="jungian" /> Jungian</label>
+          <label><input type="radio" name="q4" value="behaviourist" /> behaviourist</label>
+          <label><input type="radio" name="q4" value="freudian" /> Freudian</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>5. Match each situation to the highest level shown.</legend>
+          <label>The castaways moved to an island with fresh milk, fruit, and vegetables.
+            <select id="m1">
+              <option value="">Select...</option>
+              <option value="PHYSICAL">PHYSICAL</option>
+              <option value="ESTEEM">ESTEEM</option>
+              <option value="LOVE">LOVE</option>
+            </select>
+          </label>
+          <label>Carlota blushed happily when she opened the gift box of chocolates.
+            <select id="m2">
+              <option value="">Select...</option>
+              <option value="PHYSICAL">PHYSICAL</option>
+              <option value="ESTEEM">ESTEEM</option>
+              <option value="LOVE">LOVE</option>
+            </select>
+          </label>
+          <label>Andre's neighbors welcomed him warmly; his gourmet dinner made a good impression.
+            <select id="m3">
+              <option value="">Select...</option>
+              <option value="PHYSICAL">PHYSICAL</option>
+              <option value="ESTEEM">ESTEEM</option>
+              <option value="LOVE">LOVE</option>
+            </select>
+          </label>
+        </fieldset>
+
+        <div class="actions">
+          <button id="generate" type="button">Generate report</button>
+          <button id="print" class="secondary" type="button">Print / Save PDF</button>
+        </div>
+        <div id="report">No report generated yet.</div>
+        <p class="note">Use class feedback/teacher key to self-check your final responses.</p>
+      </section>
+    </main>
+    <script>
+      const key = "gp20-humanism-quiz-v1";
+      const reportEl = document.getElementById("report");
+      const selected = (name) => document.querySelector(`input[name="${name}"]:checked`)?.value || "(no response)";
+      function buildReport() {
+        return [
+          "Humanism Quiz Response Report",
+          `Generated: ${new Date().toLocaleString()}`,
+          "",
+          `Q1: ${selected("q1")}`,
+          `Q2: ${selected("q2")}`,
+          `Q3: ${selected("q3")}`,
+          `Q4: ${selected("q4")}`,
+          "Q5 matches:",
+          `- Castaways scenario: ${document.getElementById("m1").value || "(no response)"}`,
+          `- Carlota scenario: ${document.getElementById("m2").value || "(no response)"}`,
+          `- Andre scenario: ${document.getElementById("m3").value || "(no response)"}`
+        ].join("\n");
+      }
+      function saveDraft() {
+        localStorage.setItem(key, JSON.stringify({
+          q1: selected("q1"), q2: selected("q2"), q3: selected("q3"), q4: selected("q4"),
+          m1: document.getElementById("m1").value,
+          m2: document.getElementById("m2").value,
+          m3: document.getElementById("m3").value
+        }));
+      }
+      function restoreDraft() {
+        try {
+          const d = JSON.parse(localStorage.getItem(key) || "{}");
+          ["q1","q2","q3","q4"].forEach((k) => {
+            if (d[k]) document.querySelector(`input[name="${k}"][value="${CSS.escape(d[k])}"]`)?.click();
+          });
+          ["m1","m2","m3"].forEach((id) => { document.getElementById(id).value = d[id] || ""; });
+        } catch {}
+      }
+      document.getElementById("generate").addEventListener("click", () => { saveDraft(); reportEl.textContent = buildReport(); });
+      document.getElementById("print").addEventListener("click", () => { saveDraft(); reportEl.textContent = buildReport(); window.print(); });
+      document.querySelectorAll("input,select").forEach((el) => el.addEventListener("change", saveDraft));
+      restoreDraft();
+    </script>
+  </body>
+</html>

@@ -4,7 +4,8 @@ import * as pdfjsLib from "https://esm.sh/pdfjs-dist@4.10.38/legacy/build/pdf.mj
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = "https://esm.sh/pdfjs-dist@4.10.38/legacy/build/pdf.worker.mjs";
 
-const STORAGE_KEY = `${courseShellData.storageKey}::assessment-layout::v5`;
+const STORAGE_KEY = String(courseShellData.storageKey || "general-psychology-20-independent-studies-202633108::workspace-state::v1");
+const LEGACY_STORAGE_KEY = `${courseShellData.storageKey}::assessment-layout::v5`;
 const root = document.getElementById("root");
 const assessmentDeliveryByActivityId = new Map(assessmentDelivery.map((entry) => [entry.activityId, entry]));
 
@@ -27,13 +28,233 @@ const pdfDocumentPromiseByActivityId = new Map();
 const pdfErrorByActivityId = new Set();
 const state = loadState();
 
+const LEARNING_MATCH_CHOICES = [
+  "A. First items are remembered more easily",
+  "B. Extra studying done following over-learning",
+  "C. Trying many alternatives until the correct answer is found",
+  "D. Discovering learning has occured when the information is required",
+  "E. Several learning sessions at spaced intervals",
+  "F. an imitation of a learning situation",
+  "G. a period of no apparent progress in learning",
+  "H. Following a definite sequence in the learning process.",
+  "I. Information that prepares the learner for the main concept of the lesson"
+];
+
+const DEFENSE_MATCH_CHOICES = [
+  "A. Accusing others of our own faults",
+  "B. Putting off an unpleasant task",
+  "C. Feeling a great attraction to a positive goal the closer you get to achieving the goal.",
+  "D. Health problems that arise from strong emotions.",
+  "E. A hormone related to stress",
+  "F. A decision which presents two negative choices.",
+  "G. Expression of emotions to relieve tension",
+  "H. Forgetting personal information as a result of trauma or stress",
+  "I. Hiding one's identity",
+  "J. Refusing to accept that something is true"
+];
+
+const DISORDER_MATCH_CHOICES = [
+  "A. A feeling of worry, nervousness, or unease, typically about an imminent event or uncertain outcome.",
+  "B. An anxiety disorder in which people have unwanted and repeated thoughts/behaviors that make them feel driven to do something.",
+  "C. A mood disorder that causes a persistent feeling of sadness and loss of interest.",
+  "D. A mental illness that brings severe high and low moods.",
+  "E. An obsessive desire to lose weight by refusing to eat.",
+  "F. Consumption of large amounts of food, followed by purging or exercising obsessively.",
+  "G. A chronic, inflexible, and maladaptive pattern of relating to the world.",
+  "H. Altered brain function associated with hallucinations and delusions in psychiatric disorders.",
+  "I. Characterized by abnormal brain function caused by a known physical abnormality."
+];
+
+const LOCAL_QUIZ_OVERRIDES = {
+  "general-psychology-20-independent-studies-202633108::ia590f0ad-7285-4d6a-8090-723483bf5ecf": {
+    quizMeta: { profile: "Examination", attempts: 3, timeLimitMinutes: 0, questionCount: 5 },
+    quizQuestions: [
+      {
+        id: "behaviourism-q1",
+        question: "John Watson argued that the goal of psychology is:",
+        choices: [
+          "to study behavior subjectively (through introspection)",
+          "to determine the drives that motivate behavior.",
+          "to study sensation, perception, and imagery.",
+          "to study behavior objectively."
+        ],
+        answerIndex: 3
+      },
+      {
+        id: "behaviourism-q2",
+        question: "Which of these is NOT a basic assumption of behaviorism?",
+        choices: [
+          "Learning can be studied objectively by focusing on stimuli and responses",
+          "Internal cognitive processes are largely included in scientific study",
+          "Organisms are born as blank slates, shaped and influenced by the environment",
+          "Principles of learning apply equally to different species"
+        ],
+        answerIndex: 1
+      },
+      {
+        id: "behaviourism-q3",
+        question: "Match: John Watson",
+        choices: [
+          "A. Father of Psychoanalysis",
+          "B. Associated with psychoanalysis & archetypes",
+          "C. Father of Behaviourism"
+        ],
+        answerIndex: 2
+      },
+      {
+        id: "behaviourism-q4",
+        question: "Match: Carl Jung",
+        choices: [
+          "A. Father of Psychoanalysis",
+          "B. Associated with psychoanalysis & archetypes",
+          "C. Father of Behaviourism"
+        ],
+        answerIndex: 1
+      },
+      {
+        id: "behaviourism-q5",
+        question: "Match: Sigmund Freud",
+        choices: [
+          "A. Father of Psychoanalysis",
+          "B. Associated with psychoanalysis & archetypes",
+          "C. Father of Behaviourism"
+        ],
+        answerIndex: 0
+      }
+    ]
+  },
+  "general-psychology-20-independent-studies-202633108::i8b4aac6e-a159-411a-a455-1f83b8a7044e": {
+    quizMeta: { profile: "Examination", attempts: 3, timeLimitMinutes: 0, questionCount: 7 },
+    quizQuestions: [
+      {
+        id: "humanism-q1",
+        question: "Maslow's concept of hierarchy of needs assumes that:",
+        choices: [
+          "higher needs have prepotency (dominance) over lower needs.",
+          "lower needs have prepotency (dominance) over higher needs.",
+          "love needs are more basic than physiological needs."
+        ],
+        answerIndex: 1
+      },
+      {
+        id: "humanism-q2",
+        question: "Feelings of self-worth, confidence, and competence were considered by Maslow to be:",
+        choices: [
+          "self-actualization needs",
+          "safety needs",
+          "unnecessary for self-actualization",
+          "esteem needs"
+        ],
+        answerIndex: 3
+      },
+      {
+        id: "humanism-q3",
+        question: "Which of the following was NOT listed by Maslow as a characteristic of self-actualizing people?",
+        choices: [
+          "acceptance of self, others, and nature",
+          "people-centered",
+          "social interest",
+          "autonomy"
+        ],
+        answerIndex: 1
+      },
+      {
+        id: "humanism-q4",
+        question: "Maslow is a:",
+        choices: ["humanist", "Jungian", "behaviourist", "Freudian"],
+        answerIndex: 0
+      },
+      {
+        id: "humanism-q5",
+        question: "Match level: The castaways moved where there were goats, milk, fruit, and vegetables.",
+        choices: ["PHYSICAL", "ESTEEM", "LOVE"],
+        answerIndex: 0
+      },
+      {
+        id: "humanism-q6",
+        question: "Match level: Carlota blushed happily when she opened a gift box of chocolates.",
+        choices: ["PHYSICAL", "ESTEEM", "LOVE"],
+        answerIndex: 2
+      },
+      {
+        id: "humanism-q7",
+        question: "Match level: Andre's neighbors welcomed him warmly and his dinner made a good impression.",
+        choices: ["PHYSICAL", "ESTEEM", "LOVE"],
+        answerIndex: 1
+      }
+    ]
+  },
+  "general-psychology-20-independent-studies-202633108::iab7cf8f3-6035-4852-b8dc-718f4c1d9960": {
+    quizMeta: { profile: "Examination", attempts: 3, timeLimitMinutes: 0, questionCount: 9 },
+    quizQuestions: [
+      { id: "lt-q1", question: "Match: distributed practice", choices: LEARNING_MATCH_CHOICES, answerIndex: 4 },
+      { id: "lt-q2", question: "Match: Primacy effect", choices: LEARNING_MATCH_CHOICES, answerIndex: 0 },
+      { id: "lt-q3", question: "Match: Diminishing returns", choices: LEARNING_MATCH_CHOICES, answerIndex: 1 },
+      { id: "lt-q4", question: "Match: serial learning", choices: LEARNING_MATCH_CHOICES, answerIndex: 7 },
+      { id: "lt-q5", question: "Match: plateau", choices: LEARNING_MATCH_CHOICES, answerIndex: 6 },
+      { id: "lt-q6", question: "Match: Trial and Error", choices: LEARNING_MATCH_CHOICES, answerIndex: 2 },
+      { id: "lt-q7", question: "Match: Latent Learning", choices: LEARNING_MATCH_CHOICES, answerIndex: 3 },
+      { id: "lt-q8", question: "Match: simulation", choices: LEARNING_MATCH_CHOICES, answerIndex: 5 },
+      { id: "lt-q9", question: "Match: Advanced organizer", choices: LEARNING_MATCH_CHOICES, answerIndex: 8 }
+    ]
+  },
+  "general-psychology-20-independent-studies-202633108::ie0f79a55-44e0-4be9-8b6a-3dacc00c8127": {
+    quizMeta: { profile: "Examination", attempts: 3, timeLimitMinutes: 0, questionCount: 9 },
+    quizQuestions: [
+      { id: "lt2-q1", question: "Match: distributed practice", choices: LEARNING_MATCH_CHOICES, answerIndex: 4 },
+      { id: "lt2-q2", question: "Match: Primacy effect", choices: LEARNING_MATCH_CHOICES, answerIndex: 0 },
+      { id: "lt2-q3", question: "Match: Diminishing returns", choices: LEARNING_MATCH_CHOICES, answerIndex: 1 },
+      { id: "lt2-q4", question: "Match: serial learning", choices: LEARNING_MATCH_CHOICES, answerIndex: 7 },
+      { id: "lt2-q5", question: "Match: plateau", choices: LEARNING_MATCH_CHOICES, answerIndex: 6 },
+      { id: "lt2-q6", question: "Match: Trial and Error", choices: LEARNING_MATCH_CHOICES, answerIndex: 2 },
+      { id: "lt2-q7", question: "Match: Latent Learning", choices: LEARNING_MATCH_CHOICES, answerIndex: 3 },
+      { id: "lt2-q8", question: "Match: simulation", choices: LEARNING_MATCH_CHOICES, answerIndex: 5 },
+      { id: "lt2-q9", question: "Match: Advanced organizer", choices: LEARNING_MATCH_CHOICES, answerIndex: 8 }
+    ]
+  },
+  "general-psychology-20-independent-studies-202633108::iad6c4cde-5d50-41ef-bbe5-9f67681c9d12": {
+    quizMeta: { profile: "Examination", attempts: 3, timeLimitMinutes: 0, questionCount: 10 },
+    quizQuestions: [
+      { id: "dm-q1", question: "Match: Projection", choices: DEFENSE_MATCH_CHOICES, answerIndex: 0 },
+      { id: "dm-q2", question: "Match: Catharsis", choices: DEFENSE_MATCH_CHOICES, answerIndex: 6 },
+      { id: "dm-q3", question: "Match: Psychosomatic illness", choices: DEFENSE_MATCH_CHOICES, answerIndex: 3 },
+      { id: "dm-q4", question: "Match: Procrastination", choices: DEFENSE_MATCH_CHOICES, answerIndex: 1 },
+      { id: "dm-q5", question: "Match: ACTH", choices: DEFENSE_MATCH_CHOICES, answerIndex: 4 },
+      { id: "dm-q6", question: "Match: Anonymity", choices: DEFENSE_MATCH_CHOICES, answerIndex: 8 },
+      { id: "dm-q7", question: "Match: Denial", choices: DEFENSE_MATCH_CHOICES, answerIndex: 9 },
+      { id: "dm-q8", question: "Match: Avoidance - Avoidance", choices: DEFENSE_MATCH_CHOICES, answerIndex: 5 },
+      { id: "dm-q9", question: "Match: Amnesia", choices: DEFENSE_MATCH_CHOICES, answerIndex: 7 },
+      { id: "dm-q10", question: "Match: Approach gradient", choices: DEFENSE_MATCH_CHOICES, answerIndex: 2 }
+    ]
+  },
+  "general-psychology-20-independent-studies-202633108::i6ec273d0-54f2-48de-b99f-64952c97f4e9": {
+    quizMeta: { profile: "Examination", attempts: 3, timeLimitMinutes: 0, questionCount: 9 },
+    quizQuestions: [
+      { id: "bd-q1", question: "Match: Organic Psychosis", choices: DISORDER_MATCH_CHOICES, answerIndex: 8 },
+      { id: "bd-q2", question: "Match: Personality Disorder", choices: DISORDER_MATCH_CHOICES, answerIndex: 6 },
+      { id: "bd-q3", question: "Match: Bipolar", choices: DISORDER_MATCH_CHOICES, answerIndex: 3 },
+      { id: "bd-q4", question: "Match: Anorexia Nervosa", choices: DISORDER_MATCH_CHOICES, answerIndex: 4 },
+      { id: "bd-q5", question: "Match: Functional Psychosis", choices: DISORDER_MATCH_CHOICES, answerIndex: 7 },
+      { id: "bd-q6", question: "Match: Anxiety", choices: DISORDER_MATCH_CHOICES, answerIndex: 0 },
+      { id: "bd-q7", question: "Match: Depression", choices: DISORDER_MATCH_CHOICES, answerIndex: 2 },
+      { id: "bd-q8", question: "Match: OCD", choices: DISORDER_MATCH_CHOICES, answerIndex: 1 },
+      { id: "bd-q9", question: "Match: Bulimia Nervosa", choices: DISORDER_MATCH_CHOICES, answerIndex: 5 }
+    ]
+  }
+};
+
 ensureSelection();
 injectStyles();
 render();
 
 function loadState() {
   try {
-    const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+    const rawPrimary = localStorage.getItem(STORAGE_KEY);
+    const rawLegacy = localStorage.getItem(LEGACY_STORAGE_KEY);
+    const parsed = JSON.parse(rawPrimary || rawLegacy || "{}");
+    if (!rawPrimary && rawLegacy) {
+      localStorage.setItem(STORAGE_KEY, rawLegacy);
+    }
     return {
       selectedModuleId: typeof parsed.selectedModuleId === "string" ? parsed.selectedModuleId : "",
       expandedModuleId: typeof parsed.expandedModuleId === "string" ? parsed.expandedModuleId : "",
@@ -49,7 +270,7 @@ function loadState() {
           ? parsed.moduleViewByModuleId
           : {},
       sidebarLibraryView:
-        parsed.sidebarLibraryView === "quizzes" || parsed.sidebarLibraryView === "assignments"
+        parsed.sidebarLibraryView === "quizzes"
           ? parsed.sidebarLibraryView
           : "modules",
       completedActivityById:
@@ -136,7 +357,7 @@ function setModuleView(moduleId, view) {
 }
 
 function setSidebarLibraryView(view) {
-  state.sidebarLibraryView = view === "quizzes" || view === "assignments" ? view : "modules";
+  state.sidebarLibraryView = view === "quizzes" ? view : "modules";
   saveState();
   render();
 }
@@ -164,11 +385,30 @@ function getSelectedActivity(moduleId, bucket, items) {
 }
 
 function setSelectedActivity(moduleId, bucket, activityId) {
+  const module = courseShellData.modules.find((entry) => entry.id === moduleId);
+  if (!module) {
+    return;
+  }
+
+  const { content, assignments } = getModuleBuckets(module);
+  const targetBucket = bucket === "assignments" ? "assignments" : "content";
+  if (targetBucket === "content") {
+    const unlockedContentIds = new Set(buildUnlockedContentActivities(content).map((activity) => activity.id));
+    if (!unlockedContentIds.has(activityId)) {
+      return;
+    }
+  } else {
+    const quizzesUnlocked = moduleCompletion(module).isUnlocked;
+    if (!quizzesUnlocked || !assignments.some((activity) => activity.id === activityId)) {
+      return;
+    }
+  }
+
   state.selectedModuleId = moduleId;
   state.expandedModuleId = moduleId;
-  const key = bucketStateKey(moduleId, bucket);
+  const key = bucketStateKey(moduleId, targetBucket);
   state.selectedByBucket[key] = activityId;
-  state.moduleViewByModuleId[moduleId] = bucket === "assignments" ? "assignments" : "content";
+  state.moduleViewByModuleId[moduleId] = targetBucket === "assignments" ? "assignments" : "content";
   saveState();
   render();
 }
@@ -244,6 +484,20 @@ function prettyKind(kind) {
 
 function getAssessmentDelivery(activity) {
   return assessmentDeliveryByActivityId.get(activity?.id) || null;
+}
+
+function getLocalQuizOverride(activity) {
+  const data = LOCAL_QUIZ_OVERRIDES[activity?.id];
+  if (!data || !Array.isArray(data.quizQuestions) || !data.quizQuestions.length) {
+    return null;
+  }
+  // Keep local override quizzes wired into the same runtime cache path as parsed XML quizzes
+  // so existing quiz controls (check/next/clear) behave identically.
+  if (activity?.id && !quizCacheByActivityId.has(activity.id)) {
+    quizCacheByActivityId.set(activity.id, data);
+    quizErrorByActivityId.delete(activity.id);
+  }
+  return data;
 }
 
 function isQuizDeliveryActivity(activity, delivery = null) {
@@ -344,6 +598,10 @@ function getActivityConversionStatus(activity) {
     return "";
   }
 
+  if (getLocalQuizOverride(activity)) {
+    return "converted";
+  }
+
   const delivery = getAssessmentDelivery(activity);
   const kind = String(activity?.kind || "").toLowerCase();
   const resourceKind = String(activity?.resourceKind || "").toLowerCase();
@@ -353,6 +611,11 @@ function getActivityConversionStatus(activity) {
 
   if (delivery?.deliveryMode === "document-handin") {
     return "needs-conversion";
+  }
+
+  // Local workspace embed wins, even when the original item is tagged as a quiz.
+  if (delivery?.deliveryMode === "workspace-embed" && hasLocalWorkspaceEmbed) {
+    return "converted";
   }
 
   // True converted quiz: source-backed quiz with parseable questions.
@@ -371,11 +634,6 @@ function getActivityConversionStatus(activity) {
 
     requestConversionStatusForQuiz(activity);
     return "checking";
-  }
-
-  // True converted embedded assignment/lab: local workspace asset integration.
-  if (delivery?.deliveryMode === "workspace-embed" && hasLocalWorkspaceEmbed) {
-    return "converted";
   }
 
   // Launcher pages and handoff paths are not converted browser-native activities.
@@ -532,18 +790,62 @@ function detectArrayBufferEncoding(bytes, contentType) {
   return "utf-8";
 }
 
-function decodeFetchedArrayBuffer(buffer, contentType = "") {
-  const bytes = new Uint8Array(buffer);
-  const encoding = detectArrayBufferEncoding(bytes, contentType);
+function countUnicodeReplacementCharacters(value) {
+  return (String(value || "").match(/\uFFFD/g) || []).length;
+}
+
+function decodeArrayBufferWithEncoding(bytes, encoding) {
   try {
     return new TextDecoder(encoding).decode(bytes);
   } catch {
-    try {
-      return new TextDecoder("utf-16le").decode(bytes);
-    } catch {
-      return new TextDecoder("utf-8").decode(bytes);
-    }
+    return "";
   }
+}
+
+function decodeFetchedArrayBuffer(buffer, contentType = "") {
+  const bytes = new Uint8Array(buffer);
+  const preferredEncoding = detectArrayBufferEncoding(bytes, contentType);
+  const attempted = [];
+  const seen = new Set();
+  const queue = [preferredEncoding, "utf-8", "windows-1252", "utf-16le"];
+
+  for (const encoding of queue) {
+    const normalized = normalizeCharsetLabel(encoding);
+    if (!normalized || seen.has(normalized)) {
+      continue;
+    }
+    seen.add(normalized);
+    const decoded = decodeArrayBufferWithEncoding(bytes, normalized);
+    if (!decoded) {
+      continue;
+    }
+    attempted.push({
+      decoded,
+      replacementCount: countUnicodeReplacementCharacters(decoded),
+      prefersPrimary: normalized === normalizeCharsetLabel(preferredEncoding)
+    });
+  }
+
+  if (!attempted.length) {
+    return "";
+  }
+
+  attempted.sort((left, right) => {
+    if (left.replacementCount !== right.replacementCount) {
+      return left.replacementCount - right.replacementCount;
+    }
+    if (left.prefersPrimary === right.prefersPrimary) {
+      return 0;
+    }
+    return left.prefersPrimary ? -1 : 1;
+  });
+
+  if (attempted[0].replacementCount === 0) {
+    return attempted[0].decoded;
+  }
+
+  // Prefer the cleanest decode when UTF-8 introduces replacement glyphs from legacy source files.
+  return attempted[0].decoded;
 }
 
 function readResponseText(response) {
@@ -612,6 +914,56 @@ function bindImageFallbacks() {
       note.className = "image-missing-note";
       note.textContent = "Image unavailable in source export";
       image.insertAdjacentElement("afterend", note);
+    });
+  });
+}
+
+function buildVideoFallbackLink(sourceUrl) {
+  const raw = String(sourceUrl || "");
+  if (!raw) {
+    return "";
+  }
+  const fileName = raw.split("/").pop() || "";
+  const decodedName = decodePathValue(fileName).replace(/\.[a-z0-9]+$/i, "");
+  const normalized = decodedName.replace(/[_-]+/g, " ").replace(/\s+/g, " ").trim();
+  if (!normalized) {
+    return "";
+  }
+  return `https://www.youtube.com/results?search_query=${encodeURIComponent(normalized)}`;
+}
+
+function bindVideoFallbacks() {
+  root.querySelectorAll(".reader-html video").forEach((video) => {
+    if (video.dataset.fallbackBound === "1") {
+      return;
+    }
+
+    video.dataset.fallbackBound = "1";
+    const showFallback = () => {
+      if (video.dataset.fallbackRecovered === "1") {
+        return;
+      }
+      video.dataset.fallbackRecovered = "1";
+      video.style.display = "none";
+
+      if (video.nextElementSibling?.classList?.contains("image-missing-note")) {
+        return;
+      }
+
+      const sourceNode = video.querySelector("source[src]");
+      const sourceUrl = sourceNode?.getAttribute("src") || video.getAttribute("src") || "";
+      const link = buildVideoFallbackLink(sourceUrl);
+      const note = document.createElement("div");
+      note.className = "image-missing-note";
+      note.innerHTML = link
+        ? `Video file unavailable in this export. <a href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer">Open matching video search</a>.`
+        : "Video file unavailable in this export.";
+      video.insertAdjacentElement("afterend", note);
+    };
+
+    video.addEventListener("error", showFallback);
+    video.querySelectorAll("source").forEach((source) => {
+      source.addEventListener("error", showFallback);
     });
   });
 }
@@ -906,15 +1258,32 @@ function setLessonCompleted(activityId, completed) {
 
 function moduleCompletion(module) {
   const { content } = getModuleBuckets(module);
-  const completedCount = content.filter((activity) => isLessonCompleted(activity.id)).length;
+  let completedCount = 0;
+  for (const activity of content) {
+    if (!isLessonCompleted(activity.id)) {
+      break;
+    }
+    completedCount += 1;
+  }
   const totalCount = content.length;
   const percent = totalCount ? Math.round((completedCount / totalCount) * 100) : 0;
   return {
     completedCount,
     totalCount,
     percent,
-    isUnlocked: totalCount > 0 && completedCount === totalCount
+    isUnlocked: totalCount === 0 ? true : completedCount === totalCount
   };
+}
+
+function buildUnlockedContentActivities(content) {
+  if (!Array.isArray(content) || !content.length) {
+    return [];
+  }
+  const nextIncompleteIndex = content.findIndex((activity) => !isLessonCompleted(activity.id));
+  if (nextIncompleteIndex === -1) {
+    return content;
+  }
+  return content.slice(0, nextIncompleteIndex + 1);
 }
 
 function getNextContentActivity(moduleId, activityId) {
@@ -1120,6 +1489,24 @@ function shouldHideActivityFromModuleList(module, activity) {
     }
   }
 
+  if (normalizedModuleTitle.includes("process of learning")) {
+    if (normalizedActivityTitle.includes("lesson three challenge - part c - matching")) {
+      return true;
+    }
+    if (normalizedActivityTitle === "how we make memories quiz") {
+      return true;
+    }
+    if (normalizedActivityTitle === "learning techniques quiz") {
+      return true;
+    }
+  }
+
+  if (normalizedModuleTitle.includes("facing frustration and conflict")) {
+    if (normalizedActivityTitle === "aggression, altruism and conflict quiz") {
+      return true;
+    }
+  }
+
   if (normalizedModuleTitle !== "module 2: statistics" || normalizedSectionTitle !== "section 1: measurements") {
     return false;
   }
@@ -1241,6 +1628,26 @@ function sanitizeHtmlContent(rawHtml, sourceHref) {
   doc.querySelectorAll(".sr-only, .visually-hidden").forEach((node) => node.remove());
 
   const contentRoot = doc.querySelector(".col-sm-10.offset-sm-1") || doc.body;
+  const normalizedSourceHref = normalizePath(sourceHref || "");
+
+  // Source-specific media repairs for known missing binary files in this export.
+  if (/chapter_15805\.html$/i.test(normalizedSourceHref)) {
+    contentRoot.querySelectorAll("video").forEach((video) => {
+      const embedShell = doc.createElement("div");
+      embedShell.className = "lesson-video-embed";
+      embedShell.innerHTML = `
+        <iframe
+          src="https://www.youtube.com/embed/R-sVnmmw6WY?si=lz5DO1T8oeMt3XV4"
+          title="Cognition - Crash Course Psychology #15"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+          referrerpolicy="strict-origin-when-cross-origin"
+        ></iframe>
+      `;
+      video.replaceWith(embedShell);
+    });
+  }
 
   const rewriteAttribute = (selector, attribute) => {
     contentRoot.querySelectorAll(selector).forEach((element) => {
@@ -1894,7 +2301,7 @@ function renderLessonCompletionFooter(activity, moduleId) {
     <div class="lesson-completion-card">
       <div>
         <strong>${completed ? "Lesson completed" : "Mark this lesson complete"}</strong>
-        <span>${completed ? "This lesson now counts toward the module release condition." : "Complete every lesson in the module to unlock that module's quizzes and assignments."}</span>
+        <span>${completed ? "This lesson now counts toward the module release condition." : "Complete every lesson in the module to unlock that module's quizzes."}</span>
       </div>
       <div class="lesson-completion-actions">
         <button
@@ -1929,7 +2336,19 @@ function renderActivityBody(activity) {
     return `<div class="empty">Select an item to view its content.</div>`;
   }
 
+  const localQuiz = getLocalQuizOverride(activity);
+  if (localQuiz) {
+    return renderQuiz(activity, localQuiz);
+  }
+
   const delivery = getAssessmentDelivery(activity);
+  const embedPath = String(delivery?.embedPath || "").trim();
+  const hasLocalWorkspaceEmbed = embedPath.startsWith("./assets/");
+
+  if (delivery?.deliveryMode === "workspace-embed" && hasLocalWorkspaceEmbed) {
+    return renderEmbeddedAssignment(activity, delivery);
+  }
+
   if (activity.resourceKind === "quiz" && activity.sourceHref) {
     const quizData = quizCacheByActivityId.get(activity.id);
     if (quizData) {
@@ -2049,9 +2468,10 @@ function renderContentGroups(moduleId, content, selectedActivityId) {
 }
 
 function renderModuleButton(module, expanded, selected) {
-  const { content, assignments } = getModuleBuckets(module);
+  const { content } = getModuleBuckets(module);
+  const unlockedContent = buildUnlockedContentActivities(content);
   const completion = moduleCompletion(module);
-  const selectedItem = expanded ? getSelectedActivity(module.id, "content", content) : null;
+  const selectedItem = expanded ? getSelectedActivity(module.id, "content", unlockedContent) : null;
 
   return `
     <article class="module-card ${expanded ? "expanded" : ""} ${selected ? "selected" : ""}">
@@ -2068,9 +2488,9 @@ function renderModuleButton(module, expanded, selected) {
           </div>
           <div class="module-progress-note">
             ${
-              assignments.length
-                ? `${assignments.length} assignment${assignments.length === 1 ? "" : "s"} available in Assignments`
-                : `No assignments in this module`
+              completion.isUnlocked
+                ? `Quizzes unlocked`
+                : `Complete content to unlock quizzes`
             }
           </div>
         </div>
@@ -2080,7 +2500,7 @@ function renderModuleButton(module, expanded, selected) {
           ? `
       <div class="module-dropdown">
         <div class="group-block" data-testid="module-content-view">
-          ${renderContentGroups(module.id, content, selectedItem?.id)}
+          ${renderContentGroups(module.id, unlockedContent, selectedItem?.id)}
         </div>
       </div>
     `
@@ -2090,20 +2510,23 @@ function renderModuleButton(module, expanded, selected) {
   `;
 }
 
-function renderActivityListItem(moduleId, bucket, activity, active, className = "item-btn") {
+function renderActivityListItem(moduleId, bucket, activity, active, className = "item-btn", options = {}) {
   const metaLabel = activityMetaLabel(activity);
   const completed = !isAssignment(activity) && isLessonCompleted(activity.id);
   const displayTitle = getActivityDisplayTitle(activity);
   const status = bucket === "assignments" ? getActivityConversionStatus(activity) : "";
   const statusLabel = conversionStatusLabel(status);
   const statusClass = conversionStatusClass(status);
+  const isLocked = Boolean(options.locked);
+  const lockMeta = options.lockReason ? `<div class="item-meta lock-note">${escapeHtml(options.lockReason)}</div>` : "";
   return `
     <button
-      class="${className} ${active ? "active" : ""}"
+      class="${className} ${active ? "active" : ""} ${isLocked ? "is-locked" : ""}"
       type="button"
       data-select-activity="${escapeHtml(activity.id)}"
       data-module-id="${escapeHtml(moduleId)}"
       data-bucket="${escapeHtml(bucket)}"
+      ${isLocked ? "disabled" : ""}
     >
       <div class="item-row">
         <div class="item-title">
@@ -2113,6 +2536,7 @@ function renderActivityListItem(moduleId, bucket, activity, active, className = 
         ${completed ? `<span class="item-complete">Completed</span>` : ""}
       </div>
       ${metaLabel ? `<div class="item-meta">${escapeHtml(metaLabel)}</div>` : ""}
+      ${lockMeta}
     </button>
   `;
 }
@@ -2145,9 +2569,10 @@ function getSidebarLibraryCollections() {
 
     const quizItems = assignmentItems.filter((activity) => isQuizLibraryItem(activity));
     const nonQuizAssignments = assignmentItems.filter((activity) => !isQuizLibraryItem(activity));
+    const completion = moduleCompletion(module);
 
     if (quizItems.length) {
-      quizModules.push({ module, items: quizItems });
+      quizModules.push({ module, items: quizItems, quizzesUnlocked: completion.isUnlocked });
     }
 
     if (nonQuizAssignments.length) {
@@ -2164,8 +2589,9 @@ function renderSidebarLibraryModuleBlock(collectionTitle, rows, selectedModuleId
   }
 
   const blocks = rows
-    .map(({ module, items }) => {
+    .map(({ module, items, quizzesUnlocked }) => {
       const moduleLabel = escapeHtml(module?.title || "Module");
+      const isLocked = collectionTitle.toLowerCase() === "quizzes" ? !quizzesUnlocked : false;
       const itemButtons = items
         .map((activity) =>
           renderActivityListItem(
@@ -2173,15 +2599,28 @@ function renderSidebarLibraryModuleBlock(collectionTitle, rows, selectedModuleId
             "assignments",
             activity,
             module.id === selectedModuleId && activity.id === selectedActivityId,
-            "library-item-btn"
+            "library-item-btn",
+            isLocked ? { locked: true, lockReason: "Complete module content to unlock quizzes." } : {}
           )
         )
         .join("");
 
       return `
         <section class="library-module-block">
-          <h4>${moduleLabel}</h4>
+          <div class="library-module-head">
+            <h4>${moduleLabel}</h4>
+            ${
+              collectionTitle.toLowerCase() === "quizzes"
+                ? `<span class="library-lock-pill ${quizzesUnlocked ? "unlocked" : "locked"}">${quizzesUnlocked ? "Unlocked" : "Locked"}</span>`
+                : ""
+            }
+          </div>
           <div class="library-module-items">${itemButtons}</div>
+          ${
+            isLocked
+              ? `<p class="library-lock-note">Complete all content lessons in this module to unlock quizzes.</p>`
+              : ""
+          }
         </section>
       `;
     })
@@ -2235,15 +2674,19 @@ function render() {
   const moduleView = module ? getModuleView(module.id) : "content";
   const buckets = module ? getModuleBuckets(module) : { content: [], assignments: [] };
   const activeBucket = moduleView === "assignments" ? "assignments" : "content";
-  const moduleReaderItems = activeBucket === "assignments" ? buckets.assignments : buckets.content;
+  const unlockedContent = module ? buildUnlockedContentActivities(buckets.content) : [];
+  const moduleQuizzesUnlocked = module ? moduleCompletion(module).isUnlocked : false;
+  const moduleReaderItems = activeBucket === "assignments"
+    ? (moduleQuizzesUnlocked ? buckets.assignments : [])
+    : unlockedContent;
   const selectedActivity = module ? getSelectedActivity(module.id, activeBucket, moduleReaderItems) : null;
   const moduleCount = Array.isArray(courseShellData.modules) ? courseShellData.modules.length : 0;
   const contentCount = courseShellData.modules.reduce(
     (sum, current) => sum + getModuleBuckets(current).content.length,
     0
   );
-  const assignmentCount = courseShellData.modules.reduce(
-    (sum, current) => sum + getModuleBuckets(current).assignments.length,
+  const quizCount = courseShellData.modules.reduce(
+    (sum, current) => sum + getModuleBuckets(current).assignments.filter((activity) => isQuizLibraryItem(activity)).length,
     0
   );
   const moduleCode = String(module?.overline || "MOD 01").replace(/module\s*/i, "MOD ").toUpperCase();
@@ -2259,26 +2702,15 @@ function render() {
         <nav class="side-nav-ghost" aria-label="Workspace sections">
           <button type="button" class="side-nav-item ${state.sidebarLibraryView === "modules" ? "active" : ""}" data-library-view="modules">Case modules</button>
           <button type="button" class="side-nav-item ${state.sidebarLibraryView === "quizzes" ? "active" : ""}" data-library-view="quizzes">Quizzes</button>
-          <button type="button" class="side-nav-item ${state.sidebarLibraryView === "assignments" ? "active" : ""}" data-library-view="assignments">Assignments</button>
         </nav>
 
         ${
           state.sidebarLibraryView !== "modules"
             ? (() => {
                 const collections = getSidebarLibraryCollections();
-                const showAssignments = state.sidebarLibraryView === "assignments";
                 return `
                   <div class="library-list" data-testid="quiz-library">
-                    ${
-                      showAssignments
-                        ? renderSidebarLibraryModuleBlock(
-                            "Assignments",
-                            collections.assignmentModules,
-                            module?.id || "",
-                            selectedActivity?.id || ""
-                          )
-                        : renderSidebarLibraryModuleBlock("Quizzes", collections.quizModules, module?.id || "", selectedActivity?.id || "")
-                    }
+                    ${renderSidebarLibraryModuleBlock("Quizzes", collections.quizModules, module?.id || "", selectedActivity?.id || "")}
                   </div>
                 `;
               })()
@@ -2322,7 +2754,7 @@ function render() {
               </span>
               <span class="stat"><strong>${moduleCount}</strong><span> modules</span></span>
               <span class="stat"><strong>${contentCount}</strong><span> content items</span></span>
-              <span class="stat"><strong>${assignmentCount}</strong><span> assignments</span></span>
+              <span class="stat"><strong>${quizCount}</strong><span> quizzes</span></span>
             </div>
           </div>
         </header>
@@ -2487,6 +2919,7 @@ function render() {
 
   bindEmbeddedFrames();
   bindImageFallbacks();
+  bindVideoFallbacks();
 }
 
 function injectStyles() {
@@ -2659,6 +3092,40 @@ function injectStyles() {
       letter-spacing: 0.05em;
       color: #f0c0b8;
       font-family: "Space Grotesk", "Inter", sans-serif;
+    }
+
+    .library-module-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .library-lock-pill {
+      border: 1px solid #4f4a44;
+      border-radius: 999px;
+      padding: 0.1rem 0.42rem;
+      font-size: 0.56rem;
+      line-height: 1.25;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #b8b2a8;
+      background: #252424;
+      font-family: "Space Grotesk", "Inter", sans-serif;
+      font-weight: 700;
+    }
+
+    .library-lock-pill.unlocked {
+      border-color: rgba(16, 185, 129, 0.35);
+      background: rgba(16, 185, 129, 0.14);
+      color: #bbf7d0;
+    }
+
+    .library-lock-note {
+      margin: 0.2rem 0 0;
+      font-size: 0.64rem;
+      line-height: 1.38;
+      color: var(--muted);
     }
 
     .library-module-block {
@@ -2964,6 +3431,14 @@ function injectStyles() {
       background: #392725;
     }
 
+    .module-item-btn.is-locked,
+    .library-item-btn.is-locked {
+      opacity: 0.48;
+      cursor: not-allowed;
+      border-color: #3a3840;
+      background: #25252b;
+    }
+
     .library-item-btn {
       border: 1px solid #3a3840;
       border-radius: 5px;
@@ -3194,6 +3669,14 @@ function injectStyles() {
       font-weight: 500;
     }
 
+    .item-meta.lock-note {
+      margin-top: 0.24rem;
+      font-size: 0.66rem;
+      line-height: 1.34;
+      font-weight: 500;
+      color: #c8c1b8;
+    }
+
     .item-complete {
       border: 1px solid #6c5a4c;
       border-radius: 4px;
@@ -3420,6 +3903,23 @@ function injectStyles() {
       margin: 0.9rem auto;
       border: 1px solid #cec3b2;
       background: #fff;
+    }
+
+    .lesson-video-embed {
+      width: min(100%, 720px);
+      margin: 0.9rem auto 1rem;
+      border: 1px solid #cec3b2;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #111;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+    }
+
+    .lesson-video-embed iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      display: block;
     }
 
     .image-missing-note {

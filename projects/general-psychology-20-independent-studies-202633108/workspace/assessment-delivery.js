@@ -56,19 +56,21 @@
     {
         "activityId":  "general-psychology-20-independent-studies-202633108::ia590f0ad-7285-4d6a-8090-723483bf5ecf",
         "deliveryMode":  "workspace-embed",
-        "ctaLabel":  "Open assignment in a new tab",
+        "ctaLabel":  "Open Behaviourism Quiz",
+        "embedPath":  "./assets/gp20-behaviourism-quiz.html",
         "ctaUrl":  "/preview/references/raw/general-psychology-20-independent-studies-202633108/%D1%81ontent/i1dab161a-aa78-4c81-9991-a55e4fe09e47/Content/book_1818/chapter_15709.html",
-        "statusText":  "Complete this quiz in the workspace and save your results for submission.",
-        "summary":  "This quiz has been recreated as an in-browser workspace activity.",
+        "statusText":  "Complete this quiz in the workspace, then generate or print your response report for submission.",
+        "summary":  "This quiz now runs as an in-browser workspace activity built from the provided print quiz source.",
         "handInNote":  "When finished, submit according to your classroom hand-in instructions."
     },
     {
         "activityId":  "general-psychology-20-independent-studies-202633108::i8b4aac6e-a159-411a-a455-1f83b8a7044e",
         "deliveryMode":  "workspace-embed",
-        "ctaLabel":  "Open assignment in a new tab",
+        "ctaLabel":  "Open Humanism Quiz",
+        "embedPath":  "./assets/gp20-humanism-quiz.html",
         "ctaUrl":  "/preview/references/raw/general-psychology-20-independent-studies-202633108/%D1%81ontent/ia2b65a17-7829-4500-b74a-6f18b3d9c39c/Content/book_1818/chapter_15710.html",
-        "statusText":  "Complete this quiz in the workspace and save your results for submission.",
-        "summary":  "This quiz has been recreated as an in-browser workspace activity.",
+        "statusText":  "Complete this quiz in the workspace, then generate or print your response report for submission.",
+        "summary":  "This quiz now runs as an in-browser workspace activity built from the provided print quiz source.",
         "handInNote":  "When finished, submit according to your classroom hand-in instructions."
     },
     {
@@ -137,20 +139,22 @@
     {
         "activityId":  "general-psychology-20-independent-studies-202633108::iab7cf8f3-6035-4852-b8dc-718f4c1d9960",
         "deliveryMode":  "workspace-embed",
-        "ctaLabel":  "Open assignment in a new tab",
+        "ctaLabel":  "Open Learning Techniques Quiz",
+        "embedPath":  "./assets/gp20-learning-techniques-matching.html",
         "ctaUrl":  "/preview/references/raw/general-psychology-20-independent-studies-202633108/%D1%81ontent/i43806e6f-b8dd-449a-a55d-ca8f938e7733/Content/book_1827/chapter_15796.html",
-        "statusText":  "Complete this quiz in the workspace and save your results for submission.",
-        "summary":  "This activity has been recreated in-browser using the closest available source page from this module.",
-        "handInNote":  "The original source was missing in the export, so this uses the best available module equivalent. Submit according to classroom instructions."
+        "statusText":  "Complete this matching quiz in the workspace, then generate or print your response report for submission.",
+        "summary":  "This matching quiz now runs as an in-browser workspace activity built from the provided PDF source.",
+        "handInNote":  "Use the generated report as your submission artifact according to classroom instructions."
     },
     {
         "activityId":  "general-psychology-20-independent-studies-202633108::ie0f79a55-44e0-4be9-8b6a-3dacc00c8127",
         "deliveryMode":  "workspace-embed",
-        "ctaLabel":  "Open assignment in a new tab",
+        "ctaLabel":  "Open Matching Challenge",
+        "embedPath":  "./assets/gp20-learning-techniques-matching.html",
         "ctaUrl":  "/preview/references/raw/general-psychology-20-independent-studies-202633108/%D1%81ontent/i43806e6f-b8dd-449a-a55d-ca8f938e7733/Content/book_1827/chapter_15796.html",
-        "statusText":  "Complete this quiz in the workspace and save your results for submission.",
-        "summary":  "This activity has been recreated in-browser using the closest available source page from this module.",
-        "handInNote":  "The original source was missing in the export, so this uses the best available module equivalent. Submit according to classroom instructions."
+        "statusText":  "Complete this matching quiz in the workspace, then generate or print your response report for submission.",
+        "summary":  "This matching quiz now runs as an in-browser workspace activity built from the provided PDF source.",
+        "handInNote":  "Use the generated report as your submission artifact according to classroom instructions."
     },
     {
         "activityId":  "general-psychology-20-independent-studies-202633108::if3a3fce0-7d6b-41f5-b124-01e924862a96",
@@ -358,6 +362,26 @@
         "statusText":  "Complete this assignment in the workspace and save your work for submission.",
         "summary":  "This assignment has been recreated as an in-browser workspace activity.",
         "handInNote":  "When finished, submit according to your classroom hand-in instructions."
+    },
+    {
+        "activityId":  "general-psychology-20-independent-studies-202633108::iad6c4cde-5d50-41ef-bbe5-9f67681c9d12",
+        "deliveryMode":  "workspace-embed",
+        "ctaLabel":  "Open Defense Mechanisms Quiz",
+        "embedPath":  "./assets/gp20-defense-mechanisms-quiz.html",
+        "ctaUrl":  "",
+        "statusText":  "Complete this matching quiz in the workspace, then generate or print your response report for submission.",
+        "summary":  "This matching quiz now runs as an in-browser workspace activity built from the provided PDF source.",
+        "handInNote":  "Use the generated report as your submission artifact according to classroom instructions."
+    },
+    {
+        "activityId":  "general-psychology-20-independent-studies-202633108::i6ec273d0-54f2-48de-b99f-64952c97f4e9",
+        "deliveryMode":  "workspace-embed",
+        "ctaLabel":  "Open Identifying Behaviour Disorders Quiz",
+        "embedPath":  "./assets/gp20-identifying-behaviour-disorders-quiz.html",
+        "ctaUrl":  "",
+        "statusText":  "Complete this matching quiz in the workspace, then generate or print your response report for submission.",
+        "summary":  "This matching quiz now runs as an in-browser workspace activity built from the provided PDF source.",
+        "handInNote":  "Use the generated report as your submission artifact according to classroom instructions."
     }
 ];
 

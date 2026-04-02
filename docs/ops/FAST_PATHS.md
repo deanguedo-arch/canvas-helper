@@ -79,6 +79,14 @@ When workflow type is known, read the matching workflow guide immediately after 
 - `docs/workflows/injection-integration.md`
 - `docs/workflows/prompt-contract.md` for prompt structure
 
+For conversion work, use the ordered playbook in `docs/workflows/conversion.md`:
+- Intake + artifact generation
+- Preflight audit (encoding/media/paths/order)
+- Placement + conversion-status normalization
+- Lock behavior pass
+- Deploy readiness pass
+- Verification floor
+
 ## Workflow Shift (High-Confidence E2E)
 
 Before: manual learner/archive passes + spot checks + `verify/typecheck/build`.

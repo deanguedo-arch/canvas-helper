@@ -1,7 +1,7 @@
 # Authoring Deviation Report
 
-- Project: general-psychology-20-independent-studies-202633108
-- Generated: 2026-04-02T18:57:14.996Z
+- Project: experimental-psych-30-per-1-a-b-sec-s-202632352
+- Generated: 2026-04-02T18:54:49.345Z
 - Pass: yes
 - Deviations: 1
 - Accepted deviations: 0
@@ -11,7 +11,7 @@
 ### require-interactive-shell
 - Severity: warn
 - Surface: export
-- Location: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\general-psychology-20-independent-studies-202633108\exports\google-hosted\index.html
+- Location: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\experimental-psych-30-per-1-a-b-sec-s-202632352\exports\google-hosted\index.html
 - Why: Required pattern "lesson-shell" is missing.
 - Evidence: Missing pattern: lesson-shell
 
