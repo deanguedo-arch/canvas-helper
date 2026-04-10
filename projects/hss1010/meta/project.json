@@ -13,15 +13,36 @@
   "learningSource": "other",
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-03-12T19:38:10.569Z",
-  "createdAt": "2026-03-12T19:28:57.168Z",
-  "updatedAt": "2026-04-02T18:57:04.368Z",
-  "workspaceApprovedAt": "2026-03-12T19:38:10.569Z",
-  "migrationState": "legacy",
-  "preferredWorkflows": [],
-  "canonicalSources": [],
+  "migrationState": "migrated",
+  "projectType": "generated-course",
+  "preferredWorkflows": [
+    "generated-course"
+  ],
+  "canonicalEntry": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\hss1010\\workspace\\index.html",
+  "canonicalSources": [
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\hss1010\\workspace\\index.html",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\hss1010\\workspace\\main.js",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\hss1010\\workspace\\styles.css",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\hss1010\\workspace\\hss-study.css"
+  ],
   "generatedOutputs": [],
   "injectedComponents": [],
-  "exportTargets": [],
+  "importedFirstPassOrigin": {
+    "sourceSystem": "other",
+    "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\processed\\hss1010\\source",
+    "importedAt": "2026-03-12T19:28:57.168Z"
+  },
+  "exportTargets": [
+    {
+      "target": "brightspace",
+      "enabled": true,
+      "notes": "Default export target for generated-course projects."
+    }
+  ],
   "authoringStatus": "active",
-  "referenceOnly": []
+  "referenceOnly": [],
+  "sourceOfTruthNotes": "Edit workspace canonicalSources only. Keep raw and exports as derived/reference artifacts.",
+  "createdAt": "2026-03-12T19:28:57.168Z",
+  "updatedAt": "2026-04-10T08:50:17.8174222-06:00",
+  "workspaceApprovedAt": "2026-03-12T19:38:10.569Z"
 }
