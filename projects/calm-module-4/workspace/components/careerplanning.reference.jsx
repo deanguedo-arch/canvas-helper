@@ -40,7 +40,51 @@ const loadSavedCareerPlannerState = () => {
   }
 };
 
-const App = () => {
+const InputGroup = ({ label, value, onChange, placeholder, type = 'text', rows = 3 }) => (
+  <div className="mb-8">
+    <label className="block text-[11px] font-extrabold uppercase tracking-widest text-[#9AA0B8] mb-3">
+      {label}
+    </label>
+    {type === 'textarea' ? (
+      <textarea
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        placeholder={placeholder || 'Your thoughts...'}
+        rows={rows}
+        className="w-full bg-[#111322] border border-[#2A2D4A] rounded-xl p-4 text-white placeholder-[#4A4D6A] focus:outline-none focus:border-[#E8437D] transition-colors resize-y shadow-sm"
+      />
+    ) : (
+      <input
+        type={type}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        placeholder={placeholder || 'Enter value...'}
+        className="w-full bg-[#111322] border border-[#2A2D4A] rounded-xl p-4 text-white placeholder-[#4A4D6A] focus:outline-none focus:border-[#E8437D] transition-colors shadow-sm"
+      />
+    )}
+  </div>
+);
+
+const SectionCard = ({ id, title, icon, isActive, children }) => (
+  <div id={id} className={`transition-opacity duration-300 ${isActive ? 'block' : 'hidden'}`}>
+    <div className="bg-[#1A1D36] rounded-2xl p-8 relative overflow-hidden border border-[#2A2D4A]">
+      {/* Left Gradient Strip */}
+      <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-[#E8437D] to-[#8B5CF6]"></div>
+      
+      <div className="flex items-center gap-3 mb-8">
+        <div className="p-2.5 bg-[#E8437D]/10 text-[#E8437D] rounded-full ring-1 ring-[#E8437D]/30">
+          {icon}
+        </div>
+        <h2 className="text-2xl font-extrabold text-white tracking-tight">{title}</h2>
+      </div>
+      <div className="space-y-6">
+        {children}
+      </div>
+    </div>
+  </div>
+);
+
+const App = ({ onGenerateReport }) => {
   // --- STATE MANAGEMENT ---
   const [formData, setFormData] = useState(() => {
     const saved = loadSavedCareerPlannerState();
@@ -95,6 +139,10 @@ const App = () => {
   };
 
   const handlePrint = () => {
+    if (typeof onGenerateReport === 'function') {
+      onGenerateReport();
+      return;
+    }
     window.print();
   };
 
@@ -114,51 +162,6 @@ const App = () => {
   // Calculate generic progress
   const activeIndex = navItems.findIndex(item => item.id === activeSection);
   const progressPercentage = Math.max(5, Math.round(((activeIndex) / (navItems.length - 1)) * 100));
-
-  // --- REUSABLE UI COMPONENTS ---
-  const InputGroup = ({ label, value, onChange, placeholder, type = 'text', rows = 3 }) => (
-    <div className="mb-8">
-      <label className="block text-[11px] font-extrabold uppercase tracking-widest text-[#9AA0B8] mb-3">
-        {label}
-      </label>
-      {type === 'textarea' ? (
-        <textarea
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          placeholder={placeholder || 'Your thoughts...'}
-          rows={rows}
-          className="w-full bg-[#111322] border border-[#2A2D4A] rounded-xl p-4 text-white placeholder-[#4A4D6A] focus:outline-none focus:border-[#E8437D] transition-colors resize-y shadow-sm"
-        />
-      ) : (
-        <input
-          type={type}
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          placeholder={placeholder || 'Enter value...'}
-          className="w-full bg-[#111322] border border-[#2A2D4A] rounded-xl p-4 text-white placeholder-[#4A4D6A] focus:outline-none focus:border-[#E8437D] transition-colors shadow-sm"
-        />
-      )}
-    </div>
-  );
-
-  const SectionCard = ({ id, title, icon, children }) => (
-    <div id={id} className={`transition-opacity duration-300 ${activeSection === id ? 'block' : 'hidden'}`}>
-      <div className="bg-[#1A1D36] rounded-2xl p-8 relative overflow-hidden border border-[#2A2D4A]">
-        {/* Left Gradient Strip */}
-        <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-[#E8437D] to-[#8B5CF6]"></div>
-        
-        <div className="flex items-center gap-3 mb-8">
-          <div className="p-2.5 bg-[#E8437D]/10 text-[#E8437D] rounded-full ring-1 ring-[#E8437D]/30">
-            {icon}
-          </div>
-          <h2 className="text-2xl font-extrabold text-white tracking-tight">{title}</h2>
-        </div>
-        <div className="space-y-6">
-          {children}
-        </div>
-      </div>
-    </div>
-  );
 
   return (
     <div className="min-h-screen flex flex-col bg-[#090A10] text-slate-200 font-sans selection:bg-[#E8437D]/30">
@@ -182,7 +185,7 @@ const App = () => {
       {/* TOP NAVIGATION (Hidden on Print) */}
       <nav className="no-print border-b border-white/10 bg-white/5 backdrop-blur-md overflow-visible transition-all duration-300">
         <div className="w-full px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between gap-4 h-16">
+          <div className="flex flex-col gap-4 py-4 xl:flex-row xl:items-center xl:justify-between">
             <div className="flex items-center gap-3 min-w-0">
               <div className="p-2 bg-gradient-to-br from-fuchsia-600 to-indigo-600 rounded-lg shadow-lg shadow-fuchsia-900/20">
                 <LayoutDashboard className="w-5 h-5 text-white" />
@@ -197,21 +200,21 @@ const App = () => {
               </div>
             </div>
 
-            <div className="flex items-center gap-2 sm:gap-3">
-              <div className="hidden md:flex items-center gap-4 bg-[#131526] px-4 py-2 rounded-full border border-[#2A2D4A] shadow-inner">
+            <div className="flex w-full flex-wrap items-center gap-2 sm:gap-3 xl:w-auto xl:justify-end">
+              <div className="flex min-w-[12rem] flex-1 items-center gap-4 bg-[#131526] px-4 py-2 rounded-full border border-[#2A2D4A] shadow-inner sm:flex-none">
                 <span className="text-[10px] font-extrabold text-[#9AA0B8] uppercase tracking-widest">Progress</span>
-                <div className="w-24 h-1.5 bg-[#2A2D4A] rounded-full overflow-hidden">
+                <div className="h-1.5 flex-1 bg-[#2A2D4A] rounded-full overflow-hidden">
                   <div
                     className="h-full bg-gradient-to-r from-[#E8437D] to-[#8B5CF6] transition-all duration-500 ease-out"
                     style={{ width: `${progressPercentage}%` }}
                   />
                 </div>
-                <span className="text-[10px] font-extrabold text-white w-6">{progressPercentage}%</span>
+                <span className="text-[10px] font-extrabold text-white shrink-0 w-8 text-right">{progressPercentage}%</span>
               </div>
 
               <button
                 onClick={handlePrint}
-                className="flex items-center gap-2 bg-gradient-to-r from-pink-600 to-fuchsia-600 hover:from-pink-500 hover:to-fuchsia-500 border border-pink-400/30 transition-all duration-300 px-4 sm:px-5 py-2.5 rounded-lg text-xs font-bold text-white tracking-widest uppercase shadow-[0_0_15px_rgba(236,72,153,0.28)] hover:shadow-[0_0_22px_rgba(236,72,153,0.45)] transform hover:-translate-y-0.5"
+                className="inline-flex shrink-0 items-center justify-center gap-2 bg-gradient-to-r from-pink-600 to-fuchsia-600 hover:from-pink-500 hover:to-fuchsia-500 border border-pink-400/30 transition-all duration-300 px-4 sm:px-5 py-2.5 rounded-lg text-xs font-bold text-white tracking-widest uppercase whitespace-nowrap shadow-[0_0_15px_rgba(236,72,153,0.28)] hover:shadow-[0_0_22px_rgba(236,72,153,0.45)] transform hover:-translate-y-0.5"
               >
                 <Printer size={14} />
                 <span className="hidden sm:inline">Generate Report</span>
@@ -220,25 +223,25 @@ const App = () => {
           </div>
 
           <div className="border-t border-white/10">
-            <div className="flex items-start gap-3 py-3">
+            <div className="flex flex-col gap-3 py-3 lg:flex-row lg:items-start">
               <span className="hidden sm:inline-flex text-[10px] font-extrabold uppercase tracking-[0.35em] text-slate-500 shrink-0 pr-2 pt-2">
                 Topics
               </span>
-              <div className="grid flex-1 min-w-0 grid-cols-[repeat(auto-fit,minmax(10rem,1fr))] gap-2">
+              <div className="grid flex-1 min-w-0 grid-cols-[repeat(auto-fit,minmax(8.75rem,1fr))] gap-2">
                 {navItems.map((item) => {
                   const isActive = activeSection === item.id;
                   return (
                     <button
                       key={item.id}
                       onClick={() => setActiveSection(item.id)}
-                      className={`flex w-full items-center gap-2 px-3.5 py-2 rounded-md text-xs sm:text-sm font-medium transition-all duration-200 whitespace-nowrap border ${
+                      className={`flex min-h-[3rem] w-full items-start gap-2 px-3.5 py-2 rounded-md text-left text-xs sm:text-sm font-medium leading-snug transition-all duration-200 border ${
                         isActive
                           ? 'bg-gradient-to-r from-fuchsia-600 to-indigo-600 text-white border-fuchsia-400/30 shadow-lg shadow-indigo-900/20'
                           : 'text-slate-400 border-white/10 hover:text-white hover:bg-white/5 hover:border-white/20'
                       }`}
                     >
-                      {item.icon}
-                      <span>{item.label}</span>
+                      <span className="mt-0.5 shrink-0">{item.icon}</span>
+                      <span className="min-w-0 break-words whitespace-normal">{item.label}</span>
                     </button>
                   );
                 })}
@@ -284,7 +287,7 @@ const App = () => {
               </div>
 
               {/* 1. Interests */}
-              <SectionCard id="interests" title="Interests Exercise" icon={<Target size={24} />}>
+              <SectionCard id="interests" title="Interests Exercise" icon={<Target size={24} />} isActive={activeSection === 'interests'}>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <InputGroup label="Rank 1 Interest Code" value={formData.interests.rank1} onChange={(v) => handleChange('interests', 'rank1', v)} placeholder="E.g., R" />
                   <InputGroup label="Rank 2 Interest Code" value={formData.interests.rank2} onChange={(v) => handleChange('interests', 'rank2', v)} placeholder="E.g., I" />
@@ -307,7 +310,7 @@ const App = () => {
               </SectionCard>
 
               {/* 2. Abilities */}
-              <SectionCard id="abilities" title="Abilities Exercise" icon={<BrainCircuit size={24} />}>
+              <SectionCard id="abilities" title="Abilities Exercise" icon={<BrainCircuit size={24} />} isActive={activeSection === 'abilities'}>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <InputGroup label="Rank 1 Ability" value={formData.abilities.rank1} onChange={(v) => handleChange('abilities', 'rank1', v)} />
                   <InputGroup label="Rank 2 Ability" value={formData.abilities.rank2} onChange={(v) => handleChange('abilities', 'rank2', v)} />
@@ -330,7 +333,7 @@ const App = () => {
               </SectionCard>
 
               {/* 3. Work Values */}
-              <SectionCard id="workValues" title="Work Values Quiz" icon={<HeartHandshake size={24} />}>
+              <SectionCard id="workValues" title="Work Values Quiz" icon={<HeartHandshake size={24} />} isActive={activeSection === 'workValues'}>
                 <InputGroup 
                   type="textarea" rows={6} label="What are the 5 work values that you selected as being the most important to you?" 
                   value={formData.workValues.top5} onChange={(v) => handleChange('workValues', 'top5', v)} 
@@ -339,7 +342,7 @@ const App = () => {
               </SectionCard>
 
               {/* 4. Multiple Intelligences */}
-              <SectionCard id="intelligences" title="Multiple Intelligences Quiz" icon={<Lightbulb size={24} />}>
+              <SectionCard id="intelligences" title="Multiple Intelligences Quiz" icon={<Lightbulb size={24} />} isActive={activeSection === 'intelligences'}>
                 <div className="space-y-2">
                   <p className="text-sm text-white font-bold mb-4">List and describe your top 3 Multiple Intelligences:</p>
                   <InputGroup label="Intelligence #1" value={formData.intelligences.intel1} onChange={(v) => handleChange('intelligences', 'intel1', v)} />
@@ -359,7 +362,7 @@ const App = () => {
               </SectionCard>
 
               {/* 5. Experiences */}
-              <SectionCard id="experiences" title="Identify Your Experiences" icon={<Briefcase size={24} />}>
+              <SectionCard id="experiences" title="Identify Your Experiences" icon={<Briefcase size={24} />} isActive={activeSection === 'experiences'}>
                 <div className="p-4 bg-[#111322] border-l-2 border-[#E8437D] rounded-r-xl mb-8">
                   <p className="text-[#9AA0B8] text-sm">
                     <strong className="text-white">Note:</strong> Provide responses here. You can type "na" on the ALIS website to quickly progress forward.
@@ -392,7 +395,7 @@ const App = () => {
               </SectionCard>
 
               {/* 6. Skills */}
-              <SectionCard id="skills" title="Skills Quiz" icon={<Award size={24} />}>
+              <SectionCard id="skills" title="Skills Quiz" icon={<Award size={24} />} isActive={activeSection === 'skills'}>
                 <InputGroup 
                   type="textarea" label="How would you describe the difference between a skill and an ability?" 
                   value={formData.skills.difference} onChange={(v) => handleChange('skills', 'difference', v)} 
@@ -408,7 +411,7 @@ const App = () => {
               </SectionCard>
 
               {/* 7. Traits */}
-              <SectionCard id="traits" title="Traits Quiz" icon={<UserPlus size={24} />}>
+              <SectionCard id="traits" title="Traits Quiz" icon={<UserPlus size={24} />} isActive={activeSection === 'traits'}>
                 <InputGroup 
                   type="textarea" label="What are traits?" 
                   value={formData.traits.definition} onChange={(v) => handleChange('traits', 'definition', v)} 
@@ -424,7 +427,7 @@ const App = () => {
               </SectionCard>
 
               {/* 8. Working Conditions */}
-              <SectionCard id="conditions" title="Preferred Working Conditions Quiz" icon={<Settings size={24} />}>
+              <SectionCard id="conditions" title="Preferred Working Conditions Quiz" icon={<Settings size={24} />} isActive={activeSection === 'conditions'}>
                 <InputGroup 
                   type="textarea" rows={6} label="What are the 5 working conditions that are most important to you?" 
                   value={formData.conditions.top5} onChange={(v) => handleChange('conditions', 'top5', v)} 

@@ -1,66 +1,78 @@
-```markdown
-# Design System Specification: Digital Forensic Intelligence
+# Design System Specification: The Creative Atelier
 
 ## 1. Overview & Creative North Star
-The Creative North Star for this design system is **"The Silent Observer."** 
+**Creative North Star: "The Curated Studio"**
+This design system moves away from the sterile, "app-like" interfaces of modern SaaS and instead embraces the tactile, imperfect beauty of a physical artist's studio. We are not building a grid of data; we are composing a canvas. 
 
-Unlike consumer applications that shout for attention, this system embodies the cold, clinical precision of a high-tech forensic lab. It rejects "standard" UI templates in favor of a sophisticated, layered environment that feels like a tactical heads-up display (HUD). We achieve this through **Intentional Asymmetry**—where data-heavy sidebars contrast with expansive, breathing canvases—and **Tonal Depth**, replacing traditional lines with shifted light and texture. The goal is to make the investigator feel they are peering into a digital microscope: every pixel is evidence; every interaction is an extraction.
+The system breaks the "template" look by using **intentional asymmetry**, **overlapping layers**, and a **high-contrast typographic scale**. We treat the screen as a series of stacked watercolor papers and canvases. Elements should feel like they were placed by hand, using organic shapes and soft transitions rather than rigid, boxed-in containers.
 
-## 2. Color & Atmospheric Surface Strategy
-The palette is built on a foundation of obsidian and deep mineral tones, punctuated by high-alert primary accents.
+---
 
-### Surface Hierarchy & The "No-Line" Rule
-To achieve a premium, editorial feel, **1px solid borders are strictly prohibited** for sectioning. Boundaries must be defined through background color shifts or subtle tonal transitions.
+## 2. Colors & Surface Philosophy
+The palette is rooted in traditional pigments—Cadmium Red (`primary`), Ultramarine (`secondary`), and Ochre (`tertiary`).
 
-*   **The Foundation:** Use `surface` (#131314) for the main application background.
-*   **The Nesting Principle:** Use the `surface-container` tiers to create hierarchy. A `surface-container-low` (#1c1b1c) sidebar should sit on the `surface` background. Inside that sidebar, individual modules or cards should use `surface-container-highest` (#353436). This creates "natural" containment without the visual clutter of lines.
-*   **The Glass & Gradient Rule:** For floating panels (like command palettes or evidence previews), use `surface-container-low` with a 70% opacity and a `20px` backdrop-blur. 
-*   **Signature Textures:** Main CTAs or active data streams should utilize a subtle linear gradient from `primary` (#ffb4a9) to `primary_container` (#7e3b32) at a 135-degree angle to provide a "pulsing" tactical energy.
+### The "No-Line" Rule
+Standard 1px solid borders are strictly prohibited for sectioning. We define boundaries through **Tonal Transitions**. To separate a sidebar or a new content section, shift the background color from `surface` to `surface-container-low` or `surface-container-highest`. This creates a sophisticated, "wash" effect similar to a watercolor background.
 
-## 3. Typography: Technical Authority
-We pair high-contrast scales to differentiate between "System Intelligence" and "Human Interface."
+### Surface Hierarchy & Nesting
+Treat the UI as physical layers of paper.
+*   **Base:** `surface` (#fffcf7) acts as your raw canvas.
+*   **The Inset:** Use `surface-container-low` for large, recessed areas like a course curriculum list.
+*   **The Lift:** Use `surface-container-highest` for active cards or floating panels. 
+By nesting `surface-container-lowest` within a `surface-container` section, you create a natural visual lift that feels architectural rather than digital.
 
-*   **Display & Headlines (Space Grotesk):** Use for high-level telemetry and section titles. The wide apertures and geometric forms convey a futuristic, high-tech authority.
-    *   *Headline-LG:* 2rem. Use sparingly for dashboard headers.
-*   **Body & Titles (Inter):** Use for narrative reports and user-generated notes. Inter provides the legibility required for long-form analysis.
-*   **Labels & Technical Data (Monospace Fallback):** While the system defaults to Space Grotesk for labels, all raw forensic data (hashes, hex codes, timestamps) must be rendered in a monospace font to ensure character alignment and a "terminal" aesthetic.
-*   **The Weight Ratio:** Maintain high contrast between `title-lg` (Inter, Semibold) and `label-sm` (Space Grotesk, Medium).
+### The "Glass & Soul" Rule
+To add professional polish, utilize **Glassmorphism** for navigation bars and floating action menus. Use a semi-transparent `surface` color with a `backdrop-filter: blur(12px)`. For main CTAs, do not use flat fills; use a subtle gradient transitioning from `primary` (#c0281f) to `primary-container` (#ffaca0) at a 45-degree angle to mimic the way wet oil paint catches the light.
+
+---
+
+## 3. Typography
+The typography scale relies on the tension between the modern, expressive **Epilogue** and the editorial, literary **Newsreader**.
+
+*   **Display & Headlines (Epilogue):** Used for "The Artist's Voice." These should be bold, slightly oversized, and often use tighter letter-spacing. Use `display-lg` for hero statements to command the page.
+*   **Body & Titles (Newsreader):** Used for "The Instructor’s Guidance." This serif provides high legibility and a sense of history. 
+*   **The Accent Rule:** Small labels (`label-md`) should often be set in `tertiary` (#925600) to act as "hand-written" annotations on the page.
+
+---
 
 ## 4. Elevation & Depth
-In this design system, depth is a function of light, not physics.
+In this system, depth is organic, not mathematical.
 
-*   **Tonal Layering:** Avoid shadows for static elements. Instead, "stack" your tokens: Place a `surface-container-lowest` card onto a `surface-container-low` section. The slight darkness creates a recessed, "etched" look into the UI.
-*   **Ambient Shadows:** For high-level modals, use an extra-diffused shadow: `0px 24px 48px rgba(0, 0, 0, 0.4)`. The shadow must never be neutral grey; it should be a tinted version of `surface_container_lowest`.
-*   **The "Ghost Border" Fallback:** If a container requires a border for accessibility (e.g., an input field), use `outline-variant` at **15% opacity**. This creates a "scanned-effect" edge that feels like a laser guide rather than a box.
-*   **Tactical Grids:** Overlay a subtle 20px dot grid or a 1px scanline pattern (opacity 3%) over `surface-container-lowest` backgrounds to reinforce the "Digital Investigation" theme.
+*   **Tonal Layering:** Avoid shadows where background shifts can do the work. A `surface-container-high` card on a `surface` background provides enough contrast for a "soft lift."
+*   **Ambient Shadows:** When an element must float (e.g., a modal or a floating video player), use an extra-diffused shadow: `box-shadow: 0 20px 40px rgba(55, 56, 49, 0.06)`. Note the color: we use a tint of `on-surface` (#373831), never pure black.
+*   **The Ghost Border:** If accessibility requires a border, use `outline-variant` at 15% opacity. It should be felt, not seen.
+*   **Organic Shapes:** Apply `roundedness.xl` (1.5rem) to most containers, but occasionally break the symmetry by using a custom `border-radius` (e.g., `60% 40% 30% 70% / 60% 30% 70% 40%`) to mimic a hand-drawn brushstroke or a palette shape.
 
-## 5. Component Logic
+---
 
-### Buttons & CTAs
-*   **Primary:** A solid block of `primary` (#ffb4a9) with `on-primary` (#571d16) text. Shape: `sm` (0.125rem) radius for a sharp, tactical edge.
-*   **Secondary:** `surface-container-highest` background with a `Ghost Border` of `primary`.
-*   **Tertiary:** Ghost button using `on-surface-variant` text. High-contrast hover state using `primary_fixed`.
+## 5. Components
 
-### Input Fields & Forensic Data
-*   **Inputs:** Background must be `surface-container-lowest`. No bottom line; only a "Ghost Border" on all sides. Use `label-sm` for floating labels.
-*   **Selection Chips:** Use `secondary-container` (#4c463e) with `on-secondary-container` (#bdb4aa) text. For "Critical Evidence" chips, use `error_container` with `on_error_container`.
+### Buttons
+*   **Primary:** A gradient fill (Primary to Primary-Container) with `roundedness.full`. On hover, increase the "glow" by shifting the shadow opacity.
+*   **Secondary:** No fill. Use a "Ghost Border" and `secondary` (#5456c9) text.
+*   **Tertiary:** No border or fill. Use `Newsreader` italic for a "sketchbook note" feel.
 
-### Evidence Cards & Lists
-*   **The No-Divider Rule:** Forbid the use of divider lines in lists. Use `0.6rem` (Spacing 3) of vertical whitespace or a subtle background shift (alternating `surface-container-low` and `surface-container-lowest`) to separate data rows.
-*   **Tactical Iconography:** Use 1.5px stroke-weight icons. Icons should be enclosed in a `surface-variant` square with a `0.125rem` radius to mimic a "scanned" asset.
+### Cards & Lists
+*   **The "No Divider" Rule:** Do not use horizontal lines to separate list items. Use 24px of vertical white space or a 4px left-accent bar in `tertiary-fixed`.
+*   **Canvas Cards:** Cards use `surface-container-low` with a subtle `outline-variant` ghost border. They should never have hard corners.
 
-### Tooltips
-*   Use `inverse-surface` with `inverse-on-surface` text. Apply a `0px` radius (square corners) to emphasize the technical, non-consumer nature of the application.
+### Input Fields
+*   **Text Inputs:** Use `surface-container-lowest` with a bottom-only border of 2px in `outline-variant`. When focused, the border transforms into a "brushstroke" (a slight thickness variation) in `primary`.
 
-## 6. Do's and Don'ts
+### Featured Component: The "Palette Selection" (Chips)
+*   Instead of standard rectangles, selection chips should be organic, "blob" shapes. Selected states use `secondary-container` with `on-secondary-container` text, feeling like a dab of fresh paint on the interface.
+
+---
+
+## 6. Do's & Don'ts
 
 ### Do
-*   **Do** use asymmetrical layouts (e.g., an 8-column main view paired with a 3-column detail pane).
-*   **Do** lean into "monochromatic" sections, using only `primary` for the most critical points of interest (POI).
-*   **Do** use `0.2rem` (Spacing 1) for tight technical data clusters and `3.5rem` (Spacing 16) for major section breathing room.
+*   **Do** allow elements to overlap. A heading can slightly bleed into an image container to create depth.
+*   **Do** use asymmetrical margins. If the left margin is 80px, try making the right margin 120px to break the "web-template" feel.
+*   **Do** use `tertiary` (#925600) for icons and small decorative elements to keep the "studio" warmth.
 
 ### Don't
-*   **Don't** use rounded corners larger than `0.375rem` (md). High-tech forensics requires precision; excessive roundness feels too "soft."
-*   **Don't** use standard blue for links. Use `primary` or `tertiary_fixed` for all interactive triggers.
-*   **Don't** use 100% opaque white (#FFFFFF). Always use `on_surface` (#e5e2e3) to reduce eye strain in dark-room forensic environments.
-*   **Don't** use drop shadows on buttons. Use color-fills or "Ghost Borders" to indicate state.
+*   **Don't** use 100% black. Use `on-surface` (#373831) for all "black" text to maintain the charcoal feel.
+*   **Don't** use sharp 90-degree corners. Everything in art has a soft edge; our UI should too.
+*   **Don't** use "Drop Shadows" on buttons. Use tonal shifts or ambient blurs. 
+*   **Don't** clutter the "Canvas." If a screen feels busy, increase the background `surface` area. Space is as important as the paint.

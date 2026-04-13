@@ -1,0 +1,100 @@
+# D2L Course Map
+
+- Project: art
+- Generated: 2026-04-09T20:39:36.005Z
+- Manifest: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\art\imsmanifest.xml
+- Course title: art
+
+## Summary
+- Modules: 3
+- Items: 83
+- Lessons: 0
+- Assignments: 0
+- Quizzes: 0
+- PDFs: 0
+- HTML pages: 79
+
+## Structure
+- [module] Art 10
+  - [html] Lesson 1 -> ccres0000002/ccres0000002.html
+  - [html] Sketchbook for Lesson 1 -> ccres0000005/ccres0000005.html
+  - [html] Lesson 2 -> ccres0000009/ccres0000009.html
+  - [html] Sketchbook Lesson 2 -> ccres0000014/ccres0000014.html
+  - [html] Completed Drawing -> ccres0000017/ccres0000017.html
+  - [html] Lesson 3 -> ccres0000020/ccres0000020.html
+  - [html] Sketchbook Pages for Lesson 3 -> ccres0000024/ccres0000024.html
+  - [html] Lesson 4 -> ccres0000026/ccres0000026.html
+  - [html] Sketchbook activity for Lesson 4 -> ccres0000030/ccres0000030.html
+  - [html] Lesson 5 -> ccres0000032/ccres0000032.html
+  - [html] Sketchbook Tasks for Lesson 5 -> ccres0000035/ccres0000035.html
+  - [html] Completed Image -> ccres0000037/ccres0000037.html
+  - [html] Lesson 6 -> ccres0000040/ccres0000040.html
+  - [html] Sketchbook Tasks for Lesson 6 -> ccres0000045/ccres0000045.html
+  - [html] Lesson 7 -> ccres0000047/ccres0000047.html
+  - [html] Sketchbook for Lesson 7 -> ccres0000051/ccres0000051.html
+  - [html] Lesson 8 -> ccres0000053/ccres0000053.html
+  - [html] Sketchbook for Lesson 8 -> ccres0000057/ccres0000057.html
+  - [html] Lesson 9 -> ccres0000058/ccres0000058.html
+  - [html] Sketchbook activity for Lesson 9 -> ccres0000061/ccres0000061.html
+  - [html] Lesson 10 -> ccres0000063/ccres0000063.html
+  - [html] Sketchbook - just kidding this is a Sculpture ;) -> ccres0000064/ccres0000064.html
+  - [html] Personal Image -> ccres0000067/ccres0000067.html
+  - [folder] Addition Possible Activities
+    - [html] Sketchbook: Pop Art -> ccres0000003/ccres0000003.html
+    - [html] Sketchbook: Pointillism -> ccres0000006/ccres0000006.html
+    - [html] Sketchbook: Mandela's -> ccres0000010/ccres0000010.html
+    - [html] Sketchbook: Mosaic -> ccres0000015/ccres0000015.html
+  - [html] A Sketchbook Survival Guide for Artists Who Don’t Know What to Draw -> ccres0000070/ccres0000070.html
+  - [html] Sketchbook Rubric -> ccres0000073/ccres0000073.html
+- [module] Art 20
+  - [html] The basics -> ccres0000007/ccres0000007.html
+  - [html] Lesson 1: Personal Vision & Artistic Identity -> ccres0000008/ccres0000008.html
+  - [html] Sketchbook 1 -> ccres0000013/ccres0000013.html
+  - [html] Lesson 2: Advanced Drawing & Personal Mark-Making -> ccres0000018/ccres0000018.html
+  - [html] Sketchbook 2 -> ccres0000021/ccres0000021.html
+  - [html] Lesson 3: Composition as Meaning -> ccres0000023/ccres0000023.html
+  - [html] Sketchbook 3 -> ccres0000027/ccres0000027.html
+  - [html] Lesson 4: Color, Emotion and Symbolism -> ccres0000029/ccres0000029.html
+  - [html] Sketchbook 4 -> ccres0000033/ccres0000033.html
+  - [html] Lesson 5: Personal Narrative & Visual Storytelling -> ccres0000034/ccres0000034.html
+  - [html] Sketchbook 5 -> ccres0000038/ccres0000038.html
+  - [html] Lesson 6: Social, Political & Cultural Commentary -> ccres0000041/ccres0000041.html
+  - [html] Sketchbook 6 -> ccres0000043/ccres0000043.html
+  - [html] Lesson 7: Experimental Media & Material Meaning -> ccres0000048/ccres0000048.html
+  - [html] Sketchbook 7 -> ccres0000050/ccres0000050.html
+  - [html] Lesson 8: Art Movements & Influence -> ccres0000054/ccres0000054.html
+  - [html] Sketchbook 8 -> ccres0000056/ccres0000056.html
+- [module] Art 30
+  - [html] Art 30 -> ccres0000001/ccres0000001.html
+  - [html] Everything You Need to Know -> ccres0000004/ccres0000004.html
+  - [html] Welcome to Art 30 -> ccres0000011/ccres0000011.html
+  - [html] Sketchbook -> ccres0000012/ccres0000012.html
+  - [html] Art 30 Portfolio Requirement -> ccres0000016/ccres0000016.html
+  - [html] Final Portfolio Submission Checklist -> ccres0000019/ccres0000019.html
+  - [html] Creating an Historical Work -> ccres0000022/ccres0000022.html
+  - [html] Historical Work -> ccres0000025/ccres0000025.html
+  - [html] Artist Influence -> ccres0000028/ccres0000028.html
+  - [html] How to Research an Artist -> ccres0000031/ccres0000031.html
+  - [html] Stylistic Analysis -> ccres0000036/ccres0000036.html
+  - [html] Translating Influence into New Ideas -> ccres0000039/ccres0000039.html
+  - [html] Planning your Historical Artwork -> ccres0000042/ccres0000042.html
+  - [html] Sketchbook for Historical Artwork -> ccres0000044/ccres0000044.html
+  - [html] Final Product for Historical Artwork -> ccres0000046/ccres0000046.html
+  - [html] Creating using an Theme -> ccres0000049/ccres0000049.html
+  - [html] Creating a Series -> ccres0000052/ccres0000052.html
+  - [html] How to make a Series Cohesive -> ccres0000055/ccres0000055.html
+  - [html] Technique Focus -> ccres0000059/ccres0000059.html
+  - [html] Choosing a theme -> ccres0000060/ccres0000060.html
+  - [html] Breaking it down - Steps to creating your theme -> ccres0000062/ccres0000062.html
+  - [html] Sketchbook Thematic works -> ccres0000065/ccres0000065.html
+  - [html] Art Critique -> ccres0000066/ccres0000066.html
+  - [html] Critical Statement / Artist Critique -> ccres0000068/ccres0000068.html
+  - [html] Critique & Professional Comparison -> ccres0000069/ccres0000069.html
+  - [html] Sketchbook Critique Prep -> ccres0000071/ccres0000071.html
+  - [html] Personal or Contemporary Piece -> ccres0000072/ccres0000072.html
+  - [html] Creating an Artwork Based on Personal Experience or Contemporary Culture -> ccres0000074/ccres0000074.html
+  - [html] Sketchbook Personal / Contemporary Piece -> ccres0000075/ccres0000075.html
+  - [html] Portfolio -> ccres0000076/ccres0000076.html
+  - [html] Refinement & Exhibition Planning -> ccres0000077/ccres0000077.html
+  - [html] Sketchbook Process photos and hints -> ccres0000078/ccres0000078.html
+  - [html] Final Assignment -> ccres0000079/ccres0000079.html

@@ -22273,7 +22273,37 @@
       return null;
     }
   };
-  var App = () => {
+  var InputGroup = ({ label, value, onChange, placeholder, type = "text", rows = 3 }) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mb-8", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { className: "block text-[11px] font-extrabold uppercase tracking-widest text-[#9AA0B8] mb-3", children: label }),
+    type === "textarea" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+      "textarea",
+      {
+        value,
+        onChange: (e) => onChange(e.target.value),
+        placeholder: placeholder || "Your thoughts...",
+        rows,
+        className: "w-full bg-[#111322] border border-[#2A2D4A] rounded-xl p-4 text-white placeholder-[#4A4D6A] focus:outline-none focus:border-[#E8437D] transition-colors resize-y shadow-sm"
+      }
+    ) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+      "input",
+      {
+        type,
+        value,
+        onChange: (e) => onChange(e.target.value),
+        placeholder: placeholder || "Enter value...",
+        className: "w-full bg-[#111322] border border-[#2A2D4A] rounded-xl p-4 text-white placeholder-[#4A4D6A] focus:outline-none focus:border-[#E8437D] transition-colors shadow-sm"
+      }
+    )
+  ] });
+  var SectionCard = ({ id, title, icon, isActive, children }) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { id, className: `transition-opacity duration-300 ${isActive ? "block" : "hidden"}`, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "bg-[#1A1D36] rounded-2xl p-8 relative overflow-hidden border border-[#2A2D4A]", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-[#E8437D] to-[#8B5CF6]" }),
+    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex items-center gap-3 mb-8", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "p-2.5 bg-[#E8437D]/10 text-[#E8437D] rounded-full ring-1 ring-[#E8437D]/30", children: icon }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "text-2xl font-extrabold text-white tracking-tight", children: title })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "space-y-6", children })
+  ] }) });
+  var App = ({ onGenerateReport }) => {
     const [formData, setFormData] = (0, import_react3.useState)(() => {
       const saved = loadSavedCareerPlannerState();
       const savedFormData = saved?.formData;
@@ -22318,6 +22348,10 @@
       }));
     };
     const handlePrint = () => {
+      if (typeof onGenerateReport === "function") {
+        onGenerateReport();
+        return;
+      }
       window.print();
     };
     const navItems = [
@@ -22333,36 +22367,6 @@
     ];
     const activeIndex = navItems.findIndex((item) => item.id === activeSection);
     const progressPercentage = Math.max(5, Math.round(activeIndex / (navItems.length - 1) * 100));
-    const InputGroup2 = ({ label, value, onChange, placeholder, type = "text", rows = 3 }) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mb-8", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { className: "block text-[11px] font-extrabold uppercase tracking-widest text-[#9AA0B8] mb-3", children: label }),
-      type === "textarea" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-        "textarea",
-        {
-          value,
-          onChange: (e) => onChange(e.target.value),
-          placeholder: placeholder || "Your thoughts...",
-          rows,
-          className: "w-full bg-[#111322] border border-[#2A2D4A] rounded-xl p-4 text-white placeholder-[#4A4D6A] focus:outline-none focus:border-[#E8437D] transition-colors resize-y shadow-sm"
-        }
-      ) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-        "input",
-        {
-          type,
-          value,
-          onChange: (e) => onChange(e.target.value),
-          placeholder: placeholder || "Enter value...",
-          className: "w-full bg-[#111322] border border-[#2A2D4A] rounded-xl p-4 text-white placeholder-[#4A4D6A] focus:outline-none focus:border-[#E8437D] transition-colors shadow-sm"
-        }
-      )
-    ] });
-    const SectionCard = ({ id, title, icon, children }) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { id, className: `transition-opacity duration-300 ${activeSection === id ? "block" : "hidden"}`, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "bg-[#1A1D36] rounded-2xl p-8 relative overflow-hidden border border-[#2A2D4A]", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-[#E8437D] to-[#8B5CF6]" }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex items-center gap-3 mb-8", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "p-2.5 bg-[#E8437D]/10 text-[#E8437D] rounded-full ring-1 ring-[#E8437D]/30", children: icon }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "text-2xl font-extrabold text-white tracking-tight", children: title })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "space-y-6", children })
-    ] }) });
     return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "min-h-screen flex flex-col bg-[#090A10] text-slate-200 font-sans selection:bg-[#E8437D]/30", children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("style", { dangerouslySetInnerHTML: { __html: `
         @media print {
@@ -22379,7 +22383,7 @@
         }
       ` } }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("nav", { className: "no-print border-b border-white/10 bg-white/5 backdrop-blur-md overflow-visible transition-all duration-300", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "w-full px-4 sm:px-6 lg:px-8", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex items-center justify-between gap-4 h-16", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex flex-col gap-4 py-4 xl:flex-row xl:items-center xl:justify-between", children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex items-center gap-3 min-w-0", children: [
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "p-2 bg-gradient-to-br from-fuchsia-600 to-indigo-600 rounded-lg shadow-lg shadow-fuchsia-900/20", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LayoutDashboard, { className: "w-5 h-5 text-white" }) }),
             /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "min-w-0", children: [
@@ -22387,17 +22391,17 @@
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "hidden sm:block text-[10px] font-bold uppercase tracking-[0.32em] text-slate-500", children: "Career & Portfolio" })
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex items-center gap-2 sm:gap-3", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "hidden md:flex items-center gap-4 bg-[#131526] px-4 py-2 rounded-full border border-[#2A2D4A] shadow-inner", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex w-full flex-wrap items-center gap-2 sm:gap-3 xl:w-auto xl:justify-end", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex min-w-[12rem] flex-1 items-center gap-4 bg-[#131526] px-4 py-2 rounded-full border border-[#2A2D4A] shadow-inner sm:flex-none", children: [
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "text-[10px] font-extrabold text-[#9AA0B8] uppercase tracking-widest", children: "Progress" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-24 h-1.5 bg-[#2A2D4A] rounded-full overflow-hidden", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "h-1.5 flex-1 bg-[#2A2D4A] rounded-full overflow-hidden", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
                 "div",
                 {
                   className: "h-full bg-gradient-to-r from-[#E8437D] to-[#8B5CF6] transition-all duration-500 ease-out",
                   style: { width: `${progressPercentage}%` }
                 }
               ) }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { className: "text-[10px] font-extrabold text-white w-6", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { className: "text-[10px] font-extrabold text-white shrink-0 w-8 text-right", children: [
                 progressPercentage,
                 "%"
               ] })
@@ -22406,7 +22410,7 @@
               "button",
               {
                 onClick: handlePrint,
-                className: "flex items-center gap-2 bg-gradient-to-r from-pink-600 to-fuchsia-600 hover:from-pink-500 hover:to-fuchsia-500 border border-pink-400/30 transition-all duration-300 px-4 sm:px-5 py-2.5 rounded-lg text-xs font-bold text-white tracking-widest uppercase shadow-[0_0_15px_rgba(236,72,153,0.28)] hover:shadow-[0_0_22px_rgba(236,72,153,0.45)] transform hover:-translate-y-0.5",
+                className: "inline-flex shrink-0 items-center justify-center gap-2 bg-gradient-to-r from-pink-600 to-fuchsia-600 hover:from-pink-500 hover:to-fuchsia-500 border border-pink-400/30 transition-all duration-300 px-4 sm:px-5 py-2.5 rounded-lg text-xs font-bold text-white tracking-widest uppercase whitespace-nowrap shadow-[0_0_15px_rgba(236,72,153,0.28)] hover:shadow-[0_0_22px_rgba(236,72,153,0.45)] transform hover:-translate-y-0.5",
                 children: [
                   /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Printer, { size: 14 }),
                   /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "hidden sm:inline", children: "Generate Report" })
@@ -22415,18 +22419,18 @@
             )
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "border-t border-white/10", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex items-start gap-3 py-3", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "border-t border-white/10", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex flex-col gap-3 py-3 lg:flex-row lg:items-start", children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "hidden sm:inline-flex text-[10px] font-extrabold uppercase tracking-[0.35em] text-slate-500 shrink-0 pr-2 pt-2", children: "Topics" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "grid flex-1 min-w-0 grid-cols-[repeat(auto-fit,minmax(10rem,1fr))] gap-2", children: navItems.map((item) => {
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "grid flex-1 min-w-0 grid-cols-[repeat(auto-fit,minmax(8.75rem,1fr))] gap-2", children: navItems.map((item) => {
             const isActive = activeSection === item.id;
             return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
               "button",
               {
                 onClick: () => setActiveSection(item.id),
-                className: `flex w-full items-center gap-2 px-3.5 py-2 rounded-md text-xs sm:text-sm font-medium transition-all duration-200 whitespace-nowrap border ${isActive ? "bg-gradient-to-r from-fuchsia-600 to-indigo-600 text-white border-fuchsia-400/30 shadow-lg shadow-indigo-900/20" : "text-slate-400 border-white/10 hover:text-white hover:bg-white/5 hover:border-white/20"}`,
+                className: `flex min-h-[3rem] w-full items-start gap-2 px-3.5 py-2 rounded-md text-left text-xs sm:text-sm font-medium leading-snug transition-all duration-200 border ${isActive ? "bg-gradient-to-r from-fuchsia-600 to-indigo-600 text-white border-fuchsia-400/30 shadow-lg shadow-indigo-900/20" : "text-slate-400 border-white/10 hover:text-white hover:bg-white/5 hover:border-white/20"}`,
                 children: [
-                  item.icon,
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: item.label })
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "mt-0.5 shrink-0", children: item.icon }),
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "min-w-0 break-words whitespace-normal", children: item.label })
                 ]
               },
               item.id
@@ -22467,20 +22471,20 @@
             ] })
           ] })
         ] }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(SectionCard, { id: "interests", title: "Interests Exercise", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Target, { size: 24 }), children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(SectionCard, { id: "interests", title: "Interests Exercise", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Target, { size: 24 }), isActive: activeSection === "interests", children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-6", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { label: "Rank 1 Interest Code", value: formData.interests.rank1, onChange: (v) => handleChange("interests", "rank1", v), placeholder: "E.g., R" }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { label: "Rank 2 Interest Code", value: formData.interests.rank2, onChange: (v) => handleChange("interests", "rank2", v), placeholder: "E.g., I" }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { label: "Rank 3 Interest Code", value: formData.interests.rank3, onChange: (v) => handleChange("interests", "rank3", v), placeholder: "E.g., A" })
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup, { label: "Rank 1 Interest Code", value: formData.interests.rank1, onChange: (v) => handleChange("interests", "rank1", v), placeholder: "E.g., R" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup, { label: "Rank 2 Interest Code", value: formData.interests.rank2, onChange: (v) => handleChange("interests", "rank2", v), placeholder: "E.g., I" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup, { label: "Rank 3 Interest Code", value: formData.interests.rank3, onChange: (v) => handleChange("interests", "rank3", v), placeholder: "E.g., A" })
           ] }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-2 mt-4", children: [
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-sm text-white font-bold mb-4", children: "Brief description of your interest codes:" }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { label: "Code 1 Description", value: formData.interests.desc1, onChange: (v) => handleChange("interests", "desc1", v) }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { label: "Code 2 Description", value: formData.interests.desc2, onChange: (v) => handleChange("interests", "desc2", v) }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { label: "Code 3 Description", value: formData.interests.desc3, onChange: (v) => handleChange("interests", "desc3", v) })
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup, { label: "Code 1 Description", value: formData.interests.desc1, onChange: (v) => handleChange("interests", "desc1", v) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup, { label: "Code 2 Description", value: formData.interests.desc2, onChange: (v) => handleChange("interests", "desc2", v) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup, { label: "Code 3 Description", value: formData.interests.desc3, onChange: (v) => handleChange("interests", "desc3", v) })
           ] }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            InputGroup2,
+            InputGroup,
             {
               type: "textarea",
               label: "Do these descriptions sound like a good summary of YOUR interests? Add or take away anything?",
@@ -22489,7 +22493,7 @@
             }
           ),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            InputGroup2,
+            InputGroup,
             {
               type: "textarea",
               label: "List three matching occupations that stand out to you:",
@@ -22498,20 +22502,20 @@
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(SectionCard, { id: "abilities", title: "Abilities Exercise", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BrainCircuit, { size: 24 }), children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(SectionCard, { id: "abilities", title: "Abilities Exercise", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BrainCircuit, { size: 24 }), isActive: activeSection === "abilities", children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-6", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { label: "Rank 1 Ability", value: formData.abilities.rank1, onChange: (v) => handleChange("abilities", "rank1", v) }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { label: "Rank 2 Ability", value: formData.abilities.rank2, onChange: (v) => handleChange("abilities", "rank2", v) }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { label: "Rank 3 Ability", value: formData.abilities.rank3, onChange: (v) => handleChange("abilities", "rank3", v) })
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup, { label: "Rank 1 Ability", value: formData.abilities.rank1, onChange: (v) => handleChange("abilities", "rank1", v) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup, { label: "Rank 2 Ability", value: formData.abilities.rank2, onChange: (v) => handleChange("abilities", "rank2", v) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup, { label: "Rank 3 Ability", value: formData.abilities.rank3, onChange: (v) => handleChange("abilities", "rank3", v) })
           ] }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-2 mt-4", children: [
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-sm text-white font-bold mb-4", children: "Brief description of your top 3 abilities:" }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { label: "Ability 1 Description", value: formData.abilities.desc1, onChange: (v) => handleChange("abilities", "desc1", v) }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { label: "Ability 2 Description", value: formData.abilities.desc2, onChange: (v) => handleChange("abilities", "desc2", v) }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { label: "Ability 3 Description", value: formData.abilities.desc3, onChange: (v) => handleChange("abilities", "desc3", v) })
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup, { label: "Ability 1 Description", value: formData.abilities.desc1, onChange: (v) => handleChange("abilities", "desc1", v) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup, { label: "Ability 2 Description", value: formData.abilities.desc2, onChange: (v) => handleChange("abilities", "desc2", v) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup, { label: "Ability 3 Description", value: formData.abilities.desc3, onChange: (v) => handleChange("abilities", "desc3", v) })
           ] }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            InputGroup2,
+            InputGroup,
             {
               type: "textarea",
               label: "Do you agree with these top three abilities? Explain.",
@@ -22520,7 +22524,7 @@
             }
           ),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            InputGroup2,
+            InputGroup,
             {
               type: "textarea",
               label: "List three NEW matching occupations that stand out to you based on interests & abilities:",
@@ -22529,8 +22533,8 @@
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SectionCard, { id: "workValues", title: "Work Values Quiz", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(HeartHandshake, { size: 24 }), children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-          InputGroup2,
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SectionCard, { id: "workValues", title: "Work Values Quiz", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(HeartHandshake, { size: 24 }), isActive: activeSection === "workValues", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+          InputGroup,
           {
             type: "textarea",
             rows: 6,
@@ -22540,15 +22544,15 @@
             placeholder: "1.\n2.\n3.\n4.\n5."
           }
         ) }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(SectionCard, { id: "intelligences", title: "Multiple Intelligences Quiz", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Lightbulb, { size: 24 }), children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(SectionCard, { id: "intelligences", title: "Multiple Intelligences Quiz", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Lightbulb, { size: 24 }), isActive: activeSection === "intelligences", children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-2", children: [
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-sm text-white font-bold mb-4", children: "List and describe your top 3 Multiple Intelligences:" }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { label: "Intelligence #1", value: formData.intelligences.intel1, onChange: (v) => handleChange("intelligences", "intel1", v) }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { label: "Intelligence #2", value: formData.intelligences.intel2, onChange: (v) => handleChange("intelligences", "intel2", v) }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { label: "Intelligence #3", value: formData.intelligences.intel3, onChange: (v) => handleChange("intelligences", "intel3", v) })
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup, { label: "Intelligence #1", value: formData.intelligences.intel1, onChange: (v) => handleChange("intelligences", "intel1", v) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup, { label: "Intelligence #2", value: formData.intelligences.intel2, onChange: (v) => handleChange("intelligences", "intel2", v) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup, { label: "Intelligence #3", value: formData.intelligences.intel3, onChange: (v) => handleChange("intelligences", "intel3", v) })
           ] }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            InputGroup2,
+            InputGroup,
             {
               type: "textarea",
               label: "Do these Multiple Intelligences sound like you? Anything to add or take away?",
@@ -22562,12 +22566,12 @@
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "text-[#9AA0B8] font-normal text-xs", children: "Include ones you've tried and at least 1 new strategy." })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { type: "textarea", label: "Strategies for Intelligence #1", value: formData.intelligences.strat1, onChange: (v) => handleChange("intelligences", "strat1", v) }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { type: "textarea", label: "Strategies for Intelligence #2", value: formData.intelligences.strat2, onChange: (v) => handleChange("intelligences", "strat2", v) }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { type: "textarea", label: "Strategies for Intelligence #3", value: formData.intelligences.strat3, onChange: (v) => handleChange("intelligences", "strat3", v) })
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup, { type: "textarea", label: "Strategies for Intelligence #1", value: formData.intelligences.strat1, onChange: (v) => handleChange("intelligences", "strat1", v) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup, { type: "textarea", label: "Strategies for Intelligence #2", value: formData.intelligences.strat2, onChange: (v) => handleChange("intelligences", "strat2", v) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup, { type: "textarea", label: "Strategies for Intelligence #3", value: formData.intelligences.strat3, onChange: (v) => handleChange("intelligences", "strat3", v) })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(SectionCard, { id: "experiences", title: "Identify Your Experiences", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Briefcase, { size: 24 }), children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(SectionCard, { id: "experiences", title: "Identify Your Experiences", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Briefcase, { size: 24 }), isActive: activeSection === "experiences", children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "p-4 bg-[#111322] border-l-2 border-[#E8437D] rounded-r-xl mb-8", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { className: "text-[#9AA0B8] text-sm", children: [
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { className: "text-white", children: "Note:" }),
             ' Provide responses here. You can type "na" on the ALIS website to quickly progress forward.'
@@ -22578,20 +22582,20 @@
                 /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "bg-[#2A2D4A] text-white text-xs px-2 py-1 rounded", children: "01" }),
                 "Significant Experience #1"
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { type: "textarea", label: "Describe your experience:", value: formData.experiences.exp1Desc, onChange: (v) => handleChange("experiences", "exp1Desc", v) }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { type: "textarea", label: "Why are you proud of this experience?", value: formData.experiences.exp1Proud, onChange: (v) => handleChange("experiences", "exp1Proud", v) })
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup, { type: "textarea", label: "Describe your experience:", value: formData.experiences.exp1Desc, onChange: (v) => handleChange("experiences", "exp1Desc", v) }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup, { type: "textarea", label: "Why are you proud of this experience?", value: formData.experiences.exp1Proud, onChange: (v) => handleChange("experiences", "exp1Proud", v) })
             ] }),
             /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "pt-8 border-t border-[#2A2D4A]", children: [
               /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h3", { className: "text-lg font-extrabold text-white mb-6 flex items-center gap-3", children: [
                 /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "bg-[#2A2D4A] text-white text-xs px-2 py-1 rounded", children: "02" }),
                 "Significant Experience #2"
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { type: "textarea", label: "Describe your experience:", value: formData.experiences.exp2Desc, onChange: (v) => handleChange("experiences", "exp2Desc", v) }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup2, { type: "textarea", label: "Why are you proud of this experience?", value: formData.experiences.exp2Proud, onChange: (v) => handleChange("experiences", "exp2Proud", v) })
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup, { type: "textarea", label: "Describe your experience:", value: formData.experiences.exp2Desc, onChange: (v) => handleChange("experiences", "exp2Desc", v) }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputGroup, { type: "textarea", label: "Why are you proud of this experience?", value: formData.experiences.exp2Proud, onChange: (v) => handleChange("experiences", "exp2Proud", v) })
             ] })
           ] }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "mt-10 pt-8 border-t border-[#2A2D4A]", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            InputGroup2,
+            InputGroup,
             {
               type: "textarea",
               label: "How do you think these experiences can help you in deciding what kind of career might be right for you?",
@@ -22600,9 +22604,9 @@
             }
           ) })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(SectionCard, { id: "skills", title: "Skills Quiz", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Award, { size: 24 }), children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(SectionCard, { id: "skills", title: "Skills Quiz", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Award, { size: 24 }), isActive: activeSection === "skills", children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            InputGroup2,
+            InputGroup,
             {
               type: "textarea",
               label: "How would you describe the difference between a skill and an ability?",
@@ -22611,7 +22615,7 @@
             }
           ),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            InputGroup2,
+            InputGroup,
             {
               type: "textarea",
               rows: 6,
@@ -22621,7 +22625,7 @@
             }
           ),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            InputGroup2,
+            InputGroup,
             {
               type: "textarea",
               label: "How does knowing and recognizing your top 10 skills help you in deciding what kind of career might be right for you?",
@@ -22630,9 +22634,9 @@
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(SectionCard, { id: "traits", title: "Traits Quiz", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(UserPlus, { size: 24 }), children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(SectionCard, { id: "traits", title: "Traits Quiz", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(UserPlus, { size: 24 }), isActive: activeSection === "traits", children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            InputGroup2,
+            InputGroup,
             {
               type: "textarea",
               label: "What are traits?",
@@ -22641,7 +22645,7 @@
             }
           ),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            InputGroup2,
+            InputGroup,
             {
               type: "textarea",
               rows: 6,
@@ -22651,7 +22655,7 @@
             }
           ),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            InputGroup2,
+            InputGroup,
             {
               type: "textarea",
               label: "How does knowing and recognizing your top 10 traits help you in deciding what kind of career might be right for you?",
@@ -22660,9 +22664,9 @@
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(SectionCard, { id: "conditions", title: "Preferred Working Conditions Quiz", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Settings, { size: 24 }), children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(SectionCard, { id: "conditions", title: "Preferred Working Conditions Quiz", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Settings, { size: 24 }), isActive: activeSection === "conditions", children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            InputGroup2,
+            InputGroup,
             {
               type: "textarea",
               rows: 6,
@@ -22672,7 +22676,7 @@
             }
           ),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            InputGroup2,
+            InputGroup,
             {
               type: "textarea",
               label: "How does knowing and recognizing your top 5 working conditions help you in deciding what kind of career might be right for you?",
@@ -24375,7 +24379,7 @@
       ] }) })
     ] });
   }
-  function InputGroup({ label, placeholder, value, onChange, type = "text", className = "" }) {
+  function InputGroup2({ label, placeholder, value, onChange, type = "text", className = "" }) {
     return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: `flex flex-col ${className}`, children: [
       /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("label", { className: "text-xs font-semibold text-slate-400 mb-1.5", children: label }),
       /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
@@ -24412,13 +24416,13 @@
         /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(User, { className: "w-5 h-5 mr-2 text-blue-400" }),
         " Personal Information"
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "Full Name", placeholder: "Peter Parker", value: data.name, onChange: handleChange("name") }),
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "Address & Postal Code", placeholder: "PO Box 123, Redcliff, AB T0J 2P0", value: data.address, onChange: handleChange("address") }),
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup2, { label: "Full Name", placeholder: "Peter Parker", value: data.name, onChange: handleChange("name") }),
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup2, { label: "Address & Postal Code", placeholder: "PO Box 123, Redcliff, AB T0J 2P0", value: data.address, onChange: handleChange("address") }),
       /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "Home Phone", placeholder: "(780) 555-1234", value: data.homePhone, onChange: handleChange("homePhone") }),
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "Cell Phone", placeholder: "(780) 555-5678", value: data.cellPhone, onChange: handleChange("cellPhone") })
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup2, { label: "Home Phone", placeholder: "(780) 555-1234", value: data.homePhone, onChange: handleChange("homePhone") }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup2, { label: "Cell Phone", placeholder: "(780) 555-5678", value: data.cellPhone, onChange: handleChange("cellPhone") })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "Email Address", type: "email", placeholder: "peter@example.com", value: data.email, onChange: handleChange("email") })
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup2, { label: "Email Address", type: "email", placeholder: "peter@example.com", value: data.email, onChange: handleChange("email") })
     ] });
   }
   function EducationForm({ data, update }) {
@@ -24439,10 +24443,10 @@
       data.map((edu, idx) => /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "p-4 bg-[#0B0E17] border border-white/5 rounded-xl relative group", children: [
         /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { onClick: () => removeEdu(edu.id), className: "absolute top-2 right-2 text-slate-500 hover:text-red-400 transition-colors", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Trash2, { className: "w-4 h-4" }) }),
         /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "space-y-3", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "School Name", placeholder: "Eagle Butte High School", value: edu.school, onChange: (e) => updateEdu(edu.id, "school", e.target.value) }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup2, { label: "School Name", placeholder: "Eagle Butte High School", value: edu.school, onChange: (e) => updateEdu(edu.id, "school", e.target.value) }),
           /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "Course/Major", placeholder: "Completing Grade 10", value: edu.degree, onChange: (e) => updateEdu(edu.id, "degree", e.target.value) }),
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "Year Completed", placeholder: "2006-Present", value: edu.year, onChange: (e) => updateEdu(edu.id, "year", e.target.value) })
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup2, { label: "Course/Major", placeholder: "Completing Grade 10", value: edu.degree, onChange: (e) => updateEdu(edu.id, "degree", e.target.value) }),
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup2, { label: "Year Completed", placeholder: "2006-Present", value: edu.year, onChange: (e) => updateEdu(edu.id, "year", e.target.value) })
           ] })
         ] })
       ] }, edu.id))
@@ -24503,13 +24507,13 @@
       data.map((exp, idx) => /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "p-4 bg-[#0B0E17] border border-white/5 rounded-xl relative group space-y-3", children: [
         /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { onClick: () => removeExp(exp.id), className: "absolute top-2 right-2 text-slate-500 hover:text-red-400", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Trash2, { className: "w-4 h-4" }) }),
         /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "Business Name", placeholder: "Home Depot", value: exp.company, onChange: (e) => updateExp(exp.id, "company", e.target.value) }),
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "Location", placeholder: "Medicine Hat", value: exp.location, onChange: (e) => updateExp(exp.id, "location", e.target.value) })
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup2, { label: "Business Name", placeholder: "Home Depot", value: exp.company, onChange: (e) => updateExp(exp.id, "company", e.target.value) }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup2, { label: "Location", placeholder: "Medicine Hat", value: exp.location, onChange: (e) => updateExp(exp.id, "location", e.target.value) })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "Position", placeholder: "Cashier", value: exp.position, onChange: (e) => updateExp(exp.id, "position", e.target.value) }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup2, { label: "Position", placeholder: "Cashier", value: exp.position, onChange: (e) => updateExp(exp.id, "position", e.target.value) }),
         /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "Start Date", placeholder: "June 2006", value: exp.startDate, onChange: (e) => updateExp(exp.id, "startDate", e.target.value) }),
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "End Date", placeholder: "Present", value: exp.endDate, onChange: (e) => updateExp(exp.id, "endDate", e.target.value) })
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup2, { label: "Start Date", placeholder: "June 2006", value: exp.startDate, onChange: (e) => updateExp(exp.id, "startDate", e.target.value) }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup2, { label: "End Date", placeholder: "Present", value: exp.endDate, onChange: (e) => updateExp(exp.id, "endDate", e.target.value) })
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(TextAreaGroup, { label: "Responsibilities (Tip: Use action words!)", placeholder: "Handled cash sales, provided product information...", value: exp.responsibilities, onChange: (e) => updateExp(exp.id, "responsibilities", e.target.value) })
       ] }, exp.id))
@@ -24533,10 +24537,10 @@
       data.map((vol, idx) => /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "p-4 bg-[#0B0E17] border border-white/5 rounded-xl relative group space-y-3", children: [
         /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { onClick: () => removeVol(vol.id), className: "absolute top-2 right-2 text-slate-500 hover:text-red-400", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Trash2, { className: "w-4 h-4" }) }),
         /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "Role", placeholder: "Coach", value: vol.role, onChange: (e) => updateVol(vol.id, "role", e.target.value) }),
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "Organization", placeholder: "Girls Little League", value: vol.organization, onChange: (e) => updateVol(vol.id, "organization", e.target.value) })
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup2, { label: "Role", placeholder: "Coach", value: vol.role, onChange: (e) => updateVol(vol.id, "role", e.target.value) }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup2, { label: "Organization", placeholder: "Girls Little League", value: vol.organization, onChange: (e) => updateVol(vol.id, "organization", e.target.value) })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "Date", placeholder: "Summer 2006", value: vol.date, onChange: (e) => updateVol(vol.id, "date", e.target.value) }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup2, { label: "Date", placeholder: "Summer 2006", value: vol.date, onChange: (e) => updateVol(vol.id, "date", e.target.value) }),
         /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(TextAreaGroup, { label: "Responsibilities (Optional)", placeholder: "Coached children...", value: vol.responsibilities, onChange: (e) => updateVol(vol.id, "responsibilities", e.target.value) })
       ] }, vol.id))
     ] });
@@ -24560,12 +24564,12 @@
       data.map((ref, idx) => /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "p-4 bg-[#0B0E17] border border-white/5 rounded-xl relative group space-y-3", children: [
         /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { onClick: () => removeRef(ref.id), className: "absolute top-2 right-2 text-slate-500 hover:text-red-400", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Trash2, { className: "w-4 h-4" }) }),
         /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "Name", placeholder: "Heather Laturnas", value: ref.name, onChange: (e) => updateRef(ref.id, "name", e.target.value) }),
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "Title/Relationship", placeholder: "Teacher", value: ref.title, onChange: (e) => updateRef(ref.id, "title", e.target.value) })
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup2, { label: "Name", placeholder: "Heather Laturnas", value: ref.name, onChange: (e) => updateRef(ref.id, "name", e.target.value) }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup2, { label: "Title/Relationship", placeholder: "Teacher", value: ref.title, onChange: (e) => updateRef(ref.id, "title", e.target.value) })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "Organization", placeholder: "Eagle Butte High School", value: ref.organization, onChange: (e) => updateRef(ref.id, "organization", e.target.value) }),
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "Mailing Address", placeholder: "PO Box 281, Dunmore, AB", value: ref.address, onChange: (e) => updateRef(ref.id, "address", e.target.value) }),
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup, { label: "Phone Number", placeholder: "(403) 528-1996", value: ref.phone, onChange: (e) => updateRef(ref.id, "phone", e.target.value) })
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup2, { label: "Organization", placeholder: "Eagle Butte High School", value: ref.organization, onChange: (e) => updateRef(ref.id, "organization", e.target.value) }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup2, { label: "Mailing Address", placeholder: "PO Box 281, Dunmore, AB", value: ref.address, onChange: (e) => updateRef(ref.id, "address", e.target.value) }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(InputGroup2, { label: "Phone Number", placeholder: "(403) 528-1996", value: ref.phone, onChange: (e) => updateRef(ref.id, "phone", e.target.value) })
       ] }, ref.id))
     ] });
   }
@@ -25803,7 +25807,7 @@ ${signOff ? signOff : "[Your Sign-off]"}
       setFormData((prev) => ({ ...prev, [name]: value }));
     };
     const reportDate = (/* @__PURE__ */ new Date()).toLocaleString();
-    const reportQuestions = [
+    const coreWorkbookQuestions = [
       { key: "jobShadow1", label: "Job Shadowing Choice 1" },
       { key: "jobShadow2", label: "Job Shadowing Choice 2" },
       { key: "whyVolunteer", label: "Why do people volunteer?" },
@@ -25811,7 +25815,9 @@ ${signOff ? signOff : "[Your Sign-off]"}
       { key: "volunteerExperience", label: "Volunteer experience" },
       { key: "idealVolunteer", label: "Ideal way to volunteer in the community" },
       { key: "volunteerResume", label: "Why volunteer work belongs on a resume" },
-      { key: "mandatoryVolunteer", label: "Should youth volunteer work be required?" },
+      { key: "mandatoryVolunteer", label: "Should youth volunteer work be required?" }
+    ];
+    const finalReflectionQuestions = [
       { key: "loveWhatYouDo", label: "Can what you love become what you do?" },
       { key: "influences", label: "Major influences on career decisions" },
       { key: "jobSkills", label: "Skills and behaviors needed to keep a job" },
@@ -25820,7 +25826,11 @@ ${signOff ? signOff : "[Your Sign-off]"}
       { key: "missionPurpose", label: "Purpose of a mission statement" },
       { key: "selfAssessment", label: "Importance of ongoing self-assessment" }
     ];
-    const introReflectionEntries = reportQuestions.map((question) => ({
+    const coreWorkbookEntries = coreWorkbookQuestions.map((question) => ({
+      label: question.label,
+      value: String(formData[question.key] ?? "").trim()
+    })).filter((entry) => entry.value.length > 0);
+    const finalReflectionEntries = finalReflectionQuestions.map((question) => ({
       label: question.label,
       value: String(formData[question.key] ?? "").trim()
     })).filter((entry) => entry.value.length > 0);
@@ -25832,8 +25842,13 @@ ${signOff ? signOff : "[Your Sign-off]"}
     const reportSections = [
       {
         eyebrow: "Core Workbook",
-        title: "Career Exploration & Reflection",
-        entries: introReflectionEntries
+        title: "Career Exploration Responses",
+        entries: coreWorkbookEntries
+      },
+      {
+        eyebrow: "Final Reflection",
+        title: "Final Reflection Responses",
+        entries: finalReflectionEntries
       },
       {
         eyebrow: "Career Planner",
@@ -26240,7 +26255,7 @@ ${signOff ? signOff : "[Your Sign-off]"}
         case "cover-letter-builder":
           return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(CoverLetterBuilder, {});
         case "portfolio":
-          return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(careerplanning_reference_default, {});
+          return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(careerplanning_reference_default, { onGenerateReport: handleGenerateReport });
         case "resourceful-people":
           return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(resourcefulpeople_reference_default, {});
         case "master-plan":
@@ -26483,7 +26498,7 @@ ${signOff ? signOff : "[Your Sign-off]"}
           children: [
             /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: `flex-1 overflow-y-auto overflow-x-hidden min-w-0 transition-opacity duration-200 ${isSidebarOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`, children: [
               /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "p-8 border-b border-slate-700/50 bg-slate-900/40", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h1", { className: "text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400 tracking-tight", children: "Module 4" }),
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h1", { className: "text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400 tracking-tight", children: "Career and Portfolio" }),
                 /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "text-sm text-pink-400 font-bold uppercase tracking-wider mt-2", children: "Career & Portfolio" })
               ] }),
               /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "p-4 space-y-2", children: MODULE_UNITS.map((unit, index) => {

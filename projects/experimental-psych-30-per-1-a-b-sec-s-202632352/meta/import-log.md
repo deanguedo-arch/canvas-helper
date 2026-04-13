@@ -1,7 +1,7 @@
 # Import Log
 
-- Generated: 2026-03-23T14:33:43.141Z
-- Source: /Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/experimental-psych-30-per-1-a-b-sec-s-202632352/source
+- Generated: 2026-04-09T19:29:11.083Z
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\incoming\experimental-psych-30-per-1-a-b-sec-s-202632352
 
 ## Actions
 - Detected "сontent/i12be43f5-1bc7-4efe-9f21-ce86c2764360/Step 8 Sources of Error and Suggestions for Improvement.html" as the site entrypoint inside the source folder.
@@ -10,9 +10,9 @@
 - Copied 8 local asset reference(s) into the workspace.
 - Copied 271 supporting file(s) into projects/resources/experimental-psych-30-per-1-a-b-sec-s-202632352/.
 - Indexed the imported supporting material into projects/resources/experimental-psych-30-per-1-a-b-sec-s-202632352/_extracted/.
-- Learned project patterns (/Users/deanguedo/Documents/GitHub/canvas-helper/.runtime/pattern-bank/auto/experimental-psych-30-per-1-a-b-sec-s-202632352.json).
-- Updated local pattern bank (1 profile(s)).
-- Generated prompt pack (/Users/deanguedo/Documents/GitHub/canvas-helper/projects/experimental-psych-30-per-1-a-b-sec-s-202632352/meta/prompt-pack.md).
+- Learned project patterns (C:\Users\dean.guedo\Documents\GitHub\canvas-helper\.runtime\pattern-bank\auto\experimental-psych-30-per-1-a-b-sec-s-202632352.json).
+- Updated local pattern bank (27 profile(s)).
+- Generated prompt pack (C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\experimental-psych-30-per-1-a-b-sec-s-202632352\meta\prompt-pack.md).
 
 ## Warnings
 - Found 96 possible site files. Using "сontent/i12be43f5-1bc7-4efe-9f21-ce86c2764360/Step 8 Sources of Error and Suggestions for Improvement.html" and treating the rest as supporting material.

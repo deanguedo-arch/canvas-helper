@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-03-24T13:46:40.210Z",
+  "generatedAt": "2026-04-09T20:39:36.013Z",
   "entries": [
     {
       "kind": "component",
@@ -376,6 +376,43 @@
       "reinforcementCount": 1,
       "lastSeenAt": "2026-03-06T20:53:48.821Z",
       "confidence": "high",
+      "approved": true
+    },
+    {
+      "kind": "component",
+      "key": "component:art",
+      "summary": "Reusable sections and components from art",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "atelier",
+          "creative",
+          "foundations",
+          "lesson",
+          "resources",
+          "studio",
+          "task"
+        ],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "component:pattern:art:plan:2026-04-09T20:39:36.013Z:component",
+          "projectSlug": "art",
+          "source": "pattern",
+          "command": "plan",
+          "observedAt": "2026-04-09T20:39:36.013Z"
+        }
+      ],
+      "projectSlugs": [
+        "art"
+      ],
+      "reinforcementCount": 1,
+      "lastSeenAt": "2026-04-09T20:39:36.013Z",
+      "confidence": "medium",
       "approved": true
     },
     {
@@ -1086,6 +1123,44 @@
       ],
       "reinforcementCount": 1,
       "lastSeenAt": "2026-03-19T18:00:26.529Z",
+      "confidence": "medium",
+      "approved": true
+    },
+    {
+      "kind": "component",
+      "key": "component:calm-module-4-stage",
+      "summary": "Reusable sections and components from calm-module-4-stage",
+      "signals": {
+        "sectionLabels": [
+          "Activity",
+          "App",
+          "Field",
+          "Main"
+        ],
+        "keywords": [
+          "activity",
+          "field",
+          "main"
+        ],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "component:pattern:calm-module-4-stage:import:2026-04-09T19:29:10.613Z:component",
+          "projectSlug": "calm-module-4-stage",
+          "source": "pattern",
+          "command": "import",
+          "observedAt": "2026-04-09T19:29:10.613Z"
+        }
+      ],
+      "projectSlugs": [
+        "calm-module-4-stage"
+      ],
+      "reinforcementCount": 1,
+      "lastSeenAt": "2026-04-09T19:29:10.613Z",
       "confidence": "medium",
       "approved": true
     },
@@ -2117,13 +2192,20 @@
           "source": "pattern",
           "command": "plan",
           "observedAt": "2026-03-24T13:46:40.210Z"
+        },
+        {
+          "id": "component:pattern:experimental-psych-30-per-1-a-b-sec-s-202632352:import:2026-04-09T19:29:14.988Z:component",
+          "projectSlug": "experimental-psych-30-per-1-a-b-sec-s-202632352",
+          "source": "pattern",
+          "command": "import",
+          "observedAt": "2026-04-09T19:29:14.988Z"
         }
       ],
       "projectSlugs": [
         "experimental-psych-30-per-1-a-b-sec-s-202632352"
       ],
-      "reinforcementCount": 20,
-      "lastSeenAt": "2026-03-24T13:46:40.210Z",
+      "reinforcementCount": 21,
+      "lastSeenAt": "2026-04-09T19:29:14.988Z",
       "confidence": "high",
       "approved": true
     },
@@ -8119,6 +8201,82 @@
     },
     {
       "kind": "resource",
+      "key": "resource:art",
+      "summary": "Reference and resource profile from art",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "atelier",
+          "creative",
+          "foundations",
+          "lesson",
+          "resources",
+          "studio",
+          "task"
+        ],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [],
+        "referenceKinds": [
+          "html",
+          "image",
+          "other"
+        ]
+      },
+      "origins": [
+        {
+          "id": "resource:reference:art:import:2026-04-09T19:29:10.304Z:resource",
+          "projectSlug": "art",
+          "source": "reference",
+          "command": "import",
+          "observedAt": "2026-04-09T19:29:10.304Z"
+        },
+        {
+          "id": "resource:reference:art:plan:2026-04-09T19:29:30.085Z:resource",
+          "projectSlug": "art",
+          "source": "reference",
+          "command": "plan",
+          "observedAt": "2026-04-09T19:29:30.085Z"
+        },
+        {
+          "id": "resource:reference:art:plan:2026-04-09T19:29:34.250Z:resource",
+          "projectSlug": "art",
+          "source": "reference",
+          "command": "plan",
+          "observedAt": "2026-04-09T19:29:34.250Z"
+        },
+        {
+          "id": "resource:reference:art:plan:2026-04-09T19:29:40.061Z:resource",
+          "projectSlug": "art",
+          "source": "reference",
+          "command": "plan",
+          "observedAt": "2026-04-09T19:29:40.061Z"
+        },
+        {
+          "id": "resource:reference:art:plan:2026-04-09T19:29:44.587Z:resource",
+          "projectSlug": "art",
+          "source": "reference",
+          "command": "plan",
+          "observedAt": "2026-04-09T19:29:44.587Z"
+        },
+        {
+          "id": "resource:reference:art:plan:2026-04-09T20:39:36.013Z:resource",
+          "projectSlug": "art",
+          "source": "reference",
+          "command": "plan",
+          "observedAt": "2026-04-09T20:39:36.013Z"
+        }
+      ],
+      "projectSlugs": [
+        "art"
+      ],
+      "reinforcementCount": 6,
+      "lastSeenAt": "2026-04-09T20:39:36.013Z",
+      "confidence": "high",
+      "approved": true
+    },
+    {
+      "kind": "resource",
       "key": "resource:calm-3",
       "summary": "Reference and resource profile from calm-3",
       "signals": {
@@ -8810,6 +8968,39 @@
       ],
       "reinforcementCount": 1,
       "lastSeenAt": "2026-03-19T18:00:26.529Z",
+      "confidence": "medium",
+      "approved": true
+    },
+    {
+      "kind": "resource",
+      "key": "resource:calm-module-4-stage",
+      "summary": "Reference and resource profile from calm-module-4-stage",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "activity",
+          "field",
+          "main"
+        ],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "resource:reference:calm-module-4-stage:import:2026-04-09T19:29:10.613Z:resource",
+          "projectSlug": "calm-module-4-stage",
+          "source": "reference",
+          "command": "import",
+          "observedAt": "2026-04-09T19:29:10.613Z"
+        }
+      ],
+      "projectSlugs": [
+        "calm-module-4-stage"
+      ],
+      "reinforcementCount": 1,
+      "lastSeenAt": "2026-04-09T19:29:10.613Z",
       "confidence": "medium",
       "approved": true
     },
@@ -9847,13 +10038,20 @@
           "source": "reference",
           "command": "plan",
           "observedAt": "2026-03-24T13:46:40.210Z"
+        },
+        {
+          "id": "resource:reference:experimental-psych-30-per-1-a-b-sec-s-202632352:import:2026-04-09T19:29:14.988Z:resource",
+          "projectSlug": "experimental-psych-30-per-1-a-b-sec-s-202632352",
+          "source": "reference",
+          "command": "import",
+          "observedAt": "2026-04-09T19:29:14.988Z"
         }
       ],
       "projectSlugs": [
         "experimental-psych-30-per-1-a-b-sec-s-202632352"
       ],
-      "reinforcementCount": 20,
-      "lastSeenAt": "2026-03-24T13:46:40.210Z",
+      "reinforcementCount": 21,
+      "lastSeenAt": "2026-04-09T19:29:14.988Z",
       "confidence": "high",
       "approved": true
     },
@@ -9970,6 +10168,40 @@
       "reinforcementCount": 4,
       "lastSeenAt": "2026-03-18T14:44:06.308Z",
       "confidence": "high",
+      "approved": true
+    },
+    {
+      "kind": "resource",
+      "key": "resource:general-psychology-20-independent-studies-202633108",
+      "summary": "Reference and resource profile from general-psychology-20-independent-studies-202633108",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [],
+        "referenceKinds": [
+          "html",
+          "image",
+          "other",
+          "pdf"
+        ]
+      },
+      "origins": [
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:import:2026-04-09T19:29:20.610Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "import",
+          "observedAt": "2026-04-09T19:29:20.610Z"
+        }
+      ],
+      "projectSlugs": [
+        "general-psychology-20-independent-studies-202633108"
+      ],
+      "reinforcementCount": 1,
+      "lastSeenAt": "2026-04-09T19:29:20.610Z",
+      "confidence": "medium",
       "approved": true
     },
     {
@@ -12126,6 +12358,65 @@
     },
     {
       "kind": "style",
+      "key": "style:art",
+      "summary": "Approved style direction from art",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "atelier",
+          "creative",
+          "foundations",
+          "lesson",
+          "resources",
+          "studio",
+          "task"
+        ],
+        "styleTokens": [
+          "duration-300",
+          "z-50"
+        ],
+        "hexColors": [
+          "#373831",
+          "#4042b5",
+          "#64655c",
+          "#665f56",
+          "#7f1d1d",
+          "#818178",
+          "#925600",
+          "#babaaf",
+          "#c0281f",
+          "#d9d6cb",
+          "#e1e0ff",
+          "#eae9dd",
+          "#f0eee4",
+          "#f5f0e6",
+          "#f6f4ec",
+          "#fcf9f3",
+          "#ffaca0",
+          "#fffcf7"
+        ],
+        "externalDependencies": [],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "style:pattern:art:plan:2026-04-09T20:39:36.013Z:style",
+          "projectSlug": "art",
+          "source": "pattern",
+          "command": "plan",
+          "observedAt": "2026-04-09T20:39:36.013Z"
+        }
+      ],
+      "projectSlugs": [
+        "art"
+      ],
+      "reinforcementCount": 1,
+      "lastSeenAt": "2026-04-09T20:39:36.013Z",
+      "confidence": "high",
+      "approved": true
+    },
+    {
+      "kind": "style",
       "key": "style:calm-3",
       "summary": "Approved style direction from calm-3",
       "signals": {
@@ -13202,6 +13493,53 @@
       ],
       "reinforcementCount": 1,
       "lastSeenAt": "2026-03-19T18:00:26.529Z",
+      "confidence": "high",
+      "approved": true
+    },
+    {
+      "kind": "style",
+      "key": "style:calm-module-4-stage",
+      "summary": "Approved style direction from calm-module-4-stage",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "activity",
+          "field",
+          "main"
+        ],
+        "styleTokens": [],
+        "hexColors": [
+          "#020617",
+          "#0f172a",
+          "#22c55e",
+          "#38bdf8",
+          "#64748b",
+          "#8b5cf6",
+          "#94a3b8",
+          "#bbf7d0",
+          "#c4b5fd",
+          "#cbd5e1",
+          "#dbeafe",
+          "#e2e8f0",
+          "#f8fafc"
+        ],
+        "externalDependencies": [],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "style:pattern:calm-module-4-stage:import:2026-04-09T19:29:10.613Z:style",
+          "projectSlug": "calm-module-4-stage",
+          "source": "pattern",
+          "command": "import",
+          "observedAt": "2026-04-09T19:29:10.613Z"
+        }
+      ],
+      "projectSlugs": [
+        "calm-module-4-stage"
+      ],
+      "reinforcementCount": 1,
+      "lastSeenAt": "2026-04-09T19:29:10.613Z",
       "confidence": "high",
       "approved": true
     },
@@ -14659,13 +14997,20 @@
           "source": "pattern",
           "command": "plan",
           "observedAt": "2026-03-24T13:46:40.210Z"
+        },
+        {
+          "id": "style:pattern:experimental-psych-30-per-1-a-b-sec-s-202632352:import:2026-04-09T19:29:14.988Z:style",
+          "projectSlug": "experimental-psych-30-per-1-a-b-sec-s-202632352",
+          "source": "pattern",
+          "command": "import",
+          "observedAt": "2026-04-09T19:29:14.988Z"
         }
       ],
       "projectSlugs": [
         "experimental-psych-30-per-1-a-b-sec-s-202632352"
       ],
-      "reinforcementCount": 20,
-      "lastSeenAt": "2026-03-24T13:46:40.210Z",
+      "reinforcementCount": 21,
+      "lastSeenAt": "2026-04-09T19:29:14.988Z",
       "confidence": "high",
       "approved": true
     },
@@ -17671,6 +18016,47 @@
     },
     {
       "kind": "tool",
+      "key": "tool:art",
+      "summary": "Runtime and tool choices from art",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "atelier",
+          "creative",
+          "foundations",
+          "lesson",
+          "resources",
+          "studio",
+          "task"
+        ],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [
+          "https://cdn.tailwindcss.com?plugins=forms",
+          "https://fonts.googleapis.com/css2?family=Epilogue:ital",
+          "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght"
+        ],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "tool:pattern:art:plan:2026-04-09T20:39:36.013Z:tool",
+          "projectSlug": "art",
+          "source": "pattern",
+          "command": "plan",
+          "observedAt": "2026-04-09T20:39:36.013Z"
+        }
+      ],
+      "projectSlugs": [
+        "art"
+      ],
+      "reinforcementCount": 1,
+      "lastSeenAt": "2026-04-09T20:39:36.013Z",
+      "confidence": "high",
+      "approved": true
+    },
+    {
+      "kind": "tool",
       "key": "tool:calm-3",
       "summary": "Runtime and tool choices from calm-3",
       "signals": {
@@ -18433,6 +18819,48 @@
       ],
       "reinforcementCount": 1,
       "lastSeenAt": "2026-03-19T18:00:26.529Z",
+      "confidence": "high",
+      "approved": true
+    },
+    {
+      "kind": "tool",
+      "key": "tool:calm-module-4-stage",
+      "summary": "Runtime and tool choices from calm-module-4-stage",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "activity",
+          "field",
+          "main"
+        ],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [
+          "https://fonts.googleapis.com",
+          "https://fonts.googleapis.com\"",
+          "https://fonts.googleapis.com\">",
+          "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap",
+          "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap\"",
+          "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap\"",
+          "https://fonts.gstatic.com",
+          "https://fonts.gstatic.com\""
+        ],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "tool:pattern:calm-module-4-stage:import:2026-04-09T19:29:10.613Z:tool",
+          "projectSlug": "calm-module-4-stage",
+          "source": "pattern",
+          "command": "import",
+          "observedAt": "2026-04-09T19:29:10.613Z"
+        }
+      ],
+      "projectSlugs": [
+        "calm-module-4-stage"
+      ],
+      "reinforcementCount": 1,
+      "lastSeenAt": "2026-04-09T19:29:10.613Z",
       "confidence": "high",
       "approved": true
     },
@@ -19601,13 +20029,20 @@
           "source": "pattern",
           "command": "plan",
           "observedAt": "2026-03-24T13:46:40.210Z"
+        },
+        {
+          "id": "tool:pattern:experimental-psych-30-per-1-a-b-sec-s-202632352:import:2026-04-09T19:29:14.988Z:tool",
+          "projectSlug": "experimental-psych-30-per-1-a-b-sec-s-202632352",
+          "source": "pattern",
+          "command": "import",
+          "observedAt": "2026-04-09T19:29:14.988Z"
         }
       ],
       "projectSlugs": [
         "experimental-psych-30-per-1-a-b-sec-s-202632352"
       ],
-      "reinforcementCount": 20,
-      "lastSeenAt": "2026-03-24T13:46:40.210Z",
+      "reinforcementCount": 21,
+      "lastSeenAt": "2026-04-09T19:29:14.988Z",
       "confidence": "high",
       "approved": true
     },
@@ -19738,6 +20173,38 @@
       "reinforcementCount": 4,
       "lastSeenAt": "2026-03-18T14:44:06.308Z",
       "confidence": "high",
+      "approved": true
+    },
+    {
+      "kind": "tool",
+      "key": "tool:general-psychology-20-independent-studies-202633108",
+      "summary": "Runtime and tool choices from general-psychology-20-independent-studies-202633108",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd",
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"&gt;&lt;html&gt;&lt;body&gt;&lt;p&gt;&lt;p"
+        ],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:import:2026-04-09T19:29:20.610Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "import",
+          "observedAt": "2026-04-09T19:29:20.610Z"
+        }
+      ],
+      "projectSlugs": [
+        "general-psychology-20-independent-studies-202633108"
+      ],
+      "reinforcementCount": 1,
+      "lastSeenAt": "2026-04-09T19:29:20.610Z",
+      "confidence": "medium",
       "approved": true
     },
     {

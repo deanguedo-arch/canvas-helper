@@ -32,6 +32,7 @@ Entries are listed in file order (older to newer within this archive).
 - 2026-03-29: docs/ops/ACTIVE_HANDOFF.md (pre-calm-life-adventure-view-asset-extraction)
 - 2026-03-29: docs/ops/ACTIVE_HANDOFF.md (pre-calm-life-adventure-pic-background-extraction)
 - 2026-03-29: docs/ops/ACTIVE_HANDOFF.md (pre-calm-life-adventure-room-remap-stripdown)
+- 2026-04-13: docs/ops/ACTIVE_HANDOFF.md (pre-repo-plan-status-handoff)
 
 ---
 
@@ -1350,3 +1351,43 @@ Entries are listed in file order (older to newer within this archive).
 ## Do not do next / warnings
 - Do not hand-edit the generated SVG sprites under `workspace/assets/agi/views/**`; regenerate them from the extraction script.
 - Do not widen into Modules 2-4 yet; the best next investment is finishing the source-asset path for Module 1 first.
+
+---
+
+## 2026-04-13 | docs/ops/ACTIVE_HANDOFF.md (pre-repo-plan-status-handoff)
+
+# Handoff
+
+- Project: hss1010
+- Task: Begin Canvas Builder editing with original visual style preserved
+- Status: ready
+
+## Files changed
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\hss1010\meta\project.json
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\docs\ops\ACTIVE_HANDOFF.md
+
+## Verification run
+- `npm.cmd run verify -- --project hss1010` (passed)
+- project discovery check confirms `hss1010` present
+
+## Known risks / follow-up
+- Provided source folder `canvas code and references/HSS1010` currently has no importable HTML/TXT input (empty `HSSCODE`), so no new import was run from that location.
+
+## Source-of-truth location
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\hss1010\workspace\index.html
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\hss1010\workspace\main.js
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\hss1010\meta\project.json
+
+## Fragile areas / what might drift
+- External image/font/script dependencies are network-hosted.
+- Re-import with `--force` can replace workspace source.
+
+## Next prompt assumptions
+- Keep original HSS1010 style intact.
+- Limit changes to content/organization/functionality unless user requests design changes.
+
+## Exact next command
+`npm.cmd run studio`
+
+## Exact next file to open
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\hss1010\workspace\index.html`

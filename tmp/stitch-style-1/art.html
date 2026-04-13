@@ -1,0 +1,748 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art 10-20-30 Course Shell</title>
+    <style>
+      :root {
+        --bg: #f6f1e7;
+        --ink: #1f2937;
+        --muted: #5d6472;
+        --panel: #ffffff;
+        --panel-2: #fbf7ef;
+        --line: #ddd4c6;
+        --accent: #2251b8;
+        --accent-2: #c84a4a;
+        --chip: #efe7d9;
+        --shadow: 0 10px 24px rgba(31, 41, 55, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Trebuchet MS", "Gill Sans", "Segoe UI", sans-serif;
+        color: var(--ink);
+        background: var(--bg);
+      }
+
+      .page-bg {
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at 6% 8%, rgba(34, 81, 184, 0.14), transparent 28%),
+          radial-gradient(circle at 88% 12%, rgba(200, 74, 74, 0.16), transparent 32%),
+          linear-gradient(180deg, #f8f4ed 0%, #f3ede4 48%, #efe8dd 100%);
+      }
+
+      .shell {
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 340px 1fr;
+      }
+
+      .sidebar {
+        border-right: 1px solid var(--line);
+        background: var(--panel);
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      .sidebar-header {
+        padding: 18px;
+        border-bottom: 1px solid var(--line);
+        background: linear-gradient(135deg, #fff 0%, #f8f3ea 72%, #f2eadf 100%);
+      }
+
+      .sidebar-title {
+        margin: 0;
+        font-size: 20px;
+        line-height: 1.25;
+        font-weight: 700;
+      }
+
+      .sidebar-sub {
+        margin: 7px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .progress-chip {
+        margin-top: 12px;
+        padding: 8px 10px;
+        border: 1px solid var(--line);
+        border-radius: 9px;
+        background: var(--chip);
+        font-size: 12px;
+        color: #3b4250;
+      }
+
+      .top-actions {
+        display: flex;
+        gap: 8px;
+        margin-top: 10px;
+      }
+
+      .top-actions button {
+        border: 1px solid var(--line);
+        background: #fff;
+        color: #334155;
+        border-radius: 8px;
+        padding: 7px 10px;
+        font-size: 12px;
+        cursor: pointer;
+      }
+
+      .top-actions button:hover {
+        border-color: #b8ad9a;
+      }
+
+      .sidebar-content {
+        overflow: auto;
+        padding: 10px;
+      }
+
+      .module {
+        border: 1px solid var(--line);
+        background: var(--panel-2);
+        border-radius: 12px;
+        margin: 10px 0;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+
+      .module-title-btn {
+        width: 100%;
+        padding: 11px 12px;
+        margin: 0;
+        font-size: 14px;
+        border: 0;
+        border-bottom: 1px solid var(--line);
+        background: #fff;
+        text-align: left;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .lesson-list {
+        list-style: none;
+        margin: 0;
+        padding: 6px 6px 7px;
+      }
+
+      .lesson-list button {
+        display: block;
+        width: 100%;
+        text-align: left;
+        padding: 9px 10px;
+        margin: 3px 0;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        background: transparent;
+        color: var(--ink);
+        font-size: 13px;
+        cursor: pointer;
+      }
+
+      .lesson-list button:hover {
+        background: #fff;
+        border-color: #d4c6b2;
+      }
+
+      .lesson-list button.active {
+        background: #e7ecfb;
+        border-color: #bfd0fb;
+        color: #173e93;
+        font-weight: 600;
+      }
+
+      .lesson-list button.done {
+        position: relative;
+      }
+
+      .lesson-list button.done::after {
+        content: "Done";
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 11px;
+        color: #285f2c;
+      }
+
+      .lesson-child {
+        margin-left: 12px;
+      }
+
+      .main {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      .main-header {
+        border-bottom: 1px solid var(--line);
+        background: var(--panel);
+        padding: 14px 16px;
+      }
+
+      .main-header h2,
+      .main-header p {
+        margin: 0;
+      }
+
+      .title-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .title-row h2 {
+        margin: 0;
+        font-size: 18px;
+      }
+
+      .main-header p {
+        margin-top: 5px;
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      .view-switch {
+        display: inline-flex;
+        border: 1px solid var(--line);
+        border-radius: 9px;
+        overflow: hidden;
+      }
+
+      .view-switch button {
+        border: 0;
+        background: #fff;
+        padding: 8px 11px;
+        font-size: 12px;
+        color: #475569;
+        cursor: pointer;
+      }
+
+      .view-switch button.active {
+        background: #e8eefc;
+        color: #163f9b;
+        font-weight: 600;
+      }
+
+      .main-body {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        flex: 1;
+        padding: 12px;
+      }
+
+      .viewer {
+        flex: 1;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        width: 100%;
+        background: #fffdfa;
+        box-shadow: var(--shadow);
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 10px;
+      }
+
+      .card {
+        border: 1px solid var(--line);
+        background: #fffdfa;
+        border-radius: 10px;
+        padding: 11px;
+        box-shadow: var(--shadow);
+      }
+
+      .card h4 {
+        margin: 0 0 8px;
+        font-size: 14px;
+      }
+
+      .card p {
+        margin: 0 0 8px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .card button {
+        border: 1px solid #cdbca4;
+        background: #fff;
+        color: #334155;
+        border-radius: 8px;
+        padding: 7px 10px;
+        font-size: 12px;
+        cursor: pointer;
+      }
+
+      .module-summary {
+        margin-top: 8px;
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .loading,
+      .error {
+        margin: 18px;
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid var(--line);
+        background: var(--panel);
+        font-size: 13px;
+      }
+
+      .error {
+        border-color: #dba8a8;
+        background: #fff2f2;
+        color: #7f1d1d;
+      }
+
+      @media (max-width: 960px) {
+        .shell {
+          grid-template-columns: 1fr;
+        }
+
+        .sidebar {
+          min-height: auto;
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+        }
+
+        .main {
+          min-height: 60vh;
+        }
+
+        .title-row {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" data-inline-source="./main.js">const appRoot = document.getElementById("app");
+const STORAGE_KEY = "art-course-shell-state-v1";
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
+function renderError(message) {
+  appRoot.innerHTML = `<div class="error">${escapeHtml(message)}</div>`;
+}
+
+function renderLoading() {
+  appRoot.innerHTML = '<div class="loading">Loading full Art conversion shell...</div>';
+}
+
+function cleanText(value) {
+  return String(value ?? "")
+    .replaceAll("â€™", "'")
+    .replaceAll("â€œ", '"')
+    .replaceAll("â€", '"')
+    .replaceAll("â€“", "-")
+    .replaceAll("â€”", "-")
+    .replaceAll("Â", "")
+    .trim();
+}
+
+function inferKind(title) {
+  const t = title.toLowerCase();
+  if (t.includes("assignment")) return "assignment";
+  if (t.includes("rubric")) return "assignment";
+  if (t.includes("checklist")) return "assignment";
+  if (t.includes("quiz")) return "quiz";
+  if (t.includes("assessment")) return "quiz";
+  return "content";
+}
+
+function flattenNodes(nodes, moduleTitle, parentPath = "") {
+  const lessons = [];
+  for (const node of nodes) {
+    const title = cleanText(node.title || "Untitled");
+    const path = parentPath ? `${parentPath} / ${title}` : title;
+    const href = node.resource?.hrefs?.[0];
+    if (href && /\.html?$/i.test(href)) {
+      lessons.push({
+        id: node.id,
+        title,
+        moduleTitle,
+        path,
+        href,
+        kind: inferKind(title)
+      });
+    }
+    if (Array.isArray(node.children) && node.children.length > 0) {
+      lessons.push(...flattenNodes(node.children, moduleTitle, path));
+    }
+  }
+  return lessons;
+}
+
+function buildModules(courseMap) {
+  return (courseMap.modules || []).map((module) => {
+    const title = cleanText(module.title || "Module");
+    const lessons = flattenNodes(module.children || [], title);
+    return {
+      id: module.id,
+      title,
+      lessons
+    };
+  });
+}
+
+function loadState() {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+    return {
+      completed: Array.isArray(parsed.completed) ? new Set(parsed.completed) : new Set(),
+      activeModuleId: parsed.activeModuleId || "",
+      activeLessonId: parsed.activeLessonId || "",
+      viewMode: parsed.viewMode === "assignments" ? "assignments" : "content",
+      expanded: Array.isArray(parsed.expanded) ? new Set(parsed.expanded) : new Set()
+    };
+  } catch {
+    return {
+      completed: new Set(),
+      activeModuleId: "",
+      activeLessonId: "",
+      viewMode: "content",
+      expanded: new Set()
+    };
+  }
+}
+
+function saveState(state) {
+  localStorage.setItem(
+    STORAGE_KEY,
+    JSON.stringify({
+      completed: [...state.completed],
+      activeModuleId: state.activeModuleId,
+      activeLessonId: state.activeLessonId,
+      viewMode: state.viewMode,
+      expanded: [...state.expanded]
+    })
+  );
+}
+
+function createReport(modules, completedSet) {
+  const now = new Date().toLocaleString();
+  const lines = [];
+  lines.push("Art Course Progress Report");
+  lines.push(`Generated: ${now}`);
+  lines.push("");
+  for (const module of modules) {
+    const done = module.lessons.filter((lesson) => completedSet.has(lesson.id)).length;
+    lines.push(`${module.title}: ${done}/${module.lessons.length} completed`);
+    for (const lesson of module.lessons) {
+      const marker = completedSet.has(lesson.id) ? "[x]" : "[ ]";
+      lines.push(`  ${marker} ${lesson.title}`);
+    }
+    lines.push("");
+  }
+  return lines.join("\n");
+}
+
+function renderShell(courseMap) {
+  const modules = buildModules(courseMap).filter((m) =>
+    ["art 10", "art 20", "art 30"].includes(m.title.toLowerCase())
+  );
+
+  if (modules.length === 0) {
+    renderError("No Art 10/20/30 modules were found in the course map.");
+    return;
+  }
+
+  const allLessons = modules.flatMap((m) => m.lessons);
+  if (allLessons.length === 0) {
+    renderError("No HTML lessons were found for the Art modules.");
+    return;
+  }
+
+  const lessonById = new Map(allLessons.map((lesson) => [lesson.id, lesson]));
+  const moduleById = new Map(modules.map((module) => [module.id, module]));
+
+  const state = loadState();
+  if (!state.activeModuleId || !moduleById.has(state.activeModuleId)) {
+    state.activeModuleId = modules[0].id;
+  }
+  if (!state.activeLessonId || !lessonById.has(state.activeLessonId)) {
+    state.activeLessonId = moduleById.get(state.activeModuleId)?.lessons[0]?.id || allLessons[0].id;
+  }
+  if (state.expanded.size === 0) {
+    for (const module of modules) state.expanded.add(module.id);
+  }
+
+  appRoot.innerHTML = `
+    <div class="page-bg">
+      <div class="shell">
+        <aside class="sidebar">
+          <div class="sidebar-header">
+            <h1 class="sidebar-title">Art Studio Course Shell</h1>
+            <p class="sidebar-sub">Structured as Art 10 / Art 20 / Art 30</p>
+            <div id="global-progress" class="progress-chip"></div>
+            <div class="top-actions">
+              <button type="button" id="btn-print-report">Print Report</button>
+              <button type="button" id="btn-reset-progress">Reset Progress</button>
+            </div>
+          </div>
+          <div class="sidebar-content" id="sidebar-content"></div>
+        </aside>
+        <main class="main">
+          <header class="main-header">
+            <div class="title-row">
+              <h2 id="lesson-title"></h2>
+              <div class="view-switch">
+                <button type="button" id="view-content">Content</button>
+                <button type="button" id="view-assignments">Assignments</button>
+              </div>
+            </div>
+            <p id="lesson-path"></p>
+            <div id="module-summary" class="module-summary"></div>
+          </header>
+          <section id="main-body" class="main-body"></section>
+        </main>
+      </div>
+    </div>
+  `;
+
+  const sidebar = document.getElementById("sidebar-content");
+  const lessonTitle = document.getElementById("lesson-title");
+  const lessonPath = document.getElementById("lesson-path");
+  const moduleSummary = document.getElementById("module-summary");
+  const progressNode = document.getElementById("global-progress");
+  const mainBody = document.getElementById("main-body");
+  const contentButton = document.getElementById("view-content");
+  const assignmentsButton = document.getElementById("view-assignments");
+
+  function currentModule() {
+    return moduleById.get(state.activeModuleId) || modules[0];
+  }
+
+  function moduleLessonsForView(module) {
+    if (state.viewMode === "assignments") {
+      const filtered = module.lessons.filter((lesson) => lesson.kind !== "content");
+      return filtered;
+    }
+    return module.lessons;
+  }
+
+  function setActiveLesson(lessonId) {
+    const lesson = lessonById.get(lessonId);
+    if (!lesson) return;
+    state.activeLessonId = lessonId;
+    state.activeModuleId = modules.find((m) => m.lessons.some((l) => l.id === lessonId))?.id || state.activeModuleId;
+    saveState(state);
+    render();
+  }
+
+  function toggleModule(moduleId) {
+    if (state.expanded.has(moduleId)) state.expanded.delete(moduleId);
+    else state.expanded.add(moduleId);
+    saveState(state);
+    renderSidebar();
+  }
+
+  function markComplete(lessonId) {
+    state.completed.add(lessonId);
+    saveState(state);
+    render();
+  }
+
+  function renderSidebar() {
+    const sidebarMarkup = modules
+      .map((module) => {
+        const expanded = state.expanded.has(module.id);
+        const done = module.lessons.filter((lesson) => state.completed.has(lesson.id)).length;
+        const listMarkup = expanded
+          ? module.lessons
+              .map((lesson) => {
+                const child = lesson.path.includes(" / ") ? "lesson-child" : "";
+                const active = lesson.id === state.activeLessonId ? "active" : "";
+                const doneClass = state.completed.has(lesson.id) ? "done" : "";
+                return `<li class="${child}">
+                  <button type="button" class="${active} ${doneClass}" data-lesson-id="${escapeHtml(lesson.id)}">${escapeHtml(lesson.title)}</button>
+                </li>`;
+              })
+              .join("")
+          : "";
+
+        return `<section class="module">
+          <button type="button" class="module-title-btn" data-module-id="${escapeHtml(module.id)}">${escapeHtml(module.title)} (${done}/${module.lessons.length})</button>
+          ${expanded ? `<ul class="lesson-list">${listMarkup}</ul>` : ""}
+        </section>`;
+      })
+      .join("");
+    sidebar.innerHTML = sidebarMarkup;
+  }
+
+  function renderMain() {
+    const module = currentModule();
+    let lesson = lessonById.get(state.activeLessonId);
+    if (!lesson || !module.lessons.some((candidate) => candidate.id === lesson.id)) {
+      lesson = module.lessons[0];
+      state.activeLessonId = lesson.id;
+    }
+
+    const moduleLessons = moduleLessonsForView(module);
+    const done = module.lessons.filter((candidate) => state.completed.has(candidate.id)).length;
+
+    lessonTitle.textContent = `${module.title} - ${state.viewMode === "assignments" ? "Assignments" : lesson.title}`;
+    lessonPath.textContent = state.viewMode === "assignments" ? "Filtered view for tasks, checklists, quizzes, and assessments." : lesson.path;
+    moduleSummary.textContent = `Module progress: ${done}/${module.lessons.length} completed`;
+
+    contentButton.classList.toggle("active", state.viewMode === "content");
+    assignmentsButton.classList.toggle("active", state.viewMode === "assignments");
+
+    if (state.viewMode === "content") {
+      mainBody.innerHTML = `
+        <iframe class="viewer" title="Lesson Content" src="./content/${encodeURI(lesson.href)}"></iframe>
+        <div class="top-actions">
+          <button type="button" id="btn-mark-complete">Mark Complete</button>
+        </div>
+      `;
+      document.getElementById("btn-mark-complete")?.addEventListener("click", () => markComplete(lesson.id));
+      return;
+    }
+
+    const cards = moduleLessons
+      .map(
+        (item) => `<article class="card">
+          <h4>${escapeHtml(item.title)}</h4>
+          <p>${escapeHtml(item.kind.toUpperCase())}</p>
+          <button type="button" data-open-assignment="${escapeHtml(item.id)}">Open Item</button>
+        </article>`
+      )
+      .join("");
+
+    mainBody.innerHTML = moduleLessons.length
+      ? `<section class="cards">${cards}</section>`
+      : `<div class="loading">No assignment-like items detected in ${escapeHtml(module.title)}.</div>`;
+  }
+
+  function renderProgress() {
+    const done = allLessons.filter((lesson) => state.completed.has(lesson.id)).length;
+    progressNode.textContent = `Overall progress: ${done}/${allLessons.length} completed`;
+  }
+
+  function render() {
+    renderSidebar();
+    renderMain();
+    renderProgress();
+  }
+
+  sidebar.addEventListener("click", (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLElement)) return;
+    const moduleButton = target.closest("button[data-module-id]");
+    if (moduleButton) {
+      toggleModule(moduleButton.getAttribute("data-module-id"));
+      return;
+    }
+    const lessonButton = target.closest("button[data-lesson-id]");
+    if (lessonButton) {
+      setActiveLesson(lessonButton.getAttribute("data-lesson-id"));
+      return;
+    }
+  });
+
+  mainBody.addEventListener("click", (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLElement)) return;
+    const openButton = target.closest("button[data-open-assignment]");
+    if (!openButton) return;
+    const lessonId = openButton.getAttribute("data-open-assignment");
+    if (!lessonId) return;
+    state.viewMode = "content";
+    setActiveLesson(lessonId);
+  });
+
+  contentButton.addEventListener("click", () => {
+    state.viewMode = "content";
+    saveState(state);
+    render();
+  });
+
+  assignmentsButton.addEventListener("click", () => {
+    state.viewMode = "assignments";
+    saveState(state);
+    render();
+  });
+
+  document.getElementById("btn-reset-progress")?.addEventListener("click", () => {
+    state.completed.clear();
+    saveState(state);
+    render();
+  });
+
+  document.getElementById("btn-print-report")?.addEventListener("click", () => {
+    const report = createReport(modules, state.completed);
+    const safe = escapeHtml(report).replaceAll("\n", "<br>");
+    const reportWindow = window.open("", "_blank", "noopener,noreferrer,width=900,height=700");
+    if (!reportWindow) return;
+    reportWindow.document.write(`
+      <html>
+        <head><title>Art Course Report</title></head>
+        <body style="font-family:Segoe UI,Arial,sans-serif;padding:20px;">
+          <h1>Art Course Report</h1>
+          <pre style="font-size:13px;line-height:1.45;white-space:pre-wrap;">${safe}</pre>
+        </body>
+      </html>
+    `);
+    reportWindow.document.close();
+    reportWindow.focus();
+    reportWindow.print();
+  });
+
+  render();
+}
+
+async function main() {
+  renderLoading();
+  try {
+    const candidates = [
+      "./d2l-course-map.json",
+      "../meta/d2l-course-map.json"
+    ];
+    let courseMap = null;
+    let lastStatus = "";
+
+    for (const candidate of candidates) {
+      const response = await fetch(candidate, { cache: "no-store" });
+      if (response.ok) {
+        courseMap = await response.json();
+        break;
+      }
+      lastStatus = `${candidate} -> HTTP ${response.status}`;
+    }
+
+    if (!courseMap) {
+      throw new Error(`Could not load course map (${lastStatus || "no candidate path worked"}).`);
+    }
+
+    renderShell(courseMap);
+  } catch (error) {
+    renderError(error instanceof Error ? error.message : "Failed to load course map.");
+  }
+}
+
+void main();
+</script>
+  
+
+</body></html>

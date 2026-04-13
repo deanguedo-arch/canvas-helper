@@ -247,7 +247,7 @@ export default function App() {
   };
 
   const reportDate = new Date().toLocaleString();
-  const reportQuestions = [
+  const coreWorkbookQuestions = [
     { key: 'jobShadow1', label: 'Job Shadowing Choice 1' },
     { key: 'jobShadow2', label: 'Job Shadowing Choice 2' },
     { key: 'whyVolunteer', label: 'Why do people volunteer?' },
@@ -255,7 +255,10 @@ export default function App() {
     { key: 'volunteerExperience', label: 'Volunteer experience' },
     { key: 'idealVolunteer', label: 'Ideal way to volunteer in the community' },
     { key: 'volunteerResume', label: 'Why volunteer work belongs on a resume' },
-    { key: 'mandatoryVolunteer', label: 'Should youth volunteer work be required?' },
+    { key: 'mandatoryVolunteer', label: 'Should youth volunteer work be required?' }
+  ];
+
+  const finalReflectionQuestions = [
     { key: 'loveWhatYouDo', label: 'Can what you love become what you do?' },
     { key: 'influences', label: 'Major influences on career decisions' },
     { key: 'jobSkills', label: 'Skills and behaviors needed to keep a job' },
@@ -265,7 +268,14 @@ export default function App() {
     { key: 'selfAssessment', label: 'Importance of ongoing self-assessment' }
   ];
 
-  const introReflectionEntries = reportQuestions
+  const coreWorkbookEntries = coreWorkbookQuestions
+    .map((question) => ({
+      label: question.label,
+      value: String(formData[question.key] ?? '').trim()
+    }))
+    .filter((entry) => entry.value.length > 0);
+
+  const finalReflectionEntries = finalReflectionQuestions
     .map((question) => ({
       label: question.label,
       value: String(formData[question.key] ?? '').trim()
@@ -281,8 +291,13 @@ export default function App() {
   const reportSections = [
     {
       eyebrow: 'Core Workbook',
-      title: 'Career Exploration & Reflection',
-      entries: introReflectionEntries
+      title: 'Career Exploration Responses',
+      entries: coreWorkbookEntries
+    },
+    {
+      eyebrow: 'Final Reflection',
+      title: 'Final Reflection Responses',
+      entries: finalReflectionEntries
     },
     {
       eyebrow: 'Career Planner',
@@ -803,7 +818,7 @@ export default function App() {
         return <CoverLetterBuilder />;
 
       case 'portfolio':
-        return <CareerPlanning />;
+        return <CareerPlanning onGenerateReport={handleGenerateReport} />;
 
       case 'resourceful-people':
         return <ResourcefulPeople />;
@@ -1067,7 +1082,7 @@ export default function App() {
         <div className={`flex-1 overflow-y-auto overflow-x-hidden min-w-0 transition-opacity duration-200 ${isSidebarOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
           {/* Sidebar Header */}
           <div className="p-8 border-b border-slate-700/50 bg-slate-900/40">
-            <h1 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400 tracking-tight">Module 4</h1>
+            <h1 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400 tracking-tight">Career and Portfolio</h1>
             <p className="text-sm text-pink-400 font-bold uppercase tracking-wider mt-2">Career & Portfolio</p>
           </div>
 
