@@ -130,7 +130,7 @@ function shouldIncludeCourseMapModule(module: D2LCourseMapNode) {
     return false;
   }
 
-  return !/course information|extra credits|teacher resources|keep hidden|introduction/i.test(title);
+  return !/course information|student resource materials|student resources|extra credits|teacher resources|keep hidden|introduction/i.test(title);
 }
 
 function inferResourceKind(kind: string, sourceHref: string): CourseShellResourceKind {

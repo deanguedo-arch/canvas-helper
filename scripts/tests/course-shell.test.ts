@@ -229,7 +229,7 @@ test("buildCourseShellPlan hydrates source metadata and preview fields from cour
   assert.equal(readingActivity?.moduleVisibilityLabel, "visible");
 });
 
-test("buildCourseShellPlan omits course information, extra credits, and hidden teacher modules", () => {
+test("buildCourseShellPlan omits course information, student resources, extra credits, and hidden teacher modules", () => {
   const blueprint: CourseBlueprint = {
     projectId: "experimental-psych",
     generatedAt: "2026-03-18T00:00:00.000Z",
@@ -265,7 +265,7 @@ test("buildCourseShellPlan omits course information, extra credits, and hidden t
     manifestPath: "imsmanifest.xml",
     courseTitle: "Experimental Psychology 30",
     summary: {
-      moduleCount: 4,
+      moduleCount: 5,
       itemCount: 4,
       lessonCount: 4,
       assignmentCount: 0,
@@ -303,6 +303,13 @@ test("buildCourseShellPlan omits course information, extra credits, and hidden t
             children: []
           }
         ]
+      },
+      {
+        id: "student-resources",
+        title: "Student Resource Materials",
+        kind: "module",
+        depth: 0,
+        children: []
       },
       {
         id: "extra-credits",
