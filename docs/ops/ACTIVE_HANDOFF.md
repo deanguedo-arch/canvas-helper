@@ -17,6 +17,7 @@
 - Mounted the real assignment runtimes inside an iframe so the original fields, rubrics, score logic, save/load, and print/export systems remain intact.
 - Copied the full working assignment runtime into `mentalwellness10-option2/workspace/assignment-runtime.html` so preview no longer depends on a sibling-project iframe path.
 - Hid the old embedded sidebar/progress shell inside the runtime frame so the assignment runs inside the option 2 shell.
+- Fixed the iframe boot order by attaching the mount hook before assigning the runtime `src`, so assignments no longer default to the course materials screen.
 - Added option 2 frame styling for the embedded runtime container.
 
 ## Why this changed
@@ -48,6 +49,7 @@
 - If the copied runtime drifts from the upstream option1 source, future fixes may need to be copied over again.
 - The embedded runtime still carries the original internal assignment styling; only the outer shell is option 2.
 - The now-unused reduced assignment renderer helpers remain in `main.js` and can be removed later if the iframe approach is kept.
+- This fix is still unvalidated in preview, so there may be one more runtime-specific issue after the boot-order bug.
 
 ## Exact next command
 `npm run dev`

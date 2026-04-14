@@ -668,7 +668,7 @@ function renderAssignmentPanel(panel, accent) {
 }
 
 function mountAssignmentRuntime(frame, navId) {
-  frame.addEventListener('load', () => {
+  const bootRuntime = () => {
     const doc = frame.contentDocument;
     const win = frame.contentWindow;
     if (!doc || !win) return;
@@ -707,7 +707,10 @@ function mountAssignmentRuntime(frame, navId) {
     if (navButton && typeof navButton.click === 'function') {
       navButton.click();
     }
-  }, { once: true });
+  };
+
+  frame.addEventListener('load', bootRuntime, { once: true });
+  frame.src = ASSIGNMENT_RUNTIME_SRC;
 }
 
 function renderAssignmentDetail() {
@@ -728,7 +731,6 @@ function renderAssignmentDetail() {
         <iframe
           id="assignment-runtime-frame"
           class="assignment-runtime-frame"
-          src="${ASSIGNMENT_RUNTIME_SRC}"
           title="${active.code}: ${active.title}"
         ></iframe>
       </article>
