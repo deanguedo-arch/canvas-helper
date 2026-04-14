@@ -37,6 +37,7 @@ test("injectGoogleHostedBridgeTag inserts bridge before first local script", () 
 
 test("buildGoogleHostedBridgeScript includes auth, firestore, project binding, and autosave messaging", () => {
   const bridge = buildGoogleHostedBridgeScript({
+    progressItems: [{ id: "lesson-1", title: "Lesson 1", type: "lesson", required: true }],
     projectSlug: "calm3new",
     storageKeys: ["calm3new::workspace-state::v1"]
   });
@@ -49,6 +50,8 @@ test("buildGoogleHostedBridgeScript includes auth, firestore, project binding, a
   assert.match(bridge, /Autosave ready/);
   assert.match(bridge, /window\.__canvasHelperGoogleHosted/);
   assert.match(bridge, /preview\/references\/raw/);
+  assert.match(bridge, /progressSummary/);
+  assert.match(bridge, /"progressItems":\[\{"id":"lesson-1"/);
 });
 
 test("buildGoogleHostedBridgeScript includes reload-loop guard for restore flows", () => {
@@ -60,6 +63,18 @@ test("buildGoogleHostedBridgeScript includes reload-loop guard for restore flows
   assert.match(bridge, /sessionStorage/);
   assert.match(bridge, /reload-loop guard/);
   assert.match(bridge, /skipReloadIfRepeated/);
+});
+
+test("buildGoogleHostedBridgeScript upgrades old saved documents with progress summaries", () => {
+  const bridge = buildGoogleHostedBridgeScript({
+    progressItems: [{ id: "lesson-1", title: "Lesson 1", type: "lesson", required: true }],
+    projectSlug: "calm-module",
+    storageKeys: ["calm_workbook_data"]
+  });
+
+  assert.match(bridge, /shouldUpgradeProgressSummary/);
+  assert.match(bridge, /progress-upgrade/);
+  assert.match(bridge, /remoteData\.progressSummary/);
 });
 
 test("decideGoogleHostedNoRemoteAction clears local state when it belongs to a different user", () => {
@@ -107,6 +122,21 @@ test("exportProjectToGoogleHosted writes the expected bundle and injects the bri
       ""
     ].join("\n"),
     workspaceFiles: {
+      "course-shell-data.js": [
+        "export default {",
+        '  "modules": [',
+        "    {",
+        '      "id": "module-1",',
+        '      "title": "Module 1",',
+        '      "activities": [',
+        '        { "id": "overview", "kind": "overview", "title": "Module 1" },',
+        '        { "id": "lesson-1", "kind": "lesson", "title": "Lesson 1" }',
+        "      ]",
+        "    }",
+        "  ]",
+        "};",
+        ""
+      ].join("\n"),
       "main.js": [
         'const STORAGE_KEY = "test-google-hosted-export::workspace-state::v1";',
         'window.localStorage.setItem("test-google-hosted-export::workspace-state::v1", JSON.stringify({ reportSnapshot: { score: 2 } }));',
@@ -138,6 +168,7 @@ test("exportProjectToGoogleHosted writes the expected bundle and injects the bri
     );
     assert.match(bridgeScript, /Sign in with Google/);
     assert.match(bridgeScript, /test-google-hosted-export::workspace-state::v1/);
+    assert.match(bridgeScript, /"progressItems":\[\{"id":"lesson-1"/);
     assert.equal(firebaseConfig.projectSlug, TEST_PROJECT_SLUG);
     assert.match(deployReadme, /firebase deploy --only hosting/);
     assert.deepEqual(result.storageKeys, ["test-google-hosted-export::workspace-state::v1"]);

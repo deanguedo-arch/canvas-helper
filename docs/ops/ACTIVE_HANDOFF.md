@@ -1,110 +1,110 @@
-# Handoff
+﻿# Handoff
 
 - Project: repo-wide
-- Task: Refresh the active handoff around current plan status and next execution priorities
-- Status: ready
+- Task: Add Firebase-hosted progress reporting for required in-app course completion
+- Status: ready for validation
 
 ## Files changed
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\lib\progress-report.ts
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\lib\google-hosted.ts
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\lib\exports\google-hosted.ts
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\report-progress.ts
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\report-all-progress.ts
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\lib\report-progress.ts
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\tests\progress-report.test.ts
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\tests\google-hosted-export.test.ts
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\lib\google-hosted-deploy.ts
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\tests\google-hosted-deploy.test.ts
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\tests\report-all-progress.test.ts
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\package.json
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\docs\ops\firebase-progress-reporting.md
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\docs\ops\google-hosted-deploy.md
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\report-all-progress.bat
 - C:\Users\dean.guedo\Documents\GitHub\canvas-helper\docs\ops\ACTIVE_HANDOFF.md
-- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\docs\ops\ARCHIVED_HANDOFFS.md
-- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\general-psychology-20-independent-studies-202633108\workspace\index.html
-- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\general-psychology-20-independent-studies-202633108\workspace\main.js
-- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\general-psychology-20-independent-studies-202633108\workspace\assessment-delivery.js
-- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\general-psychology-20-independent-studies-202633108\workspace\course-shell-data.js
-- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\general-psychology-20-independent-studies-202633108\meta\project.json
-- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\general-psychology-20-independent-studies-202633108\meta\d2l-course-map.json
-- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\general-psychology-20-independent-studies-202633108\meta\d2l-course-map.md
-- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\general-psychology-20-independent-studies-202633108\meta\build-shell-from-manifest.ps1
-- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\general-psychology-20-independent-studies-202633108\meta\google-hosted.deploy.json
-- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\experimental-psych-30-per-1-a-b-sec-s-202632352\workspace\index.html
-- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\experimental-psych-30-per-1-a-b-sec-s-202632352\workspace\main.js
-- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\experimental-psych-30-per-1-a-b-sec-s-202632352\workspace\assessment-delivery.js
-- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\experimental-psych-30-per-1-a-b-sec-s-202632352\workspace\course-shell-data.js
-- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\experimental-psych-30-per-1-a-b-sec-s-202632352\meta\project.json
-- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\experimental-psych-30-per-1-a-b-sec-s-202632352\meta\d2l-course-map.json
-- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\experimental-psych-30-per-1-a-b-sec-s-202632352\meta\d2l-course-map.md
-- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\experimental-psych-30-per-1-a-b-sec-s-202632352\meta\course-blueprint.json
-- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\experimental-psych-30-per-1-a-b-sec-s-202632352\meta\assessment-map.json
-- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\experimental-psych-30-per-1-a-b-sec-s-202632352\meta\lesson-packets\index.json
-- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\experimental-psych-30-per-1-a-b-sec-s-202632352\meta\prompt-pack.md
-- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\lib\course-shell.ts
-- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\tests\course-shell.test.ts
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\general-psychology-20-independent-studies-202633108\exports\google-hosted\*
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\calm-module\exports\google-hosted\*
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\calm-module-4\exports\google-hosted\*
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\calm3new\exports\google-hosted\*
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\calmmodule2\exports\google-hosted\*
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensics\exports\google-hosted\*
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensics35\exports\google-hosted\*
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\experimental-psych-30-per-1-a-b-sec-s-202632352\exports\google-hosted\*
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\experimental-psych-30-per-1-a-b-sec-s-202632352\meta\google-hosted.deploy.json
 
 ## What changed
-- Archived the previous `hss1010` handoff before replacing the active handoff.
-- Made `tasks/active.md` the current execution source for repo planning status.
-- Captured the live work as Forensics Phase 6 QA/hardening.
-- Captured the next planned repo investment as the high-confidence E2E suite described in `tasks/active.md`.
-- Marked older `docs/plans/**` entries as backlog/history unless a specific plan is reactivated.
+- Added a provider-neutral progress-report contract and extractor for required web-app completion.
+- Added course-shell required-item extraction from `workspace/course-shell-data.js`.
+- Updated Google-hosted exports to embed required progress items in `google-hosted-bridge.js`.
+- Updated the hosted Firebase bridge to write `progressSummary`, `userEmail`, and `userName` beside existing saved state.
+- Updated the hosted Firebase bridge to upgrade older saved documents on sign-in when progress reporting exists but the remote document still has no usable `progressSummary`.
+- Added `npm run report:progress` to export Firestore student progress documents to CSV.
+- Added focused tests for progress extraction, CSV formatting, and Google-hosted bridge inclusion.
+- Added Firebase progress reporting documentation.
+- Added a Google-hosted deployability guard so courses missing the current progress-reporting bridge are excluded from deploy.
+- Documented the deploy readiness rule that `google-hosted-bridge.js` must include progress reporting markers.
+- Added a shared Firestore report helper so CSV pull logic is reused by single-course and report-all flows.
+- Added `npm run report:all` to auto-discover all deployable Google-hosted Firebase courses and write combined CSV output.
+- Added `report-all-progress.bat` to write `reports/latest-progress.csv` plus a timestamped CSV without needing a manual course list.
+- Regenerated the General Psychology Google-hosted export bundle so it includes the new progress reporting bridge.
+- Restored General Psychology deploy readiness files from the existing public Firebase config and deploy metadata.
+- Deployed General Psychology to Firebase Hosting site `generalpsychology`.
+- Re-deployed General Psychology after adding the saved-document progress upgrade path.
+- Exported and deployed `calm-module`, `calm-module-4`, `calm3new`, `calmmodule2`, and `forensics`.
+- Restored missing deploy readiness files for `forensics35` from the existing public Firebase config and deployed it.
+- Added deploy metadata/config for `experimental-psych-30-per-1-a-b-sec-s-202632352` using existing site `experimentalpsychology`, then exported and deployed it.
 
 ## Why this changed
-- The active handoff was pointing at an `hss1010` continuation, but the repo's current task board now points to Forensics QA/hardening and E2E confidence work.
-- The plan backlog is large enough that the next operator needs a triage summary instead of treating every plan file as equally current.
-
-## Plan status update
-- Active execution: `tasks/active.md` -> Forensics Phase 6 QA/hardening.
-- Required gate for active execution: `npm run test:e2e:project -- --project forensics`.
-- Verification floor for active execution: `npm run verify -- --project forensics`, `npm run typecheck`, and `npm run build:studio`.
-- Next plan after QA: High-Confidence Suite in `tasks/active.md`, covering stable `data-testid` hooks, contract schema expansion, reusable deep-contract specs, deterministic fixtures, and docs for smoke vs contract vs deep suite.
-- Ongoing project work: `hss1010` Canvas Builder editing with original visual style preserved.
-- Presumed complete: `docs/plans/2026-04-07-calm-module-4-career-planner-fixes.md`; do not list CALM Module 4 career planner as unfinished unless a new bug is reported.
-- Closed by user decision: `calm-life-adventure`; do not continue that pursuit.
-- Repaired pending Studio refresh/manual review: `general-psychology-20-independent-studies-202633108` and `experimental-psych-30-per-1-a-b-sec-s-202632352` had preview regressions where Studio loaded bare imported pages instead of normalized course shells.
-- Fixed General Psychology shell filtering so `Student Resource Materials` is omitted from generated course modules.
-- Corrected General Psychology drift after user confirmed the deployed Firebase app is the working reference: restored the deployed-era manifest-backed shell data and metadata instead of treating the generic regenerated D2L shell as newer/better.
-- Updated General Psychology status semantics so `workspace-embed` assessment delivery counts as converted; `document-handin` remains not converted.
-- Removed visible conversion-status pills from General Psychology quiz rows while preserving conversion/delivery behavior.
-- Back-burner backlog: `docs/plans/2026-03-14-practice-engine-roadmap-design.md`.
-- Older March plans cover Studio polish, HSS1010 conversion/rebuild, Google-hosted export/deploy, authoring preference enforcement, image pipeline, and benchmark systems; treat them as design/history until their current implementation status is checked.
+- The district reporting need is percentage completion for required student-facing work inside Firebase-hosted course web apps.
+- The existing Google-hosted bridge already persisted per-student state, so the smallest stable solution is to normalize progress at save time and pull CSV reports from Firestore.
+- New Firebase sites need progress reporting attached automatically, so deploy readiness now fails closed when the export was not regenerated with the current bridge.
 
 ## Source of truth
-- Current task board: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\tasks\active.md
-- Plan backlog: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\docs\plans
-- Handoff standard: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\docs\ops\HANDOFF.md
-- Forensics project metadata: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensics\meta\project.json
-- Forensics canonical entry: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensics\workspace\index.html
-- Forensics canonical sources: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensics\workspace\main.jsx, C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensics\workspace\main.js, C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensics\workspace\assets\module8assignment.html, C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensics\workspace\assets\module8assignment-app.jsx
+- Reporting code: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\lib\progress-report.ts
+- Firebase hosted bridge: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\lib\google-hosted.ts
+- Export integration: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\lib\exports\google-hosted.ts
+- Reporting docs: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\docs\ops\firebase-progress-reporting.md
+- Deploy readiness guard: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\lib\google-hosted-deploy.ts
+- Report-all entrypoint: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\report-all-progress.ts
 
 ## Fragile areas / watchouts
-- Forensics has generated bundle outputs under `projects/forensics/workspace/assets/*.bundle.js`; rebuild from matching source files instead of hand-patching bundles where possible.
-- `projects/forensics/raw/**` and `projects/resources/forensics/**` are protected for the active task.
-- The current task requires E2E because it touches learner/archive visibility, module navigation, quiz state/progress, and fallback behavior.
-- Psychology shell repair restored `workspace/index.html`, `workspace/main.js`, and `workspace/assessment-delivery.js` from commit `3ff2a97`.
-- Psychology manifests now list shell runtime files as canonical sources and generated shell/planning artifacts as generated outputs.
-- `scripts/lib/course-shell.ts` now filters student resource modules alongside course information, extra credits, teacher resources, hidden modules, and intro modules.
-- General Psychology specifically uses `meta/build-shell-from-manifest.ps1` as the regeneration path. Do not run the generic `build:course-shell` pipeline for this project unless intentionally replacing the deployed-era structure.
-- General Psychology quiz rows intentionally do not show `Converted` / `Not converted` pills; the quiz library should show titles and meta only.
-- Several `docs/plans/**` files are likely partially or fully implemented; do not execute an old plan without checking the current code and metadata first.
+- Courses without `workspace/course-shell-data.js` can still save raw state and snapshot-derived progress, but may report `requiredCount: 0` until a required-item manifest is available.
+- The browser bridge stores `userEmail` and `userName` when Firebase Auth provides them; confirm this is acceptable for the district privacy posture before production rollout.
+- Firestore rules in generated deploy docs still only allow students to read/write their own document. CSV export uses a service account for reporting.
+- Previously exported Firebase bundles for the listed deployed courses now include the progress bridge. Any other Firebase course not listed here still needs export/deploy.
+- `npm run deploy:google-hosted` now hides/skips projects if `google-hosted-bridge.js` is missing `progressSummary`, `progressItems`, or `shouldUpgradeProgressSummary`.
 
 ## Next prompt should assume
-- The active repo work is Forensics Phase 6 QA/hardening, not HSS1010 editing.
-- Stay in `projects/forensics/workspace/**`, `projects/forensics/meta/**`, and minimal shared code only if a reusable parser/rendering gap is confirmed.
-- No new dependencies, renames, structural rewrites, visual redesigns, broad refactors, or new feature scope for the active task.
-- If switching to plan backlog work, name the specific plan file first and re-check status before editing.
-- If switching to Psychology repair, first determine whether to restore prior rich shell files or rebuild from processed/incoming sources; do not treat the current `index.html` files as intentionally finished course surfaces.
+- The current task is repo-wide Firebase progress reporting, not Forensics QA.
+- Keep changes inside export/reporting code unless a course-specific adapter is explicitly needed.
+- Do not edit `projects/<slug>/raw/**` or generated Firebase export bundles manually.
 
 ## What still needs validation
-- Run the Forensics project E2E contract: `npm run test:e2e:project -- --project forensics`.
-- Run the active task verification floor: `npm run verify -- --project forensics`, `npm run typecheck`, and `npm run build:studio`.
-- Manual learner/archive review is still required across the representative module pass list in `tasks/active.md`.
-- Refresh Studio and manually check the General Psychology and Experimental Psychology workspace previews load the course shell instead of raw XHTML/template pages.
-- Refresh General Psychology in Studio and confirm it matches the deployed app direction: 9 modules, no `Student Resource Materials`, and source-backed workspace embeds labeled converted.
-- Refresh General Psychology in Studio and confirm quiz rows no longer show conversion badges beside titles.
+- `npm run test:progress-report` passed.
+- `npm run test:google-hosted` passed after adding the progress-upgrade assertion.
+- `npx tsx --test scripts/tests/google-hosted-deploy.test.ts` passed after adding the deploy guard.
+- `npm run test:report-all-progress` passed.
+- `npm run typecheck` passed.
+- `npm run export:google-hosted -- --project general-psychology-20-independent-studies-202633108` passed.
+- `npm run deploy:google-hosted -- --project general-psychology-20-independent-studies-202633108` passed twice, including the second deployment with the upgrade path.
+- `npm run export:google-hosted` passed for `calm-module`, `calm-module-4`, `calm3new`, `calmmodule2`, `forensics`, `forensics35`, and `experimental-psych-30-per-1-a-b-sec-s-202632352`.
+- `npm run deploy:google-hosted -- --project calm-module,calm-module-4,calm3new,calmmodule2,forensics` passed.
+- `npm run deploy:google-hosted -- --project forensics35,experimental-psych-30-per-1-a-b-sec-s-202632352` passed after rewriting new JSON files as BOM-free UTF-8.
+- Manually open https://generalpsychology.web.app/, sign in, complete a few items, and confirm Firestore receives `progressSummary`.
+- Manually open each deployed course once with a test account to trigger progress-save upgrades, then run CSV reports.
+- Deploy or locally test against a Firebase project before relying on live district reporting.
 
 ## Known risks
-- This was a docs-only handoff refresh; no validation commands were run.
-- The plan inventory is based on current task docs and plan files, not a full code-status audit.
-- The older plan backlog may contain stale commands, completed work, or assumptions that no longer match the codebase.
-- Psychology repair was not browser-verified in Studio during this handoff update; if either preview still fails, inspect the runtime overlay in the iframe first.
-- General Psychology can drift again if `npm run build:course-shell -- --project general-psychology-20-independent-studies-202633108` is run over it; use the manifest-backed PowerShell regeneration script instead.
+- The report command requires a Firebase service account with Firestore read permission.
+- The first implementation uses generic completion-state detection. A course-specific adapter may be needed if a course stores completion in an unusual shape.
+- Deployment emitted Node deprecation warnings for child-process shell args and `punycode`, but Firebase deployment completed successfully.
+- `progress.csv` was locked/open during one rerun, so write failed with `EBUSY`; use a different `--out` path or close the CSV before rerunning.
 
 ## Exact next command
-`npm run test:e2e:project -- --project forensics`
+`npm run report:progress -- --firebase-project calm-module-one --course general-psychology-20-independent-studies-202633108 --out progress.csv --service-account <path-to-service-account.json>`
 
 ## Exact next file to open
-`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\tasks\active.md`
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\lib\progress-report.ts`
 
 ## Do not do next / warnings
-- Do not edit `projects/forensics/raw/**` or `projects/resources/forensics/**`.
-- Do not treat older `docs/plans/**` files as active instructions until one is explicitly selected and status-checked.
-- Do not skip the E2E gate for Forensics Phase 6.
+- Do not hand-edit generated Firebase export bundles; regenerate them with `npm run export:google-hosted -- --project <slug>`.
+- Do not treat client-side domain filtering as the reporting security model. Use Firestore rules or service-account exports for staff access.

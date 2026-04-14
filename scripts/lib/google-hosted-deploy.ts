@@ -1,4 +1,4 @@
-import { readdir } from "node:fs/promises";
+import { readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 
 import { fileExists, readJsonFile } from "./fs.js";
@@ -16,6 +16,7 @@ export type DeployableGoogleHostedProject = {
   slug: string;
   config: GoogleHostedDeployConfig;
   exportDir: string;
+  bridgePath: string;
   firebaseConfigPath: string;
   firebaseRcPath: string;
   deployConfigPath: string;
@@ -26,6 +27,7 @@ export type GoogleHostedDeployContext = {
   firebaseProjectId: string;
   hostingSiteId: string;
   exportDir: string;
+  bridgePath: string;
   firebaseConfigPath: string;
   firebaseRcPath: string;
   deployConfigPath: string;
@@ -110,10 +112,20 @@ export async function listDeployableGoogleHostedProjects(): Promise<DeployableGo
     }
 
     const exportDir = path.join(getProjectPaths(slug).exportsDir, "google-hosted");
+    const bridgePath = path.join(exportDir, "google-hosted-bridge.js");
     const firebaseConfigPath = path.join(exportDir, "firebase-config.json");
     const firebaseRcPath = path.join(exportDir, ".firebaserc");
 
-    if (!(await fileExists(exportDir)) || !(await fileExists(firebaseConfigPath)) || !(await fileExists(firebaseRcPath))) {
+    if (
+      !(await fileExists(exportDir)) ||
+      !(await fileExists(bridgePath)) ||
+      !(await fileExists(firebaseConfigPath)) ||
+      !(await fileExists(firebaseRcPath))
+    ) {
+      continue;
+    }
+
+    if (!(await hasGoogleHostedProgressBridge(bridgePath))) {
       continue;
     }
 
@@ -121,6 +133,7 @@ export async function listDeployableGoogleHostedProjects(): Promise<DeployableGo
       slug,
       config,
       exportDir,
+      bridgePath,
       firebaseConfigPath,
       firebaseRcPath,
       deployConfigPath: path.join(getProjectPaths(slug).metaDir, "google-hosted.deploy.json")
@@ -163,10 +176,25 @@ export function buildGoogleHostedDeployContext(project: DeployableGoogleHostedPr
     firebaseProjectId: project.config.firebaseProjectId,
     hostingSiteId: project.config.hostingSiteId,
     exportDir: project.exportDir,
+    bridgePath: project.bridgePath,
     firebaseConfigPath: project.firebaseConfigPath,
     firebaseRcPath: project.firebaseRcPath,
     deployConfigPath: project.deployConfigPath
   };
+}
+
+export async function hasGoogleHostedProgressBridge(bridgePath: string) {
+  try {
+    const source = await readFile(bridgePath, "utf8");
+    return (
+      source.includes("progressSummary") &&
+      source.includes("shouldUpgradeProgressSummary") &&
+      source.includes("schemaVersion") &&
+      source.includes("progressItems")
+    );
+  } catch {
+    return false;
+  }
 }
 
 export function formatDeployableGoogleHostedProjects(projects: DeployableGoogleHostedProject[]) {

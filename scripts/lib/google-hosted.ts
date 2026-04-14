@@ -1,10 +1,13 @@
 import { load } from "cheerio";
 
+import type { ProgressCompletionItem } from "./progress-report.js";
+
 const GOOGLE_HOSTED_EXPORT_LABEL = "google-hosted";
 const GOOGLE_HOSTED_FIREBASE_VERSION = "10.12.2";
 const GOOGLE_HOSTED_FIREBASE_CONFIG_PLACEHOLDER = "replace-with-firebase-project-id";
 
 type BuildGoogleHostedBridgeScriptOptions = {
+  progressItems?: ProgressCompletionItem[];
   projectSlug: string;
   storageKeys: string[];
 };
@@ -80,8 +83,9 @@ export function buildGoogleHostedBridgeScript(options: BuildGoogleHostedBridgeSc
     firebaseSdkVersion: GOOGLE_HOSTED_FIREBASE_VERSION,
     firestoreCollection: "projects",
     metaKey: `__canvas_helper_google_hosted__${options.projectSlug}`,
+    progressItems: options.progressItems ?? [],
     projectSlug: options.projectSlug,
-    schemaVersion: 1,
+    schemaVersion: 2,
     storageKeys: normalizeStorageKeys(options.projectSlug, options.storageKeys)
   };
 
@@ -557,6 +561,239 @@ export function buildGoogleHostedBridgeScript(options: BuildGoogleHostedBridgeSc
     return null;
   }
 
+  function isObject(value) {
+    return Boolean(value) && typeof value === "object" && !Array.isArray(value);
+  }
+
+  function normalizeNumber(value) {
+    if (typeof value === "number" && Number.isFinite(value)) {
+      return value;
+    }
+    if (typeof value === "string" && value.trim().length > 0) {
+      const parsed = Number(value);
+      return Number.isFinite(parsed) ? parsed : null;
+    }
+    return null;
+  }
+
+  function clampPercent(value) {
+    if (!Number.isFinite(value)) {
+      return 0;
+    }
+    return Math.max(0, Math.min(100, Math.round(value)));
+  }
+
+  function addCompletedMapIds(value, completedIds) {
+    if (!isObject(value)) {
+      return;
+    }
+
+    for (const [id, completionValue] of Object.entries(value)) {
+      if (completionValue === true) {
+        completedIds.add(id);
+        continue;
+      }
+
+      if (isObject(completionValue)) {
+        const status = typeof completionValue.status === "string" ? completionValue.status.toLowerCase() : "";
+        if (completionValue.completed === true || status === "complete" || status === "completed") {
+          completedIds.add(id);
+        }
+      }
+    }
+  }
+
+  function addCompletedArrayIds(value, completedIds) {
+    if (!Array.isArray(value)) {
+      return;
+    }
+
+    for (const entry of value) {
+      if (typeof entry === "string" && entry.trim()) {
+        completedIds.add(entry.trim());
+        continue;
+      }
+
+      if (isObject(entry)) {
+        const id = typeof entry.id === "string" ? entry.id.trim() : "";
+        const status = typeof entry.status === "string" ? entry.status.toLowerCase() : "";
+        if (id && entry.completed !== false && status !== "incomplete" && status !== "pending") {
+          completedIds.add(id);
+        }
+      }
+    }
+  }
+
+  function collectCompletedItemIds(value, completedIds, visited) {
+    if (!value || typeof value !== "object") {
+      return completedIds;
+    }
+
+    if (visited.has(value)) {
+      return completedIds;
+    }
+    visited.add(value);
+
+    if (Array.isArray(value)) {
+      for (const entry of value) {
+        collectCompletedItemIds(entry, completedIds, visited);
+      }
+      return completedIds;
+    }
+
+    const completionMapFields = new Set([
+      "completedactivitybyid",
+      "completedbyid",
+      "completeditembyid",
+      "completeditemsbyid",
+      "completedlessonbyid",
+      "completedquizbyid"
+    ]);
+    const completionArrayFields = new Set([
+      "completedactivityids",
+      "completedids",
+      "completeditemids",
+      "completedlessonids",
+      "completedquizids"
+    ]);
+
+    for (const [key, child] of Object.entries(value)) {
+      const normalizedKey = key.toLowerCase();
+      if (completionMapFields.has(normalizedKey)) {
+        addCompletedMapIds(child, completedIds);
+        continue;
+      }
+
+      if (completionArrayFields.has(normalizedKey) || (normalizedKey.startsWith("completed") && Array.isArray(child))) {
+        addCompletedArrayIds(child, completedIds);
+        continue;
+      }
+
+      collectCompletedItemIds(child, completedIds, visited);
+    }
+
+    return completedIds;
+  }
+
+  function findFirstStringField(value, fieldNames, visited) {
+    if (!value || typeof value !== "object") {
+      return "";
+    }
+
+    if (visited.has(value)) {
+      return "";
+    }
+    visited.add(value);
+
+    if (isObject(value)) {
+      for (const fieldName of fieldNames) {
+        const candidate = value[fieldName];
+        if (typeof candidate === "string" && candidate.trim()) {
+          return candidate.trim();
+        }
+      }
+
+      for (const child of Object.values(value)) {
+        const found = findFirstStringField(child, fieldNames, visited);
+        if (found) {
+          return found;
+        }
+      }
+      return "";
+    }
+
+    for (const child of value) {
+      const found = findFirstStringField(child, fieldNames, visited);
+      if (found) {
+        return found;
+      }
+    }
+
+    return "";
+  }
+
+  function extractProgressSummary(state, reportSnapshot, savedAt) {
+    const requiredItems = Array.isArray(config.progressItems)
+      ? config.progressItems.filter((item) => item && typeof item.id === "string" && item.id.trim())
+      : [];
+    const completedIds = collectCompletedItemIds(state, new Set(), new WeakSet());
+
+    if (reportSnapshot && typeof reportSnapshot === "object") {
+      collectCompletedItemIds(reportSnapshot, completedIds, new WeakSet());
+    }
+
+    const lastActivityId =
+      findFirstStringField(reportSnapshot, ["lastActivityId", "lastCompletedItemId"], new WeakSet()) ||
+      findFirstStringField(state, ["lastActivityId", "lastCompletedItemId", "selectedActivityId"], new WeakSet()) ||
+      "";
+
+    if (requiredItems.length > 0) {
+      const completedItemIds = requiredItems
+        .filter((item) => completedIds.has(item.id))
+        .map((item) => item.id);
+      const requiredCount = requiredItems.length;
+      const snapshot = isObject(reportSnapshot) ? reportSnapshot : {};
+      const snapshotCompletedCount = normalizeNumber(snapshot.completedCount);
+      const snapshotPercent =
+        normalizeNumber(snapshot.percentComplete) ??
+        normalizeNumber(snapshot.progressPercent) ??
+        normalizeNumber(snapshot.completionPercent);
+      const completedCount =
+        completedItemIds.length === 0 && snapshotCompletedCount !== null
+          ? Math.max(0, Math.min(requiredCount, Math.round(snapshotCompletedCount)))
+          : completedItemIds.length;
+      return {
+        completedCount,
+        completedItemIds,
+        lastActivityId,
+        percentComplete:
+          completedItemIds.length === 0 && snapshotPercent !== null
+            ? clampPercent(snapshotPercent)
+            : clampPercent((completedCount / requiredCount) * 100),
+        requiredCount,
+        updatedAt: savedAt
+      };
+    }
+
+    const snapshot = isObject(reportSnapshot) ? reportSnapshot : {};
+    const completedCount = normalizeNumber(snapshot.completedCount);
+    const requiredCount =
+      normalizeNumber(snapshot.requiredCount) ??
+      normalizeNumber(snapshot.totalCount) ??
+      normalizeNumber(snapshot.totalItems);
+    const percentComplete =
+      normalizeNumber(snapshot.percentComplete) ??
+      normalizeNumber(snapshot.progressPercent) ??
+      normalizeNumber(snapshot.completionPercent);
+
+    if (completedCount !== null || requiredCount !== null || percentComplete !== null) {
+      const safeCompletedCount = Math.max(0, Math.round(completedCount ?? completedIds.size));
+      const safeRequiredCount = Math.max(0, Math.round(requiredCount ?? 0));
+      return {
+        completedCount: safeCompletedCount,
+        completedItemIds: [...completedIds].sort(),
+        lastActivityId,
+        percentComplete:
+          percentComplete !== null
+            ? clampPercent(percentComplete)
+            : safeRequiredCount > 0
+              ? clampPercent((safeCompletedCount / safeRequiredCount) * 100)
+              : 0,
+        requiredCount: safeRequiredCount,
+        updatedAt: savedAt
+      };
+    }
+
+    return {
+      completedCount: completedIds.size,
+      completedItemIds: [...completedIds].sort(),
+      lastActivityId,
+      percentComplete: 0,
+      requiredCount: 0,
+      updatedAt: savedAt
+    };
+  }
+
   function readTrackedLocalState() {
     const storageValues = {};
 
@@ -572,8 +809,10 @@ export function buildGoogleHostedBridgeScript(options: BuildGoogleHostedBridgeSc
     }
 
     const state = buildStateView(storageValues);
+    const reportSnapshot = extractReportSnapshot(state);
     return {
-      reportSnapshot: extractReportSnapshot(state),
+      progressSummary: extractProgressSummary(state, reportSnapshot, new Date().toISOString()),
+      reportSnapshot,
       state,
       storageValues
     };
@@ -614,6 +853,24 @@ export function buildGoogleHostedBridgeScript(options: BuildGoogleHostedBridgeSc
     }
 
     return {};
+  }
+
+  function shouldUpgradeProgressSummary(remoteData) {
+    if (!remoteData || typeof remoteData !== "object") {
+      return true;
+    }
+
+    if (normalizeNumber(remoteData.schemaVersion) < config.schemaVersion) {
+      return true;
+    }
+
+    const progressSummary = remoteData.progressSummary;
+    if (!progressSummary || typeof progressSummary !== "object") {
+      return true;
+    }
+
+    const requiredCount = normalizeNumber(progressSummary.requiredCount);
+    return Array.isArray(config.progressItems) && config.progressItems.length > 0 && (!requiredCount || requiredCount <= 0);
   }
 
   function storageValuesDiffer(left, right) {
@@ -690,7 +947,9 @@ export function buildGoogleHostedBridgeScript(options: BuildGoogleHostedBridgeSc
 
     const snapshot = readTrackedLocalState();
     const savedAt = new Date().toISOString();
+    snapshot.progressSummary.updatedAt = savedAt;
     const payload = {
+      progressSummary: snapshot.progressSummary,
       projectSlug: config.projectSlug,
       reportSnapshot: snapshot.reportSnapshot,
       savedAt,
@@ -698,7 +957,9 @@ export function buildGoogleHostedBridgeScript(options: BuildGoogleHostedBridgeSc
       state: snapshot.state,
       storageKeys: config.storageKeys,
       storageValues: snapshot.storageValues,
-      userId: currentUser.uid
+      userEmail: typeof currentUser.email === "string" ? currentUser.email : "",
+      userId: currentUser.uid,
+      userName: typeof currentUser.displayName === "string" ? currentUser.displayName : ""
     };
 
     setStatus(reason === "manual" ? "Saving to Firebase..." : "Autosaving to Firebase...", "working");
@@ -894,6 +1155,11 @@ export function buildGoogleHostedBridgeScript(options: BuildGoogleHostedBridgeSc
       return;
     }
 
+    if (shouldUpgradeProgressSummary(remoteData)) {
+      await persistCurrentState("progress-upgrade");
+      return;
+    }
+
     writeSyncMetadata({
       savedAt: remoteSavedAt || new Date().toISOString(),
       syncedAt: new Date().toISOString(),
@@ -1083,6 +1349,7 @@ export function buildGoogleHostedDeployReadme(options: BuildGoogleHostedDeployRe
 - Hosts the project workspace as a normal web app on Firebase Hosting.
 - Prompts the learner to \`Sign in with Google\`.
 - Saves the tracked browser state to Firestore at \`projects/{slug}/users/{uid}\`.
+- Saves a normalized \`progressSummary\` beside the raw state for progress reporting.
 - Restores saved progress on later launches from another browser or device.
 
 ## One-Time Firebase Setup
@@ -1124,6 +1391,14 @@ If you also manage Firestore rules from the CLI:
 
 \`\`\`bash
 firebase deploy --only firestore:rules
+\`\`\`
+
+## Progress Report Export
+
+After learners have saved progress, export a CSV from a local machine with access to a Firebase service account:
+
+\`\`\`bash
+npm run report:progress -- --firebase-project <firebase-project-id> --course ${options.projectSlug} --out progress.csv --service-account path/to/service-account.json
 \`\`\`
 
 ## Manual Verification

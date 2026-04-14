@@ -28,6 +28,7 @@ A slug appears in the picker only when all of these exist:
 - `projects/<slug>/exports/google-hosted/`
 - `projects/<slug>/exports/google-hosted/firebase-config.json`
 - `projects/<slug>/exports/google-hosted/.firebaserc`
+- `projects/<slug>/exports/google-hosted/google-hosted-bridge.js` with progress reporting markers
 
 ## Commands
 
@@ -51,9 +52,20 @@ The deploy tool:
 2. Filters to only configured-and-ready slugs.
 3. Shows a numbered picker.
 4. Accepts one or many comma-separated selections.
-5. Verifies the configured Hosting site exists in the configured Firebase project.
-6. Writes site-specific Firebase targeting files into the slug's export folder.
-7. Runs `firebase deploy --only hosting:<slug>` for each selected slug.
+5. Excludes exports that are missing the current progress-reporting bridge.
+6. Verifies the configured Hosting site exists in the configured Firebase project.
+7. Writes site-specific Firebase targeting files into the slug's export folder.
+8. Runs `firebase deploy --only hosting:<slug>` for each selected slug.
+
+## Progress Reporting Guard
+
+Google Hosted deploys require the generated bridge to include the progress reporting system. If `google-hosted-bridge.js` is missing or does not include `progressSummary`, `progressItems`, and the saved-document upgrade path, the course is not deployable.
+
+Regenerate the bundle before deploy:
+
+```bash
+npm.cmd run export:google-hosted -- --project <slug>
+```
 
 ## Boundaries
 

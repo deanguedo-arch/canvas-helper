@@ -33,6 +33,7 @@ async function writeDeployArtifacts(
   options: {
     firebaseConfig?: boolean;
     firebaseRc?: boolean;
+    progressBridge?: boolean;
   } = {}
 ) {
   const paths = getProjectPaths(slug);
@@ -64,6 +65,13 @@ async function writeDeployArtifacts(
           default: "test-project"
         }
       })
+    );
+  }
+
+  if (options.progressBridge !== false) {
+    await writeTextFile(
+      path.join(exportDir, "google-hosted-bridge.js"),
+      "const config = { progressItems: [], schemaVersion: 2 }; function shouldUpgradeProgressSummary() {} const progressSummary = {};\n"
     );
   }
 }
@@ -136,6 +144,25 @@ test("listDeployableGoogleHostedProjects returns only slugs with config and requ
   }
 });
 
+test("listDeployableGoogleHostedProjects excludes exports without the progress reporting bridge", async () => {
+  const slug = "test-google-hosted-deploy-missing-progress-bridge";
+  await createProjectFixture({ slug });
+  await writeDeployConfig(slug, {
+    enabled: true,
+    firebaseProjectId: "subject-course-one",
+    hostingSiteId: "missing-progress-site"
+  });
+  await writeDeployArtifacts(slug, { progressBridge: false });
+
+  try {
+    const deployableProjects = await listDeployableGoogleHostedProjects();
+
+    assert.equal(deployableProjects.some((project) => project.slug === slug), false);
+  } finally {
+    await cleanupProjectFixture(slug);
+  }
+});
+
 test("loadGoogleHostedDeployConfig rejects invalid deploy config", async () => {
   const slug = "test-google-hosted-deploy-invalid";
   await createProjectFixture({ slug });
@@ -203,6 +230,7 @@ test("formatDeployableGoogleHostedProjects renders numbered choices", () => {
         firebaseProjectId: "subject-course-one",
         hostingSiteId: "calm3new-site"
       },
+      bridgePath: "C:/repo/projects/calm3new/exports/google-hosted/google-hosted-bridge.js",
       exportDir: "C:/repo/projects/calm3new/exports/google-hosted",
       firebaseConfigPath: "C:/repo/projects/calm3new/exports/google-hosted/firebase-config.json",
       firebaseRcPath: "C:/repo/projects/calm3new/exports/google-hosted/.firebaserc",
@@ -219,6 +247,7 @@ test("buildGoogleHostedFirebaseDeployFiles adds hosting target metadata for a si
     firebaseProjectId: "subject-course-one",
     hostingSiteId: "calm3new-site",
     exportDir: "C:/repo/projects/calm3new/exports/google-hosted",
+    bridgePath: "C:/repo/projects/calm3new/exports/google-hosted/google-hosted-bridge.js",
     firebaseConfigPath: "C:/repo/projects/calm3new/exports/google-hosted/firebase-config.json",
     firebaseRcPath: "C:/repo/projects/calm3new/exports/google-hosted/.firebaserc",
     deployConfigPath: "C:/repo/projects/calm3new/meta/google-hosted.deploy.json"

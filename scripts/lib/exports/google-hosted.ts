@@ -14,6 +14,7 @@ import {
   injectGoogleHostedBridgeTag
 } from "../google-hosted.js";
 import { getProjectPaths } from "../paths.js";
+import { loadRequiredCompletionItemsFromWorkspace } from "../progress-report.js";
 import { loadProjectManifest, markProjectWorkspaceApproved } from "../projects.js";
 
 import {
@@ -223,11 +224,13 @@ export async function exportProjectToGoogleHosted(
   const fallbackStorageKey = `${projectSlug}::workspace-state::v1`;
   const detectedStorageKeys = await detectStorageKeysFromWorkspace(googleHostedExportDir, fallbackStorageKey);
   const storageKeys = [...new Set([fallbackStorageKey, ...detectedStorageKeys])];
+  const progressItems = await loadRequiredCompletionItemsFromWorkspace(paths.workspaceDir);
 
   await Promise.all([
     writeTextFile(
       path.join(googleHostedExportDir, "google-hosted-bridge.js"),
       buildGoogleHostedBridgeScript({
+        progressItems,
         projectSlug,
         storageKeys
       })
