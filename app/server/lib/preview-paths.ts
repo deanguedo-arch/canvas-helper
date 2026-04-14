@@ -1,6 +1,6 @@
 import path from "node:path";
 
-import { getProjectPaths } from "../../../scripts/lib/paths.js";
+import { getProjectPaths } from "../../../scripts/lib/paths.ts";
 
 import { isPathInside } from "./validation";
 

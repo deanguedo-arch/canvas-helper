@@ -29,8 +29,8 @@ Constraints:
 - Keep filesystem access out of the frontend.
 - No drive-by visual redesign.
 Verification:
-- npm.cmd run typecheck
-- npm.cmd run build:studio
+- npm run typecheck
+- npm run build:studio
 Deliver:
 - Summary
 - Files changed
@@ -49,8 +49,8 @@ Constraints:
 - Keep safe path validation explicit.
 - Do not move command logic into the browser.
 Verification:
-- npm.cmd run typecheck
-- npm.cmd run build:studio
+- npm run typecheck
+- npm run build:studio
 - route-specific verification steps
 Deliver:
 - Summary
@@ -71,7 +71,7 @@ Constraints:
 - Preserve precedence: CLI > LEARNER_MODE > project > repo.
 Verification:
 - targeted tests
-- npm.cmd run typecheck
+- npm run typecheck
 Deliver:
 - Policy change summary
 - Flags added or changed
@@ -93,7 +93,7 @@ Constraints:
 Verification:
 - targeted tests
 - smoke path
-- npm.cmd run typecheck
+- npm run typecheck
 Deliver:
 - Pipeline impact
 - Files changed
@@ -113,8 +113,8 @@ Constraints:
 - Keep `projects/processed/<slug>/source/` to one latest snapshot per slug.
 - Do not reintroduce Gemini-specific folder lanes.
 Verification:
-- npm.cmd run typecheck
-- npm.cmd run build:studio
+- npm run typecheck
+- npm run build:studio
 - node --import tsx --test scripts/tests/incoming-watch.test.ts scripts/tests/incoming-intake.test.ts scripts/tests/incoming-route.test.ts scripts/tests/studio-incoming-refresh.test.ts
 Deliver:
 - Intake behavior summary

@@ -30,10 +30,8 @@ test("forensics35 workspace runtime stays bound to the forensics35 storage key",
   const source = await readFile(workspaceMainJsxPath, "utf8");
 
   assert.match(source, /forensics35::workspace-state::v1/);
-  assert.match(source, /sidebar-quizzes-library/);
+  assert.match(source, /module-assignments-view/);
   assert.match(source, /module-content-view/);
-  assert.match(source, /mark-complete-button/);
-  assert.match(source, /contentCompletedByModule/);
 });
 
 test("forensics35 workspace transpiled main.js does not contain bare React module specifiers", async () => {

@@ -29,5 +29,5 @@
 - <file 2>
 
 ## Commands
-- npm.cmd run typecheck
-- npm.cmd run build:studio
+- npm run typecheck
+- npm run build:studio

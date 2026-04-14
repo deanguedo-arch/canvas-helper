@@ -1,7 +1,7 @@
 import type { IncomingMessage, ServerResponse } from "node:http";
 
-import { IncomingLockError, runIncomingRefresh, withIncomingLock } from "../../../scripts/lib/incoming-intake.js";
-import type { IncomingRefreshSummary } from "../../../scripts/lib/incoming-intake.js";
+import { IncomingLockError, runIncomingRefresh, withIncomingLock } from "../../../scripts/lib/incoming-intake.ts";
+import type { IncomingRefreshSummary } from "../../../scripts/lib/incoming-intake.ts";
 
 import { sendJson } from "../lib/response";
 

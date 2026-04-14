@@ -1,6 +1,6 @@
 import type { IncomingMessage, ServerResponse } from "node:http";
 
-import { readStudioProjectBundle } from "../../../scripts/lib/projects.js";
+import { readStudioProjectBundle } from "../../../scripts/lib/projects.ts";
 
 import { runStudioCommand } from "../lib/command-runner";
 import { sendJson } from "../lib/response";

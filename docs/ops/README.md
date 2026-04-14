@@ -4,10 +4,12 @@ Use this folder to keep local work disciplined, reproducible, and handoff-friend
 
 ## Learner Mode Workflow
 
-- Use `launch-canvas-helper.bat` for the default stable Studio startup.
+- Use your platform launcher for the default stable Studio startup:
+  - Windows: `launch-canvas-helper.bat`
+  - macOS: `./launch-canvas-helper.command` (or `./launch-canvas-helper.sh`)
 - Optional launcher actions:
-  - `launch-canvas-helper.bat refresh`
-  - `launch-canvas-helper.bat watch`
+  - `launch-canvas-helper.bat refresh` or `./launch-canvas-helper.command refresh`
+  - `launch-canvas-helper.bat watch` or `./launch-canvas-helper.command watch`
 - The effective mode follows `--learner-mode` > `LEARNER_MODE` > project config > repo config > built-in default.
 - Studio status is informational: it reads and shows the effective mode from the same resolver used by commands.
 
@@ -41,7 +43,7 @@ Use this folder to keep local work disciplined, reproducible, and handoff-friend
 
 1. Drop project bundles into `projects/incoming/<folder>`
 2. Drop project resources into `projects/resources/<slug>/`
-3. Use Studio `Refresh Intake` or `npm.cmd run incoming:refresh`
+3. Use Studio `Refresh Intake` or `npm run incoming:refresh`
 4. Confirm the imported bundle or synced references in Studio
 5. Treat `projects/processed/<slug>/source/` as the latest import snapshot, not an editable workspace
 

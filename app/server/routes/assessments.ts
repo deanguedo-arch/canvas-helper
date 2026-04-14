@@ -17,8 +17,9 @@ import {
   listAssessmentLibrarySummaries,
   readAssessmentLibraryItem,
   saveAssessmentLibraryProject
-} from "../../../scripts/lib/assessments/index.js";
-import type { AssessmentProjectInput } from "../../../scripts/lib/assessments/index.js";
+} from "../../../scripts/lib/assessments/index";
+} from "../../../scripts/lib/assessments/index.ts";
+import type { AssessmentProjectInput } from "../../../scripts/lib/assessments/index.ts";
 
 type UploadedFile = {
   fileName: string;

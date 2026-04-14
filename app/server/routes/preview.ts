@@ -1,7 +1,7 @@
 import { readFile } from "node:fs/promises";
 import type { IncomingMessage, ServerResponse } from "node:http";
 
-import { fileExists } from "../../../scripts/lib/fs.js";
+import { fileExists } from "../../../scripts/lib/fs.ts";
 
 import { getPreviewPath, getReferencePreviewPath } from "../lib/preview-paths";
 import { resolveContentType, sendJson } from "../lib/response";

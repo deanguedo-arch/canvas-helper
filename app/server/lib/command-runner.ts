@@ -1,6 +1,6 @@
 import { spawn } from "node:child_process";
 
-import { repoRoot } from "../../../scripts/lib/paths.js";
+import { repoRoot } from "../../../scripts/lib/paths.ts";
 import { resolveStudioCommandArgs } from "../../shared/studio-commands.js";
 
 import type { StudioCommandName } from "./types";

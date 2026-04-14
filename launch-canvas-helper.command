@@ -9,6 +9,35 @@ STUDIO_PORT=""
 STUDIO_URL=""
 NPM_CMD=""
 
+ensure_platform_dependencies() {
+  local npm_cmd="${1:-npm}"
+
+  if [ ! -d node_modules ]; then
+    return
+  fi
+
+  local node_arch
+  node_arch="$(node -p "process.arch" 2>/dev/null || true)"
+
+  if [ -z "$node_arch" ]; then
+    return
+  fi
+
+  if [ "$node_arch" = "arm64" ]; then
+    if [ -d "node_modules/@esbuild/darwin-x64" ] && [ ! -d "node_modules/@esbuild/darwin-arm64" ]; then
+      echo "Detected ARM64 Node with x64-only esbuild binary installed."
+      echo "Running npm install to repair platform-native dependency packages..."
+      "$npm_cmd" install
+    fi
+  elif [ "$node_arch" = "x64" ]; then
+    if [ -d "node_modules/@esbuild/darwin-arm64" ] && [ ! -d "node_modules/@esbuild/darwin-x64" ]; then
+      echo "Detected x64 Node with ARM64-only esbuild binary installed."
+      echo "Running npm install to repair platform-native dependency packages..."
+      "$npm_cmd" install
+    fi
+  fi
+}
+
 show_help() {
   cat <<'EOF'
 
@@ -38,7 +67,6 @@ resolve_node() {
   local candidates=(
     "/opt/homebrew/bin/npm"
     "/usr/local/bin/npm"
-    "${HOME}/.nvm/versions/node"
   )
 
   for path in "${candidates[@]}"; do
@@ -66,6 +94,7 @@ resolve_node() {
 ensure_deps() {
   ensure_layout
   resolve_node
+  ensure_platform_dependencies "$NPM_CMD"
 
   if [[ ! -d "node_modules" ]]; then
     echo
@@ -145,9 +174,10 @@ run_studio() {
     echo "Learner Mode: repo/project policy"
   fi
   echo "Studio URL: ${STUDIO_URL}"
+  echo "If a browser tab does not open, manually visit: ${STUDIO_URL}"
   echo
   echo "Starting stable Studio session..."
-  "${NPM_CMD}" run studio -- --host "${STUDIO_HOST}" --port "${STUDIO_PORT}"
+  "${NPM_CMD}" run studio -- --host "${STUDIO_HOST}" --port "${STUDIO_PORT}" --open --clearScreen false
 }
 
 run_refresh() {

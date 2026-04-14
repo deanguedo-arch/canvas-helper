@@ -39,7 +39,7 @@
 ## Before You Stop
 
 1. Run the minimum verification for the touched area.
-2. Run `npm.cmd run validate:manifests -- --project <slug>` when project metadata/source-of-truth changed.
+2. Run `npm run validate:manifests -- --project <slug>` when project metadata/source-of-truth changed.
 3. Update docs if commands, boundaries, or policy changed.
 4. Save any session log required by the task.
 5. Update `docs/ops/ACTIVE_HANDOFF.md` using `docs/ops/HANDOFF.md`.

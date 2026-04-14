@@ -54,12 +54,12 @@ Use this exact sequence for new conversion work. Keep scope inside `projects/<sl
 Run the standard conversion pipeline first so all planning artifacts exist:
 
 ```bash
-npm.cmd run incoming:refresh
-npm.cmd run d2l-map -- --project <slug>
-npm.cmd run blueprint -- --project <slug>
-npm.cmd run assessment-map -- --project <slug>
-npm.cmd run lesson-packets -- --project <slug>
-npm.cmd run build:course-shell -- --project <slug>
+npm run incoming:refresh
+npm run d2l-map -- --project <slug>
+npm run blueprint -- --project <slug>
+npm run assessment-map -- --project <slug>
+npm run lesson-packets -- --project <slug>
+npm run build:course-shell -- --project <slug>
 ```
 
 ## Step 2: Preflight Content Audit
@@ -116,16 +116,16 @@ Before publish:
 For conversion changes, minimum verification is:
 
 ```bash
-npm.cmd run verify -- --project <slug>
-npm.cmd run typecheck
-npm.cmd run build:studio
+npm run verify -- --project <slug>
+npm run typecheck
+npm run build:studio
 ```
 
 When UI behavior changed, also run:
 
 ```bash
-npm.cmd run test:e2e:smoke
-npm.cmd run test:e2e:project -- --project <slug>
+npm run test:e2e:smoke
+npm run test:e2e:project -- --project <slug>
 ```
 
 Manual acceptance checklist:

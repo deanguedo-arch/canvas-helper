@@ -35,13 +35,14 @@ A slug appears in the picker only when all of these exist:
 Interactive CLI:
 
 ```bash
-npm.cmd run deploy:google-hosted
+npm run deploy:google-hosted
 ```
 
-Windows launcher:
+Launcher:
 
 ```bash
 deploy-google-hosted.bat
+./deploy-google-hosted.command
 ```
 
 ## Behavior
@@ -64,7 +65,7 @@ Google Hosted deploys require the generated bridge to include the progress repor
 Regenerate the bundle before deploy:
 
 ```bash
-npm.cmd run export:google-hosted -- --project <slug>
+npm run export:google-hosted -- --project <slug>
 ```
 
 ## Boundaries

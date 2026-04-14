@@ -1,9 +1,9 @@
 import type { IncomingMessage, ServerResponse } from "node:http";
 import { join } from "node:path";
 
-import { fileExists, readJsonFile } from "../../../scripts/lib/fs.js";
-import { getProjectPaths } from "../../../scripts/lib/paths.js";
-import { listStudioProjectBundles, readStudioProjectBundle } from "../../../scripts/lib/projects.js";
+import { fileExists, readJsonFile } from "../../../scripts/lib/fs.ts";
+import { getProjectPaths } from "../../../scripts/lib/paths.ts";
+import { listStudioProjectBundles, readStudioProjectBundle } from "../../../scripts/lib/projects.ts";
 
 import { sendJson } from "../lib/response";
 import { isSafeProjectSlug } from "../lib/validation";

@@ -1,9 +1,9 @@
 import type { IncomingMessage, ServerResponse } from "node:http";
 import { parse } from "node:url";
-import { getProjectPaths } from "../../../scripts/lib/paths.js";
-import { buildGenerationContext } from "../../../scripts/lib/engine/context-builder.js";
-import { generateContent } from "../../../scripts/lib/engine/llm.js";
-import { applyGeneration } from "../../../scripts/lib/engine/apply-generation.js";
+import { getProjectPaths } from "../../../scripts/lib/paths.ts";
+import { buildGenerationContext } from "../../../scripts/lib/engine/context-builder.ts";
+import { generateContent } from "../../../scripts/lib/engine/llm.ts";
+import { applyGeneration } from "../../../scripts/lib/engine/apply-generation.ts";
 
 // Basic JSON response helper
 function jsonResponse(response: ServerResponse, status: number, body: unknown) {

@@ -63,10 +63,11 @@ All deployable Google-hosted courses in the repo:
 npm run report:all -- --firebase-project <firebase-project-id> --service-account path/to/service-account.json
 ```
 
-Windows launcher:
+Launcher:
 
 ```txt
 report-all-progress.bat
+./report-all-progress.command
 ```
 
 The launcher writes:

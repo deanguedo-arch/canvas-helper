@@ -12,53 +12,55 @@ Repo-level authoring enforcement defaults live in `config/authoring-preferences.
 ## Quick Start
 
 1. Install Node.js
-2. Run `npm.cmd install`
-3. Start Studio with `npm.cmd run studio`
-4. On Windows, use `launch-canvas-helper.bat` for a stable one-click Studio start
+2. Run `npm install`
+3. Start Studio with `npm run studio`
+4. Use your platform launcher for a stable one-click Studio start:
+   - Windows: `launch-canvas-helper.bat`
+   - macOS: `./launch-canvas-helper.command` (or `./launch-canvas-helper.sh`)
 5. Optional advanced commands from the launcher:
-   - `launch-canvas-helper.bat refresh`
-   - `launch-canvas-helper.bat watch`
-6. The Windows launcher auto-runs `npm.cmd run migrate:projects` so older repo layouts are normalized before Studio starts
+   - `launch-canvas-helper.bat refresh` / `./launch-canvas-helper.command refresh`
+   - `launch-canvas-helper.bat watch` / `./launch-canvas-helper.command watch`
+6. The launcher auto-runs `npm run migrate:projects` so older repo layouts are normalized before Studio starts
 
 ## Main Commands
 
-- `npm.cmd run studio`
-- `npm.cmd run studio:auto` (optional advanced mode: Studio + watcher orchestration)
-- `npm.cmd run import -- "<path-to-html-or-folder>" --slug <slug>`
-- `npm.cmd run incoming:refresh`
-- `npm.cmd run analyze -- --project <slug>`
-- `npm.cmd run refs -- --project <slug>`
-- `npm.cmd run d2l-map -- --project <slug>`
-- `npm.cmd run convert:hss1010 -- --project hss1010`
-- `npm.cmd run sync:course-images -- --project <slug>`
-- `npm.cmd run blueprint -- --project <slug>`
-- `npm.cmd run assessment-map -- --project <slug>`
-- `npm.cmd run lesson-packets -- --project <slug>`
-- `npm.cmd run validate:manifests`
-- `npm.cmd run assessment:import -- --input "<file-or-dir>" [--slug <assessment-slug>]`
-- `npm.cmd run assessment:export -- --assessment <assessment-slug>`
-- `npm.cmd run test:assessments`
-- `npm.cmd run test:scorm`
-- `npm.cmd run test:google-hosted`
-- `npm.cmd run test:exports`
-- `npm.cmd run test:e2e`
-- `npm.cmd run test:e2e:smoke`
-- `npm.cmd run test:e2e:project -- --project <slug>`
-- `npm.cmd run export:brightspace -- --project <slug>`
-- `npm.cmd run export:brightspace:zip -- --project <slug>`
-- `npm.cmd run export:scorm -- --project <slug> [--version 2004|1.2]`
-- `npm.cmd run export:google-hosted -- --project <slug>`
-- `npm.cmd run deploy:google-hosted`
-- `npm.cmd run export:html -- --project <slug>`
-- `npm.cmd run smoke:pipeline`
-- `npm.cmd run typecheck`
-- `npm.cmd run build:studio`
+- `npm run studio`
+- `npm run studio:auto` (optional advanced mode: Studio + watcher orchestration)
+- `npm run import -- "<path-to-html-or-folder>" --slug <slug>`
+- `npm run incoming:refresh`
+- `npm run analyze -- --project <slug>`
+- `npm run refs -- --project <slug>`
+- `npm run d2l-map -- --project <slug>`
+- `npm run convert:hss1010 -- --project hss1010`
+- `npm run sync:course-images -- --project <slug>`
+- `npm run blueprint -- --project <slug>`
+- `npm run assessment-map -- --project <slug>`
+- `npm run lesson-packets -- --project <slug>`
+- `npm run validate:manifests`
+- `npm run assessment:import -- --input "<file-or-dir>" [--slug <assessment-slug>]`
+- `npm run assessment:export -- --assessment <assessment-slug>`
+- `npm run test:assessments`
+- `npm run test:scorm`
+- `npm run test:google-hosted`
+- `npm run test:exports`
+- `npm run test:e2e`
+- `npm run test:e2e:smoke`
+- `npm run test:e2e:project -- --project <slug>`
+- `npm run export:brightspace -- --project <slug>`
+- `npm run export:brightspace:zip -- --project <slug>`
+- `npm run export:scorm -- --project <slug> [--version 2004|1.2]`
+- `npm run export:google-hosted -- --project <slug>`
+- `npm run deploy:google-hosted`
+- `npm run export:html -- --project <slug>`
+- `npm run smoke:pipeline`
+- `npm run typecheck`
+- `npm run build:studio`
 
 ## Core Workflow
 
 1. Drop HTML or bundle imports into `projects/incoming/`
 2. Drop resources directly into `projects/resources/<slug>/`
-3. Use Studio `Refresh Intake` or run `npm.cmd run incoming:refresh` (recommended); continuous watcher mode is optional (`npm.cmd run watch:incoming`)
+3. Use Studio `Refresh Intake` or run `npm run incoming:refresh` (recommended); continuous watcher mode is optional (`npm run watch:incoming`)
 4. Imported sources are snapshotted to `projects/processed/<slug>/source/`
 5. Studio edits and previews the canonical project at `projects/<slug>/...`; if that canonical root is missing but the processed snapshot still exists, Studio rebuilds it automatically from `projects/processed/<slug>/source/`
 6. Edit only `projects/<slug>/workspace/`
@@ -120,7 +122,7 @@ Workflow guidance and prompt contracts live under `docs/workflows/`.
   - `projects/<slug>/exports/google-hosted/`
   - `projects/<slug>/exports/google-hosted/firebase-config.json`
   - `projects/<slug>/exports/google-hosted/.firebaserc`
-- Run `npm.cmd run deploy:google-hosted` or `deploy-google-hosted.bat`
+- Run `npm run deploy:google-hosted` or `deploy-google-hosted.bat` (Windows) / `./deploy-google-hosted.command` (macOS)
 - Deploy runs the same authoring deviation gate against exported `index.html` before Firebase deploy.
 - Use the same override flags when needed:
   - `--accept-deviations all|<rule-id,rule-id>`
@@ -161,7 +163,7 @@ Optional override flags for convert/export/deploy:
 - Approved image entries must point to files under `projects/<slug>/workspace/assets/images/`.
 - For `hss1010`, the command also refreshes workspace output (`index.html`, `main.js`, `hss-study.css`) using the already-interactive course model.
 - First-time setup:
-  - `npm.cmd run sync:course-images -- --project <slug> --init`
+  - `npm run sync:course-images -- --project <slug> --init`
 - Example manifest:
 
 ```json
@@ -255,7 +257,7 @@ The workflow is controlled by an explicit learner mode, resolved in this order:
 - application: enabled
 - best for: trusted repeated project types
 
-`launch-canvas-helper.bat` is the default startup path.
+`launch-canvas-helper.command` and `launch-canvas-helper.bat` are the default startup paths.
 
 ## Authoring Preference Enforcement
 

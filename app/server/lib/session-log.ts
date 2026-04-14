@@ -1,7 +1,7 @@
 import { readFile } from "node:fs/promises";
 
-import { fileExists, writeTextFile } from "../../../scripts/lib/fs.js";
-import { getProjectPaths } from "../../../scripts/lib/paths.js";
+import { fileExists, writeTextFile } from "../../../scripts/lib/fs.ts";
+import { getProjectPaths } from "../../../scripts/lib/paths.ts";
 
 import type { SessionLogPayload } from "./types";
 
