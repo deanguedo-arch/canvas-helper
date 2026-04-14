@@ -114,11 +114,8 @@
         }
 
         function normalizeAssignmentNavBars() {
-            document.querySelectorAll('.mod-nav-btn, .nav-btn').forEach((button) => {
-                const parent = button.parentElement;
-                if (!parent) return;
-                parent.classList.add('assignment-nav-bar');
-            });
+            // Keep original layout from runtime markup without adding wrapper classes.
+            return;
         }
 
         function setLibraryView(view, keepCurrentView = false) {

@@ -419,11 +419,13 @@ const ASSIGNMENT_RUNTIME_VIEW = {
 const ASSIGNMENT_RUNTIME_HTML_SRC = './assignment-runtime.html';
 const ASSIGNMENT_RUNTIME_SCRIPT_SRC = './assignment-runtime-main.js';
 const ASSIGNMENT_RUNTIME_TAILWIND_SRC = 'https://cdn.tailwindcss.com';
+const ASSIGNMENT_RUNTIME_FONTS_HREF = 'https://fonts.googleapis.com/css?family=Inter:ital,wght@0,400;0,700;1,400;1,900&family=JetBrains+Mono:wght@700&display=swap';
 
 const assignmentRuntimeState = {
   htmlPromise: null,
   runtimePromise: null,
   tailwindPromise: null,
+  fontsPromise: null,
   viewMarkup: new Map(),
   requestToken: 0
 };
@@ -438,6 +440,7 @@ const state = {
 const refs = {
   sectionTitle: document.getElementById('section-title'),
   contentBody: document.getElementById('content-body'),
+  progressShell: document.querySelector('.progress-shell'),
   progressFill: document.getElementById('progress-fill'),
   progressPercent: document.getElementById('progress-percent'),
   navHome: document.getElementById('nav-home'),
@@ -694,7 +697,28 @@ function ensureScriptLoaded(src, id) {
   });
 }
 
+function ensureStylesheetLoaded(href, id) {
+  const existing = document.getElementById(id);
+  if (existing) {
+    return Promise.resolve();
+  }
+
+  return new Promise((resolve, reject) => {
+    const link = document.createElement('link');
+    link.id = id;
+    link.rel = 'stylesheet';
+    link.href = href;
+    link.onload = () => resolve();
+    link.onerror = () => reject(new Error(`Failed to load ${href}`));
+    document.head.appendChild(link);
+  });
+}
+
 function ensureAssignmentRuntimeAssets() {
+  if (!assignmentRuntimeState.fontsPromise) {
+    assignmentRuntimeState.fontsPromise = ensureStylesheetLoaded(ASSIGNMENT_RUNTIME_FONTS_HREF, 'mentalwellness-runtime-fonts');
+  }
+
   if (!assignmentRuntimeState.tailwindPromise) {
     assignmentRuntimeState.tailwindPromise = ensureScriptLoaded(ASSIGNMENT_RUNTIME_TAILWIND_SRC, 'mentalwellness-runtime-tailwind');
   }
@@ -703,7 +727,7 @@ function ensureAssignmentRuntimeAssets() {
     assignmentRuntimeState.runtimePromise = ensureScriptLoaded(ASSIGNMENT_RUNTIME_SCRIPT_SRC, 'mentalwellness-runtime-script');
   }
 
-  return Promise.all([assignmentRuntimeState.tailwindPromise, assignmentRuntimeState.runtimePromise]);
+  return Promise.all([assignmentRuntimeState.fontsPromise, assignmentRuntimeState.tailwindPromise, assignmentRuntimeState.runtimePromise]);
 }
 
 async function getAssignmentRuntimeDocument() {
@@ -789,26 +813,18 @@ async function mountAssignmentRuntime(active) {
 
 function renderAssignmentDetail() {
   const active = ASSIGNMENTS.find((item) => item.id === state.activeId) || ASSIGNMENTS[0];
-  refs.sectionTitle.textContent = `${active.code}: ${active.title}`;
+  refs.sectionTitle.textContent = '';
+  refs.sectionTitle.style.display = 'none';
+  if (refs.progressShell) refs.progressShell.style.display = 'none';
   refs.contentBody.innerHTML = `
     <section class="assignment-shell">
-      <article class="assignment-hero" style="--assignment-accent:${active.accent}">
-        <div class="assignment-kicker mono">${active.eyebrow}</div>
-        <h4>${active.heroTitle}</h4>
-        <p>${active.body}</p>
-        <div class="assignment-actions" style="margin-top:18px;">
-          <button type="button" class="assignment-action assignment-action-secondary" id="assignment-back">Back to assignments</button>
-        </div>
-      </article>
-
-      <article class="assignment-runtime-shell" style="--assignment-accent:${active.accent}">
+      <article class="assignment-runtime-shell">
         <div id="assignment-runtime-mount" class="assignment-runtime-frame assignment-runtime-mount">
           <div class="assignment-runtime-loading">Loading full assignment system...</div>
         </div>
       </article>
     </section>
   `;
-  document.getElementById('assignment-back')?.addEventListener('click', () => setTab('assignments'));
   mountAssignmentRuntime(active);
 }
 
@@ -827,6 +843,8 @@ function renderIcons() {
 }
 
 function renderContent() {
+  refs.sectionTitle.style.display = '';
+  if (refs.progressShell) refs.progressShell.style.display = '';
   refs.progressFill.style.width = '76%';
   refs.progressPercent.textContent = '0%';
 
