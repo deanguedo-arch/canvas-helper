@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSS 1010: Complete Master Class</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        slate: { 850: '#151e2e', 950: '#020617' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #020617; color: #e2e8f0; }
+        
+        /* Glassmorphism Headers */
+        .glass { background: rgba(30, 41, 59, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .glass-header { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        
+        /* View Switching (Global) */
+        .main-view { display: none; animation: fadeIn 0.3s ease-out; }
+        .main-view.active { display: block; }
+
+        /* Internal Tab Switching */
+        .section-content, .section-tab { display: none; animation: fadeIn 0.3s ease-out; }
+        .section-content.active, .section-tab.active { display: block; }
+        
+        /* Custom Scrollbar */
+        .custom-scroll::-webkit-scrollbar { width: 8px; }
+        .custom-scroll::-webkit-scrollbar-track { background: #0f172a; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #475569; border-radius: 4px; }
+        .custom-scroll::-webkit-scrollbar-thumb:hover { background: #64748b; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* --- STUDY CONTENT STYLES --- */
+        .info-card { border-left: 3px solid #3b82f6; background: rgba(15, 23, 42, 0.6); transition: transform 0.2s; padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 1rem; }
+        .info-card:hover { transform: translateX(4px); background: rgba(30, 41, 59, 0.8); }
+        .anatomy-card { border-left: 3px solid #10b981; background: rgba(15, 23, 42, 0.8); padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 1rem; }
+        .warning-card { border-left: 3px solid #ef4444; background: rgba(69, 10, 10, 0.4); padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 1rem; }
+        
+        .term-table { width: 100%; border-collapse: collapse; margin-top: 1rem; margin-bottom: 2rem; }
+        .term-table td { padding: 0.75rem; border-bottom: 1px solid #334155; font-size: 0.9rem; color: #cbd5e1; }
+        .term-table th { padding: 0.75rem; text-align: left; background: #1e293b; color: #94a3b8; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .term-table tr:hover { background: rgba(59, 130, 246, 0.1); }
+
+        .read-block { background: #1e293b; padding: 2rem; border-radius: 0.5rem; border: 1px solid #334155; font-size: 1rem; line-height: 1.8; color: #cbd5e1; margin-bottom: 2rem; }
+        .read-block h3 { color: #fff; font-weight: 800; margin-bottom: 1rem; text-transform: uppercase; font-size: 1.1rem; letter-spacing: 0.05em; border-bottom: 1px solid #334155; padding-bottom: 0.5rem; }
+        .read-block h4 { color: #60a5fa; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+        
+        .ref-note { background: rgba(59, 130, 246, 0.1); border: 1px solid #3b82f6; color: #60a5fa; padding: 0.75rem; font-size: 0.85rem; font-style: italic; text-align: center; border-radius: 0.5rem; margin-bottom: 1.5rem; }
+        .q-box { background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 0.5rem; border-left: 4px solid #f59e0b; margin-bottom: 1rem; }
+        .q-question { color: #f59e0b; font-weight: bold; display: block; margin-bottom: 0.5rem; }
+
+        /* --- ASSESSMENT STYLES (from your code) --- */
+        .question-box { background: rgba(30, 41, 59, 0.5); border: 1px solid #334155; padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 0.5rem; }
+        .question-title { color: #60a5fa; font-weight: 700; margin-bottom: 0.5rem; display: block; }
+        .marks { color: #94a3b8; font-size: 0.8rem; font-style: italic; margin-left: 5px; }
+        
+        /* Unified Input Styling */
+        select, .checkbox-group, input[type="text"] { background-color: #020617; border: 1px solid #475569; color: white; padding: 0.5rem; border-radius: 0.25rem; width: 100%; font-size: 0.9rem; margin-top: 0.25rem; }
+        select:focus, input:focus { border-color: #3b82f6; outline: none; }
+        select { cursor: pointer; }
+
+        .correct { border: 2px solid #10b981 !important; background-color: rgba(16, 185, 129, 0.1) !important; }
+        .incorrect { border: 2px solid #ef4444 !important; background-color: rgba(239, 68, 68, 0.1) !important; }
+
+        .image-box { border: 1px solid #334155; background: #020617; min-height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 1rem; text-align: center; color: #94a3b8; padding: 1rem; border-radius: 8px; }
+        .image-box img { max-height: 300px; max-width: 100%; display: block; margin-bottom: 10px; border-radius: 4px; }
+        
+        .nav-btn { transition: all 0.2s; }
+        
+        /* Print Styles */
+        @media print {
+            body > * { display: none !important; }
+            #print-area { display: block !important; }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col custom-scroll">
+
+    <header class="glass-header sticky top-0 z-50 p-4 shadow-lg">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-2">
+                <div>
+                    <h1 class="text-xl font-black italic tracking-tighter text-white uppercase">HSS 1010 <span class="text-blue-500">Foundations</span></h1>
+                    <p class="text-[10px] font-mono text-slate-400 tracking-widest uppercase">Integrated Course & Assessment</p>
+                </div>
+                
+                <div class="flex bg-slate-900/80 p-1.5 rounded-xl border border-slate-700 shadow-xl">
+                    <button onclick="switchMainView('view-study')" id="btn-view-study" class="px-6 py-2 rounded-lg text-sm font-black uppercase tracking-wide bg-blue-600 text-white shadow-lg transition-all">
+                        📖 Study Material
+                    </button>
+                    <button onclick="switchMainView('view-assess')" id="btn-view-assess" class="px-6 py-2 rounded-lg text-sm font-black uppercase tracking-wide text-slate-400 hover:text-white transition-all">
+                        📝 Assignment
+                    </button>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <button onclick="downloadBackup()" class="text-[10px] font-mono uppercase bg-slate-800 text-blue-400 px-3 py-1 rounded border border-slate-700 hover:bg-slate-700 hover:text-white transition-colors">Save File</button>
+                    <span class="text-slate-700">|</span>
+                    <button onclick="document.getElementById('upload').click()" class="text-[10px] font-mono uppercase bg-slate-800 text-blue-400 px-3 py-1 rounded border border-slate-700 hover:bg-slate-700 hover:text-white transition-colors">Load File</button>
+                    <input type="file" id="upload" class="hidden" onchange="loadBackup(this)">
+                </div>
+            </div>
+            <p class="text-[10px] text-center text-emerald-500 italic opacity-0 transition-opacity duration-500" id="save-status">Progress Saved.</p>
+        </div>
+    </header>
+
+    <main class="flex-grow p-4 md:p-8 max-w-7xl mx-auto w-full">
+
+        <div id="view-study" class="main-view active">
+            
+            <div class="flex bg-slate-900/50 p-1 rounded-lg border border-slate-800 overflow-x-auto mb-8">
+                <button onclick="switchContentTab('start')" class="nav-btn active px-4 py-2 rounded text-xs font-bold uppercase tracking-widest bg-slate-800 border-slate-700 shadow-sm text-blue-400" id="btn-study-start">00 Source PDF</button>
+                <button onclick="switchContentTab('wellness')" class="nav-btn px-4 py-2 rounded text-xs font-bold uppercase tracking-widest hover:text-white text-slate-400" id="btn-study-wellness">01 Wellness</button>
+                <button onclick="switchContentTab('anatomy')" class="nav-btn px-4 py-2 rounded text-xs font-bold uppercase tracking-widest hover:text-white text-slate-400" id="btn-study-anatomy">02 Anatomy</button>
+                <button onclick="switchContentTab('lifestyle')" class="nav-btn px-4 py-2 rounded text-xs font-bold uppercase tracking-widest hover:text-white text-slate-400" id="btn-study-lifestyle">03 Lifestyle</button>
+                <button onclick="switchContentTab('public')" class="nav-btn px-4 py-2 rounded text-xs font-bold uppercase tracking-widest hover:text-white text-slate-400" id="btn-study-public">04 Public Health</button>
+            </div>
+
+            <div id="start" class="section-content active space-y-8">
+                <div class="glass p-8 rounded-2xl">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 border-b border-slate-700 pb-6">
+                        <div>
+                            <h2 class="text-3xl font-black uppercase italic tracking-tight text-white">Course Source Material</h2>
+                            <p class="text-slate-400 text-sm mt-2">The following 66-page document is the official source text for this course.</p>
+                        </div>
+                        <a href="https://drive.google.com/file/d/13YKR-wgOxlx_PLzIYfDd9H36NsfHVQeD/view?usp=sharing" target="_blank" class="mt-4 md:mt-0 bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-6 rounded shadow transition-all">
+                            Open Full PDF in New Tab
+                        </a>
+                    </div>
+                    <div class="read-block border-l-4 border-emerald-500">
+                        <h3>How to use this Digital Booklet</h3>
+                        <p>The tabs above (<strong>01 Wellness, 02 Anatomy, 03 Lifestyle, 04 Public Health</strong>) contain the organized text and study notes required to complete your assessment.</p>
+                        <p class="mt-2">Use the embedded PDF below to view original diagrams, charts, and illustrations referenced throughout the course.</p>
+                    </div>
+                    <div class="w-full h-[600px] bg-slate-900 rounded-xl overflow-hidden shadow-2xl border border-slate-700">
+                        <iframe src="https://drive.google.com/file/d/13YKR-wgOxlx_PLzIYfDd9H36NsfHVQeD/preview" width="100%" height="100%" allow="autoplay"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div id="wellness" class="section-content space-y-8">
+                <div class="glass p-8 rounded-2xl">
+                    <h2 class="text-4xl font-black uppercase italic tracking-tight text-white mb-8">Section 1: Defining Health & Wellness</h2>
+                    
+                    <div class="ref-note">Refer to the "Dimensions of Wellness" diagrams in the full Course Booklet (Tab 00) for visual reference.</div>
+
+                    <div class="read-block border-l-4 border-l-blue-500">
+                        <h3>Definitions</h3>
+                        <p class="mb-4"><strong>Health (WHO Definition since 1948):</strong> "A state of complete physical, mental, and social well-being and not merely the absence of disease or infirmity."</p>
+                        <p><strong>Wellness:</strong> "An active process of becoming aware of and making choices toward a more successful existence."</p>
+                    </div>
+
+                    <div class="read-block">
+                        <h3>The 5 Dimensions of Wellness</h3>
+                        <p class="mb-4">Wellness demonstrates the need for "balanced" or "well-rounded" lives. To achieve harmony, we must pay attention to all dimensions.</p>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="info-card">
+                                <h4 class="text-blue-400">Physical</h4>
+                                <p class="text-sm">Ability to move efficiently; healthy growth/care of body. Includes sleep, nutrition, activity, avoiding risky behaviors, and regular doctor visits.</p>
+                            </div>
+                            <div class="info-card">
+                                <h4 class="text-blue-400">Intellectual</h4>
+                                <p class="text-sm">Critical/creative use of mind. Learning new things, curiosity, seeing other points of view, and enjoying stimulating mental activities.</p>
+                            </div>
+                            <div class="info-card">
+                                <h4 class="text-blue-400">Social</h4>
+                                <p class="text-sm">Relating positively to others. Involves communication, respect, maintaining healthy relationships, and how you interpret treatment by others.</p>
+                            </div>
+                            <div class="info-card">
+                                <h4 class="text-blue-400">Spiritual</h4>
+                                <p class="text-sm">Understanding values/beliefs. Sense of meaning/purpose, feeling "at peace", and having a direct relationship between values and actions.</p>
+                            </div>
+                            <div class="info-card">
+                                <h4 class="text-blue-400">Emotional</h4>
+                                <p class="text-sm">Acknowledging and expressing feelings constructively. Self-awareness, asking for support, and handling positive/negative emotions.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="read-block">
+                        <h3>The 12 Determinants of Health</h3>
+                        <p class="mb-4 text-sm text-slate-400">Ranked from most to least influential by the Public Health Agency of Canada:</p>
+                        <ol class="list-decimal list-inside space-y-4 text-slate-300">
+                            <li><strong>Income and Social Status:</strong> Health improves at each step up the income ladder. High income determines living conditions like safe housing and ability to buy good food. This is the most influential determinant.</li>
+                            <li><strong>Social Support Networks:</strong> Support from families, friends, and community acts as a buffer against health problems and helps solve problems/deal with adversity.</li>
+                            <li><strong>Education and Literacy:</strong> Health improves with level of education. It equips people with skills for problem solving, job security, and understanding health information.</li>
+                            <li><strong>Employment/Working Conditions:</strong> Unemployment, underemployment, and stressful/unsafe work are connected to poor health. Control over work circumstances improves health.</li>
+                            <li><strong>Social Environments:</strong> Social stability, recognition of diversity, safety, good working relationships, and cohesive communities reduce risks.</li>
+                            <li><strong>Physical Environments:</strong> Contaminants in air, water, food, and soil causes negative health effects (cancer, respiratory illness). Housing quality and community design are key factors.</li>
+                            <li><strong>Personal Health Practices/Coping Skills:</strong> Actions to prevent disease and promote self-care (avoiding toxins, eating well, avoiding drinking and driving).</li>
+                            <li><strong>Healthy Child Development:</strong> Early childhood experiences affect brain development, school readiness, and health. Affected by housing, family income, and nutrition.</li>
+                            <li><strong>Biology and Genetic Endowment:</strong> Basic biology and organic make-up. Inherited predispositions to certain diseases.</li>
+                            <li><strong>Health Services:</strong> Access to services that maintain and promote health, prevent disease, and restore health make a significant difference.</li>
+                            <li><strong>Gender:</strong> Society-determined roles, personality traits, attitudes, relative power, and influence placed on the two sexes.</li>
+                            <li><strong>Culture:</strong> Can lead to marginalization or stigmatization, but cultural values can also alleviate negative influences.</li>
+                        </ol>
+                    </div>
+
+                    <div class="read-block">
+                        <h3>Determinants & Public Policy</h3>
+                        <p>Canada has adopted a <strong>"population health approach"</strong>. This is based on the belief that factors outside the health care system significantly affect health. Canadian health policy attempts to address the inequalities created by each of the determinants of health.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="anatomy" class="section-content space-y-8">
+                <div class="glass p-8 rounded-2xl">
+                    <h2 class="text-4xl font-black uppercase italic tracking-tight text-white mb-8">Section 2: Inside Out - How the Body Works</h2>
+                    
+                    <div class="read-block">
+                        <h3>Fundamental Concepts</h3>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h4>Key Definitions</h4>
+                                <ul class="list-disc text-sm space-y-2">
+                                    <li><strong>Anatomy:</strong> Study of structure and relationships among structures.</li>
+                                    <li><strong>Physiology:</strong> Study of the function of body parts.</li>
+                                    <li><strong>Pathology:</strong> Scientific study of the nature of disease.</li>
+                                    <li><strong>Pathological Anatomy:</strong> Study of structural changes related to disease.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Homeostasis</h4>
+                                <p class="text-sm mb-2">From Greek "homeo" (same) and "stasis" (standing). It means maintaining a constant internal environment (temp, blood sugar, pressure) despite outside changes.</p>
+                                <p class="text-sm"><strong>Negative Feedback:</strong> Like a thermostat. When a level goes off-balance, the body signals to correct it (e.g., shivering to warm up).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="read-block">
+                        <h3>Levels of Structural Organization</h3>
+                        <ol class="list-decimal list-inside space-y-3 text-slate-300">
+                            <li><strong>Cells:</strong> Basic unit of the body (approx 70 trillion). Example: Red Blood Cell.</li>
+                            <li><strong>Tissues:</strong> Groups of similar cells working together. Example: Muscle Tissue, Bone Tissue.</li>
+                            <li><strong>Organs:</strong> Different tissues working together to do a job. Example: Heart (made of muscle tissue, nerve tissue, etc.).</li>
+                            <li><strong>Systems:</strong> Groups of organs working together. Example: Cardiovascular System.</li>
+                        </ol>
+                    </div>
+
+                    <div class="read-block">
+                        <h3>The 11 Body Systems</h3>
+                        <div class="ref-note">Refer to the detailed System Diagrams in the full Course Booklet (Tab 00).</div>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="anatomy-card"><strong>1. Integumentary</strong><p class="text-xs mt-1">Skin, hair, nails, sweat glands. Regulates temp, protects body, eliminates waste, receives stimuli.</p></div>
+                            <div class="anatomy-card"><strong>2. Skeletal</strong><p class="text-xs mt-1">Bones, cartilages, joints. Supports/protects, leverage, blood cell production, mineral storage.</p></div>
+                            <div class="anatomy-card"><strong>3. Muscular</strong><p class="text-xs mt-1">Skeletal, visceral, cardiac muscle. Creates movement, posture, produces heat.</p></div>
+                            <div class="anatomy-card"><strong>4. Nervous</strong><p class="text-xs mt-1">Brain, spinal cord, nerves, sense organs. Regulates activities via nerve impulses.</p></div>
+                            <div class="anatomy-card"><strong>5. Endocrine</strong><p class="text-xs mt-1">Glands (hormones). Regulates mood, growth, metabolism, reproduction.</p></div>
+                            <div class="anatomy-card"><strong>6. Cardiovascular</strong><p class="text-xs mt-1">Heart, blood, vessels. Distributes O2/nutrients, removes CO2/waste, acid-base balance, temp regulation, clotting.</p></div>
+                            <div class="anatomy-card"><strong>7. Lymphatic</strong><p class="text-xs mt-1">Lymph nodes/vessels, spleen, thymus. Returns protein/plasma, filters blood, immunity, transports fats.</p></div>
+                            <div class="anatomy-card"><strong>8. Respiratory</strong><p class="text-xs mt-1">Lungs, passageways. Supplies O2, eliminates CO2, regulates acid-base balance.</p></div>
+                            <div class="anatomy-card"><strong>9. Digestive</strong><p class="text-xs mt-1">Stomach, intestines, liver, pancreas. Breaks down food, eliminates solid waste.</p></div>
+                            <div class="anatomy-card"><strong>10. Urinary</strong><p class="text-xs mt-1">Kidneys, bladder. Eliminates liquid waste, regulates blood composition/volume and fluid balance.</p></div>
+                            <div class="anatomy-card"><strong>11. Reproductive</strong><p class="text-xs mt-1">Testes, ovaries. Reproduces the organism.</p></div>
+                        </div>
+                    </div>
+
+                    <div class="read-block">
+                        <h3>Deep Dive: The Muscular System</h3>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h4>Classification</h4>
+                                <ul class="list-disc text-sm space-y-2">
+                                    <li><strong>Skeletal (Voluntary/Striated):</strong> Moves the body. Attached to bones. 650+ muscles.</li>
+                                    <li><strong>Smooth (Involuntary/Visceral):</strong> Spindle-shaped cells. Found in organs, vessels, skin. Controlled by autonomous nervous system.</li>
+                                    <li><strong>Cardiac (Involuntary/Striated):</strong> Found only in the heart. Cells branch and wave together.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Mechanics</h4>
+                                <ul class="list-disc text-sm space-y-2">
+                                    <li><strong>Micro-Anatomy:</strong> Muscle cells (fibers) contain <em>Actin</em> and <em>Myosin</em> protein filaments that slide past each other to contract.</li>
+                                    <li><strong>Tendons:</strong> Connective tissue connecting muscle to bone. Works like a rubber band.</li>
+                                    <li><strong>Pairs:</strong> Muscles work in pairs (Agonist/Antagonist). When one contracts (shortens), the other relaxes (lengthens). e.g., Biceps/Triceps.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="read-block bg-slate-900 border border-emerald-500/50">
+                        <h3 class="text-emerald-400">Major Skeletal Muscles (Diagram Reference)</h3>
+                        <p class="text-xs mb-4 text-slate-400">Based on the course diagrams, here are the key muscles to know:</p>
+                        <div class="grid md:grid-cols-2 gap-8 text-sm">
+                            <div>
+                                <strong class="text-white block mb-2 underline">Ventral (Front) View</strong>
+                                <ul class="list-disc list-inside space-y-1">
+                                    <li>Muscles of Facial Expression</li>
+                                    <li>Sternocleidomastoid (Neck)</li>
+                                    <li>Trapezius (Neck/Shoulder)</li>
+                                    <li>Deltoid (Shoulder Cap)</li>
+                                    <li>Pectoralis Major (Chest)</li>
+                                    <li>Biceps Brachii (Front Upper Arm)</li>
+                                    <li>Rectus Abdominis (Abs)</li>
+                                    <li>External Oblique (Side Waist)</li>
+                                    <li>Sartorius (Inner Thigh)</li>
+                                    <li>Quadriceps Femoris (Front Thigh)</li>
+                                    <li>Tibialis Anterior (Shin)</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <strong class="text-white block mb-2 underline">Dorsal (Back) View</strong>
+                                <ul class="list-disc list-inside space-y-1">
+                                    <li>Triceps Brachii (Back Upper Arm)</li>
+                                    <li>Latissimus Dorsi (Mid Back/V-Shape)</li>
+                                    <li>Gluteus Maximus (Buttocks)</li>
+                                    <li>Hamstrings (Back Thigh)</li>
+                                    <li>Gastrocnemius (Upper Calf)</li>
+                                    <li>Soleus (Lower Calf)</li>
+                                    <li>Achilles Tendon (Heel Cord)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="ref-note mt-4">Refer to the "Human Muscular System" diagram in your source text (Tab 00) for visual location.</div>
+                    </div>
+
+                    <div class="read-block">
+                        <h3>Anatomical Language</h3>
+                        <div class="bg-blue-900/20 p-4 rounded mb-6 border-l-4 border-blue-500">
+                            <strong class="text-blue-400 block mb-1">Anatomical Position</strong>
+                            <p class="text-sm">To describe the location of structures so everyone understands, we use a standard reference point. Standing upright, facing forward, arms at sides, palms facing forward.</p>
+                        </div>
+
+                        <h4>Body Cavities</h4>
+                        <p class="text-sm mb-4"><strong>Ventral Cavity:</strong> Divided by diaphragm into Thoracic and Abdominopelvic cavities.<br><strong>Dorsal Cavity:</strong> Contains Cranial (brain) and Vertebral (spinal cord) cavities.</p>
+
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h4>Directional Terms</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li><strong>Medial/Lateral:</strong> Toward/Away from midline.</li>
+                                    <li><strong>Proximal/Distal:</strong> Toward/Away from limb attachment.</li>
+                                    <li><strong>Anterior (Ventral):</strong> Front.</li>
+                                    <li><strong>Posterior (Dorsal):</strong> Back.</li>
+                                    <li><strong>Superior/Inferior:</strong> Above/Below.</li>
+                                    <li><strong>Superficial/Deep:</strong> Surface/Internal.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Planes of Motion</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li><strong>Sagittal:</strong> Divides body into Right/Left.</li>
+                                    <li><strong>Coronal (Frontal):</strong> Divides body into Front/Back.</li>
+                                    <li><strong>Transverse:</strong> Divides body into Top/Bottom.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h4 class="mt-6">Movement Terms</h4>
+                        <table class="term-table">
+                            <tr><th>Type</th><th>Term</th><th>Description</th></tr>
+                            <tr><td>Angular</td><td>Flexion / Extension</td><td>Narrowing / Increasing joint angle (Sagittal)</td></tr>
+                            <tr><td>Circular</td><td>Abduction / Adduction</td><td>Moving away / toward midline (Coronal)</td></tr>
+                            <tr><td>Circular</td><td>Circumduction</td><td>Distal end moves in circle, proximal remains stable</td></tr>
+                            <tr><td>Circular</td><td>Rotation</td><td>Moving bone around its axis</td></tr>
+                            <tr><td>Forearm</td><td>Supination / Pronation</td><td>Palm turned forward / backward</td></tr>
+                            <tr><td>Ankle</td><td>Plantarflexion / Dorsiflexion</td><td>Toes pointed down / up</td></tr>
+                            <tr><td>Ankle</td><td>Inversion / Eversion</td><td>Foot turned in / out</td></tr>
+                            <tr><td>Shoulder</td><td>Elevation / Depression</td><td>Lifting / Lowering (shrug)</td></tr>
+                            <tr><td>Shoulder</td><td>Protraction / Retraction</td><td>Shoulders forward / backward</td></tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div id="lifestyle" class="section-content space-y-8">
+                <div class="glass p-8 rounded-2xl">
+                    <h2 class="text-4xl font-black uppercase italic tracking-tight text-white mb-8">Section 3: Road Map to Wellness</h2>
+                    <div class="read-block">
+                        <h3>Nutritional Choices (Canada's Food Guide)</h3>
+                        <p class="mb-4">Eating well leads to better overall health, lower disease risk (obesity, type 2 diabetes, heart disease), and vitality.</p>
+                        <div class="ref-note">Refer to the detailed Food Guide Serving Charts in the full Course Booklet (Tab 00).</div>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h4>Key Recommendations</h4>
+                                <ul class="list-disc text-sm space-y-2">
+                                    <li>Eat at least one dark green (broccoli, spinach) and one orange vegetable (carrots, sweet potato) daily.</li>
+                                    <li>Have vegetables/fruit more often than juice.</li>
+                                    <li>Make at least half of grain products <strong>whole grain</strong>.</li>
+                                    <li>Drink 2 cups (500mL) of skim, 1%, or 2% milk (or fortified soy) daily for Vitamin D.</li>
+                                    <li>Eat at least two servings of fish per week.</li>
+                                    <li>Select lean meat and alternatives prepared with little fat/salt.</li>
+                                    <li>Satisfy thirst with water.</li>
+                                    <li>Include a small amount (30-45mL) of unsaturated fat (oils) daily.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Servings Guide (Teens 14-18)</h4>
+                                <table class="term-table">
+                                    <tr><th>Group</th><th>Females</th><th>Males</th></tr>
+                                    <tr><td>Vegetables & Fruit</td><td>7</td><td>8</td></tr>
+                                    <tr><td>Grain Products</td><td>6</td><td>7</td></tr>
+                                    <tr><td>Milk & Alt</td><td>3-4</td><td>3-4</td></tr>
+                                    <tr><td>Meat & Alt</td><td>2</td><td>3</td></tr>
+                                </table>
+                                <h4>What is One Serving?</h4>
+                                <ul class="list-disc text-xs space-y-1">
+                                    <li><strong>Veg/Fruit:</strong> 125mL (1/2 cup) or 1 fruit.</li>
+                                    <li><strong>Bread:</strong> 1 slice (35g) or half bagel (45g).</li>
+                                    <li><strong>Pasta/Rice:</strong> 125mL (1/2 cup) cooked.</li>
+                                    <li><strong>Milk:</strong> 250mL (1 cup).</li>
+                                    <li><strong>Cheese:</strong> 50g (1.5 oz).</li>
+                                    <li><strong>Meat/Fish:</strong> 75g (2.5 oz) or 125mL (1/2 cup).</li>
+                                    <li><strong>Eggs:</strong> 2 eggs.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="read-block">
+                        <h3>Q&A: Supplements & Safety</h3>
+                        <div class="space-y-4 text-sm text-slate-300">
+                            <div class="q-box"><span class="q-question">Are energy drinks safe?</span><p>Four types of adverse reactions have been reported to Health Canada. They should be consumed only according to label instructions.</p></div>
+                            <div class="q-box"><span class="q-question">Will protein supplements make me bigger?</span><p>No. Research shows that protein in excess of <strong>2 grams per kilogram</strong> of body weight per day does NOT increase the rate of muscle growth.</p></div>
+                            <div class="q-box"><span class="q-question">Are meal replacements safe?</span><p>Technically yes, but ask yourself: Do I really need to worry about weight? Can I change my weight by eating healthy foods and being active instead?</p></div>
+                            <div class="q-box"><span class="q-question">How can I check safety?</span><p>For natural health products, look for a <strong>Natural Product Number (NPN)</strong> or <strong>Drug Identification Number (DIN)</strong> on the label.</p></div>
+                        </div>
+                    </div>
+
+                    <div class="read-block">
+                        <h3>Nutrition Tools for Schools: What to Believe?</h3>
+                        <p class="mb-4 text-sm">Ask yourself these 4 questions when seeing nutrition info:</p>
+                        <ol class="list-decimal list-inside text-sm space-y-2">
+                            <li><strong>Is the source professional?</strong> Look for Health Canada, Dietitians of Canada, or "RD" (Registered Dietitian). Be wary of "nutritionists" or "specialists" without credentials.</li>
+                            <li><strong>Is it scientific?</strong> Good advice is based on research, not personal stories or testimonials.</li>
+                            <li><strong>Is it current?</strong> Check dates. Info older than 5 years may be outdated.</li>
+                            <li><strong>Does it sound too good to be true?</strong> There are no magic pills. Be cautious if they are trying to sell you a product.</li>
+                        </ol>
+                    </div>
+
+                    <div class="read-block">
+                        <h3>Physical Activity Guidelines (Youth 12-17)</h3>
+                        <p class="mb-4"><strong>Requirement:</strong> The text recommends accumulating at least <strong>90 minutes</strong> of physical activity daily. However, the CSEP Guidelines specifically state <strong>60 minutes</strong> of moderate-to-vigorous activity.</p>
+                        <div class="bg-blue-900/30 p-4 rounded border-l-4 border-blue-500">
+                            <strong class="text-white block mb-2">CSEP Guidelines (The Standard):</strong>
+                            <ul class="list-disc text-sm space-y-2 ml-4">
+                                <li><strong>Daily:</strong> 60 minutes of Moderate to Vigorous activity.</li>
+                                <li><strong>Vigorous Intensity:</strong> At least 3 days/week (Running, skating).</li>
+                                <li><strong>Muscle/Bone Strengthening:</strong> At least 3 days/week.</li>
+                            </ul>
+                        </div>
+                        <p class="mt-4 text-sm"><strong>Benefits:</strong> Improved health, better grades, fitness, stronger bones, happiness, healthy weight, self-confidence.</p>
+                    </div>
+
+                    <div class="read-block">
+                        <h3>Sleep: The Vital Recharge</h3>
+                        <p class="mb-4">Most teens need <strong>8.5 to 9 hours</strong> of sleep. Circadian rhythms shift in teens (melatonin produced later), making them stay up later.</p>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h4>Consequences of Deficit</h4>
+                                <ul class="list-disc text-sm space-y-1">
+                                    <li>Falling asleep in class (25% of students).</li>
+                                    <li>Poorer grades and athletic performance.</li>
+                                    <li>Drowsy driving (100,000 crashes/year in US).</li>
+                                    <li>Emotional troubles (sadness, depression).</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Tips for Better Sleep</h4>
+                                <ul class="list-disc text-sm space-y-1">
+                                    <li>Set a regular bedtime (even on weekends).</li>
+                                    <li>Finish exercise 3 hours before bed.</li>
+                                    <li>Avoid caffeine after 4 PM.</li>
+                                    <li>Avoid screens 1 hour before bed (blue light).</li>
+                                    <li>Keep room cool and dark.</li>
+                                    <li>Don't nap more than 30 mins.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="read-block">
+                        <h3>Being an Informed Consumer</h3>
+                        <p class="mb-4 text-sm">Consumers must be wary of "scientific" claims. Look for professional sources (Health Canada, Dietitians of Canada) and check currency (last 5 years).</p>
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div class="warning-card"><strong>Reebok EasyTone</strong><p class="text-xs mt-2">Claimed special soles toned muscles 28% more. FTC found claims unsubstantiated. Refunded $25 million.</p></div>
+                            <div class="warning-card"><strong>Airborne</strong><p class="text-xs mt-2">Claimed to cure colds. Investigation found it was a placebo effect. Settled lawsuit for $23.3 million.</p></div>
+                            <div class="warning-card"><strong>Dannon Activia</strong><p class="text-xs mt-2">Claimed to regulate digestion. Charged 30% premium. Claims unsubstantiated. Paid $35 million.</p></div>
+                        </div>
+                    </div>
+
+                    <div class="read-block">
+                        <h3>Disease Prevention & Control</h3>
+                        <p class="mb-4"><strong>80% of common infections are spread by hands.</strong> Hand washing + Immunization is the best prevention.</p>
+                        <h4>Diseases Prevented by Hand Washing</h4>
+                        <ul class="list-disc text-sm space-y-1">
+                            <li><strong>Fecal-Oral:</strong> Salmonella, Shigellosis, Hepatitis A, Giardia.</li>
+                            <li><strong>Respiratory (Indirect):</strong> Influenza, Streptococcus, Common Cold.</li>
+                            <li><strong>Body Fluid/Contact:</strong> Typhoid, Staph, Epstein-Barr virus.</li>
+                        </ul>
+                        <div class="grid md:grid-cols-2 gap-8 mt-6">
+                            <div>
+                                <h4 class="text-emerald-400">When to Wash (Before)</h4>
+                                <ul class="list-disc text-sm space-y-1 ml-4 text-slate-300">
+                                    <li>Handling or eating food.</li>
+                                    <li>Feeding others.</li>
+                                    <li>Inserting/removing contact lenses.</li>
+                                    <li>Brushing/flossing teeth.</li>
+                                    <li>Treating wounds or cuts.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-emerald-400">When to Wash (After)</h4>
+                                <ul class="list-disc text-sm space-y-1 ml-4 text-slate-300">
+                                    <li>Handling garbage.</li>
+                                    <li>Coughing, sneezing, or blowing nose.</li>
+                                    <li>Treating wounds.</li>
+                                    <li>Returning home (from school/shops).</li>
+                                    <li>Using the toilet or changing a diaper.</li>
+                                    <li>Contact with sick people.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-8 mt-6">
+                            <div>
+                                <h4>Hand Washing Protocol</h4>
+                                <ol class="list-decimal list-inside text-sm space-y-1">
+                                    <li>Use regular soap (antibacterial not necessary).</li>
+                                    <li>Wet hands with warm water.</li>
+                                    <li>Rub for 15-20 seconds ("Twinkle Twinkle Little Star").</li>
+                                    <li>Scrub backs, wrists, between fingers, under nails.</li>
+                                    <li>Rinse 10 seconds. Dry with clean towel.</li>
+                                </ol>
+                            </div>
+                            <div>
+                                <h4>Hand Sanitizer</h4>
+                                <p class="text-xs">Use alcohol-based when soap unavailable. Rub until dry (15-25 secs). <strong>Does NOT work if hands are visibly soiled.</strong></p>
+                            </div>
+                        </div>
+                        <div class="mt-6 border-t border-slate-700 pt-4">
+                            <h4>Bloodborne Pathogens</h4>
+                            <p class="text-sm">Micro-organisms in blood transmitted via contaminated fluids. Main types to know:</p>
+                            <ul class="list-disc text-sm ml-4 mb-4">
+                                <li>Human Immunodeficiency Virus (HIV)</li>
+                                <li>Hepatitis A (HPA)</li>
+                                <li>Hepatitis B (HBV)</li>
+                                <li>Hepatitis C (HCV)</li>
+                            </ul>
+                            <div class="bg-slate-900 p-4 rounded text-xs border border-slate-700">
+                                <strong>Multimedia Resources:</strong><br>
+                                <ul class="mt-2 space-y-1">
+                                    <li><a href="https://goo.gl/vqoINQ" target="_blank" class="text-blue-400 hover:underline">Video: HIV and AIDS explained (SimpleShow)</a></li>
+                                    <li><a href="https://aidsinfo.nih.gov/" target="_blank" class="text-blue-400 hover:underline">HIV/AIDS Fact Sheets (AIDSinfo)</a></li>
+                                    <li><a href="https://goo.gl/64zqgL" target="_blank" class="text-blue-400 hover:underline">Video: The Three Unwise Monkeys (Hep A, B, C)</a></li>
+                                    <li><a href="http://www.cdc.gov/hepatitis" target="_blank" class="text-blue-400 hover:underline">Hepatitis Fact Sheets (CDC)</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="read-block">
+                        <h3>Checkups</h3>
+                        <ul class="list-disc text-sm space-y-2">
+                            <li><strong>Dental:</strong> Usually every 6 months to catch small problems early. Depends on oral health needs.</li>
+                            <li><strong>Medical:</strong> Regular checkups recommended by CMA/WHO to prevent conditions or catch them early.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="public" class="section-content space-y-8">
+                <div class="glass p-8 rounded-2xl">
+                    <h2 class="text-3xl font-black text-white mb-6">4. Public Health</h2>
+                    <div class="read-block border-l-4 border-l-blue-500">
+                        <h3>Public Health Agency of Canada (PHAC)</h3>
+                        <p class="text-sm mb-2">The role of the PHAC is to:</p>
+                        <ul class="list-disc text-sm ml-4 space-y-1">
+                            <li>Promote health.</li>
+                            <li>Prevent and control chronic diseases and injuries.</li>
+                            <li>Prevent and control infectious diseases.</li>
+                            <li>Prepare for and respond to public health emergencies.</li>
+                            <li>Apply international research to Canada's programs.</li>
+                            <li>Strengthen intergovernmental collaboration.</li>
+                        </ul>
+                    </div>
+                    <div class="read-block">
+                        <h3>Roles & Responsibilities</h3>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h4>Health Canada (Federal)</h4>
+                                <ul class="list-disc text-sm space-y-1">
+                                    <li>Sets national principles (Canada Health Act).</li>
+                                    <li>Delivers services to First Nations/Inuit.</li>
+                                    <li>Promotes health, prevents chronic/infectious disease.</li>
+                                    <li>Responds to emergencies.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Alberta Health (Provincial)</h4>
+                                <ul class="list-disc text-sm space-y-1">
+                                    <li>Administers health care insurance plan (AHCIP).</li>
+                                    <li>Issues Health Care Cards.</li>
+                                    <li>Funds Alberta Health Services (AHS).</li>
+                                    <li>Plans/delivers support to 3.7 million Albertans.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="read-block">
+                        <h3>Health Care System Flow</h3>
+                        <ul class="list-disc text-sm space-y-2">
+                            <li><strong>Primary Health Care:</strong> First point of contact (Doctor, Nurse). Publicly funded.</li>
+                            <li><strong>Hospitals/Long-Term Care:</strong> Services paid by province; room/board paid by individual.</li>
+                            <li><strong>Home Care:</strong> Needs assessed/coordinated for comprehensive care.</li>
+                            <li><strong>Additional Services:</strong> Prescription drugs, dental, vision, podiatry. Not generally covered publicly (Private Insurance).</li>
+                        </ul>
+                    </div>
+                    <div class="read-block">
+                        <h3>Complementary & Integrative Health</h3>
+                        <p class="text-sm mb-4">Shift from just curing to preventing. <strong>Integrative Health</strong> uses public and complementary systems together.</p>
+                        <ul class="list-disc text-sm space-y-1">
+                            <li><strong>Natural:</strong> Herbal remedies, homeopathy, naturopathy.</li>
+                            <li><strong>Manipulation:</strong> Chiropractic, acupuncture, massage, reflexology.</li>
+                            <li><strong>Mind Cure:</strong> Hypnotherapy, meditation.</li>
+                            <li><strong>Folk Medicine:</strong> Aboriginal healers.</li>
+                        </ul>
+                    </div>
+                    <div class="read-block border-l-4 border-red-500">
+                        <h3>Caregiver Role: Abuse Reporting & Protection</h3>
+                        <div class="bg-red-900/40 p-4 rounded mb-6 border border-red-800">
+                            <strong class="text-red-300 block mb-2">Protecting Yourself (Boundaries)</strong>
+                            <p class="text-xs text-slate-300 mb-2">You need to take precautions to protect yourself from being accused of inappropriate behaviour:</p>
+                            <ul class="list-disc text-xs text-slate-300 ml-4 space-y-1">
+                                <li>Strictly follow all rules and procedures for conduct.</li>
+                                <li>Always maintain a professional relationship with people in your care.</li>
+                                <li>If at all possible, <strong>never be alone</strong> with someone in your care, especially if the person is of the opposite sex.</li>
+                            </ul>
+                        </div>
+                        <p class="mb-4 text-sm">Under the <em>Child, Youth and Family Enhancement Act</em>, it is a <strong>legal duty</strong> to report any suspicion of abuse.</p>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h4>Types of Abuse</h4>
+                                <ul class="list-disc text-sm space-y-1">
+                                    <li><strong>Physical:</strong> Unexplained bruises, welts, burns, fear of contact.</li>
+                                    <li><strong>Neglect:</strong> Hunger, poor hygiene, unattended medical needs.</li>
+                                    <li><strong>Emotional:</strong> Aggressiveness, extreme withdrawal, depression, lying.</li>
+                                    <li><strong>Sexual:</strong> Precocious knowledge/behavior, unexplained money/gifts.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Procedures</h4>
+                                <ul class="list-disc text-sm space-y-1">
+                                    <li>Do NOT ask for details or investigate yourself.</li>
+                                    <li>Listen and record facts in child's own words.</li>
+                                    <li>Report to supervisor, Child & Family Services, or Police immediately.</li>
+                                    <li>Look after yourself (debrief with counselor).</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <h4 class="mt-6">Confidentiality (FOIP)</h4>
+                        <p class="text-sm">Access only necessary info. Keep it confidential. Disclose only with consent, legal requirement, or if failure to disclose causes harm.</p>
+                    </div>
+                    <div class="read-block">
+                        <h3>Medical Terminology</h3>
+                        <div class="grid md:grid-cols-2 gap-8 mt-4">
+                            <table class="term-table"><thead><tr><th>Prefix</th><th>Meaning</th></tr></thead><tbody><tr><td>a-</td><td>Absent, lack of</td></tr><tr><td>adipo-</td><td>Fat</td></tr><tr><td>cephalo-</td><td>Head</td></tr><tr><td>endo-</td><td>Internal</td></tr><tr><td>epi-</td><td>Outer/Covering</td></tr><tr><td>hydro-</td><td>Water</td></tr><tr><td>macro-</td><td>Large</td></tr><tr><td>micro-</td><td>Small</td></tr><tr><td>myo-</td><td>Muscle</td></tr><tr><td>neuro-</td><td>Nerve</td></tr><tr><td>osteo-</td><td>Bone</td></tr><tr><td>pneumo-</td><td>Air</td></tr></tbody></table>
+                            <table class="term-table"><thead><tr><th>Suffix</th><th>Meaning</th></tr></thead><tbody><tr><td>-cyte</td><td>Cell</td></tr><tr><td>-cide</td><td>Destroy</td></tr><tr><td>-itis</td><td>Inflammation</td></tr><tr><td>-ology</td><td>Study of</td></tr><tr><td>-osis</td><td>Condition/State</td></tr><tr><td>-oma</td><td>Tumour</td></tr><tr><td>-stomy</td><td>Surgical opening</td></tr><tr><td>-plasty</td><td>Reconstruction</td></tr></tbody></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="view-assess" class="main-view">
+            
+            <div class="mb-6 bg-slate-900 p-4 rounded border border-slate-700 flex flex-col md:flex-row justify-between items-center">
+                <div class="w-full md:w-1/2">
+                    <label class="text-xs text-slate-400 block mb-1">Student Full Name (Required for Report):</label>
+                    <input type="text" id="student-name" placeholder="Enter name here..." oninput="saveLocal()" class="bg-slate-950 border-slate-600">
+                </div>
+                <div class="mt-4 md:mt-0 text-right">
+                    <p class="text-xs text-slate-400">Total Marks</p>
+                    <p class="text-2xl font-black text-emerald-400">185</p>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap gap-2 mb-6">
+                <button onclick="switchAssessTab('sec1')" class="nav-btn active bg-slate-800 text-blue-400 border border-blue-500" id="btn-sec1">Section 1</button>
+                <button onclick="switchAssessTab('sec2')" class="nav-btn bg-slate-900 text-slate-400 border border-slate-700" id="btn-sec2">Section 2</button>
+                <button onclick="switchAssessTab('sec3')" class="nav-btn bg-slate-900 text-slate-400 border border-slate-700" id="btn-sec3">Section 3</button>
+                <button onclick="switchAssessTab('sec4')" class="nav-btn bg-slate-900 text-slate-400 border border-slate-700" id="btn-sec4">Section 4</button>
+            </div>
+
+            <div id="sec1" class="assess-tab active">
+                <h2 class="text-xl font-bold text-white mb-4">Section 1: Defining Health (20 Marks)</h2>
+                <div class="question-box">
+                    <span class="question-title">1a. Wellness Wheel Balance <span class="marks">(4 marks)</span></span>
+                    <select class="auto-grade" data-correct="B">
+                        <option value="">Choose the best answer...</option>
+                        <option value="A">Yes, if you try hard enough it will always be perfect.</option>
+                        <option value="B">No, illness or stress will shrink dimensions, causing temporary imbalance.</option>
+                        <option value="C">Yes, wellness is a permanent state once achieved.</option>
+                        <option value="D">No, because the wheel shape is just a metaphor and doesn't matter.</option>
+                    </select>
+                </div>
+                <div class="question-box">
+                    <span class="question-title">1b. Outside Factors <span class="marks">(4 marks)</span></span>
+                    <select class="auto-grade" data-correct="C">
+                        <option value="">Choose the best example...</option>
+                        <option value="A">They have no effect on internal wellness.</option>
+                        <option value="B">They only affect physical health (like injuries).</option>
+                        <option value="C">Stress (Intellectual) can cause anxiety (Emotional) and withdrawal (Social).</option>
+                        <option value="D">They only improve wellness, never harm it.</option>
+                    </select>
+                </div>
+                <div class="question-box">
+                    <span class="question-title">2. Determinants of Health <span class="marks">(10 marks)</span></span>
+                    <div class="grid grid-cols-1 gap-2">
+                        <div class="flex flex-col"><label class="text-xs text-slate-400">Control over work circumstances:</label><select class="auto-grade" data-correct="employ"><option value="">Select...</option><option value="income">Income</option><option value="employ">Employment/Working Conditions</option><option value="educ">Education</option><option value="env">Physical Environment</option></select></div>
+                        <div class="flex flex-col"><label class="text-xs text-slate-400">Genetics / Inherited predisposition:</label><select class="auto-grade" data-correct="bio"><option value="">Select...</option><option value="bio">Biology/Genetics</option><option value="child">Healthy Child Dev</option><option value="gender">Gender</option><option value="culture">Culture</option></select></div>
+                        <div class="flex flex-col"><label class="text-xs text-slate-400">Society’s ascribed roles (Men/Women):</label><select class="auto-grade" data-correct="gender"><option value="">Select...</option><option value="gender">Gender</option><option value="culture">Culture</option><option value="social">Social Environment</option><option value="bio">Biology</option></select></div>
+                        <div class="flex flex-col"><label class="text-xs text-slate-400">Health improves as money increases:</label><select class="auto-grade" data-correct="income"><option value="">Select...</option><option value="employ">Employment</option><option value="income">Income & Social Status</option><option value="educ">Education</option><option value="services">Health Services</option></select></div>
+                        <div class="flex flex-col"><label class="text-xs text-slate-400">Housing, air quality, water:</label><select class="auto-grade" data-correct="phys"><option value="">Select...</option><option value="phys">Physical Environment</option><option value="social">Social Environment</option><option value="bio">Biology</option><option value="personal">Personal Practices</option></select></div>
+                        <div class="flex flex-col"><label class="text-xs text-slate-400">Early brain development experiences:</label><select class="auto-grade" data-correct="child"><option value="">Select...</option><option value="educ">Education</option><option value="child">Healthy Child Development</option><option value="bio">Biology</option><option value="social">Social Support</option></select></div>
+                        <div class="flex flex-col"><label class="text-xs text-slate-400">Knowledge for problem solving:</label><select class="auto-grade" data-correct="educ"><option value="">Select...</option><option value="income">Income</option><option value="educ">Education & Literacy</option><option value="employ">Employment</option><option value="culture">Culture</option></select></div>
+                        <div class="flex flex-col"><label class="text-xs text-slate-400">Services to prevent disease:</label><select class="auto-grade" data-correct="serv"><option value="">Select...</option><option value="serv">Health Services</option><option value="social">Social Support</option><option value="phys">Physical Environment</option><option value="policy">Public Policy</option></select></div>
+                        <div class="flex flex-col"><label class="text-xs text-slate-400">Coping, self-reliance, choices:</label><select class="auto-grade" data-correct="pers"><option value="">Select...</option><option value="bio">Biology</option><option value="pers">Personal Health Practices</option><option value="gender">Gender</option><option value="culture">Culture</option></select></div>
+                        <div class="flex flex-col"><label class="text-xs text-slate-400">Support from family/friends:</label><select class="auto-grade" data-correct="soc"><option value="">Select...</option><option value="soc">Social Support Networks</option><option value="culture">Culture</option><option value="income">Income</option><option value="phys">Physical Env</option></select></div>
+                    </div>
+                </div>
+                <div class="question-box">
+                    <span class="question-title">3. Most Influential Determinant <span class="marks">(2 marks)</span></span>
+                    <select class="auto-grade" data-correct="A">
+                        <option value="">Why is Income often considered #1?</option>
+                        <option value="A">It directly affects living conditions, food quality, and stress levels.</option>
+                        <option value="B">Rich people are just naturally happier.</option>
+                        <option value="C">It isn't; Genetics is the only one that matters.</option>
+                        <option value="D">Because you can buy more medicine.</option>
+                    </select>
+                </div>
+                <div class="mt-4 pt-4 border-t border-slate-700"><button onclick="checkSectionScore('sec1', 20)" class="bg-slate-700 hover:bg-slate-600 text-sm text-white py-2 px-4 rounded w-full md:w-auto">Check Section 1 Score</button><span id="score-sec1-display" class="block md:inline mt-2 md:mt-0 md:ml-4 text-blue-400 font-bold hidden"></span></div>
+            </div>
+
+            <div id="sec2" class="assess-tab hidden">
+                <h2 class="text-xl font-bold text-white mb-4">Section 2: Inside Out (100 Marks)</h2>
+                <div class="question-box"><span class="question-title">1. Terminology Matching <span class="marks">(10 marks)</span></span><div class="grid grid-cols-1 md:grid-cols-2 gap-4"><div><label class="text-xs text-blue-200">Basic structural unit of organisms:</label><select class="auto-grade" data-correct="e"><option value="">Select...</option><option value="e">Cells</option><option value="f">Tissues</option><option value="a">Anatomy</option></select></div><div><label class="text-xs text-blue-200">Collection of tissues serving a function:</label><select class="auto-grade" data-correct="g"><option value="">Select...</option><option value="f">Tissues</option><option value="g">Organs</option><option value="d">Homeostasis</option></select></div><div><label class="text-xs text-blue-200">State of complete well-being:</label><select class="auto-grade" data-correct="j"><option value="">Select...</option><option value="i">Wellness</option><option value="j">Health</option><option value="b">Physiology</option></select></div><div><label class="text-xs text-blue-200">Study of functions in living systems:</label><select class="auto-grade" data-correct="b"><option value="">Select...</option><option value="a">Anatomy</option><option value="b">Physiology</option><option value="c">Pathology</option></select></div><div><label class="text-xs text-blue-200">Study of structure of the body:</label><select class="auto-grade" data-correct="a"><option value="">Select...</option><option value="a">Anatomy</option><option value="b">Physiology</option><option value="c">Pathology</option></select></div><div><label class="text-xs text-blue-200">Science of causes/effects of disease:</label><select class="auto-grade" data-correct="c"><option value="">Select...</option><option value="b">Physiology</option><option value="c">Pathology</option><option value="d">Homeostasis</option></select></div><div><label class="text-xs text-blue-200">Process of making successful choices:</label><select class="auto-grade" data-correct="i"><option value="">Select...</option><option value="i">Wellness</option><option value="j">Health</option><option value="d">Homeostasis</option></select></div><div><label class="text-xs text-blue-200">Tendency toward stable equilibrium:</label><select class="auto-grade" data-correct="d"><option value="">Select...</option><option value="d">Homeostasis</option><option value="b">Physiology</option><option value="a">Anatomy</option></select></div><div><label class="text-xs text-blue-200">Group of cells with similar function:</label><select class="auto-grade" data-correct="f"><option value="">Select...</option><option value="e">Cells</option><option value="f">Tissues</option><option value="g">Organs</option></select></div><div><label class="text-xs text-blue-200">Attaches muscle to bone:</label><select class="auto-grade" data-correct="h"><option value="">Select...</option><option value="h">Tendons</option><option value="f">Tissues</option><option value="g">Organs</option></select></div></div></div>
+                
+                <div class="question-box"><span class="question-title">2. Homeostasis Examples <span class="marks">(4 marks)</span></span><p class="text-sm mb-2">Select the 4 correct examples:</p><div class="grid grid-cols-2 gap-2"><label><input type="checkbox" class="cb-grade" value="yes"> Body Temp</label><label><input type="checkbox" class="cb-grade" value="no"> Hair Length</label><label><input type="checkbox" class="cb-grade" value="yes"> Blood Sugar</label><label><input type="checkbox" class="cb-grade" value="no"> Fingerprint</label><label><input type="checkbox" class="cb-grade" value="yes"> Fluid Balance</label><label><input type="checkbox" class="cb-grade" value="yes"> Blood Pressure</label></div></div>
+
+                <div class="question-box"><span class="question-title">3. Multiple Choice <span class="marks">(6 marks)</span></span><div class="space-y-4"><div><label class="text-xs">a) ________ do not belong to basic units.</label><select class="auto-grade" data-correct="ii"><option>Select...</option><option value="i">Cells</option><option value="ii">Tendons</option><option value="iii">Tissues</option></select></div><div><label class="text-xs">b) Walter B. Cannon suggested name ________.</label><select class="auto-grade" data-correct="iv"><option>Select...</option><option value="ii">homogenization</option><option value="iv">homeostasis</option></select></div><div><label class="text-xs">c) Caudal means:</label><select class="auto-grade" data-correct="ii"><option>Select...</option><option value="i">toward head</option><option value="ii">away from head</option></select></div><div><label class="text-xs">d) Hand is at ________ end of forearm.</label><select class="auto-grade" data-correct="iv"><option>Select...</option><option value="i">proximal</option><option value="iv">distal</option></select></div><div><label class="text-xs">e) Coronal plane runs ________.</label><select class="auto-grade" data-correct="iii"><option>Select...</option><option value="ii">front to back</option><option value="iii">side to side</option></select></div><div><label class="text-xs">f) ________ cavity contains heart/lungs.</label><select class="auto-grade" data-correct="iv"><option>Select...</option><option value="ii">abdominopelvic</option><option value="iv">thoracic</option></select></div></div></div>
+
+                <div class="question-box"><span class="question-title">4. Definitions <span class="marks">(4 marks)</span></span><div><span class="text-xs">a) Cell:</span><select class="auto-grade" data-correct="unit"><option>Select...</option><option value="unit">Basic biological unit</option><option value="group">Group of tissues</option></select></div><div><span class="text-xs">b) Organ:</span><select class="auto-grade" data-correct="tis_group"><option>Select...</option><option value="unit">Basic unit</option><option value="tis_group">Collection of tissues</option></select></div><div><span class="text-xs">c) Tissue:</span><select class="auto-grade" data-correct="cell_group"><option>Select...</option><option value="cell_group">Group of cells</option><option value="conn">Connects bone</option></select></div><div><span class="text-xs">d) System:</span><select class="auto-grade" data-correct="sys"><option>Select...</option><option value="sys">Group of organs</option><option value="single">Single cell</option></select></div></div>
+
+                <div class="question-box"><span class="question-title">5. Categorize (T/O/S/BC) <span class="marks">(10 marks)</span></span><div class="grid grid-cols-2 md:grid-cols-4 gap-2"><div>a) Kidney: <select class="auto-grade" data-correct="O"><option>-</option><option value="T">T</option><option value="O">O</option><option value="S">S</option><option value="BC">BC</option></select></div><div>b) Bone: <select class="auto-grade" data-correct="T"><option>-</option><option value="T">T</option><option value="O">O</option><option value="S">S</option><option value="BC">BC</option></select></div><div>c) Brain: <select class="auto-grade" data-correct="O"><option>-</option><option value="T">T</option><option value="O">O</option><option value="S">S</option><option value="BC">BC</option></select></div><div>d) Cardiovascular: <select class="auto-grade" data-correct="S"><option>-</option><option value="T">T</option><option value="O">O</option><option value="S">S</option><option value="BC">BC</option></select></div><div>e) Digestive: <select class="auto-grade" data-correct="S"><option>-</option><option value="T">T</option><option value="O">O</option><option value="S">S</option><option value="BC">BC</option></select></div><div>f) Ear: <select class="auto-grade" data-correct="O"><option>-</option><option value="T">T</option><option value="O">O</option><option value="S">S</option><option value="BC">BC</option></select></div><div>g) Endocrine: <select class="auto-grade" data-correct="S"><option>-</option><option value="T">T</option><option value="O">O</option><option value="S">S</option><option value="BC">BC</option></select></div><div>h) Urinary: <select class="auto-grade" data-correct="S"><option>-</option><option value="T">T</option><option value="O">O</option><option value="S">S</option><option value="BC">BC</option></select></div><div>i) Heart: <select class="auto-grade" data-correct="O"><option>-</option><option value="T">T</option><option value="O">O</option><option value="S">S</option><option value="BC">BC</option></select></div><div>j) Ventral: <select class="auto-grade" data-correct="BC"><option>-</option><option value="T">T</option><option value="O">O</option><option value="S">S</option><option value="BC">BC</option></select></div><div>k) Muscle: <select class="auto-grade" data-correct="T"><option>-</option><option value="T">T</option><option value="O">O</option><option value="S">S</option><option value="BC">BC</option></select></div><div>l) Dorsal: <select class="auto-grade" data-correct="BC"><option>-</option><option value="T">T</option><option value="O">O</option><option value="S">S</option><option value="BC">BC</option></select></div><div>m) Nerve: <select class="auto-grade" data-correct="T"><option>-</option><option value="T">T</option><option value="O">O</option><option value="S">S</option><option value="BC">BC</option></select></div><div>n) Nervous: <select class="auto-grade" data-correct="S"><option>-</option><option value="T">T</option><option value="O">O</option><option value="S">S</option><option value="BC">BC</option></select></div><div>o) Nose: <select class="auto-grade" data-correct="O"><option>-</option><option value="T">T</option><option value="O">O</option><option value="S">S</option><option value="BC">BC</option></select></div><div>p) Respiratory: <select class="auto-grade" data-correct="S"><option>-</option><option value="T">T</option><option value="O">O</option><option value="S">S</option><option value="BC">BC</option></select></div><div>q) Skeletal: <select class="auto-grade" data-correct="S"><option>-</option><option value="T">T</option><option value="O">O</option><option value="S">S</option><option value="BC">BC</option></select></div><div>r) Skin: <select class="auto-grade" data-correct="O"><option>-</option><option value="T">T</option><option value="O">O</option><option value="S">S</option><option value="BC">BC</option></select></div><div>s) Stomach: <select class="auto-grade" data-correct="O"><option>-</option><option value="T">T</option><option value="O">O</option><option value="S">S</option><option value="BC">BC</option></select></div><div>t) Thoracic: <select class="auto-grade" data-correct="BC"><option>-</option><option value="T">T</option><option value="O">O</option><option value="S">S</option><option value="BC">BC</option></select></div></div></div>
+
+                <div class="question-box"><span class="question-title">6. Planes (3 marks)</span><div class="space-y-2"><div class="flex justify-between items-center"><span class="text-xs">Ant/Post:</span><select class="auto-grade w-1/3" data-correct="cor"><option value="">Select...</option><option value="sag">Sagittal</option><option value="cor">Coronal</option><option value="tran">Transverse</option></select></div><div class="flex justify-between items-center"><span class="text-xs">Upper/Lower:</span><select class="auto-grade w-1/3" data-correct="tran"><option value="">Select...</option><option value="sag">Sagittal</option><option value="cor">Coronal</option><option value="tran">Transverse</option></select></div><div class="flex justify-between items-center"><span class="text-xs">Right/Left:</span><select class="auto-grade w-1/3" data-correct="sag"><option value="">Select...</option><option value="sag">Sagittal</option><option value="cor">Coronal</option><option value="tran">Transverse</option></select></div></div></div>
+
+                <div class="question-box"><span class="question-title">7. Systems Matching (11 marks)</span><div class="space-y-2"><div class="flex justify-between"><span class="text-xs w-2/3">Produces white blood cells/protects:</span><select class="auto-grade w-1/3" data-correct="k"><option>-</option><option value="k">Lymphatic</option><option value="j">CV</option><option value="a">Muscular</option></select></div><div class="flex justify-between"><span class="text-xs w-2/3">Breaks down food:</span><select class="auto-grade w-1/3" data-correct="h"><option>-</option><option value="h">Digestive</option><option value="d">Urinary</option><option value="b">Resp</option></select></div><div class="flex justify-between"><span class="text-xs w-2/3">Movement:</span><select class="auto-grade w-1/3" data-correct="a"><option>-</option><option value="a">Muscular</option><option value="f">Skeletal</option></select></div><div class="flex justify-between"><span class="text-xs w-2/3">Sex organs:</span><select class="auto-grade w-1/3" data-correct="c"><option>-</option><option value="c">Reproductive</option><option value="g">Endocrine</option></select></div><div class="flex justify-between"><span class="text-xs w-2/3">Receives stimuli:</span><select class="auto-grade w-1/3" data-correct="e"><option>-</option><option value="e">Integumentary</option><option value="i">Nervous</option></select></div><div class="flex justify-between"><span class="text-xs w-2/3">Transports O2:</span><select class="auto-grade w-1/3" data-correct="j"><option>-</option><option value="j">Cardiovascular</option><option value="b">Resp</option></select></div><div class="flex justify-between"><span class="text-xs w-2/3">Fluid balance:</span><select class="auto-grade w-1/3" data-correct="d"><option>-</option><option value="d">Urinary</option><option value="h">Digestive</option></select></div><div class="flex justify-between"><span class="text-xs w-2/3">Hormones:</span><select class="auto-grade w-1/3" data-correct="g"><option>-</option><option value="g">Endocrine</option><option value="i">Nervous</option></select></div><div class="flex justify-between"><span class="text-xs w-2/3">Regulates via impulses:</span><select class="auto-grade w-1/3" data-correct="i"><option>-</option><option value="i">Nervous</option><option value="j">CV</option></select></div><div class="flex justify-between"><span class="text-xs w-2/3">Supports/Protect:</span><select class="auto-grade w-1/3" data-correct="f"><option>-</option><option value="f">Skeletal</option><option value="e">Integ</option></select></div><div class="flex justify-between"><span class="text-xs w-2/3">O2 in/CO2 out:</span><select class="auto-grade w-1/3" data-correct="b"><option>-</option><option value="b">Respiratory</option><option value="j">CV</option></select></div></div></div>
+
+                <div class="question-box">
+                    <span class="question-title">8. Diagrams (a-i) <span class="marks">(18 marks)</span></span>
+                    <div class="image-box"><img src="https://lh7-rt.googleusercontent.com/sitesz/AClOY7q75SzL6QWGo0QLlpVsetB8s8yED8oReRrYwa40fNWqtoaeE0PLJpu4m-wTmHgy3N6b0EJV_TrPXY4-oTH9KCKAb_nC_2qbprU7D4aWlHpeY_e7guyGgiAgX0q6rszojSFQEughhLUI7zwD6TCUntEfrVtjMSTvJBvFgPeOG8_2Sl-J7FTkM90qnBMs1A?key=RH9vZ1fzWn6T_aYPVbTgGg" alt="Diagram A"><span>Diagram A</span></div>
+                    <div class="grid grid-cols-3 gap-2 mb-4"><select class="auto-grade" data-correct="dig"><option>Sys</option><option value="dig">Digestive</option><option value="res">Resp</option><option value="cir">Circ</option></select><select class="auto-grade" data-correct="bk"><option>Func</option><option value="bk">Breakdown</option><option value="tr">Transport</option><option value="pro">Protect</option></select><select class="auto-grade" data-correct="st"><option>Org</option><option value="st">Stomach</option><option value="lu">Lung</option></select></div>
+                    <div class="image-box"><img src="https://lh7-rt.googleusercontent.com/sitesz/AClOY7pZYdfVpJ5fcEE_BORexFrlovHptgIsiDQNrjI1NI8vNSUuoOIzDhZpuJBCU8h0a7dcyeMjssH-9wQDwVpozrpGR3M_FCqBjGz42vCgl2Y1Gyjr55KGb_mmcMu1-AvOdhc4iWsgDdlHaM6Kfun8I-XFHhn_4QuAa1bgZw6pxqJgcXavCOZozXg7XLxcwr3w?key=RH9vZ1fzWn6T_aYPVbTgGg" alt="Diagram B"><span>Diagram B</span></div>
+                    <div class="grid grid-cols-3 gap-2 mb-4"><select class="auto-grade" data-correct="skel"><option>Sys</option><option value="skel">Skeletal</option><option value="mus">Muscular</option><option value="ner">Nervous</option></select><select class="auto-grade" data-correct="supp"><option>Func</option><option value="supp">Support</option><option value="mv">Move</option></select><select class="auto-grade" data-correct="bo"><option>Org</option><option value="bo">Bones</option><option value="sk">Skin</option></select></div>
+                    <div class="image-box"><img src="https://lh7-rt.googleusercontent.com/sitesz/AClOY7orkvOrWP4frr_ffM0HSMX2EGxt5_-mg19nlpvEMHfusOIVojVzJlbIQ0esKHqaxfzjl-2IyIPQKoIdP1dbVi4CFS1GDBX2cvq4hyhzoytZNSgHfNWdgIF5kGdJJE_KCf6VYoIwRm1ERKSH3VZ6zUgz7m0Bg4KMsOfr-IQx76GDDPMFqSmr_3FiVnJWxA?key=RH9vZ1fzWn6T_aYPVbTgGg" alt="Diagram C"><span>Diagram C</span></div>
+                    <div class="grid grid-cols-3 gap-2 mb-4"><select class="auto-grade" data-correct="mus"><option>Sys</option><option value="mus">Muscular</option><option value="ske">Skeletal</option></select><select class="auto-grade" data-correct="mov"><option>Func</option><option value="mov">Move</option><option value="sup">Support</option></select><select class="auto-grade" data-correct="mu"><option>Org</option><option value="mu">Muscles</option><option value="bo">Bones</option></select></div>
+                    <div class="image-box"><img src="https://lh7-rt.googleusercontent.com/sitesz/AClOY7r8fV-ZL329m8_WxpZabwRFPTIpF4q653hudyiPXpArUB3wnjWxYSOpcYxkEIb66OZYiHj0ZmmM7m-4JsF6Hvt4xGsONyOvpe0Wg6jLKwQ19uRonSocue9AzeIrHtiVKy87knkvgxYccZn21G7ugvG7p6GvifXpPQKavMOjXSUCQpGHt2PuWo7tJCpE_t_H?key=RH9vZ1fzWn6T_aYPVbTgGg" alt="Diagram D"><span>Diagram D</span></div><div class="grid grid-cols-3 gap-2 mb-4"><select class="auto-grade" data-correct="int"><option>Sys</option><option value="int">Integumentary</option><option value="ner">Nervous</option></select><select class="auto-grade" data-correct="pro"><option>Func</option><option value="pro">Protect</option><option value="msg">Message</option></select><select class="auto-grade" data-correct="sk"><option>Org</option><option value="sk">Skin</option><option value="br">Brain</option></select></div>
+                    <div class="image-box"><img src="https://lh7-rt.googleusercontent.com/sitesz/AClOY7o9vbqMbSgXqQ2a0Y6gG3PbqDOS5iyhHYw_t1B3f6VMHzBYWBIjFIkXfDkMdqHrw64I6ojwpsBvrcM06_7m5e206oQUJ-dpGdrxCfuMUp_od0PGCt86PcOC5711hEd4nJHYksp9vnEqvSqaLwvTj8W2Ud-ebibPV3phVkhK-d8ILAHo9_gO1LdJu_3P7KA1?key=RH9vZ1fzWn6T_aYPVbTgGg" alt="Diagram E"><span>Diagram E</span></div><div class="grid grid-cols-3 gap-2 mb-4"><select class="auto-grade" data-correct="uri"><option>Sys</option><option value="uri">Urinary</option><option value="dig">Digestive</option></select><select class="auto-grade" data-correct="bal"><option>Func</option><option value="bal">Balance</option><option value="bre">Breakdown</option></select><select class="auto-grade" data-correct="ki"><option>Org</option><option value="ki">Kidney</option><option value="li">Liver</option></select></div>
+                    <div class="image-box"><img src="https://lh7-rt.googleusercontent.com/sitesz/AClOY7qdwc71GmqwLpqyJbbJ-ajnJsnra6oChgzL4dF_Mr4VqAUSfm2VNVvzpnZMC0sNNLQx9Q3HVQY2GgjXnzMfOyycHTz4l663xZRoRnnJwzKAmi21QbcqQaumekBfCvBCeJQIyyxv-AGKipKcpyFw-xSmj2UWbXhzpKeDlnpc7WbbJ-inwANB-3d0rqY0nY7w?key=RH9vZ1fzWn6T_aYPVbTgGg" alt="Diagram F"><span>Diagram F</span></div><div class="grid grid-cols-3 gap-2 mb-4"><select class="auto-grade" data-correct="rep"><option>Sys</option><option value="rep">Reproductive</option><option value="end">Endo</option></select><select class="auto-grade" data-correct="re"><option>Func</option><option value="re">Reproduction</option><option value="hor">Hormone</option></select><select class="auto-grade" data-correct="ov"><option>Org</option><option value="ov">Ovaries</option><option value="th">Thyroid</option></select></div>
+                    <div class="image-box"><img src="https://lh7-rt.googleusercontent.com/sitesz/AClOY7oCz5uI7dyGvE5br_2ErKs9o1I27lT-3j0oZ97Ez6HHiaOXykyViVnbpmicX6KQiExMMkBWP4Uc8VnQeHQ0JiyRGfiJR_BHba5_7tz61h7btRnnHRqRIpBOGqNOM5frV37iLQ85boEexlN3eelCMSfNy_uqsj0Y06GiTHtUaWJIEFb9Xlfvhag8jBBMnxPW?key=RH9vZ1fzWn6T_aYPVbTgGg" alt="Diagram G"><span>Diagram G</span></div><div class="grid grid-cols-3 gap-2 mb-4"><select class="auto-grade" data-correct="ner"><option>Sys</option><option value="ner">Nervous</option><option value="ske">Skeletal</option></select><select class="auto-grade" data-correct="sti"><option>Func</option><option value="sti">Stimuli</option><option value="mov">Move</option></select><select class="auto-grade" data-correct="br"><option>Org</option><option value="br">Brain</option><option value="ht">Heart</option></select></div>
+                    <div class="image-box"><img src="https://lh7-rt.googleusercontent.com/sitesz/AClOY7re18yqMesJ9AxahtvMWNUl6emPqpCgWAnwk07hXCuqmNmTKvrzX4VhC2tEdi3kgFyTX1uQfget-ZdfHaVGKYXMvKeDvsjQmCLJJFXfsKhjWq4D5yNk2sHDxYaGFjAHvv0X31QgnLhFZTRM4NATd5vb-Lo7kzAAtNO2dfyA9VBE9-Fb7KGBO_0mTnEavJFI?key=RH9vZ1fzWn6T_aYPVbTgGg" alt="Diagram H"><span>Diagram H</span></div><div class="grid grid-cols-3 gap-2 mb-4"><select class="auto-grade" data-correct="car"><option>Sys</option><option value="car">Cardiovascular</option><option value="res">Resp</option></select><select class="auto-grade" data-correct="tr"><option>Func</option><option value="tr">Transport</option><option value="ga">Gas Ex</option></select><select class="auto-grade" data-correct="he"><option>Org</option><option value="he">Heart</option><option value="lu">Lung</option></select></div>
+                    <div class="image-box"><img src="https://lh7-rt.googleusercontent.com/sitesz/AClOY7pNQyDqR0vEjLtL4u8MT3mMEnXI_NWCX6XajXZv4NoNfiHicnOxjy1MizFg3NfvdK6IylLZACeU6yBjiUOc6z1OJOi7Du-bAzHI2qU6U6QPeYFHKlFyKc01HFyC2NQkYgbW9vKk8qhCMJ_cnpLyIHecY2vZJM2d7GYdNz3M5TblXfIBv40CaPrjGQCNKgWD?key=RH9vZ1fzWn6T_aYPVbTgGg" alt="Diagram I"><span>Diagram I</span></div><div class="grid grid-cols-3 gap-2 mb-4"><select class="auto-grade" data-correct="res"><option>Sys</option><option value="res">Respiratory</option><option value="car">Cardio</option></select><select class="auto-grade" data-correct="gas"><option>Func</option><option value="gas">Gas Ex</option><option value="tr">Transport</option></select><select class="auto-grade" data-correct="lu"><option>Org</option><option value="lu">Lungs</option><option value="ht">Heart</option></select></div>
+                </div>
+
+                <div class="question-box"><span class="question-title">9. Importance of Movement (3 marks)</span><div class="space-y-2"><select class="auto-grade" data-correct="v"><option>Reason 1...</option><option value="v">CV Health</option><option value="i">Bad for you</option><option value="j">Causes Pain</option></select><select class="auto-grade" data-correct="v"><option>Reason 2...</option><option value="v">Strength</option><option value="i">Illness</option><option value="j">Weakness</option></select><select class="auto-grade" data-correct="v"><option>Reason 3...</option><option value="v">Stress Relief</option><option value="i">Tiredness</option></select></div></div>
+
+                <div class="question-box"><span class="question-title">10. Active Living (4 marks)</span><div class="grid grid-cols-2 gap-2"><label><input type="checkbox" class="cb-grade" value="yes"> Sports Team</label><label><input type="checkbox" class="cb-grade" value="no"> Video Games</label><label><input type="checkbox" class="cb-grade" value="yes"> Hiking</label><label><input type="checkbox" class="cb-grade" value="yes"> Yoga</label><label><input type="checkbox" class="cb-grade" value="yes"> Cycling</label><label><input type="checkbox" class="cb-grade" value="no"> Sleeping</label></div></div>
+
+                <div class="question-box"><span class="question-title">11. Muscle Types (3 marks)</span><div class="space-y-2"><div class="flex gap-2"><select class="auto-grade w-1/2" data-correct="sk"><option>Type 1</option><option value="sk">Skeletal</option><option value="sm">Smooth</option><option value="ca">Cardiac</option></select><select class="auto-grade w-1/2" data-correct="bi"><option>Ex</option><option value="bi">Biceps</option><option value="st">Stomach</option><option value="ht">Heart</option></select></div><div class="flex gap-2"><select class="auto-grade w-1/2" data-correct="sm"><option>Type 2</option><option value="sm">Smooth</option><option value="sk">Skeletal</option><option value="ca">Cardiac</option></select><select class="auto-grade w-1/2" data-correct="st"><option>Ex</option><option value="st">Stomach</option><option value="bi">Biceps</option><option value="ht">Heart</option></select></div><div class="flex gap-2"><select class="auto-grade w-1/2" data-correct="ca"><option>Type 3</option><option value="ca">Cardiac</option><option value="sk">Skeletal</option><option value="sm">Smooth</option></select><select class="auto-grade w-1/2" data-correct="he"><option>Ex</option><option value="he">Heart</option><option value="bi">Biceps</option><option value="st">Stomach</option></select></div></div></div>
+
+                <div class="question-box">
+                    <span class="question-title">12. Muscle Chart <span class="marks">(10 marks)</span></span>
+                    <div class="image-box"><img src="https://lh7-rt.googleusercontent.com/sitesz/AClOY7qcTtUcwc3FlyfFgt5pV4T57Zlis9zNYD1bRJKvo6jMdoErtTWkK_qvKSLnJwATAcM_rJ75SzoNdxbf4qZbcOfPA9gZF1kAoa1oPhuCAGaaoEPr7LcxvxCnUi-AwZ8TAAO26-g-G_bv30VP8f9kfsPsyKRH7wuNKqKkPbWXAIXZInqUXF_knuCoYQd8utvU?key=RH9vZ1fzWn6T_aYPVbTgGg" alt="Muscle Chart"><span>Muscle Chart</span></div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <select class="auto-grade" data-correct="tr"><option>1...</option><option value="tr">Trapezius</option><option value="de">Deltoid</option><option value="pe">Pectoral</option></select>
+                        <select class="auto-grade" data-correct="de"><option>2...</option><option value="de">Deltoid</option><option value="bi">Biceps</option><option value="tr">Triceps</option></select>
+                        <select class="auto-grade" data-correct="pe"><option>3...</option><option value="pe">Pectoral</option><option value="la">Latissimus</option><option value="ab">Abs</option></select>
+                        <select class="auto-grade" data-correct="bi"><option>4...</option><option value="bi">Biceps</option><option value="tr">Triceps</option><option value="de">Deltoid</option></select>
+                        <select class="auto-grade" data-correct="tri"><option>5...</option><option value="tri">Triceps</option><option value="bi">Biceps</option><option value="br">Brachialis</option></select>
+                        <select class="auto-grade" data-correct="la"><option>6...</option><option value="la">Latissimus</option><option value="pe">Pectoral</option><option value="tr">Trapezius</option></select>
+                        <select class="auto-grade" data-correct="ab"><option>7...</option><option value="ab">Abs</option><option value="ob">Obliques</option><option value="la">Latissimus</option></select>
+                        <select class="auto-grade" data-correct="gl"><option>8...</option><option value="gl">Glutes</option><option value="ha">Hams</option><option value="qu">Quads</option></select>
+                        <select class="auto-grade" data-correct="qu"><option>9...</option><option value="qu">Quads</option><option value="ha">Hams</option><option value="ca">Calf</option></select>
+                        <select class="auto-grade" data-correct="ga"><option>10...</option><option value="ga">Gastrocnemius</option><option value="ti">Tibialis</option><option value="so">Soleus</option></select>
+                    </div>
+                </div>
+
+                <div class="question-box"><span class="question-title">13. Proteins (2 marks)</span><div><select class="auto-grade" data-correct="am"><option>Proteins?</option><option value="am">Actin/Myosin</option><option value="kc">Keratin/Collagen</option><option value="ig">Insulin/Glucagon</option></select></div><div><select class="auto-grade" data-correct="sl"><option>Action?</option><option value="sl">Slide past</option><option value="gr">Grow</option><option value="ex">Explode</option></select></div></div>
+
+                <div class="question-box"><span class="question-title">14. Muscle Pairs (4 marks)</span><select class="auto-grade" data-correct="ag"><option>Explain...</option><option value="ag">Agonist contracts/Antagonist relaxes</option><option value="bo">Both contract at once</option><option value="no">They don't move in pairs</option></select></div>
+
+                <div class="question-box"><span class="question-title">15. Joint Movement (6 marks)</span><div class="space-y-2"><div class="flex justify-between"><span class="text-xs">Bending knee:</span><select class="auto-grade w-1/3" data-correct="fl"><option>-</option><option value="fl">Flexion</option><option value="ex">Extension</option><option value="ro">Rotation</option></select></div><div class="flex justify-between"><span class="text-xs">Raising arms:</span><select class="auto-grade w-1/3" data-correct="ab"><option>-</option><option value="ab">Abduction</option><option value="ad">Adduction</option><option value="ci">Circumduction</option></select></div><div class="flex justify-between"><span class="text-xs">Circles:</span><select class="auto-grade w-1/3" data-correct="ci"><option>-</option><option value="ci">Circumduction</option><option value="ro">Rotation</option><option value="su">Supination</option></select></div><div class="flex justify-between"><span class="text-xs">Holding tray:</span><select class="auto-grade w-1/3" data-correct="su"><option>-</option><option value="su">Supination</option><option value="pr">Pronation</option><option value="el">Elevation</option></select></div><div class="flex justify-between"><span class="text-xs">Pointing toes:</span><select class="auto-grade w-1/3" data-correct="pl"><option>-</option><option value="pl">Plantar</option><option value="do">Dorsi</option><option value="in">Inversion</option></select></div><div class="flex justify-between"><span class="text-xs">Shrugging:</span><select class="auto-grade w-1/3" data-correct="el"><option>-</option><option value="el">Elevation</option><option value="de">Depression</option><option value="pr">Protraction</option></select></div></div></div>
+
+                <div class="mt-4 pt-4 border-t border-slate-700"><button onclick="checkSectionScore('sec2', 100)" class="bg-slate-700 hover:bg-slate-600 text-sm text-white py-2 px-4 rounded">Check Section 2 Score</button><span id="score-sec2-display" class="ml-4 text-blue-400 font-bold hidden"></span></div>
+            </div>
+
+            <div id="sec3" class="assess-tab hidden">
+                <h2 class="text-xl font-bold text-white mb-4">Section 3: Roadmap (33 Marks)</h2>
+                <div class="question-box"><span class="question-title">1. Nutritional Choices (4 marks)</span><div class="space-y-3"><div><label class="text-xs text-blue-300">a) Tip 1:</label><select class="auto-grade" data-correct="good"><option value="">Select a valid tip...</option><option value="good">Eat a healthy breakfast every day.</option><option value="bad">Skip meals to save calories.</option><option value="bad">Replace all meals with protein shakes.</option></select></div><div><label class="text-xs text-blue-300">b) Tip 2:</label><select class="auto-grade" data-correct="good"><option value="">Select a valid tip...</option><option value="good">Choose a variety of fruits and vegetables.</option><option value="bad">Eat only white foods (bread, rice, pasta).</option><option value="bad">Drink soda instead of water for energy.</option></select></div></div></div>
+                <div class="question-box"><span class="question-title">2. Physical Activity (4 marks)</span><div class="space-y-3"><div><label class="text-xs text-blue-300">a) Tip 1:</label><select class="auto-grade" data-correct="good"><option value="">Select a valid tip...</option><option value="good">Get at least 60 minutes of activity daily.</option><option value="bad">Exercise only once a month.</option><option value="bad">Only exercise if you are overweight.</option></select></div><div><label class="text-xs text-blue-300">b) Tip 2:</label><select class="auto-grade" data-correct="good"><option value="">Select a valid tip...</option><option value="good">Include both moderate and vigorous activities.</option><option value="bad">Avoid sweating at all costs.</option><option value="bad">Sit for at least 8 hours straight.</option></select></div></div></div>
+                <div class="question-box"><span class="question-title">3. Sleep (4 marks)</span><div class="space-y-3"><div><label class="text-xs text-blue-300">a) Tip 1:</label><select class="auto-grade" data-correct="good"><option value="">Select a valid tip...</option><option value="good">Aim for 8.5 to 9.25 hours of sleep.</option><option value="bad">5 hours of sleep is plenty for teens.</option><option value="bad">Sleep is a waste of time.</option></select></div><div><label class="text-xs text-blue-300">b) Tip 2:</label><select class="auto-grade" data-correct="good"><option value="">Select a valid tip...</option><option value="good">Establish a consistent bedtime routine.</option><option value="bad">Drink caffeine right before bed.</option><option value="bad">Stay up all night on weekends.</option></select></div></div></div>
+                <div class="question-box"><span class="question-title">4. Regular Dental and Medical Checkups (4 marks)</span><div class="space-y-3"><div><label class="text-xs text-blue-300">a) Tip 1:</label><select class="auto-grade" data-correct="good"><option value="">Select a valid tip...</option><option value="good">Visit the dentist every 6-9 months.</option><option value="bad">Only go to the doctor when in extreme pain.</option><option value="bad">Never tell the doctor the truth.</option></select></div><div><label class="text-xs text-blue-300">b) Tip 2:</label><select class="auto-grade" data-correct="good"><option value="">Select a valid tip...</option><option value="good">Keep vaccinations up to date.</option><option value="bad">Treat all illnesses with internet advice only.</option><option value="bad">Share prescription medicine with friends.</option></select></div></div></div>
+                <div class="question-box"><span class="question-title">5. Being an Informed Consumer (4 marks)</span><div class="space-y-3"><div><label class="text-xs text-blue-300">a) Tip 1:</label><select class="auto-grade" data-correct="good"><option value="">Select a valid tip...</option><option value="good">Read labels and research product claims.</option><option value="bad">Buy whatever has the coolest commercial.</option><option value="bad">Assume all "natural" products are safe.</option></select></div><div><label class="text-xs text-blue-300">b) Tip 2:</label><select class="auto-grade" data-correct="good"><option value="">Select a valid tip...</option><option value="good">Ask health professionals for advice on products.</option><option value="bad">Trust influencers over doctors.</option><option value="bad">Buy the most expensive item always.</option></select></div></div></div>
+                <div class="question-box"><span class="question-title">6. Protecting Yourself from Disease (4 marks)</span><div class="space-y-3"><div><label class="text-xs text-blue-300">a) Tip 1:</label><select class="auto-grade" data-correct="good"><option value="">Select a valid tip...</option><option value="good">Wash hands frequently with soap.</option><option value="bad">Share water bottles with teammates.</option><option value="bad">Cough into your hands.</option></select></div><div><label class="text-xs text-blue-300">b) Tip 2:</label><select class="auto-grade" data-correct="good"><option value="">Select a valid tip...</option><option value="good">Stay home when you are sick.</option><option value="bad">Go to school even with a fever.</option><option value="bad">Stop taking antibiotics once you feel better.</option></select></div></div></div>
+                
+                <div class="question-box"><span class="question-title">7. Hand Sanitizer Usage (3 marks)</span><div class="space-y-2"><div class="flex justify-between items-center"><span class="text-xs w-1/2">When to use:</span><select class="auto-grade w-1/2" data-correct="when"><option value="">Select...</option><option value="when">When soap and water are not available</option><option value="dirty">When hands are visibly greasy</option><option value="never">Never</option></select></div><div class="flex justify-between items-center"><span class="text-xs w-1/2">Technique (Amount):</span><select class="auto-grade w-1/2" data-correct="rub"><option value="">Select...</option><option value="rub">Apply dime-sized amount to palm</option><option value="drown">Fill a cup and dip hands</option><option value="drop">Use one tiny drop</option></select></div><div class="flex justify-between items-center"><span class="text-xs w-1/2">Technique (Action):</span><select class="auto-grade w-1/2" data-correct="dry"><option value="">Select...</option><option value="dry">Rub all surfaces until dry</option><option value="wipe">Wipe off on pants immediately</option><option value="wave">Wave hands in air</option></select></div></div></div>
+                
+                <div class="question-box"><span class="question-title">8. Diseases Prevented by Hand Washing (6 marks)</span><p class="text-sm mb-2 text-slate-400">Match the Type to the Example.</p><div class="grid grid-cols-1 gap-2"><div class="flex gap-2"><select class="auto-grade" data-correct="bac"><option value="">Type 1...</option><option value="bac">Bacteria</option><option value="gen">Genetic</option><option value="chron">Chronic</option></select><select class="auto-grade" data-correct="sal"><option value="">Example...</option><option value="sal">Salmonella / E. Coli</option><option value="bone">Broken Bone</option><option value="asthma">Asthma</option></select></div><div class="flex gap-2"><select class="auto-grade" data-correct="vir"><option value="">Type 2...</option><option value="vir">Virus</option><option value="men">Mental</option><option value="auto">Autoimmune</option></select><select class="auto-grade" data-correct="flu"><option value="">Example...</option><option value="flu">Common Cold / Influenza</option><option value="dep">Depression</option><option value="arth">Arthritis</option></select></div><div class="flex gap-2"><select class="auto-grade" data-correct="par"><option value="">Type 3...</option><option value="par">Parasite / Fungi</option><option value="life">Lifestyle</option><option value="acc">Accidental</option></select><select class="auto-grade" data-correct="gia"><option value="">Example...</option><option value="gia">Giardia / Athlete's Foot</option><option value="obe">Obesity</option><option value="cut">Paper Cut</option></select></div></div></div>
+
+                <div class="mt-4 pt-4 border-t border-slate-700"><button onclick="checkSectionScore('sec3', 33)" class="bg-slate-700 hover:bg-slate-600 text-sm text-white py-2 px-4 rounded w-full md:w-auto">Check Section 3 Score</button><span id="score-sec3-display" class="block md:inline mt-2 md:mt-0 md:ml-4 text-blue-400 font-bold hidden"></span></div>
+            </div>
+
+            <div id="sec4" class="assess-tab hidden">
+                <h2 class="text-xl font-bold text-white mb-4">Section 4: Public Health (32 Marks)</h2>
+                <div class="question-box"><span class="question-title">1. Agency Roles & Responsibilities (15 marks)</span><p class="text-sm text-slate-400 mb-4">Match the agency to the responsibility:<br><strong>a</strong> = Health Canada<br><strong>b</strong> = Alberta Health Services<br><strong>c</strong> = Complementary Health Care Providers<br><strong>d</strong> = Health Care Professionals<br><strong>e</strong> = Individual Consumers</p><div class="space-y-2"><div class="flex justify-between items-center gap-4 border-b border-slate-700 pb-1"><span class="text-xs w-2/3">Set province-wide policy direction:</span><select class="auto-grade w-1/3" data-correct="AH"><option value="">Select...</option><option value="HC">a</option><option value="AH">b</option><option value="AHS">c</option><option value="HCP">d</option><option value="IC">e</option></select></div><div class="flex justify-between items-center gap-4 border-b border-slate-700 pb-1"><span class="text-xs w-2/3">Administer principles of Canada Health Act:</span><select class="auto-grade w-1/3" data-correct="HC"><option value="">Select...</option><option value="HC">a</option><option value="AH">b</option><option value="AHS">c</option></select></div><div class="flex justify-between items-center gap-4 border-b border-slate-700 pb-1"><span class="text-xs w-2/3">Provide counselling to individuals/families:</span><select class="auto-grade w-1/3" data-correct="HCP"><option value="">Select...</option><option value="HCP">d</option><option value="IC">e</option><option value="CH">c</option></select></div><div class="flex justify-between items-center gap-4 border-b border-slate-700 pb-1"><span class="text-xs w-2/3">Work collaboratively with health care providers:</span><select class="auto-grade w-1/3" data-correct="IC"><option value="">Select...</option><option value="AHS">b</option><option value="IC">e</option><option value="AH">a</option></select></div><div class="flex justify-between items-center gap-4 border-b border-slate-700 pb-1"><span class="text-xs w-2/3">Obtain medical history:</span><select class="auto-grade w-1/3" data-correct="HCP"><option value="">Select...</option><option value="HCP">d</option><option value="AH">b</option><option value="HC">a</option></select></div><div class="flex justify-between items-center gap-4 border-b border-slate-700 pb-1"><span class="text-xs w-2/3">Deliver acupuncture, chiropractic, reflexology:</span><select class="auto-grade w-1/3" data-correct="CH"><option value="">Select...</option><option value="HCP">d</option><option value="CH">c</option><option value="AHS">b</option></select></div><div class="flex justify-between items-center gap-4 border-b border-slate-700 pb-1"><span class="text-xs w-2/3">Avoid knowingly spreading disease:</span><select class="auto-grade w-1/3" data-correct="IC"><option value="">Select...</option><option value="HCP">d</option><option value="IC">e</option><option value="HC">a</option></select></div><div class="flex justify-between items-center gap-4 border-b border-slate-700 pb-1"><span class="text-xs w-2/3">Issue health care cards to Albertans:</span><select class="auto-grade w-1/3" data-correct="AH"><option value="">Select...</option><option value="AH">b</option><option value="AHS">c</option><option value="HC">a</option></select></div><div class="flex justify-between items-center gap-4 border-b border-slate-700 pb-1"><span class="text-xs w-2/3">Administer AB Health Care Insurance Plan:</span><select class="auto-grade w-1/3" data-correct="AH"><option value="">Select...</option><option value="AH">b</option><option value="AHS">c</option><option value="HCP">d</option></select></div><div class="flex justify-between items-center gap-4 border-b border-slate-700 pb-1"><span class="text-xs w-2/3">Services to First Nations and Inuit people:</span><select class="auto-grade w-1/3" data-correct="HC"><option value="">Select...</option><option value="HC">a</option><option value="AH">b</option><option value="AHS">c</option></select></div><div class="flex justify-between items-center gap-4 border-b border-slate-700 pb-1"><span class="text-xs w-2/3">Respond to public health emergencies:</span><select class="auto-grade w-1/3" data-correct="HC"><option value="">Select...</option><option value="HC">a</option><option value="IC">e</option><option value="CH">c</option></select></div><div class="flex justify-between items-center gap-4 border-b border-slate-700 pb-1"><span class="text-xs w-2/3">Show respect for other patients/workers:</span><select class="auto-grade w-1/3" data-correct="IC"><option value="">Select...</option><option value="HCP">d</option><option value="IC">e</option><option value="AH">b</option></select></div><div class="flex justify-between items-center gap-4 border-b border-slate-700 pb-1"><span class="text-xs w-2/3">Provide complete physical assessments:</span><select class="auto-grade w-1/3" data-correct="HCP"><option value="">Select...</option><option value="HCP">d</option><option value="CH">c</option><option value="AH">b</option></select></div><div class="flex justify-between items-center gap-4 border-b border-slate-700 pb-1"><span class="text-xs w-2/3">Complete diagnostic tests, scans, procedures:</span><select class="auto-grade w-1/3" data-correct="AHS"><option value="">Select...</option><option value="AHS">b</option><option value="HC">a</option><option value="IC">e</option></select></div><div class="flex justify-between items-center gap-4 border-b border-slate-700 pb-1"><span class="text-xs w-2/3">Offer herbal remedies, homeopathy, naturopathy:</span><select class="auto-grade w-1/3" data-correct="CH"><option value="">Select...</option><option value="CH">c</option><option value="HCP">d</option><option value="AHS">b</option></select></div></div></div>
+                <div class="question-box"><span class="question-title">2. Confidentiality (1 mark)</span><p class="text-sm mb-2">Why is it important to maintain patient confidentiality?</p><select class="auto-grade" data-correct="trust"><option value="">Select the best reason...</option><option value="legal">So you don't get sued.</option><option value="trust">To build trust and protect patient dignity/privacy.</option><option value="secrets">Because secrets are important.</option></select></div>
+                <div class="question-box"><span class="question-title">3. Sharing Information (3 marks)</span><p class="text-sm mb-2">Select the three conditions where sharing client info IS allowable:</p><div class="space-y-2"><select class="auto-grade" data-correct="consent"><option value="">Condition 1...</option><option value="consent">With explicit client consent</option><option value="gossip">When talking to a friend</option><option value="curious">When a family member is curious</option></select><select class="auto-grade" data-correct="team"><option value="">Condition 2...</option><option value="team">With other healthcare team members (circle of care)</option><option value="media">With the news media</option><option value="neighbor">With a neighbor</option></select><select class="auto-grade" data-correct="harm"><option value="">Condition 3...</option><option value="harm">If there is immediate risk of harm to self or others</option><option value="profit">If you can make money from it</option><option value="story">If it's a good story</option></select></div></div>
+                <div class="question-box"><span class="question-title">4. Reporting Abuse (3 marks)</span><p class="text-sm mb-2">Select the correct steps for reporting suspected abuse:</p><div class="space-y-2"><select class="auto-grade" data-correct="listen"><option value="">Step 1: Immediate Action...</option><option value="listen">Listen without judgment/leading; ensure safety.</option><option value="ignore">Ignore it until you are sure.</option><option value="investigate">Investigate it yourself.</option></select><select class="auto-grade" data-correct="doc"><option value="">Step 2: Documentation...</option><option value="doc">Document facts (who/what/where/when) exactly.</option><option value="opinion">Write down your personal opinion.</option><option value="memory">Just remember it for later.</option></select><select class="auto-grade" data-correct="report"><option value="">Step 3: Authority...</option><option value="report">Report to proper authorities (Police/Child Services) immediately.</option><option value="wait">Wait for a week to see if it happens again.</option><option value="parent">Tell the parents first.</option></select></div></div>
+                <div class="question-box"><span class="question-title">5. Medical Terminology (5 marks)</span><div class="space-y-2"><div class="flex justify-between items-center"><span class="text-xs">a) Osteoporosis:</span><select class="auto-grade w-1/2" data-correct="bones"><option value="">Select definition...</option><option value="bones">Porous/brittle bones</option><option value="skin">Hardening of skin</option><option value="muscle">Muscle weakness</option></select></div><div class="flex justify-between items-center"><span class="text-xs">b) Neuroplasty:</span><select class="auto-grade w-1/2" data-correct="nerve"><option value="">Select definition...</option><option value="nerve">Surgical repair of a nerve</option><option value="brain">Brain scan</option><option value="pain">Nerve pain</option></select></div><div class="flex justify-between items-center"><span class="text-xs">c) Appendicitis:</span><select class="auto-grade w-1/2" data-correct="app"><option value="">Select definition...</option><option value="app">Inflammation of the appendix</option><option value="rem">Removal of appendix</option><option value="stomach">Stomach ache</option></select></div><div class="flex justify-between items-center"><span class="text-xs">d) Lipoma:</span><select class="auto-grade w-1/2" data-correct="fat"><option value="">Select definition...</option><option value="fat">Fatty tumor (benign)</option><option value="lip">Lip surgery</option><option value="cancer">Skin cancer</option></select></div><div class="flex justify-between items-center"><span class="text-xs">e) Pericyte:</span><select class="auto-grade w-1/2" data-correct="cell"><option value="">Select definition...</option><option value="cell">Cell surrounding a capillary</option><option value="peri">Around the heart</option><option value="cycle">Life cycle</option></select></div></div></div>
+                <div class="question-box"><span class="question-title">6. Personal Responsibility (2 marks)</span><p class="text-sm mb-2">Why is it important to take charge of your own health (checkups, diet)?</p><select class="auto-grade" data-correct="prev"><option value="">Select the best reason...</option><option value="prev">To prevent chronic disease and maximize quality of life.</option><option value="doc">So doctors don't get mad at you.</option><option value="money">To save money only.</option></select></div>
+                <div class="question-box"><span class="question-title">7. Personal Reflection (3 marks)</span><p class="text-sm mb-2">Name one important change you will make to improve your wellness:</p><select class="auto-grade" data-correct="any"><option value="">Select a commitment...</option><option value="any">Increase daily physical activity to 60 mins.</option><option value="any">Improve sleep hygiene (8+ hours).</option><option value="any">Drink more water and less sugary drinks.</option><option value="any">Manage stress through mindfulness.</option></select></div>
+                
+                <div class="mt-8 border-t border-slate-700 pt-6 text-center">
+                    <button onclick="generatePrintableReport()" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded shadow-lg text-xl w-full md:w-auto transition-all transform hover:scale-105">
+                        SUBMIT FINAL ASSIGNMENT & GENERATE REPORT
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // --- VIEW SWITCHING ---
+        function switchMainView(viewId) {
+            document.querySelectorAll('.main-view').forEach(el => el.classList.remove('active'));
+            document.getElementById(viewId).classList.add('active');
+            
+            // Toggle Button Styles
+            const btnStudy = document.getElementById('btn-view-study');
+            const btnAssess = document.getElementById('btn-view-assess');
+
+            if(viewId === 'view-study') {
+                btnStudy.classList.replace('text-slate-400', 'bg-blue-600');
+                btnStudy.classList.add('text-white', 'shadow-lg');
+                btnAssess.classList.replace('bg-blue-600', 'text-slate-400');
+                btnAssess.classList.remove('text-white', 'shadow-lg');
+            } else {
+                btnAssess.classList.replace('text-slate-400', 'bg-blue-600');
+                btnAssess.classList.add('text-white', 'shadow-lg');
+                btnStudy.classList.replace('bg-blue-600', 'text-slate-400');
+                btnStudy.classList.remove('text-white', 'shadow-lg');
+            }
+        }
+
+        function switchContentTab(tabId) {
+            document.querySelectorAll('#view-study .section-content').forEach(el => el.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            document.querySelectorAll('#view-study .nav-btn').forEach(btn => {
+                btn.classList.remove('bg-slate-800', 'border-slate-700', 'text-blue-400', 'text-white', 'shadow-sm', 'text-emerald-500');
+                btn.classList.add('text-slate-400');
+            });
+            const activeBtn = document.getElementById('btn-study-' + tabId);
+            if(activeBtn) {
+                activeBtn.classList.remove('text-slate-400');
+                activeBtn.classList.add('bg-slate-800', 'border-slate-700', 'shadow-sm', 'text-blue-400');
+            }
+            window.scrollTo(0,0);
+        }
+
+        function switchStudyTab(tabId) { switchContentTab(tabId); } 
+
+        function switchAssessTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('.assess-tab').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.assess-tab').forEach(el => el.classList.remove('active')); // Ensure active class is removed
+            
+            // Show target
+            document.getElementById(tabId).classList.remove('hidden');
+            document.getElementById(tabId).classList.add('active');
+            
+            // Update buttons
+            document.querySelectorAll('#view-assess .nav-btn').forEach(btn => {
+                btn.classList.remove('active', 'bg-slate-800', 'text-blue-400', 'border-blue-500');
+                btn.classList.add('bg-slate-900', 'text-slate-400', 'border-slate-700');
+            });
+            const activeBtn = document.getElementById('btn-' + tabId);
+            if(activeBtn) {
+                activeBtn.classList.remove('bg-slate-900', 'text-slate-400', 'border-slate-700');
+                activeBtn.classList.add('active', 'bg-slate-800', 'text-blue-400', 'border-blue-500');
+            }
+            window.scrollTo(0,0);
+        }
+
+        // --- SAVE/LOAD ---
+        const SAVE_KEY = 'hss1010_full_data';
+
+        function getFormData() {
+            const data = { name: document.getElementById('student-name').value, inputs: [] };
+            document.querySelectorAll('.auto-grade, .cb-grade').forEach((el, index) => {
+                if(el.type === 'checkbox') data.inputs.push({ type: 'checkbox', idx: index, val: el.checked });
+                else data.inputs.push({ type: 'select', idx: index, val: el.value });
+            });
+            return data;
+        }
+
+        function saveLocal() {
+            localStorage.setItem(SAVE_KEY, JSON.stringify(getFormData()));
+            const status = document.getElementById('save-status');
+            status.style.opacity = '1';
+            setTimeout(() => status.style.opacity = '0', 1000);
+        }
+
+        function downloadBackup() {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(getFormData()));
+            const dlAnchor = document.createElement('a');
+            dlAnchor.setAttribute("href", dataStr);
+            dlAnchor.setAttribute("download", "HSS1010_Backup.json");
+            dlAnchor.click();
+        }
+
+        function loadBackup(input) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const data = JSON.parse(e.target.result);
+                if(data.name) document.getElementById('student-name').value = data.name;
+                const els = document.querySelectorAll('.auto-grade, .cb-grade');
+                data.inputs.forEach(item => {
+                    if(els[item.idx]) {
+                        if(item.type === 'checkbox') els[item.idx].checked = item.val;
+                        else els[item.idx].value = item.val;
+                    }
+                });
+                saveLocal();
+                alert("File Loaded Successfully!");
+            };
+            reader.readAsText(input.files[0]);
+        }
+
+        // --- GRADING ---
+        function calculateScores() {
+            let scores = { s1: 0, s2: 0, s3: 0, s4: 0, total: 0 };
+            function getSection(el) { return el.closest('.assess-tab').id; }
+            
+            document.querySelectorAll('.auto-grade').forEach(el => {
+                el.classList.remove('correct', 'incorrect');
+                let pts = 0;
+                if(el.value === el.dataset.correct || el.dataset.correct === "any") { pts = 1; el.classList.add('correct'); }
+                else { el.classList.add('incorrect'); }
+                scores[getSection(el)] += pts;
+            });
+            
+            document.querySelectorAll('.cb-grade').forEach(el => {
+                let p = el.parentElement; p.style.color = "white";
+                let pts = 0;
+                if(el.checked && el.value === "yes") { pts = 1; p.style.color = "#10b981"; }
+                else if(el.checked && el.value === "no") { p.style.color = "#ef4444"; }
+                scores[getSection(el)] += pts;
+            });
+            scores.total = scores.s1 + scores.s2 + scores.s3 + scores.s4;
+            return scores;
+        }
+
+        function checkSectionScore(secId, total) {
+            const scores = calculateScores();
+            let score = (secId === 'sec1') ? scores.s1 : (secId === 'sec2') ? scores.s2 : scores.s3;
+            document.getElementById('score-'+secId+'-display').innerText = `Score: ${score} / ${total}`;
+            document.getElementById('score-'+secId+'-display').classList.remove('hidden');
+        }
+
+        function generatePrintableReport() {
+            saveLocal();
+            const scores = calculateScores();
+            const name = document.getElementById('student-name').value || "Student";
+            const date = new Date().toLocaleDateString();
+
+            const reportHTML = `
+                <html>
+                <head>
+                    <title>HSS 1010 Final Report</title>
+                    <style>
+                        body { font-family: sans-serif; padding: 40px; color: #333; }
+                        h1 { border-bottom: 2px solid #333; padding-bottom: 10px; }
+                        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+                        th, td { padding: 12px; border-bottom: 1px solid #ddd; text-align: left; }
+                        th { background-color: #f4f4f4; }
+                        .total-row { font-weight: bold; font-size: 1.2em; background-color: #e8f5e9; }
+                    </style>
+                </head>
+                <body>
+                    <h1>HSS 1010: Final Report Card</h1>
+                    <p><strong>Student Name:</strong> ${name}</p>
+                    <p><strong>Date:</strong> ${date}</p>
+                    <table>
+                        <thead><tr><th>Section</th><th>Marks Obtained</th><th>Total Possible</th></tr></thead>
+                        <tbody>
+                            <tr><td>Section 1: Wellness</td><td>${scores.s1}</td><td>20</td></tr>
+                            <tr><td>Section 2: Anatomy & Physiology</td><td>${scores.s2}</td><td>100</td></tr>
+                            <tr><td>Section 3: Roadmap to Wellness</td><td>${scores.s3}</td><td>33</td></tr>
+                            <tr><td>Section 4: Public Health</td><td>${scores.s4}</td><td>32</td></tr>
+                            <tr class="total-row"><td>FINAL SCORE</td><td>${scores.total}</td><td>185</td></tr>
+                        </tbody>
+                    </table>
+                    <script>window.print();<\/script>
+                </body>
+                </html>
+            `;
+            const win = window.open('', '_blank');
+            win.document.write(reportHTML);
+            win.document.close();
+        }
+
+        window.addEventListener('load', () => {
+            const saved = localStorage.getItem(SAVE_KEY);
+            if(saved) {
+                const data = JSON.parse(saved);
+                if(data.name) document.getElementById('student-name').value = data.name;
+                const els = document.querySelectorAll('.auto-grade, .cb-grade');
+                data.inputs.forEach(item => {
+                    if(els[item.idx]) {
+                        if(item.type === 'checkbox') els[item.idx].checked = item.val;
+                        else els[item.idx].value = item.val;
+                    }
+                });
+            }
+            document.querySelectorAll('select, input').forEach(el => {
+                el.addEventListener('change', saveLocal);
+                el.addEventListener('input', saveLocal);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,382 @@
+/* inline script 1 */
+// --- NAVIGATION LOGIC ---
+        function switchView(view) {
+            document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
+            // Hide all views
+            document.getElementById('view-materials').classList.add('hidden');
+            document.getElementById('view-intro').classList.add('hidden');
+            document.getElementById('view-phase1').classList.add('hidden');
+            document.getElementById('view-values').classList.add('hidden');
+            document.getElementById('view-master').classList.add('hidden');
+            document.getElementById('view-phase3').classList.add('hidden');
+            document.getElementById('view-phase4a').classList.add('hidden');
+            document.getElementById('view-phase4b').classList.add('hidden');
+            document.getElementById('view-external').classList.add('hidden');
+
+            if(view === 'materials') {
+                document.getElementById('view-materials').classList.remove('hidden');
+                document.getElementById('nav-materials').classList.add('active');
+            } else if(view === 'intro') {
+                document.getElementById('view-intro').classList.remove('hidden');
+                document.getElementById('nav-intro').classList.add('active');
+            } else if(view === 'phase1') {
+                document.getElementById('view-phase1').classList.remove('hidden');
+                document.getElementById('nav-p1').classList.add('active');
+            } else if(view === 'values') {
+                document.getElementById('view-values').classList.remove('hidden');
+                document.getElementById('nav-vb').classList.add('active');
+            } else if(view === 'master') {
+                document.getElementById('view-master').classList.remove('hidden');
+                document.getElementById('nav-mb').classList.add('active');
+            } else if(view === 'phase3') {
+                document.getElementById('view-phase3').classList.remove('hidden');
+                document.getElementById('nav-p3').classList.add('active');
+            } else if(view === 'phase4a') {
+                document.getElementById('view-phase4a').classList.remove('hidden');
+                document.getElementById('nav-p4a').classList.add('active');
+            } else if(view === 'phase4b') {
+                document.getElementById('view-phase4b').classList.remove('hidden');
+                document.getElementById('nav-p4b').classList.add('active');
+            } else if(view === 'external') {
+                document.getElementById('view-external').classList.remove('hidden');
+            }
+        }
+
+        function loadExternal(url, btnId) {
+            switchView('external');
+            const frame = document.getElementById('view-external');
+            frame.src = url;
+            document.getElementById(btnId).classList.add('active');
+        }
+
+        function openPDF(url, title) {
+            const container = document.getElementById('pdf-viewer-container');
+            document.getElementById('pdf-frame').src = url;
+            document.getElementById('viewer-title').innerText = "VIEWING: " + title;
+            container.classList.remove('hidden');
+            container.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function closeViewer() {
+            document.getElementById('pdf-viewer-container').classList.add('hidden');
+            document.getElementById('pdf-frame').src = "";
+        }
+
+        // --- DIAGNOSTIC MODULE (00) LOGIC ---
+        let diag_scores = { q1: 0, q2: 0, q3: 0, q4: 0, q5: 0 }; 
+        function diag_setScore(q, val) {
+            diag_scores[q] = val;
+            const buttons = document.getElementById(q).getElementsByTagName('button');
+            for(let btn of buttons) { btn.classList.remove('active'); }
+            buttons[val-1].classList.add('active');
+        }
+        function diag_calculateStatus() {
+            if(Object.values(diag_scores).includes(0)) { alert("Please complete all items."); return; }
+            document.getElementById('system-status').innerText = "OPERATIONAL";
+            document.getElementById('system-status').classList.remove('text-rose-500');
+            document.getElementById('system-status').classList.add('text-emerald-400');
+            const btn = document.getElementById('print-btn');
+            btn.disabled = false;
+            btn.classList.remove('bg-slate-800','cursor-not-allowed');
+            btn.classList.add('bg-emerald-600');
+        }
+        function diag_downloadBackup() {
+             const data = { scores: diag_scores, log: document.getElementById('log_entry').value };
+             const blob = new Blob([JSON.stringify(data)], { type: "application/json" });
+             const url = URL.createObjectURL(blob);
+             const a = document.createElement('a'); a.href = url; a.download = "diag-backup.json"; a.click();
+        }
+        function diag_loadBackup(input) {
+            const file = input.files[0]; if(!file) return;
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const data = JSON.parse(e.target.result);
+                diag_scores = data.scores;
+                document.getElementById('log_entry').value = data.log || "";
+                Object.keys(diag_scores).forEach(key => {
+                    if(diag_scores[key] > 0) diag_setScore(key, diag_scores[key]);
+                });
+                alert("Loaded");
+            };
+            reader.readAsText(file);
+        }
+        function diag_generatePrint() {
+            const log = document.getElementById('log_entry').value;
+            const status = document.getElementById('system-status').innerText;
+            const html = `<html><head><title>Protocol 001 Report</title><link href="https://cdn.tailwindcss.com" rel="stylesheet"><style>body { font-family: monospace; padding: 40px; background: white; color: black; }</style></head>
+            <body><div class="border-b-4 border-black pb-4 mb-8 flex justify-between items-end"><div><h1 class="text-4xl font-black uppercase">Protocol 001</h1><p class="text-sm font-bold uppercase tracking-widest">Baseline Diagnostic Report</p></div><div class="text-right"><p class="text-xs uppercase">System Status</p><h2 class="text-2xl font-black italic">${status}</h2></div></div>
+            <div class="grid grid-cols-2 gap-4 mb-8"><div class="p-4 border border-black"><strong class="block uppercase text-xs mb-1">Phase 1: Engine</strong><div class="text-lg font-bold">${diag_scores.q1}/5 (Pressure)</div><div class="text-lg font-bold">${diag_scores.q2}/5 (Regulation)</div></div><div class="p-4 border border-black"><strong class="block uppercase text-xs mb-1">Phase 2: Drive</strong><div class="text-lg font-bold">${diag_scores.q3}/5 (Fuel Source)</div></div><div class="p-4 border border-black"><strong class="block uppercase text-xs mb-1">Phase 3: Focus</strong><div class="text-lg font-bold">${diag_scores.q4}/5 (Reset Speed)</div></div><div class="p-4 border border-black"><strong class="block uppercase text-xs mb-1">Phase 4: Toolkit</strong><div class="text-lg font-bold">${diag_scores.q5}/5 (Visualization)</div></div></div>
+            <div class="p-6 bg-gray-100 border-l-4 border-black"><strong class="block uppercase text-xs mb-2">Operator's Log</strong><p class="italic">"${log}"</p></div><div class="mt-12 text-center text-xs uppercase font-bold tracking-widest">End of Report // Ready for Phase 1</div><script>window.onload = function() { window.print(); };<\/script></body></html>`;
+            const win = window.open('','_blank'); win.document.write(html); win.document.close();
+        }
+
+        // --- PHASE 1 (THE ENGINE) LOGIC ---
+        const p1_cats = [ { id: 'reset', label: 'Stress Reset' }, { id: 'tune', label: 'Arousal' }, { id: 'focus', label: 'Targeting' }, { id: 'goals', label: 'Confidence' }, { id: 'intel', label: 'Integration' } ];
+        let p1_scores = { reset: 0, tune: 0, focus: 0, goals: 0, intel: 0 };
+        function p1_showStep(n) {
+            document.querySelectorAll('#view-phase1 .step-content').forEach(s => s.classList.remove('active'));
+            document.getElementById('p1-step' + n).classList.add('active');
+            document.querySelectorAll('#view-phase1 .mod-nav-btn').forEach((b, i) => b.classList.toggle('active', i === n));
+        }
+        function p1_setScore(cat, val) {
+            p1_scores[cat] = val;
+            const group = document.getElementById(`group-${cat}`);
+            if(group) { group.querySelectorAll('button').forEach((b, i) => b.classList.toggle('active', (i+1) === val)); }
+            const total = Object.values(p1_scores).reduce((a, b) => a + b, 0);
+            document.getElementById('p1-total-score').innerText = total.toString().padStart(2, '0');
+            p1_saveData();
+        }
+        function p1_getFormData() {
+             return { b_scenario: document.getElementById('p1_breath_scenario').value, b_detail: document.getElementById('p1_breath_detail').value, relax: document.getElementById('p1_relax_plan').value, active: document.getElementById('p1_active_plan').value, inst: document.getElementById('p1_cue_inst').value, mot: document.getElementById('p1_cue_mot').value, jam: document.getElementById('p1_jam_scenario').value, proc: document.getElementById('p1_goal_proc').value, perf: document.getElementById('p1_goal_perf').value, out: document.getElementById('p1_goal_out').value, smart_final: document.getElementById('p1_smart_final').value, narr: document.getElementById('p1_final_narrative').value, scores: p1_scores };
+        }
+        function p1_saveData() { localStorage.setItem('elite_operator_v3_p1', JSON.stringify(p1_getFormData())); document.getElementById('p1-save-text').innerText = "Saved"; setTimeout(() => document.getElementById('p1-save-text').innerText = "System Ready", 1000); }
+        function p1_populate(data) { if(!data) return; if(data.b_scenario) document.getElementById('p1_breath_scenario').value = data.b_scenario; if(data.b_detail) document.getElementById('p1_breath_detail').value = data.b_detail; if(data.relax) document.getElementById('p1_relax_plan').value = data.relax; if(data.active) document.getElementById('p1_active_plan').value = data.active; if(data.inst) document.getElementById('p1_cue_inst').value = data.inst; if(data.mot) document.getElementById('p1_cue_mot').value = data.mot; if(data.jam) document.getElementById('p1_jam_scenario').value = data.jam; if(data.proc) document.getElementById('p1_goal_proc').value = data.proc; if(data.perf) document.getElementById('p1_goal_perf').value = data.perf; if(data.out) document.getElementById('p1_goal_out').value = data.out; if(data.smart_final) document.getElementById('p1_smart_final').value = data.smart_final; if(data.narr) document.getElementById('p1_final_narrative').value = data.narr; if(data.scores) { p1_scores = data.scores; Object.keys(p1_scores).forEach(c => { if(p1_scores[c]>0) p1_setScore(c, p1_scores[c]); }); } }
+        function p1_downloadBackup() { const data = p1_getFormData(); const blob = new Blob([JSON.stringify(data)], { type: "application/json" }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = "phase1-backup.json"; a.click(); }
+        function p1_loadBackup(input) { const file = input.files[0]; if(!file) return; const reader = new FileReader(); reader.onload = (e) => { p1_populate(JSON.parse(e.target.result)); alert("Phase 1 Data Loaded"); }; reader.readAsText(file); }
+        function p1_generatePDF() { 
+            const data = p1_getFormData(); 
+            const total = Object.values(p1_scores).reduce((a, b) => a + b, 0);
+            const scoreDetails = p1_cats.map(c => `<div style="display:flex; justify-content:space-between; border-bottom:1px solid #eee; padding:6px 0;"><span style="font-size:10px; font-weight:bold; color:#666; text-transform:uppercase;">${c.label}</span><span style="font-weight:900; font-style:italic;">${p1_scores[c.id] || 0}/5</span></div>`).join('');
+            const html = `<!DOCTYPE html><html><head><title>Elite Operator Report</title><link href="https://cdn.tailwindcss.com" rel="stylesheet"><style>body{font-family:sans-serif;padding:40px;color:black;background:white;line-height:1.3}.header{border-bottom:5px solid black;padding-bottom:10px;margin-bottom:25px}.section{margin-bottom:20px;border-left:4px solid black;padding-left:15px}.label{font-size:8px;font-weight:bold;text-transform:uppercase;color:#888}.val{font-size:13px;font-weight:900;font-style:italic;border-bottom:1px solid #ddd;margin-bottom:8px;min-height:18px;color:#111}.narr-val{font-size:11px;line-height:1.4;padding:12px;background:#f9f9f9;border-radius:8px;border:1px solid #eee;margin-top:5px}</style></head><body><div style="max-width:800px;margin:auto"><div class="header flex justify-between items-end"><div><h1 class="text-3xl font-black italic uppercase">Operator Report</h1><p style="font-size:10px;letter-spacing:3px;text-transform:uppercase;font-weight:bold">Regulation Engine Tactical Assessment</p></div><div style="text-align:right"><p style="font-size:10px;text-transform:uppercase;font-weight:bold">Mental Fitness Score</p><p style="font-size:40px;font-weight:900;font-style:italic;line-height:1">${total}/25</p></div></div><div class="grid grid-cols-2 gap-8"><div class="section" style="border-left-color:#f43f5e"><h2 style="font-size:12px;font-weight:900;text-transform:uppercase;margin-bottom:10px;color:#f43f5e">01 Stress Loop Reset</h2><div class="label">Deployment Scenario</div><div class="val">${data.b_scenario||'...'}</div><div class="label">Centering Action</div><div class="val">${data.b_detail||'...'}</div></div><div class="section" style="border-left-color:#f59e0b"><h2 style="font-size:12px;font-weight:900;text-transform:uppercase;margin-bottom:10px;color:#f59e0b">02 Arousal Tuning</h2><div class="label">Down-Regulation (PMR)</div><div class="val">${data.relax||'...'}</div><div class="label">Up-Regulation (Active)</div><div class="val">${data.active||'...'}</div></div></div><div class="grid grid-cols-2 gap-8"><div class="section" style="border-left-color:#10b981"><h2 style="font-size:12px;font-weight:900;text-transform:uppercase;margin-bottom:10px;color:#10b981">03 Targeting (Cues)</h2><div class="label">Instructional Cue</div><div class="val">${data.inst||'...'}</div><div class="label">Motivational Cue</div><div class="val">${data.mot||'...'}</div><div class="label">Jamming Scenario</div><div class="val" style="font-size:11px">${data.jam||'...'}</div></div><div class="section" style="border-left-color:#0ea5e9"><h2 style="font-size:12px;font-weight:900;text-transform:uppercase;margin-bottom:10px;color:#0ea5e9">04 Confidence (SMART)</h2><div class="label">Process Goal (100% Control)</div><div class="val">${data.proc||'...'}</div><div class="label">Full SMART Statement</div><div class="val" style="font-size:11px">${data.smart_final||'...'}</div></div></div><div class="section"><h2 style="font-size:12px;font-weight:900;text-transform:uppercase;margin-bottom:5px">Integration Narrative</h2><div class="narr-val">${data.narr||'---'}</div></div><div style="margin-top:20px;border-top:2px solid black;padding-top:15px"><h2 style="font-size:10px;font-weight:900;text-transform:uppercase;margin-bottom:8px">Evaluation Breakdown</h2>${scoreDetails}</div></div><script>window.onload=function(){setTimeout(function(){window.print()},500)};<\/script></body></html>`; 
+            const win = window.open('','_blank'); win.document.write(html); win.document.close(); 
+        }
+
+        // --- PHASE 2A (VALUES) LOGIC ---
+        const vb_cats = [ { id: 'clar', label: 'Values Clarification' }, { id: 'depth', label: 'Alignment Depth' }, { id: 'sys', label: 'System Awareness' }, { id: 'supp', label: 'Support & Self-Care' }, { id: 'audit', label: 'Integrity Audit' } ];
+        let vb_scores = { clar: 0, depth: 0, sys: 0, supp: 0, audit: 0 };
+        const allValues = ["Accountability", "Achievement", "Activism", "Adaptability", "Adventure", "Altruism", "Ambition", "Authenticity", "Balance", "Commitment", "Community", "Compassion", "Courage", "Creativity", "Curiosity", "Efficiency", "Equality", "Excellence", "Fairness", "Faith", "Freedom", "Generosity", "Gratitude", "Growth", "Harmony", "Health", "Honesty", "Integrity", "Intuition", "Joy", "Justice", "Kindness", "Leadership", "Learning", "Love", "Loyalty", "Optimism", "Peace", "Respect", "Responsibility", "Service", "Simplicity", "Success", "Teamwork", "Trust", "Vulnerability", "Wisdom"];
+        const valuesDefinitions = { "Accountability": "Taking responsibility.", "Achievement": "Reaching a goal.", "Integrity": "Honest and strong moral principles." }; 
+
+        function vb_showStep(n) { document.querySelectorAll('#view-values .step-content').forEach(s => s.classList.remove('active')); document.getElementById('vb-step' + n).classList.add('active'); document.querySelectorAll('#view-values .mod-nav-btn').forEach((b, i) => b.classList.toggle('active', i === n)); }
+        function vb_setScore(cat, val) { vb_scores[cat] = val; document.getElementById(`vb-group-${cat}`).querySelectorAll('button').forEach((b, i) => b.classList.toggle('active', (i+1) === val)); const total = Object.values(vb_scores).reduce((a, b) => a + b, 0); document.getElementById('vb-total-score').innerText = total.toString().padStart(2, '0'); vb_saveData(); }
+        function vb_getFormData() { return { value1: document.getElementById('vb_value1').value, value2: document.getElementById('vb_value2').value, v1_align: document.getElementById('vb_v1_align').value, v1_out: document.getElementById('vb_v1_out').value, v1_example: document.getElementById('vb_v1_example').value, v2_align: document.getElementById('vb_v2_align').value, v2_out: document.getElementById('vb_v2_out').value, v2_example: document.getElementById('vb_v2_example').value, feeling: document.getElementById('vb_feeling').value, warning: document.getElementById('vb_warning').value, support_person: document.getElementById('vb_support_person').value, self_compassion: document.getElementById('vb_self_compassion').value, narrative: document.getElementById('vb_narrative').value, scores: vb_scores }; }
+        function vb_saveData() { localStorage.setItem('vb_data', JSON.stringify(vb_getFormData())); document.getElementById('vb-save-text').innerText = "Saved"; setTimeout(() => document.getElementById('vb-save-text').innerText = "System Ready", 1000); }
+        function vb_populate(data) { if(!data) return; if (data.value1) document.getElementById('vb_value1').value = data.value1; if (data.value2) document.getElementById('vb_value2').value = data.value2; if (data.v1_align) document.getElementById('vb_v1_align').value = data.v1_align; if (data.v1_out) document.getElementById('vb_v1_out').value = data.v1_out; if (data.v1_example) document.getElementById('vb_v1_example').value = data.v1_example; if (data.v2_align) document.getElementById('vb_v2_align').value = data.v2_align; if (data.v2_out) document.getElementById('vb_v2_out').value = data.v2_out; if (data.v2_example) document.getElementById('vb_v2_example').value = data.v2_example; if (data.feeling) document.getElementById('vb_feeling').value = data.feeling; if (data.warning) document.getElementById('vb_warning').value = data.warning; if (data.support_person) document.getElementById('vb_support_person').value = data.support_person; if (data.self_compassion) document.getElementById('vb_self_compassion').value = data.self_compassion; if (data.narrative) document.getElementById('vb_narrative').value = data.narrative; if (data.scores) { vb_scores = data.scores; Object.keys(vb_scores).forEach(c => { if(vb_scores[c]>0) vb_setScore(c, vb_scores[c]); }); } vb_saveData(); }
+        function vb_downloadBackup() { const data = localStorage.getItem('vb_data'); const blob = new Blob([data], { type: "application/json" }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = "values-backup.json"; a.click(); }
+        function vb_loadBackup(input) { const file = input.files[0]; if(!file) return; const reader = new FileReader(); reader.onload = (e) => { vb_populate(JSON.parse(e.target.result)); alert("Values Data Loaded"); }; reader.readAsText(file); }
+        function vb_generateFullPrint() { 
+            const data = vb_getFormData();
+            const total = Object.values(vb_scores).reduce((a, b) => a + b, 0);
+            const scoreDetails = vb_cats.map(c => `<div style="display:flex; justify-content:space-between; border-bottom:1px solid #eee; padding:6px 0;"><span style="font-size:10px; font-weight:bold; color:#666; text-transform:uppercase;">${c.label}</span><span style="font-weight:900; font-style:italic;">${vb_scores[c.id] || 0}/5</span></div>`).join('');
+            const html = `<!DOCTYPE html><html><head><title>Values Blueprint: Full System</title><link href="https://cdn.tailwindcss.com" rel="stylesheet"><style>body { font-family: sans-serif; padding: 40px; color: black; background: white; line-height: 1.3; } .header { border-bottom: 5px solid black; padding-bottom: 10px; margin-bottom: 25px; } .section { margin-bottom: 20px; border-left: 4px solid black; padding-left: 15px; } .label { font-size: 8px; font-weight: bold; text-transform: uppercase; color: #888; margin-bottom: 1px; } .val { font-size: 15px; font-weight: 900; font-style: italic; border-bottom: 1px solid black; margin-bottom: 12px; min-height: 22px; } .narr-val { font-size: 11px; line-height: 1.4; padding: 12px; background: #f9f9f9; border-radius: 8px; border: 1px solid #eee; margin-top: 5px; }</style></head><body><div style="max-width: 800px; margin: auto;"><div class="header flex justify-between items-end"><div><h1 class="text-3xl font-black italic uppercase">Values Blueprint</h1><p style="font-size:10px; letter-spacing:3px; text-transform:uppercase; font-weight:bold;">Phase 4 Mastery Report</p></div><div style="text-align:right;"><p style="font-size:10px; text-transform:uppercase; font-weight:bold;">Mastery Score</p><p style="font-size:40px; font-weight:900; font-style:italic; line-height:1;">${total}/25</p></div></div><div class="grid grid-cols-2 gap-8"><div class="section"><h2 style="font-size:12px; font-weight:900; text-transform:uppercase; margin-bottom:10px; color:#0284c7;">Value 01: ${data.value1 || '---'}</h2><div class="label">In Alignment</div><div class="val">${data.v1_align || '---'}</div><div class="label">Out of Alignment</div><div class="val">${data.v1_out || '---'}</div></div><div class="section" style="border-left-color:#059669;"><h2 style="font-size:12px; font-weight:900; text-transform:uppercase; margin-bottom:10px; color:#059669;">Value 02: ${data.value2 || '---'}</h2><div class="label">In Alignment</div><div class="val">${data.v2_align || '---'}</div><div class="label">Out of Alignment</div><div class="val">${data.v2_out || '---'}</div></div></div><div class="section" style="border-left-color:#0ea5e9;"><h2 style="font-size:12px; font-weight:900; text-transform:uppercase; margin-bottom:5px; color:#0ea5e9;">Understanding Narrative</h2><div class="narr-val">${data.narrative || '---'}</div></div><div class="grid grid-cols-2 gap-8 mt-4"><div class="section"><h2 style="font-size:12px; font-weight:900; text-transform:uppercase; margin-bottom:5px;">System Indicators</h2><div class="label">Feelings of Alignment</div><div class="val" style="font-size:12px;">${data.feeling || '---'}</div><div class="label">Warning Signs</div><div class="val" style="font-size:12px;">${data.warning || '---'}</div></div><div class="section"><h2 style="font-size:12px; font-weight:900; text-transform:uppercase; margin-bottom:5px;">Support</h2><div class="label">Support Person</div><div class="val" style="font-size:12px;">${data.support_person || '---'}</div><div class="label">Self-Compassion</div><div class="val" style="font-size:12px;">${data.self_compassion || '---'}</div></div></div><div style="margin-top:20px; border-top:2px solid black; padding-top:15px;"><h2 style="font-size:10px; font-weight:900; text-transform:uppercase; margin-bottom:8px;">Self-Evaluation Results</h2>${scoreDetails}</div></div><script>window.onload = function() { setTimeout(function() { window.print(); }, 500); };<\/script></body></html>`; 
+            const win = window.open('','_blank'); win.document.write(html); win.document.close(); 
+        }
+
+        // --- PHASE 2B (MASTER CONFIG) LOGIC ---
+        const mb_cats = [ { id: 'id', label: 'Engine Identity' }, { id: 'tk', label: 'The Path (7/10)' }, { id: 'mn', label: 'Maintenance' }, { id: 'cl', label: 'System Audit' } ];
+        let mb_scores = { id: 0, tk: 0, mn: 0, cl: 0 };
+
+        function mb_showStep(n) { document.querySelectorAll('#view-master .step-content').forEach(s => s.classList.remove('active')); document.getElementById('mb-step' + n).classList.add('active'); document.querySelectorAll('#view-master .mod-nav-btn').forEach((b, i) => b.classList.toggle('active', i === n)); }
+        function mb_setScore(cat, val) { mb_scores[cat] = val; document.getElementById(`mb-group-${cat}`).querySelectorAll('button').forEach((b, i) => b.classList.toggle('active', (i+1) === val)); const total = Object.values(mb_scores).reduce((a, b) => a + b, 0); document.getElementById('mb-total-score').innerText = total.toString().padStart(2, '0'); mb_saveData(); }
+        function mb_getFormData() { return { anchor: document.getElementById('mb_anchor').value, value: document.getElementById('mb_value').value, task: document.getElementById('mb_task').value, flinch: document.getElementById('mb_flinch').value, hammer: document.getElementById('mb_hammer').value, recovery: document.getElementById('mb_recovery').value, pride: document.getElementById('mb_pride').value, narrative: document.getElementById('mb_narrative').value, scores: mb_scores }; }
+        function mb_saveData() { const data = mb_getFormData(); localStorage.setItem('mb_data', JSON.stringify(data)); document.getElementById('mb-save-text').innerText = "Saved"; updateMBSummary(data); setTimeout(() => document.getElementById('mb-save-text').innerText = "System Ready", 1000); }
+        function updateMBSummary(data) { const preview = document.getElementById('mb-summary-preview'); preview.innerHTML = `"I am <span class="text-sky-400 font-bold underline underline-offset-2">${data.anchor || '...'}</span>. I choose <span class="text-sky-400 font-bold underline underline-offset-2">${data.value || '...'}</span>. 7/10: <span class="text-sky-400 font-bold underline underline-offset-2">${data.task || '...'}</span>."`; }
+        function mb_populate(data) { if(!data) return; if(data.anchor) document.getElementById('mb_anchor').value = data.anchor; if(data.value) document.getElementById('mb_value').value = data.value; if(data.task) document.getElementById('mb_task').value = data.task; if(data.flinch) document.getElementById('mb_flinch').value = data.flinch; if(data.hammer) document.getElementById('mb_hammer').value = data.hammer; if(data.recovery) document.getElementById('mb_recovery').value = data.recovery; if(data.pride) document.getElementById('mb_pride').value = data.pride; if(data.narrative) document.getElementById('mb_narrative').value = data.narrative; if(data.scores) { mb_scores = data.scores; Object.keys(mb_scores).forEach(c => { if(mb_scores[c]>0) mb_setScore(c, mb_scores[c]); }); } mb_saveData(); }
+        function mb_downloadBackup() { const data = localStorage.getItem('mb_data'); const blob = new Blob([data], { type: "application/json" }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = "master-backup.json"; a.click(); }
+        function mb_loadBackup(input) { const file = input.files[0]; if(!file) return; const reader = new FileReader(); reader.onload = (e) => { mb_populate(JSON.parse(e.target.result)); alert("Master Data Loaded"); }; reader.readAsText(file); }
+        function mb_generateFullPrint() { 
+            const data = mb_getFormData();
+            const total = Object.values(mb_scores).reduce((a, b) => a + b, 0);
+            const scoreDetails = mb_cats.map(c => `<div style="display:flex; justify-content:space-between; border-bottom:1px solid #eee; padding:8px 0;"><span style="font-size:10px; font-weight:bold; color:#666; text-transform:uppercase;">${c.label}</span><span style="font-weight:900; font-style:italic;">${mb_scores[c.id] || 0}/5</span></div>`).join('');
+            const html = `<!DOCTYPE html><html><head><title>Athlete Blueprint: Full System</title><link href="https://cdn.tailwindcss.com" rel="stylesheet"><style>body { font-family: sans-serif; padding: 40px; color: black; background: white; line-height: 1.3; } .header { border-bottom: 5px solid black; padding-bottom: 10px; margin-bottom: 25px; } .section { margin-bottom: 20px; border-left: 4px solid black; padding-left: 15px; } .label { font-size: 8px; font-weight: bold; text-transform: uppercase; color: #888; margin-bottom: 1px; } .val { font-size: 16px; font-weight: 900; font-style: italic; border-bottom: 1px solid black; margin-bottom: 12px; min-height: 22px; } .narr-val { font-size: 11px; line-height: 1.4; padding: 12px; background: #f9f9f9; border-radius: 8px; margin-top: 5px; border: 1px solid #eee; }</style></head><body><div style="max-width: 800px; margin: auto;"><div class="header flex justify-between items-end"><div><h1 class="text-3xl font-black italic uppercase">The User Blueprint</h1><p style="font-size:10px; letter-spacing:3px; text-transform:uppercase; font-weight:bold;">Phase 4 System Configuration</p></div><div style="text-align:right;"><p style="font-size:10px; text-transform:uppercase; font-weight:bold;">Mastery Score</p><p style="font-size:40px; font-weight:900; font-style:italic; line-height:1;">${total}/20</p></div></div><div class="grid grid-cols-2 gap-8"><div class="section"><h2 style="font-size:12px; font-weight:900; text-transform:uppercase; margin-bottom:10px;">01 Engine Identity</h2><div class="label">Identity Anchor</div><div class="val">${data.anchor || '---'}</div><div class="label">Compass Value</div><div class="val">${data.value || '---'}</div></div><div class="section"><h2 style="font-size:12px; font-weight:900; text-transform:uppercase; margin-bottom:10px;">02 The Path</h2><div class="label">7/10 Task</div><div class="val">${data.task || '---'}</div><div class="label">Hammer Protocol</div><div class="val" style="font-size:13px; color:#0ea5e9;">${data.flinch || '...'} &rarr; ${data.hammer || '...'}</div></div></div><div class="section"><h2 style="font-size:12px; font-weight:900; text-transform:uppercase; margin-bottom:5px;">03 System Maintenance</h2><div class="grid grid-cols-2 gap-4"><div><div class="label">Recovery Mandate</div><div class="val" style="font-size:13px;">${data.recovery || '---'}</div></div><div><div class="label">Authentic Pride</div><div class="val" style="font-size:13px;">${data.pride || '---'}</div></div></div></div><div class="section" style="border-left-color: #0ea5e9;"><h2 style="font-size:12px; font-weight:900; text-transform:uppercase; margin-bottom:5px; color:#0ea5e9;">Understanding Narrative</h2><div class="narr-val">${data.narrative || 'No narrative provided.'}</div></div><div style="margin-top:20px; border-top:2px solid black; padding-top:15px;"><h2 style="font-size:10px; font-weight:900; text-transform:uppercase; margin-bottom:8px;">Audit Results</h2>${scoreDetails}</div><div style="margin-top:30px; text-align:center; font-size:9px; font-weight:bold; color:#aaa; text-transform:uppercase; letter-spacing:2px;">"If the plan doesn't survive a bad day, it isn't a plan."</div></div><script>window.onload = function() { setTimeout(function() { window.print(); }, 500); };<\/script></body></html>`; 
+            const win = window.open('','_blank'); win.document.write(html); win.document.close(); 
+        }
+
+        // --- PHASE 3 (FOCUS BLUEPRINT) LOGIC ---
+        const p3_cats = [ { id: 'arena', label: 'Arena Audit' }, { id: 'anch', label: 'Anchoring' }, { id: 'fort', label: 'Fortress Prep' }, { id: 'narr', label: 'Understanding' }, { id: 'audit', label: 'Integrity Audit' } ];
+        let p3_scores = { arena: 0, anch: 0, fort: 0, narr: 0, audit: 0 };
+        function p3_showStep(n) { document.querySelectorAll('#view-phase3 .step-content').forEach(s => s.classList.remove('active')); document.getElementById('p3-step' + n).classList.add('active'); document.querySelectorAll('#view-phase3 .mod-nav-btn').forEach((b, i) => b.classList.toggle('active', i === n)); }
+        function p3_setScore(cat, val) { p3_scores[cat] = val; document.getElementById(`p3-group-${cat}`).querySelectorAll('button').forEach((b, i) => b.classList.toggle('active', (i+1) === val)); const total = Object.values(p3_scores).reduce((a, b) => a + b, 0); document.getElementById('p3-total-score').innerText = total.toString().padStart(2, '0'); p3_saveData(); }
+        function p3_getFormData() { return { internal_dist: document.getElementById('p3_internal_dist').value, time_trap: document.getElementById('p3_time_trap').value, external_dist: document.getElementById('p3_external_dist').value, spotlight: document.getElementById('p3_spotlight').value, instructional_cue: document.getElementById('p3_instructional_cue').value, motivational_cue: document.getElementById('p3_motivational_cue').value, anchor_type: document.getElementById('p3_anchor_type').value, anchor_usage: document.getElementById('p3_anchor_usage').value, routine_1: document.getElementById('p3_routine_1').value, routine_2: document.getElementById('p3_routine_2').value, routine_3: document.getElementById('p3_routine_3').value, what_if: document.getElementById('p3_what_if').value, response: document.getElementById('p3_response').value, narrative: document.getElementById('p3_narrative').value, scores: p3_scores }; }
+        function p3_saveData() { const data = p3_getFormData(); localStorage.setItem('p3_data', JSON.stringify(data)); document.getElementById('p3-save-text').innerText = "Saved"; updateP3Summary(data); setTimeout(() => document.getElementById('p3-save-text').innerText = "System Ready", 1000); }
+        function updateP3Summary(data) { const preview = document.getElementById('p3-summary-preview'); const target = data.spotlight || '...'; const cues = (data.instructional_cue || '...') + ' & ' + (data.motivational_cue || '...'); preview.innerHTML = `"I focus on <span class="text-sky-400 font-bold underline underline-offset-2">${target}</span> by using <span class="text-emerald-400 font-bold underline underline-offset-2">${cues}</span>."`; }
+        function p3_populate(data) { if(!data) return; if(data.internal_dist) document.getElementById('p3_internal_dist').value = data.internal_dist; if(data.time_trap) document.getElementById('p3_time_trap').value = data.time_trap; if(data.external_dist) document.getElementById('p3_external_dist').value = data.external_dist; if(data.spotlight) document.getElementById('p3_spotlight').value = data.spotlight; if(data.instructional_cue) document.getElementById('p3_instructional_cue').value = data.instructional_cue; if(data.motivational_cue) document.getElementById('p3_motivational_cue').value = data.motivational_cue; if(data.anchor_type) document.getElementById('p3_anchor_type').value = data.anchor_type; if(data.anchor_usage) document.getElementById('p3_anchor_usage').value = data.anchor_usage; if(data.routine_1) document.getElementById('p3_routine_1').value = data.routine_1; if(data.routine_2) document.getElementById('p3_routine_2').value = data.routine_2; if(data.routine_3) document.getElementById('p3_routine_3').value = data.routine_3; if(data.what_if) document.getElementById('p3_what_if').value = data.what_if; if(data.response) document.getElementById('p3_response').value = data.response; if(data.narrative) document.getElementById('p3_narrative').value = data.narrative; if(data.scores) { p3_scores = data.scores; Object.keys(p3_scores).forEach(c => { if(p3_scores[c]>0) p3_setScore(c, p3_scores[c]); }); } p3_saveData(); }
+        function p3_downloadBackup() { const data = localStorage.getItem('p3_data'); const blob = new Blob([data], { type: "application/json" }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = "focus-backup.json"; a.click(); }
+        function p3_loadBackup(input) { const file = input.files[0]; if(!file) return; const reader = new FileReader(); reader.onload = (e) => { p3_populate(JSON.parse(e.target.result)); alert("Focus Data Loaded"); }; reader.readAsText(file); }
+        function p3_generateFullPrint() { 
+            const data = p3_getFormData();
+            const total = Object.values(p3_scores).reduce((a, b) => a + b, 0);
+            const scoreDetails = p3_cats.map(c => `<div style="display:flex; justify-content:space-between; border-bottom:1px solid #eee; padding:6px 0;"><span style="font-size:10px; font-weight:bold; color:#666; text-transform:uppercase;">${c.label}</span><span style="font-weight:900; font-style:italic;">${p3_scores[c.id] || 0}/5</span></div>`).join('');
+            const html = `<!DOCTYPE html><html><head><title>Focus Blueprint: Full System</title><link href="https://cdn.tailwindcss.com" rel="stylesheet"><style>body { font-family: sans-serif; padding: 40px; color: black; background: white; line-height: 1.3; } .header { border-bottom: 5px solid black; padding-bottom: 10px; margin-bottom: 25px; } .section { margin-bottom: 20px; border-left: 4px solid black; padding-left: 15px; } .label { font-size: 8px; font-weight: bold; text-transform: uppercase; color: #888; margin-bottom: 1px; } .val { font-size: 15px; font-weight: 900; font-style: italic; border-bottom: 1px solid black; margin-bottom: 12px; min-height: 22px; } .narr-val { font-size: 11px; line-height: 1.4; padding: 12px; background: #f9f9f9; border-radius: 8px; border: 1px solid #eee; margin-top: 5px; }</style></head><body><div style="max-width: 800px; margin: auto;"><div class="header flex justify-between items-end"><div><h1 class="text-3xl font-black italic uppercase">Focus Blueprint</h1><p style="font-size:10px; letter-spacing:3px; text-transform:uppercase; font-weight:bold;">Phase 3 Mastery Report</p></div><div style="text-align:right;"><p style="font-size:10px; text-transform:uppercase; font-weight:bold;">Concentration Score</p><p style="font-size:40px; font-weight:900; font-style:italic; line-height:1;">${total}/25</p></div></div><div class="grid grid-cols-2 gap-8"><div class="section"><h2 style="font-size:12px; font-weight:900; text-transform:uppercase; margin-bottom:10px;">01 The Arena Audit</h2><div class="label">Internal Distracters</div><div class="val">${data.internal_dist || '---'}</div><div class="label">Spotlight Target</div><div class="val" style="color:#0ea5e9;">${data.spotlight || '---'}</div></div><div class="section"><h2 style="font-size:12px; font-weight:900; text-transform:uppercase; margin-bottom:10px;">02 Tactical Anchoring</h2><div class="label">Instructional Cue</div><div class="val">${data.instructional_cue || '---'}</div><div class="label">Physical Anchor</div><div class="val">${data.anchor_type || '---'}: ${data.anchor_usage || '---'}</div></div></div><div class="section"><h2 style="font-size:12px; font-weight:900; text-transform:uppercase; margin-bottom:5px;">03 Fortress Routine</h2><div style="font-size:11px; font-style:italic; border-bottom:1px solid #ddd; padding-bottom:5px;">${data.routine_1 || '...'} &rarr; ${data.routine_2 || '...'} &rarr; ${data.routine_3 || '...'}</div></div><div class="section" style="border-left-color: #0ea5e9;"><h2 style="font-size:12px; font-weight:900; text-transform:uppercase; margin-bottom:5px; color:#0ea5e9;">Understanding Narrative</h2><div class="narr-val">${data.narrative || '---'}</div></div><div style="margin-top:20px; border-top:2px solid black; padding-top:15px;"><h2 style="font-size:10px; font-weight:900; text-transform:uppercase; margin-bottom:8px;">Self-Evaluation Results</h2>${scoreDetails}</div></div><script>window.onload = function() { setTimeout(function() { window.print(); }, 500); };<\/script></body></html>`; 
+            const win = window.open('','_blank'); win.document.write(html); win.document.close(); 
+        }
+
+        // --- PHASE 4A (CONFIDENCE - NEW) LOGIC ---
+        const p4a_cats = [ { id: 'bank', label: 'Bank Account' }, { id: 'dmg', label: 'Damage Control' }, { id: 'action', label: 'C-B-A Routine' }, { id: 'un', label: 'Understanding' }, { id: 'audit', label: 'Integrity' } ];
+        let p4a_scores = { bank: 0, dmg: 0, action: 0, un: 0, audit: 0 };
+        function p4a_showStep(n) { document.querySelectorAll('#view-phase4a .step-content').forEach(s => s.classList.remove('active')); document.getElementById('p4a_step' + n).classList.add('active'); document.querySelectorAll('#view-phase4a .mod-nav-btn').forEach((b, i) => b.classList.toggle('active', i === n)); }
+        function p4a_setScore(cat, val) { p4a_scores[cat] = val; document.getElementById(`p4a_group-${cat}`).querySelectorAll('button').forEach((b, i) => b.classList.toggle('active', (i+1) === val)); const total = Object.values(p4a_scores).reduce((a, b) => a + b, 0); document.getElementById('p4a_total-score').innerText = total.toString().padStart(2, '0'); p4a_saveData(); }
+        function p4a_getFormData() {
+             const tt = []; for(let i=1; i<=10; i++) { const el = document.getElementById(`p4a_tt-${i}`); if(el) tt.push(el.value); }
+             return { tt, esp1: document.getElementById('p4a_esp_effort').value, esp2: document.getElementById('p4a_esp_success').value, esp3: document.getElementById('p4a_esp_progress').value, setback: document.getElementById('p4a_setback').value, cue: document.getElementById('p4a_cue').value, attach: document.getElementById('p4a_attach').value, narr: document.getElementById('p4a_narr').value, scores: p4a_scores };
+        }
+        function p4a_saveData() { localStorage.setItem('p4a_data', JSON.stringify(p4a_getFormData())); document.getElementById('p4a-save-text').innerText = "Saved"; setTimeout(() => document.getElementById('p4a-save-text').innerText = "System Ready", 1000); }
+        function p4a_populate(data) { if(!data) return; if(data.tt) data.tt.forEach((v,i) => { if(document.getElementById(`p4a_tt-${i+1}`)) document.getElementById(`p4a_tt-${i+1}`).value = v; }); if(data.esp1) document.getElementById('p4a_esp_effort').value = data.esp1; if(data.esp2) document.getElementById('p4a_esp_success').value = data.esp2; if(data.esp3) document.getElementById('p4a_esp_progress').value = data.esp3; if(data.setback) document.getElementById('p4a_setback').value = data.setback; if(data.cue) document.getElementById('p4a_cue').value = data.cue; if(data.attach) document.getElementById('p4a_attach').value = data.attach; if(data.narr) document.getElementById('p4a_narr').value = data.narr; if(data.scores) { p4a_scores = data.scores; Object.keys(p4a_scores).forEach(c => { if(p4a_scores[c]>0) p4a_setScore(c, p4a_scores[c]); }); } p4a_saveData(); }
+        function p4a_downloadBackup() { const data = localStorage.getItem('p4a_data'); const blob = new Blob([data], { type: "application/json" }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = "confidence-backup.json"; a.click(); }
+        function p4a_loadBackup(input) { const file = input.files[0]; if(!file) return; const reader = new FileReader(); reader.onload = (e) => { p4a_populate(JSON.parse(e.target.result)); alert("Confidence Data Loaded"); }; reader.readAsText(file); }
+        function p4a_generatePDF() { 
+            const data = p4a_getFormData();
+            const total = Object.values(p4a_scores).reduce((a, b) => a + b, 0);
+            const scoreDetails = p4a_cats.map(c => `<div style="display:flex; justify-content:space-between; border-bottom:1px solid #eee; padding:6px 0;"><span style="font-size:10px; font-weight:bold; color:#666; text-transform:uppercase;">${c.label}</span><span style="font-weight:900; font-style:italic;">${p4a_scores[c.id] || 0}/5</span></div>`).join('');
+            let ttHTML = ''; data.tt.forEach((item, i) => { if(item) ttHTML += `<div style="font-size:11px; margin-bottom:4px;"><b>${i+1}.</b> ${item}</div>`; });
+            const html = `<!DOCTYPE html><html><head><title>Confidence Mastery Report</title><link href="https://cdn.tailwindcss.com" rel="stylesheet"><style>body { font-family: sans-serif; padding: 40px; color: black; background: white; line-height: 1.3; } .header { border-bottom: 5px solid black; padding-bottom: 10px; margin-bottom: 25px; } .section { margin-bottom: 20px; border-left: 4px solid black; padding-left: 15px; } .label { font-size: 8px; font-weight: bold; text-transform: uppercase; color: #888; } .val { font-size: 15px; font-weight: 900; font-style: italic; border-bottom: 1px solid black; margin-bottom: 12px; min-height: 22px; } .narr-val { font-size: 11px; line-height: 1.4; padding: 12px; background: #f9f9f9; border-radius: 8px; border: 1px solid #eee; margin-top: 5px; }</style></head><body><div style="max-width: 800px; margin: auto;"><div class="header flex justify-between items-end"><div><h1 class="text-3xl font-black italic uppercase">Confidence Blueprint</h1><p style="font-size:10px; letter-spacing:3px; text-transform:uppercase; font-weight:bold;">Phase 4 Mastery Report</p></div><div style="text-align:right;"><p style="font-size:10px; text-transform:uppercase; font-weight:bold;">Total Mastery Score</p><p style="font-size:40px; font-weight:900; font-style:italic; line-height:1;">${total}/25</p></div></div><div class="section"><h2 style="font-size:14px; font-weight:900; text-transform:uppercase; margin-bottom:10px; color:#0ea5e9;">01 The Bank Account (Top Ten)</h2><div style="column-count: 2;">${ttHTML}</div></div><div class="grid grid-cols-2 gap-8 mt-6"><div class="section"><h2 style="font-size:12px; font-weight:900; text-transform:uppercase; margin-bottom:5px;">Daily E-S-P</h2><div class="label">Effort</div><div class="val" style="font-size:11px;">${data.esp1 || '...'}</div><div class="label">Success</div><div class="val" style="font-size:11px;">${data.esp2 || '...'}</div></div><div class="section" style="border-left-color:#f43f5e;"><h2 style="font-size:12px; font-weight:900; text-transform:uppercase; margin-bottom:5px;">02 Damage Control</h2><div class="label">Reframe</div><div class="val" style="font-size:11px;">${data.setback || '...'}</div></div></div><div class="section" style="border-left-color:#fbbf24;"><h2 style="font-size:12px; font-weight:900; text-transform:uppercase; margin-bottom:5px;">03 Conviction (C-B-A Routine)</h2><div class="val" style="font-size:13px;"><b>Cue:</b> ${data.cue || '...'} | <b>Attach:</b> ${data.attach || '...'}</div></div><div class="section"><h2 style="font-size:12px; font-weight:900; text-transform:uppercase; margin-bottom:5px;">Understanding Narrative</h2><div class="narr-val">${data.narr || '---'}</div></div><div style="margin-top:20px; border-top:2px solid black; padding-top:15px;"><h2 style="font-size:10px; font-weight:900; text-transform:uppercase; margin-bottom:8px;">Self-Evaluation Results</h2>${scoreDetails}</div></div><script>window.onload = function() { setTimeout(function() { window.print(); }, 500); };<\/script></body></html>`; 
+            const win = window.open('','_blank'); win.document.write(html); win.document.close(); 
+        }
+
+        // --- PHASE 4B VISUALIZATION (NEW) LOGIC ---
+        const p4b_cats = [ { id: 'script', label: 'Master Script', desc: 'Narrative Synthesis' }, { id: 'depth', label: 'Sensory Depth', desc: 'VR Vividness' }, { id: 'reset', label: 'Flat Tire Reset', desc: 'Controllability' }, { id: 'un', label: 'Understanding', desc: 'Concept Narrative' }, { id: 'audit', label: 'Integrity', desc: 'Audit Honesty' } ];
+        let p4b_scores = { script: 0, depth: 0, reset: 0, un: 0, audit: 0 };
+        let p4b_saveTimeout;
+
+        function p4b_showStep(n) { document.querySelectorAll('#view-phase4b .step-content').forEach(s => s.classList.remove('active')); document.getElementById('p4b_step' + n).classList.add('active'); document.querySelectorAll('#view-phase4b .nav-btn').forEach((b, i) => b.classList.toggle('active', i === n)); }
+        function p4b_setScore(cat, val) { p4b_scores[cat] = val; document.getElementById(`p4b_group-${cat}`).querySelectorAll('button').forEach((b, i) => b.classList.toggle('active', (i+1) === val)); const total = Object.values(p4b_scores).reduce((a, b) => a + b, 0); document.getElementById('p4b_total-score').innerText = total.toString().padStart(2, '0'); p4b_saveData(); }
+        function p4b_getFormData() {
+            return {
+                sanctuary_desc: document.getElementById('p4b_sanctuary_desc').value,
+                tool_name: document.getElementById('p4b_tool_name').value,
+                tool_manipulation: document.getElementById('p4b_tool_manipulation').value,
+                script_va: document.getElementById('p4b_script_va').value,
+                script_k: document.getElementById('p4b_script_k').value,
+                script_e: document.getElementById('p4b_script_e').value,
+                ft_crisis: document.getElementById('p4b_ft_crisis').value,
+                ft_reset: document.getElementById('p4b_ft_reset').value,
+                master_script: document.getElementById('p4b_master_script').value,
+                narrative: document.getElementById('p4b_narrative').value,
+                scores: p4b_scores
+            };
+        }
+        function p4b_saveData() {
+            const data = p4b_getFormData();
+            localStorage.setItem('athlete_visualization_master_v1', JSON.stringify(data));
+            const ind = document.getElementById('p4b_save-indicator');
+            const txt = document.getElementById('p4b_save-text');
+            ind.classList.remove('bg-slate-600');
+            ind.classList.add('bg-emerald-500', 'status-saved');
+            txt.innerText = "Saving...";
+            clearTimeout(p4b_saveTimeout);
+            p4b_saveTimeout = setTimeout(() => {
+                ind.classList.remove('status-saved');
+                txt.innerText = "Saved Locally";
+            }, 1000);
+        }
+        function p4b_populate(data) {
+            if(!data) return;
+            if(data.sanctuary_desc) document.getElementById('p4b_sanctuary_desc').value = data.sanctuary_desc; 
+            if(data.tool_name) document.getElementById('p4b_tool_name').value = data.tool_name; 
+            if(data.tool_manipulation) document.getElementById('p4b_tool_manipulation').value = data.tool_manipulation; 
+            if(data.script_va) document.getElementById('p4b_script_va').value = data.script_va; 
+            if(data.script_k) document.getElementById('p4b_script_k').value = data.script_k; 
+            if(data.script_e) document.getElementById('p4b_script_e').value = data.script_e; 
+            if(data.ft_crisis) document.getElementById('p4b_ft_crisis').value = data.ft_crisis; 
+            if(data.ft_reset) document.getElementById('p4b_ft_reset').value = data.ft_reset; 
+            if(data.master_script) document.getElementById('p4b_master_script').value = data.master_script; 
+            if(data.narrative) document.getElementById('p4b_narrative').value = data.narrative; 
+            if(data.scores) { p4b_scores = data.scores; Object.keys(p4b_scores).forEach(c => { if(p4b_scores[c]>0) p4b_setScore(c, p4b_scores[c]); }); }
+        }
+        function p4b_downloadBackup() {
+            const data = p4b_getFormData();
+            const blob = new Blob([JSON.stringify(data)], { type: "application/json" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a'); a.href = url; a.download = "visualization-backup.json"; a.click();
+        }
+        function p4b_loadBackup(input) {
+            const file = input.files[0]; if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    p4b_populate(data);
+                    p4b_saveData();
+                    alert("Blueprint loaded successfully!");
+                } catch (err) { alert("Error loading file."); }
+            };
+            reader.readAsText(file);
+        }
+        function p4b_generateFullPrint() {
+            const data = p4b_getFormData();
+            const total = Object.values(p4b_scores).reduce((a, b) => a + b, 0);
+            const scoreDetails = p4b_cats.map(c => `<div style="display:flex; justify-content:space-between; border-bottom:1px solid #eee; padding:6px 0;"><span style="font-size:10px; font-weight:bold; color:#666; text-transform:uppercase;">${c.label}</span><span style="font-weight:900; font-style:italic;">${p4b_scores[c.id] || 0}/5</span></div>`).join('');
+            const html = `<!DOCTYPE html><html><head><title>Visualization Mastery Report</title><link href="https://cdn.tailwindcss.com" rel="stylesheet"><style>body { font-family: sans-serif; padding: 40px; color: black; background: white; line-height: 1.3; } .header { border-bottom: 5px solid black; padding-bottom: 10px; margin-bottom: 25px; } .section { margin-bottom: 20px; border-left: 4px solid black; padding-left: 15px; } .label { font-size: 8px; font-weight: bold; text-transform: uppercase; color: #888; } .val { font-size: 15px; font-weight: 900; font-style: italic; border-bottom: 1px solid black; margin-bottom: 12px; min-height: 22px; } .narr-val { font-size: 11px; line-height: 1.4; padding: 12px; background: #f9f9f9; border-radius: 8px; border: 1px solid #eee; margin-top: 5px; }</style></head><body><div style="max-width: 800px; margin: auto;"><div class="header flex justify-between items-end"><div><h1 class="text-3xl font-black italic uppercase">Visualization Blueprint</h1><p style="font-size:10px; letter-spacing:3px; text-transform:uppercase; font-weight:bold;">Phase 4 Mastery Report</p></div><div style="text-align:right;"><p style="font-size:10px; text-transform:uppercase; font-weight:bold;">Total Mastery Score</p><p style="font-size:40px; font-weight:900; font-style:italic; line-height:1;">${total}/25</p></div></div><div class="section" style="border-left-color: #0ea5e9;"><h2 style="font-size:14px; font-weight:900; text-transform:uppercase; margin-bottom:5px; color:#0ea5e9;">Master Performance Script</h2><div class="narr-val" style="font-size:12px; font-weight:bold; white-space: pre-wrap;">${data.master_script || '---'}</div></div><div class="grid grid-cols-2 gap-8 mt-6"><div class="section"><h2 style="font-size:12px; font-weight:900; text-transform:uppercase; margin-bottom:10px;">01 Foundations</h2><div class="label">Sanctuary</div><div class="val" style="font-size:11px;">${data.sanctuary_desc || '...'}</div><div class="label">Manipulation: ${data.tool_name || '...'}</div><div class="val" style="font-size:11px;">${data.tool_manipulation || '...'}</div></div><div class="section" style="border-left-color: #f43f5e;"><h2 style="font-size:12px; font-weight:900; text-transform:uppercase; margin-bottom:10px;">02 Reset</h2><div class="label">Flat Tire Crisis</div><div class="val" style="font-size:11px;">${data.ft_crisis || '...'}</div><div class="label">Dominant Response</div><div class="val" style="font-size:11px; color:#059669;">${data.ft_reset || '...'}</div></div></div><div class="section"><h2 style="font-size:12px; font-weight:900; text-transform:uppercase; margin-bottom:5px;">Reflective Narrative</h2><div class="narr-val">${data.narrative || '---'}</div></div><div style="margin-top:20px; border-top:2px solid black; padding-top:15px;"><h2 style="font-size:10px; font-weight:900; text-transform:uppercase; margin-bottom:8px;">Audit Results</h2>${scoreDetails}</div></div><script>window.onload = function() { setTimeout(function() { window.print(); }, 500); };<\/script></body></html>`;
+            const pw = window.open('', '_blank'); if(pw) { pw.document.open(); pw.document.write(html); pw.document.close(); }
+        }
+
+        // --- INIT ---
+        window.onload = function() {
+            // P1 Rubric
+            const sc = document.getElementById('sc-container');
+            p1_cats.forEach(cat => {
+                const d = document.createElement('div');
+                d.className='flex items-center justify-between gap-2 bg-slate-900/30 p-3 rounded-xl border border-slate-800';
+                d.innerHTML=`<div class="flex-1 text-left"><h4 class="text-[11px] font-bold text-white uppercase italic leading-none mb-1">${cat.label}</h4></div><div class="flex gap-1" id="group-${cat.id}">${[1,2,3,4,5].map(v => `<button onclick="p1_setScore('${cat.id}', ${v})" class="score-btn rounded-lg border font-mono font-bold w-8 h-8 text-[11px]">${v}</button>`).join('')}</div>`;
+                sc.appendChild(d);
+            });
+
+            // VB Rubric & Dropdowns
+            const vb_sc = document.getElementById('vb-scoring-container');
+            vb_cats.forEach(cat => {
+                const d = document.createElement('div');
+                d.className='flex items-center justify-between gap-2 bg-slate-900/30 p-3 rounded-xl border border-slate-800';
+                d.innerHTML=`<div class="flex-1 text-left"><h4 class="text-[11px] font-bold text-white uppercase italic leading-none mb-1">${cat.label}</h4></div><div class="flex gap-1" id="vb-group-${cat.id}">${[1,2,3,4,5].map(v => `<button onclick="vb_setScore('${cat.id}', ${v})" class="score-btn rounded-lg border font-mono font-bold w-8 h-8 text-[11px]">${v}</button>`).join('')}</div>`;
+                vb_sc.appendChild(d);
+            });
+            const sel1 = document.getElementById('vb_value1');
+            const sel2 = document.getElementById('vb_value2');
+            const listContainer = document.getElementById('values-list');
+            allValues.forEach(v => {
+                const opt1 = document.createElement('option'); opt1.value = opt1.innerText = v; sel1.appendChild(opt1);
+                const opt2 = document.createElement('option'); opt2.value = opt2.innerText = v; sel2.appendChild(opt2);
+                const p = document.createElement('p'); p.className = "hover:text-white cursor-pointer transition-colors"; p.innerText = v;
+                p.onclick = () => { if (!sel1.value) sel1.value = v; else if (!sel2.value) sel2.value = v; vb_saveData(); };
+                listContainer.appendChild(p);
+            });
+
+            // MB Rubric
+            const mb_sc = document.getElementById('mb-scoring-container');
+            mb_cats.forEach(cat => {
+                const d = document.createElement('div');
+                d.className='flex items-center justify-between gap-2 bg-slate-900/30 p-3 rounded-xl border border-slate-800';
+                d.innerHTML=`<div class="flex-1 text-left"><h4 class="text-[11px] font-bold text-white uppercase italic leading-none mb-1">${cat.label}</h4></div><div class="flex gap-1" id="mb-group-${cat.id}">${[1,2,3,4,5].map(v => `<button onclick="mb_setScore('${cat.id}', ${v})" class="score-btn rounded-lg border font-mono font-bold w-8 h-8 text-[11px]">${v}</button>`).join('')}</div>`;
+                mb_sc.appendChild(d);
+            });
+
+            // P3 Rubric
+            const p3_sc = document.getElementById('p3-scoring-container');
+            p3_cats.forEach(cat => {
+                const d = document.createElement('div');
+                d.className='flex items-center justify-between gap-2 bg-slate-900/30 p-3 rounded-xl border border-slate-800';
+                d.innerHTML=`<div class="flex-1 text-left"><h4 class="text-[11px] font-bold text-white uppercase italic leading-none mb-1">${cat.label}</h4></div><div class="flex gap-1" id="p3-group-${cat.id}">${[1,2,3,4,5].map(v => `<button onclick="p3_setScore('${cat.id}', ${v})" class="score-btn rounded-lg border font-mono font-bold w-8 h-8 text-[11px]">${v}</button>`).join('')}</div>`;
+                p3_sc.appendChild(d);
+            });
+
+            // P4A Rubric & Top Ten Generation
+            const p4a_tt = document.getElementById('p4a_tt-container');
+            for(let i=1; i<=10; i++) { 
+                const d = document.createElement('div'); d.className="flex gap-2 items-center"; 
+                d.innerHTML=`<span class="text-[9px] font-black text-slate-600 w-4">${i}.</span><input type="text" id="p4a_tt-${i}" oninput="p4a_saveData()" placeholder="Proof of Mastery ${i}..." class="top-ten-input w-full">`; 
+                p4a_tt.appendChild(d); 
+            }
+            const p4a_sc = document.getElementById('p4a_scoring-container');
+            p4a_cats.forEach(cat => {
+                const d = document.createElement('div');
+                d.className='flex items-center justify-between gap-2 bg-slate-900/30 p-3 rounded-xl border border-slate-800';
+                d.innerHTML=`<div class="flex-1 text-left"><h4 class="text-[11px] font-bold text-white uppercase italic leading-none mb-1">${cat.label}</h4></div><div class="flex gap-1" id="p4a_group-${cat.id}">${[1,2,3,4,5].map(v => `<button onclick="p4a_setScore('${cat.id}', ${v})" class="score-btn rounded-lg border font-mono font-bold w-8 h-8 text-[11px]">${v}</button>`).join('')}</div>`;
+                p4a_sc.appendChild(d);
+            });
+
+            // P4B Rubric Generation (NEW)
+            const p4b_sc = document.getElementById('p4b_sc-container');
+            p4b_cats.forEach(cat => {
+                const d = document.createElement('div');
+                d.className='flex items-center justify-between gap-2 bg-slate-900/30 p-3 rounded-xl border border-slate-800';
+                d.innerHTML=`<div class="flex-1 text-left"><h4 class="text-[11px] font-bold text-white uppercase italic leading-none mb-1">${cat.label}</h4><p class="text-[8px] text-slate-500 uppercase mono leading-none">${cat.desc}</p></div><div class="flex gap-1" id="p4b_group-${cat.id}">${[1,2,3,4,5].map(v => `<button onclick="p4b_setScore('${cat.id}', ${v})" class="score-btn rounded-lg border font-mono font-bold w-8 h-8 text-[11px]">${v}</button>`).join('')}</div>`;
+                p4b_sc.appendChild(d);
+            });
+
+            // Load LocalStorage
+            p1_populate(JSON.parse(localStorage.getItem('elite_operator_v3_p1') || '{}'));
+            vb_populate(JSON.parse(localStorage.getItem('vb_data') || '{}'));
+            mb_populate(JSON.parse(localStorage.getItem('mb_data') || '{}'));
+            p3_populate(JSON.parse(localStorage.getItem('p3_data') || '{}'));
+            p4a_populate(JSON.parse(localStorage.getItem('p4a_data') || '{}'));
+            p4b_populate(JSON.parse(localStorage.getItem('athlete_visualization_master_v1') || '{}'));
+        };

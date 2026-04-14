@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mental Fitness 10 | Option 2 Shell</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <header class="brand-block">
+        <div>
+          <h1>Mental<br />Fitness</h1>
+          <p class="mono">Course Shell</p>
+        </div>
+        <div class="brand-mark brand-mark-brain" aria-hidden="true">
+          <svg class="brain-icon" viewBox="0 0 64 64" role="img" aria-hidden="true">
+            <defs>
+              <linearGradient id="runner-head-fill" x1="17" y1="11" x2="49" y2="52" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#36f3d0" />
+                <stop offset="100%" stop-color="#0da98a" />
+              </linearGradient>
+            </defs>
+            <path d="M26.7 11.4c-6.8 0-12.4 5.4-12.4 12.2 0 5.1 2.8 9.1 7 11.2-.1 5.2-2 9.6-5.4 13.2H26c2.3-1.8 4.7-3 7.2-3.7 2.5-.6 5.2-.9 8.1-.9 5.6 0 10.2-4.5 10.2-10.1 0-5-3.7-9.2-8.5-10 .3-1 .5-2 .5-3.1 0-4.9-3.9-8.8-8.8-8.8-2.7 0-5.2 1.2-6.9 3.1-.4-.1-.8-.1-1.1-.1Z" fill="#0d1826" stroke="#31f2cf" stroke-width="1.7" stroke-linejoin="round"/>
+            <path d="M29.2 15.4c3.7 0 6.7 3 6.7 6.7 0 2.7-1.5 5-3.8 6.1-1.8.8-3.1 2.2-3.9 4l-1.3 2.9" fill="none" stroke="#08131d" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M30.7 14.4c2.2-1.7 5-2.8 7.8-2.8 6.9 0 12.5 5.6 12.5 12.5 0 3.4-1.4 6.5-3.6 8.7-2.3 2.2-5.4 3.6-8.9 3.6-2.8 0-5.2.3-7.4 1-2.2.7-4.3 1.8-6.4 3.5l-.9-3.3c.2-3.6 1.7-6.4 4.6-8.6 1.6-1.2 2.8-2.3 3.5-3.5.7-1.1 1.1-2.4 1.1-3.9 0-2.6-.9-4.7-2.7-6.2l.4-1Z" fill="url(#runner-head-fill)" opacity="0.94"/>
+            <path d="M34.5 14.5c2 .1 3.8.9 5.1 2.4m-8.5 1.3c1.1-1.3 2.7-2.1 4.4-2.2m-7 7.8c.8-1.8 2.4-3 4.3-3.4m4.6 1.1c1.8.2 3.3 1.3 4.2 2.8m-14.1 4.4c1.7.2 3.1.9 4.3 2.2m3.4-4.6 1.8 2.6m3.3 4.9 2.1 2.9" fill="none" stroke="#09222a" stroke-width="1.45" stroke-linecap="round"/>
+            <path d="M22.3 46.8c2.7-3 5.8-5.1 9.3-6.2 2.4-.8 5.1-1.2 8.1-1.2 4.2 0 7.6-3.4 7.6-7.5 0-.8-.1-1.5-.3-2.2l3.1.8c.6 1.4.9 2.8.9 4.4 0 5.7-4.7 10.4-10.5 10.4-5.3 0-9.5.5-12.5 1.5-1.8.6-3.7 1.5-5.7 2.8v-2.8Z" fill="#091018"/>
+            <path d="M21.6 47.7c2.7-3.5 6.1-6 10.1-7.5 2.7-1 5.6-1.5 8.9-1.5 4.3 0 7.8-3.4 7.8-7.7 0-.5 0-.9-.1-1.4" fill="none" stroke="#31f2cf" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="28.4" cy="22" r="1.7" fill="#31f2cf"/>
+          </svg>
+        </div>
+      </header>
+
+      <nav class="sidebar-nav" aria-label="Primary">
+        <div class="sidebar-actions">
+          <button id="menu-collapse-toggle" class="menu-toggle" type="button" aria-expanded="true" title="Collapse menu" onclick="toggleSidebarCollapse()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+        <button id="nav-home" class="nav-item active" type="button">
+          <span class="nav-left"><i class="fa-solid fa-house nav-icon"></i><span>Home</span></span>
+        </button>
+
+        <div class="library-subnav home-subnav" aria-label="Home libraries">
+          <button id="tab-phases" class="library-tab active" type="button">Phases</button>
+          <button id="tab-quizzes" class="library-tab" type="button">Quizzes</button>
+          <button id="tab-assignments" class="library-tab" type="button">Assignments</button>
+        </div>
+
+        <button id="nav-library" class="nav-item" type="button">
+          <span class="nav-left"><i class="fa-solid fa-book nav-icon"></i><span>Library</span></span>
+          <i class="fa-solid fa-chevron-right nav-chevron" aria-hidden="true"></i>
+        </button>
+
+        <button id="nav-performance" class="nav-item" type="button">
+          <span class="nav-left"><i class="fa-solid fa-person-running nav-icon"></i><span>Performance</span></span>
+          <i class="fa-solid fa-chevron-right nav-chevron" aria-hidden="true"></i>
+        </button>
+
+        <button id="nav-icons" class="nav-item" type="button">
+          <span class="nav-left"><i class="fa-solid fa-dumbbell nav-icon"></i><span>Athletic Icons</span></span>
+          <i class="fa-solid fa-chevron-right nav-chevron" aria-hidden="true"></i>
+        </button>
+      </nav>
+    </aside>
+
+    <main class="content">
+      <div class="content-inner">
+        <section class="progress-shell" aria-label="Course progress">
+          <div class="progress-panel">
+            <div class="progress-inner">
+              <div class="progress-top">
+                <span class="progress-label mono">Course progress</span>
+                <div class="progress-counters mono">
+                  <span><i class="fa-solid fa-server"></i> 0/5</span>
+                  <span><i class="fa-solid fa-database"></i> 0/4</span>
+                </div>
+              </div>
+
+              <div class="progress-track" aria-hidden="true">
+                <div class="progress-fill" id="progress-fill"></div>
+              </div>
+
+              <div class="progress-bottom">
+                <div class="progress-percent"><span id="progress-percent">0%</span> <span class="progress-complete">complete</span></div>
+                <div class="progress-meta mono">
+                  <span><i class="fa-solid fa-layer-group"></i> Modules: <strong>0/4</strong></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="modules-shell">
+          <h3 id="section-title">Training Modules</h3>
+          <div id="content-body" class="content-body"></div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="./main.js"></script>
+</body>
+</html>
