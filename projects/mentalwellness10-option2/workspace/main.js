@@ -407,16 +407,26 @@ const ICONS = [
   { icon: 'fa-layer-group', title: 'Stacks', body: 'Reserved for future stackable drill content.' }
 ];
 
-const ASSIGNMENT_RUNTIME_NAV = {
-  a1: 'nav-a1',
-  a2a: 'nav-a2a',
-  a2b: 'nav-a2b',
-  a3: 'nav-a3',
-  a4a: 'nav-a4a',
-  a4b: 'nav-a4b'
+const ASSIGNMENT_RUNTIME_VIEW = {
+  a1: 'phase1',
+  a2a: 'values',
+  a2b: 'master',
+  a3: 'phase3',
+  a4a: 'phase4a',
+  a4b: 'phase4b'
 };
 
-const ASSIGNMENT_RUNTIME_SRC = './assignment-runtime.html';
+const ASSIGNMENT_RUNTIME_HTML_SRC = './assignment-runtime.html';
+const ASSIGNMENT_RUNTIME_SCRIPT_SRC = './assignment-runtime-main.js';
+const ASSIGNMENT_RUNTIME_TAILWIND_SRC = 'https://cdn.tailwindcss.com';
+
+const assignmentRuntimeState = {
+  htmlPromise: null,
+  runtimePromise: null,
+  tailwindPromise: null,
+  viewMarkup: new Map(),
+  requestToken: 0
+};
 
 const state = {
   section: 'home',
@@ -667,50 +677,114 @@ function renderAssignmentPanel(panel, accent) {
   `;
 }
 
-function mountAssignmentRuntime(frame, navId) {
-  const bootRuntime = () => {
-    const doc = frame.contentDocument;
-    const win = frame.contentWindow;
-    if (!doc || !win) return;
+function ensureScriptLoaded(src, id) {
+  const existing = document.getElementById(id);
+  if (existing) {
+    return Promise.resolve();
+  }
 
-    const root = doc.body?.firstElementChild;
-    const sidebar = root?.children?.[0];
-    const main = root?.children?.[1];
-    const floatingProgress = doc.querySelector('.floating-progress-panel');
+  return new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.id = id;
+    script.src = src;
+    script.async = true;
+    script.onload = () => resolve();
+    script.onerror = () => reject(new Error(`Failed to load ${src}`));
+    document.head.appendChild(script);
+  });
+}
 
-    doc.documentElement.style.background = '#0b111a';
-    doc.body.style.background = '#0b111a';
-    doc.body.style.margin = '0';
-    doc.body.style.overflow = 'hidden';
+function ensureAssignmentRuntimeAssets() {
+  if (!assignmentRuntimeState.tailwindPromise) {
+    assignmentRuntimeState.tailwindPromise = ensureScriptLoaded(ASSIGNMENT_RUNTIME_TAILWIND_SRC, 'mentalwellness-runtime-tailwind');
+  }
 
-    if (sidebar) {
-      sidebar.style.display = 'none';
+  if (!assignmentRuntimeState.runtimePromise) {
+    assignmentRuntimeState.runtimePromise = ensureScriptLoaded(ASSIGNMENT_RUNTIME_SCRIPT_SRC, 'mentalwellness-runtime-script');
+  }
+
+  return Promise.all([assignmentRuntimeState.tailwindPromise, assignmentRuntimeState.runtimePromise]);
+}
+
+async function getAssignmentRuntimeDocument() {
+  if (!assignmentRuntimeState.htmlPromise) {
+    assignmentRuntimeState.htmlPromise = fetch(ASSIGNMENT_RUNTIME_HTML_SRC)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Failed to load ${ASSIGNMENT_RUNTIME_HTML_SRC}`);
+        }
+        return response.text();
+      })
+      .then((html) => new DOMParser().parseFromString(html, 'text/html'));
+  }
+
+  return assignmentRuntimeState.htmlPromise;
+}
+
+async function getAssignmentRuntimeMarkup(view) {
+  if (assignmentRuntimeState.viewMarkup.has(view)) {
+    return assignmentRuntimeState.viewMarkup.get(view);
+  }
+
+  const doc = await getAssignmentRuntimeDocument();
+  const section = doc.getElementById(`view-${view}`);
+  if (!section) {
+    throw new Error(`Missing runtime view: ${view}`);
+  }
+
+  const clone = section.cloneNode(true);
+  clone.classList.remove('hidden');
+  const markup = clone.outerHTML;
+  assignmentRuntimeState.viewMarkup.set(view, markup);
+  return markup;
+}
+
+async function mountAssignmentRuntime(active) {
+  const mount = document.getElementById('assignment-runtime-mount');
+  if (!mount) {
+    return;
+  }
+
+  const view = ASSIGNMENT_RUNTIME_VIEW[active.id];
+  if (!view) {
+    mount.innerHTML = '<div class="assignment-runtime-error">Assignment view is not mapped.</div>';
+    return;
+  }
+
+  const requestToken = ++assignmentRuntimeState.requestToken;
+  mount.innerHTML = '<div class="assignment-runtime-loading">Loading full assignment system...</div>';
+
+  try {
+    const markup = await getAssignmentRuntimeMarkup(view);
+    if (assignmentRuntimeState.requestToken !== requestToken || state.section !== 'assignment' || state.activeId !== active.id) {
+      return;
     }
 
-    if (floatingProgress) {
-      floatingProgress.style.display = 'none';
+    mount.style.visibility = 'hidden';
+    mount.innerHTML = markup;
+    mount.firstElementChild?.classList.remove('hidden');
+    mount.firstElementChild?.classList.add('assignment-runtime-view');
+
+    await ensureAssignmentRuntimeAssets();
+    if (assignmentRuntimeState.requestToken !== requestToken || state.section !== 'assignment' || state.activeId !== active.id) {
+      return;
     }
 
-    if (root) {
-      root.style.display = 'block';
-      root.style.minHeight = '100vh';
+    const runtime = window.MentalWellnessRuntime;
+    if (!runtime || typeof runtime.mountAssignmentView !== 'function') {
+      throw new Error('Assignment runtime did not initialize.');
     }
 
-    if (main) {
-      main.style.width = '100%';
-      main.style.maxWidth = '100%';
-      main.style.height = '100vh';
-      main.style.background = '#0b111a';
+    runtime.mountAssignmentView(view);
+    mount.style.visibility = '';
+  } catch (error) {
+    if (assignmentRuntimeState.requestToken !== requestToken) {
+      return;
     }
 
-    const navButton = doc.getElementById(navId);
-    if (navButton && typeof navButton.click === 'function') {
-      navButton.click();
-    }
-  };
-
-  frame.addEventListener('load', bootRuntime, { once: true });
-  frame.src = ASSIGNMENT_RUNTIME_SRC;
+    mount.style.visibility = '';
+    mount.innerHTML = `<div class="assignment-runtime-error">${error instanceof Error ? error.message : 'Failed to load assignment runtime.'}</div>`;
+  }
 }
 
 function renderAssignmentDetail() {
@@ -728,19 +802,14 @@ function renderAssignmentDetail() {
       </article>
 
       <article class="assignment-runtime-shell" style="--assignment-accent:${active.accent}">
-        <iframe
-          id="assignment-runtime-frame"
-          class="assignment-runtime-frame"
-          title="${active.code}: ${active.title}"
-        ></iframe>
+        <div id="assignment-runtime-mount" class="assignment-runtime-frame assignment-runtime-mount">
+          <div class="assignment-runtime-loading">Loading full assignment system...</div>
+        </div>
       </article>
     </section>
   `;
   document.getElementById('assignment-back')?.addEventListener('click', () => setTab('assignments'));
-  const frame = document.getElementById('assignment-runtime-frame');
-  if (frame) {
-    mountAssignmentRuntime(frame, ASSIGNMENT_RUNTIME_NAV[active.id]);
-  }
+  mountAssignmentRuntime(active);
 }
 
 function renderIcons() {
@@ -808,3 +877,4 @@ render();
 window.addEventListener('resize', () => {
   applySidebarCollapse(localStorage.getItem(SIDEBAR_COLLAPSE_KEY) === '1');
 });
+

@@ -1,62 +1,57 @@
 # Handoff
 
 - Project: mentalwellness10-option2
-- Task: Restore full assignment runtimes inside the option 2 shell instead of reduced summary recreations
+- Task: Replace the broken iframe assignment embed with in-DOM mounting of the real Mental Wellness assignment runtime inside option 2.
 - Status: ready for validation
 
 ## Files changed
 - C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\main.js
 - C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\styles.css
-- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assignment-runtime.html
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assignment-runtime-main.js
 - C:\Users\dean.guedo\Documents\GitHub\canvas-helper\docs\ops\ACTIVE_HANDOFF.md
-- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\docs\ops\ARCHIVED_HANDOFFS.md
 
 ## What changed
-- Replaced the reduced option 2 assignment detail renderer with runtime-backed assignment views.
-- Added a runtime map so each option 2 assignment opens the matching working assignment from `mentalwellness10-option1`.
-- Mounted the real assignment runtimes inside an iframe so the original fields, rubrics, score logic, save/load, and print/export systems remain intact.
-- Copied the full working assignment runtime into `mentalwellness10-option2/workspace/assignment-runtime.html` so preview no longer depends on a sibling-project iframe path.
-- Hid the old embedded sidebar/progress shell inside the runtime frame so the assignment runs inside the option 2 shell.
-- Fixed the iframe boot order by attaching the mount hook before assigning the runtime `src`, so assignments no longer default to the course materials screen.
-- Added option 2 frame styling for the embedded runtime container.
+- Removed the option 2 iframe-based assignment mount path.
+- Added runtime asset loading in option 2 so assignment detail views fetch the real assignment DOM from `assignment-runtime.html` and inject the matching assignment view directly into the option 2 content area.
+- Refactored `assignment-runtime-main.js` into a namespaced mountable runtime that initializes only the requested assignment view instead of trying to boot a whole standalone page.
+- Exported the original assignment interaction functions so existing inline controls for steps, rubrics, save/load, and print/export still work after injection.
+- Added scoped runtime support styles in option 2 so the injected assignment markup renders correctly without bringing over the old sidebar shell.
 
 ## Why this changed
-- The earlier option 2 assignment conversion only recreated surface prompts and missed the actual scoring, rubric, and print systems.
-- The fastest correct recovery path was to reuse the existing working assignment runtime locally inside option 2 instead of continuing to summarize it into new markup.
+- The iframe recovery path was the wrong architecture for the user requirement because it embedded a second app instead of integrating the assignment code into option 2.
+- The earlier copied runtime also failed because it was loading the wrong JS entrypoint when copied into option 2.
 
 ## Source of truth
-- Option 2 wrapper logic: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\main.js
-- Option 2 wrapper styling: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\styles.css
-- Local embedded assignment runtime source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assignment-runtime.html
-- Upstream copied source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option1\workspace\index.html
+- Option 2 shell entry: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\index.html
+- Option 2 shell logic: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\main.js
+- Embedded assignment runtime logic: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assignment-runtime-main.js
+- Embedded assignment DOM source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assignment-runtime.html
 
 ## Fragile areas / watchouts
-- The iframe mount depends on the existing `nav-a1` through `nav-a4b` ids in `assignment-runtime.html`.
-- If the source assignment runtime changes structure or element ids, the option 2 embed selector logic may drift.
+- Assignment runtime styling still depends on Tailwind Play CDN loading in the option 2 page at runtime.
+- If assignment view ids change in `assignment-runtime.html`, the option 2 runtime view map will drift.
+- The copied assignment runtime is still a local fork; upstream option 1 changes will not sync automatically.
 
 ## Next prompt should assume
-- Option 2 assignments now use the original working runtime, not the reduced custom renderer.
-- The remaining likely work is deeper restyling of the embedded assignment runtime or doing the same kind of recovery for phases if needed.
-- No validation has been run yet in this task.
+- Option 2 assignments now mount real assignment DOM directly, not an iframe.
+- The remaining likely work is visual cleanup or any runtime-specific bug that shows up in preview validation.
+- No automated validation has been run in this task.
 
 ## What still needs validation
-- Open `mentalwellness10-option2` in preview.
-- Click each assignment card and confirm the correct runtime loads.
-- Confirm the embedded assignment step navigation, rubrics, score clicks, save/load, and print/export buttons still work.
-- Confirm the iframe path and same-origin DOM access are allowed in the current Studio preview environment.
+- Open option 2 preview and click all six assignments.
+- Confirm step navigation, rubric clicks, local save/load, and print/export buttons work for each assignment.
+- Confirm Tailwind utility styling is present after the runtime assets load.
 
 ## Known risks
-- If the copied runtime drifts from the upstream option1 source, future fixes may need to be copied over again.
-- The embedded runtime still carries the original internal assignment styling; only the outer shell is option 2.
-- The now-unused reduced assignment renderer helpers remain in `main.js` and can be removed later if the iframe approach is kept.
-- This fix is still unvalidated in preview, so there may be one more runtime-specific issue after the boot-order bug.
+- If the preview environment blocks the Tailwind CDN load, the injected assignment content will function but appear under-styled.
+- Because validation was not run, there may still be one runtime-specific bug in a specific assignment after first preview.
 
 ## Exact next command
-`npm run dev`
+`git status --short -- projects/mentalwellness10-option2/workspace/main.js projects/mentalwellness10-option2/workspace/styles.css projects/mentalwellness10-option2/workspace/assignment-runtime-main.js docs/ops/ACTIVE_HANDOFF.md`
 
 ## Exact next file to open
 `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\main.js`
 
 ## Do not do next / warnings
-- Do not re-summarize the assignments into placeholder forms again.
-- Do not edit `projects/mentalwellness10-option1/raw/**`; the upstream working runtime source is the option1 workspace file.
+- Do not reintroduce an iframe or second embedded shell for assignments.
+- Do not summarize the assignments into placeholder cards again; the assignment runtime itself is the source behavior now.
