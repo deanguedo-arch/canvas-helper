@@ -2,8 +2,9 @@
 /* inline script 1 */
 // --- NAVIGATION LOGIC ---
         const SIDEBAR_COLLAPSE_KEY = 'mentalwellness10.sidebarCollapsed';
-        const SIDEBAR_MOBILE_BREAKPOINT = 700;
+        const SIDEBAR_MOBILE_BREAKPOINT = 860;
         const ASSIGNMENT_PROGRESS_CONFIG = [
+            { storageKey: 'diag_data', metaId: 'meta-a0', barId: 'bar-a0' },
             { storageKey: 'elite_operator_v3_p1', metaId: 'meta-a1', barId: 'bar-a1' },
             { storageKey: 'vb_data', metaId: 'meta-a2a', barId: 'bar-a2a' },
             { storageKey: 'mb_data', metaId: 'meta-a2b', barId: 'bar-a2b' },
@@ -32,7 +33,6 @@
                 const isOpen = document.body.classList.contains('mobile-menu-open');
                 const nextCollapsed = isOpen;
                 applySidebarCollapse(nextCollapsed);
-                localStorage.setItem(SIDEBAR_COLLAPSE_KEY, nextCollapsed ? '1' : '0');
                 return;
             }
             const isCollapsed = document.body.classList.contains('sidebar-collapsed');
@@ -40,6 +40,17 @@
             applySidebarCollapse(next);
             localStorage.setItem(SIDEBAR_COLLAPSE_KEY, next ? '1' : '0');
         }
+
+        function condenseMobileMenu() {
+            if (!window.matchMedia(`(max-width: ${SIDEBAR_MOBILE_BREAKPOINT}px)`).matches) return;
+            applySidebarCollapse(true);
+        }
+
+        document.addEventListener('click', (event) => {
+            const trigger = event.target.closest('.nav-item, .module-link, .library-tab, .home-subnav button, .home-subnav a');
+            if (!trigger || trigger.closest('.menu-toggle')) return;
+            window.requestAnimationFrame(() => condenseMobileMenu());
+        });
 
         function parseStoredJson(storageKey) {
             const raw = localStorage.getItem(storageKey);
@@ -49,6 +60,20 @@
             } catch (_error) {
                 return null;
             }
+        }
+
+        function getFirstById(...ids) {
+            for (const id of ids) {
+                const element = document.getElementById(id);
+                if (element) return element;
+            }
+            return null;
+        }
+
+        function setTextById(ids, text) {
+            const element = Array.isArray(ids) ? getFirstById(...ids) : getFirstById(ids);
+            if (element) element.innerText = text;
+            return element;
         }
 
         function hasMeaningfulValue(value) {
@@ -235,24 +260,93 @@
 
         // --- DIAGNOSTIC MODULE (00) LOGIC ---
         let diag_scores = { q1: 0, q2: 0, q3: 0, q4: 0, q5: 0 }; 
-        function diag_setScore(q, val) {
+        function initDiagDom() {
+            const logEntry = document.getElementById('log_entry');
+            if (logEntry && !logEntry.dataset.bound) {
+                logEntry.addEventListener('input', diag_saveData);
+                logEntry.dataset.bound = '1';
+            }
+        }
+        function diag_getFormData() {
+            return {
+                q1: diag_scores.q1 || 0,
+                q2: diag_scores.q2 || 0,
+                q3: diag_scores.q3 || 0,
+                q4: diag_scores.q4 || 0,
+                q5: diag_scores.q5 || 0,
+                log: document.getElementById('log_entry')?.value || ''
+            };
+        }
+        function diag_updateStatus() {
+            const complete = !Object.values(diag_scores).includes(0);
+            const status = document.getElementById('system-status');
+            if (status) {
+                status.innerText = complete ? 'OPERATIONAL' : 'PENDING CHECK';
+                status.classList.toggle('text-rose-500', !complete);
+                status.classList.toggle('text-emerald-400', complete);
+            }
+            const btn = document.getElementById('print-btn');
+            if (btn) {
+                btn.disabled = !complete;
+                btn.classList.toggle('bg-slate-800', !complete);
+                btn.classList.toggle('cursor-not-allowed', !complete);
+                btn.classList.toggle('bg-emerald-600', complete);
+            }
+        }
+        function diag_saveData() {
+            localStorage.setItem('diag_data', JSON.stringify(diag_getFormData()));
+            const indicator = document.getElementById('save-indicator');
+            if (indicator) {
+                indicator.classList.remove('bg-slate-600');
+                indicator.classList.add('bg-emerald-400');
+            }
+            setTextById(['save-text'], 'Saved');
+            refreshProgressUI();
+            setTimeout(() => {
+                if (indicator) {
+                    indicator.classList.add('bg-slate-600');
+                    indicator.classList.remove('bg-emerald-400');
+                }
+                setTextById(['save-text'], 'System Ready');
+            }, 1000);
+        }
+        function diag_setScore(q, val, persist = true) {
             diag_scores[q] = val;
-            const buttons = document.getElementById(q).getElementsByTagName('button');
+            const group = document.getElementById(q);
+            if (!group) return;
+            const buttons = group.getElementsByTagName('button');
             for(let btn of buttons) { btn.classList.remove('active'); }
             buttons[val-1].classList.add('active');
+            diag_updateStatus();
+            if (persist) diag_saveData();
+        }
+        function diag_populate(data) {
+            const restoredScores = data?.scores && typeof data.scores === 'object'
+                ? data.scores
+                : {
+                    q1: data?.q1 || 0,
+                    q2: data?.q2 || 0,
+                    q3: data?.q3 || 0,
+                    q4: data?.q4 || 0,
+                    q5: data?.q5 || 0
+                };
+            diag_scores = { q1: 0, q2: 0, q3: 0, q4: 0, q5: 0, ...restoredScores };
+            const logEntry = document.getElementById('log_entry');
+            if (logEntry) {
+                logEntry.value = data?.log || '';
+            }
+            Object.keys(diag_scores).forEach((key) => {
+                if (diag_scores[key] > 0) diag_setScore(key, diag_scores[key], false);
+            });
+            diag_updateStatus();
         }
         function diag_calculateStatus() {
             if(Object.values(diag_scores).includes(0)) { alert("Please complete all items."); return; }
-            document.getElementById('system-status').innerText = "OPERATIONAL";
-            document.getElementById('system-status').classList.remove('text-rose-500');
-            document.getElementById('system-status').classList.add('text-emerald-400');
-            const btn = document.getElementById('print-btn');
-            btn.disabled = false;
-            btn.classList.remove('bg-slate-800','cursor-not-allowed');
-            btn.classList.add('bg-emerald-600');
+            diag_updateStatus();
+            diag_saveData();
         }
         function diag_downloadBackup() {
-             const data = { scores: diag_scores, log: document.getElementById('log_entry').value };
+             const data = diag_getFormData();
              const blob = new Blob([JSON.stringify(data)], { type: "application/json" });
              const url = URL.createObjectURL(blob);
              const a = document.createElement('a'); a.href = url; a.download = "diag-backup.json"; a.click();
@@ -262,11 +356,8 @@
             const reader = new FileReader();
             reader.onload = (e) => {
                 const data = JSON.parse(e.target.result);
-                diag_scores = data.scores;
-                document.getElementById('log_entry').value = data.log || "";
-                Object.keys(diag_scores).forEach(key => {
-                    if(diag_scores[key] > 0) diag_setScore(key, diag_scores[key]);
-                });
+                diag_populate(data);
+                diag_saveData();
                 alert("Loaded");
             };
             reader.readAsText(file);
@@ -300,7 +391,7 @@
         function p1_getFormData() {
              return { b_scenario: document.getElementById('p1_breath_scenario').value, b_detail: document.getElementById('p1_breath_detail').value, relax: document.getElementById('p1_relax_plan').value, active: document.getElementById('p1_active_plan').value, inst: document.getElementById('p1_cue_inst').value, mot: document.getElementById('p1_cue_mot').value, jam: document.getElementById('p1_jam_scenario').value, proc: document.getElementById('p1_goal_proc').value, perf: document.getElementById('p1_goal_perf').value, out: document.getElementById('p1_goal_out').value, smart_final: document.getElementById('p1_smart_final').value, narr: document.getElementById('p1_final_narrative').value, scores: p1_scores };
         }
-        function p1_saveData() { localStorage.setItem('elite_operator_v3_p1', JSON.stringify(p1_getFormData())); document.getElementById('p1-save-text').innerText = "Saved"; refreshProgressUI(); setTimeout(() => document.getElementById('p1-save-text').innerText = "System Ready", 1000); }
+        function p1_saveData() { localStorage.setItem('elite_operator_v3_p1', JSON.stringify(p1_getFormData())); setTextById(['p1-save-text'], "Saved"); refreshProgressUI(); setTimeout(() => setTextById(['p1-save-text'], "System Ready"), 1000); }
         function p1_populate(data) { if(!data) return; if(data.b_scenario) document.getElementById('p1_breath_scenario').value = data.b_scenario; if(data.b_detail) document.getElementById('p1_breath_detail').value = data.b_detail; if(data.relax) document.getElementById('p1_relax_plan').value = data.relax; if(data.active) document.getElementById('p1_active_plan').value = data.active; if(data.inst) document.getElementById('p1_cue_inst').value = data.inst; if(data.mot) document.getElementById('p1_cue_mot').value = data.mot; if(data.jam) document.getElementById('p1_jam_scenario').value = data.jam; if(data.proc) document.getElementById('p1_goal_proc').value = data.proc; if(data.perf) document.getElementById('p1_goal_perf').value = data.perf; if(data.out) document.getElementById('p1_goal_out').value = data.out; if(data.smart_final) document.getElementById('p1_smart_final').value = data.smart_final; if(data.narr) document.getElementById('p1_final_narrative').value = data.narr; if(data.scores) { p1_scores = data.scores; Object.keys(p1_scores).forEach(c => { if(p1_scores[c]>0) p1_setScore(c, p1_scores[c]); }); } }
         function p1_downloadBackup() { const data = p1_getFormData(); const blob = new Blob([JSON.stringify(data)], { type: "application/json" }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = "phase1-backup.json"; a.click(); }
         function p1_loadBackup(input) { const file = input.files[0]; if(!file) return; const reader = new FileReader(); reader.onload = (e) => { p1_populate(JSON.parse(e.target.result)); alert("Phase 1 Data Loaded"); }; reader.readAsText(file); }
@@ -321,7 +412,15 @@
         function vb_showStep(n) { document.querySelectorAll('#view-values .step-content').forEach(s => s.classList.remove('active')); document.getElementById('vb-step' + n).classList.add('active'); document.querySelectorAll('#view-values .mod-nav-btn').forEach((b, i) => b.classList.toggle('active', i === n)); }
         function vb_setScore(cat, val) { vb_scores[cat] = val; document.getElementById(`vb-group-${cat}`).querySelectorAll('button').forEach((b, i) => b.classList.toggle('active', (i+1) === val)); const total = Object.values(vb_scores).reduce((a, b) => a + b, 0); document.getElementById('vb-total-score').innerText = total.toString().padStart(2, '0'); vb_saveData(); }
         function vb_getFormData() { return { value1: document.getElementById('vb_value1').value, value2: document.getElementById('vb_value2').value, v1_align: document.getElementById('vb_v1_align').value, v1_out: document.getElementById('vb_v1_out').value, v1_example: document.getElementById('vb_v1_example').value, v2_align: document.getElementById('vb_v2_align').value, v2_out: document.getElementById('vb_v2_out').value, v2_example: document.getElementById('vb_v2_example').value, feeling: document.getElementById('vb_feeling').value, warning: document.getElementById('vb_warning').value, support_person: document.getElementById('vb_support_person').value, self_compassion: document.getElementById('vb_self_compassion').value, narrative: document.getElementById('vb_narrative').value, scores: vb_scores }; }
-        function vb_saveData() { localStorage.setItem('vb_data', JSON.stringify(vb_getFormData())); document.getElementById('vb-save-text').innerText = "Saved"; refreshProgressUI(); setTimeout(() => document.getElementById('vb-save-text').innerText = "System Ready", 1000); }
+        function updateVBSummary(data) {
+            const preview = document.getElementById('vb-summary-preview');
+            if (!preview) return;
+            const valueOne = data.value1 || '...';
+            const valueTwo = data.value2 || '...';
+            const signal = data.warning || data.feeling || 'your early warning signs';
+            preview.innerHTML = `I protect <span class="text-sky-400 font-bold underline underline-offset-2">${valueOne}</span> and <span class="text-emerald-400 font-bold underline underline-offset-2">${valueTwo}</span> by noticing <span class="text-sky-400 font-bold underline underline-offset-2">${signal}</span> before I drift.`;
+        }
+        function vb_saveData() { const data = vb_getFormData(); localStorage.setItem('vb_data', JSON.stringify(data)); setTextById(['vb-save-text'], "Saved"); updateVBSummary(data); refreshProgressUI(); setTimeout(() => setTextById(['vb-save-text'], "System Ready"), 1000); }
         function vb_populate(data) { if(!data) return; if (data.value1) document.getElementById('vb_value1').value = data.value1; if (data.value2) document.getElementById('vb_value2').value = data.value2; if (data.v1_align) document.getElementById('vb_v1_align').value = data.v1_align; if (data.v1_out) document.getElementById('vb_v1_out').value = data.v1_out; if (data.v1_example) document.getElementById('vb_v1_example').value = data.v1_example; if (data.v2_align) document.getElementById('vb_v2_align').value = data.v2_align; if (data.v2_out) document.getElementById('vb_v2_out').value = data.v2_out; if (data.v2_example) document.getElementById('vb_v2_example').value = data.v2_example; if (data.feeling) document.getElementById('vb_feeling').value = data.feeling; if (data.warning) document.getElementById('vb_warning').value = data.warning; if (data.support_person) document.getElementById('vb_support_person').value = data.support_person; if (data.self_compassion) document.getElementById('vb_self_compassion').value = data.self_compassion; if (data.narrative) document.getElementById('vb_narrative').value = data.narrative; if (data.scores) { vb_scores = data.scores; Object.keys(vb_scores).forEach(c => { if(vb_scores[c]>0) vb_setScore(c, vb_scores[c]); }); } vb_saveData(); }
         function vb_downloadBackup() { const data = localStorage.getItem('vb_data'); const blob = new Blob([data], { type: "application/json" }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = "values-backup.json"; a.click(); }
         function vb_loadBackup(input) { const file = input.files[0]; if(!file) return; const reader = new FileReader(); reader.onload = (e) => { vb_populate(JSON.parse(e.target.result)); alert("Values Data Loaded"); }; reader.readAsText(file); }
@@ -340,8 +439,8 @@
         function mb_showStep(n) { document.querySelectorAll('#view-master .step-content').forEach(s => s.classList.remove('active')); document.getElementById('mb-step' + n).classList.add('active'); document.querySelectorAll('#view-master .mod-nav-btn').forEach((b, i) => b.classList.toggle('active', i === n)); }
         function mb_setScore(cat, val) { mb_scores[cat] = val; document.getElementById(`mb-group-${cat}`).querySelectorAll('button').forEach((b, i) => b.classList.toggle('active', (i+1) === val)); const total = Object.values(mb_scores).reduce((a, b) => a + b, 0); document.getElementById('mb-total-score').innerText = total.toString().padStart(2, '0'); mb_saveData(); }
         function mb_getFormData() { return { anchor: document.getElementById('mb_anchor').value, value: document.getElementById('mb_value').value, task: document.getElementById('mb_task').value, flinch: document.getElementById('mb_flinch').value, hammer: document.getElementById('mb_hammer').value, recovery: document.getElementById('mb_recovery').value, pride: document.getElementById('mb_pride').value, narrative: document.getElementById('mb_narrative').value, scores: mb_scores }; }
-        function mb_saveData() { const data = mb_getFormData(); localStorage.setItem('mb_data', JSON.stringify(data)); document.getElementById('mb-save-text').innerText = "Saved"; updateMBSummary(data); refreshProgressUI(); setTimeout(() => document.getElementById('mb-save-text').innerText = "System Ready", 1000); }
-        function updateMBSummary(data) { const preview = document.getElementById('mb-summary-preview'); preview.innerHTML = `"I am <span class="text-sky-400 font-bold underline underline-offset-2">${data.anchor || '...'}</span>. I choose <span class="text-sky-400 font-bold underline underline-offset-2">${data.value || '...'}</span>. 7/10: <span class="text-sky-400 font-bold underline underline-offset-2">${data.task || '...'}</span>."`; }
+        function mb_saveData() { const data = mb_getFormData(); localStorage.setItem('mb_data', JSON.stringify(data)); setTextById(['mb-save-text'], "Saved"); updateMBSummary(data); refreshProgressUI(); setTimeout(() => setTextById(['mb-save-text'], "System Ready"), 1000); }
+        function updateMBSummary(data) { const preview = document.getElementById('mb-summary-preview'); if (!preview) return; preview.innerHTML = `"I am <span class="text-sky-400 font-bold underline underline-offset-2">${data.anchor || '...'}</span>. I choose <span class="text-sky-400 font-bold underline underline-offset-2">${data.value || '...'}</span>. 7/10: <span class="text-sky-400 font-bold underline underline-offset-2">${data.task || '...'}</span>."`; }
         function mb_populate(data) { if(!data) return; if(data.anchor) document.getElementById('mb_anchor').value = data.anchor; if(data.value) document.getElementById('mb_value').value = data.value; if(data.task) document.getElementById('mb_task').value = data.task; if(data.flinch) document.getElementById('mb_flinch').value = data.flinch; if(data.hammer) document.getElementById('mb_hammer').value = data.hammer; if(data.recovery) document.getElementById('mb_recovery').value = data.recovery; if(data.pride) document.getElementById('mb_pride').value = data.pride; if(data.narrative) document.getElementById('mb_narrative').value = data.narrative; if(data.scores) { mb_scores = data.scores; Object.keys(mb_scores).forEach(c => { if(mb_scores[c]>0) mb_setScore(c, mb_scores[c]); }); } mb_saveData(); }
         function mb_downloadBackup() { const data = localStorage.getItem('mb_data'); const blob = new Blob([data], { type: "application/json" }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = "master-backup.json"; a.click(); }
         function mb_loadBackup(input) { const file = input.files[0]; if(!file) return; const reader = new FileReader(); reader.onload = (e) => { mb_populate(JSON.parse(e.target.result)); alert("Master Data Loaded"); }; reader.readAsText(file); }
@@ -359,8 +458,8 @@
         function p3_showStep(n) { document.querySelectorAll('#view-phase3 .step-content').forEach(s => s.classList.remove('active')); document.getElementById('p3-step' + n).classList.add('active'); document.querySelectorAll('#view-phase3 .mod-nav-btn').forEach((b, i) => b.classList.toggle('active', i === n)); }
         function p3_setScore(cat, val) { p3_scores[cat] = val; document.getElementById(`p3-group-${cat}`).querySelectorAll('button').forEach((b, i) => b.classList.toggle('active', (i+1) === val)); const total = Object.values(p3_scores).reduce((a, b) => a + b, 0); document.getElementById('p3-total-score').innerText = total.toString().padStart(2, '0'); p3_saveData(); }
         function p3_getFormData() { return { internal_dist: document.getElementById('p3_internal_dist').value, time_trap: document.getElementById('p3_time_trap').value, external_dist: document.getElementById('p3_external_dist').value, spotlight: document.getElementById('p3_spotlight').value, instructional_cue: document.getElementById('p3_instructional_cue').value, motivational_cue: document.getElementById('p3_motivational_cue').value, anchor_type: document.getElementById('p3_anchor_type').value, anchor_usage: document.getElementById('p3_anchor_usage').value, routine_1: document.getElementById('p3_routine_1').value, routine_2: document.getElementById('p3_routine_2').value, routine_3: document.getElementById('p3_routine_3').value, what_if: document.getElementById('p3_what_if').value, response: document.getElementById('p3_response').value, narrative: document.getElementById('p3_narrative').value, scores: p3_scores }; }
-        function p3_saveData() { const data = p3_getFormData(); localStorage.setItem('p3_data', JSON.stringify(data)); document.getElementById('p3-save-text').innerText = "Saved"; updateP3Summary(data); refreshProgressUI(); setTimeout(() => document.getElementById('p3-save-text').innerText = "System Ready", 1000); }
-        function updateP3Summary(data) { const preview = document.getElementById('p3-summary-preview'); const target = data.spotlight || '...'; const cues = (data.instructional_cue || '...') + ' & ' + (data.motivational_cue || '...'); preview.innerHTML = `"I focus on <span class="text-sky-400 font-bold underline underline-offset-2">${target}</span> by using <span class="text-emerald-400 font-bold underline underline-offset-2">${cues}</span>."`; }
+        function p3_saveData() { const data = p3_getFormData(); localStorage.setItem('p3_data', JSON.stringify(data)); setTextById(['p3-save-text'], "Saved"); updateP3Summary(data); refreshProgressUI(); setTimeout(() => setTextById(['p3-save-text'], "System Ready"), 1000); }
+        function updateP3Summary(data) { const preview = document.getElementById('p3-summary-preview'); if (!preview) return; const target = data.spotlight || '...'; const cues = (data.instructional_cue || '...') + ' & ' + (data.motivational_cue || '...'); preview.innerHTML = `"I focus on <span class="text-sky-400 font-bold underline underline-offset-2">${target}</span> by using <span class="text-emerald-400 font-bold underline underline-offset-2">${cues}</span>."`; }
         function p3_populate(data) { if(!data) return; if(data.internal_dist) document.getElementById('p3_internal_dist').value = data.internal_dist; if(data.time_trap) document.getElementById('p3_time_trap').value = data.time_trap; if(data.external_dist) document.getElementById('p3_external_dist').value = data.external_dist; if(data.spotlight) document.getElementById('p3_spotlight').value = data.spotlight; if(data.instructional_cue) document.getElementById('p3_instructional_cue').value = data.instructional_cue; if(data.motivational_cue) document.getElementById('p3_motivational_cue').value = data.motivational_cue; if(data.anchor_type) document.getElementById('p3_anchor_type').value = data.anchor_type; if(data.anchor_usage) document.getElementById('p3_anchor_usage').value = data.anchor_usage; if(data.routine_1) document.getElementById('p3_routine_1').value = data.routine_1; if(data.routine_2) document.getElementById('p3_routine_2').value = data.routine_2; if(data.routine_3) document.getElementById('p3_routine_3').value = data.routine_3; if(data.what_if) document.getElementById('p3_what_if').value = data.what_if; if(data.response) document.getElementById('p3_response').value = data.response; if(data.narrative) document.getElementById('p3_narrative').value = data.narrative; if(data.scores) { p3_scores = data.scores; Object.keys(p3_scores).forEach(c => { if(p3_scores[c]>0) p3_setScore(c, p3_scores[c]); }); } p3_saveData(); }
         function p3_downloadBackup() { const data = localStorage.getItem('p3_data'); const blob = new Blob([data], { type: "application/json" }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = "focus-backup.json"; a.click(); }
         function p3_loadBackup(input) { const file = input.files[0]; if(!file) return; const reader = new FileReader(); reader.onload = (e) => { p3_populate(JSON.parse(e.target.result)); alert("Focus Data Loaded"); }; reader.readAsText(file); }
@@ -375,13 +474,29 @@
         // --- PHASE 4A (CONFIDENCE - NEW) LOGIC ---
         const p4a_cats = [ { id: 'bank', label: 'Bank Account' }, { id: 'dmg', label: 'Damage Control' }, { id: 'action', label: 'C-B-A Routine' }, { id: 'un', label: 'Understanding' }, { id: 'audit', label: 'Integrity' } ];
         let p4a_scores = { bank: 0, dmg: 0, action: 0, un: 0, audit: 0 };
+        let p4a_saveTimeout;
         function p4a_showStep(n) { document.querySelectorAll('#view-phase4a .step-content').forEach(s => s.classList.remove('active')); document.getElementById('p4a_step' + n).classList.add('active'); document.querySelectorAll('#view-phase4a .mod-nav-btn').forEach((b, i) => b.classList.toggle('active', i === n)); }
         function p4a_setScore(cat, val) { p4a_scores[cat] = val; document.getElementById(`p4a_group-${cat}`).querySelectorAll('button').forEach((b, i) => b.classList.toggle('active', (i+1) === val)); const total = Object.values(p4a_scores).reduce((a, b) => a + b, 0); document.getElementById('p4a_total-score').innerText = total.toString().padStart(2, '0'); p4a_saveData(); }
         function p4a_getFormData() {
              const tt = []; for(let i=1; i<=10; i++) { const el = document.getElementById(`p4a_tt-${i}`); if(el) tt.push(el.value); }
              return { tt, esp1: document.getElementById('p4a_esp_effort').value, esp2: document.getElementById('p4a_esp_success').value, esp3: document.getElementById('p4a_esp_progress').value, setback: document.getElementById('p4a_setback').value, cue: document.getElementById('p4a_cue').value, attach: document.getElementById('p4a_attach').value, narr: document.getElementById('p4a_narr').value, scores: p4a_scores };
         }
-        function p4a_saveData() { localStorage.setItem('p4a_data', JSON.stringify(p4a_getFormData())); document.getElementById('p4a-save-text').innerText = "Saved"; refreshProgressUI(); setTimeout(() => document.getElementById('p4a-save-text').innerText = "System Ready", 1000); }
+        function p4a_saveData() {
+            localStorage.setItem('p4a_data', JSON.stringify(p4a_getFormData()));
+            refreshProgressUI();
+            const indicator = getFirstById('p4a_save-indicator', 'p4a-save-indicator');
+            const text = getFirstById('p4a_save-text', 'p4a-save-text');
+            if (indicator) {
+                indicator.classList.remove('bg-slate-600');
+                indicator.classList.add('bg-emerald-500', 'status-saved');
+            }
+            if (text) text.innerText = "Saving...";
+            clearTimeout(p4a_saveTimeout);
+            p4a_saveTimeout = setTimeout(() => {
+                if (indicator) indicator.classList.remove('status-saved');
+                if (text && text.isConnected) text.innerText = "Saved Locally";
+            }, 1000);
+        }
         function p4a_populate(data) { if(!data) return; if(data.tt) data.tt.forEach((v,i) => { if(document.getElementById(`p4a_tt-${i+1}`)) document.getElementById(`p4a_tt-${i+1}`).value = v; }); if(data.esp1) document.getElementById('p4a_esp_effort').value = data.esp1; if(data.esp2) document.getElementById('p4a_esp_success').value = data.esp2; if(data.esp3) document.getElementById('p4a_esp_progress').value = data.esp3; if(data.setback) document.getElementById('p4a_setback').value = data.setback; if(data.cue) document.getElementById('p4a_cue').value = data.cue; if(data.attach) document.getElementById('p4a_attach').value = data.attach; if(data.narr) document.getElementById('p4a_narr').value = data.narr; if(data.scores) { p4a_scores = data.scores; Object.keys(p4a_scores).forEach(c => { if(p4a_scores[c]>0) p4a_setScore(c, p4a_scores[c]); }); } p4a_saveData(); }
         function p4a_downloadBackup() { const data = localStorage.getItem('p4a_data'); const blob = new Blob([data], { type: "application/json" }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = "confidence-backup.json"; a.click(); }
         function p4a_loadBackup(input) { const file = input.files[0]; if(!file) return; const reader = new FileReader(); reader.onload = (e) => { p4a_populate(JSON.parse(e.target.result)); alert("Confidence Data Loaded"); }; reader.readAsText(file); }
@@ -420,15 +535,17 @@
             const data = p4b_getFormData();
             localStorage.setItem('athlete_visualization_master_v1', JSON.stringify(data));
             refreshProgressUI();
-            const ind = document.getElementById('p4b_save-indicator');
-            const txt = document.getElementById('p4b_save-text');
-            ind.classList.remove('bg-slate-600');
-            ind.classList.add('bg-emerald-500', 'status-saved');
-            txt.innerText = "Saving...";
+            const ind = getFirstById('p4b_save-indicator', 'p4b-save-indicator');
+            const txt = getFirstById('p4b_save-text', 'p4b-save-text');
+            if (ind) {
+                ind.classList.remove('bg-slate-600');
+                ind.classList.add('bg-emerald-500', 'status-saved');
+            }
+            if (txt) txt.innerText = "Saving...";
             clearTimeout(p4b_saveTimeout);
             p4b_saveTimeout = setTimeout(() => {
-                ind.classList.remove('status-saved');
-                txt.innerText = "Saved Locally";
+                if (ind) ind.classList.remove('status-saved');
+                if (txt && txt.isConnected) txt.innerText = "Saved Locally";
             }, 1000);
         }
         function p4b_populate(data) {
@@ -565,7 +682,10 @@
         function mountAssignmentView(view) {
             normalizeAssignmentNavBars();
 
-            if (view === 'phase1') {
+            if (view === 'intro') {
+                initDiagDom();
+                diag_populate(parseStoredJson('diag_data') || {});
+            } else if (view === 'phase1') {
                 initP1Dom();
                 p1_populate(parseStoredJson('elite_operator_v3_p1') || {});
                 p1_showStep(0);
@@ -599,16 +719,21 @@
             if (runtimeResizeBound) return;
             runtimeResizeBound = true;
             window.addEventListener('resize', () => {
+                if (window.matchMedia(`(max-width: ${SIDEBAR_MOBILE_BREAKPOINT}px)`).matches) {
+                    applySidebarCollapse(true);
+                    return;
+                }
                 const stored = localStorage.getItem(SIDEBAR_COLLAPSE_KEY);
                 if (stored === '0' || stored === '1') {
                     applySidebarCollapse(stored === '1');
                     return;
                 }
-                applySidebarCollapse(window.matchMedia(`(max-width: ${SIDEBAR_MOBILE_BREAKPOINT}px)`).matches);
+                applySidebarCollapse(false);
             });
         }
 
         function bootStandaloneRuntime() {
+            initDiagDom();
             initP1Dom();
             initValuesDom();
             initMasterDom();
@@ -623,13 +748,13 @@
 
             if (document.getElementById('app-sidebar')) {
                 const savedSidebarState = localStorage.getItem(SIDEBAR_COLLAPSE_KEY);
-                const defaultCollapsed = savedSidebarState === null
-                    ? window.matchMedia(`(max-width: ${SIDEBAR_MOBILE_BREAKPOINT}px)`).matches
-                    : savedSidebarState === '1';
+                const isMobile = window.matchMedia(`(max-width: ${SIDEBAR_MOBILE_BREAKPOINT}px)`).matches;
+                const defaultCollapsed = isMobile ? true : savedSidebarState === '1';
                 applySidebarCollapse(defaultCollapsed);
                 bindStandaloneResizeHandler();
             }
 
+            if (document.getElementById('view-intro')) diag_populate(parseStoredJson('diag_data') || {});
             if (document.getElementById('view-phase1')) p1_populate(parseStoredJson('elite_operator_v3_p1') || {});
             if (document.getElementById('view-values')) vb_populate(parseStoredJson('vb_data') || {});
             if (document.getElementById('view-master')) mb_populate(parseStoredJson('mb_data') || {});
@@ -640,6 +765,7 @@
         }
 
         const runtimeGlobals = {
+            diag_setScore, diag_calculateStatus, diag_downloadBackup, diag_loadBackup, diag_generatePrint,
             p1_showStep, p1_setScore, p1_saveData, p1_downloadBackup, p1_loadBackup, p1_generatePDF,
             vb_showStep, vb_setScore, vb_saveData, vb_downloadBackup, vb_loadBackup, vb_generateFullPrint,
             mb_showStep, mb_setScore, mb_saveData, mb_downloadBackup, mb_loadBackup, mb_generateFullPrint,

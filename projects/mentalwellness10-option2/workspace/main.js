@@ -3,13 +3,20 @@ const SIDEBAR_BREAKPOINT = 860;
 
 const MATERIALS = [
   {
+    id: 'm0',
+    code: '00',
+    title: 'What is Sports Psychology?',
+    desc: 'The Diagnostic & Baseline Protocol.',
+    color: '#94a3b8',
+    file: './assets/slides/00-diagnostic.pdf'
+  },
+  {
     id: 'm1',
     code: '01',
     title: 'The Engine',
     desc: 'Values, identity, and foundation.',
     color: '#f43f5e',
-    preview: 'https://drive.google.com/file/d/1DQvItijEudKroqUieRBKaJAqJJnzEa2x/preview',
-    download: 'https://drive.google.com/file/d/1DQvItijEudKroqUieRBKaJAqJJnzEa2x/view?usp=sharing'
+    file: './assets/slides/01-engine.pdf'
   },
   {
     id: 'm2',
@@ -17,8 +24,7 @@ const MATERIALS = [
     title: 'The Drive',
     desc: 'Motivation, 7/10 task, and maintenance.',
     color: '#f59e0b',
-    preview: 'https://drive.google.com/file/d/1XWwy8F27_0jupo8xdXO3oi2E4l9R4Rot/preview',
-    download: 'https://drive.google.com/file/d/1XWwy8F27_0jupo8xdXO3oi2E4l9R4Rot/view?usp=sharing'
+    file: './assets/slides/02-drive.pdf'
   },
   {
     id: 'm3',
@@ -26,8 +32,7 @@ const MATERIALS = [
     title: 'The Focus',
     desc: 'Spotlight, cues, and the fortress.',
     color: '#10b981',
-    preview: 'https://drive.google.com/file/d/1kUq790zE4VP73THdysuNKVR3cE6EG3X2/preview',
-    download: 'https://drive.google.com/file/d/1kUq790zE4VP73THdysuNKVR3cE6EG3X2/view?usp=sharing'
+    file: './assets/slides/03-focus.pdf'
   },
   {
     id: 'm4',
@@ -35,12 +40,12 @@ const MATERIALS = [
     title: 'The Toolkit',
     desc: 'Confidence and visualization protocols.',
     color: '#0ea5e9',
-    preview: 'https://drive.google.com/file/d/1GueN1ikd982jYVZVf7GkEDG18NHQ9YpW/preview',
-    download: 'https://drive.google.com/file/d/1GueN1ikd982jYVZVf7GkEDG18NHQ9YpW/view?usp=sharing'
+    file: './assets/slides/04-toolkit.pdf'
   }
 ];
 
 const PHASES = [
+  { id: 'phase-0', code: 'Diagnostic', title: 'What is Sports Psychology?', body: 'Baseline phase shell ready. Add orientation content and readiness checkpoints here.', accent: '#94a3b8', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBlq-6-CPseoFR8UqMT0X2FMeB--00jNw4cSJD49Y9ssTGx5fMBeIyYo3_koXT1u-GNGQo-qWY-SfF98bfBdfLBiecnb4bjKkQazfV2ViRxowEf8pS-zzrSJD7u-8TpTzj4SnuNvIQawrpjFo55wREt8B2GL1Hx7_3cQaSTH1wPEidAjvo6Df0RtY_0TcWEPu6N7IfSYAMsvmwUTBnlteQD6ko6A2H_wpcJbaB6z8u-Jl80VDQ3jC54lhSjlVFiExFX0vnCLkm0Sg' },
   { id: 'phase-1', code: 'Phase 1', title: 'The Engine', body: 'Phase shell ready. Add learning content and checkpoints here.', accent: '#00ff7f', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBlq-6-CPseoFR8UqMT0X2FMeB--00jNw4cSJD49Y9ssTGx5fMBeIyYo3_koXT1u-GNGQo-qWY-SfF98bfBdfLBiecnb4bjKkQazfV2ViRxowEf8pS-zzrSJD7u-8TpTzj4SnuNvIQawrpjFo55wREt8B2GL1Hx7_3cQaSTH1wPEidAjvo6Df0RtY_0TcWEPu6N7IfSYAMsvmwUTBnlteQD6ko6A2H_wpcJbaB6z8u-Jl80VDQ3jC54lhSjlVFiExFX0vnCLkm0Sg' },
   { id: 'phase-2', code: 'Phase 2', title: 'The Drive', body: 'Phase shell ready. Add learning content and checkpoints here.', accent: '#8a2be2', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDvDf2Loe_K9P9rPvsVnKxak1lzcUPafuTXXcuWbvJlqfavtKwooYLAzn-8dLG0JTgPXYaD1fCNRnJ_BBztqMgkJuNraarq9K40uDncUo3VuHPUlE_74VhLYp6-ce_a0WXvi1IoKSHDBFjh3_XozgrVDifob2lwFGoiETAWWAkMWrId7aLagJPSIZXc0ihBAqy5xNPjqHpWQ3cQTjy5FWZGfRs9CDWmf4dcyLA7wv4J3O5tRrNNdxauFmMGjwvlXadZ4zYqzpyCQg' },
   { id: 'phase-3', code: 'Phase 3', title: 'The Focus', body: 'Phase shell ready. Add learning content and checkpoints here.', accent: '#00ced1', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBNgFbRFd5BzfIizgsYiWBVenbYdAhXa1r239HJE6lensK1WHkoFnTGSAWw-yC79HIjZy448eVlIgXEB6I-DANgc-HfvlvEdysH261NOgOU4M2xD49UTPmg1DXJ1hZJQcqJWFOb9g-YDZeSRNq3M1DJr9jo6A7bnykuIqQZhFYdolv1WY-bH1DjVTnVFYIvRPPylGs70rVzBv2m31FtPEdA_dDr0VsyFSBpq1c3sj9f8A01leCLUMJcMIsJD_5QYPSTSZCnH-Xhxg' },
@@ -48,6 +53,17 @@ const PHASES = [
 ];
 
 const ASSIGNMENTS = [
+  {
+    id: "a0",
+    code: "00",
+    title: "Diagnostic",
+    accent: "#94a3b8",
+    body: "Baseline diagnostic assignment for pressure response, motivation, focus, and visualization readiness.",
+    eyebrow: "Baseline Diagnostic",
+    heroTitle: "Protocol 001",
+    introCopy: "Start with an honest diagnostic of how your current mental performance system responds under pressure before you build the rest of the course tools.",
+    steps: ["Run Diagnostic", "Generate Report"]
+  },
   {
     id: "a1",
     code: "01",
@@ -407,7 +423,223 @@ const ICONS = [
   { icon: 'fa-layer-group', title: 'Stacks', body: 'Reserved for future stackable drill content.' }
 ];
 
+const QUIZZES = [
+  {
+    id: 'quiz-phase1-performance-state',
+    code: 'Quiz 01',
+    title: 'Arousal and Anxiety in Sport',
+    accent: '#00ff7f',
+    phaseId: 'phase-1',
+    body: '10 short-response questions extracted from the end of the Phase 1 lesson.',
+    questionCount: 10,
+    sourcePdf: './assets/readings/phase1-engine-content.pdf',
+    questions: [
+      {
+        prompt: 'How do sport psychologists distinguish between arousal and anxiety?',
+        answer: 'Arousal is a neutral level of physiological and psychological activation. Anxiety is a negative emotional state marked by worry, apprehension, and physical tension.'
+      },
+      {
+        prompt: 'Explain the difference between state anxiety and trait anxiety.',
+        answer: 'State anxiety is temporary and changes from moment to moment. Trait anxiety is a stable disposition that makes some people more likely to perceive situations as threatening.'
+      },
+      {
+        prompt: 'What occurs during the "Perception of Demand" stage in the stress process loop?',
+        answer: 'The performer evaluates the demand and decides whether it feels manageable or threatening. That interpretation becomes the pivot point for the rest of the stress response.'
+      },
+      {
+        prompt: 'Describe the primary difference between the Inverted-U Hypothesis and the IZOF model.',
+        answer: 'The Inverted-U assumes a shared moderate optimum. IZOF argues that each athlete has a personal optimal zone that may sit low, middle, or high on the continuum.'
+      },
+      {
+        prompt: 'What is the "Catastrophe Phenomenon," and what two factors must be high for it to occur?',
+        answer: 'The Catastrophe Phenomenon is a sudden performance collapse rather than a gradual decline. It occurs when both cognitive anxiety and physiological arousal are high.'
+      },
+      {
+        prompt: "How does high arousal affect an athlete's attentional field?",
+        answer: 'High arousal narrows attention too much and can create tunnel vision. The performer may miss important peripheral cues or changing conditions.'
+      },
+      {
+        prompt: "According to Jones's model, what determines whether anxiety is facilitative or debilitative?",
+        answer: 'Perception of control is the key factor. Anxiety is more facilitative when the athlete believes they have the resources to meet the challenge.'
+      },
+      {
+        prompt: 'Why is breathing considered a "manual override switch" for the stress response?',
+        answer: 'Breathing is one of the few body processes under both voluntary and autonomic influence. Slowing the breath can interrupt the stress loop and restore control.'
+      },
+      {
+        prompt: 'Explain the difference between instructional and motivational cue words.',
+        answer: 'Instructional cues direct attention to technique and mechanics. Motivational cues restore effort, energy, and intensity.'
+      },
+      {
+        prompt: 'Why should athletes prioritize process goals over outcome goals to manage anxiety?',
+        answer: 'Process goals focus on actions that are fully controllable, which stabilizes confidence and reduces uncertainty. Outcome goals depend on many external factors and therefore raise anxiety more easily.'
+      }
+    ]
+  }
+];
+
+const PHASE_CONTENT = {
+  'phase-1': {
+    eyebrow: 'Phase 1 lesson',
+    heading: 'Mastering the Performance State',
+    subheading: 'A Comprehensive Study Guide on Arousal, Stress, and Anxiety',
+    summary: 'This lesson explains how elite performers regulate energy, attention, and control under pressure instead of trying to eliminate pressure entirely.',
+    sourcePdf: './assets/readings/phase1-engine-content.pdf',
+    quizId: 'quiz-phase1-performance-state',
+    keyIdeas: [
+      'Build a clear mental model of arousal, stress, and anxiety.',
+      'See why attention and coordination change under pressure.',
+      'Learn practical regulation tools that move performance back toward control.'
+    ],
+    sections: [
+      {
+        title: 'Inside This Chapter',
+        paragraphs: [
+          'The central task is not to eliminate arousal or pressure, but to regulate them so that energy, attention, and execution stay aligned with the demands of the moment.',
+          'A repeated pattern runs through the lesson: environmental demands are filtered through perception, which shapes arousal, anxiety, attention, and ultimately performance. The best tools work because they help the performer regain a sense of control.'
+        ],
+        bullets: [
+          'Foundations of mental fitness and the Ideal Performance State (IPS)',
+          'How arousal, stress, and anxiety differ',
+          'The four-stage stress process loop',
+          'Major arousal-performance theories',
+          'Sources of stress and anxiety in sport',
+          'Why arousal changes coordination and attention',
+          'Regulation tools: breathing, PMR, activation, cue words, and SMART goals'
+        ]
+      },
+      {
+        title: '1. Foundations of Mental Fitness',
+        paragraphs: [
+          'Mental fitness is the ability to regulate psychological and physiological states so they match the demands of sport, art, or academics. Unlike physical fitness, it emphasizes consistency, resilience, persistence, and focus.',
+          'Elite performers often describe their best moments as "the zone" or flow. In practical terms, the Ideal Performance State is marked by supreme focus, effortless execution, and reproducibility.'
+        ],
+        bullets: [
+          'Supreme focus: total absorption in the task',
+          'Effortless execution: performance feels automatic and fluid',
+          'Reproducibility: the state can be reached consistently, not just by accident',
+          'Under-arousal can lead to apathy or boredom',
+          'Overload and extreme pressure can lead to panic, disruption, and choking'
+        ]
+      },
+      {
+        title: '2. Defining the Key Constructs',
+        paragraphs: [
+          'Arousal is a blend of physiological and psychological activation. It describes intensity and can range from sleep to frenzy.',
+          'Anxiety is a specifically negative emotional state marked by worry, apprehension, and perceived bodily activation.',
+          'Stress is a substantial imbalance between demands and response capability when the consequences of failure matter.'
+        ],
+        bullets: [
+          'Cognitive anxiety: worry, self-doubt, fear of failure',
+          'Somatic anxiety: butterflies, sweating, shaky muscles, racing heart',
+          'State anxiety is the right-now condition of the performer',
+          'Trait anxiety is the stable tendency to interpret safe situations as threatening'
+        ]
+      },
+      {
+        title: '3. The Stress Process Loop',
+        paragraphs: [
+          'Stress unfolds as a cycle rather than a single event. A demand appears, the demand is interpreted, the body and mind react, and the resulting performance feeds back into the next experience.',
+          'Perception of demand is the pivot point in the stress process. One person sees a challenge; another sees a threat.'
+        ],
+        bullets: [
+          'Environmental demand: a contest, exam, performance, or evaluation',
+          'Perception of demand: the interpretation of that event',
+          'Stress response: arousal, anxiety, tension, and attentional change',
+          'Behavioral consequences: the actual performance result',
+          'Repeated threat interpretations can snowball unless regulation changes'
+        ]
+      },
+      {
+        title: '4. Theories of Arousal and Performance',
+        paragraphs: [
+          'Different theories explain performance changes under pressure in different ways. Some assume a shared pattern, some an individual pattern, and some allow for sudden collapse.'
+        ],
+        table: {
+          headers: ['Theory', 'Description', 'Key takeaway'],
+          rows: [
+            ['Drive Theory', 'Suggests a direct linear relationship between arousal and performance.', 'Useful historically, but too simple for most real performance situations.'],
+            ['Inverted-U', 'Performance rises to an optimal midpoint and then falls as arousal keeps increasing.', 'There is often a sweet spot rather than a "more is always better" rule.'],
+            ['IZOF', 'Each athlete has an individual range of state anxiety that supports best performance.', 'The best zone is personal, not universal.'],
+            ['Multidimensional Anxiety Theory', 'Proposes that cognitive anxiety hurts performance while somatic anxiety follows an inverted-U pattern.', 'Research support is mixed, especially when worry is assumed to always be harmful.'],
+            ['Catastrophe Phenomenon', 'High cognitive anxiety plus high physiological arousal can trigger a sharp drop instead of a gentle decline.', 'Choking can be sudden and hard to reverse.'],
+            ['Reversal Theory', 'The meaning attached to arousal changes its effect.', 'High activation can feel like excitement or anxiety depending on interpretation.'],
+            ["Jones's Model", 'Anxiety is not automatically good or bad.', 'Perceived control determines whether anxiety feels facilitative or debilitative.']
+          ]
+        }
+      },
+      {
+        title: '5. Sources of Stress and Anxiety',
+        paragraphs: [
+          'Stress can come from the situation itself or from personal dispositions that shape how the situation is interpreted.'
+        ],
+        table: {
+          headers: ['Source type', 'Example', 'Why it matters'],
+          rows: [
+            ['Situational', 'Event importance', 'High-stakes contests, evaluations, and championships raise perceived pressure.'],
+            ['Situational', 'Uncertainty', 'Unknown outcomes and unclear evaluations make situations more stressful.'],
+            ['Personal', 'Trait anxiety', 'Highly trait-anxious people interpret more situations as threatening.'],
+            ['Personal', 'Self-esteem', 'Lower self-esteem is linked to higher state anxiety.'],
+            ['Personal', 'Social physique anxiety', 'Concern about body evaluation can elevate stress in performance and fitness settings.']
+          ]
+        }
+      },
+      {
+        title: '6. Why Arousal Changes Performance',
+        paragraphs: [
+          'Arousal and state anxiety change performance through coordination and attention. High stress can increase soreness, fatigue, and unwanted muscle tension, making movement feel tight or overcontrolled.',
+          'At low arousal, attention is often too broad and distractible. At an optimal level, attention narrows enough to filter out noise. At very high arousal, attention can narrow too far and create tunnel vision.'
+        ]
+      },
+      {
+        title: '7. The Elite Operator Toolkit',
+        paragraphs: [
+          'Elite athletes are not defined by the absence of stress. They stand out because they detect changes in arousal quickly and regulate them faster than less skilled performers.'
+        ],
+        bullets: [
+          'Breathing: deep rhythmic diaphragmatic breathing acts like a manual reset',
+          'Activation and relaxation: PMR reduces excess tension, while music, movement, and imagery can raise low energy',
+          'Cue words: instructional cues target mechanics; motivational cues lift effort and intensity',
+          'SMART goals: process goals are the most stabilizing because they are the most controllable'
+        ],
+        table: {
+          headers: ['When you notice...', 'Likely issue', 'Best first move'],
+          rows: [
+            ['Flat energy or boredom', 'Under-arousal', 'Activate with movement, rhythm, music, or imagery.'],
+            ['Tight muscles and racing thoughts', 'Over-arousal', 'Slow the breath and reduce somatic tension.'],
+            ['Sloppy mechanics', 'Attention is drifting', 'Use one instructional cue word.'],
+            ['Effort fading late', 'Intensity drop', 'Use a motivational cue and a process goal.']
+          ]
+        }
+      },
+      {
+        title: 'Glossary of Key Terms',
+        glossary: [
+          ['Arousal', 'A blend of physiological and psychological activity that reflects intensity of motivation at a particular moment.'],
+          ['Anxiety', 'A negative emotional state characterized by nervousness, worry, and apprehension associated with bodily activation.'],
+          ['Catastrophe Model', 'A model proposing that performance can suddenly decline when high cognitive anxiety combines with high physiological arousal.'],
+          ['Cognitive State Anxiety', 'The degree to which a person experiences negative thoughts and worry in the moment.'],
+          ['Debilitative Anxiety', 'Anxiety interpreted as harmful to performance.'],
+          ['Facilitative Anxiety', 'Anxiety interpreted as helpful or energizing for performance.'],
+          ['Ideal Performance State (IPS)', 'A state of supreme focus and effortless execution often referred to as the zone.'],
+          ['IZOF', 'The idea that each athlete has a personal range of state anxiety linked to best performance.'],
+          ['Inverted-U Hypothesis', 'A theory stating that performance is best at a moderate level of arousal and poorer at very high or very low levels.'],
+          ['Mental Fitness', 'The ability to regulate psychological and physiological states to meet environmental demands.'],
+          ['Perception of Control', 'The degree to which a person believes they have the resources and ability to meet a challenge.'],
+          ['Progressive Muscle Relaxation (PMR)', 'A technique that reduces physical tension through systematic muscle tensing and releasing.'],
+          ['SMART Goals', 'Goals that are specific, measurable, achievable, relevant, and time-bound.'],
+          ['Social Physique Anxiety', "Anxiety caused by the perception that others are evaluating one's body or physique."],
+          ['Somatic State Anxiety', 'Moment-to-moment perceived physiological activation such as butterflies, sweating, or a racing heart.'],
+          ['Stress', 'A substantial imbalance between demand and response capability under conditions where the consequences matter.'],
+          ['Trait Anxiety', 'A personality disposition to perceive objectively non-dangerous situations as threatening.']
+        ]
+      }
+    ]
+  }
+};
+
 const ASSIGNMENT_RUNTIME_VIEW = {
+  a0: 'intro',
   a1: 'phase1',
   a2a: 'values',
   a2b: 'master',
@@ -434,7 +666,8 @@ const state = {
   section: 'home',
   tab: 'phases',
   activeId: PHASES[0]?.id || null,
-  activeStep: 0
+  activeStep: 0,
+  activeMaterialId: null
 };
 
 const refs = {
@@ -453,7 +686,14 @@ const refs = {
   collapseToggle: document.getElementById('menu-collapse-toggle')
 };
 
+const COMPACT_LAYOUT_BREAKPOINT = 1180;
+
+function isCompactLayout() {
+  return window.matchMedia(`(max-width: ${COMPACT_LAYOUT_BREAKPOINT}px)`).matches;
+}
+
 function applySidebarCollapse(collapsed) {
+  document.body.classList.toggle('compact-layout', isCompactLayout());
   document.body.classList.toggle('sidebar-collapsed', collapsed);
   if (refs.collapseToggle) {
     refs.collapseToggle.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
@@ -464,11 +704,19 @@ function applySidebarCollapse(collapsed) {
 function toggleSidebarCollapse() {
   const next = !document.body.classList.contains('sidebar-collapsed');
   applySidebarCollapse(next);
-  localStorage.setItem(SIDEBAR_COLLAPSE_KEY, next ? '1' : '0');
+  if (!isCompactLayout()) {
+    localStorage.setItem(SIDEBAR_COLLAPSE_KEY, next ? '1' : '0');
+  }
+}
+
+function collapseCompactMenu() {
+  if (!isCompactLayout()) return;
+  applySidebarCollapse(true);
 }
 
 function getCollection() {
   if (state.tab === 'phases') return PHASES;
+  if (state.tab === 'quizzes') return QUIZZES;
   if (state.tab === 'assignments') return ASSIGNMENTS;
   return [];
 }
@@ -476,6 +724,9 @@ function getCollection() {
 function setSection(section) {
   const previous = state.section;
   state.section = section;
+  if (section !== 'library') {
+    state.activeMaterialId = null;
+  }
   if (section === 'home' && previous !== 'home') {
     state.tab = 'phases';
     state.activeId = PHASES[0]?.id || null;
@@ -483,6 +734,7 @@ function setSection(section) {
   if (section !== 'home') {
     state.tab = 'phases';
   }
+  collapseCompactMenu();
   render();
 }
 
@@ -491,12 +743,14 @@ function setTab(tab) {
   state.tab = tab;
   const collection = getCollection();
   state.activeId = collection[0]?.id || null;
+  collapseCompactMenu();
   render();
 }
 
 function openPhase(id) {
   state.section = 'phase';
   state.activeId = id;
+  collapseCompactMenu();
   render();
 }
 
@@ -504,7 +758,51 @@ function openAssignment(id) {
   state.section = 'assignment';
   state.activeId = id;
   state.activeStep = 0;
+  collapseCompactMenu();
   render();
+}
+
+function openQuiz(id) {
+  state.section = 'quiz';
+  state.activeId = id;
+  collapseCompactMenu();
+  render();
+}
+
+function openMaterial(id) {
+  state.activeMaterialId = id;
+  renderLibrary();
+}
+
+function closeMaterialViewer() {
+  state.activeMaterialId = null;
+  renderLibrary();
+}
+
+function escapeHtml(value) {
+  return String(value || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function renderReadingTable(table) {
+  return `
+    <div class="reading-table-wrap">
+      <table class="reading-table">
+        <thead>
+          <tr>${table.headers.map((header) => `<th>${escapeHtml(header)}</th>`).join('')}</tr>
+        </thead>
+        <tbody>
+          ${table.rows.map((row) => `
+            <tr>${row.map((cell) => `<td>${escapeHtml(cell)}</td>`).join('')}</tr>
+          `).join('')}
+        </tbody>
+      </table>
+    </div>
+  `;
 }
 
 function setAssignmentStep(step) {
@@ -513,14 +811,14 @@ function setAssignmentStep(step) {
 }
 
 function renderNavState() {
-  refs.navHome.classList.toggle('active', state.section === 'home' || state.section === 'phase');
+  refs.navHome.classList.toggle('active', state.section === 'home' || state.section === 'phase' || state.section === 'quiz');
   refs.navLibrary.classList.toggle('active', state.section === 'library');
   refs.navPerformance.classList.toggle('active', state.section === 'performance');
   refs.navIcons.classList.toggle('active', state.section === 'icons');
 
-  refs.tabPhases.classList.toggle('active', state.section === 'home' && state.tab === 'phases');
-  refs.tabQuizzes.classList.toggle('active', state.section === 'home' && state.tab === 'quizzes');
-  refs.tabAssignments.classList.toggle('active', state.section === 'home' && state.tab === 'assignments');
+  refs.tabPhases.classList.toggle('active', (state.section === 'home' && state.tab === 'phases') || state.section === 'phase');
+  refs.tabQuizzes.classList.toggle('active', (state.section === 'home' && state.tab === 'quizzes') || state.section === 'quiz');
+  refs.tabAssignments.classList.toggle('active', (state.section === 'home' && state.tab === 'assignments') || state.section === 'assignment');
 }
 
 function renderHome() {
@@ -565,7 +863,50 @@ function renderHome() {
 
 function renderPhaseDetail() {
   const active = PHASES.find((item) => item.id === state.activeId) || PHASES[0];
+  const content = PHASE_CONTENT[active.id];
   refs.sectionTitle.textContent = `${active.code}: ${active.title}`;
+  if (content) {
+    refs.contentBody.innerHTML = `
+      <div class="reading-shell">
+        <article class="stack-card reading-hero" style="border-left-color: ${active.accent}">
+          <p class="reading-eyebrow">${escapeHtml(content.eyebrow)}</p>
+          <h4 class="reading-hero-title">${escapeHtml(content.heading)}</h4>
+          <p class="reading-subtitle">${escapeHtml(content.subheading)}</p>
+          <p class="reading-lead">${escapeHtml(content.summary)}</p>
+          <div class="reading-chip-row">
+            ${content.keyIdeas.map((idea) => `<span class="reading-chip">${escapeHtml(idea)}</span>`).join('')}
+          </div>
+          <div class="reading-actions">
+            <a class="reading-btn reading-btn-primary" href="${content.sourcePdf}" target="_blank" rel="noopener noreferrer">Source PDF</a>
+            ${content.quizId ? `<button type="button" class="reading-btn reading-btn-secondary" id="open-linked-quiz">Open phase quiz</button>` : ''}
+            <button type="button" class="reading-btn reading-btn-secondary" id="back-to-home">Back to phase picker</button>
+          </div>
+        </article>
+        ${content.sections.map((section) => `
+          <section class="stack-card reading-section" style="border-left-color: ${active.accent}">
+            <h4>${escapeHtml(section.title)}</h4>
+            ${(section.paragraphs || []).map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}
+            ${section.bullets?.length ? `<ul class="reading-list">${section.bullets.map((bullet) => `<li>${escapeHtml(bullet)}</li>`).join('')}</ul>` : ''}
+            ${section.table ? renderReadingTable(section.table) : ''}
+            ${section.glossary?.length ? `
+              <dl class="glossary-grid">
+                ${section.glossary.map(([term, definition]) => `
+                  <div class="glossary-card">
+                    <dt>${escapeHtml(term)}</dt>
+                    <dd>${escapeHtml(definition)}</dd>
+                  </div>
+                `).join('')}
+              </dl>
+            ` : ''}
+          </section>
+        `).join('')}
+      </div>
+    `;
+    document.getElementById('back-to-home')?.addEventListener('click', () => setSection('home'));
+    document.getElementById('open-linked-quiz')?.addEventListener('click', () => openQuiz(content.quizId));
+    return;
+  }
+
   refs.contentBody.innerHTML = `
     <div class="stack-list">
       <article class="stack-card" style="border-left-color: ${active.accent}">
@@ -582,32 +923,116 @@ function renderPhaseDetail() {
 }
 
 function renderLibrary() {
+  const activeMaterial = MATERIALS.find((item) => item.id === state.activeMaterialId) || null;
+  const viewerSrc = activeMaterial
+    ? `./pdf-viewer.html?file=${encodeURIComponent(activeMaterial.file)}&title=${encodeURIComponent(activeMaterial.title)}`
+    : '';
   refs.sectionTitle.textContent = 'Course Materials';
   refs.contentBody.innerHTML = `
     <div class="stack-list">
+      ${activeMaterial ? `
+        <article class="stack-card" style="border-left-color: ${activeMaterial.color}; padding:0; overflow:hidden;">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:16px 18px; border-bottom:1px solid rgba(120,140,180,0.18); background:rgba(8,13,22,0.72); flex-wrap:wrap;">
+            <div>
+              <p class="mono" style="margin:0 0 4px; color:${activeMaterial.color}; font-size:11px; letter-spacing:0.18em; text-transform:uppercase;">${activeMaterial.code}</p>
+              <h4 style="margin:0;">${activeMaterial.title}</h4>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <a href="${activeMaterial.file}" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; justify-content:center; padding:10px 14px; border-radius:12px; background:${activeMaterial.color}; color:#07111d; text-decoration:none; font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:0.08em;">Download PDF</a>
+              <button type="button" id="close-material-viewer" style="display:inline-flex; align-items:center; justify-content:center; padding:10px 14px; border-radius:12px; border:1px solid rgba(120,140,180,0.3); background:#162033; color:#eef4ff; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; cursor:pointer;">Close Viewer</button>
+            </div>
+          </div>
+          <iframe src="${viewerSrc}" title="${activeMaterial.title}" style="display:block; width:100%; min-height:760px; border:0; background:#0b1220;"></iframe>
+        </article>
+      ` : ''}
       ${MATERIALS.map((item) => `
         <article class="stack-card" style="border-left-color: ${item.color}">
           <p class="mono" style="margin:0 0 6px; color:${item.color}; font-size:11px; letter-spacing:0.18em; text-transform:uppercase;">${item.code}</p>
           <h4>${item.title}</h4>
           <p>${item.desc}</p>
           <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:14px;">
-            <a href="${item.preview}" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; justify-content:center; padding:10px 14px; border-radius:12px; border:1px solid rgba(120,140,180,0.3); background:#162033; color:#eef4ff; text-decoration:none; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em;">View Slides</a>
-            <a href="${item.download}" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; justify-content:center; padding:10px 14px; border-radius:12px; background:${item.color}; color:#07111d; text-decoration:none; font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:0.08em;">Open Source</a>
+            <button type="button" data-open-material="${item.id}" style="display:inline-flex; align-items:center; justify-content:center; padding:10px 14px; border-radius:12px; border:1px solid rgba(120,140,180,0.3); background:#162033; color:#eef4ff; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; cursor:pointer;">View Slides</button>
+            <a href="${item.file}" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; justify-content:center; padding:10px 14px; border-radius:12px; background:${item.color}; color:#07111d; text-decoration:none; font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:0.08em;">Download PDF</a>
           </div>
         </article>
       `).join('')}
     </div>
   `;
+  refs.contentBody.querySelectorAll('[data-open-material]').forEach((button) => {
+    button.addEventListener('click', () => openMaterial(button.dataset.openMaterial));
+  });
+  document.getElementById('close-material-viewer')?.addEventListener('click', closeMaterialViewer);
 }
 
 function renderQuizzes() {
   refs.sectionTitle.textContent = 'Quiz Library';
+  if (!QUIZZES.length) {
+    refs.contentBody.innerHTML = `
+      <div class="empty-card">
+        <h4>No quizzes loaded yet</h4>
+        <p>Quiz scaffolds can be added here without changing the shell structure.</p>
+      </div>
+    `;
+    return;
+  }
+
   refs.contentBody.innerHTML = `
-    <div class="empty-card">
-      <h4>No quizzes loaded yet</h4>
-      <p>Quiz scaffolds can be added here without changing the shell structure.</p>
+    <div class="stack-list">
+      ${QUIZZES.map((item) => `
+        <button type="button" class="stack-card stack-card-button" data-quiz-id="${item.id}" style="border-left-color: ${item.accent}">
+          <p class="mono" style="margin:0 0 6px; color:${item.accent}; font-size:11px; letter-spacing:0.18em; text-transform:uppercase;">${item.code}</p>
+          <h4 style="margin:0 0 10px; color:#eef4ff; font-size:20px; font-weight:900; letter-spacing:0.02em; text-transform:uppercase;">${item.title}</h4>
+          <p style="margin:0; color:#b8c4d7; font-size:14px; line-height:1.65;">${item.body}</p>
+          <div class="reading-chip-row" style="margin-top:14px;">
+            <span class="reading-chip">${item.questionCount} questions</span>
+            <span class="reading-chip">Short response</span>
+            <span class="reading-chip">Answer key included</span>
+          </div>
+        </button>
+      `).join('')}
     </div>
   `;
+  refs.contentBody.querySelectorAll('[data-quiz-id]').forEach((button) => {
+    button.addEventListener('click', () => openQuiz(button.dataset.quizId));
+  });
+}
+
+function renderQuizDetail() {
+  const active = QUIZZES.find((item) => item.id === state.activeId) || QUIZZES[0];
+  refs.sectionTitle.textContent = active.title;
+  refs.contentBody.innerHTML = `
+    <div class="quiz-detail-shell">
+      <article class="stack-card reading-hero" style="border-left-color: ${active.accent}">
+        <p class="reading-eyebrow">${escapeHtml(active.code)}</p>
+        <h4 class="reading-hero-title">${escapeHtml(active.title)}</h4>
+        <p class="reading-lead">${escapeHtml(active.body)}</p>
+        <div class="reading-chip-row">
+          <span class="reading-chip">${active.questionCount} questions</span>
+          <span class="reading-chip">Phase 1</span>
+          <span class="reading-chip">Use the answer key to self-check</span>
+        </div>
+        <div class="reading-actions">
+          <a class="reading-btn reading-btn-primary" href="${active.sourcePdf}" target="_blank" rel="noopener noreferrer">Source PDF</a>
+          <button type="button" class="reading-btn reading-btn-secondary" id="back-to-quizzes">Back to quizzes</button>
+          <button type="button" class="reading-btn reading-btn-secondary" id="back-to-phase">Back to phase 1</button>
+        </div>
+      </article>
+      <div class="quiz-question-grid">
+        ${active.questions.map((question, index) => `
+          <section class="stack-card quiz-question-card" style="border-left-color: ${active.accent}">
+            <p class="reading-eyebrow">Question ${index + 1}</p>
+            <h4>${escapeHtml(question.prompt)}</h4>
+            <details class="quiz-answer">
+              <summary>Show answer key</summary>
+              <p>${escapeHtml(question.answer)}</p>
+            </details>
+          </section>
+        `).join('')}
+      </div>
+    </div>
+  `;
+  document.getElementById('back-to-quizzes')?.addEventListener('click', () => setTab('quizzes'));
+  document.getElementById('back-to-phase')?.addEventListener('click', () => openPhase(active.phaseId));
 }
 
 function renderAssignments() {
@@ -617,13 +1042,8 @@ function renderAssignments() {
       ${ASSIGNMENTS.map((item) => `
         <button type="button" class="stack-card stack-card-button" data-assignment-id="${item.id}" style="border-left-color: ${item.accent}">
           <p class="mono" style="margin:0 0 6px; color:${item.accent}; font-size:11px; letter-spacing:0.18em; text-transform:uppercase;">Assignment ${item.code}</p>
-          <h4>${item.code}: ${item.title}</h4>
-          <p>${item.body}</p>
-          <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:14px;">
-            ${item.steps.map((step) => `
-              <span style="display:inline-flex; align-items:center; padding:7px 10px; border-radius:999px; border:1px solid rgba(120,140,180,0.25); background:rgba(13,22,35,0.86); color:#dce7f7; font-size:11px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;">${step}</span>
-            `).join('')}
-          </div>
+          <h4 style="margin:0 0 10px; color:#eef4ff; font-size:22px; font-weight:900; letter-spacing:0.02em; text-transform:uppercase;">${item.code}: ${item.title}</h4>
+          <p style="margin:0; color:#b8c4d7; font-size:14px; line-height:1.65;">${item.body}</p>
         </button>
       `).join('')}
     </div>
@@ -868,6 +1288,11 @@ function renderContent() {
     return;
   }
 
+  if (state.section === 'quiz') {
+    renderQuizDetail();
+    return;
+  }
+
   if (state.section === 'performance') {
     renderPerformance();
     return;
@@ -889,10 +1314,10 @@ refs.tabPhases.addEventListener('click', () => setTab('phases'));
 refs.tabQuizzes.addEventListener('click', () => setTab('quizzes'));
 refs.tabAssignments.addEventListener('click', () => setTab('assignments'));
 
-applySidebarCollapse(localStorage.getItem(SIDEBAR_COLLAPSE_KEY) === '1');
+applySidebarCollapse(isCompactLayout() ? true : localStorage.getItem(SIDEBAR_COLLAPSE_KEY) === '1');
 render();
 
 window.addEventListener('resize', () => {
-  applySidebarCollapse(localStorage.getItem(SIDEBAR_COLLAPSE_KEY) === '1');
+  applySidebarCollapse(isCompactLayout() ? true : localStorage.getItem(SIDEBAR_COLLAPSE_KEY) === '1');
 });
 
