@@ -2062,3 +2062,293 @@ body.sidebar-collapsed .content-inner {
   }
 }
 
+
+/* Phase 1 Assignment shell alignment */
+#view-phase1 {
+  overflow-x: hidden;
+}
+
+#view-phase1 .mono,
+#view-phase1 .font-mono,
+#view-phase1 .p1-step-btn,
+#view-phase1 .p1-rubric-table thead th,
+#view-phase1 .p1-rubric-table tbody th,
+#view-phase1 .text-xs.font-semibold.uppercase,
+#view-phase1 h1,
+#view-phase1 h2,
+#view-phase1 h3 {
+  font-family: "Rajdhani", sans-serif !important;
+}
+
+#view-phase1 .p1-phase-subtitle {
+  letter-spacing: 0.22em !important;
+  color: #90a3ba !important;
+}
+
+#view-phase1 .p1-step-nav {
+  display: flex !important;
+  justify-content: center;
+  gap: 0.5rem;
+  overflow-x: visible;
+  scrollbar-width: none;
+}
+
+#view-phase1 .p1-step-btn {
+  min-height: auto;
+  white-space: nowrap;
+}
+
+#view-phase1 .p1-review-grid {
+  align-items: start;
+}
+
+#view-phase1 .grid > div,
+#view-phase1 .xl\:grid-cols-\[1\.15fr_0\.85fr\] > div,
+#view-phase1 .lg\:grid-cols-2 > label,
+#view-phase1 .lg\:grid-cols-2 > div,
+#view-phase1 .lg\:grid-cols-3 > label,
+#view-phase1 .lg\:grid-cols-3 > div,
+#view-phase1 .xl\:grid-cols-3 > article {
+  min-width: 0;
+}
+
+#view-phase1 p,
+#view-phase1 li,
+#view-phase1 textarea,
+#view-phase1 input,
+#view-phase1 label,
+#view-phase1 td {
+  font-family: "Inter", sans-serif !important;
+}
+
+#view-phase1 p,
+#view-phase1 li,
+#view-phase1 td {
+  font-size: 15px;
+  line-height: 1.72;
+  color: #d6deea;
+}
+
+#view-phase1 textarea,
+#view-phase1 input {
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+#view-phase1 .text-slate-300 {
+  color: #d6deea !important;
+}
+
+#view-phase1 .text-slate-400 {
+  color: #a8b8cb !important;
+}
+
+#view-phase1 .p1-file-actions > .mt-3 {
+  align-items: center;
+}
+
+#view-phase1 .p1-rubric-shell {
+  border: 1px solid #233347;
+  border-radius: 18px;
+  background: rgba(9, 16, 29, 0.72);
+}
+
+#view-phase1 .p1-rubric-table {
+  border-collapse: collapse;
+}
+
+#view-phase1 .p1-rubric-table thead th {
+  padding: 1rem 1.1rem;
+  border-bottom: 1px solid #25364b;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #9fb3c8;
+  background: rgba(15, 23, 42, 0.94);
+}
+
+#view-phase1 .p1-rubric-table thead th:nth-child(2) {
+  color: #64f2c0;
+}
+
+#view-phase1 .p1-rubric-table thead th:nth-child(3) {
+  color: #facc15;
+}
+
+#view-phase1 .p1-rubric-table thead th:nth-child(4) {
+  color: #fb7185;
+}
+
+#view-phase1 .p1-rubric-table tbody th,
+#view-phase1 .p1-rubric-table tbody td {
+  padding: 1rem 1.1rem;
+  border-top: 1px solid #1d2b3d;
+  vertical-align: top;
+  font-size: 10px;
+  line-height: 1.6;
+  color: #cad5e2;
+}
+
+#view-phase1 .p1-rubric-table tbody th {
+  width: 16%;
+  min-width: 150px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #f1f5f9;
+  background: rgba(12, 20, 34, 0.9);
+  font-style: italic;
+}
+
+#view-phase1 .p1-rubric-table tbody td {
+  width: 28%;
+  font-style: italic;
+}
+
+@media (max-width: 1280px) {
+  #view-phase1 .p1-review-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 860px) {
+  #view-phase1 .p1-step-nav {
+    justify-content: flex-start;
+    overflow-x: auto;
+  }
+
+  #view-phase1 .p1-step-btn {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+  }
+
+  #view-phase1 .p1-rubric-table thead th,
+  #view-phase1 .p1-rubric-table tbody th,
+  #view-phase1 .p1-rubric-table tbody td {
+    font-size: 9px;
+  }
+}
+
+/* Phase 1 final desktop typography + layout corrections */
+#view-phase1 {
+  font-family: "Inter", sans-serif;
+}
+
+#view-phase1 .mono,
+#view-phase1 .font-mono,
+#view-phase1 .p1-rubric-table thead th,
+#view-phase1 .p1-rubric-table tbody th {
+  font-family: "Rajdhani", sans-serif !important;
+}
+
+#view-phase1 .p1-step-nav {
+  display: flex !important;
+  justify-content: center;
+  gap: 0.5rem;
+  overflow-x: visible;
+}
+
+#view-phase1 .p1-step-btn {
+  min-height: auto !important;
+  white-space: nowrap;
+  letter-spacing: 0.18em;
+}
+
+#view-phase1 .p1-rubric-table tbody td {
+  font-family: "Inter", sans-serif !important;
+  font-style: italic;
+  font-size: 11px;
+}
+
+#view-phase1 .p1-rubric-table tbody th {
+  font-style: italic;
+}
+
+@media (min-width: 1200px) {
+  #view-phase1 h1 {
+    font-size: 3.6rem !important;
+    line-height: 0.94 !important;
+  }
+
+  #view-phase1 h2 {
+    font-size: 2rem !important;
+    line-height: 1.02 !important;
+  }
+
+  #view-phase1 h3 {
+    font-size: 1.2rem !important;
+  }
+
+  #view-phase1 .p1-phase-subtitle {
+    font-size: 0.92rem !important;
+    letter-spacing: 0.24em !important;
+  }
+
+  #view-phase1 p,
+  #view-phase1 li,
+  #view-phase1 td,
+  #view-phase1 label {
+    font-size: 15.75px;
+    line-height: 1.8;
+  }
+
+  #view-phase1 textarea,
+  #view-phase1 input {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  #view-phase1 .p1-step-btn {
+    font-size: 10.75px;
+  }
+}
+
+@media (min-width: 1500px) {
+  #view-phase1 h1 {
+    font-size: 4.35rem !important;
+  }
+
+  #view-phase1 h2 {
+    font-size: 2.2rem !important;
+  }
+
+  #view-phase1 h3 {
+    font-size: 1.28rem !important;
+  }
+
+  #view-phase1 .p1-phase-subtitle {
+    font-size: 1rem !important;
+    letter-spacing: 0.26em !important;
+  }
+
+  #view-phase1 p,
+  #view-phase1 li,
+  #view-phase1 td,
+  #view-phase1 label {
+    font-size: 17px;
+    line-height: 1.86;
+  }
+
+  #view-phase1 textarea,
+  #view-phase1 input {
+    font-size: 16px;
+  }
+
+  #view-phase1 .p1-step-btn {
+    font-size: 11.5px;
+  }
+
+  #view-phase1 .p1-rubric-table tbody td {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 860px) {
+  #view-phase1 .p1-step-nav {
+    justify-content: flex-start;
+    overflow-x: auto;
+  }
+}

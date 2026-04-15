@@ -1,71 +1,62 @@
 # Handoff
 
 - Project: mentalwellness10-option2
-- Task: Stabilize the Option 2 shell, restore local course materials, and add the converted Phase 1 lesson plus extracted quiz.
+- Task: Deepen Assignment 01, align the embedded Phase 1 runtime with the Option 2 shell, and improve desktop readability/report behavior.
 - Status: ready for validation
 
 ## Files changed
-- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\main.js
-- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\styles.css
-- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\index.html
 - C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assignment-runtime.html
 - C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assignment-runtime-main.js
-- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\pdf-viewer.html
-- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assets\slides\00-diagnostic.pdf
-- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assets\slides\01-engine.pdf
-- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assets\slides\02-drive.pdf
-- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assets\slides\03-focus.pdf
-- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assets\slides\04-toolkit.pdf
-- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assets\readings\phase1-engine-content.pdf
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\main.js
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\styles.css
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\docs\plans\2026-04-15-mental-fitness-phase1-assignment-depth-plan.md
 - C:\Users\dean.guedo\Documents\GitHub\canvas-helper\docs\ops\ACTIVE_HANDOFF.md
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\docs\ops\ARCHIVED_HANDOFFS.md
 
 ## What changed
-- Reworked the compact Option 2 shell so tablet and mobile collapse into a top icon bar instead of a persistent left rail.
-- Restored the Diagnostic phase and assignment, wired its save/progress behavior, and aligned its runtime styling with the Option 2 palette.
-- Replaced external Google Drive course-material links with local PDFs plus an in-app PDF viewer.
-- Cleaned the assignments overview cards so titles read clearly and the sub-step chips no longer clutter the list view.
-- Added converted Phase 1 reading content under Phases and split the end-of-document quiz into the Quizzes section with its own detail view.
+- Expanded Assignment 01 so the Phase 1 runtime now teaches and captures the missing chapter concepts directly inside the six-step assignment flow.
+- Reworked the embedded Phase 1 runtime shell so its step buttons, review area, rubric shell, backup actions, and report generation align more closely with the other Option 2 assignments.
+- Replaced the earlier report fallback with the same popup print pattern used by the Values assignment flow.
+- Fixed parse-breaking apostrophes in the unabridged Phase 1 reading data so the Option 2 app boots again.
+- Widened the assignment surface and added desktop-only typography scaling so large desktop reads larger than condensed-sidebar and tablet states.
 
 ## Why this changed
-- The user wanted Option 2 to behave like the stronger course shells already in the repo, keep materials inside the web app, and separate readings from quizzes the same way Forensics does.
+- The user wanted Phase 1 to be as thorough as the underlying reading, visually consistent with the rest of the site, and easier to read on larger desktop screens.
 
 ## Source of truth
 - Shell entry: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\index.html
 - Shell logic: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\main.js
-- Embedded assignment runtime logic: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assignment-runtime-main.js
 - Embedded assignment DOM source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assignment-runtime.html
-- Local course materials: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assets\slides\
-- Phase 1 imported reading source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assets\readings\phase1-engine-content.pdf
+- Embedded assignment runtime logic: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assignment-runtime-main.js
+- Embedded assignment styling: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\styles.css
 
 ## Fragile areas / watchouts
-- The Phase 1 lesson is a text-first conversion; original PDF images have not been preserved yet.
-- `pdf-viewer.html` depends on the local PDF fetch path resolving correctly after deploy and may require a hard refresh when updated.
-- Compact-mode layout relies on selector-heavy CSS around the sidebar/header structure and can drift if the shell markup changes.
-- Assignment visual harmonization is applied with broad runtime selectors, so upstream runtime markup changes could break specific screens.
+- Phase 1 runtime presentation now depends on several targeted overrides in `styles.css`; later generic runtime styling changes can flatten or override the desktop scaling again.
+- The report flow depends on `window.open()` and browser print behavior, so Builder preview and a normal browser may not behave identically.
+- The unabridged Phase 1 content in `main.js` is string-heavy and still vulnerable to escaping mistakes.
 
 ## Next prompt should assume
-- Option 2 now has five phases including Diagnostic, seven assignments including Diagnostic, populated local course materials, and one extracted quiz.
-- Phase 1 is the only converted lesson/quiz split so far; the remaining phases still use the existing shell until they are converted.
-- No automated validation or deployment was run in this pass.
+- Authoring bypass is still on, so phases, quizzes, and assignments remain editable even though gating logic exists underneath.
+- Phase 1 quiz uses the new 10-question multiple-choice format and a 70 percent pass rule in the runtime logic.
+- Assignment 01 is now deeper and more customized than the other assignments, so future visual cleanup should be scoped carefully to Phase 1 unless the user asks to propagate it.
 
 ## What still needs validation
-- Manual preview of compact header behavior across Home, Library, Performance, and Athletic Icons at tablet and mobile widths.
-- Manual check that all five local PDFs render in the in-app viewer on the deployed target.
-- Manual check that Phase 1 reading, extracted quiz navigation, and answer-key reveal work as expected.
-- Manual spot-check of Diagnostic styling/readability after the last palette pass.
+- Manual preview of Assignment 01 on full desktop, condensed-sidebar desktop, tablet, and mobile to confirm the new desktop scaling is actually visible and readable.
+- Manual check that `Generate Blueprint PDF` opens and prints with the same behavior the Values assignment uses.
+- Manual check that backup/load and the review report still include the newly added Phase 1 fields.
 
 ## Known risks
-- The user explicitly wants preserved images; the current Phase 1 conversion does not include them yet.
-- PDF rendering behavior can differ between local preview and Firebase hosting.
-- There may still be section-specific compact-header spacing issues that were not validated in preview.
+- No automated validation was run in this pass.
+- Popup blocking or Builder preview quirks may still affect report generation.
+- Because the Phase 1 shell is now more customized, further typography tweaks can drift from the other assignments if they are not kept intentional.
 
 ## Exact next command
-`git status --short -- projects/mentalwellness10-option2/workspace docs/ops/ACTIVE_HANDOFF.md docs/ops/ARCHIVED_HANDOFFS.md`
+`npm run studio`
 
 ## Exact next file to open
-`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\main.js`
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\styles.css`
 
 ## Do not do next / warnings
-- Do not revert to external Google Drive links for the local course materials in Option 2.
-- Do not collapse the Phase 1 lesson back into a single PDF-only card if the goal is Forensics-style structure.
-- Do not assume the current Phase 1 conversion preserved images; that would require a separate extraction pass.
+- Do not reintroduce the old text-file or jsPDF fallback for the Phase 1 report.
+- Do not switch the full Phase 1 body copy back to Rajdhani; keep Rajdhani for display/label roles only.
+- Do not turn authoring bypass off unless the next task is specifically to enforce learner gating.

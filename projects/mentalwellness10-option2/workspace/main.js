@@ -658,7 +658,7 @@ const PHASE_CONTENT = {
           ['Perception of Control', 'The degree to which a person believes they have the resources and ability to meet a challenge.'],
           ['Progressive Muscle Relaxation (PMR)', 'A technique that reduces physical tension through systematic muscle tensing and releasing.'],
           ['SMART Goals', 'Goals that are specific, measurable, achievable, relevant, and time-bound.'],
-          ['Social Physique Anxiety', "Anxiety caused by the perception that others are evaluating one's body or physique."],
+          ['Social Physique Anxiety', "Anxiety caused by the perception that others are evaluating one\'s body or physique."],
           ['Somatic State Anxiety', 'Moment-to-moment perceived physiological activation such as butterflies, sweating, or a racing heart.'],
           ['Stress', 'A substantial imbalance between demand and response capability under conditions where the consequences matter.'],
           ['Trait Anxiety', 'A personality disposition to perceive objectively non-dangerous situations as threatening.']

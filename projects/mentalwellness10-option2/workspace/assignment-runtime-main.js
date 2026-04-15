@@ -373,37 +373,266 @@
         }
 
         // --- PHASE 1 (THE ENGINE) LOGIC ---
-        const p1_cats = [ { id: 'reset', label: 'Stress Reset' }, { id: 'tune', label: 'Arousal' }, { id: 'focus', label: 'Targeting' }, { id: 'goals', label: 'Confidence' }, { id: 'intel', label: 'Integration' } ];
-        let p1_scores = { reset: 0, tune: 0, focus: 0, goals: 0, intel: 0 };
-        function p1_showStep(n) {
-            document.querySelectorAll('#view-phase1 .step-content').forEach(s => s.classList.remove('active'));
-            document.getElementById('p1-step' + n).classList.add('active');
-            document.querySelectorAll('#view-phase1 .mod-nav-btn').forEach((b, i) => b.classList.toggle('active', i === n));
-        }
-        function p1_setScore(cat, val) {
-            p1_scores[cat] = val;
-            const group = document.getElementById(`group-${cat}`);
-            if(group) { group.querySelectorAll('button').forEach((b, i) => b.classList.toggle('active', (i+1) === val)); }
-            const total = Object.values(p1_scores).reduce((a, b) => a + b, 0);
-            document.getElementById('p1-total-score').innerText = total.toString().padStart(2, '0');
-            p1_saveData();
-        }
-        function p1_getFormData() {
-             return { b_scenario: document.getElementById('p1_breath_scenario').value, b_detail: document.getElementById('p1_breath_detail').value, relax: document.getElementById('p1_relax_plan').value, active: document.getElementById('p1_active_plan').value, inst: document.getElementById('p1_cue_inst').value, mot: document.getElementById('p1_cue_mot').value, jam: document.getElementById('p1_jam_scenario').value, proc: document.getElementById('p1_goal_proc').value, perf: document.getElementById('p1_goal_perf').value, out: document.getElementById('p1_goal_out').value, smart_final: document.getElementById('p1_smart_final').value, narr: document.getElementById('p1_final_narrative').value, scores: p1_scores };
-        }
-        function p1_saveData() { localStorage.setItem('elite_operator_v3_p1', JSON.stringify(p1_getFormData())); setTextById(['p1-save-text'], "Saved"); refreshProgressUI(); setTimeout(() => setTextById(['p1-save-text'], "System Ready"), 1000); }
-        function p1_populate(data) { if(!data) return; if(data.b_scenario) document.getElementById('p1_breath_scenario').value = data.b_scenario; if(data.b_detail) document.getElementById('p1_breath_detail').value = data.b_detail; if(data.relax) document.getElementById('p1_relax_plan').value = data.relax; if(data.active) document.getElementById('p1_active_plan').value = data.active; if(data.inst) document.getElementById('p1_cue_inst').value = data.inst; if(data.mot) document.getElementById('p1_cue_mot').value = data.mot; if(data.jam) document.getElementById('p1_jam_scenario').value = data.jam; if(data.proc) document.getElementById('p1_goal_proc').value = data.proc; if(data.perf) document.getElementById('p1_goal_perf').value = data.perf; if(data.out) document.getElementById('p1_goal_out').value = data.out; if(data.smart_final) document.getElementById('p1_smart_final').value = data.smart_final; if(data.narr) document.getElementById('p1_final_narrative').value = data.narr; if(data.scores) { p1_scores = data.scores; Object.keys(p1_scores).forEach(c => { if(p1_scores[c]>0) p1_setScore(c, p1_scores[c]); }); } }
-        function p1_downloadBackup() { const data = p1_getFormData(); const blob = new Blob([JSON.stringify(data)], { type: "application/json" }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = "phase1-backup.json"; a.click(); }
-        function p1_loadBackup(input) { const file = input.files[0]; if(!file) return; const reader = new FileReader(); reader.onload = (e) => { p1_populate(JSON.parse(e.target.result)); alert("Phase 1 Data Loaded"); }; reader.readAsText(file); }
-        function p1_generatePDF() { 
-            const data = p1_getFormData(); 
-            const total = Object.values(p1_scores).reduce((a, b) => a + b, 0);
-            const scoreDetails = p1_cats.map(c => `<div style="display:flex; justify-content:space-between; border-bottom:1px solid #eee; padding:6px 0;"><span style="font-size:10px; font-weight:bold; color:#666; text-transform:uppercase;">${c.label}</span><span style="font-weight:900; font-style:italic;">${p1_scores[c.id] || 0}/5</span></div>`).join('');
-            const html = `<!DOCTYPE html><html><head><title>Elite Operator Report</title><link href="https://cdn.tailwindcss.com" rel="stylesheet"><style>body{font-family:sans-serif;padding:40px;color:black;background:white;line-height:1.3}.header{border-bottom:5px solid black;padding-bottom:10px;margin-bottom:25px}.section{margin-bottom:20px;border-left:4px solid black;padding-left:15px}.label{font-size:8px;font-weight:bold;text-transform:uppercase;color:#888}.val{font-size:13px;font-weight:900;font-style:italic;border-bottom:1px solid #ddd;margin-bottom:8px;min-height:18px;color:#111}.narr-val{font-size:11px;line-height:1.4;padding:12px;background:#f9f9f9;border-radius:8px;border:1px solid #eee;margin-top:5px}</style></head><body><div style="max-width:800px;margin:auto"><div class="header flex justify-between items-end"><div><h1 class="text-3xl font-black italic uppercase">Operator Report</h1><p style="font-size:10px;letter-spacing:3px;text-transform:uppercase;font-weight:bold">Regulation Engine Tactical Assessment</p></div><div style="text-align:right"><p style="font-size:10px;text-transform:uppercase;font-weight:bold">Mental Fitness Score</p><p style="font-size:40px;font-weight:900;font-style:italic;line-height:1">${total}/25</p></div></div><div class="grid grid-cols-2 gap-8"><div class="section" style="border-left-color:#f43f5e"><h2 style="font-size:12px;font-weight:900;text-transform:uppercase;margin-bottom:10px;color:#f43f5e">01 Stress Loop Reset</h2><div class="label">Deployment Scenario</div><div class="val">${data.b_scenario||'...'}</div><div class="label">Centering Action</div><div class="val">${data.b_detail||'...'}</div></div><div class="section" style="border-left-color:#f59e0b"><h2 style="font-size:12px;font-weight:900;text-transform:uppercase;margin-bottom:10px;color:#f59e0b">02 Arousal Tuning</h2><div class="label">Down-Regulation (PMR)</div><div class="val">${data.relax||'...'}</div><div class="label">Up-Regulation (Active)</div><div class="val">${data.active||'...'}</div></div></div><div class="grid grid-cols-2 gap-8"><div class="section" style="border-left-color:#10b981"><h2 style="font-size:12px;font-weight:900;text-transform:uppercase;margin-bottom:10px;color:#10b981">03 Targeting (Cues)</h2><div class="label">Instructional Cue</div><div class="val">${data.inst||'...'}</div><div class="label">Motivational Cue</div><div class="val">${data.mot||'...'}</div><div class="label">Jamming Scenario</div><div class="val" style="font-size:11px">${data.jam||'...'}</div></div><div class="section" style="border-left-color:#0ea5e9"><h2 style="font-size:12px;font-weight:900;text-transform:uppercase;margin-bottom:10px;color:#0ea5e9">04 Confidence (SMART)</h2><div class="label">Process Goal (100% Control)</div><div class="val">${data.proc||'...'}</div><div class="label">Full SMART Statement</div><div class="val" style="font-size:11px">${data.smart_final||'...'}</div></div></div><div class="section"><h2 style="font-size:12px;font-weight:900;text-transform:uppercase;margin-bottom:5px">Integration Narrative</h2><div class="narr-val">${data.narr||'---'}</div></div><div style="margin-top:20px;border-top:2px solid black;padding-top:15px"><h2 style="font-size:10px;font-weight:900;text-transform:uppercase;margin-bottom:8px">Evaluation Breakdown</h2>${scoreDetails}</div></div><script>window.onload=function(){setTimeout(function(){window.print()},500)};<\/script></body></html>`; 
-            const win = window.open('','_blank'); win.document.write(html); win.document.close(); 
-        }
+        const p1_cats = [
+  { id: 'reset', label: 'Stress Reset' },
+  { id: 'tune', label: 'Arousal Control' },
+  { id: 'focus', label: 'Attention Control' },
+  { id: 'goals', label: 'Confidence Build' },
+  { id: 'intel', label: 'Integration' }
+];
 
-        // --- PHASE 2A (VALUES) LOGIC ---
+const p1_storage_key = 'mentalfitness10_option2_phase1_assignment_v2';
+const p1_field_ids = [
+  'p1_threat_trigger',
+  'p1_breath_scenario',
+  'p1_somatic_signals',
+  'p1_cognitive_signals',
+  'p1_breath_detail',
+  'p1_interrupt_signal',
+  'p1_under_zone',
+  'p1_ideal_zone',
+  'p1_over_zone',
+  'p1_relax_plan',
+  'p1_active_plan',
+  'p1_internal_dist',
+  'p1_external_dist',
+  'p1_cue_inst',
+  'p1_cue_mot',
+  'p1_tunnel_sign',
+  'p1_jam_scenario',
+  'p1_fac_help',
+  'p1_fac_hurt',
+  'p1_situational_stressors',
+  'p1_personal_stressors',
+  'p1_goal_proc',
+  'p1_goal_perf',
+  'p1_goal_out',
+  'p1_smart_final',
+  'p1_final_narrative',
+  'p1_zone_summary',
+  'p1_crash_plan'
+];
+
+let p1_scores = { reset: 0, tune: 0, focus: 0, goals: 0, intel: 0 };
+let p1_current_step = 0;
+let p1_ready = false;
+
+function p1_byId(id) {
+  return document.getElementById(id);
+}
+
+function p1_totalScore() {
+  return Object.values(p1_scores).reduce((sum, value) => sum + Number(value || 0), 0);
+}
+
+function p1_updateScoreSummary() {
+  const totalEl = p1_byId('p1-score-total');
+  if (totalEl) totalEl.textContent = String(p1_totalScore()).padStart(2, '0');
+
+  document.querySelectorAll('#view-phase1 .score-btn').forEach((btn) => {
+    const active = Number(btn.dataset.p1Score) === Number(p1_scores[btn.dataset.p1Cat] || 0);
+    btn.classList.toggle('active', active);
+  });
+}
+
+function p1_showStep(step) {
+  p1_current_step = Math.max(0, Math.min(5, Number(step) || 0));
+
+  document.querySelectorAll('#view-phase1 .p1-step').forEach((panel, index) => {
+    panel.classList.toggle('hidden', index !== p1_current_step);
+  });
+
+  document.querySelectorAll('#view-phase1 .p1-step-btn').forEach((btn) => {
+    const active = Number(btn.dataset.p1Step) === p1_current_step;
+    btn.classList.toggle('active', active);
+  });
+
+  if (p1_ready) p1_saveData();
+}
+
+function p1_getFormData() {
+  const data = {};
+  p1_field_ids.forEach((id) => {
+    const field = p1_byId(id);
+    data[id] = field ? field.value : '';
+  });
+
+  data.scores = { ...p1_scores };
+  data.currentStep = p1_current_step;
+  data.updatedAt = new Date().toISOString();
+  return data;
+}
+
+function p1_saveData() {
+  try {
+    localStorage.setItem(p1_storage_key, JSON.stringify(p1_getFormData()));
+  } catch (error) {
+    console.warn('Phase 1 save failed', error);
+  }
+}
+
+function p1_populate(data) {
+  if (!data || typeof data !== 'object') return;
+
+  p1_field_ids.forEach((id) => {
+    const field = p1_byId(id);
+    if (field && typeof data[id] === 'string') field.value = data[id];
+  });
+
+  if (data.scores && typeof data.scores === 'object') {
+    p1_scores = {
+      reset: Number(data.scores.reset || 0),
+      tune: Number(data.scores.tune || 0),
+      focus: Number(data.scores.focus || 0),
+      goals: Number(data.scores.goals || 0),
+      intel: Number(data.scores.intel || 0)
+    };
+  }
+
+  p1_updateScoreSummary();
+  p1_showStep(data.currentStep ?? 0);
+}
+
+function p1_setScore(cat, value) {
+  if (!Object.prototype.hasOwnProperty.call(p1_scores, cat)) return;
+  p1_scores[cat] = Number(value || 0);
+  p1_updateScoreSummary();
+  p1_saveData();
+}
+
+function p1_downloadBackup() {
+  const blob = new Blob([JSON.stringify(p1_getFormData(), null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'mental-fitness-phase1-assignment-backup.json';
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+}
+
+function p1_loadBackup(file) {
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    try {
+      const parsed = JSON.parse(String(reader.result || '{}'));
+      p1_populate(parsed);
+      p1_saveData();
+    } catch (error) {
+      console.warn('Phase 1 backup load failed', error);
+      alert('That backup file could not be loaded.');
+    }
+  };
+  reader.readAsText(file);
+}
+function p1_linesForPdf(data) {
+  return [
+    ['Threat trigger', data.p1_threat_trigger],
+    ['Pressure scenario', data.p1_breath_scenario],
+    ['Somatic signals', data.p1_somatic_signals],
+    ['Cognitive signals', data.p1_cognitive_signals],
+    ['Centering / manual override', data.p1_breath_detail],
+    ['First interrupt signal', data.p1_interrupt_signal],
+    ['Under-activated zone', data.p1_under_zone],
+    ['Ideal zone', data.p1_ideal_zone],
+    ['Over-activated zone', data.p1_over_zone],
+    ['Down-regulation plan', data.p1_relax_plan],
+    ['Up-regulation plan', data.p1_active_plan],
+    ['Internal distractors', data.p1_internal_dist],
+    ['External distractors', data.p1_external_dist],
+    ['Instructional cue', data.p1_cue_inst],
+    ['Motivational cue', data.p1_cue_mot],
+    ['Tunnel vision warning', data.p1_tunnel_sign],
+    ['Jam scenario', data.p1_jam_scenario],
+    ['When nerves help', data.p1_fac_help],
+    ['When nerves hurt', data.p1_fac_hurt],
+    ['Situational stressors', data.p1_situational_stressors],
+    ['Personal stressors', data.p1_personal_stressors],
+    ['Process goal', data.p1_goal_proc],
+    ['Performance goal', data.p1_goal_perf],
+    ['Outcome goal', data.p1_goal_out],
+    ['SMART goal', data.p1_smart_final],
+    ['Operating summary', data.p1_final_narrative],
+    ['Zone summary', data.p1_zone_summary],
+    ['Crash-prevention plan', data.p1_crash_plan],
+    ['Scores', `Stress Reset ${data.scores.reset}/5 | Arousal ${data.scores.tune}/5 | Attention ${data.scores.focus}/5 | Confidence ${data.scores.goals}/5 | Integration ${data.scores.intel}/5 | Total ${p1_totalScore()}/25`]
+  ];
+}
+
+function p1_generatePDF() {
+  const data = p1_getFormData();
+  const total = Object.values(p1_scores).reduce((a, b) => a + Number(b || 0), 0);
+  const scoreDetails = p1_cats.map(c => `<div style="display:flex; justify-content:space-between; border-bottom:1px solid #eee; padding:6px 0;"><span style="font-size:10px; font-weight:bold; color:#666; text-transform:uppercase;">${c.label}</span><span style="font-weight:900; font-style:italic;">${p1_scores[c.id] || 0}/5</span></div>`).join('');
+  const html = `<!DOCTYPE html><html><head><title>Regulation Engine: Full System</title><link href="https://cdn.tailwindcss.com" rel="stylesheet"><style>body { font-family: sans-serif; padding: 40px; color: black; background: white; line-height: 1.3; } .header { border-bottom: 5px solid black; padding-bottom: 10px; margin-bottom: 25px; } .section { margin-bottom: 20px; border-left: 4px solid black; padding-left: 15px; } .label { font-size: 8px; font-weight: bold; text-transform: uppercase; color: #888; margin-bottom: 1px; } .val { font-size: 13px; font-weight: 900; font-style: italic; border-bottom: 1px solid black; margin-bottom: 12px; min-height: 22px; } .mini-val { font-size: 11px; line-height: 1.45; border-bottom: 1px solid black; padding-bottom: 6px; margin-bottom: 10px; min-height: 18px; font-style: italic; font-weight: 700; } .narr-val { font-size: 11px; line-height: 1.4; padding: 12px; background: #f9f9f9; border-radius: 8px; border: 1px solid #eee; margin-top: 5px; }</style></head><body><div style="max-width: 820px; margin: auto;"><div class="header flex justify-between items-end"><div><h1 class="text-3xl font-black italic uppercase">The Regulation Engine</h1><p style="font-size:10px; letter-spacing:3px; text-transform:uppercase; font-weight:bold;">Phase 1 Mastery Report</p></div><div style="text-align:right;"><p style="font-size:10px; text-transform:uppercase; font-weight:bold;">Mastery Score</p><p style="font-size:40px; font-weight:900; font-style:italic; line-height:1;">${total}/25</p></div></div><div class="grid grid-cols-2 gap-8"><div class="section"><h2 style="font-size:12px; font-weight:900; text-transform:uppercase; margin-bottom:10px; color:#0284c7;">Stress Reset</h2><div class="label">Threat Trigger</div><div class="val">${data.p1_threat_trigger || '---'}</div><div class="label">Pressure Scenario</div><div class="val">${data.p1_breath_scenario || '---'}</div><div class="label">Somatic Signals</div><div class="mini-val">${data.p1_somatic_signals || '---'}</div><div class="label">Cognitive Signals</div><div class="mini-val">${data.p1_cognitive_signals || '---'}</div><div class="label">Manual Override</div><div class="mini-val">${data.p1_breath_detail || '---'}</div><div class="label">First Interrupt Signal</div><div class="mini-val">${data.p1_interrupt_signal || '---'}</div></div><div class="section" style="border-left-color:#059669;"><h2 style="font-size:12px; font-weight:900; text-transform:uppercase; margin-bottom:10px; color:#059669;">Arousal Control</h2><div class="label">Under-Activated</div><div class="mini-val">${data.p1_under_zone || '---'}</div><div class="label">Ideal Zone</div><div class="mini-val">${data.p1_ideal_zone || '---'}</div><div class="label">Over-Activated</div><div class="mini-val">${data.p1_over_zone || '---'}</div><div class="label">Down-Regulation</div><div class="mini-val">${data.p1_relax_plan || '---'}</div><div class="label">Up-Regulation</div><div class="mini-val">${data.p1_active_plan || '---'}</div></div></div><div class="grid grid-cols-2 gap-8 mt-4"><div class="section"><h2 style="font-size:12px; font-weight:900; text-transform:uppercase; margin-bottom:10px;">Targeting</h2><div class="label">Internal Distractors</div><div class="mini-val">${data.p1_internal_dist || '---'}</div><div class="label">External Distractors</div><div class="mini-val">${data.p1_external_dist || '---'}</div><div class="label">Instructional Cue</div><div class="mini-val">${data.p1_cue_inst || '---'}</div><div class="label">Motivational Cue</div><div class="mini-val">${data.p1_cue_mot || '---'}</div><div class="label">Tunnel Vision Warning</div><div class="mini-val">${data.p1_tunnel_sign || '---'}</div><div class="label">Jam Scenario</div><div class="mini-val">${data.p1_jam_scenario || '---'}</div></div><div class="section" style="border-left-color:#f59e0b;"><h2 style="font-size:12px; font-weight:900; text-transform:uppercase; margin-bottom:10px; color:#d97706;">Confidence Build</h2><div class="label">When Nerves Help</div><div class="mini-val">${data.p1_fac_help || '---'}</div><div class="label">When Nerves Hurt</div><div class="mini-val">${data.p1_fac_hurt || '---'}</div><div class="label">Situational Stressors</div><div class="mini-val">${data.p1_situational_stressors || '---'}</div><div class="label">Personal Stressors</div><div class="mini-val">${data.p1_personal_stressors || '---'}</div><div class="label">Goals</div><div class="mini-val"><b>Process:</b> ${data.p1_goal_proc || '---'}<br><b>Performance:</b> ${data.p1_goal_perf || '---'}<br><b>Outcome:</b> ${data.p1_goal_out || '---'}</div><div class="label">SMART Goal</div><div class="mini-val">${data.p1_smart_final || '---'}</div></div></div><div class="section" style="border-left-color:#0ea5e9;"><h2 style="font-size:12px; font-weight:900; text-transform:uppercase; margin-bottom:5px; color:#0ea5e9;">Integration Narrative</h2><div class="narr-val">${data.p1_final_narrative || '---'}</div><div class="label" style="margin-top:12px;">Zone Summary</div><div class="mini-val">${data.p1_zone_summary || '---'}</div><div class="label">Crash-Prevention Plan</div><div class="mini-val">${data.p1_crash_plan || '---'}</div></div><div style="margin-top:20px; border-top:2px solid black; padding-top:15px;"><h2 style="font-size:10px; font-weight:900; text-transform:uppercase; margin-bottom:8px;">Self-Evaluation Results</h2>${scoreDetails}</div></div><script>window.onload = function() { setTimeout(function() { window.print(); }, 500); };<\/script></body></html>`;
+  const win = window.open('', '_blank');
+  if (!win) {
+    alert('Allow popups to generate the blueprint report.');
+    return;
+  }
+  win.document.write(html);
+  win.document.close();
+}
+function p1_init() {
+  const root = p1_byId('view-phase1');
+  if (!root || root.dataset.p1Bound === 'true') return;
+  root.dataset.p1Bound = 'true';
+
+  document.querySelectorAll('#view-phase1 [data-p1-step]').forEach((btn) => {
+    btn.addEventListener('click', () => p1_showStep(btn.dataset.p1Step));
+  });
+
+  document.querySelectorAll('#view-phase1 [data-p1-field]').forEach((field) => {
+    field.addEventListener('input', p1_saveData);
+    field.addEventListener('change', p1_saveData);
+  });
+
+  document.querySelectorAll('#view-phase1 .score-btn').forEach((btn) => {
+    btn.addEventListener('click', () => p1_setScore(btn.dataset.p1Cat, btn.dataset.p1Score));
+  });
+
+  const loadInput = p1_byId('p1-load-file');
+  const loadBtn = p1_byId('p1-load-backup');
+  if (loadBtn && loadInput) {
+    loadBtn.addEventListener('click', () => loadInput.click());
+    loadInput.addEventListener('change', (event) => {
+      const target = event.target;
+      p1_loadBackup(target.files && target.files[0]);
+      target.value = '';
+    });
+  }
+
+  const saveBtn = p1_byId('p1-download-backup');
+  if (saveBtn) saveBtn.addEventListener('click', p1_downloadBackup);
+
+  const pdfBtn = p1_byId('p1-generate-pdf');
+  if (pdfBtn) pdfBtn.addEventListener('click', p1_generatePDF);
+
+  try {
+    const existing = localStorage.getItem(p1_storage_key);
+    if (existing) p1_populate(JSON.parse(existing));
+    else {
+      p1_updateScoreSummary();
+      p1_showStep(0);
+    }
+  } catch (error) {
+    console.warn('Phase 1 load failed', error);
+    p1_updateScoreSummary();
+    p1_showStep(0);
+  }
+
+  p1_ready = true;
+  p1_saveData();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', p1_init, { once: true });
+} else {
+  p1_init();
+}
+
+// --- PHASE 2A (VALUES) LOGIC ---
         const vb_cats = [ { id: 'clar', label: 'Values Clarification' }, { id: 'depth', label: 'Alignment Depth' }, { id: 'sys', label: 'System Awareness' }, { id: 'supp', label: 'Support & Self-Care' }, { id: 'audit', label: 'Integrity Audit' } ];
         let vb_scores = { clar: 0, depth: 0, sys: 0, supp: 0, audit: 0 };
         const allValues = ["Accountability", "Achievement", "Activism", "Adaptability", "Adventure", "Altruism", "Ambition", "Authenticity", "Balance", "Commitment", "Community", "Compassion", "Courage", "Creativity", "Curiosity", "Efficiency", "Equality", "Excellence", "Fairness", "Faith", "Freedom", "Generosity", "Gratitude", "Growth", "Harmony", "Health", "Honesty", "Integrity", "Intuition", "Joy", "Justice", "Kindness", "Leadership", "Learning", "Love", "Loyalty", "Optimism", "Peace", "Respect", "Responsibility", "Service", "Simplicity", "Success", "Teamwork", "Trust", "Vulnerability", "Wisdom"];
