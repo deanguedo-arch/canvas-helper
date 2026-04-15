@@ -430,49 +430,79 @@ const QUIZZES = [
     title: 'Arousal and Anxiety in Sport',
     accent: '#00ff7f',
     phaseId: 'phase-1',
-    body: '10 short-response questions extracted from the end of the Phase 1 lesson.',
+    body: '10 multiple-choice questions on arousal, anxiety, stress, and regulation with answer-key explanations.',
     questionCount: 10,
     sourcePdf: './assets/readings/phase1-engine-content.pdf',
     questions: [
       {
-        prompt: 'How do sport psychologists distinguish between arousal and anxiety?',
-        answer: 'Arousal is a neutral level of physiological and psychological activation. Anxiety is a negative emotional state marked by worry, apprehension, and physical tension.'
+        id: 'phase1-q1',
+        question: 'An athlete describes their pre-competition state as "neutral energy," characterized by high heart rate and mental activation, yet they explicitly report an absence of worry or apprehension. Which concept is being described?',
+        choices: ['State Anxiety', 'Arousal', 'Trait Anxiety', 'Cognitive Stress'],
+        answerIndex: 1,
+        explanation: 'The source defines arousal as neutral energy and a blend of physiological and psychological activation. Because the athlete does not report worry or apprehension, this is not anxiety.'
       },
       {
-        prompt: 'Explain the difference between state anxiety and trait anxiety.',
-        answer: 'State anxiety is temporary and changes from moment to moment. Trait anxiety is a stable disposition that makes some people more likely to perceive situations as threatening.'
+        id: 'phase1-q2',
+        question: 'Two Olympic sprinters face the same qualifying heat. Sprinter A views the event as a minor hurdle, while Sprinter B views the same event as a significant threat to their self-worth. This difference in perception is primarily driven by a difference in:',
+        choices: ['Somatic Activation', 'State Anxiety', 'Trait Anxiety', 'Attentional Control'],
+        answerIndex: 2,
+        explanation: 'Trait anxiety is the stable personality disposition that makes some people more likely to interpret objectively similar demands as threatening. State anxiety is the result of that appraisal, not the underlying cause.'
       },
       {
-        prompt: 'What occurs during the "Perception of Demand" stage in the stress process loop?',
-        answer: 'The performer evaluates the demand and decides whether it feels manageable or threatening. That interpretation becomes the pivot point for the rest of the stress response.'
+        id: 'phase1-q3',
+        question: 'A professional golfer reports "butterflies" in their stomach, profuse sweating, and muscle tension immediately before a decisive putt. According to the Multidimensional Anxiety Theory, these are indicators of:',
+        choices: ['Somatic State Anxiety', 'Cognitive State Anxiety', 'Attentional Search Patterns', 'Behavioral Consequences'],
+        answerIndex: 0,
+        explanation: 'Somatic state anxiety covers the moment-to-moment physical sensations of activation such as sweating, butterflies, and muscle tension. Cognitive state anxiety refers to worry, self-talk, and apprehensive thought.'
       },
       {
-        prompt: 'Describe the primary difference between the Inverted-U Hypothesis and the IZOF model.',
-        answer: 'The Inverted-U assumes a shared moderate optimum. IZOF argues that each athlete has a personal optimal zone that may sit low, middle, or high on the continuum.'
+        id: 'phase1-q4',
+        question: 'Within the Four-Stage Stress Process, which stage is identified as the "Pivot Point" where a demand is appraised as either a challenge or a threat?',
+        choices: ['Environmental Demand (Stage 1)', 'Individual\'s Perception of Demand (Stage 2)', 'Stress Response (Stage 3)', 'Behavioral Consequences (Stage 4)'],
+        answerIndex: 1,
+        explanation: 'Stage 2, Perception of Demand, is the pivot point because the athlete interprets the objective load as manageable or threatening there. That appraisal determines whether the later stress response escalates or stays controlled.'
       },
       {
-        prompt: 'What is the "Catastrophe Phenomenon," and what two factors must be high for it to occur?',
-        answer: 'The Catastrophe Phenomenon is a sudden performance collapse rather than a gradual decline. It occurs when both cognitive anxiety and physiological arousal are high.'
+        id: 'phase1-q5',
+        question: 'Which hypothesis postulates that an athlete\'s performance will increase up to an optimal midpoint of arousal, after which any further increase in arousal will cause a gradual decline in performance?',
+        choices: ['Drive Theory', 'Catastrophe Phenomenon', 'Inverted-U Hypothesis', 'Individualized Zones of Optimal Functioning (IZOF)'],
+        answerIndex: 2,
+        explanation: 'The Inverted-U Hypothesis describes a curvilinear relationship where performance peaks at a moderate level of arousal and then declines as arousal keeps rising. Drive Theory is the simpler linear model that this question rules out.'
       },
       {
-        prompt: "How does high arousal affect an athlete's attentional field?",
-        answer: 'High arousal narrows attention too much and can create tunnel vision. The performer may miss important peripheral cues or changing conditions.'
+        id: 'phase1-q6',
+        question: 'Athlete X requires a very high level of state anxiety to perform at their peak, while Athlete Y performs best when state anxiety is extremely low. This phenomenon, which argues that optimal arousal is not always a midpoint, is known as:',
+        choices: ['Reversal Theory', 'Individualized Zones of Optimal Functioning (IZOF)', 'The Inverted-U Hypothesis', 'Drive Theory'],
+        answerIndex: 1,
+        explanation: 'IZOF argues that athletes have different personal bandwidths for best performance. It rejects the assumption that everyone shares the same ideal midpoint of arousal.'
       },
       {
-        prompt: "According to Jones's model, what determines whether anxiety is facilitative or debilitative?",
-        answer: 'Perception of control is the key factor. Anxiety is more facilitative when the athlete believes they have the resources to meet the challenge.'
+        id: 'phase1-q7',
+        question: 'According to the Catastrophe Model, what is the predicted outcome when an athlete experiences high cognitive state anxiety (worry) combined with physiological arousal that exceeds their optimal threshold?',
+        choices: ['A gradual, linear decline in performance.', 'A rapid, dramatic performance crash that is difficult to reverse.', 'A shift into a facilitative flow state.', 'A steady improvement in performance due to high drive.'],
+        answerIndex: 1,
+        explanation: 'The Catastrophe Model predicts a cliff-edge drop rather than a smooth slide when high worry and high arousal combine. Recovery is difficult and usually requires relaxation, cognitive reset, and controlled reactivation.'
       },
       {
-        prompt: 'Why is breathing considered a "manual override switch" for the stress response?',
-        answer: 'Breathing is one of the few body processes under both voluntary and autonomic influence. Slowing the breath can interrupt the stress loop and restore control.'
+        id: 'phase1-q8',
+        question: 'When an athlete becomes over-aroused and experiences tunnel vision, focusing exclusively on a narrow central task while failing to detect critical peripheral cues, they are suffering from:',
+        choices: ['Attentional Narrowing', 'Too Broad / Distracted focus', 'Internal Focus', 'Broad External Focus'],
+        answerIndex: 0,
+        explanation: 'Attentional narrowing is the system fault created by high arousal. The athlete filters too aggressively and loses access to relevant peripheral information.'
       },
       {
-        prompt: 'Explain the difference between instructional and motivational cue words.',
-        answer: 'Instructional cues direct attention to technique and mechanics. Motivational cues restore effort, energy, and intensity.'
+        id: 'phase1-q9',
+        question: 'Why is rhythmic diaphragmatic breathing, known as Centering, classified as a manual override in the Elite Operator Toolkit?',
+        choices: ['It is the only physiological function under both voluntary and autonomic control.', 'It functions as a motivational cue word to increase intensity.', 'It serves as a cognitive restructuring technique to eliminate worry.', 'It is a strategy used exclusively for psyching up the nervous system.'],
+        answerIndex: 0,
+        explanation: 'Breathing is uniquely positioned under both voluntary and autonomic control, which lets the athlete directly interrupt the stress loop and send a safety signal back through the system.'
       },
       {
-        prompt: 'Why should athletes prioritize process goals over outcome goals to manage anxiety?',
-        answer: 'Process goals focus on actions that are fully controllable, which stabilizes confidence and reduces uncertainty. Outcome goals depend on many external factors and therefore raise anxiety more easily.'
+        id: 'phase1-q10',
+        question: 'According to Martens (1987), which two factors are the primary situational sources of stress in competitive environments?',
+        choices: ['Trait Anxiety and Self-Esteem', 'Event Importance and Uncertainty', 'Social Facilitation and Arousal', 'Motivation and Goal Specificity'],
+        answerIndex: 1,
+        explanation: 'Martens identifies event importance and uncertainty as the two main situational stressors. Personal variables such as trait anxiety and self-esteem matter too, but they are not the situational sources asked for here.'
       }
     ]
   }
@@ -638,6 +668,246 @@ const PHASE_CONTENT = {
   }
 };
 
+// DOCX-derived Phase 1 rebuild
+PHASE_CONTENT['phase-1'] = {
+  eyebrow: 'Phase 1 lesson',
+  heading: 'Mastering the Performance State',
+  subheading: 'A Comprehensive Study Guide on Arousal, Stress, and Anxiety',
+  summary: '',
+  sourcePdf: './assets/readings/phase1-engine-content.pdf',
+  quizId: 'quiz-phase1-performance-state',
+  heroFigure: {
+    src: './assets/readings/phase1-figures/phase1-hero-athlete.png',
+    alt: 'Mental performance athlete silhouette with focus, control, and execution themes',
+    caption: 'Mental performance athlete visual built around focus, control, and execution.'
+  },
+  keyIdeas: [
+    'Build a clear mental model of arousal, stress, and anxiety.',
+    'See why attention and coordination change under pressure.',
+    'Learn the practical tools that move you back toward control.'
+  ],
+  sections: [
+    {
+      title: 'Inside This Chapter',
+      paragraphs: [
+        'How elite performers regulate energy, attention, and control under pressure.',
+        'Designed as a textbook-style chapter for fast study, clean skimming, and practical review.',
+        'This guide synthesizes the core psychological principles that govern performance readiness. The central task is not to eliminate arousal or pressure, but to regulate them so that energy, attention, and execution stay aligned with the demands of the moment.',
+        'Notice the repeated pattern running through the chapter: environmental demands are filtered through perception, which shapes arousal, anxiety, attention, and ultimately performance. The best tools work because they help the performer regain a sense of control.'
+      ],
+      bullets: [
+        'Foundations of mental fitness and the Ideal Performance State (IPS)',
+        'How arousal, stress, and anxiety differ',
+        'The four-stage stress process loop',
+        'Major arousal-performance theories',
+        'Sources of stress and anxiety in sport',
+        'Why arousal changes coordination and attention',
+        'Regulation tools: breathing, PMR, activation, cue words, and SMART goals',
+        'Glossary of key terms for review'
+      ]
+    },
+    {
+      title: '1. Foundations of Mental Fitness',
+      paragraphs: [
+        'Mental fitness is the ability to regulate psychological and physiological states so they match the demands of sport, art, or academics. Unlike physical fitness, which emphasizes bodily capacity, mental fitness emphasizes consistency, resilience, persistence, and focus.',
+        'Elite performers often describe their best moments as entering the zone or a state of flow. In this state, attention is highly stable, action feels smooth rather than forced, and performance becomes easier to reproduce.',
+        'In practical terms, the Ideal Performance State is recognizable through three recurring markers.',
+        'Performance can drift away from the ideal state in two directions. Too little arousal produces flatness and boredom. Too much pressure can generate panic, disruption, and even choking.'
+      ],
+      bullets: [
+        'Supreme focus: total absorption in the task.',
+        'Effortless execution: performance feels automatic and fluid.',
+        'Reproducibility: the state can be reached consistently, not just by accident.',
+        'Apathy / boredom: under-arousal or too little challenge pulls the performer below the ideal state.',
+        'Panic / choking: extreme pressure and overload push performance toward collapse.'
+      ],
+      figures: [
+        {
+          src: './assets/readings/phase1-figures/phase1-arousal-continuum.png',
+          alt: 'Arousal continuum and middle performance zone',
+          caption: 'Figure 1. Arousal lives on a continuum. Peak performance often sits inside a controllable middle zone.'
+        }
+      ]
+    },
+    {
+      title: '2. Defining the Key Constructs',
+      paragraphs: [
+        'Sport psychologists separate arousal, anxiety, and stress because each describes a different part of the performance picture. Keeping the terms distinct makes it easier to diagnose what is happening and select the right regulation strategy.',
+        'Anxiety has cognitive and somatic components.',
+        'State anxiety versus trait anxiety is one of the most important practical distinctions in the chapter.'
+      ],
+      bullets: [
+        'Cognitive anxiety: the cognitive component includes negative thoughts, worry, self-doubt, and fear of failure.',
+        'Somatic anxiety: the somatic component refers to perceived physiological activation such as butterflies, sweating, shaky muscles, and a racing heart.',
+        'State anxiety is the right now emotional condition of the performer.',
+        'Trait anxiety is the stable tendency to interpret objectively safe situations as threatening.'
+      ],
+      table: {
+        headers: ['Arousal', 'Anxiety', 'Stress'],
+        rows: [
+          [
+            'A blend of physiological and psychological activation. It is the intensity level of motivation at a given moment, and it can range from sleep to frenzy.',
+            'A specifically negative emotional state marked by worry, apprehension, and perceived bodily activation.',
+            'A substantial imbalance between demands and response capability when the consequences of failure matter.'
+          ],
+          [
+            'Quick distinction',
+            'State anxiety is the right now emotional condition of the performer.',
+            'Trait anxiety is the stable tendency to interpret objectively safe situations as threatening.'
+          ]
+        ]
+      }
+    },
+    {
+      title: '3. The Stress Process Loop',
+      paragraphs: [
+        'Stress unfolds as a cycle rather than a single event. A demand appears, the demand is interpreted, the body and mind react, and the resulting performance feeds back into the next experience.',
+        'Figure 2. Perception of demand is the pivot point in the stress process.'
+      ],
+      bullets: [
+        'Environmental demand: Stage 1 begins with an environmental demand such as a penalty kick, a difficult exam, or a public performance.',
+        'Perception of demand: Stage 2 is the evaluation of that demand. One person sees a challenge; another sees a threat.',
+        'Stress response: Stage 3 includes the stress response itself: rising arousal, state anxiety, muscle tension, and attentional changes.',
+        'Behavioral consequences: Stage 4 is the behavioral consequence, the actual performance result, which then shapes future demands.'
+      ],
+      figures: [
+        {
+          src: './assets/readings/phase1-figures/phase1-stress-process.png',
+          alt: 'Stress process loop diagram',
+          caption: 'Figure 2. Perception of demand is the pivot point in the stress process.'
+        }
+      ],
+      table: {
+        headers: ['Why the loop matters', 'Explanation'],
+        rows: [
+          [
+            'Why the loop matters',
+            'If a performer repeatedly interprets pressure situations as threats and then performs poorly, that outcome becomes part of the next loop. The cycle can snowball unless interpretation or regulation changes.'
+          ]
+        ]
+      }
+    },
+    {
+      title: '4. Theories of Arousal and Performance',
+      paragraphs: [
+        'Several theories try to explain how arousal and anxiety influence performance. The key difference between them is whether they assume a universal pattern, an individual pattern, or the possibility of sudden collapse under pressure.',
+        'Jones\' model adds one more important lens: anxiety is not automatically good or bad. Its impact depends on whether the athlete perceives enough control and resources to meet the challenge.'
+      ],
+      figures: [
+        {
+          src: './assets/readings/phase1-figures/phase1-arousal-theories.png',
+          alt: 'Comparison of arousal and performance theories',
+          caption: 'Figure 3. Major theories offer different models of how arousal relates to performance.'
+        }
+      ],
+      table: {
+        headers: ['Theory', 'Description', 'Key takeaway'],
+        rows: [
+          ['Drive Theory', 'A direct linear relationship between arousal and performance.', 'Useful historically, but too simple for most real performances.'],
+          ['Inverted-U', 'Performance rises to an optimal midpoint and then falls as arousal keeps increasing.', 'There is often a sweet spot rather than a more is always better rule.'],
+          ['IZOF', 'Each athlete has an individual range of state anxiety that supports best performance.', 'The best zone is personal, not universal.'],
+          ['Multidimensional Anxiety Theory', 'Cognitive anxiety is proposed to hurt performance while somatic anxiety follows an inverted-U pattern.', 'Research support is mixed, especially for the idea that worry always harms performance.'],
+          ['Catastrophe Phenomenon', 'High cognitive anxiety plus high physiological arousal can trigger a sharp drop instead of a gentle decline.', 'Choking can be sudden and hard to reverse.'],
+          ['Reversal Theory', 'The meaning attached to arousal changes its effect.', 'High activation can feel like excitement or like anxiety depending on interpretation.'],
+          ['Jones\' model', 'Anxiety is not automatically good or bad.', 'Its impact depends on whether the athlete perceives enough control and resources to meet the challenge.']
+        ]
+      }
+    },
+    {
+      title: '5. Sources of Stress and Anxiety',
+      paragraphs: [
+        'Stress can originate in the situation itself or in personal dispositions that shape how the situation is interpreted.'
+      ],
+      table: {
+        headers: ['Source type', 'Example', 'Why it matters'],
+        rows: [
+          ['Situational', 'Event importance', 'High-stakes contests, evaluations, and championships raise perceived pressure.'],
+          ['Situational', 'Uncertainty', 'Unknown outcomes and unclear evaluations make situations more stressful.'],
+          ['Personal', 'Trait anxiety', 'Highly trait-anxious people interpret more situations as threatening.'],
+          ['Personal', 'Self-esteem', 'Lower self-esteem is linked to higher state anxiety.'],
+          ['Personal', 'Social physique anxiety', 'Worry about how others evaluate one\'s body can elevate stress in performance and fitness settings.']
+        ]
+      }
+    },
+    {
+      title: '6. Why Arousal Changes Performance',
+      paragraphs: [
+        'Arousal and state anxiety influence performance through at least two important pathways: coordination and attention.',
+        'High stress can increase soreness, fatigue, and unwanted muscle tension. Movements that are normally coordinated begin to feel tight, choppy, or overcontrolled.',
+        'At low arousal, attention is often too broad and distractible. At an optimal level, attention narrows just enough to filter out noise. At very high arousal, attention may narrow too far, creating tunnel vision.',
+        'Figure 4. Attention must narrow enough to focus, but not so much that critical cues disappear.'
+      ],
+      figures: [
+        {
+          src: './assets/readings/phase1-figures/phase1-attention-field.png',
+          alt: 'Attention field narrowing under arousal',
+          caption: 'Figure 4. Attention must narrow enough to focus but not so much that critical cues disappear.'
+        }
+      ]
+    },
+    {
+      title: '7. The Elite Operator Toolkit',
+      paragraphs: [
+        'Elite athletes are not defined by the absence of stress. They stand out because they detect changes in arousal quickly and regulate them faster than less skilled performers.',
+        'Figure 5. Regulation tools are practical methods for tuning the performance state.',
+        'The more controllable the goal, the more stabilizing it becomes under pressure.'
+      ],
+      bullets: [
+        'Tool 1: Breathing. Deep rhythmic diaphragmatic breathing acts like a manual reset. Because breathing can be influenced voluntarily, it can interrupt the stress response and anchor attention in the present.',
+        'Tool 2: Activation and relaxation. Progressive Muscle Relaxation (PMR) reduces excess somatic tension by systematically tensing and releasing muscle groups. Activation strategies such as music, movement, and imagery raise arousal when energy is too low.',
+        'Tool 3: Cue words. Instructional cue words target mechanics, such as smooth or follow through, when execution is sloppy. Motivational cue words, such as explode or dig deep, lift effort when energy fades.',
+        'Tool 4: SMART goals. Goals reduce anxiety when they move attention from the uncontrollable to the controllable: outcome goals create pressure, performance goals offer partial control, and process goals give the most stability.'
+      ],
+      figures: [
+        {
+          src: './assets/readings/phase1-figures/phase1-regulation-tools.png',
+          alt: 'Regulation tools for tuning the performance state',
+          caption: 'Figure 5. Regulation tools are practical methods for tuning the performance state.'
+        },
+        {
+          src: './assets/readings/phase1-figures/phase1-goal-control.png',
+          alt: 'Goal controllability figure',
+          caption: 'Figure 6. The more controllable the goal, the more stabilizing it becomes under pressure.'
+        }
+      ],
+      table: {
+        headers: ['When you notice...', 'Likely issue', 'Best first move'],
+        rows: [
+          ['Flat energy or boredom', 'Under-arousal', 'Activate with movement, rhythm, music, or imagery.'],
+          ['Tight muscles and racing thoughts', 'Over-arousal', 'Slow the breath and reduce somatic tension.'],
+          ['Sloppy mechanics', 'Attention is drifting', 'Use one instructional cue word.'],
+          ['Effort fading late', 'Intensity drop', 'Use a motivational cue and process goal.']
+        ]
+      }
+    },
+    {
+      title: 'Glossary of Key Terms',
+      paragraphs: [
+        'Core vocabulary for quick review.'
+      ],
+      glossary: [
+        ['Arousal', 'A blend of physiological and psychological activity that reflects the intensity of motivation at a particular moment.'],
+        ['Anxiety', 'A negative emotional state characterized by nervousness, worry, and apprehension associated with bodily activation.'],
+        ['Catastrophe Model', 'A model proposing that performance can suddenly decline when high cognitive anxiety combines with high physiological arousal.'],
+        ['Cognitive State Anxiety', 'The degree to which a person experiences negative thoughts and worry in the moment.'],
+        ['Debilitative Anxiety', 'Anxiety interpreted as harmful to performance.'],
+        ['Facilitative Anxiety', 'Anxiety interpreted as helpful or energizing for performance.'],
+        ['Ideal Performance State (IPS)', 'A state of supreme focus and effortless execution often referred to as the zone.'],
+        ['Individualized Zones of Optimal Functioning (IZOF)', 'The idea that each athlete has a personal range of state anxiety linked to best performance.'],
+        ['Inverted-U Hypothesis', 'A theory stating that performance is best at a moderate level of arousal and poorer at very high or very low levels.'],
+        ['Mental Fitness', 'The ability to regulate psychological and physiological states to meet environmental demands.'],
+        ['Perception of Control', 'The degree to which a person believes they have the resources and ability to meet a challenge.'],
+        ['Progressive Muscle Relaxation (PMR)', 'A technique that reduces physical tension through systematic muscle tensing and releasing.'],
+        ['SMART Goals', 'Goals that are specific, measurable, achievable, relevant, and time-bound.'],
+        ['Social Physique Anxiety', 'Anxiety caused by the perception that others are evaluating one\'s body or physique.'],
+        ['Somatic State Anxiety', 'Moment-to-moment perceived physiological activation such as butterflies, sweating, or a racing heart.'],
+        ['Stress', 'A substantial imbalance between demand and response capability under conditions where the consequences matter.'],
+        ['Trait Anxiety', 'A stable disposition that makes some people more likely to perceive situations as threatening.']
+      ]
+    }
+  ]
+};
+
 const ASSIGNMENT_RUNTIME_VIEW = {
   a0: 'intro',
   a1: 'phase1',
@@ -670,12 +940,173 @@ const state = {
   activeMaterialId: null
 };
 
+const AUTHORING_UNLOCK_ALL = true;
+const COURSE_PROGRESS_KEY = 'mentalwellness10-option2.course-progress.v1';
+const PHASE_ASSIGNMENT_MAP = {
+  'phase-0': ['a0'],
+  'phase-1': ['a1'],
+  'phase-2': ['a2a', 'a2b'],
+  'phase-3': ['a3'],
+  'phase-4': ['a4a', 'a4b']
+};
+const ASSIGNMENT_PHASE_MAP = Object.fromEntries(
+  Object.entries(PHASE_ASSIGNMENT_MAP).flatMap(([phaseId, assignmentIds]) => assignmentIds.map((assignmentId) => [assignmentId, phaseId]))
+);
+const PHASE_QUIZ_MAP = Object.fromEntries(QUIZZES.filter((item) => item.phaseId).map((item) => [item.phaseId, item.id]));
+
+function loadCourseProgress() {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(COURSE_PROGRESS_KEY) || '{}');
+    return {
+      completedPhases: parsed.completedPhases && typeof parsed.completedPhases === 'object' ? parsed.completedPhases : {},
+      passedQuizzes: parsed.passedQuizzes && typeof parsed.passedQuizzes === 'object' ? parsed.passedQuizzes : {},
+      quizAttempts: parsed.quizAttempts && typeof parsed.quizAttempts === 'object' ? parsed.quizAttempts : {},
+      quizScores: parsed.quizScores && typeof parsed.quizScores === 'object' ? parsed.quizScores : {}
+    };
+  } catch (error) {
+    return {
+      completedPhases: {},
+      passedQuizzes: {},
+      quizAttempts: {},
+      quizScores: {}
+    };
+  }
+}
+
+const courseProgress = loadCourseProgress();
+
+function saveCourseProgress() {
+  localStorage.setItem(COURSE_PROGRESS_KEY, JSON.stringify(courseProgress));
+}
+
+function getPhaseById(phaseId) {
+  return PHASES.find((item) => item.id === phaseId) || null;
+}
+
+function getQuizById(quizId) {
+  return QUIZZES.find((item) => item.id === quizId) || null;
+}
+
+function getPhaseIndex(phaseId) {
+  return PHASES.findIndex((item) => item.id === phaseId);
+}
+
+function getNextPhase(phaseId) {
+  const nextIndex = getPhaseIndex(phaseId) + 1;
+  return PHASES[nextIndex] || null;
+}
+
+function getQuizForPhase(phaseId) {
+  return getQuizById(PHASE_QUIZ_MAP[phaseId] || '');
+}
+
+function getAssignmentsForPhase(phaseId) {
+  return (PHASE_ASSIGNMENT_MAP[phaseId] || []).map((assignmentId) => ASSIGNMENTS.find((item) => item.id === assignmentId)).filter(Boolean);
+}
+
+function isPhaseComplete(phaseId) {
+  return !!courseProgress.completedPhases[phaseId];
+}
+
+function isQuizPassed(quizId) {
+  return !!courseProgress.passedQuizzes[quizId];
+}
+
+function isPhaseUnlocked(phaseId) {
+  if (AUTHORING_UNLOCK_ALL) return true;
+  const phaseIndex = getPhaseIndex(phaseId);
+  if (phaseIndex <= 0) return true;
+  const previousPhase = PHASES[phaseIndex - 1];
+  const previousQuiz = getQuizForPhase(previousPhase.id);
+  return previousQuiz ? isQuizPassed(previousQuiz.id) : isPhaseComplete(previousPhase.id);
+}
+
+function isQuizUnlocked(quizId) {
+  if (AUTHORING_UNLOCK_ALL) return true;
+  const quiz = getQuizById(quizId);
+  return quiz ? isPhaseComplete(quiz.phaseId) : true;
+}
+
+function isAssignmentUnlocked(assignmentId) {
+  if (AUTHORING_UNLOCK_ALL) return true;
+  const phaseId = ASSIGNMENT_PHASE_MAP[assignmentId];
+  if (!phaseId) return true;
+  const linkedQuiz = getQuizForPhase(phaseId);
+  return linkedQuiz ? isQuizPassed(linkedQuiz.id) : isPhaseComplete(phaseId);
+}
+
+function getPhaseUnlockRequirement(phaseId) {
+  const phaseIndex = getPhaseIndex(phaseId);
+  if (phaseIndex <= 0) {
+    return 'Available now.';
+  }
+
+  const previousPhase = PHASES[phaseIndex - 1];
+  const previousQuiz = getQuizForPhase(previousPhase.id);
+  if (previousQuiz) {
+    return `Pass ${previousQuiz.code} with 70% to unlock.`;
+  }
+  return `Mark ${previousPhase.code} complete to unlock.`;
+}
+
+function getQuizUnlockRequirement(quizId) {
+  const quiz = getQuizById(quizId);
+  if (!quiz) return 'Locked.';
+  const phase = getPhaseById(quiz.phaseId);
+  return phase ? `Mark ${phase.code} complete to unlock.` : 'Locked.';
+}
+
+function getAssignmentUnlockRequirement(assignmentId) {
+  const phaseId = ASSIGNMENT_PHASE_MAP[assignmentId];
+  const phase = getPhaseById(phaseId);
+  const linkedQuiz = getQuizForPhase(phaseId);
+  if (linkedQuiz) {
+    return `Pass ${linkedQuiz.code} with 70% to unlock.`;
+  }
+  return phase ? `Mark ${phase.code} complete to unlock.` : 'Locked.';
+}
+
+function markPhaseComplete(phaseId) {
+  if (isPhaseComplete(phaseId)) return;
+  courseProgress.completedPhases[phaseId] = true;
+  saveCourseProgress();
+  render();
+}
+
+function submitQuizResult(quizId, scorePercent) {
+  courseProgress.quizAttempts[quizId] = (courseProgress.quizAttempts[quizId] || 0) + 1;
+  courseProgress.quizScores[quizId] = Math.max(courseProgress.quizScores[quizId] || 0, scorePercent);
+  if (scorePercent >= 70) {
+    courseProgress.passedQuizzes[quizId] = true;
+  }
+  saveCourseProgress();
+  render();
+}
+
+function getProgressSnapshot() {
+  const completedPhases = PHASES.filter((item) => isPhaseComplete(item.id)).length;
+  const passedQuizzes = QUIZZES.filter((item) => isQuizPassed(item.id)).length;
+  const total = PHASES.length + QUIZZES.length;
+  const complete = completedPhases + passedQuizzes;
+  return {
+    completedPhases,
+    totalPhases: PHASES.length,
+    passedQuizzes,
+    totalQuizzes: QUIZZES.length,
+    total,
+    complete,
+    percent: total ? Math.round((complete / total) * 100) : 0
+  };
+}
+
 const refs = {
   sectionTitle: document.getElementById('section-title'),
   contentBody: document.getElementById('content-body'),
   progressShell: document.querySelector('.progress-shell'),
   progressFill: document.getElementById('progress-fill'),
   progressPercent: document.getElementById('progress-percent'),
+  progressCounters: Array.from(document.querySelectorAll('.progress-counters span')),
+  progressModulesCount: document.querySelector('.progress-meta strong'),
   navHome: document.getElementById('nav-home'),
   navLibrary: document.getElementById('nav-library'),
   navPerformance: document.getElementById('nav-performance'),
@@ -748,6 +1179,7 @@ function setTab(tab) {
 }
 
 function openPhase(id) {
+  if (!isPhaseUnlocked(id)) return;
   state.section = 'phase';
   state.activeId = id;
   collapseCompactMenu();
@@ -755,6 +1187,7 @@ function openPhase(id) {
 }
 
 function openAssignment(id) {
+  if (!isAssignmentUnlocked(id)) return;
   state.section = 'assignment';
   state.activeId = id;
   state.activeStep = 0;
@@ -763,6 +1196,7 @@ function openAssignment(id) {
 }
 
 function openQuiz(id) {
+  if (!isQuizUnlocked(id)) return;
   state.section = 'quiz';
   state.activeId = id;
   collapseCompactMenu();
@@ -805,6 +1239,26 @@ function renderReadingTable(table) {
   `;
 }
 
+const quizDrafts = {};
+
+function getQuizDraft(quizId) {
+  if (!quizDrafts[quizId]) {
+    quizDrafts[quizId] = {
+      questionIndex: 0,
+      answersByQuestion: {},
+      feedbackByQuestion: {}
+    };
+  }
+  return quizDrafts[quizId];
+}
+
+function setQuizDraft(quizId, nextDraft) {
+  quizDrafts[quizId] = nextDraft;
+  if (state.section === 'quiz' && state.activeId === quizId) {
+    renderQuizDetail();
+  }
+}
+
 function setAssignmentStep(step) {
   state.activeStep = step;
   render();
@@ -826,18 +1280,21 @@ function renderHome() {
     refs.sectionTitle.textContent = 'Training Modules';
     refs.contentBody.innerHTML = `
       <div class="modules-grid">
-        ${PHASES.map((item) => `
-          <button type="button" class="module-tile" data-id="${item.id}" data-accent="${item.id === 'phase-1' ? 'green' : item.id === 'phase-2' ? 'purple' : item.id === 'phase-3' ? 'cyan' : 'violet'}">
+        ${PHASES.map((item) => {
+          const locked = !isPhaseUnlocked(item.id);
+          return `
+          <button type="button" class="module-tile${locked ? ' is-locked' : ''}" data-id="${item.id}" style="--tile-accent:${item.accent}"${locked ? ' disabled' : ''}>
             <article class="module-card${item.id === state.activeId ? ' is-active' : ''}">
               <img src="${item.image}" alt="${item.title}" />
               <div class="module-copy">
                 <p class="module-code">${item.code}</p>
                 <h4 class="module-title">${item.code}<br />${item.title}</h4>
-                <div class="module-state">Open module</div>
+                <div class="module-state">${locked ? getPhaseUnlockRequirement(item.id) : isPhaseComplete(item.id) ? 'Completed' : 'Open module'}</div>
               </div>
             </article>
           </button>
-        `).join('')}
+        `;
+        }).join('')}
       </div>
     `;
 
@@ -861,6 +1318,43 @@ function renderHome() {
   refs.contentBody.innerHTML = '';
 }
 
+function renderPhaseCompletionCard(active) {
+  const linkedQuiz = getQuizForPhase(active.id);
+  const linkedAssignments = getAssignmentsForPhase(active.id);
+  const nextPhase = getNextPhase(active.id);
+  const isComplete = isPhaseComplete(active.id);
+  const assignmentTitles = linkedAssignments.map((item) => `${item.code}: ${item.title}`).join(', ');
+
+  let statusCopy = 'Mark this phase complete to record progress.';
+  if (linkedQuiz) {
+    statusCopy = isComplete
+      ? isQuizPassed(linkedQuiz.id)
+        ? `Quiz passed. ${assignmentTitles ? `${assignmentTitles} unlocked.` : ''}${nextPhase ? ` ${nextPhase.code}: ${nextPhase.title} is now open.` : ''}`.trim()
+        : `${linkedQuiz.code} is now unlocked. Score 70% or better to open ${assignmentTitles || 'the assignment'}${nextPhase ? ` and ${nextPhase.code}: ${nextPhase.title}` : ''}.`
+      : `This unlocks ${linkedQuiz.code}. A 70% quiz score opens ${assignmentTitles || 'the assignment'}${nextPhase ? ` and ${nextPhase.code}: ${nextPhase.title}` : ''}.`;
+  } else if (linkedAssignments.length || nextPhase) {
+    const unlockTargets = [];
+    if (assignmentTitles) unlockTargets.push(assignmentTitles);
+    if (nextPhase) unlockTargets.push(`${nextPhase.code}: ${nextPhase.title}`);
+    statusCopy = isComplete
+      ? `${unlockTargets.join(' and ')} unlocked.`
+      : `This unlocks ${unlockTargets.join(' and ')}.`;
+  } else if (isComplete) {
+    statusCopy = 'Phase completion recorded.';
+  }
+
+  return `
+    <article class="stack-card phase-complete-card" style="border-left-color: ${active.accent}">
+      <p class="reading-eyebrow">Phase progress</p>
+      <h4>${isComplete ? 'Phase complete' : 'Mark complete'}</h4>
+      <p>${escapeHtml(statusCopy)}</p>
+      <div class="reading-actions">
+        <button type="button" class="reading-btn reading-btn-primary" id="phase-mark-complete"${isComplete ? ' disabled' : ''}>${isComplete ? 'Completed' : 'Mark complete'}</button>
+      </div>
+    </article>
+  `;
+}
+
 function renderPhaseDetail() {
   const active = PHASES.find((item) => item.id === state.activeId) || PHASES[0];
   const content = PHASE_CONTENT[active.id];
@@ -872,13 +1366,14 @@ function renderPhaseDetail() {
           <p class="reading-eyebrow">${escapeHtml(content.eyebrow)}</p>
           <h4 class="reading-hero-title">${escapeHtml(content.heading)}</h4>
           <p class="reading-subtitle">${escapeHtml(content.subheading)}</p>
-          <p class="reading-lead">${escapeHtml(content.summary)}</p>
+          ${content.summary ? `<p class="reading-lead">${escapeHtml(content.summary)}</p>` : ''}
+          ${content.heroFigure ? `<figure class="reading-hero-figure"><img src="${content.heroFigure.src}" alt="${escapeHtml(content.heroFigure.alt || '')}">${content.heroFigure.caption ? `<figcaption>${escapeHtml(content.heroFigure.caption)}</figcaption>` : ''}</figure>` : ''}
           <div class="reading-chip-row">
             ${content.keyIdeas.map((idea) => `<span class="reading-chip">${escapeHtml(idea)}</span>`).join('')}
           </div>
           <div class="reading-actions">
             <a class="reading-btn reading-btn-primary" href="${content.sourcePdf}" target="_blank" rel="noopener noreferrer">Source PDF</a>
-            ${content.quizId ? `<button type="button" class="reading-btn reading-btn-secondary" id="open-linked-quiz">Open phase quiz</button>` : ''}
+            ${content.quizId ? `<button type="button" class="reading-btn reading-btn-secondary" id="open-linked-quiz"${isQuizUnlocked(content.quizId) ? '' : ' disabled'}>${isQuizUnlocked(content.quizId) ? 'Open phase quiz' : 'Quiz locked until mark complete'}</button>` : ''}
             <button type="button" class="reading-btn reading-btn-secondary" id="back-to-home">Back to phase picker</button>
           </div>
         </article>
@@ -886,6 +1381,16 @@ function renderPhaseDetail() {
           <section class="stack-card reading-section" style="border-left-color: ${active.accent}">
             <h4>${escapeHtml(section.title)}</h4>
             ${(section.paragraphs || []).map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}
+            ${section.figures?.length ? `
+              <div class="reading-media-grid${section.figures.length === 1 ? ' single' : ''}">
+                ${section.figures.map((figure) => `
+                  <figure class="reading-figure">
+                    <img src="${figure.src}" alt="${escapeHtml(figure.alt || '')}">
+                    ${figure.caption ? `<figcaption>${escapeHtml(figure.caption)}</figcaption>` : ''}
+                  </figure>
+                `).join('')}
+              </div>
+            ` : ''}
             ${section.bullets?.length ? `<ul class="reading-list">${section.bullets.map((bullet) => `<li>${escapeHtml(bullet)}</li>`).join('')}</ul>` : ''}
             ${section.table ? renderReadingTable(section.table) : ''}
             ${section.glossary?.length ? `
@@ -900,10 +1405,12 @@ function renderPhaseDetail() {
             ` : ''}
           </section>
         `).join('')}
+        ${renderPhaseCompletionCard(active)}
       </div>
     `;
     document.getElementById('back-to-home')?.addEventListener('click', () => setSection('home'));
     document.getElementById('open-linked-quiz')?.addEventListener('click', () => openQuiz(content.quizId));
+    document.getElementById('phase-mark-complete')?.addEventListener('click', () => markPhaseComplete(active.id));
     return;
   }
 
@@ -917,9 +1424,11 @@ function renderPhaseDetail() {
         <h4>Back to phase picker</h4>
         <p>Return to the module grid.</p>
       </button>
+      ${renderPhaseCompletionCard(active)}
     </div>
   `;
   document.getElementById('back-to-home')?.addEventListener('click', () => setSection('home'));
+  document.getElementById('phase-mark-complete')?.addEventListener('click', () => markPhaseComplete(active.id));
 }
 
 function renderLibrary() {
@@ -978,18 +1487,21 @@ function renderQuizzes() {
 
   refs.contentBody.innerHTML = `
     <div class="stack-list">
-      ${QUIZZES.map((item) => `
-        <button type="button" class="stack-card stack-card-button" data-quiz-id="${item.id}" style="border-left-color: ${item.accent}">
+      ${QUIZZES.map((item) => {
+        const locked = !isQuizUnlocked(item.id);
+        return `
+        <button type="button" class="stack-card stack-card-button${locked ? ' is-locked' : ''}" data-quiz-id="${item.id}" style="border-left-color: ${item.accent}"${locked ? ' disabled' : ''}>
           <p class="mono" style="margin:0 0 6px; color:${item.accent}; font-size:11px; letter-spacing:0.18em; text-transform:uppercase;">${item.code}</p>
           <h4 style="margin:0 0 10px; color:#eef4ff; font-size:20px; font-weight:900; letter-spacing:0.02em; text-transform:uppercase;">${item.title}</h4>
-          <p style="margin:0; color:#b8c4d7; font-size:14px; line-height:1.65;">${item.body}</p>
+          <p style="margin:0; color:#b8c4d7; font-size:14px; line-height:1.65;">${locked ? getQuizUnlockRequirement(item.id) : item.body}</p>
           <div class="reading-chip-row" style="margin-top:14px;">
             <span class="reading-chip">${item.questionCount} questions</span>
-            <span class="reading-chip">Short response</span>
-            <span class="reading-chip">Answer key included</span>
+            <span class="reading-chip">Multiple choice</span>
+            <span class="reading-chip">${locked ? 'Locked' : isQuizPassed(item.id) ? 'Passed' : '70% to pass'}</span>
           </div>
         </button>
-      `).join('')}
+      `;
+      }).join('')}
     </div>
   `;
   refs.contentBody.querySelectorAll('[data-quiz-id]').forEach((button) => {
@@ -999,6 +1511,22 @@ function renderQuizzes() {
 
 function renderQuizDetail() {
   const active = QUIZZES.find((item) => item.id === state.activeId) || QUIZZES[0];
+  const draft = getQuizDraft(active.id);
+  const questions = active.questions || [];
+  const questionIndex = Math.min(Math.max(draft.questionIndex || 0, 0), Math.max(questions.length - 1, 0));
+  const activeQuestion = questions[questionIndex];
+  const currentSelected = activeQuestion ? draft.answersByQuestion[activeQuestion.id] : undefined;
+  const showFeedback = activeQuestion ? !!draft.feedbackByQuestion[activeQuestion.id] : false;
+  const correct = activeQuestion ? currentSelected === activeQuestion.answerIndex : false;
+  const answeredCount = questions.filter((question) => draft.answersByQuestion[question.id] !== undefined).length;
+  const correctCount = questions.filter((question) => draft.answersByQuestion[question.id] === question.answerIndex).length;
+  const allAnswered = questions.length > 0 && answeredCount === questions.length;
+  const scorePercent = questions.length ? Math.round((correctCount / questions.length) * 100) : 0;
+  const attempts = courseProgress.quizAttempts[active.id] || 0;
+  const bestScore = courseProgress.quizScores[active.id] || 0;
+  const passed = isQuizPassed(active.id);
+  const unlockAssignments = getAssignmentsForPhase(active.phaseId).map((item) => `${item.code}: ${item.title}`).join(', ');
+  const nextPhase = getNextPhase(active.phaseId);
   refs.sectionTitle.textContent = active.title;
   refs.contentBody.innerHTML = `
     <div class="quiz-detail-shell">
@@ -1008,8 +1536,8 @@ function renderQuizDetail() {
         <p class="reading-lead">${escapeHtml(active.body)}</p>
         <div class="reading-chip-row">
           <span class="reading-chip">${active.questionCount} questions</span>
-          <span class="reading-chip">Phase 1</span>
-          <span class="reading-chip">Use the answer key to self-check</span>
+          <span class="reading-chip">${answeredCount}/${questions.length} answered</span>
+          <span class="reading-chip">${correctCount}/${questions.length} correct</span>
         </div>
         <div class="reading-actions">
           <a class="reading-btn reading-btn-primary" href="${active.sourcePdf}" target="_blank" rel="noopener noreferrer">Source PDF</a>
@@ -1017,35 +1545,142 @@ function renderQuizDetail() {
           <button type="button" class="reading-btn reading-btn-secondary" id="back-to-phase">Back to phase 1</button>
         </div>
       </article>
-      <div class="quiz-question-grid">
-        ${active.questions.map((question, index) => `
-          <section class="stack-card quiz-question-card" style="border-left-color: ${active.accent}">
-            <p class="reading-eyebrow">Question ${index + 1}</p>
-            <h4>${escapeHtml(question.prompt)}</h4>
-            <details class="quiz-answer">
-              <summary>Show answer key</summary>
-              <p>${escapeHtml(question.answer)}</p>
-            </details>
-          </section>
-        `).join('')}
-      </div>
+      <section class="stack-card quiz-question-card quiz-interactive-card" style="border-left-color: ${active.accent}">
+        ${questions.length > 1 ? `
+          <div class="quiz-question-nav">
+            ${questions.map((question, index) => `
+              <button
+                type="button"
+                class="quiz-question-pill${index === questionIndex ? ' is-active' : ''}"
+                data-quiz-nav-index="${index}"
+              >
+                Q${index + 1}${draft.answersByQuestion[question.id] !== undefined ? ' •' : ''}
+              </button>
+            `).join('')}
+          </div>
+        ` : ''}
+        <div class="quiz-progress-track">
+          <div class="quiz-progress-fill" style="width:${questions.length ? (answeredCount / questions.length) * 100 : 0}%"></div>
+        </div>
+        ${activeQuestion ? `
+          <p class="reading-eyebrow">Question ${questionIndex + 1} of ${questions.length}</p>
+          <h4>${escapeHtml(activeQuestion.question)}</h4>
+          <div class="quiz-choice-list">
+            ${activeQuestion.choices.map((choice, index) => `
+              <button
+                type="button"
+                class="quiz-choice-btn${currentSelected === index ? ' is-selected' : ''}"
+                data-choice-index="${index}"
+              >
+                <span class="quiz-choice-label">${String.fromCharCode(65 + index)}.</span>
+                <span>${escapeHtml(choice)}</span>
+              </button>
+            `).join('')}
+          </div>
+          <div class="quiz-action-row">
+            <button type="button" class="reading-btn reading-btn-primary" id="quiz-check-answer"${currentSelected === undefined ? ' disabled' : ''}>Check answer</button>
+            <button type="button" class="reading-btn reading-btn-secondary" id="quiz-clear-answer">Clear answer</button>
+            <button type="button" class="reading-btn reading-btn-secondary" id="quiz-retake">Retake quiz</button>
+            ${questionIndex < questions.length - 1 ? '<button type="button" class="reading-btn reading-btn-secondary" id="quiz-next-question">Next question</button>' : ''}
+            <button type="button" class="reading-btn reading-btn-primary" id="quiz-submit"${allAnswered ? '' : ' disabled'}>Submit quiz</button>
+          </div>
+          ${showFeedback && currentSelected !== undefined ? `
+            <div class="quiz-feedback-card${correct ? ' is-correct' : ' is-wrong'}">
+              <div class="quiz-feedback-title">${correct ? 'Correct' : 'Wrong'}</div>
+              <p>The correct answer is <strong>${escapeHtml(activeQuestion.choices[activeQuestion.answerIndex])}</strong>.</p>
+              <p>${escapeHtml(activeQuestion.explanation)}</p>
+            </div>
+          ` : ''}
+          <div class="quiz-feedback-card quiz-submit-card${passed ? ' is-correct' : attempts ? ' is-wrong' : ''}">
+            <div class="quiz-feedback-title">${passed ? 'Quiz passed' : attempts ? 'Needs 70% to unlock next content' : 'Submit quiz to continue'}</div>
+            <p>${passed ? `Best score: ${bestScore}%.` : attempts ? `Best score so far: ${bestScore}%.` : `Answer all ${questions.length} questions, then submit the quiz.`}</p>
+            <p>${passed ? `${unlockAssignments || 'The assignment'} unlocked.${nextPhase ? ` ${nextPhase.code}: ${nextPhase.title} is now open.` : ''}` : `A 70% score unlocks ${unlockAssignments || 'the assignment'}${nextPhase ? ` and ${nextPhase.code}: ${nextPhase.title}` : ''}. Retakes are allowed.`}</p>
+          </div>
+        ` : '<p>No quiz question loaded.</p>'}
+      </section>
     </div>
   `;
   document.getElementById('back-to-quizzes')?.addEventListener('click', () => setTab('quizzes'));
   document.getElementById('back-to-phase')?.addEventListener('click', () => openPhase(active.phaseId));
+  refs.contentBody.querySelectorAll('[data-quiz-nav-index]').forEach((button) => {
+    button.addEventListener('click', () => {
+      setQuizDraft(active.id, {
+        ...draft,
+        questionIndex: Number(button.dataset.quizNavIndex)
+      });
+    });
+  });
+  refs.contentBody.querySelectorAll('[data-choice-index]').forEach((button) => {
+    button.addEventListener('click', () => {
+      if (!activeQuestion) return;
+      setQuizDraft(active.id, {
+        ...draft,
+        answersByQuestion: {
+          ...draft.answersByQuestion,
+          [activeQuestion.id]: Number(button.dataset.choiceIndex)
+        },
+        feedbackByQuestion: {
+          ...draft.feedbackByQuestion,
+          [activeQuestion.id]: false
+        }
+      });
+    });
+  });
+  document.getElementById('quiz-check-answer')?.addEventListener('click', () => {
+    if (!activeQuestion || currentSelected === undefined) return;
+    setQuizDraft(active.id, {
+      ...draft,
+      feedbackByQuestion: {
+        ...draft.feedbackByQuestion,
+        [activeQuestion.id]: true
+      }
+    });
+  });
+  document.getElementById('quiz-clear-answer')?.addEventListener('click', () => {
+    if (!activeQuestion) return;
+    const nextAnswers = { ...draft.answersByQuestion };
+    const nextFeedback = { ...draft.feedbackByQuestion };
+    delete nextAnswers[activeQuestion.id];
+    delete nextFeedback[activeQuestion.id];
+    setQuizDraft(active.id, {
+      ...draft,
+      answersByQuestion: nextAnswers,
+      feedbackByQuestion: nextFeedback
+    });
+  });
+  document.getElementById('quiz-retake')?.addEventListener('click', () => {
+    setQuizDraft(active.id, {
+      questionIndex: 0,
+      answersByQuestion: {},
+      feedbackByQuestion: {}
+    });
+  });
+  document.getElementById('quiz-next-question')?.addEventListener('click', () => {
+    setQuizDraft(active.id, {
+      ...draft,
+      questionIndex: Math.min(questionIndex + 1, questions.length - 1)
+    });
+  });
+  document.getElementById('quiz-submit')?.addEventListener('click', () => {
+    if (!allAnswered) return;
+    submitQuizResult(active.id, scorePercent);
+  });
 }
 
 function renderAssignments() {
   refs.sectionTitle.textContent = 'Assignments';
   refs.contentBody.innerHTML = `
     <div class="stack-list">
-      ${ASSIGNMENTS.map((item) => `
-        <button type="button" class="stack-card stack-card-button" data-assignment-id="${item.id}" style="border-left-color: ${item.accent}">
+      ${ASSIGNMENTS.map((item) => {
+        const locked = !isAssignmentUnlocked(item.id);
+        return `
+        <button type="button" class="stack-card stack-card-button${locked ? ' is-locked' : ''}" data-assignment-id="${item.id}" style="border-left-color: ${item.accent}"${locked ? ' disabled' : ''}>
           <p class="mono" style="margin:0 0 6px; color:${item.accent}; font-size:11px; letter-spacing:0.18em; text-transform:uppercase;">Assignment ${item.code}</p>
           <h4 style="margin:0 0 10px; color:#eef4ff; font-size:22px; font-weight:900; letter-spacing:0.02em; text-transform:uppercase;">${item.code}: ${item.title}</h4>
-          <p style="margin:0; color:#b8c4d7; font-size:14px; line-height:1.65;">${item.body}</p>
+          <p style="margin:0; color:#b8c4d7; font-size:14px; line-height:1.65;">${locked ? getAssignmentUnlockRequirement(item.id) : item.body}</p>
         </button>
-      `).join('')}
+      `;
+      }).join('')}
     </div>
   `;
   refs.contentBody.querySelectorAll('[data-assignment-id]').forEach((button) => {
@@ -1265,8 +1900,18 @@ function renderIcons() {
 function renderContent() {
   refs.sectionTitle.style.display = '';
   if (refs.progressShell) refs.progressShell.style.display = '';
-  refs.progressFill.style.width = '76%';
-  refs.progressPercent.textContent = '0%';
+  const progress = getProgressSnapshot();
+  refs.progressFill.style.width = `${progress.percent}%`;
+  refs.progressPercent.textContent = `${progress.percent}%`;
+  if (refs.progressCounters[0]) {
+    refs.progressCounters[0].innerHTML = `<i class="fa-solid fa-server"></i> ${progress.completedPhases}/${progress.totalPhases}`;
+  }
+  if (refs.progressCounters[1]) {
+    refs.progressCounters[1].innerHTML = `<i class="fa-solid fa-database"></i> ${progress.passedQuizzes}/${progress.totalQuizzes}`;
+  }
+  if (refs.progressModulesCount) {
+    refs.progressModulesCount.textContent = `${progress.completedPhases}/${progress.totalPhases}`;
+  }
 
   if (state.section === 'library') {
     renderLibrary();
@@ -1320,4 +1965,5 @@ render();
 window.addEventListener('resize', () => {
   applySidebarCollapse(isCompactLayout() ? true : localStorage.getItem(SIDEBAR_COLLAPSE_KEY) === '1');
 });
+
 

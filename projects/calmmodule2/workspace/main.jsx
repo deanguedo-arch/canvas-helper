@@ -148,7 +148,6 @@ const { useState, useEffect, useRef } = React;
         }).format(Number(value) || 0);
 
         const DEFAULT_STATE = {
-            studentName: "",
             defMarketing: "", defPackaging: "", influenceExample: "", favoriteStore: "",
             purchases: Array.from({ length: 10 }, () => ({ item: "", influence: "" })),
             biggestInfluence: "",
@@ -274,7 +273,6 @@ const { useState, useEffect, useRef } = React;
         const formatTeacherReportMoneySummary = (value) => `$${formatMoney(value)}`;
 
         const collectTeacherReportValues = (fd) => [
-            fd.studentName,
             fd.defMarketing, fd.defPackaging, fd.influenceExample, fd.favoriteStore, fd.biggestInfluence,
             ...fd.purchases.flatMap((purchase) => [purchase.item, purchase.influence]),
             fd.adDeconstruction,
@@ -495,7 +493,7 @@ const { useState, useEffect, useRef } = React;
                             <h1>CALM Module 2 Teacher Report</h1>
                             <p>Resource Choices response summary for review, printing, and discussion.</p>
                             <div class="summary-grid">
-                                <div class="summary-stat"><span class="summary-stat-label">Student</span><div class="summary-stat-value">${hasTeacherReportValue(fd.studentName) ? escapeTeacherReportHtml(fd.studentName) : "Not provided"}</div></div>
+                                <div class="summary-stat"><span class="summary-stat-label">Student</span><div class="summary-stat-value">Not collected</div></div>
                                 <div class="summary-stat"><span class="summary-stat-label">Sections Complete</span><div class="summary-stat-value">${completedSections} / ${SECTIONS.length - 1}</div></div>
                                 <div class="summary-stat"><span class="summary-stat-label">Answered Prompts</span><div class="summary-stat-value">${answeredCount} / ${responseCount}</div></div>
                                 <div class="summary-stat"><span class="summary-stat-label">Generated</span><div class="summary-stat-value">${escapeTeacherReportHtml(new Date().toLocaleString())}</div></div>
@@ -772,7 +770,7 @@ const { useState, useEffect, useRef } = React;
                 const fd = formData;
                 let fields = [];
                 switch(sectionId) {
-                    case 'intro': fields = [fd.studentName]; break;
+                    case 'intro': fields = ['complete']; break;
                     case 'advertising': 
                         fields = [
                             fd.defMarketing,
@@ -1006,14 +1004,7 @@ const { useState, useEffect, useRef } = React;
                                     </div>
                                     
                                     <div className="bg-slate-50 p-6 rounded-3xl border-2 border-slate-100">
-                                        <label className="block text-sm font-bold text-slate-700 mb-2">To get started, enter your full name:</label>
-                                        <input 
-                                            type="text" 
-                                            className="clay-input w-full p-4 text-xl font-bold" 
-                                            placeholder="Your Name Here..."
-                                            value={formData.studentName}
-                                            onChange={(e) => updateField('studentName', e.target.value)}
-                                        />
+                                        <p className="text-sm font-bold text-slate-700">Your progress saves automatically while you work. No student name is collected.</p>
                                     </div>
                                 </div>
                             )}
@@ -1021,7 +1012,7 @@ const { useState, useEffect, useRef } = React;
                             {/* TAB: ADVERTISING */}
                             {activeTab === 'advertising' && (
                                 <div className="animate-[fadeIn_0.3s_ease-out]">
-                                    <h2 className="text-3xl font-black mb-6">Who Decides What You Buy?</h2>
+                                    <h2 className="text-3xl font-black mb-6 text-slate-800">Who Decides What You Buy?</h2>
                                     
                                     <div className="clay-card p-8 space-y-6">
                                         <div>
@@ -1150,7 +1141,7 @@ const { useState, useEffect, useRef } = React;
                                     </div>
 
                                     <div className="mt-6 bg-amber-50 border-2 border-amber-200 p-4 rounded-xl">
-                                        <label className="block text-sm font-black text-amber-900 mb-2"><i className="fa-solid fa-pen-to-square mr-2"></i> Teacher Checkpoint: Deconstruct a Real Brand. Pick a brand you like. What physical product do they sell, and what emotion or idea are they actually selling you?</label>
+                                        <label className="block text-sm font-black text-amber-900 mb-2"><i className="fa-solid fa-pen-to-square mr-2 text-violet-600"></i> Teacher Checkpoint: Deconstruct a Real Brand. Pick a brand you like. What physical product do they sell, and what emotion or idea are they actually selling you?</label>
                                         <textarea
                                             className="w-full border-2 border-amber-100 rounded-xl py-3 px-4 focus:outline-none focus:border-amber-400 min-h-[120px] text-sm"
                                             placeholder="Type your reflection here..."

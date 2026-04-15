@@ -440,7 +440,7 @@ const { useState, useEffect, useMemo, useRef } = React;
                             <h1>CALM Module 1 Teacher Report</h1>
                             <p>Personal Choices response summary for review, printing, and discussion.</p>
                             <div class="summary-grid">
-                                <div class="summary-stat"><span class="summary-stat-label">Student</span><div class="summary-stat-value">${hasTeacherReportValue(fd.studentName) ? escapeTeacherReportHtml(fd.studentName) : "Not provided"}</div></div>
+                                <div class="summary-stat"><span class="summary-stat-label">Student</span><div class="summary-stat-value">Not collected</div></div>
                                 <div class="summary-stat"><span class="summary-stat-label">Progress</span><div class="summary-stat-value">${overallPercentage}%</div></div>
                                 <div class="summary-stat"><span class="summary-stat-label">Generated</span><div class="summary-stat-value">${escapeTeacherReportHtml(new Date().toLocaleString())}</div></div>
                             </div>
@@ -474,7 +474,6 @@ const { useState, useEffect, useMemo, useRef } = React;
 
           // --- STATE FOR FORM DATA ---
           const defaultFormData = {
-            studentName: '',
             invSleep: '', invSnacks: '', invEatTimes: '', invEnergyHigh: '', invEnergyLow: '',
             invExerciseEnergize: '', invExerciseTired: '', invRelax: '',
             invPencilsPens: '', invOrganized: '', invWriteType: '', invElectronics: '', invMusic: '',
@@ -512,7 +511,6 @@ const { useState, useEffect, useMemo, useRef } = React;
                 return {
                   ...defaultFormData,
                   ...parsed,
-                  studentName: parsed.studentName || '',
                   evalRels: getArray(parsed.evalRels, defaultFormData.evalRels),
                   evalHealthyList: getArray(parsed.evalHealthyList, defaultFormData.evalHealthyList),
                   evalUnhealthyList: getArray(parsed.evalUnhealthyList, defaultFormData.evalUnhealthyList),
@@ -836,10 +834,6 @@ const { useState, useEffect, useMemo, useRef } = React;
                  <p className="font-bold text-blue-800 print:text-slate-800">
                   👋 Welcome! Your progress is automatically saved to your browser as you work. When you are finished, click the Final Review tab to verify your answers.
                 </p>
-                <div className="mt-4">
-                  <Label>Student Name</Label>
-                  <Input value={formData.studentName} onChange={(e) => updateForm('studentName', e.target.value)} placeholder="Enter your name here" />
-                </div>
               </div>
 
               <SectionTitle>Career & Life Management</SectionTitle>
