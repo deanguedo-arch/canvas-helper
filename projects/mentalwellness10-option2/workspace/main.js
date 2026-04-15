@@ -954,6 +954,15 @@ const ASSIGNMENT_PHASE_MAP = Object.fromEntries(
 );
 const PHASE_QUIZ_MAP = Object.fromEntries(QUIZZES.filter((item) => item.phaseId).map((item) => [item.phaseId, item.id]));
 
+function loadStoredJson(storageKey) {
+  try {
+    const raw = localStorage.getItem(storageKey);
+    return raw ? JSON.parse(raw) : null;
+  } catch (_error) {
+    return null;
+  }
+}
+
 function loadCourseProgress() {
   try {
     const parsed = JSON.parse(localStorage.getItem(COURSE_PROGRESS_KEY) || '{}');
@@ -1180,6 +1189,10 @@ function setTab(tab) {
 
 function openPhase(id) {
   if (!isPhaseUnlocked(id)) return;
+  if (id === 'phase-0') {
+    openAssignment('a0');
+    return;
+  }
   state.section = 'phase';
   state.activeId = id;
   collapseCompactMenu();
@@ -1868,6 +1881,15 @@ async function mountAssignmentRuntime(active) {
 
 function renderAssignmentDetail() {
   const active = ASSIGNMENTS.find((item) => item.id === state.activeId) || ASSIGNMENTS[0];
+  const diagnosticPhase = active.id === 'a0' ? getPhaseById('phase-0') : null;
+  const nextPhase = diagnosticPhase ? getNextPhase(diagnosticPhase.id) : null;
+  const diagnosticComplete = diagnosticPhase ? isPhaseComplete(diagnosticPhase.id) : false;
+  const diagnosticRuntime = active.id === 'a0' ? loadStoredJson('diag_data') || {} : null;
+  const diagnosticReportReady = Boolean(diagnosticRuntime?.reportReady);
+  const diagnosticLockedCopy = `Run diagnostics to unlock the system report and ${nextPhase ? `${nextPhase.code}: ${nextPhase.title}` : 'the next phase'}.`;
+  const diagnosticLogCopy = 'Add the operator log before running diagnostics so the baseline report can be generated.';
+  const diagnosticPendingCopy = `Diagnostics are filled in. Run diagnostics to verify the system, then mark complete to unlock ${nextPhase ? `${nextPhase.code}: ${nextPhase.title}` : 'the next phase'}.`;
+  const diagnosticReadyCopy = `Diagnostic verified. Generate the baseline report or mark complete to unlock ${nextPhase ? `${nextPhase.code}: ${nextPhase.title}` : 'the next phase'}.`;
   refs.sectionTitle.textContent = '';
   refs.sectionTitle.style.display = 'none';
   if (refs.progressShell) refs.progressShell.style.display = 'none';
@@ -1878,9 +1900,32 @@ function renderAssignmentDetail() {
           <div class="assignment-runtime-loading">Loading full assignment system...</div>
         </div>
       </article>
+      ${diagnosticPhase ? `
+        <article class="stack-card phase-complete-card" style="border-left-color: ${diagnosticPhase.accent}">
+          <p class="reading-eyebrow">Phase progress</p>
+          <h4>${diagnosticComplete ? 'Diagnostic complete' : 'Mark complete'}</h4>
+          <p
+            id="diagnostic-complete-copy"
+            data-locked-copy="${escapeHtml(diagnosticLockedCopy)}"
+            data-log-copy="${escapeHtml(diagnosticLogCopy)}"
+            data-pending-copy="${escapeHtml(diagnosticPendingCopy)}"
+            data-ready-copy="${escapeHtml(diagnosticReadyCopy)}"
+          >${diagnosticComplete ? `${nextPhase ? `${nextPhase.code}: ${nextPhase.title} is unlocked.` : 'Progress recorded.'}` : diagnosticReportReady ? diagnosticReadyCopy : diagnosticLockedCopy}</p>
+          <div class="reading-actions">
+            <button
+              type="button"
+              class="reading-btn reading-btn-primary"
+              id="diagnostic-mark-complete"
+              data-phase-complete="${diagnosticComplete ? '1' : '0'}"
+              ${diagnosticComplete || !diagnosticReportReady ? ' disabled' : ''}
+            >${diagnosticComplete ? 'Completed' : 'Mark complete'}</button>
+          </div>
+        </article>
+      ` : ''}
     </section>
   `;
   mountAssignmentRuntime(active);
+  document.getElementById('diagnostic-mark-complete')?.addEventListener('click', () => markPhaseComplete('phase-0'));
 }
 
 function renderIcons() {

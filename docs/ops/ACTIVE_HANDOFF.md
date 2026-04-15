@@ -1,62 +1,65 @@
 # Handoff
 
 - Project: mentalwellness10-option2
-- Task: Deepen Assignment 01, align the embedded Phase 1 runtime with the Option 2 shell, and improve desktop readability/report behavior.
-- Status: ready for validation
+- Task: Fix split-screen scrolling in the Option 2 shell and make Assignment 00 require `Run Diagnostics` before the report/completion path unlocks.
+- Status: complete
 
 ## Files changed
-- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assignment-runtime.html
 - C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assignment-runtime-main.js
 - C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\main.js
 - C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\styles.css
-- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\docs\plans\2026-04-15-mental-fitness-phase1-assignment-depth-plan.md
 - C:\Users\dean.guedo\Documents\GitHub\canvas-helper\docs\ops\ACTIVE_HANDOFF.md
-- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\docs\ops\ARCHIVED_HANDOFFS.md
 
 ## What changed
-- Expanded Assignment 01 so the Phase 1 runtime now teaches and captures the missing chapter concepts directly inside the six-step assignment flow.
-- Reworked the embedded Phase 1 runtime shell so its step buttons, review area, rubric shell, backup actions, and report generation align more closely with the other Option 2 assignments.
-- Replaced the earlier report fallback with the same popup print pattern used by the Values assignment flow.
-- Fixed parse-breaking apostrophes in the unabridged Phase 1 reading data so the Option 2 app boots again.
-- Widened the assignment surface and added desktop-only typography scaling so large desktop reads larger than condensed-sidebar and tablet states.
+- Compact split-screen widths now scroll correctly in the standalone course shell. The `compact-layout` path no longer traps long content behind `overflow: hidden`, and the embedded assignment runtime is allowed to expand into the page so the whole surface scrolls naturally.
+- Assignment 00 no longer unlocks the report/completion path just from selecting scores. The learner now has to finish the five prompts, fill the operator log, and click `Run Diagnostics` before:
+  - `Generate System Report (PDF)` enables
+  - the end-of-assignment `Mark complete` button enables
+- The Assignment 00 status copy now explains the exact next step at each state:
+  - missing prompts
+  - missing operator log
+  - inputs complete but not verified
+  - report unlocked / ready to complete
+- The shell-side completion card now reads the persisted diagnostic readiness state instead of always allowing completion immediately.
 
 ## Why this changed
-- The user wanted Phase 1 to be as thorough as the underlying reading, visually consistent with the rest of the site, and easier to read on larger desktop screens.
+- The user reported that this course stopped scrolling when run in split screen, even though other Canvas Helper course shells still scrolled correctly.
+- The user also wanted `Run Diagnostics` to behave like the actual verification/unlock step for Assignment 00, instead of leaving report/completion feeling disconnected or prematurely available.
 
 ## Source of truth
 - Shell entry: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\index.html
 - Shell logic: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\main.js
-- Embedded assignment DOM source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assignment-runtime.html
 - Embedded assignment runtime logic: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assignment-runtime-main.js
 - Embedded assignment styling: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\styles.css
 
 ## Fragile areas / watchouts
-- Phase 1 runtime presentation now depends on several targeted overrides in `styles.css`; later generic runtime styling changes can flatten or override the desktop scaling again.
-- The report flow depends on `window.open()` and browser print behavior, so Builder preview and a normal browser may not behave identically.
-- The unabridged Phase 1 content in `main.js` is string-heavy and still vulnerable to escaping mistakes.
+- Assignment 00 readiness is now stored in `diag_data.reportReady`. If the diagnostic payload shape changes again, keep that key aligned with the shell completion card.
+- Compact-layout scrolling now relies on page-level scrolling rather than the previously trapped nested scroll path. Be careful with future `overflow` changes on `body`, `.content`, `.content-inner`, and `.assignment-runtime-mount`.
+- The report flow still depends on `window.open()` and browser print behavior, so Builder/browser popup handling can still differ slightly from direct preview.
 
 ## Next prompt should assume
-- Authoring bypass is still on, so phases, quizzes, and assignments remain editable even though gating logic exists underneath.
-- Phase 1 quiz uses the new 10-question multiple-choice format and a 70 percent pass rule in the runtime logic.
-- Assignment 01 is now deeper and more customized than the other assignments, so future visual cleanup should be scoped carefully to Phase 1 unless the user asks to propagate it.
+- Assignment 00 still uses the same five-question diagnostic and the same report payload, but the report is now intentionally gated behind `Run Diagnostics`.
+- Editing any diagnostic score or the operator log clears the report-ready state until diagnostics are run again.
+- The end-of-assignment `Mark complete` button for Assignment 00 is intentionally disabled until the diagnostic has been verified.
+- Split-screen / compact-layout browsing now uses normal page scrolling in this project.
 
 ## What still needs validation
-- Manual preview of Assignment 01 on full desktop, condensed-sidebar desktop, tablet, and mobile to confirm the new desktop scaling is actually visible and readable.
-- Manual check that `Generate Blueprint PDF` opens and prints with the same behavior the Values assignment uses.
-- Manual check that backup/load and the review report still include the newly added Phase 1 fields.
+- Optional: do a Builder-specific non-headless popup spot-check if the user wants to compare print behavior there.
+- Optional: mirror the same report-ready gating pattern into later assignments if the user wants a more explicit “verify then complete” flow elsewhere.
+- Optional: if more compact-layout pages get special wrappers, spot-check them against the new page-level scroll behavior.
 
 ## Known risks
-- No automated validation was run in this pass.
-- Popup blocking or Builder preview quirks may still affect report generation.
-- Because the Phase 1 shell is now more customized, further typography tweaks can drift from the other assignments if they are not kept intentional.
+- The strict project E2E contract still only certifies the shared shell hooks, not deep module traversal.
+- Assignment 00 still mixes newer shell markup with legacy inline runtime handlers, so id changes there remain easy to break.
+- The Diagnostic route still opens the assignment section directly rather than keeping the phase tab visually active.
 
 ## Exact next command
-`npm run studio`
+`npm.cmd run studio`
 
 ## Exact next file to open
-`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\styles.css`
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assignment-runtime-main.js`
 
 ## Do not do next / warnings
-- Do not reintroduce the old text-file or jsPDF fallback for the Phase 1 report.
-- Do not switch the full Phase 1 body copy back to Rajdhani; keep Rajdhani for display/label roles only.
-- Do not turn authoring bypass off unless the next task is specifically to enforce learner gating.
+- Do not remove `diag_data.reportReady` unless you also replace the shell-side completion gate.
+- Do not restore compact-layout `overflow: hidden` behavior without re-testing direct workspace preview at split-screen widths.
+- Do not re-enable Assignment 00 completion before diagnostics run unless the user explicitly wants a looser gate again.

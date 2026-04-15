@@ -3,9 +3,11 @@
 // --- NAVIGATION LOGIC ---
         const SIDEBAR_COLLAPSE_KEY = 'mentalwellness10.sidebarCollapsed';
         const SIDEBAR_MOBILE_BREAKPOINT = 860;
+        const PHASE1_ASSIGNMENT_STORAGE_KEY = 'mentalfitness10_option2_phase1_assignment_v2';
+        const PHASE1_ASSIGNMENT_LEGACY_STORAGE_KEY = 'elite_operator_v3_p1';
         const ASSIGNMENT_PROGRESS_CONFIG = [
             { storageKey: 'diag_data', metaId: 'meta-a0', barId: 'bar-a0' },
-            { storageKey: 'elite_operator_v3_p1', metaId: 'meta-a1', barId: 'bar-a1' },
+            { storageKey: PHASE1_ASSIGNMENT_STORAGE_KEY, metaId: 'meta-a1', barId: 'bar-a1' },
             { storageKey: 'vb_data', metaId: 'meta-a2a', barId: 'bar-a2a' },
             { storageKey: 'mb_data', metaId: 'meta-a2b', barId: 'bar-a2b' },
             { storageKey: 'p3_data', metaId: 'meta-a3', barId: 'bar-a3' },
@@ -259,13 +261,48 @@
         }
 
         // --- DIAGNOSTIC MODULE (00) LOGIC ---
-        let diag_scores = { q1: 0, q2: 0, q3: 0, q4: 0, q5: 0 }; 
+        let diag_scores = { q1: 0, q2: 0, q3: 0, q4: 0, q5: 0 };
+        let diag_report_ready = false;
         function initDiagDom() {
             const logEntry = document.getElementById('log_entry');
             if (logEntry && !logEntry.dataset.bound) {
-                logEntry.addEventListener('input', diag_saveData);
+                logEntry.addEventListener('input', diag_handleLogInput);
                 logEntry.dataset.bound = '1';
             }
+        }
+        function diag_totalScore() {
+            return Object.values(diag_scores).reduce((sum, value) => sum + Number(value || 0), 0);
+        }
+        function diag_answeredCount() {
+            return Object.values(diag_scores).filter((value) => Number(value || 0) > 0).length;
+        }
+        function diag_hasLogEntry() {
+            return (document.getElementById('log_entry')?.value || '').trim().length > 0;
+        }
+        function diag_allPromptsRated() {
+            return !Object.values(diag_scores).includes(0);
+        }
+        function diag_syncCompletionUI() {
+            const completeButton = document.getElementById('diagnostic-mark-complete');
+            const completeCopy = document.getElementById('diagnostic-complete-copy');
+            if (!completeButton) return;
+            const alreadyCompleted = completeButton.dataset.phaseComplete === '1';
+            if (alreadyCompleted) return;
+            completeButton.disabled = !diag_report_ready;
+            if (!completeCopy) return;
+            if (diag_report_ready) {
+                completeCopy.innerText = completeCopy.dataset.readyCopy || completeCopy.innerText;
+                return;
+            }
+            if (!diag_allPromptsRated()) {
+                completeCopy.innerText = completeCopy.dataset.lockedCopy || completeCopy.innerText;
+                return;
+            }
+            if (!diag_hasLogEntry()) {
+                completeCopy.innerText = completeCopy.dataset.logCopy || completeCopy.innerText;
+                return;
+            }
+            completeCopy.innerText = completeCopy.dataset.pendingCopy || completeCopy.innerText;
         }
         function diag_getFormData() {
             return {
@@ -274,24 +311,51 @@
                 q3: diag_scores.q3 || 0,
                 q4: diag_scores.q4 || 0,
                 q5: diag_scores.q5 || 0,
-                log: document.getElementById('log_entry')?.value || ''
+                log: document.getElementById('log_entry')?.value || '',
+                reportReady: diag_report_ready
             };
         }
         function diag_updateStatus() {
-            const complete = !Object.values(diag_scores).includes(0);
+            const allRated = diag_allPromptsRated();
+            const hasLog = diag_hasLogEntry();
+            const complete = allRated && hasLog;
+            const answered = diag_answeredCount();
+            const total = diag_totalScore();
             const status = document.getElementById('system-status');
             if (status) {
-                status.innerText = complete ? 'OPERATIONAL' : 'PENDING CHECK';
+                const statusText = diag_report_ready ? 'OPERATIONAL' : complete ? 'READY TO VERIFY' : 'PENDING CHECK';
+                status.innerText = statusText;
                 status.classList.toggle('text-rose-500', !complete);
-                status.classList.toggle('text-emerald-400', complete);
+                status.classList.toggle('text-amber-300', complete && !diag_report_ready);
+                status.classList.toggle('text-emerald-400', diag_report_ready);
+            }
+            const totalEl = document.getElementById('diag-score-total');
+            if (totalEl) totalEl.innerText = String(total).padStart(2, '0');
+            const countEl = document.getElementById('diag-score-count');
+            if (countEl) countEl.innerText = `${answered}/5 systems rated`;
+            const progressFill = document.getElementById('diag-progress-fill');
+            if (progressFill) progressFill.style.width = `${answered * 20}%`;
+            const progressText = document.getElementById('diag-progress-text');
+            if (progressText) {
+                if (!allRated) {
+                    const remaining = 5 - answered;
+                    progressText.innerText = `${remaining} prompt${remaining === 1 ? '' : 's'} left before report unlocks.`;
+                } else if (!hasLog) {
+                    progressText.innerText = 'Add the operator log, then run diagnostics to unlock the report.';
+                } else if (!diag_report_ready) {
+                    progressText.innerText = 'Inputs are complete. Run diagnostics to unlock the report and completion.';
+                } else {
+                    progressText.innerText = 'Report unlocked. Generate the baseline report or mark this phase complete.';
+                }
             }
             const btn = document.getElementById('print-btn');
             if (btn) {
-                btn.disabled = !complete;
-                btn.classList.toggle('bg-slate-800', !complete);
-                btn.classList.toggle('cursor-not-allowed', !complete);
-                btn.classList.toggle('bg-emerald-600', complete);
+                btn.disabled = !diag_report_ready;
+                btn.classList.toggle('bg-slate-800', !diag_report_ready);
+                btn.classList.toggle('cursor-not-allowed', !diag_report_ready);
+                btn.classList.toggle('bg-emerald-600', diag_report_ready);
             }
+            diag_syncCompletionUI();
         }
         function diag_saveData() {
             localStorage.setItem('diag_data', JSON.stringify(diag_getFormData()));
@@ -310,8 +374,14 @@
                 setTextById(['save-text'], 'System Ready');
             }, 1000);
         }
+        function diag_handleLogInput() {
+            diag_report_ready = false;
+            diag_updateStatus();
+            diag_saveData();
+        }
         function diag_setScore(q, val, persist = true) {
             diag_scores[q] = val;
+            diag_report_ready = false;
             const group = document.getElementById(q);
             if (!group) return;
             const buttons = group.getElementsByTagName('button');
@@ -338,12 +408,16 @@
             Object.keys(diag_scores).forEach((key) => {
                 if (diag_scores[key] > 0) diag_setScore(key, diag_scores[key], false);
             });
+            diag_report_ready = Boolean(data?.reportReady) && diag_allPromptsRated() && diag_hasLogEntry();
             diag_updateStatus();
         }
         function diag_calculateStatus() {
-            if(Object.values(diag_scores).includes(0)) { alert("Please complete all items."); return; }
+            if (!diag_allPromptsRated()) { alert("Please complete all items."); return; }
+            if (!diag_hasLogEntry()) { alert("Please add the operator log before running diagnostics."); return; }
+            diag_report_ready = true;
             diag_updateStatus();
             diag_saveData();
+            document.getElementById('print-btn')?.focus();
         }
         function diag_downloadBackup() {
              const data = diag_getFormData();
@@ -363,6 +437,10 @@
             reader.readAsText(file);
         }
         function diag_generatePrint() {
+            if (!diag_report_ready) {
+                diag_calculateStatus();
+                if (!diag_report_ready) return;
+            }
             const log = document.getElementById('log_entry').value;
             const status = document.getElementById('system-status').innerText;
             const html = `<html><head><title>Protocol 001 Report</title><link href="https://cdn.tailwindcss.com" rel="stylesheet"><style>body { font-family: monospace; padding: 40px; background: white; color: black; }</style></head>
@@ -381,7 +459,8 @@
   { id: 'intel', label: 'Integration' }
 ];
 
-const p1_storage_key = 'mentalfitness10_option2_phase1_assignment_v2';
+const p1_storage_key = PHASE1_ASSIGNMENT_STORAGE_KEY;
+const p1_legacy_storage_key = PHASE1_ASSIGNMENT_LEGACY_STORAGE_KEY;
 const p1_field_ids = [
   'p1_threat_trigger',
   'p1_breath_scenario',
@@ -416,6 +495,7 @@ const p1_field_ids = [
 let p1_scores = { reset: 0, tune: 0, focus: 0, goals: 0, intel: 0 };
 let p1_current_step = 0;
 let p1_ready = false;
+let p1_step_menu_open = false;
 
 function p1_byId(id) {
   return document.getElementById(id);
@@ -435,6 +515,23 @@ function p1_updateScoreSummary() {
   });
 }
 
+function p1_syncStepMenu() {
+  const toggleCurrent = p1_byId('p1-step-toggle-current');
+  const toggleButton = p1_byId('p1-step-toggle');
+  const activeStep = document.querySelector('#view-phase1 .p1-step-btn.active');
+  const activeLabel = activeStep ? activeStep.textContent.trim() : '00 Briefing';
+  if (toggleCurrent) toggleCurrent.textContent = activeLabel;
+  if (toggleButton) toggleButton.setAttribute('aria-expanded', p1_step_menu_open ? 'true' : 'false');
+}
+
+function p1_setStepMenuOpen(open) {
+  const shell = p1_byId('p1-step-nav-shell');
+  if (!shell) return;
+  p1_step_menu_open = !!open;
+  shell.classList.toggle('is-open', p1_step_menu_open);
+  p1_syncStepMenu();
+}
+
 function p1_showStep(step) {
   p1_current_step = Math.max(0, Math.min(5, Number(step) || 0));
 
@@ -446,6 +543,8 @@ function p1_showStep(step) {
     const active = Number(btn.dataset.p1Step) === p1_current_step;
     btn.classList.toggle('active', active);
   });
+
+  p1_setStepMenuOpen(false);
 
   if (p1_ready) p1_saveData();
 }
@@ -463,9 +562,14 @@ function p1_getFormData() {
   return data;
 }
 
+function p1_readStoredData() {
+  return parseStoredJson(p1_storage_key) || parseStoredJson(p1_legacy_storage_key);
+}
+
 function p1_saveData() {
   try {
     localStorage.setItem(p1_storage_key, JSON.stringify(p1_getFormData()));
+    refreshProgressUI();
   } catch (error) {
     console.warn('Phase 1 save failed', error);
   }
@@ -583,6 +687,11 @@ function p1_init() {
     btn.addEventListener('click', () => p1_showStep(btn.dataset.p1Step));
   });
 
+  const stepToggle = p1_byId('p1-step-toggle');
+  if (stepToggle) {
+    stepToggle.addEventListener('click', () => p1_setStepMenuOpen(!p1_step_menu_open));
+  }
+
   document.querySelectorAll('#view-phase1 [data-p1-field]').forEach((field) => {
     field.addEventListener('input', p1_saveData);
     field.addEventListener('change', p1_saveData);
@@ -610,8 +719,8 @@ function p1_init() {
   if (pdfBtn) pdfBtn.addEventListener('click', p1_generatePDF);
 
   try {
-    const existing = localStorage.getItem(p1_storage_key);
-    if (existing) p1_populate(JSON.parse(existing));
+    const existing = p1_readStoredData();
+    if (existing) p1_populate(existing);
     else {
       p1_updateScoreSummary();
       p1_showStep(0);
@@ -621,6 +730,8 @@ function p1_init() {
     p1_updateScoreSummary();
     p1_showStep(0);
   }
+
+  p1_syncStepMenu();
 
   p1_ready = true;
   p1_saveData();
@@ -915,8 +1026,7 @@ if (document.readyState === 'loading') {
                 initDiagDom();
                 diag_populate(parseStoredJson('diag_data') || {});
             } else if (view === 'phase1') {
-                initP1Dom();
-                p1_populate(parseStoredJson('elite_operator_v3_p1') || {});
+                p1_init();
                 p1_showStep(0);
             } else if (view === 'values') {
                 initValuesDom();
@@ -984,7 +1094,7 @@ if (document.readyState === 'loading') {
             }
 
             if (document.getElementById('view-intro')) diag_populate(parseStoredJson('diag_data') || {});
-            if (document.getElementById('view-phase1')) p1_populate(parseStoredJson('elite_operator_v3_p1') || {});
+            if (document.getElementById('view-phase1')) p1_populate(p1_readStoredData() || {});
             if (document.getElementById('view-values')) vb_populate(parseStoredJson('vb_data') || {});
             if (document.getElementById('view-master')) mb_populate(parseStoredJson('mb_data') || {});
             if (document.getElementById('view-phase3')) p3_populate(parseStoredJson('p3_data') || {});
