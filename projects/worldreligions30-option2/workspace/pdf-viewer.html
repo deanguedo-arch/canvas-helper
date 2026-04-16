@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>World Religions Library Viewer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    :root { --background:#fbf9f4; --surface:#f5f3ee; --surface-raised:#ffffff; --primary:#775a1c; --muted:#60584b; --outline:rgba(209, 197, 180, 0.28); --shadow:0 10px 40px rgba(78, 70, 57, 0.06); }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; background:linear-gradient(180deg, #fdfbf6 0%, #f7f3eb 100%); color:#1b1c19; font-family:"Inter", sans-serif; }
+    .viewer-shell { min-height:100vh; padding:18px; }
+    .viewer-toolbar { position:sticky; top:0; z-index:2; display:flex; justify-content:space-between; gap:16px; margin-bottom:16px; padding:16px 18px; background:rgba(255,255,255,0.88); box-shadow:inset 0 0 0 1px var(--outline), var(--shadow); backdrop-filter:blur(12px); }
+    .viewer-title { margin:0; font-family:"Noto Serif", serif; font-size:1.35rem; font-weight:600; }
+    .viewer-meta { margin:8px 0 0; color:var(--muted); font-size:0.9rem; }
+    .viewer-status { padding:18px; background:var(--surface-raised); box-shadow:inset 0 0 0 1px var(--outline), var(--shadow); color:var(--muted); }
+    .viewer-status.error { color:#8f4d3d; }
+    .viewer-pages { display:grid; gap:18px; }
+    .page-card { padding:14px; background:var(--surface-raised); box-shadow:inset 0 0 0 1px var(--outline), var(--shadow); }
+    .page-label { margin:0 0 10px; color:var(--muted); font-size:0.82rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; }
+    canvas { display:block; width:100%; height:auto; background:white; }
+  </style>
+</head>
+<body>
+  <div class="viewer-shell">
+    <div class="viewer-toolbar">
+      <div>
+        <h1 id="viewer-title" class="viewer-title">Document</h1>
+        <p id="viewer-meta" class="viewer-meta">Loading document</p>
+      </div>
+    </div>
+    <div id="viewer-status" class="viewer-status">Loading PDF...</div>
+    <div id="viewer-pages" class="viewer-pages" hidden></div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const file = params.get('file');
+    const title = params.get('title') || 'Document';
+    const titleNode = document.getElementById('viewer-title');
+    const metaNode = document.getElementById('viewer-meta');
+    const statusNode = document.getElementById('viewer-status');
+    const pagesNode = document.getElementById('viewer-pages');
+    titleNode.textContent = title;
+    metaNode.textContent = file ? 'Rendering in library viewer' : 'Missing file';
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    function setError(message) { statusNode.textContent = message; statusNode.classList.add('error'); pagesNode.hidden = true; }
+    function getScale(viewport) { const maxWidth = Math.min(window.innerWidth - 80, 1080); return Math.max(1, maxWidth / viewport.width); }
+    async function renderPdf() {
+      if (!file) { setError('No PDF file was provided to the viewer.'); return; }
+      try {
+        const pdf = await pdfjsLib.getDocument(file).promise;
+        metaNode.textContent = pdf.numPages === 1 ? '1 page' : `${pdf.numPages} pages`;
+        statusNode.hidden = true;
+        pagesNode.hidden = false;
+        for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber += 1) {
+          const page = await pdf.getPage(pageNumber);
+          const baseViewport = page.getViewport({ scale: 1 });
+          const viewport = page.getViewport({ scale: getScale(baseViewport) });
+          const card = document.createElement('section');
+          card.className = 'page-card';
+          const label = document.createElement('p');
+          label.className = 'page-label';
+          label.textContent = `Page ${pageNumber}`;
+          const canvas = document.createElement('canvas');
+          const context = canvas.getContext('2d');
+          canvas.width = viewport.width;
+          canvas.height = viewport.height;
+          card.append(label, canvas);
+          pagesNode.appendChild(card);
+          await page.render({ canvasContext: context, viewport }).promise;
+        }
+      } catch (error) {
+        setError(error && error.message ? error.message : 'Unable to render this PDF in the viewer.');
+      }
+    }
+    renderPdf();
+  </script>
+</body>
+</html>

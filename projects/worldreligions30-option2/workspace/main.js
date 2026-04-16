@@ -1,0 +1,1083 @@
+﻿(function () {
+  const data = window.WORLD_RELIGIONS_DATA || { course: {}, chapters: [], quizzes: [], assignments: [], library: [] };
+  const STORAGE_KEY = "worldreligions30-option2.progress";
+  const UI_KEY = "worldreligions30-option2.ui";
+
+  const refs = {
+    body: document.body,
+    menuToggle: document.getElementById("menu-toggle"),
+    navHome: document.getElementById("nav-home"),
+    navLibrary: document.getElementById("nav-library"),
+    tabChapters: document.getElementById("tab-chapters"),
+    tabQuizzes: document.getElementById("tab-quizzes"),
+    tabAssignments: document.getElementById("tab-assignments"),
+    courseTitle: document.getElementById("course-title"),
+    courseSubtitle: document.getElementById("course-subtitle"),
+    progressPercent: document.getElementById("progress-percent"),
+    chapterProgress: document.getElementById("chapter-progress"),
+    quizProgress: document.getElementById("quiz-progress"),
+    sectionTitle: document.getElementById("section-title"),
+    sectionIntro: document.getElementById("section-intro"),
+    contentBody: document.getElementById("content-body"),
+    viewerOverlay: document.getElementById("viewer-overlay"),
+    overlayCode: document.getElementById("overlay-code"),
+    overlayTitle: document.getElementById("overlay-title"),
+    overlayDownload: document.getElementById("overlay-download"),
+    overlayFrame: document.getElementById("overlay-frame"),
+    overlayClose: document.getElementById("overlay-close")
+  };
+
+  const state = {
+    section: "home",
+    tab: "chapters",
+    activeId: null,
+    activeLibraryId: null,
+    mobileNavOpen: false,
+    sidebarCollapsed: loadUiState().sidebarCollapsed,
+    quizSection: "mc",
+    checkedResults: {},
+    progress: loadProgress()
+  };
+
+  function loadProgress() {
+    try {
+      const parsed = JSON.parse(window.localStorage.getItem(STORAGE_KEY) || "{}");
+      return {
+        quizComplete: parsed.quizComplete || {},
+        quizCompletedAt: parsed.quizCompletedAt || {},
+        quizWork: parsed.quizWork || {}
+      };
+    } catch (_error) {
+      return {
+        quizComplete: {},
+        quizCompletedAt: {},
+        quizWork: {}
+      };
+    }
+  }
+
+  function saveProgress() {
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state.progress));
+  }
+
+  function loadUiState() {
+    try {
+      const parsed = JSON.parse(window.localStorage.getItem(UI_KEY) || "{}");
+      return { sidebarCollapsed: !!parsed.sidebarCollapsed };
+    } catch (_error) {
+      return { sidebarCollapsed: false };
+    }
+  }
+
+  function saveUiState() {
+    window.localStorage.setItem(UI_KEY, JSON.stringify({ sidebarCollapsed: state.sidebarCollapsed }));
+  }
+
+  function isMobile() {
+    return window.innerWidth <= 900;
+  }
+
+  function setMobileNav(open) {
+    state.mobileNavOpen = open;
+    refs.body.classList.toggle("mobile-nav-open", open);
+    refs.menuToggle?.setAttribute("aria-expanded", String(open));
+  }
+
+  function setSidebarCollapsed(collapsed) {
+    state.sidebarCollapsed = collapsed;
+    refs.body.classList.toggle("sidebar-collapsed", collapsed);
+    saveUiState();
+  }
+
+  function toggleNavMode() {
+    if (isMobile()) {
+      setMobileNav(!state.mobileNavOpen);
+      return;
+    }
+    setSidebarCollapsed(!state.sidebarCollapsed);
+  }
+
+  function closeMobileNav() {
+    if (isMobile()) {
+      setMobileNav(false);
+    }
+  }
+
+  function cleanText(value) {
+    return String(value ?? "")
+      .replace(/[�]/g, "-")
+      .replace(/[–—]/g, "-");
+  }
+
+  function escapeHtml(value) {
+    return cleanText(value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/\"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  function normalizeText(value) {
+    return String(value || "").replace(/\s+/g, " ").trim().toLowerCase();
+  }
+
+  function formatDate(value) {
+    if (!value) return "";
+    const date = new Date(value);
+    return Number.isNaN(date.getTime()) ? "" : date.toLocaleString();
+  }
+
+  function getQuizWork(id) {
+    if (!state.progress.quizWork[id]) {
+      state.progress.quizWork[id] = { mc: {}, matching: {}, tf: {} };
+      saveProgress();
+    }
+    return state.progress.quizWork[id];
+  }
+
+  function findChapter(id) {
+    return (data.chapters || []).find((item) => item.id === id) || null;
+  }
+
+  function findQuiz(id) {
+    return (data.quizzes || []).find((item) => item.id === id) || null;
+  }
+
+  function findQuizByChapter(chapterId) {
+    return (data.quizzes || []).find((item) => item.chapterId === chapterId) || null;
+  }
+
+  function getAssignments() {
+    return (data.chapters || []).map((chapter) => ({
+      id: `assignment-${chapter.number}`,
+      chapterId: chapter.id,
+      code: `Assignment ${chapter.number}`,
+      number: chapter.number,
+      title: chapter.title,
+      accent: chapter.accent,
+      summary: "Assignment content has not been authored yet. This lane stays ready for future chapter work."
+    }));
+  }
+
+  function findAssignment(id) {
+    return getAssignments().find((item) => item.id === id) || null;
+  }
+
+  function getLibraryItems() {
+    return (data.library || []).length
+      ? data.library
+      : (data.chapters || []).map((chapter) => ({
+          id: `library-${chapter.number}`,
+          chapterId: chapter.id,
+          code: chapter.code,
+          title: chapter.title,
+          accent: chapter.accent,
+          file: `./assets/library/Chapter ${chapter.number}.pdf`,
+          summary: `Local chapter PDF for ${chapter.title}.`
+        }));
+  }
+
+  function findLibrary(id) {
+    return getLibraryItems().find((item) => item.id === id) || null;
+  }
+
+  function getLibraryIdForChapter(chapterId) {
+    return getLibraryItems().find((item) => item.chapterId === chapterId)?.id || "";
+  }
+
+  function getQuizIdForChapter(chapterId) {
+    return findQuizByChapter(chapterId)?.id || "";
+  }
+
+  function getChapterNumberFromId(chapterId) {
+    return findChapter(chapterId)?.number || 0;
+  }
+
+  function isChapterUnlocked(number) {
+    if (number <= 1) return true;
+    return !!state.progress.quizComplete[`quiz-${number - 1}`];
+  }
+
+  function isQuizUnlocked(quiz) {
+    return !!quiz && isChapterUnlocked(quiz.number);
+  }
+
+  function isAssignmentUnlocked(assignment) {
+    return !!assignment && isChapterUnlocked(assignment.number);
+  }
+
+  function isLibraryItemUnlocked(item) {
+    return !!item && isChapterUnlocked(getChapterNumberFromId(item.chapterId));
+  }
+
+  function getUnlockedChapterCount() {
+    return (data.chapters || []).filter((chapter) => isChapterUnlocked(chapter.number)).length;
+  }
+
+  function getCompletedQuizCount() {
+    return Object.values(state.progress.quizComplete).filter(Boolean).length;
+  }
+
+  function getProgressSummary() {
+    const totalQuizzes = (data.quizzes || []).length;
+    const totalChapters = (data.chapters || []).length;
+    const completedQuizzes = getCompletedQuizCount();
+    return {
+      totalQuizzes,
+      totalChapters,
+      unlockedChapters: getUnlockedChapterCount(),
+      completedQuizzes,
+      percent: totalQuizzes ? Math.round((completedQuizzes / totalQuizzes) * 100) : 0
+    };
+  }
+
+  function resolveMatchingData(quiz) {
+    const matching = quiz.matching || {};
+    const rawTerms = Array.isArray(matching.terms) ? matching.terms : Array.isArray(matching.options) ? matching.options : [];
+    const terms = rawTerms.map((term, index) => {
+      if (typeof term === "string") {
+        return { key: String(index + 1), value: term, label: `${index + 1}. ${term}` };
+      }
+      const baseValue = term.value || term.term || term.text || term.answer || term.label || `Term ${index + 1}`;
+      const key = String(term.label || index + 1);
+      return { key, value: baseValue, label: `${key}. ${baseValue}` };
+    });
+
+    const rawItems = Array.isArray(matching.items) ? matching.items : Array.isArray(matching.questions) ? matching.questions : [];
+    const items = rawItems.map((item, index) => ({
+      number: item.number || index + 1,
+      prompt: item.prompt || item.text || item.statement || item.question || "",
+      correct: resolveMatchingAnswer(item.answer ?? item.correct ?? item.match ?? "", terms)
+    }));
+
+    return { terms, items };
+  }
+
+  function resolveMatchingAnswer(value, options) {
+    const raw = String(value ?? "").trim();
+    if (!raw) return "";
+    const asNumber = Number(raw);
+    if (!Number.isNaN(asNumber) && options[asNumber - 1]) return options[asNumber - 1].value;
+    const byKey = options.find((option) => normalizeText(option.key) === normalizeText(raw));
+    if (byKey) return byKey.value;
+    const byLabel = options.find((option) => normalizeText(option.label) === normalizeText(raw));
+    if (byLabel) return byLabel.value;
+    const byValue = options.find((option) => normalizeText(option.value) === normalizeText(raw));
+    if (byValue) return byValue.value;
+    return raw;
+  }
+
+  function computeObjectiveScore(quiz) {
+    const work = getQuizWork(quiz.id);
+    let total = 0;
+    let correct = 0;
+
+    (quiz.multipleChoice || []).forEach((item) => {
+      total += 1;
+      if (normalizeText(work.mc[item.number]) === normalizeText(item.answer)) correct += 1;
+    });
+
+    resolveMatchingData(quiz).items.forEach((item) => {
+      total += 1;
+      if (normalizeText(work.matching[item.number]) === normalizeText(item.correct)) correct += 1;
+    });
+
+    (quiz.trueFalse || []).forEach((item) => {
+      total += 1;
+      if (normalizeText(work.tf[item.number]) === normalizeText(item.answer)) correct += 1;
+    });
+
+    return { correct, total };
+  }
+  function renderNav() {
+    refs.body.classList.toggle("sidebar-collapsed", state.sidebarCollapsed && !isMobile());
+    refs.navHome?.classList.toggle("active", state.section === "home");
+    refs.navLibrary?.classList.toggle("active", state.section === "library");
+    refs.tabChapters?.classList.toggle("active", state.tab === "chapters");
+    refs.tabQuizzes?.classList.toggle("active", state.tab === "quizzes");
+    refs.tabAssignments?.classList.toggle("active", state.tab === "assignments");
+  }
+
+  function renderProgress() {
+    const summary = getProgressSummary();
+    refs.courseTitle.textContent = data.course?.title || "World Religions 30";
+    refs.courseSubtitle.textContent = data.course?.subtitle || "A comparative course shell for chapter study, quiz review, and local library reading.";
+    refs.progressPercent.textContent = `${summary.percent}%`;
+    refs.chapterProgress.textContent = `${summary.unlockedChapters}/${summary.totalChapters}`;
+    refs.quizProgress.textContent = `${summary.completedQuizzes}/${summary.totalQuizzes}`;
+  }
+
+  function setSection(section) {
+    state.section = section;
+    if (section === "home") {
+      state.tab = "chapters";
+    }
+    state.activeId = null;
+    closeMobileNav();
+    render();
+  }
+
+  function setTab(tab) {
+    state.section = "home";
+    state.tab = tab;
+    state.activeId = null;
+    closeMobileNav();
+    render();
+  }
+
+  function openChapter(id) {
+    const chapter = findChapter(id);
+    if (!chapter || !isChapterUnlocked(chapter.number)) return;
+    state.section = "home";
+    state.tab = "chapters";
+    state.activeId = id;
+    closeMobileNav();
+    render();
+  }
+
+  function openQuiz(id) {
+    const quiz = findQuiz(id);
+    if (!quiz || !isQuizUnlocked(quiz)) return;
+    state.section = "home";
+    state.tab = "quizzes";
+    state.activeId = id;
+    state.quizSection = "mc";
+    closeMobileNav();
+    render();
+  }
+
+  function openAssignment(id) {
+    const assignment = findAssignment(id);
+    if (!assignment || !isAssignmentUnlocked(assignment)) return;
+    state.section = "home";
+    state.tab = "assignments";
+    state.activeId = id;
+    closeMobileNav();
+    render();
+  }
+
+  function openLibrary(id) {
+    const item = findLibrary(id);
+    if (!item || !isLibraryItemUnlocked(item)) return;
+    state.section = "library";
+    state.activeLibraryId = id;
+    closeMobileNav();
+    render();
+  }
+
+  function markQuizComplete(id) {
+    state.progress.quizComplete[id] = true;
+    if (!state.progress.quizCompletedAt[id]) {
+      state.progress.quizCompletedAt[id] = new Date().toISOString();
+    }
+    saveProgress();
+    render();
+  }
+
+  function retakeQuiz(id) {
+    state.progress.quizWork[id] = { mc: {}, matching: {}, tf: {} };
+    state.checkedResults[id] = false;
+    saveProgress();
+    renderContent();
+  }
+
+  function setMcAnswer(quizId, questionNumber, answer) {
+    const work = getQuizWork(quizId);
+    work.mc[questionNumber] = answer;
+    saveProgress();
+    renderContent();
+  }
+
+  function setMatchingAnswer(quizId, questionNumber, answer) {
+    const work = getQuizWork(quizId);
+    work.matching[questionNumber] = answer;
+    saveProgress();
+  }
+
+  function setTfAnswer(quizId, questionNumber, answer) {
+    const work = getQuizWork(quizId);
+    work.tf[questionNumber] = answer;
+    saveProgress();
+    renderContent();
+  }
+
+  function checkAnswers(id) {
+    if (!state.progress.quizComplete[id]) return;
+    state.checkedResults[id] = true;
+    renderContent();
+  }
+
+  function buildViewerSrc(item) {
+    return `./pdf-viewer.html?file=${encodeURIComponent(item.file || item.path || "")}&title=${encodeURIComponent(item.title || item.code || "Chapter PDF")}`;
+  }
+
+  function openExpandedViewer(item) {
+    if (!item) return;
+    refs.overlayCode.textContent = item.code || "";
+    refs.overlayTitle.textContent = item.title || "Chapter PDF";
+    refs.overlayDownload.href = item.file || item.path || "#";
+    refs.overlayFrame.src = buildViewerSrc(item);
+    refs.viewerOverlay.hidden = false;
+  }
+
+  function closeExpandedViewer() {
+    refs.viewerOverlay.hidden = true;
+    refs.overlayFrame.src = "about:blank";
+  }
+
+  function getLibraryActiveItem() {
+    const unlocked = getLibraryItems().filter((item) => isLibraryItemUnlocked(item));
+    if (!unlocked.length) return null;
+    return findLibrary(state.activeLibraryId) && isLibraryItemUnlocked(findLibrary(state.activeLibraryId))
+      ? findLibrary(state.activeLibraryId)
+      : unlocked[0];
+  }
+
+  function renderSectionHeader() {
+    if (state.section === "library") {
+      refs.sectionTitle.textContent = "Library";
+      refs.sectionIntro.textContent = "Use the chapter selector to open a local PDF, expand it to a full-page viewer, or jump straight into the connected quiz.";
+      return;
+    }
+
+    if (state.tab === "quizzes") {
+      refs.sectionTitle.textContent = "Quizzes";
+      refs.sectionIntro.textContent = "Each quiz can be completed, checked, and exported. Completing a quiz unlocks the next chapter and its materials.";
+      return;
+    }
+
+    if (state.tab === "assignments") {
+      refs.sectionTitle.textContent = "Assignments";
+      refs.sectionIntro.textContent = "Assignments are placeholders for now. The lane stays ready for future authored work.";
+      return;
+    }
+
+    refs.sectionTitle.textContent = "Home";
+    refs.sectionIntro.textContent = "Chapter shells stay empty for now. They unlock one by one as the chapter quizzes are completed.";
+  }
+
+  function renderHomeCards() {
+    if (state.tab === "chapters" && state.activeId) return renderChapterDetail(findChapter(state.activeId));
+    if (state.tab === "quizzes" && state.activeId) return renderQuizDetail(findQuiz(state.activeId));
+    if (state.tab === "assignments" && state.activeId) return renderAssignmentDetail(findAssignment(state.activeId));
+
+    if (state.tab === "quizzes") {
+      return `
+        <div class="card-grid">
+          ${(data.quizzes || []).map((quiz) => {
+            const unlocked = isQuizUnlocked(quiz);
+            const complete = !!state.progress.quizComplete[quiz.id];
+            const score = computeObjectiveScore(quiz);
+            const nextChapter = findChapter(`chapter-${quiz.number + 1}`);
+            return `
+              <article class="course-card ${unlocked ? "" : "locked-card"}" style="--accent:${escapeHtml(quiz.accent || "#8b6728")}">
+                <p class="card-code">${escapeHtml(quiz.code)}</p>
+                <h4 class="card-title">${escapeHtml(quiz.title)}</h4>
+                <p class="card-summary">Recreated chapter booklet with objective sections, written prompts, and keyed guidance.</p>
+                <p class="card-meta">
+                  <span><strong>${score.correct}/${score.total || quiz.objectiveTotal || 0}</strong> objective score</span>
+                  <span>${complete ? "Completed" : unlocked ? "Ready" : `Locked until Chapter ${quiz.number - 1} quiz is complete`}</span>
+                </p>
+                <div class="card-actions">
+                  <button class="btn btn-primary" type="button" data-open-quiz="${escapeHtml(quiz.id)}" ${unlocked ? "" : "disabled"}>Open quiz</button>
+                </div>
+                ${nextChapter && complete ? `<div class="status-chip">${escapeHtml(nextChapter.title)} unlocked</div>` : complete ? `<div class="status-chip">Quiz complete</div>` : !unlocked ? `<div class="status-chip locked">Locked</div>` : ""}
+              </article>
+            `;
+          }).join("")}
+        </div>
+      `;
+    }
+
+    if (state.tab === "assignments") {
+      return `
+        <div class="card-grid">
+          ${getAssignments().map((assignment) => {
+            const unlocked = isAssignmentUnlocked(assignment);
+            return `
+              <article class="placeholder-card ${unlocked ? "" : "locked-card"}" style="--accent:${escapeHtml(assignment.accent || "#8b6728")}">
+                <p class="card-code">${escapeHtml(assignment.code)}</p>
+                <h4 class="card-title">${escapeHtml(assignment.title)}</h4>
+                <p class="card-summary">${escapeHtml(assignment.summary)}</p>
+                <div class="card-actions">
+                  <button class="btn btn-muted" type="button" data-open-assignment="${escapeHtml(assignment.id)}" ${unlocked ? "" : "disabled"}>Open placeholder</button>
+                </div>
+                ${unlocked ? "" : `<div class="status-chip locked">Locked until the previous chapter quiz is complete</div>`}
+              </article>
+            `;
+          }).join("")}
+        </div>
+      `;
+    }
+
+    return `
+      <div class="card-grid">
+        ${(data.chapters || []).map((chapter) => {
+          const unlocked = isChapterUnlocked(chapter.number);
+          return `
+            <article class="course-card ${unlocked ? "" : "locked-card"}" style="--accent:${escapeHtml(chapter.accent || "#8b6728")}">
+              <p class="card-code">${escapeHtml(chapter.code)}</p>
+              <h4 class="card-title">${escapeHtml(chapter.title)}</h4>
+              <p class="card-summary">${escapeHtml(chapter.summary)}</p>
+              <div class="card-actions">
+                <button class="btn btn-primary" type="button" data-open-chapter="${escapeHtml(chapter.id)}" ${unlocked ? "" : "disabled"}>Open chapter shell</button>
+                <button class="btn btn-secondary" type="button" data-open-library="${escapeHtml(getLibraryIdForChapter(chapter.id))}" ${unlocked ? "" : "disabled"}>Open PDF</button>
+                <button class="btn btn-muted" type="button" data-open-quiz="${escapeHtml(getQuizIdForChapter(chapter.id))}" ${unlocked ? "" : "disabled"}>Open quiz</button>
+              </div>
+              ${unlocked ? `<div class="status-chip">Ready</div>` : `<div class="status-chip locked">Locked until Chapter ${chapter.number - 1} quiz is complete</div>`}
+            </article>
+          `;
+        }).join("")}
+      </div>
+    `;
+  }
+
+  function renderChapterDetail(chapter) {
+    if (!chapter || !isChapterUnlocked(chapter.number)) {
+      return `<div class="empty-state">This chapter is still locked.</div>`;
+    }
+
+    return `
+      <article class="detail-card" style="--accent:${escapeHtml(chapter.accent || "#8b6728")}">
+        <div class="detail-stack">
+          <div>
+            <p class="detail-eyebrow">${escapeHtml(chapter.code)}</p>
+            <h4 class="detail-title">${escapeHtml(chapter.title)}</h4>
+            <p class="detail-summary">${escapeHtml(chapter.summary)}</p>
+          </div>
+          <div class="lock-copy">This chapter lane is intentionally blank right now. Use the chapter PDF and recreated quiz until the full lesson content is added.</div>
+          <div class="detail-actions">
+            <button class="btn btn-primary" type="button" data-open-library="${escapeHtml(getLibraryIdForChapter(chapter.id))}">Open chapter PDF</button>
+            <button class="btn btn-secondary" type="button" data-open-quiz="${escapeHtml(getQuizIdForChapter(chapter.id))}">Open quiz</button>
+            <button class="btn btn-muted" type="button" data-back-home="chapters">Back to chapters</button>
+          </div>
+        </div>
+      </article>
+    `;
+  }
+
+  function renderAssignmentDetail(assignment) {
+    if (!assignment || !isAssignmentUnlocked(assignment)) {
+      return `<div class="empty-state">This assignment lane is still locked.</div>`;
+    }
+
+    return `
+      <article class="detail-card" style="--accent:${escapeHtml(assignment.accent || "#8b6728")}">
+        <div class="detail-stack">
+          <div>
+            <p class="detail-eyebrow">${escapeHtml(assignment.code)}</p>
+            <h4 class="detail-title">${escapeHtml(assignment.title)}</h4>
+            <p class="detail-summary">${escapeHtml(assignment.summary)}</p>
+          </div>
+          <div class="lock-copy">This area stays open for future authored assignments. Nothing has been loaded into it yet.</div>
+          <div class="detail-actions">
+            <button class="btn btn-primary" type="button" data-open-library="${escapeHtml(getLibraryIdForChapter(assignment.chapterId))}">Open chapter PDF</button>
+            <button class="btn btn-secondary" type="button" data-open-quiz="${escapeHtml(getQuizIdForChapter(assignment.chapterId))}">Open quiz</button>
+            <button class="btn btn-muted" type="button" data-back-home="assignments">Back to assignments</button>
+          </div>
+        </div>
+      </article>
+    `;
+  }
+  function renderLibrary() {
+    const items = getLibraryItems();
+    const active = getLibraryActiveItem();
+    if (!active) {
+      return `<div class="empty-state">No unlocked chapter PDFs are available yet.</div>`;
+    }
+
+    state.activeLibraryId = active.id;
+    const chapter = findChapter(active.chapterId);
+    const quiz = findQuizByChapter(active.chapterId);
+
+    return `
+      <div class="library-shell">
+        <article class="library-select-shell" style="--accent:${escapeHtml(active.accent || "#8b6728")}">
+          <div class="viewer-toolbar">
+            <div class="viewer-select-group">
+              <label class="field-label" for="library-select">Choose chapter PDF</label>
+              <div class="select-wrap">
+                <select id="library-select" class="select-field" data-library-select>
+                  ${items.map((item) => {
+                    const unlocked = isLibraryItemUnlocked(item);
+                    return `<option value="${escapeHtml(item.id)}" ${item.id === active.id ? "selected" : ""} ${unlocked ? "" : "disabled"}>${escapeHtml(item.code)} - ${escapeHtml(item.title)}${unlocked ? "" : " (locked)"}</option>`;
+                  }).join("")}
+                </select>
+              </div>
+            </div>
+            <div class="viewer-actions">
+              <a class="btn btn-primary" href="${escapeHtml(active.file || active.path || "#")}" download>Download PDF</a>
+              <button class="btn btn-secondary" type="button" data-open-expanded-viewer="${escapeHtml(active.id)}">Expand viewer</button>
+              ${chapter ? `<button class="btn btn-muted" type="button" data-open-chapter="${escapeHtml(chapter.id)}">Open chapter shell</button>` : ""}
+              ${quiz ? `<button class="btn btn-muted" type="button" data-open-quiz="${escapeHtml(quiz.id)}">Open quiz</button>` : ""}
+            </div>
+          </div>
+          <p class="viewer-copy">${escapeHtml(active.summary || "Local chapter PDF.")}</p>
+        </article>
+
+        <article class="viewer-shell" style="--accent:${escapeHtml(active.accent || "#8b6728")}">
+          <p class="detail-eyebrow">${escapeHtml(active.code || "")}</p>
+          <h4 class="detail-title">${escapeHtml(active.title)}</h4>
+          <p class="detail-summary">Read the chapter directly in the shell, or expand the viewer if you want a full-page reading surface.</p>
+          <div class="viewer-frame">
+            <iframe title="${escapeHtml(active.title)}" src="${escapeHtml(buildViewerSrc(active))}"></iframe>
+          </div>
+        </article>
+      </div>
+    `;
+  }
+
+  function renderMultipleChoice(quiz, work, showResults) {
+    const items = quiz.multipleChoice || [];
+    if (!items.length) return `<div class="empty-state">No multiple-choice items were found for this chapter.</div>`;
+
+    return `
+      <div class="objective-stack">
+        ${items.map((item) => `
+          <article class="objective-card ${showResults ? "show-results" : ""}">
+            <div class="objective-head">
+              <div class="objective-number">${escapeHtml(item.number)}</div>
+              <div>
+                <h5>${escapeHtml(item.prompt)}</h5>
+                ${item.context ? `<p>${escapeHtml(item.context)}</p>` : ""}
+              </div>
+            </div>
+            <div class="answer-grid">
+              ${(item.options || []).map((option) => {
+                const selected = normalizeText(work.mc[item.number]) === normalizeText(option.label);
+                const correct = normalizeText(item.answer) === normalizeText(option.label);
+                const stateClass = showResults ? (correct ? "correct" : selected ? "incorrect" : "") : selected ? "selected" : "";
+                return `
+                  <button class="answer-option ${stateClass}" type="button" data-mc-answer="${escapeHtml(quiz.id)}" data-question="${escapeHtml(item.number)}" data-value="${escapeHtml(option.label)}">
+                    <span><strong>${escapeHtml(option.label)}</strong>${escapeHtml(option.text)}</span>
+                  </button>
+                `;
+              }).join("")}
+            </div>
+            <div class="answer-key"><strong>Correct answer:</strong> ${escapeHtml(item.answer)}</div>
+          </article>
+        `).join("")}
+      </div>
+    `;
+  }
+
+  function renderMatching(quiz, work, showResults) {
+    const matching = resolveMatchingData(quiz);
+    if (!matching.items.length) return `<div class="empty-state">No matching set was found for this chapter.</div>`;
+
+    return `
+      <div class="objective-stack">
+        ${matching.items.map((item) => {
+          const selected = work.matching[item.number] || "";
+          const isCorrect = normalizeText(selected) === normalizeText(item.correct);
+          return `
+            <article class="objective-card ${showResults ? "show-results" : ""}">
+              <div class="objective-head">
+                <div class="objective-number">${escapeHtml(item.number)}</div>
+                <div><h5>${escapeHtml(item.prompt)}</h5></div>
+              </div>
+              <div class="matching-row">
+                <div class="section-copy">Match this item to the correct term from the chapter term bank.</div>
+                <select class="matching-select" data-matching-question="${escapeHtml(item.number)}" data-quiz-id="${escapeHtml(quiz.id)}">
+                  <option value="">Choose a term</option>
+                  ${matching.terms.map((term) => `<option value="${escapeHtml(term.value)}" ${normalizeText(selected) === normalizeText(term.value) ? "selected" : ""}>${escapeHtml(term.label)}</option>`).join("")}
+                </select>
+              </div>
+              <div class="answer-key"><strong>Correct answer:</strong> ${escapeHtml(item.correct)}${showResults && selected ? ` — ${isCorrect ? "Correct" : "Does not match your selected answer."}` : ""}</div>
+            </article>
+          `;
+        }).join("")}
+      </div>
+    `;
+  }
+
+  function renderTrueFalse(quiz, work, showResults) {
+    const items = quiz.trueFalse || [];
+    if (!items.length) return `<div class="empty-state">No true / false items were found for this chapter.</div>`;
+
+    return `
+      <div class="objective-stack">
+        ${items.map((item) => `
+          <article class="objective-card ${showResults ? "show-results" : ""}">
+            <div class="objective-head">
+              <div class="objective-number">${escapeHtml(item.number)}</div>
+              <div><h5>${escapeHtml(item.prompt || item.statement || item.text || "")}</h5></div>
+            </div>
+            <div class="answer-grid">
+              ${["T", "F"].map((choice) => {
+                const selected = normalizeText(work.tf[item.number]) === normalizeText(choice);
+                const correct = normalizeText(item.answer) === normalizeText(choice);
+                const stateClass = showResults ? (correct ? "correct" : selected ? "incorrect" : "") : selected ? "selected" : "";
+                return `
+                  <button class="answer-option ${stateClass}" type="button" data-tf-answer="${escapeHtml(quiz.id)}" data-question="${escapeHtml(item.number)}" data-value="${escapeHtml(choice)}">
+                    <span><strong>${escapeHtml(choice)}</strong>${choice === "T" ? "True" : "False"}</span>
+                  </button>
+                `;
+              }).join("")}
+            </div>
+            <div class="answer-key"><strong>Correct answer:</strong> ${normalizeText(item.answer) === "t" ? "True" : normalizeText(item.answer) === "f" ? "False" : escapeHtml(item.answer)}</div>
+          </article>
+        `).join("")}
+      </div>
+    `;
+  }
+
+  function renderWritten(quiz, showResults) {
+    const items = quiz.writtenResponse || [];
+    if (!items.length) return `<div class="empty-state">No written-response prompts were found for this chapter.</div>`;
+
+    return `
+      <div class="written-stack">
+        ${items.map((item) => `
+          <article class="written-card ${showResults ? "show-results" : ""}">
+            <h5>${escapeHtml(item.number ? `${item.number}. ` : "")}${escapeHtml(item.prompt || item.question || item.text || "")}</h5>
+            <div class="written-key"><strong>Teacher guidance:</strong> ${escapeHtml(item.teacherKey || item.answer || "Keyed response not provided in the teacher copy.")}</div>
+          </article>
+        `).join("")}
+      </div>
+    `;
+  }
+
+  function renderStudentChoice(quiz, showResults) {
+    const items = quiz.studentChoice || [];
+    if (!items.length) return `<div class="empty-state">No student-choice section was found for this chapter.</div>`;
+
+    return `
+      <div class="option-stack">
+        ${items.map((item, index) => `
+          <article class="option-card ${showResults ? "show-results" : ""}">
+            <h5>${escapeHtml(item.title || `Option ${index + 1}`)}</h5>
+            <p>${escapeHtml(item.prompt || item.text || "Student-choice response path from the chapter booklet.")}</p>
+            <div class="student-note"><strong>Teacher note:</strong> ${escapeHtml(item.teacherNote || "No keyed teacher note was found for this option.")}</div>
+          </article>
+        `).join("")}
+      </div>
+    `;
+  }
+  function getQuizSectionIntro(section, complete) {
+    if (!complete) {
+      return "Complete the quiz first. Once marked complete, you can check answers and generate results.";
+    }
+
+    switch (section) {
+      case "matching":
+        return "Match chapter terms, people, or concepts to the correct descriptions from the original booklet.";
+      case "tf":
+        return "Compare each statement to the keyed true / false answers from the teacher booklet.";
+      case "written":
+        return "Written-response prompts stay intact. Teacher guidance appears once answers are checked.";
+      case "choice":
+        return "Student-choice options stay intact. Teacher notes appear once answers are checked.";
+      default:
+        return "Objective sections stay interactive. Check answers after completion to compare your work against the keyed version.";
+    }
+  }
+
+  function renderQuizDetail(quiz) {
+    if (!quiz || !isQuizUnlocked(quiz)) {
+      return `<div class="empty-state">This quiz is still locked.</div>`;
+    }
+
+    const work = getQuizWork(quiz.id);
+    const complete = !!state.progress.quizComplete[quiz.id];
+    const completedAt = formatDate(state.progress.quizCompletedAt[quiz.id]);
+    const showResults = !!state.checkedResults[quiz.id] && complete;
+    const score = computeObjectiveScore(quiz);
+    const section = state.quizSection;
+
+    let sectionHtml = "";
+    if (section === "matching") {
+      sectionHtml = renderMatching(quiz, work, showResults);
+    } else if (section === "tf") {
+      sectionHtml = renderTrueFalse(quiz, work, showResults);
+    } else if (section === "written") {
+      sectionHtml = renderWritten(quiz, showResults);
+    } else if (section === "choice") {
+      sectionHtml = renderStudentChoice(quiz, showResults);
+    } else {
+      sectionHtml = renderMultipleChoice(quiz, work, showResults);
+    }
+
+    return `
+      <article class="quiz-shell" style="--accent:${escapeHtml(quiz.accent || "#8b6728")}">
+        <div class="quiz-stack">
+          <div class="quiz-topbar">
+            <div class="quiz-copy">
+              <p class="detail-eyebrow">${escapeHtml(quiz.code)}</p>
+              <h4>${escapeHtml(quiz.title)}</h4>
+              <p>${complete ? "This quiz is complete. You can still retake it, re-check answers, and regenerate the results PDF." : "Finish your attempt, then mark the quiz complete to unlock the next chapter."}</p>
+            </div>
+              <div class="quiz-actions">
+                <button class="btn btn-primary" type="button" data-mark-quiz-complete="${escapeHtml(quiz.id)}" ${complete ? "disabled" : ""}>${complete ? "Completed" : "Mark complete"}</button>
+                <button class="btn btn-secondary" type="button" data-check-answers="${escapeHtml(quiz.id)}" ${complete ? "" : "disabled"}>Check answers</button>
+                <button class="btn btn-muted" type="button" data-generate-quiz-results="${escapeHtml(quiz.id)}" ${complete ? "" : "disabled"}>Generate Results</button>
+                <button class="btn btn-muted" type="button" data-retake-quiz="${escapeHtml(quiz.id)}">Retake Quiz</button>
+                <button class="btn btn-muted" type="button" data-back-home="quizzes">Back to quizzes</button>
+              </div>
+            </div>
+
+          <div class="quiz-summary">
+            <div class="quiz-summary-card">
+              <span class="metric-label">Objective score</span>
+              <strong>${score.correct}/${score.total || quiz.objectiveTotal || 0}</strong>
+            </div>
+            <div class="quiz-summary-card results-copy">
+              <span class="metric-label">Status</span>
+              <strong style="font-size:1rem; color: var(--text); margin-top: 10px;">${complete ? "Quiz complete" : "In progress"}</strong>
+              <p style="margin:8px 0 0;">${complete && completedAt ? `Completed on ${escapeHtml(completedAt)}.` : `The next chapter unlocks when this quiz is marked complete.`}</p>
+            </div>
+          </div>
+
+          <div class="quiz-pill-row">
+            <button class="quiz-pill ${section === "mc" ? "active" : ""}" type="button" data-quiz-section="mc">Multiple choice</button>
+            <button class="quiz-pill ${section === "matching" ? "active" : ""}" type="button" data-quiz-section="matching">Matching</button>
+            <button class="quiz-pill ${section === "tf" ? "active" : ""}" type="button" data-quiz-section="tf">True / false</button>
+            <button class="quiz-pill ${section === "written" ? "active" : ""}" type="button" data-quiz-section="written">Written response</button>
+            <button class="quiz-pill ${section === "choice" ? "active" : ""}" type="button" data-quiz-section="choice">Student choice</button>
+          </div>
+
+          <div class="section-copy">${escapeHtml(getQuizSectionIntro(section, complete))}</div>
+          ${sectionHtml}
+        </div>
+      </article>
+    `;
+  }
+
+  function renderResultsTable(rows, columns) {
+    if (!rows.length) return "";
+    return `
+      <table style="width:100%; border-collapse:collapse; margin-top:12px; font-size:12px;">
+        <thead>
+          <tr>
+            ${columns.map((column) => `<th style="text-align:left; padding:8px 10px; border-bottom:2px solid #1d1d1d; font-size:11px; text-transform:uppercase; letter-spacing:0.08em;">${escapeHtml(column.label)}</th>`).join("")}
+          </tr>
+        </thead>
+        <tbody>
+          ${rows.map((row) => `
+            <tr>
+              ${columns.map((column) => `<td style="padding:8px 10px; border-bottom:1px solid #d7d0c2; vertical-align:top;">${escapeHtml(row[column.key] || "-")}</td>`).join("")}
+            </tr>
+          `).join("")}
+        </tbody>
+      </table>
+    `;
+  }
+
+  function generateQuizResults(quiz) {
+    if (!quiz || !state.progress.quizComplete[quiz.id]) return;
+
+    const work = getQuizWork(quiz.id);
+    const score = computeObjectiveScore(quiz);
+    const matching = resolveMatchingData(quiz);
+    const mcRows = (quiz.multipleChoice || []).map((item) => ({
+      question: String(item.number),
+      selected: work.mc[item.number] || "",
+      correct: item.answer || "",
+      result: normalizeText(work.mc[item.number]) === normalizeText(item.answer) ? "Correct" : "Incorrect"
+    }));
+    const matchingRows = matching.items.map((item) => ({
+      question: String(item.number),
+      selected: work.matching[item.number] || "",
+      correct: item.correct || "",
+      result: normalizeText(work.matching[item.number]) === normalizeText(item.correct) ? "Correct" : "Incorrect"
+    }));
+    const tfRows = (quiz.trueFalse || []).map((item) => ({
+      question: String(item.number),
+      selected: work.tf[item.number] || "",
+      correct: normalizeText(item.answer) === "t" ? "True" : normalizeText(item.answer) === "f" ? "False" : item.answer || "",
+      result: normalizeText(work.tf[item.number]) === normalizeText(item.answer) ? "Correct" : "Incorrect"
+    }));
+    const guidanceRows = [...(quiz.writtenResponse || []).map((item) => ({
+      prompt: item.prompt || item.question || item.text || "",
+      guidance: item.teacherKey || item.answer || ""
+    })), ...(quiz.studentChoice || []).map((item) => ({
+      prompt: item.title || item.prompt || item.text || "",
+      guidance: item.teacherNote || ""
+    }))];
+
+    const reportHtml = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>${escapeHtml(quiz.title)} Results</title>
+<style>
+  body { margin: 0; padding: 36px 42px; font-family: Inter, Arial, sans-serif; color: #1f1c17; }
+  h1, h2 { font-family: Georgia, 'Times New Roman', serif; margin: 0; }
+  h1 { font-size: 36px; line-height: 1.05; }
+  h2 { font-size: 20px; margin-top: 26px; }
+  .top { display:flex; justify-content:space-between; gap:24px; align-items:flex-start; }
+  .eyebrow { margin: 0 0 8px; color: #8b6728; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+  .summary { min-width: 220px; border: 1px solid #d7d0c2; padding: 16px 18px; }
+  .score { margin-top: 10px; font-size: 40px; font-weight: 700; color: #8b6728; }
+  .meta { margin-top: 10px; color: #5f5649; font-size: 13px; line-height: 1.6; }
+  .section { margin-top: 28px; }
+  .section-copy { color: #5f5649; font-size: 13px; line-height: 1.6; }
+  .guide { margin-top: 14px; border: 1px solid #d7d0c2; padding: 12px 14px; }
+  .guide-title { font-weight: 700; margin-bottom: 6px; }
+  @media print { body { padding: 22px 26px; } }
+</style>
+</head>
+<body>
+  <div class="top">
+    <div>
+      <p class="eyebrow">World Religions 30</p>
+      <h1>${escapeHtml(quiz.title)}</h1>
+      <div class="meta">Quiz results summary<br>${escapeHtml(formatDate(state.progress.quizCompletedAt[quiz.id]) || new Date().toLocaleString())}</div>
+    </div>
+    <div class="summary">
+      <div class="eyebrow">Objective score</div>
+      <div class="score">${escapeHtml(`${score.correct}/${score.total || quiz.objectiveTotal || 0}`)}</div>
+      <div class="meta">This report captures the student-selected objective answers plus teacher guidance from the keyed booklet.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Multiple choice</h2>
+    ${renderResultsTable(mcRows, [
+      { key: "question", label: "Question" },
+      { key: "selected", label: "Selected" },
+      { key: "correct", label: "Correct" },
+      { key: "result", label: "Result" }
+    ])}
+  </div>
+
+  <div class="section">
+    <h2>Matching</h2>
+    ${renderResultsTable(matchingRows, [
+      { key: "question", label: "Item" },
+      { key: "selected", label: "Selected" },
+      { key: "correct", label: "Correct" },
+      { key: "result", label: "Result" }
+    ])}
+  </div>
+
+  <div class="section">
+    <h2>True / false</h2>
+    ${renderResultsTable(tfRows, [
+      { key: "question", label: "Question" },
+      { key: "selected", label: "Selected" },
+      { key: "correct", label: "Correct" },
+      { key: "result", label: "Result" }
+    ])}
+  </div>
+
+  <div class="section">
+    <h2>Teacher guidance</h2>
+    <div class="section-copy">Written-response and student-choice guidance from the keyed chapter booklet.</div>
+    ${guidanceRows.map((row) => `<div class="guide"><div class="guide-title">${escapeHtml(row.prompt)}</div><div>${escapeHtml(row.guidance || "No keyed guidance provided.")}</div></div>`).join("")}
+  </div>
+
+</body>
+</html>`;
+
+    const reportBlob = new Blob([reportHtml], { type: "text/html" });
+    const reportUrl = URL.createObjectURL(reportBlob);
+    const popup = window.open(reportUrl, "_blank", "width=1100,height=840");
+    if (!popup) {
+      URL.revokeObjectURL(reportUrl);
+      return;
+    }
+
+    const cleanup = () => URL.revokeObjectURL(reportUrl);
+    popup.addEventListener("load", () => {
+      popup.focus();
+      setTimeout(() => {
+        popup.print();
+        cleanup();
+      }, 350);
+    }, { once: true });
+    popup.addEventListener("beforeunload", cleanup, { once: true });
+  }
+  function renderContent() {
+    renderSectionHeader();
+    refs.contentBody.innerHTML = state.section === "library" ? renderLibrary() : renderHomeCards();
+    bindContentEvents();
+  }
+
+  function bindContentEvents() {
+    refs.contentBody.onclick = (event) => {
+      const chapterButton = event.target.closest("[data-open-chapter]");
+      if (chapterButton) return void openChapter(chapterButton.dataset.openChapter);
+
+      const quizButton = event.target.closest("[data-open-quiz]");
+      if (quizButton) return void openQuiz(quizButton.dataset.openQuiz);
+
+      const assignmentButton = event.target.closest("[data-open-assignment]");
+      if (assignmentButton) return void openAssignment(assignmentButton.dataset.openAssignment);
+
+      const libraryButton = event.target.closest("[data-open-library]");
+      if (libraryButton) return void openLibrary(libraryButton.dataset.openLibrary);
+
+      const expandedViewerButton = event.target.closest("[data-open-expanded-viewer]");
+      if (expandedViewerButton) return void openExpandedViewer(findLibrary(expandedViewerButton.dataset.openExpandedViewer));
+
+      const backButton = event.target.closest("[data-back-home]");
+      if (backButton) return void setTab(backButton.dataset.backHome);
+
+      const markCompleteButton = event.target.closest("[data-mark-quiz-complete]");
+      if (markCompleteButton) return void markQuizComplete(markCompleteButton.dataset.markQuizComplete);
+
+      const checkAnswersButton = event.target.closest("[data-check-answers]");
+      if (checkAnswersButton) return void checkAnswers(checkAnswersButton.dataset.checkAnswers);
+
+      const generateButton = event.target.closest("[data-generate-quiz-results]");
+      if (generateButton) return void generateQuizResults(findQuiz(generateButton.dataset.generateQuizResults));
+
+      const retakeButton = event.target.closest("[data-retake-quiz]");
+      if (retakeButton) return void retakeQuiz(retakeButton.dataset.retakeQuiz);
+
+      const quizSectionButton = event.target.closest("[data-quiz-section]");
+      if (quizSectionButton) {
+        state.quizSection = quizSectionButton.dataset.quizSection;
+        return void renderContent();
+      }
+
+      const mcButton = event.target.closest("[data-mc-answer]");
+      if (mcButton) return void setMcAnswer(mcButton.dataset.mcAnswer, mcButton.dataset.question, mcButton.dataset.value);
+
+      const tfButton = event.target.closest("[data-tf-answer]");
+      if (tfButton) return void setTfAnswer(tfButton.dataset.tfAnswer, tfButton.dataset.question, tfButton.dataset.value);
+    };
+
+    refs.contentBody.onchange = (event) => {
+      const librarySelect = event.target.closest("[data-library-select]");
+      if (librarySelect) return void openLibrary(librarySelect.value);
+
+      const matchingSelect = event.target.closest("[data-matching-question]");
+      if (matchingSelect) return void setMatchingAnswer(matchingSelect.dataset.quizId, matchingSelect.dataset.matchingQuestion, matchingSelect.value);
+    };
+  }
+
+  function render() {
+    renderNav();
+    renderProgress();
+    renderContent();
+  }
+
+  refs.menuToggle?.addEventListener("click", toggleNavMode);
+  refs.navHome?.addEventListener("click", () => setSection("home"));
+  refs.navLibrary?.addEventListener("click", () => setSection("library"));
+  refs.tabChapters?.addEventListener("click", () => setTab("chapters"));
+  refs.tabQuizzes?.addEventListener("click", () => setTab("quizzes"));
+  refs.tabAssignments?.addEventListener("click", () => setTab("assignments"));
+  refs.overlayClose?.addEventListener("click", closeExpandedViewer);
+  refs.viewerOverlay?.addEventListener("click", (event) => {
+    if (event.target === refs.viewerOverlay) closeExpandedViewer();
+  });
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !refs.viewerOverlay.hidden) closeExpandedViewer();
+  });
+
+  window.addEventListener("resize", () => {
+    if (!isMobile()) {
+      setMobileNav(false);
+      return;
+    }
+    refs.body.classList.remove("sidebar-collapsed");
+  });
+
+  refs.body.classList.toggle("sidebar-collapsed", state.sidebarCollapsed && !isMobile());
+  render();
+})();
+
