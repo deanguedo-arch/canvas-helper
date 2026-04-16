@@ -22,7 +22,7 @@ const MATERIALS = [
     id: 'm2',
     code: '02',
     title: 'The Drive',
-    desc: 'Motivation, 7/10 task, and maintenance.',
+    desc: 'Integrated discipline, motivation quality, and recovery.',
     color: '#f59e0b',
     file: './assets/slides/02-drive.pdf'
   },
@@ -47,7 +47,7 @@ const MATERIALS = [
 const PHASES = [
   { id: 'phase-0', code: 'Diagnostic', title: 'What is Sports Psychology?', body: 'Baseline phase shell ready. Add orientation content and readiness checkpoints here.', accent: '#94a3b8', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBlq-6-CPseoFR8UqMT0X2FMeB--00jNw4cSJD49Y9ssTGx5fMBeIyYo3_koXT1u-GNGQo-qWY-SfF98bfBdfLBiecnb4bjKkQazfV2ViRxowEf8pS-zzrSJD7u-8TpTzj4SnuNvIQawrpjFo55wREt8B2GL1Hx7_3cQaSTH1wPEidAjvo6Df0RtY_0TcWEPu6N7IfSYAMsvmwUTBnlteQD6ko6A2H_wpcJbaB6z8u-Jl80VDQ3jC54lhSjlVFiExFX0vnCLkm0Sg' },
   { id: 'phase-1', code: 'Phase 1', title: 'The Engine', body: 'Phase shell ready. Add learning content and checkpoints here.', accent: '#00ff7f', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBlq-6-CPseoFR8UqMT0X2FMeB--00jNw4cSJD49Y9ssTGx5fMBeIyYo3_koXT1u-GNGQo-qWY-SfF98bfBdfLBiecnb4bjKkQazfV2ViRxowEf8pS-zzrSJD7u-8TpTzj4SnuNvIQawrpjFo55wREt8B2GL1Hx7_3cQaSTH1wPEidAjvo6Df0RtY_0TcWEPu6N7IfSYAMsvmwUTBnlteQD6ko6A2H_wpcJbaB6z8u-Jl80VDQ3jC54lhSjlVFiExFX0vnCLkm0Sg' },
-  { id: 'phase-2', code: 'Phase 2', title: 'The Drive', body: 'Phase shell ready. Add learning content and checkpoints here.', accent: '#8a2be2', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDvDf2Loe_K9P9rPvsVnKxak1lzcUPafuTXXcuWbvJlqfavtKwooYLAzn-8dLG0JTgPXYaD1fCNRnJ_BBztqMgkJuNraarq9K40uDncUo3VuHPUlE_74VhLYp6-ce_a0WXvi1IoKSHDBFjh3_XozgrVDifob2lwFGoiETAWWAkMWrId7aLagJPSIZXc0ihBAqy5xNPjqHpWQ3cQTjy5FWZGfRs9CDWmf4dcyLA7wv4J3O5tRrNNdxauFmMGjwvlXadZ4zYqzpyCQg' },
+  { id: 'phase-2', code: 'Phase 2', title: 'The Drive', body: 'Integrated discipline, self-determined motivation, recovery, and the social conditions that sustain high performance.', accent: '#8a2be2', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDvDf2Loe_K9P9rPvsVnKxak1lzcUPafuTXXcuWbvJlqfavtKwooYLAzn-8dLG0JTgPXYaD1fCNRnJ_BBztqMgkJuNraarq9K40uDncUo3VuHPUlE_74VhLYp6-ce_a0WXvi1IoKSHDBFjh3_XozgrVDifob2lwFGoiETAWWAkMWrId7aLagJPSIZXc0ihBAqy5xNPjqHpWQ3cQTjy5FWZGfRs9CDWmf4dcyLA7wv4J3O5tRrNNdxauFmMGjwvlXadZ4zYqzpyCQg' },
   { id: 'phase-3', code: 'Phase 3', title: 'The Focus', body: 'Phase shell ready. Add learning content and checkpoints here.', accent: '#00ced1', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBNgFbRFd5BzfIizgsYiWBVenbYdAhXa1r239HJE6lensK1WHkoFnTGSAWw-yC79HIjZy448eVlIgXEB6I-DANgc-HfvlvEdysH261NOgOU4M2xD49UTPmg1DXJ1hZJQcqJWFOb9g-YDZeSRNq3M1DJr9jo6A7bnykuIqQZhFYdolv1WY-bH1DjVTnVFYIvRPPylGs70rVzBv2m31FtPEdA_dDr0VsyFSBpq1c3sj9f8A01leCLUMJcMIsJD_5QYPSTSZCnH-Xhxg' },
   { id: 'phase-4', code: 'Phase 4', title: 'The Toolkit', body: 'Phase shell ready. Add learning content and checkpoints here.', accent: '#5c2e91', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCOJxNkx8XcI7amPy8SuO1byA5jB5t7Vgu7IDETTzUHpNZhGv3sF5clnnWroiNORNERn_9nal0ZPF8GGKjLYf--q4FM8nx0XPMxa4i_fp273shRI9kHUcq30245dQF2VsMtJ8lHTY3YDHsReuTrF9sugMQOSiUbyGzLjKHT8hRQFeqEtTuwvv-48dKMeaWD8DSL5TKY6u2K1SwbH6OhAfQwIWBJp1GeTDbsue9kBX9PEhqg5ys1ea3ud-4d8uImQKJhVH5_bhs9Gw' }
 ];
@@ -505,6 +505,138 @@ const QUIZZES = [
         explanation: 'Martens identifies event importance and uncertainty as the two main situational stressors. Personal variables such as trait anxiety and self-esteem matter too, but they are not the situational sources asked for here.'
       }
     ]
+  },
+  {
+    id: 'quiz-phase2-integrated-discipline',
+    code: 'Quiz 02',
+    title: 'Integrated Discipline and Motivation Quality',
+    accent: '#f59e0b',
+    phaseId: 'phase-2',
+    body: '10 multiple-choice questions on self-determination, values, mindset, recovery, and social context in sustainable discipline.',
+    questionCount: 10,
+    sourcePdf: './assets/readings/phase2-drive-content.pdf',
+    questions: [
+      {
+        id: 'phase2-q1',
+        question: 'In the chapter, what is the distinction between the direction and the intensity of motivation?',
+        choices: [
+          'Direction explains how much effort is available, while intensity explains whether the person values the goal.',
+          'Direction explains where effort is aimed, while intensity explains how much force is applied once the target is chosen.',
+          'Direction refers to emotional arousal, while intensity refers to social pressure from other people.',
+          'Direction refers to trait motivation, while intensity refers only to short-term state anxiety.'
+        ],
+        answerIndex: 1,
+        explanation: 'The chapter opens by defining direction as where effort is aimed and intensity as how much force is applied once that target has been selected. The distinction matters because effort can be intense but misdirected.'
+      },
+      {
+        id: 'phase2-q2',
+        question: 'Which form of regulation best represents integrated discipline?',
+        choices: [
+          'Doing the work mainly to avoid punishment or gain an external reward.',
+          'Doing the work because guilt and shame make stopping feel unacceptable.',
+          'Doing the work because the behavior now fits personal values and identity.',
+          'Doing the work only when the task feels fun in the moment.'
+        ],
+        answerIndex: 2,
+        explanation: 'Integrated regulation is the most autonomous form of extrinsic motivation. The behavior may still be hard, but it feels self-endorsed because it aligns with values and identity.'
+      },
+      {
+        id: 'phase2-q3',
+        question: 'According to self-determination theory, which set of needs supports movement toward more self-determined motivation?',
+        choices: [
+          'Autonomy, competence, and relatedness',
+          'Confidence, discipline, and consistency',
+          'Intensity, resilience, and self-esteem',
+          'Reward, status, and belonging'
+        ],
+        answerIndex: 0,
+        explanation: 'The chapter identifies autonomy, competence, and relatedness as the three basic psychological needs. When they are satisfied, motivation shifts toward ownership rather than control.'
+      },
+      {
+        id: 'phase2-q4',
+        question: 'What is the main psychological function of values in the chapter’s model of discipline?',
+        choices: [
+          'Values make hard tasks pleasant enough that motivation is no longer necessary.',
+          'Values remove the need for recovery by making effort more meaningful.',
+          'Values choose the direction of effort and move a task from “I should” toward “I choose.”',
+          'Values guarantee intrinsic motivation whenever pressure rises.'
+        ],
+        answerIndex: 2,
+        explanation: 'Values solve the direction problem. They connect behavior to a chosen standard or identity, which increases meaning and ownership without pretending the task becomes easy.'
+      },
+      {
+        id: 'phase2-q5',
+        question: 'How does a growth or incremental view of ability change the meaning of failure?',
+        choices: [
+          'Failure becomes evidence that the person lacks natural talent and should protect self-worth.',
+          'Failure becomes proof that external rewards are not strong enough.',
+          'Failure becomes process data about strategy, preparation, or current method.',
+          'Failure stops mattering because effort alone is always enough.'
+        ],
+        answerIndex: 2,
+        explanation: 'Under a growth view, failure is interpreted as information about process, strategy, or preparation rather than a verdict on the whole self.'
+      },
+      {
+        id: 'phase2-q6',
+        question: 'Which statement best captures the chapter’s distinction between guilt and shame?',
+        choices: [
+          'Guilt attacks the self, while shame focuses on a correctable behavior.',
+          'Guilt focuses on a behavior that can be repaired, while shame frames the self as globally flawed.',
+          'Guilt and shame are treated as interchangeable forms of useful accountability.',
+          'Guilt is always maladaptive, while shame is the stronger motivational tool.'
+        ],
+        answerIndex: 1,
+        explanation: 'The chapter argues that guilt can support repair because it targets behavior, while shame tends to trigger hiding or defensiveness because it frames the self as the problem.'
+      },
+      {
+        id: 'phase2-q7',
+        question: 'What makes authentic pride more stable than hubristic pride?',
+        choices: [
+          'Authentic pride is rooted in controllable causes like effort and preparation rather than superiority narratives.',
+          'Authentic pride depends on public admiration, while hubristic pride depends on private effort.',
+          'Authentic pride ignores feedback, while hubristic pride seeks it.',
+          'Authentic pride is always intrinsic, while hubristic pride is always extrinsic.'
+        ],
+        answerIndex: 0,
+        explanation: 'Authentic pride is built on controllable causes such as effort, skill, and preparation. That makes setbacks less threatening than pride built on fixed superiority.'
+      },
+      {
+        id: 'phase2-q8',
+        question: 'Which goal type usually offers the best protection for execution under pressure?',
+        choices: [
+          'Outcome goals because they keep attention on the final result',
+          'Performance goals because they compare the athlete to other people',
+          'Process goals because they target controllable actions, cues, and routines',
+          'Identity goals because they remove the need for feedback'
+        ],
+        answerIndex: 2,
+        explanation: 'The chapter treats process goals as the most stabilizing under pressure because they focus attention on controllable execution rather than uncontrollable outcomes.'
+      },
+      {
+        id: 'phase2-q9',
+        question: 'What is the key difference between functional overreaching and overtraining syndrome?',
+        choices: [
+          'Functional overreaching is a planned short-term dip followed by recovery, while overtraining syndrome is a long-term maladaptive breakdown state.',
+          'Functional overreaching only affects beginners, while overtraining syndrome only affects elite athletes.',
+          'Functional overreaching is psychological, while overtraining syndrome is only physical.',
+          'Functional overreaching improves performance immediately, while overtraining syndrome improves it later.'
+        ],
+        answerIndex: 0,
+        explanation: 'Functional overreaching is a temporary, planned overload that rebounds with recovery. Overtraining syndrome reflects a much deeper breakdown with prolonged performance decline and broader cognitive or physiological costs.'
+      },
+      {
+        id: 'phase2-q10',
+        question: 'What does the person-by-situation view add to the chapter’s understanding of discipline and motivation?',
+        choices: [
+          'It shows that the same motivational style works equally well for everyone in the same environment.',
+          'It argues that social context matters less than personality once goals are specific.',
+          'It shows that behavior depends on both the person and the setting, so coaching and accountability should be matched rather than universalized.',
+          'It proves that team environments are always better than individual work for building grit.'
+        ],
+        answerIndex: 2,
+        explanation: 'The chapter uses the person-by-situation view to show that the same environment can energize one performer and inhibit another. Good coaching diagnoses the person before choosing the social setup.'
+      }
+    ]
   }
 ];
 
@@ -908,6 +1040,380 @@ PHASE_CONTENT['phase-1'] = {
   ]
 };
 
+PHASE_CONTENT['phase-2'] = {
+  eyebrow: 'Phase 2 lesson',
+  heading: 'Mastering the Arena',
+  subheading: 'The Psychology of Integrated Discipline',
+  summary: 'A textbook-style synthesis of values, motivation quality, mindset, recovery, and social context in sustainable high performance.',
+  sourcePdf: './assets/readings/phase2-drive-content.pdf',
+  quizId: 'quiz-phase2-integrated-discipline',
+  heroFigure: {
+    src: './assets/readings/phase2-figures/phase2-integrated-discipline-system.png',
+    alt: 'Integrated discipline system showing values, motivation quality, recovery, and context',
+    caption: 'Figure 1. Integrated discipline is a system, not a personality trait.'
+  },
+  keyIdeas: [
+    'Discipline quality matters more than raw effort volume.',
+    'Values, self-determined motivation, and honest feedback make effort more sustainable.',
+    'Recovery and social context determine whether discipline turns into growth or breakdown.'
+  ],
+  sections: [
+    {
+      title: 'Inside This Chapter',
+      paragraphs: [
+        'Why this chapter matters: Students are often taught discipline as if it were a moral trait that a person either has or does not have. That story is clean, simple, and mostly wrong. People can look equally hardworking from the outside while operating from completely different motivational systems.',
+        'One student is driven by guilt, fear, or ego defense. Another is acting from a chosen identity, clear values, and an understanding of how much load the body and mind can actually recover from. Those systems do not feel the same, and they do not produce the same long-term outcomes.',
+        'This chapter reframes discipline as an architecture of self-regulation. It integrates self-determination theory, goal setting, mindset research, pride and attribution, overtraining science, and person-by-situation effects in social performance. The result is a practical model for students, athletes, and performers who want discipline that lasts.',
+        'Study lens: As you move through the chapter, ask a harder question than "How motivated am I?" Ask, "What is driving my effort right now: pressure, guilt, values, identity, enjoyment, or fear?" That question exposes the quality of the system.'
+      ],
+      bullets: [
+        'Distinguish direction and intensity of motivation and explain why a person-by-situation view predicts behavior better than trait-only explanations.',
+        'Explain the self-determination continuum from amotivation to intrinsic motivation and differentiate introjected from integrated regulation.',
+        'Describe how values, vulnerability, and growth mindset shape whether failure becomes useful feedback or an ego threat.',
+        'Contrast guilt with shame and authentic pride with hubristic pride in the regulation of effort and self-worth.',
+        'Use outcome, performance, and process goals appropriately and design a goal system that survives real-world stress.',
+        'Recognize the recovery continuum from acute fatigue to overtraining syndrome and identify warning signs of under-recovery.',
+        'Apply social-context findings to coaching, training design, and self-management.'
+      ]
+    },
+    {
+      title: '1. Rethinking Discipline',
+      paragraphs: [
+        'Motivation can be described with two basic dimensions: direction and intensity. Direction answers where effort is aimed. Intensity answers how much force is applied once the target is chosen. That is a more useful starting point than the usual cliches about winners and quitters, because it separates wanting from acting and acting from acting well.',
+        'In applied performance settings, it helps to distinguish between the engine and the compass. The engine is raw effort: drive, activation, and the willingness to push. The compass is values-based direction: the system that determines whether the effort serves a meaningful end, an ego trap, or a fear-driven performance of toughness. Power without direction can look impressive for a while, but it is wasteful, brittle, and often self-destructive.',
+        'Willpower is part of performance, but it is not the whole story and it is not stable enough to carry a person through months of training, study, rehabilitation, or behavior change. The important question is not whether someone can force effort today. The important question is whether the behavior can survive boredom, setbacks, ambiguity, and recovery demands without the person needing a daily internal war.',
+        'Hard work is not enough. The same behavior can be either a guilt-driven performance or a values-driven expression of identity. The body sees the workout; psychology sees the reason.'
+      ],
+      table: {
+        headers: ['Feature', 'False discipline', 'Integrated discipline'],
+        rows: [
+          ['Primary driver', 'Internal pressure, guilt, shame, or ego involvement.', 'A chosen value or identity standard that the person endorses.'],
+          ['Typical self-talk', '"I should do this or I am lazy, weak, or failing."', '"I do this because it matches the kind of person I am building."'],
+          ['Short-term effect', 'Can create urgent compliance and bursts of effort.', 'Creates steadier action with less inner friction.'],
+          ['Long-term cost or benefit', 'High risk of resentment, brittleness, and burnout.', 'More sustainable because the behavior is assimilated into the self.']
+        ]
+      }
+    },
+    {
+      title: '2. Self-Determination Theory and the Motivation Continuum',
+      paragraphs: [
+        'Self-determination theory shifts the discussion from how much motivation a person has to what kind of motivation is operating. That move matters because two athletes can show equal effort while experiencing radically different psychological costs. One can feel autonomous and purposeful. The other can feel trapped, resentful, and desperate to protect self-worth.',
+        'At the far controlled end of the continuum sits amotivation, where the person sees little value in action or feels incapable of affecting outcomes. From there, motivation can become more regulated in stages. External regulation is driven by reward and punishment. Introjected regulation is driven by internal pressure such as guilt, shame, or ego maintenance. Identified regulation appears when the person accepts the value of the behavior. Integrated regulation appears when that value is fully aligned with identity. Intrinsic motivation sits at the far self-determined end, where the activity is done for inherent interest or enjoyment.',
+        'Integrated regulation is the critical concept for discipline. The behavior may still be hard, repetitive, or unpleasant. It is not necessarily fun. What changes is ownership. The behavior stops feeling like an order and starts feeling like a standard. That is why the highest form of extrinsic motivation can still feel deeply autonomous.',
+        'One important caution from self-determination theory is the overjustification problem. External rewards, pressure-heavy coaching, or performative discipline tactics can sometimes weaken intrinsic motivation by communicating control. Pressure can produce action, but it can also quietly erode the sense of ownership that makes action durable.',
+        'Practical test: When a student says, "I am disciplined," the follow-up question is, "Disciplined by what?" If the answer is guilt, status, or fear, the system is still fragile. If the answer is values, identity, and chosen standards, the system is becoming integrated.'
+      ],
+      bullets: [
+        'Amotivation: action feels pointless or beyond influence.',
+        'External regulation: behavior follows reward or punishment.',
+        'Introjected regulation: behavior is driven by guilt, shame, or ego pressure.',
+        'Identified regulation: the person accepts the value of the behavior.',
+        'Integrated regulation: the behavior aligns with identity.',
+        'Intrinsic motivation: the activity is done for inherent interest or enjoyment.'
+      ],
+      figures: [
+        {
+          src: './assets/readings/phase2-figures/phase2-motivation-continuum.png',
+          alt: 'Motivation continuum from amotivation to intrinsic motivation',
+          caption: 'Figure 2. Movement along the continuum changes not just persistence, but the psychological cost of persistence.'
+        }
+      ]
+    },
+    {
+      title: '3. The Three Psychological Needs',
+      paragraphs: [
+        'The three psychological needs are autonomy, competence, and relatedness. Autonomy does not mean doing whatever feels easy or pleasant. It means experiencing action as chosen and self-endorsed. Competence is the felt sense that effort produces mastery and that one can affect outcomes. Relatedness is the experience of belonging, being supported, and mattering to others.',
+        'When autonomy is repeatedly undermined, people often comply in the short term but become controlled and resentful. When competence collapses, amotivation becomes more likely because the person stops perceiving a contingency between effort and progress. When relatedness is missing, risk taking, persistence, and willingness to tolerate challenge often weaken.'
+      ],
+      figures: [
+        {
+          src: './assets/readings/phase2-figures/phase2-psychological-needs.png',
+          alt: 'Autonomy, competence, and relatedness as psychological fuel',
+          caption: 'Figure 3. Need satisfaction is the psychological fuel for sustainable self-regulation.'
+        }
+      ],
+      table: {
+        headers: ['Need', 'What it feels like', 'What happens when it is undermined'],
+        rows: [
+          ['Autonomy', 'My actions feel chosen and self-endorsed.', 'Compliance may remain, but ownership erodes.'],
+          ['Competence', 'My effort can affect outcomes and build skill.', 'Learned helplessness or amotivation becomes more likely.'],
+          ['Relatedness', 'I belong, matter, and feel supported.', 'Persistence and challenge tolerance often weaken.']
+        ]
+      }
+    },
+    {
+      title: '4. Values, Vulnerability, and Behavioral Direction',
+      paragraphs: [
+        'Values solve a problem that motivation alone cannot solve: they select direction. Without values, students can work hard at goals they do not truly endorse, or worse, at goals that mainly serve image management. A values system acts like a filter for difficult decisions. It answers not only "What do I want?" but "What kind of person am I at my best?"',
+        'This is why values clarification matters in a chapter on discipline. A student who names durability, integrity, contribution, mastery, health, courage, or family as organizing values can map tedious behaviors onto something larger than immediate mood. Meal preparation, mobility work, recovery sessions, quiet study, and honest feedback become easier to tolerate when they are visibly attached to a chosen standard.',
+        'Values also require vulnerability. The arena metaphor is useful here. Growth rarely begins once a person feels perfectly ready, bulletproof, and beyond embarrassment. Growth begins when the person enters public or personal uncertainty before certainty arrives. That may mean trying a new skill, sharing unfinished work, showing up to practice while underprepared, or taking responsibility before the outcome is safe.',
+        'Discipline without vulnerability becomes image management. Vulnerability without discipline becomes drift. Durable performance needs both.'
+      ],
+      bullets: [
+        'Values turn dull maintenance work into identity-consistent behavior.',
+        'A values system answers not only what I want, but who I am at my best.',
+        'Value-to-task mapping keeps hard behavior attached to chosen standards rather than temporary mood.',
+        'Vulnerability is part of real development because growth begins before the outcome feels safe.',
+        'Values move a task from "I should" toward "I choose." That shift is the beginning of autonomy, not the end of difficulty.'
+      ],
+      table: {
+        headers: ['Core value', 'Behavior that lives it', 'Early warning sign of drift', 'Support cue or identity statement'],
+        rows: [
+          ['Durability', 'Recovery work, mobility, sleep discipline', 'Skipping recovery because it feels unproductive', 'I protect the system that lets me perform.'],
+          ['Mastery', 'Deliberate practice and honest review', 'Choosing only familiar tasks that protect ego', 'I train to get better, not just to look capable.'],
+          ['Integrity', 'Following through on the plan when no one is watching', 'Changing standards to match mood', 'My standard counts even in private.']
+        ]
+      }
+    },
+    {
+      title: '5. Mindset, Accountability, Guilt, and Shame',
+      paragraphs: [
+        'Implicit theories of ability shape how people interpret friction. In an entity or fixed view, ability is treated as a stable trait that must be displayed and protected. The main goal becomes proving ability and avoiding looking incompetent. In an incremental or growth view, ability is treated as something built through effort, strategy, feedback, and time. The main goal becomes mastery.',
+        'That distinction changes everything about failure. Under a fixed view, failure feels like a verdict on the self. Effort can even feel humiliating because needing to work implies not being naturally gifted enough. Under a growth view, failure becomes process data. The question changes from "What does this say about me?" to "What does this tell me about my current strategy?"',
+        'The classic praise findings make the contrast concrete. When learners are praised mainly for intelligence or talent, they often become more fragile under difficulty. When they are praised for process, strategy, and sustained effort, they show more persistence and recover more effectively after mistakes. The deeper point is not that any effort deserves applause. False growth mindset is real. Empty encouragement without strategy, feedback, or adjustment is not growth; it is sentimentality.',
+        'The accountability mirror only works if it remains behavior-focused. Guilt says, "I did a low-quality thing." Shame says, "I am low quality." That is not a minor wording difference. Guilt can drive repair because behavior is changeable. Shame triggers hiding, numbing, aggression, defensiveness, or quitting because the self is experienced as defective.',
+        'Accountability is useful only when it exposes behavior without attacking identity. The moment feedback becomes "you are the problem," discipline starts mutating into shame-based control.'
+      ],
+      table: {
+        headers: ['Dimension', 'Fixed / entity view', 'Growth / incremental view'],
+        rows: [
+          ['Primary goal', 'Prove ability and avoid looking deficient.', 'Improve ability and increase mastery.'],
+          ['Meaning of failure', 'Evidence of limited talent or low worth.', 'Feedback about the current method or preparation.'],
+          ['Meaning of effort', 'A sign that ability is lacking.', 'The path that converts potential into skill.'],
+          ['Response to feedback', 'Defensive if feedback threatens identity.', 'Curious if feedback helps refine process.']
+        ]
+      },
+      bullets: [
+        'Adaptive guilt stays behavior-focused and supports repair.',
+        'Maladaptive shame globalizes the problem and attacks identity.',
+        'Useful accountability exposes behavior without turning the person into the problem.'
+      ]
+    },
+    {
+      title: '6. Authentic Pride and Hubristic Pride',
+      paragraphs: [
+        'Students often chase pride without distinguishing its forms. That is dangerous. Pride can stabilize effort, but it can also become a defense against vulnerability. The difference lies in attribution, the causes a person assigns to success.',
+        'Authentic pride is linked to controllable causes such as effort, skill development, preparation, and adherence to process. It produces confidence without needing superiority. Because the person believes success was built, not handed down by fixed greatness, setbacks do not threaten the entire self. Performance can be poor on a given day without the person needing to protect status through denial or aggression.',
+        'Hubristic pride is tied to stable superiority narratives: being naturally better, above others, or entitled to admiration. It can look like confidence from a distance, but it is fragile. If worth depends on being exceptional by nature, then any failure becomes a threat to the whole identity. Defensiveness, blame, and self-inflation are common downstream behaviors.',
+        'For discipline, the implication is blunt. Build pride around what you can repeatedly do, not around what you need others to believe about you. The first creates a foundation. The second creates a mask.'
+      ],
+      table: {
+        headers: ['Dimension', 'Hubristic pride', 'Authentic pride'],
+        rows: [
+          ['Source', 'Superiority, dominance, stable trait narratives.', 'Effort, preparation, skill, and achievement.'],
+          ['Typical experience', 'Arrogance, entitlement, defensiveness.', 'Confidence, earned self-respect, resilience.'],
+          ['Impact on feedback', 'Feedback threatens status and is often resisted.', 'Feedback can be used because worth is not hanging on perfection.'],
+          ['Likely outcome', 'Fragile self-esteem and interpersonal friction.', 'More durable self-worth and better self-regulation.']
+        ]
+      }
+    },
+    {
+      title: '7. Goal Setting: Turning Identity into Action',
+      paragraphs: [
+        'Goals translate identity into daily behavior. The problem for most students is not a lack of goals. It is a lack of structure. People regularly set intentions that are vague, overambitious, disconnected from priorities, or unsupported by a plan for review and adjustment.',
+        'A useful distinction is between subjective priorities and objective goals. Subjective priorities are global commitments such as health, mastery, contribution, or graduation. Objective goals are concrete targets attached to time or performance. Students often fail because their daily calendar obeys urgency rather than true priorities. The goal system itself is not broken; the hierarchy is.',
+        'In sport and performance settings, three goal types matter. Outcome goals focus on the result relative to others. Performance goals focus on a standard relative to your own prior level. Process goals focus on the controllable actions that make performance more likely. Outcome goals can provide direction, but process goals usually carry the greatest value under pressure because they pull attention toward controllable execution.',
+        'SMART goals can be useful, but they are not enough on their own. A goal can be specific and measurable while still being psychologically poor if it conflicts with core values, ignores recovery capacity, or relies entirely on outcomes the student does not control.',
+        'Goal ladder: Build goals from the top down: one meaningful outcome direction, two performance standards tied to your own progress, and three process actions you can control this week. Then review the ladder before you review your mood.'
+      ],
+      table: {
+        headers: ['Goal type', 'What it targets', 'Best use', 'Main risk if overused'],
+        rows: [
+          ['Outcome', 'Winning, selection, ranking, finishing ahead of others.', 'Long-range direction and significance.', 'Can elevate anxiety and pull attention away from the task.'],
+          ['Performance', 'A personal standard or measurable improvement relative to self.', 'Tracking progress and calibrating challenge.', 'Can still become pressure-heavy if treated like identity proof.'],
+          ['Process', 'Specific controllable actions, cues, and routines.', 'Competition focus, skill execution, and daily consistency.', 'Too many process cues at once can overload attention.']
+        ]
+      },
+      bullets: [
+        'Specific targets rather than vague wishes.',
+        'A mix of short-term and long-term markers.',
+        'Moderate-to-high challenge rather than trivial comfort goals.',
+        'Visible feedback and review, because unmeasured goals become fantasies fast.',
+        'Participant input and ownership, which increases commitment.',
+        'Multiple goal levels, so outcome direction is paired with performance and process control.',
+        'Written plans, not goals that exist only as feelings.',
+        'Adjustment when life load, recovery, or context changes.'
+      ]
+    },
+    {
+      title: '8. Recovery, Overreaching, and Overtraining Syndrome',
+      paragraphs: [
+        'Performance psychology gets sloppy when it talks as if hard effort alone produces adaptation. The body does not reward heroic slogans. It adapts to stress only when recovery is adequate. That is the logic behind the SAID principle: specific adaptations to imposed demands. Demands matter. Recovery matters just as much.',
+        'A useful continuum runs from acute fatigue to functional overreaching, nonfunctional overreaching, and overtraining syndrome. Acute fatigue is expected after hard work. Functional overreaching is a short-term planned dip followed by supercompensation. Nonfunctional overreaching begins when recovery is inadequate and performance stagnates rather than rebounds. Overtraining syndrome is the long-term breakdown state: months to years of reduced performance with cognitive, hormonal, immune, and neuromuscular consequences.',
+        'Overtraining is not caused only by extreme volume. It can emerge from monotony, inadequate sleep, poor nutrition, repeated life stress, abrupt load increases, training too hard on supposed recovery days, and long stretches without meaningful variation. The mistake people make is assuming the danger comes only from spectacular training blocks. In reality, the most common problem is often repeated, poorly regulated sameness.',
+        'Red flags often appear cognitively and emotionally before they appear mechanically: brain fog, irritability, blunted desire to compete, frequent illness, chronic soreness, sleep disruption, and falling performance despite high motivation. That last point matters. Burnout and overtraining are not identical. In burnout, motivation often drops away. In overtraining, motivation can remain high while the hardware fails.',
+        'Hard truth: Pushing harder is not always discipline. Sometimes it is just refusal to update the plan in response to evidence.'
+      ],
+      figures: [
+        {
+          src: './assets/readings/phase2-figures/phase2-recovery-continuum.png',
+          alt: 'Recovery continuum from adaptation toward breakdown',
+          caption: 'Figure 4. The line between adaptation and breakdown is determined largely by recovery.'
+        }
+      ],
+      table: {
+        headers: ['Category', 'Common signs of under-recovery or overtraining'],
+        rows: [
+          ['Cognitive', 'Brain fog, reduced concentration, slower decision making, poor reaction quality.'],
+          ['Autonomic', 'Sleep disruption, unusual resting heart patterns, persistent fatigue.'],
+          ['Physical', 'Chronic soreness, frequent illness, reduced performance, higher injury risk.'],
+          ['Psychological', 'Irritability, emotional flatness, guilt about resting, loss of competitive sharpness.']
+        ]
+      }
+    },
+    {
+      title: '9. The Growth Equation',
+      paragraphs: [
+        'A clean rule for sustainable high performance is this: stress plus rest equals growth. Growth does not happen during the stressor. The stressor creates disruption. Growth happens afterward, when the system is given enough time and support to repair, adapt, and supercompensate.',
+        'The best challenge is not maximum difficulty. It is a just-manageable challenge: hard enough to force adaptation, but not so overwhelming that the system spends its energy on survival rather than learning. The same logic applies mentally. Real cognitive growth usually requires periods of intense, focused strain followed by real disengagement. Constant partial engagement, the gray zone, produces far less than people think.',
+        'Rest is not passive emptiness. Short-term rest can include walking, low-load movement, time away from screens, or mentally unstructured periods that allow the default mode network to keep solving problems in the background. Long-term rest is dominated by sleep, which supports information processing, endocrine recovery, tissue repair, and emotional regulation.',
+        'For high-achieving students, rest often feels psychologically harder than work because it triggers guilt. That is exactly why it must be trained as a skill. Professionalism includes the willingness to deload, to reduce intensity when data indicate under-recovery, and to treat longevity as part of the goal rather than a sign of softness.'
+      ],
+      figures: [
+        {
+          src: './assets/readings/phase2-figures/phase2-growth-equation.png',
+          alt: 'Stress plus rest equals growth diagram',
+          caption: 'Figure 5. Stress is only productive when the cycle includes adequate recovery.'
+        }
+      ],
+      bullets: [
+        'The best challenge is hard enough to force adaptation without overwhelming the whole system.',
+        'Short-term rest can include walking, low-load movement, and time away from constant input.',
+        'Sleep remains the dominant long-term recovery tool for learning, hormonal repair, and emotional regulation.',
+        'Professionalism includes deloading when the evidence says the system is not rebounding.'
+      ]
+    },
+    {
+      title: '10. Person by Situation: Social Context and the Myth of Universal Grit',
+      paragraphs: [
+        'The interactional view of motivation argues that behavior is best understood as a function of both person and situation. This matters because coaches, teachers, and leaders are constantly tempted to universalize their own style. They find one rhetoric that works for some people and assume it should work for everyone. It should not.',
+        'The Sorrentino and Sheppard swimming study illustrates the point. Approval-oriented swimmers improved when competing in the relay context, where belonging and connection could amplify effort. Rejection-threatened swimmers performed better alone because the risk of letting others down interfered with execution in the team condition.',
+        'The applied implication is not that team culture is bad or that lone-wolf training is good. The implication is that the social environment must match the motive profile. Some performers need the unit, the shared mission, and responsibility to others. Others need to temporarily remove social evaluation so that effort is not hijacked by anxiety.',
+        'Coaching implication: Do not universalize grit. Some performers need more connection. Others need more privacy. Good coaching is diagnostic before it is motivational.'
+      ],
+      figures: [
+        {
+          src: './assets/readings/phase2-figures/phase2-person-situation.png',
+          alt: 'Person by situation interaction diagram',
+          caption: 'Figure 6. Social context can pull performance up or push it down depending on the performer.'
+        }
+      ],
+      bullets: [
+        'Do not universalize grit or coaching style.',
+        'Some people need more connection; others need more privacy.',
+        'The social environment should be chosen strategically, not ideologically.'
+      ]
+    },
+    {
+      title: '11. Tactical Drills for Integrated Discipline',
+      paragraphs: [
+        'A complete chapter should end with tools, not just concepts. The drills below are not magic tricks. They are ways of steering behavior back toward autonomy, competence, relatedness, and biological realism when motivation starts drifting.'
+      ],
+      table: {
+        headers: ['Tool', 'Purpose', 'Key question'],
+        rows: [
+          ['Diagnostic audit', 'Separate behavior from identity.', 'What exactly did I do, and what will I change next?'],
+          ['Value-to-task mapping', 'Reconnect an unglamorous task to a chosen value.', 'Which value does this behavior protect or build?'],
+          ['Goal ladder', 'Translate big direction into controllable daily actions.', 'What is my outcome direction, performance standard, and process focus?'],
+          ['Governor pulse check', 'Distinguish discomfort from dangerous under-recovery.', 'Is this normal resistance, or is the system sending a legitimate stop signal?'],
+          ['Recovery checkpoint', 'Treat restoration as a tracked skill.', 'What do sleep, mood, concentration, and soreness suggest today?'],
+          ['Pit crew check-in', 'Match the social environment to the person.', 'Do I need accountability through connection or relief from social evaluation?']
+        ]
+      }
+    },
+    {
+      title: '12. Common Misunderstandings',
+      paragraphs: [
+        'Integrated discipline is not softer than brute-force discipline. It is simply harder to fake and much harder to maintain dishonestly.'
+      ],
+      table: {
+        headers: ['Misunderstanding', 'Correction'],
+        rows: [
+          ['Discipline is basically willpower.', 'Willpower matters, but durable discipline depends on values, motivation quality, skill, recovery, and context.'],
+          ['More pressure always creates more effort.', 'Pressure can create action, but it can also undermine autonomy and increase brittleness.'],
+          ['Harsh self-talk creates toughness.', 'Only behavior-focused accountability helps. Identity-focused shame usually damages regulation.'],
+          ['Outcome goals are the main driver of performance.', 'Outcome goals provide direction; process goals usually protect execution under pressure.'],
+          ['Rest is laziness.', 'Recovery is a performance skill and a condition for adaptation.'],
+          ['Team culture motivates everyone the same way.', 'Some performers are helped by shared responsibility; others are inhibited by social evaluation.'],
+          ['Pride is always positive.', 'Authentic pride supports resilience; hubristic pride often hides fragility and invites defensiveness.']
+        ]
+      }
+    },
+    {
+      title: '13. End-of-Chapter Summary',
+      paragraphs: [
+        'Sustainable discipline is not the absence of emotion, comfort, or self-doubt. It is better architecture. Values choose the direction of effort. Self-determination theory explains why the quality of motivation matters more than its volume. Growth mindset keeps failure usable. Guilt corrects behavior; shame attacks identity. Authentic pride stabilizes self-worth through controllable causes. Goal setting translates identity into execution. Recovery keeps physiology from turning effort into breakdown. Social-context research reminds us that motivation is never purely inside the person.',
+        'When these pieces work together, discipline becomes less theatrical and more reliable. The person does not need to manufacture a dramatic inner speech every day. The system carries more of the load. That is the real target: not occasional heroic effort, but a repeatable structure that can survive pressure without destroying the performer.'
+      ]
+    },
+    {
+      title: '14. Review Questions',
+      bullets: [
+        'Distinguish the direction and intensity of motivation, and explain why that distinction is useful in performance settings.',
+        'What is the difference between introjected regulation and integrated regulation?',
+        'Why does self-determination theory treat autonomy, competence, and relatedness as basic psychological needs?',
+        'How do values change the meaning of a difficult task?',
+        'Contrast the entity view of ability with the incremental view of ability.',
+        'Why can guilt support behavior change while shame often undermines it?',
+        'How does authentic pride differ from hubristic pride?',
+        'Compare outcome, performance, and process goals and explain when each is most useful.',
+        'What distinguishes functional overreaching, nonfunctional overreaching, and overtraining syndrome?',
+        'Why is rest considered part of the growth equation rather than the opposite of discipline?',
+        'What does the person-by-situation view add to our understanding of motivation in teams and training groups?',
+        'Create a brief integrated-discipline plan for a student who is hardworking but guilt-driven and chronically under-recovered.'
+      ]
+    },
+    {
+      title: '15. Answer Key',
+      bullets: [
+        'Direction refers to where effort is aimed; intensity refers to how much effort is applied once the task is engaged. The distinction matters because someone can show high intensity toward the wrong target, or low intensity toward a target they genuinely value.',
+        'Introjected regulation is driven by guilt, shame, or ego pressure, whereas integrated regulation reflects a behavior that has been assimilated into values and identity. Both can produce effort, but integrated regulation is usually more stable and less psychologically costly.',
+        'These needs are treated as basic because they support growth, integrity, and well-being across domains. When they are satisfied, motivation becomes more self-determined; when they are thwarted, motivation shifts toward control or amotivation.',
+        'Values act like a filter for behavior. They connect a difficult or boring action to something the student believes is worth protecting or becoming, which increases meaning and ownership even when the task remains hard.',
+        'The entity view treats ability as a fixed trait to be proven, so failure becomes an ego threat. The incremental view treats ability as developable, so failure becomes information about process, strategy, or preparation.',
+        'Guilt targets a behavior and therefore leaves room for correction. Shame targets identity and often triggers hiding, defensiveness, or withdrawal because the whole self feels contaminated.',
+        'Authentic pride is grounded in controllable causes such as effort and skill; hubristic pride is grounded in superiority and fixed status narratives. Authentic pride tends to support resilience, while hubristic pride tends to create fragility and defensiveness.',
+        'Outcome goals target the final result relative to others, performance goals target a personal standard, and process goals target controllable execution cues. Outcome goals provide direction, performance goals help monitor progress, and process goals usually protect focus under pressure.',
+        'Functional overreaching is a planned short-term dip followed by recovery and improvement. Nonfunctional overreaching is a maladaptive state where recovery is insufficient and performance stagnates. Overtraining syndrome is a long-term breakdown state with broad physiological and cognitive consequences.',
+        'Rest is part of the growth equation because adaptation occurs after the stressor, not during it. Without recovery, the system accumulates fatigue and eventually loses the capacity to benefit from additional load.',
+        'It shows that motivation cannot be read from personality or environment alone. A team context can energize approval-oriented performers while impairing rejection-threatened performers, which means coaching must match the person and the setting.',
+        'A strong plan would reduce shame-based self-talk, clarify one or two core values, build a goal ladder with process targets, monitor sleep and fatigue, and deliberately schedule recovery so effort stops being a guilt ritual and becomes a professional standard.'
+      ]
+    },
+    {
+      title: '16. Glossary of Essential Terms',
+      paragraphs: [
+        'Core vocabulary for quick review.'
+      ],
+      glossary: [
+        ['Amotivation', 'A state in which action feels pointless or beyond one’s capacity to influence.'],
+        ['Authentic Pride', 'A form of pride grounded in controllable causes such as effort, preparation, and skill development.'],
+        ['Autonomy', 'The experience of acting with ownership and self-endorsement rather than feeling controlled.'],
+        ['Competence', 'The felt sense of effectiveness and mastery in one’s environment.'],
+        ['Entity View', 'A fixed mindset in which ability is treated as a stable trait that must be protected or proven.'],
+        ['External Regulation', 'Behavior controlled mainly by outside rewards, punishments, or demands.'],
+        ['Functional Overreaching', 'A planned short-term dip in performance followed by recovery and improvement.'],
+        ['Guilt', 'A behavior-focused emotion that can support correction because it points to something changeable.'],
+        ['Growth Equation', 'The principle that growth depends on stress being followed by sufficient recovery.'],
+        ['Hubristic Pride', 'A superiority-based form of pride tied to fixed status narratives and defensiveness.'],
+        ['Identified Regulation', 'A relatively autonomous form of motivation in which a person accepts the value of the behavior.'],
+        ['Incremental View', 'A growth mindset in which ability is treated as something developed through effort, strategy, and feedback.'],
+        ['Integrated Regulation', 'The most autonomous form of extrinsic motivation, where behavior aligns with values and identity.'],
+        ['Intrinsic Motivation', 'Engaging in an activity for inherent interest, satisfaction, or enjoyment.'],
+        ['Introjected Regulation', 'Behavior driven by internal pressure such as guilt, shame, or ego maintenance.'],
+        ['Outcome Goal', 'A goal focused on a final competitive or comparative result.'],
+        ['Overtraining Syndrome', 'A long-term maladaptive state marked by decreased performance and broad physiological or psychological strain.'],
+        ['Performance Goal', 'A goal focused on a measurable standard relative to one’s own prior level.'],
+        ['Process Goal', 'A goal focused on specific controllable behaviors, cues, or routines.'],
+        ['Relatedness', 'The need to feel connected, supported, and significant in relationships.'],
+        ['SAID principle', 'Specific adaptations to imposed demands; the body adapts specifically to the stressors placed upon it.'],
+        ['Shame', 'An identity-focused emotion in which the self is experienced as globally flawed or unworthy.'],
+        ['Supercompensation', 'The adaptive rebound in capacity that can occur when stress is followed by adequate recovery.']
+      ]
+    }
+  ]
+};
+
 const ASSIGNMENT_RUNTIME_VIEW = {
   a0: 'intro',
   a1: 'phase1',
@@ -1133,11 +1639,15 @@ function isCompactLayout() {
 }
 
 function applySidebarCollapse(collapsed) {
-  document.body.classList.toggle('compact-layout', isCompactLayout());
+  const compact = isCompactLayout();
+  document.body.classList.toggle('compact-layout', compact);
   document.body.classList.toggle('sidebar-collapsed', collapsed);
+  document.body.classList.toggle('mobile-menu-open', compact && !collapsed);
   if (refs.collapseToggle) {
     refs.collapseToggle.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
-    refs.collapseToggle.title = collapsed ? 'Expand menu' : 'Collapse menu';
+    refs.collapseToggle.title = compact
+      ? (collapsed ? 'Open menu' : 'Close menu')
+      : (collapsed ? 'Expand menu' : 'Collapse menu');
   }
 }
 
@@ -1524,6 +2034,7 @@ function renderQuizzes() {
 
 function renderQuizDetail() {
   const active = QUIZZES.find((item) => item.id === state.activeId) || QUIZZES[0];
+  const activePhase = getPhaseById(active.phaseId);
   const draft = getQuizDraft(active.id);
   const questions = active.questions || [];
   const questionIndex = Math.min(Math.max(draft.questionIndex || 0, 0), Math.max(questions.length - 1, 0));
@@ -1555,7 +2066,7 @@ function renderQuizDetail() {
         <div class="reading-actions">
           <a class="reading-btn reading-btn-primary" href="${active.sourcePdf}" target="_blank" rel="noopener noreferrer">Source PDF</a>
           <button type="button" class="reading-btn reading-btn-secondary" id="back-to-quizzes">Back to quizzes</button>
-          <button type="button" class="reading-btn reading-btn-secondary" id="back-to-phase">Back to phase 1</button>
+          <button type="button" class="reading-btn reading-btn-secondary" id="back-to-phase">Back to ${escapeHtml(activePhase ? activePhase.code.toLowerCase() : 'phase')}</button>
         </div>
       </article>
       <section class="stack-card quiz-question-card quiz-interactive-card" style="border-left-color: ${active.accent}">
@@ -2003,12 +2514,26 @@ refs.navIcons.addEventListener('click', () => setSection('icons'));
 refs.tabPhases.addEventListener('click', () => setTab('phases'));
 refs.tabQuizzes.addEventListener('click', () => setTab('quizzes'));
 refs.tabAssignments.addEventListener('click', () => setTab('assignments'));
+refs.collapseToggle?.addEventListener('click', toggleSidebarCollapse);
 
-applySidebarCollapse(isCompactLayout() ? true : localStorage.getItem(SIDEBAR_COLLAPSE_KEY) === '1');
+let lastCompactLayout = isCompactLayout();
+applySidebarCollapse(lastCompactLayout ? true : localStorage.getItem(SIDEBAR_COLLAPSE_KEY) === '1');
 render();
 
 window.addEventListener('resize', () => {
-  applySidebarCollapse(isCompactLayout() ? true : localStorage.getItem(SIDEBAR_COLLAPSE_KEY) === '1');
+  const compact = isCompactLayout();
+  if (compact !== lastCompactLayout) {
+    lastCompactLayout = compact;
+    applySidebarCollapse(compact ? true : localStorage.getItem(SIDEBAR_COLLAPSE_KEY) === '1');
+    return;
+  }
+
+  if (compact) {
+    applySidebarCollapse(document.body.classList.contains('sidebar-collapsed'));
+    return;
+  }
+
+  applySidebarCollapse(localStorage.getItem(SIDEBAR_COLLAPSE_KEY) === '1');
 });
 
 

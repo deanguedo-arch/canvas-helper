@@ -739,16 +739,42 @@
     `;
   }
 
+  function getStudentChoiceOptions(quiz) {
+    const raw = quiz?.studentChoice;
+    if (Array.isArray(raw)) return raw;
+    if (raw && Array.isArray(raw.options)) return raw.options;
+    if (raw && Array.isArray(raw.items)) return raw.items;
+    return [];
+  }
+
+  function getStudentChoiceIntro(quiz) {
+    const raw = quiz?.studentChoice;
+    if (raw && Array.isArray(raw.intro)) return raw.intro;
+    if (raw && raw.intro) return [raw.intro];
+    return [];
+  }
+
   function renderStudentChoice(quiz, showResults) {
-    const items = quiz.studentChoice || [];
+    const intro = getStudentChoiceIntro(quiz);
+    const items = getStudentChoiceOptions(quiz);
     if (!items.length) return `<div class="empty-state">No student-choice section was found for this chapter.</div>`;
 
     return `
       <div class="option-stack">
+        ${intro.length ? `
+          <article class="option-card">
+            <h5>Student-choice path</h5>
+            ${intro.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
+          </article>
+        ` : ""}
         ${items.map((item, index) => `
           <article class="option-card ${showResults ? "show-results" : ""}">
-            <h5>${escapeHtml(item.title || `Option ${index + 1}`)}</h5>
-            <p>${escapeHtml(item.prompt || item.text || "Student-choice response path from the chapter booklet.")}</p>
+            <h5>${escapeHtml(item.label ? `Option ${item.label}` : `Option ${index + 1}`)}${item.title ? ` - ${escapeHtml(item.title)}` : ""}</h5>
+            ${Array.isArray(item.prompts) && item.prompts.length ? `
+              <ol>
+                ${item.prompts.map((prompt) => `<li>${escapeHtml(prompt.prompt || prompt.text || prompt.question || "")}</li>`).join("")}
+              </ol>
+            ` : `<p>${escapeHtml(item.prompt || item.text || "Student-choice response path from the chapter booklet.")}</p>`}
             <div class="student-note"><strong>Teacher note:</strong> ${escapeHtml(item.teacherNote || "No keyed teacher note was found for this option.")}</div>
           </article>
         `).join("")}
@@ -844,24 +870,462 @@
     `;
   }
 
+  function getResultLabel(selected, correct) {
+    if (!normalizeText(selected)) return "No answer";
+    return normalizeText(selected) === normalizeText(correct) ? "Correct" : "Incorrect";
+  }
+
+  function getResultTone(result) {
+    const normalized = normalizeText(result);
+    if (normalized === "correct") return "is-correct";
+    if (normalized === "incorrect") return "is-incorrect";
+    return "is-empty";
+  }
+
+  function renderResultsCell(row, column) {
+    const value = cleanText(row[column.key] || "").trim();
+    if (column.key === "result") {
+      return `
+        <td class="results-cell results-cell-result">
+          <span class="result-badge ${getResultTone(value)}">${escapeHtml(value || "No answer")}</span>
+        </td>
+      `;
+    }
+    if (!value) {
+      return `<td class="results-cell"><span class="results-empty">No answer recorded</span></td>`;
+    }
+    return `<td class="results-cell">${escapeHtml(value)}</td>`;
+  }
+
   function renderResultsTable(rows, columns) {
-    if (!rows.length) return "";
+    if (!rows.length) {
+      return `<div class="report-empty">No keyed items were provided for this section.</div>`;
+    }
     return `
-      <table style="width:100%; border-collapse:collapse; margin-top:12px; font-size:12px;">
-        <thead>
-          <tr>
-            ${columns.map((column) => `<th style="text-align:left; padding:8px 10px; border-bottom:2px solid #1d1d1d; font-size:11px; text-transform:uppercase; letter-spacing:0.08em;">${escapeHtml(column.label)}</th>`).join("")}
-          </tr>
-        </thead>
-        <tbody>
-          ${rows.map((row) => `
+      <div class="results-table-wrap">
+        <table class="results-table">
+          <thead>
             <tr>
-              ${columns.map((column) => `<td style="padding:8px 10px; border-bottom:1px solid #d7d0c2; vertical-align:top;">${escapeHtml(row[column.key] || "-")}</td>`).join("")}
+              ${columns.map((column) => `<th>${escapeHtml(column.label)}</th>`).join("")}
             </tr>
-          `).join("")}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            ${rows.map((row) => `
+              <tr>
+                ${columns.map((column) => renderResultsCell(row, column)).join("")}
+              </tr>
+            `).join("")}
+          </tbody>
+        </table>
+      </div>
     `;
+  }
+
+  function renderResultsSection(title, copy, rows, columns) {
+    return `
+      <section class="report-section">
+        <div class="section-heading">
+          <h2>${escapeHtml(title)}</h2>
+          <p>${escapeHtml(copy)}</p>
+        </div>
+        ${renderResultsTable(rows, columns)}
+      </section>
+    `;
+  }
+
+  function renderTeacherGuidance(rows) {
+    const cards = rows.length
+      ? rows.map((row) => `
+          <article class="guidance-card">
+            <div class="guidance-label">Prompt</div>
+            <div class="guidance-prompt">${escapeHtml(row.prompt || "Untitled prompt")}</div>
+            <div class="guidance-label">Teacher guidance</div>
+            <div class="guidance-body">${escapeHtml(row.guidance || "No keyed guidance provided.")}</div>
+          </article>
+        `).join("")
+      : `<div class="report-empty">No written-response or student-choice guidance was keyed for this quiz.</div>`;
+
+    return `
+      <section class="report-section">
+        <div class="section-heading">
+          <h2>Teacher guidance</h2>
+          <p>Written-response and student-choice guidance pulled from the keyed chapter booklet.</p>
+        </div>
+        <div class="teacher-guidance-grid">
+          ${cards}
+        </div>
+      </section>
+    `;
+  }
+
+  function buildQuizResultsHtml({ quiz, score, completedAt, generatedAt, mcRows, matchingRows, tfRows, guidanceRows }) {
+    const courseTitle = data.course?.title || "World Religions 30";
+    const objectiveRows = [...mcRows, ...matchingRows, ...tfRows];
+    const correctCount = objectiveRows.filter((row) => row.result === "Correct").length;
+    const incorrectCount = objectiveRows.filter((row) => row.result === "Incorrect").length;
+    const unansweredCount = objectiveRows.filter((row) => row.result === "No answer").length;
+
+    return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>${escapeHtml(quiz.title)} Results</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  @page { size: letter portrait; margin: 0.55in; }
+  body {
+    margin: 0;
+    color: #241f17;
+    background: #efe8dc;
+    font-family: Aptos, Calibri, sans-serif;
+    line-height: 1.45;
+  }
+  .results-sheet {
+    max-width: 960px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 32px 36px 40px;
+    box-shadow: 0 8px 18px rgba(51, 39, 20, 0.08);
+  }
+  .report-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    align-items: flex-start;
+    border-bottom: 2px solid #cdbda1;
+    padding-bottom: 18px;
+  }
+  .report-course {
+    font-size: 14px;
+    font-weight: 600;
+    color: #6d5731;
+  }
+  .report-code {
+    margin-top: 6px;
+    font-size: 13px;
+    color: #5c5347;
+  }
+  h1, h2 {
+    margin: 0;
+    font-weight: 700;
+    color: #241f17;
+  }
+  h1 {
+    margin-top: 8px;
+    font-size: 30px;
+    line-height: 1.12;
+  }
+  h2 {
+    font-size: 18px;
+  }
+  .report-subtitle {
+    margin: 12px 0 0;
+    max-width: 62ch;
+    color: #5e5446;
+    font-size: 14px;
+  }
+  .report-meta {
+    min-width: 250px;
+    border: 1px solid #d8ccb7;
+    padding: 14px 16px;
+  }
+  .meta-row + .meta-row {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #e7dece;
+  }
+  .meta-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #6f6659;
+  }
+  .meta-value {
+    margin-top: 3px;
+    font-size: 14px;
+    color: #241f17;
+  }
+  .summary-strip {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 18px;
+  }
+  .summary-card {
+    border: 1px solid #d8ccb7;
+    padding: 14px 15px;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .summary-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #6f6659;
+  }
+  .summary-value {
+    margin-top: 8px;
+    font-size: 28px;
+    line-height: 1;
+    font-weight: 700;
+    color: #241f17;
+  }
+  .summary-note {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #5f5649;
+  }
+  .report-section {
+    margin-top: 26px;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .section-heading {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    align-items: flex-end;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e1d6c3;
+  }
+  .section-heading p {
+    margin: 0;
+    max-width: 58ch;
+    color: #5f5649;
+    font-size: 13px;
+  }
+  .results-table-wrap {
+    border: 1px solid #ddd1be;
+  }
+  .results-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+  thead { display: table-header-group; }
+  tfoot { display: table-footer-group; }
+  tr {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  th {
+    padding: 10px 11px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #4d4336;
+    background: #f4eee2;
+    border-bottom: 1px solid #c7b495;
+  }
+  .results-cell {
+    padding: 9px 11px;
+    vertical-align: top;
+    border-bottom: 1px solid #e8decf;
+  }
+  tbody tr:nth-child(even) .results-cell {
+    background: #fbf8f2;
+  }
+  .results-cell-result {
+    width: 132px;
+  }
+  .result-badge {
+    display: inline-block;
+    min-width: 96px;
+    padding: 4px 8px;
+    border: 1px solid #cbbca3;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+  .result-badge.is-correct {
+    color: #284c21;
+    background: #edf4e7;
+    border-color: #aac19a;
+  }
+  .result-badge.is-incorrect {
+    color: #8a3a2a;
+    background: #fff0ea;
+    border-color: #d8a391;
+  }
+  .result-badge.is-empty {
+    color: #685d4e;
+    background: #f5f1ea;
+    border-color: #cabda8;
+  }
+  .results-empty {
+    color: #857a6b;
+    font-style: italic;
+  }
+  .teacher-guidance-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .guidance-card {
+    border: 1px solid #ddd1be;
+    padding: 14px 15px;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .guidance-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #6f6659;
+  }
+  .guidance-prompt {
+    margin-top: 4px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #241f17;
+  }
+  .guidance-body {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #3d352b;
+    white-space: pre-wrap;
+  }
+  .report-empty {
+    border: 1px solid #ddd1be;
+    padding: 14px 15px;
+    color: #695f51;
+    background: #faf7f1;
+  }
+  @media print {
+    body {
+      background: #ffffff;
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
+    }
+    .results-sheet {
+      max-width: none;
+      margin: 0;
+      padding: 0;
+      box-shadow: none;
+    }
+    .summary-strip {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 820px) {
+    .results-sheet {
+      padding: 24px;
+    }
+    .report-header,
+    .section-heading {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .report-meta {
+      width: 100%;
+      min-width: 0;
+    }
+    .summary-strip,
+    .teacher-guidance-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+  <main class="results-sheet">
+    <header class="report-header">
+      <div>
+        <div class="report-course">${escapeHtml(courseTitle)}</div>
+        <div class="report-code">${escapeHtml(quiz.code || "Quiz results")}</div>
+        <h1>${escapeHtml(quiz.title)}</h1>
+        <p class="report-subtitle">A print-ready summary of learner selections, keyed answers, and teacher guidance for this chapter quiz.</p>
+      </div>
+      <aside class="report-meta">
+        <div class="meta-row">
+          <span class="meta-label">Completed</span>
+          <div class="meta-value">${escapeHtml(completedAt)}</div>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Generated</span>
+          <div class="meta-value">${escapeHtml(generatedAt)}</div>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Status</span>
+          <div class="meta-value">Quiz complete</div>
+        </div>
+      </aside>
+    </header>
+
+    <section class="summary-strip">
+      <article class="summary-card">
+        <div class="summary-label">Objective score</div>
+        <div class="summary-value">${escapeHtml(`${score.correct}/${score.total || quiz.objectiveTotal || 0}`)}</div>
+        <div class="summary-note">${escapeHtml(`${score.total || quiz.objectiveTotal || 0} objective items keyed in the booklet.`)}</div>
+      </article>
+      <article class="summary-card">
+        <div class="summary-label">Correct</div>
+        <div class="summary-value">${escapeHtml(String(correctCount))}</div>
+        <div class="summary-note">Items answered correctly across multiple choice, matching, and true / false.</div>
+      </article>
+      <article class="summary-card">
+        <div class="summary-label">Incorrect</div>
+        <div class="summary-value">${escapeHtml(String(incorrectCount))}</div>
+        <div class="summary-note">Items with a recorded answer that did not match the key.</div>
+      </article>
+      <article class="summary-card">
+        <div class="summary-label">No answer</div>
+        <div class="summary-value">${escapeHtml(String(unansweredCount))}</div>
+        <div class="summary-note">Items left blank when the report was generated.</div>
+      </article>
+    </section>
+
+    ${renderResultsSection(
+      "Multiple choice",
+      "Learner selections compared against the keyed chapter answer for each multiple-choice item.",
+      mcRows,
+      [
+        { key: "question", label: "Question" },
+        { key: "selected", label: "Selected" },
+        { key: "correct", label: "Correct" },
+        { key: "result", label: "Result" }
+      ]
+    )}
+
+    ${renderResultsSection(
+      "Matching",
+      "Each matched term is listed with the learner selection and the keyed chapter match.",
+      matchingRows,
+      [
+        { key: "question", label: "Item" },
+        { key: "selected", label: "Selected" },
+        { key: "correct", label: "Correct" },
+        { key: "result", label: "Result" }
+      ]
+    )}
+
+    ${renderResultsSection(
+      "True / false",
+      "True / false answers are recorded exactly as selected at the time of report generation.",
+      tfRows,
+      [
+        { key: "question", label: "Question" },
+        { key: "selected", label: "Selected" },
+        { key: "correct", label: "Correct" },
+        { key: "result", label: "Result" }
+      ]
+    )}
+
+    ${renderTeacherGuidance(guidanceRows)}
+  </main>
+</body>
+</html>`;
   }
 
   function generateQuizResults(quiz) {
@@ -874,120 +1338,54 @@
       question: String(item.number),
       selected: work.mc[item.number] || "",
       correct: item.answer || "",
-      result: normalizeText(work.mc[item.number]) === normalizeText(item.answer) ? "Correct" : "Incorrect"
+      result: getResultLabel(work.mc[item.number], item.answer)
     }));
     const matchingRows = matching.items.map((item) => ({
       question: String(item.number),
       selected: work.matching[item.number] || "",
       correct: item.correct || "",
-      result: normalizeText(work.matching[item.number]) === normalizeText(item.correct) ? "Correct" : "Incorrect"
+      result: getResultLabel(work.matching[item.number], item.correct)
     }));
     const tfRows = (quiz.trueFalse || []).map((item) => ({
       question: String(item.number),
       selected: work.tf[item.number] || "",
       correct: normalizeText(item.answer) === "t" ? "True" : normalizeText(item.answer) === "f" ? "False" : item.answer || "",
-      result: normalizeText(work.tf[item.number]) === normalizeText(item.answer) ? "Correct" : "Incorrect"
+      result: getResultLabel(work.tf[item.number], item.answer)
     }));
     const guidanceRows = [...(quiz.writtenResponse || []).map((item) => ({
       prompt: item.prompt || item.question || item.text || "",
       guidance: item.teacherKey || item.answer || ""
-    })), ...(quiz.studentChoice || []).map((item) => ({
-      prompt: item.title || item.prompt || item.text || "",
+    })), ...getStudentChoiceOptions(quiz).map((item, index) => ({
+      prompt: item.label ? `Option ${item.label}: ${item.title || item.prompt || item.text || ""}` : item.title || item.prompt || item.text || `Option ${index + 1}`,
       guidance: item.teacherNote || ""
     }))];
+    const reportHtml = buildQuizResultsHtml({
+      quiz,
+      score,
+      completedAt: formatDate(state.progress.quizCompletedAt[quiz.id]) || new Date().toLocaleString(),
+      generatedAt: new Date().toLocaleString(),
+      mcRows,
+      matchingRows,
+      tfRows,
+      guidanceRows
+    });
 
-    const reportHtml = `<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<title>${escapeHtml(quiz.title)} Results</title>
-<style>
-  body { margin: 0; padding: 36px 42px; font-family: Inter, Arial, sans-serif; color: #1f1c17; }
-  h1, h2 { font-family: Georgia, 'Times New Roman', serif; margin: 0; }
-  h1 { font-size: 36px; line-height: 1.05; }
-  h2 { font-size: 20px; margin-top: 26px; }
-  .top { display:flex; justify-content:space-between; gap:24px; align-items:flex-start; }
-  .eyebrow { margin: 0 0 8px; color: #8b6728; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
-  .summary { min-width: 220px; border: 1px solid #d7d0c2; padding: 16px 18px; }
-  .score { margin-top: 10px; font-size: 40px; font-weight: 700; color: #8b6728; }
-  .meta { margin-top: 10px; color: #5f5649; font-size: 13px; line-height: 1.6; }
-  .section { margin-top: 28px; }
-  .section-copy { color: #5f5649; font-size: 13px; line-height: 1.6; }
-  .guide { margin-top: 14px; border: 1px solid #d7d0c2; padding: 12px 14px; }
-  .guide-title { font-weight: 700; margin-bottom: 6px; }
-  @media print { body { padding: 22px 26px; } }
-</style>
-</head>
-<body>
-  <div class="top">
-    <div>
-      <p class="eyebrow">World Religions 30</p>
-      <h1>${escapeHtml(quiz.title)}</h1>
-      <div class="meta">Quiz results summary<br>${escapeHtml(formatDate(state.progress.quizCompletedAt[quiz.id]) || new Date().toLocaleString())}</div>
-    </div>
-    <div class="summary">
-      <div class="eyebrow">Objective score</div>
-      <div class="score">${escapeHtml(`${score.correct}/${score.total || quiz.objectiveTotal || 0}`)}</div>
-      <div class="meta">This report captures the student-selected objective answers plus teacher guidance from the keyed booklet.</div>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>Multiple choice</h2>
-    ${renderResultsTable(mcRows, [
-      { key: "question", label: "Question" },
-      { key: "selected", label: "Selected" },
-      { key: "correct", label: "Correct" },
-      { key: "result", label: "Result" }
-    ])}
-  </div>
-
-  <div class="section">
-    <h2>Matching</h2>
-    ${renderResultsTable(matchingRows, [
-      { key: "question", label: "Item" },
-      { key: "selected", label: "Selected" },
-      { key: "correct", label: "Correct" },
-      { key: "result", label: "Result" }
-    ])}
-  </div>
-
-  <div class="section">
-    <h2>True / false</h2>
-    ${renderResultsTable(tfRows, [
-      { key: "question", label: "Question" },
-      { key: "selected", label: "Selected" },
-      { key: "correct", label: "Correct" },
-      { key: "result", label: "Result" }
-    ])}
-  </div>
-
-  <div class="section">
-    <h2>Teacher guidance</h2>
-    <div class="section-copy">Written-response and student-choice guidance from the keyed chapter booklet.</div>
-    ${guidanceRows.map((row) => `<div class="guide"><div class="guide-title">${escapeHtml(row.prompt)}</div><div>${escapeHtml(row.guidance || "No keyed guidance provided.")}</div></div>`).join("")}
-  </div>
-
-</body>
-</html>`;
-
-    const reportBlob = new Blob([reportHtml], { type: "text/html" });
-    const reportUrl = URL.createObjectURL(reportBlob);
-    const popup = window.open(reportUrl, "_blank", "width=1100,height=840");
+    const popup = window.open("", "_blank", "width=1100,height=840");
     if (!popup) {
-      URL.revokeObjectURL(reportUrl);
       return;
     }
 
-    const cleanup = () => URL.revokeObjectURL(reportUrl);
-    popup.addEventListener("load", () => {
-      popup.focus();
-      setTimeout(() => {
+    popup.document.open();
+    popup.document.write(reportHtml);
+    popup.document.close();
+    popup.focus();
+    setTimeout(() => {
+      try {
         popup.print();
-        cleanup();
-      }, 350);
-    }, { once: true });
-    popup.addEventListener("beforeunload", cleanup, { once: true });
+      } catch (_error) {
+        // Ignore print failures in preview environments.
+      }
+    }, 350);
   }
   function renderContent() {
     renderSectionHeader();
@@ -1070,11 +1468,8 @@
   });
 
   window.addEventListener("resize", () => {
-    if (!isMobile()) {
-      setMobileNav(false);
-      return;
-    }
-    refs.body.classList.remove("sidebar-collapsed");
+    setMobileNav(false);
+    renderNav();
   });
 
   refs.body.classList.toggle("sidebar-collapsed", state.sidebarCollapsed && !isMobile());
