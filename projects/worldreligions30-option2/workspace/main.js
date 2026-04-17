@@ -1,7 +1,8 @@
 ﻿(function () {
   const data = window.WORLD_RELIGIONS_DATA || { course: {}, chapters: [], quizzes: [], assignments: [], library: [] };
-  const STORAGE_KEY = "worldreligions30-option2.progress";
-  const UI_KEY = "worldreligions30-option2.ui";
+  const PROJECT_SLUG = document.body?.dataset.projectSlug || "worldreligions30-option2";
+  const STORAGE_KEY = `${PROJECT_SLUG}.progress`;
+  const UI_KEY = `${PROJECT_SLUG}.ui`;
 
   const refs = {
     body: document.body,
@@ -292,6 +293,8 @@
   }
   function renderNav() {
     refs.body.classList.toggle("sidebar-collapsed", state.sidebarCollapsed && !isMobile());
+    refs.body.dataset.section = state.section;
+    refs.body.dataset.tab = state.tab;
     refs.navHome?.classList.toggle("active", state.section === "home");
     refs.navLibrary?.classList.toggle("active", state.section === "library");
     refs.tabChapters?.classList.toggle("active", state.tab === "chapters");
@@ -471,7 +474,7 @@
             const score = computeObjectiveScore(quiz);
             const nextChapter = findChapter(`chapter-${quiz.number + 1}`);
             return `
-              <article class="course-card ${unlocked ? "" : "locked-card"}" style="--accent:${escapeHtml(quiz.accent || "#8b6728")}">
+              <article class="course-card quiz-overview-card ${unlocked ? "" : "locked-card"}" style="--accent:${escapeHtml(quiz.accent || "#8b6728")}">
                 <p class="card-code">${escapeHtml(quiz.code)}</p>
                 <h4 class="card-title">${escapeHtml(quiz.title)}</h4>
                 <p class="card-summary">Recreated chapter booklet with objective sections, written prompts, and keyed guidance.</p>
@@ -496,7 +499,7 @@
           ${getAssignments().map((assignment) => {
             const unlocked = isAssignmentUnlocked(assignment);
             return `
-              <article class="placeholder-card ${unlocked ? "" : "locked-card"}" style="--accent:${escapeHtml(assignment.accent || "#8b6728")}">
+              <article class="placeholder-card assignment-overview-card ${unlocked ? "" : "locked-card"}" style="--accent:${escapeHtml(assignment.accent || "#8b6728")}">
                 <p class="card-code">${escapeHtml(assignment.code)}</p>
                 <h4 class="card-title">${escapeHtml(assignment.title)}</h4>
                 <p class="card-summary">${escapeHtml(assignment.summary)}</p>
@@ -516,7 +519,7 @@
         ${(data.chapters || []).map((chapter) => {
           const unlocked = isChapterUnlocked(chapter.number);
           return `
-            <article class="course-card ${unlocked ? "" : "locked-card"}" style="--accent:${escapeHtml(chapter.accent || "#8b6728")}">
+            <article class="course-card chapter-card ${unlocked ? "" : "locked-card"}" style="--accent:${escapeHtml(chapter.accent || "#8b6728")}">
               <p class="card-code">${escapeHtml(chapter.code)}</p>
               <h4 class="card-title">${escapeHtml(chapter.title)}</h4>
               <p class="card-summary">${escapeHtml(chapter.summary)}</p>
@@ -539,7 +542,7 @@
     }
 
     return `
-      <article class="detail-card" style="--accent:${escapeHtml(chapter.accent || "#8b6728")}">
+      <article class="detail-card chapter-detail-card" style="--accent:${escapeHtml(chapter.accent || "#8b6728")}">
         <div class="detail-stack">
           <div>
             <p class="detail-eyebrow">${escapeHtml(chapter.code)}</p>
@@ -563,7 +566,7 @@
     }
 
     return `
-      <article class="detail-card" style="--accent:${escapeHtml(assignment.accent || "#8b6728")}">
+      <article class="detail-card assignment-detail-card" style="--accent:${escapeHtml(assignment.accent || "#8b6728")}">
         <div class="detail-stack">
           <div>
             <p class="detail-eyebrow">${escapeHtml(assignment.code)}</p>
@@ -593,7 +596,7 @@
 
     return `
       <div class="library-shell">
-        <article class="library-select-shell" style="--accent:${escapeHtml(active.accent || "#8b6728")}">
+        <article class="library-select-shell library-select-card" style="--accent:${escapeHtml(active.accent || "#8b6728")}">
           <div class="viewer-toolbar">
             <div class="viewer-select-group">
               <label class="field-label" for="library-select">Choose chapter PDF</label>
@@ -616,7 +619,7 @@
           <p class="viewer-copy">${escapeHtml(active.summary || "Local chapter PDF.")}</p>
         </article>
 
-        <article class="viewer-shell" style="--accent:${escapeHtml(active.accent || "#8b6728")}">
+        <article class="viewer-shell library-viewer-card" style="--accent:${escapeHtml(active.accent || "#8b6728")}">
           <p class="detail-eyebrow">${escapeHtml(active.code || "")}</p>
           <h4 class="detail-title">${escapeHtml(active.title)}</h4>
           <p class="detail-summary">Read the chapter directly in the shell, or expand the viewer if you want a full-page reading surface.</p>
@@ -826,7 +829,7 @@
     }
 
     return `
-      <article class="quiz-shell" style="--accent:${escapeHtml(quiz.accent || "#8b6728")}">
+      <article class="quiz-shell quiz-detail-card" style="--accent:${escapeHtml(quiz.accent || "#8b6728")}">
         <div class="quiz-stack">
           <div class="quiz-topbar">
             <div class="quiz-copy">

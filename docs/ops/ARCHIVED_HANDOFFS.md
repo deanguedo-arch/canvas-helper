@@ -34,6 +34,12 @@ Entries are listed in file order (older to newer within this archive).
 - 2026-03-29: docs/ops/ACTIVE_HANDOFF.md (pre-calm-life-adventure-room-remap-stripdown)
 - 2026-04-13: docs/ops/ACTIVE_HANDOFF.md (pre-repo-plan-status-handoff)
 - 2026-04-16: docs/ops/ACTIVE_HANDOFF.md (pre-mentalwellness10-option2-phase2-lesson-quiz)
+- 2026-04-16: docs/ops/ACTIVE_HANDOFF.md (pre-mentalwellness10-option2-phase2-assignment-alignment)
+- 2026-04-16: docs/ops/ACTIVE_HANDOFF.md (pre-mentalwellness10-option2-phase3-assignment-parity)
+- 2026-04-16: docs/ops/ACTIVE_HANDOFF.md (pre-mentalwellness10-option2-phase4a-assignment-parity)
+- 2026-04-16: docs/ops/ACTIVE_HANDOFF.md (pre-mentalwellness10-option2-phase4b-assignment-parity)
+- 2026-04-16: docs/ops/ACTIVE_HANDOFF.md (pre-mentalwellness10-option2-final-assignment-consistency-pass)
+- 2026-04-17: docs/ops/ACTIVE_HANDOFF.md (pre-sportswellness-image-sizing)
 
 ---
 
@@ -1805,4 +1811,575 @@ Entries are listed in file order (older to newer within this archive).
 - Do not commit the unrelated `mentalwellness10-option2` workspace changes as part of this World Religions work.
 - Do not edit `projects\worldreligions30-option2\raw\original.html` as if it is the live shell.
 - Do not assume the report popup is production-safe until it is manually previewed in the target environment.
+
+---
+
+## 2026-04-16 | docs/ops/ACTIVE_HANDOFF.md (pre-mentalwellness10-option2-phase2-assignment-alignment)
+
+# Handoff
+
+- Project: mentalwellness10-option2
+- Task: Rebuild the Phase 2 lesson and quiz from the `Mastering the Arena` DOCX in the same textbook-style pattern used for Phase 1, while leaving Phase 2 assignments untouched.
+- Status: complete
+
+## Files changed
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\main.js
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assets\readings\phase2-drive-content.pdf
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assets\readings\phase2-figures\phase2-growth-equation.png
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assets\readings\phase2-figures\phase2-integrated-discipline-system.png
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assets\readings\phase2-figures\phase2-motivation-continuum.png
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assets\readings\phase2-figures\phase2-person-situation.png
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assets\readings\phase2-figures\phase2-psychological-needs.png
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assets\readings\phase2-figures\phase2-recovery-continuum.png
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\tests\mentalwellness10-option2-phase2-content.test.ts
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\docs\plans\2026-04-16-mentalwellness10-option2-phase2-design.md
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\docs\plans\2026-04-16-mentalwellness10-option2-phase2-implementation.md
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\docs\ops\ACTIVE_HANDOFF.md
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\docs\ops\ARCHIVED_HANDOFFS.md
+
+## What changed
+- Replaced the placeholder Phase 2 shell text in `workspace/main.js` with a full `Mastering the Arena` lesson built in the same sectioned textbook pattern used by the Phase 1 rebuild.
+- Restored the fuller chapter density after the first abridged pass by expanding the explanatory prose, adding the overjustification and social-context material, and restoring review-question and answer-key sections.
+- Added a new Phase 2 quiz, `quiz-phase2-integrated-discipline`, with ten multiple-choice questions tied to the chapter's core ideas: motivation quality, values, mindset, pride, recovery, and social context.
+- Wired the Phase 2 lesson and quiz to a local source PDF, `phase2-drive-content.pdf`, instead of external references.
+- Imported and attached six chapter figure assets so the lesson can render the same kind of in-flow visuals already used by the stronger textbook surfaces.
+- Removed the hardcoded `Back to phase 1` quiz label so quiz detail navigation now reflects the active phase instead of incorrectly pointing every quiz back to Phase 1.
+- Left `a2a` and `a2b` untouched on purpose. This pass is lesson-plus-quiz only.
+
+## Why this changed
+- The user wanted Phase 2 rebuilt with the same idea, style, and quality bar as the successful Phase 1 chapter conversion.
+- The user explicitly narrowed scope to lesson content and quiz first, with assignments deferred until the lesson surfaces are solid.
+
+## Source of truth
+- Project metadata: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\meta\project.json
+- Canonical shell entry: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\index.html
+- Canonical lesson and quiz logic/data: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\main.js
+- Canonical imported Phase 2 reading asset: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assets\readings\phase2-drive-content.pdf
+
+## Fragile areas / watchouts
+- The Phase 2 lesson content is inline in `workspace/main.js`, so future textbook edits can drift from the imported PDF if one side changes without the other.
+- The six figure filenames are now part of the authored lesson data. Renaming or regenerating those assets without updating `main.js` will break inline figures.
+- The new quiz explanations are authored against the chapter structure now in `main.js`; if the question set is later replaced with an instructor-provided bank, both the copy and answer key need to stay aligned.
+- The quiz detail renderer now builds its back label from the phase code. If phase naming conventions change, keep that label logic readable.
+
+## Next prompt should assume
+- `phase-2` now has real lesson content and a linked quiz in the same authored style as Phase 1.
+- Phase 2 assignments were intentionally not changed in this pass.
+- The imported DOCX content is represented through local assets and inline lesson structures, not a separate runtime fetch.
+- The next likely task is visual/manual validation or a follow-up content polish pass, not assignment rewrites unless the user asks for them.
+
+## What still needs validation
+- Manual Studio preview of the Phase 2 lesson to confirm figure sizing, table rhythm, and long-form readability match the Phase 1 quality bar.
+- Manual pass through Quiz 02 to confirm the authored questions, feedback cards, and phase-back navigation feel right in the live shell.
+- Optional content review against the source DOCX if the user wants tighter wording parity on any section headings or glossary entries.
+
+## Known risks
+- The project E2E contract passed, but it only verifies the shared shell hooks, not deep authored content quality inside the Phase 2 lesson.
+- Existing uncommitted edits in `workspace/index.html` and `workspace/styles.css` remain outside this change set and should not be accidentally rolled into a Phase 2 commit without review.
+- The local Phase 2 PDF was generated from the DOCX conversion pipeline, so a new source document revision would require regeneration to keep the file and inline lesson synchronized.
+
+## Exact next command
+`npm.cmd run studio`
+
+## Exact next file to open
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\main.js`
+
+## Do not do next / warnings
+- Do not start editing `a2a` or `a2b` as part of this lesson pass unless the user explicitly changes scope.
+- Do not move the Phase 2 figure assets out of `workspace\assets\readings\phase2-figures\` without updating their references in `main.js`.
+- Do not assume the unrelated World Religions validation work is complete just because it has been archived out of the active handoff.
+
+---
+
+## 2026-04-16 | docs/ops/ACTIVE_HANDOFF.md (pre-mentalwellness10-option2-phase3-assignment-parity)
+
+# Handoff
+
+- Project: mentalwellness10-option2
+- Task: Align, deepen, and restyle Phase 2 assignments `2A` and `2B` to the restored Phase 2 lesson and `phase2-drive-content.pdf`, using the Phase 1 shell language without changing the Phase 3/4 assignments.
+- Status: ready for validation
+
+## Files changed
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assignment-runtime-main.js
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\styles.css
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\tests\mentalwellness10-option2-phase2-assignments.test.ts
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\docs\ops\ACTIVE_HANDOFF.md
+
+## What changed
+- Rebuilt the live `2A` and `2B` assignment shells in `assignment-runtime-main.js` so they now use the Phase 1 hero/header rail, Phase 1 step-nav treatment, Phase 1 review grid, and Phase 1 rubric table language while preserving the richer Phase 2 content model and field ids.
+- Added dedicated runtime shell/step builder functions for both Phase 2 assignments instead of relying on fragment-level DOM surgery, so remounts now reconstruct the full authored Phase 1-style surface before save/load logic runs.
+- Added Phase 1-style mobile step-toggle behavior for `2A` and `2B`, including runtime step-label sync, so the reused nav shell still works under the Phase 1 responsive CSS rules.
+- Extended the scoped Phase 1 typography, nav, rubric, and mobile rules in `styles.css` to `#view-values` and `#view-master`, so the Phase 2 assignments inherit the same authored visual system instead of only sharing class names.
+- Added a regression test that locks the new Phase 1 shell markers into the Phase 2 runtime (`Assignment 02A/02B`, `p1-phase-subtitle`, `p1-step-nav-shell`, `p1-review-grid`, `p1-rubric-shell`, `p1-rubric-table`).
+- Reworked the live Phase 2 assignment runtime in `assignment-runtime-main.js` so `2A` now matches the restored lesson: three core values, value definitions, standards, task bridge, decision filters, support environment, warning signs, and self-compassion.
+- Rebuilt the live `2B` runtime around the `Master Config` / `Integrated Discipline System` model: system audit, pre/in/post defaults, if-then plans, weekly process action, daily check, weekly review, recovery checkpoint, pit crew check-in, and authentic pride.
+- Added the final Phase 2 fidelity prompts drawn directly from the lesson/PDF logic: `2A` now asks "What is driving your effort right now?" using the chapter's pressure/guilt/values/identity/enjoyment/fear lens, and `2B` now includes an outcome/performance/process goal ladder plus a push-vs-back-off / deload threshold prompt.
+- Fixed the Phase 2 `Final Synthesis` / `Live Summary` scaling issue in `styles.css` by removing flex layout from the shared summary preview containers and returning them to normal text flow, so longer Phase 2 summaries wrap like prose instead of fragmenting into per-word flex items.
+- Preserved legacy stored data where reasonable by mapping older `task` and `recovery` fields into the new Phase 2 structure during populate.
+- Updated the Phase 2 print reports so `2A` and `2B` export the new aligned fields instead of the stale Phase 4 / `User Blueprint` copy, including the motivation-quality prompt, goal ladder, and recovery threshold.
+- Added a targeted Phase 2 assignment test that locks the new runtime copy, field ids, and stale-label regressions.
+- Added the missing `setStepMarkup` helper used by the Phase 2 master-config runtime rewrite; without it, both Phase 2 assignment surfaces could fail at load time with `setStepMarkup is not defined`.
+- Hardened the Phase 2 score rehydration path so legacy rubric keys from older `vb_data` / `mb_data` saves no longer crash the view by targeting missing score-button groups.
+- Replaced the stale session-level Phase 2 upgrade gate with DOM-instance upgrade markers so remounted assignment views still receive the Phase 2 rewrite when you leave and re-enter `2A` or `2B`.
+- Added a shared assignment-shell sizing layer in `styles.css` that applies the final Phase 1 grid containment, step-nav sizing, rubric sizing, and large-desktop typography rules to `#view-phase1`, `#view-values`, and `#view-master` together instead of letting Phase 2 rely on partial selector copies.
+- Added a regression test that locks the shared desktop sizing selectors in place so future assignment styling work can extend the same shell instead of drifting Phase 1 and Phase 2 apart.
+- Changed the live Phase 2 review scale from a five-point shell to a three-level rubric scale so the score buttons now match the `Proficient / Developing / Emerging` rubric language: `2A` totals are now out of `15`, `2B` totals are now out of `12`, and the print reports now render per-row scores out of `3`.
+- Added Phase 2 score normalization so older local saves that still use `5 / 3 / 1` or the earlier five-button scale rehydrate cleanly into the new `3 / 2 / 1` review model.
+- Added Phase 2 field-card upgrade classes in `assignment-runtime-main.js` plus the matching card-layout rules in `styles.css` so the `Understanding Narrative` cards and the Step 03/04 field cards stop clipping or stretching awkwardly under the shared Phase 1 sizing layer.
+
+## Why this changed
+- The user asked for `2A` and `2B` to feel like Phase 1, not just to contain aligned Phase 2 prompts, and the previous runtime still looked like the older glass-panel system.
+- Reusing the Phase 1 shell language keeps hierarchy, typography, review structure, and mobile behavior consistent across assignments while preserving the denser Phase 2 content.
+- The restored Phase 2 lesson and `phase2-drive-content.pdf` make motivation quality, values-to-action, recovery, and social context first-class concepts, and the assignments needed to reflect that same course logic.
+- The prior Phase 2 runtime was thinner than both the shell spec and the restored lesson, and parts of `2A` were effectively broken or incomplete.
+- The final fidelity pass closes the remaining gap between "aligned enough" and the specific concepts the chapter emphasizes most: motivation quality, goal type hierarchy, and recovery/deload judgment.
+- The summary-preview bug was caused by shared CSS, not the summary copy itself: the preview paragraphs were styled as flex containers, which breaks sentence flow once the Phase 2 summaries became longer.
+- The remaining visual mismatch after the shell restyle was sizing: Phase 2 still missed Phase 1's later grid and large-desktop scale rules, so the new shared CSS layer makes the shell contract explicit for reuse on later assignments.
+- The user found one more review mismatch after the sizing pass: the audit controls still behaved like a five-point scale even though the rubric is explicitly three-level, and some of the larger field cards were clipping once the new size rules were applied.
+
+## Source of truth
+- Project metadata: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\meta\project.json
+- Canonical assignment shell entry: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assignment-runtime.html
+- Canonical live Phase 2 assignment behavior and print/export logic: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assignment-runtime-main.js
+- Canonical shared assignment-shell sizing and typography contract for Phase 1 and Phase 2: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\styles.css
+- Canonical Phase 2 lesson and reading reference: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\main.js
+- Canonical imported Phase 2 reading asset: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assets\readings\phase2-drive-content.pdf
+
+## Fragile areas / watchouts
+- The live Phase 2 assignment UI is now upgraded in place by `assignment-runtime-main.js`; the old Phase 2 HTML in `assignment-runtime.html` still exists but is effectively dormant for `2A` and `2B`.
+- The `Final Synthesis` / `Live Summary` cards also depend on the shared summary-preview rule in `styles.css`, so layout edits there affect `2A`, `2B`, and `Phase 3`.
+- The Phase 1 / Phase 2 shell size parity now depends on the shared selectors at the end of `styles.css`; edits there affect both phases together by design.
+- The Phase 2 field-card repair is now partly runtime-driven: `assignment-runtime-main.js` upgrades the authored label cards with `phase2-field-*` classes before the shared CSS takes over their layout.
+- The runtime upgrade depends on existing shell ids such as `vb-step1`, `vb-step2`, `mb-step0`, and `mb-step4`. If those containers are renamed in HTML, the upgrade path will drift or fail.
+- The legacy-storage fallback is intentional. Removing the `task` and `recovery` migrations without a data migration plan would strand older local saves.
+- The assignment copy now tracks the restored lesson and `phase2-drive-content.pdf`; if that source content changes again, the assignment prompts and report sections need to move with it.
+
+## Next prompt should assume
+- `2A` and `2B` are now the active Phase 2 assignment surfaces and are aligned to the restored lesson, not the older placeholder/runtime copy.
+- The source of truth for the live Phase 2 assignment experience is `assignment-runtime-main.js`, not the older static Phase 2 markup alone.
+- Phase 3 and Phase 4 assignments were not changed in this pass.
+- The next likely step is manual Studio review and small wording/layout polish, not another structural rebuild.
+
+## What still needs validation
+- Manual Studio pass through `2A` and `2B` to confirm the new Phase 1-style shell feels right visually, saves correctly, and remains coherent on desktop and mobile.
+- Manual Studio pass should confirm the new shared sizing layer actually matches Phase 1 card widths, heading scale, rubric density, and step-nav rhythm on desktop.
+- Manual Studio pass should specifically confirm that the new `3`-button review rows feel right and that `Understanding Narrative`, `When do you push and when do you back off?`, and the Step 03 filter/support cards no longer clip at the card edges.
+- Manual Studio pass should specifically re-check the `Final Synthesis` and `Live Summary` cards after the CSS fix.
+- Manual `Generate PDF` / print-preview check for both Phase 2 assignments to confirm the new report layouts read well with realistic student input.
+- Optional save/load regression pass using an older local `mb_data` payload to confirm the legacy fallback is sufficient for existing browsers.
+- Optional wording trim if the new summary copy feels too dense in the live UI.
+
+## Known risks
+- Because the runtime upgrades the dormant Phase 2 shell in place, a future editor could change `assignment-runtime.html` and think they changed the live Phase 2 UI when they did not.
+- The new test is string-contract oriented. It protects structure and regressions well, but it does not replace a visual QA pass.
+- The new shared sizing layer is robust for reuse, but later Phase 3/4 adoption should still be done in controlled passes rather than by assuming every assignment already conforms.
+- This pass intentionally did not normalize the underlying static HTML for Phase 2, so future maintenance still requires care around the runtime/markup split.
+- The three-level review conversion preserves legacy scores by normalization rather than migration, so any future rubric-scale change should be treated as a data-shape change and handled explicitly.
+
+## Exact next command
+`npm.cmd run studio`
+
+## Exact next file to open
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\styles.css`
+
+## Do not do next / warnings
+- Do not edit the dormant Phase 2 blocks in `assignment-runtime.html` and assume those edits will automatically reflect the live Phase 2 experience.
+- Do not remove the legacy `task` / `recovery` populate fallback unless you also migrate stored `mb_data`.
+- Do not treat `phase2-drive-content.pdf` as optional reference-only material for this phase; it now informs the assignment prompts directly.
+
+---
+
+## 2026-04-16 | docs/ops/ACTIVE_HANDOFF.md (pre-mentalwellness10-option2-phase4a-assignment-parity)
+
+# Handoff
+
+- Project: mentalwellness10-option2
+- Task: Rebuild the Phase 3 assignment into the shared Phase 1/Phase 2 shell system, carrying forward the learned rubric, sizing, field-card, save/load, and print-report fixes.
+- Status: ready for validation
+
+## Files changed
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assignment-runtime-main.js
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\styles.css
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\tests\mentalwellness10-option2-phase2-assignments.test.ts
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\tests\mentalwellness10-option2-phase3-assignment.test.ts
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\docs\plans\2026-04-16-mentalwellness10-option2-phase3-assignment-parity-design.md
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\docs\plans\2026-04-16-mentalwellness10-option2-phase3-assignment-parity.md
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\docs\ops\ACTIVE_HANDOFF.md
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\docs\ops\ARCHIVED_HANDOFFS.md
+
+## Verification run
+- `node --check projects/mentalwellness10-option2/workspace/assignment-runtime-main.js`
+- `npx tsx --test scripts/tests/mentalwellness10-option2-phase3-assignment.test.ts`
+- `npx tsx --test scripts/tests/mentalwellness10-option2-phase2-assignments.test.ts scripts/tests/mentalwellness10-option2-phase3-assignment.test.ts`
+- `npm.cmd run typecheck`
+- `npm.cmd run build:studio`
+- `npm run test:e2e:project -- --project mentalwellness10-option2`
+
+## What changed
+- Replaced the older Phase 3 runtime block in `assignment-runtime-main.js` with a full Phase 1-style assignment shell for `Assignment 03`, `Focus Master Blueprint`, including the hero/header rail, mastery score card, file-actions card, authored step nav, review grid, and rubric table language.
+- Rebuilt the Phase 3 flow around the five-step contract already implied by the course shell: `00 Briefing`, `01 Arena Audit`, `02 Cues and Anchors`, `03 Fortress Routine and What-If Reset`, and `04 Review`.
+- Carried Phase 2's structural lessons forward into Phase 3: explicit shell builders, DOM-instance upgrade behavior, mobile step-menu syncing, field-card wrappers for large inputs, and summary text that renders as prose instead of fragmented layout tokens.
+- Converted Phase 3 review scoring to the same three-level rubric model used by the aligned Phase 2 assignments, with legacy saved values normalized into the new `3 / 2 / 1` scale instead of crashing or drifting.
+- Updated the Phase 3 print/report output so it now exports the new shell title, the five-step content, and row scores out of `3` instead of the older five-point/five-step assumptions.
+- Extended the shared assignment-shell selectors in `styles.css` to include `#view-phase3`, so Phase 3 now inherits the same desktop sizing, typography, nav sizing, rubric density, large-desktop corrections, and responsive behavior already shared by Phase 1 and Phase 2.
+- Added a dedicated Phase 3 regression test that locks the new shell markers, three-level rubric behavior, and shared styling contract into place.
+- Broadened the Phase 2 selector assertions to recognize that Phase 3 now legitimately joins the shared shell contract instead of being a one-off special case.
+
+## Why this changed
+- The user asked to move to Phase 3 and apply the same learned logic from the Phase 2 pass instead of leaving Phase 3 on the older shell and rubric system.
+- Phase 3 still looked and behaved like the pre-parity assignment runtime, which would have left the course inconsistent after the Phase 2 rebuild.
+- Reusing the same shell and rubric contract is the cleanest path toward eventually making the remaining assignments feel coherent instead of maintaining separate styling and scoring systems per phase.
+
+## Source of truth
+- Project metadata: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\meta\project.json
+- Canonical assignment shell entry: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assignment-runtime.html
+- Canonical live Phase 3 assignment behavior and print/export logic: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assignment-runtime-main.js
+- Canonical shared assignment-shell sizing and typography contract for Phase 1, Phase 2, and Phase 3: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\styles.css
+- Canonical course-side assignment contract reference: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\main.js
+
+## Fragile areas / watchouts
+- The live Phase 3 UI is still upgraded in place by `assignment-runtime-main.js`; the dormant Phase 3 markup in `assignment-runtime.html` is not the full live truth by itself.
+- The shared shell selectors in `styles.css` now intentionally affect Phase 1, Phase 2, and Phase 3 together. Future selector edits there have a wider blast radius than before.
+- Legacy `p3_data` saves are normalized into the new three-level rubric model rather than migrated permanently. Any future scoring-model change should be treated as a data-shape change.
+- The new Phase 3 field-card behavior depends on runtime-applied wrapper classes before the shared CSS takes over layout, similar to the Phase 2 pattern.
+- The print/report output still depends on browser popup and print-preview behavior, so the export path can vary slightly across preview surfaces.
+
+## Next prompt should assume
+- Phase 3 now uses the shared Phase 1/Phase 2 assignment shell contract instead of the older bespoke runtime.
+- The live Phase 3 assignment title is `Focus Master Blueprint`.
+- Phase 3 review rows now use a three-level rubric scale, not a five-point scale.
+- Phase 4 has not been upgraded to the shared shell yet.
+- The next likely step is manual Studio validation or a controlled Phase 4 pass, not another Phase 3 structural rebuild unless visual issues appear.
+
+## What still needs validation
+- Manual Studio pass through the Phase 3 assignment on desktop and mobile to confirm the new shell sizing, field-card spacing, and step-nav behavior feel consistent with Phase 1 and Phase 2.
+- Manual save/load pass with realistic Phase 3 data to confirm the new runtime shell, summary, and review areas all persist correctly after leaving and re-entering the view.
+- Manual `Generate Blueprint PDF` / print-preview check for Phase 3 to confirm the rebuilt report reads cleanly with longer narrative content and the new rubric scale.
+- Optional check with an older local `p3_data` payload if you want to confirm the normalization path is sufficient for previously saved browsers.
+
+## Known risks
+- Because the runtime upgrades dormant HTML in place, a future editor could still change `assignment-runtime.html` and mistakenly assume they changed the live Phase 3 experience when they did not.
+- The regression tests protect the shell contract and scoring model, but they do not replace a visual QA pass in Studio.
+- The broader shared shell selector contract is the right long-term move, but it increases the chance that later styling edits affect multiple phases at once if they are not tested carefully.
+
+## Exact next command
+`npm.cmd run studio`
+
+## Exact next file to open
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assignment-runtime-main.js`
+
+## Do not do next / warnings
+- Do not edit the dormant Phase 3 blocks in `assignment-runtime.html` and assume those edits will automatically change the live assignment.
+- Do not switch Phase 3 back to a five-point review scale unless you also update the saved-data normalization and print-report assumptions.
+- Do not extend the shared Phase 1/2/3 shell selectors to Phase 4 casually; do that as its own controlled pass.
+
+---
+
+## 2026-04-16 | docs/ops/ACTIVE_HANDOFF.md (pre-mentalwellness10-option2-phase4b-assignment-parity)
+
+# Handoff
+
+- Project: mentalwellness10-option2
+- Task: Rebuild Phase 4A into the shared Phase 1/2/3 assignment shell system, carrying forward the learned rubric, sizing, field-card, save/load, and print-report fixes.
+- Status: ready for validation
+
+## Files changed
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assignment-runtime-main.js
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\styles.css
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\tests\mentalwellness10-option2-phase2-assignments.test.ts
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\tests\mentalwellness10-option2-phase3-assignment.test.ts
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\tests\mentalwellness10-option2-phase4a-assignment.test.ts
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\docs\plans\2026-04-16-mentalwellness10-option2-phase4a-assignment-parity-design.md
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\docs\plans\2026-04-16-mentalwellness10-option2-phase4a-assignment-parity.md
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\docs\ops\ACTIVE_HANDOFF.md
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\docs\ops\ARCHIVED_HANDOFFS.md
+
+## Verification run
+- `node --check projects/mentalwellness10-option2/workspace/assignment-runtime-main.js`
+- `npx tsx --test scripts/tests/mentalwellness10-option2-phase4a-assignment.test.ts`
+- `npx tsx --test scripts/tests/mentalwellness10-option2-phase2-assignments.test.ts scripts/tests/mentalwellness10-option2-phase3-assignment.test.ts scripts/tests/mentalwellness10-option2-phase4a-assignment.test.ts`
+- `npm.cmd run typecheck`
+- `npm.cmd run build:studio`
+- `npm run test:e2e:project -- --project mentalwellness10-option2`
+
+## What changed
+- Replaced the older Phase 4A runtime block in `assignment-runtime-main.js` with a full Phase 1-style shell for `Assignment 04A`, `Confidence Master Blueprint`, including the hero/header rail, mastery score card, file-actions card, authored step nav, review grid, and rubric table language.
+- Rebuilt the Phase 4A flow around the confidence contract already implied by the course shell: `00 Briefing`, `01 Bank`, `02 Control`, `03 Conviction`, and `04 Review`.
+- Carried the Phase 2 and Phase 3 shell lessons forward into Phase 4A: explicit shell builders, DOM-instance upgrade behavior, mobile step-menu syncing, field-card wrappers for large inputs, and summary text that renders as prose instead of clipped widgets.
+- Converted Phase 4A review scoring to the same three-level rubric model used by aligned Phase 2 and Phase 3 assignments, with legacy saved values normalized into the new `3 / 2 / 1` scale instead of crashing or drifting.
+- Expanded the live Confidence build around the current course contract by adding a cleaner bank-account step, daily deposit logic, explicit lockdown reframe field, cue/belief/attachment structure, and a stronger review synthesis section.
+- Updated the Phase 4A print/report output so it now exports the new shell title, the revised confidence fields, and row scores out of `3` instead of the older `/25` model.
+- Extended the shared assignment-shell selectors in `styles.css` to include `#view-phase4a`, so Phase 4A now inherits the same desktop sizing, typography, nav sizing, rubric density, large-desktop corrections, and responsive behavior already shared by Phase 1, Phase 2, and Phase 3.
+- Added a dedicated Phase 4A regression test that locks the new shell markers, three-level rubric behavior, and shared styling contract into place.
+- Broadened the earlier shared-selector tests so Phase 2 and Phase 3 recognize that Phase 4A now legitimately joins the same shell contract.
+
+## Why this changed
+- The user asked to move directly from the finished Phase 3 pass to `4A` and apply the same learned logic instead of leaving Confidence on the older shell and five-point rubric system.
+- Phase 4A still looked and behaved like the pre-parity runtime, which would have left Phase 4 visually and behaviorally behind the rest of the aligned assignment sequence.
+- Reusing the same shell and rubric contract is the cleanest path toward eventually making the remaining assignments feel coherent instead of maintaining separate styling and scoring systems per phase.
+
+## Source of truth
+- Project metadata: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\meta\project.json
+- Canonical assignment shell entry: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assignment-runtime.html
+- Canonical live Phase 4A assignment behavior and print/export logic: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assignment-runtime-main.js
+- Canonical shared assignment-shell sizing and typography contract for Phase 1, Phase 2, Phase 3, and Phase 4A: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\styles.css
+- Canonical course-side assignment contract reference: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\main.js
+
+## Fragile areas / watchouts
+- The live Phase 4A UI is still upgraded in place by `assignment-runtime-main.js`; the dormant Phase 4A markup in `assignment-runtime.html` is not the full live truth by itself.
+- The shared shell selectors in `styles.css` now intentionally affect Phase 1, Phase 2, Phase 3, and Phase 4A together. Future selector edits there have a wider blast radius than before.
+- Legacy `p4a_data` saves are normalized into the new three-level rubric model rather than migrated permanently. Any future scoring-model change should be treated as a data-shape change.
+- The new Phase 4A field-card behavior depends on runtime-applied wrapper classes before the shared CSS takes over layout, similar to the Phase 2 and Phase 3 pattern.
+- The print/report output still depends on browser popup and print-preview behavior, so the export path can vary slightly across preview surfaces.
+
+## Next prompt should assume
+- Phase 4A now uses the shared Phase 1/2/3 assignment shell contract instead of the older bespoke runtime.
+- The live Phase 4A assignment title is `Confidence Master Blueprint`.
+- Phase 4A review rows now use a three-level rubric scale, not a five-point scale.
+- Phase 4B has not been upgraded to the shared shell yet.
+- The next likely step is manual Studio validation or a controlled Phase 4B pass, not another Phase 4A structural rebuild unless visual issues appear.
+
+## What still needs validation
+- Manual Studio pass through the Phase 4A assignment on desktop and mobile to confirm the new shell sizing, field-card spacing, and step-nav behavior feel consistent with Phase 1, Phase 2, and Phase 3.
+- Manual save/load pass with realistic Phase 4A data to confirm the rebuilt bank-account step, summary, and review areas all persist correctly after leaving and re-entering the view.
+- Manual `Generate Blueprint PDF` / print-preview check for Phase 4A to confirm the rebuilt report reads cleanly with longer narrative content and the new rubric scale.
+- Optional check with an older local `p4a_data` payload if you want to confirm the normalization path is sufficient for previously saved browsers.
+
+## Known risks
+- Because the runtime upgrades dormant HTML in place, a future editor could still change `assignment-runtime.html` and mistakenly assume they changed the live Phase 4A experience when they did not.
+- The regression tests protect the shell contract and scoring model, but they do not replace a visual QA pass in Studio.
+- The broader shared shell selector contract is the right long-term move, but it increases the chance that later styling edits affect multiple phases at once if they are not tested carefully.
+
+## Exact next command
+`npm.cmd run studio`
+
+## Exact next file to open
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assignment-runtime-main.js`
+
+## Do not do next / warnings
+- Do not edit the dormant Phase 4A blocks in `assignment-runtime.html` and assume those edits will automatically change the live assignment.
+- Do not switch Phase 4A back to a five-point review scale unless you also update the saved-data normalization and print-report assumptions.
+- Do not extend the shared Phase 1/2/3/4A shell selectors to Phase 4B casually; do that as its own controlled pass.
+
+---
+
+## 2026-04-16 | docs/ops/ACTIVE_HANDOFF.md (pre-mentalwellness10-option2-final-assignment-consistency-pass)
+
+# Handoff
+
+- Project: mentalwellness10-option2
+- Task: Rebuild Phase 4B into the shared Phase 1/2/3/4A assignment shell system, carrying forward the learned rubric, sizing, field-card, save/load, and print-report fixes.
+- Status: ready for validation
+
+## Files changed
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assignment-runtime-main.js
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\styles.css
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\tests\mentalwellness10-option2-phase2-assignments.test.ts
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\tests\mentalwellness10-option2-phase3-assignment.test.ts
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\tests\mentalwellness10-option2-phase4a-assignment.test.ts
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\tests\mentalwellness10-option2-phase4b-assignment.test.ts
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\docs\plans\2026-04-16-mentalwellness10-option2-phase4b-assignment-parity-design.md
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\docs\plans\2026-04-16-mentalwellness10-option2-phase4b-assignment-parity.md
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\docs\ops\ACTIVE_HANDOFF.md
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\docs\ops\ARCHIVED_HANDOFFS.md
+
+## Verification run
+- `node --check projects/mentalwellness10-option2/workspace/assignment-runtime-main.js`
+- `npx tsx --test scripts/tests/mentalwellness10-option2-phase4b-assignment.test.ts`
+- `npx tsx --test scripts/tests/mentalwellness10-option2-phase2-assignments.test.ts scripts/tests/mentalwellness10-option2-phase3-assignment.test.ts scripts/tests/mentalwellness10-option2-phase4a-assignment.test.ts scripts/tests/mentalwellness10-option2-phase4b-assignment.test.ts`
+- `npm.cmd run typecheck`
+- `npm.cmd run build:studio`
+- `npm run test:e2e:project -- --project mentalwellness10-option2`
+
+## What changed
+- Replaced the older Phase 4B runtime block in `assignment-runtime-main.js` with a full Phase 1-style shell for `Assignment 04B`, `Visualization Master Blueprint`, including the hero/header rail, mastery score card, file-actions card, authored step nav, review grid, and rubric table language.
+- Rebuilt the Phase 4B flow around the visualization contract already implied by the course shell: `00 Briefing`, `01 Sanctuary`, `02 Performance`, `03 Reset`, and `04 Review`.
+- Preserved the existing visualization data model and storage key (`athlete_visualization_master_v1`) while moving the live runtime onto the same DOM-upgrade, mobile step-menu, field-card, and print-report pattern already used by Phase 2, Phase 3, and Phase 4A.
+- Converted Phase 4B review scoring to the same three-level rubric model used by the aligned assignments, with legacy saved values normalized into the new `3 / 2 / 1` scale instead of leaving the old five-point behavior in place.
+- Expanded the live visualization build around the current course contract by adding a stronger sanctuary step, multisensory performance step, reset-drill step, full script synthesis area, and summary narrative block.
+- Updated the Phase 4B print/report output so it now exports the new shell title, the revised visualization fields, and row scores out of `3` instead of the older `/25` model.
+- Extended the shared assignment-shell selectors in `styles.css` to include `#view-phase4b`, so Phase 4B now inherits the same desktop sizing, typography, nav sizing, rubric density, large-desktop corrections, and responsive behavior already shared by Phase 1, Phase 2, Phase 3, and Phase 4A.
+- Added a dedicated Phase 4B regression test that locks the new shell markers, three-level rubric behavior, and shared styling contract into place.
+- Broadened the earlier shared-selector tests so Phase 2, Phase 3, and Phase 4A recognize that Phase 4B now legitimately joins the same shell contract.
+
+## Why this changed
+- The user asked to continue the same parity pass into `4B` instead of leaving Visualization on the older shell and five-point rubric system.
+- Phase 4B still looked and behaved like the pre-parity runtime, which would have left the final assignment in the sequence visually and behaviorally behind the rest of the aligned assignments.
+- Reusing the same shell and rubric contract is the cleanest path toward making the assignment sequence coherent instead of maintaining separate styling and scoring systems per phase.
+
+## Source of truth
+- Project metadata: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\meta\project.json
+- Canonical assignment shell entry: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assignment-runtime.html
+- Canonical live Phase 4B assignment behavior and print/export logic: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assignment-runtime-main.js
+- Canonical shared assignment-shell sizing and typography contract for Phase 1, Phase 2, Phase 3, Phase 4A, and Phase 4B: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\styles.css
+- Canonical course-side assignment contract reference: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\main.js
+
+## Fragile areas / watchouts
+- The live Phase 4B UI is still upgraded in place by `assignment-runtime-main.js`; the dormant Phase 4B markup in `assignment-runtime.html` is not the full live truth by itself.
+- The shared shell selectors in `styles.css` now intentionally affect Phase 1, Phase 2, Phase 3, Phase 4A, and Phase 4B together. Future selector edits there have a wider blast radius than before.
+- Legacy `athlete_visualization_master_v1` saves are normalized into the new three-level rubric model rather than migrated permanently. Any future scoring-model change should be treated as a data-shape change.
+- The new Phase 4B field-card behavior depends on runtime-applied wrapper classes before the shared CSS takes over layout, similar to the Phase 2, Phase 3, and Phase 4A pattern.
+- The print/report output still depends on browser popup and print-preview behavior, so the export path can vary slightly across preview surfaces.
+
+## Next prompt should assume
+- Phase 4B now uses the shared Phase 1/2/3/4A assignment shell contract instead of the older bespoke runtime.
+- The live Phase 4B assignment title is `Visualization Master Blueprint`.
+- Phase 4B review rows now use a three-level rubric scale, not a five-point scale.
+- Phase 4A and Phase 4B now both sit on the shared shell contract.
+- The next likely step is manual Studio validation of the rebuilt Phase 4 assignments or a final consistency pass across the whole assignment sequence.
+
+## What still needs validation
+- Manual Studio pass through the Phase 4B assignment on desktop and mobile to confirm the new shell sizing, field-card spacing, and step-nav behavior feel consistent with the already aligned assignments.
+- Manual save/load pass with realistic Phase 4B data to confirm the rebuilt sanctuary, script, reset, and review areas all persist correctly after leaving and re-entering the view.
+- Manual `Generate Blueprint PDF` / print-preview check for Phase 4B to confirm the rebuilt report reads cleanly with longer script and narrative content.
+- Optional cross-pass check of Phase 4A and Phase 4B together if you want to validate the final phase as a consistent pair before moving on.
+
+## Known risks
+- Because the runtime upgrades dormant HTML in place, a future editor could still change `assignment-runtime.html` and mistakenly assume they changed the live Phase 4B experience when they did not.
+- The regression tests protect the shell contract and scoring model, but they do not replace a visual QA pass in Studio.
+- The broader shared shell selector contract is the right long-term move, but it increases the chance that later styling edits affect multiple phases at once if they are not tested carefully.
+
+## Exact next command
+`npm.cmd run studio`
+
+## Exact next file to open
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assignment-runtime-main.js`
+
+## Do not do next / warnings
+- Do not edit the dormant Phase 4B blocks in `assignment-runtime.html` and assume those edits will automatically change the live assignment.
+- Do not switch Phase 4B back to a five-point review scale unless you also update the saved-data normalization and print-report assumptions.
+- Do not treat the shared shell selectors as Phase 4-only; they now intentionally cover the aligned assignment sequence together.
+
+## 2026-04-16 | docs/ops/ACTIVE_HANDOFF.md (pre-worldreligions30-archive-variants)
+
+# Handoff
+
+- Project: mentalwellness10-option2
+- Task: Final cross-phase consistency pass across the aligned assignments after the Phase 4A and 4B parity rebuilds.
+- Status: ready for validation
+
+## Files changed
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\styles.css
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\tests\mentalwellness10-option2-phase2-assignments.test.ts
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\docs\ops\ACTIVE_HANDOFF.md
+- C:\Users\dean.guedo\Documents\GitHub\canvas-helper\docs\ops\ARCHIVED_HANDOFFS.md
+
+## Verification run
+- `npx tsx --test scripts/tests/mentalwellness10-option2-phase2-assignments.test.ts`
+- `npx tsx --test scripts/tests/mentalwellness10-option2-phase2-assignments.test.ts scripts/tests/mentalwellness10-option2-phase3-assignment.test.ts scripts/tests/mentalwellness10-option2-phase4a-assignment.test.ts scripts/tests/mentalwellness10-option2-phase4b-assignment.test.ts`
+- `npm run test:e2e:project -- --project mentalwellness10-option2`
+
+## What changed
+- Performed a final cross-phase scan over the aligned assignment sequence instead of only trusting the parity tests.
+- Confirmed there were no remaining stale five-point Phase 2/3/4 review rows, stale Phase 4 titles, or leftover pre-parity `4B` runtime hooks in the live assignment source.
+- Found one real consistency gap: the explicit summary-preview text-flow CSS only covered `2A`, `2B`, and `3`, while `4A` and `4B` now use the same prose-summary pattern.
+- Extended the shared summary-preview CSS block to include `#p4a-summary-preview` and `#p4b-summary-preview`, and extended the shared span rule with them too so all aligned assignment summaries now share the same explicit text-flow contract.
+- Tightened the summary-preview regression test so future edits must keep `2A`, `2B`, `3`, `4A`, and `4B` on the same non-flex summary layout path.
+
+## Why this changed
+- The user asked for a final pass across all phases to catch anything still drifting after the parity work.
+- Most of the assignment sequence was already aligned, but the summary-preview CSS block lagged behind the newer Phase 4 summary components.
+- Fixing that now reduces the chance of future Phase 4 summary regressions if the shared preview styling is edited again later.
+
+## Source of truth
+- Canonical live assignment behavior: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\assignment-runtime-main.js
+- Canonical shared assignment styling: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\styles.css
+- Canonical cross-phase regression coverage: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\tests\mentalwellness10-option2-phase2-assignments.test.ts
+
+## Fragile areas / watchouts
+- The live assignments still upgrade dormant HTML in place, so `assignment-runtime-main.js` remains the live behavior source of truth.
+- Shared selector blocks in `styles.css` now intentionally affect the aligned assignment sequence together, which is good for parity but raises the blast radius of future styling edits.
+- The new summary-preview contract is explicit now, but it still depends on future Phase 4 summaries keeping the same prose-style preview pattern.
+
+## Next prompt should assume
+- Phase 2 through Phase 4B are aligned on the shared shell contract.
+- The final cross-phase scan did not uncover any larger structural or scoring regressions beyond the summary-preview CSS gap.
+- The next likely step is manual Studio validation or moving to a different project area, not another assignment-shell rebuild.
+
+## What still needs validation
+- Manual Studio pass across the aligned assignments, especially `4A` and `4B`, to confirm the summary cards still read correctly after the explicit summary-preview rule was broadened.
+- Manual print-preview spot check if you want to confirm no long narrative cards or summaries wrap unexpectedly in browser print preview.
+
+## Known risks
+- The automated checks cover structure and selector contracts, but they do not replace visual QA in Studio.
+- Because the shared rules are becoming more centralized, future CSS edits should continue to be validated across the full aligned sequence instead of just one phase.
+
+## Exact next command
+`npm.cmd run studio`
+
+## Exact next file to open
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\mentalwellness10-option2\workspace\styles.css`
+
+## Do not do next / warnings
+- Do not assume dormant markup in `assignment-runtime.html` is the live source of truth for the rebuilt assignments.
+- Do not break the shared summary-preview block back into phase-specific variants unless the runtime summary pattern actually diverges.
+
+---
+
+## 2026-04-17 | docs/ops/ACTIVE_HANDOFF.md (pre-sportswellness-image-sizing)
+
+# Handoff
+
+- Project: sportswellness
+- Task: Collapse the old Mental Wellness variants into one canonical Sports Wellness shell, rename the active option2 project to `sportswellness`, and bring Phase 3 up to the same lesson/quiz/figure parity as the other authored phases.
+- Status: ready for validation
+
+## Summary
+- Removed the extra Sports Wellness variants from Studio by deleting `mentalwellness10` and `mentalwellness10-option1`, then renamed the active `mentalwellness10-option2` project family to `sportswellness` across `projects/`, `projects/processed/`, and `projects/resources/`.
+- Updated the live shell branding and project metadata so Studio now works against a single `sportswellness` slug and only exposes the `workspace` preview mode to avoid confusion with the untouched raw baseline.
+- Rebuilt Phase 3 to match the other authored phases: it now has a real `Quiz 03` entry in the quiz library, a linked `quizId` from the lesson, and the five embedded document figures restored as named `phase3-figures` assets used by the lesson cards.
+
+## Files changed
+- `projects/sportswellness/workspace/main.js`
+- `projects/sportswellness/workspace/index.html`
+- `projects/sportswellness/workspace/assignment-runtime.html`
+- `projects/sportswellness/workspace/assignment-runtime-main.js`
+- `projects/sportswellness/workspace/assets/readings/phase3-focus-content.pdf`
+- `projects/sportswellness/workspace/assets/readings/phase3-figures/*`
+- `projects/sportswellness/meta/project.json`
+- `projects/sportswellness/meta/e2e-contract.json`
+- `projects/sportswellness/meta/prompt-pack.md`
+- `projects/sportswellness/meta/content-outline.md`
+- `projects/sportswellness/meta/import-log.md`
+- `scripts/tests/sportswellness-phase2-content.test.ts`
+- `scripts/tests/sportswellness-phase2-assignments.test.ts`
+- `scripts/tests/sportswellness-phase3-content.test.ts`
+- `scripts/tests/sportswellness-phase3-assignment.test.ts`
+- `scripts/tests/sportswellness-phase3-parity.test.ts`
+- `scripts/tests/sportswellness-phase4a-assignment.test.ts`
+- `scripts/tests/sportswellness-phase4b-assignment.test.ts`
+- Removed old project directories: `projects/mentalwellness10`, `projects/mentalwellness10-option1`, and their matching `processed` / `resources` mirrors
+
+## Verification run
+- `node --check projects/sportswellness/workspace/main.js`
+- `node --check projects/sportswellness/workspace/assignment-runtime-main.js`
+- `npx tsx --test scripts/tests/sportswellness-phase2-content.test.ts scripts/tests/sportswellness-phase2-assignments.test.ts scripts/tests/sportswellness-phase3-content.test.ts scripts/tests/sportswellness-phase3-assignment.test.ts scripts/tests/sportswellness-phase4a-assignment.test.ts scripts/tests/sportswellness-phase4b-assignment.test.ts scripts/tests/sportswellness-phase3-parity.test.ts`
+- `npm.cmd run build:studio`
+- `npm.cmd run test:e2e:project -- --project sportswellness`
+- `npm.cmd run test:e2e:smoke`
+
+## Known risks / follow-up
+- The raw baseline still contains the original Mental Fitness label because it remains an immutable import artifact; confusion is mitigated by restricting this project to `workspace` preview only.
+- Archived docs and historical handoffs still reference the old `mentalwellness10-option2` slug by design.
+
+## Source-of-truth location
+- `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\index.html`
+- `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\main.js`
+- `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\assignment-runtime-main.js`
+
+## Fragile areas / what might drift
+- The slug cleanup depends on `projects/`, `processed/`, and `resources/` staying aligned. Reintroducing old processed snapshots with the deleted slugs would make them visible to Studio again.
+- Phase 3 figures are now wired by explicit file paths inside `PHASE_CONTENT['phase-3']`; renaming those assets without updating the lesson data will break the figures immediately.
+- The Phase 1 assignment now reads from a new storage key and falls back to the option2-era key plus the older legacy key. If the storage migration logic is simplified later, existing local saves could be lost.
+
+## Next prompt assumptions
+- `sportswellness` is now the only active Sports Wellness project slug.
+- Phase 3 should be edited in `projects/sportswellness/workspace/main.js`, not in any deleted `mentalwellness10*` project.
+
+## Exact next command
+`npm.cmd run studio`
+
+## Exact next file to open
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\main.js`
+
 

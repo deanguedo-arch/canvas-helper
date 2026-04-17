@@ -3,20 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>World Religions 30</title>
+  <title>World Religions 30 | Option 2</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Serif:wght@500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="./styles.css" />
 </head>
-<body>
+<body data-project-slug="worldreligions30-option2" data-shell-variant="option-2">
   <div class="app-shell">
     <aside class="sidebar">
       <div class="sidebar-top">
         <div class="brand-lockup">
           <div class="brand-text">
-            <h1>World Religions 30</h1>
+            <h1>The Curator</h1>
+            <p>Scholarly access</p>
           </div>
         </div>
         <button id="menu-toggle" class="menu-toggle" type="button" aria-expanded="false" title="Toggle navigation">
@@ -30,15 +31,19 @@
         <div class="nav-group primary-nav">
           <button id="nav-home" class="nav-item active" type="button">
             <i class="fa-solid fa-house"></i>
-            <span>Home</span>
+            <span>Archive Home</span>
           </button>
           <button id="nav-library" class="nav-item" type="button">
             <i class="fa-solid fa-book-open"></i>
-            <span>Library</span>
+            <span>Scripture Library</span>
           </button>
         </div>
 
         <div class="nav-group home-tabs" aria-label="Home sections">
+          <button id="tab-chapters" class="home-tab active" type="button">
+            <i class="fa-solid fa-scroll"></i>
+            <span>Curriculum</span>
+          </button>
           <button id="tab-quizzes" class="home-tab" type="button">
             <i class="fa-solid fa-circle-question"></i>
             <span>Quizzes</span>
@@ -49,39 +54,77 @@
           </button>
         </div>
       </nav>
+
+      <div class="sidebar-identity">
+        <div class="identity-avatar" aria-hidden="true">AV</div>
+        <div>
+          <strong>Dr. Alistair Vaughn</strong>
+          <p>Lead Curator</p>
+        </div>
+      </div>
     </aside>
 
     <main class="content">
-      <div class="content-inner">
-        <section class="progress-shell" aria-label="Course progress">
-          <div class="progress-panel">
-            <div class="progress-copy">
-              <h2 id="course-title">World Religions 30</h2>
-              <p id="course-subtitle">A comparative course shell for chapter study, quiz review, and local library reading.</p>
-            </div>
-            <div class="progress-metrics">
-              <div class="metric-card">
-                <span class="metric-label">Overall progress</span>
-                <strong id="progress-percent">0%</strong>
+      <header class="topbar" aria-label="Archive navigation">
+        <div class="topbar-brand">
+          <span>The Living</span>
+          <span>Archive</span>
+        </div>
+        <div class="topbar-links" aria-hidden="true">
+          <span class="topbar-link">Home</span>
+          <span class="topbar-link">Library</span>
+          <span class="topbar-link active">Syllabus</span>
+          <span class="topbar-link">Community</span>
+        </div>
+        <div class="topbar-tools">
+          <label class="topbar-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" placeholder="Search the archive..." />
+          </label>
+          <button class="topbar-account" type="button" aria-label="Account">
+            <i class="fa-regular fa-circle-user"></i>
+          </button>
+        </div>
+      </header>
+
+      <div class="content-stage">
+        <div class="content-inner">
+          <section class="progress-shell" aria-label="Course progress">
+            <div class="progress-panel">
+              <div class="progress-copy">
+                <h2 id="course-title">World Religions 30</h2>
+                <p id="course-subtitle">A comparative course shell for chapter study, quiz review, and local library reading.</p>
               </div>
-              <div class="metric-card metric-card-wide">
-                <span class="metric-label">Course status</span>
-                <div class="metric-inline">
-                  <span>Unlocked chapters <strong id="chapter-progress">1/10</strong></span>
-                  <span>Completed quizzes <strong id="quiz-progress">0/10</strong></span>
+              <div class="progress-metrics">
+                <div class="metric-card">
+                  <span class="metric-label">Archival completion</span>
+                  <strong id="progress-percent">0%</strong>
+                </div>
+                <div class="metric-card metric-card-wide">
+                  <span class="metric-label">Course status</span>
+                  <div class="metric-inline">
+                    <span>Unlocked chapters <strong id="chapter-progress">1/10</strong></span>
+                    <span>Completed quizzes <strong id="quiz-progress">0/10</strong></span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <section class="content-shell">
-          <div class="section-header">
-            <h3 id="section-title">Chapters</h3>
-            <p id="section-intro">Browse chapter shells, recreated quizzes, and the local chapter library.</p>
-          </div>
-          <div id="content-body" class="content-body"></div>
-        </section>
+          <section class="content-shell">
+            <div class="section-header">
+              <h3 id="section-title">Chapters</h3>
+              <p id="section-intro">Browse chapter shells, recreated quizzes, and the local chapter library.</p>
+            </div>
+            <div id="content-body" class="content-body"></div>
+          </section>
+
+          <footer class="archive-quote" aria-hidden="true">
+            <div class="quote-mark">“</div>
+            <blockquote>The study of religion is not the study of truth, but the study of what people have believed to be true.</blockquote>
+            <p>Archival Entry #402 - Comparative Inquiry</p>
+          </footer>
+        </div>
       </div>
     </main>
   </div>

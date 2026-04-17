@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <link rel="stylesheet" href="./styles.css">
+</head><body class="flex">
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPORTS WELLNESS | MASTER CONSOLE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css?family=Inter:ital,wght@0,400;0,700;1,400;1,900&amp;family=JetBrains+Mono:wght@700&amp;display=swap" rel="stylesheet">
+    
+
+
+
+    <div id="app-sidebar" class="w-64 glass-panel flex-shrink-0 flex flex-col h-full z-50">
+        <div class="p-6 border-b border-slate-800 sidebar-header">
+            <div class="sidebar-brand-copy">
+                <h1 class="text-xl font-black italic text-white tracking-tighter uppercase leading-none sidebar-brand-text">Sports<br><span class="text-sky-500">Wellness</span></h1>
+                <p class="text-[10px] text-slate-500 mt-2 mono uppercase tracking-widest sidebar-brand-text">Master Console v1.0</p>
+            </div>
+            <button id="menu-collapse-toggle" class="sidebar-toggle" type="button" onclick="toggleSidebarCollapse()" aria-expanded="true" title="Collapse menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <nav class="flex-1 overflow-y-auto py-4 space-y-3">
+            <button onclick="switchView('materials')" id="nav-materials" class="nav-item active">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                <span class="nav-label">Course Materials</span>
+            </button>
+
+            <div class="library-pane">
+                <div class="library-label px-4 pt-2 text-[9px] font-bold text-slate-600 uppercase tracking-widest mono">Library</div>
+                <div class="px-3">
+                    <div class="library-tabs">
+                        <button type="button" id="tab-phases" class="library-tab active" onclick="setLibraryView('phases')">
+                            <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6h18M3 12h18M3 18h18"></path></svg>
+                            <span class="tab-label">Phases</span>
+                        </button>
+                        <button type="button" id="tab-quizzes" class="library-tab" onclick="setLibraryView('quizzes')">
+                            <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 11l3 3L22 4"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                            <span class="tab-label">Quizzes</span>
+                        </button>
+                        <button type="button" id="tab-assignments" class="library-tab" onclick="setLibraryView('assignments')">
+                            <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5h6M9 3h6a2 2 0 0 1 2 2v2H7V5a2 2 0 0 1 2-2z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z"></path></svg>
+                            <span class="tab-label">Assignments</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="px-3">
+                    <div class="sidebar-progress-card">
+                        <div class="sidebar-progress-row">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-slate-500 mono">Course progress</span>
+                            <span id="course-progress-count" class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mono">0/7</span>
+                        </div>
+                        <div class="sidebar-progress-track"><span id="course-progress-fill"></span></div>
+                        <p id="course-progress-text" class="mt-2 text-[11px] text-slate-400">0% complete</p>
+                    </div>
+                </div>
+
+                <div id="library-phases" class="library-section px-3 space-y-1.5">
+                    <button type="button" id="nav-phase1" class="module-link" onclick="switchView('phase-shell1')"><span class="w-2 h-2 rounded-full bg-rose-500"></span><span class="module-link-title">Phase 1: The Engine</span></button>
+                    <button type="button" id="nav-phase2" class="module-link" onclick="switchView('phase-shell2')"><span class="w-2 h-2 rounded-full bg-amber-500"></span><span class="module-link-title">Phase 2: The Drive</span></button>
+                    <button type="button" id="nav-phase3" class="module-link" onclick="switchView('phase-shell3')"><span class="w-2 h-2 rounded-full bg-emerald-500"></span><span class="module-link-title">Phase 3: The Focus</span></button>
+                    <button type="button" id="nav-phase4" class="module-link" onclick="switchView('phase-shell4')"><span class="w-2 h-2 rounded-full bg-sky-500"></span><span class="module-link-title">Phase 4: The Toolkit</span></button>
+                </div>
+
+                <div id="library-quizzes" class="library-section px-3 hidden">
+                    <div class="empty-library-card">
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-slate-500 mono">Quizzes</p>
+                        <p class="mt-2 text-[11px] text-slate-400">No quizzes loaded yet.</p>
+                    </div>
+                </div>
+
+                <div id="library-assignments" class="library-section px-3 space-y-1.5 hidden">
+                    <button type="button" id="nav-a1" class="module-link module-link-rich" onclick="switchView('phase1')"><span class="w-2 h-2 rounded-full bg-rose-500"></span><span class="module-link-copy"><span class="module-link-title">01: The Engine</span><span id="meta-a1" class="module-link-meta">0% complete</span><span class="module-link-track"><span id="bar-a1"></span></span></span></button>
+                    <button type="button" id="nav-a2a" class="module-link module-link-rich" onclick="switchView('values')"><span class="w-2 h-2 rounded-full bg-amber-500"></span><span class="module-link-copy"><span class="module-link-title">02A: Values Blueprint</span><span id="meta-a2a" class="module-link-meta">0% complete</span><span class="module-link-track"><span id="bar-a2a"></span></span></span></button>
+                    <button type="button" id="nav-a2b" class="module-link module-link-rich" onclick="switchView('master')"><span class="w-2 h-2 rounded-full bg-amber-500"></span><span class="module-link-copy"><span class="module-link-title">02B: Master Config</span><span id="meta-a2b" class="module-link-meta">0% complete</span><span class="module-link-track"><span id="bar-a2b"></span></span></span></button>
+                    <button type="button" id="nav-a3" class="module-link module-link-rich" onclick="switchView('phase3')"><span class="w-2 h-2 rounded-full bg-emerald-500"></span><span class="module-link-copy"><span class="module-link-title">03: The Focus</span><span id="meta-a3" class="module-link-meta">0% complete</span><span class="module-link-track"><span id="bar-a3"></span></span></span></button>
+                    <button type="button" id="nav-a4a" class="module-link module-link-rich" onclick="switchView('phase4a')"><span class="w-2 h-2 rounded-full bg-sky-500"></span><span class="module-link-copy"><span class="module-link-title">04A: Confidence</span><span id="meta-a4a" class="module-link-meta">0% complete</span><span class="module-link-track"><span id="bar-a4a"></span></span></span></button>
+                    <button type="button" id="nav-a4b" class="module-link module-link-rich" onclick="switchView('phase4b')"><span class="w-2 h-2 rounded-full bg-indigo-500"></span><span class="module-link-copy"><span class="module-link-title">04B: Visualization</span><span id="meta-a4b" class="module-link-meta">0% complete</span><span class="module-link-track"><span id="bar-a4b"></span></span></span></button>
+                </div>
+            </div>
+        </nav>
+        <div class="p-6 border-t border-slate-800 text-center sidebar-footer-quote"><p class="text-[9px] text-slate-600 italic">"Recognition is the trigger for regulation."</p></div>
+    </div>
+
+    <div class="flex-1 relative bg-slate-900 h-full overflow-hidden">
+        <div class="floating-progress-panel">
+            <div class="sidebar-progress-row">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-slate-500 mono">Course progress</span>
+                <span id="course-progress-count-main" class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mono">0/7</span>
+            </div>
+            <div class="sidebar-progress-track"><span id="course-progress-fill-main"></span></div>
+            <p id="course-progress-text-main" class="mt-2 text-[11px] text-slate-400">0% complete</p>
+        </div>
+
+        <!-- VIEW: MATERIALS -->
+        <div id="view-materials" class="w-full h-full custom-scroll p-8 md:p-12">
+            <div class="max-w-5xl mx-auto space-y-8">
+                <div class="mb-12">
+                    <h2 class="text-3xl font-black text-white italic uppercase tracking-tighter">Course <span class="text-sky-500">Materials</span></h2>
+                    <p class="text-xs text-slate-400 font-mono uppercase tracking-widest mt-2">Access lectures, presentations, and briefing documents.</p>
+                </div>
+                <div id="pdf-viewer-container" class="hidden mb-12 bg-black rounded-xl border border-slate-700 overflow-hidden shadow-2xl"><div class="flex justify-between items-center p-3 bg-slate-800 border-b border-slate-700"><span id="viewer-title" class="text-xs font-bold text-white uppercase tracking-widest px-2">Document Viewer</span><button onclick="closeViewer()" class="text-xs text-rose-400 hover:text-white font-bold uppercase tracking-widest px-2">Close X</button></div><iframe id="pdf-frame" src="" width="100%" height="600" style="border:none;"></iframe></div>
+                <div class="grid grid-cols-1 gap-4">
+                    <div class="material-card flex flex-col md:flex-row items-center justify-between gap-6"><div class="flex items-center gap-6"><div class="w-12 h-12 rounded-lg bg-slate-800 flex items-center justify-center text-slate-500 font-black italic text-xl border border-slate-700">00</div><div><h3 class="text-lg font-bold text-white uppercase italic">What is Sports Psychology?</h3><p class="text-xs text-slate-400 font-mono">The Diagnostic &amp; Baseline Protocol.</p></div></div><div class="flex gap-3 w-full md:w-auto"><button onclick="openPDF('https://drive.google.com/file/d/1my_sOJYdOLcvvQi4TQdkDJNUz6P7MvYY/preview', 'Intro Module')" class="flex-1 bg-slate-800 hover:bg-slate-700 text-white text-[10px] font-bold uppercase tracking-widest py-3 px-6 rounded-lg border border-slate-600 transition-all">View Slides</button><a href="https://drive.google.com/file/d/1my_sOJYdOLcvvQi4TQdkDJNUz6P7MvYY/view?usp=sharing" target="_blank" class="flex-1 bg-sky-600 hover:bg-sky-500 text-white text-[10px] font-bold uppercase tracking-widest py-3 px-6 rounded-lg transition-all text-center flex items-center justify-center">Download</a></div></div>
+                    <div class="material-card flex flex-col md:flex-row items-center justify-between gap-6 border-l-4 border-l-rose-500"><div class="flex items-center gap-6"><div class="w-12 h-12 rounded-lg bg-rose-500/10 flex items-center justify-center text-rose-500 font-black italic text-xl border border-rose-500/20">01</div><div><h3 class="text-lg font-bold text-white uppercase italic">The Engine</h3><p class="text-xs text-slate-400 font-mono">Values, Identity &amp; Foundation.</p></div></div><div class="flex gap-3 w-full md:w-auto"><button onclick="openPDF('https://drive.google.com/file/d/1DQvItijEudKroqUieRBKaJAqJJnzEa2x/preview', 'Phase 1: The Engine')" class="flex-1 bg-slate-800 hover:bg-slate-700 text-white text-[10px] font-bold uppercase tracking-widest py-3 px-6 rounded-lg border border-slate-600 transition-all">View Slides</button><a href="https://drive.google.com/file/d/1DQvItijEudKroqUieRBKaJAqJJnzEa2x/view?usp=sharing" target="_blank" class="flex-1 bg-rose-600 hover:bg-rose-500 text-white text-[10px] font-bold uppercase tracking-widest py-3 px-6 rounded-lg transition-all text-center flex items-center justify-center">Download</a></div></div>
+                    <div class="material-card flex flex-col md:flex-row items-center justify-between gap-6 border-l-4 border-l-amber-500"><div class="flex items-center gap-6"><div class="w-12 h-12 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-500 font-black italic text-xl border border-amber-500/20">02</div><div><h3 class="text-lg font-bold text-white uppercase italic">The Drive</h3><p class="text-xs text-slate-400 font-mono">Motivation, 7/10 Task &amp; Maintenance.</p></div></div><div class="flex gap-3 w-full md:w-auto"><button onclick="openPDF('https://drive.google.com/file/d/1XWwy8F27_0jupo8xdXO3oi2E4l9R4Rot/preview', 'Phase 2: The Drive')" class="flex-1 bg-slate-800 hover:bg-slate-700 text-white text-[10px] font-bold uppercase tracking-widest py-3 px-6 rounded-lg border border-slate-600 transition-all">View Slides</button><a href="https://drive.google.com/file/d/1XWwy8F27_0jupo8xdXO3oi2E4l9R4Rot/view?usp=sharing" target="_blank" class="flex-1 bg-amber-600 hover:bg-amber-500 text-white text-[10px] font-bold uppercase tracking-widest py-3 px-6 rounded-lg transition-all text-center flex items-center justify-center">Download</a></div></div>
+                    <div class="material-card flex flex-col md:flex-row items-center justify-between gap-6 border-l-4 border-l-emerald-500"><div class="flex items-center gap-6"><div class="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-500 font-black italic text-xl border border-emerald-500/20">03</div><div><h3 class="text-lg font-bold text-white uppercase italic">The Focus</h3><p class="text-xs text-slate-400 font-mono">Spotlight, Cues &amp; The Fortress.</p></div></div><div class="flex gap-3 w-full md:w-auto"><button onclick="openPDF('https://drive.google.com/file/d/1kUq790zE4VP73THdysuNKVR3cE6EG3X2/preview', 'Phase 3: The Focus')" class="flex-1 bg-slate-800 hover:bg-slate-700 text-white text-[10px] font-bold uppercase tracking-widest py-3 px-6 rounded-lg border border-slate-600 transition-all">View Slides</button><a href="https://drive.google.com/file/d/1kUq790zE4VP73THdysuNKVR3cE6EG3X2/view?usp=sharing" target="_blank" class="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white text-[10px] font-bold uppercase tracking-widest py-3 px-6 rounded-lg transition-all text-center flex items-center justify-center">Download</a></div></div>
+                    <div class="material-card flex flex-col md:flex-row items-center justify-between gap-6 border-l-4 border-l-sky-500"><div class="flex items-center gap-6"><div class="w-12 h-12 rounded-lg bg-sky-500/10 flex items-center justify-center text-sky-500 font-black italic text-xl border border-sky-500/20">04</div><div><h3 class="text-lg font-bold text-white uppercase italic">The Toolkit</h3><p class="text-xs text-slate-400 font-mono">Confidence &amp; Visualization Protocols.</p></div></div><div class="flex gap-3 w-full md:w-auto"><button onclick="openPDF('https://drive.google.com/file/d/1GueN1ikd982jYVZVf7GkEDG18NHQ9YpW/preview', 'Phase 4: The Toolkit')" class="flex-1 bg-slate-800 hover:bg-slate-700 text-white text-[10px] font-bold uppercase tracking-widest py-3 px-6 rounded-lg border border-slate-600 transition-all">View Slides</button><a href="https://drive.google.com/file/d/1GueN1ikd982jYVZVf7GkEDG18NHQ9YpW/view?usp=sharing" target="_blank" class="flex-1 bg-sky-600 hover:bg-sky-500 text-white text-[10px] font-bold uppercase tracking-widest py-3 px-6 rounded-lg transition-all text-center flex items-center justify-center">Download</a></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIEW: PHASE PLACEHOLDERS -->
+        <div id="view-phase-shell1" class="w-full h-full custom-scroll hidden p-8 md:p-12">
+            <section class="max-w-5xl mx-auto glass rounded-2xl p-8 border border-rose-500/30">
+                <p class="text-[10px] font-bold uppercase tracking-widest text-rose-400 mono">Phases</p>
+                <h2 class="mt-3 text-3xl font-black italic uppercase text-white tracking-tight">Phase 1: The Engine</h2>
+                <p class="mt-4 text-sm text-slate-300">This phase shell is ready. Add phase content modules here as you build.</p>
+            </section>
+        </div>
+
+        <div id="view-phase-shell2" class="w-full h-full custom-scroll hidden p-8 md:p-12">
+            <section class="max-w-5xl mx-auto glass rounded-2xl p-8 border border-amber-500/30">
+                <p class="text-[10px] font-bold uppercase tracking-widest text-amber-400 mono">Phases</p>
+                <h2 class="mt-3 text-3xl font-black italic uppercase text-white tracking-tight">Phase 2: The Drive</h2>
+                <p class="mt-4 text-sm text-slate-300">This phase shell is ready. Add phase content modules here as you build.</p>
+            </section>
+        </div>
+
+        <div id="view-phase-shell3" class="w-full h-full custom-scroll hidden p-8 md:p-12">
+            <section class="max-w-5xl mx-auto glass rounded-2xl p-8 border border-emerald-500/30">
+                <p class="text-[10px] font-bold uppercase tracking-widest text-emerald-400 mono">Phases</p>
+                <h2 class="mt-3 text-3xl font-black italic uppercase text-white tracking-tight">Phase 3: The Focus</h2>
+                <p class="mt-4 text-sm text-slate-300">This phase shell is ready. Add phase content modules here as you build.</p>
+            </section>
+        </div>
+
+        <div id="view-phase-shell4" class="w-full h-full custom-scroll hidden p-8 md:p-12">
+            <section class="max-w-5xl mx-auto glass rounded-2xl p-8 border border-sky-500/30">
+                <p class="text-[10px] font-bold uppercase tracking-widest text-sky-400 mono">Phases</p>
+                <h2 class="mt-3 text-3xl font-black italic uppercase text-white tracking-tight">Phase 4: The Toolkit</h2>
+                <p class="mt-4 text-sm text-slate-300">This phase shell is ready. Add phase content modules here as you build.</p>
+            </section>
+        </div>
+
+        <div id="view-quizzes-empty" class="w-full h-full custom-scroll hidden p-8 md:p-12">
+            <section class="max-w-5xl mx-auto glass rounded-2xl p-8 border border-slate-700">
+                <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mono">Quizzes</p>
+                <h2 class="mt-3 text-3xl font-black italic uppercase text-white tracking-tight">Quiz Library</h2>
+                <p class="mt-4 text-sm text-slate-300">No quizzes have been loaded yet. Add quiz content when ready.</p>
+            </section>
+        </div>
+
+        <!-- VIEW: INTRO DIAGNOSTIC -->
+        <div id="view-intro" class="w-full h-full custom-scroll hidden p-4 md:p-8">
+            <div class="mx-auto w-full max-w-none space-y-6 text-white diag-shell">
+                <section class="diag-hero rounded-3xl border border-cyan-400/22 bg-slate-950/72 p-6 shadow-[0_0_0_1px_rgba(34,211,238,0.05)]">
+                    <div class="grid gap-5 xl:grid-cols-[minmax(0,1.55fr)_minmax(320px,0.95fr)] xl:items-start">
+                        <div class="space-y-3">
+                            <p class="diag-kicker">Assignment 00</p>
+                            <div>
+                                <h1 class="diag-title">Protocol 001 Diagnostic</h1>
+                                <p class="diag-subtitle">Baseline pressure, motivation, focus, and visualization readiness</p>
+                            </div>
+                            <p class="diag-copy">
+                                Start with an honest diagnostic of how your current mental-performance system responds under stress.
+                                This assignment stays intentionally simple: rate the five prompts, log your current operating state,
+                                then generate the baseline report you will compare against later assignments.
+                            </p>
+                        </div>
+                        <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-1 xl:min-w-0">
+                            <section class="diag-summary-card">
+                                <p class="diag-card-label">System status</p>
+                                <div class="diag-status-row">
+                                    <div>
+                                        <p id="system-status" class="diag-status-value text-rose-500">PENDING CHECK</p>
+                                        <p id="diag-progress-text" class="diag-status-note">5 prompts left before report unlocks.</p>
+                                    </div>
+                                    <div class="diag-score-block">
+                                        <span id="diag-score-total" class="diag-score-total">00</span>
+                                        <span class="diag-score-max">/25</span>
+                                    </div>
+                                </div>
+                                <div class="diag-progress-track" aria-hidden="true"><span id="diag-progress-fill"></span></div>
+                                <p id="diag-score-count" class="diag-meta">0/5 systems rated</p>
+                            </section>
+                            <section class="diag-summary-card diag-summary-card-actions">
+                                <p class="diag-card-label">File actions</p>
+                                <div class="diag-save-row">
+                                    <div id="save-indicator" class="diag-save-dot bg-slate-600"></div>
+                                    <span id="save-text" class="diag-meta">System Ready</span>
+                                </div>
+                                <div class="diag-action-group">
+                                    <button type="button" onclick="diag_downloadBackup()" class="diag-action-btn diag-action-btn-primary">Save Backup File</button>
+                                    <button type="button" onclick="document.getElementById('file-upload').click()" class="diag-action-btn diag-action-btn-secondary">Load Backup</button>
+                                    <input type="file" id="file-upload" accept=".json" style="display: none;" onchange="diag_loadBackup(this)">
+                                </div>
+                                <p class="diag-action-note">Generate the baseline system report after all five prompts and the operator log are complete.</p>
+                            </section>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="diag-briefing-card">
+                    <div class="diag-briefing-copy">
+                        <p class="diag-card-label">Diagnostic briefing</p>
+                        <h2 class="diag-briefing-title">Watch before you rate the system</h2>
+                        <p class="diag-briefing-body">
+                            Use this short video as the setup for Assignment 00, then move straight into the baseline diagnostic below.
+                            The prompts still work exactly the same way, but now the briefing lives in the assignment instead of outside it.
+                        </p>
+                    </div>
+                    <div class="diag-video-shell">
+                        <iframe
+                            src="https://www.youtube-nocookie.com/embed/yG7v4y_xwzQ?rel=0"
+                            title="Assignment 00 Diagnostic Briefing"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen
+                            loading="lazy"
+                            referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                    </div>
+                </section>
+
+                <section class="diag-prompt-list">
+                    <article class="diag-prompt-card" style="--diag-accent:#00ffca;">
+                        <div class="diag-prompt-copy">
+                            <p class="diag-phase-kicker">Phase 1</p>
+                            <h2 class="diag-phase-title">The Engine</h2>
+                            <p class="diag-phase-copy">How your body reacts to pressure and how much control you have over that activation.</p>
+                            <label class="diag-question-label">When the pressure spikes, my physical reaction is...</label>
+                            <p class="diag-question-context">Choose the answer that most closely matches your usual body response once stakes rise.</p>
+                        </div>
+                        <div class="diag-score-grid" id="q1">
+                            <button type="button" onclick="diag_setScore('q1', 1)" class="score-btn diag-score-btn"><span class="diag-score-value">1</span><span class="diag-score-label">Panic</span></button>
+                            <button type="button" onclick="diag_setScore('q1', 2)" class="score-btn diag-score-btn"><span class="diag-score-value">2</span><span class="diag-score-label">Jitters</span></button>
+                            <button type="button" onclick="diag_setScore('q1', 3)" class="score-btn diag-score-btn"><span class="diag-score-value">3</span><span class="diag-score-label">Manageable</span></button>
+                            <button type="button" onclick="diag_setScore('q1', 4)" class="score-btn diag-score-btn"><span class="diag-score-value">4</span><span class="diag-score-label">Focused</span></button>
+                            <button type="button" onclick="diag_setScore('q1', 5)" class="score-btn diag-score-btn"><span class="diag-score-value">5</span><span class="diag-score-label">Ice Cold</span></button>
+                        </div>
+                    </article>
+
+                    <article class="diag-prompt-card" style="--diag-accent:#00ffca;">
+                        <div class="diag-prompt-copy">
+                            <p class="diag-phase-kicker">Phase 1</p>
+                            <h2 class="diag-phase-title">The Engine</h2>
+                            <p class="diag-phase-copy">Regulation is the first real systems check. This question is about how quickly you can intervene.</p>
+                            <label class="diag-question-label">I can lower my heart rate on command within 30 seconds.</label>
+                            <p class="diag-question-context">Pick the option that reflects how reliable your reset skill actually is right now.</p>
+                        </div>
+                        <div class="diag-score-grid" id="q2">
+                            <button type="button" onclick="diag_setScore('q2', 1)" class="score-btn diag-score-btn"><span class="diag-score-value">1</span><span class="diag-score-label">Never</span></button>
+                            <button type="button" onclick="diag_setScore('q2', 2)" class="score-btn diag-score-btn"><span class="diag-score-value">2</span><span class="diag-score-label">Rarely</span></button>
+                            <button type="button" onclick="diag_setScore('q2', 3)" class="score-btn diag-score-btn"><span class="diag-score-value">3</span><span class="diag-score-label">Sometimes</span></button>
+                            <button type="button" onclick="diag_setScore('q2', 4)" class="score-btn diag-score-btn"><span class="diag-score-value">4</span><span class="diag-score-label">Often</span></button>
+                            <button type="button" onclick="diag_setScore('q2', 5)" class="score-btn diag-score-btn"><span class="diag-score-value">5</span><span class="diag-score-label">Always</span></button>
+                        </div>
+                    </article>
+
+                    <article class="diag-prompt-card" style="--diag-accent:#f59e0b;">
+                        <div class="diag-prompt-copy">
+                            <p class="diag-phase-kicker">Phase 2</p>
+                            <h2 class="diag-phase-title">The Drive</h2>
+                            <p class="diag-phase-copy">This checks what is actually powering your effort when training gets hard or repetitive.</p>
+                            <label class="diag-question-label">I train/perform primarily because...</label>
+                            <p class="diag-question-context">Choose the dominant reason that best describes what keeps you moving right now.</p>
+                        </div>
+                        <div class="diag-score-grid" id="q3">
+                            <button type="button" onclick="diag_setScore('q3', 1)" class="score-btn diag-score-btn"><span class="diag-score-value">1</span><span class="diag-score-label">I Have To</span></button>
+                            <button type="button" onclick="diag_setScore('q3', 2)" class="score-btn diag-score-btn"><span class="diag-score-value">2</span><span class="diag-score-label">Guilt</span></button>
+                            <button type="button" onclick="diag_setScore('q3', 3)" class="score-btn diag-score-btn"><span class="diag-score-value">3</span><span class="diag-score-label">Rewards</span></button>
+                            <button type="button" onclick="diag_setScore('q3', 4)" class="score-btn diag-score-btn"><span class="diag-score-value">4</span><span class="diag-score-label">Goals</span></button>
+                            <button type="button" onclick="diag_setScore('q3', 5)" class="score-btn diag-score-btn"><span class="diag-score-value">5</span><span class="diag-score-label">I Love It</span></button>
+                        </div>
+                    </article>
+
+                    <article class="diag-prompt-card" style="--diag-accent:#a855f7;">
+                        <div class="diag-prompt-copy">
+                            <p class="diag-phase-kicker">Phase 3</p>
+                            <h2 class="diag-phase-title">The Focus</h2>
+                            <p class="diag-phase-copy">Focus is tested most clearly after disruption. This question checks how long mistakes keep control.</p>
+                            <label class="diag-question-label">When I make a mistake, my recovery time is...</label>
+                            <p class="diag-question-context">Choose the response that best reflects how quickly you can reset your attention and get back to execution.</p>
+                        </div>
+                        <div class="diag-score-grid" id="q4">
+                            <button type="button" onclick="diag_setScore('q4', 1)" class="score-btn diag-score-btn"><span class="diag-score-value">1</span><span class="diag-score-label">Game Over</span></button>
+                            <button type="button" onclick="diag_setScore('q4', 2)" class="score-btn diag-score-btn"><span class="diag-score-value">2</span><span class="diag-score-label">Long Time</span></button>
+                            <button type="button" onclick="diag_setScore('q4', 3)" class="score-btn diag-score-btn"><span class="diag-score-value">3</span><span class="diag-score-label">Minutes</span></button>
+                            <button type="button" onclick="diag_setScore('q4', 4)" class="score-btn diag-score-btn"><span class="diag-score-value">4</span><span class="diag-score-label">Seconds</span></button>
+                            <button type="button" onclick="diag_setScore('q4', 5)" class="score-btn diag-score-btn"><span class="diag-score-value">5</span><span class="diag-score-label">Instant</span></button>
+                        </div>
+                    </article>
+
+                    <article class="diag-prompt-card" style="--diag-accent:#10b981;">
+                        <div class="diag-prompt-copy">
+                            <p class="diag-phase-kicker">Phase 4</p>
+                            <h2 class="diag-phase-title">The Toolkit</h2>
+                            <p class="diag-phase-copy">This is a readiness check for whether you already use mental tools before performance rather than after problems start.</p>
+                            <label class="diag-question-label">I use mental imagery (Visualization) to prepare...</label>
+                            <p class="diag-question-context">Pick the choice that most accurately matches how often you intentionally rehearse performance with imagery.</p>
+                        </div>
+                        <div class="diag-score-grid" id="q5">
+                            <button type="button" onclick="diag_setScore('q5', 1)" class="score-btn diag-score-btn"><span class="diag-score-value">1</span><span class="diag-score-label">Never</span></button>
+                            <button type="button" onclick="diag_setScore('q5', 2)" class="score-btn diag-score-btn"><span class="diag-score-value">2</span><span class="diag-score-label">Rarely</span></button>
+                            <button type="button" onclick="diag_setScore('q5', 3)" class="score-btn diag-score-btn"><span class="diag-score-value">3</span><span class="diag-score-label">Sometimes</span></button>
+                            <button type="button" onclick="diag_setScore('q5', 4)" class="score-btn diag-score-btn"><span class="diag-score-value">4</span><span class="diag-score-label">Often</span></button>
+                            <button type="button" onclick="diag_setScore('q5', 5)" class="score-btn diag-score-btn"><span class="diag-score-value">5</span><span class="diag-score-label">Daily</span></button>
+                        </div>
+                    </article>
+                </section>
+
+                <section class="grid gap-5 xl:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)]">
+                    <label class="diag-log-card">
+                        <span class="diag-card-label">Operator's Log</span>
+                        <p class="diag-log-copy">In one sentence: if your mind was a computer operating system right now, is it running fast, lagging, or crashing? Why?</p>
+                        <textarea id="log_entry" class="diag-log-field" placeholder="Describe your current operating state in one clean sentence."></textarea>
+                    </label>
+
+                    <section class="diag-report-card">
+                        <p class="diag-card-label">Report console</p>
+                        <p class="diag-report-copy">When the diagnostic is complete, generate the baseline report to lock the current read on your system.</p>
+                        <div class="diag-report-list">
+                            <div><strong>Engine:</strong> Pressure response and regulation</div>
+                            <div><strong>Drive:</strong> Primary motivation source</div>
+                            <div><strong>Focus:</strong> Mistake recovery speed</div>
+                            <div><strong>Toolkit:</strong> Visualization readiness</div>
+                        </div>
+                        <div class="diag-action-stack">
+                            <button type="button" onclick="diag_calculateStatus()" class="diag-primary-btn">Run Diagnostics</button>
+                            <button type="button" onclick="diag_generatePrint()" id="print-btn" class="diag-secondary-btn" disabled="">Generate System Report (PDF)</button>
+                        </div>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+        <!-- VIEW: PHASE 1 ENGINE -->
+        <div id="view-phase1" class="w-full h-full custom-scroll hidden p-4 md:p-8">
+  <div class="mx-auto w-full max-w-none space-y-6 text-white">
+    <section class="rounded-3xl border border-cyan-400/25 bg-slate-950/70 p-6 shadow-[0_0_0_1px_rgba(34,211,238,0.06)]">
+      <div class="grid gap-5 xl:grid-cols-[minmax(0,1.65fr)_minmax(340px,0.95fr)] xl:items-start">
+        <div class="space-y-3">
+          <p class="text-[11px] font-semibold uppercase tracking-[0.38em] text-cyan-300/75">Assignment 01</p>
+          <div>
+            <h1 class="text-3xl font-black uppercase tracking-tight text-white md:text-5xl">The Regulation Engine</h1>
+            <p class="mt-2 p1-phase-subtitle text-xs uppercase tracking-[0.32em] text-slate-400">Phase 1 / Arousal, stress, attention, and performance control</p>
+          </div>
+          <p class="max-w-4xl text-sm leading-7 text-slate-300 md:text-base">
+            Build a complete personal operating plan for pressure. This assignment now mirrors the full chapter logic: stress appraisal,
+            state versus trait anxiety, arousal control, attentional breakdown, confidence building, and crash prevention.
+          </p>
+        </div>
+        <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-1 xl:min-w-0">
+          <div class="rounded-2xl border border-cyan-400/20 bg-slate-900/80 p-4">
+            <p class="text-[11px] font-semibold uppercase tracking-[0.32em] text-slate-400">Mastery score</p>
+            <div class="mt-3 flex items-end gap-2">
+              <span id="p1-score-total" class="text-4xl font-black tracking-tight text-cyan-300">00</span>
+              <span class="pb-1 text-sm uppercase tracking-[0.3em] text-slate-500">/25</span>
+            </div>
+            <p class="mt-2 text-xs leading-6 text-slate-400">Review scoring stays manual so you can judge how complete and accurate the plan is.</p>
+          </div>
+          <div class="rounded-2xl border border-cyan-400/20 bg-slate-900/80 p-4 p1-file-actions">
+            <p class="text-[11px] font-semibold uppercase tracking-[0.32em] text-slate-400">File actions</p>
+            <div class="mt-3 flex flex-wrap gap-3">
+              <button id="p1-download-backup" type="button" class="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-white px-3 py-1.5 rounded-lg text-[10px] uppercase font-bold tracking-wider transition-colors border border-slate-700">Save Backup File</button>
+              <button id="p1-load-backup" type="button" class="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-sky-400 px-3 py-1.5 rounded-lg text-[10px] uppercase font-bold tracking-wider transition-colors border border-slate-700">Load Backup</button>
+            </div>
+            <p class="mt-3 text-[10px] italic text-slate-500">Generate the blueprint report from the review step below.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="rounded-3xl border border-slate-700/80 bg-slate-950/60 p-4">
+      <div id="p1-step-nav-shell" class="p1-step-nav-shell">
+        <button id="p1-step-toggle" type="button" class="p1-step-toggle" aria-expanded="false">
+          <span class="p1-step-toggle-copy">
+            <span class="p1-step-toggle-kicker mono">Step Menu</span>
+            <span id="p1-step-toggle-current" class="p1-step-toggle-current mono">00 Briefing</span>
+          </span>
+          <span class="p1-step-toggle-bars" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+        <div class="flex justify-center gap-2 overflow-x-auto pb-2 px-2 p1-step-nav">
+          <button type="button" data-p1-step="0" class="mod-nav-btn p1-step-btn px-4 py-2 rounded-lg border border-slate-700 text-[10px] font-bold uppercase tracking-widest mono transition-all flex-shrink-0">00 Briefing</button>
+          <button type="button" data-p1-step="1" class="mod-nav-btn p1-step-btn px-4 py-2 rounded-lg border border-slate-700 text-[10px] font-bold uppercase tracking-widest mono transition-all flex-shrink-0">01 Stress Reset</button>
+          <button type="button" data-p1-step="2" class="mod-nav-btn p1-step-btn px-4 py-2 rounded-lg border border-slate-700 text-[10px] font-bold uppercase tracking-widest mono transition-all flex-shrink-0">02 Arousal</button>
+          <button type="button" data-p1-step="3" class="mod-nav-btn p1-step-btn px-4 py-2 rounded-lg border border-slate-700 text-[10px] font-bold uppercase tracking-widest mono transition-all flex-shrink-0">03 Targeting</button>
+          <button type="button" data-p1-step="4" class="mod-nav-btn p1-step-btn px-4 py-2 rounded-lg border border-slate-700 text-[10px] font-bold uppercase tracking-widest mono transition-all flex-shrink-0">04 Confidence</button>
+          <button type="button" data-p1-step="5" class="mod-nav-btn p1-step-btn px-4 py-2 rounded-lg border border-slate-700 text-[10px] font-bold uppercase tracking-widest mono transition-all flex-shrink-0">05 Review</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="p1-step0" class="p1-step space-y-6 rounded-3xl border border-cyan-400/25 bg-slate-950/65 p-6 shadow-[0_0_0_1px_rgba(34,211,238,0.05)]">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.32em] text-cyan-300">Step 00</p>
+        <h2 class="mt-2 text-2xl font-black uppercase tracking-tight text-white">Mission briefing</h2>
+        <p class="mt-3 max-w-4xl text-sm leading-7 text-slate-300">
+          Phase 1 is not just about calming down. The chapter teaches that high performance depends on interpreting pressure accurately,
+          reading the body correctly, controlling activation, and redirecting attention before a stress response becomes a performance crash.
+        </p>
+      </div>
+      <div class="grid gap-4 lg:grid-cols-2 xl:grid-cols-3">
+        <article class="rounded-2xl border border-cyan-400/20 bg-slate-900/80 p-5">
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">Arousal / Anxiety / Stress</p>
+          <p class="mt-3 text-sm leading-7 text-slate-300"><strong class="text-white">Arousal</strong> is neutral activation. <strong class="text-white">Anxiety</strong> adds negative worry. <strong class="text-white">Stress</strong> emerges when demands feel larger than available resources.</p>
+        </article>
+        <article class="rounded-2xl border border-cyan-400/20 bg-slate-900/80 p-5">
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">State / Trait</p>
+          <p class="mt-3 text-sm leading-7 text-slate-300"><strong class="text-white">State anxiety</strong> is momentary and situational. <strong class="text-white">Trait anxiety</strong> is the more stable tendency to read demands as threatening.</p>
+        </article>
+        <article class="rounded-2xl border border-cyan-400/20 bg-slate-900/80 p-5">
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">Challenge / Threat</p>
+          <p class="mt-3 text-sm leading-7 text-slate-300">The pivot point is appraisal. If you read a demand as a challenge, the pressure can sharpen you. If you read it as a threat, the same event can trigger a negative stress spiral.</p>
+        </article>
+        <article class="rounded-2xl border border-cyan-400/20 bg-slate-900/80 p-5">
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">IZOF</p>
+          <p class="mt-3 text-sm leading-7 text-slate-300">Your ideal performance zone is personal. Some performers need more activation, others need less. The goal is not to be calm by default. The goal is to be in your usable zone.</p>
+        </article>
+        <article class="rounded-2xl border border-cyan-400/20 bg-slate-900/80 p-5">
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">Helpful / Harmful nerves</p>
+          <p class="mt-3 text-sm leading-7 text-slate-300">Anxiety can be <strong class="text-white">facilitative</strong> when it feels like readiness, or <strong class="text-white">debilitative</strong> when it becomes doubt, panic, or over-control.</p>
+        </article>
+        <article class="rounded-2xl border border-cyan-400/20 bg-slate-900/80 p-5">
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">Crash logic</p>
+          <p class="mt-3 text-sm leading-7 text-slate-300">When high worry combines with high arousal, performance can drop suddenly. Your assignment is to build a manual override plan before that cliff-edge moment arrives.</p>
+        </article>
+      </div>
+      <div class="rounded-2xl border border-slate-700 bg-slate-900/70 p-5">
+        <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">What this assignment should produce</p>
+        <ul class="mt-3 grid gap-2 text-sm leading-7 text-slate-300 md:grid-cols-2">
+          <li>1. A pressure appraisal plan that catches threat thinking early.</li>
+          <li>2. A body-and-thought dashboard for reading your own stress signals.</li>
+          <li>3. A personal activation profile showing low, ideal, and high zones.</li>
+          <li>4. Cueing and attentional-control tools for competition or performance.</li>
+          <li>5. A confidence and recovery plan that holds up under pressure.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="p1-step1" class="p1-step hidden space-y-6 rounded-3xl border border-cyan-400/25 bg-slate-950/65 p-6 shadow-[0_0_0_1px_rgba(34,211,238,0.05)]">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.32em] text-cyan-300">Step 01</p>
+        <h2 class="mt-2 text-2xl font-black uppercase tracking-tight text-white">Stress reset</h2>
+        <p class="mt-3 max-w-4xl text-sm leading-7 text-slate-300">Use the four-stage stress process to map exactly where pressure becomes a problem for you, then build a practical centering response that interrupts the loop.</p>
+      </div>
+      <div class="grid gap-5 lg:grid-cols-2">
+        <label class="rounded-2xl border border-slate-700 bg-slate-900/75 p-5">
+          <span class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">Threat trigger</span>
+          <p class="mt-2 text-sm leading-6 text-slate-400">What demand or situation do you most often appraise as a threat instead of a challenge?</p>
+          <textarea id="p1_threat_trigger" data-p1-field rows="5" class="mt-4 w-full rounded-2xl border border-cyan-400/25 bg-slate-950/80 px-4 py-3 text-sm text-white outline-none transition focus:border-cyan-300" placeholder="Example: A silent room before a big shot makes me assume I cannot miss, so the moment feels like a threat to my identity instead of a task to execute."></textarea>
+        </label>
+        <label class="rounded-2xl border border-slate-700 bg-slate-900/75 p-5">
+          <span class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">Pressure scenario</span>
+          <p class="mt-2 text-sm leading-6 text-slate-400">Describe the exact environment where your regulation breaks down fastest.</p>
+          <textarea id="p1_breath_scenario" data-p1-field rows="5" class="mt-4 w-full rounded-2xl border border-cyan-400/25 bg-slate-950/80 px-4 py-3 text-sm text-white outline-none transition focus:border-cyan-300" placeholder="Scoreboard pressure, evaluation, social comparison, time pressure, public attention, uncertain role, etc."></textarea>
+        </label>
+        <label class="rounded-2xl border border-slate-700 bg-slate-900/75 p-5">
+          <span class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">Somatic signals</span>
+          <p class="mt-2 text-sm leading-6 text-slate-400">What does your body do first when the stress response activates?</p>
+          <textarea id="p1_somatic_signals" data-p1-field rows="5" class="mt-4 w-full rounded-2xl border border-cyan-400/25 bg-slate-950/80 px-4 py-3 text-sm text-white outline-none transition focus:border-cyan-300" placeholder="Butterflies, tight chest, shaky hands, dry mouth, rushed breathing, heavy legs, sweating, etc."></textarea>
+        </label>
+        <label class="rounded-2xl border border-slate-700 bg-slate-900/75 p-5">
+          <span class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">Cognitive signals</span>
+          <p class="mt-2 text-sm leading-6 text-slate-400">What thoughts show up when you start to slide toward threat, panic, or over-control?</p>
+          <textarea id="p1_cognitive_signals" data-p1-field rows="5" class="mt-4 w-full rounded-2xl border border-cyan-400/25 bg-slate-950/80 px-4 py-3 text-sm text-white outline-none transition focus:border-cyan-300" placeholder="What if I fail, I have to be perfect, everyone will notice, I am already behind, etc."></textarea>
+        </label>
+      </div>
+      <div class="grid gap-5 lg:grid-cols-[1.2fr_0.8fr]">
+        <label class="rounded-2xl border border-slate-700 bg-slate-900/75 p-5">
+          <span class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">Centering / manual override</span>
+          <p class="mt-2 text-sm leading-6 text-slate-400">What exact breathing and reset sequence will you use once you notice the stress loop beginning?</p>
+          <textarea id="p1_breath_detail" data-p1-field rows="6" class="mt-4 w-full rounded-2xl border border-cyan-400/25 bg-slate-950/80 px-4 py-3 text-sm text-white outline-none transition focus:border-cyan-300" placeholder="Example: Exhale first, drop shoulders, inhale for 4, exhale for 6, loosen hands, set one cue, commit to the next rep only."></textarea>
+        </label>
+        <label class="rounded-2xl border border-slate-700 bg-slate-900/75 p-5">
+          <span class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">First interrupt signal</span>
+          <p class="mt-2 text-sm leading-6 text-slate-400">What is the earliest signal that tells you to intervene?</p>
+          <textarea id="p1_interrupt_signal" data-p1-field rows="6" class="mt-4 w-full rounded-2xl border border-cyan-400/25 bg-slate-950/80 px-4 py-3 text-sm text-white outline-none transition focus:border-cyan-300" placeholder="Example: The moment I stop scanning the task and start scanning myself, I know I have to reset immediately."></textarea>
+        </label>
+      </div>
+    </section>
+    <section id="p1-step2" class="p1-step hidden space-y-6 rounded-3xl border border-cyan-400/25 bg-slate-950/65 p-6 shadow-[0_0_0_1px_rgba(34,211,238,0.05)]">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.32em] text-cyan-300">Step 02</p>
+        <h2 class="mt-2 text-2xl font-black uppercase tracking-tight text-white">Arousal control</h2>
+        <p class="mt-3 max-w-4xl text-sm leading-7 text-slate-300">Map your personal activation profile instead of chasing a generic calm state. Use this step to define your low zone, best zone, high zone, and the tools that move you between them.</p>
+      </div>
+      <div class="grid gap-5 lg:grid-cols-3">
+        <label class="rounded-2xl border border-slate-700 bg-slate-900/75 p-5">
+          <span class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">Under-activated</span>
+          <p class="mt-2 text-sm leading-6 text-slate-400">How do you look, feel, and perform when your energy is too low?</p>
+          <textarea id="p1_under_zone" data-p1-field rows="7" class="mt-4 w-full rounded-2xl border border-cyan-400/25 bg-slate-950/80 px-4 py-3 text-sm text-white outline-none transition focus:border-cyan-300" placeholder="Flat, passive, slow feet, low urgency, distracted, no edge, poor readiness, etc."></textarea>
+        </label>
+        <label class="rounded-2xl border border-slate-700 bg-slate-900/75 p-5">
+          <span class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">Ideal zone (IZOF)</span>
+          <p class="mt-2 text-sm leading-6 text-slate-400">Describe your best-performance state as specifically as possible.</p>
+          <textarea id="p1_ideal_zone" data-p1-field rows="7" class="mt-4 w-full rounded-2xl border border-cyan-400/25 bg-slate-950/80 px-4 py-3 text-sm text-white outline-none transition focus:border-cyan-300" placeholder="Example: Breathing steady, eyes quiet, body live but not rushed, strong cue focus, confident urgency, ready to attack the next action."></textarea>
+        </label>
+        <label class="rounded-2xl border border-slate-700 bg-slate-900/75 p-5">
+          <span class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">Over-activated</span>
+          <p class="mt-2 text-sm leading-6 text-slate-400">What tells you that arousal has crossed from useful into harmful?</p>
+          <textarea id="p1_over_zone" data-p1-field rows="7" class="mt-4 w-full rounded-2xl border border-cyan-400/25 bg-slate-950/80 px-4 py-3 text-sm text-white outline-none transition focus:border-cyan-300" placeholder="Racing thoughts, tunnel vision, forcing the action, muscling technique, shallow breathing, panic, over-trying, etc."></textarea>
+        </label>
+      </div>
+      <div class="grid gap-5 lg:grid-cols-2">
+        <label class="rounded-2xl border border-slate-700 bg-slate-900/75 p-5">
+          <span class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">Down-regulation plan</span>
+          <p class="mt-2 text-sm leading-6 text-slate-400">What tools lower your activation when you are too high?</p>
+          <textarea id="p1_relax_plan" data-p1-field rows="6" class="mt-4 w-full rounded-2xl border border-cyan-400/25 bg-slate-950/80 px-4 py-3 text-sm text-white outline-none transition focus:border-cyan-300" placeholder="Breathing cadence, release cue, slower setup, broader scan, muscle release, pace reset, etc."></textarea>
+        </label>
+        <label class="rounded-2xl border border-slate-700 bg-slate-900/75 p-5">
+          <span class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">Up-regulation plan</span>
+          <p class="mt-2 text-sm leading-6 text-slate-400">What tools raise your activation when you are too flat?</p>
+          <textarea id="p1_active_plan" data-p1-field rows="6" class="mt-4 w-full rounded-2xl border border-cyan-400/25 bg-slate-950/80 px-4 py-3 text-sm text-white outline-none transition focus:border-cyan-300" placeholder="Fast movement prep, louder cue, stronger posture, sharper breathing, physical activation, challenge framing, etc."></textarea>
+        </label>
+      </div>
+    </section>
+
+    <section id="p1-step3" class="p1-step hidden space-y-6 rounded-3xl border border-cyan-400/25 bg-slate-950/65 p-6 shadow-[0_0_0_1px_rgba(34,211,238,0.05)]">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.32em] text-cyan-300">Step 03</p>
+        <h2 class="mt-2 text-2xl font-black uppercase tracking-tight text-white">Targeting and attentional control</h2>
+        <p class="mt-3 max-w-4xl text-sm leading-7 text-slate-300">Pressure corrupts attention. Define the distractors, the cueing system, and the signs of attentional narrowing before the moment arrives.</p>
+      </div>
+      <div class="grid gap-5 lg:grid-cols-2">
+        <label class="rounded-2xl border border-slate-700 bg-slate-900/75 p-5">
+          <span class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">Internal distractors</span>
+          <p class="mt-2 text-sm leading-6 text-slate-400">What inner noise steals your attention when pressure rises?</p>
+          <textarea id="p1_internal_dist" data-p1-field rows="5" class="mt-4 w-full rounded-2xl border border-cyan-400/25 bg-slate-950/80 px-4 py-3 text-sm text-white outline-none transition focus:border-cyan-300" placeholder="Self-judgment, replaying mistakes, score obsession, outcome thinking, body monitoring, fear of evaluation, etc."></textarea>
+        </label>
+        <label class="rounded-2xl border border-slate-700 bg-slate-900/75 p-5">
+          <span class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">External distractors</span>
+          <p class="mt-2 text-sm leading-6 text-slate-400">What outside cues pull you away from the actual task?</p>
+          <textarea id="p1_external_dist" data-p1-field rows="5" class="mt-4 w-full rounded-2xl border border-cyan-400/25 bg-slate-950/80 px-4 py-3 text-sm text-white outline-none transition focus:border-cyan-300" placeholder="Crowd noise, body language from others, scoreboard, coaches, opponents, timing, weather, social presence, etc."></textarea>
+        </label>
+      </div>
+      <div class="grid gap-5 lg:grid-cols-3">
+        <label class="rounded-2xl border border-slate-700 bg-slate-900/75 p-5">
+          <span class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">Instructional cue</span>
+          <p class="mt-2 text-sm leading-6 text-slate-400">What precise technical cue brings you back to task-relevant information?</p>
+          <textarea id="p1_cue_inst" data-p1-field rows="5" class="mt-4 w-full rounded-2xl border border-cyan-400/25 bg-slate-950/80 px-4 py-3 text-sm text-white outline-none transition focus:border-cyan-300" placeholder="Short, concrete, external or process-oriented. Example: smooth hands, eyes up, finish tall, drive through."></textarea>
+        </label>
+        <label class="rounded-2xl border border-slate-700 bg-slate-900/75 p-5">
+          <span class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">Motivational cue</span>
+          <p class="mt-2 text-sm leading-6 text-slate-400">What phrase raises intent and commitment without creating panic?</p>
+          <textarea id="p1_cue_mot" data-p1-field rows="5" class="mt-4 w-full rounded-2xl border border-cyan-400/25 bg-slate-950/80 px-4 py-3 text-sm text-white outline-none transition focus:border-cyan-300" placeholder="Example: attack this rep, composed and dangerous, commit now, one task only."></textarea>
+        </label>
+        <label class="rounded-2xl border border-slate-700 bg-slate-900/75 p-5">
+          <span class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">Tunnel vision warning</span>
+          <p class="mt-2 text-sm leading-6 text-slate-400">How do you know your focus has narrowed too much or gone off target?</p>
+          <textarea id="p1_tunnel_sign" data-p1-field rows="5" class="mt-4 w-full rounded-2xl border border-cyan-400/25 bg-slate-950/80 px-4 py-3 text-sm text-white outline-none transition focus:border-cyan-300" placeholder="Example: I only see the mistake I just made and stop scanning the next cue, so execution becomes rushed and mechanical."></textarea>
+        </label>
+      </div>
+      <label class="block rounded-2xl border border-slate-700 bg-slate-900/75 p-5">
+        <span class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">Jam scenario</span>
+        <p class="mt-2 text-sm leading-6 text-slate-400">Describe a moment where attentional breakdown caused performance loss. What would your new cue system do differently?</p>
+        <textarea id="p1_jam_scenario" data-p1-field rows="6" class="mt-4 w-full rounded-2xl border border-cyan-400/25 bg-slate-950/80 px-4 py-3 text-sm text-white outline-none transition focus:border-cyan-300" placeholder="What happened, what you focused on incorrectly, and what new attentional target will replace that breakdown."></textarea>
+      </label>
+    </section>
+    <section id="p1-step4" class="p1-step hidden space-y-6 rounded-3xl border border-cyan-400/25 bg-slate-950/65 p-6 shadow-[0_0_0_1px_rgba(34,211,238,0.05)]">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.32em] text-cyan-300">Step 04</p>
+        <h2 class="mt-2 text-2xl font-black uppercase tracking-tight text-white">Confidence and performance state</h2>
+        <p class="mt-3 max-w-4xl text-sm leading-7 text-slate-300">Confidence is not blind positivity. It is a repeatable belief system supported by stress interpretation, realistic goals, and a clear plan for handling pressure when it arrives.</p>
+      </div>
+      <div class="grid gap-5 lg:grid-cols-2">
+        <label class="rounded-2xl border border-slate-700 bg-slate-900/75 p-5">
+          <span class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">When nerves help</span>
+          <p class="mt-2 text-sm leading-6 text-slate-400">When does anxiety feel facilitative or useful for you?</p>
+          <textarea id="p1_fac_help" data-p1-field rows="5" class="mt-4 w-full rounded-2xl border border-cyan-400/25 bg-slate-950/80 px-4 py-3 text-sm text-white outline-none transition focus:border-cyan-300" placeholder="Example: When my energy is high but my attention is task-focused, nerves feel like readiness instead of danger."></textarea>
+        </label>
+        <label class="rounded-2xl border border-slate-700 bg-slate-900/75 p-5">
+          <span class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">When nerves hurt</span>
+          <p class="mt-2 text-sm leading-6 text-slate-400">When does anxiety become debilitative or harmful?</p>
+          <textarea id="p1_fac_hurt" data-p1-field rows="5" class="mt-4 w-full rounded-2xl border border-cyan-400/25 bg-slate-950/80 px-4 py-3 text-sm text-white outline-none transition focus:border-cyan-300" placeholder="Identify what changes the interpretation from readiness to threat: stakes, uncertainty, perfectionism, evaluation, identity pressure, etc."></textarea>
+        </label>
+      </div>
+      <div class="grid gap-5 lg:grid-cols-2">
+        <label class="rounded-2xl border border-slate-700 bg-slate-900/75 p-5">
+          <span class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">Situational stressors</span>
+          <p class="mt-2 text-sm leading-6 text-slate-400">What specific competitive or performance conditions increase your stress?</p>
+          <textarea id="p1_situational_stressors" data-p1-field rows="6" class="mt-4 w-full rounded-2xl border border-cyan-400/25 bg-slate-950/80 px-4 py-3 text-sm text-white outline-none transition focus:border-cyan-300" placeholder="Event importance, uncertainty, timing, role ambiguity, environment, consequences, comparison, public evaluation, etc."></textarea>
+        </label>
+        <label class="rounded-2xl border border-slate-700 bg-slate-900/75 p-5">
+          <span class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">Personal stressors</span>
+          <p class="mt-2 text-sm leading-6 text-slate-400">What personal traits or beliefs make those situations more intense?</p>
+          <textarea id="p1_personal_stressors" data-p1-field rows="6" class="mt-4 w-full rounded-2xl border border-cyan-400/25 bg-slate-950/80 px-4 py-3 text-sm text-white outline-none transition focus:border-cyan-300" placeholder="Trait anxiety, self-worth tied to performance, fear of failure, perfectionism, low confidence, poor preparation trust, etc."></textarea>
+        </label>
+      </div>
+      <div class="grid gap-5 lg:grid-cols-3">
+        <label class="rounded-2xl border border-slate-700 bg-slate-900/75 p-5">
+          <span class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">Process goal</span>
+          <p class="mt-2 text-sm leading-6 text-slate-400">What controllable action will define a good performance state?</p>
+          <textarea id="p1_goal_proc" data-p1-field rows="5" class="mt-4 w-full rounded-2xl border border-cyan-400/25 bg-slate-950/80 px-4 py-3 text-sm text-white outline-none transition focus:border-cyan-300" placeholder="What you will do, not what result you want."></textarea>
+        </label>
+        <label class="rounded-2xl border border-slate-700 bg-slate-900/75 p-5">
+          <span class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">Performance goal</span>
+          <p class="mt-2 text-sm leading-6 text-slate-400">What performance metric or standard matters most?</p>
+          <textarea id="p1_goal_perf" data-p1-field rows="5" class="mt-4 w-full rounded-2xl border border-cyan-400/25 bg-slate-950/80 px-4 py-3 text-sm text-white outline-none transition focus:border-cyan-300" placeholder="Quality, accuracy, consistency, execution rate, technical threshold, etc."></textarea>
+        </label>
+        <label class="rounded-2xl border border-slate-700 bg-slate-900/75 p-5">
+          <span class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">Outcome goal</span>
+          <p class="mt-2 text-sm leading-6 text-slate-400">What result matters, while still staying secondary to process?</p>
+          <textarea id="p1_goal_out" data-p1-field rows="5" class="mt-4 w-full rounded-2xl border border-cyan-400/25 bg-slate-950/80 px-4 py-3 text-sm text-white outline-none transition focus:border-cyan-300" placeholder="Ranking, grade, result, qualification, winning, completion, etc."></textarea>
+        </label>
+      </div>
+      <label class="block rounded-2xl border border-slate-700 bg-slate-900/75 p-5">
+        <span class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">Final SMART statement</span>
+        <p class="mt-2 text-sm leading-6 text-slate-400">Write one final goal statement that combines your regulation tools with a practical performance target.</p>
+        <textarea id="p1_smart_final" data-p1-field rows="5" class="mt-4 w-full rounded-2xl border border-cyan-400/25 bg-slate-950/80 px-4 py-3 text-sm text-white outline-none transition focus:border-cyan-300" placeholder="Specific, measurable, achievable, relevant, and time-bound. Include the process cue or regulation tool that supports it."></textarea>
+      </label>
+    </section>
+
+    <section id="p1-step5" class="p1-step hidden space-y-6 rounded-3xl border border-cyan-400/25 bg-slate-950/65 p-6 shadow-[0_0_0_1px_rgba(34,211,238,0.05)]">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.32em] text-cyan-300">Step 05</p>
+        <h2 class="mt-2 text-2xl font-black uppercase tracking-tight text-white">Score and review</h2>
+        <p class="mt-3 max-w-4xl text-sm leading-7 text-slate-300">Judge the assignment for completeness and depth. High marks should reflect clear chapter understanding, not just filled boxes.</p>
+      </div>
+      <div class="grid gap-5 xl:grid-cols-[1.15fr_0.85fr] p1-review-grid">
+        <div class="rounded-2xl border border-slate-700 bg-slate-900/75 p-5">
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">System integrity audit</p>
+          <div class="mt-4 space-y-4">
+            <div class="flex flex-col gap-3 rounded-2xl border border-slate-700 bg-slate-950/80 p-4 md:flex-row md:items-center md:justify-between"><div><p class="text-sm font-semibold uppercase tracking-[0.22em] text-white">Stress reset</p><p class="mt-1 text-xs leading-6 text-slate-400">Threat appraisal, bodily signs, mental signs, and reset plan are all present.</p></div><div class="flex flex-wrap gap-2"><button type="button" class="score-btn rounded-lg border font-mono font-bold w-8 h-8 text-[11px]" data-p1-cat="reset" data-p1-score="1">1</button><button type="button" class="score-btn rounded-lg border font-mono font-bold w-8 h-8 text-[11px]" data-p1-cat="reset" data-p1-score="2">2</button><button type="button" class="score-btn rounded-lg border font-mono font-bold w-8 h-8 text-[11px]" data-p1-cat="reset" data-p1-score="3">3</button><button type="button" class="score-btn rounded-lg border font-mono font-bold w-8 h-8 text-[11px]" data-p1-cat="reset" data-p1-score="4">4</button><button type="button" class="score-btn rounded-lg border font-mono font-bold w-8 h-8 text-[11px]" data-p1-cat="reset" data-p1-score="5">5</button></div></div>
+            <div class="flex flex-col gap-3 rounded-2xl border border-slate-700 bg-slate-950/80 p-4 md:flex-row md:items-center md:justify-between"><div><p class="text-sm font-semibold uppercase tracking-[0.22em] text-white">Arousal control</p><p class="mt-1 text-xs leading-6 text-slate-400">Low, ideal, and high zones are defined, along with usable up/down regulation tools.</p></div><div class="flex flex-wrap gap-2"><button type="button" class="score-btn rounded-lg border font-mono font-bold w-8 h-8 text-[11px]" data-p1-cat="tune" data-p1-score="1">1</button><button type="button" class="score-btn rounded-lg border font-mono font-bold w-8 h-8 text-[11px]" data-p1-cat="tune" data-p1-score="2">2</button><button type="button" class="score-btn rounded-lg border font-mono font-bold w-8 h-8 text-[11px]" data-p1-cat="tune" data-p1-score="3">3</button><button type="button" class="score-btn rounded-lg border font-mono font-bold w-8 h-8 text-[11px]" data-p1-cat="tune" data-p1-score="4">4</button><button type="button" class="score-btn rounded-lg border font-mono font-bold w-8 h-8 text-[11px]" data-p1-cat="tune" data-p1-score="5">5</button></div></div>
+            <div class="flex flex-col gap-3 rounded-2xl border border-slate-700 bg-slate-950/80 p-4 md:flex-row md:items-center md:justify-between"><div><p class="text-sm font-semibold uppercase tracking-[0.22em] text-white">Attention control</p><p class="mt-1 text-xs leading-6 text-slate-400">Distractors, cueing, tunnel-vision signs, and correction plan are specific.</p></div><div class="flex flex-wrap gap-2"><button type="button" class="score-btn rounded-lg border font-mono font-bold w-8 h-8 text-[11px]" data-p1-cat="focus" data-p1-score="1">1</button><button type="button" class="score-btn rounded-lg border font-mono font-bold w-8 h-8 text-[11px]" data-p1-cat="focus" data-p1-score="2">2</button><button type="button" class="score-btn rounded-lg border font-mono font-bold w-8 h-8 text-[11px]" data-p1-cat="focus" data-p1-score="3">3</button><button type="button" class="score-btn rounded-lg border font-mono font-bold w-8 h-8 text-[11px]" data-p1-cat="focus" data-p1-score="4">4</button><button type="button" class="score-btn rounded-lg border font-mono font-bold w-8 h-8 text-[11px]" data-p1-cat="focus" data-p1-score="5">5</button></div></div>
+            <div class="flex flex-col gap-3 rounded-2xl border border-slate-700 bg-slate-950/80 p-4 md:flex-row md:items-center md:justify-between"><div><p class="text-sm font-semibold uppercase tracking-[0.22em] text-white">Confidence build</p><p class="mt-1 text-xs leading-6 text-slate-400">Stressors, helpful and harmful nerves, and goal system show clear performance thinking.</p></div><div class="flex flex-wrap gap-2"><button type="button" class="score-btn rounded-lg border font-mono font-bold w-8 h-8 text-[11px]" data-p1-cat="goals" data-p1-score="1">1</button><button type="button" class="score-btn rounded-lg border font-mono font-bold w-8 h-8 text-[11px]" data-p1-cat="goals" data-p1-score="2">2</button><button type="button" class="score-btn rounded-lg border font-mono font-bold w-8 h-8 text-[11px]" data-p1-cat="goals" data-p1-score="3">3</button><button type="button" class="score-btn rounded-lg border font-mono font-bold w-8 h-8 text-[11px]" data-p1-cat="goals" data-p1-score="4">4</button><button type="button" class="score-btn rounded-lg border font-mono font-bold w-8 h-8 text-[11px]" data-p1-cat="goals" data-p1-score="5">5</button></div></div>
+            <div class="flex flex-col gap-3 rounded-2xl border border-slate-700 bg-slate-950/80 p-4 md:flex-row md:items-center md:justify-between"><div><p class="text-sm font-semibold uppercase tracking-[0.22em] text-white">Integration</p><p class="mt-1 text-xs leading-6 text-slate-400">The final summary connects stress, zone control, cues, and crash prevention into one plan.</p></div><div class="flex flex-wrap gap-2"><button type="button" class="score-btn rounded-lg border font-mono font-bold w-8 h-8 text-[11px]" data-p1-cat="intel" data-p1-score="1">1</button><button type="button" class="score-btn rounded-lg border font-mono font-bold w-8 h-8 text-[11px]" data-p1-cat="intel" data-p1-score="2">2</button><button type="button" class="score-btn rounded-lg border font-mono font-bold w-8 h-8 text-[11px]" data-p1-cat="intel" data-p1-score="3">3</button><button type="button" class="score-btn rounded-lg border font-mono font-bold w-8 h-8 text-[11px]" data-p1-cat="intel" data-p1-score="4">4</button><button type="button" class="score-btn rounded-lg border font-mono font-bold w-8 h-8 text-[11px]" data-p1-cat="intel" data-p1-score="5">5</button></div></div>
+          </div>
+        </div>
+        <div class="space-y-5">
+          <label class="block rounded-2xl border border-slate-700 bg-slate-900/75 p-5">
+            <span class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">Operating summary</span>
+            <p class="mt-2 text-sm leading-6 text-slate-400">Summarize your full performance-state plan in a few strong sentences.</p>
+            <textarea id="p1_final_narrative" data-p1-field rows="8" class="mt-4 w-full rounded-2xl border border-cyan-400/25 bg-slate-950/80 px-4 py-3 text-sm text-white outline-none transition focus:border-cyan-300" placeholder="How you read pressure, what your best zone feels like, what cues you trust, and what your reset looks like under pressure."></textarea>
+          </label>
+          <label class="block rounded-2xl border border-slate-700 bg-slate-900/75 p-5">
+            <span class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">Zone summary</span>
+            <p class="mt-2 text-sm leading-6 text-slate-400">Complete the sentence clearly: I perform best when...</p>
+            <textarea id="p1_zone_summary" data-p1-field rows="4" class="mt-4 w-full rounded-2xl border border-cyan-400/25 bg-slate-950/80 px-4 py-3 text-sm text-white outline-none transition focus:border-cyan-300" placeholder="I perform best when my activation is..., my cue is..., and my attention is fixed on...."></textarea>
+          </label>
+          <label class="block rounded-2xl border border-slate-700 bg-slate-900/75 p-5">
+            <span class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">Crash-prevention plan</span>
+            <p class="mt-2 text-sm leading-6 text-slate-400">If you are about to go over the edge, what exact three-step recovery plan will you run?</p>
+            <textarea id="p1_crash_plan" data-p1-field rows="5" class="mt-4 w-full rounded-2xl border border-cyan-400/25 bg-slate-950/80 px-4 py-3 text-sm text-white outline-none transition focus:border-cyan-300" placeholder="Example: 1) exhale and widen focus, 2) name the cue, 3) commit to the next controllable action only."></textarea>
+          </label>
+        </div>
+      </div>
+      <section class="rounded-2xl border border-slate-700 bg-slate-900/75 p-5">
+        <p class="text-xs font-semibold uppercase tracking-[0.32em] text-cyan-300">Tactical rubric</p>
+        <div class="mt-4 overflow-x-auto p1-rubric-shell">
+          <table class="min-w-[980px] w-full border-collapse p1-rubric-table">
+            <thead>
+              <tr>
+                <th>Criteria</th>
+                <th>Proficient (4-5)</th>
+                <th>Developing (2-3)</th>
+                <th>Emerging (0-1)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Stress reset</th>
+                <td>Threat trigger, body signals, thought signals, and a clear manual override sequence are all defined.</td>
+                <td>Reset tools are present, but the stress trigger or body-thought dashboard is still vague.</td>
+                <td>Stress response is described generally or the reset plan is missing practical detail.</td>
+              </tr>
+              <tr>
+                <th>Arousal tuning</th>
+                <td>Low, ideal, and high zones are clearly differentiated and regulation tools match the student's actual profile.</td>
+                <td>Activation tools exist, but the ideal zone or low/high differences are only partly defined.</td>
+                <td>Arousal plan is generic, incomplete, or treats calmness as the only useful state.</td>
+              </tr>
+              <tr>
+                <th>Targeting (cues)</th>
+                <td>Internal and external distractors are clear. Cue words are usable, specific, and tied to attentional correction.</td>
+                <td>Cues exist but are too broad, too long, or not clearly linked to attentional breakdown.</td>
+                <td>Attention problems are named loosely and the cue system is missing or not actionable.</td>
+              </tr>
+              <tr>
+                <th>Confidence build</th>
+                <td>Helpful versus harmful nerves, stressors, and goal structure show strong understanding of performance-state control.</td>
+                <td>Confidence content is present, but stress interpretation or goal quality is inconsistent.</td>
+                <td>Goals are incomplete, generic, or disconnected from the chapter's stress and anxiety concepts.</td>
+              </tr>
+              <tr>
+                <th>Integration</th>
+                <td>The final narrative connects appraisal, activation, cueing, and crash prevention into one coherent operating plan.</td>
+                <td>Summary restates pieces of the assignment but does not fully integrate them into one usable plan.</td>
+                <td>Final synthesis is incomplete or shows limited understanding of how the tools fit together.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <div class="flex flex-col md:flex-row gap-4 pt-8">
+        <button onclick="p1_showStep(0)" class="flex-1 text-slate-500 font-bold uppercase text-[10px] tracking-widest hover:text-white transition-colors border border-slate-800 rounded-xl py-4"><- Start Over</button>
+        <button id="p1-generate-pdf" type="button" class="flex-[2] bg-emerald-600 hover:bg-emerald-500 text-white font-black uppercase tracking-widest py-4 rounded-xl shadow-lg transition-all active:scale-[0.98]">Generate Blueprint PDF</button>
+      </div>
+    </section>
+  </div>
+  <input id="p1-load-file" type="file" accept="application/json" class="hidden" />
+</div>
+
+<!-- VIEW: VALUES BLUEPRINT (2A) -->
+        <div id="view-values" class="w-full h-full custom-scroll hidden p-4 md:p-8">
+            <div class="max-w-6xl mx-auto">
+                <header class="mb-8 text-center">
+                    <h1 class="text-3xl font-black italic tracking-tighter text-white uppercase mb-2">Values Blueprint</h1>
+                    <p class="text-[10px] font-mono uppercase tracking-[0.3em] text-sky-500 mb-6 font-bold underline decoration-sky-500/30 underline-offset-4">Living Into Our Values</p>
+                    <div class="flex flex-wrap justify-center gap-3 mb-6 bg-slate-900/50 p-3 rounded-xl border border-slate-800 max-w-2xl mx-auto"><div class="flex items-center gap-2 px-3"><div id="vb-save-indicator" class="w-2 h-2 rounded-full bg-slate-600"></div><span id="vb-save-text" class="text-[9px] uppercase font-bold text-slate-500 tracking-widest">System Ready</span></div><div class="w-px h-6 bg-slate-800 mx-2 hidden sm:block"></div><button onclick="vb_downloadBackup()" class="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-white px-3 py-1.5 rounded-lg text-[10px] uppercase font-bold tracking-wider transition-colors border border-slate-700">Save Backup File</button><button onclick="document.getElementById('vb-file-upload').click()" class="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-sky-400 px-3 py-1.5 rounded-lg text-[10px] uppercase font-bold tracking-wider transition-colors border border-slate-700">Load Backup</button><input type="file" id="vb-file-upload" accept=".json" style="display: none;" onchange="vb_loadBackup(this)"></div>
+                    <div class="flex justify-center gap-2 overflow-x-auto pb-2 px-2"><button onclick="vb_showStep(0)" class="mod-nav-btn active px-4 py-2 rounded-lg border border-slate-700 text-[10px] font-bold uppercase tracking-widest mono transition-all flex-shrink-0">00 Mission</button><button onclick="vb_showStep(1)" class="mod-nav-btn px-4 py-2 rounded-lg border border-slate-700 text-[10px] font-bold uppercase tracking-widest mono transition-all flex-shrink-0">01 Clarification</button><button onclick="vb_showStep(2)" class="mod-nav-btn px-4 py-2 rounded-lg border border-slate-700 text-[10px] font-bold uppercase tracking-widest mono transition-all flex-shrink-0">02 Behaviors</button><button onclick="vb_showStep(3)" class="mod-nav-btn px-4 py-2 rounded-lg border border-slate-800 text-[10px] font-bold uppercase tracking-widest mono transition-all flex-shrink-0">03 Indicators</button><button onclick="vb_showStep(4)" class="mod-nav-btn px-4 py-2 rounded-lg border border-slate-800 text-[10px] font-bold uppercase tracking-widest mono transition-all flex-shrink-0">04 Review</button></div>
+                </header>
+                <div class="glass rounded-3xl shadow-2xl overflow-hidden min-h-[500px]">
+                    <div id="vb-step0" class="step-content active"><div class="relative px-6 py-4 border-b border-slate-800 bg-slate-900/50"><div class="absolute top-0 left-0 w-full h-1 bg-sky-500"></div><h2 class="text-xl font-bold text-white uppercase italic tracking-tight">Mission Briefing</h2></div><div class="p-8 space-y-8 text-center"><div class="max-w-3xl mx-auto space-y-6"><p class="text-slate-400 text-sm italic leading-relaxed text-center">Welcome to the Values Blueprint. High performance is built on integrity--the gap between your words and your actions. Turn your core beliefs into tactical behaviors.</p><div class="grid grid-cols-1 md:grid-cols-2 gap-6"><div class="info-card"><h3 class="text-sky-400 font-bold uppercase text-xs mb-2 mono tracking-wider italic">What is a Value?</h3><p class="text-xs text-slate-300 leading-relaxed">A belief that is most important to you. It helps you find your way when things are difficult. It is who you are at your best, serving as a filter for hard decisions.</p></div><div class="info-card border-l-emerald-500"><h3 class="text-emerald-400 font-bold uppercase text-xs mb-2 mono tracking-wider italic">In Alignment Behavior</h3><p class="text-xs text-slate-300 leading-relaxed">The specific actions you take when you are living your values. If we recorded you being your best self, what observable actions would we see?</p></div><div class="info-card border-l-rose-500"><h3 class="text-rose-500 font-bold uppercase text-xs mb-2 mono tracking-wider italic">Out of Alignment Behavior</h3><p class="text-xs text-slate-300 leading-relaxed">The "slippery slope" behaviors. What do you do when stressed, tired, or insecure? These are signals that you've lost your footing.</p></div><div class="info-card border-l-amber-500"><h3 class="text-amber-500 font-bold uppercase text-xs mb-2 mono tracking-wider italic">Internal Indicators</h3><p class="text-xs text-slate-300 leading-relaxed">Physical feelings (e.g., light chest, steady breath) when aligned, vs. the "pit in your stomach" or "tightness" when misaligned.</p></div></div><div class="flex justify-center pt-6"><button onclick="vb_showStep(1)" class="bg-sky-600 px-12 py-4 rounded-xl text-white font-black uppercase text-xs tracking-[0.2em] hover:bg-sky-500 transition-all shadow-lg">Begin Configuration</button></div></div></div></div>
+                    <div id="vb-step1" class="step-content"><div class="relative px-6 py-4 border-b border-slate-800 bg-slate-900/50"><div class="absolute top-0 left-0 w-full h-1 bg-sky-500"></div><h2 class="text-xl font-bold text-white uppercase italic tracking-tight">Step 01: Values Clarification</h2></div><div class="p-8 grid grid-cols-1 lg:grid-cols-3 gap-8"><div class="lg:col-span-2 space-y-8"><p class="text-slate-400 text-xs italic">Choose two values--the beliefs that are most important to you that help you find your way when things are difficult.</p><div class="grid grid-cols-1 md:grid-cols-2 gap-6"><div class="space-y-4"><div><label class="block text-[10px] font-bold uppercase text-slate-500 mb-2 tracking-widest mono">Core Value 01</label><select id="vb_value1" onchange="vb_saveData()" class="w-full rounded-lg p-4 text-lg font-bold text-white italic"><option value="">Select Value...</option></select></div><div class="bg-slate-950/50 p-4 rounded-xl border border-slate-800 min-h-[160px]"><p class="text-[9px] text-slate-500 uppercase font-bold mb-2 mono">Value 1 Filter Check</p><div id="v1-def-box" class="mb-4 hidden"><p class="text-[10px] font-black text-sky-400 uppercase mono mb-1 tracking-tighter italic">Definition:</p><p id="v1-definition" class="text-[11px] text-slate-200 leading-tight italic"></p></div><ul class="text-[10px] text-slate-400 space-y-1 italic"><li>- Does this define me?</li><li>- Is this me at my best?</li><li>- Is this my filter for hard decisions?</li></ul></div></div><div class="space-y-4"><div><label class="block text-[10px] font-bold uppercase text-slate-500 mb-2 tracking-widest mono">Core Value 02</label><select id="vb_value2" onchange="vb_saveData()" class="w-full rounded-lg p-4 text-lg font-bold text-white italic"><option value="">Select Value...</option></select></div><div class="bg-slate-950/50 p-4 rounded-xl border border-slate-800 min-h-[160px]"><p class="text-[9px] text-slate-500 uppercase font-bold mb-2 mono">Value 2 Filter Check</p><div id="v2-def-box" class="mb-4 hidden"><p class="text-[10px] font-black text-emerald-400 uppercase mono mb-1 tracking-tighter italic">Definition:</p><p id="v2-definition" class="text-[11px] text-slate-200 leading-tight italic"></p></div><ul class="text-[10px] text-slate-400 space-y-1 italic"><li>- Does this define me?</li><li>- Is this me at my best?</li><li>- Is this my filter for hard decisions?</li></ul></div></div></div><div class="flex justify-between pt-4"><button onclick="vb_showStep(0)" class="text-slate-500 font-bold uppercase text-[10px]">Back</button><button onclick="vb_showStep(2)" class="bg-sky-600 px-8 py-3 rounded-lg text-white font-bold uppercase text-[10px]">Next</button></div></div><div class="lg:col-span-1 bg-slate-950/30 p-4 rounded-2xl border border-slate-800 flex flex-col h-[400px]"><h3 class="text-[10px] font-bold uppercase text-sky-500 mb-3 mono tracking-widest">Reference List</h3><div id="values-list" class="custom-scroll overflow-y-auto text-[10px] text-slate-400 space-y-1"></div></div></div></div>
+                    <div id="vb-step2" class="step-content"><div class="relative px-6 py-4 border-b border-slate-800 bg-slate-900/50"><div class="absolute top-0 left-0 w-full h-1 bg-sky-500"></div><h2 class="text-xl font-bold text-white uppercase italic tracking-tight">Step 02: Behaviors</h2></div><div class="p-8 space-y-10"><div class="space-y-6"><h3 class="text-sky-400 font-black italic text-sm uppercase">Value 1</h3><div class="grid grid-cols-1 md:grid-cols-3 gap-6"><div><label class="block text-[9px] font-bold uppercase text-slate-500 mb-2 mono">In Alignment</label><textarea id="vb_v1_align" oninput="vb_saveData()" placeholder="Observable behavior... What specific actions would we see?" class="w-full rounded-lg p-3 text-xs h-24 resize-none text-slate-200 italic"></textarea></div><div><label class="block text-[9px] font-bold uppercase text-slate-500 mb-2 mono">Out of Alignment</label><textarea id="vb_v1_out" oninput="vb_saveData()" placeholder="Slippery slope behavior... What do you do when stressed/tired?" class="w-full rounded-lg p-3 text-xs h-24 resize-none text-slate-200 italic"></textarea></div><div><label class="block text-[9px] font-bold uppercase text-slate-500 mb-2 mono">Example</label><textarea id="vb_v1_example" oninput="vb_saveData()" placeholder="A specific time you were fully aligned..." class="w-full rounded-lg p-3 text-xs h-24 resize-none text-slate-200 italic"></textarea></div></div></div><div class="h-px bg-slate-800"></div><div class="space-y-6"><h3 class="text-emerald-400 font-black italic text-sm uppercase">Value 2</h3><div class="grid grid-cols-1 md:grid-cols-3 gap-6"><div><label class="block text-[9px] font-bold uppercase text-slate-500 mb-2 mono">In Alignment</label><textarea id="vb_v2_align" oninput="vb_saveData()" placeholder="Observable behavior... What specific actions would we see?" class="w-full rounded-lg p-3 text-xs h-24 resize-none text-slate-200 italic"></textarea></div><div><label class="block text-[9px] font-bold uppercase text-slate-500 mb-2 mono">Out of Alignment</label><textarea id="vb_v2_out" oninput="vb_saveData()" placeholder="Slippery slope behavior... What do you do when stressed/tired?" class="w-full rounded-lg p-3 text-xs h-24 resize-none text-slate-200 italic"></textarea></div><div><label class="block text-[9px] font-bold uppercase text-slate-500 mb-2 mono">Example</label><textarea id="vb_v2_example" oninput="vb_saveData()" placeholder="A specific time you were fully aligned..." class="w-full rounded-lg p-3 text-xs h-24 resize-none text-slate-200 italic"></textarea></div></div></div><div class="flex justify-between pt-4"><button onclick="vb_showStep(1)" class="text-slate-500 font-bold uppercase text-[10px]">Back</button><button onclick="vb_showStep(3)" class="bg-sky-600 px-8 py-3 rounded-lg text-white font-bold uppercase text-[10px]">Next</button></div></div></div>
+                    <div id="vb-step3" class="step-content"><div class="relative px-6 py-4 border-b border-slate-800 bg-slate-900/50"><div class="absolute top-0 left-0 w-full h-1 bg-sky-500"></div><h2 class="text-xl font-bold text-white uppercase italic tracking-tight">Step 03: Indicators</h2></div><div class="p-8 space-y-8"><div class="grid grid-cols-1 md:grid-cols-2 gap-8"><div class="space-y-6"><label class="block text-[10px] font-bold uppercase text-slate-500 mb-2 mono tracking-widest italic underline">Internal Indicators</label><div><label class="block text-[9px] font-bold uppercase text-slate-600 mb-2 italic">How does it feel when aligned?</label><textarea id="vb_feeling" oninput="vb_saveData()" placeholder="Physical and mental state (e.g., Light, Steady)..." class="w-full rounded-lg p-4 text-xs h-20 resize-none text-slate-200 italic"></textarea></div><div><label class="block text-[9px] font-bold uppercase text-slate-600 mb-2 italic">Warning signs?</label><textarea id="vb_warning" oninput="vb_saveData()" placeholder="What are the signs? (e.g., Tight chest, snapping at others)..." class="w-full rounded-lg p-4 text-xs h-20 resize-none text-slate-200 italic"></textarea></div></div><div class="space-y-6"><label class="block text-[10px] font-bold uppercase text-slate-500 mb-2 mono tracking-widest italic underline">Support</label><div><label class="block text-[9px] font-bold uppercase text-slate-600 mb-2 italic">Support Person?</label><input type="text" id="vb_support_person" oninput="vb_saveData()" placeholder="Name of person..." class="w-full rounded-lg p-4 text-xs text-slate-200"></div><div><label class="block text-[9px] font-bold uppercase text-slate-600 mb-2 italic">Self-Compassion Act</label><textarea id="vb_self_compassion" oninput="vb_saveData()" placeholder="What can you do to support yourself?" class="w-full rounded-lg p-4 text-xs h-20 resize-none text-slate-200 italic"></textarea></div></div></div><div class="flex justify-between pt-4"><button onclick="vb_showStep(2)" class="text-slate-500 font-bold uppercase text-[10px]">Back</button><button onclick="vb_showStep(4)" class="bg-sky-600 px-8 py-3 rounded-lg text-white font-bold uppercase text-[10px]">Next</button></div></div></div>
+                    <div id="vb-step4" class="step-content"><div class="relative px-6 py-4 border-b border-slate-800 bg-slate-900/50"><div class="absolute top-0 left-0 w-full h-1 bg-emerald-500"></div><h2 class="text-xl font-bold text-white uppercase italic tracking-tight">Step 04: Review</h2></div><div class="p-8 space-y-8"><div class="grid grid-cols-1 lg:grid-cols-2 gap-8"><div><label class="block text-[10px] font-bold uppercase text-slate-500 mb-4 tracking-widest mono italic underline underline-offset-2">Audit</label><div id="vb-scoring-container" class="space-y-4"></div><div class="border-t border-slate-800 mt-6 pt-6 flex justify-between items-center"><span class="text-[10px] uppercase font-bold text-slate-500 tracking-[0.2em]">Mastery Score</span><div class="text-4xl font-black italic text-emerald-500 leading-none"><span id="vb-total-score">00</span><span class="text-xl text-slate-700 font-normal not-italic">/25</span></div></div></div><div class="space-y-6"><div><label class="block text-[10px] font-bold uppercase text-sky-400 mb-2 tracking-widest mono italic underline underline-offset-4">Narrative</label><textarea id="vb_narrative" oninput="vb_saveData()" placeholder="Explain yourself: Why did you choose these values? How will this blueprint change your daily behavior? Prove you understand the concepts..." class="w-full rounded-xl p-4 text-sm h-[200px] resize-none text-slate-200 border-2 border-sky-500/20 focus:border-sky-500 transition-all"></textarea></div><div class="bg-sky-500/5 border border-sky-500/20 p-6 rounded-2xl text-center"><h3 class="text-sky-500 font-black text-[10px] uppercase italic tracking-widest mb-3 italic">Final Synthesis</h3><p id="vb-summary-preview" class="text-sm font-bold italic text-white leading-relaxed">...</p></div></div></div><div class="border-t border-slate-800 pt-8"><label class="block text-[10px] font-bold uppercase text-emerald-500 mb-4 tracking-[0.2em] mono italic underline underline-offset-4">Self-Evaluation Rubric</label><div class="overflow-x-auto glass rounded-2xl border border-slate-800 shadow-xl"><table class="w-full text-left border-collapse min-w-[700px]"><thead><tr class="bg-slate-900/80 border-b border-slate-800"><th class="p-4 text-[10px] font-black uppercase text-slate-500 mono tracking-widest w-1/4">Criteria</th><th class="p-4 text-[10px] font-black uppercase text-emerald-400 mono tracking-widest w-1/4">Proficient (4-5 pts)</th><th class="p-4 text-[10px] font-black uppercase text-amber-400 mono tracking-widest w-1/4">Developing (2-3 pts)</th><th class="p-4 text-[10px] font-black uppercase text-rose-400 mono tracking-widest w-1/4">Emerging (0-1 pts)</th></tr></thead><tbody class="text-[10px] leading-relaxed"><tr class="border-b border-slate-800/50"><td class="p-4 font-bold uppercase text-white mono italic">Values Clarification</td><td onclick="vb_setScore('clar', 5)" id="vb-clar-5" class="rubric-cell p-4 text-slate-400 italic">Two core values selected with a clear understanding of their definitions and filter-check.</td><td onclick="vb_setScore('clar', 3)" id="vb-clar-3" class="rubric-cell p-4 text-slate-400 italic">Values selected but definitions don't clearly align with the student's described behaviors.</td><td onclick="vb_setScore('clar', 1)" id="vb-clar-1" class="rubric-cell p-4 text-slate-400 italic">Values missing or selected at random without clear intent.</td></tr><tr class="border-b border-slate-800/50"><td class="p-4 font-bold uppercase text-white mono italic">Alignment Depth</td><td onclick="vb_setScore('depth', 5)" id="vb-depth-5" class="rubric-cell p-4 text-slate-400 italic">Behaviors are highly specific, observable, and show deep self-reflection (no generic answers).</td><td onclick="vb_setScore('depth', 3)" id="vb-depth-3" class="rubric-cell p-4 text-slate-400 italic">Behaviors are vague (e.g., "being nice") or lack a clear connection to the selected value.</td><td onclick="vb_setScore('depth', 1)" id="vb-depth-1" class="rubric-cell p-4 text-slate-400 italic">Alignment behaviors are missing or repetitive.</td></tr><tr class="border-b border-slate-800/50"><td class="p-4 font-bold uppercase text-white mono italic">System Awareness</td><td onclick="vb_setScore('sys', 5)" id="vb-sys-5" class="rubric-cell p-4 text-slate-400 italic">Clear identification of physical sensations and actionable early warning signs.</td><td onclick="vb_setScore('sys', 3)" id="vb-sys-3" class="rubric-cell p-4 text-slate-400 italic">Physical feelings or warning signs are generic (e.g., "I feel bad").</td><td onclick="vb_setScore('sys', 1)" id="vb-sys-1" class="rubric-cell p-4 text-slate-400 italic">No indicators or warning signs provided.</td></tr><tr class="border-b border-slate-800/50"><td class="p-4 font-bold uppercase text-white mono italic">Support &amp; Self-Care</td><td onclick="vb_setScore('supp', 5)" id="vb-supp-5" class="rubric-cell p-4 text-slate-400 italic">Identifies a specific support person and a realistic, actionable act of self-compassion.</td><td onclick="vb_setScore('supp', 3)" id="vb-supp-3" class="rubric-cell p-4 text-slate-400 italic">Support person or self-compassion act is unrealistic or lacks detail.</td><td onclick="vb_setScore('supp', 1)" id="vb-supp-1" class="rubric-cell p-4 text-slate-400 italic">Section is incomplete.</td></tr><tr><td class="p-4 font-bold uppercase text-white mono italic">Integrity Audit</td><td onclick="vb_setScore('audit', 5)" id="vb-audit-5" class="rubric-cell p-4 text-slate-400 italic">Honest self-scoring and a final synthesis that connects values to a life-strategy.</td><td onclick="vb_setScore('audit', 3)" id="vb-audit-3" class="rubric-cell p-4 text-slate-400 italic">Scoring provided but lacks reflection in the summary preview.</td><td onclick="vb_setScore('audit', 1)" id="vb-audit-1" class="rubric-cell p-4 text-slate-400 italic">Incomplete scoring or summary.</td></tr></tbody></table></div></div><div class="flex flex-col md:flex-row gap-4 pt-8"><button onclick="vb_showStep(1)" class="flex-1 text-slate-500 font-bold uppercase text-[10px] tracking-widest hover:text-white transition-colors border border-slate-800 rounded-xl py-4"><- Start Over</button><button onclick="vb_generateFullPrint()" class="flex-[2] bg-emerald-600 hover:bg-emerald-500 text-white font-black uppercase tracking-widest py-4 rounded-xl shadow-lg transition-all active:scale-[0.98]">Generate Blueprint PDF</button></div></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIEW: MASTER CONFIG (2B) -->
+        <div id="view-master" class="w-full h-full custom-scroll hidden p-4 md:p-8">
+            <div class="max-w-5xl mx-auto">
+                <header class="mb-8 text-center">
+                    <h1 class="text-3xl font-black italic tracking-tighter text-white uppercase mb-2">The User Blueprint</h1>
+                    <p class="text-[10px] font-mono uppercase tracking-[0.3em] text-sky-500 font-bold underline decoration-sky-500/30 underline-offset-4">High-Performance Configuration</p>
+                    <div class="flex flex-wrap justify-center gap-3 mb-6 bg-slate-900/50 p-3 rounded-xl border border-slate-800"><div class="flex items-center gap-2 px-3"><div id="mb-save-indicator" class="w-2 h-2 rounded-full bg-slate-600"></div><span id="mb-save-text" class="text-[9px] uppercase font-bold text-slate-500 tracking-widest">System Ready</span></div><div class="w-px h-6 bg-slate-800 mx-2 hidden sm:block"></div><button onclick="mb_downloadBackup()" class="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-white px-3 py-1.5 rounded-lg text-[10px] uppercase font-bold tracking-wider transition-colors border border-slate-700">Save Backup File</button><button onclick="document.getElementById('mb-file-upload').click()" class="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-sky-400 px-3 py-1.5 rounded-lg text-[10px] uppercase font-bold tracking-wider transition-colors border border-slate-700">Load Backup</button><input type="file" id="mb-file-upload" accept=".json" style="display: none;" onchange="mb_loadBackup(this)"></div>
+                    <div class="flex justify-center gap-2 overflow-x-auto pb-2 px-2"><button onclick="mb_showStep(0)" class="mod-nav-btn active px-4 py-2 rounded-lg border border-slate-700 text-[10px] font-bold uppercase tracking-widest mono transition-all flex-shrink-0">00 Mission</button><button onclick="mb_showStep(1)" class="mod-nav-btn px-4 py-2 rounded-lg border border-slate-700 text-[10px] font-bold uppercase tracking-widest mono transition-all flex-shrink-0">01 Identity</button><button onclick="mb_showStep(2)" class="mod-nav-btn px-4 py-2 rounded-lg border border-slate-700 text-[10px] font-bold uppercase tracking-widest mono transition-all flex-shrink-0">02 Path</button><button onclick="mb_showStep(3)" class="mod-nav-btn px-4 py-2 rounded-lg border border-slate-700 text-[10px] font-bold uppercase tracking-widest mono transition-all flex-shrink-0">03 Maintain</button><button onclick="mb_showStep(4)" class="mod-nav-btn px-4 py-2 rounded-lg border border-slate-800 text-[10px] font-bold uppercase tracking-widest mono transition-all flex-shrink-0">04 Review</button></div>
+                </header>
+                <div class="glass rounded-3xl shadow-2xl overflow-hidden min-h-[500px]">
+                    <div id="mb-step0" class="step-content active"><div class="relative px-6 py-4 border-b border-slate-800 bg-slate-900/50"><div class="absolute top-0 left-0 w-full h-1 bg-sky-500"></div><h2 class="text-xl font-bold text-white uppercase italic tracking-tight">Step 00: Mission Briefing</h2></div><div class="p-8 space-y-8"><div class="max-w-3xl mx-auto space-y-6"><p class="text-slate-400 text-sm italic leading-relaxed text-center">Welcome to your high-performance system configuration. You are about to build a plan designed to survive your worst days. Follow the steps below to complete your blueprint.</p><div class="grid grid-cols-1 md:grid-cols-2 gap-6"><div class="info-card"><h3 class="text-sky-400 font-bold uppercase text-xs mb-2 mono tracking-wider italic">01: Engine Identity</h3><p class="text-xs text-slate-300 leading-relaxed">High performance is about who you <strong class="text-white uppercase italic">are</strong>, not just what you do. Define your "I AM" statement and the core value that serves as your compass.</p></div><div class="info-card border-l-emerald-500"><h3 class="text-emerald-400 font-bold uppercase text-xs mb-2 mono tracking-wider italic">02: The Path (7/10 Task)</h3><p class="text-xs text-slate-300 leading-relaxed">Define a daily habit that is a 7/10 difficulty. Tough enough to make you better, but doable enough to win every single day. Plan your <strong class="text-white italic">Hammer</strong> to defeat the <strong class="text-white italic">Flinch</strong>.</p></div><div class="info-card border-l-rose-500"><h3 class="text-rose-500 font-bold uppercase text-xs mb-2 mono tracking-wider italic">03: Maintenance</h3><p class="text-xs text-slate-300 leading-relaxed">Performance requires durability. Identify your non-negotiable recovery mandate (Sleep, Mobility, or Social) to keep your system from redlining.</p></div><div class="info-card border-l-amber-500"><h3 class="text-amber-500 font-bold uppercase text-xs mb-2 mono tracking-wider italic">04: Integrity Review</h3><p class="text-xs text-slate-300 leading-relaxed">Audit your work. If the plan doesn't survive a bad day, it isn't a plan. Use the <strong class="text-white italic">Understanding Narrative</strong> and the <strong class="text-white italic">Self-Evaluation Rubric</strong> to finalize your system.</p></div></div><div class="flex justify-center pt-6"><button onclick="mb_showStep(1)" class="bg-sky-600 px-12 py-4 rounded-xl text-white font-black uppercase text-xs tracking-[0.2em] hover:bg-sky-500 transition-all shadow-lg shadow-sky-900/20 active:scale-95">Start Configuration</button></div></div></div></div>
+                    <div id="mb-step1" class="step-content"><div class="relative px-6 py-4 border-b border-slate-800 bg-slate-900/50"><div class="absolute top-0 left-0 w-full h-1 bg-sky-500"></div><h2 class="text-xl font-bold text-white uppercase italic tracking-tight">Step 01: Engine Identity</h2></div><div class="p-8 space-y-6"><div><label class="block text-[10px] font-bold uppercase text-slate-500 mb-2 tracking-widest mono">Identity Anchor</label><input type="text" id="mb_anchor" oninput="mb_saveData()" placeholder="I AM..." class="w-full rounded-lg p-4 text-lg font-bold text-white italic"><p class="text-[9px] text-slate-600 mt-2 italic">Example: I am a person who finishes what they start.</p></div><div><label class="block text-[10px] font-bold uppercase text-slate-500 mb-2 tracking-widest mono">Compass Value</label><input type="text" id="mb_value" oninput="mb_saveData()" placeholder="Core guiding value..." class="w-full rounded-lg p-4 text-slate-200"></div><div class="flex justify-between pt-4"><button onclick="mb_showStep(0)" class="text-slate-500 font-bold uppercase text-[10px]">Back</button><button onclick="mb_showStep(2)" class="bg-sky-600 px-8 py-3 rounded-lg text-white font-bold uppercase text-[10px]">Next</button></div></div></div>
+                    <div id="mb-step2" class="step-content"><div class="relative px-6 py-4 border-b border-slate-800 bg-slate-900/50"><div class="absolute top-0 left-0 w-full h-1 bg-sky-500"></div><h2 class="text-xl font-bold text-white uppercase italic tracking-tight">Step 02: The Path</h2></div><div class="p-8 space-y-6"><div><label class="block text-[10px] font-bold uppercase text-slate-500 mb-2 tracking-widest mono">7/10 Task (One Daily habit)</label><input type="text" id="mb_task" oninput="mb_saveData()" placeholder="Tough enough to grow, doable enough to win..." class="w-full rounded-lg p-4 text-slate-200"></div><div class="p-6 bg-slate-950 rounded-xl border border-slate-800"><div class="text-[10px] font-black text-sky-400 mb-4 tracking-widest uppercase italic">Governor: Flinch -> Hammer</div><div class="grid grid-cols-1 md:grid-cols-2 gap-6"><div><label class="block text-[8px] text-slate-500 uppercase mono mb-1">The Flinch (The Resistance)</label><input type="text" id="mb_flinch" oninput="mb_saveData()" placeholder="The moment you quit..." class="w-full bg-transparent border-b border-slate-800 p-2 text-xs italic outline-none focus:border-sky-500"></div><div><label class="block text-[8px] text-slate-500 uppercase mono mb-1">The Hammer (The Strike)</label><input type="text" id="mb_hammer" oninput="mb_saveData()" placeholder="The counter-attack..." class="w-full bg-transparent border-b border-slate-800 p-2 text-xs font-bold text-sky-400 outline-none focus:border-sky-500"></div></div></div><div class="flex justify-between pt-4"><button onclick="mb_showStep(1)" class="text-slate-500 font-bold uppercase text-[10px]">Back</button><button onclick="mb_showStep(3)" class="bg-sky-600 px-8 py-3 rounded-lg text-white font-bold uppercase text-[10px]">Next</button></div></div></div>
+                    <div id="mb-step3" class="step-content"><div class="relative px-6 py-4 border-b border-slate-800 bg-slate-900/50"><div class="absolute top-0 left-0 w-full h-1 bg-sky-500"></div><h2 class="text-xl font-bold text-white uppercase italic tracking-tight">Step 03: Maintenance</h2></div><div class="p-8 space-y-6"><div><label class="block text-[10px] font-bold uppercase text-slate-500 mb-2 tracking-widest mono">Recovery Mandate</label><input type="text" id="mb_recovery" oninput="mb_saveData()" placeholder="Alpha Rest (Sleep, Mobility, Social)..." class="w-full rounded-lg p-4 text-slate-200"></div><div><label class="block text-[10px] font-bold uppercase text-slate-500 mb-2 tracking-widest mono">Authentic Pride</label><textarea id="mb_pride" oninput="mb_saveData()" placeholder="I earned this because I..." class="w-full rounded-lg p-4 text-xs h-24 resize-none text-slate-400 italic"></textarea></div><div class="flex justify-between pt-4"><button onclick="mb_showStep(2)" class="text-slate-500 font-bold uppercase text-[10px]">Back</button><button onclick="mb_showStep(4)" class="bg-sky-600 px-8 py-3 rounded-lg text-white font-bold uppercase text-[10px]">Next</button></div></div></div>
+                    <div id="mb-step4" class="step-content"><div class="relative px-6 py-4 border-b border-slate-800 bg-slate-900/50"><div class="absolute top-0 left-0 w-full h-1 bg-emerald-500"></div><h2 class="text-xl font-bold text-white uppercase italic tracking-tight">Step 04: Score &amp; Review</h2></div><div class="p-8 space-y-8"><div class="grid grid-cols-1 lg:grid-cols-2 gap-8"><div><label class="block text-[10px] font-bold uppercase text-slate-500 mb-4 tracking-widest mono italic underline underline-offset-2">System Integrity Audit</label><div id="mb-scoring-container" class="space-y-4"></div><div class="border-t border-slate-800 mt-6 pt-6 flex justify-between items-center"><span class="text-[10px] uppercase font-bold text-slate-500 tracking-[0.2em]">Readiness Score</span><div class="text-4xl font-black italic text-emerald-500 leading-none"><span id="mb-total-score">00</span><span class="text-xl text-slate-700 font-normal not-italic">/20</span></div></div></div><div class="space-y-6"><div><label class="block text-[10px] font-bold uppercase text-sky-400 mb-2 tracking-widest mono italic underline underline-offset-4">Understanding Narrative</label><textarea id="mb_narrative" oninput="mb_saveData()" class="w-full rounded-xl p-4 text-sm h-[180px] resize-none text-slate-200 border-2 border-sky-500/20 focus:border-sky-500 transition-all"></textarea></div><div class="bg-sky-500/5 border border-sky-500/20 p-6 rounded-2xl text-center"><h3 class="text-sky-500 font-black text-[10px] uppercase italic tracking-widest mb-3 italic underline underline-offset-4">Live Summary</h3><p id="mb-summary-preview" class="text-sm font-bold italic text-white leading-relaxed">...</p></div></div></div><div class="border-t border-slate-800 pt-8"><label class="block text-[10px] font-bold uppercase text-emerald-500 mb-4 tracking-[0.2em] mono italic underline underline-offset-4">Self-Evaluation Rubric</label><div class="overflow-x-auto glass rounded-2xl border border-slate-800 shadow-xl"><table class="w-full text-left border-collapse min-w-[700px]"><thead><tr class="bg-slate-900/80 border-b border-slate-800"><th class="p-4 text-[10px] font-black uppercase text-slate-500 mono tracking-widest w-1/4">Criteria</th><th class="p-4 text-[10px] font-black uppercase text-emerald-400 mono tracking-widest w-1/4">Proficient</th><th class="p-4 text-[10px] font-black uppercase text-amber-400 mono tracking-widest w-1/4">Developing</th><th class="p-4 text-[10px] font-black uppercase text-rose-400 mono tracking-widest w-1/4">Emerging</th></tr></thead><tbody class="text-[10px] leading-relaxed"><tr class="border-b border-slate-800/50"><td class="p-4 font-bold uppercase text-white mono italic">Engine Identity</td><td onclick="mb_setScore('id', 5)" id="mb-id-5" class="rubric-cell p-4 text-slate-400 italic">Identity Anchor is a strong "I AM" statement; Compass Value is clear and guiding.</td><td onclick="mb_setScore('id', 3)" id="mb-id-3" class="rubric-cell p-4 text-slate-400 italic">Identity is behavior-based rather than identity-based; Value is vague.</td><td onclick="mb_setScore('id', 1)" id="mb-id-1" class="rubric-cell p-4 text-slate-400 italic">Statement is missing or does not reflect an identity or value.</td></tr><tr class="border-b border-slate-800/50"><td class="p-4 font-bold uppercase text-white mono italic">The Path</td><td onclick="mb_setScore('tk', 5)" id="mb-tk-5" class="rubric-cell p-4 text-slate-400 italic">Task is specifically measurable and appropriately difficult; Flinch/Hammer logic is tactical.</td><td onclick="mb_setScore('tk', 3)" id="mb-tk-3" class="rubric-cell p-4 text-slate-400 italic">Task is too easy or too hard; Flinch/Hammer responses are generic.</td><td onclick="mb_setScore('tk', 1)" id="mb-tk-1" class="rubric-cell p-4 text-slate-400 italic">Task is not measurable; no Flinch/Hammer strategy provided.</td></tr><tr class="border-b border-slate-800/50"><td class="p-4 font-bold uppercase text-white mono italic">Maintenance</td><td onclick="mb_setScore('mn', 5)" id="mb-mn-5" class="rubric-cell p-4 text-slate-400 italic">Clear Recovery Mandate and thoughtful reflection on Authentic Pride.</td><td onclick="mb_setScore('mn', 3)" id="mb-mn-3" class="rubric-cell p-4 text-slate-400 italic">Recovery plan is vague; reflection lacks depth or specificity.</td><td onclick="mb_setScore('mn', 1)" id="mb-mn-1" class="rubric-cell p-4 text-slate-400 italic">No recovery plan or reflection provided.</td></tr><tr><td class="p-4 font-bold uppercase text-white mono italic">System Audit</td><td onclick="mb_setScore('cl', 5)" id="mb-cl-5" class="rubric-cell p-4 text-slate-400 italic">Self-score is honest and reflected in the "One-Line Summary" synthesis.</td><td onclick="mb_setScore('cl', 3)" id="mb-cl-3" class="rubric-cell p-4 text-slate-400 italic">Self-score provided but doesn't align with the actual configuration.</td><td onclick="mb_setScore('cl', 1)" id="mb-cl-1" class="rubric-cell p-4 text-slate-400 italic">Incomplete scoring or missing One-Line Summary.</td></tr></tbody></table></div></div><div class="flex flex-col md:flex-row gap-4 pt-8"><button onclick="mb_showStep(1)" class="flex-1 text-slate-500 font-bold uppercase text-[10px] tracking-widest hover:text-white transition-colors border border-slate-800 rounded-xl py-4"><- Start Over</button><button onclick="mb_generateFullPrint()" class="flex-[2] bg-emerald-600 hover:bg-emerald-500 text-white font-black uppercase tracking-widest py-4 rounded-xl shadow-lg shadow-emerald-900/20 transition-all active:scale-[0.98]">Generate Full One-Page Blueprint</button></div></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIEW: PHASE 3 FOCUS -->
+        <div id="view-phase3" class="w-full h-full custom-scroll hidden p-4 md:p-8">
+            <div class="max-w-6xl mx-auto">
+                <header class="mb-8 text-center">
+                    <h1 class="text-3xl font-black italic tracking-tighter text-white uppercase mb-2 text-sky-500">Focus Master Blueprint</h1>
+                    <p class="text-[10px] font-mono uppercase tracking-[0.3em] text-slate-500 mb-6 font-bold">Phase 3: Concentration &amp; Attention</p>
+                    <div class="flex flex-wrap justify-center gap-3 mb-6 bg-slate-900/50 p-3 rounded-xl border border-slate-800 max-w-2xl mx-auto"><div class="flex items-center gap-2 px-3"><div id="p3-save-indicator" class="w-2 h-2 rounded-full bg-slate-600"></div><span id="p3-save-text" class="text-[9px] uppercase font-bold text-slate-500 tracking-widest">System Ready</span></div><div class="w-px h-6 bg-slate-800 mx-2 hidden sm:block"></div><button onclick="p3_downloadBackup()" class="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-white px-3 py-1.5 rounded-lg text-[10px] uppercase font-bold tracking-wider transition-colors border border-slate-700">Save Backup File</button><button onclick="document.getElementById('p3-file-upload').click()" class="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-sky-400 px-3 py-1.5 rounded-lg text-[10px] uppercase font-bold tracking-wider transition-colors border border-slate-700">Load Backup</button><input type="file" id="p3-file-upload" accept=".json" style="display: none;" onchange="p3_loadBackup(this)"></div>
+                    <div class="flex justify-center gap-2 overflow-x-auto pb-2 px-2"><button onclick="p3_showStep(0)" class="mod-nav-btn active px-4 py-2 rounded-lg border border-slate-700 text-[10px] font-bold uppercase tracking-widest mono transition-all flex-shrink-0">00 Briefing</button><button onclick="p3_showStep(1)" class="mod-nav-btn px-4 py-2 rounded-lg border border-slate-700 text-[10px] font-bold uppercase tracking-widest mono transition-all flex-shrink-0">01 The Arena</button><button onclick="p3_showStep(2)" class="mod-nav-btn px-4 py-2 rounded-lg border border-slate-700 text-[10px] font-bold uppercase tracking-widest mono transition-all flex-shrink-0">02 Anchors</button><button onclick="p3_showStep(3)" class="mod-nav-btn px-4 py-2 rounded-lg border border-slate-800 text-[10px] font-bold uppercase tracking-widest mono transition-all flex-shrink-0">03 Fortress</button><button onclick="p3_showStep(4)" class="mod-nav-btn px-4 py-2 rounded-lg border border-slate-800 text-[10px] font-bold uppercase tracking-widest mono transition-all flex-shrink-0">04 Review</button></div>
+                </header>
+                <div class="glass rounded-3xl shadow-2xl overflow-hidden min-h-[500px]">
+                    <div id="p3-step0" class="step-content active"><div class="relative px-6 py-4 border-b border-slate-800 bg-slate-900/50"><div class="absolute top-0 left-0 w-full h-1 bg-sky-500"></div><h2 class="text-xl font-bold text-white uppercase italic tracking-tight">Step 00: Focus Mission Control</h2></div><div class="p-8 space-y-8 text-center"><div class="max-w-3xl mx-auto space-y-6"><p class="text-slate-400 text-sm italic leading-relaxed">"Concentration is the master art because all other arts depend on it." This blueprint helps you build a "Fortress of Focus" to move from Self 1 (the critical ego) to Self 2 (the instinctive doer).</p><div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left"><div class="info-card"><h3 class="text-sky-400 font-bold uppercase text-xs mb-2 mono italic">The Spotlight</h3><p class="text-[11px] text-slate-300 leading-relaxed italic">Your attention is a beam of light. Most performers fail because their spotlight is too broad (distractions) or pointed at the past/future. We need it <strong class="text-white">Narrow &amp; External</strong>.</p></div><div class="info-card border-l-emerald-500"><h3 class="text-emerald-400 font-bold uppercase text-xs mb-2 mono italic">Cues &amp; Anchors</h3><p class="text-[11px] text-slate-300 leading-relaxed italic">A <strong class="text-white italic">Cue</strong> is a word that triggers a behavior. An <strong class="text-white italic">Anchor</strong> is a physical sensation (like the seams of a ball) that keeps your mind in the "Now."</p></div><div class="info-card border-l-rose-500"><h3 class="text-rose-500 font-bold uppercase text-xs mb-2 mono italic">Self 1 vs Self 2</h3><p class="text-[11px] text-slate-300 leading-relaxed italic">Self 1 is the voice in your head that judges and yells. Self 2 is your body's natural ability. To win, we must <strong class="text-white italic">Quiet Self 1</strong> and <strong class="text-white italic">Trust Self 2</strong>.</p></div><div class="info-card border-l-amber-500"><h3 class="text-amber-500 font-bold uppercase text-xs mb-2 mono italic">Quiet Eye</h3><p class="text-[11px] text-slate-300 leading-relaxed italic">The final fixation on your target before moving. Elite performers have a stable "Quiet Eye" that allows their brain to process motor plans without interference.</p></div></div><div class="flex justify-center pt-6"><button onclick="p3_showStep(1)" class="bg-sky-600 px-12 py-4 rounded-xl text-white font-black uppercase text-xs tracking-[0.2em] hover:bg-sky-500 transition-all shadow-lg active:scale-95">Enter The Arena</button></div></div></div></div>
+                    <div id="p3-step1" class="step-content"><div class="relative px-6 py-4 border-b border-slate-800 bg-slate-900/50"><div class="absolute top-0 left-0 w-full h-1 bg-sky-500"></div><h2 class="text-xl font-bold text-white uppercase italic tracking-tight">Step 01: The Arena (Distraction Audit)</h2></div><div class="p-8 space-y-8"><div class="grid grid-cols-1 md:grid-cols-2 gap-8"><div class="space-y-6"><h3 class="text-[10px] font-bold text-slate-500 uppercase mono italic underline tracking-widest">Identify Internal Distracters</h3><div><label class="block text-[9px] font-bold uppercase text-slate-600 mb-2">Self 1 Critical Voice (What does the ego say?)</label><input type="text" id="p3_internal_dist" oninput="p3_saveData()" placeholder="e.g., 'Don't choke,' 'I'm playing terrible'..." class="w-full rounded-lg p-4 text-xs italic"></div><div><label class="block text-[9px] font-bold uppercase text-slate-600 mb-2">Past/Future Traps (What are you usually fixated on?)</label><input type="text" id="p3_time_trap" oninput="p3_saveData()" placeholder="e.g., A bad call, the final score, scouts watching..." class="w-full rounded-lg p-4 text-xs italic"></div></div><div class="space-y-6"><h3 class="text-[10px] font-bold text-slate-500 uppercase mono italic underline tracking-widest">Identify External Distracters</h3><div><label class="block text-[9px] font-bold uppercase text-slate-600 mb-2">Environmental Noise (Visual/Auditory)</label><input type="text" id="p3_external_dist" oninput="p3_saveData()" placeholder="e.g., Crowd noise, opponents trash talking, weather..." class="w-full rounded-lg p-4 text-xs italic"></div><div><label class="block text-[9px] font-bold uppercase text-slate-600 mb-2 font-black text-sky-400 italic underline">The Primary Spotlight Goal</label><textarea id="p3_spotlight" oninput="p3_saveData()" placeholder="Where should your spotlight be pointed during the heat of competition? (Select a Narrow-External cue)" class="w-full rounded-lg p-4 text-xs h-20 resize-none italic font-bold"></textarea></div></div></div><div class="flex justify-between pt-4"><button onclick="p3_showStep(0)" class="text-slate-500 font-bold uppercase text-[10px] tracking-widest"><- Back</button><button onclick="p3_showStep(2)" class="bg-sky-600 px-8 py-3 rounded-lg text-white font-bold uppercase text-[10px] tracking-widest">Next: Cues &amp; Anchors -></button></div></div></div>
+                    <div id="p3-step2" class="step-content"><div class="relative px-6 py-4 border-b border-slate-800 bg-slate-900/50"><div class="absolute top-0 left-0 w-full h-1 bg-sky-500"></div><h2 class="text-xl font-bold text-white uppercase italic tracking-tight">Step 02: Cues &amp; Anchors (Quieting Self 1)</h2></div><div class="p-8 space-y-10"><div class="grid grid-cols-1 md:grid-cols-2 gap-8"><div class="space-y-6"><h3 class="text-[10px] font-bold text-slate-500 uppercase mono italic underline tracking-widest">Tactical Self-Talk</h3><div><label class="block text-[9px] font-bold uppercase text-slate-600 mb-2">Instructional Cue (Technical - e.g., "Follow through")</label><input type="text" id="p3_instructional_cue" oninput="p3_saveData()" placeholder="One word for technical execution..." class="w-full rounded-lg p-4 text-xs"></div><div><label class="block text-[9px] font-bold uppercase text-slate-600 mb-2">Motivational Cue (Energy - e.g., "Explode")</label><input type="text" id="p3_motivational_cue" oninput="p3_saveData()" placeholder="One word for physical effort..." class="w-full rounded-lg p-4 text-xs"></div></div><div class="space-y-6"><h3 class="text-[10px] font-bold text-slate-500 uppercase mono italic underline tracking-widest text-emerald-400">Relaxed Concentration</h3><div><label class="block text-[9px] font-bold uppercase text-slate-600 mb-2">Physical Anchor (Something to sense, not think about)</label><select id="p3_anchor_type" onchange="p3_saveData()" class="w-full rounded-lg p-4 text-xs"><option value="">Select Anchor...</option><option value="Breath">The Breath (Inner Rhythm)</option><option value="Object Detail">Object Detail (e.g., Seams of the ball)</option><option value="Quiet Eye">Quiet Eye (Fixed Target)</option><option value="Sound">Sound (e.g., The 'crack' of impact)</option></select></div><div><label class="block text-[9px] font-bold uppercase text-slate-600 mb-2 italic">How will you use this anchor during a break in action?</label><textarea id="p3_anchor_usage" oninput="p3_saveData()" placeholder="Describe the reset protocol..." class="w-full rounded-lg p-4 text-xs h-20 resize-none italic text-slate-300"></textarea></div></div></div><div class="flex justify-between pt-4"><button onclick="p3_showStep(1)" class="text-slate-500 font-bold uppercase text-[10px] tracking-widest"><- Back</button><button onclick="p3_showStep(3)" class="bg-sky-600 px-8 py-3 rounded-lg text-white font-bold uppercase text-[10px] tracking-widest">Next: Fortress Routine -></button></div></div></div>
+                    <div id="p3-step3" class="step-content"><div class="relative px-6 py-4 border-b border-slate-800 bg-slate-900/50"><div class="absolute top-0 left-0 w-full h-1 bg-sky-500"></div><h2 class="text-xl font-bold text-white uppercase italic tracking-tight">Step 03: The Fortress Routine (Preparation)</h2></div><div class="p-8 space-y-8"><div class="grid grid-cols-1 gap-8"><div><label class="block text-[10px] font-bold uppercase text-slate-500 mb-4 mono tracking-widest italic underline underline-offset-4">Pre-Performance Routine Builder</label><p class="text-[10px] text-slate-400 italic mb-4">A systematic sequence of task-relevant thoughts and actions to transfer attention from 'The Arena' to 'The Now'.</p><div class="grid grid-cols-1 md:grid-cols-3 gap-4"><div class="bg-slate-950/50 p-4 rounded-xl border border-slate-800"><span class="bg-sky-500 text-slate-950 text-[8px] font-black px-1.5 py-0.5 rounded uppercase mb-2 block w-max">Step 1: Physical</span><textarea id="p3_routine_1" oninput="p3_saveData()" placeholder="What physical act starts your focus? (e.g., tightening laces, deep breath, 3 dribbles)" class="w-full bg-transparent border-none p-0 text-xs h-16 resize-none italic"></textarea></div><div class="bg-slate-950/50 p-4 rounded-xl border border-slate-800"><span class="bg-emerald-500 text-slate-950 text-[8px] font-black px-1.5 py-0.5 rounded uppercase mb-2 block w-max">Step 2: Mental</span><textarea id="p3_routine_2" oninput="p3_saveData()" placeholder="Visual imagery or Cue Word..." class="w-full bg-transparent border-none p-0 text-xs h-16 resize-none italic"></textarea></div><div class="bg-slate-950/50 p-4 rounded-xl border border-slate-800"><span class="bg-amber-500 text-slate-950 text-[8px] font-black px-1.5 py-0.5 rounded uppercase mb-2 block w-max">Step 3: Trigger</span><textarea id="p3_routine_3" oninput="p3_saveData()" placeholder="What is the final fixation (Quiet Eye) before you execute?" class="w-full bg-transparent border-none p-0 text-xs h-16 resize-none italic"></textarea></div></div></div><div><label class="block text-[10px] font-bold uppercase text-rose-500 mb-4 mono tracking-widest italic underline underline-offset-4">Simulation Training (The "What If")</label><div class="grid grid-cols-1 md:grid-cols-2 gap-4"><div><label class="block text-[9px] font-bold uppercase text-slate-600 mb-2">High-Pressure "What If" Scenario</label><input type="text" id="p3_what_if" oninput="p3_saveData()" placeholder="e.g., 'What if the officials make a bad call?'" class="w-full rounded-lg p-4 text-xs italic"></div><div><label class="block text-[9px] font-bold uppercase text-slate-600 mb-2 text-emerald-400">Pre-Planned Tactical Response</label><input type="text" id="p3_response" oninput="p3_saveData()" placeholder="How will you reset your spotlight instantly?" class="w-full rounded-lg p-4 text-xs italic font-bold"></div></div></div></div><div class="flex justify-between pt-4"><button onclick="p3_showStep(2)" class="text-slate-500 font-bold uppercase text-[10px] tracking-widest"><- Back</button><button onclick="p3_showStep(4)" class="bg-sky-600 px-8 py-3 rounded-lg text-white font-bold uppercase text-[10px] tracking-widest">Next: Mastery Review -></button></div></div></div>
+                    <div id="p3-step4" class="step-content"><div class="relative px-6 py-4 border-b border-slate-800 bg-slate-900/50"><div class="absolute top-0 left-0 w-full h-1 bg-emerald-500"></div><h2 class="text-xl font-bold text-white uppercase italic tracking-tight">Step 04: Mastery Review &amp; Export</h2></div><div class="p-8 space-y-8"><div class="grid grid-cols-1 lg:grid-cols-2 gap-8"><div><label class="block text-[10px] font-bold uppercase text-slate-500 mb-4 tracking-widest mono italic underline underline-offset-2">Focus Integrity Audit</label><div id="p3-scoring-container" class="space-y-4"></div><div class="border-t border-slate-800 mt-6 pt-6 flex justify-between items-center"><span class="text-[10px] uppercase font-bold text-slate-500 tracking-[0.2em]">Mastery Score</span><div class="text-4xl font-black italic text-emerald-500 leading-none"><span id="p3-total-score">00</span><span class="text-xl text-slate-700 font-normal not-italic">/25</span></div></div></div><div class="space-y-6"><div><label class="block text-[10px] font-bold uppercase text-sky-400 mb-2 tracking-widest mono italic underline underline-offset-4">Understanding Narrative (Required)</label><textarea id="p3_narrative" oninput="p3_saveData()" placeholder="Explain your Focus Blueprint: How does quieting Self 1 help you? Why are your cues selected this way? Prove you understand Chapter 17 concepts..." class="w-full rounded-xl p-4 text-sm h-[180px] resize-none text-slate-200 border-2 border-sky-500/20 focus:border-sky-500 transition-all"></textarea></div><div class="bg-sky-500/5 border border-sky-500/20 p-6 rounded-2xl text-center"><h3 class="text-sky-500 font-black text-[10px] uppercase italic tracking-widest mb-3 italic underline underline-offset-4">Concentration Summary</h3><p id="p3-summary-preview" class="text-sm font-bold italic text-white leading-relaxed">"I focus on <span class="text-sky-400">...</span> by using <span class="text-sky-400">...</span>."</p></div></div></div><div class="mt-8 border-t border-slate-800 pt-8"><label class="block text-[10px] font-bold uppercase text-emerald-500 mb-4 tracking-[0.2em] mono italic underline underline-offset-4">Self-Evaluation Rubric</label><div class="overflow-x-auto glass rounded-2xl border border-slate-800 shadow-xl"><table class="w-full text-left border-collapse min-w-[700px]"><thead><tr class="bg-slate-900/80 border-b border-slate-800"><th class="p-4 text-[10px] font-black uppercase text-slate-500 mono tracking-widest w-1/4">Criteria</th><th class="p-4 text-[10px] font-black uppercase text-emerald-400 mono tracking-widest w-1/4">Proficient (4-5 pts)</th><th class="p-4 text-[10px] font-black uppercase text-amber-400 mono tracking-widest w-1/4">Developing (2-3 pts)</th><th class="p-4 text-[10px] font-black uppercase text-rose-400 mono tracking-widest w-1/4">Emerging (0-1 pts)</th></tr></thead><tbody class="text-[10px] leading-relaxed"><tr class="border-b border-slate-800/50"><td class="p-4 font-bold uppercase text-white mono italic">Arena Audit</td><td onclick="p3_setScore('arena', 5)" id="p3-arena-5" class="rubric-cell p-4 text-slate-400 italic">Highly specific internal/external distracters identified; Narrow-External spotlight is clear.</td><td onclick="p3_setScore('arena', 3)" id="p3-arena-3" class="rubric-cell p-4 text-slate-400 italic">Distracters are generic; spotlight target is broad or internally focused.</td><td onclick="p3_setScore('arena', 1)" id="p3-arena-1" class="rubric-cell p-4 text-slate-400 italic">Incomplete audit or missing spotlight target.</td></tr><tr class="border-b border-slate-800/50"><td class="p-4 font-bold uppercase text-white mono italic">Anchoring Strategy</td><td onclick="p3_setScore('anch', 5)" id="p3-anch-5" class="rubric-cell p-4 text-slate-400 italic">Effective Instructional/Motivational cues; anchor usage is tactical and actionable.</td><td onclick="p3_setScore('anch', 3)" id="p3-anch-3" class="rubric-cell p-4 text-slate-400 italic">Cues are too complex or judgmental; anchor usage is vague.</td><td onclick="p3_setScore('anch', 1)" id="p3-anch-1" class="rubric-cell p-4 text-slate-400 italic">Missing cues or physical anchors.</td></tr><tr class="border-b border-slate-800/50"><td class="p-4 font-bold uppercase text-white mono italic">Fortress Preparation</td><td onclick="p3_setScore('fort', 5)" id="p3-fort-5" class="rubric-cell p-4 text-slate-400 italic">Systematic routine includes Quiet Eye; "What-If" planning is resilient.</td><td onclick="p3_setScore('fort', 3)" id="p3-fort-3" class="rubric-cell p-4 text-slate-400 italic">Routine is random or inconsistent; "What-If" response is not tactical.</td><td onclick="p3_setScore('fort', 1)" id="p3-fort-1" class="rubric-cell p-4 text-slate-400 italic">Missing routine or simulation planning.</td></tr><tr class="border-b border-slate-800/50"><td class="p-4 font-bold uppercase text-white mono italic">Understanding Narrative</td><td onclick="p3_setScore('narr', 5)" id="p3-narr-5" class="rubric-cell p-4 text-slate-400 italic">Deep comprehension of Self 1 vs Self 2 and the spotlight metaphor.</td><td onclick="p3_setScore('narr', 3)" id="p3-narr-3" class="rubric-cell p-4 text-slate-400 italic">Briefly explains choices but lacks conceptual depth.</td><td onclick="p3_setScore('narr', 1)" id="p3-narr-1" class="rubric-cell p-4 text-slate-400 italic">Missing or repeats concepts without application.</td></tr><tr><td class="p-4 font-bold uppercase text-white mono italic">Integrity Audit</td><td onclick="p3_setScore('audit', 5)" id="p3-audit-5" class="rubric-cell p-4 text-slate-400 italic">Honest self-scoring and high-impact concentration summary.</td><td onclick="p3_setScore('audit', 3)" id="p3-audit-3" class="rubric-cell p-4 text-slate-400 italic">Scoring provided but doesn't match blueprint depth.</td><td onclick="p3_setScore('audit', 1)" id="p3-audit-1" class="rubric-cell p-4 text-slate-400 italic">Incomplete summary or scoring.</td></tr></tbody></table></div></div><div class="flex flex-col md:flex-row gap-4 pt-8"><button onclick="p3_showStep(1)" class="flex-1 text-slate-500 font-bold uppercase text-[10px] tracking-widest hover:text-white transition-colors border border-slate-800 rounded-xl py-4"><- Start Over</button><button onclick="p3_generateFullPrint()" class="flex-[2] bg-emerald-600 hover:bg-emerald-500 text-white font-black uppercase tracking-widest py-4 rounded-xl shadow-lg shadow-emerald-900/20 transition-all active:scale-[0.98]">Generate Full One-Page Focus Blueprint</button></div></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIEW: PHASE 4A CONFIDENCE -->
+        <div id="view-phase4a" class="w-full h-full custom-scroll hidden p-4 md:p-8">
+            <div class="max-w-5xl mx-auto">
+                <header class="mb-8 text-center">
+                    <h1 class="text-3xl font-black italic tracking-tighter text-white uppercase mb-2 text-sky-500">Confidence Master Blueprint</h1>
+                    <p class="text-[10px] font-mono uppercase tracking-[0.3em] text-slate-500 mb-6 font-bold underline decoration-sky-500/30 underline-offset-4">Phase 4: The Trained Mindset</p>
+                    <div class="flex flex-wrap justify-center gap-3 mb-6 bg-slate-900/50 p-3 rounded-xl border border-slate-800 max-w-2xl mx-auto"><div class="flex items-center gap-2 px-3"><div id="p4a_save-indicator" class="w-2 h-2 rounded-full bg-slate-600"></div><span id="p4a_save-text" class="text-[9px] uppercase font-bold text-slate-500 tracking-widest">System Ready</span></div><div class="w-px h-6 bg-slate-800 mx-2 hidden sm:block"></div><button onclick="p4a_downloadBackup()" class="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-white px-3 py-1.5 rounded-lg text-[10px] uppercase font-bold tracking-wider transition-colors border border-slate-700">Save Backup File</button><button onclick="document.getElementById('p4a_file-upload').click()" class="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-sky-400 px-3 py-1.5 rounded-lg text-[10px] uppercase font-bold tracking-wider transition-colors border border-slate-700">Load Backup</button><input type="file" id="p4a_file-upload" accept=".json" style="display: none;" onchange="p4a_loadBackup(this)"></div>
+                    <div class="flex justify-center gap-2 overflow-x-auto pb-2 px-2"><button onclick="p4a_showStep(0)" class="mod-nav-btn active px-4 py-2 rounded-lg border border-slate-700 text-[10px] font-bold uppercase tracking-widest mono transition-all flex-shrink-0">00 Briefing</button><button onclick="p4a_showStep(1)" class="mod-nav-btn px-4 py-2 rounded-lg border border-slate-700 text-[10px] font-bold uppercase tracking-widest mono transition-all flex-shrink-0">01 The Bank</button><button onclick="p4a_showStep(2)" class="mod-nav-btn px-4 py-2 rounded-lg border border-slate-700 text-[10px] font-bold uppercase tracking-widest mono transition-all flex-shrink-0">02 Damage Control</button><button onclick="p4a_showStep(3)" class="mod-nav-btn px-4 py-2 rounded-lg border border-slate-800 text-[10px] font-bold uppercase tracking-widest mono transition-all flex-shrink-0">03 Conviction</button><button onclick="p4a_showStep(4)" class="mod-nav-btn px-4 py-2 rounded-lg border border-slate-800 text-[10px] font-bold uppercase tracking-widest mono transition-all flex-shrink-0">04 Review</button></div>
+                </header>
+                <div class="glass rounded-3xl shadow-2xl overflow-hidden min-h-[500px]">
+                    <div id="p4a_step0" class="step-content active"><div class="relative px-6 py-4 border-b border-slate-800 bg-slate-900/50"><div class="absolute top-0 left-0 w-full h-1 bg-sky-500"></div><h2 class="text-xl font-bold text-white uppercase italic tracking-tight">Step 00: Confidence Mission BRIEFING</h2></div><div class="p-8 space-y-8 text-center"><div class="max-w-3xl mx-auto space-y-6 text-left"><p class="text-slate-400 text-sm italic leading-relaxed text-center">Confidence is built on the management of your "Mental Bank Account." Every mastery moment is a deposit; every setback is a potential withdrawal.</p><div class="grid grid-cols-1 md:grid-cols-2 gap-6"><div class="info-card"><h3 class="text-sky-400 font-bold uppercase text-xs mb-2 mono italic">The Top Ten</h3><p class="text-[11px] text-slate-300">A detailed list of your 10 greatest mastery moments to "flood" the brain with proof of your ability.</p></div><div class="info-card border-l-emerald-500"><h3 class="text-emerald-400 font-bold uppercase text-xs mb-2 mono italic">E-S-P Deposits</h3><p class="text-[11px] text-slate-300">The daily habit of recording Effort, Success, and Progress to ensure you never have a "zero balance" day.</p></div><div class="info-card border-l-rose-500"><h3 class="text-rose-400 font-bold uppercase text-xs mb-2 mono italic">Damage Control</h3><p class="text-[11px] text-slate-300">Using the Lockdown Filter (Temporary, Limited, Nonrepresentative) to protect the account during failure.</p></div><div class="info-card border-l-amber-500"><h3 class="text-amber-400 font-bold uppercase text-xs mb-2 mono italic">C-B-A Routine</h3><p class="text-[11px] text-slate-300">The 3-step action trigger (Cue, Breathe, Attach) used to activate conviction before execution.</p></div></div><div class="flex justify-center pt-6"><button onclick="p4a_showStep(1)" class="bg-sky-600 px-12 py-4 rounded-xl text-white font-black uppercase text-xs tracking-[0.2em] hover:bg-sky-500 transition-all shadow-lg active:scale-95">Enter The Vault</button></div></div></div></div>
+                    <div id="p4a_step1" class="step-content"><div class="relative px-6 py-4 border-b border-slate-800 bg-slate-900/50"><div class="absolute top-0 left-0 w-full h-1 bg-sky-500"></div><h2 class="text-xl font-bold text-white uppercase italic tracking-tight">Step 01: The Mental Bank Account</h2></div><div class="p-8 space-y-8"><div class="grid grid-cols-1 lg:grid-cols-3 gap-8"><div class="lg:col-span-2 space-y-4"><h3 class="text-[10px] font-bold text-slate-500 uppercase mono italic underline tracking-widest">Mastery Deposits (The Top Ten List)</h3><div class="grid grid-cols-1 gap-2" id="p4a_tt-container"></div><p class="helper-text">List 10 specific moments of mastery. Be precise about the skill or event.</p></div><div class="space-y-6"><h3 class="text-[10px] font-bold text-slate-500 uppercase mono italic underline tracking-widest text-emerald-400">Daily E-S-P Logic</h3><div class="space-y-4 bg-slate-950/50 p-6 rounded-2xl border border-slate-800 shadow-inner"><div><label class="block text-[8px] font-black uppercase text-sky-500 mb-1 leading-none">Effort</label><input type="text" id="p4a_esp_effort" oninput="p4a_saveData()" placeholder="Grit shown..." class="w-full rounded-lg p-3 text-xs italic"><p class="helper-text">A moment you pushed through a 'flinch'.</p></div><div><label class="block text-[8px] font-black uppercase text-emerald-500 mb-1 leading-none">Success</label><input type="text" id="p4a_esp_success" oninput="p4a_saveData()" placeholder="Win from today..." class="w-full rounded-lg p-3 text-xs italic"><p class="helper-text">A specific technical victory.</p></div><div><label class="block text-[8px] font-black uppercase text-amber-500 mb-1 leading-none">Progress</label><input type="text" id="p4a_esp_progress" oninput="p4a_saveData()" placeholder="1% growth..." class="w-full rounded-lg p-3 text-xs italic"><p class="helper-text">How are you better than yesterday?</p></div></div></div></div><div class="flex justify-between pt-4"><button onclick="p4a_showStep(0)" class="text-slate-500 font-bold uppercase text-[10px] tracking-widest"><- Back</button><button onclick="p4a_showStep(2)" class="bg-sky-600 px-8 py-3 rounded-lg text-white font-bold uppercase text-[10px] tracking-widest">Next: Control -></button></div></div></div>
+                    <div id="p4a_step2" class="step-content"><div class="relative px-6 py-4 border-b border-slate-800 bg-slate-900/50"><div class="absolute top-0 left-0 w-full h-1 bg-sky-500"></div><h2 class="text-xl font-bold text-white uppercase italic tracking-tight">Step 02: Damage Control</h2></div><div class="p-8 space-y-10"><div class="grid grid-cols-1 md:grid-cols-2 gap-8"><div class="space-y-6"><h3 class="text-[10px] font-bold text-slate-500 uppercase mono italic underline tracking-widest text-rose-400 leading-none">The "So What?" Method</h3><div><label class="block text-[9px] font-bold uppercase text-slate-600 mb-2 italic">Acknowledge a setback and apply "So What? / Now What?"</label><textarea id="p4a_setback" oninput="p4a_saveData()" placeholder="Reframe the experience..." class="w-full rounded-lg p-4 text-xs h-32 resize-none italic text-slate-300"></textarea><p class="helper-text">Briefly state the error, find the tactical lesson, and define the immediate next action.</p></div></div><div class="space-y-6"><h3 class="text-[10px] font-bold text-slate-500 uppercase mono italic underline tracking-widest text-emerald-400 leading-none">Lockdown Filter</h3><div class="space-y-4"><div class="bg-slate-900/50 p-3 rounded border border-slate-800"><span class="text-[8px] font-black uppercase text-emerald-500 block mb-1">Temporary</span><p class="text-[10px] italic leading-tight">It just happened once. It's in the past.</p></div><div class="bg-slate-900/50 p-3 rounded border border-slate-800"><span class="text-[8px] font-black uppercase text-emerald-500 block mb-1">Limited</span><p class="text-[10px] italic leading-tight">It only affected this one skill or play.</p></div><div class="bg-slate-900/50 p-3 rounded border border-slate-800"><span class="text-[8px] font-black uppercase text-emerald-500 block mb-1">Nonrepresentative</span><p class="text-[10px] italic leading-tight">This mistake is NOT who I am as a performer.</p></div></div></div></div><div class="flex justify-between pt-4"><button onclick="p4a_showStep(1)" class="text-slate-500 font-bold uppercase text-[10px] tracking-widest"><- Back</button><button onclick="p4a_showStep(3)" class="bg-sky-600 px-8 py-3 rounded-lg text-white font-bold uppercase text-[10px] tracking-widest">Next: Conviction -></button></div></div></div>
+                    <div id="p4a_step3" class="step-content"><div class="relative px-6 py-4 border-b border-slate-800 bg-slate-900/50"><div class="absolute top-0 left-0 w-full h-1 bg-sky-500"></div><h2 class="text-xl font-bold text-white uppercase italic tracking-tight">Step 03: Conviction (C-B-A Routine)</h2></div><div class="p-8 space-y-8"><div class="max-w-2xl mx-auto space-y-10"><div class="space-y-8"><div class="flex gap-4"><div class="w-12 h-12 bg-sky-500 text-slate-950 font-black flex items-center justify-center rounded-xl flex-shrink-0 shadow-lg italic">C</div><div class="flex-1"><label class="block text-[9px] font-bold uppercase text-slate-600 mb-1 tracking-widest">Cue (Affirmation)</label><input type="text" id="p4a_cue" oninput="p4a_saveData()" placeholder="Short, high-impact word..." class="w-full rounded-lg p-3 text-xs italic font-black"><p class="helper-text">One word or phrase that triggers your 'Engine Identity'.</p></div></div><div class="flex gap-4"><div class="w-12 h-12 bg-emerald-500 text-slate-950 font-black flex items-center justify-center rounded-xl flex-shrink-0 shadow-lg italic">B</div><div class="flex-1"><label class="block text-[9px] font-bold uppercase text-slate-600 mb-1 tracking-widest leading-none">Breathe</label><p class="text-[11px] italic text-slate-300 font-bold">One deep diaphragmatic breath.</p><p class="helper-text leading-none mt-1">Trigger the relaxation response instantly.</p></div></div><div class="flex gap-4"><div class="w-12 h-12 bg-amber-500 text-slate-950 font-black flex items-center justify-center rounded-xl flex-shrink-0 shadow-lg italic">A</div><div class="flex-1"><label class="block text-[9px] font-bold uppercase text-slate-600 mb-1 tracking-widest">Attach</label><input type="text" id="p4a_attach" oninput="p4a_saveData()" placeholder="External target..." class="w-full rounded-lg p-3 text-xs italic font-bold"><p class="helper-text">Select one external target (ball seams, rim, opponent's jersey) to fixate on.</p></div></div></div></div><div class="flex justify-between pt-4"><button onclick="p4a_showStep(2)" class="text-slate-500 font-bold uppercase text-[10px] tracking-widest"><- Back</button><button onclick="p4a_showStep(4)" class="bg-sky-600 px-8 py-3 rounded-lg text-white font-bold uppercase text-[10px] tracking-widest">Next: Mastery Review -></button></div></div></div>
+                    <div id="p4a_step4" class="step-content"><div class="relative px-6 py-4 border-b border-slate-800 bg-slate-900/50"><div class="absolute top-0 left-0 w-full h-1 bg-emerald-500"></div><h2 class="text-xl font-bold text-white uppercase italic tracking-tight">Step 04: Mastery Review &amp; Export</h2></div><div class="p-8 space-y-12"><div class="grid grid-cols-1 lg:grid-cols-2 gap-8"><div><label class="block text-[10px] font-bold uppercase text-slate-500 mb-4 tracking-widest mono italic underline underline-offset-2">Mindset Integrity Audit</label><div id="p4a_scoring-container" class="space-y-4"></div><div class="border-t border-slate-800 mt-6 pt-6 flex justify-between items-center"><span class="text-[10px] uppercase font-bold text-slate-500 tracking-[0.2em]">Readiness Score</span><div class="text-4xl font-black italic text-emerald-500 leading-none"><span id="p4a_total-score">00</span><span class="text-xl text-slate-700 font-normal not-italic">/25</span></div></div></div><div class="space-y-6"><label class="block text-[10px] font-bold uppercase text-sky-400 mb-2 tracking-widest mono italic underline leading-none underline-offset-4">Understanding Narrative (Required)</label><textarea id="p4a_narr" oninput="p4a_saveData()" placeholder="Explain your plan..." class="w-full h-[240px] rounded-xl p-4 text-sm resize-none text-slate-200 border-2 border-sky-500/20 focus:border-sky-500 transition-all"></textarea><p class="helper-text">Explain how managing your 'Mental Bank Account' improves performance. Why is lockdown damage control necessary? Prove you know Zinsser's logic.</p></div></div><div class="border-t border-slate-800 pt-8"><label class="block text-[10px] font-bold uppercase text-emerald-500 mb-4 tracking-widest mono italic underline underline-offset-4">Self-Evaluation Rubric</label><div class="overflow-x-auto glass rounded-2xl border border-slate-800 shadow-xl"><table class="w-full text-left text-[10px] border-collapse min-w-[700px]"><thead><tr class="bg-slate-900 border-b border-slate-800"><th class="p-4 text-slate-500 uppercase font-black">Criteria</th><th class="p-4 text-emerald-400 uppercase font-black tracking-widest">Proficient (4-5)</th><th class="p-4 text-amber-400 uppercase font-black tracking-widest">Developing (2-3)</th><th class="p-4 text-rose-400 uppercase font-black tracking-widest">Emerging (0-1)</th></tr></thead><tbody class="text-[10px] leading-relaxed italic text-slate-400"><tr class="border-b border-slate-800/50"><td class="p-4 font-bold uppercase text-white mono">Bank Account</td><td onclick="p4a_setScore('bank', 5)" id="p4a_bank-5" class="rubric-cell p-4">Complete Top Ten list and precise daily E-S-P logic. Deposits are specific and frequent.</td><td onclick="p4a_setScore('bank', 3)" id="p4a_bank-3" class="rubric-cell p-4">Top Ten is incomplete or deposits are generic. Lacks daily planning specificity.</td><td onclick="p4a_setScore('bank', 1)" id="p4a_bank-1" class="rubric-cell p-4">Incomplete bank audit or missing daily deposit logic.</td></tr><tr class="border-b border-slate-800/50"><td class="p-4 font-bold uppercase text-white mono">Damage Control</td><td onclick="p4a_setScore('dmg', 5)" id="p4a_dmg-5" class="rubric-cell p-4">Tactical reframing of setbacks using the Lockdown filter (Temporary/Limited/Nonrep).</td><td onclick="p4a_setScore('dmg', 3)" id="p4a_dmg-3" class="rubric-cell p-4">Setback provided but reframe is emotional rather than tactical. Filter application is weak.</td><td onclick="p4a_setScore('dmg', 1)" id="p4a_dmg-1" class="rubric-cell p-4">Missing setback reflection or damage control protocol.</td></tr><tr class="border-b border-slate-800/50"><td class="p-4 font-bold uppercase text-white mono">C-B-A Routine</td><td onclick="p4a_setScore('action', 5)" id="p4a_action-5" class="rubric-cell p-4">Routine is clear, high-impact, and features a specific external attachment goal.</td><td onclick="p4a_setScore('action', 3)" id="p4a_action-3" class="rubric-cell p-4">Routine provided but cue is generic or attachment is broad/internal.</td><td onclick="p4a_setScore('action', 1)" id="p4a_action-1" class="rubric-cell p-4">Missing routine or action steps.</td></tr><tr><td class="p-4 font-bold uppercase text-white mono">Understanding</td><td onclick="p4a_setScore('un', 5)" id="p4a_un-5" class="rubric-cell p-4">Narrative proves comprehension of 'informed instinct' and 'selective perception'.</td><td onclick="p4a_setScore('un', 3)" id="p4a_un-3" class="rubric-cell p-4">Restates definitions without demonstrating personal application.</td><td onclick="p4a_setScore('un', 1)" id="p4a_un-1" class="rubric-cell p-4">Incomplete narrative or missing concepts.</td></tr></tbody></table></div></div><div class="flex flex-col md:flex-row gap-4 pt-8"><button onclick="p4a_showStep(1)" class="flex-1 text-slate-500 font-bold uppercase text-[10px] tracking-widest hover:text-white transition-colors border border-slate-800 rounded-xl py-4"><- Start Over</button><button onclick="p4a_generatePDF()" class="flex-[2] bg-emerald-600 hover:bg-emerald-500 text-white font-black uppercase tracking-widest py-4 rounded-xl shadow-lg active:scale-95">Generate Full Mastery Blueprint</button></div></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW VIEW: PHASE 4B VISUALIZATION -->
+        <div id="view-phase4b" class="w-full h-full custom-scroll hidden p-4 md:p-8">
+            <div class="max-w-5xl mx-auto">
+                <header class="mb-8 text-center">
+                    <h1 class="text-3xl font-black italic tracking-tighter text-white uppercase mb-2 text-sky-500">Visualization Master Blueprint</h1>
+                    <p class="text-[10px] font-mono uppercase tracking-[0.3em] text-slate-500 mb-6 font-bold underline decoration-sky-500/30 underline-offset-4">Phase 4: Multi-Sensory Envisioning</p>
+                    <div class="flex flex-wrap justify-center gap-3 mb-6 bg-slate-900/50 p-3 rounded-xl border border-slate-800 max-w-2xl mx-auto">
+                        <div class="flex items-center gap-2 px-3">
+                            <div id="p4b_save-indicator" class="w-2 h-2 rounded-full bg-slate-600"></div>
+                            <span id="p4b_save-text" class="text-[9px] uppercase font-bold text-slate-500 tracking-widest">System Ready</span>
+                        </div>
+                        <div class="w-px h-6 bg-slate-800 mx-2 hidden sm:block"></div>
+                        <button onclick="p4b_downloadBackup()" class="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-white px-3 py-1.5 rounded-lg text-[10px] uppercase font-bold tracking-wider transition-colors border border-slate-700">Save Backup File</button>
+                        <button onclick="document.getElementById('p4b_file-upload').click()" class="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-sky-400 px-3 py-1.5 rounded-lg text-[10px] uppercase font-bold tracking-wider transition-colors border border-slate-700">Load Backup</button>
+                        <input type="file" id="p4b_file-upload" accept=".json" style="display: none;" onchange="p4b_loadBackup(this)">
+                    </div>
+                    <div class="flex justify-center gap-2 overflow-x-auto pb-2 px-2">
+                        <button onclick="p4b_showStep(0)" class="nav-btn active px-4 py-2 rounded-lg border border-slate-700 text-[10px] font-bold uppercase tracking-widest mono transition-all flex-shrink-0">00 Briefing</button>
+                        <button onclick="p4b_showStep(1)" class="nav-btn px-4 py-2 rounded-lg border border-slate-700 text-[10px] font-bold uppercase tracking-widest mono transition-all flex-shrink-0">01 Sanctuary</button>
+                        <button onclick="p4b_showStep(2)" class="nav-btn px-4 py-2 rounded-lg border border-slate-700 text-[10px] font-bold uppercase tracking-widest mono transition-all flex-shrink-0">02 Performance</button>
+                        <button onclick="p4b_showStep(3)" class="nav-btn px-4 py-2 rounded-lg border border-slate-800 text-[10px] font-bold uppercase tracking-widest mono transition-all flex-shrink-0">03 Reset</button>
+                        <button onclick="p4b_showStep(4)" class="nav-btn px-4 py-2 rounded-lg border border-slate-800 text-[10px] font-bold uppercase tracking-widest mono transition-all flex-shrink-0">04 Review</button>
+                    </div>
+                </header>
+                <div class="glass rounded-3xl shadow-2xl overflow-hidden min-h-[500px]">
+                    <div id="p4b_step0" class="step-content active">
+                        <div class="relative px-6 py-4 border-b border-slate-800 bg-slate-900/50"><div class="absolute top-0 left-0 w-full h-1 bg-sky-500"></div><h2 class="text-xl font-bold text-white uppercase italic tracking-tight">Step 00: Envisioning Briefing</h2></div>
+                        <div class="p-8 space-y-8 text-center">
+                            <div class="max-w-3xl mx-auto space-y-6">
+                                <p class="text-slate-400 text-sm italic leading-relaxed">The brain does not distinguish between a vivid imaginative stimulus and a real one. Use this power to prime your performance.</p>
+                                <div class="bg-indigo-500/10 border border-indigo-500/30 p-4 rounded-xl flex flex-col sm:flex-row gap-4 items-center mb-2 text-left">
+                                    <div class="p-3 bg-indigo-500/20 rounded-full text-indigo-400 shrink-0"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"></path></svg></div>
+                                    <div><h3 class="text-indigo-400 font-bold uppercase text-[10px] tracking-widest mb-1">Data Safety Protocol</h3><p class="text-xs text-slate-300 leading-relaxed">This system auto-saves to your browser. Use <strong class="text-white">SAVE BACKUP FILE</strong> to prevent data loss when clearing cache.</p></div>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+                                    <div class="info-card"><h3 class="text-sky-400 font-bold uppercase text-xs mb-2 mono italic">Vividness</h3><p class="text-[11px] text-slate-300 italic">Multisensory detail (colors, textures, air temperature, sounds).</p></div>
+                                    <div class="info-card border-l-emerald-500"><h3 class="text-emerald-400 font-bold uppercase text-xs mb-2 mono italic">Controllability</h3><p class="text-[11px] text-slate-300 italic">The power to keep the 'movie' playing exactly as intended.</p></div>
+                                    <div class="info-card border-l-rose-500"><h3 class="text-rose-400 font-bold uppercase text-xs mb-2 mono italic">Flat Tire Drill</h3><p class="text-[11px] text-slate-300 italic">Envisioning the crisis and dominant recovery.</p></div>
+                                    <div class="info-card border-l-amber-500"><h3 class="text-amber-400 font-bold uppercase text-xs mb-2 mono italic">Script Builder</h3><p class="text-[11px] text-slate-300 italic">Final synthesis into a cohesive narrative.</p></div>
+                                </div>
+                                <div class="flex justify-center pt-6"><button onclick="p4b_showStep(1)" class="bg-sky-600 px-12 py-4 rounded-xl text-white font-black uppercase text-xs tracking-[0.2em] hover:bg-sky-500 transition-all shadow-lg active:scale-95">Build Virtual Reality</button></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="p4b_step1" class="step-content">
+                        <div class="relative px-6 py-4 border-b border-slate-800 bg-slate-900/50"><div class="absolute top-0 left-0 w-full h-1 bg-sky-500"></div><h2 class="text-xl font-bold text-white uppercase italic tracking-tight">Step 01: The Mental Sanctuary</h2></div>
+                        <div class="p-8 space-y-8">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div><label class="block text-[10px] font-bold uppercase text-slate-500 mb-2 mono tracking-widest leading-none">Sanctuary Design</label><textarea id="p4b_sanctuary_desc" oninput="p4b_saveData()" placeholder="Describe your room... Describe wall colors, lighting, and air temperature." class="w-full rounded-lg p-4 text-xs h-32 resize-none italic text-slate-200"></textarea><p class="helper-text">Establish your private room. Describe wall colors, lighting, and air temperature.</p></div>
+                                <div><label class="block text-[10px] font-bold uppercase text-slate-500 mb-2 mono tracking-widest leading-none">Object Manipulation</label><input type="text" id="p4b_tool_name" oninput="p4b_saveData()" placeholder="Tool name..." class="w-full rounded-lg p-3 text-xs mb-4 italic"><textarea id="p4b_tool_manipulation" oninput="p4b_saveData()" placeholder="Sensory details... Describe the material texture and weight." class="w-full rounded-lg p-4 text-xs h-20 resize-none italic"></textarea><p class="helper-text">Describe the material texture and weight as you rotate the tool.</p></div>
+                            </div>
+                            <div class="flex justify-between pt-4"><button onclick="p4b_showStep(0)" class="text-slate-500 font-bold uppercase text-[10px] tracking-widest"><- Back</button><button onclick="p4b_showStep(2)" class="bg-sky-600 px-8 py-3 rounded-lg text-white font-bold uppercase text-[10px] tracking-widest">Next: VR Script -></button></div>
+                        </div>
+                    </div>
+                    <div id="p4b_step2" class="step-content">
+                        <div class="relative px-6 py-4 border-b border-slate-800 bg-slate-900/50"><div class="absolute top-0 left-0 w-full h-1 bg-sky-500"></div><h2 class="text-xl font-bold text-white uppercase italic tracking-tight">Step 02: Performance VR (Vividness)</h2></div>
+                        <div class="p-8 space-y-8">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <div class="bg-slate-950/50 p-4 rounded-xl border border-slate-800"><span class="text-[8px] font-black uppercase text-sky-500 block mb-2 underline underline-offset-4 tracking-widest italic">Visual / Auditory</span><textarea id="p4b_script_va" oninput="p4b_saveData()" placeholder="Colors, sounds... Hear the 'pop' or 'click' of success." class="w-full bg-transparent border-none p-0 text-xs h-32 resize-none italic"></textarea><p class="helper-text leading-tight mt-2 italic">Hear the 'pop' or 'click' of success.</p></div>
+                                <div class="bg-slate-950/50 p-4 rounded-xl border border-slate-800"><span class="text-[8px] font-black uppercase text-emerald-500 block mb-2 underline underline-offset-4 tracking-widest italic">Kinesthetic (Feel)</span><textarea id="p4b_script_k" oninput="p4b_saveData()" placeholder="Muscle feel... Focus on the release timing." class="w-full bg-transparent border-none p-0 text-xs h-32 resize-none italic"></textarea><p class="helper-text leading-tight mt-2 italic">Focus on the release timing.</p></div>
+                                <div class="bg-slate-950/50 p-4 rounded-xl border border-slate-800"><span class="text-[8px] font-black uppercase text-amber-500 block mb-2 underline underline-offset-4 tracking-widest italic">Emotional</span><textarea id="p4b_script_e" oninput="p4b_saveData()" placeholder="Focus certainty... Describe the feeling of total control." class="w-full bg-transparent border-none p-0 text-xs h-32 resize-none italic"></textarea><p class="helper-text leading-tight mt-2 italic">Describe the feeling of total control.</p></div>
+                            </div>
+                            <div class="flex justify-between pt-4"><button onclick="p4b_showStep(1)" class="text-slate-500 font-bold uppercase text-[10px] tracking-widest"><- Back</button><button onclick="p4b_showStep(3)" class="bg-sky-600 px-8 py-3 rounded-lg text-white font-bold uppercase text-[10px] tracking-widest">Next: Control -></button></div>
+                        </div>
+                    </div>
+                    <div id="p4b_step3" class="step-content">
+                        <div class="relative px-6 py-4 border-b border-slate-800 bg-slate-900/50"><div class="absolute top-0 left-0 w-full h-1 bg-sky-500"></div><h2 class="text-xl font-bold text-white uppercase italic tracking-tight">Step 03: Damage Control (Flat Tire Drill)</h2></div>
+                        <div class="p-8 space-y-8">
+                            <div class="max-w-2xl mx-auto info-card border-l-rose-500"><p class="text-[10px] text-slate-300 italic mb-4">You cannot control the event, only your interpretation. Script your dominant reset.</p><div class="space-y-6"><div><label class="block text-[9px] font-bold uppercase text-slate-500 mb-1 tracking-widest italic">The Failure (Crisis)</label><input type="text" id="p4b_ft_crisis" oninput="p4b_saveData()" placeholder="A common setback... Envision the 'glitch'." class="w-full rounded-lg p-3 text-xs italic font-bold"><p class="helper-text">Envision the 'glitch' that usually breaks your focus.</p></div><div><label class="block text-[9px] font-bold uppercase text-emerald-500 mb-1 tracking-widest italic">The Power Reset</label><textarea id="p4b_ft_reset" oninput="p4b_saveData()" placeholder="The calm response... Vividly envision taking one breath." class="w-full rounded-lg p-4 text-xs h-24 resize-none italic font-bold text-emerald-400"></textarea><p class="helper-text">Vividly envision taking one breath and returning instantly to perfect execution.</p></div></div></div>
+                            <div class="flex justify-between pt-4"><button onclick="p4b_showStep(2)" class="text-slate-500 font-bold uppercase text-[10px] tracking-widest"><- Back</button><button onclick="p4b_showStep(4)" class="bg-sky-600 px-8 py-3 rounded-lg text-white font-bold uppercase text-[10px] tracking-widest">Next: Review -></button></div>
+                        </div>
+                    </div>
+                    <div id="p4b_step4" class="step-content">
+                        <div class="relative px-6 py-4 border-b border-slate-800 bg-slate-900/50"><div class="absolute top-0 left-0 w-full h-1 bg-emerald-500"></div><h2 class="text-xl font-bold text-white uppercase italic tracking-tight">Step 04: Mastery Review &amp; Script Builder</h2></div>
+                        <div class="p-8 space-y-12">
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                                <div class="space-y-8">
+                                    <div><label class="block text-[10px] font-bold uppercase text-sky-400 mb-2 tracking-widest mono italic underline underline-offset-4 leading-none">Master Envisioning Script</label><textarea id="p4b_master_script" oninput="p4b_saveData()" placeholder="'I step into my private room...'" class="w-full rounded-xl p-4 text-sm h-[320px] resize-none text-slate-200 border-2 border-sky-500/20 focus:border-sky-500 transition-all"></textarea><p class="helper-text mt-3">Synthesize Sanctuary, Sensory Execution, and Reset into a single cohesive narrative.</p></div>
+                                    <div><label class="block text-[10px] font-bold uppercase text-slate-500 mb-2 tracking-widest mono italic">Concept Understanding</label><textarea id="p4b_narrative" oninput="p4b_saveData()" placeholder="Explain WHY..." class="w-full rounded-xl p-4 text-xs h-[100px] resize-none text-slate-400 border border-slate-800"></textarea><p class="helper-text mt-1">Explain how multisensory detail primes the nervous system for real-world mastery.</p></div>
+                                </div>
+                                <div class="space-y-6">
+                                    <label class="block text-[10px] font-bold uppercase text-slate-500 mb-4 tracking-widest mono italic underline leading-none underline-offset-2">Envisioning Integrity Audit</label>
+                                    <div id="p4b_sc-container" class="space-y-4"></div>
+                                    <div class="border-t border-slate-800 mt-6 pt-6 flex justify-between items-center"><span class="text-[10px] uppercase font-bold text-slate-500 tracking-[0.2em]">Readiness Score</span><div class="text-4xl font-black italic text-emerald-500 leading-none"><span id="p4b_total-score">00</span><span class="text-xl text-slate-700 font-normal not-italic">/25</span></div></div>
+                                </div>
+                            </div>
+                            <div class="mt-8 border-t border-slate-800 pt-8">
+                                <label class="block text-[10px] font-bold uppercase text-emerald-500 mb-4 tracking-[0.2em] mono italic underline underline-offset-4">Self-Evaluation Rubric</label>
+                                <div class="overflow-x-auto glass rounded-2xl border border-slate-800 shadow-xl"><table class="w-full text-left text-[10px] border-collapse min-w-[700px]"><thead><tr class="bg-slate-900 border-b border-slate-800"><th class="p-4 text-slate-500 uppercase font-black tracking-widest">Criteria</th><th class="p-4 text-emerald-400 uppercase font-black tracking-widest">Proficient (4-5)</th><th class="p-4 text-amber-400 uppercase font-black tracking-widest">Developing (2-3)</th><th class="p-4 text-rose-400 uppercase font-black tracking-widest">Emerging (0-1)</th></tr></thead><tbody class="text-[10px] leading-relaxed italic text-slate-400">
+                                    <tr class="border-b border-slate-800/50"><td class="p-4 font-bold uppercase text-white mono italic">Master Script</td><td onclick="p4b_setScore('script', 5)" id="p4b_script-5" class="rubric-cell p-4">Script is a cohesive, multisensory narrative that covers Sanctuary, Execution, and Reset.</td><td onclick="p4b_setScore('script', 3)" id="p4b_script-3" class="rubric-cell p-4">Script is provided but lacks flow or omits sensory detail from Steps 1-3.</td><td onclick="p4b_setScore('script', 1)" id="p4b_script-1" class="rubric-cell p-4">Script is brief, random, or incomplete.</td></tr>
+                                    <tr class="border-b border-slate-800/50"><td class="p-4 font-bold uppercase text-white mono italic text-sky-400">Sensory Depth</td><td onclick="p4b_setScore('depth', 5)" id="p4b_depth-5" class="rubric-cell p-4">Vivid description of sanctuary and VR script features visual, kinesthetic, and emotional cues.</td><td onclick="p4b_setScore('depth', 3)" id="p4b_depth-3" class="rubric-cell p-4">Details provided but focus is primarily on "seeing" (Visual) rather than full integration.</td><td onclick="p4b_setScore('depth', 1)" id="p4b_depth-1" class="rubric-cell p-4">Generic sensory detail or missing components.</td></tr>
+                                    <tr class="border-b border-slate-800/50"><td class="p-4 font-bold uppercase text-white mono italic">Control</td><td onclick="p4b_setScore('reset', 5)" id="p4b_reset-5" class="rubric-cell p-4">Flat Tire drill includes a clear crisis and a dominant, vivid physical/mental reset protocol.</td><td onclick="p4b_setScore('reset', 3)" id="p4b_reset-3" class="rubric-cell p-4">Reset is provided but lacks vividness or tactical specificity.</td><td onclick="p4b_setScore('reset', 1)" id="p4b_reset-1" class="rubric-cell p-4">Reset is missing or fails to address the crisis.</td></tr>
+                                    <tr><td class="p-4 font-bold uppercase text-white mono italic">Understand</td><td onclick="p4b_setScore('un', 5)" id="p4b_un-5" class="rubric-cell p-4">Narrative proves comprehension of vividness, controllability, and priming.</td><td onclick="p4b_setScore('un', 3)" id="p4b_un-3" class="rubric-cell p-4">Restates definitions without demonstrating personal application.</td><td onclick="p4b_setScore('un', 1)" id="p4b_un-1" class="rubric-cell p-4">Missing or shows no conceptual understanding.</td></tr>
+                                    <tr><td class="p-4 font-bold uppercase text-white mono italic">Integrity Audit</td><td onclick="p4b_setScore('audit', 5)" id="p4b_audit-5" class="rubric-cell p-4">Honest self-scoring and reflection.</td><td onclick="p4b_setScore('audit', 3)" id="p4b_audit-3" class="rubric-cell p-4">Scoring provided but inconsistent with effort.</td><td onclick="p4b_setScore('audit', 1)" id="p4b_audit-1" class="rubric-cell p-4">Incomplete scoring.</td></tr>
+                                </tbody></table></div>
+                            </div>
+                            <div class="flex flex-col md:flex-row gap-4 pt-8"><button onclick="p4b_showStep(1)" class="flex-1 text-slate-500 font-bold uppercase text-[10px] tracking-widest hover:text-white transition-colors border border-slate-800 rounded-xl py-4"><- Start Over</button><button onclick="p4b_generateFullPrint()" class="flex-[2] bg-emerald-600 hover:bg-emerald-500 text-white font-black uppercase tracking-widest py-4 rounded-xl shadow-lg active:scale-[0.98]">Generate Full One-Page Visualization Blueprint</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <iframe id="view-external" class="w-full h-full hidden" src=""></iframe>
+
+    </div>
+
+    
+
+
+    <script src="./main.js"></script>
+</body></html>
