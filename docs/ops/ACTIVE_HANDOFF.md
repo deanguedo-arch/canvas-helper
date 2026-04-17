@@ -7,6 +7,14 @@
 ## Files changed
 - `docs/ops/ACTIVE_HANDOFF.md`
 - `projects/sportswellness/meta/sources/Winning_the_First_Victory_Textbook_Chapter.docx`
+- `projects/sportswellness/workspace/assets/readings/phase1-figures/phase1-arousal-continuum-pro.svg`
+- `projects/sportswellness/workspace/assets/readings/phase1-figures/phase1-stress-process-pro.svg`
+- `projects/sportswellness/workspace/assets/readings/phase1-figures/phase1-arousal-theories-pro.svg`
+- `projects/sportswellness/workspace/assets/readings/phase1-figures/phase1-regulation-tools-pro.svg`
+- `projects/sportswellness/workspace/assets/readings/phase1-figures/*-pro.svg`
+- `projects/sportswellness/workspace/assets/readings/phase2-figures/*-pro.svg`
+- `projects/sportswellness/workspace/assets/readings/phase3-figures/*-pro.svg`
+- `projects/sportswellness/workspace/assets/readings/phase4-figures/*-pro.svg`
 - `projects/sportswellness/workspace/assets/readings/phase4-figures/phase4-cba-routine.png`
 - `projects/sportswellness/workspace/assets/readings/phase4-figures/phase4-chapter-map.png`
 - `projects/sportswellness/workspace/assets/readings/phase4-figures/phase4-confidence-account.png`
@@ -29,6 +37,10 @@
 - Added targeted regression coverage so the new Phase 4A / 4B chapter language stays locked in.
 - Removed the phase-detail hero key-idea chip rows across modules and moved the phase action buttons up beside the title block in the shared phase hero renderer.
 - Removed the `Source PDF` button from phase-detail heroes and reordered the remaining actions so `Back to phase picker` appears before `Open phase quiz` across phase pages.
+- Replaced the rough Phase 1 arousal-continuum graphic with a cleaner vector chart, then rewired the lesson figure to use the new SVG asset.
+- Ran a broad Phase 1 to 4 instructional-figure polish pass by wrapping the remaining untouched lesson diagrams in cleaner plated SVG assets and rewiring the lesson to use those upgraded versions instead of the raw exported PNGs.
+- Fixed the broad figure pass so those plated SVG wrappers now inline their underlying PNG data; this avoids the browser restriction that was causing blank white figures when the SVGs were rendered through normal lesson `<img>` tags.
+- Promoted three weak Phase 1 figures from simple wrapper cleanup into fully redrawn SVG diagrams: the stress process loop, the arousal/performance theories chart, and the elite operator toolkit. Those now use rewritten layouts with more breathing room and better small-scale readability inside the lesson surface.
 - Preserved the chapter source in-project under `projects/sportswellness/meta/sources/` so future edits do not depend on `Downloads/`.
 
 ## Why this changed
@@ -49,6 +61,10 @@
 - `PHASE_CONTENT` and assignment metadata live in the same large `main.js` file, so future Phase 4 edits should stay surgical to avoid disturbing other phases.
 - `assignment-runtime-main.js` now contains the chapter-aligned Phase 4A / 4B runtime shells; future edits should preserve the existing ids, storage keys, and shared `p1` shell hooks.
 - The phase reading hero layout is now controlled centrally in `renderPhaseDetail()` plus the shared `reading-hero-*` rules in `styles.css`, so future title/action positioning changes should happen there once rather than phase-by-phase.
+- The new Phase 1 arousal-continuum chart is now a hand-authored SVG; future label/spacing tweaks should happen in that single asset rather than by trying to resize it in CSS.
+- The rest of the untouched Phase 1 to 4 lesson diagrams now route through `*-pro.svg` wrapper assets; if any one figure still feels too slide-like after this batch pass, deepen that one by editing its wrapper or replacing it with a fully redrawn SVG rather than changing lesson markup.
+- For Phase 1 specifically, `phase1-stress-process-pro.svg`, `phase1-arousal-theories-pro.svg`, and `phase1-regulation-tools-pro.svg` are now custom redraws, not wrapper shells. Future edits to those should happen directly in the SVG layout rather than by regenerating wrappers from the old PNGs.
+- If a future wrapper renders blank again, check whether the SVG is referencing an external raster instead of inlining it; direct SVG navigation can succeed while the same asset fails when loaded through an HTML `<img>` tag.
 
 ## Next prompt should assume
 - Phase 4 lesson content and review quiz are now live in the workspace.
@@ -69,7 +85,7 @@
 `npm run test:e2e:project -- --project sportswellness`
 
 ## Exact next file to open
-`/Users/deanguedo/Documents/GitHub/canvas-helper/projects/sportswellness/workspace/assignment-runtime-main.js`
+`/Users/deanguedo/Documents/GitHub/canvas-helper/projects/sportswellness/workspace/main.js`
 
 ## Do not do next / warnings
 - Do not edit `projects/sportswellness/raw/**`.

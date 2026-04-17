@@ -1,0 +1,82 @@
+<svg width="1600" height="1180" viewBox="0 0 1600 1180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="1180" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F8FAFD"/>
+      <stop offset="1" stop-color="#EEF3F9"/>
+    </linearGradient>
+    <linearGradient id="topBar" x1="70" y1="0" x2="1530" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#42C8D9"/>
+      <stop offset="1" stop-color="#214A74"/>
+    </linearGradient>
+    <filter id="shadow" x="40" y="60" width="1520" height="1060" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="14"/>
+      <feGaussianBlur stdDeviation="20"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.07 0 0 0 0 0.12 0 0 0 0 0.19 0 0 0 0.12 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 14 14" refX="11" refY="7" markerWidth="14" markerHeight="14" orient="auto-start-reverse">
+      <path d="M2 2L12 7L2 12V2Z" fill="#214A74"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="1180" rx="34" fill="url(#bg)"/>
+  <g filter="url(#shadow)">
+    <rect x="70" y="72" width="1460" height="1036" rx="34" fill="#FBFDFF" stroke="#D8E3EF" stroke-width="2"/>
+  </g>
+  <rect x="92" y="96" width="1416" height="16" rx="8" fill="url(#topBar)"/>
+  <rect x="140" y="152" width="1320" height="906" rx="28" fill="#F8FBFF" stroke="#D7E3EF" stroke-width="2"/>
+
+  <text x="800" y="248" text-anchor="middle" fill="#163A63" font-size="60" font-weight="700" font-family="Aptos, 'Segoe UI', Arial, sans-serif">The Stress Process Loop</text>
+  <text x="800" y="300" text-anchor="middle" fill="#5D7188" font-size="26" font-weight="500" font-family="Aptos, 'Segoe UI', Arial, sans-serif">
+    <tspan x="800" dy="0">Stress is not just the event. It is the event, the interpretation, the response,</tspan>
+    <tspan x="800" dy="30">and the consequences that follow.</tspan>
+  </text>
+
+  <path d="M540 596Q652 486 744 450" stroke="#214A74" stroke-width="8" stroke-linecap="round" fill="none" marker-end="url(#arrow)"/>
+  <path d="M854 450Q950 486 1060 596" stroke="#214A74" stroke-width="8" stroke-linecap="round" fill="none" marker-end="url(#arrow)"/>
+  <path d="M1210 724Q1080 834 952 874" stroke="#214A74" stroke-width="8" stroke-linecap="round" fill="none" marker-end="url(#arrow)"/>
+  <path d="M648 874Q520 834 390 724" stroke="#214A74" stroke-width="8" stroke-linecap="round" fill="none" marker-end="url(#arrow)"/>
+
+  <rect x="545" y="300" width="510" height="150" rx="30" fill="#EAF3FB" stroke="#214A74" stroke-width="4"/>
+  <text x="800" y="355" text-anchor="middle" fill="#163A63" font-size="30" font-weight="700" font-family="Aptos, 'Segoe UI', Arial, sans-serif">1 Environmental Demand</text>
+  <text x="800" y="395" text-anchor="middle" fill="#3B4F67" font-size="21" font-weight="500" font-family="Aptos, 'Segoe UI', Arial, sans-serif">
+    <tspan x="800" dy="0">A physical or psychological requirement appears:</tspan>
+    <tspan x="800" dy="28">a test, a performance, or another meaningful</tspan>
+    <tspan x="800" dy="28">high-stakes moment.</tspan>
+  </text>
+
+  <rect x="130" y="530" width="410" height="190" rx="30" fill="#FDF1F2" stroke="#D35B57" stroke-width="4"/>
+  <text x="335" y="592" text-anchor="middle" fill="#D35B57" font-size="28" font-weight="700" font-family="Aptos, 'Segoe UI', Arial, sans-serif">4 Behavioral Consequences</text>
+  <text x="335" y="640" text-anchor="middle" fill="#3B4F67" font-size="21" font-weight="500" font-family="Aptos, 'Segoe UI', Arial, sans-serif">
+    <tspan x="335" dy="0">Performance succeeds, slips, or</tspan>
+    <tspan x="335" dy="30">collapses. That outcome feeds</tspan>
+    <tspan x="335" dy="30">forward into the next demand.</tspan>
+  </text>
+
+  <rect x="1060" y="530" width="410" height="190" rx="30" fill="#FFF8EB" stroke="#D39D38" stroke-width="4"/>
+  <text x="1265" y="592" text-anchor="middle" fill="#D39D38" font-size="28" font-weight="700" font-family="Aptos, 'Segoe UI', Arial, sans-serif">2 Perception of Demand</text>
+  <text x="1265" y="640" text-anchor="middle" fill="#3B4F67" font-size="21" font-weight="500" font-family="Aptos, 'Segoe UI', Arial, sans-serif">
+    <tspan x="1265" dy="0">The performer evaluates whether the</tspan>
+    <tspan x="1265" dy="30">demand feels manageable, exciting,</tspan>
+    <tspan x="1265" dy="30">uncertain, or dangerous.</tspan>
+  </text>
+
+  <rect x="455" y="860" width="690" height="165" rx="30" fill="#E9F8FB" stroke="#2F8E96" stroke-width="4"/>
+  <text x="800" y="922" text-anchor="middle" fill="#2F8E96" font-size="30" font-weight="700" font-family="Aptos, 'Segoe UI', Arial, sans-serif">3 Stress Response</text>
+  <text x="800" y="968" text-anchor="middle" fill="#3B4F67" font-size="22" font-weight="500" font-family="Aptos, 'Segoe UI', Arial, sans-serif">
+    <tspan x="800" dy="0">Arousal rises, worry appears, muscles tighten,</tspan>
+    <tspan x="800" dy="30">and attention begins to shift.</tspan>
+  </text>
+
+  <circle cx="800" cy="650" r="150" fill="#F4F8FD" stroke="#214A74" stroke-width="4"/>
+  <text x="800" y="612" text-anchor="middle" fill="#163A63" font-size="48" font-weight="800" font-family="Aptos, 'Segoe UI', Arial, sans-serif">PIVOT</text>
+  <text x="800" y="668" text-anchor="middle" fill="#163A63" font-size="48" font-weight="800" font-family="Aptos, 'Segoe UI', Arial, sans-serif">POINT</text>
+  <text x="800" y="718" text-anchor="middle" fill="#3B4F67" font-size="21" font-weight="500" font-family="Aptos, 'Segoe UI', Arial, sans-serif">
+    <tspan x="800" dy="0">Challenge or threat?</tspan>
+    <tspan x="800" dy="28">This interpretation changes</tspan>
+    <tspan x="800" dy="28">the whole loop.</tspan>
+  </text>
+</svg>

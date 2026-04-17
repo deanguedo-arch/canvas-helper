@@ -1,0 +1,86 @@
+<svg width="1600" height="1120" viewBox="0 0 1600 1120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="1120" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F8FAFD"/>
+      <stop offset="1" stop-color="#EEF3F9"/>
+    </linearGradient>
+    <linearGradient id="topBar" x1="70" y1="0" x2="1530" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#42C8D9"/>
+      <stop offset="1" stop-color="#214A74"/>
+    </linearGradient>
+    <filter id="shadow" x="40" y="60" width="1520" height="1000" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="14"/>
+      <feGaussianBlur stdDeviation="20"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.07 0 0 0 0 0.12 0 0 0 0 0.19 0 0 0 0.12 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="1120" rx="34" fill="url(#bg)"/>
+  <g filter="url(#shadow)">
+    <rect x="70" y="72" width="1460" height="976" rx="34" fill="#FBFDFF" stroke="#D8E3EF" stroke-width="2"/>
+  </g>
+  <rect x="92" y="96" width="1416" height="16" rx="8" fill="url(#topBar)"/>
+  <rect x="140" y="152" width="1320" height="846" rx="28" fill="#F8FBFF" stroke="#D7E3EF" stroke-width="2"/>
+
+  <text x="800" y="236" text-anchor="middle" fill="#163A63" font-size="58" font-weight="700" font-family="Aptos, 'Segoe UI', Arial, sans-serif">The Elite Operator Toolkit</text>
+  <text x="800" y="284" text-anchor="middle" fill="#5D7188" font-size="24" font-weight="500" font-family="Aptos, 'Segoe UI', Arial, sans-serif">Elite performers are not stress-free. They get better at recognizing arousal and regulating it quickly.</text>
+
+  <g>
+    <rect x="130" y="338" width="590" height="244" rx="30" fill="#EAF3FB" stroke="#214A74" stroke-width="4"/>
+    <circle cx="224" cy="438" r="46" fill="#F7FBFF" stroke="#A4B8CF" stroke-width="4"/>
+    <circle cx="224" cy="438" r="28" fill="none" stroke="#214A74" stroke-width="5"/>
+    <circle cx="224" cy="438" r="10" fill="#214A74"/>
+    <text x="304" y="414" fill="#163A63" font-size="28" font-weight="700" font-family="Aptos, 'Segoe UI', Arial, sans-serif">1 Breathing</text>
+    <text x="304" y="452" fill="#214A74" font-size="20" font-weight="700" font-family="Aptos, 'Segoe UI', Arial, sans-serif">RESET THE STRESS LOOP</text>
+    <text x="304" y="496" fill="#3B4F67" font-size="20" font-weight="500" font-family="Aptos, 'Segoe UI', Arial, sans-serif">
+      <tspan x="304" dy="0">Slow diaphragmatic breathing sends a safety</tspan>
+      <tspan x="304" dy="30">signal and brings attention back to the</tspan>
+      <tspan x="304" dy="30">present.</tspan>
+    </text>
+  </g>
+
+  <g>
+    <rect x="880" y="338" width="590" height="244" rx="30" fill="#FFF8EB" stroke="#D39D38" stroke-width="4"/>
+    <path d="M984 450L1012 406L1042 438L1074 398" stroke="#D39D38" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="1136" y="414" fill="#D39D38" font-size="28" font-weight="700" font-family="Aptos, 'Segoe UI', Arial, sans-serif">2 Activation + Relaxation</text>
+    <text x="1136" y="452" fill="#D39D38" font-size="20" font-weight="700" font-family="Aptos, 'Segoe UI', Arial, sans-serif">TUNE AROUSAL UP OR DOWN</text>
+    <text x="1136" y="496" fill="#3B4F67" font-size="20" font-weight="500" font-family="Aptos, 'Segoe UI', Arial, sans-serif">
+      <tspan x="1136" dy="0">PMR discharges tension; music, movement,</tspan>
+      <tspan x="1136" dy="30">and imagery can raise low energy when</tspan>
+      <tspan x="1136" dy="30">activation is too low.</tspan>
+    </text>
+  </g>
+
+  <g>
+    <rect x="130" y="636" width="590" height="244" rx="30" fill="#E9F8FB" stroke="#2F8E96" stroke-width="4"/>
+    <rect x="176" y="726" width="92" height="58" rx="16" fill="#F7FBFF" stroke="#2F8E96" stroke-width="4"/>
+    <text x="222" y="763" text-anchor="middle" fill="#2F8E96" font-size="24" font-weight="800" font-family="Aptos, 'Segoe UI', Arial, sans-serif">GO</text>
+    <text x="310" y="706" fill="#2F8E96" font-size="28" font-weight="700" font-family="Aptos, 'Segoe UI', Arial, sans-serif">3 Cue Words</text>
+    <text x="310" y="744" fill="#2F8E96" font-size="20" font-weight="700" font-family="Aptos, 'Segoe UI', Arial, sans-serif">FILTER ATTENTION</text>
+    <text x="310" y="788" fill="#3B4F67" font-size="20" font-weight="500" font-family="Aptos, 'Segoe UI', Arial, sans-serif">
+      <tspan x="310" dy="0">Instructional cues sharpen mechanics.</tspan>
+      <tspan x="310" dy="30">Motivational cues restore effort and</tspan>
+      <tspan x="310" dy="30">intensity when energy fades.</tspan>
+    </text>
+  </g>
+
+  <g>
+    <rect x="880" y="636" width="590" height="244" rx="30" fill="#F4F7FB" stroke="#5B6F86" stroke-width="4"/>
+    <rect x="946" y="720" width="64" height="64" rx="14" fill="#FFFFFF" stroke="#5B6F86" stroke-width="4"/>
+    <path d="M962 754L982 774L1014 734" stroke="#5B6F86" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="1078" y="706" fill="#5B6F86" font-size="28" font-weight="700" font-family="Aptos, 'Segoe UI', Arial, sans-serif">4 SMART Goals</text>
+    <text x="1078" y="744" fill="#5B6F86" font-size="20" font-weight="700" font-family="Aptos, 'Segoe UI', Arial, sans-serif">SHIFT TOWARD CONTROL</text>
+    <text x="1078" y="788" fill="#3B4F67" font-size="20" font-weight="500" font-family="Aptos, 'Segoe UI', Arial, sans-serif">
+      <tspan x="1078" dy="0">Process goals reduce anxiety because they</tspan>
+      <tspan x="1078" dy="30">anchor attention on controllable actions</tspan>
+      <tspan x="1078" dy="30">instead of distant outcomes.</tspan>
+    </text>
+  </g>
+
+  <rect x="170" y="938" width="1260" height="58" rx="29" fill="#F4F7FB" stroke="#D7E3EF" stroke-width="2"/>
+  <text x="800" y="975" text-anchor="middle" fill="#214A74" font-size="21" font-weight="700" font-family="Aptos, 'Segoe UI', Arial, sans-serif">LOW CONTROL: outcome goals  →  PARTIAL CONTROL: performance goals  →  HIGH CONTROL: process goals</text>
+</svg>
