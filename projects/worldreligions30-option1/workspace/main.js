@@ -937,7 +937,7 @@
             const completionSummary = computeQuizCompletionSummary(quiz);
             const nextChapter = findChapter(`chapter-${quiz.number + 1}`);
             return `
-              <article class="course-card quiz-overview-card ${unlocked ? "" : "locked-card"}" style="--accent:${escapeHtml(quiz.accent || "#8b6728")}">
+              <article class="course-card quiz-overview-card editorial-overview-card ${unlocked ? "" : "locked-card"}" style="--accent:${escapeHtml(quiz.accent || "#8b6728")}">
                 <p class="card-code">${escapeHtml(quiz.code)}</p>
                 <h4 class="card-title">${escapeHtml(quiz.title)}</h4>
                 <p class="card-summary">Recreated chapter booklet with objective sections, written prompts, and keyed guidance.</p>
@@ -963,7 +963,7 @@
           ${getAssignments().map((assignment) => {
             const unlocked = isAssignmentUnlocked(assignment);
             return `
-              <article class="placeholder-card assignment-overview-card ${unlocked ? "" : "locked-card"}" style="--accent:${escapeHtml(assignment.accent || "#8b6728")}">
+              <article class="placeholder-card assignment-overview-card editorial-overview-card ${unlocked ? "" : "locked-card"}" style="--accent:${escapeHtml(assignment.accent || "#8b6728")}">
                 <p class="card-code">${escapeHtml(assignment.code)}</p>
                 <h4 class="card-title">${escapeHtml(assignment.title)}</h4>
                 <p class="card-summary">${escapeHtml(assignment.summary)}</p>
@@ -983,7 +983,7 @@
         ${(data.chapters || []).map((chapter) => {
           const unlocked = isChapterUnlocked(chapter.number);
           return `
-            <article class="course-card chapter-card ${unlocked ? "" : "locked-card"}" style="--accent:${escapeHtml(chapter.accent || "#8b6728")}">
+            <article class="course-card chapter-card editorial-overview-card ${unlocked ? "" : "locked-card"}" style="--accent:${escapeHtml(chapter.accent || "#8b6728")}">
               <p class="card-code">${escapeHtml(chapter.code)}</p>
               <h4 class="card-title">${escapeHtml(chapter.title)}</h4>
               <p class="card-summary">${escapeHtml(chapter.summary)}</p>
@@ -1006,14 +1006,14 @@
     }
 
     return `
-      <article class="detail-card chapter-detail-card" style="--accent:${escapeHtml(chapter.accent || "#8b6728")}">
-        <div class="detail-stack">
+      <article class="detail-card chapter-detail-card chapter-detail-surface" style="--accent:${escapeHtml(chapter.accent || "#8b6728")}">
+        <div class="detail-stack chapter-detail-layout">
           <div>
             <p class="detail-eyebrow">${escapeHtml(chapter.code)}</p>
             <h4 class="detail-title">${escapeHtml(chapter.title)}</h4>
             <p class="detail-summary">${escapeHtml(chapter.summary)}</p>
           </div>
-          <div class="lock-copy">This chapter lane is intentionally blank right now. Use the chapter PDF and recreated quiz until the full lesson content is added.</div>
+          <div class="lock-copy chapter-detail-note">Use the chapter PDF and recreated quiz while this lesson surface is being built out.</div>
           <div class="detail-actions">
             <button class="btn btn-primary" type="button" data-open-expanded-viewer="${escapeHtml(getLibraryIdForChapter(chapter.id))}">Open chapter PDF</button>
             <button class="btn btn-secondary" type="button" data-open-quiz="${escapeHtml(getQuizIdForChapter(chapter.id))}">Open quiz</button>
@@ -1097,8 +1097,8 @@
     const quiz = findQuizByChapter(active.chapterId);
 
     return `
-      <div class="library-shell">
-        <article class="library-select-shell library-select-card" style="--accent:${escapeHtml(active.accent || "#8b6728")}">
+      <div class="library-shell library-shell-grid">
+        <article class="library-select-shell library-select-card library-panel" style="--accent:${escapeHtml(active.accent || "#8b6728")}">
           <div class="viewer-toolbar">
             <div class="viewer-select-group">
               <label class="field-label" for="library-select">Choose chapter PDF</label>
@@ -1121,7 +1121,7 @@
           <p class="viewer-copy">${escapeHtml(active.summary || "Local chapter PDF.")}</p>
         </article>
 
-        <article class="viewer-shell library-viewer-card" style="--accent:${escapeHtml(active.accent || "#8b6728")}">
+        <article class="viewer-shell library-viewer-card library-panel" style="--accent:${escapeHtml(active.accent || "#8b6728")}">
           <p class="detail-eyebrow">${escapeHtml(active.code || "")}</p>
           <h4 class="detail-title">${escapeHtml(active.title)}</h4>
           <p class="detail-summary">Read the chapter directly in the shell, or expand the viewer if you want a full-page reading surface.</p>

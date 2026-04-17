@@ -1,26 +1,26 @@
 :root {
-  --bg: #efe7da;
-  --bg-deep: #e3d9c9;
-  --paper: #f7f0e4;
-  --paper-strong: #fcf8f1;
-  --paper-muted: #ede2d0;
+  --bg: #f4eee3;
+  --bg-deep: #ece3d4;
+  --paper: #f7f1e6;
+  --paper-strong: #fffdf8;
+  --paper-muted: #ece3d5;
   --text: #241d16;
   --muted: #6c6254;
-  --muted-strong: #54493d;
-  --line: #d7c7b0;
-  --line-strong: #b79a67;
-  --gold: #8d671a;
-  --gold-deep: #6f5114;
-  --gold-soft: #efe1c2;
+  --muted-strong: #4f463b;
+  --line: #d9cebc;
+  --line-strong: #c6b294;
+  --gold: #9b7c3c;
+  --gold-deep: #7d632d;
+  --gold-soft: #f2e8d2;
   --blue: #5d6f87;
-  --blue-soft: #e8edf4;
+  --blue-soft: #eef2f5;
   --danger: #905040;
   --success: #39573a;
-  --shadow: 0 18px 40px rgba(36, 29, 22, 0.09);
-  --radius-xl: 22px;
-  --radius-lg: 18px;
-  --radius-md: 14px;
-  --radius-sm: 12px;
+  --shadow: none;
+  --radius-xl: 12px;
+  --radius-lg: 10px;
+  --radius-md: 8px;
+  --radius-sm: 8px;
   --content-width: min(1420px, calc(100vw - 72px));
 }
 
@@ -37,9 +37,7 @@ body {
   min-height: 100vh;
   color: var(--text);
   font-family: "Manrope", sans-serif;
-  background:
-    radial-gradient(circle at top left, rgba(255, 255, 255, 0.85), transparent 26%),
-    linear-gradient(180deg, #f3ebdf 0%, var(--bg) 42%, var(--bg-deep) 100%);
+  background: linear-gradient(180deg, #f7f2ea 0%, var(--bg) 100%);
   overflow-x: hidden;
 }
 
@@ -48,10 +46,8 @@ body::before {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.16) 0, rgba(255, 255, 255, 0.16) 1px, transparent 1px, transparent 25%),
-    linear-gradient(rgba(129, 102, 59, 0.03), rgba(129, 102, 59, 0.03));
-  opacity: 0.55;
+  background: linear-gradient(90deg, rgba(123, 98, 62, 0.035) 0, rgba(123, 98, 62, 0.035) 1px, transparent 1px, transparent 25%);
+  opacity: 0.35;
   z-index: -2;
 }
 
@@ -95,10 +91,8 @@ body.sidebar-collapsed .app-shell {
   position: sticky;
   top: 0;
   min-height: 100vh;
-  background:
-    linear-gradient(180deg, rgba(241, 233, 220, 0.96), rgba(225, 214, 196, 0.94));
-  border-right: 1px solid rgba(122, 96, 58, 0.18);
-  backdrop-filter: blur(14px);
+  background: #e6ddd0;
+  border-right: 1px solid var(--line);
   z-index: 20;
 }
 
@@ -108,7 +102,7 @@ body.sidebar-collapsed .app-shell {
   justify-content: space-between;
   gap: 12px;
   padding: 28px 18px 20px;
-  border-bottom: 1px solid rgba(122, 96, 58, 0.12);
+  border-bottom: 1px solid var(--line);
 }
 
 .brand-lockup {
@@ -144,15 +138,14 @@ body.sidebar-collapsed .app-shell {
   width: 100%;
   height: 6px;
   border-radius: 999px;
-  background: rgba(110, 89, 47, 0.16);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  background: rgba(110, 89, 47, 0.12);
 }
 
 .sidebar-progress-fill {
   width: 0;
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg, var(--gold), #c39d53);
+  background: var(--gold);
 }
 
 .menu-toggle {
@@ -164,8 +157,8 @@ body.sidebar-collapsed .app-shell {
   height: 40px;
   padding: 0;
   border: 1px solid rgba(122, 96, 58, 0.16);
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.46);
+  border-radius: 8px;
+  background: var(--paper-strong);
   color: var(--text);
   flex: 0 0 auto;
   gap: 3px;
@@ -199,12 +192,12 @@ body.sidebar-collapsed .app-shell {
   min-height: 48px;
   padding: 0 14px 0 18px;
   border: 1px solid transparent;
-  border-left: 4px solid transparent;
-  border-radius: 0 14px 14px 0;
+  border-left: 3px solid transparent;
+  border-radius: 8px;
   background: transparent;
   color: var(--muted-strong);
   text-align: left;
-  font-family: "Noto Serif", serif;
+  font-family: "Manrope", sans-serif;
   font-size: 0.92rem;
   font-weight: 600;
   letter-spacing: 0.01em;
@@ -221,14 +214,14 @@ body.sidebar-collapsed .app-shell {
 
 .nav-item:hover,
 .home-tab:hover {
-  background: rgba(255, 255, 255, 0.38);
+  background: rgba(255, 255, 255, 0.42);
 }
 
 .nav-item.active,
 .home-tab.active {
-  background: rgba(255, 250, 242, 0.94);
+  background: var(--paper);
   color: var(--gold);
-  border-color: rgba(183, 154, 103, 0.36);
+  border-color: var(--line);
   border-left-color: var(--gold);
 }
 
@@ -276,25 +269,22 @@ body.sidebar-collapsed .home-tab {
 .progress-shell,
 .content-shell,
 .viewer-overlay-panel {
-  background: rgba(247, 240, 228, 0.94);
-  border: 1px solid rgba(122, 96, 58, 0.16);
+  background: var(--paper);
+  border: 1px solid var(--line);
   border-radius: var(--radius-xl);
-  box-shadow: var(--shadow);
+  box-shadow: none;
 }
 
 .progress-shell {
   display: none;
   position: relative;
   overflow: hidden;
-  max-width: 760px;
-  margin-bottom: 18px;
+  max-width: none;
+  margin-bottom: 24px;
 }
 
 .progress-shell::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(201, 161, 85, 0.08));
+  display: none;
 }
 
 .progress-shell.is-hero::after {
@@ -304,7 +294,7 @@ body.sidebar-collapsed .home-tab {
 
 .progress-panel {
   position: relative;
-  padding: 18px 22px 20px;
+  padding: 22px 24px 24px;
 }
 
 .progress-copy {
@@ -373,14 +363,14 @@ body.sidebar-collapsed .home-tab {
   width: 100%;
   height: 8px;
   border-radius: 999px;
-  background: rgba(110, 89, 47, 0.14);
+  background: rgba(110, 89, 47, 0.12);
 }
 
 .progress-fill {
   width: 0;
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg, var(--gold), #c39d53);
+  background: var(--gold);
 }
 
 #course-title {
@@ -463,31 +453,20 @@ body[data-section="home"][data-tab="chapters"][data-view="overview"] .progress-s
 }
 
 body[data-section="home"][data-tab="chapters"] .progress-shell.is-hero::before {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.74), rgba(201, 161, 85, 0.16));
+  display: none;
 }
 
 body[data-section="home"][data-tab="chapters"][data-view="overview"] .progress-shell.is-hero::after {
-  content: "The Living Archive";
-  display: block;
-  position: absolute;
-  top: 18px;
-  right: 24px;
-  width: 3.8em;
-  color: rgba(57, 44, 25, 0.06);
-  font-family: "Noto Serif", serif;
-  font-size: clamp(3rem, 7vw, 6.4rem);
-  line-height: 0.88;
-  text-align: right;
-  letter-spacing: 0.04em;
+  display: none;
 }
 
 body[data-section="home"][data-tab="chapters"][data-view="overview"] .progress-shell.is-hero .progress-panel {
-  padding: 26px 30px 28px;
+  padding: 24px 26px 26px;
 }
 
 body[data-section="home"][data-tab="chapters"][data-view="overview"] .progress-shell.is-hero .progress-copy {
-  gap: 18px;
-  max-width: 62ch;
+  gap: 16px;
+  max-width: 70ch;
 }
 
 body[data-section="home"][data-tab="chapters"][data-view="overview"] .progress-shell.is-hero .progress-inline {
@@ -499,9 +478,9 @@ body[data-section="home"][data-tab="chapters"][data-view="overview"] .progress-s
 }
 
 body[data-section="home"][data-tab="chapters"][data-view="overview"] .progress-shell.is-hero #course-title {
-  max-width: 7ch;
-  font-size: clamp(2.5rem, 5.8vw, 4.3rem);
-  line-height: 0.96;
+  max-width: 8ch;
+  font-size: clamp(2.6rem, 5vw, 4rem);
+  line-height: 0.98;
 }
 
 body[data-section="home"][data-tab="chapters"][data-view="overview"] #course-subtitle {
@@ -509,26 +488,28 @@ body[data-section="home"][data-tab="chapters"][data-view="overview"] #course-sub
 }
 
 .content-shell {
-  padding: 30px;
+  padding: 28px 30px 32px;
 }
 
 .section-header {
-  margin-bottom: 22px;
+  margin-bottom: 28px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(122, 96, 58, 0.12);
 }
 
 .section-header h3 {
   margin: 0;
   font-family: "Noto Serif", serif;
-  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-size: clamp(2.2rem, 3.4vw, 3rem);
   line-height: 1.08;
 }
 
 .section-header p {
-  margin: 10px 0 0;
-  max-width: 58ch;
+  margin: 12px 0 0;
+  max-width: 64ch;
   color: var(--muted);
   font-size: 1rem;
-  line-height: 1.75;
+  line-height: 1.65;
 }
 
 .content-body,
@@ -560,10 +541,10 @@ body[data-section="home"][data-tab="chapters"][data-view="overview"] #course-sub
   position: relative;
   min-width: 0;
   overflow: hidden;
-  background: linear-gradient(180deg, rgba(255, 253, 249, 0.96), rgba(244, 236, 223, 0.98));
-  border: 1px solid rgba(122, 96, 58, 0.16);
+  background: var(--paper-strong);
+  border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  box-shadow: 0 12px 28px rgba(36, 29, 22, 0.07);
+  box-shadow: none;
 }
 
 .course-card,
@@ -586,27 +567,19 @@ body[data-section="home"][data-tab="chapters"][data-view="overview"] #course-sub
 .library-select-shell::before,
 .viewer-shell::before,
 .quiz-shell::before {
-  content: "";
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 4px;
-  background: var(--accent, var(--gold));
+  display: none;
 }
 
-.chapter-card::after,
-.quiz-overview-card::after,
-.assignment-overview-card::after,
-.chapter-detail-card::after,
-.assignment-detail-card::after {
-  content: "";
-  position: absolute;
-  right: -42px;
-  bottom: -50px;
-  width: 160px;
-  height: 160px;
-  border-radius: 999px;
-  background: radial-gradient(circle, rgba(124, 95, 37, 0.08), rgba(124, 95, 37, 0));
-  pointer-events: none;
+.editorial-overview-card,
+.chapter-detail-surface,
+.library-panel {
+  border-left: 3px solid var(--accent, var(--gold));
+}
+
+.editorial-overview-card::after,
+.chapter-detail-surface::after,
+.library-panel::after {
+  display: none;
 }
 
 .card-code,
@@ -625,7 +598,7 @@ body[data-section="home"][data-tab="chapters"][data-view="overview"] #course-sub
 .overlay-title {
   margin: 0;
   font-family: "Noto Serif", serif;
-  font-size: 1.55rem;
+  font-size: 1.75rem;
   line-height: 1.12;
 }
 
@@ -655,9 +628,8 @@ body[data-section="home"][data-tab="chapters"][data-view="overview"] #course-sub
 }
 
 .card-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 14px;
+  display: grid;
+  gap: 8px;
 }
 
 .card-meta strong {
@@ -733,7 +705,7 @@ body[data-section="home"][data-tab="chapters"][data-view="overview"] #course-sub
 .viewer-overlay-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
 }
 
 .btn,
@@ -743,9 +715,9 @@ body[data-section="home"][data-tab="chapters"][data-view="overview"] #course-sub
 .matching-select,
 .text-input {
   min-height: 46px;
-  border: 1px solid rgba(122, 96, 58, 0.18);
+  border: 1px solid var(--line);
   border-radius: var(--radius-sm);
-  background: rgba(255, 253, 250, 0.9);
+  background: var(--paper-strong);
   color: var(--text);
 }
 
@@ -765,23 +737,24 @@ body[data-section="home"][data-tab="chapters"][data-view="overview"] #course-sub
 
 .btn:hover:not(:disabled),
 .quiz-pill:hover:not(:disabled) {
-  border-color: rgba(111, 81, 20, 0.45);
+  border-color: rgba(125, 99, 45, 0.52);
 }
 
 .btn-primary {
-  background: linear-gradient(180deg, #9a7424, #7b5917);
-  border-color: #7b5917;
+  background: var(--gold);
+  border-color: var(--gold);
   color: #fffaf1;
 }
 
 .btn-secondary {
-  background: var(--blue-soft);
-  border-color: #c2cede;
-  color: #485770;
+  background: var(--paper-strong);
+  border-color: var(--line);
+  color: var(--muted-strong);
 }
 
 .btn-muted {
-  background: rgba(255, 253, 250, 0.7);
+  background: var(--paper-strong);
+  border-color: var(--line);
   color: var(--text);
 }
 
@@ -802,10 +775,10 @@ body[data-section="home"][data-tab="chapters"][data-view="overview"] #course-sub
   align-items: center;
   gap: 8px;
   width: fit-content;
-  padding: 8px 12px;
-  border: 1px solid rgba(141, 103, 26, 0.2);
-  border-radius: 999px;
-  background: rgba(239, 225, 194, 0.72);
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f3ebde;
   color: var(--gold-deep);
   font-size: 0.76rem;
   font-weight: 800;
@@ -814,7 +787,7 @@ body[data-section="home"][data-tab="chapters"][data-view="overview"] #course-sub
 }
 
 .status-chip.locked {
-  background: rgba(233, 227, 216, 0.8);
+  background: var(--paper-muted);
   color: var(--muted);
 }
 
@@ -827,13 +800,19 @@ body[data-section="home"][data-tab="chapters"][data-view="overview"] #course-sub
   gap: 20px;
 }
 
+.library-shell-grid {
+  grid-template-columns: minmax(280px, 340px) minmax(0, 1fr);
+  align-items: start;
+  gap: 24px;
+}
+
 .viewer-toolbar,
 .quiz-topbar,
 .viewer-overlay-bar {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 16px;
+  gap: 18px;
   align-items: end;
 }
 
@@ -871,15 +850,63 @@ body[data-section="home"][data-tab="chapters"][data-view="overview"] #course-sub
 .matching-select,
 .text-input {
   padding-right: 14px;
-  background: rgba(255, 253, 250, 0.92);
+  background: var(--paper-strong);
 }
 
 .viewer-frame {
   overflow: hidden;
   min-height: 74vh;
-  border: 1px solid rgba(122, 96, 58, 0.16);
+  border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   background: #fff;
+}
+
+.editorial-overview-card {
+  align-content: start;
+  min-height: 288px;
+}
+
+.editorial-overview-card .card-title {
+  font-size: clamp(1.9rem, 2.7vw, 2.45rem);
+  line-height: 1.04;
+}
+
+.editorial-overview-card .card-summary {
+  max-width: 34ch;
+}
+
+.editorial-overview-card .card-actions {
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.chapter-detail-surface {
+  max-width: 980px;
+}
+
+.chapter-detail-layout {
+  gap: 26px;
+}
+
+.chapter-detail-note {
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--paper);
+  color: var(--muted-strong);
+}
+
+.library-panel {
+  gap: 20px;
+}
+
+.library-select-card {
+  position: sticky;
+  top: 24px;
+}
+
+.library-viewer-card .detail-title {
+  font-size: clamp(2.2rem, 3.4vw, 3.2rem);
 }
 
 .viewer-frame iframe,
@@ -1374,6 +1401,14 @@ body[data-section="home"][data-tab="chapters"][data-view="overview"] #course-sub
     grid-template-columns: 1fr;
   }
 
+  .library-shell-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .library-select-card {
+    position: static;
+  }
+
   .progress-shell::after {
     display: none;
   }
@@ -1447,6 +1482,10 @@ body[data-section="home"][data-tab="chapters"][data-view="overview"] #course-sub
   .quiz-topbar,
   .viewer-overlay-bar {
     align-items: stretch;
+  }
+
+  .library-shell-grid {
+    gap: 20px;
   }
 
   .quiz-page-title {
