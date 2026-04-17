@@ -51,6 +51,34 @@ test("sportswellness phase 3 review uses the three-level rubric and normalizes l
   assert.doesNotMatch(phase3Runtime, /\$\{total\}\/25/);
 });
 
+test("sportswellness phase 3 assignment captures attentional shifting and pressure rehearsal from the focus lesson", async () => {
+  const runtime = await readFile(runtimePath, "utf8");
+  const phase3Runtime = runtime.match(phase3SlicePattern)?.[0] ?? runtime;
+
+  const expectedSnippets = [
+    "Quadrant shift",
+    "broad-external to broad-internal to narrow-internal to narrow-external",
+    "Selectivity, capacity, and alertness",
+    "Shift sequence",
+    "broad-external scan -> broad-internal plan -> narrow-internal breath and body tone -> narrow-external back rim",
+    "p3_shift_sequence",
+    "Alertness / width check",
+    "too broad, too narrow, or too flat",
+    "p3_alertness_width",
+    "Simulation plan",
+    "noise, fatigue, scoring pressure, or evaluation",
+    "p3_simulation_plan",
+    "The what-if and simulation plan should pressure-test the routine before competition does.",
+    "attentional shifting",
+    "What is the tactical, nonjudgmental response that gets the spotlight back immediately?",
+    "slow exhale"
+  ];
+
+  for (const snippet of expectedSnippets) {
+    assert.match(phase3Runtime, new RegExp(snippet.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  }
+});
+
 test("sportswellness phase 3 joins the shared shell sizing and explicit field-card layout rules", async () => {
   const styles = await readFile(stylesPath, "utf8");
 

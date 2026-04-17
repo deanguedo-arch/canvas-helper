@@ -248,25 +248,26 @@ const ASSIGNMENTS = [
     code: "03",
     title: "The Focus",
     accent: "#10b981",
-    body: "Attention-control assignment centered on spotlight control, cueing, and fortress routines.",
+    body: "Attention-control assignment centered on attentional width, spotlight control, cueing, and fortress routines.",
     eyebrow: "Attention Command",
     heroTitle: "Focus Master Blueprint",
-    introCopy: "Concentration is a trained spotlight. This assignment helps you audit distracters, build cues and anchors, and create a fortress routine that moves attention away from noise and back to execution.",
+    introCopy: "Concentration is a trained spotlight built from selectivity, alertness, and shifting. This assignment helps you audit distracters, read when arousal is widening or narrowing the field, build cues and anchors, and create a fortress routine that moves attention away from noise and back to execution.",
     steps: ["Briefing", "Spotlight Audit", "Cue Builder", "Fortress Plan", "Review"],
     introCards: [
-      { title: "The Spotlight", body: "Your attention must be narrow, external, and task-relevant." },
-      { title: "Cues & Anchors", body: "Use short language and physical anchors to quiet mental noise." },
+      { title: "The Spotlight", body: "Your attention must be narrow, external, and task-relevant when execution starts." },
+      { title: "Alertness & Shift", body: "Notice when arousal makes the field too broad or too narrow, then move into the right quadrant on purpose." },
       { title: "Self 1 vs Self 2", body: "The goal is to reduce judgment and trust instinctive execution." },
-      { title: "Quiet Eye", body: "A stable final fixation improves control and motor clarity." }
+      { title: "Quiet Eye", body: "A stable final fixation plus a nonjudgmental reset protects control under pressure." }
     ],
     panels: [
       {
         label: "Step 01",
         title: "The Arena",
-        copy: "Audit both the internal and external distracters that pull your spotlight away from the task.",
+        copy: "Audit the internal and external distracters that pull your spotlight away from the task, then check what arousal is doing to attentional width.",
         fields: [
           { label: "Internal distracters", type: "textarea", placeholder: "Example: self-talk, fear of failure, replaying mistakes..." },
           { label: "External distracters", type: "textarea", placeholder: "Example: crowd noise, officiating, opponents, environment..." },
+          { label: "Alertness / width check", type: "textarea", placeholder: "Describe whether pressure makes your attention too broad, too narrow, or too flat..." },
           { label: "Primary spotlight goal", type: "input", placeholder: "State the narrow external target you want your focus locked onto..." }
         ]
       },
@@ -287,7 +288,7 @@ const ASSIGNMENTS = [
         fields: [
           { label: "Physical start to your routine", type: "textarea", placeholder: "Describe the first physical action that starts the routine..." },
           { label: "Mental cue or image", type: "textarea", placeholder: "Describe the cue or image that locks you in..." },
-          { label: "What-if reset plan", type: "textarea", placeholder: "Describe how you will recover instantly when disruption hits..." }
+          { label: "What-if reset plan", type: "textarea", placeholder: "Describe the nonjudgmental reset that gets you back to the next target when disruption hits..." }
         ]
       }
     ],
@@ -1857,6 +1858,7 @@ const state = {
 
 const AUTHORING_UNLOCK_ALL = true;
 const COURSE_PROGRESS_KEY = 'sportswellness.course-progress.v1';
+const UI_STATE_KEY = 'sportswellness.ui-state.v1';
 const PHASE_ASSIGNMENT_MAP = {
   'phase-0': ['a0'],
   'phase-1': ['a1'],
@@ -1876,6 +1878,73 @@ function loadStoredJson(storageKey) {
   } catch (_error) {
     return null;
   }
+}
+
+function getDefaultActiveIdForTab(tab) {
+  if (tab === 'quizzes') return QUIZZES[0]?.id || null;
+  if (tab === 'assignments') return ASSIGNMENTS[0]?.id || null;
+  return PHASES[0]?.id || null;
+}
+
+function normalizeUiState(rawState) {
+  if (!rawState || typeof rawState !== 'object') {
+    return null;
+  }
+
+  const nextSection = typeof rawState.section === 'string' ? rawState.section : 'home';
+  const nextTab = typeof rawState.tab === 'string' ? rawState.tab : 'phases';
+  const normalized = {
+    section: ['home', 'phase', 'assignment', 'quiz', 'library', 'performance', 'icons'].includes(nextSection) ? nextSection : 'home',
+    tab: ['phases', 'quizzes', 'assignments'].includes(nextTab) ? nextTab : 'phases',
+    activeId: null,
+    activeStep: Number.isFinite(Number(rawState.activeStep)) ? Math.max(0, Number(rawState.activeStep)) : 0,
+    activeMaterialId: MATERIALS.some((item) => item.id === rawState.activeMaterialId) ? rawState.activeMaterialId : null
+  };
+
+  if (normalized.section === 'phase') {
+    normalized.activeId = PHASES.some((item) => item.id === rawState.activeId) ? rawState.activeId : (PHASES[0]?.id || null);
+    return normalized;
+  }
+
+  if (normalized.section === 'assignment') {
+    normalized.activeId = ASSIGNMENTS.some((item) => item.id === rawState.activeId) ? rawState.activeId : (ASSIGNMENTS[0]?.id || null);
+    return normalized;
+  }
+
+  if (normalized.section === 'quiz') {
+    normalized.activeId = QUIZZES.some((item) => item.id === rawState.activeId) ? rawState.activeId : (QUIZZES[0]?.id || null);
+    return normalized;
+  }
+
+  normalized.activeId = getDefaultActiveIdForTab(normalized.tab);
+  return normalized;
+}
+
+function applyUiStateSnapshot(snapshot) {
+  if (!snapshot) return;
+  state.section = snapshot.section;
+  state.tab = snapshot.tab;
+  state.activeId = snapshot.activeId;
+  state.activeStep = snapshot.activeStep;
+  state.activeMaterialId = snapshot.activeMaterialId;
+}
+
+function persistUiState() {
+  try {
+    localStorage.setItem(UI_STATE_KEY, JSON.stringify({
+      section: state.section,
+      tab: state.tab,
+      activeId: state.activeId,
+      activeStep: state.activeStep,
+      activeMaterialId: state.activeMaterialId
+    }));
+  } catch (_error) {
+    // Ignore storage failures so the course still works in constrained contexts.
+  }
+}
+
+function restoreUiState() {
+  applyUiStateSnapshot(normalizeUiState(loadStoredJson(UI_STATE_KEY)));
 }
 
 function loadCourseProgress() {
@@ -2094,6 +2163,7 @@ function setSection(section) {
     state.tab = 'phases';
   }
   collapseCompactMenu();
+  persistUiState();
   render();
 }
 
@@ -2103,6 +2173,7 @@ function setTab(tab) {
   const collection = getCollection();
   state.activeId = collection[0]?.id || null;
   collapseCompactMenu();
+  persistUiState();
   render();
 }
 
@@ -2115,6 +2186,7 @@ function openPhase(id) {
   state.section = 'phase';
   state.activeId = id;
   collapseCompactMenu();
+  persistUiState();
   render();
 }
 
@@ -2124,6 +2196,7 @@ function openAssignment(id) {
   state.activeId = id;
   state.activeStep = 0;
   collapseCompactMenu();
+  persistUiState();
   render();
 }
 
@@ -2132,16 +2205,19 @@ function openQuiz(id) {
   state.section = 'quiz';
   state.activeId = id;
   collapseCompactMenu();
+  persistUiState();
   render();
 }
 
 function openMaterial(id) {
   state.activeMaterialId = id;
+  persistUiState();
   renderLibrary();
 }
 
 function closeMaterialViewer() {
   state.activeMaterialId = null;
+  persistUiState();
   renderLibrary();
 }
 
@@ -2927,6 +3003,7 @@ refs.collapseToggle?.addEventListener('click', toggleSidebarCollapse);
 
 let lastCompactLayout = isCompactLayout();
 applySidebarCollapse(lastCompactLayout ? true : localStorage.getItem(SIDEBAR_COLLAPSE_KEY) === '1');
+restoreUiState();
 render();
 
 window.addEventListener('resize', () => {
@@ -2945,3 +3022,16 @@ window.addEventListener('resize', () => {
   applySidebarCollapse(localStorage.getItem(SIDEBAR_COLLAPSE_KEY) === '1');
 });
 
+window.addEventListener('storage', (event) => {
+  if (event.storageArea !== localStorage || event.key !== UI_STATE_KEY) {
+    return;
+  }
+
+  const nextState = normalizeUiState(loadStoredJson(UI_STATE_KEY));
+  if (!nextState) {
+    return;
+  }
+
+  applyUiStateSnapshot(nextState);
+  render();
+});
