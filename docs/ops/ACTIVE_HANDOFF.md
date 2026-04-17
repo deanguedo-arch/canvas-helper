@@ -16,6 +16,7 @@
 - `projects/sportswellness/workspace/assignment-runtime-main.js`
 - `scripts/tests/sportswellness-phase4a-assignment.test.ts`
 - `scripts/tests/sportswellness-phase4b-assignment.test.ts`
+- `projects/sportswellness/workspace/styles.css`
 
 ## What changed
 - Converted the `Winning_the_First_Victory_Textbook_Chapter.docx` source into a new unabridged `PHASE_CONTENT['phase-4']` lesson block.
@@ -26,6 +27,8 @@
 - Rebuilt Assignment `04B` around the chapter's real envisioning model: prop check, mental cinema, perspective choice, timing match, GoPro perspective, director's cut, flat tire drill, real-time rehearsal, and controllability checks.
 - Preserved the existing ids, storage keys, mobile step-menu behavior, and `/15` three-level rubric shape while extending the saved payloads for the new fields.
 - Added targeted regression coverage so the new Phase 4A / 4B chapter language stays locked in.
+- Removed the phase-detail hero key-idea chip rows across modules and moved the phase action buttons up beside the title block in the shared phase hero renderer.
+- Removed the `Source PDF` button from phase-detail heroes and reordered the remaining actions so `Back to phase picker` appears before `Open phase quiz` across phase pages.
 - Preserved the chapter source in-project under `projects/sportswellness/meta/sources/` so future edits do not depend on `Downloads/`.
 
 ## Why this changed
@@ -45,6 +48,7 @@
 - The lesson and quiz `sourcePdf` currently point to `./assets/slides/04-toolkit.pdf`, which is a valid Phase 4 PDF but not a dedicated export of the unabridged chapter.
 - `PHASE_CONTENT` and assignment metadata live in the same large `main.js` file, so future Phase 4 edits should stay surgical to avoid disturbing other phases.
 - `assignment-runtime-main.js` now contains the chapter-aligned Phase 4A / 4B runtime shells; future edits should preserve the existing ids, storage keys, and shared `p1` shell hooks.
+- The phase reading hero layout is now controlled centrally in `renderPhaseDetail()` plus the shared `reading-hero-*` rules in `styles.css`, so future title/action positioning changes should happen there once rather than phase-by-phase.
 
 ## Next prompt should assume
 - Phase 4 lesson content and review quiz are now live in the workspace.

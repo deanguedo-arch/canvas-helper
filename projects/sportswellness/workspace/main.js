@@ -2750,19 +2750,19 @@ function renderPhaseDetail() {
     refs.contentBody.innerHTML = `
       <div class="reading-shell">
         <article class="stack-card reading-hero" style="border-left-color: ${active.accent}">
-          <p class="reading-eyebrow">${escapeHtml(content.eyebrow)}</p>
-          <h4 class="reading-hero-title">${escapeHtml(content.heading)}</h4>
+          <div class="reading-hero-head">
+            <div class="reading-title-block">
+              <p class="reading-eyebrow">${escapeHtml(content.eyebrow)}</p>
+              <h4 class="reading-hero-title">${escapeHtml(content.heading)}</h4>
+            </div>
+            <div class="reading-actions reading-hero-actions">
+              <button type="button" class="reading-btn reading-btn-secondary" id="back-to-home">Back to phase picker</button>
+              ${content.quizId ? `<button type="button" class="reading-btn reading-btn-secondary" id="open-linked-quiz"${isQuizUnlocked(content.quizId) ? '' : ' disabled'}>${isQuizUnlocked(content.quizId) ? 'Open phase quiz' : 'Quiz locked until mark complete'}</button>` : ''}
+            </div>
+          </div>
           <p class="reading-subtitle">${escapeHtml(content.subheading)}</p>
           ${content.summary ? `<p class="reading-lead">${escapeHtml(content.summary)}</p>` : ''}
           ${content.heroFigure ? `<figure class="reading-hero-figure"><img src="${content.heroFigure.src}" alt="${escapeHtml(content.heroFigure.alt || '')}">${content.heroFigure.caption ? `<figcaption>${escapeHtml(content.heroFigure.caption)}</figcaption>` : ''}</figure>` : ''}
-          <div class="reading-chip-row">
-            ${content.keyIdeas.map((idea) => `<span class="reading-chip">${escapeHtml(idea)}</span>`).join('')}
-          </div>
-          <div class="reading-actions">
-            <a class="reading-btn reading-btn-primary" href="${content.sourcePdf}" target="_blank" rel="noopener noreferrer">Source PDF</a>
-            ${content.quizId ? `<button type="button" class="reading-btn reading-btn-secondary" id="open-linked-quiz"${isQuizUnlocked(content.quizId) ? '' : ' disabled'}>${isQuizUnlocked(content.quizId) ? 'Open phase quiz' : 'Quiz locked until mark complete'}</button>` : ''}
-            <button type="button" class="reading-btn reading-btn-secondary" id="back-to-home">Back to phase picker</button>
-          </div>
         </article>
         ${content.sections.map((section) => `
           <section class="stack-card reading-section" style="border-left-color: ${active.accent}">
