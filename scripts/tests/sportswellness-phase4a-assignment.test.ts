@@ -51,6 +51,28 @@ test("sportswellness phase 4a review uses the three-level rubric and normalizes 
   assert.doesNotMatch(phase4aRuntime, /\$\{total\}\/25/);
 });
 
+test("sportswellness phase 4a aligns to the phase 4 confidence chapter model", async () => {
+  const runtime = await readFile(runtimePath, "utf8");
+  const phase4aRuntime = runtime.match(phase4aSlicePattern)?.[0] ?? runtime;
+
+  const expectedSnippets = [
+    "mastery experiences",
+    "deposits vs withdrawals",
+    "mental filter",
+    "Daily E-S-P",
+    "temporary / limited / nonrepresentative",
+    "What? So what? Now what?",
+    "C-B-A design rules"
+  ];
+
+  for (const snippet of expectedSnippets) {
+    assert.match(
+      phase4aRuntime,
+      new RegExp(snippet.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i")
+    );
+  }
+});
+
 test("sportswellness phase 4a joins the shared shell sizing and explicit field-card layout rules", async () => {
   const styles = await readFile(stylesPath, "utf8");
 

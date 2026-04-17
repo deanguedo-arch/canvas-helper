@@ -49,7 +49,7 @@ const PHASES = [
   { id: 'phase-1', code: 'Phase 1', title: 'The Engine', body: 'Phase shell ready. Add learning content and checkpoints here.', accent: '#00ff7f', image: './assets/readings/phase1-figures/phase1-module-engine-cover.png' },
   { id: 'phase-2', code: 'Phase 2', title: 'The Drive', body: 'Integrated discipline, self-determined motivation, recovery, and the social conditions that sustain high performance.', accent: '#8a2be2', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDvDf2Loe_K9P9rPvsVnKxak1lzcUPafuTXXcuWbvJlqfavtKwooYLAzn-8dLG0JTgPXYaD1fCNRnJ_BBztqMgkJuNraarq9K40uDncUo3VuHPUlE_74VhLYp6-ce_a0WXvi1IoKSHDBFjh3_XozgrVDifob2lwFGoiETAWWAkMWrId7aLagJPSIZXc0ihBAqy5xNPjqHpWQ3cQTjy5FWZGfRs9CDWmf4dcyLA7wv4J3O5tRrNNdxauFmMGjwvlXadZ4zYqzpyCQg' },
   { id: 'phase-3', code: 'Phase 3', title: 'The Focus', body: 'Attention control, the Inner Game, and practical refocus systems for pressure performance.', accent: '#00ced1', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBNgFbRFd5BzfIizgsYiWBVenbYdAhXa1r239HJE6lensK1WHkoFnTGSAWw-yC79HIjZy448eVlIgXEB6I-DANgc-HfvlvEdysH261NOgOU4M2xD49UTPmg1DXJ1hZJQcqJWFOb9g-YDZeSRNq3M1DJr9jo6A7bnykuIqQZhFYdolv1WY-bH1DjVTnVFYIvRPPylGs70rVzBv2m31FtPEdA_dDr0VsyFSBpq1c3sj9f8A01leCLUMJcMIsJD_5QYPSTSZCnH-Xhxg' },
-  { id: 'phase-4', code: 'Phase 4', title: 'The Toolkit', body: 'Phase shell ready. Add learning content and checkpoints here.', accent: '#5c2e91', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCOJxNkx8XcI7amPy8SuO1byA5jB5t7Vgu7IDETTzUHpNZhGv3sF5clnnWroiNORNERn_9nal0ZPF8GGKjLYf--q4FM8nx0XPMxa4i_fp273shRI9kHUcq30245dQF2VsMtJ8lHTY3YDHsReuTrF9sugMQOSiUbyGzLjKHT8hRQFeqEtTuwvv-48dKMeaWD8DSL5TKY6u2K1SwbH6OhAfQwIWBJp1GeTDbsue9kBX9PEhqg5ys1ea3ud-4d8uImQKJhVH5_bhs9Gw' }
+  { id: 'phase-4', code: 'Phase 4', title: 'The Toolkit', body: 'Confidence, envisioning, and pre-performance control routines that help athletes build certainty before execution.', accent: '#5c2e91', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCOJxNkx8XcI7amPy8SuO1byA5jB5t7Vgu7IDETTzUHpNZhGv3sF5clnnWroiNORNERn_9nal0ZPF8GGKjLYf--q4FM8nx0XPMxa4i_fp273shRI9kHUcq30245dQF2VsMtJ8lHTY3YDHsReuTrF9sugMQOSiUbyGzLjKHT8hRQFeqEtTuwvv-48dKMeaWD8DSL5TKY6u2K1SwbH6OhAfQwIWBJp1GeTDbsue9kBX9PEhqg5ys1ea3ud-4d8uImQKJhVH5_bhs9Gw' }
 ];
 
 const ASSIGNMENTS = [
@@ -302,57 +302,57 @@ const ASSIGNMENTS = [
     code: "04A",
     title: "Confidence",
     accent: "#0ea5e9",
-    body: "Confidence blueprint covering mental bank account deposits, damage control, and C-B-A routines.",
+    body: "Confidence blueprint covering sources of belief, the confidence account, mental filter protection, and C-B-A routines.",
     eyebrow: "Confidence Command",
     heroTitle: "Confidence Master Blueprint",
-    introCopy: "Confidence is built through deposits, protected through interpretation, and expressed through routine. This assignment turns belief into something operational rather than emotional.",
-    steps: ["Briefing", "Top Ten Audit", "Damage Control", "C-B-A Routine", "Review"],
+    introCopy: "Confidence is built through evidence, protected through interpretation, and expressed through routine. This assignment turns the chapter's confidence model into something operational instead of emotional.",
+    steps: ["Briefing", "Sources & Deposits", "Mental Filter", "C-B-A Bridge", "Review"],
     introCards: [
-      { title: "Bank Account", body: "Confidence grows through repeated, specific deposits rather than vague positivity." },
-      { title: "Lockdown Filter", body: "Interpret setbacks as temporary, limited, and non-defining." },
-      { title: "C-B-A Routine", body: "Use a cue, a belief, and an attachment action to re-enter performance." },
-      { title: "Selective Perception", body: "Direct attention toward evidence that supports effective action." }
+      { title: "Sources of Confidence", body: "Track mastery experiences, modeling, persuasive coaching, imagery, preparation, and the meaning assigned to arousal." },
+      { title: "Confidence Account", body: "Use Top Ten evidence and Daily E-S-P deposits to keep belief stocked with real proof." },
+      { title: "Mental Filter", body: "Protect confidence with temporary / limited / nonrepresentative thinking and What? So what? Now what?" },
+      { title: "C-B-A Bridge", body: "Use cue conviction, a practiced breath plan, and an external attentional attachment to carry belief into action." }
     ],
     panels: [
       {
         label: "Step 01",
-        title: "Top Ten Audit",
-        copy: "Inventory the evidence that you are capable, prepared, and reliable.",
+        title: "Sources & Deposits",
+        copy: "Inventory the evidence that you are capable, prepared, and reliable, then map where confidence comes from in your real system.",
         fields: [
-          { label: "List your top ten confidence deposits", type: "textarea", placeholder: "List ten pieces of evidence, accomplishments, or habits that build belief..." },
-          { label: "Daily deposit plan", type: "textarea", placeholder: "Describe how you will keep adding to the account each day..." }
+          { label: "Top Ten evidence list", type: "textarea", placeholder: "List ten pieces of evidence, accomplishments, or habits that build certainty..." },
+          { label: "Daily E-S-P plan", type: "textarea", placeholder: "Describe how effort, success, and progress will keep feeding the account..." }
         ]
       },
       {
         label: "Step 02",
-        title: "Damage Control",
-        copy: "The event is not the damage. The interpretation is. Build the reframing system now.",
+        title: "Mental Filter & Damage Control",
+        copy: "The event is not the damage. The interpretation is. Build the filter, the What? So what? Now what? loop, and the arousal reframe now.",
         fields: [
-          { label: "Recent setback or recurring fear", type: "textarea", placeholder: "Describe the event that usually drains confidence..." },
-          { label: "Lockdown reframe", type: "textarea", placeholder: "Rewrite the event as temporary, limited, and non-defining..." }
+          { label: "Recent withdrawal or confidence threat", type: "textarea", placeholder: "Describe the event that usually drains confidence..." },
+          { label: "Mental filter rewrite", type: "textarea", placeholder: "Rewrite the event as temporary, limited, and nonrepresentative..." }
         ]
       },
       {
         label: "Step 03",
-        title: "C-B-A Routine",
-        copy: "Build a quick sequence that restores belief and reattaches attention to action.",
+        title: "C-B-A Bridge",
+        copy: "Build a quick sequence that restores conviction, settles the body, and reattaches attention to the task.",
         fields: [
-          { label: "Cue word", type: "input", placeholder: "Example: reset, trust, hunt, compete" },
-          { label: "Belief statement", type: "textarea", placeholder: "Write the belief statement you want active in the moment..." },
-          { label: "Attachment action", type: "input", placeholder: "What physical or visual action reattaches you to the task?" }
+          { label: "Cue conviction", type: "input", placeholder: "Example: trust, commit, attack, smooth..." },
+          { label: "Practiced breath plan", type: "textarea", placeholder: "Describe the breath plan that calms the body into usable energy..." },
+          { label: "External attentional attachment", type: "input", placeholder: "What external target or first action reattaches you to execution?" }
         ]
       },
       {
         label: "Step 04",
         title: "Understanding Narrative",
-        copy: "Explain how your bank account, lockdown logic, and C-B-A routine work together.",
+        copy: "Explain how sources, deposits, mental filter logic, and the C-B-A bridge work together under pressure.",
         fields: [
-          { label: "Confidence logic narrative", type: "textarea", placeholder: "Explain how this system improves your performance under pressure..." }
+          { label: "Confidence logic narrative", type: "textarea", placeholder: "Explain how this system builds certainty, protects it, and carries it into execution..." }
         ]
       }
     ],
     summaryTitle: "Confidence Blueprint Summary",
-    summaryCopy: "Capture your deposits, your damage-control reframe, and your C-B-A routine in one complete confidence system.",
+    summaryCopy: "Capture your evidence, confidence sources, mental filter, and C-B-A bridge in one complete confidence system.",
     summaryPlaceholder: "Summarize your Confidence Blueprint here...",
     actionLabel: "Confidence system ready"
   },
@@ -361,58 +361,59 @@ const ASSIGNMENTS = [
     code: "04B",
     title: "Visualization",
     accent: "#8b5cf6",
-    body: "Visualization master blueprint for sanctuary building, multisensory scripting, and reset rehearsal.",
+    body: "Visualization master blueprint for prop check, mental cinema, perspective control, and the director's toolkit.",
     eyebrow: "Visualization Lab",
     heroTitle: "Visualization Master Blueprint",
-    introCopy: "The brain responds to vivid internal rehearsal. This assignment builds a mental sanctuary, a multisensory performance script, and a reset drill so your internal film becomes useful rather than random.",
-    steps: ["Briefing", "Sanctuary", "Performance Script", "Reset Drill", "Review"],
+    introCopy: "The brain responds to vivid internal rehearsal. This assignment builds a prop check, a mental cinema, and a director's toolkit so your internal film becomes useful rather than random.",
+    steps: ["Briefing", "Prop Check", "Mental Cinema", "Director's Toolkit", "Review"],
     introCards: [
-      { title: "Sanctuary", body: "Design a controlled internal room where rehearsal begins." },
-      { title: "Performance Script", body: "Build the visual, auditory, kinesthetic, and emotional layers of the scene." },
-      { title: "Flat Tire Drill", body: "Rehearse the crisis and the dominant recovery, not just success." },
-      { title: "Script Builder", body: "Combine the pieces into one coherent internal film." }
+      { title: "Prop Check", body: "Start in a controlled mental place, then make the scene tactile with the actual tool, object, weight, texture, and familiar movement." },
+      { title: "Mental Cinema", body: "Build the visual, auditory, kinesthetic, emotional, and timing layers of the scene." },
+      { title: "Perspective Control", body: "Choose internal / first person or external / third person on purpose." },
+      { title: "Director's Toolkit", body: "Use GoPro perspective, director's cut, flat tire drill, and real-time rehearsal to protect the film under stress." }
     ],
     panels: [
       {
         label: "Step 01",
-        title: "Mental Sanctuary",
-        copy: "Start the film in a place you control completely.",
+        title: "Prop Check",
+        copy: "Start the film in a place you control, then make it tactile and familiar with a real prop check.",
         fields: [
-          { label: "Describe your sanctuary", type: "textarea", placeholder: "Describe the room, lighting, colors, temperature, and atmosphere..." },
-          { label: "Anchor object", type: "input", placeholder: "Name the object or tool you hold in the sanctuary..." },
-          { label: "Object manipulation details", type: "textarea", placeholder: "Describe the texture, weight, and feel as you handle it..." }
+          { label: "Mental starting place", type: "textarea", placeholder: "Describe where the rehearsal begins before action starts..." },
+          { label: "Tool or object", type: "input", placeholder: "Name the tool, object, or surface that grounds the scene..." },
+          { label: "Weight, texture, and familiar movement", type: "textarea", placeholder: "Describe how the prop feels when you handle it..." }
         ]
       },
       {
         label: "Step 02",
-        title: "Performance Script",
-        copy: "Build the scene with multiple sensory channels, not just pictures.",
+        title: "Mental Cinema",
+        copy: "Build the scene with multiple sensory channels, an explicit perspective choice, and timing that matches the task.",
         fields: [
-          { label: "Visual and auditory details", type: "textarea", placeholder: "Describe what you see and hear in the performance scene..." },
-          { label: "Kinesthetic details", type: "textarea", placeholder: "Describe what your body feels as you execute..." },
-          { label: "Emotional state", type: "textarea", placeholder: "Describe the feeling of control, readiness, or intensity..." }
+          { label: "Visual / auditory detail", type: "textarea", placeholder: "Describe what you see and hear in the performance scene..." },
+          { label: "Kinesthetic detail", type: "textarea", placeholder: "Describe what your body feels as you execute..." },
+          { label: "Emotional tone", type: "textarea", placeholder: "Describe the feeling of control, readiness, or intensity..." }
         ]
       },
       {
         label: "Step 03",
-        title: "Reset Drill",
-        copy: "Do not rehearse only perfect performance. Rehearse recovery.",
+        title: "Director's Toolkit",
+        copy: "Use GoPro perspective, director's cut, flat tire drill, and real-time rehearsal so the film survives disruption.",
         fields: [
-          { label: "The failure or glitch", type: "textarea", placeholder: "Describe the common error or disruption that normally breaks rhythm..." },
-          { label: "The dominant reset", type: "textarea", placeholder: "Describe the breath, cue, and physical response that restores control..." }
+          { label: "GoPro perspective", type: "textarea", placeholder: "Describe the first-person camera angle that helps you feel the task from inside the action..." },
+          { label: "Director's cut / rewind / overwrite", type: "textarea", placeholder: "Describe how you cut and replace the wrong image..." },
+          { label: "Flat tire drill", type: "textarea", placeholder: "Describe the predictable disruption and the dominant recovery..." }
         ]
       },
       {
         label: "Step 04",
-        title: "Script Builder",
-        copy: "Now combine the sanctuary, performance sequence, and reset drill into one complete story.",
+        title: "Review",
+        copy: "Now combine the prop check, mental cinema, and director's toolkit into one full envisioning script.",
         fields: [
-          { label: "Full visualization script", type: "textarea", large: true, placeholder: "Write the full multisensory script from entry to execution to reset..." }
+          { label: "Full envisioning script", type: "textarea", large: true, placeholder: "Write the full imagery script from opening frame to execution to disruption to recovery..." }
         ]
       }
     ],
     summaryTitle: "Visualization Blueprint Summary",
-    summaryCopy: "Lock the full sequence into one usable internal script that includes preparation, execution, and recovery.",
+    summaryCopy: "Lock the prop check, mental cinema, perspective, timing, and director's toolkit into one usable internal script.",
     summaryPlaceholder: "Summarize your Visualization Blueprint here...",
     actionLabel: "Visualization system ready"
   }
@@ -794,6 +795,162 @@ const QUIZZES = [
         explanation: 'The chapter recommends a repeatable breath-cue-target routine that is trained under pressure until it becomes the default refocus response.'
       }
     ]
+  },
+  {
+    id: 'quiz-phase4-winning-the-first-victory',
+    code: 'Quiz 04',
+    title: 'Winning the First Victory',
+    accent: '#8b5cf6',
+    phaseId: 'phase-4',
+    body: '12 multiple-choice questions on confidence, protective thinking, C-B-A routines, and multisensory envisioning.',
+    questionCount: 12,
+    sourcePdf: './assets/slides/04-toolkit.pdf',
+    questions: [
+      {
+        id: 'phase4-q1',
+        question: 'In this chapter, practical confidence is best defined as:',
+        choices: [
+          'A personality trait that some performers are born with.',
+          'A sense of certainty that allows a learned skill to be executed with less conscious interference.',
+          'The absence of all physiological arousal before an event.',
+          'The public display of boldness and intensity.'
+        ],
+        answerIndex: 1,
+        explanation: 'Confidence is treated as functional certainty that quiets overanalysis and lets a learned skill run more automatically.'
+      },
+      {
+        id: 'phase4-q2',
+        question: 'Which confidence-related construct is the most task-specific?',
+        choices: [
+          'Trait confidence',
+          'Robust sport confidence',
+          'Self-efficacy',
+          'General optimism'
+        ],
+        answerIndex: 2,
+        explanation: 'Self-efficacy is a situation- and task-specific judgment of capability, not a broad personality trait.'
+      },
+      {
+        id: 'phase4-q3',
+        question: 'According to the confidence account metaphor, which option is a deposit?',
+        choices: [
+          'Replaying criticism after practice',
+          'Noticing effort and small progress from the day',
+          'Treating one bad rep as proof you are not ready',
+          'Predicting disaster before competition'
+        ],
+        answerIndex: 1,
+        explanation: 'Effort and progress count as deposits because they provide usable evidence that the performer is moving forward.'
+      },
+      {
+        id: 'phase4-q4',
+        question: 'What is the main job of the mental filter?',
+        choices: [
+          'Remove all emotion from performance',
+          'Make every memory feel equally important',
+          'Approve useful deposits and reframe or block withdrawals',
+          'Eliminate the need for practice'
+        ],
+        answerIndex: 2,
+        explanation: 'The mental filter decides what is retained as confidence-building evidence and what gets reframed as learning instead of damage.'
+      },
+      {
+        id: 'phase4-q5',
+        question: 'Constructive attitude lockdown treats an error as:',
+        choices: [
+          'Permanent, global, and diagnostic of identity',
+          'Temporary, limited, and nonrepresentative of the whole self',
+          'Proof that confidence was fake',
+          'Something that should never be discussed again'
+        ],
+        answerIndex: 1,
+        explanation: 'Lockdown prevents one error from becoming a story about the whole self by containing it to time, area, and meaning.'
+      },
+      {
+        id: 'phase4-q6',
+        question: 'The flat tire drill is designed to:',
+        choices: [
+          'Focus only on perfect outcomes',
+          'Eliminate the possibility of setbacks',
+          'Rehearse adversity and a composed response before it happens',
+          'Replace physical preparation with mental rehearsal'
+        ],
+        answerIndex: 2,
+        explanation: 'The drill prepares the mind for adversity so the response feels rehearsed rather than improvised under pressure.'
+      },
+      {
+        id: 'phase4-q7',
+        question: 'The step "Attach your attention" in the C-B-A routine means:',
+        choices: [
+          'Thinking harder about mechanics while you perform',
+          'Focusing on an external cue or target so trained action can run',
+          'Scanning the crowd to calm yourself down',
+          'Repeating multiple affirmations while the action is unfolding'
+        ],
+        answerIndex: 1,
+        explanation: 'The final step shifts attention outward so the performer stops self-monitoring and lets trained action take over.'
+      },
+      {
+        id: 'phase4-q8',
+        question: 'Why can reinterpreting butterflies improve confidence?',
+        choices: [
+          'Because arousal disappears when you relabel it',
+          'Because the body stops releasing energy when you breathe',
+          'Because the same activation can be understood as readiness instead of threat',
+          'Because only weak performers feel butterflies'
+        ],
+        answerIndex: 2,
+        explanation: 'Activation itself is not automatically bad; interpretation determines whether it becomes threat or fuel.'
+      },
+      {
+        id: 'phase4-q9',
+        question: 'Effective imagery differs from ordinary daydreaming because it is:',
+        choices: [
+          'Multisensory, controlled, emotional, and intentionally linked to performance',
+          'Always vague so it stays positive',
+          'Useful only after the event, not before it',
+          'Limited to visual detail alone'
+        ],
+        answerIndex: 0,
+        explanation: 'Effective envisioning is deliberate practice rather than passive fantasy. It includes multiple senses, emotion, control, and task relevance.'
+      },
+      {
+        id: 'phase4-q10',
+        question: 'Which imagery perspective is usually strongest for feeling timing and movement from inside the action?',
+        choices: [
+          'External / third person',
+          'Statistical / analytical',
+          'Internal / first person',
+          'Verbal / linguistic'
+        ],
+        answerIndex: 2,
+        explanation: 'First-person imagery usually gives the strongest sense of timing, kinesthetic feel, and emotional realism.'
+      },
+      {
+        id: 'phase4-q11',
+        question: 'If a negative image appears during rehearsal, the recommended response is to:',
+        choices: [
+          'Let it run so you get used to failure',
+          'Ignore it and hope it goes away',
+          'Cut it, rewind, and overwrite it with the correct action',
+          'Stop using imagery altogether'
+        ],
+        answerIndex: 2,
+        explanation: 'Controllability matters. Negative scenes should be corrected rather than replayed repeatedly.'
+      },
+      {
+        id: 'phase4-q12',
+        question: 'Why does real-time rehearsal matter?',
+        choices: [
+          'It prevents emotion from entering the scene',
+          'It helps the mental blueprint match the temporal demands of the real task',
+          'It makes every skill look faster',
+          'It works only for team sports'
+        ],
+        answerIndex: 1,
+        explanation: 'Real-time rehearsal helps the brain build a blueprint that fits the pace and rhythm of the actual event.'
+      }
+    ]
   }
 ];
 
@@ -979,11 +1136,11 @@ PHASE_CONTENT['phase-1'] = {
     {
       title: 'Inside This Chapter',
       paragraphs: [
-        'How elite performers regulate energy, attention, and control under pressure.',
-        'Designed as a textbook-style chapter for fast study, clean skimming, and practical review.',
-        'This guide synthesizes the core psychological principles that govern performance readiness. The central task is not to eliminate arousal or pressure, but to regulate them so that energy, attention, and execution stay aligned with the demands of the moment.',
-        'Notice the repeated pattern running through the chapter: environmental demands are filtered through perception, which shapes arousal, anxiety, attention, and ultimately performance. The best tools work because they help the performer regain a sense of control.'
-      ],
+        'This guide synthesizes the core psychological principles that govern performance readiness. The central task is not to eliminate arousal or pressure, but to regulate them so that energy, attention, and execution stay aligned with the demands of the moment.'
+      ]
+    },
+    {
+      title: 'Chapter roadmap',
       bullets: [
         'Foundations of mental fitness and the Ideal Performance State (IPS)',
         'How arousal, stress, and anxiety differ',
@@ -992,7 +1149,13 @@ PHASE_CONTENT['phase-1'] = {
         'Sources of stress and anxiety in sport',
         'Why arousal changes coordination and attention',
         'Regulation tools: breathing, PMR, activation, cue words, and SMART goals',
-        'Glossary of key terms for review'
+        'Practice quiz, answer key, and glossary'
+      ]
+    },
+    {
+      title: 'Study focus',
+      paragraphs: [
+        'Notice the repeated pattern running through the chapter: environmental demands are filtered through perception, which shapes arousal, anxiety, attention, and ultimately performance. The best tools work because they help the performer regain a sense of control.'
       ]
     },
     {
@@ -1218,11 +1381,13 @@ PHASE_CONTENT['phase-2'] = {
     {
       title: 'Inside This Chapter',
       paragraphs: [
-        'Why this chapter matters: Students are often taught discipline as if it were a moral trait that a person either has or does not have. That story is clean, simple, and mostly wrong. People can look equally hardworking from the outside while operating from completely different motivational systems.',
-        'One student is driven by guilt, fear, or ego defense. Another is acting from a chosen identity, clear values, and an understanding of how much load the body and mind can actually recover from. Those systems do not feel the same, and they do not produce the same long-term outcomes.',
-        'This chapter reframes discipline as an architecture of self-regulation. It integrates self-determination theory, goal setting, mindset research, pride and attribution, overtraining science, and person-by-situation effects in social performance. The result is a practical model for students, athletes, and performers who want discipline that lasts.',
-        'Study lens: As you move through the chapter, ask a harder question than "How motivated am I?" Ask, "What is driving my effort right now: pressure, guilt, values, identity, enjoyment, or fear?" That question exposes the quality of the system.'
-      ],
+        'Why this chapter matters',
+        'Students are often taught discipline as if it were a moral trait: you either have it or you do not. That story is clean, simple, and mostly wrong. People can look equally hardworking from the outside while operating from completely different motivational systems. One student is driven by guilt, fear, or ego defense. Another is acting from a chosen identity, clear values, and an understanding of how much load the body and mind can actually recover from. Those two systems do not feel the same, and they do not produce the same long-term outcomes.',
+        'This chapter reframes discipline as an architecture of self-regulation. It integrates self-determination theory, goal setting, mindset research, pride and attribution, overtraining science, and person-by-situation effects in social performance. The result is a practical model for students, athletes, and performers who want discipline that lasts.'
+      ]
+    },
+    {
+      title: 'Learning objectives',
       bullets: [
         'Distinguish direction and intensity of motivation and explain why a person-by-situation view predicts behavior better than trait-only explanations.',
         'Explain the self-determination continuum from amotivation to intrinsic motivation and differentiate introjected from integrated regulation.',
@@ -1231,6 +1396,12 @@ PHASE_CONTENT['phase-2'] = {
         'Use outcome, performance, and process goals appropriately and design a goal system that survives real-world stress.',
         'Recognize the recovery continuum from acute fatigue to overtraining syndrome and identify warning signs of under-recovery.',
         'Apply social-context findings to coaching, training design, and self-management.'
+      ]
+    },
+    {
+      title: 'Study lens',
+      paragraphs: [
+        'As you move through the chapter, ask a harder question than "How motivated am I?" Ask: "What is driving my effort right now - pressure, guilt, values, identity, enjoyment, or fear?" That question exposes the quality of the system.'
       ]
     },
     {
@@ -1504,41 +1675,7 @@ PHASE_CONTENT['phase-2'] = {
       ]
     },
     {
-      title: '14. Review Questions',
-      bullets: [
-        'Distinguish the direction and intensity of motivation, and explain why that distinction is useful in performance settings.',
-        'What is the difference between introjected regulation and integrated regulation?',
-        'Why does self-determination theory treat autonomy, competence, and relatedness as basic psychological needs?',
-        'How do values change the meaning of a difficult task?',
-        'Contrast the entity view of ability with the incremental view of ability.',
-        'Why can guilt support behavior change while shame often undermines it?',
-        'How does authentic pride differ from hubristic pride?',
-        'Compare outcome, performance, and process goals and explain when each is most useful.',
-        'What distinguishes functional overreaching, nonfunctional overreaching, and overtraining syndrome?',
-        'Why is rest considered part of the growth equation rather than the opposite of discipline?',
-        'What does the person-by-situation view add to our understanding of motivation in teams and training groups?',
-        'Create a brief integrated-discipline plan for a student who is hardworking but guilt-driven and chronically under-recovered.'
-      ]
-    },
-    {
-      title: '15. Answer Key',
-      bullets: [
-        'Direction refers to where effort is aimed; intensity refers to how much effort is applied once the task is engaged. The distinction matters because someone can show high intensity toward the wrong target, or low intensity toward a target they genuinely value.',
-        'Introjected regulation is driven by guilt, shame, or ego pressure, whereas integrated regulation reflects a behavior that has been assimilated into values and identity. Both can produce effort, but integrated regulation is usually more stable and less psychologically costly.',
-        'These needs are treated as basic because they support growth, integrity, and well-being across domains. When they are satisfied, motivation becomes more self-determined; when they are thwarted, motivation shifts toward control or amotivation.',
-        'Values act like a filter for behavior. They connect a difficult or boring action to something the student believes is worth protecting or becoming, which increases meaning and ownership even when the task remains hard.',
-        'The entity view treats ability as a fixed trait to be proven, so failure becomes an ego threat. The incremental view treats ability as developable, so failure becomes information about process, strategy, or preparation.',
-        'Guilt targets a behavior and therefore leaves room for correction. Shame targets identity and often triggers hiding, defensiveness, or withdrawal because the whole self feels contaminated.',
-        'Authentic pride is grounded in controllable causes such as effort and skill; hubristic pride is grounded in superiority and fixed status narratives. Authentic pride tends to support resilience, while hubristic pride tends to create fragility and defensiveness.',
-        'Outcome goals target the final result relative to others, performance goals target a personal standard, and process goals target controllable execution cues. Outcome goals provide direction, performance goals help monitor progress, and process goals usually protect focus under pressure.',
-        'Functional overreaching is a planned short-term dip followed by recovery and improvement. Nonfunctional overreaching is a maladaptive state where recovery is insufficient and performance stagnates. Overtraining syndrome is a long-term breakdown state with broad physiological and cognitive consequences.',
-        'Rest is part of the growth equation because adaptation occurs after the stressor, not during it. Without recovery, the system accumulates fatigue and eventually loses the capacity to benefit from additional load.',
-        'It shows that motivation cannot be read from personality or environment alone. A team context can energize approval-oriented performers while impairing rejection-threatened performers, which means coaching must match the person and the setting.',
-        'A strong plan would reduce shame-based self-talk, clarify one or two core values, build a goal ladder with process targets, monitor sleep and fatigue, and deliberately schedule recovery so effort stops being a guilt ritual and becomes a professional standard.'
-      ]
-    },
-    {
-      title: '16. Glossary of Essential Terms',
+      title: '14. Glossary of Essential Terms',
       paragraphs: [
         'Core vocabulary for quick review.'
       ],
@@ -1581,7 +1718,7 @@ PHASE_CONTENT['phase-3'] = {
   heroFigure: {
     src: './assets/readings/phase3-figures/phase3-focus-system-map.png',
     alt: 'Focus under pressure chapter map showing attention architecture, the inner game, preparation, and reset tools',
-    caption: 'Figure 1. Focus under pressure is a coordinated system of attention architecture, interference control, preparation, and reset tools.'
+    caption: 'Figure 1. Focus under pressure is a system, not a single mindset trick.'
   },
   keyIdeas: [
     'Learn how selectivity, capacity, alertness, and shifting shape performance.',
@@ -1590,12 +1727,21 @@ PHASE_CONTENT['phase-3'] = {
   ],
   sections: [
     {
+      title: 'Chapter roadmap',
+      paragraphs: [
+        'This chapter merges the scientific study of concentration with the applied "Inner Game" approach to performance. Together they explain how athletes can prepare attention before competition, protect it during performance, and recover it quickly when it drifts.'
+      ]
+    },
+    {
       title: 'Inside This Chapter',
       paragraphs: [
+        'Why this chapter matters',
         'Students often treat focus as if it were a vague personality trait: some people "have it" and others do not. That view is too simple. Concentration is a trainable performance skill. It can be diagnosed, rehearsed, disrupted, and rebuilt. Once coaches and performers understand the architecture of attention, breakdowns become easier to explain and easier to fix.',
-        'The deeper lesson is that pressure rarely invents a new athlete. It exposes the attentional habits the athlete already owns. A strong chapter on concentration therefore has to cover both the science of attention and the lived experience of performance under pressure.',
-        'Read this chapter with a diagnostic mindset. Instead of asking only whether an athlete was "focused," ask what they were focused on, whether that focus matched the task, and how quickly they could shift when the moment changed.'
-      ],
+        'The deeper lesson is that pressure rarely invents a new athlete. It exposes the attentional habits the athlete already owns. A strong chapter on concentration therefore has to cover both the science of attention and the lived experience of performance under pressure.'
+      ]
+    },
+    {
+      title: 'Learning objectives',
       bullets: [
         'Define concentration as selective, sustained, and shiftable attention rather than simple effortful focus.',
         'Explain the core attentional processes of selectivity, capacity, alertness, and attentional shifting.',
@@ -1603,6 +1749,12 @@ PHASE_CONTENT['phase-3'] = {
         "Differentiate Gallwey's Self 1 and Self 2 and explain the performance equation: potential minus interference.",
         'Design pre-competition routines, what-if plans, imagery scripts, and simulation drills that protect focus.',
         'Build an in-performance focus plan using breath control, cue words, external anchors, and nonjudgmental resets.'
+      ]
+    },
+    {
+      title: 'Study lens',
+      paragraphs: [
+        'Read this chapter with a diagnostic mindset. Instead of asking only whether an athlete was "focused," ask what they were focused on, whether that focus matched the task, and how quickly they could shift when the moment changed.'
       ]
     },
     {
@@ -1756,41 +1908,7 @@ PHASE_CONTENT['phase-3'] = {
       ]
     },
     {
-      title: '9. Multiple-choice review',
-      bullets: [
-        '1. Which statement best describes concentration in sport performance? A. Trying harder than everyone else B. Selecting, sustaining, noticing, and shifting attention to the right cues C. Eliminating all emotion before competition D. Thinking about mechanics on every repetition',
-        '2. In this chapter, attentional capacity refers to: A. The amount of pain an athlete can tolerate B. The speed at which arousal rises C. The limited amount of information a performer can process at one time D. The number of routines an athlete memorizes',
-        '3. Which example best fits broad-external attention? A. Feeling shoulder tension before a serve B. Scanning spacing, defenders, and options before making a pass C. Repeating a cue word during a lift D. Locking eyes on the back rim during a free throw',
-        '4. Narrow-internal attention is most useful when the athlete needs to: A. Read the whole competitive environment B. Regulate breath, body tone, or timing before execution C. React to crowd noise D. Evaluate the final result after competition',
-        "5. Gallwey's performance equation states that performance equals: A. Confidence plus effort B. Potential minus interference C. Talent plus repetition D. Preparation minus fatigue",
-        '6. Self 1 is best described as the: A. Automatic, sensory performer B. Verbal, analytical judge that labels and evaluates C. Physiological arousal system D. Support network around the athlete',
-        '7. Which response best reflects nonjudgmental thinking after a mistake? A. "I always choke under pressure." B. "That proves I am not built for this." C. "I was late on contact; next rep eyes on the target." D. "Do not miss again or you will blow it."',
-        '8. The main job of a good preperformance routine is to: A. Guarantee perfect calm B. Shift attention onto controllable, task-relevant cues C. Build as much intensity as possible D. Analyze technique in detail during execution',
-        '9. What-if planning improves focus because it: A. Removes the need for practice B. Pre-decides how to respond to likely distractions or disruptions C. Makes pressure disappear D. Prevents all attentional narrowing',
-        '10. An instructional cue word differs from a motivational cue word because it: A. Refines movement or technique rather than raising effort level B. Is only used in practice, never in competition C. Always increases arousal more strongly D. Replaces the need for an external target',
-        '11. Centering and external anchors help under pressure by: A. Pulling attention back to the present and reducing mental noise B. Increasing self-criticism so technique stays sharp C. Keeping attention on the last mistake D. Expanding attention to every possible cue',
-        '12. An anxious free-throw shooter who overthinks in games would likely benefit most from: A. More outcome-focused self-talk B. A short breath-cue-target routine practiced under pressure C. Constant mechanical instructions during the shot D. Avoiding all rehearsal before competition'
-      ]
-    },
-    {
-      title: '10. Answer key with brief explanations',
-      bullets: [
-        '1. B - Concentration is a control process: it selects relevant cues, sustains attention, notices change, and shifts when needed.',
-        '2. C - Attentional capacity is limited mental bandwidth, which is why pressure and distraction can overload performance.',
-        '3. B - Broad-external attention scans the environment for opponents, spacing, timing, and tactical information.',
-        '4. B - Narrow-internal attention is used for regulation, such as breath, body tone, tempo, or grip pressure before execution.',
-        "5. B - Gallwey's core idea is that performance is reduced when interference pulls the athlete away from automatic skill.",
-        '6. B - Self 1 is the analytical and judgmental voice; Self 2 is the embodied performer that executes the learned skill.',
-        '7. C - Nonjudgmental language describes what happened in usable terms and points attention to the next controllable cue.',
-        '8. B - A strong preperformance routine organizes attention around controllables like breath, body position, cue words, and target.',
-        '9. B - What-if planning protects attention by deciding in advance how to respond to bad calls, noise, slow starts, or other disruptions.',
-        '10. A - Instructional cue words guide a specific movement or technical emphasis, while motivational cues raise effort or intensity.',
-        '11. A - Centering and anchors reduce noise by returning awareness to the present instead of worry, judgment, or overcontrol.',
-        '12. B - The chapter recommends a brief repeatable routine that steadies breath, narrows the cue, and is rehearsed under pressure.'
-      ]
-    },
-    {
-      title: '11. Glossary of essential terms',
+      title: '9. Glossary of essential terms',
       paragraphs: [
         'Use these terms as active language for coaching and self-analysis.'
       ],
@@ -1819,6 +1937,267 @@ PHASE_CONTENT['phase-3'] = {
         ['Self 2', "Gallwey's label for the automatic, intuitive, sensory doer."],
         ['Simulation training', 'Practice that reproduces competitive stressors such as noise, consequence, time pressure, or evaluation.'],
         ['What-if planning', 'Pre-deciding how to respond to likely distractions or disruptions before competition begins.']
+      ]
+    }
+  ]
+};
+
+PHASE_CONTENT['phase-4'] = {
+  eyebrow: 'Phase 4 lesson',
+  heading: 'Winning the First Victory',
+  subheading: 'Confidence, Envisioning, and Pre-Performance Control',
+  summary: 'The first victory is won in the mind before the event begins. Confidence is built through evidence, protected through interpretation, and expressed through routine and vivid mental rehearsal.',
+  sourcePdf: './assets/slides/04-toolkit.pdf',
+  quizId: 'quiz-phase4-winning-the-first-victory',
+  keyIdeas: [
+    'Confidence becomes usable when it is based on evidence rather than mood or bravado.',
+    'Protective thinking keeps one bad moment from turning into an identity story.',
+    'Routine and multisensory rehearsal help certainty show up when pressure rises.'
+  ],
+  sections: [
+    {
+      title: 'Inside This Chapter',
+      paragraphs: [
+        'Confidence and envisioning are not soft extras that sit beside real training. They are part of the performance system itself. This chapter explains how performers build the first victory before pressure arrives: they create certainty through evidence, protect it from needless withdrawals, and mentally rehearse both success and recovery so the body can perform with less interference.',
+        'Designed as a textbook-style chapter for study, teaching, and practical review.',
+        'The first victory is won in the mind before the event begins.'
+      ]
+    },
+    {
+      title: 'Learning objectives',
+      bullets: [
+        'Define confidence in performance terms and distinguish it from arrogance, mood, and empty positivity.',
+        'Differentiate state confidence, trait confidence, self-efficacy, and robust sport confidence.',
+        'Explain how deposits, withdrawals, and the mental filter shape the confidence account.',
+        'Apply protective tools such as constructive attitude lockdown, the flat tire drill, and the "So What?" review.',
+        'Use the C-B-A routine to bridge preparation and live execution under pressure.',
+        'Design imagery that is vivid, controlled, emotional, and matched to the timing of the actual task.'
+      ]
+    },
+    {
+      title: 'Chapter roadmap',
+      bullets: [
+        'What confidence is and why it supports automatic execution.',
+        'State confidence, trait confidence, self-efficacy, and robust sport confidence.',
+        'The confidence account: deposits, withdrawals, and mental filtering.',
+        'Protective thinking, arousal reappraisal, and resilience under setbacks.',
+        'The C-B-A pre-performance routine.',
+        'Envisioning as multisensory mental rehearsal.',
+        'Perspective, controllability, emotion, and real-time timing in imagery.',
+        "The Mental Director's Toolkit and glossary."
+      ],
+      figures: [
+        {
+          src: './assets/readings/phase4-figures/phase4-chapter-map.png',
+          alt: 'Chapter map showing confidence, protection, routine, and mental cinema feeding the first victory',
+          caption: 'Figure 1. The chapter is built around one system: build certainty, protect it, then express it under pressure.'
+        }
+      ]
+    },
+    {
+      title: '1. Foundations of Confidence',
+      paragraphs: [
+        'Confidence is often described vaguely as believing in yourself, but that description is too soft to be useful in performance settings. For performers, confidence is a working sense of certainty about ability that reduces unnecessary conscious interference. When a skill is well learned, execution is best when the performer can perceive, decide, and respond without micromanaging every movement or word. The more pressure rises, the more valuable that certainty becomes.',
+        'This is why confidence should not be confused with showmanship, noise, or bravado. A performer can sound certain and still perform tentatively. Likewise, a calm and modest performer may compete with deep conviction. The meaningful question is functional: does confidence free attention and movement, or does doubt pull the performer back into judgment, hesitation, and overcontrol?',
+        "Confidence and competence must also be kept distinct. Competence supplies the actual skill base. Confidence determines whether that skill is expressed under pressure. Without competence, confidence becomes fantasy. Without confidence, competence becomes trapped potential. The 'first victory' is won when the performer enters the arena already certain enough to let preparation show up."
+      ],
+      table: {
+        headers: ['Construct', 'Definition', 'Why it matters'],
+        rows: [
+          ['State confidence', 'The performer’s momentary belief right now.', 'It rises and falls with recent events, context, and immediate interpretation.'],
+          ['Trait confidence', 'A more stable tendency to feel assured across situations.', 'It shapes how often a person enters a situation expecting success.'],
+          ['Self-efficacy', 'A task-specific judgment of capability for a particular challenge.', 'It can be strong in one domain and weak in another, and it is highly trainable.'],
+          ['Robust sport confidence', 'A durable network of positive beliefs that resists environmental and psychological challenge.', 'It is built over time through evidence, self-regulation, and supportive climate.']
+        ]
+      }
+    },
+    {
+      title: '2. Where Confidence Comes From',
+      paragraphs: [
+        'Several related constructs help clarify how confidence works. State confidence refers to how certain a performer feels in the moment. Trait confidence refers to a more stable tendency to feel assured across situations. Self-efficacy narrows the lens even further: it is the belief that one can execute a specific task successfully. Robust sport confidence describes a broader, more durable network of positive beliefs that helps a performer withstand challenge, evaluation, and environmental stress.',
+        'Bandura’s self-efficacy framework explains why confidence is trainable rather than fixed. The strongest source is mastery experience - past evidence that the performer has actually done the thing or has built the ingredients for doing it. But mastery is not the only source. Modeling, persuasive coaching, imagery, preparation, and the meaning assigned to bodily arousal all shape a performer’s belief about what is possible right now.',
+        'A constructive self-fulfilling prophecy develops when the performer expects capability and therefore perceives options, persists longer, and makes cleaner task-relevant decisions. A destructive prophecy does the opposite: it narrows attention toward threat, increases hesitation, and makes the performer search for signs that failure is coming.'
+      ],
+      table: {
+        headers: ['Source', 'Practical deposit', 'Performance effect'],
+        rows: [
+          ['Mastery experiences', 'Review successful reps, competition highlights, and solved problems.', 'Direct evidence of capability makes this the most dependable source of certainty.'],
+          ['Vicarious experiences', 'Observe similar others succeeding and study model performances.', 'It expands belief about what is possible and how it can be done.'],
+          ['Verbal persuasion', 'Use constructive coaching language and believable present-tense self-talk.', 'It works best when it is specific, credible, and linked to preparation.'],
+          ['Imaginal experiences', 'Rehearse success, decision sequences, and recovery responses in imagery.', 'Future execution feels more familiar before it happens.'],
+          ['Physiological and emotional states', 'Interpret butterflies, racing heart, and activation as readiness.', 'The same arousal can become threat or fuel depending on meaning.'],
+          ['Preparation and self-regulation', 'Use routines, plans, and repeated quality practice.', 'Preparation creates the sense that the performer has earned the right to feel certain.']
+        ]
+      }
+    },
+    {
+      title: '3. The Confidence Account: Deposits, Withdrawals, and the Mental Filter',
+      paragraphs: [
+        'A useful way to organize confidence is to treat it like a mental bank account. Every memory, self-statement, and interpretation functions like a transaction. Deposits include remembered success, honest evidence of effort, noticed progress, quality preparation, and vivid mental rehearsal. Withdrawals occur when performers replay criticism, globalize mistakes, or treat temporary setbacks as proof that they are not ready.',
+        'The account is managed by a mental filter. This filter decides what gets mentally retained and what gets released or reframed. Strong filters do not deny reality; they keep useful evidence available and convert setbacks into learning. Weak filters allow every bad moment to become a referendum on identity. That is why two performers can live through the same event and leave it with completely different confidence balances.'
+      ],
+      figures: [
+        {
+          src: './assets/readings/phase4-figures/phase4-confidence-account.png',
+          alt: 'Confidence account diagram showing deposits on one side and withdrawals on the other',
+          caption: 'Figure 2. Confidence behaves like an account balance: deposits strengthen usable certainty while withdrawals deplete it.'
+        }
+      ],
+      bullets: [
+        'Top Ten list: keep a written list of meaningful performances, solved problems, or breakthroughs so evidence stays available.',
+        'Daily E-S-P: record one example of effort, success, and progress so ordinary days still produce deposits.',
+        'After-action review: use What happened? So what did it mean? Now what will I do next? to turn each performance into learning and the next plan.'
+      ]
+    },
+    {
+      title: '4. Protecting Confidence Under Pressure',
+      paragraphs: [
+        'Confidence becomes fragile when errors are interpreted as global truths. One miss turns into "I am off today." One awkward start becomes "I am not built for this level." Protective thinking exists to stop that chain reaction. Its job is containment: the mistake is temporary, limited, and nonrepresentative.',
+        'The same logic explains why performers benefit from rehearsing adversity instead of only rehearsing perfection. The flat tire drill asks the performer to imagine a likely disruption for a brief period, stop the scene, and then spend more time rehearsing the ideal response. When the disruption actually happens, the performer experiences familiarity instead of surprise and can move quickly toward the next controllable action.',
+        'Another part of protection is how bodily activation is interpreted. Racing heart, tight stomach, and jittery hands are often read as proof that something is wrong. In many performance contexts, the same activation can also be understood as mobilized readiness.'
+      ],
+      figures: [
+        {
+          src: './assets/readings/phase4-figures/phase4-flat-tire-drill.png',
+          alt: 'Flat tire drill diagram showing brief setback rehearsal followed by longer response rehearsal',
+          caption: 'Figure 3. The flat tire drill rehearses likely adversity and, more importantly, the desired recovery response.'
+        }
+      ],
+      bullets: [
+        'Temporary: it happened once and does not define the whole event.',
+        'Limited: it belongs to this area or this moment, not everything.',
+        'Nonrepresentative: it is data, not a full statement about who you are.',
+        'Arousal reframe: butterflies do not automatically mean danger; they can also mean mobilized readiness.'
+      ]
+    },
+    {
+      title: '5. The Routine Bridge: C-B-A',
+      paragraphs: [
+        'Even performers who have built strong confidence can struggle to access it in the instant of performance. The gap between preparation and expression often fills with thought traffic: outcomes, judgments, technique corrections, and self-conscious monitoring. A pre-performance routine serves as a bridge from a thinking mind to a performing body.',
+        'The C-B-A routine is deliberately short. First, cue conviction with a brief, present-tense statement that reminds the performer who they are when prepared and at their best. Second, breathe the body with one or two controlled breaths that interrupt the panic spiral and convert activation into readiness. Third, attach attention to an external target, cue, or task-relevant focal point so that trained action can take over.',
+        'The routine works best when it is specific, portable, and repeatable. It should not become a long motivational speech. The cue must be believable, the breath must be practiced, and the attentional target must actually matter for the task.'
+      ],
+      figures: [
+        {
+          src: './assets/readings/phase4-figures/phase4-cba-routine.png',
+          alt: 'C-B-A routine diagram showing cue conviction, breathe your body, and attach your attention',
+          caption: 'Figure 4. A short routine helps the performer cross from preparation into live execution.'
+        }
+      ],
+      bullets: [
+        'Cue conviction: use a brief believable statement that reconnects you to who you are when prepared.',
+        'Breathe your body: one or two slow breaths interrupt the panic spiral and turn nervous energy into readiness.',
+        'Attach your attention: lock onto an external cue or target so trained action can run.',
+        'Design rules: keep the cue brief, practice the breath before you need it, and choose an attentional target that actually matters.'
+      ]
+    },
+    {
+      title: '6. Envisioning: The Mental Cinema',
+      paragraphs: [
+        'Visualization is a misleading label if it implies only sight. Effective imagery is better understood as envisioning or mental rehearsal: a multisensory simulation of a performance experience. The performer should see the scene, feel the movement, hear the environment, sense the rhythm, and include the emotional tone of successful action.',
+        'Several theories explain why imagery can help. Psychoneuromuscular accounts argue that imagining action activates movement-related pathways in ways that support skill learning. Bioinformational accounts emphasize that images need both stimulus information and response information. Symbolic learning accounts suggest that imagery acts as a blueprint for sequencing, strategy, and action plans.',
+        'Perspective matters. Internal imagery is usually strongest for timing, kinesthetic feel, and emotion. External imagery is helpful for analyzing form, posture, or overall action shape. Timing matters as well: the nervous system needs a blueprint that matches the speed of the actual task. Emotion matters too, because an image without felt energy is weak rehearsal.'
+      ],
+      figures: [
+        {
+          src: './assets/readings/phase4-figures/phase4-mental-cinema.png',
+          alt: 'Mental cinema diagram showing vividness, control, timing, perspective, and emotion',
+          caption: 'Figure 5. Effective imagery depends on vividness, perspective, control, emotion, and timing.'
+        }
+      ],
+      table: {
+        headers: ['Perspective', 'Best use', 'Practical note'],
+        rows: [
+          ['Internal / first person', 'Strongest for timing, feel, rhythm, kinesthetic cues, and emotional realism.', 'Use it when you want to inhabit the movement and feel the action from inside the body.'],
+          ['External / third person', 'Useful for form analysis, posture checks, and viewing the whole action pattern.', 'Use it when you need to inspect mechanics, spacing, or tactical shape as an observer.'],
+          ['Skilled use', 'Switch perspectives deliberately rather than randomly.', 'Feel the action from inside, then step outside briefly if you need a technical correction.']
+        ]
+      }
+    },
+    {
+      title: "7. The Mental Director's Toolkit",
+      paragraphs: [
+        'A practical imagery system begins with a warm-up. In the prop check drill, the performer imagines a tool of the trade and mentally feels its weight, texture, and familiar movement. From there, the performer shifts to a GoPro perspective, seeing the action through their own eyes rather than as a spectator from the stands.',
+        'The next layer is controllability. The director’s cut drill trains the performer to stop unhelpful scenes, rewind, and overwrite them with the correct execution. Real-time rehearsal then ensures that the action unfolds at the speed and rhythm of the true event. A private, familiar mental starting place can help by giving the performer a consistent place from which to begin each rehearsal session.',
+        'A quick vividness test helps here too: if you imagine cutting into a lemon and biting it, your mouth may water. That response shows why vivid symbolic experience can trigger genuine physiological reaction.'
+      ],
+      table: {
+        headers: ['Drill', 'Purpose'],
+        rows: [
+          ['Prop check', 'Warm up the imaging system by mentally handling an object: its weight, texture, shape, and familiar movement.'],
+          ['GoPro perspective', 'Run the scene through your own eyes so the action feels inhabited rather than merely watched.'],
+          ['Director’s cut', 'If a negative image appears, cut it, rewind to just before the error, and overwrite it with the correct action.'],
+          ['Flat tire drill', 'See a realistic setback briefly, stop it, then spend longer rehearsing the composed response.'],
+          ['Real-time rehearsal', 'Match the speed and rhythm of the real event so the mental blueprint fits the actual task.']
+        ]
+      },
+      bullets: [
+        'Quality check: Did I include multiple senses?',
+        'Did I choose the right perspective for the training goal?',
+        'Did I feel believable emotion?',
+        'Did the scene unfold at real-task timing?'
+      ]
+    },
+    {
+      title: '8. Integrating the System',
+      paragraphs: [
+        'Confidence and envisioning should be treated as one integrated system rather than separate mental skills. Deposits from past performance create evidence. Protective thinking prevents unnecessary withdrawals. Envisioning makes future success and recovery more familiar. Routine bridges preparation and expression. After-action review then feeds the next cycle by turning today’s performance into tomorrow’s deposits.',
+        'A simple weekly plan is enough to keep the system alive. Capture daily effort, success, and progress. Rehearse a cue phrase and a short breath-attention reset. Run several brief imagery sessions each week that include both successful execution and a calm response to likely setbacks. After performance, review facts, extract lessons, and plan the next action. The goal is not to feel inspired once; it is to manage certainty as an ongoing discipline.'
+      ],
+      bullets: [
+        '1. Each day: record one item of effort, one success, and one sign of progress.',
+        '2. Several times per week: run a short imagery session that includes both ideal execution and a calm response to a likely setback.',
+        '3. Before performance: use the C-B-A routine to cue conviction, regulate the body, and narrow attention.',
+        '4. After performance: review facts, lessons, and the next action rather than dwelling in vague self-criticism.'
+      ]
+    },
+    {
+      title: 'Common misunderstandings',
+      table: {
+        headers: ['Misunderstanding', 'Correction'],
+        rows: [
+          ['Confidence is the same as loudness.', 'High-functioning confidence can be quiet. The real test is whether it frees performance, not whether it sounds impressive.'],
+          ['Positive thinking alone is enough.', 'Without competence, preparation, and evidence, positivity becomes wishful thinking rather than performance confidence.'],
+          ['Imagery is just seeing pictures.', 'Effective envisioning is multisensory and embodied. The performer should feel timing, movement, context, and emotion.'],
+          ['Protective thinking means denying mistakes.', 'The goal is not denial. It is to contain the mistake, extract learning, and prevent one event from becoming identity.']
+        ]
+      }
+    },
+    {
+      title: 'End-of-chapter summary',
+      bullets: [
+        'Confidence is a trainable sense of certainty that allows well-learned skill to run with less conscious interference.',
+        'The strongest confidence draws on evidence: mastery, preparation, imaginal rehearsal, constructive self-talk, and the meaning assigned to arousal.',
+        'The confidence account grows through deposits such as success, effort, and progress, and it is protected by a mental filter that reframes setbacks.',
+        'Protective tools work by containing damage: temporary, limited, nonrepresentative; stop and reset; learn, plan, and move on.',
+        'A pre-performance routine bridges the gap between preparation and live performance by cueing conviction, regulating the body, and narrowing attention.',
+        'Envisioning is deliberate mental rehearsal. It works best when it is vivid, emotionally believable, controlled, and timed like the real event.'
+      ]
+    },
+    {
+      title: 'Glossary of Essential Terms',
+      paragraphs: [
+        'Core vocabulary for quick review.'
+      ],
+      glossary: [
+        ['C-B-A routine', 'A brief pre-performance sequence: cue conviction, breathe the body, and attach attention.'],
+        ['Confidence', 'A sense of certainty about ability that allows a performer to execute with less conscious interference.'],
+        ['Confidence account', 'A metaphor that treats thoughts, memories, and interpretations as deposits or withdrawals that influence certainty.'],
+        ['Constructive attitude lockdown', 'A damage-control interpretation that treats errors as temporary, limited, and nonrepresentative.'],
+        ['Controllability', 'The ability to direct and edit mental images so the desired action, not the feared mistake, is rehearsed.'],
+        ['Daily E-S-P', 'A brief daily log of effort, success, and progress used to create deposits in confidence.'],
+        ['Envisioning', 'Deliberate, multisensory mental rehearsal of a desired future performance or response.'],
+        ['Flat tire drill', 'A resilience drill that rehearses likely setbacks and a composed recovery response.'],
+        ['Imaginal experiences', 'Imagery-based experiences that shape efficacy beliefs by mentally rehearsing successful action.'],
+        ['Internal perspective', 'Seeing the action through your own eyes; usually best for feel, timing, and emotion.'],
+        ['Mental filter', 'The interpretive process that approves confidence-building evidence and blocks or reframes withdrawals.'],
+        ['Psychoneuromuscular theory', 'The view that imagery activates movement-related pathways in a way that can support skill learning.'],
+        ['Real-time rehearsal', 'Running imagery at the speed of the actual event so the mental representation matches the task.'],
+        ['Robust sport confidence', 'A durable set of positive beliefs that protects performance from challenge and pressure.'],
+        ['Self-efficacy', 'A task-specific belief that one can organize and execute the actions required for success.'],
+        ['State confidence', 'The performer’s immediate, situation-bound sense of certainty.'],
+        ['Trait confidence', 'A more stable tendency to feel assured across time and situations.'],
+        ['Vividness', 'The clarity and sensory richness of mental imagery.']
       ]
     }
   ]
