@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Assignment 2 | Local Indigenous Teaching or Symbol</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Serif:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./chapter2interactive.css" />
+</head>
+<body>
+  <div class="assignment-shell">
+    <aside class="assignment-sidebar">
+      <div class="sidebar-copy">
+        <p class="assignment-code">Assignment 2</p>
+        <h1>Local Indigenous Teaching or Symbol</h1>
+        <p class="assignment-summary">Research one Indigenous teaching, sacred symbol, or ceremonial object and prepare a respectful Chapter 2 report.</p>
+      </div>
+
+      <nav id="step-nav" class="step-nav" aria-label="Assignment steps"></nav>
+
+      <div class="sidebar-note">
+        Prioritize Indigenous-authored or community-grounded sources whenever possible, and avoid treating all Indigenous nations as one single tradition.
+      </div>
+    </aside>
+
+    <main class="assignment-main">
+      <header class="assignment-header">
+        <div>
+          <p id="step-code" class="section-code"></p>
+          <h2 id="step-title"></h2>
+          <p id="step-copy" class="step-copy"></p>
+        </div>
+
+        <div class="assignment-status" aria-live="polite">
+          <div class="status-block">
+            <span class="status-label">Progress</span>
+            <strong id="progress-value">0/6</strong>
+          </div>
+          <div class="status-block">
+            <span class="status-label">Saved</span>
+            <strong id="save-state">Local only</strong>
+          </div>
+        </div>
+      </header>
+
+      <section id="step-panel" class="assignment-panel"></section>
+
+      <footer class="assignment-footer">
+        <button id="reset-work" class="button button-secondary" type="button">Reset work</button>
+        <div class="footer-actions">
+          <button id="prev-step" class="button button-secondary" type="button">Previous</button>
+          <button id="generate-report" class="button button-report" type="button">Generate report</button>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="./chapter2interactive.js"></script>
+</body>
+</html>

@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: calm-module-2-activites-reference
-- Generated: 2026-03-29T14:10:42.002Z
+- Generated: 2026-04-17T20:08:48.088Z
 
 ## Rules
 
@@ -21,8 +21,8 @@
 
 ## Session Mode
 
-- Subagent mode: on
-- Use subagent rules automatically; ask for approval before widening scope.
+- Subagent mode: off
+- Use standard task mode.
 
 ## Intelligence Policy
 
@@ -44,7 +44,7 @@ none
 {
   "id": "e3de5d41-f060-42d8-8608-ebad84c5620c",
   "slug": "calm-module-2-activites-reference",
-  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/calm-module-2-activites-reference/source",
+  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\processed\\calm-module-2-activites-reference\\source",
   "inputKind": "html",
   "brightspaceTarget": "course-page",
   "previewModes": [
@@ -55,10 +55,10 @@ none
   "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\calm-module-2-activites-reference\\raw\\original.html",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-03-11T16:54:42.630Z",
+  "learningUpdatedAt": "2026-04-17T20:08:48.017Z",
   "createdAt": "2026-03-09T21:37:52.321Z",
-  "updatedAt": "2026-03-24T13:04:53.172Z",
-  "workspaceApprovedAt": "2026-03-11T16:54:42.630Z",
+  "updatedAt": "2026-04-17T20:08:48.017Z",
+  "workspaceApprovedAt": "2026-04-17T20:08:48.017Z",
   "migrationState": "legacy",
   "preferredWorkflows": [],
   "canonicalSources": [],
@@ -83,7 +83,7 @@ none
 
 ### <!DOCTYPE html> <html lang="en"> <head> (textbook)
 - Authority: supporting-only
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\calm-module-2-activites-reference\original-source.txt
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\calm-module-2-activites-reference\original-source.txt
 - Extraction: indexed via native
 - Chunks: 49
 - Signals: text:what-is
@@ -191,9 +191,22 @@ disabled by intelligence policy (collect)
 ## Reference Excerpts
 
 ### original-source-txt (txt/textbook)
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\calm-module-2-activites-reference\original-source.txt
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\calm-module-2-activites-reference\original-source.txt
 
-- Extracted chunk text missing.
+```text
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALM Module 2: Resource Choices</title>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.m...
+```
 
 ## Task Stub
 

@@ -40,6 +40,8 @@ Entries are listed in file order (older to newer within this archive).
 - 2026-04-16: docs/ops/ACTIVE_HANDOFF.md (pre-mentalwellness10-option2-phase4b-assignment-parity)
 - 2026-04-16: docs/ops/ACTIVE_HANDOFF.md (pre-mentalwellness10-option2-final-assignment-consistency-pass)
 - 2026-04-17: docs/ops/ACTIVE_HANDOFF.md (pre-sportswellness-image-sizing)
+- 2026-04-17: docs/ops/ACTIVE_HANDOFF.md (pre-worldreligions30-option1-quiz-completion-counter)
+- 2026-04-17: docs/ops/ACTIVE_HANDOFF.md (pre-worldreligions30-option1-editorial-shell-pass)
 
 ---
 
@@ -118,6 +120,131 @@ Entries are listed in file order (older to newer within this archive).
 
 ## Fragile areas / watchouts
 - This is rule-layer tightening, not runtime enforcement code.
+
+---
+
+## 2026-04-17 | docs/ops/ACTIVE_HANDOFF.md (pre-worldreligions30-option1-quiz-completion-counter)
+
+# Handoff
+
+- Project: sportswellness
+- Task: Reduce the lesson image footprint across the Sports Wellness phases without changing the lesson content structure.
+- Status: in progress
+
+## Files changed
+- `docs/ops/ACTIVE_HANDOFF.md`
+- `docs/ops/ARCHIVED_HANDOFFS.md`
+
+## What changed
+- Archived the previous `sportswellness` rename-and-phase3 parity handoff in `docs/ops/ARCHIVED_HANDOFFS.md`.
+- Recorded the current investigation state for the lesson image-sizing pass.
+- Preserved the exact resume question so the next session can start from the same decision point without re-discovery.
+
+## Why this changed
+- The current task shifted from phase content parity into UI refinement.
+- The user explicitly asked for an active handoff that resumes at the image-sizing decision point.
+
+## Source of truth
+- Shared lesson image markup: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\main.js`
+- Shared lesson image sizing rules: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\styles.css`
+- Active session handoff: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\docs\ops\ACTIVE_HANDOFF.md`
+
+## Fragile areas / watchouts
+- `.reading-hero-figure`, `.reading-media-grid`, `.reading-figure`, and their shared `img` rules are reused across phases, so one CSS change affects all authored lesson views.
+- Lesson figure markup is rendered centrally from `renderPhaseDetail()` in `main.js`, so markup changes there have a broader blast radius than a CSS-only pass.
+- The goal is a sizing refinement only. Do not remove images, captions, or alter the phase content structure.
+
+## Next prompt should assume
+- `sportswellness` is the only active Sports Wellness project slug.
+- No production behavior has been changed yet for this image-sizing task.
+- The shared selectors already identified are:
+  - `projects/sportswellness/workspace/styles.css` around `.reading-hero-figure`, `.reading-figure`, and `.reading-media-grid`
+  - `projects/sportswellness/workspace/main.js` inside `renderPhaseDetail()`
+
+## What still needs validation
+- The user needs to answer whether the reduction should apply only to the large top hero image, or to both the hero image and the in-section figures/cards across all phases.
+- After that decision, implement with a targeted test-first pass and run targeted verification plus `build:studio`.
+
+## Known risks
+- Overshrinking figures could hurt readability for diagrams that need detail.
+- If the change is too broad, it could make the lesson rhythm feel cramped instead of just more controlled.
+
+## Exact next command
+`rg -n "reading-hero-figure|reading-media-grid|reading-figure" projects/sportswellness/workspace/styles.css projects/sportswellness/workspace/main.js`
+
+## Exact next file to open
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\docs\ops\ACTIVE_HANDOFF.md`
+
+## Do not do next / warnings
+- Do not edit `projects/sportswellness/raw/**`.
+- Do not resize individual phase images one by one unless the shared CSS path proves insufficient.
+- Do not start implementation until the sizing scope question below is answered.
+
+## Resume cue
+Start from this exact prompt:
+
+`I found the shared image styles, so this is a single sizing system rather than phase-by-phase content edits.
+
+One question before I change it: do you want only the large top hero image reduced, or do you want both the hero image and the in-section figures/cards scaled down across all phases?`
+
+---
+
+## 2026-04-17 | docs/ops/ACTIVE_HANDOFF.md (pre-worldreligions30-option1-editorial-shell-pass)
+
+# Handoff
+
+- Project: worldreligions30-option1
+- Task: Change quiz progress from marks-based scoring to a live answered-questions counter and keep the quiz detail/results layout aligned with the editorial shell.
+- Status: ready for validation
+
+## Files changed
+- `projects/worldreligions30-option1/workspace/main.js`
+- `scripts/tests/worldreligions30-option1-quiz-summary.test.ts`
+- `docs/ops/ACTIVE_HANDOFF.md`
+- `docs/ops/ARCHIVED_HANDOFFS.md`
+
+## What changed
+- Removed the old quiz score-reveal path based on objective marks and `quizResultsReady`.
+- Added live completion counting so the top quiz number and the `Section Breakdown` rows now track answered questions instead of points.
+- Kept `Check answers` for keyed objective feedback, but the big quiz summary number now updates as students select or type answers.
+- Updated the quiz overview cards and generated results sheet to use completion language instead of `overall score` / pending point totals.
+- Updated the active handoff so the repo now resumes inside `worldreligions30-option1` instead of the stale Sports Wellness image-sizing task.
+
+## Why this changed
+- The user wants the quiz number to function as a completion counter because written responses are graded manually.
+- The previous results model was confusing because it mixed live progress with mark totals the teacher will not use in-app.
+
+## Source of truth
+- Quiz behavior and results generation: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\worldreligions30-option1\workspace\main.js`
+- Quiz completion regression: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\tests\worldreligions30-option1-quiz-summary.test.ts`
+
+## Fragile areas / watchouts
+- The live counter depends on `syncVisibleQuizCompletion()` to avoid rerendering away typed written responses.
+- Matching and written answers now update the visible completion summary in place; a future renderer rewrite could accidentally drop those `data-quiz-completion-*` or `data-breakdown-score-for` hooks.
+- The generated results sheet still includes keyed correctness tables for objective sections even though the headline metric is now completion-based.
+
+## Next prompt should assume
+- Work is still scoped only to `projects/worldreligions30-option1/**` plus required handoff docs.
+- `sportswellness` must remain untouched in this session.
+- Quiz totals should remain question-completion based, not point based, unless the user explicitly asks to bring marks back.
+
+## What still needs validation
+- Manual Studio visual QA on a few quizzes to confirm the live counter updates correctly for multiple choice, matching, true/false, and written responses.
+- A design pass if the user wants the completion copy or results-sheet cards tightened visually after seeing the new behavior in context.
+
+## Known risks
+- The first data regression still verifies that chapter 1 source data contains written-response marks, even though the runtime no longer uses those marks for the top summary counter.
+- If a future quiz import omits stable question numbers, written-response counting will fall back to array order.
+
+## Exact next command
+`npm.cmd run studio`
+
+## Exact next file to open
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\worldreligions30-option1\workspace\main.js`
+
+## Do not do next / warnings
+- Do not edit `projects/sportswellness/**`.
+- Do not reintroduce `quizResultsReady`, `overall score`, or point-total language into the quiz detail shell unless the scoring model changes again.
 - Behavioral quality still depends on prompt completeness and consistent rule interpretation.
 
 ## Next prompt should assume

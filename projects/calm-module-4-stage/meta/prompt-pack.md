@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: calm-module-4-stage
-- Generated: 2026-04-09T19:29:10.655Z
+- Generated: 2026-04-17T20:08:48.254Z
 
 ## Rules
 
@@ -44,7 +44,7 @@ none
 {
   "id": "eab0bb66-587c-42a8-92d3-a4610b64ae59",
   "slug": "calm-module-4-stage",
-  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\incoming\\calm-module-4-stage",
+  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\processed\\calm-module-4-stage\\source",
   "inputKind": "html",
   "brightspaceTarget": "course-page",
   "previewModes": [
@@ -55,7 +55,7 @@ none
   "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\calm-module-4-stage\\raw\\original.html",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-04-09T19:29:10.613Z",
+  "learningUpdatedAt": "2026-04-17T20:08:48.180Z",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
@@ -83,7 +83,8 @@ none
   "referenceOnly": [],
   "sourceOfTruthNotes": "Edit workspace sources listed in canonicalSources. Treat generated exports and runtime bundles as derived output.",
   "createdAt": "2026-04-09T19:29:10.485Z",
-  "updatedAt": "2026-04-09T19:29:10.613Z"
+  "updatedAt": "2026-04-17T20:08:48.180Z",
+  "workspaceApprovedAt": "2026-04-17T20:08:48.180Z"
 }
 ```
 
@@ -94,12 +95,11 @@ none
 - Teacher notes are contextual authority only.
 - Textbook and reference resources are supporting evidence, not lesson generators.
 - Imported Canvas workspace content is fallback context only when outline or assessment evidence is missing.
-- Current classified resource mix: none.
+- Current classified resource mix: .
 
 ## Resource Catalog Summary
 
-> resource-catalog.json: missing
-> Next: `npm run refs -- --project calm-module-4-stage`
+
 
 ## D2L Course Map Summary
 
@@ -177,7 +177,24 @@ none
 
 ## Import Log
 
-> import-log.md: missing
+```md
+# Import Log
+
+- Generated: 2026-04-09T19:29:10.485Z
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\incoming\calm-module-4-stage
+
+## Actions
+- Detected "index.html" as the site entrypoint inside the source folder.
+- Copied the source HTML into raw/original.html without modifying it.
+- Copied 3 local asset reference(s) into the raw project copy.
+- Copied 3 local asset reference(s) into the workspace.
+- Learned project patterns (C:\Users\dean.guedo\Documents\GitHub\canvas-helper\.runtime\pattern-bank\auto\calm-module-4-stage.json).
+- Updated local pattern bank (26 profile(s)).
+- Generated prompt pack (C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\calm-module-4-stage\meta\prompt-pack.md).
+
+## Warnings
+- None.
+```
 
 ## Global Memory
 

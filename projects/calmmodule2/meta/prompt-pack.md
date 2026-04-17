@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: calmmodule2
-- Generated: 2026-03-29T14:10:42.010Z
+- Generated: 2026-04-17T20:08:48.663Z
 
 ## Rules
 
@@ -21,8 +21,8 @@
 
 ## Session Mode
 
-- Subagent mode: on
-- Use subagent rules automatically; ask for approval before widening scope.
+- Subagent mode: off
+- Use standard task mode.
 
 ## Intelligence Policy
 
@@ -44,7 +44,7 @@ none
 {
   "id": "33591f13-3d65-476b-98c5-39fa0e1d88db",
   "slug": "calmmodule2",
-  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/calmmodule2/source",
+  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\processed\\calmmodule2\\source",
   "inputKind": "text-html",
   "brightspaceTarget": "course-page",
   "previewModes": [
@@ -55,10 +55,10 @@ none
   "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\calmmodule2\\raw\\original.html",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-03-11T17:15:17.595Z",
+  "learningUpdatedAt": "2026-04-17T20:08:48.579Z",
   "createdAt": "2026-03-06T20:40:30.861Z",
-  "updatedAt": "2026-03-29T00:53:37.006Z",
-  "workspaceApprovedAt": "2026-03-29T00:53:37.006Z",
+  "updatedAt": "2026-04-17T20:08:48.579Z",
+  "workspaceApprovedAt": "2026-04-17T20:08:48.579Z",
   "migrationState": "legacy",
   "preferredWorkflows": [],
   "canonicalSources": [],
@@ -83,7 +83,7 @@ none
 
 ### CALM MODULE TWO – RESOURCE CHOICES OUTREACH PROGRAMS – REVISED 2018 (textbook)
 - Authority: supporting-only
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\calmmodule2\CALM Module 2 - Resourse Choices.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\calmmodule2\CALM Module 2 - Resourse Choices.pdf
 - Extraction: indexed via native
 - Chunks: 22
 - Signals: text:what-is
@@ -193,9 +193,32 @@ disabled by intelligence policy (collect)
 ## Reference Excerpts
 
 ### calm-module-2-resourse-choices-pdf (pdf/textbook)
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\calmmodule2\CALM Module 2 - Resourse Choices.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\calmmodule2\CALM Module 2 - Resourse Choices.pdf
 
-- Extracted chunk text missing.
+```text
+CALM MODULE TWO – RESOURCE CHOICES
+OUTREACH PROGRAMS – REVISED 2018
+1
+
+nextstepfortsaskatchewansherwoodpa
+rkvegrevillenextstefortsaskatchewans
+herwoodparkvegrevillenextstepfortsa
+skatchewannextstepsherwoodparkveg
+revillenextstepfortsaskatchewansher
+woodparkvegrevillenextstepfortsaskat
+chewansherwoodparkvegrevillenextst
+epfortsaskatchewansherwoodparkveg
+revillenextstepfortsaskatchewansher
+woodparkvegrevillenextstepfortsaskat
+chewansherwoodparkvegrevillenextst
+epfortsaskatchewansherwoodparkveg
+revillenextstepfortsaskatchewansher
+woodparkvegrevillepfortsaskatchewa
+nsherwoodparkvegrevillenextstepfort
+saskatchewansherwoodparkvegreville
+nextstepfortsaskatchewansherwoodpa
+rkvegrevillenextstepfortsa...
+```
 
 ## Task Stub
 

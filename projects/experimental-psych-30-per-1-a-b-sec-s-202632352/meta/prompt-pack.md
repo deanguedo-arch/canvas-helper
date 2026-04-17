@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: experimental-psych-30-per-1-a-b-sec-s-202632352
-- Generated: 2026-04-13T15:31:13.539Z
+- Generated: 2026-04-17T20:08:51.459Z
 
 ## Rules
 
@@ -55,7 +55,7 @@ none
   "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\experimental-psych-30-per-1-a-b-sec-s-202632352\\raw\\original.html",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-04-13T15:31:13.494Z",
+  "learningUpdatedAt": "2026-04-17T20:08:51.364Z",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
@@ -63,9 +63,19 @@ none
   ],
   "canonicalEntry": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\experimental-psych-30-per-1-a-b-sec-s-202632352\\workspace\\index.html",
   "canonicalSources": [
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\experimental-psych-30-per-1-a-b-sec-s-202632352\\workspace\\index.html"
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\experimental-psych-30-per-1-a-b-sec-s-202632352\\workspace\\index.html",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\experimental-psych-30-per-1-a-b-sec-s-202632352\\workspace\\main.js",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\experimental-psych-30-per-1-a-b-sec-s-202632352\\workspace\\assessment-delivery.js"
   ],
-  "generatedOutputs": [],
+  "generatedOutputs": [
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\experimental-psych-30-per-1-a-b-sec-s-202632352\\workspace\\course-shell-data.js",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\experimental-psych-30-per-1-a-b-sec-s-202632352\\meta\\d2l-course-map.json",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\experimental-psych-30-per-1-a-b-sec-s-202632352\\meta\\d2l-course-map.md",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\experimental-psych-30-per-1-a-b-sec-s-202632352\\meta\\course-blueprint.json",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\experimental-psych-30-per-1-a-b-sec-s-202632352\\meta\\assessment-map.json",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\experimental-psych-30-per-1-a-b-sec-s-202632352\\meta\\lesson-packets\\index.json"
+  ],
+  "regenerateCommand": "npm run d2l-map -- --project experimental-psych-30-per-1-a-b-sec-s-202632352 && npm run blueprint -- --project experimental-psych-30-per-1-a-b-sec-s-202632352 && npm run assessment-map -- --project experimental-psych-30-per-1-a-b-sec-s-202632352 && npm run lesson-packets -- --project experimental-psych-30-per-1-a-b-sec-s-202632352 && npm run build:course-shell -- --project experimental-psych-30-per-1-a-b-sec-s-202632352",
   "injectedComponents": [],
   "importedFirstPassOrigin": {
     "sourceSystem": "other",
@@ -81,9 +91,10 @@ none
   ],
   "authoringStatus": "active",
   "referenceOnly": [],
-  "sourceOfTruthNotes": "Edit workspace sources listed in canonicalSources. Treat generated exports and runtime bundles as derived output.",
+  "sourceOfTruthNotes": "Edit workspace/index.html, workspace/main.js, and workspace/assessment-delivery.js as the course-shell runtime. Treat workspace/course-shell-data.js and planning artifacts as generated output from the recorded regeneration command.",
   "createdAt": "2026-04-09T19:29:11.083Z",
-  "updatedAt": "2026-04-13T15:31:13.494Z"
+  "updatedAt": "2026-04-17T20:08:51.364Z",
+  "workspaceApprovedAt": "2026-04-17T20:08:51.364Z"
 }
 ```
 

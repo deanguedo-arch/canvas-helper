@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: calm3new
-- Generated: 2026-03-29T14:10:42.007Z
+- Generated: 2026-04-17T20:08:48.367Z
 
 ## Rules
 
@@ -21,8 +21,8 @@
 
 ## Session Mode
 
-- Subagent mode: on
-- Use subagent rules automatically; ask for approval before widening scope.
+- Subagent mode: off
+- Use standard task mode.
 
 ## Intelligence Policy
 
@@ -44,7 +44,7 @@ none
 {
   "id": "0d218bb6-0368-4c7d-a585-0fde793c4c4f",
   "slug": "calm3new",
-  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/calm3new/source",
+  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\processed\\calm3new\\source",
   "inputKind": "html",
   "brightspaceTarget": "course-page",
   "previewModes": [
@@ -55,10 +55,10 @@ none
   "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\calm3new\\raw\\original.html",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-03-11T17:06:39.860Z",
+  "learningUpdatedAt": "2026-04-17T20:08:48.276Z",
   "createdAt": "2026-03-09T21:53:29.563Z",
-  "updatedAt": "2026-03-24T13:04:53.182Z",
-  "workspaceApprovedAt": "2026-03-12T18:46:43.472Z",
+  "updatedAt": "2026-04-17T20:08:48.276Z",
+  "workspaceApprovedAt": "2026-04-17T20:08:48.276Z",
   "migrationState": "legacy",
   "preferredWorkflows": [],
   "canonicalSources": [],
