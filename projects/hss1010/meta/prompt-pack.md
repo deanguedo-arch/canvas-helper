@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: hss1010
-- Generated: 2026-03-29T14:10:42.053Z
+- Generated: 2026-04-17T20:09:27.785Z
 
 ## Rules
 
@@ -21,8 +21,8 @@
 
 ## Session Mode
 
-- Subagent mode: on
-- Use subagent rules automatically; ask for approval before widening scope.
+- Subagent mode: off
+- Use standard task mode.
 
 ## Intelligence Policy
 
@@ -50,7 +50,7 @@
 {
   "id": "852b8632-b6fa-4f37-a7f8-78c1a8b996da",
   "slug": "hss1010",
-  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/hss1010/source",
+  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\processed\\hss1010\\source",
   "inputKind": "html",
   "brightspaceTarget": "course-page",
   "previewModes": [
@@ -61,18 +61,39 @@
   "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\hss1010\\raw\\original.html",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-03-12T19:38:10.569Z",
-  "createdAt": "2026-03-12T19:28:57.168Z",
-  "updatedAt": "2026-03-24T13:04:53.313Z",
-  "workspaceApprovedAt": "2026-03-12T19:38:10.569Z",
-  "migrationState": "legacy",
-  "preferredWorkflows": [],
-  "canonicalSources": [],
+  "learningUpdatedAt": "2026-04-17T20:09:27.707Z",
+  "migrationState": "migrated",
+  "projectType": "generated-course",
+  "preferredWorkflows": [
+    "generated-course"
+  ],
+  "canonicalEntry": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\hss1010\\workspace\\index.html",
+  "canonicalSources": [
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\hss1010\\workspace\\index.html",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\hss1010\\workspace\\main.js",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\hss1010\\workspace\\styles.css",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\hss1010\\workspace\\hss-study.css"
+  ],
   "generatedOutputs": [],
   "injectedComponents": [],
-  "exportTargets": [],
+  "importedFirstPassOrigin": {
+    "sourceSystem": "other",
+    "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\processed\\hss1010\\source",
+    "importedAt": "2026-03-12T19:28:57.168Z"
+  },
+  "exportTargets": [
+    {
+      "target": "brightspace",
+      "enabled": true,
+      "notes": "Default export target for generated-course projects."
+    }
+  ],
   "authoringStatus": "active",
-  "referenceOnly": []
+  "referenceOnly": [],
+  "sourceOfTruthNotes": "Edit workspace canonicalSources only. Keep raw and exports as derived/reference artifacts.",
+  "createdAt": "2026-03-12T19:28:57.168Z",
+  "updatedAt": "2026-04-17T20:09:27.707Z",
+  "workspaceApprovedAt": "2026-04-17T20:09:27.707Z"
 }
 ```
 
@@ -198,7 +219,14 @@ disabled by intelligence policy (collect)
 ### health-services-foundations-pdf (pdf/assessment)
 - Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\hss1010\Health Services Foundations.pdf
 
-- Extracted chunk text missing.
+```text
+HSS 1010 | Health Services Foundations 0
+
+Black Gold Outreach School - Black Gold Regional Schools
+HSS
+1010
+HEALTH SERVICES FOUNDATIONS
+```
 
 ## Task Stub
 

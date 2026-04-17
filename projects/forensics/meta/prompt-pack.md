@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: forensics
-- Generated: 2026-03-29T14:10:42.035Z
+- Generated: 2026-04-17T20:08:53.732Z
 
 ## Rules
 
@@ -21,8 +21,8 @@
 
 ## Session Mode
 
-- Subagent mode: on
-- Use subagent rules automatically; ask for approval before widening scope.
+- Subagent mode: off
+- Use standard task mode.
 
 ## Intelligence Policy
 
@@ -44,7 +44,7 @@ none
 {
   "id": "92b81c7c-1321-40e0-9b0a-a69b09442d64",
   "slug": "forensics",
-  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/forensics/source",
+  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\processed\\forensics\\source",
   "inputKind": "html",
   "brightspaceTarget": "course-page",
   "previewModes": [
@@ -55,7 +55,7 @@ none
   "rawEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics/raw/original.html",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-03-18T14:44:05.427Z",
+  "learningUpdatedAt": "2026-04-17T20:08:53.643Z",
   "migrationState": "migrated",
   "projectType": "hybrid",
   "preferredWorkflows": [
@@ -123,8 +123,8 @@ none
   ],
   "sourceOfTruthNotes": "Module 8 split files stay reference-only unless explicitly activated in the assignment flow.",
   "createdAt": "2026-03-14T13:26:57.855Z",
-  "updatedAt": "2026-03-29T00:53:40.572Z",
-  "workspaceApprovedAt": "2026-03-29T00:53:40.572Z"
+  "updatedAt": "2026-04-17T20:08:53.643Z",
+  "workspaceApprovedAt": "2026-04-17T20:08:53.643Z"
 }
 ```
 
@@ -135,7 +135,7 @@ none
 - Teacher notes are contextual authority only.
 - Textbook and reference resources are supporting evidence, not lesson generators.
 - Imported Canvas workspace content is fallback context only when outline or assessment evidence is missing.
-- Current classified resource mix: other: 214; textbook: 106; assessment: 57; outline: 4; teacher-note: 2.
+- Current classified resource mix: other: 201; textbook: 106; assessment: 40; outline: 4; teacher-note: 2.
 
 ## Resource Catalog Summary
 
@@ -146,23 +146,9 @@ none
 - Chunks: 0
 - Signals: none
 
-### assignment 80f86dff 581e 4e9f abe9 d5407d926f3f (assessment)
-- Authority: assessment-authoritative
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics\D2LCCExport_129076_23-24 _ Forensic Studies 25 _ Per 1(A-B) _ Sec S3_202631302 (2)\assignment\i0073cf68-ef89-4190-b368-d429ee0816f0\assignment_80f86dff-581e-4e9f-abe9-d5407d926f3f.xml
-- Extraction: stored-only
-- Chunks: 0
-- Signals: filename:assignment
-
 ### shutterstock 169636037 (assessment)
 - Authority: assessment-authoritative
 - Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics\D2LCCExport_129076_23-24 _ Forensic Studies 25 _ Per 1(A-B) _ Sec S3_202631302 (2)\assignment\i0073cf68-ef89-4190-b368-d429ee0816f0\Content\shutterstock_169636037.jpg
-- Extraction: stored-only
-- Chunks: 0
-- Signals: filename:assignment
-
-### assignment 701e84be 65c1 4997 b793 347fd65867af (assessment)
-- Authority: assessment-authoritative
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics\D2LCCExport_129076_23-24 _ Forensic Studies 25 _ Per 1(A-B) _ Sec S3_202631302 (2)\assignment\i16176291-5154-45bd-8891-b2c9517b1a3c\assignment_701e84be-65c1-4997-b793-347fd65867af.xml
 - Extraction: stored-only
 - Chunks: 0
 - Signals: filename:assignment
@@ -174,23 +160,37 @@ none
 - Chunks: 0
 - Signals: filename:assignment
 
-### assignment 5c66b2fe 5be0 4060 a68e a6ca11dd1ffb (assessment)
-- Authority: assessment-authoritative
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics\D2LCCExport_129076_23-24 _ Forensic Studies 25 _ Per 1(A-B) _ Sec S3_202631302 (2)\assignment\i20dfab48-a342-491f-8077-34397a216ad6\assignment_5c66b2fe-5be0-4060-a68e-a6ca11dd1ffb.xml
-- Extraction: stored-only
-- Chunks: 0
-- Signals: filename:assignment
-
-### assignment 08f87e49 036a 44cd 83ce c62f268fd692 (assessment)
-- Authority: assessment-authoritative
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics\D2LCCExport_129076_23-24 _ Forensic Studies 25 _ Per 1(A-B) _ Sec S3_202631302 (2)\assignment\i24fee453-9acd-4444-8071-e09f3820538b\assignment_08f87e49-036a-44cd-83ce-c62f268fd692.xml
-- Extraction: stored-only
-- Chunks: 0
-- Signals: filename:assignment
-
 ### 080717 F 5234X 064 (assessment)
 - Authority: assessment-authoritative
 - Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics\D2LCCExport_129076_23-24 _ Forensic Studies 25 _ Per 1(A-B) _ Sec S3_202631302 (2)\assignment\i24fee453-9acd-4444-8071-e09f3820538b\Content\080717-F-5234X-064.JPG
+- Extraction: stored-only
+- Chunks: 0
+- Signals: filename:assignment
+
+### 3034903278 5ef70f6f09 b (assessment)
+- Authority: assessment-authoritative
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics\D2LCCExport_129076_23-24 _ Forensic Studies 25 _ Per 1(A-B) _ Sec S3_202631302 (2)\assignment\i5416ee1b-c173-4bcc-80e8-e3c1fae36848\Content\3034903278_5ef70f6f09_b.jpg
+- Extraction: stored-only
+- Chunks: 0
+- Signals: filename:assignment
+
+### Leonarde Keeler 1937 (assessment)
+- Authority: assessment-authoritative
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics\D2LCCExport_129076_23-24 _ Forensic Studies 25 _ Per 1(A-B) _ Sec S3_202631302 (2)\assignment\i545d89a9-d9bd-4555-91b4-35ef6d318388\Content\Leonarde_Keeler_1937.jpg
+- Extraction: stored-only
+- Chunks: 0
+- Signals: filename:assignment
+
+### Locard Research (assessment)
+- Authority: assessment-authoritative
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics\D2LCCExport_129076_23-24 _ Forensic Studies 25 _ Per 1(A-B) _ Sec S3_202631302 (2)\assignment\i85281f98-0aa9-4147-93a9-d14de5638519\Content\Locard Research.jpeg
+- Extraction: stored-only
+- Chunks: 0
+- Signals: filename:assignment
+
+### hair evidence (assessment)
+- Authority: assessment-authoritative
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics\D2LCCExport_129076_23-24 _ Forensic Studies 25 _ Per 1(A-B) _ Sec S3_202631302 (2)\assignment\ia4effbb5-11e6-405e-a610-94c25bdcd18e\Content\hair evidence.jpg
 - Extraction: stored-only
 - Chunks: 0
 - Signals: filename:assignment
@@ -316,42 +316,105 @@ disabled by intelligence policy (collect)
 ### d2lccexport-129076-23-24-forensic-studies-25-per-1-a-b-sec-s3-202631302-2-assignment-ibf8741ec-ded8-4c2a-9594-f9ab5f78eea0-content-experiment-1-latent-fingerprints-docx (docx/assessment)
 - Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics\D2LCCExport_129076_23-24 _ Forensic Studies 25 _ Per 1(A-B) _ Sec S3_202631302 (2)\assignment\ibf8741ec-ded8-4c2a-9594-f9ab5f78eea0\Content\Experiment 1 - Latent Fingerprints.docx
 
-- Extracted chunk text missing.
+```text
+Experiment 1
 
-### d2lccexport-129076-23-24-forensic-studies-25-per-1-a-b-sec-s3-202631302-2-assignment-if3a4e6a4-91ac-4aef-813d-76a771b488bf-content-experiment-2-lifting-fingerprints-docx (docx/assessment)
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics\D2LCCExport_129076_23-24 _ Forensic Studies 25 _ Per 1(A-B) _ Sec S3_202631302 (2)\assignment\if3a4e6a4-91ac-4aef-813d-76a771b488bf\Content\Experiment 2 - Lifting Fingerprints.docx
+Short-term vs. Long-term Latent Fingerprint Samples
 
-- Extracted chunk text missing.
+33 Marks
+```
 
 ### d2lccexport-129076-23-24-forensic-studies-25-per-1-a-b-sec-s3-202631302-2-ontent-ie0299797-cf54-494f-af1d-80d66242ee26-forensic-science-25-answer-keys-pdf (pdf/assessment)
 - Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics\D2LCCExport_129076_23-24 _ Forensic Studies 25 _ Per 1(A-B) _ Sec S3_202631302 (2)\сontent\ie0299797-cf54-494f-af1d-80d66242ee26\Forensic Science 25 Answer Keys.pdf
 
-- Extracted chunk text missing.
+```text
+Forensic Science 25 Answer Keys
+M1 Introduction to Crime Scenes Assignment
+12 marks
+1.One of the first things that investigators do when approaching a crime scene is to
+make it secure.  Givetworeasons why it’s importantto properly secure a crime
+scene. (2 marks)
+1)Evidence can be lost or contaminated 2) Anyone can enter the crime scene
+and disrupt evidence
+2.In a crime scene, there are 7 steps that investigators take in order to ensure that
+protocols are being followed.  Complete the table below by describing the 7 steps
+in your own words. (7 marks)
+StepDescription
+SecuringMake sure no one enters the crime scene; track any who do
+SeparatingSeparate the witnesses so they do not compare storie...
+```
 
 ### d2lccexport-129076-23-24-forensic-studies-25-per-1-a-b-sec-s3-202631302-2-ontent-i205ddaa3-0c3e-4015-b814-bcfd45b83422-content-book-1416-chapter-11997-html (html/assessment)
 - Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics\D2LCCExport_129076_23-24 _ Forensic Studies 25 _ Per 1(A-B) _ Sec S3_202631302 (2)\сontent\i205ddaa3-0c3e-4015-b814-bcfd45b83422\Content\book_1416\chapter_11997.html
 
-- Extracted chunk text missing.
-
-### d2lccexport-129076-23-24-forensic-studies-25-per-1-a-b-sec-s3-202631302-2-ontent-i3838d916-02d0-4c57-bfa7-2032c66a71c4-how-to-be-successful-in-an-independent-study-course-1-pdf (pdf/assessment)
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics\D2LCCExport_129076_23-24 _ Forensic Studies 25 _ Per 1(A-B) _ Sec S3_202631302 (2)\сontent\i3838d916-02d0-4c57-bfa7-2032c66a71c4\How to Be Successful in an Independent Study Course (1).pdf
-
-- Extracted chunk text missing.
+```text
+Identification of Blood Evidence
+The first step that a forensic investigator must take in a crime scene where blood evidence is suspected is confirming that the evidence found is blood. Some liquids when spilled and left to dry can be mistaken for blood such as paint, stain, juices, food coloring, or hair dyes. Forensic scientists use various chemical tests to confirm that the residue left behind at a crime scene is blood. In this lesson two popular chemical blood identification tests will be examined - phenolphthalein and luminal.
+The Phenolphthalein Test
+Trying to clean up every trace of blood after a violent crime is very difficult especially if there is great deal of blood. Often crimina...
+```
 
 ### d2lccexport-129076-23-24-forensic-studies-25-per-1-a-b-sec-s3-202631302-2-ontent-i1b9d5df3-0b57-4109-9a00-d3f42192d5e2-assignment-submission-html (html/assessment)
 - Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics\D2LCCExport_129076_23-24 _ Forensic Studies 25 _ Per 1(A-B) _ Sec S3_202631302 (2)\сontent\i1b9d5df3-0b57-4109-9a00-d3f42192d5e2\Assignment Submission.html
 
-- Extracted chunk text missing.
+```text
+Submission Instructions
+When submitting your assignments go to the corresponding drop box and follow the instructions below for the format you are using.
+For Digital (Online) Assignments - Submit from Google Drive:
+Step 0: (You only need to do this step once in Brightspace. If you have already done this, skip to Step 1).
+Go to the Brightspace Homepage by clicking on the EIPS logo on the top left corner.
+Scroll down to the bottom until you see the Google Apps widget and select Authorize
+Step 1: In the box, select Choose Existing
+Step 2: Select Google Drive (If you do not see "Google Drive" make sure you do Step 0!)
+Step 3: Search for the file you want to submit and hit Add.
+Step 4: Hit Submit...
+```
 
 ### d2lccexport-129076-23-24-forensic-studies-25-per-1-a-b-sec-s3-202631302-2-ontent-ic6856f52-3e5a-447d-8054-f101d18b7e83-content-book-1416-chapter-11998-html (html/assessment)
 - Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics\D2LCCExport_129076_23-24 _ Forensic Studies 25 _ Per 1(A-B) _ Sec S3_202631302 (2)\сontent\ic6856f52-3e5a-447d-8054-f101d18b7e83\Content\book_1416\chapter_11998.html
 
-- Extracted chunk text missing.
+```text
+The Luminol Test
+At a crime scene, large pools of blood are easy to spot, but what if all the blood has been cleaned up by the assailant?  It too can be detected using a powerful chemiluminescent compound called LUMINOL (3-aminophthalhydazide). Luminol reacts with a portion of the hemoglobin of red blood cells called 'heme'. When luminol comes into contact with ‘heme’ it reacts producing a unique product - a greenish-blue light. Luminol is very sensitive; it can detect blood at 1 part to 300 000.
+Investigators use luminol at crime scenes where there is no visible blood whatsoever. They spray it over a wide area in near-total darkness so that any reaction is obvious. Officers then photograph/...
+```
 
 ### d2lccexport-129076-23-24-forensic-studies-25-per-1-a-b-sec-s3-202631302-2-ontent-ie2c27177-23ad-417f-b0ec-34dd4f47add4-content-book-1416-chapter-11992-html (html/outline)
 - Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics\D2LCCExport_129076_23-24 _ Forensic Studies 25 _ Per 1(A-B) _ Sec S3_202631302 (2)\сontent\ie2c27177-23ad-417f-b0ec-34dd4f47add4\Content\book_1416\chapter_11992.html
 
-- Extracted chunk text missing.
+```text
+Body Fluid Evidence
+This module will explore the significance of body fluid evidence found at crime scenes. The two main types of body fluids that may be found at a crime scene or upon the bodies of the individuals involved with a particular crime are blood and semen. The lessons in this module will:
+outline some of the basic features of blood.
+explore how latent blood residue can be enhanced and how blood spatter patterns can be interpreted.
+focus upon the information that semen collected from a sexual assault yields.
+examine a historical crime and a fictional crime that both involve body fluid evidence.
+The body fluid that is most often found at crime scene involving injuries (ie. traffic ...
+```
+
+### d2lccexport-129076-23-24-forensic-studies-25-per-1-a-b-sec-s3-202631302-2-ontent-idd074817-3b63-4e7f-b095-637a00ea461e-fs25-outline-summer-school-pdf (pdf/outline)
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics\D2LCCExport_129076_23-24 _ Forensic Studies 25 _ Per 1(A-B) _ Sec S3_202631302 (2)\сontent\idd074817-3b63-4e7f-b095-637a00ea461e\FS25 outline (summer school).pdf
+
+```text
+Forensic Studies 25
+Next Step Summer School (780) 467-7929
+dylan.shott@eips.ca
+Course Description:
+Forensic Studies 25 is the application of scientific principles, methods, and technologies for the purpose of solving
+debates including legal proceedings. Through the study of forensic science, students are given the opportunity to
+explore how scientific concepts from a variety of disciplines (biology, chemistry, and physics) apply specifically to this
+unique field. This Course will promote the importance of scientific literacy and problem‐solving techniques. Emphasis
+is placed on Canadian Methods and legal protocols as students enhance their understanding of science and to explore
+this unique ...
+```
+
+### d2lccexport-129076-23-24-forensic-studies-25-per-1-a-b-sec-s3-202631302-2-ontent-ib526d33e-efed-4365-93ee-351aec4b56ab-content-label-3489-html (html/outline)
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics\D2LCCExport_129076_23-24 _ Forensic Studies 25 _ Per 1(A-B) _ Sec S3_202631302 (2)\сontent\ib526d33e-efed-4365-93ee-351aec4b56ab\Content\label_3489.html
+
+```text
+Disclaimer: Due to the graphic nature of this course material and its basis on real events, this course may not be suitable for everyone. Forensic Science 25 deals with mature subject matter such as crimes involving varying degrees of injury and/or death.  The course includes controversial or sensitive components such as simulated blood experiments, discussion of semen analysis and the use of rape kits and the examination of alcohol and substance abuse. Students must be able to discuss forensic criminal cases in an objective manner, while being sensitive and respectful toward the negative impact of that crime.
+If you find these topics to be objectionable or offensive, please do not enroll in...
+```
 
 ## Task Stub
 

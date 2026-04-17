@@ -3,6 +3,7 @@
   const PROJECT_SLUG = document.body?.dataset.projectSlug || "worldreligions30-option1";
   const STORAGE_KEY = `${PROJECT_SLUG}.progress`;
   const UI_KEY = `${PROJECT_SLUG}.ui`;
+  const AUTHORING_UNLOCK_ALL = true;
 
   const refs = {
     body: document.body,
@@ -21,6 +22,7 @@
     progressFill: document.getElementById("progress-fill"),
     chapterProgress: document.getElementById("chapter-progress"),
     quizProgress: document.getElementById("quiz-progress"),
+    sectionHeader: document.querySelector(".section-header"),
     sectionTitle: document.getElementById("section-title"),
     sectionIntro: document.getElementById("section-intro"),
     contentBody: document.getElementById("content-body"),
@@ -42,6 +44,69 @@
     quizSection: "mc",
     checkedResults: {},
     progress: loadProgress()
+  };
+  let assignmentToolbarCleanup = null;
+  const ASSIGNMENT_OVERRIDES = {
+    1: {
+      title: "Religion in Popular Culture",
+      summary: "Analyze one media text with religious themes, evaluate the portrayal, and assemble a final report for Chapter 1.",
+      interactivePath: "./assignments/chapter1interactive.html",
+      interactiveKey: "chapter1interactive"
+    },
+    2: {
+      title: "Local Indigenous Teaching or Symbol",
+      summary: "Research one Indigenous teaching, sacred symbol, or ceremonial object and assemble a respectful Chapter 2 report.",
+      interactivePath: "./assignments/chapter2interactive.html",
+      interactiveKey: "chapter2interactive"
+    },
+    3: {
+      title: "Compare Two Early Religions",
+      summary: "Compare any two Chapter 3 traditions, explain one similarity and one difference, and assemble a final comparative report.",
+      interactivePath: "./assignments/chapter3interactive.html",
+      interactiveKey: "chapter3interactive"
+    },
+    4: {
+      title: "Hindu Deity or Symbol Study",
+      summary: "Research one Hindu deity, avatar, or symbol, explain its meaning, and assemble a final Chapter 4 report.",
+      interactivePath: "./assignments/chapter4interactive.html",
+      interactiveKey: "chapter4interactive"
+    },
+    5: {
+      title: "Buddhist Symbol or Artwork Study",
+      summary: "Research one Buddhist symbol, artwork, monument, or meditation object and assemble a final Chapter 5 report.",
+      interactivePath: "./assignments/chapter5interactive.html",
+      interactiveKey: "chapter5interactive"
+    },
+    6: {
+      title: "Jewish Holy Day or Symbol Study",
+      summary: "Research one Jewish holy day, symbol, or ritual object and assemble a final Chapter 6 report.",
+      interactivePath: "./assignments/chapter6interactive.html",
+      interactiveKey: "chapter6interactive"
+    },
+    7: {
+      title: "Christian Art, Music, or Symbol Study",
+      summary: "Research one Christian artwork, hymn, symbol, or monument and assemble a final Chapter 7 report.",
+      interactivePath: "./assignments/chapter7interactive.html",
+      interactiveKey: "chapter7interactive"
+    },
+    8: {
+      title: "Mosque, Holy Month, or Pilgrimage Study",
+      summary: "Research one mosque, Ramadan practice, Eid celebration, or Hajj topic and assemble a final Chapter 8 report.",
+      interactivePath: "./assignments/chapter8interactive.html",
+      interactiveKey: "chapter8interactive"
+    },
+    9: {
+      title: "Sikh Symbol or Practice Study",
+      summary: "Research one Sikh symbol, article of faith, or practice and assemble a final Chapter 9 report.",
+      interactivePath: "./assignments/chapter9interactive.html",
+      interactiveKey: "chapter9interactive"
+    },
+    10: {
+      title: "Canadian Interfaith Example",
+      summary: "Research one Canadian interfaith or multi-faith example and assemble a final Chapter 10 report.",
+      interactivePath: "./assignments/chapter10interactive.html",
+      interactiveKey: "chapter10interactive"
+    }
   };
 
   function loadProgress() {
@@ -108,10 +173,163 @@
     }
   }
 
+  function getAssignmentToolbarElements() {
+    const toolbar = refs.contentBody.querySelector("[data-assignment-toolbar]");
+    if (!toolbar) return null;
+
+    return {
+      toolbar,
+      back: toolbar.querySelector('[data-assignment-action="back"]'),
+      reset: toolbar.querySelector('[data-assignment-action="reset"]'),
+      previous: toolbar.querySelector('[data-assignment-action="previous"]'),
+      generate: toolbar.querySelector('[data-assignment-action="generate"]')
+    };
+  }
+
+  function getActiveAssignmentFrame() {
+    return refs.contentBody.querySelector("[data-assignment-frame-key]");
+  }
+
+  function getEmbeddedAssignmentControls(frame = getActiveAssignmentFrame()) {
+    const doc = frame?.contentDocument;
+    if (!doc) return null;
+
+    return {
+      doc,
+      reset: doc.getElementById("reset-work"),
+      previous: doc.getElementById("prev-step"),
+      generate: doc.getElementById("generate-report")
+    };
+  }
+
+  function syncAssignmentToolbar() {
+    const toolbar = getAssignmentToolbarElements();
+    if (!toolbar) return;
+
+    const controls = getEmbeddedAssignmentControls();
+    const ready = !!controls?.reset && !!controls?.previous && !!controls?.generate;
+
+    if (toolbar.reset) {
+      toolbar.reset.disabled = !ready;
+    }
+
+    if (toolbar.previous) {
+      toolbar.previous.disabled = !ready || !!controls.previous.disabled;
+    }
+
+    if (toolbar.generate) {
+      toolbar.generate.disabled = !ready || !!controls.generate.disabled;
+      toolbar.generate.textContent = ready ? cleanText(controls.generate.textContent || "Proceed") : "Proceed";
+      toolbar.generate.dataset.mode = ready ? (controls.generate.dataset.mode || "") : "";
+      toolbar.generate.classList.toggle("is-ready", toolbar.generate.dataset.mode === "print");
+    }
+  }
+
+  function queueAssignmentToolbarSync() {
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        syncAssignmentToolbar();
+      });
+    });
+  }
+
+  function runAssignmentToolbarAction(action) {
+    if (action === "back") {
+      setTab("assignments");
+      return;
+    }
+
+    const controls = getEmbeddedAssignmentControls();
+    if (!controls) return;
+
+    const target = action === "reset"
+      ? controls.reset
+      : action === "previous"
+        ? controls.previous
+        : action === "generate"
+          ? controls.generate
+          : null;
+
+    target?.click();
+    queueAssignmentToolbarSync();
+  }
+
+  function setupAssignmentToolbarBridge() {
+    if (assignmentToolbarCleanup) {
+      assignmentToolbarCleanup();
+      assignmentToolbarCleanup = null;
+    }
+
+    const toolbar = getAssignmentToolbarElements();
+    const frame = getActiveAssignmentFrame();
+    if (!toolbar || !frame) return;
+
+    let observedDoc = null;
+    let observer = null;
+
+    const syncFromFrame = () => queueAssignmentToolbarSync();
+
+    const detach = () => {
+      if (observer) {
+        observer.disconnect();
+        observer = null;
+      }
+
+      if (observedDoc) {
+        observedDoc.removeEventListener("click", syncFromFrame, true);
+        observedDoc.removeEventListener("input", syncFromFrame, true);
+      }
+
+      observedDoc = null;
+    };
+
+    const attach = () => {
+      detach();
+
+      const controls = getEmbeddedAssignmentControls(frame);
+      if (!controls?.doc?.body) {
+        queueAssignmentToolbarSync();
+        return;
+      }
+
+      observedDoc = controls.doc;
+      observedDoc.addEventListener("click", syncFromFrame, true);
+      observedDoc.addEventListener("input", syncFromFrame, true);
+
+      observer = new MutationObserver(syncFromFrame);
+      observer.observe(observedDoc.body, {
+        subtree: true,
+        childList: true,
+        attributes: true,
+        characterData: true
+      });
+
+      queueAssignmentToolbarSync();
+    };
+
+    const handleLoad = () => attach();
+
+    frame.addEventListener("load", handleLoad);
+    if (frame.contentDocument?.readyState === "interactive" || frame.contentDocument?.readyState === "complete") {
+      attach();
+    } else {
+      queueAssignmentToolbarSync();
+    }
+
+    assignmentToolbarCleanup = () => {
+      frame.removeEventListener("load", handleLoad);
+      detach();
+    };
+  }
+
   function cleanText(value) {
     return String(value ?? "")
       .replace(/[�]/g, "-")
       .replace(/[–—]/g, "-");
+  }
+
+  function escapeRegExp(value) {
+    return String(value || "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   }
 
   function escapeHtml(value) {
@@ -134,11 +352,53 @@
   }
 
   function getQuizWork(id) {
-    if (!state.progress.quizWork[id]) {
-      state.progress.quizWork[id] = { mc: {}, matching: {}, tf: {} };
+    const existing = state.progress.quizWork[id] || {};
+    const normalized = {
+      mc: existing.mc && typeof existing.mc === "object" ? existing.mc : {},
+      matching: existing.matching && typeof existing.matching === "object" ? existing.matching : {},
+      tf: existing.tf && typeof existing.tf === "object" ? existing.tf : {},
+      written: existing.written && typeof existing.written === "object" ? existing.written : {},
+      choice: existing.choice && typeof existing.choice === "object" ? existing.choice : {}
+    };
+    const changed = !state.progress.quizWork[id]
+      || normalized.mc !== existing.mc
+      || normalized.matching !== existing.matching
+      || normalized.tf !== existing.tf
+      || normalized.written !== existing.written
+      || normalized.choice !== existing.choice;
+
+    if (changed) {
+      state.progress.quizWork[id] = normalized;
       saveProgress();
     }
+
     return state.progress.quizWork[id];
+  }
+
+  function getPromptText(item) {
+    return item?.prompt || item?.question || item?.text || "";
+  }
+
+  function stripPromptNumber(text, explicitNumber = "") {
+    const raw = cleanText(text).trim();
+    if (!raw) return "";
+
+    if (explicitNumber !== "" && explicitNumber !== null && explicitNumber !== undefined) {
+      const explicitPattern = new RegExp(`^\\s*${escapeRegExp(String(explicitNumber).trim())}[.)-]?\\s*`);
+      return raw.replace(explicitPattern, "").trim();
+    }
+
+    return raw.replace(/^\s*\d+[.)-]?\s*/, "").trim();
+  }
+
+  function formatPromptLabel(item, fallbackNumber = "") {
+    const prompt = getPromptText(item);
+    const number = item?.number ?? fallbackNumber;
+    const cleanedPrompt = stripPromptNumber(prompt, number);
+    if (number === "" || number === null || number === undefined) {
+      return cleanedPrompt || cleanText(prompt);
+    }
+    return `${number}. ${cleanedPrompt || cleanText(prompt)}`;
   }
 
   function findChapter(id) {
@@ -154,15 +414,20 @@
   }
 
   function getAssignments() {
-    return (data.chapters || []).map((chapter) => ({
-      id: `assignment-${chapter.number}`,
-      chapterId: chapter.id,
-      code: `Assignment ${chapter.number}`,
-      number: chapter.number,
-      title: chapter.title,
-      accent: chapter.accent,
-      summary: "Assignment content has not been authored yet. This lane stays ready for future chapter work."
-    }));
+    return (data.chapters || []).map((chapter) => {
+      const override = ASSIGNMENT_OVERRIDES[chapter.number] || {};
+      return {
+        id: `assignment-${chapter.number}`,
+        chapterId: chapter.id,
+        code: `Assignment ${chapter.number}`,
+        number: chapter.number,
+        title: override.title || chapter.title,
+        accent: chapter.accent,
+        summary: override.summary || "Assignment content has not been authored yet. This lane stays ready for future chapter work.",
+        interactivePath: override.interactivePath || "",
+        interactiveKey: override.interactiveKey || ""
+      };
+    });
   }
 
   function findAssignment(id) {
@@ -170,17 +435,22 @@
   }
 
   function getLibraryItems() {
-    return (data.library || []).length
-      ? data.library
-      : (data.chapters || []).map((chapter) => ({
-          id: `library-${chapter.number}`,
-          chapterId: chapter.id,
-          code: chapter.code,
-          title: chapter.title,
-          accent: chapter.accent,
-          file: `./assets/library/Chapter ${chapter.number}.pdf`,
-          summary: `Local chapter PDF for ${chapter.title}.`
-        }));
+    if ((data.library || []).length) {
+      return data.library.map((item) => ({
+        ...item,
+        chapterId: item.chapterId || `chapter-${item.number}`
+      }));
+    }
+
+    return (data.chapters || []).map((chapter) => ({
+      id: `library-${chapter.number}`,
+      chapterId: chapter.id,
+      code: chapter.code,
+      title: chapter.title,
+      accent: chapter.accent,
+      file: `./assets/library/Chapter ${chapter.number}.pdf`,
+      summary: `Local chapter PDF for ${chapter.title}.`
+    }));
   }
 
   function findLibrary(id) {
@@ -200,6 +470,7 @@
   }
 
   function isChapterUnlocked(number) {
+    if (AUTHORING_UNLOCK_ALL) return true;
     if (number <= 1) return true;
     return !!state.progress.quizComplete[`quiz-${number - 1}`];
   }
@@ -295,6 +566,172 @@
 
     return { correct, total };
   }
+
+  function hasRecordedQuizAnswer(value) {
+    return cleanText(value).trim().length > 0;
+  }
+
+  function countAnsweredQuizItems(items, getValue) {
+    return (items || []).reduce((count, item, index) => (
+      hasRecordedQuizAnswer(getValue(item, index)) ? count + 1 : count
+    ), 0);
+  }
+
+  function computeQuizCompletionSummary(quiz) {
+    const work = getQuizWork(quiz.id);
+    const multipleChoice = resolveMultipleChoiceItems(quiz);
+    const trueFalse = quiz.trueFalse || [];
+    const matching = resolveMatchingData(quiz).items;
+    const written = quiz.writtenResponse || [];
+
+    const multipleChoiceAnswered = countAnsweredQuizItems(multipleChoice, (item) => work.mc[item.number]);
+    const trueFalseAnswered = countAnsweredQuizItems(trueFalse, (item) => work.tf[item.number]);
+    const matchingAnswered = countAnsweredQuizItems(matching, (item) => work.matching[item.number]);
+    const writtenAnswered = countAnsweredQuizItems(written, (item, index) => work.written[item.number || index + 1]);
+    const objectiveTotal = multipleChoice.length + trueFalse.length + matching.length;
+    const answeredQuestions = multipleChoiceAnswered + trueFalseAnswered + matchingAnswered + writtenAnswered;
+    const totalQuestions = objectiveTotal + written.length;
+
+    return {
+      multipleChoiceAnswered,
+      multipleChoiceTotal: multipleChoice.length,
+      trueFalseAnswered,
+      trueFalseTotal: trueFalse.length,
+      matchingAnswered,
+      matchingTotal: matching.length,
+      writtenAnswered,
+      writtenTotal: written.length,
+      objectiveAnswered: multipleChoiceAnswered + trueFalseAnswered + matchingAnswered,
+      objectiveTotal,
+      answeredQuestions,
+      totalQuestions,
+      remainingQuestions: Math.max(totalQuestions - answeredQuestions, 0)
+    };
+  }
+
+  function formatQuestionRange(start, count) {
+    if (!count) return "No questions";
+    const end = start + count - 1;
+    return `Questions ${start}${end > start ? `-${end}` : ""}`;
+  }
+
+  function computeQuizSectionBreakdown(quiz) {
+    const completion = computeQuizCompletionSummary(quiz);
+    let cursor = 1;
+
+    const multipleChoiceSection = {
+      key: "mc",
+      title: "Multiple Choice",
+      range: formatQuestionRange(cursor, completion.multipleChoiceTotal),
+      score: `${completion.multipleChoiceAnswered}/${completion.multipleChoiceTotal}`
+    };
+    cursor += completion.multipleChoiceTotal;
+
+    const trueFalseSection = {
+      key: "tf",
+      title: "True / False",
+      range: formatQuestionRange(cursor, completion.trueFalseTotal),
+      score: `${completion.trueFalseAnswered}/${completion.trueFalseTotal}`
+    };
+    cursor += completion.trueFalseTotal;
+
+    const matchingSection = {
+      key: "matching",
+      title: "Term Matching",
+      range: formatQuestionRange(cursor, completion.matchingTotal),
+      score: `${completion.matchingAnswered}/${completion.matchingTotal}`
+    };
+    cursor += completion.matchingTotal;
+
+    const writtenSection = {
+      key: "written",
+      title: "Short Answer",
+      range: formatQuestionRange(cursor, completion.writtenTotal),
+      score: `${completion.writtenAnswered}/${completion.writtenTotal}`
+    };
+
+    return [multipleChoiceSection, trueFalseSection, matchingSection, writtenSection];
+  }
+
+  function getQuizCompletionStatus(summary) {
+    return summary.writtenTotal
+      ? `${summary.answeredQuestions} questions completed · written responses reviewed manually`
+      : `${summary.answeredQuestions} questions completed`;
+  }
+
+  function syncVisibleQuizCompletion(quizId) {
+    if (state.section !== "home" || state.tab !== "quizzes" || state.activeId !== quizId) return;
+    const quiz = findQuiz(quizId);
+    if (!quiz) return;
+
+    const summary = computeQuizCompletionSummary(quiz);
+    const earnedNode = refs.contentBody.querySelector("[data-quiz-completion-earned]");
+    const totalNode = refs.contentBody.querySelector("[data-quiz-completion-total]");
+    const statusNode = refs.contentBody.querySelector("[data-quiz-completion-status]");
+
+    if (earnedNode) earnedNode.textContent = String(summary.answeredQuestions);
+    if (totalNode) totalNode.textContent = `/${summary.totalQuestions}`;
+    if (statusNode) statusNode.textContent = getQuizCompletionStatus(summary);
+
+    computeQuizSectionBreakdown(quiz).forEach((item) => {
+      const scoreNode = refs.contentBody.querySelector(`[data-breakdown-score-for="${item.key}"]`);
+      if (scoreNode) scoreNode.textContent = item.score;
+    });
+  }
+
+  function normalizeMultipleChoiceOption(option, index) {
+    if (typeof option === "string") {
+      return {
+        label: String.fromCharCode(65 + index),
+        text: option
+      };
+    }
+
+    return {
+      label: String(option?.label || String.fromCharCode(65 + index)),
+      text: option?.text || option?.value || option?.prompt || option?.answer || ""
+    };
+  }
+
+  function splitInlineMultipleChoice(prompt) {
+    const rawPrompt = cleanText(prompt).trim();
+    const firstOptionIndex = rawPrompt.search(/A\.\s*/);
+    if (firstOptionIndex < 0) {
+      return { questionStem: rawPrompt, options: [] };
+    }
+
+    const questionStem = rawPrompt.slice(0, firstOptionIndex).trim();
+    const optionSource = rawPrompt.slice(firstOptionIndex);
+    const options = Array.from(optionSource.matchAll(/([A-D])\.\s*([\s\S]*?)(?=(?:[A-D]\.\s*)|$)/g)).map((match) => ({
+      label: match[1],
+      text: match[2].trim()
+    }));
+
+    return { questionStem, options };
+  }
+
+  function resolveMultipleChoiceOptions(item) {
+    const explicitOptions = Array.isArray(item?.options) ? item.options.filter(Boolean).map((option, index) => normalizeMultipleChoiceOption(option, index)) : [];
+    if (explicitOptions.length) return explicitOptions;
+    return splitInlineMultipleChoice(item?.prompt || item?.question || item?.text || "").options;
+  }
+
+  function resolveMultipleChoiceItems(quiz) {
+    return (quiz?.multipleChoice || []).map((item, index) => {
+      const rawPrompt = item?.prompt || item?.question || item?.text || "";
+      const inline = splitInlineMultipleChoice(rawPrompt);
+      const promptSource = inline.questionStem || rawPrompt;
+      const prompt = stripPromptNumber(promptSource, item?.number ?? index + 1);
+      const options = resolveMultipleChoiceOptions(item);
+
+      return {
+        ...item,
+        prompt,
+        options
+      };
+    });
+  }
+
   function renderNav() {
     refs.body.classList.toggle("sidebar-collapsed", state.sidebarCollapsed && !isMobile());
     refs.body.dataset.section = state.section;
@@ -392,7 +829,7 @@
   }
 
   function retakeQuiz(id) {
-    state.progress.quizWork[id] = { mc: {}, matching: {}, tf: {} };
+    state.progress.quizWork[id] = { mc: {}, matching: {}, tf: {}, written: {}, choice: {} };
     state.checkedResults[id] = false;
     saveProgress();
     renderContent();
@@ -409,6 +846,7 @@
     const work = getQuizWork(quizId);
     work.matching[questionNumber] = answer;
     saveProgress();
+    syncVisibleQuizCompletion(quizId);
   }
 
   function setTfAnswer(quizId, questionNumber, answer) {
@@ -418,9 +856,17 @@
     renderContent();
   }
 
+  function setWrittenAnswer(quizId, questionNumber, value) {
+    const work = getQuizWork(quizId);
+    work.written[questionNumber] = value;
+    saveProgress();
+    syncVisibleQuizCompletion(quizId);
+  }
+
   function checkAnswers(id) {
     if (!state.progress.quizComplete[id]) return;
     state.checkedResults[id] = true;
+    saveProgress();
     renderContent();
   }
 
@@ -451,6 +897,10 @@
   }
 
   function renderSectionHeader() {
+    const hideSectionHeader = state.section === "home" && state.tab === "quizzes" && !!state.activeId;
+    refs.sectionHeader?.toggleAttribute("hidden", hideSectionHeader);
+    if (hideSectionHeader) return;
+
     if (state.section === "library") {
       refs.sectionTitle.textContent = "Library";
       refs.sectionIntro.textContent = "Use the chapter selector to open a local PDF, expand it to a full-page viewer, or jump straight into the connected quiz.";
@@ -465,7 +915,7 @@
 
     if (state.tab === "assignments") {
       refs.sectionTitle.textContent = "Assignments";
-      refs.sectionIntro.textContent = "Assignments are placeholders for now. The lane stays ready for future authored work.";
+      refs.sectionIntro.textContent = "Open a chapter assignment to review the instructions, complete the interactive steps, and generate a printable final folio.";
       return;
     }
 
@@ -484,7 +934,7 @@
           ${(data.quizzes || []).map((quiz) => {
             const unlocked = isQuizUnlocked(quiz);
             const complete = !!state.progress.quizComplete[quiz.id];
-            const score = computeObjectiveScore(quiz);
+            const completionSummary = computeQuizCompletionSummary(quiz);
             const nextChapter = findChapter(`chapter-${quiz.number + 1}`);
             return `
               <article class="course-card quiz-overview-card ${unlocked ? "" : "locked-card"}" style="--accent:${escapeHtml(quiz.accent || "#8b6728")}">
@@ -492,7 +942,8 @@
                 <h4 class="card-title">${escapeHtml(quiz.title)}</h4>
                 <p class="card-summary">Recreated chapter booklet with objective sections, written prompts, and keyed guidance.</p>
                 <p class="card-meta">
-                  <span><strong>${score.correct}/${score.total || quiz.objectiveTotal || 0}</strong> objective score</span>
+                  <span><strong>${completionSummary.answeredQuestions}/${completionSummary.totalQuestions}</strong> questions completed</span>
+                  <span>Written responses reviewed manually</span>
                   <span>${complete ? "Completed" : unlocked ? "Ready" : `Locked until Chapter ${quiz.number - 1} quiz is complete`}</span>
                 </p>
                 <div class="card-actions">
@@ -517,9 +968,9 @@
                 <h4 class="card-title">${escapeHtml(assignment.title)}</h4>
                 <p class="card-summary">${escapeHtml(assignment.summary)}</p>
                 <div class="card-actions">
-                  <button class="btn btn-muted" type="button" data-open-assignment="${escapeHtml(assignment.id)}" ${unlocked ? "" : "disabled"}>Open placeholder</button>
+                  <button class="btn btn-muted" type="button" data-open-assignment="${escapeHtml(assignment.id)}" ${unlocked ? "" : "disabled"}>${assignment.interactivePath ? "Open assignment" : "Open placeholder"}</button>
                 </div>
-                ${unlocked ? "" : `<div class="status-chip locked">Locked until the previous chapter quiz is complete</div>`}
+                ${!unlocked ? `<div class="status-chip locked">Locked until the previous chapter quiz is complete</div>` : assignment.interactivePath ? `<div class="status-chip">Ready</div>` : ""}
               </article>
             `;
           }).join("")}
@@ -538,7 +989,7 @@
               <p class="card-summary">${escapeHtml(chapter.summary)}</p>
               <div class="card-actions">
                 <button class="btn btn-primary" type="button" data-open-chapter="${escapeHtml(chapter.id)}" ${unlocked ? "" : "disabled"}>Open chapter shell</button>
-                <button class="btn btn-secondary" type="button" data-open-library="${escapeHtml(getLibraryIdForChapter(chapter.id))}" ${unlocked ? "" : "disabled"}>Open PDF</button>
+                <button class="btn btn-secondary" type="button" data-open-expanded-viewer="${escapeHtml(getLibraryIdForChapter(chapter.id))}" ${unlocked ? "" : "disabled"}>Open PDF</button>
                 <button class="btn btn-muted" type="button" data-open-quiz="${escapeHtml(getQuizIdForChapter(chapter.id))}" ${unlocked ? "" : "disabled"}>Open quiz</button>
               </div>
               ${unlocked ? `<div class="status-chip">Ready</div>` : `<div class="status-chip locked">Locked until Chapter ${chapter.number - 1} quiz is complete</div>`}
@@ -564,7 +1015,7 @@
           </div>
           <div class="lock-copy">This chapter lane is intentionally blank right now. Use the chapter PDF and recreated quiz until the full lesson content is added.</div>
           <div class="detail-actions">
-            <button class="btn btn-primary" type="button" data-open-library="${escapeHtml(getLibraryIdForChapter(chapter.id))}">Open chapter PDF</button>
+            <button class="btn btn-primary" type="button" data-open-expanded-viewer="${escapeHtml(getLibraryIdForChapter(chapter.id))}">Open chapter PDF</button>
             <button class="btn btn-secondary" type="button" data-open-quiz="${escapeHtml(getQuizIdForChapter(chapter.id))}">Open quiz</button>
             <button class="btn btn-muted" type="button" data-back-home="chapters">Back to chapters</button>
           </div>
@@ -578,6 +1029,44 @@
       return `<div class="empty-state">This assignment lane is still locked.</div>`;
     }
 
+    if (assignment.interactivePath) {
+      return `
+        <article class="detail-card assignment-detail-card" style="--accent:${escapeHtml(assignment.accent || "#8b6728")}">
+          <div class="detail-stack">
+            <div>
+              <p class="detail-eyebrow">${escapeHtml(assignment.code)}</p>
+              <h4 class="detail-title">${escapeHtml(assignment.title)}</h4>
+            </div>
+            <div class="assignment-instructions-shell">
+              <section class="assignment-instructions" aria-label="Assignment instructions">
+                <p class="detail-eyebrow">Assignment instructions</p>
+                <p class="assignment-instructions-copy">${escapeHtml(assignment.summary)}</p>
+              </section>
+              <div class="assignment-toolbar" data-assignment-toolbar>
+                <div class="assignment-toolbar-primary">
+                  <button class="btn btn-muted" type="button" data-assignment-action="back">Back to assignments</button>
+                </div>
+                <div class="assignment-toolbar-actions">
+                  <button class="btn btn-muted" type="button" data-assignment-action="reset" disabled>Reset work</button>
+                  <button class="btn btn-muted" type="button" data-assignment-action="previous" disabled>Previous</button>
+                  <button class="btn btn-primary assignment-toolbar-generate" type="button" data-assignment-action="generate" disabled>Proceed</button>
+                </div>
+              </div>
+            </div>
+            <div class="assignment-runtime-shell">
+              <iframe
+                class="assignment-frame"
+                src="${escapeHtml(assignment.interactivePath)}"
+                title="${escapeHtml(assignment.title)}"
+                loading="lazy"
+                data-assignment-frame-key="${escapeHtml(assignment.interactiveKey || assignment.id)}"
+              ></iframe>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
     return `
       <article class="detail-card assignment-detail-card" style="--accent:${escapeHtml(assignment.accent || "#8b6728")}">
         <div class="detail-stack">
@@ -588,7 +1077,7 @@
           </div>
           <div class="lock-copy">This area stays open for future authored assignments. Nothing has been loaded into it yet.</div>
           <div class="detail-actions">
-            <button class="btn btn-primary" type="button" data-open-library="${escapeHtml(getLibraryIdForChapter(assignment.chapterId))}">Open chapter PDF</button>
+            <button class="btn btn-primary" type="button" data-open-expanded-viewer="${escapeHtml(getLibraryIdForChapter(assignment.chapterId))}">Open chapter PDF</button>
             <button class="btn btn-secondary" type="button" data-open-quiz="${escapeHtml(getQuizIdForChapter(assignment.chapterId))}">Open quiz</button>
             <button class="btn btn-muted" type="button" data-back-home="assignments">Back to assignments</button>
           </div>
@@ -645,7 +1134,7 @@
   }
 
   function renderMultipleChoice(quiz, work, showResults) {
-    const items = quiz.multipleChoice || [];
+    const items = resolveMultipleChoiceItems(quiz);
     if (!items.length) return `<div class="empty-state">No multiple-choice items were found for this chapter.</div>`;
 
     return `
@@ -739,64 +1228,30 @@
     `;
   }
 
-  function renderWritten(quiz, showResults) {
+  function renderWritten(quiz, work, showResults) {
     const items = quiz.writtenResponse || [];
     if (!items.length) return `<div class="empty-state">No written-response prompts were found for this chapter.</div>`;
 
     return `
       <div class="written-stack">
-        ${items.map((item) => `
+        ${items.map((item, index) => {
+          const promptNumber = item.number || index + 1;
+          const fieldId = `${quiz.id}-written-${promptNumber}`;
+          const response = work.written[promptNumber] || "";
+
+          return `
           <article class="written-card ${showResults ? "show-results" : ""}">
-            <h5>${escapeHtml(item.number ? `${item.number}. ` : "")}${escapeHtml(item.prompt || item.question || item.text || "")}</h5>
+            <h5>${escapeHtml(formatPromptLabel(item, index + 1))}</h5>
+            <label class="response-label" for="${escapeHtml(fieldId)}">Your response</label>
+            <textarea class="text-input response-input" id="${escapeHtml(fieldId)}" data-written-quiz-id="${escapeHtml(quiz.id)}" data-written-question="${escapeHtml(String(promptNumber))}" placeholder="Write your response here...">${escapeHtml(response)}</textarea>
             <div class="written-key"><strong>Teacher guidance:</strong> ${escapeHtml(item.teacherKey || item.answer || "Keyed response not provided in the teacher copy.")}</div>
           </article>
-        `).join("")}
+        `;
+        }).join("")}
       </div>
     `;
   }
 
-  function getStudentChoiceOptions(quiz) {
-    const raw = quiz?.studentChoice;
-    if (Array.isArray(raw)) return raw;
-    if (raw && Array.isArray(raw.options)) return raw.options;
-    if (raw && Array.isArray(raw.items)) return raw.items;
-    return [];
-  }
-
-  function getStudentChoiceIntro(quiz) {
-    const raw = quiz?.studentChoice;
-    if (raw && Array.isArray(raw.intro)) return raw.intro;
-    if (raw && raw.intro) return [raw.intro];
-    return [];
-  }
-
-  function renderStudentChoice(quiz, showResults) {
-    const intro = getStudentChoiceIntro(quiz);
-    const items = getStudentChoiceOptions(quiz);
-    if (!items.length) return `<div class="empty-state">No student-choice section was found for this chapter.</div>`;
-
-    return `
-      <div class="option-stack">
-        ${intro.length ? `
-          <article class="option-card">
-            <h5>Student-choice path</h5>
-            ${intro.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
-          </article>
-        ` : ""}
-        ${items.map((item, index) => `
-          <article class="option-card ${showResults ? "show-results" : ""}">
-            <h5>${escapeHtml(item.label ? `Option ${item.label}` : `Option ${index + 1}`)}${item.title ? ` - ${escapeHtml(item.title)}` : ""}</h5>
-            ${Array.isArray(item.prompts) && item.prompts.length ? `
-              <ol>
-                ${item.prompts.map((prompt) => `<li>${escapeHtml(prompt.prompt || prompt.text || prompt.question || "")}</li>`).join("")}
-              </ol>
-            ` : `<p>${escapeHtml(item.prompt || item.text || "Student-choice response path from the chapter booklet.")}</p>`}
-            <div class="student-note"><strong>Teacher note:</strong> ${escapeHtml(item.teacherNote || "No keyed teacher note was found for this option.")}</div>
-          </article>
-        `).join("")}
-      </div>
-    `;
-  }
   function getQuizSectionIntro(section, complete) {
     if (!complete) {
       return "Complete the quiz first. Once marked complete, you can check answers and generate results.";
@@ -808,9 +1263,7 @@
       case "tf":
         return "Compare each statement to the keyed true / false answers from the teacher booklet.";
       case "written":
-        return "Written-response prompts stay intact. Teacher guidance appears once answers are checked.";
-      case "choice":
-        return "Student-choice options stay intact. Teacher notes appear once answers are checked.";
+        return "Written-response prompts stay intact. These answers are recorded for manual review even after objective answers are checked.";
       default:
         return "Objective sections stay interactive. Check answers after completion to compare your work against the keyed version.";
     }
@@ -825,8 +1278,12 @@
     const complete = !!state.progress.quizComplete[quiz.id];
     const completedAt = formatDate(state.progress.quizCompletedAt[quiz.id]);
     const showResults = !!state.checkedResults[quiz.id] && complete;
-    const score = computeObjectiveScore(quiz);
-    const section = state.quizSection;
+    const completionSummary = computeQuizCompletionSummary(quiz);
+    const sections = computeQuizSectionBreakdown(quiz);
+    const section = ["matching", "tf", "written"].includes(state.quizSection) ? state.quizSection : "mc";
+    if (state.quizSection !== section) {
+      state.quizSection = section;
+    }
 
     let sectionHtml = "";
     if (section === "matching") {
@@ -834,53 +1291,68 @@
     } else if (section === "tf") {
       sectionHtml = renderTrueFalse(quiz, work, showResults);
     } else if (section === "written") {
-      sectionHtml = renderWritten(quiz, showResults);
-    } else if (section === "choice") {
-      sectionHtml = renderStudentChoice(quiz, showResults);
+      sectionHtml = renderWritten(quiz, work, showResults);
     } else {
       sectionHtml = renderMultipleChoice(quiz, work, showResults);
     }
 
     return `
-      <article class="quiz-shell quiz-detail-card" style="--accent:${escapeHtml(quiz.accent || "#8b6728")}">
-        <div class="quiz-stack">
-          <div class="quiz-topbar">
+      <article class="quiz-shell quiz-detail-card quiz-detail-surface" style="--accent:${escapeHtml(quiz.accent || "#8b6728")}">
+        <div class="quiz-stack quiz-detail-layout">
+          <div class="quiz-header">
             <div class="quiz-copy">
-              <p class="detail-eyebrow">${escapeHtml(quiz.code)}</p>
-              <h4>${escapeHtml(quiz.title)}</h4>
-              <p>${complete ? "This quiz is complete. You can still retake it, re-check answers, and regenerate the results PDF." : "Finish your attempt, then mark the quiz complete to unlock the next chapter."}</p>
+              <p class="detail-eyebrow">World Religions Course · Assessment</p>
+              <h4 class="quiz-page-title">${escapeHtml(`${quiz.code}: ${quiz.title}`)}</h4>
             </div>
-              <div class="quiz-actions">
-                <button class="btn btn-primary" type="button" data-mark-quiz-complete="${escapeHtml(quiz.id)}" ${complete ? "disabled" : ""}>${complete ? "Completed" : "Mark complete"}</button>
-                <button class="btn btn-secondary" type="button" data-check-answers="${escapeHtml(quiz.id)}" ${complete ? "" : "disabled"}>Check answers</button>
-                <button class="btn btn-muted" type="button" data-generate-quiz-results="${escapeHtml(quiz.id)}" ${complete ? "" : "disabled"}>Generate Results</button>
-                <button class="btn btn-muted" type="button" data-retake-quiz="${escapeHtml(quiz.id)}">Retake Quiz</button>
-                <button class="btn btn-muted" type="button" data-back-home="quizzes">Back to quizzes</button>
+            <div class="quiz-meta-row">
+              <div class="quiz-meta-block">
+                <span class="metric-label">Status</span>
+                <strong>${complete ? "Quiz complete" : "In progress"}</strong>
+              </div>
+              <div class="quiz-meta-block">
+                <span class="metric-label">Submitted</span>
+                <strong>${escapeHtml(complete && completedAt ? completedAt : "Not yet submitted")}</strong>
               </div>
             </div>
+          </div>
 
-          <div class="quiz-summary">
-            <div class="quiz-summary-card">
-              <span class="metric-label">Objective score</span>
-              <strong>${score.correct}/${score.total || quiz.objectiveTotal || 0}</strong>
+          <div class="quiz-evaluation-panel">
+            <div class="quiz-evaluation-copy">
+              <h5>Final Evaluation</h5>
+              <p>This counter tracks completed questions only. Marks are handled separately, and written responses are reviewed manually.</p>
             </div>
-            <div class="quiz-summary-card results-copy">
-              <span class="metric-label">Status</span>
-              <strong style="font-size:1rem; color: var(--text); margin-top: 10px;">${complete ? "Quiz complete" : "In progress"}</strong>
-              <p style="margin:8px 0 0;">${complete && completedAt ? `Completed on ${escapeHtml(completedAt)}.` : `The next chapter unlocks when this quiz is marked complete.`}</p>
+            <div class="quiz-evaluation-score">
+              <strong><span class="quiz-evaluation-earned" data-quiz-completion-earned>${completionSummary.answeredQuestions}</span><small data-quiz-completion-total>/${completionSummary.totalQuestions}</small></strong>
+              <span class="quiz-evaluation-status" data-quiz-completion-status>${escapeHtml(getQuizCompletionStatus(completionSummary))}</span>
             </div>
           </div>
 
-          <div class="quiz-pill-row">
-            <button class="quiz-pill ${section === "mc" ? "active" : ""}" type="button" data-quiz-section="mc">Multiple choice</button>
-            <button class="quiz-pill ${section === "matching" ? "active" : ""}" type="button" data-quiz-section="matching">Matching</button>
-            <button class="quiz-pill ${section === "tf" ? "active" : ""}" type="button" data-quiz-section="tf">True / false</button>
-            <button class="quiz-pill ${section === "written" ? "active" : ""}" type="button" data-quiz-section="written">Written response</button>
-            <button class="quiz-pill ${section === "choice" ? "active" : ""}" type="button" data-quiz-section="choice">Student choice</button>
+          <div class="quiz-actions quiz-actions-row">
+            ${complete ? "" : `<button class="btn btn-primary" type="button" data-mark-quiz-complete="${escapeHtml(quiz.id)}">Mark complete</button>`}
+            <button class="btn btn-secondary" type="button" data-check-answers="${escapeHtml(quiz.id)}" ${complete ? "" : "disabled"}>Check answers</button>
+            <button class="btn btn-muted" type="button" data-generate-quiz-results="${escapeHtml(quiz.id)}" ${complete ? "" : "disabled"}>Generate Results</button>
+            <button class="btn btn-muted" type="button" data-retake-quiz="${escapeHtml(quiz.id)}">Retake Quiz</button>
+            <button class="btn quiz-back-link" type="button" data-back-home="quizzes">Back to quizzes <span aria-hidden="true">→</span></button>
           </div>
 
-          <div class="section-copy">${escapeHtml(getQuizSectionIntro(section, complete))}</div>
-          ${sectionHtml}
+          <section class="quiz-breakdown-shell">
+            <h5 class="quiz-breakdown-title">Section Breakdown</h5>
+            <div class="quiz-section-breakdown">
+              ${sections.map((item) => `
+                <button class="quiz-breakdown-item ${section === item.key ? "active" : ""}" type="button" data-quiz-section="${escapeHtml(item.key)}">
+                  <span class="quiz-breakdown-copy">
+                    <span class="quiz-breakdown-name">${escapeHtml(item.title)}</span>
+                    <span class="quiz-breakdown-range">${escapeHtml(item.range)}</span>
+                  </span>
+                  <span class="quiz-breakdown-score" data-breakdown-score-for="${escapeHtml(item.key)}">${escapeHtml(item.score)}</span>
+                </button>
+              `).join("")}
+            </div>
+          </section>
+
+          <div class="quiz-section-content">
+            ${sectionHtml}
+          </div>
         </div>
       </article>
     `;
@@ -955,17 +1427,19 @@
           <article class="guidance-card">
             <div class="guidance-label">Prompt</div>
             <div class="guidance-prompt">${escapeHtml(row.prompt || "Untitled prompt")}</div>
+            <div class="guidance-label">Learner response</div>
+            <div class="guidance-body">${escapeHtml(row.response || "No response captured.")}</div>
             <div class="guidance-label">Teacher guidance</div>
             <div class="guidance-body">${escapeHtml(row.guidance || "No keyed guidance provided.")}</div>
           </article>
         `).join("")
-      : `<div class="report-empty">No written-response or student-choice guidance was keyed for this quiz.</div>`;
+      : `<div class="report-empty">No written-response guidance was keyed for this quiz.</div>`;
 
     return `
       <section class="report-section">
         <div class="section-heading">
           <h2>Teacher guidance</h2>
-          <p>Written-response and student-choice guidance pulled from the keyed chapter booklet.</p>
+          <p>Written-response guidance pulled from the keyed chapter booklet.</p>
         </div>
         <div class="teacher-guidance-grid">
           ${cards}
@@ -974,12 +1448,11 @@
     `;
   }
 
-  function buildQuizResultsHtml({ quiz, score, completedAt, generatedAt, mcRows, matchingRows, tfRows, guidanceRows }) {
+  function buildQuizResultsHtml({ quiz, completionSummary, completedAt, generatedAt, mcRows, matchingRows, tfRows, guidanceRows }) {
     const courseTitle = data.course?.title || "World Religions 30";
     const objectiveRows = [...mcRows, ...matchingRows, ...tfRows];
     const correctCount = objectiveRows.filter((row) => row.result === "Correct").length;
-    const incorrectCount = objectiveRows.filter((row) => row.result === "Incorrect").length;
-    const unansweredCount = objectiveRows.filter((row) => row.result === "No answer").length;
+    const writtenAnswered = guidanceRows.filter((row) => hasRecordedQuizAnswer(row.response)).length;
 
     return `<!DOCTYPE html>
 <html lang="en">
@@ -1281,24 +1754,24 @@
 
     <section class="summary-strip">
       <article class="summary-card">
-        <div class="summary-label">Objective score</div>
-        <div class="summary-value">${escapeHtml(`${score.correct}/${score.total || quiz.objectiveTotal || 0}`)}</div>
-        <div class="summary-note">${escapeHtml(`${score.total || quiz.objectiveTotal || 0} objective items keyed in the booklet.`)}</div>
+        <div class="summary-label">Completed questions</div>
+        <div class="summary-value">${escapeHtml(`${completionSummary.answeredQuestions}/${completionSummary.totalQuestions}`)}</div>
+        <div class="summary-note">This report tracks recorded answers. Written responses still require manual review.</div>
       </article>
       <article class="summary-card">
-        <div class="summary-label">Correct</div>
+        <div class="summary-label">Objective correct</div>
         <div class="summary-value">${escapeHtml(String(correctCount))}</div>
-        <div class="summary-note">Items answered correctly across multiple choice, matching, and true / false.</div>
+        <div class="summary-note">Keyed correct answers across multiple choice, matching, and true / false.</div>
       </article>
       <article class="summary-card">
-        <div class="summary-label">Incorrect</div>
-        <div class="summary-value">${escapeHtml(String(incorrectCount))}</div>
-        <div class="summary-note">Items with a recorded answer that did not match the key.</div>
+        <div class="summary-label">Remaining blank</div>
+        <div class="summary-value">${escapeHtml(String(completionSummary.remainingQuestions))}</div>
+        <div class="summary-note">Questions left unanswered when the report was generated.</div>
       </article>
       <article class="summary-card">
-        <div class="summary-label">No answer</div>
-        <div class="summary-value">${escapeHtml(String(unansweredCount))}</div>
-        <div class="summary-note">Items left blank when the report was generated.</div>
+        <div class="summary-label">Written responses entered</div>
+        <div class="summary-value">${escapeHtml(String(writtenAnswered))}</div>
+        <div class="summary-note">Written prompts with a recorded response ready for teacher review.</div>
       </article>
     </section>
 
@@ -1348,7 +1821,7 @@
     if (!quiz || !state.progress.quizComplete[quiz.id]) return;
 
     const work = getQuizWork(quiz.id);
-    const score = computeObjectiveScore(quiz);
+    const completionSummary = computeQuizCompletionSummary(quiz);
     const matching = resolveMatchingData(quiz);
     const mcRows = (quiz.multipleChoice || []).map((item) => ({
       question: String(item.number),
@@ -1368,16 +1841,17 @@
       correct: normalizeText(item.answer) === "t" ? "True" : normalizeText(item.answer) === "f" ? "False" : item.answer || "",
       result: getResultLabel(work.tf[item.number], item.answer)
     }));
-    const guidanceRows = [...(quiz.writtenResponse || []).map((item) => ({
-      prompt: item.prompt || item.question || item.text || "",
-      guidance: item.teacherKey || item.answer || ""
-    })), ...getStudentChoiceOptions(quiz).map((item, index) => ({
-      prompt: item.label ? `Option ${item.label}: ${item.title || item.prompt || item.text || ""}` : item.title || item.prompt || item.text || `Option ${index + 1}`,
-      guidance: item.teacherNote || ""
-    }))];
+    const guidanceRows = (quiz.writtenResponse || []).map((item, index) => {
+      const promptNumber = item.number || index + 1;
+      return {
+        prompt: formatPromptLabel(item, index + 1),
+        response: work.written[promptNumber] || "",
+        guidance: item.teacherKey || item.answer || ""
+      };
+    });
     const reportHtml = buildQuizResultsHtml({
       quiz,
-      score,
+      completionSummary,
       completedAt: formatDate(state.progress.quizCompletedAt[quiz.id]) || new Date().toLocaleString(),
       generatedAt: new Date().toLocaleString(),
       mcRows,
@@ -1404,13 +1878,22 @@
     }, 350);
   }
   function renderContent() {
+    if (assignmentToolbarCleanup) {
+      assignmentToolbarCleanup();
+      assignmentToolbarCleanup = null;
+    }
+
     renderSectionHeader();
     refs.contentBody.innerHTML = state.section === "library" ? renderLibrary() : renderHomeCards();
     bindContentEvents();
+    setupAssignmentToolbarBridge();
   }
 
   function bindContentEvents() {
     refs.contentBody.onclick = (event) => {
+      const assignmentActionButton = event.target.closest("[data-assignment-action]");
+      if (assignmentActionButton) return void runAssignmentToolbarAction(assignmentActionButton.dataset.assignmentAction);
+
       const chapterButton = event.target.closest("[data-open-chapter]");
       if (chapterButton) return void openChapter(chapterButton.dataset.openChapter);
 
@@ -1461,6 +1944,11 @@
       const matchingSelect = event.target.closest("[data-matching-question]");
       if (matchingSelect) return void setMatchingAnswer(matchingSelect.dataset.quizId, matchingSelect.dataset.matchingQuestion, matchingSelect.value);
     };
+
+    refs.contentBody.oninput = (event) => {
+      const writtenInput = event.target.closest("[data-written-question]");
+      if (writtenInput) return void setWrittenAnswer(writtenInput.dataset.writtenQuizId, writtenInput.dataset.writtenQuestion, writtenInput.value);
+    };
   }
 
   function render() {
@@ -1486,6 +1974,13 @@
   window.addEventListener("resize", () => {
     setMobileNav(false);
     renderNav();
+  });
+  window.addEventListener("message", (event) => {
+    const payload = event.data;
+    if (!payload || payload.type !== "wr30-assignment-height" || typeof payload.key !== "string" || !Number.isFinite(payload.height)) return;
+    const frame = Array.from(document.querySelectorAll("[data-assignment-frame-key]")).find((node) => node.dataset.assignmentFrameKey === payload.key);
+    if (!frame) return;
+    frame.style.height = `${Math.max(980, Math.ceil(payload.height) + 8)}px`;
   });
 
   refs.body.classList.toggle("sidebar-collapsed", state.sidebarCollapsed && !isMobile());

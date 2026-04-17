@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: calm-life-adventure
-- Generated: 2026-03-29T14:10:41.992Z
+- Generated: 2026-04-17T20:08:47.648Z
 
 ## Rules
 
@@ -21,8 +21,8 @@
 
 ## Session Mode
 
-- Subagent mode: on
-- Use subagent rules automatically; ask for approval before widening scope.
+- Subagent mode: off
+- Use standard task mode.
 
 ## Intelligence Policy
 
@@ -44,7 +44,7 @@ none
 {
   "id": "7ba88adc-c72f-42ba-9035-41a6fffc37ad",
   "slug": "calm-life-adventure",
-  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace",
+  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\processed\\calm-life-adventure\\source",
   "inputKind": "html",
   "brightspaceTarget": "course-page",
   "previewModes": [
@@ -55,7 +55,7 @@ none
   "rawEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/raw/original.html",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-03-29T01:20:00.000Z",
+  "learningUpdatedAt": "2026-04-17T20:08:47.495Z",
   "migrationState": "migrated",
   "projectType": "generated-course",
   "preferredWorkflows": [
@@ -101,8 +101,8 @@ none
   "referenceOnly": [],
   "sourceOfTruthNotes": "Treat workspace/index.html, workspace/main.js, workspace/styles.css, and the AGI extraction scripts as canonical. Regenerate the checked-in SVG PIC/VIEW assets from the extracted LSL source bundle instead of hand-editing them.",
   "createdAt": "2026-03-29T01:20:00.000Z",
-  "updatedAt": "2026-03-29T03:58:00.000Z",
-  "workspaceApprovedAt": "2026-03-29T01:20:00.000Z"
+  "updatedAt": "2026-04-17T20:08:47.495Z",
+  "workspaceApprovedAt": "2026-04-17T20:08:47.495Z"
 }
 ```
 
@@ -113,12 +113,11 @@ none
 - Teacher notes are contextual authority only.
 - Textbook and reference resources are supporting evidence, not lesson generators.
 - Imported Canvas workspace content is fallback context only when outline or assessment evidence is missing.
-- Current classified resource mix: none.
+- Current classified resource mix: .
 
 ## Resource Catalog Summary
 
-> resource-catalog.json: missing
-> Next: `npm run refs -- --project calm-life-adventure`
+
 
 ## D2L Course Map Summary
 

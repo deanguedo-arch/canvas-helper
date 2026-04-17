@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: sportswellness
-- Generated: 2026-04-14T15:24:05.455Z
+- Generated: 2026-04-17T20:09:27.855Z
 
 ## Rules
 
@@ -54,7 +54,7 @@ none
   "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\sportswellness\\raw\\original.html",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-04-14T15:24:04.942Z",
+  "learningUpdatedAt": "2026-04-17T20:09:27.795Z",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
@@ -82,7 +82,8 @@ none
   "referenceOnly": [],
   "sourceOfTruthNotes": "Edit workspace sources listed in canonicalSources. Treat generated exports and runtime bundles as derived output.",
   "createdAt": "2026-04-14T15:24:04.645Z",
-  "updatedAt": "2026-04-14T15:24:04.942Z"
+  "updatedAt": "2026-04-17T20:09:27.795Z",
+  "workspaceApprovedAt": "2026-04-17T20:09:27.795Z"
 }
 ```
 
@@ -93,12 +94,11 @@ none
 - Teacher notes are contextual authority only.
 - Textbook and reference resources are supporting evidence, not lesson generators.
 - Imported Canvas workspace content is fallback context only when outline or assessment evidence is missing.
-- Current classified resource mix: none.
+- Current classified resource mix: .
 
 ## Resource Catalog Summary
 
-> resource-catalog.json: missing
-> Next: `npm run refs -- --project sportswellness`
+
 
 ## D2L Course Map Summary
 
@@ -173,7 +173,23 @@ none
 
 ## Import Log
 
-> import-log.md: missing
+```md
+# Import Log
+
+- Generated: 2026-04-14T15:24:04.645Z
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\processed\sportswellness\source
+
+## Actions
+- Copied the source HTML into raw/original.html without modifying it.
+- Copied 2 local asset reference(s) into the raw project copy.
+- Copied 2 local asset reference(s) into the workspace.
+- Learned project patterns (C:\Users\dean.guedo\Documents\GitHub\canvas-helper\.runtime\pattern-bank\auto\sportswellness.json).
+- Updated local pattern bank (31 profile(s)).
+- Generated prompt pack (C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\meta\prompt-pack.md).
+
+## Warnings
+- None.
+```
 
 ## Global Memory
 
@@ -211,4 +227,3 @@ none
 - npm run typecheck
 - npm run build:studio
 ```
-

@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: calm-module
-- Generated: 2026-03-29T14:10:41.997Z
+- Generated: 2026-04-17T20:08:47.987Z
 
 ## Rules
 
@@ -21,8 +21,8 @@
 
 ## Session Mode
 
-- Subagent mode: on
-- Use subagent rules automatically; ask for approval before widening scope.
+- Subagent mode: off
+- Use standard task mode.
 
 ## Intelligence Policy
 
@@ -44,7 +44,7 @@ none
 {
   "id": "cb6efd51-9046-430f-a9e1-0f8fd3fd6621",
   "slug": "calm-module",
-  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/calm-module/source",
+  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\processed\\calm-module\\source",
   "inputKind": "html",
   "brightspaceTarget": "course-page",
   "previewModes": [
@@ -55,10 +55,10 @@ none
   "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\calm-module\\raw\\original.html",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-03-11T17:15:17.719Z",
+  "learningUpdatedAt": "2026-04-17T20:08:47.915Z",
   "createdAt": "2026-03-06T02:06:47.139Z",
-  "updatedAt": "2026-03-24T13:04:53.168Z",
-  "workspaceApprovedAt": "2026-03-13T18:48:48.516Z",
+  "updatedAt": "2026-04-17T20:08:47.915Z",
+  "workspaceApprovedAt": "2026-04-17T20:08:47.915Z",
   "migrationState": "legacy",
   "preferredWorkflows": [],
   "canonicalSources": [],
@@ -83,7 +83,7 @@ none
 
 ### CALM MODULE ONE – PERONSAL CHOICES OUTREACH PROGRAMS – REVISED 2018 (outline)
 - Authority: blueprint-authoritative
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\calm-module\CALM Module 1 - Personal Choices.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\calm-module\CALM Module 1 - Personal Choices.pdf
 - Extraction: indexed via native
 - Chunks: 32
 - Signals: text:outcomes, text:section-heading
@@ -217,9 +217,32 @@ disabled by intelligence policy (collect)
 ## Reference Excerpts
 
 ### calm-module-1-personal-choices-pdf (pdf/outline)
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\calm-module\CALM Module 1 - Personal Choices.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\calm-module\CALM Module 1 - Personal Choices.pdf
 
-- Extracted chunk text missing.
+```text
+CALM MODULE ONE – PERONSAL CHOICES
+OUTREACH PROGRAMS – REVISED 2018
+1
+
+nextstepfortsaskatchewansherwoodpa
+rkvegrevillenextstefortsaskatchewans
+herwoodparkvegrevillenextstepfortsa
+skatchewannextstepsherwoodparkveg
+revillenextstepfortsaskatchewansher
+woodparkvegrevillenextstepfortsaskat
+chewansherwoodparkvegrevillenextst
+epfortsaskatchewansherwoodparkveg
+revillenextstepfortsaskatchewansher
+woodparkvegrevillenextstepfortsaskat
+chewansherwoodparkvegrevillenextst
+epfortsaskatchewansherwoodparkveg
+revillenextstepfortsaskatchewansher
+woodparkvegrevillepfortsaskatchewa
+nsherwoodparkvegrevillenextstepfort
+saskatchewansherwoodparkvegreville
+nextstepfortsaskatchewansherwoodpa
+rkvegrevillenextstepfortsa...
+```
 
 ## Task Stub
 

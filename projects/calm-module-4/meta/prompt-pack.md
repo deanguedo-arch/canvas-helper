@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: calm-module-4
-- Generated: 2026-03-29T14:10:42.004Z
+- Generated: 2026-04-17T20:08:48.167Z
 
 ## Rules
 
@@ -21,8 +21,8 @@
 
 ## Session Mode
 
-- Subagent mode: on
-- Use subagent rules automatically; ask for approval before widening scope.
+- Subagent mode: off
+- Use standard task mode.
 
 ## Intelligence Policy
 
@@ -44,7 +44,7 @@ none
 {
   "id": "44e9f0f1-f4f2-4a41-9d60-81cabca28a1e",
   "slug": "calm-module-4",
-  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/calm-module-4/source",
+  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\processed\\calm-module-4\\source",
   "inputKind": "html",
   "brightspaceTarget": "course-page",
   "previewModes": [
@@ -55,7 +55,7 @@ none
   "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\calm-module-4\\raw\\original.html",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-03-19T18:00:26.529Z",
+  "learningUpdatedAt": "2026-04-17T20:08:48.101Z",
   "migrationState": "migrated",
   "projectType": "generated-course",
   "preferredWorkflows": [
@@ -126,8 +126,8 @@ none
   "referenceOnly": [],
   "sourceOfTruthNotes": "Treat workspace/index.html + main runtime/component sources as canonical. Export bundles are derived output.",
   "createdAt": "2026-03-19T18:00:26.397Z",
-  "updatedAt": "2026-03-24T13:04:53.178Z",
-  "workspaceApprovedAt": "2026-03-23T13:58:05.427Z"
+  "updatedAt": "2026-04-17T20:08:48.101Z",
+  "workspaceApprovedAt": "2026-04-17T20:08:48.101Z"
 }
 ```
 
@@ -138,12 +138,11 @@ none
 - Teacher notes are contextual authority only.
 - Textbook and reference resources are supporting evidence, not lesson generators.
 - Imported Canvas workspace content is fallback context only when outline or assessment evidence is missing.
-- Current classified resource mix: none.
+- Current classified resource mix: .
 
 ## Resource Catalog Summary
 
-> resource-catalog.json: missing
-> Next: `npm run refs -- --project calm-module-4`
+
 
 ## D2L Course Map Summary
 

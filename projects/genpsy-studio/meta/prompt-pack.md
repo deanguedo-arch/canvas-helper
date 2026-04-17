@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: genpsy-studio
-- Generated: 2026-03-29T14:10:42.048Z
+- Generated: 2026-04-17T20:09:27.415Z
 
 ## Rules
 
@@ -21,8 +21,8 @@
 
 ## Session Mode
 
-- Subagent mode: on
-- Use subagent rules automatically; ask for approval before widening scope.
+- Subagent mode: off
+- Use standard task mode.
 
 ## Intelligence Policy
 
@@ -44,7 +44,7 @@ none
 {
   "id": "3aae29ea-522e-4780-a1e9-f62a5ead7f84",
   "slug": "genpsy-studio",
-  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/genpsy-studio/source",
+  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\processed\\genpsy-studio\\source",
   "inputKind": "html",
   "brightspaceTarget": "course-page",
   "previewModes": [
@@ -55,10 +55,10 @@ none
   "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\genpsy-studio\\raw\\original.html",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-03-11T16:55:18.383Z",
+  "learningUpdatedAt": "2026-04-17T20:09:27.305Z",
   "createdAt": "2026-03-06T19:03:24.663Z",
-  "updatedAt": "2026-03-24T13:04:53.303Z",
-  "workspaceApprovedAt": "2026-03-11T16:55:18.383Z",
+  "updatedAt": "2026-04-17T20:09:27.305Z",
+  "workspaceApprovedAt": "2026-04-17T20:09:27.305Z",
   "migrationState": "legacy",
   "preferredWorkflows": [],
   "canonicalSources": [],
@@ -83,56 +83,56 @@ none
 
 ### Copy of Personal Psychology 20 Unit 1 (textbook)
 - Authority: supporting-only
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\genpsy-studio\Copy of Personal Psychology 20 Unit 1.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\genpsy-studio\Copy of Personal Psychology 20 Unit 1.pdf
 - Extraction: failed
 - Chunks: 0
 - Signals: filename:unit
 
 ### Copy of Personal Psychology 20 Unit 2 (textbook)
 - Authority: supporting-only
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\genpsy-studio\Copy of Personal Psychology 20 Unit 2.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\genpsy-studio\Copy of Personal Psychology 20 Unit 2.pdf
 - Extraction: failed
 - Chunks: 0
 - Signals: filename:unit
 
 ### Copy of Personal Psychology 20 Unit 3 (textbook)
 - Authority: supporting-only
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\genpsy-studio\Copy of Personal Psychology 20 Unit 3.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\genpsy-studio\Copy of Personal Psychology 20 Unit 3.pdf
 - Extraction: failed
 - Chunks: 0
 - Signals: filename:unit
 
 ### Copy of Personal Psychology 20 Unit 4 (textbook)
 - Authority: supporting-only
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\genpsy-studio\Copy of Personal Psychology 20 Unit 4.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\genpsy-studio\Copy of Personal Psychology 20 Unit 4.pdf
 - Extraction: failed
 - Chunks: 0
 - Signals: filename:unit
 
 ### Copy of Personal Psychology 20 Unit 5 (textbook)
 - Authority: supporting-only
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\genpsy-studio\Copy of Personal Psychology 20 Unit 5.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\genpsy-studio\Copy of Personal Psychology 20 Unit 5.pdf
 - Extraction: failed
 - Chunks: 0
 - Signals: filename:unit
 
 ### Copy of Personal Psychology 20 Unit 6 (textbook)
 - Authority: supporting-only
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\genpsy-studio\Copy of Personal Psychology 20 Unit 6.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\genpsy-studio\Copy of Personal Psychology 20 Unit 6.pdf
 - Extraction: failed
 - Chunks: 0
 - Signals: filename:unit
 
 ### Copy of Personal Psychology 20 Unit 7 (textbook)
 - Authority: supporting-only
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\genpsy-studio\Copy of Personal Psychology 20 Unit 7.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\genpsy-studio\Copy of Personal Psychology 20 Unit 7.pdf
 - Extraction: failed
 - Chunks: 0
 - Signals: filename:unit
 
 ### General Psychology 20 Over view (outline)
 - Authority: blueprint-authoritative
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\genpsy-studio\GenPsychOverview.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\genpsy-studio\GenPsychOverview.pdf
 - Extraction: indexed via native
 - Chunks: 34
 - Signals: filename:overview, text:objectives, text:table-of-contents, text:assessment, text:assignment-booklet
@@ -232,47 +232,7 @@ none
 
 ## Lesson Packet Summary
 
-### Unit 1: Section 1: A Look into the Past ..................................................................    1: acquire knowledge about the beginnings of psychology
-- Outcomes: acquire knowledge about the beginnings of psychology
-- Linked assessments: perpsy20ab01key-pdf, perpsy20ab02key-pdf, perpsy20ab03key-pdf, perpsy20ab04key-pdf, perpsy20ab05key-pdf, perpsy20ab06key-pdf
-- Core concepts: Look, Past, Assignment-Booklet, Psychology, Section-Heading, Table-Of-Contents, View, What-Is
-- Guided practice: Model how to apply using the lesson vocabulary and one cited source example.; Walk through one assignment-booklet prompt from (if label is missing or incorrect) File Number: FOR ADLC USE ONLY and annotate what a successful response has to include.
-- Readiness evidence: Student can apply Look accurately without reverting to chapter-note summary.; Student uses Look, Past, Actualization in context.
-
-### Unit 1: Section 1: A Look into the Past ..................................................................    1: clarify the differences between the main psychology disciplines
-- Outcomes: clarify the differences between the main psychology disciplines
-- Linked assessments: perpsy20ab01key-pdf, perpsy20ab02key-pdf, perpsy20ab03key-pdf, perpsy20ab04key-pdf, perpsy20ab05key-pdf, perpsy20ab06key-pdf
-- Core concepts: Look, Past, Assignment-Booklet, Psychology, Section-Heading, Table-Of-Contents, View, What-Is
-- Guided practice: Model how to apply using the lesson vocabulary and one cited source example.; Walk through one assignment-booklet prompt from (if label is missing or incorrect) File Number: FOR ADLC USE ONLY and annotate what a successful response has to include.
-- Readiness evidence: Student can apply Look accurately without reverting to chapter-note summary.; Student uses Look, Past, Actualization in context.
-
-### Unit 1: Section 1: A Look into the Past ..................................................................    1: understand the hierarchy of needs
-- Outcomes: understand the hierarchy of needs
-- Linked assessments: perpsy20ab01key-pdf, perpsy20ab02key-pdf, perpsy20ab03key-pdf, perpsy20ab04key-pdf, perpsy20ab05key-pdf, perpsy20ab06key-pdf
-- Core concepts: Look, Past, Assignment-Booklet, Psychology, Section-Heading, Table-Of-Contents, View, What-Is
-- Guided practice: Model how to explain using the lesson vocabulary and one cited source example.; Walk through one assignment-booklet prompt from (if label is missing or incorrect) File Number: FOR ADLC USE ONLY and annotate what a successful response has to include.
-- Readiness evidence: Student can explain Look accurately without reverting to chapter-note summary.; Student uses Look, Past, Actualization in context.
-
-### Unit 2: Section 2: The Principles of Learning  .......................................................    4: understand and explain the basic concepts of the learning process
-- Outcomes: understand and explain the basic concepts of the learning process
-- Linked assessments: perpsy20ab01key-pdf, perpsy20ab02key-pdf, perpsy20ab03key-pdf, perpsy20ab04key-pdf, perpsy20ab05key-pdf, perpsy20ab06key-pdf
-- Core concepts: Learning, Principles, Assignment-Booklet, Psychology, Section-Heading, Table-Of-Contents, View, What-Is
-- Guided practice: Model how to apply using the lesson vocabulary and one cited source example.; Walk through one assignment-booklet prompt from (if label is missing or incorrect) File Number: FOR ADLC USE ONLY and annotate what a successful response has to include.
-- Readiness evidence: Student can apply Learning accurately without reverting to chapter-note summary.; Student uses Learning, Principles, Able in context.
-
-### Unit 3: Section 2: Thinking and Memory ..............................................................    7: be aware of how the brain processes information
-- Outcomes: be aware of how the brain processes information
-- Linked assessments: perpsy20ab01key-pdf, perpsy20ab02key-pdf, perpsy20ab03key-pdf, perpsy20ab06key-pdf
-- Core concepts: Memory, Thinking, Assignment-Booklet, Psychology, Section-Heading, Table-Of-Contents, View, What-Is
-- Guided practice: Model how to complete using the lesson vocabulary and one cited source example.; Walk through one assignment-booklet prompt from (if label is missing or incorrect) File Number: FOR ADLC USE ONLY and annotate what a successful response has to include.
-- Readiness evidence: Student can complete Memory accurately without reverting to chapter-note summary.; Student uses Memory, Thinking, Brain in context.
-
-### Unit 3: Section 2: Thinking and Memory ..............................................................    7: be aware of problems with brain functions
-- Outcomes: be aware of problems with brain functions
-- Linked assessments: perpsy20ab01key-pdf, perpsy20ab02key-pdf, perpsy20ab03key-pdf, perpsy20ab06key-pdf
-- Core concepts: Memory, Thinking, Assignment-Booklet, Psychology, Section-Heading, Table-Of-Contents, View, What-Is
-- Guided practice: Model how to complete using the lesson vocabulary and one cited source example.; Walk through one assignment-booklet prompt from (if label is missing or incorrect) File Number: FOR ADLC USE ONLY and annotate what a successful response has to include.
-- Readiness evidence: Student can complete Memory accurately without reverting to chapter-note summary.; Student uses Memory, Thinking, Brain in context.
+No lesson packet files were available to summarize.
 
 ## Anti-Summary Generation Rules
 
@@ -356,44 +316,391 @@ disabled by intelligence policy (collect)
 ## Reference Excerpts
 
 ### perpsy20ab01key-pdf (pdf/assessment)
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\genpsy-studio\PerPsy20AB01Key.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\genpsy-studio\PerPsy20AB01Key.pdf
 
-- Extracted chunk text missing.
+```text
+FOR STUDENT USE ONLY
+(if label is missing or incorrect)
+File Number:
+NameAddress
+City/Town                Province                Postal                Code
+FOR ADLC USE ONLY
+Student’s Questions
+and Comments
+Teacher’s Signature
+Assigned to
+Marked by
+Mark
+             %
+Date received
+Apply Assignment Label Here
+Please use the pre-printed label for this
+course and Assignment Booklet.
+Teacher’s Comments:
+ALBERTA DISTANCE LEARNING CENTRE
+SSN2171:  PERSONAL PSYCHOLOGY 20
+An Introduction to Psychology
+Assignment Booklet  1
+Revised December 2008
+Possible
+Marks
+Your
+Marks
+99
+TOTAL99
+SUMMARY
+KEY
+```
 
 ### perpsy20ab02key-pdf (pdf/assessment)
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\genpsy-studio\PerPsy20AB02Key.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\genpsy-studio\PerPsy20AB02Key.pdf
 
-- Extracted chunk text missing.
+```text
+ALBERTA  DISTANCE  LEARNING  CENTRE
+SSN2171
+Personal Psychology 20  KEY
+
+Assignment Booklet 2
+Student’s Questions and
+Comments
+For Student use only For ADLC USE ONLY
+
+ (If label is missing or incorrect)
+File Number:
+
+Assigned to
+
+City/Town               Province           Postal Code
+
+  Address:
+
+Name:
+
+Apply Assignment Label Here
+
+Marked by
+
+Date Received:
+
+Summary
+
+Possible
+Marks
+Your
+Marks
+%
+Part One
+17
+
+Part Two
+10
+
+Part Three
+10
+Part Four
+13
+
+TOTAL
+50
+
+Teacher’s Comments
+
+       Teacher’s Signature
+Revised January 2015
+```
 
 ### perpsy20ab03key-pdf (pdf/assessment)
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\genpsy-studio\PerPsy20AB03Key.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\genpsy-studio\PerPsy20AB03Key.pdf
 
-- Extracted chunk text missing.
+```text
+ALBERTA  DISTANCE  LEARNING  CENTRE
+SSN2171
+Personal Psychology 20  KEY
 
-### genpsychoverview-pdf (pdf/outline)
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\genpsy-studio\GenPsychOverview.pdf
+Assignment Booklet 3
+Student’s Questions and
+Comments
+For Student use only For ADLC USE ONLY
 
-- Extracted chunk text missing.
+ (If label is missing or incorrect)
+File Number:
+
+Assigned to
+
+City/Town               Province           Postal Code
+
+  Address:
+
+Name:
+
+Apply Assignment Label Here
+
+Marked by
+
+Date Received:
+
+Summary
+
+Possible
+Marks
+Your
+Marks
+%
+Part One
+16
+
+Part Two
+10
+
+Part Three
+7
+Part Four
+17
+
+TOTAL
+50
+
+Teacher’s Comments
+
+       Teacher’s Signature
+Revised January 2015
+```
 
 ### perpsy20ab04key-pdf (pdf/assessment)
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\genpsy-studio\PerPsy20AB04Key.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\genpsy-studio\PerPsy20AB04Key.pdf
 
-- Extracted chunk text missing.
+```text
+ALBERTA  DISTANCE  LEARNING  CENTRE
+SSN2171
+Personal Psychology 20  KEY
+
+Assignment Booklet 4
+Student’s Questions and
+Comments
+For Student use only For ADLC USE ONLY
+
+ (If label is missing or incorrect)
+File Number:
+
+Assigned to
+
+City/Town               Province           Postal Code
+
+  Address:
+
+Name:
+
+Apply Assignment Label Here
+
+Marked by--
+
+Date Received:
+
+Summary
+
+Possible
+Marks
+Your
+Marks
+%
+Part One
+12
+
+Part Two
+10
+
+Part Three
+10
+Part Four
+19
+
+TOTAL
+51
+
+Teacher’s Comments
+
+       Teacher’s Signature
+Revised January 2015
+```
 
 ### perpsy20ab05key-pdf (pdf/assessment)
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\genpsy-studio\PerPsy20AB05Key.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\genpsy-studio\PerPsy20AB05Key.pdf
 
-- Extracted chunk text missing.
+```text
+ALBERTA  DISTANCE  LEARNING  CENTRE
+SSN2171
+Personal Psychology 20  KEY
+
+Assignment Booklet 5
+Student’s Questions and
+Comments
+For Student use only For ADLC USE ONLY
+
+ (If label is missing or incorrect)
+File Number:
+
+Assigned to
+
+City/Town               Province           Postal Code
+
+  Address:
+
+Name:
+
+Apply Assignment Label Here
+
+Marked by
+
+Date Received:
+
+Summary
+
+Possible
+Marks
+Your
+Marks
+%
+Part One
+21
+
+Part Two
+10
+
+Part Three
+10
+Part Four
+23
+
+TOTAL
+64
+
+Teacher’s Comments
+
+       Teacher’s Signature
+Revised January 2015
+```
 
 ### perpsy20ab06key-pdf (pdf/assessment)
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\genpsy-studio\PerPsy20AB06Key.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\genpsy-studio\PerPsy20AB06Key.pdf
 
-- Extracted chunk text missing.
+```text
+ALBERTA  DISTANCE  LEARNING  CENTRE
+SSN2171
+Personal Psychology 20  KEY
+
+Assignment Booklet 6
+Student’s Questions and
+Comments
+For Student use only For ADLC USE ONLY
+
+ (If label is missing or incorrect)
+File Number:
+
+Assigned to
+
+City/Town               Province           Postal Code
+
+  Address:
+
+Name:
+
+Apply Assignment Label Here
+
+Marked by
+
+Date Received:
+
+Summary
+
+Possible
+Marks
+Your
+Marks
+%
+Part One
+24
+
+Part Two
+10
+
+Part Three
+10
+Part Four
+16
+
+TOTAL
+60
+
+Teacher’s Comments
+
+       Teacher’s Signature
+Revised January 2015
+```
 
 ### perpsy20ab07key-pdf (pdf/assessment)
-- Source: C:\Users\dean.guedo\Documents\GitHub\canvas helper\projects\resources\genpsy-studio\PerPsy20AB07Key.pdf
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\genpsy-studio\PerPsy20AB07Key.pdf
 
-- Extracted chunk text missing.
+```text
+ALBERTA  DISTANCE  LEARNING  CENTRE
+SSN2171
+Personal Psychology 20  KEY
+
+Assignment Booklet 7
+Student’s Questions and
+Comments
+For Student use only For ADLC USE ONLY
+
+ (If label is missing or incorrect)
+File Number:
+
+Assigned to
+
+City/Town               Province           Postal Code
+
+  Address:
+
+Name:
+
+Apply Assignment Label Here
+
+Marked by
+
+Date Received:
+
+Summary
+
+Possible
+Marks
+Your
+Marks
+%
+Part One
+22
+
+Part Two
+10
+
+Part Three
+10
+Part Four
+25
+
+TOTAL
+67
+
+Teacher’s Comments
+
+       Teacher’s Signature
+Revised January 2015
+```
+
+### genpsychoverview-pdf (pdf/outline)
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\genpsy-studio\GenPsychOverview.pdf
+
+```text
+General Psychology 20
+Over view
+```
 
 ## Task Stub
 
