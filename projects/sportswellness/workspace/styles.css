@@ -2713,7 +2713,9 @@ body.sidebar-collapsed .content-inner {
 
 /* DOCX-derived Phase 1 figure styles */
 .reading-hero-figure {
+  width: min(100%, 860px);
   margin: 22px 0 0;
+  margin-inline: auto;
   border: 1px solid rgba(95, 119, 151, 0.26);
   border-radius: 12px;
   overflow: hidden;
@@ -2747,6 +2749,11 @@ body.sidebar-collapsed .content-inner {
   grid-template-columns: 1fr;
 }
 
+.reading-media-grid.single .reading-figure {
+  width: min(100%, 760px);
+  justify-self: center;
+}
+
 .reading-figure {
   margin: 0;
   border: 1px solid rgba(95, 119, 151, 0.24);
@@ -2758,6 +2765,16 @@ body.sidebar-collapsed .content-inner {
 @media (min-width: 900px) {
   .reading-media-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 860px) {
+  .reading-hero-figure {
+    width: 100%;
+  }
+
+  .reading-media-grid.single .reading-figure {
+    width: 100%;
   }
 }
 
@@ -3884,6 +3901,5 @@ body.sidebar-collapsed .content-inner {
     color: #fb7185;
   }
 }
-
 
 

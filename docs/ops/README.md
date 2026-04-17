@@ -7,6 +7,11 @@ Use this folder to keep local work disciplined, reproducible, and handoff-friend
 - Use your platform launcher for the default stable Studio startup:
   - Windows: `launch-canvas-helper.bat`
   - macOS: `./launch-canvas-helper.command` (or `./launch-canvas-helper.sh`)
+- Codex desktop app on macOS can use npm shortcuts:
+  - `npm run studio:codex`
+  - `npm run studio:codex:auto`
+  - `npm run studio:codex:migrate`
+  - `npm run studio:codex:session`
 - Optional launcher actions:
   - `launch-canvas-helper.bat refresh` or `./launch-canvas-helper.command refresh`
   - `launch-canvas-helper.bat watch` or `./launch-canvas-helper.command watch`
@@ -53,6 +58,7 @@ Use this folder to keep local work disciplined, reproducible, and handoff-friend
 - System boundaries and placement rules: [`ARCHITECTURE.md`](../../ARCHITECTURE.md)
 - Contribution and commit discipline: [`CONTRIBUTING.md`](../../CONTRIBUTING.md)
 - Session handoff standard: [`HANDOFF.md`](./HANDOFF.md) stored in [`ACTIVE_HANDOFF.md`](./ACTIVE_HANDOFF.md)
+- Codex-specific Mac operating loop: [`codex-mac-workflow.md`](./codex-mac-workflow.md)
 - Workflow patterns and prompt contract: [`docs/workflows/`](../workflows/README.md)
 
 ## Working Rule

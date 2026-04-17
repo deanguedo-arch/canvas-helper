@@ -1127,7 +1127,7 @@ PHASE_CONTENT['phase-1'] = {
       ],
       figures: [
         {
-          src: './assets/readings/phase1-figures/phase1-attention-field.png',
+          src: './assets/readings/phase1-figures/phase1-attention-field-topdown.png',
           alt: 'Attention field narrowing under arousal',
           caption: 'Figure 4. Attention must narrow enough to focus but not so much that critical cues disappear.'
         }
@@ -2944,5 +2944,4 @@ window.addEventListener('resize', () => {
 
   applySidebarCollapse(localStorage.getItem(SIDEBAR_COLLAPSE_KEY) === '1');
 });
-
 

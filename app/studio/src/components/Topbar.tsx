@@ -8,6 +8,8 @@ type TopbarProps = {
   onSetPreviewMode: (previewMode: PreviewMode) => void;
   onToggleInspector: () => void;
   onToggleGenerator: () => void;
+  hasWorkspacePreview: boolean;
+  onOpenWorkspacePreview: () => void;
 };
 
 export function Topbar({
@@ -17,7 +19,9 @@ export function Topbar({
   onSetCompareMode,
   onSetPreviewMode,
   onToggleInspector,
-  onToggleGenerator
+  onToggleGenerator,
+  hasWorkspacePreview,
+  onOpenWorkspacePreview
 }: TopbarProps) {
   return (
     <header className="topbar topbar-compact" data-testid="studio-topbar">
@@ -66,7 +70,16 @@ export function Topbar({
             </button>
           </div>
         ) : null}
-
+        <button
+          type="button"
+          className={hasWorkspacePreview ? "ghost-button compact active-toggle" : "ghost-button compact"}
+          onClick={onOpenWorkspacePreview}
+          disabled={!hasWorkspacePreview}
+          data-testid="open-workspace-preview-toggle"
+          title={hasWorkspacePreview ? "Open direct workspace preview" : "Select a project to open preview"}
+        >
+          Preview
+        </button>
         <button
           type="button"
           className={layoutPreferences.generatorOpen ? "ghost-button compact" : "ghost-button compact active-toggle"}

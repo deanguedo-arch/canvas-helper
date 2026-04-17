@@ -17,15 +17,25 @@ Repo-level authoring enforcement defaults live in `config/authoring-preferences.
 4. Use your platform launcher for a stable one-click Studio start:
    - Windows: `launch-canvas-helper.bat`
    - macOS: `./launch-canvas-helper.command` (or `./launch-canvas-helper.sh`)
-5. Optional advanced commands from the launcher:
+5. For Codex desktop app on macOS, use:
+   - `npm run studio:codex`
+   - `npm run studio:codex:auto`
+   - `npm run studio:codex:migrate` (run migration, then Studio)
+   - `npm run studio:codex:session` (opens Studio + prints prompt starters)
+   - See [docs/ops/codex-mac-workflow.md](docs/ops/codex-mac-workflow.md)
+6. Optional advanced commands from the launcher:
    - `launch-canvas-helper.bat refresh` / `./launch-canvas-helper.command refresh`
    - `launch-canvas-helper.bat watch` / `./launch-canvas-helper.command watch`
-6. The launcher auto-runs `npm run migrate:projects` so older repo layouts are normalized before Studio starts
+7. The launcher auto-runs `npm run migrate:projects` so older repo layouts are normalized before Studio starts
 
 ## Main Commands
 
 - `npm run studio`
 - `npm run studio:auto` (optional advanced mode: Studio + watcher orchestration)
+- `npm run studio:codex` (Codex desktop app shortcut on macOS)
+- `npm run studio:codex:auto` (Codex desktop app + intake watcher on macOS)
+- `npm run studio:codex:migrate` (Codex app + explicit project layout migration)
+- `npm run studio:codex:session` (Codex app starter with prompt templates)
 - `npm run import -- "<path-to-html-or-folder>" --slug <slug>`
 - `npm run incoming:refresh`
 - `npm run analyze -- --project <slug>`

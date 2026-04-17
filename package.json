@@ -6,6 +6,10 @@
   "scripts": {
     "studio": "vite --config app/studio/vite.config.ts",
     "studio:auto": "tsx scripts/studio-auto.ts",
+    "studio:codex": "npm run studio -- --host 127.0.0.1 --port 5173 --clearScreen false",
+    "studio:codex:auto": "npm run studio:auto -- --host 127.0.0.1 --port 5173",
+    "studio:codex:migrate": "npm run migrate:projects && npm run studio:codex",
+    "studio:codex:session": "bash scripts/codex-session.sh",
     "build:studio": "vite build --config app/studio/vite.config.ts",
     "typecheck": "tsc --noEmit",
     "import": "tsx scripts/import-site.ts",

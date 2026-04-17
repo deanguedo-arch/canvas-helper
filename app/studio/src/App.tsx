@@ -183,6 +183,15 @@ export function App() {
     setPreviewMode(nextMode);
   };
 
+  const handleOpenWorkspacePreview = () => {
+    if (!previewSources.workspace || typeof window === "undefined") {
+      return;
+    }
+
+    persistAllVisibleScrollPositions();
+    window.location.assign(previewSources.workspace);
+  };
+
   const handleDeviceChange = (mode: PreviewMode, device: "desktop" | "tablet" | "mobile") => {
     setLayoutPreferences((current) => ({
       ...current,
@@ -218,6 +227,8 @@ export function App() {
           onToggleGenerator={() =>
             setLayoutPreferences((current) => ({ ...current, generatorOpen: !current.generatorOpen }))
           }
+          hasWorkspacePreview={Boolean(previewSources.workspace)}
+          onOpenWorkspacePreview={handleOpenWorkspacePreview}
         />
 
         {errorMessage ? <div className="error-banner">{errorMessage}</div> : null}

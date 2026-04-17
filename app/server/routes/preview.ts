@@ -42,9 +42,19 @@ function applyDetectedCharset(contentType: string, body: Buffer) {
   return contentType;
 }
 
-export async function handlePreviewRoutes(url: string, _request: IncomingMessage, response: ServerResponse) {
+export async function handlePreviewRoutes(url: string, request: IncomingMessage, response: ServerResponse) {
   const previewMatch = url.match(/^\/preview\/(raw|workspace)\/([^/]+)(?:\/(.*))?$/);
   const referencePreviewMatch = url.match(/^\/preview\/references\/(raw|extracted)\/([^/]+)(?:\/(.*))?$/);
+
+  if (previewMatch && !previewMatch[3] && !url.endsWith("/")) {
+    const originalUrl = request.url ?? url;
+    const queryIndex = originalUrl.indexOf("?");
+    const querySuffix = queryIndex >= 0 ? originalUrl.slice(queryIndex) : "";
+    response.statusCode = 308;
+    response.setHeader("Location", `${url}/${querySuffix}`);
+    response.end();
+    return true;
+  }
 
   if (referencePreviewMatch) {
     try {
