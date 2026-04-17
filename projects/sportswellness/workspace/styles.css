@@ -445,6 +445,10 @@ body.sidebar-collapsed .brain-icon {
   mix-blend-mode: screen;
 }
 
+.module-tile[data-id="phase-0"] .module-card img {
+  object-position: 58% center;
+}
+
 .module-card::after {
   content: "";
   position: absolute;
@@ -3901,5 +3905,4 @@ body.sidebar-collapsed .content-inner {
     color: #fb7185;
   }
 }
-
 
