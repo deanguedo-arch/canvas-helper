@@ -3,6 +3,17 @@ import { validateProjectManifestPolicy } from "./lib/project-manifest-policy.js"
 import { loadProjectManifest } from "./lib/projects.js";
 import { normalizeVerifyMode, verifyProjectBundle } from "./lib/verification.js";
 
+function formatCourseShellResourceIssue(issue: {
+  moduleTitle: string;
+  activityTitle: string;
+  resourceKind: string;
+  sourceHref: string;
+  resolvedPath: string;
+}) {
+  const modulePrefix = issue.moduleTitle ? `${issue.moduleTitle} > ` : "";
+  return `${modulePrefix}${issue.activityTitle} [${issue.resourceKind}] -> ${issue.sourceHref} (${issue.resolvedPath})`;
+}
+
 async function main() {
   const parsedArgs = parseArgs(process.argv.slice(2));
   const projectSlug = getStringFlag(parsedArgs, "project") ?? parsedArgs.positionals[0];
@@ -68,7 +79,29 @@ async function main() {
     }
   }
 
-  if (result.missingAssets.length > 0) {
+  console.log("");
+
+  if (result.missingCourseShellResources.length > 0) {
+    console.log("Missing course-shell resources (ERROR):");
+    for (const issue of result.missingCourseShellResources) {
+      console.log(`- ${formatCourseShellResourceIssue(issue)}`);
+    }
+  } else {
+    console.log("Missing course-shell resources (ERROR): none");
+  }
+
+  console.log("");
+
+  if (result.declaredMissingCourseShellResources.length > 0) {
+    console.log("Declared missing course-shell resources (WARN):");
+    for (const issue of result.declaredMissingCourseShellResources) {
+      console.log(`- ${formatCourseShellResourceIssue(issue)}`);
+    }
+  } else {
+    console.log("Declared missing course-shell resources (WARN): none");
+  }
+
+  if (result.missingAssets.length > 0 || result.missingCourseShellResources.length > 0) {
     process.exitCode = 1;
   }
 }

@@ -1,5 +1,6 @@
 import path from "node:path";
 import { readFile } from "node:fs/promises";
+import { pathToFileURL } from "node:url";
 
 import { load } from "cheerio";
 
@@ -21,6 +22,36 @@ type VerifyResult = {
   missingAssets: string[];
   externalDependencies: string[];
   traversalWarnings: string[];
+  missingCourseShellResources: CourseShellResourceIssue[];
+  declaredMissingCourseShellResources: CourseShellResourceIssue[];
+};
+
+type CourseShellResourceIssue = {
+  activityId: string;
+  activityTitle: string;
+  moduleTitle: string;
+  resourceKind: string;
+  sourceHref: string;
+  resolvedPath: string;
+};
+
+type CourseShellActivityLike = {
+  id?: string;
+  title?: string;
+  moduleTitle?: string;
+  resourceKind?: string;
+  sourceHref?: string;
+  contentBody?: string;
+  contentPreview?: string;
+};
+
+type CourseShellModuleLike = {
+  title?: string;
+  activities?: CourseShellActivityLike[];
+};
+
+type CourseShellDataLike = {
+  modules?: CourseShellModuleLike[];
 };
 
 const SELECTOR_ATTRS: Array<{ selector: string; attr: "src" | "href" }> = [
@@ -94,6 +125,91 @@ function hasTraversal(normalizedRef: string) {
   return normalizedRef === ".." || normalizedRef.startsWith("../") || normalizedRef.includes("/../");
 }
 
+function isInsideBaseDir(baseDir: string, resolvedPath: string) {
+  const relativePath = path.relative(baseDir, resolvedPath);
+  return relativePath !== ".." && !relativePath.startsWith(`..${path.sep}`) && !path.isAbsolute(relativePath);
+}
+
+function looksLikeDeclaredMissingSourceFallback(activity: CourseShellActivityLike) {
+  const fallbackText = `${activity.contentBody || ""}\n${activity.contentPreview || ""}`;
+  return /did not include the source file|missing source file|source file is unavailable/i.test(fallbackText);
+}
+
+async function loadCourseShellData(courseShellDataPath: string) {
+  const moduleUrl = pathToFileURL(courseShellDataPath);
+  moduleUrl.searchParams.set("t", `${Date.now()}`);
+
+  try {
+    const imported = (await import(moduleUrl.href)) as { default?: CourseShellDataLike };
+    return imported.default ?? null;
+  } catch (error) {
+    throw new Error(
+      `Failed to load workspace/course-shell-data.js for verification: ${
+        error instanceof Error ? error.message : String(error)
+      }`
+    );
+  }
+}
+
+async function verifyCourseShellResources(projectSlug: string) {
+  const paths = getProjectPaths(projectSlug);
+  const courseShellDataPath = path.join(paths.workspaceDir, "course-shell-data.js");
+
+  if (!(await fileExists(courseShellDataPath))) {
+    return {
+      missingCourseShellResources: [] as CourseShellResourceIssue[],
+      declaredMissingCourseShellResources: [] as CourseShellResourceIssue[]
+    };
+  }
+
+  const courseShellData = await loadCourseShellData(courseShellDataPath);
+  const modules = Array.isArray(courseShellData?.modules) ? courseShellData.modules : [];
+  const missingCourseShellResources: CourseShellResourceIssue[] = [];
+  const declaredMissingCourseShellResources: CourseShellResourceIssue[] = [];
+
+  for (const module of modules) {
+    const activities = Array.isArray(module?.activities) ? module.activities : [];
+
+    for (const activity of activities) {
+      const sourceHref = normalizeLocalRef(String(activity?.sourceHref || ""));
+      if (!sourceHref) {
+        continue;
+      }
+
+      const resolvedPath = path.resolve(paths.resourceDir, sourceHref);
+      const issue: CourseShellResourceIssue = {
+        activityId: String(activity?.id || ""),
+        activityTitle: String(activity?.title || sourceHref),
+        moduleTitle: String(activity?.moduleTitle || module?.title || ""),
+        resourceKind: String(activity?.resourceKind || "other"),
+        sourceHref,
+        resolvedPath
+      };
+
+      if (hasTraversal(sourceHref) || !isInsideBaseDir(paths.resourceDir, resolvedPath)) {
+        missingCourseShellResources.push(issue);
+        continue;
+      }
+
+      if (await fileExists(resolvedPath)) {
+        continue;
+      }
+
+      if (looksLikeDeclaredMissingSourceFallback(activity)) {
+        declaredMissingCourseShellResources.push(issue);
+        continue;
+      }
+
+      missingCourseShellResources.push(issue);
+    }
+  }
+
+  return {
+    missingCourseShellResources,
+    declaredMissingCourseShellResources
+  };
+}
+
 export async function verifyProjectBundle(projectSlug: string, mode: VerifyMode = "workspace"): Promise<VerifyResult> {
   const { entryPath, baseDir } = entryPathForMode(projectSlug, mode);
 
@@ -152,12 +268,22 @@ export async function verifyProjectBundle(projectSlug: string, mode: VerifyMode 
     }
   }
 
+  const courseShellResourceCheck =
+    mode === "workspace"
+      ? await verifyCourseShellResources(projectSlug)
+      : {
+          missingCourseShellResources: [] as CourseShellResourceIssue[],
+          declaredMissingCourseShellResources: [] as CourseShellResourceIssue[]
+        };
+
   return {
     mode,
     entryPath,
     baseDir,
     missingAssets: [...missingAssets].sort((left, right) => left.localeCompare(right)),
     externalDependencies: [...externalDependencies].sort((left, right) => left.localeCompare(right)),
-    traversalWarnings: [...traversalWarnings].sort((left, right) => left.localeCompare(right))
+    traversalWarnings: [...traversalWarnings].sort((left, right) => left.localeCompare(right)),
+    missingCourseShellResources: courseShellResourceCheck.missingCourseShellResources,
+    declaredMissingCourseShellResources: courseShellResourceCheck.declaredMissingCourseShellResources
   };
 }

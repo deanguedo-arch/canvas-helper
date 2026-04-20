@@ -1,0 +1,790 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/profile/cc/ccv1p3/ccv1p3_qtiasiv1p2p1_v1p0.xsd">
+  <assessment ident="i6db00b07-238e-4435-8bf0-a800f20895d0" title="Memory Quiz">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>cc_profile</fieldlabel>
+        <fieldentry>cc.exam.v0p1</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_assessmenttype</fieldlabel>
+        <fieldentry>Examination</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>3</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_timelimit</fieldlabel>
+        <fieldentry>10</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    <section ident="idc95ca31-abdd-4a32-b982-1b95684d9588">
+      <item ident="ie2a54be7-d7d4-4397-9bab-a9da964a2860">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;br /&gt;&lt;span&gt;Which of the following has &lt;/span&gt;&lt;strong&gt;not&lt;/strong&gt;&lt;span&gt; been used to map the different areas of the brain?&lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="if4de031f-f84b-421d-adf8-ba4ae93412b8" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i47e4af2f-618b-4c5b-8cdf-2217839e665c">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;X-rays&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i5e8b622a-7de2-4fb2-b87a-81573cbb4dc7">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;electrical stimulation&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ifa6c5513-4907-4c2a-b2fd-38987d6d4c14">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;MRI brain scans&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="if4de031f-f84b-421d-adf8-ba4ae93412b8">i47e4af2f-618b-4c5b-8cdf-2217839e665c</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if4de031f-f84b-421d-adf8-ba4ae93412b8">i5e8b622a-7de2-4fb2-b87a-81573cbb4dc7</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if4de031f-f84b-421d-adf8-ba4ae93412b8">ifa6c5513-4907-4c2a-b2fd-38987d6d4c14</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ifde2dab9-6e2c-4ae5-ade5-4bdb5b462b3f">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;br /&gt;&lt;span&gt;Memory is best described as.&lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="if7cc6e20-a9f5-476f-ac03-fb31c6b1268a" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="icc414692-2b9a-4323-a6fa-786f07179476">
+                <material>
+                  <mattext texttype="text/html">&lt;p class="bs-yousaid"&gt;the storage and retrieval of information.&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i25017939-860e-42ab-9439-4755c766af4e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;the storage of information.&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i9458c550-29eb-47be-bbdc-40a0f0d80403">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;the retrieval of information.&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="if7cc6e20-a9f5-476f-ac03-fb31c6b1268a">icc414692-2b9a-4323-a6fa-786f07179476</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if7cc6e20-a9f5-476f-ac03-fb31c6b1268a">i25017939-860e-42ab-9439-4755c766af4e</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if7cc6e20-a9f5-476f-ac03-fb31c6b1268a">i9458c550-29eb-47be-bbdc-40a0f0d80403</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ie59545fb-7241-4647-bea9-f0b851ff4bb0">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;br /&gt;&lt;span&gt;Which of the following is &lt;/span&gt;&lt;strong&gt;not&lt;/strong&gt;&lt;span&gt; a type of verbal memory?&lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i13385177-5290-4bf2-9c07-9f4dbe116a23" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ia6f888e7-d8b4-41f3-aec0-1073f4ac4819">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;medium-term&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i9f1e1d5e-f467-4be0-8970-ba5bd3c5a91e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;short-term&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="iaf51dfa5-3379-4154-b563-032a4863efe2">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;long-term&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i13385177-5290-4bf2-9c07-9f4dbe116a23">ia6f888e7-d8b4-41f3-aec0-1073f4ac4819</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i13385177-5290-4bf2-9c07-9f4dbe116a23">i9f1e1d5e-f467-4be0-8970-ba5bd3c5a91e</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i13385177-5290-4bf2-9c07-9f4dbe116a23">iaf51dfa5-3379-4154-b563-032a4863efe2</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ibc317ef9-821b-4732-b0da-ec45d3ad0bcf">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Complete the following sentence. So far ... provide a good explanation of how memory works.&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i7d823f16-2349-42c1-8ee6-e650bd4824a4" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="iefffe2fb-6cd3-4ad0-925e-cb036b649b12">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;no models&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="icb90f46c-c15a-48e3-86cb-7bd9bd3223d1">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;only some models&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i254deaa5-7fe5-4752-ad9c-d5f184c92ef9">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;all models&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i7d823f16-2349-42c1-8ee6-e650bd4824a4">iefffe2fb-6cd3-4ad0-925e-cb036b649b12</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i7d823f16-2349-42c1-8ee6-e650bd4824a4">icb90f46c-c15a-48e3-86cb-7bd9bd3223d1</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i7d823f16-2349-42c1-8ee6-e650bd4824a4">i254deaa5-7fe5-4752-ad9c-d5f184c92ef9</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ib3a905f6-0618-423e-bec8-db727304505f">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Which of the following does &lt;strong&gt;not&lt;/strong&gt; help humans to remember information?&lt;/p&gt;
+&lt;div class="bs-options"&gt; &lt;/div&gt;</mattext>
+          </material>
+          <response_lid ident="i412618fd-07fb-4a9b-9710-92234e988ec4" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i46eadd86-926f-4857-9715-a933222e5870">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;there is a pattern in the first sequence.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i4ee92308-427d-47d0-9d69-3ca92a7d83fd">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;both sequences use the same letters.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="iaa673ec8-89b4-4316-b693-7e505237e410">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;only six items are used in each sequence.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i412618fd-07fb-4a9b-9710-92234e988ec4">i46eadd86-926f-4857-9715-a933222e5870</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i412618fd-07fb-4a9b-9710-92234e988ec4">i4ee92308-427d-47d0-9d69-3ca92a7d83fd</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i412618fd-07fb-4a9b-9710-92234e988ec4">iaa673ec8-89b4-4316-b693-7e505237e410</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ie8fb996e-4fc7-47e5-b980-703044fe1381">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;br /&gt;&lt;span&gt;Which of the following does &lt;/span&gt;&lt;strong&gt;not&lt;/strong&gt;&lt;span&gt; help humans to remember information?&lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="id3ab4b66-6655-4460-b820-34a07d840453" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i4bb9f576-e83f-4cde-a5cf-7c10889307a9">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;receiving multiple stimuli at the same time&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i726719ea-4014-44d9-8122-c678ac8b216f">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;a strong stimulus such as colour&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ic91544c9-ea0d-4f11-9aeb-e3c3fc8a7348">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;br /&gt;&lt;label for="answer_5_0"&gt;repetition over a period of time&lt;/label&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="id3ab4b66-6655-4460-b820-34a07d840453">i4bb9f576-e83f-4cde-a5cf-7c10889307a9</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="id3ab4b66-6655-4460-b820-34a07d840453">i726719ea-4014-44d9-8122-c678ac8b216f</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="id3ab4b66-6655-4460-b820-34a07d840453">ic91544c9-ea0d-4f11-9aeb-e3c3fc8a7348</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i41b6f608-531e-4785-818a-50b256ce488d">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Suppose that you call the information operator to find a friend's phone number. When you dial your friend's number, you get a busy signal. Later, when you start to dial the number again, you realize you have forgotten it. This experience probably occurred because the phone number was only temporarily stored in your&lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="if3e62a3b-48a1-4b3a-8bd4-83d1adb5cd28" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i95f8c031-ec5d-4f94-a0ec-c344c4ce1c01">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;short-term memory&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i950cd820-36f9-4d46-b94e-3c46a60001a2">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;long-term memory&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="icb956ab4-ef5c-4278-ac46-0b49c1e33f58">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;sensory register&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i44226d80-d002-448a-984b-a93a782a1557">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;implicit memory &lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="if3e62a3b-48a1-4b3a-8bd4-83d1adb5cd28">i95f8c031-ec5d-4f94-a0ec-c344c4ce1c01</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if3e62a3b-48a1-4b3a-8bd4-83d1adb5cd28">i950cd820-36f9-4d46-b94e-3c46a60001a2</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if3e62a3b-48a1-4b3a-8bd4-83d1adb5cd28">icb956ab4-ef5c-4278-ac46-0b49c1e33f58</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if3e62a3b-48a1-4b3a-8bd4-83d1adb5cd28">i44226d80-d002-448a-984b-a93a782a1557</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i888ab053-5e52-403a-b30f-5fe6705e3a3f">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;One technique to help overcome the limited capacity of STM is called&lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="id335336b-ff07-483e-9502-d40497bc8c6d" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i861f89b8-6289-44f6-9cc4-7b8dd83185a8">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;chunking&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ibd99f0a7-240a-4577-917f-ff74f1e4715c">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;rehearsal&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ic35046c1-2400-4051-88a1-62b2a564b3a1">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;working memory &lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i660782ec-a83d-4b50-a2a3-84d0796790b0">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;semantic codes&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="id335336b-ff07-483e-9502-d40497bc8c6d">i861f89b8-6289-44f6-9cc4-7b8dd83185a8</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="id335336b-ff07-483e-9502-d40497bc8c6d">ibd99f0a7-240a-4577-917f-ff74f1e4715c</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="id335336b-ff07-483e-9502-d40497bc8c6d">ic35046c1-2400-4051-88a1-62b2a564b3a1</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="id335336b-ff07-483e-9502-d40497bc8c6d">i660782ec-a83d-4b50-a2a3-84d0796790b0</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i9fa0d066-7ab3-4b81-85f2-4c35e692e18d">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;table style="width: 458px;" border="0" cellspacing="0" cellpadding="0"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td colspan="2" align="left" valign="top"&gt;You remember some specific football plays from the first half of last week's game; this is&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</mattext>
+          </material>
+          <response_lid ident="ie92ee4bb-6f73-4d7f-ae63-b825ba123830" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i63f8df19-2b9c-4b4f-9ba1-773c1f860143">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Episodic memory &lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ic69c0f28-d660-4996-82eb-2e81c8914fd0">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;br /&gt;&lt;span&gt;procedural memory&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="if7736b58-74e6-4c2a-8796-74b9cb1b1835">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;semantic memory&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ie92ee4bb-6f73-4d7f-ae63-b825ba123830">i63f8df19-2b9c-4b4f-9ba1-773c1f860143</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb" />
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ie92ee4bb-6f73-4d7f-ae63-b825ba123830">ic69c0f28-d660-4996-82eb-2e81c8914fd0</varequal>
+            </conditionvar>
+            <displayfeedback feedbacktype="Response" linkrefid="ic69c0f28-d660-4996-82eb-2e81c8914fd0_fb" />
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ie92ee4bb-6f73-4d7f-ae63-b825ba123830">if7736b58-74e6-4c2a-8796-74b9cb1b1835</varequal>
+            </conditionvar>
+            <displayfeedback feedbacktype="Response" linkrefid="if7736b58-74e6-4c2a-8796-74b9cb1b1835_fb" />
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Episodic memory stores information about specific experiences. Procedural memory is memory for skills, such as riding a bicycle. Semantic memory is memory about the meaning of words.&lt;/span&gt;&lt;/p&gt;</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+        <itemfeedback ident="ic69c0f28-d660-4996-82eb-2e81c8914fd0_fb">
+          <flow_mat>
+            <material>
+              <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Episodic memory stores information about specific experiences. Procedural memory is memory for skills, such as riding a bicycle. Semantic memory is memory about the meaning of words.&lt;/span&gt;&lt;/p&gt;</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+        <itemfeedback ident="if7736b58-74e6-4c2a-8796-74b9cb1b1835_fb">
+          <flow_mat>
+            <material>
+              <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Episodic memory stores information about specific experiences. Procedural memory is memory for skills, such as riding a bicycle. Semantic memory is memory about the meaning of words.&lt;/span&gt;&lt;/p&gt;</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+      <item ident="i73827220-d485-4c97-a883-003c89374039">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;table style="width: 100%;" border="0" cellspacing="0" cellpadding="0"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td colspan="2" align="left" valign="top"&gt;The "tip-of-the-tongue" phenomenon appears to be caused by a problem in&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</mattext>
+          </material>
+          <response_lid ident="ica9c1a98-b23a-4463-a5fb-93779a53b89c" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="icd84cec7-1678-4a4b-8c73-a1e6fba4a211">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;retrieval&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i20d6da5f-e218-4683-a55f-8edfb601dddd">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;engrams&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i75b24c71-934a-46dd-b25c-7e603c5696f9">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;storage&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i9d12f5d9-b570-474b-9127-247db2bd6997">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;repression &lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ica9c1a98-b23a-4463-a5fb-93779a53b89c">icd84cec7-1678-4a4b-8c73-a1e6fba4a211</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+            <displayfeedback feedbacktype="Response" linkrefid="correct_fb" />
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ica9c1a98-b23a-4463-a5fb-93779a53b89c">i20d6da5f-e218-4683-a55f-8edfb601dddd</varequal>
+            </conditionvar>
+            <displayfeedback feedbacktype="Response" linkrefid="i20d6da5f-e218-4683-a55f-8edfb601dddd_fb" />
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ica9c1a98-b23a-4463-a5fb-93779a53b89c">i75b24c71-934a-46dd-b25c-7e603c5696f9</varequal>
+            </conditionvar>
+            <displayfeedback feedbacktype="Response" linkrefid="i75b24c71-934a-46dd-b25c-7e603c5696f9_fb" />
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ica9c1a98-b23a-4463-a5fb-93779a53b89c">i9d12f5d9-b570-474b-9127-247db2bd6997</varequal>
+            </conditionvar>
+            <displayfeedback feedbacktype="Response" linkrefid="i9d12f5d9-b570-474b-9127-247db2bd6997_fb" />
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="correct_fb">
+          <flow_mat>
+            <material>
+              <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;The tip-of-the-tongue phenomenon suggests that the information is stored, but for some reason we're not pressing the right mental "buttons" to retrieve it.&lt;/span&gt;&lt;/p&gt;</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+        <itemfeedback ident="i20d6da5f-e218-4683-a55f-8edfb601dddd_fb">
+          <flow_mat>
+            <material>
+              <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;The tip-of-the-tongue phenomenon suggests that the information is stored, but for some reason we're not pressing the right mental "buttons" to retrieve it.&lt;/span&gt;&lt;/p&gt;</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+        <itemfeedback ident="i75b24c71-934a-46dd-b25c-7e603c5696f9_fb">
+          <flow_mat>
+            <material>
+              <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;The tip-of-the-tongue phenomenon suggests that the information is stored, but for some reason we're not pressing the right mental "buttons" to retrieve it.&lt;/span&gt;&lt;/p&gt;</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+        <itemfeedback ident="i9d12f5d9-b570-474b-9127-247db2bd6997_fb">
+          <flow_mat>
+            <material>
+              <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;The tip-of-the-tongue phenomenon suggests that the information is stored, but for some reason we're not pressing the right mental "buttons" to retrieve it.&lt;/span&gt;&lt;/p&gt;</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+      <item ident="if389c05b-c4c4-4f01-8e72-50ec8cdf8049">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;table style="width: 100%;" border="0" cellspacing="0" cellpadding="0"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td colspan="2" align="left" valign="top"&gt;The type of remembering necessary to correctly answer this multiple choice question is&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</mattext>
+          </material>
+          <response_lid ident="iab33b82f-8047-4f07-85e9-034575364116" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i2cd04edd-8821-4318-a499-c66b7b10dfe0">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;recognition&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i7510f2a1-7476-4e10-a646-962d3fbf3082">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;recall&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i09e9b617-5d04-43ee-999f-269ea2a88c83">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;relearning&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ic9d02800-c6c0-4829-9a4a-c7672a4787bf">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;rehearsal&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="iab33b82f-8047-4f07-85e9-034575364116">i2cd04edd-8821-4318-a499-c66b7b10dfe0</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="iab33b82f-8047-4f07-85e9-034575364116">i7510f2a1-7476-4e10-a646-962d3fbf3082</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="iab33b82f-8047-4f07-85e9-034575364116">i09e9b617-5d04-43ee-999f-269ea2a88c83</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="iab33b82f-8047-4f07-85e9-034575364116">ic9d02800-c6c0-4829-9a4a-c7672a4787bf</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+    </section>
+  </assessment>
+</questestinterop>

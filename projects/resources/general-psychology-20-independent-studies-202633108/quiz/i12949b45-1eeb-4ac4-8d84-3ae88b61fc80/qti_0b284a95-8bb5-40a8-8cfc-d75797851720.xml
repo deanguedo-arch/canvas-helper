@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/profile/cc/ccv1p3/ccv1p3_qtiasiv1p2p1_v1p0.xsd">
+  <assessment ident="i7b97b307-6a2e-4c88-8d04-9eea10ffdc7a" title="Abnormalities Quiz">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>cc_profile</fieldlabel>
+        <fieldentry>cc.exam.v0p1</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_assessmenttype</fieldlabel>
+        <fieldentry>Examination</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>3</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_timelimit</fieldlabel>
+        <fieldentry>120</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    <section ident="i3dc689bc-8361-40c9-8d87-cfdd205d505f">
+      <item ident="ib977783b-f7b6-4745-a951-7213ef99e82d">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.true_false.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;The distinction between &lt;/span&gt;&lt;span&gt;'normal'&lt;/span&gt;&lt;span&gt; and &lt;/span&gt;&lt;span&gt;'abnormal'&lt;/span&gt;&lt;span&gt; behaviour is very clear cut. &lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i20a8e8b9-7fee-42a1-af51-70ca56f06d0b" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i35091d44-b95c-4fdd-8350-efab15c2dad4">
+                <material>
+                  <mattext>True</mattext>
+                </material>
+              </response_label>
+              <response_label ident="id2ffc4c6-7f2f-4b85-9cca-9c2e3afc4197">
+                <material>
+                  <mattext>False</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i20a8e8b9-7fee-42a1-af51-70ca56f06d0b">i35091d44-b95c-4fdd-8350-efab15c2dad4</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i20a8e8b9-7fee-42a1-af51-70ca56f06d0b">id2ffc4c6-7f2f-4b85-9cca-9c2e3afc4197</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ieddd560c-90e6-494f-bfc0-169809241ec7">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.true_false.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p dir="ltr"&gt;The four definitions of abnormalities are:&lt;/p&gt;
+&lt;p dir="ltr"&gt;Statistical Infrequency, Deviation from Social Norms, Failure to Function Adequately, Deviation from Ideal Mental Health. &lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="if1fa0078-c578-4d78-bf01-37652eaed4e0" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i23e3a814-3405-4a69-a73b-91e9cb8e6d01">
+                <material>
+                  <mattext>True</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i5a738f7f-b651-4198-ae6b-da28b9371a6b">
+                <material>
+                  <mattext>False</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="if1fa0078-c578-4d78-bf01-37652eaed4e0">i23e3a814-3405-4a69-a73b-91e9cb8e6d01</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if1fa0078-c578-4d78-bf01-37652eaed4e0">i5a738f7f-b651-4198-ae6b-da28b9371a6b</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="id8ec6c8a-bb76-435c-a9d7-f2e259d8154c">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.true_false.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;Cultural relativism means that s&lt;/span&gt;&lt;span&gt;ome disorders are only found in a certain culture and this is a known fact. &lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i7478fa52-6d59-4462-9660-d66b2135cdee" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i9526c59e-d7b0-4dd8-a1f6-1342a96f6711">
+                <material>
+                  <mattext>True</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ic5bcaf7c-87bf-4b13-8285-bf8663cbc428">
+                <material>
+                  <mattext>False</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i7478fa52-6d59-4462-9660-d66b2135cdee">i9526c59e-d7b0-4dd8-a1f6-1342a96f6711</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i7478fa52-6d59-4462-9660-d66b2135cdee">ic5bcaf7c-87bf-4b13-8285-bf8663cbc428</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i39ebcece-0e9f-46ec-b600-d10d0d56232e">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.true_false.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;span&gt;British African-Caribbean people are far more likely to be diagnosed with schizophrenia than other members of the population, the reasons could be genetic, to do with social conditions and stress, or bias and prejudice in the medical system. This is an example of cultural relativism. &lt;/span&gt;&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i0fd36d0e-a1e8-4a78-8ab6-a04db05fd876" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i4448a8cc-2956-4c6b-9965-d369bd71e60a">
+                <material>
+                  <mattext>True</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i19845ada-e191-4794-ac19-47722614b5d6">
+                <material>
+                  <mattext>False</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i0fd36d0e-a1e8-4a78-8ab6-a04db05fd876">i4448a8cc-2956-4c6b-9965-d369bd71e60a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i0fd36d0e-a1e8-4a78-8ab6-a04db05fd876">i19845ada-e191-4794-ac19-47722614b5d6</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+    </section>
+  </assessment>
+</questestinterop>

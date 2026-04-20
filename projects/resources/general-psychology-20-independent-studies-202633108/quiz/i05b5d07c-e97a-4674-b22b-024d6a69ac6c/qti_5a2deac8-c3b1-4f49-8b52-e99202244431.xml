@@ -1,0 +1,925 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/profile/cc/ccv1p3/ccv1p3_qtiasiv1p2p1_v1p0.xsd">
+  <assessment ident="i9278c0d5-551e-4d7c-936b-88567f3d239e" title="Psychological Schools of Thought Summary Quiz">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>cc_profile</fieldlabel>
+        <fieldentry>cc.exam.v0p1</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_assessmenttype</fieldlabel>
+        <fieldentry>Examination</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>3</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_timelimit</fieldlabel>
+        <fieldentry>120</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    <section ident="i5f483226-86e8-4a1a-aad3-a16f2ec162af">
+      <item ident="i9b786e55-e707-491d-9de5-cd9d26f55afc">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;The quotation/description below is associated with what branch of psychology?&lt;/p&gt;
+&lt;p&gt;"If given the opportunity, human beings will display behaviour that is creative, spontaneous, and humourous."&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i3ee0992a-25a5-4e88-a830-3697960cac49" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i8dd0b0d8-a25d-4847-9d5b-ae90748a3afe">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Freudian&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i5ab4272a-3872-4d89-be0e-d3a3937fcd53">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Behaviourist&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i9b043b56-495a-43d7-9b03-095360f3ec39">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Humanist&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i3ee0992a-25a5-4e88-a830-3697960cac49">i8dd0b0d8-a25d-4847-9d5b-ae90748a3afe</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i3ee0992a-25a5-4e88-a830-3697960cac49">i5ab4272a-3872-4d89-be0e-d3a3937fcd53</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i3ee0992a-25a5-4e88-a830-3697960cac49">i9b043b56-495a-43d7-9b03-095360f3ec39</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ic080b1c8-80ec-46a7-a5b5-07af397c4c94">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Identify the branch of psychology associated with the following quotation/description:&lt;/p&gt;
+&lt;p&gt;"There is nothing like a good reward or a bonus to make an employee or a student strive a little harder."&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i2b2554ae-f6a0-4e41-8607-921203d6a9d1" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ia438839f-70f8-414a-b190-df11caf376e5">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Freudian&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i67690dc3-dc12-4a0e-8886-784bc76e2314">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Behaviourist&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i49602f03-4512-4977-b30c-36c0ab590e45">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Humanist&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i2b2554ae-f6a0-4e41-8607-921203d6a9d1">ia438839f-70f8-414a-b190-df11caf376e5</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i2b2554ae-f6a0-4e41-8607-921203d6a9d1">i67690dc3-dc12-4a0e-8886-784bc76e2314</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i2b2554ae-f6a0-4e41-8607-921203d6a9d1">i49602f03-4512-4977-b30c-36c0ab590e45</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i00a5bab4-429b-4e02-9d79-9a12c509d8d5">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Identify the branch of psychology associated with the following quotation/description:&lt;/p&gt;
+&lt;p&gt;"Since people in Third World countries have barely enough resources for basic survival, they must be helped to satisfy those needs so they can become productive citizens."&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i9c019223-06bb-4367-b63a-aeeeed8ef3fb" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i976c4b16-0450-4bfc-be0b-1eba8d874d94">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Freudian&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i2cdda5c3-1d50-415d-a806-b944384ee363">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Behaviourist&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i1e68a1ef-d997-45d7-a3ea-9f90f22b024f">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Humanist&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i9c019223-06bb-4367-b63a-aeeeed8ef3fb">i976c4b16-0450-4bfc-be0b-1eba8d874d94</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i9c019223-06bb-4367-b63a-aeeeed8ef3fb">i2cdda5c3-1d50-415d-a806-b944384ee363</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i9c019223-06bb-4367-b63a-aeeeed8ef3fb">i1e68a1ef-d997-45d7-a3ea-9f90f22b024f</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i23b4080a-48ec-4cc8-9af4-9e76e9007d18">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Identify the branch of psychology associated with the following quotation/description:&lt;/p&gt;
+&lt;p&gt;"By studying and understanding your dreams, you will be uncovering the largest part of your mind."&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i0c6ca8ae-ef38-4616-87e3-64463ccb662c" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ia071d77e-0d6f-425e-acad-6ac2dfea1cae">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Freudian&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i34f7def0-a5ef-4557-b793-943ead994dbd">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Behaviourist&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i273179d0-ce25-46a2-8381-7e3c2be394f4">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Humanist&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i0c6ca8ae-ef38-4616-87e3-64463ccb662c">ia071d77e-0d6f-425e-acad-6ac2dfea1cae</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i0c6ca8ae-ef38-4616-87e3-64463ccb662c">i34f7def0-a5ef-4557-b793-943ead994dbd</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i0c6ca8ae-ef38-4616-87e3-64463ccb662c">i273179d0-ce25-46a2-8381-7e3c2be394f4</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i80348ae5-a9f2-4059-a35f-3db5ad8ac9e5">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Identify the branch of psychology associated with the following quotation/description:&lt;/p&gt;
+&lt;p&gt;"Even in the slums of Calcutta, India we can find people who are honest, good, and trying to achieve their goals."&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="ia95c9fcf-19d6-4d54-b1bc-e53d98426db1" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="if192b5fe-27b2-4441-b5df-2737ec9adb4f">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Freudian&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i32f3ef97-53df-4bcd-92dc-cfd4d7d7e256">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Behaviourist&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i21773e5e-5199-4d00-b680-028ec6bd639f">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Humanist&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ia95c9fcf-19d6-4d54-b1bc-e53d98426db1">if192b5fe-27b2-4441-b5df-2737ec9adb4f</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ia95c9fcf-19d6-4d54-b1bc-e53d98426db1">i32f3ef97-53df-4bcd-92dc-cfd4d7d7e256</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ia95c9fcf-19d6-4d54-b1bc-e53d98426db1">i21773e5e-5199-4d00-b680-028ec6bd639f</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ia5196a70-8af8-43c7-8c6d-79292f3ee464">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Identify the branch of psychology associated with the following quotation/description:&lt;/p&gt;
+&lt;p&gt;"Studies with laboratory rats indicate that they can learn to run through a maze more quickly if the food rewards are gradually increased each time."&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="ib5ee7452-a718-435e-a5b1-e64dbc863642" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="id825663a-cd0f-4ea1-9d2a-cebe6ef9fd51">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Freudian&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i94256820-09c9-4211-a4ef-9f298f1ba9a6">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Behaviourist&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i64eb2bba-ccf9-46e8-a231-a42f01cb8ac1">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Humanist&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ib5ee7452-a718-435e-a5b1-e64dbc863642">id825663a-cd0f-4ea1-9d2a-cebe6ef9fd51</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ib5ee7452-a718-435e-a5b1-e64dbc863642">i94256820-09c9-4211-a4ef-9f298f1ba9a6</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ib5ee7452-a718-435e-a5b1-e64dbc863642">i64eb2bba-ccf9-46e8-a231-a42f01cb8ac1</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i9c23e809-33f5-45cf-8b20-e5f7b7f9aaaf">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Identify the branch of psychology associated with the following quotation/description:&lt;/p&gt;
+&lt;p&gt;This branch of psychology avoids the use of the word "mind" as much as possible.&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i008df9d5-88e3-44a9-80aa-5d995fcdff44" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ib59f8ae7-3ad8-4bdd-8411-43159c0928c1">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Freudian&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ibb5c93c9-213b-4cb5-8cc5-d972020fa994">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Behaviourist&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i6c804235-a519-43d5-b53c-92eaae7d7117">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Humanist&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i008df9d5-88e3-44a9-80aa-5d995fcdff44">ib59f8ae7-3ad8-4bdd-8411-43159c0928c1</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i008df9d5-88e3-44a9-80aa-5d995fcdff44">ibb5c93c9-213b-4cb5-8cc5-d972020fa994</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i008df9d5-88e3-44a9-80aa-5d995fcdff44">i6c804235-a519-43d5-b53c-92eaae7d7117</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i70a2a259-faf5-458d-a823-20edf1e58d1b">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Identify the branch of psychology associated with the following quotation/description:&lt;/p&gt;
+&lt;p&gt;This branch of psychology made very careful studies of child psychology.&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i29287afe-6f3c-4dd9-9a4f-76462ae215b6" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ie9b9eae1-7fdb-4365-ad1e-61540b843c1b">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Freudian&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i21aecbc2-bf7c-40ac-a3cb-6e58dc598d7f">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Behaviourist&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ib270708a-c8c1-4665-8dba-240b8cde4f93">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Humanist&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i29287afe-6f3c-4dd9-9a4f-76462ae215b6">ie9b9eae1-7fdb-4365-ad1e-61540b843c1b</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i29287afe-6f3c-4dd9-9a4f-76462ae215b6">i21aecbc2-bf7c-40ac-a3cb-6e58dc598d7f</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i29287afe-6f3c-4dd9-9a4f-76462ae215b6">ib270708a-c8c1-4665-8dba-240b8cde4f93</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i17688787-a0a2-488a-9345-af63c7998500">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Identify the branch of psychology associated with the following quotation/description:&lt;/p&gt;
+&lt;p&gt;This branch of psychology built its foundation on human potential.&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i8bc4f7c7-8c9b-491a-a04e-3e19c6640898" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ie7550d18-f668-411b-8b54-485fe03ebc11">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Freudian&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i21204321-9560-4b6c-b26c-267e5b39500b">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Behaviourist&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i160b5398-cd1c-4ee2-a6c7-d4792f3e65ef">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Humanist&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i8bc4f7c7-8c9b-491a-a04e-3e19c6640898">ie7550d18-f668-411b-8b54-485fe03ebc11</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i8bc4f7c7-8c9b-491a-a04e-3e19c6640898">i21204321-9560-4b6c-b26c-267e5b39500b</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i8bc4f7c7-8c9b-491a-a04e-3e19c6640898">i160b5398-cd1c-4ee2-a6c7-d4792f3e65ef</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i27a014c5-2a5a-483a-b720-67e4a01d80c9">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Identify the branch of psychology associated with the following quotation/description:&lt;/p&gt;
+&lt;p&gt;This branch of psychology uses hypnosis to bring repressed fears to the surface.&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i2fc21a98-6ee1-41f6-baea-d02d7923a8e1" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i23b31f2a-f4cf-4d25-ab9c-51fd7e524d54">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Freudian&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i97e5869a-5f5c-478e-b9dc-ec06b0edfdb7">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Behaviourist&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ie35b1b27-d44e-413f-bdaf-bb66049df8de">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Humanist&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i2fc21a98-6ee1-41f6-baea-d02d7923a8e1">i23b31f2a-f4cf-4d25-ab9c-51fd7e524d54</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i2fc21a98-6ee1-41f6-baea-d02d7923a8e1">i97e5869a-5f5c-478e-b9dc-ec06b0edfdb7</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i2fc21a98-6ee1-41f6-baea-d02d7923a8e1">ie35b1b27-d44e-413f-bdaf-bb66049df8de</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ieee4b699-997d-4cb7-93f4-dd53f470ccd7">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Identify the branch of psychology associated with the following quotation/description:&lt;/p&gt;
+&lt;p&gt;This branch of psychology places emphasis on unconscious mental processes.&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="if8767224-b343-490f-85ca-ddd0ca3e076a" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="if0f72d9b-aafd-4ddd-b0d6-711cd0471fee">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Freudian&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ibf6cc740-2bc0-4ea4-bfce-ec8aecdea13d">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Behaviourist&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i74ce1fa2-83ac-4619-8719-2cfe33fdb954">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Humanist&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="if8767224-b343-490f-85ca-ddd0ca3e076a">if0f72d9b-aafd-4ddd-b0d6-711cd0471fee</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if8767224-b343-490f-85ca-ddd0ca3e076a">ibf6cc740-2bc0-4ea4-bfce-ec8aecdea13d</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if8767224-b343-490f-85ca-ddd0ca3e076a">i74ce1fa2-83ac-4619-8719-2cfe33fdb954</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ie6bffed1-e328-46ed-bab0-9d2d6eaa6894">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Identify the branch of psychology associated with the following quotation/description:&lt;/p&gt;
+&lt;p&gt;This branch of psychology stresses that needs are fulfilled by following a hierarchy.&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="ie93fe547-f4a1-4125-8e4b-939e54fcb4ee" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i182714f4-cf31-448f-816d-7dcdf0423cc9">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Freudian&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i3600740a-ad7e-4d37-b59e-523fd764ab14">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Humanist&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i11d0e1e1-5633-408d-b552-63ec1d8b5e83">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Behaviourist&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ie93fe547-f4a1-4125-8e4b-939e54fcb4ee">i182714f4-cf31-448f-816d-7dcdf0423cc9</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ie93fe547-f4a1-4125-8e4b-939e54fcb4ee">i3600740a-ad7e-4d37-b59e-523fd764ab14</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ie93fe547-f4a1-4125-8e4b-939e54fcb4ee">i11d0e1e1-5633-408d-b552-63ec1d8b5e83</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i34965b5d-63da-410c-920b-3a3a2f13b7d1">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Identify the branch of psychology associated with the following quotation/description:&lt;/p&gt;
+&lt;p&gt;This branch of psychology believes that dreams are unfulfilled wishes.&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="ib0969024-d97e-4839-afc3-93fe0bdba185" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ie4ef3a54-4f18-42a2-9ff6-bd35cf2bd055">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Freudian&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i282a55ec-2669-4885-87e9-561ca079013b">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Humanist&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i4b66302c-05a4-4487-82ab-8bcbc73f7d70">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Behaviourist&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ib0969024-d97e-4839-afc3-93fe0bdba185">ie4ef3a54-4f18-42a2-9ff6-bd35cf2bd055</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ib0969024-d97e-4839-afc3-93fe0bdba185">i282a55ec-2669-4885-87e9-561ca079013b</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ib0969024-d97e-4839-afc3-93fe0bdba185">i4b66302c-05a4-4487-82ab-8bcbc73f7d70</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i8bb0ba37-992e-4419-9033-903cda4f445a">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Identify the branch of psychology associated with the following quotation/description:&lt;/p&gt;
+&lt;p&gt;This branch of psychology classifies growth needs as the ultimate human goal.&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i99e8c63c-0064-4dcf-89cf-b51fcfa37686" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ic4b410f8-9c66-4993-ba4e-f10b382d8565">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Freudian&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i7e403f64-e0ca-4446-baa0-faf680e7c44b">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Humanist&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ife33bc1a-426e-42d5-b004-cf28c565a5f2">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Behaviourist&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i99e8c63c-0064-4dcf-89cf-b51fcfa37686">ic4b410f8-9c66-4993-ba4e-f10b382d8565</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i99e8c63c-0064-4dcf-89cf-b51fcfa37686">i7e403f64-e0ca-4446-baa0-faf680e7c44b</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i99e8c63c-0064-4dcf-89cf-b51fcfa37686">ife33bc1a-426e-42d5-b004-cf28c565a5f2</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i58dc2a9b-573f-4629-b0d2-4be6e344d220">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Identify the branch of psychology associated with the following quotation/description:&lt;/p&gt;
+&lt;p&gt;This branch of psychology uses word association.&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i9b03d3aa-d149-4af2-b379-135f4e168e9e" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i8ba8c2e2-8c54-4b30-81a4-271c92e19062">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Freudian&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="id2aa4e8e-22a3-4403-b052-3ab17b75d9ff">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Humanist&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ifa0b0ed0-aeec-4f02-a2c6-3fb9f4addf23">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Behaviourist&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i9b03d3aa-d149-4af2-b379-135f4e168e9e">i8ba8c2e2-8c54-4b30-81a4-271c92e19062</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i9b03d3aa-d149-4af2-b379-135f4e168e9e">id2aa4e8e-22a3-4403-b052-3ab17b75d9ff</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i9b03d3aa-d149-4af2-b379-135f4e168e9e">ifa0b0ed0-aeec-4f02-a2c6-3fb9f4addf23</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+    </section>
+  </assessment>
+</questestinterop>

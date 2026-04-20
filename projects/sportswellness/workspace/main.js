@@ -1175,7 +1175,7 @@ PHASE_CONTENT['phase-1'] = {
       ],
       figures: [
         {
-          src: './assets/readings/phase1-figures/phase1-arousal-continuum-pro.svg',
+          src: './assets/readings/phase1-figures/phase1-arousal-continuum.png',
           alt: 'Arousal continuum and middle performance zone',
           caption: 'Figure 1. Arousal lives on a continuum. Peak performance often sits inside a controllable middle zone.'
         }
@@ -1224,7 +1224,7 @@ PHASE_CONTENT['phase-1'] = {
       ],
       figures: [
         {
-          src: './assets/readings/phase1-figures/phase1-stress-process-pro.svg',
+          src: './assets/readings/phase1-figures/phase1-stress-process.png',
           alt: 'Stress process loop diagram',
           caption: 'Figure 2. Perception of demand is the pivot point in the stress process.'
         }
@@ -1247,7 +1247,7 @@ PHASE_CONTENT['phase-1'] = {
       ],
       figures: [
         {
-          src: './assets/readings/phase1-figures/phase1-arousal-theories-pro.svg',
+          src: './assets/readings/phase1-figures/phase1-arousal-theories.png',
           alt: 'Comparison of arousal and performance theories',
           caption: 'Figure 3. Major theories offer different models of how arousal relates to performance.'
         }
@@ -1312,12 +1312,12 @@ PHASE_CONTENT['phase-1'] = {
       ],
       figures: [
         {
-          src: './assets/readings/phase1-figures/phase1-regulation-tools-pro.svg',
+          src: './assets/readings/phase1-figures/phase1-regulation-tools.png',
           alt: 'Regulation tools for tuning the performance state',
           caption: 'Figure 5. Regulation tools are practical methods for tuning the performance state.'
         },
         {
-          src: './assets/readings/phase1-figures/phase1-goal-control-pro.svg',
+          src: './assets/readings/phase1-figures/phase1-goal-control.png',
           alt: 'Goal controllability figure',
           caption: 'Figure 6. The more controllable the goal, the more stabilizing it becomes under pressure.'
         }
@@ -1368,7 +1368,7 @@ PHASE_CONTENT['phase-2'] = {
   sourcePdf: './assets/readings/phase2-drive-content.pdf',
   quizId: 'quiz-phase2-integrated-discipline',
   heroFigure: {
-    src: './assets/readings/phase2-figures/phase2-integrated-discipline-system-pro.svg',
+    src: './assets/readings/phase2-figures/phase2-integrated-discipline-system.png',
     alt: 'Integrated discipline system showing values, motivation quality, recovery, and context',
     caption: 'Figure 1. Integrated discipline is a system, not a personality trait.'
   },
@@ -1441,7 +1441,7 @@ PHASE_CONTENT['phase-2'] = {
       ],
       figures: [
         {
-          src: './assets/readings/phase2-figures/phase2-motivation-continuum-pro.svg',
+          src: './assets/readings/phase2-figures/phase2-motivation-continuum.png',
           alt: 'Motivation continuum from amotivation to intrinsic motivation',
           caption: 'Figure 2. Movement along the continuum changes not just persistence, but the psychological cost of persistence.'
         }
@@ -1455,7 +1455,7 @@ PHASE_CONTENT['phase-2'] = {
       ],
       figures: [
         {
-          src: './assets/readings/phase2-figures/phase2-psychological-needs-pro.svg',
+          src: './assets/readings/phase2-figures/phase2-psychological-needs.png',
           alt: 'Autonomy, competence, and relatedness as psychological fuel',
           caption: 'Figure 3. Need satisfaction is the psychological fuel for sustainable self-regulation.'
         }
@@ -1574,7 +1574,7 @@ PHASE_CONTENT['phase-2'] = {
       ],
       figures: [
         {
-          src: './assets/readings/phase2-figures/phase2-recovery-continuum-pro.svg',
+          src: './assets/readings/phase2-figures/phase2-recovery-continuum.png',
           alt: 'Recovery continuum from adaptation toward breakdown',
           caption: 'Figure 4. The line between adaptation and breakdown is determined largely by recovery.'
         }
@@ -1599,7 +1599,7 @@ PHASE_CONTENT['phase-2'] = {
       ],
       figures: [
         {
-          src: './assets/readings/phase2-figures/phase2-growth-equation-pro.svg',
+          src: './assets/readings/phase2-figures/phase2-growth-equation.png',
           alt: 'Stress plus rest equals growth diagram',
           caption: 'Figure 5. Stress is only productive when the cycle includes adequate recovery.'
         }
@@ -1621,7 +1621,7 @@ PHASE_CONTENT['phase-2'] = {
       ],
       figures: [
         {
-          src: './assets/readings/phase2-figures/phase2-person-situation-pro.svg',
+          src: './assets/readings/phase2-figures/phase2-person-situation.png',
           alt: 'Person by situation interaction diagram',
           caption: 'Figure 6. Social context can pull performance up or push it down depending on the performer.'
         }
@@ -1716,7 +1716,7 @@ PHASE_CONTENT['phase-3'] = {
   sourcePdf: './assets/readings/phase3-focus-content.pdf',
   quizId: 'quiz-phase3-focus-under-pressure',
   heroFigure: {
-    src: './assets/readings/phase3-figures/phase3-focus-system-map-pro.svg',
+    src: './assets/readings/phase3-figures/phase3-focus-system-map.png',
     alt: 'Focus under pressure chapter map showing attention architecture, the inner game, preparation, and reset tools',
     caption: 'Figure 1. Focus under pressure is a system, not a single mindset trick.'
   },
@@ -1805,7 +1805,7 @@ PHASE_CONTENT['phase-3'] = {
       },
       figures: [
         {
-          src: './assets/readings/phase3-figures/phase3-attentional-quadrants-pro.svg',
+          src: './assets/readings/phase3-figures/phase3-attentional-quadrants.png',
           alt: 'Four attentional quadrants diagram showing broad internal, broad external, narrow internal, and narrow external focus',
           caption: 'Figure 2. High-level performers shift deliberately between attentional widths and directions instead of forcing one kind of focus onto every moment.'
         }
@@ -1830,7 +1830,7 @@ PHASE_CONTENT['phase-3'] = {
       },
       figures: [
         {
-          src: './assets/readings/phase3-figures/phase3-inner-game-equation-pro.svg',
+          src: './assets/readings/phase3-figures/phase3-inner-game-equation.png',
           alt: 'Inner Game performance equation diagram comparing Self 1 and Self 2 and showing performance equals potential minus interference',
           caption: 'Figure 3. The Inner Game frames pressure as an interference problem as much as a skill problem.'
         }
@@ -1854,7 +1854,7 @@ PHASE_CONTENT['phase-3'] = {
       },
       figures: [
         {
-          src: './assets/readings/phase3-figures/phase3-precompetition-blueprint-pro.svg',
+          src: './assets/readings/phase3-figures/phase3-precompetition-blueprint.png',
           alt: 'Pre-competition blueprint diagram showing routine, what-if plan, imagery, simulation, and identity cue',
           caption: 'Figure 4. Strong preparation specifies how attention will be transferred, protected, and reset before stress arrives.'
         }
@@ -1875,7 +1875,7 @@ PHASE_CONTENT['phase-3'] = {
       ],
       figures: [
         {
-          src: './assets/readings/phase3-figures/phase3-reset-sequence-pro.svg',
+          src: './assets/readings/phase3-figures/phase3-reset-sequence.png',
           alt: 'In-performance reset sequence diagram showing notice, breathe, cue, anchor, execute, and release',
           caption: 'Figure 5. Refocus is not a vague command. It is a rehearsed sequence the athlete can run under stress.'
         }
@@ -1988,7 +1988,7 @@ PHASE_CONTENT['phase-4'] = {
       ],
       figures: [
         {
-          src: './assets/readings/phase4-figures/phase4-chapter-map-pro.svg',
+          src: './assets/readings/phase4-figures/phase4-chapter-map.png',
           alt: 'Chapter map showing confidence, protection, routine, and mental cinema feeding the first victory',
           caption: 'Figure 1. The chapter is built around one system: build certainty, protect it, then express it under pressure.'
         }
@@ -2038,7 +2038,7 @@ PHASE_CONTENT['phase-4'] = {
       ],
       figures: [
         {
-          src: './assets/readings/phase4-figures/phase4-confidence-account-pro.svg',
+          src: './assets/readings/phase4-figures/phase4-confidence-account.png',
           alt: 'Confidence account diagram showing deposits on one side and withdrawals on the other',
           caption: 'Figure 2. Confidence behaves like an account balance: deposits strengthen usable certainty while withdrawals deplete it.'
         }
@@ -2058,7 +2058,7 @@ PHASE_CONTENT['phase-4'] = {
       ],
       figures: [
         {
-          src: './assets/readings/phase4-figures/phase4-flat-tire-drill-pro.svg',
+          src: './assets/readings/phase4-figures/phase4-flat-tire-drill.png',
           alt: 'Flat tire drill diagram showing brief setback rehearsal followed by longer response rehearsal',
           caption: 'Figure 3. The flat tire drill rehearses likely adversity and, more importantly, the desired recovery response.'
         }
@@ -2079,7 +2079,7 @@ PHASE_CONTENT['phase-4'] = {
       ],
       figures: [
         {
-          src: './assets/readings/phase4-figures/phase4-cba-routine-pro.svg',
+          src: './assets/readings/phase4-figures/phase4-cba-routine.png',
           alt: 'C-B-A routine diagram showing cue conviction, breathe your body, and attach your attention',
           caption: 'Figure 4. A short routine helps the performer cross from preparation into live execution.'
         }
@@ -2100,7 +2100,7 @@ PHASE_CONTENT['phase-4'] = {
       ],
       figures: [
         {
-          src: './assets/readings/phase4-figures/phase4-mental-cinema-pro.svg',
+          src: './assets/readings/phase4-figures/phase4-mental-cinema.png',
           alt: 'Mental cinema diagram showing vividness, control, timing, perspective, and emotion',
           caption: 'Figure 5. Effective imagery depends on vividness, perspective, control, emotion, and timing.'
         }

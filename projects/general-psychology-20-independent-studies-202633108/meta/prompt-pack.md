@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: general-psychology-20-independent-studies-202633108
-- Generated: 2026-04-17T20:08:56.627Z
+- Generated: 2026-04-20T19:50:41.498Z
 
 ## Rules
 
@@ -55,7 +55,7 @@ none
   "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\general-psychology-20-independent-studies-202633108\\raw\\original.html",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-04-17T20:08:56.560Z",
+  "learningUpdatedAt": "2026-04-20T19:50:40.976Z",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
@@ -91,8 +91,8 @@ none
   "referenceOnly": [],
   "sourceOfTruthNotes": "Use the deployed-era manifest-backed shell in workspace/index.html and workspace/main.js as the editable runtime. Regenerate course-shell-data.js and D2L map artifacts from meta/build-shell-from-manifest.ps1. Do not replace this project with the generic build:course-shell output unless intentionally rebuilding the course structure.",
   "createdAt": "2026-04-09T19:29:15.518Z",
-  "updatedAt": "2026-04-17T20:08:56.560Z",
-  "workspaceApprovedAt": "2026-04-17T20:08:56.560Z"
+  "updatedAt": "2026-04-20T19:50:40.976Z",
+  "workspaceApprovedAt": "2026-04-20T19:50:40.976Z"
 }
 ```
 
@@ -103,11 +103,65 @@ none
 - Teacher notes are contextual authority only.
 - Textbook and reference resources are supporting evidence, not lesson generators.
 - Imported Canvas workspace content is fallback context only when outline or assessment evidence is missing.
-- Current classified resource mix: .
+- Current classified resource mix: textbook: 414; other: 295; assessment: 47; outline: 20; teacher-note: 2.
 
 ## Resource Catalog Summary
 
+### assignment 8f482f70 25da 4c03 b504 60635079e77d (assessment)
+- Authority: assessment-authoritative
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\general-psychology-20-independent-studies-202633108\assignment\i0b00d30c-afd8-4faf-8d2c-c45b9ea56c55\assignment_8f482f70-25da-4c03-b504-60635079e77d.xml
+- Extraction: stored-only
+- Chunks: 0
+- Signals: filename:assignment
 
+### assignment 0580aff0 b77f 4108 9b65 2d65978229a6 (assessment)
+- Authority: assessment-authoritative
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\general-psychology-20-independent-studies-202633108\assignment\i0ec0d3af-2d3a-407b-b9c3-0909b2d1ffad\assignment_0580aff0-b77f-4108-9b65-2d65978229a6.xml
+- Extraction: stored-only
+- Chunks: 0
+- Signals: filename:assignment
+
+### assignment 8c63995f e6de 40f4 9e74 b89190b664a2 (assessment)
+- Authority: assessment-authoritative
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\general-psychology-20-independent-studies-202633108\assignment\i1b35a799-ebac-400c-abe4-feb6727da215\assignment_8c63995f-e6de-40f4-9e74-b89190b664a2.xml
+- Extraction: stored-only
+- Chunks: 0
+- Signals: filename:assignment
+
+### assignment 4569789d f733 419d beec 24b93f47a840 (assessment)
+- Authority: assessment-authoritative
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\general-psychology-20-independent-studies-202633108\assignment\i3cc9c486-bb30-4dec-96da-cbd30ec66318\assignment_4569789d-f733-419d-beec-24b93f47a840.xml
+- Extraction: stored-only
+- Chunks: 0
+- Signals: filename:assignment
+
+### assignment 84c16026 b1cb 4521 a3fe acd7282f316b (assessment)
+- Authority: assessment-authoritative
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\general-psychology-20-independent-studies-202633108\assignment\i838b9de8-0f59-4c8d-b632-dc011956ce71\assignment_84c16026-b1cb-4521-a3fe-acd7282f316b.xml
+- Extraction: stored-only
+- Chunks: 0
+- Signals: filename:assignment
+
+### assignment 6891a52a 96f6 4640 87a8 f79f9d362da6 (assessment)
+- Authority: assessment-authoritative
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\general-psychology-20-independent-studies-202633108\assignment\ic402bab7-1129-4739-8bb7-d00fe25453a6\assignment_6891a52a-96f6-4640-87a8-f79f9d362da6.xml
+- Extraction: stored-only
+- Chunks: 0
+- Signals: filename:assignment
+
+### assignment a86e1090 4305 431e b495 27b4700c94da (assessment)
+- Authority: assessment-authoritative
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\general-psychology-20-independent-studies-202633108\assignment\id6277875-45f6-46f0-885c-d4a865314982\assignment_a86e1090-4305-431e-b495-27b4700c94da.xml
+- Extraction: stored-only
+- Chunks: 0
+- Signals: filename:assignment
+
+### assignment a4b4b66d 1f8c 4130 be1a 5cf86c53568a (assessment)
+- Authority: assessment-authoritative
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\general-psychology-20-independent-studies-202633108\assignment\if842700c-88cb-4e05-a651-1713571973c4\assignment_a4b4b66d-1f8c-4130-be1a-5cf86c53568a.xml
+- Extraction: stored-only
+- Chunks: 0
+- Signals: filename:assignment
 
 ## D2L Course Map Summary
 
@@ -223,7 +277,91 @@ disabled by intelligence policy (collect)
 
 ## Reference Excerpts
 
-none
+### content-i69540a89-fb5d-447f-be2e-73038977e5f4-content-lesson-683-page-5092-html (html/assessment)
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\general-psychology-20-independent-studies-202633108\content\i69540a89-fb5d-447f-be2e-73038977e5f4\Content\Lesson_683\page_5092.html
+
+```text
+��<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><body><p><div class="firstBlock">
+<p>A criminal psychologist is a professional that studies the behaviors and thoughts of criminals. Interest in this career field has grown dramatically in recent years thanks to a number of popular television programs that depict fictionalized criminal psychologists, such as such as�<em>Criminal Minds</em>�and�<em>CSI</em>. The field is highly related to<a href="http://psychology.about.com/od/branchesofpsycholog1/f/forensicpsychology.htm" data-component="link" data-source="inlineLink" data-type="internalLink" data-ordinal="1">foren...
+```
+
+### ontent-i69540a89-fb5d-447f-be2e-73038977e5f4-content-lesson-683-page-5092-html (html/assessment)
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\general-psychology-20-independent-studies-202633108\сontent\i69540a89-fb5d-447f-be2e-73038977e5f4\Content\Lesson_683\page_5092.html
+
+```text
+��<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><body><p><div class="firstBlock">
+<p>A criminal psychologist is a professional that studies the behaviors and thoughts of criminals. Interest in this career field has grown dramatically in recent years thanks to a number of popular television programs that depict fictionalized criminal psychologists, such as such as�<em>Criminal Minds</em>�and�<em>CSI</em>. The field is highly related to<a href="http://psychology.about.com/od/branchesofpsycholog1/f/forensicpsychology.htm" data-component="link" data-source="inlineLink" data-type="internalLink" data-ordinal="1">foren...
+```
+
+### content-ic39d2510-84f2-4a6a-9951-e2325784ed4e-content-lesson-683-page-5091-html (html/assessment)
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\general-psychology-20-independent-studies-202633108\content\ic39d2510-84f2-4a6a-9951-e2325784ed4e\Content\Lesson_683\page_5091.html
+
+```text
+��<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><body><p><div>
+<div class="occupation-profile-content">
+<h3>Psychologist - Career Profile (<a href="http://occinfo.alis.alberta.ca/occinfopreview/info/browse-occupations/occupation-profile.html?id=71002221" target="_blank">For full profile click here</a>)�</h3>
+<div>
+<div class="occupation-profile-content-noc"></div>
+</div>
+<div>
+<p>Psychologists assess, diagnose and treat psychological, emotional and behavioural disorders. They also research and apply theories relating to behaviour and mental processes.</p>
+<p><b>Also Known As</b></p>
+<p>Facilitator, Industrial Ps...
+```
+
+### ontent-ic39d2510-84f2-4a6a-9951-e2325784ed4e-content-lesson-683-page-5091-html (html/assessment)
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\general-psychology-20-independent-studies-202633108\сontent\ic39d2510-84f2-4a6a-9951-e2325784ed4e\Content\Lesson_683\page_5091.html
+
+```text
+��<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><body><p><div>
+<div class="occupation-profile-content">
+<h3>Psychologist - Career Profile (<a href="http://occinfo.alis.alberta.ca/occinfopreview/info/browse-occupations/occupation-profile.html?id=71002221" target="_blank">For full profile click here</a>)�</h3>
+<div>
+<div class="occupation-profile-content-noc"></div>
+</div>
+<div>
+<p>Psychologists assess, diagnose and treat psychological, emotional and behavioural disorders. They also research and apply theories relating to behaviour and mental processes.</p>
+<p><b>Also Known As</b></p>
+<p>Facilitator, Industrial Ps...
+```
+
+### content-ia2b65a17-7829-4500-b74a-6f18b3d9c39c-content-book-1818-chapter-15710-html (html/assessment)
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\general-psychology-20-independent-studies-202633108\content\ia2b65a17-7829-4500-b74a-6f18b3d9c39c\Content\book_1818\chapter_15710.html
+
+```text
+��<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><body><p><p align="center"><br><b><img width="157" height="139" alt="https://lh6.googleusercontent.com/g4FSREZpkYueHmXq2or481-0sy7kaBcOMN4s868u52eV23DLUDRM-qWfMyuAJplIjdypyS7muKytQn0bsaNXVa6RNFBKGtH-Px4HicjHwcTX8zlHFFvh543WLjpURxUbcjgZaxvX" src="..\image_chapter_15710.png" border="0" v:shapes="Picture_x0020_6"></b><br></p>
+<p align="center">�</p><p align="center"><b>
+Click on the purple link below and complete the Humanism�Quiz</b></p>
+<h4 align="center"><strong><span style="color: rgb(51, 102, 255);"><a href="/d2l/common/dialogs/quickLink/quickLink.d2l?ou=6811&amp...
+```
+
+### ontent-ia2b65a17-7829-4500-b74a-6f18b3d9c39c-content-book-1818-chapter-15710-html (html/assessment)
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\general-psychology-20-independent-studies-202633108\сontent\ia2b65a17-7829-4500-b74a-6f18b3d9c39c\Content\book_1818\chapter_15710.html
+
+```text
+��<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><body><p><p align="center"><br><b><img width="157" height="139" alt="https://lh6.googleusercontent.com/g4FSREZpkYueHmXq2or481-0sy7kaBcOMN4s868u52eV23DLUDRM-qWfMyuAJplIjdypyS7muKytQn0bsaNXVa6RNFBKGtH-Px4HicjHwcTX8zlHFFvh543WLjpURxUbcjgZaxvX" src="..\image_chapter_15710.png" border="0" v:shapes="Picture_x0020_6"></b><br></p>
+<p align="center">�</p><p align="center"><b>
+Click on the purple link below and complete the Humanism�Quiz</b></p>
+<h4 align="center"><strong><span style="color: rgb(51, 102, 255);"><a href="/d2l/common/dialogs/quickLink/quickLink.d2l?ou=6811&amp...
+```
+
+### content-i1dab161a-aa78-4c81-9991-a55e4fe09e47-content-book-1818-chapter-15709-html (html/assessment)
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\general-psychology-20-independent-studies-202633108\content\i1dab161a-aa78-4c81-9991-a55e4fe09e47\Content\book_1818\chapter_15709.html
+
+```text
+��<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><body><p><br><p></p><p align="center"><br></p><p align="center"><img width="157" height="139" alt="https://lh6.googleusercontent.com/g4FSREZpkYueHmXq2or481-0sy7kaBcOMN4s868u52eV23DLUDRM-qWfMyuAJplIjdypyS7muKytQn0bsaNXVa6RNFBKGtH-Px4HicjHwcTX8zlHFFvh543WLjpURxUbcjgZaxvX" src="..\image_chapter_15709.png" border="0" v:shapes="Picture_x0020_2"></p><p align="center">
+<br></p><p align="center"><span lang="EN"><b><i>Click on the purple link below and complete
+the <a title="Freud" href="/d2l/common/dialogs/quickLink/quickLink.d2l?ou=6811&amp;type=quiz&amp;rCode=6a3fa0d9a41...
+```
+
+### ontent-i1dab161a-aa78-4c81-9991-a55e4fe09e47-content-book-1818-chapter-15709-html (html/assessment)
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\general-psychology-20-independent-studies-202633108\сontent\i1dab161a-aa78-4c81-9991-a55e4fe09e47\Content\book_1818\chapter_15709.html
+
+```text
+��<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><body><p><br><p></p><p align="center"><br></p><p align="center"><img width="157" height="139" alt="https://lh6.googleusercontent.com/g4FSREZpkYueHmXq2or481-0sy7kaBcOMN4s868u52eV23DLUDRM-qWfMyuAJplIjdypyS7muKytQn0bsaNXVa6RNFBKGtH-Px4HicjHwcTX8zlHFFvh543WLjpURxUbcjgZaxvX" src="..\image_chapter_15709.png" border="0" v:shapes="Picture_x0020_2"></p><p align="center">
+<br></p><p align="center"><span lang="EN"><b><i>Click on the purple link below and complete
+the <a title="Freud" href="/d2l/common/dialogs/quickLink/quickLink.d2l?ou=6811&amp;type=quiz&amp;rCode=6a3fa0d9a41...
+```
 
 ## Task Stub
 

@@ -1,76 +1,58 @@
 # Handoff
 
-- Project: main
-- Task: Merge `worldreligions30-option1-ui` into `main` after the committed `sportswellness` Phase 4 work.
-- Status: merged, ready for validation
+- Project: repo-wide / general-psychology-20-independent-studies-202633108
+- Task: Harden local reopenability by failing verify on missing course-shell source files and returning explicit preview diagnostics for missing lesson HTML resources.
+- Status: ready for validation
 
 ## Files changed
+- `app/server/routes/preview.ts`
+- `scripts/lib/verification.ts`
+- `scripts/verify-project.ts`
+- `scripts/tests/verification-course-shell.test.ts`
+- `scripts/tests/preview-route.test.ts`
 - `docs/ops/ACTIVE_HANDOFF.md`
 - `docs/ops/ARCHIVED_HANDOFFS.md`
-- `.runtime/memory-ledger.json`
-- `projects/worldreligions30-option1/workspace/main.js`
-- `projects/worldreligions30-option1/workspace/styles.css`
-- `projects/worldreligions30-option1/workspace/assignments/chapter1interactive.*`
-- `projects/worldreligions30-option1/workspace/assignments/chapter2interactive.*`
-- `projects/worldreligions30-option1/workspace/assignments/chapter3interactive.*`
-- `projects/worldreligions30-option1/workspace/assignments/chapter4interactive.*`
-- `projects/worldreligions30-option1/workspace/assignments/chapter5interactive.*`
-- `projects/worldreligions30-option1/workspace/assignments/chapter6interactive.*`
-- `projects/worldreligions30-option1/workspace/assignments/chapter7interactive.*`
-- `projects/worldreligions30-option1/workspace/assignments/chapter8interactive.*`
-- `projects/worldreligions30-option1/workspace/assignments/chapter9interactive.*`
-- `projects/worldreligions30-option1/workspace/assignments/chapter10interactive.*`
-- `projects/worldreligions30-option1/meta/e2e-contract.json`
-- `scripts/tests/worldreligions30-option1-*.test.ts`
-- `docs/plans/2026-04-17-worldreligions30-option1-*.md`
-- `projects/sportswellness/workspace/main.js`
-- `projects/sportswellness/workspace/assignment-runtime-main.js`
-- `projects/sportswellness/workspace/styles.css`
-- `projects/sportswellness/workspace/assets/readings/phase1-figures/*.svg`
-- `projects/sportswellness/workspace/assets/readings/phase2-figures/*-pro.svg`
-- `projects/sportswellness/workspace/assets/readings/phase3-figures/*-pro.svg`
-- `projects/sportswellness/workspace/assets/readings/phase4-figures/*`
 
 ## What changed
-- Merged `origin/worldreligions30-option1-ui` into local `main`.
-- Preserved the already-committed `sportswellness` Phase 4 lesson, assignment, and figure work that was sitting on `main` before the merge.
-- Brought the `worldreligions30-option1` editorial-shell work into `main`, including the flatter shell styling, chapter/library/overview markup hooks, targeted tests, and the chapter interactive assignment set.
-- Resolved the only merge conflict in `docs/ops/ACTIVE_HANDOFF.md` by replacing the branch-specific handoff entries with this merged repo-state handoff.
+- `verify` now inspects `workspace/course-shell-data.js` in workspace mode and checks that every shell activity `sourceHref` resolves to an actual file under `projects/resources/<slug>`.
+- Activities that already ship an explicit “the source file was not included in the cartridge” fallback are reported as warnings instead of hard failures so intentionally degraded assessment items do not block unrelated reopen work.
+- Missing HTML lesson/resource preview requests now return an in-browser diagnostic page with the slug, requested path, expected local path, and the recovery command instead of a silent 404 fallback.
+- Added focused regression tests for both the new verification path and the new preview-route diagnostic behavior.
 
 ## Why this changed
-- The user wanted the finished `worldreligions30-option1-ui` branch work merged into `main` without losing the newer `sportswellness` work that had already been committed there.
+- The general psychology course reopened in a broken local state because the shell still referenced lesson files that had been removed from `projects/resources/<slug>`, and existing verification only checked direct HTML asset tags.
+- The failure mode was silent inside the course shell: missing lesson fetches collapsed to the generic “Course content item” fallback instead of telling the operator that the local resource bundle was gone.
 
 ## Source of truth
-- Current integration branch: `main`
-- World Religions editorial shell: `projects/worldreligions30-option1/workspace/main.js` and `projects/worldreligions30-option1/workspace/styles.css`
-- Sports Wellness Phase 4 lesson + assignment runtime: `projects/sportswellness/workspace/main.js` and `projects/sportswellness/workspace/assignment-runtime-main.js`
-- Active session handoff: `docs/ops/ACTIVE_HANDOFF.md`
+- Verification logic: `scripts/lib/verification.ts`
+- Verify CLI output: `scripts/verify-project.ts`
+- Missing-resource preview diagnostic: `app/server/routes/preview.ts`
+- General psychology canonical authoring surface remains `projects/general-psychology-20-independent-studies-202633108/workspace/index.html` plus its workspace runtime files and `projects/resources/general-psychology-20-independent-studies-202633108`
 
 ## Fragile areas / watchouts
-- This merge pulled in a large metadata/resource-index surface in addition to the world religions workspace changes, so future repo-wide metadata regeneration should stay deliberate.
-- `docs/ops/ACTIVE_HANDOFF.md` is now a merged-state handoff, not a single-project handoff from either side of the conflict.
-- The `worldreligions30-option1` assignment set now lives on `main`; any future cleanup there should happen on purpose, not as part of unrelated `sportswellness` work.
+- The stricter resource check only runs when `workspace/course-shell-data.js` exists. Projects that do not use the course-shell runtime are unchanged.
+- The preview-route diagnostic is intentionally limited to missing HTML/HTM reference previews so lesson fetches become readable in-browser; non-HTML missing resources still use the existing 404 JSON path.
+- There are unrelated dirty workspace files in this repo, including regenerated general psychology metadata and sportswellness assets, which were left untouched.
 
 ## Next prompt should assume
-- `main` now contains both the committed `sportswellness` work and the merged `worldreligions30-option1-ui` work.
-- The world religions branch changes are no longer isolated to the remote branch.
-- The only manual merge conflict was the handoff file, and it has been resolved.
+- `npm run verify -- --project <slug>` is now the intended reopenability gate for course-shell projects because it checks shell `sourceHref` targets under `projects/resources/<slug>`.
+- If a lesson HTML resource is missing locally, previewing that reference will show a diagnostic page instead of silently degrading to generic shell copy.
+- The restored `general-psychology-20-independent-studies-202633108` resource bundle currently passes the new verification path.
 
 ## What still needs validation
-- Manual QA or targeted verification for `projects/worldreligions30-option1/**` now that its branch work lives on `main`.
-- Decide whether to push the merged `main` back to `origin/main` after reviewing the result.
+- Reload the local general psychology preview and confirm a missing lesson now surfaces the diagnostic page if the resource bundle is removed again.
+- Decide whether to extend the same explicit diagnostic behavior to missing XML/PDF reference previews, not just HTML lessons.
 
 ## Known risks
-- No code conflicts appeared, but the merge footprint is large enough that a targeted validation pass is still worth doing before any export or release step.
-- Because the handoff file had to be rewritten, the previous single-project handoff text is now represented through this merged summary plus `ARCHIVED_HANDOFFS.md` history rather than as the raw branch version.
+- `npm.cmd run typecheck` still fails on pre-existing errors in `scripts/tests/worldreligions30-option1-quiz-summary.test.ts`; this work did not change that file.
+- The verification carve-out depends on the fallback copy still containing a “source file missing from the cartridge” message. If future wording changes, intentionally missing assessment items could become hard failures until the pattern is updated.
 
 ## Exact next command
-`npm run verify -- --project worldreligions30-option1`
+`npm.cmd run verify -- --project general-psychology-20-independent-studies-202633108`
 
 ## Exact next file to open
-`/Users/deanguedo/Documents/GitHub/canvas-helper/projects/worldreligions30-option1/workspace/styles.css`
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\lib\verification.ts`
 
 ## Do not do next / warnings
-- Do not assume `origin/main` includes this merge yet.
-- Do not overwrite `sportswellness` hand-authored SVG figure work while validating the world religions merge.
-- Do not treat `docs/ops/ACTIVE_HANDOFF.md` as world-religions-only or sportswellness-only anymore; it now reflects the merged repo state.
+- Do not delete or “clean up” `projects/resources/<slug>` for shipped course-shell projects unless you are intentionally rebuilding the local authoring state.
+- Do not treat the hosted Firebase bundle as sufficient recovery data for local authoring; the local preview contract still depends on the project resource bundle.
