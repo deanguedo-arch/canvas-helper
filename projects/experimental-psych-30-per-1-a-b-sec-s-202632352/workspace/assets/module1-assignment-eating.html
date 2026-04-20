@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Experimental Psychology 30 - Module 1 Assignment 2</title>
+    <link rel="icon" href="data:," />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script>
+      (function installPreviewErrorOverlay() {
+        function showError(kind, value) {
+          const text = value instanceof Error ? (value.stack || value.message) : String(value);
+          const existing = document.getElementById("__canvas-helper-preview-error");
+          if (existing) {
+            existing.textContent = text;
+            return;
+          }
+
+          const panel = document.createElement("pre");
+          panel.id = "__canvas-helper-preview-error";
+          panel.style.position = "fixed";
+          panel.style.inset = "1rem";
+          panel.style.zIndex = "99999";
+          panel.style.overflow = "auto";
+          panel.style.margin = "0";
+          panel.style.padding = "1rem";
+          panel.style.border = "2px solid #ef4444";
+          panel.style.borderRadius = "12px";
+          panel.style.background = "rgba(17, 24, 39, 0.98)";
+          panel.style.color = "#fecaca";
+          panel.style.font = "12px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+          panel.textContent = kind + "\n\n" + text;
+          document.body.appendChild(panel);
+        }
+
+        window.addEventListener("error", function onError(event) {
+          showError("Preview runtime error", event.error || event.message);
+        });
+        window.addEventListener("unhandledrejection", function onRejection(event) {
+          showError("Preview promise rejection", event.reason);
+        });
+      })();
+    </script>
+    <!-- Restored from C:\Users\dean.guedo\Documents\GitHub\canvas-helper\canvas code and references\ExperimentalPsychology\module1assignmenteating -->
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel" data-type="module" data-presets="react">
+import __CanvasHelperReactDomClient from "https://esm.sh/react-dom@19.1.1/client";
+import React, { useState, useEffect } from "https://esm.sh/react@19.1.1";
+import { CheckSquare, XSquare, AlertCircle, FileText, Printer, Edit3, Award, FileCheck, RotateCcw } from "https://esm.sh/lucide-react@0.542.0?deps=react@19.1.1";
+
+const MCQ_DATA = [
+  { id: 1, caseStudy: "A", text: "The manipulated variable in this Case Study is:", options: ["A. sailors at sea", "B. Jell-O colour", "C. time away from port", "D. satisfaction level of the sailors"], correctAnswer: 1 },
+  { id: 2, caseStudy: "A", text: "The responding variable in this Case Study is:", options: ["A. sailors at sea", "B. Jell-O colour", "C. time away from port", "D. satisfaction level of the sailors"], correctAnswer: 3 },
+  { id: 3, caseStudy: "A", text: "The sailors believed the red Jell-O was cherry-flavoured Jell-O, not lemon-flavoured Jell-O. Psychologists refer to this phenomenon as:", options: ["A. expectation assimilation", "B. cognitive assumption", "C. brainwashing", "D. bias anticipation"], correctAnswer: 0 },
+  { id: 4, caseStudy: "B", text: "The manipulated variable in this Case Study was the:", options: ["A. amount of popcorn Brad ate", "B. amount of weight Brad was thought to bench press", "C. type of movie Brad was watching while eating the popcorn", "D. level of hunger Brad was experiencing during the movie"], correctAnswer: 0 },
+  { id: 5, caseStudy: "B", text: "The responding variable in this Case Study is:", options: ["A. amount of popcorn Brad ate", "B. amount of weight Brad was thought to bench press", "C. type of movie Brad was watching while eating the popcorn", "D. level of hunger Brad was experiencing during the movie"], correctAnswer: 1 },
+  { id: 6, caseStudy: "None", text: "If you expect a food to taste bad, the food will taste bad. This phenomenon is known by two names, one of which is:", options: ["A. confirmation bias", "B. foregone conclusion", "C. cognitive anticipation", "D. assimilation integration"], correctAnswer: 0 },
+  { id: 7, caseStudy: "None", text: "A good hypothesis contains both the:", options: ["A. controlled and manipulated variables", "B. responding and manipulated variables", "C. manipulated variable and control group", "D. responding variable and materials"], correctAnswer: 1 },
+  { id: 8, caseStudy: "B-Ext", text: "A researcher reviewed the differences between the male and female responses in Case Study B. In this comparison of data, the manipulated variable was the ________ and the responding variable was the ________.", options: ["A. amount of popcorn Brad ate; gender of the college students", "B. amount of weight Brad was thought to bench press; gender of the college students", "C. gender of the college students; amount of weight Brad was thought to bench press", "D. gender of the college students; amount of popcorn Brad ate"], correctAnswer: 2 }
+];
+
+const WRITTEN_DATA = [
+  { id: 'w1', text: "In Case Study B - Extended, why do you think the responses of the men and the responses of the women were different?", marks: 2 },
+  { id: 'w2', text: "When deciding on a problem for an experiment, researchers conduct background research. Give two reasons background research is important.", marks: 2 },
+  { id: 'w3', text: "Describe the importance of the control group in an experiment.", marks: 2 },
+  { id: 'w4', text: "Larry performs an experiment on his two best friends. Explain why his sample size is too small.", marks: 2 },
+  { id: 'w5', text: "Define sensory specific satiety and provide an example other than those given in the course content.", marks: 3 },
+  { id: 'w6', text: "In Case Study Six (Rainforest Smoothies), how did the mother get her son to eat his broccoli?", marks: 2 }
+];
+
+export default function App() {
+  const [responses, setResponses] = useState({});
+  const [submitted, setSubmitted] = useState(false);
+  const [score, setScore] = useState(0);
+  const [progress, setProgress] = useState(0);
+
+  const totalQuestions = MCQ_DATA.length + WRITTEN_DATA.length + 1; // +1 for procedure
+
+  useEffect(() => {
+    const answeredCount = Object.keys(responses).filter(key => responses[key] !== undefined && responses[key] !== '').length;
+    setProgress(Math.round((answeredCount / totalQuestions) * 100));
+  }, [responses, totalQuestions]);
+
+  const handleOptionChange = (questionId, optionIndex) => {
+    if (submitted) return;
+    setResponses(prev => ({ ...prev, [`mcq_${questionId}`]: optionIndex }));
+  };
+
+  const handleTextChange = (questionId, text) => {
+    if (submitted) return;
+    setResponses(prev => ({ ...prev, [questionId]: text }));
+  };
+
+  const handleSubmit = () => {
+    let currentScore = 0;
+    MCQ_DATA.forEach(q => { if (responses[`mcq_${q.id}`] === q.correctAnswer) currentScore++; });
+    setScore(currentScore);
+    setSubmitted(true);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleEdit = () => {
+    setSubmitted(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleReset = () => {
+    if (window.confirm("WARNING: This will clear all current inputs. Proceed?")) {
+      setResponses({});
+      setSubmitted(false);
+      setScore(0);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const handlePrint = () => window.print();
+
+  return (
+    <div className="min-h-screen bg-slate-200 py-8 px-4 sm:px-6 lg:px-8 font-serif text-slate-900 selection:bg-slate-300">
+      
+      {/* Print-specific CSS Overrides */}
+      <style dangerouslySetInnerHTML={{__html: `
+        @media print {
+          body { background: white !important; -webkit-print-color-adjust: exact; }
+          .neo-shadow { box-shadow: none !important; }
+          .print-hide { display: none !important; }
+          .print-border-none { border: none !important; }
+          .print-break-inside-avoid { break-inside: avoid; }
+          .print-text-black { color: black !important; }
+        }
+      `}} />
+
+      {/* Sticky Progress Bar */}
+      <div className="fixed top-0 left-0 w-full h-2 bg-slate-300 z-50 print-hide border-b-2 border-slate-900">
+        <div 
+          className="h-full bg-slate-900 transition-all duration-500 ease-out"
+          style={{ width: submitted ? '100%' : `${progress}%` }}
+        />
+      </div>
+
+      <div className="max-w-4xl mx-auto relative mt-4">
+        
+        {/* Floating Action Required Tag */}
+        {!submitted && (
+          <div className="absolute -top-4 left-8 bg-amber-300 border-2 border-slate-900 px-4 py-1 font-mono text-xs font-bold uppercase tracking-widest neo-shadow z-20 print-hide shadow-[4px_4px_0px_rgba(30,41,59,1)]">
+            Action Required
+          </div>
+        )}
+
+        {/* Main "Paper" Container */}
+        <div className="bg-[#faf9f6] border-4 border-slate-900 p-8 sm:p-14 relative overflow-hidden shadow-[12px_12px_0px_rgba(30,41,59,1)] print-border-none neo-shadow print:p-0 print:shadow-none">
+          
+          {/* Watermarks */}
+          <div className="absolute top-1/4 -right-32 rotate-90 opacity-[0.03] font-mono text-9xl font-black text-slate-900 pointer-events-none select-none print-hide whitespace-nowrap">
+            FORM EP-30
+          </div>
+          <div className="absolute bottom-1/4 -left-32 -rotate-90 opacity-[0.03] font-mono text-9xl font-black text-slate-900 pointer-events-none select-none print-hide whitespace-nowrap">
+            SUBMISSION
+          </div>
+          
+          {/* Header */}
+          <div className="border-b-8 border-slate-900 pb-8 mb-12 relative z-10">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6">
+              <div>
+                <p className="font-mono text-xs font-bold tracking-widest text-slate-600 uppercase mb-2">Department of Psychology</p>
+                <h1 className="text-4xl sm:text-5xl font-black text-slate-900 uppercase tracking-tight leading-none mb-3">Experimental<br/>Psychology 30</h1>
+                <h2 className="text-xl font-bold text-slate-700 italic border-l-4 border-slate-400 pl-3">Assignment 2: Mindless Eating {submitted && " - Evaluated"}</h2>
+              </div>
+              
+              {!submitted && (
+                <div className="flex flex-col items-end gap-2 print-hide">
+                  <div className="border-2 border-slate-900 p-3 bg-white shadow-[4px_4px_0px_rgba(30,41,59,1)]">
+                    <div className="font-mono text-xs uppercase tracking-widest text-slate-500 mb-1">Total Value</div>
+                    <div className="text-xl font-bold flex items-center gap-2">
+                      <Award size={20} className="text-slate-900"/> 31 MARKS
+                    </div>
+                  </div>
+                  <div className="font-mono text-xs font-bold uppercase tracking-widest text-slate-600 bg-slate-200 px-3 py-1 border-2 border-slate-900">
+                    Completion: {progress}%
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* ------------------------------------------------------------------------------------------------ */}
+          {/* INTERACTIVE FORM VIEW */}
+          {/* ------------------------------------------------------------------------------------------------ */}
+          {!submitted && (
+            <div className="space-y-16 relative z-10">
+              
+              {/* Part 1 */}
+              <section>
+                <div className="flex items-end justify-between border-b-4 border-slate-900 pb-2 mb-8">
+                  <h3 className="font-mono text-2xl font-bold uppercase tracking-widest text-slate-900">Part 1: Multiple-Choice</h3>
+                  <span className="font-mono text-sm font-bold bg-slate-900 text-white px-3 py-1 uppercase">8 Marks</span>
+                </div>
+                
+                <p className="font-serif text-lg text-slate-700 italic mb-8 bg-slate-100 p-4 border-l-4 border-slate-400">
+                  Note: All Case Studies are summarized from Mindless Eating by Brian Wansink.
+                </p>
+
+                <div className="space-y-12">
+                  {/* Case Study A Section */}
+                  <div>
+                    <div className="bg-slate-50 border-2 border-slate-900 p-6 mb-8 shadow-[6px_6px_0px_rgba(30,41,59,1)]">
+                      <div className="flex items-center gap-3 mb-4 border-b-2 border-slate-900 pb-3 inline-flex">
+                        <FileText size={20} className="text-slate-900" />
+                        <h4 className="font-mono text-base font-bold uppercase tracking-widest text-slate-900">Reference: Case Study A</h4>
+                      </div>
+                      <p className="text-lg text-slate-800 leading-relaxed font-serif">
+                        Billy, a galley cook on a Navy ship, was facing daily complaints from the crew about the lemon Jell-O he was serving. Because of an ordering error, lemon was the only flavour of Jell-O purchased for consumption during the four-month exercise. There was no cherry Jell-O and the crew was unhappy. Because the ship was not going to be in port (land) for another two months, Billy had to act in a creative manner - he added red food colouring to the lemon Jell-O. When the red-coloured lemon Jell-O was served to the sailors, no one complained.
+                      </p>
+                    </div>
+
+                    <div className="space-y-10 pl-0 sm:pl-4 border-l-2 border-dashed border-slate-300">
+                      {MCQ_DATA.filter(q => q.caseStudy === "A").map(q => (
+                        <div key={q.id} className="pl-4">
+                          <p className="font-bold text-xl text-slate-900 mb-5 flex gap-3">
+                            <span className="font-mono font-black">{q.id}.</span> <span>{q.text}</span>
+                          </p>
+                          <div className="space-y-3">
+                            {q.options.map((opt, i) => {
+                              const isSelected = responses[`mcq_${q.id}`] === i;
+                              return (
+                                <label key={i} className={`flex items-center p-4 border-2 cursor-pointer transition-all ${isSelected ? "bg-slate-900 border-slate-900 text-white shadow-[4px_4px_0px_rgba(148,163,184,1)]" : "bg-white border-slate-400 hover:border-slate-900 hover:bg-slate-50 shadow-[4px_4px_0px_rgba(30,41,59,1)] text-slate-800"}`}>
+                                  <div className={`relative flex items-center justify-center w-6 h-6 mr-5 border-2 ${isSelected ? 'border-white' : 'border-slate-400 bg-white'}`}>
+                                    {isSelected && <div className="w-2.5 h-2.5 bg-white" />}
+                                  </div>
+                                  <input type="radio" name={`mcq_${q.id}`} className="sr-only" checked={isSelected} onChange={() => handleOptionChange(q.id, i)} />
+                                  <span className="flex-1 font-serif text-lg">{opt}</span>
+                                </label>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Case Study B Section */}
+                  <div>
+                    <div className="bg-slate-50 border-2 border-slate-900 p-6 mb-8 shadow-[6px_6px_0px_rgba(30,41,59,1)]">
+                      <div className="flex items-center gap-3 mb-4 border-b-2 border-slate-900 pb-3 inline-flex">
+                        <FileText size={20} className="text-slate-900" />
+                        <h4 className="font-mono text-base font-bold uppercase tracking-widest text-slate-900">Reference: Case Study B</h4>
+                      </div>
+                      <p className="text-lg text-slate-800 leading-relaxed font-serif">
+                        One hundred forty (140) male college students were asked to read a summary of a fictitious date between Brad and Barb. The students were divided into two groups of 70 people each. The summary described going to a movie and gave much detail about what Brad did on the date. The only difference in the descriptions that each group was given related to the amount of popcorn Brad ate during the movie. In one version of the summary Brad ate "a couple of handfuls" of his popcorn. In the other version Brad ate "almost all" of his popcorn. Researchers asked the two groups of men how much weight (in pounds) they thought Brad could bench press. Students who read that Brad ate almost all of his popcorn imagined Brad lifting, on average, 21 more pounds than Brad who only ate a couple of handfuls of his popcorn.
+                      </p>
+                    </div>
+
+                    <div className="space-y-10 pl-0 sm:pl-4 border-l-2 border-dashed border-slate-300">
+                      {MCQ_DATA.filter(q => q.caseStudy === "B").map(q => (
+                         <div key={q.id} className="pl-4">
+                          <p className="font-bold text-xl text-slate-900 mb-5 flex gap-3">
+                            <span className="font-mono font-black">{q.id}.</span> <span>{q.text}</span>
+                          </p>
+                          <div className="space-y-3">
+                            {q.options.map((opt, i) => {
+                              const isSelected = responses[`mcq_${q.id}`] === i;
+                              return (
+                                <label key={i} className={`flex items-center p-4 border-2 cursor-pointer transition-all ${isSelected ? "bg-slate-900 border-slate-900 text-white shadow-[4px_4px_0px_rgba(148,163,184,1)]" : "bg-white border-slate-400 hover:border-slate-900 hover:bg-slate-50 shadow-[4px_4px_0px_rgba(30,41,59,1)] text-slate-800"}`}>
+                                  <div className={`relative flex items-center justify-center w-6 h-6 mr-5 border-2 ${isSelected ? 'border-white' : 'border-slate-400 bg-white'}`}>
+                                    {isSelected && <div className="w-2.5 h-2.5 bg-white" />}
+                                  </div>
+                                  <input type="radio" name={`mcq_${q.id}`} className="sr-only" checked={isSelected} onChange={() => handleOptionChange(q.id, i)} />
+                                  <span className="flex-1 font-serif text-lg">{opt}</span>
+                                </label>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* General MCQs */}
+                  <div>
+                    <div className="bg-slate-200 py-2 px-4 mb-8 border-y-2 border-slate-900 inline-block font-mono text-sm font-bold tracking-widest uppercase">
+                       General Questions
+                    </div>
+                    <div className="space-y-10 pl-0 sm:pl-4 border-l-2 border-dashed border-slate-300">
+                      {MCQ_DATA.filter(q => q.caseStudy === "None").map(q => (
+                         <div key={q.id} className="pl-4">
+                          <p className="font-bold text-xl text-slate-900 mb-5 flex gap-3">
+                            <span className="font-mono font-black">{q.id}.</span> <span>{q.text}</span>
+                          </p>
+                          <div className="space-y-3">
+                            {q.options.map((opt, i) => {
+                              const isSelected = responses[`mcq_${q.id}`] === i;
+                              return (
+                                <label key={i} className={`flex items-center p-4 border-2 cursor-pointer transition-all ${isSelected ? "bg-slate-900 border-slate-900 text-white shadow-[4px_4px_0px_rgba(148,163,184,1)]" : "bg-white border-slate-400 hover:border-slate-900 hover:bg-slate-50 shadow-[4px_4px_0px_rgba(30,41,59,1)] text-slate-800"}`}>
+                                  <div className={`relative flex items-center justify-center w-6 h-6 mr-5 border-2 ${isSelected ? 'border-white' : 'border-slate-400 bg-white'}`}>
+                                    {isSelected && <div className="w-2.5 h-2.5 bg-white" />}
+                                  </div>
+                                  <input type="radio" name={`mcq_${q.id}`} className="sr-only" checked={isSelected} onChange={() => handleOptionChange(q.id, i)} />
+                                  <span className="flex-1 font-serif text-lg">{opt}</span>
+                                </label>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Case Study B - Extended */}
+                  <div>
+                    <div className="bg-slate-50 border-2 border-slate-900 p-6 mb-8 shadow-[6px_6px_0px_rgba(30,41,59,1)]">
+                      <div className="flex items-center gap-3 mb-4 border-b-2 border-slate-900 pb-3 inline-flex">
+                        <FileText size={20} className="text-slate-900" />
+                        <h4 className="font-mono text-base font-bold uppercase tracking-widest text-slate-900">Reference: Case Study B - Ext</h4>
+                      </div>
+                      <p className="text-lg text-slate-800 leading-relaxed font-serif">
+                        The researchers from Case Study B gave the same two versions of the "Brad and Barb date summary" to two groups of female college students. The women were also asked how much weight (in pounds) they thought Brad could bench press. Unlike their male counterparts, however, the women noted no significant difference in the amount of weight Brad might lift.
+                      </p>
+                    </div>
+
+                    <div className="space-y-10 pl-0 sm:pl-4 border-l-2 border-dashed border-slate-300">
+                      {MCQ_DATA.filter(q => q.caseStudy === "B-Ext").map(q => (
+                         <div key={q.id} className="pl-4">
+                          <p className="font-bold text-xl text-slate-900 mb-5 flex gap-3">
+                            <span className="font-mono font-black">{q.id}.</span> <span>{q.text}</span>
+                          </p>
+                          <div className="space-y-3">
+                            {q.options.map((opt, i) => {
+                              const isSelected = responses[`mcq_${q.id}`] === i;
+                              return (
+                                <label key={i} className={`flex items-center p-4 border-2 cursor-pointer transition-all ${isSelected ? "bg-slate-900 border-slate-900 text-white shadow-[4px_4px_0px_rgba(148,163,184,1)]" : "bg-white border-slate-400 hover:border-slate-900 hover:bg-slate-50 shadow-[4px_4px_0px_rgba(30,41,59,1)] text-slate-800"}`}>
+                                  <div className={`relative flex items-center justify-center w-6 h-6 mr-5 border-2 ${isSelected ? 'border-white' : 'border-slate-400 bg-white'}`}>
+                                    {isSelected && <div className="w-2.5 h-2.5 bg-white" />}
+                                  </div>
+                                  <input type="radio" name={`mcq_${q.id}`} className="sr-only" checked={isSelected} onChange={() => handleOptionChange(q.id, i)} />
+                                  <span className="flex-1 font-serif text-lg">{opt}</span>
+                                </label>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Part 2 */}
+              <section className="pt-8">
+                <div className="flex items-end justify-between border-b-4 border-slate-900 pb-2 mb-10">
+                  <h3 className="font-mono text-2xl font-bold uppercase tracking-widest text-slate-900">Part 2: Written Response</h3>
+                  <span className="font-mono text-sm font-bold bg-slate-900 text-white px-3 py-1 uppercase">13 Marks</span>
+                </div>
+                
+                <div className="space-y-12">
+                  {WRITTEN_DATA.map((q, idx) => (
+                    <div key={q.id} className="space-y-4">
+                      <label htmlFor={q.id} className="block text-xl font-bold text-slate-900 leading-relaxed">
+                        <span className="font-mono font-black mr-3">{idx + 1}.</span> 
+                        {q.text}
+                        <span className="inline-block align-middle font-mono text-xs font-bold text-slate-500 border-2 border-slate-300 px-2 py-0.5 ml-4 uppercase tracking-widest">
+                          [{q.marks} Marks]
+                        </span>
+                      </label>
+                      <textarea
+                        id={q.id}
+                        rows={4}
+                        className="w-full bg-slate-50 border-2 border-slate-900 p-5 rounded-none font-serif text-lg text-slate-800 placeholder:text-slate-400 focus:bg-white focus:ring-0 focus:outline-none focus:shadow-[6px_6px_0px_rgba(30,41,59,1)] transition-all resize-y"
+                        placeholder="Enter response here..."
+                        value={responses[q.id] || ''}
+                        onChange={(e) => handleTextChange(q.id, e.target.value)}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              {/* Part 3 */}
+              <section className="pt-8">
+                <div className="flex items-end justify-between border-b-4 border-slate-900 pb-2 mb-10">
+                  <h3 className="font-mono text-2xl font-bold uppercase tracking-widest text-slate-900">Part 3: Procedure</h3>
+                  <span className="font-mono text-sm font-bold bg-slate-900 text-white px-3 py-1 uppercase">10 Marks</span>
+                </div>
+                
+                <div className="space-y-8">
+                  <div className="bg-slate-100 border-l-8 border-slate-900 p-6 shadow-[4px_4px_0px_rgba(30,41,59,1)]">
+                    <p className="mb-4 font-serif text-lg leading-relaxed text-slate-800">
+                      <span className="font-mono font-black mr-2">1.</span>
+                      Section Four of the course described an experiment using yogurt. Researchers wanted to learn if the expectations of participants affected their actual taste experience. Below is a summary of the pertinent information.
+                    </p>
+                    <div className="pl-6 border-l-4 border-slate-400 italic mb-6 text-slate-700 bg-white p-5 shadow-sm font-serif text-lg">
+                      "A group of 32 individuals were invited to sample some new strawberry yogurt. The test subjects were seated in a food lab and the lights were turned off. They were then given chocolate yogurt. Of the 32 people, 19 rated the chocolate yogurt as having a distinctive strawberry taste."
+                    </div>
+                    <p className="font-bold text-slate-900 text-xl mb-4">
+                      Using the information, write a detailed procedure so that another person would be able to replicate the experiment. 
+                    </p>
+                    <div className="bg-amber-100 border-2 border-slate-900 text-slate-900 p-3 font-mono text-sm font-bold uppercase tracking-widest inline-flex items-center gap-3">
+                      <AlertCircle size={18} /> Note: Write ONLY the procedure.
+                    </div>
+                  </div>
+
+                  <textarea
+                    id="procedure"
+                    rows={8}
+                    className="w-full bg-slate-50 border-2 border-slate-900 p-5 rounded-none font-serif text-lg text-slate-800 placeholder:text-slate-400 focus:bg-white focus:ring-0 focus:outline-none focus:shadow-[6px_6px_0px_rgba(30,41,59,1)] transition-all resize-y"
+                    placeholder="1. Step one...&#10;2. Step two..."
+                    value={responses['procedure'] || ''}
+                    onChange={(e) => handleTextChange('procedure', e.target.value)}
+                  />
+                </div>
+              </section>
+              
+              {/* Submit Block */}
+              <div className="pt-12 pb-4 flex justify-center border-t-4 border-slate-900 print-hide">
+                <button
+                  onClick={handleSubmit}
+                  className="w-full sm:w-auto flex items-center justify-center gap-3 bg-[#f0fdf4] text-emerald-900 border-4 border-emerald-900 font-mono font-black uppercase tracking-widest py-5 px-12 shadow-[6px_6px_0px_rgba(6,78,59,1)] hover:bg-emerald-100 active:translate-x-1 active:translate-y-1 active:shadow-[0px_0px_0px_rgba(6,78,59,1)] transition-all text-lg"
+                >
+                  <FileCheck size={24} /> 
+                  Submit & Generate Report
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* ------------------------------------------------------------------------------------------------ */}
+          {/* REPORT VIEW (BRUTALIST ACADEMIC) */}
+          {/* ------------------------------------------------------------------------------------------------ */}
+          {submitted && (
+            <div className="relative z-10 animate-in fade-in duration-500 print:m-0">
+              
+              {/* Report Dashboard */}
+              <div className="bg-[#f0fdf4] border-4 border-emerald-900 p-6 sm:p-8 mb-16 shadow-[8px_8px_0px_rgba(6,78,59,1)] print-hide neo-shadow">
+                <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                  <div className="flex items-center gap-4 text-emerald-900">
+                    <CheckSquare size={36} />
+                    <div>
+                      <h3 className="font-mono text-xl font-black uppercase tracking-widest">Submission Verified</h3>
+                      <p className="font-serif italic font-bold text-emerald-800">Ready for print or instructor evaluation.</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-4 w-full md:w-auto font-mono text-sm uppercase tracking-widest font-bold">
+                    <button onClick={handleEdit} className="flex-1 md:flex-none flex items-center justify-center gap-2 bg-white text-slate-900 border-2 border-slate-900 px-6 py-3 shadow-[4px_4px_0px_rgba(30,41,59,1)] hover:bg-slate-50 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all">
+                      <Edit3 size={16} /> Edit Data
+                    </button>
+                    <button onClick={handlePrint} className="flex-1 md:flex-none flex items-center justify-center gap-2 bg-slate-900 text-white border-2 border-slate-900 px-6 py-3 shadow-[4px_4px_0px_rgba(148,163,184,1)] hover:bg-slate-800 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all">
+                      <Printer size={16} /> Print
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Tally Cards */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 print-hide">
+                <div className="border-4 border-slate-900 p-6 bg-white shadow-[6px_6px_0px_rgba(30,41,59,1)]">
+                  <p className="font-mono text-sm font-bold uppercase tracking-widest text-slate-500 border-b-2 border-slate-900 pb-2 mb-4">Auto-Graded Section</p>
+                  <div className="flex items-baseline gap-3 text-slate-900">
+                    <span className="text-6xl font-black">{score}</span>
+                    <span className="text-2xl font-bold text-slate-400">/ 8 MARKS</span>
+                  </div>
+                  <p className="font-serif italic text-lg mt-2 font-bold text-slate-700">Part 1 Score</p>
+                </div>
+                <div className="border-4 border-slate-900 p-6 bg-slate-100 shadow-[6px_6px_0px_rgba(30,41,59,1)]">
+                   <p className="font-mono text-sm font-bold uppercase tracking-widest text-slate-500 border-b-2 border-slate-900 pb-2 mb-4">Manual Grading Reqd.</p>
+                  <div className="flex items-baseline gap-3 text-slate-900">
+                    <span className="text-6xl font-black">23</span>
+                    <span className="text-2xl font-bold text-slate-400">MARKS</span>
+                  </div>
+                  <p className="font-serif italic text-lg mt-2 font-bold text-slate-700">Parts 2 & 3 Pending Review</p>
+                </div>
+              </div>
+
+              {/* Evaluated Part 1 */}
+              <section className="mb-20 print:mb-10">
+                <div className="flex items-end justify-between border-b-4 border-slate-900 pb-2 mb-8">
+                  <h3 className="font-mono text-2xl font-bold uppercase tracking-widest text-slate-900">Part 1 Evaluation</h3>
+                  <span className="font-mono text-sm font-bold text-slate-500 print-hide">Score: {score}/8</span>
+                </div>
+
+                <div className="space-y-8">
+                  {MCQ_DATA.map((q) => {
+                    const userAnsIdx = responses[`mcq_${q.id}`];
+                    const isCorrect = userAnsIdx === q.correctAnswer;
+                    const hasAnswered = userAnsIdx !== undefined;
+
+                    return (
+                      <div key={q.id} className="print-break-inside-avoid">
+                        <p className="font-serif text-xl font-bold text-slate-900 mb-4 flex gap-3">
+                          <span className="font-mono">{q.id}.</span>
+                          <span>{q.text}</span>
+                        </p>
+                        
+                        <div className="ml-8">
+                          {!hasAnswered ? (
+                            <div className="inline-flex items-center gap-3 bg-red-50 border-2 border-red-900 text-red-900 px-4 py-3 font-mono font-bold uppercase tracking-widest text-sm shadow-[4px_4px_0px_rgba(127,29,29,1)] print-shadow-none">
+                              <XSquare size={18} /> No Data Recorded
+                            </div>
+                          ) : (
+                            <div className="space-y-4">
+                              <div className={`flex items-start gap-4 p-4 border-2 ${isCorrect ? 'bg-[#f0fdf4] border-emerald-900 text-emerald-900 shadow-[4px_4px_0px_rgba(6,78,59,1)] print-border-none print-shadow-none print-text-black' : 'bg-red-50 border-red-900 text-red-900 shadow-[4px_4px_0px_rgba(127,29,29,1)] print-border-none print-shadow-none print-text-black'}`}>
+                                {isCorrect ? <CheckSquare className="mt-1 flex-shrink-0" size={24} /> : <XSquare className="mt-1 flex-shrink-0" size={24} />}
+                                <div>
+                                  <span className="font-mono text-xs font-bold uppercase tracking-widest block mb-1 opacity-75">Recorded Answer</span>
+                                  <span className="font-serif text-lg font-bold">{q.options[userAnsIdx]}</span>
+                                </div>
+                              </div>
+                              
+                              {!isCorrect && (
+                                <div className="flex items-start gap-4 p-4 border-2 border-slate-900 bg-white text-slate-900 shadow-[4px_4px_0px_rgba(30,41,59,1)] print-border-none print-shadow-none">
+                                  <CheckSquare className="mt-1 flex-shrink-0" size={24} />
+                                  <div>
+                                    <span className="font-mono text-xs font-bold uppercase tracking-widest block mb-1 opacity-75">Correct Answer Key</span>
+                                    <span className="font-serif text-lg font-bold">{q.options[q.correctAnswer]}</span>
+                                  </div>
+                                </div>
+                              )}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </section>
+
+              {/* Evaluated Part 2 */}
+              <section className="mb-20 print:mb-10">
+                <div className="flex items-end justify-between border-b-4 border-slate-900 pb-2 mb-8">
+                  <h3 className="font-mono text-2xl font-bold uppercase tracking-widest text-slate-900">Part 2 Responses</h3>
+                  <span className="font-mono text-sm font-bold text-slate-500 uppercase tracking-widest print-hide">Awaiting Grading</span>
+                </div>
+
+                <div className="space-y-12">
+                  {WRITTEN_DATA.map((q, idx) => {
+                    const ans = responses[q.id];
+                    return (
+                      <div key={q.id} className="print-break-inside-avoid">
+                        <div className="mb-4 flex gap-3 font-serif text-xl font-bold text-slate-900">
+                          <span className="font-mono">{idx + 1}.</span>
+                          <div className="flex-1">
+                            <p className="leading-relaxed">{q.text}</p>
+                            <span className="font-mono text-xs font-bold text-slate-500 uppercase tracking-widest mt-2 block">Value: {q.marks} Marks</span>
+                          </div>
+                        </div>
+                        
+                        <div className="ml-8 border-l-4 border-slate-900 pl-6 py-2 bg-slate-50 print:bg-transparent print:border-slate-400">
+                          {ans ? (
+                            <p className="font-serif text-lg leading-relaxed text-slate-800 whitespace-pre-wrap">{ans}</p>
+                          ) : (
+                            <p className="font-mono text-sm font-bold uppercase tracking-widest text-red-900 flex items-center gap-2">
+                                <AlertCircle size={16} /> [Blank Entry]
+                            </p>
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </section>
+
+              {/* Evaluated Part 3 */}
+              <section className="mb-12 print:mb-0">
+                <div className="flex items-end justify-between border-b-4 border-slate-900 pb-2 mb-8">
+                  <h3 className="font-mono text-2xl font-bold uppercase tracking-widest text-slate-900">Part 3 Procedure</h3>
+                  <span className="font-mono text-sm font-bold text-slate-500 uppercase tracking-widest print-hide">Awaiting Grading</span>
+                </div>
+
+                <div className="print-break-inside-avoid">
+                  <p className="font-serif text-xl font-bold text-slate-900 mb-4">
+                    Design a procedure to replicate the strawberry/chocolate yogurt experiment:
+                    <span className="font-mono text-xs font-bold text-slate-500 uppercase tracking-widest block mt-2">Value: 10 Marks</span>
+                  </p>
+                  
+                  <div className="ml-8 border-l-4 border-slate-900 pl-6 py-4 bg-slate-50 print:bg-transparent print:border-slate-400">
+                    {responses['procedure'] ? (
+                      <p className="font-mono text-base leading-relaxed text-slate-800 whitespace-pre-wrap">{responses['procedure']}</p>
+                    ) : (
+                      <p className="font-mono text-sm font-bold uppercase tracking-widest text-red-900 flex items-center gap-2">
+                          <AlertCircle size={16} /> [No Procedure Logged]
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </section>
+
+              {/* Reset Actions */}
+              <div className="pt-12 mt-12 border-t-4 border-slate-900 flex justify-center print-hide">
+                <button
+                  onClick={handleReset}
+                  className="flex items-center justify-center gap-2 font-mono text-sm font-bold uppercase tracking-widest text-slate-600 hover:text-red-900 hover:bg-red-50 border-2 border-transparent hover:border-red-900 px-6 py-3 transition-all"
+                >
+                  <RotateCcw size={16} /> Initialize New Session
+                </button>
+              </div>
+
+            </div>
+          )}
+
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const __canvasHelperRootElement = document.getElementById("root");
+if (__canvasHelperRootElement) {
+  __CanvasHelperReactDomClient.createRoot(__canvasHelperRootElement).render(<App />);
+}
+
+    </script>
+  </body>
+</html>

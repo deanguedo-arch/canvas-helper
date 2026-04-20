@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: general-psychology-20-independent-studies-202633108
-- Generated: 2026-04-20T19:50:41.498Z
+- Generated: 2026-04-20T20:44:05.959Z
 
 ## Rules
 
@@ -55,7 +55,7 @@ none
   "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\general-psychology-20-independent-studies-202633108\\raw\\original.html",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-04-20T19:50:40.976Z",
+  "learningUpdatedAt": "2026-04-20T20:44:05.739Z",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
@@ -66,6 +66,11 @@ none
     "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\general-psychology-20-independent-studies-202633108\\workspace\\index.html",
     "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\general-psychology-20-independent-studies-202633108\\workspace\\main.js",
     "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\general-psychology-20-independent-studies-202633108\\workspace\\assessment-delivery.js",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\general-psychology-20-independent-studies-202633108\\workspace\\assets\\gp20-behaviourism-quiz.html",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\general-psychology-20-independent-studies-202633108\\workspace\\assets\\gp20-humanism-quiz.html",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\general-psychology-20-independent-studies-202633108\\workspace\\assets\\gp20-learning-techniques-matching.html",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\general-psychology-20-independent-studies-202633108\\workspace\\assets\\gp20-defense-mechanisms-quiz.html",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\general-psychology-20-independent-studies-202633108\\workspace\\assets\\gp20-identifying-behaviour-disorders-quiz.html",
     "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\general-psychology-20-independent-studies-202633108\\meta\\build-shell-from-manifest.ps1"
   ],
   "generatedOutputs": [
@@ -89,10 +94,10 @@ none
   ],
   "authoringStatus": "active",
   "referenceOnly": [],
-  "sourceOfTruthNotes": "Use the deployed-era manifest-backed shell in workspace/index.html and workspace/main.js as the editable runtime. Regenerate course-shell-data.js and D2L map artifacts from meta/build-shell-from-manifest.ps1. Do not replace this project with the generic build:course-shell output unless intentionally rebuilding the course structure.",
+  "sourceOfTruthNotes": "Use workspace/index.html, workspace/main.js, workspace/assessment-delivery.js, and workspace/assets/*.html as editable canonical sources. Regenerate course-shell-data.js and D2L map artifacts from meta/build-shell-from-manifest.ps1. Do not replace this project with the generic build:course-shell output unless intentionally rebuilding course structure.",
   "createdAt": "2026-04-09T19:29:15.518Z",
-  "updatedAt": "2026-04-20T19:50:40.976Z",
-  "workspaceApprovedAt": "2026-04-20T19:50:40.976Z"
+  "updatedAt": "2026-04-20T20:44:05.739Z",
+  "workspaceApprovedAt": "2026-04-20T20:44:05.739Z"
 }
 ```
 

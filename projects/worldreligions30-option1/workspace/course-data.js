@@ -8,9 +8,10 @@ window.WORLD_RELIGIONS_DATA = {
       "id": "chapter-1",
       "code": "Chapter 1",
       "number": 1,
-      "title": "The Religious Impulse",
+      "title": "Content",
       "accent": "#775a1c",
-      "summary": "Chapter content will be added here. The shell is ready for full chapter readings when the chapter section source is available."
+      "summary": "Chapter 1 source content on the religious impulse, pluralism, source evaluation, and respectful academic study.",
+      "contentPath": "./content/WR30_Chapter1_Source_Content_Web_Module/index.html"
     },
     {
       "id": "chapter-2",

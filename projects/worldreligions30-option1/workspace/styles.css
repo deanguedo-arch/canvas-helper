@@ -896,6 +896,30 @@ body[data-section="home"][data-tab="chapters"][data-view="overview"] #course-sub
   color: var(--muted-strong);
 }
 
+.chapter-content-shell {
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: transparent;
+  overflow: hidden;
+}
+
+.chapter-content-frame {
+  display: block;
+  width: 100%;
+  min-height: 980px;
+  height: 82vh;
+  border: 0;
+  background: var(--paper);
+}
+
+@media (max-width: 780px) {
+  .chapter-content-frame {
+    min-height: 760px;
+    height: 76vh;
+  }
+}
+
 .library-panel {
   gap: 20px;
 }

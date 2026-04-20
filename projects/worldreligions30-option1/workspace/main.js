@@ -988,7 +988,7 @@
               <h4 class="card-title">${escapeHtml(chapter.title)}</h4>
               <p class="card-summary">${escapeHtml(chapter.summary)}</p>
               <div class="card-actions">
-                <button class="btn btn-primary" type="button" data-open-chapter="${escapeHtml(chapter.id)}" ${unlocked ? "" : "disabled"}>Open chapter shell</button>
+                <button class="btn btn-primary" type="button" data-open-chapter="${escapeHtml(chapter.id)}" ${unlocked ? "" : "disabled"}>${chapter.contentPath ? "Open content" : "Open chapter shell"}</button>
                 <button class="btn btn-secondary" type="button" data-open-expanded-viewer="${escapeHtml(getLibraryIdForChapter(chapter.id))}" ${unlocked ? "" : "disabled"}>Open PDF</button>
                 <button class="btn btn-muted" type="button" data-open-quiz="${escapeHtml(getQuizIdForChapter(chapter.id))}" ${unlocked ? "" : "disabled"}>Open quiz</button>
               </div>
@@ -1003,6 +1003,33 @@
   function renderChapterDetail(chapter) {
     if (!chapter || !isChapterUnlocked(chapter.number)) {
       return `<div class="empty-state">This chapter is still locked.</div>`;
+    }
+
+    if (chapter.contentPath) {
+      return `
+        <article class="detail-card chapter-detail-card chapter-detail-surface" style="--accent:${escapeHtml(chapter.accent || "#8b6728")}">
+          <div class="detail-stack chapter-detail-layout">
+            <div>
+              <p class="detail-eyebrow">${escapeHtml(chapter.code)}</p>
+              <h4 class="detail-title">${escapeHtml(chapter.title)}</h4>
+              <p class="detail-summary">${escapeHtml(chapter.summary)}</p>
+            </div>
+            <div class="detail-actions">
+              <button class="btn btn-primary" type="button" data-open-expanded-viewer="${escapeHtml(getLibraryIdForChapter(chapter.id))}">Open chapter PDF</button>
+              <button class="btn btn-secondary" type="button" data-open-quiz="${escapeHtml(getQuizIdForChapter(chapter.id))}">Open quiz</button>
+              <button class="btn btn-muted" type="button" data-back-home="chapters">Back to chapters</button>
+            </div>
+            <div class="chapter-content-shell">
+              <iframe
+                class="chapter-content-frame"
+                src="${escapeHtml(chapter.contentPath)}"
+                title="${escapeHtml(`${chapter.code} content`)}"
+                loading="lazy"
+              ></iframe>
+            </div>
+          </div>
+        </article>
+      `;
     }
 
     return `

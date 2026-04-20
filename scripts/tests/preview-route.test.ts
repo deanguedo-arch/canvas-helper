@@ -59,3 +59,33 @@ test("missing html reference previews return an in-browser diagnostic instead of
     await removePath(paths.resourceDir);
   }
 });
+
+test("missing html workspace previews return an in-browser diagnostic instead of a raw json 404", async () => {
+  const slug = `preview-workspace-route-${Date.now()}`;
+  const paths = getProjectPaths(slug);
+
+  await removePath(paths.root);
+  await removePath(paths.resourceDir);
+
+  try {
+    await ensureDir(paths.workspaceDir);
+    const { response, headers, getBody } = createResponseRecorder();
+
+    const handled = await handlePreviewRoutes(
+      `/preview/workspace/${slug}/assets/missing-assignment.html`,
+      { method: "GET" } as IncomingMessage,
+      response
+    );
+
+    assert.equal(handled, true);
+    assert.equal(response.statusCode, 200);
+    assert.equal(headers.get("Content-Type"), "text/html; charset=utf-8");
+    assert.equal(headers.get("X-Canvas-Helper-Preview-Error"), "missing-workspace-resource");
+    assert.match(getBody(), /Missing local workspace asset/i);
+    assert.match(getBody(), new RegExp(slug.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+    assert.match(getBody(), /workspace\/assets/i);
+  } finally {
+    await removePath(paths.root);
+    await removePath(paths.resourceDir);
+  }
+});

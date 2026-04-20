@@ -1,289 +1,274 @@
-# D2L Course Map
+﻿# D2L Course Map
 
 - Project: general-psychology-20-independent-studies-202633108
-- Generated: 2026-04-13T15:31:06.197Z
-- Manifest: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\general-psychology-20-independent-studies-202633108\imsmanifest.xml
-- Course title: NXT General Psychology 20 - Independent Studies (3 Cr) (Sep 2020)
+- Course: NXT General Psychology 20 - Independent Studies (3 Cr) (Sep 2020)
+- Generated: 2026-04-20T15:04:37.1041093-06:00
 
-## Summary
-- Modules: 11
-- Items: 272
-- Lessons: 1
-- Assignments: 8
-- Quizzes: 24
-- PDFs: 1
-- HTML pages: 210
+## 1. Module 1: History of Psychological Schools of Thought
 
-## Structure
-- [module] Course Information
-  - [lesson] Course Outline
-- [module] Student Resource Materials
-- [module] Module 1: History of Psychological Schools of Thought
-  - [html] 1. History of Psychological Schools of Thought -> сontent/i37d38325-acb2-49d0-8dc9-549f69b1f9d2/Content/section_3878.html
-  - [quiz] Freud -> quiz/iebe44dc5-0128-4af9-b624-bf5146727f89/qti_9c1b4037-0651-49ba-8b65-1e42a36e77d5.xml
-  - [quiz] Freud & Jung -> quiz/i2b5c7c4b-9842-4526-960c-fcf57f8c7654/qti_8e150da4-d43c-48e6-a2b3-d390349ac2c1.xml
-  - [quiz] John Watson -> quiz/i501768e5-c5b3-41f8-b51c-b8252496e8a0/qti_8ce35bd8-5b0c-4f75-b329-b6b9904af3ad.xml
-  - [quiz] Maslow Quiz -> quiz/i434d8ae6-cc7e-4359-bce1-25e3b726fc41/qti_690213b2-b864-41e4-95b6-86c166372e0d.xml
-  - [quiz] Summary Quiz -> quiz/i0d5ff631-8395-4aa6-87bf-3df6670a149b/qti_35308917-7d8e-48e3-9721-e84b64a34c44.xml
-  - [assignment] Module 1 Assignment -> assignment/i35c34751-bccb-4b3d-9397-38e999db9d37/assignment_bddd34df-aad7-4686-87c2-afe50d637e15.xml
-  - [folder] A. The Goals of Psychology
-    - [html] What is Psychology -> сontent/if8c56d4e-6887-4c21-88b7-db26bcf9973e/Content/book_1817/chapter_15685.html
-    - [html] The Goals of Psychology -> сontent/ice9ba344-0483-4453-8525-bb7205e7a1b9/Content/book_1817/chapter_15686.html
-    - [html] How Psychology Gained Recognition -> сontent/iad377569-0a48-41a3-8af2-73a62ca4e0e2/Content/book_1817/chapter_15687.html
-  - [folder] History of Psychological Thought
-    - [html] Intro to Psych -> сontent/ifcccf2ae-93ce-4f7b-bf58-0ba8661dd5b8/Content/Lesson_678/page_5047.html
-    - [html] Intro to Psych Explore 2 -> сontent/i7eee87b9-3fc2-4956-9494-14c2ac012a64/Content/Lesson_678/page_5049.html
-    - [html] Intro to Psych Q2 -> сontent/i0a859291-8e2f-4be5-9fc8-3bfbd69e190d/Content/Lesson_678/page_5051.html
-    - [html] Intro to Psych Explore 3 -> сontent/if836c3a8-84ee-4d1c-93d6-fa8ac5c48e4d/Content/Lesson_678/page_5050.html
-    - [html] Intro to Psych Q3 -> сontent/ifedab996-4847-44b9-8916-dad11e905b1e/Content/Lesson_678/page_5052.html
-    - [html] Intro to Psych Explore 4 -> сontent/i6562341f-2e20-4aff-9e1d-6413746abe73/Content/Lesson_678/page_5057.html
-    - [html] Intro to Psych Q4 -> сontent/ibc81157b-ceeb-4f8f-9923-db26a59c8065/Content/Lesson_678/page_5054.html
-    - [html] Intro to Psych Explore 5 -> сontent/i8ac85b90-cc64-46c2-b193-e7240438dbc5/Content/Lesson_678/page_5053.html
-    - [html] Intro to Psych Q5 -> сontent/ia4221478-3584-4e25-a811-d17b7112d4a7/Content/Lesson_678/page_5056.html
-    - [html] Well Done! -> сontent/ia743dbe8-a922-4c46-9636-50824dc97595/Content/Lesson_678/page_5055.html
-  - [folder] B. World Renowned Psychologists
-    - [html] Sigmund Freud -> сontent/ie8bab335-d128-496f-8844-48726c6216ed/Content/book_1818/chapter_15689.html
-    - [html] Conscious, Unconscious & Preconscious -> сontent/i3934edc0-4c74-4e08-8954-b88f7bc86317/Content/book_1818/chapter_15690.html
-    - [html] Freud's Psychoanalysis Techniques -> сontent/i6596f8f8-b5b9-44e1-b834-7e6efec461fc/Content/book_1818/chapter_15691.html
-    - [html] Freud's Theory of Personality -> сontent/iea54fd1a-da3f-4419-8e52-f07622a74918/Content/book_1818/chapter_15692.html
-    - [html] Carl Jung & Sigmund Freud -> сontent/iab144d84-c2b0-44f7-b903-f74226b51ddb/Content/book_1818/chapter_15693.html
-    - [html] Jung's View of the Unconscious -> сontent/if8f19475-1938-4d7d-915c-dd951e96530f/Content/book_1818/chapter_15694.html
-    - [html] Extrovert & Introvert -> сontent/i99afef6e-d45b-45b4-99b2-6e1f58ad2557/Content/book_1818/chapter_15695.html
-    - [html] Behavioursim -> сontent/i8529d46b-628b-4a0a-8a60-d3a04c004f3a/Content/book_1818/chapter_15696.html
-    - [html] Behaviourism in More Detail -> сontent/ic91b775d-ef15-4a06-b8fa-72b19a128eb4/Content/book_1818/chapter_15697.html
-    - [html] John Watson -> сontent/id942d3d8-476d-421c-95fe-f056bbbaf9c2/Content/book_1818/chapter_15698.html
-    - [html] John Watson & Little Albert -> сontent/ia10824f9-5dc4-4216-84eb-fbbcb55c2919/Content/book_1818/chapter_15699.html
-    - [html] Humanism -> сontent/ic46da1cf-ddf6-43d1-8443-f96687496ea9/Content/book_1818/chapter_15700.html
-    - [html] Abraham Maslow & The Hierarchy of Needs -> сontent/ie54f91b8-798c-4f5e-bb16-541c55f73e92/Content/book_1818/chapter_15701.html
-    - [html] Self Actualization -> сontent/i1433f1ed-1e9e-4891-80ff-3f51d16e3233/Content/book_1818/chapter_15702.html
-    - [html] Summary Quiz -> сontent/iba2a84a5-650f-45ec-a682-60140eaf4832/Content/book_1818/chapter_15703.html
-    - [html] Freud & Psychotherapy -> сontent/ia614749f-3455-4f9b-805a-0c22d3e82716/Content/book_1818/chapter_15706.html
-    - [html] Freud Quiz -> сontent/i94f81a60-190b-4b73-bf26-bdf4d4e4656e/Content/book_1818/chapter_15707.html
-    - [html] Freud & Jung Quiz -> сontent/i10319019-9c45-4ca8-9101-b5ff5a0fb7c7/Content/book_1818/chapter_15708.html
-    - [html] Behaviourism Quiz -> сontent/i1dab161a-aa78-4c81-9991-a55e4fe09e47/Content/book_1818/chapter_15709.html
-    - [html] Humanism Quiz -> сontent/ia2b65a17-7829-4500-b74a-6f18b3d9c39c/Content/book_1818/chapter_15710.html
-- [module] 2. Principles of Learning
-  - [html] 2. Principles of Learning -> сontent/id9221749-5eab-4284-8bff-f9dbfda0d7b9/Content/section_3879.html
-  - [quiz] What is Learning? -> quiz/i8b0b2dbb-829f-49f8-8281-82049d7cbc10/qti_f36ac2b0-5f9a-4d04-9a9f-87ed6a512e4a.xml
-  - [quiz] Human Development Quiz -> quiz/icca5e23f-6462-45a6-a6ea-d8b56a628918/qti_652183dd-5352-4494-a1ed-3682d832ae7e.xml
-  - [quiz] Theories of Motivation Quiz -> quiz/ifd6456a9-f712-4f61-9993-24ce7afac6bb/qti_7f8bdfba-a47b-4c91-9df4-96dd6c7ed42b.xml
-  - [quiz] Reinforcement & Punishment Quiz -> quiz/i7ff3d84d-b8b6-4e37-b2ac-4abab33e3cbc/qti_6e60ac25-828c-4777-b5b3-21ff3b547fe4.xml
-  - [quiz] Conditioning Quiz -> quiz/i8664e9a8-e65e-4fb7-82d6-85e544ca791b/qti_a1d16d2b-171b-4719-b4bf-b1d7279f35a9.xml
-  - [assignment] Module 2 Assignment -> assignment/ie5c4d3b0-9f50-417e-b342-1e3f66fe4ff7/assignment_1b19b2ae-9359-4c11-8634-28b1acf550ca.xml
-  - [folder] A. What is Learning?
-    - [html] What Learning Is NOT -> сontent/i3a5212c7-23a1-4767-8885-788f77750375/Content/book_1822/chapter_15720.html
-    - [html] WHAT IS LEARNING? -> сontent/ia95eacb5-6cf6-4491-8606-f777e5f08986/Content/book_1822/chapter_15721.html
-    - [html] Perceptual Motor Learning -> сontent/ia867ebfa-4b88-401e-a29a-5c0c68ebd4b2/Content/book_1822/chapter_15722.html
-    - [html] Affective Learning -> сontent/i3bba53a8-f716-4a25-8a39-37d3ce5f8fe1/Content/book_1822/chapter_15723.html
-    - [html] Cognitive Learning -> сontent/ibeb8acf6-a9dc-4956-8d27-3db1dceebbc1/Content/book_1822/chapter_15724.html
-    - [html] How A  Learner is Created -> сontent/ib7dd7740-18c9-4178-abd7-955d4c617788/Content/book_1822/chapter_15725.html
-    - [html] Self Concept -> сontent/icf25a4d4-ac96-4cfa-9b7b-cfd892f80ed8/Content/book_1822/chapter_15726.html
-    - [html] Motivation -> сontent/i924e8dad-d179-47a3-8042-0199622851f7/Content/book_1822/chapter_15727.html
-    - [html] Attitudes & Learning -> сontent/iff8040c5-1bf8-44df-a0f6-34385352764c/Content/book_1822/chapter_15728.html
-    - [html] How Humans Learn -> сontent/i94ccc659-4aec-4fa9-b759-e92b4641a91c/Content/book_1822/chapter_15729.html
-    - [html] What is Learning Quiz -> сontent/i30bf94cf-3fec-4ef9-862e-709780d4ccb9/Content/book_1822/chapter_15730.html
-    - [html] Theories of Motivation -> сontent/i3e289313-e37c-4a7f-80b9-b1f2e746df55/Content/book_1822/chapter_15731.html
-    - [html] Theories of Motivation Quiz -> сontent/ibe353eb3-9fe7-4c25-b5ed-d08669181c2b/Content/book_1822/chapter_15732.html
-  - [folder] B. Human Development
-    - [html] Human Devlopment and Learning -> сontent/i9eef53fe-7e25-47b1-a79d-28fc1d2da31d/Content/book_1823/chapter_15734.html
-    - [html] Maturation -> сontent/i26c8ca16-8f0e-4eec-bc1a-3f4bdc1afad9/Content/book_1823/chapter_15735.html
-    - [html] Jean Piaget -> сontent/i0d17d88c-1d71-4e58-a666-36a555f5bd07/Content/book_1823/chapter_15736.html
-    - [html] The Principles of Concept Formation -> сontent/ic38318b8-d55b-4f1a-93e2-fe85a31ae139/Content/book_1823/chapter_15737.html
-    - [html] Piaget's Stages of Concept Formation -> сontent/i79a0b554-964f-424e-ac8f-7a2ce474b37c/Content/book_1823/chapter_15738.html
-    - [html] Stage One - Sensorimotor- Birth to 18 months -> сontent/i89c66765-8128-4b4d-aed6-07e616980374/Content/book_1823/chapter_15739.html
-    - [html] Stage Two - Preoperational– 18 months to 7 years -> сontent/iee07aca7-3184-4d03-9236-9080ad0b37da/Content/book_1823/chapter_15740.html
-    - [html] Stage Three - Concrete Operational– 7 years to 11 years -> сontent/id838f93e-0c74-409b-8d13-610243dd1b01/Content/book_1823/chapter_15741.html
-    - [html] Stage Four -  Formal Operational– 11 years to 15 years -> сontent/i9d2665f3-7383-4f63-8d5b-08077c885450/Content/book_1823/chapter_15742.html
-    - [html] Human Development Quiz -> сontent/ia50ce38f-e816-41ce-b761-60d7b05a261a/Content/book_1823/chapter_15743.html
-  - [folder] C. Conditioning
-    - [html] Classical Conditioning -> сontent/i7e09daa7-ee06-44c8-8316-a14893ebdddc/Content/book_1824/chapter_15744.html
-    - [html] Conditioning -> сontent/i43fcedbe-2409-4459-bab0-6b238d6b2d59/Content/book_1824/chapter_15745.html
-    - [html] Pavlov's Experiment -> сontent/ic7ae907a-7388-4417-9a31-1c57f244c4c0/Content/book_1824/chapter_15746.html
-    - [html] Counter Conditioning -> сontent/i3d176437-69ae-465e-8941-b0d688df9e78/Content/book_1824/chapter_15747.html
-    - [html] Behaviour Extinction -> сontent/i7f439a89-2ba2-4870-9f99-9d10a0bdeadf/Content/book_1824/chapter_15748.html
-    - [html] Spontaneous Recovery -> сontent/ia17961ea-fff5-4431-ab86-a9556d620eac/Content/book_1824/chapter_15749.html
-    - [html] Generalization -> сontent/i26e887db-e3ec-4fee-921b-e531ba1bfda5/Content/book_1824/chapter_15750.html
-    - [html] Operant Conditioning -> сontent/i106e74b7-9709-4432-9ead-1c1a5e6006b9/Content/book_1824/chapter_15751.html
-    - [html] Classical vs. Operant Conditioning -> сontent/ie6c83556-f2b1-4004-a506-388098bb24f3/Content/book_1824/chapter_15752.html
-    - [html] How to Train Your Brain -> сontent/i1a2d3b59-8f00-4b9a-8b1a-36b628dad82d/Content/book_1824/chapter_15753.html
-    - [html] Cognitive, Behavioural and Social Learning -> сontent/i4237b344-c1e3-437e-86ce-8f0412937156/Content/book_1824/chapter_15754.html
-    - [html] Reinforcement -> сontent/ibb16e02f-2537-41d7-9928-bf4bf59946f6/Content/book_1824/chapter_15755.html
-    - [html] Reinforcement Schedules -> сontent/i1993f163-8cf0-4122-b1f8-5691fc43fd12/Content/book_1824/chapter_15756.html
-    - [html] Primary & Secondary Reinforcement -> сontent/ie8e35cd9-2174-4cb0-95c3-d8e88fab6b0a/Content/book_1824/chapter_15757.html
-    - [html] Differences between Rewards and Punishments -> сontent/idf6c1c13-02dc-4ac7-a2b4-1829162b8e8e/Content/book_1824/chapter_15758.html
-    - [html] Reinforcement & Punishment Quiz -> сontent/i5c9a31d2-0d3c-40de-a17f-dc1787936e8d/Content/book_1824/chapter_15759.html
-    - [html] Conditioning Quiz -> сontent/iebe057a2-7b2d-4e2c-b23b-0cf775c34f20/Content/book_1824/chapter_15760.html
-    - [html] Written Response (Principles of Learning) -> сontent/ia46b018e-a381-45d7-b3fc-13808601f345/Content/book_1824/chapter_15761.html
-- [module] 3. The Process of Learning
-  - [html] 3. The Process of Learning -> сontent/i8e169daa-3548-466a-ab40-f8a7b2c463f7/Content/section_3880.html
-  - [quiz] Memory Quiz -> quiz/i6e3cb9f4-67ef-4ef7-b10b-7c42a44191d6/qti_8e4a39dd-844c-4aab-8730-5bcf2a60f9e7.xml
-  - [quiz] Remembering & Forgetting Quiz -> quiz/i73af67f7-6372-497f-aa91-abb43c76e61d/qti_4b43d5a5-2eed-4183-a836-b9bad2a26895.xml
-  - [quiz] Learning Techniques (Matching) -> quiz/i3e15bc0d-bf71-47c7-8fd4-0b8e191d838f/qti_0f0144b3-4c45-4581-972f-95c85c0c6d57.xml
-  - [quiz] Lesson Three Challenge - PART C - Matching -> quiz/i98d34107-e3d3-4ca3-832e-97198902b6b7/qti_b618ded2-d2a3-4c6d-b2e3-2d4673a0b5f0.xml
-  - [assignment] Module 3 Assignment -> assignment/ic66ac66c-ba7c-46dc-a82f-39a1a99e4fd6/assignment_36409f0c-d07c-4fff-9d09-531334069368.xml
-  - [folder] A. Memories
-    - [html] Habits - Retrain the Brain -> сontent/if400e2ad-f304-4d10-8b40-9a7f39248816/Content/book_1826/chapter_15768.html
-    - [html] Accessing Memory: Mind Palace -> сontent/ie8edae9f-d27f-42ed-9e0c-6f12001824a7/Content/book_1826/chapter_15769.html
-    - [html] Encoding STM (Short Term Memory) -> сontent/i3061cf93-b629-43f3-8f2c-6f12747d8fc7/Content/book_1826/chapter_15770.html
-    - [html] What is Memory? -> сontent/ie8340359-fec7-4cf2-92f8-ef1c6e7e5f58/Content/book_1826/chapter_15771.html
-    - [html] Capacity in Long Term Memory -> сontent/i617b3731-06b5-4ea3-acb1-00caca66aaf1/Content/book_1826/chapter_15772.html
-    - [html] Multi-sensory Model - Atkinson and Shiffrin (1968) -> сontent/ia3b207f7-7d29-404c-8939-7d481b3a47bf/Content/book_1826/chapter_15773.html
-    - [html] Forgetting in STM -> сontent/id72f9987-e3a9-44e3-afa5-6cc30f382593/Content/book_1826/chapter_15774.html
-    - [html] Reconstructing Memory: Eyewitness Testimony -> сontent/ib28a77d9-6685-4d48-bada-5b73b87333a2/Content/book_1826/chapter_15775.html
-    - [html] The brain and memory -> сontent/i6977ca0c-cb86-487c-a5c6-e0e3dd48968d/Content/book_1826/chapter_15776.html
-    - [html] Understanding Memory -> сontent/i81ab8e87-20ed-4cdd-ac1a-660dcc96f3b7/Content/book_1826/chapter_15777.html
-    - [html] Repetition, Stimulus and Patterns -> сontent/i9578f26a-eb42-435b-84a5-5e1b2f5b4192/Content/book_1826/chapter_15778.html
-    - [html] Remembering & Forgetting -> сontent/icb8047bf-7077-438c-b3f7-0b5cc1a10d2b/Content/book_1826/chapter_15779.html
-    - [html] THE LEARNING CURVE AND PLATEAUS -> сontent/i66617c3d-6af5-426d-a10a-79ce69e9a8ed/Content/book_1826/chapter_15780.html
-    - [html] How We Make Memories -> сontent/i288aa2ce-b658-47a3-9195-0b075c7043eb/Content/book_1826/chapter_15781.html
-    - [html] Remembering- Efficiency Principles -> сontent/id109ecc6-4cae-4c83-bba6-5a845897effa/Content/book_1826/chapter_15782.html
-    - [html] How We Make Memories Quiz -> сontent/ie5a511c7-0953-4979-ac5b-277e21fa4dd3/Content/book_1826/chapter_15783.html
-    - [html] Remembering and Forgetting Quiz -> сontent/i9badf908-718d-4609-8a6c-66f0ab3e51b7/Content/book_1826/chapter_15784.html
-  - [folder] B. Learning Techniques
-    - [html] Transfer -> сontent/i49762084-d7b9-4d1f-b727-0851da507b9b/Content/book_1827/chapter_15785.html
-    - [html] Overlearning -> сontent/i6966c603-52eb-424f-b995-8c35ab813924/Content/book_1827/chapter_15786.html
-    - [html] Massed Practice -> сontent/ia833bd31-d5be-4b4b-999b-a473a9877e1c/Content/book_1827/chapter_15787.html
-    - [html] Distributed Practice -> сontent/icb87888e-5908-47f4-8110-92a2e10f4da2/Content/book_1827/chapter_15788.html
-    - [html] Serial Learning -> сontent/i0d81593a-83fc-4870-9149-36b9b3efe804/Content/book_1827/chapter_15789.html
-    - [html] Mnemonic Devices -> сontent/i75919fbe-7037-4aac-adee-635a091f7999/Content/book_1827/chapter_15790.html
-    - [html] Latent Learning -> сontent/ifeb6b6ea-35a4-4bb9-b4a1-83c3f2dac693/Content/book_1827/chapter_15791.html
-    - [html] Learning Through Insight -> сontent/i1e869385-fb7c-4978-8980-20e8b6f8b3d6/Content/book_1827/chapter_15792.html
-    - [html] Trial & Error Learning -> сontent/i86b2f423-7131-415a-b7d4-8b20ea52437f/Content/book_1827/chapter_15793.html
-    - [html] Natural Association -> сontent/ic9fdef55-44a4-4e59-a2c0-187675b08226/Content/book_1827/chapter_15794.html
-    - [html] Intensity -> сontent/id99abe89-2103-4950-9108-810d9c171554/Content/book_1827/chapter_15795.html
-    - [html] Learning Techniques Quiz -> сontent/i43806e6f-b8dd-449a-a55d-ca8f938e7733/Content/book_1827/chapter_15796.html
-    - [html] The Process of Learning -> сontent/i111ee360-5de2-49f6-a485-72f166e47494/Content/book_1827/chapter_15797.html
-    - [html] The Learning Curve & Plateaus -> сontent/if47c760e-77f6-4bd1-b300-fb0de4840991/Content/book_1827/chapter_15798.html
-- [module] 4. The Process of Thinking
-  - [html] 4. The Process of Thinking -> сontent/i4b9ac637-477e-4274-ad96-1a746696ee79/Content/section_3881.html
-  - [quiz] Language & Reasoning Quiz -> quiz/i1ef8b09e-007e-4212-9aa7-de2b12e127cd/qti_fda57b48-3f70-4be8-a160-dece447a62d8.xml
-  - [quiz] Cognition Quiz -> quiz/i350df011-860d-490b-b69a-479b1d7645be/qti_e0bb89fd-cd50-454b-bc9b-ccac65de3ed0.xml
-  - [assignment] Module 4 Assignment -> assignment/ia7a1848c-b071-47da-88c1-5399fabfbffd/assignment_1ad6cd49-c31b-4874-b6a6-9fb365fd2ee1.xml
-  - [folder] A. The Process of Thinking
-    - [html] Language & Symbols -> сontent/i7eb7a8ad-9537-4a06-a6e1-bd4245ea2e03/Content/book_1829/chapter_15804.html
-    - [html] Cognition -> сontent/i4b5a7af7-38d7-4185-ac45-14465b19abe4/Content/book_1829/chapter_15805.html
-    - [html] Concepts & Prototypes -> сontent/i06e38013-5465-4c61-b7c3-38c6120127bc/Content/book_1829/chapter_15806.html
-    - [html] Thinking & Cognition -> сontent/i73d32274-adf4-4b44-b54c-165326a5bb49/Content/book_1829/chapter_15807.html
-    - [html] Critical or Creative Thinking -> сontent/i20bd7fef-8dbf-437b-bf65-0ffc935f0b0e/Content/book_1829/chapter_15808.html
-    - [html] Uncritical Thinking -> сontent/ibb548a84-c73c-4361-aa0c-4cce4e91555b/Content/book_1829/chapter_15809.html
-    - [html] Reasoning -> сontent/i6b0a9d4d-a365-45c8-8e37-5e2dff03a5b2/Content/book_1829/chapter_15810.html
-    - [html] Brains and Computers -> сontent/i15c1c2a9-d87d-4aea-bbe2-14462307dfcf/Content/book_1829/chapter_15811.html
-    - [html] Written Response -> сontent/i22f91fee-0146-4167-8605-d37a1d3fb07d/Content/book_1829/chapter_15812.html
-    - [html] Imagining -> сontent/i275db93b-b341-409d-9a1d-dff57314348c/Content/book_1829/chapter_15813.html
-    - [html] Mental Sets -> сontent/i5da41a7a-3d07-4e7c-aa3f-abe6752d1ae1/Content/book_1829/chapter_15814.html
-    - [html] Problem Solving -> сontent/iba60f7b0-b3ce-4d15-8c67-9d09aaddc675/Content/book_1829/chapter_15815.html
-    - [html] Cognition Quiz -> сontent/i86417f0f-85cc-4866-9763-548c153c5870/Content/book_1829/chapter_15816.html
-    - [html] Languages & Reasoning Quiz -> сontent/i299b7bc7-a4e2-4249-a706-cc39b70afbdb/Content/book_1829/chapter_15817.html
-- [module] 5. Facing Frustration and Conflict
-  - [html] 5. Facing Frustration and Conflict -> сontent/i3ea4a29a-1c41-44d1-8cd3-ed3300f044f8/Content/section_3882.html
-  - [quiz] What is Stress Quiz -> quiz/i85daa9c6-3216-4f7b-86e7-de963c1b46ec/qti_4cc3bf0a-5c7f-41c0-b6d3-4f7884dfbc26.xml
-  - [quiz] Aggression and Conflict Quiz -> quiz/i64b0098f-0b5b-489f-8c76-28094ce181d3/qti_58bc024d-8619-4d3d-a51f-1dc9d680f56f.xml
-  - [quiz] Defense Mechanisms Quiz -> quiz/i326c63c5-ee2c-4259-bbd6-b5e59d3dce1f/qti_964860bc-8f84-429b-bfb0-c8f7806106ba.xml
-  - [assignment] Module 5 Assignment -> assignment/i40f53e93-0d09-478e-83f7-a80416973dc9/assignment_9a36584d-0ccb-4d48-91d6-5a589a8dbc00.xml
-  - [folder] A. Stress
-    - [html] What is stress? -> сontent/i7c264758-6f29-4e9a-81b8-5e884e2c6072/Content/book_1831/chapter_15819.html
-    - [html] Causes of Stress -> сontent/ibade154c-ed86-4330-a354-c036f934582d/Content/book_1831/chapter_15820.html
-    - [html] Interventions -> сontent/i3fa5cbd0-08db-46d9-93ab-9ce0d4f9ca5c/Content/book_1831/chapter_15821.html
-    - [html] Dealing With Difficult People -> сontent/i1ef697e3-8636-46e9-b98c-6afd63210e25/Content/book_1831/chapter_15822.html
-    - [html] Dealing with Emotionally Powerful  Forces -> сontent/i59126560-341d-4fd5-a60b-73235244bbd1/Content/book_1831/chapter_15823.html
-    - [html] Frustration -> сontent/i7c3c3237-63d2-41cb-894b-3329d0134213/Content/book_1831/chapter_15824.html
-    - [html] Conflicting Situations -> сontent/i9e89a29d-4267-44fc-b07b-a58dc98daf7d/Content/book_1831/chapter_15825.html
-    - [html] Developing Mental Strengths -> сontent/i94cb6f38-b602-4cf1-bac8-02f5bd5f8190/Content/book_1831/chapter_15826.html
-    - [html] Emotion, Stress & Health -> сontent/i1e032ef4-8426-4a85-8aa3-e86c03dccda6/Content/book_1831/chapter_15827.html
-    - [html] Aggression vs. Altruism -> сontent/i9540d4c1-5fab-49d9-a815-a5ac8cb387e0/Content/book_1831/chapter_15828.html
-    - [html] What is Stress Quiz -> сontent/i31b31ca4-e933-485b-80fc-f78d548488fc/Content/book_1831/chapter_15829.html
-    - [html] Aggression, Altruism and Conflict Quiz -> сontent/i590a9938-0221-4af5-b0f3-c5c957e90800/Content/book_1831/chapter_15830.html
-  - [folder] B. Defense Mechanisms
-    - [html] What are Defense Mechanisms -> сontent/i4b92c1f4-087c-438b-ad2b-bdacada5d382/Content/book_1832/chapter_15831.html
-    - [html] Repression, Denial and Amnesia -> сontent/ic498b205-4920-43b7-9381-50daa9475a1c/Content/book_1832/chapter_15832.html
-    - [html] Suppression -> сontent/i9448da21-a224-4592-8cbe-c26707eedbb5/Content/book_1832/chapter_15833.html
-    - [html] Reaction Formation -> сontent/i1f3113ab-8a6a-4548-a26b-db9f7117471a/Content/book_1832/chapter_15834.html
-    - [html] Compensation, Overcompensation and Sublimation -> сontent/i6fba0280-76c7-4cd0-9680-ab4ad506a744/Content/book_1832/chapter_15835.html
-    - [html] Projection, Introjection & Identification -> сontent/icf84896a-36bd-4fd7-b812-ba7f1bb22282/Content/book_1832/chapter_15836.html
-    - [html] Procrastination -> сontent/i02915cc3-0f9a-42ea-ac40-e77a9dbd7622/Content/book_1832/chapter_15837.html
-    - [html] Displaced Aggression -> сontent/i274abd36-c972-481d-881c-354a22ebb64c/Content/book_1832/chapter_15838.html
-    - [html] Rationalization -> сontent/i4d349cbe-0f07-445e-93a0-6dbdeb67fa9d/Content/book_1832/chapter_15839.html
-    - [html] Regression -> сontent/i211ce948-3881-437d-945a-6b17d56787f0/Content/book_1832/chapter_15840.html
-    - [html] Aspects of Defense Mechanisms -> сontent/ifa6a741a-f074-4783-84de-1a406229f24b/Content/book_1832/chapter_15841.html
-    - [html] Defense Mechanisms Quiz -> сontent/ic874ab95-7474-4487-9c02-d0a01191692d/Content/book_1832/chapter_15842.html
-    - [html] Module 5 Assignment -> сontent/i1882adcb-f694-4805-9e72-7e01f127bb69/Content/book_1832/chapter_15843.html
-- [module] 6. Adolescents
-  - [html] 6. Adolescents -> сontent/ibaafde16-524d-4bcb-9f56-b329de76eb07/Content/section_3883.html
-  - [quiz] Erikson's Psychosocial Development Quiz -> quiz/ia2c70871-3af0-49f7-93fe-a95202ccc243/qti_61c21422-f8ab-4807-b309-b564cbea9e32.xml
-  - [assignment] Module 6 Assignment -> assignment/i92fe2c21-169f-45a0-9b4a-5e10c5e59358/assignment_59e5fdeb-aebf-4dd9-9462-69b5068af915.xml
-  - [folder] A. Adolescents
-    - [html] Conformity -> сontent/i6986cb57-b439-494d-98a9-86785c5411e3/Content/book_1833/chapter_15844.html
-    - [html] Conformity: Studies -> сontent/i5baac0bf-8ac4-45f2-907c-58508f3848cd/Content/book_1833/chapter_15845.html
-    - [html] Obedience -> сontent/i909e61ee-e71d-444d-aca3-ec2a21654209/Content/book_1833/chapter_15846.html
-    - [html] Obedience: Studies -> сontent/i88faaafa-d729-4416-8795-0cbdf6c8642c/Content/book_1833/chapter_15847.html
-    - [html] Adolescence -> сontent/id7ebaf0d-5d56-473e-86c7-d14fd62e6e03/Content/book_1833/chapter_15848.html
-    - [html] Suicide -> сontent/i1a7fbf7b-13e6-4147-8125-d53d6fabf5ab/Content/book_1833/chapter_15849.html
-    - [html] HOW CHILDREN DEAL WITH DEATH -> сontent/i73e4ef3d-ec7b-4597-919a-d63c43ff8ead/Content/book_1833/chapter_15850.html
-    - [html] Adolescent Issues -> сontent/ib1dad7b4-e50d-40ee-93ca-3cd711734d25/Content/book_1833/chapter_15851.html
-    - [html] Roles -> сontent/if868ca48-6371-4650-ba15-44eab3ec729b/Content/book_1833/chapter_15852.html
-    - [html] Written Response -> сontent/i8cb8ff8d-7183-406e-bb6f-38dbfbdc641c/Content/book_1833/chapter_15853.html
-    - [html] Basic Factors -> сontent/i8f234722-9e74-4e68-863d-49e990e629f2/Content/book_1833/chapter_15854.html
-    - [html] Gender -> сontent/ie5ad378c-2699-40ec-bc10-f336a57e726a/Content/book_1833/chapter_15855.html
-    - [html] Age -> сontent/if753b461-c094-4234-907f-01fc147f315c/Content/book_1833/chapter_15856.html
-    - [html] Kinship & Common Residency -> сontent/i1a1d0c66-ece0-4bca-8d42-0fb7f347f190/Content/book_1833/chapter_15857.html
-    - [html] Androgyny -> сontent/i048f95d8-20b7-4d59-a6df-f3eb69c4ef81/Content/book_1833/chapter_15858.html
-    - [html] Ascribed vs. Achieved Roles -> сontent/i33c0c06c-d797-429b-bc43-0de719dc7241/Content/book_1833/chapter_15859.html
-    - [html] Gender Identity -> сontent/iccc92d02-e65c-4c4d-9ce1-e96431a21a5a/Content/book_1833/chapter_15860.html
-    - [html] Role Conflict & Changes -> сontent/i5b8aac46-2a0f-437e-9978-7a57a1c4e4ae/Content/book_1833/chapter_15861.html
-    - [html] How Important is the Group? -> сontent/ib8a0caa0-ddbc-4b8c-a6c0-0091a99f93db/Content/book_1833/chapter_15862.html
-    - [html] Social Thinking -> сontent/ib13d4663-6098-432d-91e0-0e1a3307e3a1/Content/book_1833/chapter_15863.html
-    - [html] Social Influences -> сontent/id429810d-5688-478e-9446-8aebda7a49cc/Content/book_1833/chapter_15864.html
-    - [html] Erikson's Stages of Psychosocial Development -> сontent/i840ec05f-6252-47b0-9dca-a76018d48614/Content/book_1833/chapter_15865.html
-    - [html] Stages in Emerging Adulthood (Adolescence) -> сontent/ib8b35448-c632-40e7-8eb5-6016676bb186/Content/book_1833/chapter_15866.html
-    - [html] Group Classification -> сontent/i85d5d810-2b73-4b7a-83ea-1b189bebd885/Content/book_1833/chapter_15867.html
-    - [html] Group Dynamics -> сontent/i119336e1-cf48-42ec-910e-d9cf1c35b4a8/Content/book_1833/chapter_15868.html
-    - [html] Stages in Childhood -> сontent/ibe24e08a-d718-4256-b993-e3fb632d5efc/Content/book_1833/chapter_15869.html
-    - [html] Stages in Adulthood -> сontent/i5bd2a960-642e-4f5a-8b7b-1ea9bb841963/Content/book_1833/chapter_15870.html
-    - [html] Erikson's Psychosocial Development Quiz -> сontent/i65a75f2a-0c8c-4f23-8eb0-d00dd3219771/Content/book_1833/chapter_15871.html
-    - [html] Written Response -> сontent/ibdd8c057-9461-4beb-8471-2b3a657e4e8f/Content/book_1833/chapter_15872.html
-    - [html] Module 6 Assignment -> сontent/i57d0d83e-518a-42ed-9389-c88766db3fa9/Content/book_1833/chapter_16339.html
-- [module] 7. Behaviour Disorders and Their Treatment
-  - [html] 7. Behaviour Disorders and Their Treatment -> сontent/ie5e7b430-3839-4007-8ed1-8638d34f6d8f/Content/section_3884.html
-  - [quiz] Introduction to Behaviour Disorders and Their Treatment Quiz -> quiz/i882c2bc8-d57c-47f1-b87c-68de6dfe767f/qti_a091561b-1806-4f0b-9e6b-8834a56bff1e.xml
-  - [quiz] Abnormalities Quiz -> quiz/ice3d456d-64e2-42b9-8185-4fbb01f38a98/qti_cf27c55f-44a5-46e7-9b42-9317af07f67b.xml
-  - [quiz] Identifying Behaviour Disorders Quiz -> quiz/i9b9dcb31-66ba-4e05-a157-c939b6413cff/qti_95a61ff6-5b73-4adf-a411-faa2b4bbd301.xml
-  - [quiz] Treatment Quiz -> quiz/i84861de9-28be-450f-912c-a18fa806abc7/qti_aa4e4b84-471b-4f8e-942a-333f7a1ff701.xml
-  - [assignment] Module 7 Assignment -> assignment/i4b946f79-671a-4d2a-9abf-3d1a2ba6d6b2/assignment_2f3ecd5d-7eda-4757-b569-aae67f2e3282.xml
-  - [folder] A. Behaviour Disorders and Their Treatment
-    - [html] Introduction to Behaviour Disorders and Their Treatment -> сontent/ib51a8fa6-701d-491a-b54e-e289b9ef31ce/Content/book_1834/chapter_15873.html
-    - [html] Introduction to Behaviour Disorders and Treatments -> сontent/i40deabe0-35eb-4f78-b01c-d8c5c888263a/Content/book_1834/chapter_15874.html
-    - [html] Introduction to Behaviour Disorders and Thier Treatment Quiz -> сontent/i36abdaff-e4bc-4110-a79c-ad4cdaece07b/Content/book_1834/chapter_15875.html
-    - [html] Abnormalities -> сontent/id355d130-a90d-4aaf-a4cf-e167495e273b/Content/book_1834/chapter_15876.html
-    - [html] Abnormalities Quiz -> сontent/i8f513a29-f032-4da5-a445-c98fe1ebe1b1/Content/book_1834/chapter_15877.html
-  - [folder] B. Looking into Specific Behaviour Disorders and Their Treatments
-    - [html] Defining Anxiety and OCD -> сontent/i421a7b05-3bea-4f79-9dd0-cb656008b90e/Content/book_1835/chapter_15878.html
-    - [html] Anxiety and OCD -> сontent/ie80d94be-c6db-4cb3-a0ff-c1848e77b983/Content/book_1835/chapter_15879.html
-    - [html] Depression and Bipolar -> сontent/i0c71ede4-069f-47d2-a454-160efee5b236/Content/book_1835/chapter_15880.html
-    - [html] Depression and Bipolar -> сontent/i34eac780-8afd-4570-9b69-57d5e8c474a2/Content/book_1835/chapter_15881.html
-    - [html] Eating Disorders -> сontent/icd8717f7-a79e-4373-a875-67b1cad3328c/Content/book_1835/chapter_15882.html
-    - [html] Eating Disorders -> сontent/i5b18aded-290f-4199-a277-54f983aad9ce/Content/book_1835/chapter_15883.html
-    - [html] Personality Disorders -> сontent/i2cfead01-5771-45e6-b416-95428d6c17bc/Content/book_1835/chapter_15884.html
-    - [html] Personality Disorders -> сontent/i2971e30d-8919-4a20-9df9-9f4353d45961/Content/book_1835/chapter_15885.html
-    - [html] Psychosis -> сontent/i3f0f8806-2289-4723-b3ad-67211fc5a686/Content/book_1835/chapter_15886.html
-    - [html] Functional Psychosis -> сontent/idbca8e45-ebd5-486e-99d9-6c077b8df785/Content/book_1835/chapter_15887.html
-    - [html] Organic Psychosis -> сontent/ica01053c-744e-4dde-b8e6-0477ea8a0704/Content/book_1835/chapter_15888.html
-    - [html] Identifying Behaviour Disorders Quiz -> сontent/id982e81d-c4fc-45ea-aad5-9fcad88588bc/Content/book_1835/chapter_15889.html
-  - [folder] C. Treatment
-    - [html] Biomedical Treatment -> сontent/i5366ae9e-87e4-4e2e-bf27-3971a9f0c543/Content/book_1836/chapter_15890.html
-    - [html] Biomedical Treatment -> сontent/i1be18293-b02c-4468-afc8-d41a08d7fd83/Content/book_1836/chapter_15891.html
-    - [html] Psychotherapy -> сontent/i0c64415b-b962-4ec8-bf9f-9e617777c12b/Content/book_1836/chapter_15892.html
-    - [html] Psychotherapy -> сontent/ic8226c44-0f4e-4a24-987d-82d45f55e013/Content/book_1836/chapter_15893.html
-    - [html] Treatment Quiz -> сontent/i68ac674b-0232-4304-947f-6aeff5f4e501/Content/book_1836/chapter_15894.html
-    - [html] Module 7 Assignment -> сontent/i439301dd-6f49-443f-a265-352d1dacf56a/Content/book_1836/chapter_16340.html
-- [module] 8. Career Opportunities in Psychology
-  - [html] 8. Career Opportunities in Psychology -> сontent/id601a2e4-05d7-40a5-9812-15fa73d09ccf/Content/section_3885.html
-  - [assignment] Module 8 Assignment -> assignment/iab720cb7-113b-45a1-97dc-425d37b266b2/assignment_65dfbc5e-637c-468f-aadc-3fcc1c91885b.xml
-  - [folder] A. Career Opportunities in Psychology
-    - [html] Career Opportunities in Psychology -> сontent/i88dd4602-2e99-488c-bb7f-e5200f2775f2/Content/book_1837/chapter_15895.html
-    - [html] Psychology Careers Assignment -> сontent/i7ec47597-28b5-4a1c-b990-9b0d66470628/Content/book_1837/chapter_16341.html
-  - [folder] Lesson: Career Opportunities in Psychology
-    - [html] Psychologist: Career Profile -> сontent/ic39d2510-84f2-4a6a-9951-e2325784ed4e/Content/Lesson_683/page_5091.html
-    - [html] Criminal Psychologist -> сontent/i69540a89-fb5d-447f-be2e-73038977e5f4/Content/Lesson_683/page_5092.html
-    - [html] Careers -> сontent/iea451f58-5d50-4f58-9b12-7a82f1340e3e/Content/Lesson_683/page_5093.html
-- [module] Final Project
-  - [pdf] General Psychology 20 Final Project -> сontent/i50d4bd64-07ce-43a2-805a-51fad17ec161/Content/General Psychology 20 Final Project .pdf
+- 1. History of Psychological Schools of Thought [html]
+- Freud [quiz]
+- Freud & Jung [quiz]
+- John Watson [quiz]
+- Maslow Quiz [quiz]
+- Summary Quiz [quiz]
+- Module 1 Assignment [assignment]
+- A. The Goals of Psychology -> What is Psychology [html]
+- A. The Goals of Psychology -> The Goals of Psychology [html]
+- A. The Goals of Psychology -> How Psychology Gained Recognition [html]
+- History of Psychological Thought -> Intro to Psych [html]
+- History of Psychological Thought -> Intro to Psych Explore 2 [html]
+- History of Psychological Thought -> Intro to Psych Q2 [html]
+- History of Psychological Thought -> Intro to Psych Explore 3 [html]
+- History of Psychological Thought -> Intro to Psych Q3 [html]
+- History of Psychological Thought -> Intro to Psych Explore 4 [html]
+- History of Psychological Thought -> Intro to Psych Q4 [html]
+- History of Psychological Thought -> Intro to Psych Explore 5 [html]
+- History of Psychological Thought -> Intro to Psych Q5 [html]
+- History of Psychological Thought -> Well Done! [html]
+- B. World Renowned Psychologists -> Sigmund Freud [html]
+- B. World Renowned Psychologists -> Conscious, Unconscious & Preconscious [html]
+- B. World Renowned Psychologists -> Freud's Psychoanalysis Techniques [html]
+- B. World Renowned Psychologists -> Freud's Theory of Personality [html]
+- B. World Renowned Psychologists -> Carl Jung & Sigmund Freud [html]
+- B. World Renowned Psychologists -> Jung's View of the Unconscious [html]
+- B. World Renowned Psychologists -> Extrovert & Introvert [html]
+- B. World Renowned Psychologists -> Behavioursim [html]
+- B. World Renowned Psychologists -> Behaviourism in More Detail [html]
+- B. World Renowned Psychologists -> John Watson [html]
+- B. World Renowned Psychologists -> John Watson & Little Albert [html]
+- B. World Renowned Psychologists -> Humanism [html]
+- B. World Renowned Psychologists -> Abraham Maslow & The Hierarchy of Needs [html]
+- B. World Renowned Psychologists -> Self Actualization [html]
+- B. World Renowned Psychologists -> Summary Quiz [html]
+- B. World Renowned Psychologists -> Freud & Psychotherapy [html]
+- B. World Renowned Psychologists -> Freud Quiz [html]
+- B. World Renowned Psychologists -> Freud & Jung Quiz [html]
+- B. World Renowned Psychologists -> Behaviourism Quiz [html]
+- B. World Renowned Psychologists -> Humanism Quiz [html]
+
+## 2. 2. Principles of Learning
+
+- 2. Principles of Learning [html]
+- What is Learning? [quiz]
+- Human Development Quiz [quiz]
+- Theories of Motivation Quiz [quiz]
+- Reinforcement & Punishment Quiz [quiz]
+- Conditioning Quiz [quiz]
+- Module 2 Assignment [assignment]
+- A. What is Learning? -> What Learning Is NOT [html]
+- A. What is Learning? -> WHAT IS LEARNING? [html]
+- A. What is Learning? -> Perceptual Motor Learning [html]
+- A. What is Learning? -> Affective Learning [html]
+- A. What is Learning? -> Cognitive Learning [html]
+- A. What is Learning? -> How A Learner is Created [html]
+- A. What is Learning? -> Self Concept [html]
+- A. What is Learning? -> Motivation [html]
+- A. What is Learning? -> Attitudes & Learning [html]
+- A. What is Learning? -> How Humans Learn [html]
+- A. What is Learning? -> What is Learning Quiz [html]
+- A. What is Learning? -> Theories of Motivation [html]
+- A. What is Learning? -> Theories of Motivation Quiz [html]
+- B. Human Development -> Human Devlopment and Learning [html]
+- B. Human Development -> Maturation [html]
+- B. Human Development -> Jean Piaget [html]
+- B. Human Development -> The Principles of Concept Formation [html]
+- B. Human Development -> Piaget's Stages of Concept Formation [html]
+- B. Human Development -> Stage One - Sensorimotor- Birth to 18 months [html]
+- B. Human Development -> Stage Two - Preoperational– 18 months to 7 years [html]
+- B. Human Development -> Stage Three - Concrete Operational– 7 years to 11 years [html]
+- B. Human Development -> Stage Four - Formal Operational– 11 years to 15 years [html]
+- B. Human Development -> Human Development Quiz [html]
+- C. Conditioning -> Classical Conditioning [html]
+- C. Conditioning -> Conditioning [html]
+- C. Conditioning -> Pavlov's Experiment [html]
+- C. Conditioning -> Counter Conditioning [html]
+- C. Conditioning -> Behaviour Extinction [html]
+- C. Conditioning -> Spontaneous Recovery [html]
+- C. Conditioning -> Generalization [html]
+- C. Conditioning -> Operant Conditioning [html]
+- C. Conditioning -> Classical vs. Operant Conditioning [html]
+- C. Conditioning -> How to Train Your Brain [html]
+- C. Conditioning -> Cognitive, Behavioural and Social Learning [html]
+- C. Conditioning -> Reinforcement [html]
+- C. Conditioning -> Reinforcement Schedules [html]
+- C. Conditioning -> Primary & Secondary Reinforcement [html]
+- C. Conditioning -> Differences between Rewards and Punishments [html]
+- C. Conditioning -> Reinforcement & Punishment Quiz [html]
+- C. Conditioning -> Conditioning Quiz [html]
+
+## 3. 3. The Process of Learning
+
+- 3. The Process of Learning [html]
+- Memory Quiz [quiz]
+- Remembering & Forgetting Quiz [quiz]
+- Learning Techniques (Matching) [quiz]
+- Lesson Three Challenge - PART C - Matching [quiz]
+- Module 3 Assignment [assignment]
+- A. Memories -> Habits - Retrain the Brain [html]
+- A. Memories -> Accessing Memory: Mind Palace [html]
+- A. Memories -> Encoding STM (Short Term Memory) [html]
+- A. Memories -> What is Memory? [html]
+- A. Memories -> Capacity in Long Term Memory [html]
+- A. Memories -> Multi-sensory Model - Atkinson and Shiffrin (1968) [html]
+- A. Memories -> Forgetting in STM [html]
+- A. Memories -> Reconstructing Memory: Eyewitness Testimony [html]
+- A. Memories -> The brain and memory [html]
+- A. Memories -> Understanding Memory [html]
+- A. Memories -> Repetition, Stimulus and Patterns [html]
+- A. Memories -> Remembering & Forgetting [html]
+- A. Memories -> THE LEARNING CURVE AND PLATEAUS [html]
+- A. Memories -> How We Make Memories [html]
+- A. Memories -> Remembering- Efficiency Principles [html]
+- A. Memories -> How We Make Memories Quiz [html]
+- A. Memories -> Remembering and Forgetting Quiz [html]
+- B. Learning Techniques -> Transfer [html]
+- B. Learning Techniques -> Overlearning [html]
+- B. Learning Techniques -> Massed Practice [html]
+- B. Learning Techniques -> Distributed Practice [html]
+- B. Learning Techniques -> Serial Learning [html]
+- B. Learning Techniques -> Mnemonic Devices [html]
+- B. Learning Techniques -> Latent Learning [html]
+- B. Learning Techniques -> Learning Through Insight [html]
+- B. Learning Techniques -> Trial & Error Learning [html]
+- B. Learning Techniques -> Natural Association [html]
+- B. Learning Techniques -> Intensity [html]
+- B. Learning Techniques -> Learning Techniques Quiz [html]
+- B. Learning Techniques -> The Process of Learning [html]
+- B. Learning Techniques -> The Learning Curve & Plateaus [html]
+
+## 4. 4. The Process of Thinking
+
+- 4. The Process of Thinking [html]
+- Language & Reasoning Quiz [quiz]
+- Cognition Quiz [quiz]
+- Module 4 Assignment [assignment]
+- A. The Process of Thinking -> Language & Symbols [html]
+- A. The Process of Thinking -> Cognition [html]
+- A. The Process of Thinking -> Concepts & Prototypes [html]
+- A. The Process of Thinking -> Thinking & Cognition [html]
+- A. The Process of Thinking -> Critical or Creative Thinking [html]
+- A. The Process of Thinking -> Uncritical Thinking [html]
+- A. The Process of Thinking -> Reasoning [html]
+- A. The Process of Thinking -> Brains and Computers [html]
+- A. The Process of Thinking -> Imagining [html]
+- A. The Process of Thinking -> Mental Sets [html]
+- A. The Process of Thinking -> Problem Solving [html]
+- A. The Process of Thinking -> Cognition Quiz [html]
+- A. The Process of Thinking -> Languages & Reasoning Quiz [html]
+
+## 5. 5. Facing Frustration and Conflict
+
+- 5. Facing Frustration and Conflict [html]
+- What is Stress Quiz [quiz]
+- Aggression and Conflict Quiz [quiz]
+- Defense Mechanisms Quiz [quiz]
+- Module 5 Assignment [assignment]
+- A. Stress -> What is stress? [html]
+- A. Stress -> Causes of Stress [html]
+- A. Stress -> Interventions [html]
+- A. Stress -> Dealing With Difficult People [html]
+- A. Stress -> Dealing with Emotionally Powerful Forces [html]
+- A. Stress -> Frustration [html]
+- A. Stress -> Conflicting Situations [html]
+- A. Stress -> Developing Mental Strengths [html]
+- A. Stress -> Emotion, Stress & Health [html]
+- A. Stress -> Aggression vs. Altruism [html]
+- A. Stress -> What is Stress Quiz [html]
+- A. Stress -> Aggression, Altruism and Conflict Quiz [html]
+- B. Defense Mechanisms -> What are Defense Mechanisms [html]
+- B. Defense Mechanisms -> Repression, Denial and Amnesia [html]
+- B. Defense Mechanisms -> Suppression [html]
+- B. Defense Mechanisms -> Reaction Formation [html]
+- B. Defense Mechanisms -> Compensation, Overcompensation and Sublimation [html]
+- B. Defense Mechanisms -> Projection, Introjection & Identification [html]
+- B. Defense Mechanisms -> Procrastination [html]
+- B. Defense Mechanisms -> Displaced Aggression [html]
+- B. Defense Mechanisms -> Rationalization [html]
+- B. Defense Mechanisms -> Regression [html]
+- B. Defense Mechanisms -> Aspects of Defense Mechanisms [html]
+- B. Defense Mechanisms -> Defense Mechanisms Quiz [html]
+- B. Defense Mechanisms -> Module 5 Assignment [html]
+
+## 6. 6. Adolescents
+
+- 6. Adolescents [html]
+- Erikson's Psychosocial Development Quiz [quiz]
+- Module 6 Assignment [assignment]
+- A. Adolescents -> Conformity [html]
+- A. Adolescents -> Conformity: Studies [html]
+- A. Adolescents -> Obedience [html]
+- A. Adolescents -> Obedience: Studies [html]
+- A. Adolescents -> Adolescence [html]
+- A. Adolescents -> Suicide [html]
+- A. Adolescents -> HOW CHILDREN DEAL WITH DEATH [html]
+- A. Adolescents -> Adolescent Issues [html]
+- A. Adolescents -> Roles [html]
+- A. Adolescents -> Written Response [html]
+- A. Adolescents -> Basic Factors [html]
+- A. Adolescents -> Gender [html]
+- A. Adolescents -> Age [html]
+- A. Adolescents -> Kinship & Common Residency [html]
+- A. Adolescents -> Androgyny [html]
+- A. Adolescents -> Ascribed vs. Achieved Roles [html]
+- A. Adolescents -> Gender Identity [html]
+- A. Adolescents -> Role Conflict & Changes [html]
+- A. Adolescents -> How Important is the Group? [html]
+- A. Adolescents -> Social Thinking [html]
+- A. Adolescents -> Social Influences [html]
+- A. Adolescents -> Erikson's Stages of Psychosocial Development [html]
+- A. Adolescents -> Stages in Emerging Adulthood (Adolescence) [html]
+- A. Adolescents -> Group Classification [html]
+- A. Adolescents -> Group Dynamics [html]
+- A. Adolescents -> Stages in Childhood [html]
+- A. Adolescents -> Stages in Adulthood [html]
+- A. Adolescents -> Erikson's Psychosocial Development Quiz [html]
+- A. Adolescents -> Module 6 Assignment [html]
+
+## 7. 7. Behaviour Disorders and Their Treatment
+
+- 7. Behaviour Disorders and Their Treatment [html]
+- Introduction to Behaviour Disorders and Their Treatment Quiz [quiz]
+- Abnormalities Quiz [quiz]
+- Identifying Behaviour Disorders Quiz [quiz]
+- Treatment Quiz [quiz]
+- Module 7 Assignment [assignment]
+- A. Behaviour Disorders and Their Treatment -> Introduction to Behaviour Disorders and Their Treatment [html]
+- A. Behaviour Disorders and Their Treatment -> Introduction to Behaviour Disorders and Treatments [html]
+- A. Behaviour Disorders and Their Treatment -> Introduction to Behaviour Disorders and Thier Treatment Quiz [html]
+- A. Behaviour Disorders and Their Treatment -> Abnormalities [html]
+- A. Behaviour Disorders and Their Treatment -> Abnormalities Quiz [html]
+- B. Looking into Specific Behaviour Disorders and Their Treatments -> Defining Anxiety and OCD [html]
+- B. Looking into Specific Behaviour Disorders and Their Treatments -> Anxiety and OCD [html]
+- B. Looking into Specific Behaviour Disorders and Their Treatments -> Depression and Bipolar [html]
+- B. Looking into Specific Behaviour Disorders and Their Treatments -> Depression and Bipolar [html]
+- B. Looking into Specific Behaviour Disorders and Their Treatments -> Eating Disorders [html]
+- B. Looking into Specific Behaviour Disorders and Their Treatments -> Eating Disorders [html]
+- B. Looking into Specific Behaviour Disorders and Their Treatments -> Personality Disorders [html]
+- B. Looking into Specific Behaviour Disorders and Their Treatments -> Personality Disorders [html]
+- B. Looking into Specific Behaviour Disorders and Their Treatments -> Psychosis [html]
+- B. Looking into Specific Behaviour Disorders and Their Treatments -> Functional Psychosis [html]
+- B. Looking into Specific Behaviour Disorders and Their Treatments -> Organic Psychosis [html]
+- B. Looking into Specific Behaviour Disorders and Their Treatments -> Identifying Behaviour Disorders Quiz [html]
+- C. Treatment -> Biomedical Treatment [html]
+- C. Treatment -> Biomedical Treatment [html]
+- C. Treatment -> Psychotherapy [html]
+- C. Treatment -> Psychotherapy [html]
+- C. Treatment -> Treatment Quiz [html]
+- C. Treatment -> Module 7 Assignment [html]
+
+## 8. 8. Career Opportunities in Psychology
+
+- 8. Career Opportunities in Psychology [html]
+- Module 8 Assignment [assignment]
+- A. Career Opportunities in Psychology -> Career Opportunities in Psychology [html]
+- A. Career Opportunities in Psychology -> Psychology Careers Assignment [html]
+- Lesson: Career Opportunities in Psychology -> Psychologist: Career Profile [html]
+- Lesson: Career Opportunities in Psychology -> Criminal Psychologist [html]
+- Lesson: Career Opportunities in Psychology -> Careers [html]
+
+## 9. Final Project
+
+- General Psychology 20 Final Project [pdf]
+
+

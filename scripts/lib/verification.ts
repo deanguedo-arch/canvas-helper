@@ -22,8 +22,18 @@ type VerifyResult = {
   missingAssets: string[];
   externalDependencies: string[];
   traversalWarnings: string[];
+  missingWorkspaceEmbeds: AssessmentDeliveryEmbedIssue[];
   missingCourseShellResources: CourseShellResourceIssue[];
   declaredMissingCourseShellResources: CourseShellResourceIssue[];
+};
+
+type AssessmentDeliveryEmbedIssue = {
+  activityId: string;
+  activityTitle: string;
+  moduleTitle: string;
+  deliveryMode: string;
+  embedPath: string;
+  resolvedPath: string;
 };
 
 type CourseShellResourceIssue = {
@@ -52,6 +62,13 @@ type CourseShellModuleLike = {
 
 type CourseShellDataLike = {
   modules?: CourseShellModuleLike[];
+};
+
+type AssessmentDeliveryLike = {
+  activityId?: string;
+  deliveryMode?: string;
+  embedPath?: string;
+  ctaUrl?: string;
 };
 
 const SELECTOR_ATTRS: Array<{ selector: string; attr: "src" | "href" }> = [
@@ -136,33 +153,124 @@ function looksLikeDeclaredMissingSourceFallback(activity: CourseShellActivityLik
 }
 
 async function loadCourseShellData(courseShellDataPath: string) {
-  const moduleUrl = pathToFileURL(courseShellDataPath);
+  return loadModuleDefault<CourseShellDataLike>(courseShellDataPath, "workspace/course-shell-data.js");
+}
+
+async function loadAssessmentDeliveryData(assessmentDeliveryPath: string) {
+  const imported = await loadModuleDefault<AssessmentDeliveryLike[]>(assessmentDeliveryPath, "workspace/assessment-delivery.js");
+  return Array.isArray(imported) ? imported : [];
+}
+
+async function loadModuleDefault<T>(filePath: string, label: string) {
+  const moduleUrl = pathToFileURL(filePath);
   moduleUrl.searchParams.set("t", `${Date.now()}`);
 
   try {
-    const imported = (await import(moduleUrl.href)) as { default?: CourseShellDataLike };
+    const imported = (await import(moduleUrl.href)) as { default?: T };
     return imported.default ?? null;
   } catch (error) {
     throw new Error(
-      `Failed to load workspace/course-shell-data.js for verification: ${
-        error instanceof Error ? error.message : String(error)
-      }`
+      `Failed to load ${label} for verification: ${error instanceof Error ? error.message : String(error)}`
     );
   }
 }
 
-async function verifyCourseShellResources(projectSlug: string) {
+function buildCourseShellActivityLookup(courseShellData: CourseShellDataLike | null) {
+  const lookup = new Map<string, { activityTitle: string; moduleTitle: string }>();
+  const modules = Array.isArray(courseShellData?.modules) ? courseShellData.modules : [];
+
+  for (const module of modules) {
+    const moduleTitle = String(module?.title || "");
+    const activities = Array.isArray(module?.activities) ? module.activities : [];
+    for (const activity of activities) {
+      const activityId = String(activity?.id || "");
+      if (!activityId) {
+        continue;
+      }
+
+      lookup.set(activityId, {
+        activityTitle: String(activity?.title || activityId),
+        moduleTitle: String(activity?.moduleTitle || moduleTitle)
+      });
+    }
+  }
+
+  return lookup;
+}
+
+async function maybeLoadWorkspaceCourseShellData(projectSlug: string) {
   const paths = getProjectPaths(projectSlug);
   const courseShellDataPath = path.join(paths.workspaceDir, "course-shell-data.js");
 
   if (!(await fileExists(courseShellDataPath))) {
+    return null;
+  }
+
+  return loadCourseShellData(courseShellDataPath);
+}
+
+function looksLikeWorkspaceAssetPath(value: string) {
+  const normalized = String(value || "").trim().replace(/\\/g, "/");
+  return normalized.startsWith("./assets/") || normalized.startsWith("assets/");
+}
+
+async function verifyAssessmentDeliveryEmbeds(projectSlug: string, courseShellData: CourseShellDataLike | null) {
+  const paths = getProjectPaths(projectSlug);
+  const assessmentDeliveryPath = path.join(paths.workspaceDir, "assessment-delivery.js");
+
+  if (!(await fileExists(assessmentDeliveryPath))) {
+    return [] as AssessmentDeliveryEmbedIssue[];
+  }
+
+  const assessmentDelivery = await loadAssessmentDeliveryData(assessmentDeliveryPath);
+  const activityLookup = buildCourseShellActivityLookup(courseShellData);
+  const missingWorkspaceEmbeds: AssessmentDeliveryEmbedIssue[] = [];
+
+  for (const delivery of assessmentDelivery) {
+    if (String(delivery?.deliveryMode || "") !== "workspace-embed") {
+      continue;
+    }
+
+    const rawEmbedPath = String(delivery?.embedPath || delivery?.ctaUrl || "").trim();
+    if (!rawEmbedPath || !looksLikeWorkspaceAssetPath(rawEmbedPath)) {
+      continue;
+    }
+
+    const embedPath = normalizeLocalRef(rawEmbedPath);
+    const resolvedPath = path.resolve(paths.workspaceDir, embedPath);
+    const activityId = String(delivery?.activityId || "");
+    const activityMeta = activityLookup.get(activityId);
+    const issue: AssessmentDeliveryEmbedIssue = {
+      activityId,
+      activityTitle: activityMeta?.activityTitle || activityId || embedPath,
+      moduleTitle: activityMeta?.moduleTitle || "",
+      deliveryMode: "workspace-embed",
+      embedPath,
+      resolvedPath
+    };
+
+    if (hasTraversal(embedPath) || !isInsideBaseDir(paths.workspaceDir, resolvedPath)) {
+      missingWorkspaceEmbeds.push(issue);
+      continue;
+    }
+
+    if (!(await fileExists(resolvedPath))) {
+      missingWorkspaceEmbeds.push(issue);
+    }
+  }
+
+  return missingWorkspaceEmbeds;
+}
+
+async function verifyCourseShellResources(projectSlug: string, courseShellData: CourseShellDataLike | null) {
+  if (!courseShellData) {
     return {
       missingCourseShellResources: [] as CourseShellResourceIssue[],
       declaredMissingCourseShellResources: [] as CourseShellResourceIssue[]
     };
   }
 
-  const courseShellData = await loadCourseShellData(courseShellDataPath);
+  const paths = getProjectPaths(projectSlug);
   const modules = Array.isArray(courseShellData?.modules) ? courseShellData.modules : [];
   const missingCourseShellResources: CourseShellResourceIssue[] = [];
   const declaredMissingCourseShellResources: CourseShellResourceIssue[] = [];
@@ -268,13 +376,16 @@ export async function verifyProjectBundle(projectSlug: string, mode: VerifyMode 
     }
   }
 
+  const workspaceCourseShellData = mode === "workspace" ? await maybeLoadWorkspaceCourseShellData(projectSlug) : null;
   const courseShellResourceCheck =
     mode === "workspace"
-      ? await verifyCourseShellResources(projectSlug)
+      ? await verifyCourseShellResources(projectSlug, workspaceCourseShellData)
       : {
           missingCourseShellResources: [] as CourseShellResourceIssue[],
           declaredMissingCourseShellResources: [] as CourseShellResourceIssue[]
         };
+  const missingWorkspaceEmbeds =
+    mode === "workspace" ? await verifyAssessmentDeliveryEmbeds(projectSlug, workspaceCourseShellData) : [];
 
   return {
     mode,
@@ -283,6 +394,7 @@ export async function verifyProjectBundle(projectSlug: string, mode: VerifyMode 
     missingAssets: [...missingAssets].sort((left, right) => left.localeCompare(right)),
     externalDependencies: [...externalDependencies].sort((left, right) => left.localeCompare(right)),
     traversalWarnings: [...traversalWarnings].sort((left, right) => left.localeCompare(right)),
+    missingWorkspaceEmbeds,
     missingCourseShellResources: courseShellResourceCheck.missingCourseShellResources,
     declaredMissingCourseShellResources: courseShellResourceCheck.declaredMissingCourseShellResources
   };

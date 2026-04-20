@@ -1,58 +1,64 @@
 # Handoff
 
-- Project: repo-wide / general-psychology-20-independent-studies-202633108
-- Task: Harden local reopenability by failing verify on missing course-shell source files and returning explicit preview diagnostics for missing lesson HTML resources.
+- Project: general-psychology-20-independent-studies-202633108
+- Task: Remove the remaining Module 2 written-response placeholder, wire the visible quiz cards to real converted quiz sources, and keep the Final Project PDF in content instead of an empty assignment-only module.
 - Status: ready for validation
 
 ## Files changed
-- `app/server/routes/preview.ts`
-- `scripts/lib/verification.ts`
-- `scripts/verify-project.ts`
-- `scripts/tests/verification-course-shell.test.ts`
-- `scripts/tests/preview-route.test.ts`
+- `projects/general-psychology-20-independent-studies-202633108/meta/build-shell-from-manifest.ps1`
+- `projects/general-psychology-20-independent-studies-202633108/workspace/main.js`
+- `projects/general-psychology-20-independent-studies-202633108/workspace/course-shell-data.js`
+- `projects/general-psychology-20-independent-studies-202633108/workspace/assessment-delivery.js`
+- `projects/general-psychology-20-independent-studies-202633108/meta/d2l-course-map.json`
+- `projects/general-psychology-20-independent-studies-202633108/meta/d2l-course-map.md`
+- `scripts/tests/general-psychology-workspace.test.ts`
 - `docs/ops/ACTIVE_HANDOFF.md`
 - `docs/ops/ARCHIVED_HANDOFFS.md`
 
 ## What changed
-- `verify` now inspects `workspace/course-shell-data.js` in workspace mode and checks that every shell activity `sourceHref` resolves to an actual file under `projects/resources/<slug>`.
-- Activities that already ship an explicit “the source file was not included in the cartridge” fallback are reported as warnings instead of hard failures so intentionally degraded assessment items do not block unrelated reopen work.
-- Missing HTML lesson/resource preview requests now return an in-browser diagnostic page with the slug, requested path, expected local path, and the recovery command instead of a silent 404 fallback.
-- Added focused regression tests for both the new verification path and the new preview-route diagnostic behavior.
+- Extended `meta/build-shell-from-manifest.ps1` to infer quiz XML resources directly from `projects/resources/<slug>/quiz/**` when the manifest-backed assessment record has no source file attached.
+- Added title aliasing so the visible Module 1 shell cards map to the existing converted quiz banks:
+  - `John Watson` -> `Behaviourism`
+  - `Maslow Quiz` -> `Humanism Quiz`
+  - `Summary Quiz` -> `Psychological Schools of Thought Summary Quiz`
+- Regenerated `workspace/course-shell-data.js` so the visible quiz assessment cards now point at local `quiz/.../qti_*.xml` sources instead of the missing-source fallback copy.
+- Added another project-specific exclusion so Module 2 no longer includes the `Written Response (Principles of Learning)` placeholder tied to `chapter_15761.html`.
+- Updated `workspace/main.js` so the `General Psychology 20 Final Project` PDF is treated as content rather than being reclassified into assignments and leaving the module content list empty.
+- Expanded `scripts/tests/general-psychology-workspace.test.ts` to cover the Module 2 exclusion, quiz-source wiring, the existing authoring unlock, and the Final Project classification rule.
 
 ## Why this changed
-- The general psychology course reopened in a broken local state because the shell still referenced lesson files that had been removed from `projects/resources/<slug>`, and existing verification only checked direct HTML asset tags.
-- The failure mode was silent inside the course shell: missing lesson fetches collapsed to the generic “Course content item” fallback instead of telling the operator that the local resource bundle was gone.
+- The user-facing General Psychology shell still had one leftover D2L placeholder lesson and several quiz cards that incorrectly rendered the “source file missing” fallback even though the quiz XML banks already existed locally.
+- The Final Project module looked broken because its only PDF item was being pushed out of content by the assignment heuristic.
 
 ## Source of truth
-- Verification logic: `scripts/lib/verification.ts`
-- Verify CLI output: `scripts/verify-project.ts`
-- Missing-resource preview diagnostic: `app/server/routes/preview.ts`
-- General psychology canonical authoring surface remains `projects/general-psychology-20-independent-studies-202633108/workspace/index.html` plus its workspace runtime files and `projects/resources/general-psychology-20-independent-studies-202633108`
+- General Psychology shell generator: `projects/general-psychology-20-independent-studies-202633108/meta/build-shell-from-manifest.ps1`
+- Local General Psychology runtime classification and authoring unlock: `projects/general-psychology-20-independent-studies-202633108/workspace/main.js`
+- Generated shell data: `projects/general-psychology-20-independent-studies-202633108/workspace/course-shell-data.js`
 
 ## Fragile areas / watchouts
-- The stricter resource check only runs when `workspace/course-shell-data.js` exists. Projects that do not use the course-shell runtime are unchanged.
-- The preview-route diagnostic is intentionally limited to missing HTML/HTM reference previews so lesson fetches become readable in-browser; non-HTML missing resources still use the existing 404 JSON path.
-- There are unrelated dirty workspace files in this repo, including regenerated general psychology metadata and sportswellness assets, which were left untouched.
+- Quiz-source inference currently depends on normalized quiz titles plus a small alias table for known mismatches. If new title drift appears, update the alias map in `build-shell-from-manifest.ps1`.
+- The authoring unlock flag is still on in `workspace/main.js`, so all content/quizzes remain open locally for testing.
+- This work fixed the local workspace shell. It was not exported or redeployed in this pass.
 
 ## Next prompt should assume
-- `npm run verify -- --project <slug>` is now the intended reopenability gate for course-shell projects because it checks shell `sourceHref` targets under `projects/resources/<slug>`.
-- If a lesson HTML resource is missing locally, previewing that reference will show a diagnostic page instead of silently degrading to generic shell copy.
-- The restored `general-psychology-20-independent-studies-202633108` resource bundle currently passes the new verification path.
+- The Module 2 `Written Response (Principles of Learning)` placeholder is removed from the generated shell.
+- The visible General Psychology quiz cards now load from local quiz XML or from the intentional local overrides instead of the missing-source fallback.
+- The Final Project module should now show its PDF in content instead of “No content items.”
 
 ## What still needs validation
-- Reload the local general psychology preview and confirm a missing lesson now surfaces the diagnostic page if the resource bundle is removed again.
-- Decide whether to extend the same explicit diagnostic behavior to missing XML/PDF reference previews, not just HTML lessons.
+- Reload the local General Psychology preview and spot-check the quiz cards the user reported, especially `John Watson`, the Module 2 quiz list, and the Final Project module.
+- If the hosted General Psychology site should match these fixes, run export and deploy after local review.
 
 ## Known risks
-- `npm.cmd run typecheck` still fails on pre-existing errors in `scripts/tests/worldreligions30-option1-quiz-summary.test.ts`; this work did not change that file.
-- The verification carve-out depends on the fallback copy still containing a “source file missing from the cartridge” message. If future wording changes, intentionally missing assessment items could become hard failures until the pattern is updated.
+- `npm.cmd run typecheck` still fails on the unrelated pre-existing `scripts/tests/worldreligions30-option1-quiz-summary.test.ts` errors.
+- If the quiz XML titles or launcher titles are renamed later, the aliasing logic may need one more targeted update.
 
 ## Exact next command
 `npm.cmd run verify -- --project general-psychology-20-independent-studies-202633108`
 
 ## Exact next file to open
-`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\lib\verification.ts`
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\general-psychology-20-independent-studies-202633108\meta\build-shell-from-manifest.ps1`
 
 ## Do not do next / warnings
-- Do not delete or “clean up” `projects/resources/<slug>` for shipped course-shell projects unless you are intentionally rebuilding the local authoring state.
-- Do not treat the hosted Firebase bundle as sufficient recovery data for local authoring; the local preview contract still depends on the project resource bundle.
+- Do not hand-edit `workspace/course-shell-data.js`; regenerate from `meta/build-shell-from-manifest.ps1`.
+- Do not export or deploy this workspace without remembering that `AUTHORING_UNLOCK_ALL = true` is still enabled locally.

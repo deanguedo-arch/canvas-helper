@@ -2,11 +2,21 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import test from "node:test";
+import vm from "node:vm";
 
 import { getProjectPaths } from "../lib/paths.js";
 
 const projectPaths = getProjectPaths("worldreligions30-option1");
 const mainPath = path.resolve(projectPaths.workspaceDir, "main.js");
+const dataPath = path.resolve(projectPaths.workspaceDir, "course-data.js");
+const stylesPath = path.resolve(projectPaths.workspaceDir, "styles.css");
+
+function loadCourseData(source: string) {
+  const context = { window: {} };
+  vm.createContext(context);
+  vm.runInContext(source, context);
+  return (context.window as { WORLD_RELIGIONS_DATA?: { chapters?: Array<Record<string, string>> } }).WORLD_RELIGIONS_DATA;
+}
 
 test("world religions option1 keeps authoring unlocks enabled for chapters and quizzes", async () => {
   const source = await readFile(mainPath, "utf8");
@@ -31,4 +41,24 @@ test("world religions option1 normalizes library items so chapter pdf links reso
 
   assert.match(source, /chapterId:\s*item\.chapterId\s*\|\|/);
   assert.match(source, /chapterId:\s*item\.chapterId\s*\|\|\s*`chapter-\$\{item\.number\}`/);
+});
+
+test("world religions option1 chapter 1 shell mounts the authored content module and labels it Content", async () => {
+  const [mainSource, dataSource, stylesSource] = await Promise.all([
+    readFile(mainPath, "utf8"),
+    readFile(dataPath, "utf8"),
+    readFile(stylesPath, "utf8")
+  ]);
+
+  const data = loadCourseData(dataSource);
+  const chapter = data?.chapters?.find((entry) => entry.id === "chapter-1");
+
+  assert.ok(chapter);
+  assert.equal(chapter.title, "Content");
+  assert.equal(chapter.contentPath, "./content/WR30_Chapter1_Source_Content_Web_Module/index.html");
+  assert.match(mainSource, /chapter\.contentPath/);
+  assert.match(mainSource, /chapter-content-frame/);
+  assert.match(mainSource, /Open content/i);
+  assert.match(stylesSource, /\.chapter-content-shell/);
+  assert.match(stylesSource, /\.chapter-content-frame/);
 });

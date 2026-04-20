@@ -108,6 +108,92 @@ function buildMissingReferencePreview(options: {
 </html>`;
 }
 
+function buildMissingWorkspacePreview(options: {
+  slug: string;
+  relativePath: string;
+  filePath: string;
+}) {
+  const { slug, relativePath, filePath } = options;
+
+  return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Missing local workspace asset</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: "Segoe UI", Arial, sans-serif;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: #f4efe8;
+        color: #2c241f;
+      }
+
+      main {
+        max-width: 52rem;
+        margin: 0 auto;
+        padding: 2rem 1.25rem 2.5rem;
+      }
+
+      .panel {
+        background: #fffaf4;
+        border: 1px solid #d8cabc;
+        border-radius: 12px;
+        box-shadow: 0 12px 32px rgba(54, 39, 28, 0.08);
+        padding: 1.25rem;
+      }
+
+      h1 {
+        margin: 0 0 0.75rem;
+        font-size: 1.5rem;
+        line-height: 1.2;
+      }
+
+      p {
+        margin: 0 0 0.85rem;
+        line-height: 1.6;
+      }
+
+      code {
+        font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+        font-size: 0.92rem;
+      }
+
+      .callout {
+        margin-top: 1rem;
+        padding: 0.9rem 1rem;
+        border-radius: 10px;
+        background: #f7eee4;
+        border: 1px solid #d8c4ad;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="panel" data-preview-error="missing-workspace-resource">
+        <h1>Missing local workspace asset</h1>
+        <p>
+          Canvas Helper could not find the local workspace file needed to render this assignment preview.
+          The assignment delivery map still points at the asset, but the file is missing from this project workspace.
+        </p>
+        <p><strong>Project:</strong> <code>${escapeHtml(slug)}</code></p>
+        <p><strong>Requested asset:</strong> <code>${escapeHtml(relativePath)}</code></p>
+        <p><strong>Expected local path:</strong> <code>${escapeHtml(filePath)}</code></p>
+        <div class="callout">
+          <p><strong>Next step</strong></p>
+          <p>Restore the missing file under <code>projects/${escapeHtml(slug)}/workspace/assets</code> and then run <code>npm run verify -- --project ${escapeHtml(slug)}</code>.</p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>`;
+}
+
 function detectBomCharset(body: Buffer) {
   if (body.length >= 2) {
     const b0 = body[0];
@@ -211,6 +297,20 @@ export async function handlePreviewRoutes(url: string, request: IncomingMessage,
     );
 
     if (!(await fileExists(filePath))) {
+      if (previewMatch[1] === "workspace" && shouldReturnMissingReferenceHtml(filePath)) {
+        response.statusCode = 200;
+        response.setHeader("Content-Type", "text/html; charset=utf-8");
+        response.setHeader("X-Canvas-Helper-Preview-Error", "missing-workspace-resource");
+        response.end(
+          buildMissingWorkspacePreview({
+            slug: previewMatch[2],
+            relativePath: decodeURIComponent(previewMatch[3] || ""),
+            filePath
+          })
+        );
+        return true;
+      }
+
       sendJson(response, 404, { error: `Preview file not found: ${filePath}` });
       return true;
     }

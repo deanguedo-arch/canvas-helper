@@ -83,8 +83,8 @@
                                                "moduleVisibilityLabel":  "visible",
                                                "sourceHref":  "quiz/i7eeee672-fb40-44a7-9047-d84428ed63ca/qti_d1d8d0e0-aa10-4b34-be7c-ad8df8ed1d02.xml",
                                                "resourceKind":  "quiz",
-                                               "contentBody":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
-                                               "contentPreview":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
+                                               "contentBody":  "",
+                                               "contentPreview":  "",
                                                "renderHint":  "assessment"
                                            },
                                            {
@@ -106,8 +106,8 @@
                                                "moduleVisibilityLabel":  "visible",
                                                "sourceHref":  "quiz/ie47327fb-017f-445c-84c9-3df372a277c1/qti_b1d5795b-75f4-4479-8ab7-4a3fd23e901d.xml",
                                                "resourceKind":  "quiz",
-                                               "contentBody":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
-                                               "contentPreview":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
+                                               "contentBody":  "",
+                                               "contentPreview":  "",
                                                "renderHint":  "assessment"
                                            },
                                            {
@@ -129,8 +129,8 @@
                                                "moduleVisibilityLabel":  "visible",
                                                "sourceHref":  "quiz/if72b2dd3-e477-44ab-a6ce-cf857ff734e9/qti_8c8e1cd6-fb4a-4461-ad71-d41cd0058a44.xml",
                                                "resourceKind":  "quiz",
-                                               "contentBody":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
-                                               "contentPreview":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
+                                               "contentBody":  "",
+                                               "contentPreview":  "",
                                                "renderHint":  "assessment"
                                            },
                                            {
@@ -152,8 +152,8 @@
                                                "moduleVisibilityLabel":  "visible",
                                                "sourceHref":  "quiz/i3511a34f-049f-4a9b-88dd-fea0df7c2eb0/qti_20c4db5b-c93a-4969-8767-2351f25794c0.xml",
                                                "resourceKind":  "quiz",
-                                               "contentBody":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
-                                               "contentPreview":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
+                                               "contentBody":  "",
+                                               "contentPreview":  "",
                                                "renderHint":  "assessment"
                                            },
                                            {
@@ -175,8 +175,8 @@
                                                "moduleVisibilityLabel":  "visible",
                                                "sourceHref":  "quiz/i05b5d07c-e97a-4674-b22b-024d6a69ac6c/qti_5a2deac8-c3b1-4f49-8b52-e99202244431.xml",
                                                "resourceKind":  "quiz",
-                                               "contentBody":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
-                                               "contentPreview":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
+                                               "contentBody":  "",
+                                               "contentPreview":  "",
                                                "renderHint":  "assessment"
                                            },
                                            {
@@ -196,7 +196,7 @@
                                                "moduleTitle":  "Module 1: History of Psychological Schools of Thought",
                                                "moduleSequence":  1,
                                                "moduleVisibilityLabel":  "visible",
-                                               "sourceHref":  "assignment/id6277875-45f6-46f0-885c-d4a865314982/assignment_a86e1090-4305-431e-b495-27b4700c94da.xml",
+                                               "sourceHref":  "",
                                                "resourceKind":  "assignment",
                                                "contentBody":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
                                                "contentPreview":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
@@ -969,9 +969,9 @@
                         "overline":  "Module 2",
                         "summary":  "",
                         "sequence":  2,
-                        "lessonCount":  42,
+                        "lessonCount":  41,
                         "assessmentCount":  6,
-                        "activityCount":  49,
+                        "activityCount":  48,
                         "completedCount":  0,
                         "activities":  [
                                            {
@@ -1038,8 +1038,8 @@
                                                "moduleVisibilityLabel":  "visible",
                                                "sourceHref":  "quiz/ib0fb1dd2-0988-4738-b05e-dabd57307a15/qti_18b86997-670e-4a4f-89d9-216489349ab3.xml",
                                                "resourceKind":  "quiz",
-                                               "contentBody":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
-                                               "contentPreview":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
+                                               "contentBody":  "",
+                                               "contentPreview":  "",
                                                "renderHint":  "assessment"
                                            },
                                            {
@@ -1061,8 +1061,8 @@
                                                "moduleVisibilityLabel":  "visible",
                                                "sourceHref":  "quiz/i63886558-dfa2-4ec4-852d-3546743ee711/qti_73a3aeaf-4174-40b9-942b-9b9d0d19924a.xml",
                                                "resourceKind":  "quiz",
-                                               "contentBody":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
-                                               "contentPreview":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
+                                               "contentBody":  "",
+                                               "contentPreview":  "",
                                                "renderHint":  "assessment"
                                            },
                                            {
@@ -1084,8 +1084,8 @@
                                                "moduleVisibilityLabel":  "visible",
                                                "sourceHref":  "quiz/ibdbe9211-4ff0-483d-89d2-e4e4ee550feb/qti_47466d72-9858-4490-93ad-8eaca71f9084.xml",
                                                "resourceKind":  "quiz",
-                                               "contentBody":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
-                                               "contentPreview":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
+                                               "contentBody":  "",
+                                               "contentPreview":  "",
                                                "renderHint":  "assessment"
                                            },
                                            {
@@ -1107,8 +1107,8 @@
                                                "moduleVisibilityLabel":  "visible",
                                                "sourceHref":  "quiz/i5da6101a-2a52-405a-9272-73bc53be0285/qti_fa2c2446-9f94-4546-992e-54b6bd319827.xml",
                                                "resourceKind":  "quiz",
-                                               "contentBody":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
-                                               "contentPreview":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
+                                               "contentBody":  "",
+                                               "contentPreview":  "",
                                                "renderHint":  "assessment"
                                            },
                                            {
@@ -1130,8 +1130,8 @@
                                                "moduleVisibilityLabel":  "visible",
                                                "sourceHref":  "quiz/ia7bd2425-78cd-4f4d-9f16-bacc4f9aa977/qti_7a68356b-9278-4c36-b02f-e9a4a7ce9ecb.xml",
                                                "resourceKind":  "quiz",
-                                               "contentBody":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
-                                               "contentPreview":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
+                                               "contentBody":  "",
+                                               "contentPreview":  "",
                                                "renderHint":  "assessment"
                                            },
                                            {
@@ -1151,7 +1151,7 @@
                                                "moduleTitle":  "2. Principles of Learning",
                                                "moduleSequence":  2,
                                                "moduleVisibilityLabel":  "visible",
-                                               "sourceHref":  "assignment/if8d2ffbd-5f20-4659-a6e3-82fce7fcfbdc/assignment_c1ffa527-b56c-4869-b7ac-066aba609ff8.xml",
+                                               "sourceHref":  "",
                                                "resourceKind":  "assignment",
                                                "contentBody":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
                                                "contentPreview":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
@@ -2076,29 +2076,6 @@
                                                "contentBody":  "",
                                                "contentPreview":  "",
                                                "renderHint":  "reading"
-                                           },
-                                           {
-                                               "id":  "general-psychology-20-independent-studies-202633108::ie413c249-1113-4156-a5fe-aff725192b17",
-                                               "kind":  "lesson",
-                                               "title":  "Written Response (Principles of Learning)",
-                                               "description":  "Course content item",
-                                               "order":  48,
-                                               "linkedAssessmentIds":  [
-
-                                                                       ],
-                                               "linkedOutcomeIds":  [
-
-                                                                    ],
-                                               "status":  "pending",
-                                               "sectionTitle":  "C. Conditioning",
-                                               "moduleTitle":  "2. Principles of Learning",
-                                               "moduleSequence":  2,
-                                               "moduleVisibilityLabel":  "visible",
-                                               "sourceHref":  "сontent/ia46b018e-a381-45d7-b3fc-13808601f345/Content/book_1824/chapter_15761.html",
-                                               "resourceKind":  "html",
-                                               "contentBody":  "",
-                                               "contentPreview":  "",
-                                               "renderHint":  "reading"
                                            }
                                        ]
                     },
@@ -2177,8 +2154,8 @@
                                                "moduleVisibilityLabel":  "visible",
                                                "sourceHref":  "quiz/ifa40ca1c-53ce-49ea-a046-889627370a9d/qti_6c8a5c36-7b87-4766-a62e-edfd11d575cd.xml",
                                                "resourceKind":  "quiz",
-                                               "contentBody":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
-                                               "contentPreview":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
+                                               "contentBody":  "",
+                                               "contentPreview":  "",
                                                "renderHint":  "assessment"
                                            },
                                            {
@@ -2200,8 +2177,8 @@
                                                "moduleVisibilityLabel":  "visible",
                                                "sourceHref":  "quiz/i9552ff54-3723-475b-ad9f-c2c8af07a82c/qti_571a1471-f602-4922-b525-62c867f345e8.xml",
                                                "resourceKind":  "quiz",
-                                               "contentBody":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
-                                               "contentPreview":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
+                                               "contentBody":  "",
+                                               "contentPreview":  "",
                                                "renderHint":  "assessment"
                                            },
                                            {
@@ -2223,8 +2200,8 @@
                                                "moduleVisibilityLabel":  "visible",
                                                "sourceHref":  "quiz/i7022001a-8d07-4250-877d-ba5ed7dba7a1/qti_f05ce0fc-6862-4a7e-a2f9-c164d18205aa.xml",
                                                "resourceKind":  "quiz",
-                                               "contentBody":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
-                                               "contentPreview":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
+                                               "contentBody":  "",
+                                               "contentPreview":  "",
                                                "renderHint":  "assessment"
                                            },
                                            {
@@ -2244,7 +2221,7 @@
                                                "moduleTitle":  "3. The Process of Learning",
                                                "moduleSequence":  3,
                                                "moduleVisibilityLabel":  "visible",
-                                               "sourceHref":  "quiz/i7022001a-8d07-4250-877d-ba5ed7dba7a1/qti_f05ce0fc-6862-4a7e-a2f9-c164d18205aa.xml",
+                                               "sourceHref":  "",
                                                "resourceKind":  "quiz",
                                                "contentBody":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
                                                "contentPreview":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
@@ -2267,7 +2244,7 @@
                                                "moduleTitle":  "3. The Process of Learning",
                                                "moduleSequence":  3,
                                                "moduleVisibilityLabel":  "visible",
-                                               "sourceHref":  "assignment/i1b35a799-ebac-400c-abe4-feb6727da215/assignment_8c63995f-e6de-40f4-9e74-b89190b664a2.xml",
+                                               "sourceHref":  "",
                                                "resourceKind":  "assignment",
                                                "contentBody":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
                                                "contentPreview":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
@@ -2994,9 +2971,9 @@
                         "overline":  "Module 4",
                         "summary":  "",
                         "sequence":  4,
-                        "lessonCount":  15,
+                        "lessonCount":  14,
                         "assessmentCount":  3,
-                        "activityCount":  19,
+                        "activityCount":  18,
                         "completedCount":  0,
                         "activities":  [
                                            {
@@ -3063,8 +3040,8 @@
                                                "moduleVisibilityLabel":  "visible",
                                                "sourceHref":  "quiz/i4f006e1a-de1a-4ff8-8fa4-4d1f3e0c6423/qti_c38e0c0a-ed17-48a6-b3f6-427a6ea82677.xml",
                                                "resourceKind":  "quiz",
-                                               "contentBody":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
-                                               "contentPreview":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
+                                               "contentBody":  "",
+                                               "contentPreview":  "",
                                                "renderHint":  "assessment"
                                            },
                                            {
@@ -3086,8 +3063,8 @@
                                                "moduleVisibilityLabel":  "visible",
                                                "sourceHref":  "quiz/i9ed737a7-31cf-4895-959e-4db9a82392b3/qti_83d22a1a-ff8c-4aaf-bb04-ce8f3518a887.xml",
                                                "resourceKind":  "quiz",
-                                               "contentBody":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
-                                               "contentPreview":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
+                                               "contentBody":  "",
+                                               "contentPreview":  "",
                                                "renderHint":  "assessment"
                                            },
                                            {
@@ -3107,7 +3084,7 @@
                                                "moduleTitle":  "4. The Process of Thinking",
                                                "moduleSequence":  4,
                                                "moduleVisibilityLabel":  "visible",
-                                               "sourceHref":  "assignment/if842700c-88cb-4e05-a651-1713571973c4/assignment_a4b4b66d-1f8c-4130-be1a-5cf86c53568a.xml",
+                                               "sourceHref":  "",
                                                "resourceKind":  "assignment",
                                                "contentBody":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
                                                "contentPreview":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
@@ -3298,34 +3275,11 @@
                                                "renderHint":  "reading"
                                            },
                                            {
-                                               "id":  "general-psychology-20-independent-studies-202633108::i26d62102-36cb-4f85-97c6-795687be29f5",
-                                               "kind":  "lesson",
-                                               "title":  "Written Response",
-                                               "description":  "Course content item",
-                                               "order":  13,
-                                               "linkedAssessmentIds":  [
-
-                                                                       ],
-                                               "linkedOutcomeIds":  [
-
-                                                                    ],
-                                               "status":  "pending",
-                                               "sectionTitle":  "A. The Process of Thinking",
-                                               "moduleTitle":  "4. The Process of Thinking",
-                                               "moduleSequence":  4,
-                                               "moduleVisibilityLabel":  "visible",
-                                               "sourceHref":  "сontent/i22f91fee-0146-4167-8605-d37a1d3fb07d/Content/book_1829/chapter_15812.html",
-                                               "resourceKind":  "html",
-                                               "contentBody":  "",
-                                               "contentPreview":  "",
-                                               "renderHint":  "reading"
-                                           },
-                                           {
                                                "id":  "general-psychology-20-independent-studies-202633108::if4f36f2d-2ecc-4f8f-8a84-67f95241b3df",
                                                "kind":  "lesson",
                                                "title":  "Imagining",
                                                "description":  "Course content item",
-                                               "order":  14,
+                                               "order":  13,
                                                "linkedAssessmentIds":  [
 
                                                                        ],
@@ -3348,7 +3302,7 @@
                                                "kind":  "lesson",
                                                "title":  "Mental Sets",
                                                "description":  "Course content item",
-                                               "order":  15,
+                                               "order":  14,
                                                "linkedAssessmentIds":  [
 
                                                                        ],
@@ -3371,7 +3325,7 @@
                                                "kind":  "lesson",
                                                "title":  "Problem Solving",
                                                "description":  "Course content item",
-                                               "order":  16,
+                                               "order":  15,
                                                "linkedAssessmentIds":  [
 
                                                                        ],
@@ -3394,7 +3348,7 @@
                                                "kind":  "lesson",
                                                "title":  "Cognition Quiz",
                                                "description":  "Course content item",
-                                               "order":  17,
+                                               "order":  16,
                                                "linkedAssessmentIds":  [
 
                                                                        ],
@@ -3417,7 +3371,7 @@
                                                "kind":  "lesson",
                                                "title":  "Languages \u0026 Reasoning Quiz",
                                                "description":  "Course content item",
-                                               "order":  18,
+                                               "order":  17,
                                                "linkedAssessmentIds":  [
 
                                                                        ],
@@ -3512,8 +3466,8 @@
                                                "moduleVisibilityLabel":  "visible",
                                                "sourceHref":  "quiz/iced35924-323a-4afb-9ac1-4d6dc7d78c2a/qti_d6131890-323a-4858-b211-90cd738bd061.xml",
                                                "resourceKind":  "quiz",
-                                               "contentBody":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
-                                               "contentPreview":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
+                                               "contentBody":  "",
+                                               "contentPreview":  "",
                                                "renderHint":  "assessment"
                                            },
                                            {
@@ -3535,8 +3489,8 @@
                                                "moduleVisibilityLabel":  "visible",
                                                "sourceHref":  "quiz/i24599067-4f7e-4f5c-942a-e6d054e9520f/qti_72032ae3-53ef-44c3-aaa6-baf50dfaab1c.xml",
                                                "resourceKind":  "quiz",
-                                               "contentBody":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
-                                               "contentPreview":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
+                                               "contentBody":  "",
+                                               "contentPreview":  "",
                                                "renderHint":  "assessment"
                                            },
                                            {
@@ -3558,8 +3512,8 @@
                                                "moduleVisibilityLabel":  "visible",
                                                "sourceHref":  "quiz/i9e596265-8cad-4f89-ade8-ce07dad225dc/qti_38d37485-3c00-41c7-9f89-b78f9b3fdc24.xml",
                                                "resourceKind":  "quiz",
-                                               "contentBody":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
-                                               "contentPreview":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
+                                               "contentBody":  "",
+                                               "contentPreview":  "",
                                                "renderHint":  "assessment"
                                            },
                                            {
@@ -3579,7 +3533,7 @@
                                                "moduleTitle":  "5. Facing Frustration and Conflict",
                                                "moduleSequence":  5,
                                                "moduleVisibilityLabel":  "visible",
-                                               "sourceHref":  "assignment/i0b00d30c-afd8-4faf-8d2c-c45b9ea56c55/assignment_8f482f70-25da-4c03-b504-60635079e77d.xml",
+                                               "sourceHref":  "",
                                                "resourceKind":  "assignment",
                                                "contentBody":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
                                                "contentPreview":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
@@ -4168,9 +4122,9 @@
                         "overline":  "Module 6",
                         "summary":  "",
                         "sequence":  6,
-                        "lessonCount":  31,
+                        "lessonCount":  30,
                         "assessmentCount":  2,
-                        "activityCount":  34,
+                        "activityCount":  33,
                         "completedCount":  0,
                         "activities":  [
                                            {
@@ -4237,8 +4191,8 @@
                                                "moduleVisibilityLabel":  "visible",
                                                "sourceHref":  "quiz/i2ba5f81c-799f-4909-a7c8-d2b53a261ab2/qti_8609e1d7-47f0-4cf3-ad16-4af07e6868ba.xml",
                                                "resourceKind":  "quiz",
-                                               "contentBody":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
-                                               "contentPreview":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
+                                               "contentBody":  "",
+                                               "contentPreview":  "",
                                                "renderHint":  "assessment"
                                            },
                                            {
@@ -4258,7 +4212,7 @@
                                                "moduleTitle":  "6. Adolescents",
                                                "moduleSequence":  6,
                                                "moduleVisibilityLabel":  "visible",
-                                               "sourceHref":  "assignment/i3cc9c486-bb30-4dec-96da-cbd30ec66318/assignment_4569789d-f733-419d-beec-24b93f47a840.xml",
+                                               "sourceHref":  "",
                                                "resourceKind":  "assignment",
                                                "contentBody":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
                                                "contentPreview":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
@@ -4909,34 +4863,11 @@
                                                "renderHint":  "reading"
                                            },
                                            {
-                                               "id":  "general-psychology-20-independent-studies-202633108::i275e82c3-c232-46af-ba5c-e6461edd9f4e",
-                                               "kind":  "lesson",
-                                               "title":  "Written Response",
-                                               "description":  "Course content item",
-                                               "order":  32,
-                                               "linkedAssessmentIds":  [
-
-                                                                       ],
-                                               "linkedOutcomeIds":  [
-
-                                                                    ],
-                                               "status":  "pending",
-                                               "sectionTitle":  "A. Adolescents",
-                                               "moduleTitle":  "6. Adolescents",
-                                               "moduleSequence":  6,
-                                               "moduleVisibilityLabel":  "visible",
-                                               "sourceHref":  "сontent/ibdd8c057-9461-4beb-8471-2b3a657e4e8f/Content/book_1833/chapter_15872.html",
-                                               "resourceKind":  "html",
-                                               "contentBody":  "",
-                                               "contentPreview":  "",
-                                               "renderHint":  "reading"
-                                           },
-                                           {
                                                "id":  "general-psychology-20-independent-studies-202633108::i047eadf5-1ad7-4d02-9fb1-6adb9b133919",
                                                "kind":  "lesson",
                                                "title":  "Module 6 Assignment",
                                                "description":  "Course content item",
-                                               "order":  33,
+                                               "order":  32,
                                                "linkedAssessmentIds":  [
 
                                                                        ],
@@ -5031,8 +4962,8 @@
                                                "moduleVisibilityLabel":  "visible",
                                                "sourceHref":  "quiz/i2d3b3976-b649-4450-94ff-8493c89a7f68/qti_1087a8bc-f10d-4744-8571-f3f8f8e2fc09.xml",
                                                "resourceKind":  "quiz",
-                                               "contentBody":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
-                                               "contentPreview":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
+                                               "contentBody":  "",
+                                               "contentPreview":  "",
                                                "renderHint":  "assessment"
                                            },
                                            {
@@ -5054,8 +4985,8 @@
                                                "moduleVisibilityLabel":  "visible",
                                                "sourceHref":  "quiz/i12949b45-1eeb-4ac4-8d84-3ae88b61fc80/qti_0b284a95-8bb5-40a8-8cfc-d75797851720.xml",
                                                "resourceKind":  "quiz",
-                                               "contentBody":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
-                                               "contentPreview":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
+                                               "contentBody":  "",
+                                               "contentPreview":  "",
                                                "renderHint":  "assessment"
                                            },
                                            {
@@ -5077,8 +5008,8 @@
                                                "moduleVisibilityLabel":  "visible",
                                                "sourceHref":  "quiz/i19b732da-a041-49eb-abbe-b1e733ce4d70/qti_35cd24af-0ca5-4eec-91ec-777d236331fd.xml",
                                                "resourceKind":  "quiz",
-                                               "contentBody":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
-                                               "contentPreview":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
+                                               "contentBody":  "",
+                                               "contentPreview":  "",
                                                "renderHint":  "assessment"
                                            },
                                            {
@@ -5100,8 +5031,8 @@
                                                "moduleVisibilityLabel":  "visible",
                                                "sourceHref":  "quiz/i1e6ab391-b251-457b-8cc3-904e2fb9c63d/qti_1745d53a-75f6-4fe5-be8b-4f5e124ea294.xml",
                                                "resourceKind":  "quiz",
-                                               "contentBody":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
-                                               "contentPreview":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
+                                               "contentBody":  "",
+                                               "contentPreview":  "",
                                                "renderHint":  "assessment"
                                            },
                                            {
@@ -5121,7 +5052,7 @@
                                                "moduleTitle":  "7. Behaviour Disorders and Their Treatment",
                                                "moduleSequence":  7,
                                                "moduleVisibilityLabel":  "visible",
-                                               "sourceHref":  "assignment/i0ec0d3af-2d3a-407b-b9c3-0909b2d1ffad/assignment_0580aff0-b77f-4108-9b65-2d65978229a6.xml",
+                                               "sourceHref":  "",
                                                "resourceKind":  "assignment",
                                                "contentBody":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
                                                "contentPreview":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
@@ -5731,7 +5662,7 @@
                                                "moduleTitle":  "8. Career Opportunities in Psychology",
                                                "moduleSequence":  8,
                                                "moduleVisibilityLabel":  "visible",
-                                               "sourceHref":  "assignment/i838b9de8-0f59-4c8d-b632-dc011956ce71/assignment_84c16026-b1cb-4521-a3fe-acd7282f316b.xml",
+                                               "sourceHref":  "",
                                                "resourceKind":  "assignment",
                                                "contentBody":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
                                                "contentPreview":  "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",

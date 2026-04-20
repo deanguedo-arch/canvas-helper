@@ -90,6 +90,45 @@ function Get-RenderHint {
   return "fallback"
 }
 
+function Normalize-QuizLookupKey {
+  param([string]$Value)
+
+  $normalized = [System.Net.WebUtility]::HtmlDecode([string]$Value)
+  $normalized = ($normalized -replace "\s+", " ").Trim().ToLowerInvariant()
+  $normalized = $normalized -replace "&", " and "
+  $normalized = $normalized -replace "[^a-z0-9\s]", " "
+  $normalized = $normalized -replace "\s+", " "
+  return $normalized.Trim()
+}
+
+function Resolve-InferredQuizResource {
+  param(
+    [string]$ItemTitle,
+    [hashtable]$ExistingResource
+  )
+
+  if ($ExistingResource -and $ExistingResource.exists -and -not [string]::IsNullOrWhiteSpace([string]$ExistingResource.href)) {
+    return $ExistingResource
+  }
+
+  $lookupKey = Normalize-QuizLookupKey -Value $ItemTitle
+  if (-not $lookupKey) {
+    return $ExistingResource
+  }
+
+  $aliasKey = $script:QuizTitleAliases[$lookupKey]
+  if ($aliasKey) {
+    $lookupKey = $aliasKey
+  }
+
+  $matched = $script:QuizResourcesByTitle[$lookupKey]
+  if ($matched) {
+    return $matched
+  }
+
+  return $ExistingResource
+}
+
 function Get-ModuleOverline {
   param(
     [string]$Title,
@@ -176,6 +215,10 @@ function New-Activity {
   $itemId = [string]$ItemNode.Attributes["identifier"].Value
   $resourceKind = Get-ResourceKind -Resource $Resource
   $kind = if ($resourceKind -eq "assignment" -or $resourceKind -eq "quiz") { "assessment" } else { "lesson" }
+  if ($kind -eq "assessment" -and $resourceKind -eq "quiz") {
+    $Resource = Resolve-InferredQuizResource -ItemTitle (Get-ItemTitle -Node $ItemNode) -ExistingResource $Resource
+  }
+  $resourceKind = Get-ResourceKind -Resource $Resource
   $missingNote = ""
   if ($kind -eq "assessment" -and -not $Resource.exists) {
     $missingNote = "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file."
@@ -202,6 +245,49 @@ function New-Activity {
   }
 }
 
+function ShouldSkipActivity {
+  param(
+    [string]$Slug,
+    [System.Xml.XmlNode]$ItemNode,
+    [hashtable]$Resource,
+    [string]$ModuleTitle
+  )
+
+  $itemTitle = (Get-ItemTitle -Node $ItemNode)
+  $normalizedModuleTitle = ($ModuleTitle -replace "\s+", " ").Trim().ToLowerInvariant()
+  $normalizedItemTitle = ($itemTitle -replace "\s+", " ").Trim().ToLowerInvariant()
+  $resourceHref = [string]$Resource.href
+
+  if (
+    $Slug -eq "general-psychology-20-independent-studies-202633108" -and
+    $normalizedModuleTitle.Contains("process of thinking") -and
+    $normalizedItemTitle -eq "written response" -and
+    $resourceHref.ToLowerInvariant().Contains("chapter_15812.html")
+  ) {
+    return $true
+  }
+
+  if (
+    $Slug -eq "general-psychology-20-independent-studies-202633108" -and
+    $normalizedModuleTitle -eq "2. principles of learning" -and
+    $normalizedItemTitle.Contains("written response") -and
+    $resourceHref.ToLowerInvariant().Contains("chapter_15761.html")
+  ) {
+    return $true
+  }
+
+  if (
+    $Slug -eq "general-psychology-20-independent-studies-202633108" -and
+    $normalizedModuleTitle -eq "6. adolescents" -and
+    $normalizedItemTitle -eq "written response" -and
+    $resourceHref.ToLowerInvariant().Contains("chapter_15872.html")
+  ) {
+    return $true
+  }
+
+  return $false
+}
+
 function Flatten-Activities {
   param(
     [string]$Slug,
@@ -217,15 +303,22 @@ function Flatten-Activities {
   foreach ($child in (Get-ChildrenByName -Node $ParentNode -LocalName "item")) {
     $identifierRef = [string]$child.Attributes["identifierref"].Value
     if ($identifierRef) {
-      [void]$items.Add((New-Activity `
+      $resource = $ResourcesById[$identifierRef]
+      if (-not (ShouldSkipActivity `
         -Slug $Slug `
         -ItemNode $child `
-        -Resource $ResourcesById[$identifierRef] `
-        -ModuleTitle $ModuleTitle `
-        -ModuleSequence $ModuleSequence `
-        -SectionTitle $SectionTitle `
-        -Order $OrderRef.Value))
-      $OrderRef.Value++
+        -Resource $resource `
+        -ModuleTitle $ModuleTitle)) {
+        [void]$items.Add((New-Activity `
+          -Slug $Slug `
+          -ItemNode $child `
+          -Resource $resource `
+          -ModuleTitle $ModuleTitle `
+          -ModuleSequence $ModuleSequence `
+          -SectionTitle $SectionTitle `
+          -Order $OrderRef.Value))
+        $OrderRef.Value++
+      }
     }
 
     $grandchildren = Get-ChildrenByName -Node $child -LocalName "item"
@@ -273,6 +366,33 @@ foreach ($resourceNode in (Get-ChildrenByName -Node (Get-FirstChildByName -Node 
     type = [string]$resourceNode.Attributes["type"].Value
     href = $resourceHref
     exists = [bool]($resourcePath -and (Test-Path -LiteralPath $resourcePath))
+  }
+}
+
+$script:QuizTitleAliases = @{
+  "john watson" = "behaviourism"
+  "maslow quiz" = "humanism quiz"
+  "summary quiz" = "psychological schools of thought summary quiz"
+}
+
+$script:QuizResourcesByTitle = @{}
+$quizRoot = Join-Path $resourcesRoot "quiz"
+if (Test-Path -LiteralPath $quizRoot) {
+  foreach ($quizFile in (Get-ChildItem -LiteralPath $quizRoot -Recurse -Filter *.xml -File)) {
+      $quizXmlText = Get-Content -LiteralPath $quizFile.FullName -Raw
+    if ($quizXmlText -match '<assessment[^>]*title="([^"]+)"') {
+      $quizTitle = [System.Net.WebUtility]::HtmlDecode($Matches[1])
+      $quizHref = $quizFile.FullName.Substring($resourcesRoot.Length).TrimStart("\", "/") -replace "\\", "/"
+      $lookupKey = Normalize-QuizLookupKey -Value $quizTitle
+      if ($lookupKey -and -not $script:QuizResourcesByTitle.ContainsKey($lookupKey)) {
+        $script:QuizResourcesByTitle[$lookupKey] = @{
+          identifier = $quizFile.BaseName
+          type = "assessment/x-bb-qti-test"
+          href = $quizHref
+          exists = $true
+        }
+      }
+    }
   }
 }
 

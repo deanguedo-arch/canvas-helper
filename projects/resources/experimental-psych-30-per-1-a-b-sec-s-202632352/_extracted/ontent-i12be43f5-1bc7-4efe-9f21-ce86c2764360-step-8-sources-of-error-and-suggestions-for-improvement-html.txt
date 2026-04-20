@@ -1,0 +1,53 @@
+Step 8: Sources of Error and Suggestions for Improvement
+      :root {
+        color-scheme: light;
+        font-family: "Segoe UI", Arial, sans-serif;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: #f4efe8;
+        color: #2c241f;
+      }
+      main {
+        max-width: 48rem;
+        margin: 0 auto;
+        padding: 2rem 1.25rem 2.5rem;
+      }
+      .panel {
+        background: #fffaf4;
+        border: 1px solid #d8cabc;
+        border-radius: 12px;
+        box-shadow: 0 12px 32px rgba(54, 39, 28, 0.08);
+        padding: 1.5rem;
+      }
+      h1 {
+        margin: 0 0 0.75rem;
+        font-size: 1.75rem;
+        line-height: 1.2;
+      }
+      p,
+      li {
+        line-height: 1.6;
+      }
+      ul {
+        padding-left: 1.25rem;
+      }
+      .callout {
+        margin-top: 1rem;
+        padding: 0.9rem 1rem;
+        border-radius: 10px;
+        background: #f7eee4;
+        border: 1px solid #d8c4ad;
+      }
+        Step 8: Sources of Error and Suggestions for Improvement
+          The original lesson file for this step was missing from the local course bundle, so this placeholder page
+          keeps the module readable in local preview instead of dropping to a generic fallback card.
+        When reviewing sources of error in a lab report, focus on the following questions:
+          What factors could have affected the accuracy or consistency of the results?
+          Which parts of the procedure may have introduced bias, measurement problems, or uncontrolled variables?
+          What changes would improve the design if the experiment were repeated?
+          How could the next version of the experiment produce clearer or more reliable data?
+          Operator note
+            Restore the original source file if it becomes available. Until then, this local placeholder prevents the
+            Experimental Psychology course shell from breaking on this missing lesson resource.

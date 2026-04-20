@@ -14,6 +14,16 @@ function formatCourseShellResourceIssue(issue: {
   return `${modulePrefix}${issue.activityTitle} [${issue.resourceKind}] -> ${issue.sourceHref} (${issue.resolvedPath})`;
 }
 
+function formatWorkspaceEmbedIssue(issue: {
+  moduleTitle: string;
+  activityTitle: string;
+  embedPath: string;
+  resolvedPath: string;
+}) {
+  const modulePrefix = issue.moduleTitle ? `${issue.moduleTitle} > ` : "";
+  return `${modulePrefix}${issue.activityTitle} -> ${issue.embedPath} (${issue.resolvedPath})`;
+}
+
 async function main() {
   const parsedArgs = parseArgs(process.argv.slice(2));
   const projectSlug = getStringFlag(parsedArgs, "project") ?? parsedArgs.positionals[0];
@@ -81,6 +91,17 @@ async function main() {
 
   console.log("");
 
+  if (result.missingWorkspaceEmbeds.length > 0) {
+    console.log("Missing workspace embeds (ERROR):");
+    for (const issue of result.missingWorkspaceEmbeds) {
+      console.log(`- ${formatWorkspaceEmbedIssue(issue)}`);
+    }
+  } else {
+    console.log("Missing workspace embeds (ERROR): none");
+  }
+
+  console.log("");
+
   if (result.missingCourseShellResources.length > 0) {
     console.log("Missing course-shell resources (ERROR):");
     for (const issue of result.missingCourseShellResources) {
@@ -101,7 +122,11 @@ async function main() {
     console.log("Declared missing course-shell resources (WARN): none");
   }
 
-  if (result.missingAssets.length > 0 || result.missingCourseShellResources.length > 0) {
+  if (
+    result.missingAssets.length > 0 ||
+    result.missingWorkspaceEmbeds.length > 0 ||
+    result.missingCourseShellResources.length > 0
+  ) {
     process.exitCode = 1;
   }
 }
