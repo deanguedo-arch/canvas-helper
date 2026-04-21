@@ -106,6 +106,9 @@ export type ProjectManifest = {
   authoringStatus?: ProjectAuthoringStatus;
   referenceOnly?: string[];
   sourceOfTruthNotes?: string;
+  googleHosted?: {
+    trackedStorageKeys?: string[];
+  };
   createdAt: string;
   updatedAt: string;
 };

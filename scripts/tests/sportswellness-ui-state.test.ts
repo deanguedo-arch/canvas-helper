@@ -13,12 +13,14 @@ test("sportswellness workspace persists and syncs preview navigation state acros
     "function normalizeUiState(rawState)",
     "function persistUiState()",
     "localStorage.setItem(UI_STATE_KEY, JSON.stringify({",
+    "activeFilmRoomVideoId: FILM_ROOM_VIDEOS.some((item) => item.id === rawState.activeFilmRoomVideoId)",
     "function restoreUiState()",
     "restoreUiState();",
     "window.addEventListener('storage', (event) => {",
     "event.key !== UI_STATE_KEY",
     "applyUiStateSnapshot(nextState);",
-    "state.section = 'assignment';"
+    "state.section = 'assignment';",
+    "state.activeFilmRoomVideoId = snapshot.activeFilmRoomVideoId;"
   ];
 
   for (const snippet of expectedSnippets) {

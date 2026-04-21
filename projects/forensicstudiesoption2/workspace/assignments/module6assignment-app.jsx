@@ -1,5 +1,36 @@
 import React, { useState, useEffect, useRef } from 'react';
 
+const MODULE6_ASSIGNMENT_STORAGE_KEY = 'forensics::module6assignment::v1';
+
+function readModule6AssignmentState() {
+  if (typeof window === 'undefined') {
+    return null;
+  }
+
+  try {
+    const raw = window.localStorage.getItem(MODULE6_ASSIGNMENT_STORAGE_KEY);
+    if (!raw) {
+      return null;
+    }
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === 'object' ? parsed : null;
+  } catch (_error) {
+    return null;
+  }
+}
+
+function writeModule6AssignmentState(state) {
+  if (typeof window === 'undefined') {
+    return;
+  }
+
+  try {
+    window.localStorage.setItem(MODULE6_ASSIGNMENT_STORAGE_KEY, JSON.stringify(state));
+  } catch (_error) {
+    // Ignore storage write failures in locked/private contexts.
+  }
+}
+
 const IconStub = () => null;
 const Activity = IconStub;
 const BookOpen = IconStub;
@@ -47,10 +78,9 @@ const INITIAL_ANSWERS = {
 
 // --- COMPONENTS ---
 
-const PolygraphLab = () => {
+const PolygraphLab = ({ history, setHistory }) => {
   const canvasRef = useRef(null);
   const [activeQuestion, setActiveQuestion] = useState(null);
-  const [history, setHistory] = useState([]);
   const [isExamining, setIsExamining] = useState(false);
   
   // Polygraph Animation State
@@ -278,9 +308,7 @@ const CaseFiles = () => (
   </div>
 );
 
-const HandwritingLab = () => {
-  const [selectedSuspect, setSelectedSuspect] = useState(4); // Default to suspect 4 (match)
-
+const HandwritingLab = ({ selectedSuspect, setSelectedSuspect }) => {
   const suspects = [
     { id: 1, desc: "Slanted heavily to the right, thick pen pressure, tightly closed loops.", handwritingClass: "font-serif italic tracking-tighter" },
     { id: 2, desc: "Small, upright print mixed with cursive. Very neat and controlled.", handwritingClass: "font-sans text-sm tracking-wide" },
@@ -481,8 +509,28 @@ const FinalReport = ({ answers, setAnswers }) => {
 };
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState('polygraph');
-  const [answers, setAnswers] = useState(INITIAL_ANSWERS);
+  const [persistedState] = useState(() => readModule6AssignmentState());
+  const [activeTab, setActiveTab] = useState(persistedState?.activeTab || 'polygraph');
+  const [answers, setAnswers] = useState(
+    persistedState?.answers && typeof persistedState.answers === 'object'
+      ? { ...INITIAL_ANSWERS, ...persistedState.answers }
+      : INITIAL_ANSWERS
+  );
+  const [polygraphHistory, setPolygraphHistory] = useState(
+    Array.isArray(persistedState?.polygraphHistory) ? persistedState.polygraphHistory : []
+  );
+  const [selectedSuspect, setSelectedSuspect] = useState(
+    Number.isFinite(Number(persistedState?.selectedSuspect)) ? Number(persistedState.selectedSuspect) : 4
+  );
+
+  useEffect(() => {
+    writeModule6AssignmentState({
+      activeTab,
+      answers,
+      polygraphHistory,
+      selectedSuspect
+    });
+  }, [activeTab, answers, polygraphHistory, selectedSuspect]);
 
   const tabs = [
     { id: 'polygraph', label: 'Polygraph Lab', icon: Activity },
@@ -566,9 +614,11 @@ export default function App() {
 
           {/* Render Active Tab */}
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-            {activeTab === 'polygraph' && <PolygraphLab />}
+            {activeTab === 'polygraph' && <PolygraphLab history={polygraphHistory} setHistory={setPolygraphHistory} />}
             {activeTab === 'cases' && <CaseFiles />}
-            {activeTab === 'handwriting' && <HandwritingLab />}
+            {activeTab === 'handwriting' && (
+              <HandwritingLab selectedSuspect={selectedSuspect} setSelectedSuspect={setSelectedSuspect} />
+            )}
             {activeTab === 'report' && <FinalReport answers={answers} setAnswers={setAnswers} />}
           </div>
         </div>

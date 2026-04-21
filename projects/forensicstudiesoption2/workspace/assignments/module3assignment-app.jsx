@@ -1,5 +1,36 @@
 import React, { useState } from 'react';
 
+const MODULE3_ASSIGNMENT_STORAGE_KEY = 'forensics::module3assignment::v1';
+
+function readModule3AssignmentState() {
+  if (typeof window === 'undefined') {
+    return null;
+  }
+
+  try {
+    const raw = window.localStorage.getItem(MODULE3_ASSIGNMENT_STORAGE_KEY);
+    if (!raw) {
+      return null;
+    }
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === 'object' ? parsed : null;
+  } catch (_error) {
+    return null;
+  }
+}
+
+function writeModule3AssignmentState(state) {
+  if (typeof window === 'undefined') {
+    return;
+  }
+
+  try {
+    window.localStorage.setItem(MODULE3_ASSIGNMENT_STORAGE_KEY, JSON.stringify(state));
+  } catch (_error) {
+    // Ignore storage write failures in locked/private contexts.
+  }
+}
+
 const IconStub = () => null;
 const BookOpen = IconStub;
 const Microscope = IconStub;
@@ -16,33 +47,81 @@ const Activity = IconStub;
 const Move = IconStub;
 
 const App = () => {
-  const [activeTab, setActiveTab] = useState('foundations');
-  const [microscope, setMicroscope] = useState({ zoom: 1, focus: 4, brightness: 100, filter: 'normal', x: -60, y: 50 });
-  const [answers, setAnswers] = useState({
-    table: {
-      identified: '',
-      individualized: '',
-      organic: '',
-      inorganic: ''
-    },
-    theory: {
-      hairType: '',
-      limitations: ''
-    },
-    lab: {
-      observations: '',
-      classification: '',
-      classificationReason: '',
-      identification: '',
-      identificationReason: ''
-    },
-    caseStudies: {
-      joggerIdentified: '',
-      dnaImportance: '',
-      morganConclusion: '',
-      morganFiber: ''
-    }
-  });
+  const [persistedState] = useState(() => readModule3AssignmentState());
+  const [activeTab, setActiveTab] = useState(persistedState?.activeTab || 'foundations');
+  const [microscope, setMicroscope] = useState(
+    persistedState?.microscope && typeof persistedState.microscope === 'object'
+      ? {
+          zoom: Number(persistedState.microscope.zoom) || 1,
+          focus: Number(persistedState.microscope.focus) || 4,
+          brightness: Number(persistedState.microscope.brightness) || 100,
+          filter: persistedState.microscope.filter || 'normal',
+          x: Number(persistedState.microscope.x) || -60,
+          y: Number(persistedState.microscope.y) || 50
+        }
+      : { zoom: 1, focus: 4, brightness: 100, filter: 'normal', x: -60, y: 50 }
+  );
+  const [answers, setAnswers] = useState(
+    persistedState?.answers && typeof persistedState.answers === 'object'
+      ? {
+          table: {
+            identified: persistedState.answers.table?.identified || '',
+            individualized: persistedState.answers.table?.individualized || '',
+            organic: persistedState.answers.table?.organic || '',
+            inorganic: persistedState.answers.table?.inorganic || ''
+          },
+          theory: {
+            hairType: persistedState.answers.theory?.hairType || '',
+            limitations: persistedState.answers.theory?.limitations || ''
+          },
+          lab: {
+            observations: persistedState.answers.lab?.observations || '',
+            classification: persistedState.answers.lab?.classification || '',
+            classificationReason: persistedState.answers.lab?.classificationReason || '',
+            identification: persistedState.answers.lab?.identification || '',
+            identificationReason: persistedState.answers.lab?.identificationReason || ''
+          },
+          caseStudies: {
+            joggerIdentified: persistedState.answers.caseStudies?.joggerIdentified || '',
+            dnaImportance: persistedState.answers.caseStudies?.dnaImportance || '',
+            morganConclusion: persistedState.answers.caseStudies?.morganConclusion || '',
+            morganFiber: persistedState.answers.caseStudies?.morganFiber || ''
+          }
+        }
+      : {
+          table: {
+            identified: '',
+            individualized: '',
+            organic: '',
+            inorganic: ''
+          },
+          theory: {
+            hairType: '',
+            limitations: ''
+          },
+          lab: {
+            observations: '',
+            classification: '',
+            classificationReason: '',
+            identification: '',
+            identificationReason: ''
+          },
+          caseStudies: {
+            joggerIdentified: '',
+            dnaImportance: '',
+            morganConclusion: '',
+            morganFiber: ''
+          }
+        }
+  );
+
+  React.useEffect(() => {
+    writeModule3AssignmentState({
+      activeTab,
+      microscope,
+      answers
+    });
+  }, [activeTab, microscope, answers]);
 
   const updateAnswer = (section, field, value) => {
     setAnswers(prev => ({

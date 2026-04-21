@@ -308,6 +308,51 @@ test("exportProjectToGoogleHosted preserves firebase deploy config across re-exp
   }
 });
 
+test("exportProjectToGoogleHosted prefers explicit tracked storage keys from project metadata", async () => {
+  const explicitKeysSlug = `${TEST_PROJECT_SLUG}-explicit-keys`;
+  const paths = await createProjectFixture({
+    slug: explicitKeysSlug,
+    workspaceFiles: {
+      "main.js": [
+        'const STORAGE_KEY = `${PROJECT_SLUG}.progress`;',
+        'localStorage.setItem("partial-key", JSON.stringify({ answer: 1 }));',
+        ""
+      ].join("\n")
+    }
+  });
+
+  try {
+    const manifest = await readJsonFile<Record<string, unknown>>(paths.manifestPath);
+    await writeJsonFile(paths.manifestPath, {
+      ...manifest,
+      googleHosted: {
+        trackedStorageKeys: [
+          `${explicitKeysSlug}.progress`,
+          `${explicitKeysSlug}.ui`,
+          "forensics::module1assignment::v1",
+          "forensics::module2assignment::v1"
+        ]
+      }
+    });
+
+    const result = await exportProjectToGoogleHosted(explicitKeysSlug);
+    const bridgeScript = await readFile(path.join(result.exportDir, "google-hosted-bridge.js"), "utf8");
+    const readme = await readFile(path.join(result.exportDir, "README-deploy.md"), "utf8");
+
+    assert.match(bridgeScript, /"storageKeys":\["test-google-hosted-export-explicit-keys\.progress","test-google-hosted-export-explicit-keys\.ui","forensics::module1assignment::v1","forensics::module2assignment::v1"\]/);
+    assert.match(readme, /Tracked localStorage keys: .*test-google-hosted-export-explicit-keys\.progress/i);
+    assert.match(readme, /Tracked localStorage keys: .*forensics::module2assignment::v1/i);
+    assert.deepEqual(result.storageKeys, [
+      `${explicitKeysSlug}.progress`,
+      `${explicitKeysSlug}.ui`,
+      "forensics::module1assignment::v1",
+      "forensics::module2assignment::v1"
+    ]);
+  } finally {
+    await cleanupProjectFixture(explicitKeysSlug);
+  }
+});
+
 test("exportProjectToGoogleHosted copies D2L export root reference files for hosted runtime", async () => {
   const slug = `${TEST_PROJECT_SLUG}-references`;
   const exportRoot = "D2LCCExport_Test";

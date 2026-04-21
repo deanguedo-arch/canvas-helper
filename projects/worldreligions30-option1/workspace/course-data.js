@@ -62,25 +62,28 @@ window.WORLD_RELIGIONS_DATA = {
       "id": "chapter-7",
       "code": "Chapter 7",
       "number": 7,
-      "title": "Christianity",
+      "title": "Content",
       "accent": "#4f698e",
-      "summary": "Chapter content will be added here. The shell is ready for full chapter readings when the chapter section source is available."
+      "summary": "Chapter 7 source content on Christianity, Jesus, the Bible, Trinity, sacraments, branches, holy days, and Christianity in Canada.",
+      "contentPath": "./content/WR30_Chapter7_Source_Content_Web_Module/index.html"
     },
     {
       "id": "chapter-8",
       "code": "Chapter 8",
       "number": 8,
-      "title": "Islam",
+      "title": "Content",
       "accent": "#7f6423",
-      "summary": "Chapter content will be added here. The shell is ready for full chapter readings when the chapter section source is available."
+      "summary": "Chapter 8 source content on Islam, Allah, Muhammad, the Qur'an, the Five Pillars, mosque life, Sunni and Shia Islam, and Muslim life in Canada.",
+      "contentPath": "./content/WR30_Chapter8_Source_Content_Web_Module/index.html"
     },
     {
       "id": "chapter-9",
       "code": "Chapter 9",
       "number": 9,
-      "title": "Sikhism",
+      "title": "Content",
       "accent": "#615537",
-      "summary": "Chapter content will be added here. The shell is ready for full chapter readings when the chapter section source is available."
+      "summary": "Chapter 9 source content on Sikhism, Guru Nanak, Ik Onkar, the Guru Granth Sahib, seva, langar, the Khalsa, the Five Ks, and Sikh life in Canada.",
+      "contentPath": "./content/WR30_Chapter9_Source_Content_Web_Module/index.html"
     },
     {
       "id": "chapter-10",

@@ -1,5 +1,36 @@
-import React, { useState, useEffect } from "https://esm.sh/react@19.1.1";
+import React, { useState, useEffect, useRef } from "https://esm.sh/react@19.1.1";
 import { Brain, Car, Scale, AlertTriangle, Activity, Info, Beer, Wine, Martini, User, Clock, Calculator, FileText, ClipboardList } from "https://esm.sh/lucide-react@0.542.0?deps=react@19.1.1";
+
+const MODULE5_ASSIGNMENT_STORAGE_KEY = "forensics::module5assignment::v1";
+
+function readModule5AssignmentState() {
+  if (typeof window === "undefined") {
+    return null;
+  }
+
+  try {
+    const raw = window.localStorage.getItem(MODULE5_ASSIGNMENT_STORAGE_KEY);
+    if (!raw) {
+      return null;
+    }
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === "object" ? parsed : null;
+  } catch (_error) {
+    return null;
+  }
+}
+
+function writeModule5AssignmentState(state) {
+  if (typeof window === "undefined") {
+    return;
+  }
+
+  try {
+    window.localStorage.setItem(MODULE5_ASSIGNMENT_STORAGE_KEY, JSON.stringify(state));
+  } catch (_error) {
+    // Ignore storage write failures in locked/private contexts.
+  }
+}
 
 const BAC_STAGES = [
   {
@@ -71,15 +102,84 @@ const BAC_STAGES = [
 ];
 
 export default function ImpairedDrivingApp() {
-  const [bac, setBac] = useState(0);
+  const [persistedState] = useState(() => readModule5AssignmentState());
+  const assignmentRootRef = useRef(null);
+  const [bac, setBac] = useState(Number(persistedState?.bac) || 0);
   const [activeStage, setActiveStage] = useState(BAC_STAGES[0]);
 
   // TAB AND CALCULATOR STATES
-  const [activeTab, setActiveTab] = useState('brain'); // 'brain', 'calc', or 'assignment'
-  const [weight, setWeight] = useState(160); // lbs
-  const [sex, setSex] = useState('M'); // 'M' or 'F'
-  const [hours, setHours] = useState(1);
-  const [drinks, setDrinks] = useState({ beer: 0, wine: 0, liquor: 0 });
+  const [activeTab, setActiveTab] = useState(persistedState?.activeTab || 'brain'); // 'brain', 'calc', or 'assignment'
+  const [weight, setWeight] = useState(Number(persistedState?.weight) || 160); // lbs
+  const [sex, setSex] = useState(persistedState?.sex || 'M'); // 'M' or 'F'
+  const [hours, setHours] = useState(Number(persistedState?.hours) || 1);
+  const [drinks, setDrinks] = useState(
+    persistedState?.drinks && typeof persistedState.drinks === "object"
+      ? {
+          beer: Number(persistedState.drinks.beer) || 0,
+          wine: Number(persistedState.drinks.wine) || 0,
+          liquor: Number(persistedState.drinks.liquor) || 0
+        }
+      : { beer: 0, wine: 0, liquor: 0 }
+  );
+  const [assignmentResponses, setAssignmentResponses] = useState(
+    persistedState?.assignmentResponses && typeof persistedState.assignmentResponses === "object"
+      ? persistedState.assignmentResponses
+      : {}
+  );
+
+  const getAssignmentFieldKey = (field, index) => {
+    const existing = field.getAttribute("data-persist-key");
+    if (existing) {
+      return existing;
+    }
+    const derivedBase = field.name || field.placeholder || field.type || "field";
+    const derived = `${derivedBase}::${index + 1}`;
+    field.setAttribute("data-persist-key", derived);
+    return derived;
+  };
+
+  useEffect(() => {
+    const assignmentRoot = assignmentRootRef.current;
+    if (!assignmentRoot) {
+      return undefined;
+    }
+
+    const fields = Array.from(assignmentRoot.querySelectorAll("textarea, select, input[type='text']"));
+    fields.forEach((field, index) => {
+      const key = getAssignmentFieldKey(field, index);
+      if (Object.prototype.hasOwnProperty.call(assignmentResponses, key)) {
+        field.value = assignmentResponses[key] ?? "";
+      }
+    });
+
+    const handleFieldChange = (event) => {
+      const field = event.target;
+      if (!field || !field.matches?.("textarea, select, input[type='text']")) {
+        return;
+      }
+      const key = getAssignmentFieldKey(field, fields.indexOf(field));
+      setAssignmentResponses((prev) => ({ ...prev, [key]: field.value ?? "" }));
+    };
+
+    assignmentRoot.addEventListener("input", handleFieldChange);
+    assignmentRoot.addEventListener("change", handleFieldChange);
+    return () => {
+      assignmentRoot.removeEventListener("input", handleFieldChange);
+      assignmentRoot.removeEventListener("change", handleFieldChange);
+    };
+  }, [assignmentResponses]);
+
+  useEffect(() => {
+    writeModule5AssignmentState({
+      bac,
+      activeTab,
+      weight,
+      sex,
+      hours,
+      drinks,
+      assignmentResponses
+    });
+  }, [bac, activeTab, weight, sex, hours, drinks, assignmentResponses]);
 
   // Calculate BAC based on drinks using Widmark formula
   useEffect(() => {
@@ -640,7 +740,11 @@ export default function ImpairedDrivingApp() {
         {/* ASSIGNMENT WORKSHEET VIEW */}
         {/* Note: Used display:none to preserve typed answers if the student tabs back to the simulator! */}
         {/* ========================================= */}
-        <div className={`space-y-8 animate-in fade-in zoom-in-95 duration-300 ${activeTab === 'assignment' ? 'block' : 'hidden'}`} data-assignment-root="module5">
+        <div
+          ref={assignmentRootRef}
+          className={`space-y-8 animate-in fade-in zoom-in-95 duration-300 ${activeTab === 'assignment' ? 'block' : 'hidden'}`}
+          data-assignment-root="module5"
+        >
           <div className="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
             
             {/* Assignment Header */}

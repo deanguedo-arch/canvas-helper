@@ -1,4 +1,5 @@
 const { useState, useEffect, useCallback, useRef } = React;
+const { useArenaScale, scaleValue } = window.PerformanceGameScale;
 
 function IconBase({ size = 18, className = '', viewBox = '0 0 24 24', children, fill = 'none' }) {
   return (
@@ -166,6 +167,7 @@ function InnerGameSimulator() {
   const ballRef = useRef(ballState);
   const gameLoopRef = useRef(null);
   const thoughtSpawnerRef = useRef(null);
+  const { stageRef: arenaRef, scale: arenaScale } = useArenaScale({ w: 960, h: 600 }, { minScale: 0.95, maxScale: 1.7 });
 
   useEffect(() => {
     isSlowedRef.current = isSlowed;
@@ -433,6 +435,13 @@ function InnerGameSimulator() {
 
   const spotlightSize = isFlowState ? 100 : Math.max(15, 100 - (interference * 0.85));
   const spotlightAlpha = isFlowState ? 0 : Math.min(0.95, (interference / 100) + 0.1);
+  const ballSize = scaleValue(48, arenaScale, { min: 44, max: 98 });
+  const courtLineWidth = scaleValue(4, arenaScale, { min: 3, max: 8 });
+  const centerLineWidth = scaleValue(6, arenaScale, { min: 4, max: 12 });
+  const hitZoneLineWidth = scaleValue(3, arenaScale, { min: 2, max: 6 });
+  const hitZoneLabelSize = scaleValue(20, arenaScale, { min: 16, max: 30 });
+  const hitZoneMetaSize = scaleValue(10, arenaScale, { min: 9, max: 14 });
+  const thoughtCardScale = Math.max(0.95, Math.min(1.5, arenaScale));
   const jitterCSS = `
     @keyframes jitter {
       0% { transform: translate(1px, 1px) rotate(0deg); }
@@ -445,9 +454,9 @@ function InnerGameSimulator() {
   `;
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 font-sans p-0 md:p-8 flex items-center justify-center selection:bg-lime-400 selection:text-black">
+    <div className="min-h-screen bg-zinc-950 text-zinc-100 font-sans p-0 md:p-4 xl:p-6 selection:bg-lime-400 selection:text-black">
       <style>{jitterCSS}</style>
-      <div className={`max-w-5xl w-full bg-zinc-900 md:rounded-2xl shadow-2xl overflow-hidden border-t-4 ${isFlowState ? 'border-t-cyan-400 shadow-[0_0_50px_rgba(34,211,238,0.3)]' : 'border-t-lime-400'} border-x border-b border-zinc-800 ${gameState === 'playing' && interference > 75 && !isFlowState ? 'jitter-extreme border-red-500 shadow-[0_0_50px_rgba(239,68,68,0.3)]' : ''}`}>
+      <div className={`w-full min-h-screen md:min-h-[calc(100vh-32px)] bg-zinc-900 md:rounded-2xl shadow-2xl overflow-hidden border-t-4 ${isFlowState ? 'border-t-cyan-400 shadow-[0_0_50px_rgba(34,211,238,0.3)]' : 'border-t-lime-400'} border-x border-b border-zinc-800 flex flex-col ${gameState === 'playing' && interference > 75 && !isFlowState ? 'jitter-extreme border-red-500 shadow-[0_0_50px_rgba(239,68,68,0.3)]' : ''}`}>
         <div className="bg-black p-5 border-b border-zinc-800 flex flex-col md:flex-row justify-between items-center gap-4 relative overflow-hidden">
           <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#3f3f46_1px,transparent_1px)] [background-size:16px_16px]"></div>
 
@@ -474,7 +483,7 @@ function InnerGameSimulator() {
         </div>
 
         {gameState === 'intro' && (
-          <div className="p-8 md:p-16 space-y-10 bg-zinc-900 min-h-[600px] flex flex-col justify-center">
+          <div className="p-8 md:p-16 space-y-10 bg-zinc-900 min-h-[420px] md:min-h-[680px] flex flex-col justify-center flex-1">
             <div className="text-center space-y-3">
               <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tight">Optimize Your <span className="text-lime-400">Execution</span></h2>
               <p className="text-zinc-400 text-sm font-mono uppercase tracking-widest max-w-xl mx-auto">
@@ -542,43 +551,51 @@ function InnerGameSimulator() {
 
         {gameState === 'playing' && (
           <div
-            className="relative h-[600px] w-full overflow-hidden select-none shadow-inner border-y-8 border-black"
+            ref={arenaRef}
+            className="relative w-full overflow-hidden select-none shadow-inner border-y-8 border-black flex-1 min-h-[420px] md:min-h-[700px]"
             style={{ background: 'linear-gradient(180deg, rgba(0, 255, 202, 0.05), rgba(11, 17, 26, 0.35)), var(--performance-game-bg-alt)' }}
           >
             <div
               className="absolute top-[10%] bottom-[10%] left-[5%] right-[5%] border-4 border-white shadow-[inset_0_0_50px_rgba(0,0,0,0.3)] flex"
-              style={{ background: 'linear-gradient(180deg, rgba(0, 255, 202, 0.06), rgba(15, 19, 26, 0.18)), var(--performance-game-panel)' }}
+              style={{
+                background: 'linear-gradient(180deg, rgba(0, 255, 202, 0.06), rgba(15, 19, 26, 0.18)), var(--performance-game-panel)',
+                borderWidth: `${courtLineWidth}px`
+              }}
             >
-              <div className="w-1/2 h-full border-r-[6px] border-white/90 relative z-10 shadow-[2px_0_10px_rgba(0,0,0,0.5)]">
-                <div className="absolute top-[15%] bottom-[15%] right-0 w-[45%] border-4 border-white flex flex-col">
-                  <div className="h-1/2 w-full border-b-4 border-white"></div>
+              <div className="w-1/2 h-full border-r border-white/90 relative z-10 shadow-[2px_0_10px_rgba(0,0,0,0.5)]" style={{ borderRightWidth: `${centerLineWidth}px` }}>
+                <div className="absolute top-[15%] bottom-[15%] right-0 w-[45%] border border-white flex flex-col" style={{ borderWidth: `${courtLineWidth}px` }}>
+                  <div className="h-1/2 w-full border-b border-white" style={{ borderBottomWidth: `${courtLineWidth}px` }}></div>
                 </div>
               </div>
               <div className="w-1/2 h-full relative z-0">
-                <div className="absolute top-[15%] bottom-[15%] left-0 w-[45%] border-4 border-white flex flex-col">
-                  <div className="h-1/2 w-full border-b-4 border-white"></div>
+                <div className="absolute top-[15%] bottom-[15%] left-0 w-[45%] border border-white flex flex-col" style={{ borderWidth: `${courtLineWidth}px` }}>
+                  <div className="h-1/2 w-full border-b border-white" style={{ borderBottomWidth: `${courtLineWidth}px` }}></div>
                 </div>
               </div>
             </div>
 
             <div
-              className={`absolute top-[10%] bottom-[10%] border-l-[3px] border-r-[3px] flex items-center justify-center pointer-events-none transition-all duration-300 z-10 backdrop-blur-[1px] ${isFlowState ? 'bg-lime-400/20 border-lime-400' : 'bg-lime-400/10 border-lime-400/50'}`}
+              className={`absolute top-[10%] bottom-[10%] border-l border-r flex items-center justify-center pointer-events-none transition-all duration-300 z-10 backdrop-blur-[1px] ${isFlowState ? 'bg-lime-400/20 border-lime-400' : 'bg-lime-400/10 border-lime-400/50'}`}
               style={{
                 left: `${uiMin}%`,
-                width: `${uiMax - uiMin}%`
+                width: `${uiMax - uiMin}%`,
+                borderLeftWidth: `${hitZoneLineWidth}px`,
+                borderRightWidth: `${hitZoneLineWidth}px`
               }}
             >
               <div className={`font-black uppercase tracking-widest rotate-90 whitespace-nowrap flex flex-col items-center drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] ${isFlowState ? 'text-lime-400' : 'text-lime-400'}`}>
-                <span className="text-xl">Hit Zone {isFlowState && '+20%'}</span>
-                <span className="text-[10px] mt-1 font-mono tracking-[0.3em] bg-black/50 px-2 py-0.5">[{ballState.label}]</span>
+                <span style={{ fontSize: `${hitZoneLabelSize}px` }}>Hit Zone {isFlowState && '+20%'}</span>
+                <span className="mt-1 font-mono tracking-[0.3em] bg-black/50 px-2 py-0.5" style={{ fontSize: `${hitZoneMetaSize}px` }}>[{ballState.label}]</span>
               </div>
             </div>
 
             <div
-              className={`absolute w-12 h-12 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 z-20 ${isFlowState ? 'shadow-[0_0_30px_rgba(0,255,202,0.28),inset_-3px_-3px_8px_rgba(0,0,0,0.4)]' : 'shadow-[inset_-3px_-3px_8px_rgba(0,0,0,0.4),_0_10px_15px_rgba(0,0,0,0.5)]'}`}
+              className={`absolute rounded-full flex items-center justify-center cursor-pointer hover:scale-110 z-20 ${isFlowState ? 'shadow-[0_0_30px_rgba(0,255,202,0.28),inset_-3px_-3px_8px_rgba(0,0,0,0.4)]' : 'shadow-[inset_-3px_-3px_8px_rgba(0,0,0,0.4),_0_10px_15px_rgba(0,0,0,0.5)]'}`}
               style={{
                 left: `${ballState.x}%`,
                 top: `${ballState.y}%`,
+                width: `${ballSize}px`,
+                height: `${ballSize}px`,
                 transform: `translate(-50%, -50%) rotate(${ballState.x * (ballState.curve >= 0 ? 12 : -12)}deg)`,
                 background: isFlowState
                   ? 'radial-gradient(circle at 30% 30%, #c7fff2, #00a676)'
@@ -599,7 +616,7 @@ function InnerGameSimulator() {
                 style={{
                   left: `${thought.x}%`,
                   top: `${thought.y}%`,
-                  transform: 'translate(-50%, -50%)',
+                  transform: `translate(-50%, -50%) scale(${thoughtCardScale})`,
                   animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
                 }}
                 onClick={(event) => {
@@ -697,7 +714,7 @@ function InnerGameSimulator() {
         )}
 
         {gameState === 'gameover' && (
-          <div className="p-8 md:p-12 bg-zinc-950 text-center min-h-[600px] flex flex-col justify-center relative overflow-hidden">
+          <div className="p-8 md:p-12 bg-zinc-950 text-center min-h-[420px] md:min-h-[680px] flex flex-col justify-center relative overflow-hidden flex-1">
             <div className="absolute inset-0 opacity-5 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
 
             <div className="relative z-10">

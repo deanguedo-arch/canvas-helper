@@ -1,5 +1,5 @@
 import { existsSync } from "node:fs";
-import { mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
+import { copyFile, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import vm from "node:vm";
 
@@ -12,6 +12,7 @@ const REPO_ROOT = process.cwd();
 const WORKSPACE_DIR = path.join(REPO_ROOT, "projects", PROJECT_SLUG, "workspace");
 const COURSE_DATA_PATH = path.join(WORKSPACE_DIR, "course-data.js");
 const MODULE_CONTENT_DIR = path.join(WORKSPACE_DIR, "content");
+const WORKSPACE_REFERENCE_DIR = path.join(WORKSPACE_DIR, "references", "forensics");
 const EXPORT_ROOT_DIR = path.join(
   REPO_ROOT,
   "projects",
@@ -20,6 +21,7 @@ const EXPORT_ROOT_DIR = path.join(
   String(d2lCourseMapData.exportRoot || "")
 );
 const EXPORT_ROOT_RELATIVE = normalizePath(String(d2lCourseMapData.exportRoot || ""));
+const mirroredReferencePaths = new Set<string>();
 
 type ModuleNode = {
   id?: string;
@@ -317,11 +319,18 @@ function encodeReferencePath(relativePath: string): string {
     .join("/");
 }
 
-function buildReferenceUrl(relativePath: string): string {
-  const withExportRoot = EXPORT_ROOT_RELATIVE
-    ? joinPath(EXPORT_ROOT_RELATIVE, relativePath)
-    : normalizePath(relativePath);
-  return `/preview/references/raw/forensics/${encodeReferencePath(withExportRoot)}`;
+function registerMirroredReference(relativePath: string): string | null {
+  const existingRelative = findExistingRelativeFile(relativePath);
+  if (!existingRelative) return null;
+  mirroredReferencePaths.add(existingRelative);
+  return existingRelative;
+}
+
+function buildReferenceUrl(relativePath: string, context: "root" | "chapter" = "root"): string {
+  const mirroredRelative = registerMirroredReference(relativePath);
+  if (!mirroredRelative) return "";
+  const prefix = context === "chapter" ? "../../references/forensics" : "./references/forensics";
+  return `${prefix}/${encodeReferencePath(mirroredRelative)}`;
 }
 
 function buildSyntheticAssignmentDefinition(moduleTitle: string) {
@@ -347,7 +356,9 @@ function buildSyntheticAssignmentDefinition(moduleTitle: string) {
       introHtml: [
         '<div class="space-y-5">',
         "<p>Review Locard's Exchange Principle and apply it to the introductory crime scene case.</p>",
-        `<p style="text-align:center;"><img src="${moduleOneLocardImage}" alt="Locard Research reference image" width="520" class="img-responsive atto_image_button_text-bottom"></p>`,
+        moduleOneLocardImage
+          ? `<p style="text-align:center;"><img src="${moduleOneLocardImage}" alt="Locard Research reference image" width="520" class="img-responsive atto_image_button_text-bottom"></p>`
+          : "",
         "<p>Use your assignment template or workbook instructions, add your name, and complete each required response section.</p>",
         "<p><strong>When you have completed the assignment, upload your generated reports to your respective online classroom.</strong></p>",
         "</div>"
@@ -381,7 +392,9 @@ function buildSyntheticAssignmentDefinition(moduleTitle: string) {
         "<div>",
         `<p style="text-align: center;"><img src="${moduleThreeCaseStudiesImage}" alt="Image result for hair microscope" width="501" height="401" class="img-responsive atto_image_button_text-bottom"></p>`,
         "<p>Hair and fiber evidence has been used in many cases in the past to connect suspects with a crime. Occasionally, these cases are overturned with DNA evidence in the future. Despite this, trace evidence such as hair and fiber has many valuable uses in solving crimes. The following assignment will have you examine some of these cases.</p>",
-        `<p style="text-align: center;"><img src="${moduleThreeTraceImage}" alt="hair evidence" width="500" height="333" class="img-responsive atto_image_button_text-bottom"></p>`,
+        moduleThreeTraceImage
+          ? `<p style="text-align: center;"><img src="${moduleThreeTraceImage}" alt="hair evidence" width="500" height="333" class="img-responsive atto_image_button_text-bottom"></p>`
+          : "",
         "<p>Microscopic evidence at a crime scene is called Trace Evidence. Hair and fiber are examples of this type of evidence and they can be valuable in an investigation. Although most hair and fiber are identified and not individualized, they can still be used in court to support cases.</p>",
         "<p><strong>When you have completed the assignment, upload your generated reports to your respective online classroom.</strong></p>",
         "</div>"
@@ -395,7 +408,9 @@ function buildSyntheticAssignmentDefinition(moduleTitle: string) {
       introHtml: [
         "<div>",
         "<p>Body fluid evidence is one of the most common pieces of evidence that can be found at a crime scene, especially when a violent crime has occurred. This evidence can be extremely useful in helping investigators piece together the events of a crime. In this assignment you will demonstrate your understanding of body fluid evidence.</p>",
-        `<p style="text-align: center;"><img src="${moduleFourCaseStudiesImage}" alt="blood evidence" width="500" height="334" class="img-responsive atto_image_button_text-bottom"></p>`,
+        moduleFourCaseStudiesImage
+          ? `<p style="text-align: center;"><img src="${moduleFourCaseStudiesImage}" alt="blood evidence" width="500" height="334" class="img-responsive atto_image_button_text-bottom"></p>`
+          : "",
         "<p>There are a number of historical case studies where blood stain and/or spatter evidence was used to successfully solve a crime and convict the perpetrator(s). Demonstrate your understanding of forensic serology by completing the following assignment.</p>",
         "<p><strong>When you have completed the assignment, upload your generated reports to your respective online classroom.</strong></p>",
         "</div>"
@@ -420,7 +435,9 @@ function buildSyntheticAssignmentDefinition(moduleTitle: string) {
       title: "Polygraph and Document Analysis Lab",
       introHtml: [
         "<div>",
-        `<p style="text-align: center;"><img src="${moduleSixPolygraphImage}" alt="polygraph" width="501" height="333" class="img-responsive atto_image_button_text-bottom"></p>`,
+        moduleSixPolygraphImage
+          ? `<p style="text-align: center;"><img src="${moduleSixPolygraphImage}" alt="polygraph" width="501" height="333" class="img-responsive atto_image_button_text-bottom"></p>`
+          : "",
         "<p>Polygraphing is a common tool used by investigators. Although it has been controversial, it has undeniable value to investigators when trying to solve crimes. Writing analysis is another common investigative tool that has been used to solve a number of crimes. In the assignment below, you will demonstrate your understanding of these forensic techniques.</p>",
         "<p><strong>When you have completed the assignment, upload your generated reports to your respective online classroom.</strong></p>",
         "</div>"
@@ -586,8 +603,11 @@ function rewriteHtmlAssetLinks(rawHtml: string, sourceRelativePath: string): str
 
       const resolved = resolveRelativePath(sourceRelativePath, rawValue);
       if (!resolved || resolved.startsWith("/")) return;
-      const existingRelative = findExistingRelativeFile(resolved) || normalizePath(resolved);
-      $(element).attr(attribute, buildReferenceUrl(existingRelative));
+      const existingRelative = findExistingRelativeFile(resolved);
+      if (!existingRelative) return;
+      const localUrl = buildReferenceUrl(existingRelative, "chapter");
+      if (!localUrl) return;
+      $(element).attr(attribute, localUrl);
     });
   };
 
@@ -621,7 +641,13 @@ function rewriteHtmlAssetLinks(rawHtml: string, sourceRelativePath: string): str
       return;
     }
 
-    $(element).attr("src", buildReferenceUrl(existingRelative));
+    const localUrl = buildReferenceUrl(existingRelative, "chapter");
+    if (!localUrl) {
+      $(element).replaceWith(buildMissingImageFallback(altText));
+      return;
+    }
+
+    $(element).attr("src", localUrl);
     $(element).attr("data-fallback-label", altText || "Source image unavailable");
     $(element).attr("loading", "lazy");
     $(element).attr("decoding", "async");
@@ -786,7 +812,7 @@ function deriveAssignmentBrief(
 ): AssignmentBrief {
   const template = ASSIGNMENT_BRIEF_TEMPLATES[itemTitle.toLowerCase()] || {};
   const hasSource = !!sourceRelativePath && !!findExistingRelativeFile(sourceRelativePath);
-  const sourcePath = hasSource && sourceRelativePath ? buildReferenceUrl(findExistingRelativeFile(sourceRelativePath) || sourceRelativePath) : "";
+  const sourcePath = hasSource && sourceRelativePath ? buildReferenceUrl(sourceRelativePath) : "";
   const caseStudy = /case stud/i.test(itemTitle);
   const genericSummary = caseStudy
     ? `This case-study brief belongs to ${moduleTitle}. Use the embedded workspace to apply the module concepts to a concrete investigation scenario.`
@@ -823,7 +849,7 @@ async function buildRetainedAssignmentBriefs(
           title: parsed.title || String(node.title || "Assignment"),
           summary,
           instructionHtml: introHtml || `<p>${escapeHtml(laneSummary || summary)}</p>`,
-          sourcePath: buildReferenceUrl(existingRelative)
+          sourcePath: buildReferenceUrl(existingRelative) || undefined
         };
       }
 
@@ -1067,6 +1093,7 @@ async function loadCourseData(): Promise<CourseData> {
 }
 
 async function main() {
+  mirroredReferencePaths.clear();
   const courseData = await loadCourseData();
   const visibleModules = (d2lCourseMapData.modules as ModuleNode[]).filter(
     (module) => module.kind === "module" && !EXCLUDED_VISIBLE_MODULE_TITLES.has(String(module.title || ""))
@@ -1118,7 +1145,7 @@ async function main() {
       enrichedQuiz = {
         ...existingQuiz,
         summary: buildQuizSummary(chapter, existingQuiz),
-        sourcePath: buildReferenceUrl(findExistingRelativeFile(quizNode.resource.hrefs[0]) || normalizePath(quizNode.resource.hrefs[0])),
+        sourcePath: buildReferenceUrl(quizNode.resource.hrefs[0]) || undefined,
         multipleChoice: parsedQuiz.multipleChoice,
         trueFalse: parsedQuiz.trueFalse,
         writtenResponse: parsedQuiz.writtenResponse,
@@ -1176,6 +1203,14 @@ async function main() {
       .filter((entry) => entry.isDirectory() && /^chapter-\d+$/.test(entry.name) && !normalizedChapterIds.has(entry.name))
       .map((entry) => rm(path.join(MODULE_CONTENT_DIR, entry.name), { recursive: true, force: true }))
   );
+
+  await rm(WORKSPACE_REFERENCE_DIR, { recursive: true, force: true });
+  for (const relativePath of mirroredReferencePaths) {
+    const sourceAbsolute = path.join(EXPORT_ROOT_DIR, ...relativePath.split("/"));
+    const destinationAbsolute = path.join(WORKSPACE_REFERENCE_DIR, ...relativePath.split("/"));
+    await mkdir(path.dirname(destinationAbsolute), { recursive: true });
+    await copyFile(sourceAbsolute, destinationAbsolute);
+  }
 
   const nextCourseData = {
     ...courseData,

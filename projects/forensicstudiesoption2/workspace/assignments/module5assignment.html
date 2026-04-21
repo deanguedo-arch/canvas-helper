@@ -8,8 +8,10 @@
   <style>
     body { margin: 0; background: #f1f5f9; }
   </style>
+  <link href="./forensic-assignment-theme.css?rev=20260421-4" rel="stylesheet" />
+  <script src="./forensic-assignment-print.js?rev=20260421-1"></script>
 </head>
-<body>
+<body class="forensic-assignment-theme">
   <div id="root"></div>
   <script>
     (function installErrorOverlay() {
@@ -43,9 +45,11 @@
   <script type="module">
     import React from "https://esm.sh/react@19.1.1";
     import ReactDOM from "https://esm.sh/react-dom@19.1.1/client";
-    import App from "./module5assignment.app.js?rev=2";
+    import App from "./module5assignment.app.js?rev=3";
 
     ReactDOM.createRoot(document.getElementById("root")).render(React.createElement(App));
   </script>
 </body>
 </html>
+
+

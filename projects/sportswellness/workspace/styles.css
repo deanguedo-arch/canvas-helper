@@ -595,10 +595,271 @@ body.sidebar-collapsed .brain-icon {
   line-height: 1.45;
 }
 
-.performance-shell {
+.film-room-shell {
   display: grid;
-  grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 360px);
   gap: 18px;
+  align-items: start;
+}
+
+.film-room-stage,
+.film-room-panel {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.film-room-stage {
+  position: relative;
+  overflow: hidden;
+  padding: 24px;
+  background: linear-gradient(180deg, rgba(15, 19, 26, 0.96), rgba(11, 17, 26, 0.94));
+}
+
+.film-room-stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(27, 45, 69, 0.78), transparent 32%),
+    radial-gradient(circle at 88% 12%, rgba(38, 24, 77, 0.5), transparent 28%),
+    linear-gradient(rgba(42, 55, 72, 0.28) 1px, transparent 1px) 0 0 / 100% 52px,
+    linear-gradient(90deg, rgba(42, 55, 72, 0.24) 1px, transparent 1px) 0 0 / 52px 100%;
+  opacity: 0.74;
+  pointer-events: none;
+}
+
+.film-room-sign,
+.film-room-tv-wrap,
+.film-room-sidebar {
+  position: relative;
+  z-index: 1;
+}
+
+.film-room-sign {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.film-room-sign h4,
+.film-room-panel h4 {
+  margin: 0;
+  font-size: 1.08rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.film-room-sign h4 {
+  color: var(--text);
+  font-size: clamp(1.16rem, 2vw, 1.8rem);
+}
+
+.film-room-kicker {
+  margin: 0 0 8px;
+  font-size: 0.68rem;
+  color: var(--green);
+}
+
+.film-room-count {
+  color: #93a4ba;
+  font-size: 0.74rem;
+  white-space: nowrap;
+}
+
+.film-room-tv-wrap {
+  display: grid;
+  justify-items: center;
+  padding-top: 10px;
+}
+
+.film-room-antenna {
+  position: relative;
+  width: 142px;
+  height: 42px;
+  margin-bottom: -8px;
+}
+
+.film-room-antenna span {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  height: 62px;
+  background: rgba(190, 205, 225, 0.72);
+  transform-origin: bottom center;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.12);
+}
+
+.film-room-antenna span:first-child {
+  transform: translateX(-24px) rotate(-36deg);
+}
+
+.film-room-antenna span:last-child {
+  transform: translateX(24px) rotate(36deg);
+}
+
+.film-room-tv {
+  width: min(100%, 900px);
+  border-radius: 28px;
+  padding: 22px 22px 18px;
+  background: linear-gradient(180deg, #1b2431, #101722);
+  border: 1px solid #334155;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.film-room-screen-shell {
+  padding: 20px;
+  border-radius: 24px;
+  background: linear-gradient(180deg, #101722, #06090d);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
+}
+
+.film-room-screen {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  aspect-ratio: 4 / 3;
+  background: #040506;
+  box-shadow:
+    inset 0 0 60px rgba(0, 0, 0, 0.78),
+    inset 0 0 0 1px rgba(255,255,255,0.03);
+}
+
+.film-room-screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 16%, rgba(255,255,255,0.12), transparent 34%),
+    radial-gradient(circle at 50% 68%, rgba(0,0,0,0), rgba(0,0,0,0.34) 78%);
+  pointer-events: none;
+}
+
+.film-room-screen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(255,255,255,0.07) 0,
+    rgba(255,255,255,0.07) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  opacity: 0.28;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.film-room-screen iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #000;
+}
+
+.film-room-console {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: center;
+  margin-top: 18px;
+}
+
+.film-room-slot {
+  height: 12px;
+  border-radius: 999px;
+  background: #090a0c;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
+}
+
+.film-room-led {
+  min-width: 88px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #101722;
+  color: var(--green);
+  text-align: center;
+  letter-spacing: 0.16em;
+  box-shadow: inset 0 0 0 1px rgba(0, 255, 202, 0.22);
+}
+
+.film-room-sidebar {
+  display: grid;
+  gap: 14px;
+}
+
+.film-room-panel {
+  padding: 18px;
+  background: rgba(11, 17, 26, 0.88);
+}
+
+.film-room-panel p:last-of-type {
+  color: #c1c9d4;
+  line-height: 1.55;
+}
+
+.film-room-label {
+  display: block;
+  margin: 16px 0 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--green);
+}
+
+.film-room-select {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid rgba(52, 64, 82, 0.96);
+  border-radius: 8px;
+  background: rgba(13, 20, 30, 0.92);
+  color: var(--text);
+  padding: 0 14px;
+  font: inherit;
+}
+
+.film-room-select:focus {
+  outline: 2px solid rgba(0, 255, 202, 0.3);
+  outline-offset: 2px;
+}
+
+.film-room-title {
+  margin: 12px 0 0;
+  color: #f5f8fd;
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+.film-room-meta {
+  margin-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--green);
+  font-size: 0.72rem;
+}
+
+.performance-launcher,
+.performance-player-shell {
+  display: grid;
+  gap: 14px;
+}
+
+.performance-player-layout,
+.performance-player-stage {
+  display: grid;
+  gap: 10px;
+}
+
+.performance-player-layout {
+  grid-template-columns: minmax(248px, 280px) minmax(0, 1fr);
   align-items: start;
 }
 
@@ -638,7 +899,22 @@ body.sidebar-collapsed .brain-icon {
 .performance-tool-list {
   display: grid;
   gap: 10px;
-  margin-top: 18px;
+  margin-top: 16px;
+}
+
+.performance-player-sidebar {
+  min-width: 0;
+}
+
+.performance-player-menu {
+  position: sticky;
+  top: 0;
+}
+
+.performance-launcher-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
 }
 
 .performance-tool-button {
@@ -693,21 +969,47 @@ body.sidebar-collapsed .brain-icon {
   font-size: 0.92rem;
 }
 
-.performance-tool-stage {
-  padding: 18px;
+.performance-player-nav {
+  display: none;
 }
 
-.performance-tool-viewer {
-  margin-top: 18px;
+.performance-player-back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
   border: 1px solid rgba(52, 64, 82, 0.95);
-  background: #050b13;
-  min-height: 820px;
-  overflow: hidden;
+  background: rgba(13, 20, 30, 0.92);
+  color: #eef4ff;
+  min-height: 38px;
+  padding: 0 12px;
+  border-radius: 8px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease;
 }
 
-.performance-tool-frame {
+.performance-player-back:hover {
+  transform: translateY(-1px);
+  border-color: #42526a;
+  background: rgba(16, 25, 37, 0.98);
+}
+
+.performance-player-frame-wrap {
+  border: 1px solid rgba(45, 57, 74, 0.72);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #050b13;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
+}
+
+.performance-player-frame {
   display: block;
   width: 100%;
+  height: min(1100px, calc(100dvh - 180px));
   min-height: 820px;
   border: 0;
   background: #050b13;
@@ -993,6 +1295,7 @@ body.sidebar-collapsed .brain-icon {
   .modules-grid,
   .summary-grid,
   .icon-grid,
+  .film-room-shell,
   .performance-shell,
   .assignment-grid,
   .assignment-mini-grid {
@@ -1016,9 +1319,76 @@ body.sidebar-collapsed .brain-icon {
     border-radius: 0;
   }
 
-  .performance-tool-viewer,
-  .performance-tool-frame {
-    min-height: 720px;
+  .performance-launcher-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .performance-player-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .performance-player-sidebar {
+    display: none;
+  }
+
+  .performance-player-shell,
+  .performance-player-stage {
+    gap: 8px;
+  }
+
+  .performance-player-nav {
+    display: flex;
+  }
+
+  .performance-player-frame {
+    height: calc(100dvh - 160px);
+    min-height: 660px;
+  }
+
+  .film-room-stage {
+    padding: 18px;
+  }
+
+  .film-room-sign {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .performance-menu {
+    padding: 16px;
+  }
+
+  .performance-player-back {
+    width: 100%;
+  }
+
+  .performance-player-frame {
+    height: calc(100dvh - 138px);
+    min-height: 560px;
+  }
+
+  .film-room-tv {
+    border-radius: 20px;
+    padding: 16px 16px 14px;
+  }
+
+  .film-room-screen-shell {
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .film-room-console {
+    grid-template-columns: 1fr;
+  }
+
+  .film-room-led {
+    width: 100%;
+  }
+
+  .film-room-meta {
+    flex-direction: column;
   }
 
   body.sidebar-collapsed .app-shell {

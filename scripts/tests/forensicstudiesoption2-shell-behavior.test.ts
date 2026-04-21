@@ -219,3 +219,28 @@ test("forensic studies option2 applies special assignment 8 and final exam rules
   assert.match(mainSource, /Open test/);
   assert.doesNotMatch(mainSource, /Open quiz/);
 });
+
+test("forensic studies option2 keeps the assignment-only authoring unlock switch off by default", async () => {
+  const mainSource = await readFile(mainPath, "utf8");
+  const isAssignmentUnlockedSource = extractNamedFunction(mainSource, "isAssignmentUnlocked");
+  const isQuizUnlockedSource = extractNamedFunction(mainSource, "isQuizUnlocked");
+  const isChapterUnlockedSource = extractNamedFunction(mainSource, "isChapterUnlocked");
+
+  assert.match(mainSource, /const AUTHORING_UNLOCK_ASSIGNMENTS = false;/);
+  assert.match(isAssignmentUnlockedSource, /if \(AUTHORING_UNLOCK_ASSIGNMENTS\) return true;/);
+  assert.doesNotMatch(isQuizUnlockedSource, /AUTHORING_UNLOCK_ASSIGNMENTS/);
+  assert.doesNotMatch(isChapterUnlockedSource, /AUTHORING_UNLOCK_ASSIGNMENTS/);
+});
+
+test("forensic studies option2 renders assignment shell controls before the embedded runtime", async () => {
+  const mainSource = await readFile(mainPath, "utf8");
+
+  assert.match(mainSource, /\$\{assignmentToolbar\}\s*\n\s*\$\{briefSection\}\s*\n\s*<div class="assignment-runtime-shell">/);
+  assert.doesNotMatch(mainSource, /\$\{briefSection\}\s*\n\s*<div class="assignment-toolbar" data-assignment-toolbar>/);
+  assert.match(mainSource, /data-assignment-action="reset"/);
+  assert.doesNotMatch(mainSource, /data-assignment-action="previous"/);
+  assert.doesNotMatch(mainSource, /data-assignment-action="generate"/);
+  assert.match(mainSource, /function getAssignmentResetStorageKeys\(/);
+  assert.match(mainSource, /window\.localStorage\.removeItem\(key\)/);
+  assert.match(mainSource, /frame\.contentWindow\.location\.reload\(\)/);
+});

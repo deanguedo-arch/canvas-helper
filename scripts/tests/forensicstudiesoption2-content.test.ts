@@ -9,13 +9,21 @@ import d2lCourseMapData from "../../projects/forensics/workspace/d2l-map-data.js
 const workspaceDir = path.resolve("projects", "forensicstudiesoption2", "workspace");
 const contentDir = path.join(workspaceDir, "content");
 const dataPath = path.join(workspaceDir, "course-data.js");
+const manifestPath = path.resolve("projects", "forensicstudiesoption2", "meta", "project.json");
 const chapterTwoPath = path.join(workspaceDir, "content", "chapter-2", "index.html");
 const chapterTenPath = path.join(workspaceDir, "content", "chapter-10", "index.html");
 const moduleIndexCssPath = path.join(workspaceDir, "content", "module-index.css");
+const moduleOneAppPath = path.join(workspaceDir, "assignments", "module1assignment-app.jsx");
 const moduleTwoAppPath = path.join(workspaceDir, "assignments", "module2assignment-app.jsx");
 const moduleTwoBundlePath = path.join(workspaceDir, "assignments", "module2assignment.bundle.js");
 const moduleTwoAssetDir = path.join(workspaceDir, "assignments", "module2");
-const resourceRoot = path.resolve("projects", "resources", "forensics");
+const moduleThreeAppPath = path.join(workspaceDir, "assignments", "module3assignment-app.jsx");
+const moduleFourHtmlPath = path.join(workspaceDir, "assignments", "module4assignment.html");
+const moduleFiveAppPath = path.join(workspaceDir, "assignments", "module5assignment.jsx");
+const moduleSixAppPath = path.join(workspaceDir, "assignments", "module6assignment-app.jsx");
+const moduleSevenAppPath = path.join(workspaceDir, "assignments", "module7assignment-app.jsx");
+const moduleEightAppPath = path.join(workspaceDir, "assignments", "module8assignment-app.jsx");
+const referenceRoot = path.join(workspaceDir, "references", "forensics");
 
 function loadCourseData(source) {
   const context = { window: {} };
@@ -38,14 +46,13 @@ function authoredQuestionCount(quiz) {
     + (Array.isArray(quiz?.writtenResponse) ? quiz.writtenResponse.length : 0);
 }
 
-function extractRawReferenceUrls(source) {
-  return Array.from(source.matchAll(/\/preview\/references\/raw\/forensics\/[^"'\s>]+/g)).map((match) => match[0]);
+function extractMirroredReferenceUrls(source) {
+  return Array.from(source.matchAll(/(?:(?:\.\.\/)|(?:\.\/))*references\/forensics\/[^"'\s>]+/g)).map((match) => match[0]);
 }
 
-async function assertReferenceUrlResolves(url) {
-  const relativePath = decodeURIComponent(url.replace("/preview/references/raw/forensics/", ""));
-  const absolutePath = path.join(resourceRoot, relativePath);
-  await access(absolutePath);
+function toWorkspaceReferencePath(url, sourceFile) {
+  const normalized = decodeURIComponent(String(url || "").split(/[?#]/, 1)[0]).replace(/\//g, path.sep);
+  return path.resolve(path.dirname(sourceFile), normalized);
 }
 
 async function loadChapterSources() {
@@ -345,40 +352,41 @@ test("forensic studies option2 chapter pages mirror original forensics case-modu
   });
 });
 
-test("forensic studies option2 raw reference urls resolve to real retained files", async () => {
+test("forensic studies option2 generated content does not contain studio-only raw preview urls", async () => {
   const [dataSource, chapterTwoSource] = await Promise.all([
     readFile(dataPath, "utf8"),
     readFile(chapterTwoPath, "utf8")
   ]);
-  const data = loadCourseData(dataSource);
-  const quizUrls = (Array.isArray(data?.quizzes) ? data.quizzes : [])
-    .map((quiz) => quiz?.sourcePath)
-    .filter(Boolean);
 
-  const urls = [
-    ...quizUrls,
-    ...extractRawReferenceUrls(chapterTwoSource)
-  ];
-
-  assert.ok(urls.length > 0, "expected raw reference urls in generated option2 content");
-
-  for (const url of urls.slice(0, 20)) {
-    await assertReferenceUrlResolves(url);
-  }
+  assert.doesNotMatch(dataSource, /\/preview\/references\/raw\/forensics\//);
+  assert.doesNotMatch(chapterTwoSource, /\/preview\/references\/raw\/forensics\//);
 });
 
-test("forensic studies option2 retained chapter image refs resolve to real files", async () => {
-  const chapterSources = await loadChapterSources();
-  const imageUrls = chapterSources.flatMap(({ source }) =>
-    Array.from(source.matchAll(/<img[^>]+src="([^"]+)"/gi))
-      .map((match) => match[1])
-      .filter((url) => url.startsWith("/preview/references/raw/forensics/"))
-  );
+test("forensic studies option2 mirrored reference urls resolve to workspace files", async () => {
+  const [dataSource, chapterSources] = await Promise.all([
+    readFile(dataPath, "utf8"),
+    loadChapterSources()
+  ]);
 
-  assert.ok(imageUrls.length > 0, "expected retained chapter image references");
+  const urls = [
+    ...extractMirroredReferenceUrls(dataSource).map((url) => ({ url, sourceFile: dataPath })),
+    ...chapterSources.flatMap(({ id, source }) =>
+      extractMirroredReferenceUrls(source).map((url) => ({
+        url,
+        sourceFile: path.join(contentDir, id, "index.html")
+      }))
+    )
+  ];
 
-  for (const url of imageUrls) {
-    await assertReferenceUrlResolves(url);
+  assert.ok(urls.length > 0, "expected mirrored reference urls in generated option2 content");
+
+  for (const { url, sourceFile } of urls) {
+    const absolutePath = toWorkspaceReferencePath(url, sourceFile);
+    assert.ok(
+      absolutePath.startsWith(referenceRoot),
+      `expected mirrored reference to stay under workspace reference root: ${absolutePath}`
+    );
+    await access(absolutePath);
   }
 });
 
@@ -417,3 +425,67 @@ test("forensic studies option2 module 2 uses local assignment image assets inste
 function escapeRegExp(value) {
   return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
+
+test("forensicstudiesoption2 manifest declares the full explicit Google-hosted tracked storage key set", async () => {
+  const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
+  const trackedStorageKeys = manifest?.googleHosted?.trackedStorageKeys;
+
+  assert.deepEqual(trackedStorageKeys, [
+    "forensicstudiesoption2.progress",
+    "forensicstudiesoption2.ui",
+    "forensics::module1assignment::v1",
+    "forensics::module2assignment::v1",
+    "forensics::module3assignment::v1",
+    "forensics::module4assignment::v1",
+    "forensics::module5assignment::v1",
+    "forensics::module6assignment::v1",
+    "forensics::module7assignment::v1",
+    "forensics::module8assignment::v1"
+  ]);
+});
+
+test("forensicstudiesoption2 assignments 1-8 all declare incremental persistence hooks", async () => {
+  const [
+    moduleOneSource,
+    moduleTwoSource,
+    moduleThreeSource,
+    moduleFourSource,
+    moduleFiveSource,
+    moduleSixSource,
+    moduleSevenSource,
+    moduleEightSource
+  ] = await Promise.all([
+    readFile(moduleOneAppPath, "utf8"),
+    readFile(moduleTwoAppPath, "utf8"),
+    readFile(moduleThreeAppPath, "utf8"),
+    readFile(moduleFourHtmlPath, "utf8"),
+    readFile(moduleFiveAppPath, "utf8"),
+    readFile(moduleSixAppPath, "utf8"),
+    readFile(moduleSevenAppPath, "utf8"),
+    readFile(moduleEightAppPath, "utf8")
+  ]);
+
+  assert.match(moduleOneSource, /forensics::module1assignment::v1/);
+  assert.match(moduleOneSource, /localStorage\.(?:getItem|setItem)/);
+
+  assert.match(moduleTwoSource, /forensics::module2assignment::v1/);
+  assert.match(moduleTwoSource, /localStorage\.(?:getItem|setItem)/);
+
+  assert.match(moduleThreeSource, /forensics::module3assignment::v1/);
+  assert.match(moduleThreeSource, /localStorage\.(?:getItem|setItem)/);
+
+  assert.match(moduleFourSource, /forensics::module4assignment::v1/);
+  assert.match(moduleFourSource, /localStorage\.(?:getItem|setItem)/);
+
+  assert.match(moduleFiveSource, /forensics::module5assignment::v1/);
+  assert.match(moduleFiveSource, /localStorage\.(?:getItem|setItem)/);
+
+  assert.match(moduleSixSource, /forensics::module6assignment::v1/);
+  assert.match(moduleSixSource, /localStorage\.(?:getItem|setItem)/);
+
+  assert.match(moduleSevenSource, /forensics::module7assignment::v1/);
+  assert.match(moduleSevenSource, /localStorage\.(?:getItem|setItem)/);
+
+  assert.match(moduleEightSource, /forensics::module8assignment::v1/);
+  assert.match(moduleEightSource, /localStorage\.(?:getItem|setItem)/);
+});

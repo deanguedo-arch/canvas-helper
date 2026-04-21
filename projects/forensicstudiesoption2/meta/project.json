@@ -31,11 +31,35 @@
       "target": "brightspace",
       "enabled": true,
       "notes": "Option 2 shell derived from Forensics content and the World Religions option-1 shell contract."
+    },
+    {
+      "target": "google-hosted",
+      "enabled": true,
+      "notes": "Google sign-in is optional for cloud save and resume. All learner progress surfaces are tracked for Firebase restore."
     }
   ],
   "authoringStatus": "active",
   "generatedOutputs": [],
   "injectedComponents": [],
   "referenceOnly": [],
-  "sourceOfTruthNotes": "Edit forensicstudiesoption2 workspace files only. Forensics remains the read-only source project for imported content and assignment assets."
+  "sourceOfTruthNotes": "Edit forensicstudiesoption2 workspace files only. Forensics remains the read-only source project for imported content and assignment assets.",
+  "googleHosted": {
+    "trackedStorageKeys": [
+      "forensicstudiesoption2.progress",
+      "forensicstudiesoption2.ui",
+      "forensics::module1assignment::v1",
+      "forensics::module2assignment::v1",
+      "forensics::module3assignment::v1",
+      "forensics::module4assignment::v1",
+      "forensics::module5assignment::v1",
+      "forensics::module6assignment::v1",
+      "forensics::module7assignment::v1",
+      "forensics::module8assignment::v1"
+    ]
+  },
+  "learningSource": "other",
+  "learningTrust": "auto",
+  "learningUpdatedAt": "2026-04-21T21:25:59.505Z",
+  "workspaceApprovedAt": "2026-04-21T21:44:29.402Z",
+  "updatedAt": "2026-04-21T21:44:29.402Z"
 }

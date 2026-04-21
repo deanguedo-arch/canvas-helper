@@ -1,20 +1,51 @@
 import React, { useState, useRef, useEffect } from 'react';
-const IconStub = () => null;
-const Search = IconStub;
-const Shield = IconStub;
-const FileText = IconStub;
-const Users = IconStub;
-const Database = IconStub;
-const CheckCircle = IconStub;
-const XCircle = IconStub;
-const Printer = IconStub;
-const Maximize2 = IconStub;
-const Crosshair = IconStub;
-const Fingerprint = IconStub;
-const BookOpen = IconStub;
-const ClipboardCheck = IconStub;
-const AlertCircle = IconStub;
+import {
+  Search,
+  Shield,
+  FileText,
+  Users,
+  Database,
+  CheckCircle,
+  XCircle,
+  Printer,
+  Maximize2,
+  Crosshair,
+  Fingerprint,
+  BookOpen,
+  ClipboardCheck,
+  AlertCircle
+} from 'lucide-react';
+const MODULE2_ASSIGNMENT_STORAGE_KEY = 'forensics::module2assignment::v1';
 const MODULE2_ASSET_ROOT = './module2';
+
+function readModule2AssignmentState() {
+  if (typeof window === 'undefined') {
+    return null;
+  }
+
+  try {
+    const raw = window.localStorage.getItem(MODULE2_ASSIGNMENT_STORAGE_KEY);
+    if (!raw) {
+      return null;
+    }
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === 'object' ? parsed : null;
+  } catch (_error) {
+    return null;
+  }
+}
+
+function writeModule2AssignmentState(state) {
+  if (typeof window === 'undefined') {
+    return;
+  }
+
+  try {
+    window.localStorage.setItem(MODULE2_ASSIGNMENT_STORAGE_KEY, JSON.stringify(state));
+  } catch (_error) {
+    // Ignore storage write failures in locked/private contexts.
+  }
+}
 
 // --- DATA CONSTANTS ---
 const PATTERN_TYPES = [
@@ -98,7 +129,7 @@ const FingerprintGraphic = ({ pattern, showOverlay, className = "w-48 h-48" }) =
   const [imgError, setImgError] = useState(false);
 
   return (
-    <div className={`relative bg-slate-200 rounded-lg overflow-hidden flex items-center justify-center border-2 border-slate-400 shadow-inner ${className}`}>
+    <div className={`assignment-fingerprint-surface relative bg-slate-200 rounded-lg overflow-hidden flex items-center justify-center border-2 border-slate-400 shadow-inner ${className}`}>
        {!imgError ? (
            <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ transform: config.transform, transition: 'transform 0.3s ease' }}>
                <img 
@@ -146,20 +177,94 @@ const FingerprintGraphic = ({ pattern, showOverlay, className = "w-48 h-48" }) =
 
 // --- MAIN APPLICATION ---
 export default function App() {
-  const [activeTab, setActiveTab] = useState('training');
-  const [trainingData, setTrainingData] = useState(PATTERN_TYPES.reduce((acc, type) => ({ ...acc, [type]: { definition: '', source: '' } }), {}));
-  const [selectedTrainingPattern, setSelectedTrainingPattern] = useState(PATTERN_TYPES[0]);
-  const [showOverlay, setShowOverlay] = useState(false);
+  const [persistedState] = useState(() => readModule2AssignmentState());
+  const defaultTrainingData = PATTERN_TYPES.reduce((acc, type) => ({ ...acc, [type]: { definition: '', source: '' } }), {});
+  const [activeTab, setActiveTab] = useState(persistedState?.activeTab || 'training');
+  const [trainingData, setTrainingData] = useState(
+    persistedState?.trainingData && typeof persistedState.trainingData === 'object'
+      ? { ...defaultTrainingData, ...persistedState.trainingData }
+      : defaultTrainingData
+  );
+  const [selectedTrainingPattern, setSelectedTrainingPattern] = useState(
+    persistedState?.selectedTrainingPattern || PATTERN_TYPES[0]
+  );
+  const [showOverlay, setShowOverlay] = useState(Boolean(persistedState?.showOverlay));
   
   // States for second assignment
-  const [theoryAnswers, setTheoryAnswers] = useState({ altered: '', reliability: '', elements: '', latent: '' });
-  const [caseAnswers, setCaseAnswers] = useState({});
+  const [theoryAnswers, setTheoryAnswers] = useState(
+    persistedState?.theoryAnswers && typeof persistedState.theoryAnswers === 'object'
+      ? {
+          altered: persistedState.theoryAnswers.altered || '',
+          reliability: persistedState.theoryAnswers.reliability || '',
+          elements: persistedState.theoryAnswers.elements || '',
+          latent: persistedState.theoryAnswers.latent || ''
+        }
+      : { altered: '', reliability: '', elements: '', latent: '' }
+  );
+  const [caseAnswers, setCaseAnswers] = useState(
+    persistedState?.caseAnswers && typeof persistedState.caseAnswers === 'object'
+      ? persistedState.caseAnswers
+      : {}
+  );
 
-  const [evidenceTags, setEvidenceTags] = useState({});
-  const [suspectTags, setSuspectTags] = useState({});
-  const [afisLeft, setAfisLeft] = useState(null);
-  const [afisRight, setAfisRight] = useState(null);
-  const [reportData, setReportData] = useState({ guilty1: '', guilty2: '', handImportance: '', evidenceExplanation: '' });
+  const [evidenceTags, setEvidenceTags] = useState(
+    persistedState?.evidenceTags && typeof persistedState.evidenceTags === 'object'
+      ? persistedState.evidenceTags
+      : {}
+  );
+  const [suspectTags, setSuspectTags] = useState(
+    persistedState?.suspectTags && typeof persistedState.suspectTags === 'object'
+      ? persistedState.suspectTags
+      : {}
+  );
+  const [afisLeft, setAfisLeft] = useState(
+    persistedState?.afisLeft && typeof persistedState.afisLeft === 'object'
+      ? persistedState.afisLeft
+      : null
+  );
+  const [afisRight, setAfisRight] = useState(
+    persistedState?.afisRight && typeof persistedState.afisRight === 'object'
+      ? persistedState.afisRight
+      : null
+  );
+  const [reportData, setReportData] = useState(
+    persistedState?.reportData && typeof persistedState.reportData === 'object'
+      ? {
+          guilty1: persistedState.reportData.guilty1 || '',
+          guilty2: persistedState.reportData.guilty2 || '',
+          handImportance: persistedState.reportData.handImportance || '',
+          evidenceExplanation: persistedState.reportData.evidenceExplanation || ''
+        }
+      : { guilty1: '', guilty2: '', handImportance: '', evidenceExplanation: '' }
+  );
+
+  useEffect(() => {
+    writeModule2AssignmentState({
+      activeTab,
+      trainingData,
+      selectedTrainingPattern,
+      showOverlay,
+      theoryAnswers,
+      caseAnswers,
+      evidenceTags,
+      suspectTags,
+      afisLeft,
+      afisRight,
+      reportData
+    });
+  }, [
+    activeTab,
+    trainingData,
+    selectedTrainingPattern,
+    showOverlay,
+    theoryAnswers,
+    caseAnswers,
+    evidenceTags,
+    suspectTags,
+    afisLeft,
+    afisRight,
+    reportData
+  ]);
 
   const handleTrainingUpdate = (type, field, value) => {
     setTrainingData(prev => ({ ...prev, [type]: { ...prev[type], [field]: value } }));
@@ -361,7 +466,7 @@ export default function App() {
                 <div className="flex gap-2">
                   {[0, 1].map((printIdx) => (
                     <div key={printIdx} className="flex-1 bg-slate-900 p-2 rounded border border-slate-700">
-                      <div className="cursor-pointer hover:ring-2 hover:ring-red-500 rounded flex justify-center bg-slate-200 mb-2 overflow-hidden" onClick={() => setAfisRight({ name: `${suspect.name} - P${printIdx + 1}`, type: suspect.prints[printIdx] })}>
+                      <div className="assignment-fingerprint-thumbnail cursor-pointer hover:ring-2 hover:ring-red-500 rounded flex justify-center bg-slate-200 mb-2 overflow-hidden" onClick={() => setAfisRight({ name: `${suspect.name} - P${printIdx + 1}`, type: suspect.prints[printIdx] })}>
                          <FingerprintGraphic pattern={suspect.prints[printIdx]} className="w-12 h-12" />
                       </div>
                       <select value={suspectTags[suspect.id]?.[printIdx] || ''} onChange={(e) => setSuspectTags(prev => ({ ...prev, [suspect.id]: { ...(prev[suspect.id] || {}), [printIdx]: e.target.value } }))} className="w-full bg-slate-800 border border-slate-600 rounded p-0.5 text-[10px] text-slate-200">

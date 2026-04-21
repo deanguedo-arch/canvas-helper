@@ -50,6 +50,7 @@ Entries are listed in file order (older to newer within this archive).
 - 2026-04-21: docs/ops/ACTIVE_HANDOFF.md (pre-sportswellness-phase2-discipline-game-performance-menu)
 - 2026-04-21: docs/ops/ACTIVE_HANDOFF.md (pre-sportswellness-phase4-mental-filter-simulator-game)
 - 2026-04-21: docs/ops/ACTIVE_HANDOFF.md (pre-sportswellness-performance-games-shared-palette)
+- 2026-04-21: docs/ops/ACTIVE_HANDOFF.md (pre-sportswellness-performance-games-focused-view)
 
 ---
 
@@ -4005,3 +4006,876 @@ One question before I change it: do you want only the large top hero image reduc
 - Do not patch only the reference-folder `MentalFiltergame` source and expect the workspace behavior to change; the workspace copy is the live runtime.
 - Do not change transaction type or hit logic if the goal is only movement tuning.
 - Do not treat the failing `sportswellness-phase3-content.test.ts` check as caused by this Phase 4 behavior tweak without fixing or updating the separate Phase 3 lesson contract.
+
+
+## 2026-04-21 | docs/ops/ACTIVE_HANDOFF.md (pre-sportswellness-performance-games-focused-view)
+
+# Handoff
+
+- Project: sportswellness
+- Task: make the four `Performance` games share the Sports Wellness course palette
+- Status: complete
+
+## Summary
+- All four standalone `Performance` games now load one shared Sports Wellness theme stylesheet so their shells, panels, text, borders, and primary action colors read as part of the same course.
+- The remaining hardcoded outlier surfaces were patched in the game apps, including the Phase 1 arena/chart, Phase 2 outcome zone, Phase 3 court, and Phase 4 core background/actions.
+- The palette pass preserves semantic red danger states and amber caution states where the gameplay still needs contrast.
+
+## Files changed
+- docs/ops/ACTIVE_HANDOFF.md
+- docs/ops/ARCHIVED_HANDOFFS.md
+- docs/plans/2026-04-21-sportswellness-performance-games-shared-palette-design.md
+- docs/plans/2026-04-21-sportswellness-performance-games-shared-palette-implementation.md
+- projects/sportswellness/workspace/performance/performance-game-theme.css
+- projects/sportswellness/workspace/performance/phase1-performance-state-simulator-game.html
+- projects/sportswellness/workspace/performance/phase1-performance-state-simulator-game.app.js
+- projects/sportswellness/workspace/performance/phase2-discipline-game.html
+- projects/sportswellness/workspace/performance/phase2-discipline-game.app.js
+- projects/sportswellness/workspace/performance/phase3-focus-game.html
+- projects/sportswellness/workspace/performance/phase3-focus-game.app.js
+- projects/sportswellness/workspace/performance/phase4-mental-filter-simulator-game.html
+- projects/sportswellness/workspace/performance/phase4-mental-filter-simulator-game.app.js
+- scripts/tests/sportswellness-performance-menu.test.ts
+
+## Verification run
+- `npx tsx --test scripts/tests/sportswellness-performance-menu.test.ts`
+- `npm run test:e2e:project -- --project sportswellness`
+- `npx tsx --test scripts/tests/sportswellness-phase3-content.test.ts` (fails on the pre-existing `Multiple-choice review` expectation in `projects/sportswellness/workspace/main.js`)
+
+## What changed
+- Added `projects/sportswellness/workspace/performance/performance-game-theme.css` as the shared palette source of truth for the injected game pages.
+- Updated all four standalone game HTML wrappers to load the shared stylesheet and apply the shared `performance-game-theme` body class.
+- Remapped the imported `zinc`, `lime`, and `cyan` chrome used by the games to the Sports Wellness palette tokens:
+  - background `#0b111a`
+  - panel `#151b25`
+  - line `#2a3748`
+  - text `#f4f7fb`
+  - muted `#9aa6b6`
+  - primary `#00ffca`
+- Patched the app-level hardcoded surfaces that CSS utility overrides could not reach:
+  - Phase 1 under-arousal and activation now use amber while the arena/chart use the slate/mint shell.
+  - Phase 2 outcome-zone gold/yellow chrome now follows the shared mint primary palette.
+  - Phase 3 no longer uses the old green/orange court hex colors and now uses slate + mint surfaces.
+  - Phase 4 uses the shared background and clearer mint/amber action separation.
+- Expanded `scripts/tests/sportswellness-performance-menu.test.ts` so the shared theme file, wrapper links, and removal of the old Phase 3 court colors are now part of the locked contract.
+
+## Why this changed
+- The user wanted the games in `Performance` to feel like part of the Sports Wellness course instead of four separate imported activities with their own palettes.
+- A shared stylesheet plus targeted hardcoded-surface cleanup kept the pass surgical while still fixing the biggest visual drift.
+
+## Source of truth
+- Canonical entry: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\index.html`
+- Canonical sources:
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\main.js`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\performance-game-theme.css`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase1-performance-state-simulator-game.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase1-performance-state-simulator-game.app.js`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase2-discipline-game.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase2-discipline-game.app.js`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase3-focus-game.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase3-focus-game.app.js`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase4-mental-filter-simulator-game.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase4-mental-filter-simulator-game.app.js`
+
+## Fragile areas / watchouts
+- The shared palette depends on the `performance-game-theme.css` remapping layer plus a small number of per-app hardcoded patches; removing either side will bring drift back.
+- These pages still depend on browser-loaded `React`, `ReactDOM`, `Tailwind`, and `Babel` CDNs.
+- Phase 4 now uses mint for `Approve` and amber for `Lockdown`; if future changes collapse both actions back into the same palette treatment, readability will regress.
+
+## Next prompt should assume
+- All four `Performance` games now share the Sports Wellness slate + mint shell language through `projects/sportswellness/workspace/performance/performance-game-theme.css`.
+- The Phase 3 game no longer uses the old green/orange court colors.
+- The current unrelated red test is still `scripts/tests/sportswellness-phase3-content.test.ts` on the missing `Multiple-choice review` snippet in `projects/sportswellness/workspace/main.js`.
+
+## What still needs validation
+- Open the Sports Wellness preview, click `Performance`, and visually confirm the four games now feel consistent with the course shell.
+- Spot-check the action contrast in the Phase 4 simulator to confirm `Approve` and `Lockdown` are still easy to distinguish after the palette pass.
+
+## Known risks / follow-up
+- `npx tsx --test scripts/tests/sportswellness-phase3-content.test.ts` is still red on the unrelated `Multiple-choice review` expectation in `projects/sportswellness/workspace/main.js`.
+- I did not run a manual browser preview for the new palette pass.
+
+## Exact next command
+`npm.cmd run studio:codex`
+
+## Exact next file to open
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\performance-game-theme.css`
+
+## Do not do next / warnings
+- Do not patch only the old reference-folder game sources and expect the live palette to change; the workspace copies are the runtime source of truth.
+- Do not remove the shared wrapper stylesheet link from any of the four game HTML files unless you are intentionally breaking the shared palette contract.
+- Do not treat the failing `sportswellness-phase3-content.test.ts` check as caused by this palette pass without fixing or updating the separate Phase 3 lesson contract.
+
+
+## 2026-04-21 | docs/ops/ACTIVE_HANDOFF.md (pre-sportswellness-performance-games-hybrid-desktop-layout)
+
+# Handoff
+
+- Project: sportswellness
+- Task: convert `Performance` into a launcher plus focused game view so each game gets the full content area on desktop, tablet, and phone
+- Status: complete
+
+## Summary
+- `Performance` now opens as a launcher/menu first instead of forcing a split menu-plus-stage layout.
+- Selecting a game switches the section into a focused player view with a compact header and a back-to-menu control.
+- The game iframe now uses viewport-based sizing so the playable area is much larger across desktop, tablet, and phone.
+
+## Files changed
+- docs/ops/ACTIVE_HANDOFF.md
+- docs/ops/ARCHIVED_HANDOFFS.md
+- docs/plans/2026-04-21-sportswellness-performance-games-focused-view-design.md
+- docs/plans/2026-04-21-sportswellness-performance-games-focused-view-implementation.md
+- projects/sportswellness/workspace/main.js
+- projects/sportswellness/workspace/styles.css
+- scripts/tests/sportswellness-performance-menu.test.ts
+
+## Verification run
+- `npx tsx --test scripts/tests/sportswellness-performance-menu.test.ts`
+- `npx tsx --test scripts/tests/sportswellness-ui-state.test.ts`
+- `npm run test:e2e:project -- --project sportswellness`
+- `npx tsx --test scripts/tests/sportswellness-phase3-content.test.ts` (fails on the pre-existing `Multiple-choice review` expectation in `projects/sportswellness/workspace/main.js`)
+
+## What changed
+- Added an ephemeral `activePerformanceView` runtime state in `projects/sportswellness/workspace/main.js` with launcher-first behavior.
+- Updated `setSection('performance')` so the section opens in menu mode.
+- Updated `openPerformanceTool(id)` to switch into `player` mode and added `closePerformanceTool()` to return to the launcher.
+- Replaced the old split-shell `renderPerformance()` output with two render modes:
+  - launcher grid
+  - focused player shell
+- Added a compact player toolbar with a `Back to training menu` control and removed the large redundant stage card from the game screen.
+- Replaced the old fixed viewer sizing in `projects/sportswellness/workspace/styles.css` with dedicated launcher/player layout classes and viewport-based iframe heights.
+- Expanded `scripts/tests/sportswellness-performance-menu.test.ts` so the launcher/player contract is now source-locked.
+
+## Why this changed
+- The user reported that the games were still boxed inside a descriptive card and too cramped to play comfortably, especially on tablet and phone.
+- A launcher-plus-focused-player flow solves the problem on every breakpoint instead of only enlarging the old nested card layout.
+
+## Source of truth
+- Canonical entry: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\index.html`
+- Canonical sources:
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\main.js`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\styles.css`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase1-performance-state-simulator-game.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase2-discipline-game.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase3-focus-game.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase4-mental-filter-simulator-game.html`
+
+## Fragile areas / watchouts
+- `activePerformanceView` is intentionally not persisted. If it gets added to UI-state storage later, the section may stop reopening as a launcher.
+- The iframe is larger now, but the game pages still keep their own internal layout rules; any residual in-game responsive bugs would need separate fixes inside the individual game apps.
+- Viewport-based heights depend on shell chrome offsets in `styles.css`; if the surrounding page chrome changes later, those offsets may need retuning.
+
+## Next prompt should assume
+- `Performance` now behaves like a launcher: menu first, focused player second.
+- Returning to `Performance` from the sidebar opens the launcher, not the last open game.
+- The games keep the shared Sports Wellness palette work from the prior pass.
+
+## What still needs validation
+- Open Sports Wellness in the browser, launch each `Performance` game, and confirm the focused player view feels correct on desktop.
+- Spot-check tablet-width and phone-width previews to confirm the larger viewport-based iframe is now actually playable.
+
+## Known risks / follow-up
+- `npx tsx --test scripts/tests/sportswellness-phase3-content.test.ts` is still red on the unrelated `Multiple-choice review` expectation in `projects/sportswellness/workspace/main.js`.
+- I did not run a manual browser preview pass for the new focused layout.
+
+## Exact next command
+`npm.cmd run studio:codex`
+
+## Exact next file to open
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\styles.css`
+
+## Do not do next / warnings
+- Do not bring back the old split menu-plus-stage Performance shell unless you intentionally want the games boxed into the course card layout again.
+- Do not persist `activePerformanceView` without deciding whether `Performance` should still reopen as a launcher.
+- Do not treat the failing `sportswellness-phase3-content.test.ts` check as caused by this focused-view change without fixing or updating the separate Phase 3 lesson contract.
+
+
+## 2026-04-21 | docs/ops/ACTIVE_HANDOFF.md (pre-sportswellness-performance-games-minimal-player-shell)
+
+# Handoff
+
+- Project: sportswellness
+- Task: restore the desktop side training card in `Performance` while keeping the larger focused player view on tablet and phone
+- Status: complete
+
+## Summary
+- `Performance` still opens as a launcher first, but desktop player mode now brings the training menu back as a side rail instead of forcing a fully focused single-column player.
+- Tablet and phone keep the larger focused player flow so the game surface stays playable on smaller screens.
+- The game iframe sizing remains large and viewport-based; this pass changes the shell layout, not the imported game integrations.
+
+## Files changed
+- docs/ops/ACTIVE_HANDOFF.md
+- docs/ops/ARCHIVED_HANDOFFS.md
+- docs/plans/2026-04-21-sportswellness-performance-games-hybrid-desktop-design.md
+- docs/plans/2026-04-21-sportswellness-performance-games-hybrid-desktop-implementation.md
+- projects/sportswellness/workspace/main.js
+- projects/sportswellness/workspace/styles.css
+- scripts/tests/sportswellness-performance-menu.test.ts
+
+## Verification run
+- `npx tsx --test scripts/tests/sportswellness-performance-menu.test.ts`
+- `npx tsx --test scripts/tests/sportswellness-ui-state.test.ts`
+- `npm run test:e2e:project -- --project sportswellness`
+- `npx tsx --test scripts/tests/sportswellness-phase3-content.test.ts` (fails on the pre-existing `Multiple-choice review` expectation in `projects/sportswellness/workspace/main.js`)
+
+## What changed
+- Kept the existing launcher-first `activePerformanceView` behavior in `projects/sportswellness/workspace/main.js`.
+- Added a shared button renderer so the same tool buttons can be used in both launcher mode and player mode.
+- Rebuilt player mode into a hybrid shell with:
+  - `performance-player-layout`
+  - `performance-player-sidebar`
+  - `performance-player-menu`
+  - `performance-player-stage`
+- Desktop player mode now keeps the training menu visible in a side card while the selected game runs in the larger right-side stage.
+- Tablet and phone still collapse to the focused single-column player and use the existing `Back to training menu` control.
+- Expanded `scripts/tests/sportswellness-performance-menu.test.ts` so the hybrid desktop classnames are source-locked.
+
+## Why this changed
+- The first focused-player pass solved the cramped game surface problem, but it removed the desktop side card the user preferred.
+- A hybrid shell restores that desktop information architecture without giving up the larger mobile and tablet player surface.
+
+## Source of truth
+- Canonical entry: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\index.html`
+- Canonical sources:
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\main.js`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\styles.css`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase1-performance-state-simulator-game.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase2-discipline-game.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase3-focus-game.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase4-mental-filter-simulator-game.html`
+
+## Fragile areas / watchouts
+- `activePerformanceView` is intentionally not persisted. If it gets added to UI-state storage later, the section may stop reopening as a launcher.
+- The desktop side rail depends on the current `860px` breakpoint; if the shell breakpoints change later, the player/sidebar transition may need retuning.
+- The iframe is larger now, but the game pages still keep their own internal layout rules; any residual in-game responsive bugs would need separate fixes inside the individual game apps.
+- Viewport-based heights still depend on shell chrome offsets in `styles.css`; if the surrounding page chrome changes later, those offsets may need retuning.
+
+## Next prompt should assume
+- `Performance` still opens as a launcher when entered from the main sidebar.
+- Desktop player mode shows the training menu in a side card beside the selected game.
+- Tablet and phone player mode still hide the side card and rely on the back button.
+- The games keep the shared Sports Wellness palette work from the prior pass.
+
+## What still needs validation
+- Open Sports Wellness in the browser, launch each `Performance` game, and confirm the desktop side rail feels right next to the larger game surface.
+- Spot-check tablet-width and phone-width previews to confirm the side rail disappears and the focused player remains comfortably playable.
+
+## Known risks / follow-up
+- `npx tsx --test scripts/tests/sportswellness-phase3-content.test.ts` is still red on the unrelated `Multiple-choice review` expectation in `projects/sportswellness/workspace/main.js`.
+- I did not run a manual browser preview pass for the hybrid desktop layout.
+
+## Exact next command
+`npm.cmd run studio:codex`
+
+## Exact next file to open
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\main.js`
+
+## Do not do next / warnings
+- Do not collapse desktop player mode back to the fully focused single-column shell unless you intentionally want to remove the side card again.
+- Do not persist `activePerformanceView` without deciding whether `Performance` should still reopen as a launcher.
+- Do not hide the mobile/tablet back button unless you replace it with another way to leave player mode when the side rail is not visible.
+- Do not treat the failing `sportswellness-phase3-content.test.ts` check as caused by this desktop layout change without fixing or updating the separate Phase 3 lesson contract.
+
+
+## 2026-04-21 | docs/ops/ACTIVE_HANDOFF.md (pre-sportswellness-phase1-mobile-fix)
+
+# Handoff
+
+- Project: sportswellness
+- Task: remove the extra Performance player header and tighten the shell so the game takes the maximum usable space across desktop, tablet, and mobile
+- Status: complete
+
+## Summary
+- The selected `Performance` game is now the dominant surface across all breakpoints: the descriptive title/body header is gone, and the player shell is materially lighter.
+- Desktop still keeps the side training menu card, but the stage gets more horizontal and vertical room by narrowing the side rail and tightening the outer frame.
+- Tablet and phone now use a minimal back/menu row only, with no descriptive header above the game.
+
+## Files changed
+- docs/ops/ACTIVE_HANDOFF.md
+- docs/ops/ARCHIVED_HANDOFFS.md
+- docs/plans/2026-04-21-sportswellness-performance-games-minimal-player-shell-design.md
+- docs/plans/2026-04-21-sportswellness-performance-games-minimal-player-shell-implementation.md
+- projects/sportswellness/workspace/main.js
+- projects/sportswellness/workspace/styles.css
+- scripts/tests/sportswellness-performance-menu.test.ts
+
+## Verification run
+- `npx tsx --test scripts/tests/sportswellness-performance-menu.test.ts`
+- `npx tsx --test scripts/tests/sportswellness-ui-state.test.ts`
+- `npm run test:e2e:project -- --project sportswellness`
+- `npx tsx --test scripts/tests/sportswellness-phase3-content.test.ts` (fails on the pre-existing `Multiple-choice review` expectation in `projects/sportswellness/workspace/main.js`)
+
+## What changed
+- Kept the existing launcher-first `activePerformanceView` behavior and the desktop side training menu in `projects/sportswellness/workspace/main.js`.
+- Replaced the old descriptive player header block with a minimal `performance-player-nav` that carries only the `Back to training menu` control.
+- Removed the title/body copy from the player shell so the selected game no longer sits under redundant chrome.
+- Tightened `projects/sportswellness/workspace/styles.css` by:
+  - shrinking the player shell gaps
+  - narrowing the desktop side rail
+  - lightening the frame-wrap chrome
+  - increasing the iframe height budget now that the header is gone
+- Updated `scripts/tests/sportswellness-performance-menu.test.ts` so the minimal-nav shell is source-locked and the old `performance-player-head` block is forbidden in `main.js`.
+
+## Why this changed
+- The user reported that even after the hybrid desktop pass, the remaining header strip and heavy frame were still wasting too much usable game space.
+- The approved fix was to make the game surface the priority at every breakpoint while preserving only the navigation needed to move around the `Performance` section.
+
+## Source of truth
+- Canonical entry: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\index.html`
+- Canonical sources:
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\main.js`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\styles.css`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase1-performance-state-simulator-game.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase2-discipline-game.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase3-focus-game.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase4-mental-filter-simulator-game.html`
+
+## Fragile areas / watchouts
+- `activePerformanceView` is intentionally not persisted. If it gets added to UI-state storage later, the section may stop reopening as a launcher.
+- The desktop side rail still depends on the current `860px` breakpoint; if the shell breakpoints change later, the player/sidebar transition may need retuning.
+- The iframe is larger now, but the game pages still keep their own internal layout rules; any residual in-game responsive bugs would need separate fixes inside the individual game apps.
+- Viewport-based heights now assume the minimal-nav shell; if the surrounding page chrome changes later, those offsets may need retuning.
+
+## Next prompt should assume
+- `Performance` still opens as a launcher when entered from the main sidebar.
+- Desktop player mode shows the training menu in a side card beside the selected game, but no longer shows the descriptive title strip above the iframe.
+- Tablet and phone player mode show only a minimal back/menu row above the game.
+- The games keep the shared Sports Wellness palette work from the prior pass.
+
+## What still needs validation
+- Open Sports Wellness in the browser, launch each `Performance` game, and confirm the shell now feels visually lighter with materially more playable area.
+- Spot-check tablet-width and phone-width previews to confirm the minimal back/menu row stays usable without reintroducing wasted chrome above the game.
+
+## Known risks / follow-up
+- `npx tsx --test scripts/tests/sportswellness-phase3-content.test.ts` is still red on the unrelated `Multiple-choice review` expectation in `projects/sportswellness/workspace/main.js`.
+- I did not run a manual browser preview pass for the minimal-player-shell change.
+
+## Exact next command
+`npm.cmd run studio:codex`
+
+## Exact next file to open
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\styles.css`
+
+## Do not do next / warnings
+- Do not restore a descriptive player title/body card above the iframe unless you intentionally want to give space back to shell chrome instead of the game.
+- Do not persist `activePerformanceView` without deciding whether `Performance` should still reopen as a launcher.
+- Do not hide the mobile/tablet back button unless you replace it with another way to leave player mode when the side rail is not visible.
+- Do not treat the failing `sportswellness-phase3-content.test.ts` check as caused by this player-shell change without fixing or updating the separate Phase 3 lesson contract.
+
+
+## 2026-04-21 | docs/ops/ACTIVE_HANDOFF.md (pre-sportswellness-phase1-desktop-expansion)
+
+# Handoff
+
+- Project: sportswellness
+- Task: fix the Phase 1 Performance State Simulator so it behaves correctly on mobile
+- Status: complete
+
+## Summary
+- Phase 1 now uses a mobile-safe stacked layout instead of forcing the old fixed-height desktop shell onto small screens.
+- The arousal chart no longer dominates the mobile viewport, and the arena now gets its own explicit mobile height so the game surface stays visible.
+- The game also now supports touch-friendly interaction through pointer tracking and tap controls for `Breathe` and `Activate`, instead of depending on mouse movement and keyboard-only input.
+
+## Files changed
+- docs/ops/ACTIVE_HANDOFF.md
+- docs/ops/ARCHIVED_HANDOFFS.md
+- projects/sportswellness/workspace/performance/phase1-performance-state-simulator-game.app.js
+- scripts/tests/sportswellness-performance-menu.test.ts
+
+## Verification run
+- `npx tsx --test scripts/tests/sportswellness-performance-menu.test.ts`
+- `npx tsx --test scripts/tests/sportswellness-ui-state.test.ts`
+- `npm run test:e2e:project -- --project sportswellness`
+- `npx tsx --test scripts/tests/sportswellness-phase3-content.test.ts` (fails on the pre-existing `Multiple-choice review` expectation in `projects/sportswellness/workspace/main.js`)
+
+## What changed
+- Removed the fixed mobile height from the Phase 1 play shell by changing the main game wrapper to `flex flex-col md:flex-row md:h-[650px]`.
+- Reworked the left stats panel for small screens:
+  - mobile padding is lighter
+  - the mobile chart uses `aspect-[4/3]` with a max height instead of always forcing `aspect-square`
+  - the phase-state card no longer uses a mobile auto-gap pattern that pushes the arena too far down
+- Gave the arena its own mobile sizing layer:
+  - `min-h-[360px]`
+  - `h-[52vh]`
+  - `max-h-[480px]`
+- Added touch-friendly play input:
+  - new shared `triggerBreathe()` and `triggerActivate()` handlers
+  - arena now uses `onPointerMove` and `onPointerDown`
+  - arena sets `touchAction: 'none'`
+  - the cooldown rails are now real tappable buttons, not keyboard-only instruction rows
+- Expanded `scripts/tests/sportswellness-performance-menu.test.ts` so the Phase 1 mobile layout and pointer/tap input contract are source-locked.
+
+## Why this changed
+- The user reported that the Phase 1 simulator was consistently weird on mobile.
+- The root cause was a combination of desktop-biased layout assumptions and desktop-only interaction patterns inside the imported game itself.
+
+## Source of truth
+- Canonical entry: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase1-performance-state-simulator-game.html`
+- Canonical sources:
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase1-performance-state-simulator-game.app.js`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\tests\sportswellness-performance-menu.test.ts`
+
+## Fragile areas / watchouts
+- This game still uses an arena tuned around desktop proportions (`ARENA_SIZE = 800 x 500`); if mobile still feels off after visual review, the next pass should tune gameplay scale rather than just layout classes.
+- Pointer tracking now covers touch/pen input, but cross-device feel may still vary slightly between browsers because the game is still frame-loop based.
+- The touch buttons fix the missing mobile keyboard problem, but if the user wants larger thumb targets, that is a separate polish pass.
+
+## Next prompt should assume
+- Phase 1 now has mobile-safe layout classes and touch-friendly controls.
+- The other three Performance games have not been adjusted by this pass.
+- The current unrelated red test is still `scripts/tests/sportswellness-phase3-content.test.ts` on the missing `Multiple-choice review` snippet in `projects/sportswellness/workspace/main.js`.
+
+## What still needs validation
+- Open Sports Wellness on a phone-width preview, launch `Phase 1 Performance State Simulator Game`, and confirm the chart/arena balance now feels usable.
+- Verify that dragging on the arena and tapping `Breathe` / `Activate` feels correct on an actual touchscreen.
+
+## Known risks / follow-up
+- `npx tsx --test scripts/tests/sportswellness-phase3-content.test.ts` is still red on the unrelated `Multiple-choice review` expectation in `projects/sportswellness/workspace/main.js`.
+- I did not run a manual browser preview or a real-device touch pass after the fix.
+
+## Exact next command
+`npm.cmd run studio:codex`
+
+## Exact next file to open
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase1-performance-state-simulator-game.app.js`
+
+## Do not do next / warnings
+- Do not “fix” mobile only in the outer Performance iframe shell; the real issue here was inside the Phase 1 game source.
+- Do not remove the new tap controls unless you replace them with another mobile-safe way to trigger regulation actions.
+- Do not treat the failing `sportswellness-phase3-content.test.ts` check as caused by this Phase 1 mobile fix without fixing or updating the separate Phase 3 lesson contract.
+
+## 2026-04-21 | docs/ops/ACTIVE_HANDOFF.md (pre-sportswellness-performance-games-full-width-expansion)
+
+# Handoff
+
+- Project: sportswellness
+- Task: expand the Phase 1 Performance State Simulator on desktop and hide top Performance chrome while a game is open
+- Status: complete
+
+## Summary
+- Phase 1 no longer self-caps to a centered desktop card. It now uses the full iframe width and stretches vertically with the available player height.
+- The `Performance` player now hides the top course chrome while a game is open, so the section title and progress shell stop taking desktop space above the game.
+- The prior mobile-safe Phase 1 layout and touch-control work remain in place.
+
+## Files changed
+- docs/ops/ACTIVE_HANDOFF.md
+- docs/ops/ARCHIVED_HANDOFFS.md
+- projects/sportswellness/workspace/main.js
+- projects/sportswellness/workspace/performance/phase1-performance-state-simulator-game.app.js
+- scripts/tests/sportswellness-performance-menu.test.ts
+
+## Verification run
+- `npx tsx --test scripts/tests/sportswellness-performance-menu.test.ts`
+- `npx tsx --test scripts/tests/sportswellness-ui-state.test.ts`
+- `npm run test:e2e:project -- --project sportswellness`
+- `npx tsx --test scripts/tests/sportswellness-phase3-content.test.ts` (fails on the pre-existing `Multiple-choice review` expectation in `projects/sportswellness/workspace/main.js`)
+
+## What changed
+- Updated `projects/sportswellness/workspace/main.js` so `Performance` player mode now:
+  - clears `refs.sectionTitle.textContent`
+  - hides `refs.sectionTitle`
+  - hides `refs.progressShell`
+  - restores that chrome automatically when `Performance` returns to launcher mode or the user navigates elsewhere
+- Updated `projects/sportswellness/workspace/performance/phase1-performance-state-simulator-game.app.js` so the desktop game shell now:
+  - removes the old `max-w-5xl` centered cap
+  - removes desktop flex centering at the root
+  - lets the main container stretch to the iframe width
+  - changes the playfield row to `md:flex-1 md:min-h-[680px]` instead of a fixed `md:h-[650px]`
+- Expanded `scripts/tests/sportswellness-performance-menu.test.ts` so the hidden top chrome and full-width Phase 1 desktop contract are source-locked.
+
+## Why this changed
+- The user reported that Phase 1 still looked too small on large screens even after the mobile-specific fix.
+- The screenshot showed two separate desktop constraints:
+  - outer course chrome still visible above the active game
+  - an internal Phase 1 max-width card and centered layout that prevented the game from using the full desktop player surface
+
+## Source of truth
+- Canonical entry: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\index.html`
+- Canonical sources:
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\main.js`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase1-performance-state-simulator-game.app.js`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\tests\sportswellness-performance-menu.test.ts`
+
+## Fragile areas / watchouts
+- Only Phase 1 got the full-width desktop expansion in this pass. The other three Performance games may still have their own internal width caps if they look small on large screens.
+- `renderContent()` still restores section title and progress chrome globally before section-specific renderers run; `renderPerformance()` now depends on overriding that behavior when player mode is active.
+- The current Phase 1 desktop min-height is now `md:min-h-[680px]`; if the iframe shell height changes again later, that number may need retuning.
+
+## Next prompt should assume
+- `Performance` launcher mode still shows the normal course shell chrome.
+- `Performance` player mode now hides the top section title and progress shell.
+- Phase 1 now uses the full desktop iframe width instead of a centered `max-w-5xl` card.
+- The current unrelated red test is still `scripts/tests/sportswellness-phase3-content.test.ts` on the missing `Multiple-choice review` snippet in `projects/sportswellness/workspace/main.js`.
+
+## What still needs validation
+- Open Sports Wellness on a large desktop viewport, launch Phase 1, and confirm the game now uses materially more of the available stage.
+- Spot-check the other Performance games on desktop to see whether any of them also need their own internal width-cap removal.
+
+## Known risks / follow-up
+- `npx tsx --test scripts/tests/sportswellness-phase3-content.test.ts` is still red on the unrelated `Multiple-choice review` expectation in `projects/sportswellness/workspace/main.js`.
+- I did not run a manual desktop browser preview after the full-width Phase 1 change.
+
+## Exact next command
+`npm.cmd run studio:codex`
+
+## Exact next file to open
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase1-performance-state-simulator-game.app.js`
+
+## Do not do next / warnings
+- Do not try to fix remaining desktop smallness only in the outer Performance iframe shell if the issue is inside an individual game's own max-width layout.
+- Do not re-show the `Performance` title/progress chrome during player mode unless you intentionally want to give vertical space back to the shell.
+- Do not treat the failing `sportswellness-phase3-content.test.ts` check as caused by this desktop-width change without fixing or updating the separate Phase 3 lesson contract.
+
+## 2026-04-21 | docs/ops/ACTIVE_HANDOFF.md (pre-sportswellness-performance-games-responsive-scaling)
+
+# Handoff
+
+- Project: sportswellness
+- Task: expand the remaining Performance games to use the same full-width player treatment as Phase 1
+- Status: complete
+
+## Summary
+- Phase 2, Phase 3, and Phase 4 no longer self-cap to centered desktop cards. They now use the full iframe width and a taller responsive stage inside the existing Performance player shell.
+- The lighter full-width shell is now consistent across all four Performance games, so the outer player is no longer fighting each game's own internal max-width wrapper.
+- The existing player-mode course chrome hide/show behavior in `main.js` remains unchanged and still applies while any Performance game is open.
+
+## Files changed
+- docs/ops/ACTIVE_HANDOFF.md
+- docs/ops/ARCHIVED_HANDOFFS.md
+- projects/sportswellness/workspace/performance/phase2-discipline-game.app.js
+- projects/sportswellness/workspace/performance/phase3-focus-game.app.js
+- projects/sportswellness/workspace/performance/phase4-mental-filter-simulator-game.app.js
+- scripts/tests/sportswellness-performance-menu.test.ts
+
+## Verification run
+- `npx tsx --test scripts/tests/sportswellness-performance-menu.test.ts`
+- `npx tsx --test scripts/tests/sportswellness-ui-state.test.ts`
+- `npm run test:e2e:project -- --project sportswellness`
+- `npx tsx --test scripts/tests/sportswellness-phase3-content.test.ts` (still fails on the pre-existing `Multiple-choice review` expectation in `projects/sportswellness/workspace/main.js`)
+
+## What changed
+- Updated `projects/sportswellness/workspace/performance/phase2-discipline-game.app.js` so the Discipline game now:
+  - removes the old centered `max-w-5xl` shell
+  - uses the same lighter outer padding as Phase 1
+  - stretches the main arena with `flex-1 min-h-[420px] md:min-h-[680px]`
+- Updated `projects/sportswellness/workspace/performance/phase3-focus-game.app.js` so the Focus game now:
+  - removes the old centered `max-w-5xl` shell
+  - stretches intro, play, and gameover states inside a full-width min-height container
+  - replaces the fixed desktop `h-[600px]` play stage with `flex-1 min-h-[420px] md:min-h-[700px]`
+- Updated `projects/sportswellness/workspace/performance/phase4-mental-filter-simulator-game.app.js` so the Mental Filter game now:
+  - removes the old centered `max-w-5xl` shell
+  - uses the same full-width min-height wrapper pattern as the other games
+  - replaces the fixed desktop `h-[650px]` stage with `flex-1 min-h-[420px] md:min-h-[700px]`
+- Expanded `scripts/tests/sportswellness-performance-menu.test.ts` so the Phase 2, 3, and 4 full-width desktop shell contract is source-locked.
+
+## Why this changed
+- The user reported that the same "small on a big screen" problem still applied to the rest of the games after Phase 1 was fixed.
+- The root cause was the same in all three cases: each imported game still had its own centered max-width shell and fixed desktop stage sizing inside the larger Performance iframe.
+
+## Source of truth
+- Canonical entry: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\index.html`
+- Canonical sources:
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase2-discipline-game.app.js`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase3-focus-game.app.js`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase4-mental-filter-simulator-game.app.js`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\tests\sportswellness-performance-menu.test.ts`
+
+## Fragile areas / watchouts
+- Phase 4 still uses fixed-size concentric ring art inside its now-larger stage. The shell is full-width, but that internal art may still want a later responsive-scaling pass if it feels visually small on extra-large monitors.
+- Phase 3 still keeps a fairly large amount of instructional content in its intro and analytics states; those sections now stretch correctly, but they are still intentionally more text-heavy than the other games.
+- The shared full-width pattern uses `md:min-h-[calc(100vh-32px)]`; if the outer iframe padding or header rules change again later, these min-height values may need retuning.
+
+## Next prompt should assume
+- All four Performance games now use the lighter full-width player shell pattern.
+- `main.js` still owns the outer Performance player layout and the hidden top chrome behavior while a game is open.
+- The current unrelated red test is still `scripts/tests/sportswellness-phase3-content.test.ts` on the missing `Multiple-choice review` snippet in `projects/sportswellness/workspace/main.js`.
+
+## What still needs validation
+- Open Sports Wellness on a large desktop viewport and spot-check all four Performance games for actual feel, not just shell sizing.
+- Decide whether Phase 4's internal concentric-ring artwork should also scale up on very wide screens.
+
+## Known risks / follow-up
+- `npx tsx --test scripts/tests/sportswellness-phase3-content.test.ts` is still red on the unrelated `Multiple-choice review` expectation in `projects/sportswellness/workspace/main.js`.
+- I did not run a manual desktop browser preview after this multi-game shell pass.
+
+## Exact next command
+`npm.cmd run studio:codex`
+
+## Exact next file to open
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase4-mental-filter-simulator-game.app.js`
+
+## Do not do next / warnings
+- Do not try to solve any remaining "small on desktop" complaints only in the outer Performance iframe shell unless you first confirm the issue is no longer inside an individual game.
+- Do not revert the player-mode title/progress hide logic in `main.js`; this pass depends on that earlier shell cleanup still being in place.
+- Do not treat the failing `sportswellness-phase3-content.test.ts` check as caused by these game-shell updates without fixing or updating the separate Phase 3 lesson contract.
+
+- 2026-04-21: docs/ops/ACTIVE_HANDOFF.md (pre-forensicstudiesoption2-full-cloud-save-export)
+
+
+---
+
+# Handoff
+
+- Project: sportswellness
+- Task: add responsive gameplay scaling across all four Performance games
+- Status: complete
+
+## Summary
+- The larger full-width `Performance` player shell remains in place, and the gameplay elements now scale with the measured arena instead of staying visually locked to their old fixed display sizes.
+- All four injected games now preserve their original proportions while expanding into the newer desktop, tablet, and phone play surfaces.
+- A shared arena-scale helper now drives the responsive sizing logic so the wrappers and game apps follow one scaling model instead of four separate ad hoc rules.
+
+## Files changed
+- docs/ops/ACTIVE_HANDOFF.md
+- docs/ops/ARCHIVED_HANDOFFS.md
+- projects/sportswellness/workspace/performance/performance-game-scale.js
+- projects/sportswellness/workspace/performance/phase1-performance-state-simulator-game.html
+- projects/sportswellness/workspace/performance/phase2-discipline-game.html
+- projects/sportswellness/workspace/performance/phase3-focus-game.html
+- projects/sportswellness/workspace/performance/phase4-mental-filter-simulator-game.html
+- projects/sportswellness/workspace/performance/phase1-performance-state-simulator-game.app.js
+- projects/sportswellness/workspace/performance/phase2-discipline-game.app.js
+- projects/sportswellness/workspace/performance/phase3-focus-game.app.js
+- projects/sportswellness/workspace/performance/phase4-mental-filter-simulator-game.app.js
+- scripts/tests/sportswellness-performance-menu.test.ts
+
+## Verification run
+- `npx tsx --test scripts/tests/sportswellness-performance-menu.test.ts`
+- `npx tsx --test scripts/tests/sportswellness-ui-state.test.ts`
+- `npm run test:e2e:project -- --project sportswellness`
+- `npx tsx --test scripts/tests/sportswellness-phase3-content.test.ts` (still fails on the older unrelated `Multiple-choice review` expectation in `projects/sportswellness/workspace/main.js`)
+
+## What changed
+- Added `projects/sportswellness/workspace/performance/performance-game-scale.js` with a shared `ResizeObserver`-based arena measurement helper and a clamped scaling utility for display values.
+- Updated all four Performance HTML wrappers to load the shared scaling helper before the game app script.
+- Updated `phase1-performance-state-simulator-game.app.js` so the target marker, reticle, cursor dot, and related indicator sizes scale with the measured arena.
+- Updated `phase2-discipline-game.app.js` so the process targets and arena grid scale with the measured arena instead of staying visually fixed.
+- Updated `phase3-focus-game.app.js` so the moving ball, thought cards, court lines, and hit-zone labels scale with the measured arena.
+- Updated `phase4-mental-filter-simulator-game.app.js` so the concentric rings, identity core, transaction cards, and related feedback elements scale with the measured arena.
+- Expanded `scripts/tests/sportswellness-performance-menu.test.ts` so the shared helper wiring and representative scaling hooks are source-locked.
+
+## Why this changed
+- The user wanted the games to keep the newer larger player surfaces but also grow the interactive elements with those surfaces.
+- The remaining issue was inside the games themselves: the outer player got bigger, but many visible targets, rings, labels, and play objects were still rendered at their older display sizes.
+
+## Source of truth
+- Canonical entry: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\index.html`
+- Canonical sources:
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\performance-game-scale.js`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase1-performance-state-simulator-game.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase2-discipline-game.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase3-focus-game.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase4-mental-filter-simulator-game.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase1-performance-state-simulator-game.app.js`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase2-discipline-game.app.js`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase3-focus-game.app.js`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase4-mental-filter-simulator-game.app.js`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\tests\sportswellness-performance-menu.test.ts`
+
+## Fragile areas / watchouts
+- The scaling helpers use clamped ranges by design, so the exact feel at the smallest phones and largest monitors may still want manual tuning after visual review.
+- Phase 2 scales visible target display size from its stored gameplay size, so future mechanic changes should keep that relationship intact.
+- Phase 4 transaction-card and ring scaling now follows the measured arena, but extremely narrow mobile widths and very wide desktop screens are the most likely places to need follow-up tuning.
+
+## Next prompt should assume
+- The `Performance` shell is already in its larger player-first layout.
+- All four Performance games now scale their core interactive display elements from the measured arena size.
+- The unrelated red test is still `scripts/tests/sportswellness-phase3-content.test.ts` on the missing `Multiple-choice review` snippet in `projects/sportswellness/workspace/main.js`.
+
+## What still needs validation
+- Open Sports Wellness and manually spot-check all four Performance games on desktop, tablet, and phone widths for actual gameplay feel.
+- Decide whether any individual scale clamps need tuning after a real browser pass.
+
+## Known risks / follow-up
+- `npx tsx --test scripts/tests/sportswellness-phase3-content.test.ts` is still red on the unrelated `Multiple-choice review` expectation in `projects/sportswellness/workspace/main.js`.
+- I did not run a manual browser preview after this responsive-scaling pass.
+
+## Exact next command
+`npm.cmd run studio:codex`
+
+## Exact next file to open
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\performance-game-scale.js`
+
+## Do not do next / warnings
+- Do not try to fix any remaining size/feel complaints only in the outer `Performance` shell unless you confirm the issue is no longer inside a specific game.
+- Do not treat the existing `sportswellness-phase3-content.test.ts` failure as caused by this scaling pass without fixing or updating the separate Phase 3 lesson contract.
+- Do not bypass the shared arena-scale helper for one-off size tweaks unless the game has a genuinely unique mechanic that cannot follow the measured-stage model.
+
+- 2026-04-21: docs/ops/ACTIVE_HANDOFF.md (pre-sportswellness-film-room-course-palette)
+
+
+---
+
+# Handoff
+
+- Project: sportswellness
+- Task: replace Athletic Icons with a retro Film Room video catalog and embedded CRT-style player
+- Status: complete
+
+## Summary
+- The old `Athletic Icons` placeholder is now a working `Film Room` surface with a flat dropdown playlist and a retro TV player that loads the selected YouTube embed inside the screen.
+- The Film Room is driven by a single `FILM_ROOM_VIDEOS` catalog in `main.js`, so adding more tapes is now a straightforward data edit instead of another layout change.
+- The selected tape now persists in the existing UI-state snapshot so the course can reopen to the same loaded video.
+
+## Files changed
+- docs/ops/ACTIVE_HANDOFF.md
+- docs/ops/ARCHIVED_HANDOFFS.md
+- projects/sportswellness/workspace/index.html
+- projects/sportswellness/workspace/main.js
+- projects/sportswellness/workspace/styles.css
+- scripts/tests/sportswellness-film-room.test.ts
+- scripts/tests/sportswellness-ui-state.test.ts
+
+## Verification run
+- `npx tsx --test scripts/tests/sportswellness-film-room.test.ts`
+- `npx tsx --test scripts/tests/sportswellness-ui-state.test.ts`
+- `npx tsx --test scripts/tests/sportswellness-performance-menu.test.ts`
+- `npm run test:e2e:project -- --project sportswellness`
+- `npx tsx --test scripts/tests/sportswellness-phase3-content.test.ts` (still fails on the older unrelated `Multiple-choice review` expectation in `projects/sportswellness/workspace/main.js`)
+
+## What changed
+- Replaced the old `ICONS` placeholder data with a flat `FILM_ROOM_VIDEOS` catalog that contains the full starting video list.
+- Updated the persistent UI-state contract so the selected Film Room tape is stored and restored via `activeFilmRoomVideoId`.
+- Updated the sidebar navigation label in `index.html` from `Athletic Icons` to `Film Room`.
+- Replaced the old icon-card placeholder renderer with a retro `Coach's Film Room` layout that includes:
+  - a CRT-style TV shell
+  - an embedded YouTube iframe in the screen
+  - a flat dropdown playlist
+  - a now-loaded tape panel
+- Added dedicated Film Room styling in `styles.css` for the room background, TV shell, screen treatment, dropdown, and responsive stacking behavior.
+- Added source tests for the Film Room contract and extended the UI-state source test for the new persisted selection field.
+
+## Why this changed
+- The user wanted the `Athletic Icons` section turned into a usable Film Room, not a placeholder grid.
+- The user explicitly removed the module/phase grouping requirement and asked for a simple dropdown of videos, so the implementation uses one flat catalog instead of grouped menus.
+
+## Source of truth
+- Canonical entry: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\index.html`
+- Canonical sources:
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\index.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\main.js`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\styles.css`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\tests\sportswellness-film-room.test.ts`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\tests\sportswellness-ui-state.test.ts`
+
+## Fragile areas / watchouts
+- The internal section key is still `icons` for compatibility with the existing UI-state shape, even though the user-facing label is now `Film Room`.
+- The playlist is intentionally flat. If grouped categories return later, the data shape and selector markup will need a follow-up pass.
+- The YouTube embeds depend on the current video IDs remaining valid.
+
+## Next prompt should assume
+- `Athletic Icons` has already been replaced by `Film Room`.
+- The Film Room uses one flat dropdown playlist, not phase/module groupings.
+- The current unrelated red test is still `scripts/tests/sportswellness-phase3-content.test.ts` on the missing `Multiple-choice review` snippet in `projects/sportswellness/workspace/main.js`.
+
+## What still needs validation
+- Manual browser spot-check of the Film Room on desktop, tablet, and phone to tune the retro shell feel if needed.
+- Confirm whether the user wants any extra catalog metadata beyond the flat dropdown and now-loaded panel.
+
+## Known risks / follow-up
+- `npx tsx --test scripts/tests/sportswellness-phase3-content.test.ts` is still red on the unrelated `Multiple-choice review` expectation in `projects/sportswellness/workspace/main.js`.
+- I did not run a manual browser preview after the Film Room patch.
+
+## Exact next command
+`npm.cmd run studio:codex`
+
+## Exact next file to open
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\main.js`
+
+## Do not do next / warnings
+- Do not rename the internal `icons` section key unless you also migrate stored UI state and all section routing references.
+- Do not reintroduce grouped phase/module categories into the playlist without clearing the user's flat-dropdown requirement.
+- Do not treat the unrelated `sportswellness-phase3-content.test.ts` failure as caused by the Film Room work.
+
+- 2026-04-21: docs/ops/ACTIVE_HANDOFF.md (pre-sportswellness-film-room)
+
+
+---
+
+# Handoff
+
+- Project: sportswellness
+- Task: add responsive gameplay scaling across all four Performance games
+- Status: complete
+
+## Summary
+- The larger full-width `Performance` player shell remains in place, and the gameplay elements now scale with the measured arena instead of staying visually locked to their old fixed display sizes.
+- All four injected games now preserve their original proportions while expanding into the newer desktop, tablet, and phone play surfaces.
+- A shared arena-scale helper now drives the responsive sizing logic so the wrappers and game apps follow one scaling model instead of four separate ad hoc rules.
+
+## Files changed
+- docs/ops/ACTIVE_HANDOFF.md
+- docs/ops/ARCHIVED_HANDOFFS.md
+- projects/sportswellness/workspace/performance/performance-game-scale.js
+- projects/sportswellness/workspace/performance/phase1-performance-state-simulator-game.html
+- projects/sportswellness/workspace/performance/phase2-discipline-game.html
+- projects/sportswellness/workspace/performance/phase3-focus-game.html
+- projects/sportswellness/workspace/performance/phase4-mental-filter-simulator-game.html
+- projects/sportswellness/workspace/performance/phase1-performance-state-simulator-game.app.js
+- projects/sportswellness/workspace/performance/phase2-discipline-game.app.js
+- projects/sportswellness/workspace/performance/phase3-focus-game.app.js
+- projects/sportswellness/workspace/performance/phase4-mental-filter-simulator-game.app.js
+- scripts/tests/sportswellness-performance-menu.test.ts
+
+## Verification run
+- `npx tsx --test scripts/tests/sportswellness-performance-menu.test.ts`
+- `npx tsx --test scripts/tests/sportswellness-ui-state.test.ts`
+- `npm run test:e2e:project -- --project sportswellness`
+- `npx tsx --test scripts/tests/sportswellness-phase3-content.test.ts` (still fails on the older unrelated `Multiple-choice review` expectation in `projects/sportswellness/workspace/main.js`)
+
+## What changed
+- Added `projects/sportswellness/workspace/performance/performance-game-scale.js` with a shared `ResizeObserver`-based arena measurement helper and a clamped scaling utility for display values.
+- Updated all four Performance HTML wrappers to load the shared scaling helper before the game app script.
+- Updated `phase1-performance-state-simulator-game.app.js` so the target marker, reticle, cursor dot, and related indicator sizes scale with the measured arena.
+- Updated `phase2-discipline-game.app.js` so the process targets and arena grid scale with the measured arena instead of staying visually fixed.
+- Updated `phase3-focus-game.app.js` so the moving ball, thought cards, court lines, and hit-zone labels scale with the measured arena.
+- Updated `phase4-mental-filter-simulator-game.app.js` so the concentric rings, identity core, transaction cards, and related feedback elements scale with the measured arena.
+- Expanded `scripts/tests/sportswellness-performance-menu.test.ts` so the shared helper wiring and representative scaling hooks are source-locked.
+
+## Why this changed
+- The user wanted the games to keep the newer larger player surfaces but also grow the interactive elements with those surfaces.
+- The remaining issue was inside the games themselves: the outer player got bigger, but many visible targets, rings, labels, and play objects were still rendered at their older display sizes.
+
+## Source of truth
+- Canonical entry: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\index.html`
+- Canonical sources:
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\performance-game-scale.js`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase1-performance-state-simulator-game.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase2-discipline-game.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase3-focus-game.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase4-mental-filter-simulator-game.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase1-performance-state-simulator-game.app.js`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase2-discipline-game.app.js`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase3-focus-game.app.js`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase4-mental-filter-simulator-game.app.js`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\tests\sportswellness-performance-menu.test.ts`
+
+## Fragile areas / watchouts
+- The scaling helpers use clamped ranges by design, so the exact feel at the smallest phones and largest monitors may still want manual tuning after visual review.
+- Phase 2 scales visible target display size from its stored gameplay size, so future mechanic changes should keep that relationship intact.
+- Phase 4 transaction-card and ring scaling now follows the measured arena, but extremely narrow mobile widths and very wide desktop screens are the most likely places to need follow-up tuning.
+
+## Next prompt should assume
+- The `Performance` shell is already in its larger player-first layout.
+- All four Performance games now scale their core interactive display elements from the measured arena size.
+- The unrelated red test is still `scripts/tests/sportswellness-phase3-content.test.ts` on the missing `Multiple-choice review` snippet in `projects/sportswellness/workspace/main.js`.
+
+## What still needs validation
+- Open Sports Wellness and manually spot-check all four Performance games on desktop, tablet, and phone widths for actual gameplay feel.
+- Decide whether any individual scale clamps need tuning after a real browser pass.
+
+## Known risks / follow-up
+- `npx tsx --test scripts/tests/sportswellness-phase3-content.test.ts` is still red on the unrelated `Multiple-choice review` expectation in `projects/sportswellness/workspace/main.js`.
+- I did not run a manual browser preview after this responsive-scaling pass.
+
+## Exact next command
+`npm.cmd run studio:codex`
+
+## Exact next file to open
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\performance-game-scale.js`
+
+## Do not do next / warnings
+- Do not try to fix any remaining size/feel complaints only in the outer `Performance` shell unless you confirm the issue is no longer inside a specific game.
+- Do not treat the existing `sportswellness-phase3-content.test.ts` failure as caused by this scaling pass without fixing or updating the separate Phase 3 lesson contract.
+- Do not bypass the shared arena-scale helper for one-off size tweaks unless the game has a genuinely unique mechanic that cannot follow the measured-stage model.
+

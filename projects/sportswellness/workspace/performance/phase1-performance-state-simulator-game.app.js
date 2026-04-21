@@ -1,4 +1,5 @@
 const { useState, useEffect, useCallback, useRef } = React;
+const { useArenaScale, scaleValue } = window.PerformanceGameScale;
 
 function IconBase({ size = 18, className = '', viewBox = '0 0 24 24', children, fill = 'none' }) {
   return (
@@ -129,6 +130,7 @@ function PerformanceStateStimulatorGame() {
   const targetRef = useRef({ x: ARENA_SIZE.w / 2, y: ARENA_SIZE.h / 2, vx: TARGET_SPEED, vy: TARGET_SPEED });
   const cdRef = useRef({ breathe: 0, activate: 0 });
   const audioCtxRef = useRef(null);
+  const { stageRef: arenaRef, scale: arenaScale } = useArenaScale(ARENA_SIZE, { minScale: 0.95, maxScale: 1.85 });
 
   useEffect(() => {
     arousalRef.current = arousal;
@@ -186,35 +188,43 @@ function PerformanceStateStimulatorGame() {
     }
   }, []);
 
+  const triggerBreathe = useCallback(() => {
+    const now = Date.now();
+    if (now - cdRef.current.breathe <= 1000) return;
+
+    cdRef.current.breathe = now;
+    setCooldowns((current) => ({ ...current, breathe: 1000 }));
+    arousalRef.current = Math.max(MIN_AROUSAL, arousalRef.current - 15);
+    playSound('breathe');
+  }, [playSound]);
+
+  const triggerActivate = useCallback(() => {
+    const now = Date.now();
+    if (now - cdRef.current.activate <= 1000) return;
+
+    cdRef.current.activate = now;
+    setCooldowns((current) => ({ ...current, activate: 1000 }));
+    arousalRef.current = Math.min(MAX_AROUSAL, arousalRef.current + 15);
+    playSound('activate');
+  }, [playSound]);
+
   useEffect(() => {
     if (gameState !== 'playing') return undefined;
 
     const handleKeyDown = (event) => {
-      const now = Date.now();
-
       if (event.code === 'Space') {
         event.preventDefault();
-        if (now - cdRef.current.breathe > 1000) {
-          cdRef.current.breathe = now;
-          setCooldowns((current) => ({ ...current, breathe: 1000 }));
-          arousalRef.current = Math.max(MIN_AROUSAL, arousalRef.current - 15);
-          playSound('breathe');
-        }
+        triggerBreathe();
       }
 
       if (event.code === 'KeyW' || event.key === 'w') {
-        if (now - cdRef.current.activate > 1000) {
-          cdRef.current.activate = now;
-          setCooldowns((current) => ({ ...current, activate: 1000 }));
-          arousalRef.current = Math.min(MAX_AROUSAL, arousalRef.current + 15);
-          playSound('activate');
-        }
+        triggerActivate();
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [gameState, playSound]);
+  }, [gameState, triggerActivate, triggerBreathe]);
 
   useEffect(() => {
     if (gameState !== 'playing') return undefined;
@@ -386,8 +396,11 @@ function PerformanceStateStimulatorGame() {
     }
   };
 
-  const handleMouseMove = (event) => {
+  const handleArenaPointer = (event) => {
     if (gameState !== 'playing') return;
+    if (event.pointerType === 'touch' || event.pointerType === 'pen') {
+      event.preventDefault();
+    }
 
     const rect = event.currentTarget.getBoundingClientRect();
     const x = ((event.clientX - rect.left) / rect.width) * ARENA_SIZE.w;
@@ -422,10 +435,16 @@ function PerformanceStateStimulatorGame() {
   };
 
   const currentPerfY = Math.max(0, 100 - (Math.pow(arousal - 50, 2) / 6.25));
+  const targetDiameter = scaleValue(32, arenaScale, { min: 30, max: 76 });
+  const targetIconSize = scaleValue(20, arenaScale, { min: 18, max: 46 });
+  const reticleSize = scaleValue(48, arenaScale, { min: 42, max: 96 });
+  const reticleStroke = Math.max(1.5, Math.min(3.5, 1.5 * arenaScale));
+  const mouseDotSize = scaleValue(8, arenaScale, { min: 6, max: 16 });
+  const lockLostOffset = scaleValue(56, arenaScale, { min: 48, max: 112 });
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 font-sans p-0 md:p-8 flex items-center justify-center selection:bg-lime-400 selection:text-black">
-      <div className="max-w-5xl w-full bg-zinc-900 md:rounded-xl shadow-2xl overflow-hidden border border-zinc-800 flex flex-col relative">
+    <div className="min-h-screen bg-zinc-950 text-zinc-100 font-sans p-0 md:p-4 xl:p-6 selection:bg-lime-400 selection:text-black">
+      <div className="w-full min-h-screen md:min-h-[calc(100vh-32px)] bg-zinc-900 md:rounded-xl shadow-2xl overflow-hidden border border-zinc-800 flex flex-col relative">
         <div className="bg-black p-4 border-b border-zinc-800 flex flex-col md:flex-row justify-between items-center gap-4 relative z-50">
           <div className="flex items-center gap-3">
             <BrainCircuit className={`${zoneColor} w-6 h-6 transition-colors duration-300`} />
@@ -439,16 +458,16 @@ function PerformanceStateStimulatorGame() {
           </div>
 
           {gameState === 'playing' && (
-            <div className="flex gap-4 font-mono text-xs uppercase tracking-widest bg-zinc-900 px-4 py-2 border border-zinc-800 rounded">
-              <div className="flex flex-col items-center border-r border-zinc-800 pr-4">
+            <div className="flex flex-wrap justify-center gap-3 md:gap-4 font-mono text-xs uppercase tracking-widest bg-zinc-900 px-4 py-2 border border-zinc-800 rounded">
+              <div className="flex flex-col items-center border-r border-zinc-800 pr-3 md:pr-4">
                 <span className="text-zinc-500 text-[9px] mb-1"><Timer size={10} className="inline mr-1" />Time</span>
                 <span className="text-white font-bold">{timeElapsed.toFixed(1)}s</span>
               </div>
-              <div className="flex flex-col items-center border-r border-zinc-800 pr-4 pl-2">
+              <div className="flex flex-col items-center border-r border-zinc-800 pr-3 md:pr-4 pl-1 md:pl-2">
                 <span className="text-zinc-500 text-[9px] mb-1">Tracking Lock</span>
                 <span className={`${trackingPct <= 30 ? 'text-red-500 animate-pulse' : 'text-lime-400'} font-bold`}>{Math.floor(trackingPct)}%</span>
               </div>
-              <div className="flex flex-col items-center pl-2">
+              <div className="flex flex-col items-center pl-1 md:pl-2">
                 <span className="text-zinc-500 text-[9px] mb-1">Score</span>
                 <span className="text-white font-bold">{score}</span>
               </div>
@@ -456,8 +475,8 @@ function PerformanceStateStimulatorGame() {
           )}
         </div>
 
-        <div className="flex flex-col md:flex-row h-[650px]">
-          <div className="w-full md:w-64 bg-zinc-950 border-r border-zinc-800 p-6 flex flex-col relative overflow-hidden shrink-0">
+        <div className="flex flex-col md:flex-row md:flex-1 md:min-h-[680px]">
+          <div className="w-full md:w-64 bg-zinc-950 border-b md:border-b-0 md:border-r border-zinc-800 p-4 md:p-6 flex flex-col relative overflow-hidden shrink-0">
             <div className="absolute inset-0 opacity-10 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none"></div>
 
             <div className="relative z-10 flex-1 flex flex-col">
@@ -473,7 +492,7 @@ function PerformanceStateStimulatorGame() {
 
               <h3 className="text-[10px] text-zinc-500 font-bold uppercase tracking-[0.2em] mb-4">Arousal / Performance</h3>
 
-              <div className="relative w-full aspect-square bg-zinc-900/50 border-b border-l border-zinc-700 mb-6 rounded-tr">
+              <div className="relative w-full aspect-[4/3] max-h-[260px] md:aspect-square md:max-h-none bg-zinc-900/50 border-b border-l border-zinc-700 mb-5 md:mb-6 rounded-tr">
                 <svg viewBox="0 0 100 100" className="w-full h-full overflow-visible p-2">
                   <rect x="35" y="0" width="30" height="100" fill="var(--performance-game-primary-soft)" />
                   <line x1="35" y1="0" x2="35" y2="100" stroke="var(--performance-game-primary-border)" strokeWidth="0.5" strokeDasharray="2" />
@@ -488,7 +507,7 @@ function PerformanceStateStimulatorGame() {
                 <div className="absolute -left-6 top-0 text-[8px] text-zinc-600 font-mono -rotate-90 origin-bottom-left">Perf</div>
               </div>
 
-              <div className={`p-3 border ${zoneBorder} bg-black/50 backdrop-blur rounded mb-auto transition-colors duration-300`}>
+              <div className={`p-3 border ${zoneBorder} bg-black/50 backdrop-blur rounded mb-4 md:mb-auto transition-colors duration-300`}>
                 <div className="flex items-center gap-2 mb-1">
                   <Activity className={zoneColor} size={14} />
                   <span className={`text-[10px] font-black tracking-widest ${zoneColor}`}>{zoneName}</span>
@@ -498,35 +517,56 @@ function PerformanceStateStimulatorGame() {
               </div>
 
               <div className="mt-4 space-y-3">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2 text-xs font-bold text-lime-400 uppercase tracking-wider">
-                    <Wind size={14} /> Breathe
+                <button
+                  type="button"
+                  onClick={triggerBreathe}
+                  disabled={cooldowns.breathe > 0}
+                  className="w-full rounded border border-zinc-800 bg-black/40 p-3 text-left transition hover:border-lime-400/50 disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2 text-xs font-bold text-lime-400 uppercase tracking-wider">
+                      <Wind size={14} /> Breathe
+                    </div>
+                    <div className="bg-zinc-800 text-zinc-300 font-mono text-[9px] px-2 py-0.5 rounded border border-zinc-700">
+                      {cooldowns.breathe > 0 ? `${Math.ceil(cooldowns.breathe / 100) / 10}s` : 'SPACE / TAP'}
+                    </div>
                   </div>
-                  <div className="bg-zinc-800 text-zinc-300 font-mono text-[9px] px-2 py-0.5 rounded border border-zinc-700">SPACE</div>
-                </div>
-                <div className="h-1 bg-zinc-800 rounded-full overflow-hidden">
-                  <div className="h-full bg-lime-400 transition-all duration-75" style={{ width: `${100 - (cooldowns.breathe / 10)}%` }} />
-                </div>
+                  <div className="h-1 bg-zinc-800 rounded-full overflow-hidden mt-3">
+                    <div className="h-full bg-lime-400 transition-all duration-75" style={{ width: `${100 - (cooldowns.breathe / 10)}%` }} />
+                  </div>
+                </button>
 
-                <div className="flex items-center justify-between mt-2">
-                  <div className="flex items-center gap-2 text-xs font-bold text-amber-400 uppercase tracking-wider">
-                    <Flame size={14} /> Activate
+                <button
+                  type="button"
+                  onClick={triggerActivate}
+                  disabled={cooldowns.activate > 0}
+                  className="w-full rounded border border-zinc-800 bg-black/40 p-3 text-left transition hover:border-amber-400/50 disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2 text-xs font-bold text-amber-400 uppercase tracking-wider">
+                      <Flame size={14} /> Activate
+                    </div>
+                    <div className="bg-zinc-800 text-zinc-300 font-mono text-[9px] px-2 py-0.5 rounded border border-zinc-700">
+                      {cooldowns.activate > 0 ? `${Math.ceil(cooldowns.activate / 100) / 10}s` : 'W / TAP'}
+                    </div>
                   </div>
-                  <div className="bg-zinc-800 text-zinc-300 font-mono text-[9px] px-2 py-0.5 rounded border border-zinc-700">W</div>
-                </div>
-                <div className="h-1 bg-zinc-800 rounded-full overflow-hidden">
-                  <div className="h-full bg-amber-400 transition-all duration-75" style={{ width: `${100 - (cooldowns.activate / 10)}%` }} />
-                </div>
+                  <div className="h-1 bg-zinc-800 rounded-full overflow-hidden mt-3">
+                    <div className="h-full bg-amber-400 transition-all duration-75" style={{ width: `${100 - (cooldowns.activate / 10)}%` }} />
+                  </div>
+                </button>
               </div>
             </div>
           </div>
 
           <div
-            className="flex-1 bg-zinc-950 relative overflow-hidden cursor-none"
+            ref={arenaRef}
+            className="flex-1 bg-zinc-950 relative overflow-hidden cursor-none min-h-[360px] h-[52vh] max-h-[480px] md:min-h-0 md:h-auto md:max-h-none"
             style={{
+              touchAction: 'none',
               background: 'radial-gradient(circle at 50% 50%, rgba(0, 255, 202, 0.06) 0%, rgba(15, 19, 26, 0.45) 35%, var(--performance-game-panel-alt) 78%)'
             }}
-            onMouseMove={handleMouseMove}
+            onPointerMove={handleArenaPointer}
+            onPointerDown={handleArenaPointer}
           >
             <div
               className="absolute inset-0 pointer-events-none transition-opacity duration-300 z-10"
@@ -544,37 +584,46 @@ function PerformanceStateStimulatorGame() {
             {gameState === 'playing' && (
               <>
                 <div
-                  className="absolute w-8 h-8 rounded-full border-2 border-white bg-white/10 flex items-center justify-center transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-300"
+                  className="absolute rounded-full border-2 border-white bg-white/10 flex items-center justify-center transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-300"
                   style={{
                     left: `${(targetRef.current.x / ARENA_SIZE.w) * 100}%`,
                     top: `${(targetRef.current.y / ARENA_SIZE.h) * 100}%`,
+                    width: `${targetDiameter}px`,
+                    height: `${targetDiameter}px`,
                     boxShadow: isLocked ? '0 0 20px rgba(255,255,255,0.5)' : 'none',
                     transform: `translate(-50%, -50%) scale(${pace === 'high' ? 0.7 : pace === 'lull' ? 1.4 : 1.0})`
                   }}
                 >
-                  <Target size={20} className="text-white/50" />
+                  <Target size={targetIconSize} className="text-white/50" />
                 </div>
 
                 <div
-                  className="absolute w-12 h-12 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-20 pointer-events-none"
+                  className="absolute transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-20 pointer-events-none"
                   style={{
                     left: `${(reticleRef.current.x / ARENA_SIZE.w) * 100}%`,
-                    top: `${(reticleRef.current.y / ARENA_SIZE.h) * 100}%`
+                    top: `${(reticleRef.current.y / ARENA_SIZE.h) * 100}%`,
+                    width: `${reticleSize}px`,
+                    height: `${reticleSize}px`
                   }}
                 >
-                  <Crosshair className={`w-full h-full ${isLocked ? 'text-lime-400' : 'text-red-500 opacity-50'} transition-colors duration-100`} strokeWidth={1.5} />
+                  <Crosshair className={`w-full h-full ${isLocked ? 'text-lime-400' : 'text-red-500 opacity-50'} transition-colors duration-100`} strokeWidth={reticleStroke} />
                   {!isLocked && (
-                    <div className="absolute top-14 whitespace-nowrap text-[9px] font-mono font-bold text-red-500 bg-black/80 px-2 py-0.5 rounded border border-red-500/50">
+                    <div
+                      className="absolute whitespace-nowrap text-[9px] font-mono font-bold text-red-500 bg-black/80 px-2 py-0.5 rounded border border-red-500/50"
+                      style={{ top: `${lockLostOffset}px` }}
+                    >
                       LOCK LOST
                     </div>
                   )}
                 </div>
 
                 <div
-                  className="absolute w-2 h-2 bg-zinc-500/30 rounded-full transform -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+                  className="absolute bg-zinc-500/30 rounded-full transform -translate-x-1/2 -translate-y-1/2 pointer-events-none"
                   style={{
                     left: `${(mouseRef.current.x / ARENA_SIZE.w) * 100}%`,
-                    top: `${(mouseRef.current.y / ARENA_SIZE.h) * 100}%`
+                    top: `${(mouseRef.current.y / ARENA_SIZE.h) * 100}%`,
+                    width: `${mouseDotSize}px`,
+                    height: `${mouseDotSize}px`
                   }}
                 />
 

@@ -1,9 +1,10 @@
 ﻿(function () {
   const data = window.FORENSIC_STUDIES_OPTION2_DATA || window.WORLD_RELIGIONS_DATA || { course: {}, chapters: [], quizzes: [], assignments: [], library: [] };
   const PROJECT_SLUG = document.body?.dataset.projectSlug || "forensicstudiesoption2";
-  const STORAGE_KEY = `${PROJECT_SLUG}.progress`;
-  const UI_KEY = `${PROJECT_SLUG}.ui`;
+  const STORAGE_KEY = "forensicstudiesoption2.progress";
+  const UI_KEY = "forensicstudiesoption2.ui";
   const AUTHORING_UNLOCK_ALL = false;
+  const AUTHORING_UNLOCK_ASSIGNMENTS = false;
 
   const refs = {
     body: document.body,
@@ -177,9 +178,7 @@
     return {
       toolbar,
       back: toolbar.querySelector('[data-assignment-action="back"]'),
-      reset: toolbar.querySelector('[data-assignment-action="reset"]'),
-      previous: toolbar.querySelector('[data-assignment-action="previous"]'),
-      generate: toolbar.querySelector('[data-assignment-action="generate"]')
+      reset: toolbar.querySelector('[data-assignment-action="reset"]')
     };
   }
 
@@ -187,39 +186,19 @@
     return refs.contentBody.querySelector("[data-assignment-frame-key]");
   }
 
-  function getEmbeddedAssignmentControls(frame = getActiveAssignmentFrame()) {
-    const doc = frame?.contentDocument;
-    if (!doc) return null;
-
-    return {
-      doc,
-      reset: doc.getElementById("reset-work"),
-      previous: doc.getElementById("prev-step"),
-      generate: doc.getElementById("generate-report")
-    };
+  function getAssignmentResetStorageKeys(assignmentId = state.activeId) {
+    const match = String(assignmentId || "").match(/(\d+)/);
+    if (!match) return [];
+    const moduleNumber = Number(match[1]);
+    if (!Number.isFinite(moduleNumber)) return [];
+    return [`forensics::module${moduleNumber}assignment::v1`];
   }
 
   function syncAssignmentToolbar() {
     const toolbar = getAssignmentToolbarElements();
     if (!toolbar) return;
-
-    const controls = getEmbeddedAssignmentControls();
-    const ready = !!controls?.reset && !!controls?.previous && !!controls?.generate;
-
-    if (toolbar.reset) {
-      toolbar.reset.disabled = !ready;
-    }
-
-    if (toolbar.previous) {
-      toolbar.previous.disabled = !ready || !!controls.previous.disabled;
-    }
-
-    if (toolbar.generate) {
-      toolbar.generate.disabled = !ready || !!controls.generate.disabled;
-      toolbar.generate.textContent = ready ? cleanText(controls.generate.textContent || "Proceed") : "Proceed";
-      toolbar.generate.dataset.mode = ready ? (controls.generate.dataset.mode || "") : "";
-      toolbar.generate.classList.toggle("is-ready", toolbar.generate.dataset.mode === "print");
-    }
+    const frame = getActiveAssignmentFrame();
+    if (toolbar.reset) toolbar.reset.disabled = !frame;
   }
 
   function queueAssignmentToolbarSync() {
@@ -236,21 +215,42 @@
       return;
     }
 
-    const controls = getEmbeddedAssignmentControls();
-    if (!controls) return;
-
-    const target = action === "reset"
-      ? controls.reset
-      : action === "previous"
-        ? controls.previous
-        : action === "generate"
-          ? controls.generate
-          : null;
-
-    target?.click();
-    if (action === "generate") {
-      markAssignmentComplete(state.activeId);
+    if (action === "reset") {
+      resetActiveAssignment();
+      return;
     }
+  }
+
+  function resetActiveAssignment() {
+    const assignmentId = state.activeId;
+    const frame = getActiveAssignmentFrame();
+    if (!assignmentId || !frame) return;
+
+    getAssignmentResetStorageKeys(assignmentId).forEach((key) => {
+      try {
+        window.localStorage.removeItem(key);
+      } catch (_error) {
+        // Ignore storage cleanup failures and still try to reload the runtime.
+      }
+    });
+
+    if (state.progress.assignmentComplete[assignmentId]) {
+      delete state.progress.assignmentComplete[assignmentId];
+      saveProgress();
+      renderNav();
+      renderProgress();
+    }
+
+    try {
+      if (frame.contentWindow?.location) {
+        frame.contentWindow.location.reload();
+      } else {
+        frame.src = frame.src;
+      }
+    } catch (_error) {
+      frame.src = frame.src;
+    }
+
     queueAssignmentToolbarSync();
   }
 
@@ -302,9 +302,6 @@
     if (!toolbar || !frame) return;
 
     let observedDoc = null;
-    let observer = null;
-
-    const syncFromFrame = () => queueAssignmentToolbarSync();
     const handleFrameClick = (event) => {
       const control = event.target?.closest?.("button, [role='button'], input[type='button'], input[type='submit'], a");
       if (!control || !isAssignmentGenerateTrigger(control)) return;
@@ -314,14 +311,7 @@
     };
 
     const detach = () => {
-      if (observer) {
-        observer.disconnect();
-        observer = null;
-      }
-
       if (observedDoc) {
-        observedDoc.removeEventListener("click", syncFromFrame, true);
-        observedDoc.removeEventListener("input", syncFromFrame, true);
         observedDoc.removeEventListener("click", handleFrameClick, true);
       }
 
@@ -331,24 +321,14 @@
     const attach = () => {
       detach();
 
-      const controls = getEmbeddedAssignmentControls(frame);
-      if (!controls?.doc?.body) {
+      const doc = frame.contentDocument;
+      if (!doc?.body) {
         queueAssignmentToolbarSync();
         return;
       }
 
-      observedDoc = controls.doc;
-      observedDoc.addEventListener("click", syncFromFrame, true);
-      observedDoc.addEventListener("input", syncFromFrame, true);
+      observedDoc = doc;
       observedDoc.addEventListener("click", handleFrameClick, true);
-
-      observer = new MutationObserver(syncFromFrame);
-      observer.observe(observedDoc.body, {
-        subtree: true,
-        childList: true,
-        attributes: true,
-        characterData: true
-      });
 
       queueAssignmentToolbarSync();
     };
@@ -619,6 +599,7 @@
 
   function isAssignmentUnlocked(assignment) {
     if (AUTHORING_UNLOCK_ALL) return true;
+    if (AUTHORING_UNLOCK_ASSIGNMENTS) return true;
     if (assignment && assignment.id === "assignment-8") {
       return areForensicsAssignmentsOneToSevenComplete();
     }
@@ -1177,6 +1158,18 @@
     }
 
     const quiz = findQuizByChapter(assignment.chapterId);
+    const assignmentToolbar = assignment.interactivePath
+      ? `
+          <div class="assignment-toolbar" data-assignment-toolbar>
+            <div class="assignment-toolbar-primary">
+              <button class="btn btn-muted" type="button" data-assignment-action="back">Back to assignments</button>
+            </div>
+            <div class="assignment-toolbar-actions">
+              <button class="btn btn-muted" type="button" data-assignment-action="reset" disabled>Reset work</button>
+            </div>
+          </div>
+        `
+      : "";
 
     const briefs = Array.isArray(assignment.briefs) ? assignment.briefs.filter(Boolean) : [];
     const briefSection = briefs.length
@@ -1223,17 +1216,8 @@
               <p class="detail-eyebrow">${escapeHtml(assignment.code)}</p>
               <h4 class="detail-title">${escapeHtml(assignment.title)}</h4>
             </div>
+            ${assignmentToolbar}
             ${briefSection}
-            <div class="assignment-toolbar" data-assignment-toolbar>
-              <div class="assignment-toolbar-primary">
-                <button class="btn btn-muted" type="button" data-assignment-action="back">Back to assignments</button>
-              </div>
-              <div class="assignment-toolbar-actions">
-                <button class="btn btn-muted" type="button" data-assignment-action="reset" disabled>Reset work</button>
-                <button class="btn btn-muted" type="button" data-assignment-action="previous" disabled>Previous</button>
-                <button class="btn btn-primary assignment-toolbar-generate" type="button" data-assignment-action="generate" disabled>Proceed</button>
-              </div>
-            </div>
             <div class="assignment-runtime-shell">
               <iframe
                 class="assignment-frame"

@@ -1,4 +1,5 @@
 const { useState, useEffect, useCallback, useRef } = React;
+const { useArenaScale, scaleValue } = window.PerformanceGameScale;
 
 function IconBase({ size = 18, className = '', viewBox = '0 0 24 24', children, fill = 'none' }) {
   return (
@@ -161,6 +162,7 @@ function DisciplineArchitecture() {
   const timeRef = useRef(0);
   const audioCtxRef = useRef(null);
   const targetLifespanModRef = useRef(1.0);
+  const { stageRef: arenaRef, scale: arenaScale } = useArenaScale({ w: 960, h: 650 }, { minScale: 0.92, maxScale: 1.65 });
 
   useEffect(() => { pointsRef.current = points; }, [points]);
   useEffect(() => { targetLifespanModRef.current = targetLifespanMod; }, [targetLifespanMod]);
@@ -452,13 +454,14 @@ function DisciplineArchitecture() {
   const currentEvent = activeEvent ? EVENTS_DB[activeEvent] : null;
   const LeftIcon = currentEvent?.left?.icon;
   const RightIcon = currentEvent?.right?.icon;
+  const arenaGridSize = scaleValue(40, arenaScale, { min: 28, max: 72 });
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 font-sans p-0 md:p-8 flex items-center justify-center selection:bg-lime-400 selection:text-black">
+    <div className="min-h-screen bg-zinc-950 text-zinc-100 font-sans p-0 md:p-4 xl:p-6 selection:bg-lime-400 selection:text-black">
       <style>{shakeCSS}</style>
 
       <div
-        className={`max-w-5xl w-full bg-zinc-900 md:rounded-xl shadow-2xl overflow-hidden border border-zinc-800 flex flex-col ${isShaking ? 'shake-severe border-red-500 shadow-[0_0_50px_rgba(239,68,68,0.4)]' : ''}`}
+        className={`w-full min-h-screen md:min-h-[calc(100vh-32px)] bg-zinc-900 md:rounded-xl shadow-2xl overflow-hidden border border-zinc-800 flex flex-col relative ${isShaking ? 'shake-severe border-red-500 shadow-[0_0_50px_rgba(239,68,68,0.4)]' : ''}`}
         onMouseMove={handleMouseMove}
       >
         <div className="bg-black p-4 border-b border-zinc-800 flex flex-col md:flex-row justify-between items-center gap-4 relative z-50">
@@ -496,7 +499,8 @@ function DisciplineArchitecture() {
         </div>
 
         <div
-          className="relative min-h-[650px] w-full bg-zinc-950 overflow-hidden select-none transition-all duration-300"
+          ref={arenaRef}
+          className="relative w-full bg-zinc-950 overflow-hidden select-none transition-all duration-300 flex-1 min-h-[420px] md:min-h-[680px]"
           style={{ filter: gameState === 'playing' ? `blur(${blurAmount}px) grayscale(${desaturateAmount}%)` : 'none' }}
         >
           <div className="absolute top-0 left-0 w-full h-[25%] bg-gradient-to-b from-lime-400/10 to-transparent border-b border-lime-400/50 group z-30">
@@ -546,28 +550,33 @@ function DisciplineArchitecture() {
           </div>
 
           <div
-            className="absolute bottom-0 left-0 w-full h-[75%] bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px] cursor-crosshair z-10"
+            className="absolute bottom-0 left-0 w-full h-[75%] bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] cursor-crosshair z-10"
+            style={{ backgroundSize: `${arenaGridSize}px ${arenaGridSize}px` }}
             onMouseDown={handleMisclickArena}
           >
             {gameState === 'playing' && targets.map((target) => {
               const currentLifespan = TARGET_LIFESPAN * targetLifespanMod;
               const age = Date.now() - target.createdAt;
               const lifePct = Math.max(0, 1 - (age / currentLifespan));
+              const targetDisplaySize = scaleValue(target.size, arenaScale, { min: 44, max: 112 });
+              const targetBorderWidth = scaleValue(2, arenaScale, { min: 2, max: 4 });
+              const targetIconSize = Math.max(18, Math.min(56, Math.round(targetDisplaySize * 0.5)));
 
               return (
                 <div
                   key={target.id}
                   onMouseDown={(event) => handleHitTarget(target.id, event)}
-                  className="absolute rounded-full border-2 border-lime-400 bg-lime-400/10 flex items-center justify-center hover:bg-lime-400/20 transition-colors"
+                  className="absolute rounded-full border border-lime-400 bg-lime-400/10 flex items-center justify-center hover:bg-lime-400/20 transition-colors"
                   style={{
                     left: `${target.x}%`,
                     top: `${target.y}%`,
-                    width: `${target.size}px`,
-                    height: `${target.size}px`,
+                    width: `${targetDisplaySize}px`,
+                    height: `${targetDisplaySize}px`,
+                    borderWidth: `${targetBorderWidth}px`,
                     transform: 'translate(-50%, -50%)'
                   }}
                 >
-                  <Crosshair className="text-lime-400 w-1/2 h-1/2 pointer-events-none" />
+                  <Crosshair className="text-lime-400 pointer-events-none" size={targetIconSize} />
                   <div
                     className="absolute inset-0 rounded-full border border-lime-400/50 pointer-events-none"
                     style={{ transform: `scale(${lifePct})` }}

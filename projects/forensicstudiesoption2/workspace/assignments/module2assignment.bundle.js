@@ -21719,27 +21719,255 @@
     }
   });
 
-  // projects/forensics/workspace/assets/module2assignment-entry.jsx
-  var import_react2 = __toESM(require_react(), 1);
+  // projects/forensicstudiesoption2/workspace/assignments/module2assignment-entry.jsx
+  var import_react4 = __toESM(require_react(), 1);
   var import_client = __toESM(require_client(), 1);
 
-  // projects/forensics/workspace/assets/module2assignment-app.jsx
-  var import_react = __toESM(require_react(), 1);
+  // projects/forensicstudiesoption2/workspace/assignments/module2assignment-app.jsx
+  var import_react3 = __toESM(require_react(), 1);
+
+  // node_modules/lucide-react/dist/esm/createLucideIcon.js
+  var import_react2 = __toESM(require_react());
+
+  // node_modules/lucide-react/dist/esm/shared/src/utils.js
+  var toKebabCase = (string) => string.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
+  var toCamelCase = (string) => string.replace(
+    /^([A-Z])|[\s-_]+(\w)/g,
+    (match, p1, p2) => p2 ? p2.toUpperCase() : p1.toLowerCase()
+  );
+  var toPascalCase = (string) => {
+    const camelCase = toCamelCase(string);
+    return camelCase.charAt(0).toUpperCase() + camelCase.slice(1);
+  };
+  var mergeClasses = (...classes) => classes.filter((className, index, array) => {
+    return Boolean(className) && className.trim() !== "" && array.indexOf(className) === index;
+  }).join(" ").trim();
+  var hasA11yProp = (props) => {
+    for (const prop in props) {
+      if (prop.startsWith("aria-") || prop === "role" || prop === "title") {
+        return true;
+      }
+    }
+  };
+
+  // node_modules/lucide-react/dist/esm/Icon.js
+  var import_react = __toESM(require_react());
+
+  // node_modules/lucide-react/dist/esm/defaultAttributes.js
+  var defaultAttributes = {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 24,
+    height: 24,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: 2,
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  };
+
+  // node_modules/lucide-react/dist/esm/Icon.js
+  var Icon = (0, import_react.forwardRef)(
+    ({
+      color = "currentColor",
+      size = 24,
+      strokeWidth = 2,
+      absoluteStrokeWidth,
+      className = "",
+      children,
+      iconNode,
+      ...rest
+    }, ref) => (0, import_react.createElement)(
+      "svg",
+      {
+        ref,
+        ...defaultAttributes,
+        width: size,
+        height: size,
+        stroke: color,
+        strokeWidth: absoluteStrokeWidth ? Number(strokeWidth) * 24 / Number(size) : strokeWidth,
+        className: mergeClasses("lucide", className),
+        ...!children && !hasA11yProp(rest) && { "aria-hidden": "true" },
+        ...rest
+      },
+      [
+        ...iconNode.map(([tag, attrs]) => (0, import_react.createElement)(tag, attrs)),
+        ...Array.isArray(children) ? children : [children]
+      ]
+    )
+  );
+
+  // node_modules/lucide-react/dist/esm/createLucideIcon.js
+  var createLucideIcon = (iconName, iconNode) => {
+    const Component = (0, import_react2.forwardRef)(
+      ({ className, ...props }, ref) => (0, import_react2.createElement)(Icon, {
+        ref,
+        iconNode,
+        className: mergeClasses(
+          `lucide-${toKebabCase(toPascalCase(iconName))}`,
+          `lucide-${iconName}`,
+          className
+        ),
+        ...props
+      })
+    );
+    Component.displayName = toPascalCase(iconName);
+    return Component;
+  };
+
+  // node_modules/lucide-react/dist/esm/icons/book-open.js
+  var __iconNode = [
+    ["path", { d: "M12 7v14", key: "1akyts" }],
+    [
+      "path",
+      {
+        d: "M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z",
+        key: "ruj8y"
+      }
+    ]
+  ];
+  var BookOpen = createLucideIcon("book-open", __iconNode);
+
+  // node_modules/lucide-react/dist/esm/icons/circle-alert.js
+  var __iconNode2 = [
+    ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+    ["line", { x1: "12", x2: "12", y1: "8", y2: "12", key: "1pkeuh" }],
+    ["line", { x1: "12", x2: "12.01", y1: "16", y2: "16", key: "4dfq90" }]
+  ];
+  var CircleAlert = createLucideIcon("circle-alert", __iconNode2);
+
+  // node_modules/lucide-react/dist/esm/icons/circle-check-big.js
+  var __iconNode3 = [
+    ["path", { d: "M21.801 10A10 10 0 1 1 17 3.335", key: "yps3ct" }],
+    ["path", { d: "m9 11 3 3L22 4", key: "1pflzl" }]
+  ];
+  var CircleCheckBig = createLucideIcon("circle-check-big", __iconNode3);
+
+  // node_modules/lucide-react/dist/esm/icons/clipboard-check.js
+  var __iconNode4 = [
+    ["rect", { width: "8", height: "4", x: "8", y: "2", rx: "1", ry: "1", key: "tgr4d6" }],
+    [
+      "path",
+      {
+        d: "M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2",
+        key: "116196"
+      }
+    ],
+    ["path", { d: "m9 14 2 2 4-4", key: "df797q" }]
+  ];
+  var ClipboardCheck = createLucideIcon("clipboard-check", __iconNode4);
+
+  // node_modules/lucide-react/dist/esm/icons/crosshair.js
+  var __iconNode5 = [
+    ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+    ["line", { x1: "22", x2: "18", y1: "12", y2: "12", key: "l9bcsi" }],
+    ["line", { x1: "6", x2: "2", y1: "12", y2: "12", key: "13hhkx" }],
+    ["line", { x1: "12", x2: "12", y1: "6", y2: "2", key: "10w3f3" }],
+    ["line", { x1: "12", x2: "12", y1: "22", y2: "18", key: "15g9kq" }]
+  ];
+  var Crosshair = createLucideIcon("crosshair", __iconNode5);
+
+  // node_modules/lucide-react/dist/esm/icons/database.js
+  var __iconNode6 = [
+    ["ellipse", { cx: "12", cy: "5", rx: "9", ry: "3", key: "msslwz" }],
+    ["path", { d: "M3 5V19A9 3 0 0 0 21 19V5", key: "1wlel7" }],
+    ["path", { d: "M3 12A9 3 0 0 0 21 12", key: "mv7ke4" }]
+  ];
+  var Database = createLucideIcon("database", __iconNode6);
+
+  // node_modules/lucide-react/dist/esm/icons/fingerprint.js
+  var __iconNode7 = [
+    ["path", { d: "M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4", key: "1nerag" }],
+    ["path", { d: "M14 13.12c0 2.38 0 6.38-1 8.88", key: "o46ks0" }],
+    ["path", { d: "M17.29 21.02c.12-.6.43-2.3.5-3.02", key: "ptglia" }],
+    ["path", { d: "M2 12a10 10 0 0 1 18-6", key: "ydlgp0" }],
+    ["path", { d: "M2 16h.01", key: "1gqxmh" }],
+    ["path", { d: "M21.8 16c.2-2 .131-5.354 0-6", key: "drycrb" }],
+    ["path", { d: "M5 19.5C5.5 18 6 15 6 12a6 6 0 0 1 .34-2", key: "1tidbn" }],
+    ["path", { d: "M8.65 22c.21-.66.45-1.32.57-2", key: "13wd9y" }],
+    ["path", { d: "M9 6.8a6 6 0 0 1 9 5.2v2", key: "1fr1j5" }]
+  ];
+  var Fingerprint = createLucideIcon("fingerprint", __iconNode7);
+
+  // node_modules/lucide-react/dist/esm/icons/maximize-2.js
+  var __iconNode8 = [
+    ["path", { d: "M15 3h6v6", key: "1q9fwt" }],
+    ["path", { d: "m21 3-7 7", key: "1l2asr" }],
+    ["path", { d: "m3 21 7-7", key: "tjx5ai" }],
+    ["path", { d: "M9 21H3v-6", key: "wtvkvv" }]
+  ];
+  var Maximize2 = createLucideIcon("maximize-2", __iconNode8);
+
+  // node_modules/lucide-react/dist/esm/icons/printer.js
+  var __iconNode9 = [
+    [
+      "path",
+      {
+        d: "M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2",
+        key: "143wyd"
+      }
+    ],
+    ["path", { d: "M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6", key: "1itne7" }],
+    ["rect", { x: "6", y: "14", width: "12", height: "8", rx: "1", key: "1ue0tg" }]
+  ];
+  var Printer = createLucideIcon("printer", __iconNode9);
+
+  // node_modules/lucide-react/dist/esm/icons/search.js
+  var __iconNode10 = [
+    ["path", { d: "m21 21-4.34-4.34", key: "14j7rj" }],
+    ["circle", { cx: "11", cy: "11", r: "8", key: "4ej97u" }]
+  ];
+  var Search = createLucideIcon("search", __iconNode10);
+
+  // node_modules/lucide-react/dist/esm/icons/shield.js
+  var __iconNode11 = [
+    [
+      "path",
+      {
+        d: "M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z",
+        key: "oel41y"
+      }
+    ]
+  ];
+  var Shield = createLucideIcon("shield", __iconNode11);
+
+  // node_modules/lucide-react/dist/esm/icons/users.js
+  var __iconNode12 = [
+    ["path", { d: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2", key: "1yyitq" }],
+    ["path", { d: "M16 3.128a4 4 0 0 1 0 7.744", key: "16gr8j" }],
+    ["path", { d: "M22 21v-2a4 4 0 0 0-3-3.87", key: "kshegd" }],
+    ["circle", { cx: "9", cy: "7", r: "4", key: "nufk8" }]
+  ];
+  var Users = createLucideIcon("users", __iconNode12);
+
+  // projects/forensicstudiesoption2/workspace/assignments/module2assignment-app.jsx
   var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
-  var IconStub = () => null;
-  var Search = IconStub;
-  var Shield = IconStub;
-  var Users = IconStub;
-  var Database = IconStub;
-  var CheckCircle = IconStub;
-  var Printer = IconStub;
-  var Maximize2 = IconStub;
-  var Crosshair = IconStub;
-  var Fingerprint = IconStub;
-  var BookOpen = IconStub;
-  var ClipboardCheck = IconStub;
-  var AlertCircle = IconStub;
+  var MODULE2_ASSIGNMENT_STORAGE_KEY = "forensics::module2assignment::v1";
   var MODULE2_ASSET_ROOT = "./module2";
+  function readModule2AssignmentState() {
+    if (typeof window === "undefined") {
+      return null;
+    }
+    try {
+      const raw = window.localStorage.getItem(MODULE2_ASSIGNMENT_STORAGE_KEY);
+      if (!raw) {
+        return null;
+      }
+      const parsed = JSON.parse(raw);
+      return parsed && typeof parsed === "object" ? parsed : null;
+    } catch (_error) {
+      return null;
+    }
+  }
+  function writeModule2AssignmentState(state) {
+    if (typeof window === "undefined") {
+      return;
+    }
+    try {
+      window.localStorage.setItem(MODULE2_ASSIGNMENT_STORAGE_KEY, JSON.stringify(state));
+    } catch (_error) {
+    }
+  }
   var PATTERN_TYPES = [
     "Plain Whorl",
     "Central Pocket Whorl",
@@ -21816,8 +22044,8 @@
     PATTERN_CONFIG["arch_plain"] = PATTERN_CONFIG["Plain Arch"];
     PATTERN_CONFIG["arch_tented"] = PATTERN_CONFIG["Tented Arch"];
     const config = PATTERN_CONFIG[pattern] || PATTERN_CONFIG["Plain Whorl"];
-    const [imgError, setImgError] = (0, import_react.useState)(false);
-    return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: `relative bg-slate-200 rounded-lg overflow-hidden flex items-center justify-center border-2 border-slate-400 shadow-inner ${className}`, children: [
+    const [imgError, setImgError] = (0, import_react3.useState)(false);
+    return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: `assignment-fingerprint-surface relative bg-slate-200 rounded-lg overflow-hidden flex items-center justify-center border-2 border-slate-400 shadow-inner ${className}`, children: [
       !imgError ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "absolute inset-0 flex items-center justify-center pointer-events-none", style: { transform: config.transform, transition: "transform 0.3s ease" }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
           "img",
@@ -21857,17 +22085,74 @@
     ] });
   };
   function App() {
-    const [activeTab, setActiveTab] = (0, import_react.useState)("training");
-    const [trainingData, setTrainingData] = (0, import_react.useState)(PATTERN_TYPES.reduce((acc, type) => ({ ...acc, [type]: { definition: "", source: "" } }), {}));
-    const [selectedTrainingPattern, setSelectedTrainingPattern] = (0, import_react.useState)(PATTERN_TYPES[0]);
-    const [showOverlay, setShowOverlay] = (0, import_react.useState)(false);
-    const [theoryAnswers, setTheoryAnswers] = (0, import_react.useState)({ altered: "", reliability: "", elements: "", latent: "" });
-    const [caseAnswers, setCaseAnswers] = (0, import_react.useState)({});
-    const [evidenceTags, setEvidenceTags] = (0, import_react.useState)({});
-    const [suspectTags, setSuspectTags] = (0, import_react.useState)({});
-    const [afisLeft, setAfisLeft] = (0, import_react.useState)(null);
-    const [afisRight, setAfisRight] = (0, import_react.useState)(null);
-    const [reportData, setReportData] = (0, import_react.useState)({ guilty1: "", guilty2: "", handImportance: "", evidenceExplanation: "" });
+    const [persistedState] = (0, import_react3.useState)(() => readModule2AssignmentState());
+    const defaultTrainingData = PATTERN_TYPES.reduce((acc, type) => ({ ...acc, [type]: { definition: "", source: "" } }), {});
+    const [activeTab, setActiveTab] = (0, import_react3.useState)(persistedState?.activeTab || "training");
+    const [trainingData, setTrainingData] = (0, import_react3.useState)(
+      persistedState?.trainingData && typeof persistedState.trainingData === "object" ? { ...defaultTrainingData, ...persistedState.trainingData } : defaultTrainingData
+    );
+    const [selectedTrainingPattern, setSelectedTrainingPattern] = (0, import_react3.useState)(
+      persistedState?.selectedTrainingPattern || PATTERN_TYPES[0]
+    );
+    const [showOverlay, setShowOverlay] = (0, import_react3.useState)(Boolean(persistedState?.showOverlay));
+    const [theoryAnswers, setTheoryAnswers] = (0, import_react3.useState)(
+      persistedState?.theoryAnswers && typeof persistedState.theoryAnswers === "object" ? {
+        altered: persistedState.theoryAnswers.altered || "",
+        reliability: persistedState.theoryAnswers.reliability || "",
+        elements: persistedState.theoryAnswers.elements || "",
+        latent: persistedState.theoryAnswers.latent || ""
+      } : { altered: "", reliability: "", elements: "", latent: "" }
+    );
+    const [caseAnswers, setCaseAnswers] = (0, import_react3.useState)(
+      persistedState?.caseAnswers && typeof persistedState.caseAnswers === "object" ? persistedState.caseAnswers : {}
+    );
+    const [evidenceTags, setEvidenceTags] = (0, import_react3.useState)(
+      persistedState?.evidenceTags && typeof persistedState.evidenceTags === "object" ? persistedState.evidenceTags : {}
+    );
+    const [suspectTags, setSuspectTags] = (0, import_react3.useState)(
+      persistedState?.suspectTags && typeof persistedState.suspectTags === "object" ? persistedState.suspectTags : {}
+    );
+    const [afisLeft, setAfisLeft] = (0, import_react3.useState)(
+      persistedState?.afisLeft && typeof persistedState.afisLeft === "object" ? persistedState.afisLeft : null
+    );
+    const [afisRight, setAfisRight] = (0, import_react3.useState)(
+      persistedState?.afisRight && typeof persistedState.afisRight === "object" ? persistedState.afisRight : null
+    );
+    const [reportData, setReportData] = (0, import_react3.useState)(
+      persistedState?.reportData && typeof persistedState.reportData === "object" ? {
+        guilty1: persistedState.reportData.guilty1 || "",
+        guilty2: persistedState.reportData.guilty2 || "",
+        handImportance: persistedState.reportData.handImportance || "",
+        evidenceExplanation: persistedState.reportData.evidenceExplanation || ""
+      } : { guilty1: "", guilty2: "", handImportance: "", evidenceExplanation: "" }
+    );
+    (0, import_react3.useEffect)(() => {
+      writeModule2AssignmentState({
+        activeTab,
+        trainingData,
+        selectedTrainingPattern,
+        showOverlay,
+        theoryAnswers,
+        caseAnswers,
+        evidenceTags,
+        suspectTags,
+        afisLeft,
+        afisRight,
+        reportData
+      });
+    }, [
+      activeTab,
+      trainingData,
+      selectedTrainingPattern,
+      showOverlay,
+      theoryAnswers,
+      caseAnswers,
+      evidenceTags,
+      suspectTags,
+      afisLeft,
+      afisRight,
+      reportData
+    ]);
     const handleTrainingUpdate = (type, field, value) => {
       setTrainingData((prev) => ({ ...prev, [type]: { ...prev[type], [field]: value } }));
     };
@@ -21906,13 +22191,13 @@
             className: `w-full text-left px-4 py-3 rounded ${selectedTrainingPattern === type ? "bg-cyan-900 border-l-4 border-cyan-400 text-white" : "bg-slate-800 text-slate-300 hover:bg-slate-700"}`,
             children: [
               type,
-              trainingData[type].definition && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CheckCircle, { size: 14, className: "inline float-right mt-1 text-green-400" })
+              trainingData[type].definition && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheckBig, { size: 14, className: "inline float-right mt-1 text-green-400" })
             ]
           },
           type
         )) }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", { className: "text-xl font-bold text-slate-200 mb-4 border-b border-slate-700 pb-2 flex items-center gap-2", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AlertCircle, { size: 18, className: "text-yellow-400" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleAlert, { size: 18, className: "text-yellow-400" }),
           " Fingerprint Theory"
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-4 pr-2", children: [
@@ -22015,7 +22300,7 @@
             PATTERN_TYPES.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { value: p, children: p }, p))
           ] }),
           evidenceTags[item.id] && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mt-3 text-xs text-green-400 flex items-center gap-1 font-mono bg-green-900/20 p-2 rounded truncate", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CheckCircle, { size: 14 }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheckBig, { size: 14 }),
             " Logged in Database"
           ] })
         ] })
@@ -22051,7 +22336,7 @@
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "text-lg font-bold text-slate-200 truncate", children: suspect.name }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-[10px] text-slate-400 font-mono mb-2 truncate uppercase", children: suspect.desc }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "flex gap-2", children: [0, 1].map((printIdx) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex-1 bg-slate-900 p-2 rounded border border-slate-700", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "cursor-pointer hover:ring-2 hover:ring-red-500 rounded flex justify-center bg-slate-200 mb-2 overflow-hidden", onClick: () => setAfisRight({ name: `${suspect.name} - P${printIdx + 1}`, type: suspect.prints[printIdx] }), children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FingerprintGraphic, { pattern: suspect.prints[printIdx], className: "w-12 h-12" }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "assignment-fingerprint-thumbnail cursor-pointer hover:ring-2 hover:ring-red-500 rounded flex justify-center bg-slate-200 mb-2 overflow-hidden", onClick: () => setAfisRight({ name: `${suspect.name} - P${printIdx + 1}`, type: suspect.prints[printIdx] }), children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FingerprintGraphic, { pattern: suspect.prints[printIdx], className: "w-12 h-12" }) }),
             /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("select", { value: suspectTags[suspect.id]?.[printIdx] || "", onChange: (e) => setSuspectTags((prev) => ({ ...prev, [suspect.id]: { ...prev[suspect.id] || {}, [printIdx]: e.target.value } })), className: "w-full bg-slate-800 border border-slate-600 rounded p-0.5 text-[10px] text-slate-200", children: [
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { value: "", children: "Tag..." }),
               PATTERN_TYPES.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("option", { value: p, children: p }, p))
@@ -22170,7 +22455,7 @@
     ] });
   }
 
-  // projects/forensics/workspace/assets/module2assignment-entry.jsx
+  // projects/forensicstudiesoption2/workspace/assignments/module2assignment-entry.jsx
   var import_jsx_runtime2 = __toESM(require_jsx_runtime(), 1);
   var rootNode = document.getElementById("root");
   if (rootNode) {
@@ -22232,5 +22517,29 @@ react/cjs/react-jsx-runtime.development.js:
    *
    * This source code is licensed under the MIT license found in the
    * LICENSE file in the root directory of this source tree.
+   *)
+
+lucide-react/dist/esm/shared/src/utils.js:
+lucide-react/dist/esm/defaultAttributes.js:
+lucide-react/dist/esm/Icon.js:
+lucide-react/dist/esm/createLucideIcon.js:
+lucide-react/dist/esm/icons/book-open.js:
+lucide-react/dist/esm/icons/circle-alert.js:
+lucide-react/dist/esm/icons/circle-check-big.js:
+lucide-react/dist/esm/icons/clipboard-check.js:
+lucide-react/dist/esm/icons/crosshair.js:
+lucide-react/dist/esm/icons/database.js:
+lucide-react/dist/esm/icons/fingerprint.js:
+lucide-react/dist/esm/icons/maximize-2.js:
+lucide-react/dist/esm/icons/printer.js:
+lucide-react/dist/esm/icons/search.js:
+lucide-react/dist/esm/icons/shield.js:
+lucide-react/dist/esm/icons/users.js:
+lucide-react/dist/esm/lucide-react.js:
+  (**
+   * @license lucide-react v0.542.0 - ISC
+   *
+   * This source code is licensed under the ISC license.
+   * See the LICENSE file in the root directory of this source tree.
    *)
 */

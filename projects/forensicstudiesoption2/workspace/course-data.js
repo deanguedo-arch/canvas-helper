@@ -257,7 +257,7 @@ window.FORENSIC_STUDIES_OPTION2_DATA = {
       "title": "M1 Introduction to Crime Scenes Quiz",
       "accent": "#8b6a24",
       "summary": "Assessment covering the introduction to crime scenes module.",
-      "sourcePath": "/preview/references/raw/forensics/D2LCCExport_129076_23-24%20_%20Forensic%20Studies%2025%20_%20Per%201(A-B)%20_%20Sec%20S3_202631302%20(2)/quiz/ia861a9ae-dc07-4f6b-99b0-024595a223ae/qti_b450f83a-7ca7-4007-af5b-164602338fea.xml",
+      "sourcePath": "./references/forensics/quiz/ia861a9ae-dc07-4f6b-99b0-024595a223ae/qti_b450f83a-7ca7-4007-af5b-164602338fea.xml",
       "multipleChoice": [
         {
           "number": 1,
@@ -390,7 +390,7 @@ window.FORENSIC_STUDIES_OPTION2_DATA = {
       "title": "M2 Types of Evidence and Fingerprint Analysis Assessment",
       "accent": "#6e5631",
       "summary": "Assessment covering the types of evidence and fingerprint analysis module.",
-      "sourcePath": "/preview/references/raw/forensics/D2LCCExport_129076_23-24%20_%20Forensic%20Studies%2025%20_%20Per%201(A-B)%20_%20Sec%20S3_202631302%20(2)/quiz/i0649d126-890d-4d3e-b83f-c563065521db/qti_c38fc56d-87c6-481d-958a-c13ba81b9304.xml",
+      "sourcePath": "./references/forensics/quiz/i0649d126-890d-4d3e-b83f-c563065521db/qti_c38fc56d-87c6-481d-958a-c13ba81b9304.xml",
       "multipleChoice": [
         {
           "number": 1,
@@ -1005,7 +1005,7 @@ window.FORENSIC_STUDIES_OPTION2_DATA = {
       "title": "M3 Trace Evidence Assessment",
       "accent": "#6f7c8f",
       "summary": "Assessment covering the trace evidence module.",
-      "sourcePath": "/preview/references/raw/forensics/D2LCCExport_129076_23-24%20_%20Forensic%20Studies%2025%20_%20Per%201(A-B)%20_%20Sec%20S3_202631302%20(2)/quiz/i8a6fcedb-c38d-48ed-84dc-c0afdf4990b9/qti_6cad72c2-63f3-4200-9d60-a4dc07c4dbe1.xml",
+      "sourcePath": "./references/forensics/quiz/i8a6fcedb-c38d-48ed-84dc-c0afdf4990b9/qti_6cad72c2-63f3-4200-9d60-a4dc07c4dbe1.xml",
       "multipleChoice": [
         {
           "number": 1,
@@ -1253,7 +1253,7 @@ window.FORENSIC_STUDIES_OPTION2_DATA = {
       "title": "M4 Body Fluid Evidence Assessment",
       "accent": "#8a5d43",
       "summary": "Assessment covering the body fluid evidence module.",
-      "sourcePath": "/preview/references/raw/forensics/D2LCCExport_129076_23-24%20_%20Forensic%20Studies%2025%20_%20Per%201(A-B)%20_%20Sec%20S3_202631302%20(2)/quiz/i812c9f87-9415-4069-8a6b-de07d58d1d65/qti_73c126d9-c527-4dd8-821c-9b217bfbc484.xml",
+      "sourcePath": "./references/forensics/quiz/i812c9f87-9415-4069-8a6b-de07d58d1d65/qti_73c126d9-c527-4dd8-821c-9b217bfbc484.xml",
       "multipleChoice": [
         {
           "number": 1,
@@ -1908,7 +1908,7 @@ window.FORENSIC_STUDIES_OPTION2_DATA = {
       "title": "M5 Impaired Driving and Alcohol Assessment",
       "accent": "#7b6432",
       "summary": "Assessment covering the forensic detection of impaired driving module.",
-      "sourcePath": "/preview/references/raw/forensics/D2LCCExport_129076_23-24%20_%20Forensic%20Studies%2025%20_%20Per%201(A-B)%20_%20Sec%20S3_202631302%20(2)/quiz/i720c105e-6226-41ad-a4da-7a6b22879680/qti_d0914048-cd17-42af-a699-a42dea600e08.xml",
+      "sourcePath": "./references/forensics/quiz/i720c105e-6226-41ad-a4da-7a6b22879680/qti_d0914048-cd17-42af-a699-a42dea600e08.xml",
       "multipleChoice": [
         {
           "number": 1,
@@ -2340,7 +2340,7 @@ window.FORENSIC_STUDIES_OPTION2_DATA = {
       "title": "M6 The Polygraph and Writing Analysis Assessment",
       "accent": "#5f6d82",
       "summary": "Assessment covering the polygraphing and document analysis module.",
-      "sourcePath": "/preview/references/raw/forensics/D2LCCExport_129076_23-24%20_%20Forensic%20Studies%2025%20_%20Per%201(A-B)%20_%20Sec%20S3_202631302%20(2)/quiz/ibae7c23f-6c67-4b1b-8b38-1501622aa4e6/qti_551f8e26-6682-4b3d-a8da-8e22ebdcf220.xml",
+      "sourcePath": "./references/forensics/quiz/ibae7c23f-6c67-4b1b-8b38-1501622aa4e6/qti_551f8e26-6682-4b3d-a8da-8e22ebdcf220.xml",
       "multipleChoice": [
         {
           "number": 1,
@@ -2926,7 +2926,7 @@ window.FORENSIC_STUDIES_OPTION2_DATA = {
       "title": "M7 Forensic Genetics Assessment",
       "accent": "#8d7042",
       "summary": "Assessment covering the forensic genetics module.",
-      "sourcePath": "/preview/references/raw/forensics/D2LCCExport_129076_23-24%20_%20Forensic%20Studies%2025%20_%20Per%201(A-B)%20_%20Sec%20S3_202631302%20(2)/quiz/if2023d59-0710-42dd-b018-74b36116bbbc/qti_46edd57d-5104-4ccd-a042-91f57b9a12c2.xml",
+      "sourcePath": "./references/forensics/quiz/if2023d59-0710-42dd-b018-74b36116bbbc/qti_46edd57d-5104-4ccd-a042-91f57b9a12c2.xml",
       "multipleChoice": [
         {
           "number": 1,
@@ -3243,7 +3243,7 @@ window.FORENSIC_STUDIES_OPTION2_DATA = {
       "title": "Final Exam",
       "accent": "#4f698e",
       "summary": "Comprehensive course assessment covering the major forensic concepts from the full course.",
-      "sourcePath": "/preview/references/raw/forensics/D2LCCExport_129076_23-24%20_%20Forensic%20Studies%2025%20_%20Per%201(A-B)%20_%20Sec%20S3_202631302%20(2)/quiz/iff8bcc71-7b4c-4375-97b0-34578e035807/qti_4632d8f3-6ca3-4b63-b1da-7529406b7280.xml",
+      "sourcePath": "./references/forensics/quiz/iff8bcc71-7b4c-4375-97b0-34578e035807/qti_4632d8f3-6ca3-4b63-b1da-7529406b7280.xml",
       "multipleChoice": [
         {
           "number": 1,
@@ -5197,7 +5197,7 @@ window.FORENSIC_STUDIES_OPTION2_DATA = {
         {
           "title": "Crime Scene Certification Lab",
           "summary": "Review Locard's Exchange Principle and apply it to the introductory crime scene case.Use your assignment template or workbook instructions, add your name, and complete each...",
-          "instructionHtml": "<div class=\"space-y-5\"><p>Review Locard's Exchange Principle and apply it to the introductory crime scene case.</p><p style=\"text-align:center;\"><img src=\"/preview/references/raw/forensics/D2LCCExport_129076_23-24%20_%20Forensic%20Studies%2025%20_%20Per%201(A-B)%20_%20Sec%20S3_202631302%20(2)/assignment/i85281f98-0aa9-4147-93a9-d14de5638519/Content/Locard%20Research.jpeg\" alt=\"Locard Research reference image\" width=\"520\" class=\"img-responsive atto_image_button_text-bottom\"></p><p>Use your assignment template or workbook instructions, add your name, and complete each required response section.</p><p><strong>When you have completed the assignment, upload your generated reports to your respective online classroom.</strong></p></div>"
+          "instructionHtml": "<div class=\"space-y-5\"><p>Review Locard's Exchange Principle and apply it to the introductory crime scene case.</p><p style=\"text-align:center;\"><img src=\"./references/forensics/assignment/i85281f98-0aa9-4147-93a9-d14de5638519/Content/Locard%20Research.jpeg\" alt=\"Locard Research reference image\" width=\"520\" class=\"img-responsive atto_image_button_text-bottom\"></p><p>Use your assignment template or workbook instructions, add your name, and complete each required response section.</p><p><strong>When you have completed the assignment, upload your generated reports to your respective online classroom.</strong></p></div>"
         }
       ]
     },
@@ -5233,7 +5233,7 @@ window.FORENSIC_STUDIES_OPTION2_DATA = {
         {
           "title": "Trace Evidence Lab Assignment",
           "summary": "Hair and fiber evidence has been used in many cases in the past to connect suspects with a crime. Occasionally, these cases are overturned with DNA evidence in the future. Despite...",
-          "instructionHtml": "<div><p style=\"text-align: center;\"><img src=\"https://upload.wikimedia.org/wikipedia/commons/2/2c/CSIRO_ScienceImage_8115_Human_hair_and_Merino_wool_fibre.jpg\" alt=\"Image result for hair microscope\" width=\"501\" height=\"401\" class=\"img-responsive atto_image_button_text-bottom\"></p><p>Hair and fiber evidence has been used in many cases in the past to connect suspects with a crime. Occasionally, these cases are overturned with DNA evidence in the future. Despite this, trace evidence such as hair and fiber has many valuable uses in solving crimes. The following assignment will have you examine some of these cases.</p><p style=\"text-align: center;\"><img src=\"/preview/references/raw/forensics/D2LCCExport_129076_23-24%20_%20Forensic%20Studies%2025%20_%20Per%201(A-B)%20_%20Sec%20S3_202631302%20(2)/assignment/ia4effbb5-11e6-405e-a610-94c25bdcd18e/Content/hair%20evidence.jpg\" alt=\"hair evidence\" width=\"500\" height=\"333\" class=\"img-responsive atto_image_button_text-bottom\"></p><p>Microscopic evidence at a crime scene is called Trace Evidence. Hair and fiber are examples of this type of evidence and they can be valuable in an investigation. Although most hair and fiber are identified and not individualized, they can still be used in court to support cases.</p><p><strong>When you have completed the assignment, upload your generated reports to your respective online classroom.</strong></p></div>"
+          "instructionHtml": "<div><p style=\"text-align: center;\"><img src=\"https://upload.wikimedia.org/wikipedia/commons/2/2c/CSIRO_ScienceImage_8115_Human_hair_and_Merino_wool_fibre.jpg\" alt=\"Image result for hair microscope\" width=\"501\" height=\"401\" class=\"img-responsive atto_image_button_text-bottom\"></p><p>Hair and fiber evidence has been used in many cases in the past to connect suspects with a crime. Occasionally, these cases are overturned with DNA evidence in the future. Despite this, trace evidence such as hair and fiber has many valuable uses in solving crimes. The following assignment will have you examine some of these cases.</p><p style=\"text-align: center;\"><img src=\"./references/forensics/assignment/ia4effbb5-11e6-405e-a610-94c25bdcd18e/Content/hair%20evidence.jpg\" alt=\"hair evidence\" width=\"500\" height=\"333\" class=\"img-responsive atto_image_button_text-bottom\"></p><p>Microscopic evidence at a crime scene is called Trace Evidence. Hair and fiber are examples of this type of evidence and they can be valuable in an investigation. Although most hair and fiber are identified and not individualized, they can still be used in court to support cases.</p><p><strong>When you have completed the assignment, upload your generated reports to your respective online classroom.</strong></p></div>"
         }
       ]
     },
@@ -5251,7 +5251,7 @@ window.FORENSIC_STUDIES_OPTION2_DATA = {
         {
           "title": "Body Fluid Analysis Lab Assignment",
           "summary": "Body fluid evidence is one of the most common pieces of evidence that can be found at a crime scene, especially when a violent crime has occurred. This evidence can be extremely...",
-          "instructionHtml": "<div><p>Body fluid evidence is one of the most common pieces of evidence that can be found at a crime scene, especially when a violent crime has occurred. This evidence can be extremely useful in helping investigators piece together the events of a crime. In this assignment you will demonstrate your understanding of body fluid evidence.</p><p style=\"text-align: center;\"><img src=\"/preview/references/raw/forensics/D2LCCExport_129076_23-24%20_%20Forensic%20Studies%2025%20_%20Per%201(A-B)%20_%20Sec%20S3_202631302%20(2)/assignment/i16176291-5154-45bd-8891-b2c9517b1a3c/Content/170829-F-DB515-0024.JPG\" alt=\"blood evidence\" width=\"500\" height=\"334\" class=\"img-responsive atto_image_button_text-bottom\"></p><p>There are a number of historical case studies where blood stain and/or spatter evidence was used to successfully solve a crime and convict the perpetrator(s). Demonstrate your understanding of forensic serology by completing the following assignment.</p><p><strong>When you have completed the assignment, upload your generated reports to your respective online classroom.</strong></p></div>"
+          "instructionHtml": "<div><p>Body fluid evidence is one of the most common pieces of evidence that can be found at a crime scene, especially when a violent crime has occurred. This evidence can be extremely useful in helping investigators piece together the events of a crime. In this assignment you will demonstrate your understanding of body fluid evidence.</p><p style=\"text-align: center;\"><img src=\"./references/forensics/assignment/i16176291-5154-45bd-8891-b2c9517b1a3c/Content/170829-F-DB515-0024.JPG\" alt=\"blood evidence\" width=\"500\" height=\"334\" class=\"img-responsive atto_image_button_text-bottom\"></p><p>There are a number of historical case studies where blood stain and/or spatter evidence was used to successfully solve a crime and convict the perpetrator(s). Demonstrate your understanding of forensic serology by completing the following assignment.</p><p><strong>When you have completed the assignment, upload your generated reports to your respective online classroom.</strong></p></div>"
         }
       ]
     },
@@ -5287,7 +5287,7 @@ window.FORENSIC_STUDIES_OPTION2_DATA = {
         {
           "title": "Polygraph and Document Analysis Lab",
           "summary": "Polygraphing is a common tool used by investigators. Although it has been controversial, it has undeniable value to investigators when trying to solve crimes. Writing analysis is...",
-          "instructionHtml": "<div><p style=\"text-align: center;\"><img src=\"/preview/references/raw/forensics/D2LCCExport_129076_23-24%20_%20Forensic%20Studies%2025%20_%20Per%201(A-B)%20_%20Sec%20S3_202631302%20(2)/assignment/i5416ee1b-c173-4bcc-80e8-e3c1fae36848/Content/3034903278_5ef70f6f09_b.jpg\" alt=\"polygraph\" width=\"501\" height=\"333\" class=\"img-responsive atto_image_button_text-bottom\"></p><p>Polygraphing is a common tool used by investigators. Although it has been controversial, it has undeniable value to investigators when trying to solve crimes. Writing analysis is another common investigative tool that has been used to solve a number of crimes. In the assignment below, you will demonstrate your understanding of these forensic techniques.</p><p><strong>When you have completed the assignment, upload your generated reports to your respective online classroom.</strong></p></div>"
+          "instructionHtml": "<div><p style=\"text-align: center;\"><img src=\"./references/forensics/assignment/i5416ee1b-c173-4bcc-80e8-e3c1fae36848/Content/3034903278_5ef70f6f09_b.jpg\" alt=\"polygraph\" width=\"501\" height=\"333\" class=\"img-responsive atto_image_button_text-bottom\"></p><p>Polygraphing is a common tool used by investigators. Although it has been controversial, it has undeniable value to investigators when trying to solve crimes. Writing analysis is another common investigative tool that has been used to solve a number of crimes. In the assignment below, you will demonstrate your understanding of these forensic techniques.</p><p><strong>When you have completed the assignment, upload your generated reports to your respective online classroom.</strong></p></div>"
         }
       ]
     },

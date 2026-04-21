@@ -1,0 +1,470 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap');
+
+:root {
+  --assignment-bg: #0c1324;
+  --assignment-bg-deep: #070d1f;
+  --assignment-surface: #191f31;
+  --assignment-surface-strong: #23293c;
+  --assignment-surface-muted: #151b2d;
+  --assignment-surface-bright: #2e3447;
+  --assignment-text: #dce1fb;
+  --assignment-muted: #bbc9cd;
+  --assignment-line: #3c494c;
+  --assignment-line-strong: #859397;
+  --assignment-primary: #8aebff;
+  --assignment-primary-strong: #22d3ee;
+  --assignment-primary-soft: rgba(138, 235, 255, 0.14);
+  --assignment-secondary: #adc6ff;
+  --assignment-accent: #ffa7c9;
+  --assignment-success: #7fd8aa;
+  --assignment-danger: #ffb4ab;
+  --assignment-shadow: 0 18px 40px rgba(7, 13, 31, 0.35);
+  --assignment-radius-lg: 10px;
+  --assignment-radius-md: 8px;
+}
+
+html {
+  background: var(--assignment-bg);
+}
+
+body.forensic-assignment-theme {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--assignment-bg) !important;
+  color: var(--assignment-text) !important;
+  font-family: "Inter", sans-serif !important;
+  position: relative;
+}
+
+body.forensic-assignment-theme::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(133, 147, 151, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(133, 147, 151, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.55;
+  z-index: 0;
+}
+
+body.forensic-assignment-theme::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at top right, rgba(138, 235, 255, 0.08), transparent 24%),
+    linear-gradient(180deg, rgba(138, 235, 255, 0.04), transparent 18%);
+  z-index: 0;
+}
+
+body.forensic-assignment-theme > *,
+body.forensic-assignment-theme #root {
+  position: relative;
+  z-index: 1;
+}
+
+.forensic-assignment-theme h1,
+.forensic-assignment-theme h2,
+.forensic-assignment-theme h3,
+.forensic-assignment-theme h4,
+.forensic-assignment-theme h5,
+.forensic-assignment-theme h6 {
+  color: var(--assignment-text) !important;
+  font-family: "Space Grotesk", sans-serif !important;
+  letter-spacing: -0.02em;
+}
+
+.forensic-assignment-theme .mono,
+.forensic-assignment-theme .font-mono,
+.forensic-assignment-theme code,
+.forensic-assignment-theme pre {
+  font-family: "IBM Plex Mono", monospace !important;
+}
+
+.forensic-assignment-theme button,
+.forensic-assignment-theme input,
+.forensic-assignment-theme select,
+.forensic-assignment-theme textarea {
+  font: inherit;
+}
+
+.forensic-assignment-theme button:not(.assignment-scene-hitbox) {
+  border: 1px solid var(--assignment-line);
+  border-radius: var(--assignment-radius-md);
+  background: var(--assignment-surface-strong);
+  color: var(--assignment-text);
+  box-shadow: none;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.forensic-assignment-theme button:not(.assignment-scene-hitbox):hover {
+  background: var(--assignment-surface-bright);
+  border-color: var(--assignment-line-strong);
+}
+
+.forensic-assignment-theme button:not(.assignment-scene-hitbox):active {
+  transform: translateY(1px);
+}
+
+.forensic-assignment-theme .assignment-scene-hitbox {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: transparent !important;
+  padding: 0 !important;
+  opacity: 1 !important;
+}
+
+.forensic-assignment-theme .assignment-scene-hitbox:hover,
+.forensic-assignment-theme .assignment-scene-hitbox:active {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.forensic-assignment-theme .assignment-scene-hitbox:focus-visible {
+  outline: 2px solid rgba(138, 235, 255, 0.4);
+  outline-offset: 2px;
+}
+
+.forensic-assignment-theme .assignment-fingerprint-surface,
+.forensic-assignment-theme .assignment-fingerprint-thumbnail {
+  background: linear-gradient(180deg, #edf2f7, #cbd5e1) !important;
+  border-color: rgba(100, 116, 139, 0.7) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    inset 0 -10px 18px rgba(148, 163, 184, 0.22),
+     0 12px 28px rgba(7, 13, 31, 0.18) !important;
+}
+
+.forensic-assignment-theme button:disabled,
+.forensic-assignment-theme [disabled] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.forensic-assignment-theme input[type="text"],
+.forensic-assignment-theme input[type="number"],
+.forensic-assignment-theme input[type="email"],
+.forensic-assignment-theme input[type="search"],
+.forensic-assignment-theme textarea,
+.forensic-assignment-theme select {
+  border: 1px solid var(--assignment-line) !important;
+  border-radius: var(--assignment-radius-md) !important;
+  background: var(--assignment-surface-muted) !important;
+  color: var(--assignment-text) !important;
+  box-shadow: none !important;
+}
+
+.forensic-assignment-theme input::placeholder,
+.forensic-assignment-theme textarea::placeholder {
+  color: var(--assignment-muted) !important;
+}
+
+.forensic-assignment-theme input:focus,
+.forensic-assignment-theme textarea:focus,
+.forensic-assignment-theme select:focus {
+  outline: none !important;
+  border-color: var(--assignment-primary-strong) !important;
+  box-shadow: 0 0 0 3px rgba(138, 235, 255, 0.14) !important;
+}
+
+.forensic-assignment-theme table {
+  border-collapse: collapse;
+}
+
+.forensic-assignment-theme th,
+.forensic-assignment-theme td {
+  border-color: var(--assignment-line) !important;
+}
+
+.forensic-assignment-theme th {
+  background: var(--assignment-surface-strong) !important;
+  color: var(--assignment-text) !important;
+}
+
+.forensic-assignment-theme .glass,
+.forensic-assignment-theme .briefing-box,
+.forensic-assignment-theme .card,
+.forensic-assignment-theme [class~="bg-white"],
+.forensic-assignment-theme [class~="bg-slate-50"],
+.forensic-assignment-theme [class~="bg-slate-100"],
+.forensic-assignment-theme [class~="bg-slate-200"],
+.forensic-assignment-theme [class~="bg-slate-800"],
+.forensic-assignment-theme [class~="bg-slate-900"],
+.forensic-assignment-theme [class~="bg-slate-950"] {
+  border-color: var(--assignment-line) !important;
+  box-shadow: var(--assignment-shadow) !important;
+}
+
+.forensic-assignment-theme [class~="bg-white"] {
+  background: var(--assignment-surface) !important;
+}
+
+.forensic-assignment-theme [class~="bg-slate-50"],
+.forensic-assignment-theme [class~="bg-slate-100"] {
+  background: var(--assignment-surface-muted) !important;
+}
+
+.forensic-assignment-theme [class~="bg-slate-200"] {
+  background: var(--assignment-surface-bright) !important;
+}
+
+.forensic-assignment-theme [class~="bg-slate-800"] {
+  background: var(--assignment-surface-strong) !important;
+}
+
+.forensic-assignment-theme [class~="bg-slate-900"],
+.forensic-assignment-theme [class~="bg-slate-950"] {
+  background: var(--assignment-bg-deep) !important;
+}
+
+.forensic-assignment-theme .glass {
+  background: rgba(25, 31, 49, 0.88) !important;
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(133, 147, 151, 0.18) !important;
+}
+
+.forensic-assignment-theme .briefing-box {
+  background: var(--assignment-surface-muted) !important;
+  border-left: 3px solid var(--assignment-primary-strong) !important;
+  color: var(--assignment-text) !important;
+}
+
+.forensic-assignment-theme .briefing-box h4 {
+  color: var(--assignment-primary) !important;
+  border-bottom-color: rgba(138, 235, 255, 0.22) !important;
+}
+
+.forensic-assignment-theme [class~="border"],
+.forensic-assignment-theme [class*="border-slate-"],
+.forensic-assignment-theme [class*="border-gray-"],
+.forensic-assignment-theme [class*="border-cyan-"],
+.forensic-assignment-theme [class*="border-blue-"],
+.forensic-assignment-theme [class*="border-red-"],
+.forensic-assignment-theme [class*="border-yellow-"],
+.forensic-assignment-theme [class*="border-emerald-"] {
+  border-color: var(--assignment-line) !important;
+}
+
+.forensic-assignment-theme [class~="text-white"],
+.forensic-assignment-theme [class~="text-black"],
+.forensic-assignment-theme [class*="text-slate-900"],
+.forensic-assignment-theme [class*="text-slate-800"],
+.forensic-assignment-theme [class*="text-gray-800"] {
+  color: var(--assignment-text) !important;
+}
+
+.forensic-assignment-theme [class*="text-slate-700"],
+.forensic-assignment-theme [class*="text-slate-600"],
+.forensic-assignment-theme [class*="text-slate-500"],
+.forensic-assignment-theme [class*="text-slate-400"],
+.forensic-assignment-theme [class*="text-gray-700"],
+.forensic-assignment-theme [class*="text-gray-600"],
+.forensic-assignment-theme [class*="text-gray-500"],
+.forensic-assignment-theme [class*="text-gray-400"] {
+  color: var(--assignment-muted) !important;
+}
+
+.forensic-assignment-theme [class*="text-blue-"],
+.forensic-assignment-theme [class*="text-cyan-"] {
+  color: var(--assignment-primary) !important;
+}
+
+.forensic-assignment-theme [class*="text-red-"] {
+  color: var(--assignment-danger) !important;
+}
+
+.forensic-assignment-theme [class*="text-yellow-"],
+.forensic-assignment-theme [class*="text-orange-"] {
+  color: var(--assignment-accent) !important;
+}
+
+.forensic-assignment-theme [class*="text-emerald-"],
+.forensic-assignment-theme [class*="text-green-"] {
+  color: var(--assignment-success) !important;
+}
+
+.forensic-assignment-theme [class*="bg-blue-600"],
+.forensic-assignment-theme [class*="bg-blue-700"],
+.forensic-assignment-theme [class*="bg-cyan-700"],
+.forensic-assignment-theme [class*="bg-cyan-800"],
+.forensic-assignment-theme [class*="bg-cyan-900"] {
+  background: linear-gradient(180deg, var(--assignment-primary-strong), var(--assignment-primary)) !important;
+  color: var(--assignment-bg-deep) !important;
+}
+
+.forensic-assignment-theme [class*="bg-blue-600/20"],
+.forensic-assignment-theme [class*="bg-blue-500/30"],
+.forensic-assignment-theme [class*="bg-cyan-900/"],
+.forensic-assignment-theme [class*="bg-cyan-800/"] {
+  background: var(--assignment-primary-soft) !important;
+  color: var(--assignment-primary) !important;
+}
+
+.forensic-assignment-theme [class*="bg-red-50"],
+.forensic-assignment-theme [class*="bg-red-100"],
+.forensic-assignment-theme [class*="bg-red-500"],
+.forensic-assignment-theme [class*="bg-red-600"] {
+  background: rgba(255, 180, 171, 0.12) !important;
+  color: var(--assignment-danger) !important;
+}
+
+.forensic-assignment-theme [class*="bg-yellow-"],
+.forensic-assignment-theme [class*="bg-orange-"] {
+  background: rgba(255, 167, 201, 0.14) !important;
+  color: var(--assignment-accent) !important;
+}
+
+.forensic-assignment-theme [class*="bg-emerald-"],
+.forensic-assignment-theme [class*="bg-green-"] {
+  background: rgba(127, 216, 170, 0.16) !important;
+  color: var(--assignment-success) !important;
+}
+
+body.forensic-assignment-theme .assignment-step-note {
+  background: #fef3c7 !important;
+  border-color: #fcd34d !important;
+  color: #1f2937 !important;
+  box-shadow: 0 24px 48px rgba(15, 23, 42, 0.32) !important;
+}
+
+body.forensic-assignment-theme .assignment-step-note h3,
+body.forensic-assignment-theme .assignment-step-note label {
+  color: #1f2937 !important;
+}
+
+body.forensic-assignment-theme .assignment-step-note-callout {
+  background: rgba(253, 230, 138, 0.45) !important;
+  border-left-color: #fbbf24 !important;
+  color: #4b5563 !important;
+}
+
+body.forensic-assignment-theme .assignment-step-note-textarea {
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 2px solid #94a3b8 !important;
+  border-radius: 0 !important;
+  color: #475569 !important;
+  box-shadow: none !important;
+}
+
+body.forensic-assignment-theme .assignment-step-note-textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+body.forensic-assignment-theme .assignment-step-note-textarea:focus {
+  border-bottom-color: #2563eb !important;
+  box-shadow: none !important;
+}
+
+body.forensic-assignment-theme .assignment-step-note-close {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: #64748b !important;
+  padding: 0 !important;
+}
+
+body.forensic-assignment-theme .assignment-step-note-close:hover,
+body.forensic-assignment-theme .assignment-step-note-close:active {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: #111827 !important;
+  transform: none !important;
+}
+
+body.forensic-assignment-theme .assignment-step-note-submit {
+  background: #1f2937 !important;
+  border-color: #1f2937 !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+body.forensic-assignment-theme .assignment-step-note-submit:hover {
+  background: #374151 !important;
+  border-color: #374151 !important;
+  color: #ffffff !important;
+}
+
+.forensic-assignment-theme [class*="from-blue-600"][class*="to-indigo-700"],
+.forensic-assignment-theme [class*="from-blue-500"][class*="to-indigo-600"] {
+  background: linear-gradient(180deg, var(--assignment-primary-strong), var(--assignment-primary)) !important;
+  color: var(--assignment-bg-deep) !important;
+}
+
+.forensic-assignment-theme [class~="shadow-sm"],
+.forensic-assignment-theme [class~="shadow"],
+.forensic-assignment-theme [class~="shadow-md"],
+.forensic-assignment-theme [class~="shadow-lg"],
+.forensic-assignment-theme [class~="shadow-xl"],
+.forensic-assignment-theme [class~="shadow-2xl"] {
+  box-shadow: var(--assignment-shadow) !important;
+}
+
+.forensic-assignment-theme [class~="rounded"],
+.forensic-assignment-theme [class~="rounded-lg"],
+.forensic-assignment-theme [class~="rounded-xl"],
+.forensic-assignment-theme [class~="rounded-2xl"] {
+  border-radius: var(--assignment-radius-lg) !important;
+}
+
+.forensic-assignment-theme header {
+  border-color: var(--assignment-line) !important;
+}
+
+.forensic-assignment-theme ::selection {
+  background: rgba(138, 235, 255, 0.2);
+  color: var(--assignment-text);
+}
+
+@media print {
+  html,
+  body.forensic-assignment-theme {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    min-height: auto !important;
+  }
+
+  body.forensic-assignment-theme::before,
+  body.forensic-assignment-theme::after {
+    display: none !important;
+  }
+
+  body.forensic-assignment-theme nav,
+  body.forensic-assignment-theme header button,
+  body.forensic-assignment-theme .print\:hidden,
+  body.forensic-assignment-theme .print-hidden {
+    display: none !important;
+  }
+
+  body.forensic-assignment-theme main,
+  body.forensic-assignment-theme [class*="overflow-y-auto"],
+  body.forensic-assignment-theme [class*="overflow-auto"],
+  body.forensic-assignment-theme [class*="overflow-hidden"],
+  body.forensic-assignment-theme [class*="h-screen"],
+  body.forensic-assignment-theme [class*="min-h-screen"],
+  body.forensic-assignment-theme [class*="max-h-"] {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  body.forensic-assignment-theme textarea {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    resize: none !important;
+  }
+}

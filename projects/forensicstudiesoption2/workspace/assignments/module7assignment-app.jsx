@@ -262,6 +262,7 @@ const CaseFile = ({ discovered, setDiscovered }) => {
   };
 
   const sceneDarkness = cabinLight ? "rgba(2, 6, 23, 0.38)" : "rgba(0, 0, 0, 0.88)";
+  const gunVisible = isNear(evidence.gun.x, evidence.gun.y) || discovered.gun || cabinLight;
 
   return (
     <div className="space-y-12 max-w-7xl mx-auto">
@@ -390,7 +391,7 @@ const CaseFile = ({ discovered, setDiscovered }) => {
           {!discovered.bandanas && (
             <button 
               onClick={(e) => { e.stopPropagation(); capture('bandanas', evidence.bandanas.message); }}
-              className={`absolute w-24 h-24 transform -translate-x-1/2 -translate-y-1/2 z-30 ${getEvidenceButtonState('bandanas')}`}
+              className={`assignment-scene-hitbox absolute w-24 h-24 transform -translate-x-1/2 -translate-y-1/2 z-30 ${getEvidenceButtonState('bandanas')}`}
               style={{ top: `${evidence.bandanas.y}%`, left: `${evidence.bandanas.x}%` }}
               aria-label="Recover bandanas"
             />
@@ -401,14 +402,14 @@ const CaseFile = ({ discovered, setDiscovered }) => {
             style={{ top: `${evidence.gun.y}%`, left: `${evidence.gun.x}%`, opacity: getEvidenceOpacity('gun') }}
           >
             <svg width="84" height="54" viewBox="0 0 84 54">
-              <path d="M15 25 h32 v-12 h23 v8 h-14 v19 h-12 l-11 -9 h-18 z" fill="#1f2937" stroke="#020617" strokeWidth="2" />
-              <path d="M48 13 l11 -7 h9 v7 z" fill="#334155" opacity="0.7" />
+              <path d="M15 25 h32 v-12 h23 v8 h-14 v19 h-12 l-11 -9 h-18 z" fill={gunVisible ? "#cbd5e1" : "#1f2937"} stroke={gunVisible ? "#94a3b8" : "#020617"} strokeWidth="2" />
+              <path d="M48 13 l11 -7 h9 v7 z" fill={gunVisible ? "#e2e8f0" : "#334155"} opacity={gunVisible ? "1" : "0.7"} />
             </svg>
           </div>
           {!discovered.gun && (
             <button 
               onClick={(e) => { e.stopPropagation(); capture('gun', evidence.gun.message); }}
-              className={`absolute w-24 h-24 transform -translate-x-1/2 -translate-y-1/2 z-30 ${getEvidenceButtonState('gun')}`}
+              className={`assignment-scene-hitbox absolute w-24 h-24 transform -translate-x-1/2 -translate-y-1/2 z-30 ${getEvidenceButtonState('gun')}`}
               style={{ top: `${evidence.gun.y}%`, left: `${evidence.gun.x}%` }}
               aria-label="Recover handgun"
             />
@@ -427,7 +428,7 @@ const CaseFile = ({ discovered, setDiscovered }) => {
           {!discovered.cash && (
             <button 
               onClick={(e) => { e.stopPropagation(); capture('cash', evidence.cash.message); }}
-              className={`absolute w-24 h-24 transform -translate-x-1/2 -translate-y-1/2 z-30 ${getEvidenceButtonState('cash')}`}
+              className={`assignment-scene-hitbox absolute w-24 h-24 transform -translate-x-1/2 -translate-y-1/2 z-30 ${getEvidenceButtonState('cash')}`}
               style={{ top: `${evidence.cash.y}%`, left: `${evidence.cash.x}%` }}
               aria-label="Recover bank bag"
             />

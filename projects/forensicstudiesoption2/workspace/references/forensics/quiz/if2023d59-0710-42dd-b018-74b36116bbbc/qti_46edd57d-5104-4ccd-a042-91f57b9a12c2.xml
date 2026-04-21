@@ -1,0 +1,922 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/profile/cc/ccv1p3/ccv1p3_qtiasiv1p2p1_v1p0.xsd">
+  <assessment ident="i4672c8b7-9a1e-4604-83f0-21ce04221f94" title="M7 Forensic Genetics Assessment">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>cc_profile</fieldlabel>
+        <fieldentry>cc.exam.v0p1</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_assessmenttype</fieldlabel>
+        <fieldentry>Examination</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>1</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_timelimit</fieldlabel>
+        <fieldentry>120</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    <section ident="i0a6d2865-f6e8-484e-9490-dcf31b2e379d">
+      <item ident="i35688f39-4b50-4cad-b870-cf150baec68d">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">Which of the following features is similar within the cells of all biological organisms?</mattext>
+          </material>
+          <response_lid ident="i8aa13827-bc7d-4564-8e38-9dec0d7bf2f6" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i21ff7767-ab43-4aac-8cfb-8ad9aad1c829">
+                <material>
+                  <mattext texttype="text/html">Number of nucleic acids</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i3209e240-7923-4247-bea8-dcc71fcb3268">
+                <material>
+                  <mattext texttype="text/html">Organelles</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i712f5c0b-05ce-4d06-8de0-92ac90329774">
+                <material>
+                  <mattext texttype="text/html">Number of chromosomes</mattext>
+                </material>
+              </response_label>
+              <response_label ident="if1a15911-0076-40c3-bb05-d8a1e2d9a147">
+                <material>
+                  <mattext texttype="text/html">Genes</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i8aa13827-bc7d-4564-8e38-9dec0d7bf2f6">i21ff7767-ab43-4aac-8cfb-8ad9aad1c829</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i8aa13827-bc7d-4564-8e38-9dec0d7bf2f6">i3209e240-7923-4247-bea8-dcc71fcb3268</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i8aa13827-bc7d-4564-8e38-9dec0d7bf2f6">i712f5c0b-05ce-4d06-8de0-92ac90329774</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i8aa13827-bc7d-4564-8e38-9dec0d7bf2f6">if1a15911-0076-40c3-bb05-d8a1e2d9a147</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i7908c61e-e77b-4ed4-bbe6-e30281e2fcaa">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Human body cells have _________ chromosomes. Human sex cells have ________ chromosomes.&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i51f50f61-f764-4936-99b5-886ece3df81a" rcardinality="Single">
+            <render_choice>
+              <response_label ident="i216eb746-0169-43fa-ad81-c437cf5cfc06">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;22, 23&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ic52cbb4a-eac7-480d-936a-f32a64e5940d">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;46, 23&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ib03d4d13-a643-4033-8731-fe853e9f7b2d">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;23, 23&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i4795ecec-7909-4121-b01c-8adbb613a92e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;23, 46&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i51f50f61-f764-4936-99b5-886ece3df81a">i216eb746-0169-43fa-ad81-c437cf5cfc06</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i51f50f61-f764-4936-99b5-886ece3df81a">ic52cbb4a-eac7-480d-936a-f32a64e5940d</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i51f50f61-f764-4936-99b5-886ece3df81a">ib03d4d13-a643-4033-8731-fe853e9f7b2d</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i51f50f61-f764-4936-99b5-886ece3df81a">i4795ecec-7909-4121-b01c-8adbb613a92e</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i2a5f7fa4-6fc6-4c0a-8e93-f22819e35c9b">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">The chromosomes in the cells provide directions for the creation of</mattext>
+          </material>
+          <response_lid ident="ibb00c1b6-cd5a-448b-9f22-26a7aa124e50" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i35e803fb-ac97-4266-a1be-89a15e4eaf72">
+                <material>
+                  <mattext texttype="text/html">PCR</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i78bdd6fd-26ad-49a6-b4ba-6c8b5b021fb9">
+                <material>
+                  <mattext texttype="text/html">proteins</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i5cbfa337-e9cf-4ba7-a383-10b9f95d7e2a">
+                <material>
+                  <mattext texttype="text/html">hydrogen bonds</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i54e0215d-dad4-4196-b7e9-d02f728b3aa1">
+                <material>
+                  <mattext texttype="text/html">RFLP</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ibb00c1b6-cd5a-448b-9f22-26a7aa124e50">i35e803fb-ac97-4266-a1be-89a15e4eaf72</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ibb00c1b6-cd5a-448b-9f22-26a7aa124e50">i78bdd6fd-26ad-49a6-b4ba-6c8b5b021fb9</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ibb00c1b6-cd5a-448b-9f22-26a7aa124e50">i5cbfa337-e9cf-4ba7-a383-10b9f95d7e2a</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ibb00c1b6-cd5a-448b-9f22-26a7aa124e50">i54e0215d-dad4-4196-b7e9-d02f728b3aa1</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i17c49882-fec0-457b-b2e8-435ba3672945">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">For a DNA match to be declared, how many unique sections of DNA must be found?</mattext>
+          </material>
+          <response_lid ident="i94c97e5f-ac0c-4a64-a96c-191f8b7cf65c" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i40309321-da6b-46fc-a1e7-850b715a5a17">
+                <material>
+                  <mattext texttype="text/html">46</mattext>
+                </material>
+              </response_label>
+              <response_label ident="iebd85137-e280-4735-923f-152f4fab35f4">
+                <material>
+                  <mattext texttype="text/html">23</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i5d93c27b-f4c9-4a9e-b82f-e609e1c0814b">
+                <material>
+                  <mattext texttype="text/html">25</mattext>
+                </material>
+              </response_label>
+              <response_label ident="if111c3be-195a-4622-8b42-50a0395f1f9a">
+                <material>
+                  <mattext texttype="text/html">5</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i94c97e5f-ac0c-4a64-a96c-191f8b7cf65c">i40309321-da6b-46fc-a1e7-850b715a5a17</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i94c97e5f-ac0c-4a64-a96c-191f8b7cf65c">iebd85137-e280-4735-923f-152f4fab35f4</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i94c97e5f-ac0c-4a64-a96c-191f8b7cf65c">i5d93c27b-f4c9-4a9e-b82f-e609e1c0814b</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i94c97e5f-ac0c-4a64-a96c-191f8b7cf65c">if111c3be-195a-4622-8b42-50a0395f1f9a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i58c92e79-1291-4354-a988-72329abbc614">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">What type of body fluid can DNA be extracted from and analyzed?</mattext>
+          </material>
+          <response_lid ident="i437738f0-787b-4d53-95d7-4a6aeeb2062b" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i2c9d9607-177b-409c-890f-34ac583e2308">
+                <material>
+                  <mattext texttype="text/html">Blood</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i25081ebb-e701-460c-8ff7-8a6ce806f34e">
+                <material>
+                  <mattext texttype="text/html">Sweat</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i8b8bfc12-c38a-48f1-a54a-b54a44680362">
+                <material>
+                  <mattext texttype="text/html">Tears</mattext>
+                </material>
+              </response_label>
+              <response_label ident="id4cdab42-4d56-47fa-a1c3-69d25c5c4b46">
+                <material>
+                  <mattext texttype="text/html">Urine</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i437738f0-787b-4d53-95d7-4a6aeeb2062b">i2c9d9607-177b-409c-890f-34ac583e2308</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i437738f0-787b-4d53-95d7-4a6aeeb2062b">i25081ebb-e701-460c-8ff7-8a6ce806f34e</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i437738f0-787b-4d53-95d7-4a6aeeb2062b">i8b8bfc12-c38a-48f1-a54a-b54a44680362</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i437738f0-787b-4d53-95d7-4a6aeeb2062b">id4cdab42-4d56-47fa-a1c3-69d25c5c4b46</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i622c91b5-78b0-44d4-a696-83c15dfe35c1">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;What percentage of your DNA is considered "junk" DNA?&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i679fb8d2-0a99-48f9-9afd-aa9f0fd67e57" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i3888bbe3-49d1-4d1b-af2c-e73690dc8d61">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;95%&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ic866bd80-7cfe-424d-9663-e9fe7bfa032e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;50%&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i62a2af78-d85a-4402-b934-faa154cbe9df">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;10%&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="id5b0eee3-0125-4514-aa86-8c5b09c116c5">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;0%&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i679fb8d2-0a99-48f9-9afd-aa9f0fd67e57">i3888bbe3-49d1-4d1b-af2c-e73690dc8d61</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i679fb8d2-0a99-48f9-9afd-aa9f0fd67e57">ic866bd80-7cfe-424d-9663-e9fe7bfa032e</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i679fb8d2-0a99-48f9-9afd-aa9f0fd67e57">i62a2af78-d85a-4402-b934-faa154cbe9df</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i679fb8d2-0a99-48f9-9afd-aa9f0fd67e57">id5b0eee3-0125-4514-aa86-8c5b09c116c5</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i2b227c19-0b93-4438-8796-9e94d9f68e3b">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">Which two biological family members have the same mtDNA?</mattext>
+          </material>
+          <response_lid ident="ied1206c5-a866-4db4-a97d-56ba1bd6e62a" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="if34d47d2-3772-44c9-9164-e53d9d25248e">
+                <material>
+                  <mattext texttype="text/html">father and son</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i199b0d3f-64d5-4bb5-9e1e-0ef137531256">
+                <material>
+                  <mattext texttype="text/html">brother and sister</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i84afd255-034d-43bb-8824-4809c5c09389">
+                <material>
+                  <mattext texttype="text/html">maternal grandfather and grandson</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i9d98b4f7-a938-4932-8803-1f14336c1fab">
+                <material>
+                  <mattext texttype="text/html">paternal uncle and niece</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ied1206c5-a866-4db4-a97d-56ba1bd6e62a">if34d47d2-3772-44c9-9164-e53d9d25248e</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ied1206c5-a866-4db4-a97d-56ba1bd6e62a">i199b0d3f-64d5-4bb5-9e1e-0ef137531256</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ied1206c5-a866-4db4-a97d-56ba1bd6e62a">i84afd255-034d-43bb-8824-4809c5c09389</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ied1206c5-a866-4db4-a97d-56ba1bd6e62a">i9d98b4f7-a938-4932-8803-1f14336c1fab</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i8e04865d-25b3-4519-8bd2-780a92521fc0">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">The mitochondria is unique in that it is the only organelle other than the nucleus that contains</mattext>
+          </material>
+          <response_lid ident="i83642620-4122-4157-9adf-32bb37ed6588" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i49dfed40-782d-4ff1-b2c9-6981b9c581ba">
+                <material>
+                  <mattext texttype="text/html">ATP</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i0e8de9ee-2623-4f62-ac3e-f2b6b0a12819">
+                <material>
+                  <mattext texttype="text/html">proteins</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ide07d577-62e5-4cb8-841e-392f5c74caf4">
+                <material>
+                  <mattext texttype="text/html">DNA</mattext>
+                </material>
+              </response_label>
+              <response_label ident="id263a2d8-3e57-43a5-9d3e-2c89780bc4d2">
+                <material>
+                  <mattext texttype="text/html">cytoplasm</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i83642620-4122-4157-9adf-32bb37ed6588">i49dfed40-782d-4ff1-b2c9-6981b9c581ba</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i83642620-4122-4157-9adf-32bb37ed6588">i0e8de9ee-2623-4f62-ac3e-f2b6b0a12819</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i83642620-4122-4157-9adf-32bb37ed6588">ide07d577-62e5-4cb8-841e-392f5c74caf4</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i83642620-4122-4157-9adf-32bb37ed6588">id263a2d8-3e57-43a5-9d3e-2c89780bc4d2</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ibfc02bfb-5a08-4fcd-93a3-770b52d73f90">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">The main function of the mitochondria in the cell is</mattext>
+          </material>
+          <response_lid ident="i231e6ad3-09fc-476b-aada-2c93a615c20d" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i14781a71-b44d-4962-9118-dc402c4ebe0d">
+                <material>
+                  <mattext texttype="text/html">DNA replication</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ic3bc57ad-4428-4d1f-bef9-dccaaf847867">
+                <material>
+                  <mattext texttype="text/html">energy production</mattext>
+                </material>
+              </response_label>
+              <response_label ident="id0ab6e70-d65f-4318-97ec-7c92c47ead6c">
+                <material>
+                  <mattext texttype="text/html">gene replication</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i42e203eb-f488-427e-9ad0-b0cb321ba3f2">
+                <material>
+                  <mattext texttype="text/html">protein production</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i231e6ad3-09fc-476b-aada-2c93a615c20d">i14781a71-b44d-4962-9118-dc402c4ebe0d</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i231e6ad3-09fc-476b-aada-2c93a615c20d">ic3bc57ad-4428-4d1f-bef9-dccaaf847867</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i231e6ad3-09fc-476b-aada-2c93a615c20d">id0ab6e70-d65f-4318-97ec-7c92c47ead6c</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i231e6ad3-09fc-476b-aada-2c93a615c20d">i42e203eb-f488-427e-9ad0-b0cb321ba3f2</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="id6bb7846-7bc8-49fc-a09d-ea7c785b5dbe">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">All the genetic material in the mitochondria is inherited from an individual's</mattext>
+          </material>
+          <response_lid ident="id2970db8-8e6b-47c8-9cde-db2a0e2e75ad" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ie6ccc1f8-b139-468d-8ef1-320f7b4ba907">
+                <material>
+                  <mattext texttype="text/html">mother</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i2abceb06-0928-440c-8f18-e51ebd946a6a">
+                <material>
+                  <mattext texttype="text/html">uncle</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i23db33a6-1de3-49ba-9e48-0e072bf6ac48">
+                <material>
+                  <mattext texttype="text/html">aunt </mattext>
+                </material>
+              </response_label>
+              <response_label ident="ia72d0926-f008-4038-b4c4-b0c8aea885da">
+                <material>
+                  <mattext texttype="text/html">father</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="id2970db8-8e6b-47c8-9cde-db2a0e2e75ad">ie6ccc1f8-b139-468d-8ef1-320f7b4ba907</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="id2970db8-8e6b-47c8-9cde-db2a0e2e75ad">i2abceb06-0928-440c-8f18-e51ebd946a6a</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="id2970db8-8e6b-47c8-9cde-db2a0e2e75ad">i23db33a6-1de3-49ba-9e48-0e072bf6ac48</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="id2970db8-8e6b-47c8-9cde-db2a0e2e75ad">ia72d0926-f008-4038-b4c4-b0c8aea885da</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="icd875f04-c7c3-4996-b2bc-7e26833f7465">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">How many loci are examined when a forensic DNA match is being attempted?</mattext>
+          </material>
+          <response_lid ident="i378a5b88-a8db-4b00-824c-4bba664a59ea" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i3184644e-5583-4c5d-9440-78a7392bf9de">
+                <material>
+                  <mattext texttype="text/html">23</mattext>
+                </material>
+              </response_label>
+              <response_label ident="id0de0c98-8356-4c17-bacd-e7c0bd99a492">
+                <material>
+                  <mattext texttype="text/html">46</mattext>
+                </material>
+              </response_label>
+              <response_label ident="if51a34ed-9b30-404a-95cf-c8853457061d">
+                <material>
+                  <mattext texttype="text/html">1</mattext>
+                </material>
+              </response_label>
+              <response_label ident="id13ee3fa-ea38-4d7b-8047-ddc6c1b958c4">
+                <material>
+                  <mattext texttype="text/html">5</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i378a5b88-a8db-4b00-824c-4bba664a59ea">i3184644e-5583-4c5d-9440-78a7392bf9de</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i378a5b88-a8db-4b00-824c-4bba664a59ea">id0de0c98-8356-4c17-bacd-e7c0bd99a492</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i378a5b88-a8db-4b00-824c-4bba664a59ea">if51a34ed-9b30-404a-95cf-c8853457061d</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i378a5b88-a8db-4b00-824c-4bba664a59ea">id13ee3fa-ea38-4d7b-8047-ddc6c1b958c4</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ia68028c4-f683-4af3-a023-e1c24458dc5d">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">Probability ratios with each DNA match would be unnecessary if</mattext>
+          </material>
+          <response_lid ident="i2134f344-0ab1-4ef3-86c6-565d0ecf08ef" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i5755162a-e2ad-4923-ad7d-177aeb997d84">
+                <material>
+                  <mattext texttype="text/html">all human DNA was recorded in a data bank</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i64d8ecc6-ac54-4126-a7a0-14b45bf43f51">
+                <material>
+                  <mattext texttype="text/html">contamination of DNA evidence collected did not occur</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ib81fbb70-01e4-457a-9f68-be9e5b0542b1">
+                <material>
+                  <mattext texttype="text/html">all STR sequences contained more nucleic acids  </mattext>
+                </material>
+              </response_label>
+              <response_label ident="i1b90fae2-dd26-49f9-8ff5-c2b6f093f870">
+                <material>
+                  <mattext texttype="text/html">laboratory interpretation errors did not occur</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i2134f344-0ab1-4ef3-86c6-565d0ecf08ef">i5755162a-e2ad-4923-ad7d-177aeb997d84</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i2134f344-0ab1-4ef3-86c6-565d0ecf08ef">i64d8ecc6-ac54-4126-a7a0-14b45bf43f51</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i2134f344-0ab1-4ef3-86c6-565d0ecf08ef">ib81fbb70-01e4-457a-9f68-be9e5b0542b1</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i2134f344-0ab1-4ef3-86c6-565d0ecf08ef">i1b90fae2-dd26-49f9-8ff5-c2b6f093f870</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i9922fb5b-517a-4bf5-b2de-246f6b00b0c1">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">The probability ratio that is included with every DNA match indicates the</mattext>
+          </material>
+          <response_lid ident="ida2994f2-d378-4fa1-93a4-ad681d7fcc5d" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i21ca5b4c-3af8-44e3-8e6f-9ddd3ab828d4">
+                <material>
+                  <mattext texttype="text/html">accuracy of the match as compared to other matches</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ib9f4ad3e-6a91-434d-b989-e5cb13b9eb63">
+                <material>
+                  <mattext texttype="text/html">occurrence of laboratory interpretation errors</mattext>
+                </material>
+              </response_label>
+              <response_label ident="if6b1ae4e-b5be-4ecc-8886-2526a5a307fd">
+                <material>
+                  <mattext texttype="text/html">number of STR sequences that matched the crime scene sample</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ia4428250-bd5a-4827-b458-a9c07d99dac6">
+                <material>
+                  <mattext texttype="text/html">numerical chance the DNA patterns analyzed could be found in someone else</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ida2994f2-d378-4fa1-93a4-ad681d7fcc5d">i21ca5b4c-3af8-44e3-8e6f-9ddd3ab828d4</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ida2994f2-d378-4fa1-93a4-ad681d7fcc5d">ib9f4ad3e-6a91-434d-b989-e5cb13b9eb63</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ida2994f2-d378-4fa1-93a4-ad681d7fcc5d">if6b1ae4e-b5be-4ecc-8886-2526a5a307fd</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ida2994f2-d378-4fa1-93a4-ad681d7fcc5d">ia4428250-bd5a-4827-b458-a9c07d99dac6</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+    </section>
+  </assessment>
+</questestinterop>

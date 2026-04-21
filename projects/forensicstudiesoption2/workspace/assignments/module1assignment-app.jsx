@@ -1,22 +1,21 @@
 import React, { useState, useRef, useEffect } from 'react';
-
-const IconStub = () => null;
-
-const Shield = IconStub;
-const Camera = IconStub;
-const Users = IconStub;
-const Search = IconStub;
-const Map = IconStub;
-const Package = IconStub;
-const AlertTriangle = IconStub;
-const CheckCircle2 = IconStub;
-const Info = IconStub;
-const Eye = IconStub;
-const ChevronRight = IconStub;
-const X = IconStub;
-const FileText = IconStub;
-const Crosshair = IconStub;
-const Droplet = IconStub;
+import {
+  Shield,
+  Camera,
+  Users,
+  Search,
+  Map,
+  Package,
+  AlertTriangle,
+  CheckCircle2,
+  Info,
+  Eye,
+  ChevronRight,
+  X,
+  FileText,
+  Crosshair,
+  Droplet
+} from 'lucide-react';
 
 const MODULE1_ASSIGNMENT_STORAGE_KEY = 'forensics::module1assignment::v1';
 
@@ -373,36 +372,36 @@ const App = () => {
         {/* Note Editor Modal */}
         {activeStepModal && (
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-            <div className="bg-yellow-100 p-8 rounded shadow-2xl max-w-lg w-full transform rotate-1 border border-yellow-300 relative">
+            <div className="assignment-step-note bg-yellow-100 p-8 rounded shadow-2xl max-w-lg w-full transform rotate-1 border border-yellow-300 relative">
                <div className="absolute top-4 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-red-600 shadow-md"></div>
-               <button className="absolute top-4 right-4 text-slate-500 hover:text-black" onClick={() => setActiveStepModal(null)}><X size={24} /></button>
-               
-               <h3 className="text-2xl font-black text-slate-800 mt-4 mb-2 border-b-2 border-slate-300 pb-2">
-                 Step {stepsData.findIndex(s => s.key === activeStepModal.key) + 1}: {activeStepModal.name}
-               </h3>
-               
-               <div className="bg-yellow-200/50 p-3 rounded text-sm text-slate-700 font-mono mb-6 italic border-l-4 border-yellow-400">
-                  <Info size={16} className="inline mr-2 -mt-1"/> Field Note: {activeStepModal.hint}
-               </div>
+               <button className="assignment-step-note-close absolute top-4 right-4 text-slate-500 hover:text-black" onClick={() => setActiveStepModal(null)}><X size={24} /></button>
+                
+                <h3 className="text-2xl font-black text-slate-800 mt-4 mb-2 border-b-2 border-slate-300 pb-2">
+                  Step {stepsData.findIndex(s => s.key === activeStepModal.key) + 1}: {activeStepModal.name}
+                </h3>
+                
+                <div className="assignment-step-note-callout bg-yellow-200/50 p-3 rounded text-sm text-slate-700 font-mono mb-6 italic border-l-4 border-yellow-400">
+                   <Info size={16} className="inline mr-2 -mt-1"/> Field Note: {activeStepModal.hint}
+                </div>
 
-               <label className="block text-slate-800 font-bold mb-2">Description (In your own words):</label>
-               <textarea 
-                  className="w-full bg-transparent border-b-2 border-slate-400 focus:border-blue-600 outline-none text-slate-800 font-mono text-lg resize-none min-h-[120px] leading-relaxed"
-                  style={{backgroundImage: 'repeating-linear-gradient(transparent, transparent 27px, #94a3b8 28px)', lineHeight: '28px', paddingTop: '2px'}}
-                  placeholder="Describe the objective of this step..."
-                  value={stepDescriptions[activeStepModal.key] || ''}
-                  onChange={(e) => setStepDescriptions({...stepDescriptions, [activeStepModal.key]: e.target.value})}
+                <label className="block text-slate-800 font-bold mb-2">Description (In your own words):</label>
+                <textarea 
+                   className="assignment-step-note-textarea w-full bg-transparent border-b-2 border-slate-400 focus:border-blue-600 outline-none text-slate-800 font-mono text-lg resize-none min-h-[120px] leading-relaxed"
+                   style={{backgroundImage: 'repeating-linear-gradient(transparent, transparent 27px, #94a3b8 28px)', lineHeight: '28px', paddingTop: '2px'}}
+                   placeholder="Describe the objective of this step..."
+                   value={stepDescriptions[activeStepModal.key] || ''}
+                   onChange={(e) => setStepDescriptions({...stepDescriptions, [activeStepModal.key]: e.target.value})}
                   autoFocus
                />
                
-               <div className="mt-6 flex justify-end">
-                  <button 
-                    onClick={() => setActiveStepModal(null)} 
-                    className="px-6 py-2 bg-slate-800 text-white font-bold rounded hover:bg-slate-700 shadow"
-                  >
-                    Pin to Board
-                  </button>
-               </div>
+                <div className="mt-6 flex justify-end">
+                   <button 
+                     onClick={() => setActiveStepModal(null)} 
+                     className="assignment-step-note-submit px-6 py-2 bg-slate-800 text-white font-bold rounded hover:bg-slate-700 shadow"
+                   >
+                     Pin to Board
+                   </button>
+                </div>
             </div>
           </div>
         )}

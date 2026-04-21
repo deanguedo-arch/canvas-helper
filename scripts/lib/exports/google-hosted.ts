@@ -221,9 +221,15 @@ export async function exportProjectToGoogleHosted(
     );
   }
 
+  const explicitStorageKeys = Array.isArray(manifest.googleHosted?.trackedStorageKeys)
+    ? manifest.googleHosted.trackedStorageKeys.map((value) => String(value || "").trim()).filter(Boolean)
+    : [];
   const fallbackStorageKey = `${projectSlug}::workspace-state::v1`;
-  const detectedStorageKeys = await detectStorageKeysFromWorkspace(googleHostedExportDir, fallbackStorageKey);
-  const storageKeys = [...new Set([fallbackStorageKey, ...detectedStorageKeys])];
+  const detectedStorageKeys =
+    explicitStorageKeys.length > 0 ? [] : await detectStorageKeysFromWorkspace(googleHostedExportDir, fallbackStorageKey);
+  const storageKeys = explicitStorageKeys.length > 0
+    ? [...new Set(explicitStorageKeys)]
+    : [...new Set([fallbackStorageKey, ...detectedStorageKeys])];
   const progressItems = await loadRequiredCompletionItemsFromWorkspace(paths.workspaceDir);
 
   await Promise.all([

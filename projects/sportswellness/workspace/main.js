@@ -458,10 +458,37 @@ const PERFORMANCE_TOOLS = [
   }
 ];
 
-const ICONS = [
-  { icon: 'fa-person-running', title: 'Performance', body: 'Reserved for performance-focused support content.' },
-  { icon: 'fa-dumbbell', title: 'Athletic Icons', body: 'Reserved for athletic icon sets and quick references.' },
-  { icon: 'fa-layer-group', title: 'Stacks', body: 'Reserved for future stackable drill content.' }
+// Add new Film Room tapes by appending flat entries to this catalog.
+const FILM_ROOM_VIDEOS = [
+  { id: 'tape-01', code: 'Tape 01', title: 'How Self-Determination Theory (SDT) Creates Intrinsic Motivation', youtubeId: '6FTTX0H4HfE' },
+  { id: 'tape-02', code: 'Tape 02', title: 'Michael Jordan and the Power of Failure', youtubeId: 'Q_EyPX3CD-g' },
+  { id: 'tape-03', code: 'Tape 03', title: 'The Power of "Yet" in Student Athletics', youtubeId: 'px9CzSZsa0Y' },
+  { id: 'tape-04', code: 'Tape 04', title: 'Growth Mindset vs. Fixed Mindset for High School Athletes', youtubeId: 'DDaV57glOVI' },
+  { id: 'tape-05', code: 'Tape 05', title: 'The Science of Praise and Student Motivation (Carol Dweck)', youtubeId: 'y5ZBItSb7jw' },
+  { id: 'tape-06', code: 'Tape 06', title: 'Mastering the Inner Game: Self 1 vs. Self 2 Concepts', youtubeId: 'pa2Mpa8t8iU' },
+  { id: 'tape-07', code: 'Tape 07', title: 'Managing Pre-Game Anxiety: The ABCs Strategy', youtubeId: 'FcPSuW9pGcE' },
+  { id: 'tape-08', code: 'Tape 08', title: 'Controlling Nerves and Reframing Pregame Jitters', youtubeId: 'Ih5IrYcXADo' },
+  { id: 'tape-09', code: 'Tape 09', title: 'Dr. Nate Zinsser: Building the Mental Bank Account for Confidence', youtubeId: '00gzhaRnr6A' },
+  { id: 'tape-10', code: 'Tape 10', title: 'Yerkes-Dodson: The Inverted-U Theory of Performance', youtubeId: 's9goL8OeB-0' },
+  { id: 'tape-11', code: 'Tape 11', title: 'Practical Arousal Control for Elite Performance', youtubeId: '_Le9VIVi1xM' },
+  { id: 'tape-12', code: 'Tape 12', title: 'The Power of Visualization: How Michael Phelps Swims in His Mind', youtubeId: '3-mm90LFPqU' },
+  { id: 'tape-13', code: 'Tape 13', title: 'Scenario Planning: Michael Phelps and Preparing for Anything', youtubeId: 'RoEhKWmVF3g' },
+  { id: 'tape-14', code: 'Tape 14', title: 'Guided Athletic Meditation and Imagery Session', youtubeId: '5Cl4OjZYBg0' },
+  { id: 'tape-15', code: 'Tape 15', title: "A Beginner's Guide to Using Mental Rehearsal", youtubeId: 'EAGKsvhAPME' },
+  { id: 'tape-16', code: 'Tape 16', title: 'Four Visualization Techniques for Game-Day Confidence', youtubeId: 'oa6o2LkcR5k' },
+  { id: 'tape-17', code: 'Tape 17', title: 'Nick Saban on "The Process" and Avoiding Complacency', youtubeId: 'iWIeQlEUa5Q' },
+  { id: 'tape-18', code: 'Tape 18', title: 'Outcomes are a Distraction: How The Process Changed Football', youtubeId: 'LIopioHzciA' },
+  { id: 'tape-19', code: 'Tape 19', title: 'The Mamba Mentality: Being the Best Version of Yourself', youtubeId: 'GE0UAdxPTc0' },
+  { id: 'tape-20', code: 'Tape 20', title: 'David Goggins: The Accountability Mirror Challenge', youtubeId: 'G7Jyh6IsjMg' },
+  { id: 'tape-21', code: 'Tape 21', title: 'Confronting the Weak Self through Radical Ownership', youtubeId: 'ma4nh7aFzhk' },
+  { id: 'tape-22', code: 'Tape 22', title: 'Jocko Willink: Fail Until You Win', youtubeId: 'jHnX-nMl59U' },
+  { id: 'tape-23', code: 'Tape 23', title: 'Inky Johnson: Never Give In - The Mission and the Purpose', youtubeId: 'lOOd8D4DhwI' },
+  { id: 'tape-24', code: 'Tape 24', title: 'Why Some Succeed: The Navy SEAL Selection Process', youtubeId: 'zP9jpxitfb4' },
+  { id: 'tape-25', code: 'Tape 25', title: 'Developing Resilient Leaders through the Warrior Ethos', youtubeId: 'e4JWnQ8gLr4' },
+  { id: 'tape-26', code: 'Tape 26', title: 'Ray Lewis: Lessons in Effort and the Law of Victory', youtubeId: 'nda4QXuX1XM' },
+  { id: 'tape-27', code: 'Tape 27', title: 'Georges St-Pierre: Champion Spirit and Mental Toughness', youtubeId: 'epM7ZnaWWbk' },
+  { id: 'tape-28', code: 'Tape 28', title: 'Building Team Culture: From "What\'s in it for Me" to "Give to We"', youtubeId: 'cPi9fr12ikg' },
+  { id: 'tape-29', code: 'Tape 29', title: 'High Performance: Finding the Balance between Truth and Trust', youtubeId: 'j-pxzDgUid0' }
 ];
 
 const QUIZZES = [
@@ -2270,7 +2297,9 @@ const state = {
   section: 'home',
   tab: 'phases',
   activeId: PHASES[0]?.id || null,
+  activePerformanceView: 'menu',
   activePerformanceToolId: PERFORMANCE_TOOLS[0]?.id || null,
+  activeFilmRoomVideoId: FILM_ROOM_VIDEOS[0]?.id || null,
   activeStep: 0,
   activeMaterialId: null
 };
@@ -2319,6 +2348,9 @@ function normalizeUiState(rawState) {
     activePerformanceToolId: PERFORMANCE_TOOLS.some((item) => item.id === rawState.activePerformanceToolId)
       ? rawState.activePerformanceToolId
       : (PERFORMANCE_TOOLS[0]?.id || null),
+    activeFilmRoomVideoId: FILM_ROOM_VIDEOS.some((item) => item.id === rawState.activeFilmRoomVideoId)
+      ? rawState.activeFilmRoomVideoId
+      : (FILM_ROOM_VIDEOS[0]?.id || null),
     activeStep: Number.isFinite(Number(rawState.activeStep)) ? Math.max(0, Number(rawState.activeStep)) : 0,
     activeMaterialId: MATERIALS.some((item) => item.id === rawState.activeMaterialId) ? rawState.activeMaterialId : null
   };
@@ -2353,6 +2385,7 @@ function applyUiStateSnapshot(snapshot) {
   state.tab = snapshot.tab;
   state.activeId = snapshot.activeId;
   state.activePerformanceToolId = snapshot.activePerformanceToolId;
+  state.activeFilmRoomVideoId = snapshot.activeFilmRoomVideoId;
   state.activeStep = snapshot.activeStep;
   state.activeMaterialId = snapshot.activeMaterialId;
 }
@@ -2364,6 +2397,7 @@ function persistUiState() {
       tab: state.tab,
       activeId: state.activeId,
       activePerformanceToolId: state.activePerformanceToolId,
+      activeFilmRoomVideoId: state.activeFilmRoomVideoId,
       activeStep: state.activeStep,
       activeMaterialId: state.activeMaterialId
     }));
@@ -2411,6 +2445,10 @@ function getQuizById(quizId) {
 
 function getPerformanceToolById(toolId) {
   return PERFORMANCE_TOOLS.find((item) => item.id === toolId) || null;
+}
+
+function getFilmRoomVideoById(videoId) {
+  return FILM_ROOM_VIDEOS.find((item) => item.id === videoId) || null;
 }
 
 function getPhaseIndex(phaseId) {
@@ -2595,6 +2633,12 @@ function setSection(section) {
   if (section === 'performance' && !getPerformanceToolById(state.activePerformanceToolId)) {
     state.activePerformanceToolId = PERFORMANCE_TOOLS[0]?.id || null;
   }
+  if (section === 'icons' && !getFilmRoomVideoById(state.activeFilmRoomVideoId)) {
+    state.activeFilmRoomVideoId = FILM_ROOM_VIDEOS[0]?.id || null;
+  }
+  if (section === 'performance') {
+    state.activePerformanceView = 'menu';
+  }
   if (section !== 'home') {
     state.tab = 'phases';
   }
@@ -2649,7 +2693,24 @@ function openPerformanceTool(id) {
   if (!getPerformanceToolById(id)) return;
   state.section = 'performance';
   state.activePerformanceToolId = id;
+  state.activePerformanceView = 'player';
   collapseCompactMenu();
+  persistUiState();
+  render();
+}
+
+function closePerformanceTool() {
+  state.section = 'performance';
+  state.activePerformanceView = 'menu';
+  collapseCompactMenu();
+  persistUiState();
+  render();
+}
+
+function selectFilmRoomVideo(id) {
+  if (!getFilmRoomVideoById(id)) return;
+  state.section = 'icons';
+  state.activeFilmRoomVideoId = id;
   persistUiState();
   render();
 }
@@ -3142,55 +3203,107 @@ function renderAssignments() {
   });
 }
 
+function renderPerformanceToolButtons(activeToolId, layoutClass = 'performance-launcher-grid') {
+  return `
+    <div class="${layoutClass}">
+      ${PERFORMANCE_TOOLS.map((item) => `
+        <button
+          type="button"
+          class="performance-tool-button${item.id === activeToolId ? ' is-active' : ''}"
+          data-performance-tool-id="${item.id}"
+          style="--performance-accent:${item.accent}"
+        >
+          <span class="performance-tool-code mono">${item.code}</span>
+          <span class="performance-tool-copy">
+            <strong>${item.title}</strong>
+            <span>${item.body}</span>
+          </span>
+        </button>
+      `).join('')}
+    </div>
+  `;
+}
+
 function renderPerformance() {
-  refs.sectionTitle.textContent = 'Performance';
   const activeTool = getPerformanceToolById(state.activePerformanceToolId) || PERFORMANCE_TOOLS[0];
+  const isPlayerView = state.activePerformanceView === 'player' && activeTool;
+  refs.sectionTitle.textContent = isPlayerView ? '' : 'Performance';
+  refs.sectionTitle.style.display = isPlayerView ? 'none' : '';
+  if (refs.progressShell) refs.progressShell.style.display = isPlayerView ? 'none' : '';
+
+  if (!isPlayerView) {
+    refs.contentBody.innerHTML = `
+      <section class="performance-launcher">
+        <div class="performance-menu">
+          <div class="performance-menu-head">
+            <p class="mono performance-menu-kicker">Performance tools</p>
+            <h4>Training menu</h4>
+            <p>Launch a focused training game built for the live performance layer without changing the lesson or assignment flow.</p>
+          </div>
+        </div>
+        ${renderPerformanceToolButtons(activeTool?.id)}
+      </section>
+    `;
+
+    refs.contentBody.querySelectorAll('[data-performance-tool-id]').forEach((button) => {
+      button.addEventListener('click', () => openPerformanceTool(button.dataset.performanceToolId));
+    });
+    return;
+  }
+
   refs.contentBody.innerHTML = `
-    <section class="performance-shell">
-      <aside class="performance-menu">
-        <div class="performance-menu-head">
-          <p class="mono performance-menu-kicker">Performance tools</p>
-          <h4>Training menu</h4>
-          <p>Select a tool built for the live performance layer without changing the lesson or assignment flow.</p>
+    <section class="performance-player-shell">
+      <div class="performance-player-layout">
+        <aside class="performance-player-sidebar">
+          <div class="performance-menu performance-player-menu">
+            <div class="performance-menu-head">
+              <p class="mono performance-menu-kicker">Performance tools</p>
+              <h4>Training menu</h4>
+              <p>Select a tool to swap the live game surface without leaving the performance section.</p>
+            </div>
+            <div class="performance-tool-list">
+              ${PERFORMANCE_TOOLS.map((item) => `
+                <button
+                  type="button"
+                  class="performance-tool-button${item.id === activeTool?.id ? ' is-active' : ''}"
+                  data-performance-tool-id="${item.id}"
+                  style="--performance-accent:${item.accent}"
+                >
+                  <span class="performance-tool-code mono">${item.code}</span>
+                  <span class="performance-tool-copy">
+                    <strong>${item.title}</strong>
+                    <span>${item.body}</span>
+                  </span>
+                </button>
+              `).join('')}
+            </div>
+          </div>
+        </aside>
+        <div class="performance-player-stage">
+          <div class="performance-player-nav">
+            <button type="button" class="performance-player-back" data-performance-close>Back to training menu</button>
+          </div>
+          <div class="performance-player-frame-wrap">
+            <iframe
+              src="${activeTool?.viewerSrc || ''}"
+              title="${activeTool?.title || 'Performance tool'}"
+              class="performance-player-frame"
+              loading="lazy"
+            ></iframe>
+          </div>
         </div>
-        <div class="performance-tool-list">
-          ${PERFORMANCE_TOOLS.map((item) => `
-            <button
-              type="button"
-              class="performance-tool-button${item.id === activeTool?.id ? ' is-active' : ''}"
-              data-performance-tool-id="${item.id}"
-              style="--performance-accent:${item.accent}"
-            >
-              <span class="performance-tool-code mono">${item.code}</span>
-              <span class="performance-tool-copy">
-                <strong>${item.title}</strong>
-                <span>${item.body}</span>
-              </span>
-            </button>
-          `).join('')}
-        </div>
-      </aside>
-      <article class="performance-tool-stage">
-        <div class="performance-tool-stage-head">
-          <p class="mono performance-tool-eyebrow">${activeTool?.eyebrow || 'Performance tool'}</p>
-          <h4>${activeTool?.title || 'Performance tool'}</h4>
-          <p>${activeTool?.body || 'Performance tool ready.'}</p>
-        </div>
-        <div class="performance-tool-viewer">
-          <iframe
-            src="${activeTool?.viewerSrc || ''}"
-            title="${activeTool?.title || 'Performance tool'}"
-            class="performance-tool-frame"
-            loading="lazy"
-          ></iframe>
-        </div>
-      </article>
+      </div>
     </section>
   `;
 
   refs.contentBody.querySelectorAll('[data-performance-tool-id]').forEach((button) => {
     button.addEventListener('click', () => openPerformanceTool(button.dataset.performanceToolId));
   });
+
+  const closeButton = refs.contentBody.querySelector('[data-performance-close]');
+  if (closeButton) {
+    closeButton.addEventListener('click', closePerformanceTool);
+  }
 }
 
 function renderAssignmentField(field) {
@@ -3401,17 +3514,72 @@ function renderAssignmentDetail() {
 }
 
 function renderIcons() {
-  refs.sectionTitle.textContent = 'Athletic Icons';
+  const activeVideo = getFilmRoomVideoById(state.activeFilmRoomVideoId) || FILM_ROOM_VIDEOS[0];
+  const activeTapeNumber = Math.max(1, FILM_ROOM_VIDEOS.findIndex((item) => item.id === activeVideo?.id) + 1);
+  refs.sectionTitle.textContent = 'Film Room';
   refs.contentBody.innerHTML = `
-    <div class="icon-grid">
-      ${ICONS.map((item) => `
-        <article class="icon-card">
-          <h4><i class="fa-solid ${item.icon}" style="color: var(--green); margin-right: 8px;"></i>${item.title}</h4>
-          <p>${item.body}</p>
+    <section class="film-room-shell">
+      <div class="film-room-stage">
+        <div class="film-room-sign">
+          <div>
+            <p class="mono film-room-kicker">Sports Wellness Archive</p>
+            <h4>Coach's Film Room</h4>
+          </div>
+          <div class="mono film-room-count">${FILM_ROOM_VIDEOS.length} tapes loaded</div>
+        </div>
+        <div class="film-room-tv-wrap">
+          <div class="film-room-antenna" aria-hidden="true">
+            <span></span>
+            <span></span>
+          </div>
+          <div class="film-room-tv">
+            <div class="film-room-screen-shell">
+              <div class="film-room-screen">
+                <iframe
+                  src="https://www.youtube.com/embed/${activeVideo.youtubeId}"
+                  title="${activeVideo.title}"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  loading="lazy"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+            <div class="film-room-console">
+              <div class="film-room-slot" aria-hidden="true"></div>
+              <div class="film-room-led mono">${String(activeTapeNumber).padStart(2, '0')}:${String(FILM_ROOM_VIDEOS.length).padStart(2, '0')}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <aside class="film-room-sidebar">
+        <article class="film-room-panel">
+          <p class="mono film-room-kicker">Tape catalog</p>
+          <h4>Load a video</h4>
+          <p>Use the dropdown to swap the tape in the CRT player without leaving the course shell.</p>
+          <label class="film-room-label" for="film-room-select">Playlist</label>
+          <select id="film-room-select" class="film-room-select" data-film-room-select>
+            ${FILM_ROOM_VIDEOS.map((item) => `
+              <option value="${item.id}"${item.id === activeVideo.id ? ' selected' : ''}>${item.code} - ${item.title}</option>
+            `).join('')}
+          </select>
         </article>
-      `).join('')}
-    </div>
+        <article class="film-room-panel film-room-now-playing">
+          <p class="mono film-room-kicker">Now loaded</p>
+          <h4>${activeVideo.code}</h4>
+          <p class="film-room-title">${activeVideo.title}</p>
+          <div class="film-room-meta mono">
+            <span>YouTube embed</span>
+            <span>${activeTapeNumber} / ${FILM_ROOM_VIDEOS.length}</span>
+          </div>
+        </article>
+      </aside>
+    </section>
   `;
+
+  refs.contentBody.querySelector('[data-film-room-select]')?.addEventListener('change', (event) => {
+    selectFilmRoomVideo(event.target.value);
+  });
 }
 
 function renderContent() {

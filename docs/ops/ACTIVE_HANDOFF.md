@@ -1,95 +1,63 @@
 # Handoff
 
 - Project: sportswellness
-- Task: make the four `Performance` games share the Sports Wellness course palette
+- Task: retune the Film Room color scheme to match the Sports Wellness site palette
 - Status: complete
 
 ## Summary
-- All four standalone `Performance` games now load one shared Sports Wellness theme stylesheet so their shells, panels, text, borders, and primary action colors read as part of the same course.
-- The remaining hardcoded outlier surfaces were patched in the game apps, including the Phase 1 arena/chart, Phase 2 outcome zone, Phase 3 court, and Phase 4 core background/actions.
-- The palette pass preserves semantic red danger states and amber caution states where the gameplay still needs contrast.
+- The Film Room still uses the same CRT layout and flat dropdown playlist, but its palette now matches the rest of Sports Wellness instead of using the separate warm brown retro colors.
+- The room, TV shell, labels, dropdown, and status display now all speak the site’s deep-slate and mint styling language.
+- The Film Room source test now guards against the old warm palette coming back.
 
 ## Files changed
 - docs/ops/ACTIVE_HANDOFF.md
 - docs/ops/ARCHIVED_HANDOFFS.md
-- docs/plans/2026-04-21-sportswellness-performance-games-shared-palette-design.md
-- docs/plans/2026-04-21-sportswellness-performance-games-shared-palette-implementation.md
-- projects/sportswellness/workspace/performance/performance-game-theme.css
-- projects/sportswellness/workspace/performance/phase1-performance-state-simulator-game.html
-- projects/sportswellness/workspace/performance/phase1-performance-state-simulator-game.app.js
-- projects/sportswellness/workspace/performance/phase2-discipline-game.html
-- projects/sportswellness/workspace/performance/phase2-discipline-game.app.js
-- projects/sportswellness/workspace/performance/phase3-focus-game.html
-- projects/sportswellness/workspace/performance/phase3-focus-game.app.js
-- projects/sportswellness/workspace/performance/phase4-mental-filter-simulator-game.html
-- projects/sportswellness/workspace/performance/phase4-mental-filter-simulator-game.app.js
-- scripts/tests/sportswellness-performance-menu.test.ts
+- projects/sportswellness/workspace/styles.css
+- scripts/tests/sportswellness-film-room.test.ts
 
 ## Verification run
-- `npx tsx --test scripts/tests/sportswellness-performance-menu.test.ts`
+- `npx tsx --test scripts/tests/sportswellness-film-room.test.ts`
+- `npx tsx --test scripts/tests/sportswellness-ui-state.test.ts`
 - `npm run test:e2e:project -- --project sportswellness`
-- `npx tsx --test scripts/tests/sportswellness-phase3-content.test.ts` (fails on the pre-existing `Multiple-choice review` expectation in `projects/sportswellness/workspace/main.js`)
+- `npx tsx --test scripts/tests/sportswellness-phase3-content.test.ts` (still fails on the older unrelated `Multiple-choice review` expectation in `projects/sportswellness/workspace/main.js`)
 
 ## What changed
-- Added `projects/sportswellness/workspace/performance/performance-game-theme.css` as the shared palette source of truth for the injected game pages.
-- Updated all four standalone game HTML wrappers to load the shared stylesheet and apply the shared `performance-game-theme` body class.
-- Remapped the imported `zinc`, `lime`, and `cyan` chrome used by the games to the Sports Wellness palette tokens:
-  - background `#0b111a`
-  - panel `#151b25`
-  - line `#2a3748`
-  - text `#f4f7fb`
-  - muted `#9aa6b6`
-  - primary `#00ffca`
-- Patched the app-level hardcoded surfaces that CSS utility overrides could not reach:
-  - Phase 1 under-arousal and activation now use amber while the arena/chart use the slate/mint shell.
-  - Phase 2 outcome-zone gold/yellow chrome now follows the shared mint primary palette.
-  - Phase 3 no longer uses the old green/orange court hex colors and now uses slate + mint surfaces.
-  - Phase 4 uses the shared background and clearer mint/amber action separation.
-- Expanded `scripts/tests/sportswellness-performance-menu.test.ts` so the shared theme file, wrapper links, and removal of the old Phase 3 court colors are now part of the locked contract.
+- Updated the Film Room stage background to use the course’s slate shell colors and subtle site-style ambient gradients instead of the warm room palette.
+- Updated the CRT shell, screen shell, antenna, dropdown, labels, now-loaded status, and meta text to use the established Sports Wellness `line`, `text`, and `green` palette.
+- Expanded `scripts/tests/sportswellness-film-room.test.ts` so the Film Room source contract now expects the site-aligned palette and rejects the old warm amber/brown tokens.
 
 ## Why this changed
-- The user wanted the games in `Performance` to feel like part of the Sports Wellness course instead of four separate imported activities with their own palettes.
-- A shared stylesheet plus targeted hardcoded-surface cleanup kept the pass surgical while still fixing the biggest visual drift.
+- The user wanted the Film Room to feel like part of the site instead of a visually separate retro theme.
+- The structure already worked, so this pass stayed focused on palette alignment rather than changing layout or behavior.
 
 ## Source of truth
 - Canonical entry: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\index.html`
 - Canonical sources:
-  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\main.js`
-  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\performance-game-theme.css`
-  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase1-performance-state-simulator-game.html`
-  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase1-performance-state-simulator-game.app.js`
-  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase2-discipline-game.html`
-  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase2-discipline-game.app.js`
-  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase3-focus-game.html`
-  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase3-focus-game.app.js`
-  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase4-mental-filter-simulator-game.html`
-  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase4-mental-filter-simulator-game.app.js`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\styles.css`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\tests\sportswellness-film-room.test.ts`
 
 ## Fragile areas / watchouts
-- The shared palette depends on the `performance-game-theme.css` remapping layer plus a small number of per-app hardcoded patches; removing either side will bring drift back.
-- These pages still depend on browser-loaded `React`, `ReactDOM`, `Tailwind`, and `Babel` CDNs.
-- Phase 4 now uses mint for `Approve` and amber for `Lockdown`; if future changes collapse both actions back into the same palette treatment, readability will regress.
+- The Film Room still uses a stylized CRT form, so future visual tweaks should preserve the site palette while leaving the geometry alone unless the user asks for a structural redesign.
+- The source test now rejects the old warm palette tokens directly, so any later deliberate accent change will need the test updated too.
 
 ## Next prompt should assume
-- All four `Performance` games now share the Sports Wellness slate + mint shell language through `projects/sportswellness/workspace/performance/performance-game-theme.css`.
-- The Phase 3 game no longer uses the old green/orange court colors.
+- The Film Room layout is already in place.
+- The Film Room now uses the same Sports Wellness palette as the rest of the course shell.
 - The current unrelated red test is still `scripts/tests/sportswellness-phase3-content.test.ts` on the missing `Multiple-choice review` snippet in `projects/sportswellness/workspace/main.js`.
 
 ## What still needs validation
-- Open the Sports Wellness preview, click `Performance`, and visually confirm the four games now feel consistent with the course shell.
-- Spot-check the action contrast in the Phase 4 simulator to confirm `Approve` and `Lockdown` are still easy to distinguish after the palette pass.
+- Manual browser spot-check to confirm the Film Room still feels readable and intentional on desktop, tablet, and phone after the palette shift.
 
 ## Known risks / follow-up
 - `npx tsx --test scripts/tests/sportswellness-phase3-content.test.ts` is still red on the unrelated `Multiple-choice review` expectation in `projects/sportswellness/workspace/main.js`.
-- I did not run a manual browser preview for the new palette pass.
+- I did not run a manual browser preview after this palette retune.
 
 ## Exact next command
 `npm.cmd run studio:codex`
 
 ## Exact next file to open
-`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\performance-game-theme.css`
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\styles.css`
 
 ## Do not do next / warnings
-- Do not patch only the old reference-folder game sources and expect the live palette to change; the workspace copies are the runtime source of truth.
-- Do not remove the shared wrapper stylesheet link from any of the four game HTML files unless you are intentionally breaking the shared palette contract.
-- Do not treat the failing `sportswellness-phase3-content.test.ts` check as caused by this palette pass without fixing or updating the separate Phase 3 lesson contract.
+- Do not reintroduce the old warm Film Room palette without also updating the Film Room source test.
+- Do not treat the unrelated `sportswellness-phase3-content.test.ts` failure as caused by this palette pass.

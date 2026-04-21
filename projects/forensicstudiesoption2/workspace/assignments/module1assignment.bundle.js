@@ -21719,28 +21719,247 @@
     }
   });
 
-  // projects/forensics/workspace/assets/module1assignment-entry.jsx
-  var import_react2 = __toESM(require_react(), 1);
+  // projects/forensicstudiesoption2/workspace/assignments/module1assignment-entry.jsx
+  var import_react4 = __toESM(require_react(), 1);
   var import_client = __toESM(require_client(), 1);
 
-  // projects/forensics/workspace/assets/module1assignment-app.jsx
-  var import_react = __toESM(require_react(), 1);
+  // projects/forensicstudiesoption2/workspace/assignments/module1assignment-app.jsx
+  var import_react3 = __toESM(require_react(), 1);
+
+  // node_modules/lucide-react/dist/esm/createLucideIcon.js
+  var import_react2 = __toESM(require_react());
+
+  // node_modules/lucide-react/dist/esm/shared/src/utils.js
+  var toKebabCase = (string) => string.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
+  var toCamelCase = (string) => string.replace(
+    /^([A-Z])|[\s-_]+(\w)/g,
+    (match, p1, p2) => p2 ? p2.toUpperCase() : p1.toLowerCase()
+  );
+  var toPascalCase = (string) => {
+    const camelCase = toCamelCase(string);
+    return camelCase.charAt(0).toUpperCase() + camelCase.slice(1);
+  };
+  var mergeClasses = (...classes) => classes.filter((className, index, array) => {
+    return Boolean(className) && className.trim() !== "" && array.indexOf(className) === index;
+  }).join(" ").trim();
+  var hasA11yProp = (props) => {
+    for (const prop in props) {
+      if (prop.startsWith("aria-") || prop === "role" || prop === "title") {
+        return true;
+      }
+    }
+  };
+
+  // node_modules/lucide-react/dist/esm/Icon.js
+  var import_react = __toESM(require_react());
+
+  // node_modules/lucide-react/dist/esm/defaultAttributes.js
+  var defaultAttributes = {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 24,
+    height: 24,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: 2,
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  };
+
+  // node_modules/lucide-react/dist/esm/Icon.js
+  var Icon = (0, import_react.forwardRef)(
+    ({
+      color = "currentColor",
+      size = 24,
+      strokeWidth = 2,
+      absoluteStrokeWidth,
+      className = "",
+      children,
+      iconNode,
+      ...rest
+    }, ref) => (0, import_react.createElement)(
+      "svg",
+      {
+        ref,
+        ...defaultAttributes,
+        width: size,
+        height: size,
+        stroke: color,
+        strokeWidth: absoluteStrokeWidth ? Number(strokeWidth) * 24 / Number(size) : strokeWidth,
+        className: mergeClasses("lucide", className),
+        ...!children && !hasA11yProp(rest) && { "aria-hidden": "true" },
+        ...rest
+      },
+      [
+        ...iconNode.map(([tag, attrs]) => (0, import_react.createElement)(tag, attrs)),
+        ...Array.isArray(children) ? children : [children]
+      ]
+    )
+  );
+
+  // node_modules/lucide-react/dist/esm/createLucideIcon.js
+  var createLucideIcon = (iconName, iconNode) => {
+    const Component = (0, import_react2.forwardRef)(
+      ({ className, ...props }, ref) => (0, import_react2.createElement)(Icon, {
+        ref,
+        iconNode,
+        className: mergeClasses(
+          `lucide-${toKebabCase(toPascalCase(iconName))}`,
+          `lucide-${iconName}`,
+          className
+        ),
+        ...props
+      })
+    );
+    Component.displayName = toPascalCase(iconName);
+    return Component;
+  };
+
+  // node_modules/lucide-react/dist/esm/icons/camera.js
+  var __iconNode = [
+    [
+      "path",
+      {
+        d: "M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z",
+        key: "18u6gg"
+      }
+    ],
+    ["circle", { cx: "12", cy: "13", r: "3", key: "1vg3eu" }]
+  ];
+  var Camera = createLucideIcon("camera", __iconNode);
+
+  // node_modules/lucide-react/dist/esm/icons/chevron-right.js
+  var __iconNode2 = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
+  var ChevronRight = createLucideIcon("chevron-right", __iconNode2);
+
+  // node_modules/lucide-react/dist/esm/icons/circle-check.js
+  var __iconNode3 = [
+    ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+    ["path", { d: "m9 12 2 2 4-4", key: "dzmm74" }]
+  ];
+  var CircleCheck = createLucideIcon("circle-check", __iconNode3);
+
+  // node_modules/lucide-react/dist/esm/icons/crosshair.js
+  var __iconNode4 = [
+    ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+    ["line", { x1: "22", x2: "18", y1: "12", y2: "12", key: "l9bcsi" }],
+    ["line", { x1: "6", x2: "2", y1: "12", y2: "12", key: "13hhkx" }],
+    ["line", { x1: "12", x2: "12", y1: "6", y2: "2", key: "10w3f3" }],
+    ["line", { x1: "12", x2: "12", y1: "22", y2: "18", key: "15g9kq" }]
+  ];
+  var Crosshair = createLucideIcon("crosshair", __iconNode4);
+
+  // node_modules/lucide-react/dist/esm/icons/eye.js
+  var __iconNode5 = [
+    [
+      "path",
+      {
+        d: "M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0",
+        key: "1nclc0"
+      }
+    ],
+    ["circle", { cx: "12", cy: "12", r: "3", key: "1v7zrd" }]
+  ];
+  var Eye = createLucideIcon("eye", __iconNode5);
+
+  // node_modules/lucide-react/dist/esm/icons/file-text.js
+  var __iconNode6 = [
+    ["path", { d: "M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z", key: "1rqfz7" }],
+    ["path", { d: "M14 2v4a2 2 0 0 0 2 2h4", key: "tnqrlb" }],
+    ["path", { d: "M10 9H8", key: "b1mrlr" }],
+    ["path", { d: "M16 13H8", key: "t4e002" }],
+    ["path", { d: "M16 17H8", key: "z1uh3a" }]
+  ];
+  var FileText = createLucideIcon("file-text", __iconNode6);
+
+  // node_modules/lucide-react/dist/esm/icons/info.js
+  var __iconNode7 = [
+    ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+    ["path", { d: "M12 16v-4", key: "1dtifu" }],
+    ["path", { d: "M12 8h.01", key: "e9boi3" }]
+  ];
+  var Info = createLucideIcon("info", __iconNode7);
+
+  // node_modules/lucide-react/dist/esm/icons/map.js
+  var __iconNode8 = [
+    [
+      "path",
+      {
+        d: "M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z",
+        key: "169xi5"
+      }
+    ],
+    ["path", { d: "M15 5.764v15", key: "1pn4in" }],
+    ["path", { d: "M9 3.236v15", key: "1uimfh" }]
+  ];
+  var Map2 = createLucideIcon("map", __iconNode8);
+
+  // node_modules/lucide-react/dist/esm/icons/package.js
+  var __iconNode9 = [
+    [
+      "path",
+      {
+        d: "M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z",
+        key: "1a0edw"
+      }
+    ],
+    ["path", { d: "M12 22V12", key: "d0xqtd" }],
+    ["polyline", { points: "3.29 7 12 12 20.71 7", key: "ousv84" }],
+    ["path", { d: "m7.5 4.27 9 5.15", key: "1c824w" }]
+  ];
+  var Package = createLucideIcon("package", __iconNode9);
+
+  // node_modules/lucide-react/dist/esm/icons/search.js
+  var __iconNode10 = [
+    ["path", { d: "m21 21-4.34-4.34", key: "14j7rj" }],
+    ["circle", { cx: "11", cy: "11", r: "8", key: "4ej97u" }]
+  ];
+  var Search = createLucideIcon("search", __iconNode10);
+
+  // node_modules/lucide-react/dist/esm/icons/shield.js
+  var __iconNode11 = [
+    [
+      "path",
+      {
+        d: "M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z",
+        key: "oel41y"
+      }
+    ]
+  ];
+  var Shield = createLucideIcon("shield", __iconNode11);
+
+  // node_modules/lucide-react/dist/esm/icons/triangle-alert.js
+  var __iconNode12 = [
+    [
+      "path",
+      {
+        d: "m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3",
+        key: "wmoenq"
+      }
+    ],
+    ["path", { d: "M12 9v4", key: "juzpu7" }],
+    ["path", { d: "M12 17h.01", key: "p32p05" }]
+  ];
+  var TriangleAlert = createLucideIcon("triangle-alert", __iconNode12);
+
+  // node_modules/lucide-react/dist/esm/icons/users.js
+  var __iconNode13 = [
+    ["path", { d: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2", key: "1yyitq" }],
+    ["path", { d: "M16 3.128a4 4 0 0 1 0 7.744", key: "16gr8j" }],
+    ["path", { d: "M22 21v-2a4 4 0 0 0-3-3.87", key: "kshegd" }],
+    ["circle", { cx: "9", cy: "7", r: "4", key: "nufk8" }]
+  ];
+  var Users = createLucideIcon("users", __iconNode13);
+
+  // node_modules/lucide-react/dist/esm/icons/x.js
+  var __iconNode14 = [
+    ["path", { d: "M18 6 6 18", key: "1bl5f8" }],
+    ["path", { d: "m6 6 12 12", key: "d8bk6v" }]
+  ];
+  var X = createLucideIcon("x", __iconNode14);
+
+  // projects/forensicstudiesoption2/workspace/assignments/module1assignment-app.jsx
   var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
-  var IconStub = () => null;
-  var Shield = IconStub;
-  var Camera = IconStub;
-  var Users = IconStub;
-  var Search = IconStub;
-  var Map2 = IconStub;
-  var Package = IconStub;
-  var AlertTriangle = IconStub;
-  var CheckCircle2 = IconStub;
-  var Info = IconStub;
-  var Eye = IconStub;
-  var ChevronRight = IconStub;
-  var X = IconStub;
-  var FileText = IconStub;
-  var Crosshair = IconStub;
   function readModule1AssignmentState() {
     if (typeof window === "undefined") {
       return null;
@@ -21766,11 +21985,11 @@
     }
   }
   var App = () => {
-    const [persistedState] = (0, import_react.useState)(() => readModule1AssignmentState());
-    const [step, setStep] = (0, import_react.useState)((persistedState == null ? void 0 : persistedState.step) || "intro");
-    const [activeHotspot, setActiveHotspot] = (0, import_react.useState)((persistedState == null ? void 0 : persistedState.activeHotspot) || null);
-    const [securingAnswers, setSecuringAnswers] = (0, import_react.useState)(
-      (persistedState == null ? void 0 : persistedState.securingAnswers) && typeof persistedState.securingAnswers === "object" ? { r1: persistedState.securingAnswers.r1 || "", r2: persistedState.securingAnswers.r2 || "" } : { r1: "", r2: "" }
+    const [persistedState] = (0, import_react3.useState)(() => readModule1AssignmentState());
+    const [step, setStep] = (0, import_react3.useState)(persistedState?.step || "intro");
+    const [activeHotspot, setActiveHotspot] = (0, import_react3.useState)(persistedState?.activeHotspot || null);
+    const [securingAnswers, setSecuringAnswers] = (0, import_react3.useState)(
+      persistedState?.securingAnswers && typeof persistedState.securingAnswers === "object" ? { r1: persistedState.securingAnswers.r1 || "", r2: persistedState.securingAnswers.r2 || "" } : { r1: "", r2: "" }
     );
     const stepsData = [
       { name: "Securing", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Shield, { className: "w-8 h-8" }), key: "securing", hint: "Establishing the perimeter and log.", desc: "First responder's priority. Preserve life and protect the area." },
@@ -21781,29 +22000,29 @@
       { name: "Searching", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Search, { className: "w-8 h-8" }), key: "searching", hint: "Using a grid/spiral pattern for missed items.", desc: "Systematic physical search for all trace evidence." },
       { name: "Collecting", icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Package, { className: "w-8 h-8" }), key: "collecting", hint: "Packaging and labeling items correctly.", desc: "Maintaining the chain of custody." }
     ];
-    const [stepDescriptions, setStepDescriptions] = (0, import_react.useState)(
-      (persistedState == null ? void 0 : persistedState.stepDescriptions) && typeof persistedState.stepDescriptions === "object" ? persistedState.stepDescriptions : {}
+    const [stepDescriptions, setStepDescriptions] = (0, import_react3.useState)(
+      persistedState?.stepDescriptions && typeof persistedState.stepDescriptions === "object" ? persistedState.stepDescriptions : {}
     );
-    const [activeStepModal, setActiveStepModal] = (0, import_react.useState)((persistedState == null ? void 0 : persistedState.activeStepModal) || null);
-    const [safetyAnswers, setSafetyAnswers] = (0, import_react.useState)(
-      (persistedState == null ? void 0 : persistedState.safetyAnswers) && typeof persistedState.safetyAnswers === "object" ? {
+    const [activeStepModal, setActiveStepModal] = (0, import_react3.useState)(persistedState?.activeStepModal || null);
+    const [safetyAnswers, setSafetyAnswers] = (0, import_react3.useState)(
+      persistedState?.safetyAnswers && typeof persistedState.safetyAnswers === "object" ? {
         p1: persistedState.safetyAnswers.p1 || "",
         d1: persistedState.safetyAnswers.d1 || "",
         p2: persistedState.safetyAnswers.p2 || "",
         d2: persistedState.safetyAnswers.d2 || ""
       } : { p1: "", d1: "", p2: "", d2: "" }
     );
-    const [flashlightPos, setFlashlightPos] = (0, import_react.useState)(
-      (persistedState == null ? void 0 : persistedState.flashlightPos) && typeof persistedState.flashlightPos === "object" ? { x: Number(persistedState.flashlightPos.x) || 50, y: Number(persistedState.flashlightPos.y) || 50 } : { x: 50, y: 50 }
+    const [flashlightPos, setFlashlightPos] = (0, import_react3.useState)(
+      persistedState?.flashlightPos && typeof persistedState.flashlightPos === "object" ? { x: Number(persistedState.flashlightPos.x) || 50, y: Number(persistedState.flashlightPos.y) || 50 } : { x: 50, y: 50 }
     );
-    const [discoveredHazards, setDiscoveredHazards] = (0, import_react.useState)(
-      (persistedState == null ? void 0 : persistedState.discoveredHazards) && typeof persistedState.discoveredHazards === "object" ? {
+    const [discoveredHazards, setDiscoveredHazards] = (0, import_react3.useState)(
+      persistedState?.discoveredHazards && typeof persistedState.discoveredHazards === "object" ? {
         glass: Boolean(persistedState.discoveredHazards.glass),
         chemical: Boolean(persistedState.discoveredHazards.chemical)
       } : { glass: false, chemical: false }
     );
-    const roomRef = (0, import_react.useRef)(null);
-    (0, import_react.useEffect)(() => {
+    const roomRef = (0, import_react3.useRef)(null);
+    (0, import_react3.useEffect)(() => {
       writeModule1AssignmentState({
         step,
         activeHotspot,
@@ -21988,8 +22207,7 @@
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "bg-[#8b5a2b] p-8 rounded-xl border-[12px] border-[#5c3a21] shadow-inner relative min-h-[500px]", children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 opacity-20", style: { backgroundImage: `radial-gradient(#4a2f18 1px, transparent 1px)`, backgroundSize: "10px 10px" } }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "grid grid-cols-2 md:grid-cols-4 gap-6 relative z-10", children: stepsData.map((s, index) => {
-          var _a;
-          const isFilled = ((_a = stepDescriptions[s.key]) == null ? void 0 : _a.trim().length) > 5;
+          const isFilled = stepDescriptions[s.key]?.trim().length > 5;
           const rotation = index % 2 === 0 ? `rotate-${index % 3 + 1}` : `-rotate-${index % 3 + 1}`;
           return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
             "div",
@@ -22008,22 +22226,22 @@
                   ". ",
                   s.name
                 ] }),
-                isFilled && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute bottom-2 right-2 text-green-500", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CheckCircle2, { size: 16 }) })
+                isFilled && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute bottom-2 right-2 text-green-500", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, { size: 16 }) })
               ]
             },
             s.key
           );
         }) }),
-        activeStepModal && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "bg-yellow-100 p-8 rounded shadow-2xl max-w-lg w-full transform rotate-1 border border-yellow-300 relative", children: [
+        activeStepModal && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "assignment-step-note bg-yellow-100 p-8 rounded shadow-2xl max-w-lg w-full transform rotate-1 border border-yellow-300 relative", children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute top-4 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-red-600 shadow-md" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "absolute top-4 right-4 text-slate-500 hover:text-black", onClick: () => setActiveStepModal(null), children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(X, { size: 24 }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "assignment-step-note-close absolute top-4 right-4 text-slate-500 hover:text-black", onClick: () => setActiveStepModal(null), children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(X, { size: 24 }) }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h3", { className: "text-2xl font-black text-slate-800 mt-4 mb-2 border-b-2 border-slate-300 pb-2", children: [
             "Step ",
             stepsData.findIndex((s) => s.key === activeStepModal.key) + 1,
             ": ",
             activeStepModal.name
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "bg-yellow-200/50 p-3 rounded text-sm text-slate-700 font-mono mb-6 italic border-l-4 border-yellow-400", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "assignment-step-note-callout bg-yellow-200/50 p-3 rounded text-sm text-slate-700 font-mono mb-6 italic border-l-4 border-yellow-400", children: [
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Info, { size: 16, className: "inline mr-2 -mt-1" }),
             " Field Note: ",
             activeStepModal.hint
@@ -22032,7 +22250,7 @@
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
             "textarea",
             {
-              className: "w-full bg-transparent border-b-2 border-slate-400 focus:border-blue-600 outline-none text-slate-800 font-mono text-lg resize-none min-h-[120px] leading-relaxed",
+              className: "assignment-step-note-textarea w-full bg-transparent border-b-2 border-slate-400 focus:border-blue-600 outline-none text-slate-800 font-mono text-lg resize-none min-h-[120px] leading-relaxed",
               style: { backgroundImage: "repeating-linear-gradient(transparent, transparent 27px, #94a3b8 28px)", lineHeight: "28px", paddingTop: "2px" },
               placeholder: "Describe the objective of this step...",
               value: stepDescriptions[activeStepModal.key] || "",
@@ -22044,7 +22262,7 @@
             "button",
             {
               onClick: () => setActiveStepModal(null),
-              className: "px-6 py-2 bg-slate-800 text-white font-bold rounded hover:bg-slate-700 shadow",
+              className: "assignment-step-note-submit px-6 py-2 bg-slate-800 text-white font-bold rounded hover:bg-slate-700 shadow",
               children: "Pin to Board"
             }
           ) })
@@ -22061,7 +22279,7 @@
     const renderPart3 = () => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "max-w-5xl mx-auto p-8 bg-slate-900 rounded-2xl shadow-2xl border border-slate-700", children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "flex justify-between items-center mb-6", children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", { className: "text-3xl font-black text-white flex items-center gap-3", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "bg-red-500 text-slate-900 p-2 rounded-lg", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AlertTriangle, { size: 28 }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "bg-red-500 text-slate-900 p-2 rounded-lg", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TriangleAlert, { size: 28 }) }),
           "Phase 3: Safety & Hazards"
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "text-red-400 font-mono font-bold bg-red-400/10 px-4 py-2 rounded-lg border border-red-400/20", children: "3 MARKS" })
@@ -22196,7 +22414,7 @@
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { onClick: () => setStep("part2"), className: "px-8 py-4 text-slate-400 font-medium hover:bg-slate-800 rounded-xl transition-colors", children: "Back to Phase 2" }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", { onClick: () => setStep("final"), className: "px-8 py-4 bg-green-600 text-white font-black rounded-xl hover:bg-green-500 transition-colors shadow-[0_0_20px_rgba(22,163,74,0.4)] flex items-center gap-2", children: [
           "SUBMIT FINAL REPORT ",
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CheckCircle2, { size: 24 })
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, { size: 24 })
         ] })
       ] })
     ] });
@@ -22226,14 +22444,14 @@
             ] }) })
           ] }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: `p-6 rounded-xl border-2 ${safetyAnswers.p1 && safetyAnswers.p2 ? "border-green-500/50 bg-green-500/10" : "border-slate-700 bg-slate-800"}`, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AlertTriangle, { size: 24, className: `mx-auto mb-3 ${safetyAnswers.p1 && safetyAnswers.p2 ? "text-green-400" : "text-slate-500"}` }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TriangleAlert, { size: 24, className: `mx-auto mb-3 ${safetyAnswers.p1 && safetyAnswers.p2 ? "text-green-400" : "text-slate-500"}` }),
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "text-xs font-black uppercase text-slate-400 mb-1 tracking-widest", children: "Phase 3 (3 Marks)" }),
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "font-bold text-white text-lg", children: "Safety Log" }),
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "mt-2 text-sm font-medium", children: safetyAnswers.p1 && safetyAnswers.p2 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "text-green-400", children: "\u2705 Complete" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "text-yellow-400", children: "\u26A0\uFE0F Incomplete" }) })
           ] })
         ] }),
         !allDone && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mb-10 p-4 bg-yellow-500/10 text-yellow-400 border border-yellow-500/30 rounded-lg text-sm flex items-center gap-3 justify-center max-w-2xl mx-auto relative z-10", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AlertTriangle, { size: 20 }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TriangleAlert, { size: 20 }),
           " ",
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "Warning:" }),
           " Missing critical data. This report may be rejected by the prosecution."
@@ -22286,7 +22504,7 @@
   };
   var module1assignment_app_default = App;
 
-  // projects/forensics/workspace/assets/module1assignment-entry.jsx
+  // projects/forensicstudiesoption2/workspace/assignments/module1assignment-entry.jsx
   var import_jsx_runtime2 = __toESM(require_jsx_runtime(), 1);
   var rootNode = document.getElementById("root");
   if (rootNode) {
@@ -22348,5 +22566,31 @@ react/cjs/react-jsx-runtime.development.js:
    *
    * This source code is licensed under the MIT license found in the
    * LICENSE file in the root directory of this source tree.
+   *)
+
+lucide-react/dist/esm/shared/src/utils.js:
+lucide-react/dist/esm/defaultAttributes.js:
+lucide-react/dist/esm/Icon.js:
+lucide-react/dist/esm/createLucideIcon.js:
+lucide-react/dist/esm/icons/camera.js:
+lucide-react/dist/esm/icons/chevron-right.js:
+lucide-react/dist/esm/icons/circle-check.js:
+lucide-react/dist/esm/icons/crosshair.js:
+lucide-react/dist/esm/icons/eye.js:
+lucide-react/dist/esm/icons/file-text.js:
+lucide-react/dist/esm/icons/info.js:
+lucide-react/dist/esm/icons/map.js:
+lucide-react/dist/esm/icons/package.js:
+lucide-react/dist/esm/icons/search.js:
+lucide-react/dist/esm/icons/shield.js:
+lucide-react/dist/esm/icons/triangle-alert.js:
+lucide-react/dist/esm/icons/users.js:
+lucide-react/dist/esm/icons/x.js:
+lucide-react/dist/esm/lucide-react.js:
+  (**
+   * @license lucide-react v0.542.0 - ISC
+   *
+   * This source code is licensed under the ISC license.
+   * See the LICENSE file in the root directory of this source tree.
    *)
 */

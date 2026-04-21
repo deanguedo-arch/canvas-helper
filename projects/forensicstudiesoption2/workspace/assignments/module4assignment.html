@@ -82,8 +82,10 @@
             select { border: 1px solid #000; }
         }
     </style>
+  <link href="./forensic-assignment-theme.css?rev=20260421-4" rel="stylesheet" />
+  <script src="./forensic-assignment-print.js?rev=20260421-1"></script>
 </head>
-<body class="min-h-screen">
+<body class="min-h-screen forensic-assignment-theme">
 
     <!-- Header -->
     <header class="sticky top-0 z-50 glass border-b border-slate-700 px-6 py-4 flex justify-between items-center no-print">
@@ -456,6 +458,73 @@
     </footer>
 
     <script>
+        const MODULE4_ASSIGNMENT_STORAGE_KEY = "forensics::module4assignment::v1";
+
+        function readModule4AssignmentState() {
+            try {
+                const raw = window.localStorage.getItem(MODULE4_ASSIGNMENT_STORAGE_KEY);
+                if (!raw) return null;
+                const parsed = JSON.parse(raw);
+                return parsed && typeof parsed === "object" ? parsed : null;
+            } catch (_error) {
+                return null;
+            }
+        }
+
+        function writeModule4AssignmentState(state) {
+            try {
+                window.localStorage.setItem(MODULE4_ASSIGNMENT_STORAGE_KEY, JSON.stringify(state));
+            } catch (_error) {
+                // Ignore storage write failures in locked/private contexts.
+            }
+        }
+
+        function getPersistedFields() {
+            return Array.from(document.querySelectorAll("textarea, select"));
+        }
+
+        function assignPersistKeys() {
+            getPersistedFields().forEach((field, index) => {
+                if (!field.dataset.persistKey) {
+                    field.dataset.persistKey = `field-${index + 1}`;
+                }
+            });
+        }
+
+        function collectModule4State() {
+            const fields = {};
+            getPersistedFields().forEach((field) => {
+                const key = field.dataset.persistKey;
+                if (!key) return;
+                fields[key] = field.value ?? "";
+            });
+
+            const activeModule = Array.from(document.querySelectorAll(".module")).find((node) => !node.classList.contains("hidden"))?.id || "mod-general";
+            return { activeModule, fields };
+        }
+
+        function persistModule4State() {
+            writeModule4AssignmentState(collectModule4State());
+        }
+
+        function restoreModule4State() {
+            const persistedState = readModule4AssignmentState();
+            if (!persistedState || typeof persistedState !== "object") {
+                showModule("general");
+                return;
+            }
+
+            const fieldValues = persistedState.fields && typeof persistedState.fields === "object" ? persistedState.fields : {};
+            getPersistedFields().forEach((field) => {
+                const key = field.dataset.persistKey;
+                if (!key || !(key in fieldValues)) return;
+                field.value = fieldValues[key] ?? "";
+            });
+
+            const activeModule = String(persistedState.activeModule || "mod-general").replace(/^mod-/, "");
+            showModule(activeModule, { skipPersist: true });
+        }
+
         function escapeHtml(value) {
             return String(value ?? "")
                 .replace(/&/g, "&amp;")
@@ -608,7 +677,8 @@
                             body { margin: 18px; }
                         }
                     </style>
-                </head>
+                  <link href="./forensic-assignment-theme.css?rev=20260421-4" rel="stylesheet" />
+</head>
                 <body>
                     <header class="report-header">
                         <h1>Forensic Analysis Lab Report</h1>
@@ -644,13 +714,16 @@
             printFrame.srcdoc = reportHtml;
         }
 
-        function showModule(modId) {
+        function showModule(modId, options = {}) {
             document.querySelectorAll('.module').forEach(m => m.classList.add('hidden'));
             document.querySelectorAll('nav button').forEach(b => b.classList.remove('card-active', 'bg-slate-800'));
             const targetMod = document.getElementById('mod-' + modId);
             const targetBtn = document.getElementById('btn-' + modId);
             if(targetMod) targetMod.classList.remove('hidden');
             if(targetBtn) targetBtn.classList.add('card-active', 'bg-slate-800');
+            if (!options.skipPersist) {
+                persistModule4State();
+            }
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -666,8 +739,21 @@
             if(bar) bar.style.width = progress + '%';
         }
 
-        document.addEventListener('input', updateProgress);
-        window.onload = updateProgress;
+        document.addEventListener('input', () => {
+            persistModule4State();
+            updateProgress();
+        });
+        document.addEventListener('change', () => {
+            persistModule4State();
+            updateProgress();
+        });
+        window.onload = () => {
+            assignPersistKeys();
+            restoreModule4State();
+            updateProgress();
+        };
     </script>
 </body>
 </html>
+
+

@@ -21719,11 +21719,11 @@
     }
   });
 
-  // projects/forensics/workspace/assets/module7assignment-entry.jsx
+  // projects/forensicstudiesoption2/workspace/assignments/module7assignment-entry.jsx
   var import_react4 = __toESM(require_react(), 1);
   var import_client = __toESM(require_client(), 1);
 
-  // projects/forensics/workspace/assets/module7assignment-app.jsx
+  // projects/forensicstudiesoption2/workspace/assignments/module7assignment-app.jsx
   var import_react3 = __toESM(require_react(), 1);
 
   // node_modules/lucide-react/dist/esm/createLucideIcon.js
@@ -21956,7 +21956,7 @@
   ];
   var Zap = createLucideIcon("zap", __iconNode14);
 
-  // projects/forensics/workspace/assets/module7assignment-app.jsx
+  // projects/forensicstudiesoption2/workspace/assignments/module7assignment-app.jsx
   var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
   var INITIAL_ANSWERS = {
     q1_rflp_cells: "100,000+ cells (size of a quarter)",
@@ -22176,6 +22176,7 @@
       return isNear(evidence[key].x, evidence[key].y) ? "pointer-events-auto cursor-pointer" : "pointer-events-none";
     };
     const sceneDarkness = cabinLight ? "rgba(2, 6, 23, 0.38)" : "rgba(0, 0, 0, 0.88)";
+    const gunVisible = isNear(evidence.gun.x, evidence.gun.y) || discovered.gun || cabinLight;
     return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "space-y-12 max-w-7xl mx-auto", children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "bg-white rounded-[2.5rem] border border-slate-200 shadow-sm overflow-hidden", children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "bg-indigo-600 px-8 py-5 text-white flex items-center gap-3", children: [
@@ -22296,7 +22297,7 @@
                     e.stopPropagation();
                     capture("bandanas", evidence.bandanas.message);
                   },
-                  className: `absolute w-24 h-24 transform -translate-x-1/2 -translate-y-1/2 z-30 ${getEvidenceButtonState("bandanas")}`,
+                  className: `assignment-scene-hitbox absolute w-24 h-24 transform -translate-x-1/2 -translate-y-1/2 z-30 ${getEvidenceButtonState("bandanas")}`,
                   style: { top: `${evidence.bandanas.y}%`, left: `${evidence.bandanas.x}%` },
                   "aria-label": "Recover bandanas"
                 }
@@ -22307,8 +22308,8 @@
                   className: "absolute transform -translate-x-1/2 -translate-y-1/2 transition-opacity duration-300 z-10 rotate-12",
                   style: { top: `${evidence.gun.y}%`, left: `${evidence.gun.x}%`, opacity: getEvidenceOpacity("gun") },
                   children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: "84", height: "54", viewBox: "0 0 84 54", children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M15 25 h32 v-12 h23 v8 h-14 v19 h-12 l-11 -9 h-18 z", fill: "#1f2937", stroke: "#020617", strokeWidth: "2" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M48 13 l11 -7 h9 v7 z", fill: "#334155", opacity: "0.7" })
+                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M15 25 h32 v-12 h23 v8 h-14 v19 h-12 l-11 -9 h-18 z", fill: gunVisible ? "#cbd5e1" : "#1f2937", stroke: gunVisible ? "#94a3b8" : "#020617", strokeWidth: "2" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M48 13 l11 -7 h9 v7 z", fill: gunVisible ? "#e2e8f0" : "#334155", opacity: gunVisible ? "1" : "0.7" })
                   ] })
                 }
               ),
@@ -22319,7 +22320,7 @@
                     e.stopPropagation();
                     capture("gun", evidence.gun.message);
                   },
-                  className: `absolute w-24 h-24 transform -translate-x-1/2 -translate-y-1/2 z-30 ${getEvidenceButtonState("gun")}`,
+                  className: `assignment-scene-hitbox absolute w-24 h-24 transform -translate-x-1/2 -translate-y-1/2 z-30 ${getEvidenceButtonState("gun")}`,
                   style: { top: `${evidence.gun.y}%`, left: `${evidence.gun.x}%` },
                   "aria-label": "Recover handgun"
                 }
@@ -22343,7 +22344,7 @@
                     e.stopPropagation();
                     capture("cash", evidence.cash.message);
                   },
-                  className: `absolute w-24 h-24 transform -translate-x-1/2 -translate-y-1/2 z-30 ${getEvidenceButtonState("cash")}`,
+                  className: `assignment-scene-hitbox absolute w-24 h-24 transform -translate-x-1/2 -translate-y-1/2 z-30 ${getEvidenceButtonState("cash")}`,
                   style: { top: `${evidence.cash.y}%`, left: `${evidence.cash.x}%` },
                   "aria-label": "Recover bank bag"
                 }
@@ -22487,7 +22488,7 @@
     ] });
   };
   var FinalReport = ({ answers, discovered }) => {
-    const escapeHtml = (value) => String(value != null ? value : "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+    const escapeHtml = (value) => String(value ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
     const handleExport = () => {
       const generatedAt = (/* @__PURE__ */ new Date()).toLocaleString();
       const evidenceRows = [
@@ -22604,16 +22605,15 @@
     ] });
   };
   function App() {
-    var _a;
     const [persistedState] = (0, import_react3.useState)(() => readModule7AssignmentState());
-    const [activeTab, setActiveTab] = (0, import_react3.useState)((persistedState == null ? void 0 : persistedState.activeTab) || "theory");
+    const [activeTab, setActiveTab] = (0, import_react3.useState)(persistedState?.activeTab || "theory");
     const [answers, setAnswers] = (0, import_react3.useState)(
-      (persistedState == null ? void 0 : persistedState.answers) && typeof persistedState.answers === "object" ? { ...INITIAL_ANSWERS, ...persistedState.answers } : INITIAL_ANSWERS
+      persistedState?.answers && typeof persistedState.answers === "object" ? { ...INITIAL_ANSWERS, ...persistedState.answers } : INITIAL_ANSWERS
     );
-    const [isSidebarCollapsed, setIsSidebarCollapsed] = (0, import_react3.useState)(Boolean(persistedState == null ? void 0 : persistedState.isSidebarCollapsed));
+    const [isSidebarCollapsed, setIsSidebarCollapsed] = (0, import_react3.useState)(Boolean(persistedState?.isSidebarCollapsed));
     const [isMobileMenuOpen, setIsMobileMenuOpen] = (0, import_react3.useState)(false);
     const [caseEvidence, setCaseEvidence] = (0, import_react3.useState)(
-      (persistedState == null ? void 0 : persistedState.caseEvidence) && typeof persistedState.caseEvidence === "object" ? {
+      persistedState?.caseEvidence && typeof persistedState.caseEvidence === "object" ? {
         bandanas: Boolean(persistedState.caseEvidence.bandanas),
         gun: Boolean(persistedState.caseEvidence.gun),
         cash: Boolean(persistedState.caseEvidence.cash)
@@ -22704,7 +22704,7 @@
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("main", { className: "flex-grow overflow-y-auto h-screen relative bg-slate-50 w-full", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "p-10 pt-24 md:pt-24 md:p-24 max-w-7xl mx-auto pb-48", children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("header", { className: "mb-20 flex flex-col md:flex-row md:items-end justify-between gap-12 border-b border-slate-200 pb-12", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "text-[10px] font-black text-indigo-600 uppercase tracking-[0.6em] mb-4 italic", children: "Case Analysis 882-B" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "text-5xl md:text-7xl font-black text-slate-900 tracking-tighter uppercase italic break-words", children: (_a = tabs.find((t) => t.id === activeTab)) == null ? void 0 : _a.label })
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "text-5xl md:text-7xl font-black text-slate-900 tracking-tighter uppercase italic break-words", children: tabs.find((t) => t.id === activeTab)?.label })
         ] }) }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "animate-in fade-in slide-in-from-bottom-16 duration-1000", children: [
           activeTab === "theory" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TheoryLab, { answers, setAnswers }),
@@ -22716,7 +22716,7 @@
     ] });
   }
 
-  // projects/forensics/workspace/assets/module7assignment-entry.jsx
+  // projects/forensicstudiesoption2/workspace/assignments/module7assignment-entry.jsx
   var import_jsx_runtime2 = __toESM(require_jsx_runtime(), 1);
   var rootNode = document.getElementById("root");
   if (rootNode) {

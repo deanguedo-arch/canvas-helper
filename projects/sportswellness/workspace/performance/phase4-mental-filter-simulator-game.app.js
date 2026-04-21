@@ -1,4 +1,5 @@
 const { useState, useEffect, useCallback, useRef } = React;
+const { useArenaScale, scaleValue } = window.PerformanceGameScale;
 
 function IconBase({ size = 18, className = '', viewBox = '0 0 24 24', children, fill = 'none' }) {
   return (
@@ -75,6 +76,7 @@ function MentalFilterSimulatorGame() {
   const timeRef = useRef(0);
   const audioCtxRef = useRef(null);
   const confidenceRef = useRef(START_CONFIDENCE);
+  const { stageRef: arenaRef, scale: arenaScale } = useArenaScale(ARENA_SIZE, { minScale: 0.92, maxScale: 1.65 });
 
   useEffect(() => {
     confidenceRef.current = confidence;
@@ -379,12 +381,19 @@ function MentalFilterSimulatorGame() {
     }
     .shake-severe { animation: tacticalShake 0.15s infinite; }
   `;
+  const outerRingSize = scaleValue(800, arenaScale, { min: 420, max: 1320 });
+  const middleRingSize = scaleValue(500, arenaScale, { min: 280, max: 820 });
+  const innerRingSize = scaleValue(250, arenaScale, { min: 150, max: 420 });
+  const coreDiameter = scaleValue(CORE_RADIUS * 2, arenaScale, { min: 96, max: 220 });
+  const coreIconSize = scaleValue(24, arenaScale, { min: 20, max: 44 });
+  const coreLabelSize = scaleValue(10, arenaScale, { min: 9, max: 18 });
+  const transactionScale = Math.max(0.92, Math.min(1.45, arenaScale));
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 font-sans p-0 md:p-8 flex items-center justify-center selection:bg-lime-400 selection:text-black">
+    <div className="min-h-screen bg-zinc-950 text-zinc-100 font-sans p-0 md:p-4 xl:p-6 selection:bg-lime-400 selection:text-black">
       <style>{shakeCSS}</style>
 
-      <div className={`max-w-5xl w-full bg-zinc-900 md:rounded-xl shadow-2xl overflow-hidden border border-zinc-800 flex flex-col relative ${isShaking ? 'shake-severe border-red-500 shadow-[0_0_50px_rgba(239,68,68,0.4)]' : ''}`}>
+      <div className={`w-full min-h-screen md:min-h-[calc(100vh-32px)] bg-zinc-900 md:rounded-xl shadow-2xl overflow-hidden border border-zinc-800 flex flex-col relative ${isShaking ? 'shake-severe border-red-500 shadow-[0_0_50px_rgba(239,68,68,0.4)]' : ''}`}>
         <div className="bg-black p-4 border-b border-zinc-800 flex flex-col md:flex-row justify-between items-center gap-4 relative z-50">
           <div className="flex items-center gap-3">
             <Database className="text-lime-400 w-6 h-6" />
@@ -419,18 +428,18 @@ function MentalFilterSimulatorGame() {
           )}
         </div>
 
-        <div className="relative h-[650px] w-full bg-zinc-950 overflow-hidden select-none">
+        <div ref={arenaRef} className="relative w-full bg-zinc-950 overflow-hidden select-none flex-1 min-h-[420px] md:min-h-[700px]">
           <div className="absolute inset-0 opacity-20 pointer-events-none">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border border-zinc-700" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-zinc-700" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] rounded-full border border-zinc-700 border-dashed" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-zinc-700" style={{ width: `${outerRingSize}px`, height: `${outerRingSize}px` }} />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-zinc-700" style={{ width: `${middleRingSize}px`, height: `${middleRingSize}px` }} />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-zinc-700 border-dashed" style={{ width: `${innerRingSize}px`, height: `${innerRingSize}px` }} />
             <div className="absolute top-0 bottom-0 left-1/2 w-px bg-zinc-700" />
             <div className="absolute left-0 right-0 top-1/2 h-px bg-zinc-700" />
           </div>
 
-          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120px] h-[120px] rounded-full border-4 ${coreColor} ${coreBg} flex flex-col items-center justify-center shadow-[0_0_30px_currentColor] transition-all duration-300 z-10 backdrop-blur-sm`}>
-            <BrainCircuit className="mb-1 opacity-80" size={24} />
-            <span className="text-[10px] font-black uppercase tracking-widest text-center leading-tight">
+          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 ${coreColor} ${coreBg} flex flex-col items-center justify-center shadow-[0_0_30px_currentColor] transition-all duration-300 z-10 backdrop-blur-sm`} style={{ width: `${coreDiameter}px`, height: `${coreDiameter}px` }}>
+            <BrainCircuit className="mb-1 opacity-80" size={coreIconSize} />
+            <span className="font-black uppercase tracking-widest text-center leading-tight" style={{ fontSize: `${coreLabelSize}px` }}>
               Identity<br />Core
             </span>
           </div>
@@ -439,8 +448,13 @@ function MentalFilterSimulatorGame() {
             transaction.status !== 'incoming' ? null : (
               <div
                 key={transaction.id}
-                className="absolute transform -translate-x-1/2 -translate-y-1/2 p-3 border border-zinc-600/50 bg-zinc-900/95 shadow-[0_0_15px_rgba(0,0,0,0.5)] flex flex-col items-center gap-2 backdrop-blur z-20 rounded min-w-[160px]"
-                style={{ left: `${(transaction.x / ARENA_SIZE.w) * 100}%`, top: `${(transaction.y / ARENA_SIZE.h) * 100}%` }}
+                className="absolute p-3 border border-zinc-600/50 bg-zinc-900/95 shadow-[0_0_15px_rgba(0,0,0,0.5)] flex flex-col items-center gap-2 backdrop-blur z-20 rounded min-w-[160px]"
+                style={{
+                  left: `${(transaction.x / ARENA_SIZE.w) * 100}%`,
+                  top: `${(transaction.y / ARENA_SIZE.h) * 100}%`,
+                  minWidth: `${scaleValue(160, transactionScale, { min: 150, max: 260 })}px`,
+                  transform: `translate(-50%, -50%) scale(${transactionScale})`
+                }}
               >
                 <div className="font-mono text-xs uppercase tracking-wider font-bold text-zinc-100 text-center px-2">
                   "{transaction.text}"
@@ -467,8 +481,12 @@ function MentalFilterSimulatorGame() {
           {feedback && (
             <div
               key={feedback.id}
-              className={`absolute transform -translate-x-1/2 -translate-y-1/2 text-sm md:text-base font-black ${feedback.color} drop-shadow-[0_5px_10px_rgba(0,0,0,0.8)] uppercase tracking-widest pointer-events-none z-50 animate-bounce whitespace-nowrap bg-black/50 px-3 py-1 rounded`}
-              style={{ left: `${(feedback.x / ARENA_SIZE.w) * 100}%`, top: `${(feedback.y / ARENA_SIZE.h) * 100}%` }}
+              className={`absolute text-sm md:text-base font-black ${feedback.color} drop-shadow-[0_5px_10px_rgba(0,0,0,0.8)] uppercase tracking-widest pointer-events-none z-50 animate-bounce whitespace-nowrap bg-black/50 px-3 py-1 rounded`}
+              style={{
+                left: `${(feedback.x / ARENA_SIZE.w) * 100}%`,
+                top: `${(feedback.y / ARENA_SIZE.h) * 100}%`,
+                transform: `translate(-50%, -50%) scale(${Math.max(0.95, Math.min(1.25, arenaScale))})`
+              }}
             >
               {feedback.msg}
             </div>

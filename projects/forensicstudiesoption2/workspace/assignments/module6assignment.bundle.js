@@ -21719,13 +21719,38 @@
     }
   });
 
-  // projects/forensics/workspace/assets/module6assignment-entry.jsx
+  // projects/forensicstudiesoption2/workspace/assignments/module6assignment-entry.jsx
   var import_react2 = __toESM(require_react(), 1);
   var import_client = __toESM(require_client(), 1);
 
-  // projects/forensics/workspace/assets/module6assignment-app.jsx
+  // projects/forensicstudiesoption2/workspace/assignments/module6assignment-app.jsx
   var import_react = __toESM(require_react(), 1);
   var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
+  var MODULE6_ASSIGNMENT_STORAGE_KEY = "forensics::module6assignment::v1";
+  function readModule6AssignmentState() {
+    if (typeof window === "undefined") {
+      return null;
+    }
+    try {
+      const raw = window.localStorage.getItem(MODULE6_ASSIGNMENT_STORAGE_KEY);
+      if (!raw) {
+        return null;
+      }
+      const parsed = JSON.parse(raw);
+      return parsed && typeof parsed === "object" ? parsed : null;
+    } catch (_error) {
+      return null;
+    }
+  }
+  function writeModule6AssignmentState(state) {
+    if (typeof window === "undefined") {
+      return;
+    }
+    try {
+      window.localStorage.setItem(MODULE6_ASSIGNMENT_STORAGE_KEY, JSON.stringify(state));
+    } catch (_error) {
+    }
+  }
   var IconStub = () => null;
   var Activity = IconStub;
   var BookOpen = IconStub;
@@ -21767,10 +21792,9 @@
     q8_research_conclusion: "",
     q8_research_sources: ""
   };
-  var PolygraphLab = () => {
+  var PolygraphLab = ({ history, setHistory }) => {
     const canvasRef = (0, import_react.useRef)(null);
     const [activeQuestion, setActiveQuestion] = (0, import_react.useState)(null);
-    const [history, setHistory] = (0, import_react.useState)([]);
     const [isExamining, setIsExamining] = (0, import_react.useState)(false);
     const timeRef = (0, import_react.useRef)(0);
     const stressLevelRef = (0, import_react.useRef)(0.2);
@@ -21974,8 +21998,7 @@
       ] })
     ] })
   ] });
-  var HandwritingLab = () => {
-    const [selectedSuspect, setSelectedSuspect] = (0, import_react.useState)(4);
+  var HandwritingLab = ({ selectedSuspect, setSelectedSuspect }) => {
     const suspects = [
       { id: 1, desc: "Slanted heavily to the right, thick pen pressure, tightly closed loops.", handwritingClass: "font-serif italic tracking-tighter" },
       { id: 2, desc: "Small, upright print mixed with cursive. Very neat and controlled.", handwritingClass: "font-sans text-sm tracking-wide" },
@@ -22174,8 +22197,25 @@
     ] });
   };
   function App() {
-    const [activeTab, setActiveTab] = (0, import_react.useState)("polygraph");
-    const [answers, setAnswers] = (0, import_react.useState)(INITIAL_ANSWERS);
+    const [persistedState] = (0, import_react.useState)(() => readModule6AssignmentState());
+    const [activeTab, setActiveTab] = (0, import_react.useState)(persistedState?.activeTab || "polygraph");
+    const [answers, setAnswers] = (0, import_react.useState)(
+      persistedState?.answers && typeof persistedState.answers === "object" ? { ...INITIAL_ANSWERS, ...persistedState.answers } : INITIAL_ANSWERS
+    );
+    const [polygraphHistory, setPolygraphHistory] = (0, import_react.useState)(
+      Array.isArray(persistedState?.polygraphHistory) ? persistedState.polygraphHistory : []
+    );
+    const [selectedSuspect, setSelectedSuspect] = (0, import_react.useState)(
+      Number.isFinite(Number(persistedState?.selectedSuspect)) ? Number(persistedState.selectedSuspect) : 4
+    );
+    (0, import_react.useEffect)(() => {
+      writeModule6AssignmentState({
+        activeTab,
+        answers,
+        polygraphHistory,
+        selectedSuspect
+      });
+    }, [activeTab, answers, polygraphHistory, selectedSuspect]);
     const tabs = [
       { id: "polygraph", label: "Polygraph Lab", icon: Activity },
       { id: "cases", label: "Case Files", icon: BookOpen },
@@ -22245,16 +22285,16 @@
           )
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "animate-in fade-in slide-in-from-bottom-4 duration-500", children: [
-          activeTab === "polygraph" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PolygraphLab, {}),
+          activeTab === "polygraph" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PolygraphLab, { history: polygraphHistory, setHistory: setPolygraphHistory }),
           activeTab === "cases" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CaseFiles, {}),
-          activeTab === "handwriting" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(HandwritingLab, {}),
+          activeTab === "handwriting" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(HandwritingLab, { selectedSuspect, setSelectedSuspect }),
           activeTab === "report" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FinalReport, { answers, setAnswers })
         ] })
       ] }) })
     ] });
   }
 
-  // projects/forensics/workspace/assets/module6assignment-entry.jsx
+  // projects/forensicstudiesoption2/workspace/assignments/module6assignment-entry.jsx
   var import_jsx_runtime2 = __toESM(require_jsx_runtime(), 1);
   var rootNode = document.getElementById("root");
   if (rootNode) {
