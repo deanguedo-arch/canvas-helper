@@ -10,8 +10,10 @@ const disciplineGameHtmlPath = path.resolve("projects/sportswellness/workspace/p
 const disciplineGameAppPath = path.resolve("projects/sportswellness/workspace/performance/phase2-discipline-game.app.js");
 const gameHtmlPath = path.resolve("projects/sportswellness/workspace/performance/phase3-focus-game.html");
 const gameAppPath = path.resolve("projects/sportswellness/workspace/performance/phase3-focus-game.app.js");
+const phase4GameHtmlPath = path.resolve("projects/sportswellness/workspace/performance/phase4-mental-filter-simulator-game.html");
+const phase4GameAppPath = path.resolve("projects/sportswellness/workspace/performance/phase4-mental-filter-simulator-game.app.js");
 
-test("sportswellness performance section exposes the Phase 1, Phase 2, and Phase 3 tool menu", async () => {
+test("sportswellness performance section exposes the Phase 1, Phase 2, Phase 3, and Phase 4 tool menu", async () => {
   const source = await readFile(mainPath, "utf8");
 
   const expectedSnippets = [
@@ -25,6 +27,9 @@ test("sportswellness performance section exposes the Phase 1, Phase 2, and Phase
     "id: 'phase3-focus-game'",
     "title: 'Phase 3 Focus Game'",
     "viewerSrc: './performance/phase3-focus-game.html'",
+    "id: 'phase4-mental-filter-simulator-game'",
+    "title: 'Phase 4 Mental Filter Simulator Game'",
+    "viewerSrc: './performance/phase4-mental-filter-simulator-game.html'",
     "activePerformanceToolId",
     "function openPerformanceTool(id)",
     "data-performance-tool-id",
@@ -94,6 +99,42 @@ test("sportswellness phase 2 discipline game page files exist and carry the impo
     "Failure Processing",
     "Integrated",
     "Discipline"
+  ];
+
+  for (const snippet of expectedHtmlSnippets) {
+    assert.match(html, new RegExp(snippet.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  }
+
+  for (const snippet of expectedAppSnippets) {
+    assert.match(app, new RegExp(snippet.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  }
+});
+
+test("sportswellness phase 4 mental filter simulator files exist and carry the imported simulator identity", async () => {
+  await access(phase4GameHtmlPath);
+  await access(phase4GameAppPath);
+
+  const [html, app] = await Promise.all([
+    readFile(phase4GameHtmlPath, "utf8"),
+    readFile(phase4GameAppPath, "utf8")
+  ]);
+
+  const expectedHtmlSnippets = [
+    "Phase 4 Mental Filter Simulator Game",
+    "phase4-mental-filter-simulator-game.app.js",
+    "@babel/standalone",
+    "<div id=\"root\"></div>"
+  ];
+
+  const expectedAppSnippets = [
+    "Mental Filter System v1.0",
+    "Identity Collapse",
+    "Initialize Filter",
+    "Robust Confidence",
+    "Confidence Account",
+    "WITHDRAWAL_DIRECT_CHANCE",
+    "movementProfile",
+    "transaction.movementProfile === 'erratic'"
   ];
 
   for (const snippet of expectedHtmlSnippets) {

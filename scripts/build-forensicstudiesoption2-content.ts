@@ -48,6 +48,7 @@ type AssignmentBrief = {
 };
 
 type LessonCard = {
+  componentId: string;
   title: string;
   kindLabel: string;
   sourceRelativePath?: string;
@@ -520,6 +521,15 @@ function escapeHtml(value: string): string {
     .replace(/'/g, "&#39;");
 }
 
+function toComponentId(value: string, index: number): string {
+  const base = String(value || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .replace(/-{2,}/g, "-");
+  return `component-${index + 1}${base ? `-${base}` : ""}`;
+}
+
 function normalizeSourceText(value: string): string {
   const raw = String(value || "");
   const repairCandidate = /[ÃâÂ]/.test(raw)
@@ -647,6 +657,7 @@ async function expandLesson(resourceRelativePath: string, title: string): Promis
 
   if (!existingRelative) {
     return {
+      componentId: "",
       title,
       kindLabel: "Reading",
       sourceRelativePath,
@@ -659,6 +670,7 @@ async function expandLesson(resourceRelativePath: string, title: string): Promis
   const bodyHtml = rewriteHtmlAssetLinks(rawHtml, existingRelative);
 
   return {
+    componentId: "",
     title,
     kindLabel: /\.pdf$/i.test(existingRelative) ? "Document" : "Reading",
     sourceRelativePath: existingRelative,
@@ -827,7 +839,7 @@ async function buildRetainedAssignmentBriefs(
   return briefs.filter(Boolean);
 }
 
-function renderLessonCards(lessons: LessonCard[]): string {
+function renderLessonCards(chapterId: string, lessons: LessonCard[]): string {
   if (!lessons.length) {
     return `<div class="empty-state">This module did not retain any expanded lesson pages in the export bundle.</div>`;
   }
@@ -837,7 +849,7 @@ function renderLessonCards(lessons: LessonCard[]): string {
       ${lessons
         .map(
           (lesson, index) => `
-            <article class="sequence-card lesson-card">
+            <article class="sequence-card lesson-card" data-module-component-id="${escapeHtml(lesson.componentId)}" data-progress-state="${index === 0 ? "active" : "locked"}">
               <div class="sequence-top">
                 <span class="sequence-number">${index + 1}</span>
                 <div>
@@ -850,6 +862,17 @@ function renderLessonCards(lessons: LessonCard[]): string {
                   ? `<div class="lesson-body">${lesson.bodyHtml}</div>`
                   : `<p class="lesson-source-note">The original export references this lesson, but the source HTML was not retained in the resource bundle.</p>`
               }
+              <div class="lesson-progress-footer" data-progress-footer>
+                <div class="lesson-progress-copy" data-progress-copy>
+                  <span class="lesson-progress-label">Module progression</span>
+                  <p class="lesson-progress-note">Complete this component to unlock the next lesson card and move toward the module quiz and assignment.</p>
+                </div>
+                <div class="lesson-progress-actions" data-progress-actions>
+                  <button class="action-link secondary" type="button" data-mark-complete="${escapeHtml(lesson.componentId)}">Mark Complete</button>
+                  <button class="action-link" type="button" data-mark-complete-next="${escapeHtml(lesson.componentId)}">Mark Complete + Next</button>
+                </div>
+                <span class="lesson-progress-complete" data-progress-complete hidden>Complete</span>
+              </div>
             </article>
           `
         )
@@ -866,6 +889,7 @@ function renderChapterPage(params: {
   quiz?: Record<string, any>;
 }) {
   const { chapter, lessons } = params;
+  const componentIds = lessons.map((lesson) => lesson.componentId).filter(Boolean);
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -878,7 +902,7 @@ function renderChapterPage(params: {
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Noto+Serif:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../module-index.css" />
 </head>
-<body>
+<body data-project-slug="${escapeHtml(PROJECT_SLUG)}" data-chapter-id="${escapeHtml(String(chapter.id || ""))}">
   <main class="module-page" style="--gold:${escapeHtml(chapter.accent || "#22d3ee")}; --line-strong:${escapeHtml(chapter.accent || "#22d3ee")};">
     <section class="module-hero">
       <span class="eyebrow">${escapeHtml(chapter.code || `Chapter ${chapter.number || ""}`)}</span>
@@ -894,10 +918,129 @@ function renderChapterPage(params: {
         </div>
         <p class="section-copy">Retained lesson content from the original Forensics module.</p>
       </div>
-      ${renderLessonCards(lessons)}
+      ${renderLessonCards(String(chapter.id || ""), lessons)}
     </section>
   </main>
   <script>
+    const chapterId = document.body.dataset.chapterId || "";
+    const componentIds = ${JSON.stringify(componentIds)};
+    let completionState = Object.create(null);
+
+    function getLessonCards() {
+      return Array.from(document.querySelectorAll("[data-module-component-id]"));
+    }
+
+    function getComponentId(card) {
+      return card?.dataset?.moduleComponentId || "";
+    }
+
+    function getNextIncompleteComponentId() {
+      return componentIds.find((componentId) => !completionState[componentId]) || "";
+    }
+
+    function isComponentReachable(componentId) {
+      const nextIncomplete = getNextIncompleteComponentId();
+      return !nextIncomplete || completionState[componentId] || nextIncomplete === componentId;
+    }
+
+    function scrollToComponent(componentId) {
+      if (!componentId) return;
+      const card = document.querySelector('[data-module-component-id="' + componentId.replace(/"/g, '\\"') + '"]');
+      if (!card) return;
+      card.scrollIntoView({ behavior: "smooth", block: "start" });
+      const button = card.querySelector("[data-mark-complete-next], [data-mark-complete]");
+      button?.focus({ preventScroll: true });
+    }
+
+    function syncCardState() {
+      const nextIncomplete = getNextIncompleteComponentId();
+      getLessonCards().forEach((card) => {
+        const componentId = getComponentId(card);
+        const complete = !!completionState[componentId];
+        const reachable = isComponentReachable(componentId);
+        const isLast = componentIds[componentIds.length - 1] === componentId;
+        const state = complete ? "complete" : reachable ? "active" : "locked";
+        const footer = card.querySelector("[data-progress-footer]");
+        const progressCopy = card.querySelector("[data-progress-copy]");
+        const actions = card.querySelector("[data-progress-actions]");
+        const completeBadge = card.querySelector("[data-progress-complete]");
+        card.dataset.progressState = state;
+        card.classList.toggle("is-complete", complete);
+        card.classList.toggle("is-active", state === "active");
+        card.classList.toggle("is-locked", state === "locked");
+
+        const buttons = Array.from(card.querySelectorAll("[data-mark-complete], [data-mark-complete-next]"));
+        buttons.forEach((button) => {
+          button.disabled = state === "locked" || complete;
+        });
+
+        if (footer) {
+          footer.hidden = complete && !isLast;
+        }
+        if (progressCopy) {
+          progressCopy.hidden = complete && isLast;
+        }
+        if (actions) {
+          actions.hidden = state !== "active";
+        }
+        if (completeBadge) {
+          completeBadge.hidden = !(complete && isLast);
+        }
+      });
+
+      document.body.dataset.nextIncompleteComponentId = nextIncomplete || "";
+    }
+
+    function postProgressReady() {
+      window.parent?.postMessage({
+        type: "forensicstudiesoption2-module-progress-ready",
+        chapterId,
+        componentIds
+      }, "*");
+    }
+
+    function postProgressUpdate(componentId, focusNext) {
+      window.parent?.postMessage({
+        type: "forensicstudiesoption2-module-progress-update",
+        chapterId,
+        componentId,
+        complete: true,
+        focusNext: !!focusNext
+      }, "*");
+    }
+
+    window.addEventListener("message", (event) => {
+      const payload = event.data;
+      if (!payload || payload.type !== "forensicstudiesoption2-module-progress-sync" || payload.chapterId !== chapterId) return;
+      completionState = payload.completion && typeof payload.completion === "object" ? payload.completion : Object.create(null);
+      syncCardState();
+      if (payload.focusComponentId) {
+        scrollToComponent(payload.focusComponentId);
+      }
+    });
+
+    document.addEventListener("click", (event) => {
+      const completeButton = event.target.closest("[data-mark-complete]");
+      const completeNextButton = event.target.closest("[data-mark-complete-next]");
+      const trigger = completeNextButton || completeButton;
+      if (!trigger) return;
+
+      const componentId = trigger.dataset.markCompleteNext || trigger.dataset.markComplete || "";
+      if (!componentId || !isComponentReachable(componentId) || completionState[componentId]) return;
+
+      completionState[componentId] = true;
+      syncCardState();
+
+      if (completeNextButton) {
+        scrollToComponent(getNextIncompleteComponentId());
+      }
+
+      postProgressUpdate(componentId, !!completeNextButton);
+    });
+
+    syncCardState();
+    postProgressReady();
+
     document.addEventListener("error", (event) => {
       const target = event.target;
       if (!(target instanceof HTMLImageElement)) return;
@@ -938,6 +1081,7 @@ async function main() {
   const normalizedChapterIds = new Set(normalizedChapters.map((chapter) => String(chapter.id)));
   const quizzesByChapterId = new Map<string, Record<string, any>>();
   const assignmentsByChapterId = new Map<string, Record<string, any>>();
+  const componentIdsByChapterId = new Map<string, string[]>();
 
   for (const chapter of normalizedChapters) {
     const moduleNode = moduleByTitle.get(chapter.title);
@@ -958,8 +1102,13 @@ async function main() {
     for (const node of contentNodes) {
       const href = node.resource?.hrefs?.[0];
       if (!href) continue;
-      lessons.push(await expandLesson(href, String(node.title || "Lesson")));
+      const expandedLesson = await expandLesson(href, String(node.title || "Lesson"));
+      lessons.push({
+        ...expandedLesson,
+        componentId: toComponentId(String(node.title || "Lesson"), lessons.length)
+      });
     }
+    componentIdsByChapterId.set(String(chapter.id), lessons.map((lesson) => lesson.componentId).filter(Boolean));
 
     const existingQuiz = (courseData.quizzes || []).find((quiz) => quiz.chapterId === chapter.id);
     const quizNode = filteredNodes.find((node) => node.kind === "quiz" && node.resource?.hrefs?.length);
@@ -1034,7 +1183,14 @@ async function main() {
       ...(courseData.course || {}),
       subtitle: COURSE_SUBTITLE
     },
-    chapters: normalizedChapters,
+    chapters: normalizedChapters.map((chapter) => {
+      const componentIds = componentIdsByChapterId.get(String(chapter.id)) || [];
+      return {
+        ...chapter,
+        componentIds,
+        componentCount: componentIds.length
+      };
+    }),
     quizzes: (courseData.quizzes || []).filter((quiz) => normalizedChapterIds.has(String(quiz?.chapterId || ""))).map((quiz) => {
       const chapter = normalizedChapters.find((entry) => entry.id === quiz.chapterId) || {};
       const enrichedQuiz = quizzesByChapterId.get(quiz.chapterId);

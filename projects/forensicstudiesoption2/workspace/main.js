@@ -3,7 +3,7 @@
   const PROJECT_SLUG = document.body?.dataset.projectSlug || "forensicstudiesoption2";
   const STORAGE_KEY = `${PROJECT_SLUG}.progress`;
   const UI_KEY = `${PROJECT_SLUG}.ui`;
-  const AUTHORING_UNLOCK_ALL = true;
+  const AUTHORING_UNLOCK_ALL = false;
 
   const refs = {
     body: document.body,
@@ -38,6 +38,7 @@
     progress: loadProgress()
   };
   let assignmentToolbarCleanup = null;
+  let chapterProgressCleanup = null;
   const ASSIGNMENT_OVERRIDES = {
     1: {
       title: "Religion in Popular Culture",
@@ -107,13 +108,15 @@
       return {
         quizComplete: parsed.quizComplete || {},
         quizCompletedAt: parsed.quizCompletedAt || {},
-        quizWork: parsed.quizWork || {}
+        quizWork: parsed.quizWork || {},
+        moduleComponents: parsed.moduleComponents || {}
       };
     } catch (_error) {
       return {
         quizComplete: {},
         quizCompletedAt: {},
-        quizWork: {}
+        quizWork: {},
+        moduleComponents: {}
       };
     }
   }
@@ -244,6 +247,43 @@
 
     target?.click();
     queueAssignmentToolbarSync();
+  }
+
+  function getActiveChapterFrame() {
+    return refs.contentBody.querySelector(".chapter-content-frame");
+  }
+
+  function syncChapterProgressFrame(chapterId, focusComponentId = "") {
+    const frame = getActiveChapterFrame();
+    if (!frame || frame.dataset.chapterId !== chapterId || !frame.contentWindow) return;
+    frame.contentWindow.postMessage({
+      type: "forensicstudiesoption2-module-progress-sync",
+      chapterId,
+      completion: getChapterComponentState(chapterId),
+      focusComponentId
+    }, "*");
+  }
+
+  function setupChapterProgressBridge() {
+    if (chapterProgressCleanup) {
+      chapterProgressCleanup();
+      chapterProgressCleanup = null;
+    }
+
+    const frame = getActiveChapterFrame();
+    if (!frame) return;
+
+    const chapterId = frame.dataset.chapterId || "";
+    const handleLoad = () => syncChapterProgressFrame(chapterId);
+    frame.addEventListener("load", handleLoad);
+
+    if (frame.contentDocument?.readyState === "interactive" || frame.contentDocument?.readyState === "complete") {
+      syncChapterProgressFrame(chapterId);
+    }
+
+    chapterProgressCleanup = () => {
+      frame.removeEventListener("load", handleLoad);
+    };
   }
 
   function setupAssignmentToolbarBridge() {
@@ -445,18 +485,58 @@
     return findQuizByChapter(chapterId)?.id || "";
   }
 
+  function getChapterComponentIds(chapterId) {
+    const chapter = findChapter(chapterId);
+    return Array.isArray(chapter?.componentIds) ? chapter.componentIds.filter(Boolean) : [];
+  }
+
+  function getChapterComponentState(chapterId) {
+    const existing = state.progress.moduleComponents?.[chapterId];
+    if (existing && typeof existing === "object") {
+      return existing;
+    }
+
+    state.progress.moduleComponents[chapterId] = {};
+    saveProgress();
+    return state.progress.moduleComponents[chapterId];
+  }
+
+  function isModuleComplete(chapterId) {
+    const componentIds = getChapterComponentIds(chapterId);
+    if (!componentIds.length) return true;
+    const completion = getChapterComponentState(chapterId);
+    return componentIds.every((componentId) => !!completion[componentId]);
+  }
+
+  function getCompletedComponentCount(chapterId) {
+    const componentIds = getChapterComponentIds(chapterId);
+    const completion = getChapterComponentState(chapterId);
+    return componentIds.filter((componentId) => !!completion[componentId]).length;
+  }
+
+  function getNextIncompleteComponentId(chapterId) {
+    return getChapterComponentIds(chapterId).find((componentId) => !getChapterComponentState(chapterId)[componentId]) || "";
+  }
+
+  function setModuleComponentComplete(chapterId, componentId, complete = true) {
+    if (!chapterId || !componentId) return;
+    const completion = getChapterComponentState(chapterId);
+    completion[componentId] = !!complete;
+    saveProgress();
+  }
+
   function isChapterUnlocked(number) {
-    if (AUTHORING_UNLOCK_ALL) return true;
-    if (number <= 1) return true;
-    return !!state.progress.quizComplete[`quiz-${number - 1}`];
+    return true;
   }
 
   function isQuizUnlocked(quiz) {
-    return !!quiz && isChapterUnlocked(quiz.number);
+    if (AUTHORING_UNLOCK_ALL) return true;
+    return !!quiz && isModuleComplete(quiz.chapterId);
   }
 
   function isAssignmentUnlocked(assignment) {
-    return !!assignment && isChapterUnlocked(assignment.number);
+    if (AUTHORING_UNLOCK_ALL) return true;
+    return !!assignment && isModuleComplete(assignment.chapterId);
   }
 
   function getUnlockedChapterCount() {
@@ -870,7 +950,7 @@
                 <div class="card-actions">
                   <button class="btn btn-primary" type="button" data-open-quiz="${escapeHtml(quiz.id)}" ${unlocked ? "" : "disabled"}>Open quiz</button>
                 </div>
-                ${unlocked ? `<div class="status-chip">${state.progress.quizComplete[quiz.id] ? "Completed" : "Ready"}</div>` : `<div class="status-chip locked">Locked until the previous quiz is complete</div>`}
+                ${unlocked ? `<div class="status-chip">${state.progress.quizComplete[quiz.id] ? "Completed" : "Ready"}</div>` : `<div class="status-chip locked">Locked until all module content is marked complete</div>`}
               </article>
             `;
           }).join("")}
@@ -891,7 +971,7 @@
                 <div class="card-actions">
                   <button class="btn btn-primary" type="button" data-open-assignment="${escapeHtml(assignment.id)}" ${unlocked ? "" : "disabled"}>Open assignment</button>
                 </div>
-                ${unlocked ? `<div class="status-chip">Interactive</div>` : `<div class="status-chip locked">Locked until the previous quiz is complete</div>`}
+                ${unlocked ? `<div class="status-chip">Interactive</div>` : `<div class="status-chip locked">Locked until all module content is marked complete</div>`}
               </article>
             `;
           }).join("")}
@@ -904,10 +984,14 @@
         ${(data.chapters || []).map((chapter) => {
           const unlocked = isChapterUnlocked(chapter.number);
           const quizId = getQuizIdForChapter(chapter.id);
+          const chapterQuiz = quizId ? findQuiz(quizId) : null;
+          const quizUnlocked = chapterQuiz ? isQuizUnlocked(chapterQuiz) : false;
           const actionButtons = [
             `<button class="btn btn-primary" type="button" data-open-chapter="${escapeHtml(chapter.id)}" ${unlocked ? "" : "disabled"}>${chapter.contentPath ? "Open content" : "Open chapter shell"}</button>`,
-            quizId ? `<button class="btn btn-muted" type="button" data-open-quiz="${escapeHtml(quizId)}" ${unlocked ? "" : "disabled"}>Open quiz</button>` : ""
+            quizId ? `<button class="btn btn-muted" type="button" data-open-quiz="${escapeHtml(quizId)}" ${quizUnlocked ? "" : "disabled"}>Open quiz</button>` : ""
           ].filter(Boolean).join("");
+          const componentCount = Array.isArray(chapter.componentIds) ? chapter.componentIds.length : 0;
+          const completedCount = getCompletedComponentCount(chapter.id);
           return `
             <article class="course-card chapter-card editorial-overview-card ${unlocked ? "" : "locked-card"}" style="--accent:${escapeHtml(chapter.accent || "#8b6728")}">
               <p class="card-code">${escapeHtml(chapter.code)}</p>
@@ -916,7 +1000,7 @@
               <div class="card-actions">
                 ${actionButtons}
               </div>
-              ${unlocked ? `<div class="status-chip">Ready</div>` : `<div class="status-chip locked">Locked until Chapter ${chapter.number - 1} quiz is complete</div>`}
+              ${componentCount ? `<div class="status-chip">${escapeHtml(`${completedCount}/${componentCount} components complete`)}</div>` : `<div class="status-chip">Ready</div>`}
             </article>
           `;
         }).join("")}
@@ -930,8 +1014,11 @@
     }
 
     const quiz = findQuizByChapter(chapter.id);
+    const quizUnlocked = quiz ? isQuizUnlocked(quiz) : false;
+    const componentCount = Array.isArray(chapter.componentIds) ? chapter.componentIds.length : 0;
+    const completedCount = getCompletedComponentCount(chapter.id);
     const detailActions = [
-      quiz ? `<button class="btn btn-secondary" type="button" data-open-quiz="${escapeHtml(quiz.id)}">Open quiz</button>` : "",
+      quiz ? `<button class="btn btn-secondary" type="button" data-open-quiz="${escapeHtml(quiz.id)}" ${quizUnlocked ? "" : "disabled"}>Open quiz</button>` : "",
       `<button class="btn btn-muted" type="button" data-back-home="chapters">Back to chapters</button>`
     ].filter(Boolean).join("");
 
@@ -943,6 +1030,7 @@
               <p class="detail-eyebrow">${escapeHtml(chapter.code)}</p>
               <h4 class="detail-title">${escapeHtml(chapter.title)}</h4>
               <p class="detail-summary">${escapeHtml(chapter.summary)}</p>
+              ${componentCount ? `<div class="status-chip">${escapeHtml(`${completedCount}/${componentCount} components complete`)}</div>` : ""}
             </div>
             <div class="detail-actions">
               ${detailActions}
@@ -953,6 +1041,7 @@
                 src="${escapeHtml(chapter.contentPath)}"
                 title="${escapeHtml(`${chapter.code} content`)}"
                 loading="lazy"
+                data-chapter-id="${escapeHtml(chapter.id)}"
               ></iframe>
             </div>
           </div>
@@ -1876,10 +1965,15 @@
       assignmentToolbarCleanup();
       assignmentToolbarCleanup = null;
     }
+    if (chapterProgressCleanup) {
+      chapterProgressCleanup();
+      chapterProgressCleanup = null;
+    }
 
     renderSectionHeader();
     refs.contentBody.innerHTML = renderHomeCards();
     bindContentEvents();
+    setupChapterProgressBridge();
     setupAssignmentToolbarBridge();
   }
 
@@ -1951,10 +2045,33 @@
   });
   window.addEventListener("message", (event) => {
     const payload = event.data;
-    if (!payload || payload.type !== "wr30-assignment-height" || typeof payload.key !== "string" || !Number.isFinite(payload.height)) return;
-    const frame = Array.from(document.querySelectorAll("[data-assignment-frame-key]")).find((node) => node.dataset.assignmentFrameKey === payload.key);
-    if (!frame) return;
-    frame.style.height = `${Math.max(980, Math.ceil(payload.height) + 8)}px`;
+    if (!payload || typeof payload !== "object") return;
+
+    if (payload.type === "wr30-assignment-height" && typeof payload.key === "string" && Number.isFinite(payload.height)) {
+      const frame = Array.from(document.querySelectorAll("[data-assignment-frame-key]")).find((node) => node.dataset.assignmentFrameKey === payload.key);
+      if (!frame) return;
+      frame.style.height = `${Math.max(980, Math.ceil(payload.height) + 8)}px`;
+      return;
+    }
+
+    if (payload.type === "forensicstudiesoption2-module-progress-ready" && typeof payload.chapterId === "string") {
+      syncChapterProgressFrame(payload.chapterId);
+      return;
+    }
+
+    if (
+      payload.type === "forensicstudiesoption2-module-progress-update"
+      && typeof payload.chapterId === "string"
+      && typeof payload.componentId === "string"
+    ) {
+      setModuleComponentComplete(payload.chapterId, payload.componentId, payload.complete !== false);
+      syncChapterProgressFrame(
+        payload.chapterId,
+        payload.focusNext ? getNextIncompleteComponentId(payload.chapterId) : ""
+      );
+      renderNav();
+      renderProgress();
+    }
   });
 
   refs.body.classList.toggle("sidebar-collapsed", state.sidebarCollapsed && !isMobile());

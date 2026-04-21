@@ -25,6 +25,21 @@ html {
   box-sizing: border-box;
 }
 
+[hidden] {
+  display: none !important;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
 body {
   margin: 0;
   background:
@@ -156,6 +171,10 @@ body::before {
   border-color: rgba(138, 235, 255, 0.3);
 }
 
+.action-link:disabled {
+  opacity: 0.58;
+}
+
 .metrics-grid,
 .assessment-grid,
 .notes-grid {
@@ -239,6 +258,37 @@ body::before {
 
 .lesson-card {
   gap: 16px;
+  transition: transform 160ms ease, border-color 160ms ease, opacity 160ms ease, filter 160ms ease;
+}
+
+.lesson-card.is-active {
+  border-color: rgba(138, 235, 255, 0.38);
+}
+
+.lesson-card.is-complete {
+  border-color: rgba(127, 216, 170, 0.34);
+}
+
+.lesson-card.is-locked {
+  opacity: 0.64;
+}
+
+.lesson-card.is-locked .lesson-body,
+.lesson-card.is-locked .sequence-top {
+  filter: blur(3px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.lesson-card.is-locked .lesson-progress-footer::before {
+  content: "Complete the previous component to unlock this card.";
+  display: block;
+  color: var(--muted);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .lesson-body {
@@ -305,6 +355,61 @@ body::before {
 .lesson-body iframe {
   width: min(100%, 720px);
   min-height: 320px;
+}
+
+.lesson-progress-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: end;
+  padding-top: 16px;
+  border-top: 1px solid rgba(133, 147, 151, 0.18);
+}
+
+.lesson-progress-copy {
+  display: grid;
+  gap: 6px;
+  min-width: min(320px, 100%);
+}
+
+.lesson-progress-label {
+  color: var(--primary);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.lesson-progress-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.lesson-progress-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.lesson-progress-complete {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 16px;
+  border: 1px solid rgba(127, 216, 170, 0.32);
+  border-radius: 999px;
+  background: rgba(127, 216, 170, 0.12);
+  color: #d8ffeb;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .lesson-table-wrap {

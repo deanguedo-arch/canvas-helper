@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Noto+Serif:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../module-index.css" />
 </head>
-<body>
+<body data-project-slug="forensicstudiesoption2" data-chapter-id="chapter-8">
   <main class="module-page" style="--gold:#6b5b46; --line-strong:#6b5b46;">
     <section class="module-hero">
       <span class="eyebrow">Module 8</span>
@@ -29,6 +29,125 @@
     </section>
   </main>
   <script>
+    const chapterId = document.body.dataset.chapterId || "";
+    const componentIds = [];
+    let completionState = Object.create(null);
+
+    function getLessonCards() {
+      return Array.from(document.querySelectorAll("[data-module-component-id]"));
+    }
+
+    function getComponentId(card) {
+      return card?.dataset?.moduleComponentId || "";
+    }
+
+    function getNextIncompleteComponentId() {
+      return componentIds.find((componentId) => !completionState[componentId]) || "";
+    }
+
+    function isComponentReachable(componentId) {
+      const nextIncomplete = getNextIncompleteComponentId();
+      return !nextIncomplete || completionState[componentId] || nextIncomplete === componentId;
+    }
+
+    function scrollToComponent(componentId) {
+      if (!componentId) return;
+      const card = document.querySelector('[data-module-component-id="' + componentId.replace(/"/g, '\"') + '"]');
+      if (!card) return;
+      card.scrollIntoView({ behavior: "smooth", block: "start" });
+      const button = card.querySelector("[data-mark-complete-next], [data-mark-complete]");
+      button?.focus({ preventScroll: true });
+    }
+
+    function syncCardState() {
+      const nextIncomplete = getNextIncompleteComponentId();
+      getLessonCards().forEach((card) => {
+        const componentId = getComponentId(card);
+        const complete = !!completionState[componentId];
+        const reachable = isComponentReachable(componentId);
+        const isLast = componentIds[componentIds.length - 1] === componentId;
+        const state = complete ? "complete" : reachable ? "active" : "locked";
+        const footer = card.querySelector("[data-progress-footer]");
+        const progressCopy = card.querySelector("[data-progress-copy]");
+        const actions = card.querySelector("[data-progress-actions]");
+        const completeBadge = card.querySelector("[data-progress-complete]");
+        card.dataset.progressState = state;
+        card.classList.toggle("is-complete", complete);
+        card.classList.toggle("is-active", state === "active");
+        card.classList.toggle("is-locked", state === "locked");
+
+        const buttons = Array.from(card.querySelectorAll("[data-mark-complete], [data-mark-complete-next]"));
+        buttons.forEach((button) => {
+          button.disabled = state === "locked" || complete;
+        });
+
+        if (footer) {
+          footer.hidden = complete && !isLast;
+        }
+        if (progressCopy) {
+          progressCopy.hidden = complete && isLast;
+        }
+        if (actions) {
+          actions.hidden = state !== "active";
+        }
+        if (completeBadge) {
+          completeBadge.hidden = !(complete && isLast);
+        }
+      });
+
+      document.body.dataset.nextIncompleteComponentId = nextIncomplete || "";
+    }
+
+    function postProgressReady() {
+      window.parent?.postMessage({
+        type: "forensicstudiesoption2-module-progress-ready",
+        chapterId,
+        componentIds
+      }, "*");
+    }
+
+    function postProgressUpdate(componentId, focusNext) {
+      window.parent?.postMessage({
+        type: "forensicstudiesoption2-module-progress-update",
+        chapterId,
+        componentId,
+        complete: true,
+        focusNext: !!focusNext
+      }, "*");
+    }
+
+    window.addEventListener("message", (event) => {
+      const payload = event.data;
+      if (!payload || payload.type !== "forensicstudiesoption2-module-progress-sync" || payload.chapterId !== chapterId) return;
+      completionState = payload.completion && typeof payload.completion === "object" ? payload.completion : Object.create(null);
+      syncCardState();
+      if (payload.focusComponentId) {
+        scrollToComponent(payload.focusComponentId);
+      }
+    });
+
+    document.addEventListener("click", (event) => {
+      const completeButton = event.target.closest("[data-mark-complete]");
+      const completeNextButton = event.target.closest("[data-mark-complete-next]");
+      const trigger = completeNextButton || completeButton;
+      if (!trigger) return;
+
+      const componentId = trigger.dataset.markCompleteNext || trigger.dataset.markComplete || "";
+      if (!componentId || !isComponentReachable(componentId) || completionState[componentId]) return;
+
+      completionState[componentId] = true;
+      syncCardState();
+
+      if (completeNextButton) {
+        scrollToComponent(getNextIncompleteComponentId());
+      }
+
+      postProgressUpdate(componentId, !!completeNextButton);
+    });
+
+    syncCardState();
+    postProgressReady();
+
     document.addEventListener("error", (event) => {
       const target = event.target;
       if (!(target instanceof HTMLImageElement)) return;

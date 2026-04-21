@@ -12,7 +12,32 @@ window.FORENSIC_STUDIES_OPTION2_DATA = {
       "title": "1 Introduction to Crime Scenes",
       "accent": "#8b6a24",
       "summary": "Study how investigators secure, scan, sketch, search, and document crime scenes.",
-      "contentPath": "./content/chapter-1/index.html"
+      "contentPath": "./content/chapter-1/index.html",
+      "componentIds": [
+        "component-1-an-introduction-to-the-crime-scene",
+        "component-2-real-life-csi-crime-scene-cleaners",
+        "component-3-16x9-behind-the-yellow-line-real-csi-documentary",
+        "component-4-processing-the-crime-scene",
+        "component-5-police-officers",
+        "component-6-csi",
+        "component-7-district-attorney",
+        "component-8-medical-examiner",
+        "component-9-specialists",
+        "component-10-the-seven-s-s-of-crime-scene-investigation",
+        "component-11-securing",
+        "component-12-separating",
+        "component-13-scanning",
+        "component-14-seeing",
+        "component-15-sketching",
+        "component-16-sample-sketch",
+        "component-17-searching",
+        "component-18-search-patterns",
+        "component-19-securing-and-collecting-evidence",
+        "component-20-paper-bindle",
+        "component-21-chain-of-custody",
+        "component-22-crime-scene-safety"
+      ],
+      "componentCount": 22
     },
     {
       "id": "chapter-2",
@@ -21,7 +46,27 @@ window.FORENSIC_STUDIES_OPTION2_DATA = {
       "title": "2 Types of Evidence and Fingerprint Analysis",
       "accent": "#6e5631",
       "summary": "Learn how evidence is classified, analyzed, and connected through fingerprint work and case studies.",
-      "contentPath": "./content/chapter-2/index.html"
+      "contentPath": "./content/chapter-2/index.html",
+      "componentIds": [
+        "component-1-types-of-evidence-and-fingerprint-analysis",
+        "component-2-evidence-types",
+        "component-3-value-of-evidence",
+        "component-4-evidence-types-case-study",
+        "component-5-brief-history-of-fingerprinting",
+        "component-6-fingerprint-analysis",
+        "component-7-types-of-fingerprint-evidence",
+        "component-8-how-a-match-is-made",
+        "component-9-fingerprint-case-study-john-dillinger",
+        "component-10-latent-fingerprint-enhancement",
+        "component-11-latent-fingerprint-enhancement-2",
+        "component-12-latent-fingerprint-enhancement-3",
+        "component-13-experiment-short-term-vs-long-term-latent-fingerprint-samples-optional",
+        "component-14-experiment-finding-and-lifiting-latent-fingerprints-using-lifting-powders-optional",
+        "component-15-case-study-the-zodiac-killer",
+        "component-16-case-study-the-zodiac-killer-continued",
+        "component-17-case-study-bank-robbery-mystery"
+      ],
+      "componentCount": 17
     },
     {
       "id": "chapter-3",
@@ -30,7 +75,24 @@ window.FORENSIC_STUDIES_OPTION2_DATA = {
       "title": "3 Trace Evidence",
       "accent": "#6f7c8f",
       "summary": "Examine hair, fibre, glass, and other trace evidence and how investigators compare them in real cases.",
-      "contentPath": "./content/chapter-3/index.html"
+      "contentPath": "./content/chapter-3/index.html",
+      "componentIds": [
+        "component-1-what-is-trace-evidence",
+        "component-2-identifying-trace-evidence",
+        "component-3-collection-of-trace-evidence",
+        "component-4-collecting-trace-evidence-at-home",
+        "component-5-microscopic-analysis-of-hair",
+        "component-6-hair-evidence",
+        "component-7-useful-types-of-hair-samples",
+        "component-8-animal-hair",
+        "component-9-features-of-hair",
+        "component-10-crime-case-study-the-central-park-five",
+        "component-11-fibre-analysis",
+        "component-12-fibre-evidence",
+        "component-13-crime-case-study-samuel-morgan",
+        "component-14-real-csi-hair-and-fiber-analysis"
+      ],
+      "componentCount": 14
     },
     {
       "id": "chapter-4",
@@ -39,7 +101,33 @@ window.FORENSIC_STUDIES_OPTION2_DATA = {
       "title": "4 Body Fluid Evidence",
       "accent": "#8a5d43",
       "summary": "Review body-fluid evidence, serology methods, and how investigators interpret blood evidence at crime scenes.",
-      "contentPath": "./content/chapter-4/index.html"
+      "contentPath": "./content/chapter-4/index.html",
+      "componentIds": [
+        "component-1-body-fluid-evidence",
+        "component-2-blood-components",
+        "component-3-blood-typing",
+        "component-4-lesson-one-all-about-blood",
+        "component-5-lesson-2-blood-evidence",
+        "component-6-blood-evidence-phenolphthalein",
+        "component-7-phenolphthalein-confirming-that-it-is-blood",
+        "component-8-blood-evidence-the-luminol-test",
+        "component-9-blood-splatter-evidence",
+        "component-10-lesson-3-other-body-fluid-evidence",
+        "component-11-other-body-fluid-evidence",
+        "component-12-semen",
+        "component-13-sexual-assault-rape-kits",
+        "component-14-lesson-4-case-studies",
+        "component-15-cases-involving-body-fluid-evidence",
+        "component-16-historical-crime-case-1",
+        "component-17-historical-crime-case-2",
+        "component-18-fictional-crime-case-1",
+        "component-19-fictional-crime-case-2",
+        "component-20-what-is-blood",
+        "component-21-blood-types",
+        "component-22-identifying-blood-types",
+        "component-23-blood-typing-in-a-lab"
+      ],
+      "componentCount": 23
     },
     {
       "id": "chapter-5",
@@ -48,7 +136,28 @@ window.FORENSIC_STUDIES_OPTION2_DATA = {
       "title": "5 Forensic Detection of Impaired Driving",
       "accent": "#7b6432",
       "summary": "Follow the tools, procedures, and evidence used to detect impaired driving.",
-      "contentPath": "./content/chapter-5/index.html"
+      "contentPath": "./content/chapter-5/index.html",
+      "componentIds": [
+        "component-1-forensic-detection-of-impaired-driving",
+        "component-2-forensic-detection-of-impaired-driving",
+        "component-3-lesson-1-alcohol-and-its-effects-upon-the-body",
+        "component-4-scientifc-description-of-alcohol",
+        "component-5-the-breakdown-of-alcohol-by-the-body",
+        "component-6-behavioral-effects-of-alcohol-consumption",
+        "component-7-the-drunkometer",
+        "component-8-lesson-2-the-breathalyzer",
+        "component-9-the-breathalyzer",
+        "component-10-determining-bac",
+        "component-11-drawbacks-to-the-breathalyzer",
+        "component-12-the-intoxilyzer-consequences-of-impaired-driving",
+        "component-13-the-intoxilyzer",
+        "component-14-operation-of-bac-testing-devices",
+        "component-15-refusal-to-provide-a-breath-sample",
+        "component-16-lesson-4-criminal-cases-involving-impaired-driving",
+        "component-17-the-drunken-russian-diplomat",
+        "component-18-the-death-of-princess-diana"
+      ],
+      "componentCount": 18
     },
     {
       "id": "chapter-6",
@@ -57,7 +166,31 @@ window.FORENSIC_STUDIES_OPTION2_DATA = {
       "title": "6 Polygraphing and Document Analysis",
       "accent": "#5f6d82",
       "summary": "Explore polygraphing, questioned documents, and how investigators use writing analysis in case work.",
-      "contentPath": "./content/chapter-6/index.html"
+      "contentPath": "./content/chapter-6/index.html",
+      "componentIds": [
+        "component-1-polygraph-testing-forensic-document-analysis",
+        "component-2-lesson-1-the-polygraph-instrument",
+        "component-3-the-human-nervous-system",
+        "component-4-the-sympathetic-nervous-system",
+        "component-5-the-invention-of-the-polygraph",
+        "component-6-polograph-data",
+        "component-7-lesson-2-the-polygraph-exam",
+        "component-8-phases-of-the-exam",
+        "component-9-phases-of-the-exam-ii",
+        "component-10-polygraph-readings",
+        "component-11-polygraph-examinar-training",
+        "component-12-case-study-the-jonbenet-ramsey-case",
+        "component-13-lesson-3-forensic-writing-analysis",
+        "component-14-graphology",
+        "component-15-writing-style",
+        "component-16-document-criminal-profiling",
+        "component-17-case-study-the-9-11-letters",
+        "component-18-chromatography",
+        "component-19-lesson-4-polygraphing-writing-analysis-case-studies",
+        "component-20-susan-smith",
+        "component-21-the-lindbergh-baby"
+      ],
+      "componentCount": 21
     },
     {
       "id": "chapter-7",
@@ -66,7 +199,31 @@ window.FORENSIC_STUDIES_OPTION2_DATA = {
       "title": "7 Forensic Genetics",
       "accent": "#8d7042",
       "summary": "Learn how DNA profiling, genetics, and population data support forensic investigations.",
-      "contentPath": "./content/chapter-7/index.html"
+      "contentPath": "./content/chapter-7/index.html",
+      "componentIds": [
+        "component-1-forensic-genetics",
+        "component-2-lesson-1-dna",
+        "component-3-the-cell",
+        "component-4-dna",
+        "component-5-dna-analysis",
+        "component-6-rflp-vs-pcr",
+        "component-7-rflp-step-by-step",
+        "component-8-lesson-2-mtdna",
+        "component-9-mitochondrial-dna",
+        "component-10-mtdna-vs-nuclear-dna",
+        "component-11-case-study-unknown-soldiers",
+        "component-12-case-study-9-11",
+        "component-13-lesson-3-dna-profiling-and-population-frequency",
+        "component-14-population-frequency",
+        "component-15-probability-ratios",
+        "component-16-dna-matching",
+        "component-17-dna-the-law",
+        "component-18-case-study-oj-simpson",
+        "component-19-lesson-4-forensic-genetics-case-studies",
+        "component-20-punky-gustavson",
+        "component-21-a-case-of-wrongful-conviction"
+      ],
+      "componentCount": 21
     },
     {
       "id": "chapter-8",
@@ -75,7 +232,9 @@ window.FORENSIC_STUDIES_OPTION2_DATA = {
       "title": "8 Careers in Forensic Science",
       "accent": "#6b5b46",
       "summary": "Compare forensic career paths and reflect on which roles fit your strengths and interests.",
-      "contentPath": "./content/chapter-8/index.html"
+      "contentPath": "./content/chapter-8/index.html",
+      "componentIds": [],
+      "componentCount": 0
     },
     {
       "id": "chapter-9",
@@ -84,7 +243,9 @@ window.FORENSIC_STUDIES_OPTION2_DATA = {
       "title": "FINAL EXAM",
       "accent": "#4f698e",
       "summary": "Complete the final assessment covering the major forensic concepts from the course.",
-      "contentPath": "./content/chapter-9/index.html"
+      "contentPath": "./content/chapter-9/index.html",
+      "componentIds": [],
+      "componentCount": 0
     }
   ],
   "quizzes": [

@@ -446,6 +446,15 @@ const PERFORMANCE_TOOLS = [
     accent: '#10b981',
     body: 'Inner Game simulator for attention control, cue timing, and interference management under pressure.',
     viewerSrc: './performance/phase3-focus-game.html'
+  },
+  {
+    id: 'phase4-mental-filter-simulator-game',
+    code: 'Phase 4',
+    title: 'Phase 4 Mental Filter Simulator Game',
+    eyebrow: 'Performance tool',
+    accent: '#0ea5e9',
+    body: 'Confidence-account simulator for filtering thought patterns, protecting identity, and converting evidence into durable belief.',
+    viewerSrc: './performance/phase4-mental-filter-simulator-game.html'
   }
 ];
 

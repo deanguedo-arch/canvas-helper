@@ -53,9 +53,10 @@ window.WORLD_RELIGIONS_DATA = {
       "id": "chapter-6",
       "code": "Chapter 6",
       "number": 6,
-      "title": "Judaism",
+      "title": "Content",
       "accent": "#6c644a",
-      "summary": "Chapter content will be added here. The shell is ready for full chapter readings when the chapter section source is available."
+      "summary": "Chapter 6 source content on Judaism, covenant, Abraham, Moses, Torah, Sabbath, symbols, diaspora, and Jewish life in Canada.",
+      "contentPath": "./content/WR30_Chapter6_Source_Content_Web_Module/index.html"
     },
     {
       "id": "chapter-7",

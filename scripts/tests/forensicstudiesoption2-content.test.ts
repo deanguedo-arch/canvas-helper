@@ -11,6 +11,7 @@ const contentDir = path.join(workspaceDir, "content");
 const dataPath = path.join(workspaceDir, "course-data.js");
 const chapterTwoPath = path.join(workspaceDir, "content", "chapter-2", "index.html");
 const chapterTenPath = path.join(workspaceDir, "content", "chapter-10", "index.html");
+const moduleIndexCssPath = path.join(workspaceDir, "content", "module-index.css");
 const moduleTwoAppPath = path.join(workspaceDir, "assignments", "module2assignment-app.jsx");
 const moduleTwoBundlePath = path.join(workspaceDir, "assignments", "module2assignment.bundle.js");
 const moduleTwoAssetDir = path.join(workspaceDir, "assignments", "module2");
@@ -277,6 +278,37 @@ test("forensic studies option2 chapter pages contain imported lesson content", a
   assert.doesNotMatch(chapterTwoSource, /Assignments and quizzes/i);
   assert.doesNotMatch(chapterTwoSource, /Assessment Lane/i);
   assert.doesNotMatch(chapterTwoSource, /metric-card/);
+});
+
+test("forensic studies option2 chapter pages expose module component progression hooks", async () => {
+  const [dataSource, chapterTwoSource] = await Promise.all([
+    readFile(dataPath, "utf8"),
+    readFile(chapterTwoPath, "utf8")
+  ]);
+  const data = loadCourseData(dataSource);
+  const chapterTwo = (Array.isArray(data?.chapters) ? data.chapters : []).find((chapter) => chapter.id === "chapter-2");
+
+  assert.ok(Array.isArray(chapterTwo?.componentIds), "expected chapter component ids in generated course data");
+  assert.ok((chapterTwo?.componentIds?.length || 0) > 0, "expected generated component ids for chapter 2");
+  assert.equal(chapterTwo?.componentCount, chapterTwo?.componentIds?.length);
+
+  assert.match(chapterTwoSource, /data-module-component-id=/);
+  assert.match(chapterTwoSource, /Mark Complete/i);
+  assert.match(chapterTwoSource, /Mark Complete \+ Next/i);
+  assert.match(chapterTwoSource, /forensicstudiesoption2-module-progress-ready/);
+  assert.match(chapterTwoSource, /forensicstudiesoption2-module-progress-update/);
+  assert.match(chapterTwoSource, /forensicstudiesoption2-module-progress-sync/);
+  assert.match(chapterTwoSource, /is-locked|data-progress-state="locked"/i);
+  assert.match(chapterTwoSource, /lesson-progress-complete/);
+  assert.match(chapterTwoSource, /footer\.hidden\s*=\s*complete\s*&&\s*!isLast/);
+  assert.match(chapterTwoSource, /actions\.hidden\s*=\s*state\s*!==\s*"active"/);
+  assert.match(chapterTwoSource, /completeBadge\.hidden\s*=\s*!\(complete\s*&&\s*isLast\)/);
+});
+
+test("forensic studies option2 chapter css honors hidden progression elements", async () => {
+  const cssSource = await readFile(moduleIndexCssPath, "utf8");
+
+  assert.match(cssSource, /\[hidden\]\s*\{[\s\S]*display:\s*none\s*!important\s*;/i);
 });
 
 test("forensic studies option2 chapter pages mirror original forensics case-module cards", async () => {

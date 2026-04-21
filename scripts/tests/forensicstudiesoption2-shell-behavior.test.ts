@@ -164,3 +164,28 @@ test("forensic studies option2 quiz flow uses generate results as the completion
   assert.match(mainSource, /data-retake-quiz="\$\{escapeHtml\(quiz\.id\)\}" \$\{complete \? "" : "disabled"\}/);
   assert.doesNotMatch(mainSource, /const markCompleteButton = event\.target\.closest\("\[data-mark-quiz-complete\]"\)/);
 });
+
+test("forensic studies option2 unlocks quizzes and assignments from module component completion", async () => {
+  const [mainSource, dataSource] = await Promise.all([
+    readFile(mainPath, "utf8"),
+    readFile(dataPath, "utf8")
+  ]);
+  const data = loadCourseData(dataSource);
+  const chapterOne = data?.chapters?.find((entry) => entry.id === "chapter-1");
+
+  assert.ok(Array.isArray(chapterOne?.componentIds), "expected generated chapter component metadata");
+  assert.ok((chapterOne?.componentIds?.length || 0) > 0, "expected at least one chapter component id");
+
+  assert.match(mainSource, /moduleComponents/);
+  assert.match(mainSource, /function isModuleComplete\(/);
+  assert.match(mainSource, /function getChapterComponentIds\(/);
+  assert.match(mainSource, /function syncChapterProgressFrame\(/);
+  assert.match(mainSource, /forensicstudiesoption2-module-progress-ready/);
+  assert.match(mainSource, /forensicstudiesoption2-module-progress-update/);
+  assert.match(mainSource, /forensicstudiesoption2-module-progress-sync/);
+  assert.match(mainSource, /return !!quiz && isModuleComplete\(quiz\.chapterId\)/);
+  assert.match(mainSource, /return !!assignment && isModuleComplete\(assignment\.chapterId\)/);
+  assert.doesNotMatch(mainSource, /return !!state\.progress\.quizComplete\[`quiz-\$\{number - 1\}`\]/);
+  assert.doesNotMatch(mainSource, /Locked until the previous quiz is complete/i);
+  assert.match(mainSource, /Locked until all module content is marked complete/i);
+});

@@ -48,6 +48,7 @@ Entries are listed in file order (older to newer within this archive).
 - 2026-04-21: docs/ops/ACTIVE_HANDOFF.md (pre-forensicstudiesoption2-strict-fidelity-quiz-gate)
 - 2026-04-21: docs/ops/ACTIVE_HANDOFF.md (pre-forensicstudiesoption2-remove-quiz-source-action)
 - 2026-04-21: docs/ops/ACTIVE_HANDOFF.md (pre-sportswellness-phase2-discipline-game-performance-menu)
+- 2026-04-21: docs/ops/ACTIVE_HANDOFF.md (pre-sportswellness-phase4-mental-filter-simulator-game)
 
 ---
 
@@ -3818,3 +3819,118 @@ One question before I change it: do you want only the large top hero image reduc
 - Do not patch the standalone game files by editing only the reference-folder sources; the workspace copies are the live runtime.
 - Do not move the Phase 1 simulator into the assignment runtime unless the user explicitly wants the game coupled to the Phase 1 authored flow.
 - Do not treat the failing `sportswellness-phase3-content.test.ts` check as caused by this Performance-menu work without fixing or updating the separate Phase 3 lesson contract.
+
+
+## 2026-04-21 | docs/ops/ACTIVE_HANDOFF.md (pre-sportswellness-phase4-mental-filter-simulator-game)
+
+# Handoff
+
+- Project: forensicstudiesoption2
+- Task: move option 2 to module-component progression while preserving the prior Forensics content-fidelity pass
+- Status: complete
+
+## Summary
+- `forensicstudiesoption2` no longer unlocks quizzes and assignments from previous quiz completion.
+- Each generated module page now renders all lesson cards at once, but only the first unfinished card is active.
+- Later cards stay blurred and blocked until the previous card is marked complete.
+- Every lesson card now ends with `Mark Complete` and `Mark Complete + Next`.
+- The module quiz and assignment unlock only after all lesson cards in that module are complete.
+- Prior source-fidelity cleanup remains in place: `Unit Assessments`, `Extra Credits`, and the extra-credit quiz stay removed from the surfaced option-2 course.
+
+## Files changed
+- docs/ops/ACTIVE_HANDOFF.md
+- docs/plans/2026-04-21-forensicstudiesoption2-module-progression-design.md
+- docs/plans/2026-04-21-forensicstudiesoption2-module-progression.md
+- projects/forensicstudiesoption2/workspace/index.html
+- projects/forensicstudiesoption2/workspace/main.js
+- projects/forensicstudiesoption2/workspace/content/module-index.css
+- projects/forensicstudiesoption2/workspace/course-data.js
+- projects/forensicstudiesoption2/workspace/content/chapter-1/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-2/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-3/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-4/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-5/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-6/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-7/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-8/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-9/index.html
+- scripts/build-forensicstudiesoption2-content.ts
+- scripts/tests/forensicstudiesoption2-content.test.ts
+- scripts/tests/forensicstudiesoption2-shell-behavior.test.ts
+
+## Verification run
+- `node scripts/build-forensicstudiesoption2-content.ts`
+- `npx tsx --test scripts/tests/forensicstudiesoption2-content.test.ts`
+- `npx tsx --test scripts/tests/forensicstudiesoption2-shell-behavior.test.ts`
+- `npm.cmd run verify -- --project forensicstudiesoption2`
+- `node --check projects/forensicstudiesoption2/workspace/main.js`
+
+## What changed
+- Added generated chapter metadata for module components:
+  - `componentIds`
+  - `componentCount`
+- Rebuilt generated chapter pages so each lesson card includes:
+  - stable component ids
+  - `Mark Complete`
+  - `Mark Complete + Next`
+  - locked, active, and complete state hooks
+- Added a chapter-page progress script that:
+  - syncs completion state from the parent shell
+  - blurs later lesson cards until reached
+  - posts completion updates back to the parent shell
+  - scrolls to the next unlocked card on `Mark Complete + Next`
+- Replaced the old previous-quiz unlock rule in `workspace/main.js` with module-component completion checks.
+- Kept chapters directly openable so the course is not broadly locked down in this pass.
+- Kept the prior extra-credit removal and cache-bust loader fix.
+
+## Why this changed
+- The user wanted progression enforced inside each module, not by locking the whole course by previous quiz order.
+- The user wanted a visible complete-this-card-then-reveal-the-next flow while keeping the current all-cards-present module layout.
+- The user wanted each module quiz and assignment to unlock only after the full module content sequence is completed.
+
+## Source of truth
+- Original Forensics content contract reference:
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensics\workspace\main.jsx`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensics\workspace\d2l-map-data.js`
+- Canonical option-2 shell runtime:
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\main.js`
+- Canonical option-2 generator:
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\build-forensicstudiesoption2-content.ts`
+- Canonical generated outputs:
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\course-data.js`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\content\chapter-*\index.html`
+
+## Fragile areas / watchouts
+- `workspace/course-data.js` and `workspace/content/chapter-*` are generated outputs. Do not hand-edit them.
+- The module progression bridge depends on matching `postMessage` payload names between the shell and generated chapter pages.
+- Because the chapter pages are iframe content, regressions can show up as stale cached chapter JS or stale iframe HTML if the builder has not refreshed.
+- The project still has no `projects/forensicstudiesoption2/meta/e2e-contract.json`, so browser-level project E2E remains unavailable.
+
+## Next prompt should assume
+- `projects/forensics` was not touched.
+- All module chapters remain openable.
+- Quiz and assignment unlock now depend on module component completion, not previous quiz completion.
+- Chapter lesson cards now show `Mark Complete` and `Mark Complete + Next`.
+- `Extra Credits` and `Student Centred Learning Self Reflection` remain removed from option 2.
+- Focused tests, verify, and syntax check pass.
+
+## What still needs validation
+- Open `forensicstudiesoption2` in Canvas Builder and confirm later lesson cards are visibly blurred until the prior card is completed.
+- Confirm `Mark Complete + Next` scrolls to the next unlocked card inside the chapter iframe.
+- Confirm a module quiz and assignment unlock immediately after the last lesson card in that module is marked complete.
+
+## Known risks / follow-up
+- The shell header progress still emphasizes quiz completion rather than module-component completion, so overall progress copy may need a second pass if the user wants the top summary to reflect the new progression model.
+- Current chapter-detail progress chips are rendered from shell state at view render time; if the user wants live in-place count updates without re-render, that would be a small follow-up polish.
+- Without an E2E contract, this pass is still protected by source-based tests plus project verify rather than browser automation.
+
+## Exact next command
+`npm.cmd run studio`
+
+## Exact next file to open
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\main.js`
+
+## Do not do next / warnings
+- Do not edit `projects/forensics/**`.
+- Do not hand-edit `projects/forensicstudiesoption2/workspace/course-data.js` or `workspace/content/chapter-*`; rerun the generator instead.
+- Do not reintroduce previous-quiz gating unless the user explicitly asks to restore course-order locks.

@@ -1,0 +1,576 @@
+import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { Shield, CheckCircle2, AlertTriangle, BrainCircuit, Activity, Database, Crosshair } from 'lucide-react';
+
+// --- GAME CONSTANTS ---
+const ARENA_SIZE = { w: 1000, h: 600 };
+const CORE_RADIUS = 60; // Size of the identity core in the center
+const MAX_CONFIDENCE = 1000;
+const START_CONFIDENCE = 500;
+const SPAWN_RATE_MS = 1500; // Decreased to make them spawn faster
+
+const DEPOSITS = [
+  "Executed game plan.", "Quality reps today.", "Maintained focus.", 
+  "Bounced back fast.", "Trust the training.", "Pushed through friction.",
+  "Great mechanics.", "Controlled the breath."
+];
+
+const WITHDRAWALS = [
+  "I am terrible.", "I always choke.", "Coach hates me.", 
+  "I'm going to fail.", "I'm an imposter.", "I'm not built for this.",
+  "I ruin everything.", "This is a disaster."
+];
+
+export default function MentalFilterSimulator() {
+  // --- STATE ---
+  const [gameState, setGameState] = useState('intro'); // intro, playing, gameover, win
+  
+  // Core Metrics
+  const [confidence, setConfidence] = useState(START_CONFIDENCE);
+  const [timeElapsed, setTimeElapsed] = useState(0);
+  const [stats, setStats] = useState({ deposits: 0, lockdowns: 0, drains: 0 });
+  
+  // Game Entities
+  const [transactions, setTransactions] = useState([]);
+  const [feedback, setFeedback] = useState(null); // Floating visual feedback
+  const [isShaking, setIsShaking] = useState(false);
+
+  // Mutable Refs for 60fps Loop
+  const loopRef = useRef(null);
+  const spawnerRef = useRef(null);
+  const timeRef = useRef(0);
+  const audioCtxRef = useRef(null);
+
+  // Sync state for refs
+  const confidenceRef = useRef(START_CONFIDENCE);
+  useEffect(() => { confidenceRef.current = confidence; }, [confidence]);
+
+  // --- AUDIO SYSTEM ---
+  const playSound = useCallback((type) => {
+    if (!audioCtxRef.current) {
+      audioCtxRef.current = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    const ctx = audioCtxRef.current;
+    if (ctx.state === 'suspended') ctx.resume();
+    
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    
+    if (type === 'approve') {
+      // High, pleasant chime
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(800, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(1200, ctx.currentTime + 0.1);
+      gain.gain.setValueAtTime(0.15, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.2);
+      osc.start(); osc.stop(ctx.currentTime + 0.2);
+    } else if (type === 'lockdown') {
+      // Sharp, mechanical click/shield
+      osc.type = 'square';
+      osc.frequency.setValueAtTime(400, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(100, ctx.currentTime + 0.1);
+      gain.gain.setValueAtTime(0.1, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.15);
+      osc.start(); osc.stop(ctx.currentTime + 0.15);
+    } else if (type === 'damage') {
+      // Deep, dissonant buzz
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(100, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(40, ctx.currentTime + 0.4);
+      gain.gain.setValueAtTime(0.2, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.4);
+      osc.start(); osc.stop(ctx.currentTime + 0.4);
+    }
+  }, []);
+
+  const triggerShake = () => {
+    setIsShaking(true);
+    setTimeout(() => setIsShaking(false), 300);
+  };
+
+  const showFloatingFeedback = (msg, color, x, y) => {
+    const id = Date.now() + Math.random();
+    setFeedback({ id, msg, color, x, y });
+    setTimeout(() => setFeedback(null), 800);
+  };
+
+  const endGame = useCallback((reason) => {
+    setGameState('gameover');
+  }, []);
+
+  const winGame = useCallback(() => {
+    setGameState('win');
+  }, []);
+
+  // --- GAME LOGIC ---
+  const spawnTransaction = useCallback(() => {
+    setTransactions(prev => {
+      if (prev.length >= 12) return prev; // Cap on screen
+      
+      // DYNAMIC MOMENTUM (Self-Fulfilling Prophecy): Higher confidence spawns more positive thoughts.
+      // At 500 conf: 50% chance. At 1000 conf: 80% chance. At 0 conf: 20% chance.
+      const confRatio = confidenceRef.current / MAX_CONFIDENCE;
+      const depositChance = 0.2 + confRatio * 0.6;
+      const isDeposit = Math.random() < depositChance;
+      
+      const textArray = isDeposit ? DEPOSITS : WITHDRAWALS;
+      const text = textArray[Math.floor(Math.random() * textArray.length)];
+      
+      // Spawn on perimeter
+      const angle = Math.random() * Math.PI * 2;
+      const radius = Math.max(ARENA_SIZE.w, ARENA_SIZE.h) / 2 + 50; 
+      const startX = ARENA_SIZE.w / 2 + Math.cos(angle) * radius;
+      const startY = ARENA_SIZE.h / 2 + Math.sin(angle) * radius;
+      
+      // Velocity vector pointing to center
+      // As confidence builds, the rare negative thoughts become MUCH faster
+      const withdrawalBaseSpeed = 0.8 + (confRatio * 2.2); // Scales from 0.8 to 3.0 based on confidence
+      const speed = isDeposit 
+        ? 1.8 + Math.random() * 1.2   // Deposits: High speed (1.8 to 3.0)
+        : withdrawalBaseSpeed + Math.random() * 0.6;  // Withdrawals: Speed scales with confidence
+        
+      const vx = -Math.cos(angle) * speed;
+      const vy = -Math.sin(angle) * speed;
+
+      return [...prev, {
+        id: Date.now() + Math.random(),
+        type: isDeposit ? 'deposit' : 'withdrawal',
+        text,
+        x: startX,
+        y: startY,
+        vx,
+        vy,
+        baseVx: vx,         // Store base trajectory for erratic pathing
+        baseVy: vy,
+        wobbleFreq: isDeposit ? 0 : 0.1 + Math.random() * 0.15, // Chaotic frequency
+        wobbleAmp: isDeposit ? 0 : 0.5 + Math.random() * 1.5,   // Chaotic amplitude
+        age: 0,             // Track time alive for math
+        status: 'incoming' // incoming, locked, approved
+      }];
+    });
+  }, []);
+
+  // Main Loop
+  useEffect(() => {
+    if (gameState !== 'playing') {
+      cancelAnimationFrame(loopRef.current);
+      clearInterval(spawnerRef.current);
+      return;
+    }
+
+    let lastTime = performance.now();
+
+    // Spawner
+    spawnerRef.current = setInterval(() => {
+      // Speed up spawns as confidence grows
+      const rateMod = 1 - (confidenceRef.current / MAX_CONFIDENCE) * 0.4; 
+      spawnTransaction();
+    }, SPAWN_RATE_MS);
+
+    const update = (time) => {
+      const dt = (time - lastTime) / 16.66; // Normalize to 60fps
+      lastTime = time;
+
+      timeRef.current += (16.66 * dt) / 1000;
+      setTimeElapsed(timeRef.current);
+
+      setTransactions(prev => {
+        const next = [];
+        let damageTaken = 0;
+
+        for (let t of prev) {
+          if (t.status !== 'incoming') continue; // Skip if already processed and animating out
+
+          let currentVx = t.vx;
+          let currentVy = t.vy;
+          let newAge = (t.age || 0) + dt;
+
+          if (t.type === 'withdrawal') {
+            // UNPREDICTABLE PATHS: Combine sine waves on the perpendicular axis
+            // This makes negative thoughts dart, swarm, and zig-zag erratically
+            const perpX = -t.baseVy;
+            const perpY = t.baseVx;
+            const wobble = Math.sin(newAge * t.wobbleFreq) * t.wobbleAmp + 
+                           Math.cos(newAge * t.wobbleFreq * 2.1) * (t.wobbleAmp * 0.6);
+            
+            currentVx = t.baseVx + perpX * wobble;
+            currentVy = t.baseVy + perpY * wobble;
+          }
+
+          let nx = t.x + currentVx * dt;
+          let ny = t.y + currentVy * dt;
+          
+          // Check collision with Identity Core
+          const distToCenter = Math.hypot(ARENA_SIZE.w/2 - nx, ARENA_SIZE.h/2 - ny);
+          
+          if (distToCenter < CORE_RADIUS) {
+            // It hit the center unhandled!
+            if (t.type === 'deposit') {
+              // Missed deposit. No penalty, but lost opportunity.
+            } else if (t.type === 'withdrawal') {
+              // UNHANDLED WITHDRAWAL: Identity Damage!
+              damageTaken += 75;
+              playSound('damage');
+              triggerShake();
+              setStats(s => ({ ...s, drains: s.drains + 1 }));
+              showFloatingFeedback("GLOBAL IDENTITY DRAIN -75", "text-red-500", nx, ny);
+            }
+            continue; // Remove from array
+          }
+          next.push({ ...t, x: nx, y: ny, age: newAge });
+        }
+
+        if (damageTaken > 0) {
+          setConfidence(c => {
+            const newVal = Math.max(0, c - damageTaken);
+            if (newVal <= 0) endGame();
+            return newVal;
+          });
+        }
+
+        return next;
+      });
+
+      // Win Condition
+      if (confidenceRef.current >= MAX_CONFIDENCE) {
+        winGame();
+        return;
+      }
+
+      loopRef.current = requestAnimationFrame(update);
+    };
+
+    loopRef.current = requestAnimationFrame(update);
+
+    return () => {
+      cancelAnimationFrame(loopRef.current);
+      clearInterval(spawnerRef.current);
+    };
+  }, [gameState, spawnTransaction, endGame, winGame, playSound]);
+
+  // --- INTERACTION HANDLERS ---
+
+  const handleTransactionChoice = (id, actualType, chosenAction, x, y, e) => {
+    e.stopPropagation();
+    if (gameState !== 'playing') return;
+
+    setTransactions(prev => {
+      const updated = prev.map(t => {
+        if (t.id === id) {
+          return { ...t, status: chosenAction === 'approve' ? 'approved' : 'locked' };
+        }
+        return t;
+      });
+      // Filter out the clicked one after a tiny delay for animation
+      setTimeout(() => {
+        setTransactions(curr => curr.filter(t => t.id !== id));
+      }, 100);
+      return updated;
+    });
+
+    if (actualType === 'deposit' && chosenAction === 'approve') {
+      // Correctly approved a deposit
+      playSound('approve');
+      setConfidence(c => Math.min(MAX_CONFIDENCE, c + 25));
+      setStats(s => ({ ...s, deposits: s.deposits + 1 }));
+      showFloatingFeedback("DEPOSIT APPROVED +25", "text-lime-400", x, y);
+    } else if (actualType === 'withdrawal' && chosenAction === 'lockdown') {
+      // Correctly locked down a withdrawal
+      playSound('lockdown');
+      setConfidence(c => Math.min(MAX_CONFIDENCE, c + 10)); 
+      setStats(s => ({ ...s, lockdowns: s.lockdowns + 1 }));
+      showFloatingFeedback("[TEMPORARY & LIMITED] CONTAINED", "text-cyan-400", x, y);
+    } else if (actualType === 'withdrawal' && chosenAction === 'approve') {
+      // MASSIVE ERROR: Internalized a negative thought!
+      playSound('damage');
+      triggerShake();
+      setConfidence(c => {
+        const newVal = Math.max(0, c - 75);
+        if (newVal <= 0) endGame();
+        return newVal;
+      });
+      setStats(s => ({ ...s, drains: s.drains + 1 }));
+      showFloatingFeedback("TOXIC INTERNALIZED! -75", "text-red-500", x, y);
+    } else if (actualType === 'deposit' && chosenAction === 'lockdown') {
+      // ERROR: Filtered out good evidence
+      playSound('damage');
+      setConfidence(c => {
+        const newVal = Math.max(0, c - 15);
+        if (newVal <= 0) endGame();
+        return newVal;
+      });
+      showFloatingFeedback("EVIDENCE REJECTED! -15", "text-orange-400", x, y);
+    }
+  };
+
+  const initGame = () => {
+    setConfidence(START_CONFIDENCE);
+    setTimeElapsed(0);
+    setStats({ deposits: 0, lockdowns: 0, drains: 0 });
+    setTransactions([]);
+    setFeedback(null);
+    timeRef.current = 0;
+    confidenceRef.current = START_CONFIDENCE;
+    setGameState('playing');
+    
+    if (audioCtxRef.current && audioCtxRef.current.state === 'suspended') {
+      audioCtxRef.current.resume();
+    }
+  };
+
+  // --- RENDER HELPERS ---
+  
+  const confPct = (confidence / MAX_CONFIDENCE) * 100;
+  const currentDepositChance = Math.round((0.2 + (confidence / MAX_CONFIDENCE) * 0.6) * 100);
+  
+  // Determine Core color based on confidence
+  let coreColor = 'border-cyan-500 shadow-cyan-500/50 text-cyan-400';
+  let coreBg = 'bg-cyan-500/10';
+  if (confPct < 30) {
+    coreColor = 'border-red-500 shadow-red-500/80 text-red-500';
+    coreBg = 'bg-red-500/20';
+  } else if (confPct > 75) {
+    coreColor = 'border-lime-400 shadow-lime-400/50 text-lime-400';
+    coreBg = 'bg-lime-400/10';
+  }
+
+  const shakeCSS = `
+    @keyframes tacticalShake {
+      0% { transform: translate(2px, 1px) rotate(0deg); }
+      10% { transform: translate(-1px, -2px) rotate(-1deg); }
+      20% { transform: translate(-3px, 0px) rotate(1deg); }
+      30% { transform: translate(3px, 2px) rotate(0deg); }
+      40% { transform: translate(1px, -1px) rotate(1deg); }
+      50% { transform: translate(-1px, 2px) rotate(-1deg); }
+      60% { transform: translate(-3px, 1px) rotate(0deg); }
+      70% { transform: translate(3px, 1px) rotate(-1deg); }
+      80% { transform: translate(-1px, -1px) rotate(1deg); }
+      90% { transform: translate(1px, 2px) rotate(0deg); }
+      100% { transform: translate(1px, -2px) rotate(-1deg); }
+    }
+    .shake-severe { animation: tacticalShake 0.15s infinite; }
+  `;
+
+  return (
+    <div className="min-h-screen bg-zinc-950 text-zinc-100 font-sans p-0 md:p-8 flex items-center justify-center selection:bg-lime-400 selection:text-black">
+      <style>{shakeCSS}</style>
+      
+      <div 
+        className={`max-w-5xl w-full bg-zinc-900 md:rounded-xl shadow-2xl overflow-hidden border border-zinc-800 flex flex-col relative ${isShaking ? 'shake-severe border-red-500 shadow-[0_0_50px_rgba(239,68,68,0.4)]' : ''}`}
+      >
+        
+        {/* --- TELEMETRY HEADER --- */}
+        <div className="bg-black p-4 border-b border-zinc-800 flex flex-col md:flex-row justify-between items-center gap-4 relative z-50">
+          <div className="flex items-center gap-3">
+            <Database className="text-lime-400 w-6 h-6" />
+            <div>
+              <h1 className="text-xl font-black text-white tracking-tighter uppercase leading-none">
+                Confidence <span className="text-lime-400">Account</span>
+              </h1>
+              <p className="text-[10px] text-zinc-500 font-mono uppercase tracking-[0.2em] mt-1">Mental Filter System v1.0</p>
+            </div>
+          </div>
+
+          {(gameState === 'playing' || gameState === 'win' || gameState === 'gameover') && (
+            <div className="flex gap-4 font-mono text-xs uppercase tracking-widest bg-zinc-900 px-4 py-2 border border-zinc-800 rounded">
+              <div className="flex flex-col items-center border-r border-zinc-800 pr-4">
+                <span className="text-zinc-500 text-[9px] mb-1">Uptime</span>
+                <span className="text-white font-bold">{timeElapsed.toFixed(1)}s</span>
+              </div>
+              <div className="flex flex-col items-center border-r border-zinc-800 pr-4 pl-2">
+                <span className="text-zinc-500 text-[9px] mb-1">Account Balance</span>
+                <span className={`${confPct <= 30 ? 'text-red-500 animate-pulse' : 'text-lime-400'} font-bold`}>{Math.floor(confidence)}</span>
+              </div>
+              <div className="flex flex-col items-center border-r border-zinc-800 pr-4 pl-2">
+                <span className="text-zinc-500 text-[9px] mb-1">Deposit Rate</span>
+                <span className="text-lime-400 font-bold">{currentDepositChance}%</span>
+              </div>
+              <div className="flex flex-col items-center pl-2">
+                <span className="text-zinc-500 text-[9px] mb-1">Threats Contained</span>
+                <span className="text-cyan-400 font-bold">{stats.lockdowns}</span>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* --- MAIN GAME ARENA --- */}
+        <div className="relative h-[650px] w-full bg-[#0a0a0c] overflow-hidden select-none">
+          
+          {/* Radar Background */}
+          <div className="absolute inset-0 opacity-20 pointer-events-none">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border border-zinc-700" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-zinc-700" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] rounded-full border border-zinc-700 border-dashed" />
+            <div className="absolute top-0 bottom-0 left-1/2 w-px bg-zinc-700" />
+            <div className="absolute left-0 right-0 top-1/2 h-px bg-zinc-700" />
+          </div>
+
+          {/* IDENTITY CORE (Center) */}
+          <div 
+            className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120px] h-[120px] rounded-full border-4 ${coreColor} ${coreBg} flex flex-col items-center justify-center shadow-[0_0_30px_currentColor] transition-all duration-300 z-10 backdrop-blur-sm`}
+          >
+            <BrainCircuit className="mb-1 opacity-80" size={24} />
+            <span className="text-[10px] font-black uppercase tracking-widest text-center leading-tight">
+              Identity<br/>Core
+            </span>
+          </div>
+
+          {/* TRANSACTIONS (Incoming Thoughts) */}
+          {gameState === 'playing' && transactions.map(t => {
+            if (t.status !== 'incoming') return null; // Hide while filtering out
+
+            return (
+              <div 
+                key={t.id}
+                className="absolute transform -translate-x-1/2 -translate-y-1/2 p-3 border border-zinc-600/50 bg-zinc-900/95 shadow-[0_0_15px_rgba(0,0,0,0.5)] flex flex-col items-center gap-2 backdrop-blur z-20 rounded min-w-[160px]"
+                style={{ left: `${(t.x / ARENA_SIZE.w) * 100}%`, top: `${(t.y / ARENA_SIZE.h) * 100}%` }}
+              >
+                <div className="font-mono text-xs uppercase tracking-wider font-bold text-zinc-100 text-center px-2">
+                  "{t.text}"
+                </div>
+                
+                <div className="flex gap-2 w-full mt-1">
+                  <button 
+                    onMouseDown={(e) => handleTransactionChoice(t.id, t.type, 'approve', t.x, t.y, e)}
+                    className="flex-1 text-[9px] uppercase tracking-[0.1em] py-1.5 rounded bg-lime-500/20 text-lime-400 hover:bg-lime-500/40 border border-lime-500/50 transition-colors font-bold"
+                  >
+                    Approve
+                  </button>
+                  <button 
+                    onMouseDown={(e) => handleTransactionChoice(t.id, t.type, 'lockdown', t.x, t.y, e)}
+                    className="flex-1 text-[9px] uppercase tracking-[0.1em] py-1.5 rounded bg-cyan-500/20 text-cyan-400 hover:bg-cyan-500/40 border border-cyan-500/50 transition-colors font-bold"
+                  >
+                    Lockdown
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+
+          {/* FLOATING FEEDBACK */}
+          {feedback && (
+            <div 
+              key={feedback.id}
+              className={`absolute transform -translate-x-1/2 -translate-y-1/2 text-sm md:text-base font-black ${feedback.color} drop-shadow-[0_5px_10px_rgba(0,0,0,0.8)] uppercase tracking-widest pointer-events-none z-50 animate-bounce whitespace-nowrap bg-black/50 px-3 py-1 rounded`}
+              style={{ left: `${(feedback.x / ARENA_SIZE.w) * 100}%`, top: `${(feedback.y / ARENA_SIZE.h) * 100}%` }}
+            >
+              {feedback.msg}
+            </div>
+          )}
+
+          {/* HUD Overlay Bottom */}
+          {gameState === 'playing' && (
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-3/4 max-w-md bg-black/80 border border-zinc-800 p-4 rounded backdrop-blur">
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-[10px] text-zinc-500 font-mono uppercase tracking-[0.2em]">Confidence Reserves</span>
+                <span className={`text-xs font-black font-mono ${coreColor}`}>{Math.floor(confidence)} / {MAX_CONFIDENCE}</span>
+              </div>
+              <div className="h-2 bg-zinc-900 rounded-full overflow-hidden border border-zinc-800">
+                <div className={`h-full transition-all duration-200 ${coreBg.replace('/10', '').replace('/20', '')}`} style={{ width: `${confPct}%` }} />
+              </div>
+            </div>
+          )}
+
+          {/* --- OVERLAYS --- */}
+
+          {/* INTRO SCREEN */}
+          {gameState === 'intro' && (
+            <div className="absolute inset-0 bg-zinc-950/90 backdrop-blur-sm z-50 flex flex-col items-center justify-center p-8 text-center border-t-4 border-cyan-500">
+              <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter mb-4">The <span className="text-cyan-400">Mental Filter</span></h2>
+              <p className="text-zinc-400 max-w-2xl text-sm leading-relaxed mb-8">
+                Your <strong>Identity Core</strong> (center) starts with a 500 Confidence Balance. To win, reach 1000.<br/><br/>
+                "Transactions" will spawn as neutral, unclassified thoughts. You act as the Mental Filter. Read them carefully! You must click <strong>APPROVE</strong> for deposits (effort/progress) and <strong>LOCKDOWN</strong> for withdrawals (criticism/doubt).<br/><br/>
+                If a withdrawal hits your Identity Core unhandled—or worse, if you accidentally <em>APPROVE</em> a negative thought—it triggers a massive <span className="text-red-400 font-bold">Global Identity Drain</span>. Do not let mistakes become identity.
+              </p>
+              
+              <div className="flex flex-col md:flex-row gap-6 mb-10 text-left w-full max-w-2xl">
+                <div className="flex-1 bg-zinc-900 border-l-4 border-zinc-600 p-4 rounded-r-lg shadow-lg">
+                  <div className="text-white font-black uppercase tracking-wider text-sm mb-2">Neutral Thoughts</div>
+                  <div className="text-zinc-400 text-xs leading-relaxed">
+                    You must classify incoming thoughts manually.<br/><br/>
+                    <strong className="text-lime-400">APPROVE</strong> deposits (+25 Pts).<br/>
+                    <strong className="text-cyan-400">LOCKDOWN</strong> withdrawals (+10 Pts).<br/><br/>
+                    <em className="text-lime-400 font-bold border-t border-zinc-700 pt-2 mt-2 block">Momentum: Building confidence causes your mind to naturally generate more positive thoughts!</em>
+                  </div>
+                </div>
+              </div>
+
+              <button 
+                onClick={initGame}
+                className="bg-cyan-500 hover:bg-cyan-400 text-black font-black text-lg px-10 py-4 uppercase tracking-[0.2em] transition-transform hover:scale-105 shadow-[0_0_30px_rgba(6,182,212,0.4)]"
+              >
+                Initialize Filter
+              </button>
+            </div>
+          )}
+
+          {/* GAME OVER */}
+          {gameState === 'gameover' && (
+            <div className="absolute inset-0 bg-zinc-950/95 backdrop-blur-sm z-50 flex flex-col items-center justify-center p-8 text-center border-t-4 border-red-500">
+              <div className="inline-block bg-red-500 text-white px-3 py-1 text-xs font-black uppercase tracking-[0.3em] mb-6">
+                System Bankrupt
+              </div>
+              <h2 className="text-5xl font-black text-white uppercase tracking-tighter mb-4">Identity Collapse</h2>
+              <p className="text-red-400 font-mono text-sm uppercase tracking-widest mb-10 max-w-xl">
+                Confidence reached 0.
+              </p>
+
+              <div className="bg-zinc-900 border border-zinc-800 p-6 max-w-2xl w-full text-left mb-8 shadow-2xl">
+                <h3 className="text-white font-bold uppercase text-xs tracking-wider mb-4 border-b border-zinc-800 pb-2">Pedagogical Review</h3>
+                <p className="text-zinc-400 text-sm leading-relaxed mb-4">
+                  You either allowed unhandled setbacks to strike your core, or you actively internalized toxic criticism by clicking "APPROVE" on a withdrawal. When errors are not reframed as <em>temporary and limited</em>, they are processed as permanent flaws in your identity.
+                </p>
+                <ul className="text-zinc-500 font-mono text-xs space-y-2">
+                  <li><span className="text-lime-400">Deposits Approved:</span> {stats.deposits}</li>
+                  <li><span className="text-cyan-400">Threats Contained:</span> {stats.lockdowns}</li>
+                  <li><span className="text-red-500">Identity Drains Suffered:</span> {stats.drains}</li>
+                </ul>
+              </div>
+
+              <button 
+                onClick={initGame}
+                className="bg-zinc-800 text-white hover:bg-zinc-700 font-black text-sm px-8 py-4 uppercase tracking-[0.2em] transition-all border border-zinc-700"
+              >
+                Reboot System
+              </button>
+            </div>
+          )}
+
+          {/* WIN SCREEN */}
+          {gameState === 'win' && (
+            <div className="absolute inset-0 bg-zinc-950/95 backdrop-blur-sm z-50 flex flex-col items-center justify-center p-8 text-center border-t-4 border-lime-400">
+              <div className="inline-block bg-lime-400 text-black px-3 py-1 text-xs font-black uppercase tracking-[0.3em] mb-6">
+                First Victory Won
+              </div>
+              <h2 className="text-5xl font-black text-white uppercase tracking-tighter mb-4">Robust Confidence</h2>
+              <p className="text-zinc-400 font-mono text-sm uppercase tracking-widest mb-10 max-w-xl leading-relaxed">
+                Account Maximum Reached in {timeElapsed.toFixed(1)}s
+              </p>
+
+              <div className="bg-zinc-900 border border-zinc-800 p-6 max-w-2xl w-full text-left mb-8 shadow-2xl">
+                <h3 className="text-white font-bold uppercase text-xs tracking-wider mb-4 border-b border-zinc-800 pb-2">Clinical Assessment</h3>
+                <p className="text-zinc-400 text-sm leading-relaxed mb-4">
+                  You successfully executed the Mental Filter. By deliberately approving evidence of mastery and actively locking down setbacks, you built a durable network of positive belief that protects execution under pressure.
+                </p>
+                <ul className="text-zinc-500 font-mono text-xs space-y-2">
+                  <li><span className="text-lime-400">Deposits Approved:</span> {stats.deposits}</li>
+                  <li><span className="text-cyan-400">Threats Contained:</span> {stats.lockdowns}</li>
+                  <li><span className="text-red-500">Identity Drains Suffered:</span> {stats.drains}</li>
+                </ul>
+              </div>
+
+              <button 
+                onClick={initGame}
+                className="bg-lime-400 text-black hover:bg-lime-300 font-black text-sm px-8 py-4 uppercase tracking-[0.2em] transition-all"
+              >
+                Run Again
+              </button>
+            </div>
+          )}
+
+        </div>
+      </div>
+    </div>
+  );
+}
