@@ -380,12 +380,12 @@ function DisciplineArchitecture() {
       playSound('powerup');
       setPoints((value) => Math.max(0, value - 20));
       setTargetSizeMod((value) => value * 1.15);
-      showFeedbackMsg('GROWTH: -20 Pts, Targets Enlarged', 'text-cyan-400');
+      showFeedbackMsg('GROWTH: -20 Pts, Targets Enlarged', 'text-lime-400');
     } else if (choiceId === 'pride_hubristic') {
       playSound('powerup');
       setPoints((value) => Math.min(MAX_PROCESS_POINTS, value + 40));
       setTargetSizeMod((value) => value * 0.75);
-      showFeedbackMsg('HUBRIS: +40 Pts, Targets Shrunk', 'text-yellow-400');
+      showFeedbackMsg('HUBRIS: +40 Pts, Targets Shrunk', 'text-amber-400');
     } else if (choiceId === 'pride_authentic') {
       playSound('powerup');
       setTargetSizeMod((value) => value * 1.15);
@@ -399,7 +399,7 @@ function DisciplineArchitecture() {
       playSound('powerup');
       setTargetSizeMod((value) => value * 1.15);
       setTargetLifespanMod((value) => value * 0.7);
-      showFeedbackMsg('GROWTH: Targets Enlarged, Faster', 'text-cyan-400');
+      showFeedbackMsg('GROWTH: Targets Enlarged, Faster', 'text-lime-400');
     }
   };
 
@@ -489,7 +489,7 @@ function DisciplineArchitecture() {
               </div>
               <div className="flex flex-col items-center pl-2">
                 <span className="text-zinc-500 text-[9px] mb-1">Streak</span>
-                <span className="text-cyan-400 font-bold">x{streak}</span>
+                <span className="text-lime-400 font-bold">x{streak}</span>
               </div>
             </div>
           )}
@@ -499,15 +499,15 @@ function DisciplineArchitecture() {
           className="relative min-h-[650px] w-full bg-zinc-950 overflow-hidden select-none transition-all duration-300"
           style={{ filter: gameState === 'playing' ? `blur(${blurAmount}px) grayscale(${desaturateAmount}%)` : 'none' }}
         >
-          <div className="absolute top-0 left-0 w-full h-[25%] bg-gradient-to-b from-yellow-500/10 to-transparent border-b border-yellow-500/20 group z-30">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(234,179,8,0.1),transparent_70%)] pointer-events-none"></div>
+          <div className="absolute top-0 left-0 w-full h-[25%] bg-gradient-to-b from-lime-400/10 to-transparent border-b border-lime-400/50 group z-30">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(0,255,202,0.12),transparent_70%)] pointer-events-none"></div>
 
             <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none transition-transform group-hover:scale-105 duration-700">
-              <Trophy className={`mx-auto text-yellow-400 mb-1 w-8 h-8 drop-shadow-[0_0_15px_rgba(250,204,21,0.5)] ${activeEvent ? 'opacity-20' : 'opacity-80'}`} />
-              <h2 className={`text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-b from-yellow-300 to-yellow-600 uppercase tracking-tighter drop-shadow-md transition-opacity ${activeEvent ? 'opacity-20' : 'opacity-100'}`}>
+              <Trophy className={`mx-auto text-lime-400 mb-1 w-8 h-8 drop-shadow-[0_0_15px_rgba(0,255,202,0.35)] ${activeEvent ? 'opacity-20' : 'opacity-80'}`} />
+              <h2 className={`text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-b from-lime-300 to-lime-500 uppercase tracking-tighter drop-shadow-md transition-opacity ${activeEvent ? 'opacity-20' : 'opacity-100'}`}>
                 Championship Outcome
               </h2>
-              <p className={`text-[9px] text-yellow-500/70 font-mono uppercase tracking-[0.3em] mt-1 transition-opacity ${activeEvent ? 'opacity-0' : 'opacity-100'}`}>
+              <p className={`text-[9px] text-lime-400/70 font-mono uppercase tracking-[0.3em] mt-1 transition-opacity ${activeEvent ? 'opacity-0' : 'opacity-100'}`}>
                 Warning: Fixation Generates Anxiety
               </p>
             </div>
@@ -529,20 +529,20 @@ function DisciplineArchitecture() {
 
                 <button
                   onMouseDown={(event) => { event.stopPropagation(); handleEventChoice(currentEvent.right.id); }}
-                  className="pointer-events-auto w-[40%] md:w-[30%] bg-zinc-950/90 border-2 border-zinc-800 hover:border-cyan-400 p-3 md:p-4 text-left transition-all shadow-xl backdrop-blur"
+                  className="pointer-events-auto w-[40%] md:w-[30%] bg-zinc-950/90 border-2 border-zinc-800 hover:border-lime-400/50 p-3 md:p-4 text-left transition-all shadow-xl backdrop-blur"
                 >
-                  <div className="text-cyan-400 text-[10px] font-bold uppercase tracking-widest mb-1 flex items-center gap-2">
+                  <div className="text-lime-400 text-[10px] font-bold uppercase tracking-widest mb-1 flex items-center gap-2">
                     <RightIcon size={14} /> Option B
                   </div>
                   <h3 className="text-sm md:text-lg font-black text-white mb-1">"{currentEvent.right.label}"</h3>
-                  <div className="bg-black/80 p-1.5 text-[9px] font-mono text-zinc-400 border-l-2 border-cyan-400">
-                    Effect: <span className="text-cyan-400">{currentEvent.right.effect}</span>
+                  <div className="bg-black/80 p-1.5 text-[9px] font-mono text-zinc-400 border-l-2 border-lime-400">
+                    Effect: <span className="text-lime-400">{currentEvent.right.effect}</span>
                   </div>
                 </button>
               </div>
             )}
 
-            <div className="absolute bottom-0 left-0 h-1.5 bg-yellow-400/80 shadow-[0_0_10px_rgba(250,204,21,0.8)]" style={{ width: `${(points / MAX_PROCESS_POINTS) * 100}%`, transition: 'width 0.2s ease-out' }}></div>
+            <div className="absolute bottom-0 left-0 h-1.5 bg-lime-400/80 shadow-[0_0_10px_rgba(0,255,202,0.4)]" style={{ width: `${(points / MAX_PROCESS_POINTS) * 100}%`, transition: 'width 0.2s ease-out' }}></div>
           </div>
 
           <div
@@ -558,7 +558,7 @@ function DisciplineArchitecture() {
                 <div
                   key={target.id}
                   onMouseDown={(event) => handleHitTarget(target.id, event)}
-                  className="absolute rounded-full border-2 border-cyan-400 bg-cyan-400/10 flex items-center justify-center hover:bg-cyan-400/30 transition-colors"
+                  className="absolute rounded-full border-2 border-lime-400 bg-lime-400/10 flex items-center justify-center hover:bg-lime-400/20 transition-colors"
                   style={{
                     left: `${target.x}%`,
                     top: `${target.y}%`,
@@ -567,9 +567,9 @@ function DisciplineArchitecture() {
                     transform: 'translate(-50%, -50%)'
                   }}
                 >
-                  <Crosshair className="text-cyan-400/50 w-1/2 h-1/2 pointer-events-none" />
+                  <Crosshair className="text-lime-400 w-1/2 h-1/2 pointer-events-none" />
                   <div
-                    className="absolute inset-0 rounded-full border border-cyan-400/50 pointer-events-none"
+                    className="absolute inset-0 rounded-full border border-lime-400/50 pointer-events-none"
                     style={{ transform: `scale(${lifePct})` }}
                   ></div>
                 </div>
@@ -577,8 +577,8 @@ function DisciplineArchitecture() {
             })}
 
             {shieldActive && (
-              <div className="absolute inset-0 border-4 border-cyan-400/30 pointer-events-none bg-cyan-400/5 shadow-[inset_0_0_50px_rgba(34,211,238,0.1)]">
-                <div className="absolute top-4 left-1/2 -translate-x-1/2 text-cyan-400 font-mono text-xs uppercase tracking-widest flex items-center gap-2">
+              <div className="absolute inset-0 border-4 border-lime-400/50 pointer-events-none bg-lime-400/10 shadow-[inset_0_0_50px_rgba(0,255,202,0.08)]">
+                <div className="absolute top-4 left-1/2 -translate-x-1/2 text-lime-400 font-mono text-xs uppercase tracking-widest flex items-center gap-2">
                   <ShieldAlert size={14} /> Anxiety Shield Active
                 </div>
               </div>

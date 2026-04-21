@@ -189,3 +189,33 @@ test("forensic studies option2 unlocks quizzes and assignments from module compo
   assert.doesNotMatch(mainSource, /Locked until the previous quiz is complete/i);
   assert.match(mainSource, /Locked until all module content is marked complete/i);
 });
+
+test("forensic studies option2 applies special assignment 8 and final exam rules", async () => {
+  const [mainSource, dataSource] = await Promise.all([
+    readFile(mainPath, "utf8"),
+    readFile(dataPath, "utf8")
+  ]);
+  const data = loadCourseData(dataSource);
+  const chapterEight = data?.chapters?.find((entry) => entry.id === "chapter-8");
+  const chapterNine = data?.chapters?.find((entry) => entry.id === "chapter-9");
+  const assignmentEight = data?.assignments?.find((entry) => entry.id === "assignment-8");
+  const finalExamQuiz = data?.quizzes?.find((entry) => entry.id === "quiz-9");
+
+  assert.ok(chapterEight, "expected chapter 8 to remain in imported course data");
+  assert.ok(chapterNine, "expected final exam chapter to remain in imported course data");
+  assert.ok(assignmentEight, "expected assignment 8 to remain in imported course data");
+  assert.ok(finalExamQuiz, "expected final exam quiz to remain in imported course data");
+
+  assert.match(mainSource, /assignmentComplete/);
+  assert.match(mainSource, /function isAssignmentComplete\(/);
+  assert.match(mainSource, /function markAssignmentComplete\(/);
+  assert.match(mainSource, /function areForensicsAssignmentsOneToSevenComplete\(/);
+  assert.match(mainSource, /function isForensicsFinalExamUnlocked\(/);
+  assert.match(mainSource, /function getVisibleChapters\(/);
+  assert.match(mainSource, /chapter\.id !== "chapter-8"/);
+  assert.match(mainSource, /assignment\.id === "assignment-8"/);
+  assert.match(mainSource, /areForensicsAssignmentsOneToSevenComplete\(\)/);
+  assert.match(mainSource, /quiz\.id === "quiz-9"/);
+  assert.match(mainSource, /Open test/);
+  assert.doesNotMatch(mainSource, /Open quiz/);
+});

@@ -109,14 +109,16 @@
         quizComplete: parsed.quizComplete || {},
         quizCompletedAt: parsed.quizCompletedAt || {},
         quizWork: parsed.quizWork || {},
-        moduleComponents: parsed.moduleComponents || {}
+        moduleComponents: parsed.moduleComponents || {},
+        assignmentComplete: parsed.assignmentComplete || {}
       };
     } catch (_error) {
       return {
         quizComplete: {},
         quizCompletedAt: {},
         quizWork: {},
-        moduleComponents: {}
+        moduleComponents: {},
+        assignmentComplete: {}
       };
     }
   }
@@ -246,6 +248,9 @@
           : null;
 
     target?.click();
+    if (action === "generate") {
+      markAssignmentComplete(state.activeId);
+    }
     queueAssignmentToolbarSync();
   }
 
@@ -300,6 +305,13 @@
     let observer = null;
 
     const syncFromFrame = () => queueAssignmentToolbarSync();
+    const handleFrameClick = (event) => {
+      const control = event.target?.closest?.("button, [role='button'], input[type='button'], input[type='submit'], a");
+      if (!control || !isAssignmentGenerateTrigger(control)) return;
+      markAssignmentComplete(state.activeId);
+      renderNav();
+      renderProgress();
+    };
 
     const detach = () => {
       if (observer) {
@@ -310,6 +322,7 @@
       if (observedDoc) {
         observedDoc.removeEventListener("click", syncFromFrame, true);
         observedDoc.removeEventListener("input", syncFromFrame, true);
+        observedDoc.removeEventListener("click", handleFrameClick, true);
       }
 
       observedDoc = null;
@@ -327,6 +340,7 @@
       observedDoc = controls.doc;
       observedDoc.addEventListener("click", syncFromFrame, true);
       observedDoc.addEventListener("input", syncFromFrame, true);
+      observedDoc.addEventListener("click", handleFrameClick, true);
 
       observer = new MutationObserver(syncFromFrame);
       observer.observe(observedDoc.body, {
@@ -485,6 +499,64 @@
     return findQuizByChapter(chapterId)?.id || "";
   }
 
+  function isAssignmentComplete(assignmentId) {
+    return !!state.progress.assignmentComplete?.[assignmentId];
+  }
+
+  function markAssignmentComplete(assignmentId, complete = true) {
+    if (!assignmentId) return;
+    state.progress.assignmentComplete[assignmentId] = !!complete;
+    saveProgress();
+  }
+
+  function areForensicsAssignmentsOneToSevenComplete() {
+    return [1, 2, 3, 4, 5, 6, 7].every((number) => isAssignmentComplete(`assignment-${number}`));
+  }
+
+  function isForensicsFinalExamChapter(chapter) {
+    return chapter?.id === "chapter-9";
+  }
+
+  function isForensicsFinalExamUnlocked() {
+    const quizzesComplete = [1, 2, 3, 4, 5, 6, 7].every((number) => !!state.progress.quizComplete[`quiz-${number}`]);
+    const assignmentsComplete = [1, 2, 3, 4, 5, 6, 7, 8].every((number) => isAssignmentComplete(`assignment-${number}`));
+    return quizzesComplete && assignmentsComplete;
+  }
+
+  function getVisibleChapters() {
+    return (data.chapters || []).filter((chapter) => chapter.id !== "chapter-8");
+  }
+
+  function getQuizLaunchLabel() {
+    return "Open test";
+  }
+
+  function getQuizLockedCopy(quiz) {
+    if (quiz && quiz.id === "quiz-9") {
+      return "Locked until all other modules are complete";
+    }
+    return "Locked until all module content is marked complete";
+  }
+
+  function getAssignmentLockedCopy(assignment) {
+    if (assignment && assignment.id === "assignment-8") {
+      return "Locked until assignments 1-7 are complete";
+    }
+    return "Locked until all module content is marked complete";
+  }
+
+  function getChapterLockedCopy(chapter) {
+    if (isForensicsFinalExamChapter(chapter)) {
+      return "Locked until all other modules are complete";
+    }
+    return "Locked until all module content is marked complete";
+  }
+
+  function isAssignmentGenerateTrigger(control) {
+    const text = cleanText(control?.textContent || control?.value || "").trim();
+    return /generate report|generate print report|print report|print to pdf/i.test(text);
+  }
+
   function getChapterComponentIds(chapterId) {
     const chapter = findChapter(chapterId);
     return Array.isArray(chapter?.componentIds) ? chapter.componentIds.filter(Boolean) : [];
@@ -526,21 +598,35 @@
   }
 
   function isChapterUnlocked(number) {
+    const chapter = typeof number === "object"
+      ? number
+      : (data.chapters || []).find((item) => item.number === number) || null;
+    if (!chapter) return false;
+    if (chapter.id === "chapter-8") return false;
+    if (isForensicsFinalExamChapter(chapter)) {
+      return isForensicsFinalExamUnlocked();
+    }
     return true;
   }
 
   function isQuizUnlocked(quiz) {
     if (AUTHORING_UNLOCK_ALL) return true;
+    if (quiz && quiz.id === "quiz-9") {
+      return isForensicsFinalExamUnlocked();
+    }
     return !!quiz && isModuleComplete(quiz.chapterId);
   }
 
   function isAssignmentUnlocked(assignment) {
     if (AUTHORING_UNLOCK_ALL) return true;
+    if (assignment && assignment.id === "assignment-8") {
+      return areForensicsAssignmentsOneToSevenComplete();
+    }
     return !!assignment && isModuleComplete(assignment.chapterId);
   }
 
   function getUnlockedChapterCount() {
-    return (data.chapters || []).filter((chapter) => isChapterUnlocked(chapter.number)).length;
+    return getVisibleChapters().filter((chapter) => isChapterUnlocked(chapter.number)).length;
   }
 
   function getCompletedQuizCount() {
@@ -549,7 +635,7 @@
 
   function getProgressSummary() {
     const totalQuizzes = (data.quizzes || []).length;
-    const totalChapters = (data.chapters || []).length;
+    const totalChapters = getVisibleChapters().length;
     const completedQuizzes = getCompletedQuizCount();
     return {
       totalQuizzes,
@@ -838,6 +924,13 @@
   function openChapter(id) {
     const chapter = findChapter(id);
     if (!chapter || !isChapterUnlocked(chapter.number)) return;
+    if (isForensicsFinalExamChapter(chapter)) {
+      const quizId = getQuizIdForChapter(chapter.id);
+      if (quizId) {
+        openQuiz(quizId);
+      }
+      return;
+    }
     state.section = "home";
     state.tab = "chapters";
     state.activeId = id;
@@ -918,7 +1011,7 @@
 
     if (state.tab === "quizzes") {
       refs.sectionTitle.textContent = "Quizzes";
-      refs.sectionIntro.textContent = "Open a quiz to work through the question sets and track completion by section.";
+      refs.sectionIntro.textContent = "Open a test to work through the question sets and track completion by section.";
       return;
     }
 
@@ -948,9 +1041,9 @@
                 <h4 class="card-title">${escapeHtml(quiz.title)}</h4>
                 <p class="card-summary">${escapeHtml(quiz.summary || "This quiz keeps the original source-linked assessment available inside the shell.")}</p>
                 <div class="card-actions">
-                  <button class="btn btn-primary" type="button" data-open-quiz="${escapeHtml(quiz.id)}" ${unlocked ? "" : "disabled"}>Open quiz</button>
+                  <button class="btn btn-primary" type="button" data-open-quiz="${escapeHtml(quiz.id)}" ${unlocked ? "" : "disabled"}>${getQuizLaunchLabel()}</button>
                 </div>
-                ${unlocked ? `<div class="status-chip">${state.progress.quizComplete[quiz.id] ? "Completed" : "Ready"}</div>` : `<div class="status-chip locked">Locked until all module content is marked complete</div>`}
+                ${unlocked ? `<div class="status-chip">${state.progress.quizComplete[quiz.id] ? "Completed" : "Ready"}</div>` : `<div class="status-chip locked">${escapeHtml(getQuizLockedCopy(quiz))}</div>`}
               </article>
             `;
           }).join("")}
@@ -971,7 +1064,7 @@
                 <div class="card-actions">
                   <button class="btn btn-primary" type="button" data-open-assignment="${escapeHtml(assignment.id)}" ${unlocked ? "" : "disabled"}>Open assignment</button>
                 </div>
-                ${unlocked ? `<div class="status-chip">Interactive</div>` : `<div class="status-chip locked">Locked until all module content is marked complete</div>`}
+                ${unlocked ? `<div class="status-chip">${isAssignmentComplete(assignment.id) ? "Completed" : "Interactive"}</div>` : `<div class="status-chip locked">${escapeHtml(getAssignmentLockedCopy(assignment))}</div>`}
               </article>
             `;
           }).join("")}
@@ -981,17 +1074,29 @@
 
     return `
       <div class="card-grid">
-        ${(data.chapters || []).map((chapter) => {
+        ${getVisibleChapters().map((chapter) => {
           const unlocked = isChapterUnlocked(chapter.number);
           const quizId = getQuizIdForChapter(chapter.id);
           const chapterQuiz = quizId ? findQuiz(quizId) : null;
           const quizUnlocked = chapterQuiz ? isQuizUnlocked(chapterQuiz) : false;
-          const actionButtons = [
-            `<button class="btn btn-primary" type="button" data-open-chapter="${escapeHtml(chapter.id)}" ${unlocked ? "" : "disabled"}>${chapter.contentPath ? "Open content" : "Open chapter shell"}</button>`,
-            quizId ? `<button class="btn btn-muted" type="button" data-open-quiz="${escapeHtml(quizId)}" ${quizUnlocked ? "" : "disabled"}>Open quiz</button>` : ""
-          ].filter(Boolean).join("");
+          const isFinalExam = isForensicsFinalExamChapter(chapter);
+          const actionButtons = isFinalExam
+            ? [
+                quizId ? `<button class="btn btn-primary" type="button" data-open-quiz="${escapeHtml(quizId)}" ${quizUnlocked ? "" : "disabled"}>${getQuizLaunchLabel()}</button>` : ""
+              ].filter(Boolean).join("")
+            : [
+                `<button class="btn btn-primary" type="button" data-open-chapter="${escapeHtml(chapter.id)}" ${unlocked ? "" : "disabled"}>${chapter.contentPath ? "Open content" : "Open chapter shell"}</button>`,
+                quizId ? `<button class="btn btn-muted" type="button" data-open-quiz="${escapeHtml(quizId)}" ${quizUnlocked ? "" : "disabled"}>${getQuizLaunchLabel()}</button>` : ""
+              ].filter(Boolean).join("");
           const componentCount = Array.isArray(chapter.componentIds) ? chapter.componentIds.length : 0;
           const completedCount = getCompletedComponentCount(chapter.id);
+          const statusChip = isFinalExam
+            ? unlocked
+              ? `<div class="status-chip">${state.progress.quizComplete[quizId] ? "Completed" : "Ready"}</div>`
+              : `<div class="status-chip locked">${escapeHtml(getChapterLockedCopy(chapter))}</div>`
+            : componentCount
+              ? `<div class="status-chip">${escapeHtml(`${completedCount}/${componentCount} components complete`)}</div>`
+              : `<div class="status-chip">Ready</div>`;
           return `
             <article class="course-card chapter-card editorial-overview-card ${unlocked ? "" : "locked-card"}" style="--accent:${escapeHtml(chapter.accent || "#8b6728")}">
               <p class="card-code">${escapeHtml(chapter.code)}</p>
@@ -1000,7 +1105,7 @@
               <div class="card-actions">
                 ${actionButtons}
               </div>
-              ${componentCount ? `<div class="status-chip">${escapeHtml(`${completedCount}/${componentCount} components complete`)}</div>` : `<div class="status-chip">Ready</div>`}
+              ${statusChip}
             </article>
           `;
         }).join("")}
@@ -1018,7 +1123,7 @@
     const componentCount = Array.isArray(chapter.componentIds) ? chapter.componentIds.length : 0;
     const completedCount = getCompletedComponentCount(chapter.id);
     const detailActions = [
-      quiz ? `<button class="btn btn-secondary" type="button" data-open-quiz="${escapeHtml(quiz.id)}" ${quizUnlocked ? "" : "disabled"}>Open quiz</button>` : "",
+      quiz ? `<button class="btn btn-secondary" type="button" data-open-quiz="${escapeHtml(quiz.id)}" ${quizUnlocked ? "" : "disabled"}>${getQuizLaunchLabel()}</button>` : "",
       `<button class="btn btn-muted" type="button" data-back-home="chapters">Back to chapters</button>`
     ].filter(Boolean).join("");
 
@@ -1155,7 +1260,7 @@
           <div class="lock-copy">This assignment is listed in the course, but no embedded workspace was retained for it here.</div>
           <div class="detail-actions">
             ${[
-              quiz ? `<button class="btn btn-secondary" type="button" data-open-quiz="${escapeHtml(quiz.id)}">Open quiz</button>` : "",
+              quiz ? `<button class="btn btn-secondary" type="button" data-open-quiz="${escapeHtml(quiz.id)}">${getQuizLaunchLabel()}</button>` : "",
               `<button class="btn btn-muted" type="button" data-back-home="assignments">Back to assignments</button>`
             ].filter(Boolean).join("")}
           </div>

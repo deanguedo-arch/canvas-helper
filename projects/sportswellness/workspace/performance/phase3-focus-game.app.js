@@ -457,7 +457,7 @@ function InnerGameSimulator() {
             </div>
             <div>
               <p className="text-[10px] text-zinc-400 font-mono uppercase tracking-[0.2em] mb-1">Phase 3 Focus Game</p>
-              <h1 className="text-2xl font-black text-white tracking-tighter uppercase leading-none">Inner Game <span className={isFlowState ? 'text-cyan-400' : 'text-lime-400'}>Pro</span></h1>
+              <h1 className="text-2xl font-black text-white tracking-tighter uppercase leading-none">Inner Game <span className="text-lime-400">Pro</span></h1>
               <p className="text-[10px] text-zinc-400 font-mono uppercase tracking-[0.2em] mt-1">Performance = Potential - Interference</p>
             </div>
           </div>
@@ -476,7 +476,7 @@ function InnerGameSimulator() {
         {gameState === 'intro' && (
           <div className="p-8 md:p-16 space-y-10 bg-zinc-900 min-h-[600px] flex flex-col justify-center">
             <div className="text-center space-y-3">
-              <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tight">Optimize Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-emerald-400">Execution</span></h2>
+              <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tight">Optimize Your <span className="text-lime-400">Execution</span></h2>
               <p className="text-zinc-400 text-sm font-mono uppercase tracking-widest max-w-xl mx-auto">
                 Endless survival protocol. Session terminates at 100 percent distress.
               </p>
@@ -507,7 +507,7 @@ function InnerGameSimulator() {
                 </div>
                 <p className="text-sm text-zinc-400 mb-6 leading-relaxed">Instinctive execution increases <strong className="text-white">potential</strong>. String three hits together to trigger flow, widen the hit zone, and earn a time-dilation charge.</p>
                 <div className="bg-lime-400 text-black px-3 py-2 text-xs font-black uppercase tracking-widest text-center cursor-crosshair transform group-hover:scale-[1.02] transition-transform">
-                  Strike the ball in the blue zone
+                  Strike the ball in the focus zone
                 </div>
               </div>
             </div>
@@ -541,8 +541,14 @@ function InnerGameSimulator() {
         )}
 
         {gameState === 'playing' && (
-          <div className="relative h-[600px] w-full bg-[#2d4c32] overflow-hidden select-none shadow-inner border-y-8 border-black">
-            <div className="absolute top-[10%] bottom-[10%] left-[5%] right-[5%] bg-[#bd4f3e] border-4 border-white shadow-[inset_0_0_50px_rgba(0,0,0,0.3)] flex">
+          <div
+            className="relative h-[600px] w-full overflow-hidden select-none shadow-inner border-y-8 border-black"
+            style={{ background: 'linear-gradient(180deg, rgba(0, 255, 202, 0.05), rgba(11, 17, 26, 0.35)), var(--performance-game-bg-alt)' }}
+          >
+            <div
+              className="absolute top-[10%] bottom-[10%] left-[5%] right-[5%] border-4 border-white shadow-[inset_0_0_50px_rgba(0,0,0,0.3)] flex"
+              style={{ background: 'linear-gradient(180deg, rgba(0, 255, 202, 0.06), rgba(15, 19, 26, 0.18)), var(--performance-game-panel)' }}
+            >
               <div className="w-1/2 h-full border-r-[6px] border-white/90 relative z-10 shadow-[2px_0_10px_rgba(0,0,0,0.5)]">
                 <div className="absolute top-[15%] bottom-[15%] right-0 w-[45%] border-4 border-white flex flex-col">
                   <div className="h-1/2 w-full border-b-4 border-white"></div>
@@ -556,25 +562,27 @@ function InnerGameSimulator() {
             </div>
 
             <div
-              className={`absolute top-[10%] bottom-[10%] border-l-[3px] border-r-[3px] flex items-center justify-center pointer-events-none transition-all duration-300 z-10 backdrop-blur-[1px] ${isFlowState ? 'bg-cyan-400/30 border-cyan-400/80' : 'bg-sky-400/20 border-sky-400/80'}`}
+              className={`absolute top-[10%] bottom-[10%] border-l-[3px] border-r-[3px] flex items-center justify-center pointer-events-none transition-all duration-300 z-10 backdrop-blur-[1px] ${isFlowState ? 'bg-lime-400/20 border-lime-400' : 'bg-lime-400/10 border-lime-400/50'}`}
               style={{
                 left: `${uiMin}%`,
                 width: `${uiMax - uiMin}%`
               }}
             >
-              <div className={`font-black uppercase tracking-widest rotate-90 whitespace-nowrap flex flex-col items-center drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] ${isFlowState ? 'text-cyan-200' : 'text-sky-200'}`}>
+              <div className={`font-black uppercase tracking-widest rotate-90 whitespace-nowrap flex flex-col items-center drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] ${isFlowState ? 'text-lime-400' : 'text-lime-400'}`}>
                 <span className="text-xl">Hit Zone {isFlowState && '+20%'}</span>
                 <span className="text-[10px] mt-1 font-mono tracking-[0.3em] bg-black/50 px-2 py-0.5">[{ballState.label}]</span>
               </div>
             </div>
 
             <div
-              className={`absolute w-12 h-12 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 z-20 ${isFlowState ? 'shadow-[0_0_30px_#22d3ee,inset_-3px_-3px_8px_rgba(0,0,0,0.4)]' : 'shadow-[inset_-3px_-3px_8px_rgba(0,0,0,0.4),_0_10px_15px_rgba(0,0,0,0.5)]'}`}
+              className={`absolute w-12 h-12 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 z-20 ${isFlowState ? 'shadow-[0_0_30px_rgba(0,255,202,0.28),inset_-3px_-3px_8px_rgba(0,0,0,0.4)]' : 'shadow-[inset_-3px_-3px_8px_rgba(0,0,0,0.4),_0_10px_15px_rgba(0,0,0,0.5)]'}`}
               style={{
                 left: `${ballState.x}%`,
                 top: `${ballState.y}%`,
                 transform: `translate(-50%, -50%) rotate(${ballState.x * (ballState.curve >= 0 ? 12 : -12)}deg)`,
-                background: isFlowState ? 'radial-gradient(circle at 30% 30%, #67e8f9, #06b6d4)' : 'radial-gradient(circle at 30% 30%, #d1f13d, #9eb821)',
+                background: isFlowState
+                  ? 'radial-gradient(circle at 30% 30%, #c7fff2, #00a676)'
+                  : 'radial-gradient(circle at 30% 30%, #effff9, #00cf99)',
                 transition: 'none'
               }}
               onClick={handleHitBall}
@@ -612,18 +620,18 @@ function InnerGameSimulator() {
 
             <div className="absolute top-4 left-4 right-4 flex justify-between items-start pointer-events-none z-50">
               <div className="flex gap-4">
-                <div className={`bg-black/90 px-4 py-2 border-l-2 pointer-events-auto ${isFlowState ? 'border-cyan-400' : 'border-lime-400'}`}>
+                <div className={`bg-black/90 px-4 py-2 border-l-2 pointer-events-auto ${isFlowState ? 'border-lime-400' : 'border-lime-400'}`}>
                   <div className="text-[10px] text-zinc-500 uppercase tracking-[0.2em] mb-1">Time Survived</div>
-                  <div className="text-xl font-mono font-black text-white">{Math.floor(timeElapsed)}<span className={`text-sm ${isFlowState ? 'text-cyan-400' : 'text-lime-400'}`}>s</span></div>
+                  <div className="text-xl font-mono font-black text-white">{Math.floor(timeElapsed)}<span className="text-sm text-lime-400">s</span></div>
                 </div>
-                <div className="bg-black/90 px-4 py-2 border-l-2 border-blue-500 pointer-events-auto hidden md:block">
+                <div className="bg-black/90 px-4 py-2 border-l-2 border-lime-400 pointer-events-auto hidden md:block">
                   <div className="text-[10px] text-zinc-500 uppercase tracking-[0.2em] mb-1">Learning Phase</div>
                   <div className="text-sm font-black text-white uppercase mt-1.5">{currentStage}</div>
                 </div>
                 {isFlowState && (
-                  <div className="bg-cyan-400/20 px-4 py-2 border border-cyan-400 pointer-events-auto animate-pulse">
-                    <div className="text-[10px] text-cyan-400 uppercase tracking-[0.2em] mb-1">Streak {streak}</div>
-                    <div className="text-sm font-black text-cyan-300 uppercase mt-1.5 drop-shadow-[0_0_8px_rgba(34,211,238,0.8)]">FLOW STATE</div>
+                  <div className="bg-lime-400/10 px-4 py-2 border border-lime-400 pointer-events-auto animate-pulse">
+                    <div className="text-[10px] text-lime-400 uppercase tracking-[0.2em] mb-1">Streak {streak}</div>
+                    <div className="text-sm font-black text-lime-400 uppercase mt-1.5 drop-shadow-[0_0_8px_rgba(0,255,202,0.4)]">FLOW STATE</div>
                   </div>
                 )}
               </div>
@@ -656,7 +664,7 @@ function InnerGameSimulator() {
                     disabled={!hasSlowDown}
                     className={`flex items-center gap-2 px-5 py-3 font-black uppercase tracking-wider shadow-2xl transition-all skew-x-[-10deg] ${
                       hasSlowDown
-                        ? 'bg-cyan-400 hover:bg-cyan-300 text-black hover:scale-105 shadow-[0_0_20px_rgba(34,211,238,0.5)]'
+                        ? 'bg-lime-400 hover:bg-lime-300 text-black hover:scale-105 shadow-[0_0_20px_rgba(0,255,202,0.35)]'
                         : 'bg-zinc-800/80 text-zinc-500 border border-zinc-700 cursor-not-allowed backdrop-blur shadow-none'
                     }`}
                   >
@@ -674,12 +682,12 @@ function InnerGameSimulator() {
                   disabled={!canCenter}
                   className={`flex items-center gap-3 px-6 py-4 font-black uppercase tracking-widest shadow-2xl transition-all skew-x-[-10deg] ${
                     canCenter
-                      ? 'bg-white hover:bg-zinc-200 text-black hover:scale-105 shadow-[0_0_30px_rgba(255,255,255,0.4)]'
+                      ? 'bg-lime-400 hover:bg-lime-300 text-black hover:scale-105 shadow-[0_0_30px_rgba(0,255,202,0.35)]'
                       : 'bg-zinc-900/90 text-zinc-600 border border-zinc-800 cursor-not-allowed backdrop-blur shadow-none'
                   }`}
                 >
                   <div className="skew-x-[10deg] flex items-center gap-2 text-sm">
-                    <Activity size={18} className={canCenter ? 'text-blue-600' : ''} />
+                    <Activity size={18} className={canCenter ? 'text-[#07111d]' : ''} />
                     {canCenter ? 'Center (Breathe)' : 'Regulating...'}
                   </div>
                 </button>
@@ -710,10 +718,10 @@ function InnerGameSimulator() {
                   <div className="text-zinc-300 text-xs font-bold uppercase mb-4">Final Interference</div>
                   <div className="text-5xl font-mono font-black text-red-500">{Math.floor(interference)}</div>
                 </div>
-                <div className="bg-white text-black p-6 border-t-2 border-black text-left transform scale-105 shadow-2xl">
+                <div className="bg-zinc-900 p-6 border-t-2 border-lime-400 text-left transform scale-105 shadow-2xl">
                   <div className="text-zinc-500 text-[10px] uppercase tracking-[0.2em] mb-1">Net Metric</div>
-                  <div className="text-black text-xs font-black uppercase mb-4">Final Performance</div>
-                  <div className="text-6xl font-mono font-black">{performance}</div>
+                  <div className="text-white text-xs font-black uppercase mb-4">Final Performance</div>
+                  <div className="text-6xl font-mono font-black text-lime-400">{performance}</div>
                   <div className="text-[10px] font-mono text-zinc-500 mt-2 tracking-widest">P = P - I</div>
                 </div>
               </div>
@@ -750,7 +758,7 @@ function InnerGameSimulator() {
                     <span><strong className="text-white uppercase text-xs tracking-wider block mb-1">Ignoring Self 1</strong> When analytical thoughts were ignored outside of flow, they compounded cognitive drag and tightened the spotlight fast.</span>
                   </li>
                   <li className="flex items-start gap-4">
-                    <Activity className="text-blue-500 mt-0.5 shrink-0" size={16} />
+                    <Activity className="text-lime-400 mt-0.5 shrink-0" size={16} />
                     <span><strong className="text-white uppercase text-xs tracking-wider block mb-1">Arousal Regulation</strong> The centering breath creates the tactical shift that restores control when arousal starts to run the session.</span>
                   </li>
                 </ul>

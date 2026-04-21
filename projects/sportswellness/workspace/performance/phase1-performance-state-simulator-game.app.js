@@ -401,8 +401,8 @@ function PerformanceStateStimulatorGame() {
   let zoneDesc = 'Cursor 1:1. Maintain this state.';
 
   if (arousal < 35) {
-    zoneColor = 'text-cyan-400';
-    zoneBorder = 'border-cyan-400';
+    zoneColor = 'text-amber-400';
+    zoneBorder = 'border-amber-400';
     zoneName = 'APATHY / UNDER-AROUSED';
     zoneDesc = 'Sluggish response. Need activation.';
   } else if (arousal > 65) {
@@ -467,7 +467,7 @@ function PerformanceStateStimulatorGame() {
                   <AlertTriangle size={10} />
                 </div>
                 {pace === 'high' && <div className="text-red-500 font-bold text-xs uppercase animate-pulse">Intense (Pressure Spiking)</div>}
-                {pace === 'lull' && <div className="text-cyan-400 font-bold text-xs uppercase animate-pulse">Lull (Energy Dropping)</div>}
+                {pace === 'lull' && <div className="text-amber-400 font-bold text-xs uppercase animate-pulse">Lull (Energy Dropping)</div>}
                 {pace === 'steady' && <div className="text-zinc-300 font-bold text-xs uppercase">Steady (Baseline)</div>}
               </div>
 
@@ -475,10 +475,10 @@ function PerformanceStateStimulatorGame() {
 
               <div className="relative w-full aspect-square bg-zinc-900/50 border-b border-l border-zinc-700 mb-6 rounded-tr">
                 <svg viewBox="0 0 100 100" className="w-full h-full overflow-visible p-2">
-                  <rect x="35" y="0" width="30" height="100" fill="rgba(163, 230, 53, 0.1)" />
-                  <line x1="35" y1="0" x2="35" y2="100" stroke="rgba(163, 230, 53, 0.3)" strokeWidth="0.5" strokeDasharray="2" />
-                  <line x1="65" y1="0" x2="65" y2="100" stroke="rgba(163, 230, 53, 0.3)" strokeWidth="0.5" strokeDasharray="2" />
-                  <polyline points={renderCurve()} fill="none" stroke="#52525b" strokeWidth="2" strokeLinecap="round" />
+                  <rect x="35" y="0" width="30" height="100" fill="var(--performance-game-primary-soft)" />
+                  <line x1="35" y1="0" x2="35" y2="100" stroke="var(--performance-game-primary-border)" strokeWidth="0.5" strokeDasharray="2" />
+                  <line x1="65" y1="0" x2="65" y2="100" stroke="var(--performance-game-primary-border)" strokeWidth="0.5" strokeDasharray="2" />
+                  <polyline points={renderCurve()} fill="none" stroke="var(--performance-game-line)" strokeWidth="2" strokeLinecap="round" />
                   <circle cx={arousal} cy={100 - currentPerfY} r="4" fill="currentColor" className={`${zoneColor} transition-all duration-75`} />
                   <line x1={arousal} y1={100 - currentPerfY} x2={arousal} y2="100" stroke="currentColor" className={`${zoneColor} opacity-50 transition-all duration-75`} strokeWidth="1" strokeDasharray="1" />
                 </svg>
@@ -499,30 +499,33 @@ function PerformanceStateStimulatorGame() {
 
               <div className="mt-4 space-y-3">
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2 text-xs font-bold text-cyan-400 uppercase tracking-wider">
+                  <div className="flex items-center gap-2 text-xs font-bold text-lime-400 uppercase tracking-wider">
                     <Wind size={14} /> Breathe
                   </div>
                   <div className="bg-zinc-800 text-zinc-300 font-mono text-[9px] px-2 py-0.5 rounded border border-zinc-700">SPACE</div>
                 </div>
                 <div className="h-1 bg-zinc-800 rounded-full overflow-hidden">
-                  <div className="h-full bg-cyan-400 transition-all duration-75" style={{ width: `${100 - (cooldowns.breathe / 10)}%` }} />
+                  <div className="h-full bg-lime-400 transition-all duration-75" style={{ width: `${100 - (cooldowns.breathe / 10)}%` }} />
                 </div>
 
                 <div className="flex items-center justify-between mt-2">
-                  <div className="flex items-center gap-2 text-xs font-bold text-red-400 uppercase tracking-wider">
+                  <div className="flex items-center gap-2 text-xs font-bold text-amber-400 uppercase tracking-wider">
                     <Flame size={14} /> Activate
                   </div>
                   <div className="bg-zinc-800 text-zinc-300 font-mono text-[9px] px-2 py-0.5 rounded border border-zinc-700">W</div>
                 </div>
                 <div className="h-1 bg-zinc-800 rounded-full overflow-hidden">
-                  <div className="h-full bg-red-400 transition-all duration-75" style={{ width: `${100 - (cooldowns.activate / 10)}%` }} />
+                  <div className="h-full bg-amber-400 transition-all duration-75" style={{ width: `${100 - (cooldowns.activate / 10)}%` }} />
                 </div>
               </div>
             </div>
           </div>
 
           <div
-            className="flex-1 bg-[#121815] relative overflow-hidden cursor-none"
+            className="flex-1 bg-zinc-950 relative overflow-hidden cursor-none"
+            style={{
+              background: 'radial-gradient(circle at 50% 50%, rgba(0, 255, 202, 0.06) 0%, rgba(15, 19, 26, 0.45) 35%, var(--performance-game-panel-alt) 78%)'
+            }}
             onMouseMove={handleMouseMove}
           >
             <div
@@ -534,7 +537,7 @@ function PerformanceStateStimulatorGame() {
             <div
               className="absolute inset-0 pointer-events-none transition-opacity duration-300 z-10"
               style={{
-                background: `rgba(34, 211, 238, ${Math.max(0, (35 - arousal) / 35) * 0.15})`
+                background: `rgba(245, 158, 11, ${Math.max(0, (35 - arousal) / 35) * 0.12})`
               }}
             />
 
@@ -582,7 +585,7 @@ function PerformanceStateStimulatorGame() {
                       y1={`${(mouseRef.current.y / ARENA_SIZE.h) * 100}%`}
                       x2={`${(reticleRef.current.x / ARENA_SIZE.w) * 100}%`}
                       y2={`${(reticleRef.current.y / ARENA_SIZE.h) * 100}%`}
-                      stroke="#22d3ee"
+                      stroke="var(--performance-game-warning)"
                       strokeWidth="2"
                       strokeDasharray="4"
                     />
@@ -597,17 +600,17 @@ function PerformanceStateStimulatorGame() {
                 <p className="text-zinc-400 max-w-xl text-sm leading-relaxed mb-8">
                   Your cursor&apos;s responsiveness is governed by your Arousal. Keep it in the <strong>Ideal Performance State (IPS)</strong>.
                   <br /><br />
-                  The <strong>Pace of the Match</strong> shifts dynamically. During an <span className="text-red-400 font-bold">Intense Pace</span>, the target flies and pressure builds, pushing you toward Panic. During a <span className="text-cyan-400 font-bold">Lull</span>, the target crawls and boredom drags you into Apathy.
+                  The <strong>Pace of the Match</strong> shifts dynamically. During an <span className="text-red-400 font-bold">Intense Pace</span>, the target flies and pressure builds, pushing you toward Panic. During a <span className="text-amber-400 font-bold">Lull</span>, the target crawls and boredom drags you into Apathy.
                 </p>
 
                 <div className="flex gap-8 mb-10 text-left flex-wrap justify-center">
                   <div className="bg-zinc-900 border border-zinc-800 p-4 rounded-lg">
-                    <div className="text-cyan-400 font-bold uppercase text-xs mb-1">Tool 1: Breathing</div>
+                    <div className="text-lime-400 font-bold uppercase text-xs mb-1">Tool 1: Breathing</div>
                     <div className="text-white text-sm">Press <kbd className="bg-zinc-800 px-1 rounded text-xs">SPACE</kbd></div>
                     <div className="text-zinc-500 text-[10px] uppercase mt-1">Lowers Arousal (Combats Panic)</div>
                   </div>
                   <div className="bg-zinc-900 border border-zinc-800 p-4 rounded-lg">
-                    <div className="text-red-400 font-bold uppercase text-xs mb-1">Tool 2: Activation</div>
+                    <div className="text-amber-400 font-bold uppercase text-xs mb-1">Tool 2: Activation</div>
                     <div className="text-white text-sm">Press <kbd className="bg-zinc-800 px-1 rounded text-xs">W</kbd></div>
                     <div className="text-zinc-500 text-[10px] uppercase mt-1">Raises Arousal (Combats Apathy)</div>
                   </div>

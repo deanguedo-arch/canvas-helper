@@ -12,6 +12,7 @@ const gameHtmlPath = path.resolve("projects/sportswellness/workspace/performance
 const gameAppPath = path.resolve("projects/sportswellness/workspace/performance/phase3-focus-game.app.js");
 const phase4GameHtmlPath = path.resolve("projects/sportswellness/workspace/performance/phase4-mental-filter-simulator-game.html");
 const phase4GameAppPath = path.resolve("projects/sportswellness/workspace/performance/phase4-mental-filter-simulator-game.app.js");
+const sharedThemeCssPath = path.resolve("projects/sportswellness/workspace/performance/performance-game-theme.css");
 
 test("sportswellness performance section exposes the Phase 1, Phase 2, Phase 3, and Phase 4 tool menu", async () => {
   const source = await readFile(mainPath, "utf8");
@@ -177,4 +178,45 @@ test("sportswellness performance game page files exist and carry the imported fo
   for (const snippet of expectedAppSnippets) {
     assert.match(app, new RegExp(snippet.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
   }
+});
+
+test("sportswellness performance games share the course palette contract", async () => {
+  await access(sharedThemeCssPath);
+
+  const [sharedThemeCss, phase1Html, phase2Html, phase3Html, phase4Html, phase3App] = await Promise.all([
+    readFile(sharedThemeCssPath, "utf8"),
+    readFile(phase1GameHtmlPath, "utf8"),
+    readFile(disciplineGameHtmlPath, "utf8"),
+    readFile(gameHtmlPath, "utf8"),
+    readFile(phase4GameHtmlPath, "utf8"),
+    readFile(gameAppPath, "utf8")
+  ]);
+
+  const expectedThemeSnippets = [
+    "--performance-game-bg: #0b111a",
+    "--performance-game-panel: #151b25",
+    "--performance-game-primary: #00ffca",
+    "--performance-game-line: #2a3748",
+    ".performance-game-theme .bg-zinc-950",
+    ".performance-game-theme .text-lime-400",
+    ".performance-game-theme .bg-cyan-400"
+  ];
+
+  const expectedHtmlSnippets = [
+    "performance-game-theme.css",
+    "class=\"performance-game-theme\""
+  ];
+
+  for (const snippet of expectedThemeSnippets) {
+    assert.match(sharedThemeCss, new RegExp(snippet.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  }
+
+  for (const html of [phase1Html, phase2Html, phase3Html, phase4Html]) {
+    for (const snippet of expectedHtmlSnippets) {
+      assert.match(html, new RegExp(snippet.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+    }
+  }
+
+  assert.doesNotMatch(phase3App, /bg-\[#2d4c32\]/);
+  assert.doesNotMatch(phase3App, /bg-\[#bd4f3e\]/);
 });

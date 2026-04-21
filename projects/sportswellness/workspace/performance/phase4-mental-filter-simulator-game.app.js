@@ -307,7 +307,7 @@ function MentalFilterSimulatorGame() {
       playSound('lockdown');
       setConfidence((current) => Math.min(MAX_CONFIDENCE, current + 10));
       setStats((current) => ({ ...current, lockdowns: current.lockdowns + 1 }));
-      showFloatingFeedback('[TEMPORARY & LIMITED] CONTAINED', 'text-cyan-400', x, y);
+      showFloatingFeedback('[TEMPORARY & LIMITED] CONTAINED', 'text-amber-400', x, y);
       return;
     }
 
@@ -413,13 +413,13 @@ function MentalFilterSimulatorGame() {
               </div>
               <div className="flex flex-col items-center pl-2">
                 <span className="text-zinc-500 text-[9px] mb-1">Threats Contained</span>
-                <span className="text-cyan-400 font-bold">{stats.lockdowns}</span>
+                <span className="text-amber-400 font-bold">{stats.lockdowns}</span>
               </div>
             </div>
           )}
         </div>
 
-        <div className="relative h-[650px] w-full bg-[#0a0a0c] overflow-hidden select-none">
+        <div className="relative h-[650px] w-full bg-zinc-950 overflow-hidden select-none">
           <div className="absolute inset-0 opacity-20 pointer-events-none">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border border-zinc-700" />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-zinc-700" />
@@ -455,7 +455,7 @@ function MentalFilterSimulatorGame() {
                   </button>
                   <button
                     onMouseDown={(event) => handleTransactionChoice(transaction.id, transaction.type, 'lockdown', transaction.x, transaction.y, event)}
-                    className="flex-1 text-[9px] uppercase tracking-[0.1em] py-1.5 rounded bg-cyan-500/20 text-cyan-400 hover:bg-cyan-500/40 border border-cyan-500/50 transition-colors font-bold"
+                    className="flex-1 text-[9px] uppercase tracking-[0.1em] py-1.5 rounded bg-amber-400/10 text-amber-400 hover:bg-amber-400/20 border border-amber-400/50 transition-colors font-bold"
                   >
                     Lockdown
                   </button>
@@ -487,8 +487,8 @@ function MentalFilterSimulatorGame() {
           )}
 
           {gameState === 'intro' && (
-            <div className="absolute inset-0 bg-zinc-950/90 backdrop-blur-sm z-50 flex flex-col items-center justify-center p-8 text-center border-t-4 border-cyan-500">
-              <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter mb-4">The <span className="text-cyan-400">Mental Filter</span></h2>
+            <div className="absolute inset-0 bg-zinc-950/90 backdrop-blur-sm z-50 flex flex-col items-center justify-center p-8 text-center border-t-4 border-lime-400">
+              <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter mb-4">The <span className="text-lime-400">Mental Filter</span></h2>
               <p className="text-zinc-400 max-w-2xl text-sm leading-relaxed mb-8">
                 Your <strong>Identity Core</strong> (center) starts with a 500 Confidence Balance. To win, reach 1000.
                 <br /><br />
@@ -505,7 +505,7 @@ function MentalFilterSimulatorGame() {
                     <br /><br />
                     <strong className="text-lime-400">APPROVE</strong> deposits (+25 Pts).
                     <br />
-                    <strong className="text-cyan-400">LOCKDOWN</strong> withdrawals (+10 Pts).
+                    <strong className="text-amber-400">LOCKDOWN</strong> withdrawals (+10 Pts).
                     <br /><br />
                     <em className="text-lime-400 font-bold border-t border-zinc-700 pt-2 mt-2 block">Momentum: Building confidence causes your mind to naturally generate more positive thoughts.</em>
                   </div>
@@ -514,7 +514,7 @@ function MentalFilterSimulatorGame() {
 
               <button
                 onClick={initGame}
-                className="bg-cyan-500 hover:bg-cyan-400 text-black font-black text-lg px-10 py-4 uppercase tracking-[0.2em] transition-transform hover:scale-105 shadow-[0_0_30px_rgba(6,182,212,0.4)]"
+                className="bg-lime-400 hover:bg-lime-300 text-black font-black text-lg px-10 py-4 uppercase tracking-[0.2em] transition-transform hover:scale-105 shadow-[0_0_30px_rgba(0,255,202,0.35)]"
               >
                 Initialize Filter
               </button>
@@ -538,7 +538,7 @@ function MentalFilterSimulatorGame() {
                 </p>
                 <ul className="text-zinc-500 font-mono text-xs space-y-2">
                   <li><span className="text-lime-400">Deposits Approved:</span> {stats.deposits}</li>
-                  <li><span className="text-cyan-400">Threats Contained:</span> {stats.lockdowns}</li>
+                  <li><span className="text-amber-400">Threats Contained:</span> {stats.lockdowns}</li>
                   <li><span className="text-red-500">Identity Drains Suffered:</span> {stats.drains}</li>
                 </ul>
               </div>
@@ -569,7 +569,7 @@ function MentalFilterSimulatorGame() {
                 </p>
                 <ul className="text-zinc-500 font-mono text-xs space-y-2">
                   <li><span className="text-lime-400">Deposits Approved:</span> {stats.deposits}</li>
-                  <li><span className="text-cyan-400">Threats Contained:</span> {stats.lockdowns}</li>
+                  <li><span className="text-amber-400">Threats Contained:</span> {stats.lockdowns}</li>
                   <li><span className="text-red-500">Identity Drains Suffered:</span> {stats.drains}</li>
                 </ul>
               </div>
