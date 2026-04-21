@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: experimental-psych-30-per-1-a-b-sec-s-202632352
-- Generated: 2026-04-20T20:46:56.202Z
+- Generated: 2026-04-21T17:03:10.877Z
 
 ## Rules
 
@@ -55,7 +55,7 @@ none
   "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\experimental-psych-30-per-1-a-b-sec-s-202632352\\raw\\original.html",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-04-20T20:46:56.105Z",
+  "learningUpdatedAt": "2026-04-21T17:03:10.807Z",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
@@ -99,8 +99,8 @@ none
   "referenceOnly": [],
   "sourceOfTruthNotes": "Edit workspace/index.html, workspace/main.js, workspace/assessment-delivery.js, and the restored workspace/assets/*.html assignment files as the course-shell runtime. Treat workspace/course-shell-data.js and planning artifacts as generated output from the recorded regeneration command. The experimental psychology assignment assets were restored from canvas code and references/ExperimentalPsychology and are required local authoring state for assignment previews.",
   "createdAt": "2026-04-09T19:29:11.083Z",
-  "updatedAt": "2026-04-20T20:46:56.105Z",
-  "workspaceApprovedAt": "2026-04-20T20:46:56.105Z"
+  "updatedAt": "2026-04-21T17:03:10.807Z",
+  "workspaceApprovedAt": "2026-04-21T17:03:10.807Z"
 }
 ```
 

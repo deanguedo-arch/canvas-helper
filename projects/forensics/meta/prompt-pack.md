@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: forensics
-- Generated: 2026-04-17T20:08:53.732Z
+- Generated: 2026-04-21T17:03:33.964Z
 
 ## Rules
 
@@ -55,7 +55,7 @@ none
   "rawEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics/raw/original.html",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-04-17T20:08:53.643Z",
+  "learningUpdatedAt": "2026-04-21T17:03:33.922Z",
   "migrationState": "migrated",
   "projectType": "hybrid",
   "preferredWorkflows": [
@@ -123,8 +123,8 @@ none
   ],
   "sourceOfTruthNotes": "Module 8 split files stay reference-only unless explicitly activated in the assignment flow.",
   "createdAt": "2026-03-14T13:26:57.855Z",
-  "updatedAt": "2026-04-17T20:08:53.643Z",
-  "workspaceApprovedAt": "2026-04-17T20:08:53.643Z"
+  "updatedAt": "2026-04-21T17:03:33.922Z",
+  "workspaceApprovedAt": "2026-04-21T17:03:33.922Z"
 }
 ```
 

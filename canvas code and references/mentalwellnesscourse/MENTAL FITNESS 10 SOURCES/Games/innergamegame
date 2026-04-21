@@ -1,0 +1,738 @@
+import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { AlertCircle, Target, Brain, Activity, RotateCcw, Play, Timer } from 'lucide-react';
+
+// --- GAME CONSTANTS ---
+const BALL_SPEED = 1.5;
+const MAX_INTERFERENCE = 100;
+
+const spawnBall = (multi = 1.0) => {
+  const types = ['Short', 'Deep', 'Slice', 'Kick'];
+  const type = types[Math.floor(Math.random() * types.length)];
+  
+  let hitZone = { min: 75, max: 95 };
+  let vx = 1.2 * multi;
+  let vy = (Math.random() - 0.5) * 0.5;
+  let curve = 0;
+
+  if (type === 'Short') {
+    hitZone = { min: 40, max: 60 };
+    vx = (0.8 + Math.random() * 0.6) * multi; // Slower, dropping early
+    vy = (Math.random() - 0.5) * 0.4;
+  } else if (type === 'Deep') {
+    hitZone = { min: 80, max: 95 };
+    vx = (1.6 + Math.random() * 0.8) * multi; // Fast and deep
+  } else if (type === 'Slice') {
+    hitZone = { min: 60, max: 85 };
+    vx = (1.2 + Math.random() * 0.4) * multi;
+    curve = 0.08 * (Math.random() > 0.5 ? 1 : -1) * multi; // Unpredictable harsh curve
+  } else if (type === 'Kick') {
+    hitZone = { min: 70, max: 90 };
+    vx = (1.4 + Math.random() * 0.6) * multi;
+    curve = 0.15 * (Math.random() > 0.5 ? 1 : -1) * multi; // Heavier spin
+  }
+
+  const startY = Math.random() * 60 + 20; // 20% to 80% height
+
+  return {
+    id: Date.now(),
+    x: 0,
+    y: startY,
+    startY,
+    vx,
+    vy,
+    curve,
+    hitZone,
+    label: type
+  };
+};
+
+// Pedagogical thought bank (Self 1 interference)
+const SELF_1_THOUGHTS = [
+  "Why was that shot so bad?",
+  "Bend your knees more!",
+  "I'm going to double fault.",
+  "They are judging my form.",
+  "That was a lucky shot.",
+  "My grip pressure is wrong.",
+  "I shouldn't have missed that.",
+  "Don't hit it into the net!",
+  "My backhand is terrible today.",
+  // --- New Positive Judgments (The Trap) ---
+  "Perfect form!",
+  "I'm playing amazing today!",
+  "Don't lose this lead!",
+  "What a brilliant shot!"
+];
+
+export default function InnerGameSimulator() {
+  // --- STATE ---
+  const [gameState, setGameState] = useState('intro'); // intro, playing, gameover
+  const [timeElapsed, setTimeElapsed] = useState(0);
+  
+  // The Performance Equation variables
+  const [potential, setPotential] = useState(0); 
+  const [interference, setInterference] = useState(0); 
+  const [performance, setPerformance] = useState(0);
+  
+  // Advanced Game Systems
+  const [streak, setStreak] = useState(0);
+  const streakRef = useRef(0); // For safe reading inside intervals
+  const [history, setHistory] = useState([]);
+  const timeRef = useRef(0);
+  const tickRef = useRef(0);
+  const audioCtxRef = useRef(null);
+
+  // Consumable & Flow state
+  const [hasSlowDown, setHasSlowDown] = useState(false);
+  const [isSlowed, setIsSlowed] = useState(false);
+  const isSlowedRef = useRef(false);
+
+  // Game Entities
+  const ballRef = useRef(spawnBall());
+  const [ballState, setBallState] = useState(ballRef.current);
+  const [thoughts, setThoughts] = useState([]);
+  const [feedback, setFeedback] = useState('');
+
+  // Cooldowns & Trackers
+  const [canCenter, setCanCenter] = useState(true);
+  const gameLoopRef = useRef(null);
+  const thoughtSpawnerRef = useRef(null);
+
+  useEffect(() => {
+    isSlowedRef.current = isSlowed;
+  }, [isSlowed]);
+
+  // --- ADVANCED SYSTEMS (Audio, Difficulty, Flow) ---
+  const playSound = useCallback((type) => {
+    if (!audioCtxRef.current) {
+      audioCtxRef.current = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    const ctx = audioCtxRef.current;
+    if (ctx.state === 'suspended') ctx.resume();
+    
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    
+    if (type === 'bounce') {
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(150, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(40, ctx.currentTime + 0.15);
+      gain.gain.setValueAtTime(0.2, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.15);
+      osc.start(); osc.stop(ctx.currentTime + 0.15);
+    } else if (type === 'hit') {
+      osc.type = 'square';
+      osc.frequency.setValueAtTime(400, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(100, ctx.currentTime + 0.1);
+      gain.gain.setValueAtTime(0.15, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.1);
+      osc.start(); osc.stop(ctx.currentTime + 0.1);
+    } else if (type === 'slow') {
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(600, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(150, ctx.currentTime + 0.5);
+      gain.gain.setValueAtTime(0.3, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.5);
+      osc.start(); osc.stop(ctx.currentTime + 0.5);
+    }
+  }, []);
+
+  const getDifficulty = (time) => {
+    // Stage 1: Cognitive (0-30s) - Allows player to build rhythm
+    if (time < 30) return { stage: 'Cognitive', multi: 0.75 };
+    // Stage 2: Associative (30-60s) - Baseline speed
+    if (time < 60) return { stage: 'Associative', multi: 1.0 };
+    // Stage 3: Autonomous (60-120s) - High pressure sprint
+    if (time < 120) return { stage: 'Autonomous', multi: 1.25 };
+    // Stage 4: Mastery (120s+) - Endless scaling
+    return { stage: 'Mastery', multi: 1.5 };
+  };
+
+  const updateStreak = useCallback((val) => {
+    streakRef.current = typeof val === 'function' ? val(streakRef.current) : val;
+    setStreak(streakRef.current);
+  }, []);
+
+  // --- GAME LOGIC ---
+
+  // Calculate Performance (P = P - I)
+  useEffect(() => {
+    const calculatedPerformance = Math.max(0, potential - Math.floor(interference));
+    setPerformance(calculatedPerformance);
+  }, [potential, interference]);
+
+  const showFeedback = (msg) => {
+    setFeedback(msg);
+    setTimeout(() => setFeedback(''), 1500);
+  };
+
+  const endGame = useCallback(() => {
+    setGameState('gameover');
+    clearInterval(gameLoopRef.current);
+    clearInterval(thoughtSpawnerRef.current);
+  }, []);
+
+  // System Shutdown condition (Game Over)
+  useEffect(() => {
+    if (interference >= MAX_INTERFERENCE && gameState === 'playing') {
+      endGame();
+    }
+  }, [interference, gameState, endGame]);
+
+  const startGame = () => {
+    setGameState('playing');
+    timeRef.current = 0;
+    setTimeElapsed(0);
+    setPotential(0);
+    setInterference(0);
+    setThoughts([]);
+    updateStreak(0);
+    setHasSlowDown(false);
+    setIsSlowed(false);
+    setHistory([]);
+    tickRef.current = 0;
+    ballRef.current = spawnBall(getDifficulty(0).multi);
+    setBallState(ballRef.current);
+    setCanCenter(true);
+    
+    // Pre-warm audio engine
+    if (audioCtxRef.current && audioCtxRef.current.state === 'suspended') {
+      audioCtxRef.current.resume();
+    }
+  };
+
+  // Main Game Loop
+  useEffect(() => {
+    if (gameState !== 'playing') return;
+
+    gameLoopRef.current = setInterval(() => {
+      // 1. Time management via Ref (Counting Up)
+      timeRef.current += 0.05;
+      setTimeElapsed(timeRef.current);
+
+      const currentDiff = getDifficulty(timeRef.current);
+
+      // 2. Physics Update (Self 2 target)
+      const prevBall = ballRef.current;
+      const speedMult = isSlowedRef.current ? 0.5 : 1.0; // Time Dilation modifier
+      
+      let newX = prevBall.x + (prevBall.vx * speedMult);
+      let newVy = prevBall.vy + (prevBall.curve * speedMult);
+      let newY = prevBall.y + (newVy * speedMult);
+
+      // Bounce top/bottom walls (adjusted for clay court bounds 10% - 90%)
+      if (newY < 12 || newY > 88) {
+         newVy *= -1;
+         newY = prevBall.y + (newVy * speedMult);
+         prevBall.curve *= 0.8; // Dampen curve on bounce
+         playSound('bounce');
+      }
+
+      // Check for miss
+      const currentlyInFlow = streakRef.current >= 3;
+      let effectiveMax = prevBall.hitZone.max;
+      
+      // Target area expands by 20% width (10% each side) when in flow
+      if (currentlyInFlow) {
+         const width = prevBall.hitZone.max - prevBall.hitZone.min;
+         effectiveMax += width * 0.1;
+      }
+
+      if (newX > effectiveMax + 5) {
+         setInterference((i) => Math.min(MAX_INTERFERENCE, i + 10));
+         updateStreak(0); // Break flow
+         setIsSlowed(false); // Reset consumable status
+         setHasSlowDown(false); 
+         showFeedback("Missed Cue (Broadened Focus)");
+         playSound('bounce');
+         ballRef.current = spawnBall(currentDiff.multi);
+      } else {
+         ballRef.current = { ...prevBall, x: newX, y: newY, vy: newVy };
+      }
+      
+      setBallState(ballRef.current);
+
+      // 3. Telemetry Graph Tracking (Every 1 second / 20 ticks)
+      tickRef.current++;
+      if (tickRef.current % 20 === 0) {
+        setInterference(currentInterference => {
+          setHistory(h => [...h, { time: timeRef.current, i: currentInterference }]);
+          return currentInterference;
+        });
+      }
+
+      // 4. Interference Decay/Growth from unattended thoughts
+      setThoughts((prevThoughts) => {
+        if (prevThoughts.length > 0 && streakRef.current < 3) {
+          // Unattended thoughts increase interference (shrinking focus). 
+          // Rate adjusted (0.1) to give player time to react to the shaking warning.
+          setInterference((i) => Math.min(MAX_INTERFERENCE, i + (prevThoughts.length * 0.1)));
+        }
+        return prevThoughts;
+      });
+
+    }, 50);
+
+    // Thought Spawner Loop (Self 1 interference)
+    thoughtSpawnerRef.current = setInterval(() => {
+      setThoughts((prev) => {
+        // Distractions DO NOT APPEAR if in Flow State!
+        if (streakRef.current >= 3) return prev;
+
+        if (prev.length < 5 && Math.random() > 0.4) {
+          const newThought = {
+            id: Date.now(),
+            text: SELF_1_THOUGHTS[Math.floor(Math.random() * SELF_1_THOUGHTS.length)],
+            x: Math.random() * 60 + 10, // Avoid right edge (hit zone)
+            y: Math.random() * 80 + 10,
+          };
+          return [...prev, newThought];
+        }
+        return prev;
+      });
+    }, 2000);
+
+    return () => {
+      clearInterval(gameLoopRef.current);
+      clearInterval(thoughtSpawnerRef.current);
+    };
+  }, [gameState, endGame]);
+
+  // --- INTERACTIVITY ---
+
+  // Hitting the ball (Narrow-External Focus)
+  const handleHitBall = () => {
+    const current = ballRef.current;
+    
+    // Dynamically calculate effective hit zone (20% bigger in flow)
+    let min = current.hitZone.min;
+    let max = current.hitZone.max;
+    const currentlyInFlow = streakRef.current >= 3;
+    
+    if (currentlyInFlow) {
+        const width = max - min;
+        min -= width * 0.1;
+        max += width * 0.1;
+    }
+
+    if (current.x >= min && current.x <= max) {
+      // Perfect hit
+      playSound('hit');
+      
+      const willBeFlow = streakRef.current >= 2; // Becomes 3 on this hit
+      if (willBeFlow && streakRef.current === 2) {
+         // Just entered flow state on this specific hit
+         setThoughts([]); // Clear all existing thoughts immediately
+         setInterference(0); // Reset interference
+         setHasSlowDown(true); // Grant consumable
+      }
+
+      updateStreak(s => s + 1);
+      setPotential((p) => p + (willBeFlow ? 100 : 50)); // Double points in flow state
+      setInterference((i) => Math.max(0, i - 10)); // Flow state reduces interference
+      showFeedback(willBeFlow ? "FLOW STATE ACHIEVED" : "Zone State! (Narrow-External)");
+    } else {
+      // Premature hit (Over-eager, Self 1 interference)
+      playSound('bounce');
+      updateStreak(0);
+      setHasSlowDown(false);
+      setInterference((i) => Math.min(MAX_INTERFERENCE, i + 15));
+      showFeedback("Forced it! (Self 1 Control)");
+    }
+    
+    // Reset ball and remove time dilation for the next shot
+    setIsSlowed(false);
+    ballRef.current = spawnBall(getDifficulty(timeRef.current).multi);
+    setBallState(ballRef.current);
+  };
+
+  // Dismissing a thought (Quieting Self 1)
+  const handleDismissThought = (id) => {
+    setThoughts((prev) => prev.filter((t) => t.id !== id));
+    setInterference((i) => Math.max(0, i - 5));
+    setPotential((p) => p + 5); // Small reward for non-judgmental observation
+  };
+
+  // Centering Technique (Narrow-Internal shift)
+  const handleCentering = () => {
+    if (!canCenter) return;
+    setInterference((i) => Math.max(0, i - 40));
+    setThoughts([]); // Clears all current thoughts
+    showFeedback("Centered! (Arousal Regulated)");
+    setCanCenter(false);
+    setTimeout(() => setCanCenter(true), 10000); // 10s cooldown
+  };
+
+  // Activate Time Dilation Consumable
+  const handleActivateSlow = () => {
+    if (hasSlowDown) {
+        setHasSlowDown(false);
+        setIsSlowed(true);
+        playSound('slow');
+        showFeedback("FOCUS DILATION (0.5X SPEED)");
+    }
+  };
+
+  // --- RENDER HELPERS ---
+
+  const isFlowState = streak >= 3;
+  const currentStage = getDifficulty(timeElapsed).stage;
+
+  // Visual Bounds calculations for UI Hit Zone
+  let uiMin = ballState.hitZone.min;
+  let uiMax = ballState.hitZone.max;
+  if (isFlowState) {
+     const width = uiMax - uiMin;
+     uiMin -= width * 0.1;
+     uiMax += width * 0.1;
+  }
+
+  // Focus stays totally open (100) if in flow state, otherwise shrinks based on interference
+  const spotlightSize = isFlowState ? 100 : Math.max(15, 100 - (interference * 0.85));
+  const spotlightAlpha = isFlowState ? 0 : Math.min(0.95, (interference / 100) + 0.1); 
+
+  // Visual Overload Glitch effect
+  const jitterCSS = `
+    @keyframes jitter {
+      0% { transform: translate(1px, 1px) rotate(0deg); }
+      25% { transform: translate(-1px, -2px) rotate(-1deg); }
+      50% { transform: translate(-2px, 1px) rotate(1deg); }
+      75% { transform: translate(2px, -1px) rotate(0deg); }
+      100% { transform: translate(1px, 2px) rotate(-1deg); }
+    }
+    .jitter-extreme { animation: jitter 0.15s cubic-bezier(0.36,0.07,0.19,0.97) infinite; }
+  `;
+
+  return (
+    <div className="min-h-screen bg-zinc-950 text-zinc-100 font-sans p-0 md:p-8 flex items-center justify-center selection:bg-lime-400 selection:text-black">
+      <style>{jitterCSS}</style>
+      <div className={`max-w-5xl w-full bg-zinc-900 md:rounded-2xl shadow-2xl overflow-hidden border-t-4 ${isFlowState ? 'border-t-cyan-400 shadow-[0_0_50px_rgba(34,211,238,0.3)]' : 'border-t-lime-400'} border-x border-b border-zinc-800 ${gameState === 'playing' && interference > 75 && !isFlowState ? 'jitter-extreme border-red-500 shadow-[0_0_50px_rgba(239,68,68,0.3)]' : ''}`}>
+        
+        {/* HEADER - SPORTS TELEMETRY STYLE */}
+        <div className="bg-black p-5 border-b border-zinc-800 flex flex-col md:flex-row justify-between items-center gap-4 relative overflow-hidden">
+          {/* Subtle tech background pattern */}
+          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#3f3f46_1px,transparent_1px)] [background-size:16px_16px]"></div>
+          
+          <div className="flex items-center gap-4 relative z-10">
+            <div className={`p-2 rounded-sm skew-x-[-10deg] ${isFlowState ? 'bg-cyan-400' : 'bg-lime-400'}`}>
+              <Activity className="text-black w-6 h-6 skew-x-[10deg]" />
+            </div>
+            <div>
+              <h1 className="text-2xl font-black text-white tracking-tighter uppercase leading-none">Inner Game <span className={isFlowState ? 'text-cyan-400' : 'text-lime-400'}>Pro</span></h1>
+              <p className="text-[10px] text-zinc-400 font-mono uppercase tracking-[0.2em] mt-1">Mental Telemetry // V1.0</p>
+            </div>
+          </div>
+          
+          {gameState === 'playing' && (
+            <div className="flex gap-4 text-sm font-black uppercase tracking-wider bg-zinc-900 px-6 py-2 rounded-sm border border-zinc-800 relative z-10 font-mono shadow-inner">
+              <div className="text-lime-400 flex flex-col items-center leading-none"><span className="text-[10px] text-zinc-500">POT</span>{potential}</div>
+              <div className="text-zinc-600 flex flex-col items-center leading-none"><span className="text-[10px] opacity-0">-</span>-</div>
+              <div className="text-red-500 flex flex-col items-center leading-none"><span className="text-[10px] text-zinc-500">INT</span>{Math.floor(interference)}</div>
+              <div className="text-zinc-600 flex flex-col items-center leading-none"><span className="text-[10px] opacity-0">=</span>=</div>
+              <div className="text-white flex flex-col items-center leading-none"><span className="text-[10px] text-lime-400">PERF</span>{performance}</div>
+            </div>
+          )}
+        </div>
+
+        {/* --- INTRO SCREEN --- */}
+        {gameState === 'intro' && (
+          <div className="p-8 md:p-16 space-y-10 bg-zinc-900 min-h-[600px] flex flex-col justify-center">
+            <div className="text-center space-y-3">
+              <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tight">Optimize Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-emerald-400">Execution</span></h2>
+              <p className="text-zinc-400 text-sm font-mono uppercase tracking-widest max-w-xl mx-auto">
+                Endless Survival Protocol: Session terminates at 100% Distress.
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-6 mt-8 max-w-3xl mx-auto w-full">
+              <div className="bg-black/50 p-6 border border-zinc-800 hover:border-red-500/50 transition-colors relative overflow-hidden group">
+                <div className="absolute top-0 left-0 w-1 h-full bg-red-500"></div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="bg-red-500/10 p-2 rounded">
+                    <AlertCircle className="text-red-500" size={20} />
+                  </div>
+                  <h3 className="font-black text-white uppercase tracking-wide">Self 1: The Teller</h3>
+                </div>
+                <p className="text-sm text-zinc-400 mb-6 leading-relaxed">Analytical thoughts create <strong className="text-white">Interference</strong>. Failing to tap and dismiss them causes severe "Attentional Alertness" (tunnel vision).</p>
+                <div className="bg-red-500 text-black px-3 py-2 text-xs font-black uppercase tracking-widest text-center cursor-crosshair transform group-hover:scale-[1.02] transition-transform">
+                  Target & Tap to Quiet Self 1
+                </div>
+              </div>
+
+              <div className="bg-black/50 p-6 border border-zinc-800 hover:border-lime-400/50 transition-colors relative overflow-hidden group">
+                <div className="absolute top-0 left-0 w-1 h-full bg-lime-400"></div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="bg-lime-400/10 p-2 rounded">
+                    <Target className="text-lime-400" size={20} />
+                  </div>
+                  <h3 className="font-black text-white uppercase tracking-wide">Self 2: The Doer</h3>
+                </div>
+                <p className="text-sm text-zinc-400 mb-6 leading-relaxed">Instinctive execution increases <strong className="text-white">Potential</strong>. Stringing 3 hits initiates FLOW: 20% larger target, no distractions, and a Time Dilation charge.</p>
+                <div className="bg-lime-400 text-black px-3 py-2 text-xs font-black uppercase tracking-widest text-center cursor-crosshair transform group-hover:scale-[1.02] transition-transform">
+                  Strike 🎾 in Blue Zone
+                </div>
+              </div>
+            </div>
+
+            <div className="pt-10 flex justify-center pb-8 md:pb-0">
+              <button 
+                onClick={startGame}
+                className="bg-lime-400 hover:bg-lime-300 text-black font-black text-xl px-12 py-5 uppercase tracking-[0.2em] flex items-center gap-3 transition-all transform hover:scale-105 skew-x-[-10deg] shadow-[0_0_40px_rgba(163,230,53,0.3)] hover:shadow-[0_0_60px_rgba(163,230,53,0.5)]"
+              >
+                <div className="skew-x-[10deg] flex items-center gap-3">
+                  <Play fill="currentColor" size={24} /> Initialize Session
+                </div>
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* --- GAME SCREEN --- */}
+        {gameState === 'playing' && (
+          <div className="relative h-[600px] w-full bg-[#2d4c32] overflow-hidden select-none shadow-inner border-y-8 border-black">
+            
+            {/* Realistic Clay Court Environment */}
+            <div className="absolute top-[10%] bottom-[10%] left-[5%] right-[5%] bg-[#bd4f3e] border-4 border-white shadow-[inset_0_0_50px_rgba(0,0,0,0.3)] flex">
+              {/* Center Net */}
+              <div className="w-1/2 h-full border-r-[6px] border-white/90 relative z-10 shadow-[2px_0_10px_rgba(0,0,0,0.5)]">
+                {/* Opponent Service Boxes */}
+                <div className="absolute top-[15%] bottom-[15%] right-0 w-[45%] border-4 border-white flex flex-col">
+                   <div className="h-1/2 w-full border-b-4 border-white"></div>
+                </div>
+              </div>
+              <div className="w-1/2 h-full relative z-0">
+                {/* Player Service Boxes */}
+                <div className="absolute top-[15%] bottom-[15%] left-0 w-[45%] border-4 border-white flex flex-col">
+                   <div className="h-1/2 w-full border-b-4 border-white"></div>
+                </div>
+              </div>
+            </div>
+
+            {/* Dynamic Hit Zone Indicator (Narrow-External target area) */}
+            <div 
+              className={`absolute top-[10%] bottom-[10%] border-l-[3px] border-r-[3px] flex items-center justify-center pointer-events-none transition-all duration-300 z-10 backdrop-blur-[1px] ${isFlowState ? 'bg-cyan-400/30 border-cyan-400/80' : 'bg-sky-400/20 border-sky-400/80'}`}
+              style={{ 
+                left: `${uiMin}%`, 
+                width: `${uiMax - uiMin}%` 
+              }}
+            >
+              <div className={`font-black uppercase tracking-widest rotate-90 whitespace-nowrap flex flex-col items-center drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] ${isFlowState ? 'text-cyan-200' : 'text-sky-200'}`}>
+                <span className="text-xl">Hit Zone {isFlowState && "+20%"}</span>
+                <span className="text-[10px] mt-1 font-mono tracking-[0.3em] bg-black/50 px-2 py-0.5">[{ballState.label}]</span>
+              </div>
+            </div>
+
+            {/* The Ball (Self 2 Execution Target) */}
+            <div 
+              className={`absolute w-12 h-12 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 z-20 ${isFlowState ? 'shadow-[0_0_30px_#22d3ee,inset_-3px_-3px_8px_rgba(0,0,0,0.4)]' : 'shadow-[inset_-3px_-3px_8px_rgba(0,0,0,0.4),_0_10px_15px_rgba(0,0,0,0.5)]'}`}
+              style={{ 
+                left: `${ballState.x}%`, 
+                top: `${ballState.y}%`,
+                transform: `translate(-50%, -50%) rotate(${ballState.x * (ballState.curve >= 0 ? 12 : -12)}deg)`,
+                background: isFlowState ? 'radial-gradient(circle at 30% 30%, #67e8f9, #06b6d4)' : 'radial-gradient(circle at 30% 30%, #d1f13d, #9eb821)',
+                transition: 'none' // Important for smooth physics frame-by-frame
+              }}
+              onClick={handleHitBall}
+            >
+              <svg viewBox="0 0 100 100" className="w-full h-full opacity-70">
+                <path d="M 30 5 A 45 45 0 0 0 30 95 M 70 5 A 45 45 0 0 1 70 95" stroke="white" strokeWidth="8" fill="none" />
+              </svg>
+            </div>
+
+            {/* Interference Thoughts (Self 1) */}
+            {thoughts.map(thought => (
+              <div 
+                key={thought.id}
+                className="absolute bg-zinc-950/95 text-red-400 px-4 py-2 text-xs font-mono font-bold shadow-2xl cursor-pointer hover:bg-black border-l-4 border-red-500 uppercase tracking-wider z-30 transition-all scale-animation"
+                style={{ 
+                  left: `${thought.x}%`, 
+                  top: `${thought.y}%`,
+                  transform: 'translate(-50%, -50%)',
+                  animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+                }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleDismissThought(thought.id);
+                }}
+              >
+                ERR: {thought.text}
+              </div>
+            ))}
+
+            {/* Attentional Selectivity Spotlight (Tunnel Vision effect) */}
+            <div 
+              className="pointer-events-none absolute inset-0 transition-all duration-300 z-40"
+              style={{
+                background: `radial-gradient(circle ${spotlightSize}vmax at 50% 50%, transparent 0%, rgba(0, 0, 0, ${spotlightAlpha}) 100%)`
+              }}
+            />
+
+            {/* HUD Overlay */}
+            <div className="absolute top-4 left-4 right-4 flex justify-between items-start pointer-events-none z-50">
+              <div className="flex gap-4">
+                <div className={`bg-black/90 px-4 py-2 border-l-2 pointer-events-auto ${isFlowState ? 'border-cyan-400' : 'border-lime-400'}`}>
+                  <div className="text-[10px] text-zinc-500 uppercase tracking-[0.2em] mb-1">Time Survived</div>
+                  <div className="text-xl font-mono font-black text-white">{Math.floor(timeElapsed)}<span className={`text-sm ${isFlowState ? 'text-cyan-400' : 'text-lime-400'}`}>s</span></div>
+                </div>
+                <div className="bg-black/90 px-4 py-2 border-l-2 border-blue-500 pointer-events-auto hidden md:block">
+                  <div className="text-[10px] text-zinc-500 uppercase tracking-[0.2em] mb-1">Learning Phase</div>
+                  <div className="text-sm font-black text-white uppercase mt-1.5">{currentStage}</div>
+                </div>
+                {isFlowState && (
+                  <div className="bg-cyan-400/20 px-4 py-2 border border-cyan-400 pointer-events-auto animate-pulse">
+                    <div className="text-[10px] text-cyan-400 uppercase tracking-[0.2em] mb-1">Streak {streak}</div>
+                    <div className="text-sm font-black text-cyan-300 uppercase mt-1.5 drop-shadow-[0_0_8px_rgba(34,211,238,0.8)]">FLOW STATE</div>
+                  </div>
+                )}
+              </div>
+
+              <div className="bg-black/90 px-4 py-2 border-r-2 border-red-500 w-48 pointer-events-auto">
+                <div className="text-[10px] text-zinc-500 uppercase tracking-[0.2em] mb-1 flex justify-between">
+                  <span>Distress Level</span>
+                  <span className="text-red-500 font-black">{Math.floor(interference)}%</span>
+                </div>
+                <div className="h-1.5 bg-zinc-800 overflow-hidden">
+                  <div 
+                    className="h-full bg-red-500 transition-all duration-300 shadow-[0_0_10px_rgba(239,68,68,0.8)]"
+                    style={{ width: `${Math.min(100, interference)}%` }}
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Floating Feedback Text */}
+            {feedback && (
+              <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-3xl font-black text-white drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)] uppercase tracking-tight pointer-events-none z-50 mix-blend-overlay">
+                {feedback}
+              </div>
+            )}
+
+            {/* Bottom Controls Area */}
+            <div className="absolute bottom-6 w-full px-8 pointer-events-none z-50 flex justify-between items-end">
+              
+              {/* Consumable: Left Side */}
+              <div className="pointer-events-auto w-1/3">
+                {isFlowState && (
+                  <button 
+                    onClick={handleActivateSlow}
+                    disabled={!hasSlowDown}
+                    className={`flex items-center gap-2 px-5 py-3 font-black uppercase tracking-wider shadow-2xl transition-all skew-x-[-10deg] ${
+                      hasSlowDown 
+                        ? 'bg-cyan-400 hover:bg-cyan-300 text-black hover:scale-105 shadow-[0_0_20px_rgba(34,211,238,0.5)]' 
+                        : 'bg-zinc-800/80 text-zinc-500 border border-zinc-700 cursor-not-allowed backdrop-blur shadow-none'
+                    }`}
+                  >
+                    <div className="skew-x-[10deg] flex items-center gap-2 text-xs">
+                      <Timer size={16} />
+                      {hasSlowDown ? 'Focus Consumable: Dilate Time' : 'Time Dilated (0.5x)'}
+                    </div>
+                  </button>
+                )}
+              </div>
+
+              {/* Centering: Right Side */}
+              <div className="pointer-events-auto w-1/3 flex justify-end">
+                <button 
+                  onClick={handleCentering}
+                  disabled={!canCenter}
+                  className={`flex items-center gap-3 px-6 py-4 font-black uppercase tracking-widest shadow-2xl transition-all skew-x-[-10deg] ${
+                    canCenter 
+                      ? 'bg-white hover:bg-zinc-200 text-black hover:scale-105 shadow-[0_0_30px_rgba(255,255,255,0.4)]' 
+                      : 'bg-zinc-900/90 text-zinc-600 border border-zinc-800 cursor-not-allowed backdrop-blur shadow-none'
+                  }`}
+                >
+                  <div className="skew-x-[10deg] flex items-center gap-2 text-sm">
+                    <Activity size={18} className={canCenter ? "text-blue-600" : ""} />
+                    {canCenter ? 'Center (Breathe)' : 'Regulating...'}
+                  </div>
+                </button>
+              </div>
+
+            </div>
+          </div>
+        )}
+
+        {/* --- GAME OVER SCREEN --- */}
+        {gameState === 'gameover' && (
+          <div className="p-8 md:p-12 bg-zinc-950 text-center min-h-[600px] flex flex-col justify-center relative overflow-hidden">
+             {/* Tech Grid Background */}
+            <div className="absolute inset-0 opacity-5 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+
+            <div className="relative z-10">
+              <div className="inline-block bg-lime-400 text-black px-3 py-1 text-xs font-black uppercase tracking-[0.3em] mb-4">
+                Session Terminated: Cognitive Overload
+              </div>
+              <h2 className="text-4xl font-black text-white mb-2 uppercase tracking-tight">Performance Analytics</h2>
+              <p className="text-zinc-500 mb-10 font-mono text-sm uppercase tracking-widest">Total Survival Time: <span className="text-white font-black">{Math.floor(timeElapsed)}s</span></p>
+
+              <div className="grid md:grid-cols-3 gap-4 mb-10">
+                <div className="bg-zinc-900 p-6 border-t-2 border-lime-400 text-left">
+                  <div className="text-zinc-500 text-[10px] uppercase tracking-[0.2em] mb-1">Raw Output</div>
+                  <div className="text-zinc-300 text-xs font-bold uppercase mb-4">Potential (Self 2)</div>
+                  <div className="text-5xl font-mono font-black text-lime-400">{potential}</div>
+                </div>
+                <div className="bg-zinc-900 p-6 border-t-2 border-red-500 text-left">
+                  <div className="text-zinc-500 text-[10px] uppercase tracking-[0.2em] mb-1">Cognitive Drag</div>
+                  <div className="text-zinc-300 text-xs font-bold uppercase mb-4">Final Interference</div>
+                  <div className="text-5xl font-mono font-black text-red-500">{Math.floor(interference)}</div>
+                </div>
+                <div className="bg-white text-black p-6 border-t-2 border-black text-left transform scale-105 shadow-2xl">
+                  <div className="text-zinc-500 text-[10px] uppercase tracking-[0.2em] mb-1">Net Metric</div>
+                  <div className="text-black text-xs font-black uppercase mb-4">Final Performance</div>
+                  <div className="text-6xl font-mono font-black">{performance}</div>
+                  <div className="text-[10px] font-mono text-zinc-500 mt-2 tracking-widest">P = P - I</div>
+                </div>
+              </div>
+
+              {/* Telemetry Graph */}
+              <div className="bg-black/50 p-6 border border-zinc-800 mb-10 max-w-3xl mx-auto relative group">
+                <div className="text-left text-[10px] text-zinc-500 uppercase tracking-[0.2em] mb-4">Interference Over Time</div>
+                <svg viewBox={`0 0 ${Math.max(60, Math.ceil(timeElapsed))} 100`} className="w-full h-32 overflow-visible border-b border-l border-zinc-700">
+                  <polyline
+                    points={history.map(pt => `${pt.time},${100 - pt.i}`).join(' ')}
+                    fill="none" stroke="#ef4444" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                    className="drop-shadow-[0_0_8px_rgba(239,68,68,0.8)]"
+                  />
+                  {/* Baseline / Threshold lines */}
+                  <line x1="0" y1="25" x2={Math.max(60, Math.ceil(timeElapsed))} y2="25" stroke="#ef4444" strokeWidth="0.5" strokeDasharray="2" opacity="0.5" />
+                </svg>
+                <div className="absolute bottom-2 right-8 text-[10px] text-zinc-600 font-mono">{Math.max(60, Math.ceil(timeElapsed))}s</div>
+                <div className="absolute top-10 -left-6 text-[10px] text-red-500/50 font-mono rotate-[-90deg]">75% THRESHOLD</div>
+              </div>
+
+              <div className="text-left bg-zinc-900 p-8 border border-zinc-800 mb-8 max-w-3xl mx-auto">
+                <h3 className="text-sm font-black text-white mb-6 uppercase tracking-widest flex items-center gap-2">
+                  <Brain size={16} className="text-lime-400" /> Clinical Assessment
+                </h3>
+                <ul className="space-y-5 text-sm text-zinc-400 font-medium">
+                  <li className="flex items-start gap-4">
+                    <Target className="text-lime-400 mt-0.5 shrink-0" size={16} />
+                    <span><strong className="text-white uppercase text-xs tracking-wider block mb-1">Flow State Automaticity</strong> Hitting 3 targets engaged flow, preventing disruptions and keeping the attentional field permanently open (Gallwey).</span>
+                  </li>
+                  <li className="flex items-start gap-4">
+                    <AlertCircle className="text-red-500 mt-0.5 shrink-0" size={16} />
+                    <span><strong className="text-white uppercase text-xs tracking-wider block mb-1">Ignoring Self 1</strong> When analytical thoughts were ignored outside of flow, they severely compounded cognitive drag and tunnel vision.</span>
+                  </li>
+                  <li className="flex items-start gap-4">
+                    <Activity className="text-blue-500 mt-0.5 shrink-0" size={16} />
+                    <span><strong className="text-white uppercase text-xs tracking-wider block mb-1">Arousal Regulation</strong> The centering breath artificially dilated focus momentarily to regain control over arousal spikes (Weinberg & Gould).</span>
+                  </li>
+                </ul>
+              </div>
+
+              <button 
+                onClick={startGame}
+                className="bg-zinc-800 text-white hover:bg-zinc-700 font-black text-sm px-8 py-4 uppercase tracking-[0.2em] inline-flex items-center gap-3 transition-all border border-zinc-700 hover:border-zinc-500"
+              >
+                <RotateCcw size={18} /> Reboot Sequence
+              </button>
+            </div>
+          </div>
+        )}
+
+      </div>
+    </div>
+  );
+}

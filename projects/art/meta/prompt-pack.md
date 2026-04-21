@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: art
-- Generated: 2026-04-17T20:08:47.466Z
+- Generated: 2026-04-21T17:03:07.529Z
 
 ## Rules
 
@@ -55,7 +55,7 @@ none
   "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\art\\raw\\original.html",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-04-17T20:08:47.288Z",
+  "learningUpdatedAt": "2026-04-21T17:03:07.209Z",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
@@ -83,8 +83,8 @@ none
   "referenceOnly": [],
   "sourceOfTruthNotes": "Edit workspace sources listed in canonicalSources. Treat generated exports and runtime bundles as derived output.",
   "createdAt": "2026-04-09T20:34:52.664Z",
-  "updatedAt": "2026-04-17T20:08:47.288Z",
-  "workspaceApprovedAt": "2026-04-17T20:08:47.288Z"
+  "updatedAt": "2026-04-21T17:03:07.209Z",
+  "workspaceApprovedAt": "2026-04-21T17:03:07.209Z"
 }
 ```
 

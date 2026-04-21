@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: forensics35
-- Generated: 2026-04-17T20:08:56.541Z
+- Generated: 2026-04-21T17:03:35.060Z
 
 ## Rules
 
@@ -55,7 +55,7 @@ none
   "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\forensics35\\raw\\original.html",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-04-17T20:08:56.397Z",
+  "learningUpdatedAt": "2026-04-21T17:03:35.012Z",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
@@ -89,8 +89,8 @@ none
   "referenceOnly": [],
   "sourceOfTruthNotes": "Edit workspace sources only. Keep raw/exports immutable and regenerate hosted output via export scripts.",
   "createdAt": "2026-03-18T14:44:01.332Z",
-  "updatedAt": "2026-04-17T20:08:56.397Z",
-  "workspaceApprovedAt": "2026-04-17T20:08:56.397Z"
+  "updatedAt": "2026-04-21T17:03:35.012Z",
+  "workspaceApprovedAt": "2026-04-21T17:03:35.012Z"
 }
 ```
 

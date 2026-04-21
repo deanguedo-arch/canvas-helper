@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: hss1010
-- Generated: 2026-04-17T20:09:27.785Z
+- Generated: 2026-04-21T17:03:33.181Z
 
 ## Rules
 
@@ -61,7 +61,7 @@
   "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\hss1010\\raw\\original.html",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-04-17T20:09:27.707Z",
+  "learningUpdatedAt": "2026-04-21T17:03:33.121Z",
   "migrationState": "migrated",
   "projectType": "generated-course",
   "preferredWorkflows": [
@@ -92,8 +92,8 @@
   "referenceOnly": [],
   "sourceOfTruthNotes": "Edit workspace canonicalSources only. Keep raw and exports as derived/reference artifacts.",
   "createdAt": "2026-03-12T19:28:57.168Z",
-  "updatedAt": "2026-04-17T20:09:27.707Z",
-  "workspaceApprovedAt": "2026-04-17T20:09:27.707Z"
+  "updatedAt": "2026-04-21T17:03:33.121Z",
+  "workspaceApprovedAt": "2026-04-21T17:03:33.121Z"
 }
 ```
 

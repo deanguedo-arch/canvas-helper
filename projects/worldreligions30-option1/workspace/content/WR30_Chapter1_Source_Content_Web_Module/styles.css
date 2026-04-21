@@ -32,7 +32,7 @@ body {
 
 .site-header {
   margin: 0;
-  padding: 2.2rem 1.3rem;
+  padding: 2rem 1rem 1.85rem;
   border: 1px solid var(--line);
   border-left: 5px solid var(--gold-deep);
   border-radius: 12px;
@@ -40,10 +40,17 @@ body {
   text-align: left;
 }
 
+.site-header > * {
+  width: min(100%, 1060px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .site-header p {
   margin: 0.3rem 0;
   color: var(--muted);
   font-size: 0.96rem;
+  max-width: 72ch;
 }
 
 .site-header h1 {
@@ -55,11 +62,15 @@ body {
 }
 
 main {
-  width: min(1060px, calc(100vw - 2rem));
+  width: min(100%, 1060px);
   margin: 0 auto;
-  padding: 1.5rem 0 3.5rem;
+  padding: 1.15rem 1rem 3rem;
   display: grid;
   gap: 1rem;
+}
+
+main > * {
+  min-width: 0;
 }
 
 h2 {
@@ -85,6 +96,7 @@ h3 {
   border: 1px solid var(--line);
   border-radius: 12px;
   background: var(--paper-strong);
+  overflow: hidden;
 }
 
 .module-purpose {
@@ -178,14 +190,18 @@ p {
   margin: 0.7rem 0;
 }
 
+table {
+  margin-top: 0.9rem;
+  min-width: 680px;
+}
+
 @media (max-width: 720px) {
   .chapter-map {
     columns: 1;
   }
 
   main {
-    width: min(100vw - 1rem, 1060px);
-    padding-top: 1rem;
+    padding: 0.9rem 0.75rem 2rem;
   }
 
   .card,
@@ -195,6 +211,6 @@ p {
   }
 
   .site-header {
-    padding: 1.5rem 1rem;
+    padding: 1.35rem 0.75rem;
   }
 }

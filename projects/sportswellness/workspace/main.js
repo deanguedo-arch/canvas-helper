@@ -419,6 +419,36 @@ const ASSIGNMENTS = [
   }
 ];
 
+const PERFORMANCE_TOOLS = [
+  {
+    id: 'phase1-performance-state-simulator-game',
+    code: 'Phase 1',
+    title: 'Phase 1 Performance State Simulator Game',
+    eyebrow: 'Performance tool',
+    accent: '#00ff7f',
+    body: 'Arousal regulation simulator for inverted-U control, pace adaptation, and sustained execution tracking under pressure.',
+    viewerSrc: './performance/phase1-performance-state-simulator-game.html'
+  },
+  {
+    id: 'phase2-discipline-game',
+    code: 'Phase 2',
+    title: 'Phase 2 Architecture of Discipline Game',
+    eyebrow: 'Performance tool',
+    accent: '#f59e0b',
+    body: 'Integrated discipline simulator for process execution, outcome-trap management, and growth-minded response under pressure.',
+    viewerSrc: './performance/phase2-discipline-game.html'
+  },
+  {
+    id: 'phase3-focus-game',
+    code: 'Phase 3',
+    title: 'Phase 3 Focus Game',
+    eyebrow: 'Performance tool',
+    accent: '#10b981',
+    body: 'Inner Game simulator for attention control, cue timing, and interference management under pressure.',
+    viewerSrc: './performance/phase3-focus-game.html'
+  }
+];
+
 const ICONS = [
   { icon: 'fa-person-running', title: 'Performance', body: 'Reserved for performance-focused support content.' },
   { icon: 'fa-dumbbell', title: 'Athletic Icons', body: 'Reserved for athletic icon sets and quick references.' },
@@ -2231,6 +2261,7 @@ const state = {
   section: 'home',
   tab: 'phases',
   activeId: PHASES[0]?.id || null,
+  activePerformanceToolId: PERFORMANCE_TOOLS[0]?.id || null,
   activeStep: 0,
   activeMaterialId: null
 };
@@ -2276,6 +2307,9 @@ function normalizeUiState(rawState) {
     section: ['home', 'phase', 'assignment', 'quiz', 'library', 'performance', 'icons'].includes(nextSection) ? nextSection : 'home',
     tab: ['phases', 'quizzes', 'assignments'].includes(nextTab) ? nextTab : 'phases',
     activeId: null,
+    activePerformanceToolId: PERFORMANCE_TOOLS.some((item) => item.id === rawState.activePerformanceToolId)
+      ? rawState.activePerformanceToolId
+      : (PERFORMANCE_TOOLS[0]?.id || null),
     activeStep: Number.isFinite(Number(rawState.activeStep)) ? Math.max(0, Number(rawState.activeStep)) : 0,
     activeMaterialId: MATERIALS.some((item) => item.id === rawState.activeMaterialId) ? rawState.activeMaterialId : null
   };
@@ -2295,6 +2329,11 @@ function normalizeUiState(rawState) {
     return normalized;
   }
 
+  if (normalized.section === 'performance') {
+    normalized.activeId = getDefaultActiveIdForTab(normalized.tab);
+    return normalized;
+  }
+
   normalized.activeId = getDefaultActiveIdForTab(normalized.tab);
   return normalized;
 }
@@ -2304,6 +2343,7 @@ function applyUiStateSnapshot(snapshot) {
   state.section = snapshot.section;
   state.tab = snapshot.tab;
   state.activeId = snapshot.activeId;
+  state.activePerformanceToolId = snapshot.activePerformanceToolId;
   state.activeStep = snapshot.activeStep;
   state.activeMaterialId = snapshot.activeMaterialId;
 }
@@ -2314,6 +2354,7 @@ function persistUiState() {
       section: state.section,
       tab: state.tab,
       activeId: state.activeId,
+      activePerformanceToolId: state.activePerformanceToolId,
       activeStep: state.activeStep,
       activeMaterialId: state.activeMaterialId
     }));
@@ -2357,6 +2398,10 @@ function getPhaseById(phaseId) {
 
 function getQuizById(quizId) {
   return QUIZZES.find((item) => item.id === quizId) || null;
+}
+
+function getPerformanceToolById(toolId) {
+  return PERFORMANCE_TOOLS.find((item) => item.id === toolId) || null;
 }
 
 function getPhaseIndex(phaseId) {
@@ -2538,6 +2583,9 @@ function setSection(section) {
     state.tab = 'phases';
     state.activeId = PHASES[0]?.id || null;
   }
+  if (section === 'performance' && !getPerformanceToolById(state.activePerformanceToolId)) {
+    state.activePerformanceToolId = PERFORMANCE_TOOLS[0]?.id || null;
+  }
   if (section !== 'home') {
     state.tab = 'phases';
   }
@@ -2583,6 +2631,15 @@ function openQuiz(id) {
   if (!isQuizUnlocked(id)) return;
   state.section = 'quiz';
   state.activeId = id;
+  collapseCompactMenu();
+  persistUiState();
+  render();
+}
+
+function openPerformanceTool(id) {
+  if (!getPerformanceToolById(id)) return;
+  state.section = 'performance';
+  state.activePerformanceToolId = id;
   collapseCompactMenu();
   persistUiState();
   render();
@@ -3078,22 +3135,53 @@ function renderAssignments() {
 
 function renderPerformance() {
   refs.sectionTitle.textContent = 'Performance';
+  const activeTool = getPerformanceToolById(state.activePerformanceToolId) || PERFORMANCE_TOOLS[0];
   refs.contentBody.innerHTML = `
-    <div class="summary-grid">
-      <article class="summary-card">
-        <h4>Rhythm</h4>
-        <p>Use this lane for pacing, consistency, and repeated training prompts.</p>
+    <section class="performance-shell">
+      <aside class="performance-menu">
+        <div class="performance-menu-head">
+          <p class="mono performance-menu-kicker">Performance tools</p>
+          <h4>Training menu</h4>
+          <p>Select a tool built for the live performance layer without changing the lesson or assignment flow.</p>
+        </div>
+        <div class="performance-tool-list">
+          ${PERFORMANCE_TOOLS.map((item) => `
+            <button
+              type="button"
+              class="performance-tool-button${item.id === activeTool?.id ? ' is-active' : ''}"
+              data-performance-tool-id="${item.id}"
+              style="--performance-accent:${item.accent}"
+            >
+              <span class="performance-tool-code mono">${item.code}</span>
+              <span class="performance-tool-copy">
+                <strong>${item.title}</strong>
+                <span>${item.body}</span>
+              </span>
+            </button>
+          `).join('')}
+        </div>
+      </aside>
+      <article class="performance-tool-stage">
+        <div class="performance-tool-stage-head">
+          <p class="mono performance-tool-eyebrow">${activeTool?.eyebrow || 'Performance tool'}</p>
+          <h4>${activeTool?.title || 'Performance tool'}</h4>
+          <p>${activeTool?.body || 'Performance tool ready.'}</p>
+        </div>
+        <div class="performance-tool-viewer">
+          <iframe
+            src="${activeTool?.viewerSrc || ''}"
+            title="${activeTool?.title || 'Performance tool'}"
+            class="performance-tool-frame"
+            loading="lazy"
+          ></iframe>
+        </div>
       </article>
-      <article class="summary-card">
-        <h4>Focus</h4>
-        <p>Reserved for attention control, resets, and cueing systems.</p>
-      </article>
-      <article class="summary-card">
-        <h4>Confidence</h4>
-        <p>Reserved for confidence, rehearsal, and pressure-response work.</p>
-      </article>
-    </div>
+    </section>
   `;
+
+  refs.contentBody.querySelectorAll('[data-performance-tool-id]').forEach((button) => {
+    button.addEventListener('click', () => openPerformanceTool(button.dataset.performanceToolId));
+  });
 }
 
 function renderAssignmentField(field) {

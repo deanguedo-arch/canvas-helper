@@ -42,6 +42,12 @@ Entries are listed in file order (older to newer within this archive).
 - 2026-04-17: docs/ops/ACTIVE_HANDOFF.md (pre-sportswellness-image-sizing)
 - 2026-04-17: docs/ops/ACTIVE_HANDOFF.md (pre-worldreligions30-option1-quiz-completion-counter)
 - 2026-04-17: docs/ops/ACTIVE_HANDOFF.md (pre-worldreligions30-option1-editorial-shell-pass)
+- 2026-04-21: docs/ops/ACTIVE_HANDOFF.md (pre-forensicstudiesoption2-content-integration)
+- 2026-04-21: docs/ops/ACTIVE_HANDOFF.md (pre-forensicstudiesoption2-copy-cleanup)
+- 2026-04-21: docs/ops/ACTIVE_HANDOFF.md (pre-sportswellness-phase1-performance-state-simulator-game)
+- 2026-04-21: docs/ops/ACTIVE_HANDOFF.md (pre-forensicstudiesoption2-strict-fidelity-quiz-gate)
+- 2026-04-21: docs/ops/ACTIVE_HANDOFF.md (pre-forensicstudiesoption2-remove-quiz-source-action)
+- 2026-04-21: docs/ops/ACTIVE_HANDOFF.md (pre-sportswellness-phase2-discipline-game-performance-menu)
 
 ---
 
@@ -253,6 +259,80 @@ One question before I change it: do you want only the large top hero image reduc
 
 ## What still needs validation
 - Behavioral validation on 3 real tasks (`conversion`, `generated-course`, `injection/integration`) to confirm reduced unnecessary questioning.
+
+---
+
+## 2026-04-21 | docs/ops/ACTIVE_HANDOFF.md (pre-forensicstudiesoption2-remove-quiz-source-action)
+
+# Handoff
+
+- Project: forensicstudiesoption2
+- Task: switch quizzes to a generate-results gate and tighten option 2 so assignments and chapter content mirror Forensics more strictly
+- Status: complete
+
+## Files changed
+- docs/ops/ACTIVE_HANDOFF.md
+- docs/ops/ARCHIVED_HANDOFFS.md
+- docs/plans/2026-04-21-forensicstudiesoption2-fidelity-quiz-flow.md
+- projects/forensicstudiesoption2/workspace/main.js
+- projects/forensicstudiesoption2/workspace/styles.css
+- projects/forensicstudiesoption2/workspace/course-data.js
+- projects/forensicstudiesoption2/workspace/content/chapter-1/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-2/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-3/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-4/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-5/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-6/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-7/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-8/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-9/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-10/index.html
+- scripts/build-forensicstudiesoption2-content.ts
+- scripts/tests/forensicstudiesoption2-content.test.ts
+- scripts/tests/forensicstudiesoption2-shell-behavior.test.ts
+
+## What changed
+- Removed the old Mark Complete quiz path from the option-2 shell.
+- Changed quiz completion so Generate Results sets `quizComplete`, stamps the completion time, and unlocks both Check Answers and Retake Quiz.
+- Disabled Retake Quiz until results have been generated, and made retake reset quiz answers and clear the completion state.
+- Updated source-linked quiz detail to use the same generate-results-first flow instead of a separate manual-complete action.
+- Reworked assignment detail rendering to show source-faithful instruction HTML from Forensics rather than synthetic summary/task/reminder cards.
+- Added support for module 2 individualized/identified evidence blocks so the option-2 assignment detail matches the original Forensics assignment content more closely.
+- Simplified generated chapter pages so they only show retained lesson content and removed the synthetic metrics, Assessment Lane, assignment/quiz cards, excerpts, and source-link helper buttons.
+- Regenerated option-2 course data and all chapter pages from the generator so the strict-fidelity changes live in canonical outputs.
+- Added targeted regression coverage for the generate-results gate and the source-faithful assignment/chapter output.
+
+## Why this changed
+- The user wanted quizzes to behave as Generate Results first, with Check Answers and Retake Quiz only unlocking afterward, and they wanted option 2 to stop inventing helper content that does not exist in the original Forensics course.
+
+## Source of truth
+- Canonical shell runtime: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\main.js`
+- Canonical shell styling touched for assignment fidelity blocks: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\styles.css`
+- Canonical generator for course data and chapter pages: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\build-forensicstudiesoption2-content.ts`
+- Canonical generated output: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\course-data.js` and `...\workspace\content\chapter-*\index.html`
+
+## Fragile areas / watchouts
+- `workspace/course-data.js` and `workspace/content/chapter-*` are generated outputs and will be overwritten the next time the generator runs.
+- Assignment fidelity depends on template data in `build-forensicstudiesoption2-content.ts`; do not patch assignment instruction copy directly in `course-data.js`.
+- The quiz unlock flow still uses `quizComplete` as the progress key; it now means results generated, not mark complete clicked.
+- The project still has no `projects/forensicstudiesoption2/meta/e2e-contract.json`, so project E2E remains blocked until that contract exists.
+
+## Next prompt should assume
+- `projects/forensics` is still untouched.
+- `forensicstudiesoption2` assignments render source-style instruction HTML instead of synthetic task/reminder cards.
+- Generated chapter pages only show retained module lessons.
+- Quiz completion happens when Generate Results is clicked.
+- Targeted tests and `verify` passed.
+
+## What still needs validation
+- Open `forensicstudiesoption2` in Canvas Builder and visually confirm the assignment instruction blocks feel faithful against the original Forensics course.
+- Spot-check one authored quiz in the browser to confirm Generate Results unlocks Check Answers and Retake Quiz exactly as intended.
+- Decide whether to add `projects/forensicstudiesoption2/meta/e2e-contract.json` so this project can gain a real browser regression gate.
+
+## Known risks
+- Some assignment detail content is mirrored from the authored Forensics workspace fallback content rather than parsed from retained XML for every module.
+- The option-2 shell still wraps the content in a different overall visual system than the original Forensics workspace, even though the assignment/chapter content is now much stricter.
+- Without a project E2E contract, interaction-level browser regression coverage is still incomplete.
 
 ## Known risks
 - This is a rule-layer tightening, not runtime enforcement code.
@@ -2934,3 +3014,807 @@ One question before I change it: do you want only the large top hero image reduc
 - Do not assume this is a safe production default; it is an authoring/testing override.
 - Do not regenerate `workspace/main.js` from another source without carrying the unlock guard forward if full-access testing is still needed.
 
+
+## 2026-04-21 | docs/ops/ACTIVE_HANDOFF.md (pre-forensicstudiesoption2-option2-shell)
+
+# Handoff
+
+- Project: general-psychology-20-independent-studies-202633108
+- Task: Remove the remaining Module 2 written-response placeholder, wire the visible quiz cards to real converted quiz sources, and keep the Final Project PDF in content instead of an empty assignment-only module.
+- Status: ready for validation
+
+## Files changed
+- `projects/general-psychology-20-independent-studies-202633108/meta/build-shell-from-manifest.ps1`
+- `projects/general-psychology-20-independent-studies-202633108/workspace/main.js`
+- `projects/general-psychology-20-independent-studies-202633108/workspace/course-shell-data.js`
+- `projects/general-psychology-20-independent-studies-202633108/workspace/assessment-delivery.js`
+- `projects/general-psychology-20-independent-studies-202633108/meta/d2l-course-map.json`
+- `projects/general-psychology-20-independent-studies-202633108/meta/d2l-course-map.md`
+- `scripts/tests/general-psychology-workspace.test.ts`
+- `docs/ops/ACTIVE_HANDOFF.md`
+- `docs/ops/ARCHIVED_HANDOFFS.md`
+
+## What changed
+- Extended `meta/build-shell-from-manifest.ps1` to infer quiz XML resources directly from `projects/resources/<slug>/quiz/**` when the manifest-backed assessment record has no source file attached.
+- Added title aliasing so the visible Module 1 shell cards map to the existing converted quiz banks:
+  - `John Watson` -> `Behaviourism`
+  - `Maslow Quiz` -> `Humanism Quiz`
+  - `Summary Quiz` -> `Psychological Schools of Thought Summary Quiz`
+- Regenerated `workspace/course-shell-data.js` so the visible quiz assessment cards now point at local `quiz/.../qti_*.xml` sources instead of the missing-source fallback copy.
+- Added another project-specific exclusion so Module 2 no longer includes the `Written Response (Principles of Learning)` placeholder tied to `chapter_15761.html`.
+- Updated `workspace/main.js` so the `General Psychology 20 Final Project` PDF is treated as content rather than being reclassified into assignments and leaving the module content list empty.
+- Expanded `scripts/tests/general-psychology-workspace.test.ts` to cover the Module 2 exclusion, quiz-source wiring, the existing authoring unlock, and the Final Project classification rule.
+
+## Why this changed
+- The user-facing General Psychology shell still had one leftover D2L placeholder lesson and several quiz cards that incorrectly rendered the “source file missing” fallback even though the quiz XML banks already existed locally.
+- The Final Project module looked broken because its only PDF item was being pushed out of content by the assignment heuristic.
+
+## Source of truth
+- General Psychology shell generator: `projects/general-psychology-20-independent-studies-202633108/meta/build-shell-from-manifest.ps1`
+- Local General Psychology runtime classification and authoring unlock: `projects/general-psychology-20-independent-studies-202633108/workspace/main.js`
+- Generated shell data: `projects/general-psychology-20-independent-studies-202633108/workspace/course-shell-data.js`
+
+## Fragile areas / watchouts
+- Quiz-source inference currently depends on normalized quiz titles plus a small alias table for known mismatches. If new title drift appears, update the alias map in `build-shell-from-manifest.ps1`.
+- The authoring unlock flag is still on in `workspace/main.js`, so all content/quizzes remain open locally for testing.
+- This work fixed the local workspace shell. It was not exported or redeployed in this pass.
+
+## Next prompt should assume
+- The Module 2 `Written Response (Principles of Learning)` placeholder is removed from the generated shell.
+- The visible General Psychology quiz cards now load from local quiz XML or from the intentional local overrides instead of the missing-source fallback.
+- The Final Project module should now show its PDF in content instead of “No content items.”
+
+## What still needs validation
+- Reload the local General Psychology preview and spot-check the quiz cards the user reported, especially `John Watson`, the Module 2 quiz list, and the Final Project module.
+- If the hosted General Psychology site should match these fixes, run export and deploy after local review.
+
+## Known risks
+- `npm.cmd run typecheck` still fails on the unrelated pre-existing `scripts/tests/worldreligions30-option1-quiz-summary.test.ts` errors.
+- If the quiz XML titles or launcher titles are renamed later, the aliasing logic may need one more targeted update.
+
+## Exact next command
+`npm.cmd run verify -- --project general-psychology-20-independent-studies-202633108`
+
+## Exact next file to open
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\general-psychology-20-independent-studies-202633108\meta\build-shell-from-manifest.ps1`
+
+## Do not do next / warnings
+- Do not hand-edit `workspace/course-shell-data.js`; regenerate from `meta/build-shell-from-manifest.ps1`.
+- Do not export or deploy this workspace without remembering that `AUTHORING_UNLOCK_ALL = true` is still enabled locally.
+
+
+## 2026-04-21 | docs/ops/ACTIVE_HANDOFF.md (pre-sportswellness-phase3-focus-game-performance-menu)
+
+# Handoff
+
+- Project: forensicstudiesoption2
+- Task: build a new Forensic Studies option-2 course shell that reuses the worldreligions30-option1 shell contract without modifying projects/forensics
+- Status: complete
+
+## Files changed
+- docs/plans/2026-04-21-forensicstudiesoption2-design.md
+- docs/plans/2026-04-21-forensicstudiesoption2-implementation.md
+- docs/ops/ACTIVE_HANDOFF.md
+- docs/ops/ARCHIVED_HANDOFFS.md
+- projects/forensicstudiesoption2/meta/project.json
+- projects/forensicstudiesoption2/raw/original.html
+- projects/forensicstudiesoption2/workspace/index.html
+- projects/forensicstudiesoption2/workspace/main.js
+- projects/forensicstudiesoption2/workspace/styles.css
+- projects/forensicstudiesoption2/workspace/pdf-viewer.html
+- projects/forensicstudiesoption2/workspace/course-data.js
+- projects/forensicstudiesoption2/workspace/assignments/module1assignment-app.jsx
+- projects/forensicstudiesoption2/workspace/assignments/module1assignment-entry.jsx
+- projects/forensicstudiesoption2/workspace/assignments/module1assignment.bundle.js
+- projects/forensicstudiesoption2/workspace/assignments/module1assignment.html
+- projects/forensicstudiesoption2/workspace/assignments/module2assignment-app.jsx
+- projects/forensicstudiesoption2/workspace/assignments/module2assignment-entry.jsx
+- projects/forensicstudiesoption2/workspace/assignments/module2assignment.bundle.js
+- projects/forensicstudiesoption2/workspace/assignments/module2assignment.html
+- projects/forensicstudiesoption2/workspace/assignments/module3assignment-app.jsx
+- projects/forensicstudiesoption2/workspace/assignments/module3assignment-entry.jsx
+- projects/forensicstudiesoption2/workspace/assignments/module3assignment.bundle.js
+- projects/forensicstudiesoption2/workspace/assignments/module3assignment.html
+- projects/forensicstudiesoption2/workspace/assignments/module4assignment.html
+- projects/forensicstudiesoption2/workspace/assignments/module5assignment.app.js
+- projects/forensicstudiesoption2/workspace/assignments/module5assignment.html
+- projects/forensicstudiesoption2/workspace/assignments/module5assignment.jsx
+- projects/forensicstudiesoption2/workspace/assignments/module5assignment.source.txt
+- projects/forensicstudiesoption2/workspace/assignments/module6assignment-app.jsx
+- projects/forensicstudiesoption2/workspace/assignments/module6assignment-entry.jsx
+- projects/forensicstudiesoption2/workspace/assignments/module6assignment.bundle.js
+- projects/forensicstudiesoption2/workspace/assignments/module6assignment.html
+- projects/forensicstudiesoption2/workspace/assignments/module7assignment-app.jsx
+- projects/forensicstudiesoption2/workspace/assignments/module7assignment-entry.jsx
+- projects/forensicstudiesoption2/workspace/assignments/module7assignment.bundle.js
+- projects/forensicstudiesoption2/workspace/assignments/module7assignment.html
+- projects/forensicstudiesoption2/workspace/assignments/module8assignment-app.jsx
+- projects/forensicstudiesoption2/workspace/assignments/module8assignment-career-matcher.jsx
+- projects/forensicstudiesoption2/workspace/assignments/module8assignment-case-role.jsx
+- projects/forensicstudiesoption2/workspace/assignments/module8assignment-day-in-life.jsx
+- projects/forensicstudiesoption2/workspace/assignments/module8assignment.bundle.js
+- projects/forensicstudiesoption2/workspace/assignments/module8assignment.html
+- projects/forensicstudiesoption2/workspace/assignments/module4/Blood Typing.jpg
+- projects/forensicstudiesoption2/workspace/assignments/module4/Red Blood Cells.PNG
+- projects/forensicstudiesoption2/workspace/content/module-index.css
+- projects/forensicstudiesoption2/workspace/content/chapter-1/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-2/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-3/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-4/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-5/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-6/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-7/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-8/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-9/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-10/index.html
+- scripts/tests/forensicstudiesoption2-shell-behavior.test.ts
+
+## What changed
+- Created `projects/forensicstudiesoption2` as a brand-new generated-course project so the existing `projects/forensics` workspace stays untouched.
+- Added a local `raw/original.html` baseline so `listProjectSlugs()` includes `forensicstudiesoption2` in the Canvas Builder project picker instead of filtering it out as incomplete.
+- Copied the World Religions option-1 shell files into the new project and patched the runtime so it reads explicit Forensics course data instead of hardcoded chapter-assignment-library assumptions.
+- Generated `workspace/course-data.js` with visible Forensics modules, explicit assignments, source-linked quizzes, and course-information library items that point at `/preview/references/raw/forensics/...`.
+- Generated ten styled module landing pages under `workspace/content/chapter-*/index.html` so each chapter card opens into a clean option-2 reading shell with source links and assessment mapping.
+- Copied the existing Forensics assignment runtime assets into `workspace/assignments/` so modules 1-8 open the real embedded assignment experiences inside the new shell.
+- Added a targeted shell contract test for `forensicstudiesoption2`, including studio-project-picker discovery coverage, and passed both the test and project verification.
+
+## Why this changed
+- The user wanted a second Forensics course option that matches the World Religions option-1 shell style without risking regressions in the current `projects/forensics` project.
+- The safest path was a new isolated project with explicit data mapping, not an in-place restyle of the current Forensics runtime.
+
+## Source of truth
+- Canonical entry: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\index.html`
+- Raw baseline entry: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\raw\original.html`
+- Canonical sources:
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\index.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\main.js`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\styles.css`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\course-data.js`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\content\module-index.css`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\content\chapter-1\index.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\content\chapter-2\index.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\content\chapter-3\index.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\content\chapter-4\index.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\content\chapter-5\index.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\content\chapter-6\index.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\content\chapter-7\index.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\content\chapter-8\index.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\content\chapter-9\index.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\content\chapter-10\index.html`
+
+## Fragile areas / watchouts
+- Quiz cards are intentionally source-linked through `quiz.sourcePath` for now. They are not rebuilt question banks yet, so future work should either keep the source-linked branch or replace it with fully authored quiz sections.
+- Library items are currently course-information references, not one-per-module PDFs. The home chapter cards only show a library action when a chapter-scoped library item exists.
+- The assignment folder includes copied source JSX and bundle assets from `projects/forensics/workspace/assets`; if those source files are rebuilt later, keep the copied HTML/bundle references aligned.
+- `AUTHORING_UNLOCK_ALL = true` is still enabled in the shell runtime, matching the current local-preview pattern used in this workspace family.
+
+## Next prompt should assume
+- `projects/forensics` was preserved as the read-only source course.
+- `projects/forensicstudiesoption2` now exists, validates as a separate option-2 shell project, and is discoverable by the Canvas Builder project picker.
+- Module chapter pages, embedded assignments, source-linked quizzes, and course-info library items are all wired through `workspace/course-data.js` and `workspace/main.js`.
+
+## What still needs validation
+- Reload Canvas Builder or use the project refresh control and confirm `forensicstudiesoption2` now appears in the workspace project selector.
+- Open the local preview for `forensicstudiesoption2` and spot-check the module content pages, a source-linked quiz card, and at least one embedded assignment runtime in the browser.
+
+## Known risks
+- The generated chapter landing pages are accurate shell mappings, but they are still landing pages with source links rather than full rewritten lesson bodies.
+- External font and CDN links remain in the shell and assignment assets, which `verify` reports as warnings but not errors.
+
+## Exact next command
+`npx tsx --test scripts/tests/forensicstudiesoption2-shell-behavior.test.ts`
+
+## Exact next file to open
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\meta\project.json`
+
+## Do not do next / warnings
+- Do not edit `projects/forensics/**` if the goal is to continue option-2 work; keep using `projects/forensicstudiesoption2/**` as the editable shell.
+- Do not hand-edit the copied assignment bundle files unless you also keep their paired HTML/runtime references aligned.
+
+
+---
+
+## 2026-04-21 | docs/ops/ACTIVE_HANDOFF.md (pre-forensicstudiesoption2-theme-pass)
+
+# Handoff
+
+- Project: sportswellness
+- Task: insert the imported Inner Game activity into the Performance section as a clickable `Phase 3 Focus Game` menu tool
+- Status: ready for validation
+
+## Files changed
+- docs/plans/2026-04-21-sportswellness-phase3-focus-game-performance-menu.md
+- docs/ops/ACTIVE_HANDOFF.md
+- docs/ops/ARCHIVED_HANDOFFS.md
+- projects/sportswellness/workspace/main.js
+- projects/sportswellness/workspace/styles.css
+- projects/sportswellness/workspace/performance/phase3-focus-game.html
+- projects/sportswellness/workspace/performance/phase3-focus-game.app.js
+- scripts/tests/sportswellness-performance-menu.test.ts
+
+## What changed
+- Replaced the placeholder Performance summary cards in `projects/sportswellness/workspace/main.js` with a real tool-menu layout driven by a new `PERFORMANCE_TOOLS` collection.
+- Added persistent `activePerformanceToolId` UI state so the selected Performance tool survives same-origin preview refresh and section changes.
+- Added a dedicated standalone page at `projects/sportswellness/workspace/performance/phase3-focus-game.html` that mounts an adapted version of the imported `innergamegame` source from `phase3-focus-game.app.js`.
+- Embedded that standalone page into the Sports Wellness course shell as the clickable `Phase 3 Focus Game` item inside the Performance section.
+- Added source-based regression coverage in `scripts/tests/sportswellness-performance-menu.test.ts` for both the menu contract and the standalone game files.
+
+## Why this changed
+- The user wanted the existing Phase 3 focus game inserted specifically under the `Performance` menu rather than mixed into the lesson or assignment runtime.
+- Keeping the game isolated in its own workspace page preserves the current Phase 3 lesson and assignment contracts while still making the activity available from the course shell.
+
+## Source of truth
+- Canonical entry: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\index.html`
+- Canonical sources:
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\main.js`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\styles.css`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase3-focus-game.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase3-focus-game.app.js`
+
+## Fragile areas / watchouts
+- The standalone game page depends on browser-loaded `React`, `ReactDOM`, `Tailwind`, and `Babel` CDNs. If those URLs are removed or blocked, the iframe will render blank.
+- Browser audio in the game still depends on a user gesture. The session must be started by clicking `Initialize Session`.
+- The broader `scripts/tests/sportswellness-phase3-content.test.ts` suite still reports a pre-existing missing `Multiple-choice review` snippet in `projects/sportswellness/workspace/main.js`. This task did not touch that Phase 3 reading content block.
+
+## Next prompt should assume
+- `Performance` now contains a clickable `Phase 3 Focus Game` menu item in the Sports Wellness workspace shell.
+- The game is loaded through `projects/sportswellness/workspace/performance/phase3-focus-game.html`, not the Phase 3 assignment runtime.
+- Existing Phase 3 lesson and assignment behavior were left intact.
+
+## What still needs validation
+- Open the Sports Wellness preview, click `Performance`, then confirm `Phase 3 Focus Game` loads and the iframe interaction works end-to-end in the browser.
+- Spot-check the game on mobile-width preview to confirm the menu stacks cleanly and the embedded game remains usable.
+
+## Known risks
+- `npx tsx --test scripts/tests/sportswellness-phase3-content.test.ts` is still red on the unrelated `Multiple-choice review` expectation.
+- The game page is intentionally isolated from course progress and assignment completion, so it does not mark Phase 3 complete or feed quiz/assignment progress.
+
+## Exact next command
+`npm run test:e2e:project -- --project sportswellness`
+
+## Exact next file to open
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase3-focus-game.app.js`
+
+## Do not do next / warnings
+- Do not move the game into `assignment-runtime-main.js` unless the goal changes from a Performance-tool insertion to a Phase 3 assignment integration.
+- Do not hand-edit generated exports for this feature; keep edits in `projects/sportswellness/workspace/**`.
+
+---
+
+## 2026-04-21 | docs/ops/ACTIVE_HANDOFF.md (pre-forensicstudiesoption2-content-integration)
+
+# Handoff
+
+- Project: forensicstudiesoption2
+- Task: retheme the option-2 Forensics shell and generated chapter pages to the darker forensic dashboard visual system without changing menus, labels, or course content
+- Status: complete
+
+## Files changed
+- docs/plans/2026-04-21-forensicstudiesoption2-theme-pass.md
+- docs/ops/ACTIVE_HANDOFF.md
+- docs/ops/ARCHIVED_HANDOFFS.md
+- projects/forensicstudiesoption2/workspace/index.html
+- projects/forensicstudiesoption2/workspace/styles.css
+- projects/forensicstudiesoption2/workspace/pdf-viewer.html
+- projects/forensicstudiesoption2/workspace/content/module-index.css
+- projects/forensicstudiesoption2/workspace/content/chapter-1/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-2/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-3/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-4/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-5/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-6/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-7/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-8/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-9/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-10/index.html
+- scripts/tests/forensicstudiesoption2-theme.test.ts
+
+## What changed
+- Added a dedicated theme-contract test that asserts the forensic dark palette, font stack, and shared chapter-page theme tokens are present before any styling work ships.
+- Swapped the option-2 shell font loading from the old light-shell pair to Space Grotesk, Inter, and Noto Serif.
+- Replaced the shell theme tokens with the new dark forensic palette and layered a focused override section across the existing selectors so navigation, cards, quiz surfaces, overlays, and buttons match the reference visual language without changing routes or labels.
+- Rethemed `pdf-viewer.html` so the library PDF surface no longer drops back to the old light treatment.
+- Rebuilt `workspace/content/module-index.css` around the same palette and typography, then updated every generated chapter page font import so chapter landing pages render with the same visual system as the shell.
+
+## Why this changed
+- The user wanted `forensicstudiesoption2` to keep the current Forensics structure and names while adopting the darker forensic dashboard palette, typography, buttons, and surface treatment from the supplied styling guide.
+
+## Source of truth
+- Canonical entry: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\index.html`
+- Theme shell sources:
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\styles.css`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\pdf-viewer.html`
+- Generated chapter theme sources:
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\content\module-index.css`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\content\chapter-1\index.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\content\chapter-2\index.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\content\chapter-3\index.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\content\chapter-4\index.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\content\chapter-5\index.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\content\chapter-6\index.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\content\chapter-7\index.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\content\chapter-8\index.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\content\chapter-9\index.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\content\chapter-10\index.html`
+- Theme contract test: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\tests\forensicstudiesoption2-theme.test.ts`
+
+## Fragile areas / watchouts
+- This pass intentionally did not retheme `projects/forensicstudiesoption2/workspace/assignments/**`, so embedded assignment runtimes could still visually drift from the shell.
+- Chapter pages still included inline legacy custom properties on the page wrapper, but `module-index.css` ignored those older gold variables and used the new forensic token set instead.
+- There was still no `projects/forensicstudiesoption2/meta/e2e-contract.json`, so browser-level regression coverage for this project remained manual plus targeted source tests.
+
+## Next prompt should assume
+- `projects/forensics` was still untouched and remained the original source course.
+- `projects/forensicstudiesoption2` now used the darker forensic dashboard styling across the shell, library PDF viewer, and generated chapter landing pages.
+- Menu labels, route structure, course data, and shell behavior were preserved.
+- Assignment runtimes were intentionally left out of that visual pass.
+
+## What still needs validation
+- Open `forensicstudiesoption2` in Canvas Builder and visually confirm the home shell, one chapter landing page, and the PDF viewer all match the darker forensic palette.
+- Open at least one embedded assignment and decide whether a second-pass retheme is needed for `workspace/assignments/**`.
+
+## Known risks
+- The appended shell-theme override block relies on the current selector names in `workspace/styles.css`; a future structural rewrite of the shell could bypass those overrides if selectors are renamed.
+- External font/CDN dependencies remained and still surfaced as warnings in project verify.
+
+## Exact next command
+`npm.cmd run studio:codex`
+
+## Exact next file to open
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\styles.css`
+
+## Do not do next / warnings
+- Do not edit `projects/forensics/**` while continuing option-2 work.
+- Do not restyle `projects/forensicstudiesoption2/workspace/assignments/**` unless you intentionally start the assignment-runtime second pass.
+
+---
+
+## 2026-04-21 | docs/ops/ACTIVE_HANDOFF.md (pre-forensicstudiesoption2-missing-image-fix)
+
+# Handoff
+
+- Project: forensicstudiesoption2
+- Task: replace the option-2 source-link placeholders with imported chapter lesson content, authored quizzes, and surfaced assignment brief coverage while keeping `projects/forensics` untouched
+- Status: complete
+
+## Files changed
+- docs/plans/2026-04-21-forensicstudiesoption2-content-integration.md
+- docs/ops/ACTIVE_HANDOFF.md
+- docs/ops/ARCHIVED_HANDOFFS.md
+- projects/forensicstudiesoption2/workspace/course-data.js
+- projects/forensicstudiesoption2/workspace/main.js
+- projects/forensicstudiesoption2/workspace/styles.css
+- projects/forensicstudiesoption2/workspace/content/module-index.css
+- projects/forensicstudiesoption2/workspace/content/chapter-1/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-2/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-3/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-4/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-5/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-6/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-7/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-8/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-9/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-10/index.html
+- scripts/build-forensicstudiesoption2-content.ts
+- scripts/tests/forensicstudiesoption2-content.test.ts
+
+## What changed
+- Added a project-specific generator script that reads the Forensics export map plus raw resource bundle, then regenerates `forensicstudiesoption2` chapter pages and authored quiz data instead of leaving source-link placeholders in place.
+- Rebuilt all `content/chapter-*` pages as imported lesson readers with real lesson HTML, rewritten asset links back to `/preview/references/raw/forensics/...`, assessment summaries, and fallback notes where the source bundle omitted a readable lesson file.
+- Replaced quiz source-link-only placeholders in `course-data.js` with authored quiz sections parsed from the exported QTI XML while preserving `sourcePath` for traceability.
+- Enriched assignment lanes in `course-data.js` with `briefs` arrays so modules with multiple assignment sources now surface that coverage explicitly.
+- Patched `workspace/main.js` and `workspace/styles.css` so assignment detail pages render the new brief cards above the embedded assignment runtime, and authored quiz detail pages keep a direct `Open source` action.
+- Extended `module-index.css` so imported lesson bodies, tables, media, and legacy source markup sit cleanly inside the dark forensic theme instead of reading like raw export fragments.
+- Added a focused integration test that guards authored quiz population, multi-brief assignment coverage, and imported chapter lesson content.
+
+## Why this changed
+- The user wanted `forensicstudiesoption2` to stop behaving like a styled wrapper around raw source links and instead carry the actual Forensics chapter content, quizzes, and assignment context inside the new option-2 shell.
+
+## Source of truth
+- Canonical shell entry: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\index.html`
+- Canonical data file: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\course-data.js`
+- Canonical chapter reader styles: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\content\module-index.css`
+- Canonical generator: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\build-forensicstudiesoption2-content.ts`
+- Canonical source map and raw bundle inputs:
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensics\workspace\d2l-map-data.js`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics\D2LCCExport_129076_23-24 _ Forensic Studies 25 _ Per 1(A-B) _ Sec S3_202631302 (2)\**`
+
+## Fragile areas / watchouts
+- The raw Forensics export did not retain the assignment XML files referenced by the map, so assignment brief cards are heuristic summaries backed by the export map and the embedded assignment runtimes, not verbatim XML parses.
+- Some source lesson pages are still legacy D2L HTML with dense inline structure; `module-index.css` now normalizes them, but future style changes could easily re-expose that legacy markup.
+- Module 8, Final Exam instructions, and extra-credit support still rely on export-map note cards where the source bundle had no readable chapter HTML.
+- There is still no `projects/forensicstudiesoption2/meta/e2e-contract.json`, so project-specific browser automation remains unavailable until that contract is authored.
+
+## Next prompt should assume
+- `projects/forensics` remains untouched and is still the original source course.
+- `projects/forensicstudiesoption2` now has authored quiz content in `course-data.js`, imported lesson readers in `content/chapter-*`, and surfaced assignment brief cards in the shell.
+- The generator script is the source of truth for future content refreshes; hand-editing the generated chapter pages should be avoided unless the generator is updated too.
+
+## What still needs validation
+- Open `forensicstudiesoption2` in Canvas Builder and visually spot-check at least one heavy chapter page, one authored quiz detail view, and one assignment detail page with brief cards above the iframe.
+- Decide whether the assignment runtimes themselves should get a second-pass visual alignment to match the updated shell and chapter readers more closely.
+- If browser-level regression coverage is required for this project, add `projects/forensicstudiesoption2/meta/e2e-contract.json` before expecting `npm run test:e2e:project -- --project forensicstudiesoption2` to pass.
+
+## Known risks
+- Re-running `scripts/build-forensicstudiesoption2-content.ts` will overwrite manual edits inside `workspace/course-data.js` and `workspace/content/chapter-*`.
+- Source-text cleanup fixes common mojibake, but any unusual encoding edge cases still present in the raw export will flow through unless they are handled in the generator.
+- The assignment brief content is trustworthy for module coverage and shell navigation, but not a substitute for verbatim original assignment XML because that XML is missing from the retained bundle.
+
+## Exact next command
+`npm.cmd run studio:codex`
+
+## Exact next file to open
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\build-forensicstudiesoption2-content.ts`
+
+## Do not do next / warnings
+- Do not edit `projects/forensics/**`; treat it as the read-only source course.
+- Do not hand-edit generated `workspace/content/chapter-*` pages unless you also update the generator.
+- Do not assume project E2E exists for this slug until `meta/e2e-contract.json` is added.
+
+
+## 2026-04-21 | docs/ops/ACTIVE_HANDOFF.md (pre-forensicstudiesoption2-copy-cleanup)
+
+# Handoff
+
+- Project: forensicstudiesoption2
+- Task: fix the imported chapter image and raw-source 404 regression caused by incorrect preview reference urls in the option-2 generator
+- Status: complete
+
+## Files changed
+- docs/ops/ACTIVE_HANDOFF.md
+- docs/ops/ARCHIVED_HANDOFFS.md
+- projects/forensicstudiesoption2/workspace/course-data.js
+- projects/forensicstudiesoption2/workspace/content/chapter-1/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-2/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-3/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-4/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-5/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-6/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-7/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-8/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-9/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-10/index.html
+- scripts/build-forensicstudiesoption2-content.ts
+- scripts/tests/forensicstudiesoption2-content.test.ts
+
+## What changed
+- Identified the real regression: generated raw preview urls were missing the D2L export-root folder segment, so the preview server looked under `projects/resources/forensics/<path>` instead of `projects/resources/forensics/D2LCCExport.../<path>`.
+- Updated `build-forensicstudiesoption2-content.ts` so every generated raw reference url now includes the export-root prefix before the actual `сontent/`, `quiz/`, or other retained source path.
+- Regenerated `workspace/course-data.js` and all `workspace/content/chapter-*` pages so image tags, lesson-source links, quiz XML links, and library resource file links now point to real previewable retained files.
+- Added a targeted regression test that checks generated quiz and chapter raw-reference urls resolve to real retained files under `projects/resources/forensics`.
+- Adjusted the module-2 assignment asset test so it accepts the current shared asset-root pattern in both the JSX source and bundle.
+- Live-verified one previously broken local image url through the preview server and confirmed it now returns `HTTP 200`.
+
+## Why this changed
+- The user reported that almost every imported picture was missing. The root cause was bad generated preview urls, not missing chapter content and not the preview server’s MIME handling.
+
+## Source of truth
+- Canonical generator: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\build-forensicstudiesoption2-content.ts`
+- Canonical regenerated data: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\course-data.js`
+- Canonical regenerated chapter readers: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\content\chapter-1\index.html` through `chapter-10\index.html`
+- Raw source root the generator must target: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\forensics\D2LCCExport_129076_23-24 _ Forensic Studies 25 _ Per 1(A-B) _ Sec S3_202631302 (2)\**`
+
+## Fragile areas / watchouts
+- This generator now assumes raw preview urls for this project must always be rooted under the retained D2L export folder. Any future resource-pipeline reshuffle would require updating the generator, not the generated pages.
+- Some lesson pages still contain truly external image urls (Wikimedia, old Moodle hosts, StatsCan, etc.). The local exported images now resolve, but externally hosted images can still fail if those hosts are unavailable.
+- One library resource from the original course bundle (`How to Be Successful in an Independent Study Course (1)`) still appears absent from `projects/resources/forensics`; this fix did not invent a replacement file.
+
+## Next prompt should assume
+- `projects/forensics` is still untouched.
+- `projects/forensicstudiesoption2` chapter readers and quiz `sourcePath` links now include the export-root segment and should resolve through `/preview/references/raw/forensics/...`.
+- The generator is still the source of truth; re-running it will overwrite manual edits to the generated chapter pages and course-data file.
+
+## What still needs validation
+- Open `forensicstudiesoption2` in Canvas Builder and visually confirm that the previously missing chapter images now render in the browser.
+- Spot-check whether any remaining missing images are external-host failures rather than local preview-url failures.
+- Decide whether the remaining external image urls should be remapped to local retained assets where possible.
+
+## Known risks
+- Not every missing image in the course is guaranteed to be fixed by this patch because some lesson HTML still references external hosts that may be unavailable.
+- The targeted regression test now focuses on chapter and quiz raw-reference urls; it does not guarantee every legacy library file from the original course export still exists locally.
+
+## Exact next command
+`npm.cmd run studio:codex`
+
+## Exact next file to open
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\build-forensicstudiesoption2-content.ts`
+
+## Do not do next / warnings
+- Do not hand-edit the generated chapter HTML to fix one-off image paths unless you also patch the generator.
+- Do not edit `projects/forensics/**`.
+- Do not assume remaining broken external images are local preview failures without checking their host/source first.
+
+
+## 2026-04-21 | docs/ops/ACTIVE_HANDOFF.md (pre-sportswellness-phase2-discipline-game-performance-menu)
+
+# Handoff
+
+- Project: forensicstudiesoption2
+- Task: remove generic option-2/reference filler copy, restore Forensics-authored assignment wording, and hide empty quiz question-type sections
+- Status: complete
+
+## Files changed
+- docs/ops/ACTIVE_HANDOFF.md
+- docs/ops/ARCHIVED_HANDOFFS.md
+- projects/forensicstudiesoption2/workspace/index.html
+- projects/forensicstudiesoption2/workspace/main.js
+- projects/forensicstudiesoption2/workspace/course-data.js
+- projects/forensicstudiesoption2/workspace/content/chapter-1/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-2/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-3/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-4/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-5/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-6/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-7/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-8/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-9/index.html
+- projects/forensicstudiesoption2/workspace/content/chapter-10/index.html
+- scripts/build-forensicstudiesoption2-content.ts
+- scripts/tests/forensicstudiesoption2-content.test.ts
+- scripts/tests/forensicstudiesoption2-shell-behavior.test.ts
+
+## What changed
+- Updated the option-2 generator so course subtitle, chapter summaries, quiz summaries, and assignment summaries no longer use generic option-2/source-link filler text.
+- Rewrote the assignment brief templates with Forensics-authored wording pulled from the existing Forensics course language, especially for Locard, fingerprint, trace, serology, impaired driving, polygraphing, DNA, and careers modules.
+- Changed assignment lane summaries to use the real brief language instead of grouped-shell placeholder copy.
+- Removed the generic missing-XML source note from assignment briefs and simplified the generated chapter assessment cards so they read like course content instead of export diagnostics.
+- Regenerated `workspace/course-data.js` and all `workspace/content/chapter-*` pages from the generator.
+- Updated the shell runtime so quiz section breakdowns drop empty question types and the active quiz section falls back to the first real section instead of hardcoding multiple choice.
+- Cleaned the remaining shell copy in `workspace/main.js` and the static subtitle in `workspace/index.html`.
+- Added focused regression tests for zero-count quiz sections and generic filler-copy removal.
+
+## Why this changed
+- The user reported that empty quiz section types were still rendering, assignment descriptions did not match the original Forensics course, and the project still showed too much internal option-2/reference copy.
+
+## Source of truth
+- Canonical generator for regenerated course data and chapter pages: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\build-forensicstudiesoption2-content.ts`
+- Canonical shell runtime for quiz and assignment rendering: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\main.js`
+- Canonical static shell entry: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\index.html`
+- Canonical generated course data output: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\course-data.js`
+
+## Fragile areas / watchouts
+- `workspace/course-data.js` and `workspace/content/chapter-*` are generator outputs; manual edits there will be overwritten on the next run.
+- The assignment brief language is now curated in the generator template map. If the source course wording changes, update the generator instead of patching generated JSON.
+- Quiz section rendering now depends on `computeQuizSectionBreakdown()` returning only non-empty sections. Any future quiz type additions need to be included there.
+- The project still has no `projects/forensicstudiesoption2/meta/e2e-contract.json`, so project E2E remains blocked until that contract exists.
+
+## Next prompt should assume
+- `projects/forensics` is still untouched and remains the source course.
+- `projects/forensicstudiesoption2` now uses cleaner Forensics wording in its summaries and assignment details.
+- Empty quiz section types no longer render in the shell.
+- Targeted source tests and project verify pass.
+- Project E2E currently fails only because the e2e contract file is missing.
+
+## What still needs validation
+- Open `forensicstudiesoption2` in Canvas Builder and visually confirm the updated assignment copy reads correctly against the embedded workspaces.
+- Spot-check at least one quiz with only one authored question type to confirm the correct section opens first in the browser.
+- Decide whether to add `projects/forensicstudiesoption2/meta/e2e-contract.json` so project E2E can become a real gate.
+
+## Known risks
+- Some assignment wording is now curated from the existing Forensics course language rather than parsed directly from retained XML for every module.
+- Chapter lesson cards still expose original-source links where those files exist; this pass removed filler copy, not every traceability affordance.
+- Without an E2E contract, interactive browser regression coverage is still incomplete for this project.
+
+## Exact next command
+`npm.cmd run studio:codex`
+
+## Exact next file to open
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\build-forensicstudiesoption2-content.ts`
+
+## Do not do next / warnings
+- Do not hand-edit `projects/forensicstudiesoption2/workspace/course-data.js` or `workspace/content/chapter-*` without updating and rerunning the generator.
+- Do not edit `projects/forensics/**` while refining option 2.
+- Do not treat the failing project E2E command as a new runtime regression; it is currently a missing-contract problem.
+
+
+## 2026-04-21 | docs/ops/ACTIVE_HANDOFF.md (pre-forensicstudiesoption2-strict-fidelity-quiz-gate)
+
+# Handoff
+
+- Project: sportswellness
+- Task: add the imported discipline game as a second Performance-menu tool labeled `Phase 2 Architecture of Discipline Game`
+- Status: ready for validation
+
+## Files changed
+- docs/plans/2026-04-21-sportswellness-phase2-discipline-game-performance-menu.md
+- docs/ops/ACTIVE_HANDOFF.md
+- docs/ops/ARCHIVED_HANDOFFS.md
+- projects/sportswellness/workspace/main.js
+- projects/sportswellness/workspace/performance/phase2-discipline-game.html
+- projects/sportswellness/workspace/performance/phase2-discipline-game.app.js
+- scripts/tests/sportswellness-performance-menu.test.ts
+
+## Verification run
+- `npx tsx --test scripts/tests/sportswellness-performance-menu.test.ts`
+- `npx tsx --test scripts/tests/sportswellness-ui-state.test.ts`
+- `npx tsx --test scripts/tests/sportswellness-phase3-assignment.test.ts`
+- `npm run test:e2e:project -- --project sportswellness`
+- `npx tsx --test scripts/tests/sportswellness-phase3-content.test.ts` (fails on the pre-existing `Multiple-choice review` expectation in `projects/sportswellness/workspace/main.js`)
+
+## What changed
+- Extended `PERFORMANCE_TOOLS` in `projects/sportswellness/workspace/main.js` with a `phase2-discipline-game` entry titled `Phase 2 Architecture of Discipline Game`.
+- Added `projects/sportswellness/workspace/performance/phase2-discipline-game.html` plus `phase2-discipline-game.app.js` to mount an adapted standalone version of the imported `disciplinegame` source.
+- Reused the existing Performance-menu and iframe-viewer contract so the Phase 2 and Phase 3 games now live side by side without changing the lesson or assignment runtimes.
+- Expanded `scripts/tests/sportswellness-performance-menu.test.ts` so the menu contract now guards both Performance tools and the new Phase 2 standalone page identity.
+
+## Why this changed
+- The user wanted the discipline game inserted the same way as the Phase 3 focus game: inside `Performance`, behind a clickable menu item, and isolated from the Phase 2 lesson and assignment flow.
+- Reusing the current standalone-page pattern kept the new activity low-risk and avoided touching the existing Phase 2 authored surfaces.
+
+## Source of truth
+- Canonical entry: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\index.html`
+- Canonical sources:
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\main.js`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\styles.css`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase2-discipline-game.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase2-discipline-game.app.js`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase3-focus-game.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase3-focus-game.app.js`
+
+## Fragile areas / watchouts
+- Both Performance games depend on browser-loaded `React`, `ReactDOM`, `Tailwind`, and `Babel` CDNs. If those URLs fail or are blocked, the iframe will render blank.
+- The standalone game sources are manual browser-runtime adaptations of imported React files, so future source refreshes from the reference folder need the same dependency-translation step.
+- The active tool selection defaults to the first entry in `PERFORMANCE_TOOLS`, so reordering that array changes which game opens first.
+
+## Next prompt should assume
+- `Performance` now contains two clickable tools: `Phase 2 Architecture of Discipline Game` and `Phase 3 Focus Game`.
+- The Phase 2 game loads from `projects/sportswellness/workspace/performance/phase2-discipline-game.html`, not from the Phase 2 assignment runtime.
+- The selected Performance tool persists through the same-origin UI-state snapshot already used by the shell.
+
+## What still needs validation
+- Open the Sports Wellness preview, click `Performance`, and confirm both tool buttons swap the iframe correctly and each game starts cleanly in the browser.
+- Spot-check the Performance view at mobile width to confirm the menu stacks cleanly with two tools.
+
+## Known risks
+- `npx tsx --test scripts/tests/sportswellness-phase3-content.test.ts` is still red on the unrelated `Multiple-choice review` expectation in `projects/sportswellness/workspace/main.js`.
+- Neither Performance game is wired into lesson completion, assignment scoring, or quiz progress; both remain standalone training tools.
+
+## Exact next command
+`npm.cmd run studio:codex`
+
+## Exact next file to open
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\main.js`
+
+## Do not do next / warnings
+- Do not patch the standalone game files by editing only the reference-folder sources; the workspace copies are the live runtime.
+- Do not move either Performance game into the Phase 2 or Phase 3 assignment runtime unless the user explicitly wants those flows coupled.
+- Do not treat the failing `sportswellness-phase3-content.test.ts` check as caused by this Performance-menu work without fixing or updating the separate Phase 3 lesson contract.
+
+
+## 2026-04-21 | docs/ops/ACTIVE_HANDOFF.md (pre-sportswellness-phase1-performance-state-simulator-game)
+
+# Handoff
+
+- Project: forensicstudiesoption2
+- Task: remove the quiz source-link action from the option-2 shell while keeping the generate-results gate intact
+- Status: complete
+
+## Files changed
+- docs/ops/ACTIVE_HANDOFF.md
+- docs/ops/ARCHIVED_HANDOFFS.md
+- projects/forensicstudiesoption2/workspace/main.js
+- scripts/tests/forensicstudiesoption2-shell-behavior.test.ts
+
+## What changed
+- Removed the `Open source` button from authored quiz detail.
+- Removed the `Open original source` button from source-linked quiz detail.
+- Kept the existing `Generate Results -> Check Answers / Retake Quiz` gate unchanged.
+- Added a shell regression so the quiz runtime fails if either source-link label comes back.
+
+## Why this changed
+- The user does not want quiz detail pages exposing the source-launch action in option 2.
+
+## Source of truth
+- Canonical quiz runtime: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\main.js`
+- Canonical shell regression: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\tests\forensicstudiesoption2-shell-behavior.test.ts`
+
+## Fragile areas / watchouts
+- Source-linked quizzes still branch through `renderSourceLinkedQuizDetail()` when no authored question set exists; only the launch action was removed.
+- If a future quiz pass intentionally restores source access, the shell regression will need to change first.
+- The project still has no `projects/forensicstudiesoption2/meta/e2e-contract.json`, so project E2E remains blocked.
+
+## Next prompt should assume
+- `projects/forensics` is still untouched.
+- Quiz detail pages in `forensicstudiesoption2` no longer show source-link buttons.
+- The generate-results completion gate is still the active quiz flow.
+- Targeted shell verification and project verify both pass.
+
+## What still needs validation
+- Refresh `forensicstudiesoption2` in Canvas Builder and confirm the quiz action row now shows only the in-shell actions.
+- Decide whether the remaining source-linked copy inside fallback quiz detail should also be stripped or rewritten.
+- Decide whether to add `projects/forensicstudiesoption2/meta/e2e-contract.json` so the project gets browser regression coverage.
+
+## Known risks
+- Source-linked quiz detail still contains explanatory copy about the retained source file even though the direct launch action is gone.
+- Without a project E2E contract, interaction-level browser regression coverage is still incomplete.
+
+## Exact next command
+`npm.cmd run studio`
+
+## Exact next file to open
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\main.js`
+
+## Do not do next / warnings
+- Do not edit `projects/forensics/**` while refining option 2.
+- Do not hand-edit generated chapter pages or `course-data.js` for quiz-shell work.
+- Do not treat missing project E2E as a runtime failure until `meta/e2e-contract.json` exists.
+
+
+
+---
+
+## 2026-04-21 | docs/ops/ACTIVE_HANDOFF.md (pre-forensicstudiesoption2-module-assignment-fidelity)
+
+# Handoff
+
+- Project: sportswellness
+- Task: add the imported Performance State Stimulator as a third Performance-menu tool labeled `Phase 1 Performance State Simulator Game`
+- Status: ready for validation
+
+## Files changed
+- docs/plans/2026-04-21-sportswellness-phase1-performance-state-simulator-game-performance-menu.md
+- docs/ops/ACTIVE_HANDOFF.md
+- docs/ops/ARCHIVED_HANDOFFS.md
+- projects/sportswellness/meta/project.json
+- projects/sportswellness/workspace/main.js
+- projects/sportswellness/workspace/performance/phase1-performance-state-simulator-game.html
+- projects/sportswellness/workspace/performance/phase1-performance-state-simulator-game.app.js
+- scripts/tests/sportswellness-performance-menu.test.ts
+
+## Verification run
+- `npx tsx --test scripts/tests/sportswellness-performance-menu.test.ts`
+- `npx tsx --test scripts/tests/sportswellness-ui-state.test.ts`
+- `npx tsx --test scripts/tests/sportswellness-phase3-assignment.test.ts`
+- `npm run test:e2e:project -- --project sportswellness`
+- `npx tsx --test scripts/tests/sportswellness-phase3-content.test.ts` (fails on the pre-existing `Multiple-choice review` expectation in `projects/sportswellness/workspace/main.js`)
+
+## What changed
+- Added a new `phase1-performance-state-simulator-game` entry to `PERFORMANCE_TOOLS` in `projects/sportswellness/workspace/main.js`, so the Performance section now exposes Phase 1, Phase 2, and Phase 3 game tools.
+- Created `projects/sportswellness/workspace/performance/phase1-performance-state-simulator-game.html` and `phase1-performance-state-simulator-game.app.js` to mount an adapted standalone version of the imported `PerformanceStateStimulator` source.
+- Expanded `scripts/tests/sportswellness-performance-menu.test.ts` so the Performance-menu contract now guards all three games plus the new Phase 1 simulator page identity.
+- Recorded all three imported Performance games under `projects/sportswellness/meta/project.json` so the workspace keeps explicit injected-component source and target traceability.
+
+## Why this changed
+- The user wanted the Performance State Stimulator inserted the same way as the other Sports Wellness games: housed under `Performance` as a clickable standalone tool rather than mixed into the Phase 1 lesson or assignment runtime.
+- Reusing the existing iframe-backed Performance-menu pattern kept the change surgical and preserved the current authored course flow.
+
+## Source of truth
+- Canonical entry: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\index.html`
+- Canonical sources:
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\main.js`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\meta\project.json`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase1-performance-state-simulator-game.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase1-performance-state-simulator-game.app.js`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase2-discipline-game.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase2-discipline-game.app.js`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase3-focus-game.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\performance\phase3-focus-game.app.js`
+
+## Fragile areas / watchouts
+- All three Performance games depend on browser-loaded `React`, `ReactDOM`, `Tailwind`, and `Babel` CDNs. If those URLs fail or are blocked, the iframe will render blank.
+- The standalone game pages are manual browser-runtime adaptations of external React files, so future source refreshes from the reference folder still require the dependency-translation step.
+- The selected Performance tool defaults to the first `PERFORMANCE_TOOLS` entry, so reordering that array changes which game opens by default.
+
+## Next prompt should assume
+- `Performance` now contains three clickable tools: `Phase 1 Performance State Simulator Game`, `Phase 2 Architecture of Discipline Game`, and `Phase 3 Focus Game`.
+- The Phase 1 simulator loads from `projects/sportswellness/workspace/performance/phase1-performance-state-simulator-game.html`, not from the Phase 1 assignment runtime.
+- `projects/sportswellness/meta/project.json` now tracks the three imported Performance games as active injected components.
+
+## What still needs validation
+- Open the Sports Wellness preview, click `Performance`, and confirm all three tool buttons swap the iframe correctly and each game starts cleanly in the browser.
+- Spot-check the Performance view at mobile width to confirm the menu stacks cleanly with three tools.
+
+## Known risks
+- `npx tsx --test scripts/tests/sportswellness-phase3-content.test.ts` is still red on the unrelated `Multiple-choice review` expectation in `projects/sportswellness/workspace/main.js`.
+- None of the Performance games are wired into lesson completion, assignment scoring, or quiz progress; they remain standalone training tools.
+
+## Exact next command
+`npm.cmd run studio:codex`
+
+## Exact next file to open
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\main.js`
+
+## Do not do next / warnings
+- Do not patch the standalone game files by editing only the reference-folder sources; the workspace copies are the live runtime.
+- Do not move the Phase 1 simulator into the assignment runtime unless the user explicitly wants the game coupled to the Phase 1 authored flow.
+- Do not treat the failing `sportswellness-phase3-content.test.ts` check as caused by this Performance-menu work without fixing or updating the separate Phase 3 lesson contract.

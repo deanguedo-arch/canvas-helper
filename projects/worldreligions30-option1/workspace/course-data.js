@@ -17,33 +17,37 @@ window.WORLD_RELIGIONS_DATA = {
       "id": "chapter-2",
       "code": "Chapter 2",
       "number": 2,
-      "title": "Aboriginal Spirituality",
+      "title": "Content",
       "accent": "#8b6a24",
-      "summary": "Chapter content will be added here. The shell is ready for full chapter readings when the chapter section source is available."
+      "summary": "Chapter 2 source content on Aboriginal spirituality, interconnection, ceremony, colonization, and respectful study.",
+      "contentPath": "./content/WR30_Chapter2_Source_Content_Web_Module/index.html"
     },
     {
       "id": "chapter-3",
       "code": "Chapter 3",
       "number": 3,
-      "title": "Early Religions",
+      "title": "Content",
       "accent": "#485e8b",
-      "summary": "Chapter content will be added here. The shell is ready for full chapter readings when the chapter section source is available."
+      "summary": "Chapter 3 source content on early religions, philosophy, ethics, ritual, and the search for how to live well.",
+      "contentPath": "./content/WR30_Chapter3_Source_Content_Web_Module/index.html"
     },
     {
       "id": "chapter-4",
       "code": "Chapter 4",
       "number": 4,
-      "title": "Hinduism",
+      "title": "Content",
       "accent": "#9f7a2d",
-      "summary": "Chapter content will be added here. The shell is ready for full chapter readings when the chapter section source is available."
+      "summary": "Chapter 4 source content on Hinduism, Brahman, atman, dharma, karma, devotion, sacred texts, and Hindu life in Canada.",
+      "contentPath": "./content/WR30_Chapter4_Source_Content_Web_Module/index.html"
     },
     {
       "id": "chapter-5",
       "code": "Chapter 5",
       "number": 5,
-      "title": "Buddhism",
+      "title": "Content",
       "accent": "#6a4f18",
-      "summary": "Chapter content will be added here. The shell is ready for full chapter readings when the chapter section source is available."
+      "summary": "Chapter 5 source content on Buddhism, the Buddha, the Middle Way, the Four Noble Truths, the Eightfold Path, meditation, compassion, and Buddhist life in Canada.",
+      "contentPath": "./content/WR30_Chapter5_Source_Content_Web_Module/index.html"
     },
     {
       "id": "chapter-6",

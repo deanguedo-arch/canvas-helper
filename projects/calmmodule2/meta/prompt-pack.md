@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: calmmodule2
-- Generated: 2026-04-17T20:08:48.663Z
+- Generated: 2026-04-21T17:03:08.644Z
 
 ## Rules
 
@@ -55,10 +55,10 @@ none
   "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\calmmodule2\\raw\\original.html",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-04-17T20:08:48.579Z",
+  "learningUpdatedAt": "2026-04-21T17:03:08.570Z",
   "createdAt": "2026-03-06T20:40:30.861Z",
-  "updatedAt": "2026-04-17T20:08:48.579Z",
-  "workspaceApprovedAt": "2026-04-17T20:08:48.579Z",
+  "updatedAt": "2026-04-21T17:03:08.570Z",
+  "workspaceApprovedAt": "2026-04-21T17:03:08.570Z",
   "migrationState": "legacy",
   "preferredWorkflows": [],
   "canonicalSources": [],

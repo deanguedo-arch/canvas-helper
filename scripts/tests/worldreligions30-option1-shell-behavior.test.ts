@@ -62,3 +62,33 @@ test("world religions option1 chapter 1 shell mounts the authored content module
   assert.match(stylesSource, /\.chapter-content-shell/);
   assert.match(stylesSource, /\.chapter-content-frame/);
 });
+
+test("world religions option1 chapter 2 shell mounts the authored content module", async () => {
+  const dataSource = await readFile(dataPath, "utf8");
+  const data = loadCourseData(dataSource);
+  const chapter = data?.chapters?.find((entry) => entry.id === "chapter-2");
+
+  assert.ok(chapter);
+  assert.equal(chapter.title, "Content");
+  assert.equal(chapter.contentPath, "./content/WR30_Chapter2_Source_Content_Web_Module/index.html");
+});
+
+test("world religions option1 chapter 3 shell mounts the authored content module", async () => {
+  const dataSource = await readFile(dataPath, "utf8");
+  const data = loadCourseData(dataSource);
+  const chapter = data?.chapters?.find((entry) => entry.id === "chapter-3");
+
+  assert.ok(chapter);
+  assert.equal(chapter.title, "Content");
+  assert.equal(chapter.contentPath, "./content/WR30_Chapter3_Source_Content_Web_Module/index.html");
+});
+
+test("world religions option1 chapter 5 shell mounts the authored content module", async () => {
+  const dataSource = await readFile(dataPath, "utf8");
+  const data = loadCourseData(dataSource);
+  const chapter = data?.chapters?.find((entry) => entry.id === "chapter-5");
+
+  assert.ok(chapter);
+  assert.equal(chapter.title, "Content");
+  assert.equal(chapter.contentPath, "./content/WR30_Chapter5_Source_Content_Web_Module/index.html");
+});

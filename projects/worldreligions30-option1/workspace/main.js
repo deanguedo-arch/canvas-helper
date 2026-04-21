@@ -1141,7 +1141,7 @@
             <div class="viewer-actions">
               <a class="btn btn-primary" href="${escapeHtml(active.file || active.path || "#")}" download>Download PDF</a>
               <button class="btn btn-secondary" type="button" data-open-expanded-viewer="${escapeHtml(active.id)}">Expand viewer</button>
-              ${chapter ? `<button class="btn btn-muted" type="button" data-open-chapter="${escapeHtml(chapter.id)}">Open chapter shell</button>` : ""}
+              ${chapter ? `<button class="btn btn-muted" type="button" data-open-chapter="${escapeHtml(chapter.id)}">${chapter.contentPath ? "Open chapter content" : "Open chapter shell"}</button>` : ""}
               ${quiz ? `<button class="btn btn-muted" type="button" data-open-quiz="${escapeHtml(quiz.id)}">Open quiz</button>` : ""}
             </div>
           </div>
