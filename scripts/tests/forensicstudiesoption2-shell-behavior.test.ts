@@ -13,11 +13,19 @@ const indexPath = path.resolve(workspaceDir, "index.html");
 const mainPath = path.resolve(workspaceDir, "main.js");
 const dataPath = path.resolve(workspaceDir, "course-data.js");
 
-function loadCourseData(source: string) {
-  const context = { window: {} };
+type ForensicsCourseData = {
+  course?: Record<string, any>;
+  chapters?: Array<Record<string, any>>;
+  quizzes?: Array<Record<string, any>>;
+  assignments?: Array<Record<string, any>>;
+  library?: Array<Record<string, any>>;
+};
+
+function loadCourseData(source: string): ForensicsCourseData {
+  const context = { window: {} as { FORENSIC_STUDIES_OPTION2_DATA?: ForensicsCourseData } };
   vm.createContext(context);
   vm.runInContext(source, context);
-  return (context.window as { FORENSIC_STUDIES_OPTION2_DATA?: { chapters?: Array<Record<string, string>>, assignments?: Array<Record<string, string>>, library?: Array<Record<string, string>> } }).FORENSIC_STUDIES_OPTION2_DATA;
+  return context.window.FORENSIC_STUDIES_OPTION2_DATA ?? {};
 }
 
 function extractNamedFunction(source: string, functionName: string) {

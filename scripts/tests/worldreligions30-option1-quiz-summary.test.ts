@@ -8,15 +8,19 @@ const mainPath = path.resolve("projects/worldreligions30-option1/workspace/main.
 const stylesPath = path.resolve("projects/worldreligions30-option1/workspace/styles.css");
 const dataPath = path.resolve("projects/worldreligions30-option1/workspace/course-data.js");
 
-function loadCourseData(source) {
-  const context = { window: {} };
+type WorldReligionsCourseData = {
+  quizzes?: Array<Record<string, any>>;
+};
+
+function loadCourseData(source: string): WorldReligionsCourseData {
+  const context = { window: {} as { WORLD_RELIGIONS_DATA?: WorldReligionsCourseData } };
   vm.createContext(context);
   vm.runInContext(source, context);
-  return context.window.WORLD_RELIGIONS_DATA;
+  return context.window.WORLD_RELIGIONS_DATA ?? {};
 }
 
-function sumPromptMarks(items) {
-  return items.reduce((total, item) => {
+function sumPromptMarks(items: Array<Record<string, any>>) {
+  return items.reduce((total: number, item) => {
     const matches = Array.from(String(item.prompt || "").matchAll(/(\d+)\s*marks?/gi));
     const last = matches.at(-1);
     return total + Number(last?.[1] || 0);
@@ -26,7 +30,7 @@ function sumPromptMarks(items) {
 test("world religions option1 chapter 1 quiz data includes written-response marks beyond the objective total", async () => {
   const source = await readFile(dataPath, "utf8");
   const data = loadCourseData(source);
-  const quiz = data.quizzes.find((entry) => entry.id === "quiz-1");
+  const quiz = data.quizzes?.find((entry) => entry.id === "quiz-1");
 
   assert.ok(quiz);
   assert.equal(quiz.objectiveTotal, 50);

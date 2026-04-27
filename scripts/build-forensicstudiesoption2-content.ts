@@ -5,7 +5,9 @@ import vm from "node:vm";
 
 import { load } from "cheerio";
 
-import d2lCourseMapData from "../projects/forensics/workspace/d2l-map-data.js";
+// Generated source data is authored as browser/runtime JavaScript, not TypeScript.
+// @ts-expect-error generated JS module has no declaration file
+import d2lCourseMapDataRaw from "../projects/forensics/workspace/d2l-map-data.js";
 
 const PROJECT_SLUG = "forensicstudiesoption2";
 const REPO_ROOT = process.cwd();
@@ -13,6 +15,10 @@ const WORKSPACE_DIR = path.join(REPO_ROOT, "projects", PROJECT_SLUG, "workspace"
 const COURSE_DATA_PATH = path.join(WORKSPACE_DIR, "course-data.js");
 const MODULE_CONTENT_DIR = path.join(WORKSPACE_DIR, "content");
 const WORKSPACE_REFERENCE_DIR = path.join(WORKSPACE_DIR, "references", "forensics");
+const d2lCourseMapData = d2lCourseMapDataRaw as {
+  exportRoot?: string;
+  modules?: ModuleNode[];
+};
 const EXPORT_ROOT_DIR = path.join(
   REPO_ROOT,
   "projects",
@@ -32,11 +38,32 @@ type ModuleNode = {
   children?: ModuleNode[];
 };
 
+type CourseChapter = Record<string, any> & {
+  id: string;
+  title: string;
+  summary?: string;
+};
+
+type CourseQuiz = Record<string, any> & {
+  id: string;
+  chapterId: string;
+  title?: string;
+  summary?: string;
+};
+
+type CourseAssignment = Record<string, any> & {
+  id: string;
+  chapterId: string;
+  title?: string;
+  summary?: string;
+  briefs?: AssignmentBrief[];
+};
+
 type CourseData = {
-  course?: Record<string, unknown>;
-  chapters?: Array<Record<string, any>>;
-  quizzes?: Array<Record<string, any>>;
-  assignments?: Array<Record<string, any>>;
+  course?: Record<string, any>;
+  chapters?: CourseChapter[];
+  quizzes?: CourseQuiz[];
+  assignments?: CourseAssignment[];
   library?: Array<Record<string, any>>;
 };
 
@@ -580,13 +607,13 @@ function buildMissingImageFallback(label?: string): string {
 }
 
 function rewriteHtmlAssetLinks(rawHtml: string, sourceRelativePath: string): string {
-  const $ = load(rawHtml, { decodeEntities: false });
-  const root = $("body").length ? $("body") : $.root();
+  const $ = load(rawHtml);
+  const root = ($("body").length ? $("body") : $.root()) as any;
 
   root.find("script, style, link[rel='stylesheet'], meta, title, head, noscript").remove();
   root.find("[aria-hidden='true'], .sr-only, .visually-hidden").remove();
 
-  root.find("*").each((_index, element) => {
+  root.find("*").each((_index: number, element: any) => {
     const attributes = Object.keys(element.attribs || {});
     attributes.forEach((name) => {
       if (/^on/i.test(name)) {
@@ -596,7 +623,7 @@ function rewriteHtmlAssetLinks(rawHtml: string, sourceRelativePath: string): str
   });
 
   const rewriteAttribute = (selector: string, attribute: string) => {
-    root.find(selector).each((_index, element) => {
+    root.find(selector).each((_index: number, element: any) => {
       const rawValue = $(element).attr(attribute);
       if (!rawValue) return;
       if (/^(https?:|data:|#|mailto:|tel:)/i.test(rawValue)) return;
@@ -611,7 +638,7 @@ function rewriteHtmlAssetLinks(rawHtml: string, sourceRelativePath: string): str
     });
   };
 
-  root.find("img[src]").each((_index, element) => {
+  root.find("img[src]").each((_index: number, element: any) => {
     const rawValue = $(element).attr("src");
     if (!rawValue) return;
 
@@ -659,14 +686,14 @@ function rewriteHtmlAssetLinks(rawHtml: string, sourceRelativePath: string): str
   rewriteAttribute("video[src]", "src");
   rewriteAttribute("object[data]", "data");
 
-  root.find("table").each((_index, element) => {
+  root.find("table").each((_index: number, element: any) => {
     const parent = $(element).parent();
     if (!parent.hasClass("lesson-table-wrap")) {
       $(element).wrap('<div class="lesson-table-wrap"></div>');
     }
   });
 
-  root.find("p, div, section, article, span, li").each((_index, element) => {
+  root.find("p, div, section, article, span, li").each((_index: number, element: any) => {
     const text = $(element).text().replace(/\u00a0/g, " ").trim();
     if (!text && !$(element).find("img, iframe, video, object, table, ul, ol").length) {
       $(element).remove();
@@ -733,7 +760,7 @@ async function parseQuizFile(relativePath: string) {
 
   const absolute = path.join(EXPORT_ROOT_DIR, ...existingRelative.split("/"));
   const xmlText = normalizeSourceText(await readFile(absolute, "utf8"));
-  const $ = load(xmlText, { xmlMode: true, decodeEntities: true });
+  const $ = load(xmlText, { xmlMode: true });
   const multipleChoice: Array<Record<string, any>> = [];
   const trueFalse: Array<Record<string, any>> = [];
   const writtenResponse: Array<Record<string, any>> = [];
@@ -801,6 +828,21 @@ async function parseQuizFile(relativePath: string) {
     attempts: Number(findMetadataValue($, "cc_maxattempts") || 1),
     timeLimitMinutes: Number(findMetadataValue($, "qmd_timelimit") || 0),
     profile: findMetadataValue($, "qmd_assessmenttype") || "Assessment"
+  };
+}
+
+function parseAssignmentXml(xmlText: string, sourceRelativePath: string, _exportRoot: string): {
+  title: string;
+  assignmentXml?: { intro?: string };
+} {
+  const $ = load(xmlText, { xmlMode: true });
+  const title = $("title").first().text().trim() || "Assignment";
+  const rawIntro = $("instructor_text").first().text().trim();
+  const intro = rawIntro ? rewriteHtmlAssetLinks(rawIntro, sourceRelativePath) : "";
+
+  return {
+    title,
+    assignmentXml: { intro }
   };
 }
 
@@ -1095,19 +1137,19 @@ async function loadCourseData(): Promise<CourseData> {
 async function main() {
   mirroredReferencePaths.clear();
   const courseData = await loadCourseData();
-  const visibleModules = (d2lCourseMapData.modules as ModuleNode[]).filter(
+  const visibleModules = (d2lCourseMapData.modules ?? []).filter(
     (module) => module.kind === "module" && !EXCLUDED_VISIBLE_MODULE_TITLES.has(String(module.title || ""))
   );
   const moduleByTitle = new Map(visibleModules.map((module) => [module.title, module]));
-  const normalizedChapters = (courseData.chapters || [])
+  const normalizedChapters: CourseChapter[] = (courseData.chapters || [])
     .filter((chapter) => moduleByTitle.has(String(chapter?.title || "")))
     .map((chapter) => ({
       ...chapter,
       summary: CHAPTER_SUMMARY_OVERRIDES[String(chapter.id)] || chapter.summary
     }));
   const normalizedChapterIds = new Set(normalizedChapters.map((chapter) => String(chapter.id)));
-  const quizzesByChapterId = new Map<string, Record<string, any>>();
-  const assignmentsByChapterId = new Map<string, Record<string, any>>();
+  const quizzesByChapterId = new Map<string, CourseQuiz>();
+  const assignmentsByChapterId = new Map<string, CourseAssignment>();
   const componentIdsByChapterId = new Map<string, string[]>();
 
   for (const chapter of normalizedChapters) {

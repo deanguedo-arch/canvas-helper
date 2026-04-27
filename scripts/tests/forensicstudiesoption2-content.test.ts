@@ -4,7 +4,26 @@ import path from "node:path";
 import test from "node:test";
 import vm from "node:vm";
 
-import d2lCourseMapData from "../../projects/forensics/workspace/d2l-map-data.js";
+// Generated source data is authored as browser/runtime JavaScript, not TypeScript.
+// @ts-expect-error generated JS module has no declaration file
+import d2lCourseMapDataRaw from "../../projects/forensics/workspace/d2l-map-data.js";
+
+type CourseRecord = Record<string, any>;
+type CourseData = {
+  course?: CourseRecord;
+  chapters?: CourseRecord[];
+  quizzes?: CourseRecord[];
+  assignments?: CourseRecord[];
+  library?: CourseRecord[];
+};
+type ModuleNode = CourseRecord & {
+  title?: string;
+  kind?: string;
+  resource?: { hrefs?: string[] };
+  children?: ModuleNode[];
+};
+
+const d2lCourseMapData = d2lCourseMapDataRaw as { modules?: ModuleNode[] };
 
 const workspaceDir = path.resolve("projects", "forensicstudiesoption2", "workspace");
 const contentDir = path.join(workspaceDir, "content");
@@ -25,14 +44,14 @@ const moduleSevenAppPath = path.join(workspaceDir, "assignments", "module7assign
 const moduleEightAppPath = path.join(workspaceDir, "assignments", "module8assignment-app.jsx");
 const referenceRoot = path.join(workspaceDir, "references", "forensics");
 
-function loadCourseData(source) {
-  const context = { window: {} };
+function loadCourseData(source: string): CourseData {
+  const context = { window: {} as { FORENSIC_STUDIES_OPTION2_DATA?: CourseData } };
   vm.createContext(context);
   vm.runInContext(source, context);
-  return context.window.FORENSIC_STUDIES_OPTION2_DATA;
+  return context.window.FORENSIC_STUDIES_OPTION2_DATA ?? {};
 }
 
-function authoredQuestionCount(quiz) {
+function authoredQuestionCount(quiz: CourseRecord) {
   const matching = quiz?.matching;
   const matchingItems = Array.isArray(matching?.items)
     ? matching.items.length
@@ -46,16 +65,18 @@ function authoredQuestionCount(quiz) {
     + (Array.isArray(quiz?.writtenResponse) ? quiz.writtenResponse.length : 0);
 }
 
-function extractMirroredReferenceUrls(source) {
-  return Array.from(source.matchAll(/(?:(?:\.\.\/)|(?:\.\/))*references\/forensics\/[^"'\s>]+/g)).map((match) => match[0]);
+function extractMirroredReferenceUrls(source: string): string[] {
+  return Array.from(source.matchAll(/(?:(?:\.\.\/)|(?:\.\/))*references\/forensics\/[^"'\s>]+/g)).map((match) =>
+    match[0].replace(/\\+$/, "")
+  );
 }
 
-function toWorkspaceReferencePath(url, sourceFile) {
+function toWorkspaceReferencePath(url: string, sourceFile: string) {
   const normalized = decodeURIComponent(String(url || "").split(/[?#]/, 1)[0]).replace(/\//g, path.sep);
   return path.resolve(path.dirname(sourceFile), normalized);
 }
 
-async function loadChapterSources() {
+async function loadChapterSources(): Promise<Array<{ id: string; source: string }>> {
   const entries = await readdir(contentDir, { withFileTypes: true });
   const chapterDirs = entries
     .filter((entry) => entry.isDirectory() && /^chapter-\d+$/.test(entry.name))
@@ -69,8 +90,8 @@ async function loadChapterSources() {
   );
 }
 
-function flattenNodes(nodes = []) {
-  const results = [];
+function flattenNodes(nodes: ModuleNode[] = []): ModuleNode[] {
+  const results: ModuleNode[] = [];
   for (const node of nodes) {
     results.push(node);
     if (Array.isArray(node?.children) && node.children.length) {
@@ -80,7 +101,7 @@ function flattenNodes(nodes = []) {
   return results;
 }
 
-function getVisibleForensicsModules() {
+function getVisibleForensicsModules(): ModuleNode[] {
   return Array.isArray(d2lCourseMapData?.modules)
     ? d2lCourseMapData.modules.filter(
         (module) =>
@@ -92,7 +113,7 @@ function getVisibleForensicsModules() {
     : [];
 }
 
-function filterForensicsNodesForWorkspace(moduleTitle, nodes = []) {
+function filterForensicsNodesForWorkspace(moduleTitle: string, nodes: ModuleNode[] = []): ModuleNode[] {
   const titleLower = String(moduleTitle || "").toLowerCase();
   const isModuleOne = titleLower.includes("introduction to crime scenes");
   const isModuleTwo = titleLower.includes("types of evidence and fingerprint analysis");
@@ -130,7 +151,7 @@ function filterForensicsNodesForWorkspace(moduleTitle, nodes = []) {
     });
 }
 
-function getExpectedContentTitles(moduleTitle) {
+function getExpectedContentTitles(moduleTitle: string) {
   const module = getVisibleForensicsModules().find((entry) => entry.title === moduleTitle);
   const flatNodes = filterForensicsNodesForWorkspace(moduleTitle, flattenNodes(module?.children || []));
 
@@ -142,7 +163,7 @@ function getExpectedContentTitles(moduleTitle) {
     .filter((title) => !/unit assessments/i.test(title));
 }
 
-function getExcludedAssignmentTitles(moduleTitle) {
+function getExcludedAssignmentTitles(moduleTitle: string) {
   const module = getVisibleForensicsModules().find((entry) => entry.title === moduleTitle);
   const flatNodes = flattenNodes(module?.children || []);
 
@@ -152,7 +173,7 @@ function getExcludedAssignmentTitles(moduleTitle) {
     .filter(Boolean);
 }
 
-function getExpectedSyntheticAssignmentTitle(moduleTitle) {
+function getExpectedSyntheticAssignmentTitle(moduleTitle: string) {
   const titleLower = String(moduleTitle || "").toLowerCase();
   if (titleLower.includes("introduction to crime scenes")) return "Crime Scene Certification Lab";
   if (titleLower.includes("types of evidence and fingerprint analysis")) return "Fingerprint Analysis Interactive Assignment";
@@ -165,7 +186,7 @@ function getExpectedSyntheticAssignmentTitle(moduleTitle) {
   return "";
 }
 
-function toHtmlSafeTitlePattern(title) {
+function toHtmlSafeTitlePattern(title: string) {
   return new RegExp(
     escapeRegExp(title)
       .replace(/'/g, "(?:'|&#39;)")
@@ -422,7 +443,7 @@ test("forensic studies option2 module 2 uses local assignment image assets inste
   assert.doesNotMatch(bundleSource, /IMG_ERROR/);
 });
 
-function escapeRegExp(value) {
+function escapeRegExp(value: string) {
   return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
