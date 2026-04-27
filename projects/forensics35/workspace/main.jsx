@@ -3086,7 +3086,7 @@ export default function ForensicCoursePlayerPreviewRestored() {
           <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 lg:py-10">
             <div
               className="space-y-6"
-              data-testid={sidebarLibraryView === "modules" ? "module-content-view" : "module-library-reader-view"}
+              data-testid={sidebarLibraryView === "modules" ? "module-content-view" : "module-assignments-view"}
             >
               {!activeLesson ? (
                 <section className={`${FORENSIC_THEME.panel} p-8`}>
