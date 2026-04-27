@@ -80,3 +80,21 @@ test("normalization defaults unknown policy values safely", () => {
   assert.equal(normalized.authoringStatus, "active");
   assert.deepEqual(normalized.preferredWorkflows, ["conversion"]);
 });
+
+test("normalization preserves apps-script export targets", () => {
+  const normalized = normalizeProjectManifestPolicy(
+    createManifest({
+      exportTargets: [
+        {
+          target: "apps-script",
+          enabled: true,
+          notes: "Google Sites package"
+        } as NonNullable<ProjectManifest["exportTargets"]>[number]
+      ]
+    })
+  );
+
+  assert.deepEqual(normalized.exportTargets, [
+    { target: "apps-script", enabled: true, notes: "Google Sites package" }
+  ]);
+});

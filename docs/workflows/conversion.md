@@ -102,7 +102,9 @@ When lock behavior is requested, apply the same release-condition model:
 
 ## Step 5: Deploy Readiness Pass
 
-Before publish:
+Before publish, choose the active delivery target and run the matching readiness pass.
+
+For Google Hosted:
 
 - Confirm `projects/<slug>/meta/google-hosted.deploy.json` has `enabled`, `firebaseProjectId`, and `hostingSiteId`.
 - Confirm export bundle contains real deploy files, not templates only:
@@ -110,6 +112,17 @@ Before publish:
   - `projects/<slug>/exports/google-hosted/.firebaserc`
 - Confirm storage sync uses one canonical key and bridge tracks that exact key.
 - Confirm Google sign-in/auth domain behavior on deployed URL.
+
+For Apps Script / Google Sites:
+
+- Follow [`docs/ops/apps-script-drive-deploy.md`](../ops/apps-script-drive-deploy.md).
+- Confirm `projects/<slug>/exports/apps-script/drive-assets/asset-manifest.json` exists after export.
+- Confirm the uploaded Drive root is the `drive-assets` folder itself, not the parent folder.
+- Confirm assignment/game/runtime text assets are served through embedded text maps, `blob:` URLs, `srcdoc`, or the guarded text-asset fetch shim rather than Apps Script wrapper pages.
+- Confirm autosave is non-invasive: it may poll tracked keys and listen for storage events, but it must not patch `localStorage` or browser storage prototypes.
+- Run `setDriveRootFolderId(...)` through a temporary no-argument helper, then run `rebuildDriveAssetIndex()`.
+- Push with `clasp push --force`, create a version, and redeploy the exact deployment ID already embedded in Google Sites.
+- Browser-check images, assignments, local games, slides/PDFs, autosave status, and any performance tools from the live `/exec` URL.
 
 ## Step 6: Verification Floor
 

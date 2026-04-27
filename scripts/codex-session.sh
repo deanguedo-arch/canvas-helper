@@ -9,6 +9,7 @@ STUDIO_PORT=""
 STUDIO_URL=""
 DRY_RUN=0
 RUN_MIGRATE=0
+RUN_HEADROOM=1
 
 for arg in "$@"; do
   case "$arg" in
@@ -18,9 +19,12 @@ for arg in "$@"; do
     --migrate)
       RUN_MIGRATE=1
       ;;
+    --no-headroom)
+      RUN_HEADROOM=0
+      ;;
     *)
       echo "Unknown option: $arg"
-      echo "Usage: bash scripts/codex-session.sh [--dry-run] [--migrate]"
+      echo "Usage: bash scripts/codex-session.sh [--dry-run] [--migrate] [--no-headroom]"
       exit 1
       ;;
   esac
@@ -71,6 +75,18 @@ resolve_studio_port() {
   exit 1
 }
 
+run_headroom() {
+  if [[ "$RUN_HEADROOM" -ne 1 ]]; then
+    echo "Skipping Headroom (--no-headroom)."
+    return
+  fi
+
+  echo "Running Headroom context pack..."
+  if ! npm run headroom; then
+    echo "Headroom failed; continuing Studio startup. Run npm run headroom -- --project <slug> manually if needed."
+  fi
+}
+
 print_prompt_starters() {
   cat <<EOF
 
@@ -117,6 +133,7 @@ main() {
     echo "Skipping migrate:projects (use --migrate when you want layout normalization)."
   fi
 
+  run_headroom
   resolve_studio_port
   print_prompt_starters
 

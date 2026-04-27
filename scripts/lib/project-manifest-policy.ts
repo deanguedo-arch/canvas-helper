@@ -23,7 +23,7 @@ const INJECTED_COMPONENT_STATUSES = new Set<InjectedComponentStatus>([
   "planned",
   "archived"
 ]);
-const EXPORT_TARGETS = new Set(["brightspace", "scorm", "google-hosted", "html"]);
+const EXPORT_TARGETS = new Set(["brightspace", "scorm", "google-hosted", "apps-script", "html"]);
 const IMPORT_SOURCE_SYSTEMS = new Set(["gemini-canvas", "d2l", "brightspace", "manual", "other"]);
 
 function toTrimmedString(value: unknown) {
@@ -99,7 +99,7 @@ function normalizeExportTargets(value: unknown) {
     const enabled = typeof enabledRaw === "boolean" ? enabledRaw : undefined;
 
     normalized.push({
-      target: target as "brightspace" | "scorm" | "google-hosted" | "html",
+      target: target as "brightspace" | "scorm" | "google-hosted" | "apps-script" | "html",
       enabled,
       notes: notes || undefined
     });

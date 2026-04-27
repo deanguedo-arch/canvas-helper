@@ -10,6 +10,7 @@ Read first:
 - `scripts/lib/exports/<target>.ts`
 - `scripts/lib/<target-runtime>.ts` when the target injects a browser bridge such as `scorm.ts` or `google-hosted.ts`
 - the matching CLI script under `scripts/export-*.ts`
+- `docs/ops/apps-script-drive-deploy.md` when the target is `apps-script` or the issue is Google Sites / Drive-backed delivery
 
 Touch docs only if behavior changes:
 - `README.md`

@@ -15,6 +15,8 @@ This path keeps Canvas Helper behavior repo-native while making Codex edits and 
    - Session helper (opens browser + prints prompt starters): `npm run studio:codex:session`
 4. Open `http://127.0.0.1:5173` in your browser.
 
+`studio:codex:session` runs Headroom first, then starts Studio. Add `--no-headroom` only when you intentionally want to skip context-pack generation.
+
 `studio:codex:session` skips migration by default to avoid manifest churn in git.
 Use `npm run studio:codex:session -- --migrate` when you intentionally want layout normalization.
 

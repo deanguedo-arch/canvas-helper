@@ -26,7 +26,7 @@ test("world religions option1 chapter 4 wires a local source-content module", as
   const chapter = data?.chapters?.find((entry) => entry.id === "chapter-4");
 
   assert.ok(chapter);
-  assert.equal(chapter.title, "Content");
+  assert.equal(chapter.title, "Hinduism");
   assert.equal(chapter.contentPath, "./content/WR30_Chapter4_Source_Content_Web_Module/index.html");
   assert.match(chapter.summary, /Hinduism/i);
 });

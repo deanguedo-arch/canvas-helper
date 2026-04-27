@@ -38,6 +38,181 @@ Entries are listed in file order (older to newer within this archive).
 - 2026-04-16: docs/ops/ACTIVE_HANDOFF.md (pre-mentalwellness10-option2-phase3-assignment-parity)
 - 2026-04-16: docs/ops/ACTIVE_HANDOFF.md (pre-mentalwellness10-option2-phase4a-assignment-parity)
 - 2026-04-16: docs/ops/ACTIVE_HANDOFF.md (pre-mentalwellness10-option2-phase4b-assignment-parity)
+- 2026-04-22: docs/ops/ACTIVE_HANDOFF.md (pre-apps-script-export)
+- 2026-04-22: docs/ops/ACTIVE_HANDOFF.md (pre-sportswellness-google-hosted-firebase)
+- 2026-04-22: docs/ops/ACTIVE_HANDOFF.md (pre-apps-script-drive-backed-export)
+
+## 2026-04-22: docs/ops/ACTIVE_HANDOFF.md (pre-apps-script-export)
+
+# Handoff
+
+- Project: sportswellness plus shared single-html exporter
+- Task: make single-HTML export preserve embedded games, assignment runtime content, and local workspace assets
+- Status: complete
+
+## Summary
+- The shared `export:html` pipeline now flattens local HTML dependencies, rewrites JS-held local asset paths through an embedded-asset runtime, and writes the final single-file export through a streamed bundle path instead of one giant in-memory string.
+- `sportswellness` now exports successfully through the normal `npm.cmd run export:html -- --project sportswellness` command, producing `projects/sportswellness/exports/single-html/sportswellness.html` at about `235 MB`.
+- The `sportswellness` assignment fragment source was corrected so [assignment-runtime.html](/c:/Users/dean.guedo/Documents/GitHub/canvas-helper/projects/sportswellness/workspace/assignment-runtime.html:901) loads `assignment-runtime-main.js` instead of recursively loading `main.js`, which had been forcing the exporter to embed the entire course shell inside the assignment fragment.
+
+## Files changed
+- docs/ops/ACTIVE_HANDOFF.md
+- docs/ops/ARCHIVED_HANDOFFS.md
+- docs/plans/2026-04-22-single-html-standalone-export-design.md
+- docs/plans/2026-04-22-single-html-standalone-export-implementation.md
+- projects/sportswellness/workspace/assignment-runtime.html
+- scripts/lib/exports/shared.ts
+- scripts/lib/exports/single-html.ts
+- scripts/tests/single-html-export.test.ts
+
+## Verification run
+- `npx tsx --test scripts/tests/single-html-export.test.ts scripts/tests/sportswellness-performance-menu.test.ts scripts/tests/sportswellness-ui-state.test.ts scripts/tests/sportswellness-phase3-assignment.test.ts`
+- `npm.cmd run export:html -- --project sportswellness`
+- `npm.cmd run build:studio`
+- `npm.cmd run test:e2e:project -- --project sportswellness`
+
+## What changed
+- Added recursive single-HTML bundling in [shared.ts](/c:/Users/dean.guedo/Documents/GitHub/canvas-helper/scripts/lib/exports/shared.ts:1) so local iframe/HTML dependencies are converted into standalone embedded documents.
+- Reworked JS asset rewriting so local paths held inside scripts resolve through an embedded asset runtime instead of expanding into giant inline `data:` literals directly inside the script source.
+- Added descriptor-based embedded asset records and a streamed writer path in [single-html.ts](/c:/Users/dean.guedo/Documents/GitHub/canvas-helper/scripts/lib/exports/single-html.ts:1) so large exports no longer require assembling the final file as one huge concatenated string in memory.
+- Added a regression in [single-html-export.test.ts](/c:/Users/dean.guedo/Documents/GitHub/canvas-helper/scripts/tests/single-html-export.test.ts:1) that verifies local iframe pages plus JS-held runtime HTML/JS/PDF/image refs stay embedded.
+- Corrected [assignment-runtime.html](/c:/Users/dean.guedo/Documents/GitHub/canvas-helper/projects/sportswellness/workspace/assignment-runtime.html:901) to point at `assignment-runtime-main.js`, matching the authored runtime split already used by `sportswellness/main.js`.
+
+## Why this changed
+- The previous exporter only flattened direct HTML-linked assets and broke on real projects that loaded local HTML/JS/PDF/image dependencies from script-held relative paths.
+- `sportswellness` was the concrete failing case: the games, assignment runtime, and several embedded assets disappeared in single-HTML output.
+- The lingering `assignment-runtime.html -> ./main.js` source link caused recursive course-shell nesting during export and was the specific source bug that kept the bundle from finishing in memory.
+
+## Source of truth
+- Shared exporter source:
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\lib\exports\shared.ts`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\lib\exports\single-html.ts`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\tests\single-html-export.test.ts`
+- Sports Wellness canonical entry:
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\index.html`
+- Sports Wellness runtime split:
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\main.js`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\assignment-runtime.html`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\assignment-runtime-main.js`
+
+## Fragile areas / watchouts
+- Single-HTML output is still large for media-heavy projects. `sportswellness.html` is about `235 MB`, so downstream consumers need to tolerate a large standalone file.
+- The exporter now relies on the embedded asset runtime manifest plus `window.__CH_ASSET__`; future script-rewrite changes must preserve that contract.
+- HTML fragments that are intentionally fetched and then bootstrapped by a separate script should not point at the full course shell, or export size can balloon again.
+- The overall repo worktree is still dirty in many unrelated files. Keep future work scoped to the exporter and `sportswellness` runtime files unless the user explicitly broadens scope.
+
+## Next prompt should assume
+- The normal `HTML` export button path now works for `sportswellness`.
+- The shared exporter change is the source of truth for single-file flattening; do not reintroduce project-only export hacks unless a new failure proves the shared path insufficient.
+- `assignment-runtime.html` now correctly points at `assignment-runtime-main.js`.
+
+## What still needs validation
+- Manual browser/embed validation in Canvas or another LMS-hosted environment is still useful, especially because the exported file is large and uses blob-backed asset URLs at runtime.
+
+## Known risks / follow-up
+- `npx tsx --test scripts/tests/sportswellness-phase3-content.test.ts` is still an unrelated known-red on the older missing `Multiple-choice review` expectation in `projects/sportswellness/workspace/main.js`.
+- If another course has a fetched HTML fragment with an incorrect script source split similar to the old `assignment-runtime.html`, it may need the same source correction.
+
+## Exact next command
+`npm.cmd run export:html -- --project sportswellness`
+
+## Exact next file to open
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\lib\exports\shared.ts`
+
+## 2026-04-22: docs/ops/ACTIVE_HANDOFF.md (pre-apps-script-drive-backed-export)
+
+# Handoff
+
+- Project: sportswellness
+- Task: wire Sports Wellness into the existing Google Hosted Firebase flow with Google sign-in, autosave, cross-device restore, and a one-click publish batch file
+- Status: complete
+
+## Summary
+- `sportswellness` now opts into the repo's shared `google-hosted` delivery path and declares the full set of tracked course and assignment `localStorage` keys that need cloud sync.
+- The project now has Firebase Hosting deploy metadata, a dedicated `publish-sportswellness.bat`, and a deploy-ready hosted export with `firebase-config.json` and `.firebaserc`.
+- The one-click publish flow completed successfully and released the live site at `https://sportwellness.web.app`.
+
+## Files changed
+- docs/ops/ACTIVE_HANDOFF.md
+- docs/ops/ARCHIVED_HANDOFFS.md
+- docs/plans/2026-04-22-sportswellness-google-hosted-firebase-design.md
+- docs/plans/2026-04-22-sportswellness-google-hosted-firebase.md
+- projects/sportswellness/meta/project.json
+- projects/sportswellness/meta/google-hosted.deploy.json
+- projects/sportswellness/meta/google-hosted.firebase-config.json
+- projects/sportswellness/meta/google-hosted.firebaserc
+- projects/sportswellness/exports/google-hosted/firebase-config.json
+- projects/sportswellness/exports/google-hosted/.firebaserc
+- publish-sportswellness.bat
+- scripts/tests/sportswellness-google-hosted.test.ts
+
+## Verification run
+- `npx tsx --test scripts/tests/sportswellness-google-hosted.test.ts`
+- `npx tsx --test scripts/tests/google-hosted-export.test.ts scripts/tests/google-hosted-deploy.test.ts scripts/tests/sportswellness-google-hosted.test.ts`
+- `npm.cmd run export:google-hosted -- --project sportswellness`
+- `cmd /c publish-sportswellness.bat`
+- live deploy verification:
+  - `curl.exe -L --silent https://sportwellness.web.app/`
+  - `curl.exe -L --silent https://sportwellness.web.app/main.js`
+
+## What changed
+- Added `google-hosted` export metadata plus explicit tracked storage keys in `projects/sportswellness/meta/project.json` so the shared hosted bridge syncs course progress, UI state, sidebar state, and assignment workbook state.
+- Added `projects/sportswellness/meta/google-hosted.deploy.json` targeting Firebase project `calm-module-one` and Hosting site `sportwellness`.
+- Added `projects/sportswellness/meta/google-hosted.firebase-config.json` and `projects/sportswellness/meta/google-hosted.firebaserc` as the tracked Firebase source of truth for this course.
+- Added `publish-sportswellness.bat` following the repo's existing one-click publish pattern, and made it copy the tracked Firebase config into `projects/sportswellness/exports/google-hosted/` before deploy.
+- Generated `projects/sportswellness/exports/google-hosted/` and verified the publish flow recreates `firebase-config.json` and `.firebaserc` there before deploy.
+- Added `scripts/tests/sportswellness-google-hosted.test.ts` to lock the `sportswellness` metadata, deploy config, batch file, and hosted Firebase bundle contract.
+
+## Why this changed
+- The earlier Apps Script path proved unsuitable for the full `sportswellness` course package.
+- The repo already had a shared Google Hosted bridge that supports Google sign-in, Firestore autosave, progress reporting, and cross-device restore.
+- `sportswellness` only needed project wiring and deployment setup to reuse that existing system cleanly.
+
+## Source of truth
+- Shared hosted bridge/runtime:
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\lib\google-hosted.ts`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\lib\exports\google-hosted.ts`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\lib\google-hosted-deploy.ts`
+- Sports Wellness project wiring:
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\meta\project.json`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\meta\google-hosted.deploy.json`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\meta\google-hosted.firebase-config.json`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\meta\google-hosted.firebaserc`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\publish-sportswellness.bat`
+- Operational hosted output for this course:
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\exports\google-hosted\firebase-config.json`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\exports\google-hosted\.firebaserc`
+
+## Fragile areas / watchouts
+- The Firebase Hosting site id is `sportwellness`, not `sportswellness`. Future deploy edits must keep that real site id.
+- The generated export still contains the deploy-time Firebase files, but the tracked source of truth is now under `projects/sportswellness/meta/`. Future changes should edit the meta copies, not the export copies.
+- The hosted bridge depends on Firebase Authentication and Firestore staying enabled in `calm-module-one`.
+- The repo worktree is already dirty in many unrelated files. Keep future work scoped to the Sports Wellness hosted delivery path unless the user broadens scope.
+
+## Next prompt should assume
+- `sportswellness` is now live on Firebase Hosting at `https://sportwellness.web.app`.
+- Any Google account can sign in for this course right now.
+- The recommended republish path is the one-click batch file, not the old Apps Script route.
+
+## What still needs validation
+- Manual browser sign-in and Firestore write/read verification with a learner Google account is still useful to confirm autosave and restore behavior end-to-end.
+
+## Known risks / follow-up
+- `npx tsx --test scripts/tests/sportswellness-phase3-content.test.ts` remains an unrelated known-red on the older missing `Multiple-choice review` expectation in `projects/sportswellness/workspace/main.js`.
+
+## Exact next command
+`cmd /c publish-sportswellness.bat`
+
+## Exact next file to open
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\meta\google-hosted.deploy.json`
+
+## Do not do next / warnings
+- Do not change the Hosting site id back to the slug; the real Firebase site is `sportwellness`.
+- Do not assume the Apps Script export is the delivery path for this course; the working live path is Firebase Hosting.
+
+## Do not do next / warnings
+- Do not patch files under `projects/sportswellness/exports/single-html/` as source; regenerate from the workspace/export pipeline.
+- Do not revert `assignment-runtime.html` back to `./main.js`; that recreates the recursive export problem.
 - 2026-04-16: docs/ops/ACTIVE_HANDOFF.md (pre-mentalwellness10-option2-final-assignment-consistency-pass)
 - 2026-04-17: docs/ops/ACTIVE_HANDOFF.md (pre-sportswellness-image-sizing)
 - 2026-04-17: docs/ops/ACTIVE_HANDOFF.md (pre-worldreligions30-option1-quiz-completion-counter)
@@ -51,6 +226,7 @@ Entries are listed in file order (older to newer within this archive).
 - 2026-04-21: docs/ops/ACTIVE_HANDOFF.md (pre-sportswellness-phase4-mental-filter-simulator-game)
 - 2026-04-21: docs/ops/ACTIVE_HANDOFF.md (pre-sportswellness-performance-games-shared-palette)
 - 2026-04-21: docs/ops/ACTIVE_HANDOFF.md (pre-sportswellness-performance-games-focused-view)
+- 2026-04-22: docs/ops/ACTIVE_HANDOFF.md (pre-single-html-standalone-export)
 
 ---
 
@@ -118,6 +294,107 @@ Entries are listed in file order (older to newer within this archive).
 - Tightened `Surgical Default Rules` so additional targeted reads inside approved boundaries do not trigger extra questions.
 - Added mode-overlay deference lines in `CANVAS` and `DEFAULT` files so overlays tune ambiguity threshold but do not override clarification policy.
 - Added prompt-contract precedence note: clarification rule takes priority over read-discipline heuristics inside declared boundaries.
+
+---
+
+## 2026-04-22 | docs/ops/ACTIVE_HANDOFF.md (pre-single-html-standalone-export)
+
+# Handoff
+
+- Project: forensicstudiesoption2
+- Task: fix hosted source images by replacing Studio-only preview asset URLs with deployable mirrored reference assets
+- Status: complete
+
+## Summary
+- `forensicstudiesoption2` chapter content no longer ships `/preview/references/raw/forensics/...` URLs that only work in local Studio.
+- The generator now mirrors referenced raw Forensics assets into `workspace/references/forensics`, and the Google-hosted export/deploy now serves those files from Firebase Hosting.
+- Live verification on `https://forensics25.web.app` confirmed chapter HTML now points at `../../references/forensics/...` and previously broken source images return `HTTP 200`.
+
+## Files changed
+
+---
+
+## 2026-04-22 | docs/ops/ACTIVE_HANDOFF.md (pre-sportswellness-google-hosted-firebase)
+
+# Handoff
+
+- Project: shared Apps Script export target plus sportswellness test package
+- Task: add a Google-ecosystem export path that emits a deployable Apps Script web-app package for Google Sites embedding
+- Status: complete
+
+## Summary
+- Added a new `export:apps-script` path that reuses the shared standalone HTML bundle, compresses and chunks it into Apps Script source files, and emits a clasp-ready web-app package under `projects/<slug>/exports/apps-script/`.
+- Wired the new export target into shared repo contracts: `package.json`, Studio export commands, manifest/type policy, README, and architecture docs.
+- Generated a real `sportswellness` package successfully. The export completed to `projects/sportswellness/exports/apps-script/` with `311` payload chunk files and `178894523` compressed bytes.
+
+## Source of truth
+- `scripts/lib/exports/apps-script.ts`
+- `scripts/lib/apps-script.ts`
+- `scripts/export-apps-script.ts`
+- `scripts/tests/apps-script-export.test.ts`
+
+## Known risks / follow-up
+- `sportswellness` remained too large for the Apps Script delivery path; the later Firebase Hosting move became the working production path.
+- docs/ops/ACTIVE_HANDOFF.md
+- docs/ops/ARCHIVED_HANDOFFS.md
+- scripts/build-forensicstudiesoption2-content.ts
+- scripts/tests/forensicstudiesoption2-content.test.ts
+
+## Verification run
+- `node scripts/build-forensicstudiesoption2-content.ts`
+- `npx tsx --test scripts/tests/forensicstudiesoption2-content.test.ts`
+- `npx tsx --test scripts/tests/forensicstudiesoption2-shell-behavior.test.ts`
+- `npm.cmd run verify -- --project forensicstudiesoption2`
+- `npm.cmd run test:e2e:project -- --project forensicstudiesoption2`
+- `npm.cmd run export:google-hosted -- --project forensicstudiesoption2`
+- `npm.cmd run deploy:google-hosted -- --project forensicstudiesoption2`
+- `curl.exe -L https://forensics25.web.app/content/chapter-1/index.html`
+- `curl.exe -I "https://forensics25.web.app/references/forensics/%D1%81ontent/ib4f8e92c-f47c-458f-92db-bcfce642e0ac/Content/Slide01.jpg"`
+
+## What changed
+- Replaced the `forensicstudiesoption2` build step that emitted Studio-only preview raw URLs with a mirrored-reference workflow rooted at `projects/forensicstudiesoption2/workspace/references/forensics`.
+- Rewrote generated lesson and source-link asset URLs to relative hosted-safe paths like `../../references/forensics/...`.
+- Added generator coverage that rejects Studio-only preview raw URLs and verifies mirrored reference URLs resolve to workspace files.
+- Exported and redeployed the fresh Google-hosted bundle to the existing `forensics25` Firebase Hosting site.
+
+## Why this changed
+- The deployed site cannot serve `/preview/references/raw/...` because that route only exists in local Studio preview.
+- The user reported all source images as unavailable on the live site, which was a real hosted-asset contract break.
+
+## Source of truth
+- Canonical entry: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\index.html`
+- Canonical sources:
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\build-forensicstudiesoption2-content.ts`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\tests\forensicstudiesoption2-content.test.ts`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\workspace\references\forensics\`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\exports\google-hosted\`
+
+## Fragile areas / watchouts
+- The raw D2L export uses a Cyrillic `Ñ` in the `Ñontent` folder name. Future path handling must preserve that exact byte sequence or hosted links will break again.
+- Any future generator change that reintroduces `/preview/references/raw/...` URLs will silently work in Studio and fail on Firebase.
+- Windows `export:google-hosted` can still hit transient `EBUSY` on `exports/google-hosted`; retrying after the lock clears remains the safe recovery path.
+
+## Next prompt should assume
+- `forensicstudiesoption2` is the live course currently hosted at `https://forensics25.web.app`.
+- Hosted chapter/source assets are now served from mirrored `references/forensics/...` files, not local Studio preview routes.
+- The broad repo worktree is still dirty in unrelated areas; do not treat those files as part of this fix.
+
+## What still needs validation
+- Manual browser spot-check across several modules on the live site to confirm there are no remaining missing source assets beyond the verified sample paths.
+
+## Known risks / follow-up
+- Only representative live asset URLs were verified directly in this pass; a wider manual sweep is still useful.
+- If the source resource mirror changes upstream, the generated mirrored reference tree must be rebuilt and redeployed.
+
+## Exact next command
+`curl.exe -I "https://forensics25.web.app/references/forensics/%D1%81ontent/i21c03e04-97e1-45c3-958f-505b4cb31daf/Content/Slide02.jpg"`
+
+## Exact next file to open
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\build-forensicstudiesoption2-content.ts`
+
+## Do not do next / warnings
+- Do not patch files under `projects/forensicstudiesoption2/exports/google-hosted/` as source; regenerate them from the canonical build/export flow.
+- Do not convert the mirrored reference URLs back to `/preview/references/raw/...` even if local Studio looks simpler with that route.
 
 ## Why this changed
 - To remove residual collision between clarification and surgical-retrieval rules that could still cause unnecessary hesitation.
@@ -4879,3 +5156,72 @@ One question before I change it: do you want only the large top hero image reduc
 - Do not treat the existing `sportswellness-phase3-content.test.ts` failure as caused by this scaling pass without fixing or updating the separate Phase 3 lesson contract.
 - Do not bypass the shared arena-scale helper for one-off size tweaks unless the game has a genuinely unique mechanic that cannot follow the measured-stage model.
 
+
+- 2026-04-21: docs/ops/ACTIVE_HANDOFF.md (pre-forensicstudiesoption2-hosted-reference-assets)
+
+
+---
+
+# Handoff
+
+- Project: sportswellness
+- Task: retune the Film Room color scheme to match the Sports Wellness site palette
+- Status: complete
+
+## Summary
+- The Film Room still uses the same CRT layout and flat dropdown playlist, but its palette now matches the rest of Sports Wellness instead of using the separate warm brown retro colors.
+- The room, TV shell, labels, dropdown, and status display now all speak the site’s deep-slate and mint styling language.
+- The Film Room source test now guards against the old warm palette coming back.
+
+## Files changed
+- docs/ops/ACTIVE_HANDOFF.md
+- docs/ops/ARCHIVED_HANDOFFS.md
+- projects/sportswellness/workspace/styles.css
+- scripts/tests/sportswellness-film-room.test.ts
+
+## Verification run
+- `npx tsx --test scripts/tests/sportswellness-film-room.test.ts`
+- `npx tsx --test scripts/tests/sportswellness-ui-state.test.ts`
+- `npm run test:e2e:project -- --project sportswellness`
+- `npx tsx --test scripts/tests/sportswellness-phase3-content.test.ts` (still fails on the older unrelated `Multiple-choice review` expectation in `projects/sportswellness/workspace/main.js`)
+
+## What changed
+- Updated the Film Room stage background to use the course’s slate shell colors and subtle site-style ambient gradients instead of the warm room palette.
+- Updated the CRT shell, screen shell, antenna, dropdown, labels, now-loaded status, and meta text to use the established Sports Wellness `line`, `text`, and `green` palette.
+- Expanded `scripts/tests/sportswellness-film-room.test.ts` so the Film Room source contract now expects the site-aligned palette and rejects the old warm amber/brown tokens.
+
+## Why this changed
+- The user wanted the Film Room to feel like part of the site instead of a visually separate retro theme.
+- The structure already worked, so this pass stayed focused on palette alignment rather than changing layout or behavior.
+
+## Source of truth
+- Canonical entry: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\index.html`
+- Canonical sources:
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\styles.css`
+  - `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\scripts\tests\sportswellness-film-room.test.ts`
+
+## Fragile areas / watchouts
+- The Film Room still uses a stylized CRT form, so future visual tweaks should preserve the site palette while leaving the geometry alone unless the user asks for a structural redesign.
+- The source test now rejects the old warm palette tokens directly, so any later deliberate accent change will need the test updated too.
+
+## Next prompt should assume
+- The Film Room layout is already in place.
+- The Film Room now uses the same Sports Wellness palette as the rest of the course shell.
+- The current unrelated red test is still `scripts/tests/sportswellness-phase3-content.test.ts` on the missing `Multiple-choice review` snippet in `projects/sportswellness/workspace/main.js`.
+
+## What still needs validation
+- Manual browser spot-check to confirm the Film Room still feels readable and intentional on desktop, tablet, and phone after the palette shift.
+
+## Known risks / follow-up
+- `npx tsx --test scripts/tests/sportswellness-phase3-content.test.ts` is still red on the unrelated `Multiple-choice review` expectation in `projects/sportswellness/workspace/main.js`.
+- I did not run a manual browser preview after this palette retune.
+
+## Exact next command
+`npm.cmd run studio:codex`
+
+## Exact next file to open
+`C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\workspace\styles.css`
+
+## Do not do next / warnings
+- Do not reintroduce the old warm Film Room palette without also updating the Film Room source test.
+- Do not treat the unrelated `sportswellness-phase3-content.test.ts` failure as caused by this palette pass.

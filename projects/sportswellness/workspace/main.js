@@ -2736,6 +2736,74 @@ function escapeHtml(value) {
     .replace(/'/g, '&#39;');
 }
 
+function getAppsScriptAssetId(url) {
+  if (typeof url !== 'string' || !url) {
+    return null;
+  }
+
+  try {
+    const parsedUrl = new URL(url, window.location.href);
+    return parsedUrl.searchParams.get('asset');
+  } catch (error) {
+    return null;
+  }
+}
+
+function getAppsScriptRawAssetUrl(url) {
+  const assetId = getAppsScriptAssetId(url);
+  if (!assetId || typeof window.__CH_ASSET_RAW__ !== 'function') {
+    return url;
+  }
+
+  return window.__CH_ASSET_RAW__(assetId);
+}
+
+function getEmbeddedTextAsset(url) {
+  const assetId = getAppsScriptAssetId(url);
+  if (!assetId || typeof window.__CH_TEXT_ASSET__ !== 'function') {
+    return null;
+  }
+
+  const embeddedTextAsset = window.__CH_TEXT_ASSET__(assetId);
+  return typeof embeddedTextAsset === 'string' ? embeddedTextAsset : null;
+}
+
+async function fetchTextAsset(url) {
+  const embeddedTextAsset = getEmbeddedTextAsset(url);
+  if (typeof embeddedTextAsset === 'string') {
+    return embeddedTextAsset;
+  }
+
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`Failed to load ${url}`);
+  }
+
+  return response.text();
+}
+
+async function setPerformanceFrameSource(frame, url) {
+  if (!frame) {
+    return;
+  }
+
+  if (!url) {
+    frame.removeAttribute('src');
+    frame.srcdoc = '';
+    return;
+  }
+
+  if (getAppsScriptAssetId(url) && typeof window.__CH_ASSET_RAW__ === 'function') {
+    const html = await fetchTextAsset(getAppsScriptRawAssetUrl(url));
+    frame.removeAttribute('src');
+    frame.srcdoc = html;
+    return;
+  }
+
+  frame.removeAttribute('srcdoc');
+  frame.src = url;
+}
+
 function renderReadingTable(table) {
   return `
     <div class="reading-table-wrap">
@@ -3285,9 +3353,9 @@ function renderPerformance() {
           </div>
           <div class="performance-player-frame-wrap">
             <iframe
-              src="${activeTool?.viewerSrc || ''}"
               title="${activeTool?.title || 'Performance tool'}"
               class="performance-player-frame"
+              data-performance-frame
               loading="lazy"
             ></iframe>
           </div>
@@ -3303,6 +3371,14 @@ function renderPerformance() {
   const closeButton = refs.contentBody.querySelector('[data-performance-close]');
   if (closeButton) {
     closeButton.addEventListener('click', closePerformanceTool);
+  }
+
+  const performanceFrame = refs.contentBody.querySelector('[data-performance-frame]');
+  if (performanceFrame instanceof HTMLIFrameElement) {
+    setPerformanceFrameSource(performanceFrame, activeTool?.viewerSrc || '').catch((error) => {
+      performanceFrame.removeAttribute('src');
+      performanceFrame.srcdoc = `<body style="margin:0;display:grid;place-items:center;min-height:100vh;background:#08111c;color:#fda4af;font-family:Rajdhani,sans-serif;">${escapeHtml(error instanceof Error ? error.message : 'Failed to load performance tool.')}</body>`;
+    });
   }
 }
 
@@ -3336,6 +3412,15 @@ function renderAssignmentPanel(panel, accent) {
 function ensureScriptLoaded(src, id) {
   const existing = document.getElementById(id);
   if (existing) {
+    return Promise.resolve();
+  }
+
+  const embeddedScriptAsset = getEmbeddedTextAsset(src);
+  if (typeof embeddedScriptAsset === 'string') {
+    const script = document.createElement('script');
+    script.id = id;
+    script.textContent = embeddedScriptAsset;
+    document.head.appendChild(script);
     return Promise.resolve();
   }
 
@@ -3385,13 +3470,7 @@ function ensureAssignmentRuntimeAssets() {
 
 async function getAssignmentRuntimeDocument() {
   if (!assignmentRuntimeState.htmlPromise) {
-    assignmentRuntimeState.htmlPromise = fetch(ASSIGNMENT_RUNTIME_HTML_SRC)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`Failed to load ${ASSIGNMENT_RUNTIME_HTML_SRC}`);
-        }
-        return response.text();
-      })
+    assignmentRuntimeState.htmlPromise = fetchTextAsset(getAppsScriptRawAssetUrl(ASSIGNMENT_RUNTIME_HTML_SRC))
       .then((html) => new DOMParser().parseFromString(html, 'text/html'));
   }
 

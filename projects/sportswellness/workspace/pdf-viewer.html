@@ -109,6 +109,15 @@
       border-radius: 12px;
       background: white;
     }
+
+    .preview-frame {
+      display: block;
+      width: 100%;
+      min-height: 80vh;
+      border: 0;
+      border-radius: 16px;
+      background: #0b1220;
+    }
   </style>
 </head>
 <body>
@@ -150,9 +159,62 @@
       return Math.max(1, maxWidth / viewport.width);
     }
 
+    function getDriveFileId(url) {
+      try {
+        const parsedUrl = new URL(url, window.location.href);
+        if (!/drive\.google\.com$/i.test(parsedUrl.hostname)) {
+          return null;
+        }
+
+        return (
+          parsedUrl.searchParams.get('id') ||
+          parsedUrl.pathname.match(/\/d\/([^/]+)/)?.[1] ||
+          null
+        );
+      } catch (_error) {
+        return null;
+      }
+    }
+
+    function buildDrivePreviewUrl(url) {
+      const fileId = getDriveFileId(url);
+      if (!fileId) {
+        return null;
+      }
+
+      return `https://drive.google.com/file/d/${encodeURIComponent(fileId)}/preview`;
+    }
+
+    function renderDrivePreview(previewUrl) {
+      metaNode.textContent = 'Drive preview';
+      pagesNode.hidden = false;
+      statusNode.hidden = true;
+      pagesNode.innerHTML = '';
+
+      const card = document.createElement('section');
+      card.className = 'page-card';
+      card.style.padding = '0';
+
+      const previewFrame = document.createElement('iframe');
+      previewFrame.className = 'preview-frame';
+      previewFrame.src = previewUrl;
+      previewFrame.title = `${title} preview`;
+      previewFrame.loading = 'lazy';
+      previewFrame.allow = 'autoplay';
+
+      card.appendChild(previewFrame);
+      pagesNode.appendChild(card);
+    }
+
     async function renderPdf() {
       if (!file) {
         setError('No PDF file was provided to the viewer.');
+        return;
+      }
+
+      const drivePreviewUrl = buildDrivePreviewUrl(file);
+      if (drivePreviewUrl) {
+        renderDrivePreview(drivePreviewUrl);
         return;
       }
 

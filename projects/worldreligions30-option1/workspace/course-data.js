@@ -1,88 +1,88 @@
 window.WORLD_RELIGIONS_DATA = {
   "course": {
     "title": "World Religions 30",
-    "subtitle": "A comparative course shell for chapter study, quiz review, and library reading."
+    "subtitle": "Explore each chapter, complete quizzes, and use the chapter PDFs whenever you need them."
   },
   "chapters": [
     {
       "id": "chapter-1",
       "code": "Chapter 1",
       "number": 1,
-      "title": "Content",
+      "title": "The Religious Impulse",
       "accent": "#775a1c",
-      "summary": "Chapter 1 source content on the religious impulse, pluralism, source evaluation, and respectful academic study.",
+      "summary": "Explore the religious impulse, pluralism, source evaluation, and respectful academic study.",
       "contentPath": "./content/WR30_Chapter1_Source_Content_Web_Module/index.html"
     },
     {
       "id": "chapter-2",
       "code": "Chapter 2",
       "number": 2,
-      "title": "Content",
+      "title": "Aboriginal Spirituality",
       "accent": "#8b6a24",
-      "summary": "Chapter 2 source content on Aboriginal spirituality, interconnection, ceremony, colonization, and respectful study.",
+      "summary": "Explore Aboriginal spirituality, interconnection, ceremony, colonization, and respectful study.",
       "contentPath": "./content/WR30_Chapter2_Source_Content_Web_Module/index.html"
     },
     {
       "id": "chapter-3",
       "code": "Chapter 3",
       "number": 3,
-      "title": "Content",
+      "title": "Early Religions",
       "accent": "#485e8b",
-      "summary": "Chapter 3 source content on early religions, philosophy, ethics, ritual, and the search for how to live well.",
+      "summary": "Explore early religions, philosophy, ethics, ritual, and the search for how to live well.",
       "contentPath": "./content/WR30_Chapter3_Source_Content_Web_Module/index.html"
     },
     {
       "id": "chapter-4",
       "code": "Chapter 4",
       "number": 4,
-      "title": "Content",
+      "title": "Hinduism",
       "accent": "#9f7a2d",
-      "summary": "Chapter 4 source content on Hinduism, Brahman, atman, dharma, karma, devotion, sacred texts, and Hindu life in Canada.",
+      "summary": "Explore Hinduism, Brahman, atman, dharma, karma, devotion, sacred texts, and Hindu life in Canada.",
       "contentPath": "./content/WR30_Chapter4_Source_Content_Web_Module/index.html"
     },
     {
       "id": "chapter-5",
       "code": "Chapter 5",
       "number": 5,
-      "title": "Content",
+      "title": "Buddhism",
       "accent": "#6a4f18",
-      "summary": "Chapter 5 source content on Buddhism, the Buddha, the Middle Way, the Four Noble Truths, the Eightfold Path, meditation, compassion, and Buddhist life in Canada.",
+      "summary": "Explore Buddhism, the Buddha, the Middle Way, the Four Noble Truths, the Eightfold Path, meditation, compassion, and Buddhist life in Canada.",
       "contentPath": "./content/WR30_Chapter5_Source_Content_Web_Module/index.html"
     },
     {
       "id": "chapter-6",
       "code": "Chapter 6",
       "number": 6,
-      "title": "Content",
+      "title": "Judaism",
       "accent": "#6c644a",
-      "summary": "Chapter 6 source content on Judaism, covenant, Abraham, Moses, Torah, Sabbath, symbols, diaspora, and Jewish life in Canada.",
+      "summary": "Explore Judaism, covenant, Abraham, Moses, Torah, Sabbath, symbols, diaspora, and Jewish life in Canada.",
       "contentPath": "./content/WR30_Chapter6_Source_Content_Web_Module/index.html"
     },
     {
       "id": "chapter-7",
       "code": "Chapter 7",
       "number": 7,
-      "title": "Content",
+      "title": "Christianity",
       "accent": "#4f698e",
-      "summary": "Chapter 7 source content on Christianity, Jesus, the Bible, Trinity, sacraments, branches, holy days, and Christianity in Canada.",
+      "summary": "Explore Christianity, Jesus, the Bible, Trinity, sacraments, branches, holy days, and Christianity in Canada.",
       "contentPath": "./content/WR30_Chapter7_Source_Content_Web_Module/index.html"
     },
     {
       "id": "chapter-8",
       "code": "Chapter 8",
       "number": 8,
-      "title": "Content",
+      "title": "Islam",
       "accent": "#7f6423",
-      "summary": "Chapter 8 source content on Islam, Allah, Muhammad, the Qur'an, the Five Pillars, mosque life, Sunni and Shia Islam, and Muslim life in Canada.",
+      "summary": "Explore Islam, Allah, Muhammad, the Qur'an, the Five Pillars, mosque life, Sunni and Shia Islam, and Muslim life in Canada.",
       "contentPath": "./content/WR30_Chapter8_Source_Content_Web_Module/index.html"
     },
     {
       "id": "chapter-9",
       "code": "Chapter 9",
       "number": 9,
-      "title": "Content",
+      "title": "Sikhism",
       "accent": "#615537",
-      "summary": "Chapter 9 source content on Sikhism, Guru Nanak, Ik Onkar, the Guru Granth Sahib, seva, langar, the Khalsa, the Five Ks, and Sikh life in Canada.",
+      "summary": "Explore Sikhism, Guru Nanak, Ik Onkar, the Guru Granth Sahib, seva, langar, the Khalsa, the Five Ks, and Sikh life in Canada.",
       "contentPath": "./content/WR30_Chapter9_Source_Content_Web_Module/index.html"
     },
     {
@@ -91,7 +91,8 @@ window.WORLD_RELIGIONS_DATA = {
       "number": 10,
       "title": "Religion in the New Millennium",
       "accent": "#8d7042",
-      "summary": "Chapter content will be added here. The shell is ready for full chapter readings when the chapter section source is available."
+      "summary": "Explore religion in the new millennium, demography, pluralism, accommodation, interfaith dialogue, and Canadian religious change.",
+      "contentPath": "./content/WR30_Chapter10_Source_Content_Web_Module/index.html"
     }
   ],
   "quizzes": [
@@ -5416,7 +5417,7 @@ window.WORLD_RELIGIONS_DATA = {
       "number": 1,
       "title": "The Religious Impulse",
       "accent": "#775a1c",
-      "summary": "Assignment space reserved. The authored assignment for this chapter has not been added yet."
+      "summary": "Complete the chapter assignment using the directions provided for this course."
     },
     {
       "id": "assignment-2",
@@ -5425,7 +5426,7 @@ window.WORLD_RELIGIONS_DATA = {
       "number": 2,
       "title": "Aboriginal Spirituality",
       "accent": "#8b6a24",
-      "summary": "Assignment space reserved. The authored assignment for this chapter has not been added yet."
+      "summary": "Complete the chapter assignment using the directions provided for this course."
     },
     {
       "id": "assignment-3",
@@ -5434,7 +5435,7 @@ window.WORLD_RELIGIONS_DATA = {
       "number": 3,
       "title": "Early Religions",
       "accent": "#485e8b",
-      "summary": "Assignment space reserved. The authored assignment for this chapter has not been added yet."
+      "summary": "Complete the chapter assignment using the directions provided for this course."
     },
     {
       "id": "assignment-4",
@@ -5443,7 +5444,7 @@ window.WORLD_RELIGIONS_DATA = {
       "number": 4,
       "title": "Hinduism",
       "accent": "#9f7a2d",
-      "summary": "Assignment space reserved. The authored assignment for this chapter has not been added yet."
+      "summary": "Complete the chapter assignment using the directions provided for this course."
     },
     {
       "id": "assignment-5",
@@ -5452,7 +5453,7 @@ window.WORLD_RELIGIONS_DATA = {
       "number": 5,
       "title": "Buddhism",
       "accent": "#6a4f18",
-      "summary": "Assignment space reserved. The authored assignment for this chapter has not been added yet."
+      "summary": "Complete the chapter assignment using the directions provided for this course."
     },
     {
       "id": "assignment-6",
@@ -5461,7 +5462,7 @@ window.WORLD_RELIGIONS_DATA = {
       "number": 6,
       "title": "Judaism",
       "accent": "#6c644a",
-      "summary": "Assignment space reserved. The authored assignment for this chapter has not been added yet."
+      "summary": "Complete the chapter assignment using the directions provided for this course."
     },
     {
       "id": "assignment-7",
@@ -5470,7 +5471,7 @@ window.WORLD_RELIGIONS_DATA = {
       "number": 7,
       "title": "Christianity",
       "accent": "#4f698e",
-      "summary": "Assignment space reserved. The authored assignment for this chapter has not been added yet."
+      "summary": "Complete the chapter assignment using the directions provided for this course."
     },
     {
       "id": "assignment-8",
@@ -5479,7 +5480,7 @@ window.WORLD_RELIGIONS_DATA = {
       "number": 8,
       "title": "Islam",
       "accent": "#7f6423",
-      "summary": "Assignment space reserved. The authored assignment for this chapter has not been added yet."
+      "summary": "Complete the chapter assignment using the directions provided for this course."
     },
     {
       "id": "assignment-9",
@@ -5488,7 +5489,7 @@ window.WORLD_RELIGIONS_DATA = {
       "number": 9,
       "title": "Sikhism",
       "accent": "#615537",
-      "summary": "Assignment space reserved. The authored assignment for this chapter has not been added yet."
+      "summary": "Complete the chapter assignment using the directions provided for this course."
     },
     {
       "id": "assignment-10",
@@ -5497,7 +5498,7 @@ window.WORLD_RELIGIONS_DATA = {
       "number": 10,
       "title": "Religion in the New Millennium",
       "accent": "#8d7042",
-      "summary": "Assignment space reserved. The authored assignment for this chapter has not been added yet."
+      "summary": "Complete the chapter assignment using the directions provided for this course."
     }
   ],
   "library": [
@@ -5508,7 +5509,7 @@ window.WORLD_RELIGIONS_DATA = {
       "title": "The Religious Impulse",
       "file": "./assets/library/Chapter 1.pdf",
       "accent": "#775a1c",
-      "summary": "Local chapter PDF for The Religious Impulse."
+      "summary": "Chapter PDF for The Religious Impulse."
     },
     {
       "id": "library-2",
@@ -5517,7 +5518,7 @@ window.WORLD_RELIGIONS_DATA = {
       "title": "Aboriginal Spirituality",
       "file": "./assets/library/Chapter 2.pdf",
       "accent": "#8b6a24",
-      "summary": "Local chapter PDF for Aboriginal Spirituality."
+      "summary": "Chapter PDF for Aboriginal Spirituality."
     },
     {
       "id": "library-3",
@@ -5526,7 +5527,7 @@ window.WORLD_RELIGIONS_DATA = {
       "title": "Early Religions",
       "file": "./assets/library/Chapter 3.pdf",
       "accent": "#485e8b",
-      "summary": "Local chapter PDF for Early Religions."
+      "summary": "Chapter PDF for Early Religions."
     },
     {
       "id": "library-4",
@@ -5535,7 +5536,7 @@ window.WORLD_RELIGIONS_DATA = {
       "title": "Hinduism",
       "file": "./assets/library/Chapter 4.pdf",
       "accent": "#9f7a2d",
-      "summary": "Local chapter PDF for Hinduism."
+      "summary": "Chapter PDF for Hinduism."
     },
     {
       "id": "library-5",
@@ -5544,7 +5545,7 @@ window.WORLD_RELIGIONS_DATA = {
       "title": "Buddhism",
       "file": "./assets/library/Chapter 5.pdf",
       "accent": "#6a4f18",
-      "summary": "Local chapter PDF for Buddhism."
+      "summary": "Chapter PDF for Buddhism."
     },
     {
       "id": "library-6",
@@ -5553,7 +5554,7 @@ window.WORLD_RELIGIONS_DATA = {
       "title": "Judaism",
       "file": "./assets/library/Chapter 6.pdf",
       "accent": "#6c644a",
-      "summary": "Local chapter PDF for Judaism."
+      "summary": "Chapter PDF for Judaism."
     },
     {
       "id": "library-7",
@@ -5562,7 +5563,7 @@ window.WORLD_RELIGIONS_DATA = {
       "title": "Christianity",
       "file": "./assets/library/Chapter 7.pdf",
       "accent": "#4f698e",
-      "summary": "Local chapter PDF for Christianity."
+      "summary": "Chapter PDF for Christianity."
     },
     {
       "id": "library-8",
@@ -5571,7 +5572,7 @@ window.WORLD_RELIGIONS_DATA = {
       "title": "Islam",
       "file": "./assets/library/Chapter 8.pdf",
       "accent": "#7f6423",
-      "summary": "Local chapter PDF for Islam."
+      "summary": "Chapter PDF for Islam."
     },
     {
       "id": "library-9",
@@ -5580,7 +5581,7 @@ window.WORLD_RELIGIONS_DATA = {
       "title": "Sikhism",
       "file": "./assets/library/Chapter 9.pdf",
       "accent": "#615537",
-      "summary": "Local chapter PDF for Sikhism."
+      "summary": "Chapter PDF for Sikhism."
     },
     {
       "id": "library-10",
@@ -5589,7 +5590,7 @@ window.WORLD_RELIGIONS_DATA = {
       "title": "Religion in the New Millennium",
       "file": "./assets/library/Chapter 10.pdf",
       "accent": "#8d7042",
-      "summary": "Local chapter PDF for Religion in the New Millennium."
+      "summary": "Chapter PDF for Religion in the New Millennium."
     }
   ]
 };

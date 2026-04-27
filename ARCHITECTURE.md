@@ -169,6 +169,7 @@ This layer sits above observational intelligence and below project converters:
 - Brightspace export/package
 - SCORM 2004 / 1.2 package export with suspend-data bridge
 - Google-hosted export with Firebase Auth / Firestore resume bridge
+- Apps Script export with a Drive-backed HtmlService web-app package for Google Sites embedding
 - prompt-pack generation
 - memory ledger and pattern-bank collection
 - benchmark registry and recipe-driven generation selection
@@ -214,9 +215,12 @@ Precedence for the effective learner mode is explicit and deterministic:
 - Brightspace folder/package: copies the workspace for LMS upload and optional zip packaging.
 - SCORM 2004 / 1.2: copies the workspace, injects `scripts/lib/scorm.ts`, and emits LMS packages plus manifests.
 - Google Hosted: copies the workspace, injects `scripts/lib/google-hosted.ts`, and emits a Firebase Hosting bundle under `projects/<slug>/exports/google-hosted/`.
+- Apps Script: reuses the standalone HTML bundle, emits a thin `Code.gs` HtmlService shell, writes Drive-backed course assets under `projects/<slug>/exports/apps-script/drive-assets/`, and can inject a `google.script.run` autosave bridge for tracked `localStorage` keys.
 - Single HTML: inlines local assets into one deliverable for static/offline handoff.
 
 All conversion/export/deploy flows now run an authoring deviation preflight. Blocking deviations fail fast and write report artifacts before exiting.
+
+The Apps Script path stops at deterministic package generation. Apps Script project creation, Drive upload, asset-index setup, web-app deployment, and Google Sites embedding remain explicit post-export operator steps outside the repo.
 
 The Google-hosted path stops at deterministic bundle generation. Firebase deployment, project selection, auth domain setup, and Firestore rules remain explicit post-export operator steps outside the repo.
 

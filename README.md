@@ -1,6 +1,6 @@
 # Canvas Helper
 
-Canvas Helper is a local-first Node-powered workbench for importing Canvas course content, preserving immutable raw baselines, editing workspace copies, previewing them in a browser Studio, and exporting Brightspace, SCORM, and Google-hosted deliverables.
+Canvas Helper is a local-first Node-powered workbench for importing Canvas course content, preserving immutable raw baselines, editing workspace copies, previewing them in a browser Studio, and exporting Brightspace, SCORM, Google-hosted, Apps Script, and standalone HTML deliverables.
 
 Canvas Helper is a post-generation production environment:
 `import -> normalize -> edit -> expand -> integrate -> export`.
@@ -51,6 +51,7 @@ Repo-level authoring enforcement defaults live in `config/authoring-preferences.
 - `npm run assessment:export -- --assessment <assessment-slug>`
 - `npm run test:assessments`
 - `npm run test:scorm`
+- `npm run test:apps-script`
 - `npm run test:google-hosted`
 - `npm run test:exports`
 - `npm run test:e2e`
@@ -59,6 +60,7 @@ Repo-level authoring enforcement defaults live in `config/authoring-preferences.
 - `npm run export:brightspace -- --project <slug>`
 - `npm run export:brightspace:zip -- --project <slug>`
 - `npm run export:scorm -- --project <slug> [--version 2004|1.2]`
+- `npm run export:apps-script -- --project <slug>`
 - `npm run export:google-hosted -- --project <slug>`
 - `npm run deploy:google-hosted`
 - `npm run export:html -- --project <slug>`
@@ -113,6 +115,16 @@ Workflow guidance and prompt contracts live under `docs/workflows/`.
 - The bundle includes `google-hosted-bridge.js`, `firebase-config.template.json`, `firebase.json`, `.firebaserc.template`, and `README-deploy.md`
 - The runtime bridge prompts the learner to sign in with Google and syncs tracked workspace localStorage state to Firestore at `projects/{slug}/users/{uid}`
 - The repo generates the hosted bundle only; Firebase project setup and deployment remain manual teacher or admin steps outside the repo
+
+### Apps Script Export Notes
+
+- `export:apps-script` writes a clasp-ready Apps Script web-app package to `projects/<slug>/exports/apps-script/`
+- The package uses a Drive-backed delivery model: Apps Script serves the shell with `HtmlService`, while exported course assets live under an uploaded `drive-assets/` folder in Google Drive
+- This path is meant as a Google-ecosystem delivery option for Google Sites embedding, especially when you want school-managed Google deployment rather than external hosting
+- Text assets are Apps Script-served and injected as raw text or `blob:` URLs so assignment pages, local games, CSS, and JS can run without fetching Apps Script wrapper pages
+- When project metadata declares tracked storage keys, the package injects an Apps Script autosave bridge that syncs those `localStorage` keys to private Drive JSON files through `google.script.run` without patching browser storage prototypes
+- For large Google Sites courses, keep Apps Script as the shell, keep assets in Drive, redeploy the exact existing deployment ID, and verify assignments/games/PDFs/autosave from the live `/exec` URL
+- Follow [`docs/ops/apps-script-drive-deploy.md`](docs/ops/apps-script-drive-deploy.md) for the Drive upload, asset index, `clasp`, versioning, and exact deployment-ID redeploy loop
 
 ### Google Hosted Deploy Tool
 

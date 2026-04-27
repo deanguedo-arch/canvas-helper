@@ -423,7 +423,7 @@
         number: chapter.number,
         title: override.title || chapter.title,
         accent: chapter.accent,
-        summary: override.summary || "Assignment content has not been authored yet. This lane stays ready for future chapter work.",
+        summary: override.summary || "Complete the chapter assignment using the directions provided for this course.",
         interactivePath: override.interactivePath || "",
         interactiveKey: override.interactiveKey || ""
       };
@@ -449,7 +449,7 @@
       title: chapter.title,
       accent: chapter.accent,
       file: `./assets/library/Chapter ${chapter.number}.pdf`,
-      summary: `Local chapter PDF for ${chapter.title}.`
+      summary: `Chapter PDF for ${chapter.title}.`
     }));
   }
 
@@ -747,7 +747,7 @@
   function renderProgress() {
     const summary = getProgressSummary();
     refs.courseTitle.textContent = data.course?.title || "World Religions 30";
-    refs.courseSubtitle.textContent = data.course?.subtitle || "A comparative course shell for chapter study, quiz review, and local library reading.";
+    refs.courseSubtitle.textContent = data.course?.subtitle || "Explore each chapter, complete quizzes, and use the chapter PDFs whenever you need them.";
     refs.sidebarProgressTrack?.setAttribute("aria-valuenow", String(summary.percent));
     if (refs.sidebarProgressFill) {
       refs.sidebarProgressFill.style.width = `${summary.percent}%`;
@@ -903,24 +903,24 @@
 
     if (state.section === "library") {
       refs.sectionTitle.textContent = "Library";
-      refs.sectionIntro.textContent = "Use the chapter selector to open a local PDF, expand it to a full-page viewer, or jump straight into the connected quiz.";
+      refs.sectionIntro.textContent = "Use the chapter selector to open a chapter PDF, expand it in a full-page viewer, or jump to the matching quiz.";
       return;
     }
 
     if (state.tab === "quizzes") {
       refs.sectionTitle.textContent = "Quizzes";
-      refs.sectionIntro.textContent = "Each quiz can be completed, checked, and exported. Completing a quiz unlocks the next chapter and its materials.";
+      refs.sectionIntro.textContent = "Use the quizzes to check your understanding and keep track of your progress.";
       return;
     }
 
     if (state.tab === "assignments") {
       refs.sectionTitle.textContent = "Assignments";
-      refs.sectionIntro.textContent = "Open a chapter assignment to review the instructions, complete the interactive steps, and generate a printable final folio.";
+      refs.sectionIntro.textContent = "Open a chapter assignment to review the directions, complete the activity, and generate your final report.";
       return;
     }
 
     refs.sectionTitle.textContent = "Home";
-    refs.sectionIntro.textContent = "Chapter shells stay empty for now. They unlock one by one as the chapter quizzes are completed.";
+    refs.sectionIntro.textContent = "Open a chapter to read, review the PDF, or move into the matching quiz.";
   }
 
   function renderHomeCards() {
@@ -940,7 +940,7 @@
               <article class="course-card quiz-overview-card editorial-overview-card ${unlocked ? "" : "locked-card"}" style="--accent:${escapeHtml(quiz.accent || "#8b6728")}">
                 <p class="card-code">${escapeHtml(quiz.code)}</p>
                 <h4 class="card-title">${escapeHtml(quiz.title)}</h4>
-                <p class="card-summary">Recreated chapter booklet with objective sections, written prompts, and keyed guidance.</p>
+                <p class="card-summary">Review the chapter quiz with multiple-choice, matching, true/false, and written questions.</p>
                 <p class="card-meta">
                   <span><strong>${completionSummary.answeredQuestions}/${completionSummary.totalQuestions}</strong> questions completed</span>
                   <span>Written responses reviewed manually</span>
@@ -968,7 +968,7 @@
                 <h4 class="card-title">${escapeHtml(assignment.title)}</h4>
                 <p class="card-summary">${escapeHtml(assignment.summary)}</p>
                 <div class="card-actions">
-                  <button class="btn btn-muted" type="button" data-open-assignment="${escapeHtml(assignment.id)}" ${unlocked ? "" : "disabled"}>${assignment.interactivePath ? "Open assignment" : "Open placeholder"}</button>
+                  <button class="btn btn-muted" type="button" data-open-assignment="${escapeHtml(assignment.id)}" ${unlocked ? "" : "disabled"}>${assignment.interactivePath ? "Open assignment" : "View assignment"}</button>
                 </div>
                 ${!unlocked ? `<div class="status-chip locked">Locked until the previous chapter quiz is complete</div>` : assignment.interactivePath ? `<div class="status-chip">Ready</div>` : ""}
               </article>
@@ -988,7 +988,7 @@
               <h4 class="card-title">${escapeHtml(chapter.title)}</h4>
               <p class="card-summary">${escapeHtml(chapter.summary)}</p>
               <div class="card-actions">
-                <button class="btn btn-primary" type="button" data-open-chapter="${escapeHtml(chapter.id)}" ${unlocked ? "" : "disabled"}>${chapter.contentPath ? "Open content" : "Open chapter shell"}</button>
+                <button class="btn btn-primary" type="button" data-open-chapter="${escapeHtml(chapter.id)}" ${unlocked ? "" : "disabled"}>${chapter.contentPath ? "Open chapter" : "Open chapter"}</button>
                 <button class="btn btn-secondary" type="button" data-open-expanded-viewer="${escapeHtml(getLibraryIdForChapter(chapter.id))}" ${unlocked ? "" : "disabled"}>Open PDF</button>
                 <button class="btn btn-muted" type="button" data-open-quiz="${escapeHtml(getQuizIdForChapter(chapter.id))}" ${unlocked ? "" : "disabled"}>Open quiz</button>
               </div>
@@ -1040,7 +1040,7 @@
             <h4 class="detail-title">${escapeHtml(chapter.title)}</h4>
             <p class="detail-summary">${escapeHtml(chapter.summary)}</p>
           </div>
-          <div class="lock-copy chapter-detail-note">Use the chapter PDF and recreated quiz while this lesson surface is being built out.</div>
+          <div class="lock-copy chapter-detail-note">Use the chapter PDF and quiz to review this chapter.</div>
           <div class="detail-actions">
             <button class="btn btn-primary" type="button" data-open-expanded-viewer="${escapeHtml(getLibraryIdForChapter(chapter.id))}">Open chapter PDF</button>
             <button class="btn btn-secondary" type="button" data-open-quiz="${escapeHtml(getQuizIdForChapter(chapter.id))}">Open quiz</button>
@@ -1053,7 +1053,7 @@
 
   function renderAssignmentDetail(assignment) {
     if (!assignment || !isAssignmentUnlocked(assignment)) {
-      return `<div class="empty-state">This assignment lane is still locked.</div>`;
+      return `<div class="empty-state">This assignment is still locked.</div>`;
     }
 
     if (assignment.interactivePath) {
@@ -1102,7 +1102,7 @@
             <h4 class="detail-title">${escapeHtml(assignment.title)}</h4>
             <p class="detail-summary">${escapeHtml(assignment.summary)}</p>
           </div>
-          <div class="lock-copy">This area stays open for future authored assignments. Nothing has been loaded into it yet.</div>
+          <div class="lock-copy">This assignment is not available yet.</div>
           <div class="detail-actions">
             <button class="btn btn-primary" type="button" data-open-expanded-viewer="${escapeHtml(getLibraryIdForChapter(assignment.chapterId))}">Open chapter PDF</button>
             <button class="btn btn-secondary" type="button" data-open-quiz="${escapeHtml(getQuizIdForChapter(assignment.chapterId))}">Open quiz</button>
@@ -1116,7 +1116,7 @@
     const items = getLibraryItems();
     const active = getLibraryActiveItem();
     if (!active) {
-      return `<div class="empty-state">No unlocked chapter PDFs are available yet.</div>`;
+      return `<div class="empty-state">No chapter PDFs are available right now.</div>`;
     }
 
     state.activeLibraryId = active.id;
@@ -1141,17 +1141,17 @@
             <div class="viewer-actions">
               <a class="btn btn-primary" href="${escapeHtml(active.file || active.path || "#")}" download>Download PDF</a>
               <button class="btn btn-secondary" type="button" data-open-expanded-viewer="${escapeHtml(active.id)}">Expand viewer</button>
-              ${chapter ? `<button class="btn btn-muted" type="button" data-open-chapter="${escapeHtml(chapter.id)}">${chapter.contentPath ? "Open chapter content" : "Open chapter shell"}</button>` : ""}
+              ${chapter ? `<button class="btn btn-muted" type="button" data-open-chapter="${escapeHtml(chapter.id)}">${chapter.contentPath ? "Open chapter" : "Open chapter"}</button>` : ""}
               ${quiz ? `<button class="btn btn-muted" type="button" data-open-quiz="${escapeHtml(quiz.id)}">Open quiz</button>` : ""}
             </div>
           </div>
-          <p class="viewer-copy">${escapeHtml(active.summary || "Local chapter PDF.")}</p>
+          <p class="viewer-copy">${escapeHtml(active.summary || "Chapter PDF.")}</p>
         </article>
 
         <article class="viewer-shell library-viewer-card library-panel" style="--accent:${escapeHtml(active.accent || "#8b6728")}">
           <p class="detail-eyebrow">${escapeHtml(active.code || "")}</p>
           <h4 class="detail-title">${escapeHtml(active.title)}</h4>
-          <p class="detail-summary">Read the chapter directly in the shell, or expand the viewer if you want a full-page reading surface.</p>
+          <p class="detail-summary">Read the chapter here, or expand the viewer for a full-page reading experience.</p>
           <div class="viewer-frame">
             <iframe title="${escapeHtml(active.title)}" src="${escapeHtml(buildViewerSrc(active))}"></iframe>
           </div>

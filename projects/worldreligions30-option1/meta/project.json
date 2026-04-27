@@ -1,7 +1,7 @@
 {
   "id": "worldreligions30-option1",
   "slug": "worldreligions30-option1",
-  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\canvas code and references\\World Religions",
+  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\processed\\worldreligions30-option1\\source",
   "inputKind": "docx-pdf-bundle",
   "brightspaceTarget": "course-page",
   "previewModes": [
@@ -31,11 +31,37 @@
       "target": "brightspace",
       "enabled": true,
       "notes": "Default export target for imported project shells."
+    },
+    {
+      "target": "google-hosted",
+      "enabled": true,
+      "notes": "Firebase-hosted delivery with Google sign-in, autosave, and cross-device resume."
     }
   ],
   "authoringStatus": "active",
   "generatedOutputs": [],
   "injectedComponents": [],
   "referenceOnly": [],
-  "sourceOfTruthNotes": "Edit the workspace shell files. Chapter PDFs are local library assets. Quiz content is generated from the booklet DOCX sources into workspace/course-data.js."
+  "googleHosted": {
+    "trackedStorageKeys": [
+      "worldreligions30-option1.progress",
+      "worldreligions30-option1.ui",
+      "worldreligions30-option1.assignment.chapter1interactive",
+      "worldreligions30-option1.assignment.chapter2interactive",
+      "worldreligions30-option1.assignment.chapter3interactive",
+      "worldreligions30-option1.assignment.chapter4interactive",
+      "worldreligions30-option1.assignment.chapter5interactive",
+      "worldreligions30-option1.assignment.chapter6interactive",
+      "worldreligions30-option1.assignment.chapter7interactive",
+      "worldreligions30-option1.assignment.chapter8interactive",
+      "worldreligions30-option1.assignment.chapter9interactive",
+      "worldreligions30-option1.assignment.chapter10interactive"
+    ]
+  },
+  "sourceOfTruthNotes": "Edit the workspace shell files. Chapter PDFs are local library assets. Quiz content is generated from the booklet DOCX sources into workspace/course-data.js.",
+  "learningSource": "other",
+  "learningTrust": "auto",
+  "learningUpdatedAt": "2026-04-22T15:18:22.260Z",
+  "updatedAt": "2026-04-22T19:51:02.572Z",
+  "workspaceApprovedAt": "2026-04-22T19:51:02.572Z"
 }

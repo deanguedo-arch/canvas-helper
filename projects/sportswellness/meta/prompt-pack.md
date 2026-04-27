@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: sportswellness
-- Generated: 2026-04-17T20:09:27.855Z
+- Generated: 2026-04-24T15:04:06.900Z
 
 ## Rules
 
@@ -21,8 +21,8 @@
 
 ## Session Mode
 
-- Subagent mode: off
-- Use standard task mode.
+- Subagent mode: on
+- Use subagent rules automatically; ask for approval before widening scope.
 
 ## Intelligence Policy
 
@@ -76,14 +76,38 @@ none
       "target": "brightspace",
       "enabled": true,
       "notes": "Default export target for imported projects."
+    },
+    {
+      "target": "google-hosted",
+      "enabled": true,
+      "notes": "Firebase-hosted delivery with Google sign-in, autosave, and cross-device resume."
+    },
+    {
+      "target": "apps-script",
+      "enabled": true,
+      "notes": "Drive-backed Apps Script web app with Google Drive assets and Apps Script autosave."
     }
   ],
   "authoringStatus": "active",
   "referenceOnly": [],
+  "googleHosted": {
+    "trackedStorageKeys": [
+      "sportswellness.course-progress.v1",
+      "sportswellness.ui-state.v1",
+      "sportswellness.sidebarCollapsed",
+      "diag_data",
+      "sportswellness_phase1_assignment_v2",
+      "vb_data",
+      "mb_data",
+      "p3_data",
+      "p4a_data",
+      "athlete_visualization_master_v1"
+    ]
+  },
   "sourceOfTruthNotes": "Edit workspace sources listed in canonicalSources. Treat generated exports and runtime bundles as derived output.",
   "createdAt": "2026-04-14T15:24:04.645Z",
-  "updatedAt": "2026-04-17T20:09:27.795Z",
-  "workspaceApprovedAt": "2026-04-17T20:09:27.795Z"
+  "updatedAt": "2026-04-23T21:17:49.179Z",
+  "workspaceApprovedAt": "2026-04-23T21:17:49.179Z"
 }
 ```
 

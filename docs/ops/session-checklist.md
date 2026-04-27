@@ -4,21 +4,19 @@
 
 1. Identify the target project slug if one exists.
 2. Read `docs/ops/ACTIVE_HANDOFF.md`.
-3. If resuming in Cursor or Codex, ask once whether to start Headroom before changing code.
-4. Do not start Headroom automatically as part of handoff restore; wait for an explicit yes.
-5. If Headroom is not installed locally, run `npm run headroom` (or `npm run headroom -- --project <slug>`) as the repo-native fallback.
-6. For Canvas Helper-wide context refresh (not a single project), run `npm run headroom:all`.
-7. If workflow is known, read `docs/workflows/<workflow>.md`.
-8. Read `projects/<slug>/meta/prompt-pack.md` first for project work.
-9. Read `AGENTS.md` and `ARCHITECTURE.md` for repo-wide work.
-10. Confirm the owning boundary:
+3. Run Headroom before changing code: `npm run headroom` or `npm run headroom -- --project <slug>`.
+4. For Canvas Helper-wide context refresh (not a single project), run `npm run headroom:all`.
+5. If workflow is known, read `docs/workflows/<workflow>.md`.
+6. Read `projects/<slug>/meta/prompt-pack.md` first for project work.
+7. Read `AGENTS.md` and `ARCHITECTURE.md` for repo-wide work.
+8. Confirm the owning boundary:
    - Studio UI
    - local server
    - scripts/engine
    - intelligence collect
    - intelligence apply
    - ops/governance docs
-11. If the task touches intake, confirm whether it is about:
+9. If the task touches intake, confirm whether it is about:
    - project bundles in `projects/incoming/<folder>`
    - canonical resources in `projects/resources/<slug>/`
    - processed snapshots in `projects/processed/<slug>/source/`

@@ -23,8 +23,8 @@ Use this folder to keep local work disciplined, reproducible, and handoff-friend
 1. Read [`AGENTS.md`](../../AGENTS.md)
 2. Read [`ARCHITECTURE.md`](../../ARCHITECTURE.md)
 3. Use [`session-checklist.md`](./session-checklist.md) before and during work
-4. After restoring from [`ACTIVE_HANDOFF.md`](./ACTIVE_HANDOFF.md), ask once whether to start Headroom when working in Cursor or Codex
-5. If Headroom is unavailable on the machine, use `npm run headroom` as the repo-native context fallback
+4. After restoring from [`ACTIVE_HANDOFF.md`](./ACTIVE_HANDOFF.md), run Headroom when working in Cursor or Codex
+5. If the session helper is unavailable on the machine, use `npm run headroom` as the repo-native context fallback
 6. Use [`HANDOFF.md`](./HANDOFF.md) for every meaningful stop point and write it into [`ACTIVE_HANDOFF.md`](./ACTIVE_HANDOFF.md)
 7. If workflow is known, read the matching guide under [`docs/workflows/`](../workflows/README.md)
 8. Use [`agent-prompt-templates.md`](./agent-prompt-templates.md) only after architecture, workflow, and task boundaries are clear
@@ -59,6 +59,8 @@ Use this folder to keep local work disciplined, reproducible, and handoff-friend
 - Contribution and commit discipline: [`CONTRIBUTING.md`](../../CONTRIBUTING.md)
 - Session handoff standard: [`HANDOFF.md`](./HANDOFF.md) stored in [`ACTIVE_HANDOFF.md`](./ACTIVE_HANDOFF.md)
 - Codex-specific Mac operating loop: [`codex-mac-workflow.md`](./codex-mac-workflow.md)
+- Apps Script Drive deploy workflow: [`apps-script-drive-deploy.md`](./apps-script-drive-deploy.md)
+- Google Hosted deploy workflow: [`google-hosted-deploy.md`](./google-hosted-deploy.md)
 - Workflow patterns and prompt contract: [`docs/workflows/`](../workflows/README.md)
 
 ## Working Rule

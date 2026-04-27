@@ -1,10 +1,15 @@
 import path from "node:path";
 
-import { fileExists, ensureDir, writeTextFile } from "../fs.js";
+import { fileExists, ensureDir } from "../fs.js";
 import { getProjectPaths } from "../paths.js";
 import { markProjectWorkspaceApproved } from "../projects.js";
 
-import { buildSingleHtmlOutput, runExportAuthoringPreflight, type ExportAuthoringGateOptions } from "./shared.js";
+import {
+  buildSingleHtmlOutputBundle,
+  writeSingleHtmlOutputBundle,
+  runExportAuthoringPreflight,
+  type ExportAuthoringGateOptions
+} from "./shared.js";
 
 export async function exportProjectToSingleHtml(
   projectSlug: string,
@@ -18,17 +23,17 @@ export async function exportProjectToSingleHtml(
 
   await runExportAuthoringPreflight(projectSlug, paths.workspaceEntrypoint, gateOptions, "export");
 
-  const { html, inlinedAssetCount } = await buildSingleHtmlOutput(paths.workspaceDir, paths.workspaceEntrypoint);
+  const bundle = await buildSingleHtmlOutputBundle(paths.workspaceDir, paths.workspaceEntrypoint);
   const singleHtmlExportDir = path.join(paths.exportsDir, "single-html");
   const outputPath = path.join(singleHtmlExportDir, `${projectSlug}.html`);
 
   await ensureDir(singleHtmlExportDir);
-  await writeTextFile(outputPath, html);
+  await writeSingleHtmlOutputBundle(outputPath, bundle);
   await markProjectWorkspaceApproved(projectSlug);
 
   return {
     projectSlug,
     outputPath,
-    inlinedAssetCount
+    inlinedAssetCount: bundle.inlinedAssetCount
   };
 }

@@ -7,6 +7,7 @@ import { resolveIntelligencePolicy } from "./lib/intelligence/config/policy.js";
 import { generatePromptPack } from "./lib/prompt-pack.js";
 import { fileExists } from "./lib/fs.js";
 import { listProjectSlugs, loadProjectManifest } from "./lib/projects.js";
+import { normalizeActiveHandoffProject } from "./lib/headroom-session.js";
 
 const TARGETABLE_AUTHORING_STATUSES = new Set(["active", "blocked", "ready-for-export"]);
 
@@ -36,7 +37,7 @@ async function resolveProjectFromActiveHandoff() {
     throw new Error(`Could not find "- Project:" in ${handoffPath}.`);
   }
 
-  const project = projectMatch[1].trim();
+  const project = normalizeActiveHandoffProject(projectMatch[1]);
   if (project.toLowerCase() === "repo-wide") {
     throw new Error('Active handoff project is "repo-wide". Pass --project <slug> or --all.');
   }

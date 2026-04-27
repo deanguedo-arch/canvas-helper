@@ -53,7 +53,8 @@ test("sportswellness performance section exposes the Phase 1, Phase 2, Phase 3, 
     "performance-player-nav",
     "performance-player-frame",
     "Back to training menu",
-    "src=\"${activeTool?.viewerSrc || ''}\"",
+    "data-performance-frame",
+    "setPerformanceFrameSource(performanceFrame, activeTool?.viewerSrc || '')",
     "renderPerformance()"
   ];
 

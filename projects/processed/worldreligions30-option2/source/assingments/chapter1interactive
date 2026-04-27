@@ -1,0 +1,446 @@
+import React, { useState } from 'react';
+import { Search, Film, PenTool, Globe, BookMarked, ChevronRight, Eye, Archive, Feather, Check } from 'lucide-react';
+
+// --- THE LIVING ARCHIVE: DESIGN TOKENS ---
+const theme = {
+  colors: {
+    primary: '#775a19',
+    primaryContainer: '#c5a059',
+    surface: '#fdf9ef',
+    surfaceLow: '#f7f3e9',
+    surfaceHigh: '#f2eee4',
+    surfaceDim: '#dddad0',
+    surfaceLowest: '#ffffff',
+    textMain: '#2d281f',
+    textMuted: '#635b4c'
+  },
+  fonts: {
+    serif: '"Noto Serif", serif',
+    sans: '"Manrope", sans-serif'
+  },
+  easing: 'cubic-bezier(0.4, 0, 0.2, 1)'
+};
+
+const STANCES = ['Respectful', 'Stereotypical', 'Accurate', 'Sensationalized', 'Mixed'];
+
+export default function PopCultureArchive() {
+  const [activeStep, setActiveStep] = useState(0);
+  
+  // Artifact State
+  const [formData, setFormData] = useState({
+    mediaTitle: '',
+    creator: '',
+    format: '',
+    source: '',
+    summary: '',
+    stance: '',
+    example1: '',
+    example2: '',
+    impact: '',
+    source1: '',
+    source2: ''
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const steps = [
+    { id: 'identification', title: 'Artifact Identification', icon: Search, marks: 2 },
+    { id: 'depiction', title: 'The Depiction', icon: Film, marks: 4 },
+    { id: 'critique', title: 'Critical Evaluation', icon: PenTool, marks: 4 },
+    { id: 'impact', title: 'Cultural Impact', icon: Globe, marks: 3 },
+    { id: 'bibliography', title: 'Bibliography', icon: BookMarked, marks: 3 },
+    { id: 'folio', title: 'The Final Folio', icon: Archive, marks: 16 }
+  ];
+
+  const nextStep = () => setActiveStep(prev => Math.min(prev + 1, steps.length - 1));
+  const setStep = (idx) => setActiveStep(idx);
+
+  return (
+    <div 
+      className="min-h-screen flex selection:bg-[#c5a059] selection:text-white"
+      style={{ backgroundColor: theme.colors.surface, color: theme.colors.textMain, fontFamily: theme.fonts.sans }}
+    >
+      {/* Texture Overlay */}
+      <div 
+        className="fixed inset-0 pointer-events-none z-50 opacity-[0.03]"
+        style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}
+      />
+
+      {/* Sidebar: The Archive Index */}
+      <nav 
+        className="w-64 lg:w-80 hidden md:flex flex-col relative z-20"
+        style={{ backgroundColor: theme.colors.surfaceDim }}
+      >
+        <div className="p-8 pb-12">
+          <h1 className="text-3xl leading-tight mt-6" style={{ fontFamily: theme.fonts.serif }}>
+            Religion in Popular Culture
+          </h1>
+          <p className="mt-4 text-sm" style={{ color: theme.colors.textMuted }}>
+            Assignment Option A • 16 Marks
+          </p>
+        </div>
+
+        <div className="flex-1 px-4 flex flex-col gap-2">
+          {steps.map((step, idx) => {
+            const isActive = activeStep === idx;
+            const Icon = step.icon;
+            return (
+              <button
+                key={step.id}
+                onClick={() => setStep(idx)}
+                className="w-full text-left py-3 px-4 flex items-center gap-4 relative group"
+                style={{ transition: `all 500ms ${theme.easing}` }}
+              >
+                {isActive && (
+                  <span 
+                    className="absolute left-0 top-0 bottom-0 w-[3px]"
+                    style={{ backgroundColor: theme.colors.primary }}
+                  />
+                )}
+                <Icon 
+                  size={18} 
+                  style={{ color: isActive ? theme.colors.primary : theme.colors.textMuted }} 
+                  className="group-hover:scale-110 transition-transform duration-500"
+                />
+                <span 
+                  className="font-medium text-sm"
+                  style={{ color: isActive ? theme.colors.textMain : theme.colors.textMuted }}
+                >
+                  {step.title}
+                </span>
+                {isActive && (
+                  <span className="ml-auto text-[0.6875rem] uppercase tracking-widest" style={{ color: theme.colors.primary }}>
+                    {step.marks} Pts
+                  </span>
+                )}
+              </button>
+            );
+          })}
+        </div>
+      </nav>
+
+      {/* Main Content: The Folio */}
+      <main className="flex-1 flex flex-col relative z-10 overflow-y-auto">
+        <div className="max-w-4xl w-full mx-auto p-6 md:p-12 lg:py-20 lg:px-24 flex-1 flex flex-col">
+          
+          <header className="mb-16">
+            <span className="text-[0.6875rem] uppercase tracking-[0.1em]" style={{ color: theme.colors.primary }}>
+              Chapter 1 • Option A
+            </span>
+            <h2 className="text-[2.5rem] md:text-[3.5rem] leading-[1.1] mt-4 mb-6" style={{ fontFamily: theme.fonts.serif }}>
+              {steps[activeStep].title}
+            </h2>
+            {activeStep !== 5 && (
+              <p className="text-lg italic" style={{ fontFamily: theme.fonts.serif, color: theme.colors.textMuted }}>
+                Curator's Note: Record the details of your selected artifact with precision.
+              </p>
+            )}
+          </header>
+
+          <div className="flex-1">
+            {activeStep === 0 && <StepIdentification data={formData} onChange={handleInputChange} />}
+            {activeStep === 1 && <StepDepiction data={formData} onChange={handleInputChange} />}
+            {activeStep === 2 && <StepCritique data={formData} onChange={handleInputChange} />}
+            {activeStep === 3 && <StepImpact data={formData} onChange={handleInputChange} />}
+            {activeStep === 4 && <StepBibliography data={formData} onChange={handleInputChange} />}
+            {activeStep === 5 && <FinalFolio data={formData} />}
+          </div>
+
+          {/* Navigation Glass Footer */}
+          {activeStep < 5 && (
+            <div 
+              className="mt-16 sticky bottom-6 p-4 rounded-xl flex justify-between items-center backdrop-blur-[20px]"
+              style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)', boxShadow: '0 0 32px rgba(119, 90, 25, 0.05)' }}
+            >
+              <span style={{ color: theme.colors.textMuted }} className="text-sm font-medium px-4">
+                Step {activeStep + 1} of 5
+              </span>
+              <button
+                onClick={nextStep}
+                className="px-8 py-3 rounded-sm text-white font-medium flex items-center gap-2 group"
+                style={{ 
+                  background: `linear-gradient(to right, ${theme.colors.primary}, ${theme.colors.primaryContainer})`,
+                  transition: `all 500ms ${theme.easing}`
+                }}
+              >
+                Proceed
+                <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              </button>
+            </div>
+          )}
+        </div>
+      </main>
+
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap');
+        
+        .scholarly-input {
+          width: 100%;
+          background-color: ${theme.colors.surfaceLowest};
+          color: ${theme.colors.textMain};
+          padding: 1rem 1.25rem;
+          border-radius: 0.125rem;
+          outline: none;
+          box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);
+          transition: all 400ms ${theme.easing};
+        }
+        .scholarly-input:focus {
+          box-shadow: inset 0 -2px 0 0 ${theme.colors.primary}, inset 0 0 0 1px rgba(0,0,0,0.05);
+        }
+        .scholarly-input::placeholder {
+          color: rgba(0,0,0,0.3);
+        }
+        .motif-bg {
+          background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 5 L55 45 L95 50 L55 55 L50 95 L45 55 L5 50 L45 45 Z' fill='none' stroke='%23000' stroke-width='1' stroke-opacity='0.05'/%3E%3Ccircle cx='50' cy='50' r='20' fill='none' stroke='%23000' stroke-width='1' stroke-opacity='0.05'/%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-position: bottom -20px right -20px;
+          background-size: 200px;
+        }
+      `}} />
+    </div>
+  );
+}
+
+// --- STEP COMPONENTS ---
+
+function StepIdentification({ data, onChange }) {
+  return (
+    <div className="space-y-8 animate-in fade-in duration-700">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="space-y-2">
+          <label className="text-[0.6875rem] uppercase tracking-widest font-bold" style={{ color: theme.colors.primary }}>Media Title</label>
+          <input 
+            type="text" name="mediaTitle" value={data.mediaTitle} onChange={onChange}
+            className="scholarly-input" placeholder="e.g., The Matrix, The Simpsons..."
+          />
+        </div>
+        <div className="space-y-2">
+          <label className="text-[0.6875rem] uppercase tracking-widest font-bold" style={{ color: theme.colors.primary }}>Creator / Director</label>
+          <input 
+            type="text" name="creator" value={data.creator} onChange={onChange}
+            className="scholarly-input" placeholder="Name of creator..."
+          />
+        </div>
+        <div className="space-y-2">
+          <label className="text-[0.6875rem] uppercase tracking-widest font-bold" style={{ color: theme.colors.primary }}>Format</label>
+          <input 
+            type="text" name="format" value={data.format} onChange={onChange}
+            className="scholarly-input" placeholder="Film, Song, TV Episode..."
+          />
+        </div>
+        <div className="space-y-2">
+          <label className="text-[0.6875rem] uppercase tracking-widest font-bold" style={{ color: theme.colors.primary }}>Source / Location</label>
+          <input 
+            type="text" name="source" value={data.source} onChange={onChange}
+            className="scholarly-input" placeholder="Where did you find it? (e.g. Netflix, Spotify)"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function StepDepiction({ data, onChange }) {
+  return (
+    <div className="space-y-6 animate-in fade-in duration-700">
+      <p style={{ color: theme.colors.textMain }} className="text-lg font-medium">
+        Briefly summarize how religion, spirituality, or a religious group is represented in this media text.
+      </p>
+      <div className="relative">
+        <textarea 
+          name="summary" value={data.summary} onChange={onChange}
+          rows={8}
+          className="scholarly-input resize-none" 
+          placeholder="Begin your summary here. Focus on the explicit depictions of faith, rituals, or spiritual themes..."
+        />
+        <Feather className="absolute right-4 bottom-4 opacity-10" size={48} />
+      </div>
+    </div>
+  );
+}
+
+function StepCritique({ data, onChange }) {
+  return (
+    <div className="space-y-10 animate-in fade-in duration-700">
+      
+      <div className="p-6 rounded-sm" style={{ backgroundColor: theme.colors.surfaceLow }}>
+        <label className="text-[0.6875rem] uppercase tracking-widest font-bold block mb-4" style={{ color: theme.colors.primary }}>
+          The Analytical Stance
+        </label>
+        <div className="flex flex-wrap gap-3">
+          {STANCES.map(s => {
+            const isSelected = data.stance === s;
+            return (
+              <button
+                key={s}
+                onClick={() => onChange({ target: { name: 'stance', value: s } })}
+                className="px-5 py-2.5 rounded-full text-sm font-medium flex items-center gap-2"
+                style={{
+                  backgroundColor: isSelected ? theme.colors.primary : theme.colors.surfaceLowest,
+                  color: isSelected ? '#ffffff' : theme.colors.textMain,
+                  boxShadow: isSelected ? 'none' : 'inset 0 0 0 1px rgba(0,0,0,0.1)',
+                  transition: `all 300ms ${theme.easing}`
+                }}
+              >
+                {isSelected && <Check size={14} />}
+                {s}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="space-y-3">
+          <label className="text-[0.6875rem] uppercase tracking-widest font-bold flex items-center gap-2" style={{ color: theme.colors.primary }}>
+            <span className="w-4 h-4 rounded-full flex items-center justify-center text-[10px] text-white" style={{ backgroundColor: theme.colors.primary }}>1</span>
+            Supporting Example 1
+          </label>
+          <textarea 
+            name="example1" value={data.example1} onChange={onChange}
+            rows={5} className="scholarly-input resize-none" 
+            placeholder="Describe a specific scene, lyric, or quote..."
+          />
+        </div>
+        <div className="space-y-3">
+          <label className="text-[0.6875rem] uppercase tracking-widest font-bold flex items-center gap-2" style={{ color: theme.colors.primary }}>
+            <span className="w-4 h-4 rounded-full flex items-center justify-center text-[10px] text-white" style={{ backgroundColor: theme.colors.primary }}>2</span>
+            Supporting Example 2
+          </label>
+          <textarea 
+            name="example2" value={data.example2} onChange={onChange}
+            rows={5} className="scholarly-input resize-none" 
+            placeholder="Describe a second specific scene, lyric, or quote..."
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function StepImpact({ data, onChange }) {
+  return (
+    <div className="space-y-6 animate-in fade-in duration-700">
+      <p style={{ color: theme.colors.textMain }} className="text-lg font-medium">
+        Describe how this representation could shape a Canadian viewer’s understanding of religion or religious people.
+      </p>
+      <div className="relative">
+        <textarea 
+          name="impact" value={data.impact} onChange={onChange}
+          rows={8}
+          className="scholarly-input resize-none" 
+          placeholder="Consider the pluralistic nature of Canada as outlined in Chapter 1. Does this media text foster understanding, or build stereotypes?"
+        />
+        <Globe className="absolute right-4 bottom-4 opacity-10" size={48} />
+      </div>
+    </div>
+  );
+}
+
+function StepBibliography({ data, onChange }) {
+  return (
+    <div className="space-y-8 animate-in fade-in duration-700">
+      <p style={{ color: theme.colors.textMuted }} className="italic font-serif">
+        Provide at least two sources using proper format (e.g., APA or MLA). One source may be the media text itself.
+      </p>
+      
+      <div className="space-y-4">
+        <div className="relative">
+          <span className="absolute left-4 top-4 font-serif italic text-black/30">1.</span>
+          <textarea 
+            name="source1" value={data.source1} onChange={onChange}
+            rows={3} className="scholarly-input pl-10 resize-none" 
+            placeholder="Citation..."
+          />
+        </div>
+        <div className="relative">
+          <span className="absolute left-4 top-4 font-serif italic text-black/30">2.</span>
+          <textarea 
+            name="source2" value={data.source2} onChange={onChange}
+            rows={3} className="scholarly-input pl-10 resize-none" 
+            placeholder="Citation..."
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function FinalFolio({ data }) {
+  const isComplete = data.mediaTitle && data.summary && data.stance;
+
+  return (
+    <div className="animate-in fade-in duration-1000">
+      {!isComplete ? (
+        <div className="p-8 text-center" style={{ backgroundColor: theme.colors.surfaceLow }}>
+          <p className="font-serif italic" style={{ color: theme.colors.textMuted }}>
+            The artifact record is incomplete. Please ensure you have filled out the key fields before archiving the folio.
+          </p>
+        </div>
+      ) : (
+        <div 
+          className="p-8 md:p-12 motif-bg relative overflow-hidden"
+          style={{ backgroundColor: theme.colors.surfaceHigh, boxShadow: '0 10px 40px rgba(0,0,0,0.03)' }}
+        >
+          {/* Header */}
+          <div className="border-b pb-8 mb-8" style={{ borderColor: 'rgba(0,0,0,0.05)' }}>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="px-3 py-1 rounded-sm text-[0.625rem] uppercase tracking-widest font-bold text-white" style={{ backgroundColor: theme.colors.primary }}>
+                Archived Artifact
+              </span>
+              <span className="text-sm font-serif italic" style={{ color: theme.colors.textMuted }}>
+                {data.format || 'Unspecified Medium'}
+              </span>
+            </div>
+            <h3 className="text-4xl font-serif mb-2" style={{ color: theme.colors.textMain }}>{data.mediaTitle}</h3>
+            <p className="text-lg" style={{ color: theme.colors.textMuted }}>By {data.creator || 'Unknown Creator'}</p>
+          </div>
+
+          {/* Content Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div className="md:col-span-2 space-y-10">
+              <section>
+                <h4 className="text-[0.6875rem] uppercase tracking-widest font-bold mb-3" style={{ color: theme.colors.primary }}>The Depiction</h4>
+                <p className="leading-relaxed" style={{ color: theme.colors.textMain }}>{data.summary || 'No summary provided.'}</p>
+              </section>
+
+              <section>
+                <h4 className="text-[0.6875rem] uppercase tracking-widest font-bold mb-3" style={{ color: theme.colors.primary }}>Cultural Impact</h4>
+                <p className="leading-relaxed" style={{ color: theme.colors.textMain }}>{data.impact || 'No impact analysis provided.'}</p>
+              </section>
+            </div>
+
+            <div className="space-y-8">
+              <section className="p-6 rounded-sm" style={{ backgroundColor: theme.colors.surfaceLowest, boxShadow: 'inset 0 0 0 1px rgba(0,0,0,0.03)' }}>
+                <h4 className="text-[0.6875rem] uppercase tracking-widest font-bold mb-3" style={{ color: theme.colors.primary }}>Analytical Stance</h4>
+                <span className="text-lg font-serif italic">{data.stance}</span>
+                
+                <div className="mt-6 space-y-4">
+                  <div>
+                    <h5 className="text-[0.625rem] uppercase tracking-widest text-black/40 mb-1">Evidence 1</h5>
+                    <p className="text-sm leading-relaxed" style={{ color: theme.colors.textMuted }}>"{data.example1}"</p>
+                  </div>
+                  <div>
+                    <h5 className="text-[0.625rem] uppercase tracking-widest text-black/40 mb-1">Evidence 2</h5>
+                    <p className="text-sm leading-relaxed" style={{ color: theme.colors.textMuted }}>"{data.example2}"</p>
+                  </div>
+                </div>
+              </section>
+
+              <section>
+                <h4 className="text-[0.6875rem] uppercase tracking-widest font-bold mb-3" style={{ color: theme.colors.primary }}>Bibliography</h4>
+                <ul className="space-y-3 text-sm" style={{ color: theme.colors.textMuted }}>
+                  {data.source1 && <li className="pl-4 relative before:absolute before:left-0 before:top-2 before:w-1.5 before:h-[1px] before:bg-black/20">{data.source1}</li>}
+                  {data.source2 && <li className="pl-4 relative before:absolute before:left-0 before:top-2 before:w-1.5 before:h-[1px] before:bg-black/20">{data.source2}</li>}
+                </ul>
+              </section>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}

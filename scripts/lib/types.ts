@@ -99,7 +99,7 @@ export type ProjectManifest = {
     notes?: string;
   };
   exportTargets?: {
-    target: "brightspace" | "scorm" | "google-hosted" | "html";
+    target: "brightspace" | "scorm" | "google-hosted" | "apps-script" | "html";
     enabled?: boolean;
     notes?: string;
   }[];

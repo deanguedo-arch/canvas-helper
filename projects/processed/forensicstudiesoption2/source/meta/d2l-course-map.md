@@ -1,0 +1,211 @@
+# D2L Course Map
+
+- Project: forensics
+- Generated: 2026-03-14T13:27:05.582Z
+- Manifest: /Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/forensics/D2LCCExport_129076_23-24 _ Forensic Studies 25 _ Per 1(A-B) _ Sec S3_202631302 (2)/imsmanifest.xml
+- Course title: 23-24 | Forensic Studies 25 | Per 1(A-B) | Sec S3
+
+## Summary
+- Modules: 12
+- Items: 194
+- Lessons: 3
+- Assignments: 12
+- Quizzes: 9
+- PDFs: 4
+- HTML pages: 147
+
+## Structure
+- [module] Course Information
+  - [html] Disclaimer (Please Read) -> сontent/ib526d33e-efed-4365-93ee-351aec4b56ab/Content/label_3489.html
+  - [pdf] Course outline (MUST READ) -> сontent/idd074817-3b63-4e7f-b095-637a00ea461e/FS25 outline (summer school).pdf
+  - [pdf] How to Be Successful in an Independent Study Course (1) -> сontent/i3838d916-02d0-4c57-bfa7-2032c66a71c4/How to Be Successful in an Independent Study Course (1).pdf
+  - [html] How to Properly Cite Sources -> сontent/i0d0b4605-e0e8-481c-84d0-9813d78b146d/How to Properly Cite Sources.html
+  - [pdf] Enabling Brightspace Notifications -> сontent/ib7a62d52-13b2-4e83-b033-ce43a865602c/Enabling Brightspace Notifications (3).pdf
+  - [html] Assignment Submission -> сontent/i1b9d5df3-0b57-4109-9a00-d3f42192d5e2/Assignment Submission.html
+  - [lesson] Course Outline (Please Read)
+- [module] 1 Introduction to Crime Scenes
+  - [assignment] Introduction to Crime Scenes Assignment -> assignment/i85281f98-0aa9-4147-93a9-d14de5638519/assignment_b6a8e263-9662-47af-aa54-308b48f20040.xml
+  - [quiz] M1 Introduction to Crime Scenes Quiz -> quiz/ia861a9ae-dc07-4f6b-99b0-024595a223ae/qti_b450f83a-7ca7-4007-af5b-164602338fea.xml
+  - [folder] Introduction to Crime Scenes
+    - [html] An Introduction to the Crime Scene -> сontent/ib4f8e92c-f47c-458f-92db-bcfce642e0ac/Content/book_1408/chapter_11885.html
+    - [html] Real Life CSI - Crime Scene Cleaners -> сontent/i145c4276-895a-4176-b79e-d1ff5e43abab/Content/book_1408/chapter_11883.html
+    - [html] 16x9 - Behind the Yellow Line: Real CSI Documentary -> сontent/i78f7ffe3-b9d9-4c70-b311-76b6ce197989/Content/book_1408/chapter_11884.html
+    - [html] Processing the Crime Scene -> сontent/i21c03e04-97e1-45c3-958f-505b4cb31daf/Content/book_1408/chapter_11886.html
+    - [html] Police Officers -> сontent/ic8944dad-2388-45f0-a664-0df82c726799/Content/book_1408/chapter_11887.html
+    - [html] CSI -> сontent/ibf0b130b-7eab-4e5e-ae32-62ee711d10cc/Content/book_1408/chapter_11888.html
+    - [html] District Attorney -> сontent/i8aaaf903-004c-45c5-ba4f-1c91252f4db2/Content/book_1408/chapter_11889.html
+    - [html] Medical Examiner -> сontent/i1dd32948-6d00-43ba-947d-c27925c5cc42/Content/book_1408/chapter_11890.html
+    - [html] Specialists -> сontent/i723a2fd3-09bd-40ec-af8a-7e3670629895/Content/book_1408/chapter_11891.html
+    - [html] The Seven S's Of Crime Scene Investigation -> сontent/i7c8b5b16-2ade-4e08-b175-fae7381f6a99/Content/book_1408/chapter_11892.html
+    - [html] Securing -> сontent/iebd03ccd-7d17-4c19-b2cf-d0fc179923f1/Content/book_1408/chapter_11893.html
+    - [html] Separating -> сontent/iad4dd2d3-6578-41b4-a79e-eca9af51e72d/Content/book_1408/chapter_11894.html
+    - [html] Scanning -> сontent/i5f78a9ae-c5f4-462c-8d7b-2aaab7b14ece/Content/book_1408/chapter_11895.html
+    - [html] Seeing -> сontent/i04eaaf96-15f3-4d22-8c72-1f8893c40a00/Content/book_1408/chapter_11896.html
+    - [html] Sketching -> сontent/i27904728-efdb-495c-b96e-e3217f61e36b/Content/book_1408/chapter_11897.html
+    - [html] Sample Sketch -> сontent/i6a54d984-7139-4715-8bfc-64907cac2062/Content/book_1408/chapter_11898.html
+    - [html] Searching -> сontent/ife0cae32-5e92-4d0a-8430-e84d30b74a9b/Content/book_1408/chapter_11899.html
+    - [html] Search Patterns -> сontent/i21b757e3-5303-4251-9ff3-90b3781291f0/Content/book_1408/chapter_11900.html
+    - [html] Securing and Collecting Evidence -> сontent/id1e21dce-1088-42b4-b312-58e35f9f7093/Content/book_1408/chapter_11901.html
+    - [html] Paper Bindle -> сontent/i81a11c1b-42d8-4fc3-ad60-8b9e1f9ca83c/Content/book_1408/chapter_11902.html
+    - [html] Chain of Custody -> сontent/ica867618-581c-46c7-be97-e1a5c991ab16/Content/book_1408/chapter_11903.html
+    - [html] Crime Scene Safety -> сontent/i17370884-5a56-416d-91ab-8541069a5e81/Content/book_1408/chapter_12201.html
+    - [html] Unit Assessments -> сontent/id39fc4c9-5340-4b3b-a8de-25fddcdab307/Content/book_1408/chapter_12262.html
+- [module] 2 Types of Evidence and Fingerprint Analysis
+  - [assignment] Types of Evidence and Fingerprint Analysis Assignment -> assignment/i0073cf68-ef89-4190-b368-d429ee0816f0/assignment_80f86dff-581e-4e9f-abe9-d5407d926f3f.xml
+  - [assignment] Fingerprint Case Studies Assignment -> assignment/i20dfab48-a342-491f-8077-34397a216ad6/assignment_5c66b2fe-5be0-4060-a68e-a6ca11dd1ffb.xml
+  - [quiz] M2 Types of Evidence and Fingerprint Analysis Assessment -> quiz/i0649d126-890d-4d3e-b83f-c563065521db/qti_c38fc56d-87c6-481d-958a-c13ba81b9304.xml
+  - [folder] Types of Evidence and Fingerprint Analysis
+    - [html] Types of Evidence and Fingerprint Analysis -> сontent/i2fbe29e6-e968-4c68-8cd5-dde0abd398b1/Content/book_1412/chapter_11952.html
+    - [html] Evidence Types -> сontent/i01a08fc7-ba72-40e7-83cd-07fe01d50d49/Content/book_1412/chapter_11953.html
+    - [html] Value of Evidence -> сontent/i7024e9f0-219f-4bb5-9972-3b3b58365841/Content/book_1412/chapter_11954.html
+    - [html] Evidence Types Case Study -> сontent/i57b023f1-0b7e-4404-9d89-c9ef9914a6ac/Content/book_1412/chapter_11955.html
+    - [html] Brief History of Fingerprinting -> сontent/ided21828-5e62-49a3-aae1-6cf000ed83f6/Content/book_1412/chapter_11957.html
+    - [html] Fingerprint Analysis -> сontent/i2e500d83-0ea4-4c77-b639-f6acc6f291bd/Content/book_1412/chapter_11978.html
+    - [html] Types of Fingerprint Evidence -> сontent/i6090376e-1b88-4285-b676-c3fa0cee7a43/Content/book_1412/chapter_11958.html
+    - [html] How a Match is Made -> сontent/i61d13a78-3d18-40e9-a7f7-3a44fbf59e80/Content/book_1412/chapter_11959.html
+    - [html] Fingerprint Case Study: John Dillinger -> сontent/i6fc5f283-0bc6-4999-9efe-01ac5381f0b7/Content/book_1412/chapter_11960.html
+    - [html] Latent Fingerprint Enhancement -> сontent/iab21127f-086e-4953-8181-f8bb4215377c/Content/book_1412/chapter_11962.html
+    - [html] Latent Fingerprint Enhancement (2) -> сontent/i9ec10d7b-a450-4c8b-a353-b07095a6ce0d/Content/book_1412/chapter_11963.html
+    - [html] Latent Fingerprint Enhancement (3) -> сontent/iadb4c43b-aea4-42c7-b8a1-b9af3831ec0a/Content/book_1412/chapter_11964.html
+    - [html] Experiment : Short-Term vs Long-Term Latent Fingerprint Samples (Optional) -> сontent/i7086da89-4a39-41df-95b6-f5475be69bd3/Content/book_1412/chapter_11965.html
+    - [html] Experiment: Finding and Lifiting Latent Fingerprints Using Lifting Powders (Optional) -> сontent/i90b6e6d0-c199-4ca3-b49c-6d3bd91c111d/Content/book_1412/chapter_11966.html
+    - [html] Case Study: The Zodiac Killer -> сontent/i13e076dd-cf2b-46f6-86bc-7534a3937931/Content/book_1412/chapter_11972.html
+    - [html] Case Study: The Zodiac Killer (continued) -> сontent/i15a39b8f-ec37-4634-8131-2bbce7798ca9/Content/book_1412/chapter_11973.html
+    - [html] Case Study: Bank Robbery Mystery -> сontent/i865e453c-30d0-4618-b4a7-cccf59e06d95/Content/book_1412/chapter_11974.html
+    - [html] Evidence and Fingerprints Online Activity (Optional) -> сontent/iee4cbe70-dce6-45f9-844f-a33022c2b3e8/Content/book_1412/chapter_11977.html
+    - [html] Unit Assessments -> сontent/ic7ec92a5-2b40-41dd-bb6a-630476029c2f/Content/book_1412/chapter_12263.html
+- [module] 3 Trace Evidence
+  - [assignment] Trace Evidence Assignment -> assignment/ia4effbb5-11e6-405e-a610-94c25bdcd18e/assignment_ed348d79-dd81-485b-be5f-fefe59594acb.xml
+  - [assignment] Trace Evidence Case Studies Assignment -> assignment/id0a71404-7f00-4bd1-b380-ae695903a2fb/assignment_156bf40b-261a-4e73-9bf3-354be6aaf4a7.xml
+  - [quiz] M3 Trace Evidence Assessment -> quiz/i8a6fcedb-c38d-48ed-84dc-c0afdf4990b9/qti_6cad72c2-63f3-4200-9d60-a4dc07c4dbe1.xml
+  - [folder] Trace Evidence
+    - [html] What is Trace Evidence? -> сontent/i768ac1ae-b062-42f8-8c3d-1f70191c5808/Content/book_1413/chapter_11979.html
+    - [html] Identifying Trace Evidence -> сontent/i15e6ef30-f8fe-4a0a-856e-16275d9a167b/Content/book_1413/chapter_11980.html
+    - [html] Collection of Trace Evidence -> сontent/ica1ea031-d879-4f12-bdbb-f2c344cca0c0/Content/book_1413/chapter_11981.html
+    - [html] Collecting Trace Evidence at Home -> сontent/ie3d6727a-8313-4c39-bc2e-9d14b0d5185a/Content/book_1413/chapter_11982.html
+    - [html] Microscopic Analysis of Hair -> сontent/i01769305-1d04-4b96-ae17-df848a52c31f/Content/book_1413/chapter_12223.html
+    - [html] Hair Evidence -> сontent/i55c747ee-6cb8-43b0-b421-10feff383073/Content/book_1413/chapter_12224.html
+    - [html] Useful Types of Hair Samples -> сontent/i1e97890f-81bf-446d-ab50-004a1547d227/Content/book_1413/chapter_12225.html
+    - [html] Animal Hair -> сontent/iecafb11f-ca0d-4ad8-a0e7-43d399f4371a/Content/book_1413/chapter_12226.html
+    - [html] Features of Hair -> сontent/i140bff09-0cf0-4230-8bf1-25cf6daf71f2/Content/book_1413/chapter_12227.html
+    - [html] Crime Case Study - The Central Park Five -> сontent/i09fc2f90-b5a6-46d8-a876-6a6e38b8956f/Content/book_1413/chapter_12228.html
+    - [html] Fibre Analysis -> сontent/iab328ad4-59b6-47fe-95ca-ea0efa2a4f0e/Content/book_1413/chapter_12229.html
+    - [html] Fibre Evidence -> сontent/if1ac80aa-363d-4683-9fbc-9311d6a6ff50/Fibre Evidence.html
+    - [html] Crime Case Study - Samuel Morgan -> сontent/i6ab2040d-c5b1-490e-ba4c-3f876aa81850/Content/book_1413/chapter_12230.html
+    - [html] Real CSI Hair and Fiber Analysis -> сontent/i92f88147-44ef-4d6c-97f9-d770b6676aab/Content/book_1413/chapter_12231.html
+    - [html] Unit Assessments -> сontent/if41b09c7-b23d-40cb-9002-9f552abf2c20/Content/book_1413/chapter_12264.html
+- [module] 4 Body Fluid Evidence
+  - [assignment] Body Fluid Assignment -> assignment/i2f6d626c-a477-4b3d-ace8-63aa9fc45fdc/assignment_a20c2933-ad33-4b9d-9221-9eee7272528c.xml
+  - [assignment] Body Fluid Evidence Case Studies Assignment -> assignment/i16176291-5154-45bd-8891-b2c9517b1a3c/assignment_701e84be-65c1-4997-b793-347fd65867af.xml
+  - [quiz] M4 Body Fluid Evidence Assessment -> quiz/i812c9f87-9415-4069-8a6b-de07d58d1d65/qti_73c126d9-c527-4dd8-821c-9b217bfbc484.xml
+  - [folder] All About Blood
+    - [html] Body Fluid Evidence -> сontent/ie2c27177-23ad-417f-b0ec-34dd4f47add4/Content/book_1416/chapter_11992.html
+    - [html] Blood Components -> сontent/iaa3f78e9-0e4d-4433-9909-e9f94598ef9b/Content/book_1416/chapter_11993.html
+    - [html] Blood Typing -> сontent/i2ce3b936-b6db-4d86-9174-1bfa407805e8/Content/book_1416/chapter_11994.html
+    - [html] Lesson One - All About Blood -> сontent/i3e9bc723-a8fd-4f14-a0c8-b8ba53d493a5/Content/book_1416/chapter_11995.html
+    - [html] Lesson 2 Blood Evidence -> сontent/ic503e56b-480c-4035-8911-fd2e03231c0a/Content/book_1416/chapter_11996.html
+    - [html] Blood Evidence - Phenolphthalein -> сontent/i205ddaa3-0c3e-4015-b814-bcfd45b83422/Content/book_1416/chapter_11997.html
+    - [html] Phenolphthalein: Confirming that it IS blood -> сontent/ia75e99a0-4dca-4672-b2a6-7732eee561b9/Content/book_1416/chapter_12092.html
+    - [html] Blood Evidence - The Luminol Test -> сontent/ic6856f52-3e5a-447d-8054-f101d18b7e83/Content/book_1416/chapter_11998.html
+    - [html] Blood Splatter Evidence -> сontent/i7be4c40f-f204-43dd-abe1-ab2d1ce0d168/Content/book_1416/chapter_11999.html
+    - [html] Lesson 3 - Other Body Fluid Evidence -> сontent/id48e1acc-4b2a-454b-90ea-2b6e674c34b7/Content/book_1416/chapter_12000.html
+    - [html] Other Body Fluid Evidence -> сontent/i0cf5b8a9-296e-4e86-999b-cc1b41e7bedb/Content/book_1416/chapter_12001.html
+    - [html] Semen -> сontent/i3797c9c5-f2ad-4efa-85f5-b8076db01e9f/Content/book_1416/chapter_12002.html
+    - [html] Sexual Assault (Rape) Kits -> сontent/if532604f-6158-49b3-b6d8-a62c92b9fa61/Content/book_1416/chapter_12003.html
+    - [html] Lesson 4 - Case Studies -> сontent/idb2aad29-9fb4-49f3-b708-a4ab6cc8f3f7/Content/book_1416/chapter_12004.html
+    - [html] Cases Involving Body Fluid Evidence -> сontent/id1c5d466-6de5-40d1-b769-f2ff1a8539da/Content/book_1416/chapter_12005.html
+    - [html] Historical Crime Case #1 -> сontent/i29afd473-aa24-4b9f-8e36-623197d67aae/Historical Crime Case 1.html
+    - [html] Historical Crime Case #2 -> сontent/if2691d26-8a13-400b-a2a9-5f2ce94b6451/Historical Crime Case 2.html
+    - [html] Fictional Crime Case #1 -> сontent/ia99eccc6-303b-41ad-b23c-79a8ac38bb7a/Content/book_1416/chapter_12006.html
+    - [html] Fictional Crime Case #2 -> сontent/i6225ab1a-cfcc-4c23-9234-75205f061981/Fictional Crime Case 2.html
+    - [html] What is Blood? -> сontent/i828a8600-f807-4ec3-bb74-0b84f53999f5/Content/book_1416/chapter_12088.html
+    - [html] Blood Types -> сontent/i9242df94-c9b7-489b-b1a6-57dc75d05f46/Content/book_1416/chapter_12089.html
+    - [html] Identifying Blood Types -> сontent/i427da8fa-a34c-4cad-8a56-cac73b0234b8/Content/book_1416/chapter_12090.html
+    - [html] Blood Typing in a Lab -> сontent/i48ddaf17-e5b6-4a93-8959-251d8dc39ee2/Content/book_1416/chapter_12091.html
+    - [html] Unit Assessments -> сontent/i5888a0ec-c4ab-403d-a497-3448599b51ee/Content/book_1416/chapter_12265.html
+- [module] 5 Forensic Detection of Impaired Driving
+  - [html] Forensic Detection of Impaired Driving -> сontent/i828b93d1-ea6b-427c-bde2-90c72532124b/Content/section_2945.html
+  - [assignment] Impaired Driving Assignment -> assignment/i316fb168-8139-44c3-819d-919e8ff64c4f/assignment_cb1120b8-2590-498d-99d3-ad5d436c8b3f.xml
+  - [quiz] M5 Impaired Driving and Alcohol Assessment -> quiz/i720c105e-6226-41ad-a4da-7a6b22879680/qti_d0914048-cd17-42af-a699-a42dea600e08.xml
+  - [folder] Forensic Detection of Impaired Driving
+    - [html] Forensic Detection of Impaired Driving -> сontent/i18824365-5daf-43b4-868a-2443fe223d70/Content/book_1417/chapter_12007.html
+    - [html] Lesson 1 Alcohol and its Effects Upon the Body -> сontent/icf90943a-6519-4195-81c6-97709fc6665f/Content/book_1417/chapter_12008.html
+    - [html] Scientifc Description of Alcohol -> сontent/i94056bde-11ed-48f9-aad5-0e89433d1c42/Content/book_1417/chapter_12009.html
+    - [html] The Breakdown of Alcohol by the Body -> сontent/ib7ddc073-af51-4d55-af05-3050a838decd/Content/book_1417/chapter_12010.html
+    - [html] Behavioral Effects of Alcohol Consumption -> сontent/i308b5599-08d0-4eae-851b-a20de4c7a092/Content/book_1417/chapter_12011.html
+    - [html] The Drunkometer -> сontent/ie400334c-7162-4600-b3f3-f341d5dc39e3/Content/book_1417/chapter_12012.html
+    - [html] Lesson 2 - The Breathalyzer -> сontent/i62193d4d-642f-42e4-9055-a182d989d8be/Content/book_1417/chapter_12013.html
+    - [html] The Breathalyzer -> сontent/i7c28a6cf-9418-4bcb-849b-8ae4d26e1ba3/Content/book_1417/chapter_12014.html
+    - [html] Determining BAC -> сontent/ie628f048-15ec-445c-adf8-77ff7c591aae/Content/book_1417/chapter_12015.html
+    - [html] Drawbacks to The Breathalyzer -> сontent/ic28f2325-81d0-4f37-ad27-b7256b039ccb/Content/book_1417/chapter_12016.html
+    - [html] The Intoxilyzer & Consequences of Impaired Driving -> сontent/ib8d3d327-12ff-4bfd-82fd-b80ac6183481/Content/book_1417/chapter_12017.html
+    - [html] The Intoxilyzer -> сontent/i6d24cb51-52f6-4a9b-8065-d30e619f26a6/Content/book_1417/chapter_12018.html
+    - [html] Operation of BAC Testing Devices -> сontent/i6cbc2e88-2f07-4d56-93f2-d921a0193630/Content/book_1417/chapter_12019.html
+    - [html] Refusal to Provide a Breath Sample -> сontent/i56adc209-55ac-4897-9106-b794a97c179d/Content/book_1417/chapter_12020.html
+    - [html] Lesson 4 - Criminal Cases Involving Impaired Driving -> сontent/i5e596270-8345-44b2-85ec-7f2112a41913/Content/book_1417/chapter_12021.html
+    - [html] The Drunken Russian Diplomat -> сontent/i0216cc8c-cf1f-4893-aa90-74eb3b43fcda/Content/book_1417/chapter_12022.html
+    - [html] The Death of Princess Diana -> сontent/i2b5fcc4e-bc3b-4fed-ab4c-e39906258b3f/Content/book_1417/chapter_12023.html
+    - [html] Unit Assessments -> сontent/ieca1c862-c709-473e-89df-73127a3c47e8/Content/book_1417/chapter_12266.html
+- [module] 6 Polygraphing and Document Analysis
+  - [assignment] Polygraphing and Forensic Writing Analysis Assignment -> assignment/i5416ee1b-c173-4bcc-80e8-e3c1fae36848/assignment_be6af394-1214-4204-8113-714364f1d5c9.xml
+  - [assignment] Polygraphing and Forensic Writing Case Studies Assignment -> assignment/i545d89a9-d9bd-4555-91b4-35ef6d318388/assignment_2ed7a9ba-d16e-4e5e-bdb0-61b4dd95bf84.xml
+  - [quiz] M6 The Polygraph and Writing Analysis Assessment -> quiz/ibae7c23f-6c67-4b1b-8b38-1501622aa4e6/qti_551f8e26-6682-4b3d-a8da-8e22ebdcf220.xml
+  - [folder] Polygraphing and Document Analysis
+    - [html] Polygraph Testing & Forensic Document Analysis -> сontent/i21fc9773-877f-49ab-893d-c4f7c2c19448/Content/book_1418/chapter_12024.html
+    - [html] Lesson 1 - The Polygraph Instrument -> сontent/ia5c7c2b4-1e9b-4279-9c4e-efd45abb03ae/Content/book_1418/chapter_12025.html
+    - [html] The Human Nervous System -> сontent/ia2ca2ecb-3750-4094-9486-e6e0e2d522ea/Content/book_1418/chapter_12026.html
+    - [html] The Sympathetic Nervous System -> сontent/ic94b2b09-e90f-495d-9084-0cb905e08fe8/Content/book_1418/chapter_12027.html
+    - [html] The Invention of the Polygraph -> сontent/i38c48eab-1542-4f6d-8852-1d3643a3d094/Content/book_1418/chapter_12028.html
+    - [html] Polograph Data -> сontent/ieede7310-7252-4ea7-b239-ae98402ce479/Content/book_1418/chapter_12029.html
+    - [html] Lesson 2 - The Polygraph Exam -> сontent/ieb74262a-13e6-4bcb-b504-562d8053d730/Content/book_1418/chapter_12030.html
+    - [html] Phases of the Exam -> сontent/i3ef76257-9096-4f62-8f92-b296e1386cc9/Content/book_1418/chapter_12031.html
+    - [html] Phases of the Exam II -> сontent/i8edf298b-e9ff-4bb0-89de-dbf1e5e2f7a4/Content/book_1418/chapter_12032.html
+    - [html] Polygraph Readings -> сontent/i389226fa-4098-4e3b-8744-dffc641fac3a/Content/book_1418/chapter_12033.html
+    - [html] Polygraph Examinar Training -> сontent/i8c6713da-9c8b-41e3-8877-5889ba9d71a2/Content/book_1418/chapter_12034.html
+    - [html] Case Study - The JonBenet Ramsey Case -> сontent/i3c41cc47-cbc8-40f2-8763-d225cbee3378/Content/book_1418/chapter_12035.html
+    - [html] Lesson 3 - Forensic Writing Analysis -> сontent/i0f26b308-575d-4298-b45e-2b628913bd42/Content/book_1418/chapter_12036.html
+    - [html] Graphology -> сontent/i88bfb601-8b90-4e70-beb3-9bbfc67f6212/Content/book_1418/chapter_12037.html
+    - [html] Writing Style -> сontent/i6a149735-6b5b-48e0-a47a-95549fa6faa9/Content/book_1418/chapter_12038.html
+    - [html] Document Criminal Profiling -> сontent/iebace7d3-648a-4ec1-a080-ddfcef46a54d/Content/book_1418/chapter_12039.html
+    - [html] Case Study - The 9/11 Letters -> сontent/i00a14084-6c73-4470-8732-7f5422e60dfe/Content/book_1418/chapter_12040.html
+    - [html] Chromatography -> сontent/i2bc0fb46-6a9c-45e6-9505-39ec39daa7cd/Content/book_1418/chapter_12041.html
+    - [html] Lesson 4 Polygraphing & Writing Analysis Case Studies -> сontent/i28f50839-9318-4d75-bd15-457ab3d3cc04/Content/book_1418/chapter_12042.html
+    - [html] Susan Smith -> сontent/i9de295d9-d55b-4a60-ac4a-1e9ca89e7f72/Content/book_1418/chapter_12043.html
+    - [html] The Lindbergh Baby -> сontent/i7d5f46b8-ccf0-4b56-a4a6-c2c0fa7a94aa/Content/book_1418/chapter_12044.html
+    - [html] Unit Assessments -> сontent/ie5b53cfb-42a4-4b54-9c00-95598a5e4fbf/Content/book_1418/chapter_12267.html
+- [module] 7 Forensic Genetics
+  - [assignment] Forensic DNA Evidence Assignment -> assignment/iab670b44-d54f-4cb2-b05f-3a4159f485cb/assignment_b6123174-aa7b-484e-a261-e2c6b8664d06.xml
+  - [quiz] M7 Forensic Genetics Assessment -> quiz/if2023d59-0710-42dd-b018-74b36116bbbc/qti_46edd57d-5104-4ccd-a042-91f57b9a12c2.xml
+  - [folder] Forensic Genetics
+    - [html] Forensic Genetics -> сontent/i5ab5b8bc-ea65-480c-9da5-effe6a5367a6/Content/book_1419/chapter_12045.html
+    - [html] Lesson 1 DNA -> сontent/i5d4f2f7c-e59a-46c8-9c32-c75ed83f90e6/Content/book_1419/chapter_12046.html
+    - [html] The Cell -> сontent/if7f77bcb-3fd8-4082-8c3f-1846bd6ab392/Content/book_1419/chapter_12047.html
+    - [html] DNA -> сontent/i71043ac1-3088-4bee-bbd4-206b7b84385f/Content/book_1419/chapter_12048.html
+    - [html] DNA Analysis -> сontent/i4f858c22-ca10-4f32-93ce-ceffae7d291a/Content/book_1419/chapter_12049.html
+    - [html] RFLP vs PCR -> сontent/i0f9723f9-0ae9-4109-a1ef-5ff80cae7681/Content/book_1419/chapter_12050.html
+    - [html] RFLP Step-by-Step -> сontent/i9af372bf-bd8b-4b30-bfb5-f143a26fd95a/Content/book_1419/chapter_12051.html
+    - [html] Lesson 2 mtDNA -> сontent/i17dc985a-a256-48e6-ac53-7d6e6be9945e/Content/book_1419/chapter_12052.html
+    - [html] Mitochondrial DNA -> сontent/i148eaf13-e685-4f16-b445-643f7511fbf0/Content/book_1419/chapter_12053.html
+    - [html] mtDNA vs. nuclear DNA -> сontent/ic0d89ebf-700c-4baa-a78d-5f8f50f59d3c/Content/book_1419/chapter_12054.html
+    - [html] Case Study - Unknown Soldiers -> сontent/i864f0f6f-54b2-4d9d-aae2-cc3872177ec8/Content/book_1419/chapter_12055.html
+    - [html] Case Study: 9-11 -> сontent/i16157390-e22b-49f6-b519-ab6887cba9b3/Content/book_1419/chapter_12056.html
+    - [html] Lesson 3 - DNA Profiling and Population Frequency -> сontent/i533446d7-727a-47e8-80c9-77dec9de40e8/Content/book_1419/chapter_12057.html
+    - [html] Population Frequency -> сontent/ida124b68-5b7d-43eb-aa93-2ca97b516eb9/Content/book_1419/chapter_12058.html
+    - [html] Probability Ratios -> сontent/iff6599cd-22b5-4ddb-9dd8-588b092451ba/Content/book_1419/chapter_12059.html
+    - [html] DNA Matching -> сontent/i72306f28-aaf6-4150-a663-00ad493b2588/Content/book_1419/chapter_12060.html
+    - [html] DNA & The Law -> сontent/i73921e7a-03fe-4d7e-991e-0209b5fd9ec8/Content/book_1419/chapter_12061.html
+    - [html] Case Study - OJ Simpson -> сontent/i42d255ea-4a86-47e1-9752-2824b5a18232/Content/book_1419/chapter_12062.html
+    - [html] Lesson 4 - Forensic Genetics Case Studies -> сontent/id02bf765-6520-4f5c-8952-f223950c5123/Content/book_1419/chapter_12063.html
+    - [html] Punky Gustavson -> сontent/i2d953e88-05b7-46e8-ab99-8bbdc6aa7e88/Content/book_1419/chapter_12064.html
+    - [html] A Case of Wrongful Conviction -> сontent/i8fca4d43-9030-4991-9ce9-e078260f3c51/Content/book_1419/chapter_12065.html
+    - [html] Unit Assessments -> сontent/i00aa5552-393f-4865-a8aa-b1cc8ab39953/Content/book_1419/chapter_12268.html
+- [module] 8 Careers in Forensic Science
+  - [assignment] Careers in Forensic Science Assignment -> assignment/i24fee453-9acd-4444-8071-e09f3820538b/assignment_08f87e49-036a-44cd-83ce-c62f268fd692.xml
+  - [lesson] Careers in Forensic Science
+- [module] FINAL EXAM
+  - [quiz] Final Exam -> quiz/iff8bcc71-7b4c-4375-97b0-34578e035807/qti_4632d8f3-6ca3-4b63-b1da-7529406b7280.xml
+  - [lesson] Final Exam Instructions
+- [module] Extra Credits
+  - [quiz] Student Centred Learning Self Reflection -> quiz/if6c0c29f-ed1a-455a-bc1b-2d0cf76d2723/qti_8b1686f5-fbce-4017-9acf-5954776ae9e7.xml
+- [module] Teacher Resources (KEEP HIDDEN)
+  - [pdf] Forensic Science 25 Answer Keys -> сontent/ie0299797-cf54-494f-af1d-80d66242ee26/Forensic Science 25 Answer Keys.pdf

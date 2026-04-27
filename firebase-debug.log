@@ -341,3 +341,62 @@
 [debug] [2026-04-21T21:33:31.928Z] Checked if tokens are valid: true, expires at: 1776810548684
 [debug] [2026-04-21T21:33:31.929Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/calm-module-one:searchApps pageSize=100
 [debug] [2026-04-21T21:33:32.323Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/calm-module-one:searchApps 200
+[debug] [2026-04-22T19:22:28.326Z] ----------------------------------------------------------------------
+[debug] [2026-04-22T19:22:28.328Z] Command:       C:\Users\dean.guedo\AppData\Local\Microsoft\WinGet\Packages\OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe\node-v24.13.1-win-x64\node.exe C:\Users\dean.guedo\AppData\Local\Microsoft\WinGet\Packages\OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe\node-v24.13.1-win-x64\node_modules\firebase-tools\lib\bin\firebase.js hosting:sites:list --project calm-module-one --json --non-interactive
+[debug] [2026-04-22T19:22:28.328Z] CLI Version:   15.9.1
+[debug] [2026-04-22T19:22:28.328Z] Platform:      win32
+[debug] [2026-04-22T19:22:28.328Z] Node Version:  v24.13.1
+[debug] [2026-04-22T19:22:28.328Z] Time:          Wed Apr 22 2026 13:22:28 GMT-0600 (Mountain Daylight Time)
+[debug] [2026-04-22T19:22:28.328Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-04-22T19:22:28.515Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-04-22T19:22:28.515Z] > authorizing via signed-in user (dean.guedo@eips.ca)
+[debug] [2026-04-22T19:22:28.516Z] [iam] checking project calm-module-one for permissions ["firebase.projects.get","firebasehosting.sites.get"]
+[debug] [2026-04-22T19:22:28.517Z] Checked if tokens are valid: false, expires at: 1776810548684
+[debug] [2026-04-22T19:22:28.517Z] Checked if tokens are valid: false, expires at: 1776810548684
+[debug] [2026-04-22T19:22:28.517Z] > refreshing access token with scopes: []
+[debug] [2026-04-22T19:22:28.518Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-04-22T19:22:28.518Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-04-22T19:22:28.838Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-04-22T19:22:28.839Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-04-22T19:22:28.856Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/calm-module-one:testIamPermissions [none]
+[debug] [2026-04-22T19:22:28.856Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/calm-module-one:testIamPermissions  x-goog-user-project=calm-module-one
+[debug] [2026-04-22T19:22:28.856Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/calm-module-one:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.get"]}
+[debug] [2026-04-22T19:22:29.376Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/calm-module-one:testIamPermissions 200
+[debug] [2026-04-22T19:22:29.376Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/calm-module-one:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.get"]}
+[debug] [2026-04-22T19:22:29.376Z] Checked if tokens are valid: true, expires at: 1776889347839
+[debug] [2026-04-22T19:22:29.376Z] Checked if tokens are valid: true, expires at: 1776889347839
+[debug] [2026-04-22T19:22:29.377Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/calm-module-one/sites pageToken=&pageSize=10
+[debug] [2026-04-22T19:22:30.380Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/calm-module-one/sites 200
+[debug] [2026-04-22T19:22:30.380Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/calm-module-one/sites {"sites":[{"name":"projects/calm-module-one/sites/calm-module-one","defaultUrl":"https://calm-module-one.web.app","appId":"1:217802069551:web:c69255ec9afd3258a798da","type":"DEFAULT_SITE"},{"name":"projects/calm-module-one/sites/calm-module-one-3a6b7","defaultUrl":"https://calm-module-one-3a6b7.web.app","appId":"1:217802069551:web:673dcff84a4818eca798da","type":"USER_SITE"},{"name":"projects/calm-module-one/sites/calm-module-one-74850","defaultUrl":"https://calm-module-one-74850.web.app","appId":"1:217802069551:web:86211a3e765bbf0ba798da","type":"USER_SITE"},{"name":"projects/calm-module-one/sites/calm3new","defaultUrl":"https://calm3new.web.app","type":"USER_SITE"},{"name":"projects/calm-module-one/sites/calmmodule2","defaultUrl":"https://calmmodule2.web.app","type":"USER_SITE"},{"name":"projects/calm-module-one/sites/calmmodule4","defaultUrl":"https://calmmodule4.web.app","appId":"1:217802069551:web:a3f29eafa11200d2a798da","type":"USER_SITE"},{"name":"projects/calm-module-one/sites/experimentalpsychology","defaultUrl":"https://experimentalpsychology.web.app","appId":"1:217802069551:web:37210f4b606b155ca798da","type":"USER_SITE"},{"name":"projects/calm-module-one/sites/forensics25","defaultUrl":"https://forensics25.web.app","type":"USER_SITE"},{"name":"projects/calm-module-one/sites/forensics35","defaultUrl":"https://forensics35.web.app","appId":"1:217802069551:web:6692b9d96485d9c2a798da","type":"USER_SITE"},{"name":"projects/calm-module-one/sites/generalpsychology","defaultUrl":"https://generalpsychology.web.app","appId":"1:217802069551:web:e1d2d45ac0e38546a798da","type":"USER_SITE"}],"nextPageToken":"CK-sj7CrBhIRZ2VuZXJhbHBzeWNob2xvZ3k"}
+[debug] [2026-04-22T19:22:30.381Z] Checked if tokens are valid: true, expires at: 1776889347839
+[debug] [2026-04-22T19:22:30.381Z] Checked if tokens are valid: true, expires at: 1776889347839
+[debug] [2026-04-22T19:22:30.381Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/calm-module-one/sites pageToken=CK-sj7CrBhIRZ2VuZXJhbHBzeWNob2xvZ3k&pageSize=10
+[debug] [2026-04-22T19:22:30.830Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/calm-module-one/sites 200
+[debug] [2026-04-22T19:48:46.937Z] ----------------------------------------------------------------------
+[debug] [2026-04-22T19:48:46.939Z] Command:       C:\Users\dean.guedo\AppData\Local\Microsoft\WinGet\Packages\OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe\node-v24.13.1-win-x64\node.exe C:\Users\dean.guedo\AppData\Local\Microsoft\WinGet\Packages\OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe\node-v24.13.1-win-x64\node_modules\firebase-tools\lib\bin\firebase.js hosting:sites:list --project calm-module-one
+[debug] [2026-04-22T19:48:46.939Z] CLI Version:   15.9.1
+[debug] [2026-04-22T19:48:46.939Z] Platform:      win32
+[debug] [2026-04-22T19:48:46.939Z] Node Version:  v24.13.1
+[debug] [2026-04-22T19:48:46.939Z] Time:          Wed Apr 22 2026 13:48:46 GMT-0600 (Mountain Daylight Time)
+[debug] [2026-04-22T19:48:46.939Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-04-22T19:48:47.094Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-04-22T19:48:47.095Z] > authorizing via signed-in user (dean.guedo@eips.ca)
+[debug] [2026-04-22T19:48:47.095Z] [iam] checking project calm-module-one for permissions ["firebase.projects.get","firebasehosting.sites.get"]
+[debug] [2026-04-22T19:48:47.097Z] Checked if tokens are valid: true, expires at: 1776889347839
+[debug] [2026-04-22T19:48:47.098Z] Checked if tokens are valid: true, expires at: 1776889347839
+[debug] [2026-04-22T19:48:47.098Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/calm-module-one:testIamPermissions [none]
+[debug] [2026-04-22T19:48:47.099Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/calm-module-one:testIamPermissions  x-goog-user-project=calm-module-one
+[debug] [2026-04-22T19:48:47.099Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/calm-module-one:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.get"]}
+[debug] [2026-04-22T19:48:47.591Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/calm-module-one:testIamPermissions 200
+[debug] [2026-04-22T19:48:47.591Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/calm-module-one:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.get"]}
+[debug] [2026-04-22T19:48:47.591Z] Checked if tokens are valid: true, expires at: 1776889347839
+[debug] [2026-04-22T19:48:47.591Z] Checked if tokens are valid: true, expires at: 1776889347839
+[debug] [2026-04-22T19:48:47.592Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/calm-module-one/sites pageToken=&pageSize=10
+[debug] [2026-04-22T19:48:48.536Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/calm-module-one/sites 200
+[debug] [2026-04-22T19:48:48.536Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/calm-module-one/sites {"sites":[{"name":"projects/calm-module-one/sites/calm-module-one","defaultUrl":"https://calm-module-one.web.app","appId":"1:217802069551:web:c69255ec9afd3258a798da","type":"DEFAULT_SITE"},{"name":"projects/calm-module-one/sites/calm-module-one-3a6b7","defaultUrl":"https://calm-module-one-3a6b7.web.app","appId":"1:217802069551:web:673dcff84a4818eca798da","type":"USER_SITE"},{"name":"projects/calm-module-one/sites/calm-module-one-74850","defaultUrl":"https://calm-module-one-74850.web.app","appId":"1:217802069551:web:86211a3e765bbf0ba798da","type":"USER_SITE"},{"name":"projects/calm-module-one/sites/calm3new","defaultUrl":"https://calm3new.web.app","type":"USER_SITE"},{"name":"projects/calm-module-one/sites/calmmodule2","defaultUrl":"https://calmmodule2.web.app","type":"USER_SITE"},{"name":"projects/calm-module-one/sites/calmmodule4","defaultUrl":"https://calmmodule4.web.app","appId":"1:217802069551:web:a3f29eafa11200d2a798da","type":"USER_SITE"},{"name":"projects/calm-module-one/sites/experimentalpsychology","defaultUrl":"https://experimentalpsychology.web.app","appId":"1:217802069551:web:37210f4b606b155ca798da","type":"USER_SITE"},{"name":"projects/calm-module-one/sites/forensics25","defaultUrl":"https://forensics25.web.app","type":"USER_SITE"},{"name":"projects/calm-module-one/sites/forensics35","defaultUrl":"https://forensics35.web.app","appId":"1:217802069551:web:6692b9d96485d9c2a798da","type":"USER_SITE"},{"name":"projects/calm-module-one/sites/generalpsychology","defaultUrl":"https://generalpsychology.web.app","appId":"1:217802069551:web:e1d2d45ac0e38546a798da","type":"USER_SITE"}],"nextPageToken":"CK-sj7CrBhIRZ2VuZXJhbHBzeWNob2xvZ3k"}
+[debug] [2026-04-22T19:48:48.536Z] Checked if tokens are valid: true, expires at: 1776889347839
+[debug] [2026-04-22T19:48:48.536Z] Checked if tokens are valid: true, expires at: 1776889347839
+[debug] [2026-04-22T19:48:48.536Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/calm-module-one/sites pageToken=CK-sj7CrBhIRZ2VuZXJhbHBzeWNob2xvZ3k&pageSize=10
+[debug] [2026-04-22T19:48:49.037Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/calm-module-one/sites 200

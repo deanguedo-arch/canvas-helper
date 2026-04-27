@@ -48,6 +48,12 @@ const STUDIO_COMMAND_SPECS = [
     args: ["run", "export:google-hosted", "--", "--project", "{slug}"]
   },
   {
+    id: "appsScript",
+    label: "Apps Script",
+    refreshProjects: true,
+    args: ["run", "export:apps-script", "--", "--project", "{slug}"]
+  },
+  {
     id: "html",
     label: "HTML",
     refreshProjects: true,
