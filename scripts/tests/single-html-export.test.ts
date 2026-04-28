@@ -40,6 +40,7 @@ test("single html export recursively inlines local iframe pages and JS-held work
         <body>
           <img src="./poster.png" alt="poster" />
           <iframe src="./child.html" title="child"></iframe>
+          <a href="./docs/manual.pdf" data-inline-asset>Manual</a>
           <script src="./main.js"></script>
         </body>
       </html>`
@@ -67,6 +68,8 @@ document.body.append(runtimeLoader);`
       <html>
         <body>
           <img src="./images/child-image.png" alt="child" />
+          <video controls src="./media/intro.mp4" poster="./images/video-poster.png"></video>
+          <audio controls src="./media/narration.mp3"></audio>
           <script src="./child.js"></script>
         </body>
       </html>`
@@ -90,8 +93,12 @@ document.body.append(runtimeLoader);`
     await writeFixtureFile(workspaceDir, "images/cover.png", "cover-binary");
     await writeFixtureFile(workspaceDir, "images/child-image.png", "child-image-binary");
     await writeFixtureFile(workspaceDir, "images/child-script-image.png", "child-script-binary");
+    await writeFixtureFile(workspaceDir, "images/video-poster.png", "video-poster-binary");
     await writeFixtureFile(workspaceDir, "images/runtime-image.png", "runtime-image-binary");
+    await writeFixtureFile(workspaceDir, "media/intro.mp4", "intro-video-binary");
+    await writeFixtureFile(workspaceDir, "media/narration.mp3", "narration-audio-binary");
     await writeFixtureFile(workspaceDir, "docs/guide.pdf", "guide-pdf-binary");
+    await writeFixtureFile(workspaceDir, "docs/manual.pdf", "manual-pdf-binary");
     await writeFixtureFile(workspaceDir, "docs/runtime-guide.pdf", "runtime-guide-binary");
 
     const entrypointPath = path.join(workspaceDir, "index.html");
@@ -101,7 +108,9 @@ document.body.append(runtimeLoader);`
     assert.doesNotMatch(html, /\.\/runtime\/runtime\.html/);
     assert.doesNotMatch(html, /\.\/runtime\/runtime\.js/);
     assert.doesNotMatch(html, /\.\/docs\/guide\.pdf/);
+    assert.doesNotMatch(html, /\.\/docs\/manual\.pdf/);
     assert.match(html, /data:text\/html/);
+    assert.match(html, /data:application\/pdf;base64,bWFudWFsLXBkZi1iaW5hcnk=/);
     assert.match(html, /data:image\/png/);
     assert.match(html, /window\.__CH_ASSET__/);
     assert.match(html, /const guidePdf = window\.__CH_ASSET__\(/);
@@ -118,7 +127,11 @@ document.body.append(runtimeLoader);`
 
     const decodedChildHtml = decodeDataUri(iframeMatch[1]);
     assert.match(decodedChildHtml, /data:image\/png/);
+    assert.match(decodedChildHtml, /data:video\/mp4/);
+    assert.match(decodedChildHtml, /data:audio\/mpeg/);
     assert.doesNotMatch(decodedChildHtml, /\.\/images\/child-image\.png/);
+    assert.doesNotMatch(decodedChildHtml, /\.\/media\/intro\.mp4/);
+    assert.doesNotMatch(decodedChildHtml, /\.\/media\/narration\.mp3/);
     assert.doesNotMatch(decodedChildHtml, /<script[^>]+src="\.\/*child\.js"/i);
   } finally {
     await rm(workspaceDir, { recursive: true, force: true });

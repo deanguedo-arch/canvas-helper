@@ -1,7 +1,7 @@
 # Authoring Deviation Report
 
 - Project: ai-course-building-resources
-- Generated: 2026-04-28T17:06:11.644Z
+- Generated: 2026-04-28T20:05:17.874Z
 - Pass: yes
 - Deviations: 1
 - Accepted deviations: 0
@@ -11,7 +11,7 @@
 ### require-interactive-shell
 - Severity: warn
 - Surface: export
-- Location: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\ai-course-building-resources\workspace\index.html
+- Location: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\ai-course-building-resources\exports\google-hosted\index.html
 - Why: Required pattern "lesson-shell" is missing.
 - Evidence: Missing pattern: lesson-shell
 

@@ -22,9 +22,19 @@
   "canonicalSources": [
     "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ai-course-building-resources\\workspace\\index.html",
     "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ai-course-building-resources\\workspace\\resources\\dean-ai-assessment-pillars.html",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ai-course-building-resources\\workspace\\resources\\jon-ai-resource.html"
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ai-course-building-resources\\workspace\\resources\\jon-ai-resource.html",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ai-course-building-resources\\workspace\\resources\\media\\ai-assessment-framework.mp4",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ai-course-building-resources\\workspace\\resources\\decks\\ai-assessment-blueprint.pdf",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ai-course-building-resources\\workspace\\resources\\decks\\ai-assessment-blueprint.pptx",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ai-course-building-resources\\workspace\\resources\\decks\\assessment-integrity-architecture.pdf",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ai-course-building-resources\\workspace\\resources\\decks\\assessment-integrity-architecture.pptx",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ai-course-building-resources\\workspace\\resources\\decks\\ai-permit.pdf",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ai-course-building-resources\\workspace\\resources\\decks\\ai-permit.pptx"
   ],
-  "generatedOutputs": [],
+  "generatedOutputs": [
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ai-course-building-resources\\workspace\\resources\\decks\\*/slide-*.jpg"
+  ],
+  "regenerateCommand": "Use PowerPoint COM export from the preserved PPTX files in workspace/resources/decks/ to regenerate 1440x810 JPG slide previews.",
   "injectedComponents": [],
   "importedFirstPassOrigin": {
     "sourceSystem": "manual",
@@ -37,12 +47,22 @@
       "target": "html",
       "enabled": true,
       "notes": "Primary teacher-facing meeting package as one standalone HTML file."
+    },
+    {
+      "target": "google-hosted",
+      "enabled": true,
+      "notes": "Firebase Hosted digital presentation at https://digitalpresentation.web.app."
     }
   ],
+  "googleHosted": {
+    "trackedStorageKeys": [
+      "ai-course-building-resources::workspace-state::v1"
+    ]
+  },
   "authoringStatus": "active",
   "referenceOnly": [],
-  "sourceOfTruthNotes": "Edit workspace/index.html only for package navigation. The resource HTML files are canonical preserved copies of the original pages and should stay unabridged unless hosting/export mechanics require a targeted path fix.",
+  "sourceOfTruthNotes": "Edit workspace/index.html only for package navigation. The resource HTML files are canonical preserved copies of the original pages and should stay unabridged unless hosting/export mechanics require a targeted path fix. The PPTX files are the preserved presentation sources; PDF downloads and JPG slide previews are generated browser-viewing companions.",
   "createdAt": "2026-04-28T16:20:00.000Z",
-  "updatedAt": "2026-04-28T17:06:11.699Z",
-  "workspaceApprovedAt": "2026-04-28T17:06:11.699Z"
+  "updatedAt": "2026-04-28T20:05:17.027Z",
+  "workspaceApprovedAt": "2026-04-28T20:05:17.027Z"
 }

@@ -157,7 +157,7 @@
         <iframe
           data-testid="resource-frame"
           title="DEANAIASSESSMENTPILLARS"
-          src="./resources/dean-ai-assessment-pillars.html"
+          src="about:blank"
         ></iframe>
       </section>
     </main>
@@ -197,6 +197,8 @@
         for (const button of buttons) {
           button.addEventListener("click", () => selectResource(button.dataset.resourceTarget));
         }
+
+        selectResource("assessment");
       })();
     </script>
   </body>

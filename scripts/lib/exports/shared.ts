@@ -470,10 +470,12 @@ async function buildStandaloneHtmlDocument(
     { selector: "img[src]", attribute: "src" },
     { selector: "source[src]", attribute: "src" },
     { selector: "audio[src]", attribute: "src" },
+    { selector: "video[src]", attribute: "src" },
     { selector: "video[poster]", attribute: "poster" },
     { selector: "iframe[src]", attribute: "src" },
     { selector: "embed[src]", attribute: "src" },
     { selector: "object[data]", attribute: "data" },
+    { selector: "a[data-inline-asset][href]", attribute: "href" },
     { selector: "link[rel='icon'][href]", attribute: "href" }
   ];
 
