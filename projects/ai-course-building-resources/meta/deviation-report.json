@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "ai-course-building-resources",
+  "generatedAt": "2026-04-28T17:06:11.644Z",
+  "pass": true,
+  "deviations": [
+    {
+      "ruleId": "require-interactive-shell",
+      "severity": "warn",
+      "surface": "export",
+      "location": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ai-course-building-resources\\workspace\\index.html",
+      "why": "Required pattern \"lesson-shell\" is missing.",
+      "evidence": "Missing pattern: lesson-shell"
+    }
+  ],
+  "acceptedDeviations": []
+}

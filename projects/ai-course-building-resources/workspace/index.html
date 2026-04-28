@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Course Building Resources</title>
+    <link rel="icon" href="data:," />
+    <style>
+      :root {
+        color-scheme: light;
+        --switch-bg: #07131f;
+        --switch-border: #2c4468;
+        --switch-text: #dbeafe;
+        --switch-muted: #91a7c7;
+        --switch-active-bg: #2563eb;
+        --switch-active-text: #ffffff;
+        --switch-focus: #f5c451;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+      }
+
+      body {
+        margin: 0;
+        background: #0f172a;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+      }
+
+      body[data-active-resource="assessment"] {
+        --switch-bg: #07131f;
+        --switch-border: #254060;
+        --switch-text: #dbeafe;
+        --switch-muted: #9fb4d6;
+        --switch-active-bg: #2563eb;
+        --switch-active-text: #ffffff;
+        --switch-focus: #f0b84d;
+      }
+
+      body[data-active-resource="ai-resources"] {
+        --switch-bg: #111827;
+        --switch-border: #374151;
+        --switch-text: #e5e7eb;
+        --switch-muted: #a5b4fc;
+        --switch-active-bg: #4f46e5;
+        --switch-active-text: #ffffff;
+        --switch-focus: #22c55e;
+      }
+
+      .app {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-rows: 50px minmax(0, 1fr);
+        overflow: hidden;
+      }
+
+      .switcher-bar {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        min-width: 0;
+        padding: 7px 14px;
+        border-bottom: 1px solid var(--switch-border);
+        background: var(--switch-bg);
+      }
+
+      .resource-switcher {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        min-width: 0;
+        color: var(--switch-text);
+      }
+
+      .resource-switcher button {
+        appearance: none;
+        min-height: 34px;
+        border: 1px solid transparent;
+        border-radius: 6px;
+        background: transparent;
+        color: var(--switch-muted);
+        cursor: pointer;
+        font: inherit;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0;
+        line-height: 1;
+        padding: 0 12px;
+        white-space: nowrap;
+      }
+
+      .resource-switcher button:hover {
+        color: var(--switch-text);
+        border-color: var(--switch-border);
+      }
+
+      .resource-switcher button:focus-visible {
+        outline: 2px solid var(--switch-focus);
+        outline-offset: 2px;
+      }
+
+      .resource-switcher button[aria-pressed="true"] {
+        background: var(--switch-active-bg);
+        border-color: var(--switch-active-bg);
+        color: var(--switch-active-text);
+      }
+
+      .frame-wrap,
+      iframe {
+        width: 100%;
+        height: 100%;
+      }
+
+      .frame-wrap {
+        overflow: hidden;
+      }
+
+      iframe {
+        display: block;
+        border: 0;
+        background: #ffffff;
+      }
+
+      @media (max-width: 620px) {
+        .app {
+          grid-template-rows: 52px minmax(0, 1fr);
+        }
+
+        .switcher-bar {
+          padding: 8px 10px;
+        }
+
+        .resource-switcher button {
+          flex: 1;
+          padding: 0 8px;
+        }
+      }
+    </style>
+  </head>
+  <body data-active-resource="assessment">
+    <main class="app">
+      <header class="switcher-bar">
+        <nav class="resource-switcher" aria-label="Resource selector" data-testid="resource-selector">
+          <button type="button" data-resource-target="assessment" aria-pressed="true">Assessment Pillars</button>
+          <button type="button" data-resource-target="ai-resources" aria-pressed="false">AI-Resources</button>
+        </nav>
+      </header>
+
+      <section class="frame-wrap" aria-label="Selected resource">
+        <iframe
+          data-testid="resource-frame"
+          title="DEANAIASSESSMENTPILLARS"
+          src="./resources/dean-ai-assessment-pillars.html"
+        ></iframe>
+      </section>
+    </main>
+
+    <script>
+      (() => {
+        const resources = {
+          assessment: {
+            title: "DEANAIASSESSMENTPILLARS",
+            path: "./resources/dean-ai-assessment-pillars.html",
+            theme: "assessment"
+          },
+          "ai-resources": {
+            title: "JONAIRESOURCE",
+            path: "./resources/jon-ai-resource.html",
+            theme: "ai-resources"
+          }
+        };
+
+        const frame = document.querySelector('[data-testid="resource-frame"]');
+        const buttons = Array.from(document.querySelectorAll("[data-resource-target]"));
+
+        function selectResource(key) {
+          const resource = resources[key];
+          if (!resource || !frame) {
+            return;
+          }
+
+          document.body.dataset.activeResource = resource.theme;
+          frame.src = resource.path;
+          frame.title = resource.title;
+          for (const button of buttons) {
+            button.setAttribute("aria-pressed", String(button.dataset.resourceTarget === key));
+          }
+        }
+
+        for (const button of buttons) {
+          button.addEventListener("click", () => selectResource(button.dataset.resourceTarget));
+        }
+      })();
+    </script>
+  </body>
+</html>

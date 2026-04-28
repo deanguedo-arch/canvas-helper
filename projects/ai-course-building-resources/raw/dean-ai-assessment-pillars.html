@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html class="dark scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Executive Hub - Assessment Integrity Architecture</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- THEME VARIABLES --- */
+        :root {
+            /* Light Mode Color Palette */
+            --color-surface: 255 255 255;
+            --color-on-surface: 15 23 42;
+            --color-on-surface-variant: 71 85 105;
+            --color-surface-container-lowest: 255 255 255;
+            --color-surface-container-low: 248 250 252;
+            --color-surface-container: 241 245 249;
+            --color-surface-container-high: 226 232 240;
+            --color-surface-container-highest: 203 213 225;
+            --color-surface-variant: 226 232 240;
+            --color-outline: 148 163 184;
+            --color-outline-variant: 203 213 225;
+            
+            --color-primary: 37 99 235;
+            --color-on-primary: 255 255 255;
+            --color-primary-container: 219 234 254;
+            --color-primary-fixed: 219 234 254;
+            --color-primary-fixed-dim: 147 197 253;
+            --color-inverse-primary: 191 219 254;
+            
+            --color-secondary: 13 148 136;
+            --color-on-secondary: 255 255 255;
+            --color-secondary-container: 204 251 241;
+            --color-secondary-fixed: 204 251 241;
+            --color-secondary-fixed-dim: 94 234 212;
+            
+            --color-tertiary: 217 119 6;
+            --color-on-tertiary: 255 255 255;
+            --color-tertiary-container: 254 243 199;
+            --color-tertiary-fixed: 254 243 199;
+            --color-tertiary-fixed-dim: 253 230 138;
+            
+            --color-error: 220 38 38;
+            --color-on-error: 255 255 255;
+            --color-error-container: 254 226 226;
+            --color-on-error-container: 153 27 27;
+            
+            --color-on-primary-container: 30 58 138;
+            --color-on-background: 15 23 42;
+            --color-on-tertiary-container: 120 53 15;
+            --color-on-secondary-fixed: 19 78 74;
+            --color-inverse-on-surface: 241 245 249;
+            --color-on-primary-fixed: 30 58 138;
+            --color-surface-dim: 248 250 252;
+            --color-inverse-surface: 15 23 42;
+            --color-surface-bright: 255 255 255;
+            --color-on-tertiary-fixed: 120 53 15;
+            --color-on-primary-fixed-variant: 29 78 216;
+            --color-surface-tint: 37 99 235;
+            --color-background: 255 255 255;
+            --color-on-secondary-container: 15 118 110;
+            --color-on-secondary-fixed-variant: 15 118 110;
+            --color-on-tertiary-fixed-variant: 146 64 14;
+        }
+
+        .dark {
+            /* Dark Mode Color Palette (from DESIGN.md) */
+            --color-on-surface-variant: 194 198 214;
+            --color-on-surface: 220 225 251;
+            --color-outline: 140 144 159;
+            --color-on-tertiary: 71 42 0;
+            --color-surface: 12 19 36;
+            --color-primary-fixed-dim: 173 198 255;
+            --color-on-primary-container: 0 40 93;
+            --color-secondary-fixed: 113 248 228;
+            --color-on-background: 220 225 251;
+            --color-on-tertiary-container: 62 36 0;
+            --color-primary-container: 77 142 255;
+            --color-primary-fixed: 216 226 255;
+            --color-on-secondary-fixed: 0 32 28;
+            --color-surface-container-highest: 46 52 71;
+            --color-tertiary: 255 185 95;
+            --color-inverse-on-surface: 42 48 67;
+            --color-secondary-container: 4 180 162;
+            --color-on-error-container: 255 218 214;
+            --color-on-primary-fixed: 0 26 66;
+            --color-surface-dim: 12 19 36;
+            --color-on-error: 105 0 5;
+            --color-inverse-surface: 220 225 251;
+            --color-surface-bright: 51 57 76;
+            --color-on-primary: 0 46 106;
+            --color-on-tertiary-fixed: 42 23 0;
+            --color-error-container: 147 0 10;
+            --color-inverse-primary: 0 90 194;
+            --color-surface-container-low: 21 27 45;
+            --color-surface-container: 25 31 49;
+            --color-tertiary-container: 202 129 0;
+            --color-on-primary-fixed-variant: 0 67 149;
+            --color-surface-variant: 46 52 71;
+            --color-surface-tint: 173 198 255;
+            --color-secondary: 79 219 200;
+            --color-surface-container-lowest: 7 13 31;
+            --color-secondary-fixed-dim: 79 219 200;
+            --color-background: 12 19 36;
+            --color-on-secondary-container: 0 63 56;
+            --color-tertiary-fixed: 255 221 184;
+            --color-on-secondary-fixed-variant: 0 80 72;
+            --color-error: 255 180 171;
+            --color-on-tertiary-fixed-variant: 101 62 0;
+            --color-outline-variant: 66 71 84;
+            --color-on-secondary: 0 55 49;
+            --color-primary: 173 198 255;
+            --color-surface-container-high: 35 41 60;
+            --color-tertiary-fixed-dim: 255 185 95;
+        }
+
+        /* Accordion Transitions */
+        .accordion-content {
+            transition: max-height 0.3s ease-in-out, padding 0.3s ease, opacity 0.3s ease;
+            max-height: 0;
+            overflow: hidden;
+            padding-top: 0;
+            padding-bottom: 0;
+            opacity: 0;
+        }
+        .accordion-content.open {
+            max-height: 800px;
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+            opacity: 1;
+        }
+        .accordion-icon {
+            transition: transform 0.3s ease;
+        }
+        .accordion-icon.open {
+            transform: rotate(180deg);
+        }
+
+        /* Flip Card CSS */
+        .flip-card {
+            perspective: 1000px;
+        }
+        .flip-card-inner {
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            backface-visibility: hidden;
+        }
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
+
+        /* Presentation Mode CSS */
+        body.presentation-active aside,
+        body.presentation-active header { 
+            display: none !important; 
+        }
+        body.presentation-active main { 
+            margin-left: 0 !important; 
+            padding-top: 0 !important; 
+        }
+        body.presentation-active section { 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            scroll-snap-align: start;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+        body.presentation-active {
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            height: 100vh;
+        }
+        #exit-pres-btn {
+            display: none;
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 9999;
+        }
+        body.presentation-active #exit-pres-btn {
+            display: flex;
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-surface-variant": "rgb(var(--color-on-surface-variant) / <alpha-value>)",
+                        "on-surface": "rgb(var(--color-on-surface) / <alpha-value>)",
+                        "outline": "rgb(var(--color-outline) / <alpha-value>)",
+                        "on-tertiary": "rgb(var(--color-on-tertiary) / <alpha-value>)",
+                        "surface": "rgb(var(--color-surface) / <alpha-value>)",
+                        "primary-fixed-dim": "rgb(var(--color-primary-fixed-dim) / <alpha-value>)",
+                        "on-primary-container": "rgb(var(--color-on-primary-container) / <alpha-value>)",
+                        "secondary-fixed": "rgb(var(--color-secondary-fixed) / <alpha-value>)",
+                        "on-background": "rgb(var(--color-on-background) / <alpha-value>)",
+                        "on-tertiary-container": "rgb(var(--color-on-tertiary-container) / <alpha-value>)",
+                        "primary-container": "rgb(var(--color-primary-container) / <alpha-value>)",
+                        "primary-fixed": "rgb(var(--color-primary-fixed) / <alpha-value>)",
+                        "on-secondary-fixed": "rgb(var(--color-on-secondary-fixed) / <alpha-value>)",
+                        "surface-container-highest": "rgb(var(--color-surface-container-highest) / <alpha-value>)",
+                        "tertiary": "rgb(var(--color-tertiary) / <alpha-value>)",
+                        "inverse-on-surface": "rgb(var(--color-inverse-on-surface) / <alpha-value>)",
+                        "secondary-container": "rgb(var(--color-secondary-container) / <alpha-value>)",
+                        "on-error-container": "rgb(var(--color-on-error-container) / <alpha-value>)",
+                        "on-primary-fixed": "rgb(var(--color-on-primary-fixed) / <alpha-value>)",
+                        "surface-dim": "rgb(var(--color-surface-dim) / <alpha-value>)",
+                        "on-error": "rgb(var(--color-on-error) / <alpha-value>)",
+                        "inverse-surface": "rgb(var(--color-inverse-surface) / <alpha-value>)",
+                        "surface-bright": "rgb(var(--color-surface-bright) / <alpha-value>)",
+                        "on-primary": "rgb(var(--color-on-primary) / <alpha-value>)",
+                        "on-tertiary-fixed": "rgb(var(--color-on-tertiary-fixed) / <alpha-value>)",
+                        "error-container": "rgb(var(--color-error-container) / <alpha-value>)",
+                        "inverse-primary": "rgb(var(--color-inverse-primary) / <alpha-value>)",
+                        "surface-container-low": "rgb(var(--color-surface-container-low) / <alpha-value>)",
+                        "surface-container": "rgb(var(--color-surface-container) / <alpha-value>)",
+                        "tertiary-container": "rgb(var(--color-tertiary-container) / <alpha-value>)",
+                        "on-primary-fixed-variant": "rgb(var(--color-on-primary-fixed-variant) / <alpha-value>)",
+                        "surface-variant": "rgb(var(--color-surface-variant) / <alpha-value>)",
+                        "surface-tint": "rgb(var(--color-surface-tint) / <alpha-value>)",
+                        "secondary": "rgb(var(--color-secondary) / <alpha-value>)",
+                        "surface-container-lowest": "rgb(var(--color-surface-container-lowest) / <alpha-value>)",
+                        "secondary-fixed-dim": "rgb(var(--color-secondary-fixed-dim) / <alpha-value>)",
+                        "background": "rgb(var(--color-background) / <alpha-value>)",
+                        "on-secondary-container": "rgb(var(--color-on-secondary-container) / <alpha-value>)",
+                        "tertiary-fixed": "rgb(var(--color-tertiary-fixed) / <alpha-value>)",
+                        "on-secondary-fixed-variant": "rgb(var(--color-on-secondary-fixed-variant) / <alpha-value>)",
+                        "error": "rgb(var(--color-error) / <alpha-value>)",
+                        "on-tertiary-fixed-variant": "rgb(var(--color-on-tertiary-fixed-variant) / <alpha-value>)",
+                        "outline-variant": "rgb(var(--color-outline-variant) / <alpha-value>)",
+                        "on-secondary": "rgb(var(--color-on-secondary) / <alpha-value>)",
+                        "primary": "rgb(var(--color-primary) / <alpha-value>)",
+                        "surface-container-high": "rgb(var(--color-surface-container-high) / <alpha-value>)",
+                        "tertiary-fixed-dim": "rgb(var(--color-tertiary-fixed-dim) / <alpha-value>)"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-page": "48px",
+                        "stack-md": "16px",
+                        "stack-sm": "8px",
+                        "gutter": "24px",
+                        "base": "4px",
+                        "container-max": "1440px",
+                        "stack-lg": "32px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "h2": ["Inter"],
+                        "display": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-md": ["Inter"],
+                        "mono-metric": ["Inter"],
+                        "h1": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "h2": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "display": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "mono-metric": ["14px", {"lineHeight": "1", "fontWeight": "500"}],
+                        "h1": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen">
+
+<!-- Exit Presentation Button -->
+<button id="exit-pres-btn" onclick="togglePresentationMode()" class="bg-error/20 border border-error/50 hover:bg-error/30 text-error-container px-4 py-3 rounded-full font-bold flex items-center gap-2 shadow-2xl backdrop-blur-md transition-all">
+    <span class="material-symbols-outlined">close_fullscreen</span> Exit Presentation
+</button>
+
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 border-b border-surface-variant bg-surface/80 backdrop-blur-2xl shadow-[0_10px_40px_-15px_rgba(59,130,246,0.15)] tracking-tight">
+    <div class="flex justify-between items-center h-20 px-4 sm:px-8 max-w-[1440px] mx-auto">
+        <div class="flex items-center gap-2 sm:gap-4">
+            <button onclick="toggleSidebar()" class="p-2 -ml-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors flex items-center justify-center cursor-pointer">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+            <span class="text-xl sm:text-2xl font-black tracking-tighter text-white uppercase flex items-center" style="font-family: 'Montserrat', sans-serif;">
+                <span class="hidden md:block">ASSESSMENT INTEGRITY ARCHITECTURE</span>
+                <span class="block md:hidden">A.I.A.</span>
+            </span>
+        </div>
+        <div class="flex items-center gap-3 sm:gap-4">
+            <!-- Theme Toggle Button -->
+            <button onclick="toggleDarkMode()" class="p-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors flex items-center justify-center cursor-pointer" aria-label="Toggle Light/Dark Mode">
+                <span id="theme-icon" class="material-symbols-outlined">light_mode</span>
+            </button>
+            <button onclick="togglePresentationMode()" class="bg-surface-container-high border border-outline-variant hover:bg-surface-container-highest text-on-surface px-3 sm:px-4 py-2 rounded-lg text-sm font-medium transition-colors active:scale-[0.98] flex items-center gap-2">
+                <span class="material-symbols-outlined text-[18px]">present_to_all</span> <span class="hidden xl:inline">Enter Presentation</span>
+            </button>
+            <a href="#board-summary" class="bg-primary hover:bg-primary-container text-on-primary px-4 py-2 rounded-lg text-sm font-medium transition-colors active:scale-[0.98] hidden sm:block">
+                Generate Board Report
+            </a>
+        </div>
+    </div>
+</header>
+
+<!-- SideNavBar -->
+<aside id="sidebar" class="flex flex-col py-6 gap-2 fixed left-0 top-20 h-[calc(100vh-5rem)] w-64 border-r border-surface-variant bg-surface/95 md:bg-surface/50 backdrop-blur-xl font-inter font-medium text-sm z-40 transition-transform duration-300 transform -translate-x-full md:translate-x-0">
+    <div class="px-6 pb-6 mb-2 border-b border-surface-variant">
+        <h2 class="text-lg font-bold text-on-surface">Executive Portal</h2>
+        <p class="text-on-surface-variant text-xs mt-1">Assessment Integrity</p>
+    </div>
+    <nav class="flex-1 px-4 flex flex-col gap-1 overflow-y-auto">
+        <a href="#context" class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all duration-200 rounded-lg">
+            <span class="material-symbols-outlined text-xl">info</span>
+            The Context
+        </a>
+        <a href="#core-model" class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all duration-200 rounded-lg">
+            <span class="material-symbols-outlined text-xl">grid_view</span>
+            Core Model
+        </a>
+        <a href="#ai-levels" class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all duration-200 rounded-lg">
+            <span class="material-symbols-outlined text-xl">layers</span>
+            AI Levels
+        </a>
+        <a href="#competency-gate" class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all duration-200 rounded-lg">
+            <span class="material-symbols-outlined text-xl">verified_user</span>
+            Permit Course
+        </a>
+        <a href="#workflow" class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all duration-200 rounded-lg">
+            <span class="material-symbols-outlined text-xl">account_tree</span>
+            Workflow
+        </a>
+        <a href="#multiple-choice" class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all duration-200 rounded-lg">
+            <span class="material-symbols-outlined text-xl">fact_check</span>
+            Multiple Choice
+        </a>
+        <a href="#toolbox" class="flex items-center gap-3 px-4 py-3 text-primary-fixed hover:bg-primary/10 hover:text-primary transition-all duration-200 rounded-lg border border-transparent hover:border-primary/20">
+            <span class="material-symbols-outlined text-xl">construction</span>
+            Teacher Toolbox
+        </a>
+        <a href="#resources" class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all duration-200 rounded-lg">
+            <span class="material-symbols-outlined text-xl">folder_open</span>
+            Resources
+        </a>
+    </nav>
+</aside>
+
+<!-- Main Content Canvas -->
+<main id="main-content" class="pt-20 md:ml-64 min-h-screen flex flex-col transition-all duration-300">
+    
+    <!-- Hero Section (Section 0) -->
+    <section class="relative px-8 py-20 overflow-hidden bg-surface-container-lowest border-b border-surface-variant flex flex-col justify-center section-slide">
+        <!-- Dynamic Gradient adapted for light/dark CSS vars -->
+        <div class="absolute inset-0 opacity-30 pointer-events-none" style="background: radial-gradient(circle at 80% 20%, rgb(var(--color-primary) / 0.4) 0%, transparent 40%), radial-gradient(circle at 20% 80%, rgb(var(--color-secondary) / 0.3) 0%, transparent 40%);"></div>
+        <div class="max-w-[1440px] mx-auto relative z-10 flex flex-col gap-stack-lg w-full">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 w-max">
+                <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                <span class="font-label-caps text-label-caps text-primary tracking-widest">ASSESSMENT INTEGRITY ARCHITECTURE</span>
+            </div>
+            <h1 class="font-display text-display text-on-surface max-w-4xl leading-tight">
+                Product. Process. Defence.
+                <span class="block text-on-surface-variant text-h1 font-h1 mt-stack-md font-normal">
+                    We are building assessments where learning is visible, valid, and defensible even when AI exists.
+                </span>
+            </h1>
+        </div>
+    </section>
+
+    <!-- Context Section (Section 1) -->
+    <section id="context" class="px-8 py-margin-page max-w-[1440px] mx-auto w-full section-slide">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="flex flex-col gap-4">
+                <h2 class="font-h2 text-h2 text-on-surface">Why Assessment Has to Change</h2>
+                <p class="font-body-lg text-body-lg text-on-surface-variant">
+                    Traditional online assessment is vulnerable because final products alone no longer prove learning. AI makes polished work easy to produce, but <strong class="text-on-surface">polish is not proof</strong>. 
+                </p>
+                <p class="font-body-lg text-body-lg text-on-surface-variant">
+                    To maintain assessment integrity in an online environment, we must shift our focus from merely evaluating a final submission to evaluating a complete body of evidence that proves independent understanding.
+                </p>
+                <div class="bg-surface-container border-l-4 border-primary p-4 mt-6 rounded-r-lg shadow-sm">
+                    <h4 class="font-semibold text-primary flex items-center">
+                        <span class="material-symbols-outlined mr-2">info</span>
+                        Our Responsibility vs. Alberta Education
+                    </h4>
+                    <p class="text-on-surface-variant text-sm mt-2">
+                        This framework does <strong>not</strong> replace Alberta Education diploma exams. Alberta Education owns provincial standardization. Our responsibility is to ensure that <strong>school-awarded course marks</strong> are valid, visible, and professionally defensible before students sit for their diploma exams.
+                    </p>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-surface-container-low p-6 rounded-xl border border-surface-variant shadow-sm flex flex-col items-start gap-3">
+                    <div class="p-3 bg-surface-container rounded-lg border border-outline-variant">
+                        <span class="material-symbols-outlined text-outline">inventory_2</span>
+                    </div>
+                    <h3 class="font-bold text-on-surface">The Old Paradigm</h3>
+                    <p class="text-sm text-on-surface-variant">Uploading assignments and relying on trust-based grading. Highly vulnerable to generative AI.</p>
+                </div>
+                <div class="bg-surface-container p-6 rounded-xl border border-primary/30 shadow-[0_10px_30px_-15px_rgba(77,142,255,0.2)] flex flex-col items-start gap-3 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-primary"></div>
+                    <div class="p-3 bg-primary/10 rounded-lg border border-primary/20">
+                        <span class="material-symbols-outlined text-primary">category</span>
+                    </div>
+                    <h3 class="font-bold text-primary">The New Paradigm</h3>
+                    <p class="text-sm text-on-surface-variant">Structured teacher interaction, process tracking, self-regulation, and mandatory oral/written defence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Assessment Model (Section 2) -->
+    <section id="core-model" class="px-8 py-margin-page bg-surface-container-lowest border-y border-surface-variant section-slide">
+        <div class="max-w-[1440px] mx-auto w-full flex flex-col gap-stack-lg">
+            <div class="flex flex-col gap-2 max-w-3xl">
+                <h2 class="font-h2 text-h2 text-on-surface">Core Assessment Model</h2>
+                <p class="font-body-lg text-body-lg text-on-surface-variant">Every major summative assessment is evaluated across three distinct buckets. This is the default program model. <strong class="text-on-surface">We do not change these weights based on AI level.</strong></p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+                <!-- Pillar: Product -->
+                <div class="bg-surface-container-low rounded-xl border border-surface-variant p-6 relative overflow-hidden flex flex-col gap-stack-md shadow-[0_20px_40px_-20px_rgba(77,142,255,0.05)]">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+                    <div class="flex justify-between items-start">
+                        <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-2 border border-primary/20">
+                            <span class="material-symbols-outlined">inventory_2</span>
+                        </div>
+                        <span class="bg-primary/20 text-primary font-bold px-3 py-1 rounded-full text-sm">50%</span>
+                    </div>
+                    <h3 class="font-h1 text-[24px] text-on-surface font-semibold">Product</h3>
+                    <p class="font-body-md text-body-md text-on-surface font-medium">The student can meet the learning outcome.</p>
+                    <p class="font-body-md text-body-md text-on-surface-variant">The traditional output. This is the final written response, exam, presentation, project, source analysis, or issue response.</p>
+                    <ul class="mt-auto pt-4 space-y-2 text-sm text-on-surface-variant">
+                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[18px] text-primary">check_circle</span> Evaluates final performance</li>
+                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[18px] text-primary">check_circle</span> Aligns with curriculum standards</li>
+                    </ul>
+                </div>
+
+                <!-- Pillar: Process -->
+                <div class="bg-surface-container-low rounded-xl border border-surface-variant p-6 relative overflow-hidden flex flex-col gap-stack-md shadow-[0_20px_40px_-20px_rgba(79,219,200,0.05)]">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-secondary"></div>
+                    <div class="flex justify-between items-start">
+                        <div class="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary mb-2 border border-secondary/20">
+                            <span class="material-symbols-outlined">call_merge</span>
+                        </div>
+                        <span class="bg-secondary/20 text-secondary font-bold px-3 py-1 rounded-full text-sm">25%</span>
+                    </div>
+                    <h3 class="font-h1 text-[24px] text-on-surface font-semibold">Process</h3>
+                    <p class="font-body-md text-body-md text-on-surface font-medium">The student can show how the work was created.</p>
+                    <p class="font-body-md text-body-md text-on-surface-variant">Evaluates perseverance, planning, and proper completion. Includes draft history, outlines, source organizers, and AI-use logs.</p>
+                    <ul class="mt-auto pt-4 space-y-2 text-sm text-on-surface-variant">
+                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[18px] text-secondary">check_circle</span> Makes learning visible</li>
+                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[18px] text-secondary">check_circle</span> Proves disclosure & self-advocacy</li>
+                    </ul>
+                </div>
+
+                <!-- Pillar: Defence -->
+                <div class="bg-surface-container-low rounded-xl border border-surface-variant p-6 relative overflow-hidden flex flex-col gap-stack-md shadow-[0_20px_40px_-20px_rgba(255,185,95,0.05)]">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-tertiary"></div>
+                    <div class="flex justify-between items-start">
+                        <div class="w-12 h-12 rounded-lg bg-tertiary/10 flex items-center justify-center text-tertiary mb-2 border border-tertiary/20">
+                            <span class="material-symbols-outlined">mic</span>
+                        </div>
+                        <span class="bg-tertiary/20 text-tertiary font-bold px-3 py-1 rounded-full text-sm">25%</span>
+                    </div>
+                    <h3 class="font-h1 text-[24px] text-on-surface font-semibold">Defence</h3>
+                    <p class="font-body-md text-body-md text-on-surface font-medium">The student can explain, defend, and apply the learning.</p>
+                    <p class="font-body-md text-body-md text-on-surface-variant">Evaluates self-reflection, metacognition, and the ability to articulate why specific choices were made. Includes oral conferences or transfer tasks.</p>
+                    <ul class="mt-auto pt-4 space-y-2 text-sm text-on-surface-variant">
+                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[18px] text-tertiary">check_circle</span> Validates ownership of knowledge</li>
+                        <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[18px] text-tertiary">check_circle</span> The ultimate proof of learning</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Levels & Dynamic Slider (Section 3) -->
+    <section id="ai-levels" class="px-8 py-margin-page max-w-[1440px] mx-auto w-full section-slide">
+        <div class="flex flex-col gap-stack-lg w-full">
+            <div class="flex flex-col items-center text-center gap-4 mb-2">
+                <h2 class="font-h2 text-[36px] text-on-surface font-bold">The Evidence Burden</h2>
+                <p class="text-lg text-on-surface-variant max-w-3xl">The level of AI used changes the <strong class="text-on-surface">evidence required</strong>, not the weight. Select an AI level below to see how the burden of proof scales.</p>
+            </div>
+
+            <!-- Dynamic Executive Toggle -->
+            <div class="max-w-4xl w-full mx-auto bg-surface-container rounded-2xl border border-surface-variant p-2 flex flex-col md:flex-row gap-2 relative z-20">
+                <button onclick="setAiLevel(0)" id="btn-level-0" class="flex-1 py-4 px-6 rounded-xl font-bold text-lg transition-all duration-300 bg-surface-container-high text-on-surface border border-outline-variant shadow-md">
+                    Level 0 <span class="block text-xs font-normal text-on-surface-variant mt-1 uppercase tracking-widest">Foundational / No AI</span>
+                </button>
+                <button onclick="setAiLevel(1)" id="btn-level-1" class="flex-1 py-4 px-6 rounded-xl font-bold text-lg transition-all duration-300 hover:bg-surface-container-highest text-on-surface-variant border border-transparent">
+                    Level 1 <span class="block text-xs font-normal opacity-70 mt-1 uppercase tracking-widest">Support / Sounding Board</span>
+                </button>
+                <button onclick="setAiLevel(2)" id="btn-level-2" class="flex-1 py-4 px-6 rounded-xl font-bold text-lg transition-all duration-300 hover:bg-surface-container-highest text-on-surface-variant border border-transparent">
+                    Level 2 <span class="block text-xs font-normal opacity-70 mt-1 uppercase tracking-widest">Assisted / Integration</span>
+                </button>
+            </div>
+
+            <!-- Dynamic Content Area -->
+            <div class="max-w-4xl w-full mx-auto mt-4">
+                <div class="grid md:grid-cols-2 gap-6 items-stretch">
+                    
+                    <!-- Description Panel -->
+                    <div id="ai-desc-panel" class="bg-surface-container-low border border-surface-variant rounded-2xl p-8 flex flex-col justify-center transition-all duration-500">
+                        <div id="ai-icon-box" class="w-12 h-12 rounded-full flex items-center justify-center mb-4 bg-surface-container-high text-on-surface border border-outline-variant">
+                            <span id="ai-icon" class="material-symbols-outlined">lock</span>
+                        </div>
+                        <h3 id="ai-title" class="text-2xl font-bold text-on-surface mb-2">Complete Independence</h3>
+                        <p id="ai-desc" class="text-sm text-on-surface-variant mb-4">Student completes the work entirely independently. AI tools are strictly prohibited to ensure baseline unassisted competency.</p>
+                        <div id="ai-alert" class="hidden text-xs p-3 rounded-lg border mt-auto">
+                            <!-- Alert dynamically populated -->
+                        </div>
+                    </div>
+
+                    <!-- Burden Panel -->
+                    <div class="bg-surface-container border border-surface-variant rounded-2xl p-8 flex flex-col gap-6">
+                        <div>
+                            <h4 class="text-xs font-bold text-outline uppercase tracking-wider mb-3 flex items-center"><span class="material-symbols-outlined text-[16px] mr-2">inventory_2</span> Product (50%)</h4>
+                            <div class="bg-surface-container-low p-3 rounded-lg border border-surface-variant/50 text-sm text-on-surface-variant italic">
+                                Same final task, written response, issue analysis, or project for all levels.
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 id="process-header" class="text-xs font-bold text-secondary uppercase tracking-wider mb-3 flex items-center transition-colors duration-300"><span class="material-symbols-outlined text-[16px] mr-2">call_merge</span> Process Evidence (25%)</h4>
+                            <div id="process-box" class="bg-surface-container-low p-4 rounded-lg border border-surface-variant/50 text-sm text-on-surface-variant transition-all duration-300 min-h-[100px]">
+                                <ul id="process-list" class="space-y-2">
+                                    <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[18px] text-outline">check</span> Planning sheet & basic outline.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 id="defence-header" class="text-xs font-bold text-tertiary uppercase tracking-wider mb-3 flex items-center transition-colors duration-300"><span class="material-symbols-outlined text-[16px] mr-2">mic</span> Defence Evidence (25%)</h4>
+                            <div id="defence-box" class="bg-surface-container-low p-4 rounded-lg border border-surface-variant/50 text-sm text-on-surface-variant transition-all duration-300 min-h-[80px]">
+                                <ul id="defence-list" class="space-y-2">
+                                    <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[18px] text-outline">check</span> Short oral defence or standard conference.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The AI Permit Gate (Competency Gate) (Section 4) -->
+    <section id="competency-gate" class="px-8 py-margin-page bg-surface-container-lowest border-y border-surface-variant relative overflow-hidden section-slide">
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 opacity-5 pointer-events-none">
+            <span class="material-symbols-outlined text-[400px]">verified_user</span>
+        </div>
+        
+        <div class="max-w-[1440px] mx-auto relative z-10 flex flex-col gap-stack-lg w-full">
+            <div class="text-center mb-8">
+                <div class="inline-flex items-center justify-center space-x-2 bg-primary/10 border border-primary/30 rounded-full px-4 py-1.5 mb-6">
+                    <span class="material-symbols-outlined text-[18px] text-primary">school</span>
+                    <span class="font-label-caps text-label-caps text-primary tracking-wide">Student-Centered Learning 15 (LDC1234)</span>
+                    <span class="text-xs bg-primary text-on-primary px-2 py-0.5 rounded-full ml-2 font-bold">3 Credits</span>
+                </div>
+                <h2 class="font-display text-display text-on-surface mb-4">The AI Permit Gate</h2>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mx-auto">
+                    Access is earned. Students must prove they can use AI ethically, transparently, and critically to earn their assessment permits.
+                </p>
+            </div>
+
+            <!-- Flip Cards for Prompting -->
+            <div class="bg-surface-container border border-surface-variant rounded-xl p-8 mb-12">
+                <h3 class="font-h2 text-h2 text-on-surface mb-2 text-center">Effective Prompting (Interactive Demo)</h3>
+                <p class="text-on-surface-variant text-sm mb-8 text-center">Hover or tap cards to analyze prompt architecture.</p>
+                
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <!-- Ghostwriter Card -->
+                    <div class="flip-card group h-56 cursor-pointer">
+                        <div class="flip-card-inner relative w-full h-full">
+                            <div class="flip-card-front absolute w-full h-full bg-error/10 border border-error/30 rounded-xl p-6 shadow-sm flex flex-col justify-center items-center text-center">
+                                <span class="material-symbols-outlined text-[32px] text-error mb-3">warning</span>
+                                <h4 class="font-bold text-error mb-2">The Ghostwriter Prompt</h4>
+                                <p class="text-sm text-on-surface italic">"Fix my thesis statement for Social Studies 30-1 so it gets an A."</p>
+                                <span class="text-[10px] uppercase tracking-widest text-error-container mt-4 flex items-center"><span class="material-symbols-outlined text-[14px] mr-1">touch_app</span> Hover to Analyze</span>
+                            </div>
+                            <div class="flip-card-back absolute w-full h-full bg-surface-container-high border border-error/50 rounded-xl p-6 shadow-lg flex flex-col justify-center text-center">
+                                <h4 class="font-bold text-error mb-2">Outsourcing Thinking</h4>
+                                <p class="text-sm text-on-surface-variant">This prompt bypasses student information processing. It delegates academic judgment entirely to the LLM, violating Level 1 and 2 policies and undermining adaptive capacity.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tutor Card -->
+                    <div class="flip-card group h-56 cursor-pointer">
+                        <div class="flip-card-inner relative w-full h-full">
+                            <div class="flip-card-front absolute w-full h-full bg-secondary/10 border border-secondary/30 rounded-xl p-6 shadow-sm flex flex-col justify-center items-center text-center">
+                                <span class="material-symbols-outlined text-[32px] text-secondary mb-3">check_circle</span>
+                                <h4 class="font-bold text-secondary mb-2">The Tutor Prompt</h4>
+                                <p class="text-sm text-on-surface italic">"Review my thesis. Do not rewrite it, but ask me 3 questions that will help me reflect on potential next steps."</p>
+                                <span class="text-[10px] uppercase tracking-widest text-secondary-fixed mt-4 flex items-center"><span class="material-symbols-outlined text-[14px] mr-1">touch_app</span> Hover to Analyze</span>
+                            </div>
+                            <div class="flip-card-back absolute w-full h-full bg-surface-container-high border border-secondary/50 rounded-xl p-6 shadow-lg flex flex-col justify-center text-center">
+                                <h4 class="font-bold text-secondary mb-2">Socratic Growth Mindset</h4>
+                                <p class="text-sm text-on-surface-variant">Forces the student to remain the architect of the work. The AI acts as a sounding board, fostering self-advocacy and independent evaluation of feedback.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Selecting the Right Vehicle -->
+            <div class="grid md:grid-cols-2 gap-gutter">
+                <div class="bg-surface-container border border-outline-variant rounded-xl p-6">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="bg-primary/10 p-3 rounded-full">
+                            <span class="material-symbols-outlined text-[32px] text-primary">auto_awesome</span>
+                        </div>
+                        <h4 class="font-h1 text-[24px] font-bold text-on-surface">Google Gemini</h4>
+                    </div>
+                    <ul class="space-y-4 text-sm text-on-surface-variant">
+                        <li><strong class="text-on-surface">Architecture:</strong> Open Web LLM</li>
+                        <li><strong class="text-on-surface">Core Function:</strong> Brainstorming, feedback, and predicting text.</li>
+                        <li class="bg-error-container/20 p-3 rounded-lg border border-error-container/30">
+                            <strong class="text-error flex items-center gap-2 mb-1"><span class="material-symbols-outlined text-[18px]">warning</span> Primary Danger: Hallucinations</strong>
+                            <span class="text-error-container">AI models predict the most likely next word; they do not possess a database of objective truth. Presenting a hallucination as fact invalidates the submission.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-surface-container border border-outline-variant rounded-xl p-6">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="bg-secondary/10 p-3 rounded-full">
+                            <span class="material-symbols-outlined text-[32px] text-secondary">menu_book</span>
+                        </div>
+                        <h4 class="font-h1 text-[24px] font-bold text-on-surface">Google NotebookLM</h4>
+                    </div>
+                    <ul class="space-y-4 text-sm text-on-surface-variant">
+                        <li><strong class="text-on-surface">Architecture:</strong> Grounded AI Tool</li>
+                        <li><strong class="text-on-surface">Core Function:</strong> Fact-checking, selecting main ideas, test preparation.</li>
+                        <li class="bg-tertiary-container/20 p-3 rounded-lg border border-tertiary-container/30">
+                            <strong class="text-tertiary flex items-center gap-2 mb-1"><span class="material-symbols-outlined text-[18px]">lock_doc</span> Primary Limitation</strong>
+                            <span class="text-tertiary-fixed">Limited entirely to the base of materials the student manually uploads. It cannot generate outside information.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workflow & Validity Decision Engine (Section 5) -->
+    <section id="workflow" class="px-8 py-margin-page max-w-[1440px] mx-auto w-full section-slide">
+        <h2 class="font-h2 text-[32px] font-bold text-on-surface mb-4 text-center">Summative Workflow & Validity</h2>
+        <p class="text-on-surface-variant text-center max-w-2xl mx-auto mb-12">If ownership is unclear, the teacher cannot fully validate the mark. Use the interactive engine below to determine the correct institutional response.</p>
+
+        <!-- Interactive Validity Engine -->
+        <div class="bg-surface-container border border-surface-variant rounded-2xl p-8 mb-12 shadow-lg max-w-4xl mx-auto">
+            <h3 class="font-bold text-xl text-on-surface mb-6 flex items-center gap-2 border-b border-surface-variant pb-4">
+                <span class="material-symbols-outlined text-primary">account_tree</span>
+                Validity Decision Engine
+            </h3>
+            
+            <!-- Step 1 -->
+            <div id="engine-step-1" class="engine-step block">
+                <p class="text-lg text-on-surface mb-6">1. Did the student properly declare their chosen AI Level (0, 1, or 2) prior to or upon submission?</p>
+                <div class="flex gap-4">
+                    <button onclick="engineAnswer(1, true)" class="flex-1 bg-surface-container-low hover:bg-primary/20 border border-outline-variant hover:border-primary text-on-surface py-4 rounded-xl transition-all font-bold text-lg">Yes</button>
+                    <button onclick="engineAnswer(1, false)" class="flex-1 bg-surface-container-low hover:bg-error/20 border border-outline-variant hover:border-error text-on-surface py-4 rounded-xl transition-all font-bold text-lg">No</button>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div id="engine-step-2" class="engine-step hidden">
+                <p class="text-lg text-on-surface mb-6">2. Is the required Process Evidence (e.g., drafts, outline, AI-use logs) complete and sufficient for the declared level?</p>
+                <div class="flex gap-4">
+                    <button onclick="engineAnswer(2, true)" class="flex-1 bg-surface-container-low hover:bg-primary/20 border border-outline-variant hover:border-primary text-on-surface py-4 rounded-xl transition-all font-bold text-lg">Yes, completely</button>
+                    <button onclick="engineAnswer(2, 'partial')" class="flex-1 bg-surface-container-low hover:bg-tertiary/20 border border-outline-variant hover:border-tertiary text-on-surface py-4 rounded-xl transition-all font-bold text-lg">Weak / Partial</button>
+                    <button onclick="engineAnswer(2, false)" class="flex-1 bg-surface-container-low hover:bg-error/20 border border-outline-variant hover:border-error text-on-surface py-4 rounded-xl transition-all font-bold text-lg">No, missing</button>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div id="engine-step-3" class="engine-step hidden">
+                <p class="text-lg text-on-surface mb-6">3. During the mandatory defence (conference/reflection), could the student confidently articulate their reasoning, choices, and ownership?</p>
+                <div class="flex gap-4">
+                    <button onclick="engineAnswer(3, true)" class="flex-1 bg-surface-container-low hover:bg-primary/20 border border-outline-variant hover:border-primary text-on-surface py-4 rounded-xl transition-all font-bold text-lg">Yes</button>
+                    <button onclick="engineAnswer(3, false)" class="flex-1 bg-surface-container-low hover:bg-error/20 border border-outline-variant hover:border-error text-on-surface py-4 rounded-xl transition-all font-bold text-lg">No, could not explain</button>
+                </div>
+            </div>
+
+            <!-- Results -->
+            <div id="engine-result" class="engine-step hidden mt-4">
+                <div id="result-box" class="p-6 rounded-xl border border-surface-variant bg-surface-container-low flex flex-col items-center text-center">
+                    <span id="result-icon" class="material-symbols-outlined text-[48px] mb-4"></span>
+                    <h4 id="result-title" class="text-2xl font-bold mb-2"></h4>
+                    <p id="result-desc" class="text-on-surface-variant mb-6"></p>
+                    <button onclick="resetEngine()" class="bg-surface-container-high border border-outline-variant hover:bg-surface-container-highest text-on-surface px-6 py-2 rounded-lg text-sm font-medium transition-colors">Start Over</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Workflow Summary Diagram -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-stretch relative mt-12 pt-8 border-t border-surface-variant">
+            <div class="hidden md:block absolute top-[60%] left-0 w-full h-[2px] bg-surface-variant -z-10 transform -translate-y-1/2"></div>
+            
+            <div class="flex-1 text-center px-2 bg-surface relative">
+                <div class="w-10 h-10 bg-primary/20 text-primary rounded-full flex items-center justify-center font-bold text-sm mx-auto mb-3 border border-primary/50">1</div>
+                <h3 class="font-bold text-on-surface text-sm mb-1">Route</h3>
+            </div>
+            <div class="flex-1 text-center px-2 bg-surface relative">
+                <div class="w-10 h-10 bg-primary/20 text-primary rounded-full flex items-center justify-center font-bold text-sm mx-auto mb-3 border border-primary/50">2</div>
+                <h3 class="font-bold text-on-surface text-sm mb-1">Submit</h3>
+            </div>
+            <div class="flex-1 text-center px-2 bg-surface relative">
+                <div class="w-10 h-10 bg-secondary/20 text-secondary rounded-full flex items-center justify-center font-bold text-sm mx-auto mb-3 border border-secondary/50">3</div>
+                <h3 class="font-bold text-on-surface text-sm mb-1">Check</h3>
+            </div>
+            <div class="flex-1 text-center px-2 bg-surface relative">
+                <div class="w-10 h-10 bg-tertiary/20 text-tertiary rounded-full flex items-center justify-center font-bold text-sm mx-auto mb-3 border border-tertiary/50">4</div>
+                <h3 class="font-bold text-on-surface text-sm mb-1">Defence</h3>
+            </div>
+            <div class="flex-1 text-center px-2 bg-surface relative">
+                <div class="w-10 h-10 bg-surface-container-highest text-on-surface rounded-full flex items-center justify-center font-bold text-sm mx-auto mb-3 border border-outline-variant">5</div>
+                <h3 class="font-bold text-on-surface text-sm mb-1">Validate</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Multiple Choice (Section 6) -->
+    <section id="multiple-choice" class="px-8 py-margin-page bg-surface-container-lowest border-y border-surface-variant section-slide">
+        <div class="max-w-[1440px] mx-auto w-full">
+            <div class="text-center mb-12">
+                <h2 class="font-h2 text-[32px] text-on-surface mb-4">Validating Multiple-Choice</h2>
+                <p class="text-on-surface-variant max-w-3xl mx-auto text-lg">
+                    In an unsupervised at-home environment, a multiple-choice quiz score alone is not secure proof of learning.
+                </p>
+            </div>
+
+            <!-- Friction vs Integrity -->
+            <div class="mb-16 bg-surface-container border border-surface-variant rounded-2xl p-8 shadow-sm relative overflow-hidden">
+                <h3 class="font-bold text-on-surface text-2xl text-center mb-8">Friction vs. Integrity Layers</h3>
+                <div class="flex flex-col lg:flex-row gap-6 items-stretch justify-center">
+                    <div class="flex-1 space-y-3">
+                        <div class="bg-surface-container-low p-4 rounded-lg text-on-surface-variant text-sm border border-outline-variant"><strong class="text-on-surface">Layer 1 (Settings):</strong> Timed, randomized order/answers, large banks.</div>
+                        <div class="bg-surface-container-low p-4 rounded-lg text-on-surface-variant text-sm border border-outline-variant"><strong class="text-on-surface">Layer 2 (Design):</strong> Source-based questions, political cartoons, Alberta contexts.</div>
+                        <div class="bg-surface-container-low p-4 rounded-lg text-on-surface-variant text-sm border border-outline-variant"><strong class="text-on-surface">Layer 3 (Images):</strong> Using images for excerpts/questions to block simple copy-paste.</div>
+                    </div>
+                    <div class="flex-none flex items-center justify-center px-4 font-bold text-outline uppercase tracking-widest text-sm">
+                        <div class="text-center">
+                            <span class="block mb-2">These add Friction</span>
+                            <span class="material-symbols-outlined text-[24px] hidden lg:block mx-auto text-outline-variant">arrow_forward</span>
+                            <span class="material-symbols-outlined text-[24px] block lg:hidden mx-auto text-outline-variant">arrow_downward</span>
+                        </div>
+                    </div>
+                    <div class="flex-1 bg-primary/10 border border-primary/30 p-8 rounded-xl flex flex-col items-center justify-center text-center">
+                        <span class="material-symbols-outlined text-[48px] text-primary mb-3">verified_user</span>
+                        <strong class="text-primary-fixed block text-xl mb-2">Layer 4: Verification</strong>
+                        <p class="text-primary-fixed-dim text-sm">Images and settings add friction, but they do not create security. <strong>The Oral Defence is the actual integrity layer.</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Accordion -->
+            <div class="max-w-4xl mx-auto border border-surface-variant rounded-xl overflow-hidden shadow-sm bg-surface-container">
+                <button class="w-full p-6 text-left font-bold text-on-surface text-lg flex justify-between items-center focus:outline-none hover:bg-surface-container-highest transition-colors" onclick="toggleAccordion('mc-verification')">
+                    <span>How do we verify a summative multiple-choice test?</span>
+                    <span id="mc-verification-icon" class="material-symbols-outlined accordion-icon text-on-surface-variant">expand_more</span>
+                </button>
+                <div id="mc-verification" class="accordion-content px-8 text-on-surface-variant text-base border-t border-surface-variant">
+                    <p class="mb-6">After the verified MC assessment (e.g., 60 questions), the teacher conducts a <strong>5-8 minute highly targeted oral verification</strong> sampling 3-5 specific questions from the student's quiz. Verification is not a retake; it is a sampling to prove authorship and comprehension.</p>
+                    
+                    <div class="overflow-x-auto mb-8">
+                        <table class="w-full text-left border-collapse border border-outline-variant rounded-lg overflow-hidden">
+                            <thead>
+                                <tr class="bg-surface-container-low text-on-surface text-xs uppercase tracking-wider">
+                                    <th class="p-4 border-b border-surface-variant">The Defence Probe (Filter Output)</th>
+                                    <th class="p-4 border-b border-surface-variant">Cognitive Target</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm text-on-surface-variant divide-y divide-surface-variant">
+                                <tr><td class="p-4 font-medium text-on-surface">Why did you choose that answer? (1 correct item)</td><td class="p-4 bg-surface-container">Checks: <strong>Reasoning</strong></td></tr>
+                                <tr><td class="p-4 font-medium text-on-surface">Why is one specific distractor wrong? (1 wrong item)</td><td class="p-4 bg-surface-container">Checks: <strong>Concept understanding</strong></td></tr>
+                                <tr><td class="p-4 font-medium text-on-surface">What clue in the source mattered? (1 source-based)</td><td class="p-4 bg-surface-container">Checks: <strong>Source interpretation</strong></td></tr>
+                                <tr><td class="p-4 font-medium text-on-surface">Apply that idea to a new example.</td><td class="p-4 bg-surface-container">Checks: <strong>Transfer</strong></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="bg-surface-container-low p-4 rounded-lg border border-outline-variant">
+                        <p class="font-bold text-on-surface mb-2">The Absolute Rule:</p>
+                        <p class="text-sm">If the student explains well, the quiz mark stands. If they show partial understanding, corrections are required. If they clearly cannot explain their answers, the mark is capped. <strong class="text-error">If the student cannot defend the result, the result is not fully validated.</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teacher Toolbox (Click to Copy) (Section 7) -->
+    <section id="toolbox" class="px-8 py-margin-page bg-surface border-y border-surface-variant section-slide">
+        <div class="max-w-[1440px] mx-auto w-full flex flex-col h-full justify-center">
+            <div class="text-center mb-10">
+                <div class="inline-flex items-center justify-center p-3 bg-primary-fixed/10 text-primary-fixed rounded-full mb-4 border border-primary-fixed/20">
+                    <span class="material-symbols-outlined text-[28px]">construction</span>
+                </div>
+                <h2 class="font-h2 text-h2 text-on-surface mb-4">Teacher Toolbox</h2>
+                <p class="text-on-surface-variant max-w-2xl mx-auto">Click to copy these standardized blurbs directly into your syllabi, rubrics, and communications to ensure institutional alignment.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Syllabus Blurb -->
+                <div class="bg-surface-container rounded-xl border border-surface-variant p-6 flex flex-col">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="font-bold text-on-surface flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">menu_book</span> Syllabus Outline</h3>
+                        <button onclick="copyText('copy-syllabus', this)" class="text-xs bg-surface-container-high hover:bg-surface-container-highest px-3 py-1.5 rounded-md border border-outline-variant flex items-center gap-1 transition-all"><span class="material-symbols-outlined text-[14px]">content_copy</span> Copy</button>
+                    </div>
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-lg p-4 flex-grow overflow-y-auto">
+                        <p id="copy-syllabus" class="text-sm text-on-surface-variant font-mono whitespace-pre-wrap leading-relaxed">All major summative assessments in this course use a three-part evidence model: Product (50%), Process (25%), and Defence (25%). 
+
+You may complete assessments through one of three AI-use levels: Level 0 (No AI), Level 1 (Support), or Level 2 (Assisted). You must pass the AI Competency Gate before using Level 1 or 2.
+
+The more AI contributes to the work, the more evidence you must provide to prove ownership, judgment, and accuracy. Assessment marks can only be validated if ownership is clear.</p>
+                    </div>
+                </div>
+
+                <!-- Assignment Instructions -->
+                <div class="bg-surface-container rounded-xl border border-surface-variant p-6 flex flex-col">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="font-bold text-on-surface flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[20px]">assignment</span> Assignment Header</h3>
+                        <button onclick="copyText('copy-assign', this)" class="text-xs bg-surface-container-high hover:bg-surface-container-highest px-3 py-1.5 rounded-md border border-outline-variant flex items-center gap-1 transition-all"><span class="material-symbols-outlined text-[14px]">content_copy</span> Copy</button>
+                    </div>
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-lg p-4 flex-grow overflow-y-auto">
+                        <p id="copy-assign" class="text-sm text-on-surface-variant font-mono whitespace-pre-wrap leading-relaxed">**DECLARATION OF AI LEVEL**
+Before beginning this assignment, please declare your intended AI level.
+
+[ ] Level 0: I will complete this entirely independently. (Requires planning sheet)
+[ ] Level 1: I will use AI as a tutor/sounding board. (Requires AI-use log)
+[ ] Level 2: I will use AI to assist in drafting/revising. (Requires prompt trail & verification table)
+
+Reminder: All levels require a short oral or written defence prior to final grading.</p>
+                    </div>
+                </div>
+
+                <!-- Pre-Defence Email -->
+                <div class="bg-surface-container rounded-xl border border-surface-variant p-6 flex flex-col">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="font-bold text-on-surface flex items-center gap-2"><span class="material-symbols-outlined text-tertiary text-[20px]">mail</span> Pre-Defence Email</h3>
+                        <button onclick="copyText('copy-email', this)" class="text-xs bg-surface-container-high hover:bg-surface-container-highest px-3 py-1.5 rounded-md border border-outline-variant flex items-center gap-1 transition-all"><span class="material-symbols-outlined text-[14px]">content_copy</span> Copy</button>
+                    </div>
+                    <div class="bg-surface-container-lowest border border-surface-variant rounded-lg p-4 flex-grow overflow-y-auto">
+                        <p id="copy-email" class="text-sm text-on-surface-variant font-mono whitespace-pre-wrap leading-relaxed">Hi [Student Name],
+
+Thank you for submitting your assignment. To finalize your grade and validate your learning, please sign up for a 5-minute Oral Defence conference via the link below.
+
+During this brief chat, I will ask you 2-3 questions about how you planned your work, why you chose specific evidence, and how you utilized your declared AI level. 
+
+Please review your submission and process logs beforehand. I look forward to hearing about your learning process!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Presentations & Resources (Section 8) -->
+    <section id="resources" class="px-8 py-margin-page max-w-[1440px] mx-auto w-full section-slide">
+        <div class="text-center mb-12">
+            <h2 class="font-h2 text-h2 text-on-surface mb-4">Presentations & Resources</h2>
+            <p class="font-body-lg text-on-surface-variant max-w-3xl mx-auto">
+                Access the complete slide decks for staff training, board meetings, and professional development.
+            </p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-gutter">
+            <!-- Deck 1 -->
+            <div class="bg-surface-container rounded-2xl shadow-sm border border-surface-variant p-6 flex flex-col h-full hover:bg-surface-container-highest transition-colors cursor-pointer">
+                <div class="w-12 h-12 bg-primary/10 text-primary rounded-lg flex items-center justify-center mb-4 border border-primary/20">
+                    <span class="material-symbols-outlined">slideshow</span>
+                </div>
+                <h3 class="text-xl font-bold text-on-surface mb-2">The AI-Aware Assessment Blueprint</h3>
+                <p class="text-on-surface-variant text-sm flex-grow mb-6">The overarching architectural plan. Details the Product, Process, and Defence weighting and the shift from "Polish" to "Proof".</p>
+                <div class="inline-flex items-center justify-center w-full py-2 px-4 bg-surface-container-highest text-on-surface text-sm font-medium rounded-lg border border-outline-variant transition-colors">
+                    <span class="material-symbols-outlined text-[18px] mr-2">open_in_new</span> View Deck
+                </div>
+            </div>
+            <!-- Deck 2 -->
+            <div class="bg-surface-container rounded-2xl shadow-sm border border-surface-variant p-6 flex flex-col h-full hover:bg-surface-container-highest transition-colors cursor-pointer">
+                <div class="w-12 h-12 bg-secondary/10 text-secondary rounded-lg flex items-center justify-center mb-4 border border-secondary/20">
+                    <span class="material-symbols-outlined">slideshow</span>
+                </div>
+                <h3 class="text-xl font-bold text-on-surface mb-2">Assessment Integrity Architecture</h3>
+                <p class="text-on-surface-variant text-sm flex-grow mb-6">Focuses on Multiple Choice validation. Breaks down the Friction vs. Integrity layers and the targeted 5-minute oral defence sampling.</p>
+                <div class="inline-flex items-center justify-center w-full py-2 px-4 bg-surface-container-highest text-on-surface text-sm font-medium rounded-lg border border-outline-variant transition-colors">
+                    <span class="material-symbols-outlined text-[18px] mr-2">open_in_new</span> View Deck
+                </div>
+            </div>
+            <!-- Deck 3 -->
+            <div class="bg-surface-container rounded-2xl shadow-sm border border-surface-variant p-6 flex flex-col h-full hover:bg-surface-container-highest transition-colors cursor-pointer">
+                <div class="w-12 h-12 bg-tertiary/10 text-tertiary rounded-lg flex items-center justify-center mb-4 border border-tertiary/20">
+                    <span class="material-symbols-outlined">slideshow</span>
+                </div>
+                <h3 class="text-xl font-bold text-on-surface mb-2">The AI Permit</h3>
+                <p class="text-on-surface-variant text-sm flex-grow mb-6">Navigating Student-Centered Learning in a generative age. Details SCL 15 integration, prompting frameworks, and NotebookLM verification.</p>
+                <div class="inline-flex items-center justify-center w-full py-2 px-4 bg-surface-container-highest text-on-surface text-sm font-medium rounded-lg border border-outline-variant transition-colors">
+                    <span class="material-symbols-outlined text-[18px] mr-2">open_in_new</span> View Deck
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Board Summary / Footer (Section 9) -->
+    <footer id="board-summary" class="w-full border-t border-surface-variant bg-surface-container-lowest mt-auto section-slide">
+        <div class="flex flex-col items-center py-16 px-8 max-w-[1440px] mx-auto text-center">
+            <h2 class="font-h2 text-[28px] text-primary mb-8">Board-Ready Summary</h2>
+            
+            <blockquote class="text-xl font-medium text-on-surface-variant italic mb-10 leading-relaxed max-w-4xl">
+                "We are not trying to catch students using AI. We are building assessments where learning is visible even when AI exists. Every summative needs a product, a process trail, and a defence. Students can choose different AI-use routes, but more AI means more responsibility to prove ownership."
+            </blockquote>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center mb-12 max-w-4xl w-full">
+                <div class="bg-surface-container p-5 rounded-lg border border-outline-variant">
+                    <h4 class="font-bold text-on-surface mb-1">Simple.</h4>
+                    <p class="text-xs text-on-surface-variant">Three buckets: Product, Process, Defence. Weights remain constant.</p>
+                </div>
+                <div class="bg-surface-container p-5 rounded-lg border border-outline-variant">
+                    <h4 class="font-bold text-on-surface mb-1">Defensible.</h4>
+                    <p class="text-xs text-on-surface-variant">Rooted in teacher professional judgment and documented evidence.</p>
+                </div>
+                <div class="bg-surface-container p-5 rounded-lg border border-outline-variant">
+                    <h4 class="font-bold text-on-surface mb-1">Usable.</h4>
+                    <p class="text-xs text-on-surface-variant">Levels, permits, and validity gates provide clear boundaries for staff and students.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</main>
+
+<script>
+    // --- THEME TOGGLE LOGIC ---
+    function initTheme() {
+        const html = document.documentElement;
+        const icon = document.getElementById('theme-icon');
+        // By default we start dark based on the 'dark' class on <html>
+        if (html.classList.contains('dark')) {
+            icon.innerText = 'light_mode'; // Offer to switch to light
+        } else {
+            icon.innerText = 'dark_mode'; // Offer to switch to dark
+        }
+    }
+    document.addEventListener('DOMContentLoaded', initTheme);
+
+    function toggleDarkMode() {
+        const html = document.documentElement;
+        const icon = document.getElementById('theme-icon');
+        if (html.classList.contains('dark')) {
+            html.classList.remove('dark');
+            icon.innerText = 'dark_mode';
+        } else {
+            html.classList.add('dark');
+            icon.innerText = 'light_mode';
+        }
+    }
+
+    // --- SIDEBAR TOGGLE LOGIC ---
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        const main = document.getElementById('main-content');
+        
+        if (window.innerWidth >= 768) {
+            // Desktop behavior
+            if (sidebar.classList.contains('md:translate-x-0')) {
+                sidebar.classList.remove('md:translate-x-0');
+                sidebar.classList.add('md:-translate-x-full');
+                main.classList.remove('md:ml-64');
+            } else {
+                sidebar.classList.remove('md:-translate-x-full');
+                sidebar.classList.add('md:translate-x-0');
+                main.classList.add('md:ml-64');
+            }
+        } else {
+            // Mobile behavior
+            if (sidebar.classList.contains('-translate-x-full')) {
+                sidebar.classList.remove('-translate-x-full');
+                sidebar.classList.add('translate-x-0');
+            } else {
+                sidebar.classList.remove('translate-x-0');
+                sidebar.classList.add('-translate-x-full');
+            }
+        }
+    }
+
+    // --- ACCORDION LOGIC ---
+    function toggleAccordion(id) {
+        const content = document.getElementById(id);
+        const icon = document.getElementById(id + '-icon');
+        if (content.classList.contains('open')) {
+            content.classList.remove('open');
+            icon.classList.remove('open');
+        } else {
+            content.classList.add('open');
+            icon.classList.add('open');
+        }
+    }
+
+    // --- COPY TO CLIPBOARD LOGIC (TOOLBOX) ---
+    function copyText(elementId, btnElement) {
+        const text = document.getElementById(elementId).innerText;
+        const textArea = document.createElement("textarea");
+        textArea.value = text;
+        document.body.appendChild(textArea);
+        textArea.select();
+        try {
+            document.execCommand('copy');
+            const originalHTML = btnElement.innerHTML;
+            btnElement.innerHTML = '<span class="material-symbols-outlined text-[14px]">check</span> Copied!';
+            btnElement.classList.add('text-secondary', 'border-secondary/50', 'bg-secondary/10');
+            setTimeout(() => {
+                btnElement.innerHTML = originalHTML;
+                btnElement.classList.remove('text-secondary', 'border-secondary/50', 'bg-secondary/10');
+            }, 2000);
+        } catch (err) {
+            console.error('Copy failed', err);
+        }
+        document.body.removeChild(textArea);
+    }
+
+    // --- DYNAMIC AI LEVEL SLIDER LOGIC ---
+    const levelData = {
+        0: {
+            title: "Level 0: Complete Independence",
+            desc: "Student completes the work entirely independently. AI tools are strictly prohibited to ensure baseline unassisted competency.",
+            icon: "lock",
+            iconColor: "text-outline",
+            bgColor: "bg-surface-container-high",
+            alert: "",
+            processList: `<li class="flex items-start gap-2"><span class="material-symbols-outlined text-[18px] text-outline">check</span> Planning sheet & basic outline.</li>`,
+            defenceList: `<li class="flex items-start gap-2"><span class="material-symbols-outlined text-[18px] text-outline">check</span> Short oral defence or standard conference.</li>`,
+            headerClassP: "text-secondary", headerClassD: "text-tertiary"
+        },
+        1: {
+            title: "Level 1: AI as a Sounding Board",
+            desc: "AI supports learning but does not create the submitted work. Permitted for brainstorming, explaining concepts, or structural feedback.",
+            icon: "forum",
+            iconColor: "text-primary",
+            bgColor: "bg-primary/10",
+            alert: `<div class="bg-error/20 text-error-container text-xs p-3 rounded flex items-start border border-error/30 mt-4"><span class="material-symbols-outlined text-[16px] mr-2 shrink-0">cancel</span> Not allowed: Copying AI text or submitting AI ideas without understanding.</div>`,
+            processList: `<li class="flex items-start gap-2"><span class="material-symbols-outlined text-[18px] text-primary">add</span> Draft history</li>
+                          <li class="flex items-start gap-2 font-bold text-primary-fixed"><span class="material-symbols-outlined text-[18px]">add</span> AI-Use Log</li>
+                          <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[18px] text-primary">add</span> Revision notes</li>`,
+            defenceList: `<li class="flex items-start gap-2"><span class="material-symbols-outlined text-[18px] text-primary">add</span> Oral defence</li>
+                          <li class="flex items-start gap-2 font-bold text-primary-fixed"><span class="material-symbols-outlined text-[18px]">add</span> Explanation of AI support</li>`,
+            headerClassP: "text-primary-fixed", headerClassD: "text-primary-fixed"
+        },
+        2: {
+            title: "Level 2: Advanced Integration",
+            desc: "AI is used actively in the drafting, formatting, or heavy editing phases. The student acts as a director/editor and must verify output.",
+            icon: "cpu",
+            iconColor: "text-inverse-primary",
+            bgColor: "bg-inverse-primary/20",
+            alert: `<div class="bg-inverse-primary/20 text-primary-fixed text-xs p-3 rounded flex items-start border border-inverse-primary/30 mt-4"><span class="material-symbols-outlined text-[16px] mr-2 shrink-0">verified_user</span> Requirement: Student must actively verify, critique, revise, and defend AI work.</div>`,
+            processList: `<li class="flex items-start gap-2 font-bold text-inverse-primary"><span class="material-symbols-outlined text-[18px]">add_circle</span> Full Prompt Trail & Transcript</li>
+                          <li class="flex items-start gap-2 font-bold text-inverse-primary"><span class="material-symbols-outlined text-[18px]">add_circle</span> Annotated AI Output</li>
+                          <li class="flex items-start gap-2 font-bold text-inverse-primary"><span class="material-symbols-outlined text-[18px]">add_circle</span> Source Verification Table</li>
+                          <li class="flex items-start gap-2 font-bold text-inverse-primary"><span class="material-symbols-outlined text-[18px]">add_circle</span> Revision Rationale</li>`,
+            defenceList: `<li class="flex items-start gap-2 font-bold text-inverse-primary"><span class="material-symbols-outlined text-[18px]">add_circle</span> Extended Defence</li>
+                          <li class="flex items-start gap-2 font-bold text-inverse-primary"><span class="material-symbols-outlined text-[18px]">add_circle</span> Live AI Critique / Transfer Task</li>`,
+            headerClassP: "text-inverse-primary", headerClassD: "text-inverse-primary"
+        }
+    };
+
+    function setAiLevel(lvl) {
+        // Update Buttons
+        [0, 1, 2].forEach(i => {
+            const btn = document.getElementById(`btn-level-${i}`);
+            if(i === lvl) {
+                btn.className = "flex-1 py-4 px-6 rounded-xl font-bold text-lg transition-all duration-300 bg-surface-container-high text-on-surface border border-outline-variant shadow-md transform scale-[1.02]";
+                btn.querySelector('span').classList.remove('opacity-70');
+                btn.querySelector('span').classList.add('text-on-surface-variant');
+            } else {
+                btn.className = "flex-1 py-4 px-6 rounded-xl font-bold text-lg transition-all duration-300 hover:bg-surface-container-highest text-on-surface-variant border border-transparent opacity-60 hover:opacity-100";
+                btn.querySelector('span').classList.add('opacity-70');
+                btn.querySelector('span').classList.remove('text-on-surface-variant');
+            }
+        });
+
+        // Animate Panel Out
+        const panel = document.getElementById('ai-desc-panel');
+        panel.style.opacity = 0;
+        
+        setTimeout(() => {
+            const data = levelData[lvl];
+            
+            // Update Data
+            document.getElementById('ai-title').innerText = data.title;
+            document.getElementById('ai-desc').innerText = data.desc;
+            document.getElementById('ai-icon').innerText = data.icon;
+            
+            document.getElementById('ai-icon-box').className = `w-12 h-12 rounded-full flex items-center justify-center mb-4 border border-surface-variant ${data.bgColor} ${data.iconColor}`;
+            
+            const alertBox = document.getElementById('ai-alert');
+            if(data.alert) {
+                alertBox.innerHTML = data.alert;
+                alertBox.classList.remove('hidden');
+            } else {
+                alertBox.classList.add('hidden');
+            }
+
+            document.getElementById('process-list').innerHTML = data.processList;
+            document.getElementById('defence-list').innerHTML = data.defenceList;
+
+            document.getElementById('process-header').className = `text-xs font-bold uppercase tracking-wider mb-3 flex items-center transition-colors duration-300 ${data.headerClassP}`;
+            document.getElementById('defence-header').className = `text-xs font-bold uppercase tracking-wider mb-3 flex items-center transition-colors duration-300 ${data.headerClassD}`;
+
+            // Animate Panel In
+            panel.style.opacity = 1;
+        }, 300);
+    }
+    // Initialize AI Level
+    setAiLevel(0);
+
+
+    // --- DECISION ENGINE LOGIC ---
+    function engineAnswer(step, answer) {
+        document.getElementById(`engine-step-${step}`).classList.add('hidden');
+        
+        if (step === 1) {
+            if (answer === true) {
+                document.getElementById('engine-step-2').classList.remove('hidden');
+            } else {
+                showEngineResult("Undisclosed AI Use", "Reassessment Required. Academic integrity follow-up required. Student's AI Permit should be paused.", "warning", "text-error");
+            }
+        } else if (step === 2) {
+            if (answer === true) {
+                document.getElementById('engine-step-3').classList.remove('hidden');
+            } else if (answer === 'partial') {
+                showEngineResult("Weak Process Evidence", "Process bucket receives a lower score. Maximum overall grade should be capped.", "call_merge", "text-tertiary");
+            } else {
+                showEngineResult("Missing Process Evidence", "Process bucket receives a zero/incomplete. Cannot proceed with standard grading.", "error", "text-error");
+            }
+        } else if (step === 3) {
+            if (answer === true) {
+                showEngineResult("Valid Assessment", "Ownership and understanding are clear. Mark the product and process normally based on rubrics.", "verified_user", "text-secondary");
+            } else {
+                showEngineResult("Cannot Defend Work", "Student cannot explain major parts of the submitted work. Product mark capped until learning is verified.", "mic_off", "text-tertiary");
+            }
+        }
+    }
+
+    function showEngineResult(title, desc, icon, colorClass) {
+        document.getElementById('engine-result').classList.remove('hidden');
+        document.getElementById('result-title').innerText = title;
+        document.getElementById('result-title').className = `text-2xl font-bold mb-2 ${colorClass}`;
+        document.getElementById('result-desc').innerText = desc;
+        document.getElementById('result-icon').innerText = icon;
+        document.getElementById('result-icon').className = `material-symbols-outlined text-[48px] mb-4 ${colorClass}`;
+    }
+
+    function resetEngine() {
+        document.getElementById('engine-result').classList.add('hidden');
+        document.getElementById('engine-step-1').classList.remove('hidden');
+    }
+
+
+    // --- PRESENTATION MODE LOGIC ---
+    let isPresMode = false;
+    let currentSection = 0;
+    let sections = [];
+
+    // Setup sections array on load
+    window.addEventListener('DOMContentLoaded', () => {
+        sections = Array.from(document.querySelectorAll('.section-slide'));
+    });
+
+    function togglePresentationMode() {
+        isPresMode = !isPresMode;
+        document.body.classList.toggle('presentation-active', isPresMode);
+        
+        if (isPresMode) {
+            // Find which section we are currently near and scroll to it
+            sections[0].scrollIntoView({ behavior: 'smooth' });
+            currentSection = 0;
+            // Prevent normal scrolling
+            document.body.style.overflowY = 'hidden';
+            setTimeout(() => { document.body.style.overflowY = 'scroll'; }, 100); // Re-enable snap scroll
+        } else {
+            document.body.style.overflowY = 'auto';
+        }
+    }
+
+    // Keyboard Navigation for Presentation Mode
+    document.addEventListener('keydown', (e) => {
+        if (!isPresMode) return;
+        
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {
+            e.preventDefault();
+            if (currentSection < sections.length - 1) {
+                currentSection++;
+                sections[currentSection].scrollIntoView({ behavior: 'smooth' });
+            }
+        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+            e.preventDefault();
+            if (currentSection > 0) {
+                currentSection--;
+                sections[currentSection].scrollIntoView({ behavior: 'smooth' });
+            }
+        } else if (e.key === 'Escape') {
+            if(isPresMode) togglePresentationMode();
+        }
+    });
+</script>
+</body>
+</html>
