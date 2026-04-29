@@ -6,13 +6,17 @@ const GOOGLE_HOSTED_EXPORT_LABEL = "google-hosted";
 const GOOGLE_HOSTED_FIREBASE_VERSION = "10.12.2";
 const GOOGLE_HOSTED_FIREBASE_CONFIG_PLACEHOLDER = "replace-with-firebase-project-id";
 
+type GoogleHostedAuthMode = "google" | "none";
+
 type BuildGoogleHostedBridgeScriptOptions = {
+  authMode?: GoogleHostedAuthMode;
   progressItems?: ProgressCompletionItem[];
   projectSlug: string;
   storageKeys: string[];
 };
 
 type BuildGoogleHostedDeployReadmeOptions = {
+  authMode?: GoogleHostedAuthMode;
   projectSlug: string;
   projectTitle: string;
   storageKeys: string[];
@@ -77,8 +81,124 @@ export function injectGoogleHostedBridgeTag(html: string, bridgeRelativePath = "
   return $.html();
 }
 
+function buildGoogleHostedLocalOnlyBridgeScript(config: {
+  authMode: GoogleHostedAuthMode;
+  metaKey: string;
+  progressItems: ProgressCompletionItem[];
+  projectSlug: string;
+  schemaVersion: number;
+  storageKeys: string[];
+}) {
+  return `/* Canvas Helper Google Hosted Bridge */
+(function () {
+  "use strict";
+
+  const config = ${JSON.stringify(config)};
+  const hostedReferencePrefix = "/preview/references/raw/" + config.projectSlug + "/";
+  let referenceRewritesInstalled = false;
+
+  function safeDecodePath(value) {
+    try {
+      return decodeURIComponent(value);
+    } catch {
+      return value;
+    }
+  }
+
+  function rewriteHostedReferenceUrl(rawUrl) {
+    if (typeof rawUrl !== "string" || rawUrl.length === 0) {
+      return rawUrl;
+    }
+
+    try {
+      const asUrl = new URL(rawUrl, window.location.href);
+      const pathname = asUrl.pathname || "";
+      if (!pathname.startsWith(hostedReferencePrefix)) {
+        return rawUrl;
+      }
+
+      const encodedRelativePath = pathname.slice(hostedReferencePrefix.length).replace(/^\\/+/, "");
+      const decodedRelativePath = encodedRelativePath
+        .split("/")
+        .map((part) => safeDecodePath(part))
+        .join("/")
+        .replace(/\\\\/g, "/")
+        .replace(/^\\/+/, "");
+
+      return "./" + decodedRelativePath;
+    } catch {
+      return rawUrl;
+    }
+  }
+
+  function installHostedReferenceRewrites() {
+    if (referenceRewritesInstalled || typeof window === "undefined") {
+      return;
+    }
+    referenceRewritesInstalled = true;
+
+    if (typeof window.fetch === "function") {
+      const originalFetch = window.fetch.bind(window);
+      window.fetch = function (input, init) {
+        let nextInput = input;
+
+        if (typeof input === "string") {
+          nextInput = rewriteHostedReferenceUrl(input);
+        } else if (input instanceof Request) {
+          const rewritten = rewriteHostedReferenceUrl(input.url);
+          if (typeof rewritten === "string" && rewritten !== input.url) {
+            nextInput = new Request(rewritten, input);
+          }
+        }
+
+        return originalFetch(nextInput, init);
+      };
+    }
+
+    const elementProto = typeof Element !== "undefined" ? Element.prototype : null;
+    if (!elementProto || typeof elementProto.setAttribute !== "function") {
+      return;
+    }
+
+    const originalSetAttribute = elementProto.setAttribute;
+    elementProto.setAttribute = function (name, value) {
+      if (
+        typeof name === "string" &&
+        typeof value === "string" &&
+        /^(src|href|poster|data)$/i.test(name)
+      ) {
+        return originalSetAttribute.call(this, name, rewriteHostedReferenceUrl(value));
+      }
+
+      return originalSetAttribute.call(this, name, value);
+    };
+  }
+
+  installHostedReferenceRewrites();
+
+  window.__canvasHelperGoogleHosted = {
+    config,
+    restore: function () {
+      return Promise.resolve(null);
+    },
+    save: function () {
+      return Promise.resolve(null);
+    },
+    signIn: function () {
+      return Promise.resolve(null);
+    },
+    signOut: function () {
+      return Promise.resolve(null);
+    }
+  };
+})();
+`;
+}
+
 export function buildGoogleHostedBridgeScript(options: BuildGoogleHostedBridgeScriptOptions) {
+  const authMode: GoogleHostedAuthMode = options.authMode === "none" ? "none" : "google";
   const config = {
+    authMode,
     firebaseConfigCandidates: ["./firebase-config.json", "./firebase-config.template.json"],
     firebaseSdkVersion: GOOGLE_HOSTED_FIREBASE_VERSION,
     firestoreCollection: "projects",
@@ -88,6 +208,10 @@ export function buildGoogleHostedBridgeScript(options: BuildGoogleHostedBridgeSc
     schemaVersion: 2,
     storageKeys: normalizeStorageKeys(options.projectSlug, options.storageKeys)
   };
+
+  if (authMode === "none") {
+    return buildGoogleHostedLocalOnlyBridgeScript(config);
+  }
 
   const sdkSources = [
     `https://www.gstatic.com/firebasejs/${GOOGLE_HOSTED_FIREBASE_VERSION}/firebase-app-compat.js`,
@@ -1335,39 +1459,51 @@ export function buildFirebaseRcTemplate() {
 }
 
 export function buildGoogleHostedDeployReadme(options: BuildGoogleHostedDeployReadmeOptions) {
+  const authMode = options.authMode === "none" ? "none" : "google";
   const storageKeys = normalizeStorageKeys(options.projectSlug, options.storageKeys);
-
-  return `# Google Hosted Deployment
-
-- Project title: ${options.projectTitle}
-- Project slug: ${options.projectSlug}
-- Export target: \`${GOOGLE_HOSTED_EXPORT_LABEL}\`
-- Tracked localStorage keys: ${storageKeys.join(", ")}
-
-## What This Bundle Does
-
-- Hosts the project workspace as a normal web app on Firebase Hosting.
+  const bundleBehavior =
+    authMode === "none"
+      ? `- Hosts the project workspace as a normal web app on Firebase Hosting.
+- Google sign-in is disabled for this bundle.
+- Keeps browser state local to the current device.
+- Keeps hosted reference-path rewrites active so copied resources still resolve.`
+      : `- Hosts the project workspace as a normal web app on Firebase Hosting.
 - Prompts the learner to \`Sign in with Google\`.
 - Saves the tracked browser state to Firestore at \`projects/{slug}/users/{uid}\`.
 - Saves a normalized \`progressSummary\` beside the raw state for progress reporting.
-- Restores saved progress on later launches from another browser or device.
+- Restores saved progress on later launches from another browser or device.`;
+  const firebaseSetup =
+    authMode === "none"
+      ? `## One-Time Firebase Setup
 
-## One-Time Firebase Setup
+1. Create or choose a Firebase project for this hosting target.
+2. Install the Firebase CLI and log in with an account that can deploy the project.`
+      : `## One-Time Firebase Setup
 
 1. Create or choose a Firebase project for this class delivery target.
 2. Enable Google Authentication in Firebase Authentication.
 3. Enable Firestore in Native mode.
 4. Add the hosted domain to Firebase Authentication authorized domains if your school uses a custom domain.
-5. Install the Firebase CLI and log in with an account that can deploy the project.
+5. Install the Firebase CLI and log in with an account that can deploy the project.`;
+  const requiredEdits =
+    authMode === "none"
+      ? `## Required Bundle Edits Before Deploy
 
-## Required Bundle Edits Before Deploy
+1. Update \`.firebaserc.template\` with the actual Firebase project id and rename it to \`.firebaserc\` if you want CLI project aliases.`
+      : `## Required Bundle Edits Before Deploy
 
 1. Create \`firebase-config.json\` beside this file using \`firebase-config.template.json\` as the starting point.
 2. Replace every placeholder value with the web app config from Firebase project settings.
 3. If you want to restrict sign-in to school domains, fill \`allowedEmailDomains\` in the config JSON.
-4. Update \`.firebaserc.template\` with the actual Firebase project id and rename it to \`.firebaserc\` if you want CLI project aliases.
+4. Update \`.firebaserc.template\` with the actual Firebase project id and rename it to \`.firebaserc\` if you want CLI project aliases.`;
+  const syncOperations =
+    authMode === "none"
+      ? `## Manual Verification
 
-## Firestore Rules
+1. Open the hosted URL.
+2. Confirm no hosted sign-in control appears.
+3. Move through the presentation and confirm media/resources still load.`
+      : `## Firestore Rules
 
 \`\`\`
 rules_version = '2';
@@ -1378,19 +1514,6 @@ service cloud.firestore {
     }
   }
 }
-\`\`\`
-
-## Deploy Commands
-
-\`\`\`bash
-firebase use <project-id>
-firebase deploy --only hosting
-\`\`\`
-
-If you also manage Firestore rules from the CLI:
-
-\`\`\`bash
-firebase deploy --only firestore:rules
 \`\`\`
 
 ## Progress Report Export
@@ -1407,6 +1530,37 @@ npm run report:progress -- --firebase-project <firebase-project-id> --course ${o
 2. Answer enough content to change one of the tracked storage keys.
 3. Wait for the \`Autosave ready\` status.
 4. Open the same hosted URL in browser B or another device with the same Google account.
-5. Confirm the previous state restores automatically and the printable report still works.
+5. Confirm the previous state restores automatically and the printable report still works.`;
+
+  return `# Google Hosted Deployment
+
+- Project title: ${options.projectTitle}
+- Project slug: ${options.projectSlug}
+- Export target: \`${GOOGLE_HOSTED_EXPORT_LABEL}\`
+- Tracked localStorage keys: ${storageKeys.join(", ")}
+- Auth mode: \`${authMode}\`
+
+## What This Bundle Does
+
+${bundleBehavior}
+
+${firebaseSetup}
+
+${requiredEdits}
+
+## Deploy Commands
+
+\`\`\`bash
+firebase use <project-id>
+firebase deploy --only hosting
+\`\`\`
+
+If you also manage Firestore rules from the CLI:
+
+\`\`\`bash
+firebase deploy --only firestore:rules
+\`\`\`
+
+${syncOperations}
 `;
 }

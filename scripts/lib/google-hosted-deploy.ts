@@ -186,12 +186,18 @@ export function buildGoogleHostedDeployContext(project: DeployableGoogleHostedPr
 export async function hasGoogleHostedProgressBridge(bridgePath: string) {
   try {
     const source = await readFile(bridgePath, "utf8");
-    return (
+    const hasRemoteProgressBridge =
       source.includes("progressSummary") &&
       source.includes("shouldUpgradeProgressSummary") &&
       source.includes("schemaVersion") &&
-      source.includes("progressItems")
-    );
+      source.includes("progressItems");
+    const hasLocalOnlyBridge =
+      source.includes('"authMode":"none"') &&
+      source.includes("schemaVersion") &&
+      source.includes("progressItems") &&
+      source.includes("window.__canvasHelperGoogleHosted");
+
+    return hasRemoteProgressBridge || hasLocalOnlyBridge;
   } catch {
     return false;
   }

@@ -19,6 +19,7 @@ test("ai course building resources opts into google hosted export", async () => 
     '"target": "html"',
     '"target": "google-hosted"',
     '"googleHosted": {',
+    '"authMode": "none"',
     '"trackedStorageKeys": [',
     '"ai-course-building-resources::workspace-state::v1"'
   ];
@@ -117,6 +118,9 @@ test("ai course building resources google hosted export carries deploy-ready Fir
   }
 
   assert.match(firebaseRc, /"default":\s*"calm-module-one"/);
-  assert.match(bridgeSource, /Sign in with Google/);
+  assert.doesNotMatch(bridgeSource, /Sign in with Google/);
+  assert.doesNotMatch(bridgeSource, /firebase-auth-compat/);
+  assert.doesNotMatch(bridgeSource, /signInWithPopup/);
+  assert.doesNotMatch(bridgeSource, /collection\("users"\)\.doc/);
   assert.match(bridgeSource, /ai-course-building-resources::workspace-state::v1/);
 });

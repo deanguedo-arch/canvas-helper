@@ -230,12 +230,14 @@ export async function exportProjectToGoogleHosted(
   const storageKeys = explicitStorageKeys.length > 0
     ? [...new Set(explicitStorageKeys)]
     : [...new Set([fallbackStorageKey, ...detectedStorageKeys])];
+  const authMode = manifest.googleHosted?.authMode === "none" ? "none" : "google";
   const progressItems = await loadRequiredCompletionItemsFromWorkspace(paths.workspaceDir);
 
   await Promise.all([
     writeTextFile(
       path.join(googleHostedExportDir, "google-hosted-bridge.js"),
       buildGoogleHostedBridgeScript({
+        authMode,
         progressItems,
         projectSlug,
         storageKeys
@@ -247,6 +249,7 @@ export async function exportProjectToGoogleHosted(
     writeTextFile(
       path.join(googleHostedExportDir, "README-deploy.md"),
       buildGoogleHostedDeployReadme({
+        authMode,
         projectSlug,
         projectTitle: manifest.slug,
         storageKeys

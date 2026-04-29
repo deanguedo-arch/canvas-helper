@@ -23,7 +23,7 @@ const sourceFiles = [
     resourceName: "jon-ai-resource.html",
     title: "JONAIRESOURCE",
     label: "AI-Resources",
-    workspaceEdited: false
+    workspaceEdited: true
   }
 ];
 
@@ -75,6 +75,9 @@ test("ai course building package preserves both source HTML pages behind one hub
   assert.match(hub, /selectResource\("assessment"\);/);
   assert.match(hub, /class="resource-switcher"/);
   assert.match(hub, /data-active-resource="assessment"/);
+  assert.match(hub, /--switch-active-bg: #2563eb;/);
+  assert.match(hub, /body\[data-active-resource="assessment"\],\s*body\[data-active-resource="ai-resources"\]/);
+  assert.doesNotMatch(hub, /#4f46e5|#111827|#374151|#a5b4fc/);
   assert.doesNotMatch(hub, /<h1>AI Course Building Resources<\/h1>/);
 
   for (const sourceFile of sourceFiles) {
@@ -143,6 +146,55 @@ test("assessment pillars page has balanced assessment-weight sliders", async () 
   assert.match(html, /sliders\[key\]\.style\.setProperty\("--range-fill", `\$\{weights\[key\]\}%`\);/);
   assert.doesNotMatch(html, /badges\[key\]\.innerText/);
   assert.doesNotMatch(html, /totalLabel\.innerText = "100%";/);
+});
+
+test("ai course resource pages share the assessment pillars theme base", async () => {
+  const resourcesDir = path.join(projectDir, "workspace", "resources");
+  const themePath = path.join(resourcesDir, "ai-course-theme.css");
+  const deanPath = path.join(resourcesDir, "dean-ai-assessment-pillars.html");
+  const jonPath = path.join(resourcesDir, "jon-ai-resource.html");
+  const manifestPath = path.join(projectDir, "meta", "project.json");
+  const theme = await readUtf8(themePath);
+  const deanHtml = await readUtf8(deanPath);
+  const jonHtml = await readUtf8(jonPath);
+  const manifest = JSON.parse(await readUtf8(manifestPath)) as ProjectManifest;
+
+  assert.match(theme, /--color-surface:/);
+  assert.match(theme, /body\.presentation-active/);
+  assert.match(theme, /\.ai-resource-page/);
+  assert.match(theme, /\.dark \.ai-resource-page/);
+  assert.match(theme, /\.dark \.ai-resource-page \[class~="to-blue-50\/40"\]/);
+  assert.match(theme, /\.dark \.ai-resource-page \[class~="bg-indigo-100\/50"\]/);
+  assert.match(deanHtml, /<link rel="stylesheet" href="\.\/ai-course-theme\.css"\/>/);
+  assert.match(jonHtml, /<link rel="stylesheet" href="\.\/ai-course-theme\.css"\/>/);
+  assert.ok(manifest.canonicalSources?.includes(themePath), "expected the shared theme file to be declared canonical");
+
+  assert.match(deanHtml, /<html class="dark scroll-smooth" lang="en">/);
+  assert.match(deanHtml, /<body class="bg-surface text-on-surface font-body-md min-h-screen">/);
+  assert.match(deanHtml, /id="assessment-topbar-controls" class="[^"]*fixed[^"]*top-5[^"]*right-4[^"]*sm:right-8[^"]*justify-end/);
+  assert.doesNotMatch(deanHtml, /Generate Board Report/);
+  assert.match(jonHtml, /<html class="dark scroll-smooth" lang="en">/);
+  assert.match(jonHtml, /<body class="ai-resource-page bg-surface text-on-surface font-body-md min-h-screen/);
+  assert.match(jonHtml, /<header class="lg:hidden[^"]*bg-surface\/80[^"]*border-surface-variant/);
+  assert.match(jonHtml, /<aside id="sidebar" class="[^"]*bg-surface-container-low[^"]*border-surface-variant/);
+  assert.match(jonHtml, /<main class="[^"]*bg-surface[^"]*text-on-surface/);
+  assert.match(jonHtml, /id="ai-resource-topbar"/);
+  assert.match(jonHtml, /id="theme-toggle-mobile"[^>]*onclick="toggleDarkMode\(\)"/);
+  assert.match(jonHtml, /id="theme-toggle-desktop"[^>]*onclick="toggleDarkMode\(\)"/);
+  assert.match(jonHtml, /id="ai-resource-mobile-controls" class="[^"]*ml-auto[^"]*justify-end/);
+  assert.match(jonHtml, /id="ai-resource-topbar-controls" class="[^"]*ml-auto[^"]*justify-end/);
+  assert.match(jonHtml, /id="presentation-toggle-desktop"[^>]*onclick="togglePresentationMode\(\)"/);
+  assert.match(jonHtml, /id="presentation-toggle-mobile"[^>]*onclick="togglePresentationMode\(\)"/);
+  assert.match(jonHtml, /id="exit-pres-btn"[^>]*onclick="togglePresentationMode\(\)"/);
+  assert.match(jonHtml, /const AI_COURSE_THEME_STORAGE_KEY = "ai-course-theme";/);
+  assert.match(jonHtml, /function applyStoredTheme\(\)/);
+  assert.match(jonHtml, /window\.matchMedia\("\(prefers-color-scheme: dark\)"\)/);
+  assert.match(jonHtml, /localStorage\.setItem\(AI_COURSE_THEME_STORAGE_KEY, nextTheme\);/);
+  assert.match(jonHtml, /function syncThemeIcons\(\)/);
+  assert.match(jonHtml, /function togglePresentationMode\(\)/);
+  assert.match(jonHtml, /document\.body\.classList\.toggle\("presentation-active"/);
+  assert.doesNotMatch(jonHtml, /<body class="bg-slate-100 text-slate-900/);
+  assert.doesNotMatch(jonHtml, /<main class="[^"]*bg-slate-50/);
 });
 
 test("assessment pillars page has interactive evidence scale simulator", async () => {

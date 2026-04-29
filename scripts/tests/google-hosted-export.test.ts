@@ -353,6 +353,44 @@ test("exportProjectToGoogleHosted prefers explicit tracked storage keys from pro
   }
 });
 
+test("exportProjectToGoogleHosted can build a local-only hosted bridge without Google sign-in", async () => {
+  const localOnlySlug = `${TEST_PROJECT_SLUG}-local-only`;
+  const paths = await createProjectFixture({
+    slug: localOnlySlug,
+    workspaceFiles: {
+      "main.js": [
+        `localStorage.setItem("${localOnlySlug}::workspace-state::v1", JSON.stringify({ answer: 1 }));`,
+        ""
+      ].join("\n")
+    }
+  });
+
+  try {
+    const manifest = await readJsonFile<Record<string, unknown>>(paths.manifestPath);
+    await writeJsonFile(paths.manifestPath, {
+      ...manifest,
+      googleHosted: {
+        authMode: "none",
+        trackedStorageKeys: [`${localOnlySlug}::workspace-state::v1`]
+      }
+    });
+
+    const result = await exportProjectToGoogleHosted(localOnlySlug);
+    const bridgeScript = await readFile(path.join(result.exportDir, "google-hosted-bridge.js"), "utf8");
+    const readme = await readFile(path.join(result.exportDir, "README-deploy.md"), "utf8");
+
+    assert.match(bridgeScript, /"authMode":"none"/);
+    assert.match(bridgeScript, /preview\/references\/raw/);
+    assert.doesNotMatch(bridgeScript, /Sign in with Google/);
+    assert.doesNotMatch(bridgeScript, /firebase-auth-compat/);
+    assert.doesNotMatch(bridgeScript, /signInWithPopup/);
+    assert.doesNotMatch(bridgeScript, /collection\("users"\)\.doc/);
+    assert.match(readme, /Google sign-in is disabled for this bundle/);
+  } finally {
+    await cleanupProjectFixture(localOnlySlug);
+  }
+});
+
 test("exportProjectToGoogleHosted copies D2L export root reference files for hosted runtime", async () => {
   const slug = `${TEST_PROJECT_SLUG}-references`;
   const exportRoot = "D2LCCExport_Test";

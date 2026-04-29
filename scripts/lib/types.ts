@@ -107,6 +107,7 @@ export type ProjectManifest = {
   referenceOnly?: string[];
   sourceOfTruthNotes?: string;
   googleHosted?: {
+    authMode?: "google" | "none";
     trackedStorageKeys?: string[];
   };
   createdAt: string;

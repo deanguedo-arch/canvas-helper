@@ -33,6 +33,7 @@ async function writeDeployArtifacts(
   options: {
     firebaseConfig?: boolean;
     firebaseRc?: boolean;
+    localOnlyBridge?: boolean;
     progressBridge?: boolean;
   } = {}
 ) {
@@ -68,7 +69,12 @@ async function writeDeployArtifacts(
     );
   }
 
-  if (options.progressBridge !== false) {
+  if (options.localOnlyBridge) {
+    await writeTextFile(
+      path.join(exportDir, "google-hosted-bridge.js"),
+      'const config = {"authMode":"none","progressItems":[],"schemaVersion":2}; window.__canvasHelperGoogleHosted = { config };\n'
+    );
+  } else if (options.progressBridge !== false) {
     await writeTextFile(
       path.join(exportDir, "google-hosted-bridge.js"),
       "const config = { progressItems: [], schemaVersion: 2 }; function shouldUpgradeProgressSummary() {} const progressSummary = {};\n"
@@ -141,6 +147,27 @@ test("listDeployableGoogleHostedProjects returns only slugs with config and requ
     await cleanupProjectFixture(readySlug);
     await cleanupProjectFixture(missingConfigSlug);
     await cleanupProjectFixture(missingRcSlug);
+  }
+});
+
+test("listDeployableGoogleHostedProjects accepts local-only hosted bridges without auth progress code", async () => {
+  const slug = "test-google-hosted-deploy-local-only";
+  await createProjectFixture({ slug });
+  await writeDeployConfig(slug, {
+    enabled: true,
+    firebaseProjectId: "subject-course-one",
+    hostingSiteId: "local-only-site"
+  });
+  await writeDeployArtifacts(slug, { localOnlyBridge: true });
+
+  try {
+    const deployableProjects = await listDeployableGoogleHostedProjects();
+    const readyProject = deployableProjects.find((project) => project.slug === slug);
+
+    assert.equal(readyProject?.slug, slug);
+    assert.equal(readyProject?.config.hostingSiteId, "local-only-site");
+  } finally {
+    await cleanupProjectFixture(slug);
   }
 });
 
