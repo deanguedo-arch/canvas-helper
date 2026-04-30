@@ -21,7 +21,8 @@ test("ai course building resources opts into google hosted export", async () => 
     '"googleHosted": {',
     '"authMode": "none"',
     '"trackedStorageKeys": [',
-    '"ai-course-building-resources::workspace-state::v1"'
+    '"ai-course-building-resources::workspace-state::v1"',
+    '"ai-course-building-resources::stress-workshop::v1"'
   ];
 
   for (const snippet of expectedSnippets) {
@@ -123,4 +124,5 @@ test("ai course building resources google hosted export carries deploy-ready Fir
   assert.doesNotMatch(bridgeSource, /signInWithPopup/);
   assert.doesNotMatch(bridgeSource, /collection\("users"\)\.doc/);
   assert.match(bridgeSource, /ai-course-building-resources::workspace-state::v1/);
+  assert.match(bridgeSource, /ai-course-building-resources::stress-workshop::v1/);
 });

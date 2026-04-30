@@ -36,7 +36,15 @@
     "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ai-course-building-resources\\workspace\\resources\\decks\\*/slide-*.jpg"
   ],
   "regenerateCommand": "Use PowerPoint COM export from the preserved PPTX files in workspace/resources/decks/ to regenerate 1440x810 JPG slide previews.",
-  "injectedComponents": [],
+  "injectedComponents": [
+    {
+      "id": "redteamblueteam-workshop",
+      "source": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ai-course-building-resources\\workspace\\resources\\decks\\redteamblueteam.jsx",
+      "target": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ai-course-building-resources\\workspace\\resources\\dean-ai-assessment-pillars.html",
+      "status": "active",
+      "notes": "React/Tailwind first-pass stress-test workshop converted into native presentation HTML and JavaScript inside the assessment pillars page."
+    }
+  ],
   "importedFirstPassOrigin": {
     "sourceSystem": "manual",
     "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\canvas code and references\\AICOURSEBUILDING",
@@ -58,13 +66,14 @@
   "googleHosted": {
     "authMode": "none",
     "trackedStorageKeys": [
-      "ai-course-building-resources::workspace-state::v1"
+      "ai-course-building-resources::workspace-state::v1",
+      "ai-course-building-resources::stress-workshop::v1"
     ]
   },
   "authoringStatus": "active",
   "referenceOnly": [],
-  "sourceOfTruthNotes": "Edit workspace/index.html only for package navigation. The resource HTML files are canonical preserved copies of the original pages and should stay unabridged unless hosting/export mechanics require a targeted path fix. The shared AI course theme is canonical in workspace/resources/ai-course-theme.css. The PPTX files are the preserved presentation sources; PDF downloads and JPG slide previews are generated browser-viewing companions.",
+  "sourceOfTruthNotes": "Edit workspace/index.html only for package navigation. The resource HTML files are canonical preserved copies of the original pages and should stay unabridged unless hosting/export mechanics require a targeted path fix. The shared AI course theme is canonical in workspace/resources/ai-course-theme.css. The PPTX files are the preserved presentation sources; PDF downloads and JPG slide previews are generated browser-viewing companions. The redteamblueteam React source is preserved as the injected first-pass component source; the active converted workshop lives inside workspace/resources/dean-ai-assessment-pillars.html.",
   "createdAt": "2026-04-28T16:20:00.000Z",
-  "updatedAt": "2026-04-29T14:08:03.265Z",
-  "workspaceApprovedAt": "2026-04-29T14:08:03.265Z"
+  "updatedAt": "2026-04-29T19:59:22.826Z",
+  "workspaceApprovedAt": "2026-04-29T19:59:22.826Z"
 }

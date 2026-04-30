@@ -115,6 +115,37 @@
             animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
         }
 
+        .stress-flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .stress-workshop {
+            --stress-accent: var(--color-primary);
+        }
+
+        .stress-workshop [data-stress-phase-step][aria-current="true"] {
+            border-color: rgb(var(--stress-accent) / 0.55);
+            background: rgb(var(--stress-accent) / 0.12);
+            color: rgb(var(--color-on-surface));
+        }
+
+        .stress-workshop-note {
+            border-left: 4px solid rgb(var(--stress-note-color));
+            background: rgb(var(--stress-note-color) / 0.12);
+        }
+
+        .stress-workshop-note[data-note-tone="blue"] {
+            --stress-note-color: var(--color-primary);
+        }
+
+        .stress-workshop-note[data-note-tone="red"] {
+            --stress-note-color: var(--color-error);
+        }
+
+        .stress-workshop-note[data-note-tone="consensus"] {
+            --stress-note-color: var(--color-secondary);
+        }
+
     </style>
     <script id="tailwind-config">
         tailwind.config = {
@@ -271,8 +302,8 @@
             Multiple Choice
         </a>
         <a href="#toolbox" class="flex items-center gap-3 px-4 py-3 text-primary-fixed hover:bg-primary/10 hover:text-primary transition-all duration-200 rounded-lg border border-transparent hover:border-primary/20">
-            <span class="material-symbols-outlined text-xl">construction</span>
-            Teacher Toolbox
+            <span class="material-symbols-outlined text-xl">psychology_alt</span>
+            Make It Stronger
         </a>
         <a href="#resources" class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all duration-200 rounded-lg">
             <span class="material-symbols-outlined text-xl">folder_open</span>
@@ -801,66 +832,363 @@
         </div>
     </section>
 
-    <!-- Teacher Toolbox (Click to Copy) (Section 7) -->
-    <section id="toolbox" class="px-8 py-margin-page bg-surface border-y border-surface-variant section-slide">
-        <div class="max-w-[1440px] mx-auto w-full flex flex-col h-full justify-center">
-            <div class="text-center mb-10">
-                <div class="inline-flex items-center justify-center p-3 bg-primary-fixed/10 text-primary-fixed rounded-full mb-4 border border-primary-fixed/20">
-                    <span class="material-symbols-outlined text-[28px]">construction</span>
+    <!-- Collaborative Stress Test (Section 7) -->
+    <section id="toolbox" data-testid="framework-stress-test" class="px-8 py-margin-page bg-surface border-y border-surface-variant section-slide">
+        <div class="max-w-[1440px] mx-auto w-full flex flex-col gap-stack-lg">
+            <div class="max-w-5xl flex flex-col gap-4">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-primary/10 border border-primary/20 text-primary w-max font-bold text-sm">
+                    <span class="material-symbols-outlined text-[18px]">psychology_alt</span>
+                    STAFF COLLABORATION TOOL
                 </div>
-                <h2 class="font-h2 text-h2 text-on-surface mb-4">Teacher Toolbox</h2>
-                <p class="text-on-surface-variant max-w-2xl mx-auto">Click to copy these standardized blurbs directly into your syllabi, rubrics, and communications to ensure institutional alignment.</p>
+                <h2 class="font-h2 text-h2 text-on-surface">How do we make this stronger?</h2>
+                <p class="font-body-lg text-body-lg text-on-surface-variant">
+                    A strong framework is not one that avoids criticism. A strong framework is one that can survive criticism, absorb what is true, and become more practical because other people helped test it.
+                </p>
+                <p class="font-body-md text-body-md text-on-surface-variant">
+                    Bring teachers and staff into the build. The point of this section is to show the argument we present, lay out the strongest Red Team critique, and then use consensus to improve the product we actually roll out.
+                </p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-6">
-                <!-- Syllabus Blurb -->
-                <div class="bg-surface-container rounded-xl border border-surface-variant p-6 flex flex-col">
-                    <div class="flex justify-between items-center mb-4">
-                        <h3 class="font-bold text-on-surface flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">menu_book</span> Syllabus Outline</h3>
-                        <button onclick="copyText('copy-syllabus', this)" class="text-xs bg-surface-container-high hover:bg-surface-container-highest px-3 py-1.5 rounded-md border border-outline-variant flex items-center gap-1 transition-all"><span class="material-symbols-outlined text-[14px]">content_copy</span> Copy</button>
+            <div class="grid grid-cols-1 xl:grid-cols-3 gap-gutter">
+                <article data-stress-card="blue-team" class="stress-flip-card flip-card h-[760px] md:h-[700px] xl:h-[680px] cursor-pointer" tabindex="0" onclick="toggleStressCard(this)" onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); toggleStressCard(this); }">
+                    <div class="flip-card-inner relative w-full h-full">
+                        <div class="flip-card-front absolute inset-0 bg-surface-container-low border border-primary/30 rounded-xl p-6 flex flex-col gap-5">
+                            <div class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary">verified</span>
+                                <h3 class="text-xl font-bold text-on-surface">Argument We Present</h3>
+                            </div>
+                            <p class="text-on-surface-variant">
+                                This is the Blue Team case: the framework is defensible because it shifts assessment away from AI detection and toward visible learning evidence.
+                            </p>
+                            <ul class="space-y-3 text-sm text-on-surface-variant">
+                                <li class="flex gap-2"><span class="material-symbols-outlined text-[18px] text-primary">check_circle</span><span>It eliminates the AI detective trap.</span></li>
+                                <li class="flex gap-2"><span class="material-symbols-outlined text-[18px] text-primary">check_circle</span><span>It aligns product, process, and defence with modern assessment research.</span></li>
+                                <li class="flex gap-2"><span class="material-symbols-outlined text-[18px] text-primary">check_circle</span><span>It gives students transparent AI-use routes and common validity rules.</span></li>
+                            </ul>
+                            <div class="mt-auto pt-4 border-t border-primary/20 text-sm font-bold text-primary flex items-center gap-2">
+                                <span class="material-symbols-outlined text-[18px]">flip</span>
+                                Flip to read the full Blue Team argument
+                            </div>
+                        </div>
+
+                        <div class="flip-card-back absolute inset-0 bg-surface-container border border-primary/40 rounded-xl p-6 flex flex-col gap-4 overflow-y-auto">
+                            <div class="flex items-center justify-between gap-3">
+                                <h3 class="text-xl font-bold text-primary">Blue Team: The Case for Defensibility and Pedagogical Integrity</h3>
+                                <button type="button" class="text-sm font-bold text-on-surface-variant hover:text-on-surface" onclick="event.stopPropagation(); toggleStressCard(this.closest('.stress-flip-card'));">Back</button>
+                            </div>
+                            <p class="text-sm text-on-surface-variant">The Blue Team evaluates the framework based on its alignment with educational research, risk mitigation, and systemic protections.</p>
+                            <div class="space-y-4 text-sm text-on-surface-variant">
+                                <p><strong class="text-on-surface">Eliminates the "AI Detective" Trap:</strong> By explicitly stating that the goal is not to police students or catch them cheating, the framework neutralizes the unwinnable arms race of AI detection. It safely assumes AI is present and shifts the burden of evidence directly onto the student.</p>
+                                <p><strong class="text-on-surface">Aligns with Modern Assessment Research:</strong> The 50/25/25 split perfectly operationalizes the urgent shift from product-based evaluation to process-based and metacognitive assessment. It recognizes that in a generative age, polished outputs alone are no longer secure proof of learning.</p>
+                                <p><strong class="text-on-surface">Empowers Student Agency:</strong> Allowing students to choose their route treats AI as a professional tool rather than a prohibited one. This aligns with the GENAI Assessment Scale and gives students clear rules of engagement.</p>
+                                <p><strong class="text-on-surface">Proactive Competency Gating:</strong> The AI Use Permit ensures students do not automatically get access to powerful tools without proving they understand the difference between AI supporting their learning and replacing it.</p>
+                                <p><strong class="text-on-surface">Standardized Validity Rules:</strong> Mark caps and validity gates give staff a unified, fair response system. It prevents arbitrary point docking and focuses on the inability to validate the mark.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="bg-surface-container-lowest border border-surface-variant rounded-lg p-4 flex-grow overflow-y-auto">
-                        <p id="copy-syllabus" class="text-sm text-on-surface-variant font-mono whitespace-pre-wrap leading-relaxed">All major summative assessments in this course use a three-part evidence model: Product (50%), Process (25%), and Defence (25%). 
+                </article>
 
-You may complete assessments through one of three AI-use levels: Level 0 (No AI), Level 1 (Support), or Level 2 (Assisted). You must pass the AI Competency Gate before using Level 1 or 2.
+                <article data-stress-card="red-team" class="stress-flip-card flip-card h-[760px] md:h-[700px] xl:h-[680px] cursor-pointer" tabindex="0" onclick="toggleStressCard(this)" onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); toggleStressCard(this); }">
+                    <div class="flip-card-inner relative w-full h-full">
+                        <div class="flip-card-front absolute inset-0 bg-surface-container-low border border-error/30 rounded-xl p-6 flex flex-col gap-5">
+                            <div class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-error">report</span>
+                                <h3 class="text-xl font-bold text-on-surface">Full Red Team Critique</h3>
+                            </div>
+                            <p class="text-on-surface-variant">
+                                This is the strongest challenge: the model may be philosophically right and still fail if verification is too slow, heavy, or hard to scale.
+                            </p>
+                            <ul class="space-y-3 text-sm text-on-surface-variant">
+                                <li class="flex gap-2"><span class="material-symbols-outlined text-[18px] text-error">error</span><span>Live defence can become a mathematical scaling nightmare.</span></li>
+                                <li class="flex gap-2"><span class="material-symbols-outlined text-[18px] text-error">error</span><span>AI permits can create an early-course bottleneck.</span></li>
+                                <li class="flex gap-2"><span class="material-symbols-outlined text-[18px] text-error">error</span><span>Evidence burden may incentivize concealment.</span></li>
+                            </ul>
+                            <div class="mt-auto pt-4 border-t border-error/20 text-sm font-bold text-error flex items-center gap-2">
+                                <span class="material-symbols-outlined text-[18px]">flip</span>
+                                Flip to read the full Red Team argument
+                            </div>
+                        </div>
 
-The more AI contributes to the work, the more evidence you must provide to prove ownership, judgment, and accuracy. Assessment marks can only be validated if ownership is clear.</p>
+                        <div class="flip-card-back absolute inset-0 bg-surface-container border border-error/40 rounded-xl p-6 flex flex-col gap-4 overflow-y-auto">
+                            <div class="flex items-center justify-between gap-3">
+                                <h3 class="text-xl font-bold text-error">Red Team: The Case for Friction and Logistical Failure</h3>
+                                <button type="button" class="text-sm font-bold text-on-surface-variant hover:text-on-surface" onclick="event.stopPropagation(); toggleStressCard(this.closest('.stress-flip-card'));">Back</button>
+                            </div>
+                            <p class="text-sm text-on-surface-variant">The Red Team hunts for bottlenecks, scaling issues, and predictable human behaviour from both students and teachers.</p>
+                            <div class="space-y-4 text-sm text-on-surface-variant">
+                                <p><strong class="text-on-surface">The Defence is a Mathematical Scaling Nightmare:</strong> If every summative requires a 5-minute teacher conference or live Q&A, an online teacher with 150 students completing 4 summatives a term faces roughly 50 hours of live conferencing before counting other verification chats.</p>
+                                <p><strong class="text-on-surface">The Competency Gate Bottleneck:</strong> If Level 1 and Level 2 mini-modules require teacher verification for every student, the first weeks of the semester can stall while teachers try to clear AI-use permits.</p>
+                                <p><strong class="text-on-surface">Evidence Burden May Incentivize Concealment:</strong> Prompt trails, annotated AI outputs, source verification tables, and revision rationales can become a large organizational load. Students who already struggle with time management may hide AI use and claim Level 0 to avoid the paperwork.</p>
+                                <p><strong class="text-on-surface">Multiple-Choice Friction:</strong> Multiple-choice assessments are used because they are efficient and scalable. If every test triggers a randomized follow-up defence, the format can become almost as time-consuming as written response grading.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article data-stress-card="consensus" class="stress-flip-card flip-card h-[760px] md:h-[700px] xl:h-[680px] cursor-pointer" tabindex="0" onclick="toggleStressCard(this)" onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); toggleStressCard(this); }">
+                    <div class="flip-card-inner relative w-full h-full">
+                        <div class="flip-card-front absolute inset-0 bg-surface-container-low border border-secondary/30 rounded-xl p-6 flex flex-col gap-5">
+                            <div class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-secondary">sync_alt</span>
+                                <h3 class="text-xl font-bold text-on-surface">Consensus Result</h3>
+                            </div>
+                            <p class="text-on-surface-variant">
+                                The result we want to replicate is not winning the argument. It is using the stress test to produce a better operating model.
+                            </p>
+                            <ul class="space-y-3 text-sm text-on-surface-variant">
+                                <li class="flex gap-2"><span class="material-symbols-outlined text-[18px] text-secondary">task_alt</span><span>Defence must become a flexible evidence category.</span></li>
+                                <li class="flex gap-2"><span class="material-symbols-outlined text-[18px] text-secondary">task_alt</span><span>Live conferences are not the default.</span></li>
+                                <li class="flex gap-2"><span class="material-symbols-outlined text-[18px] text-secondary">task_alt</span><span>Pilot first, measure teacher time, then scale.</span></li>
+                            </ul>
+                            <div class="mt-auto pt-4 border-t border-secondary/20 text-sm font-bold text-secondary flex items-center gap-2">
+                                <span class="material-symbols-outlined text-[18px]">flip</span>
+                                Flip to read the consensus and next steps
+                            </div>
+                        </div>
+
+                        <div class="flip-card-back absolute inset-0 bg-surface-container border border-secondary/40 rounded-xl p-6 flex flex-col gap-4 overflow-y-auto">
+                            <div class="flex items-center justify-between gap-3">
+                                <h3 class="text-xl font-bold text-secondary">Consensus and Strategic Next Steps</h3>
+                                <button type="button" class="text-sm font-bold text-on-surface-variant hover:text-on-surface" onclick="event.stopPropagation(); toggleStressCard(this.closest('.stress-flip-card'));">Back</button>
+                            </div>
+                            <p class="text-sm text-on-surface-variant"><strong class="text-on-surface">The Verdict: The philosophy, structure, and student-facing messaging</strong> are highly defensible. The critical point of failure is teacher time. If verification and defence are not optimized, the framework can collapse under its own weight.</p>
+                            <div class="space-y-4 text-sm text-on-surface-variant">
+                                <p><strong class="text-on-surface">Optimize and Automate the Defence:</strong> Diversify what counts as defence. Use 2-minute recorded explanations, screen-recorded draft walkthroughs, metacognitive forms, or automated reflection checks before requiring a live conference.</p>
+                                <p><strong class="text-on-surface">Streamline the Competency Gate:</strong> Make the AI Use Permit as frictionless as possible. Use auto-graded knowledge checks and portfolio evidence that is audited when later work raises questions.</p>
+                                <p><strong class="text-on-surface">Scaffold the Process Gathering:</strong> Provide rigid templates for prompt trails, verification tables, and revision notes so evidence collection is part of the workflow rather than a chore at the end.</p>
+                                <p><strong class="text-on-surface">Run a Controlled Pilot:</strong> Test the 50/25/25 model with one department first. Track actual teacher hours, evidence quality, student clarity, and confidence before a hard launch.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-gutter">
+                <div class="bg-surface-container border border-surface-variant rounded-xl p-6 flex flex-col gap-4">
+                    <h3 class="text-xl font-bold text-on-surface">Collaboration Protocol</h3>
+                    <p class="text-on-surface-variant">Invite teachers, students, and leaders to work through the three cards, then capture the decisions that make the model more usable.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+                        <div class="border border-outline-variant rounded-lg p-4 bg-surface-container-low"><strong class="text-on-surface block mb-1">1. Present</strong><span class="text-on-surface-variant">Name the Blue Team case clearly so people understand the purpose.</span></div>
+                        <div class="border border-outline-variant rounded-lg p-4 bg-surface-container-low"><strong class="text-on-surface block mb-1">2. Stress</strong><span class="text-on-surface-variant">Let staff pressure-test workload, student behaviour, equity, and validity.</span></div>
+                        <div class="border border-outline-variant rounded-lg p-4 bg-surface-container-low"><strong class="text-on-surface block mb-1">3. Decide</strong><span class="text-on-surface-variant">Turn the best critiques into thresholds, templates, and exception rules.</span></div>
+                        <div class="border border-outline-variant rounded-lg p-4 bg-surface-container-low"><strong class="text-on-surface block mb-1">4. Replicate</strong><span class="text-on-surface-variant">Use the consensus pattern again whenever a new course, department, or assessment type is added.</span></div>
                     </div>
                 </div>
 
-                <!-- Assignment Instructions -->
-                <div class="bg-surface-container rounded-xl border border-surface-variant p-6 flex flex-col">
-                    <div class="flex justify-between items-center mb-4">
-                        <h3 class="font-bold text-on-surface flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[20px]">assignment</span> Assignment Header</h3>
-                        <button onclick="copyText('copy-assign', this)" class="text-xs bg-surface-container-high hover:bg-surface-container-highest px-3 py-1.5 rounded-md border border-outline-variant flex items-center gap-1 transition-all"><span class="material-symbols-outlined text-[14px]">content_copy</span> Copy</button>
+                <div class="bg-surface-container-lowest border border-secondary/40 border-l-4 border-l-secondary rounded-xl p-6 flex flex-col justify-center gap-4">
+                    <h3 class="text-xl font-bold text-secondary">What We Are Trying To Replicate</h3>
+                    <p class="text-on-surface-variant leading-relaxed">
+                        The repeatable move is this: present a strong model, invite the strongest critique, then build the consensus version that survives the classroom reality.
+                    </p>
+                    <p class="text-on-surface-variant leading-relaxed">
+                        The conclusion is not that Product, Process, and Defence are wrong. The conclusion is that Defence must become a flexible evidence category, process evidence needs templates, and live meetings should be sampled, targeted, or triggered by risk.
+                    </p>
+                </div>
+            </div>
+
+            <div id="red-blue-team-workshop" data-testid="red-blue-team-workshop" class="stress-workshop bg-surface-container-lowest border border-surface-variant rounded-xl overflow-hidden">
+                <div class="p-5 border-b border-surface-variant bg-surface-container flex flex-col gap-4">
+                    <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
+                        <div class="max-w-4xl">
+                            <h3 class="text-2xl font-bold text-on-surface">AI Framework Stress-Test Workshop</h3>
+                            <p class="text-on-surface-variant mt-2">
+                                A facilitated six-step exercise for the staff meeting: defend the framework, attack the implementation, then build the consensus version teachers can actually run.
+                            </p>
+                        </div>
+                        <div id="stress-workshop-phase-label" class="text-sm font-bold text-primary tabular-nums">Phase 1 of 6</div>
                     </div>
-                    <div class="bg-surface-container-lowest border border-surface-variant rounded-lg p-4 flex-grow overflow-y-auto">
-                        <p id="copy-assign" class="text-sm text-on-surface-variant font-mono whitespace-pre-wrap leading-relaxed">**DECLARATION OF AI LEVEL**
-Before beginning this assignment, please declare your intended AI level.
-
-[ ] Level 0: I will complete this entirely independently. (Requires planning sheet)
-[ ] Level 1: I will use AI as a tutor/sounding board. (Requires AI-use log)
-[ ] Level 2: I will use AI to assist in drafting/revising. (Requires prompt trail & verification table)
-
-Reminder: All levels require a short oral or written defence prior to final grading.</p>
+                    <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-2" role="tablist" aria-label="Stress-test workshop phases">
+                        <button type="button" data-stress-phase-step="1" onclick="setStressWorkshopPhase(1)" class="border border-outline-variant rounded-lg px-3 py-2 text-left text-sm text-on-surface-variant hover:bg-surface-container-high transition-colors" aria-current="true">1. Briefing</button>
+                        <button type="button" data-stress-phase-step="2" onclick="setStressWorkshopPhase(2)" class="border border-outline-variant rounded-lg px-3 py-2 text-left text-sm text-on-surface-variant hover:bg-surface-container-high transition-colors" aria-current="false">2. Blue Team</button>
+                        <button type="button" data-stress-phase-step="3" onclick="setStressWorkshopPhase(3)" class="border border-outline-variant rounded-lg px-3 py-2 text-left text-sm text-on-surface-variant hover:bg-surface-container-high transition-colors" aria-current="false">3. Red Team</button>
+                        <button type="button" data-stress-phase-step="4" onclick="setStressWorkshopPhase(4)" class="border border-outline-variant rounded-lg px-3 py-2 text-left text-sm text-on-surface-variant hover:bg-surface-container-high transition-colors" aria-current="false">4. Crossfire</button>
+                        <button type="button" data-stress-phase-step="5" onclick="setStressWorkshopPhase(5)" class="border border-outline-variant rounded-lg px-3 py-2 text-left text-sm text-on-surface-variant hover:bg-surface-container-high transition-colors" aria-current="false">5. Consensus</button>
+                        <button type="button" data-stress-phase-step="6" onclick="setStressWorkshopPhase(6)" class="border border-outline-variant rounded-lg px-3 py-2 text-left text-sm text-on-surface-variant hover:bg-surface-container-high transition-colors" aria-current="false">6. Debrief</button>
+                    </div>
+                    <div class="h-1.5 bg-surface-container-high rounded-full overflow-hidden" aria-hidden="true">
+                        <div id="stress-workshop-progress" class="h-full bg-primary transition-all duration-300" style="width: 0%;"></div>
                     </div>
                 </div>
+                <template id="stress-workshop-note-template">
+                    <button type="button" data-note-action="edit" aria-label="Edit note">Edit note</button>
+                    <button type="button" data-note-action="delete" aria-label="Delete note">Delete note</button>
+                </template>
 
-                <!-- Pre-Defence Email -->
-                <div class="bg-surface-container rounded-xl border border-surface-variant p-6 flex flex-col">
-                    <div class="flex justify-between items-center mb-4">
-                        <h3 class="font-bold text-on-surface flex items-center gap-2"><span class="material-symbols-outlined text-tertiary text-[20px]">mail</span> Pre-Defence Email</h3>
-                        <button onclick="copyText('copy-email', this)" class="text-xs bg-surface-container-high hover:bg-surface-container-highest px-3 py-1.5 rounded-md border border-outline-variant flex items-center gap-1 transition-all"><span class="material-symbols-outlined text-[14px]">content_copy</span> Copy</button>
-                    </div>
-                    <div class="bg-surface-container-lowest border border-surface-variant rounded-lg p-4 flex-grow overflow-y-auto">
-                        <p id="copy-email" class="text-sm text-on-surface-variant font-mono whitespace-pre-wrap leading-relaxed">Hi [Student Name],
+                <div class="p-5 md:p-8">
+                    <section data-stress-phase-panel="1" class="grid lg:grid-cols-[1fr_0.95fr] gap-gutter items-start">
+                        <div class="bg-surface-container border border-surface-variant rounded-xl p-6">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="material-symbols-outlined text-primary">flag</span>
+                                <h4 class="text-xl font-bold text-on-surface">Welcome to the Stress-Test</h4>
+                            </div>
+                            <p class="text-on-surface-variant leading-relaxed">
+                                Today we are looking at our new AI-Aware Assessment Framework. The core philosophy is simple: <strong class="text-on-surface">Product, Process, Defence.</strong> We are moving away from trying to catch AI use, and instead asking students to prove their learning.
+                            </p>
+                            <p class="text-on-surface-variant leading-relaxed mt-4">
+                                Today, we are not here to nod and agree. We are here to break this plan and then fix it together.
+                            </p>
+                        </div>
+                        <div class="bg-surface-container-low border border-outline-variant rounded-xl p-6">
+                            <h4 class="text-lg font-bold text-on-surface mb-4">Rules of Engagement</h4>
+                            <ul class="space-y-4 text-sm text-on-surface-variant">
+                                <li class="flex gap-3"><span class="material-symbols-outlined text-primary text-[20px]">verified</span><span><strong class="text-on-surface">Blue Team:</strong> Defend pedagogical integrity and find the strengths.</span></li>
+                                <li class="flex gap-3"><span class="material-symbols-outlined text-error text-[20px]">report</span><span><strong class="text-on-surface">Red Team:</strong> Find the logistical nightmares and student loopholes.</span></li>
+                                <li class="flex gap-3"><span class="material-symbols-outlined text-secondary text-[20px]">tips_and_updates</span><span><strong class="text-on-surface">Purple Team:</strong> Build consensus and actionable solutions.</span></li>
+                            </ul>
+                        </div>
+                    </section>
 
-Thank you for submitting your assignment. To finalize your grade and validate your learning, please sign up for a 5-minute Oral Defence conference via the link below.
+                    <section data-stress-phase-panel="2" class="hidden grid lg:grid-cols-[1fr_0.95fr] gap-gutter items-start">
+                        <div class="bg-surface-container border border-primary/35 border-t-4 border-t-primary rounded-xl p-6">
+                            <div class="flex items-center gap-3 mb-5">
+                                <span class="material-symbols-outlined text-primary">verified_user</span>
+                                <div>
+                                    <h4 class="text-xl font-bold text-on-surface">Blue Team Deep Dive</h4>
+                                    <p class="text-sm text-on-surface-variant">Defenders of pedagogical integrity</p>
+                                </div>
+                            </div>
+                            <h5 class="font-bold text-on-surface mb-3">Discussion prompts</h5>
+                            <ul class="list-disc pl-5 space-y-2 text-sm text-on-surface-variant mb-6">
+                                <li>Why is the 50/25/25 split pedagogically stronger than grading just a final product?</li>
+                                <li>How does the AI Use Permit empower student agency?</li>
+                                <li>How does this protect teachers from the AI Detective trap?</li>
+                            </ul>
+                            <form onsubmit="addStressWorkshopNote(event, 'blue')" class="flex flex-col sm:flex-row gap-3">
+                                <label class="sr-only" for="stress-workshop-blue-input">Add a Blue Team strength</label>
+                                <input id="stress-workshop-blue-input" type="text" class="flex-1 rounded-lg border border-outline-variant bg-surface-container-lowest px-4 py-3 text-on-surface placeholder:text-on-surface-variant focus:border-primary focus:ring-primary" placeholder="Add a strength the group names...">
+                                <button type="submit" class="rounded-lg border border-primary/40 bg-primary/10 px-4 py-3 text-primary font-bold hover:bg-primary/20 transition-colors">Add Note</button>
+                            </form>
+                        </div>
+                        <div class="bg-surface-container-low border border-primary/25 rounded-xl p-5">
+                            <h5 class="font-bold text-on-surface mb-4">Blue Board</h5>
+                            <div id="stress-workshop-blue-board" class="space-y-3 min-h-[260px]" aria-live="polite"></div>
+                        </div>
+                    </section>
 
-During this brief chat, I will ask you 2-3 questions about how you planned your work, why you chose specific evidence, and how you utilized your declared AI level. 
+                    <section data-stress-phase-panel="3" class="hidden grid lg:grid-cols-[1fr_0.95fr] gap-gutter items-start">
+                        <div class="bg-surface-container border border-error/35 border-t-4 border-t-error rounded-xl p-6">
+                            <div class="flex items-center gap-3 mb-5">
+                                <span class="material-symbols-outlined text-error">warning</span>
+                                <div>
+                                    <h4 class="text-xl font-bold text-on-surface">Red Team Attack</h4>
+                                    <p class="text-sm text-on-surface-variant">The stress-testers</p>
+                                </div>
+                            </div>
+                            <h5 class="font-bold text-on-surface mb-3">Discussion prompts</h5>
+                            <ul class="list-disc pl-5 space-y-2 text-sm text-on-surface-variant mb-6">
+                                <li><strong class="text-on-surface">The Scaling Nightmare:</strong> How does the 5-minute teacher conference break you with 150 students?</li>
+                                <li><strong class="text-on-surface">The Student Loophole:</strong> What if students use AI heavily but claim Level 0 to avoid paperwork?</li>
+                                <li><strong class="text-on-surface">The Multiple Choice Problem:</strong> How do we run verified multiple choice efficiently?</li>
+                            </ul>
+                            <form onsubmit="addStressWorkshopNote(event, 'red')" class="flex flex-col sm:flex-row gap-3">
+                                <label class="sr-only" for="stress-workshop-red-input">Add a Red Team vulnerability</label>
+                                <input id="stress-workshop-red-input" type="text" class="flex-1 rounded-lg border border-outline-variant bg-surface-container-lowest px-4 py-3 text-on-surface placeholder:text-on-surface-variant focus:border-error focus:ring-error" placeholder="Add a vulnerability the group surfaces...">
+                                <button type="submit" class="rounded-lg border border-error/40 bg-error/10 px-4 py-3 text-error font-bold hover:bg-error/20 transition-colors">Add Note</button>
+                            </form>
+                        </div>
+                        <div class="bg-surface-container-low border border-error/25 rounded-xl p-5">
+                            <h5 class="font-bold text-on-surface mb-4">Red Board</h5>
+                            <div id="stress-workshop-red-board" class="space-y-3 min-h-[260px]" aria-live="polite"></div>
+                        </div>
+                    </section>
 
-Please review your submission and process logs beforehand. I look forward to hearing about your learning process!</p>
-                    </div>
+                    <section data-stress-phase-panel="4" class="hidden">
+                        <div class="bg-surface-container border border-surface-variant rounded-xl p-6 mb-6 text-center">
+                            <h4 class="text-xl font-bold text-on-surface">The Crossfire</h4>
+                            <p class="text-sm text-on-surface-variant mt-2">Review the strengths and risks before building consensus.</p>
+                        </div>
+                        <div class="grid lg:grid-cols-2 gap-gutter">
+                            <div class="bg-primary/10 border border-primary/25 rounded-xl p-5">
+                                <h5 class="font-bold text-primary mb-4 flex items-center gap-2"><span class="material-symbols-outlined">verified</span> Why we must make this shift</h5>
+                                <div id="stress-workshop-blue-crossfire" class="space-y-3"></div>
+                            </div>
+                            <div class="bg-error/10 border border-error/25 rounded-xl p-5">
+                                <h5 class="font-bold text-error mb-4 flex items-center gap-2"><span class="material-symbols-outlined">report</span> Why this plan might fail</h5>
+                                <div id="stress-workshop-red-crossfire" class="space-y-3"></div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section data-stress-phase-panel="5" class="hidden">
+                        <div class="bg-surface-container border border-secondary/35 border-t-4 border-t-secondary rounded-xl p-6">
+                            <div class="flex items-center gap-3 mb-6">
+                                <span class="material-symbols-outlined text-secondary">tips_and_updates</span>
+                                <div>
+                                    <h4 class="text-xl font-bold text-on-surface">Purple Team Consensus</h4>
+                                    <p class="text-sm text-on-surface-variant">Solve the Red Team's biggest attacks.</p>
+                                </div>
+                            </div>
+                            <div class="grid lg:grid-cols-3 gap-gutter">
+                                <div class="bg-surface-container-low border border-outline-variant rounded-xl p-5">
+                                    <h5 class="font-bold text-on-surface">Target 1: The Defence Bottleneck</h5>
+                                    <p class="text-sm text-error mt-2 mb-4">Problem: 150 live 5-minute teacher conferences per summative is impossible.</p>
+                                    <div id="stress-workshop-target1-board" class="space-y-3 mb-4"></div>
+                                    <form onsubmit="addStressWorkshopNote(event, 'target1')" class="flex flex-col gap-3">
+                                        <label class="sr-only" for="stress-workshop-target1-input">Add a defence bottleneck solution</label>
+                                        <input id="stress-workshop-target1-input" type="text" class="rounded-lg border border-outline-variant bg-surface-container-lowest px-4 py-3 text-sm text-on-surface placeholder:text-on-surface-variant focus:border-secondary focus:ring-secondary" placeholder="Example: async video defence">
+                                        <button type="submit" class="rounded-lg border border-secondary/40 bg-secondary/10 px-4 py-3 text-secondary font-bold hover:bg-secondary/20 transition-colors">Add Idea</button>
+                                    </form>
+                                </div>
+                                <div class="bg-surface-container-low border border-outline-variant rounded-xl p-5">
+                                    <h5 class="font-bold text-on-surface">Target 2: The Competency Gate Backlog</h5>
+                                    <p class="text-sm text-error mt-2 mb-4">Problem: Teachers spending hours verifying AI permits early in the term.</p>
+                                    <div id="stress-workshop-target2-board" class="space-y-3 mb-4"></div>
+                                    <form onsubmit="addStressWorkshopNote(event, 'target2')" class="flex flex-col gap-3">
+                                        <label class="sr-only" for="stress-workshop-target2-input">Add a competency gate solution</label>
+                                        <input id="stress-workshop-target2-input" type="text" class="rounded-lg border border-outline-variant bg-surface-container-lowest px-4 py-3 text-sm text-on-surface placeholder:text-on-surface-variant focus:border-secondary focus:ring-secondary" placeholder="Example: auto-graded knowledge check">
+                                        <button type="submit" class="rounded-lg border border-secondary/40 bg-secondary/10 px-4 py-3 text-secondary font-bold hover:bg-secondary/20 transition-colors">Add Idea</button>
+                                    </form>
+                                </div>
+                                <div class="bg-surface-container-low border border-outline-variant rounded-xl p-5">
+                                    <h5 class="font-bold text-on-surface">Target 3: The Concealed AI Loophole</h5>
+                                    <p class="text-sm text-error mt-2 mb-4">Problem: Students hiding AI use to avoid the "Process" paperwork.</p>
+                                    <div id="stress-workshop-target3-board" class="space-y-3 mb-4"></div>
+                                    <form onsubmit="addStressWorkshopNote(event, 'target3')" class="flex flex-col gap-3">
+                                        <label class="sr-only" for="stress-workshop-target3-input">Add a concealed AI solution</label>
+                                        <input id="stress-workshop-target3-input" type="text" class="rounded-lg border border-outline-variant bg-surface-container-lowest px-4 py-3 text-sm text-on-surface placeholder:text-on-surface-variant focus:border-secondary focus:ring-secondary" placeholder="Example: rigid process templates">
+                                        <button type="submit" class="rounded-lg border border-secondary/40 bg-secondary/10 px-4 py-3 text-secondary font-bold hover:bg-secondary/20 transition-colors">Add Idea</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section data-stress-phase-panel="6" class="hidden">
+                        <div class="bg-surface-container border border-secondary/35 rounded-xl p-6">
+                            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-6">
+                                <div>
+                                    <h4 class="text-2xl font-bold text-on-surface">Workshop Debrief</h4>
+                                    <p class="text-on-surface-variant mt-2">Here is the implementation blueprint the group built together.</p>
+                                </div>
+                                <button type="button" onclick="exportStressWorkshopSummary()" class="inline-flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-high px-4 py-3 text-sm font-bold text-on-surface hover:bg-surface-container-highest transition-colors">
+                                    <span class="material-symbols-outlined text-[18px] mr-2">download</span> Export Summary
+                                </button>
+                            </div>
+                            <div class="grid lg:grid-cols-3 gap-gutter">
+                                <div class="border border-outline-variant rounded-xl p-5 bg-surface-container-low">
+                                    <h5 class="font-bold text-on-surface mb-3">1. Alleviating the Defence Bottleneck</h5>
+                                    <div id="stress-workshop-summary-target1" class="space-y-2 text-sm text-on-surface-variant"></div>
+                                </div>
+                                <div class="border border-outline-variant rounded-xl p-5 bg-surface-container-low">
+                                    <h5 class="font-bold text-on-surface mb-3">2. Streamlining the Competency Gate</h5>
+                                    <div id="stress-workshop-summary-target2" class="space-y-2 text-sm text-on-surface-variant"></div>
+                                </div>
+                                <div class="border border-outline-variant rounded-xl p-5 bg-surface-container-low">
+                                    <h5 class="font-bold text-on-surface mb-3">3. Closing the Concealment Loophole</h5>
+                                    <div id="stress-workshop-summary-target3" class="space-y-2 text-sm text-on-surface-variant"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="p-5 border-t border-surface-variant bg-surface-container flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <button id="stress-workshop-prev" type="button" onclick="changeStressWorkshopPhase(-1)" class="inline-flex items-center justify-center rounded-lg border border-outline-variant px-4 py-3 text-sm font-bold text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
+                        <span class="material-symbols-outlined text-[18px] mr-2">chevron_left</span> Previous
+                    </button>
+                    <button id="stress-workshop-next" type="button" onclick="changeStressWorkshopPhase(1)" class="inline-flex items-center justify-center rounded-lg border border-primary/40 bg-primary/10 px-4 py-3 text-sm font-bold text-primary hover:bg-primary/20 disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
+                        Next Phase <span class="material-symbols-outlined text-[18px] ml-2">chevron_right</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -1041,26 +1369,341 @@ Please review your submission and process logs beforehand. I look forward to hea
         }
     }
 
-    // --- COPY TO CLIPBOARD LOGIC (TOOLBOX) ---
-    function copyText(elementId, btnElement) {
-        const text = document.getElementById(elementId).innerText;
-        const textArea = document.createElement("textarea");
-        textArea.value = text;
-        document.body.appendChild(textArea);
-        textArea.select();
-        try {
-            document.execCommand('copy');
-            const originalHTML = btnElement.innerHTML;
-            btnElement.innerHTML = '<span class="material-symbols-outlined text-[14px]">check</span> Copied!';
-            btnElement.classList.add('text-secondary', 'border-secondary/50', 'bg-secondary/10');
-            setTimeout(() => {
-                btnElement.innerHTML = originalHTML;
-                btnElement.classList.remove('text-secondary', 'border-secondary/50', 'bg-secondary/10');
-            }, 2000);
-        } catch (err) {
-            console.error('Copy failed', err);
+    // --- STRESS TEST CARD LOGIC ---
+    function toggleStressCard(card) {
+        if (!card) return;
+        card.classList.toggle("flipped");
+    }
+
+    // --- RED / BLUE TEAM WORKSHOP LOGIC ---
+    const STRESS_WORKSHOP_STORAGE_KEY = "ai-course-building-resources::stress-workshop::v1";
+    const stressWorkshopTargets = ["blue", "red", "target1", "target2", "target3"];
+
+    const stressWorkshopInputs = {
+        blue: "stress-workshop-blue-input",
+        red: "stress-workshop-red-input",
+        target1: "stress-workshop-target1-input",
+        target2: "stress-workshop-target2-input",
+        target3: "stress-workshop-target3-input"
+    };
+
+    const stressWorkshopTone = {
+        blue: "blue",
+        red: "red",
+        target1: "consensus",
+        target2: "consensus",
+        target3: "consensus"
+    };
+
+    const stressWorkshopAccent = {
+        1: "var(--color-primary)",
+        2: "var(--color-primary)",
+        3: "var(--color-error)",
+        4: "var(--color-tertiary)",
+        5: "var(--color-secondary)",
+        6: "var(--color-secondary)"
+    };
+
+    function createStressWorkshopNote(text, idPrefix = "note") {
+        const safePrefix = String(idPrefix || "note").replace(/[^a-z0-9_-]/gi, "-").toLowerCase();
+        const uniqueId = Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 8);
+        return {
+            id: `${safePrefix}-${uniqueId}`,
+            text: String(text || "").trim()
+        };
+    }
+
+    const stressWorkshopDefaultState = {
+        phase: 1,
+        blue: [
+            { id: "blue-seed-1", text: "Process-based grading eliminates the need to act as 'AI Detectives'." }
+        ],
+        red: [
+            { id: "red-seed-1", text: "150 live 5-minute teacher conferences per summative is a mathematical scaling nightmare." }
+        ],
+        target1: [],
+        target2: [],
+        target3: []
+    };
+
+    let stressWorkshopSyncTimer = null;
+    let stressWorkshopEditing = null;
+
+    function escapeStressWorkshopText(value) {
+        return String(value)
+            .replaceAll("&", "&amp;")
+            .replaceAll("<", "&lt;")
+            .replaceAll(">", "&gt;")
+            .replaceAll('"', "&quot;")
+            .replaceAll("'", "&#039;");
+    }
+
+    function cloneStressWorkshopDefaultState() {
+        return {
+            phase: stressWorkshopDefaultState.phase,
+            blue: stressWorkshopDefaultState.blue.map((note) => ({ ...note })),
+            red: stressWorkshopDefaultState.red.map((note) => ({ ...note })),
+            target1: [],
+            target2: [],
+            target3: []
+        };
+    }
+
+    function normalizeStressWorkshopNotes(value, target) {
+        if (!Array.isArray(value)) return [];
+
+        return value
+            .map((entry, index) => {
+                if (typeof entry === "string") {
+                    return { id: `${target}-legacy-${index}`, text: entry.trim() };
+                }
+                if (!entry || typeof entry !== "object") {
+                    return null;
+                }
+                const text = typeof entry.text === "string" ? entry.text.trim() : "";
+                if (!text) return null;
+                const id = typeof entry.id === "string" && entry.id.trim()
+                    ? entry.id.trim().replace(/[^a-z0-9_-]/gi, "-")
+                    : `${target}-legacy-${index}`;
+                return { id, text };
+            })
+            .filter(Boolean);
+    }
+
+    function normalizeStressWorkshopState(value) {
+        const defaults = cloneStressWorkshopDefaultState();
+        if (!value || typeof value !== "object") return defaults;
+
+        const phase = Math.max(1, Math.min(6, Number(value.phase) || 1));
+        const normalized = { ...defaults, phase };
+        for (const target of stressWorkshopTargets) {
+            if (Object.prototype.hasOwnProperty.call(value, target)) {
+                normalized[target] = normalizeStressWorkshopNotes(value[target], target);
+            } else {
+                normalized[target] = defaults[target];
+            }
         }
-        document.body.removeChild(textArea);
+        return normalized;
+    }
+
+    function loadStressWorkshopState() {
+        try {
+            const saved = localStorage.getItem(STRESS_WORKSHOP_STORAGE_KEY);
+            return normalizeStressWorkshopState(saved ? JSON.parse(saved) : null);
+        } catch {
+            return cloneStressWorkshopDefaultState();
+        }
+    }
+
+    let stressWorkshopState = loadStressWorkshopState();
+
+    function requestStressWorkshopSync() {
+        if (stressWorkshopSyncTimer) {
+            clearTimeout(stressWorkshopSyncTimer);
+        }
+
+        stressWorkshopSyncTimer = window.setTimeout(() => {
+            let hostedBridge = window.__canvasHelperGoogleHosted || null;
+            try {
+                if (!hostedBridge && window.parent && window.parent !== window) {
+                    hostedBridge = window.parent.__canvasHelperGoogleHosted || null;
+                }
+            } catch {
+                hostedBridge = null;
+            }
+            if (hostedBridge && typeof hostedBridge.save === "function") {
+                hostedBridge.save().catch(() => {});
+            }
+        }, 250);
+    }
+
+    function saveStressWorkshopState() {
+        try {
+            localStorage.setItem(STRESS_WORKSHOP_STORAGE_KEY, JSON.stringify(stressWorkshopState));
+            requestStressWorkshopSync();
+        } catch {
+            // Local storage may be unavailable in some embedded preview modes.
+        }
+    }
+
+    function findStressWorkshopNote(target, noteId) {
+        const notes = stressWorkshopState[target] || [];
+        return notes.find((note) => note.id === noteId) || null;
+    }
+
+    function stressWorkshopNoteHtml(note, target, tone) {
+        const safeTarget = escapeStressWorkshopText(target);
+        const safeNoteId = escapeStressWorkshopText(note.id);
+        const safeText = escapeStressWorkshopText(note.text);
+        const isEditing = stressWorkshopEditing &&
+            stressWorkshopEditing.target === target &&
+            stressWorkshopEditing.noteId === note.id;
+
+        if (isEditing) {
+            return `
+                <form class="stress-workshop-note rounded-lg border border-outline-variant p-4 text-sm text-on-surface-variant" data-note-tone="${tone}" onsubmit="saveStressWorkshopNoteEdit(event, '${safeTarget}', '${safeNoteId}')">
+                    <label class="sr-only" for="stress-edit-${safeTarget}-${safeNoteId}">Edit note</label>
+                    <textarea id="stress-edit-${safeTarget}-${safeNoteId}" class="w-full min-h-[96px] rounded-lg border border-outline-variant bg-surface-container-lowest px-3 py-2 text-sm text-on-surface placeholder:text-on-surface-variant focus:border-secondary focus:ring-secondary">${safeText}</textarea>
+                    <div class="mt-3 flex flex-wrap justify-end gap-2">
+                        <button type="button" class="rounded-lg border border-outline-variant px-3 py-2 text-xs font-bold text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" onclick="cancelStressWorkshopNoteEdit()">Cancel</button>
+                        <button type="submit" class="rounded-lg border border-secondary/40 bg-secondary/10 px-3 py-2 text-xs font-bold text-secondary hover:bg-secondary/20 transition-colors">Save</button>
+                    </div>
+                </form>
+            `;
+        }
+
+        return `
+            <div class="stress-workshop-note rounded-lg border border-outline-variant p-4 text-sm text-on-surface-variant" data-note-tone="${tone}">
+                <p>${safeText}</p>
+                <div class="mt-3 flex flex-wrap justify-end gap-2">
+                    <button type="button" data-note-action="edit" class="inline-flex items-center gap-1 rounded-lg border border-outline-variant px-3 py-1.5 text-xs font-bold text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" aria-label="Edit note" onclick="beginStressWorkshopNoteEdit('${safeTarget}', '${safeNoteId}')">
+                        <span class="material-symbols-outlined text-[16px]">edit</span> Edit
+                    </button>
+                    <button type="button" data-note-action="delete" class="inline-flex items-center gap-1 rounded-lg border border-error/35 px-3 py-1.5 text-xs font-bold text-error hover:bg-error/10 transition-colors" aria-label="Delete note" onclick="deleteStressWorkshopNote('${safeTarget}', '${safeNoteId}')">
+                        <span class="material-symbols-outlined text-[16px]">delete</span> Delete
+                    </button>
+                </div>
+            </div>
+        `;
+    }
+
+    function renderStressWorkshopList(target, containerId, emptyText) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+
+        const notes = stressWorkshopState[target] || [];
+        if (notes.length === 0) {
+            container.innerHTML = `<p class="text-sm text-on-surface-variant italic">${emptyText}</p>`;
+            return;
+        }
+
+        container.innerHTML = notes.map((note) => stressWorkshopNoteHtml(note, target, stressWorkshopTone[target])).join("");
+    }
+
+    function renderStressWorkshopSummary(target, containerId) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+
+        const notes = stressWorkshopState[target] || [];
+        if (notes.length === 0) {
+            container.innerHTML = '<p class="italic">No consensus recorded.</p>';
+            return;
+        }
+
+        container.innerHTML = `<ul class="list-disc pl-5 space-y-2">${notes.map((note) => `<li>${escapeStressWorkshopText(note.text)}</li>`).join("")}</ul>`;
+    }
+
+    function renderStressWorkshop() {
+        renderStressWorkshopList("blue", "stress-workshop-blue-board", "No Blue Team notes yet. Add one as staff name the strengths.");
+        renderStressWorkshopList("red", "stress-workshop-red-board", "No Red Team notes yet. Add one as staff name the risks.");
+        renderStressWorkshopList("blue", "stress-workshop-blue-crossfire", "No Blue Team notes recorded yet.");
+        renderStressWorkshopList("red", "stress-workshop-red-crossfire", "No Red Team notes recorded yet.");
+        renderStressWorkshopList("target1", "stress-workshop-target1-board", "No solution recorded yet.");
+        renderStressWorkshopList("target2", "stress-workshop-target2-board", "No solution recorded yet.");
+        renderStressWorkshopList("target3", "stress-workshop-target3-board", "No solution recorded yet.");
+        renderStressWorkshopSummary("target1", "stress-workshop-summary-target1");
+        renderStressWorkshopSummary("target2", "stress-workshop-summary-target2");
+        renderStressWorkshopSummary("target3", "stress-workshop-summary-target3");
+    }
+
+    function setStressWorkshopPhase(nextPhase, options = { persist: true }) {
+        const phase = Math.max(1, Math.min(6, Number(nextPhase) || 1));
+        stressWorkshopState.phase = phase;
+        if (options.persist) {
+            saveStressWorkshopState();
+        }
+
+        document.querySelectorAll("[data-stress-phase-panel]").forEach((panel) => {
+            panel.classList.toggle("hidden", panel.getAttribute("data-stress-phase-panel") !== String(phase));
+        });
+
+        document.querySelectorAll("[data-stress-phase-step]").forEach((step) => {
+            step.setAttribute("aria-current", String(step.getAttribute("data-stress-phase-step") === String(phase)));
+        });
+
+        const workshop = document.getElementById("red-blue-team-workshop");
+        const label = document.getElementById("stress-workshop-phase-label");
+        const progress = document.getElementById("stress-workshop-progress");
+        const previous = document.getElementById("stress-workshop-prev");
+        const next = document.getElementById("stress-workshop-next");
+
+        if (workshop) workshop.style.setProperty("--stress-accent", stressWorkshopAccent[phase]);
+        if (label) label.innerText = `Phase ${phase} of 6`;
+        if (progress) progress.style.width = `${((phase - 1) / 5) * 100}%`;
+        if (previous) previous.disabled = phase === 1;
+        if (next) {
+            next.disabled = phase === 6;
+            next.innerHTML = phase === 6
+                ? 'Workshop Complete <span class="material-symbols-outlined text-[18px] ml-2">check</span>'
+                : 'Next Phase <span class="material-symbols-outlined text-[18px] ml-2">chevron_right</span>';
+        }
+
+        renderStressWorkshop();
+    }
+
+    function changeStressWorkshopPhase(delta) {
+        setStressWorkshopPhase(stressWorkshopState.phase + delta);
+    }
+
+    function addStressWorkshopNote(event, target) {
+        event.preventDefault();
+        const input = document.getElementById(stressWorkshopInputs[target]);
+        if (!input) return;
+
+        const note = input.value.trim();
+        if (!note) return;
+
+        stressWorkshopState[target].push(createStressWorkshopNote(note, target));
+        input.value = "";
+        saveStressWorkshopState();
+        renderStressWorkshop();
+    }
+
+    function deleteStressWorkshopNote(target, noteId) {
+        const notes = stressWorkshopState[target];
+        if (!Array.isArray(notes)) return;
+
+        stressWorkshopState[target] = notes.filter((note) => note.id !== noteId);
+        if (stressWorkshopEditing && stressWorkshopEditing.target === target && stressWorkshopEditing.noteId === noteId) {
+            stressWorkshopEditing = null;
+        }
+        saveStressWorkshopState();
+        renderStressWorkshop();
+    }
+
+    function beginStressWorkshopNoteEdit(target, noteId) {
+        if (!findStressWorkshopNote(target, noteId)) return;
+        stressWorkshopEditing = { target, noteId };
+        renderStressWorkshop();
+        const editField = document.getElementById(`stress-edit-${target}-${noteId}`);
+        if (editField) {
+            editField.focus();
+        }
+    }
+
+    function saveStressWorkshopNoteEdit(event, target, noteId) {
+        event.preventDefault();
+        const note = findStressWorkshopNote(target, noteId);
+        if (!note) return;
+
+        const editField = document.getElementById(`stress-edit-${target}-${noteId}`);
+        const nextText = editField ? editField.value.trim() : "";
+        if (nextText) {
+            note.text = nextText;
+            saveStressWorkshopState();
+        }
+        stressWorkshopEditing = null;
+        renderStressWorkshop();
+    }
+
+    function cancelStressWorkshopNoteEdit() {
+        stressWorkshopEditing = null;
+        renderStressWorkshop();
+    }
+
+    function exportStressWorkshopSummary() {
+        setStressWorkshopPhase(6);
+        window.print();
     }
 
     // --- ASSESSMENT WEIGHT BALANCER ---
@@ -1443,6 +2086,7 @@ Please review your submission and process logs beforehand. I look forward to hea
     // Setup sections array on load
     window.addEventListener('DOMContentLoaded', () => {
         sections = Array.from(document.querySelectorAll('.section-slide'));
+        setStressWorkshopPhase(stressWorkshopState.phase, { persist: false });
     });
 
     function togglePresentationMode() {

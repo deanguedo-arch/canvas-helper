@@ -44,6 +44,14 @@ function escapeRegExp(value: string) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
+function sliceBetween(value: string, startMarker: string, endMarker: string) {
+  const start = value.indexOf(startMarker);
+  const end = value.indexOf(endMarker, start + startMarker.length);
+  assert.ok(start >= 0, `missing start marker: ${startMarker}`);
+  assert.ok(end > start, `missing end marker after ${startMarker}: ${endMarker}`);
+  return value.slice(start, end);
+}
+
 test("ai course building package preserves both source HTML pages behind one hub", async () => {
   const manifestPath = path.join(projectDir, "meta", "project.json");
   const hubPath = path.join(projectDir, "workspace", "index.html");
@@ -146,6 +154,137 @@ test("assessment pillars page has balanced assessment-weight sliders", async () 
   assert.match(html, /sliders\[key\]\.style\.setProperty\("--range-fill", `\$\{weights\[key\]\}%`\);/);
   assert.doesNotMatch(html, /badges\[key\]\.innerText/);
   assert.doesNotMatch(html, /totalLabel\.innerText = "100%";/);
+});
+
+test("assessment pillars page replaces teacher toolbox with a fuller collaborative stress-test section", async () => {
+  const pagePath = path.join(projectDir, "workspace", "resources", "dean-ai-assessment-pillars.html");
+  const html = await readUtf8(pagePath);
+
+  assert.match(html, /href="#toolbox"/);
+  assert.doesNotMatch(html, /href="#framework-stress-test"/);
+  assert.match(html, /id="toolbox"/);
+  assert.match(html, /data-testid="framework-stress-test"/);
+  assert.match(html, /How do we make this stronger\?/);
+  assert.match(html, /A strong framework is not one that avoids criticism\./);
+  assert.match(html, /Bring teachers and staff into the build/);
+  assert.match(html, /data-stress-card="blue-team"/);
+  assert.match(html, /data-stress-card="red-team"/);
+  assert.match(html, /data-stress-card="consensus"/);
+  assert.match(html, /flip-card-inner/);
+  assert.match(html, /Argument We Present/);
+  assert.match(html, /Eliminates the "AI Detective" Trap/);
+  assert.match(html, /The Defence is a Mathematical Scaling Nightmare/);
+  assert.match(html, /Evidence Burden May Incentivize Concealment/);
+  assert.match(html, /The Verdict: The philosophy, structure, and student-facing messaging/);
+  assert.match(html, /Optimize and Automate the Defence/);
+  assert.match(html, /Scaffold the Process Gathering/);
+  assert.match(html, /Run a Controlled Pilot/);
+  assert.match(html, /function toggleStressCard\(card\)/);
+  assert.match(html, /Defence must become a flexible evidence category/);
+  assert.match(html, /Live conferences are not the default/);
+  assert.match(html, /Invite teachers, students, and leaders/);
+  assert.match(html, /Pilot first, measure teacher time, then scale/);
+  assert.doesNotMatch(html, /Teacher Toolbox/);
+  assert.doesNotMatch(html, /Syllabus Outline/);
+  assert.doesNotMatch(html, /copyText\(/);
+  assert.doesNotMatch(html, /id="copy-syllabus"/);
+  assert.ok(
+    html.indexOf('id="multiple-choice"') < html.indexOf('id="toolbox"'),
+    "expected the stress-test tool to occupy the old toolbox slot after multiple-choice"
+  );
+  assert.ok(
+    html.indexOf('id="toolbox"') < html.indexOf('id="resources"'),
+    "expected the stress-test tool to appear before resources"
+  );
+});
+
+test("assessment pillars page embeds the converted red-blue-team workshop below the stress-test consensus", async () => {
+  const pagePath = path.join(projectDir, "workspace", "resources", "dean-ai-assessment-pillars.html");
+  const componentSourcePath = path.join(projectDir, "workspace", "resources", "decks", "redteamblueteam.jsx");
+  const manifestPath = path.join(projectDir, "meta", "project.json");
+  const html = await readUtf8(pagePath);
+  const manifest = JSON.parse(await readUtf8(manifestPath)) as ProjectManifest & {
+    injectedComponents?: Array<Record<string, string>>;
+    referenceOnly?: string[];
+  };
+  const sourceSize = await fileSizeOrZero(componentSourcePath);
+
+  assert.ok(sourceSize > 20_000, "expected the first-pass red/blue-team React source to be preserved in workspace resources");
+  const componentSource = await readUtf8(componentSourcePath);
+  assert.match(componentSource, /import React, \{ useState \} from 'react';/);
+  assert.match(componentSource, /Blue Team Deep Dive/);
+  assert.match(componentSource, /Red Team Attack/);
+  assert.match(componentSource, /Purple Team Consensus/);
+  assert.match(componentSource, /Workshop Debrief/);
+
+  const workshop = sliceBetween(html, 'data-testid="red-blue-team-workshop"', '<!-- Presentations & Resources');
+  assert.match(workshop, /AI Framework Stress-Test Workshop/);
+  assert.match(workshop, /Today, we are not here to nod and agree\. We are here to break this plan and then fix it together\./);
+  assert.match(workshop, /data-stress-phase-panel="1"/);
+  assert.match(workshop, /data-stress-phase-panel="2"/);
+  assert.match(workshop, /data-stress-phase-panel="3"/);
+  assert.match(workshop, /data-stress-phase-panel="4"/);
+  assert.match(workshop, /data-stress-phase-panel="5"/);
+  assert.match(workshop, /data-stress-phase-panel="6"/);
+  assert.match(workshop, /Blue Team Deep Dive/);
+  assert.match(workshop, /Red Team Attack/);
+  assert.match(workshop, /The Crossfire/);
+  assert.match(workshop, /Purple Team Consensus/);
+  assert.match(workshop, /Workshop Debrief/);
+  assert.match(workshop, /id="stress-workshop-blue-board"/);
+  assert.match(workshop, /id="stress-workshop-red-board"/);
+  assert.match(workshop, /id="stress-workshop-target1-board"/);
+  assert.match(workshop, /id="stress-workshop-target2-board"/);
+  assert.match(workshop, /id="stress-workshop-target3-board"/);
+  assert.match(workshop, /onclick="setStressWorkshopPhase\(2\)"/);
+  assert.match(workshop, /onclick="changeStressWorkshopPhase\(1\)"/);
+  assert.match(workshop, /onsubmit="addStressWorkshopNote\(event, 'blue'\)"/);
+  assert.match(workshop, /onsubmit="addStressWorkshopNote\(event, 'red'\)"/);
+  assert.match(workshop, /onsubmit="addStressWorkshopNote\(event, 'target1'\)"/);
+  assert.match(workshop, /data-note-action="edit"/);
+  assert.match(workshop, /data-note-action="delete"/);
+  assert.match(workshop, /Edit note/);
+  assert.match(workshop, /Delete note/);
+  assert.match(workshop, /150 live 5-minute teacher conferences per summative is impossible/);
+  assert.match(workshop, /Students hiding AI use to avoid the "Process" paperwork/);
+  assert.match(workshop, /Export Summary/);
+  assert.doesNotMatch(workshop, /className=|lucide-react|fixed bottom-0|bg-white|text-slate-/);
+  assert.match(html, /const STRESS_WORKSHOP_STORAGE_KEY = "ai-course-building-resources::stress-workshop::v1";/);
+  assert.match(html, /function loadStressWorkshopState\(\)/);
+  assert.match(html, /function saveStressWorkshopState\(\)/);
+  assert.match(html, /localStorage\.setItem\(STRESS_WORKSHOP_STORAGE_KEY, JSON\.stringify\(stressWorkshopState\)\);/);
+  assert.match(html, /let stressWorkshopState = loadStressWorkshopState\(\);/);
+  assert.match(html, /function createStressWorkshopNote\(text, idPrefix = "note"\)/);
+  assert.match(html, /function deleteStressWorkshopNote\(target, noteId\)/);
+  assert.match(html, /function beginStressWorkshopNoteEdit\(target, noteId\)/);
+  assert.match(html, /function saveStressWorkshopNoteEdit\(event, target, noteId\)/);
+  assert.match(html, /function cancelStressWorkshopNoteEdit\(\)/);
+  assert.match(html, /stressWorkshopState\[target\]\.push\(createStressWorkshopNote\(note, target\)\);/);
+  assert.match(html, /saveStressWorkshopState\(\);/);
+  assert.match(html, /function setStressWorkshopPhase\(nextPhase, options = \{ persist: true \}\)/);
+  assert.match(html, /function changeStressWorkshopPhase\(delta\)/);
+  assert.match(html, /function addStressWorkshopNote\(event, target\)/);
+  assert.match(html, /function renderStressWorkshop\(\)/);
+  assert.match(html, /function exportStressWorkshopSummary\(\)/);
+  assert.ok(
+    html.indexOf("What We Are Trying To Replicate") < html.indexOf('data-testid="red-blue-team-workshop"'),
+    "expected the workshop to sit directly below the stress-test consensus content"
+  );
+  assert.ok(
+    html.indexOf('data-testid="red-blue-team-workshop"') < html.indexOf('id="resources"'),
+    "expected the workshop to remain before the resources section"
+  );
+
+  const injected = manifest.injectedComponents?.find((component) => component.id === "redteamblueteam-workshop");
+  assert.ok(injected, "expected redteamblueteam workshop to be declared as an injected component");
+  assert.equal(injected.status, "active");
+  assert.equal(injected.source, componentSourcePath);
+  assert.equal(injected.target, pagePath);
+  assert.doesNotMatch(
+    JSON.stringify(manifest.referenceOnly ?? []),
+    new RegExp(escapeRegExp(componentSourcePath)),
+    "expected the active injected component source to avoid conflicting reference-only metadata"
+  );
 });
 
 test("ai course resource pages share the assessment pillars theme base", async () => {
