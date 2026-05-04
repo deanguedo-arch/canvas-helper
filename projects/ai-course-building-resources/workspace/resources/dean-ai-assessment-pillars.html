@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Executive Hub - Assessment Integrity Architecture</title>
+    <title>Executive Hub - Proposed AI-Assement Architecture</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&display=swap" rel="stylesheet"/>
@@ -25,6 +25,12 @@
         .pillar-control {
             display: block;
             padding: 0.125rem 0 0.25rem;
+        }
+
+        .pillar-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
         }
 
         .weight-control-heading {
@@ -105,6 +111,100 @@
             background: rgb(var(--color-surface-container-highest));
         }
 
+        .mark-control {
+            border-top: 1px solid rgb(var(--color-outline-variant) / 0.46);
+            padding-top: 0.875rem;
+        }
+
+        .mark-control-field {
+            display: inline-flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 0.25rem;
+            min-width: 8rem;
+            border: 1px solid rgb(var(--weight-color) / 0.28);
+            border-radius: 0.5rem;
+            background: rgb(var(--color-surface-container) / 0.74);
+            color: rgb(var(--color-on-surface));
+            overflow: hidden;
+        }
+
+        .mark-control-field input {
+            width: 5.25rem;
+            border: 0;
+            background: transparent;
+            color: inherit;
+            font-weight: 800;
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .mark-control-field input:focus {
+            box-shadow: none;
+            outline: 0;
+        }
+
+        .mark-control-field:focus-within {
+            border-color: rgb(var(--weight-color) / 0.75);
+            box-shadow: 0 0 0 2px rgb(var(--weight-color) / 0.18);
+        }
+
+        .mark-control-unit {
+            padding-right: 0.75rem;
+            color: rgb(var(--weight-color));
+            font-weight: 800;
+        }
+
+        .score-segment {
+            --score-rgb: var(--color-primary);
+            position: relative;
+            height: 100%;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 28% 48%, rgba(255, 255, 255, 0.72), transparent 12%),
+                linear-gradient(90deg, rgb(var(--score-rgb) / 0.28), rgb(var(--score-rgb) / 0.9), rgb(var(--score-rgb) / 0.32));
+            box-shadow:
+                inset 0 0 18px rgb(var(--score-rgb) / 0.42),
+                inset 0 1px 0 rgba(255, 255, 255, 0.32);
+        }
+
+        .score-segment::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.24) 0 1px, transparent 1px 18px),
+                repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0 1px, transparent 1px 16px),
+                repeating-linear-gradient(0deg, transparent 0 8px, rgba(255, 255, 255, 0.11) 8px 9px);
+            mix-blend-mode: screen;
+            opacity: 0.72;
+            pointer-events: none;
+        }
+
+        .score-segment::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.34), transparent),
+                radial-gradient(circle at 68% 38%, rgba(255, 255, 255, 0.28), transparent 16%);
+            mix-blend-mode: screen;
+            opacity: 0.52;
+            pointer-events: none;
+        }
+
+        .score-segment-product {
+            --score-rgb: var(--color-primary);
+        }
+
+        .score-segment-process {
+            --score-rgb: var(--color-secondary);
+        }
+
+        .score-segment-defence {
+            --score-rgb: var(--color-tertiary);
+        }
+
         @keyframes popIn {
             0% { transform: scale(0); opacity: 0; }
             70% { transform: scale(1.08); opacity: 1; }
@@ -113,37 +213,6 @@
 
         .animate-popIn {
             animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-        }
-
-        .stress-flip-card.flipped .flip-card-inner {
-            transform: rotateY(180deg);
-        }
-
-        .stress-workshop {
-            --stress-accent: var(--color-primary);
-        }
-
-        .stress-workshop [data-stress-phase-step][aria-current="true"] {
-            border-color: rgb(var(--stress-accent) / 0.55);
-            background: rgb(var(--stress-accent) / 0.12);
-            color: rgb(var(--color-on-surface));
-        }
-
-        .stress-workshop-note {
-            border-left: 4px solid rgb(var(--stress-note-color));
-            background: rgb(var(--stress-note-color) / 0.12);
-        }
-
-        .stress-workshop-note[data-note-tone="blue"] {
-            --stress-note-color: var(--color-primary);
-        }
-
-        .stress-workshop-note[data-note-tone="red"] {
-            --stress-note-color: var(--color-error);
-        }
-
-        .stress-workshop-note[data-note-tone="consensus"] {
-            --stress-note-color: var(--color-secondary);
         }
 
     </style>
@@ -289,21 +358,9 @@
             <span class="material-symbols-outlined text-xl">layers</span>
             AI Levels
         </a>
-        <a href="#competency-gate" class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all duration-200 rounded-lg">
-            <span class="material-symbols-outlined text-xl">verified_user</span>
-            Permit Course
-        </a>
-        <a href="#workflow" class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all duration-200 rounded-lg">
-            <span class="material-symbols-outlined text-xl">account_tree</span>
-            Workflow
-        </a>
-        <a href="#multiple-choice" class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all duration-200 rounded-lg">
-            <span class="material-symbols-outlined text-xl">fact_check</span>
-            Multiple Choice
-        </a>
-        <a href="#toolbox" class="flex items-center gap-3 px-4 py-3 text-primary-fixed hover:bg-primary/10 hover:text-primary transition-all duration-200 rounded-lg border border-transparent hover:border-primary/20">
-            <span class="material-symbols-outlined text-xl">psychology_alt</span>
-            Make It Stronger
+        <a href="#validity-gate-simulator" class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all duration-200 rounded-lg">
+            <span class="material-symbols-outlined text-xl">rule_folder</span>
+            Validity Gates
         </a>
         <a href="#resources" class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all duration-200 rounded-lg">
             <span class="material-symbols-outlined text-xl">folder_open</span>
@@ -394,10 +451,35 @@
     <!-- Core Assessment Model (Section 2) -->
     <section id="core-model" class="px-8 py-margin-page bg-surface-container-lowest border-y border-surface-variant section-slide">
         <div class="max-w-[1440px] mx-auto w-full flex flex-col gap-stack-lg">
-            <div class="flex flex-col gap-3 max-w-3xl">
+            <div class="grid lg:grid-cols-[minmax(0,0.9fr)_minmax(360px,0.7fr)] gap-gutter items-end">
                 <div class="flex flex-col gap-2">
                     <h2 class="font-h2 text-h2 text-on-surface">Core Assessment Model</h2>
-                    <p class="font-body-lg text-body-lg text-on-surface-variant">Every major summative assessment is evaluated across three distinct buckets. While the foundational model is 50/25/25, teachers use professional judgment to shift these weights based on course demands. We do not change weights based on AI level, but rather on pedagogical intent.</p>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant">Every major summative assessment is evaluated across three distinct buckets. Teachers use professional judgment to shift these weights based on course demands. We do not change weights based on AI level, but rather on pedagogical intent.</p>
+                </div>
+                <div id="assessment-score-panel" class="flex flex-col justify-end gap-3 lg:pl-6">
+                    <span id="assessment-score-total" class="self-end text-3xl font-black text-on-surface leading-none tabular-nums">100%</span>
+                    <div id="assessment-score-bar" class="h-9 w-full overflow-hidden rounded-lg bg-surface-container-highest flex" role="img" aria-label="Weighted assessment score: 100%. Product earned 50% of the total, Process earned 25% of the total, Defence earned 25% of the total.">
+                        <div id="product-score-segment" class="score-segment score-segment-product transition-[width] duration-150" style="width: 50%"></div>
+                        <div id="process-score-segment" class="score-segment score-segment-process transition-[width] duration-150" style="width: 25%"></div>
+                        <div id="defence-score-segment" class="score-segment score-segment-defence transition-[width] duration-150" style="width: 25%"></div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-4 text-sm text-on-surface-variant">
+                        <div class="flex items-center gap-2 min-w-0">
+                            <span class="w-3 h-3 rounded-sm bg-primary shrink-0"></span>
+                            <span class="truncate">Product</span>
+                            <strong id="product-score-label" class="ml-auto text-on-surface">50% / 50%</strong>
+                        </div>
+                        <div class="flex items-center gap-2 min-w-0">
+                            <span class="w-3 h-3 rounded-sm bg-secondary shrink-0"></span>
+                            <span class="truncate">Process</span>
+                            <strong id="process-score-label" class="ml-auto text-on-surface">25% / 25%</strong>
+                        </div>
+                        <div class="flex items-center gap-2 min-w-0">
+                            <span class="w-3 h-3 rounded-sm bg-tertiary shrink-0"></span>
+                            <span class="truncate">Defence</span>
+                            <strong id="defence-score-label" class="ml-auto text-on-surface">25% / 25%</strong>
+                        </div>
+                    </div>
                 </div>
             </div>
             
@@ -406,16 +488,30 @@
                 <div class="pillar-card bg-surface-container-low rounded-xl border border-surface-variant p-6 relative overflow-hidden flex flex-col gap-stack-md shadow-[0_20px_40px_-20px_rgba(77,142,255,0.05)]">
                     <div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
                     <h3 class="font-h1 text-[24px] text-on-surface font-semibold">Product</h3>
-                    <label for="product-weight" class="pillar-control weight-control product-control">
-                        <span class="weight-control-heading">
-                            <span class="weight-control-name">
-                                <span class="material-symbols-outlined">inventory_2</span>
-                                <span>Weight</span>
+                    <div class="pillar-controls">
+                        <label for="product-weight" class="pillar-control weight-control product-control">
+                            <span class="weight-control-heading">
+                                <span class="weight-control-name">
+                                    <span class="material-symbols-outlined">inventory_2</span>
+                                    <span>Weight</span>
+                                </span>
+                                <span id="product-weight-label" class="weight-control-value px-2.5 py-1 text-sm font-bold">50%</span>
                             </span>
-                            <span id="product-weight-label" class="weight-control-value px-2.5 py-1 text-sm font-bold">50%</span>
-                        </span>
-                        <input id="product-weight" type="range" min="0" max="100" value="50" style="--range-fill: 50%;" oninput="updateAssessmentWeights('product')" aria-label="Product weighting" />
-                    </label>
+                            <input id="product-weight" type="range" min="0" max="100" value="50" style="--range-fill: 50%;" oninput="updateAssessmentWeights('product')" aria-label="Product weighting" />
+                        </label>
+                        <label for="product-mark" class="pillar-control mark-control product-control">
+                            <span class="weight-control-heading">
+                                <span class="weight-control-name">
+                                    <span class="material-symbols-outlined">percent</span>
+                                    <span>Mark</span>
+                                </span>
+                                <span class="mark-control-field">
+                                    <input id="product-mark" type="number" min="0" max="100" step="1" value="100" oninput="updateAssessmentMarks()" aria-label="Product mark" />
+                                    <span class="mark-control-unit">%</span>
+                                </span>
+                            </span>
+                        </label>
+                    </div>
                     <p class="font-body-md text-body-md text-on-surface font-medium">The student can meet the learning outcome.</p>
                     <p class="font-body-md text-body-md text-on-surface-variant">The traditional output. This is the final written response, exam, presentation, project, source analysis, or issue response.</p>
                     <ul class="mt-auto pt-4 space-y-2 text-sm text-on-surface-variant">
@@ -428,16 +524,30 @@
                 <div class="pillar-card bg-surface-container-low rounded-xl border border-surface-variant p-6 relative overflow-hidden flex flex-col gap-stack-md shadow-[0_20px_40px_-20px_rgba(79,219,200,0.05)]">
                     <div class="absolute top-0 left-0 w-1 h-full bg-secondary"></div>
                     <h3 class="font-h1 text-[24px] text-on-surface font-semibold">Process</h3>
-                    <label for="process-weight" class="pillar-control weight-control process-control">
-                        <span class="weight-control-heading">
-                            <span class="weight-control-name">
-                                <span class="material-symbols-outlined">call_merge</span>
-                                <span>Weight</span>
+                    <div class="pillar-controls">
+                        <label for="process-weight" class="pillar-control weight-control process-control">
+                            <span class="weight-control-heading">
+                                <span class="weight-control-name">
+                                    <span class="material-symbols-outlined">call_merge</span>
+                                    <span>Weight</span>
+                                </span>
+                                <span id="process-weight-label" class="weight-control-value px-2.5 py-1 text-sm font-bold">25%</span>
                             </span>
-                            <span id="process-weight-label" class="weight-control-value px-2.5 py-1 text-sm font-bold">25%</span>
-                        </span>
-                        <input id="process-weight" type="range" min="0" max="100" value="25" style="--range-fill: 25%;" oninput="updateAssessmentWeights('process')" aria-label="Process weighting" />
-                    </label>
+                            <input id="process-weight" type="range" min="0" max="100" value="25" style="--range-fill: 25%;" oninput="updateAssessmentWeights('process')" aria-label="Process weighting" />
+                        </label>
+                        <label for="process-mark" class="pillar-control mark-control process-control">
+                            <span class="weight-control-heading">
+                                <span class="weight-control-name">
+                                    <span class="material-symbols-outlined">percent</span>
+                                    <span>Mark</span>
+                                </span>
+                                <span class="mark-control-field">
+                                    <input id="process-mark" type="number" min="0" max="100" step="1" value="100" oninput="updateAssessmentMarks()" aria-label="Process mark" />
+                                    <span class="mark-control-unit">%</span>
+                                </span>
+                            </span>
+                        </label>
+                    </div>
                     <p class="font-body-md text-body-md text-on-surface font-medium">The student can show how the work was created.</p>
                     <p class="font-body-md text-body-md text-on-surface-variant">Evaluates perseverance, planning, and proper completion. Includes draft history, outlines, source organizers, and AI-use logs.</p>
                     <ul class="mt-auto pt-4 space-y-2 text-sm text-on-surface-variant">
@@ -450,16 +560,30 @@
                 <div class="pillar-card bg-surface-container-low rounded-xl border border-surface-variant p-6 relative overflow-hidden flex flex-col gap-stack-md shadow-[0_20px_40px_-20px_rgba(255,185,95,0.05)]">
                     <div class="absolute top-0 left-0 w-1 h-full bg-tertiary"></div>
                     <h3 class="font-h1 text-[24px] text-on-surface font-semibold">Defence</h3>
-                    <label for="defence-weight" class="pillar-control weight-control defence-control">
-                        <span class="weight-control-heading">
-                            <span class="weight-control-name">
-                                <span class="material-symbols-outlined">mic</span>
-                                <span>Weight</span>
+                    <div class="pillar-controls">
+                        <label for="defence-weight" class="pillar-control weight-control defence-control">
+                            <span class="weight-control-heading">
+                                <span class="weight-control-name">
+                                    <span class="material-symbols-outlined">mic</span>
+                                    <span>Weight</span>
+                                </span>
+                                <span id="defence-weight-label" class="weight-control-value px-2.5 py-1 text-sm font-bold">25%</span>
                             </span>
-                            <span id="defence-weight-label" class="weight-control-value px-2.5 py-1 text-sm font-bold">25%</span>
-                        </span>
-                        <input id="defence-weight" type="range" min="0" max="100" value="25" style="--range-fill: 25%;" oninput="updateAssessmentWeights('defence')" aria-label="Defence weighting" />
-                    </label>
+                            <input id="defence-weight" type="range" min="0" max="100" value="25" style="--range-fill: 25%;" oninput="updateAssessmentWeights('defence')" aria-label="Defence weighting" />
+                        </label>
+                        <label for="defence-mark" class="pillar-control mark-control defence-control">
+                            <span class="weight-control-heading">
+                                <span class="weight-control-name">
+                                    <span class="material-symbols-outlined">percent</span>
+                                    <span>Mark</span>
+                                </span>
+                                <span class="mark-control-field">
+                                    <input id="defence-mark" type="number" min="0" max="100" step="1" value="100" oninput="updateAssessmentMarks()" aria-label="Defence mark" />
+                                    <span class="mark-control-unit">%</span>
+                                </span>
+                            </span>
+                        </label>
+                    </div>
                     <p class="font-body-md text-body-md text-on-surface font-medium">The student can explain, defend, and apply the learning.</p>
                     <p class="font-body-md text-body-md text-on-surface-variant">Evaluates self-reflection, metacognition, and the ability to articulate why specific choices were made. Includes oral conferences or transfer tasks.</p>
                     <ul class="mt-auto pt-4 space-y-2 text-sm text-on-surface-variant">
@@ -555,13 +679,6 @@
                                 </div>
                                 <span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">check_circle</span>
                             </button>
-                            <button onclick="playScaleGame('ai', 3)" id="btn-game-ai-3" class="py-3 px-4 rounded-xl border border-outline-variant hover:bg-surface-container transition-all flex justify-between items-center text-left group">
-                                <div>
-                                    <strong class="block text-on-surface group-hover:text-primary transition-colors">Level 2: AI-Assisted</strong>
-                                    <span class="text-xs text-on-surface-variant">Active AI drafting/editing.</span>
-                                </div>
-                                <span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">check_circle</span>
-                            </button>
                         </div>
                     </div>
 
@@ -575,7 +692,7 @@
                             </button>
                             <div class="flex justify-between items-center px-4 bg-surface-container py-3 rounded-lg border border-surface-variant">
                                 <span class="text-sm font-bold text-on-surface-variant flex items-center gap-2">
-                                    <span class="material-symbols-outlined text-[18px]">scale</span> Evidence Load: <strong id="evidence-count" class="text-secondary text-lg">0</strong><span class="text-xs font-normal opacity-70">/3</span>
+                                    <span class="material-symbols-outlined text-[18px]">scale</span> Evidence Load: <strong id="evidence-count" class="text-secondary text-lg">0</strong><span class="text-xs font-normal opacity-70">/2</span>
                                 </span>
                                 <button onclick="playScaleGame('evidence', 'reset')" class="text-sm text-error hover:underline transition-colors flex items-center gap-1 font-medium"><span class="material-symbols-outlined text-[16px]">delete</span> Reset</button>
                             </div>
@@ -588,608 +705,40 @@
         </div>
     </section>
 
-    <!-- The AI Permit Gate (Competency Gate) (Section 4) -->
-    <section id="competency-gate" class="px-8 py-margin-page bg-surface-container-lowest border-y border-surface-variant relative overflow-hidden section-slide">
-        <div class="absolute top-0 right-0 -mr-20 -mt-20 opacity-5 pointer-events-none">
-            <span class="material-symbols-outlined text-[400px]">verified_user</span>
-        </div>
-        
-        <div class="max-w-[1440px] mx-auto relative z-10 flex flex-col gap-stack-lg w-full">
-            <div class="text-center mb-8">
-                <div class="inline-flex items-center justify-center space-x-2 bg-primary/10 border border-primary/30 rounded-full px-4 py-1.5 mb-6">
-                    <span class="material-symbols-outlined text-[18px] text-primary">school</span>
-                    <span class="font-label-caps text-label-caps text-primary tracking-wide">Student-Centered Learning 15 (LDC1234)</span>
-                    <span class="text-xs bg-primary text-on-primary px-2 py-0.5 rounded-full ml-2 font-bold">3 Credits</span>
-                </div>
-                <h2 class="font-display text-display text-on-surface mb-4">The AI Permit Gate</h2>
-                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mx-auto">
-                    Access is earned. Students must prove they can use AI ethically, transparently, and critically to earn their assessment permits.
-                </p>
-            </div>
-
-            <!-- Flip Cards for Prompting -->
-            <div class="bg-surface-container border border-surface-variant rounded-xl p-8 mb-12">
-                <h3 class="font-h2 text-h2 text-on-surface mb-2 text-center">Effective Prompting (Interactive Demo)</h3>
-                <p class="text-on-surface-variant text-sm mb-8 text-center">Hover or tap cards to analyze prompt architecture.</p>
-                
-                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    <!-- Ghostwriter Card -->
-                    <div class="flip-card group h-56 cursor-pointer">
-                        <div class="flip-card-inner relative w-full h-full">
-                            <div class="flip-card-front absolute w-full h-full bg-error/10 border border-error/30 rounded-xl p-6 shadow-sm flex flex-col justify-center items-center text-center">
-                                <span class="material-symbols-outlined text-[32px] text-error mb-3">warning</span>
-                                <h4 class="font-bold text-error mb-2">The Ghostwriter Prompt</h4>
-                                <p class="text-sm text-on-surface italic">"Fix my thesis statement for Social Studies 30-1 so it gets an A."</p>
-                                <span class="text-[10px] uppercase tracking-widest text-error-container mt-4 flex items-center"><span class="material-symbols-outlined text-[14px] mr-1">touch_app</span> Hover to Analyze</span>
-                            </div>
-                            <div class="flip-card-back absolute w-full h-full bg-surface-container-high border border-error/50 rounded-xl p-6 shadow-lg flex flex-col justify-center text-center">
-                                <h4 class="font-bold text-error mb-2">Outsourcing Thinking</h4>
-                                <p class="text-sm text-on-surface-variant">This prompt bypasses student information processing. It delegates academic judgment entirely to the LLM, violating Level 1 and 2 policies and undermining adaptive capacity.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Tutor Card -->
-                    <div class="flip-card group h-56 cursor-pointer">
-                        <div class="flip-card-inner relative w-full h-full">
-                            <div class="flip-card-front absolute w-full h-full bg-secondary/10 border border-secondary/30 rounded-xl p-6 shadow-sm flex flex-col justify-center items-center text-center">
-                                <span class="material-symbols-outlined text-[32px] text-secondary mb-3">check_circle</span>
-                                <h4 class="font-bold text-secondary mb-2">The Tutor Prompt</h4>
-                                <p class="text-sm text-on-surface italic">"Review my thesis. Do not rewrite it, but ask me 3 questions that will help me reflect on potential next steps."</p>
-                                <span class="text-[10px] uppercase tracking-widest text-secondary-fixed mt-4 flex items-center"><span class="material-symbols-outlined text-[14px] mr-1">touch_app</span> Hover to Analyze</span>
-                            </div>
-                            <div class="flip-card-back absolute w-full h-full bg-surface-container-high border border-secondary/50 rounded-xl p-6 shadow-lg flex flex-col justify-center text-center">
-                                <h4 class="font-bold text-secondary mb-2">Socratic Growth Mindset</h4>
-                                <p class="text-sm text-on-surface-variant">Forces the student to remain the architect of the work. The AI acts as a sounding board, fostering self-advocacy and independent evaluation of feedback.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Selecting the Right Vehicle -->
-            <div class="grid md:grid-cols-2 gap-gutter">
-                <div class="bg-surface-container border border-outline-variant rounded-xl p-6">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="bg-primary/10 p-3 rounded-full">
-                            <span class="material-symbols-outlined text-[32px] text-primary">auto_awesome</span>
-                        </div>
-                        <h4 class="font-h1 text-[24px] font-bold text-on-surface">Google Gemini</h4>
-                    </div>
-                    <ul class="space-y-4 text-sm text-on-surface-variant">
-                        <li><strong class="text-on-surface">Architecture:</strong> Open Web LLM</li>
-                        <li><strong class="text-on-surface">Core Function:</strong> Brainstorming, feedback, and predicting text.</li>
-                        <li class="bg-error-container/20 p-3 rounded-lg border border-error-container/30">
-                            <strong class="text-error flex items-center gap-2 mb-1"><span class="material-symbols-outlined text-[18px]">warning</span> Primary Danger: Hallucinations</strong>
-                            <span class="text-error-container">AI models predict the most likely next word; they do not possess a database of objective truth. Presenting a hallucination as fact invalidates the submission.</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="bg-surface-container border border-outline-variant rounded-xl p-6">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="bg-secondary/10 p-3 rounded-full">
-                            <span class="material-symbols-outlined text-[32px] text-secondary">menu_book</span>
-                        </div>
-                        <h4 class="font-h1 text-[24px] font-bold text-on-surface">Google NotebookLM</h4>
-                    </div>
-                    <ul class="space-y-4 text-sm text-on-surface-variant">
-                        <li><strong class="text-on-surface">Architecture:</strong> Grounded AI Tool</li>
-                        <li><strong class="text-on-surface">Core Function:</strong> Fact-checking, selecting main ideas, test preparation.</li>
-                        <li class="bg-tertiary-container/20 p-3 rounded-lg border border-tertiary-container/30">
-                            <strong class="text-tertiary flex items-center gap-2 mb-1"><span class="material-symbols-outlined text-[18px]">lock_doc</span> Primary Limitation</strong>
-                            <span class="text-tertiary-fixed">Limited entirely to the base of materials the student manually uploads. It cannot generate outside information.</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Workflow & Validity Decision Engine (Section 5) -->
-    <section id="workflow" class="px-8 py-margin-page max-w-[1440px] mx-auto w-full section-slide">
-        <h2 class="font-h2 text-[32px] font-bold text-on-surface mb-4 text-center">Summative Workflow & Validity</h2>
-        <p class="text-on-surface-variant text-center max-w-2xl mx-auto mb-12">If ownership is unclear, the teacher cannot fully validate the mark. Use the interactive engine below to determine the correct institutional response.</p>
-
-        <!-- Interactive Validity Engine -->
-        <div class="bg-surface-container border border-surface-variant rounded-2xl p-8 mb-12 shadow-lg max-w-4xl mx-auto">
-            <h3 class="font-bold text-xl text-on-surface mb-6 flex items-center gap-2 border-b border-surface-variant pb-4">
-                <span class="material-symbols-outlined text-primary">account_tree</span>
-                Validity Decision Engine
-            </h3>
-            
-            <!-- Step 1 -->
-            <div id="engine-step-1" class="engine-step block">
-                <p class="text-lg text-on-surface mb-6">1. Did the student properly declare their chosen AI Level (0, 1, or 2) prior to or upon submission?</p>
-                <div class="flex gap-4">
-                    <button onclick="engineAnswer(1, true)" class="flex-1 bg-surface-container-low hover:bg-primary/20 border border-outline-variant hover:border-primary text-on-surface py-4 rounded-xl transition-all font-bold text-lg">Yes</button>
-                    <button onclick="engineAnswer(1, false)" class="flex-1 bg-surface-container-low hover:bg-error/20 border border-outline-variant hover:border-error text-on-surface py-4 rounded-xl transition-all font-bold text-lg">No</button>
-                </div>
-            </div>
-
-            <!-- Step 2 -->
-            <div id="engine-step-2" class="engine-step hidden">
-                <p class="text-lg text-on-surface mb-6">2. Is the required Process Evidence (e.g., drafts, outline, AI-use logs) complete and sufficient for the declared level?</p>
-                <div class="flex gap-4">
-                    <button onclick="engineAnswer(2, true)" class="flex-1 bg-surface-container-low hover:bg-primary/20 border border-outline-variant hover:border-primary text-on-surface py-4 rounded-xl transition-all font-bold text-lg">Yes, completely</button>
-                    <button onclick="engineAnswer(2, 'partial')" class="flex-1 bg-surface-container-low hover:bg-tertiary/20 border border-outline-variant hover:border-tertiary text-on-surface py-4 rounded-xl transition-all font-bold text-lg">Weak / Partial</button>
-                    <button onclick="engineAnswer(2, false)" class="flex-1 bg-surface-container-low hover:bg-error/20 border border-outline-variant hover:border-error text-on-surface py-4 rounded-xl transition-all font-bold text-lg">No, missing</button>
-                </div>
-            </div>
-
-            <!-- Step 3 -->
-            <div id="engine-step-3" class="engine-step hidden">
-                <p class="text-lg text-on-surface mb-6">3. During the mandatory defence (conference/reflection), could the student confidently articulate their reasoning, choices, and ownership?</p>
-                <div class="flex gap-4">
-                    <button onclick="engineAnswer(3, true)" class="flex-1 bg-surface-container-low hover:bg-primary/20 border border-outline-variant hover:border-primary text-on-surface py-4 rounded-xl transition-all font-bold text-lg">Yes</button>
-                    <button onclick="engineAnswer(3, false)" class="flex-1 bg-surface-container-low hover:bg-error/20 border border-outline-variant hover:border-error text-on-surface py-4 rounded-xl transition-all font-bold text-lg">No, could not explain</button>
-                </div>
-            </div>
-
-            <!-- Results -->
-            <div id="engine-result" class="engine-step hidden mt-4">
-                <div id="result-box" class="p-6 rounded-xl border border-surface-variant bg-surface-container-low flex flex-col items-center text-center">
-                    <span id="result-icon" class="material-symbols-outlined text-[48px] mb-4"></span>
-                    <h4 id="result-title" class="text-2xl font-bold mb-2"></h4>
-                    <p id="result-desc" class="text-on-surface-variant mb-6"></p>
-                    <button onclick="resetEngine()" class="bg-surface-container-high border border-outline-variant hover:bg-surface-container-highest text-on-surface px-6 py-2 rounded-lg text-sm font-medium transition-colors">Start Over</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Workflow Summary Diagram -->
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-stretch relative mt-12 pt-8 border-t border-surface-variant">
-            <div class="hidden md:block absolute top-[60%] left-0 w-full h-[2px] bg-surface-variant -z-10 transform -translate-y-1/2"></div>
-            
-            <div class="flex-1 text-center px-2 bg-surface relative">
-                <div class="w-10 h-10 bg-primary/20 text-primary rounded-full flex items-center justify-center font-bold text-sm mx-auto mb-3 border border-primary/50">1</div>
-                <h3 class="font-bold text-on-surface text-sm mb-1">Route</h3>
-            </div>
-            <div class="flex-1 text-center px-2 bg-surface relative">
-                <div class="w-10 h-10 bg-primary/20 text-primary rounded-full flex items-center justify-center font-bold text-sm mx-auto mb-3 border border-primary/50">2</div>
-                <h3 class="font-bold text-on-surface text-sm mb-1">Submit</h3>
-            </div>
-            <div class="flex-1 text-center px-2 bg-surface relative">
-                <div class="w-10 h-10 bg-secondary/20 text-secondary rounded-full flex items-center justify-center font-bold text-sm mx-auto mb-3 border border-secondary/50">3</div>
-                <h3 class="font-bold text-on-surface text-sm mb-1">Check</h3>
-            </div>
-            <div class="flex-1 text-center px-2 bg-surface relative">
-                <div class="w-10 h-10 bg-tertiary/20 text-tertiary rounded-full flex items-center justify-center font-bold text-sm mx-auto mb-3 border border-tertiary/50">4</div>
-                <h3 class="font-bold text-on-surface text-sm mb-1">Defence</h3>
-            </div>
-            <div class="flex-1 text-center px-2 bg-surface relative">
-                <div class="w-10 h-10 bg-surface-container-highest text-on-surface rounded-full flex items-center justify-center font-bold text-sm mx-auto mb-3 border border-outline-variant">5</div>
-                <h3 class="font-bold text-on-surface text-sm mb-1">Validate</h3>
-            </div>
-        </div>
-    </section>
-
-    <!-- Multiple Choice (Section 6) -->
-    <section id="multiple-choice" class="px-8 py-margin-page bg-surface-container-lowest border-y border-surface-variant section-slide">
-        <div class="max-w-[1440px] mx-auto w-full">
-            <div class="text-center mb-12">
-                <h2 class="font-h2 text-[32px] text-on-surface mb-4">Validating Multiple-Choice</h2>
-                <p class="text-on-surface-variant max-w-3xl mx-auto text-lg">
-                    In an unsupervised at-home environment, a multiple-choice quiz score alone is not secure proof of learning.
-                </p>
-            </div>
-
-            <!-- Friction vs Integrity -->
-            <div class="mb-16 bg-surface-container border border-surface-variant rounded-2xl p-8 shadow-sm relative overflow-hidden">
-                <h3 class="font-bold text-on-surface text-2xl text-center mb-8">Friction vs. Integrity Layers</h3>
-                <div class="flex flex-col lg:flex-row gap-6 items-stretch justify-center">
-                    <div class="flex-1 space-y-3">
-                        <div class="bg-surface-container-low p-4 rounded-lg text-on-surface-variant text-sm border border-outline-variant"><strong class="text-on-surface">Layer 1 (Settings):</strong> Timed, randomized order/answers, large banks.</div>
-                        <div class="bg-surface-container-low p-4 rounded-lg text-on-surface-variant text-sm border border-outline-variant"><strong class="text-on-surface">Layer 2 (Design):</strong> Source-based questions, political cartoons, Alberta contexts.</div>
-                        <div class="bg-surface-container-low p-4 rounded-lg text-on-surface-variant text-sm border border-outline-variant"><strong class="text-on-surface">Layer 3 (Images):</strong> Using images for excerpts/questions to block simple copy-paste.</div>
-                    </div>
-                    <div class="flex-none flex items-center justify-center px-4 font-bold text-outline uppercase tracking-widest text-sm">
-                        <div class="text-center">
-                            <span class="block mb-2">These add Friction</span>
-                            <span class="material-symbols-outlined text-[24px] hidden lg:block mx-auto text-outline-variant">arrow_forward</span>
-                            <span class="material-symbols-outlined text-[24px] block lg:hidden mx-auto text-outline-variant">arrow_downward</span>
-                        </div>
-                    </div>
-                    <div class="flex-1 bg-primary/10 border border-primary/30 p-8 rounded-xl flex flex-col items-center justify-center text-center">
-                        <span class="material-symbols-outlined text-[48px] text-primary mb-3">verified_user</span>
-                        <strong class="text-primary-fixed block text-xl mb-2">Layer 4: Verification</strong>
-                        <p class="text-primary-fixed-dim text-sm">Images and settings add friction, but they do not create security. <strong>The Oral Defence is the actual integrity layer.</strong></p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Accordion -->
-            <div class="max-w-4xl mx-auto border border-surface-variant rounded-xl overflow-hidden shadow-sm bg-surface-container">
-                <button class="w-full p-6 text-left font-bold text-on-surface text-lg flex justify-between items-center focus:outline-none hover:bg-surface-container-highest transition-colors" onclick="toggleAccordion('mc-verification')">
-                    <span>How do we verify a summative multiple-choice test?</span>
-                    <span id="mc-verification-icon" class="material-symbols-outlined accordion-icon text-on-surface-variant">expand_more</span>
-                </button>
-                <div id="mc-verification" class="accordion-content px-8 text-on-surface-variant text-base border-t border-surface-variant">
-                    <p class="mb-6">After the verified MC assessment (e.g., 60 questions), the teacher conducts a <strong>5-8 minute highly targeted oral verification</strong> sampling 3-5 specific questions from the student's quiz. Verification is not a retake; it is a sampling to prove authorship and comprehension.</p>
-                    
-                    <div class="overflow-x-auto mb-8">
-                        <table class="w-full text-left border-collapse border border-outline-variant rounded-lg overflow-hidden">
-                            <thead>
-                                <tr class="bg-surface-container-low text-on-surface text-xs uppercase tracking-wider">
-                                    <th class="p-4 border-b border-surface-variant">The Defence Probe (Filter Output)</th>
-                                    <th class="p-4 border-b border-surface-variant">Cognitive Target</th>
-                                </tr>
-                            </thead>
-                            <tbody class="text-sm text-on-surface-variant divide-y divide-surface-variant">
-                                <tr><td class="p-4 font-medium text-on-surface">Why did you choose that answer? (1 correct item)</td><td class="p-4 bg-surface-container">Checks: <strong>Reasoning</strong></td></tr>
-                                <tr><td class="p-4 font-medium text-on-surface">Why is one specific distractor wrong? (1 wrong item)</td><td class="p-4 bg-surface-container">Checks: <strong>Concept understanding</strong></td></tr>
-                                <tr><td class="p-4 font-medium text-on-surface">What clue in the source mattered? (1 source-based)</td><td class="p-4 bg-surface-container">Checks: <strong>Source interpretation</strong></td></tr>
-                                <tr><td class="p-4 font-medium text-on-surface">Apply that idea to a new example.</td><td class="p-4 bg-surface-container">Checks: <strong>Transfer</strong></td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div class="bg-surface-container-low p-4 rounded-lg border border-outline-variant">
-                        <p class="font-bold text-on-surface mb-2">The Absolute Rule:</p>
-                        <p class="text-sm">If the student explains well, the quiz mark stands. If they show partial understanding, corrections are required. If they clearly cannot explain their answers, the mark is capped. <strong class="text-error">If the student cannot defend the result, the result is not fully validated.</strong></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Collaborative Stress Test (Section 7) -->
-    <section id="toolbox" data-testid="framework-stress-test" class="px-8 py-margin-page bg-surface border-y border-surface-variant section-slide">
+    <!-- Validity Gates Interactive Simulator (Section 4) -->
+    <section id="validity-gate-simulator" data-testid="validity-gate-simulator" class="px-8 py-margin-page bg-surface-container-lowest border-y border-surface-variant section-slide">
         <div class="max-w-[1440px] mx-auto w-full flex flex-col gap-stack-lg">
-            <div class="max-w-5xl flex flex-col gap-4">
+            <div class="flex flex-col items-center text-center gap-4">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-primary/10 border border-primary/20 text-primary w-max font-bold text-sm">
-                    <span class="material-symbols-outlined text-[18px]">psychology_alt</span>
-                    STAFF COLLABORATION TOOL
+                    <span class="material-symbols-outlined text-[18px]">rule_folder</span>
+                    Interactive Training Simulator
                 </div>
-                <h2 class="font-h2 text-h2 text-on-surface">How do we make this stronger?</h2>
-                <p class="font-body-lg text-body-lg text-on-surface-variant">
-                    A strong framework is not one that avoids criticism. A strong framework is one that can survive criticism, absorb what is true, and become more practical because other people helped test it.
-                </p>
-                <p class="font-body-md text-body-md text-on-surface-variant">
-                    Bring teachers and staff into the build. The point of this section is to show the argument we present, lay out the strongest Red Team critique, and then use consensus to improve the product we actually roll out.
+                <h2 class="font-h2 text-[36px] text-on-surface font-bold">Establishing Validity Gates</h2>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl">
+                    Navigate real-world scenarios to practice applying the assessment integrity workflow. Evaluate the evidence, conduct the defence, and decide whether the learning has been validated.
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 xl:grid-cols-3 gap-gutter">
-                <article data-stress-card="blue-team" class="stress-flip-card flip-card h-[760px] md:h-[700px] xl:h-[680px] cursor-pointer" tabindex="0" onclick="toggleStressCard(this)" onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); toggleStressCard(this); }">
-                    <div class="flip-card-inner relative w-full h-full">
-                        <div class="flip-card-front absolute inset-0 bg-surface-container-low border border-primary/30 rounded-xl p-6 flex flex-col gap-5">
-                            <div class="flex items-center gap-3">
-                                <span class="material-symbols-outlined text-primary">verified</span>
-                                <h3 class="text-xl font-bold text-on-surface">Argument We Present</h3>
-                            </div>
-                            <p class="text-on-surface-variant">
-                                This is the Blue Team case: the framework is defensible because it shifts assessment away from AI detection and toward visible learning evidence.
-                            </p>
-                            <ul class="space-y-3 text-sm text-on-surface-variant">
-                                <li class="flex gap-2"><span class="material-symbols-outlined text-[18px] text-primary">check_circle</span><span>It eliminates the AI detective trap.</span></li>
-                                <li class="flex gap-2"><span class="material-symbols-outlined text-[18px] text-primary">check_circle</span><span>It aligns product, process, and defence with modern assessment research.</span></li>
-                                <li class="flex gap-2"><span class="material-symbols-outlined text-[18px] text-primary">check_circle</span><span>It gives students transparent AI-use routes and common validity rules.</span></li>
-                            </ul>
-                            <div class="mt-auto pt-4 border-t border-primary/20 text-sm font-bold text-primary flex items-center gap-2">
-                                <span class="material-symbols-outlined text-[18px]">flip</span>
-                                Flip to read the full Blue Team argument
-                            </div>
-                        </div>
-
-                        <div class="flip-card-back absolute inset-0 bg-surface-container border border-primary/40 rounded-xl p-6 flex flex-col gap-4 overflow-y-auto">
-                            <div class="flex items-center justify-between gap-3">
-                                <h3 class="text-xl font-bold text-primary">Blue Team: The Case for Defensibility and Pedagogical Integrity</h3>
-                                <button type="button" class="text-sm font-bold text-on-surface-variant hover:text-on-surface" onclick="event.stopPropagation(); toggleStressCard(this.closest('.stress-flip-card'));">Back</button>
-                            </div>
-                            <p class="text-sm text-on-surface-variant">The Blue Team evaluates the framework based on its alignment with educational research, risk mitigation, and systemic protections.</p>
-                            <div class="space-y-4 text-sm text-on-surface-variant">
-                                <p><strong class="text-on-surface">Eliminates the "AI Detective" Trap:</strong> By explicitly stating that the goal is not to police students or catch them cheating, the framework neutralizes the unwinnable arms race of AI detection. It safely assumes AI is present and shifts the burden of evidence directly onto the student.</p>
-                                <p><strong class="text-on-surface">Aligns with Modern Assessment Research:</strong> The 50/25/25 split perfectly operationalizes the urgent shift from product-based evaluation to process-based and metacognitive assessment. It recognizes that in a generative age, polished outputs alone are no longer secure proof of learning.</p>
-                                <p><strong class="text-on-surface">Empowers Student Agency:</strong> Allowing students to choose their route treats AI as a professional tool rather than a prohibited one. This aligns with the GENAI Assessment Scale and gives students clear rules of engagement.</p>
-                                <p><strong class="text-on-surface">Proactive Competency Gating:</strong> The AI Use Permit ensures students do not automatically get access to powerful tools without proving they understand the difference between AI supporting their learning and replacing it.</p>
-                                <p><strong class="text-on-surface">Standardized Validity Rules:</strong> Mark caps and validity gates give staff a unified, fair response system. It prevents arbitrary point docking and focuses on the inability to validate the mark.</p>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <article data-stress-card="red-team" class="stress-flip-card flip-card h-[760px] md:h-[700px] xl:h-[680px] cursor-pointer" tabindex="0" onclick="toggleStressCard(this)" onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); toggleStressCard(this); }">
-                    <div class="flip-card-inner relative w-full h-full">
-                        <div class="flip-card-front absolute inset-0 bg-surface-container-low border border-error/30 rounded-xl p-6 flex flex-col gap-5">
-                            <div class="flex items-center gap-3">
-                                <span class="material-symbols-outlined text-error">report</span>
-                                <h3 class="text-xl font-bold text-on-surface">Full Red Team Critique</h3>
-                            </div>
-                            <p class="text-on-surface-variant">
-                                This is the strongest challenge: the model may be philosophically right and still fail if verification is too slow, heavy, or hard to scale.
-                            </p>
-                            <ul class="space-y-3 text-sm text-on-surface-variant">
-                                <li class="flex gap-2"><span class="material-symbols-outlined text-[18px] text-error">error</span><span>Live defence can become a mathematical scaling nightmare.</span></li>
-                                <li class="flex gap-2"><span class="material-symbols-outlined text-[18px] text-error">error</span><span>AI permits can create an early-course bottleneck.</span></li>
-                                <li class="flex gap-2"><span class="material-symbols-outlined text-[18px] text-error">error</span><span>Evidence burden may incentivize concealment.</span></li>
-                            </ul>
-                            <div class="mt-auto pt-4 border-t border-error/20 text-sm font-bold text-error flex items-center gap-2">
-                                <span class="material-symbols-outlined text-[18px]">flip</span>
-                                Flip to read the full Red Team argument
-                            </div>
-                        </div>
-
-                        <div class="flip-card-back absolute inset-0 bg-surface-container border border-error/40 rounded-xl p-6 flex flex-col gap-4 overflow-y-auto">
-                            <div class="flex items-center justify-between gap-3">
-                                <h3 class="text-xl font-bold text-error">Red Team: The Case for Friction and Logistical Failure</h3>
-                                <button type="button" class="text-sm font-bold text-on-surface-variant hover:text-on-surface" onclick="event.stopPropagation(); toggleStressCard(this.closest('.stress-flip-card'));">Back</button>
-                            </div>
-                            <p class="text-sm text-on-surface-variant">The Red Team hunts for bottlenecks, scaling issues, and predictable human behaviour from both students and teachers.</p>
-                            <div class="space-y-4 text-sm text-on-surface-variant">
-                                <p><strong class="text-on-surface">The Defence is a Mathematical Scaling Nightmare:</strong> If every summative requires a 5-minute teacher conference or live Q&A, an online teacher with 150 students completing 4 summatives a term faces roughly 50 hours of live conferencing before counting other verification chats.</p>
-                                <p><strong class="text-on-surface">The Competency Gate Bottleneck:</strong> If Level 1 and Level 2 mini-modules require teacher verification for every student, the first weeks of the semester can stall while teachers try to clear AI-use permits.</p>
-                                <p><strong class="text-on-surface">Evidence Burden May Incentivize Concealment:</strong> Prompt trails, annotated AI outputs, source verification tables, and revision rationales can become a large organizational load. Students who already struggle with time management may hide AI use and claim Level 0 to avoid the paperwork.</p>
-                                <p><strong class="text-on-surface">Multiple-Choice Friction:</strong> Multiple-choice assessments are used because they are efficient and scalable. If every test triggers a randomized follow-up defence, the format can become almost as time-consuming as written response grading.</p>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <article data-stress-card="consensus" class="stress-flip-card flip-card h-[760px] md:h-[700px] xl:h-[680px] cursor-pointer" tabindex="0" onclick="toggleStressCard(this)" onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); toggleStressCard(this); }">
-                    <div class="flip-card-inner relative w-full h-full">
-                        <div class="flip-card-front absolute inset-0 bg-surface-container-low border border-secondary/30 rounded-xl p-6 flex flex-col gap-5">
-                            <div class="flex items-center gap-3">
-                                <span class="material-symbols-outlined text-secondary">sync_alt</span>
-                                <h3 class="text-xl font-bold text-on-surface">Consensus Result</h3>
-                            </div>
-                            <p class="text-on-surface-variant">
-                                The result we want to replicate is not winning the argument. It is using the stress test to produce a better operating model.
-                            </p>
-                            <ul class="space-y-3 text-sm text-on-surface-variant">
-                                <li class="flex gap-2"><span class="material-symbols-outlined text-[18px] text-secondary">task_alt</span><span>Defence must become a flexible evidence category.</span></li>
-                                <li class="flex gap-2"><span class="material-symbols-outlined text-[18px] text-secondary">task_alt</span><span>Live conferences are not the default.</span></li>
-                                <li class="flex gap-2"><span class="material-symbols-outlined text-[18px] text-secondary">task_alt</span><span>Pilot first, measure teacher time, then scale.</span></li>
-                            </ul>
-                            <div class="mt-auto pt-4 border-t border-secondary/20 text-sm font-bold text-secondary flex items-center gap-2">
-                                <span class="material-symbols-outlined text-[18px]">flip</span>
-                                Flip to read the consensus and next steps
-                            </div>
-                        </div>
-
-                        <div class="flip-card-back absolute inset-0 bg-surface-container border border-secondary/40 rounded-xl p-6 flex flex-col gap-4 overflow-y-auto">
-                            <div class="flex items-center justify-between gap-3">
-                                <h3 class="text-xl font-bold text-secondary">Consensus and Strategic Next Steps</h3>
-                                <button type="button" class="text-sm font-bold text-on-surface-variant hover:text-on-surface" onclick="event.stopPropagation(); toggleStressCard(this.closest('.stress-flip-card'));">Back</button>
-                            </div>
-                            <p class="text-sm text-on-surface-variant"><strong class="text-on-surface">The Verdict: The philosophy, structure, and student-facing messaging</strong> are highly defensible. The critical point of failure is teacher time. If verification and defence are not optimized, the framework can collapse under its own weight.</p>
-                            <div class="space-y-4 text-sm text-on-surface-variant">
-                                <p><strong class="text-on-surface">Optimize and Automate the Defence:</strong> Diversify what counts as defence. Use 2-minute recorded explanations, screen-recorded draft walkthroughs, metacognitive forms, or automated reflection checks before requiring a live conference.</p>
-                                <p><strong class="text-on-surface">Streamline the Competency Gate:</strong> Make the AI Use Permit as frictionless as possible. Use auto-graded knowledge checks and portfolio evidence that is audited when later work raises questions.</p>
-                                <p><strong class="text-on-surface">Scaffold the Process Gathering:</strong> Provide rigid templates for prompt trails, verification tables, and revision notes so evidence collection is part of the workflow rather than a chore at the end.</p>
-                                <p><strong class="text-on-surface">Run a Controlled Pilot:</strong> Test the 50/25/25 model with one department first. Track actual teacher hours, evidence quality, student clarity, and confidence before a hard launch.</p>
-                            </div>
-                        </div>
-                    </div>
-                </article>
+            <div id="oral-defense-overview" class="w-full max-w-4xl mx-auto bg-surface-container border border-surface-variant rounded-xl p-3 shadow-sm">
+                <video class="w-full aspect-video rounded-lg bg-black" controls preload="metadata" src="./media/oral-defense-overview.mp4" aria-label="Oral Defense Overview">
+                    Your browser does not support embedded video playback.
+                </video>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-gutter">
-                <div class="bg-surface-container border border-surface-variant rounded-xl p-6 flex flex-col gap-4">
-                    <h3 class="text-xl font-bold text-on-surface">Collaboration Protocol</h3>
-                    <p class="text-on-surface-variant">Invite teachers, students, and leaders to work through the three cards, then capture the decisions that make the model more usable.</p>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
-                        <div class="border border-outline-variant rounded-lg p-4 bg-surface-container-low"><strong class="text-on-surface block mb-1">1. Present</strong><span class="text-on-surface-variant">Name the Blue Team case clearly so people understand the purpose.</span></div>
-                        <div class="border border-outline-variant rounded-lg p-4 bg-surface-container-low"><strong class="text-on-surface block mb-1">2. Stress</strong><span class="text-on-surface-variant">Let staff pressure-test workload, student behaviour, equity, and validity.</span></div>
-                        <div class="border border-outline-variant rounded-lg p-4 bg-surface-container-low"><strong class="text-on-surface block mb-1">3. Decide</strong><span class="text-on-surface-variant">Turn the best critiques into thresholds, templates, and exception rules.</span></div>
-                        <div class="border border-outline-variant rounded-lg p-4 bg-surface-container-low"><strong class="text-on-surface block mb-1">4. Replicate</strong><span class="text-on-surface-variant">Use the consensus pattern again whenever a new course, department, or assessment type is added.</span></div>
-                    </div>
+            <div class="bg-surface-container-lowest rounded-2xl border border-surface-variant flex flex-col relative overflow-hidden">
+                <div class="absolute inset-0 pointer-events-none opacity-[0.08]" style="background-image: linear-gradient(to right, rgb(var(--color-outline)) 1px, transparent 1px), linear-gradient(to bottom, rgb(var(--color-outline)) 1px, transparent 1px); background-size: 40px 40px;"></div>
+
+                <div id="validity-progress-header" class="relative z-10 bg-surface-container-low px-6 py-4 border-b border-surface-variant flex flex-col sm:flex-row gap-2 sm:items-center sm:justify-between text-sm font-bold text-on-surface-variant">
+                    <span id="validity-scenario-counter">Scenario 1 of 2</span>
+                    <span id="validity-scenario-subject" class="flex items-center gap-2 text-primary">
+                        <span class="material-symbols-outlined text-[18px]">menu_book</span>
+                        Grade 10 Science (Alex)
+                    </span>
                 </div>
 
-                <div class="bg-surface-container-lowest border border-secondary/40 border-l-4 border-l-secondary rounded-xl p-6 flex flex-col justify-center gap-4">
-                    <h3 class="text-xl font-bold text-secondary">What We Are Trying To Replicate</h3>
-                    <p class="text-on-surface-variant leading-relaxed">
-                        The repeatable move is this: present a strong model, invite the strongest critique, then build the consensus version that survives the classroom reality.
-                    </p>
-                    <p class="text-on-surface-variant leading-relaxed">
-                        The conclusion is not that Product, Process, and Defence are wrong. The conclusion is that Defence must become a flexible evidence category, process evidence needs templates, and live meetings should be sampled, targeted, or triggered by risk.
-                    </p>
-                </div>
-            </div>
+                <div id="validity-flowchart-container" class="relative z-10 w-full px-6 pt-8 pb-4 overflow-x-auto"></div>
 
-            <div id="red-blue-team-workshop" data-testid="red-blue-team-workshop" class="stress-workshop bg-surface-container-lowest border border-surface-variant rounded-xl overflow-hidden">
-                <div class="p-5 border-b border-surface-variant bg-surface-container flex flex-col gap-4">
-                    <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
-                        <div class="max-w-4xl">
-                            <h3 class="text-2xl font-bold text-on-surface">AI Framework Stress-Test Workshop</h3>
-                            <p class="text-on-surface-variant mt-2">
-                                A facilitated six-step exercise for the staff meeting: defend the framework, attack the implementation, then build the consensus version teachers can actually run.
-                            </p>
-                        </div>
-                        <div id="stress-workshop-phase-label" class="text-sm font-bold text-primary tabular-nums">Phase 1 of 6</div>
-                    </div>
-                    <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-2" role="tablist" aria-label="Stress-test workshop phases">
-                        <button type="button" data-stress-phase-step="1" onclick="setStressWorkshopPhase(1)" class="border border-outline-variant rounded-lg px-3 py-2 text-left text-sm text-on-surface-variant hover:bg-surface-container-high transition-colors" aria-current="true">1. Briefing</button>
-                        <button type="button" data-stress-phase-step="2" onclick="setStressWorkshopPhase(2)" class="border border-outline-variant rounded-lg px-3 py-2 text-left text-sm text-on-surface-variant hover:bg-surface-container-high transition-colors" aria-current="false">2. Blue Team</button>
-                        <button type="button" data-stress-phase-step="3" onclick="setStressWorkshopPhase(3)" class="border border-outline-variant rounded-lg px-3 py-2 text-left text-sm text-on-surface-variant hover:bg-surface-container-high transition-colors" aria-current="false">3. Red Team</button>
-                        <button type="button" data-stress-phase-step="4" onclick="setStressWorkshopPhase(4)" class="border border-outline-variant rounded-lg px-3 py-2 text-left text-sm text-on-surface-variant hover:bg-surface-container-high transition-colors" aria-current="false">4. Crossfire</button>
-                        <button type="button" data-stress-phase-step="5" onclick="setStressWorkshopPhase(5)" class="border border-outline-variant rounded-lg px-3 py-2 text-left text-sm text-on-surface-variant hover:bg-surface-container-high transition-colors" aria-current="false">5. Consensus</button>
-                        <button type="button" data-stress-phase-step="6" onclick="setStressWorkshopPhase(6)" class="border border-outline-variant rounded-lg px-3 py-2 text-left text-sm text-on-surface-variant hover:bg-surface-container-high transition-colors" aria-current="false">6. Debrief</button>
-                    </div>
-                    <div class="h-1.5 bg-surface-container-high rounded-full overflow-hidden" aria-hidden="true">
-                        <div id="stress-workshop-progress" class="h-full bg-primary transition-all duration-300" style="width: 0%;"></div>
-                    </div>
-                </div>
-                <template id="stress-workshop-note-template">
-                    <button type="button" data-note-action="edit" aria-label="Edit note">Edit note</button>
-                    <button type="button" data-note-action="delete" aria-label="Delete note">Delete note</button>
-                </template>
-
-                <div class="p-5 md:p-8">
-                    <section data-stress-phase-panel="1" class="grid lg:grid-cols-[1fr_0.95fr] gap-gutter items-start">
-                        <div class="bg-surface-container border border-surface-variant rounded-xl p-6">
-                            <div class="flex items-center gap-3 mb-4">
-                                <span class="material-symbols-outlined text-primary">flag</span>
-                                <h4 class="text-xl font-bold text-on-surface">Welcome to the Stress-Test</h4>
-                            </div>
-                            <p class="text-on-surface-variant leading-relaxed">
-                                Today we are looking at our new AI-Aware Assessment Framework. The core philosophy is simple: <strong class="text-on-surface">Product, Process, Defence.</strong> We are moving away from trying to catch AI use, and instead asking students to prove their learning.
-                            </p>
-                            <p class="text-on-surface-variant leading-relaxed mt-4">
-                                Today, we are not here to nod and agree. We are here to break this plan and then fix it together.
-                            </p>
-                        </div>
-                        <div class="bg-surface-container-low border border-outline-variant rounded-xl p-6">
-                            <h4 class="text-lg font-bold text-on-surface mb-4">Rules of Engagement</h4>
-                            <ul class="space-y-4 text-sm text-on-surface-variant">
-                                <li class="flex gap-3"><span class="material-symbols-outlined text-primary text-[20px]">verified</span><span><strong class="text-on-surface">Blue Team:</strong> Defend pedagogical integrity and find the strengths.</span></li>
-                                <li class="flex gap-3"><span class="material-symbols-outlined text-error text-[20px]">report</span><span><strong class="text-on-surface">Red Team:</strong> Find the logistical nightmares and student loopholes.</span></li>
-                                <li class="flex gap-3"><span class="material-symbols-outlined text-secondary text-[20px]">tips_and_updates</span><span><strong class="text-on-surface">Purple Team:</strong> Build consensus and actionable solutions.</span></li>
-                            </ul>
-                        </div>
-                    </section>
-
-                    <section data-stress-phase-panel="2" class="hidden grid lg:grid-cols-[1fr_0.95fr] gap-gutter items-start">
-                        <div class="bg-surface-container border border-primary/35 border-t-4 border-t-primary rounded-xl p-6">
-                            <div class="flex items-center gap-3 mb-5">
-                                <span class="material-symbols-outlined text-primary">verified_user</span>
-                                <div>
-                                    <h4 class="text-xl font-bold text-on-surface">Blue Team Deep Dive</h4>
-                                    <p class="text-sm text-on-surface-variant">Defenders of pedagogical integrity</p>
-                                </div>
-                            </div>
-                            <h5 class="font-bold text-on-surface mb-3">Discussion prompts</h5>
-                            <ul class="list-disc pl-5 space-y-2 text-sm text-on-surface-variant mb-6">
-                                <li>Why is the 50/25/25 split pedagogically stronger than grading just a final product?</li>
-                                <li>How does the AI Use Permit empower student agency?</li>
-                                <li>How does this protect teachers from the AI Detective trap?</li>
-                            </ul>
-                            <form onsubmit="addStressWorkshopNote(event, 'blue')" class="flex flex-col sm:flex-row gap-3">
-                                <label class="sr-only" for="stress-workshop-blue-input">Add a Blue Team strength</label>
-                                <input id="stress-workshop-blue-input" type="text" class="flex-1 rounded-lg border border-outline-variant bg-surface-container-lowest px-4 py-3 text-on-surface placeholder:text-on-surface-variant focus:border-primary focus:ring-primary" placeholder="Add a strength the group names...">
-                                <button type="submit" class="rounded-lg border border-primary/40 bg-primary/10 px-4 py-3 text-primary font-bold hover:bg-primary/20 transition-colors">Add Note</button>
-                            </form>
-                        </div>
-                        <div class="bg-surface-container-low border border-primary/25 rounded-xl p-5">
-                            <h5 class="font-bold text-on-surface mb-4">Blue Board</h5>
-                            <div id="stress-workshop-blue-board" class="space-y-3 min-h-[260px]" aria-live="polite"></div>
-                        </div>
-                    </section>
-
-                    <section data-stress-phase-panel="3" class="hidden grid lg:grid-cols-[1fr_0.95fr] gap-gutter items-start">
-                        <div class="bg-surface-container border border-error/35 border-t-4 border-t-error rounded-xl p-6">
-                            <div class="flex items-center gap-3 mb-5">
-                                <span class="material-symbols-outlined text-error">warning</span>
-                                <div>
-                                    <h4 class="text-xl font-bold text-on-surface">Red Team Attack</h4>
-                                    <p class="text-sm text-on-surface-variant">The stress-testers</p>
-                                </div>
-                            </div>
-                            <h5 class="font-bold text-on-surface mb-3">Discussion prompts</h5>
-                            <ul class="list-disc pl-5 space-y-2 text-sm text-on-surface-variant mb-6">
-                                <li><strong class="text-on-surface">The Scaling Nightmare:</strong> How does the 5-minute teacher conference break you with 150 students?</li>
-                                <li><strong class="text-on-surface">The Student Loophole:</strong> What if students use AI heavily but claim Level 0 to avoid paperwork?</li>
-                                <li><strong class="text-on-surface">The Multiple Choice Problem:</strong> How do we run verified multiple choice efficiently?</li>
-                            </ul>
-                            <form onsubmit="addStressWorkshopNote(event, 'red')" class="flex flex-col sm:flex-row gap-3">
-                                <label class="sr-only" for="stress-workshop-red-input">Add a Red Team vulnerability</label>
-                                <input id="stress-workshop-red-input" type="text" class="flex-1 rounded-lg border border-outline-variant bg-surface-container-lowest px-4 py-3 text-on-surface placeholder:text-on-surface-variant focus:border-error focus:ring-error" placeholder="Add a vulnerability the group surfaces...">
-                                <button type="submit" class="rounded-lg border border-error/40 bg-error/10 px-4 py-3 text-error font-bold hover:bg-error/20 transition-colors">Add Note</button>
-                            </form>
-                        </div>
-                        <div class="bg-surface-container-low border border-error/25 rounded-xl p-5">
-                            <h5 class="font-bold text-on-surface mb-4">Red Board</h5>
-                            <div id="stress-workshop-red-board" class="space-y-3 min-h-[260px]" aria-live="polite"></div>
-                        </div>
-                    </section>
-
-                    <section data-stress-phase-panel="4" class="hidden">
-                        <div class="bg-surface-container border border-surface-variant rounded-xl p-6 mb-6 text-center">
-                            <h4 class="text-xl font-bold text-on-surface">The Crossfire</h4>
-                            <p class="text-sm text-on-surface-variant mt-2">Review the strengths and risks before building consensus.</p>
-                        </div>
-                        <div class="grid lg:grid-cols-2 gap-gutter">
-                            <div class="bg-primary/10 border border-primary/25 rounded-xl p-5">
-                                <h5 class="font-bold text-primary mb-4 flex items-center gap-2"><span class="material-symbols-outlined">verified</span> Why we must make this shift</h5>
-                                <div id="stress-workshop-blue-crossfire" class="space-y-3"></div>
-                            </div>
-                            <div class="bg-error/10 border border-error/25 rounded-xl p-5">
-                                <h5 class="font-bold text-error mb-4 flex items-center gap-2"><span class="material-symbols-outlined">report</span> Why this plan might fail</h5>
-                                <div id="stress-workshop-red-crossfire" class="space-y-3"></div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section data-stress-phase-panel="5" class="hidden">
-                        <div class="bg-surface-container border border-secondary/35 border-t-4 border-t-secondary rounded-xl p-6">
-                            <div class="flex items-center gap-3 mb-6">
-                                <span class="material-symbols-outlined text-secondary">tips_and_updates</span>
-                                <div>
-                                    <h4 class="text-xl font-bold text-on-surface">Purple Team Consensus</h4>
-                                    <p class="text-sm text-on-surface-variant">Solve the Red Team's biggest attacks.</p>
-                                </div>
-                            </div>
-                            <div class="grid lg:grid-cols-3 gap-gutter">
-                                <div class="bg-surface-container-low border border-outline-variant rounded-xl p-5">
-                                    <h5 class="font-bold text-on-surface">Target 1: The Defence Bottleneck</h5>
-                                    <p class="text-sm text-error mt-2 mb-4">Problem: 150 live 5-minute teacher conferences per summative is impossible.</p>
-                                    <div id="stress-workshop-target1-board" class="space-y-3 mb-4"></div>
-                                    <form onsubmit="addStressWorkshopNote(event, 'target1')" class="flex flex-col gap-3">
-                                        <label class="sr-only" for="stress-workshop-target1-input">Add a defence bottleneck solution</label>
-                                        <input id="stress-workshop-target1-input" type="text" class="rounded-lg border border-outline-variant bg-surface-container-lowest px-4 py-3 text-sm text-on-surface placeholder:text-on-surface-variant focus:border-secondary focus:ring-secondary" placeholder="Example: async video defence">
-                                        <button type="submit" class="rounded-lg border border-secondary/40 bg-secondary/10 px-4 py-3 text-secondary font-bold hover:bg-secondary/20 transition-colors">Add Idea</button>
-                                    </form>
-                                </div>
-                                <div class="bg-surface-container-low border border-outline-variant rounded-xl p-5">
-                                    <h5 class="font-bold text-on-surface">Target 2: The Competency Gate Backlog</h5>
-                                    <p class="text-sm text-error mt-2 mb-4">Problem: Teachers spending hours verifying AI permits early in the term.</p>
-                                    <div id="stress-workshop-target2-board" class="space-y-3 mb-4"></div>
-                                    <form onsubmit="addStressWorkshopNote(event, 'target2')" class="flex flex-col gap-3">
-                                        <label class="sr-only" for="stress-workshop-target2-input">Add a competency gate solution</label>
-                                        <input id="stress-workshop-target2-input" type="text" class="rounded-lg border border-outline-variant bg-surface-container-lowest px-4 py-3 text-sm text-on-surface placeholder:text-on-surface-variant focus:border-secondary focus:ring-secondary" placeholder="Example: auto-graded knowledge check">
-                                        <button type="submit" class="rounded-lg border border-secondary/40 bg-secondary/10 px-4 py-3 text-secondary font-bold hover:bg-secondary/20 transition-colors">Add Idea</button>
-                                    </form>
-                                </div>
-                                <div class="bg-surface-container-low border border-outline-variant rounded-xl p-5">
-                                    <h5 class="font-bold text-on-surface">Target 3: The Concealed AI Loophole</h5>
-                                    <p class="text-sm text-error mt-2 mb-4">Problem: Students hiding AI use to avoid the "Process" paperwork.</p>
-                                    <div id="stress-workshop-target3-board" class="space-y-3 mb-4"></div>
-                                    <form onsubmit="addStressWorkshopNote(event, 'target3')" class="flex flex-col gap-3">
-                                        <label class="sr-only" for="stress-workshop-target3-input">Add a concealed AI solution</label>
-                                        <input id="stress-workshop-target3-input" type="text" class="rounded-lg border border-outline-variant bg-surface-container-lowest px-4 py-3 text-sm text-on-surface placeholder:text-on-surface-variant focus:border-secondary focus:ring-secondary" placeholder="Example: rigid process templates">
-                                        <button type="submit" class="rounded-lg border border-secondary/40 bg-secondary/10 px-4 py-3 text-secondary font-bold hover:bg-secondary/20 transition-colors">Add Idea</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section data-stress-phase-panel="6" class="hidden">
-                        <div class="bg-surface-container border border-secondary/35 rounded-xl p-6">
-                            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-6">
-                                <div>
-                                    <h4 class="text-2xl font-bold text-on-surface">Workshop Debrief</h4>
-                                    <p class="text-on-surface-variant mt-2">Here is the implementation blueprint the group built together.</p>
-                                </div>
-                                <button type="button" onclick="exportStressWorkshopSummary()" class="inline-flex items-center justify-center rounded-lg border border-outline-variant bg-surface-container-high px-4 py-3 text-sm font-bold text-on-surface hover:bg-surface-container-highest transition-colors">
-                                    <span class="material-symbols-outlined text-[18px] mr-2">download</span> Export Summary
-                                </button>
-                            </div>
-                            <div class="grid lg:grid-cols-3 gap-gutter">
-                                <div class="border border-outline-variant rounded-xl p-5 bg-surface-container-low">
-                                    <h5 class="font-bold text-on-surface mb-3">1. Alleviating the Defence Bottleneck</h5>
-                                    <div id="stress-workshop-summary-target1" class="space-y-2 text-sm text-on-surface-variant"></div>
-                                </div>
-                                <div class="border border-outline-variant rounded-xl p-5 bg-surface-container-low">
-                                    <h5 class="font-bold text-on-surface mb-3">2. Streamlining the Competency Gate</h5>
-                                    <div id="stress-workshop-summary-target2" class="space-y-2 text-sm text-on-surface-variant"></div>
-                                </div>
-                                <div class="border border-outline-variant rounded-xl p-5 bg-surface-container-low">
-                                    <h5 class="font-bold text-on-surface mb-3">3. Closing the Concealment Loophole</h5>
-                                    <div id="stress-workshop-summary-target3" class="space-y-2 text-sm text-on-surface-variant"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-
-                <div class="p-5 border-t border-surface-variant bg-surface-container flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                    <button id="stress-workshop-prev" type="button" onclick="changeStressWorkshopPhase(-1)" class="inline-flex items-center justify-center rounded-lg border border-outline-variant px-4 py-3 text-sm font-bold text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
-                        <span class="material-symbols-outlined text-[18px] mr-2">chevron_left</span> Previous
-                    </button>
-                    <button id="stress-workshop-next" type="button" onclick="changeStressWorkshopPhase(1)" class="inline-flex items-center justify-center rounded-lg border border-primary/40 bg-primary/10 px-4 py-3 text-sm font-bold text-primary hover:bg-primary/20 disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
-                        Next Phase <span class="material-symbols-outlined text-[18px] ml-2">chevron_right</span>
-                    </button>
-                </div>
+                <div id="validity-game-content" class="relative z-10 p-6 md:p-10 min-h-[420px] flex flex-col justify-center items-center w-full"></div>
             </div>
         </div>
     </section>
@@ -1199,43 +748,47 @@
         <div class="text-center mb-12">
             <h2 class="font-h2 text-h2 text-on-surface mb-4">Presentations & Resources</h2>
             <p class="font-body-lg text-on-surface-variant max-w-3xl mx-auto">
-                Access the complete slide decks for staff training, board meetings, and professional development.
+                Access the current presentation decks for staff training, board meetings, and professional development.
             </p>
         </div>
-        <div class="grid md:grid-cols-3 gap-gutter">
-            <!-- Deck 1 -->
-            <div class="bg-surface-container rounded-2xl shadow-sm border border-surface-variant p-6 flex flex-col h-full transition-colors">
+        <div id="framework-audio-overview" class="max-w-5xl mx-auto mb-8 bg-surface-container rounded-xl shadow-sm border border-surface-variant p-6">
+            <div class="flex flex-col lg:flex-row lg:items-center gap-5">
+                <div class="flex items-start gap-4 lg:w-[38%]">
+                    <div class="w-12 h-12 bg-secondary/10 text-secondary rounded-lg flex items-center justify-center border border-secondary/20 shrink-0">
+                        <span class="material-symbols-outlined">graphic_eq</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-on-surface mb-2">Product, Process, and Defence Overview</h3>
+                        <p class="text-on-surface-variant text-sm">Play the brief audio overview before opening the decks or using the discussion materials.</p>
+                    </div>
+                </div>
+                <div class="flex-1 w-full">
+                    <audio id="product-process-defence-audio" class="w-full" controls preload="metadata" src="./media/product-process-defence-overview.m4a">
+                        Your browser does not support embedded audio playback.
+                    </audio>
+                </div>
+            </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-gutter max-w-5xl mx-auto">
+            <div class="bg-surface-container rounded-xl shadow-sm border border-surface-variant p-6 flex flex-col h-full transition-colors">
                 <div class="w-12 h-12 bg-primary/10 text-primary rounded-lg flex items-center justify-center mb-4 border border-primary/20">
                     <span class="material-symbols-outlined">slideshow</span>
                 </div>
-                <h3 class="text-xl font-bold text-on-surface mb-2">The AI-Aware Assessment Blueprint</h3>
-                <p class="text-on-surface-variant text-sm flex-grow mb-6">The overarching architectural plan. Details the Product, Process, and Defence weighting and the shift from "Polish" to "Proof".</p>
-                <a id="deck-blueprint-pdf" href="./decks/ai-assessment-blueprint.pdf" data-inline-asset class="hidden" aria-hidden="true" tabindex="-1">Blueprint PDF preview</a>
-                <button type="button" onclick="openDeckViewer('blueprint')" data-deck-card="blueprint" aria-controls="deck-viewer-panel" aria-pressed="false" class="inline-flex items-center justify-center w-full py-2 px-4 bg-surface-container-highest hover:bg-primary/10 hover:border-primary/40 text-on-surface text-sm font-medium rounded-lg border border-outline-variant transition-colors">
+                <h3 class="text-xl font-bold text-on-surface mb-2">Proposed AI-Assement Architecture</h3>
+                <p class="text-on-surface-variant text-sm flex-grow mb-6">The current proposal deck for the assessment architecture, validity gates, evidence burden, and teacher-facing implementation discussion.</p>
+                <a id="deck-proposed-pptx" href="./decks/proposed-ai-assessment-architecture.pptx" data-inline-asset class="hidden" aria-hidden="true" tabindex="-1">Proposed AI-Assement Architecture PowerPoint source</a>
+                <button type="button" onclick="openDeckViewer('proposed')" data-deck-card="proposed" aria-controls="deck-viewer-panel" aria-pressed="false" class="inline-flex items-center justify-center w-full py-2 px-4 bg-surface-container-highest hover:bg-primary/10 hover:border-primary/40 text-on-surface text-sm font-medium rounded-lg border border-outline-variant transition-colors">
                     <span class="material-symbols-outlined text-[18px] mr-2">open_in_new</span> View Deck
                 </button>
             </div>
-            <!-- Deck 2 -->
-            <div class="bg-surface-container rounded-2xl shadow-sm border border-surface-variant p-6 flex flex-col h-full transition-colors">
+            <div class="bg-surface-container rounded-xl shadow-sm border border-surface-variant p-6 flex flex-col h-full transition-colors">
                 <div class="w-12 h-12 bg-secondary/10 text-secondary rounded-lg flex items-center justify-center mb-4 border border-secondary/20">
-                    <span class="material-symbols-outlined">slideshow</span>
+                    <span class="material-symbols-outlined">record_voice_over</span>
                 </div>
-                <h3 class="text-xl font-bold text-on-surface mb-2">Assessment Integrity Architecture</h3>
-                <p class="text-on-surface-variant text-sm flex-grow mb-6">Focuses on Multiple Choice validation. Breaks down the Friction vs. Integrity layers and the targeted 5-minute oral defence sampling.</p>
-                <a id="deck-integrity-pdf" href="./decks/assessment-integrity-architecture.pdf" data-inline-asset class="hidden" aria-hidden="true" tabindex="-1">Assessment Integrity Architecture PDF preview</a>
-                <button type="button" onclick="openDeckViewer('integrity')" data-deck-card="integrity" aria-controls="deck-viewer-panel" aria-pressed="false" class="inline-flex items-center justify-center w-full py-2 px-4 bg-surface-container-highest hover:bg-secondary/10 hover:border-secondary/40 text-on-surface text-sm font-medium rounded-lg border border-outline-variant transition-colors">
-                    <span class="material-symbols-outlined text-[18px] mr-2">open_in_new</span> View Deck
-                </button>
-            </div>
-            <!-- Deck 3 -->
-            <div class="bg-surface-container rounded-2xl shadow-sm border border-surface-variant p-6 flex flex-col h-full transition-colors">
-                <div class="w-12 h-12 bg-tertiary/10 text-tertiary rounded-lg flex items-center justify-center mb-4 border border-tertiary/20">
-                    <span class="material-symbols-outlined">slideshow</span>
-                </div>
-                <h3 class="text-xl font-bold text-on-surface mb-2">The AI Permit</h3>
-                <p class="text-on-surface-variant text-sm flex-grow mb-6">Navigating Student-Centered Learning in a generative age. Details SCL 15 integration, prompting frameworks, and NotebookLM verification.</p>
-                <a id="deck-permit-pdf" href="./decks/ai-permit.pdf" data-inline-asset class="hidden" aria-hidden="true" tabindex="-1">AI Permit PDF preview</a>
-                <button type="button" onclick="openDeckViewer('permit')" data-deck-card="permit" aria-controls="deck-viewer-panel" aria-pressed="false" class="inline-flex items-center justify-center w-full py-2 px-4 bg-surface-container-highest hover:bg-tertiary/10 hover:border-tertiary/40 text-on-surface text-sm font-medium rounded-lg border border-outline-variant transition-colors">
+                <h3 class="text-xl font-bold text-on-surface mb-2">Retrieval Practice: Oral Assessment</h3>
+                <p class="text-on-surface-variant text-sm flex-grow mb-6">A companion deck focused on retrieval practice, oral checks for human mastery, and practical assessment conversations.</p>
+                <a id="deck-retrieval-pptx" href="./decks/retrieval-practice-oral-assessment.pptx" data-inline-asset class="hidden" aria-hidden="true" tabindex="-1">Retrieval Practice: Oral Assessment PowerPoint source</a>
+                <button type="button" onclick="openDeckViewer('retrieval')" data-deck-card="retrieval" aria-controls="deck-viewer-panel" aria-pressed="false" class="inline-flex items-center justify-center w-full py-2 px-4 bg-surface-container-highest hover:bg-secondary/10 hover:border-secondary/40 text-on-surface text-sm font-medium rounded-lg border border-outline-variant transition-colors">
                     <span class="material-symbols-outlined text-[18px] mr-2">open_in_new</span> View Deck
                 </button>
             </div>
@@ -1250,7 +803,7 @@
                 </div>
                 <div class="flex flex-col sm:flex-row gap-3">
                     <a id="deck-source-link" href="#" class="inline-flex items-center justify-center px-4 py-2 bg-surface-container-high hover:bg-surface-container-highest border border-outline-variant rounded-lg text-sm font-bold text-on-surface transition-colors" download>
-                        <span class="material-symbols-outlined text-[18px] mr-2">download</span> Download PDF
+                        <span class="material-symbols-outlined text-[18px] mr-2">download</span> Download PowerPoint
                     </a>
                     <button type="button" onclick="closeDeckViewer()" class="inline-flex items-center justify-center px-4 py-2 bg-surface-container-low hover:bg-surface-container-high border border-outline-variant rounded-lg text-sm font-bold text-on-surface transition-colors">
                         <span class="material-symbols-outlined text-[18px] mr-2">close</span> Close
@@ -1270,7 +823,7 @@
                         Next <span class="material-symbols-outlined text-[18px] ml-2">chevron_right</span>
                     </button>
                 </div>
-                <p class="text-xs text-on-surface-variant mt-3">Use Previous and Next to move through the slide images. Download PDF keeps the full deck available if needed.</p>
+                <p class="text-xs text-on-surface-variant mt-3">Use Previous and Next to move through the slide images. Download PowerPoint keeps the full editable deck available.</p>
             </div>
         </div>
     </section>
@@ -1356,357 +909,88 @@
         }
     }
 
-    // --- ACCORDION LOGIC ---
-    function toggleAccordion(id) {
-        const content = document.getElementById(id);
-        const icon = document.getElementById(id + '-icon');
-        if (content.classList.contains('open')) {
-            content.classList.remove('open');
-            icon.classList.remove('open');
-        } else {
-            content.classList.add('open');
-            icon.classList.add('open');
-        }
-    }
-
-    // --- STRESS TEST CARD LOGIC ---
-    function toggleStressCard(card) {
-        if (!card) return;
-        card.classList.toggle("flipped");
-    }
-
-    // --- RED / BLUE TEAM WORKSHOP LOGIC ---
-    const STRESS_WORKSHOP_STORAGE_KEY = "ai-course-building-resources::stress-workshop::v1";
-    const stressWorkshopTargets = ["blue", "red", "target1", "target2", "target3"];
-
-    const stressWorkshopInputs = {
-        blue: "stress-workshop-blue-input",
-        red: "stress-workshop-red-input",
-        target1: "stress-workshop-target1-input",
-        target2: "stress-workshop-target2-input",
-        target3: "stress-workshop-target3-input"
-    };
-
-    const stressWorkshopTone = {
-        blue: "blue",
-        red: "red",
-        target1: "consensus",
-        target2: "consensus",
-        target3: "consensus"
-    };
-
-    const stressWorkshopAccent = {
-        1: "var(--color-primary)",
-        2: "var(--color-primary)",
-        3: "var(--color-error)",
-        4: "var(--color-tertiary)",
-        5: "var(--color-secondary)",
-        6: "var(--color-secondary)"
-    };
-
-    function createStressWorkshopNote(text, idPrefix = "note") {
-        const safePrefix = String(idPrefix || "note").replace(/[^a-z0-9_-]/gi, "-").toLowerCase();
-        const uniqueId = Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 8);
-        return {
-            id: `${safePrefix}-${uniqueId}`,
-            text: String(text || "").trim()
-        };
-    }
-
-    const stressWorkshopDefaultState = {
-        phase: 1,
-        blue: [
-            { id: "blue-seed-1", text: "Process-based grading eliminates the need to act as 'AI Detectives'." }
-        ],
-        red: [
-            { id: "red-seed-1", text: "150 live 5-minute teacher conferences per summative is a mathematical scaling nightmare." }
-        ],
-        target1: [],
-        target2: [],
-        target3: []
-    };
-
-    let stressWorkshopSyncTimer = null;
-    let stressWorkshopEditing = null;
-
-    function escapeStressWorkshopText(value) {
-        return String(value)
-            .replaceAll("&", "&amp;")
-            .replaceAll("<", "&lt;")
-            .replaceAll(">", "&gt;")
-            .replaceAll('"', "&quot;")
-            .replaceAll("'", "&#039;");
-    }
-
-    function cloneStressWorkshopDefaultState() {
-        return {
-            phase: stressWorkshopDefaultState.phase,
-            blue: stressWorkshopDefaultState.blue.map((note) => ({ ...note })),
-            red: stressWorkshopDefaultState.red.map((note) => ({ ...note })),
-            target1: [],
-            target2: [],
-            target3: []
-        };
-    }
-
-    function normalizeStressWorkshopNotes(value, target) {
-        if (!Array.isArray(value)) return [];
-
-        return value
-            .map((entry, index) => {
-                if (typeof entry === "string") {
-                    return { id: `${target}-legacy-${index}`, text: entry.trim() };
-                }
-                if (!entry || typeof entry !== "object") {
-                    return null;
-                }
-                const text = typeof entry.text === "string" ? entry.text.trim() : "";
-                if (!text) return null;
-                const id = typeof entry.id === "string" && entry.id.trim()
-                    ? entry.id.trim().replace(/[^a-z0-9_-]/gi, "-")
-                    : `${target}-legacy-${index}`;
-                return { id, text };
-            })
-            .filter(Boolean);
-    }
-
-    function normalizeStressWorkshopState(value) {
-        const defaults = cloneStressWorkshopDefaultState();
-        if (!value || typeof value !== "object") return defaults;
-
-        const phase = Math.max(1, Math.min(6, Number(value.phase) || 1));
-        const normalized = { ...defaults, phase };
-        for (const target of stressWorkshopTargets) {
-            if (Object.prototype.hasOwnProperty.call(value, target)) {
-                normalized[target] = normalizeStressWorkshopNotes(value[target], target);
-            } else {
-                normalized[target] = defaults[target];
-            }
-        }
-        return normalized;
-    }
-
-    function loadStressWorkshopState() {
-        try {
-            const saved = localStorage.getItem(STRESS_WORKSHOP_STORAGE_KEY);
-            return normalizeStressWorkshopState(saved ? JSON.parse(saved) : null);
-        } catch {
-            return cloneStressWorkshopDefaultState();
-        }
-    }
-
-    let stressWorkshopState = loadStressWorkshopState();
-
-    function requestStressWorkshopSync() {
-        if (stressWorkshopSyncTimer) {
-            clearTimeout(stressWorkshopSyncTimer);
-        }
-
-        stressWorkshopSyncTimer = window.setTimeout(() => {
-            let hostedBridge = window.__canvasHelperGoogleHosted || null;
-            try {
-                if (!hostedBridge && window.parent && window.parent !== window) {
-                    hostedBridge = window.parent.__canvasHelperGoogleHosted || null;
-                }
-            } catch {
-                hostedBridge = null;
-            }
-            if (hostedBridge && typeof hostedBridge.save === "function") {
-                hostedBridge.save().catch(() => {});
-            }
-        }, 250);
-    }
-
-    function saveStressWorkshopState() {
-        try {
-            localStorage.setItem(STRESS_WORKSHOP_STORAGE_KEY, JSON.stringify(stressWorkshopState));
-            requestStressWorkshopSync();
-        } catch {
-            // Local storage may be unavailable in some embedded preview modes.
-        }
-    }
-
-    function findStressWorkshopNote(target, noteId) {
-        const notes = stressWorkshopState[target] || [];
-        return notes.find((note) => note.id === noteId) || null;
-    }
-
-    function stressWorkshopNoteHtml(note, target, tone) {
-        const safeTarget = escapeStressWorkshopText(target);
-        const safeNoteId = escapeStressWorkshopText(note.id);
-        const safeText = escapeStressWorkshopText(note.text);
-        const isEditing = stressWorkshopEditing &&
-            stressWorkshopEditing.target === target &&
-            stressWorkshopEditing.noteId === note.id;
-
-        if (isEditing) {
-            return `
-                <form class="stress-workshop-note rounded-lg border border-outline-variant p-4 text-sm text-on-surface-variant" data-note-tone="${tone}" onsubmit="saveStressWorkshopNoteEdit(event, '${safeTarget}', '${safeNoteId}')">
-                    <label class="sr-only" for="stress-edit-${safeTarget}-${safeNoteId}">Edit note</label>
-                    <textarea id="stress-edit-${safeTarget}-${safeNoteId}" class="w-full min-h-[96px] rounded-lg border border-outline-variant bg-surface-container-lowest px-3 py-2 text-sm text-on-surface placeholder:text-on-surface-variant focus:border-secondary focus:ring-secondary">${safeText}</textarea>
-                    <div class="mt-3 flex flex-wrap justify-end gap-2">
-                        <button type="button" class="rounded-lg border border-outline-variant px-3 py-2 text-xs font-bold text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" onclick="cancelStressWorkshopNoteEdit()">Cancel</button>
-                        <button type="submit" class="rounded-lg border border-secondary/40 bg-secondary/10 px-3 py-2 text-xs font-bold text-secondary hover:bg-secondary/20 transition-colors">Save</button>
-                    </div>
-                </form>
-            `;
-        }
-
-        return `
-            <div class="stress-workshop-note rounded-lg border border-outline-variant p-4 text-sm text-on-surface-variant" data-note-tone="${tone}">
-                <p>${safeText}</p>
-                <div class="mt-3 flex flex-wrap justify-end gap-2">
-                    <button type="button" data-note-action="edit" class="inline-flex items-center gap-1 rounded-lg border border-outline-variant px-3 py-1.5 text-xs font-bold text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" aria-label="Edit note" onclick="beginStressWorkshopNoteEdit('${safeTarget}', '${safeNoteId}')">
-                        <span class="material-symbols-outlined text-[16px]">edit</span> Edit
-                    </button>
-                    <button type="button" data-note-action="delete" class="inline-flex items-center gap-1 rounded-lg border border-error/35 px-3 py-1.5 text-xs font-bold text-error hover:bg-error/10 transition-colors" aria-label="Delete note" onclick="deleteStressWorkshopNote('${safeTarget}', '${safeNoteId}')">
-                        <span class="material-symbols-outlined text-[16px]">delete</span> Delete
-                    </button>
-                </div>
-            </div>
-        `;
-    }
-
-    function renderStressWorkshopList(target, containerId, emptyText) {
-        const container = document.getElementById(containerId);
-        if (!container) return;
-
-        const notes = stressWorkshopState[target] || [];
-        if (notes.length === 0) {
-            container.innerHTML = `<p class="text-sm text-on-surface-variant italic">${emptyText}</p>`;
-            return;
-        }
-
-        container.innerHTML = notes.map((note) => stressWorkshopNoteHtml(note, target, stressWorkshopTone[target])).join("");
-    }
-
-    function renderStressWorkshopSummary(target, containerId) {
-        const container = document.getElementById(containerId);
-        if (!container) return;
-
-        const notes = stressWorkshopState[target] || [];
-        if (notes.length === 0) {
-            container.innerHTML = '<p class="italic">No consensus recorded.</p>';
-            return;
-        }
-
-        container.innerHTML = `<ul class="list-disc pl-5 space-y-2">${notes.map((note) => `<li>${escapeStressWorkshopText(note.text)}</li>`).join("")}</ul>`;
-    }
-
-    function renderStressWorkshop() {
-        renderStressWorkshopList("blue", "stress-workshop-blue-board", "No Blue Team notes yet. Add one as staff name the strengths.");
-        renderStressWorkshopList("red", "stress-workshop-red-board", "No Red Team notes yet. Add one as staff name the risks.");
-        renderStressWorkshopList("blue", "stress-workshop-blue-crossfire", "No Blue Team notes recorded yet.");
-        renderStressWorkshopList("red", "stress-workshop-red-crossfire", "No Red Team notes recorded yet.");
-        renderStressWorkshopList("target1", "stress-workshop-target1-board", "No solution recorded yet.");
-        renderStressWorkshopList("target2", "stress-workshop-target2-board", "No solution recorded yet.");
-        renderStressWorkshopList("target3", "stress-workshop-target3-board", "No solution recorded yet.");
-        renderStressWorkshopSummary("target1", "stress-workshop-summary-target1");
-        renderStressWorkshopSummary("target2", "stress-workshop-summary-target2");
-        renderStressWorkshopSummary("target3", "stress-workshop-summary-target3");
-    }
-
-    function setStressWorkshopPhase(nextPhase, options = { persist: true }) {
-        const phase = Math.max(1, Math.min(6, Number(nextPhase) || 1));
-        stressWorkshopState.phase = phase;
-        if (options.persist) {
-            saveStressWorkshopState();
-        }
-
-        document.querySelectorAll("[data-stress-phase-panel]").forEach((panel) => {
-            panel.classList.toggle("hidden", panel.getAttribute("data-stress-phase-panel") !== String(phase));
-        });
-
-        document.querySelectorAll("[data-stress-phase-step]").forEach((step) => {
-            step.setAttribute("aria-current", String(step.getAttribute("data-stress-phase-step") === String(phase)));
-        });
-
-        const workshop = document.getElementById("red-blue-team-workshop");
-        const label = document.getElementById("stress-workshop-phase-label");
-        const progress = document.getElementById("stress-workshop-progress");
-        const previous = document.getElementById("stress-workshop-prev");
-        const next = document.getElementById("stress-workshop-next");
-
-        if (workshop) workshop.style.setProperty("--stress-accent", stressWorkshopAccent[phase]);
-        if (label) label.innerText = `Phase ${phase} of 6`;
-        if (progress) progress.style.width = `${((phase - 1) / 5) * 100}%`;
-        if (previous) previous.disabled = phase === 1;
-        if (next) {
-            next.disabled = phase === 6;
-            next.innerHTML = phase === 6
-                ? 'Workshop Complete <span class="material-symbols-outlined text-[18px] ml-2">check</span>'
-                : 'Next Phase <span class="material-symbols-outlined text-[18px] ml-2">chevron_right</span>';
-        }
-
-        renderStressWorkshop();
-    }
-
-    function changeStressWorkshopPhase(delta) {
-        setStressWorkshopPhase(stressWorkshopState.phase + delta);
-    }
-
-    function addStressWorkshopNote(event, target) {
-        event.preventDefault();
-        const input = document.getElementById(stressWorkshopInputs[target]);
-        if (!input) return;
-
-        const note = input.value.trim();
-        if (!note) return;
-
-        stressWorkshopState[target].push(createStressWorkshopNote(note, target));
-        input.value = "";
-        saveStressWorkshopState();
-        renderStressWorkshop();
-    }
-
-    function deleteStressWorkshopNote(target, noteId) {
-        const notes = stressWorkshopState[target];
-        if (!Array.isArray(notes)) return;
-
-        stressWorkshopState[target] = notes.filter((note) => note.id !== noteId);
-        if (stressWorkshopEditing && stressWorkshopEditing.target === target && stressWorkshopEditing.noteId === noteId) {
-            stressWorkshopEditing = null;
-        }
-        saveStressWorkshopState();
-        renderStressWorkshop();
-    }
-
-    function beginStressWorkshopNoteEdit(target, noteId) {
-        if (!findStressWorkshopNote(target, noteId)) return;
-        stressWorkshopEditing = { target, noteId };
-        renderStressWorkshop();
-        const editField = document.getElementById(`stress-edit-${target}-${noteId}`);
-        if (editField) {
-            editField.focus();
-        }
-    }
-
-    function saveStressWorkshopNoteEdit(event, target, noteId) {
-        event.preventDefault();
-        const note = findStressWorkshopNote(target, noteId);
-        if (!note) return;
-
-        const editField = document.getElementById(`stress-edit-${target}-${noteId}`);
-        const nextText = editField ? editField.value.trim() : "";
-        if (nextText) {
-            note.text = nextText;
-            saveStressWorkshopState();
-        }
-        stressWorkshopEditing = null;
-        renderStressWorkshop();
-    }
-
-    function cancelStressWorkshopNoteEdit() {
-        stressWorkshopEditing = null;
-        renderStressWorkshop();
-    }
-
-    function exportStressWorkshopSummary() {
-        setStressWorkshopPhase(6);
-        window.print();
-    }
-
     // --- ASSESSMENT WEIGHT BALANCER ---
+    function formatScore(value) {
+        const rounded = Math.round((Number(value) || 0) * 10) / 10;
+        return Number.isInteger(rounded) ? String(rounded) : rounded.toFixed(1);
+    }
+
+    function readAssessmentMarks() {
+        const keys = ["product", "process", "defence"];
+        const markInputs = {
+            product: document.getElementById("product-mark"),
+            process: document.getElementById("process-mark"),
+            defence: document.getElementById("defence-mark")
+        };
+        const clampMark = (value) => Math.max(0, Math.min(100, Math.round(Number(value) || 0)));
+        const marks = {
+            product: clampMark(markInputs.product?.value),
+            process: clampMark(markInputs.process?.value),
+            defence: clampMark(markInputs.defence?.value)
+        };
+
+        for (const key of keys) {
+            if (!markInputs[key]) continue;
+            markInputs[key].value = String(marks[key]);
+            markInputs[key].setAttribute("value", String(marks[key]));
+        }
+
+        return marks;
+    }
+
+    function calculateWeightedAssessment(weights, marks) {
+        const contributions = {
+            product: weights.product * marks.product / 100,
+            process: weights.process * marks.process / 100,
+            defence: weights.defence * marks.defence / 100
+        };
+        const totalScore = contributions.product + contributions.process + contributions.defence;
+
+        return { contributions, total: totalScore };
+    }
+
+    function updateAssessmentScoreBar(weights) {
+        const keys = ["product", "process", "defence"];
+        const scoreBar = document.getElementById("assessment-score-bar");
+        const scoreTotal = document.getElementById("assessment-score-total");
+        const marks = readAssessmentMarks();
+        const earnedScores = calculateWeightedAssessment(weights, marks);
+        const scoreSegments = {
+            product: document.getElementById("product-score-segment"),
+            process: document.getElementById("process-score-segment"),
+            defence: document.getElementById("defence-score-segment")
+        };
+        const scoreLabels = {
+            product: document.getElementById("product-score-label"),
+            process: document.getElementById("process-score-label"),
+            defence: document.getElementById("defence-score-label")
+        };
+
+        for (const key of keys) {
+            if (scoreSegments[key]) scoreSegments[key].style.width = `${earnedScores.contributions[key]}%`;
+            if (scoreLabels[key]) scoreLabels[key].innerText = `${formatScore(earnedScores.contributions[key])}% / ${weights[key]}%`;
+        }
+
+        if (scoreTotal) scoreTotal.innerText = `${formatScore(earnedScores.total)}%`;
+        if (scoreBar) scoreBar.setAttribute("aria-label", `Weighted assessment score: ${formatScore(earnedScores.total)}%. Product earned ${formatScore(earnedScores.contributions.product)}% of the total, Process earned ${formatScore(earnedScores.contributions.process)}% of the total, Defence earned ${formatScore(earnedScores.contributions.defence)}% of the total.`);
+    }
+
+    function updateAssessmentMarks() {
+        const clampWeight = (value) => Math.max(0, Math.min(100, Math.round(Number(value) || 0)));
+        const sliders = {
+            product: document.getElementById("product-weight"),
+            process: document.getElementById("process-weight"),
+            defence: document.getElementById("defence-weight")
+        };
+        const weights = {
+            product: clampWeight(sliders.product?.value),
+            process: clampWeight(sliders.process?.value),
+            defence: clampWeight(sliders.defence?.value)
+        };
+
+        updateAssessmentScoreBar(weights);
+    }
+
     function updateAssessmentWeights(activeKey) {
         const keys = ["product", "process", "defence"];
         const sliders = {
@@ -1752,6 +1036,7 @@
             sliders[key].style.setProperty("--range-fill", `${weights[key]}%`);
             labels[key].innerText = `${weights[key]}%`;
         }
+        updateAssessmentScoreBar(weights);
     }
 
     // --- SCALE GAME LOGIC ---
@@ -1760,13 +1045,14 @@
 
     function playScaleGame(action, value) {
         if (action === "ai") {
-            scaleLeftWeight = value;
+            const selectedWeight = Math.max(1, Math.min(2, Number(value) || 1));
+            scaleLeftWeight = selectedWeight;
 
-            [1, 2, 3].forEach(i => {
+            [1, 2].forEach(i => {
                 const btn = document.getElementById(`btn-game-ai-${i}`);
                 if (!btn) return;
 
-                if (i === value) {
+                if (i === selectedWeight) {
                     btn.className = "py-3 px-4 rounded-xl border-2 border-primary bg-primary/10 transition-all flex justify-between items-center text-left transform scale-[1.03] shadow-md z-10 relative";
                     btn.querySelector("strong")?.classList.add("text-primary");
                     const icon = btn.querySelector(".material-symbols-outlined");
@@ -1781,9 +1067,9 @@
 
             const leftPan = document.getElementById("left-items");
             if (leftPan) {
-                const sizeClasses = value === 1 ? "w-10 h-10" : value === 2 ? "w-16 h-16" : "w-24 h-24";
-                const labelText = value === 1 ? "No AI" : value === 2 ? "AI Support" : "AI-Assisted";
-                const textSize = value === 1 ? "text-[10px]" : value === 2 ? "text-xs" : "text-sm";
+                const sizeClasses = selectedWeight === 1 ? "w-10 h-10" : "w-16 h-16";
+                const labelText = selectedWeight === 1 ? "No AI" : "AI Support";
+                const textSize = selectedWeight === 1 ? "text-[10px]" : "text-xs";
 
                 leftPan.innerHTML = `
                     <div class="${sizeClasses} bg-[#0A1A3B] rounded shadow-lg border-2 border-[#1E3A8A] flex items-center justify-center text-center leading-tight transition-all duration-300 transform scale-0 animate-popIn">
@@ -1793,7 +1079,7 @@
             }
         } else if (action === "evidence") {
             if (value === "add") {
-                if (scaleRightWeight < 3) scaleRightWeight++;
+                if (scaleRightWeight < 2) scaleRightWeight++;
             } else if (value === "reset") {
                 scaleRightWeight = 0;
             }
@@ -1801,7 +1087,7 @@
             const rightPan = document.getElementById("right-items");
             if (rightPan) {
                 rightPan.innerHTML = "";
-                const evidenceBlocks = ["Base Process", "Increased Evidence", "Maximum Evidence"].slice(0, scaleRightWeight).reverse();
+                const evidenceBlocks = ["Base Process", "Increased Evidence"].slice(0, scaleRightWeight).reverse();
                 evidenceBlocks.forEach((blockLabel, i) => {
 
                     rightPan.innerHTML += `
@@ -1864,13 +1150,13 @@
                                 <li><span class="material-symbols-outlined text-[16px] text-secondary mr-2 align-text-bottom">check_box</span> Standard Short Conference</li>`;
             } else if (scaleLeftWeight === 2) {
                 explanationText = "Level 1 requires increased process evidence. Because AI is acting as a tutor or sounding board, we must verify the student actually processed the feedback rather than just blindly accepting it.";
-                evidenceList = `<li><span class="material-symbols-outlined text-[16px] text-secondary mr-2 align-text-bottom">check_box</span> Draft History & Revision Notes</li>
-                                <li><span class="material-symbols-outlined text-[16px] text-secondary mr-2 align-text-bottom">check_box</span> AI-Use Log (Prompts & Reflection)</li>`;
-            } else if (scaleLeftWeight === 3) {
-                explanationText = "Level 2 requires maximum defence evidence. Because AI is heavily integrated into the drafting process, the student acts as an editor and must robustly defend their editorial choices to prove learning.";
-                evidenceList = `<li><span class="material-symbols-outlined text-[16px] text-secondary mr-2 align-text-bottom">check_box</span> Full Prompt Trail & Transcript</li>
-                                <li><span class="material-symbols-outlined text-[16px] text-secondary mr-2 align-text-bottom">check_box</span> Source Verification Table</li>
-                                <li><span class="material-symbols-outlined text-[16px] text-secondary mr-2 align-text-bottom">check_box</span> Extended Oral Defence / Live Transfer Task</li>`;
+                evidenceList = `<li><span class="material-symbols-outlined text-[16px] text-secondary mr-2 align-text-bottom">check_box</span> Loom video walkthrough</li>
+                                <li><span class="material-symbols-outlined text-[16px] text-secondary mr-2 align-text-bottom">check_box</span> Google Doc edit access and version history</li>
+                                <li><span class="material-symbols-outlined text-[16px] text-secondary mr-2 align-text-bottom">check_box</span> Gemini conversation logs</li>
+                                <li><span class="material-symbols-outlined text-[16px] text-secondary mr-2 align-text-bottom">check_box</span> NotebookLM source access</li>
+                                <li><span class="material-symbols-outlined text-[16px] text-secondary mr-2 align-text-bottom">check_box</span> Rough draft</li>
+                                <li><span class="material-symbols-outlined text-[16px] text-secondary mr-2 align-text-bottom">check_box</span> Brainstorming page</li>
+                                <li><span class="material-symbols-outlined text-[16px] text-secondary mr-2 align-text-bottom">check_box</span> Research plan for information gathering</li>`;
             }
 
             expBox.innerHTML = `
@@ -1880,7 +1166,7 @@
                         <p class="text-on-surface-variant leading-relaxed text-base">${explanationText}</p>
                     </div>
                     <div class="flex-1 w-full bg-surface-container-low rounded-xl p-6 border border-outline-variant shadow-sm">
-                        <h4 class="font-bold text-xs text-outline uppercase tracking-widest mb-4">Required Evidence Bucket</h4>
+                        <h4 class="font-bold text-xs text-outline uppercase tracking-widest mb-4">Potential Evidence</h4>
                         <ul class="text-sm text-on-surface font-medium space-y-3">
                             ${evidenceList}
                         </ul>
@@ -1891,69 +1177,312 @@
     }
 
 
+    // --- VALIDITY GATE SIMULATOR LOGIC ---
+    const VALIDITY_GATE_SCENARIOS = [
+        {
+            id: 1,
+            student: "Alex",
+            subject: "Grade 10 Science",
+            assignment: "Climate Change Research Paper",
+            observation: "Alex submitted a paper that uses highly advanced vocabulary about atmospheric chemistry.",
+            defenseResult: "fail",
+            defenseText: "During the mandatory defence, you ask Alex to explain the concept of 'anthropogenic radiative forcing' which is heavily featured in his paper. Alex stammers, looks at the floor, and says, 'Uh, it means when radiation forces the climate to change by humans?' He cannot elaborate or connect the idea to the rest of the paper."
+        },
+        {
+            id: 2,
+            student: "Maya",
+            subject: "Grade 12 Computer Science",
+            assignment: "Python Data Sorting Algorithm",
+            observation: "Maya submitted a highly optimized sorting algorithm that goes beyond the base curriculum.",
+            defenseResult: "pass",
+            defenseText: "During the mandatory defence, you ask Maya to whiteboard the logic of the algorithm and explain why she chose it over bubble sort. Maya confidently breaks down the code line by line, explains Big O notation, and identifies a minor flaw she would fix with more time."
+        }
+    ];
+    let validityGateScenarioIndex = 0;
+    let validityGateStep = "start";
+    let validityGateScore = { correct: 0, total: 0 };
+
+    function setValidityGateStep(newStep) {
+        validityGateStep = newStep;
+        renderValidityGateSimulator();
+    }
+
+    function handleValidityGateDecision(decision) {
+        const scenario = VALIDITY_GATE_SCENARIOS[validityGateScenarioIndex];
+        const isCorrect = decision === scenario.defenseResult;
+        validityGateScore.total += 1;
+        if (isCorrect) validityGateScore.correct += 1;
+        setValidityGateStep(decision === "pass" ? "validated" : "not_validated");
+    }
+
+    function handleNextValidityGateScenario() {
+        if (validityGateScenarioIndex < VALIDITY_GATE_SCENARIOS.length - 1) {
+            validityGateScenarioIndex += 1;
+            setValidityGateStep("start");
+            return;
+        }
+        setValidityGateStep("end");
+    }
+
+    function restartValidityGateSimulation() {
+        validityGateScenarioIndex = 0;
+        validityGateScore = { correct: 0, total: 0 };
+        setValidityGateStep("start");
+    }
+
+    function getValidityGateStatusClass(targetSteps) {
+        if (targetSteps.includes(validityGateStep)) {
+            return "bg-primary text-on-primary border-primary opacity-100 shadow-sm";
+        }
+        return "bg-surface-container text-on-surface border-outline opacity-95";
+    }
+
+    function renderValidityGateFlowchart() {
+        const container = document.getElementById("validity-flowchart-container");
+        const header = document.getElementById("validity-progress-header");
+        const counter = document.getElementById("validity-scenario-counter");
+        const subject = document.getElementById("validity-scenario-subject");
+        if (!container || !header || !counter || !subject) return;
+
+        if (validityGateStep === "end") {
+            container.innerHTML = "";
+            header.style.display = "none";
+            return;
+        }
+
+        const scenario = VALIDITY_GATE_SCENARIOS[validityGateScenarioIndex];
+        header.style.display = "";
+        counter.innerText = `Scenario ${validityGateScenarioIndex + 1} of ${VALIDITY_GATE_SCENARIOS.length}`;
+        subject.innerHTML = `<span class="material-symbols-outlined text-[18px]">menu_book</span> ${scenario.subject} (${scenario.student})`;
+
+        container.innerHTML = `
+            <div class="md:hidden text-sm font-bold text-on-surface-variant bg-surface-container-low border border-outline-variant rounded-lg p-3">
+                Current gate: ${validityGateStep.replace("_", " ")}
+            </div>
+            <div class="hidden md:flex items-start justify-center w-full gap-4 text-sm font-extrabold text-center">
+                <div class="min-h-[56px] px-5 py-4 rounded-lg border-2 min-w-[160px] transition-colors flex items-center justify-center ${getValidityGateStatusClass(["review"])}">Teacher Review</div>
+                <span class="material-symbols-outlined text-outline mt-4 text-[24px] flex-shrink-0">arrow_forward</span>
+                <div class="min-h-[56px] px-5 py-4 rounded-lg border-2 min-w-[160px] transition-colors flex items-center justify-center ${getValidityGateStatusClass(["defence"])}">Conduct Defence</div>
+                <span class="material-symbols-outlined text-outline mt-4 text-[24px] flex-shrink-0">arrow_forward</span>
+                <div class="min-h-[56px] px-5 py-4 rounded-xl border-2 min-w-[170px] transition-colors flex items-center justify-center ${getValidityGateStatusClass(["decision"])}">Defends Result?</div>
+                <div class="flex flex-col gap-4 ml-1">
+                    <div class="flex items-center gap-3">
+                        <div class="text-on-surface-variant font-extrabold text-xs">YES</div>
+                        <div class="min-h-[56px] px-5 py-4 rounded-lg border-2 min-w-[160px] transition-colors flex items-center justify-center ${getValidityGateStatusClass(["validated"])}">Validated</div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="text-on-surface-variant font-extrabold mt-4 text-xs">NO</div>
+                        <div class="flex flex-col gap-2">
+                            <div class="min-h-[56px] px-5 py-4 rounded-lg border-2 min-w-[220px] transition-colors flex items-center justify-center ${getValidityGateStatusClass(["not_validated", "redo", "accept_mark"])}">Not Validated</div>
+                            <div class="flex gap-2">
+                                <div class="min-h-[44px] min-w-[106px] px-4 py-3 rounded-lg border-2 text-xs transition-colors flex items-center justify-center ${getValidityGateStatusClass(["redo"])}">Redo</div>
+                                <div class="min-h-[44px] min-w-[106px] px-4 py-3 rounded-lg border-2 text-xs transition-colors flex items-center justify-center ${getValidityGateStatusClass(["accept_mark"])}">Accept Mark</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    function renderValidityGateContent() {
+        const content = document.getElementById("validity-game-content");
+        if (!content) return;
+
+        const scenario = VALIDITY_GATE_SCENARIOS[validityGateScenarioIndex];
+        let html = "";
+
+        if (validityGateStep === "start") {
+            html = `
+                <div class="text-center max-w-2xl mx-auto w-full animate-popIn">
+                    <div class="w-16 h-16 bg-primary/10 text-primary rounded-xl flex items-center justify-center mx-auto mb-6 border border-primary/20">
+                        <span class="material-symbols-outlined text-[32px]">inventory_2</span>
+                    </div>
+                    <h3 class="text-3xl font-bold text-on-surface mb-4">Assessment Submitted</h3>
+                    <p class="text-lg text-on-surface-variant mb-8">The student has submitted their product and process evidence. Prepare for the validity gate before marking the final result.</p>
+                    <div class="bg-surface p-6 rounded-xl text-left border border-outline-variant mb-8">
+                        <p class="font-bold text-on-surface mb-2 text-xs tracking-widest uppercase">Initial Observation</p>
+                        <p class="text-on-surface-variant italic text-lg leading-relaxed">"${scenario.observation}"</p>
+                    </div>
+                    <button onclick="setValidityGateStep('review')" class="bg-primary hover:bg-primary/90 text-on-primary font-bold py-3 px-8 rounded-lg transition-colors flex items-center gap-2 mx-auto active:scale-[0.98]">
+                        <span class="material-symbols-outlined">assignment</span>
+                        Begin Teacher Review
+                    </button>
+                </div>
+            `;
+        } else if (validityGateStep === "review") {
+            html = `
+                <div class="max-w-2xl mx-auto w-full animate-popIn">
+                    <div class="flex items-center gap-4 mb-6 border-b border-surface-variant pb-4">
+                        <div class="bg-primary/10 text-primary p-3 rounded-lg border border-primary/20">
+                            <span class="material-symbols-outlined text-[28px]">assignment</span>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-on-surface">Teacher Review of Evidence</h3>
+                            <p class="text-primary font-bold text-sm">Pre-conference analysis</p>
+                        </div>
+                    </div>
+                    <p class="text-lg text-on-surface-variant mb-6 leading-relaxed">Based on your review of the <strong class="text-on-surface">${scenario.assignment}</strong>, choose probes that test ownership rather than polish.</p>
+                    <div class="bg-secondary/10 p-5 rounded-xl border border-secondary/30 mb-8 flex items-start gap-3">
+                        <span class="material-symbols-outlined text-secondary mt-0.5">mic</span>
+                        <p class="text-on-surface text-sm"><strong>Action Required:</strong> Conduct the defence with ${scenario.student} to evaluate understanding of the submitted work.</p>
+                    </div>
+                    <div class="flex justify-end">
+                        <button onclick="setValidityGateStep('defence')" class="bg-secondary hover:bg-secondary/90 text-on-secondary font-bold py-3 px-6 rounded-lg transition-colors flex items-center gap-2 active:scale-[0.98]">
+                            Conduct Defence <span class="material-symbols-outlined">arrow_forward</span>
+                        </button>
+                    </div>
+                </div>
+            `;
+        } else if (validityGateStep === "defence") {
+            html = `
+                <div class="max-w-3xl mx-auto w-full animate-popIn">
+                    <div class="flex items-center gap-4 mb-6 border-b border-surface-variant pb-4">
+                        <div class="bg-secondary/10 text-secondary p-3 rounded-lg border border-secondary/20">
+                            <span class="material-symbols-outlined text-[28px]">forum</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-on-surface">Conduct Oral Defence / Skill Check</h3>
+                    </div>
+                    <div class="bg-surface border border-outline-variant p-8 rounded-xl mb-8 relative">
+                        <div class="absolute -top-3 left-6 bg-surface-container-lowest px-2 text-xs font-bold text-outline uppercase tracking-wider">Simulation Transcript</div>
+                        <p class="text-lg text-on-surface-variant leading-relaxed italic">${scenario.defenseText}</p>
+                    </div>
+                    <div class="text-center mt-8 pt-8 border-t border-surface-variant">
+                        <h4 class="text-xl font-bold text-on-surface mb-6">Decision Gate: did the student accurately defend the result?</h4>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <button onclick="handleValidityGateDecision('pass')" class="flex-1 bg-surface border border-outline-variant hover:border-secondary hover:bg-secondary/10 text-secondary font-bold py-6 px-6 rounded-xl transition-colors flex flex-col items-center gap-3 active:scale-[0.98]">
+                                <span class="material-symbols-outlined text-[40px]">check_circle</span>
+                                Yes, accurate defence
+                            </button>
+                            <button onclick="handleValidityGateDecision('fail')" class="flex-1 bg-surface border border-outline-variant hover:border-error hover:bg-error/10 text-error font-bold py-6 px-6 rounded-xl transition-colors flex flex-col items-center gap-3 active:scale-[0.98]">
+                                <span class="material-symbols-outlined text-[40px]">cancel</span>
+                                No, weak defence
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        } else if (validityGateStep === "validated") {
+            html = `
+                <div class="text-center max-w-2xl mx-auto w-full animate-popIn">
+                    <div class="w-20 h-20 bg-secondary/10 border-4 border-secondary text-secondary rounded-xl flex items-center justify-center mx-auto mb-6">
+                        <span class="material-symbols-outlined text-[44px]">verified</span>
+                    </div>
+                    <h3 class="text-4xl font-bold text-on-surface mb-2">Result Validated</h3>
+                    <div class="bg-surface-container border border-outline-variant p-8 rounded-xl my-8 text-left">
+                        <h4 class="font-bold text-on-surface mb-4 text-lg">Next steps</h4>
+                        <ul class="space-y-4 text-on-surface-variant">
+                            <li class="flex items-center gap-4"><span class="w-8 h-8 bg-outline-variant/30 rounded-lg flex items-center justify-center text-on-surface font-bold text-sm border border-outline-variant/50">1</span>Apply the rubric normally.</li>
+                            <li class="flex items-center gap-4"><span class="w-8 h-8 bg-outline-variant/30 rounded-lg flex items-center justify-center text-on-surface font-bold text-sm border border-outline-variant/50">2</span>Give feedback on product, process, and defence.</li>
+                        </ul>
+                    </div>
+                    <button onclick="handleNextValidityGateScenario()" class="bg-surface-container-high border border-outline-variant hover:bg-surface-container-highest text-on-surface font-bold py-4 px-8 rounded-lg transition-colors active:scale-[0.98]">Continue to Next Case</button>
+                </div>
+            `;
+        } else if (validityGateStep === "not_validated") {
+            html = `
+                <div class="max-w-2xl mx-auto w-full text-center animate-popIn">
+                    <div class="w-20 h-20 bg-error/10 border-4 border-error text-error rounded-xl flex items-center justify-center mx-auto mb-6">
+                        <span class="material-symbols-outlined text-[44px]">cancel</span>
+                    </div>
+                    <h3 class="text-4xl font-bold text-on-surface mb-4">Not Validated</h3>
+                    <p class="text-on-surface-variant text-lg font-medium mb-8">The student could not accurately defend their work.</p>
+                    <div class="bg-surface border border-outline-variant rounded-xl p-8">
+                        <h4 class="text-lg font-bold text-on-surface mb-6">Select the appropriate next action.</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <button onclick="setValidityGateStep('redo')" class="bg-surface-container-lowest border border-outline-variant hover:border-primary hover:bg-primary/10 text-on-surface font-bold py-6 px-4 rounded-lg transition-colors flex flex-col items-center gap-3">
+                                <span class="material-symbols-outlined text-[36px] text-primary">replay</span>
+                                Opportunity to redo
+                            </button>
+                            <button onclick="setValidityGateStep('accept_mark')" class="bg-surface-container-lowest border border-outline-variant hover:border-primary hover:bg-primary/10 text-on-surface font-bold py-6 px-4 rounded-lg transition-colors flex flex-col items-center gap-3">
+                                <span class="material-symbols-outlined text-[36px] text-primary">task_alt</span>
+                                Accept mark given
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        } else if (validityGateStep === "redo" || validityGateStep === "accept_mark") {
+            const title = validityGateStep === "redo" ? "Opportunity to redo assessment" : "Accept mark given";
+            const icon = validityGateStep === "redo" ? "replay" : "task_alt";
+            html = `
+                <div class="text-center max-w-2xl mx-auto w-full animate-popIn">
+                    <div class="w-20 h-20 bg-primary/10 text-primary border-2 border-primary/30 rounded-xl flex items-center justify-center mx-auto mb-6">
+                        <span class="material-symbols-outlined text-[40px]">${icon}</span>
+                    </div>
+                    <h3 class="text-3xl font-bold text-on-surface mb-4">${title}</h3>
+                    <p class="text-on-surface-variant text-lg mb-8 bg-surface border border-outline-variant p-6 rounded-xl">You have recorded this administrative decision for <strong class="text-on-surface">${scenario.student}</strong>. The validity gate process is complete for this assignment.</p>
+                    <button onclick="handleNextValidityGateScenario()" class="bg-surface-container-high border border-outline-variant hover:bg-surface-container-highest text-on-surface font-bold py-4 px-8 rounded-lg transition-colors active:scale-[0.98]">Continue to Next Case</button>
+                </div>
+            `;
+        } else if (validityGateStep === "end") {
+            html = `
+                <div class="text-center max-w-2xl mx-auto w-full animate-popIn py-8">
+                    <div class="w-28 h-28 bg-secondary/10 text-secondary border-4 border-secondary/50 rounded-xl flex items-center justify-center mx-auto mb-6">
+                        <span class="material-symbols-outlined text-[60px]">verified_user</span>
+                    </div>
+                    <h3 class="text-5xl font-black text-on-surface mb-4 tracking-tighter">Simulation Complete</h3>
+                    <p class="text-xl text-on-surface-variant mb-10">You practiced applying the Establishing Validity Gates protocol.</p>
+                    <div class="grid grid-cols-2 gap-4 max-w-md mx-auto mb-10 text-left">
+                        <div class="bg-surface p-4 rounded-xl border border-outline-variant flex flex-col items-center">
+                            <span class="text-4xl font-bold text-on-surface">${validityGateScore.total}</span>
+                            <span class="text-sm text-on-surface-variant uppercase tracking-wider font-bold mt-1">Scenarios</span>
+                        </div>
+                        <div class="bg-surface p-4 rounded-xl border border-outline-variant flex flex-col items-center">
+                            <span class="text-4xl font-bold text-secondary">${validityGateScore.correct}</span>
+                            <span class="text-sm text-secondary uppercase tracking-wider font-bold mt-1">Correct Calls</span>
+                        </div>
+                    </div>
+                    <button onclick="restartValidityGateSimulation()" class="bg-primary hover:bg-primary/90 text-on-primary font-bold py-4 px-10 rounded-lg transition-colors text-lg flex items-center gap-2 mx-auto active:scale-[0.98]">
+                        <span class="material-symbols-outlined">restart_alt</span>
+                        Restart Simulation
+                    </button>
+                </div>
+            `;
+        }
+
+        content.innerHTML = html;
+    }
+
+    function renderValidityGateSimulator() {
+        renderValidityGateFlowchart();
+        renderValidityGateContent();
+    }
+
+    renderValidityGateSimulator();
+
+
     // --- DECK VIEWER LOGIC ---
     const deckLibrary = {
-        blueprint: {
-            title: "The AI-Aware Assessment Blueprint",
-            description: "The overarching architectural plan for Product, Process, and Defence weighting and the shift from polish to proof.",
-            pdfLinkId: "deck-blueprint-pdf",
-            downloadName: "ai-assessment-blueprint.pdf",
+        proposed: {
+            title: "Proposed AI-Assement Architecture",
+            description: "The current proposal deck for the assessment architecture, validity gates, evidence burden, and teacher-facing implementation discussion.",
+            sourceLinkId: "deck-proposed-pptx",
+            downloadName: "proposed-ai-assessment-architecture.pptx",
             slides: [
-                "./decks/ai-assessment-blueprint/slide-001.jpg",
-                "./decks/ai-assessment-blueprint/slide-002.jpg",
-                "./decks/ai-assessment-blueprint/slide-003.jpg",
-                "./decks/ai-assessment-blueprint/slide-004.jpg",
-                "./decks/ai-assessment-blueprint/slide-005.jpg",
-                "./decks/ai-assessment-blueprint/slide-006.jpg",
-                "./decks/ai-assessment-blueprint/slide-007.jpg",
-                "./decks/ai-assessment-blueprint/slide-008.jpg",
-                "./decks/ai-assessment-blueprint/slide-009.jpg",
-                "./decks/ai-assessment-blueprint/slide-010.jpg",
-                "./decks/ai-assessment-blueprint/slide-011.jpg",
-                "./decks/ai-assessment-blueprint/slide-012.jpg",
-                "./decks/ai-assessment-blueprint/slide-013.jpg",
-                "./decks/ai-assessment-blueprint/slide-014.jpg"
+                "./decks/proposed-ai-assessment-architecture/slide-001.jpg",
+                "./decks/proposed-ai-assessment-architecture/slide-002.jpg",
+                "./decks/proposed-ai-assessment-architecture/slide-003.jpg",
+                "./decks/proposed-ai-assessment-architecture/slide-004.jpg",
+                "./decks/proposed-ai-assessment-architecture/slide-005.jpg",
+                "./decks/proposed-ai-assessment-architecture/slide-006.jpg"
             ]
         },
-        integrity: {
-            title: "Assessment Integrity Architecture",
-            description: "Multiple choice validation, Friction vs. Integrity layers, and targeted 5-minute oral defence sampling.",
-            pdfLinkId: "deck-integrity-pdf",
-            downloadName: "assessment-integrity-architecture.pdf",
+        retrieval: {
+            title: "Retrieval Practice: Oral Assessment",
+            description: "A companion deck focused on retrieval practice, oral checks for human mastery, and practical assessment conversations.",
+            sourceLinkId: "deck-retrieval-pptx",
+            downloadName: "retrieval-practice-oral-assessment.pptx",
             slides: [
-                "./decks/assessment-integrity-architecture/slide-001.jpg",
-                "./decks/assessment-integrity-architecture/slide-002.jpg",
-                "./decks/assessment-integrity-architecture/slide-003.jpg",
-                "./decks/assessment-integrity-architecture/slide-004.jpg",
-                "./decks/assessment-integrity-architecture/slide-005.jpg",
-                "./decks/assessment-integrity-architecture/slide-006.jpg",
-                "./decks/assessment-integrity-architecture/slide-007.jpg",
-                "./decks/assessment-integrity-architecture/slide-008.jpg",
-                "./decks/assessment-integrity-architecture/slide-009.jpg",
-                "./decks/assessment-integrity-architecture/slide-010.jpg",
-                "./decks/assessment-integrity-architecture/slide-011.jpg",
-                "./decks/assessment-integrity-architecture/slide-012.jpg"
-            ]
-        },
-        permit: {
-            title: "The AI Permit",
-            description: "Student-centered learning in a generative age, including SCL 15 integration, prompting frameworks, and NotebookLM verification.",
-            pdfLinkId: "deck-permit-pdf",
-            downloadName: "ai-permit.pdf",
-            slides: [
-                "./decks/ai-permit/slide-001.jpg",
-                "./decks/ai-permit/slide-002.jpg",
-                "./decks/ai-permit/slide-003.jpg",
-                "./decks/ai-permit/slide-004.jpg",
-                "./decks/ai-permit/slide-005.jpg",
-                "./decks/ai-permit/slide-006.jpg",
-                "./decks/ai-permit/slide-007.jpg",
-                "./decks/ai-permit/slide-008.jpg",
-                "./decks/ai-permit/slide-009.jpg",
-                "./decks/ai-permit/slide-010.jpg",
-                "./decks/ai-permit/slide-011.jpg",
-                "./decks/ai-permit/slide-012.jpg",
-                "./decks/ai-permit/slide-013.jpg"
+                "./decks/retrieval-practice-oral-assessment/slide-001.jpg",
+                "./decks/retrieval-practice-oral-assessment/slide-002.jpg",
+                "./decks/retrieval-practice-oral-assessment/slide-003.jpg",
+                "./decks/retrieval-practice-oral-assessment/slide-004.jpg",
+                "./decks/retrieval-practice-oral-assessment/slide-005.jpg",
+                "./decks/retrieval-practice-oral-assessment/slide-006.jpg",
+                "./decks/retrieval-practice-oral-assessment/slide-007.jpg",
+                "./decks/retrieval-practice-oral-assessment/slide-008.jpg",
+                "./decks/retrieval-practice-oral-assessment/slide-009.jpg"
             ]
         }
     };
@@ -1998,13 +1527,13 @@
         const title = document.getElementById("deck-viewer-title");
         const description = document.getElementById("deck-viewer-description");
         const sourceLink = document.getElementById("deck-source-link");
-        const pdfHref = getDeckHref(deck.pdfLinkId);
+        const sourceHref = getDeckHref(deck.sourceLinkId);
 
-        if (!panel || !title || !description || !sourceLink || !pdfHref || deck.slides.length === 0) return;
+        if (!panel || !title || !description || !sourceLink || !sourceHref || deck.slides.length === 0) return;
 
         title.innerText = deck.title;
         description.innerText = deck.description;
-        sourceLink.setAttribute("href", pdfHref);
+        sourceLink.setAttribute("href", sourceHref);
         sourceLink.setAttribute("download", deck.downloadName);
         activeDeck = deck;
         activeDeckSlideIndex = 0;
@@ -2035,49 +1564,6 @@
         });
     }
 
-
-    // --- DECISION ENGINE LOGIC ---
-    function engineAnswer(step, answer) {
-        document.getElementById(`engine-step-${step}`).classList.add('hidden');
-        
-        if (step === 1) {
-            if (answer === true) {
-                document.getElementById('engine-step-2').classList.remove('hidden');
-            } else {
-                showEngineResult("Undisclosed AI Use", "Reassessment Required. Academic integrity follow-up required. Student's AI Permit should be paused.", "warning", "text-error");
-            }
-        } else if (step === 2) {
-            if (answer === true) {
-                document.getElementById('engine-step-3').classList.remove('hidden');
-            } else if (answer === 'partial') {
-                showEngineResult("Weak Process Evidence", "Process bucket receives a lower score. Maximum overall grade should be capped.", "call_merge", "text-tertiary");
-            } else {
-                showEngineResult("Missing Process Evidence", "Process bucket receives a zero/incomplete. Cannot proceed with standard grading.", "error", "text-error");
-            }
-        } else if (step === 3) {
-            if (answer === true) {
-                showEngineResult("Valid Assessment", "Ownership and understanding are clear. Mark the product and process normally based on rubrics.", "verified_user", "text-secondary");
-            } else {
-                showEngineResult("Cannot Defend Work", "Student cannot explain major parts of the submitted work. Product mark capped until learning is verified.", "mic_off", "text-tertiary");
-            }
-        }
-    }
-
-    function showEngineResult(title, desc, icon, colorClass) {
-        document.getElementById('engine-result').classList.remove('hidden');
-        document.getElementById('result-title').innerText = title;
-        document.getElementById('result-title').className = `text-2xl font-bold mb-2 ${colorClass}`;
-        document.getElementById('result-desc').innerText = desc;
-        document.getElementById('result-icon').innerText = icon;
-        document.getElementById('result-icon').className = `material-symbols-outlined text-[48px] mb-4 ${colorClass}`;
-    }
-
-    function resetEngine() {
-        document.getElementById('engine-result').classList.add('hidden');
-        document.getElementById('engine-step-1').classList.remove('hidden');
-    }
-
-
     // --- PRESENTATION MODE LOGIC ---
     let isPresMode = false;
     let currentSection = 0;
@@ -2086,7 +1572,6 @@
     // Setup sections array on load
     window.addEventListener('DOMContentLoaded', () => {
         sections = Array.from(document.querySelectorAll('.section-slide'));
-        setStressWorkshopPhase(stressWorkshopState.phase, { persist: false });
     });
 
     function togglePresentationMode() {

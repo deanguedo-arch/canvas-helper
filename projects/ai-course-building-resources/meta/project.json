@@ -25,24 +25,23 @@
     "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ai-course-building-resources\\workspace\\resources\\jon-ai-resource.html",
     "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ai-course-building-resources\\workspace\\resources\\ai-course-theme.css",
     "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ai-course-building-resources\\workspace\\resources\\media\\ai-assessment-framework.mp4",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ai-course-building-resources\\workspace\\resources\\decks\\ai-assessment-blueprint.pdf",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ai-course-building-resources\\workspace\\resources\\decks\\ai-assessment-blueprint.pptx",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ai-course-building-resources\\workspace\\resources\\decks\\assessment-integrity-architecture.pdf",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ai-course-building-resources\\workspace\\resources\\decks\\assessment-integrity-architecture.pptx",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ai-course-building-resources\\workspace\\resources\\decks\\ai-permit.pdf",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ai-course-building-resources\\workspace\\resources\\decks\\ai-permit.pptx"
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ai-course-building-resources\\workspace\\resources\\media\\oral-defense-overview.mp4",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ai-course-building-resources\\workspace\\resources\\media\\product-process-defence-overview.m4a",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ai-course-building-resources\\workspace\\resources\\decks\\proposed-ai-assessment-architecture.pptx",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ai-course-building-resources\\workspace\\resources\\decks\\retrieval-practice-oral-assessment.pptx"
   ],
   "generatedOutputs": [
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ai-course-building-resources\\workspace\\resources\\decks\\*/slide-*.jpg"
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ai-course-building-resources\\workspace\\resources\\decks\\proposed-ai-assessment-architecture\\slide-*.jpg",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ai-course-building-resources\\workspace\\resources\\decks\\retrieval-practice-oral-assessment\\slide-*.jpg"
   ],
-  "regenerateCommand": "Use PowerPoint COM export from the preserved PPTX files in workspace/resources/decks/ to regenerate 1440x810 JPG slide previews.",
+  "regenerateCommand": "Use PowerPoint COM export from each preserved PPTX in workspace/resources/decks/ to regenerate 1440x810 JPG slide previews in its matching slide folder.",
   "injectedComponents": [
     {
-      "id": "redteamblueteam-workshop",
-      "source": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ai-course-building-resources\\workspace\\resources\\decks\\redteamblueteam.jsx",
+      "id": "validitygatecode-simulator",
+      "source": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\canvas code and references\\AICOURSEBUILDING\\decks\\validitygatecode",
       "target": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ai-course-building-resources\\workspace\\resources\\dean-ai-assessment-pillars.html",
       "status": "active",
-      "notes": "React/Tailwind first-pass stress-test workshop converted into native presentation HTML and JavaScript inside the assessment pillars page."
+      "notes": "Standalone validity gate simulator converted into native presentation HTML and JavaScript immediately after the AI Levels section."
     }
   ],
   "importedFirstPassOrigin": {
@@ -66,14 +65,13 @@
   "googleHosted": {
     "authMode": "none",
     "trackedStorageKeys": [
-      "ai-course-building-resources::workspace-state::v1",
-      "ai-course-building-resources::stress-workshop::v1"
+      "ai-course-building-resources::workspace-state::v1"
     ]
   },
   "authoringStatus": "active",
   "referenceOnly": [],
-  "sourceOfTruthNotes": "Edit workspace/index.html only for package navigation. The resource HTML files are canonical preserved copies of the original pages and should stay unabridged unless hosting/export mechanics require a targeted path fix. The shared AI course theme is canonical in workspace/resources/ai-course-theme.css. The PPTX files are the preserved presentation sources; PDF downloads and JPG slide previews are generated browser-viewing companions. The redteamblueteam React source is preserved as the injected first-pass component source; the active converted workshop lives inside workspace/resources/dean-ai-assessment-pillars.html.",
+  "sourceOfTruthNotes": "Edit workspace/index.html only for package navigation. The resource HTML files are canonical preserved copies of the original pages and should stay unabridged unless hosting/export mechanics require a targeted path fix. The active media sources are workspace/resources/media/ai-assessment-framework.mp4, workspace/resources/media/oral-defense-overview.mp4, and workspace/resources/media/product-process-defence-overview.m4a. The active PowerPoint sources are workspace/resources/decks/proposed-ai-assessment-architecture.pptx and workspace/resources/decks/retrieval-practice-oral-assessment.pptx; JPG slide previews are generated browser-viewing companions. The validitygatecode standalone source is preserved in the AICOURSEBUILDING references folder; the active converted simulator lives inside workspace/resources/dean-ai-assessment-pillars.html.",
   "createdAt": "2026-04-28T16:20:00.000Z",
-  "updatedAt": "2026-04-29T19:59:22.826Z",
-  "workspaceApprovedAt": "2026-04-29T19:59:22.826Z"
+  "updatedAt": "2026-05-04T19:32:41.449Z",
+  "workspaceApprovedAt": "2026-05-04T19:32:41.449Z"
 }

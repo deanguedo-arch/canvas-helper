@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFile, stat } from "node:fs/promises";
+import { readFile, readdir, stat } from "node:fs/promises";
 import path from "node:path";
 import test from "node:test";
 
@@ -117,7 +117,7 @@ test("assessment pillars page has balanced assessment-weight sliders", async () 
 
   assert.match(
     html,
-    /Every major summative assessment is evaluated across three distinct buckets\. While the foundational model is 50\/25\/25, teachers use professional judgment to shift these weights based on course demands\. We do not change weights based on AI level, but rather on pedagogical intent\./
+    /Every major summative assessment is evaluated across three distinct buckets\. Teachers use professional judgment to shift these weights based on course demands\. We do not change weights based on AI level, but rather on pedagogical intent\./
   );
 
   const pillarIcons = {
@@ -129,17 +129,52 @@ test("assessment pillars page has balanced assessment-weight sliders", async () 
   for (const [key, icon] of Object.entries(pillarIcons)) {
     assert.match(html, new RegExp(`id="${key}-weight"`));
     assert.match(html, new RegExp(`id="${key}-weight-label"`));
+    assert.match(html, new RegExp(`id="${key}-mark"`));
+    assert.match(html, new RegExp(`id="${key}-score-segment"`));
+    assert.match(html, new RegExp(`id="${key}-score-label"`));
     assert.doesNotMatch(html, new RegExp(`id="${key}-weight-badge"`));
     assert.match(html, new RegExp(`oninput="updateAssessmentWeights\\('${key}'\\)"`));
+    assert.match(html, new RegExp(`oninput="updateAssessmentMarks\\(\\)"`));
     assert.match(html, new RegExp(`${key}-control`));
     assert.match(
       html,
       new RegExp(`<label for="${key}-weight" class="pillar-control weight-control ${key}-control">[\\s\\S]*<span class="material-symbols-outlined">${icon}</span>[\\s\\S]*<span>Weight</span>`)
     );
+    assert.match(
+      html,
+      new RegExp(`<label for="${key}-mark" class="pillar-control mark-control ${key}-control">[\\s\\S]*<span>Mark</span>[\\s\\S]*<input id="${key}-mark" type="number" min="0" max="100" step="1" value="100"`)
+    );
   }
 
   assert.doesNotMatch(html, /assessment-weight-meta/);
   assert.match(html, /pillar-control/);
+  assert.match(html, /id="assessment-score-panel"/);
+  assert.match(html, /id="assessment-score-panel" class="flex flex-col justify-end gap-3 lg:pl-6"/);
+  assert.doesNotMatch(html, /id="assessment-score-panel" class="[^"]*(bg-surface-container|border|rounded-xl|p-5)/);
+  assert.doesNotMatch(html, /<h3[^>]*>Assessment Score<\/h3>/);
+  assert.doesNotMatch(html, />Weighted mix across the three evidence buckets\.</);
+  assert.match(html, /id="assessment-score-total"/);
+  assert.match(html, /id="assessment-score-total" class="self-end text-3xl font-black text-on-surface/);
+  assert.match(html, /id="assessment-score-bar"/);
+  assert.match(html, /id="assessment-score-bar" class="h-9 w-full overflow-hidden rounded-lg bg-surface-container-highest flex/);
+  assert.match(html, /aria-label="Weighted assessment score: 100%\. Product earned 50% of the total, Process earned 25% of the total, Defence earned 25% of the total\."/);
+  assert.match(html, /\.score-segment \{/);
+  assert.match(html, /\.score-segment::before \{/);
+  assert.match(html, /repeating-linear-gradient/);
+  assert.match(html, /mix-blend-mode: screen/);
+  assert.match(html, /score-segment-product/);
+  assert.match(html, /score-segment-process/);
+  assert.match(html, /score-segment-defence/);
+  assert.match(html, /\.mark-control-field \{[\s\S]*min-width: 8rem;/);
+  assert.match(html, /\.mark-control-field input \{[\s\S]*width: 5\.25rem;/);
+  assert.match(html, /id="product-score-segment" class="score-segment score-segment-product[^"]*"/);
+  assert.match(html, /id="process-score-segment" class="score-segment score-segment-process[^"]*"/);
+  assert.match(html, /id="defence-score-segment" class="score-segment score-segment-defence[^"]*"/);
+  assert.doesNotMatch(html, /id="product-score-segment" class="h-full bg-primary/);
+  assert.doesNotMatch(html, /id="process-score-segment" class="h-full bg-secondary/);
+  assert.doesNotMatch(html, /id="defence-score-segment" class="h-full bg-tertiary/);
+  assert.match(html, /style="width: 50%"/);
+  assert.match(html, /style="width: 25%"/);
   assert.doesNotMatch(html, /assessment-weight-panel/);
   assert.doesNotMatch(html, /weight-control-grid/);
   assert.doesNotMatch(html, /id="assessment-weight-total"/);
@@ -148,57 +183,79 @@ test("assessment pillars page has balanced assessment-weight sliders", async () 
   assert.match(html, /min="0"/);
   assert.match(html, /max="100"/);
   assert.match(html, /function updateAssessmentWeights\(activeKey\)/);
+  assert.match(html, /function updateAssessmentMarks\(\)/);
+  assert.match(html, /function calculateWeightedAssessment\(weights, marks\)/);
+  assert.match(html, /const contributions = \{/);
+  assert.match(html, /product: weights\.product \* marks\.product \/ 100,/);
+  assert.match(html, /const totalScore = contributions\.product \+ contributions\.process \+ contributions\.defence;/);
   assert.match(html, /const total = product \+ process \+ defence;/);
   assert.match(html, /const diff = 100 - total;/);
   assert.match(html, /sliders\[key\]\.value = weights\[key\];/);
   assert.match(html, /sliders\[key\]\.style\.setProperty\("--range-fill", `\$\{weights\[key\]\}%`\);/);
+  assert.match(html, /function updateAssessmentScoreBar\(weights\)/);
+  assert.match(html, /const marks = readAssessmentMarks\(\);/);
+  assert.match(html, /const earnedScores = calculateWeightedAssessment\(weights, marks\);/);
+  assert.match(html, /scoreSegments\[key\]\.style\.width = `\$\{earnedScores\.contributions\[key\]\}%`;/);
+  assert.match(html, /scoreLabels\[key\]\.innerText = `\$\{formatScore\(earnedScores\.contributions\[key\]\)\}% \/ \$\{weights\[key\]\}%`;/);
+  assert.match(html, /scoreTotal\.innerText = `\$\{formatScore\(earnedScores\.total\)\}%`;/);
+  assert.match(html, /scoreBar\.setAttribute\("aria-label", `Weighted assessment score: \$\{formatScore\(earnedScores\.total\)\}%\. Product earned \$\{formatScore\(earnedScores\.contributions\.product\)\}% of the total, Process earned \$\{formatScore\(earnedScores\.contributions\.process\)\}% of the total, Defence earned \$\{formatScore\(earnedScores\.contributions\.defence\)\}% of the total\.`\);/);
+  assert.match(html, /updateAssessmentScoreBar\(weights\);/);
   assert.doesNotMatch(html, /badges\[key\]\.innerText/);
   assert.doesNotMatch(html, /totalLabel\.innerText = "100%";/);
 });
 
-test("assessment pillars page replaces teacher toolbox with a fuller collaborative stress-test section", async () => {
+test("assessment pillars page removes retired make-it-stronger workflow and multiple-choice sections", async () => {
   const pagePath = path.join(projectDir, "workspace", "resources", "dean-ai-assessment-pillars.html");
   const html = await readUtf8(pagePath);
 
-  assert.match(html, /href="#toolbox"/);
+  assert.doesNotMatch(html, /href="#toolbox"/);
+  assert.doesNotMatch(html, /href="#workflow"/);
+  assert.doesNotMatch(html, /href="#multiple-choice"/);
   assert.doesNotMatch(html, /href="#framework-stress-test"/);
-  assert.match(html, /id="toolbox"/);
-  assert.match(html, /data-testid="framework-stress-test"/);
-  assert.match(html, /How do we make this stronger\?/);
-  assert.match(html, /A strong framework is not one that avoids criticism\./);
-  assert.match(html, /Bring teachers and staff into the build/);
-  assert.match(html, /data-stress-card="blue-team"/);
-  assert.match(html, /data-stress-card="red-team"/);
-  assert.match(html, /data-stress-card="consensus"/);
-  assert.match(html, /flip-card-inner/);
-  assert.match(html, /Argument We Present/);
-  assert.match(html, /Eliminates the "AI Detective" Trap/);
-  assert.match(html, /The Defence is a Mathematical Scaling Nightmare/);
-  assert.match(html, /Evidence Burden May Incentivize Concealment/);
-  assert.match(html, /The Verdict: The philosophy, structure, and student-facing messaging/);
-  assert.match(html, /Optimize and Automate the Defence/);
-  assert.match(html, /Scaffold the Process Gathering/);
-  assert.match(html, /Run a Controlled Pilot/);
-  assert.match(html, /function toggleStressCard\(card\)/);
-  assert.match(html, /Defence must become a flexible evidence category/);
-  assert.match(html, /Live conferences are not the default/);
-  assert.match(html, /Invite teachers, students, and leaders/);
-  assert.match(html, /Pilot first, measure teacher time, then scale/);
+  assert.doesNotMatch(html, /id="toolbox"/);
+  assert.doesNotMatch(html, /id="workflow"/);
+  assert.doesNotMatch(html, /id="multiple-choice"/);
+  assert.doesNotMatch(html, /data-testid="framework-stress-test"/);
+  assert.doesNotMatch(html, /How do we make this stronger\?/);
+  assert.doesNotMatch(html, /A strong framework is not one that avoids criticism\./);
+  assert.doesNotMatch(html, /Bring teachers and staff into the build/);
+  assert.doesNotMatch(html, /data-stress-card="blue-team"/);
+  assert.doesNotMatch(html, /data-stress-card="red-team"/);
+  assert.doesNotMatch(html, /data-stress-card="consensus"/);
+  assert.doesNotMatch(html, /Argument We Present/);
+  assert.doesNotMatch(html, /The Defence is a Mathematical Scaling Nightmare/);
+  assert.doesNotMatch(html, /Evidence Burden May Incentivize Concealment/);
+  assert.doesNotMatch(html, /function toggleStressCard\(card\)/);
   assert.doesNotMatch(html, /Teacher Toolbox/);
   assert.doesNotMatch(html, /Syllabus Outline/);
   assert.doesNotMatch(html, /copyText\(/);
   assert.doesNotMatch(html, /id="copy-syllabus"/);
+  assert.doesNotMatch(html, /Summative Workflow & Validity/);
+  assert.doesNotMatch(html, /Validity Decision Engine/);
+  assert.doesNotMatch(html, /Multiple Choice/);
+  assert.doesNotMatch(html, /Multiple choice validation/);
+  assert.doesNotMatch(html, /Validating Multiple-Choice/);
+  assert.doesNotMatch(html, /Friction vs\. Integrity Layers/);
+  assert.doesNotMatch(html, /function engineAnswer\(step, answer\)/);
+  assert.doesNotMatch(html, /function showEngineResult/);
+  assert.doesNotMatch(html, /function resetEngine/);
+  assert.doesNotMatch(html, /href="#competency-gate"/);
+  assert.doesNotMatch(html, /id="competency-gate"/);
+  assert.doesNotMatch(html, /Permit Course/);
+  assert.doesNotMatch(html, /The AI Permit Gate/);
+  assert.doesNotMatch(html, /Student-Centered Learning 15/);
+  assert.doesNotMatch(html, /Effective Prompting \(Interactive Demo\)/);
+  assert.doesNotMatch(html, /The Ghostwriter Prompt/);
+  assert.doesNotMatch(html, /The Tutor Prompt/);
+  assert.doesNotMatch(html, /Google Gemini/);
+  assert.doesNotMatch(html, /Google NotebookLM/);
   assert.ok(
-    html.indexOf('id="multiple-choice"') < html.indexOf('id="toolbox"'),
-    "expected the stress-test tool to occupy the old toolbox slot after multiple-choice"
-  );
-  assert.ok(
-    html.indexOf('id="toolbox"') < html.indexOf('id="resources"'),
-    "expected the stress-test tool to appear before resources"
+    html.indexOf('id="validity-gate-simulator"') < html.indexOf('id="resources"'),
+    "expected resources to follow the remaining assessment sections after retired sections are removed"
   );
 });
 
-test("assessment pillars page embeds the converted red-blue-team workshop below the stress-test consensus", async () => {
+test("assessment pillars page does not embed the staff collaboration workshop tool", async () => {
   const pagePath = path.join(projectDir, "workspace", "resources", "dean-ai-assessment-pillars.html");
   const componentSourcePath = path.join(projectDir, "workspace", "resources", "decks", "redteamblueteam.jsx");
   const manifestPath = path.join(projectDir, "meta", "project.json");
@@ -209,82 +266,19 @@ test("assessment pillars page embeds the converted red-blue-team workshop below 
   };
   const sourceSize = await fileSizeOrZero(componentSourcePath);
 
-  assert.ok(sourceSize > 20_000, "expected the first-pass red/blue-team React source to be preserved in workspace resources");
-  const componentSource = await readUtf8(componentSourcePath);
-  assert.match(componentSource, /import React, \{ useState \} from 'react';/);
-  assert.match(componentSource, /Blue Team Deep Dive/);
-  assert.match(componentSource, /Red Team Attack/);
-  assert.match(componentSource, /Purple Team Consensus/);
-  assert.match(componentSource, /Workshop Debrief/);
-
-  const workshop = sliceBetween(html, 'data-testid="red-blue-team-workshop"', '<!-- Presentations & Resources');
-  assert.match(workshop, /AI Framework Stress-Test Workshop/);
-  assert.match(workshop, /Today, we are not here to nod and agree\. We are here to break this plan and then fix it together\./);
-  assert.match(workshop, /data-stress-phase-panel="1"/);
-  assert.match(workshop, /data-stress-phase-panel="2"/);
-  assert.match(workshop, /data-stress-phase-panel="3"/);
-  assert.match(workshop, /data-stress-phase-panel="4"/);
-  assert.match(workshop, /data-stress-phase-panel="5"/);
-  assert.match(workshop, /data-stress-phase-panel="6"/);
-  assert.match(workshop, /Blue Team Deep Dive/);
-  assert.match(workshop, /Red Team Attack/);
-  assert.match(workshop, /The Crossfire/);
-  assert.match(workshop, /Purple Team Consensus/);
-  assert.match(workshop, /Workshop Debrief/);
-  assert.match(workshop, /id="stress-workshop-blue-board"/);
-  assert.match(workshop, /id="stress-workshop-red-board"/);
-  assert.match(workshop, /id="stress-workshop-target1-board"/);
-  assert.match(workshop, /id="stress-workshop-target2-board"/);
-  assert.match(workshop, /id="stress-workshop-target3-board"/);
-  assert.match(workshop, /onclick="setStressWorkshopPhase\(2\)"/);
-  assert.match(workshop, /onclick="changeStressWorkshopPhase\(1\)"/);
-  assert.match(workshop, /onsubmit="addStressWorkshopNote\(event, 'blue'\)"/);
-  assert.match(workshop, /onsubmit="addStressWorkshopNote\(event, 'red'\)"/);
-  assert.match(workshop, /onsubmit="addStressWorkshopNote\(event, 'target1'\)"/);
-  assert.match(workshop, /data-note-action="edit"/);
-  assert.match(workshop, /data-note-action="delete"/);
-  assert.match(workshop, /Edit note/);
-  assert.match(workshop, /Delete note/);
-  assert.match(workshop, /150 live 5-minute teacher conferences per summative is impossible/);
-  assert.match(workshop, /Students hiding AI use to avoid the "Process" paperwork/);
-  assert.match(workshop, /Export Summary/);
-  assert.doesNotMatch(workshop, /className=|lucide-react|fixed bottom-0|bg-white|text-slate-/);
-  assert.match(html, /const STRESS_WORKSHOP_STORAGE_KEY = "ai-course-building-resources::stress-workshop::v1";/);
-  assert.match(html, /function loadStressWorkshopState\(\)/);
-  assert.match(html, /function saveStressWorkshopState\(\)/);
-  assert.match(html, /localStorage\.setItem\(STRESS_WORKSHOP_STORAGE_KEY, JSON\.stringify\(stressWorkshopState\)\);/);
-  assert.match(html, /let stressWorkshopState = loadStressWorkshopState\(\);/);
-  assert.match(html, /function createStressWorkshopNote\(text, idPrefix = "note"\)/);
-  assert.match(html, /function deleteStressWorkshopNote\(target, noteId\)/);
-  assert.match(html, /function beginStressWorkshopNoteEdit\(target, noteId\)/);
-  assert.match(html, /function saveStressWorkshopNoteEdit\(event, target, noteId\)/);
-  assert.match(html, /function cancelStressWorkshopNoteEdit\(\)/);
-  assert.match(html, /stressWorkshopState\[target\]\.push\(createStressWorkshopNote\(note, target\)\);/);
-  assert.match(html, /saveStressWorkshopState\(\);/);
-  assert.match(html, /function setStressWorkshopPhase\(nextPhase, options = \{ persist: true \}\)/);
-  assert.match(html, /function changeStressWorkshopPhase\(delta\)/);
-  assert.match(html, /function addStressWorkshopNote\(event, target\)/);
-  assert.match(html, /function renderStressWorkshop\(\)/);
-  assert.match(html, /function exportStressWorkshopSummary\(\)/);
-  assert.ok(
-    html.indexOf("What We Are Trying To Replicate") < html.indexOf('data-testid="red-blue-team-workshop"'),
-    "expected the workshop to sit directly below the stress-test consensus content"
-  );
-  assert.ok(
-    html.indexOf('data-testid="red-blue-team-workshop"') < html.indexOf('id="resources"'),
-    "expected the workshop to remain before the resources section"
-  );
-
-  const injected = manifest.injectedComponents?.find((component) => component.id === "redteamblueteam-workshop");
-  assert.ok(injected, "expected redteamblueteam workshop to be declared as an injected component");
-  assert.equal(injected.status, "active");
-  assert.equal(injected.source, componentSourcePath);
-  assert.equal(injected.target, pagePath);
-  assert.doesNotMatch(
-    JSON.stringify(manifest.referenceOnly ?? []),
-    new RegExp(escapeRegExp(componentSourcePath)),
-    "expected the active injected component source to avoid conflicting reference-only metadata"
-  );
+  assert.equal(sourceSize, 0, "expected the removed staff collaboration source file to be absent");
+  assert.doesNotMatch(html, /What We Are Trying To Replicate/);
+  assert.doesNotMatch(html, /data-testid="red-blue-team-workshop"/);
+  assert.doesNotMatch(html, /AI Framework Stress-Test Workshop/);
+  assert.doesNotMatch(html, /stress-workshop/);
+  assert.doesNotMatch(html, /STRESS_WORKSHOP_STORAGE_KEY/);
+  assert.doesNotMatch(html, /function loadStressWorkshopState\(\)/);
+  assert.doesNotMatch(html, /function saveStressWorkshopState\(\)/);
+  assert.doesNotMatch(html, /function setStressWorkshopPhase/);
+  assert.doesNotMatch(html, /function exportStressWorkshopSummary/);
+  assert.doesNotMatch(JSON.stringify(manifest.injectedComponents ?? []), /redteamblueteam-workshop/);
+  assert.doesNotMatch(JSON.stringify(manifest.googleHosted?.trackedStorageKeys ?? []), /stress-workshop/);
+  assert.doesNotMatch(JSON.stringify(manifest.referenceOnly ?? []), new RegExp(escapeRegExp(componentSourcePath)));
 });
 
 test("ai course resource pages share the assessment pillars theme base", async () => {
@@ -352,10 +346,18 @@ test("assessment pillars page has interactive evidence scale simulator", async (
   assert.match(html, /id="evidence-count"/);
   assert.match(html, /id="game-explanation"/);
 
-  for (const level of [1, 2, 3]) {
+  for (const level of [1, 2]) {
     assert.match(html, new RegExp(`id="btn-game-ai-${level}"`));
     assert.match(html, new RegExp(`onclick="playScaleGame\\('ai', ${level}\\)"`));
   }
+  assert.doesNotMatch(html, /id="btn-game-ai-3"/);
+  assert.doesNotMatch(html, /onclick="playScaleGame\('ai', 3\)"/);
+  assert.doesNotMatch(html, /Level 2: AI-Assisted/);
+  assert.doesNotMatch(html, /Active AI drafting\/editing/);
+  assert.doesNotMatch(html, /AI-Assisted/);
+  assert.doesNotMatch(html, /Maximum Evidence/);
+  assert.doesNotMatch(html, /scaleLeftWeight === 3/);
+  assert.doesNotMatch(html, /Level 2 requires maximum defence evidence/);
 
   assert.match(html, /onclick="playScaleGame\('evidence', 'add'\)"/);
   assert.match(html, /onclick="playScaleGame\('evidence', 'reset'\)"/);
@@ -363,10 +365,97 @@ test("assessment pillars page has interactive evidence scale simulator", async (
   assert.match(html, /let scaleRightWeight = 0;/);
   assert.match(html, /function playScaleGame\(action, value\)/);
   assert.match(html, /function updateScaleVisuals\(\)/);
-  assert.match(html, /const evidenceBlocks = \["Base Process", "Increased Evidence", "Maximum Evidence"\]\.slice\(0, scaleRightWeight\)\.reverse\(\);/);
+  assert.match(html, /const evidenceBlocks = \["Base Process", "Increased Evidence"\]\.slice\(0, scaleRightWeight\)\.reverse\(\);/);
   assert.match(html, /const diff = scaleLeftWeight - scaleRightWeight;/);
   assert.match(html, /beam\.style\.transform = `rotate\(\$\{angle\}deg\)`;/);
   assert.match(html, /Perfectly Balanced! The burden of proof matches the AI assistance level\./);
+  assert.match(html, /Potential Evidence/);
+  assert.doesNotMatch(html, /Required Evidence Bucket/);
+  assert.match(html, /Loom video walkthrough/);
+  assert.match(html, /Google Doc edit access and version history/);
+  assert.match(html, /Gemini conversation logs/);
+  assert.match(html, /NotebookLM source access/);
+  assert.match(html, /Rough draft/);
+  assert.match(html, /Brainstorming page/);
+  assert.match(html, /Research plan for information gathering/);
+});
+
+test("assessment pillars page embeds the validity gate simulator after AI levels", async () => {
+  const pagePath = path.join(projectDir, "workspace", "resources", "dean-ai-assessment-pillars.html");
+  const sourcePath = path.join(sourceDir, "decks", "validitygatecode");
+  const videoPath = path.join(projectDir, "workspace", "resources", "media", "oral-defense-overview.mp4");
+  const manifestPath = path.join(projectDir, "meta", "project.json");
+  const html = await readUtf8(pagePath);
+  const sourceSize = await fileSizeOrZero(sourcePath);
+  const videoSize = await fileSizeOrZero(videoPath);
+  const manifest = JSON.parse(await readUtf8(manifestPath)) as ProjectManifest & {
+    injectedComponents?: Array<Record<string, string>>;
+  };
+
+  assert.ok(sourceSize > 20_000, "expected the source validity gate simulator to contain real HTML bytes");
+  assert.ok(videoSize > 10_000_000, "expected the oral defense overview video to be packaged");
+  assert.match(html, /href="#validity-gate-simulator"/);
+  assert.match(html, /Validity Gates/);
+  assert.match(html, /id="validity-gate-simulator"/);
+  assert.match(html, /data-testid="validity-gate-simulator"/);
+  assert.match(html, /Establishing Validity Gates/);
+  assert.match(html, /Interactive Training Simulator/);
+  assert.match(html, /Navigate real-world scenarios to practice applying the assessment integrity workflow/);
+  assert.match(html, /id="oral-defense-overview"/);
+  assert.match(html, /Oral Defense Overview/);
+  assert.match(html, /<video[\s\S]*controls[\s\S]*preload="metadata"[\s\S]*src="\.\/media\/oral-defense-overview\.mp4"/);
+  assert.match(html, /Your browser does not support embedded video playback\./);
+  assert.match(html, /id="validity-progress-header"/);
+  assert.match(html, /id="validity-flowchart-container"/);
+  assert.match(html, /id="validity-game-content"/);
+  assert.match(html, /id="validity-scenario-counter"/);
+  assert.match(html, /id="validity-scenario-subject"/);
+  assert.match(html, /const VALIDITY_GATE_SCENARIOS = \[/);
+  assert.match(html, /student: "Alex"/);
+  assert.match(html, /student: "Maya"/);
+  assert.match(html, /anthropogenic radiative forcing/);
+  assert.match(html, /Big O notation/);
+  assert.match(html, /function setValidityGateStep\(newStep\)/);
+  assert.match(html, /function handleValidityGateDecision\(decision\)/);
+  assert.match(html, /function renderValidityGateFlowchart\(\)/);
+  assert.match(html, /function renderValidityGateContent\(\)/);
+  assert.match(html, /function restartValidityGateSimulation\(\)/);
+  assert.match(html, /renderValidityGateSimulator\(\);/);
+  assert.match(html, /hidden md:flex items-start justify-center w-full gap-4 text-sm font-extrabold text-center/);
+  assert.match(html, /min-h-\[56px\] px-5 py-4 rounded-lg border-2/);
+  assert.match(html, /min-w-\[160px\]/);
+  assert.match(html, /bg-surface-container text-on-surface border-outline opacity-95/);
+  assert.match(html, /text-outline mt-4 text-\[24px\]/);
+  assert.doesNotMatch(html, /bg-surface text-on-surface-variant border-outline-variant opacity-70/);
+  assert.doesNotMatch(html, /Interactive Simulator - Validity Gates/);
+  assert.doesNotMatch(sliceBetween(html, 'id="validity-gate-simulator"', 'id="resources"'), /<script src="https:\/\/cdn\.tailwindcss\.com/);
+  assert.ok(
+    html.indexOf('href="#ai-levels"') < html.indexOf('href="#validity-gate-simulator"'),
+    "expected validity gates nav to appear after AI levels"
+  );
+  assert.ok(
+    html.indexOf('href="#validity-gate-simulator"') < html.indexOf('href="#resources"'),
+    "expected validity gates nav to appear before resources"
+  );
+  assert.ok(
+    html.indexOf('id="ai-levels"') < html.indexOf('id="validity-gate-simulator"'),
+    "expected validity gate simulator to appear after AI levels"
+  );
+  assert.ok(
+    html.indexOf('id="validity-gate-simulator"') < html.indexOf('id="resources"'),
+    "expected validity gate simulator to appear before resources"
+  );
+  assert.ok(
+    html.indexOf("Navigate real-world scenarios to practice applying the assessment integrity workflow") <
+      html.indexOf('id="oral-defense-overview"'),
+    "expected the oral defense video to appear after the validity gates subheading"
+  );
+  assert.ok(
+    html.indexOf('id="oral-defense-overview"') < html.indexOf('id="validity-progress-header"'),
+    "expected the oral defense video to appear before the simulator panel"
+  );
+  assert.match(JSON.stringify(manifest.injectedComponents ?? []), /validitygatecode-simulator/);
+  assert.ok(manifest.canonicalSources?.includes(videoPath), "oral defense overview video should be declared canonical");
 });
 
 test("assessment pillars page places the intro framework video between hero and context", async () => {
@@ -375,7 +464,7 @@ test("assessment pillars page places the intro framework video between hero and 
   const html = await readUtf8(pagePath);
   const videoSize = await fileSizeOrZero(videoPath);
 
-  assert.ok(videoSize > 1_000_000, "expected the local intro video asset to be copied into workspace resources");
+  assert.ok(videoSize > 30_000_000, "expected the Next Step Assessment Overview video to replace the previous intro asset");
   assert.match(html, /id="framework-intro"/);
   assert.match(html, /Start Here: The Assessment Framework/);
   assert.match(html, /max-w-5xl mx-auto w-full flex flex-col items-center gap-6 text-center/);
@@ -393,39 +482,78 @@ test("assessment pillars page places the intro framework video between hero and 
   );
 });
 
-test("assessment pillars page attaches the presentation decks through an embedded viewer", async () => {
+test("assessment pillars page offers a playable framework audio overview in the resources section", async () => {
+  const pagePath = path.join(projectDir, "workspace", "resources", "dean-ai-assessment-pillars.html");
+  const audioPath = path.join(projectDir, "workspace", "resources", "media", "product-process-defence-overview.m4a");
+  const manifestPath = path.join(projectDir, "meta", "project.json");
+  const html = await readUtf8(pagePath);
+  const manifest = JSON.parse(await readUtf8(manifestPath)) as ProjectManifest;
+  const audioSize = await fileSizeOrZero(audioPath);
+
+  assert.ok(audioSize > 3_000_000, "expected the Product, Process, and Defence audio overview to be packaged");
+  assert.match(html, /id="framework-audio-overview"/);
+  assert.match(html, /Product, Process, and Defence Overview/);
+  assert.match(html, /<audio[\s\S]*controls[\s\S]*preload="metadata"[\s\S]*src="\.\/media\/product-process-defence-overview\.m4a"/);
+  assert.match(html, /Your browser does not support embedded audio playback\./);
+  assert.ok(
+    html.indexOf("Presentations & Resources") < html.indexOf('id="framework-audio-overview"'),
+    "expected audio overview to appear inside the resources section after its heading"
+  );
+  assert.ok(
+    html.indexOf('id="framework-audio-overview"') < html.indexOf('data-deck-card="proposed"'),
+    "expected audio overview to appear before the deck cards"
+  );
+  assert.ok(manifest.canonicalSources?.includes(audioPath), "audio overview should be declared canonical");
+});
+
+test("assessment pillars page attaches the current presentation deck through an embedded viewer", async () => {
   const pagePath = path.join(projectDir, "workspace", "resources", "dean-ai-assessment-pillars.html");
   const deckDir = path.join(projectDir, "workspace", "resources", "decks");
   const manifestPath = path.join(projectDir, "meta", "project.json");
   const html = await readUtf8(pagePath);
   const manifest = JSON.parse(await readUtf8(manifestPath)) as ProjectManifest;
-  const decks = [
+  const currentDecks = [
+    {
+      id: "proposed",
+      title: "Proposed AI-Assement Architecture",
+      pptx: "proposed-ai-assessment-architecture.pptx",
+      sourceLinkId: "deck-proposed-pptx",
+      slideDir: "proposed-ai-assessment-architecture"
+    },
+    {
+      id: "retrieval",
+      title: "Retrieval Practice: Oral Assessment",
+      pptx: "retrieval-practice-oral-assessment.pptx",
+      sourceLinkId: "deck-retrieval-pptx",
+      slideDir: "retrieval-practice-oral-assessment"
+    }
+  ];
+  const retiredDecks = [
     {
       id: "blueprint",
       title: "The AI-Aware Assessment Blueprint",
       pdf: "ai-assessment-blueprint.pdf",
       pptx: "ai-assessment-blueprint.pptx",
-      pdfLinkId: "deck-blueprint-pdf",
-      slide: "ai-assessment-blueprint/slide-001.jpg"
+      sourceLinkId: "deck-blueprint-pdf",
+      slideDir: "ai-assessment-blueprint"
     },
     {
       id: "integrity",
       title: "Assessment Integrity Architecture",
       pdf: "assessment-integrity-architecture.pdf",
       pptx: "assessment-integrity-architecture.pptx",
-      pdfLinkId: "deck-integrity-pdf",
-      slide: "assessment-integrity-architecture/slide-001.jpg"
+      sourceLinkId: "deck-integrity-pdf",
+      slideDir: "assessment-integrity-architecture"
     },
     {
       id: "permit",
       title: "The AI Permit",
       pdf: "ai-permit.pdf",
       pptx: "ai-permit.pptx",
-      pdfLinkId: "deck-permit-pdf",
-      slide: "ai-permit/slide-001.jpg"
+      sourceLinkId: "deck-permit-pdf",
+      slideDir: "ai-permit"
     }
   ];
-
   assert.match(html, /id="deck-viewer-panel"/);
   assert.match(html, /id="deck-slide-image"/);
   assert.match(html, /id="deck-slide-count"/);
@@ -440,30 +568,57 @@ test("assessment pillars page attaches the presentation decks through an embedde
   assert.match(html, /function closeDeckViewer\(\)/);
   assert.doesNotMatch(html, /frame\.setAttribute\("src", pdfHref\);/);
   assert.match(html, /slideImage\.setAttribute\("src", currentSlide\.href\);/);
-  assert.match(html, /sourceLink\.setAttribute\("href", pdfHref\);/);
+  assert.match(html, /sourceLink\.setAttribute\("href", sourceHref\);/);
   assert.match(html, /panel\.scrollIntoView\(\{ behavior: "smooth", block: "start" \}\);/);
-  assert.match(html, /Download PDF/);
-  assert.doesNotMatch(html, /Download PPTX/);
+  assert.match(html, /Download PowerPoint/);
+  assert.doesNotMatch(html, /Download PDF/);
 
-  for (const deck of decks) {
-    const pdfPath = path.join(deckDir, deck.pdf);
+  assert.equal([...html.matchAll(/data-deck-card="[^"]+"/g)].length, currentDecks.length);
+
+  for (const deck of currentDecks) {
+    const slideDir = path.join(deckDir, deck.slideDir);
+    const slideFiles = (await readdir(slideDir).catch(() => []))
+      .filter((fileName) => /^slide-\d+\.jpg$/i.test(fileName))
+      .sort();
     const pptxPath = path.join(deckDir, deck.pptx);
-    const slidePath = path.join(deckDir, deck.slide);
-    const pdfBytes = await readFile(pdfPath);
     const pptxBytes = await readFile(pptxPath);
-    const slideBytes = await readFile(slidePath);
 
-    assert.ok(pdfBytes.byteLength > 100_000, `${deck.pdf} should contain a real PDF preview`);
     assert.ok(pptxBytes.byteLength > 100_000, `${deck.pptx} should contain a real PowerPoint deck`);
-    assert.ok(slideBytes.byteLength > 20_000, `${deck.slide} should contain a real slide image`);
-    assert.ok(manifest.canonicalSources?.includes(pdfPath), `${deck.pdf} should be declared canonical`);
+    assert.ok(slideFiles.length > 0, `expected generated slide previews for ${deck.title}`);
     assert.ok(manifest.canonicalSources?.includes(pptxPath), `${deck.pptx} should be declared canonical`);
+    assert.ok(
+      manifest.generatedOutputs?.some((outputPath) =>
+        outputPath.endsWith(path.join(deck.slideDir, "slide-*.jpg"))
+      ),
+      `expected ${deck.title} slide previews to be declared generated outputs`
+    );
     assert.match(html, new RegExp(escapeRegExp(deck.title)));
     assert.match(html, new RegExp(`onclick="openDeckViewer\\('${deck.id}'\\)"`));
     assert.match(html, new RegExp(`data-deck-card="${deck.id}"`));
-    assert.match(html, new RegExp(`id="${deck.pdfLinkId}" href="\\./decks/${escapeRegExp(deck.pdf)}" data-inline-asset`));
-    assert.match(html, new RegExp(`"\\./decks/${escapeRegExp(deck.slide)}"`));
-    assert.match(html, new RegExp(`pdfLinkId: "${deck.pdfLinkId}"`));
+    assert.match(html, new RegExp(`id="${deck.sourceLinkId}" href="\\./decks/${escapeRegExp(deck.pptx)}" data-inline-asset`));
+    assert.match(html, new RegExp(`sourceLinkId: "${deck.sourceLinkId}"`));
+    assert.match(html, new RegExp(`downloadName: "${deck.pptx}"`));
     assert.match(html, /slides: \[/);
+
+    for (const slideFile of slideFiles) {
+      const slidePath = path.join(slideDir, slideFile);
+      const slideBytes = await readFile(slidePath);
+      assert.ok(slideBytes.byteLength > 20_000, `${deck.slideDir}/${slideFile} should contain a real slide image`);
+      assert.match(html, new RegExp(`"\\./decks/${deck.slideDir}/${escapeRegExp(slideFile)}"`));
+    }
+  }
+
+  for (const retiredDeck of retiredDecks) {
+    assert.doesNotMatch(html, new RegExp(escapeRegExp(retiredDeck.title)));
+    assert.doesNotMatch(html, new RegExp(`openDeckViewer\\('${retiredDeck.id}'\\)`));
+    assert.doesNotMatch(html, new RegExp(`data-deck-card="${retiredDeck.id}"`));
+    assert.doesNotMatch(html, new RegExp(escapeRegExp(retiredDeck.sourceLinkId)));
+    assert.doesNotMatch(html, new RegExp(escapeRegExp(retiredDeck.pptx)));
+    assert.doesNotMatch(html, new RegExp(escapeRegExp(retiredDeck.pdf)));
+    assert.doesNotMatch(html, new RegExp(escapeRegExp(retiredDeck.slideDir)));
+    assert.equal(await fileSizeOrZero(path.join(deckDir, retiredDeck.pptx)), 0, `${retiredDeck.pptx} should be removed`);
+    assert.equal(await fileSizeOrZero(path.join(deckDir, retiredDeck.pdf)), 0, `${retiredDeck.pdf} should be removed`);
+    assert.doesNotMatch(JSON.stringify(manifest.canonicalSources ?? []), new RegExp(escapeRegExp(retiredDeck.pptx)));
+    assert.doesNotMatch(JSON.stringify(manifest.canonicalSources ?? []), new RegExp(escapeRegExp(retiredDeck.pdf)));
   }
 });
