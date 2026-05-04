@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EduFrameworks | Professional Learning Hub</title>
     
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
@@ -17,7 +13,7 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    fontFamily: { sans: ['Calibri', 'Aptos', 'Arial', 'sans-serif'] },
                     animation: {
                         'fade-in': 'fadeIn 0.5s ease-out forwards',
                     },
@@ -49,7 +45,7 @@
 
     <!-- Mobile Header -->
     <header class="lg:hidden bg-surface/80 border-b border-surface-variant text-on-surface backdrop-blur-xl p-4 flex justify-between items-center z-50 shrink-0">
-        <div class="font-black text-lg tracking-tight">AI Course Building Resources</div>
+        <div class="font-black text-lg tracking-normal">AI Course Building Resources</div>
         <div id="ai-resource-mobile-controls" class="ml-auto flex items-center justify-end gap-2">
             <button id="theme-toggle-mobile" onclick="toggleDarkMode()" class="p-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors flex items-center justify-center cursor-pointer" aria-label="Toggle Light/Dark Mode">
                 <span data-theme-icon class="material-symbols-outlined text-[20px]">light_mode</span>
@@ -67,7 +63,7 @@
     <aside id="sidebar" class="absolute lg:static top-16 lg:top-0 left-0 h-[calc(100vh-4rem)] lg:h-screen w-full lg:w-80 bg-surface-container-low border-r border-surface-variant text-on-surface-variant flex flex-col transition-transform duration-300 ease-in-out z-40 transform -translate-x-full lg:translate-x-0 shrink-0 shadow-2xl lg:shadow-none">
         <div class="p-6 border-b border-surface-variant hidden lg:block shrink-0">
             <h1 class="text-xl font-extrabold text-on-surface leading-tight">Secondary Online Education</h1>
-            <p class="text-xs text-primary mt-2 tracking-widest uppercase font-bold">Frameworks in the AI Era</p>
+            <p class="text-xs text-primary mt-2 tracking-normal uppercase font-bold">Frameworks in the AI Era</p>
         </div>
 
         <div class="flex-1 overflow-y-auto py-6 px-3 space-y-1" id="nav-menu">
@@ -76,22 +72,22 @@
 
         <div class="p-4 border-t border-surface-variant shrink-0 space-y-2">
             <button onclick="loadModule('ref')" id="nav-ref" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-bold transition-all duration-200 text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-400">
-                <i data-lucide="book-marked" class="w-5 h-5 shrink-0 icon-container"></i> Works Cited
+                <i data-lucide="book-marked" class="w-5 h-5 shrink-0 icon-container"></i> Works cited
             </button>
         </div>
     </aside>
 
     <!-- Main Content -->
     <main class="flex-1 h-full overflow-y-auto bg-surface text-on-surface relative scroll-smooth" id="main-scroll-area">
-        <header id="ai-resource-topbar" class="hidden lg:flex sticky top-0 z-30 border-b border-surface-variant bg-surface/80 backdrop-blur-2xl tracking-tight">
+        <header id="ai-resource-topbar" class="hidden lg:flex sticky top-0 z-30 border-b border-surface-variant bg-surface/80 backdrop-blur-2xl tracking-normal">
             <div class="flex justify-between items-center h-20 px-8 w-full">
                 <div class="flex items-center gap-4 min-w-0">
                     <button onclick="toggleSidebar()" class="p-2 -ml-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors flex items-center justify-center cursor-pointer" aria-label="Toggle resource navigation">
                         <i data-lucide="menu" class="w-5 h-5"></i>
                     </button>
                     <div class="min-w-0">
-                        <p class="text-xl font-black tracking-tight text-on-surface truncate">AI Course Building Resources</p>
-                        <p class="text-xs text-on-surface-variant font-semibold tracking-wide uppercase">Frameworks in the AI Era</p>
+                        <p class="text-xl font-black tracking-normal text-on-surface truncate">AI Course Building Resources</p>
+                        <p class="text-xs text-on-surface-variant font-semibold tracking-normal uppercase">Frameworks in the AI Era</p>
                     </div>
                 </div>
                 <div id="ai-resource-topbar-controls" class="ml-auto flex items-center justify-end gap-3">
@@ -140,36 +136,36 @@
                         </defs>
                         <!-- Left Panel: Desirable Difficulties -->
                         <rect x="30" y="30" width="380" height="290" rx="16" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
-                        <text x="220" y="70" font-family="sans-serif" font-weight="800" font-size="20" fill="#1e293b" text-anchor="middle">Desirable Difficulties</text>
-                        <text x="220" y="95" font-family="sans-serif" font-weight="500" font-size="13" fill="#475569" text-anchor="middle">Intentional cognitive friction builds memory</text>
+                        <text x="220" y="70" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="800" font-size="20" fill="#1e293b" text-anchor="middle">Desirable Difficulties</text>
+                        <text x="220" y="95" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="500" font-size="13" fill="#475569" text-anchor="middle">Intentional cognitive friction builds memory</text>
                         <!-- Flow: Brain -> Effort -> Mastery -->
                         <circle cx="220" cy="150" r="30" fill="#e0e7ff" stroke="#4f46e5" stroke-width="3"/>
-                        <text x="220" y="155" font-family="sans-serif" font-weight="700" font-size="14" fill="#4f46e5" text-anchor="middle">Effort</text>
+                        <text x="220" y="155" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="700" font-size="14" fill="#4f46e5" text-anchor="middle">Effort</text>
                         <path d="M 120 150 L 175 150" stroke="#94a3b8" stroke-width="3" marker-end="url(#arrow)"/>
                         <path d="M 265 150 L 320 150" stroke="#94a3b8" stroke-width="3" marker-end="url(#arrow)"/>
-                        <text x="100" y="155" font-family="sans-serif" font-weight="600" font-size="14" fill="#334155" text-anchor="middle">Task</text>
-                        <text x="350" y="145" font-family="sans-serif" font-weight="700" font-size="14" fill="#065f46" text-anchor="middle">Long-Term</text>
-                        <text x="350" y="165" font-family="sans-serif" font-weight="700" font-size="14" fill="#065f46" text-anchor="middle">Memory</text>
+                        <text x="100" y="155" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="600" font-size="14" fill="#334155" text-anchor="middle">Task</text>
+                        <text x="350" y="145" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="700" font-size="14" fill="#065f46" text-anchor="middle">Long-Term</text>
+                        <text x="350" y="165" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="700" font-size="14" fill="#065f46" text-anchor="middle">Memory</text>
                         <rect x="60" y="210" width="320" height="80" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
-                        <text x="80" y="235" font-family="sans-serif" font-weight="700" font-size="14" fill="#1e293b">Examples:</text>
-                        <text x="80" y="255" font-family="sans-serif" font-weight="500" font-size="13" fill="#475569">• Spaced Repetition Quizzes</text>
-                        <text x="80" y="275" font-family="sans-serif" font-weight="500" font-size="13" fill="#475569">• Elaborative Interrogation</text>
+                        <text x="80" y="235" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="700" font-size="14" fill="#1e293b">Examples:</text>
+                        <text x="80" y="255" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="500" font-size="13" fill="#475569">• Spaced Repetition Quizzes</text>
+                        <text x="80" y="275" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="500" font-size="13" fill="#475569">• Elaborative Interrogation</text>
                         <!-- Right Panel: Cognitive Offloading -->
                         <rect x="490" y="30" width="380" height="290" rx="16" fill="#fef2f2" stroke="#fecaca" stroke-width="2"/>
-                        <text x="680" y="70" font-family="sans-serif" font-weight="800" font-size="20" fill="#1e293b" text-anchor="middle">Cognitive Offloading</text>
-                        <text x="680" y="95" font-family="sans-serif" font-weight="500" font-size="13" fill="#475569" text-anchor="middle">Bypassing struggle leads to skill decay</text>
+                        <text x="680" y="70" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="800" font-size="20" fill="#1e293b" text-anchor="middle">Cognitive Offloading</text>
+                        <text x="680" y="95" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="500" font-size="13" fill="#475569" text-anchor="middle">Bypassing struggle leads to skill decay</text>
                         <!-- Flow: Task -> AI -> Illusion -->
                         <circle cx="680" cy="150" r="30" fill="#fee2e2" stroke="#ef4444" stroke-width="3"/>
-                        <text x="680" y="155" font-family="sans-serif" font-weight="700" font-size="14" fill="#b91c1c" text-anchor="middle">Gen AI</text>
+                        <text x="680" y="155" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="700" font-size="14" fill="#b91c1c" text-anchor="middle">Gen AI</text>
                         <path d="M 580 150 L 635 150" stroke="#94a3b8" stroke-width="3" marker-end="url(#arrow)"/>
                         <path d="M 725 150 L 780 150" stroke="#94a3b8" stroke-width="3" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
-                        <text x="560" y="155" font-family="sans-serif" font-weight="600" font-size="14" fill="#334155" text-anchor="middle">Task</text>
-                        <text x="810" y="145" font-family="sans-serif" font-weight="700" font-size="14" fill="#b91c1c" text-anchor="middle">Illusion of</text>
-                        <text x="810" y="165" font-family="sans-serif" font-weight="700" font-size="14" fill="#b91c1c" text-anchor="middle">Competence</text>
+                        <text x="560" y="155" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="600" font-size="14" fill="#334155" text-anchor="middle">Task</text>
+                        <text x="810" y="145" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="700" font-size="14" fill="#b91c1c" text-anchor="middle">Illusion of</text>
+                        <text x="810" y="165" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="700" font-size="14" fill="#b91c1c" text-anchor="middle">Competence</text>
                         <rect x="520" y="210" width="320" height="80" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
-                        <text x="540" y="235" font-family="sans-serif" font-weight="700" font-size="14" fill="#1e293b">Consequences:</text>
-                        <text x="540" y="255" font-family="sans-serif" font-weight="500" font-size="13" fill="#475569">• Neural pathway decay</text>
-                        <text x="540" y="275" font-family="sans-serif" font-weight="500" font-size="13" fill="#475569">• Decline in critical thinking skills</text>
+                        <text x="540" y="235" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="700" font-size="14" fill="#1e293b">Consequences:</text>
+                        <text x="540" y="255" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="500" font-size="13" fill="#475569">• Neural pathway decay</text>
+                        <text x="540" y="275" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="500" font-size="13" fill="#475569">• Decline in critical thinking skills</text>
                     </svg>
                 `,
                 overview: "Before building a course or opening an AI chatbot, educators must understand how the adolescent brain actually acquires, processes, and retains information. In an online environment where AI can easily do the heavy lifting for students, applying the Science of Learning ensures our courses require genuine cognitive effort rather than just task completion.",
@@ -177,7 +173,7 @@
                 deeperContext: "<ul class='list-none space-y-5'><li><strong class='text-indigo-900'>The \"Crutch Effect\" and False Mastery:</strong> A large-scale field experiment involving high school mathematics students revealed the danger of unguided AI. Students given unrestricted access to a standard GenAI chatbot performed 48% better during immediate practice. However, when the AI was removed for a subsequent exam, these same students performed 17% worse than a control group that never used AI.<sup>4</sup> This illustrates the \"Crutch Effect\"—high performance mediated by a powerful tool creates a \"mirage of false mastery\" that does not equate to actual learning.<sup>1</sup></li><li><strong class='text-indigo-900'>Metacognitive Laziness:</strong> Authentic learning requires self-monitoring and regulation. Studies show that when interacting with human tutors, students follow a linear help-seeking model: diagnosing their problem, asking for help, evaluating the advice, and iterating. When using GenAI, students often skip the diagnosis and evaluation phases entirely, blindly accepting the output—a phenomenon researchers term \"metacognitive laziness\".<sup>1</sup></li><li><strong class='text-indigo-900'>Working vs. Long-Term Memory:</strong> The human brain can only process a small amount of new information at once (working memory). For learning to endure, information must be successfully transferred to long-term memory through active effort and retrieval. If AI removes the friction of that transfer, the memory is never encoded.</li><li><strong class='text-indigo-900'>Subsumption (Anchoring Knowledge):</strong> Cognitive psychologist David Ausubel proved that learning is more durable when new information is explicitly connected to prior knowledge. New concepts must be \"subsumed\" into older conceptual models to stick. AI cannot do this internal cognitive anchoring for the student.</li></ul>",
                 anecdote: "An AP Economics teacher assigned a complex PDF reading. The next day, the online class discussion was unsettling. Every student was making identical points in nearly identical language. They had uploaded the reading to an AI, requested summaries, and absorbed the AI-generated talking points. What disturbed the teacher most wasn't the shortcut, but realizing that because the students offloaded the 'friction' of reading, they had become functionally replaceable by the machine. I realized then that my assignments had to change to force human connection.",
                 keyConcept: {
-                    title: "Desirable Difficulties & Cognitive Offloading",
+                    title: "Desirable Difficulties and Cognitive Offloading",
                     points: [
                         "<strong>Desirable Difficulties:</strong> Intentional, productive struggles introduced during the learning process (like spaced practice or elaborative interrogation) that build durable long-term memory.<sup>1</sup>",
                         "<strong>Cognitive Offloading:</strong> Using external tools to entirely bypass cognitive tasks. When AI provides complete solutions without requiring student integration, it acts as a \"cognitive prosthesis,\" leading to measurable declines in critical thinking skills.<sup>3</sup>"
@@ -255,48 +251,48 @@
                 audioSrc: "https://drive.google.com/file/d/1P0ffg3JVcUeCSYHLAWmkwWufhxwTjbpY/preview",
                 audioSummary: "Listen to an overview on designing accessible digital environments using UDL principles and generative AI.",
                 graphic: `
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" class="w-full h-auto max-w-4xl drop-shadow-sm" role="img" aria-label="Three pillars of UDL: Engagement, Representation, and Action & Expression, supporting Accessible Learning.">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" class="w-full h-auto max-w-4xl drop-shadow-sm" role="img" aria-label="Three pillars of UDL: Engagement, Representation, and Action and Expression, supporting Accessible Learning.">
                         <!-- Top Header / Roof -->
                         <rect x="100" y="40" width="700" height="60" rx="8" fill="#1e293b"/>
-                        <text x="450" y="77" font-family="sans-serif" font-weight="800" font-size="24" fill="#ffffff" text-anchor="middle">Accessible Digital Learning Environment</text>
+                        <text x="450" y="77" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="800" font-size="24" fill="#ffffff" text-anchor="middle">Accessible Digital Learning Environment</text>
                         <!-- Pillar 1: Engagement -->
                         <rect x="130" y="120" width="180" height="230" rx="12" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
                         <rect x="130" y="120" width="180" height="50" rx="12" fill="#10b981"/>
-                        <text x="220" y="150" font-family="sans-serif" font-weight="800" font-size="16" fill="#ffffff" text-anchor="middle">ENGAGEMENT</text>
-                        <text x="220" y="195" font-family="sans-serif" font-weight="700" font-size="14" fill="#047857" text-anchor="middle">The "Why"</text>
+                        <text x="220" y="150" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="800" font-size="16" fill="#ffffff" text-anchor="middle">ENGAGEMENT</text>
+                        <text x="220" y="195" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="700" font-size="14" fill="#047857" text-anchor="middle">The "Why"</text>
                         <circle cx="155" cy="230" r="4" fill="#10b981"/>
-                        <text x="170" y="235" font-family="sans-serif" font-weight="600" font-size="13" fill="#1e293b">Autonomy &amp; Choice</text>
+                        <text x="170" y="235" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="600" font-size="13" fill="#1e293b">Autonomy and choice</text>
                         <circle cx="155" cy="265" r="4" fill="#10b981"/>
-                        <text x="170" y="270" font-family="sans-serif" font-weight="600" font-size="13" fill="#1e293b">Relevance / Value</text>
+                        <text x="170" y="270" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="600" font-size="13" fill="#1e293b">Relevance / Value</text>
                         <circle cx="155" cy="300" r="4" fill="#10b981"/>
-                        <text x="170" y="305" font-family="sans-serif" font-weight="600" font-size="13" fill="#1e293b">Self-Regulation</text>
+                        <text x="170" y="305" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="600" font-size="13" fill="#1e293b">Self-Regulation</text>
                         <!-- Pillar 2: Representation -->
                         <rect x="360" y="120" width="180" height="230" rx="12" fill="#eef2ff" stroke="#6366f1" stroke-width="2"/>
                         <rect x="360" y="120" width="180" height="50" rx="12" fill="#6366f1"/>
-                        <text x="450" y="150" font-family="sans-serif" font-weight="800" font-size="16" fill="#ffffff" text-anchor="middle">REPRESENTATION</text>
-                        <text x="450" y="195" font-family="sans-serif" font-weight="700" font-size="14" fill="#4338ca" text-anchor="middle">The "What"</text>
+                        <text x="450" y="150" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="800" font-size="16" fill="#ffffff" text-anchor="middle">REPRESENTATION</text>
+                        <text x="450" y="195" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="700" font-size="14" fill="#4338ca" text-anchor="middle">The "What"</text>
                         <circle cx="385" cy="230" r="4" fill="#6366f1"/>
-                        <text x="400" y="235" font-family="sans-serif" font-weight="600" font-size="13" fill="#1e293b">Audio/Visual Options</text>
+                        <text x="400" y="235" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="600" font-size="13" fill="#1e293b">Audio/Visual Options</text>
                         <circle cx="385" cy="265" r="4" fill="#6366f1"/>
-                        <text x="400" y="270" font-family="sans-serif" font-weight="600" font-size="13" fill="#1e293b">Language Support</text>
+                        <text x="400" y="270" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="600" font-size="13" fill="#1e293b">Language Support</text>
                         <circle cx="385" cy="300" r="4" fill="#6366f1"/>
-                        <text x="400" y="305" font-family="sans-serif" font-weight="600" font-size="13" fill="#1e293b">Clear Formatting</text>
+                        <text x="400" y="305" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="600" font-size="13" fill="#1e293b">Clear Formatting</text>
                         <!-- Pillar 3: Action -->
                         <rect x="590" y="120" width="180" height="230" rx="12" fill="#fffbeb" stroke="#f59e0b" stroke-width="2"/>
                         <rect x="590" y="120" width="180" height="50" rx="12" fill="#f59e0b"/>
-                        <text x="680" y="150" font-family="sans-serif" font-weight="800" font-size="16" fill="#ffffff" text-anchor="middle">ACTION &amp; EXPRESSION</text>
-                        <text x="680" y="195" font-family="sans-serif" font-weight="700" font-size="14" fill="#b45309" text-anchor="middle">The "How"</text>
+                        <text x="680" y="150" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="800" font-size="16" fill="#ffffff" text-anchor="middle">ACTION AND EXPRESSION</text>
+                        <text x="680" y="195" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="700" font-size="14" fill="#b45309" text-anchor="middle">The "How"</text>
                         <circle cx="615" cy="230" r="4" fill="#f59e0b"/>
-                        <text x="630" y="235" font-family="sans-serif" font-weight="600" font-size="13" fill="#1e293b">Flexible Submissions</text>
+                        <text x="630" y="235" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="600" font-size="13" fill="#1e293b">Flexible Submissions</text>
                         <circle cx="615" cy="265" r="4" fill="#f59e0b"/>
-                        <text x="630" y="270" font-family="sans-serif" font-weight="600" font-size="13" fill="#1e293b">Assistive Tools</text>
+                        <text x="630" y="270" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="600" font-size="13" fill="#1e293b">Assistive Tools</text>
                         <circle cx="615" cy="300" r="4" fill="#f59e0b"/>
-                        <text x="630" y="305" font-family="sans-serif" font-weight="600" font-size="13" fill="#1e293b">Executive Scaffolds</text>
+                        <text x="630" y="305" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="600" font-size="13" fill="#1e293b">Executive Scaffolds</text>
                     </svg>
                 `,
                 overview: "Universal Design for Learning (UDL) is about designing your course flexibly from day one so that all learners—regardless of their reading level, language background, or neurodivergent profile—can succeed. Generative AI is an unprecedented equalizer here, allowing educators to instantly scale accessibility and provide multiple learning pathways without watering down academic rigor.",
-                theory: "<p>UDL is an instructional framework rooted in neuroscience that assumes learner variability is the norm, not the exception. It advocates for a flexible approach to individual learning needs rather than retrofitting accommodations after the fact. UDL focuses on activating three primary brain networks by providing multiple means of:</p><ul class='list-disc pl-8 mt-4 space-y-2 text-slate-800'><li><strong>Engagement (The \"Why\" - Affective Network):</strong> Tapping into learners' interests, offering autonomy, and sustaining effort.</li><li><strong>Representation (The \"What\" - Recognition Network):</strong> Optimizing access to tools and presenting information in multiple formats (text, audio, visual) to bypass sensory or cognitive barriers.</li><li><strong>Action & Expression (The \"How\" - Strategic Network):</strong> Varying the methods for response and navigation, allowing students to leverage executive functions to demonstrate what they know in different ways.<sup>5</sup></li></ul><p class='mt-4'>When students are provided with options that appeal to their specific learning preferences, comprehension and motivation naturally increase. Generative AI operationalizes UDL by allowing educators to instantly create varied formats of the same core content. It functions as an essential engine for UDL, allowing educators to instantly scale accessibility and modify content to remove cognitive and linguistic barriers without diluting the underlying academic rigor.<sup>1</sup></p>",
-                deeperContext: "<ul class='list-none space-y-5'><li><strong class='text-indigo-900'>The Myth of the Average:</strong> UDL operates on the scientifically proven premise that the \"average learner\" does not exist. Designing courses for the \"average\" is like designing a fighter jet cockpit for the \"average\" pilot—it ends up fitting no one perfectly and leads to crashes.</li><li><strong class='text-indigo-900'>Proactive vs. Reactive Design:</strong> Traditional education reacts to learning barriers by providing an Individualized Education Program (IEP) accommodation <em>after</em> a student struggles. UDL proactively removes the barrier before the student encounters it, embedding the support into the foundation of the course.</li><li><strong class='text-indigo-900'>The \"Curb Cut\" Effect:</strong> A UDL strategy designed for a specific need (e.g., a curb cut in a sidewalk designed for a wheelchair) is inherently beneficial for all users (e.g., someone pushing a stroller or riding a skateboard). Similarly, an audio recording made for a student with dyslexia benefits the student who wants to listen to the lesson while walking the dog.</li><li><strong class='text-indigo-900'>Reducing Accommodation Stigma:</strong> By providing multiple means of representation and expression to <em>all</em> students, UDL normalizes accommodations. A student utilizing an auditory text is no longer singled out as needing special help; they are simply choosing one of several available pathways.</li></ul>",
+                theory: "<p>UDL is an instructional framework rooted in neuroscience that assumes learner variability is the norm, not the exception. It advocates for a flexible approach to individual learning needs rather than retrofitting accommodations after the fact. UDL focuses on activating three primary brain networks by providing multiple means of:</p><ul class='list-disc pl-8 mt-4 space-y-2 text-slate-800'><li><strong>Engagement (The \"Why\" - Affective Network):</strong> Tapping into learners' interests, offering autonomy, and sustaining effort.</li><li><strong>Representation (The \"What\" - Recognition Network):</strong> Optimizing access to tools and presenting information in multiple formats (text, audio, visual) to bypass sensory or cognitive barriers.</li><li><strong>Action and Expression (The \"How\" - Strategic Network):</strong> Varying the methods for response and navigation, allowing students to leverage executive functions to demonstrate what they know in different ways.<sup>5</sup></li></ul><p class='mt-4'>When students are provided with options that appeal to their specific learning preferences, comprehension and motivation naturally increase. Generative AI operationalizes UDL by allowing educators to instantly create varied formats of the same core content. It functions as an essential engine for UDL, allowing educators to instantly scale accessibility and modify content to remove cognitive and linguistic barriers without diluting the underlying academic rigor.<sup>1</sup></p>",
+                deeperContext: "<ul class='list-none space-y-5'><li><strong class='text-indigo-900'>The Myth of the Average:</strong> UDL operates on the scientifically proven premise that the \"average learner\" does not exist. Designing courses for the \"average\" is like designing a fighter jet cockpit for the \"average\" pilot—it ends up fitting no one perfectly and leads to crashes.</li><li><strong class='text-indigo-900'>Proactive vs. Reactive Design:</strong> Traditional education reacts to learning barriers by providing an Individualized Education Program (IEP) accommodation <em>after</em> a student struggles. UDL proactively removes the barrier before the student encounters it, embedding the support into the foundation of the course.</li><li><strong class='text-indigo-900'>The \"Curb Cut\" Effect:</strong> A UDL strategy designed for a specific need (for example, a curb cut in a sidewalk designed for a wheelchair) is inherently beneficial for all users (for example, someone pushing a stroller or riding a skateboard). Similarly, an audio recording made for a student with dyslexia benefits the student who wants to listen to the lesson while walking the dog.</li><li><strong class='text-indigo-900'>Reducing Accommodation Stigma:</strong> By providing multiple means of representation and expression to <em>all</em> students, UDL normalizes accommodations. A student utilizing an auditory text is no longer singled out as needing special help; they are simply choosing one of several available pathways.</li></ul>",
                 anecdote: "Earlier this year, I was completely blown away when my daughter showed me how she had used NotebookLM to turn her AP Biology notes into an original podcast. I immediately thought of how useful this would be in the classroom, removing barriers by allowing teachers to provide multiple pathways into the content: taking a grade-level text and creating a podcast for students who prefer auditory learning or may struggle to access information presented in a text.",
                 keyConcept: {
                     title: "Proactive Design vs. Reactive Accommodation",
@@ -307,7 +303,7 @@
                 },
                 flashcards: [
                     { q: "Providing an audio version of a text alongside the written version supports which UDL network?", a: "Multiple Means of Representation (The 'What'). It gives students options for how they consume information." },
-                    { q: "Allowing a student to submit a video instead of a written essay supports which UDL network?", a: "Multiple Means of Action & Expression (The 'How'). It allows them to demonstrate mastery using their strengths." }
+                    { q: "Allowing a student to submit a video instead of a written essay supports which UDL network?", a: "Multiple Means of Action and Expression (The 'How'). It allows them to demonstrate mastery using their strengths." }
                 ],
                 strategies: [
                     { 
@@ -341,7 +337,7 @@
                         name: "Create Gamified Learning Paths", 
                         what: "Use Brightspace's native Awards and Certificates tools to gamify the learning experience, providing instant recognition for mastering specific skills.",
                         guidelines: [
-                            "Navigate to Course Admin > Awards. Create digital badges for specific milestones (e.g., \"The Lab Safety Guru\" badge).",
+                            "Navigate to Course Admin > Awards. Create digital badges for specific milestones (for example, \"The Lab Safety Guru\" badge).",
                             "Set Release Conditions so the badge is automatically awarded when a student scores 100% on a specific quiz.<sup>8</sup>"
                         ],
                         why: "Gamification taps directly into the UDL pillar of Engagement. It provides external motivation, reduces anxiety, and gives students tangible, immediate rewards for their effort."
@@ -351,9 +347,9 @@
                         what: "Students often struggle to manage large, multi-step projects. Use AI to break the project down, then use Brightspace tools to help them manage it.<sup>5</sup>",
                         guidelines: [
                             "Ask Copilot: \"Break this research paper assignment down into 5 manageable milestones for a 9th grader.\"",
-                            "Take the output and build a native Brightspace Checklist at the top of the module, requiring students to check off each micro-step (e.g., \"Thesis approved,\" \"3 sources found\")."
+                            "Take the output and build a native Brightspace Checklist at the top of the module, requiring students to check off each micro-step (for example, \"Thesis approved,\" \"3 sources found\")."
                         ],
-                        why: "This supports the \"Executive Functions\" aspect of the UDL Action & Expression network. It reduces overwhelm and explicitly teaches self-regulation and time management.<sup>5</sup>"
+                        why: "This supports the \"Executive Functions\" aspect of the UDL Action and Expression network. It reduces overwhelm and explicitly teaches self-regulation and time management.<sup>5</sup>"
                     }
                 ],
                 table: [
@@ -366,12 +362,12 @@
                 bucketData: {
                     title: "Categorize the Strategies",
                     instructions: "Drag each actionable strategy into the UDL brain network it primarily supports.",
-                    buckets: ["Engagement (The 'Why')", "Representation (The 'What')", "Action & Expression (The 'How')"],
+                    buckets: ["Engagement (The 'Why')", "Representation (The 'What')", "Action and Expression (The 'How')"],
                     items: [
                         { id: "u1", text: "Provide an Audio Overview of a reading", target: "Representation (The 'What')" },
-                        { id: "u2", text: "Allow students to submit a Video Note instead of text", target: "Action & Expression (The 'How')" },
+                        { id: "u2", text: "Allow students to submit a Video Note instead of text", target: "Action and Expression (The 'How')" },
                         { id: "u3", text: "Create Gamified Learning Paths with Badges", target: "Engagement (The 'Why')" },
-                        { id: "u4", text: "Build Executive Functioning Checklists for projects", target: "Action & Expression (The 'How')" }
+                        { id: "u4", text: "Build Executive Functioning Checklists for projects", target: "Action and Expression (The 'How')" }
                     ]
                 }
             },
@@ -387,29 +383,29 @@
                         <path d="M 750 150 L 150 150" stroke="#cbd5e1" stroke-width="6" stroke-dasharray="10 10"/>
                         <!-- Box 1: Results (Right) -->
                         <rect x="630" y="80" width="220" height="140" rx="16" fill="#4f46e5" shadow="sm"/>
-                        <text x="740" y="115" font-family="sans-serif" font-weight="800" font-size="16" fill="#ffffff" text-anchor="middle">STAGE 1</text>
-                        <text x="740" y="145" font-family="sans-serif" font-weight="700" font-size="18" fill="#e0e7ff" text-anchor="middle">Desired Results</text>
+                        <text x="740" y="115" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="800" font-size="16" fill="#ffffff" text-anchor="middle">STAGE 1</text>
+                        <text x="740" y="145" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="700" font-size="18" fill="#e0e7ff" text-anchor="middle">Desired Results</text>
                         <rect x="650" y="165" width="180" height="40" rx="4" fill="#3730a3"/>
-                        <text x="740" y="190" font-family="sans-serif" font-weight="500" font-size="13" fill="#e0e7ff" text-anchor="middle">Standards &amp; Goals</text>
+                        <text x="740" y="190" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="500" font-size="13" fill="#e0e7ff" text-anchor="middle">Standards and goals</text>
                         <!-- Box 2: Evidence (Middle) -->
                         <rect x="340" y="80" width="220" height="140" rx="16" fill="#6366f1"/>
-                        <text x="450" y="115" font-family="sans-serif" font-weight="800" font-size="16" fill="#ffffff" text-anchor="middle">STAGE 2</text>
-                        <text x="450" y="145" font-family="sans-serif" font-weight="700" font-size="18" fill="#e0e7ff" text-anchor="middle">Acceptable Evidence</text>
+                        <text x="450" y="115" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="800" font-size="16" fill="#ffffff" text-anchor="middle">STAGE 2</text>
+                        <text x="450" y="145" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="700" font-size="18" fill="#e0e7ff" text-anchor="middle">Acceptable Evidence</text>
                         <rect x="360" y="165" width="180" height="40" rx="4" fill="#4338ca"/>
-                        <text x="450" y="190" font-family="sans-serif" font-weight="500" font-size="13" fill="#e0e7ff" text-anchor="middle">Assessments &amp; Rubrics</text>
+                        <text x="450" y="190" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="500" font-size="13" fill="#e0e7ff" text-anchor="middle">Assessments and rubrics</text>
                         <!-- Box 3: Activities (Left) -->
                         <rect x="50" y="80" width="220" height="140" rx="16" fill="#818cf8"/>
-                        <text x="160" y="115" font-family="sans-serif" font-weight="800" font-size="16" fill="#ffffff" text-anchor="middle">STAGE 3</text>
-                        <text x="160" y="145" font-family="sans-serif" font-weight="700" font-size="18" fill="#e0e7ff" text-anchor="middle">Learning Activities</text>
+                        <text x="160" y="115" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="800" font-size="16" fill="#ffffff" text-anchor="middle">STAGE 3</text>
+                        <text x="160" y="145" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="700" font-size="18" fill="#e0e7ff" text-anchor="middle">Learning Activities</text>
                         <rect x="70" y="165" width="180" height="40" rx="4" fill="#4f46e5"/>
-                        <text x="160" y="190" font-family="sans-serif" font-weight="500" font-size="13" fill="#e0e7ff" text-anchor="middle">Content &amp; Scaffolding</text>
+                        <text x="160" y="190" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="500" font-size="13" fill="#e0e7ff" text-anchor="middle">Content and scaffolding</text>
                         <!-- Design Flow Arrows -->
                         <path d="M 615 110 L 575 110" stroke="#1e293b" stroke-width="4" marker-end="url(#arrow-dark)"/>
                         <path d="M 325 110 L 285 110" stroke="#1e293b" stroke-width="4" marker-end="url(#arrow-dark)"/>
-                        <text x="450" y="60" font-family="sans-serif" font-weight="700" font-size="14" fill="#1e293b" text-anchor="middle">← Design Flow (Start at End) ←</text>
+                        <text x="450" y="60" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="700" font-size="14" fill="#1e293b" text-anchor="middle">← Design Flow (Start at End) ←</text>
                         <!-- Student Experience Arrow -->
                         <path d="M 160 250 L 740 250" stroke="#10b981" stroke-width="4" marker-end="url(#arrow-green)"/>
-                        <text x="450" y="280" font-family="sans-serif" font-weight="700" font-size="14" fill="#065f46" text-anchor="middle">→ Student Experience Flow →</text>
+                        <text x="450" y="280" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="700" font-size="14" fill="#065f46" text-anchor="middle">→ Student Experience Flow →</text>
                     </svg>
                 `,
                 overview: "Backward Design means starting with the destination in mind. Instead of asking, \"What am I going to teach this week?\" (forward design), educators ask, \"What do my students need to prove they can do, and how will I measure it?\" This prevents the creation of digital \"busywork\" and keeps Grades 7-12 online courses highly focused and structured.",
@@ -481,9 +477,9 @@
                     instructions: "Drag the design stages into the correct chronological order (from start to finish).",
                     slots: ["Step 1", "Step 2", "Step 3"],
                     items: [
-                        { id: "s1", text: "Identify Desired Results (Standards & Objectives)", target: "Step 1" },
-                        { id: "s2", text: "Determine Acceptable Evidence (Assessments & Rubrics)", target: "Step 2" },
-                        { id: "s3", text: "Plan Learning Experiences (Activities & Materials)", target: "Step 3" }
+                        { id: "s1", text: "Identify Desired Results (standards and objectives)", target: "Step 1" },
+                        { id: "s2", text: "Determine Acceptable Evidence (assessments and rubrics)", target: "Step 2" },
+                        { id: "s3", text: "Plan Learning Experiences (activities and materials)", target: "Step 3" }
                     ]
                 }
             },
@@ -497,12 +493,12 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 350" class="w-full h-auto max-w-4xl drop-shadow-sm" role="img" aria-label="Comparison showing High Cognitive Load versus Low Cognitive Load.">
                         <!-- Poor Design Side -->
                         <rect x="40" y="40" width="380" height="260" rx="16" fill="#fef2f2" stroke="#fecaca" stroke-width="2"/>
-                        <text x="230" y="80" font-family="sans-serif" font-weight="800" font-size="18" fill="#ef4444" text-anchor="middle">High Extraneous Load</text>
-                        <text x="230" y="105" font-family="sans-serif" font-weight="500" font-size="13" fill="#b91c1c" text-anchor="middle">Separated info overwhelms working memory</text>
+                        <text x="230" y="80" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="800" font-size="18" fill="#ef4444" text-anchor="middle">High Extraneous Load</text>
+                        <text x="230" y="105" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="500" font-size="13" fill="#b91c1c" text-anchor="middle">Separated info overwhelms working memory</text>
                         <!-- UI Mockup: Bad -->
                         <rect x="80" y="130" width="280" height="140" fill="#ffffff" rx="6" stroke="#fca5a5" stroke-width="1"/>
                         <rect x="100" y="145" width="100" height="70" fill="#cbd5e1" rx="4"/>
-                        <text x="150" y="185" font-family="sans-serif" font-weight="600" font-size="12" fill="#64748b" text-anchor="middle">Fig 1</text>
+                        <text x="150" y="185" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="600" font-size="12" fill="#64748b" text-anchor="middle">Fig 1</text>
                         <rect x="100" y="235" width="240" height="8" fill="#cbd5e1" rx="2"/>
                         <rect x="100" y="250" width="200" height="8" fill="#cbd5e1" rx="2"/>
                         <path d="M 220 245 C 260 245, 260 180, 210 180" fill="none" stroke="#ef4444" stroke-width="3" stroke-dasharray="4 4" marker-end="url(#arrow-red)"/>
@@ -510,12 +506,12 @@
                         <line x1="450" y1="40" x2="450" y2="300" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="6 6"/>
                         <!-- Good Design Side -->
                         <rect x="480" y="40" width="380" height="260" rx="16" fill="#f0fdf4" stroke="#a7f3d0" stroke-width="2"/>
-                        <text x="670" y="80" font-family="sans-serif" font-weight="800" font-size="18" fill="#10b981" text-anchor="middle">Low Extraneous Load</text>
-                        <text x="670" y="105" font-family="sans-serif" font-weight="500" font-size="13" fill="#047857" text-anchor="middle">Spatial Contiguity aids schema creation</text>
+                        <text x="670" y="80" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="800" font-size="18" fill="#10b981" text-anchor="middle">Low Extraneous Load</text>
+                        <text x="670" y="105" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="500" font-size="13" fill="#047857" text-anchor="middle">Spatial Contiguity aids schema creation</text>
                         <!-- UI Mockup: Good -->
                         <rect x="520" y="130" width="280" height="140" fill="#ffffff" rx="6" stroke="#6ee7b7" stroke-width="1"/>
                         <rect x="540" y="150" width="100" height="100" fill="#a7f3d0" rx="4"/>
-                        <text x="590" y="205" font-family="sans-serif" font-weight="600" font-size="12" fill="#047857" text-anchor="middle">Fig 1</text>
+                        <text x="590" y="205" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="600" font-size="12" fill="#047857" text-anchor="middle">Fig 1</text>
                         <rect x="660" y="160" width="120" height="8" fill="#34d399" rx="2"/>
                         <rect x="660" y="180" width="100" height="8" fill="#34d399" rx="2"/>
                         <rect x="660" y="200" width="110" height="8" fill="#34d399" rx="2"/>
@@ -524,7 +520,7 @@
                 `,
                 overview: "Instructional design in Brightspace's New Content Experience (NCE) is about building a clean, intuitive architecture. If secondary students have to spend mental energy figuring out  how  to navigate your course, they have less energy left to actually learn the material. Without premium add-ons, educators can use external AI tools to inject high-quality interactivity into a predictable course structure.",
                 theory: "<p>Cognitive Load Theory, developed by John Sweller, dictates that instructional environments must actively manage the mental effort required to learn. It posits that working memory has a limited capacity, and if a learning environment is poorly designed, it overwhelms the brain, preventing the transfer of information to long-term memory.</p><p class='mt-4'>The Brightspace New Content Experience (NCE) supports cognitive load management by focusing on a minimalist design, clean visual presentation, and color-coded units, shifting away from messy, nested file repositories.<sup>10</sup> Good digital design also relies on Richard Mayer’s principles of multimedia learning, specifically applying principles like spatial contiguity (pairing related text and visuals closely together) and signaling (providing explicit, predictable navigational cues) to guide adolescent learners.<sup>1</sup></p>",
-                deeperContext: "<ul class='list-none space-y-5'><li><strong class='text-indigo-900'>The Three Types of Cognitive Load:</strong><ul class='list-disc pl-5 mt-1 space-y-1 text-slate-800'><li>Intrinsic Load: The inherent difficulty of the material itself (e.g., learning quantum physics is inherently hard).</li><li>Extraneous Load: The unnecessary mental effort caused by poor design, confusing interfaces, or disorganized multimedia. This must be actively eliminated.<sup>1</sup></li><li>Germane Load: The productive mental effort used to create schemas and process the learning. By eliminating extraneous load, we free up brainpower to maximize germane load.<sup>1</sup></li></ul></li><li><strong class='text-indigo-900'>Spatial Contiguity Principle:</strong> Mayer's research proves that students learn better when corresponding words and pictures are presented near each other rather than far apart on a screen. If a student has to scroll up to see a diagram and scroll down to read the text explaining it, their working memory is overloaded.<sup>1</sup></li><li><strong class='text-indigo-900'>The Importance of Predictability:</strong> The adolescent brain seeks patterns. A predictable course rhythm (e.g., modules always open on Mondays, assignments are always due on Fridays, visual structures are identical across units) drastically lowers anxiety and logistical confusion, acting as a structural scaffold for executive functioning.</li></ul>",
+                deeperContext: "<ul class='list-none space-y-5'><li><strong class='text-indigo-900'>The Three Types of Cognitive Load:</strong><ul class='list-disc pl-5 mt-1 space-y-1 text-slate-800'><li>Intrinsic Load: The inherent difficulty of the material itself (for example, learning quantum physics is inherently hard).</li><li>Extraneous Load: The unnecessary mental effort caused by poor design, confusing interfaces, or disorganized multimedia. This must be actively eliminated.<sup>1</sup></li><li>Germane Load: The productive mental effort used to create schemas and process the learning. By eliminating extraneous load, we free up brainpower to maximize germane load.<sup>1</sup></li></ul></li><li><strong class='text-indigo-900'>Spatial Contiguity Principle:</strong> Mayer's research proves that students learn better when corresponding words and pictures are presented near each other rather than far apart on a screen. If a student has to scroll up to see a diagram and scroll down to read the text explaining it, their working memory is overloaded.<sup>1</sup></li><li><strong class='text-indigo-900'>The Importance of Predictability:</strong> The adolescent brain seeks patterns. A predictable course rhythm (for example, modules always open on Mondays, assignments are always due on Fridays, visual structures are identical across units) drastically lowers anxiety and logistical confusion, acting as a structural scaffold for executive functioning.</li></ul>",
                 anecdote: "I used to put everything in nested folders—a folder for week 1, inside that a folder for readings, inside that a folder for PDFs. Students were clicking four levels deep just to find their homework. Moving to the Brightspace New Content Experience and putting everything in a linear, scrollable HTML page with a checklist at the bottom stopped the 'I couldn't find the assignment' emails overnight.",
                 keyConcept: {
                     title: "Extraneous Cognitive Load",
@@ -554,8 +550,8 @@
                         name: "Enforce Module Checklists", 
                         what: "Add a native Brightspace Checklist at the bottom of every module. Require secondary students to physically check off tasks.<sup>1</sup>",
                         guidelines: [
-                            "Write checklist items as action statements (e.g., \"I have submitted the Week 2 Draft\") rather than just titles.",
-                            "Include non-graded but essential tasks (e.g., \"I have watched the instructor's introductory Video Note\").<sup>1</sup>"
+                            "Write checklist items as action statements (for example, \"I have submitted the Week 2 Draft\") rather than just titles.",
+                            "Include non-graded but essential tasks (for example, \"I have watched the instructor's introductory Video Note\").<sup>1</sup>"
                         ],
                         why: "The New Content Experience does not currently offer visual completion tracking (checkmarks) directly on the content modules.<sup>10</sup> Checklists explicitly signal what is required, building self-regulation. The physical act of checking a box provides a dopamine hit and visual map of progress."
                     },
@@ -572,7 +568,7 @@
                         what: "Create a dedicated, highly visible introductory module that explicitly teaches students <em>how</em> to navigate your specific course architecture.<sup>17</sup>",
                         guidelines: [
                             "Use Copilot to draft a \"Course Navigation Guide.\"",
-                            "Create a Brightspace page that explicitly defines the weekly rhythm (e.g., \"Every Monday you will read X, every Wednesday you will post Y\").",
+                            "Create a Brightspace page that explicitly defines the weekly rhythm (for example, \"Every Monday you will read X, every Wednesday you will post Y\").",
                             "Include a screen-recording video of you clicking through the course to find the first assignment.<sup>17</sup>"
                         ],
                         why: "Never assume digital natives intuitively understand academic software. Explicitly teaching the interface removes the initial extraneous cognitive load, allowing them to focus entirely on the subject matter.<sup>17</sup>"
@@ -619,25 +615,25 @@
                         <rect x="480" y="40" width="380" height="280" rx="16" fill="#f0fdf4" stroke="#a7f3d0" stroke-width="2"/>
 
                         <!-- Titles -->
-                        <text x="230" y="80" font-family="sans-serif" font-weight="800" font-size="18" fill="#b91c1c" text-anchor="middle">Generic AI Chatbots</text>
-                        <text x="230" y="100" font-family="sans-serif" font-weight="500" font-size="13" fill="#ef4444" text-anchor="middle">Prone to Hallucinations</text>
+                        <text x="230" y="80" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="800" font-size="18" fill="#b91c1c" text-anchor="middle">Generic AI Chatbots</text>
+                        <text x="230" y="100" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="500" font-size="13" fill="#ef4444" text-anchor="middle">Prone to Hallucinations</text>
 
-                        <text x="670" y="80" font-family="sans-serif" font-weight="800" font-size="18" fill="#047857" text-anchor="middle">Source-Grounded AI (RAG)</text>
-                        <text x="670" y="100" font-family="sans-serif" font-weight="500" font-size="13" fill="#10b981" text-anchor="middle">Ensures Factual Integrity</text>
+                        <text x="670" y="80" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="800" font-size="18" fill="#047857" text-anchor="middle">Source-Grounded AI (RAG)</text>
+                        <text x="670" y="100" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="500" font-size="13" fill="#10b981" text-anchor="middle">Ensures Factual Integrity</text>
 
                         <!-- Left Flow (Generic) -->
                         <path d="M 180 150 C 180 120, 280 120, 280 150 C 310 150, 310 190, 280 190 L 180 190 C 150 190, 150 150, 180 150 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="3"/>
-                        <text x="230" y="155" font-family="sans-serif" font-weight="700" font-size="14" fill="#64748b" text-anchor="middle">Open Internet</text>
-                        <text x="230" y="175" font-family="sans-serif" font-weight="500" font-size="12" fill="#94a3b8" text-anchor="middle">(Unverified Data)</text>
+                        <text x="230" y="155" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="700" font-size="14" fill="#64748b" text-anchor="middle">Open Internet</text>
+                        <text x="230" y="175" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="500" font-size="12" fill="#94a3b8" text-anchor="middle">(Unverified Data)</text>
 
                         <path d="M 230 195 L 230 225" stroke="#ef4444" stroke-width="4" marker-end="url(#arrow-red-mod5)"/>
 
                         <rect x="150" y="235" width="160" height="35" rx="8" fill="#ffffff" stroke="#ef4444" stroke-width="2"/>
-                        <text x="230" y="258" font-family="sans-serif" font-weight="700" font-size="14" fill="#ef4444" text-anchor="middle">LLM Engine</text>
+                        <text x="230" y="258" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="700" font-size="14" fill="#ef4444" text-anchor="middle">LLM Engine</text>
 
                         <path d="M 230 275 L 230 295" stroke="#ef4444" stroke-width="4" marker-end="url(#arrow-red-mod5)"/>
 
-                        <text x="230" y="310" font-family="sans-serif" font-weight="800" font-size="14" fill="#b91c1c" text-anchor="middle">Result: Fictional Citations</text>
+                        <text x="230" y="310" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="800" font-size="14" fill="#b91c1c" text-anchor="middle">Result: Fictional Citations</text>
 
 
                         <!-- Right Flow (Source-Grounded) -->
@@ -648,24 +644,24 @@
                         <line x1="655" y1="150" x2="685" y2="150" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
                         <line x1="655" y1="170" x2="685" y2="170" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
                         
-                        <text x="580" y="155" font-family="sans-serif" font-weight="700" font-size="14" fill="#047857" text-anchor="end">Vetted</text>
-                        <text x="580" y="175" font-family="sans-serif" font-weight="700" font-size="14" fill="#047857" text-anchor="end">District PDFs</text>
+                        <text x="580" y="155" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="700" font-size="14" fill="#047857" text-anchor="end">Vetted</text>
+                        <text x="580" y="175" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="700" font-size="14" fill="#047857" text-anchor="end">District PDFs</text>
                         
                         <path d="M 670 195 L 670 225" stroke="#10b981" stroke-width="4" marker-end="url(#arrow-green-mod5)"/>
 
                         <!-- Processing Box -->
                         <rect x="590" y="235" width="160" height="35" rx="8" fill="#ffffff" stroke="#10b981" stroke-width="2"/>
-                        <text x="670" y="258" font-family="sans-serif" font-weight="700" font-size="14" fill="#10b981" text-anchor="middle">NotebookLM</text>
+                        <text x="670" y="258" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="700" font-size="14" fill="#10b981" text-anchor="middle">NotebookLM</text>
 
                         <!-- Arrow 2 -->
                         <path d="M 670 275 L 670 295" stroke="#10b981" stroke-width="4" marker-end="url(#arrow-green-mod5)"/>
 
                         <!-- Result -->
-                        <text x="670" y="310" font-family="sans-serif" font-weight="800" font-size="14" fill="#047857" text-anchor="middle">Result: 100% Factually Accurate</text>
+                        <text x="670" y="310" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="800" font-size="14" fill="#047857" text-anchor="middle">Result: 100% Factually Accurate</text>
 
                         <!-- Separation / Versus -->
                         <circle cx="430" cy="180" r="20" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
-                        <text x="430" y="185" font-family="sans-serif" font-weight="700" font-size="14" fill="#64748b" text-anchor="middle">VS</text>
+                        <text x="430" y="185" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="700" font-size="14" fill="#64748b" text-anchor="middle">VS</text>
                     </svg>
                 `,
                 overview: "This is the building phase. With tools like NotebookLM and Copilot, educators can shift from spending hours manually typing out study guides and rubrics to rapidly generating, curating, and refining high-quality, customized course assets that reside natively within Brightspace.",
@@ -719,7 +715,7 @@
                         guidelines: [
                             "Upload your course syllabus, grading policies, and late-work rules into NotebookLM. Click \"FAQ.\" Take the resulting document and paste it into a Brightspace HTML page titled \"Course Policies FAQ\"."
                         ],
-                        why: "Students often skim syllabi. By letting AI generate an FAQ based on your policies (e.g., \"What happens if my internet drops during a quiz?\"), you anticipate their anxieties and reduce repetitive administrative emails."
+                        why: "Students often skim syllabi. By letting AI generate an FAQ based on your policies (for example, \"What happens if my internet drops during a quiz?\"), you anticipate their anxieties and reduce repetitive administrative emails."
                     }
                 ],
                 table: [
@@ -759,28 +755,28 @@
                         <!-- Grid Lines -->
                         <line x1="100" y1="300" x2="800" y2="300" stroke="#cbd5e1" stroke-width="2"/>
                         <line x1="100" y1="300" x2="100" y2="50" stroke="#cbd5e1" stroke-width="2"/>
-                        <text x="50" y="175" font-family="sans-serif" font-weight="700" font-size="14" fill="#64748b" transform="rotate(-90 50,175)" text-anchor="middle">Mastery Level</text>
-                        <text x="450" y="340" font-family="sans-serif" font-weight="700" font-size="14" fill="#64748b" text-anchor="middle">Progression &amp; Effort</text>
+                        <text x="50" y="175" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="700" font-size="14" fill="#64748b" transform="rotate(-90 50,175)" text-anchor="middle">Mastery Level</text>
+                        <text x="450" y="340" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="700" font-size="14" fill="#64748b" text-anchor="middle">Progression and effort</text>
                         <!-- The Peak / Standard -->
                         <circle cx="750" cy="80" r="12" fill="#f59e0b"/>
                         <path d="M 100 80 L 730 80" stroke="#fcd34d" stroke-width="2" stroke-dasharray="8 8"/>
-                        <text x="750" y="55" font-family="sans-serif" font-weight="800" font-size="16" fill="#b45309" text-anchor="middle">Rigorous Academic Standard</text>
+                        <text x="750" y="55" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="800" font-size="16" fill="#b45309" text-anchor="middle">Rigorous Academic Standard</text>
                         <!-- Flatline Path (No Scaffolding) -->
                         <path d="M 100 300 Q 300 280 400 280 L 800 280" fill="none" stroke="#ef4444" stroke-width="4" stroke-dasharray="6 6"/>
-                        <text x="600" y="270" font-family="sans-serif" font-weight="600" font-size="14" fill="#ef4444">No Scaffolding (Flatlines)</text>
+                        <text x="600" y="270" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="600" font-size="14" fill="#ef4444">No Scaffolding (Flatlines)</text>
                         <!-- Scaffolded Path (GPS Effect) -->
                         <path d="M 100 300 Q 300 250 450 180 T 750 80" fill="none" stroke="#4f46e5" stroke-width="6"/>
                         <!-- Waypoints -->
                         <circle cx="300" cy="235" r="10" fill="#4f46e5" stroke="#fff" stroke-width="3"/>
-                        <text x="300" y="265" font-family="sans-serif" font-weight="600" font-size="12" fill="#4338ca" text-anchor="middle">Simplified Text</text>
+                        <text x="300" y="265" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="600" font-size="12" fill="#4338ca" text-anchor="middle">Simplified Text</text>
                         <circle cx="450" cy="180" r="10" fill="#4f46e5" stroke="#fff" stroke-width="3"/>
-                        <text x="450" y="210" font-family="sans-serif" font-weight="600" font-size="12" fill="#4338ca" text-anchor="middle">Audio Option</text>
+                        <text x="450" y="210" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="600" font-size="12" fill="#4338ca" text-anchor="middle">Audio Option</text>
                         <circle cx="620" cy="115" r="10" fill="#4f46e5" stroke="#fff" stroke-width="3"/>
-                        <text x="620" y="145" font-family="sans-serif" font-weight="600" font-size="12" fill="#4338ca" text-anchor="middle">Relevant Context</text>
+                        <text x="620" y="145" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="600" font-size="12" fill="#4338ca" text-anchor="middle">Relevant Context</text>
                         <!-- Callout Box -->
                         <rect x="150" y="60" width="220" height="70" rx="8" fill="#e0e7ff" stroke="#a5b4fc" stroke-width="2"/>
-                        <text x="260" y="85" font-family="sans-serif" font-weight="800" font-size="16" fill="#4f46e5" text-anchor="middle">The "GPS Effect"</text>
-                        <text x="260" y="110" font-family="sans-serif" font-weight="500" font-size="12" fill="#4338ca" text-anchor="middle">Turn-by-turn cognitive guidance</text>
+                        <text x="260" y="85" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="800" font-size="16" fill="#4f46e5" text-anchor="middle">The "GPS Effect"</text>
+                        <text x="260" y="110" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="500" font-size="12" fill="#4338ca" text-anchor="middle">Turn-by-turn cognitive guidance</text>
                     </svg>
                 `,
                 overview: "Online distance education classrooms are highly diverse, often encompassing a wide spectrum of reading levels, linguistic backgrounds, and executive functioning capacities. AI is the ultimate equalizer in this domain, allowing educators to instantly modify the reading level, language, or cultural context of a lesson without changing the core academic standard.",
@@ -809,7 +805,7 @@
                         what: "Take your original text, your Gemini-simplified text, and a third version translated into your students' most common secondary language, housing them all on one page.",
                         guidelines: [
                             "Use the built-in Brightspace HTML templates to place them into an \"Accordion\" or \"Tabs\" layout.",
-                            "Label the tabs clearly (e.g., \"Original Text,\" \"Simplified Summary,\" \"Spanish Translation\").",
+                            "Label the tabs clearly (for example, \"Original Text,\" \"Simplified Summary,\" \"Spanish Translation\").",
                             "Ensure all students must answer the <em>same</em> rigorous prompt at the bottom of the page."
                         ],
                         why: "Rather than forcing a student into a visible \"remedial\" track, housing diverse text formats in a single location empowers student agency. In an online environment, no one knows which tab a student chose to open, preserving their dignity."
@@ -825,7 +821,7 @@
                     },
                     { 
                         name: "Culturally Responsive Scenario Generation", 
-                        what: "Use Gemini to rewrite generic curriculum examples (e.g., a math word problem about a subway train) into scenarios that reflect the students' specific local community and culture.<sup>1</sup>",
+                        what: "Use Gemini to rewrite generic curriculum examples (for example, a math word problem about a subway train) into scenarios that reflect the students' specific local community and culture.<sup>1</sup>",
                         guidelines: [
                             "Prompt Gemini: \"Take this math word problem about a train traveling from New York to Boston. Rewrite it to be about a logging truck traveling through rural Alberta. Keep the exact same mathematical formula and difficulty.\""
                         ],
@@ -869,27 +865,27 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 350" class="w-full h-auto max-w-4xl drop-shadow-sm" role="img" aria-label="A network diagram showing Human-to-Human Empathy vs Human-to-AI Mechanical connection.">
                         <!-- Human Teacher -->
                         <circle cx="200" cy="150" r="50" fill="#4f46e5"/>
-                        <text x="200" y="155" font-family="sans-serif" font-weight="800" font-size="16" fill="#fff" text-anchor="middle">Teacher</text>
+                        <text x="200" y="155" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="800" font-size="16" fill="#fff" text-anchor="middle">Teacher</text>
                         <!-- Human Student -->
                         <circle cx="450" cy="150" r="50" fill="#10b981"/>
-                        <text x="450" y="155" font-family="sans-serif" font-weight="800" font-size="16" fill="#fff" text-anchor="middle">Student</text>
+                        <text x="450" y="155" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="800" font-size="16" fill="#fff" text-anchor="middle">Student</text>
                         <!-- AI Bot -->
                         <rect x="680" y="100" width="100" height="100" rx="16" fill="#64748b"/>
-                        <text x="730" y="155" font-family="sans-serif" font-weight="800" font-size="16" fill="#fff" text-anchor="middle">AI Model</text>
+                        <text x="730" y="155" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="800" font-size="16" fill="#fff" text-anchor="middle">AI Model</text>
                         <!-- Connection: Teacher to Student -->
                         <path d="M 250 140 Q 325 100 400 140" fill="none" stroke="#6366f1" stroke-width="5" stroke-linecap="round"/>
                         <path d="M 250 160 Q 325 200 400 160" fill="none" stroke="#6366f1" stroke-width="5" stroke-linecap="round"/>
                         <line x1="260" y1="150" x2="390" y2="150" stroke="#6366f1" stroke-width="5" stroke-dasharray="6 6"/>
                         <rect x="250" y="50" width="150" height="30" rx="6" fill="#e0e7ff"/>
-                        <text x="325" y="70" font-family="sans-serif" font-weight="700" font-size="13" fill="#4338ca" text-anchor="middle">Neuronal Coupling</text>
+                        <text x="325" y="70" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="700" font-size="13" fill="#4338ca" text-anchor="middle">Neuronal Coupling</text>
                         <rect x="250" y="220" width="150" height="30" rx="6" fill="#e0e7ff"/>
-                        <text x="325" y="240" font-family="sans-serif" font-weight="700" font-size="13" fill="#4338ca" text-anchor="middle">Empathy &amp; Trust</text>
+                        <text x="325" y="240" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="700" font-size="13" fill="#4338ca" text-anchor="middle">Empathy and trust</text>
                         <!-- Connection: Student to AI -->
                         <line x1="500" y1="150" x2="680" y2="150" stroke="#94a3b8" stroke-width="6"/>
                         <rect x="525" y="100" width="120" height="30" rx="6" fill="#f1f5f9"/>
-                        <text x="585" y="120" font-family="sans-serif" font-weight="700" font-size="13" fill="#475569" text-anchor="middle">Mechanical Tool</text>
+                        <text x="585" y="120" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="700" font-size="13" fill="#475569" text-anchor="middle">Mechanical Tool</text>
                         <rect x="525" y="170" width="120" height="30" rx="6" fill="#fef2f2"/>
-                        <text x="585" y="190" font-family="sans-serif" font-weight="700" font-size="13" fill="#ef4444" text-anchor="middle">Zero Empathy</text>
+                        <text x="585" y="190" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="700" font-size="13" fill="#ef4444" text-anchor="middle">Zero Empathy</text>
                     </svg>
                 `,
                 overview: "Teaching online isn't about functioning as a digital content dispenser; it is about being profoundly human. When AI can generate perfect academic answers in seconds, the teacher's value shifts heavily to relational coaching, motivation, and actively teaching students how to critically collaborate with technology rather than cheat with it.",
@@ -897,7 +893,7 @@
                 deeperContext: "<ul class='list-none space-y-5'><li><strong class='text-indigo-900'>The Risk of Transactional Distance:</strong> Online learning inherently suffers from \"transactional distance\"—a psychological and communication gap between teachers and learners. If not actively managed with intentional social presence, students feel like they are interacting with a cold screen rather than a caring person.</li><li><strong class='text-indigo-900'>Teacher as Coach, Not Referee:</strong> Because an AI can instantly referee the facts (telling a student if an answer is right or wrong), the human teacher must pivot to evaluating the <em>person</em>. The focus shifts to praising effort, guiding the iteration process, and providing the emotional scaffolding required to overcome academic frustration.<sup>1</sup></li><li><strong class='text-indigo-900'>Humanizing the Digital Space:</strong> Research by John Hattie indicates that a strongly empathetic learner-teacher relationship imparts two and a half times greater impact on learning than mere algorithmic personalization of content.<sup>21</sup></li></ul>",
                 anecdote: "I noticed a student hadn't logged into Brightspace in five days. Instead of sending a generic text email, I recorded a 30-second Video Note right from my webcam saying, 'Hey Marcus, I noticed you've been away. I miss your insights on the discussion boards. Let me know how I can help you catch up.' He replied an hour later saying he had been overwhelmed, but hearing his name spoken aloud made him realize he wasn't invisible. That human connection is what brought him back.",
                 keyConcept: {
-                    title: "Neuronal Coupling & Social Presence",
+                    title: "Neuronal Coupling and Social Presence",
                     points: [
                         "<strong>Neuronal Coupling:</strong> The biological syncing of brain waves between human beings during empathetic communication.",
                         "<strong>Social Presence:</strong> The ability of a teacher to project their personality, emotion, and humanity through a screen to reduce 'transactional distance'."
@@ -929,7 +925,7 @@
                     },
                     { 
                         name: "Assign the 'AI-Simulator' Role", 
-                        what: "Direct students to prompt Copilot or Gemini to act in a specific role (e.g., a historical figure or a debate opponent).<sup>1</sup>",
+                        what: "Direct students to prompt Copilot or Gemini to act in a specific role (for example, a historical figure or a debate opponent).<sup>1</sup>",
                         guidelines: [
                             "Provide the students with the exact prompt structure: \"Act as Abraham Lincoln. I will interview you about the Emancipation Proclamation. Answer my questions one at a time and stay in character.\"<sup>1</sup>",
                             "Require students to submit a reflection paragraph answering: \"What did the AI get right, and what did it miss based on our textbook?\"<sup>1</sup>"
@@ -980,27 +976,27 @@
                         <!-- Social Presence -->
                         <circle cx="350" cy="200" r="140" fill="#3b82f6" fill-opacity="0.15" stroke="#3b82f6" stroke-width="4"/>
                         <rect x="100" y="80" width="160" height="50" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
-                        <text x="180" y="100" font-family="sans-serif" font-weight="800" font-size="14" fill="#1d4ed8" text-anchor="middle">Social Presence</text>
-                        <text x="180" y="118" font-family="sans-serif" font-weight="500" font-size="12" fill="#1e3a8a" text-anchor="middle">Trust, Belonging, Safety</text>
+                        <text x="180" y="100" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="800" font-size="14" fill="#1d4ed8" text-anchor="middle">Social Presence</text>
+                        <text x="180" y="118" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="500" font-size="12" fill="#1e3a8a" text-anchor="middle">Trust, Belonging, Safety</text>
                         <path d="M 230 130 L 270 160" stroke="#3b82f6" stroke-width="3"/>
                         
                         <!-- Cognitive Presence -->
                         <circle cx="550" cy="200" r="140" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="4"/>
                         <rect x="640" y="80" width="160" height="50" rx="8" fill="#fffbeb" stroke="#f59e0b" stroke-width="2"/>
-                        <text x="720" y="100" font-family="sans-serif" font-weight="800" font-size="14" fill="#b45309" text-anchor="middle">Cognitive Presence</text>
-                        <text x="720" y="118" font-family="sans-serif" font-weight="500" font-size="12" fill="#78350f" text-anchor="middle">Discourse, Synthesis</text>
+                        <text x="720" y="100" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="800" font-size="14" fill="#b45309" text-anchor="middle">Cognitive Presence</text>
+                        <text x="720" y="118" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="500" font-size="12" fill="#78350f" text-anchor="middle">Discourse, Synthesis</text>
                         <path d="M 670 130 L 630 160" stroke="#f59e0b" stroke-width="3"/>
                         
                         <!-- Teaching Presence -->
                         <circle cx="450" cy="320" r="140" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-width="4"/>
                         <rect x="370" y="390" width="160" height="50" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
-                        <text x="450" y="410" font-family="sans-serif" font-weight="800" font-size="14" fill="#047857" text-anchor="middle">Teaching Presence</text>
-                        <text x="450" y="428" font-family="sans-serif" font-weight="500" font-size="12" fill="#064e3b" text-anchor="middle">Design, Facilitation</text>
+                        <text x="450" y="410" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="800" font-size="14" fill="#047857" text-anchor="middle">Teaching Presence</text>
+                        <text x="450" y="428" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="500" font-size="12" fill="#064e3b" text-anchor="middle">Design, Facilitation</text>
                         
                         <!-- Center Educational Experience -->
                         <rect x="380" y="215" width="140" height="50" rx="8" fill="#1e293b"/>
-                        <text x="450" y="235" font-family="sans-serif" font-weight="800" font-size="13" fill="#ffffff" text-anchor="middle">Meaningful</text>
-                        <text x="450" y="252" font-family="sans-serif" font-weight="800" font-size="13" fill="#ffffff" text-anchor="middle">Educational Exp.</text>
+                        <text x="450" y="235" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="800" font-size="13" fill="#ffffff" text-anchor="middle">Meaningful</text>
+                        <text x="450" y="252" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="800" font-size="13" fill="#ffffff" text-anchor="middle">Educational Exp.</text>
                     </svg>
                 `,
                 overview: "To move beyond passive content consumption, online distance courses must actively cultivate a \"Community of Inquiry\" (CoI). This framework relies on three interconnected elements: Social Presence, Cognitive Presence, and Teaching Presence. Brightspace’s core communication tools—specifically threaded discussions, the Activity Feed, and Groups—are the primary vehicles for building this community, ensuring students feel connected, challenged, and supported by their instructor and peers.",
@@ -1034,7 +1030,7 @@
                     },
                     { 
                         name: "Small Group Collaborative Spaces (Pods)", 
-                        what: "Use the native Brightspace Groups tool to divide large classes into smaller pods (e.g., 4-5 students) and assign them dedicated, restricted Discussion forums.",
+                        what: "Use the native Brightspace Groups tool to divide large classes into smaller pods (for example, 4-5 students) and assign them dedicated, restricted Discussion forums.",
                         guidelines: [
                             "Keep these pods consistent for at least 4-6 weeks so students have time to build rapport.",
                             "Use the \"Group Category\" setup to auto-enroll students and automatically generate a private discussion topic for each group."
@@ -1100,59 +1096,59 @@
                         </defs>
 
                         <!-- Title -->
-                        <text x="450" y="40" font-family="sans-serif" font-weight="800" font-size="20" fill="#1e293b" text-anchor="middle">The Swiss Cheese Model of Assessment</text>
-                        <text x="450" y="60" font-family="sans-serif" font-weight="500" font-size="14" fill="#64748b" text-anchor="middle">Layering diverse assessments ensures validity by covering each method's specific vulnerabilities.</text>
+                        <text x="450" y="40" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="800" font-size="20" fill="#1e293b" text-anchor="middle">The Swiss Cheese Model of Assessment</text>
+                        <text x="450" y="60" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="500" font-size="14" fill="#64748b" text-anchor="middle">Layering diverse assessments ensures validity by covering each method's specific vulnerabilities.</text>
 
                         <!-- Layer 1: Take-Home Essay -->
                         <rect x="300" y="90" width="80" height="240" rx="8" fill="#fef08a" stroke="#f59e0b" stroke-width="3"/>
                         <circle cx="340" cy="130" r="25" fill="#fff" stroke="#f59e0b" stroke-width="3"/> <!-- Hole 1 -->
                         <circle cx="340" cy="270" r="20" fill="#fff" stroke="#f59e0b" stroke-width="3"/> <!-- Hole 2 -->
-                        <text x="340" y="355" font-family="sans-serif" font-weight="700" font-size="14" fill="#854d0e" text-anchor="middle">Layer 1:</text>
-                        <text x="340" y="375" font-family="sans-serif" font-weight="600" font-size="13" fill="#a16207" text-anchor="middle">Take-Home Essay</text>
+                        <text x="340" y="355" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="700" font-size="14" fill="#854d0e" text-anchor="middle">Layer 1:</text>
+                        <text x="340" y="375" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="600" font-size="13" fill="#a16207" text-anchor="middle">Take-Home Essay</text>
 
                         <!-- Layer 2: Randomized Quiz -->
                         <rect x="500" y="90" width="80" height="240" rx="8" fill="#fef08a" stroke="#f59e0b" stroke-width="3"/>
                         <circle cx="540" cy="200" r="20" fill="#fff" stroke="#f59e0b" stroke-width="3"/> <!-- Hole 3 -->
                         <circle cx="540" cy="270" r="15" fill="#fff" stroke="#f59e0b" stroke-width="3"/> <!-- Hole 4 -->
-                        <text x="540" y="355" font-family="sans-serif" font-weight="700" font-size="14" fill="#854d0e" text-anchor="middle">Layer 2:</text>
-                        <text x="540" y="375" font-family="sans-serif" font-weight="600" font-size="13" fill="#a16207" text-anchor="middle">Randomized Quiz</text>
+                        <text x="540" y="355" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="700" font-size="14" fill="#854d0e" text-anchor="middle">Layer 2:</text>
+                        <text x="540" y="375" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="600" font-size="13" fill="#a16207" text-anchor="middle">Randomized Quiz</text>
 
                         <!-- Layer 3: Video Defense -->
                         <rect x="700" y="90" width="80" height="240" rx="8" fill="#fef08a" stroke="#f59e0b" stroke-width="3"/>
                         <circle cx="740" cy="160" r="15" fill="#fff" stroke="#f59e0b" stroke-width="3"/> <!-- Hole 5 -->
-                        <text x="740" y="355" font-family="sans-serif" font-weight="700" font-size="14" fill="#854d0e" text-anchor="middle">Layer 3:</text>
-                        <text x="740" y="375" font-family="sans-serif" font-weight="600" font-size="13" fill="#a16207" text-anchor="middle">Video Defense</text>
+                        <text x="740" y="355" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="700" font-size="14" fill="#854d0e" text-anchor="middle">Layer 3:</text>
+                        <text x="740" y="375" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="600" font-size="13" fill="#a16207" text-anchor="middle">Video Defense</text>
 
                         <!-- Threats (Arrows) -->
                         <!-- Threat 1: AI Essay Bot. Passes L1, Blocked L2 -->
                         <rect x="20" y="115" width="180" height="30" rx="4" fill="#fef2f2"/>
-                        <text x="110" y="135" font-family="sans-serif" font-weight="700" font-size="14" fill="#ef4444" text-anchor="middle">AI Essay Generators</text>
+                        <text x="110" y="135" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="700" font-size="14" fill="#ef4444" text-anchor="middle">AI Essay Generators</text>
                         <path d="M 210 130 L 485 130" stroke="#ef4444" stroke-width="6" marker-end="url(#arrow-red-mod9)"/>
                         <circle cx="495" cy="130" r="8" fill="#ef4444"/> <!-- Impact -->
                         
                         <!-- Threat 2: Googling / Text Sharing. Blocked L1 -->
                         <rect x="20" y="185" width="180" height="30" rx="4" fill="#fff7ed"/>
-                        <text x="110" y="205" font-family="sans-serif" font-weight="700" font-size="14" fill="#f97316" text-anchor="middle">Googling Answers</text>
+                        <text x="110" y="205" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="700" font-size="14" fill="#f97316" text-anchor="middle">Googling Answers</text>
                         <path d="M 210 200 L 285 200" stroke="#f97316" stroke-width="6" marker-end="url(#arrow-orange-mod9)"/>
                         <circle cx="295" cy="200" r="8" fill="#f97316"/> <!-- Impact -->
 
                         <!-- Threat 3: AI Co-Pilot during test. Passes L1 & L2, Blocked L3 -->
                         <rect x="20" y="255" width="180" height="30" rx="4" fill="#fef2f2"/>
-                        <text x="110" y="275" font-family="sans-serif" font-weight="700" font-size="14" fill="#991b1b" text-anchor="middle">Real-time AI Co-Pilot</text>
+                        <text x="110" y="275" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="700" font-size="14" fill="#991b1b" text-anchor="middle">Real-time AI Co-Pilot</text>
                         <path d="M 210 270 L 685 270" stroke="#991b1b" stroke-width="6" marker-end="url(#arrow-darkred-mod9)"/>
                         <circle cx="695" cy="270" r="8" fill="#991b1b"/> <!-- Impact -->
 
                         <!-- Success / Validity -->
                         <rect x="810" y="130" width="70" height="160" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="3"/>
-                        <text x="845" y="210" font-family="sans-serif" font-weight="800" font-size="16" fill="#059669" text-anchor="middle" transform="rotate(270 845,210)">Valid Mastery</text>
+                        <text x="845" y="210" font-family="Calibri, Aptos, Arial, sans-serif" font-weight="800" font-size="16" fill="#059669" text-anchor="middle" transform="rotate(270 845,210)">Valid Mastery</text>
                     </svg>
                 `,
                 overview: "Traditional asynchronous assessments, particularly take-home essays and unproctored multiple-choice tests, are highly vulnerable to automated completion. If an AI can complete an assessment in five seconds, it is no longer a valid measure of human learning. Educators must adopt modernized assessment practices focused on structural validity, ethical transparency, and the measurement of evaluative judgment.",
-                theory: "<p>Modern assessment in the AI era is governed by Evidence-Centered Assessment Design (ECD), the Postplagiarism framework, and the Swiss Cheese Model of Assessment.</p><ul class='list-disc pl-8 mt-4 space-y-3 text-slate-800'><li><strong>Evidence-Centered Assessment Design (ECD):</strong> Developed by Robert Mislevy, ECD provides a principled model for linking assessment tasks, evidence, and inferences about learners' knowledge. By moving beyond a narrow focus on final outputs, ECD advocates for collecting three streams of data: product evidence (accuracy of the final work), process evidence (how the student planned and drafted), and metacognitive evidence (the student's interaction and reflection logs).<sup>1</sup></li><li><strong>Postplagiarism:</strong> Developed by Dr. Sarah Elaine Eaton, this framework acknowledges that hybrid human-machine writing is the new normal, making attempts to ban AI or separate human versus artificial text futile.<sup>1</sup> Assessment must shift from policing rule-compliance (Referencing) to measuring meta-cognitive awareness and evaluative judgment (Attribution—asking \"How do I know what I know? Who influenced my learning?\").<sup>1</sup></li><li><strong>The Swiss Cheese Model:</strong> Originally developed for risk management in complex systems, this model operates on the principle that every single assessment method has inherent vulnerabilities or \"holes\" (e.g., a student might cheat on a written test, or struggle with a lab setting).<sup>25</sup> By layering diverse assessments—diagnostic, formative, and summative—the strengths of one layer compensate for the weaknesses of another, yielding a highly reliable and valid picture of student skills.<sup>25</sup></li></ul>",
+                theory: "<p>Modern assessment in the AI era is governed by Evidence-Centered Assessment Design (ECD), the Postplagiarism framework, and the Swiss Cheese Model of Assessment.</p><ul class='list-disc pl-8 mt-4 space-y-3 text-slate-800'><li><strong>Evidence-Centered Assessment Design (ECD):</strong> Developed by Robert Mislevy, ECD provides a principled model for linking assessment tasks, evidence, and inferences about learners' knowledge. By moving beyond a narrow focus on final outputs, ECD advocates for collecting three streams of data: product evidence (accuracy of the final work), process evidence (how the student planned and drafted), and metacognitive evidence (the student's interaction and reflection logs).<sup>1</sup></li><li><strong>Postplagiarism:</strong> Developed by Dr. Sarah Elaine Eaton, this framework acknowledges that hybrid human-machine writing is the new normal, making attempts to ban AI or separate human versus artificial text futile.<sup>1</sup> Assessment must shift from policing rule-compliance (Referencing) to measuring meta-cognitive awareness and evaluative judgment (Attribution—asking \"How do I know what I know? Who influenced my learning?\").<sup>1</sup></li><li><strong>The Swiss Cheese Model:</strong> Originally developed for risk management in complex systems, this model operates on the principle that every single assessment method has inherent vulnerabilities or \"holes\" (for example, a student might cheat on a written test, or struggle with a lab setting).<sup>25</sup> By layering diverse assessments—diagnostic, formative, and summative—the strengths of one layer compensate for the weaknesses of another, yielding a highly reliable and valid picture of student skills.<sup>25</sup></li></ul>",
                 deeperContext: "<ul class='list-none space-y-5'><li><strong class='text-indigo-900'>Validity over Policing:</strong> In the online space, attempting to use surveillance tech or AI-detectors creates an adversarial relationship and is mathematically flawed, often resulting in false positives. We must design assessments that are structurally valid because they measure the <em>process</em> of human thought, not just the final product.</li><li><strong class='text-indigo-900'>Attribution vs. Referencing:</strong> Referencing is simply formatting a citation correctly (which AI can do perfectly). Attribution is the deeply human skill of verifying a source, understanding its bias, and explaining <em>why</em> it influenced your thinking. Assessing attribution directly measures critical thinking.<sup>1</sup></li><li><strong class='text-indigo-900'>Layered Evidence:</strong> Under the Swiss Cheese Model, a teacher should never rely on a single essay to determine a student's grade. They must look at the diagnostic pre-test, the formative discussion posts, and the final video defense collectively to get a true picture of learning.<sup>25</sup></li><li><strong class='text-indigo-900'>Construct Alignment:</strong> If an assignment is designed to foster knowledge application, using a GenAI tool to complete it subverts the construct being measured. The AI usage scale ensures that students are actually demonstrating the attributes the teacher is trying to measure.<sup>26</sup></li></ul>",
                 anecdote: "I used to assign a massive research paper on environmental science. When ChatGPT came out, I panicked. I realized the essay was highly 'AI Vulnerable.' I shifted the assessment: I let the students use Copilot to brainstorm eco-friendly materials (acting as their AI-Teammate), but the final grade was based on a Brightspace Video Assignment. They had to look at their webcam, show me the physical prototype they built, and verbally defend their material choices. AI couldn't fake that.<sup>27</sup>",
                 keyConcept: {
-                    title: "Postplagiarism & The Swiss Cheese Model",
+                    title: "Postplagiarism and the Swiss Cheese Model",
                     points: [
                         "<strong>Postplagiarism:</strong> Stop trying to 'catch' AI writing. Start grading the student's ability to critically evaluate and attribute the AI's output.",
                         "<strong>Swiss Cheese Model:</strong> Accept that no single test is perfect. Layer multiple types of assessments (video, project, quiz) to cover the 'holes' in validity."
@@ -1167,7 +1163,7 @@
                         name: "Implement the AI Assessment Scale (AIAS)", 
                         what: "For every single assignment deployed in Brightspace, provide clear, transparent directions defining the permissible level of technological engagement.<sup>1</sup>",
                         guidelines: [
-                            "Add a standardized color-coded banner at the top of every Brightspace Assignment description (e.g., Red = No AI, Yellow = AI for ideation only, Green = Full AI co-authorship expected).",
+                            "Add a standardized color-coded banner at the top of every Brightspace Assignment description (for example, Red = No AI, Yellow = AI for ideation only, Green = Full AI co-authorship expected).",
                             "Have a class discussion explaining <em>why</em> certain tasks are Red (to build baseline neural pathways) and why others are Green.<sup>1</sup>"
                         ],
                         why: "This provides equity and clarity, reducing student anxiety. Validity is maintained because the level of AI usage allowed is strictly mapped to the specific learning outcomes you are trying to measure.<sup>1</sup> Ambiguity breeds academic misconduct."
@@ -1177,7 +1173,7 @@
                         what: "Transition away from highly vulnerable standard essays toward project-based learning evaluated verbally.<sup>1</sup>",
                         guidelines: [
                             "Permit students to use AI to brainstorm materials, but conduct the summative evaluation via a Brightspace Video Assignment where they must physically demonstrate a prototype or process.",
-                            "Provide a specific list of unscripted questions the student must answer on camera (e.g., \"What was the hardest part of the design process, and how did you overcome it?\").<sup>27</sup>"
+                            "Provide a specific list of unscripted questions the student must answer on camera (for example, \"What was the hardest part of the design process, and how did you overcome it?\").<sup>27</sup>"
                         ],
                         why: "This circumvents text-generation entirely. It assesses authentic critical thinking and the student's iteration process, which AI cannot fake on camera.<sup>27</sup>"
                     },
@@ -1236,12 +1232,12 @@
             "About New Content Experience - Brightspace Community - D2L, accessed February 20, 2026, https://community.d2l.com/brightspace/kb/articles/4693-about-new-content-experience",
             "I used Gemini3 to build an AI-based SVG animation website that can quickly create science animations in fields such as computer science, mathematics, and physics. - Reddit, accessed February 20, 2026, https://www.reddit.com/r/GeminiAI/comments/1phzy13/i_used_gemini3_to_build_an_aibased_svg_animation/",
             "Add Your Page to Brightspace - Course Maker - The University of Arizona, accessed February 20, 2026, https://coursemaker.arizona.edu/tutorials/how-use-page-builder/add-your-page-brightspace",
-            "How to Create Interactive SVG Animations with HTML, CSS & JavaScript - YouTube, accessed February 20, 2026, https://www.youtube.com/watch?v=SRpa7ihErnk",
+            "How to Create Interactive SVG Animations with HTML, CSS and JavaScript - YouTube, accessed February 20, 2026, https://www.youtube.com/watch?v=SRpa7ihErnk",
             "Informative SVG - Brightspace Community - D2L, accessed February 20, 2026, https://community.d2l.com/brightspace/discussion/5325/informative-svg",
             "D2L Brightspace Tips: Content Templates - dr. jennifer lynn wagner, accessed February 20, 2026, https://jenniferlynnwagner.com/d2l-content-templates.html",
             "New Content Experience in Brightspace - Sign in, accessed February 20, 2026, https://services.chatham.edu/TDClient/78/Portal/KB/ArticleDet?ID=26316",
             "Set release conditions - Brightspace Community - D2L, accessed February 20, 2026, https://community.d2l.com/brightspace/kb/articles/33418-set-release-conditions",
-            "How to Use NotebookLM: Create Study Notes & Presentations - Codecademy, accessed February 20, 2026, https://www.codecademy.com/article/how-to-use-notebooklm",
+            "How to Use NotebookLM: Create Study Notes and Presentations - Codecademy, accessed February 20, 2026, https://www.codecademy.com/article/how-to-use-notebooklm",
             "Use AI to generate learning materials from external files using D2L Lumi Content, accessed February 20, 2026, https://community.d2l.com/brightspace/kb/articles/32803-use-ai-to-generate-learning-materials-from-external-files-using-d2l-lumi-content",
             "3 Critical Problems Gen AI Poses for Learning | Harvard Business Impact Education, accessed February 20, 2026, https://hbsp.harvard.edu/inspiring-minds/the-limits-of-gen-ai-educators-in-higher-ed",
             "Using Tech to Build Quality Student-Teacher Relationships - D2L, accessed February 20, 2026, https://www.d2l.com/blog/using-tech-to-build-quality-student-teacher-relationships/",
@@ -1315,7 +1311,7 @@
             }
         }
 
-        // --- INIT & NAV ---
+        // --- INIT AND NAV ---
         function init() {
             applyStoredTheme();
             syncPresentationButtons();
@@ -1465,15 +1461,15 @@
                 <div class="animate-fade-in focus:outline-none" tabindex="-1">
                     <!-- Header -->
                     <div class="mb-8">
-                        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-100 text-indigo-900 text-sm font-bold tracking-wide mb-4 shadow-sm border border-indigo-200">
+                        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-100 text-indigo-900 text-sm font-bold tracking-normal mb-4 shadow-sm border border-indigo-200">
                             <i data-lucide="${mod.icon}" class="w-4 h-4"></i> Module ${mod.id}
                         </div>
-                        <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight tracking-tight">
+                        <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight tracking-normal">
                             ${mod.title.split('. ')[1]}
                         </h2>
                     </div>
 
-                    <!-- Unified Overview & Theory Card -->
+                    <!-- Unified Overview and Theory Card -->
                     <div class="bg-white rounded-2xl shadow-sm border border-slate-200 mb-6 overflow-hidden">
                         <div class="p-8 border-b border-slate-100 bg-slate-50/50">
                             <h3 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
@@ -1494,7 +1490,7 @@
                                 ${mod.deeperContext ? `
                                 <details class="mt-6 group/inner border border-indigo-200 rounded-xl bg-indigo-100/50 overflow-hidden focus:outline-none focus-within:ring-2 focus-within:ring-indigo-400">
                                     <summary class="cursor-pointer font-bold text-indigo-900 p-4 flex justify-between items-center text-sm focus:outline-none focus:bg-indigo-100/70 hover:bg-indigo-100/70 transition-colors">
-                                        <span class="flex items-center gap-2"><i data-lucide="zoom-in" class="w-4 h-4"></i> Explore Deeper Context & Reasoning</span>
+                                        <span class="flex items-center gap-2"><i data-lucide="zoom-in" class="w-4 h-4"></i> Explore deeper context and reasoning</span>
                                         <i data-lucide="chevron-down" class="w-4 h-4 text-indigo-700 transition-transform group-open/inner:rotate-180"></i>
                                     </summary>
                                     <div class="p-5 pt-2 text-sm text-indigo-950 leading-relaxed border-t border-indigo-200/60 mt-1">
@@ -1508,7 +1504,7 @@
                         <!-- Teacher Anecdote Callout -->
                         ${mod.anecdote ? `
                         <div class="m-8 mt-0 bg-emerald-50 border-l-4 border-emerald-600 p-6 rounded-r-xl shadow-sm">
-                            <h4 class="font-bold text-emerald-950 mb-2 flex items-center gap-2 text-sm uppercase tracking-wide">
+                            <h4 class="font-bold text-emerald-950 mb-2 flex items-center gap-2 text-sm uppercase tracking-normal">
                                 <i data-lucide="message-circle" class="w-5 h-5 text-emerald-700"></i> From the Classroom
                             </h4>
                             <p class="text-emerald-900 text-[15px] italic leading-relaxed">"${mod.anecdote}"</p>
@@ -1516,7 +1512,7 @@
                         ` : ''}
                     </div>
 
-                    <!-- Toggleable Visual & Audio Summaries -->
+                    <!-- Toggleable Visual and Audio Summaries -->
                     ${(mod.graphic || mod.audioSrc) ? `
                     <div class="mb-12 w-full bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
                         <div class="flex flex-col sm:flex-row border-b border-slate-200 bg-white">
@@ -1555,7 +1551,7 @@
                     <!-- Key Concept -->
                     ${mod.keyConcept ? `
                     <div class="bg-amber-50 border-l-4 border-amber-600 p-8 rounded-r-2xl mb-12 shadow-sm">
-                        <h3 class="text-lg font-bold text-amber-950 mb-3 flex items-center gap-2 uppercase tracking-wide text-sm">
+                        <h3 class="text-lg font-bold text-amber-950 mb-3 flex items-center gap-2 uppercase tracking-normal text-sm">
                             <i data-lucide="key" class="w-5 h-5 text-amber-700"></i> Key Concept: ${mod.keyConcept.title}
                         </h3>
                         <div class="text-amber-950 space-y-3 text-[15px] leading-relaxed">
@@ -1581,7 +1577,7 @@
                                             <div class="px-5 pb-6 text-slate-800 border-t border-slate-100 pt-5 text-[15px] leading-relaxed">
                                                 
                                                 <div class="mb-4">
-                                                    <strong class="text-slate-900 bg-slate-100 px-2 py-1 rounded text-sm uppercase tracking-wide mr-2">What it is</strong>
+                                                    <strong class="text-slate-900 bg-slate-100 px-2 py-1 rounded text-sm uppercase tracking-normal mr-2">What it is</strong>
                                                     <span class="block mt-2">${strat.what}</span>
                                                 </div>
                                                 
@@ -1595,7 +1591,7 @@
                                                 ` : ''}
                                                 
                                                 <div class="mb-2">
-                                                    <strong class="text-slate-900 bg-indigo-100 px-2 py-1 rounded text-sm uppercase tracking-wide text-indigo-900 mr-2">Why to use it</strong>
+                                                    <strong class="text-slate-900 bg-indigo-100 px-2 py-1 rounded text-sm uppercase tracking-normal text-indigo-900 mr-2">Why to use it</strong>
                                                     <span class="block mt-2">${strat.why}</span>
                                                 </div>
                                                 
@@ -1609,7 +1605,7 @@
                         <!-- Reference Table -->
                         ${mod.table ? `
                         <details class="mt-4 group border border-slate-200 rounded-xl bg-white shadow-sm overflow-hidden focus:outline-none focus-within:ring-2 focus-within:ring-indigo-400">
-                            <summary class="w-full flex justify-between items-center p-4 cursor-pointer hover:bg-slate-50 focus:outline-none transition-colors text-sm font-bold text-slate-700 uppercase tracking-wide">
+                            <summary class="w-full flex justify-between items-center p-4 cursor-pointer hover:bg-slate-50 focus:outline-none transition-colors text-sm font-bold text-slate-700 uppercase tracking-normal">
                                 <span class="flex items-center gap-2"><i data-lucide="table" class="w-4 h-4 text-slate-600"></i> View Quick Reference Summary Table</span>
                                 <i data-lucide="chevron-down" class="w-4 h-4 text-slate-500 transform transition-transform duration-300 group-open:-rotate-180"></i>
                             </summary>
@@ -1637,12 +1633,12 @@
 
                     <!-- Knowledge Checks -->
                     <h3 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2 border-b border-slate-200 pb-3">
-                        <i data-lucide="dumbbell" class="text-amber-600"></i> Practice & Apply
+                        <i data-lucide="dumbbell" class="text-amber-600"></i> Practice and apply
                     </h3>
 
                     ${mod.flashcards ? `
                     <div class="mb-10">
-                        <p class="text-slate-700 font-bold mb-4 text-sm uppercase tracking-wide">CONCEPT MASTERY: Click the cards to reveal the answers and test your conceptual understanding.</p>
+                        <p class="text-slate-700 font-bold mb-4 text-sm uppercase tracking-normal">CONCEPT MASTERY: Click the cards to reveal the answers and test your conceptual understanding.</p>
                         <div class="grid md:grid-cols-2 gap-6">
                             ${mod.flashcards.map((card, idx) => `
                                 <div class="flashcard relative w-full h-48 perspective-1000 cursor-pointer group focus:outline-none" onclick="this.classList.toggle('flipped')" tabindex="0" onkeypress="if(event.key === 'Enter') this.classList.toggle('flipped')">
@@ -1651,7 +1647,7 @@
                                         <div class="absolute w-full h-full backface-hidden bg-white rounded-xl p-6 flex flex-col justify-center items-center text-center group-hover:border-indigo-400 group-focus:ring-2 group-focus:ring-indigo-600 transition-colors">
                                             <i data-lucide="help-circle" class="w-8 h-8 text-indigo-600 mb-3"></i>
                                             <p class="text-slate-900 font-bold text-[15px]">${card.q}</p>
-                                            <p class="text-xs text-slate-500 mt-4 font-bold tracking-wide uppercase">Click to flip</p>
+                                            <p class="text-xs text-slate-500 mt-4 font-bold tracking-normal uppercase">Click to flip</p>
                                         </div>
                                         <!-- Back -->
                                         <div class="absolute w-full h-full backface-hidden bg-indigo-700 text-white rounded-xl p-6 flex flex-col justify-center items-center text-center rotate-y-180 group-focus:ring-2 group-focus:ring-indigo-600">
@@ -1683,7 +1679,7 @@
                     <!-- Hero Section -->
                     <div class="bg-gradient-to-br from-indigo-900 to-slate-800 rounded-3xl p-8 md:p-12 text-white shadow-xl mb-12 relative overflow-hidden">
                         <div class="relative z-10">
-                            <h1 class="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight leading-tight">Mastering Secondary Online Education</h1>
+                            <h1 class="text-4xl md:text-5xl font-extrabold mb-6 tracking-normal leading-tight">Mastering Secondary Online Education</h1>
                             <p class="text-lg md:text-xl text-indigo-100 font-medium max-w-3xl leading-relaxed">
                                 Designed specifically for Grades 7-12 online educators, this professional learning hub explores the intersection of rigorous instructional design, deep relational teaching, and generative AI.
                             </p>
@@ -1733,7 +1729,7 @@
         function renderReferences(container) {
             container.innerHTML = `
                 <div class="animate-fade-in pb-20 focus:outline-none" tabindex="-1">
-                    <h2 class="text-4xl font-extrabold text-slate-900 mb-10 border-b border-slate-200 pb-4">References & Works Cited</h2>
+                    <h2 class="text-4xl font-extrabold text-slate-900 mb-10 border-b border-slate-200 pb-4">References and works cited</h2>
                     <ul class="space-y-4 text-slate-800">
                         ${references.map(ref => {
                             const parts = ref.split(/(https?:\/\/[^\s]+)/g);
@@ -1887,14 +1883,14 @@
 
             container.innerHTML = `
                 <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
-                    <p class="text-slate-800 font-bold mb-4 text-sm uppercase tracking-wide">APPLICATION: Read the classroom scenarios below. Drag the strategy (or tap to select) that best solves the pedagogical challenge.</p>
+                    <p class="text-slate-800 font-bold mb-4 text-sm uppercase tracking-normal">APPLICATION: Read the classroom scenarios below. Drag the strategy (or tap to select) that best solves the pedagogical challenge.</p>
                     <div class="flex flex-col lg:flex-row gap-8">
                         <div class="w-full lg:w-1/3">
-                            <h4 class="font-bold text-slate-900 mb-4 flex items-center gap-2 text-sm uppercase tracking-wide"><i data-lucide="layers" class="w-4 h-4 text-slate-600"></i> Strategy Bank</h4>
+                            <h4 class="font-bold text-slate-900 mb-4 flex items-center gap-2 text-sm uppercase tracking-normal"><i data-lucide="layers" class="w-4 h-4 text-slate-600"></i> Strategy Bank</h4>
                             <div class="flex flex-col gap-3 p-5 bg-slate-100 rounded-xl border border-slate-300 shadow-inner min-h-[300px]">${termsHtml}</div>
                         </div>
                         <div class="w-full lg:w-2/3 flex flex-col gap-5">
-                            <h4 class="font-bold text-slate-900 mb-[-4px] flex items-center gap-2 text-sm uppercase tracking-wide"><i data-lucide="layout-grid" class="w-4 h-4 text-slate-600"></i> Classroom Scenarios</h4>
+                            <h4 class="font-bold text-slate-900 mb-[-4px] flex items-center gap-2 text-sm uppercase tracking-normal"><i data-lucide="layout-grid" class="w-4 h-4 text-slate-600"></i> Classroom Scenarios</h4>
                             ${zonesHtml}
                         </div>
                     </div>
@@ -1940,7 +1936,7 @@
 
             container.innerHTML = `
                 <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
-                    <p class="text-slate-800 font-bold mb-6 text-sm uppercase tracking-wide">APPLICATION: ${data.instructions}</p>
+                    <p class="text-slate-800 font-bold mb-6 text-sm uppercase tracking-normal">APPLICATION: ${data.instructions}</p>
                     <div class="flex flex-col gap-6">
                         <div class="flex flex-wrap gap-3 p-5 bg-slate-100 rounded-xl border border-slate-300 shadow-inner min-h-[100px] justify-center">
                             ${termsHtml}
@@ -1991,16 +1987,16 @@
 
             container.innerHTML = `
                 <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
-                    <p class="text-slate-800 font-bold mb-6 text-sm uppercase tracking-wide">APPLICATION: ${data.instructions}</p>
+                    <p class="text-slate-800 font-bold mb-6 text-sm uppercase tracking-normal">APPLICATION: ${data.instructions}</p>
                     <div class="flex flex-col lg:flex-row gap-10">
                         <div class="w-full lg:w-1/2 flex flex-col gap-3">
-                            <h4 class="font-bold text-slate-900 mb-2 flex items-center gap-2 text-sm uppercase tracking-wide"><i data-lucide="layers" class="w-4 h-4 text-slate-600"></i> Available Steps</h4>
+                            <h4 class="font-bold text-slate-900 mb-2 flex items-center gap-2 text-sm uppercase tracking-normal"><i data-lucide="layers" class="w-4 h-4 text-slate-600"></i> Available Steps</h4>
                             <div class="flex flex-col gap-3 p-5 bg-slate-100 rounded-xl border border-slate-300 shadow-inner min-h-[300px]">
                                 ${termsHtml}
                             </div>
                         </div>
                         <div class="w-full lg:w-1/2 flex flex-col gap-4">
-                            <h4 class="font-bold text-slate-900 mb-1 flex items-center gap-2 text-sm uppercase tracking-wide"><i data-lucide="arrow-down" class="w-4 h-4 text-slate-600"></i> Correct Order</h4>
+                            <h4 class="font-bold text-slate-900 mb-1 flex items-center gap-2 text-sm uppercase tracking-normal"><i data-lucide="arrow-down" class="w-4 h-4 text-slate-600"></i> Correct Order</h4>
                             ${slotsHtml}
                         </div>
                     </div>
@@ -2048,7 +2044,7 @@
 
             container.innerHTML = `
                 <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
-                    <p class="text-slate-800 font-bold mb-6 text-sm uppercase tracking-wide">APPLICATION: ${data.instructions}</p>
+                    <p class="text-slate-800 font-bold mb-6 text-sm uppercase tracking-normal">APPLICATION: ${data.instructions}</p>
                     <div class="flex flex-col gap-8">
                         <div class="flex flex-wrap gap-3 p-5 bg-slate-100 rounded-xl border border-slate-300 shadow-inner min-h-[80px] justify-center">
                             ${termsHtml}

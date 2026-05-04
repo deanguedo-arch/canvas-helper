@@ -5321,3 +5321,36 @@ One question before I change it: do you want only the large top hero image reduc
 
 ## Exact next file to open
 `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\sportswellness\exports\apps-script\Code.gs`
+
+---
+
+# Archived Handoff: ai-course-building-resources framework video and Firebase deploy
+
+- Archived on: 2026-04-28
+- Project: `ai-course-building-resources`
+- Prior status: complete
+
+## Summary
+- Added the approved AI Assessment Framework MP4 as a centered intro section after the Assessment Pillars hero and before the context section.
+- Updated the single-HTML exporter to inline direct `<video src>` assets.
+- Wired `google-hosted` Firebase metadata for Firebase project `calm-module-one` and Hosting site `digitalpresentation`.
+- Deployed the initial digital presentation to `https://digitalpresentation.web.app`.
+
+## Source-of-truth location
+- Canonical entry: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\ai-course-building-resources\workspace\index.html`
+- Video placement source: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\ai-course-building-resources\workspace\resources\dean-ai-assessment-pillars.html`
+- Video asset source: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\ai-course-building-resources\workspace\resources\media\ai-assessment-framework.mp4`
+- Firebase deploy config: `C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\ai-course-building-resources\meta\google-hosted.deploy.json`
+
+## Verification run
+- `npx tsx --test scripts/tests/single-html-export.test.ts`
+- `npx tsx --test scripts/tests/ai-course-building-resources.test.ts scripts/tests/ai-course-building-resources-google-hosted.test.ts scripts/tests/google-hosted-export.test.ts scripts/tests/google-hosted-deploy.test.ts`
+- `npm run verify -- --project ai-course-building-resources`
+- `npm run typecheck`
+- `npm run export:html -- --project ai-course-building-resources`
+- `npm run build:studio`
+- `.\publish-ai-course-building-resources.bat`
+
+## Known risks / follow-up
+- The single-HTML export is large because the MP4 is embedded as base64; Firebase Hosting serves the MP4 as a separate file.
+- Future video sections should keep tests around direct `video[src]` and `<source>` child handling.

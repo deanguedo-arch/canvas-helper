@@ -22,7 +22,7 @@ const sourceFiles = [
     sourceName: "JONAIRESOURCE",
     resourceName: "jon-ai-resource.html",
     title: "JONAIRESOURCE",
-    label: "AI-Resources",
+    label: "AI resources",
     workspaceEdited: true
   }
 ];
@@ -83,9 +83,10 @@ test("ai course building package preserves both source HTML pages behind one hub
   assert.match(hub, /selectResource\("assessment"\);/);
   assert.match(hub, /class="resource-switcher"/);
   assert.match(hub, /data-active-resource="assessment"/);
-  assert.match(hub, /--switch-active-bg: #2563eb;/);
+  assert.match(hub, /--switch-active-bg: #00957E;/);
+  assert.match(hub, /--switch-focus: #A4D55F;/);
   assert.match(hub, /body\[data-active-resource="assessment"\],\s*body\[data-active-resource="ai-resources"\]/);
-  assert.doesNotMatch(hub, /#4f46e5|#111827|#374151|#a5b4fc/);
+  assert.doesNotMatch(hub, /#2563eb|#4f46e5|#111827|#374151|#a5b4fc/);
   assert.doesNotMatch(hub, /<h1>AI Course Building Resources<\/h1>/);
 
   for (const sourceFile of sourceFiles) {
@@ -109,6 +110,84 @@ test("ai course building package preserves both source HTML pages behind one hub
     assert.match(hub, new RegExp(sourceFile.title));
     assert.match(hub, new RegExp(sourceFile.label));
   }
+});
+
+test("ai course building resources follow EIPS brand colours and typography", async () => {
+  const themePath = path.join(projectDir, "workspace", "resources", "ai-course-theme.css");
+  const hubPath = path.join(projectDir, "workspace", "index.html");
+  const assessmentPath = path.join(projectDir, "workspace", "resources", "dean-ai-assessment-pillars.html");
+  const resourcePath = path.join(projectDir, "workspace", "resources", "jon-ai-resource.html");
+  const theme = await readUtf8(themePath);
+  const hub = await readUtf8(hubPath);
+  const assessment = await readUtf8(assessmentPath);
+  const resource = await readUtf8(resourcePath);
+
+  assert.match(theme, /--eips-green: 0 149 126;/);
+  assert.match(theme, /--eips-lime: 164 213 95;/);
+  assert.match(theme, /--eips-purple: 92 11 138;/);
+  assert.match(theme, /--eips-orange: 255 107 0;/);
+  assert.match(theme, /--color-primary: var\(--eips-green\);/);
+  assert.match(theme, /--color-secondary: var\(--eips-lime\);/);
+  assert.match(theme, /--color-tertiary: var\(--eips-orange\);/);
+  assert.match(theme, /font-family: Calibri, Aptos, Arial, sans-serif;/);
+  assert.match(theme, /font-family: "Times New Roman", Times, serif;/);
+  assert.match(theme, /\.text-indigo-600 \{ color: rgb\(var\(--color-primary\)\) !important; \}/);
+  assert.match(theme, /\.bg-indigo-700 \{ background-color: rgb\(var\(--color-primary\)\) !important; \}/);
+
+  assert.match(hub, /--switch-active-bg: #00957E;/);
+  assert.match(hub, /--switch-focus: #A4D55F;/);
+  assert.match(hub, /font-family: Calibri, Aptos, Arial, sans-serif;/);
+  assert.match(hub, />AI resources<\/button>/);
+  assert.doesNotMatch(hub, /#2563eb|#07131f|#0f172a/);
+  assert.doesNotMatch(hub, />AI-Resources<\/button>/);
+
+  assert.doesNotMatch(assessment, /fonts\.googleapis\.com\/css2\?family=Inter|fonts\.googleapis\.com\/css2\?family=Montserrat/);
+  assert.match(assessment, /"body-md": \["Calibri", "Aptos", "Arial", "sans-serif"\]/);
+  assert.match(assessment, /"display": \["Times New Roman", "Times", "serif"\]/);
+  assert.doesNotMatch(assessment, /font-family: 'Montserrat'/);
+  assert.match(assessment, /Presentations and resources/);
+  assert.match(assessment, /Proposed AI-Assessment Architecture/);
+  assert.doesNotMatch(assessment, /Presentations & Resources/);
+  assert.doesNotMatch(assessment, /AI-Assement|disclosure & self-advocacy|tracking-tight|tracking-wider|tracking-widest|tracking-\[/);
+
+  assert.doesNotMatch(resource, /fonts\.googleapis\.com\/css2\?family=Inter/);
+  assert.match(resource, /fontFamily: \{ sans: \['Calibri', 'Aptos', 'Arial', 'sans-serif'\] \}/);
+  assert.match(resource, /font-family="Calibri, Aptos, Arial, sans-serif"/);
+  assert.match(resource, /References and works cited/);
+  assert.doesNotMatch(resource, /References & Works Cited/);
+  assert.doesNotMatch(resource, /Practice & Apply|Action & Expression|&amp;|e\.g\.|tracking-tight|tracking-wider|tracking-widest/);
+});
+
+test("ai course building resources use readable presentation-scale sizing", async () => {
+  const themePath = path.join(projectDir, "workspace", "resources", "ai-course-theme.css");
+  const hubPath = path.join(projectDir, "workspace", "index.html");
+  const assessmentPath = path.join(projectDir, "workspace", "resources", "dean-ai-assessment-pillars.html");
+  const resourcePath = path.join(projectDir, "workspace", "resources", "jon-ai-resource.html");
+  const theme = await readUtf8(themePath);
+  const hub = await readUtf8(hubPath);
+  const assessment = await readUtf8(assessmentPath);
+  const resource = await readUtf8(resourcePath);
+
+  assert.match(theme, /--readable-body-size: 18px;/);
+  assert.match(theme, /--readable-body-line: 1\.62;/);
+  assert.match(theme, /\.font-body-md \{[\s\S]*font-size: var\(--readable-body-size\);/);
+  assert.match(theme, /\.assessment-page \.section-slide p,/);
+  assert.match(theme, /\.ai-resource-page #content-area p,/);
+  assert.match(theme, /font-size: 1\.125rem;/);
+  assert.match(theme, /\.ai-resource-page \.nav-btn \{[\s\S]*font-size: 1rem !important;/);
+  assert.match(theme, /body\.presentation-active\.ai-resource-page #content-area \{[\s\S]*max-width: 1180px;/);
+
+  assert.match(hub, /grid-template-rows: 58px minmax\(0, 1fr\);/);
+  assert.match(hub, /min-height: 40px;/);
+  assert.match(hub, /font-size: 15px;/);
+
+  assert.match(assessment, /<body class="assessment-page bg-surface text-on-surface font-body-md min-h-screen">/);
+  assert.match(assessment, /"body-md": \["18px", \{"lineHeight": "1\.62"/);
+  assert.match(assessment, /"body-lg": \["20px", \{"lineHeight": "1\.6"/);
+  assert.match(assessment, /"h2": \["32px", \{"lineHeight": "1\.25"/);
+  assert.match(assessment, /"display": \["56px", \{"lineHeight": "1\.08"/);
+
+  assert.match(resource, /<body class="ai-resource-page bg-surface text-on-surface font-body-md/);
 });
 
 test("assessment pillars page has balanced assessment-weight sliders", async () => {
@@ -303,7 +382,7 @@ test("ai course resource pages share the assessment pillars theme base", async (
   assert.ok(manifest.canonicalSources?.includes(themePath), "expected the shared theme file to be declared canonical");
 
   assert.match(deanHtml, /<html class="dark scroll-smooth" lang="en">/);
-  assert.match(deanHtml, /<body class="bg-surface text-on-surface font-body-md min-h-screen">/);
+  assert.match(deanHtml, /<body class="assessment-page bg-surface text-on-surface font-body-md min-h-screen">/);
   assert.match(deanHtml, /id="assessment-topbar-controls" class="[^"]*fixed[^"]*top-5[^"]*right-4[^"]*sm:right-8[^"]*justify-end/);
   assert.doesNotMatch(deanHtml, /Generate Board Report/);
   assert.match(jonHtml, /<html class="dark scroll-smooth" lang="en">/);
@@ -496,7 +575,7 @@ test("assessment pillars page offers a playable framework audio overview in the 
   assert.match(html, /<audio[\s\S]*controls[\s\S]*preload="metadata"[\s\S]*src="\.\/media\/product-process-defence-overview\.m4a"/);
   assert.match(html, /Your browser does not support embedded audio playback\./);
   assert.ok(
-    html.indexOf("Presentations & Resources") < html.indexOf('id="framework-audio-overview"'),
+    html.indexOf("Presentations and resources") < html.indexOf('id="framework-audio-overview"'),
     "expected audio overview to appear inside the resources section after its heading"
   );
   assert.ok(
@@ -515,7 +594,7 @@ test("assessment pillars page attaches the current presentation deck through an 
   const currentDecks = [
     {
       id: "proposed",
-      title: "Proposed AI-Assement Architecture",
+      title: "Proposed AI-Assessment Architecture",
       pptx: "proposed-ai-assessment-architecture.pptx",
       sourceLinkId: "deck-proposed-pptx",
       slideDir: "proposed-ai-assessment-architecture"

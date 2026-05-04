@@ -8,13 +8,13 @@
     <style>
       :root {
         color-scheme: light;
-        --switch-bg: #07131f;
-        --switch-border: #2c4468;
-        --switch-text: #dbeafe;
-        --switch-muted: #91a7c7;
-        --switch-active-bg: #2563eb;
+        --switch-bg: #081614;
+        --switch-border: #33524c;
+        --switch-text: #eaf4f1;
+        --switch-muted: #b7cbc6;
+        --switch-active-bg: #00957E;
         --switch-active-text: #ffffff;
-        --switch-focus: #f5c451;
+        --switch-focus: #A4D55F;
       }
 
       * {
@@ -29,26 +29,26 @@
 
       body {
         margin: 0;
-        background: #0f172a;
-        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+        background: #081614;
+        font-family: Calibri, Aptos, Arial, sans-serif;
       }
 
       body[data-active-resource="assessment"],
       body[data-active-resource="ai-resources"] {
-        --switch-bg: #07131f;
-        --switch-border: #254060;
-        --switch-text: #dbeafe;
-        --switch-muted: #9fb4d6;
-        --switch-active-bg: #2563eb;
+        --switch-bg: #081614;
+        --switch-border: #33524c;
+        --switch-text: #eaf4f1;
+        --switch-muted: #b7cbc6;
+        --switch-active-bg: #00957E;
         --switch-active-text: #ffffff;
-        --switch-focus: #f0b84d;
+        --switch-focus: #A4D55F;
       }
 
       .app {
         width: 100%;
         height: 100%;
         display: grid;
-        grid-template-rows: 50px minmax(0, 1fr);
+        grid-template-rows: 58px minmax(0, 1fr);
         overflow: hidden;
       }
 
@@ -72,14 +72,14 @@
 
       .resource-switcher button {
         appearance: none;
-        min-height: 34px;
+        min-height: 40px;
         border: 1px solid transparent;
         border-radius: 6px;
         background: transparent;
         color: var(--switch-muted);
         cursor: pointer;
         font: inherit;
-        font-size: 13px;
+        font-size: 15px;
         font-weight: 700;
         letter-spacing: 0;
         line-height: 1;
@@ -121,7 +121,7 @@
 
       @media (max-width: 620px) {
         .app {
-          grid-template-rows: 52px minmax(0, 1fr);
+          grid-template-rows: 58px minmax(0, 1fr);
         }
 
         .switcher-bar {
@@ -140,7 +140,7 @@
       <header class="switcher-bar">
         <nav class="resource-switcher" aria-label="Resource selector" data-testid="resource-selector">
           <button type="button" data-resource-target="assessment" aria-pressed="true">Assessment Pillars</button>
-          <button type="button" data-resource-target="ai-resources" aria-pressed="false">AI-Resources</button>
+          <button type="button" data-resource-target="ai-resources" aria-pressed="false">AI resources</button>
         </nav>
       </header>
 
