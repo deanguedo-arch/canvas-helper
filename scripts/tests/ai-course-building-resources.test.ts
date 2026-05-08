@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import { readFile, readdir, stat } from "node:fs/promises";
 import path from "node:path";
 import test from "node:test";
@@ -38,6 +39,10 @@ async function fileSizeOrZero(filePath: string) {
   } catch {
     return 0;
   }
+}
+
+async function sha256File(filePath: string) {
+  return createHash("sha256").update(await readFile(filePath)).digest("hex");
 }
 
 function escapeRegExp(value: string) {
@@ -467,12 +472,18 @@ test("assessment pillars page embeds the validity gate simulator after AI levels
   const html = await readUtf8(pagePath);
   const sourceSize = await fileSizeOrZero(sourcePath);
   const videoSize = await fileSizeOrZero(videoPath);
+  const videoHash = await sha256File(videoPath);
   const manifest = JSON.parse(await readUtf8(manifestPath)) as ProjectManifest & {
     injectedComponents?: Array<Record<string, string>>;
   };
 
   assert.ok(sourceSize > 20_000, "expected the source validity gate simulator to contain real HTML bytes");
-  assert.ok(videoSize > 10_000_000, "expected the oral defense overview video to be packaged");
+  assert.ok(videoSize > 30_000_000, "expected the Universal Checkpoint video to replace the previous oral defense asset");
+  assert.equal(
+    videoHash,
+    "88332b9fa59923a3f25d3082246fde1092044de6c966fa4af72777871970b9d8",
+    "expected the packaged oral defense video to match The_Universal_Checkpoint.mp4"
+  );
   assert.match(html, /href="#validity-gate-simulator"/);
   assert.match(html, /Validity Gates/);
   assert.match(html, /id="validity-gate-simulator"/);

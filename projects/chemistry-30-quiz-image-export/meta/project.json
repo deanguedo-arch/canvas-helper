@@ -1,0 +1,33 @@
+{
+  "migrationState": "migrated",
+  "projectType": "conversion",
+  "preferredWorkflows": ["conversion"],
+  "canonicalEntry": "workspace/index.html",
+  "canonicalSources": [
+    "workspace/index.html",
+    "workspace/README.md",
+    "raw/imsmanifest.xml",
+    "meta/build_quiz_image_export.py"
+  ],
+  "authoringStatus": "ready-for-export",
+  "exportTargets": [
+    {
+      "target": "html",
+      "enabled": true,
+      "notes": "Metadata-compatible target. The project-specific deliverable is a ZIP of quiz QTI files, question reports, and question-labeled images."
+    }
+  ],
+  "importedFirstPassOrigin": {
+    "sourceSystem": "brightspace",
+    "sourcePath": "C:/Users/dean.guedo/Downloads/D2LCCExport_151127_25-26 _ S2 _ Chemistry 30 _ Per 1(A) _ Sec 2_20265706.zip",
+    "importedAt": "2026-05-07T15:08:09",
+    "notes": "Brightspace package used as source of truth for quiz/QTI image extraction."
+  },
+  "generatedOutputs": [
+    "exports/quiz-image-package",
+    "exports/chemistry-30-brightspace-quiz-image-package.zip"
+  ],
+  "regenerateCommand": "python projects/chemistry-30-quiz-image-export/meta/build_quiz_image_export.py",
+  "referenceOnly": [],
+  "sourceOfTruthNotes": "The original Brightspace ZIP remains external. The copied imsmanifest.xml and the raw QTI files inside the generated export preserve the quiz structure and source paths."
+}
