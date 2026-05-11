@@ -116,6 +116,19 @@ test("general psychology does not render decorative telemetry cards", async () =
   assert.doesNotMatch(source, /telemetry-card/);
 });
 
+test("general psychology exposes a persisted Next Step theme toggle", async () => {
+  const source = await readFile(mainPath, "utf8");
+
+  assert.match(source, /COURSE_THEME_MODES/);
+  assert.match(source, /themeMode:\s*normalizeThemeMode\(parsed\.themeMode\)/);
+  assert.match(source, /data-theme-toggle="current"/);
+  assert.match(source, /data-theme-toggle="next-step"/);
+  assert.match(source, /aria-pressed="\$\{themeMode === "next-step"/);
+  assert.match(source, /next-step-theme/);
+  assert.match(source, /setThemeMode\(/);
+  assert.match(source, /--ns-primary:\s*#1e6d0d/);
+});
+
 test("general psychology module 6 excludes the social influence written response placeholder", async () => {
   const source = await readFile(courseShellDataPath, "utf8");
 
