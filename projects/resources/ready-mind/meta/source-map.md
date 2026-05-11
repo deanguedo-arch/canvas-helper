@@ -1,0 +1,10 @@
+# Source Map
+
+## Shell Source
+
+- Structural template: projects/sportswellness/workspace
+- Ready Mind canonical shell: projects/ready-mind/workspace
+
+## Content Source Status
+
+Lesson, quiz, video, and activity sources are placeholders. Add approved source entries here before writing full lesson content.

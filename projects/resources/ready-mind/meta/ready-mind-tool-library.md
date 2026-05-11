@@ -1,0 +1,8 @@
+# Ready Mind Tool Library
+
+## Placeholder Tools
+
+- Stress State Simulator: a future activity for noticing activation and choosing a reset.
+- Focus Reset Simulator: a future activity for interruption, refocus, and next action.
+
+Tools remain placeholders until lesson outcomes are finalized.

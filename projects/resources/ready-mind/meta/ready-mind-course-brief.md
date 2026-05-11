@@ -1,0 +1,9 @@
+# Ready Mind Course Brief
+
+## Purpose
+
+The Ready Mind is a life-performance course shell for practical tools around stress, focus, confidence, and sustainable effort.
+
+## Current State
+
+This is a placeholder shell. Lesson content, quizzes, performance tools, and videos are not finalized yet.

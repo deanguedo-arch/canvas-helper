@@ -744,12 +744,7 @@ function getCharsetFromContentType(contentType) {
   return normalizeCharsetLabel(match?.[1] || "");
 }
 
-function detectArrayBufferEncoding(bytes, contentType) {
-  const declared = getCharsetFromContentType(contentType);
-  if (declared) {
-    return declared;
-  }
-
+function detectEncodingFromBytePattern(bytes) {
   if (bytes.length >= 2) {
     if (bytes[0] === 0xff && bytes[1] === 0xfe) {
       return "utf-16le";
@@ -782,6 +777,24 @@ function detectArrayBufferEncoding(bytes, contentType) {
   }
   if (evenZeroCount >= 4 && evenZeroCount > oddZeroCount * 2) {
     return "utf-16be";
+  }
+
+  return "";
+}
+
+function detectArrayBufferEncoding(bytes, contentType) {
+  const byteDetectedEncoding = detectEncodingFromBytePattern(bytes);
+  if (byteDetectedEncoding) {
+    return byteDetectedEncoding;
+  }
+
+  const declared = getCharsetFromContentType(contentType);
+  if (declared) {
+    return declared;
+  }
+
+  if (bytes.length >= 3 && bytes[0] === 0xef && bytes[1] === 0xbb && bytes[2] === 0xbf) {
+    return "utf-8";
   }
 
   return "utf-8";
@@ -878,6 +891,38 @@ function tryAlternatePreviewContentPath(urlValue) {
   return "";
 }
 
+function isElementVisuallyEmpty(element) {
+  const text = (element.textContent || "").replace(/\u00a0/g, " ").trim();
+  if (text) {
+    return false;
+  }
+
+  return !element.querySelector("img, iframe, video, object, canvas, svg, table, ul, ol, input, textarea, select, button");
+}
+
+function removeUnavailableImage(image) {
+  const parent = image.parentElement;
+  const followingNote = image.nextElementSibling;
+
+  image.remove();
+
+  if (followingNote?.classList?.contains("image-missing-note")) {
+    followingNote.remove();
+  }
+
+  let current = parent;
+  while (
+    current &&
+    current !== root &&
+    current.matches("a, p, div, span, strong, em, h1, h2, h3, h4, h5, h6") &&
+    isElementVisuallyEmpty(current)
+  ) {
+    const next = current.parentElement;
+    current.remove();
+    current = next;
+  }
+}
+
 function bindImageFallbacks() {
   root.querySelectorAll(".reader-html img, .reader-text img, .reader-document img").forEach((image) => {
     if (image.dataset.fallbackBound === "1") {
@@ -901,16 +946,7 @@ function bindImageFallbacks() {
       }
 
       image.dataset.fallbackRecovered = "1";
-      image.style.display = "none";
-
-      if (image.nextElementSibling?.classList?.contains("image-missing-note")) {
-        return;
-      }
-
-      const note = document.createElement("div");
-      note.className = "image-missing-note";
-      note.textContent = "Image unavailable in source export";
-      image.insertAdjacentElement("afterend", note);
+      removeUnavailableImage(image);
     });
   });
 }
@@ -1618,6 +1654,45 @@ function getModuleReaderItems(module) {
   return [...content, ...assignments];
 }
 
+const DEAD_LESSON_LINK_PATTERNS = [
+  /moodle\.eipsnextstep\.ca/i,
+  /\/d2l\/common\/dialogs\/quickLink\/quickLink\.d2l/i,
+  /\$@BOOKVIEWBYID\*\d+@\$/i,
+  /^http:\/\/mailto:/i,
+  /googleadservices\.com\/pagead\/aclk/i,
+  /howdoitech\.com\/2014\/06\/how-do-i-take-a-screenshot-on-a-chromebook/i,
+  /(?:careerplanning|gradschool|psychology)\.about\.com\//i,
+  /occinfo\.alis\.alberta\.ca\/occinfopreview\//i,
+  /thechicagoschoolonline\.net\/masters-industrial-org-psychology\.asp/i,
+  /mhankyswoh\.org\/Uploads\/files\/pdfs\/ChildrenAdol-TeenLifeChangeScale_20130812\.pdf/i,
+  /verywellmind\.com\/a-list-of-psychology-careers-2794917/i
+];
+
+function isDeadLessonLink(href) {
+  const value = String(href || "").trim();
+  return Boolean(value) && DEAD_LESSON_LINK_PATTERNS.some((pattern) => pattern.test(value));
+}
+
+function unwrapAnchorAsPlainContent(anchor) {
+  const ownerDocument = anchor.ownerDocument || document;
+  const fragment = ownerDocument.createDocumentFragment();
+  while (anchor.firstChild) {
+    fragment.appendChild(anchor.firstChild);
+  }
+  if (!fragment.childNodes.length) {
+    fragment.appendChild(ownerDocument.createTextNode(anchor.textContent || ""));
+  }
+  anchor.replaceWith(fragment);
+}
+
+function unwrapDeadLessonLinks(contentRoot) {
+  contentRoot.querySelectorAll("a[href]").forEach((anchor) => {
+    if (isDeadLessonLink(anchor.getAttribute("href") || "")) {
+      unwrapAnchorAsPlainContent(anchor);
+    }
+  });
+}
+
 function sanitizeHtmlContent(rawHtml, sourceHref) {
   const doc = unwrapEncodedHtmlDocument(normalizeLearnerCopy(rawHtml));
 
@@ -1645,6 +1720,8 @@ function sanitizeHtmlContent(rawHtml, sourceHref) {
       video.replaceWith(embedShell);
     });
   }
+
+  unwrapDeadLessonLinks(contentRoot);
 
   const rewriteAttribute = (selector, attribute) => {
     contentRoot.querySelectorAll(selector).forEach((element) => {
@@ -2740,15 +2817,7 @@ function render() {
                 <h2>${escapeHtml(module?.title || "Course")}</h2>
               </div>
             </div>
-            <div class="stats top-telemetry">
-              <span class="stat telemetry-card">
-                <span>Current latency</span>
-                <strong>12.4ms</strong>
-              </span>
-              <span class="stat telemetry-card">
-                <span>Active alerts</span>
-                <strong>02</strong>
-              </span>
+            <div class="stats">
               <span class="stat"><strong>${moduleCount}</strong><span> modules</span></span>
               <span class="stat"><strong>${contentCount}</strong><span> content items</span></span>
               <span class="stat"><strong>${quizCount}</strong><span> quizzes</span></span>
@@ -3570,10 +3639,6 @@ function injectStyles() {
       flex-wrap: wrap;
     }
 
-    .top-telemetry {
-      align-items: stretch;
-    }
-
     .stat {
       border: 1px solid var(--line);
       border-radius: 4px;
@@ -3584,32 +3649,6 @@ function injectStyles() {
       background: #1a1a1d;
       white-space: nowrap;
       font-family: "Space Grotesk", "Inter", sans-serif;
-    }
-
-    .telemetry-card {
-      min-width: 132px;
-      display: grid;
-      gap: 0.12rem;
-      align-content: center;
-      border-color: #6c3f35;
-      background: linear-gradient(180deg, #2d2324 0%, #1c1a1d 100%);
-      color: #ffd6ce;
-    }
-
-    .telemetry-card span {
-      margin: 0;
-      font-size: 0.57rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: #f0b9ad;
-      line-height: 1.2;
-    }
-
-    .telemetry-card strong {
-      margin: 0;
-      font-size: 1.05rem;
-      line-height: 1.05;
-      color: #fff1ec;
     }
 
     .stat strong {
@@ -4528,10 +4567,6 @@ function injectStyles() {
 
       .stat {
         flex: 1 1 140px;
-      }
-
-      .telemetry-card {
-        min-width: 0;
       }
 
       .content {

@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Slide Viewer</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #08111c;
+      --panel: #0f1826;
+      --line: rgba(95, 120, 155, 0.24);
+      --text: #e8eef6;
+      --muted: #8a96a8;
+      --accent: #00d09a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top, rgba(0, 255, 202, 0.08), transparent 32%),
+        linear-gradient(180deg, #09121f 0%, #050b14 100%);
+      color: var(--text);
+      font-family: Inter, Arial, sans-serif;
+    }
+
+    .viewer-shell {
+      min-height: 100vh;
+      padding: 18px;
+    }
+
+    .viewer-toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(10, 17, 28, 0.88);
+      backdrop-filter: blur(10px);
+    }
+
+    .viewer-title {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .viewer-meta {
+      font-size: 11px;
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .viewer-status {
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(15, 24, 38, 0.92);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .viewer-status.error {
+      color: #ff9db0;
+      border-color: rgba(255, 103, 133, 0.3);
+    }
+
+    .viewer-pages {
+      display: grid;
+      gap: 18px;
+    }
+
+    .page-card {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(15, 24, 38, 0.92);
+      box-shadow: 0 20px 32px rgba(0, 0, 0, 0.28);
+    }
+
+    .page-label {
+      margin: 0 0 10px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    canvas {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      background: white;
+    }
+
+    .preview-frame {
+      display: block;
+      width: 100%;
+      min-height: 80vh;
+      border: 0;
+      border-radius: 16px;
+      background: #0b1220;
+    }
+  </style>
+</head>
+<body>
+  <div class="viewer-shell">
+    <div class="viewer-toolbar">
+      <div>
+        <div class="viewer-title" id="viewer-title">Slides</div>
+        <div class="viewer-meta" id="viewer-meta">Loading document</div>
+      </div>
+    </div>
+    <div id="viewer-status" class="viewer-status">Loading PDF...</div>
+    <div id="viewer-pages" class="viewer-pages" hidden></div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const file = params.get('file');
+    const title = params.get('title') || 'Slides';
+
+    const titleNode = document.getElementById('viewer-title');
+    const metaNode = document.getElementById('viewer-meta');
+    const statusNode = document.getElementById('viewer-status');
+    const pagesNode = document.getElementById('viewer-pages');
+
+    titleNode.textContent = title;
+    metaNode.textContent = file ? 'Rendering in app' : 'Missing file';
+
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+    function setError(message) {
+      statusNode.textContent = message;
+      statusNode.classList.add('error');
+      pagesNode.hidden = true;
+    }
+
+    function getScale(viewport) {
+      const maxWidth = Math.min(window.innerWidth - 80, 1100);
+      return Math.max(1, maxWidth / viewport.width);
+    }
+
+    function getDriveFileId(url) {
+      try {
+        const parsedUrl = new URL(url, window.location.href);
+        if (!/drive\.google\.com$/i.test(parsedUrl.hostname)) {
+          return null;
+        }
+
+        return (
+          parsedUrl.searchParams.get('id') ||
+          parsedUrl.pathname.match(/\/d\/([^/]+)/)?.[1] ||
+          null
+        );
+      } catch (_error) {
+        return null;
+      }
+    }
+
+    function buildDrivePreviewUrl(url) {
+      const fileId = getDriveFileId(url);
+      if (!fileId) {
+        return null;
+      }
+
+      return `https://drive.google.com/file/d/${encodeURIComponent(fileId)}/preview`;
+    }
+
+    function renderDrivePreview(previewUrl) {
+      metaNode.textContent = 'Drive preview';
+      pagesNode.hidden = false;
+      statusNode.hidden = true;
+      pagesNode.innerHTML = '';
+
+      const card = document.createElement('section');
+      card.className = 'page-card';
+      card.style.padding = '0';
+
+      const previewFrame = document.createElement('iframe');
+      previewFrame.className = 'preview-frame';
+      previewFrame.src = previewUrl;
+      previewFrame.title = `${title} preview`;
+      previewFrame.loading = 'lazy';
+      previewFrame.allow = 'autoplay';
+
+      card.appendChild(previewFrame);
+      pagesNode.appendChild(card);
+    }
+
+    async function renderPdf() {
+      if (!file) {
+        setError('No PDF file was provided to the viewer.');
+        return;
+      }
+
+      const drivePreviewUrl = buildDrivePreviewUrl(file);
+      if (drivePreviewUrl) {
+        renderDrivePreview(drivePreviewUrl);
+        return;
+      }
+
+      try {
+        const pdf = await pdfjsLib.getDocument(file).promise;
+        metaNode.textContent = pdf.numPages === 1 ? '1 page' : `${pdf.numPages} pages`;
+        pagesNode.hidden = false;
+        statusNode.hidden = true;
+
+        for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber += 1) {
+          const page = await pdf.getPage(pageNumber);
+          const baseViewport = page.getViewport({ scale: 1 });
+          const viewport = page.getViewport({ scale: getScale(baseViewport) });
+
+          const card = document.createElement('section');
+          card.className = 'page-card';
+
+          const label = document.createElement('p');
+          label.className = 'page-label';
+          label.textContent = `Page ${pageNumber}`;
+
+          const canvas = document.createElement('canvas');
+          const context = canvas.getContext('2d');
+          canvas.width = viewport.width;
+          canvas.height = viewport.height;
+
+          card.append(label, canvas);
+          pagesNode.appendChild(card);
+
+          await page.render({ canvasContext: context, viewport }).promise;
+        }
+      } catch (error) {
+        setError(error && error.message ? error.message : 'Unable to render this PDF in the app.');
+      }
+    }
+
+    renderPdf();
+  </script>
+</body>
+</html>
