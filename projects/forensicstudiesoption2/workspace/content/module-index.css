@@ -1,24 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Rubik:wght@500;600;700;800&display=swap');
+
 :root {
-  --page-bg: #0c1324;
-  --page-bg-deep: #070d1f;
-  --paper: #191f31;
-  --paper-strong: #23293c;
-  --paper-muted: #151b2d;
-  --line: #3c494c;
-  --line-strong: #859397;
-  --text: #dce1fb;
-  --muted: #bbc9cd;
-  --primary: #8aebff;
-  --primary-strong: #22d3ee;
-  --primary-soft: rgba(138, 235, 255, 0.14);
-  --secondary: #adc6ff;
-  --shadow: 0 18px 36px rgba(7, 13, 31, 0.35);
+  --page-bg: #f3f4f3;
+  --page-bg-deep: #f9f9f8;
+  --paper: #ffffff;
+  --paper-strong: #ffffff;
+  --paper-muted: #f3f4f3;
+  --line: #d9dad9;
+  --line-strong: #c3c8c1;
+  --text: #1a1c1a;
+  --muted: #606762;
+  --primary: #59a844;
+  --primary-strong: #4b8d39;
+  --primary-soft: rgba(89, 168, 68, 0.14);
+  --secondary: #3f9f2e;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   --radius-lg: 10px;
   --radius-md: 8px;
 }
 
 html {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 * {
@@ -42,11 +44,9 @@ button:disabled {
 
 body {
   margin: 0;
-  background:
-    radial-gradient(circle at top center, rgba(34, 211, 238, 0.14), transparent 28%),
-    linear-gradient(180deg, #10182b 0%, var(--page-bg) 100%);
+  background: var(--page-bg);
   color: var(--text);
-  font-family: "Inter", sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 a {
@@ -60,10 +60,10 @@ body::before {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(to right, rgba(133, 147, 151, 0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(133, 147, 151, 0.06) 1px, transparent 1px);
+    linear-gradient(to right, rgba(217, 218, 217, 0.42) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(217, 218, 217, 0.32) 1px, transparent 1px);
   background-size: 24px 24px;
-  opacity: 0.5;
+  opacity: 0.34;
   z-index: -1;
 }
 
@@ -81,10 +81,8 @@ body::before {
 .note-card {
   border: 1px solid rgba(133, 147, 151, 0.2);
   border-radius: var(--radius-lg);
-  background: rgba(25, 31, 49, 0.84);
+  background: var(--paper);
   box-shadow: var(--shadow);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
 }
 
 .module-hero {
@@ -97,7 +95,7 @@ body::before {
 .sequence-kind {
   display: inline-flex;
   color: var(--primary);
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "Rubik", sans-serif;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -108,7 +106,7 @@ body::before {
 .section-title,
 .sequence-title {
   color: var(--text);
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "Rubik", sans-serif;
 }
 
 .module-title {
@@ -144,11 +142,11 @@ body::before {
   justify-content: center;
   min-height: 46px;
   padding: 0 18px;
-  border: 1px solid rgba(138, 235, 255, 0.34);
+  border: 1px solid rgba(89, 168, 68, 0.34);
   border-radius: 8px;
   background: var(--primary-strong);
-  color: #001f25;
-  font-family: "Space Grotesk", sans-serif;
+  color: #ffffff;
+  font-family: "Rubik", sans-serif;
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -167,8 +165,8 @@ body::before {
 }
 
 .action-link.secondary:hover {
-  background: rgba(46, 52, 71, 0.92);
-  border-color: rgba(138, 235, 255, 0.3);
+  background: #eceeec;
+  border-color: var(--line-strong);
 }
 
 .action-link:disabled {
@@ -197,7 +195,7 @@ body::before {
 .metric-value {
   margin-top: 8px;
   color: var(--text);
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "Rubik", sans-serif;
   font-size: 2rem;
   font-weight: 700;
 }
@@ -239,9 +237,9 @@ body::before {
   align-items: center;
   justify-content: center;
   border-radius: 999px;
-  background: rgba(138, 235, 255, 0.14);
+  background: var(--primary-soft);
   color: var(--primary);
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 700;
 }
 
@@ -262,11 +260,11 @@ body::before {
 }
 
 .lesson-card.is-active {
-  border-color: rgba(138, 235, 255, 0.38);
+  border-color: rgba(89, 168, 68, 0.38);
 }
 
 .lesson-card.is-complete {
-  border-color: rgba(127, 216, 170, 0.34);
+  border-color: rgba(89, 168, 68, 0.34);
 }
 
 .lesson-card.is-locked {
@@ -284,7 +282,7 @@ body::before {
   content: "Complete the previous component to unlock this card.";
   display: block;
   color: var(--muted);
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "Rubik", sans-serif;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.05em;
@@ -300,13 +298,13 @@ body::before {
 .lesson-body :where(h1, h2, h3, h4, h5, h6) {
   margin: 0;
   color: var(--text) !important;
-  font-family: "Space Grotesk", sans-serif !important;
+  font-family: "Rubik", sans-serif !important;
   line-height: 1.2;
 }
 
 .lesson-body :where(p, li, td, th, span, div, strong, em, b, i) {
   color: inherit !important;
-  font-family: "Inter", sans-serif !important;
+  font-family: "Open Sans", sans-serif !important;
 }
 
 .lesson-body :where(p, ul, ol, table, iframe, img, video, object) {
@@ -327,7 +325,7 @@ body::before {
   margin-inline: auto;
   border-radius: var(--radius-md);
   border: 1px solid rgba(133, 147, 151, 0.18);
-  background: rgba(12, 19, 36, 0.9);
+  background: #ffffff;
 }
 
 .lesson-media-missing {
@@ -338,13 +336,11 @@ body::before {
   min-height: 180px;
   margin-inline: auto;
   padding: 18px;
-  border: 1px dashed rgba(138, 235, 255, 0.32);
+  border: 1px dashed var(--line-strong);
   border-radius: var(--radius-md);
-  background:
-    linear-gradient(145deg, rgba(21, 27, 45, 0.96), rgba(12, 19, 36, 0.92)),
-    radial-gradient(circle at top, rgba(138, 235, 255, 0.12), transparent 55%);
+  background: #f9f9f8;
   color: var(--muted);
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "Rubik", sans-serif;
   font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -375,7 +371,7 @@ body::before {
 
 .lesson-progress-label {
   color: var(--primary);
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "Rubik", sans-serif;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -401,11 +397,11 @@ body::before {
   justify-content: center;
   min-height: 42px;
   padding: 0 16px;
-  border: 1px solid rgba(127, 216, 170, 0.32);
+  border: 1px solid rgba(89, 168, 68, 0.32);
   border-radius: 999px;
-  background: rgba(127, 216, 170, 0.12);
-  color: #d8ffeb;
-  font-family: "Space Grotesk", sans-serif;
+  background: rgba(89, 168, 68, 0.12);
+  color: var(--primary-strong);
+  font-family: "Rubik", sans-serif;
   font-size: 0.76rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -422,7 +418,7 @@ body::before {
   width: 100%;
   min-width: 520px;
   border-collapse: collapse;
-  background: rgba(12, 19, 36, 0.84);
+  background: #ffffff;
 }
 
 .lesson-body th,

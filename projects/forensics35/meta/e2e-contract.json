@@ -23,30 +23,17 @@
   "fallbackPanel": {
     "enabled": false
   },
-  "moduleAssignments": {
-    "enabled": false,
-    "moduleWithAssignments": "1. Forensic Toxicology"
-  },
   "assertionProfiles": {
     "html-default": {
       "checks": ["renderer-html"]
     },
-    "assignment-default": {
-      "checks": ["renderer-assignment"]
-    },
     "quiz-default": {
-      "checks": ["renderer-quiz", "quiz-answer", "quiz-progress", "quiz-nav", "quiz-next-question", "quick-checkpoints"]
+      "checks": ["renderer-quiz", "quiz-answer", "quiz-progress", "quiz-nav", "quick-checkpoints"]
     },
     "pdf-default": {
       "checks": ["renderer-pdf"]
     }
   },
-  "modulePassTargets": [
-    {
-      "moduleTitle": "1. Forensic Toxicology",
-      "itemTitle": "M1 Assignment Submission",
-      "assertionProfile": "assignment-default"
-    }
-  ],
+  "modulePassTargets": [],
   "visibilityChecks": []
 }

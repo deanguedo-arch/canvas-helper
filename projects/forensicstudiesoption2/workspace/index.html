@@ -6,7 +6,7 @@
   <title>Forensic Studies 25 | Option 2</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Noto+Serif:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="./styles.css?rev=20260421b" />
 </head>
@@ -33,7 +33,7 @@
 
       <nav class="sidebar-nav" aria-label="Primary navigation">
         <div class="nav-group primary-nav">
-          <button id="nav-home" class="nav-item active" type="button">
+          <button id="nav-home" class="nav-item" type="button">
             <i class="fa-solid fa-house"></i>
             <span>Home</span>
           </button>
@@ -57,6 +57,19 @@
     </aside>
 
     <main class="content">
+      <header class="nextstep-topbar" aria-label="Course summary">
+        <div class="nextstep-brand">Next Step</div>
+        <div class="nextstep-stat-row" aria-label="Course counts">
+          <span class="nextstep-stat">Modules: <strong id="topbar-modules">0</strong></span>
+          <span class="nextstep-stat">Content: <strong id="topbar-content">0</strong></span>
+          <span class="nextstep-stat">Quizzes: <strong id="topbar-quizzes">0</strong></span>
+          <span class="nextstep-stat">Assignments: <strong id="topbar-assignments">0</strong></span>
+        </div>
+        <div class="student-pill" aria-label="Signed in as Student User">
+          <span class="student-avatar">SU</span>
+          <span>Student User</span>
+        </div>
+      </header>
       <div class="content-inner">
         <section class="progress-shell is-hero" aria-label="Course progress">
           <div class="progress-panel">

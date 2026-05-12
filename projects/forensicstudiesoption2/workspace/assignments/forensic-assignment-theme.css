@@ -1,24 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Open+Sans:wght@400;500;600;700;800&family=Rubik:wght@500;600;700;800&display=swap');
 
 :root {
-  --assignment-bg: #0c1324;
-  --assignment-bg-deep: #070d1f;
-  --assignment-surface: #191f31;
-  --assignment-surface-strong: #23293c;
-  --assignment-surface-muted: #151b2d;
-  --assignment-surface-bright: #2e3447;
-  --assignment-text: #dce1fb;
-  --assignment-muted: #bbc9cd;
-  --assignment-line: #3c494c;
-  --assignment-line-strong: #859397;
-  --assignment-primary: #8aebff;
-  --assignment-primary-strong: #22d3ee;
-  --assignment-primary-soft: rgba(138, 235, 255, 0.14);
-  --assignment-secondary: #adc6ff;
-  --assignment-accent: #ffa7c9;
-  --assignment-success: #7fd8aa;
-  --assignment-danger: #ffb4ab;
-  --assignment-shadow: 0 18px 40px rgba(7, 13, 31, 0.35);
+  --assignment-bg: #f3f4f3;
+  --assignment-bg-deep: #f9f9f8;
+  --assignment-surface: #ffffff;
+  --assignment-surface-strong: #ffffff;
+  --assignment-surface-muted: #f3f4f3;
+  --assignment-surface-bright: #eceeec;
+  --assignment-text: #1a1c1a;
+  --assignment-muted: #606762;
+  --assignment-line: #d9dad9;
+  --assignment-line-strong: #c3c8c1;
+  --assignment-primary: #59a844;
+  --assignment-primary-strong: #4b8d39;
+  --assignment-primary-soft: rgba(89, 168, 68, 0.14);
+  --assignment-secondary: #3f9f2e;
+  --assignment-accent: #59a844;
+  --assignment-success: #3f9f2e;
+  --assignment-danger: #ba1a1a;
+  --assignment-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   --assignment-radius-lg: 10px;
   --assignment-radius-md: 8px;
 }
@@ -32,7 +32,7 @@ body.forensic-assignment-theme {
   min-height: 100vh;
   background: var(--assignment-bg) !important;
   color: var(--assignment-text) !important;
-  font-family: "Inter", sans-serif !important;
+  font-family: "Open Sans", sans-serif !important;
   position: relative;
 }
 
@@ -42,10 +42,10 @@ body.forensic-assignment-theme::before {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(133, 147, 151, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(133, 147, 151, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(217, 218, 217, 0.42) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(217, 218, 217, 0.32) 1px, transparent 1px);
   background-size: 24px 24px;
-  opacity: 0.55;
+  opacity: 0.34;
   z-index: 0;
 }
 
@@ -54,9 +54,7 @@ body.forensic-assignment-theme::after {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background:
-    radial-gradient(circle at top right, rgba(138, 235, 255, 0.08), transparent 24%),
-    linear-gradient(180deg, rgba(138, 235, 255, 0.04), transparent 18%);
+  background: transparent;
   z-index: 0;
 }
 
@@ -73,8 +71,8 @@ body.forensic-assignment-theme #root {
 .forensic-assignment-theme h5,
 .forensic-assignment-theme h6 {
   color: var(--assignment-text) !important;
-  font-family: "Space Grotesk", sans-serif !important;
-  letter-spacing: -0.02em;
+  font-family: "Rubik", sans-serif !important;
+  letter-spacing: 0;
 }
 
 .forensic-assignment-theme .mono,
@@ -132,7 +130,7 @@ body.forensic-assignment-theme #root {
 }
 
 .forensic-assignment-theme .assignment-scene-hitbox:focus-visible {
-  outline: 2px solid rgba(138, 235, 255, 0.4);
+  outline: 2px solid rgba(89, 168, 68, 0.42);
   outline-offset: 2px;
 }
 
@@ -175,7 +173,7 @@ body.forensic-assignment-theme #root {
 .forensic-assignment-theme select:focus {
   outline: none !important;
   border-color: var(--assignment-primary-strong) !important;
-  box-shadow: 0 0 0 3px rgba(138, 235, 255, 0.14) !important;
+  box-shadow: 0 0 0 3px rgba(89, 168, 68, 0.14) !important;
 }
 
 .forensic-assignment-theme table {
@@ -229,9 +227,8 @@ body.forensic-assignment-theme #root {
 }
 
 .forensic-assignment-theme .glass {
-  background: rgba(25, 31, 49, 0.88) !important;
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(133, 147, 151, 0.18) !important;
+  background: var(--assignment-surface) !important;
+  border: 1px solid var(--assignment-line) !important;
 }
 
 .forensic-assignment-theme .briefing-box {
@@ -242,7 +239,7 @@ body.forensic-assignment-theme #root {
 
 .forensic-assignment-theme .briefing-box h4 {
   color: var(--assignment-primary) !important;
-  border-bottom-color: rgba(138, 235, 255, 0.22) !important;
+  border-bottom-color: rgba(89, 168, 68, 0.22) !important;
 }
 
 .forensic-assignment-theme [class~="border"],
@@ -300,7 +297,7 @@ body.forensic-assignment-theme #root {
 .forensic-assignment-theme [class*="bg-cyan-800"],
 .forensic-assignment-theme [class*="bg-cyan-900"] {
   background: linear-gradient(180deg, var(--assignment-primary-strong), var(--assignment-primary)) !important;
-  color: var(--assignment-bg-deep) !important;
+  color: #ffffff !important;
 }
 
 .forensic-assignment-theme [class*="bg-blue-600/20"],
@@ -321,13 +318,13 @@ body.forensic-assignment-theme #root {
 
 .forensic-assignment-theme [class*="bg-yellow-"],
 .forensic-assignment-theme [class*="bg-orange-"] {
-  background: rgba(255, 167, 201, 0.14) !important;
+  background: rgba(89, 168, 68, 0.14) !important;
   color: var(--assignment-accent) !important;
 }
 
 .forensic-assignment-theme [class*="bg-emerald-"],
 .forensic-assignment-theme [class*="bg-green-"] {
-  background: rgba(127, 216, 170, 0.16) !important;
+  background: rgba(89, 168, 68, 0.16) !important;
   color: var(--assignment-success) !important;
 }
 
@@ -400,7 +397,7 @@ body.forensic-assignment-theme .assignment-step-note-submit:hover {
 .forensic-assignment-theme [class*="from-blue-600"][class*="to-indigo-700"],
 .forensic-assignment-theme [class*="from-blue-500"][class*="to-indigo-600"] {
   background: linear-gradient(180deg, var(--assignment-primary-strong), var(--assignment-primary)) !important;
-  color: var(--assignment-bg-deep) !important;
+  color: #ffffff !important;
 }
 
 .forensic-assignment-theme [class~="shadow-sm"],
@@ -424,7 +421,7 @@ body.forensic-assignment-theme .assignment-step-note-submit:hover {
 }
 
 .forensic-assignment-theme ::selection {
-  background: rgba(138, 235, 255, 0.2);
+  background: rgba(89, 168, 68, 0.2);
   color: var(--assignment-text);
 }
 

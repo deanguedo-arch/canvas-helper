@@ -875,14 +875,14 @@ function parseQuizXml(xmlText) {
 
 const FORENSIC_THEME = {
   panel:
-    "rounded-xl border border-[#353331] bg-[#1c1d1f] shadow-[0_12px_28px_rgba(0,0,0,0.3)]",
+    "rounded-lg border border-[#d9dad9] bg-white shadow-[0_2px_8px_rgba(0,0,0,0.08)]",
   panelSoft:
-    "rounded-xl border border-[#2e2b29] bg-[#151617] shadow-[0_10px_22px_rgba(0,0,0,0.24)]",
+    "rounded-lg border border-[#d9dad9] bg-[#f9f9f8] shadow-[0_2px_8px_rgba(0,0,0,0.06)]",
   buttonPrimary:
-    "rounded-lg border border-[#b07a58]/70 bg-[#8a5a3c] px-4 py-2.5 text-sm font-semibold text-[#f3f1eb] transition duration-200 hover:border-[#c28c69] hover:bg-[#9b6948]",
+    "rounded-lg border border-[#59A844] bg-[#59A844] px-4 py-2.5 text-sm font-semibold text-white transition duration-200 hover:border-[#4b8d39] hover:bg-[#4b8d39]",
   buttonSecondary:
-    "rounded-lg border border-[#403c38] bg-[#23211f] px-4 py-2.5 text-sm font-semibold text-[#d1cac0] transition duration-200 hover:border-[#57514b] hover:bg-[#2b2926] hover:text-[#f3f1eb]",
-  overline: "text-[11px] font-semibold tracking-[0.08em] text-[#8c857b]",
+    "rounded-lg border border-[#d9dad9] bg-[#f9f9f8] px-4 py-2.5 text-sm font-semibold text-[#3c3f3e] transition duration-200 hover:border-[#c3c8c1] hover:bg-[#eceeec]",
+  overline: "text-[11px] font-semibold tracking-[0.08em] text-[#3f9f2e]",
 };
 
 const MODULE1_ASSIGNMENT_EMBED_PATH = "./assets/module1assignment.html";
@@ -898,6 +898,11 @@ const FORENSICS_WORKSPACE_STATE_KEY = "forensics35::workspace-state::v1";
 function normalizeSidebarLibraryView(value) {
   if (value === "quizzes") return value;
   return "modules";
+}
+
+function normalizeCourseShellView(value) {
+  if (["home", "chapters", "quizzes", "reader"].includes(value)) return value;
+  return "home";
 }
 
 function isQuizLesson(lesson) {
@@ -948,6 +953,12 @@ function computeLessonCompletionProgress(lessons, completionMap) {
     percent,
     isComplete: completed >= total,
   };
+}
+
+function lessonProgressStateAtIndex(index, completedCount, totalCount) {
+  if (index < completedCount) return "complete";
+  if (index === completedCount && completedCount < totalCount) return "active";
+  return "locked";
 }
 
 function buildSyntheticLessonsForModule(module) {
@@ -1118,7 +1129,7 @@ function Badge({ children, className = "", ...props }) {
   return (
     <span
       {...props}
-      className={`rounded-md border border-[#403c38] bg-[#23211f] px-2.5 py-1 text-[11px] font-semibold tracking-[0.08em] text-[#b8b2a8] ${className}`.trim()}
+      className={`rounded-md border border-[#d9dad9] bg-[#f9f9f8] px-2.5 py-1 text-[11px] font-semibold tracking-[0.08em] text-[#3c3f3e] ${className}`.trim()}
     >
       {children}
     </span>
@@ -1165,6 +1176,15 @@ function formatLessonTitleForDisplay(lesson) {
   }
 
   return rawTitle;
+}
+
+function toPlainPreview(value, fallback = "") {
+  const text = String(value || fallback || "")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  if (text.length <= 170) return text;
+  return `${text.slice(0, 167).trim()}...`;
 }
 
 function formatModuleTitleForDisplay(title) {
@@ -1214,85 +1234,12 @@ function SidebarItem({ active, completed, lesson, onClick }) {
 }
 
 function HtmlRenderer({ html }) {
-  const sections = useMemo(() => splitHtmlIntoSections(html), [html]);
-  const [sectionMode, setSectionMode] = useState(false);
-  const [collapsedSections, setCollapsedSections] = useState({});
-
-  useEffect(() => {
-    setSectionMode(false);
-    setCollapsedSections({});
-  }, [html]);
-
-  const collapseAll = () => {
-    setCollapsedSections(Object.fromEntries(sections.map((section) => [section.id, true])));
-  };
-
-  const expandAll = () => {
-    setCollapsedSections({});
-  };
-
   return (
     <div className={`${FORENSIC_THEME.panel} p-6`} data-testid="renderer-html">
-      <div className="mb-4 flex flex-wrap justify-end gap-2">
-        {sections.length > 1 && (
-          <>
-            <button
-              onClick={() => setSectionMode((prev) => !prev)}
-              className={FORENSIC_THEME.buttonSecondary}
-              data-testid="section-mode-toggle"
-            >
-              {sectionMode ? "Single flow" : "Section mode"}
-            </button>
-            {sectionMode && (
-              <>
-                <button
-                  onClick={expandAll}
-                  className={FORENSIC_THEME.buttonSecondary}
-                  data-testid="section-expand-all"
-                >
-                  Expand all
-                </button>
-                <button
-                  onClick={collapseAll}
-                  className={FORENSIC_THEME.buttonSecondary}
-                  data-testid="section-collapse-all"
-                >
-                  Collapse all
-                </button>
-              </>
-            )}
-          </>
-        )}
-      </div>
-      {sectionMode && sections.length > 1 ? (
-        <div className="space-y-3">
-          {sections.map((section) => {
-            const collapsed = !!collapsedSections[section.id];
-            return (
-              <div key={section.id} className="rounded-xl border border-white/[0.1] bg-white/[0.02]" data-testid="section-container">
-                <button
-                  onClick={() => setCollapsedSections((prev) => ({ ...prev, [section.id]: !prev[section.id] }))}
-                  className="flex w-full items-center justify-between px-4 py-3 text-left transition duration-200 hover:bg-white/[0.03]"
-                >
-                  <span className="text-sm font-semibold text-[#f3f4f6]">{section.title}</span>
-                  <span className={FORENSIC_THEME.overline}>{collapsed ? "Expand" : "Collapse"}</span>
-                </button>
-                {!collapsed && (
-                  <div
-                    className="max-w-none border-t border-white/[0.08] px-4 py-4 text-[#cbd5e1] [&_*]:!text-[#e5e7eb] [&_.image-banner]:my-4 [&_.image-banner]:rounded-xl [&_.image-banner]:border [&_.image-banner]:border-white/[0.1] [&_.image-banner]:bg-white/[0.04] [&_.image-banner]:p-8 [&_.image-banner]:text-center [&_h1]:mb-4 [&_h1]:text-3xl [&_h1]:font-semibold [&_h1]:tracking-tight [&_h1]:!text-[#f8fafc] [&_h2]:mb-3 [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:!text-[#f8fafc] [&_h3]:mb-2 [&_h3]:mt-5 [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:!text-[#f1f5f9] [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:mb-4 [&_p]:leading-7 [&_p]:!text-[#e5e7eb] [&_li]:!text-[#e5e7eb] [&_strong]:!text-[#f8fafc] [&_em]:!text-[#e2e8f0] [&_table]:mt-4 [&_table]:w-full [&_table]:border-collapse [&_td]:border [&_td]:border-white/[0.12] [&_td]:p-3 [&_th]:border [&_th]:border-white/[0.14] [&_th]:bg-white/[0.06] [&_th]:p-3 [&_ul]:list-disc [&_ul]:pl-6"
-                    dangerouslySetInnerHTML={{ __html: section.html }}
-                  />
-                )}
-              </div>
-            );
-          })}
-        </div>
-      ) : (
-        <div
-        className="max-w-none text-[#cbd5e1] [&_*]:!text-[#e5e7eb] [&_.image-banner]:my-4 [&_.image-banner]:rounded-xl [&_.image-banner]:border [&_.image-banner]:border-white/[0.1] [&_.image-banner]:bg-white/[0.04] [&_.image-banner]:p-8 [&_.image-banner]:text-center [&_h1]:mb-4 [&_h1]:text-3xl [&_h1]:font-semibold [&_h1]:tracking-tight [&_h1]:!text-[#f8fafc] [&_h2]:mb-3 [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:!text-[#f8fafc] [&_h3]:mb-2 [&_h3]:mt-5 [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:!text-[#f1f5f9] [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:mb-4 [&_p]:leading-7 [&_p]:!text-[#e5e7eb] [&_li]:!text-[#e5e7eb] [&_strong]:!text-[#f8fafc] [&_em]:!text-[#e2e8f0] [&_table]:mt-4 [&_table]:w-full [&_table]:border-collapse [&_td]:border [&_td]:border-white/[0.12] [&_td]:p-3 [&_th]:border [&_th]:border-white/[0.14] [&_th]:bg-white/[0.06] [&_th]:p-3 [&_ul]:list-disc [&_ul]:pl-6"
+      <div
+        className="max-w-none text-[#414942] [&_*]:!text-[#414942] [&_.image-banner]:my-4 [&_.image-banner]:rounded-lg [&_.image-banner]:border [&_.image-banner]:border-[#d9dad9] [&_.image-banner]:bg-[#f9f9f8] [&_.image-banner]:p-6 [&_.image-banner]:text-center [&_h1]:mb-4 [&_h1]:text-3xl [&_h1]:font-semibold [&_h1]:tracking-tight [&_h1]:!text-[#1a1c1a] [&_h2]:mb-3 [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:!text-[#1a1c1a] [&_h3]:mb-2 [&_h3]:mt-5 [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:!text-[#1a1c1a] [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:mb-4 [&_p]:leading-7 [&_p]:!text-[#414942] [&_li]:!text-[#414942] [&_strong]:!text-[#1a1c1a] [&_em]:!text-[#3c3f3e] [&_table]:mt-4 [&_table]:w-full [&_table]:border-collapse [&_td]:border [&_td]:border-[#d9dad9] [&_td]:p-3 [&_th]:border [&_th]:border-[#d9dad9] [&_th]:bg-[#f3f4f3] [&_th]:p-3 [&_ul]:list-disc [&_ul]:pl-6"
         dangerouslySetInnerHTML={{ __html: html }}
       />
-      )}
     </div>
   );
 }
@@ -1516,30 +1463,29 @@ function EmbeddedAssignmentRenderer({ title, srcPath, introHtml = "", lessonId, 
   );
 }
 
-function QuizRenderer({ quiz, questions, meta, lessonId, quizDraft, onQuizDraftChange }) {
+function QuizRenderer({ quiz, questions, meta, lessonId, quizDraft, onQuizDraftChange, onBackToQuizzes }) {
   const parsedQuestions = questions?.length ? questions : quiz ? [quiz] : [];
-  const [questionIndex, setQuestionIndex] = useState(() =>
-    Number.isInteger(quizDraft?.questionIndex) ? quizDraft.questionIndex : 0
-  );
   const [answersByQuestion, setAnswersByQuestion] = useState(() =>
     quizDraft?.answersByQuestion && typeof quizDraft.answersByQuestion === "object" ? quizDraft.answersByQuestion : {}
   );
-  const [feedbackByQuestion, setFeedbackByQuestion] = useState(() =>
-    quizDraft?.feedbackByQuestion && typeof quizDraft.feedbackByQuestion === "object" ? quizDraft.feedbackByQuestion : {}
-  );
-  const activeQuestion = parsedQuestions[questionIndex] || parsedQuestions[0];
-  const activeQuestionId = activeQuestion?.id || `question-${questionIndex}`;
-  const currentSelected = answersByQuestion[activeQuestionId];
-  const showFeedback = !!feedbackByQuestion[activeQuestionId];
-  const correct = currentSelected === activeQuestion?.answerIndex;
+  const [resultsVisible, setResultsVisible] = useState(() => !!quizDraft?.resultsVisible);
+  const [resultsGeneratedAt, setResultsGeneratedAt] = useState(() => quizDraft?.resultsGeneratedAt || "");
   const answeredCount = parsedQuestions.filter((question) => answersByQuestion[question.id] !== undefined).length;
   const correctCount = parsedQuestions.filter((question) => answersByQuestion[question.id] === question.answerIndex).length;
+  const totalQuestions = parsedQuestions.length;
   const questionSignature = parsedQuestions.map((question) => question.id).join("|");
+  const statusLabel = resultsVisible ? "Quiz complete" : answeredCount > 0 ? "In progress" : "Not started";
+  const submittedLabel = resultsVisible && resultsGeneratedAt ? resultsGeneratedAt : "Not yet submitted";
+
+  const handleSelectAnswer = (questionId, choiceIndex) => {
+    if (resultsVisible) return;
+    setAnswersByQuestion((prev) => ({ ...prev, [questionId]: choiceIndex }));
+  };
 
   const resetQuizAttempt = () => {
-    setQuestionIndex(0);
     setAnswersByQuestion({});
-    setFeedbackByQuestion({});
+    setResultsVisible(false);
+    setResultsGeneratedAt("");
   };
 
   const generateQuizReport = () => {
@@ -1554,56 +1500,34 @@ function QuizRenderer({ quiz, questions, meta, lessonId, quizDraft, onQuizDraftC
         const selectedIndex = answersByQuestion[question.id];
         const selectedLabel = selectedIndex === undefined ? "Not answered" : question.choices?.[selectedIndex] || "Not answered";
         const result = selectedIndex === undefined ? "Pending" : selectedIndex === question.answerIndex ? "Correct" : "Incorrect";
-        return `
-          <tr>
-            <td>${idx + 1}</td>
-            <td>${safe(question.question || "Untitled question")}</td>
-            <td>${safe(selectedLabel)}</td>
-            <td>${result}</td>
-          </tr>
-        `;
+        return `<tr><td>${idx + 1}</td><td>${safe(question.question || "Untitled question")}</td><td>${safe(selectedLabel)}</td><td>${result}</td></tr>`;
       })
       .join("");
-    const reportHtml = `
-      <!doctype html>
+    const reportHtml = `<!doctype html>
       <html>
         <head>
           <meta charset="utf-8" />
-          <title>Assignments Report</title>
+          <title>Quiz Report</title>
           <style>
-            body { font-family: 'Avenir Next', 'Segoe UI', sans-serif; margin: 32px; color: #0f172a; }
+            body { font-family: 'Open Sans', 'Rubik', sans-serif; margin: 32px; color: #1a1c1a; }
             h1 { margin: 0 0 8px; font-size: 28px; }
-            p { margin: 0 0 6px; color: #334155; }
-            .chips { margin: 16px 0 18px; display: flex; gap: 8px; flex-wrap: wrap; }
-            .chip { border: 1px solid #cbd5e1; border-radius: 999px; padding: 6px 12px; font-size: 12px; font-weight: 700; color: #334155; }
-            table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 13px; }
-            th, td { border: 1px solid #e2e8f0; text-align: left; vertical-align: top; padding: 10px; }
-            th { background: #f8fafc; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #475569; }
+            p { margin: 0 0 6px; color: #414942; }
+            table { width: 100%; border-collapse: collapse; margin-top: 18px; font-size: 13px; }
+            th, td { border: 1px solid #d9dad9; text-align: left; vertical-align: top; padding: 10px; }
+            th { background: #f3f4f3; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #3c3f3e; }
           </style>
         </head>
         <body>
-          <h1>Assignments Report</h1>
-          <p><strong>Score:</strong> ${correctCount}/${parsedQuestions.length}</p>
-          <p><strong>Answered:</strong> ${answeredCount}/${parsedQuestions.length}</p>
-          <div class="chips">
-            <span class="chip">${parsedQuestions.length} questions</span>
-            <span class="chip">${meta?.profile || "Module assessment"}</span>
-            <span class="chip">Retakes allowed</span>
-          </div>
+          <h1>Quiz Report</h1>
+          <p><strong>Course:</strong> Forensic Studies 35</p>
+          <p><strong>Score:</strong> ${correctCount}/${totalQuestions}</p>
+          <p><strong>Answered:</strong> ${answeredCount}/${totalQuestions}</p>
           <table>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Question</th>
-                <th>Your Answer</th>
-                <th>Result</th>
-              </tr>
-            </thead>
+            <thead><tr><th>#</th><th>Question</th><th>Your Answer</th><th>Result</th></tr></thead>
             <tbody>${rows}</tbody>
           </table>
         </body>
-      </html>
-    `;
+      </html>`;
     const reportBlob = new Blob([reportHtml], { type: "text/html" });
     const reportUrl = URL.createObjectURL(reportBlob);
     const reportWindow = window.open(reportUrl, "_blank");
@@ -1618,16 +1542,15 @@ function QuizRenderer({ quiz, questions, meta, lessonId, quizDraft, onQuizDraftC
     }, 350);
   };
 
+  const handleGenerateResults = () => {
+    setResultsVisible(true);
+    setResultsGeneratedAt(new Date().toLocaleString());
+    generateQuizReport();
+  };
+
   useEffect(() => {
     const validQuestionIds = new Set(parsedQuestions.map((question) => question.id));
-    setQuestionIndex((prev) => {
-      if (!parsedQuestions.length) return 0;
-      return Math.min(Math.max(prev, 0), parsedQuestions.length - 1);
-    });
     setAnswersByQuestion((prev) =>
-      Object.fromEntries(Object.entries(prev).filter(([questionId]) => validQuestionIds.has(questionId)))
-    );
-    setFeedbackByQuestion((prev) =>
       Object.fromEntries(Object.entries(prev).filter(([questionId]) => validQuestionIds.has(questionId)))
     );
   }, [questionSignature]);
@@ -1635,124 +1558,177 @@ function QuizRenderer({ quiz, questions, meta, lessonId, quizDraft, onQuizDraftC
   useEffect(() => {
     if (!lessonId || typeof onQuizDraftChange !== "function") return;
     onQuizDraftChange(lessonId, {
-      questionIndex,
       answersByQuestion,
-      feedbackByQuestion,
+      resultsVisible,
+      resultsGeneratedAt,
       savedAt: new Date().toISOString(),
     });
-  }, [lessonId, questionIndex, answersByQuestion, feedbackByQuestion, onQuizDraftChange]);
+  }, [lessonId, answersByQuestion, resultsVisible, resultsGeneratedAt, onQuizDraftChange]);
 
   return (
-    <div className={`${FORENSIC_THEME.panel} p-6`} data-testid="renderer-quiz">
-      <div className="mb-5 flex items-center justify-between">
-        <div>
-          <div className={FORENSIC_THEME.overline}>Assignments</div>
-          <h4 className="mt-1 text-lg font-semibold text-[#f3f4f6]">Module assessment</h4>
-        </div>
-        <div className="flex flex-wrap gap-2">
-          <Badge>{parsedQuestions.length} questions</Badge>
-          <Badge>{correctCount}/{parsedQuestions.length} correct</Badge>
-          <Badge data-testid="quiz-progress">{answeredCount}/{parsedQuestions.length} answered</Badge>
-        </div>
-      </div>
-      <div>
-        <div>
-          {parsedQuestions.length > 1 && (
-            <div className="mb-4 flex flex-wrap gap-2" data-testid="quiz-question-nav">
-              {parsedQuestions.map((question, idx) => (
-                <button
-                  key={question.id}
-                  onClick={() => {
-                    setQuestionIndex(idx);
-                  }}
-                  className={`rounded-lg border px-3 py-1.5 text-xs font-semibold transition duration-200 ${
-                    questionIndex === idx
-                      ? "border-[#b91c1c]/70 bg-[#1a1215] text-[#fecaca]"
-                      : "border-white/[0.12] bg-white/[0.02] text-[#a1a8b3] hover:border-white/[0.24] hover:text-[#f3f4f6]"
-                  }`}
-                  data-testid="quiz-question-button"
-                  data-current={questionIndex === idx ? "true" : "false"}
-                >
-                  Q{idx + 1} {answersByQuestion[question.id] !== undefined ? "•" : ""}
-                </button>
-              ))}
+    <div
+      className="rounded-lg border border-[#d9dad9] bg-white p-6 text-[#1a1c1a] shadow-[0_2px_8px_rgba(0,0,0,0.08)] sm:p-8"
+      data-testid="renderer-quiz"
+      data-quiz-layout="fs25-option2"
+    >
+      <div className="quiz-stack quiz-detail-layout space-y-7">
+        <div className="flex flex-wrap items-start justify-between gap-5 border-b border-[#d9dad9] pb-6">
+          <div className="max-w-3xl">
+            <div className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#3f9f2e]">Forensic Studies 35 - Assessment</div>
+            <h4 className="mt-3 text-2xl font-extrabold leading-tight text-[#1a1c1a] sm:text-3xl">
+              {meta?.title || "Module Assessment"}
+            </h4>
+          </div>
+          <div className="grid min-w-[230px] gap-3 rounded-lg border border-[#d9dad9] bg-[#f9f9f8] p-4 text-sm">
+            <div>
+              <span className="block text-[11px] font-bold uppercase tracking-[0.14em] text-[#3f9f2e]">Status</span>
+              <strong className="mt-1 block text-[#1a1c1a]">{statusLabel}</strong>
             </div>
-          )}
-          <div className="mb-4 h-2 overflow-hidden rounded-full bg-white/[0.08]">
-            <div
-              className="h-full rounded-full bg-[#b91c1c]"
-              style={{ width: `${parsedQuestions.length ? (answeredCount / parsedQuestions.length) * 100 : 0}%` }}
-            />
+            <div>
+              <span className="block text-[11px] font-bold uppercase tracking-[0.14em] text-[#3f9f2e]">Submitted</span>
+              <strong className="mt-1 block text-[#1a1c1a]">{submittedLabel}</strong>
+            </div>
           </div>
-          <p className="text-sm leading-7 text-[#d1d5db]">{activeQuestion?.question || "No quiz question parsed."}</p>
-          <div className="mt-5 space-y-3">
-            {activeQuestion?.choices?.map((choice, idx) => (
-              <button
-                key={idx}
-                onClick={() => {
-                  setAnswersByQuestion((prev) => ({ ...prev, [activeQuestionId]: idx }));
-                  setFeedbackByQuestion((prev) => ({ ...prev, [activeQuestionId]: false }));
-                }}
-                className={`w-full rounded-2xl border p-4 text-left text-sm transition ${
-                  currentSelected === idx
-                    ? "border-[#b91c1c]/70 bg-[#1a1215] text-[#f3f4f6]"
-                    : "border-white/[0.12] bg-white/[0.02] text-[#cbd5e1] hover:border-white/[0.24] hover:bg-white/[0.05]"
-                }`}
-                data-testid="quiz-answer-choice"
+        </div>
+
+        <section className="grid gap-5 rounded-lg border border-[#d9dad9] bg-[#f9f9f8] p-5 sm:grid-cols-[1fr_auto] sm:items-center">
+          <div>
+            <h5 className="text-2xl font-extrabold text-[#1a1c1a]">Final Evaluation</h5>
+            <p className="mt-2 max-w-xl text-base leading-7 text-[#5f6660]">
+              This counter tracks completed questions only. Marks are handled separately, and responses can be reviewed after results are generated.
+            </p>
+          </div>
+          <div className="text-left sm:text-right" data-testid="quiz-progress">
+            <strong className="block text-6xl font-extrabold leading-none text-[#59A844]">
+              {answeredCount}<small className="text-3xl text-[#1a1c1a]">/{totalQuestions}</small>
+            </strong>
+            <span className="mt-2 block text-[11px] font-bold uppercase tracking-[0.14em] text-[#ba1a1a]">Questions completed</span>
+          </div>
+        </section>
+
+        <div className="flex flex-wrap items-center gap-3">
+          <button
+            type="button"
+            onClick={handleGenerateResults}
+            className="min-h-[46px] rounded-lg border border-[#59A844] bg-[#59A844] px-5 text-sm font-extrabold uppercase tracking-[0.08em] text-white transition duration-150 hover:border-[#4b8d39] hover:bg-[#4b8d39]"
+          >
+            Generate Results
+          </button>
+          <button
+            type="button"
+            onClick={() => setResultsVisible(true)}
+            disabled={!resultsVisible}
+            className="min-h-[46px] rounded-lg border border-[#d9dad9] bg-white px-5 text-sm font-extrabold uppercase tracking-[0.08em] text-[#3c3f3e] transition duration-150 hover:bg-[#eceeec] disabled:cursor-not-allowed disabled:opacity-50"
+            data-testid="quiz-check-answer"
+          >
+            Check answers
+          </button>
+          <button
+            type="button"
+            onClick={resetQuizAttempt}
+            disabled={!answeredCount && !resultsVisible}
+            className="min-h-[46px] rounded-lg border border-[#d9dad9] bg-white px-5 text-sm font-extrabold uppercase tracking-[0.08em] text-[#3c3f3e] transition duration-150 hover:bg-[#eceeec] disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            Retake Quiz
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              if (typeof onBackToQuizzes === "function") onBackToQuizzes();
+            }}
+            className="min-h-[46px] rounded-lg border border-transparent bg-transparent px-5 text-sm font-extrabold uppercase tracking-[0.08em] text-[#1a1c1a] transition duration-150 hover:bg-[#eceeec]"
+          >
+            Back to quizzes -&gt;
+          </button>
+        </div>
+
+        <section className="border-t border-[#d9dad9] pt-2" data-testid="quiz-section-breakdown">
+          <h5 className="text-2xl font-extrabold text-[#1a1c1a]">Section Breakdown</h5>
+          <div className="mt-4 grid gap-3" data-testid="quiz-question-nav">
+            <button
+              type="button"
+              className="grid gap-2 rounded-lg border border-[#d9dad9] bg-[#f3f4f3] p-4 text-left sm:grid-cols-[1fr_auto] sm:items-center"
+              data-testid="quiz-question-button"
+            >
+              <span>
+                <span className="block text-sm font-extrabold text-[#1a1c1a]">Multiple Choice</span>
+                <span className="mt-1 block text-[11px] font-bold uppercase tracking-[0.14em] text-[#5f6660]">
+                  Questions 1-{totalQuestions || 0}
+                </span>
+              </span>
+              <span className="text-sm font-bold text-[#1a1c1a]">
+                {answeredCount}/{totalQuestions || 0}
+              </span>
+            </button>
+          </div>
+        </section>
+
+        <div className="space-y-4">
+          {parsedQuestions.length ? parsedQuestions.map((question, questionNumber) => {
+            const selectedIndex = answersByQuestion[question.id];
+            const isAnswered = selectedIndex !== undefined;
+            const isCorrect = selectedIndex === question.answerIndex;
+            return (
+              <article
+                key={question.id}
+                className="rounded-lg border border-[#d9dad9] bg-white p-5 shadow-[0_1px_4px_rgba(0,0,0,0.04)]"
+                data-testid="quiz-question-row"
               >
-                {choice}
-              </button>
-            ))}
-          </div>
-          <div className="mt-5 flex flex-wrap gap-3">
-            <button
-              onClick={() => setFeedbackByQuestion((prev) => ({ ...prev, [activeQuestionId]: true }))}
-              className={`w-full sm:w-auto ${FORENSIC_THEME.buttonPrimary}`}
-              data-testid="quiz-check-answer"
-            >
-              Check answer
-            </button>
-            <button
-              onClick={() => {
-                setAnswersByQuestion((prev) => ({ ...prev, [activeQuestionId]: undefined }));
-                setFeedbackByQuestion((prev) => ({ ...prev, [activeQuestionId]: false }));
-              }}
-              className={`w-full sm:w-auto ${FORENSIC_THEME.buttonSecondary}`}
-            >
-              Clear answer
-            </button>
-            <button
-              onClick={resetQuizAttempt}
-              className={`w-full sm:w-auto ${FORENSIC_THEME.buttonSecondary}`}
-            >
-              Retake quiz
-            </button>
-            <button
-              onClick={generateQuizReport}
-              className={`w-full sm:w-auto ${FORENSIC_THEME.buttonSecondary}`}
-            >
-              Generate report
-            </button>
-            {parsedQuestions.length > 1 && (
-              <button
-                onClick={() => {
-                  if (questionIndex < parsedQuestions.length - 1) {
-                    setQuestionIndex((idx) => idx + 1);
-                  }
-                }}
-                className={`w-full sm:w-auto ${FORENSIC_THEME.buttonSecondary}`}
-                data-testid="quiz-next-question"
-              >
-                Next question
-              </button>
-            )}
-          </div>
-          {showFeedback && currentSelected !== undefined && (
-            <div className={`mt-5 rounded-2xl border p-4 ${correct ? "border-emerald-400/35 bg-emerald-950/30" : "border-[#dc2626]/45 bg-[#2d0f14]"}`}>
-              <div className={`text-sm font-semibold ${correct ? "text-emerald-300" : "text-rose-300"}`}>{correct ? "Correct" : "Wrong"}</div>
-              <p className={`mt-2 text-sm leading-7 ${correct ? "text-emerald-100" : "text-rose-100"}`}>
-                In the exported quiz, the correct answer is <strong>{activeQuestion?.choices?.[activeQuestion?.answerIndex]}</strong>.
-              </p>
+                <div className="grid gap-4 sm:grid-cols-[auto_1fr]">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-md bg-[#eef6eb] text-sm font-extrabold text-[#3f9f2e]">
+                    {questionNumber + 1}
+                  </span>
+                  <div>
+                    <p className="m-0 text-base font-bold leading-7 text-[#1a1c1a]">{question.question || "Untitled question"}</p>
+                    <div className="mt-4 grid gap-3">
+                      {(question.choices || []).map((choice, choiceNumber) => {
+                        const selected = selectedIndex === choiceNumber;
+                        const revealCorrect = resultsVisible && choiceNumber === question.answerIndex;
+                        const revealWrong = resultsVisible && selected && !isCorrect;
+                        return (
+                          <button
+                            key={`${question.id}-${choiceNumber}`}
+                            type="button"
+                            onClick={() => handleSelectAnswer(question.id, choiceNumber)}
+                            disabled={resultsVisible}
+                            className={`flex min-h-[46px] w-full items-center gap-3 rounded-lg border px-4 py-3 text-left text-base transition duration-150 ${
+                              revealCorrect
+                                ? "border-[#59A844] bg-[#eef6eb] text-[#1a1c1a]"
+                                : revealWrong
+                                  ? "border-[#ba1a1a] bg-[#fff1ee] text-[#1a1c1a]"
+                                  : selected
+                                    ? "border-[#59A844] bg-[#eef6eb] text-[#1a1c1a]"
+                                    : "border-[#d9dad9] bg-white text-[#414942] hover:border-[#c3c8c1] hover:bg-[#f9f9f8]"
+                            } ${resultsVisible ? "cursor-default" : ""}`}
+                            data-testid="quiz-answer-choice"
+                          >
+                            <span
+                              className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border text-[10px] font-bold ${
+                                revealCorrect || selected
+                                  ? "border-[#59A844] bg-[#59A844] text-white"
+                                  : "border-[#c3c8c1] bg-white text-[#3c3f3e]"
+                              }`}
+                              aria-hidden="true"
+                            >
+                              {String.fromCharCode(65 + choiceNumber)}
+                            </span>
+                            <span>{choice}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                    {resultsVisible && isAnswered ? (
+                      <div className={`mt-4 rounded-lg border p-3 text-sm ${isCorrect ? "border-[#59A844]/45 bg-[#eef6eb] text-[#3f9f2e]" : "border-[#ba1a1a]/35 bg-[#fff1ee] text-[#ba1a1a]"}`}>
+                        {isCorrect ? "Correct" : `Incorrect. Correct answer: ${question.choices?.[question.answerIndex] || "Not available"}`}
+                      </div>
+                    ) : null}
+                  </div>
+                </div>
+              </article>
+            );
+          }) : (
+            <div className="rounded-lg border border-[#d9dad9] bg-[#f9f9f8] p-5 text-[#414942]">
+              No quiz question parsed.
             </div>
           )}
         </div>
@@ -1760,6 +1736,7 @@ function QuizRenderer({ quiz, questions, meta, lessonId, quizDraft, onQuizDraftC
     </div>
   );
 }
+
 
 function VideoRenderer({ title, video }) {
   const embedUrl = video?.embedUrl;
@@ -1944,6 +1921,7 @@ function renderNodePreview(activeLesson, sourcePreview, persistedState) {
         lessonId={activeLesson.id}
         quizDraft={persistedState?.quizDrafts?.[activeLesson.id]}
         onQuizDraftChange={persistedState?.onQuizDraftChange}
+        onBackToQuizzes={persistedState?.onBackToQuizzes}
       />
     );
   }
@@ -1954,7 +1932,7 @@ function renderNodePreview(activeLesson, sourcePreview, persistedState) {
   return <SourceFallback activeLesson={activeLesson} sourcePreview={sourcePreview} />;
 }
 
-function ChapterLessonCard({ lesson, quizDrafts, onQuizDraftChange, labDrafts, onLabDraftChange }) {
+function ChapterLessonCard({ lesson, quizDrafts, onQuizDraftChange, labDrafts, onLabDraftChange, onBackToQuizzes }) {
   const [sourcePreview, setSourcePreview] = useState({ status: "idle", kind: null });
 
   useEffect(() => {
@@ -2084,18 +2062,33 @@ function ChapterLessonCard({ lesson, quizDrafts, onQuizDraftChange, labDrafts, o
     };
   }, [lesson?.id, lesson?.sourceFile, lesson?.type]);
 
+  if (lesson.type === "quiz") {
+    return (
+      <section data-testid="chapter-lesson-card" data-lesson-type={lesson.type} data-quiz-reader-direct="true">
+        {renderNodePreview(lesson, sourcePreview, {
+          quizDrafts,
+          onQuizDraftChange,
+          labDrafts,
+          onLabDraftChange,
+          onBackToQuizzes,
+        })}
+      </section>
+    );
+  }
+
   return (
     <section className={`${FORENSIC_THEME.panel} p-8`} data-testid="chapter-lesson-card" data-lesson-type={lesson.type}>
       <div className="mb-4 flex flex-wrap items-center gap-2">
         {lesson.type !== "html-reading" ? <Badge>{typeLabel(lesson.type)}</Badge> : null}
       </div>
-      <h3 className="text-2xl font-semibold tracking-tight text-[#f3f4f6]">{formatLessonTitleForDisplay(lesson)}</h3>
+      <h3 className="text-2xl font-semibold tracking-tight text-[#1a1c1a]">{formatLessonTitleForDisplay(lesson)}</h3>
       <div className="mt-6">
         {renderNodePreview(lesson, sourcePreview, {
           quizDrafts,
           onQuizDraftChange,
           labDrafts,
           onLabDraftChange,
+          onBackToQuizzes,
         })}
       </div>
     </section>
@@ -2120,8 +2113,11 @@ export default function ForensicCoursePlayerPreviewRestored() {
   const [sidebarLibraryView, setSidebarLibraryView] = useState(
     normalizeSidebarLibraryView(
       initialUiState.sidebarLibraryView ||
-        (initialUiState.activeModuleView === "assignments" ? "quizzes" : "modules")
+        (initialUiState.activeModuleView === "quizzes" ? "quizzes" : "modules")
     )
+  );
+  const [courseShellView, setCourseShellView] = useState(
+    normalizeCourseShellView(initialUiState.courseShellView)
   );
   const [chapterVisited, setChapterVisited] = useState(
     initialUiState.chapterVisited && typeof initialUiState.chapterVisited === "object" ? initialUiState.chapterVisited : {}
@@ -2523,11 +2519,13 @@ export default function ForensicCoursePlayerPreviewRestored() {
   }, [activeChapter]);
   const chapterLessons = chapterLessonGroups.contentLessons;
   const chapterAssignments = chapterLessonGroups.assignmentLessons;
-  const chapterQuizzes = chapterAssignments.filter(isQuizLesson);
+  const chapterQuizzes = useMemo(() => chapterAssignments.filter(isQuizLesson), [chapterAssignments]);
   const chapterCompletionMap = readCompletionMapForModule(contentCompletedByModule, activeChapter?.id || "");
   const unlockedChapterLessons = buildUnlockedContentLessons(chapterLessons, chapterCompletionMap);
   const chapterContentProgress = computeLessonCompletionProgress(chapterLessons, chapterCompletionMap);
-  const activeBucket = sidebarLibraryView === "quizzes" ? "quizzes" : "content";
+  const activeBucket = sidebarLibraryView === "quizzes"
+    ? "quizzes"
+    : "content";
   const activeBucketLessons = activeBucket === "quizzes"
     ? (chapterContentProgress.isComplete ? chapterQuizzes : [])
     : unlockedChapterLessons;
@@ -2577,6 +2575,7 @@ export default function ForensicCoursePlayerPreviewRestored() {
     setActiveChapterId(moduleId);
     setExpandedChapterId(moduleId);
     setSidebarLibraryView(bucket === "content" ? "modules" : bucket);
+    setCourseShellView("reader");
     setSelectedLessonByBucket((prev) => ({ ...prev, [bucketStateKey(moduleId, bucket)]: lessonId }));
   }, []);
 
@@ -2664,7 +2663,7 @@ export default function ForensicCoursePlayerPreviewRestored() {
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
-  }, [activeChapterId, sidebarLibraryView]);
+  }, [activeChapterId, sidebarLibraryView, courseShellView]);
 
   useEffect(() => {
     writeForensicsWorkspaceState({
@@ -2672,8 +2671,9 @@ export default function ForensicCoursePlayerPreviewRestored() {
       savedAt: new Date().toISOString(),
       ui: {
         activeChapterId,
-        activeModuleView: sidebarLibraryView === "modules" ? "content" : "assignments",
+        activeModuleView: sidebarLibraryView === "modules" ? "content" : sidebarLibraryView,
         sidebarLibraryView,
+        courseShellView,
         expandedChapterId,
         chapterVisited,
         selectedLessonByBucket,
@@ -2694,6 +2694,7 @@ export default function ForensicCoursePlayerPreviewRestored() {
   }, [
     activeChapterId,
     sidebarLibraryView,
+    courseShellView,
     expandedChapterId,
     chapterVisited,
     selectedLessonByBucket,
@@ -2710,108 +2711,359 @@ export default function ForensicCoursePlayerPreviewRestored() {
   ]);
 
   const isContentView = sidebarLibraryView === "modules";
-  const isActiveContentLesson = Boolean(isContentView && activeLesson);
-  const isActiveLessonMarkedComplete = Boolean(
-    isActiveContentLesson && chapterCompletionMap[activeLesson.id]
-  );
-  const nextContentLesson = useMemo(() => {
-    if (!isContentView || !activeLesson?.id) {
-      return null;
-    }
-    const currentIndex = chapterLessons.findIndex((lesson) => lesson.id === activeLesson.id);
-    if (currentIndex === -1 || currentIndex >= chapterLessons.length - 1) {
-      return null;
-    }
-    return chapterLessons[currentIndex + 1];
-  }, [isContentView, activeLesson?.id, chapterLessons]);
-
-  const handleCompleteAndAdvance = useCallback(() => {
-    if (!activeChapter?.id || !activeLesson?.id) return;
-    handleMarkContentComplete(activeChapter.id, activeLesson.id);
-    if (!nextContentLesson?.id) return;
-    setActiveChapterId(activeChapter.id);
-    setExpandedChapterId(activeChapter.id);
-    setSidebarLibraryView("modules");
-    setSelectedLessonByBucket((prev) => ({
-      ...prev,
-      [bucketStateKey(activeChapter.id, "content")]: nextContentLesson.id,
-    }));
-  }, [
-    activeChapter?.id,
-    activeLesson?.id,
-    nextContentLesson?.id,
-    handleMarkContentComplete,
-  ]);
 
   const isMenuCollapsed = isChapterMenuCollapsed && !isMobileMenuOpen;
+  const isReaderView = courseShellView === "reader";
+  const isQuizReaderView = isReaderView && sidebarLibraryView === "quizzes";
+  const activeNavView = courseShellView === "reader"
+    ? sidebarLibraryView === "modules"
+      ? "chapters"
+      : sidebarLibraryView
+    : courseShellView;
+  const shellNavButtonClass = (active) =>
+    `flex min-h-[44px] w-full items-center gap-3 rounded-lg border border-l-[3px] px-3 text-left text-sm font-semibold transition duration-150 ${
+      active
+        ? "border-[#59A844] border-l-[#59A844] bg-[#59A844] text-white"
+        : "border-transparent border-l-transparent text-[#e7e7e5] hover:border-[#4b4e4d] hover:bg-[#4b4e4d] hover:text-white"
+    }`;
+  const shellNavIconClass = "h-4 w-4 shrink-0";
+  const openCourseHome = () => {
+    const firstModule = safeModules[0];
+    setCourseShellView("home");
+    setSidebarLibraryView("modules");
+    if (!firstModule?.id) return;
+    setActiveChapterId(firstModule.id);
+    setExpandedChapterId(firstModule.id);
+  };
+  const openChaptersLibrary = () => {
+    setCourseShellView("chapters");
+    setSidebarLibraryView("modules");
+  };
+  const openQuizzesLibrary = () => {
+    setCourseShellView("quizzes");
+    setSidebarLibraryView("quizzes");
+  };
+  const openShellLesson = (row, bucket, lesson) => {
+    if (!row?.module?.id || !lesson?.id) return;
+    handleSelectLesson(row.module.id, bucket, lesson.id);
+  };
+  const openShellContent = (row) => {
+    const completionMap = readCompletionMapForModule(contentCompletedByModule, row.module.id);
+    const unlockedLessons = buildUnlockedContentLessons(row.contentLessons, completionMap);
+    openShellLesson(row, "content", unlockedLessons[0] || row.contentLessons[0]);
+  };
+  const activeViewLabel = sidebarLibraryView === "modules"
+    ? "content view"
+    : "quizzes view";
+  const shellPanelClass = "rounded-lg border border-[#d9dad9] bg-white p-6 text-[#1a1c1a] shadow-[0_2px_8px_rgba(0,0,0,0.08)]";
+  const shellButtonClass =
+    "rounded-lg border border-[#59A844] bg-[#59A844] px-4 py-2 text-sm font-semibold text-white transition duration-150 hover:bg-[#4b8d39] disabled:cursor-not-allowed disabled:border-[#d9dad9] disabled:bg-[#eceeec] disabled:text-[#7d857d]";
+  const shellMutedButtonClass =
+    "rounded-lg border border-[#d9dad9] bg-[#f9f9f8] px-4 py-2 text-sm font-semibold text-[#3c3f3e] transition duration-150 hover:bg-[#eceeec] disabled:cursor-not-allowed disabled:opacity-55";
+  const renderLockedChip = (copy) => (
+    <div className="mt-3 inline-flex max-w-full rounded-full bg-[#eef6eb] px-3 py-1 text-xs font-semibold text-[#3f9f2e]">
+      {copy}
+    </div>
+  );
+  const renderModuleCard = (row, index) => {
+    const completionMap = readCompletionMapForModule(contentCompletedByModule, row.module.id);
+    const unlockedContentLessons = buildUnlockedContentLessons(row.contentLessons, completionMap);
+    const firstUnlocked = unlockedContentLessons[0] || row.contentLessons[0];
+    const firstQuiz = row.quizzes[0];
+    const moduleNumber = String(row.module.title || "").match(/^(\d+)/)?.[1] || String(index + 1);
+    const summary = toPlainPreview(
+      firstUnlocked?.learn?.excerpt || firstUnlocked?.contentPreview || firstUnlocked?.htmlSample || firstUnlocked?.assignmentXml?.intro,
+      "Open this module to work through the lesson pages and source activities."
+    );
+    return (
+      <article key={row.module.id} className={shellPanelClass} data-testid="forensics35-chapter-card">
+        <div className="text-sm font-bold uppercase tracking-[0.12em] text-[#3f9f2e]">Module {moduleNumber}</div>
+        <h3 className="mt-3 text-2xl font-bold leading-tight text-[#3c3f3e]">{row.module.title}</h3>
+        <p className="mt-5 min-h-[3.6rem] text-sm leading-6 text-[#606762]">{summary}</p>
+        <div className="mt-6 flex flex-wrap gap-3">
+          <button
+            type="button"
+            className={shellButtonClass}
+            data-open-shell-content={row.module.id}
+            disabled={!firstUnlocked}
+            onClick={() => openShellContent(row)}
+          >
+            Open content
+          </button>
+          {firstQuiz ? (
+            <button
+              type="button"
+              className={shellMutedButtonClass}
+              data-open-shell-quiz={firstQuiz.id}
+              disabled={!row.quizzesUnlocked}
+              onClick={() => openShellLesson(row, "quizzes", firstQuiz)}
+            >
+              Open test
+            </button>
+          ) : null}
+        </div>
+        <div className="mt-4 inline-flex rounded-full bg-[#eef6eb] px-3 py-1 text-xs font-semibold text-[#3f9f2e]">
+          {row.contentProgress.completed}/{row.contentProgress.total} components complete
+        </div>
+      </article>
+    );
+  };
+  const renderAssessmentCard = ({ row, lesson, index, bucket }) => {
+    const title = formatLessonTitleForDisplay(lesson);
+    const summary = toPlainPreview(
+      lesson.assignmentXml?.intro || lesson.contentPreview || lesson.learn?.excerpt || lesson.quizSample?.question,
+      "Assessment covering this module's forensic studies content."
+    );
+    return (
+      <article
+        key={`${bucket}-${row.module.id}-${lesson.id}`}
+        className={shellPanelClass}
+        data-testid="forensics35-quiz-card"
+      >
+        <div className="text-sm font-bold uppercase tracking-[0.12em] text-[#3f9f2e]">
+          Quiz {index + 1}
+        </div>
+        <h3 className="mt-3 text-xl font-bold leading-tight text-[#3c3f3e]">{title}</h3>
+        <p className="mt-5 min-h-[4.5rem] text-sm leading-6 text-[#606762]">{summary}</p>
+        <button
+          type="button"
+          className={shellButtonClass}
+          data-open-shell-quiz={lesson.id}
+          disabled={!row.quizzesUnlocked}
+          onClick={() => openShellLesson(row, bucket, lesson)}
+        >
+          Open test
+        </button>
+        {!row.quizzesUnlocked
+          ? renderLockedChip("Locked until all module content is marked complete")
+          : renderLockedChip("Ready")}
+      </article>
+    );
+  };
+  const quizCards = quizLibraryRows.flatMap((row) => row.quizzes.map((lesson) => ({ row, lesson })));
+  const renderLibrarySection = (testId, title, intro, children) => (
+    <section data-testid={testId}>
+      <h2 className="text-4xl font-bold tracking-normal text-[#3c3f3e]">{title}</h2>
+      <p className="mt-3 max-w-3xl text-lg leading-7 text-[#606762]">{intro}</p>
+      <div className="mt-8">{children}</div>
+    </section>
+  );
+  const renderModuleGrid = (testId, title, intro) =>
+    renderLibrarySection(
+      testId,
+      title,
+      intro,
+      <div className="grid gap-5 md:grid-cols-2">
+        {moduleLibraryRows.map((row, index) => renderModuleCard(row, index))}
+      </div>
+    );
+  const renderCourseShellLibrary = () => (
+    <div className="min-h-screen bg-[#f3f4f3] px-5 py-8 text-[#1a1c1a] sm:px-8">
+      <div className="mx-auto grid max-w-6xl gap-10">
+        <section className="rounded-xl border border-[#d9dad9] bg-white p-8 shadow-[0_2px_8px_rgba(0,0,0,0.08)]" aria-label="Course progress">
+          <div className="grid gap-6 md:grid-cols-[1fr_320px] md:items-center">
+            <div>
+              <div className="text-sm font-bold uppercase tracking-[0.12em] text-[#3f9f2e]">Current coursework</div>
+              <h1 className="mt-4 max-w-xl text-5xl font-bold leading-none tracking-normal text-[#3c3f3e]">{resolvedCourse.title}</h1>
+              <p className="mt-4 text-lg text-[#606762]">Forensic Studies 35 content and quizzes.</p>
+            </div>
+            <div>
+              <div className="mb-2 flex items-center justify-between text-sm">
+                <span className="font-semibold text-[#606762]">Overall Progress</span>
+                <span className="font-bold text-[#3c3f3e]">{overallContentProgress.percent}%</span>
+              </div>
+              <div className="h-2.5 overflow-hidden rounded-full bg-[#d9dad9]">
+                <div className="h-full rounded-full bg-[#59A844]" style={{ width: `${overallContentProgress.percent}%` }} />
+              </div>
+              <div className="mt-5 grid grid-cols-2 gap-5 text-sm">
+                <div>
+                  <div className="text-[#606762]">Unlocked Chapters</div>
+                  <div className="mt-1 text-right text-lg font-bold text-[#3c3f3e]">{moduleLibraryRows.length}/{moduleLibraryRows.length}</div>
+                </div>
+                <div>
+                  <div className="text-[#606762]">Completed Quizzes</div>
+                  <div className="mt-1 text-right text-lg font-bold text-[#3c3f3e]">0/{quizCards.length}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        {courseShellView === "home"
+          ? renderModuleGrid(
+              "forensics35-home-library",
+              "Home",
+              "Each module includes lesson pages and quizzes from the Forensic Studies course."
+            )
+          : null}
+        {courseShellView === "chapters"
+          ? renderModuleGrid(
+              "forensics35-chapters-library",
+              "Chapters",
+              "Open a module to work through its lesson pages before completing the related assessments."
+            )
+          : null}
+        {courseShellView === "quizzes"
+          ? renderLibrarySection(
+              "forensics35-quiz-library",
+              "Quizzes",
+              "Open a test to work through the question sets and track completion by section.",
+              <div className="grid gap-5 md:grid-cols-2">
+                {quizCards.map((entry, index) => renderAssessmentCard({ ...entry, index, bucket: "quizzes" }))}
+              </div>
+            )
+          : null}
+      </div>
+    </div>
+  );
 
   if (!activeChapter) {
     return (
-    <div className="forensic-app min-h-screen bg-[#121314] p-4 text-[#b8b2a8] sm:p-8">
+    <div className="forensic-app min-h-screen bg-[#f3f4f3] p-4 text-[#1a1c1a] sm:p-8">
         No chapters were mapped from the D2L course map yet.
       </div>
     );
   }
 
   return (
-    <div className="forensic-app min-h-screen bg-[#121314] text-[#f3f1eb]">
+    <div className="forensic-app min-h-screen bg-[#f3f4f3] text-[#1a1c1a]">
       <style>{`
         .forensic-app {
-          font-family: "Inter", "Avenir Next", sans-serif;
+          font-family: "Open Sans", "Rubik", sans-serif;
         }
         .forensic-app h1,
         .forensic-app h2,
         .forensic-app h3,
         .forensic-app h4 {
-          font-family: "Space Grotesk", "Inter", sans-serif;
-          letter-spacing: -0.015em;
+          font-family: "Rubik", "Open Sans", sans-serif;
+          letter-spacing: 0;
         }
         .forensic-app * {
           transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
         }
+        .forensic-reader-surface [data-testid^="renderer-"],
+        .forensic-reader-surface [data-testid="chapter-lesson-card"],
+        .forensic-reader-surface [data-testid="quick-checkpoints"],
+        .forensic-reader-surface [data-testid="mark-complete-panel"] {
+          background: #ffffff !important;
+          border-color: #d9dad9 !important;
+          color: #1a1c1a !important;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+        }
+        .forensic-reader-surface h1,
+        .forensic-reader-surface h2,
+        .forensic-reader-surface h3,
+        .forensic-reader-surface h4,
+        .forensic-reader-surface strong,
+        .forensic-reader-surface [class*="text-[#f3f4f6]"],
+        .forensic-reader-surface [class*="text-[#f8fafc]"],
+        .forensic-reader-surface [class*="text-[#dce6fb]"] {
+          color: #1a1c1a !important;
+        }
+        .forensic-reader-surface p,
+        .forensic-reader-surface li,
+        .forensic-reader-surface td,
+        .forensic-reader-surface [class*="text-[#cbd5e1]"],
+        .forensic-reader-surface [class*="text-[#a8b4ca]"],
+        .forensic-reader-surface [class*="text-[#b8b2a8]"],
+        .forensic-reader-surface [class*="text-[#c2cce0]"] {
+          color: #414942 !important;
+        }
+        .forensic-reader-surface [class*="bg-[#0f172a]"],
+        .forensic-reader-surface [class*="bg-white/[0.02]"],
+        .forensic-reader-surface [class*="bg-white/[0.04]"] {
+          background: #f9f9f8 !important;
+        }
+        .forensic-reader-surface [class*="border-white"],
+        .forensic-reader-surface [class*="border-[#2b3445]"] {
+          border-color: #d9dad9 !important;
+        }
+        .forensic-sequence-card[data-progress-state="locked"] .forensic-sequence-card-head,
+        .forensic-sequence-card[data-progress-state="locked"] .forensic-sequence-card-body {
+          filter: blur(3px);
+          pointer-events: none;
+          user-select: none;
+          opacity: 0.72;
+        }
+        .forensic-sequence-card[data-progress-state="locked"] .forensic-sequence-card-body [data-testid="chapter-lesson-card"] {
+          margin: 0;
+        }
+        .forensic-sequence-card {
+          overflow: hidden;
+        }
+        .forensic-sequence-card .forensic-sequence-card-body {
+          min-width: 0;
+          max-width: 100%;
+          overflow: hidden;
+        }
+        .forensic-sequence-card .forensic-sequence-card-body [data-testid="chapter-lesson-card"] {
+          max-width: 100%;
+          overflow: hidden;
+        }
+        .forensic-sequence-card .forensic-sequence-card-body :where(img, video, object, embed, canvas, svg) {
+          display: block;
+          max-width: 100% !important;
+          height: auto !important;
+        }
+        .forensic-sequence-card .forensic-sequence-card-body :where(iframe) {
+          display: block;
+          width: 100%;
+          max-width: 100% !important;
+        }
+        .forensic-sequence-card .forensic-sequence-card-body :where(table) {
+          width: 100% !important;
+          max-width: 100%;
+          table-layout: fixed;
+        }
+        .forensic-sequence-card .forensic-sequence-card-body :where(th, td) {
+          overflow-wrap: anywhere;
+        }
       `}</style>
-      <div className="flex min-h-screen">
-        <button
-          type="button"
-          className={`fixed inset-0 z-30 bg-black/65 transition-opacity duration-200 lg:hidden ${
-            isMobileMenuOpen ? "opacity-100" : "pointer-events-none opacity-0"
-          }`}
-          aria-hidden={isMobileMenuOpen ? "false" : "true"}
-          onClick={() => setIsMobileMenuOpen(false)}
-          title="Close menu overlay"
-        />
+      <div className="flex min-h-screen flex-col lg:flex-row">
         <aside
-          className={`fixed inset-y-0 left-0 z-40 h-screen shrink-0 overflow-hidden border-r border-[#302d2a] bg-[#17181a] transition-[width,transform] duration-200 lg:sticky lg:top-0 lg:z-0 lg:bg-[#17181a] ${
-            isMobileMenuOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
-          } ${isMenuCollapsed ? "lg:w-16" : "w-[86vw] max-w-[340px] lg:w-[340px]"}
+          className={`sticky top-0 z-30 shrink-0 overflow-visible border-b border-[#303332] bg-[#3c3f3e] lg:z-0 lg:flex lg:h-screen lg:flex-col lg:overflow-hidden lg:border-b-0 lg:border-r ${
+            isMenuCollapsed ? "w-full lg:w-16" : "w-full lg:w-[260px]"
           }`}
           data-testid="chapter-menu-panel"
           data-collapsed={isMenuCollapsed ? "true" : "false"}
+          data-sidebar-responsive-mode="option2-sticky"
         >
-          <div className={`border-b border-[#302d2a] ${isMenuCollapsed ? "px-2 py-4" : "px-5 py-5"}`}>
-            <div className={`mb-3 flex ${isMenuCollapsed ? "justify-center" : "items-start justify-between gap-3"}`}>
-              {!isMenuCollapsed ? (
-                <div>
-                  <div className={FORENSIC_THEME.overline}>Case file</div>
-                  <h1 className="mt-1 text-xl font-semibold text-[#f3f1eb]">{resolvedCourse.title}</h1>
+          <div
+            className={`sticky top-0 z-30 border-b border-[#4b4e4d] bg-[#3c3f3e] ${
+              isMenuCollapsed ? "px-4 py-4 lg:px-2" : "px-4 py-5"
+            }`}
+            data-testid="forensics35-fs25-sidebar-top"
+          >
+            <div className={`flex items-start justify-between gap-3 ${isMenuCollapsed ? "lg:justify-center" : ""}`}>
+              <div className={`min-w-0 ${isMenuCollapsed ? "lg:hidden" : ""}`} data-testid="forensics35-fs25-sidebar-brand">
+                <h1 className="text-2xl font-extrabold leading-[0.95] tracking-normal text-white">
+                  {resolvedCourse.title}
+                </h1>
+                <div className="mt-2 text-[10px] font-bold uppercase tracking-[0.22em] text-[#c9ceca]">
+                  SCHOLARLY ACCESS
                 </div>
-              ) : null}
+              </div>
               <button
                 type="button"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#403c38] bg-[#23211f] text-[#d1cac0] transition duration-200 hover:border-[#57514b] hover:bg-[#2b2926] hover:text-[#f3f1eb] lg:hidden"
-                aria-label="Close chapter menu"
-                title="Close chapter menu"
+                onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+                className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#5a5e5d] bg-[#4b4e4d] text-white transition duration-150 hover:border-[#59A844] lg:hidden"
+                aria-expanded={isMobileMenuOpen ? "true" : "false"}
+                aria-label={isMobileMenuOpen ? "Close chapter menu" : "Open chapter menu"}
+                title={isMobileMenuOpen ? "Close chapter menu" : "Open chapter menu"}
+                data-testid="forensics35-mobile-menu-toggle"
               >
-                <span className="text-lg leading-none">×</span>
+                <span className="flex flex-col gap-1.5">
+                  <span className="block h-[2px] w-4 rounded-full bg-current" />
+                  <span className="block h-[2px] w-4 rounded-full bg-current" />
+                  <span className="block h-[2px] w-4 rounded-full bg-current" />
+                </span>
               </button>
               <button
                 type="button"
                 onClick={() => setIsChapterMenuCollapsed((prev) => !prev)}
                 className={`hidden h-10 w-10 items-center justify-center rounded-lg border transition duration-200 lg:flex ${
                   isMenuCollapsed
-                    ? "border-[#b07a58]/70 bg-[#8a5a3c] text-[#f3f1eb] hover:bg-[#9b6948]"
-                    : "border-[#403c38] bg-[#23211f] text-[#d1cac0] hover:border-[#57514b] hover:bg-[#2b2926] hover:text-[#f3f1eb]"
+                    ? "border-[#59A844] bg-[#59A844] text-white hover:bg-[#4b8d39]"
+                    : "border-[#5a5e5d] bg-[#4b4e4d] text-white hover:border-[#59A844]"
                 }`}
                 data-testid="chapter-menu-toggle"
                 aria-expanded={isMenuCollapsed ? "false" : "true"}
@@ -2819,353 +3071,284 @@ export default function ForensicCoursePlayerPreviewRestored() {
                 title={isMenuCollapsed ? "Open chapter menu" : "Collapse chapter menu"}
               >
                 <span className="flex flex-col gap-1.5">
-                  <span className={`block h-[2px] w-4 rounded-full ${isMenuCollapsed ? "bg-[#f3f1eb]" : "bg-[#d1cac0]"}`} />
-                  <span className={`block h-[2px] w-4 rounded-full ${isMenuCollapsed ? "bg-[#f3f1eb]" : "bg-[#d1cac0]"}`} />
-                  <span className={`block h-[2px] w-4 rounded-full ${isMenuCollapsed ? "bg-[#f3f1eb]" : "bg-[#d1cac0]"}`} />
+                  <span className="block h-[2px] w-4 rounded-full bg-current" />
+                  <span className="block h-[2px] w-4 rounded-full bg-current" />
+                  <span className="block h-[2px] w-4 rounded-full bg-current" />
                 </span>
               </button>
             </div>
-            {isMenuCollapsed ? null : (
-              <>
-            <div className="relative">
-              <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#8c857b]" />
-              <input
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search chapter titles"
-                className="w-full rounded-lg border border-[#403c38] bg-[#23211f] py-2.5 pl-9 pr-3 text-sm text-[#ece7df] outline-none placeholder:text-[#8c857b] focus:border-[#b07a58]/70"
-                data-testid="lesson-search"
-              />
+            <div className={`mt-4 ${isMenuCollapsed ? "lg:hidden" : ""}`} data-testid="forensics35-sidebar-progress">
+              <div
+                className="h-1.5 overflow-hidden rounded-full bg-[#5a5e5d]"
+                role="progressbar"
+                aria-label="Course progress"
+                aria-valuemin={0}
+                aria-valuemax={100}
+                aria-valuenow={overallContentProgress.percent}
+              >
+                <div
+                  className="h-full rounded-full bg-[#59A844] transition-all duration-300"
+                  style={{ width: `${overallContentProgress.percent}%` }}
+                />
+              </div>
             </div>
-              </>
-            )}
           </div>
 
-          {isMenuCollapsed ? null : (
-            <nav className="grid gap-1 border-b border-[#302d2a] px-3 py-3" aria-label="Workspace sections">
+          {!isMenuCollapsed ? (
+            <div
+              className={`${isMobileMenuOpen ? "grid" : "hidden"} gap-4 border-b border-[#4b4e4d] px-3 py-4 lg:grid`}
+              data-testid="forensics35-fs25-sidebar-body"
+            >
+              {isReaderView ? (
+                <div className="relative">
+                  <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#adb4af]" />
+                  <input
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                    placeholder="Search chapter titles"
+                    className="w-full rounded-lg border border-[#5a5e5d] bg-[#2c2f2e] py-2.5 pl-9 pr-3 text-sm text-white outline-none placeholder:text-[#adb4af] focus:border-[#59A844]"
+                    data-testid="lesson-search"
+                  />
+                </div>
+              ) : null}
+            <nav
+              className="grid gap-2"
+              aria-label="Primary navigation"
+              data-testid="forensics35-fs25-shell-nav"
+            >
               <button
                 type="button"
-                className={`rounded-md border px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-[0.08em] transition ${
-                  sidebarLibraryView === "modules"
-                    ? "border-[#b07a58]/45 bg-[#30241d] text-[#e0c0a8]"
-                    : "border-[#3a3633] bg-[#1f1f22] text-[#9f9991] hover:border-[#57514b] hover:text-[#f3f1eb]"
-                }`}
-                data-library-view="modules"
-                onClick={() => setSidebarLibraryView("modules")}
+                className={shellNavButtonClass(activeNavView === "home")}
+                data-shell-nav="home"
+                onClick={openCourseHome}
               >
-                Case Modules
+                <Bookmark className={shellNavIconClass} aria-hidden="true" />
+                <span>Home</span>
               </button>
               <button
                 type="button"
-                className={`rounded-md border px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-[0.08em] transition ${
-                  sidebarLibraryView === "quizzes"
-                    ? "border-[#b07a58]/45 bg-[#30241d] text-[#e0c0a8]"
-                    : "border-[#3a3633] bg-[#1f1f22] text-[#9f9991] hover:border-[#57514b] hover:text-[#f3f1eb]"
-                }`}
-                data-library-view="quizzes"
-                onClick={() => setSidebarLibraryView("quizzes")}
+                className={shellNavButtonClass(activeNavView === "chapters")}
+                data-library-view="modules"
+                onClick={openChaptersLibrary}
               >
-                Quizzes
+                <Library className={shellNavIconClass} aria-hidden="true" />
+                <span>Chapters</span>
+              </button>
+              <button
+                type="button"
+                className={shellNavButtonClass(activeNavView === "quizzes")}
+                data-library-view="quizzes"
+                onClick={openQuizzesLibrary}
+              >
+                <FileQuestion className={shellNavIconClass} aria-hidden="true" />
+                <span>Quizzes</span>
               </button>
             </nav>
-          )}
+            </div>
+          ) : null}
 
-          {isMenuCollapsed ? null : sidebarLibraryView === "modules" ? (
-            <div className="h-[calc(100vh-302px)] overflow-y-auto px-3 py-4" data-testid="module-list">
-              {safeModules.map((module) => {
-                const isSelected = module.id === activeChapter.id;
-                const isExpanded = module.id === expandedChapterId;
-                const moduleGroups = moduleLibraryRows.find((row) => row.module.id === module.id);
-                const moduleCompletionMap = readCompletionMapForModule(contentCompletedByModule, module.id);
-                const moduleContentLessons = module.id === activeChapter.id
-                  ? chapterLessons
-                  : moduleGroups?.contentLessons || [];
-                const unlockedModuleContentLessons = module.id === activeChapter.id
-                  ? unlockedChapterLessons
-                  : buildUnlockedContentLessons(moduleContentLessons, moduleCompletionMap);
-                const moduleContentProgress = moduleGroups?.contentProgress || computeLessonCompletionProgress(moduleContentLessons, moduleCompletionMap);
-                const activeContentKey = isExpanded ? bucketStateKey(module.id, "content") : "";
-                const activeContentLessonId = isExpanded
-                  ? selectedLessonByBucket[activeContentKey] || unlockedModuleContentLessons[0]?.id
-                  : "";
-                return (
-                  <div
-                    key={module.id}
-                    className={`mb-3 rounded-xl border p-2 shadow-[0_12px_24px_rgba(0,0,0,0.22)] transition ${
-                      isSelected
-                        ? "border-[#8a5a3c] bg-[#231f1d]"
-                        : "border-[#353331] bg-[#1c1d1f]"
-                    }`}
-                    data-testid="module-panel"
-                    data-module-title={module.title}
-                    data-module-hidden={module.isHidden ? "true" : "false"}
-                    data-module-expanded={isExpanded ? "true" : "false"}
-                  >
-                    <button
-                      onClick={() => {
-                        if (isExpanded) {
-                          setExpandedChapterId("");
-                          return;
-                        }
-                        setActiveChapterId(module.id);
-                        setExpandedChapterId(module.id);
-                      }}
-                      className="flex w-full items-center justify-between rounded-lg px-2 py-2 text-left transition duration-200 hover:bg-[#262320]"
-                      data-testid="module-toggle"
-                      data-module-title={module.title}
-                      data-expanded={isExpanded ? "true" : "false"}
-                    >
-                      <div>
-                        <div className="text-sm font-semibold text-[#f3f1eb]">{formatModuleTitleForDisplay(module.title)}</div>
-                        <div className="mt-1 text-xs text-[#8c857b]">
-                          {moduleContentProgress.completed}/{moduleContentProgress.total} completed
-                        </div>
-                      </div>
-                      {module.isHidden && <Badge>hidden module</Badge>}
-                      {isExpanded ? <ChevronDown className="h-4 w-4 text-[#b8b2a8]" /> : <ChevronRight className="h-4 w-4 text-[#8c857b]" />}
-                    </button>
-                    <div className="mt-2 px-2">
-                      <div className="h-1.5 overflow-hidden rounded-full bg-[#2e2d2c]">
-                        <div
-                          className="h-full rounded-full bg-[#b07a58] transition-all duration-300"
-                          style={{ width: `${moduleContentProgress.percent}%` }}
-                        />
-                      </div>
-                      <div className="mt-1 text-[10px] uppercase tracking-[0.08em] text-[#8e8882]">
-                        {moduleContentProgress.percent}% content complete
-                      </div>
-                    </div>
-                    {isExpanded ? (
-                      <div className="mt-2 grid gap-1.5 rounded-lg border border-[#353331] bg-[#1a1a1e] p-1.5" data-testid="module-content-items">
-                        {unlockedModuleContentLessons.length ? (
-                          unlockedModuleContentLessons.map((lesson) => {
-                            const lessonActive = activeContentLessonId === lesson.id;
-                            const isLessonComplete = Boolean(moduleCompletionMap[lesson.id]);
-                            return (
-                              <button
-                                key={lesson.id}
-                                type="button"
-                                onClick={(event) => {
-                                  event.stopPropagation();
-                                  handleSelectLesson(module.id, "content", lesson.id);
-                                }}
-                                className={`rounded-md border px-2 py-2 text-left text-xs transition ${
-                                  lessonActive
-                                    ? "border-[#b07a58]/55 bg-[#32241d] text-[#f3f1eb]"
-                                    : "border-[#343233] bg-[#202025] text-[#c8c1b8] hover:border-[#57514b] hover:bg-[#29292f]"
-                                }`}
-                                data-testid="module-content-item-btn"
-                              >
-                                <div className="font-semibold leading-snug">{formatLessonTitleForDisplay(lesson)}</div>
-                                <div className="mt-1 text-[10px] uppercase tracking-[0.08em] text-[#8e8882]">
-                                  {isLessonComplete ? "Completed" : "Content"}
-                                </div>
-                              </button>
-                            );
-                          })
-                        ) : (
-                          <div className="rounded-md border border-[#3b3938] bg-[#212125] px-2 py-2 text-xs text-[#9f9991]">
-                            No content items in this module.
-                          </div>
-                        )}
-                        {!moduleContentProgress.isComplete && moduleContentProgress.total > 0 ? (
-                          <div className="rounded-md border border-[#3b3938] bg-[#212125] px-2 py-2 text-[11px] text-[#9f9991]">
-                            Mark each lesson complete to unlock the next item and release this module's quizzes.
-                          </div>
-                        ) : null}
-                      </div>
-                    ) : null}
-                  </div>
-                );
-              })}
-            </div>
-          ) : (
-            <div
-              className="h-[calc(100vh-302px)] overflow-y-auto px-3 py-4"
-              data-testid="sidebar-quizzes-library"
-            >
-              {quizLibraryRows
-                .map((row) => {
-                  const lessons = row.quizzes;
-                  if (!lessons.length) return null;
-                  const activeKey = bucketStateKey(row.module.id, "quizzes");
-                  const selectedId = selectedLessonByBucket[activeKey] || lessons[0]?.id;
-                  return (
-                    <section key={`quizzes-${row.module.id}`} className="mb-3 rounded-lg border border-[#2f2d2b] bg-[#1b1b1f] p-2">
-                      <div className="mb-2 flex items-center justify-between gap-2">
-                        <h4 className="text-[12px] font-semibold text-[#d9c1be]">{formatModuleTitleForDisplay(row.module.title)}</h4>
-                        <span
-                          className={`rounded-full border px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.08em] ${
-                            row.quizzesUnlocked
-                              ? "border-emerald-400/30 bg-emerald-400/10 text-emerald-200"
-                              : "border-[#4f4a44] bg-[#252424] text-[#b8b2a8]"
-                          }`}
-                        >
-                          {row.quizzesUnlocked ? "Unlocked" : "Locked"}
-                        </span>
-                      </div>
-                      <div className="grid gap-1.5">
-                        {lessons.map((lesson) => {
-                          const isActive = row.module.id === activeChapter.id && selectedId === lesson.id;
-                          return (
-                            <button
-                              key={lesson.id}
-                              type="button"
-                              onClick={() => handleSelectLesson(row.module.id, "quizzes", lesson.id)}
-                              disabled={!row.quizzesUnlocked}
-                              className={`rounded-md border px-2 py-2 text-left text-xs transition ${
-                                isActive
-                                  ? "border-[#b07a58]/55 bg-[#32241d] text-[#f3f1eb]"
-                                  : "border-[#343233] bg-[#202025] text-[#c8c1b8] hover:border-[#57514b] hover:bg-[#29292f]"
-                              } ${!row.quizzesUnlocked ? "cursor-not-allowed opacity-45 hover:border-[#343233] hover:bg-[#202025]" : ""}`}
-                              data-testid="library-item-btn"
-                              data-library-bucket="quizzes"
-                            >
-                              <div className="font-semibold leading-snug">{formatLessonTitleForDisplay(lesson)}</div>
-                              <div className="mt-1 text-[10px] uppercase tracking-[0.08em] text-[#8e8882]">Workspace quiz</div>
-                            </button>
-                          );
-                        })}
-                      </div>
-                      {!row.quizzesUnlocked ? (
-                        <p className="mt-2 text-[11px] text-[#9f9991]">
-                          Complete all content lessons in this module to unlock quizzes.
-                        </p>
-                      ) : null}
-                    </section>
-                  );
-                })
-                .filter(Boolean)}
-            </div>
-          )}
+          {isMenuCollapsed || !isReaderView ? null : null}
         </aside>
 
-        <main className="min-w-0 flex-1 overflow-x-hidden overflow-y-auto">
-          <div className="sticky top-0 z-10 border-b border-[#302d2a] bg-[#17181a] shadow-[0_8px_18px_rgba(0,0,0,0.2)]">
+        <main className="min-w-0 flex-1 overflow-x-hidden overflow-y-auto bg-[#f3f4f3] text-[#1a1c1a]">
+          {!isReaderView ? (
+            renderCourseShellLibrary()
+          ) : (
+            <>
+          {!isQuizReaderView ? (
+          <div className="sticky top-0 z-10 border-b border-[#d9dad9] bg-[#f3f4f3]">
             <div className="px-4 py-4 sm:px-6 lg:px-8 lg:py-5">
-              <div className="mb-2 flex flex-wrap items-center gap-2 text-sm text-[#b8b2a8]">
-                <button
-                  type="button"
-                  onClick={() => setIsMobileMenuOpen(true)}
-                  className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#403c38] bg-[#23211f] text-[#d1cac0] transition duration-200 hover:border-[#57514b] hover:bg-[#2b2926] hover:text-[#f3f1eb] lg:hidden"
-                  aria-label="Open chapter menu"
-                  title="Open chapter menu"
-                >
-                  <span className="flex flex-col gap-1.5">
-                    <span className="block h-[2px] w-4 rounded-full bg-[#d1cac0]" />
-                    <span className="block h-[2px] w-4 rounded-full bg-[#d1cac0]" />
-                    <span className="block h-[2px] w-4 rounded-full bg-[#d1cac0]" />
-                  </span>
-                </button>
-                <span className="text-[#f3f1eb]">{formatModuleTitleForDisplay(activeChapter.title)}</span>
+              <div className="mb-2 flex flex-wrap items-center gap-2 text-sm font-semibold uppercase tracking-[0.08em] text-[#414942]">
+                <span>{formatModuleTitleForDisplay(activeChapter.title)}</span>
               </div>
-              <h2 className="text-3xl font-semibold tracking-tight text-[#f3f1eb]" data-testid="lesson-title">
+              <h2 className="text-4xl font-bold tracking-normal text-[#1a1c1a]" data-testid="lesson-title">
                 {formatModuleTitleForDisplay(activeChapter.title)}
               </h2>
               <div className="mt-3">
                 <Badge>
-                  {sidebarLibraryView === "modules" ? "content view" : "quizzes view"}
+                  {activeViewLabel}
                 </Badge>
               </div>
-              <div className="mt-4 max-w-md rounded-lg border border-[#343233] bg-[#1f1f23] p-3">
-                <div className="mb-2 flex items-center justify-between text-[11px] uppercase tracking-[0.08em] text-[#a7a096]">
+              <div className="mt-4 max-w-4xl rounded-lg border border-[#d9dad9] bg-white p-4 shadow-[0_2px_8px_rgba(0,0,0,0.08)]">
+                <div className="mb-2 flex items-center justify-between text-[12px] font-semibold uppercase tracking-[0.08em] text-[#414942]">
                   <span>Course progress</span>
-                  <span>{overallContentProgress.completed}/{overallContentProgress.total}</span>
+                  <span>{overallContentProgress.completed}/{overallContentProgress.total} &bull; {overallContentProgress.percent}%</span>
                 </div>
-                <div className="h-2 overflow-hidden rounded-full bg-[#2d2c2c]">
+                <div className="h-2 overflow-hidden rounded-full bg-[#d9dad9]">
                   <div
-                    className="h-full rounded-full bg-[#b07a58] transition-all duration-300"
+                    className="h-full rounded-full bg-[#59A844] transition-all duration-300"
                     style={{ width: `${overallContentProgress.percent}%` }}
                   />
                 </div>
-                <div className="mt-2 text-xs text-[#b8b2a8]">{overallContentProgress.percent}% complete</div>
               </div>
             </div>
           </div>
+          ) : null}
 
-          <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 lg:py-10">
+          <div className={`forensic-reader-surface mx-auto ${isQuizReaderView ? "max-w-6xl" : "max-w-5xl"} px-4 py-8 sm:px-6 lg:px-8 lg:py-10`}>
             <div
               className="space-y-6"
               data-testid={sidebarLibraryView === "modules" ? "module-content-view" : "module-assignments-view"}
             >
-              {!activeLesson ? (
-                <section className={`${FORENSIC_THEME.panel} p-8`}>
-                  <h3 className="text-xl font-semibold text-[#f3f1eb]">
-                    {sidebarLibraryView === "modules"
-                      ? "No learner content in this module"
-                      : "No quizzes in this module"}
-                  </h3>
-                  <p className="mt-3 text-sm text-[#b8b2a8]">
-                    {sidebarLibraryView === "modules"
-                      ? "Choose another module from the sidebar."
-                      : chapterContentProgress.isComplete
-                        ? "Choose another module from the sidebar list."
-                        : "Complete all module content lessons first to unlock this module's quizzes."}
-                  </p>
-                </section>
-              ) : (
-                <>
-                  <ChapterLessonCard
-                    key={activeLesson.id}
-                    lesson={activeLesson}
-                    quizDrafts={quizDrafts}
-                    onQuizDraftChange={handleQuizDraftChange}
-                    labDrafts={labDrafts}
-                    onLabDraftChange={handleLabDraftChange}
-                  />
-                  {isContentView ? (
+              {isContentView ? (
+                chapterLessons.length ? (
+                  <>
                     <section className={`${FORENSIC_THEME.panelSoft} p-5`} data-testid="mark-complete-panel">
                       <div className="flex flex-wrap items-center justify-between gap-3">
                         <div>
                           <div className={FORENSIC_THEME.overline}>Progress control</div>
-                          <h3 className="mt-1 text-lg font-semibold text-[#f3f1eb]">Mark this lesson complete</h3>
-                          <p className="mt-1 text-sm text-[#b8b2a8]">
-                            Completing this item unlocks the next content lesson in the module.
+                          <h3 className="mt-1 text-lg font-semibold text-[#1a1c1a]">Lesson sequence</h3>
+                          <p className="mt-1 text-sm text-[#414942]">
+                            Complete each lesson to unlock the next card in this module.
                           </p>
                         </div>
-                        <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row sm:items-center">
-                          <button
-                            type="button"
-                            onClick={() => {
-                              if (!activeChapter?.id || !activeLesson?.id) return;
-                              if (isActiveLessonMarkedComplete) {
-                                handleMarkContentIncomplete(activeChapter.id, activeLesson.id);
-                                return;
-                              }
-                              handleMarkContentComplete(activeChapter.id, activeLesson.id);
-                            }}
-                            className={isActiveLessonMarkedComplete ? FORENSIC_THEME.buttonSecondary : FORENSIC_THEME.buttonPrimary}
-                            data-testid="mark-complete-button"
-                          >
-                            {isActiveLessonMarkedComplete ? "Mark incomplete" : "Mark complete"}
-                          </button>
-                          {nextContentLesson ? (
-                            <button
-                              type="button"
-                              onClick={handleCompleteAndAdvance}
-                              className={FORENSIC_THEME.buttonSecondary}
-                              data-testid="mark-complete-next-button"
-                            >
-                              {isActiveLessonMarkedComplete ? "Next content" : "Mark complete + next"}
-                            </button>
-                          ) : null}
-                        </div>
                       </div>
-                      <div className="mt-4 h-2 overflow-hidden rounded-full bg-[#2d2c2c]">
+                      <div className="mt-4 h-2 overflow-hidden rounded-full bg-[#d9dad9]">
                         <div
-                          className="h-full rounded-full bg-[#b07a58] transition-all duration-300"
+                          className="h-full rounded-full bg-[#59A844] transition-all duration-300"
                           style={{ width: `${chapterContentProgress.percent}%` }}
                         />
                       </div>
-                      <p className="mt-2 text-xs text-[#a7a096]">
+                      <p className="mt-2 text-xs text-[#414942]">
                         {chapterContentProgress.completed}/{chapterContentProgress.total} completed in this module
                       </p>
                     </section>
-                  ) : null}
-                </>
+                    <div className="space-y-5" data-testid="chapter-sequence-list">
+                      {chapterLessons.map((lesson, index) => {
+                        const progressState = lessonProgressStateAtIndex(
+                          index,
+                          chapterContentProgress.completed,
+                          chapterLessons.length
+                        );
+                        const isLocked = progressState === "locked";
+                        const isComplete = progressState === "complete";
+                        const nextLesson = chapterLessons[index + 1] || null;
+                        return (
+                          <article
+                            key={lesson.id}
+                            className="forensic-sequence-card rounded-lg border border-[#d9dad9] bg-white p-4 shadow-[0_2px_8px_rgba(0,0,0,0.08)]"
+                            data-progress-state={progressState}
+                          >
+                            <div className="forensic-sequence-card-head mb-3 flex items-start gap-3">
+                              <span className="mt-0.5 inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#eef6eb] text-sm font-bold text-[#3f9f2e]">
+                                {index + 1}
+                              </span>
+                              <div className="min-w-0">
+                                <div className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#3f9f2e]">
+                                  {typeLabel(lesson.type)}
+                                </div>
+                                <h3 className="mt-1 text-lg font-semibold text-[#1a1c1a]">
+                                  {formatLessonTitleForDisplay(lesson)}
+                                </h3>
+                              </div>
+                            </div>
+                            <div className="forensic-sequence-card-body">
+                              <ChapterLessonCard
+                                key={`${lesson.id}-sequence`}
+                                lesson={lesson}
+                                quizDrafts={quizDrafts}
+                                onQuizDraftChange={handleQuizDraftChange}
+                                labDrafts={labDrafts}
+                                onLabDraftChange={handleLabDraftChange}
+                                onBackToQuizzes={() => {
+                                  setCourseShellView("quizzes");
+                                  setSidebarLibraryView("quizzes");
+                                }}
+                              />
+                            </div>
+                            <div className="mt-4 border-t border-[#d9dad9] pt-4">
+                              <div className="flex flex-wrap items-center justify-between gap-2">
+                                <p className="text-xs text-[#606762]">
+                                  {isLocked
+                                    ? "Locked until the previous lesson is completed."
+                                    : isComplete
+                                      ? "Lesson complete."
+                                      : "Active lesson. Mark complete to unlock the next card."}
+                                </p>
+                                <div className="flex flex-wrap items-center gap-2">
+                                  {isComplete ? (
+                                    <button
+                                      type="button"
+                                      onClick={() => {
+                                        if (!activeChapter?.id) return;
+                                        handleMarkContentIncomplete(activeChapter.id, lesson.id);
+                                      }}
+                                      className={FORENSIC_THEME.buttonSecondary}
+                                      data-testid="mark-complete-button"
+                                    >
+                                      Mark incomplete
+                                    </button>
+                                  ) : (
+                                    <>
+                                      <button
+                                        type="button"
+                                        onClick={() => {
+                                          if (!activeChapter?.id || isLocked) return;
+                                          handleMarkContentComplete(activeChapter.id, lesson.id);
+                                        }}
+                                        disabled={isLocked}
+                                        className={FORENSIC_THEME.buttonPrimary}
+                                        data-testid="mark-complete-button"
+                                      >
+                                        Mark complete
+                                      </button>
+                                      {nextLesson ? (
+                                        <button
+                                          type="button"
+                                          onClick={() => {
+                                            if (!activeChapter?.id || isLocked) return;
+                                            handleMarkContentComplete(activeChapter.id, lesson.id);
+                                          }}
+                                          disabled={isLocked}
+                                          className={FORENSIC_THEME.buttonSecondary}
+                                          data-testid="mark-complete-next-button"
+                                        >
+                                          Mark complete + next
+                                        </button>
+                                      ) : null}
+                                    </>
+                                  )}
+                                </div>
+                              </div>
+                            </div>
+                          </article>
+                        );
+                      })}
+                    </div>
+                  </>
+                ) : (
+                  <section className={`${FORENSIC_THEME.panel} p-8`}>
+                    <h3 className="text-xl font-semibold text-[#1a1c1a]">No learner content in this module</h3>
+                    <p className="mt-3 text-sm text-[#414942]">Choose another module from the sidebar.</p>
+                  </section>
+                )
+              ) : !activeLesson ? (
+                <section className={`${FORENSIC_THEME.panel} p-8`}>
+                  <h3 className="text-xl font-semibold text-[#1a1c1a]">No quizzes in this module</h3>
+                  <p className="mt-3 text-sm text-[#414942]">
+                    {chapterContentProgress.isComplete
+                      ? "Choose another module from the sidebar list."
+                      : "Complete all module content lessons first to unlock this module's quizzes."}
+                  </p>
+                </section>
+              ) : (
+                <ChapterLessonCard
+                  key={activeLesson.id}
+                  lesson={activeLesson}
+                  quizDrafts={quizDrafts}
+                  onQuizDraftChange={handleQuizDraftChange}
+                  labDrafts={labDrafts}
+                  onLabDraftChange={handleLabDraftChange}
+                  onBackToQuizzes={() => {
+                    setCourseShellView("quizzes");
+                    setSidebarLibraryView("quizzes");
+                  }}
+                />
               )}
             </div>
           </div>
+            </>
+          )}
         </main>
       </div>
     </div>

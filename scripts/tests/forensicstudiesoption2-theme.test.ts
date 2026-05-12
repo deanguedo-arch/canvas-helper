@@ -5,6 +5,8 @@ import test from "node:test";
 
 const workspaceDir = path.resolve("projects", "forensicstudiesoption2", "workspace");
 const indexPath = path.join(workspaceDir, "index.html");
+const mainPath = path.join(workspaceDir, "main.js");
+const pdfViewerPath = path.join(workspaceDir, "pdf-viewer.html");
 const stylesPath = path.join(workspaceDir, "styles.css");
 const moduleStylesPath = path.join(workspaceDir, "content", "module-index.css");
 const assignmentsDir = path.join(workspaceDir, "assignments");
@@ -18,38 +20,66 @@ const moduleTwoBundlePath = path.join(assignmentsDir, "module2assignment.bundle.
 const moduleSevenAssignmentPath = path.join(assignmentsDir, "module7assignment-app.jsx");
 const moduleSevenBundlePath = path.join(assignmentsDir, "module7assignment.bundle.js");
 
-test("forensic studies option2 shell loads the forensic theme fonts", async () => {
+test("forensic studies option2 shell loads the next-step theme fonts", async () => {
   const indexSource = await readFile(indexPath, "utf8");
 
-  assert.match(indexSource, /Space\+Grotesk/);
-  assert.match(indexSource, /Inter/);
-  assert.match(indexSource, /Noto\+Serif/);
+  assert.match(indexSource, /Rubik/);
+  assert.match(indexSource, /Open\+Sans/);
+  assert.match(indexSource, /Next Step/);
+  assert.match(indexSource, /Student User/);
+  assert.doesNotMatch(indexSource, /Space\+Grotesk|Noto\+Serif/);
 });
 
-test("forensic studies option2 shell css uses the dark forensic palette", async () => {
+test("forensic studies option2 shell css uses the next-step palette", async () => {
   const stylesSource = await readFile(stylesPath, "utf8");
 
-  assert.match(stylesSource, /--bg:\s*#0c1324/i);
-  assert.match(stylesSource, /--surface:\s*#191f31/i);
-  assert.match(stylesSource, /--surface-strong:\s*#23293c/i);
-  assert.match(stylesSource, /--primary:\s*#8aebff/i);
-  assert.match(stylesSource, /--primary-strong:\s*#22d3ee/i);
-  assert.match(stylesSource, /--text:\s*#dce1fb/i);
-  assert.match(stylesSource, /font-family:\s*"Inter"/i);
-  assert.match(stylesSource, /font-family:\s*"Space Grotesk"/i);
-  assert.match(stylesSource, /backdrop-filter:\s*blur/i);
+  assert.match(stylesSource, /--bg:\s*#f3f4f3/i);
+  assert.match(stylesSource, /--surface:\s*#ffffff/i);
+  assert.match(stylesSource, /--primary:\s*#59a844/i);
+  assert.match(stylesSource, /--primary-strong:\s*#4b8d39/i);
+  assert.match(stylesSource, /--line:\s*#d9dad9/i);
+  assert.match(stylesSource, /\.nextstep-topbar/);
+  const topbarBlock = stylesSource.match(/\.nextstep-topbar\s*\{(?<body>[\s\S]*?)\n\}/)?.groups?.body ?? "";
+  assert.doesNotMatch(topbarBlock, /position:\s*sticky/i);
+  assert.match(stylesSource, /font-family:\s*"Open Sans"/i);
+  assert.match(stylesSource, /font-family:\s*"Rubik"/i);
+  assert.doesNotMatch(stylesSource, /#0c1324|#191f31|#22d3ee|#8aebff|Space Grotesk|Noto Serif|font-family:\s*"Inter"|family=Inter|backdrop-filter:\s*blur/i);
 });
 
-test("forensic studies option2 generated chapter pages share the new theme system", async () => {
+test("forensic studies option2 sidebar mirrors the forensics35 navigation treatment", async () => {
+  const [stylesSource, mainSource] = await Promise.all([
+    readFile(stylesPath, "utf8"),
+    readFile(mainPath, "utf8")
+  ]);
+
+  assert.match(stylesSource, /\.sidebar\s*\{[\s\S]*background:\s*#3c3f3e/i);
+  assert.match(stylesSource, /\.nav-item,\s*\n\.home-tab\s*\{[\s\S]*color:\s*#e7e7e5/i);
+  assert.match(stylesSource, /\.nav-item\.active,\s*\n\.home-tab\.active\s*\{[\s\S]*background:\s*var\(--primary\)/i);
+  assert.match(stylesSource, /\.nav-item\.active i,\s*\n\.home-tab\.active i\s*\{[\s\S]*color:\s*#ffffff/i);
+  assert.match(mainSource, /const hasActiveHomeTab = state\.section === "home" && \["chapters", "quizzes", "assignments"\]\.includes\(state\.tab\);/);
+  assert.match(mainSource, /refs\.navHome\?\.classList\.toggle\("active", state\.section === "home" && !hasActiveHomeTab\);/);
+});
+
+test("forensic studies option2 generated chapter pages share the next-step theme system", async () => {
   const moduleStylesSource = await readFile(moduleStylesPath, "utf8");
 
-  assert.match(moduleStylesSource, /--page-bg:\s*#0c1324/i);
-  assert.match(moduleStylesSource, /--paper:\s*#191f31/i);
-  assert.match(moduleStylesSource, /--paper-strong:\s*#23293c/i);
-  assert.match(moduleStylesSource, /--primary:\s*#8aebff/i);
-  assert.match(moduleStylesSource, /--text:\s*#dce1fb/i);
-  assert.match(moduleStylesSource, /font-family:\s*"Inter"/i);
-  assert.match(moduleStylesSource, /font-family:\s*"Space Grotesk"/i);
+  assert.match(moduleStylesSource, /--page-bg:\s*#f3f4f3/i);
+  assert.match(moduleStylesSource, /--paper:\s*#ffffff/i);
+  assert.match(moduleStylesSource, /--primary:\s*#59a844/i);
+  assert.match(moduleStylesSource, /--text:\s*#1a1c1a/i);
+  assert.match(moduleStylesSource, /font-family:\s*"Open Sans"/i);
+  assert.match(moduleStylesSource, /font-family:\s*"Rubik"/i);
+  assert.doesNotMatch(moduleStylesSource, /#0c1324|#191f31|#22d3ee|#8aebff|Space Grotesk|font-family:\s*"Inter"|family=Inter|backdrop-filter:\s*blur/i);
+});
+
+test("forensic studies option2 pdf viewer follows the next-step shell palette", async () => {
+  const pdfViewerSource = await readFile(pdfViewerPath, "utf8");
+
+  assert.match(pdfViewerSource, /Rubik/);
+  assert.match(pdfViewerSource, /Open\+Sans/);
+  assert.match(pdfViewerSource, /--background:\s*#f3f4f3/i);
+  assert.match(pdfViewerSource, /--primary:\s*#59a844/i);
+  assert.doesNotMatch(pdfViewerSource, /#0c1324|#191f31|#22d3ee|#8aebff|Space Grotesk|font-family:\s*"Inter"|family=Inter|backdrop-filter:\s*blur/i);
 });
 
 test("forensic studies option2 assignment runtimes share the forensic theme layer", async () => {
@@ -71,13 +101,13 @@ test("forensic studies option2 assignment runtimes share the forensic theme laye
     })
   );
 
-  assert.match(themeSource, /--assignment-bg:\s*#0c1324/i);
-  assert.match(themeSource, /--assignment-surface:\s*#191f31/i);
-  assert.match(themeSource, /--assignment-surface-strong:\s*#23293c/i);
-  assert.match(themeSource, /--assignment-primary:\s*#8aebff/i);
-  assert.match(themeSource, /--assignment-primary-strong:\s*#22d3ee/i);
-  assert.match(themeSource, /font-family:\s*"Inter"/i);
-  assert.match(themeSource, /font-family:\s*"Space Grotesk"/i);
+  assert.match(themeSource, /--assignment-bg:\s*#f3f4f3/i);
+  assert.match(themeSource, /--assignment-surface:\s*#ffffff/i);
+  assert.match(themeSource, /--assignment-primary:\s*#59a844/i);
+  assert.match(themeSource, /--assignment-primary-strong:\s*#4b8d39/i);
+  assert.match(themeSource, /font-family:\s*"Open Sans"/i);
+  assert.match(themeSource, /font-family:\s*"Rubik"/i);
+  assert.doesNotMatch(themeSource, /#0c1324|#191f31|#22d3ee|#8aebff|Space Grotesk|font-family:\s*"Inter"|family=Inter|backdrop-filter:\s*blur/i);
   assert.match(printHelperSource, /window\.print\s*=\s*function forensicAssignmentPrintOverride/i);
   assert.match(printHelperSource, /textarea/i);
   assert.match(printHelperSource, /scrollHeight/i);

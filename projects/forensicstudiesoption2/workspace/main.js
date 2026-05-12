@@ -22,6 +22,10 @@
     progressFill: document.getElementById("progress-fill"),
     chapterProgress: document.getElementById("chapter-progress"),
     quizProgress: document.getElementById("quiz-progress"),
+    topbarModules: document.getElementById("topbar-modules"),
+    topbarContent: document.getElementById("topbar-content"),
+    topbarQuizzes: document.getElementById("topbar-quizzes"),
+    topbarAssignments: document.getElementById("topbar-assignments"),
     sectionHeader: document.querySelector(".section-header"),
     sectionTitle: document.getElementById("section-title"),
     sectionIntro: document.getElementById("section-intro"),
@@ -617,10 +621,17 @@
   function getProgressSummary() {
     const totalQuizzes = (data.quizzes || []).length;
     const totalChapters = getVisibleChapters().length;
+    const totalAssignments = getAssignments().length;
+    const totalContent = getVisibleChapters().reduce((sum, chapter) => {
+      if (Array.isArray(chapter.componentIds)) return sum + chapter.componentIds.length;
+      return sum + (chapter.contentPath ? 1 : 0);
+    }, 0);
     const completedQuizzes = getCompletedQuizCount();
     return {
       totalQuizzes,
       totalChapters,
+      totalAssignments,
+      totalContent,
       unlockedChapters: getUnlockedChapterCount(),
       completedQuizzes,
       percent: totalQuizzes ? Math.round((completedQuizzes / totalQuizzes) * 100) : 0
@@ -861,7 +872,8 @@
     refs.body.dataset.section = state.section;
     refs.body.dataset.tab = state.tab;
     refs.body.dataset.view = state.activeId ? "detail" : "overview";
-    refs.navHome?.classList.toggle("active", state.section === "home");
+    const hasActiveHomeTab = state.section === "home" && ["chapters", "quizzes", "assignments"].includes(state.tab);
+    refs.navHome?.classList.toggle("active", state.section === "home" && !hasActiveHomeTab);
     refs.tabChapters?.classList.toggle("active", state.tab === "chapters");
     refs.tabQuizzes?.classList.toggle("active", state.tab === "quizzes");
     refs.tabAssignments?.classList.toggle("active", state.tab === "assignments");
@@ -882,6 +894,10 @@
     }
     refs.chapterProgress.textContent = `${summary.unlockedChapters}/${summary.totalChapters}`;
     refs.quizProgress.textContent = `${summary.completedQuizzes}/${summary.totalQuizzes}`;
+    if (refs.topbarModules) refs.topbarModules.textContent = String(summary.totalChapters);
+    if (refs.topbarContent) refs.topbarContent.textContent = String(summary.totalContent);
+    if (refs.topbarQuizzes) refs.topbarQuizzes.textContent = String(summary.totalQuizzes);
+    if (refs.topbarAssignments) refs.topbarAssignments.textContent = String(summary.totalAssignments);
   }
 
   function setSection(section) {
