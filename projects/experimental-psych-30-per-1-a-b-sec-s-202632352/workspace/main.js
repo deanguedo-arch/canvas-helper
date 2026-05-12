@@ -8,6 +8,8 @@ const STORAGE_KEY = String(courseShellData.storageKey || "experimental-psych-30-
 const LEGACY_STORAGE_KEY = `${courseShellData.storageKey}::assessment-layout::v5`;
 const root = document.getElementById("root");
 const assessmentDeliveryByActivityId = new Map(assessmentDelivery.map((entry) => [entry.activityId, entry]));
+const COURSE_THEME_MODES = ["current", "next-step"];
+const DEFAULT_THEME_MODE = COURSE_THEME_MODES[0];
 
 if (!root) {
   throw new Error("Missing #root for course shell.");
@@ -39,6 +41,7 @@ function loadState() {
       selectedModuleId: typeof parsed.selectedModuleId === "string" ? parsed.selectedModuleId : "",
       expandedModuleId: typeof parsed.expandedModuleId === "string" ? parsed.expandedModuleId : "",
       sidebarHidden: Boolean(parsed.sidebarHidden),
+      themeMode: normalizeThemeMode(parsed.themeMode),
       collapsedSectionByKey:
         parsed.collapsedSectionByKey && typeof parsed.collapsedSectionByKey === "object"
           ? parsed.collapsedSectionByKey
@@ -67,6 +70,7 @@ function loadState() {
       selectedModuleId: "",
       expandedModuleId: "",
       sidebarHidden: false,
+      themeMode: DEFAULT_THEME_MODE,
       collapsedSectionByKey: {},
       selectedByBucket: {},
       moduleViewByModuleId: {},
@@ -79,6 +83,10 @@ function loadState() {
 
 function saveState() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+}
+
+function normalizeThemeMode(value) {
+  return COURSE_THEME_MODES.includes(value) ? value : DEFAULT_THEME_MODE;
 }
 
 function ensureSelection() {
@@ -122,6 +130,12 @@ function setSelectedModule(moduleId) {
 
 function toggleSidebar() {
   state.sidebarHidden = !state.sidebarHidden;
+  saveState();
+  render();
+}
+
+function setThemeMode(themeMode) {
+  state.themeMode = normalizeThemeMode(themeMode);
   saveState();
   render();
 }
@@ -1604,6 +1618,7 @@ function render() {
   let module = getSelectedModule();
   const collections = getSidebarLibraryCollections();
   let selectedActivity = null;
+  const themeMode = normalizeThemeMode(state.themeMode);
 
   if (state.sidebarLibraryView === "modules") {
     const buckets = module ? getModuleBuckets(module) : { content: [], assignments: [] };
@@ -1631,9 +1646,14 @@ function render() {
     (sum, current) => sum + getModuleBuckets(current).assignments.length,
     0
   );
+  const appClassNames = [
+    "app",
+    state.sidebarHidden ? "sidebar-hidden" : "",
+    themeMode === "next-step" ? "next-step-theme" : ""
+  ].filter(Boolean).join(" ");
 
   root.innerHTML = `
-    <div class="app ${state.sidebarHidden ? "sidebar-hidden" : ""}">
+    <div class="${appClassNames}" data-course-theme="${escapeHtml(themeMode)}">
       <aside class="sidebar">
         <div class="brand">
           <h1>Experimental Psychology 30</h1>
@@ -1686,10 +1706,26 @@ function render() {
                 <h2>${escapeHtml(module?.title || "Course")}</h2>
               </div>
             </div>
-            <div class="stats">
-              <span class="stat"><strong>${moduleCount}</strong><span> modules</span></span>
-              <span class="stat"><strong>${contentCount}</strong><span> content items</span></span>
-              <span class="stat"><strong>${assignmentCount}</strong><span> assignments</span></span>
+            <div class="topbar-actions">
+              <div class="theme-toggle" role="group" aria-label="Course theme">
+                <button
+                  type="button"
+                  class="theme-toggle-button ${themeMode === "current" ? "active" : ""}"
+                  data-theme-toggle="current"
+                  aria-pressed="${themeMode === "current" ? "true" : "false"}"
+                >Current</button>
+                <button
+                  type="button"
+                  class="theme-toggle-button ${themeMode === "next-step" ? "active" : ""}"
+                  data-theme-toggle="next-step"
+                  aria-pressed="${themeMode === "next-step" ? "true" : "false"}"
+                >Next Step</button>
+              </div>
+              <div class="stats">
+                <span class="stat"><strong>${moduleCount}</strong><span> modules</span></span>
+                <span class="stat"><strong>${contentCount}</strong><span> content items</span></span>
+                <span class="stat"><strong>${assignmentCount}</strong><span> assignments</span></span>
+              </div>
             </div>
           </div>
         </header>
@@ -1716,6 +1752,10 @@ function render() {
 
   root.querySelectorAll("[data-toggle-sidebar]").forEach((button) => {
     button.addEventListener("click", () => toggleSidebar());
+  });
+
+  root.querySelectorAll("[data-theme-toggle]").forEach((button) => {
+    button.addEventListener("click", () => setThemeMode(button.getAttribute("data-theme-toggle") || DEFAULT_THEME_MODE));
   });
 
   root.querySelectorAll("[data-library-view]").forEach((button) => {
@@ -2364,6 +2404,7 @@ function injectStyles() {
     .side-nav-item:focus-visible,
     .subgroup-toggle:focus-visible,
     .sidebar-toggle:focus-visible,
+    .theme-toggle-button:focus-visible,
     .quiz-nav-btn:focus-visible,
     .quiz-choice:focus-visible,
     .quiz-action:focus-visible,
@@ -2451,6 +2492,53 @@ function injectStyles() {
       line-height: 1.3;
       font-weight: 700;
       color: var(--text-strong);
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.55rem;
+      flex-wrap: wrap;
+      min-width: min(100%, 32rem);
+    }
+
+    .theme-toggle {
+      display: inline-flex;
+      align-items: stretch;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #1a1a1d;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .theme-toggle-button {
+      border: 0;
+      border-right: 1px solid var(--line);
+      background: transparent;
+      color: var(--muted-strong);
+      min-height: 2rem;
+      padding: 0.34rem 0.58rem;
+      font-size: 0.72rem;
+      line-height: 1.1;
+      font-weight: 800;
+      cursor: pointer;
+      transition: background 0.16s ease, color 0.16s ease;
+    }
+
+    .theme-toggle-button:last-child {
+      border-right: 0;
+    }
+
+    .theme-toggle-button:hover {
+      background: #242326;
+      color: var(--text-strong);
+    }
+
+    .theme-toggle-button.active {
+      background: var(--accent);
+      color: #201311;
     }
 
     .stats {
@@ -3216,6 +3304,342 @@ function injectStyles() {
       background: #1c1a18;
     }
 
+    .app.next-step-theme {
+      --ns-surface: #f9f9f8;
+      --ns-surface-lowest: #ffffff;
+      --ns-surface-low: #f3f4f3;
+      --ns-surface-container: #edeeed;
+      --ns-surface-high: #e7e8e7;
+      --ns-surface-highest: #e1e3e2;
+      --ns-on-surface: #191c1c;
+      --ns-on-surface-variant: #40493b;
+      --ns-outline: #707a6a;
+      --ns-outline-variant: #c0cab7;
+      --ns-primary: #1e6d0d;
+      --ns-primary-container: #59a844;
+      --ns-primary-fixed: #a3f788;
+      --ns-secondary-container: #fdbf3f;
+      --ns-on-secondary-container: #6f4e00;
+      --ns-inverse-surface: #2e3131;
+      --bg: var(--ns-surface);
+      --bg-elevated: var(--ns-surface-lowest);
+      --bg-sidebar: var(--ns-inverse-surface);
+      --bg-subtle: var(--ns-surface-low);
+      --paper: var(--ns-surface-lowest);
+      --paper-line: var(--ns-outline-variant);
+      --paper-soft: var(--ns-surface-highest);
+      --text: var(--ns-on-surface);
+      --text-strong: var(--ns-on-surface);
+      --text-body: var(--ns-on-surface);
+      --muted: var(--ns-on-surface-variant);
+      --muted-strong: var(--ns-on-surface);
+      --accent: var(--ns-primary);
+      --accent-soft: var(--ns-primary);
+      --line: var(--ns-outline-variant);
+      --line-strong: var(--ns-primary);
+      --focus: rgba(30, 109, 13, 0.28);
+      --shadow: 0 4px 20px rgba(77, 77, 77, 0.08);
+      background: var(--ns-surface);
+      color: var(--ns-on-surface);
+    }
+
+    .app.next-step-theme .sidebar {
+      background: var(--ns-inverse-surface);
+      border-right-color: rgba(192, 202, 183, 0.28);
+    }
+
+    .app.next-step-theme .brand {
+      background: transparent;
+      border-bottom-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .app.next-step-theme .brand h1,
+    .app.next-step-theme .library-section h3,
+    .app.next-step-theme .module-kicker,
+    .app.next-step-theme .subgroup-label {
+      color: var(--ns-primary-fixed);
+    }
+
+    .app.next-step-theme .brand-note,
+    .app.next-step-theme .module-btn p,
+    .app.next-step-theme .module-progress-meta,
+    .app.next-step-theme .module-progress-note,
+    .app.next-step-theme .library-lock-note,
+    .app.next-step-theme .item-meta.lock-note {
+      color: rgba(255, 255, 255, 0.68);
+    }
+
+    .app.next-step-theme .side-nav-ghost,
+    .app.next-step-theme .module-dropdown,
+    .app.next-step-theme .subgroup + .subgroup {
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .app.next-step-theme .side-nav-item,
+    .app.next-step-theme .module-view-btn {
+      border-color: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.05);
+      color: rgba(255, 255, 255, 0.74);
+    }
+
+    .app.next-step-theme .side-nav-item:hover,
+    .app.next-step-theme .module-view-btn:hover {
+      border-color: rgba(163, 247, 136, 0.32);
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+    }
+
+    .app.next-step-theme .side-nav-item.active,
+    .app.next-step-theme .module-view-btn.active {
+      border-color: var(--ns-primary-container);
+      background: var(--ns-primary);
+      color: #ffffff;
+    }
+
+    .app.next-step-theme .module-card,
+    .app.next-step-theme .library-module-block {
+      border-color: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.06);
+      box-shadow: none;
+    }
+
+    .app.next-step-theme .module-card.expanded,
+    .app.next-step-theme .module-card.selected:not(.expanded) {
+      border-color: rgba(163, 247, 136, 0.36);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .app.next-step-theme .module-btn h3,
+    .app.next-step-theme .library-module-block h4,
+    .app.next-step-theme .group-label,
+    .app.next-step-theme .subgroup-toggle,
+    .app.next-step-theme .item-title,
+    .app.next-step-theme .library-item-btn {
+      color: #ffffff;
+    }
+
+    .app.next-step-theme .module-btn:hover,
+    .app.next-step-theme .module-btn.expanded,
+    .app.next-step-theme .module-btn.selected {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .app.next-step-theme .module-progress-track {
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    .app.next-step-theme .module-progress-fill {
+      background: var(--ns-primary-fixed);
+    }
+
+    .app.next-step-theme .meta-chip,
+    .app.next-step-theme .library-lock-pill {
+      border-color: rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.06);
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .app.next-step-theme .library-lock-pill.unlocked {
+      border-color: rgba(163, 247, 136, 0.44);
+      background: rgba(163, 247, 136, 0.14);
+      color: var(--ns-primary-fixed);
+    }
+
+    .app.next-step-theme .library-item-btn,
+    .app.next-step-theme .module-item-btn {
+      border-color: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.06);
+      color: #ffffff;
+    }
+
+    .app.next-step-theme .library-item-btn:hover,
+    .app.next-step-theme .module-item-btn:hover {
+      border-color: rgba(163, 247, 136, 0.34);
+      background: rgba(255, 255, 255, 0.09);
+    }
+
+    .app.next-step-theme .library-item-btn.active,
+    .app.next-step-theme .module-item-btn.active {
+      border-color: var(--ns-primary-container);
+      background: rgba(30, 109, 13, 0.42);
+    }
+
+    .app.next-step-theme .topbar {
+      background: var(--ns-surface-lowest);
+      border-bottom-color: var(--ns-surface-highest);
+      box-shadow: 0 1px 0 rgba(192, 202, 183, 0.3);
+    }
+
+    .app.next-step-theme .sidebar-toggle,
+    .app.next-step-theme .theme-toggle,
+    .app.next-step-theme .stat {
+      border-color: var(--ns-outline-variant);
+      background: var(--ns-surface-low);
+      color: var(--ns-on-surface-variant);
+    }
+
+    .app.next-step-theme .sidebar-toggle:hover,
+    .app.next-step-theme .theme-toggle-button:hover {
+      border-color: var(--ns-outline);
+      background: var(--ns-surface-container);
+      color: var(--ns-on-surface);
+    }
+
+    .app.next-step-theme .sidebar-toggle span {
+      background: var(--ns-on-surface);
+    }
+
+    .app.next-step-theme .theme-toggle-button {
+      border-color: var(--ns-outline-variant);
+      color: var(--ns-on-surface-variant);
+    }
+
+    .app.next-step-theme .theme-toggle-button.active {
+      background: var(--ns-primary);
+      color: #ffffff;
+    }
+
+    .app.next-step-theme .topbar-kicker,
+    .app.next-step-theme .stat strong,
+    .app.next-step-theme .stat span {
+      color: var(--ns-primary);
+    }
+
+    .app.next-step-theme .content {
+      background-color: var(--ns-surface);
+      background-image: repeating-linear-gradient(
+        135deg,
+        rgba(30, 109, 13, 0.025) 0,
+        rgba(30, 109, 13, 0.025) 9px,
+        transparent 9px,
+        transparent 18px
+      );
+    }
+
+    .app.next-step-theme .panel {
+      border-color: rgba(192, 202, 183, 0.64);
+      background: var(--ns-surface-lowest);
+      box-shadow: 0 6px 24px rgba(77, 77, 77, 0.08);
+    }
+
+    .app.next-step-theme .reader-head {
+      border-color: var(--ns-surface-highest);
+      background: var(--ns-surface-low);
+    }
+
+    .app.next-step-theme .reader-eyebrow,
+    .app.next-step-theme .reader-html h2,
+    .app.next-step-theme .reader-html h3,
+    .app.next-step-theme .assignment-handoff-label,
+    .app.next-step-theme .quiz-label {
+      color: var(--ns-primary);
+    }
+
+    .app.next-step-theme .reader-content {
+      background: transparent;
+    }
+
+    .app.next-step-theme .reader-html,
+    .app.next-step-theme .reader-text,
+    .app.next-step-theme .reader-document,
+    .app.next-step-theme .assignment-handoff,
+    .app.next-step-theme .quiz-shell {
+      background: var(--ns-surface-lowest);
+      border-color: var(--ns-outline-variant);
+      color: var(--ns-on-surface);
+      box-shadow: var(--shadow);
+    }
+
+    .app.next-step-theme .reader-html h1,
+    .app.next-step-theme .reader-text h4,
+    .app.next-step-theme .assignment-handoff-head h5,
+    .app.next-step-theme .quiz-toolbar-copy h5 {
+      color: var(--ns-on-surface);
+    }
+
+    .app.next-step-theme .reader-html h2,
+    .app.next-step-theme .assignment-handoff-head {
+      border-color: var(--ns-surface-highest);
+    }
+
+    .app.next-step-theme .reader-html p,
+    .app.next-step-theme .reader-text p,
+    .app.next-step-theme .reader-html ul,
+    .app.next-step-theme .reader-html ol,
+    .app.next-step-theme .reader-text ul,
+    .app.next-step-theme .reader-text ol,
+    .app.next-step-theme .reader-html table,
+    .app.next-step-theme .assignment-handoff-summary,
+    .app.next-step-theme .assignment-handoff-footnote {
+      color: var(--ns-on-surface);
+    }
+
+    .app.next-step-theme .reader-html a,
+    .app.next-step-theme .document-link {
+      color: var(--ns-primary);
+    }
+
+    .app.next-step-theme .reader-html a:hover,
+    .app.next-step-theme .document-link:hover {
+      color: #164d0b;
+    }
+
+    .app.next-step-theme .reader-html th,
+    .app.next-step-theme .assignment-handoff-state,
+    .app.next-step-theme .assignment-handoff-note {
+      background: var(--ns-surface-low);
+      border-color: var(--ns-outline-variant);
+      color: var(--ns-on-surface);
+    }
+
+    .app.next-step-theme .reader-html td,
+    .app.next-step-theme .reader-html th,
+    .app.next-step-theme .document-frame,
+    .app.next-step-theme .pdf-canvas,
+    .app.next-step-theme .reader-html img,
+    .app.next-step-theme .reader-html .card,
+    .app.next-step-theme .lesson-video-embed {
+      border-color: var(--ns-outline-variant);
+    }
+
+    .app.next-step-theme .document-frame {
+      background: var(--ns-surface-low);
+    }
+
+    .app.next-step-theme .assignment-link,
+    .app.next-step-theme .quiz-action,
+    .app.next-step-theme .quiz-nav-btn,
+    .app.next-step-theme .quiz-choice,
+    .app.next-step-theme .lesson-next-btn {
+      border-color: var(--ns-primary-container);
+      background: var(--ns-surface-lowest);
+      color: var(--ns-primary);
+    }
+
+    .app.next-step-theme .assignment-link:hover,
+    .app.next-step-theme .quiz-action:hover,
+    .app.next-step-theme .quiz-nav-btn:hover,
+    .app.next-step-theme .quiz-choice:hover,
+    .app.next-step-theme .lesson-next-btn:hover {
+      background: #edf8e8;
+      border-color: var(--ns-primary);
+      color: var(--ns-primary);
+    }
+
+    .app.next-step-theme .quiz-choice.selected,
+    .app.next-step-theme .lesson-next-btn {
+      background: var(--ns-primary);
+      color: #ffffff;
+    }
+
+    .app.next-step-theme .empty,
+    .app.next-step-theme .library-empty,
+    .app.next-step-theme .release-condition-card {
+      border-color: var(--ns-outline-variant);
+      background: var(--ns-surface-low);
+      color: var(--ns-on-surface-variant);
+    }
+
     @media (max-width: 860px) {
       .app {
         grid-template-columns: 1fr;
@@ -3247,8 +3671,10 @@ function injectStyles() {
         align-items: flex-start;
       }
 
+      .topbar-actions,
       .stats {
         width: 100%;
+        justify-content: flex-start;
       }
 
       .stat {

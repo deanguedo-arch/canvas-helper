@@ -10,6 +10,7 @@ const root = document.getElementById("root");
 const assessmentDeliveryByActivityId = new Map(assessmentDelivery.map((entry) => [entry.activityId, entry]));
 const COURSE_THEME_MODES = ["current", "next-step"];
 const DEFAULT_THEME_MODE = COURSE_THEME_MODES[0];
+const AUTHORING_UNLOCK_ALL = false;
 
 if (!root) {
   throw new Error("Missing #root for course shell.");
@@ -1472,6 +1473,10 @@ function isAssignment(activity) {
   const resourceKind = String(activity?.resourceKind || "").toLowerCase();
   const renderHint = String(activity?.renderHint || "").toLowerCase();
   if (kind === "overview") {
+    return false;
+  }
+
+  if (resourceKind === "pdf" && /\bfinal\s+project\b/i.test(String(activity?.title || ""))) {
     return false;
   }
 
