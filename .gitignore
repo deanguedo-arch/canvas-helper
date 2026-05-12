@@ -12,3 +12,13 @@ projects/**/exports/**
 # Local intelligence cache
 .runtime/pattern-bank/
 .runtime/incoming-watch-state.json
+
+# STAX generated local sidecar artifacts
+.stax/*
+!.stax/
+!.stax/status.json
+!.stax/next-codex-prompt.md
+!.stax/proof_strength.json
+!.stax/reports/
+!.stax/reports/latest-proof-report.md
+!.stax/reports/latest-confidence-report.md
