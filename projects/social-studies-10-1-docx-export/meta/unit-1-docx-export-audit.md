@@ -1,10 +1,10 @@
 # Social Studies 10-1 Unit 1 DOCX Export Audit
 
-- Generated: 2026-05-12T15:17:36
-- Source ZIP: `/Users/deanguedo/Downloads/D2LCCExport_149634_25-26 _ S2 _ Social Studies 10-1 _ Per 1(A) _ Sec _202651213.ZIP`
+- Generated: 2026-05-13T09:11:33
+- Source ZIP: `C:\Users\dean.guedo\Downloads\D2LCCExport_149634_25-26 _ S2 _ Social Studies 10-1 _ Per 1(A) _ Sec _202651213.ZIP`
 - Unit: `1. Globalization and Identity`
-- Output: `exports/docx/01 - 1. Globalization and Identity.docx`
-- Output size: 3.17 MB
+- Output: `exports/docx/01 - 1. Globalization and Identity - refreshed 3.docx`
+- Output size: 8.33 MB
 - Included Brightspace items: 13
 - Embedded package images: 7
 - Preserved embedded media links: 15

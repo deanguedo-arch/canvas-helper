@@ -9,7 +9,8 @@ const LEGACY_STORAGE_KEY = `${courseShellData.storageKey}::assessment-layout::v5
 const root = document.getElementById("root");
 const assessmentDeliveryByActivityId = new Map(assessmentDelivery.map((entry) => [entry.activityId, entry]));
 const COURSE_THEME_MODES = ["current", "next-step"];
-const DEFAULT_THEME_MODE = COURSE_THEME_MODES[0];
+const DEFAULT_THEME_MODE = "next-step";
+const THEME_PREFERENCE_VERSION = 1;
 
 if (!root) {
   throw new Error("Missing #root for course shell.");
@@ -41,7 +42,11 @@ function loadState() {
       selectedModuleId: typeof parsed.selectedModuleId === "string" ? parsed.selectedModuleId : "",
       expandedModuleId: typeof parsed.expandedModuleId === "string" ? parsed.expandedModuleId : "",
       sidebarHidden: Boolean(parsed.sidebarHidden),
-      themeMode: normalizeThemeMode(parsed.themeMode),
+      themeMode:
+        parsed.themePreferenceVersion === THEME_PREFERENCE_VERSION
+          ? normalizeThemeMode(parsed.themeMode)
+          : DEFAULT_THEME_MODE,
+      themePreferenceVersion: THEME_PREFERENCE_VERSION,
       collapsedSectionByKey:
         parsed.collapsedSectionByKey && typeof parsed.collapsedSectionByKey === "object"
           ? parsed.collapsedSectionByKey
@@ -71,6 +76,7 @@ function loadState() {
       expandedModuleId: "",
       sidebarHidden: false,
       themeMode: DEFAULT_THEME_MODE,
+      themePreferenceVersion: THEME_PREFERENCE_VERSION,
       collapsedSectionByKey: {},
       selectedByBucket: {},
       moduleViewByModuleId: {},
@@ -136,6 +142,7 @@ function toggleSidebar() {
 
 function setThemeMode(themeMode) {
   state.themeMode = normalizeThemeMode(themeMode);
+  state.themePreferenceVersion = THEME_PREFERENCE_VERSION;
   saveState();
   render();
 }
@@ -1190,88 +1197,140 @@ function renderQuiz(activity, quizData) {
   }
 
   const draft = getQuizDraft(activity.id, questions.length);
-  const activeQuestion = questions[draft.questionIndex] || questions[0];
-  const activeQuestionId = activeQuestion?.id || "";
-  const selectedAnswer = draft.answersByQuestion[activeQuestionId];
-  const revealed = Boolean(draft.revealedByQuestion[activeQuestionId]);
   const answeredCount = questions.filter((question) => Number.isInteger(draft.answersByQuestion[question.id])).length;
   const correctCount = questions.filter((question) => draft.answersByQuestion[question.id] === question.answerIndex).length;
   const progress = questions.length ? (answeredCount / questions.length) * 100 : 0;
-  const isCorrect = selectedAnswer === activeQuestion?.answerIndex;
+  const complete = questions.length > 0 && answeredCount === questions.length;
+  const resultsVisible = questions.some((question) => Boolean(draft.revealedByQuestion[question.id]));
+  const quizProfile = quizData.quizMeta?.profile || "Assessment";
+  const quizStatusLabel = complete ? "Ready for review" : answeredCount > 0 ? "In progress" : "Not started";
 
   return `
-    <div class="quiz-shell" data-quiz-id="${escapeHtml(activity.id)}">
-      <div class="quiz-toolbar">
-        <div class="quiz-toolbar-copy">
-          <div class="quiz-label">${escapeHtml(quizData.quizMeta?.profile || "Assessment")}</div>
-          <h5>${escapeHtml(activity.title)}</h5>
+    <div
+      class="quiz-shell quiz-detail-surface"
+      data-testid="renderer-quiz"
+      data-quiz-id="${escapeHtml(activity.id)}"
+      data-quiz-layout="forensics-assessment"
+    >
+      <div class="quiz-detail-layout">
+        <div class="quiz-header">
+          <div class="quiz-copy">
+            <p class="quiz-eyebrow">Experimental Psychology 30 &bull; ${escapeHtml(quizProfile)}</p>
+            <h4 class="quiz-page-title">${escapeHtml(activity.title)}</h4>
+          </div>
+          <div class="quiz-meta-row">
+            <div class="quiz-meta-block">
+              <span>Status</span>
+              <strong>${escapeHtml(quizStatusLabel)}</strong>
+            </div>
+            <div class="quiz-meta-block">
+              <span>Submitted</span>
+              <strong>${resultsVisible ? "Generated" : "Not yet submitted"}</strong>
+            </div>
+          </div>
         </div>
-        <div class="quiz-stats">
-          <span class="quiz-stat">${questions.length} questions</span>
-          <span class="quiz-stat">${answeredCount}/${questions.length} answered</span>
-          <span class="quiz-stat">${correctCount}/${questions.length} correct</span>
+
+        <section class="quiz-evaluation-panel">
+          <div class="quiz-evaluation-copy">
+            <h5>Final Evaluation</h5>
+            <p>This counter tracks completed questions only. Marks are handled separately, and responses can be reviewed after results are generated.</p>
+          </div>
+          <div class="quiz-evaluation-score">
+            <strong><span>${answeredCount}</span><small>/${questions.length}</small></strong>
+            <span class="quiz-evaluation-status">Questions completed</span>
+          </div>
+        </section>
+
+        <div class="quiz-actions quiz-actions-row">
+          <button class="quiz-action primary" type="button" data-quiz-generate="${escapeHtml(activity.id)}">Generate Results</button>
+          <button class="quiz-action" type="button" data-quiz-check-all="${escapeHtml(activity.id)}">Check answers</button>
+          <button class="quiz-action" type="button" data-quiz-retake="${escapeHtml(activity.id)}">Retake quiz</button>
+          <button class="quiz-action" type="button" data-library-view="quizzes">Back to quizzes -&gt;</button>
         </div>
-      </div>
-      <div class="quiz-progress">
-        <div class="quiz-progress-bar" style="width: ${progress}%;"></div>
-      </div>
-      ${
-        questions.length > 1
-          ? `
-        <div class="quiz-nav">
-          ${questions
-            .map(
-              (question, index) => `
+
+        <section class="quiz-section-breakdown" data-testid="quiz-section-breakdown">
+          <h5>Section Breakdown</h5>
+          <div class="quiz-section-list" data-testid="quiz-question-nav">
             <button
-              class="quiz-nav-btn ${index === draft.questionIndex ? "active" : ""}"
+              class="quiz-section-button"
               type="button"
               data-quiz-question="${escapeHtml(activity.id)}"
-              data-question-index="${index}"
+              data-question-index="0"
             >
-              Q${index + 1}${Number.isInteger(draft.answersByQuestion[question.id]) ? " •" : ""}
+              <span>
+                <span class="quiz-section-label">Multiple Choice</span>
+                <span class="quiz-section-range">Questions 1-${questions.length}</span>
+              </span>
+              <span class="quiz-section-score">${answeredCount}/${questions.length}</span>
             </button>
-          `
-            )
-            .join("")}
+          </div>
+        </section>
+
+        <div class="quiz-progress">
+          <div class="quiz-progress-bar" style="width: ${progress}%;"></div>
         </div>
-      `
-          : ""
-      }
-      <div class="quiz-card">
-        <div class="quiz-question">${escapeHtml(activeQuestion?.question || "No quiz question parsed.")}</div>
-        <div class="quiz-choices">
-          ${(activeQuestion?.choices || [])
-            .map(
-              (choice, index) => `
-            <button
-              class="quiz-choice ${selectedAnswer === index ? "selected" : ""}"
-              type="button"
-              data-quiz-choice="${escapeHtml(activity.id)}"
-              data-question-id="${escapeHtml(activeQuestionId)}"
-              data-choice-index="${index}"
-            >
-              ${escapeHtml(choice)}
-            </button>
-          `
-            )
+
+        <div class="quiz-question-list">
+          ${questions
+            .map((question, questionIndex) => {
+              const selectedAnswer = draft.answersByQuestion[question.id];
+              const revealed = Boolean(draft.revealedByQuestion[question.id]);
+              const isCorrect = selectedAnswer === question.answerIndex;
+              return `
+            <article class="quiz-card quiz-question-row" data-testid="quiz-question-row">
+              <div class="quiz-question-grid">
+                <span class="quiz-question-number">${questionIndex + 1}</span>
+                <div>
+                  <p class="quiz-question">${escapeHtml(question.question || "No quiz question parsed.")}</p>
+                  <div class="quiz-choices">
+                    ${(question.choices || [])
+                      .map((choice, choiceIndex) => {
+                        const selected = selectedAnswer === choiceIndex;
+                        const correct = revealed && choiceIndex === question.answerIndex;
+                        const incorrect = revealed && selected && !isCorrect;
+                        const choiceClasses = ["quiz-choice"];
+                        if (selected) choiceClasses.push("selected");
+                        if (correct) choiceClasses.push("correct");
+                        if (incorrect) choiceClasses.push("incorrect");
+                        const letter = String.fromCharCode(65 + choiceIndex);
+                        return `
+                    <button
+                      class="${choiceClasses.join(" ")}"
+                      type="button"
+                      data-quiz-choice="${escapeHtml(activity.id)}"
+                      data-question-id="${escapeHtml(question.id)}"
+                      data-choice-index="${choiceIndex}"
+                    >
+                      <span class="quiz-choice-letter">${letter}</span>
+                      <span>${escapeHtml(choice)}</span>
+                    </button>
+                  `;
+                      })
+                      .join("")}
+                  </div>
+                  ${
+                    revealed && Number.isInteger(selectedAnswer)
+                      ? `
+                    <div class="quiz-feedback ${isCorrect ? "correct" : "incorrect"}">
+                      <strong>${isCorrect ? "Correct" : "Incorrect"}</strong>
+                      <span>${isCorrect ? "Your selected answer matches the key." : `Correct answer: ${escapeHtml(question.choices?.[question.answerIndex] || "Not available")}.`}</span>
+                    </div>
+                  `
+                      : ""
+                  }
+                </div>
+              </div>
+            </article>
+          `;
+            })
             .join("")}
-        </div>
-        <div class="quiz-actions">
-          <button class="quiz-action primary" type="button" data-quiz-check="${escapeHtml(activity.id)}">Check answer</button>
-          <button class="quiz-action" type="button" data-quiz-clear="${escapeHtml(activity.id)}" data-question-id="${escapeHtml(activeQuestionId)}">Clear answer</button>
-          <button class="quiz-action" type="button" data-quiz-retake="${escapeHtml(activity.id)}">Retake quiz</button>
-          ${
-            questions.length > 1
-              ? `<button class="quiz-action" type="button" data-quiz-next="${escapeHtml(activity.id)}">Next question</button>`
-              : ""
-          }
         </div>
         ${
-          revealed && Number.isInteger(selectedAnswer)
+          resultsVisible
             ? `
-          <div class="quiz-feedback ${isCorrect ? "correct" : "incorrect"}">
-            <strong>${isCorrect ? "Correct" : "Not quite yet"}</strong>
-            <span>The correct answer is ${escapeHtml(activeQuestion.choices?.[activeQuestion.answerIndex] || "")}.</span>
+          <div class="quiz-feedback ${correctCount === questions.length ? "correct" : "incorrect"}">
+            <strong>Results generated</strong>
+            <span>${correctCount}/${questions.length} keyed responses currently match your selections.</span>
           </div>
         `
             : ""
@@ -1280,7 +1339,6 @@ function renderQuiz(activity, quizData) {
     </div>
   `;
 }
-
 function renderLessonCompletionFooter(activity, moduleId) {
   if (!activity || isAssignment(activity)) {
     return "";
@@ -1836,6 +1894,18 @@ function render() {
           ...currentDraft.revealedByQuestion,
           [question.id]: true
         }
+      }));
+    });
+  });
+
+  root.querySelectorAll("[data-quiz-generate], [data-quiz-check-all]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const activityId = button.getAttribute("data-quiz-generate") || button.getAttribute("data-quiz-check-all") || "";
+      const quizData = quizCacheByActivityId.get(activityId);
+      const questions = quizData?.quizQuestions || [];
+      updateQuizDraft(activityId, questions.length, (draft) => ({
+        ...draft,
+        revealedByQuestion: Object.fromEntries(questions.map((question) => [question.id, true]))
       }));
     });
   });
@@ -2406,6 +2476,7 @@ function injectStyles() {
     .sidebar-toggle:focus-visible,
     .theme-toggle-button:focus-visible,
     .quiz-nav-btn:focus-visible,
+    .quiz-section-button:focus-visible,
     .quiz-choice:focus-visible,
     .quiz-action:focus-visible,
     .assignment-link:focus-visible,
@@ -3208,6 +3279,322 @@ function injectStyles() {
       color: #5a342a;
     }
 
+    .quiz-detail-surface {
+      display: block;
+      max-width: 1040px;
+      background: #ffffff;
+      border-color: #d9dad9;
+      color: #1a1c1a;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .quiz-detail-layout {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .quiz-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid #d9dad9;
+    }
+
+    .quiz-copy {
+      max-width: 44rem;
+    }
+
+    .quiz-eyebrow {
+      margin: 0;
+      font-size: 0.7rem;
+      line-height: 1.35;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #3f9f2e;
+    }
+
+    .quiz-page-title {
+      margin: 0.65rem 0 0;
+      font-size: 1.9rem;
+      line-height: 1.15;
+      font-weight: 800;
+      color: #1a1c1a;
+    }
+
+    .quiz-meta-row {
+      min-width: min(100%, 230px);
+      display: grid;
+      gap: 0.75rem;
+      border: 1px solid #d9dad9;
+      border-radius: 8px;
+      background: #f9f9f8;
+      padding: 0.9rem;
+    }
+
+    .quiz-meta-block span {
+      display: block;
+      font-size: 0.7rem;
+      line-height: 1.35;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #3f9f2e;
+    }
+
+    .quiz-meta-block strong {
+      display: block;
+      margin-top: 0.18rem;
+      color: #1a1c1a;
+      font-size: 0.92rem;
+    }
+
+    .quiz-evaluation-panel {
+      display: grid;
+      gap: 1rem;
+      align-items: center;
+      border: 1px solid #d9dad9;
+      border-radius: 8px;
+      background: #f9f9f8;
+      padding: 1rem;
+    }
+
+    .quiz-evaluation-copy h5 {
+      margin: 0;
+      font-size: 1.5rem;
+      line-height: 1.2;
+      font-weight: 800;
+      color: #1a1c1a;
+    }
+
+    .quiz-evaluation-copy p {
+      margin: 0.55rem 0 0;
+      max-width: 38rem;
+      color: #5f6660;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .quiz-evaluation-score {
+      text-align: left;
+    }
+
+    .quiz-evaluation-score strong {
+      display: block;
+      color: #59A844;
+      font-size: 3rem;
+      line-height: 0.95;
+      font-weight: 800;
+    }
+
+    .quiz-evaluation-score small {
+      color: #1a1c1a;
+      font-size: 0.56em;
+    }
+
+    .quiz-evaluation-status {
+      display: block;
+      margin-top: 0.4rem;
+      color: #ba1a1a;
+      font-size: 0.7rem;
+      line-height: 1.35;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .quiz-actions-row {
+      gap: 0.75rem;
+    }
+
+    .quiz-section-breakdown {
+      border-top: 1px solid #d9dad9;
+      padding-top: 0.5rem;
+    }
+
+    .quiz-section-breakdown h5 {
+      margin: 0;
+      color: #1a1c1a;
+      font-size: 1.5rem;
+      line-height: 1.2;
+      font-weight: 800;
+    }
+
+    .quiz-section-list {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .quiz-section-button {
+      width: 100%;
+      display: grid;
+      gap: 0.5rem;
+      border: 1px solid #d9dad9;
+      border-radius: 8px;
+      background: #f3f4f3;
+      color: #1a1c1a;
+      padding: 1rem;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .quiz-section-button:hover {
+      border-color: #c3c8c1;
+      background: #f9f9f8;
+    }
+
+    .quiz-section-label {
+      display: block;
+      color: #1a1c1a;
+      font-size: 0.9rem;
+      line-height: 1.35;
+      font-weight: 800;
+    }
+
+    .quiz-section-range {
+      display: block;
+      margin-top: 0.25rem;
+      color: #5f6660;
+      font-size: 0.7rem;
+      line-height: 1.35;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .quiz-section-score {
+      color: #1a1c1a;
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    .quiz-question-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .quiz-question-row {
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+    }
+
+    .quiz-question-grid {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .quiz-question-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 8px;
+      background: #eef6eb;
+      color: #3f9f2e;
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    .quiz-detail-surface .quiz-question {
+      margin: 0;
+      color: #1a1c1a;
+      font-size: 1rem;
+      line-height: 1.7;
+      font-weight: 800;
+    }
+
+    .quiz-detail-surface .quiz-choice {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      min-height: 2.875rem;
+      border-color: #d9dad9;
+      border-radius: 8px;
+      background: #ffffff;
+      color: #414942;
+      padding: 0.72rem 0.9rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .quiz-detail-surface .quiz-choice:hover:not(:disabled) {
+      border-color: #c3c8c1;
+      background: #f9f9f8;
+      color: #1a1c1a;
+    }
+
+    .quiz-choice-letter {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      width: 1.25rem;
+      height: 1.25rem;
+      border: 1px solid #c3c8c1;
+      border-radius: 50%;
+      background: #ffffff;
+      color: #3c3f3e;
+      font-size: 0.66rem;
+      font-weight: 800;
+    }
+
+    .quiz-detail-surface .quiz-choice.selected,
+    .quiz-detail-surface .quiz-choice.correct {
+      border-color: #59A844;
+      background: #eef6eb;
+      color: #1a1c1a;
+    }
+
+    .quiz-detail-surface .quiz-choice.incorrect {
+      border-color: #ba1a1a;
+      background: #fff1ee;
+      color: #1a1c1a;
+    }
+
+    .quiz-choice.selected .quiz-choice-letter,
+    .quiz-choice.correct .quiz-choice-letter,
+    .quiz-choice.incorrect .quiz-choice-letter {
+      border-color: #59A844;
+      background: #59A844;
+      color: #ffffff;
+    }
+
+    .quiz-choice.incorrect .quiz-choice-letter {
+      border-color: #ba1a1a;
+      background: #ba1a1a;
+    }
+
+    .quiz-detail-surface .quiz-feedback {
+      margin-top: 0.95rem;
+      border-radius: 8px;
+      padding: 0.75rem 0.85rem;
+      font-size: 0.88rem;
+    }
+
+    @media (min-width: 700px) {
+      .quiz-evaluation-panel {
+        grid-template-columns: minmax(0, 1fr) auto;
+      }
+
+      .quiz-evaluation-score {
+        text-align: right;
+      }
+
+      .quiz-question-grid {
+        grid-template-columns: auto minmax(0, 1fr);
+      }
+
+      .quiz-section-button {
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+      }
+    }
+
     .lesson-completion-card {
       margin: 0.9rem auto 0;
       max-width: 860px;
@@ -3629,6 +4016,112 @@ function injectStyles() {
     .app.next-step-theme .quiz-choice.selected,
     .app.next-step-theme .lesson-next-btn {
       background: var(--ns-primary);
+      color: #ffffff;
+    }
+
+    .app.next-step-theme .quiz-detail-surface {
+      border-color: #d9dad9;
+      background: #ffffff;
+      color: #1a1c1a;
+    }
+
+    .app.next-step-theme .quiz-detail-surface .quiz-eyebrow,
+    .app.next-step-theme .quiz-detail-surface .quiz-meta-block span,
+    .app.next-step-theme .quiz-detail-surface .quiz-question-number {
+      color: #3f9f2e;
+    }
+
+    .app.next-step-theme .quiz-detail-surface .quiz-page-title,
+    .app.next-step-theme .quiz-detail-surface .quiz-evaluation-copy h5,
+    .app.next-step-theme .quiz-detail-surface .quiz-section-breakdown h5,
+    .app.next-step-theme .quiz-detail-surface .quiz-section-label,
+    .app.next-step-theme .quiz-detail-surface .quiz-section-score,
+    .app.next-step-theme .quiz-detail-surface .quiz-question {
+      color: #1a1c1a;
+    }
+
+    .app.next-step-theme .quiz-detail-surface .quiz-meta-row,
+    .app.next-step-theme .quiz-detail-surface .quiz-evaluation-panel,
+    .app.next-step-theme .quiz-detail-surface .quiz-section-button {
+      border-color: #d9dad9;
+      background: #f9f9f8;
+    }
+
+    .app.next-step-theme .quiz-detail-surface .quiz-section-breakdown {
+      border-color: #d9dad9;
+    }
+
+    .app.next-step-theme .quiz-detail-surface .quiz-section-range {
+      color: #5f6660;
+    }
+
+    .app.next-step-theme .quiz-detail-surface .quiz-evaluation-score strong {
+      color: #59A844;
+    }
+
+    .app.next-step-theme .quiz-detail-surface .quiz-evaluation-status {
+      color: #ba1a1a;
+    }
+
+    .app.next-step-theme .quiz-detail-surface .quiz-action {
+      border-color: #d9dad9;
+      background: #ffffff;
+      color: #3c3f3e;
+    }
+
+    .app.next-step-theme .quiz-detail-surface .quiz-action:hover:not(:disabled) {
+      border-color: #c3c8c1;
+      background: #eceeec;
+      color: #1a1c1a;
+    }
+
+    .app.next-step-theme .quiz-detail-surface .quiz-action.primary {
+      border-color: #59A844;
+      background: #59A844;
+      color: #ffffff;
+    }
+
+    .app.next-step-theme .quiz-detail-surface .quiz-action.primary:hover:not(:disabled) {
+      border-color: #4b8d39;
+      background: #4b8d39;
+      color: #ffffff;
+    }
+
+    .app.next-step-theme .quiz-detail-surface .quiz-choice {
+      border-color: #d9dad9;
+      background: #ffffff;
+      color: #414942;
+    }
+
+    .app.next-step-theme .quiz-detail-surface .quiz-choice:hover:not(:disabled) {
+      border-color: #c3c8c1;
+      background: #f9f9f8;
+      color: #1a1c1a;
+    }
+
+    .app.next-step-theme .quiz-detail-surface .quiz-choice.selected,
+    .app.next-step-theme .quiz-detail-surface .quiz-choice.correct {
+      border-color: #59A844;
+      background: #eef6eb;
+      color: #1a1c1a;
+    }
+
+    .app.next-step-theme .quiz-detail-surface .quiz-choice.incorrect {
+      border-color: #ba1a1a;
+      background: #fff1ee;
+      color: #1a1c1a;
+    }
+
+    .app.next-step-theme .quiz-detail-surface .quiz-choice.selected .quiz-choice-letter,
+    .app.next-step-theme .quiz-detail-surface .quiz-choice.correct .quiz-choice-letter {
+      border-color: #59A844;
+      background: #59A844;
+      color: #ffffff;
+    }
+
+    .app.next-step-theme .quiz-detail-surface .quiz-choice.incorrect .quiz-choice-letter {
+      border-color: #ba1a1a;
+      background: #ba1a1a;
       color: #ffffff;
     }
 

@@ -1,63 +1,83 @@
 # Handoff
 
-- Project: `forensicstudiesoption2` and `general-psychology-20-independent-studies-202633108`
-- Task: Match condensed sidebar behavior to the Forensics 35 responsive sidebar pattern.
-- Status: complete locally, ready for hosted export/deploy if requested
+- Project: `social-studies-10-1-docx-export`
+- Task: Improve the Unit 1 Brightspace-to-DOCX pilot rules for full-screen sizing, clean image fallbacks, source-link cleanup, and embedded media cards.
+- Status: regenerated successfully to refreshed DOCX v3; ready for Word visual review
 
-## Files changed
-- `projects/forensicstudiesoption2/workspace/main.js`
-- `projects/forensicstudiesoption2/workspace/styles.css`
-- `projects/general-psychology-20-independent-studies-202633108/workspace/main.js`
-- `scripts/tests/forensicstudiesoption2-theme.test.ts`
-- `scripts/tests/general-psychology-workspace.test.ts`
+## Summary
+
+- Added focused Python regression coverage for scalable DOCX conversion behavior.
+- Patched the Unit 1 builder so missing images are audited without visible `[Unresolved image: ...]` text in the learner-facing DOCX.
+- Patched image source links that wrap images so `Image source` no longer appears beside embedded images.
+- Added nearest-path ranking for ambiguous ZIP image basename matches, which should recover more Brightspace images when relative paths are wrong but the asset exists elsewhere in the package.
+- Reworked embedded media cards to use a generated embedded-style preview image plus a clickable title, without printing raw iframe/embed URLs into the document body.
+- Expanded the Word page/frame sizing assumptions toward a full-screen desktop Brightspace layout.
+- Added portable source ZIP resolution so the builder tries an environment override, the normal Windows Downloads folder, and then the legacy `/Users/deanguedo/Downloads` path.
+- Regenerated the Unit 1 DOCX from the restored Brightspace ZIP. Because the canonical DOCX was locked by another process, the builder wrote a refreshed sibling output.
+- Confirmed all 21 unresolved asset references are genuinely absent from the supplied ZIP by basename; none were recoverable through the stronger resolver.
+- Cleaned video/media cards so learner-facing DOCX text no longer says `Iframe preserved from Brightspace` or any similar preservation note.
+- Added YouTube thumbnail derivation and remote thumbnail embedding where possible. The generated DOCX used real remote thumbnails for 10 of 15 media cards; the others use the generated preview fallback.
+- Hyperlinked the media preview image itself and kept the media title as a clickable link.
+- Replaced rasterized blue lesson header bars with real Word table/cell headers so the text no longer collapses into tiny unreadable pixels on Windows.
+
+## Files Changed
+
 - `.stax/task.md`
 - `.stax/codex-report.md`
 - `docs/ops/ACTIVE_HANDOFF.md`
-- `docs/ops/ARCHIVED_HANDOFFS.md`
+- `projects/social-studies-10-1-docx-export/meta/build_unit1_docx_export.py`
+- `scripts/tests/social_studies_docx_export_test.py`
 
-## What changed
-- Aligned Forensic Studies 25 option2 compact navigation to the Forensics 35 breakpoint pattern: desktop left rail remains collapsible, while tablet and phone widths use the top navigation shell.
-- Fixed the option2 tablet mismatch by changing the compact navigation query and CSS breakpoint to `max-width: 1023px`.
-- Changed General Psychology compact navigation from a side overlay drawer to a top menu shell at `max-width: 1023px`.
-- Kept General Psychology desktop behavior as a collapsible left rail.
-- Kept the existing General Psychology Forensics-style quiz formatting intact.
+## Verification Run
 
-## Why this changed
-- The user reported that Forensic Studies 25 option2 worked on desktop and smaller phone widths, but the in-between tablet width broke. They asked for the sidebar to go to the top when condensed and for the Forensics 35 all-size sidebar behavior to be applied to General Psychology too.
+- `python -m unittest scripts.tests.social_studies_docx_export_test`
+  - Final result: passed, `Ran 9 tests`, `OK`
+- `python projects\social-studies-10-1-docx-export\meta\build_unit1_docx_export.py`
+  - Passed and wrote `projects/social-studies-10-1-docx-export/exports/docx/01 - 1. Globalization and Identity - refreshed 3.docx`
+- `npm run verify -- --project social-studies-10-1-docx-export`
+  - Passed with one metadata warning: `canonicalEntry` is not listed in `canonicalSources`.
+- DOCX XML/audit inspection
+  - Confirmed no `[Unresolved image: ...]`, no `Image source`, no raw `https://embed.ted.com`, no `Iframe preserved from Brightspace`, and no `preserved from Brightspace` body text in the refreshed DOCX.
+  - Confirmed header text is present as Word text, not a raster header image.
+  - Confirmed `mediaPreviewCards=15`, `remoteThumbnails=10`, `thumbnailUrls=10`, and `wordMediaFiles=21`.
 
-## Source of truth
-- Forensic Studies option2 shell: `projects/forensicstudiesoption2/workspace/index.html`
-- Forensic Studies option2 behavior: `projects/forensicstudiesoption2/workspace/main.js`
-- Forensic Studies option2 styling: `projects/forensicstudiesoption2/workspace/styles.css`
-- General Psychology shell: `projects/general-psychology-20-independent-studies-202633108/workspace/index.html`
-- General Psychology behavior/styling: `projects/general-psychology-20-independent-studies-202633108/workspace/main.js`
+## Known Risks / Follow-Up
 
-## Fragile areas / watchouts
-- Forensic Studies option2 depends on the JS compact query and CSS breakpoint staying aligned.
-- General Psychology now uses `compact-sidebar-open` for tablet/phone menu expansion; do not reintroduce the old side drawer transform rules.
-- The in-app browser was opened to the local General Psychology preview during validation; hosted pages were not redeployed.
+- The canonical output `projects/social-studies-10-1-docx-export/exports/docx/01 - 1. Globalization and Identity.docx` appears to be open/locked, so the refreshed output was written beside it.
+- The refreshed output is `projects/social-studies-10-1-docx-export/exports/docx/01 - 1. Globalization and Identity - refreshed 3.docx`.
+- The expected default source ZIP path is now `C:\Users\dean.guedo\Downloads\D2LCCExport_149634_25-26 _ S2 _ Social Studies 10-1 _ Per 1(A) _ Sec _202651213.ZIP`.
+- The builder also supports `SOCIAL10_SOURCE_ZIP` and `SOCIAL10_STYLE_REFERENCE_ZIP` environment variable overrides.
+- The style reference ZIP `/Users/deanguedo/Downloads/U1P02overviewsurvey.html.zip` was also not found locally.
+- The media preview cards are generated offline and clickable; they do not make Word run live iframe video.
 
-## Next prompt should assume
-- Local workspace previews are updated and verified.
-- The wider checkout remains dirty with unrelated `.stax/`, processed snapshot, and metadata noise.
-- Do not stage broad dirty state; stage only the sidebar-related course files/tests/handoff/report files if committing this task.
+## Source-Of-Truth Location
 
-## What still needs validation
-- User visual acceptance in the Studio Tablet and Mobile controls.
-- Hosted export/deploy if the user wants these sidebar changes live on Firebase.
+- Canonical builder: `projects/social-studies-10-1-docx-export/meta/build_unit1_docx_export.py`
+- Focused regression: `scripts/tests/social_studies_docx_export_test.py`
+- Current refreshed DOCX: `projects/social-studies-10-1-docx-export/exports/docx/01 - 1. Globalization and Identity - refreshed 3.docx`
 
-## Known risks
-- The rendered proof script validates the responsive behavior at 1180px, 820px, and 390px; it does not exhaust every possible viewport width.
-- Existing external font/CDN warnings remain in project verification.
-- STAX observer preflight cannot run from this repo because `stax:preflight` is not an available npm script.
+## Fragile Areas / What Might Drift
 
-## Exact next command
-`npm run export:google-hosted -- --project forensicstudiesoption2,general-psychology-20-independent-studies-202633108`
+- Any future scale-up should move these DOCX rules into a shared converter instead of continuing to grow the Unit 1 pilot script.
+- Asset resolution should stay audit-backed so recovered images and unresolved assets remain visible to operators without muddying learner-facing Word output.
+- Video behavior should remain honest: generated preview plus link, not a fake claim that DOCX preserved live embedded playback.
 
-## Exact next file to open
-`projects/general-psychology-20-independent-studies-202633108/workspace/main.js`
+## Next Prompt Assumptions
 
-## Do not do next / warnings
-- Do not edit `projects/<slug>/raw/**`.
-- Do not deploy unless the user explicitly asks for hosted refresh.
-- Do not treat unrelated dirty files under `projects/processed/**` as part of this task.
+- The real DOCX has been regenerated to a refreshed sibling file with real Word header bars, cleaned media-card wording, and linked preview images.
+- Next step is Word visual review against the screenshots, especially header bars, sizing, missing-image cleanup, and media-card appearance.
+- If the refreshed file is accepted, close the old canonical DOCX and rerun the builder so it can replace `01 - 1. Globalization and Identity.docx` directly.
+
+## Exact Next Command
+
+Open `projects/social-studies-10-1-docx-export/exports/docx/01 - 1. Globalization and Identity - refreshed 3.docx`
+
+## Exact Next File To Open
+
+`projects/social-studies-10-1-docx-export/meta/build_unit1_docx_export.py`
+
+## Do Not Do Next / Warnings
+
+- Do not manually patch the generated DOCX as the durable fix.
+- Do not edit `projects/<slug>/raw/**`; this project currently has no raw source folder for the Brightspace ZIP.
+- Do not claim final visual acceptance until the refreshed DOCX is inspected in Word.

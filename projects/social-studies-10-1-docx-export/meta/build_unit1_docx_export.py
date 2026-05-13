@@ -15,7 +15,8 @@ from datetime import datetime
 from io import BytesIO
 from pathlib import Path
 from typing import Any
-from urllib.parse import unquote
+from urllib.parse import parse_qs, unquote, urlparse
+from urllib.request import Request, urlopen
 from xml.etree import ElementTree as ET
 
 from docx import Document
@@ -40,8 +41,25 @@ except Exception:  # pragma: no cover - recorded in audit when unavailable
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
 PROJECT_ROOT = REPO_ROOT / "projects" / "social-studies-10-1-docx-export"
-ZIP_PATH = Path(
-    "/Users/deanguedo/Downloads/D2LCCExport_149634_25-26 _ S2 _ Social Studies 10-1 _ Per 1(A) _ Sec _202651213.ZIP"
+SOURCE_ZIP_NAME = "D2LCCExport_149634_25-26 _ S2 _ Social Studies 10-1 _ Per 1(A) _ Sec _202651213.ZIP"
+STYLE_REFERENCE_ZIP_NAME = "U1P02overviewsurvey.html.zip"
+
+
+def first_existing_path(env_var: str, candidates: list[Path]) -> Path:
+    override = os.environ.get(env_var)
+    paths = ([Path(override)] if override else []) + candidates
+    for path in paths:
+        if path.exists():
+            return path
+    return paths[0]
+
+
+ZIP_PATH = first_existing_path(
+    "SOCIAL10_SOURCE_ZIP",
+    [
+        Path.home() / "Downloads" / SOURCE_ZIP_NAME,
+        Path("/Users/deanguedo/Downloads") / SOURCE_ZIP_NAME,
+    ],
 )
 META_DIR = PROJECT_ROOT / "meta"
 EXPORT_DIR = PROJECT_ROOT / "exports"
@@ -50,7 +68,13 @@ SUPPORT_DIR = EXPORT_DIR / "supporting-files"
 QA_DIR = EXPORT_DIR / "qa"
 
 UNIT_TITLE = "1. Globalization and Identity"
-STYLE_REFERENCE_ZIP = Path("/Users/deanguedo/Downloads/U1P02overviewsurvey.html.zip")
+STYLE_REFERENCE_ZIP = first_existing_path(
+    "SOCIAL10_STYLE_REFERENCE_ZIP",
+    [
+        Path.home() / "Downloads" / STYLE_REFERENCE_ZIP_NAME,
+        Path("/Users/deanguedo/Downloads") / STYLE_REFERENCE_ZIP_NAME,
+    ],
+)
 SITE_BLUE = "6096BF"
 SITE_PURPLE = "4B4665"
 SITE_TEXT = "333333"
@@ -62,7 +86,12 @@ SITE_GREEN = "EBF5EB"
 SITE_LAVENDER = "E2E1EE"
 SITE_GOLD = "FFF1C9"
 SITE_LIGHT_BLUE = "DFF1FF"
-SITE_FRAME_WIDTH_DXA = 10080
+SITE_FRAME_WIDTH_DXA = 10800
+SITE_TABLE_WIDTH_DXA = 10080
+SITE_LEFT_IMAGE_DXA = 3900
+SITE_TEXT_IMAGE_DXA = SITE_TABLE_WIDTH_DXA - SITE_LEFT_IMAGE_DXA
+SITE_HEADER_WIDTH_IN = 7.15
+SITE_FULL_IMAGE_WIDTH_IN = 7.0
 TREBUCHET_FONT_PATH = Path("/System/Library/Fonts/Supplemental/Trebuchet MS.ttf")
 
 BLOCK_TAGS = {
@@ -198,6 +227,19 @@ def package_path_exists(zip_file: zipfile.ZipFile, href: str) -> bool:
         return False
 
 
+def package_match_score(base_href: str, name: str, suffix: str) -> tuple[int, int, int, int]:
+    base_segments = [segment.casefold() for segment in posixpath.dirname(base_href).split("/") if segment]
+    name_segments = [segment.casefold() for segment in posixpath.dirname(name).split("/") if segment]
+    common = 0
+    for left, right in zip(base_segments, name_segments):
+        if left != right:
+            break
+        common += 1
+    suffix_depth = len([segment for segment in suffix.split("/") if segment])
+    distance = abs(len(name_segments) - len(base_segments))
+    return (common, suffix_depth, -distance, -len(name))
+
+
 def resolve_package_href(base_href: str, relative_href: str, zip_file: zipfile.ZipFile) -> str | None:
     if not relative_href:
         return None
@@ -220,9 +262,21 @@ def resolve_package_href(base_href: str, relative_href: str, zip_file: zipfile.Z
         suffixes.append(basename)
     names = zip_file.namelist()
     for suffix in suffixes:
-        matches = [name for name in names if not name.endswith("/") and name.endswith(suffix)]
+        suffix_key = suffix.casefold()
+        matches = [
+            name
+            for name in names
+            if not name.endswith("/") and unquote(name).casefold().endswith(suffix_key)
+        ]
         if len(matches) == 1:
             return matches[0]
+        if len(matches) > 1:
+            ranked = sorted(
+                ((package_match_score(base_href, name, suffix), name) for name in matches),
+                reverse=True,
+            )
+            if len(ranked) == 1 or ranked[0][0] != ranked[1][0]:
+                return ranked[0][1]
     return None
 
 
@@ -261,7 +315,7 @@ def set_cell_width(cell: Any, width_dxa: int) -> None:
     tc_w.set(qn("w:w"), str(width_dxa))
 
 
-def set_table_width(table: Any, width_dxa: int = 9360, indent_dxa: int = 120) -> None:
+def set_table_width(table: Any, width_dxa: int = SITE_TABLE_WIDTH_DXA, indent_dxa: int = 120) -> None:
     tbl_pr = table._tbl.tblPr
     tbl_w = tbl_pr.find(qn("w:tblW"))
     if tbl_w is None:
@@ -491,7 +545,7 @@ class UnitOneDocxExporter:
             if index < len(children) - 1:
                 document.add_page_break()
 
-        output_path = DOCX_DIR / "01 - 1. Globalization and Identity.docx"
+        output_path = self.available_output_path(DOCX_DIR / "01 - 1. Globalization and Identity.docx")
         document.save(output_path)
         self.audit["outputPath"] = rel_posix(output_path, PROJECT_ROOT)
         self.audit["outputBytes"] = output_path.stat().st_size
@@ -503,17 +557,47 @@ class UnitOneDocxExporter:
     def prepare_outputs(self) -> None:
         for target in (DOCX_DIR, SUPPORT_DIR, QA_DIR):
             if target.exists():
-                shutil.rmtree(target)
+                try:
+                    shutil.rmtree(target)
+                except PermissionError:
+                    if target != DOCX_DIR:
+                        raise
             target.mkdir(parents=True, exist_ok=True)
         META_DIR.mkdir(parents=True, exist_ok=True)
+
+    def output_path_is_locked(self, path: Path) -> bool:
+        if not path.exists():
+            return False
+        try:
+            with path.open("ab"):
+                return False
+        except PermissionError:
+            return True
+
+    def available_output_path(self, canonical_path: Path) -> Path:
+        if not self.output_path_is_locked(canonical_path):
+            return canonical_path
+        fallback = canonical_path.with_name(f"{canonical_path.stem} - refreshed{canonical_path.suffix}")
+        counter = 2
+        while fallback.exists() and self.output_path_is_locked(fallback):
+            fallback = canonical_path.with_name(f"{canonical_path.stem} - refreshed {counter}{canonical_path.suffix}")
+            counter += 1
+        self.audit.setdefault("outputWarnings", []).append(
+            {
+                "kind": "locked-canonical-output",
+                "canonicalPath": rel_posix(canonical_path, PROJECT_ROOT),
+                "fallbackPath": rel_posix(fallback, PROJECT_ROOT),
+            }
+        )
+        return fallback
 
     def new_document(self) -> Document:
         document = Document()
         section = document.sections[0]
-        section.top_margin = Inches(0.55)
-        section.bottom_margin = Inches(0.55)
-        section.left_margin = Inches(0.55)
-        section.right_margin = Inches(0.55)
+        section.top_margin = Inches(0.45)
+        section.bottom_margin = Inches(0.45)
+        section.left_margin = Inches(0.4)
+        section.right_margin = Inches(0.4)
 
         styles = document.styles
         styles["Normal"].font.name = "Trebuchet MS"
@@ -674,7 +758,7 @@ class UnitOneDocxExporter:
             self.render_pdf(document, href)
         elif ext in (".png", ".jpg", ".jpeg", ".gif"):
             self.add_site_section_page(document, item_name)
-            self.add_image_from_href(document, href, max_width=6.3)
+            self.add_image_from_href(document, href, max_width=SITE_FULL_IMAGE_WIDTH_IN)
         else:
             self.add_site_section_page(document, item_name)
             support_path = self.copy_support_file(href, UNIT_TITLE, item_name)
@@ -727,10 +811,26 @@ class UnitOneDocxExporter:
         return table, cell
 
     def add_site_header(self, container: Any, title: str) -> None:
-        paragraph = container.add_paragraph()
+        table = container.add_table(rows=1, cols=1)
+        table.alignment = WD_TABLE_ALIGNMENT.CENTER
+        table.autofit = False
+        set_table_width(table, width_dxa=SITE_TABLE_WIDTH_DXA, indent_dxa=0)
+        set_table_grid(table, [SITE_TABLE_WIDTH_DXA])
+        set_table_layout_fixed(table)
+        clear_table_borders(table)
+        cell = table.cell(0, 0)
+        set_cell_width(cell, SITE_TABLE_WIDTH_DXA)
+        set_cell_shading(cell, SITE_BLUE)
+        set_cell_margins(cell, top=150, bottom=150, start=180, end=180)
+        self.clear_cell(cell)
+        paragraph = cell.add_paragraph()
         paragraph.alignment = WD_ALIGN_PARAGRAPH.LEFT
-        set_paragraph_spacing(paragraph, before=0, after=470, line=None)
-        paragraph.add_run().add_picture(BytesIO(self.site_header_image_bytes(title)), width=Inches(6.68))
+        set_paragraph_spacing(paragraph, before=0, after=0, line=None)
+        run = paragraph.add_run(title)
+        run.font.name = "Trebuchet MS"
+        run.font.size = Pt(18)
+        run.font.color.rgb = RGBColor.from_string("FFFFFF")
+        container.add_paragraph()
 
     def site_header_image_bytes(self, title: str) -> bytes:
         width, height = 1600, 200
@@ -779,11 +879,11 @@ class UnitOneDocxExporter:
             footer_table.alignment = WD_TABLE_ALIGNMENT.CENTER
             footer_table.autofit = False
             set_table_width_pct(footer_table)
-            set_table_grid(footer_table, [9600])
+            set_table_grid(footer_table, [SITE_TABLE_WIDTH_DXA])
             set_table_layout_fixed(footer_table)
             clear_table_borders(footer_table)
             cell = footer_table.cell(0, 0)
-            set_cell_width(cell, 9600)
+            set_cell_width(cell, SITE_TABLE_WIDTH_DXA)
             set_cell_shading(cell, SITE_BLUE)
             set_cell_margins(cell, top=100, bottom=100, start=140, end=140)
             paragraph = cell.paragraphs[0]
@@ -830,7 +930,9 @@ class UnitOneDocxExporter:
         if name == "img":
             paragraph = container.add_paragraph()
             self.apply_alignment(paragraph, node)
-            self.add_image_to_paragraph(paragraph, node, context, max_width=6.3)
+            embedded = self.add_image_to_paragraph(paragraph, node, context, max_width=SITE_FULL_IMAGE_WIDTH_IN)
+            if not embedded and not clean_text(paragraph.text) and not paragraph.runs:
+                self.remove_paragraph(paragraph)
             return
         if name in {"ul", "ol"}:
             self.render_list(container, node, context, ordered=(name == "ol"))
@@ -907,12 +1009,12 @@ class UnitOneDocxExporter:
         )
         table = container.add_table(rows=1, cols=2)
         table.alignment = WD_TABLE_ALIGNMENT.CENTER
-        set_table_width(table, width_dxa=9600, indent_dxa=0)
-        set_table_grid(table, [3450, 6150])
+        set_table_width(table, width_dxa=SITE_TABLE_WIDTH_DXA, indent_dxa=0)
+        set_table_grid(table, [SITE_LEFT_IMAGE_DXA, SITE_TEXT_IMAGE_DXA])
         clear_table_borders(table)
         image_cell = table.cell(0, 0)
         text_cell = table.cell(0, 1)
-        for cell, width in ((image_cell, 3450), (text_cell, 6150)):
+        for cell, width in ((image_cell, SITE_LEFT_IMAGE_DXA), (text_cell, SITE_TEXT_IMAGE_DXA)):
             self.clear_cell(cell)
             set_cell_width(cell, width)
             set_cell_margins(cell, top=0, bottom=0, start=0, end=120)
@@ -920,7 +1022,7 @@ class UnitOneDocxExporter:
 
         image_paragraph = image_cell.add_paragraph()
         image_paragraph.alignment = WD_ALIGN_PARAGRAPH.LEFT
-        self.add_image_to_paragraph(image_paragraph, image, context, max_width=2.35, display_width=2.35)
+        self.add_image_to_paragraph(image_paragraph, image, context, max_width=2.7, display_width=2.7)
 
         consumed = 0
         max_cluster_paragraphs = 3
@@ -963,7 +1065,7 @@ class UnitOneDocxExporter:
     def render_feature_box(self, container: Any, node: HtmlElement, context: RenderContext) -> None:
         table = container.add_table(rows=1, cols=1)
         table.alignment = WD_TABLE_ALIGNMENT.CENTER
-        set_table_width(table, width_dxa=9480, indent_dxa=0)
+        set_table_width(table, width_dxa=SITE_TABLE_WIDTH_DXA, indent_dxa=0)
         set_table_borders(table, color=SITE_FEATURE_BORDER, size="18", inside=False)
         cell = table.cell(0, 0)
         cell.vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.TOP
@@ -977,7 +1079,7 @@ class UnitOneDocxExporter:
     def render_callout(self, container: Any, node: HtmlElement, context: RenderContext, label: str, fill: str) -> None:
         table = container.add_table(rows=1, cols=1)
         table.alignment = WD_TABLE_ALIGNMENT.CENTER
-        set_table_width(table, width_dxa=9480, indent_dxa=0)
+        set_table_width(table, width_dxa=SITE_TABLE_WIDTH_DXA, indent_dxa=0)
         clear_table_borders(table)
         cell = table.cell(0, 0)
         cell.vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.TOP
@@ -1014,7 +1116,7 @@ class UnitOneDocxExporter:
         if max_cols == 0:
             return
         width_px = int_attr(table_node.get("width"))
-        width_dxa = min(9000, max(3600, (width_px * 15 if width_px else 9000)))
+        width_dxa = min(SITE_TABLE_WIDTH_DXA, max(3600, (width_px * 15 if width_px else SITE_TABLE_WIDTH_DXA)))
         table = container.add_table(rows=len(rows), cols=max_cols)
         table.alignment = WD_TABLE_ALIGNMENT.LEFT
         set_table_width(table, width_dxa=width_dxa, indent_dxa=120)
@@ -1093,7 +1195,11 @@ class UnitOneDocxExporter:
                 self.add_link_or_local_resource(paragraph, child, context)
             elif name in {"iframe", "video", "audio", "embed", "object"}:
                 src = child.get("src") or child.get("data") or ""
-                paragraph.add_run(f"[Embedded media: {src}]")
+                title = child.get("title") or clean_text(child.text_content()) or "Embedded media"
+                if src:
+                    add_hyperlink(paragraph, title, src)
+                else:
+                    self.add_text_run(paragraph, title)
             elif name in {"sup", "sub"}:
                 run = paragraph.add_run(clean_text(child.text_content()))
                 run.font.superscript = name == "sup"
@@ -1130,12 +1236,23 @@ class UnitOneDocxExporter:
         run.font.name = "Trebuchet MS"
         run.font.color.rgb = RGBColor.from_string(SITE_TEXT)
 
+    def record_image_source_link(self, href: str, context: RenderContext, image_count: int) -> None:
+        self.audit.setdefault("imageSourceLinks", []).append(
+            {
+                "sourceHtml": context.base_href,
+                "href": href,
+                "imageCount": image_count,
+            }
+        )
+
     def add_link_or_local_resource(self, paragraph: Any, node: HtmlElement, context: RenderContext) -> None:
         href = node.get("href") or ""
         text = clean_text(node.text_content()) or href
         image_children = node.xpath(".//img")
+        embedded_image_count = 0
         for image_child in image_children:
-            self.add_image_to_paragraph(paragraph, image_child, context, max_width=4.5)
+            if self.add_image_to_paragraph(paragraph, image_child, context, max_width=4.8):
+                embedded_image_count += 1
         if not href:
             if not image_children:
                 self.add_inline(paragraph, node, context)
@@ -1146,8 +1263,8 @@ class UnitOneDocxExporter:
             return
         if re.match(r"^[a-zA-Z][a-zA-Z0-9+.-]*:", href):
             if image_children:
-                paragraph.add_run(" ")
-                text = text if text and text != href else "Image source"
+                self.record_image_source_link(href, context, embedded_image_count)
+                return
             add_hyperlink(paragraph, text, href)
             return
         package_href = resolve_package_href(context.base_href, href, self.zip_file)
@@ -1155,8 +1272,8 @@ class UnitOneDocxExporter:
             support_path = self.copy_support_file(package_href, UNIT_TITLE, text or Path(package_href).stem)
             relative = rel_posix(support_path, DOCX_DIR)
             if image_children:
-                paragraph.add_run(" ")
-                text = text if text and text != href else "Linked source file"
+                self.record_image_source_link(relative, context, embedded_image_count)
+                return
             add_hyperlink(paragraph, text, relative)
             self.audit["linkedLocalResources"].append(
                 {
@@ -1174,24 +1291,29 @@ class UnitOneDocxExporter:
         src = node.get("src") or node.get("data") or ""
         title = node.get("title") or clean_text(node.text_content()) or "Embedded media"
         media_type = node.tag.lower()
+        thumbnail_url = self.media_thumbnail_url(src)
+        used_remote_thumbnail = False
         table = container.add_table(rows=1, cols=1)
         table.style = "Table Grid"
-        set_table_width(table)
+        set_table_width(table, width_dxa=SITE_TABLE_WIDTH_DXA, indent_dxa=0)
         cell = table.cell(0, 0)
         cell.vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.TOP
-        set_cell_shading(cell, "F2F7FF")
-        set_cell_margins(cell, top=140, bottom=140, start=160, end=160)
-        paragraph = cell.paragraphs[0]
-        run = paragraph.add_run(f"{media_type.title()} preserved from Brightspace: ")
-        run.bold = True
+        set_cell_shading(cell, "EAF4EA")
+        set_cell_margins(cell, top=170, bottom=170, start=180, end=180)
+        self.clear_cell(cell)
+        preview = cell.add_paragraph()
+        preview.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        preview_bytes = self.media_preview_image_bytes(title, src)
+        used_remote_thumbnail = bool(thumbnail_url and self._last_media_preview_used_remote)
+        self.add_hyperlinked_picture(preview, preview_bytes, width=6.65, url=src)
+        paragraph = cell.add_paragraph(style="Course Note")
         if src:
             add_hyperlink(paragraph, title or src, src)
         else:
             paragraph.add_run(title)
-        if src:
-            detail = cell.add_paragraph(style="Small Caption")
-            detail.add_run(src)
         container.add_paragraph()
+        self.audit.setdefault("mediaPreviewCards", 0)
+        self.audit["mediaPreviewCards"] += 1
         self.audit["mediaReferences"].append(
             {
                 "sourceHtml": context.base_href,
@@ -1199,8 +1321,157 @@ class UnitOneDocxExporter:
                 "type": media_type,
                 "title": title,
                 "src": src,
+                "thumbnailUrl": thumbnail_url,
+                "usedRemoteThumbnail": used_remote_thumbnail,
             }
         )
+
+    def add_hyperlinked_picture(self, paragraph: Any, image_bytes: bytes, width: float, url: str) -> None:
+        run = paragraph.add_run()
+        run.add_picture(BytesIO(image_bytes), width=Inches(width))
+        if not url:
+            return
+        relationship_id = paragraph.part.relate_to(
+            url,
+            "http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink",
+            is_external=True,
+        )
+        hyperlink = OxmlElement("w:hyperlink")
+        hyperlink.set(qn("r:id"), relationship_id)
+        run_element = run._r
+        parent = run_element.getparent()
+        parent.remove(run_element)
+        hyperlink.append(run_element)
+        parent.append(hyperlink)
+
+    def media_provider_label(self, src: str) -> str:
+        host = (urlparse(src).netloc or "").casefold()
+        if "youtube" in host or "youtu.be" in host:
+            return "YouTube"
+        if "ted.com" in host:
+            return "TED"
+        if host:
+            return host.removeprefix("www.")
+        return "Embedded media"
+
+    def youtube_video_id(self, src: str) -> str | None:
+        parsed = urlparse(src)
+        host = parsed.netloc.casefold()
+        path_parts = [part for part in parsed.path.split("/") if part]
+        if "youtu.be" in host and path_parts:
+            return path_parts[0]
+        if "youtube" in host or "youtube-nocookie" in host:
+            if len(path_parts) >= 2 and path_parts[0] in {"embed", "shorts", "v"}:
+                return path_parts[1]
+            query_id = parse_qs(parsed.query).get("v", [None])[0]
+            if query_id:
+                return query_id
+        return None
+
+    def media_thumbnail_url(self, src: str) -> str | None:
+        video_id = self.youtube_video_id(src)
+        if video_id:
+            return f"https://img.youtube.com/vi/{video_id}/hqdefault.jpg"
+        return None
+
+    def fetch_remote_image_bytes(self, url: str) -> bytes | None:
+        try:
+            request = Request(url, headers={"User-Agent": "Mozilla/5.0"})
+            with urlopen(request, timeout=8) as response:
+                content_type = (response.headers.get("content-type") or "").casefold()
+                data = response.read(8 * 1024 * 1024)
+            if "image" not in content_type:
+                return None
+            return data
+        except Exception:
+            return None
+
+    def fitted_video_thumbnail_bytes(self, image_bytes: bytes) -> bytes:
+        image = Image.open(BytesIO(image_bytes))
+        image.load()
+        image = image.convert("RGB")
+        target_w, target_h = 1280, 720
+        scale = max(target_w / image.width, target_h / image.height)
+        new_size = (max(1, int(image.width * scale)), max(1, int(image.height * scale)))
+        resample = getattr(getattr(Image, "Resampling", Image), "LANCZOS")
+        image = image.resize(new_size, resample=resample)
+        left = max(0, (image.width - target_w) // 2)
+        top = max(0, (image.height - target_h) // 2)
+        image = image.crop((left, top, left + target_w, top + target_h))
+        draw = ImageDraw.Draw(image, "RGBA")
+        center_x, center_y = target_w // 2, target_h // 2
+        draw.ellipse((center_x - 82, center_y - 82, center_x + 82, center_y + 82), fill=(255, 255, 255, 235))
+        draw.polygon(
+            [
+                (center_x - 24, center_y - 42),
+                (center_x - 24, center_y + 42),
+                (center_x + 48, center_y),
+            ],
+            fill=(31, 52, 64, 255),
+        )
+        output = BytesIO()
+        image.save(output, format="PNG", dpi=(144, 144))
+        return output.getvalue()
+
+    def media_preview_image_bytes(self, title: str, src: str) -> bytes:
+        self._last_media_preview_used_remote = False
+        thumbnail_url = self.media_thumbnail_url(src)
+        if thumbnail_url:
+            thumbnail_bytes = self.fetch_remote_image_bytes(thumbnail_url)
+            if thumbnail_bytes:
+                try:
+                    self._last_media_preview_used_remote = True
+                    return self.fitted_video_thumbnail_bytes(thumbnail_bytes)
+                except Exception:
+                    self._last_media_preview_used_remote = False
+        width, height = 1280, 720
+        image = Image.new("RGB", (width, height), "#1F3440")
+        draw = ImageDraw.Draw(image)
+        for y in range(height):
+            blend = y / max(height - 1, 1)
+            r = int(31 + blend * 28)
+            g = int(52 + blend * 56)
+            b = int(64 + blend * 62)
+            draw.line([(0, y), (width, y)], fill=(r, g, b))
+        try:
+            title_font = ImageFont.truetype(str(TREBUCHET_FONT_PATH), 58) if TREBUCHET_FONT_PATH.exists() else ImageFont.load_default()
+            label_font = ImageFont.truetype(str(TREBUCHET_FONT_PATH), 32) if TREBUCHET_FONT_PATH.exists() else ImageFont.load_default()
+        except Exception:
+            title_font = ImageFont.load_default()
+            label_font = ImageFont.load_default()
+        label = self.media_provider_label(src)
+        draw.text((68, 58), label.upper(), fill="#D7EEF0", font=label_font)
+        words = clean_text(title).split()
+        lines: list[str] = []
+        current = ""
+        for word in words:
+            candidate = f"{current} {word}".strip()
+            bbox = draw.textbbox((0, 0), candidate, font=title_font)
+            if bbox[2] - bbox[0] <= width - 470:
+                current = candidate
+            else:
+                if current:
+                    lines.append(current)
+                current = word
+            if len(lines) == 3:
+                break
+        if current and len(lines) < 3:
+            lines.append(current)
+        for index, line in enumerate(lines[:3]):
+            draw.text((68, 160 + index * 70), line, fill="#FFFFFF", font=title_font)
+        center_x, center_y = width - 210, height // 2
+        draw.ellipse((center_x - 82, center_y - 82, center_x + 82, center_y + 82), fill="#FFFFFF")
+        draw.polygon(
+            [
+                (center_x - 24, center_y - 42),
+                (center_x - 24, center_y + 42),
+                (center_x + 48, center_y),
+            ],
+            fill="#1F3440",
+        )
+        output = BytesIO()
+        image.save(output, format="PNG", dpi=(144, 144))
+        return output.getvalue()
 
     def add_image_to_paragraph(
         self,
@@ -1209,16 +1480,15 @@ class UnitOneDocxExporter:
         context: RenderContext,
         max_width: float,
         display_width: float | None = None,
-    ) -> None:
+    ) -> bool:
         src = img.get("src") or ""
         if not src:
-            return
+            return False
         package_href = resolve_package_href(context.base_href, src, self.zip_file)
         if not package_href:
             self.audit["unresolvedAssets"].append({"sourceHtml": context.base_href, "src": src, "kind": "image"})
-            paragraph.add_run(f"[Unresolved image: {src}]")
-            return
-        self.add_image_run(
+            return False
+        return self.add_image_run(
             paragraph,
             package_href,
             max_width=max_width,
@@ -1237,7 +1507,7 @@ class UnitOneDocxExporter:
         max_width: float,
         alt: str = "",
         display_width: float | None = None,
-    ) -> None:
+    ) -> bool:
         try:
             image_bytes = self.zip_file.read(href)
             normalized_bytes, width_px, height_px = self.normalized_image_bytes(image_bytes)
@@ -1246,13 +1516,21 @@ class UnitOneDocxExporter:
             width_inches = min(max_width, display_width if display_width else width_px / 96)
             paragraph.add_run().add_picture(BytesIO(normalized_bytes), width=Inches(width_inches))
             self.audit["embeddedImages"] += 1
+            return True
         except Exception as exc:
-            paragraph.add_run(f"[Image could not be embedded: {href} ({exc})]")
             if package_path_exists(self.zip_file, href):
                 support_path = self.copy_support_file(href, UNIT_TITLE, "Unembedded image")
-                paragraph.add_run(" Preserved original: ")
-                add_hyperlink(paragraph, rel_posix(support_path, DOCX_DIR), rel_posix(support_path, DOCX_DIR))
-            self.audit["unresolvedAssets"].append({"href": href, "kind": "image", "error": str(exc)})
+                self.audit["unresolvedAssets"].append(
+                    {
+                        "href": href,
+                        "kind": "image",
+                        "error": str(exc),
+                        "preservedOriginal": rel_posix(support_path, PROJECT_ROOT),
+                    }
+                )
+            else:
+                self.audit["unresolvedAssets"].append({"href": href, "kind": "image", "error": str(exc)})
+            return False
 
     def normalized_image_bytes(self, image_bytes: bytes) -> tuple[bytes, int, int]:
         image = Image.open(BytesIO(image_bytes))

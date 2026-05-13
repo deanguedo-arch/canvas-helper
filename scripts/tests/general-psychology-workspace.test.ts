@@ -99,12 +99,14 @@ test("general psychology decodes UTF-16 lesson pages even when hosted as utf-8",
   );
 });
 
-test("general psychology removes unavailable lesson images instead of showing image-missing labels", async () => {
+test("general psychology retries unavailable lesson images and removes failed media", async () => {
   const source = await readFile(mainPath, "utf8");
 
   assert.match(source, /function removeUnavailableImage\(/);
+  assert.match(source, /function trySecureRemoteAssetUrl\(/);
   assert.match(source, /removeUnavailableImage\(image\);/);
-  assert.doesNotMatch(source, /Image unavailable in source export/);
+  assert.match(source, /image\.complete && \(image\.naturalWidth === 0 \|\| image\.naturalHeight === 0\)/);
+  assert.doesNotMatch(source, /Image unavailable from source\./);
 });
 
 test("general psychology does not render decorative telemetry cards", async () => {

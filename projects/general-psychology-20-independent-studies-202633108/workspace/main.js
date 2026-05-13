@@ -952,6 +952,14 @@ function tryAlternatePreviewContentPath(urlValue) {
   return "";
 }
 
+function trySecureRemoteAssetUrl(urlValue) {
+  const url = String(urlValue || "").trim();
+  if (!/^http:\/\//i.test(url)) {
+    return "";
+  }
+  return url.replace(/^http:\/\//i, "https://");
+}
+
 function isElementVisuallyEmpty(element) {
   const text = (element.textContent || "").replace(/\u00a0/g, " ").trim();
   if (text) {
@@ -965,11 +973,11 @@ function removeUnavailableImage(image) {
   const parent = image.parentElement;
   const followingNote = image.nextElementSibling;
 
-  image.remove();
-
   if (followingNote?.classList?.contains("image-missing-note")) {
     followingNote.remove();
   }
+
+  image.remove();
 
   let current = parent;
   while (
@@ -991,7 +999,7 @@ function bindImageFallbacks() {
     }
 
     image.dataset.fallbackBound = "1";
-    image.addEventListener("error", () => {
+    const handleUnavailableImage = () => {
       if (image.dataset.fallbackRecovered === "1") {
         return;
       }
@@ -1006,9 +1014,25 @@ function bindImageFallbacks() {
         return;
       }
 
+      const secureSource = image.dataset.fallbackSecureAttempted === "1"
+        ? ""
+        : trySecureRemoteAssetUrl(image.currentSrc || image.src);
+
+      if (secureSource && secureSource !== image.src) {
+        image.dataset.fallbackSecureAttempted = "1";
+        image.src = secureSource;
+        return;
+      }
+
       image.dataset.fallbackRecovered = "1";
       removeUnavailableImage(image);
-    });
+    };
+
+    image.addEventListener("error", handleUnavailableImage);
+
+    if (image.complete && (image.naturalWidth === 0 || image.naturalHeight === 0)) {
+      handleUnavailableImage();
+    }
   });
 }
 
