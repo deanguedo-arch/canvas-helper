@@ -1,71 +1,63 @@
 # Handoff
 
-- Project: `social-studies-10-1-docx-export`
-- Task: Restyle the Unit 1 Word pilot so it visually matches the Brightspace Unit 1 overview page.
-- Status: ready for validation
+- Project: `forensicstudiesoption2` and `general-psychology-20-independent-studies-202633108`
+- Task: Match condensed sidebar behavior to the Forensics 35 responsive sidebar pattern.
+- Status: complete locally, ready for hosted export/deploy if requested
 
 ## Files changed
-- `projects/social-studies-10-1-docx-export/meta/project.json`
-- `projects/social-studies-10-1-docx-export/meta/build_unit1_docx_export.py`
-- `projects/social-studies-10-1-docx-export/meta/unit-1-conversion-map.json`
-- `projects/social-studies-10-1-docx-export/meta/unit-1-docx-export-audit.json`
-- `projects/social-studies-10-1-docx-export/meta/unit-1-docx-export-audit.md`
-- `projects/social-studies-10-1-docx-export/meta/unit-1-docx-export-verification.json`
-- `projects/social-studies-10-1-docx-export/exports/docx/01 - 1. Globalization and Identity.docx`
-- `projects/social-studies-10-1-docx-export/exports/supporting-files/`
-- `projects/social-studies-10-1-docx-export/exports/supporting-files-index.csv`
-- `projects/social-studies-10-1-docx-export/exports/qa/quicklook/01 - 1. Globalization and Identity.docx.png`
-- `.stax/visual-proofs/socialstudies10-unit1-docx-quicklook.png`
+- `projects/forensicstudiesoption2/workspace/main.js`
+- `projects/forensicstudiesoption2/workspace/styles.css`
+- `projects/general-psychology-20-independent-studies-202633108/workspace/main.js`
+- `scripts/tests/forensicstudiesoption2-theme.test.ts`
+- `scripts/tests/general-psychology-workspace.test.ts`
+- `.stax/task.md`
+- `.stax/codex-report.md`
 - `docs/ops/ACTIVE_HANDOFF.md`
 - `docs/ops/ARCHIVED_HANDOFFS.md`
 
 ## What changed
-- Restyled the Unit 1 DOCX pages with the Brightspace site frame: gray page border, blue unit header, purple guiding question, Trebuchet/Lucida typography, feature boxes, and green callout boxes.
-- Used `/Users/deanguedo/Downloads/U1P02overviewsurvey.html.zip` as the visual style reference and recorded it in project metadata.
-- Reworked the opening image/text layout so `teenipod.png` sits beside the introductory paragraphs like the Brightspace page instead of appearing as a generic inline image.
-- Generated Word-stable blue header banner images from the original CSS color and Trebuchet font to avoid nested-table rendering drift.
-- Preserved Unit 1 hierarchy, including the nested `Unit 1 Assessment` folder, 15 embedded video links, 7 package images, 3 rendered Study Guide PDF pages, and 9 copied support files.
+- Aligned Forensic Studies 25 option2 compact navigation to the Forensics 35 breakpoint pattern: desktop left rail remains collapsible, while tablet and phone widths use the top navigation shell.
+- Fixed the option2 tablet mismatch by changing the compact navigation query and CSS breakpoint to `max-width: 1023px`.
+- Changed General Psychology compact navigation from a side overlay drawer to a top menu shell at `max-width: 1023px`.
+- Kept General Psychology desktop behavior as a collapsible left rail.
+- Kept the existing General Psychology Forensics-style quiz formatting intact.
 
 ## Why this changed
-- The first Unit 1 DOCX preserved structure but looked too generic; the user asked for it to look like the Brightspace site screenshot.
+- The user reported that Forensic Studies 25 option2 worked on desktop and smaller phone widths, but the in-between tablet width broke. They asked for the sidebar to go to the top when condensed and for the Forensics 35 all-size sidebar behavior to be applied to General Psychology too.
 
 ## Source of truth
-- Canonical builder: `projects/social-studies-10-1-docx-export/meta/build_unit1_docx_export.py`
-- Course source ZIP: `/Users/deanguedo/Downloads/D2LCCExport_149634_25-26 _ S2 _ Social Studies 10-1 _ Per 1(A) _ Sec _202651213.ZIP`
-- Style reference ZIP: `/Users/deanguedo/Downloads/U1P02overviewsurvey.html.zip`
-- Source structure: `imsmanifest.xml` inside the course ZIP
-- Generated DOCX: `projects/social-studies-10-1-docx-export/exports/docx/01 - 1. Globalization and Identity.docx`
+- Forensic Studies option2 shell: `projects/forensicstudiesoption2/workspace/index.html`
+- Forensic Studies option2 behavior: `projects/forensicstudiesoption2/workspace/main.js`
+- Forensic Studies option2 styling: `projects/forensicstudiesoption2/workspace/styles.css`
+- General Psychology shell: `projects/general-psychology-20-independent-studies-202633108/workspace/index.html`
+- General Psychology behavior/styling: `projects/general-psychology-20-independent-studies-202633108/workspace/main.js`
 
 ## Fragile areas / watchouts
-- Blue unit headers are generated banner images for visual fidelity, so the title in those banners is not plain editable Word text.
-- DOCX cannot preserve live iframe execution; embedded videos are preserved as playable links.
-- Some referenced source assets are absent from the supplied ZIP and remain listed in `unit-1-docx-export-audit.md`.
-- Linked support files are relative to the DOCX folder; keep `exports/supporting-files/` with the DOCX if moving it.
-- Full LibreOffice render QA cannot run on this machine because `soffice` is unavailable; Quick Look first-page proof was generated instead.
+- Forensic Studies option2 depends on the JS compact query and CSS breakpoint staying aligned.
+- General Psychology now uses `compact-sidebar-open` for tablet/phone menu expansion; do not reintroduce the old side drawer transform rules.
+- The in-app browser was opened to the local General Psychology preview during validation; hosted pages were not redeployed.
 
 ## Next prompt should assume
-- Unit 1 remains the pilot output, not an all-units conversion.
-- The user needs visual acceptance of the Brightspace-like Word style before applying it to other units.
-- The active project slug is `social-studies-10-1-docx-export`.
+- Local workspace previews are updated and verified.
+- The wider checkout remains dirty with unrelated `.stax/`, processed snapshot, and metadata noise.
+- Do not stage broad dirty state; stage only the sidebar-related course files/tests/handoff/report files if committing this task.
 
 ## What still needs validation
-- User review of the generated Unit 1 DOCX in Word.
-- Full page-by-page render inspection if LibreOffice or Word automation becomes available.
-- Decision on whether to expand this exact pattern to the remaining units.
+- User visual acceptance in the Studio Tablet and Mobile controls.
+- Hosted export/deploy if the user wants these sidebar changes live on Firebase.
 
 ## Known risks
-- Missing source assets cannot be embedded unless the originals or a more complete package are supplied.
-- Videos are links, not offline video files.
-- The wider checkout already has many unrelated dirty/deleted files outside this task.
-- STAX observer state may still flag stale historical proof from older tasks.
+- The rendered proof script validates the responsive behavior at 1180px, 820px, and 390px; it does not exhaust every possible viewport width.
+- Existing external font/CDN warnings remain in project verification.
+- STAX observer preflight cannot run from this repo because `stax:preflight` is not an available npm script.
 
 ## Exact next command
-`/Users/deanguedo/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 projects/social-studies-10-1-docx-export/meta/build_unit1_docx_export.py`
+`npm run export:google-hosted -- --project forensicstudiesoption2,general-psychology-20-independent-studies-202633108`
 
 ## Exact next file to open
-`projects/social-studies-10-1-docx-export/meta/unit-1-docx-export-audit.md`
+`projects/general-psychology-20-independent-studies-202633108/workspace/main.js`
 
 ## Do not do next / warnings
-- Do not edit `projects/<slug>/raw/**` for this pilot.
-- Do not flatten Unit 1 assessment children into the main lesson list.
-- Do not claim all missing images were embedded; use the audit for exact fallback records.
+- Do not edit `projects/<slug>/raw/**`.
+- Do not deploy unless the user explicitly asks for hosted refresh.
+- Do not treat unrelated dirty files under `projects/processed/**` as part of this task.

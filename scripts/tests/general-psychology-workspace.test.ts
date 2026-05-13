@@ -132,10 +132,49 @@ test("general psychology exposes a persisted Next Step theme toggle", async () =
   assert.match(source, /--ns-primary:\s*#1e6d0d/);
 });
 
+test("general psychology uses the forensics-style top menu on tablet and mobile", async () => {
+  const source = await readFile(mainPath, "utf8");
+
+  assert.match(source, /const SIDEBAR_COMPACT_QUERY = "\(max-width: 1023px\)";/);
+  assert.match(source, /let compactSidebarOpen = false;/);
+  assert.match(source, /function isSidebarCompactViewport\(\)/);
+  assert.match(source, /class="sidebar-close"/);
+  assert.match(source, /class="sidebar-scrim"/);
+  assert.match(source, /data-close-sidebar/);
+  assert.match(source, /compactSidebarOpen \? "compact-sidebar-open" : ""/);
+  assert.match(source, /@media \(max-width: 1023px\)/);
+  assert.match(source, /\.sidebar\s*\{[\s\S]*position: sticky;[\s\S]*width: 100%;[\s\S]*border-bottom: 1px solid var\(--line\);/);
+  assert.match(source, /\.app\.compact-sidebar-open \.side-nav-ghost,\s*\n\s*\.app\.compact-sidebar-open \.module-list,\s*\n\s*\.app\.compact-sidebar-open \.library-list/);
+  assert.match(source, /closeSidebarAfterCompactSelection\(\);/);
+  assert.doesNotMatch(source, /\.app:not\(\.sidebar-hidden\) \.main::before/);
+  assert.doesNotMatch(source, /\.app\.mobile-sidebar-open/);
+  assert.doesNotMatch(source, /translateX\(-108%\)/);
+});
+
+test("general psychology quizzes use the forensics assessment format", async () => {
+  const source = await readFile(mainPath, "utf8");
+
+  assert.match(source, /data-quiz-layout="forensics-assessment"/);
+  assert.match(source, /General Psychology 20 &bull; \$\{escapeHtml\(quizProfile\)\}/);
+  assert.match(source, /Final Evaluation/);
+  assert.match(source, /Section Breakdown/);
+  assert.match(source, /Questions completed/);
+  assert.match(source, /data-quiz-generate/);
+  assert.match(source, /data-quiz-check-all/);
+  assert.match(source, /class="quiz-choice-letter"/);
+  assert.match(source, /data-testid="quiz-answer-choice"/);
+  assert.match(source, /\.quiz-detail-surface \.quiz-action\.primary[\s\S]*background: #59A844;/);
+  assert.match(source, /\.quiz-detail-surface \.quiz-choice\.selected,[\s\S]*background: #eef6eb;/);
+  assert.match(source, /\.quiz-detail-surface \.quiz-choice\.incorrect[\s\S]*border-color: #ba1a1a;/);
+  assert.match(source, /\.app\.next-step-theme \.quiz-detail-surface \.quiz-choice\.selected/);
+  assert.doesNotMatch(source, /Forensic Studies 25/i);
+});
+
 test("general psychology does not show forensic course labels", async () => {
   const source = await readFile(mainPath, "utf8");
 
   assert.doesNotMatch(source, /Digital forensics/i);
+  assert.doesNotMatch(source, /Forensic Studies/i);
   assert.doesNotMatch(source, /Training phase/i);
   assert.doesNotMatch(source, /Case modules/i);
   assert.match(source, /General Psychology \/ \$\{escapeHtml\(moduleCode\)\} \/ Course module/);

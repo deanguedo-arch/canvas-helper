@@ -5,6 +5,7 @@
   const UI_KEY = "forensicstudiesoption2.ui";
   const AUTHORING_UNLOCK_ALL = false;
   const AUTHORING_UNLOCK_ASSIGNMENTS = false;
+  const COMPACT_NAV_QUERY = "(max-width: 1023px)";
 
   const refs = {
     body: document.body,
@@ -146,7 +147,10 @@
   }
 
   function isMobile() {
-    return window.innerWidth <= 900;
+    if (typeof window.matchMedia === "function") {
+      return window.matchMedia(COMPACT_NAV_QUERY).matches;
+    }
+    return window.innerWidth <= 1023;
   }
 
   function setMobileNav(open) {
@@ -2182,5 +2186,4 @@
   refs.body.classList.toggle("sidebar-collapsed", state.sidebarCollapsed && !isMobile());
   render();
 })();
-
 

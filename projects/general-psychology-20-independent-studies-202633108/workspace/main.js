@@ -12,6 +12,8 @@ const COURSE_THEME_MODES = ["current", "next-step"];
 const DEFAULT_THEME_MODE = "next-step";
 const THEME_PREFERENCE_VERSION = 1;
 const AUTHORING_UNLOCK_ALL = false;
+const SIDEBAR_COMPACT_QUERY = "(max-width: 1023px)";
+let compactSidebarOpen = false;
 
 if (!root) {
   throw new Error("Missing #root for course shell.");
@@ -356,9 +358,45 @@ function setSelectedModule(moduleId) {
 }
 
 function toggleSidebar() {
+  if (isSidebarCompactViewport()) {
+    compactSidebarOpen = !compactSidebarOpen;
+    render();
+    return;
+  }
+
   state.sidebarHidden = !state.sidebarHidden;
   saveState();
   render();
+}
+
+function closeSidebar() {
+  if (isSidebarCompactViewport()) {
+    compactSidebarOpen = false;
+    render();
+    return;
+  }
+
+  if (!state.sidebarHidden) {
+    state.sidebarHidden = true;
+    saveState();
+    render();
+  }
+}
+
+function closeSidebarAfterCompactSelection() {
+  if (isSidebarCompactViewport()) {
+    compactSidebarOpen = false;
+  }
+}
+
+function isSidebarCompactViewport() {
+  return typeof window !== "undefined"
+    && typeof window.matchMedia === "function"
+    && window.matchMedia(SIDEBAR_COMPACT_QUERY).matches;
+}
+
+function isSidebarVisible() {
+  return isSidebarCompactViewport() ? compactSidebarOpen : !state.sidebarHidden;
 }
 
 function setThemeMode(themeMode) {
@@ -431,6 +469,7 @@ function setSelectedActivity(moduleId, bucket, activityId) {
   const key = bucketStateKey(moduleId, targetBucket);
   state.selectedByBucket[key] = activityId;
   state.moduleViewByModuleId[moduleId] = targetBucket === "assignments" ? "assignments" : "content";
+  closeSidebarAfterCompactSelection();
   saveState();
   render();
 }
@@ -1219,7 +1258,9 @@ function getQuizDraft(activityId, questionCount) {
   const fallback = {
     questionIndex: 0,
     answersByQuestion: {},
-    revealedByQuestion: {}
+    revealedByQuestion: {},
+    resultsVisible: false,
+    resultsGeneratedAt: ""
   };
 
   if (!raw || typeof raw !== "object") {
@@ -1231,8 +1272,10 @@ function getQuizDraft(activityId, questionCount) {
     raw.answersByQuestion && typeof raw.answersByQuestion === "object" ? raw.answersByQuestion : {};
   const revealedByQuestion =
     raw.revealedByQuestion && typeof raw.revealedByQuestion === "object" ? raw.revealedByQuestion : {};
+  const resultsVisible = Boolean(raw.resultsVisible);
+  const resultsGeneratedAt = typeof raw.resultsGeneratedAt === "string" ? raw.resultsGeneratedAt : "";
 
-  return { questionIndex, answersByQuestion, revealedByQuestion };
+  return { questionIndex, answersByQuestion, revealedByQuestion, resultsVisible, resultsGeneratedAt };
 }
 
 function setQuizDraft(activityId, nextDraft) {
@@ -2299,92 +2342,127 @@ function renderQuiz(activity, quizData) {
   }
 
   const draft = getQuizDraft(activity.id, questions.length);
-  const activeQuestion = questions[draft.questionIndex] || questions[0];
-  const activeQuestionId = activeQuestion?.id || "";
-  const selectedAnswer = draft.answersByQuestion[activeQuestionId];
-  const revealed = Boolean(draft.revealedByQuestion[activeQuestionId]);
   const answeredCount = questions.filter((question) => Number.isInteger(draft.answersByQuestion[question.id])).length;
-  const correctCount = questions.filter((question) => draft.answersByQuestion[question.id] === question.answerIndex).length;
-  const progress = questions.length ? (answeredCount / questions.length) * 100 : 0;
-  const isCorrect = selectedAnswer === activeQuestion?.answerIndex;
+  const resultsVisible = Boolean(draft.resultsVisible);
+  const statusLabel = resultsVisible ? "Quiz complete" : answeredCount > 0 ? "In progress" : "Not started";
+  const submittedLabel = resultsVisible && draft.resultsGeneratedAt ? draft.resultsGeneratedAt : "Not yet submitted";
+  const quizProfile = quizData.quizMeta?.profile || "Assessment";
 
   return `
-    <div class="quiz-shell" data-quiz-id="${escapeHtml(activity.id)}">
-      <div class="quiz-toolbar">
-        <div class="quiz-toolbar-copy">
-          <div class="quiz-label">${escapeHtml(quizData.quizMeta?.profile || "Assessment")}</div>
-          <h5>${escapeHtml(activity.title)}</h5>
+    <div
+      class="quiz-shell quiz-detail-surface"
+      data-quiz-id="${escapeHtml(activity.id)}"
+      data-quiz-layout="forensics-assessment"
+    >
+      <div class="quiz-detail-layout">
+        <div class="quiz-header">
+          <div class="quiz-copy">
+            <p class="quiz-eyebrow">General Psychology 20 &bull; ${escapeHtml(quizProfile)}</p>
+            <h4 class="quiz-page-title">${escapeHtml(activity.title)}</h4>
+          </div>
+          <div class="quiz-meta-row">
+            <div class="quiz-meta-block">
+              <span>Status</span>
+              <strong>${escapeHtml(statusLabel)}</strong>
+            </div>
+            <div class="quiz-meta-block">
+              <span>Submitted</span>
+              <strong>${escapeHtml(submittedLabel)}</strong>
+            </div>
+          </div>
         </div>
-        <div class="quiz-stats">
-          <span class="quiz-stat">${questions.length} questions</span>
-          <span class="quiz-stat">${answeredCount}/${questions.length} answered</span>
-          <span class="quiz-stat">${correctCount}/${questions.length} correct</span>
+
+        <section class="quiz-evaluation-panel">
+          <div class="quiz-evaluation-copy">
+            <h5>Final Evaluation</h5>
+            <p>This counter tracks completed questions only. Marks are handled separately, and responses can be reviewed after results are generated.</p>
+          </div>
+          <div class="quiz-evaluation-score" data-testid="quiz-progress">
+            <strong><span>${answeredCount}</span><small>/${questions.length}</small></strong>
+            <span class="quiz-evaluation-status">Questions completed</span>
+          </div>
+        </section>
+
+        <div class="quiz-actions quiz-actions-row">
+          <button class="quiz-action primary" type="button" data-quiz-generate="${escapeHtml(activity.id)}">Generate Results</button>
+          <button class="quiz-action" type="button" data-quiz-check-all="${escapeHtml(activity.id)}" ${resultsVisible ? "" : "disabled"}>Check answers</button>
+          <button class="quiz-action" type="button" data-quiz-retake="${escapeHtml(activity.id)}" ${answeredCount || resultsVisible ? "" : "disabled"}>Retake Quiz</button>
+          <button class="quiz-action quiz-back-link" type="button" data-library-view="quizzes">Back to quizzes <span aria-hidden="true">-&gt;</span></button>
         </div>
-      </div>
-      <div class="quiz-progress">
-        <div class="quiz-progress-bar" style="width: ${progress}%;"></div>
-      </div>
-      ${
-        questions.length > 1
-          ? `
-        <div class="quiz-nav">
-          ${questions
-            .map(
-              (question, index) => `
+
+        <section class="quiz-breakdown-shell" data-testid="quiz-section-breakdown">
+          <h5 class="quiz-breakdown-title">Section Breakdown</h5>
+          <div class="quiz-section-breakdown" data-testid="quiz-question-nav">
             <button
-              class="quiz-nav-btn ${index === draft.questionIndex ? "active" : ""}"
+              class="quiz-breakdown-item active"
               type="button"
               data-quiz-question="${escapeHtml(activity.id)}"
-              data-question-index="${index}"
+              data-question-index="0"
+              data-testid="quiz-question-button"
             >
-              Q${index + 1}${Number.isInteger(draft.answersByQuestion[question.id]) ? " •" : ""}
+              <span class="quiz-breakdown-copy">
+                <span class="quiz-breakdown-name">Multiple Choice</span>
+                <span class="quiz-breakdown-range">Questions 1-${questions.length}</span>
+              </span>
+              <span class="quiz-breakdown-score">${answeredCount}/${questions.length}</span>
             </button>
-          `
-            )
-            .join("")}
-        </div>
-      `
-          : ""
-      }
-      <div class="quiz-card">
-        <div class="quiz-question">${escapeHtml(activeQuestion?.question || "No quiz question parsed.")}</div>
-        <div class="quiz-choices">
-          ${(activeQuestion?.choices || [])
-            .map(
-              (choice, index) => `
-            <button
-              class="quiz-choice ${selectedAnswer === index ? "selected" : ""}"
-              type="button"
-              data-quiz-choice="${escapeHtml(activity.id)}"
-              data-question-id="${escapeHtml(activeQuestionId)}"
-              data-choice-index="${index}"
-            >
-              ${escapeHtml(choice)}
-            </button>
-          `
-            )
-            .join("")}
-        </div>
-        <div class="quiz-actions">
-          <button class="quiz-action primary" type="button" data-quiz-check="${escapeHtml(activity.id)}">Check answer</button>
-          <button class="quiz-action" type="button" data-quiz-clear="${escapeHtml(activity.id)}" data-question-id="${escapeHtml(activeQuestionId)}">Clear answer</button>
-          <button class="quiz-action" type="button" data-quiz-retake="${escapeHtml(activity.id)}">Retake quiz</button>
-          ${
-            questions.length > 1
-              ? `<button class="quiz-action" type="button" data-quiz-next="${escapeHtml(activity.id)}">Next question</button>`
-              : ""
-          }
-        </div>
-        ${
-          revealed && Number.isInteger(selectedAnswer)
-            ? `
-          <div class="quiz-feedback ${isCorrect ? "correct" : "incorrect"}">
-            <strong>${isCorrect ? "Correct" : "Not quite yet"}</strong>
-            <span>The correct answer is ${escapeHtml(activeQuestion.choices?.[activeQuestion.answerIndex] || "")}.</span>
           </div>
-        `
-            : ""
-        }
+        </section>
+
+        <div class="quiz-question-list">
+          ${questions
+            .map(
+              (question, questionIndex) => {
+                const selectedAnswer = draft.answersByQuestion[question.id];
+                const isAnswered = Number.isInteger(selectedAnswer);
+                const isCorrect = selectedAnswer === question.answerIndex;
+                return `
+            <article class="quiz-question-row" data-testid="quiz-question-row">
+              <div class="quiz-question-grid">
+                <span class="quiz-question-number">${questionIndex + 1}</span>
+                <div class="quiz-question-body">
+                  <p class="quiz-question">${escapeHtml(question.question || "Untitled question")}</p>
+                  <div class="quiz-choices">
+                    ${(question.choices || [])
+                      .map((choice, choiceIndex) => {
+                        const selected = selectedAnswer === choiceIndex;
+                        const revealCorrect = resultsVisible && choiceIndex === question.answerIndex;
+                        const revealWrong = resultsVisible && selected && !isCorrect;
+                        const stateClass = revealCorrect ? "correct" : revealWrong ? "incorrect" : selected ? "selected" : "";
+                        return `
+                    <button
+                      class="quiz-choice ${stateClass}"
+                      type="button"
+                      data-quiz-choice="${escapeHtml(activity.id)}"
+                      data-question-id="${escapeHtml(question.id)}"
+                      data-choice-index="${choiceIndex}"
+                      ${resultsVisible ? "disabled" : ""}
+                      data-testid="quiz-answer-choice"
+                    >
+                      <span class="quiz-choice-letter" aria-hidden="true">${String.fromCharCode(65 + choiceIndex)}</span>
+                      <span>${escapeHtml(choice)}</span>
+                    </button>
+          `
+                      })
+                      .join("")}
+                  </div>
+                  ${
+                    resultsVisible && isAnswered
+                      ? `
+                  <div class="quiz-feedback ${isCorrect ? "correct" : "incorrect"}">
+                    ${isCorrect ? "Correct" : `Incorrect. Correct answer: ${escapeHtml(question.choices?.[question.answerIndex] || "Not available")}`}
+                  </div>
+                `
+                      : ""
+                  }
+                </div>
+              </div>
+            </article>
+          `;
+              }
+            )
+            .join("")}
+        </div>
       </div>
     </div>
   `;
@@ -2791,17 +2869,30 @@ function render() {
   );
   const moduleCode = String(module?.overline || "MOD 01").replace(/module\s*/i, "MOD ").toUpperCase();
   const themeMode = normalizeThemeMode(state.themeMode);
+  const sidebarVisible = isSidebarVisible();
   const appClassNames = [
     "app",
     state.sidebarHidden ? "sidebar-hidden" : "",
+    compactSidebarOpen ? "compact-sidebar-open" : "",
     themeMode === "next-step" ? "next-step-theme" : ""
   ].filter(Boolean).join(" ");
 
   root.innerHTML = `
     <div class="${appClassNames}" data-course-theme="${escapeHtml(themeMode)}">
-      <aside class="sidebar">
+      <aside class="sidebar" aria-hidden="${sidebarVisible ? "false" : "true"}">
         <div class="brand">
-          <h1>General Psychology 20</h1>
+          <div class="brand-head">
+            <h1>General Psychology 20</h1>
+            <button
+              class="sidebar-close"
+              type="button"
+              data-close-sidebar
+              aria-label="Hide module sidebar"
+              title="Hide module sidebar"
+            >
+              <span></span><span></span>
+            </button>
+          </div>
           <p class="brand-note">Select a module, then open one lesson or assignment at a time in the reading pane.</p>
         </div>
 
@@ -2829,6 +2920,13 @@ function render() {
             `
         }
       </aside>
+      <button
+        class="sidebar-scrim"
+        type="button"
+        data-close-sidebar
+        aria-label="Hide module sidebar"
+        tabindex="-1"
+      ></button>
 
       <section class="main">
         <header class="topbar">
@@ -2839,7 +2937,7 @@ function render() {
                 type="button"
                 data-toggle-sidebar
                 aria-label="Toggle module sidebar"
-                aria-expanded="${state.sidebarHidden ? "false" : "true"}"
+                aria-expanded="${sidebarVisible ? "true" : "false"}"
                 title="Toggle module sidebar"
               >
                 <span></span><span></span><span></span>
@@ -2895,6 +2993,10 @@ function render() {
 
   root.querySelectorAll("[data-toggle-sidebar]").forEach((button) => {
     button.addEventListener("click", () => toggleSidebar());
+  });
+
+  root.querySelectorAll("[data-close-sidebar]").forEach((button) => {
+    button.addEventListener("click", () => closeSidebar());
   });
 
   root.querySelectorAll("[data-theme-toggle]").forEach((button) => {
@@ -2972,6 +3074,36 @@ function render() {
     });
   });
 
+  root.querySelectorAll("[data-quiz-generate]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const activityId = button.getAttribute("data-quiz-generate") || "";
+      const quizData = quizCacheByActivityId.get(activityId);
+      const questions = quizData?.quizQuestions || [];
+      const revealedByQuestion = Object.fromEntries(questions.map((question) => [question.id, true]));
+      updateQuizDraft(activityId, questions.length, (draft) => ({
+        ...draft,
+        revealedByQuestion,
+        resultsVisible: true,
+        resultsGeneratedAt: new Date().toLocaleString()
+      }));
+    });
+  });
+
+  root.querySelectorAll("[data-quiz-check-all]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const activityId = button.getAttribute("data-quiz-check-all") || "";
+      const quizData = quizCacheByActivityId.get(activityId);
+      const questions = quizData?.quizQuestions || [];
+      const revealedByQuestion = Object.fromEntries(questions.map((question) => [question.id, true]));
+      updateQuizDraft(activityId, questions.length, (draft) => ({
+        ...draft,
+        revealedByQuestion,
+        resultsVisible: true,
+        resultsGeneratedAt: draft.resultsGeneratedAt || new Date().toLocaleString()
+      }));
+    });
+  });
+
   root.querySelectorAll("[data-quiz-check]").forEach((button) => {
     button.addEventListener("click", () => {
       const activityId = button.getAttribute("data-quiz-check") || "";
@@ -3016,7 +3148,9 @@ function render() {
       setQuizDraft(activityId, {
         questionIndex: 0,
         answersByQuestion: {},
-        revealedByQuestion: {}
+        revealedByQuestion: {},
+        resultsVisible: false,
+        resultsGeneratedAt: ""
       });
     });
   });
@@ -3130,6 +3264,13 @@ function injectStyles() {
       background: linear-gradient(180deg, rgba(255, 180, 169, 0.08) 0%, rgba(255, 180, 169, 0) 100%);
     }
 
+    .brand-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
     .brand h1 {
       margin: 0;
       font-size: 1rem;
@@ -3145,6 +3286,41 @@ function injectStyles() {
       line-height: 1.45;
       color: var(--muted);
       max-width: 28ch;
+    }
+
+    .sidebar-close {
+      display: none;
+      width: 1.9rem;
+      height: 1.9rem;
+      border-radius: 4px;
+      border: 1px solid var(--line);
+      background: #242325;
+      color: var(--text);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex: 0 0 auto;
+      position: relative;
+    }
+
+    .sidebar-close span {
+      position: absolute;
+      width: 0.92rem;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--text-strong);
+    }
+
+    .sidebar-close span:first-child {
+      transform: rotate(45deg);
+    }
+
+    .sidebar-close span:last-child {
+      transform: rotate(-45deg);
+    }
+
+    .sidebar-scrim {
+      display: none;
     }
 
     .side-nav-ghost {
@@ -3592,6 +3768,7 @@ function injectStyles() {
     .module-item-btn:focus-visible,
     .subgroup-toggle:focus-visible,
     .sidebar-toggle:focus-visible,
+    .sidebar-close:focus-visible,
     .theme-toggle-button:focus-visible,
     .quiz-nav-btn:focus-visible,
     .quiz-choice:focus-visible,
@@ -3653,6 +3830,11 @@ function injectStyles() {
     }
 
     .sidebar-toggle:hover {
+      border-color: #6b5c59;
+      background: #302e31;
+    }
+
+    .sidebar-close:hover {
       border-color: #6b5c59;
       background: #302e31;
     }
@@ -4501,6 +4683,357 @@ function injectStyles() {
       color: #5a342a;
     }
 
+    .quiz-detail-surface {
+      display: block;
+      max-width: 1040px;
+      background: #ffffff;
+      border-color: #d9dad9;
+      color: #1a1c1a;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .quiz-detail-layout {
+      display: grid;
+      gap: 1.65rem;
+    }
+
+    .quiz-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1.25rem;
+      padding-bottom: 1.35rem;
+      border-bottom: 1px solid #d9dad9;
+    }
+
+    .quiz-copy {
+      max-width: 44rem;
+    }
+
+    .quiz-eyebrow {
+      margin: 0;
+      font-size: 0.7rem;
+      line-height: 1.35;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #3f9f2e;
+    }
+
+    .quiz-page-title {
+      margin: 0.65rem 0 0;
+      font-size: 1.9rem;
+      line-height: 1.15;
+      font-weight: 800;
+      color: #1a1c1a;
+    }
+
+    .quiz-meta-row {
+      min-width: min(100%, 230px);
+      display: grid;
+      gap: 0.75rem;
+      border: 1px solid #d9dad9;
+      border-radius: 8px;
+      background: #f9f9f8;
+      padding: 0.9rem;
+    }
+
+    .quiz-meta-block span {
+      display: block;
+      font-size: 0.7rem;
+      line-height: 1.35;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #3f9f2e;
+    }
+
+    .quiz-meta-block strong {
+      display: block;
+      margin-top: 0.18rem;
+      color: #1a1c1a;
+      font-size: 0.92rem;
+    }
+
+    .quiz-evaluation-panel {
+      display: grid;
+      gap: 1.25rem;
+      align-items: center;
+      border: 1px solid #d9dad9;
+      border-radius: 8px;
+      background: #f9f9f8;
+      padding: 1.25rem;
+    }
+
+    .quiz-evaluation-copy h5,
+    .quiz-breakdown-title {
+      margin: 0;
+      font-size: 1.65rem;
+      line-height: 1.2;
+      font-weight: 800;
+      color: #1a1c1a;
+    }
+
+    .quiz-evaluation-copy p {
+      margin: 0.55rem 0 0;
+      max-width: 38rem;
+      color: #5f6660;
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+
+    .quiz-evaluation-score {
+      text-align: left;
+    }
+
+    .quiz-evaluation-score strong {
+      display: block;
+      color: #59A844;
+      font-size: 3.75rem;
+      line-height: 0.95;
+      font-weight: 800;
+    }
+
+    .quiz-evaluation-score small {
+      color: #1a1c1a;
+      font-size: 0.55em;
+    }
+
+    .quiz-evaluation-status {
+      display: block;
+      margin-top: 0.5rem;
+      color: #ba1a1a;
+      font-size: 0.7rem;
+      line-height: 1.35;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .quiz-actions-row {
+      gap: 0.75rem;
+    }
+
+    .quiz-detail-surface .quiz-action {
+      min-height: 2.875rem;
+      border-radius: 8px;
+      border-color: #d9dad9;
+      background: #ffffff;
+      color: #3c3f3e;
+      padding: 0.7rem 1rem;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .quiz-detail-surface .quiz-action:hover:not(:disabled) {
+      background: #eceeec;
+      border-color: #c3c8c1;
+      color: #1a1c1a;
+    }
+
+    .quiz-detail-surface .quiz-action.primary {
+      border-color: #59A844;
+      background: #59A844;
+      color: #ffffff;
+    }
+
+    .quiz-detail-surface .quiz-action.primary:hover:not(:disabled) {
+      border-color: #4b8d39;
+      background: #4b8d39;
+      color: #ffffff;
+    }
+
+    .quiz-detail-surface .quiz-action:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+    .quiz-back-link {
+      margin-left: auto;
+      border-color: transparent !important;
+      background: transparent !important;
+      color: #1a1c1a !important;
+    }
+
+    .quiz-breakdown-shell {
+      border-top: 1px solid #d9dad9;
+      padding-top: 0.2rem;
+    }
+
+    .quiz-section-breakdown,
+    .quiz-question-list,
+    .quiz-choices {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .quiz-section-breakdown {
+      margin-top: 0.9rem;
+    }
+
+    .quiz-breakdown-item {
+      display: grid;
+      gap: 0.5rem;
+      width: 100%;
+      border: 1px solid #d9dad9;
+      border-radius: 8px;
+      background: #f3f4f3;
+      padding: 1rem;
+      color: #1a1c1a;
+      text-align: left;
+    }
+
+    .quiz-breakdown-name {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    .quiz-breakdown-range {
+      display: block;
+      margin-top: 0.18rem;
+      color: #5f6660;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .quiz-breakdown-score {
+      color: #1a1c1a;
+      font-size: 0.92rem;
+      font-weight: 800;
+    }
+
+    .quiz-question-row {
+      border: 1px solid #d9dad9;
+      border-radius: 8px;
+      background: #ffffff;
+      padding: 1.1rem;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+    }
+
+    .quiz-question-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .quiz-question-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 8px;
+      background: #eef6eb;
+      color: #3f9f2e;
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    .quiz-detail-surface .quiz-question {
+      margin: 0;
+      color: #1a1c1a;
+      font-size: 1rem;
+      line-height: 1.7;
+      font-weight: 800;
+    }
+
+    .quiz-detail-surface .quiz-choices {
+      margin-top: 0.95rem;
+    }
+
+    .quiz-detail-surface .quiz-choice {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      min-height: 2.875rem;
+      border-color: #d9dad9;
+      border-radius: 8px;
+      background: #ffffff;
+      color: #414942;
+      padding: 0.72rem 0.9rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .quiz-detail-surface .quiz-choice:hover:not(:disabled) {
+      border-color: #c3c8c1;
+      background: #f9f9f8;
+      color: #1a1c1a;
+    }
+
+    .quiz-choice-letter {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      width: 1.25rem;
+      height: 1.25rem;
+      border: 1px solid #c3c8c1;
+      border-radius: 50%;
+      background: #ffffff;
+      color: #3c3f3e;
+      font-size: 0.66rem;
+      font-weight: 800;
+    }
+
+    .quiz-detail-surface .quiz-choice.selected,
+    .quiz-detail-surface .quiz-choice.correct {
+      border-color: #59A844;
+      background: #eef6eb;
+      color: #1a1c1a;
+    }
+
+    .quiz-detail-surface .quiz-choice.incorrect {
+      border-color: #ba1a1a;
+      background: #fff1ee;
+      color: #1a1c1a;
+    }
+
+    .quiz-choice.selected .quiz-choice-letter,
+    .quiz-choice.correct .quiz-choice-letter,
+    .quiz-choice.incorrect .quiz-choice-letter {
+      border-color: #59A844;
+      background: #59A844;
+      color: #ffffff;
+    }
+
+    .quiz-choice.incorrect .quiz-choice-letter {
+      border-color: #ba1a1a;
+      background: #ba1a1a;
+    }
+
+    .quiz-detail-surface .quiz-feedback {
+      margin-top: 0.95rem;
+      border-radius: 8px;
+      padding: 0.75rem 0.85rem;
+      font-size: 0.88rem;
+    }
+
+    @media (min-width: 700px) {
+      .quiz-evaluation-panel {
+        grid-template-columns: minmax(0, 1fr) auto;
+      }
+
+      .quiz-evaluation-score {
+        text-align: right;
+      }
+
+      .quiz-breakdown-item {
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+      }
+
+      .quiz-question-grid {
+        grid-template-columns: auto minmax(0, 1fr);
+      }
+    }
+
     .lesson-completion-card {
       margin: 0.9rem auto 0;
       max-width: 860px;
@@ -4776,6 +5309,7 @@ function injectStyles() {
     }
 
     .app.next-step-theme .sidebar-toggle,
+    .app.next-step-theme .sidebar-close,
     .app.next-step-theme .theme-toggle,
     .app.next-step-theme .stat {
       border-color: var(--ns-outline-variant);
@@ -4784,6 +5318,7 @@ function injectStyles() {
     }
 
     .app.next-step-theme .sidebar-toggle:hover,
+    .app.next-step-theme .sidebar-close:hover,
     .app.next-step-theme .theme-toggle-button:hover {
       border-color: var(--ns-outline);
       background: var(--ns-surface-container);
@@ -4791,6 +5326,10 @@ function injectStyles() {
     }
 
     .app.next-step-theme .sidebar-toggle span {
+      background: var(--ns-on-surface);
+    }
+
+    .app.next-step-theme .sidebar-close span {
       background: var(--ns-on-surface);
     }
 
@@ -4937,6 +5476,102 @@ function injectStyles() {
       color: #ffffff;
     }
 
+    .app.next-step-theme .quiz-detail-surface {
+      border-color: #d9dad9;
+      background: #ffffff;
+      color: #1a1c1a;
+    }
+
+    .app.next-step-theme .quiz-detail-surface .quiz-eyebrow,
+    .app.next-step-theme .quiz-detail-surface .quiz-meta-block span,
+    .app.next-step-theme .quiz-detail-surface .quiz-question-number {
+      color: #3f9f2e;
+    }
+
+    .app.next-step-theme .quiz-detail-surface .quiz-page-title,
+    .app.next-step-theme .quiz-detail-surface .quiz-evaluation-copy h5,
+    .app.next-step-theme .quiz-detail-surface .quiz-breakdown-title,
+    .app.next-step-theme .quiz-detail-surface .quiz-question,
+    .app.next-step-theme .quiz-detail-surface .quiz-breakdown-score {
+      color: #1a1c1a;
+    }
+
+    .app.next-step-theme .quiz-detail-surface .quiz-meta-row,
+    .app.next-step-theme .quiz-detail-surface .quiz-evaluation-panel {
+      border-color: #d9dad9;
+      background: #f9f9f8;
+    }
+
+    .app.next-step-theme .quiz-detail-surface .quiz-evaluation-score strong {
+      color: #59A844;
+    }
+
+    .app.next-step-theme .quiz-detail-surface .quiz-evaluation-status {
+      color: #ba1a1a;
+    }
+
+    .app.next-step-theme .quiz-detail-surface .quiz-action {
+      border-color: #d9dad9;
+      background: #ffffff;
+      color: #3c3f3e;
+    }
+
+    .app.next-step-theme .quiz-detail-surface .quiz-action:hover:not(:disabled) {
+      border-color: #c3c8c1;
+      background: #eceeec;
+      color: #1a1c1a;
+    }
+
+    .app.next-step-theme .quiz-detail-surface .quiz-action.primary {
+      border-color: #59A844;
+      background: #59A844;
+      color: #ffffff;
+    }
+
+    .app.next-step-theme .quiz-detail-surface .quiz-action.primary:hover:not(:disabled) {
+      border-color: #4b8d39;
+      background: #4b8d39;
+      color: #ffffff;
+    }
+
+    .app.next-step-theme .quiz-detail-surface .quiz-choice {
+      border-color: #d9dad9;
+      background: #ffffff;
+      color: #414942;
+    }
+
+    .app.next-step-theme .quiz-detail-surface .quiz-choice:hover:not(:disabled) {
+      border-color: #c3c8c1;
+      background: #f9f9f8;
+      color: #1a1c1a;
+    }
+
+    .app.next-step-theme .quiz-detail-surface .quiz-choice.selected,
+    .app.next-step-theme .quiz-detail-surface .quiz-choice.correct {
+      border-color: #59A844;
+      background: #eef6eb;
+      color: #1a1c1a;
+    }
+
+    .app.next-step-theme .quiz-detail-surface .quiz-choice.incorrect {
+      border-color: #ba1a1a;
+      background: #fff1ee;
+      color: #1a1c1a;
+    }
+
+    .app.next-step-theme .quiz-detail-surface .quiz-choice.selected .quiz-choice-letter,
+    .app.next-step-theme .quiz-detail-surface .quiz-choice.correct .quiz-choice-letter {
+      border-color: #59A844;
+      background: #59A844;
+      color: #ffffff;
+    }
+
+    .app.next-step-theme .quiz-detail-surface .quiz-choice.incorrect .quiz-choice-letter {
+      border-color: #ba1a1a;
+      background: #ba1a1a;
+      color: #ffffff;
+    }
+
     .app.next-step-theme .empty,
     .app.next-step-theme .library-empty,
     .app.next-step-theme .release-condition-card {
@@ -4945,7 +5580,7 @@ function injectStyles() {
       color: var(--ns-on-surface-variant);
     }
 
-    @media (max-width: 860px) {
+    @media (max-width: 1023px) {
       .side-nav-ghost {
         margin-left: 0.6rem;
         margin-right: 0.6rem;
@@ -4964,45 +5599,65 @@ function injectStyles() {
       }
 
       .sidebar {
-        position: fixed;
-        inset: 0 auto 0 0;
-        min-height: 100vh;
-        width: min(86vw, 340px);
-        border-right: 1px solid var(--line);
-        border-bottom: 0;
+        position: sticky;
+        top: 0;
+        min-height: auto;
+        width: 100%;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
         opacity: 1;
         pointer-events: auto;
         z-index: 30;
-        box-shadow: 0 20px 42px rgba(0, 0, 0, 0.48);
-        transform: translateX(0);
-        transition: transform 0.2s ease, opacity 0.2s ease;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+        transform: none;
+        transition: none;
       }
 
       .app.sidebar-hidden .sidebar {
         display: flex;
-        width: min(86vw, 340px);
-        transform: translateX(-108%);
-        opacity: 0;
-        pointer-events: none;
-        border-right-color: var(--line);
+        width: 100%;
+        transform: none;
+        opacity: 1;
+        pointer-events: auto;
+        border-bottom-color: var(--line);
       }
 
-      .app:not(.sidebar-hidden) .main::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        background: rgba(8, 8, 10, 0.56);
-        z-index: 20;
+      .sidebar-close {
+        display: none;
+      }
+
+      .app.compact-sidebar-open .sidebar-close {
+        display: inline-flex;
+      }
+
+      .sidebar-scrim {
+        display: none;
+      }
+
+      .brand-note {
+        display: none;
+      }
+
+      .side-nav-ghost,
+      .module-list,
+      .library-list {
+        display: none;
+      }
+
+      .app.compact-sidebar-open .side-nav-ghost,
+      .app.compact-sidebar-open .module-list,
+      .app.compact-sidebar-open .library-list {
+        display: grid;
       }
 
       .module-list,
       .library-list {
+        max-height: min(70vh, 720px);
         overflow: auto;
       }
 
       .topbar {
-        position: sticky;
-        top: 0;
+        position: relative;
         z-index: 24;
       }
 
@@ -5086,11 +5741,7 @@ function injectStyles() {
 
     @media (max-width: 560px) {
       .sidebar {
-        width: min(92vw, 340px);
-      }
-
-      .app.sidebar-hidden .sidebar {
-        width: min(92vw, 340px);
+        width: 100%;
       }
 
       .brand {

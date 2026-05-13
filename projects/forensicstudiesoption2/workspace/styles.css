@@ -1629,7 +1629,7 @@ body[data-section="home"][data-tab="chapters"][data-view="overview"] #course-sub
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 1023px) {
   :root {
     --content-width: calc(100vw - 24px);
   }
@@ -1955,7 +1955,7 @@ body::after {
   background: rgba(26, 28, 26, 0.72);
 }
 
-@media (max-width: 760px) {
+@media (max-width: 1023px) {
   .nextstep-topbar {
     grid-template-columns: 1fr;
     justify-items: start;

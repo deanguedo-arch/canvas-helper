@@ -60,12 +60,18 @@ test("forensic studies option2 sidebar mirrors the forensics35 navigation treatm
   assert.match(mainSource, /refs\.navHome\?\.classList\.toggle\("active", state\.section === "home" && !hasActiveHomeTab\);/);
 });
 
-test("forensic studies option2 keeps the desktop preview out of the compact mobile shell", async () => {
-  const stylesSource = await readFile(stylesPath, "utf8");
+test("forensic studies option2 keeps tablet and mobile in the compact top-navigation shell", async () => {
+  const [stylesSource, mainSource] = await Promise.all([
+    readFile(stylesPath, "utf8"),
+    readFile(mainPath, "utf8")
+  ]);
 
-  assert.match(stylesSource, /@media\s*\(max-width:\s*760px\)\s*\{[\s\S]*?\.app-shell,\s*\n\s*body\.sidebar-collapsed \.app-shell/i);
-  assert.match(stylesSource, /@media\s*\(max-width:\s*760px\)\s*\{[\s\S]*?\.nextstep-topbar/i);
-  assert.doesNotMatch(stylesSource, /@media\s*\(max-width:\s*900px\)\s*\{[\s\S]*?\.app-shell,\s*\n\s*body\.sidebar-collapsed \.app-shell/i);
+  assert.match(mainSource, /const COMPACT_NAV_QUERY = "\(max-width: 1023px\)";/);
+  assert.match(mainSource, /window\.matchMedia\(COMPACT_NAV_QUERY\)\.matches/);
+  assert.match(stylesSource, /@media\s*\(max-width:\s*1023px\)\s*\{[\s\S]*?\.app-shell,\s*\n\s*body\.sidebar-collapsed \.app-shell/i);
+  assert.match(stylesSource, /@media\s*\(max-width:\s*1023px\)\s*\{[\s\S]*?\.nextstep-topbar/i);
+  assert.doesNotMatch(stylesSource, /@media\s*\(max-width:\s*760px\)\s*\{[\s\S]*?\.app-shell,\s*\n\s*body\.sidebar-collapsed \.app-shell/i);
+  assert.doesNotMatch(mainSource, /window\.innerWidth <= 900/);
 });
 
 test("forensic studies option2 generated chapter pages share the next-step theme system", async () => {

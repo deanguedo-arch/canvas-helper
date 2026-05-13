@@ -5443,3 +5443,61 @@ One question before I change it: do you want only the large top hero image reduc
 ## Known risks / follow-up
 - Hosted/exported deployment was not refreshed in that pass.
 - The wider checkout had unrelated dirty files at the time of handoff.
+
+---
+
+# Archived Handoff: social-studies-10-1 Unit 1 Brightspace-style DOCX
+
+- Archived on: 2026-05-13
+- Project: `social-studies-10-1-docx-export`
+- Prior status: ready for validation
+
+## Summary
+- Restyled the Unit 1 DOCX pilot so it visually matches the Brightspace Unit 1 overview page.
+- Preserved the nested Unit 1 structure, embedded video links, package images, Study Guide PDF pages, and supporting files.
+- Left the pilot ready for user validation in Word before expanding the pattern to other units.
+
+## Source-of-truth location
+- Canonical builder: `projects/social-studies-10-1-docx-export/meta/build_unit1_docx_export.py`
+- Audit: `projects/social-studies-10-1-docx-export/meta/unit-1-docx-export-audit.md`
+- Generated DOCX: `projects/social-studies-10-1-docx-export/exports/docx/01 - 1. Globalization and Identity.docx`
+
+## Verification run
+- Unit 1 DOCX exporter completed.
+- DOCX structural inspection completed.
+- Quick Look first-page thumbnail generated.
+- Python compile and diff checks completed.
+- Full LibreOffice render QA remained unavailable because `soffice` was not installed.
+
+## Known risks / follow-up
+- Some source assets were absent from the supplied ZIP and remain listed in the audit.
+- Videos are preserved as links, not offline video files.
+- Linked support files must stay with the DOCX if it is moved.
+
+---
+
+# Archived Handoff: General Psychology 20 Forensics-style quiz format
+
+- Archived on: 2026-05-13
+- Project: `general-psychology-20-independent-studies-202633108`
+- Prior status: complete locally, ready for hosted export/deploy if requested
+
+## Summary
+- Restyled General Psychology 20 quiz attempts to match the Forensics assessment format.
+- Added the white assessment panel, green accents, `Final Evaluation`, completion counter, `Section Breakdown`, all-question flow, and result controls.
+- Preserved General Psychology labels and quiz content.
+
+## Source-of-truth location
+- Canonical entry: `projects/general-psychology-20-independent-studies-202633108/workspace/index.html`
+- Canonical behavior source: `projects/general-psychology-20-independent-studies-202633108/workspace/main.js`
+- Focused regression test: `scripts/tests/general-psychology-workspace.test.ts`
+
+## Verification run
+- Focused General Psychology workspace tests passed.
+- Local browser visual proof was captured for the quiz format.
+- Project verify, project E2E, smoke E2E, typecheck, and studio build passed.
+
+## Known risks / follow-up
+- Hosted Firebase deploy was not run for that quiz-format pass.
+- Fresh learner state still locks quizzes until module content is completed.
+- The checkout remained dirty with unrelated sidecar and processed snapshot noise.
