@@ -35,3 +35,22 @@ test("experimental psychology quizzes use the forensics-style assessment surface
   assert.match(source, /quiz-choice-letter/);
   assert.match(source, /Final Evaluation/);
 });
+
+test("experimental psychology uses the forensics35 course shell structure", async () => {
+  const source = await readFile(mainPath, "utf8");
+
+  assert.match(source, /courseShellView/);
+  assert.match(source, /data-shell-nav="home"/);
+  assert.match(source, /data-shell-nav="chapters"/);
+  assert.match(source, /data-shell-nav="quizzes"/);
+  assert.match(source, /forensics35-home-library/);
+  assert.match(source, /forensics35-chapters-library/);
+  assert.match(source, /forensics35-quiz-library/);
+  assert.match(source, /data-testid="forensics35-chapter-card"/);
+  assert.match(source, /data-testid="forensics35-quiz-card"/);
+  assert.match(source, /data-testid="chapter-sequence-list"/);
+  assert.match(source, /data-testid="mark-complete-panel"/);
+  assert.match(source, /data-open-shell-content/);
+  assert.match(source, /data-open-shell-quiz/);
+  assert.match(source, /SCHOLARLY ACCESS/);
+});

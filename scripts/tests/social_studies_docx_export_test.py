@@ -165,6 +165,65 @@ class SocialStudiesDocxExportTests(unittest.TestCase):
 
         self.assertEqual(thumbnail, "https://img.youtube.com/vi/onD5UOP5z_c/hqdefault.jpg")
 
+    def test_ted_embeds_use_oembed_thumbnail_when_possible(self) -> None:
+        with make_zip({}) as zip_file:
+            exporter = make_exporter(zip_file)
+            exporter.fetch_remote_json = lambda _url: {
+                "title": "Kevin Kelly: How technology evolves",
+                "thumbnail_url": "https://pi.tedcdn.com/r/talkstar.jpg",
+            }
+
+            thumbnail = exporter.media_thumbnail_url(
+                "https://embed.ted.com/talks/kevin_kelly_how_technology_evolves"
+            )
+
+        self.assertEqual(thumbnail, "https://pi.tedcdn.com/r/talkstar.jpg")
+
+    def test_ted_embeds_use_oembed_title_when_iframe_title_is_generic(self) -> None:
+        with make_zip({}) as zip_file:
+            exporter = make_exporter(zip_file)
+            exporter.fetch_remote_json = lambda _url: {
+                "title": "Kevin Kelly: How technology evolves",
+                "thumbnail_url": "https://pi.tedcdn.com/r/talkstar.jpg",
+            }
+
+            title = exporter.media_display_title(
+                "Embedded media",
+                "https://embed.ted.com/talks/kevin_kelly_how_technology_evolves",
+            )
+
+        self.assertEqual(title, "Kevin Kelly: How technology evolves")
+
+    def test_youtube_embeds_use_oembed_title_when_iframe_title_is_generic(self) -> None:
+        with make_zip({}) as zip_file:
+            exporter = make_exporter(zip_file)
+            exporter.fetch_remote_json = lambda _url: {
+                "title": "A real YouTube video title",
+                "thumbnail_url": "https://i.ytimg.com/vi/onD5UOP5z_c/hqdefault.jpg",
+            }
+
+            title = exporter.media_display_title(
+                "Embedded media",
+                "https://www.youtube-nocookie.com/embed/onD5UOP5z_c?wmode=opaque",
+            )
+
+        self.assertEqual(title, "A real YouTube video title")
+
+    def test_youtube_video_player_title_is_treated_as_generic(self) -> None:
+        with make_zip({}) as zip_file:
+            exporter = make_exporter(zip_file)
+            exporter.fetch_remote_json = lambda _url: {
+                "title": "Crash Course title",
+                "thumbnail_url": "https://i.ytimg.com/vi/5SnR-e0S6Ic/hqdefault.jpg",
+            }
+
+            title = exporter.media_display_title(
+                "YouTube video player",
+                "https://www.youtube.com/embed/5SnR-e0S6Ic?feature=oembed&rel=0",
+            )
+
+        self.assertEqual(title, "Crash Course title")
+
     def test_site_header_uses_word_text_not_scaled_header_image(self) -> None:
         with make_zip({}) as zip_file:
             exporter = make_exporter(zip_file)
@@ -196,6 +255,65 @@ class SocialStudiesDocxExportTests(unittest.TestCase):
         self.assertIn("<w:hyperlink", body_xml)
         self.assertIn("<w:drawing>", body_xml)
         self.assertLess(body_xml.index("<w:hyperlink"), body_xml.index("<w:drawing>"))
+
+    def test_media_card_includes_visible_google_docs_handoff_url(self) -> None:
+        with make_zip({}) as zip_file:
+            exporter = make_exporter(zip_file)
+            exporter.fetch_remote_image_bytes = lambda _url: png_bytes(480, 270)
+            exporter.fetch_remote_json = lambda _url: {
+                "title": "Made in Bangladesh - the fifth estate",
+                "thumbnail_url": "https://i.ytimg.com/vi/onD5UOP5z_c/hqdefault.jpg",
+            }
+            document = exporter.new_document()
+            media_node = lxml_html.fragment_fromstring(
+                '<iframe title="YouTube video player" src="https://www.youtube.com/embed/onD5UOP5z_c?rel=0"></iframe>'
+            )
+            context = builder.RenderContext(
+                base_href="content/unit/lesson.html",
+                heading_base=2,
+                source_title="Lesson",
+            )
+
+            exporter.add_media_card(document, media_node, context)
+
+        body_xml = document._body._element.xml
+        visible_text = "\n".join(
+            node.text or ""
+            for node in document._body._element.iter()
+            if node.tag.endswith("}t")
+        )
+        hyperlink_targets = [
+            relationship.target_ref
+            for relationship in document.part.rels.values()
+            if relationship.reltype
+            == "http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink"
+        ]
+        self.assertIn("https://www.youtube.com/watch?v=onD5UOP5z_c", body_xml)
+        self.assertIn("https://www.youtube.com/watch?v=onD5UOP5z_c", hyperlink_targets)
+        self.assertNotIn("https://www.youtube.com/embed/onD5UOP5z_c?rel=0", hyperlink_targets)
+        self.assertNotIn("Made in Bangladesh - the fifth estate", visible_text)
+        self.assertEqual(exporter.audit["mediaRawUrlLines"], 1)
+        self.assertEqual(
+            exporter.audit["mediaReferences"][0]["linkUrl"],
+            "https://www.youtube.com/watch?v=onD5UOP5z_c",
+        )
+        self.assertEqual(
+            exporter.audit["mediaReferences"][0]["handoffUrl"],
+            "https://www.youtube.com/watch?v=onD5UOP5z_c",
+        )
+
+    def test_ted_handoff_url_uses_public_ted_page_not_embed_host(self) -> None:
+        with make_zip({}) as zip_file:
+            exporter = make_exporter(zip_file)
+
+            handoff_url = exporter.media_handoff_url(
+                "https://embed.ted.com/talks/kevin_kelly_how_technology_evolves"
+            )
+
+        self.assertEqual(
+            handoff_url,
+            "https://www.ted.com/talks/kevin_kelly_how_technology_evolves",
+        )
 
 
 if __name__ == "__main__":

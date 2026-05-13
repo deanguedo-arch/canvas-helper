@@ -180,7 +180,27 @@ test("general psychology does not show forensic course labels", async () => {
   assert.doesNotMatch(source, /Training phase/i);
   assert.doesNotMatch(source, /Case modules/i);
   assert.match(source, /General Psychology \/ \$\{escapeHtml\(moduleCode\)\} \/ Course module/);
-  assert.match(source, /data-library-view="modules">Modules<\/button>/);
+  assert.match(source, /data-shell-nav="chapters"/);
+});
+
+test("general psychology uses the forensics35 course shell without assignments navigation", async () => {
+  const source = await readFile(mainPath, "utf8");
+
+  assert.match(source, /courseShellView/);
+  assert.match(source, /data-shell-nav="home"/);
+  assert.match(source, /data-shell-nav="chapters"/);
+  assert.match(source, /data-shell-nav="quizzes"/);
+  assert.doesNotMatch(source, /data-shell-nav="assignments"/);
+  assert.match(source, /forensics35-home-library/);
+  assert.match(source, /forensics35-chapters-library/);
+  assert.match(source, /forensics35-quiz-library/);
+  assert.match(source, /data-testid="forensics35-chapter-card"/);
+  assert.match(source, /data-testid="forensics35-quiz-card"/);
+  assert.match(source, /data-testid="chapter-sequence-list"/);
+  assert.match(source, /data-testid="mark-complete-panel"/);
+  assert.match(source, /data-open-shell-content/);
+  assert.match(source, /data-open-shell-quiz/);
+  assert.match(source, /SCHOLARLY ACCESS/);
 });
 
 test("general psychology module 6 excludes the social influence written response placeholder", async () => {

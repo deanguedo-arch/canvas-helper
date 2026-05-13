@@ -11,6 +11,10 @@ const assessmentDeliveryByActivityId = new Map(assessmentDelivery.map((entry) =>
 const COURSE_THEME_MODES = ["current", "next-step"];
 const DEFAULT_THEME_MODE = "next-step";
 const THEME_PREFERENCE_VERSION = 1;
+const COURSE_SHELL_VIEWS = ["home", "chapters", "quizzes", "assignments", "reader"];
+const SHELL_ASSIGNMENTS_VIEW = "assignments";
+const SIDEBAR_COMPACT_QUERY = "(max-width: 1023px)";
+let compactSidebarOpen = false;
 
 if (!root) {
   throw new Error("Missing #root for course shell.");
@@ -28,6 +32,7 @@ const state = loadState();
 
 ensureSelection();
 injectStyles();
+injectForensics35ShellStyles();
 render();
 
 function loadState() {
@@ -57,6 +62,7 @@ function loadState() {
         parsed.moduleViewByModuleId && typeof parsed.moduleViewByModuleId === "object"
           ? parsed.moduleViewByModuleId
           : {},
+      courseShellView: normalizeCourseShellView(parsed.courseShellView),
       sidebarLibraryView:
         parsed.sidebarLibraryView === "quizzes" || parsed.sidebarLibraryView === "assignments"
           ? parsed.sidebarLibraryView
@@ -80,6 +86,7 @@ function loadState() {
       collapsedSectionByKey: {},
       selectedByBucket: {},
       moduleViewByModuleId: {},
+      courseShellView: "home",
       sidebarLibraryView: "modules",
       completedActivityById: {},
       quizDraftByActivityId: {}
@@ -93,6 +100,10 @@ function saveState() {
 
 function normalizeThemeMode(value) {
   return COURSE_THEME_MODES.includes(value) ? value : DEFAULT_THEME_MODE;
+}
+
+function normalizeCourseShellView(value) {
+  return COURSE_SHELL_VIEWS.includes(value) ? value : "home";
 }
 
 function ensureSelection() {
@@ -1011,7 +1022,7 @@ function renderAssessmentHandIn(activity, delivery) {
       <div class="assignment-handoff-head">
         <div>
           <div class="assignment-handoff-label">External hand-in</div>
-          <h5>${escapeHtml(activity.title)}</h5>
+          <h5 style="color:#1a1c1a !important;">${escapeHtml(activity.title)}</h5>
         </div>
         <div class="assignment-handoff-state">${escapeHtml(delivery?.deliveryMode === "document-handin" ? "Document hand-in" : "Google Docs/Classroom")}</div>
       </div>
@@ -1058,7 +1069,7 @@ function renderEmbeddedAssignment(activity, delivery) {
       <div class="assignment-handoff-head">
         <div>
           <div class="assignment-handoff-label">Interactive assignment</div>
-          <h5>${escapeHtml(activity.title)}</h5>
+          <h5 style="color:#1a1c1a !important;">${escapeHtml(activity.title)}</h5>
         </div>
         <div class="assignment-handoff-state">Workspace lab</div>
       </div>
@@ -1672,162 +1683,577 @@ function renderReader(activity, moduleId) {
   `;
 }
 
-function render() {
-  let module = getSelectedModule();
-  const collections = getSidebarLibraryCollections();
-  let selectedActivity = null;
-  const themeMode = normalizeThemeMode(state.themeMode);
+function courseShellAllowsAssignments() {
+  return COURSE_SHELL_VIEWS.includes(SHELL_ASSIGNMENTS_VIEW);
+}
 
-  if (state.sidebarLibraryView === "modules") {
-    const buckets = module ? getModuleBuckets(module) : { content: [], assignments: [] };
-    const unlockedContent = buildUnlockedContentItems(buckets.content);
-    selectedActivity = module ? getSelectedActivity(module.id, "content", unlockedContent) : null;
+function getForensics35DisplayTitle() {
+  const rawTitle = String(courseShellData.title || "");
+  if (/experimental/i.test(rawTitle) || STORAGE_KEY.includes("experimental-psych")) {
+    return "Experimental Psychology 30";
+  }
+  if (/general/i.test(rawTitle) || STORAGE_KEY.includes("general-psychology")) {
+    return "General Psychology 20";
+  }
+  return rawTitle || "Course";
+}
+
+function getForensics35DisplayDescription() {
+  const title = getForensics35DisplayTitle();
+  if (title === "Experimental Psychology 30") {
+    return "Experimental Psychology 30 content and quizzes.";
+  }
+  if (title === "General Psychology 20") {
+    return "General Psychology 20 content and quizzes.";
+  }
+  return courseShellData.description || courseShellData.subtitle || "Course content and quizzes.";
+}
+
+function getShellUnlockedContent(content) {
+  if (typeof buildUnlockedContentActivities === "function") {
+    return buildUnlockedContentActivities(content);
+  }
+  if (typeof buildUnlockedContentItems === "function") {
+    return buildUnlockedContentItems(content);
+  }
+  return Array.isArray(content) ? content : [];
+}
+
+function isShellQuizActivity(activity) {
+  const title = String(activity?.title || "").toLowerCase();
+  const resourceKind = String(activity?.resourceKind || "").toLowerCase();
+  const renderHint = String(activity?.renderHint || "").toLowerCase();
+  const delivery = typeof getAssessmentDelivery === "function" ? getAssessmentDelivery(activity) : null;
+  const deliveryMode = String(delivery?.deliveryMode || "").toLowerCase();
+  if (/\bassignment\b/.test(title)) {
+    return false;
+  }
+  return /\b(quiz|assessment|exam|test)\b/.test(title)
+    || resourceKind === "quiz"
+    || renderHint === "quiz"
+    || deliveryMode.includes("quiz");
+}
+
+function getForensics35ShellRows() {
+  return (courseShellData.modules || []).map((module, index) => {
+    const buckets = getModuleBuckets(module);
+    const content = Array.isArray(buckets.content) ? buckets.content : [];
+    const assignments = Array.isArray(buckets.assignments) ? buckets.assignments : [];
+    const quizzes = assignments.filter((activity) => isShellQuizActivity(activity));
+    const taskAssignments = assignments.filter((activity) => !isShellQuizActivity(activity));
+    const completion = moduleCompletion(module);
+    const unlockedByAuthoring = typeof AUTHORING_UNLOCK_ALL !== "undefined" && AUTHORING_UNLOCK_ALL;
+    return {
+      module,
+      index,
+      content,
+      assignments,
+      quizzes,
+      taskAssignments,
+      unlockedContent: getShellUnlockedContent(content),
+      completion,
+      quizzesUnlocked: unlockedByAuthoring || completion.isUnlocked
+    };
+  });
+}
+
+function getForensics35ShellProgress(rows) {
+  const totalContent = rows.reduce((sum, row) => sum + row.content.length, 0);
+  const completedContent = rows.reduce((sum, row) => sum + row.content.filter((activity) => isLessonCompleted(activity.id)).length, 0);
+  const totalQuizzes = rows.reduce((sum, row) => sum + row.quizzes.length, 0);
+  const totalAssignments = rows.reduce((sum, row) => sum + row.taskAssignments.length, 0);
+  const percent = totalContent ? Math.round((completedContent / totalContent) * 100) : 0;
+  return { totalContent, completedContent, totalQuizzes, totalAssignments, percent };
+}
+
+function getForensics35ActiveNav() {
+  if (state.courseShellView === "reader") {
+    if (state.sidebarLibraryView === "quizzes") return "quizzes";
+    if (state.sidebarLibraryView === SHELL_ASSIGNMENTS_VIEW && courseShellAllowsAssignments()) return SHELL_ASSIGNMENTS_VIEW;
+    return "chapters";
+  }
+  return normalizeCourseShellView(state.courseShellView);
+}
+
+function setForensics35LibraryView(view) {
+  if (view === "home") {
+    state.courseShellView = "home";
+    state.sidebarLibraryView = "modules";
+  } else if (view === "quizzes") {
+    state.courseShellView = "quizzes";
+    state.sidebarLibraryView = "quizzes";
+  } else if (view === SHELL_ASSIGNMENTS_VIEW && courseShellAllowsAssignments()) {
+    state.courseShellView = SHELL_ASSIGNMENTS_VIEW;
+    state.sidebarLibraryView = SHELL_ASSIGNMENTS_VIEW;
   } else {
-    const rows = state.sidebarLibraryView === "assignments" ? collections.assignmentModules : collections.quizModules;
-    const matchingRow = rows.find((row) => row.module.id === module?.id) || null;
-    const firstUnlockedRow = rows.find((row) => moduleCompletion(row.module).isUnlocked) || null;
-    const activeRow = (matchingRow && moduleCompletion(matchingRow.module).isUnlocked ? matchingRow : null) || firstUnlockedRow || matchingRow || rows[0] || null;
-    if (activeRow) {
-      module = activeRow.module;
-      selectedActivity = moduleCompletion(activeRow.module).isUnlocked
-        ? getSelectedActivity(activeRow.module.id, "assignments", activeRow.items)
-        : null;
-    }
+    state.courseShellView = "chapters";
+    state.sidebarLibraryView = "modules";
+  }
+  saveState();
+  render();
+}
+
+function openForensics35Content(moduleId, activityId = "") {
+  const row = getForensics35ShellRows().find((entry) => entry.module.id === moduleId);
+  if (!row) return;
+  const availableContent = row.unlockedContent.length ? row.unlockedContent : row.content;
+  const target = availableContent.find((activity) => activity.id === activityId) || availableContent[0] || null;
+  state.selectedModuleId = moduleId;
+  state.expandedModuleId = moduleId;
+  state.courseShellView = "reader";
+  state.sidebarLibraryView = "modules";
+  state.moduleViewByModuleId[moduleId] = "content";
+  if (target) {
+    state.selectedByBucket[bucketStateKey(moduleId, "content")] = target.id;
+  }
+  saveState();
+  render();
+}
+
+function openForensics35Quiz(moduleId, activityId = "") {
+  const row = getForensics35ShellRows().find((entry) => entry.module.id === moduleId);
+  if (!row || !row.quizzesUnlocked || !row.quizzes.length) return;
+  const target = row.quizzes.find((activity) => activity.id === activityId) || row.quizzes[0];
+  state.selectedModuleId = moduleId;
+  state.expandedModuleId = moduleId;
+  state.courseShellView = "reader";
+  state.sidebarLibraryView = "quizzes";
+  state.moduleViewByModuleId[moduleId] = "assignments";
+  state.selectedByBucket[bucketStateKey(moduleId, "assignments")] = target.id;
+  saveState();
+  render();
+}
+
+function openForensics35Assignment(moduleId, activityId = "") {
+  if (!courseShellAllowsAssignments()) return;
+  const row = getForensics35ShellRows().find((entry) => entry.module.id === moduleId);
+  if (!row || !row.quizzesUnlocked || !row.taskAssignments.length) return;
+  const target = row.taskAssignments.find((activity) => activity.id === activityId) || row.taskAssignments[0];
+  state.selectedModuleId = moduleId;
+  state.expandedModuleId = moduleId;
+  state.courseShellView = "reader";
+  state.sidebarLibraryView = SHELL_ASSIGNMENTS_VIEW;
+  state.moduleViewByModuleId[moduleId] = "assignments";
+  state.selectedByBucket[bucketStateKey(moduleId, "assignments")] = target.id;
+  saveState();
+  render();
+}
+
+function isForensicsCompactViewport() {
+  return typeof window !== "undefined"
+    && typeof window.matchMedia === "function"
+    && window.matchMedia(SIDEBAR_COMPACT_QUERY).matches;
+}
+
+function isForensicsMenuCollapsed() {
+  return !isForensicsCompactViewport() && Boolean(state.sidebarHidden);
+}
+
+function isForensicsMobileMenuOpen() {
+  return !isForensicsCompactViewport() || Boolean(compactSidebarOpen);
+}
+
+function toggleForensics35Sidebar() {
+  if (isForensicsCompactViewport()) {
+    compactSidebarOpen = !compactSidebarOpen;
+    render();
+    return;
   }
 
-  const moduleCount = Array.isArray(courseShellData.modules) ? courseShellData.modules.length : 0;
-  const contentCount = courseShellData.modules.reduce(
-    (sum, current) => sum + getModuleBuckets(current).content.length,
-    0
-  );
-  const assignmentCount = courseShellData.modules.reduce(
-    (sum, current) => sum + getModuleBuckets(current).assignments.length,
-    0
-  );
-  const appClassNames = [
-    "app",
-    state.sidebarHidden ? "sidebar-hidden" : "",
-    themeMode === "next-step" ? "next-step-theme" : ""
-  ].filter(Boolean).join(" ");
+  state.sidebarHidden = !state.sidebarHidden;
+  saveState();
+  render();
+}
+
+function closeForensics35MenuAfterSelection() {
+  if (isForensicsCompactViewport()) {
+    compactSidebarOpen = false;
+  }
+}
+
+function formatForensics35ModuleTitle(row) {
+  const title = String(row?.module?.title || `Module ${row.index + 1}`)
+    .replace(/^Module\s+\d+\s*:\s*/i, "")
+    .replace(/^\d+\.\s*/, "")
+    .trim();
+  return `${row.index + 1}. ${title || `Module ${row.index + 1}`}`;
+}
+
+function renderForensics35Shell() {
+  const rows = getForensics35ShellRows();
+  const activeNav = getForensics35ActiveNav();
+  const isMenuCollapsed = isForensicsMenuCollapsed();
+  const isMobileMenuOpen = isForensicsMobileMenuOpen();
+  const mainContent = state.courseShellView === "reader" ? renderForensics35Reader(rows) : renderForensics35Library(rows);
 
   root.innerHTML = `
-    <div class="${appClassNames}" data-course-theme="${escapeHtml(themeMode)}">
-      <aside class="sidebar">
-        <div class="brand">
-          <h1>Experimental Psychology 30</h1>
-          <p class="brand-note">Select a module, then open one lesson or assignment at a time in the reading pane.</p>
-        </div>
-
-        <nav class="side-nav-ghost" aria-label="Workspace sections">
-          <button type="button" class="side-nav-item ${state.sidebarLibraryView === "modules" ? "active" : ""}" data-library-view="modules">Case modules</button>
-          <button type="button" class="side-nav-item ${state.sidebarLibraryView === "quizzes" ? "active" : ""}" data-library-view="quizzes">Quizzes</button>
-          <button type="button" class="side-nav-item ${state.sidebarLibraryView === "assignments" ? "active" : ""}" data-library-view="assignments">Assignments</button>
-        </nav>
-
-        ${
-          state.sidebarLibraryView !== "modules"
-            ? `
-          <div class="library-list" data-testid="quiz-library">
-            ${
-              state.sidebarLibraryView === "assignments"
-                ? renderSidebarLibraryModuleBlock("Assignments", collections.assignmentModules, module?.id || "", selectedActivity?.id || "")
-                : renderSidebarLibraryModuleBlock("Quizzes", collections.quizModules, module?.id || "", selectedActivity?.id || "")
-            }
-          </div>
-        `
-            : `
-          <div class="module-list" data-testid="module-list">
-            ${courseShellData.modules
-              .map((item) => renderModuleButton(item, item.id === state.expandedModuleId, item.id === module?.id))
-              .join("")}
-          </div>
-        `
-        }
-      </aside>
-
-      <section class="main">
-        <header class="topbar">
-          <div class="topbar-inner">
-            <div class="topbar-main">
-              <button
-                class="sidebar-toggle"
-                type="button"
-                data-toggle-sidebar
-                aria-label="Toggle module sidebar"
-                aria-expanded="${state.sidebarHidden ? "false" : "true"}"
-                title="Toggle module sidebar"
-              >
-                <span></span><span></span><span></span>
-              </button>
-              <div class="topbar-copy">
-                <div class="topbar-kicker">${escapeHtml(module?.overline || "Module")}</div>
-                <h2>${escapeHtml(module?.title || "Course")}</h2>
-              </div>
-            </div>
-            <div class="topbar-actions">
-              <div class="theme-toggle" role="group" aria-label="Course theme">
-                <button
-                  type="button"
-                  class="theme-toggle-button ${themeMode === "current" ? "active" : ""}"
-                  data-theme-toggle="current"
-                  aria-pressed="${themeMode === "current" ? "true" : "false"}"
-                >Current</button>
-                <button
-                  type="button"
-                  class="theme-toggle-button ${themeMode === "next-step" ? "active" : ""}"
-                  data-theme-toggle="next-step"
-                  aria-pressed="${themeMode === "next-step" ? "true" : "false"}"
-                >Next Step</button>
-              </div>
-              <div class="stats">
-                <span class="stat"><strong>${moduleCount}</strong><span> modules</span></span>
-                <span class="stat"><strong>${contentCount}</strong><span> content items</span></span>
-                <span class="stat"><strong>${assignmentCount}</strong><span> assignments</span></span>
-              </div>
-            </div>
-          </div>
-        </header>
-
-        <div class="content">
-          ${renderReader(selectedActivity, module?.id || "")}
-        </div>
-      </section>
+    <div class="forensic-app">
+      <div class="forensic-layout ${isMenuCollapsed ? "menu-collapsed" : ""} ${isMobileMenuOpen ? "mobile-menu-open" : ""}">
+        ${renderForensics35Sidebar(rows, activeNav, isMenuCollapsed, isMobileMenuOpen)}
+        <main class="forensic-main">
+          ${mainContent}
+        </main>
+      </div>
     </div>
   `;
 
-  root.querySelectorAll("[data-module]").forEach((button) => {
-    button.addEventListener("click", () => setSelectedModule(button.getAttribute("data-module") || ""));
+  bindForensics35ShellEvents();
+  bindEmbeddedFrames();
+  bindUnavailableLessonImages();
+}
+
+function bindUnavailableLessonImages() {
+  root.querySelectorAll(".forensic-reader-surface img").forEach((image) => {
+    const removeImage = () => {
+      const wrapper = image.closest("figure, .image-card, .image-frame, .reader-image, p, div");
+      image.setAttribute("data-image-unavailable", "true");
+      if (wrapper && wrapper !== root && wrapper.children.length === 1 && !wrapper.textContent.trim()) {
+        wrapper.remove();
+        return;
+      }
+      image.remove();
+    };
+    const removeIfUnavailable = () => {
+      const src = String(image.currentSrc || image.getAttribute("src") || "").trim();
+      if (!src || (image.complete && (image.naturalWidth === 0 || image.naturalHeight === 0))) {
+        removeImage();
+      }
+    };
+    image.addEventListener("error", removeImage, { once: true });
+    image.addEventListener("load", removeIfUnavailable, { once: true });
+    removeIfUnavailable();
+    window.setTimeout(removeIfUnavailable, 250);
+    window.setTimeout(removeIfUnavailable, 1000);
+  });
+}
+
+function forensics35NavIcon(name) {
+  const icons = {
+    home: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h12v16l-6-3-6 3V4z"/></svg>',
+    chapters: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5v14"/><path d="M8 7v10"/><path d="M12 9v8"/><path d="M16 6l4 12"/></svg>',
+    quizzes: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="4" width="10" height="16" rx="2"/><path d="M10 8h4"/><path d="M10 12h2"/><path d="M12 16h.01"/></svg>',
+    assignments: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8l2 2v14H6V4h2z"/><path d="M9 10h6"/><path d="M9 14h6"/><path d="M9 18h3"/></svg>'
+  };
+  return icons[name] || "";
+}
+
+function renderForensics35Icon(name) {
+  return `<span class="forensic-nav-icon" aria-hidden="true">${forensics35NavIcon(name)}</span>`;
+}
+
+function forensics35NavLabel(label) {
+  return `<strong>${escapeHtml(label)}</strong>`;
+}
+
+function forensics35NavContent(iconName, label) {
+  return `${renderForensics35Icon(iconName)}${forensics35NavLabel(label)}`;
+}
+
+function renderForensics35Sidebar(rows, activeNav, isMenuCollapsed, isMobileMenuOpen) {
+  const progress = getForensics35ShellProgress(rows);
+  const assignmentNav = courseShellAllowsAssignments()
+    ? `<button type="button" class="${forensics35NavClass(activeNav === SHELL_ASSIGNMENTS_VIEW)}" data-shell-nav="${escapeHtml(SHELL_ASSIGNMENTS_VIEW)}" data-library-view="${escapeHtml(SHELL_ASSIGNMENTS_VIEW)}">${forensics35NavContent("assignments", "Assignments")}</button>`
+    : "";
+
+  return `
+    <aside class="forensic-sidebar" data-testid="chapter-menu-panel" data-collapsed="${isMenuCollapsed ? "true" : "false"}" data-sidebar-responsive-mode="option2-sticky">
+      <div class="forensic-sidebar-top" data-testid="forensics35-fs25-sidebar-top">
+        <div class="forensic-brand-row">
+          <div class="forensic-brand" data-testid="forensics35-fs25-sidebar-brand">
+            <h1>${escapeHtml(getForensics35DisplayTitle())}</h1>
+            <div>SCHOLARLY ACCESS</div>
+          </div>
+          <button type="button" class="forensic-menu-button forensic-mobile-menu-toggle" data-sidebar-toggle aria-expanded="${isMobileMenuOpen ? "true" : "false"}" aria-label="${isMobileMenuOpen ? "Close chapter menu" : "Open chapter menu"}" data-testid="forensics35-mobile-menu-toggle">
+            <span></span><span></span><span></span>
+          </button>
+          <button type="button" class="forensic-menu-button forensic-desktop-menu-toggle" data-sidebar-toggle aria-expanded="${isMenuCollapsed ? "false" : "true"}" aria-label="${isMenuCollapsed ? "Open chapter menu" : "Collapse chapter menu"}" data-testid="chapter-menu-toggle">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+        <div class="forensic-sidebar-progress" data-testid="forensics35-sidebar-progress">
+          <div role="progressbar" aria-label="Course progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${progress.percent}">
+            <span style="width:${progress.percent}%"></span>
+          </div>
+        </div>
+      </div>
+      <div class="forensic-sidebar-body ${isMobileMenuOpen ? "is-open" : ""}" data-testid="forensics35-fs25-sidebar-body">
+        ${state.courseShellView === "reader" ? `<div class="forensic-search"><span aria-hidden="true">⌕</span><input type="search" placeholder="Search chapter titles" data-testid="lesson-search" /></div>` : ""}
+        <nav class="forensic-shell-nav" aria-label="Primary navigation" data-testid="forensics35-fs25-shell-nav">
+          <button type="button" class="${forensics35NavClass(activeNav === "home")}" data-shell-nav="home">${forensics35NavContent("home", "Home")}</button>
+          <button type="button" class="${forensics35NavClass(activeNav === "chapters")}" data-shell-nav="chapters" data-library-view="modules">${forensics35NavContent("chapters", "Chapters")}</button>
+          <button type="button" class="${forensics35NavClass(activeNav === "quizzes")}" data-shell-nav="quizzes" data-library-view="quizzes">${forensics35NavContent("quizzes", "Quizzes")}</button>
+          ${assignmentNav}
+        </nav>
+      </div>
+    </aside>
+  `;
+}
+
+function forensics35NavClass(active) {
+  return `forensic-nav-button ${active ? "active" : ""}`;
+}
+
+function renderForensics35Library(rows) {
+  const view = normalizeCourseShellView(state.courseShellView);
+  return `
+    <section class="forensic-library" data-testid="course-shell-library">
+      ${renderForensics35CourseworkCard(rows)}
+      ${view === "home" ? renderForensics35ModuleGrid("forensics35-home-library", "Home", `Each module includes lesson pages and quizzes from the ${escapeHtml(getForensics35DisplayTitle())} course.`, rows) : ""}
+      ${view === "chapters" ? renderForensics35ModuleGrid("forensics35-chapters-library", "Chapters", "Open a module to work through its lesson pages before completing the related assessments.", rows) : ""}
+      ${view === "quizzes" ? renderForensics35QuizLibrary(rows) : ""}
+      ${view === SHELL_ASSIGNMENTS_VIEW && courseShellAllowsAssignments() ? renderForensics35AssignmentLibrary(rows) : ""}
+    </section>
+  `;
+}
+
+function renderForensics35CourseworkCard(rows) {
+  const progress = getForensics35ShellProgress(rows);
+  const unlockedChapters = rows.filter((row) => row.completion.isUnlocked).length;
+  return `
+    <section class="forensic-coursework-card">
+      <div>
+        <div class="forensic-overline">Current Coursework</div>
+        <h1>${escapeHtml(getForensics35DisplayTitle())}</h1>
+        <p>${escapeHtml(getForensics35DisplayDescription())}</p>
+      </div>
+      <div class="forensic-coursework-progress">
+        <div class="forensic-progress-label"><span>Overall Progress</span><strong>${progress.percent}%</strong></div>
+        <div class="forensic-progressbar"><span style="width:${progress.percent}%"></span></div>
+        <div class="forensic-progress-stats">
+          <div><span>Unlocked Chapters</span><strong>${unlockedChapters}/${rows.length}</strong></div>
+          <div><span>Completed Quizzes</span><strong>0/${progress.totalQuizzes}</strong></div>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderForensics35ModuleGrid(id, title, description, rows) {
+  return `
+    <section class="forensic-library-section" id="${escapeHtml(id)}">
+      <h2>${escapeHtml(title)}</h2>
+      <p>${description}</p>
+      <div class="forensic-module-grid">
+        ${rows.map((row) => renderForensics35ChapterCard(row)).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function renderForensics35ChapterCard(row) {
+  const quiz = row.quizzes[0] || null;
+  const locked = quiz && !row.quizzesUnlocked;
+  return `
+    <article class="forensic-module-card" data-testid="forensics35-chapter-card">
+      <div class="forensic-overline">Module ${row.index + 1}</div>
+      <h3>${escapeHtml(formatForensics35ModuleTitle(row))}</h3>
+      <p>Mapped from the D2L manifest hierarchy. This node is included in the shell so navigation follows the real course sequence.</p>
+      <div class="forensic-card-actions">
+        <button type="button" class="forensic-primary-button" data-open-shell-content="${escapeHtml(row.module.id)}">Open content</button>
+        ${quiz ? `<button type="button" class="forensic-secondary-button" data-open-shell-quiz="${escapeHtml(row.module.id)}" data-activity-id="${escapeHtml(quiz.id)}" ${locked ? "disabled" : ""}>Open test</button>` : ""}
+      </div>
+      <div class="forensic-complete-pill">${row.completion.completedCount}/${row.completion.totalCount} components complete</div>
+      ${locked ? `<div class="forensic-lock-pill">Locked until all module content is marked complete</div>` : ""}
+    </article>
+  `;
+}
+
+function renderForensics35QuizLibrary(rows) {
+  const cards = rows.flatMap((row) => row.quizzes.map((quiz, index) => renderForensics35AssessmentCard(row, quiz, index, "quiz"))).join("");
+  return `
+    <section class="forensic-library-section" id="forensics35-quiz-library">
+      <h2>Quizzes</h2>
+      <p>Open a test to work through the question sets and track completion by section.</p>
+      <div class="forensic-assessment-grid">
+        ${cards || `<div class="forensic-empty">No quizzes are available in this course shell.</div>`}
+      </div>
+    </section>
+  `;
+}
+
+function renderForensics35AssignmentLibrary(rows) {
+  const cards = rows.flatMap((row) => row.taskAssignments.map((assignment, index) => renderForensics35AssessmentCard(row, assignment, index, "assignment"))).join("");
+  return `
+    <section class="forensic-library-section" id="forensics35-assignment-library">
+      <h2>Assignments</h2>
+      <p>Open an assignment after completing the related module content.</p>
+      <div class="forensic-assessment-grid">
+        ${cards || `<div class="forensic-empty">No standalone assignments are available in this course shell.</div>`}
+      </div>
+    </section>
+  `;
+}
+
+function renderForensics35AssessmentCard(row, activity, index, type) {
+  const locked = !row.quizzesUnlocked;
+  const actionAttribute = type === "assignment" ? "data-open-shell-assignment" : "data-open-shell-quiz";
+  return `
+    <article class="forensic-module-card" data-testid="${type === "assignment" ? "forensics35-assignment-card" : "forensics35-quiz-card"}">
+      <div class="forensic-overline">${type === "assignment" ? "Assignment" : "Quiz"} ${index + 1}</div>
+      <h3>${escapeHtml(activity.title || (type === "assignment" ? "Assignment" : "Assessment"))}</h3>
+      <p>Mapped from the D2L manifest hierarchy. This node is included in the shell so navigation follows the real course sequence.</p>
+      <div class="forensic-card-actions">
+        <button type="button" class="forensic-secondary-button" ${actionAttribute}="${escapeHtml(row.module.id)}" data-activity-id="${escapeHtml(activity.id)}" ${locked ? "disabled" : ""}>Open test</button>
+      </div>
+      ${locked ? `<div class="forensic-lock-pill">Locked until all module content is marked complete</div>` : ""}
+    </article>
+  `;
+}
+
+function renderForensics35Reader(rows) {
+  const selectedModule = getSelectedModule();
+  const row = rows.find((entry) => entry.module.id === selectedModule?.id) || rows[0];
+  if (!row) {
+    return `<section class="forensic-reader-surface"><div class="forensic-empty">No module content is available.</div></section>`;
+  }
+
+  if (state.sidebarLibraryView === "quizzes") {
+    return renderForensics35AssessmentReader(row);
+  }
+  if (state.sidebarLibraryView === SHELL_ASSIGNMENTS_VIEW && courseShellAllowsAssignments()) {
+    return renderForensics35AssignmentReader(row);
+  }
+  return renderForensics35ChapterReader(row);
+}
+
+function renderForensics35ChapterReader(row) {
+  return `
+    <section class="forensic-reader-surface">
+      <div class="forensic-reader-header">
+        <div class="forensic-reader-kicker">${escapeHtml(formatForensics35ModuleTitle(row))}</div>
+        <h2 data-testid="lesson-title">${escapeHtml(formatForensics35ModuleTitle(row))}</h2>
+        <div class="forensic-badge">Content</div>
+        <div class="forensic-reader-progress">
+          <div><span>Course progress</span><strong>${row.completion.completedCount}/${row.completion.totalCount} · ${row.completion.percent}%</strong></div>
+          <div class="forensic-progressbar"><span style="width:${row.completion.percent}%"></span></div>
+        </div>
+      </div>
+      <div class="forensic-reader-list" data-testid="module-content-view">
+        <section class="forensic-progress-control" data-testid="mark-complete-panel">
+          <div class="forensic-overline">Progress control</div>
+          <h3>Lesson sequence</h3>
+          <p>Complete each lesson to unlock the next card in this module.</p>
+          <div class="forensic-progressbar"><span style="width:${row.completion.percent}%"></span></div>
+          <p>${row.completion.completedCount}/${row.completion.totalCount} completed in this module</p>
+        </section>
+        <div class="forensic-sequence-list" data-testid="chapter-sequence-list">
+          ${row.content.map((activity, index) => renderForensics35SequenceCard(row, activity, index)).join("")}
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderForensics35SequenceCard(row, activity, index) {
+  const unlockedIds = new Set(row.unlockedContent.map((entry) => entry.id));
+  const locked = !unlockedIds.has(activity.id);
+  const complete = isLessonCompleted(activity.id);
+  const progressState = locked ? "locked" : complete ? "complete" : "active";
+  return `
+    <article class="forensic-sequence-card" data-progress-state="${progressState}">
+      <div class="forensic-sequence-card-head">
+        <span>${index + 1}</span>
+        <div>
+          <div class="forensic-overline">${escapeHtml(activityMetaLabel(activity) || prettyKind(activity?.resourceKind || activity?.kind || "Content"))}</div>
+          <h3>${escapeHtml(activity.title || `Lesson ${index + 1}`)}</h3>
+        </div>
+      </div>
+      <div class="forensic-sequence-card-body">
+        ${renderActivityBody(activity)}
+      </div>
+      <div class="forensic-sequence-actions">
+        <p>${locked ? "Locked until the previous lesson is completed." : complete ? "Lesson complete." : "Active lesson. Mark complete to unlock the next card."}</p>
+        <div>
+          <button type="button" class="forensic-secondary-button" data-complete-lesson="${escapeHtml(activity.id)}" data-completed="${complete ? "true" : "false"}" ${locked ? "disabled" : ""}>${complete ? "Mark incomplete" : "Mark complete"}</button>
+          ${!complete ? `<button type="button" class="forensic-secondary-button" data-complete-next="${escapeHtml(activity.id)}" data-module-id="${escapeHtml(row.module.id)}" ${locked ? "disabled" : ""}>Mark complete + next</button>` : ""}
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+function renderForensics35AssessmentReader(row) {
+  if (!row.quizzesUnlocked) {
+    return renderForensics35LockedReader(row, "No quizzes in this module", "Complete all module content lessons first to unlock this module's quizzes.");
+  }
+  const selected = getSelectedActivity(row.module.id, "assignments", row.quizzes);
+  return `
+    <section class="forensic-reader-surface forensic-assessment-reader">
+      <button type="button" class="forensic-secondary-button" data-shell-nav="quizzes">Back to quizzes</button>
+      <div class="forensic-reader-kicker">Module ${row.index + 1} · Assessment</div>
+      <h2>${escapeHtml(selected?.title || "Assessment")}</h2>
+      ${selected ? renderActivityBody(selected) : `<div class="forensic-empty">No assessment is available for this module.</div>`}
+    </section>
+  `;
+}
+
+function renderForensics35AssignmentReader(row) {
+  if (!row.quizzesUnlocked) {
+    return renderForensics35LockedReader(row, "No assignments in this module", "Complete all module content lessons first to unlock this module's assignments.");
+  }
+  const selected = getSelectedActivity(row.module.id, "assignments", row.taskAssignments);
+  return `
+    <section class="forensic-reader-surface forensic-assessment-reader forensic-assignment-reader">
+      <button type="button" class="forensic-secondary-button" data-shell-nav="${escapeHtml(SHELL_ASSIGNMENTS_VIEW)}">Back to assignments</button>
+      <div class="forensic-reader-kicker">Module ${row.index + 1} · Assignment</div>
+      <h2>${escapeHtml(selected?.title || "Assignment")}</h2>
+      <div class="forensic-assignment-body">
+        ${selected ? renderActivityBody(selected) : `<div class="forensic-empty">No standalone assignment is available for this module.</div>`}
+      </div>
+    </section>
+  `;
+}
+
+function renderForensics35LockedReader(row, title, message) {
+  return `
+    <section class="forensic-reader-surface">
+      <div class="forensic-empty">
+        <h3>${escapeHtml(title)}</h3>
+        <p>${escapeHtml(message)}</p>
+        <button type="button" class="forensic-primary-button" data-open-shell-content="${escapeHtml(row.module.id)}">Return to chapter</button>
+      </div>
+    </section>
+  `;
+}
+function bindForensics35ShellEvents() {
+  root.querySelectorAll("[data-sidebar-toggle]").forEach((button) => {
+    button.addEventListener("click", () => toggleForensics35Sidebar());
   });
 
-  root.querySelectorAll("[data-select-activity]").forEach((button) => {
+  root.querySelectorAll("[data-shell-nav]").forEach((button) => {
     button.addEventListener("click", () => {
-      const moduleId = button.getAttribute("data-module-id") || "";
-      const bucket = button.getAttribute("data-bucket") || "content";
-      const activityId = button.getAttribute("data-select-activity") || "";
-      setSelectedActivity(moduleId, bucket, activityId);
+      const view = button.getAttribute("data-shell-nav") || "home";
+      closeForensics35MenuAfterSelection();
+      setForensics35LibraryView(view);
     });
-  });
-
-  root.querySelectorAll("[data-toggle-sidebar]").forEach((button) => {
-    button.addEventListener("click", () => toggleSidebar());
-  });
-
-  root.querySelectorAll("[data-theme-toggle]").forEach((button) => {
-    button.addEventListener("click", () => setThemeMode(button.getAttribute("data-theme-toggle") || DEFAULT_THEME_MODE));
   });
 
   root.querySelectorAll("[data-library-view]").forEach((button) => {
     button.addEventListener("click", () => {
       const view = button.getAttribute("data-library-view") || "modules";
-      setSidebarLibraryView(view);
+      closeForensics35MenuAfterSelection();
+      setForensics35LibraryView(view === "modules" ? "chapters" : view);
     });
   });
 
-  root.querySelectorAll("[data-toggle-section]").forEach((button) => {
+  root.querySelectorAll("[data-open-shell-content]").forEach((button) => {
     button.addEventListener("click", () => {
-      const moduleId = button.getAttribute("data-module-id") || "";
-      const sectionKey = button.getAttribute("data-section-key") || "";
-      toggleSectionCollapsed(moduleId, sectionKey);
+      closeForensics35MenuAfterSelection();
+      openForensics35Content(button.getAttribute("data-open-shell-content") || "");
+    });
+  });
+
+  root.querySelectorAll("[data-open-shell-quiz]").forEach((button) => {
+    button.addEventListener("click", () => {
+      closeForensics35MenuAfterSelection();
+      openForensics35Quiz(button.getAttribute("data-open-shell-quiz") || "", button.getAttribute("data-activity-id") || "");
+    });
+  });
+
+  root.querySelectorAll("[data-open-shell-assignment]").forEach((button) => {
+    button.addEventListener("click", () => {
+      closeForensics35MenuAfterSelection();
+      openForensics35Assignment(button.getAttribute("data-open-shell-assignment") || "", button.getAttribute("data-activity-id") || "");
     });
   });
 
@@ -1852,10 +2278,7 @@ function render() {
       const activityId = button.getAttribute("data-quiz-question") || "";
       const quizData = quizCacheByActivityId.get(activityId);
       const questionIndex = Number(button.getAttribute("data-question-index") || 0);
-      updateQuizDraft(activityId, quizData?.quizQuestions?.length || 0, (draft) => ({
-        ...draft,
-        questionIndex
-      }));
+      updateQuizDraft(activityId, quizData?.quizQuestions?.length || 0, (draft) => ({ ...draft, questionIndex }));
     });
   });
 
@@ -1867,14 +2290,24 @@ function render() {
       const choiceIndex = Number(button.getAttribute("data-choice-index") || 0);
       updateQuizDraft(activityId, quizData?.quizQuestions?.length || 0, (draft) => ({
         ...draft,
-        answersByQuestion: {
-          ...draft.answersByQuestion,
-          [questionId]: choiceIndex
-        },
-        revealedByQuestion: {
-          ...draft.revealedByQuestion,
-          [questionId]: false
-        }
+        answersByQuestion: { ...draft.answersByQuestion, [questionId]: choiceIndex },
+        revealedByQuestion: { ...draft.revealedByQuestion, [questionId]: false },
+        resultsVisible: false
+      }));
+    });
+  });
+
+  root.querySelectorAll("[data-quiz-generate], [data-quiz-check-all]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const activityId = button.getAttribute("data-quiz-generate") || button.getAttribute("data-quiz-check-all") || "";
+      const quizData = quizCacheByActivityId.get(activityId);
+      const questions = quizData?.quizQuestions || [];
+      const revealedByQuestion = Object.fromEntries(questions.map((question) => [question.id, true]));
+      updateQuizDraft(activityId, questions.length, (draft) => ({
+        ...draft,
+        revealedByQuestion,
+        resultsVisible: true,
+        resultsGeneratedAt: draft.resultsGeneratedAt || new Date().toLocaleString()
       }));
     });
   });
@@ -1885,27 +2318,10 @@ function render() {
       const quizData = quizCacheByActivityId.get(activityId);
       const draft = getQuizDraft(activityId, quizData?.quizQuestions?.length || 0);
       const question = quizData?.quizQuestions?.[draft.questionIndex];
-      if (!question) {
-        return;
-      }
+      if (!question) return;
       updateQuizDraft(activityId, quizData.quizQuestions.length, (currentDraft) => ({
         ...currentDraft,
-        revealedByQuestion: {
-          ...currentDraft.revealedByQuestion,
-          [question.id]: true
-        }
-      }));
-    });
-  });
-
-  root.querySelectorAll("[data-quiz-generate], [data-quiz-check-all]").forEach((button) => {
-    button.addEventListener("click", () => {
-      const activityId = button.getAttribute("data-quiz-generate") || button.getAttribute("data-quiz-check-all") || "";
-      const quizData = quizCacheByActivityId.get(activityId);
-      const questions = quizData?.quizQuestions || [];
-      updateQuizDraft(activityId, questions.length, (draft) => ({
-        ...draft,
-        revealedByQuestion: Object.fromEntries(questions.map((question) => [question.id, true]))
+        revealedByQuestion: { ...currentDraft.revealedByQuestion, [question.id]: true }
       }));
     });
   });
@@ -1920,11 +2336,7 @@ function render() {
         const revealedByQuestion = { ...draft.revealedByQuestion };
         delete answersByQuestion[questionId];
         delete revealedByQuestion[questionId];
-        return {
-          ...draft,
-          answersByQuestion,
-          revealedByQuestion
-        };
+        return { ...draft, answersByQuestion, revealedByQuestion, resultsVisible: false };
       });
     });
   });
@@ -1932,11 +2344,7 @@ function render() {
   root.querySelectorAll("[data-quiz-retake]").forEach((button) => {
     button.addEventListener("click", () => {
       const activityId = button.getAttribute("data-quiz-retake") || "";
-      setQuizDraft(activityId, {
-        questionIndex: 0,
-        answersByQuestion: {},
-        revealedByQuestion: {}
-      });
+      setQuizDraft(activityId, { questionIndex: 0, answersByQuestion: {}, revealedByQuestion: {}, resultsVisible: false, resultsGeneratedAt: "" });
     });
   });
 
@@ -1946,15 +2354,105 @@ function render() {
       const quizData = quizCacheByActivityId.get(activityId);
       updateQuizDraft(activityId, quizData?.quizQuestions?.length || 0, (draft) => ({
         ...draft,
-        questionIndex: Math.min(
-          draft.questionIndex + 1,
-          Math.max(0, (quizData?.quizQuestions?.length || 1) - 1)
-        )
+        questionIndex: Math.min(draft.questionIndex + 1, Math.max(0, (quizData?.quizQuestions?.length || 1) - 1))
       }));
     });
   });
-
-  bindEmbeddedFrames();
+}
+function injectForensics35ShellStyles() {
+  const style = document.createElement("style");
+  style.textContent = `
+    :root{--forensic-bg:#f3f4f3;--forensic-ink:#191c18;--forensic-muted:#656b61;--forensic-panel:#fff;--forensic-sidebar:#2f3430;--forensic-sidebar-ink:#f6f7f3;--forensic-green:#157908;--forensic-green-soft:#eaf5e8;--forensic-line:#d8ddd3;--forensic-gold:#ffc857}
+    body{margin:0;background:var(--forensic-bg)!important;color:var(--forensic-ink)!important;font-family:"Open Sans","Rubik",sans-serif}
+    .forensics35-shell{min-height:100vh;display:grid;grid-template-columns:324px minmax(0,1fr);background:var(--forensic-bg)}
+    .shell-sidebar{position:sticky;top:0;height:100vh;overflow-y:auto;background:var(--forensic-sidebar);color:var(--forensic-sidebar-ink);padding:18px;display:flex;flex-direction:column;gap:18px;box-shadow:18px 0 40px rgba(20,25,19,.12);z-index:20}
+    .shell-brand-card{border-bottom:1px solid rgba(255,255,255,.12);padding-bottom:20px}
+    .shell-brand-eyebrow,.shell-kicker{margin:0 0 8px;color:var(--forensic-green);font-size:.75rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+    .shell-brand-card .shell-brand-eyebrow{color:#a9ff94}
+    .shell-brand-card h1,.shell-hero h1,.shell-library-heading h1,.reader-shell-heading h1{margin:0;font-family:"Rubik","Open Sans",sans-serif;letter-spacing:-.045em;line-height:1.05}
+    .shell-brand-card h1{font-size:clamp(1.8rem,3vw,2.4rem);color:#a9ff94}
+    .shell-brand-card p,.shell-library-heading p,.shell-hero p,.reader-shell-heading p{color:var(--forensic-muted);line-height:1.65}.shell-brand-card p{color:rgba(246,247,243,.72)}
+    .shell-nav{display:grid;gap:8px}.side-nav-item{border:1px solid rgba(255,255,255,.12);border-radius:8px;background:rgba(255,255,255,.04);color:rgba(246,247,243,.82);padding:12px 18px;text-align:left;font-weight:900;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}.side-nav-item.active,.side-nav-item:hover{background:var(--forensic-green);border-color:var(--forensic-green);color:white}
+    .shell-side-progress,.shell-module-chip,.shell-panel,.shell-card,.forensic-reader-card,.chapter-sequence-list,.mark-complete-panel{border:1px solid var(--forensic-line);border-radius:14px;background:var(--forensic-panel);box-shadow:0 18px 42px rgba(35,45,31,.08)}
+    .shell-side-progress{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.12);padding:16px;color:white}.shell-side-progress span{color:rgba(246,247,243,.76);font-size:.8rem}.shell-side-progress strong{display:block;margin-top:4px;font-size:1.9rem;color:#a9ff94}
+    .shell-progress-track{height:8px;margin-top:12px;overflow:hidden;border-radius:999px;background:rgba(17,24,15,.12)}.shell-progress-track span{display:block;height:100%;border-radius:inherit;background:var(--forensic-green)}
+    .shell-module-stack{display:grid;gap:10px}.shell-module-chip{padding:14px;text-align:left;background:rgba(255,255,255,.07);color:rgba(246,247,243,.8);border-color:rgba(255,255,255,.1);cursor:pointer}.shell-module-chip.active{border-color:#a9ff94;background:rgba(21,121,8,.42);color:white}.shell-module-chip span,.shell-module-chip small{display:block;color:rgba(246,247,243,.6);font-size:.78rem}.shell-module-chip strong{display:block;margin:4px 0;line-height:1.25}
+    .shell-resume-button,.shell-button{border:0;border-radius:10px;background:var(--forensic-green);color:white;padding:13px 18px;font-weight:900;cursor:pointer;box-shadow:0 10px 22px rgba(21,121,8,.2)}.shell-resume-button{width:100%;background:var(--forensic-gold);color:#3b3100;margin-top:auto}.shell-button.secondary{background:white;color:var(--forensic-ink);border:1px solid var(--forensic-line);box-shadow:none}.shell-button:disabled,.sequence-item:disabled{cursor:not-allowed;opacity:.52;box-shadow:none}
+    .shell-main{min-width:0;padding:0 0 56px}.shell-topbar{position:sticky;top:0;z-index:10;min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 28px;background:rgba(255,255,255,.88);border-bottom:1px solid var(--forensic-line);backdrop-filter:blur(16px)}.shell-topbar h2{margin:0;font-size:1rem;letter-spacing:-.02em}.shell-icon-button,.theme-pill{border:1px solid var(--forensic-line);border-radius:999px;background:white;color:var(--forensic-ink);padding:9px 12px;cursor:pointer;font-weight:800}.theme-pill.active{background:var(--forensic-green-soft);border-color:#b9dcb2;color:var(--forensic-green)}.shell-topbar-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+    .shell-library,.forensic-reader-surface{width:min(100%,1100px);margin:36px auto 0;padding:0 26px}.shell-hero,.shell-library-heading{padding:clamp(24px,4vw,48px);margin-bottom:20px}.shell-hero h1,.shell-library-heading h1,.reader-shell-heading h1{font-size:clamp(2.2rem,5vw,4.6rem)}
+    .shell-stat-row,.shell-card-meta,.shell-card-actions,.completion-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.shell-stat-row span,.shell-card-meta span{border:1px solid var(--forensic-line);border-radius:999px;background:#f9faf7;padding:7px 11px;font-size:.82rem;color:var(--forensic-muted)}
+    .shell-card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}.shell-card{padding:22px}.shell-card h2{margin:10px 0;font-size:1.35rem;letter-spacing:-.025em}.shell-card p{color:var(--forensic-muted);line-height:1.55}.shell-card-topline{display:flex;justify-content:space-between;color:var(--forensic-green);font-weight:900;text-transform:uppercase;letter-spacing:.08em;font-size:.72rem}.quiz-card-shell.locked{background:#f6f7f4}
+    .forensic-reader-layout{display:grid;grid-template-columns:280px minmax(0,1fr);gap:20px;align-items:start}.reader-shell-heading{margin-bottom:18px}.chapter-sequence-list{position:sticky;top:96px;padding:14px;display:grid;gap:8px}.sequence-item{border:1px solid var(--forensic-line);border-radius:12px;background:white;padding:12px;text-align:left;display:grid;grid-template-columns:30px minmax(0,1fr);gap:8px;cursor:pointer}.sequence-item.active{border-color:var(--forensic-green);background:var(--forensic-green-soft)}.sequence-item span{width:28px;height:28px;display:grid;place-items:center;border-radius:9px;background:var(--forensic-green-soft);color:var(--forensic-green);font-weight:900}.sequence-item strong,.sequence-item small{grid-column:2}.sequence-item small{color:var(--forensic-muted)}
+    .forensic-reader-card,.mark-complete-panel{padding:clamp(20px,3vw,40px)}.forensic-reader-card .reader-text{max-width:78ch;font-size:1.05rem;line-height:1.78}.mark-complete-panel{margin-top:22px;display:flex;justify-content:space-between;gap:16px;align-items:center;background:#fffaf0;border-color:#e5d3b0}.mark-complete-panel h2{margin:0 0 6px;font-size:1.25rem}.mark-complete-panel p{margin:0;color:var(--forensic-muted)}.assessment-reader .forensic-reader-card{padding:clamp(16px,3vw,32px)}.locked-panel{padding:clamp(28px,5vw,56px)}
+    .forensics35-shell{grid-template-columns:248px minmax(0,1fr)}
+    .forensics35-shell.sidebar-compact{grid-template-columns:76px minmax(0,1fr)}
+    .mobile-shell-launcher{display:none;position:fixed;left:14px;top:14px;z-index:30;border:1px solid var(--forensic-line);border-radius:999px;background:white;color:var(--forensic-ink);padding:8px 12px;font-weight:900;box-shadow:0 10px 28px rgba(17,24,15,.12)}
+    .shell-brand-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+    .shell-brand-top h1{font-size:1.8rem}
+    .shell-sidebar-toggle{border:1px solid rgba(255,255,255,.16);border-radius:8px;background:rgba(255,255,255,.08);color:white;padding:8px 10px;font-size:.72rem;font-weight:900;cursor:pointer}
+    .side-nav-item{display:flex;align-items:center;gap:12px;text-transform:none;letter-spacing:0}
+    .shell-nav-icon{width:24px;height:24px;display:grid;place-items:center;border-radius:7px;border:1px solid rgba(255,255,255,.14);font-size:.7rem;font-weight:900;flex:0 0 auto}
+    .side-nav-item.active .shell-nav-icon{border-color:rgba(255,255,255,.45)}
+    .forensics35-shell.sidebar-compact .shell-sidebar{padding:14px 10px}
+    .forensics35-shell.sidebar-compact .shell-brand-top h1,.forensics35-shell.sidebar-compact .shell-brand-eyebrow,.forensics35-shell.sidebar-compact .shell-brand-card p,.forensics35-shell.sidebar-compact .shell-nav-label,.forensics35-shell.sidebar-compact .shell-side-progress,.forensics35-shell.sidebar-compact .shell-module-stack,.forensics35-shell.sidebar-compact .shell-resume-button{display:none}
+    .forensics35-shell.sidebar-compact .shell-brand-card{padding-bottom:10px}
+    .forensics35-shell.sidebar-compact .shell-brand-top{justify-content:center}
+    .forensics35-shell.sidebar-compact .side-nav-item{justify-content:center;padding:12px 8px}
+    .forensics35-shell.sidebar-compact .shell-sidebar-toggle{width:44px;height:44px;padding:0}
+    .sidebar-scrim{display:none}
+    @media (max-width:1023px){.forensics35-shell,.forensics35-shell.sidebar-compact{display:block}.mobile-shell-launcher{display:inline-flex}.forensics35-shell:not(.sidebar-compact) .mobile-shell-launcher{display:none}.shell-main{padding-top:50px}.shell-sidebar{position:fixed;inset:0 auto 0 0;width:min(86vw,300px);transform:translateX(-104%);transition:transform 180ms ease}.shell-sidebar.visible{transform:translateX(0)}.forensics35-shell.sidebar-compact .shell-sidebar{padding:18px}.forensics35-shell.sidebar-compact .shell-brand-top h1,.forensics35-shell.sidebar-compact .shell-brand-eyebrow,.forensics35-shell.sidebar-compact .shell-brand-card p,.forensics35-shell.sidebar-compact .shell-nav-label,.forensics35-shell.sidebar-compact .shell-side-progress,.forensics35-shell.sidebar-compact .shell-module-stack,.forensics35-shell.sidebar-compact .shell-resume-button{display:block}.forensics35-shell.sidebar-compact .side-nav-item{justify-content:flex-start;padding:12px 18px}.forensics35-shell.sidebar-compact .shell-brand-top{justify-content:space-between}.sidebar-scrim{display:block;position:fixed;inset:0;z-index:15;border:0;background:rgba(17,24,15,.45);opacity:0;pointer-events:none}.sidebar-scrim.visible{opacity:1;pointer-events:auto}.forensic-reader-layout{grid-template-columns:1fr}.chapter-sequence-list{position:static}.shell-topbar{align-items:flex-start}}
+    @media (max-width:640px){.shell-library,.forensic-reader-surface{padding:0 14px;margin-top:18px}.shell-topbar{padding:12px 14px;flex-direction:column}.mark-complete-panel{align-items:stretch;flex-direction:column}.completion-actions,.shell-card-actions{flex-direction:column;align-items:stretch}}
+    .forensic-app{min-height:100vh;background:#f3f4f3;color:#1a1c1a;font-family:"Open Sans","Rubik",sans-serif}
+    .forensic-app h1,.forensic-app h2,.forensic-app h3,.forensic-app h4{font-family:"Rubik","Open Sans",sans-serif;letter-spacing:0}
+    .forensic-layout{display:flex;min-height:100vh;flex-direction:column}
+    .forensic-sidebar{position:sticky;top:0;z-index:30;flex-shrink:0;overflow:visible;border-bottom:1px solid #303332;background:#3c3f3e;color:#fff}
+    .forensic-sidebar-top{position:sticky;top:0;z-index:30;border-bottom:1px solid #4b4e4d;background:#3c3f3e;padding:1rem}
+    .forensic-brand-row{display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem}
+    .forensic-brand{min-width:0}.forensic-brand h1{margin:0;color:#fff;font-size:1.5rem;font-weight:800;line-height:.95}.forensic-brand div{margin-top:.5rem;color:#c9ceca;font-size:.625rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase}
+    .forensic-menu-button{display:flex;width:2.5rem;height:2.5rem;flex-shrink:0;align-items:center;justify-content:center;flex-direction:column;gap:.375rem;border:1px solid #5a5e5d;border-radius:.5rem;background:#4b4e4d;color:#fff;cursor:pointer}.forensic-menu-button span{display:block;width:1rem;height:2px;border-radius:999px;background:currentColor}.forensic-desktop-menu-toggle{display:none}
+    .forensic-sidebar-progress{margin-top:1rem}.forensic-sidebar-progress>div,.forensic-progressbar{height:.375rem;overflow:hidden;border-radius:999px;background:#d9dad9}.forensic-sidebar-progress span,.forensic-progressbar span{display:block;height:100%;border-radius:999px;background:#59A844;transition:width .3s ease}
+    .forensic-sidebar-body{display:none;gap:1rem;border-bottom:1px solid #4b4e4d;padding:1rem .75rem}.forensic-sidebar-body.is-open{display:grid}
+    .forensic-search{position:relative}.forensic-search span{position:absolute;left:.75rem;top:50%;transform:translateY(-50%);color:#adb4af;pointer-events:none}.forensic-search input{width:100%;border:1px solid #5a5e5d;border-radius:.5rem;background:#2c2f2e;color:#fff;padding:.625rem .75rem .625rem 2.25rem;outline:none}.forensic-search input:focus{border-color:#59A844}
+    .forensic-shell-nav{display:grid;gap:.5rem}.forensic-nav-button{display:flex;align-items:center;gap:.75rem;border:1px solid transparent;border-radius:.375rem;background:transparent;color:#fff;padding:.75rem .9rem;text-align:left;cursor:pointer;transition:background .15s ease,border-color .15s ease}.forensic-nav-button:hover{border-color:#5a5e5d;background:#4b4e4d}.forensic-nav-button.active{border-color:#59A844;background:#59A844}.forensic-nav-button span{width:1rem;text-align:center;font-weight:800}.forensic-nav-button strong{font-size:.875rem}.forensic-nav-icon{display:inline-flex;width:1rem;height:1rem;align-items:center;justify-content:center;flex:0 0 auto}.forensic-nav-icon svg{display:block;width:1rem;height:1rem;stroke:currentColor}
+    .forensic-main{min-width:0;flex:1;overflow-x:hidden;overflow-y:auto;background:#f3f4f3;color:#1a1c1a}
+    .forensic-library,.forensic-reader-surface{margin:0 auto;max-width:72rem;padding:2rem 1rem}
+    .forensic-coursework-card{display:grid;gap:1.5rem;border:1px solid #d9dad9;border-radius:.5rem;background:#fff;padding:1.5rem;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+    .forensic-overline{color:#3f9f2e;font-size:.75rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+    .forensic-coursework-card h1{margin:.9rem 0 0;color:#3c3f3e;font-size:clamp(2.25rem,6vw,3.25rem);line-height:.95;font-weight:800}.forensic-coursework-card p,.forensic-library-section p,.forensic-module-card p{color:#606762;line-height:1.55}
+    .forensic-coursework-progress{min-width:240px;align-self:center}.forensic-progress-label,.forensic-progress-stats{display:flex;justify-content:space-between;gap:1rem;color:#606762;font-size:.875rem}.forensic-progress-label strong,.forensic-progress-stats strong{display:block;color:#3c3f3e;font-size:1.125rem;text-align:right}
+    .forensic-library-section{margin-top:2rem}.forensic-library-section h2{margin:0;color:#3c3f3e;font-size:2rem;font-weight:800}
+    .forensic-module-grid,.forensic-assessment-grid{display:grid;gap:1.25rem;margin-top:1.75rem}.forensic-module-card{border:1px solid #d9dad9;border-radius:.5rem;background:#fff;padding:1.25rem;box-shadow:0 2px 8px rgba(0,0,0,.08)}.forensic-module-card h3{margin:.75rem 0;color:#3c3f3e;font-size:1.25rem;font-weight:800;line-height:1.2}
+    .forensic-card-actions{display:flex;flex-wrap:wrap;gap:.625rem;margin-top:1rem}.forensic-primary-button,.forensic-secondary-button{border:1px solid #d9dad9;border-radius:.375rem;padding:.625rem 1rem;font-weight:800;cursor:pointer}.forensic-primary-button{border-color:#59A844;background:#59A844;color:#fff}.forensic-secondary-button{background:#fff;color:#606762}.forensic-primary-button:disabled,.forensic-secondary-button:disabled{cursor:not-allowed;opacity:.55}
+    .forensic-complete-pill,.forensic-lock-pill{display:inline-block;margin-top:.75rem;border-radius:999px;background:#eef6eb;color:#15803d;padding:.35rem .65rem;font-size:.75rem;font-weight:800}.forensic-lock-pill{display:block}
+    .forensic-reader-header{position:sticky;top:0;z-index:10;border-bottom:1px solid #d9dad9;background:#f3f4f3;padding-bottom:1rem}.forensic-reader-kicker{color:#414942;font-size:.875rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.forensic-reader-header h2,.forensic-assessment-reader h2{margin:.5rem 0;color:#1a1c1a;font-size:clamp(2.25rem,6vw,3.75rem);line-height:1;font-weight:800}
+    .forensic-badge{display:inline-flex;border-radius:999px;background:#eef6eb;color:#1e6d0d;padding:.35rem .65rem;font-size:.75rem;font-weight:800}.forensic-reader-progress,.forensic-progress-control,.forensic-sequence-card,.forensic-empty{border:1px solid #d9dad9;border-radius:.5rem;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+    .forensic-reader-progress{margin-top:1rem;max-width:56rem;padding:1rem}.forensic-reader-progress>div:first-child{display:flex;justify-content:space-between;gap:1rem;color:#414942;font-size:.75rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.forensic-reader-list{margin-top:1.5rem;display:grid;gap:1.25rem}.forensic-progress-control{padding:1.25rem}.forensic-progress-control h3{margin:.25rem 0;color:#1a1c1a;font-size:1.125rem}
+    .forensic-sequence-list{display:grid;gap:1.25rem}.forensic-sequence-card{overflow:hidden;padding:1rem}.forensic-sequence-card-head{display:flex;align-items:flex-start;gap:.75rem;margin-bottom:.75rem}.forensic-sequence-card-head>span{display:inline-flex;width:1.75rem;height:1.75rem;align-items:center;justify-content:center;border-radius:999px;background:#eef6eb;color:#3f9f2e;font-weight:800}.forensic-sequence-card-head h3{margin:.25rem 0 0;color:#1a1c1a;font-size:1.125rem}
+    .forensic-sequence-card-body{min-width:0;max-width:100%;overflow:hidden}.forensic-sequence-card-body :where(img,video,object,embed,canvas,svg){display:block;max-width:100%!important;height:auto!important}.forensic-sequence-card-body :where(iframe){display:block;width:100%;max-width:100%!important}.forensic-sequence-card-body :where(table){width:100%!important;max-width:100%;table-layout:fixed}
+    .forensic-sequence-actions{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem;margin-top:1rem;border-top:1px solid #d9dad9;padding-top:1rem}.forensic-sequence-actions p{margin:0;color:#606762;font-size:.75rem}.forensic-sequence-actions div{display:flex;flex-wrap:wrap;gap:.5rem}.forensic-empty{padding:1.25rem;color:#414942}.forensic-assessment-reader{max-width:72rem}.forensic-reader-surface .quiz-detail-surface{border-color:#d9dad9;background:#fff;color:#1a1c1a;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+    .forensic-sequence-card[data-progress-state="locked"] .forensic-sequence-card-head,.forensic-sequence-card[data-progress-state="locked"] .forensic-sequence-card-body{filter:blur(3px);pointer-events:none;user-select:none;opacity:.72}.forensic-sequence-card[data-progress-state="locked"]{position:relative}.forensic-sequence-card[data-progress-state="locked"] .forensic-sequence-actions{position:relative;z-index:2;background:#fff}
+    .forensic-reader-surface .reader-html,.forensic-reader-surface .reader-text,.forensic-reader-surface .reader-document,.forensic-reader-surface .assignment-handoff,.forensic-reader-surface .quiz-shell,.forensic-reader-surface [data-testid^="renderer-"],.forensic-reader-surface [data-testid="chapter-lesson-card"],.forensic-reader-surface [data-testid="quick-checkpoints"],.forensic-reader-surface [data-testid="mark-complete-panel"]{background:#fff!important;border-color:#d9dad9!important;color:#1a1c1a!important;box-shadow:0 2px 8px rgba(0,0,0,.08)!important}
+    .forensic-reader-surface h1,.forensic-reader-surface h2,.forensic-reader-surface h3,.forensic-reader-surface h4,.forensic-reader-surface strong,.forensic-reader-surface [class*="text-[#f3f4f6]"],.forensic-reader-surface [class*="text-[#f8fafc]"],.forensic-reader-surface [class*="text-[#dce6fb]"]{color:#1a1c1a!important}.forensic-reader-surface p,.forensic-reader-surface li,.forensic-reader-surface td,.forensic-reader-surface [class*="text-[#cbd5e1]"],.forensic-reader-surface [class*="text-[#a8b4ca]"],.forensic-reader-surface [class*="text-[#b8b2a8]"],.forensic-reader-surface [class*="text-[#c2cce0]"]{color:#414942!important}
+    .forensic-reader-surface [class*="bg-[#0f172a]"],.forensic-reader-surface [class*="bg-white/[0.02]"],.forensic-reader-surface [class*="bg-white/[0.04]"]{background:#f9f9f8!important}.forensic-reader-surface [class*="border-white"],.forensic-reader-surface [class*="border-[#2b3445]"]{border-color:#d9dad9!important}
+    .forensic-reader-surface .reader-html{background:#fff!important}.forensic-reader-surface .reader-html table{background:#fff!important}.forensic-reader-surface .reader-html th{background:#f3f4f3!important;color:#1a1c1a!important}.forensic-reader-surface .reader-html a,.forensic-reader-surface .document-link{color:#1e6d0d!important}
+    .forensic-app .quiz-detail-surface .quiz-eyebrow,.forensic-app .quiz-detail-surface .quiz-meta-block span,.forensic-app .quiz-detail-surface .quiz-question-number,.forensic-app .quiz-detail-surface .quiz-breakdown-name{color:#3f9f2e!important}.forensic-app .quiz-detail-surface .quiz-page-title,.forensic-app .quiz-detail-surface .quiz-evaluation-copy h5,.forensic-app .quiz-detail-surface .quiz-breakdown-title,.forensic-app .quiz-detail-surface .quiz-section-breakdown h5,.forensic-app .quiz-detail-surface .quiz-question,.forensic-app .quiz-detail-surface .quiz-breakdown-score,.forensic-app .quiz-detail-surface .quiz-section-score{color:#1a1c1a!important}
+    .forensic-app .quiz-detail-surface .quiz-meta-row,.forensic-app .quiz-detail-surface .quiz-evaluation-panel,.forensic-app .quiz-detail-surface .quiz-section-button,.forensic-app .quiz-detail-surface .quiz-breakdown-item{border-color:#d9dad9!important;background:#f9f9f8!important}.forensic-app .quiz-detail-surface .quiz-progress,.forensic-app .quiz-detail-surface .quiz-breakdown-progress{background:#d9dad9!important}.forensic-app .quiz-detail-surface .quiz-progress-bar,.forensic-app .quiz-detail-surface .quiz-breakdown-progress span{background:#59A844!important}.forensic-app .quiz-detail-surface .quiz-evaluation-score strong{color:#59A844!important}.forensic-app .quiz-detail-surface .quiz-evaluation-status{color:#ba1a1a!important}
+    .forensic-app .quiz-detail-surface .quiz-action{border-color:#d9dad9!important;background:#fff!important;color:#3c3f3e!important}.forensic-app .quiz-detail-surface .quiz-action.primary{border-color:#59A844!important;background:#59A844!important;color:#fff!important}.forensic-app .quiz-detail-surface .quiz-action:hover:not(:disabled){border-color:#c3c8c1!important;background:#eceeec!important;color:#1a1c1a!important}.forensic-app .quiz-detail-surface .quiz-action.primary:hover:not(:disabled){border-color:#4b8d39!important;background:#4b8d39!important;color:#fff!important}
+    .forensic-app .quiz-detail-surface .quiz-choice{border-color:#d9dad9!important;background:#fff!important;color:#414942!important}.forensic-app .quiz-detail-surface .quiz-choice:hover:not(:disabled){border-color:#c3c8c1!important;background:#f9f9f8!important;color:#1a1c1a!important}.forensic-app .quiz-detail-surface .quiz-choice.selected,.forensic-app .quiz-detail-surface .quiz-choice.correct{border-color:#59A844!important;background:#eef6eb!important;color:#1a1c1a!important}.forensic-app .quiz-detail-surface .quiz-choice.incorrect{border-color:#ba1a1a!important;background:#fff1ee!important;color:#1a1c1a!important}.forensic-app .quiz-detail-surface .quiz-choice.selected .quiz-choice-letter,.forensic-app .quiz-detail-surface .quiz-choice.correct .quiz-choice-letter{border-color:#59A844!important;background:#59A844!important;color:#fff!important}.forensic-app .quiz-detail-surface .quiz-choice.incorrect .quiz-choice-letter{border-color:#ba1a1a!important;background:#ba1a1a!important;color:#fff!important}
+    .forensic-app .assignment-handoff,.forensic-app .assignment-embed-frame-wrap,.forensic-app .assignment-workspace-shell,.forensic-app .assignment-workspace-panel,.forensic-app .interactive-assignment,.forensic-app .lab-shell,.forensic-app .lab-panel{border-color:#d9dad9!important;background:#fff!important;color:#1a1c1a!important;box-shadow:0 2px 8px rgba(0,0,0,.08)!important}.forensic-app .assignment-handoff *,.forensic-app .assignment-workspace-shell *,.forensic-app .interactive-assignment *,.forensic-app .lab-shell *{border-color:#d9dad9}
+    .forensic-app .assignment-handoff h1,.forensic-app .assignment-handoff h2,.forensic-app .assignment-handoff h3,.forensic-app .assignment-handoff h4,.forensic-app .assignment-handoff h5,.forensic-app .assignment-handoff strong,.forensic-app .assignment-workspace-shell h1,.forensic-app .assignment-workspace-shell h2,.forensic-app .assignment-workspace-shell h3,.forensic-app .assignment-workspace-shell h4,.forensic-app .interactive-assignment h1,.forensic-app .interactive-assignment h2,.forensic-app .interactive-assignment h3,.forensic-app .interactive-assignment h4,.forensic-app .lab-shell h1,.forensic-app .lab-shell h2,.forensic-app .lab-shell h3,.forensic-app .lab-shell h4{color:#1a1c1a!important}
+    .forensic-app .assignment-handoff p,.forensic-app .assignment-handoff li,.forensic-app .assignment-handoff span,.forensic-app .assignment-workspace-shell p,.forensic-app .assignment-workspace-shell li,.forensic-app .assignment-workspace-shell span,.forensic-app .interactive-assignment p,.forensic-app .interactive-assignment li,.forensic-app .interactive-assignment span,.forensic-app .lab-shell p,.forensic-app .lab-shell li,.forensic-app .lab-shell span{color:#414942!important}
+    .forensic-app .assignment-handoff-label,.forensic-app .assignment-handoff .reader-eyebrow,.forensic-app .assignment-workspace-shell [class*="label"],.forensic-app .interactive-assignment [class*="label"],.forensic-app .lab-shell [class*="label"]{color:#3f9f2e!important}.forensic-app .assignment-handoff-state,.forensic-app .assignment-handoff-note,.forensic-app .assignment-handoff-footnote,.forensic-app .assignment-workspace-shell [class*="note"],.forensic-app .assignment-workspace-shell [class*="callout"],.forensic-app .interactive-assignment [class*="note"],.forensic-app .interactive-assignment [class*="callout"],.forensic-app .lab-shell [class*="note"],.forensic-app .lab-shell [class*="callout"]{border-color:#d9dad9!important;background:#f9f9f8!important;color:#414942!important}
+    .forensic-app .assignment-link,.forensic-app .assignment-handoff a.assignment-link,.forensic-app .assignment-handoff button,.forensic-app .assignment-workspace-shell button,.forensic-app .interactive-assignment button,.forensic-app .lab-shell button{border-color:#59A844!important;background:#59A844!important;color:#fff!important;border-radius:.375rem!important}.forensic-app .assignment-link:hover,.forensic-app .assignment-handoff button:hover,.forensic-app .assignment-workspace-shell button:hover,.forensic-app .interactive-assignment button:hover,.forensic-app .lab-shell button:hover{border-color:#4b8d39!important;background:#4b8d39!important;color:#fff!important}.forensic-app .assignment-link.secondary,.forensic-app .assignment-handoff button.secondary,.forensic-app .assignment-workspace-shell button.secondary,.forensic-app .interactive-assignment button.secondary,.forensic-app .lab-shell button.secondary{border-color:#d9dad9!important;background:#fff!important;color:#3c3f3e!important}
+    .forensic-assignment-reader .forensic-assignment-body{margin-top:1rem;border:1px solid #d9dad9;border-radius:.5rem;background:#fff;padding:1rem;box-shadow:0 2px 8px rgba(0,0,0,.08)}.forensic-assignment-reader .forensic-assignment-body,.forensic-assignment-reader .forensic-assignment-body :where(div,p,span,li,label,small,td,th){color:#414942!important}.forensic-assignment-reader .forensic-assignment-body :where(h1,h2,h3,h4,h5,h6,strong,b){color:#1a1c1a!important}.forensic-assignment-reader .forensic-assignment-body :where(section,article,aside,header,footer,main,div){background-color:transparent!important}.forensic-assignment-reader .forensic-assignment-body :where(.assignment-handoff,.assignment-handoff-state,.assignment-handoff-note,.assignment-handoff-footnote,.assignment-embed-frame-wrap,.assignment-workspace-shell,.assignment-workspace-panel,.interactive-assignment,.lab-shell,.lab-panel){background:#fff!important;border-color:#d9dad9!important;color:#414942!important;box-shadow:none!important}.forensic-assignment-reader .forensic-assignment-body :where([style*="color"]){color:#414942!important}.forensic-assignment-reader .forensic-assignment-body :where(h1[style*="color"],h2[style*="color"],h3[style*="color"],h4[style*="color"],h5[style*="color"],strong[style*="color"],b[style*="color"]){color:#1a1c1a!important}.forensic-assignment-reader .forensic-assignment-body :where(button,a.assignment-link){border-color:#59A844!important;background:#59A844!important;color:#fff!important}
+    .forensic-app .forensic-assignment-reader .forensic-assignment-body .assignment-handoff .assignment-handoff-label{color:#3f9f2e!important}.forensic-app .forensic-assignment-reader .forensic-assignment-body .assignment-handoff .assignment-handoff-head h5{color:#1a1c1a!important}.forensic-app .forensic-assignment-reader .forensic-assignment-body .assignment-handoff .assignment-handoff-summary,.forensic-app .forensic-assignment-reader .forensic-assignment-body .assignment-handoff .assignment-handoff-footnote{color:#414942!important}.forensic-app .forensic-assignment-reader .forensic-assignment-body .assignment-handoff .assignment-handoff-note{background:#f9f9f8!important;border-color:#d9dad9!important;color:#414942!important}.forensic-app .forensic-assignment-reader .forensic-assignment-body .assignment-handoff .assignment-handoff-note strong{color:#1a1c1a!important}.forensic-app .forensic-assignment-reader .forensic-assignment-body .assignment-handoff .assignment-handoff-note span{color:#414942!important}.forensic-app .forensic-assignment-reader .forensic-assignment-body .assignment-handoff .assignment-handoff-state{background:#fff!important;border-color:#d9dad9!important;color:#3c3f3e!important}
+    @media (min-width:768px){.forensic-coursework-card{grid-template-columns:minmax(0,1fr) minmax(240px,.45fr)}.forensic-module-grid,.forensic-assessment-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media (min-width:1024px){.forensic-layout{height:100vh;overflow:hidden;flex-direction:row}.forensic-sidebar{z-index:0;display:flex;width:260px;height:100vh;flex-direction:column;overflow:hidden;border-right:1px solid #303332;border-bottom:0}.forensic-main{height:100vh;overflow-y:auto}.forensic-layout.menu-collapsed .forensic-sidebar{width:4rem}.forensic-mobile-menu-toggle{display:none}.forensic-desktop-menu-toggle{display:flex}.forensic-layout.menu-collapsed .forensic-brand,.forensic-layout.menu-collapsed .forensic-sidebar-progress,.forensic-layout.menu-collapsed .forensic-sidebar-body{display:none}.forensic-layout.menu-collapsed .forensic-brand-row{justify-content:center}.forensic-sidebar-body{display:grid}.forensic-library,.forensic-reader-surface{padding:2.5rem 2rem}}
+  `;
+  document.head.appendChild(style);
+}
+function render() {
+  renderForensics35Shell();
 }
 
 function injectStyles() {
@@ -2960,39 +3458,40 @@ function injectStyles() {
     .assignment-embed-shell {
       display: grid;
       gap: 1rem;
-      color: #f5ece3;
+      color: #414942;
     }
 
     .assignment-embed-shell .assignment-handoff-label {
-      color: #f0d8c4 !important;
+      color: #3f9f2e !important;
     }
 
     .assignment-embed-shell .assignment-handoff-head h5 {
-      color: #fff5ec !important;
+      color: #1a1c1a !important;
     }
 
     .assignment-embed-shell .assignment-handoff-state {
-      background: #3a2a21;
-      border-color: #8f6a56;
-      color: #fff0e2;
+      background: #fff;
+      border-color: #d9dad9;
+      color: #3c3f3e;
     }
 
     .assignment-embed-shell .assignment-handoff-summary,
     .assignment-embed-shell .assignment-handoff-footnote {
-      color: #f1dfd0 !important;
+      color: #414942 !important;
     }
 
     .assignment-embed-shell .assignment-handoff-note {
-      background: #2f231c;
-      border-color: #6e5242;
+      background: #f9f9f8;
+      border-color: #d9dad9;
+      color: #414942;
     }
 
     .assignment-embed-shell .assignment-handoff-note strong {
-      color: #fff0e2;
+      color: #1a1c1a;
     }
 
     .assignment-embed-shell .assignment-handoff-note span {
-      color: #f2dfd1;
+      color: #414942;
     }
 
     .assignment-handoff-head {

@@ -15,7 +15,7 @@ from datetime import datetime
 from io import BytesIO
 from pathlib import Path
 from typing import Any
-from urllib.parse import parse_qs, unquote, urlparse
+from urllib.parse import parse_qs, quote, unquote, urlparse
 from urllib.request import Request, urlopen
 from xml.etree import ElementTree as ET
 
@@ -473,6 +473,7 @@ class UnitOneDocxExporter:
         self.manifest_root = manifest_root
         self.resources = self._read_resources()
         self._copied_support: dict[str, Path] = {}
+        self._media_metadata_cache: dict[str, dict[str, Any] | None] = {}
         self.audit: dict[str, Any] = {
             "schemaVersion": 1,
             "generatedAt": datetime.now().isoformat(timespec="seconds"),
@@ -1289,7 +1290,10 @@ class UnitOneDocxExporter:
 
     def add_media_card(self, container: Any, node: HtmlElement, context: RenderContext) -> None:
         src = node.get("src") or node.get("data") or ""
-        title = node.get("title") or clean_text(node.text_content()) or "Embedded media"
+        raw_title = node.get("title") or clean_text(node.text_content()) or "Embedded media"
+        title = self.media_display_title(raw_title, src)
+        handoff_url = self.media_handoff_url(src)
+        link_url = handoff_url or src
         media_type = node.tag.lower()
         thumbnail_url = self.media_thumbnail_url(src)
         used_remote_thumbnail = False
@@ -1305,12 +1309,12 @@ class UnitOneDocxExporter:
         preview.alignment = WD_ALIGN_PARAGRAPH.CENTER
         preview_bytes = self.media_preview_image_bytes(title, src)
         used_remote_thumbnail = bool(thumbnail_url and self._last_media_preview_used_remote)
-        self.add_hyperlinked_picture(preview, preview_bytes, width=6.65, url=src)
-        paragraph = cell.add_paragraph(style="Course Note")
-        if src:
-            add_hyperlink(paragraph, title or src, src)
-        else:
-            paragraph.add_run(title)
+        self.add_hyperlinked_picture(preview, preview_bytes, width=6.65, url=link_url)
+        if handoff_url:
+            handoff = cell.add_paragraph(style="Course Note")
+            add_hyperlink(handoff, handoff_url, handoff_url)
+            self.audit.setdefault("mediaRawUrlLines", 0)
+            self.audit["mediaRawUrlLines"] += 1
         container.add_paragraph()
         self.audit.setdefault("mediaPreviewCards", 0)
         self.audit["mediaPreviewCards"] += 1
@@ -1321,6 +1325,8 @@ class UnitOneDocxExporter:
                 "type": media_type,
                 "title": title,
                 "src": src,
+                "linkUrl": link_url,
+                "handoffUrl": handoff_url,
                 "thumbnailUrl": thumbnail_url,
                 "usedRemoteThumbnail": used_remote_thumbnail,
             }
@@ -1372,7 +1378,63 @@ class UnitOneDocxExporter:
         video_id = self.youtube_video_id(src)
         if video_id:
             return f"https://img.youtube.com/vi/{video_id}/hqdefault.jpg"
-        return None
+        metadata = self.media_oembed_metadata(src)
+        thumbnail = metadata.get("thumbnail_url") if metadata else None
+        return clean_text(thumbnail) if isinstance(thumbnail, str) and thumbnail else None
+
+    def media_display_title(self, title: str, src: str) -> str:
+        generic_titles = {"embedded media", "youtube video player", "video player"}
+        if title and normalize_key(title) not in generic_titles:
+            return title
+        metadata = self.media_oembed_metadata(src)
+        metadata_title = metadata.get("title") if metadata else None
+        if isinstance(metadata_title, str) and clean_text(metadata_title):
+            return clean_text(metadata_title)
+        provider = self.media_provider_label(src)
+        if provider and provider != "Embedded media":
+            return f"{provider} video"
+        return "Embedded media"
+
+    def media_handoff_url(self, src: str) -> str:
+        if not src:
+            return ""
+        video_id = self.youtube_video_id(src)
+        if video_id:
+            return f"https://www.youtube.com/watch?v={video_id}"
+        parsed = urlparse(src)
+        if parsed.netloc.casefold() == "embed.ted.com":
+            return src.replace("//embed.ted.com/", "//www.ted.com/", 1)
+        return src
+
+    def media_oembed_metadata(self, src: str) -> dict[str, Any] | None:
+        parsed = urlparse(src)
+        host = parsed.netloc.casefold()
+        video_id = self.youtube_video_id(src)
+        endpoint = ""
+        if video_id:
+            watch_url = f"https://www.youtube.com/watch?v={video_id}"
+            endpoint = f"https://www.youtube.com/oembed?format=json&url={quote(watch_url, safe='')}"
+        elif "ted.com" in host:
+            endpoint = f"https://www.ted.com/services/v1/oembed.json?url={quote(src, safe='')}"
+        else:
+            return None
+        if not hasattr(self, "_media_metadata_cache"):
+            self._media_metadata_cache = {}
+        if src in self._media_metadata_cache:
+            return self._media_metadata_cache[src]
+        metadata = self.fetch_remote_json(endpoint)
+        self._media_metadata_cache[src] = metadata
+        return metadata
+
+    def fetch_remote_json(self, url: str) -> dict[str, Any] | None:
+        try:
+            request = Request(url, headers={"User-Agent": "Mozilla/5.0"})
+            with urlopen(request, timeout=8) as response:
+                data = response.read(512 * 1024)
+            parsed = json.loads(data.decode("utf-8"))
+            return parsed if isinstance(parsed, dict) else None
+        except Exception:
+            return None
 
     def fetch_remote_image_bytes(self, url: str) -> bytes | None:
         try:

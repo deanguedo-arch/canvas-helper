@@ -1,83 +1,65 @@
-# Handoff
+﻿# Handoff
 
-- Project: `social-studies-10-1-docx-export`
-- Task: Improve the Unit 1 Brightspace-to-DOCX pilot rules for full-screen sizing, clean image fallbacks, source-link cleanup, and embedded media cards.
-- Status: regenerated successfully to refreshed DOCX v3; ready for Word visual review
+1. Summary
 
-## Summary
+- Project: `english-lang-arts-10-2-docx-export`
+- Task: Fix the styled one-unit English Language Arts 10-2 DOCX pilot after user review showed missing source elements, weird spacing, and leaked `Template JavaScript` text.
+- Status: corrected styled practice DOCX generated successfully in `styled-practice-docx-v2`.
+- Correction made in this pass: image-only paragraphs are no longer treated as empty/noise, inline text spacing between tags is preserved better, `Template JavaScript` is stripped as LMS/template noise, and generated manifest headings are no longer inserted before HTML pages.
 
-- Added focused Python regression coverage for scalable DOCX conversion behavior.
-- Patched the Unit 1 builder so missing images are audited without visible `[Unresolved image: ...]` text in the learner-facing DOCX.
-- Patched image source links that wrap images so `Image source` no longer appears beside embedded images.
-- Added nearest-path ranking for ambiguous ZIP image basename matches, which should recover more Brightspace images when relative paths are wrong but the asset exists elsewhere in the package.
-- Reworked embedded media cards to use a generated embedded-style preview image plus a clickable title, without printing raw iframe/embed URLs into the document body.
-- Expanded the Word page/frame sizing assumptions toward a full-screen desktop Brightspace layout.
-- Added portable source ZIP resolution so the builder tries an environment override, the normal Windows Downloads folder, and then the legacy `/Users/deanguedo/Downloads` path.
-- Regenerated the Unit 1 DOCX from the restored Brightspace ZIP. Because the canonical DOCX was locked by another process, the builder wrote a refreshed sibling output.
-- Confirmed all 21 unresolved asset references are genuinely absent from the supplied ZIP by basename; none were recoverable through the stronger resolver.
-- Cleaned video/media cards so learner-facing DOCX text no longer says `Iframe preserved from Brightspace` or any similar preservation note.
-- Added YouTube thumbnail derivation and remote thumbnail embedding where possible. The generated DOCX used real remote thumbnails for 10 of 15 media cards; the others use the generated preview fallback.
-- Hyperlinked the media preview image itself and kept the media title as a clickable link.
-- Replaced rasterized blue lesson header bars with real Word table/cell headers so the text no longer collapses into tiny unreadable pixels on Windows.
-
-## Files Changed
+2. Files changed
 
 - `.stax/task.md`
 - `.stax/codex-report.md`
 - `docs/ops/ACTIVE_HANDOFF.md`
-- `projects/social-studies-10-1-docx-export/meta/build_unit1_docx_export.py`
-- `scripts/tests/social_studies_docx_export_test.py`
+- `projects/english-lang-arts-10-2-docx-export/meta/build_practice_docx_export.py`
+- `projects/english-lang-arts-10-2-docx-export/meta/practice-conversion-map.json`
+- `projects/english-lang-arts-10-2-docx-export/meta/practice-docx-export-audit.json`
+- `projects/english-lang-arts-10-2-docx-export/meta/practice-docx-export-audit.md`
+- `projects/english-lang-arts-10-2-docx-export/meta/practice-docx-export-verification.json`
+- `projects/english-lang-arts-10-2-docx-export/meta/practice-source-package.json`
+- `projects/english-lang-arts-10-2-docx-export/exports/styled-practice-docx-v2/01 - Unit 1 Introduction to Interpreting and Creating Texts - styled practice.docx`
 
-## Verification Run
+3. Verification run
 
-- `python -m unittest scripts.tests.social_studies_docx_export_test`
-  - Final result: passed, `Ran 9 tests`, `OK`
-- `python projects\social-studies-10-1-docx-export\meta\build_unit1_docx_export.py`
-  - Passed and wrote `projects/social-studies-10-1-docx-export/exports/docx/01 - 1. Globalization and Identity - refreshed 3.docx`
-- `npm run verify -- --project social-studies-10-1-docx-export`
-  - Passed with one metadata warning: `canonicalEntry` is not listed in `canonicalSources`.
-- DOCX XML/audit inspection
-  - Confirmed no `[Unresolved image: ...]`, no `Image source`, no raw `https://embed.ted.com`, no `Iframe preserved from Brightspace`, and no `preserved from Brightspace` body text in the refreshed DOCX.
-  - Confirmed header text is present as Word text, not a raster header image.
-  - Confirmed `mediaPreviewCards=15`, `remoteThumbnails=10`, `thumbnailUrls=10`, and `wordMediaFiles=21`.
+- `python projects\english-lang-arts-10-2-docx-export\meta\build_practice_docx_export.py`
+  - first rerun exit code: 1
+  - failure reason: Windows `PermissionError` because the previous `styled-practice-docx` file was open in Word.
+- Redirected output to `exports/styled-practice-docx-v2/`.
+- `python projects\english-lang-arts-10-2-docx-export\meta\build_practice_docx_export.py`
+  - second rerun exit code: 0
+  - wrote `projects/english-lang-arts-10-2-docx-export/exports/styled-practice-docx-v2/01 - Unit 1 Introduction to Interpreting and Creating Texts - styled practice.docx`
+- No repo test suite, project verifier, Word visual pass, or Google Docs import test was run.
 
-## Known Risks / Follow-Up
+4. Known risks / follow-up
 
-- The canonical output `projects/social-studies-10-1-docx-export/exports/docx/01 - 1. Globalization and Identity.docx` appears to be open/locked, so the refreshed output was written beside it.
-- The refreshed output is `projects/social-studies-10-1-docx-export/exports/docx/01 - 1. Globalization and Identity - refreshed 3.docx`.
-- The expected default source ZIP path is now `C:\Users\dean.guedo\Downloads\D2LCCExport_149634_25-26 _ S2 _ Social Studies 10-1 _ Per 1(A) _ Sec _202651213.ZIP`.
-- The builder also supports `SOCIAL10_SOURCE_ZIP` and `SOCIAL10_STYLE_REFERENCE_ZIP` environment variable overrides.
-- The style reference ZIP `/Users/deanguedo/Downloads/U1P02overviewsurvey.html.zip` was also not found locally.
-- The media preview cards are generated offline and clickable; they do not make Word run live iframe video.
+- This is still a class/template emulation approach, not a true browser-rendered HTML-to-DOCX engine.
+- Word visual review is required against the same screenshots.
+- Google Docs import and smart-chip behavior still needs manual testing.
+- If this remains too far from Brightspace, the next architectural step should be browser-rendered page capture/slicing, not more paragraph-level emulation.
 
-## Source-Of-Truth Location
+5. Source-of-truth location
 
-- Canonical builder: `projects/social-studies-10-1-docx-export/meta/build_unit1_docx_export.py`
-- Focused regression: `scripts/tests/social_studies_docx_export_test.py`
-- Current refreshed DOCX: `projects/social-studies-10-1-docx-export/exports/docx/01 - 1. Globalization and Identity - refreshed 3.docx`
+- Practice builder: `projects/english-lang-arts-10-2-docx-export/meta/build_practice_docx_export.py`
+- Corrected practice DOCX: `projects/english-lang-arts-10-2-docx-export/exports/styled-practice-docx-v2/01 - Unit 1 Introduction to Interpreting and Creating Texts - styled practice.docx`
+- Audit: `projects/english-lang-arts-10-2-docx-export/meta/practice-docx-export-audit.json`
 
-## Fragile Areas / What Might Drift
+6. Fragile areas / what might drift
 
-- Any future scale-up should move these DOCX rules into a shared converter instead of continuing to grow the Unit 1 pilot script.
-- Asset resolution should stay audit-backed so recovered images and unresolved assets remain visible to operators without muddying learner-facing Word output.
-- Video behavior should remain honest: generated preview plus link, not a fake claim that DOCX preserved live embedded playback.
+- The Brightspace template CSS is emulated by known class names and inline styles; new patterns may still need mappings.
+- User-visible fidelity depends on Word's table/image layout engine.
+- YouTube thumbnail/title lookup depends on live provider responses during generation.
+- Local MP4-heavy later English sections still need a separate rule.
 
-## Next Prompt Assumptions
+7. Next prompt assumptions
 
-- The real DOCX has been regenerated to a refreshed sibling file with real Word header bars, cleaned media-card wording, and linked preview images.
-- Next step is Word visual review against the screenshots, especially header bars, sizing, missing-image cleanup, and media-card appearance.
-- If the refreshed file is accepted, close the old canonical DOCX and rerun the builder so it can replace `01 - 1. Globalization and Identity.docx` directly.
+- The user should inspect the `styled-practice-docx-v2` output, not the earlier open `styled-practice-docx` output.
+- Compare `Introducing Yourself`, `Reading Strategies`, and `What Do Good Readers Do?` first.
 
-## Exact Next Command
+8. Exact next command
 
-Open `projects/social-studies-10-1-docx-export/exports/docx/01 - 1. Globalization and Identity - refreshed 3.docx`
+Open `projects/english-lang-arts-10-2-docx-export/exports/styled-practice-docx-v2/01 - Unit 1 Introduction to Interpreting and Creating Texts - styled practice.docx`
 
-## Exact Next File To Open
+9. Exact next file to open
 
-`projects/social-studies-10-1-docx-export/meta/build_unit1_docx_export.py`
-
-## Do Not Do Next / Warnings
-
-- Do not manually patch the generated DOCX as the durable fix.
-- Do not edit `projects/<slug>/raw/**`; this project currently has no raw source folder for the Brightspace ZIP.
-- Do not claim final visual acceptance until the refreshed DOCX is inspected in Word.
+`projects/english-lang-arts-10-2-docx-export/meta/build_practice_docx_export.py`

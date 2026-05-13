@@ -1,10 +1,10 @@
 # Social Studies 10-1 Unit 1 DOCX Export Audit
 
-- Generated: 2026-05-13T09:11:33
+- Generated: 2026-05-13T09:44:14
 - Source ZIP: `C:\Users\dean.guedo\Downloads\D2LCCExport_149634_25-26 _ S2 _ Social Studies 10-1 _ Per 1(A) _ Sec _202651213.ZIP`
 - Unit: `1. Globalization and Identity`
-- Output: `exports/docx/01 - 1. Globalization and Identity - refreshed 3.docx`
-- Output size: 8.33 MB
+- Output: `exports/docx/01 - 1. Globalization and Identity - refreshed.docx`
+- Output size: 11.11 MB
 - Included Brightspace items: 13
 - Embedded package images: 7
 - Preserved embedded media links: 15
@@ -31,20 +31,20 @@
 ## Embedded Media Preserved As Links
 
 - `1. Aspects of Globalization`: Globalization I - The Upside: Crash Course World History #41 -> https://www.youtube.com/embed/5SnR-e0S6Ic?feature=oembed&rel=0
-- `1. Aspects of Globalization`: YouTube video player -> https://www.youtube.com/embed/onD5UOP5z_c?si=Ed4OK6Ssz_cyMSiQ&rel=0
-- `2. Technology and Promotion of Culture`: Embedded media -> https://embed.ted.com/talks/kevin_kelly_how_technology_evolves
-- `2. Technology and Promotion of Culture`: Embedded media -> https://embed.ted.com/talks/ray_kurzweil_the_accelerating_power_of_technology
-- `2. Technology and Promotion of Culture`: Embedded media -> https://embed.ted.com/talks/jimmy_wales_the_birth_of_wikipedia
-- `2. Technology and Promotion of Culture`: Embedded media -> https://embed.ted.com/talks/richard_baraniuk_the_birth_of_the_open_source_learning_revolution
-- `3. Media, Technology and Cultural Exchange`: Embedded media -> https://embed.ted.com/talks/eli_pariser_beware_online_filter_bubbles
-- `5. Promoting Language & Culture`: YouTube video player -> https://www.youtube.com/embed/vfAp_G735r0?si=K0wPH8vKtzcdGaI6&rel=0
-- `5. Promoting Language & Culture`: Embedded media -> https://www.youtube-nocookie.com/embed/kMyjX4VFi1s?wmode=opaque
-- `5. Promoting Language & Culture`: Embedded media -> https://www.youtube-nocookie.com/embed/xXGFCOp3FVI?wmode=opaque
-- `5. Promoting Language & Culture`: Embedded media -> https://www.youtube-nocookie.com/embed/LX1M7QFmMoE?wmode=opaque
-- `6. Challenges of Globalization`: Embedded media -> https://www.youtube-nocookie.com/embed/Jm9E4YXvUlE?wmode=opaque
-- `6. Challenges of Globalization`: YouTube video player -> https://www.youtube.com/embed/6ZpnZ6s6NWM?si=3HlnzCf8dZAEVf-p&rel=0
-- `Summary`: Embedded media -> https://www.youtube-nocookie.com/embed/6am-D8gKcF0?wmode=opaque
-- `Summary`: Embedded media -> https://www.youtube-nocookie.com/embed/2ydX2FY0dvY?start=4&wmode=opaque
+- `1. Aspects of Globalization`: Made in Bangladesh - the fifth estate -> https://www.youtube.com/embed/onD5UOP5z_c?si=Ed4OK6Ssz_cyMSiQ&rel=0
+- `2. Technology and Promotion of Culture`: Kevin Kelly: How technology evolves -> https://embed.ted.com/talks/kevin_kelly_how_technology_evolves
+- `2. Technology and Promotion of Culture`: Ray Kurzweil: The accelerating power of technology -> https://embed.ted.com/talks/ray_kurzweil_the_accelerating_power_of_technology
+- `2. Technology and Promotion of Culture`: Jimmy Wales: The birth of Wikipedia -> https://embed.ted.com/talks/jimmy_wales_the_birth_of_wikipedia
+- `2. Technology and Promotion of Culture`: Richard Baraniuk: The birth of the open-source learning revolution -> https://embed.ted.com/talks/richard_baraniuk_the_birth_of_the_open_source_learning_revolution
+- `3. Media, Technology and Cultural Exchange`: Eli Pariser: Beware online "filter bubbles" -> https://embed.ted.com/talks/eli_pariser_beware_online_filter_bubbles
+- `5. Promoting Language & Culture`: Cultural Appropriation vs. Appreciation | CBC Radio | CBC -> https://www.youtube.com/embed/vfAp_G735r0?si=K0wPH8vKtzcdGaI6&rel=0
+- `5. Promoting Language & Culture`: Language and Identity -> https://www.youtube-nocookie.com/embed/kMyjX4VFi1s?wmode=opaque
+- `5. Promoting Language & Culture`: Graffiti Signs Logos -> https://www.youtube-nocookie.com/embed/xXGFCOp3FVI?wmode=opaque
+- `5. Promoting Language & Culture`: U1P091charter -> https://www.youtube-nocookie.com/embed/LX1M7QFmMoE?wmode=opaque
+- `6. Challenges of Globalization`: Globalization of the Western Suit -> https://www.youtube-nocookie.com/embed/Jm9E4YXvUlE?wmode=opaque
+- `6. Challenges of Globalization`: No Logo Documentary HD Channel Official -> https://www.youtube.com/embed/6ZpnZ6s6NWM?si=3HlnzCf8dZAEVf-p&rel=0
+- `Summary`: Impact on Identity -> https://www.youtube-nocookie.com/embed/6am-D8gKcF0?wmode=opaque
+- `Summary`: Globalization and culture -> https://www.youtube-nocookie.com/embed/2ydX2FY0dvY?start=4&wmode=opaque
 
 ## Unresolved / Fallback Items
 

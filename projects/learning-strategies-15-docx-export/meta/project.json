@@ -1,0 +1,22 @@
+{
+  "migrationState": "legacy",
+  "projectType": "conversion",
+  "preferredWorkflows": [
+    "conversion"
+  ],
+  "canonicalEntry": "meta/build_practice_docx_export.py",
+  "canonicalSources": [
+    "meta/build_practice_docx_export.py"
+  ],
+  "authoringStatus": "active",
+  "exportTargets": [
+    "docx"
+  ],
+  "generatedOutputs": [
+    "exports/practice-docx/01 - Module 1 Understanding Self as Learner - practice.docx",
+    "exports/practice-docx/02 - Module 2 Goal Setting and Organization - practice.docx",
+    "exports/practice-docx/03 - Module 3 The Learning Process and Assessment - practice.docx"
+  ],
+  "regenerateCommand": "python projects/learning-strategies-15-docx-export/meta/build_practice_docx_export.py",
+  "sourceOfTruthNotes": "Practice DOCX export reuses the Social Studies pilot renderer and targets the three content modules for Google Docs handoff testing."
+}
