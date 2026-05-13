@@ -120,13 +120,26 @@ test("general psychology exposes a persisted Next Step theme toggle", async () =
   const source = await readFile(mainPath, "utf8");
 
   assert.match(source, /COURSE_THEME_MODES/);
-  assert.match(source, /themeMode:\s*normalizeThemeMode\(parsed\.themeMode\)/);
+  assert.match(source, /const DEFAULT_THEME_MODE = "next-step";/);
+  assert.match(source, /THEME_PREFERENCE_VERSION/);
+  assert.match(source, /parsed\.themePreferenceVersion === THEME_PREFERENCE_VERSION\s*\?\s*normalizeThemeMode\(parsed\.themeMode\)\s*:\s*DEFAULT_THEME_MODE/);
+  assert.match(source, /state\.themePreferenceVersion = THEME_PREFERENCE_VERSION;/);
   assert.match(source, /data-theme-toggle="current"/);
   assert.match(source, /data-theme-toggle="next-step"/);
   assert.match(source, /aria-pressed="\$\{themeMode === "next-step"/);
   assert.match(source, /next-step-theme/);
   assert.match(source, /setThemeMode\(/);
   assert.match(source, /--ns-primary:\s*#1e6d0d/);
+});
+
+test("general psychology does not show forensic course labels", async () => {
+  const source = await readFile(mainPath, "utf8");
+
+  assert.doesNotMatch(source, /Digital forensics/i);
+  assert.doesNotMatch(source, /Training phase/i);
+  assert.doesNotMatch(source, /Case modules/i);
+  assert.match(source, /General Psychology \/ \$\{escapeHtml\(moduleCode\)\} \/ Course module/);
+  assert.match(source, /data-library-view="modules">Modules<\/button>/);
 });
 
 test("general psychology module 6 excludes the social influence written response placeholder", async () => {

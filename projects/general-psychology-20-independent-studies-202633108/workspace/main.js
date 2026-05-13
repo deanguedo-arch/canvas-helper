@@ -9,7 +9,8 @@ const LEGACY_STORAGE_KEY = `${courseShellData.storageKey}::assessment-layout::v5
 const root = document.getElementById("root");
 const assessmentDeliveryByActivityId = new Map(assessmentDelivery.map((entry) => [entry.activityId, entry]));
 const COURSE_THEME_MODES = ["current", "next-step"];
-const DEFAULT_THEME_MODE = COURSE_THEME_MODES[0];
+const DEFAULT_THEME_MODE = "next-step";
+const THEME_PREFERENCE_VERSION = 1;
 const AUTHORING_UNLOCK_ALL = false;
 
 if (!root) {
@@ -262,7 +263,11 @@ function loadState() {
       selectedModuleId: typeof parsed.selectedModuleId === "string" ? parsed.selectedModuleId : "",
       expandedModuleId: typeof parsed.expandedModuleId === "string" ? parsed.expandedModuleId : "",
       sidebarHidden: Boolean(parsed.sidebarHidden),
-      themeMode: normalizeThemeMode(parsed.themeMode),
+      themeMode:
+        parsed.themePreferenceVersion === THEME_PREFERENCE_VERSION
+          ? normalizeThemeMode(parsed.themeMode)
+          : DEFAULT_THEME_MODE,
+      themePreferenceVersion: THEME_PREFERENCE_VERSION,
       collapsedSectionByKey:
         parsed.collapsedSectionByKey && typeof parsed.collapsedSectionByKey === "object"
           ? parsed.collapsedSectionByKey
@@ -292,6 +297,7 @@ function loadState() {
       expandedModuleId: "",
       sidebarHidden: false,
       themeMode: DEFAULT_THEME_MODE,
+      themePreferenceVersion: THEME_PREFERENCE_VERSION,
       collapsedSectionByKey: {},
       selectedByBucket: {},
       moduleViewByModuleId: {},
@@ -357,6 +363,7 @@ function toggleSidebar() {
 
 function setThemeMode(themeMode) {
   state.themeMode = normalizeThemeMode(themeMode);
+  state.themePreferenceVersion = THEME_PREFERENCE_VERSION;
   saveState();
   render();
 }
@@ -2799,7 +2806,7 @@ function render() {
         </div>
 
         <nav class="side-nav-ghost" aria-label="Workspace sections">
-          <button type="button" class="side-nav-item ${state.sidebarLibraryView === "modules" ? "active" : ""}" data-library-view="modules">Case modules</button>
+          <button type="button" class="side-nav-item ${state.sidebarLibraryView === "modules" ? "active" : ""}" data-library-view="modules">Modules</button>
           <button type="button" class="side-nav-item ${state.sidebarLibraryView === "quizzes" ? "active" : ""}" data-library-view="quizzes">Quizzes</button>
         </nav>
 
@@ -2838,7 +2845,7 @@ function render() {
                 <span></span><span></span><span></span>
               </button>
               <div class="topbar-copy">
-                <div class="topbar-kicker">Training phase / ${escapeHtml(moduleCode)} / Digital forensics</div>
+                <div class="topbar-kicker">General Psychology / ${escapeHtml(moduleCode)} / Course module</div>
                 <h2>${escapeHtml(module?.title || "Course")}</h2>
               </div>
             </div>
