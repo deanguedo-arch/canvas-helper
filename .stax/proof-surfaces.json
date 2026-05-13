@@ -1,0 +1,231 @@
+{
+  "schemaVersion": "stax-proof-surface-pack-v1",
+  "repoPath": "/Users/deanguedo/Documents/GitHub/canvas-helper",
+  "repoName": "canvas-helper",
+  "status": "approved",
+  "generatedAt": "2026-05-13T13:06:09.090Z",
+  "confidence": "high",
+  "detectedStack": [
+    "html-css",
+    "node",
+    "playwright",
+    "vite"
+  ],
+  "proofSurfaces": [
+    {
+      "claimType": "build_ready",
+      "requiredEvidence": [
+        "local_command_output",
+        "target_repo_cwd"
+      ],
+      "commands": [
+        "npm run assessment-map",
+        "npm run blueprint",
+        "npm run build:course-shell",
+        "npm run build:studio",
+        "npm run lesson-packets",
+        "npm run library",
+        "npm run typecheck"
+      ],
+      "blockedEvidence": [],
+      "confidence": "medium",
+      "source": "package.json scripts",
+      "nextAction": "Run npm run assessment-map through stax:collect in the target repo."
+    },
+    {
+      "claimType": "tests_passed",
+      "requiredEvidence": [
+        "local_command_output",
+        "target_repo_cwd"
+      ],
+      "commands": [
+        "npm run smoke:pipeline",
+        "npm run test:apps-script",
+        "npm run test:assessments",
+        "npm run test:course-shell",
+        "npm run test:e2e",
+        "npm run test:e2e:harness",
+        "npm run test:e2e:project",
+        "npm run test:e2e:smoke",
+        "npm run test:exports",
+        "npm run test:forensics35-workspace",
+        "npm run test:google-hosted",
+        "npm run test:learning",
+        "npm run test:metadata-policy",
+        "npm run test:progress-report",
+        "npm run test:report-all-progress",
+        "npm run test:scorm",
+        "npm run typecheck",
+        "npm run validate:manifests",
+        "npm run verify"
+      ],
+      "blockedEvidence": [],
+      "confidence": "medium",
+      "source": "package.json scripts",
+      "nextAction": "Run npm run test:apps-script through stax:collect in the target repo."
+    },
+    {
+      "claimType": "visual_ready",
+      "requiredEvidence": [
+        "rendered_screenshot",
+        "visual_checklist"
+      ],
+      "commands": [
+        "npm run smoke:pipeline",
+        "npm run test:e2e",
+        "npm run test:e2e:harness",
+        "npm run test:e2e:project",
+        "npm run test:e2e:smoke"
+      ],
+      "blockedEvidence": [
+        "css_diff_only",
+        "source_diff_only"
+      ],
+      "confidence": "high",
+      "source": "workspace/config/script detection",
+      "nextAction": "Capture rendered visual proof and run npm run smoke:pipeline through stax:collect."
+    },
+    {
+      "claimType": "publish_sync_deploy_ready",
+      "requiredEvidence": [
+        "human_approval",
+        "non_mutating_preflight",
+        "target_validation"
+      ],
+      "commands": [
+        "npm run test:learning",
+        "npm run typecheck",
+        "npm run validate:manifests",
+        "npm run verify"
+      ],
+      "blockedEvidence": [
+        "docs_updated_only",
+        "script_exists_only"
+      ],
+      "confidence": "medium",
+      "source": "risky package script detection",
+      "nextAction": "Run npm run test:learning through stax:collect and record explicit target approval."
+    },
+    {
+      "claimType": "data_pipeline_ready",
+      "requiredEvidence": [
+        "schema_or_fixture_validation",
+        "quality_command_output"
+      ],
+      "commands": [
+        "npm run smoke:pipeline",
+        "npm run test:learning",
+        "npm run test:metadata-policy",
+        "npm run typecheck",
+        "npm run validate:manifests",
+        "npm run verify"
+      ],
+      "blockedEvidence": [
+        "file_exists_only",
+        "docs_updated_only"
+      ],
+      "confidence": "medium",
+      "source": "data script/path detection",
+      "nextAction": "Run npm run smoke:pipeline through stax:collect and cite the validation output."
+    },
+    {
+      "claimType": "gold_fixture_update",
+      "requiredEvidence": [
+        "source_truth_reference",
+        "separate_human_approval",
+        "validation_command_output"
+      ],
+      "commands": [],
+      "blockedEvidence": [
+        "seed_gold_only",
+        "fixture_update_only"
+      ],
+      "confidence": "high",
+      "source": "gold/fixture script or path detection",
+      "nextAction": "Do not treat gold or fixture updates as repair proof without source-truth validation and explicit approval."
+    },
+    {
+      "claimType": "repo_identity",
+      "requiredEvidence": [
+        "target_repo_cwd",
+        "matching_repo_path",
+        "matching_worktree_fingerprint"
+      ],
+      "commands": [],
+      "blockedEvidence": [
+        "wrong_repo_command_output"
+      ],
+      "confidence": "high",
+      "source": "generic STAX sidecar rule",
+      "nextAction": "Collect command evidence from the target repo root; wrong-repo output cannot verify this repo."
+    }
+  ],
+  "blockedActions": [
+    {
+      "action": "npm run deploy:google-hosted",
+      "requires": [
+        "explicit human approval",
+        "non-mutating preflight proof",
+        "target validation"
+      ]
+    },
+    {
+      "action": "npm run export:apps-script",
+      "requires": [
+        "explicit human approval",
+        "non-mutating preflight proof",
+        "target validation"
+      ]
+    },
+    {
+      "action": "npm run export:google-hosted",
+      "requires": [
+        "explicit human approval",
+        "non-mutating preflight proof",
+        "target validation"
+      ]
+    },
+    {
+      "action": "npm run sync:course-images",
+      "requires": [
+        "explicit human approval",
+        "non-mutating preflight proof",
+        "target validation"
+      ]
+    },
+    {
+      "action": "npm run test:apps-script",
+      "requires": [
+        "explicit human approval",
+        "non-mutating preflight proof",
+        "target validation"
+      ]
+    },
+    {
+      "action": "npm run test:exports",
+      "requires": [
+        "explicit human approval",
+        "non-mutating preflight proof",
+        "target validation"
+      ]
+    },
+    {
+      "action": "npm run test:google-hosted",
+      "requires": [
+        "explicit human approval",
+        "non-mutating preflight proof",
+        "target validation"
+      ]
+    },
+    {
+      "action": "npm run test:report-all-progress",
+      "requires": [
+        "explicit human approval",
+        "non-mutating preflight proof",
+        "target validation"
+      ]
+    }
+  ],
+  "warnings": [],
+  "approvedAt": "2026-05-13T17:13:25.922Z"
+}
