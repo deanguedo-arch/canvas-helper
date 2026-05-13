@@ -25,6 +25,7 @@ Use this workflow for D2L/Brightspace-derived projects where fidelity is primary
 - Improve visual hierarchy with stronger section structure and spacing.
 - Normalize path handling and resource lookup defensively when imports vary.
 - Keep export-safe file references and avoid coupling to local-only assumptions.
+- For Brightspace ZIP to editable Word output, use the Word-native HTML import standard in [`BRIGHTSPACE_ZIP_CONVERSION_TO_DOCX.md`](BRIGHTSPACE_ZIP_CONVERSION_TO_DOCX.md).
 
 ## Responsive and Interaction Defaults
 

@@ -1,65 +1,45 @@
-﻿# Handoff
+﻿# Active Handoff
 
-1. Summary
+## Summary
+Added Biology 20 to the shared Brightspace ZIP to DOCX upload-package generator and generated a clean organized Biology 20 package. The package follows the established structure: source ZIP, DOCX by unit, supporting files by unit, audits, and cleaned HTML used for Word import.
 
-- Project: `english-lang-arts-10-2-docx-export`
-- Task: Fix the styled one-unit English Language Arts 10-2 DOCX pilot after user review showed missing source elements, weird spacing, and leaked `Template JavaScript` text.
-- Status: corrected styled practice DOCX generated successfully in `styled-practice-docx-v2`.
-- Correction made in this pass: image-only paragraphs are no longer treated as empty/noise, inline text spacing between tags is preserved better, `Template JavaScript` is stripped as LMS/template noise, and generated manifest headings are no longer inserted before HTML pages.
-
-2. Files changed
-
+## Files changed
+- `scripts/brightspace_zip_to_docx_upload_package.py`
+- `projects/biology-20-docx-export/meta/build_word_native_course_docx.py`
+- `projects/biology-20-docx-export/meta/project.json`
+- `projects/biology-20-docx-export/exports/upload-package/`
 - `.stax/task.md`
 - `.stax/codex-report.md`
-- `docs/ops/ACTIVE_HANDOFF.md`
-- `projects/english-lang-arts-10-2-docx-export/meta/build_practice_docx_export.py`
-- `projects/english-lang-arts-10-2-docx-export/meta/practice-conversion-map.json`
-- `projects/english-lang-arts-10-2-docx-export/meta/practice-docx-export-audit.json`
-- `projects/english-lang-arts-10-2-docx-export/meta/practice-docx-export-audit.md`
-- `projects/english-lang-arts-10-2-docx-export/meta/practice-docx-export-verification.json`
-- `projects/english-lang-arts-10-2-docx-export/meta/practice-source-package.json`
-- `projects/english-lang-arts-10-2-docx-export/exports/styled-practice-docx-v2/01 - Unit 1 Introduction to Interpreting and Creating Texts - styled practice.docx`
 
-3. Verification run
+## Verification run
+- `python projects\biology-20-docx-export\meta\build_word_native_course_docx.py`
+- Exit code: 0
+- Biology output: 6 included units, 0 skipped top-level modules, 45 HTML sections, 0 images copied, 0 media references, 147 support files.
+- A first run failed on a long Windows support-file path; the shared generator was patched to shorten support folder/file names and the rerun succeeded.
 
-- `python projects\english-lang-arts-10-2-docx-export\meta\build_practice_docx_export.py`
-  - first rerun exit code: 1
-  - failure reason: Windows `PermissionError` because the previous `styled-practice-docx` file was open in Word.
-- Redirected output to `exports/styled-practice-docx-v2/`.
-- `python projects\english-lang-arts-10-2-docx-export\meta\build_practice_docx_export.py`
-  - second rerun exit code: 0
-  - wrote `projects/english-lang-arts-10-2-docx-export/exports/styled-practice-docx-v2/01 - Unit 1 Introduction to Interpreting and Creating Texts - styled practice.docx`
-- No repo test suite, project verifier, Word visual pass, or Google Docs import test was run.
+## Known risks / follow-up
+- No manual visual review was run.
+- No test suite was run; this was artifact generation.
+- Biology output reported 0 HTML images/media conversions and 147 support files, so review the audit to confirm that matches the source package behavior.
+- Long support-resource titles are shortened with hashes to stay Windows-safe.
 
-4. Known risks / follow-up
+## Source-of-truth location
+- Shared generator: `scripts/brightspace_zip_to_docx_upload_package.py`
+- Biology wrapper: `projects/biology-20-docx-export/meta/build_word_native_course_docx.py`
+- Biology package: `projects/biology-20-docx-export/exports/upload-package/`
+- Biology audit: `projects/biology-20-docx-export/exports/upload-package/03_AUDITS/course-docx-audit.json`
 
-- This is still a class/template emulation approach, not a true browser-rendered HTML-to-DOCX engine.
-- Word visual review is required against the same screenshots.
-- Google Docs import and smart-chip behavior still needs manual testing.
-- If this remains too far from Brightspace, the next architectural step should be browser-rendered page capture/slicing, not more paragraph-level emulation.
+## Fragile areas / what might drift
+- Word COM must be available on Windows.
+- Biology appears support-file heavy; copied PDFs/docs are linked from DOCX sections, not converted into editable Word body content.
+- If a future course has very long module/resource names, keep the shortened support-file naming rule.
 
-5. Source-of-truth location
+## Next prompt assumptions
+- User will inspect sampled Biology DOCX files and decide whether support-file-heavy modules need extra handling.
+- If accepted, the same course key pattern can be used for additional Brightspace ZIPs.
 
-- Practice builder: `projects/english-lang-arts-10-2-docx-export/meta/build_practice_docx_export.py`
-- Corrected practice DOCX: `projects/english-lang-arts-10-2-docx-export/exports/styled-practice-docx-v2/01 - Unit 1 Introduction to Interpreting and Creating Texts - styled practice.docx`
-- Audit: `projects/english-lang-arts-10-2-docx-export/meta/practice-docx-export-audit.json`
+## Exact next command
+`python projects\biology-20-docx-export\meta\build_word_native_course_docx.py`
 
-6. Fragile areas / what might drift
-
-- The Brightspace template CSS is emulated by known class names and inline styles; new patterns may still need mappings.
-- User-visible fidelity depends on Word's table/image layout engine.
-- YouTube thumbnail/title lookup depends on live provider responses during generation.
-- Local MP4-heavy later English sections still need a separate rule.
-
-7. Next prompt assumptions
-
-- The user should inspect the `styled-practice-docx-v2` output, not the earlier open `styled-practice-docx` output.
-- Compare `Introducing Yourself`, `Reading Strategies`, and `What Do Good Readers Do?` first.
-
-8. Exact next command
-
-Open `projects/english-lang-arts-10-2-docx-export/exports/styled-practice-docx-v2/01 - Unit 1 Introduction to Interpreting and Creating Texts - styled practice.docx`
-
-9. Exact next file to open
-
-`projects/english-lang-arts-10-2-docx-export/meta/build_practice_docx_export.py`
+## Exact next file to open
+`projects/biology-20-docx-export/exports/upload-package/00_README.md`

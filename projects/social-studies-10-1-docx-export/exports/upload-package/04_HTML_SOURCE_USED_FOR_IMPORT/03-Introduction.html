@@ -1,0 +1,600 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Social Studies 10-1 - Introduction</title>
+<style>
+/* Stylesheet by JM (www.iseeyou-designs.com) Modified*/
+
+.clearfix:after {
+    content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+
+.clearfix {display: inline-table;}
+
+/* Hides from IE-mac \*/
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+/* End hide from IE-mac */
+
+
+html{
+	padding:0px;
+	margin:0;
+}
+
+body{
+	background-color:#eee;
+	font-size:90%;
+	font-family:"Trebuchet MS",Georgia,arial,sans-serif;
+	color:#000;
+	text-align:center;
+	margin:0;
+	padding: 0px;
+}
+
+#border{
+	width:90%;
+	padding:0;
+	margin:0 auto;
+	border-color:#a7a7a7;
+	border-style:solid;
+	border-width:2px 2px;
+}
+
+#container {
+
+	text-align:left;
+	margin:0 0;
+	padding:15px;
+	background:#fff;
+	border-color:#727ea3;
+	border-style:solid;
+	border-width:0 1px;
+}
+
+#content {
+
+	padding:10px;
+
+	
+}
+
+#footer{
+    color:#ffffff;
+	text-align:center;
+	padding:10px;
+	font-size:0.8em;
+	letter-spacing:2px;
+	background-color:#6096BF;
+	
+}
+
+.img_right {
+	margin-left:10px;
+	padding-left:5px;
+	padding-bottom: 5px;
+	float: right;
+}
+
+.img_left {
+	margin-right:10px;
+    float: left;
+	padding-right: 5px;
+	padding-bottom: 5px;
+}
+
+/*------HEADER------*/
+
+#header {
+background:#6096BF;
+height:75px;
+padding:10px;
+}
+
+#header h1 {
+color:#fff;
+font-size:2.5em;
+font-weight:normal;
+letter-spacing:-1px;
+
+}
+
+/*------NAV----------*/
+#nav {
+width: 100%;
+
+}
+
+#nav ul {
+margin-left:0px;
+margin-top:5px;
+margin-bottom: 5px;
+
+}
+
+#nav li {
+	display: inline;
+	list-style: none;
+	background-image:url(icons/list_arrow2.gif);
+	background-repeat: no-repeat;
+	margin: 5px;
+	padding: 0 0 0 15px;
+	}
+
+#nav a {
+	color: #000000
+}
+
+
+
+p {
+	line-height:1.3em;
+	color:#333;
+}
+
+a {
+	text-decoration:none;
+	color: #0044ba;
+	border-bottom:1px solid #e2e1ee;
+}
+
+a:hover{
+	color:#39581f;
+	background-color:#FFF1C9;
+	border-bottom:1px solid #e2e1ee;
+}
+
+h1{
+	font-family:"Trebuchet MS",arial,sans-serif;
+	font-size:2.6em;
+	font-weight:normal;
+	padding:0 0 10px 0;
+	margin:20px 0px 5px 5px;
+	
+}
+
+h2{
+	font-family:"Lucida Grande","Lucida Sans Unicode",arial,sans-serif;
+	font-size:1.4em;
+	margin: 0 0 0 0;
+	color:#4b4665;
+	font-weight:bold;
+}
+
+h2 span{
+	background:#fff;
+	padding:5px 50px 10px 0;
+	margin: 5px;
+	line-height:2em;
+}
+
+h3{
+	color:#666;
+	font-family:"Lucida Grande","Lucida Sans Unicode",arial,sans-serif;
+	font-weight:normal;
+	font-size:1em;
+	font-weight:bold;
+	margin:0;
+}
+
+/*------HIGHLIGHT------*/
+
+#pnote {
+	background-color: #fff7e6;
+	background-repeat: no-repeat;
+   	background-position:top right;
+	padding: 5px;
+	margin: 20px 0px 20px 0px;
+	clear: both;
+	
+		
+}
+
+#media {
+	background-color: #f0e6ff;
+    background-image: url(icons/media.gif);
+	background-repeat: no-repeat;
+   	background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	clear: both;
+	
+		
+}
+
+#greenbox{
+	background-color: #faffe6;
+	background-image: url(icons/interneticon.gif);
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;	
+	clear: both;
+	
+	
+}
+
+#pdf{
+	background-color: #Fff7e6;
+	
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;	
+	clear: both;
+	
+	
+}
+
+#quiz{
+	background-color: #faffe6;
+	background-image: url(icons/quizicon.gif);
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;	
+	clear: both;
+    
+}
+
+#discussion{
+	background-color: #Fff7e6;
+	background-image: url(icons/discussicon.gif);
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;	
+	clear: both;
+}
+
+#portfolio {
+	background-color: #e2e1ee;
+	background-image: url(icons/portfolioicon.gif);
+    background-repeat: no-repeat;
+   	background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+    clear: both;
+	
+		
+}
+
+#assignmentdrop{
+	background-color: #FFF1C9;
+	background-image: url(icons/dropboxicon.gif);
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;	
+    clear: both;
+	
+	
+}
+
+#quiz{
+	background-color: #FFF1C9;
+	background-image: url(icons/quizicon1.gif);
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+    clear: both;
+	
+}
+
+#discussions{
+	background-color: #DFF1FF;
+    background-image: url(icons/discussicon.gif);
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	margin: 20px 0px 20px 0px;
+    clear: both;
+
+
+}
+
+#bonus{
+    background-color:#ebf5eb;
+	background-image: url(icons/bonusmarkicon.gif);
+    background-repeat: no-repeat;
+   	background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	clear: both;
+
+}
+
+#internet{
+    background-color:#ebf5eb;
+	background-image: url(icons/interneticon.gif);
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+    clear: both;
+
+
+}
+
+#email{
+    background-color:#ebf5eb;
+	background-image: url(icons/mailicon.gif);
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+    clear: both;
+
+
+}
+
+#tip{
+    background-color:#DFF1FF;
+	background-image: url(icons/tipicon.gif);
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+    clear: both;
+
+}
+
+
+#media{
+    background-color:#e2e1ee;
+	background-image: url(icons/media.gif);
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+    clear: both;
+	
+}
+
+#readingassignment{
+    background-color:#ebf5eb;
+	background-image: url(icons/readingassignment.gif);
+    background-repeat: no-repeat;
+   	background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	clear: both;
+
+}
+
+#vocabulary{
+    background-color:#ebf5eb;
+	background-image: url(icons/quizicon2.gif);
+    background-repeat: no-repeat;
+   	background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	clear: both;
+
+}
+
+#journal{
+	background-color: #EDE2EF;
+    background-image: url(icons/journal.gif);
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	margin: 20px 0px 20px 0px;
+	clear: both;
+
+}
+
+#skills{
+    background-color:#D6E1ED;
+	background-image: url(icons/tools.gif);
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	clear: both;
+}
+
+#multipleperspectives{
+    background-color:#e2e1ee;
+	background-image: url(icons/multipleperspect.png);
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	clear: both;
+}
+
+#trackyourprogress{
+    background-color:#e2e1ee;
+	background-image: url(icons/scheduleicon.gif);
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	clear: both;
+}
+
+#help{
+    background-color:#e2e1ee;
+	background-image: url(icons/help.jpg);
+    background-repeat: no-repeat;
+    background-position:top right;
+	padding-right: 128px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 20px 0px 20px 0px;
+	clear: both;
+}
+
+
+
+/*------FEATURE BOX------*/
+#feature {
+	border: 0.2em solid #cccccc; 
+	background-color: #ffffff; 
+	padding: 5px;
+	margin: 20px 0px 20px 0px;
+	}
+
+
+/*------BACK TO TOP------*/
+
+#top {
+	text-align:right;
+	font-size:0.6em;
+	letter-spacing:2px;
+	padding-top: 20px;
+}
+
+
+
+@page { size: 8.5in 11in; margin: 0.55in; }
+body { background: #ffffff; color: #333333; font-family: "Trebuchet MS", Calibri, Arial, sans-serif; font-size: 12pt; line-height: 1.42; }
+.docx-root { width: 7.35in; margin: 0 auto; }
+.docx-lesson { page-break-before: always; margin: 0 0 22pt 0; }
+.docx-lesson.first { page-break-before: auto; }
+.docx-group-heading { page-break-before: always; margin: 22pt 0 14pt; }
+.docx-group-heading h1 { color: #4b4665; font-size: 18pt; border-bottom: 1px solid #cccccc; padding-bottom: 8pt; }
+#border { border: 1px solid #a7a7a7; padding: 8px; margin: 0 0 16pt 0; }
+#container { width: 100%; margin: 0 auto; }
+#header { background: #6096bf; color: #ffffff; padding: 14px 18px; margin: 0 0 18px 0; }
+#header h1 { color: #ffffff; font-size: 18pt; font-weight: normal; margin: 0; line-height: 1.2; }
+#content h1, #content h2 { color: #4b4665; line-height: 1.25; }
+#content h2 { font-size: 17pt; margin: 12pt 0 10pt; }
+#content h3 { color: #666666; font-size: 12.5pt; margin: 11pt 0 6pt; }
+p { margin: 0 0 9pt 0; }
+ul, ol { margin-top: 4pt; margin-bottom: 9pt; }
+li { margin-bottom: 4pt; }
+img { max-width: 100%; height: auto; }
+img[align="left"] { margin: 0 12pt 8pt 0; }
+img[align="right"] { margin: 0 0 8pt 12pt; }
+#feature, .feature, #readingassignment, #internet, #email, #vocabulary, #bonus { background: #ebf5eb; padding: 10pt; margin: 12pt 0; }
+#media, #portfolio, #multipleperspectives, #trackyourprogress, #help { background: #e2e1ee; padding: 10pt; margin: 12pt 0; }
+#tools, #skills { background: #d6e1ed; padding: 10pt; margin: 12pt 0; }
+#assignmentdrop, #quiz { background: #fff1c9; padding: 10pt; margin: 12pt 0; }
+.docx-video-card { background: #ebf5eb; border: 1px solid #222222; padding: 9pt; margin: 12pt 0 16pt; max-width: 6.7in; box-sizing: border-box; }
+.docx-video-card a { display: block; }
+.docx-video-card p { margin: 7pt 0 0 0; }
+.docx-video-thumbnail { display: block; width: 6.45in; max-width: 100%; height: auto; }
+a { color: #0563c1; text-decoration: underline; }
+hr { border: none; border-top: 1px solid #cccccc; margin: 16pt 0; }
+
+</style>
+</head>
+<body>
+<main class="docx-root">
+<section class="docx-lesson first" data-source-href="сontent/i2a2a0258-bfad-44ac-9fdf-78ae9db4a206/Student Resources/Cartoon analysis/Political Cartoons.html"><div id="border">
+<div id="container" class="clearfix"><!-- HEADER -->
+<div id="header">
+<h1 align="center">Cartoon and Image Analysis</h1>
+</div>
+<!-- CONTENT -->
+<div id="content">
+<h2>Methods of Cartoon and Image Analysis</h2>
+<p align="center"><img src="assets/templatebeijing_olympics-e5528a91a9.jpg" alt="Beijing Olympics"></p>
+<p>In Social Studies you will be expected to interpret political cartoons and images. These will be  put in assignments and on exams, which will then require you to think about what they "are trying to say".</p>
+<p>Why do teachers do this?</p>
+<p>Let's face it…it's not that hard to memorize a few facts about a school subject. Basic recall (remembering things someone told you) is not a very advanced way of thinking. To get to higher levels of thinking, you have to take a piece of information and evaluate it. An excellent way to do that is to analyze and interpret an editorial cartoon or image.</p>
+<h3>How to Analyze Images</h3>
+<p>Open this <a href="ReadingImages.htm" target="_blank" rel="noopener"> How to Read a Picture</a> lesson for guidelines to help you analyze images, posters and photographs.</p>
+<p>Open this <a href="../02_SUPPORTING_FILES_BY_UNIT/Linked%20Resources/Guide%20to%20analyzing%20different%20kinds%20of%20sour-67c7c8c30d.pdf" target="new">Guide to analyzing different kinds of sources</a>.</p>
+<h2>Other Tools and Methods for Analyzing and Interpreting Sources</h2>
+<p>Use one of the resources or tools below to help you with image and cartoon analysis. Choose the platforms and methods that best suit your learning style:</p>
+<div id="media">
+<h3>PowerPoint<a href="../02_SUPPORTING_FILES_BY_UNIT/Linked%20Resources/Cartoon%20and%20Image%20Analysis-d9d66b3ba6.pptx" target="_blank" rel="noopener"></a></h3>
+<p>Download this slideshow: <a href="../02_SUPPORTING_FILES_BY_UNIT/Linked%20Resources/How%20to%20Interpret%20the%20Basic%20Elements%20of%20Pol-e489d6ad23.ppt" target="_self" rel="noopener">How to Interpret the Basic Elements of Political Cartoons</a></p>
+</div>
+<div id="readingassignment">
+<h3>Analysis Chart</h3>
+<p>Use this<a href="../02_SUPPORTING_FILES_BY_UNIT/Linked%20Resources/Political%20Cartoon%20Analysis%20table-7a93b56246.doc"> Political Cartoon Analysis table</a> to help you interpret cartoons.</p>
+<h3>Questions to Ask</h3>
+<p>This <a href="../02_SUPPORTING_FILES_BY_UNIT/Linked%20Resources/Cartoon%20Analysis%20questions.doc-c381f07f4e.doc" target="_blank" rel="noopener">Cartoon Analysis questions.doc</a> outlines the skills and questions to ask about political cartoons.</p>
+</div>
+<div id="internet">
+<h3>How-to Wiki</h3>
+<p>Click on this <a href="https://www.wikihow.com/Analyze-Political-Cartoons" target="_blank" rel="noopener"> link to the Wiki</a> and consider the different methods for analyzing a political cartoon.</p>
+<p> </p>
+</div>
+<div id="media">
+<h3>Video on Analyzing Images</h3>
+<p>View this short video, Explain the Image:</p>
+<div class="docx-video-card"><a href="https://www.youtube.com/watch?v=lz_Tqu1UUpI" data-docx-video-generated="1"><img src="assets/video-0c05e20ef556.png" alt="Cartoon and Image Analysis" class="docx-video-thumbnail" width="620" height="349" style="width:6.45in;height:auto;max-width:100%;"></a><p><a href="https://www.youtube.com/watch?v=lz_Tqu1UUpI" data-docx-video-generated="1">https://www.youtube.com/watch?v=lz_Tqu1UUpI</a></p></div>
+<p>Or click <a href="https://tc2.ca/explainTheImage.html" target="_blank" rel="noopener">this link </a>to see the video in a new window.</p>
+</div>
+<div id="help">
+<h3>Other resources:</h3>
+<h4>SWAP Method</h4>
+<p><span class="style1">S</span>ymbols:      Describe the <strong>symbols</strong> you <strong>see</strong> drawn<br><span class="style1">W</span>ords:        What do the <strong>words</strong> tell you?<br><span class="style1">A</span>ction:       What <strong>action</strong> is taking place?<br><span class="style1">P</span>oint:         What<strong> point</strong> is the cartoonist making?</p>
+<p>Paragraph:    Write a paragraph which analyzes the cartoon based on the SWAP observations above.</p>
+<p><strong>Understand</strong>:</p>
+<p>1. Go to the handout <a href="../02_SUPPORTING_FILES_BY_UNIT/Linked%20Resources/SWAP-5165e43136.doc" target="_self" rel="noopener">SWAP</a> and first, take a look at the cartoon.<br>2. Step by step go through the questions on the handout.</p>
+<p><strong>Practice:</strong></p>
+<p>Choose one of the following two cartoons, <a target="_blank" href="../02_SUPPORTING_FILES_BY_UNIT/Linked%20Resources/Homeschooling-7315aa6d72.gif" rel="noopener">Homeschooling</a> <strong>OR</strong> <a target="_blank" href="../02_SUPPORTING_FILES_BY_UNIT/Linked%20Resources/Vancouver%20Police,-7cf7674ec7.gif" rel="noopener">Vancouver Police,</a> and work through the SWAP process.</p>
+<p><strong>Find a political cartoon about ideologies:</strong></p>
+<ol>
+<li>Use this <a target="_blank" href="http://www.cagle.com/" rel="noopener">website</a> link to find a cartoon of your choice.</li>
+<li>Try <a href="../02_SUPPORTING_FILES_BY_UNIT/Linked%20Resources/one%20of%20these%20cartoons-cb85c1ca9d.doc" target="_self" rel="noopener">one of these cartoons</a>.</li>
+<li>Complete the  <a target="_self" href="../02_SUPPORTING_FILES_BY_UNIT/Linked%20Resources/Cartoon%20Analysis%20questions.doc-c381f07f4e.doc" rel="noopener">Political Cartoon handout</a>.</li>
+</ol>
+<h3><em><strong>Make your own cartoon</strong></em></h3>
+<ol>
+<li>Create your own political cartoon. You must portray an opinion about a current event or political issue.</li>
+</ol>
+<h3>Saving cartoons from the website mentioned above</h3>
+<p>When you find the cartoon you want to use, make sure you <strong>left click </strong>the thumbnail of the cartoon.  This will open a bigger version.  Then <strong>right-click</strong> this bigger image and select <strong>Save Image As</strong> from the list that appears on your screen after right clicking.  This will give you the good quality image rather than the tiny poor quality thumbnail image.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">©2020 CBe-learn - Calgary Board of Education</div></section>
+</main>
+</body>
+</html>
