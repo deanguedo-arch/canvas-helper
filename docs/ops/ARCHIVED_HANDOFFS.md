@@ -5354,3 +5354,92 @@ One question before I change it: do you want only the large top hero image reduc
 ## Known risks / follow-up
 - The single-HTML export is large because the MP4 is embedded as base64; Firebase Hosting serves the MP4 as a separate file.
 - Future video sections should keep tests around direct `video[src]` and `<source>` child handling.
+
+---
+
+# Archived Handoff: psychology and forensics hosted course refresh
+
+- Archived on: 2026-05-12
+- Project: psychology and forensics hosted course refresh
+- Prior status: complete
+
+## Summary
+- Restored General Psychology local guards for default authoring lock behavior and final project PDF placement.
+- Added the persisted `Current` / `Next Step` theme toggle to Experimental Psychology 30.
+- Re-exported and deployed the active hosted targets: General Psychology 20, Experimental Psychology 30, Forensic Studies 35, and Forensic Studies 25 option2.
+- Kept calm, AI, sports, and the old duplicate `forensics` slug out of deploy.
+
+## Source-of-truth location
+- General Psychology editable source: `projects/general-psychology-20-independent-studies-202633108/workspace/main.js`
+- Experimental Psychology editable source: `projects/experimental-psych-30-per-1-a-b-sec-s-202632352/workspace/main.js`
+- Forensic Studies 35 editable source: `projects/forensics35/workspace/`
+- Forensic Studies 25 option2 editable source: `projects/forensicstudiesoption2/workspace/`
+
+## Verification run
+- Focused workspace tests for Experimental Psychology, General Psychology, Forensic Studies 35, and Forensic Studies 25 option2.
+- `npm.cmd run typecheck`
+- `npm.cmd run build:studio`
+- `npm.cmd run validate:manifests`
+- Project E2E for General Psychology, Forensics 35, and Forensic Studies option2.
+- Google-hosted export and deploy commands for the four active hosted targets.
+
+## Known risks / follow-up
+- Experimental Psychology had no project E2E contract at the time of that handoff.
+- `forensics` and `forensicstudiesoption2` both map to the `forensics25` Firebase site; use `forensicstudiesoption2` unless explicitly reverting.
+
+---
+
+# Archived Handoff: social-studies-10-1 Unit 1 DOCX pilot
+
+- Archived on: 2026-05-12
+- Project: `social-studies-10-1-docx-export`
+- Prior status: ready for validation
+
+## Summary
+- Generated a Unit 1 DOCX pilot from the Social Studies 10-1 Brightspace ZIP while preserving the nested Brightspace unit structure.
+- Added an isolated Unit 1 exporter, audit files, generated DOCX output, support-file output, and Quick Look thumbnail proof.
+- Left the pilot ready for user validation in Word before expanding to other units.
+
+## Source-of-truth location
+- Canonical builder: `projects/social-studies-10-1-docx-export/meta/build_unit1_docx_export.py`
+- Audit: `projects/social-studies-10-1-docx-export/meta/unit-1-docx-export-audit.md`
+- Generated DOCX: `projects/social-studies-10-1-docx-export/exports/docx/01 - 1. Globalization and Identity.docx`
+
+## Verification run
+- Unit 1 DOCX exporter command completed.
+- DOCX structural inspection completed.
+- Quick Look first-page thumbnail generated.
+- Python compile and diff checks completed.
+- STAX observer preflight remained non-blocking but stale/provisional.
+
+## Known risks / follow-up
+- Full LibreOffice render QA could not run because `soffice` is unavailable on this machine.
+- Videos are preserved as links, not offline embedded video files.
+- Some source image/resource references were absent from the supplied ZIP.
+
+---
+
+# Archived Handoff: General Psychology 20 recovered default style
+
+- Archived on: 2026-05-12
+- Project: `general-psychology-20-independent-studies-202633108`
+- Prior status: complete
+
+## Summary
+- Recovered the General Psychology 20 preview so the restored `Next Step` style is the default visible state.
+- Added versioned theme preference migration coverage.
+- Removed copied forensic labels from the General Psychology shell.
+- Saved rendered browser proof at `.stax/visual-proofs/general-psychology-next-step-recovered.png`.
+
+## Source-of-truth location
+- Canonical entry: `projects/general-psychology-20-independent-studies-202633108/workspace/index.html`
+- Canonical behavior source: `projects/general-psychology-20-independent-studies-202633108/workspace/main.js`
+- Project metadata: `projects/general-psychology-20-independent-studies-202633108/meta/project.json`
+
+## Verification run
+- Focused workspace test for General Psychology default/migration behavior.
+- Browser preview proof for the recovered `Next Step` style.
+
+## Known risks / follow-up
+- Hosted/exported deployment was not refreshed in that pass.
+- The wider checkout had unrelated dirty files at the time of handoff.
