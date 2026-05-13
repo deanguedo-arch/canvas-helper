@@ -1,7 +1,59 @@
+import path from "node:path";
+import { readdir, stat } from "node:fs/promises";
+
 import { getStringFlag, parseArgs } from "./lib/cli.js";
 import { validateProjectManifestPolicy } from "./lib/project-manifest-policy.js";
 import { loadProjectManifest } from "./lib/projects.js";
 import { normalizeVerifyMode, verifyProjectBundle } from "./lib/verification.js";
+import type { ProjectManifest } from "./lib/types.js";
+
+async function generatedOutputExists(outputPath: string) {
+  const absolutePath = path.resolve(outputPath);
+
+  try {
+    const outputStat = await stat(absolutePath);
+    if (outputStat.isDirectory()) {
+      return (await readdir(absolutePath)).length > 0;
+    }
+
+    return outputStat.isFile();
+  } catch {
+    return false;
+  }
+}
+
+function hasDocxExportTarget(manifest: ProjectManifest) {
+  return manifest.exportTargets?.some((target) => target.target === "docx" && target.enabled !== false) === true;
+}
+
+async function verifyGeneratedOutputProject(manifest: ProjectManifest) {
+  const generatedOutputs = manifest.generatedOutputs ?? [];
+  if (generatedOutputs.length === 0) {
+    throw new Error("DOCX export project declares no generated outputs.");
+  }
+
+  const missingOutputs: string[] = [];
+  for (const outputPath of generatedOutputs) {
+    if (!(await generatedOutputExists(outputPath))) {
+      missingOutputs.push(outputPath);
+    }
+  }
+
+  console.log("Mode: generated-output");
+  console.log(`Entry: ${manifest.canonicalEntry ?? "(none)"}`);
+  console.log("");
+
+  if (missingOutputs.length > 0) {
+    console.log("Missing generated outputs (ERROR):");
+    for (const outputPath of missingOutputs) {
+      console.log(`- ${outputPath}`);
+    }
+    process.exitCode = 1;
+    return;
+  }
+
+  console.log("Missing generated outputs (ERROR): none");
+}
 
 function formatCourseShellResourceIssue(issue: {
   moduleTitle: string;
@@ -32,7 +84,8 @@ async function main() {
     throw new Error("Usage: npm run verify -- --project <slug> [--mode workspace|raw|brightspace]");
   }
 
-  const mode = normalizeVerifyMode(getStringFlag(parsedArgs, "mode"));
+  const modeFlag = getStringFlag(parsedArgs, "mode");
+  const mode = normalizeVerifyMode(modeFlag);
   const manifest = await loadProjectManifest(projectSlug);
   const manifestValidation = validateProjectManifestPolicy(manifest);
   if (manifestValidation.status === "invalid") {
@@ -53,6 +106,11 @@ async function main() {
       console.log(`- ${warning}`);
     }
     console.log("");
+  }
+
+  if (!modeFlag && hasDocxExportTarget(manifest)) {
+    await verifyGeneratedOutputProject(manifest);
+    return;
   }
 
   const result = await verifyProjectBundle(projectSlug, mode);

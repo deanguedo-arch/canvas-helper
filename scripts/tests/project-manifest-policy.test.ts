@@ -98,3 +98,21 @@ test("normalization preserves apps-script export targets", () => {
     { target: "apps-script", enabled: true, notes: "Google Sites package" }
   ]);
 });
+
+test("normalization preserves docx export targets", () => {
+  const normalized = normalizeProjectManifestPolicy(
+    createManifest({
+      exportTargets: [
+        {
+          target: "docx",
+          enabled: true,
+          notes: "Word document pilot export"
+        } as NonNullable<ProjectManifest["exportTargets"]>[number]
+      ]
+    })
+  );
+
+  assert.deepEqual(normalized.exportTargets, [
+    { target: "docx", enabled: true, notes: "Word document pilot export" }
+  ]);
+});
