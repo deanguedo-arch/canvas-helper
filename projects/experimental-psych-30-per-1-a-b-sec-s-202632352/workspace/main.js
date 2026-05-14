@@ -1,4 +1,4 @@
-import courseShellData from "./course-shell-data.js";
+﻿import courseShellData from "./course-shell-data.js";
 import assessmentDelivery from "./assessment-delivery.js";
 import * as pdfjsLib from "https://esm.sh/pdfjs-dist@4.10.38/legacy/build/pdf.mjs";
 
@@ -527,7 +527,32 @@ function getQuizDraft(activityId, questionCount) {
 function setQuizDraft(activityId, nextDraft) {
   state.quizDraftByActivityId[activityId] = nextDraft;
   saveState();
+  renderWithForensicsScrollRestored();
+}
+
+function renderWithForensicsScrollRestored() {
+  const scrollTarget = document.querySelector(".forensic-main");
+  const scrollTop = scrollTarget ? scrollTarget.scrollTop : (typeof window !== "undefined" ? window.scrollY : 0);
+
   render();
+
+  const restoreScroll = () => {
+    const nextScrollTarget = document.querySelector(".forensic-main");
+    if (nextScrollTarget) {
+      nextScrollTarget.scrollTop = scrollTop;
+      return;
+    }
+
+    if (typeof window !== "undefined" && typeof window.scrollTo === "function") {
+      window.scrollTo(0, scrollTop);
+    }
+  };
+
+  if (typeof window !== "undefined" && typeof window.requestAnimationFrame === "function") {
+    window.requestAnimationFrame(restoreScroll);
+  } else {
+    restoreScroll();
+  }
 }
 
 function updateQuizDraft(activityId, questionCount, updater) {
@@ -564,12 +589,12 @@ function renderTextContent(text) {
         return `<h4>${escapeHtml(merged)}</h4>`;
       }
 
-      const isBulletList = lines.length > 1 && lines.every((line) => /^[-*•]\s+/.test(line));
+      const isBulletList = lines.length > 1 && lines.every((line) => /^[-*â€¢]\s+/.test(line));
       const isNumberedList = lines.length > 1 && lines.every((line) => /^\d+\.\s+/.test(line));
       if (isBulletList || isNumberedList) {
         const tagName = isNumberedList ? "ol" : "ul";
         const items = lines
-          .map((line) => `<li>${escapeHtml(line.replace(/^(?:[-*•]|\d+\.)\s+/, ""))}</li>`)
+          .map((line) => `<li>${escapeHtml(line.replace(/^(?:[-*â€¢]|\d+\.)\s+/, ""))}</li>`)
           .join("");
         return `<${tagName}>${items}</${tagName}>`;
       }
@@ -1977,7 +2002,7 @@ function renderForensics35Sidebar(rows, activeNav, isMenuCollapsed, isMobileMenu
         </div>
       </div>
       <div class="forensic-sidebar-body ${isMobileMenuOpen ? "is-open" : ""}" data-testid="forensics35-fs25-sidebar-body">
-        ${state.courseShellView === "reader" ? `<div class="forensic-search"><span aria-hidden="true">⌕</span><input type="search" placeholder="Search chapter titles" data-testid="lesson-search" /></div>` : ""}
+        ${state.courseShellView === "reader" ? `<div class="forensic-search"><span aria-hidden="true">âŒ•</span><input type="search" placeholder="Search chapter titles" data-testid="lesson-search" /></div>` : ""}
         <nav class="forensic-shell-nav" aria-label="Primary navigation" data-testid="forensics35-fs25-shell-nav">
           <button type="button" class="${forensics35NavClass(activeNav === "home")}" data-shell-nav="home">${forensics35NavContent("home", "Home")}</button>
           <button type="button" class="${forensics35NavClass(activeNav === "chapters")}" data-shell-nav="chapters" data-library-view="modules">${forensics35NavContent("chapters", "Chapters")}</button>
@@ -2124,7 +2149,7 @@ function renderForensics35ChapterReader(row) {
         <h2 data-testid="lesson-title">${escapeHtml(formatForensics35ModuleTitle(row))}</h2>
         <div class="forensic-badge">Content</div>
         <div class="forensic-reader-progress">
-          <div><span>Course progress</span><strong>${row.completion.completedCount}/${row.completion.totalCount} · ${row.completion.percent}%</strong></div>
+          <div><span>Course progress</span><strong>${row.completion.completedCount}/${row.completion.totalCount} Â· ${row.completion.percent}%</strong></div>
           <div class="forensic-progressbar"><span style="width:${row.completion.percent}%"></span></div>
         </div>
       </div>
@@ -2180,7 +2205,7 @@ function renderForensics35AssessmentReader(row) {
   return `
     <section class="forensic-reader-surface forensic-assessment-reader">
       <button type="button" class="forensic-secondary-button" data-shell-nav="quizzes">Back to quizzes</button>
-      <div class="forensic-reader-kicker">Module ${row.index + 1} · Assessment</div>
+      <div class="forensic-reader-kicker">Module ${row.index + 1} Â· Assessment</div>
       <h2>${escapeHtml(selected?.title || "Assessment")}</h2>
       ${selected ? renderActivityBody(selected) : `<div class="forensic-empty">No assessment is available for this module.</div>`}
     </section>
@@ -2195,7 +2220,7 @@ function renderForensics35AssignmentReader(row) {
   return `
     <section class="forensic-reader-surface forensic-assessment-reader forensic-assignment-reader">
       <button type="button" class="forensic-secondary-button" data-shell-nav="${escapeHtml(SHELL_ASSIGNMENTS_VIEW)}">Back to assignments</button>
-      <div class="forensic-reader-kicker">Module ${row.index + 1} · Assignment</div>
+      <div class="forensic-reader-kicker">Module ${row.index + 1} Â· Assignment</div>
       <h2>${escapeHtml(selected?.title || "Assignment")}</h2>
       <div class="forensic-assignment-body">
         ${selected ? renderActivityBody(selected) : `<div class="forensic-empty">No standalone assignment is available for this module.</div>`}

@@ -1,45 +1,59 @@
-﻿# Active Handoff
+# Active Handoff
 
 ## Summary
-Added Biology 20 to the shared Brightspace ZIP to DOCX upload-package generator and generated a clean organized Biology 20 package. The package follows the established structure: source ZIP, DOCX by unit, supporting files by unit, audits, and cleaned HTML used for Word import.
+Generated clean organized Brightspace ZIP to DOCX upload packages for English 10-4, English 20-4, and English 30-4 using the shared Word-native Brightspace ZIP conversion method. Each package follows the established upload structure: source ZIP, DOCX by unit, supporting files by unit, audits, and cleaned HTML used for Word import.
 
 ## Files changed
 - `scripts/brightspace_zip_to_docx_upload_package.py`
-- `projects/biology-20-docx-export/meta/build_word_native_course_docx.py`
-- `projects/biology-20-docx-export/meta/project.json`
-- `projects/biology-20-docx-export/exports/upload-package/`
+- `projects/english-10-4-docx-export/meta/build_word_native_course_docx.py`
+- `projects/english-10-4-docx-export/meta/project.json`
+- `projects/english-10-4-docx-export/exports/upload-package/`
+- `projects/english-20-4-docx-export/meta/build_word_native_course_docx.py`
+- `projects/english-20-4-docx-export/meta/project.json`
+- `projects/english-20-4-docx-export/exports/upload-package/`
+- `projects/english-30-4-docx-export/meta/build_word_native_course_docx.py`
+- `projects/english-30-4-docx-export/meta/project.json`
+- `projects/english-30-4-docx-export/exports/upload-package/`
 - `.stax/task.md`
 - `.stax/codex-report.md`
 
 ## Verification run
-- `python projects\biology-20-docx-export\meta\build_word_native_course_docx.py`
+- `python projects\english-10-4-docx-export\meta\build_word_native_course_docx.py`
 - Exit code: 0
-- Biology output: 6 included units, 0 skipped top-level modules, 45 HTML sections, 0 images copied, 0 media references, 147 support files.
-- A first run failed on a long Windows support-file path; the shared generator was patched to shorten support folder/file names and the rerun succeeded.
+- English 10-4 output: 8 included units, 0 skipped top-level modules, 37 HTML sections rendered, 113 images copied, 15 media references, 15 support files.
+
+- `python projects\english-20-4-docx-export\meta\build_word_native_course_docx.py`
+- Exit code: 0
+- English 20-4 output: 7 included units, 0 skipped top-level modules, 37 HTML sections rendered, 78 images copied, 37 media references, 21 support files.
+
+- `python projects\english-30-4-docx-export\meta\build_word_native_course_docx.py`
+- Exit code: 0
+- English 30-4 output: 9 included units, 0 skipped top-level modules, 118 HTML sections rendered, 70 images copied, 41 media references, 35 support files.
 
 ## Known risks / follow-up
 - No manual visual review was run.
 - No test suite was run; this was artifact generation.
-- Biology output reported 0 HTML images/media conversions and 147 support files, so review the audit to confirm that matches the source package behavior.
-- Long support-resource titles are shortened with hashes to stay Windows-safe.
+- Word COM import can still interpret some Brightspace HTML/CSS differently than browser full-screen mode.
+- Video/media links are represented with clickable thumbnails plus raw URLs per the accepted Google Docs handoff standard.
 
 ## Source-of-truth location
 - Shared generator: `scripts/brightspace_zip_to_docx_upload_package.py`
-- Biology wrapper: `projects/biology-20-docx-export/meta/build_word_native_course_docx.py`
-- Biology package: `projects/biology-20-docx-export/exports/upload-package/`
-- Biology audit: `projects/biology-20-docx-export/exports/upload-package/03_AUDITS/course-docx-audit.json`
+- English 10-4 package: `projects/english-10-4-docx-export/exports/upload-package/`
+- English 20-4 package: `projects/english-20-4-docx-export/exports/upload-package/`
+- English 30-4 package: `projects/english-30-4-docx-export/exports/upload-package/`
 
 ## Fragile areas / what might drift
 - Word COM must be available on Windows.
-- Biology appears support-file heavy; copied PDFs/docs are linked from DOCX sections, not converted into editable Word body content.
-- If a future course has very long module/resource names, keep the shortened support-file naming rule.
+- Source ZIP filenames are currently encoded in the shared generator course configs.
+- If a future course has very long resource names, keep the shortened support-file naming rule.
+- STAX is in observer mode, so Reject verdicts are recorded but do not block.
 
 ## Next prompt assumptions
-- User will inspect sampled Biology DOCX files and decide whether support-file-heavy modules need extra handling.
-- If accepted, the same course key pattern can be used for additional Brightspace ZIPs.
+- User will inspect sampled DOCX files and decide whether any course needs targeted cleanup.
+- If accepted, this same course-key pattern can be used for more Brightspace ZIPs.
 
 ## Exact next command
-`python projects\biology-20-docx-export\meta\build_word_native_course_docx.py`
+`python projects\english-30-4-docx-export\meta\build_word_native_course_docx.py`
 
 ## Exact next file to open
-`projects/biology-20-docx-export/exports/upload-package/00_README.md`
+`projects/english-30-4-docx-export/exports/upload-package/00_README.md`

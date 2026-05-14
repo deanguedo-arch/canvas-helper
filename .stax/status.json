@@ -1,107 +1,148 @@
 {
   "schemaVersion": "stax-sidecar-status-v1",
-  "generatedAt": "2026-05-13T21:08:47.408Z",
+  "generatedAt": "2026-05-14T17:27:26.174Z",
   "repo": "canvas-helper",
   "repoPath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper",
   "branch": "main",
-  "commitSha": "f6f73f858526fbec148d4de92f5a977a7ce21459",
-  "task": "Commit and push the approved Brightspace DOCX conversion workflow, runbook, and safe generated upload-package outputs for Social 10-1, English 10-2, and Biology 20.",
+  "commitSha": "40dbeb0b55d5117c90554aad8ef7b4c25a0757aa",
+  "task": "Redeploy Forensics 25 Google-hosted site after approved image cleanup, with authoring unlock locked back to false.",
   "verdict": "Reject",
   "exitCode": 1,
-  "why": "Claim-to-proof: behavior claim is unsupported because behavior_test, command_evidence_after_diff.",
+  "why": "Claim-to-proof: implementation claim is unsupported because behavior_test, source_diff, command_evidence_after_diff.",
   "verified": [
-    "Working-tree diff detected with 373 changed file(s).",
+    "Working-tree diff detected with 19 changed file(s).",
     "Codex report contract includes Files changed, Commands run, What is verified, What is unverified, and Risks.",
     "Claim-to-proof: visual claim is fully supported.",
     "Claim-to-proof: protocol_compliance claim is fully supported.",
-    "Proof strength: Audit-grade (0.92) - Unsupported file_path claim: DOCX/readme/audit/html-source (File path was not present in the repo evidence pack.)."
+    "Fresh STAX sidecar heartbeat is present (6403ms old).",
+    "Fresh Codex turn capture is present for session 019e21a3-a6fe-77e1-8b7c-53f2b293db24 with 299 message(s)."
   ],
   "weak": [
     "Diff audit: provisional due to source_only_no_test_claim.",
     "Command evidence classifier: weak_human_pasted_proof for node -e const fs=require('fs'); const pkg=JSON.parse(fs.readFileSync('package.json','utf8')); console.log(process.cwd()); console.log(pkg.name);.",
-    "Command evidence cmd_2026-05-13T19_04_22_483Z_6b674dde27da after-worktree fingerprint is stale for the current auditable worktree.",
-    "Command evidence cmd_2026-05-13T18_47_48_924Z_c489fb61322c after-worktree fingerprint is stale for the current auditable worktree.",
-    "STAX sidecar heartbeat is stale.",
-    "Codex turn capture is stale."
+    "Command evidence cmd_2026-05-14T15_57_59_663Z_6b674dde27da after-worktree fingerprint is stale for the current auditable worktree.",
+    "Command evidence cmd_2026-05-13T18_47_48_924Z_c489fb61322c commit f6f73f858526fbec148d4de92f5a977a7ce21459 does not match 40dbeb0b55d5117c90554aad8ef7b4c25a0757aa.",
+    "Command evidence commit f6f73f858526fbec148d4de92f5a977a7ce21459 differs from current head 40dbeb0b55d5117c90554aad8ef7b4c25a0757aa.",
+    "Proof strength: Provisional (0.69) - A local STAX command label is only strong proof after provenance verification.",
+    "Proof-strength cap applied: unverified_local_command_provenance - A local STAX command label is only strong proof after provenance verification."
   ],
   "unverified": [
+    "Claim-to-proof: implementation claim is unsupported because behavior_test, source_diff, command_evidence_after_diff.",
     "Claim-to-proof: behavior claim is unsupported because behavior_test, command_evidence_after_diff.",
+    "Claim-to-proof: release_deploy claim is unsupported because target_environment_proof, rollback_plan, build_proof.",
     "Command evidence provenance is not verified for node -e const fs=require('fs'); const pkg=JSON.parse(fs.readFileSync('package.json','utf8')); console.log(process.cwd()); console.log(pkg.name);: wrong_worktree.",
     "Command evidence freshness failed for node -e const fs=require('fs'); const pkg=JSON.parse(fs.readFileSync('package.json','utf8')); console.log(process.cwd()); console.log(pkg.name);: wrong_worktree.",
-    "Command evidence provenance is not verified for git status --short --branch: wrong_worktree.",
-    "Command evidence freshness failed for git status --short --branch: wrong_worktree.",
-    "Current Codex turn capture does not contain the current STAX acknowledgement.",
-    "Codex claimed STAX protocol compliance without proving the current STAX acknowledgement."
+    "Command evidence provenance is not verified for git status --short --branch: wrong_commit.",
+    "Command evidence freshness failed for git status --short --branch: wrong_commit.",
+    "STAX acknowledgement is stale or does not match the current turn contract.",
+    "STAX acknowledgement turnId does not match the current contract.",
+    "STAX acknowledgement statusHash does not match the current contract.",
+    "STAX acknowledgement nextPromptHash does not match the current contract.",
+    "Current Codex turn capture does not contain the current STAX acknowledgement."
   ],
   "risk": [
     "Command evidence risk: human-pasted output is not local STAX command evidence.",
+    "Unsupported hard claim: implementation requires source_diff, behavior_test, command_evidence_after_diff.",
     "Unsupported hard claim: behavior requires behavior_test, command_evidence_after_diff.",
+    "Unsupported hard claim: release_deploy requires build_proof, command_evidence_after_diff, target_environment_proof, rollback_plan.",
     "Untrusted command evidence cannot prove Codex claims: wrong_worktree.",
+    "Untrusted command evidence cannot prove Codex claims: wrong_commit.",
+    "Stale command evidence must be refreshed for the current head.",
     "Protocol failure: Codex did not prove it followed the current STAX sidecar contract."
   ],
   "oneNextAction": "Approved proof surface for visual_ready: Capture rendered visual proof and run npm run smoke:pipeline through stax:collect. Suggested command: npm run smoke:pipeline.",
-  "codexPrompt": "STAX Sidecar rejected or held this task because proof is incomplete.\n\nDo exactly one cleanup pass:\nApproved proof surface for visual_ready: Capture rendered visual proof and run npm run smoke:pipeline through stax:collect. Suggested command: npm run smoke:pipeline.\n\nAddress these proof gaps:\n- Claim-to-proof: behavior claim is unsupported because behavior_test, command_evidence_after_diff.\n- Command evidence provenance is not verified for node -e const fs=require('fs'); const pkg=JSON.parse(fs.readFileSync('package.json','utf8')); console.log(process.cwd()); console.log(pkg.name);: wrong_worktree.\n- Command evidence freshness failed for node -e const fs=require('fs'); const pkg=JSON.parse(fs.readFileSync('package.json','utf8')); console.log(process.cwd()); console.log(pkg.name);: wrong_worktree.\n- Command evidence provenance is not verified for git status --short --branch: wrong_worktree.\n- Command evidence freshness failed for git status --short --branch: wrong_worktree.\n\nDo not broaden scope. Do not claim tests passed without local command evidence. Update .stax/codex-report.md, then stop.\nRisk to avoid: Command evidence risk: human-pasted output is not local STAX command evidence.",
+  "codexPrompt": "STAX Sidecar rejected or held this task because proof is incomplete.\n\nDo exactly one cleanup pass:\nApproved proof surface for visual_ready: Capture rendered visual proof and run npm run smoke:pipeline through stax:collect. Suggested command: npm run smoke:pipeline.\n\nAddress these proof gaps:\n- Claim-to-proof: implementation claim is unsupported because behavior_test, source_diff, command_evidence_after_diff.\n- Claim-to-proof: behavior claim is unsupported because behavior_test, command_evidence_after_diff.\n- Claim-to-proof: release_deploy claim is unsupported because target_environment_proof, rollback_plan, build_proof.\n- Command evidence provenance is not verified for node -e const fs=require('fs'); const pkg=JSON.parse(fs.readFileSync('package.json','utf8')); console.log(process.cwd()); console.log(pkg.name);: wrong_worktree.\n- Command evidence freshness failed for node -e const fs=require('fs'); const pkg=JSON.parse(fs.readFileSync('package.json','utf8')); console.log(process.cwd()); console.log(pkg.name);: wrong_worktree.\n\nDo not broaden scope. Do not claim tests passed without local command evidence. Update .stax/codex-report.md, then stop.\nRisk to avoid: Command evidence risk: human-pasted output is not local STAX command evidence.",
   "proofStrength": {
     "schemaVersion": "proof-strength-v1",
-    "claimType": "visual_behavior_verified",
-    "claimText": "Commit and push the approved Brightspace DOCX conversion workflow, runbook, and safe generated upload-package outputs for Social 10-1, English 10-2, and Biology 20.\n\n# Canvas Helper STAX report\n\nSTAX acknowledgement: STAX_ACK turn_2026-05-13T19-59-38-325Z_3847 b249d354 7649859e\n\nObjective: Commit and push the approved Brightspace DOCX conversion workflow, runbook, and safe generated upload-package outputs for Social 10-1, English 10-2, and Biology 20.\n\nFiles changed:\n- scripts/brightspace_zip_to_docx_upload_package.py\n- docs/workflows/BRIGHTSPACE_ZIP_CONVERSION_TO_DOCX.md\n- docs/workflows/conversion.md\n- projects/social-studies-10-1-docx-export/meta/build_word_native_course_docx.py\n- projects/english-lang-arts-10-2-docx-export/meta/build_word_native_course_docx.py\n- projects/biology-20-docx-export/meta/build_word_native_course_docx.py\n- projects/biology-20-docx-export/meta/project.json\n- safe generated DOCX/readme/audit/html-source upload-package files under Social 10-1, English 10-2, and Biology 20\n- cleanup of old prototype/practice conversion scripts and obsolete generated artifacts\n- .stax/task.md and .stax/codex-report.md\n\nTests added: None.\n\nCommands run:\n- Read .stax/turn-contract.json, .stax/status.json, .stax/next-codex-prompt.md, docs/ops/FAST_PATHS.md, and docs/ops/ACTIVE_HANDOFF.md with PowerShell; exit 0.\n- Read GitHub publish skill instructions; exit 0.\n- Searched memory registry for relevant Brightspace/canvas-helper publish context; exit 0.\n- git status --short --branch; exit 0.\n- git diff --cached --stat --; exit 0.\n- git diff --cached file-size guard for files over 100MB; exit 0.\n- git log --oneline --decorate --max-count=6 --all; exit 0.\n\nCommand output summary with exit codes:\n- Branch is main...origin/main and was ahead by 3 commits before this commit.\n- Staged set contains 380 files.\n- Staged size guard reported no files over 100MB.\n- No test command was run because the user requested commit/push and Codex operating rules say not to run tests unless explicitly asked.\n\nWhat is verified:\n- Current STAX contract was read and acknowledged.\n- Current staged set is below GitHub's single-file 100MB limit.\n- Safe generated package pieces are staged: DOCX by unit, README, audits, and HTML source used for Word import.\n\nWhat is weak/provisional:\n- STAX status remains proof-strict and may reject visual/implementation claims without visual proof or behavior tests.\n- No new visual proof was captured in this commit/push pass.\n- Existing ahead commits are included in the upcoming push because the user approved pushing the accumulated local work.\n\nWhat is unverified:\n- Full visual fidelity of every generated DOCX after opening in Word.\n- Google Docs import behavior for every generated DOCX.\n- Runtime behavior beyond previously generated artifact output.\n\nRisks:\n- Source ZIPs and large supporting media are intentionally left local/ignored to avoid GitHub size/quota problems.\n- Word COM/HTML import may still vary on machines without Microsoft Word installed.\n- STAX observer preflight may report Reject because stronger proof was not requested for this publish step.\n\nOne next action:\n- Run STAX observer preflight, stage its report updates, commit, and push origin main.",
-    "rawScore": 0.92,
-    "finalScore": 0.92,
-    "label": "Audit-grade",
-    "capApplied": [],
+    "claimType": "release_ready",
+    "claimText": "Redeploy Forensics 25 Google-hosted site after approved image cleanup, with authoring unlock locked back to false.\n\n# Canvas Helper STAX report\n\nSTAX acknowledgement: STAX_ACK turn_2026-05-14T17-04-56-808Z_5017 c9d179cc c43b6434\n\nObjective: Redeploy Forensics 25 after approved image cleanup, while locking temporary authoring unlock back to `false` before publishing.\n\nFiles changed:\n- .stax/task.md\n- .stax/codex-report.md\n- projects/forensicstudiesoption2/workspace/main.js\n- projects/forensicstudiesoption2/exports/google-hosted/main.js\n- projects/forensicstudiesoption2/exports/google-hosted/ regenerated by export command\n\nTests added: None.\n\nCommands run:\n- Read `.stax/turn-contract.json`, `.stax/status.json`, and `.stax/next-codex-prompt.md`; exit 0.\n- Inspected package scripts for `export:google-hosted` and `deploy:google-hosted`; exit 0.\n- Inspected `AUTHORING_UNLOCK_ALL` in workspace/export `main.js`; exit 0.\n- Replaced `const AUTHORING_UNLOCK_ALL = true;` with `const AUTHORING_UNLOCK_ALL = false;` in workspace/export `main.js`; exit 0.\n- `npm.cmd run export:google-hosted -- --project forensicstudiesoption2 --site forensics25`; exit 0.\n- `npm.cmd run deploy:google-hosted -- --project forensicstudiesoption2 --site forensics25`; exit 0.\n- Live fetch `https://forensics25.web.app/main.js?codexDeployCheck=20260514T1718` and check `AUTHORING_UNLOCK_ALL`; exit 0.\n- Live fetch `https://forensics25.web.app/content/chapter-6/index.html?codexDeployCheck=20260514T1718` and check Robert Hanssen image path; exit 0.\n\nCommand output summary with exit codes:\n- Export exit 0: exported `forensicstudiesoption2` Google Hosted bundle to `projects/forensicstudiesoption2/exports/google-hosted`, 387 files, 10 tracked storage keys.\n- Deploy exit 0: Firebase hosting site `forensics25` uploaded/finalized/released version `projects/217802069551/sites/forensics25/versions/c558e35090c8ebff`; release completed; Hosting URL `https://forensics25.web.app`.\n- Live `main.js` check exit 0: `LIVE_MAIN_JS_LOCKED_FALSE`.\n- Live chapter 6 check exit 0: `LIVE_CHAPTER6_HAS_LOCAL_ROBERT_HANSSEN` and `LIVE_CHAPTER6_REMOTE_ROBERT_REMOVED`.\n\nWhat is verified:\n- Temporary authoring unlock was locked back to `false` before export/deploy.\n- Export command completed successfully.\n- Firebase deploy command completed successfully and released the live `forensics25` site.\n- Live hosted `main.js` is serving the locked build.\n- Live hosted chapter 6 has the local Robert Hanssen asset reference and no longer has the old remote Robert Hanssen URL.\n\nWhat is weak/provisional:\n- No browser visual pass was run by this agent after deployment.\n- No full image audit was rerun after deployment.\n- STAX may still record a protocol/proof reject because prior status carried unrelated command-provenance gaps.\n\nWhat is unverified:\n- Visual rendering of every edited image section on the live site.\n- Remaining non-screenshot chapters were not re-audited.\n\nRisks:\n- Browser cache may require a hard refresh if the user has the old bundle loaded.\n- Export regenerated the hosted bundle from workspace, so direct export-only edits outside workspace would be overwritten; this is expected for the deployment path.\n\nOne next action:\n- User hard-refreshes `https://forensics25.web.app` and spot-checks the same image locations live.\n## STAX observer update\n\nAdditional commands run after report draft:\n- `npm.cmd run stax:sidecar:refresh -- --repo \"C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\"`; exit 0.\n- `npm.cmd run stax:preflight -- --repo \"C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\" --mode observer --boundary local`; exit 0.\n\nAdditional command output summary with exit codes:\n- Sidecar refresh exit 0; refreshed session `019e21a3-a6fe-77e1-8b7c-53f2b293db24` with 291 messages.\n- Observer preflight exit 0; recorded verdict `Reject`, protocolStatus `failure`, enforcement `observer`, blocking `false`, approval artifact missing.\n\nAdditional verification note:\n- STAX observer mode was run before final response.\n\nAdditional weak/provisional note:\n- STAX remains rejected for proof/protocol reasons, so deployment is command-verified and live-fetch-verified but not STAX-approved.\r\n\n## STAX status query - 2026-05-14\n\nSTAX acknowledgement: STAX_ACK turn_2026-05-14T17-18-51-934Z_2613 7e6b3653 5ae4b383\n\nObjective: Answer what the sidecar has observed so far after the Forensics 25 image cleanup and redeploy.\n\nFiles changed:\n- .stax/codex-report.md\n\nTests added: None.\n\nCommands run:\n- Read `.stax/turn-contract.json`, `.stax/status.json`, `.stax/next-codex-prompt.md`, `.stax/current-turn.json`, and `.stax/codex-report.md`; exit 0.\n\nCommand output summary with exit codes:\n- Current STAX status generated at `2026-05-14T17:18:51.926Z` for task `Redeploy Forensics 25 Google-hosted site after approved image cleanup, with authoring unlock locked back to false.`\n- Current status verdict is `Reject` with reason `Claim-to-proof: implementation claim is unsupported because behavior_test, source_diff, command_evidence_after_diff.`\n- Current turn capture exists for session `019e21a3-a6fe-77e1-8b7c-53f2b293db24` with 291 messages.\n\nWhat is verified:\n- The sidecar status, next prompt, current turn metadata, and Codex report were read directly from `.stax` files.\n\nWhat is weak/provisional:\n- This is a status-read turn, not an implementation or deploy turn.\n\nWhat is unverified:\n- No new test, browser visual pass, or release gate was run as part of the status read.\n\nRisks:\n- The sidecar status may still carry proof-model rejects even when the deploy command itself completed successfully.\n\nOne next action:\n- If a STAX-approved state is required, run the proof action requested by `.stax/next-codex-prompt.md` or adjust the approval/proof contract.\n## STAX behavior-learning status query - 2026-05-14\n\nSTAX acknowledgement: STAX_ACK turn_2026-05-14T17-20-49-344Z_7733 4a36fc71 aca9d222\n\nObjective: Summarize general behavior-learning observations from STAX sidecar after the recent Forensics 25 image cleanup and redeploy cycle.\n\nFiles changed:\n- .stax/codex-report.md\n\nTests added: None.\n\nCommands run:\n- Read `.stax/turn-contract.json`, `.stax/status.json`, `.stax/next-codex-prompt.md`, `.stax/reports/latest-proof-report.md`, and `.stax/reports/latest-confidence-report.md`; exit 0.\n\nCommand output summary with exit codes:\n- Current STAX status generated at `2026-05-14T17:20:49.337Z` for task `Redeploy Forensics 25 Google-hosted site after approved image cleanup, with authoring unlock locked back to false.`\n- Current verdict remains `Reject` while proof strength is `Provisional` with raw score 0.72 and final score 0.69.\n- STAX verified fresh heartbeat, fresh Codex turn capture, required report sections, working-tree diff detection, and visual/protocol claim support.\n- STAX still flags missing behavior/source/release proof, stale acknowledgement, stale/wrong command evidence, and unverified command provenance.\n\nWhat is verified:\n- The behavior-learning summary is based on current `.stax/status.json`, latest proof report, and latest confidence report.\n\nWhat is weak/provisional:\n- This is a sidecar-observation summary, not a code change or behavior test.\n\nWhat is unverified:\n- No new product behavior was tested in this turn.\n\nRisks:\n- Some observed STAX weaknesses may be parser/protocol-design issues rather than project implementation issues.\n\nOne next action:\n- Convert these observations into STAX-sidecar improvements if the user wants the sidecar to learn from this run.",
+    "rawScore": 0.72,
+    "finalScore": 0.69,
+    "label": "Provisional",
+    "capApplied": [
+      {
+        "id": "unverified_local_command_provenance",
+        "maxLabel": "Provisional",
+        "reason": "A local STAX command label is only strong proof after provenance verification."
+      }
+    ],
     "rejectReasons": [],
-    "primaryLimiter": "Unsupported file_path claim: DOCX/readme/audit/html-source (File path was not present in the repo evidence pack.).",
+    "primaryLimiter": "A local STAX command label is only strong proof after provenance verification.",
     "missingProof": [
-      "Unsupported file_path claim: DOCX/readme/audit/html-source (File path was not present in the repo evidence pack.).",
-      "Unsupported file_path claim: prototype/practice (File path was not present in the repo evidence pack.).",
-      "Unsupported file_path claim: Brightspace/canvas-helper (File path was not present in the repo evidence pack.).",
-      "Unsupported file_path claim: main...origin/main (File path was not present in the repo evidence pack.).",
-      "Unsupported file_path claim: commit/push (File path was not present in the repo evidence pack.).",
-      "Unsupported file_path claim: visual/implementation (File path was not present in the repo evidence pack.).",
-      "Unsupported file_path claim: local/ignored (File path was not present in the repo evidence pack.).",
-      "Unsupported file_path claim: size/quota (File path was not present in the repo evidence pack.).",
-      "Unsupported file_path claim: COM/HTML (File path was not present in the repo evidence pack.)."
+      "Unsupported file_path claim: projects/forensicstudiesoption2/exports/google-hosted (File path was not present in the repo evidence pack.).",
+      "Unsupported file_path claim: workspace/export (File path was not present in the repo evidence pack.).",
+      "Unsupported file_path claim: main.js (File path was not present in the repo evidence pack.).",
+      "Unsupported file_path claim: forensics25.web.app/main.js (File path was not present in the repo evidence pack.).",
+      "Unsupported file_path claim: forensics25.web.app/content/chapter-6/index.html (File path was not present in the repo evidence pack.).",
+      "Unsupported file_path claim: uploaded/finalized/released (File path was not present in the repo evidence pack.).",
+      "Unsupported file_path claim: projects/217802069551/sites/forensics25/versions/c558e35090c8ebff (File path was not present in the repo evidence pack.).",
+      "Unsupported file_path claim: export/deploy (File path was not present in the repo evidence pack.).",
+      "Unsupported file_path claim: protocol/proof (File path was not present in the repo evidence pack.).",
+      "Unsupported file_path claim: proof/protocol (File path was not present in the repo evidence pack.).",
+      "Unsupported file_path claim: approval/proof (File path was not present in the repo evidence pack.).",
+      "Unsupported file_path claim: visual/protocol (File path was not present in the repo evidence pack.).",
+      "Unsupported file_path claim: behavior/source/release (File path was not present in the repo evidence pack.).",
+      "Unsupported file_path claim: stale/wrong (File path was not present in the repo evidence pack.).",
+      "Unsupported file_path claim: parser/protocol-design (File path was not present in the repo evidence pack.).",
+      "Unsupported test_pass claim: - No new test, browser visual pass, or release gate was run as part of the status read. (Runtime/completion claim requires local STAX command evidence.)."
     ],
     "weakProof": [
       "Local STAX command evidence label is unverified for node -e const fs=require('fs'); const pkg=JSON.parse(fs.readFileSync('package.json','utf8')); console.log(process.cwd()); console.log(pkg.name); (wrong_worktree).",
-      "Local STAX command evidence label is unverified for git status --short --branch (wrong_worktree).",
+      "Local STAX command evidence label is unverified for git status --short --branch (wrong_commit).",
       "local_stax_command_output is provisional command evidence for node -e const fs=require('fs'); const pkg=JSON.parse(fs.readFileSync('package.json','utf8')); console.log(process.cwd()); console.log(pkg.name);.",
       "local_stax_command_output is provisional command evidence for git status --short --branch."
     ],
     "strongProof": [
-      "Grounded file_path claim: scripts/brightspace_zip_to_docx_upload_package.py.",
-      "Grounded file_path claim: docs/workflows/BRIGHTSPACE_ZIP_CONVERSION_TO_DOCX.md.",
-      "Grounded file_path claim: docs/workflows/conversion.md.",
-      "Grounded file_path claim: projects/social-studies-10-1-docx-export/meta/build_word_native_course_docx.py.",
-      "Grounded file_path claim: projects/english-lang-arts-10-2-docx-export/meta/build_word_native_course_docx.py.",
-      "Grounded file_path claim: projects/biology-20-docx-export/meta/build_word_native_course_docx.py.",
-      "Grounded file_path claim: projects/biology-20-docx-export/meta/project.json.",
-      "Grounded file_path claim: docs/ops/FAST_PATHS.md.",
-      "Grounded file_path claim: docs/ops/ACTIVE_HANDOFF.md.",
+      "Grounded file_path claim: projects/forensicstudiesoption2/workspace/main.js.",
+      "Grounded file_path claim: projects/forensicstudiesoption2/exports/google-hosted/main.js.",
+      "Grounded completion claim: - Deploy exit 0: Firebase hosting site `forensics25` uploaded/finalized/released version `projects/217802069551/sites/forensics25/versions/c558e35090c8ebff`; release completed; Hosting URL `https://forensics25.web.app`..",
       "Grounded completion claim: What is verified:.",
       "Grounded verification claim: What is verified:.",
+      "Grounded completion claim: - Export command completed successfully..",
+      "Grounded completion claim: - Firebase deploy command completed successfully and released the live `forensics25` site..",
+      "Grounded completion claim: - STAX remains rejected for proof/protocol reasons, so deployment is command-verified and live-fetch-verified but not STAX-approved..",
+      "Grounded verification claim: - STAX remains rejected for proof/protocol reasons, so deployment is command-verified and live-fetch-verified but not STAX-approved..",
+      "Grounded completion claim: - The sidecar status may still carry proof-model rejects even when the deploy command itself completed successfully..",
+      "Grounded completion claim: - STAX verified fresh heartbeat, fresh Codex turn capture, required report sections, working-tree diff detection, and visual/protocol claim support..",
+      "Grounded verification claim: - STAX verified fresh heartbeat, fresh Codex turn capture, required report sections, working-tree diff detection, and visual/protocol claim support..",
       "Repo evidence enumerated source files.",
       "Rendered visual proof was supplied.",
-      "Release preflight proof was supplied."
+      "Release preflight proof was supplied.",
+      "Release gate proof was supplied."
     ],
     "oneNextAction": "Capture rendered visual proof, such as a screenshot or Playwright trace, for the claimed behavior."
   },
   "protocolStatus": "failure",
   "protocolFailures": [
     {
+      "id": "stax_ack_stale",
+      "severity": "reject",
+      "message": "STAX acknowledgement is stale or does not match the current turn contract."
+    },
+    {
+      "id": "stax_ack_wrong_turn",
+      "severity": "reject",
+      "message": "STAX acknowledgement turnId does not match the current contract."
+    },
+    {
+      "id": "stax_ack_wrong_status_hash",
+      "severity": "reject",
+      "message": "STAX acknowledgement statusHash does not match the current contract."
+    },
+    {
+      "id": "stax_ack_wrong_next_prompt_hash",
+      "severity": "reject",
+      "message": "STAX acknowledgement nextPromptHash does not match the current contract."
+    },
+    {
       "id": "current_turn_capture_missing_ack",
       "severity": "reject",
       "message": "Current Codex turn capture does not contain the current STAX acknowledgement."
-    },
-    {
-      "id": "claimed_protocol_compliance_without_current_ack",
-      "severity": "reject",
-      "message": "Codex claimed STAX protocol compliance without proving the current STAX acknowledgement."
     }
   ],
   "protocol": {
     "schemaVersion": "stax-protocol-compliance-v1",
-    "generatedAt": "2026-05-13T21:08:47.393Z",
+    "generatedAt": "2026-05-14T17:27:26.169Z",
     "mode": "normal",
     "status": "failure",
     "acknowledgedTurnContract": false,
@@ -122,18 +163,33 @@
     "missingRequiredSections": [],
     "findings": [
       {
+        "id": "stax_ack_stale",
+        "severity": "reject",
+        "message": "STAX acknowledgement is stale or does not match the current turn contract."
+      },
+      {
+        "id": "stax_ack_wrong_turn",
+        "severity": "reject",
+        "message": "STAX acknowledgement turnId does not match the current contract."
+      },
+      {
+        "id": "stax_ack_wrong_status_hash",
+        "severity": "reject",
+        "message": "STAX acknowledgement statusHash does not match the current contract."
+      },
+      {
+        "id": "stax_ack_wrong_next_prompt_hash",
+        "severity": "reject",
+        "message": "STAX acknowledgement nextPromptHash does not match the current contract."
+      },
+      {
         "id": "current_turn_capture_missing_ack",
         "severity": "reject",
         "message": "Current Codex turn capture does not contain the current STAX acknowledgement."
-      },
-      {
-        "id": "claimed_protocol_compliance_without_current_ack",
-        "severity": "reject",
-        "message": "Codex claimed STAX protocol compliance without proving the current STAX acknowledgement."
       }
     ],
-    "acknowledgement": "STAX_ACK turn_2026-05-13T19-59-38-325Z_3847 b249d354 7649859e",
-    "contractTurnId": "turn_2026-05-13T19-59-38-325Z_3847"
+    "acknowledgement": "STAX_ACK turn_2026-05-14T17-20-49-344Z_7733 4a36fc71 aca9d222",
+    "contractTurnId": "turn_2026-05-14T17-20-49-344Z_7733"
   },
   "cardShapeIssues": []
 }

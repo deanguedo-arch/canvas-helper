@@ -84,6 +84,30 @@ COURSES: dict[str, CourseConfig] = {
         source_zip_env="BIOLOGY20_SOURCE_ZIP",
         skip_title_patterns=("teacher", "keep hidden", "old"),
     ),
+    "english10-4": CourseConfig(
+        key="english10-4",
+        project_slug="english-10-4-docx-export",
+        course_title="English 10-4",
+        source_zip_name="D2LCCExport_149688_25-26 _ S2 _ English 10-4 _ Per 1(A) _ Sec 2_202651435.zip",
+        source_zip_env="ENGLISH10_4_SOURCE_ZIP",
+        skip_title_patterns=("teacher", "keep hidden", "old"),
+    ),
+    "english20-4": CourseConfig(
+        key="english20-4",
+        project_slug="english-20-4-docx-export",
+        course_title="English 20-4",
+        source_zip_name="D2LCCExport_149691_25-26 _ S2 _ English 20-4 _ Per 1(A) _ Sec 2_202651410.zip",
+        source_zip_env="ENGLISH20_4_SOURCE_ZIP",
+        skip_title_patterns=("teacher", "keep hidden", "old"),
+    ),
+    "english30-4": CourseConfig(
+        key="english30-4",
+        project_slug="english-30-4-docx-export",
+        course_title="English 30-4",
+        source_zip_name="D2LCCExport_149653_25-26 _ S2 _ English 30-4 _ Per 1(A) _ Sec 2_202651417.zip",
+        source_zip_env="ENGLISH30_4_SOURCE_ZIP",
+        skip_title_patterns=("teacher", "keep hidden", "old"),
+    ),
 }
 
 
