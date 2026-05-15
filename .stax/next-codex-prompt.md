@@ -1,14 +1,14 @@
 STAX Sidecar rejected or held this task because proof is incomplete.
 
 Do exactly one cleanup pass:
-Approved proof surface for visual_ready: Capture rendered visual proof and run npm run smoke:pipeline through stax:collect. Suggested command: npm run smoke:pipeline.
+Approved proof surface for tests_passed: Run npm run test:apps-script through stax:collect in the target repo. Suggested command: npm run smoke:pipeline.
 
 Address these proof gaps:
-- Claim-to-proof: implementation claim is unsupported because behavior_test, source_diff, command_evidence_after_diff.
-- Claim-to-proof: behavior claim is unsupported because behavior_test, command_evidence_after_diff.
-- Claim-to-proof: release_deploy claim is unsupported because target_environment_proof, rollback_plan, build_proof.
-- Command evidence provenance is not verified for node -e const fs=require('fs'); const pkg=JSON.parse(fs.readFileSync('package.json','utf8')); console.log(process.cwd()); console.log(pkg.name);: wrong_worktree.
-- Command evidence freshness failed for node -e const fs=require('fs'); const pkg=JSON.parse(fs.readFileSync('package.json','utf8')); console.log(process.cwd()); console.log(pkg.name);: wrong_worktree.
+- .stax/codex-report.md is missing the current STAX acknowledgement from .stax/turn-contract.json.
+- STAX acknowledgement is stale or does not match the current turn contract.
+- STAX acknowledgement turnId does not match the current contract.
+- STAX acknowledgement statusHash does not match the current contract.
+- STAX acknowledgement nextPromptHash does not match the current contract.
 
 Do not broaden scope. Do not claim tests passed without local command evidence. Update .stax/codex-report.md, then stop.
-Risk to avoid: Command evidence risk: human-pasted output is not local STAX command evidence.
+Risk to avoid: Protocol failure: Codex did not prove it followed the current STAX sidecar contract.

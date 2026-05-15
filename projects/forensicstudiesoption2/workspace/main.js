@@ -358,7 +358,7 @@
 
   function cleanText(value) {
     return String(value ?? "")
-      .replace(/[�]/g, "-")
+      .replace(/[\uFFFD]/g, "-")
       .replace(/[–—]/g, "-");
   }
 
@@ -2186,5 +2186,6 @@
   refs.body.classList.toggle("sidebar-collapsed", state.sidebarCollapsed && !isMobile());
   render();
 })();
+
 
 

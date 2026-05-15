@@ -320,10 +320,6 @@
             <button onclick="toggleSidebar()" class="p-2 -ml-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors flex items-center justify-center cursor-pointer">
                 <span class="material-symbols-outlined">menu</span>
             </button>
-            <span class="text-xl sm:text-2xl font-black tracking-normal text-white uppercase flex items-center" style="font-family: Calibri, Aptos, Arial, sans-serif;">
-                <span class="hidden md:block">ASSESSMENT INTEGRITY ARCHITECTURE</span>
-                <span class="block md:hidden">A.I.A.</span>
-            </span>
         </div>
         <div id="assessment-topbar-controls" class="fixed top-5 right-4 sm:right-8 z-[60] flex items-center justify-end gap-3 sm:gap-4">
             <!-- Theme Toggle Button -->
@@ -356,6 +352,10 @@
             <span class="material-symbols-outlined text-xl">layers</span>
             AI Levels
         </a>
+        <a href="#inspire-the-work" class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all duration-200 rounded-lg">
+            <span class="material-symbols-outlined text-xl">movie</span>
+            Inspire the Work
+        </a>
         <a href="#validity-gate-simulator" class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all duration-200 rounded-lg">
             <span class="material-symbols-outlined text-xl">rule_folder</span>
             Validity Gates
@@ -375,10 +375,6 @@
         <!-- Dynamic Gradient adapted for light/dark CSS vars -->
         <div class="absolute inset-0 opacity-30 pointer-events-none" style="background: radial-gradient(circle at 80% 20%, rgb(var(--color-primary) / 0.4) 0%, transparent 40%), radial-gradient(circle at 20% 80%, rgb(var(--color-secondary) / 0.3) 0%, transparent 40%);"></div>
         <div class="max-w-[1440px] mx-auto relative z-10 flex flex-col gap-stack-lg w-full">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 w-max">
-                <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                <span class="font-label-caps text-label-caps text-primary tracking-normal">ASSESSMENT INTEGRITY ARCHITECTURE</span>
-            </div>
             <h1 class="font-display text-display text-on-surface max-w-4xl leading-tight">
                 Product. Process. Defence.
                 <span class="block text-on-surface-variant text-h1 font-h1 mt-stack-md font-normal">
@@ -597,10 +593,6 @@
     <section id="ai-levels" class="px-8 py-margin-page max-w-[1440px] mx-auto w-full section-slide">
         <div id="evidence-scale-simulator" class="flex flex-col gap-8 w-full">
             <div class="flex flex-col items-center text-center gap-4 mb-2">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary w-max font-bold text-sm">
-                    <span class="material-symbols-outlined text-[18px]">balance</span>
-                    INTERACTIVE SCALE SIMULATOR
-                </div>
                 <h2 class="font-h2 text-[36px] text-on-surface font-bold max-w-4xl">Same outcome. Same weights. Different evidence burden.</h2>
                 <div class="bg-surface-container border-l-4 border-primary p-4 rounded-r-lg max-w-4xl mx-auto">
                     <p class="text-lg text-on-surface-variant">The level changes the evidence required, not the assessment weight. <strong class="text-on-surface">The more AI contributes to the product, the more proof the student must provide to validate ownership.</strong></p>
@@ -665,14 +657,14 @@
                         <div class="flex flex-col gap-2">
                             <button onclick="playScaleGame('ai', 1)" id="btn-game-ai-1" class="py-3 px-4 rounded-xl border border-outline-variant hover:bg-surface-container transition-all flex justify-between items-center text-left group">
                                 <div>
-                                    <strong class="block text-on-surface group-hover:text-primary transition-colors">Level 0: No AI</strong>
+                                    <strong class="block text-on-surface group-hover:text-primary transition-colors">No AI</strong>
                                     <span class="text-xs text-on-surface-variant">Fully independent work.</span>
                                 </div>
                                 <span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">check_circle</span>
                             </button>
                             <button onclick="playScaleGame('ai', 2)" id="btn-game-ai-2" class="py-3 px-4 rounded-xl border border-outline-variant hover:bg-surface-container transition-all flex justify-between items-center text-left group">
                                 <div>
-                                    <strong class="block text-on-surface group-hover:text-primary transition-colors">Level 1: AI Support</strong>
+                                    <strong class="block text-on-surface group-hover:text-primary transition-colors">AI Support</strong>
                                     <span class="text-xs text-on-surface-variant">AI as sounding board/tutor.</span>
                                 </div>
                                 <span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">check_circle</span>
@@ -703,14 +695,27 @@
         </div>
     </section>
 
+    <!-- Inspire the Work Video (Section 4) -->
+    <section id="inspire-the-work" class="px-8 py-margin-page max-w-[1200px] mx-auto w-full section-slide">
+        <div class="flex flex-col gap-6">
+            <div class="text-center max-w-3xl mx-auto">
+                <h2 class="font-h2 text-[36px] text-on-surface font-bold mb-3">Inspire the &quot;Work&quot;</h2>
+                <p class="font-body-lg text-body-lg text-on-surface-variant">
+                    A short bridge from choosing the assessment design to establishing the validity gates that protect student ownership.
+                </p>
+            </div>
+            <div class="w-full bg-surface-container border border-surface-variant rounded-xl p-3 shadow-sm">
+                <video class="w-full aspect-video rounded-lg bg-black" controls preload="metadata" src="./media/inspire-the-work.mp4" aria-label="Inspire the Work video">
+                    Your browser does not support embedded video playback.
+                </video>
+            </div>
+        </div>
+    </section>
+
     <!-- Validity Gates Interactive Simulator (Section 4) -->
     <section id="validity-gate-simulator" data-testid="validity-gate-simulator" class="px-8 py-margin-page bg-surface-container-lowest border-y border-surface-variant section-slide">
         <div class="max-w-[1440px] mx-auto w-full flex flex-col gap-stack-lg">
             <div class="flex flex-col items-center text-center gap-4">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-primary/10 border border-primary/20 text-primary w-max font-bold text-sm">
-                    <span class="material-symbols-outlined text-[18px]">rule_folder</span>
-                    Interactive Training Simulator
-                </div>
                 <h2 class="font-h2 text-[36px] text-on-surface font-bold">Establishing Validity Gates</h2>
                 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl">
                     Navigate real-world scenarios to practice applying the assessment integrity workflow. Evaluate the evidence, conduct the defence, and decide whether the learning has been validated.
@@ -767,7 +772,7 @@
                 </div>
             </div>
         </div>
-        <div class="grid md:grid-cols-2 gap-gutter max-w-5xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-gutter max-w-6xl mx-auto">
             <div class="bg-surface-container rounded-xl shadow-sm border border-surface-variant p-6 flex flex-col h-full transition-colors">
                 <div class="w-12 h-12 bg-primary/10 text-primary rounded-lg flex items-center justify-center mb-4 border border-primary/20">
                     <span class="material-symbols-outlined">slideshow</span>
@@ -776,6 +781,17 @@
                 <p class="text-on-surface-variant text-sm flex-grow mb-6">The current proposal deck for the assessment architecture, validity gates, evidence burden, and teacher-facing implementation discussion.</p>
                 <a id="deck-proposed-pptx" href="./decks/proposed-ai-assessment-architecture.pptx" data-inline-asset class="hidden" aria-hidden="true" tabindex="-1">Proposed AI-Assessment Architecture PowerPoint source</a>
                 <button type="button" onclick="openDeckViewer('proposed')" data-deck-card="proposed" aria-controls="deck-viewer-panel" aria-pressed="false" class="inline-flex items-center justify-center w-full py-2 px-4 bg-surface-container-highest hover:bg-primary/10 hover:border-primary/40 text-on-surface text-sm font-medium rounded-lg border border-outline-variant transition-colors">
+                    <span class="material-symbols-outlined text-[18px] mr-2">open_in_new</span> View Deck
+                </button>
+            </div>
+            <div class="bg-surface-container rounded-xl shadow-sm border border-surface-variant p-6 flex flex-col h-full transition-colors">
+                <div class="w-12 h-12 bg-primary/10 text-primary rounded-lg flex items-center justify-center mb-4 border border-primary/20">
+                    <span class="material-symbols-outlined">rate_review</span>
+                </div>
+                <h3 class="text-xl font-bold text-on-surface mb-2">The process: Inspire &quot;The Work&quot;</h3>
+                <p class="text-on-surface-variant text-sm flex-grow mb-6">A process deck for moving from assessment design into the work students produce before the validity gates are applied.</p>
+                <a id="deck-process-pptx" href="./decks/the-process-inspire-the-work.pptx" data-inline-asset class="hidden" aria-hidden="true" tabindex="-1">The process: Inspire "The Work" PowerPoint source</a>
+                <button type="button" onclick="openDeckViewer('process')" data-deck-card="process" aria-controls="deck-viewer-panel" aria-pressed="false" class="inline-flex items-center justify-center w-full py-2 px-4 bg-surface-container-highest hover:bg-primary/10 hover:border-primary/40 text-on-surface text-sm font-medium rounded-lg border border-outline-variant transition-colors">
                     <span class="material-symbols-outlined text-[18px] mr-2">open_in_new</span> View Deck
                 </button>
             </div>
@@ -1143,11 +1159,11 @@
             let explanationText = "";
             let evidenceList = "";
             if (scaleLeftWeight === 1) {
-                explanationText = "Level 0 requires standard baseline evidence. Because the student is not using AI to assist the product, the required tracking is minimal. We trust the product more inherently.";
+                explanationText = "No AI requires standard baseline evidence. Because the student is not using AI to assist the product, the required tracking is minimal. We trust the product more inherently.";
                 evidenceList = `<li><span class="material-symbols-outlined text-[16px] text-secondary mr-2 align-text-bottom">check_box</span> Basic Planning Sheet</li>
                                 <li><span class="material-symbols-outlined text-[16px] text-secondary mr-2 align-text-bottom">check_box</span> Standard Short Conference</li>`;
             } else if (scaleLeftWeight === 2) {
-                explanationText = "Level 1 requires increased process evidence. Because AI is acting as a tutor or sounding board, we must verify the student actually processed the feedback rather than just blindly accepting it.";
+                explanationText = "AI Support requires increased process evidence. Because AI is acting as a tutor or sounding board, we must verify the student actually processed the feedback rather than just blindly accepting it.";
                 evidenceList = `<li><span class="material-symbols-outlined text-[16px] text-secondary mr-2 align-text-bottom">check_box</span> Loom video walkthrough</li>
                                 <li><span class="material-symbols-outlined text-[16px] text-secondary mr-2 align-text-bottom">check_box</span> Google Doc edit access and version history</li>
                                 <li><span class="material-symbols-outlined text-[16px] text-secondary mr-2 align-text-bottom">check_box</span> Gemini conversation logs</li>
@@ -1464,6 +1480,29 @@
                 "./decks/proposed-ai-assessment-architecture/slide-004.jpg",
                 "./decks/proposed-ai-assessment-architecture/slide-005.jpg",
                 "./decks/proposed-ai-assessment-architecture/slide-006.jpg"
+            ]
+        },
+        process: {
+            title: "The process: Inspire \"The Work\"",
+            description: "A process deck for moving from assessment design into the work students produce before the validity gates are applied.",
+            sourceLinkId: "deck-process-pptx",
+            downloadName: "the-process-inspire-the-work.pptx",
+            slides: [
+                "./decks/the-process-inspire-the-work/slide-001.jpg",
+                "./decks/the-process-inspire-the-work/slide-002.jpg",
+                "./decks/the-process-inspire-the-work/slide-003.jpg",
+                "./decks/the-process-inspire-the-work/slide-004.jpg",
+                "./decks/the-process-inspire-the-work/slide-005.jpg",
+                "./decks/the-process-inspire-the-work/slide-006.jpg",
+                "./decks/the-process-inspire-the-work/slide-007.jpg",
+                "./decks/the-process-inspire-the-work/slide-008.jpg",
+                "./decks/the-process-inspire-the-work/slide-009.jpg",
+                "./decks/the-process-inspire-the-work/slide-010.jpg",
+                "./decks/the-process-inspire-the-work/slide-011.jpg",
+                "./decks/the-process-inspire-the-work/slide-012.jpg",
+                "./decks/the-process-inspire-the-work/slide-013.jpg",
+                "./decks/the-process-inspire-the-work/slide-014.jpg",
+                "./decks/the-process-inspire-the-work/slide-015.jpg"
             ]
         },
         retrieval: {

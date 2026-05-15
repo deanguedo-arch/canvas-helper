@@ -342,6 +342,9 @@ export function buildGoogleHostedBridgeScript(options: BuildGoogleHostedBridgeSc
 
     statusNode.textContent = lastStatusMessage;
     statusNode.setAttribute("data-tone", lastStatusTone);
+    if (controlHost) {
+      controlHost.setAttribute("data-tone", lastStatusTone);
+    }
   }
 
   function renderControls() {
@@ -349,12 +352,16 @@ export function buildGoogleHostedBridgeScript(options: BuildGoogleHostedBridgeSc
       return;
     }
 
+    if (controlHost) {
+      controlHost.setAttribute("data-authenticated", currentUser ? "true" : "false");
+    }
+
     if (currentUser) {
       actionButton.textContent = "Save now";
       actionButton.disabled = false;
       secondaryButton.hidden = false;
     } else {
-      actionButton.textContent = "Sign in with Google";
+      actionButton.textContent = "Sign in";
       actionButton.disabled = false;
       secondaryButton.hidden = true;
     }
@@ -374,13 +381,14 @@ export function buildGoogleHostedBridgeScript(options: BuildGoogleHostedBridgeSc
       const styleTag = document.createElement("style");
       styleTag.setAttribute("data-canvas-helper-google-hosted", "true");
       styleTag.textContent = [
-        ".canvas-helper-google-hosted-controls{position:fixed;right:16px;bottom:16px;z-index:2147483647;display:flex;flex-direction:column;gap:8px;min-width:220px;max-width:min(320px,calc(100vw - 32px));padding:12px 14px;border-radius:14px;background:rgba(17,24,39,.95);color:#f9fafb;box-shadow:0 18px 40px rgba(15,23,42,.35);font:13px/1.4 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}",
+        ".canvas-helper-google-hosted-controls{position:fixed;right:12px;top:50%;transform:translateY(-50%);z-index:2147483647;display:flex;flex-direction:column;gap:8px;min-width:0;max-width:min(240px,calc(100vw - 24px));padding:9px;border-radius:14px 0 0 14px;background:rgba(17,24,39,.94);color:#f9fafb;box-shadow:0 10px 26px rgba(15,23,42,.28);font:13px/1.4 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}",
         ".canvas-helper-google-hosted-controls[data-tone='error']{background:rgba(127,29,29,.96)}",
-        ".canvas-helper-google-hosted-actions{display:flex;gap:8px;flex-wrap:wrap}",
-        ".canvas-helper-google-hosted-button,.canvas-helper-google-hosted-secondary{appearance:none;border:0;border-radius:999px;padding:8px 12px;font:600 12px/1 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;cursor:pointer}",
+        ".canvas-helper-google-hosted-actions{display:flex;flex-direction:column;gap:7px}",
+        ".canvas-helper-google-hosted-button,.canvas-helper-google-hosted-secondary{appearance:none;border:0;border-radius:10px;padding:8px 11px;font:700 12px/1 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;cursor:pointer;white-space:nowrap}",
         ".canvas-helper-google-hosted-button{background:#f59e0b;color:#111827}",
         ".canvas-helper-google-hosted-secondary{background:rgba(255,255,255,.14);color:#f9fafb}",
-        ".canvas-helper-google-hosted-status{margin:0;font-size:12px;opacity:.94}",
+        ".canvas-helper-google-hosted-status{display:none;margin:0;max-width:190px;font-size:11px;opacity:.94}",
+        ".canvas-helper-google-hosted-controls:hover .canvas-helper-google-hosted-status,.canvas-helper-google-hosted-controls:focus-within .canvas-helper-google-hosted-status,.canvas-helper-google-hosted-controls[data-authenticated='true'] .canvas-helper-google-hosted-status,.canvas-helper-google-hosted-controls[data-tone='error'] .canvas-helper-google-hosted-status{display:block}",
         ".canvas-helper-google-hosted-status[data-tone='saved']{color:#bbf7d0}",
         ".canvas-helper-google-hosted-status[data-tone='error']{color:#fecaca}",
         ".canvas-helper-google-hosted-status[data-tone='working']{color:#fde68a}",

@@ -1,7 +1,7 @@
 # Authoring Deviation Report
 
 - Project: ai-course-building-resources
-- Generated: 2026-05-06T15:30:23.437Z
+- Generated: 2026-05-15T18:27:00.411Z
 - Pass: yes
 - Deviations: 1
 - Accepted deviations: 0

@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Next Step Course Showcase</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="showcase-shell">
+    <header class="topbar" aria-label="Course showcase header">
+      <a class="brand brand-logo" href="#" aria-label="Next Step Course Showcase home">
+        <img class="brand-image" src="./assets/brand/next-step-logo-transparent.png" alt="Next Step" />
+        <span class="brand-subtitle">Course Showcase</span>
+      </a>
+    </header>
+
+    <section class="page-title" aria-labelledby="showcaseTitle">
+      <h1 id="showcaseTitle">The Next Step Course Showcase</h1>
+      <p>Browse course builds and stakeholder previews.</p>
+      <div class="filter-row" aria-label="Course filters">
+        <button class="filter-button is-active" type="button" data-filter="all">All</button>
+        <button class="filter-button" type="button" data-filter="humanities">Humanities</button>
+        <button class="filter-button" type="button" data-filter="wellness">Wellness</button>
+        <button class="filter-button" type="button" data-filter="science">Science</button>
+        <button class="filter-button" type="button" data-filter="career">Career</button>
+        <button class="filter-button" type="button" data-filter="resources">Resources</button>
+      </div>
+    </section>
+
+    <section class="showcase-grid" aria-label="Live course preview showcase">
+      <aside class="device-switcher" aria-label="Preview format">
+        <button class="device-button is-active" type="button" data-device="desktop">
+          <span class="device-icon desktop-icon" aria-hidden="true"></span>
+          Desktop
+        </button>
+        <button class="device-button" type="button" data-device="tablet">
+          <span class="device-icon tablet-icon" aria-hidden="true"></span>
+          Tablet
+        </button>
+        <button class="device-button" type="button" data-device="mobile">
+          <span class="device-icon phone-icon" aria-hidden="true"></span>
+          Mobile
+        </button>
+      </aside>
+
+      <div class="devices-showcase" id="devicesShowcase" data-device-mode="desktop">
+        <article class="tablet-device live-device" id="tabletDevice" aria-label="Tablet live preview">
+          <div class="device-topline">
+            <span id="tabletTitle">Forensics 35</span>
+            <span class="live-pill">Live</span>
+          </div>
+          <iframe id="tabletFrame" title="Tablet course preview" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </article>
+
+        <article class="desktop-device live-device" id="desktopDevice" aria-label="Desktop live preview">
+          <div class="camera-dot" aria-hidden="true"></div>
+          <div class="desktop-inner">
+            <div class="course-browser-bar">
+              <span class="mini-logo" aria-hidden="true"></span>
+              <span id="desktopTitle">Forensics 35</span>
+              <span class="live-pill">Live</span>
+              <button class="mini-action" type="button" id="fullScreenButton" aria-label="Open desktop preview fullscreen">⛶</button>
+            </div>
+            <iframe id="desktopFrame" title="Desktop course preview" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <div class="laptop-base" aria-hidden="true"></div>
+        </article>
+
+        <article class="phone-device live-device" id="phoneDevice" aria-label="Mobile live preview">
+          <div class="phone-speaker" aria-hidden="true"></div>
+          <div class="device-topline phone-line">
+            <span id="phoneTitle">Forensics 35</span>
+            <span class="live-pill">Live</span>
+          </div>
+          <iframe id="mobileFrame" title="Mobile course preview" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </article>
+      </div>
+
+      <aside class="course-card" aria-label="Selected course details">
+        <div class="course-card-head">
+          <div>
+            <span class="card-label">Selected course</span>
+            <h2 id="selectedTitle">Forensics 35</h2>
+          </div>
+          <span class="selected-course-button" id="selectedIcon" aria-hidden="true"></span>
+        </div>
+        <p id="selectedDescription">Dive into real-world forensic science through hands-on lessons, case studies, and interactive quizzes.</p>
+        <dl class="detail-grid">
+          <div>
+            <dt>Area</dt>
+            <dd id="selectedArea">Science</dd>
+          </div>
+          <div>
+            <dt>Status</dt>
+            <dd id="selectedStatus">Live</dd>
+          </div>
+          <div>
+            <dt>Category</dt>
+            <dd id="selectedCategory">Science</dd>
+          </div>
+          <div>
+            <dt>Host</dt>
+            <dd id="selectedHost">forensics35</dd>
+          </div>
+        </dl>
+        <dl class="build-grid">
+          <div>
+            <dt>Version</dt>
+            <dd id="selectedVersion">v3.5.2</dd>
+          </div>
+          <div>
+            <dt>Last updated</dt>
+            <dd>May 20, 2025</dd>
+          </div>
+        </dl>
+        <a class="primary-link" id="openCourse" href="https://forensics35.web.app" target="_blank" rel="noopener">Open live course</a>
+        <button class="secondary-link" id="copyLink" type="button">Copy preview link</button>
+      </aside>
+    </section>
+
+    <section class="course-rail-wrap" aria-label="Course selector">
+      <button class="rail-arrow" id="previousCourse" type="button" aria-label="Previous course">‹</button>
+      <div class="course-rail" id="courseRail" tabindex="0" aria-live="polite"></div>
+      <button class="rail-arrow" id="nextCourse" type="button" aria-label="Next course">›</button>
+    </section>
+  </main>
+
+  <script src="./main.js"></script>
+</body>
+</html>

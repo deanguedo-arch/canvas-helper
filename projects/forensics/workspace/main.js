@@ -1,4 +1,4 @@
-import { Fragment, jsx, jsxs } from "https://esm.sh/react@19.1.1/jsx-runtime";
+﻿import { Fragment, jsx, jsxs } from "https://esm.sh/react@19.1.1/jsx-runtime";
 import __CanvasHelperReactDomClient from "https://esm.sh/react-dom@19.1.1/client";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "https://esm.sh/react@19.1.1";
 import {
@@ -422,7 +422,7 @@ function stripScriptsAndRewriteLinks(html, sourceFile, exportRoot) {
     const normalized = decodePathValue(String(value || ""));
     if (!normalized.startsWith("/")) return "";
     const trimmed = normalized.slice(1);
-    if (/^(content|assignment|quiz|сontent)\//i.test(trimmed)) {
+    if (/^(content|assignment|quiz|Ñontent)\//i.test(trimmed)) {
       return exportRoot ? joinPath(exportRoot, trimmed) : trimmed;
     }
     return "";
@@ -1646,7 +1646,7 @@ function ForensicCoursePlayerPreviewRestored() {
   const [chapterVisited, setChapterVisited] = useState(
     initialUiState.chapterVisited && typeof initialUiState.chapterVisited === "object" ? initialUiState.chapterVisited : {}
   );
-  const [query, setQuery] = useState(typeof initialUiState.query === "string" ? initialUiState.query : "");
+  const [query] = useState("");
   const [isChapterMenuCollapsed, setIsChapterMenuCollapsed] = useState(Boolean(initialUiState.isChapterMenuCollapsed));
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [quizDrafts, setQuizDrafts] = useState(
@@ -2127,19 +2127,6 @@ function ForensicCoursePlayerPreviewRestored() {
                       " nodes"
                     ] })
                   ] })
-                ] }),
-                /* @__PURE__ */ jsxs("div", { className: "relative mt-4", children: [
-                  /* @__PURE__ */ jsx(Search, { className: "pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#8f8478]" }),
-                  /* @__PURE__ */ jsx(
-                    "input",
-                    {
-                      value: query,
-                      onChange: (e) => setQuery(e.target.value),
-                      placeholder: "Search chapter titles",
-                      className: "w-full rounded-lg border border-[#3a3431] bg-[#201d1b] py-2.5 pl-9 pr-3 text-sm text-[#eee7dc] outline-none placeholder:text-[#8f8478] focus:border-[#a85a4a]/70",
-                      "data-testid": "lesson-search"
-                    }
-                  )
                 ] })
               ] })
             ] }),
@@ -2297,3 +2284,4 @@ if (__canvasHelperRootElement) {
 export {
   ForensicCoursePlayerPreviewRestored as default
 };
+

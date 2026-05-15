@@ -28,6 +28,7 @@ from PIL import Image, ImageDraw, ImageFont
 REPO_ROOT = Path(__file__).resolve().parents[1]
 WORD_SAFE_IMAGE_WIDTH_PX = 620
 WORD_SAFE_VIDEO_HEIGHT_PX = 349
+WORD_SAFE_IMAGE_WIDTH_EMU = round(6.45 * 914400)
 
 NOISE_TEXT = {
     "image source",
@@ -46,6 +47,16 @@ VIDEO_HOST_MARKERS = (
     "ted.com",
     "embed.ted.com",
     "vimeo.com",
+)
+
+VIDEO_FILE_EXTENSIONS = (
+    ".mp4",
+    ".mov",
+    ".m4v",
+    ".webm",
+    ".mp3",
+    ".m4a",
+    ".wav",
 )
 
 
@@ -76,6 +87,14 @@ COURSES: dict[str, CourseConfig] = {
         source_zip_env="ENGLISH10_SOURCE_ZIP",
         skip_title_patterns=("teacher", "keep hidden"),
     ),
+    "english10-1": CourseConfig(
+        key="english10-1",
+        project_slug="english-lang-arts-10-1-docx-export",
+        course_title="English Language Arts 10-1",
+        source_zip_name="D2LCCExport_151066_25-26 _ S2 _ English Lang. Arts 10-1 _ Per 1(A) _ _202651527.zip",
+        source_zip_env="ENGLISH10_1_SOURCE_ZIP",
+        skip_title_patterns=("teacher", "keep hidden"),
+    ),
     "biology20": CourseConfig(
         key="biology20",
         project_slug="biology-20-docx-export",
@@ -99,6 +118,14 @@ COURSES: dict[str, CourseConfig] = {
         source_zip_name="D2LCCExport_149691_25-26 _ S2 _ English 20-4 _ Per 1(A) _ Sec 2_202651410.zip",
         source_zip_env="ENGLISH20_4_SOURCE_ZIP",
         skip_title_patterns=("teacher", "keep hidden", "old"),
+    ),
+    "english20-1": CourseConfig(
+        key="english20-1",
+        project_slug="english-lang-arts-20-1-docx-export",
+        course_title="English Language Arts 20-1",
+        source_zip_name="D2LCCExport_151068_25-26 _ S2 _ English Lang. Arts 20-1 _ Per 1(A) _ _202651521.zip",
+        source_zip_env="ENGLISH20_1_SOURCE_ZIP",
+        skip_title_patterns=("teacher", "keep hidden"),
     ),
     "english30-4": CourseConfig(
         key="english30-4",
@@ -170,7 +197,12 @@ def is_external_url(href: str) -> bool:
 def is_video_url(href: str) -> bool:
     parsed = urlparse(href or "")
     host = parsed.netloc.casefold()
-    return any(marker in host for marker in VIDEO_HOST_MARKERS)
+    return any(marker in host for marker in VIDEO_HOST_MARKERS) or is_video_file_href(href)
+
+
+def is_video_file_href(href: str) -> bool:
+    parsed = urlparse(href or "")
+    return Path(unquote(parsed.path or href or "")).suffix.casefold() in VIDEO_FILE_EXTENSIONS
 
 
 def youtube_video_id(src: str) -> str | None:
@@ -304,6 +336,7 @@ class BrightspaceCourseDocxExporter:
             "supportFiles": [],
             "imagesCopied": [],
             "imagesConstrained": [],
+            "docxImageExtentsClamped": [],
             "mediaReferences": [],
             "cssFilesInlined": [],
             "localHtmlLinks": [],
@@ -486,6 +519,15 @@ class BrightspaceCourseDocxExporter:
         first_class = " first" if first else ""
         escaped_title = escape(title or Path(href).name)
         escaped_rel = escape(support_rel)
+        if is_video_file_href(href):
+            card = self.video_card("../" + support_rel, title or Path(href).name, href)
+            card_html = lxml_html.tostring(card, encoding="unicode", method="html")
+            return (
+                f'<section class="docx-lesson support-section{first_class}">'
+                f'<div id="border"><div id="container"><div id="header"><h1>{escaped_title}</h1></div>'
+                f'<div id="content">{card_html}</div></div></div>'
+                f'</section>'
+            )
         return (
             f'<section class="docx-lesson support-section{first_class}">'
             f'<div id="border"><div id="container"><div id="header"><h1>{escaped_title}</h1></div>'
@@ -563,6 +605,9 @@ class BrightspaceCourseDocxExporter:
                     "constrainedHeight": constrained_height,
                 }
             )
+        elif width:
+            image.set("width", str(min(width, WORD_SAFE_IMAGE_WIDTH_PX)))
+        image.set("style", "max-width:6.45in;height:auto;")
 
     def normalize_media(self, doc: HtmlElement, base_href: str, title: str) -> None:
         for node in list(doc.xpath("//iframe|//video|//audio|//embed|//object")):
@@ -573,7 +618,13 @@ class BrightspaceCourseDocxExporter:
             if not src:
                 node.drop_tree()
                 continue
-            card = self.video_card(src, node.get("title") or title, base_href)
+            card_src = src
+            if not is_external_url(src):
+                package_href = resolve_package_href(base_href, src, self.zip_file)
+                if package_href and is_video_file_href(package_href):
+                    support_rel = self.copy_support(package_href, node.get("title") or title, "Linked Media")
+                    card_src = "../" + support_rel
+            card = self.video_card(card_src, node.get("title") or title, base_href)
             card.tail = node.tail
             parent = node.getparent()
             if parent is not None:
@@ -584,7 +635,7 @@ class BrightspaceCourseDocxExporter:
             if anchor.get("data-docx-video-generated") == "1":
                 continue
             href = anchor.get("href") or ""
-            if is_video_url(href):
+            if is_external_url(href) and is_video_url(href):
                 card = self.video_card(href, normalize_text(anchor.text_content()) or source_title, base_href)
                 card.tail = anchor.tail
                 parent = anchor.getparent()
@@ -593,7 +644,14 @@ class BrightspaceCourseDocxExporter:
                 continue
             if not is_external_url(href):
                 package_href = resolve_package_href(base_href, href, self.zip_file)
-                if package_href and not package_href.lower().endswith((".html", ".htm")):
+                if package_href and is_video_file_href(package_href):
+                    support_rel = self.copy_support(package_href, normalize_text(anchor.text_content()) or source_title, "Linked Media")
+                    card = self.video_card("../" + support_rel, normalize_text(anchor.text_content()) or source_title, base_href)
+                    card.tail = anchor.tail
+                    parent = anchor.getparent()
+                    if parent is not None:
+                        parent.replace(anchor, card)
+                elif package_href and not package_href.lower().endswith((".html", ".htm")):
                     support_rel = self.copy_support(package_href, normalize_text(anchor.text_content()) or source_title, "Linked Resources")
                     anchor.set("href", "../" + support_rel)
                 elif package_href and package_href.lower().endswith((".html", ".htm")):
@@ -750,9 +808,9 @@ class BrightspaceCourseDocxExporter:
             return self.support_cache[cache_key]
         ext = Path(package_href).suffix or ".resource"
         digest = hashlib.sha1(package_href.encode("utf-8")).hexdigest()[:10]
-        destination_dir = self.support_dir / safe_name(unit_folder, 64)
+        destination_dir = self.support_dir / safe_name(unit_folder, 48)
         destination_dir.mkdir(parents=True, exist_ok=True)
-        dest = destination_dir / f"{safe_name(label, 42)}-{digest}{ext}"
+        dest = destination_dir / f"{safe_name(label, 30)}-{digest}{ext}"
         dest.write_bytes(self.zip_file.read(package_href))
         rel = rel_posix(dest, self.upload_root)
         self.support_cache[cache_key] = rel
@@ -864,6 +922,48 @@ try {{
             ["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", str(ps1)],
             check=True,
         )
+        for _, docx_path in html_jobs:
+            self.clamp_docx_image_extents(docx_path)
+
+    def clamp_docx_image_extents(self, docx_path: Path) -> None:
+        if not docx_path.exists():
+            return
+        temp_path = docx_path.with_name(docx_path.stem + ".tmp.docx")
+        changed_entries: list[dict[str, Any]] = []
+
+        def clamp_extent(match: re.Match[str], entry_name: str) -> str:
+            cx = int(match.group("cx"))
+            cy = int(match.group("cy"))
+            if cx <= WORD_SAFE_IMAGE_WIDTH_EMU:
+                return match.group(0)
+            ratio = WORD_SAFE_IMAGE_WIDTH_EMU / cx
+            new_cy = max(1, round(cy * ratio))
+            changed_entries.append(
+                {
+                    "docxPath": rel_posix(docx_path, self.upload_root),
+                    "entry": entry_name,
+                    "originalCx": cx,
+                    "originalCy": cy,
+                    "clampedCx": WORD_SAFE_IMAGE_WIDTH_EMU,
+                    "clampedCy": new_cy,
+                }
+            )
+            return f'{match.group("prefix")}cx="{WORD_SAFE_IMAGE_WIDTH_EMU}" cy="{new_cy}"'
+
+        with zipfile.ZipFile(docx_path, "r") as source_zip, zipfile.ZipFile(temp_path, "w", zipfile.ZIP_DEFLATED) as target_zip:
+            for info in source_zip.infolist():
+                data = source_zip.read(info.filename)
+                if info.filename.startswith("word/") and info.filename.endswith(".xml"):
+                    text = data.decode("utf-8", errors="ignore")
+                    text = re.sub(
+                        r'(?P<prefix><(?:wp:extent|a:ext)\s+)cx="(?P<cx>\d+)" cy="(?P<cy>\d+)"',
+                        lambda match, entry=info.filename: clamp_extent(match, entry),
+                        text,
+                    )
+                    data = text.encode("utf-8")
+                target_zip.writestr(info, data)
+        temp_path.replace(docx_path)
+        self.audit["docxImageExtentsClamped"].extend(changed_entries)
 
     def write_readme(self) -> None:
         lines = [

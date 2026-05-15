@@ -206,8 +206,22 @@ function setSelectedActivity(moduleId, bucket, activityId) {
   render();
 }
 
-function escapeHtml(value) {
+function cleanDisplayText(value) {
   return String(value ?? "")
+    .replace(/\u00c2\u00b7/g, " - ")
+    .replace(/\u00c2\s*:/g, ":")
+    .replace(/\u00c2\u00a0/g, " ")
+    .replace(/\u00c2/g, "")
+    .replace(/\u00e2\u20ac\u2122/g, "'")
+    .replace(/\u00e2\u20ac\u0153/g, '"')
+    .replace(/\u00e2\u20ac\u009d/g, '"')
+    .replace(/\u00e2\u20ac\u201c/g, "-")
+    .replace(/\u00e2\u20ac\u201d/g, "-")
+    .replace(/\u00ef\u00bf\u00bd/g, "");
+}
+
+function escapeHtml(value) {
+  return cleanDisplayText(value)
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
@@ -216,7 +230,7 @@ function escapeHtml(value) {
 }
 
 function normalizeLearnerCopy(value) {
-  return String(value || "")
+  return cleanDisplayText(value)
     .replace(
       /When you're done with your break, please complete Assignment One and upload it to Brightspace so your teacher can provide feedback\.\s*While waiting for feedback you can continue with Module 1 Section 3\./gi,
       "When you're done with your break, please complete Assignment One in this module. You can then continue with Module 1 Section 3."
@@ -589,12 +603,12 @@ function renderTextContent(text) {
         return `<h4>${escapeHtml(merged)}</h4>`;
       }
 
-      const isBulletList = lines.length > 1 && lines.every((line) => /^[-*â€¢]\s+/.test(line));
+      const isBulletList = lines.length > 1 && lines.every((line) => /^(?:[-*]|\u2022)\s+/.test(line));
       const isNumberedList = lines.length > 1 && lines.every((line) => /^\d+\.\s+/.test(line));
       if (isBulletList || isNumberedList) {
         const tagName = isNumberedList ? "ol" : "ul";
         const items = lines
-          .map((line) => `<li>${escapeHtml(line.replace(/^(?:[-*â€¢]|\d+\.)\s+/, ""))}</li>`)
+          .map((line) => `<li>${escapeHtml(line.replace(/^(?:(?:[-*]|\u2022)|\d+\.)\s+/, ""))}</li>`)
           .join("");
         return `<${tagName}>${items}</${tagName}>`;
       }
@@ -622,7 +636,7 @@ function setLessonCompleted(activityId, completed) {
     delete state.completedActivityById[activityId];
   }
   saveState();
-  render();
+  renderWithForensicsScrollRestored();
 }
 
 function moduleCompletion(module) {
@@ -698,7 +712,7 @@ function completeAndAdvanceLesson(moduleId, activityId) {
   }
 
   saveState();
-  render();
+  renderWithForensicsScrollRestored();
 }
 
 function isAssignment(activity) {
@@ -1464,7 +1478,7 @@ function renderActivityBody(activity) {
 
   if (activity.resourceKind === "html" && activity.sourceHref) {
     if (htmlCacheByActivityId.has(activity.id)) {
-      return `<div class="reader-html">${htmlCacheByActivityId.get(activity.id)}</div>`;
+      return `<div class="reader-html">${cleanDisplayText(htmlCacheByActivityId.get(activity.id))}</div>`;
     }
 
     if (!htmlErrorByActivityId.has(activity.id)) {
@@ -1690,7 +1704,7 @@ function renderReader(activity, moduleId) {
             : `
         <header class="reader-head">
           <div class="reader-heading">
-            <div class="reader-eyebrow">${escapeHtml(prettyKind(activity.kind))}</div>
+            ${activityMetaLabel(activity) ? `<div class="reader-eyebrow">${escapeHtml(activityMetaLabel(activity))}</div>` : ""}
             <h4>${escapeHtml(activity.title)}</h4>
           </div>
           <div class="reader-meta">
@@ -2002,7 +2016,6 @@ function renderForensics35Sidebar(rows, activeNav, isMenuCollapsed, isMobileMenu
         </div>
       </div>
       <div class="forensic-sidebar-body ${isMobileMenuOpen ? "is-open" : ""}" data-testid="forensics35-fs25-sidebar-body">
-        ${state.courseShellView === "reader" ? `<div class="forensic-search"><span aria-hidden="true">âŒ•</span><input type="search" placeholder="Search chapter titles" data-testid="lesson-search" /></div>` : ""}
         <nav class="forensic-shell-nav" aria-label="Primary navigation" data-testid="forensics35-fs25-shell-nav">
           <button type="button" class="${forensics35NavClass(activeNav === "home")}" data-shell-nav="home">${forensics35NavContent("home", "Home")}</button>
           <button type="button" class="${forensics35NavClass(activeNav === "chapters")}" data-shell-nav="chapters" data-library-view="modules">${forensics35NavContent("chapters", "Chapters")}</button>
@@ -2149,7 +2162,7 @@ function renderForensics35ChapterReader(row) {
         <h2 data-testid="lesson-title">${escapeHtml(formatForensics35ModuleTitle(row))}</h2>
         <div class="forensic-badge">Content</div>
         <div class="forensic-reader-progress">
-          <div><span>Course progress</span><strong>${row.completion.completedCount}/${row.completion.totalCount} Â· ${row.completion.percent}%</strong></div>
+          <div><span>Course progress</span><strong>${row.completion.completedCount}/${row.completion.totalCount} - ${row.completion.percent}%</strong></div>
           <div class="forensic-progressbar"><span style="width:${row.completion.percent}%"></span></div>
         </div>
       </div>
@@ -2179,7 +2192,7 @@ function renderForensics35SequenceCard(row, activity, index) {
       <div class="forensic-sequence-card-head">
         <span>${index + 1}</span>
         <div>
-          <div class="forensic-overline">${escapeHtml(activityMetaLabel(activity) || prettyKind(activity?.resourceKind || activity?.kind || "Content"))}</div>
+          ${activityMetaLabel(activity) ? `<div class="forensic-overline">${escapeHtml(activityMetaLabel(activity))}</div>` : ""}
           <h3>${escapeHtml(activity.title || `Lesson ${index + 1}`)}</h3>
         </div>
       </div>
@@ -2205,7 +2218,7 @@ function renderForensics35AssessmentReader(row) {
   return `
     <section class="forensic-reader-surface forensic-assessment-reader">
       <button type="button" class="forensic-secondary-button" data-shell-nav="quizzes">Back to quizzes</button>
-      <div class="forensic-reader-kicker">Module ${row.index + 1} Â· Assessment</div>
+      <div class="forensic-reader-kicker">Module ${row.index + 1} - Assessment</div>
       <h2>${escapeHtml(selected?.title || "Assessment")}</h2>
       ${selected ? renderActivityBody(selected) : `<div class="forensic-empty">No assessment is available for this module.</div>`}
     </section>
@@ -2220,7 +2233,7 @@ function renderForensics35AssignmentReader(row) {
   return `
     <section class="forensic-reader-surface forensic-assessment-reader forensic-assignment-reader">
       <button type="button" class="forensic-secondary-button" data-shell-nav="${escapeHtml(SHELL_ASSIGNMENTS_VIEW)}">Back to assignments</button>
-      <div class="forensic-reader-kicker">Module ${row.index + 1} Â· Assignment</div>
+      <div class="forensic-reader-kicker">Module ${row.index + 1} - Assignment</div>
       <h2>${escapeHtml(selected?.title || "Assignment")}</h2>
       <div class="forensic-assignment-body">
         ${selected ? renderActivityBody(selected) : `<div class="forensic-empty">No standalone assignment is available for this module.</div>`}
@@ -2459,7 +2472,7 @@ function injectForensics35ShellStyles() {
     .forensic-reader-surface .reader-html,.forensic-reader-surface .reader-text,.forensic-reader-surface .reader-document,.forensic-reader-surface .assignment-handoff,.forensic-reader-surface .quiz-shell,.forensic-reader-surface [data-testid^="renderer-"],.forensic-reader-surface [data-testid="chapter-lesson-card"],.forensic-reader-surface [data-testid="quick-checkpoints"],.forensic-reader-surface [data-testid="mark-complete-panel"]{background:#fff!important;border-color:#d9dad9!important;color:#1a1c1a!important;box-shadow:0 2px 8px rgba(0,0,0,.08)!important}
     .forensic-reader-surface h1,.forensic-reader-surface h2,.forensic-reader-surface h3,.forensic-reader-surface h4,.forensic-reader-surface strong,.forensic-reader-surface [class*="text-[#f3f4f6]"],.forensic-reader-surface [class*="text-[#f8fafc]"],.forensic-reader-surface [class*="text-[#dce6fb]"]{color:#1a1c1a!important}.forensic-reader-surface p,.forensic-reader-surface li,.forensic-reader-surface td,.forensic-reader-surface [class*="text-[#cbd5e1]"],.forensic-reader-surface [class*="text-[#a8b4ca]"],.forensic-reader-surface [class*="text-[#b8b2a8]"],.forensic-reader-surface [class*="text-[#c2cce0]"]{color:#414942!important}
     .forensic-reader-surface [class*="bg-[#0f172a]"],.forensic-reader-surface [class*="bg-white/[0.02]"],.forensic-reader-surface [class*="bg-white/[0.04]"]{background:#f9f9f8!important}.forensic-reader-surface [class*="border-white"],.forensic-reader-surface [class*="border-[#2b3445]"]{border-color:#d9dad9!important}
-    .forensic-reader-surface .reader-html{background:#fff!important}.forensic-reader-surface .reader-html table{background:#fff!important}.forensic-reader-surface .reader-html th{background:#f3f4f3!important;color:#1a1c1a!important}.forensic-reader-surface .reader-html a,.forensic-reader-surface .document-link{color:#1e6d0d!important}
+    .forensic-reader-surface .reader-html{background:#fff!important}.forensic-reader-surface .reader-html table{background:#fff!important}.forensic-reader-surface .reader-html th{background:#f3f4f3!important;color:#1a1c1a!important}.forensic-reader-surface .reader-html a,.forensic-reader-surface .document-link{color:#1e6d0d!important}.forensic-reader-surface .reader-html :where(section,article,aside,main,header,footer,div){background:#fff!important;color:#414942!important;box-shadow:none!important}.forensic-reader-surface .reader-html :where(h1,h2,h3,h4,h5,h6,strong,b){color:#1a1c1a!important}.forensic-reader-surface .reader-html :where(p,li,span,td,th,label,small){color:#414942!important}.forensic-reader-surface .reader-html :where([style*="background"],[style*="color"]){background:#fff!important;color:#414942!important}
     .forensic-app .quiz-detail-surface .quiz-eyebrow,.forensic-app .quiz-detail-surface .quiz-meta-block span,.forensic-app .quiz-detail-surface .quiz-question-number,.forensic-app .quiz-detail-surface .quiz-breakdown-name{color:#3f9f2e!important}.forensic-app .quiz-detail-surface .quiz-page-title,.forensic-app .quiz-detail-surface .quiz-evaluation-copy h5,.forensic-app .quiz-detail-surface .quiz-breakdown-title,.forensic-app .quiz-detail-surface .quiz-section-breakdown h5,.forensic-app .quiz-detail-surface .quiz-question,.forensic-app .quiz-detail-surface .quiz-breakdown-score,.forensic-app .quiz-detail-surface .quiz-section-score{color:#1a1c1a!important}
     .forensic-app .quiz-detail-surface .quiz-meta-row,.forensic-app .quiz-detail-surface .quiz-evaluation-panel,.forensic-app .quiz-detail-surface .quiz-section-button,.forensic-app .quiz-detail-surface .quiz-breakdown-item{border-color:#d9dad9!important;background:#f9f9f8!important}.forensic-app .quiz-detail-surface .quiz-progress,.forensic-app .quiz-detail-surface .quiz-breakdown-progress{background:#d9dad9!important}.forensic-app .quiz-detail-surface .quiz-progress-bar,.forensic-app .quiz-detail-surface .quiz-breakdown-progress span{background:#59A844!important}.forensic-app .quiz-detail-surface .quiz-evaluation-score strong{color:#59A844!important}.forensic-app .quiz-detail-surface .quiz-evaluation-status{color:#ba1a1a!important}
     .forensic-app .quiz-detail-surface .quiz-action{border-color:#d9dad9!important;background:#fff!important;color:#3c3f3e!important}.forensic-app .quiz-detail-surface .quiz-action.primary{border-color:#59A844!important;background:#59A844!important;color:#fff!important}.forensic-app .quiz-detail-surface .quiz-action:hover:not(:disabled){border-color:#c3c8c1!important;background:#eceeec!important;color:#1a1c1a!important}.forensic-app .quiz-detail-surface .quiz-action.primary:hover:not(:disabled){border-color:#4b8d39!important;background:#4b8d39!important;color:#fff!important}
