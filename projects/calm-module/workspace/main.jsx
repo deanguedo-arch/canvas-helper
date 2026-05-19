@@ -1888,6 +1888,8 @@ const { useState, useEffect, useMemo, useRef } = React;
                     )
                   })}
                 </nav>
+
+                <div data-google-hosted-controls-host="true" className="mt-auto px-4 pb-6"></div>
               </div>
 
               {/* MAIN CONTENT AREA */}

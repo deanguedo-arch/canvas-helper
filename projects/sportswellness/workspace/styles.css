@@ -116,6 +116,16 @@ body.sidebar-collapsed .brain-icon {
   overflow-y: auto;
 }
 
+.sidebar-save-host {
+  margin-top: auto;
+  padding: 12px 12px 18px;
+}
+
+.sidebar-save-host:empty,
+body.sidebar-collapsed .sidebar-save-host {
+  display: none;
+}
+
 .sidebar-actions {
   display: flex;
   justify-content: flex-end;
@@ -2977,6 +2987,17 @@ body.sidebar-collapsed .content-inner {
 
   body.compact-layout .sidebar-nav::-webkit-scrollbar {
     display: none;
+  }
+
+  body.compact-layout .sidebar-save-host {
+    display: none;
+  }
+
+  body.compact-layout.mobile-menu-open .sidebar-save-host {
+    display: block;
+    flex: 0 0 100%;
+    width: 100%;
+    padding: 0 0 2px;
   }
 
   body.compact-layout .nav-item {

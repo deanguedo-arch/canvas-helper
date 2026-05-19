@@ -25,8 +25,8 @@ test("forensic studies option2 shell loads the next-step theme fonts", async () 
 
   assert.match(indexSource, /Rubik/);
   assert.match(indexSource, /Open\+Sans/);
-  assert.match(indexSource, /Next Step/);
-  assert.match(indexSource, /Student User/);
+  assert.doesNotMatch(indexSource, /nextstep-topbar/);
+  assert.doesNotMatch(indexSource, /Student User/);
   assert.doesNotMatch(indexSource, /Space\+Grotesk|Noto\+Serif/);
 });
 
@@ -38,9 +38,7 @@ test("forensic studies option2 shell css uses the next-step palette", async () =
   assert.match(stylesSource, /--primary:\s*#59a844/i);
   assert.match(stylesSource, /--primary-strong:\s*#4b8d39/i);
   assert.match(stylesSource, /--line:\s*#d9dad9/i);
-  assert.match(stylesSource, /\.nextstep-topbar/);
-  const topbarBlock = stylesSource.match(/\.nextstep-topbar\s*\{(?<body>[\s\S]*?)\n\}/)?.groups?.body ?? "";
-  assert.doesNotMatch(topbarBlock, /position:\s*sticky/i);
+  assert.doesNotMatch(stylesSource, /\.nextstep-topbar/);
   assert.match(stylesSource, /font-family:\s*"Open Sans"/i);
   assert.match(stylesSource, /font-family:\s*"Rubik"/i);
   assert.doesNotMatch(stylesSource, /#0c1324|#191f31|#22d3ee|#8aebff|Space Grotesk|Noto Serif|font-family:\s*"Inter"|family=Inter|backdrop-filter:\s*blur/i);
@@ -69,7 +67,7 @@ test("forensic studies option2 keeps tablet and mobile in the compact top-naviga
   assert.match(mainSource, /const COMPACT_NAV_QUERY = "\(max-width: 1023px\)";/);
   assert.match(mainSource, /window\.matchMedia\(COMPACT_NAV_QUERY\)\.matches/);
   assert.match(stylesSource, /@media\s*\(max-width:\s*1023px\)\s*\{[\s\S]*?\.app-shell,\s*\n\s*body\.sidebar-collapsed \.app-shell/i);
-  assert.match(stylesSource, /@media\s*\(max-width:\s*1023px\)\s*\{[\s\S]*?\.nextstep-topbar/i);
+  assert.doesNotMatch(stylesSource, /@media\s*\(max-width:\s*1023px\)\s*\{[\s\S]*?\.nextstep-topbar/i);
   assert.doesNotMatch(stylesSource, /@media\s*\(max-width:\s*760px\)\s*\{[\s\S]*?\.app-shell,\s*\n\s*body\.sidebar-collapsed \.app-shell/i);
   assert.doesNotMatch(mainSource, /window\.innerWidth <= 900/);
 });

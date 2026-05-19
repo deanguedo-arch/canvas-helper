@@ -27,3 +27,10 @@ test("calm-module teacher report template uses live interpolation tokens", async
   assert.match(source, /\$\{inventorySection\}/);
   assert.match(source, /\$\{overallPercentage\}/);
 });
+
+test("calm-module sidebar exposes a Google-hosted save controls host", async () => {
+  const source = await readFile(mainPath, "utf8");
+
+  assert.match(source, /data-google-hosted-controls-host="true"/);
+  assert.match(source, /className="mt-auto px-4 pb-6"/);
+});

@@ -11,6 +11,8 @@ const publishBatPath = path.resolve("publish-sportswellness.bat");
 const hostedFirebaseConfigPath = path.resolve("projects/sportswellness/exports/google-hosted/firebase-config.json");
 const hostedFirebaseRcPath = path.resolve("projects/sportswellness/exports/google-hosted/.firebaserc");
 const hostedBridgePath = path.resolve("projects/sportswellness/exports/google-hosted/google-hosted-bridge.js");
+const workspaceIndexPath = path.resolve("projects/sportswellness/workspace/index.html");
+const workspaceStylesPath = path.resolve("projects/sportswellness/workspace/styles.css");
 
 test("sportswellness project manifest opts into google hosted export and explicit tracked storage keys", async () => {
   const source = await readFile(projectManifestPath, "utf8");
@@ -123,4 +125,16 @@ test("sportswellness google hosted export carries deploy-ready Firebase files an
   assert.match(bridgeSource, /projects\/\{slug\}\/users\/\{uid\}|collection\("users"\)\.doc/);
   assert.match(bridgeSource, /sportswellness\.course-progress\.v1/);
   assert.match(bridgeSource, /sportswellness_phase1_assignment_v2/);
+});
+
+test("sportswellness hosts Google save controls without changing the responsive sidebar bar", async () => {
+  const [indexSource, stylesSource] = await Promise.all([
+    readFile(workspaceIndexPath, "utf8"),
+    readFile(workspaceStylesPath, "utf8")
+  ]);
+
+  assert.match(indexSource, /class="sidebar-save-host" data-google-hosted-controls-host="true"/);
+  assert.match(stylesSource, /body\.sidebar-collapsed \.sidebar-save-host/);
+  assert.match(stylesSource, /body\.compact-layout \.sidebar-save-host/);
+  assert.match(stylesSource, /body\.compact-layout\.mobile-menu-open \.sidebar-save-host/);
 });

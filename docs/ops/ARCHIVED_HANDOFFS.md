@@ -5501,3 +5501,31 @@ One question before I change it: do you want only the large top hero image reduc
 - Hosted Firebase deploy was not run for that quiz-format pass.
 - Fresh learner state still locks quizzes until module content is completed.
 - The checkout remained dirty with unrelated sidecar and processed snapshot noise.
+
+---
+
+# Archived Handoff: English 10-4, 20-4, and 30-4 DOCX upload packages
+
+- Archived on: 2026-05-17
+- Project: English DOCX export package work
+- Prior status: generated packages complete, current active work moved to deployed course sidebar repair
+
+## Summary
+- Generated clean organized Brightspace ZIP to DOCX upload packages for English 10-4, English 20-4, and English 30-4 using the shared Word-native Brightspace ZIP conversion method.
+- Each package followed the established upload structure: source ZIP, DOCX by unit, supporting files by unit, audits, and cleaned HTML used for Word import.
+
+## Source-of-truth location
+- Shared generator: `scripts/brightspace_zip_to_docx_upload_package.py`
+- English 10-4 package: `projects/english-10-4-docx-export/exports/upload-package/`
+- English 20-4 package: `projects/english-20-4-docx-export/exports/upload-package/`
+- English 30-4 package: `projects/english-30-4-docx-export/exports/upload-package/`
+
+## Verification run
+- `python projects\english-10-4-docx-export\meta\build_word_native_course_docx.py` exited 0.
+- `python projects\english-20-4-docx-export\meta\build_word_native_course_docx.py` exited 0.
+- `python projects\english-30-4-docx-export\meta\build_word_native_course_docx.py` exited 0.
+
+## Known risks / follow-up
+- No manual visual review was run.
+- No test suite was run for that artifact-generation pass.
+- Word COM import can still interpret some Brightspace HTML/CSS differently than browser full-screen mode.

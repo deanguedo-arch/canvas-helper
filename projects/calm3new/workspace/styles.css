@@ -21,6 +21,12 @@
             padding-right: 0.8rem;
         }
 
+        [data-google-hosted-controls-host]:empty,
+        .sidebar-collapsed [data-google-hosted-controls-host],
+        .sidebar-collapsed > .canvas-helper-google-hosted-controls {
+            display: none;
+        }
+
         .conversation-line {
             border-color: #e2e8f0;
             background: #f8fafc;

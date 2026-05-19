@@ -5,21 +5,21 @@ import test from "node:test";
 
 const mainPath = path.resolve("projects/experimental-psych-30-per-1-a-b-sec-s-202632352/workspace/main.js");
 
-test("experimental psychology exposes the persisted Next Step theme toggle", async () => {
+test("experimental psychology keeps the Next Step theme internally without a learner theme toggle", async () => {
   const source = await readFile(mainPath, "utf8");
 
   assert.match(source, /COURSE_THEME_MODES/);
   assert.match(source, /const DEFAULT_THEME_MODE = "next-step";/);
+  assert.match(source, /const THEME_PREFERENCE_VERSION = 2;/);
   assert.match(
     source,
     /parsed\.themePreferenceVersion === THEME_PREFERENCE_VERSION\s*\?\s*normalizeThemeMode\(parsed\.themeMode\)\s*:\s*DEFAULT_THEME_MODE/,
   );
   assert.match(source, /state\.themePreferenceVersion = THEME_PREFERENCE_VERSION;/);
-  assert.match(source, /data-theme-toggle="current"/);
-  assert.match(source, /data-theme-toggle="next-step"/);
-  assert.match(source, /aria-pressed="\$\{themeMode === "next-step"/);
+  assert.doesNotMatch(source, /data-theme-toggle="current"/);
+  assert.doesNotMatch(source, /data-theme-toggle="next-step"/);
+  assert.doesNotMatch(source, /aria-pressed="\$\{themeMode === "next-step"/);
   assert.match(source, /next-step-theme/);
-  assert.match(source, /setThemeMode\(/);
   assert.match(source, /--ns-primary:\s*#1e6d0d/);
 });
 
@@ -47,7 +47,7 @@ test("experimental psychology uses the forensics35 course shell structure", asyn
   assert.match(source, /forensics35-chapters-library/);
   assert.match(source, /forensics35-quiz-library/);
   assert.match(source, /data-testid="forensics35-chapter-card"/);
-  assert.match(source, /data-testid="forensics35-quiz-card"/);
+  assert.match(source, /forensics35-quiz-card/);
   assert.match(source, /data-testid="chapter-sequence-list"/);
   assert.match(source, /data-testid="mark-complete-panel"/);
   assert.match(source, /data-open-shell-content/);

@@ -10,7 +10,7 @@ const root = document.getElementById("root");
 const assessmentDeliveryByActivityId = new Map(assessmentDelivery.map((entry) => [entry.activityId, entry]));
 const COURSE_THEME_MODES = ["current", "next-step"];
 const DEFAULT_THEME_MODE = "next-step";
-const THEME_PREFERENCE_VERSION = 1;
+const THEME_PREFERENCE_VERSION = 2;
 const AUTHORING_UNLOCK_ALL = false;
 const SIDEBAR_COMPACT_QUERY = "(max-width: 1023px)";
 const COURSE_SHELL_VIEWS = ["home", "chapters", "quizzes", "reader"];
@@ -2979,6 +2979,7 @@ function getForensics35ShellRows() {
     const taskAssignments = assignments.filter((activity) => !isShellQuizActivity(activity));
     const completion = moduleCompletion(module);
     const unlockedByAuthoring = typeof AUTHORING_UNLOCK_ALL !== "undefined" && AUTHORING_UNLOCK_ALL;
+    const moduleQuizzesUnlocked = module ? moduleCompletion(module).isUnlocked : false;
     return {
       module,
       index,
@@ -2988,7 +2989,7 @@ function getForensics35ShellRows() {
       taskAssignments,
       unlockedContent: getShellUnlockedContent(content),
       completion,
-      quizzesUnlocked: unlockedByAuthoring || completion.isUnlocked
+      quizzesUnlocked: unlockedByAuthoring || moduleQuizzesUnlocked
     };
   });
 }
@@ -3120,11 +3121,13 @@ function renderForensics35Shell() {
   const activeNav = getForensics35ActiveNav();
   const isMenuCollapsed = isForensicsMenuCollapsed();
   const isMobileMenuOpen = isForensicsMobileMenuOpen();
+  const compactSidebarClass = compactSidebarOpen ? "compact-sidebar-open" : "";
   const mainContent = state.courseShellView === "reader" ? renderForensics35Reader(rows) : renderForensics35Library(rows);
 
   root.innerHTML = `
-    <div class="forensic-app">
-      <div class="forensic-layout ${isMenuCollapsed ? "menu-collapsed" : ""} ${isMobileMenuOpen ? "mobile-menu-open" : ""}">
+    <div class="forensic-app ${state.themeMode === "next-step" ? "next-step-theme" : ""}">
+      <button type="button" class="sidebar-scrim" data-close-sidebar data-menu-open="${isMobileMenuOpen ? "true" : "false"}" aria-label="Close chapter menu"></button>
+      <div class="forensic-layout ${isMenuCollapsed ? "menu-collapsed" : ""} ${isMobileMenuOpen ? "mobile-menu-open" : ""} ${compactSidebarClass}">
         ${renderForensics35Sidebar(rows, activeNav, isMenuCollapsed, isMobileMenuOpen)}
         <main class="forensic-main">
           ${mainContent}
@@ -3204,6 +3207,9 @@ function renderForensics35Sidebar(rows, activeNav, isMenuCollapsed, isMobileMenu
           </button>
           <button type="button" class="forensic-menu-button forensic-desktop-menu-toggle" data-sidebar-toggle aria-expanded="${isMenuCollapsed ? "false" : "true"}" aria-label="${isMenuCollapsed ? "Open chapter menu" : "Collapse chapter menu"}" data-testid="chapter-menu-toggle">
             <span></span><span></span><span></span>
+          </button>
+          <button type="button" class="sidebar-close" data-close-sidebar aria-label="Close chapter menu">
+            <span></span><span></span>
           </button>
         </div>
         <div class="forensic-sidebar-progress" data-testid="forensics35-sidebar-progress">
@@ -3322,10 +3328,24 @@ function renderForensics35AssignmentLibrary(rows) {
 function renderForensics35AssessmentCard(row, activity, index, type) {
   const locked = !row.quizzesUnlocked;
   const actionAttribute = type === "assignment" ? "data-open-shell-assignment" : "data-open-shell-quiz";
+  if (type === "assignment") {
+    return `
+    <article class="forensic-module-card" data-testid="forensics35-assignment-card">
+      <div class="forensic-overline">Assignment ${index + 1}</div>
+      <h3>${escapeHtml(activity.title || "Assignment")}</h3>
+      <p>Mapped from the D2L manifest hierarchy. This node is included in the shell so navigation follows the real course sequence.</p>
+      <div class="forensic-card-actions">
+        <button type="button" class="forensic-secondary-button" ${actionAttribute}="${escapeHtml(row.module.id)}" data-activity-id="${escapeHtml(activity.id)}" ${locked ? "disabled" : ""}>Open test</button>
+      </div>
+      ${locked ? `<div class="forensic-lock-pill">Locked until all module content is marked complete</div>` : ""}
+    </article>
+  `;
+  }
+
   return `
-    <article class="forensic-module-card" data-testid="${type === "assignment" ? "forensics35-assignment-card" : "forensics35-quiz-card"}">
-      <div class="forensic-overline">${type === "assignment" ? "Assignment" : "Quiz"} ${index + 1}</div>
-      <h3>${escapeHtml(activity.title || (type === "assignment" ? "Assignment" : "Assessment"))}</h3>
+    <article class="forensic-module-card" data-testid="forensics35-quiz-card">
+      <div class="forensic-overline">Quiz ${index + 1}</div>
+      <h3>${escapeHtml(activity.title || "Assessment")}</h3>
       <p>Mapped from the D2L manifest hierarchy. This node is included in the shell so navigation follows the real course sequence.</p>
       <div class="forensic-card-actions">
         <button type="button" class="forensic-secondary-button" ${actionAttribute}="${escapeHtml(row.module.id)}" data-activity-id="${escapeHtml(activity.id)}" ${locked ? "disabled" : ""}>Open test</button>
@@ -3352,10 +3372,11 @@ function renderForensics35Reader(rows) {
 }
 
 function renderForensics35ChapterReader(row) {
+  const moduleCode = `Module ${row.index + 1}`;
   return `
     <section class="forensic-reader-surface">
       <div class="forensic-reader-header">
-        <div class="forensic-reader-kicker">${escapeHtml(formatForensics35ModuleTitle(row))}</div>
+        <div class="forensic-reader-kicker">General Psychology / ${escapeHtml(moduleCode)} / Course module</div>
         <h2 data-testid="lesson-title">${escapeHtml(formatForensics35ModuleTitle(row))}</h2>
         <div class="forensic-badge">Content</div>
         <div class="forensic-reader-progress">
@@ -3453,6 +3474,10 @@ function renderForensics35LockedReader(row, title, message) {
 function bindForensics35ShellEvents() {
   root.querySelectorAll("[data-sidebar-toggle]").forEach((button) => {
     button.addEventListener("click", () => toggleForensics35Sidebar());
+  });
+
+  root.querySelectorAll("[data-close-sidebar]").forEach((button) => {
+    button.addEventListener("click", () => closeForensics35MenuAfterSelection());
   });
 
   root.querySelectorAll("[data-shell-nav]").forEach((button) => {

@@ -10,7 +10,7 @@ const root = document.getElementById("root");
 const assessmentDeliveryByActivityId = new Map(assessmentDelivery.map((entry) => [entry.activityId, entry]));
 const COURSE_THEME_MODES = ["current", "next-step"];
 const DEFAULT_THEME_MODE = "next-step";
-const THEME_PREFERENCE_VERSION = 1;
+const THEME_PREFERENCE_VERSION = 2;
 const COURSE_SHELL_VIEWS = ["home", "chapters", "quizzes", "assignments", "reader"];
 const SHELL_ASSIGNMENTS_VIEW = "assignments";
 const SIDEBAR_COMPACT_QUERY = "(max-width: 1023px)";

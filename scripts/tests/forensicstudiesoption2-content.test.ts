@@ -451,6 +451,7 @@ test("forensicstudiesoption2 manifest declares the full explicit Google-hosted t
   const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
   const trackedStorageKeys = manifest?.googleHosted?.trackedStorageKeys;
 
+  assert.equal(manifest?.googleHosted?.authMode, "google");
   assert.deepEqual(trackedStorageKeys, [
     "forensicstudiesoption2.progress",
     "forensicstudiesoption2.ui",

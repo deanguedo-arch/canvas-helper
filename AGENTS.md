@@ -380,6 +380,7 @@ Do not touch deploy, publish, sync, or release paths unless explicitly requested
 Do not treat docs-only changes as implementation proof.
 Do not treat script existence as command execution proof.
 Do not treat Codex-reported command output as strong local proof.
+For visual/layout claims, collect or register screenshot proof with `stax:collect-visual`; do not make the user manually translate screenshots into prose proof.
 
 Before final response, write or update:
 

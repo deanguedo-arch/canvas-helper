@@ -12,13 +12,24 @@ Status: candidate
 - vite
 
 ## Detected Proof Commands
+- deploy-google-hosted.bat
+- deploy-google-hosted.sh
 - npm run assessment-map
+- npm run assessment:export
 - npm run blueprint
 - npm run build:course-shell
 - npm run build:studio
+- npm run deploy:google-hosted
+- npm run export:apps-script
+- npm run export:brightspace
+- npm run export:brightspace:zip
+- npm run export:google-hosted
+- npm run export:html
+- npm run export:scorm
 - npm run lesson-packets
 - npm run library
 - npm run smoke:pipeline
+- npm run sync:course-images
 - npm run test:apps-script
 - npm run test:assessments
 - npm run test:course-shell
@@ -38,6 +49,17 @@ Status: candidate
 - npm run validate:manifests
 - npm run verify
 - publish-ai-course-building-resources.bat
+- publish-experimental-psychology.bat
+- publish-experimental-psychology.sh
+- publish-forensics.bat
+- publish-forensics.sh
+- publish-forensics35.bat
+- publish-forensics35.sh
+- publish-general-psychology.bat
+- publish-general-psychology.sh
+- publish-sportswellness.bat
+- publish-worldreligions30-option1.bat
+- scripts/assessment-export.ts
 - scripts/build-assessment-map.ts
 - scripts/build-course-blueprint.ts
 - scripts/build-course-shell.ts
@@ -45,13 +67,29 @@ Status: candidate
 - scripts/build-lesson-packets.ts
 - scripts/build-pattern-library.ts
 - scripts/build-unit1-knowledge-check.ts
+- scripts/deploy-google-hosted.ts
+- scripts/export-apps-script.ts
+- scripts/export-brightspace-package.ts
+- scripts/export-brightspace.ts
+- scripts/export-google-hosted.ts
+- scripts/export-html.ts
+- scripts/export-scorm.ts
+- scripts/lib/apps-script.ts
+- scripts/lib/assessments/export-brightspace.ts
 - scripts/lib/assessments/schema.ts
 - scripts/lib/benchmarks/validate.ts
 - scripts/lib/conversion/auditCoverage.ts
 - scripts/lib/conversion/buildSourceMap.ts
 - scripts/lib/conversion/detectStructures.ts
+- scripts/lib/course-shell-content-parsers.ts
+- scripts/lib/course-shell-resources.ts
+- scripts/lib/course-shell.ts
+- scripts/lib/exporter.ts
+- scripts/lib/google-hosted-deploy.ts
+- scripts/lib/google-hosted.ts
 - scripts/run-e2e-project.ts
 - scripts/smoke-local-pipeline.ts
+- scripts/sync-course-images.ts
 - scripts/tests/ai-course-building-resources-google-hosted.test.ts
 - scripts/tests/ai-course-building-resources.test.ts
 - scripts/tests/apps-script-export.test.ts
@@ -105,6 +143,7 @@ Status: candidate
 - scripts/tests/report-all-progress.test.ts
 - scripts/tests/scorm-export.test.ts
 - scripts/tests/single-html-export.test.ts
+- scripts/tests/social_studies_docx_export_test.py
 - scripts/tests/sportswellness-apps-script-runtime.test.ts
 - scripts/tests/sportswellness-assignment-runtime-globals.test.ts
 - scripts/tests/sportswellness-film-room.test.ts
@@ -197,6 +236,7 @@ Status: candidate
 - build_ready: require local_command_output, target_repo_cwd (package.json scripts)
 - tests_passed: require local_command_output, target_repo_cwd (package.json scripts)
 - visual_ready: require rendered_screenshot, visual_checklist (workspace/config/script detection)
+- course_deploy_ready: require workspace_source_diff, export_regenerated, stax_collected_deploy_command, live_target_fetch, rendered_screenshot, visual_checklist, target_site_identity (course export/deploy script and visual workspace detection)
 - publish_sync_deploy_ready: require human_approval, non_mutating_preflight, target_validation (risky package script detection)
 - data_pipeline_ready: require schema_or_fixture_validation, quality_command_output (data script/path detection)
 - gold_fixture_update: require source_truth_reference, separate_human_approval, validation_command_output (gold/fixture script or path detection)

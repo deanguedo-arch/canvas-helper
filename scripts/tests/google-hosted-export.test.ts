@@ -54,6 +54,32 @@ test("buildGoogleHostedBridgeScript includes auth, firestore, project binding, a
   assert.match(bridge, /"progressItems":\[\{"id":"lesson-1"/);
 });
 
+test("buildGoogleHostedBridgeScript embeds save controls into course sidebars when available", () => {
+  const bridge = buildGoogleHostedBridgeScript({
+    projectSlug: "general-psychology-20-independent-studies-202633108",
+    storageKeys: ["general-psychology-20-independent-studies-202633108::workspace-state::v1"]
+  });
+
+  assert.match(bridge, /findGoogleHostedControlsHost/);
+  assert.match(bridge, /canvas-helper-google-hosted-controls--embedded/);
+  assert.match(bridge, /sidebarRootSelectors/);
+  assert.match(bridge, /\.forensic-sidebar/);
+  assert.match(bridge, /\.shell-sidebar/);
+  assert.match(bridge, /\.sidebar/);
+  assert.match(bridge, /#sidebar/);
+  assert.match(bridge, /parseColorChannels/);
+  assert.match(bridge, /findSidebarAccentColor/);
+  assert.match(bridge, /applySidebarThemeStyles/);
+  assert.match(bridge, /--gh-controls-bg/);
+  assert.match(bridge, /--gh-button-bg/);
+  assert.match(bridge, /:has\(> \.canvas-helper-google-hosted-controls--embedded\)/);
+  assert.match(bridge, /position:sticky;bottom:16px;margin-top:auto/);
+  assert.match(bridge, /margin-top:auto/);
+  assert.match(bridge, /MutationObserver/);
+  assert.match(bridge, /data-placement", "sidebar"/);
+  assert.match(bridge, /data-placement", "fixed"/);
+});
+
 test("buildGoogleHostedBridgeScript includes reload-loop guard for restore flows", () => {
   const bridge = buildGoogleHostedBridgeScript({
     projectSlug: "calm-module",

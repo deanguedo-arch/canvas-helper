@@ -275,78 +275,6 @@ body.sidebar-collapsed .home-tab {
   min-width: 0;
 }
 
-.nextstep-topbar {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 22px;
-  min-height: 78px;
-  padding: 16px 28px;
-  border-bottom: 1px solid var(--line);
-  background: #f9f9f8;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-}
-
-.nextstep-brand {
-  color: var(--primary-strong);
-  font-family: "Rubik", sans-serif;
-  font-size: 1.55rem;
-  font-weight: 800;
-  letter-spacing: 0;
-}
-
-.nextstep-stat-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-}
-
-.nextstep-stat {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  min-height: 34px;
-  padding: 0 16px;
-  border-radius: 999px;
-  background: var(--line);
-  color: var(--muted-strong);
-  font-size: 0.82rem;
-  font-weight: 800;
-  letter-spacing: 0;
-  text-transform: uppercase;
-}
-
-.nextstep-stat strong {
-  color: var(--primary-strong);
-}
-
-.student-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  min-height: 46px;
-  padding: 6px 14px 6px 8px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: #ffffff;
-  color: var(--text);
-  font-weight: 800;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-}
-
-.student-avatar {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 999px;
-  background: #e7e8e7;
-  color: var(--muted-strong);
-  font-size: 0.78rem;
-}
-
 .content-inner {
   width: var(--content-width);
   max-width: 100%;
@@ -1953,15 +1881,4 @@ body::after {
 
 .viewer-overlay {
   background: rgba(26, 28, 26, 0.72);
-}
-
-@media (max-width: 1023px) {
-  .nextstep-topbar {
-    grid-template-columns: 1fr;
-    justify-items: start;
-  }
-
-  .nextstep-stat-row {
-    justify-content: flex-start;
-  }
 }

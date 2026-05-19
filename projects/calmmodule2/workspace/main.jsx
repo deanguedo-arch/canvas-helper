@@ -966,6 +966,7 @@ const { useState, useEffect, useRef } = React;
                                 <div className="h-full bg-emerald-400 transition-all duration-500" style={{ width: `${(SECTIONS.filter(s => s.id!=='finish' && calcProgress(s.id).isDone).length / (SECTIONS.length-1)) * 100}%` }}></div>
                             </div>
                         </div>
+                        <div data-google-hosted-controls-host="true" className="mt-auto pt-4"></div>
                         </div>
                     </div>
 

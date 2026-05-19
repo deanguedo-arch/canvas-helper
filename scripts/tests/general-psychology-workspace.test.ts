@@ -118,19 +118,18 @@ test("general psychology does not render decorative telemetry cards", async () =
   assert.doesNotMatch(source, /telemetry-card/);
 });
 
-test("general psychology exposes a persisted Next Step theme toggle", async () => {
+test("general psychology keeps the Next Step theme internally without a learner theme toggle", async () => {
   const source = await readFile(mainPath, "utf8");
 
   assert.match(source, /COURSE_THEME_MODES/);
   assert.match(source, /const DEFAULT_THEME_MODE = "next-step";/);
-  assert.match(source, /THEME_PREFERENCE_VERSION/);
+  assert.match(source, /const THEME_PREFERENCE_VERSION = 2;/);
   assert.match(source, /parsed\.themePreferenceVersion === THEME_PREFERENCE_VERSION\s*\?\s*normalizeThemeMode\(parsed\.themeMode\)\s*:\s*DEFAULT_THEME_MODE/);
   assert.match(source, /state\.themePreferenceVersion = THEME_PREFERENCE_VERSION;/);
-  assert.match(source, /data-theme-toggle="current"/);
-  assert.match(source, /data-theme-toggle="next-step"/);
-  assert.match(source, /aria-pressed="\$\{themeMode === "next-step"/);
+  assert.doesNotMatch(source, /data-theme-toggle="current"/);
+  assert.doesNotMatch(source, /data-theme-toggle="next-step"/);
+  assert.doesNotMatch(source, /aria-pressed="\$\{themeMode === "next-step"/);
   assert.match(source, /next-step-theme/);
-  assert.match(source, /setThemeMode\(/);
   assert.match(source, /--ns-primary:\s*#1e6d0d/);
 });
 
