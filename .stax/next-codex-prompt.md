@@ -11,4 +11,4 @@ Address these proof gaps:
 - Command evidence provenance is not verified for npm run test:apps-script: wrong_commit.
 
 Do not broaden scope. Do not claim tests passed without local command evidence. Update .stax/codex-report.md, then stop.
-Risk to avoid: Command evidence risk: wrong commit: expected ced980eccd469fdf9202d7fed69867ce7c434747, got d59bb3684ab4400b37d259e8a8611a8ddaa60056.
+Risk to avoid: Command evidence risk: wrong commit: expected 927c28ae8a35b38ca0b0dfcc074463cb3b6063bb, got d59bb3684ab4400b37d259e8a8611a8ddaa60056.

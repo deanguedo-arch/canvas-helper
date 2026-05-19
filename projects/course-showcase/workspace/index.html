@@ -9,15 +9,19 @@
 <body>
   <main class="showcase-shell">
     <header class="topbar" aria-label="Course showcase header">
-      <a class="brand brand-logo" href="#" aria-label="Next Step Course Showcase home">
-        <img class="brand-image" src="./assets/brand/next-step-logo-transparent.png" alt="Next Step" />
-        <span class="brand-subtitle">Course Showcase</span>
-      </a>
+      <img class="runner-brand-image" src="./assets/brand/green-lilguy-colour.png" alt="" aria-hidden="true" />
     </header>
 
     <section class="page-title" aria-labelledby="showcaseTitle">
-      <h1 id="showcaseTitle">The Next Step Course Showcase</h1>
-      <p>Browse course builds and stakeholder previews.</p>
+      <h1 id="showcaseTitle" class="sr-only">The Next Step Course Showcase</h1>
+      <div class="showcase-title-lockup" aria-hidden="true">
+        <div class="showcase-wordmark">
+          <span class="showcase-nextstep">
+            <span class="showcase-next">next</span><span class="showcase-step">STEP</span>
+          </span>
+          <span class="showcase-kicker">Course Showcase</span>
+        </div>
+      </div>
       <div class="filter-row" aria-label="Course filters">
         <button class="filter-button is-active" type="button" data-filter="all">All</button>
         <button class="filter-button" type="button" data-filter="calm">CALM</button>

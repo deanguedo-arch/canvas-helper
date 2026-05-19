@@ -1,11 +1,11 @@
 {
   "schemaVersion": "stax-sidecar-status-v1",
-  "generatedAt": "2026-05-19T18:41:27.948Z",
+  "generatedAt": "2026-05-19T19:38:11.612Z",
   "repo": "canvas-helper",
   "repoPath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper",
   "branch": "main",
-  "commitSha": "ced980eccd469fdf9202d7fed69867ce7c434747",
-  "task": "Remove Course Showcase course artwork from selector orbs so the selectors are pure animated glass buttons.",
+  "commitSha": "927c28ae8a35b38ca0b0dfcc074463cb3b6063bb",
+  "task": "Make the top-left green lilguy runner mark larger in the Course Showcase hero.",
   "verdict": "Reject",
   "exitCode": 1,
   "why": "Command evidence classifier: stale_proof for node --test projects/course-showcase/meta/showcase-ui.test.mjs.",
@@ -18,20 +18,20 @@
   ],
   "weak": [
     "Diff audit: provisional due to visual_source_without_visual_proof.",
-    "Command evidence cmd_2026-05-19T16_39_45_363Z_f63584063f14 commit d59bb3684ab4400b37d259e8a8611a8ddaa60056 does not match ced980eccd469fdf9202d7fed69867ce7c434747.",
-    "Command evidence commit d59bb3684ab4400b37d259e8a8611a8ddaa60056 differs from current head ced980eccd469fdf9202d7fed69867ce7c434747.",
-    "Command evidence cmd_2026-05-19T16_02_05_107Z_b4f1f0968cda commit d59bb3684ab4400b37d259e8a8611a8ddaa60056 does not match ced980eccd469fdf9202d7fed69867ce7c434747.",
-    "Command evidence cmd_2026-05-15T21_06_54_080Z_538ac8bbaa12 commit 092b52736e482c5ce1282f43f52567b59c44e8ff does not match ced980eccd469fdf9202d7fed69867ce7c434747.",
-    "Command evidence commit 092b52736e482c5ce1282f43f52567b59c44e8ff differs from current head ced980eccd469fdf9202d7fed69867ce7c434747.",
-    "Command evidence cmd_2026-05-15T21_06_54_080Z_fbb4adb529d3 commit 092b52736e482c5ce1282f43f52567b59c44e8ff does not match ced980eccd469fdf9202d7fed69867ce7c434747.",
-    "Command evidence cmd_2026-05-15T20_28_19_662Z_e20eca68655b commit 092b52736e482c5ce1282f43f52567b59c44e8ff does not match ced980eccd469fdf9202d7fed69867ce7c434747.",
-    "Command evidence cmd_2026-05-15T20_16_24_273Z_1fd9c9fd269a commit 092b52736e482c5ce1282f43f52567b59c44e8ff does not match ced980eccd469fdf9202d7fed69867ce7c434747.",
-    "Command evidence cmd_2026-05-15T19_25_35_480Z_23073e0bd991 commit 092b52736e482c5ce1282f43f52567b59c44e8ff does not match ced980eccd469fdf9202d7fed69867ce7c434747.",
-    "Command evidence cmd_2026-05-15T19_25_35_476Z_a5dc873d8209 commit 092b52736e482c5ce1282f43f52567b59c44e8ff does not match ced980eccd469fdf9202d7fed69867ce7c434747.",
-    "Command evidence cmd_2026-05-15T19_25_04_633Z_6b674dde27da commit 092b52736e482c5ce1282f43f52567b59c44e8ff does not match ced980eccd469fdf9202d7fed69867ce7c434747.",
-    "Command evidence cmd_2026-05-15T19_24_47_111Z_8025d0a855d5 commit 092b52736e482c5ce1282f43f52567b59c44e8ff does not match ced980eccd469fdf9202d7fed69867ce7c434747.",
-    "Command evidence cmd_2026-05-13T18_47_48_924Z_c489fb61322c commit f6f73f858526fbec148d4de92f5a977a7ce21459 does not match ced980eccd469fdf9202d7fed69867ce7c434747.",
-    "Command evidence commit f6f73f858526fbec148d4de92f5a977a7ce21459 differs from current head ced980eccd469fdf9202d7fed69867ce7c434747.",
+    "Command evidence cmd_2026-05-19T16_39_45_363Z_f63584063f14 commit d59bb3684ab4400b37d259e8a8611a8ddaa60056 does not match 927c28ae8a35b38ca0b0dfcc074463cb3b6063bb.",
+    "Command evidence commit d59bb3684ab4400b37d259e8a8611a8ddaa60056 differs from current head 927c28ae8a35b38ca0b0dfcc074463cb3b6063bb.",
+    "Command evidence cmd_2026-05-19T16_02_05_107Z_b4f1f0968cda commit d59bb3684ab4400b37d259e8a8611a8ddaa60056 does not match 927c28ae8a35b38ca0b0dfcc074463cb3b6063bb.",
+    "Command evidence cmd_2026-05-15T21_06_54_080Z_538ac8bbaa12 commit 092b52736e482c5ce1282f43f52567b59c44e8ff does not match 927c28ae8a35b38ca0b0dfcc074463cb3b6063bb.",
+    "Command evidence commit 092b52736e482c5ce1282f43f52567b59c44e8ff differs from current head 927c28ae8a35b38ca0b0dfcc074463cb3b6063bb.",
+    "Command evidence cmd_2026-05-15T21_06_54_080Z_fbb4adb529d3 commit 092b52736e482c5ce1282f43f52567b59c44e8ff does not match 927c28ae8a35b38ca0b0dfcc074463cb3b6063bb.",
+    "Command evidence cmd_2026-05-15T20_28_19_662Z_e20eca68655b commit 092b52736e482c5ce1282f43f52567b59c44e8ff does not match 927c28ae8a35b38ca0b0dfcc074463cb3b6063bb.",
+    "Command evidence cmd_2026-05-15T20_16_24_273Z_1fd9c9fd269a commit 092b52736e482c5ce1282f43f52567b59c44e8ff does not match 927c28ae8a35b38ca0b0dfcc074463cb3b6063bb.",
+    "Command evidence cmd_2026-05-15T19_25_35_480Z_23073e0bd991 commit 092b52736e482c5ce1282f43f52567b59c44e8ff does not match 927c28ae8a35b38ca0b0dfcc074463cb3b6063bb.",
+    "Command evidence cmd_2026-05-15T19_25_35_476Z_a5dc873d8209 commit 092b52736e482c5ce1282f43f52567b59c44e8ff does not match 927c28ae8a35b38ca0b0dfcc074463cb3b6063bb.",
+    "Command evidence cmd_2026-05-15T19_25_04_633Z_6b674dde27da commit 092b52736e482c5ce1282f43f52567b59c44e8ff does not match 927c28ae8a35b38ca0b0dfcc074463cb3b6063bb.",
+    "Command evidence cmd_2026-05-15T19_24_47_111Z_8025d0a855d5 commit 092b52736e482c5ce1282f43f52567b59c44e8ff does not match 927c28ae8a35b38ca0b0dfcc074463cb3b6063bb.",
+    "Command evidence cmd_2026-05-13T18_47_48_924Z_c489fb61322c commit f6f73f858526fbec148d4de92f5a977a7ce21459 does not match 927c28ae8a35b38ca0b0dfcc074463cb3b6063bb.",
+    "Command evidence commit f6f73f858526fbec148d4de92f5a977a7ce21459 differs from current head 927c28ae8a35b38ca0b0dfcc074463cb3b6063bb.",
     "STAX sidecar heartbeat is stale.",
     "Codex turn capture is stale."
   ],
@@ -65,18 +65,18 @@
     "Proof-strength reject: Failed command evidence: node -e const fs=require(fs); const pkg=JSON.parse(fs.readFileSync(package.json,utf8)); console.log(process.cwd()); console.log(pkg.name); exited 1."
   ],
   "risk": [
-    "Command evidence risk: wrong commit: expected ced980eccd469fdf9202d7fed69867ce7c434747, got d59bb3684ab4400b37d259e8a8611a8ddaa60056.",
+    "Command evidence risk: wrong commit: expected 927c28ae8a35b38ca0b0dfcc074463cb3b6063bb, got d59bb3684ab4400b37d259e8a8611a8ddaa60056.",
     "Visual proof required before accepting UI/layout claims; collect it with stax:collect-visual.",
     "Untrusted command evidence cannot prove Codex claims: wrong_commit.",
     "Stale command evidence must be refreshed for the current head.",
     "Proof-strength blocker: Failed command evidence: node -e const fs=require(fs); const pkg=JSON.parse(fs.readFileSync(package.json,utf8)); console.log(process.cwd()); console.log(pkg.name); exited 1."
   ],
   "oneNextAction": "Approved proof surface for tests_passed: Run npm run test:apps-script through stax:collect in the target repo. Suggested command: npm run smoke:pipeline.",
-  "codexPrompt": "STAX Sidecar rejected or held this task because proof is incomplete.\n\nDo exactly one cleanup pass:\nApproved proof surface for tests_passed: Run npm run test:apps-script through stax:collect in the target repo. Suggested command: npm run smoke:pipeline.\n\nAddress these proof gaps:\n- Command evidence classifier: stale_proof for node --test projects/course-showcase/meta/showcase-ui.test.mjs.\n- Visual/style claim lacks STAX-collected rendered visual proof.\n- Command evidence provenance is not verified for node --test projects/course-showcase/meta/showcase-ui.test.mjs: wrong_commit.\n- Command evidence freshness failed for node --test projects/course-showcase/meta/showcase-ui.test.mjs: wrong_commit.\n- Command evidence provenance is not verified for npm run test:apps-script: wrong_commit.\n\nDo not broaden scope. Do not claim tests passed without local command evidence. Update .stax/codex-report.md, then stop.\nRisk to avoid: Command evidence risk: wrong commit: expected ced980eccd469fdf9202d7fed69867ce7c434747, got d59bb3684ab4400b37d259e8a8611a8ddaa60056.",
+  "codexPrompt": "STAX Sidecar rejected or held this task because proof is incomplete.\n\nDo exactly one cleanup pass:\nApproved proof surface for tests_passed: Run npm run test:apps-script through stax:collect in the target repo. Suggested command: npm run smoke:pipeline.\n\nAddress these proof gaps:\n- Command evidence classifier: stale_proof for node --test projects/course-showcase/meta/showcase-ui.test.mjs.\n- Visual/style claim lacks STAX-collected rendered visual proof.\n- Command evidence provenance is not verified for node --test projects/course-showcase/meta/showcase-ui.test.mjs: wrong_commit.\n- Command evidence freshness failed for node --test projects/course-showcase/meta/showcase-ui.test.mjs: wrong_commit.\n- Command evidence provenance is not verified for npm run test:apps-script: wrong_commit.\n\nDo not broaden scope. Do not claim tests passed without local command evidence. Update .stax/codex-report.md, then stop.\nRisk to avoid: Command evidence risk: wrong commit: expected 927c28ae8a35b38ca0b0dfcc074463cb3b6063bb, got d59bb3684ab4400b37d259e8a8611a8ddaa60056.",
   "proofStrength": {
     "schemaVersion": "proof-strength-v1",
     "claimType": "visual_behavior_verified",
-    "claimText": "Remove Course Showcase course artwork from selector orbs so the selectors are pure animated glass buttons.\n\n# Canvas Helper STAX report\n\nSTAX acknowledgement: STAX_ACK turn_2026-05-19T18-38-19-708Z_ffeb 6af8231a 6ca18252\n\nObjective: Remove Course Showcase course artwork from selector orbs so the selectors are pure animated glass buttons.\n\nFiles changed:\n- projects/course-showcase/workspace/index.html\n- projects/course-showcase/workspace/main.js\n- projects/course-showcase/workspace/styles.css\n- docs/ops/ACTIVE_HANDOFF.md\n- .stax/task.md\n- .stax/codex-report.md\n\nTests added: None.\n\nCommands run:\n- Read .stax/turn-contract.json, .stax/status.json, and .stax/next-codex-prompt.md; exit 0.\n- Updated .stax/task.md; exit 0.\n- Removed selected-course and rail course image markup/script wiring from index.html and main.js; exit 0.\n- Updated docs/ops/ACTIVE_HANDOFF.md; exit 0.\n\nCommand output summary with exit codes:\n- The selected course button no longer contains an inner img element.\n- The rail course button markup emitted by renderRail no longer contains inner img elements.\n- The selected course update path no longer assigns a selected course image source.\n- No automated tests were run.\n- No browser visual review was run.\n\nWhat is verified:\n- Selector image rendering was removed from the source path that previously inserted course artwork inside the orbs.\n- The existing orb CSS remains responsible for the selector visuals.\n\nWhat is weak/provisional:\n- The rendered look has not been visually inspected in a browser.\n- STAX may still reject because visual/layout claims need rendered screenshot proof.\n\nWhat is unverified:\n- Browser appearance of selected, hover, focus, and active orb states.\n- Whether the Course Showcase UI test still passes.\n\nRisks:\n- If another script path renders course images elsewhere, it has not been inspected in this turn.\n- Visual acceptance still needs a browser screenshot or user review.\n\nOne next action:\n- Open Course Showcase in a browser and confirm the selector circles are empty glass orbs with no course images.",
+    "claimText": "Make the top-left green lilguy runner mark larger in the Course Showcase hero.\n\n# Canvas Helper STAX report\n\nSTAX acknowledgement: STAX_ACK turn_2026-05-19T19-34-13-013Z_7f3f d335ba8b 3dc1193f\n\nObjective: Make the top-left green lilguy runner mark larger in the Course Showcase hero.\n\nFiles changed:\n- projects/course-showcase/workspace/styles.css\n- docs/ops/ACTIVE_HANDOFF.md\n- .stax/task.md\n- .stax/codex-report.md\n\nTests added: None.\n\nCommands run:\n- Read .stax/turn-contract.json, .stax/status.json, and .stax/next-codex-prompt.md; exit 0.\n- Updated .stax/task.md; exit 0.\n- Applied patch to projects/course-showcase/workspace/styles.css; exit 0.\n- Updated docs/ops/ACTIVE_HANDOFF.md; exit 0.\n\nCommand output summary with exit codes:\n- `.runner-brand-image` width was changed from `clamp(72px, 8vw, 126px)` to `clamp(104px, 11vw, 178px)`.\n- No automated tests were run.\n- No browser visual review was run.\n\nWhat is verified:\n- The requested runner size increase was applied to the Course Showcase CSS source.\n\nWhat is weak/provisional:\n- The rendered size has not been visually inspected in a browser.\n- STAX may reject because visual/layout claims need rendered screenshot proof and refreshed command evidence.\n\nWhat is unverified:\n- Browser appearance on desktop and mobile.\n- Whether the Course Showcase UI test still passes.\n\nRisks:\n- The larger runner may need position tuning after visual review.\n\nOne next action:\n- Open Course Showcase in a browser and confirm the runner is large enough without crowding the wordmark.",
     "rawScore": 1,
     "finalScore": 0,
     "label": "Reject",
@@ -85,10 +85,7 @@
       "Failed command evidence: node -e const fs=require(fs); const pkg=JSON.parse(fs.readFileSync(package.json,utf8)); console.log(process.cwd()); console.log(pkg.name); exited 1."
     ],
     "primaryLimiter": "Failed command evidence: node -e const fs=require(fs); const pkg=JSON.parse(fs.readFileSync(package.json,utf8)); console.log(process.cwd()); console.log(pkg.name); exited 1.",
-    "missingProof": [
-      "Unsupported file_path claim: index.html (File path was not present in the repo evidence pack.).",
-      "Unsupported file_path claim: main.js (File path was not present in the repo evidence pack.)."
-    ],
+    "missingProof": [],
     "weakProof": [
       "Local STAX command evidence label is unverified for node --test projects/course-showcase/meta/showcase-ui.test.mjs (wrong_commit).",
       "Local STAX command evidence label is unverified for npm run test:apps-script (wrong_commit).",
@@ -113,14 +110,11 @@
       "local_stax_command_output is provisional command evidence for git status --short --branch."
     ],
     "strongProof": [
-      "Grounded file_path claim: projects/course-showcase/workspace/index.html.",
-      "Grounded file_path claim: projects/course-showcase/workspace/main.js.",
       "Grounded file_path claim: projects/course-showcase/workspace/styles.css.",
       "Grounded file_path claim: docs/ops/ACTIVE_HANDOFF.md.",
       "Grounded completion claim: What is verified:.",
       "Grounded verification claim: What is verified:.",
       "Grounded test_pass claim: - Whether the Course Showcase UI test still passes..",
-      "Repo evidence enumerated source files.",
       "Rendered visual proof was supplied."
     ],
     "oneNextAction": "Fix the failing command, rerun it through STAX command evidence, then re-gate the claim."
@@ -135,7 +129,7 @@
   ],
   "protocol": {
     "schemaVersion": "stax-protocol-compliance-v1",
-    "generatedAt": "2026-05-19T18:41:27.944Z",
+    "generatedAt": "2026-05-19T19:38:11.597Z",
     "mode": "normal",
     "status": "warning",
     "acknowledgedTurnContract": false,
@@ -161,8 +155,8 @@
         "message": "Current Codex turn capture does not contain the current STAX acknowledgement; report acknowledgement is present, so this may be capture lag."
       }
     ],
-    "acknowledgement": "STAX_ACK turn_2026-05-19T18-38-19-708Z_ffeb 6af8231a 6ca18252",
-    "contractTurnId": "turn_2026-05-19T18-38-19-708Z_ffeb"
+    "acknowledgement": "STAX_ACK turn_2026-05-19T19-34-13-013Z_7f3f d335ba8b 3dc1193f",
+    "contractTurnId": "turn_2026-05-19T19-34-13-013Z_7f3f"
   },
   "cardShapeIssues": []
 }

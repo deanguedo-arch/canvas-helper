@@ -48,7 +48,20 @@ a {
   font: inherit;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .showcase-shell {
+  position: relative;
   width: min(1840px, 100%);
   min-height: 100vh;
   margin: 0 auto;
@@ -56,72 +69,83 @@ a {
 }
 
 .topbar {
+  position: absolute;
+  top: 30px;
+  left: clamp(170px, 19vw, 330px);
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  min-height: 56px;
+  min-height: 0;
+  z-index: 2;
 }
 
-.brand,
-.brand-logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
-  color: var(--ink);
-  text-decoration: none;
-}
-
-.brand-logo {
-  display: inline-grid;
-  justify-items: start;
-  gap: 2px;
-}
-
-.brand-subtitle {
+.runner-brand-image {
   display: block;
-  line-height: 1;
-}
-
-.brand-image {
-  display: block;
-  width: 156px;
-  height: 56px;
-  object-fit: contain;
-}
-
-.brand-subtitle {
-  margin-left: 2px;
-  font-size: 12px;
-  font-weight: 800;
-  color: #5f6672;
-  text-transform: uppercase;
+  width: clamp(104px, 11vw, 178px);
+  height: auto;
+  filter: drop-shadow(0 16px 24px rgba(11, 143, 51, 0.17));
 }
 
 .page-title {
-  margin-top: 8px;
+  margin-top: 0;
   text-align: center;
 }
 
-.page-title h1 {
-  margin: 0;
-  font-size: clamp(36px, 3.25vw, 58px);
-  line-height: 0.95;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  font-weight: 900;
+.showcase-title-lockup {
+  display: grid;
+  justify-items: center;
+  margin: 0 auto;
+  color: var(--ink);
 }
 
-.page-title p {
-  margin: 14px 0 22px;
-  color: #596273;
-  font-size: clamp(16px, 1.05vw, 20px);
+.showcase-wordmark {
+  display: grid;
+  justify-items: start;
+  filter: drop-shadow(0 18px 28px rgba(8, 18, 13, 0.11));
+}
+
+.showcase-nextstep {
+  display: inline-block;
+  font-family: "Arial Black", "Franklin Gothic Heavy", "Aptos Display", sans-serif;
+  font-size: clamp(72px, 9vw, 154px);
+  font-weight: 900;
+  letter-spacing: -0.075em;
+  line-height: 0.78;
+  text-rendering: geometricPrecision;
+  white-space: nowrap;
+}
+
+.showcase-next,
+.showcase-step {
+  display: inline;
+}
+
+.showcase-next {
+  color: #242a2c;
+}
+
+.showcase-step {
+  color: #279446;
+}
+
+.showcase-kicker {
+  display: block;
+  margin-top: 10px;
+  color: #3f4650;
+  font-family: "Arial Black", "Franklin Gothic Heavy", "Aptos Display", sans-serif;
+  font-size: clamp(22px, 2.05vw, 36px);
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .filter-row {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 28px;
+  margin-top: 22px;
 }
 
 .filter-button {

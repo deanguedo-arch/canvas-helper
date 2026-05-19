@@ -1,7 +1,7 @@
 {
   "schemaVersion": "proof-strength-v1",
   "claimType": "visual_behavior_verified",
-  "claimText": "Remove Course Showcase course artwork from selector orbs so the selectors are pure animated glass buttons.\n\n# Canvas Helper STAX report\n\nSTAX acknowledgement: STAX_ACK turn_2026-05-19T18-38-19-708Z_ffeb 6af8231a 6ca18252\n\nObjective: Remove Course Showcase course artwork from selector orbs so the selectors are pure animated glass buttons.\n\nFiles changed:\n- projects/course-showcase/workspace/index.html\n- projects/course-showcase/workspace/main.js\n- projects/course-showcase/workspace/styles.css\n- docs/ops/ACTIVE_HANDOFF.md\n- .stax/task.md\n- .stax/codex-report.md\n\nTests added: None.\n\nCommands run:\n- Read .stax/turn-contract.json, .stax/status.json, and .stax/next-codex-prompt.md; exit 0.\n- Updated .stax/task.md; exit 0.\n- Removed selected-course and rail course image markup/script wiring from index.html and main.js; exit 0.\n- Updated docs/ops/ACTIVE_HANDOFF.md; exit 0.\n\nCommand output summary with exit codes:\n- The selected course button no longer contains an inner img element.\n- The rail course button markup emitted by renderRail no longer contains inner img elements.\n- The selected course update path no longer assigns a selected course image source.\n- No automated tests were run.\n- No browser visual review was run.\n\nWhat is verified:\n- Selector image rendering was removed from the source path that previously inserted course artwork inside the orbs.\n- The existing orb CSS remains responsible for the selector visuals.\n\nWhat is weak/provisional:\n- The rendered look has not been visually inspected in a browser.\n- STAX may still reject because visual/layout claims need rendered screenshot proof.\n\nWhat is unverified:\n- Browser appearance of selected, hover, focus, and active orb states.\n- Whether the Course Showcase UI test still passes.\n\nRisks:\n- If another script path renders course images elsewhere, it has not been inspected in this turn.\n- Visual acceptance still needs a browser screenshot or user review.\n\nOne next action:\n- Open Course Showcase in a browser and confirm the selector circles are empty glass orbs with no course images.",
+  "claimText": "Make the top-left green lilguy runner mark larger in the Course Showcase hero.\n\n# Canvas Helper STAX report\n\nSTAX acknowledgement: STAX_ACK turn_2026-05-19T19-34-13-013Z_7f3f d335ba8b 3dc1193f\n\nObjective: Make the top-left green lilguy runner mark larger in the Course Showcase hero.\n\nFiles changed:\n- projects/course-showcase/workspace/styles.css\n- docs/ops/ACTIVE_HANDOFF.md\n- .stax/task.md\n- .stax/codex-report.md\n\nTests added: None.\n\nCommands run:\n- Read .stax/turn-contract.json, .stax/status.json, and .stax/next-codex-prompt.md; exit 0.\n- Updated .stax/task.md; exit 0.\n- Applied patch to projects/course-showcase/workspace/styles.css; exit 0.\n- Updated docs/ops/ACTIVE_HANDOFF.md; exit 0.\n\nCommand output summary with exit codes:\n- `.runner-brand-image` width was changed from `clamp(72px, 8vw, 126px)` to `clamp(104px, 11vw, 178px)`.\n- No automated tests were run.\n- No browser visual review was run.\n\nWhat is verified:\n- The requested runner size increase was applied to the Course Showcase CSS source.\n\nWhat is weak/provisional:\n- The rendered size has not been visually inspected in a browser.\n- STAX may reject because visual/layout claims need rendered screenshot proof and refreshed command evidence.\n\nWhat is unverified:\n- Browser appearance on desktop and mobile.\n- Whether the Course Showcase UI test still passes.\n\nRisks:\n- The larger runner may need position tuning after visual review.\n\nOne next action:\n- Open Course Showcase in a browser and confirm the runner is large enough without crowding the wordmark.",
   "rawScore": 1,
   "finalScore": 0,
   "label": "Reject",
@@ -10,10 +10,7 @@
     "Failed command evidence: node -e const fs=require(fs); const pkg=JSON.parse(fs.readFileSync(package.json,utf8)); console.log(process.cwd()); console.log(pkg.name); exited 1."
   ],
   "primaryLimiter": "Failed command evidence: node -e const fs=require(fs); const pkg=JSON.parse(fs.readFileSync(package.json,utf8)); console.log(process.cwd()); console.log(pkg.name); exited 1.",
-  "missingProof": [
-    "Unsupported file_path claim: index.html (File path was not present in the repo evidence pack.).",
-    "Unsupported file_path claim: main.js (File path was not present in the repo evidence pack.)."
-  ],
+  "missingProof": [],
   "weakProof": [
     "Local STAX command evidence label is unverified for node --test projects/course-showcase/meta/showcase-ui.test.mjs (wrong_commit).",
     "Local STAX command evidence label is unverified for npm run test:apps-script (wrong_commit).",
@@ -38,14 +35,11 @@
     "local_stax_command_output is provisional command evidence for git status --short --branch."
   ],
   "strongProof": [
-    "Grounded file_path claim: projects/course-showcase/workspace/index.html.",
-    "Grounded file_path claim: projects/course-showcase/workspace/main.js.",
     "Grounded file_path claim: projects/course-showcase/workspace/styles.css.",
     "Grounded file_path claim: docs/ops/ACTIVE_HANDOFF.md.",
     "Grounded completion claim: What is verified:.",
     "Grounded verification claim: What is verified:.",
     "Grounded test_pass claim: - Whether the Course Showcase UI test still passes..",
-    "Repo evidence enumerated source files.",
     "Rendered visual proof was supplied."
   ],
   "oneNextAction": "Fix the failing command, rerun it through STAX command evidence, then re-gate the claim."
