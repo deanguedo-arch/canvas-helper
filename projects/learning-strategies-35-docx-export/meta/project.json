@@ -1,0 +1,21 @@
+{
+  "migrationState": "migrated",
+  "projectType": "conversion",
+  "preferredWorkflows": [
+    "conversion"
+  ],
+  "canonicalEntry": "exports/upload-package/00_README.md",
+  "canonicalSources": [
+    "meta/build_word_native_course_docx.py",
+    "../../scripts/brightspace_zip_to_docx_upload_package.py"
+  ],
+  "authoringStatus": "ready-for-export",
+  "exportTargets": [
+    "docx-upload-package"
+  ],
+  "generatedOutputs": [
+    "exports/upload-package"
+  ],
+  "regenerateCommand": "python projects/learning-strategies-35-docx-export/meta/build_word_native_course_docx.py",
+  "sourceOfTruthNotes": "Learning Strategies 35 uses the shared Word-native Brightspace ZIP to DOCX upload package generator. The untouched source ZIP is copied into exports/upload-package/00_SOURCE_ZIP during generation."
+}

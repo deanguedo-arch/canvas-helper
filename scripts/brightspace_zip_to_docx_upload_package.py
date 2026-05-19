@@ -135,6 +135,30 @@ COURSES: dict[str, CourseConfig] = {
         source_zip_env="ENGLISH30_4_SOURCE_ZIP",
         skip_title_patterns=("teacher", "keep hidden", "old"),
     ),
+    "learning-strategies15": CourseConfig(
+        key="learning-strategies15",
+        project_slug="learning-strategies-15-docx-export",
+        course_title="Learning Strategies 15",
+        source_zip_name="D2LCCExport_149766_25-26 _ S1 _ Learning Strategies 15 (2018) _ Per 1_202651252.zip",
+        source_zip_env="LEARNING_STRATEGIES15_SOURCE_ZIP",
+        skip_title_patterns=("teacher", "keep hidden", "old"),
+    ),
+    "learning-strategies25": CourseConfig(
+        key="learning-strategies25",
+        project_slug="learning-strategies-25-docx-export",
+        course_title="Learning Strategies 25",
+        source_zip_name="D2LCCExport_149442_24-25 _ Learning Strategies 25 (2018) _ Per 1(A-B)_202651901.zip",
+        source_zip_env="LEARNING_STRATEGIES25_SOURCE_ZIP",
+        skip_title_patterns=("teacher", "keep hidden", "old"),
+    ),
+    "learning-strategies35": CourseConfig(
+        key="learning-strategies35",
+        project_slug="learning-strategies-35-docx-export",
+        course_title="Learning Strategies 35",
+        source_zip_name="D2LCCExport_149441_24-25 _ Learning Strategies 35 (2018) _ Per 1(A-B)_202651917.zip",
+        source_zip_env="LEARNING_STRATEGIES35_SOURCE_ZIP",
+        skip_title_patterns=("teacher", "keep hidden", "old"),
+    ),
 }
 
 

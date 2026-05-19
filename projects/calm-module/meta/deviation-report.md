@@ -1,7 +1,7 @@
 # Authoring Deviation Report
 
 - Project: calm-module
-- Generated: 2026-05-17T13:17:29.795Z
+- Generated: 2026-05-19T15:58:32.456Z
 - Pass: yes
 - Deviations: 1
 - Accepted deviations: 0
@@ -11,7 +11,7 @@
 ### require-interactive-shell
 - Severity: warn
 - Surface: export
-- Location: /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-module/exports/google-hosted/index.html
+- Location: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\calm-module\exports\google-hosted\index.html
 - Why: Required pattern "lesson-shell" is missing.
 - Evidence: Missing pattern: lesson-shell
 

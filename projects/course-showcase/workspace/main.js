@@ -3,8 +3,8 @@
     id: "forensic-studies",
     title: "Forensic Studies 25",
     shortTitle: "Forensic Studies 25",
-    category: "science",
-    area: "Science",
+    category: "options",
+    area: "Options",
     status: "Live",
     description: "Option 2 course shell with module navigation, assignment surfaces, and Google-hosted progress support.",
     url: "https://forensics25.web.app",
@@ -15,10 +15,10 @@
     id: "world-religions",
     title: "World Religions 30",
     shortTitle: "World Religions 30",
-    category: "humanities",
-    area: "Humanities",
+    category: "options",
+    area: "Options",
     status: "Live",
-    description: "Humanities course build with chapter modules, readings, activities, and stakeholder-ready hosted delivery.",
+    description: "World religions course build with chapter modules, readings, activities, and stakeholder-ready hosted delivery.",
     url: "https://worldreligion.web.app",
     image: "./assets/course-icons/world-religions.svg",
     version: "v3.0.4"
@@ -39,8 +39,8 @@
     id: "general-psychology",
     title: "General Psychology",
     shortTitle: "General Psychology",
-    category: "science",
-    area: "Science",
+    category: "options",
+    area: "Options",
     status: "Live",
     description: "Independent studies psychology course with locked learner mode, guided units, and final reflection support.",
     url: "https://generalpsychology.web.app",
@@ -51,8 +51,8 @@
     id: "career-portfolio",
     title: "CALM Career Portfolio",
     shortTitle: "CALM Career Portfolio",
-    category: "career",
-    area: "Career",
+    category: "calm",
+    area: "CALM",
     status: "Live",
     description: "Career and portfolio module with planning activities, final reflections, and polished Google-hosted delivery.",
     url: "https://calmmodule4.web.app",
@@ -60,11 +60,23 @@
     version: "v4.0.3"
   },
   {
+    id: "calm-module-one",
+    title: "CALM Module 1",
+    shortTitle: "CALM Module 1",
+    category: "calm",
+    area: "CALM",
+    status: "Live",
+    description: "CALM personal choices module with guided reflection, learner activities, and Google-hosted progress support.",
+    url: "https://calm-module-one.web.app",
+    image: "./assets/course-icons/calm-module-2.svg",
+    version: "v1.0.0"
+  },
+  {
     id: "calm-module-two",
     title: "CALM Module 2",
     shortTitle: "CALM Module 2",
-    category: "career",
-    area: "Career",
+    category: "calm",
+    area: "CALM",
     status: "Live",
     description: "CALM module focused on life planning, decision-making, interactive checkpoints, and learner reflection.",
     url: "https://calmmodule2.web.app",
@@ -75,8 +87,8 @@
     id: "calm-module-three",
     title: "CALM Module 3",
     shortTitle: "CALM Module 3",
-    category: "wellness",
-    area: "Wellness",
+    category: "calm",
+    area: "CALM",
     status: "Live",
     description: "CALM wellness module with structured lessons, learner activities, and accessible responsive presentation.",
     url: "https://calm3new.web.app",
@@ -87,8 +99,8 @@
     id: "experimental-psychology",
     title: "Experimental Psychology",
     shortTitle: "Experimental Psychology",
-    category: "science",
-    area: "Science",
+    category: "options",
+    area: "Options",
     status: "Live",
     description: "Psychology course showcase for experimental thinking, research literacy, and applied analysis activities.",
     url: "https://experimentalpsychology.web.app",
@@ -99,8 +111,8 @@
     id: "forensics-thirty-five",
     title: "Forensics 35",
     shortTitle: "Forensics 35",
-    category: "science",
-    area: "Science",
+    category: "options",
+    area: "Options",
     status: "Live",
     description: "Dive into real-world forensic science through hands-on lessons, case studies, and interactive quizzes.",
     url: "https://forensics35.web.app",
@@ -127,9 +139,13 @@ const state = {
   activeDevice: "desktop"
 };
 
+const DESKTOP_PREVIEW_WIDTH = 1440;
+const DESKTOP_PREVIEW_HEIGHT = 900;
+
 const elements = {
   rail: document.querySelector("#courseRail"),
   desktopFrame: document.querySelector("#desktopFrame"),
+  desktopViewportShell: document.querySelector("#desktopViewportShell"),
   tabletFrame: document.querySelector("#tabletFrame"),
   mobileFrame: document.querySelector("#mobileFrame"),
   desktopTitle: document.querySelector("#desktopTitle"),
@@ -154,6 +170,8 @@ const elements = {
   deviceButtons: [...document.querySelectorAll(".device-button")]
 };
 
+let desktopPreviewResizeObserver;
+
 function getFilteredCourses() {
   if (state.activeFilter === "all") {
     return courses;
@@ -175,6 +193,32 @@ function setFrameSource(frame, url) {
   }
 }
 
+function updateDesktopPreviewScale() {
+  if (!elements.desktopViewportShell) return;
+
+  const rect = elements.desktopViewportShell.getBoundingClientRect();
+  const rawScale = rect.width / DESKTOP_PREVIEW_WIDTH;
+  const scale = Number.isFinite(rawScale) && rawScale > 0 ? Math.min(rawScale, 1) : 1;
+  const offsetX = Math.max(0, (rect.width - DESKTOP_PREVIEW_WIDTH * scale) / 2);
+  const offsetY = 0;
+
+  elements.desktopViewportShell.style.setProperty("--desktop-preview-scale", scale.toFixed(4));
+  elements.desktopViewportShell.style.setProperty("--desktop-preview-offset-x", `${offsetX.toFixed(1)}px`);
+  elements.desktopViewportShell.style.setProperty("--desktop-preview-offset-y", `${offsetY.toFixed(1)}px`);
+}
+
+function watchDesktopPreviewScale() {
+  updateDesktopPreviewScale();
+  window.addEventListener("resize", updateDesktopPreviewScale);
+
+  if (typeof ResizeObserver === "function" && elements.desktopViewportShell) {
+    desktopPreviewResizeObserver = new ResizeObserver(updateDesktopPreviewScale);
+    desktopPreviewResizeObserver.observe(elements.desktopViewportShell);
+  }
+
+  window.requestAnimationFrame(updateDesktopPreviewScale);
+}
+
 function selectCourse(courseId) {
   const course = courses.find((item) => item.id === courseId);
   if (!course) return;
@@ -185,6 +229,7 @@ function selectCourse(courseId) {
   setFrameSource(elements.desktopFrame, course.url);
   setFrameSource(elements.tabletFrame, course.url);
   setFrameSource(elements.mobileFrame, course.url);
+  updateDesktopPreviewScale();
 
   elements.desktopTitle.textContent = course.title;
   elements.tabletTitle.textContent = course.title;
@@ -217,6 +262,7 @@ function setDevice(device) {
   elements.deviceButtons.forEach((button) => {
     button.classList.toggle("is-active", button.dataset.device === device);
   });
+  updateDesktopPreviewScale();
 }
 
 function renderRail() {
@@ -298,5 +344,6 @@ elements.copyLink.addEventListener("click", async () => {
 });
 
 renderRail();
+watchDesktopPreviewScale();
 setDevice(state.activeDevice);
 selectCourse(state.activeCourseId);

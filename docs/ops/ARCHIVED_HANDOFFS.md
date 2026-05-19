@@ -5529,3 +5529,58 @@ One question before I change it: do you want only the large top hero image reduc
 - No manual visual review was run.
 - No test suite was run for that artifact-generation pass.
 - Word COM import can still interpret some Brightspace HTML/CSS differently than browser full-screen mode.
+
+---
+
+# Archived Handoff: Google-hosted Sidebar Sign-in Repair
+
+- Archived on: 2026-05-19
+- Project: Google-hosted course bridge
+- Prior status: deployed and live-checked, current active work moved to Course Showcase desktop preview scaling
+
+## Summary
+- The shared Google-hosted bridge keeps Firebase sign-in/save controls in expanded sidebars but hides them in condensed/collapsed sidebars.
+- General Psychology 20, Experimental Psychology 30, Forensics 25 option2, and Forensics 35 were exported, deployed, and live-checked.
+- Earlier stale deployed bridge copies were refreshed for CALM Modules 1-4, Forensics 25 option2, Sports Wellness, and World Religions.
+
+## Source-of-truth location
+- Shared bridge source: `scripts/lib/google-hosted.ts`
+- Regression test: `scripts/tests/google-hosted-export.test.ts`
+- Active Forensics 25 source for `forensics25.web.app`: `projects/forensicstudiesoption2`
+
+## Verification run
+- Focused bridge test passed after a red failure.
+- Affected projects exported and deployed successfully.
+- Live Playwright checks passed for the four reported sites: expanded state showed the embedded controls, collapsed state hid them, no preview error overlay, and no removed color-matching runtime.
+
+## Known risks / follow-up
+- Firebase sign-in was not completed with a real Google account.
+- User visual acceptance after hard refresh was still pending.
+- Future color matching should use explicit metadata or CSS variables, not runtime computed-color scanning.
+
+---
+
+# Archived Handoff: Course Showcase Desktop Preview Scaling
+
+- Archived on: 2026-05-19
+- Project: `course-showcase`
+- Prior status: complete, current active work moved to Course Showcase category regrouping
+
+## Summary
+- Desktop mode wraps `#desktopFrame` in `#desktopViewportShell`.
+- The desktop iframe keeps a 1440 by 900 CSS viewport and scales by shell width so embedded courses stay in desktop layout inside the showcase laptop frame.
+- Tablet and mobile preview modes were not changed.
+
+## Source-of-truth location
+- Canonical entry: `projects/course-showcase/workspace/index.html`
+- Canonical sources: `projects/course-showcase/workspace/styles.css`, `projects/course-showcase/workspace/main.js`
+- Regression test: `projects/course-showcase/meta/showcase-ui.test.mjs`
+
+## Verification run
+- `node --test projects/course-showcase/meta/showcase-ui.test.mjs` passed.
+- `npm.cmd run validate:manifests -- --project course-showcase` passed.
+- Local Playwright computed-style and screenshot check confirmed a 1440 by 900 iframe scaled to the laptop frame width.
+
+## Known risks / follow-up
+- Course Showcase was not deployed because its Google-hosted export target is disabled.
+- Cross-origin iframe internals cannot be inspected from the parent page; the proof validates iframe geometry.

@@ -1,22 +1,21 @@
 {
-  "migrationState": "legacy",
+  "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
     "conversion"
   ],
-  "canonicalEntry": "meta/build_practice_docx_export.py",
+  "canonicalEntry": "exports/upload-package/00_README.md",
   "canonicalSources": [
-    "meta/build_practice_docx_export.py"
+    "meta/build_word_native_course_docx.py",
+    "../../scripts/brightspace_zip_to_docx_upload_package.py"
   ],
-  "authoringStatus": "active",
+  "authoringStatus": "ready-for-export",
   "exportTargets": [
-    "docx"
+    "docx-upload-package"
   ],
   "generatedOutputs": [
-    "exports/practice-docx/01 - Module 1 Understanding Self as Learner - practice.docx",
-    "exports/practice-docx/02 - Module 2 Goal Setting and Organization - practice.docx",
-    "exports/practice-docx/03 - Module 3 The Learning Process and Assessment - practice.docx"
+    "exports/upload-package"
   ],
-  "regenerateCommand": "python projects/learning-strategies-15-docx-export/meta/build_practice_docx_export.py",
-  "sourceOfTruthNotes": "Practice DOCX export reuses the Social Studies pilot renderer and targets the three content modules for Google Docs handoff testing."
+  "regenerateCommand": "python projects/learning-strategies-15-docx-export/meta/build_word_native_course_docx.py",
+  "sourceOfTruthNotes": "Learning Strategies 15 uses the shared Word-native Brightspace ZIP to DOCX upload package generator. The untouched source ZIP is copied into exports/upload-package/00_SOURCE_ZIP during generation."
 }

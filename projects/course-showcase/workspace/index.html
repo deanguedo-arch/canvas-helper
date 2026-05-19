@@ -20,10 +20,9 @@
       <p>Browse course builds and stakeholder previews.</p>
       <div class="filter-row" aria-label="Course filters">
         <button class="filter-button is-active" type="button" data-filter="all">All</button>
-        <button class="filter-button" type="button" data-filter="humanities">Humanities</button>
+        <button class="filter-button" type="button" data-filter="calm">CALM</button>
+        <button class="filter-button" type="button" data-filter="options">Options</button>
         <button class="filter-button" type="button" data-filter="wellness">Wellness</button>
-        <button class="filter-button" type="button" data-filter="science">Science</button>
-        <button class="filter-button" type="button" data-filter="career">Career</button>
         <button class="filter-button" type="button" data-filter="resources">Resources</button>
       </div>
     </section>
@@ -62,7 +61,9 @@
               <span class="live-pill">Live</span>
               <button class="mini-action" type="button" id="fullScreenButton" aria-label="Open desktop preview fullscreen">⛶</button>
             </div>
-            <iframe id="desktopFrame" title="Desktop course preview" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="desktop-viewport-shell" id="desktopViewportShell">
+              <iframe id="desktopFrame" class="desktop-viewport-frame" title="Desktop course preview" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
           </div>
           <div class="laptop-base" aria-hidden="true"></div>
         </article>
@@ -89,7 +90,7 @@
         <dl class="detail-grid">
           <div>
             <dt>Area</dt>
-            <dd id="selectedArea">Science</dd>
+            <dd id="selectedArea">Options</dd>
           </div>
           <div>
             <dt>Status</dt>
@@ -97,7 +98,7 @@
           </div>
           <div>
             <dt>Category</dt>
-            <dd id="selectedCategory">Science</dd>
+            <dd id="selectedCategory">Options</dd>
           </div>
           <div>
             <dt>Host</dt>

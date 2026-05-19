@@ -244,7 +244,6 @@ export function buildGoogleHostedBridgeScript(options: BuildGoogleHostedBridgeSc
   let statusNode = null;
   let controlsPlacementObserver = null;
   let controlsPlacementFrame = 0;
-  let controlsThemeFrame = 0;
   let lastStatusMessage = "Preparing cloud resume...";
   let lastStatusTone = "working";
   let referenceRewritesInstalled = false;
@@ -416,256 +415,6 @@ export function buildGoogleHostedBridgeScript(options: BuildGoogleHostedBridgeSc
     return null;
   }
 
-  function parseColorChannels(value) {
-    if (typeof value !== "string") {
-      return null;
-    }
-
-    const normalized = value.trim().toLowerCase();
-    if (!normalized || normalized === "transparent" || !normalized.startsWith("rgb")) {
-      return null;
-    }
-
-    const openIndex = normalized.indexOf("(");
-    const closeIndex = normalized.lastIndexOf(")");
-    if (openIndex === -1 || closeIndex <= openIndex) {
-      return null;
-    }
-
-    const parts = normalized
-      .slice(openIndex + 1, closeIndex)
-      .replace(/\//g, " ")
-      .replace(/,/g, " ")
-      .split(/\s+/)
-      .filter(Boolean);
-
-    if (parts.length < 3) {
-      return null;
-    }
-
-    const parseChannel = function (part) {
-      if (typeof part !== "string") {
-        return null;
-      }
-      if (part.endsWith("%")) {
-        const percent = Number.parseFloat(part);
-        if (!Number.isFinite(percent)) {
-          return null;
-        }
-        return Math.max(0, Math.min(255, Math.round((percent / 100) * 255)));
-      }
-
-      const value = Number.parseFloat(part);
-      if (!Number.isFinite(value)) {
-        return null;
-      }
-      return Math.max(0, Math.min(255, Math.round(value)));
-    };
-
-    const red = parseChannel(parts[0]);
-    const green = parseChannel(parts[1]);
-    const blue = parseChannel(parts[2]);
-    if (red === null || green === null || blue === null) {
-      return null;
-    }
-
-    let alpha = 1;
-    if (parts.length > 3) {
-      const alphaRaw = parts[3];
-      if (alphaRaw.endsWith("%")) {
-        const percent = Number.parseFloat(alphaRaw);
-        if (Number.isFinite(percent)) {
-          alpha = Math.max(0, Math.min(1, percent / 100));
-        }
-      } else {
-        const value = Number.parseFloat(alphaRaw);
-        if (Number.isFinite(value)) {
-          alpha = Math.max(0, Math.min(1, value));
-        }
-      }
-    }
-
-    return { red, green, blue, alpha };
-  }
-
-  function withAlpha(color, alpha) {
-    const channels = parseColorChannels(color);
-    if (!channels) {
-      return color;
-    }
-
-    return "rgba(" + channels.red + ", " + channels.green + ", " + channels.blue + ", " + alpha + ")";
-  }
-
-  function isTransparentColor(value) {
-    const channels = parseColorChannels(value);
-    if (!channels) {
-      return value === "transparent";
-    }
-    return channels.alpha <= 0.01;
-  }
-
-  function luminance(color) {
-    const channels = parseColorChannels(color);
-    if (!channels) {
-      return 0;
-    }
-
-    return (channels.red * 0.299 + channels.green * 0.587 + channels.blue * 0.114) / 255;
-  }
-
-  function pickReadableTextColor(backgroundColor, fallbackColor) {
-    const colorLuminance = luminance(backgroundColor);
-    if (colorLuminance >= 0.6) {
-      return "rgb(15, 23, 42)";
-    }
-    if (colorLuminance <= 0.25) {
-      return "rgb(248, 250, 252)";
-    }
-    return fallbackColor;
-  }
-
-  function findComputedColor(startElement, propertyName) {
-    if (!startElement || typeof window === "undefined" || typeof window.getComputedStyle !== "function") {
-      return null;
-    }
-
-    let current = startElement;
-    while (current) {
-      const style = window.getComputedStyle(current);
-      const value = style ? style[propertyName] : null;
-      if (value && !isTransparentColor(value)) {
-        return value;
-      }
-      current = current.parentElement;
-    }
-
-    const bodyStyle = window.getComputedStyle(document.body);
-    const bodyValue = bodyStyle ? bodyStyle[propertyName] : null;
-    if (bodyValue && !isTransparentColor(bodyValue)) {
-      return bodyValue;
-    }
-
-    return null;
-  }
-
-  function findSidebarAccentColor(themeRoot) {
-    if (!themeRoot || typeof themeRoot.querySelector !== "function") {
-      return null;
-    }
-
-    const accentSelectors = [
-      "[aria-current='page']",
-      ".active",
-      ".is-active",
-      ".nav-item.active",
-      ".library-tab.active",
-      ".sidebar-progress-fill",
-      "#sidebar-progress-fill",
-      ".progress-fill",
-      "#progress-fill",
-      "button[class*='active']"
-    ];
-
-    for (const selector of accentSelectors) {
-      const candidate = themeRoot.querySelector(selector);
-      if (!candidate || candidate === controlHost || (controlHost && controlHost.contains(candidate))) {
-        continue;
-      }
-
-      const style = window.getComputedStyle(candidate);
-      if (!style) {
-        continue;
-      }
-
-      const properties = ["backgroundColor", "color", "borderColor"];
-      for (const propertyName of properties) {
-        const value = style[propertyName];
-        if (value && !isTransparentColor(value)) {
-          return value;
-        }
-      }
-    }
-
-    return null;
-  }
-
-  function clearControlThemeVariables() {
-    if (!controlHost) {
-      return;
-    }
-
-    const variableNames = [
-      "--gh-controls-bg",
-      "--gh-controls-text",
-      "--gh-controls-border",
-      "--gh-button-bg",
-      "--gh-button-text",
-      "--gh-secondary-bg",
-      "--gh-secondary-text",
-      "--gh-status-text"
-    ];
-
-    for (const variableName of variableNames) {
-      controlHost.style.removeProperty(variableName);
-    }
-  }
-
-  function applySidebarThemeStyles(themeRoot, isEmbedded) {
-    if (!controlHost || !themeRoot) {
-      return;
-    }
-
-    const sidebarBackground = findComputedColor(themeRoot, "backgroundColor");
-    const sidebarText = findComputedColor(themeRoot, "color");
-    const sidebarBorder = findComputedColor(themeRoot, "borderColor");
-    const accentColor = findSidebarAccentColor(themeRoot) || sidebarText || "rgb(37, 99, 235)";
-    const baseText = pickReadableTextColor(sidebarBackground || "rgb(17, 24, 39)", sidebarText || "rgb(248, 250, 252)");
-
-    if (isEmbedded) {
-      controlHost.style.setProperty("--gh-controls-bg", withAlpha(sidebarBackground || "rgb(17, 24, 39)", 0.2));
-      controlHost.style.setProperty("--gh-controls-text", baseText);
-      controlHost.style.setProperty("--gh-controls-border", withAlpha(sidebarBorder || accentColor, 0.38));
-      controlHost.style.setProperty("--gh-button-bg", accentColor);
-      controlHost.style.setProperty("--gh-button-text", pickReadableTextColor(accentColor, "rgb(15, 23, 42)"));
-      controlHost.style.setProperty("--gh-secondary-bg", withAlpha(sidebarBackground || accentColor, 0.4));
-      controlHost.style.setProperty("--gh-secondary-text", baseText);
-      controlHost.style.setProperty("--gh-status-text", withAlpha(baseText, 0.84));
-      return;
-    }
-
-    controlHost.style.setProperty("--gh-controls-bg", withAlpha(sidebarBackground || "rgb(17, 24, 39)", 0.95));
-    controlHost.style.setProperty("--gh-controls-text", baseText);
-    controlHost.style.setProperty("--gh-controls-border", withAlpha(sidebarBorder || accentColor, 0.28));
-    controlHost.style.setProperty("--gh-button-bg", accentColor);
-    controlHost.style.setProperty("--gh-button-text", pickReadableTextColor(accentColor, "rgb(15, 23, 42)"));
-    controlHost.style.setProperty("--gh-secondary-bg", withAlpha(sidebarBackground || accentColor, 0.48));
-    controlHost.style.setProperty("--gh-secondary-text", baseText);
-    controlHost.style.setProperty("--gh-status-text", withAlpha(baseText, 0.84));
-  }
-
-  function scheduleThemeRefresh(themeRoot, isEmbedded) {
-    if (!controlHost) {
-      return;
-    }
-
-    if (controlsThemeFrame) {
-      return;
-    }
-
-    const run = function () {
-      controlsThemeFrame = 0;
-      applySidebarThemeStyles(themeRoot, isEmbedded);
-    };
-
-    if (typeof window !== "undefined" && typeof window.requestAnimationFrame === "function") {
-      controlsThemeFrame = window.requestAnimationFrame(run);
-      return;
-    }
-
-    controlsThemeFrame = window.setTimeout(run, 0);
-  }
-
   function placeControlsInSidebar() {
     if (!controlHost || typeof document === "undefined" || !document.body) {
       return;
@@ -679,7 +428,6 @@ export function buildGoogleHostedBridgeScript(options: BuildGoogleHostedBridgeSc
       controlHost.classList.add("canvas-helper-google-hosted-controls--embedded");
       controlHost.setAttribute("data-placement", "sidebar");
       controlHost.removeAttribute("data-sidebar-root-only");
-      scheduleThemeRefresh(host, true);
       return;
     }
 
@@ -691,7 +439,6 @@ export function buildGoogleHostedBridgeScript(options: BuildGoogleHostedBridgeSc
       controlHost.classList.add("canvas-helper-google-hosted-controls--embedded");
       controlHost.setAttribute("data-placement", "sidebar");
       controlHost.setAttribute("data-sidebar-root-only", "true");
-      scheduleThemeRefresh(sidebarRoot, true);
       return;
     }
 
@@ -701,8 +448,6 @@ export function buildGoogleHostedBridgeScript(options: BuildGoogleHostedBridgeSc
     controlHost.classList.remove("canvas-helper-google-hosted-controls--embedded");
     controlHost.setAttribute("data-placement", "fixed");
     controlHost.removeAttribute("data-sidebar-root-only");
-    clearControlThemeVariables();
-    scheduleThemeRefresh(document.body, false);
   }
 
   function scheduleControlsPlacement() {
@@ -754,28 +499,29 @@ export function buildGoogleHostedBridgeScript(options: BuildGoogleHostedBridgeSc
       const styleTag = document.createElement("style");
       styleTag.setAttribute("data-canvas-helper-google-hosted", "true");
       styleTag.textContent = [
-        ".canvas-helper-google-hosted-controls{position:fixed;right:12px;top:50%;transform:translateY(-50%);z-index:2147483647;display:flex;flex-direction:column;gap:8px;min-width:0;max-width:min(240px,calc(100vw - 24px));padding:9px;border-radius:10px 0 0 10px;border:1px solid var(--gh-controls-border,rgba(255,255,255,.18));background:var(--gh-controls-bg,rgba(17,24,39,.94));color:var(--gh-controls-text,#f9fafb);box-shadow:0 10px 26px rgba(15,23,42,.28);font:13px/1.4 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}",
+        ".canvas-helper-google-hosted-controls{position:fixed;right:12px;top:50%;transform:translateY(-50%);z-index:2147483647;display:flex;flex-direction:column;gap:8px;min-width:0;max-width:min(240px,calc(100vw - 24px));padding:9px;border-radius:10px 0 0 10px;border:1px solid rgba(255,255,255,.18);background:rgba(17,24,39,.94);color:#f9fafb;box-shadow:0 10px 26px rgba(15,23,42,.28);font:13px/1.4 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}",
         ".canvas-helper-google-hosted-controls[data-tone='error']{background:rgba(127,29,29,.96)}",
         ".canvas-helper-google-hosted-actions{display:flex;flex-direction:column;gap:7px}",
         ".canvas-helper-google-hosted-button,.canvas-helper-google-hosted-secondary{appearance:none;border:0;border-radius:8px;padding:8px 11px;font:700 12px/1 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;cursor:pointer;white-space:nowrap}",
-        ".canvas-helper-google-hosted-button{background:var(--gh-button-bg,#f59e0b);color:var(--gh-button-text,#111827)}",
-        ".canvas-helper-google-hosted-secondary{background:var(--gh-secondary-bg,rgba(255,255,255,.14));color:var(--gh-secondary-text,#f9fafb)}",
+        ".canvas-helper-google-hosted-button{background:#f59e0b;color:#111827}",
+        ".canvas-helper-google-hosted-secondary{background:rgba(255,255,255,.14);color:#f9fafb}",
         ".canvas-helper-google-hosted-status{display:none;margin:0;max-width:190px;font-size:11px;opacity:.94}",
         ".canvas-helper-google-hosted-controls:hover .canvas-helper-google-hosted-status,.canvas-helper-google-hosted-controls:focus-within .canvas-helper-google-hosted-status,.canvas-helper-google-hosted-controls[data-authenticated='true'] .canvas-helper-google-hosted-status,.canvas-helper-google-hosted-controls[data-tone='error'] .canvas-helper-google-hosted-status{display:block}",
-        ".canvas-helper-google-hosted-status[data-tone='saved']{color:var(--gh-status-text,#bbf7d0)}",
+        ".canvas-helper-google-hosted-status[data-tone='saved']{color:#bbf7d0}",
         ".canvas-helper-google-hosted-status[data-tone='error']{color:#fecaca}",
-        ".canvas-helper-google-hosted-status[data-tone='working']{color:var(--gh-status-text,#fde68a)}",
+        ".canvas-helper-google-hosted-status[data-tone='working']{color:#fde68a}",
         ".forensic-sidebar:has(> .canvas-helper-google-hosted-controls--embedded),.shell-sidebar:has(> .canvas-helper-google-hosted-controls--embedded),.sidebar:has(> .canvas-helper-google-hosted-controls--embedded),aside[data-testid='chapter-menu-panel']:has(> .canvas-helper-google-hosted-controls--embedded){display:flex;flex-direction:column}",
-        ".canvas-helper-google-hosted-controls--embedded{position:static;right:auto;top:auto;transform:none;z-index:auto;width:calc(100% - 24px);max-width:none;margin:12px 12px 16px;padding:10px;border:1px solid var(--gh-controls-border,rgba(255,255,255,.14));border-radius:8px;background:var(--gh-controls-bg,rgba(255,255,255,.08));box-shadow:none;color:var(--gh-controls-text,inherit)}",
+        ".canvas-helper-google-hosted-controls--embedded{position:static;right:auto;top:auto;transform:none;z-index:auto;width:calc(100% - 24px);max-width:none;margin:12px 12px 16px;padding:10px;border:1px solid rgba(255,255,255,.14);border-radius:8px;background:rgba(255,255,255,.08);box-shadow:none;color:inherit}",
         ".canvas-helper-google-hosted-controls--embedded[data-sidebar-root-only='true']{position:sticky;bottom:16px;margin-top:auto}",
+        "body.sidebar-collapsed .canvas-helper-google-hosted-controls--embedded,.menu-collapsed .canvas-helper-google-hosted-controls--embedded,[data-collapsed='true'] .canvas-helper-google-hosted-controls--embedded{display:none!important}",
         ".forensic-sidebar:has(> .canvas-helper-google-hosted-controls--embedded) .forensic-sidebar-body,.shell-sidebar:has(> .canvas-helper-google-hosted-controls--embedded) .forensic-sidebar-body,.sidebar:has(> .canvas-helper-google-hosted-controls--embedded) .sidebar-nav,aside[data-testid='chapter-menu-panel']:has(> .canvas-helper-google-hosted-controls--embedded) nav[aria-label='Workspace sections']{margin-bottom:12px}",
         ".canvas-helper-google-hosted-controls--embedded .canvas-helper-google-hosted-actions{display:flex;flex-direction:column;gap:7px}",
         ".canvas-helper-google-hosted-controls--embedded .canvas-helper-google-hosted-button,.canvas-helper-google-hosted-controls--embedded .canvas-helper-google-hosted-secondary{width:100%;border-radius:8px}",
-        ".canvas-helper-google-hosted-controls--embedded .canvas-helper-google-hosted-secondary{border:1px solid var(--gh-controls-border,rgba(255,255,255,.14));background:var(--gh-secondary-bg,rgba(255,255,255,.12));color:var(--gh-secondary-text,inherit)}",
-        ".canvas-helper-google-hosted-controls--embedded .canvas-helper-google-hosted-status{display:block;max-width:none;color:var(--gh-status-text,rgba(255,255,255,.78))}",
-        ".canvas-helper-google-hosted-controls--embedded .canvas-helper-google-hosted-status[data-tone='saved']{color:var(--gh-status-text,#bbf7d0)}",
+        ".canvas-helper-google-hosted-controls--embedded .canvas-helper-google-hosted-secondary{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.12);color:inherit}",
+        ".canvas-helper-google-hosted-controls--embedded .canvas-helper-google-hosted-status{display:block;max-width:none;color:rgba(255,255,255,.78)}",
+        ".canvas-helper-google-hosted-controls--embedded .canvas-helper-google-hosted-status[data-tone='saved']{color:#bbf7d0}",
         ".canvas-helper-google-hosted-controls--embedded .canvas-helper-google-hosted-status[data-tone='error']{color:#fecaca}",
-        ".canvas-helper-google-hosted-controls--embedded .canvas-helper-google-hosted-status[data-tone='working']{color:var(--gh-status-text,#fde68a)}",
+        ".canvas-helper-google-hosted-controls--embedded .canvas-helper-google-hosted-status[data-tone='working']{color:#fde68a}",
         "@media print{.canvas-helper-google-hosted-controls{display:none!important}}"
       ].join("");
       document.head.appendChild(styleTag);

@@ -67,17 +67,21 @@ test("buildGoogleHostedBridgeScript embeds save controls into course sidebars wh
   assert.match(bridge, /\.shell-sidebar/);
   assert.match(bridge, /\.sidebar/);
   assert.match(bridge, /#sidebar/);
-  assert.match(bridge, /parseColorChannels/);
-  assert.match(bridge, /findSidebarAccentColor/);
-  assert.match(bridge, /applySidebarThemeStyles/);
-  assert.match(bridge, /--gh-controls-bg/);
-  assert.match(bridge, /--gh-button-bg/);
   assert.match(bridge, /:has\(> \.canvas-helper-google-hosted-controls--embedded\)/);
   assert.match(bridge, /position:sticky;bottom:16px;margin-top:auto/);
+  assert.match(bridge, /body\.sidebar-collapsed \.canvas-helper-google-hosted-controls--embedded/);
+  assert.match(bridge, /\.menu-collapsed \.canvas-helper-google-hosted-controls--embedded/);
+  assert.match(bridge, /\[data-collapsed='true'\] \.canvas-helper-google-hosted-controls--embedded/);
+  assert.match(bridge, /display:none!important/);
   assert.match(bridge, /margin-top:auto/);
   assert.match(bridge, /MutationObserver/);
   assert.match(bridge, /data-placement", "sidebar"/);
   assert.match(bridge, /data-placement", "fixed"/);
+  assert.doesNotMatch(bridge, /parseColorChannels/);
+  assert.doesNotMatch(bridge, /findSidebarAccentColor/);
+  assert.doesNotMatch(bridge, /applySidebarThemeStyles/);
+  assert.doesNotMatch(bridge, /--gh-controls-bg/);
+  assert.doesNotMatch(bridge, /--gh-button-bg/);
 });
 
 test("buildGoogleHostedBridgeScript includes reload-loop guard for restore flows", () => {
