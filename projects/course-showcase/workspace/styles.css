@@ -445,17 +445,32 @@ a {
   line-height: 1.05;
 }
 
+@keyframes orb-pulse {
+  0%, 100% {
+    box-shadow:
+      inset 0 4px 8px rgba(255, 255, 255, 0.6),
+      inset 0 -6px 12px rgba(0, 0, 0, 0.4),
+      0 12px 28px rgba(11, 143, 51, 0.3),
+      0 0 0 1px rgba(255, 255, 255, 0.8);
+  }
+  50% {
+    box-shadow:
+      inset 0 4px 8px rgba(255, 255, 255, 0.8),
+      inset 0 -6px 12px rgba(0, 0, 0, 0.5),
+      0 18px 36px rgba(11, 143, 51, 0.5),
+      0 0 0 1px rgba(255, 255, 255, 1);
+  }
+}
 .selected-course-button {
   display: grid;
   width: 66px;
   height: 66px;
   flex: 0 0 auto;
   place-items: center;
-  border: 1px solid var(--course-button-border);
+  border: none;
   border-radius: 50%;
-  background: var(--course-button-bg);
-  color: #fff;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 8px 18px rgba(11, 143, 51, 0.2);
+  background: radial-gradient(110% 110% at 30% 30%, #46e881 0%, #0b8f33 45%, #04421b 100%);
+  animation: orb-pulse 4s ease-in-out infinite;
 }
 
 .course-card p {
@@ -604,25 +619,43 @@ dd {
 
 .course-selector:hover,
 .course-selector:focus-visible {
-  background: transparent;
-  box-shadow: none;
+  outline: 3px solid rgba(11, 143, 51, 0.28);
+  outline-offset: 3px;
 }
 
 .course-button {
-  display: block;
+  display: grid;
   width: 78px;
   height: 78px;
-  border: 1px solid var(--course-button-border);
+  place-items: center;
+  border: none;
   border-radius: 50%;
-  background: var(--course-button-bg);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 8px 18px rgba(11, 143, 51, 0.2);
-  transition: background-color 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
+  background: radial-gradient(110% 110% at 30% 30%, #46e881 0%, #0b8f33 45%, #04421b 100%);
+  box-shadow:
+    inset 0 4px 8px rgba(255, 255, 255, 0.5),
+    inset 0 -6px 12px rgba(0, 0, 0, 0.4),
+    0 8px 16px rgba(11, 143, 51, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.6);
+  transition: transform 200ms ease, box-shadow 200ms ease, filter 200ms ease;
+}
+
+.course-icon {
+  display: block;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  pointer-events: none;
 }
 
 .course-selector:hover .course-button,
 .course-selector:focus-visible .course-button {
-  background: #087a2d;
-  border-color: #075b27;
+  filter: brightness(1.15);
+  transform: translateY(-4px);
+  box-shadow:
+    inset 0 4px 8px rgba(255, 255, 255, 0.6),
+    inset 0 -6px 12px rgba(0, 0, 0, 0.4),
+    0 14px 24px rgba(11, 143, 51, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.8);
 }
 
 .course-selector:focus-visible {
@@ -631,9 +664,7 @@ dd {
 }
 
 .course-selector.is-active .course-button {
-  border-color: var(--course-button-bg-active);
-  background: var(--course-button-bg-active);
-  box-shadow: 0 0 0 4px rgba(11, 143, 51, 0.18), 0 12px 26px rgba(11, 143, 51, 0.3);
+  animation: orb-pulse 4s ease-in-out infinite;
 }
 
 .course-title {
@@ -739,3 +770,4 @@ dd {
     border-radius: 24px;
   }
 }
+

@@ -4,11 +4,11 @@ Do exactly one cleanup pass:
 Approved proof surface for tests_passed: Run npm run test:apps-script through stax:collect in the target repo. Suggested command: npm run smoke:pipeline.
 
 Address these proof gaps:
-- Command evidence classifier: non_execution_evidence for node --test projects/course-showcase/meta/showcase-ui.test.mjs.
-- Claim-to-proof: implementation claim is unsupported because behavior_test, source_diff, command_evidence_after_diff.
+- Command evidence classifier: stale_proof for node --test projects/course-showcase/meta/showcase-ui.test.mjs.
 - Visual/style claim lacks STAX-collected rendered visual proof.
-- Command evidence provenance is not verified for node --test projects/course-showcase/meta/showcase-ui.test.mjs: wrong_worktree.
-- Command evidence freshness failed for node --test projects/course-showcase/meta/showcase-ui.test.mjs: wrong_worktree.
+- Command evidence provenance is not verified for node --test projects/course-showcase/meta/showcase-ui.test.mjs: wrong_commit.
+- Command evidence freshness failed for node --test projects/course-showcase/meta/showcase-ui.test.mjs: wrong_commit.
+- Command evidence provenance is not verified for npm run test:apps-script: wrong_commit.
 
 Do not broaden scope. Do not claim tests passed without local command evidence. Update .stax/codex-report.md, then stop.
-Risk to avoid: Command evidence risk: input is not executable command evidence.
+Risk to avoid: Command evidence risk: wrong commit: expected ced980eccd469fdf9202d7fed69867ce7c434747, got d59bb3684ab4400b37d259e8a8611a8ddaa60056.

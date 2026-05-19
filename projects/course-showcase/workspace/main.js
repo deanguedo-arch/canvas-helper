@@ -347,3 +347,4 @@ renderRail();
 watchDesktopPreviewScale();
 setDevice(state.activeDevice);
 selectCourse(state.activeCourseId);
+

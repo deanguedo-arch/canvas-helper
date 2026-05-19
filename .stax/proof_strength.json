@@ -1,7 +1,7 @@
 {
   "schemaVersion": "proof-strength-v1",
   "claimType": "visual_behavior_verified",
-  "claimText": "Produce a single source-code DOCX for the Course Showcase website.\n\n# Canvas Helper STAX report\n\nSTAX acknowledgement: STAX_ACK turn_2026-05-19T16-55-10-568Z_38dc 4966c157 477e4c72\n\nObjective: Produce a single source-code DOCX for the Course Showcase website.\n\nFiles changed:\n- projects/course-showcase/exports/code-docx/course-showcase-website-source-code.docx\n- docs/ops/ACTIVE_HANDOFF.md\n- .stax/task.md\n- .stax/codex-report.md\n\nTests added: None.\n\nCommands run:\n- Read .stax/turn-contract.json, .stax/status.json, .stax/next-codex-prompt.md, docs/ops/ACTIVE_HANDOFF.md, and projects/course-showcase/meta/project.json with PowerShell; exit 0.\n- Searched memory registry for Course Showcase source-of-truth context; exit 0.\n- Read canonical Course Showcase source files: projects/course-showcase/workspace/index.html, projects/course-showcase/workspace/styles.css, and projects/course-showcase/workspace/main.js; exit 0.\n- Generated projects/course-showcase/exports/code-docx/course-showcase-website-source-code.docx with an inline Python script using python-docx; exit 0.\n\nCommand output summary with exit codes:\n- The generation command printed C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\course-showcase\\exports\\code-docx\\course-showcase-website-source-code.docx.\n- The DOCX contains the canonical Course Showcase source files in separate readable code sections.\n- No test command was run because the user requested document generation only.\n\nWhat is verified:\n- The code DOCX generation command completed with exit code 0.\n- The generated output path was printed by the command.\n- The DOCX was generated from the canonical Course Showcase source files identified in project metadata.\n\nWhat is weak/provisional:\n- The DOCX was not manually opened in Word.\n- No automated validation of DOCX contents was run.\n- STAX may record Reject because this is a document-generation task without tests or visual proof.\n\nWhat is unverified:\n- Visual formatting of the DOCX when opened in Word.\n- Whether the user wants additional files, such as tests or asset SVGs, included in the code document.\n\nRisks:\n- If Course Showcase source changes, this code DOCX becomes stale and should be regenerated.\n- The file is a source-code document, not a rendered website snapshot.\n\nOne next action:\n- Open the DOCX in Word if visual formatting review is needed.",
+  "claimText": "Remove Course Showcase course artwork from selector orbs so the selectors are pure animated glass buttons.\n\n# Canvas Helper STAX report\n\nSTAX acknowledgement: STAX_ACK turn_2026-05-19T18-38-19-708Z_ffeb 6af8231a 6ca18252\n\nObjective: Remove Course Showcase course artwork from selector orbs so the selectors are pure animated glass buttons.\n\nFiles changed:\n- projects/course-showcase/workspace/index.html\n- projects/course-showcase/workspace/main.js\n- projects/course-showcase/workspace/styles.css\n- docs/ops/ACTIVE_HANDOFF.md\n- .stax/task.md\n- .stax/codex-report.md\n\nTests added: None.\n\nCommands run:\n- Read .stax/turn-contract.json, .stax/status.json, and .stax/next-codex-prompt.md; exit 0.\n- Updated .stax/task.md; exit 0.\n- Removed selected-course and rail course image markup/script wiring from index.html and main.js; exit 0.\n- Updated docs/ops/ACTIVE_HANDOFF.md; exit 0.\n\nCommand output summary with exit codes:\n- The selected course button no longer contains an inner img element.\n- The rail course button markup emitted by renderRail no longer contains inner img elements.\n- The selected course update path no longer assigns a selected course image source.\n- No automated tests were run.\n- No browser visual review was run.\n\nWhat is verified:\n- Selector image rendering was removed from the source path that previously inserted course artwork inside the orbs.\n- The existing orb CSS remains responsible for the selector visuals.\n\nWhat is weak/provisional:\n- The rendered look has not been visually inspected in a browser.\n- STAX may still reject because visual/layout claims need rendered screenshot proof.\n\nWhat is unverified:\n- Browser appearance of selected, hover, focus, and active orb states.\n- Whether the Course Showcase UI test still passes.\n\nRisks:\n- If another script path renders course images elsewhere, it has not been inspected in this turn.\n- Visual acceptance still needs a browser screenshot or user review.\n\nOne next action:\n- Open Course Showcase in a browser and confirm the selector circles are empty glass orbs with no course images.",
   "rawScore": 1,
   "finalScore": 0,
   "label": "Reject",
@@ -10,10 +10,13 @@
     "Failed command evidence: node -e const fs=require(fs); const pkg=JSON.parse(fs.readFileSync(package.json,utf8)); console.log(process.cwd()); console.log(pkg.name); exited 1."
   ],
   "primaryLimiter": "Failed command evidence: node -e const fs=require(fs); const pkg=JSON.parse(fs.readFileSync(package.json,utf8)); console.log(process.cwd()); console.log(pkg.name); exited 1.",
-  "missingProof": [],
+  "missingProof": [
+    "Unsupported file_path claim: index.html (File path was not present in the repo evidence pack.).",
+    "Unsupported file_path claim: main.js (File path was not present in the repo evidence pack.)."
+  ],
   "weakProof": [
-    "Local STAX command evidence label is unverified for node --test projects/course-showcase/meta/showcase-ui.test.mjs (wrong_worktree).",
-    "Local STAX command evidence label is unverified for npm run test:apps-script (wrong_worktree).",
+    "Local STAX command evidence label is unverified for node --test projects/course-showcase/meta/showcase-ui.test.mjs (wrong_commit).",
+    "Local STAX command evidence label is unverified for npm run test:apps-script (wrong_commit).",
     "Local STAX command evidence label is unverified for npm.cmd run validate:manifests -- --project course-showcase (wrong_commit).",
     "Local STAX command evidence label is unverified for node --test projects\\course-showcase\\meta\\showcase-ui.test.mjs (wrong_commit).",
     "Local STAX command evidence label is unverified for npm.cmd run test:apps-script (wrong_commit).",
@@ -35,17 +38,14 @@
     "local_stax_command_output is provisional command evidence for git status --short --branch."
   ],
   "strongProof": [
-    "Grounded file_path claim: projects/course-showcase/exports/code-docx/course-showcase-website-source-code.docx.",
-    "Grounded file_path claim: docs/ops/ACTIVE_HANDOFF.md.",
-    "Grounded file_path claim: projects/course-showcase/meta/project.json.",
     "Grounded file_path claim: projects/course-showcase/workspace/index.html.",
-    "Grounded file_path claim: projects/course-showcase/workspace/styles.css.",
     "Grounded file_path claim: projects/course-showcase/workspace/main.js.",
+    "Grounded file_path claim: projects/course-showcase/workspace/styles.css.",
+    "Grounded file_path claim: docs/ops/ACTIVE_HANDOFF.md.",
     "Grounded completion claim: What is verified:.",
     "Grounded verification claim: What is verified:.",
-    "Grounded completion claim: - The code DOCX generation command completed with exit code 0..",
+    "Grounded test_pass claim: - Whether the Course Showcase UI test still passes..",
     "Repo evidence enumerated source files.",
-    "Repo evidence enumerated test files.",
     "Rendered visual proof was supplied."
   ],
   "oneNextAction": "Fix the failing command, rerun it through STAX command evidence, then re-gate the claim."
