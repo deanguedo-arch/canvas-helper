@@ -1,43 +1,45 @@
 {
   "schemaVersion": "stax-sidecar-status-v1",
-  "generatedAt": "2026-05-20T15:30:54.080Z",
+  "generatedAt": "2026-05-20T15:41:32.565Z",
   "repo": "canvas-helper",
   "repoPath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper",
   "branch": "main",
-  "commitSha": "c8b4b54bf8691f582c83f8403d5f21f9be960330",
+  "commitSha": "97298542f52ad194ad2aa38959095ffb9ce678fd",
   "task": "Make Canvas Helper up to date with origin/main and leave the working tree clean, while refreshing STAX cleanup proof for the current repo state.",
-  "verdict": "Provisional",
-  "exitCode": 2,
-  "why": "Visual evidence ignored for current proof: visual_2026-05-19T20_05_48_905Z_137f82a1ccdb is stale_visual_proof.",
+  "verdict": "Accept",
+  "exitCode": 0,
+  "why": "Accept means required claims are supported by verified evidence for this repo state; STAX does not certify general code correctness.",
   "verified": [
     "No working-tree diff is currently present.",
     "Codex report contract includes Files changed, Commands run, What is verified, What is unverified, and Risks.",
+    "Diff audit: accept.",
     "Command evidence classifier: strong_local_proof for npm run test:apps-script.",
+    "Claim-to-proof: visual claim is fully supported.",
     "Claim-to-proof: protocol_compliance claim is fully supported.",
+    "Visual evidence verified: visual_2026-05-20T15_37_14_601Z_5ab6102985e0 (rendered_screenshot) matches the current auditable worktree.",
+    "Historical visual evidence ignored for current proof because visual_2026-05-19T20_05_48_905Z_137f82a1ccdb is stale_visual_proof.",
+    "Historical visual evidence ignored for current proof because visual_2026-05-19T20_06_03_585Z_d8fdbf1e51b6 is stale_visual_proof.",
+    "Historical visual evidence ignored for current proof because visual_2026-05-19T20_07_07_728Z_a1e04fabdbd3 is stale_visual_proof.",
     "Command evidence provenance verified: cmd_2026-05-20T15_29_31_961Z_b4f1f0968cda.",
     "Command evidence freshness verified: cmd_2026-05-20T15_29_31_961Z_b4f1f0968cda matches the current auditable worktree.",
+    "Command evidence c8b4b54bf869 predates current head only by STAX sidecar artifact commits.",
     "Historical command evidence ignored for current proof because npm run test:forensics35-workspace is wrong_commit.",
     "Historical command evidence ignored for current proof because node node_modules\\tsx\\dist\\cli.mjs --test scripts/tests/forensicstudiesoption2-theme.test.ts scripts/tests/forensicstudiesoption2-shell-behavior.test.ts scripts/tests/worldreligions30-option1-shell-behavior.test.ts is wrong_commit.",
     "Historical command evidence ignored for current proof because npm run test:google-hosted is wrong_commit.",
     "Proof strength: Audit-grade (1) - Available proof is strong enough for this claim type.",
+    "Fresh STAX sidecar heartbeat is present (91806ms old).",
+    "Fresh Codex turn capture is present for session 019e4136-5c6d-77d2-ba33-e123527bc3db with 257 message(s).",
     "Protocol warning recorded as non-blocking: Current Codex turn capture does not contain the current STAX acknowledgement; report acknowledgement is present, so this may be capture lag."
   ],
-  "weak": [
-    "Visual evidence ignored for current proof: visual_2026-05-19T20_05_48_905Z_137f82a1ccdb is stale_visual_proof.",
-    "Visual proof was captured for a different auditable worktree.",
-    "Visual evidence ignored for current proof: visual_2026-05-19T20_06_03_585Z_d8fdbf1e51b6 is stale_visual_proof.",
-    "Visual evidence ignored for current proof: visual_2026-05-19T20_07_07_728Z_a1e04fabdbd3 is stale_visual_proof.",
-    "STAX sidecar heartbeat is stale.",
-    "Codex turn capture is stale."
-  ],
+  "weak": [],
   "unverified": [],
   "risk": [],
-  "oneNextAction": "Ask Codex to address the first unverified proof gap and update .stax/codex-report.md with exact evidence.",
-  "codexPrompt": "STAX Sidecar rejected or held this task because proof is incomplete.\n\nDo exactly one cleanup pass:\nAsk Codex to address the first unverified proof gap and update .stax/codex-report.md with exact evidence.\n\nAddress these proof gaps:\n- No specific unverified item was recorded.\n\nDo not broaden scope. Do not claim tests passed without local command evidence. Update .stax/codex-report.md, then stop.\nRisk to avoid: fake-complete reporting.",
+  "oneNextAction": "Record the STAX sidecar Accept, keep scope unchanged, and stop. Accept means required claims are supported by verified evidence for this repo state; STAX does not certify general code correctness.",
+  "codexPrompt": "Report the STAX sidecar Accept as proof-gate status only. Accept means required claims are supported by verified evidence for this repo state; STAX does not certify general code correctness. Keep the scope unchanged, and stop.",
   "proofStrength": {
     "schemaVersion": "proof-strength-v1",
-    "claimType": "verification_run",
-    "claimText": "Make Canvas Helper up to date with origin/main and leave the working tree clean, while refreshing STAX cleanup proof for the current repo state.\n\n# STAX Codex Report\n\n## STAX acknowledgement:\nSTAX_ACK turn_2026-05-20T15-13-09-418Z_775a 7d7ba1ae 2e55d2c8\n\n## Objective:\nMake Canvas Helper up to date with `origin/main` and leave the working tree clean, while refreshing STAX cleanup proof for the current repo state.\n\n## Files changed:\n- `.stax/task.md` (ignored local sidecar objective)\n- `.stax/codex-report.md` (ignored local sidecar report)\n- Tracked `.stax/*` proof/status files may be refreshed by observer preflight.\n\n## Tests added:\nNone.\n\n## Commands run:\n- `git fetch origin --prune`\n  - exitCode: 0\n- `git status --short --branch`\n  - exitCode: 0\n  - result: `## main...origin/main`\n- `git status --porcelain=v1 -uall; git rev-parse HEAD; git rev-parse origin/main`\n  - exitCode: 0\n  - result: no porcelain output; HEAD and `origin/main` both `c8b4b54bf8691f582c83f8403d5f21f9be960330`\n- `npm run stax:collect -- --repo C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper -- npm run test:apps-script`\n  - exitCode: 0\n  - evidenceId: `cmd_2026-05-20T15_29_31_961Z_b4f1f0968cda`\n- Pending: `npm run stax:preflight -- --repo C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper --boundary local --mode observer`\n\n## Command output summary with exit codes:\n- `origin` was fetched successfully.\n- `main` is aligned with `origin/main`.\n- The Git working tree had no tracked or untracked changes before this STAX cleanup refresh.\n- STAX-collected `test:apps-script` passed on commit `c8b4b54bf8691f582c83f8403d5f21f9be960330`.\n- Observer preflight is still pending in this report revision.\n\n## What is verified:\n- Canvas Helper is currently at the same commit as `origin/main`: `c8b4b54bf8691f582c83f8403d5f21f9be960330`.\n- Standard Git status was clean before the STAX cleanup refresh.\n- Current-worktree STAX command evidence exists for `npm run test:apps-script`.\n\n## What is weak/provisional:\n- STAX status/proof files were stale before this cleanup pass and still need observer preflight refresh.\n- The current cleanup pass has not changed product code.\n\n## What is unverified:\n- Remote CI was not checked.\n- No visual/browser proof was collected in this cleanup pass.\n\n## Risks:\n- Refreshing tracked STAX proof/status files may create a small metadata commit if the repo must end clean and synced.\n\n## One next action:\nRun the STAX cleanup proof command and observer preflight, then leave the repo clean and aligned with `origin/main`.",
+    "claimType": "visual_behavior_verified",
+    "claimText": "Make Canvas Helper up to date with origin/main and leave the working tree clean, while refreshing STAX cleanup proof for the current repo state.\n\n# STAX Codex Report\n\n## STAX acknowledgement:\nSTAX_ACK turn_2026-05-20T15-39-10-251Z_6243 9e8434e7 8e270746\n\n## Objective:\nMake Canvas Helper up to date with `origin/main` and leave the working tree clean, while refreshing STAX cleanup proof for the current repo state.\n\n## Files changed:\n- `.stax/task.md` (ignored local sidecar objective)\n- `.stax/codex-report.md` (ignored local sidecar report)\n- Tracked `.stax/*` proof/status files may be refreshed by observer preflight.\n\n## Tests added:\nNone.\n\n## Commands run:\n- `git fetch origin --prune`\n  - exitCode: 0\n- `git status --short --branch`\n  - exitCode: 0\n  - result: `## main...origin/main`\n- `git status --porcelain=v1 -uall; git rev-parse HEAD; git rev-parse origin/main`\n  - exitCode: 0\n  - result: no porcelain output; HEAD and `origin/main` both `c8b4b54bf8691f582c83f8403d5f21f9be960330`\n- `npm run stax:collect -- --repo C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper -- npm run test:apps-script`\n  - exitCode: 0\n  - evidenceId: `cmd_2026-05-20T15_29_31_961Z_b4f1f0968cda`\n- `npm run stax:collect-visual -- --repo C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper --url https://forensics25.web.app/content/chapter-1/index.html --description \"Forensics 25 Module 1 live page visual proof\" --viewport 1365,900 --checklist \"YouTube player boxes render visibly\" --checklist \"No blank white video boxes\" --checklist \"No major layout overlap\"`\n  - exitCode: 0\n  - proofId: `visual_2026-05-20T15_37_14_601Z_5ab6102985e0`\n  - proofPath: `.stax/visual-proofs/visual_2026-05-20T15_37_14_601Z_5ab6102985e0.png`\n- `npm run stax:sidecar:refresh -- --repo C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper`\n  - exitCode: 0\n  - refreshedAt: `2026-05-20T15:40:00.709Z`\n  - sessionId: `019e4136-5c6d-77d2-ba33-e123527bc3db`\n  - messageCount: 257\n- `npm run stax:preflight -- --repo C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper --boundary local --mode observer`\n  - exitCode: 0\n  - verdict: Provisional\n\n## Command output summary with exit codes:\n- `origin` was fetched successfully.\n- `main` is aligned with `origin/main`.\n- The Git working tree had no tracked or untracked changes before this STAX cleanup refresh.\n- STAX-collected `test:apps-script` passed on commit `c8b4b54bf8691f582c83f8403d5f21f9be960330`.\n- STAX collected a fresh Playwright screenshot for the live Forensics 25 Module 1 page at 1365x900.\n- STAX sidecar refresh updated heartbeat/current-turn capture for session `019e4136-5c6d-77d2-ba33-e123527bc3db`.\n- Observer preflight exited 0 and recorded `Provisional` on the current commit.\n\n## What is verified:\n- Canvas Helper is currently at the same commit as `origin/main`: `c8b4b54bf8691f582c83f8403d5f21f9be960330`.\n- Standard Git status was clean before the STAX cleanup refresh.\n- Current-worktree STAX command evidence exists for `npm run test:apps-script`.\n- Current-worktree STAX visual evidence exists for the live Forensics 25 Module 1 page, with checklist coverage for visible YouTube boxes, no blank white video boxes, and no major layout overlap.\n- Sidecar heartbeat/current-turn capture was refreshed after collecting the visual evidence.\n\n## What is weak/provisional:\n- STAX status/proof files were stale before this cleanup pass; observer preflight refreshed them to current commit `c8b4b54bf8691f582c83f8403d5f21f9be960330`.\n- STAX was `Provisional` before the fresh visual collection because stale older visual evidence was still listed, even though no unverified proof gap was recorded.\n- The current cleanup pass has not changed product code.\n\n## What is unverified:\n- Remote CI was not checked.\n- Whether final observer preflight accepts after the sidecar refresh is not verified yet.\n\n## Risks:\n- Final cleanliness requires committing and pushing the tracked STAX proof/status refresh.\n- STAX may remain `Provisional` if the runtime heartbeat/current-turn capture cannot be refreshed from local session evidence.\n\n## One next action:\nCommit and push the tracked STAX proof/status refresh, then confirm `main` is clean and aligned with `origin/main`.",
     "rawScore": 1,
     "finalScore": 1,
     "label": "Audit-grade",
@@ -47,6 +49,8 @@
     "missingProof": [],
     "weakProof": [
       "Weak command claim: npm run stax:collect -- --repo (Command is named, but no command output was cited.).",
+      "Weak command claim: npm run stax:collect-visual -- --repo (Command is named, but no command output was cited.).",
+      "Weak command claim: npm run stax:sidecar:refresh -- --repo (Command is named, but no command output was cited.).",
       "Weak command claim: npm run stax:preflight -- --repo (Command is named, but no command output was cited.)."
     ],
     "strongProof": [
@@ -54,8 +58,9 @@
       "Grounded test_pass claim: - STAX-collected `test:apps-script` passed on commit `c8b4b54bf8691f582c83f8403d5f21f9be960330`..",
       "Grounded completion claim: ## What is verified:.",
       "Grounded verification claim: ## What is verified:.",
+      "Grounded completion claim: - Whether final observer preflight accepts after the sidecar refresh is not verified yet..",
+      "Grounded verification claim: - Whether final observer preflight accepts after the sidecar refresh is not verified yet..",
       "Local STAX command evidence passed: npm run test:apps-script exited 0.",
-      "Verified local STAX command provenance is present for this repo state.",
       "Rendered visual proof was supplied.",
       "Release preflight proof was supplied."
     ],
@@ -71,7 +76,7 @@
   ],
   "protocol": {
     "schemaVersion": "stax-protocol-compliance-v1",
-    "generatedAt": "2026-05-20T15:30:54.076Z",
+    "generatedAt": "2026-05-20T15:41:32.552Z",
     "mode": "normal",
     "status": "warning",
     "acknowledgedTurnContract": false,
@@ -97,8 +102,8 @@
         "message": "Current Codex turn capture does not contain the current STAX acknowledgement; report acknowledgement is present, so this may be capture lag."
       }
     ],
-    "acknowledgement": "STAX_ACK turn_2026-05-20T15-13-09-418Z_775a 7d7ba1ae 2e55d2c8",
-    "contractTurnId": "turn_2026-05-20T15-13-09-418Z_775a"
+    "acknowledgement": "STAX_ACK turn_2026-05-20T15-39-10-251Z_6243 9e8434e7 8e270746",
+    "contractTurnId": "turn_2026-05-20T15-39-10-251Z_6243"
   },
   "cardShapeIssues": []
 }
