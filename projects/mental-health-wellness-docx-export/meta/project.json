@@ -1,0 +1,21 @@
+{
+  "migrationState": "migrated",
+  "projectType": "conversion",
+  "preferredWorkflows": [
+    "conversion"
+  ],
+  "canonicalEntry": "exports/upload-package/00_README.md",
+  "canonicalSources": [
+    "meta/build_word_native_course_docx.py",
+    "../../scripts/brightspace_zip_to_docx_upload_package.py"
+  ],
+  "authoringStatus": "ready-for-export",
+  "exportTargets": [
+    "docx-upload-package"
+  ],
+  "generatedOutputs": [
+    "exports/upload-package"
+  ],
+  "regenerateCommand": "python projects/mental-health-wellness-docx-export/meta/build_word_native_course_docx.py",
+  "sourceOfTruthNotes": "Mental Health & Wellness uses the shared Word-native Brightspace ZIP to DOCX upload package generator. The untouched source ZIP is copied into exports/upload-package/00_SOURCE_ZIP during generation. The LMS-only Assignment Submission bucket and hidden teacher materials are skipped; the Units of Study wrapper is unwrapped into separate unit DOCX files."
+}

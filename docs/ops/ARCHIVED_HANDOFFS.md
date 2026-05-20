@@ -5584,3 +5584,55 @@ One question before I change it: do you want only the large top hero image reduc
 ## Known risks / follow-up
 - Course Showcase was not deployed because its Google-hosted export target is disabled.
 - Cross-origin iframe internals cannot be inspected from the parent page; the proof validates iframe geometry.
+
+---
+
+# Archived Handoff: HSS 1010 Assignment Readability
+
+- Archived on: 2026-05-20
+- Project: `hss1010`
+- Prior status: source-level refinement complete, current active work moved to Mental Health & Wellness DOCX conversion
+
+## Summary
+- Refined the HSS 1010 assignment form layer for readability.
+- Cleaned mojibake in assignment copy.
+- STAX proof state remained noisy and visual proof still needed a rendered browser check.
+
+## Source-of-truth location
+- `projects/hss1010/workspace/index.html`
+- `projects/hss1010/workspace/stitch-sports-wellness.css`
+
+## Verification run
+- Source-level targeted search/read only.
+- STAX observer preflight was attempted and timed out in the prior handoff.
+
+## Known risks / follow-up
+- Rendered browser proof had not been collected.
+- Inline Tailwind utility classes in long assignment rows may still need targeted cleanup.
+
+---
+
+# Archived Handoff: Mental Health & Wellness DOCX Upload Package
+
+- Archived on: 2026-05-20
+- Project: `mental-health-wellness-docx-export`
+- Prior status: complete, current active work moved to Mental Health & Wellness shell conversion
+
+## Summary
+- Converted the supplied Mental Health & Wellness Brightspace ZIP into the repo-standard editable DOCX upload package.
+- Generated 7 editable Word documents: Course Information plus Unit 1 through Unit 6.
+- Skipped the empty LMS-only `Assignment Submission` bucket and hidden teacher materials.
+
+## Source-of-truth location
+- Source ZIP: `C:\Users\dean.guedo\Downloads\D2LCCExport_60408_21-22 _ S2 _ Mental Health _ Wellness _ Per 1(A) __202652043.zip`
+- Wrapper: `projects/mental-health-wellness-docx-export/meta/build_word_native_course_docx.py`
+- Generated package: `projects/mental-health-wellness-docx-export/exports/upload-package/`
+
+## Verification run
+- Word COM generation completed.
+- Generated DOCX zip integrity checks passed.
+- Audit reported zero coverage failures.
+
+## Known risks / follow-up
+- Manual Word visual review was still pending.
+- Two shared template banner images were missing from the source ZIP.

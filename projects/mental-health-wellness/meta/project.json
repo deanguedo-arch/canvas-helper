@@ -1,0 +1,63 @@
+{
+  "id": "mental-health-wellness",
+  "slug": "mental-health-wellness",
+  "sourcePath": "C:\\Users\\dean.guedo\\Downloads\\D2LCCExport_60408_21-22 _ S2 _ Mental Health _ Wellness _ Per 1(A) __202652043.zip",
+  "inputKind": "brightspace-zip",
+  "brightspaceTarget": "course-page",
+  "previewModes": [
+    "workspace"
+  ],
+  "workspaceEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\mental-health-wellness\\workspace\\index.html",
+  "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\mental-health-wellness\\raw\\original.html",
+  "migrationState": "migrated",
+  "projectType": "conversion",
+  "preferredWorkflows": [
+    "conversion"
+  ],
+  "canonicalEntry": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\mental-health-wellness\\workspace\\index.html",
+  "canonicalSources": [
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\mental-health-wellness\\workspace\\index.html",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\mental-health-wellness\\workspace\\main.js",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\mental-health-wellness\\workspace\\styles.css",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\mental-health-wellness\\workspace\\course-data.js",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\mental-health-wellness\\workspace\\content\\module-index.css"
+  ],
+  "importedFirstPassOrigin": {
+    "sourceSystem": "brightspace",
+    "sourcePath": "C:\\Users\\dean.guedo\\Downloads\\D2LCCExport_60408_21-22 _ S2 _ Mental Health _ Wellness _ Per 1(A) __202652043.zip",
+    "importedAt": "2026-05-20T14:49:26",
+    "notes": "Content-only first shell build; assignments, quizzes, and hidden teacher material are intentionally excluded for later passes."
+  },
+  "exportTargets": [
+    {
+      "target": "brightspace",
+      "enabled": true,
+      "notes": "Workspace can be exported after manual review."
+    },
+    {
+      "target": "google-hosted",
+      "enabled": false,
+      "notes": "Hosting/deploy metadata has not been configured for this new course."
+    }
+  ],
+  "authoringStatus": "active",
+  "generatedOutputs": [],
+  "regenerateCommand": "python projects/mental-health-wellness/meta/build_forensics_style_course.py",
+  "injectedComponents": [],
+  "referenceOnly": [
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\mental-health-wellness\\workspace\\references",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\mental-health-wellness\\raw\\original.html"
+  ],
+  "sourceOfTruthNotes": "Edit workspace files for course shell changes. Regenerate from the source Brightspace ZIP with the project-local builder if the import mapping changes. Quiz and assignment arrays are intentionally empty until those passes are requested.",
+  "googleHosted": {
+    "trackedStorageKeys": [
+      "mental-health-wellness.progress",
+      "mental-health-wellness.ui"
+    ],
+    "authMode": "google"
+  },
+  "learningSource": "other",
+  "learningTrust": "auto",
+  "learningUpdatedAt": "2026-05-20T14:49:26",
+  "updatedAt": "2026-05-20T14:49:26"
+}

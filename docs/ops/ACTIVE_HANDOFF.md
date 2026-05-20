@@ -1,45 +1,74 @@
-﻿# Active Handoff
+# Handoff
 
-## Summary
-Forensics 25 Module 1 YouTube videos were present and reachable, but locked lesson cards applied `filter: blur(3px)` to `.lesson-body`. Cross-origin iframes can paint as blank under CSS filters, matching the empty white video boxes reported. The lock style now uses opacity plus disabled pointer events instead of blur, then Forensics 25 was exported and deployed.
+- Project: `mental-health-wellness`
+- Task: Convert the supplied Mental Health & Wellness Brightspace ZIP into a content-only course using the Forensics 25 shell behavior and styling pattern.
+- Status: complete
 
 ## Files changed
-- `projects/forensicstudiesoption2/workspace/content/module-index.css`
-- `projects/forensicstudiesoption2/exports/google-hosted/**`
+- `projects/mental-health-wellness/meta/build_forensics_style_course.py`
+- `projects/mental-health-wellness/meta/project.json`
+- `projects/mental-health-wellness/meta/source-zip-audit.json`
+- `projects/mental-health-wellness/raw/original.html`
+- `projects/mental-health-wellness/workspace/**`
+- `scripts/tests/mental-health-wellness-shell.test.ts`
+- `docs/plans/2026-05-20-mental-health-wellness-forensics-shell-design.md`
+- `docs/plans/2026-05-20-mental-health-wellness-forensics-shell.md`
+- `docs/ops/ACTIVE_HANDOFF.md`
+- `docs/ops/ARCHIVED_HANDOFFS.md`
 - `.stax/task.md`
 - `.stax/codex-report.md`
-- `docs/ops/ACTIVE_HANDOFF.md`
 
-## Verification run
-- Live pre-fix fetch of `https://forensics25.web.app/content/chapter-1/index.html`: exit 0, HTTP 200, both Module 1 YouTube IDs present.
-- Live fetch of `https://www.youtube.com/embed/Ys09c9lANjI`: exit 0, HTTP 200.
-- Live fetch of `https://www.youtube.com/embed/jcypaqcKesU`: exit 0, HTTP 200.
-- `npm.cmd run export:google-hosted -- --project forensicstudiesoption2`: exit 0.
-- `npm.cmd run deploy:google-hosted -- --project forensicstudiesoption2`: exit 0.
-- Live post-deploy fetch of `https://forensics25.web.app/content/chapter-1/index.html`: exit 0, HTTP 200, both Module 1 YouTube IDs present.
-- Live post-deploy fetch of `https://forensics25.web.app/content/module-index.css`: exit 0, `filter: blur(3px)` absent, `opacity: 0.72` present.
-- STAX observer preflight: exit 124, timed out after 124 seconds.
+## What changed
+- Added a new migrated conversion project, `mental-health-wellness`.
+- Built a Forensics 25-style shell with the same sidebar, chapter cards, iframe module view, local storage progress, and sequential lesson-card completion.
+- Imported Units 1-6 from the Brightspace ZIP as 6 chapters with 70 content components.
+- Excluded the `Course Information` top-level module from the learner-facing course.
+- Kept `quizzes`, `assignments`, and `library` arrays present but empty for this first pass.
+- Hid empty quiz and assignment tabs until those arrays are populated later.
+- Skipped top-level `Assignment Submission`, hidden teacher materials, and all unit assignment subtrees.
+- Removed learner-facing source trace cards/paths from lesson cards.
+- Added blue styling for lesson cards that are not marked complete.
+- Removed visible Forensics wording from the Mental Health learner-facing shell.
+- Added a project-local generator so the shell can be regenerated from the same ZIP.
 
-## Known risks / follow-up
-- No browser screenshot proof was captured after deploy.
-- STAX observer preflight timed out and did not produce an accept/reject refresh for this turn.
-- If videos remain blank after hard refresh, next check should be browser console/network blocking for `youtube.com` or a local extension/policy block.
-- Locked cards still disable interaction until unlocked; this fix is about making the player/thumbnail visible instead of blank.
+## Why this changed
+- The user wanted the same Mental Health & Wellness Brightspace ZIP placed into the framework/look/functionality of the existing Forensics 25 course.
+- The user clarified that assignments and quizzes should not be included for now, but should remain possible later.
 
-## Source-of-truth location
-- Canonical CSS: `projects/forensicstudiesoption2/workspace/content/module-index.css`.
-- Live site: `https://forensics25.web.app/content/chapter-1/index.html`.
+## Source of truth
+- Canonical entry: `projects/mental-health-wellness/workspace/index.html`
+- Canonical sources: `projects/mental-health-wellness/workspace/main.js`, `projects/mental-health-wellness/workspace/styles.css`, `projects/mental-health-wellness/workspace/course-data.js`, `projects/mental-health-wellness/workspace/content/module-index.css`
+- Regeneration command: `python projects/mental-health-wellness/meta/build_forensics_style_course.py`
+- Source ZIP: `C:\Users\dean.guedo\Downloads\D2LCCExport_60408_21-22 _ S2 _ Mental Health _ Wellness _ Per 1(A) __202652043.zip`
+- Audit: `projects/mental-health-wellness/meta/source-zip-audit.json`
 
-## Fragile areas / what might drift
-- Reintroducing CSS filters on containers that include cross-origin iframes may blank YouTube again.
-- Rebuilding from raw content could overwrite the CSS unless the workspace stylesheet remains canonical.
+## Fragile areas / watchouts
+- Regeneration deletes and rebuilds `projects/mental-health-wellness/workspace/**` and `projects/mental-health-wellness/raw/**`.
+- The audit still records 5 unresolved source-package references: 3 missing Brightspace quickLink PDFs and 2 missing shared template banner images.
+- The visible shell has no assignment or quiz surface by design; adding them later should update `course-data.js`, unhide tabs through non-empty arrays, and add tests.
+- STAX visual proof for the blue incomplete-card state was captured at `.stax/visual-proofs/visual_2026-05-20T20_50_44_115Z_872ca640d800.png`.
 
-## Next prompt assumptions
-- The user's visible issue was blank Module 1 YouTube boxes, not missing URLs.
-- The desired behavior is that locked cards can be visibly dimmed, but the YouTube player/thumbnail should still render.
+## Next prompt should assume
+- The content-only shell exists and passes targeted tests plus repo verification.
+- Assignments/quizzes are intentionally absent from learner-facing workspace output.
+- Existing unrelated dirty HSS/STAX/Social Studies/DOCX files remain present.
+
+## What still needs validation
+- Manual browser review of all chapters for visual fidelity and media usefulness.
+- STAX proof acceptance; the sidecar was already carrying stale HSS task state before this work.
+
+## Known risks
+- Some linked source PDFs were not present in the ZIP and cannot be restored without the missing files.
+- External font/icon CDN dependencies remain, matching the Forensics shell pattern.
+- The course is not configured for live Google Hosted deploy yet.
 
 ## Exact next command
-`npm.cmd --prefix C:\Users\dean.guedo\Documents\GitHub\STAX run stax:preflight -- --repo "C:\Users\dean.guedo\Documents\GitHub\canvas-helper" --observer`
+`node node_modules/tsx/dist/cli.mjs --test scripts/tests/mental-health-wellness-shell.test.ts`
 
 ## Exact next file to open
-`projects/forensicstudiesoption2/workspace/content/module-index.css`
+`projects/mental-health-wellness/workspace/index.html`
+
+## Do not do next / warnings
+- Do not add assignments or quizzes unless the user asks for that next pass.
+- Do not run deploy or publish commands unless explicitly requested.
+- Do not remove unrelated dirty HSS/STAX/Social Studies files without explicit approval.

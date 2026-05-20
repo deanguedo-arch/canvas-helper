@@ -68,6 +68,7 @@ class CourseConfig:
     source_zip_name: str
     source_zip_env: str
     skip_title_patterns: tuple[str, ...]
+    unwrap_title_patterns: tuple[str, ...] = ()
 
 
 COURSES: dict[str, CourseConfig] = {
@@ -77,6 +78,14 @@ COURSES: dict[str, CourseConfig] = {
         course_title="Social Studies 10-1",
         source_zip_name="D2LCCExport_149634_25-26 _ S2 _ Social Studies 10-1 _ Per 1(A) _ Sec _202651213.ZIP",
         source_zip_env="SOCIAL10_SOURCE_ZIP",
+        skip_title_patterns=("teacher", "keep hidden", "old"),
+    ),
+    "social30-1": CourseConfig(
+        key="social30-1",
+        project_slug="social-studies-30-1-docx-export",
+        course_title="Social Studies 30-1",
+        source_zip_name="D2LCCExport_151146_25-26 _ S2 _ Social Studies 30-1 _ Per 1(A) _ Sec _202652002.zip",
+        source_zip_env="SOCIAL30_1_SOURCE_ZIP",
         skip_title_patterns=("teacher", "keep hidden", "old"),
     ),
     "english10-2": CourseConfig(
@@ -158,6 +167,15 @@ COURSES: dict[str, CourseConfig] = {
         source_zip_name="D2LCCExport_149441_24-25 _ Learning Strategies 35 (2018) _ Per 1(A-B)_202651917.zip",
         source_zip_env="LEARNING_STRATEGIES35_SOURCE_ZIP",
         skip_title_patterns=("teacher", "keep hidden", "old"),
+    ),
+    "mental-health-wellness": CourseConfig(
+        key="mental-health-wellness",
+        project_slug="mental-health-wellness-docx-export",
+        course_title="Mental Health & Wellness",
+        source_zip_name="D2LCCExport_60408_21-22 _ S2 _ Mental Health _ Wellness _ Per 1(A) __202652043.zip",
+        source_zip_env="MENTAL_HEALTH_WELLNESS_SOURCE_ZIP",
+        skip_title_patterns=("teacher", "keep hidden", "old", "assignment submission"),
+        unwrap_title_patterns=("units of study",),
     ),
 }
 
@@ -401,8 +419,15 @@ class BrightspaceCourseDocxExporter:
         organization = next(node for node in self.manifest_root.iter() if local_name(node.tag) == "organization")
         roots = item_children(organization)
         if len(roots) == 1 and not item_title(roots[0]):
-            return item_children(roots[0])
-        return roots
+            roots = item_children(roots[0])
+        modules: list[ET.Element] = []
+        for item in roots:
+            title = normalize_key(item_title(item))
+            if any(pattern in title for pattern in self.config.unwrap_title_patterns):
+                modules.extend(item_children(item))
+            else:
+                modules.append(item)
+        return modules
 
     def should_skip_top_module(self, item: ET.Element) -> str | None:
         title = normalize_key(item_title(item))
