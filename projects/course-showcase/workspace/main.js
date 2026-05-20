@@ -166,6 +166,8 @@ const elements = {
   fullScreenButton: document.querySelector("#fullScreenButton"),
   desktopDevice: document.querySelector("#desktopDevice"),
   devicesShowcase: document.querySelector("#devicesShowcase"),
+  siteMenuToggle: document.querySelector("#siteMenuToggle"),
+  siteMenu: document.querySelector("#siteMenu"),
   filterButtons: [...document.querySelectorAll(".filter-button")],
   deviceButtons: [...document.querySelectorAll(".device-button")]
 };
@@ -293,6 +295,20 @@ function moveCourse(direction) {
   selectCourse(filteredCourses[nextIndex].id);
 }
 
+function setSiteMenuOpen(isOpen) {
+  document.body.classList.toggle("site-menu-open", isOpen);
+  elements.siteMenuToggle?.setAttribute("aria-expanded", String(isOpen));
+  if (elements.siteMenu) {
+    elements.siteMenu.hidden = !isOpen;
+  }
+}
+
+function closeSiteMenuAfterChoice() {
+  if (window.matchMedia("(max-width: 900px)").matches) {
+    setSiteMenuOpen(false);
+  }
+}
+
 function requestActiveDeviceFullscreen() {
   const target = state.activeDevice === "tablet"
     ? elements.tabletFrame.closest(".live-device")
@@ -323,11 +339,43 @@ elements.previousCourse.addEventListener("click", () => moveCourse(-1));
 elements.nextCourse.addEventListener("click", () => moveCourse(1));
 
 elements.filterButtons.forEach((button) => {
-  button.addEventListener("click", () => setFilter(button.dataset.filter));
+  button.addEventListener("click", () => {
+    setFilter(button.dataset.filter);
+    closeSiteMenuAfterChoice();
+  });
 });
 
 elements.deviceButtons.forEach((button) => {
-  button.addEventListener("click", () => setDevice(button.dataset.device));
+  button.addEventListener("click", () => {
+    setDevice(button.dataset.device);
+    closeSiteMenuAfterChoice();
+  });
+});
+
+elements.siteMenuToggle?.addEventListener("click", () => {
+  setSiteMenuOpen(!document.body.classList.contains("site-menu-open"));
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    setSiteMenuOpen(false);
+  }
+});
+
+document.addEventListener("click", (event) => {
+  if (!document.body.classList.contains("site-menu-open")) {
+    return;
+  }
+  if (event.target.closest(".topbar")) {
+    return;
+  }
+  setSiteMenuOpen(false);
+});
+
+window.addEventListener("resize", () => {
+  if (!window.matchMedia("(max-width: 900px)").matches) {
+    setSiteMenuOpen(false);
+  }
 });
 
 elements.copyLink.addEventListener("click", async () => {

@@ -19,6 +19,8 @@
   --desktop-preview-offset-y: 0px;
   --shadow: 0 18px 46px rgba(13, 21, 18, 0.14);
   --tight-shadow: 0 8px 18px rgba(8, 18, 13, 0.13);
+  --font-ui: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   color-scheme: light;
 }
 
@@ -34,7 +36,10 @@ body {
 
 body {
   min-height: 100vh;
-  font-family: "Aptos", "Franklin Gothic Medium", "Helvetica Neue", sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 450;
   color: var(--ink);
   background:
     radial-gradient(circle at 16% 34%, rgba(10, 143, 51, 0.09), transparent 24rem),
@@ -69,21 +74,102 @@ a {
 }
 
 .topbar {
-  position: absolute;
-  top: 30px;
-  left: clamp(170px, 19vw, 330px);
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  min-height: 0;
-  z-index: 2;
+  position: relative;
+  z-index: 60;
 }
 
 .runner-brand-image {
   display: block;
-  width: clamp(104px, 11vw, 178px);
-  height: auto;
+  width: auto;
+  height: clamp(88px, 8.8vw, 152px);
+  flex: 0 0 auto;
+  margin-right: clamp(6px, 0.8vw, 14px);
+  transform: translateY(0.01em);
   filter: drop-shadow(0 16px 24px rgba(11, 143, 51, 0.17));
+}
+
+.site-menu-toggle {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 60;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(12, 92, 42, 0.18);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 14px 28px rgba(12, 92, 42, 0.16);
+  cursor: pointer;
+}
+
+.site-menu-line {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 999px;
+  background: #182126;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.site-menu-toggle[aria-expanded="true"] .site-menu-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.site-menu-toggle[aria-expanded="true"] .site-menu-line:nth-child(2) {
+  opacity: 0;
+}
+
+.site-menu-toggle[aria-expanded="true"] .site-menu-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.site-menu-panel {
+  position: fixed;
+  top: 78px;
+  right: 18px;
+  z-index: 55;
+  width: min(360px, calc(100vw - 36px));
+  padding: 18px;
+  border: 1px solid rgba(12, 92, 42, 0.18);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 22px 48px rgba(12, 92, 42, 0.2);
+}
+
+.site-menu-panel[hidden] {
+  display: none;
+}
+
+.site-menu-group + .site-menu-group {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(217, 224, 219, 0.95);
+}
+
+.site-menu-label {
+  display: block;
+  margin-bottom: 10px;
+  color: #475569;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.site-menu-filters {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.site-menu-filters .filter-button {
+  min-width: 0;
+  width: 100%;
 }
 
 .page-title {
@@ -92,8 +178,9 @@ a {
 }
 
 .showcase-title-lockup {
-  display: grid;
-  justify-items: center;
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content: center;
   margin: 0 auto;
   color: var(--ink);
 }
@@ -145,7 +232,7 @@ a {
   flex-wrap: wrap;
   justify-content: center;
   gap: 28px;
-  margin-top: 22px;
+  margin-top: clamp(26px, 2.7vw, 38px);
 }
 
 .filter-button {
@@ -157,6 +244,9 @@ a {
   background: rgba(255, 255, 255, 0.88);
   color: var(--ink);
   box-shadow: 0 5px 14px rgba(18, 28, 23, 0.08);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
   cursor: pointer;
 }
 
@@ -187,6 +277,7 @@ a {
   border-radius: 28px;
   background: rgba(255, 255, 255, 0.72);
   box-shadow: 0 10px 26px rgba(15, 25, 20, 0.08);
+  min-width: 0;
 }
 
 .device-button {
@@ -199,7 +290,8 @@ a {
   background: transparent;
   color: #152033;
   font-size: 12px;
-  font-weight: 800;
+  font-weight: 700;
+  letter-spacing: -0.01em;
   cursor: pointer;
 }
 
@@ -240,6 +332,8 @@ a {
 
 .devices-showcase {
   position: relative;
+  min-width: 0;
+  width: 100%;
   min-height: clamp(430px, 48vw, 650px);
   display: grid;
   place-items: center;
@@ -271,7 +365,7 @@ a {
 .desktop-device {
   position: relative;
   z-index: 2;
-  width: min(1060px, 72vw);
+  width: min(1060px, 100%);
   height: clamp(460px, 39vw, 620px);
   padding: 18px 14px 20px;
   border: 4px solid #111821;
@@ -438,6 +532,7 @@ a {
 
 .course-card {
   align-self: stretch;
+  min-width: 0;
   min-height: 520px;
   padding: 34px;
   border: 1px solid rgba(25, 190, 77, 0.22);
@@ -455,18 +550,21 @@ a {
 
 .card-label {
   display: block;
-  margin-bottom: 18px;
-  color: #738071;
-  font-size: 12px;
-  font-weight: 900;
-  letter-spacing: 0.16em;
+  margin-bottom: 16px;
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
 .course-card h2 {
   margin: 0;
-  font-size: clamp(28px, 1.7vw, 36px);
-  line-height: 1.05;
+  font-size: clamp(28px, 1.7vw, 34px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: #0f172a;
 }
 
 @keyframes orb-pulse {
@@ -498,9 +596,11 @@ a {
 }
 
 .course-card p {
-  margin: 24px 0 28px;
-  color: #323b45;
-  line-height: 1.55;
+  margin: 20px 0 28px;
+  color: #475569;
+  font-size: 15px;
+  line-height: 1.6;
+  font-weight: 400;
 }
 
 dl {
@@ -536,13 +636,18 @@ dl {
 }
 
 dt {
-  color: #667064;
-  font-size: 12px;
+  color: #64748b;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 dd {
-  margin: 5px 0 0;
-  font-weight: 900;
+  margin: 4px 0 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e293b;
 }
 
 .build-grid {
@@ -559,7 +664,9 @@ dd {
   margin-top: 20px;
   border-radius: 12px;
   text-decoration: none;
-  font-weight: 800;
+  font-size: 14px;
+  font-weight: 740;
+  letter-spacing: -0.01em;
 }
 
 .primary-link {
@@ -643,15 +750,13 @@ dd {
 
 .course-selector:hover,
 .course-selector:focus-visible {
-  outline: 3px solid rgba(11, 143, 51, 0.28);
-  outline-offset: 3px;
+  outline: none;
 }
 
 .course-button {
-  display: grid;
+  display: block;
   width: 78px;
   height: 78px;
-  place-items: center;
   border: none;
   border-radius: 50%;
   background: radial-gradient(110% 110% at 30% 30%, #46e881 0%, #0b8f33 45%, #04421b 100%);
@@ -671,8 +776,7 @@ dd {
   pointer-events: none;
 }
 
-.course-selector:hover .course-button,
-.course-selector:focus-visible .course-button {
+.course-selector:hover .course-button {
   filter: brightness(1.15);
   transform: translateY(-4px);
   box-shadow:
@@ -682,22 +786,47 @@ dd {
     0 0 0 1px rgba(255, 255, 255, 0.8);
 }
 
-.course-selector:focus-visible {
-  outline: 3px solid rgba(11, 143, 51, 0.28);
-  outline-offset: 3px;
+.course-selector:focus-visible .course-button {
+  animation: none;
+  filter: brightness(1.15);
+  transform: translateY(-4px);
+  box-shadow:
+    inset 0 4px 8px rgba(255, 255, 255, 0.6),
+    inset 0 -6px 12px rgba(0, 0, 0, 0.4),
+    0 14px 24px rgba(11, 143, 51, 0.3),
+    0 0 0 4px rgba(11, 143, 51, 0.22);
+}
+
+.course-selector:focus .course-button {
+  animation: none;
+  filter: brightness(1.15);
+  transform: translateY(-4px);
+  box-shadow:
+    inset 0 4px 8px rgba(255, 255, 255, 0.6),
+    inset 0 -6px 12px rgba(0, 0, 0, 0.4),
+    0 14px 24px rgba(11, 143, 51, 0.3),
+    0 0 0 4px rgba(11, 143, 51, 0.22);
 }
 
 .course-selector.is-active .course-button {
   animation: orb-pulse 4s ease-in-out infinite;
 }
 
+.course-selector.is-active:focus-visible .course-button {
+  animation: none;
+}
+
+.course-selector.is-active:focus .course-button {
+  animation: none;
+}
+
 .course-title {
   max-width: 116px;
   min-height: 34px;
-  color: #182216;
-  font-size: 13px;
-  line-height: 1.15;
-  font-weight: 800;
+  color: #334155;
+  font-size: 12px;
+  line-height: 1.25;
+  font-weight: 600;
   text-align: center;
 }
 
@@ -736,13 +865,60 @@ dd {
   }
 }
 
+@media (max-width: 900px) {
+  .site-menu-toggle {
+    display: flex;
+  }
+
+  .showcase-title-lockup {
+    max-width: calc(100vw - 112px);
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  .runner-brand-image {
+    width: auto;
+    height: clamp(48px, 13vw, 78px);
+    margin-right: 4px;
+    transform: translateY(0);
+  }
+
+  .showcase-nextstep {
+    font-size: clamp(38px, 10.8vw, 60px);
+  }
+
+  .showcase-kicker {
+    margin-top: 6px;
+    font-size: clamp(13px, 3.4vw, 21px);
+    letter-spacing: 0.12em;
+  }
+
+  .page-title > .filter-row,
+  .showcase-grid > .device-switcher {
+    display: none;
+  }
+
+  .site-menu-devices {
+    display: grid;
+    width: 100%;
+    padding: 8px;
+    border-radius: 20px;
+    box-shadow: none;
+  }
+
+  .site-menu-devices .device-button {
+    min-height: 68px;
+    border-radius: 16px;
+  }
+
+  .showcase-grid {
+    margin-top: 22px;
+  }
+}
+
 @media (max-width: 780px) {
   .showcase-shell {
     padding: 18px 14px 24px;
-  }
-
-  .topbar {
-    gap: 16px;
   }
 
   .filter-row {
@@ -794,4 +970,5 @@ dd {
     border-radius: 24px;
   }
 }
+
 

@@ -4,17 +4,54 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Next Step Course Showcase</title>
-  <link rel="stylesheet" href="./styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" /><link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
   <main class="showcase-shell">
     <header class="topbar" aria-label="Course showcase header">
-      <img class="runner-brand-image" src="./assets/brand/green-lilguy-colour.png" alt="" aria-hidden="true" />
+      <button class="site-menu-toggle" id="siteMenuToggle" type="button" aria-expanded="false" aria-controls="siteMenu">
+        <span class="site-menu-line" aria-hidden="true"></span>
+        <span class="site-menu-line" aria-hidden="true"></span>
+        <span class="site-menu-line" aria-hidden="true"></span>
+        <span class="sr-only">Open site controls</span>
+      </button>
+      <div class="site-menu-panel" id="siteMenu" hidden>
+        <div class="site-menu-group">
+          <span class="site-menu-label">Courses</span>
+          <div class="site-menu-filters" aria-label="Course filters">
+            <button class="filter-button is-active" type="button" data-filter="all">All</button>
+            <button class="filter-button" type="button" data-filter="calm">CALM</button>
+            <button class="filter-button" type="button" data-filter="options">Options</button>
+            <button class="filter-button" type="button" data-filter="wellness">Wellness</button>
+            <button class="filter-button" type="button" data-filter="resources">Resources</button>
+          </div>
+        </div>
+        <div class="site-menu-group">
+          <span class="site-menu-label">Preview size</span>
+          <div class="device-switcher site-menu-devices" aria-label="Preview format">
+            <button class="device-button is-active" type="button" data-device="desktop">
+              <span class="device-icon desktop-icon" aria-hidden="true"></span>
+              Desktop
+            </button>
+            <button class="device-button" type="button" data-device="tablet">
+              <span class="device-icon tablet-icon" aria-hidden="true"></span>
+              Tablet
+            </button>
+            <button class="device-button" type="button" data-device="mobile">
+              <span class="device-icon phone-icon" aria-hidden="true"></span>
+              Mobile
+            </button>
+          </div>
+        </div>
+      </div>
     </header>
 
     <section class="page-title" aria-labelledby="showcaseTitle">
       <h1 id="showcaseTitle" class="sr-only">The Next Step Course Showcase</h1>
       <div class="showcase-title-lockup" aria-hidden="true">
+        <img class="runner-brand-image" src="./assets/brand/green-lilguy-colour.png" alt="" aria-hidden="true" />
         <div class="showcase-wordmark">
           <span class="showcase-nextstep">
             <span class="showcase-next">next</span><span class="showcase-step">STEP</span>
@@ -134,4 +171,5 @@
   <script src="./main.js"></script>
 </body>
 </html>
+
 

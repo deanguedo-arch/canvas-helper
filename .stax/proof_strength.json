@@ -1,19 +1,43 @@
 {
   "schemaVersion": "proof-strength-v1",
-  "claimType": "visual_behavior_verified",
-  "claimText": "Make the top-left green lilguy runner mark larger in the Course Showcase hero.\n\n# Canvas Helper STAX report\n\nSTAX acknowledgement: STAX_ACK turn_2026-05-19T19-34-13-013Z_7f3f d335ba8b 3dc1193f\n\nObjective: Make the top-left green lilguy runner mark larger in the Course Showcase hero.\n\nFiles changed:\n- projects/course-showcase/workspace/styles.css\n- docs/ops/ACTIVE_HANDOFF.md\n- .stax/task.md\n- .stax/codex-report.md\n\nTests added: None.\n\nCommands run:\n- Read .stax/turn-contract.json, .stax/status.json, and .stax/next-codex-prompt.md; exit 0.\n- Updated .stax/task.md; exit 0.\n- Applied patch to projects/course-showcase/workspace/styles.css; exit 0.\n- Updated docs/ops/ACTIVE_HANDOFF.md; exit 0.\n\nCommand output summary with exit codes:\n- `.runner-brand-image` width was changed from `clamp(72px, 8vw, 126px)` to `clamp(104px, 11vw, 178px)`.\n- No automated tests were run.\n- No browser visual review was run.\n\nWhat is verified:\n- The requested runner size increase was applied to the Course Showcase CSS source.\n\nWhat is weak/provisional:\n- The rendered size has not been visually inspected in a browser.\n- STAX may reject because visual/layout claims need rendered screenshot proof and refreshed command evidence.\n\nWhat is unverified:\n- Browser appearance on desktop and mobile.\n- Whether the Course Showcase UI test still passes.\n\nRisks:\n- The larger runner may need position tuning after visual review.\n\nOne next action:\n- Open Course Showcase in a browser and confirm the runner is large enough without crowding the wordmark.",
-  "rawScore": 1,
+  "claimType": "course_deploy_ready",
+  "claimText": "Fix Forensics 25 Module 1 YouTube videos rendering blank by removing locked-card CSS blur that prevents cross-origin iframe painting, then export and deploy Forensics 25.\n\n# STAX Codex Report\n\n## STAX acknowledgement\nSTAX_ACK turn_2026-05-20T15-05-26-273Z_ab55 cc3be9c8 2b12dd93\n\n## Objective\nFix Forensics 25 Module 1 YouTube videos that were still showing as blank boxes by removing the locked-card blur effect that can prevent cross-origin YouTube iframes from painting, then export and deploy Forensics 25.\n\n## Files changed\n- `projects/forensicstudiesoption2/workspace/content/module-index.css`\n- `projects/forensicstudiesoption2/exports/google-hosted/**`\n- `.stax/task.md`\n- `.stax/codex-report.md`\n- `docs/ops/ACTIVE_HANDOFF.md`\n\n## Tests added\nNone. No automated tests were run for this visual/CSS-only course rendering fix.\n\n## Commands run\n- Read `.stax/turn-contract.json`, `.stax/status.json`, `.stax/next-codex-prompt.md`: exit 0.\n- Read `docs/ops/FAST_PATHS.md` and `docs/ops/ACTIVE_HANDOFF.md`: exit 0.\n- Search Forensics 25 workspace/export content for YouTube/video evidence: exit 1 because PowerShell path globs were invalid for two optional paths, but the command still returned relevant Module 1 matches before the path errors.\n- Search Forensics 25 export content for YouTube/video evidence: exit 1 because optional glob paths were invalid.\n- Inspect Forensics 25 `module-index.css` for iframe, locked-card, and filter rules: exit 0.\n- Live fetch check for Forensics 25 Module 1 page and both YouTube embed endpoints: exit 0.\n- Search workspace/export Module 1 pages for YouTube iframe sources: one malformed quoting command failed, then targeted search succeeded with exit 0.\n- Update `projects/forensicstudiesoption2/workspace/content/module-index.css`: exit 0.\n- `npm.cmd run export:google-hosted -- --project forensicstudiesoption2`: exit 0.\n- `npm.cmd run deploy:google-hosted -- --project forensicstudiesoption2`: exit 0.\n- Live fetch check for `https://forensics25.web.app/content/chapter-1/index.html` and `https://forensics25.web.app/content/module-index.css`: exit 0.\n\n## Command output summary with exit codes\n- Before the CSS fix, Module 1 live page returned HTTP 200 and contained both YouTube embed IDs: `Ys09c9lANjI` and `jcypaqcKesU`.\n- Both YouTube embed endpoints returned HTTP 200 and did not return unavailable text in the fetched HTML.\n- CSS inspection found `.lesson-card.is-locked .lesson-body` using `filter: blur(3px)` plus `pointer-events: none`.\n- Export completed: `387 file(s), 10 tracked storage key(s)`.\n- Deploy completed to Firebase Hosting site `forensics25`, live URL `https://forensics25.web.app`.\n- Post-deploy live chapter fetch returned HTTP 200 with both Module 1 YouTube embeds still present.\n- Post-deploy live CSS fetch returned HTTP 200 with `filter: blur(3px)` absent and `opacity: 0.72` present.\n\n## What is verified\n- The two Module 1 YouTube iframes are present in the workspace, exported bundle, and live page.\n- The external YouTube embed pages for both Module 1 videos were reachable from this environment with HTTP 200.\n- The likely blanking rule, `filter: blur(3px)` on locked lesson bodies, was removed from the Forensics 25 module CSS.\n- The lock behavior still exists through lowered opacity and disabled pointer events instead of blur.\n- The fixed Forensics 25 bundle was exported and deployed live.\n\n## What is weak/provisional\n- No browser visual screenshot was collected after deploy.\n- No automated test was run.\n- This confirms deployed HTML/CSS state and YouTube endpoint reachability, but not pixel-level playback in the user's browser/network.\n\n## What is unverified\n- Whether the user's browser now paints the YouTube thumbnails/players after a hard refresh.\n- Whether the school network or browser extensions block YouTube embeds independently of the course CSS.\n- Whether STAX will accept without fresh visual proof.\n\n## Risks\n- Locked cards now show their content dimmed instead of blurred. This is intentional because blur can break cross-origin iframe painting.\n- Videos remain non-interactive while locked because pointer events are still disabled on locked lesson bodies.\n- Firebase Hosting now has one additional live release for `forensics25`.\n\n## One next action\nHard-refresh `https://forensics25.web.app/content/chapter-1/index.html` and confirm Module 1 video boxes now show the YouTube player/thumbnail; if they are still blank, capture browser console/network proof to distinguish CSS from local YouTube blocking.",
+  "rawScore": 0.87,
   "finalScore": 0,
   "label": "Reject",
-  "capApplied": [],
+  "capApplied": [
+    {
+      "id": "unverified_local_command_provenance",
+      "maxLabel": "Provisional",
+      "reason": "A local STAX command label is only strong proof after provenance verification."
+    },
+    {
+      "id": "course_deploy_without_target_proof",
+      "maxLabel": "Provisional",
+      "reason": "Course deployment claims require export/deploy/live-target proof, not just a report."
+    }
+  ],
   "rejectReasons": [
+    "Failed command evidence: cmd.exe /c publish-forensics.bat exited 1.",
     "Failed command evidence: node -e const fs=require(fs); const pkg=JSON.parse(fs.readFileSync(package.json,utf8)); console.log(process.cwd()); console.log(pkg.name); exited 1."
   ],
-  "primaryLimiter": "Failed command evidence: node -e const fs=require(fs); const pkg=JSON.parse(fs.readFileSync(package.json,utf8)); console.log(process.cwd()); console.log(pkg.name); exited 1.",
-  "missingProof": [],
+  "primaryLimiter": "Failed command evidence: cmd.exe /c publish-forensics.bat exited 1.",
+  "missingProof": [
+    "Unsupported file_path claim: module-index.css (File path was not present in the repo evidence pack.).",
+    "No export regeneration, deploy collection, live target fetch, or rollback/preflight proof was supplied for the course deployment."
+  ],
   "weakProof": [
-    "Local STAX command evidence label is unverified for node --test projects/course-showcase/meta/showcase-ui.test.mjs (wrong_commit).",
-    "Local STAX command evidence label is unverified for npm run test:apps-script (wrong_commit).",
+    "Local STAX command evidence label is unverified for npm run test:forensics35-workspace (wrong_worktree).",
+    "Local STAX command evidence label is unverified for node node_modules\\tsx\\dist\\cli.mjs --test scripts/tests/forensicstudiesoption2-theme.test.ts scripts/tests/forensicstudiesoption2-shell-behavior.test.ts scripts/tests/worldreligions30-option1-shell-behavior.test.ts (wrong_worktree).",
+    "Local STAX command evidence label is unverified for npm run test:apps-script (wrong_worktree).",
+    "Local STAX command evidence label is unverified for npm run test:google-hosted (wrong_worktree).",
+    "Local STAX command evidence label is unverified for node -e const urls=['https://forensics25.web.app','https://worldreligion.web.app']; Promise.all(urls.map(async (u)=>{const r=await fetch(u); console.log(u, r.status, r.headers.get('content-type')); if(!r.ok) process.exitCode=1;})).catch((e)=>{console.error(e); process.exit(1);}); (wrong_worktree).",
+    "Local STAX command evidence label is unverified for node --test projects/course-showcase/meta/showcase-ui.test.mjs (wrong_worktree).",
+    "Local STAX command evidence label is unverified for cmd.exe /c publish-forensics.bat (wrong_worktree).",
+    "Local STAX command evidence label is unverified for npm run validate:manifests -- --project course-showcase (wrong_worktree).",
+    "Local STAX command evidence label is unverified for node C:\\Users\\DEAN~1.GUE\\AppData\\Local\\Temp\\course-showcase-focus-check.js (wrong_worktree).",
+    "Local STAX command evidence label is unverified for cmd.exe /c publish-course-showcase.bat (wrong_worktree).",
+    "Local STAX command evidence label is unverified for npm run smoke:pipeline (wrong_worktree).",
     "Local STAX command evidence label is unverified for npm.cmd run validate:manifests -- --project course-showcase (wrong_commit).",
     "Local STAX command evidence label is unverified for node --test projects\\course-showcase\\meta\\showcase-ui.test.mjs (wrong_commit).",
     "Local STAX command evidence label is unverified for npm.cmd run test:apps-script (wrong_commit).",
@@ -23,8 +47,16 @@
     "Local STAX command evidence label is unverified for node -e const fs=require('fs'); const pkg=JSON.parse(fs.readFileSync('package.json','utf8')); console.log(process.cwd()); console.log(pkg.name); (wrong_commit).",
     "Local STAX command evidence label is unverified for node -e const fs=require(fs); const pkg=JSON.parse(fs.readFileSync(package.json,utf8)); console.log(process.cwd()); console.log(pkg.name); (wrong_commit).",
     "Local STAX command evidence label is unverified for git status --short --branch (wrong_commit).",
-    "local_stax_command_output is provisional command evidence for node --test projects/course-showcase/meta/showcase-ui.test.mjs.",
+    "local_stax_command_output is provisional command evidence for npm run test:forensics35-workspace.",
+    "local_stax_command_output is provisional command evidence for node node_modules\\tsx\\dist\\cli.mjs --test scripts/tests/forensicstudiesoption2-theme.test.ts scripts/tests/forensicstudiesoption2-shell-behavior.test.ts scripts/tests/worldreligions30-option1-shell-behavior.test.ts.",
     "local_stax_command_output is provisional command evidence for npm run test:apps-script.",
+    "local_stax_command_output is provisional command evidence for npm run test:google-hosted.",
+    "local_stax_command_output is provisional command evidence for node -e const urls=['https://forensics25.web.app','https://worldreligion.web.app']; Promise.all(urls.map(async (u)=>{const r=await fetch(u); console.log(u, r.status, r.headers.get('content-type')); if(!r.ok) process.exitCode=1;})).catch((e)=>{console.error(e); process.exit(1);});.",
+    "local_stax_command_output is provisional command evidence for node --test projects/course-showcase/meta/showcase-ui.test.mjs.",
+    "local_stax_command_output is provisional command evidence for npm run validate:manifests -- --project course-showcase.",
+    "local_stax_command_output is provisional command evidence for node C:\\Users\\DEAN~1.GUE\\AppData\\Local\\Temp\\course-showcase-focus-check.js.",
+    "local_stax_command_output is provisional command evidence for cmd.exe /c publish-course-showcase.bat.",
+    "local_stax_command_output is provisional command evidence for npm run smoke:pipeline.",
     "local_stax_command_output is provisional command evidence for npm.cmd run validate:manifests -- --project course-showcase.",
     "local_stax_command_output is provisional command evidence for node --test projects\\course-showcase\\meta\\showcase-ui.test.mjs.",
     "local_stax_command_output is provisional command evidence for npm.cmd run test:apps-script.",
@@ -35,11 +67,16 @@
     "local_stax_command_output is provisional command evidence for git status --short --branch."
   ],
   "strongProof": [
-    "Grounded file_path claim: projects/course-showcase/workspace/styles.css.",
+    "Grounded file_path claim: projects/forensicstudiesoption2/workspace/content/module-index.css.",
     "Grounded file_path claim: docs/ops/ACTIVE_HANDOFF.md.",
-    "Grounded completion claim: What is verified:.",
-    "Grounded verification claim: What is verified:.",
-    "Grounded test_pass claim: - Whether the Course Showcase UI test still passes..",
+    "Grounded file_path claim: docs/ops/FAST_PATHS.md.",
+    "Grounded completion claim: - Export completed: `387 file(s), 10 tracked storage key(s)`..",
+    "Grounded completion claim: - Deploy completed to Firebase Hosting site `forensics25`, live URL `https://forensics25.web.app`..",
+    "Grounded completion claim: ## What is verified.",
+    "Grounded verification claim: ## What is verified.",
+    "Grounded completion claim: - The fixed Forensics 25 bundle was exported and deployed live..",
+    "Repo evidence enumerated source files.",
+    "Repo evidence enumerated test files.",
     "Rendered visual proof was supplied."
   ],
   "oneNextAction": "Fix the failing command, rerun it through STAX command evidence, then re-gate the claim."

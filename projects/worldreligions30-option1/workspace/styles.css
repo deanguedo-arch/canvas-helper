@@ -1606,3 +1606,21 @@ body[data-section="home"][data-tab="chapters"][data-view="overview"] #course-sub
     height: 1520px;
   }
 }
+
+/* Compact hosted controls: keep auth/sign-in chrome out of the collapsed hamburger layout. */
+@media (max-width: 1023px) {
+  body:not(.mobile-nav-open) .sidebar :where(
+    .canvas-helper-google-hosted-controls,
+    .canvas-helper-google-hosted-controls--embedded,
+    .auth-card,
+    .auth-panel,
+    .signin-card,
+    .sign-in-card,
+    .google-signin,
+    .account-card,
+    [data-auth-panel],
+    [data-auth-controls]
+  ) {
+    display: none !important;
+  }
+}

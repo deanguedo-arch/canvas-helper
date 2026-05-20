@@ -24,10 +24,16 @@
   "exportTargets": [
     {
       "target": "google-hosted",
-      "enabled": false,
-      "notes": "Configure google-hosted.deploy.json when a Firebase Hosting target is chosen for the showcase hub."
+      "enabled": true,
+      "notes": "Dedicated Firebase Hosting deploy for the Course Showcase hub using the calm-module-one Firebase project and a separate hosting target."
     }
   ],
+  "googleHosted": {
+    "authMode": "none",
+    "trackedStorageKeys": [
+      "course-showcase::workspace-state::v1"
+    ]
+  },
   "generatedOutputs": [],
   "injectedComponents": [],
   "referenceOnly": [],
@@ -40,5 +46,6 @@
   "learningSource": "other",
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-05-19T15:34:58.558Z",
-  "updatedAt": "2026-05-19T15:34:58.558Z"
+  "updatedAt": "2026-05-19T21:05:50.596Z",
+  "workspaceApprovedAt": "2026-05-19T21:05:50.596Z"
 }

@@ -72,6 +72,24 @@ test("forensic studies option2 keeps tablet and mobile in the compact top-naviga
   assert.doesNotMatch(mainSource, /window\.innerWidth <= 900/);
 });
 
+test("forensic studies option2 compact mode clamps shell, frame, and lesson widths", async () => {
+  const [stylesSource, moduleStylesSource] = await Promise.all([
+    readFile(stylesPath, "utf8"),
+    readFile(moduleStylesPath, "utf8")
+  ]);
+
+  assert.match(stylesSource, /Compact shell sizing guard/i);
+  assert.match(stylesSource, /@media\s*\(max-width:\s*1023px\)\s*\{[\s\S]*?\.app-shell,[\s\S]*?\.content-inner,[\s\S]*?\.viewer-frame,[\s\S]*?\.assignment-frame\s*\{[\s\S]*?width:\s*100%;[\s\S]*?max-width:\s*100%;[\s\S]*?min-width:\s*0;/i);
+  assert.match(stylesSource, /@media\s*\(max-width:\s*1023px\)\s*\{[\s\S]*?\.app-shell,[\s\S]*?\.content,[\s\S]*?\.content-inner,[\s\S]*?overflow-x:\s*hidden;/i);
+  assert.match(stylesSource, /@media\s*\(max-width:\s*720px\)\s*\{[\s\S]*?\.content-inner\s*\{[\s\S]*?padding-inline:\s*clamp\(10px,\s*4vw,\s*18px\);/i);
+
+  assert.match(moduleStylesSource, /Compact lesson sizing guard/i);
+  assert.match(moduleStylesSource, /@media\s*\(max-width:\s*860px\)\s*\{[\s\S]*?html,[\s\S]*?body\s*\{[\s\S]*?overflow-x:\s*hidden;/i);
+  assert.match(moduleStylesSource, /@media\s*\(max-width:\s*860px\)\s*\{[\s\S]*?\.module-page,[\s\S]*?\.lesson-body,[\s\S]*?\.lesson-table-wrap\s*\{[\s\S]*?width:\s*100%;[\s\S]*?max-width:\s*100%;[\s\S]*?min-width:\s*0;/i);
+  assert.match(moduleStylesSource, /\.lesson-body :where\(img,\s*video,\s*object,\s*embed,\s*canvas,\s*svg\)\s*\{[\s\S]*?max-width:\s*100%\s*!important;/i);
+  assert.match(moduleStylesSource, /\.lesson-table-wrap\s*\{[\s\S]*?overflow-x:\s*auto;/i);
+});
+
 test("forensic studies option2 generated chapter pages share the next-step theme system", async () => {
   const moduleStylesSource = await readFile(moduleStylesPath, "utf8");
 

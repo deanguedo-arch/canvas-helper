@@ -268,12 +268,12 @@ body::before {
 }
 
 .lesson-card.is-locked {
-  opacity: 0.64;
+  opacity: 1;
 }
 
 .lesson-card.is-locked .lesson-body,
 .lesson-card.is-locked .sequence-top {
-  filter: blur(3px);
+  opacity: 0.72;
   pointer-events: none;
   user-select: none;
 }
@@ -477,5 +477,53 @@ body::before {
 
   .action-link {
     width: 100%;
+  }
+}
+
+/* Compact lesson sizing guard: imported lesson surfaces must shrink with the parent frame. */
+@media (max-width: 860px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .module-page,
+  .module-hero,
+  .module-section,
+  .sequence-card,
+  .assessment-card,
+  .note-card,
+  .lesson-body,
+  .lesson-table-wrap {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .lesson-body :where(img, video, object, embed, canvas, svg) {
+    max-width: 100% !important;
+    height: auto;
+  }
+
+  .lesson-body :where(iframe, table, [width]) {
+    max-width: 100% !important;
+  }
+
+  .lesson-table-wrap {
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 520px) {
+  .module-page {
+    padding-inline: 12px;
+  }
+
+  .module-hero,
+  .module-section {
+    padding-inline: 16px;
   }
 }

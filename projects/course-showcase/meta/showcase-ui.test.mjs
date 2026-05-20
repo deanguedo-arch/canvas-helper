@@ -17,11 +17,15 @@ function courseBlock(id) {
   return match[0];
 }
 
-test("header uses the Next Step logo without admin controls", () => {
-  assert.match(html, /class="brand brand-logo"/);
-  assert.match(html, /<img class="brand-image" src="\.\/assets\/brand\/next-step-logo-transparent\.png"/);
-  assert.match(css, /\.brand-logo\b/);
-  assert.match(css, /\.brand-image\b/);
+test("header uses the Next Step runner mark and site menu without admin controls", () => {
+  assert.match(html, /<img class="runner-brand-image" src="\.\/assets\/brand\/green-lilguy-colour\.png"/);
+  assert.match(html, /class="site-menu-toggle"/);
+  assert.match(html, /aria-controls="siteMenu"/);
+  assert.match(html, /class="site-menu-panel"/);
+  assert.match(html, /class="showcase-title-lockup"/);
+  assert.match(css, /\.runner-brand-image\b/);
+  assert.match(css, /\.site-menu-toggle\b/);
+  assert.match(css, /\.site-menu-panel\b/);
 
   assert.doesNotMatch(html, /top-actions|admin-button|icon-button|avatar-button|Admin/);
   assert.doesNotMatch(css, /\.top-actions|\.admin-button|\.icon-button|\.avatar-button|\.avatar-face|\.notification-dot/);
@@ -50,6 +54,22 @@ test("course rail renders flat round green buttons with titles underneath", () =
   assert.doesNotMatch(css, /\.course-orb|\.orb-face/);
 });
 
+test("course selector keyboard focus stays on the round orb", () => {
+  const buttonFocusBlocks = [...css.matchAll(/\.course-selector:focus-visible\s*{(?<body>[\s\S]*?)}/g)]
+    .map((match) => match.groups.body);
+
+  assert.ok(buttonFocusBlocks.length > 0, "expected a course selector focus reset block");
+  for (const body of buttonFocusBlocks) {
+    const outlineValues = [...body.matchAll(/outline:\s*([^;]+);/g)].map((match) => match[1].trim());
+    assert.deepEqual(outlineValues, ["none"], "selector focus must clear the native outline without drawing a rectangle");
+  }
+  assert.match(css, /\.course-selector:focus-visible \.course-button\s*{[\s\S]*?animation:\s*none;/);
+  assert.match(css, /\.course-selector\.is-active:focus-visible \.course-button\s*{[\s\S]*?animation:\s*none;/);
+  assert.match(css, /\.course-selector:focus-visible \.course-button\s*{[\s\S]*?0 0 0 4px rgba\(11,\s*143,\s*51,\s*0\.22\)/);
+  assert.match(css, /\.course-selector:focus \.course-button\s*{[\s\S]*?0 0 0 4px rgba\(11,\s*143,\s*51,\s*0\.22\)/);
+  assert.match(css, /\.course-selector\.is-active:focus \.course-button\s*{[\s\S]*?animation:\s*none;/);
+});
+
 test("desktop preview renders at a fixed desktop viewport and scales into the frame", () => {
   assert.match(html, /id="desktopViewportShell"/);
   assert.match(html, /<iframe id="desktopFrame" class="desktop-viewport-frame"/);
@@ -71,17 +91,28 @@ test("desktop preview renders at a fixed desktop viewport and scales into the fr
   assert.match(js, /--desktop-preview-scale/);
 });
 
+test("mobile title lockup scales within hamburger clearance", () => {
+  assert.match(html, /class="showcase-title-lockup"[^>]*>\s*<img class="runner-brand-image"/);
+  assert.match(css, /@media \(max-width: 900px\)\s*{[\s\S]*\.showcase-title-lockup\s*{[\s\S]*max-width:\s*calc\(100vw - 112px\)/);
+  assert.match(css, /@media \(max-width: 900px\)\s*{[\s\S]*\.showcase-nextstep\s*{[\s\S]*font-size:\s*clamp\(38px,\s*10\.8vw,\s*60px\)/);
+  assert.match(css, /@media \(max-width: 900px\)\s*{[\s\S]*\.showcase-kicker\s*{[\s\S]*font-size:\s*clamp\(13px,\s*3\.4vw,\s*21px\)/);
+  assert.doesNotMatch(css, /@media \(max-width: 780px\)\s*{[\s\S]*\.showcase-title-lockup\s*{[\s\S]*translateX\(-10px\)/);
+});
+
 test("filters group CALM courses and Options courses without Humanities or Science", () => {
   const filters = [...html.matchAll(/<button class="filter-button(?: is-active)?" type="button" data-filter="([^"]+)">([^<]+)<\/button>/g)]
     .map((match) => ({ value: match[1], label: match[2] }));
-
-  assert.deepEqual(filters, [
+  const expectedFilters = [
     { value: "all", label: "All" },
     { value: "calm", label: "CALM" },
     { value: "options", label: "Options" },
     { value: "wellness", label: "Wellness" },
     { value: "resources", label: "Resources" }
-  ]);
+  ];
+
+  assert.deepEqual(filters.slice(0, 5), expectedFilters);
+  assert.deepEqual(filters.slice(5), expectedFilters);
+  assert.match(html, /class="site-menu-filters"/);
 
   assert.doesNotMatch(html, /data-filter="humanities"|>Humanities</);
   assert.doesNotMatch(html, /data-filter="science"|>Science</);

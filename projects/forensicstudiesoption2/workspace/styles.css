@@ -1562,9 +1562,18 @@ body[data-section="home"][data-tab="chapters"][data-view="overview"] #course-sub
     --content-width: calc(100vw - 24px);
   }
 
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
   .app-shell,
   body.sidebar-collapsed .app-shell {
     grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
   .sidebar {
@@ -1604,7 +1613,27 @@ body[data-section="home"][data-tab="chapters"][data-view="overview"] #course-sub
   }
 
   .content-inner {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
     padding: 16px 12px 36px;
+  }
+
+  .content,
+  .content-shell,
+  .content-body,
+  .progress-shell,
+  .chapter-content-shell,
+  .assignment-runtime-shell,
+  .library-shell,
+  .library-select-shell,
+  .viewer-shell,
+  .quiz-shell,
+  .viewer-frame,
+  .viewer-overlay-frame {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
   }
 
   .content-shell,
@@ -1663,6 +1692,15 @@ body[data-section="home"][data-tab="chapters"][data-view="overview"] #course-sub
 
   .viewer-frame {
     min-height: 66vh;
+  }
+
+  .viewer-frame iframe,
+  .viewer-overlay-frame iframe,
+  .chapter-content-frame,
+  .assignment-frame {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
   }
 
   .assignment-frame {
@@ -1881,4 +1919,48 @@ body::after {
 
 .viewer-overlay {
   background: rgba(26, 28, 26, 0.72);
+}
+
+/* Compact shell sizing guard: keep Forensics 25 content inside the hamburger viewport. */
+@media (max-width: 1023px) {
+  .app-shell,
+  .content,
+  .content-inner,
+  .content-shell,
+  .content-body,
+  .library-shell,
+  .library-shell-grid,
+  .library-select-shell,
+  .viewer-shell,
+  .quiz-shell,
+  .chapter-content-shell,
+  .assignment-runtime-shell,
+  .viewer-frame,
+  .viewer-overlay-frame,
+  .chapter-content-frame,
+  .assignment-frame {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .app-shell,
+  .content,
+  .content-inner,
+  .chapter-content-shell,
+  .assignment-runtime-shell {
+    overflow-x: hidden;
+  }
+
+  .chapter-content-frame,
+  .assignment-frame {
+    display: block;
+  }
+}
+
+@media (max-width: 720px) {
+  .content-inner {
+    padding-inline: clamp(10px, 4vw, 18px);
+  }
 }

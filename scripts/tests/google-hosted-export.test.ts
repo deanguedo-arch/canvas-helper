@@ -70,8 +70,23 @@ test("buildGoogleHostedBridgeScript embeds save controls into course sidebars wh
   assert.match(bridge, /:has\(> \.canvas-helper-google-hosted-controls--embedded\)/);
   assert.match(bridge, /position:sticky;bottom:16px;margin-top:auto/);
   assert.match(bridge, /body\.sidebar-collapsed \.canvas-helper-google-hosted-controls--embedded/);
+  assert.match(bridge, /\.app\.sidebar-hidden \.canvas-helper-google-hosted-controls--embedded/);
+  assert.match(bridge, /\.forensic-layout\.menu-collapsed \.canvas-helper-google-hosted-controls--embedded/);
+  assert.match(bridge, /\.forensics35-shell\.sidebar-compact \.canvas-helper-google-hosted-controls--embedded/);
   assert.match(bridge, /\.menu-collapsed \.canvas-helper-google-hosted-controls--embedded/);
   assert.match(bridge, /\[data-collapsed='true'\] \.canvas-helper-google-hosted-controls--embedded/);
+  assert.match(
+    bridge,
+    /aside\[data-testid='chapter-menu-panel'\]:has\(\[data-testid\*='mobile-menu-toggle'\]\[aria-expanded='false'\]\)>\.canvas-helper-google-hosted-controls--embedded/
+  );
+  assert.match(
+    bridge,
+    /aside\[data-sidebar-responsive-mode='option2-sticky'\]:has\(\[data-testid\*='mobile-menu-toggle'\]\[aria-expanded='false'\]\)>\.canvas-helper-google-hosted-controls--embedded/
+  );
+  assert.doesNotMatch(bridge, /\.canvas-helper-google-hosted-controls--embedded\[data-authenticated='false'\]\{display:none!important\}/);
+  assert.match(bridge, /body:not\(\.mobile-nav-open\) \.sidebar \.canvas-helper-google-hosted-controls--embedded/);
+  assert.match(bridge, /\.forensic-layout:not\(\.mobile-menu-open\) \.forensic-sidebar \.canvas-helper-google-hosted-controls--embedded/);
+  assert.match(bridge, /setAttribute\("data-authenticated", "false"\)/);
   assert.match(bridge, /display:none!important/);
   assert.match(bridge, /margin-top:auto/);
   assert.match(bridge, /MutationObserver/);

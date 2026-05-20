@@ -63,6 +63,18 @@ test("world religions option1 chapter 1 shell mounts the authored content module
   assert.match(stylesSource, /\.chapter-content-frame/);
 });
 
+test("world religions option1 hides hosted auth controls in collapsed compact navigation", async () => {
+  const stylesSource = await readFile(stylesPath, "utf8");
+
+  assert.match(stylesSource, /Compact hosted controls/i);
+  assert.match(stylesSource, /@media\s*\(max-width:\s*1023px\)\s*\{[\s\S]*?body:not\(\.mobile-nav-open\) \.sidebar :where\(/i);
+  assert.match(stylesSource, /\.canvas-helper-google-hosted-controls--embedded/);
+  assert.match(stylesSource, /\.auth-card/);
+  assert.match(stylesSource, /\.google-signin/);
+  assert.match(stylesSource, /\[data-auth-controls\]/);
+  assert.match(stylesSource, /display:\s*none\s*!important;/i);
+});
+
 test("world religions option1 chapter 2 shell mounts the authored content module", async () => {
   const dataSource = await readFile(dataPath, "utf8");
   const data = loadCourseData(dataSource);
