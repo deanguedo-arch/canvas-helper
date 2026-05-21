@@ -328,6 +328,19 @@ body::before {
   background: #ffffff;
 }
 
+.lesson-body .lesson-banner {
+  width: min(100%, 680px);
+  max-width: none;
+  margin: 0 auto 28px;
+}
+
+.lesson-body .lesson-banner img {
+  width: 100%;
+  height: clamp(170px, 20vw, 220px);
+  object-fit: cover;
+  object-position: center 76%;
+}
+
 .lesson-media-missing {
   display: flex;
   align-items: center;

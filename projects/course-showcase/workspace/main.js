@@ -36,6 +36,18 @@
     version: "v1.8.0"
   },
   {
+    id: "mental-health-wellness",
+    title: "Mental Health & Wellness",
+    shortTitle: "Mental Health & Wellness",
+    category: "wellness",
+    area: "Wellness",
+    status: "Live",
+    description: "Mental health and wellness course shell with guided units, readable lesson cards, and Google-hosted progress support.",
+    url: "https://mentalhealthandwellness.web.app",
+    image: "./assets/course-icons/mental-health-wellness.svg",
+    version: "v1.0.0"
+  },
+  {
     id: "general-psychology",
     title: "General Psychology",
     shortTitle: "General Psychology",
@@ -94,6 +106,42 @@
     url: "https://calm3new.web.app",
     image: "./assets/course-icons/calm-module-3.svg",
     version: "v3.1.2"
+  },
+  {
+    id: "learning-strategies-15",
+    title: "Learning Strategies 15",
+    shortTitle: "Learning Strategies 15",
+    category: "ldc",
+    area: "LDC",
+    status: "Live",
+    description: "Learning Strategies 15 course shell with structured modules, lesson progression, and Google-hosted progress support.",
+    url: "https://learningstrategies15.web.app",
+    image: "./assets/course-icons/learning-strategies.svg",
+    version: "v1.0.0"
+  },
+  {
+    id: "learning-strategies-25",
+    title: "Learning Strategies 25",
+    shortTitle: "Learning Strategies 25",
+    category: "ldc",
+    area: "LDC",
+    status: "Live",
+    description: "Learning Strategies 25 course shell with organized lessons, visible module flow, and Google-hosted progress support.",
+    url: "https://learningstrategies25.web.app",
+    image: "./assets/course-icons/learning-strategies.svg",
+    version: "v1.0.0"
+  },
+  {
+    id: "learning-strategies-35",
+    title: "Learning Strategies 35",
+    shortTitle: "Learning Strategies 35",
+    category: "ldc",
+    area: "LDC",
+    status: "Live",
+    description: "Learning Strategies 35 course shell with module sequencing, cleaned lesson presentation, and Google-hosted progress support.",
+    url: "https://learningstrategies35.web.app",
+    image: "./assets/course-icons/learning-strategies.svg",
+    version: "v1.0.0"
   },
   {
     id: "experimental-psychology",

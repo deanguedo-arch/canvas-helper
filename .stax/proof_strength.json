@@ -1,8 +1,8 @@
 {
   "schemaVersion": "proof-strength-v1",
-  "claimType": "verification_run",
-  "claimText": "Evaluate the supplied Mental Health & Wellness D2LExport content-folder ZIP and wire in useful assets.\n\nSTAX acknowledgement:\nSTAX_ACK turn_2026-05-21T16-54-25-520Z_c6ae 57ef7ced e40e5eb3\n\nObjective:\nEvaluate the supplied Mental Health & Wellness D2LExport content-folder ZIP and wire in useful assets.\n\nFiles changed:\n- projects/mental-health-wellness/meta/build_forensics_style_course.py\n- projects/mental-health-wellness/meta/source-zip-audit.json\n- projects/mental-health-wellness/workspace/content/chapter-3/index.html\n- projects/mental-health-wellness/workspace/content/chapter-4/index.html\n- projects/mental-health-wellness/workspace/references/mental-health-wellness/linked-resources/**\n- scripts/tests/mental-health-wellness-shell.test.ts\n- docs/ops/ACTIVE_HANDOFF.md\n- .stax/task.md\n- .stax/codex-report.md\n\nTests added:\n- Updated scripts/tests/mental-health-wellness-shell.test.ts to require the auxiliary D2LExport asset ZIP and localized PDF quickLinks for the three previously unresolved Mental Health PDFs.\n\nCommands run:\n- Read .stax/turn-contract.json, .stax/status.json, .stax/next-codex-prompt.md, .stax/task.md, and docs/ops/ACTIVE_HANDOFF.md.\n- Inspected c:\\Users\\dean.guedo\\Downloads\\D2LExport_60408_21-22 _ S2 _ Mental Health _ Wellness _ Per 1(A) __202652118.zip for asset coverage.\n- Audited the existing Mental Health & Wellness conversion for unresolved assets and links.\n- Added failing assertions for the auxiliary Mental Health asset ZIP and the three localized PDF resources.\n- Ran node node_modules/tsx/dist/cli.mjs --test scripts/tests/mental-health-wellness-shell.test.ts and observed the expected red failure before implementation.\n- Patched projects/mental-health-wellness/meta/build_forensics_style_course.py to use the auxiliary asset ZIP as a fallback source for D2L quickLink fileId resources and image/support assets.\n- Ran python projects/mental-health-wellness/meta/build_forensics_style_course.py.\n- Re-audited projects/mental-health-wellness/meta/source-zip-audit.json.\n- Ran rg -n \"missing-resource-link|quickLink\\.d2l|pregnancy-mental-health|Team-Based%20Healthcare|PrimaryCare_Overview\" projects/mental-health-wellness/workspace/content.\n- Ran node node_modules/tsx/dist/cli.mjs --test scripts/tests/mental-health-wellness-shell.test.ts.\n- Ran npm.cmd run verify -- --project mental-health-wellness.\n\nCommand output summary with exit codes:\n- STAX/context reads: exit 0.\n- Mental Health ZIP inspection: exit 0; ZIP has 173 entries, 40 images, 37 PDFs, 82 HTML files, and 8 Office documents.\n- Initial audit: exit 0; existing conversion had 20 copied images, 5 unresolved assets, including 3 unresolved D2L quickLink PDF coursefiles and 2 shared-template banner images.\n- Red targeted test: exit 1; expected failure because assetZip was undefined before implementation.\n- Mental Health rebuild: exit 0.\n- Post-rebuild audit: exit 0; assetZip is recorded, supportFiles is 8, imagesCopied is 20, unresolvedAssets is 2, and remaining unresolved assets are only shared-template banner_06.jpg image refs.\n- Link scan: exit 0; no chapter HTML contains quickLink.d2l or missing-resource-link markers, and the three previously missing PDFs are local linked-resources paths.\n- Targeted Mental Health shell test: exit 0, 8 tests passed, 0 failed.\n- Mental Health project verify: exit 0, no missing local assets, no missing workspace embeds, and no missing course-shell resources.\n\nWhat is verified:\n- The supplied D2LExport ZIP contains useful Mental Health support resources that were not available in the first content package.\n- The three previously unresolved PDF quickLinks now resolve to local linked resources in the workspace.\n- The first conversion already did a good job on packaged lesson images: copied image count remains 20 because the remaining missing images are not in the new ZIP.\n- The only unresolved Mental Health assets left are two shared Brightspace template banner_06.jpg references in Module 5 Summary and Module 6 Summary.\n- Project verify reports no missing local assets for Mental Health & Wellness after the rebuild.\n\nWhat is weak/provisional:\n- This was an asset/link integration pass, not a fresh full manual readability review of every Mental Health lesson.\n- STAX status still contains stale unrelated command evidence from older tasks.\n\nWhat is unverified:\n- Live deploy, because deploy was not requested.\n- Manual visual review of every Mental Health lesson after the PDF-link update.\n\nRisks:\n- Regenerating Mental Health & Wellness now depends on the auxiliary asset ZIP path unless MENTAL_HEALTH_WELLNESS_ASSET_ZIP points to a valid copy.\n- The remaining shared-template banner image references may need a manual replacement image or should stay suppressed/fallback-only because they are not in the source packages.\n- Existing unrelated dirty files remain in the worktree and were not reverted.\n\nOne next action:\nOpen Mental Health & Wellness and spot-check the Unit 3 and Unit 4 PDF links in the browser.",
-  "rawScore": 0.67,
+  "claimType": "course_deploy_ready",
+  "claimText": "Add Learning Strategies 15, 25, and 35 to the Course Showcase under LDC, add Mental Health & Wellness under Wellness, and redeploy the showcase.\n\nSTAX acknowledgement:\nSTAX_ACK turn_2026-05-21T21-05-15-612Z_d542 3f702b45 32130679\n\nObjective:\nAdd Learning Strategies 15, 25, and 35 to the Course Showcase under LDC, add Mental Health & Wellness under Wellness, and redeploy the showcase.\n\nFiles changed:\n- .stax/task.md\n- projects/course-showcase/workspace/index.html\n- projects/course-showcase/workspace/main.js\n- projects/course-showcase/workspace/assets/course-icons/learning-strategies.svg\n- projects/course-showcase/workspace/assets/course-icons/mental-health-wellness.svg\n- projects/course-showcase/meta/showcase-ui.test.mjs\n- projects/course-showcase/meta/project.json\n- projects/course-showcase/meta/deviation-report.json\n- projects/course-showcase/meta/deviation-report.md\n- docs/ops/ACTIVE_HANDOFF.md\n- .stax/codex-report.md\n\nTests added:\n- Updated projects/course-showcase/meta/showcase-ui.test.mjs to cover the LDC filter, Learning Strategies course URLs, and Mental Health & Wellness in Wellness.\n\nCommands run:\n- Read .stax/turn-contract.json, .stax/status.json, and .stax/next-codex-prompt.md.\n- Read brainstorming and uncodixfy skill instructions because this task changes a frontend showcase surface.\n- Inspected Course Showcase project metadata, workspace index, workspace registry, and showcase UI test.\n- Updated the Course Showcase filters, registry, local icon assets, and test expectations.\n- Ran node --test projects/course-showcase/meta/showcase-ui.test.mjs.\n- Ran npm.cmd run validate:manifests -- --project course-showcase.\n- Ran npm.cmd run verify -- --project course-showcase.\n- Ran npm.cmd run typecheck.\n- Ran npm.cmd run build:studio.\n- Ran cmd.exe /c publish-course-showcase.bat.\n- Ran live fetch checks for the Course Showcase root, main.js, and the two new SVG icon assets.\n- Ran a Playwright live browser check for the LDC and Wellness filters.\n- Removed the Course Showcase export firebase-debug.log generated by Firebase CLI.\n- Updated docs/ops/ACTIVE_HANDOFF.md.\n\nCommand output summary with exit codes:\n- STAX/context/skill reads: exit 0.\n- Course Showcase file reads and searches: exit 0.\n- showcase-ui.test.mjs: exit 0, 6 tests passed.\n- validate:manifests course-showcase: exit 0, migrated metadata is valid.\n- verify course-showcase: exit 0, metadata policy passed and missing local assets are none.\n- typecheck: exit 0.\n- build:studio: exit 0.\n- publish-course-showcase.bat: exit 0; exported 25 files and deployed 20 hosted files to courseshowcasenextstep.\n- Live fetch checks: exit 0; root, main.js, learning-strategies.svg, and mental-health-wellness.svg all returned HTTP 200.\n- Playwright live browser check: exit 0; LDC showed Learning Strategies 15/25/35, Wellness showed Sports Wellness and Mental Health & Wellness, console errors 0.\n- Cleanup command: exit 0.\n\nWhat is verified:\n- The live Course Showcase is deployed at https://courseshowcasenextstep.web.app.\n- The Course Showcase has an LDC filter in both filter control locations.\n- Learning Strategies 15, 25, and 35 are registered under category/area LDC with the live Firebase URLs.\n- Mental Health & Wellness is registered under category/area Wellness with the live Firebase URL.\n- The two new icon asset URLs load from the live deployment.\n- The live browser check proves the LDC and Wellness filters expose the requested courses.\n\nWhat is weak/provisional:\n- I did not collect a STAX visual artifact; browser automation verified text/filter behavior directly.\n- STAX status still contains stale unrelated command evidence from older tasks.\n\nWhat is unverified:\n- Final STAX acceptance after observer preflight; observer mode may remain Reject because of stale unrelated command evidence and proof-surface requirements.\n\nRisks:\n- Course Showcase categories are hardcoded in both index.html and main.js, so future category changes must update both.\n- The Course Showcase export regenerated project deviation report timestamps and the workspace approval timestamp.\n- The course image fields are not currently rendered in the rail, but the new SVG files are present for future rendering.\n\nOne next action:\nOpen https://courseshowcasenextstep.web.app and spot-check the LDC and Wellness filters visually.",
+  "rawScore": 0.79,
   "finalScore": 0,
   "label": "Reject",
   "capApplied": [
@@ -10,6 +10,11 @@
       "id": "unverified_local_command_provenance",
       "maxLabel": "Provisional",
       "reason": "A local STAX command label is only strong proof after provenance verification."
+    },
+    {
+      "id": "course_deploy_without_visual_proof",
+      "maxLabel": "Provisional",
+      "reason": "Course deployment claims require rendered visual proof of the published course."
     }
   ],
   "rejectReasons": [
@@ -17,7 +22,11 @@
     "Failed command evidence: node -e const fs=require(fs); const pkg=JSON.parse(fs.readFileSync(package.json,utf8)); console.log(process.cwd()); console.log(pkg.name); exited 1."
   ],
   "primaryLimiter": "Failed command evidence: cmd.exe /c publish-forensics.bat exited 1.",
-  "missingProof": [],
+  "missingProof": [
+    "Unsupported file_path claim: main.js (File path was not present in the repo evidence pack.).",
+    "Unsupported file_path claim: index.html (File path was not present in the repo evidence pack.).",
+    "No rendered screenshot, visual checklist, or browser proof was supplied for the course deployment."
+  ],
   "weakProof": [
     "Local STAX command evidence label is unverified for npm run test:apps-script (wrong_commit).",
     "Local STAX command evidence label is unverified for npm run test:forensics35-workspace (wrong_commit).",
@@ -59,17 +68,23 @@
     "local_stax_command_output is provisional command evidence for git status --short --branch."
   ],
   "strongProof": [
-    "Grounded file_path claim: projects/mental-health-wellness/meta/build_forensics_style_course.py.",
-    "Grounded file_path claim: projects/mental-health-wellness/meta/source-zip-audit.json.",
-    "Grounded file_path claim: projects/mental-health-wellness/workspace/content/chapter-3/index.html.",
-    "Grounded file_path claim: projects/mental-health-wellness/workspace/content/chapter-4/index.html.",
-    "Grounded file_path claim: scripts/tests/mental-health-wellness-shell.test.ts.",
+    "Grounded file_path claim: projects/course-showcase/workspace/index.html.",
+    "Grounded file_path claim: projects/course-showcase/workspace/main.js.",
+    "Grounded file_path claim: projects/course-showcase/workspace/assets/course-icons/learning-strategies.svg.",
+    "Grounded file_path claim: projects/course-showcase/workspace/assets/course-icons/mental-health-wellness.svg.",
+    "Grounded file_path claim: projects/course-showcase/meta/showcase-ui.test.mjs.",
+    "Grounded file_path claim: projects/course-showcase/meta/project.json.",
+    "Grounded file_path claim: projects/course-showcase/meta/deviation-report.json.",
+    "Grounded file_path claim: projects/course-showcase/meta/deviation-report.md.",
     "Grounded file_path claim: docs/ops/ACTIVE_HANDOFF.md.",
-    "Grounded file_path claim: node_modules/tsx/dist/cli.mjs.",
-    "Grounded test_pass claim: - Targeted Mental Health shell test: exit 0, 8 tests passed, 0 failed..",
+    "Grounded test_pass claim: - showcase-ui.test.mjs: exit 0, 6 tests passed..",
     "Grounded completion claim: What is verified:.",
     "Grounded verification claim: What is verified:.",
-    "Repo evidence enumerated source files."
+    "Grounded completion claim: - I did not collect a STAX visual artifact; browser automation verified text/filter behavior directly..",
+    "Grounded verification claim: - I did not collect a STAX visual artifact; browser automation verified text/filter behavior directly..",
+    "Repo evidence enumerated source files.",
+    "Repo evidence enumerated test files.",
+    "Release preflight proof was supplied."
   ],
   "oneNextAction": "Fix the failing command, rerun it through STAX command evidence, then re-gate the claim."
 }

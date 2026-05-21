@@ -105,13 +105,14 @@ test("filters group CALM courses and Options courses without Humanities or Scien
   const expectedFilters = [
     { value: "all", label: "All" },
     { value: "calm", label: "CALM" },
+    { value: "ldc", label: "LDC" },
     { value: "options", label: "Options" },
     { value: "wellness", label: "Wellness" },
     { value: "resources", label: "Resources" }
   ];
 
-  assert.deepEqual(filters.slice(0, 5), expectedFilters);
-  assert.deepEqual(filters.slice(5), expectedFilters);
+  assert.deepEqual(filters.slice(0, 6), expectedFilters);
+  assert.deepEqual(filters.slice(6), expectedFilters);
   assert.match(html, /class="site-menu-filters"/);
 
   assert.doesNotMatch(html, /data-filter="humanities"|>Humanities</);
@@ -134,7 +135,20 @@ test("filters group CALM courses and Options courses without Humanities or Scien
     assert.match(block, /area: "Options"/);
   }
 
-  const wellnessBlock = courseBlock("sports-wellness");
-  assert.match(wellnessBlock, /category: "wellness"/);
-  assert.match(wellnessBlock, /area: "Wellness"/);
+  for (const id of ["learning-strategies-15", "learning-strategies-25", "learning-strategies-35"]) {
+    const block = courseBlock(id);
+    assert.match(block, /category: "ldc"/);
+    assert.match(block, /area: "LDC"/);
+    assert.match(block, new RegExp(`url: "https:\\/\\/learningstrategies${id.slice(-2)}\\.web\\.app"`));
+  }
+
+  for (const id of ["sports-wellness", "mental-health-wellness"]) {
+    const block = courseBlock(id);
+    assert.match(block, /category: "wellness"/);
+    assert.match(block, /area: "Wellness"/);
+  }
+
+  const mentalHealthBlock = courseBlock("mental-health-wellness");
+  assert.match(mentalHealthBlock, /title: "Mental Health & Wellness"/);
+  assert.match(mentalHealthBlock, /url: "https:\/\/mentalhealthandwellness\.web\.app"/);
 });

@@ -1,0 +1,30 @@
+{
+  "migrationState": "migrated",
+  "projectType": "conversion",
+  "preferredWorkflows": ["conversion"],
+  "canonicalEntry": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\science-9-resource-folder\\exports\\resource-folder\\README.md",
+  "canonicalSources": [
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\science-9-resource-folder\\exports\\resource-folder\\README.md",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\science-9-resource-folder\\meta\\build_resource_folder.py",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\science-9-resource-folder\\meta\\resource-folder-audit.json",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\science-9-resource-folder\\exports\\resource-folder"
+  ],
+  "authoringStatus": "ready-for-export",
+  "exportTargets": [
+    {
+      "target": "docx",
+      "enabled": true,
+      "notes": "Teacher-facing ZIP and folder of original downloadable Science 9 resources grouped by Brightspace unit order."
+    }
+  ],
+  "generatedOutputs": [
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\science-9-resource-folder\\exports\\resource-folder\\README.md",
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\science-9-resource-folder\\exports\\science-9-resource-folder.zip"
+  ],
+  "regenerateCommand": "python projects/science-9-resource-folder/meta/build_resource_folder.py",
+  "importedFirstPassOrigin": {
+    "sourceSystem": "brightspace",
+    "sourcePath": "c:\\Users\\dean.guedo\\Downloads\\D2LExport_151050_25-26 _ Science 9 _ Per 1(A) _ Sec 1_202652151.zip"
+  },
+  "sourceOfTruthNotes": "This project is a generated resource-folder extraction from the Brightspace manifest. Downloadable resources are grouped by top-level unit order; unreferenced downloadable source files are preserved separately."
+}
