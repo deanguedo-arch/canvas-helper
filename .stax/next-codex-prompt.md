@@ -4,11 +4,11 @@ Do exactly one cleanup pass:
 Approved proof surface for tests_passed: Run npm run test:apps-script through stax:collect in the target repo. Suggested command: npm run smoke:pipeline.
 
 Address these proof gaps:
-- Codex report contract is malformed because missing sections: Files changed, Commands run, What is verified, What is unverified, Risks.
-- Claim-to-proof: test claim is unsupported because test_diff, command_evidence_after_diff.
-- Claim-to-proof: behavior claim is unsupported because behavior_test, command_evidence_after_diff.
-- Claim-to-proof: dependency claim is unsupported because dependency_inspection, dependency_build_proof.
-- Claim-to-proof: migration claim is unsupported because migration_diff, migration_apply_proof, migration_rollback_proof.
+- Command evidence classifier: stale_proof for npm run test:apps-script.
+- Visual/style claim lacks STAX-collected rendered visual proof.
+- Command evidence provenance is not verified for npm run test:apps-script: wrong_commit.
+- Command evidence freshness failed for npm run test:apps-script: wrong_commit.
+- Command evidence provenance is not verified for npm run test:forensics35-workspace: wrong_commit.
 
 Do not broaden scope. Do not claim tests passed without local command evidence. Update .stax/codex-report.md, then stop.
-Risk to avoid: Malformed Codex report risk: fake-complete language can outrun the proof stack when files, commands, and residual unknowns are omitted.
+Risk to avoid: Command evidence risk: wrong commit: expected 049e8fa22b5c4ae1ab7de9331dbbd62c149e8d17, got c8b4b54bf8691f582c83f8403d5f21f9be960330.

@@ -1,72 +1,67 @@
 {
   "schemaVersion": "stax-sidecar-status-v1",
-  "generatedAt": "2026-05-20T20:55:53.065Z",
+  "generatedAt": "2026-05-21T17:02:33.011Z",
   "repo": "canvas-helper",
   "repoPath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper",
   "branch": "main",
-  "commitSha": "5c50bfb4d1b711cb956e6db67dffafc1f80accff",
-  "task": "Fix HSS 1010 click failure by repairing inline script syntax so handlers register.",
+  "commitSha": "049e8fa22b5c4ae1ab7de9331dbbd62c149e8d17",
+  "task": "Evaluate the supplied Mental Health & Wellness D2LExport content-folder ZIP and wire in useful assets.",
   "verdict": "Reject",
   "exitCode": 1,
-  "why": "Codex report contract is malformed because missing sections: Files changed, Commands run, What is verified, What is unverified, Risks.",
+  "why": "Command evidence classifier: stale_proof for npm run test:apps-script.",
   "verified": [
-    "Working-tree diff detected with 16 changed file(s).",
-    "Claim-to-proof: visual claim is fully supported.",
+    "Working-tree diff detected with 82 changed file(s).",
+    "Codex report contract includes Files changed, Commands run, What is verified, What is unverified, and Risks.",
     "Claim-to-proof: protocol_compliance claim is fully supported.",
-    "Command evidence c8b4b54bf869 predates current head only by STAX sidecar artifact commits."
+    "Protocol warning recorded as non-blocking: Current Codex turn capture does not contain the current STAX acknowledgement; report acknowledgement is present, so this may be capture lag."
   ],
   "weak": [
-    "Diff audit: provisional due to visual_source_without_visual_proof.",
-    "Command evidence classifier: weak_human_pasted_proof for npm run test:apps-script.",
     "Visual evidence ignored for current proof: visual_2026-05-19T20_05_48_905Z_137f82a1ccdb is stale_visual_proof.",
     "Visual proof was captured for a different auditable worktree.",
     "Visual evidence ignored for current proof: visual_2026-05-19T20_06_03_585Z_d8fdbf1e51b6 is stale_visual_proof.",
     "Visual evidence ignored for current proof: visual_2026-05-19T20_07_07_728Z_a1e04fabdbd3 is stale_visual_proof.",
-    "Command evidence cmd_2026-05-20T15_29_31_961Z_b4f1f0968cda after-worktree fingerprint is stale for the current auditable worktree.",
-    "Command evidence cmd_2026-05-19T21_45_32_803Z_62294d325859 commit b061607d782eccdeff2904ffa89ea966bcc80fa2 does not match 5c50bfb4d1b711cb956e6db67dffafc1f80accff.",
-    "Command evidence commit b061607d782eccdeff2904ffa89ea966bcc80fa2 differs from current head 5c50bfb4d1b711cb956e6db67dffafc1f80accff.",
-    "Command evidence cmd_2026-05-19T21_45_25_101Z_b6806e851dc9 commit b061607d782eccdeff2904ffa89ea966bcc80fa2 does not match 5c50bfb4d1b711cb956e6db67dffafc1f80accff.",
-    "Command evidence cmd_2026-05-19T21_45_06_028Z_6144382a6f55 commit b061607d782eccdeff2904ffa89ea966bcc80fa2 does not match 5c50bfb4d1b711cb956e6db67dffafc1f80accff.",
-    "Command evidence cmd_2026-05-19T21_27_07_549Z_0597b2c2d643 commit b061607d782eccdeff2904ffa89ea966bcc80fa2 does not match 5c50bfb4d1b711cb956e6db67dffafc1f80accff.",
-    "Command evidence cmd_2026-05-19T21_26_58_947Z_f63584063f14 commit b061607d782eccdeff2904ffa89ea966bcc80fa2 does not match 5c50bfb4d1b711cb956e6db67dffafc1f80accff.",
-    "Command evidence cmd_2026-05-19T21_20_26_364Z_50b3db7e4bbe commit b061607d782eccdeff2904ffa89ea966bcc80fa2 does not match 5c50bfb4d1b711cb956e6db67dffafc1f80accff.",
-    "Command evidence cmd_2026-05-19T21_10_26_014Z_4a8f9fd0aeec commit b061607d782eccdeff2904ffa89ea966bcc80fa2 does not match 5c50bfb4d1b711cb956e6db67dffafc1f80accff.",
-    "Command evidence cmd_2026-05-19T21_09_38_839Z_0f9235d0ef77 commit b061607d782eccdeff2904ffa89ea966bcc80fa2 does not match 5c50bfb4d1b711cb956e6db67dffafc1f80accff.",
-    "Command evidence cmd_2026-05-19T21_05_42_569Z_de0787b309e4 commit b061607d782eccdeff2904ffa89ea966bcc80fa2 does not match 5c50bfb4d1b711cb956e6db67dffafc1f80accff.",
+    "Command evidence cmd_2026-05-20T15_29_31_961Z_b4f1f0968cda commit c8b4b54bf8691f582c83f8403d5f21f9be960330 does not match 049e8fa22b5c4ae1ab7de9331dbbd62c149e8d17.",
+    "Command evidence commit c8b4b54bf8691f582c83f8403d5f21f9be960330 differs from current head 049e8fa22b5c4ae1ab7de9331dbbd62c149e8d17.",
+    "Command evidence cmd_2026-05-19T21_45_32_803Z_62294d325859 commit b061607d782eccdeff2904ffa89ea966bcc80fa2 does not match 049e8fa22b5c4ae1ab7de9331dbbd62c149e8d17.",
+    "Command evidence commit b061607d782eccdeff2904ffa89ea966bcc80fa2 differs from current head 049e8fa22b5c4ae1ab7de9331dbbd62c149e8d17.",
+    "Command evidence cmd_2026-05-19T21_45_25_101Z_b6806e851dc9 commit b061607d782eccdeff2904ffa89ea966bcc80fa2 does not match 049e8fa22b5c4ae1ab7de9331dbbd62c149e8d17.",
+    "Command evidence cmd_2026-05-19T21_45_06_028Z_6144382a6f55 commit b061607d782eccdeff2904ffa89ea966bcc80fa2 does not match 049e8fa22b5c4ae1ab7de9331dbbd62c149e8d17.",
+    "Command evidence cmd_2026-05-19T21_27_07_549Z_0597b2c2d643 commit b061607d782eccdeff2904ffa89ea966bcc80fa2 does not match 049e8fa22b5c4ae1ab7de9331dbbd62c149e8d17.",
+    "Command evidence cmd_2026-05-19T21_26_58_947Z_f63584063f14 commit b061607d782eccdeff2904ffa89ea966bcc80fa2 does not match 049e8fa22b5c4ae1ab7de9331dbbd62c149e8d17.",
+    "Command evidence cmd_2026-05-19T21_20_26_364Z_50b3db7e4bbe commit b061607d782eccdeff2904ffa89ea966bcc80fa2 does not match 049e8fa22b5c4ae1ab7de9331dbbd62c149e8d17.",
+    "Command evidence cmd_2026-05-19T21_10_26_014Z_4a8f9fd0aeec commit b061607d782eccdeff2904ffa89ea966bcc80fa2 does not match 049e8fa22b5c4ae1ab7de9331dbbd62c149e8d17.",
+    "Command evidence cmd_2026-05-19T21_09_38_839Z_0f9235d0ef77 commit b061607d782eccdeff2904ffa89ea966bcc80fa2 does not match 049e8fa22b5c4ae1ab7de9331dbbd62c149e8d17.",
+    "Command evidence cmd_2026-05-19T21_05_42_569Z_de0787b309e4 commit b061607d782eccdeff2904ffa89ea966bcc80fa2 does not match 049e8fa22b5c4ae1ab7de9331dbbd62c149e8d17.",
     "Command evidence cmd_2026-05-19T20_08_58_055Z_fc5201af80c5 is missing from the sidecar command ledger.",
-    "Command evidence cmd_2026-05-19T20_08_58_055Z_fc5201af80c5 commit b061607d782eccdeff2904ffa89ea966bcc80fa2 does not match 5c50bfb4d1b711cb956e6db67dffafc1f80accff.",
+    "Command evidence cmd_2026-05-19T20_08_58_055Z_fc5201af80c5 commit b061607d782eccdeff2904ffa89ea966bcc80fa2 does not match 049e8fa22b5c4ae1ab7de9331dbbd62c149e8d17.",
     "Command evidence cmd_2026-05-15T21_06_54_080Z_538ac8bbaa12 is missing from the sidecar command ledger.",
-    "Command evidence cmd_2026-05-15T21_06_54_080Z_538ac8bbaa12 commit 092b52736e482c5ce1282f43f52567b59c44e8ff does not match 5c50bfb4d1b711cb956e6db67dffafc1f80accff.",
-    "Command evidence commit 092b52736e482c5ce1282f43f52567b59c44e8ff differs from current head 5c50bfb4d1b711cb956e6db67dffafc1f80accff.",
+    "Command evidence cmd_2026-05-15T21_06_54_080Z_538ac8bbaa12 commit 092b52736e482c5ce1282f43f52567b59c44e8ff does not match 049e8fa22b5c4ae1ab7de9331dbbd62c149e8d17.",
+    "Command evidence commit 092b52736e482c5ce1282f43f52567b59c44e8ff differs from current head 049e8fa22b5c4ae1ab7de9331dbbd62c149e8d17.",
     "Command evidence cmd_2026-05-15T21_06_54_080Z_fbb4adb529d3 is missing from the sidecar command ledger.",
-    "Command evidence cmd_2026-05-15T21_06_54_080Z_fbb4adb529d3 commit 092b52736e482c5ce1282f43f52567b59c44e8ff does not match 5c50bfb4d1b711cb956e6db67dffafc1f80accff.",
+    "Command evidence cmd_2026-05-15T21_06_54_080Z_fbb4adb529d3 commit 092b52736e482c5ce1282f43f52567b59c44e8ff does not match 049e8fa22b5c4ae1ab7de9331dbbd62c149e8d17.",
     "Command evidence cmd_2026-05-15T20_28_19_662Z_e20eca68655b is missing from the sidecar command ledger.",
-    "Command evidence cmd_2026-05-15T20_28_19_662Z_e20eca68655b commit 092b52736e482c5ce1282f43f52567b59c44e8ff does not match 5c50bfb4d1b711cb956e6db67dffafc1f80accff.",
+    "Command evidence cmd_2026-05-15T20_28_19_662Z_e20eca68655b commit 092b52736e482c5ce1282f43f52567b59c44e8ff does not match 049e8fa22b5c4ae1ab7de9331dbbd62c149e8d17.",
     "Command evidence cmd_2026-05-15T20_16_24_273Z_1fd9c9fd269a is missing from the sidecar command ledger.",
-    "Command evidence cmd_2026-05-15T20_16_24_273Z_1fd9c9fd269a commit 092b52736e482c5ce1282f43f52567b59c44e8ff does not match 5c50bfb4d1b711cb956e6db67dffafc1f80accff.",
+    "Command evidence cmd_2026-05-15T20_16_24_273Z_1fd9c9fd269a commit 092b52736e482c5ce1282f43f52567b59c44e8ff does not match 049e8fa22b5c4ae1ab7de9331dbbd62c149e8d17.",
     "Command evidence cmd_2026-05-15T19_25_35_480Z_23073e0bd991 is missing from the sidecar command ledger.",
-    "Command evidence cmd_2026-05-15T19_25_35_480Z_23073e0bd991 commit 092b52736e482c5ce1282f43f52567b59c44e8ff does not match 5c50bfb4d1b711cb956e6db67dffafc1f80accff.",
+    "Command evidence cmd_2026-05-15T19_25_35_480Z_23073e0bd991 commit 092b52736e482c5ce1282f43f52567b59c44e8ff does not match 049e8fa22b5c4ae1ab7de9331dbbd62c149e8d17.",
     "Command evidence cmd_2026-05-15T19_25_35_476Z_a5dc873d8209 is missing from the sidecar command ledger.",
-    "Command evidence cmd_2026-05-15T19_25_35_476Z_a5dc873d8209 commit 092b52736e482c5ce1282f43f52567b59c44e8ff does not match 5c50bfb4d1b711cb956e6db67dffafc1f80accff.",
+    "Command evidence cmd_2026-05-15T19_25_35_476Z_a5dc873d8209 commit 092b52736e482c5ce1282f43f52567b59c44e8ff does not match 049e8fa22b5c4ae1ab7de9331dbbd62c149e8d17.",
     "Command evidence cmd_2026-05-15T19_25_04_633Z_6b674dde27da is missing from the sidecar command ledger.",
-    "Command evidence cmd_2026-05-15T19_25_04_633Z_6b674dde27da commit 092b52736e482c5ce1282f43f52567b59c44e8ff does not match 5c50bfb4d1b711cb956e6db67dffafc1f80accff.",
+    "Command evidence cmd_2026-05-15T19_25_04_633Z_6b674dde27da commit 092b52736e482c5ce1282f43f52567b59c44e8ff does not match 049e8fa22b5c4ae1ab7de9331dbbd62c149e8d17.",
     "Command evidence cmd_2026-05-15T19_24_47_111Z_8025d0a855d5 is missing from the sidecar command ledger.",
-    "Command evidence cmd_2026-05-15T19_24_47_111Z_8025d0a855d5 commit 092b52736e482c5ce1282f43f52567b59c44e8ff does not match 5c50bfb4d1b711cb956e6db67dffafc1f80accff.",
+    "Command evidence cmd_2026-05-15T19_24_47_111Z_8025d0a855d5 commit 092b52736e482c5ce1282f43f52567b59c44e8ff does not match 049e8fa22b5c4ae1ab7de9331dbbd62c149e8d17.",
     "Command evidence cmd_2026-05-13T18_47_48_924Z_c489fb61322c is missing from the sidecar command ledger.",
-    "Command evidence cmd_2026-05-13T18_47_48_924Z_c489fb61322c commit f6f73f858526fbec148d4de92f5a977a7ce21459 does not match 5c50bfb4d1b711cb956e6db67dffafc1f80accff.",
-    "Command evidence commit f6f73f858526fbec148d4de92f5a977a7ce21459 differs from current head 5c50bfb4d1b711cb956e6db67dffafc1f80accff.",
+    "Command evidence cmd_2026-05-13T18_47_48_924Z_c489fb61322c commit f6f73f858526fbec148d4de92f5a977a7ce21459 does not match 049e8fa22b5c4ae1ab7de9331dbbd62c149e8d17.",
+    "Command evidence commit f6f73f858526fbec148d4de92f5a977a7ce21459 differs from current head 049e8fa22b5c4ae1ab7de9331dbbd62c149e8d17.",
     "STAX sidecar heartbeat is stale.",
     "Codex turn capture is stale."
   ],
   "unverified": [
-    "Codex report contract is malformed because missing sections: Files changed, Commands run, What is verified, What is unverified, Risks.",
-    "Claim-to-proof: test claim is unsupported because test_diff, command_evidence_after_diff.",
-    "Claim-to-proof: behavior claim is unsupported because behavior_test, command_evidence_after_diff.",
-    "Claim-to-proof: dependency claim is unsupported because dependency_inspection, dependency_build_proof.",
-    "Claim-to-proof: migration claim is unsupported because migration_diff, migration_apply_proof, migration_rollback_proof.",
+    "Command evidence classifier: stale_proof for npm run test:apps-script.",
     "Visual/style claim lacks STAX-collected rendered visual proof.",
-    "Command evidence provenance is not verified for npm run test:apps-script: wrong_worktree.",
-    "Command evidence freshness failed for npm run test:apps-script: wrong_worktree.",
+    "Command evidence provenance is not verified for npm run test:apps-script: wrong_commit.",
+    "Command evidence freshness failed for npm run test:apps-script: wrong_commit.",
     "Command evidence provenance is not verified for npm run test:forensics35-workspace: wrong_commit.",
     "Command evidence freshness failed for npm run test:forensics35-workspace: wrong_commit.",
     "Command evidence provenance is not verified for node node_modules\\tsx\\dist\\cli.mjs --test scripts/tests/forensicstudiesoption2-theme.test.ts scripts/tests/forensicstudiesoption2-shell-behavior.test.ts scripts/tests/worldreligions30-option1-shell-behavior.test.ts: wrong_commit.",
@@ -109,53 +104,40 @@
     "Command evidence freshness failed for git status --short --branch: wrong_commit.",
     "Proof strength: Reject (0) - Failed command evidence: cmd.exe /c publish-forensics.bat exited 1.",
     "Proof-strength reject: Failed command evidence: cmd.exe /c publish-forensics.bat exited 1.",
-    "Proof-strength reject: Failed command evidence: node -e const fs=require(fs); const pkg=JSON.parse(fs.readFileSync(package.json,utf8)); console.log(process.cwd()); console.log(pkg.name); exited 1.",
-    ".stax/codex-report.md is missing the current STAX acknowledgement from .stax/turn-contract.json.",
-    "STAX acknowledgement is stale or does not match the current turn contract.",
-    "STAX acknowledgement turnId does not match the current contract.",
-    "STAX acknowledgement statusHash does not match the current contract.",
-    "STAX acknowledgement nextPromptHash does not match the current contract.",
-    "Current Codex turn capture does not contain the current STAX acknowledgement."
+    "Proof-strength reject: Failed command evidence: node -e const fs=require(fs); const pkg=JSON.parse(fs.readFileSync(package.json,utf8)); console.log(process.cwd()); console.log(pkg.name); exited 1."
   ],
   "risk": [
-    "Malformed Codex report risk: fake-complete language can outrun the proof stack when files, commands, and residual unknowns are omitted.",
-    "Command evidence risk: human-pasted output is not local STAX command evidence.",
-    "Unsupported hard claim: test requires test_diff, command_evidence_after_diff.",
-    "Unsupported hard claim: behavior requires behavior_test, command_evidence_after_diff.",
-    "Unsupported hard claim: dependency requires dependency_inspection, dependency_build_proof.",
-    "Unsupported hard claim: migration requires migration_diff, migration_apply_proof, migration_rollback_proof.",
+    "Command evidence risk: wrong commit: expected 049e8fa22b5c4ae1ab7de9331dbbd62c149e8d17, got c8b4b54bf8691f582c83f8403d5f21f9be960330.",
     "Visual proof required before accepting UI/layout claims; collect it with stax:collect-visual.",
-    "Untrusted command evidence cannot prove Codex claims: wrong_worktree.",
     "Untrusted command evidence cannot prove Codex claims: wrong_commit.",
     "Stale command evidence must be refreshed for the current head.",
     "Proof-strength blocker: Failed command evidence: cmd.exe /c publish-forensics.bat exited 1.",
-    "Proof-strength blocker: Failed command evidence: node -e const fs=require(fs); const pkg=JSON.parse(fs.readFileSync(package.json,utf8)); console.log(process.cwd()); console.log(pkg.name); exited 1.",
-    "Protocol compliance requires human review: Codex report is missing required STAX report section(s): STAX acknowledgement, Objective, Files changed, Tests added, Commands run, Command output summary with exit codes, What is verified, What is weak/provisional, What is unverified, Risks, One next action.",
-    "Protocol compliance requires human review: Completion claim is not decomposed into the required STAX report fields.",
-    "Protocol failure: Codex did not prove it followed the current STAX sidecar contract."
+    "Proof-strength blocker: Failed command evidence: node -e const fs=require(fs); const pkg=JSON.parse(fs.readFileSync(package.json,utf8)); console.log(process.cwd()); console.log(pkg.name); exited 1."
   ],
   "oneNextAction": "Approved proof surface for tests_passed: Run npm run test:apps-script through stax:collect in the target repo. Suggested command: npm run smoke:pipeline.",
-  "codexPrompt": "STAX Sidecar rejected or held this task because proof is incomplete.\n\nDo exactly one cleanup pass:\nApproved proof surface for tests_passed: Run npm run test:apps-script through stax:collect in the target repo. Suggested command: npm run smoke:pipeline.\n\nAddress these proof gaps:\n- Codex report contract is malformed because missing sections: Files changed, Commands run, What is verified, What is unverified, Risks.\n- Claim-to-proof: test claim is unsupported because test_diff, command_evidence_after_diff.\n- Claim-to-proof: behavior claim is unsupported because behavior_test, command_evidence_after_diff.\n- Claim-to-proof: dependency claim is unsupported because dependency_inspection, dependency_build_proof.\n- Claim-to-proof: migration claim is unsupported because migration_diff, migration_apply_proof, migration_rollback_proof.\n\nDo not broaden scope. Do not claim tests passed without local command evidence. Update .stax/codex-report.md, then stop.\nRisk to avoid: Malformed Codex report risk: fake-complete language can outrun the proof stack when files, commands, and residual unknowns are omitted.",
+  "codexPrompt": "STAX Sidecar rejected or held this task because proof is incomplete.\n\nDo exactly one cleanup pass:\nApproved proof surface for tests_passed: Run npm run test:apps-script through stax:collect in the target repo. Suggested command: npm run smoke:pipeline.\n\nAddress these proof gaps:\n- Command evidence classifier: stale_proof for npm run test:apps-script.\n- Visual/style claim lacks STAX-collected rendered visual proof.\n- Command evidence provenance is not verified for npm run test:apps-script: wrong_commit.\n- Command evidence freshness failed for npm run test:apps-script: wrong_commit.\n- Command evidence provenance is not verified for npm run test:forensics35-workspace: wrong_commit.\n\nDo not broaden scope. Do not claim tests passed without local command evidence. Update .stax/codex-report.md, then stop.\nRisk to avoid: Command evidence risk: wrong commit: expected 049e8fa22b5c4ae1ab7de9331dbbd62c149e8d17, got c8b4b54bf8691f582c83f8403d5f21f9be960330.",
   "proofStrength": {
     "schemaVersion": "proof-strength-v1",
-    "claimType": "visual_behavior_verified",
-    "claimText": "Fix HSS 1010 click failure by repairing inline script syntax so handlers register.\n\n## STAX acknowledgement\nSTAX_ACK turn_2026-05-20T20-45-40-951Z_755b 943d4ed9 43947e94\n\n## Objective\nApply the requested follow-up cleanup to the Mental Health & Wellness Brightspace conversion: remove learner-facing source file cards, exclude Course Information, and make lesson cards that are not marked complete use the blue incomplete visual treatment.\n\n## Files changed\n- projects/mental-health-wellness/meta/build_forensics_style_course.py\n- projects/mental-health-wellness/meta/project.json\n- projects/mental-health-wellness/meta/source-zip-audit.json\n- projects/mental-health-wellness/raw/original.html\n- projects/mental-health-wellness/workspace/**\n- scripts/tests/mental-health-wellness-shell.test.ts\n- docs/ops/ACTIVE_HANDOFF.md\n- .stax/codex-report.md\n- .stax/visual-proofs/manifest.json\n- .stax/visual-proofs/visual_2026-05-20T20_50_44_115Z_872ca640d800.png\n\n## Tests added\n- Updated scripts/tests/mental-health-wellness-shell.test.ts to assert Course Information is excluded, source trace rows are absent, incomplete lesson-card blue CSS exists, Forensics wording is not learner-facing, and the audit records the new Course Information skip.\n\n## Commands run\n- Read .stax/turn-contract.json, .stax/status.json, and .stax/next-codex-prompt.md.\n- Read the current Mental Health generator, shell CSS, course data, and focused test.\n- Ran node node_modules/tsx/dist/cli.mjs --test scripts/tests/mental-health-wellness-shell.test.ts before the generator patch to confirm the new expectations failed against the old output.\n- Ran python projects/mental-health-wellness/meta/build_forensics_style_course.py after patching the generator.\n- Ran node node_modules/tsx/dist/cli.mjs --test scripts/tests/mental-health-wellness-shell.test.ts.\n- Ran npm.cmd run validate:manifests -- --project mental-health-wellness.\n- Ran npm.cmd run verify -- --project mental-health-wellness.\n- Ran rg -n \"Source file|source-file-link|source-link-row|Original package path|Course Information|Unit [0-9] Assignment|Assignment Submission|Teacher Materials|Forensics 25|Forensic Studies|forensicstudiesoption2|FORENSIC_STUDIES_OPTION2_DATA\" projects/mental-health-wellness/workspace.\n- Ran a Python audit summary over projects/mental-health-wellness/workspace/course-data.js and projects/mental-health-wellness/meta/source-zip-audit.json.\n- Ran npm.cmd run typecheck.\n- Ran npm.cmd run build:studio.\n- Ran npm.cmd --prefix C:\\Users\\dean.guedo\\Documents\\GitHub\\STAX run stax:collect-visual -- --repo \"C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\" --url \"file:///C:/Users/dean.guedo/Documents/GitHub/canvas-helper/projects/mental-health-wellness/workspace/content/chapter-1/index.html\" --description \"Mental Health Wellness chapter 1 incomplete lesson cards show blue state and source trace cards are removed\" --viewport \"1440,1200\" --checklist \"Incomplete lesson cards use the blue in-progress visual treatment\" --checklist \"No Source file card or Course Information module is visible\".\n\n## Command output summary with exit codes\n- STAX/context reads and targeted source reads/searches: exit 0.\n- Red targeted test before generator patch: exit 1, expected failures showed the old output still had 7 chapters, Course Information, and source trace rows.\n- Generator: exit 0, rebuilt mental-health-wellness from the supplied Downloads ZIP.\n- Final targeted test: exit 0, 6 tests passed, 0 failed.\n- Manifest validation: exit 0, migrated metadata valid.\n- Project verify: exit 0, metadata policy passed, no missing local assets, no missing workspace embeds, no missing course-shell resources; external font/icon CDN dependencies warned.\n- Negative rg scan: exit 1, expected no matches in learner-facing workspace.\n- Audit summary: exit 0, 6 chapters, 70 components, 0 quizzes, 0 assignments, skipped top-level modules are Course Information, Assignment Submission, and hidden Teacher Materials; 6 skipped assessment items and 5 unresolved source-package references remain.\n- Typecheck: exit 0.\n- Studio build: exit 0, Vite build completed.\n- STAX visual collection: exit 0, proofId visual_2026-05-20T20_50_44_115Z_872ca640d800, proofPath .stax/visual-proofs/visual_2026-05-20T20_50_44_115Z_872ca640d800.png.\n\n## What is verified\n- Course Information is no longer included in workspace course data or chapter pages.\n- The learner-facing workspace has no Source file cards, source-file-link/source-link-row markup, Original package path text, assignment surfaces, teacher material labels, or visible Forensics wording.\n- The course now has 6 content chapters and 70 content components, with quizzes, assignments, and library arrays intentionally empty.\n- Incomplete lesson cards use blue data-progress-state CSS for active and locked states.\n- A rendered screenshot proof was captured for chapter 1 showing blue incomplete cards with no source trace card visible.\n- Metadata validation, project verification, typecheck, Studio build, and focused regression test passed.\n\n## What is weak/provisional\n- STAX sidecar status was already stale/noisy before this follow-up and still contains older proof history unrelated to this task.\n- The rendered screenshot covers chapter 1, not every chapter.\n- The blue styling is verified by CSS test plus one rendered proof, not a full browser walkthrough of every unit.\n\n## What is unverified\n- Live Google Hosted deploy, because deploy was not requested.\n- Manual visual inspection of every chapter.\n- Future assignment and quiz import behavior.\n- Final STAX observer preflight result after this report revision.\n\n## Risks\n- Regenerating with the builder deletes and rebuilds projects/mental-health-wellness/workspace/** and projects/mental-health-wellness/raw/**.\n- Five source-package references remain unresolved because those files/images were not present in the Brightspace ZIP.\n- External font/icon CDN dependencies remain because they are part of the copied shell pattern.\n- The course is not configured for live hosting yet.\n\n## One next action\nOpen projects/mental-health-wellness/workspace/index.html for manual review, then decide whether the next pass should add assignments or quizzes.",
-    "rawScore": 0.98,
+    "claimType": "verification_run",
+    "claimText": "Evaluate the supplied Mental Health & Wellness D2LExport content-folder ZIP and wire in useful assets.\n\nSTAX acknowledgement:\nSTAX_ACK turn_2026-05-21T16-54-25-520Z_c6ae 57ef7ced e40e5eb3\n\nObjective:\nEvaluate the supplied Mental Health & Wellness D2LExport content-folder ZIP and wire in useful assets.\n\nFiles changed:\n- projects/mental-health-wellness/meta/build_forensics_style_course.py\n- projects/mental-health-wellness/meta/source-zip-audit.json\n- projects/mental-health-wellness/workspace/content/chapter-3/index.html\n- projects/mental-health-wellness/workspace/content/chapter-4/index.html\n- projects/mental-health-wellness/workspace/references/mental-health-wellness/linked-resources/**\n- scripts/tests/mental-health-wellness-shell.test.ts\n- docs/ops/ACTIVE_HANDOFF.md\n- .stax/task.md\n- .stax/codex-report.md\n\nTests added:\n- Updated scripts/tests/mental-health-wellness-shell.test.ts to require the auxiliary D2LExport asset ZIP and localized PDF quickLinks for the three previously unresolved Mental Health PDFs.\n\nCommands run:\n- Read .stax/turn-contract.json, .stax/status.json, .stax/next-codex-prompt.md, .stax/task.md, and docs/ops/ACTIVE_HANDOFF.md.\n- Inspected c:\\Users\\dean.guedo\\Downloads\\D2LExport_60408_21-22 _ S2 _ Mental Health _ Wellness _ Per 1(A) __202652118.zip for asset coverage.\n- Audited the existing Mental Health & Wellness conversion for unresolved assets and links.\n- Added failing assertions for the auxiliary Mental Health asset ZIP and the three localized PDF resources.\n- Ran node node_modules/tsx/dist/cli.mjs --test scripts/tests/mental-health-wellness-shell.test.ts and observed the expected red failure before implementation.\n- Patched projects/mental-health-wellness/meta/build_forensics_style_course.py to use the auxiliary asset ZIP as a fallback source for D2L quickLink fileId resources and image/support assets.\n- Ran python projects/mental-health-wellness/meta/build_forensics_style_course.py.\n- Re-audited projects/mental-health-wellness/meta/source-zip-audit.json.\n- Ran rg -n \"missing-resource-link|quickLink\\.d2l|pregnancy-mental-health|Team-Based%20Healthcare|PrimaryCare_Overview\" projects/mental-health-wellness/workspace/content.\n- Ran node node_modules/tsx/dist/cli.mjs --test scripts/tests/mental-health-wellness-shell.test.ts.\n- Ran npm.cmd run verify -- --project mental-health-wellness.\n\nCommand output summary with exit codes:\n- STAX/context reads: exit 0.\n- Mental Health ZIP inspection: exit 0; ZIP has 173 entries, 40 images, 37 PDFs, 82 HTML files, and 8 Office documents.\n- Initial audit: exit 0; existing conversion had 20 copied images, 5 unresolved assets, including 3 unresolved D2L quickLink PDF coursefiles and 2 shared-template banner images.\n- Red targeted test: exit 1; expected failure because assetZip was undefined before implementation.\n- Mental Health rebuild: exit 0.\n- Post-rebuild audit: exit 0; assetZip is recorded, supportFiles is 8, imagesCopied is 20, unresolvedAssets is 2, and remaining unresolved assets are only shared-template banner_06.jpg image refs.\n- Link scan: exit 0; no chapter HTML contains quickLink.d2l or missing-resource-link markers, and the three previously missing PDFs are local linked-resources paths.\n- Targeted Mental Health shell test: exit 0, 8 tests passed, 0 failed.\n- Mental Health project verify: exit 0, no missing local assets, no missing workspace embeds, and no missing course-shell resources.\n\nWhat is verified:\n- The supplied D2LExport ZIP contains useful Mental Health support resources that were not available in the first content package.\n- The three previously unresolved PDF quickLinks now resolve to local linked resources in the workspace.\n- The first conversion already did a good job on packaged lesson images: copied image count remains 20 because the remaining missing images are not in the new ZIP.\n- The only unresolved Mental Health assets left are two shared Brightspace template banner_06.jpg references in Module 5 Summary and Module 6 Summary.\n- Project verify reports no missing local assets for Mental Health & Wellness after the rebuild.\n\nWhat is weak/provisional:\n- This was an asset/link integration pass, not a fresh full manual readability review of every Mental Health lesson.\n- STAX status still contains stale unrelated command evidence from older tasks.\n\nWhat is unverified:\n- Live deploy, because deploy was not requested.\n- Manual visual review of every Mental Health lesson after the PDF-link update.\n\nRisks:\n- Regenerating Mental Health & Wellness now depends on the auxiliary asset ZIP path unless MENTAL_HEALTH_WELLNESS_ASSET_ZIP points to a valid copy.\n- The remaining shared-template banner image references may need a manual replacement image or should stay suppressed/fallback-only because they are not in the source packages.\n- Existing unrelated dirty files remain in the worktree and were not reverted.\n\nOne next action:\nOpen Mental Health & Wellness and spot-check the Unit 3 and Unit 4 PDF links in the browser.",
+    "rawScore": 0.67,
     "finalScore": 0,
     "label": "Reject",
-    "capApplied": [],
+    "capApplied": [
+      {
+        "id": "unverified_local_command_provenance",
+        "maxLabel": "Provisional",
+        "reason": "A local STAX command label is only strong proof after provenance verification."
+      }
+    ],
     "rejectReasons": [
       "Failed command evidence: cmd.exe /c publish-forensics.bat exited 1.",
       "Failed command evidence: node -e const fs=require(fs); const pkg=JSON.parse(fs.readFileSync(package.json,utf8)); console.log(process.cwd()); console.log(pkg.name); exited 1."
     ],
     "primaryLimiter": "Failed command evidence: cmd.exe /c publish-forensics.bat exited 1.",
-    "missingProof": [
-      "Unsupported file_path claim: Users/dean.guedo/Documents/GitHub/canvas-helper/projects/mental-health-wellness/workspace/content/chapter-1/index.html (File path was not present in the repo evidence pack.).",
-      "Unsupported completion claim: - Studio build: exit 0, Vite build completed. (Runtime/completion claim requires local STAX command evidence.).",
-      "Unsupported test_pass claim: - Metadata validation, project verification, typecheck, Studio build, and focused regression test passed. (Runtime/completion claim requires local STAX command evidence.)."
-    ],
+    "missingProof": [],
     "weakProof": [
-      "Local STAX command evidence label is unverified for npm run test:apps-script (wrong_worktree).",
+      "Local STAX command evidence label is unverified for npm run test:apps-script (wrong_commit).",
       "Local STAX command evidence label is unverified for npm run test:forensics35-workspace (wrong_commit).",
       "Local STAX command evidence label is unverified for node node_modules\\tsx\\dist\\cli.mjs --test scripts/tests/forensicstudiesoption2-theme.test.ts scripts/tests/forensicstudiesoption2-shell-behavior.test.ts scripts/tests/worldreligions30-option1-shell-behavior.test.ts (wrong_commit).",
       "Local STAX command evidence label is unverified for npm run test:google-hosted (wrong_commit).",
@@ -196,78 +178,35 @@
     ],
     "strongProof": [
       "Grounded file_path claim: projects/mental-health-wellness/meta/build_forensics_style_course.py.",
-      "Grounded file_path claim: projects/mental-health-wellness/meta/project.json.",
       "Grounded file_path claim: projects/mental-health-wellness/meta/source-zip-audit.json.",
-      "Grounded file_path claim: projects/mental-health-wellness/raw/original.html.",
+      "Grounded file_path claim: projects/mental-health-wellness/workspace/content/chapter-3/index.html.",
+      "Grounded file_path claim: projects/mental-health-wellness/workspace/content/chapter-4/index.html.",
       "Grounded file_path claim: scripts/tests/mental-health-wellness-shell.test.ts.",
       "Grounded file_path claim: docs/ops/ACTIVE_HANDOFF.md.",
       "Grounded file_path claim: node_modules/tsx/dist/cli.mjs.",
-      "Grounded file_path claim: projects/mental-health-wellness/workspace/course-data.js.",
-      "Grounded file_path claim: projects/mental-health-wellness/workspace/index.html.",
-      "Grounded completion claim: Apply the requested follow-up cleanup to the Mental Health & Wellness Brightspace conversion: remove learner-facing source file cards, exclude Course Information, and make lesson cards that are not marked complete use the blue incomplete visual treatment..",
-      "Grounded test_pass claim: - Final targeted test: exit 0, 6 tests passed, 0 failed..",
-      "Grounded completion claim: ## What is verified.",
-      "Grounded verification claim: ## What is verified.",
-      "Grounded completion claim: - The blue styling is verified by CSS test plus one rendered proof, not a full browser walkthrough of every unit..",
-      "Grounded verification claim: - The blue styling is verified by CSS test plus one rendered proof, not a full browser walkthrough of every unit..",
-      "Repo evidence enumerated source files.",
-      "Rendered visual proof was supplied.",
-      "Release preflight proof was supplied."
+      "Grounded test_pass claim: - Targeted Mental Health shell test: exit 0, 8 tests passed, 0 failed..",
+      "Grounded completion claim: What is verified:.",
+      "Grounded verification claim: What is verified:.",
+      "Repo evidence enumerated source files."
     ],
     "oneNextAction": "Fix the failing command, rerun it through STAX command evidence, then re-gate the claim."
   },
-  "protocolStatus": "failure",
+  "protocolStatus": "warning",
   "protocolFailures": [
     {
-      "id": "stax_ack_missing",
-      "severity": "reject",
-      "message": ".stax/codex-report.md is missing the current STAX acknowledgement from .stax/turn-contract.json."
-    },
-    {
-      "id": "stax_ack_stale",
-      "severity": "reject",
-      "message": "STAX acknowledgement is stale or does not match the current turn contract."
-    },
-    {
-      "id": "stax_ack_wrong_turn",
-      "severity": "reject",
-      "message": "STAX acknowledgement turnId does not match the current contract."
-    },
-    {
-      "id": "stax_ack_wrong_status_hash",
-      "severity": "reject",
-      "message": "STAX acknowledgement statusHash does not match the current contract."
-    },
-    {
-      "id": "stax_ack_wrong_next_prompt_hash",
-      "severity": "reject",
-      "message": "STAX acknowledgement nextPromptHash does not match the current contract."
-    },
-    {
       "id": "current_turn_capture_missing_ack",
-      "severity": "reject",
-      "message": "Current Codex turn capture does not contain the current STAX acknowledgement."
-    },
-    {
-      "id": "codex_report_missing_required_sections",
-      "severity": "human_review",
-      "message": "Codex report is missing required STAX report section(s): STAX acknowledgement, Objective, Files changed, Tests added, Commands run, Command output summary with exit codes, What is verified, What is weak/provisional, What is unverified, Risks, One next action."
-    },
-    {
-      "id": "completion_claim_not_decomposed",
-      "severity": "human_review",
-      "message": "Completion claim is not decomposed into the required STAX report fields."
+      "severity": "warning",
+      "message": "Current Codex turn capture does not contain the current STAX acknowledgement; report acknowledgement is present, so this may be capture lag."
     }
   ],
   "protocol": {
     "schemaVersion": "stax-protocol-compliance-v1",
-    "generatedAt": "2026-05-20T20:55:53.060Z",
+    "generatedAt": "2026-05-21T17:02:33.008Z",
     "mode": "normal",
-    "status": "failure",
+    "status": "warning",
     "acknowledgedTurnContract": false,
     "codexReportPresent": true,
-    "requiredSectionsPresent": [],
-    "missingRequiredSections": [
+    "requiredSectionsPresent": [
       "STAX acknowledgement",
       "Objective",
       "Files changed",
@@ -280,50 +219,16 @@
       "Risks",
       "One next action"
     ],
+    "missingRequiredSections": [],
     "findings": [
       {
-        "id": "stax_ack_missing",
-        "severity": "reject",
-        "message": ".stax/codex-report.md is missing the current STAX acknowledgement from .stax/turn-contract.json."
-      },
-      {
-        "id": "stax_ack_stale",
-        "severity": "reject",
-        "message": "STAX acknowledgement is stale or does not match the current turn contract."
-      },
-      {
-        "id": "stax_ack_wrong_turn",
-        "severity": "reject",
-        "message": "STAX acknowledgement turnId does not match the current contract."
-      },
-      {
-        "id": "stax_ack_wrong_status_hash",
-        "severity": "reject",
-        "message": "STAX acknowledgement statusHash does not match the current contract."
-      },
-      {
-        "id": "stax_ack_wrong_next_prompt_hash",
-        "severity": "reject",
-        "message": "STAX acknowledgement nextPromptHash does not match the current contract."
-      },
-      {
         "id": "current_turn_capture_missing_ack",
-        "severity": "reject",
-        "message": "Current Codex turn capture does not contain the current STAX acknowledgement."
-      },
-      {
-        "id": "codex_report_missing_required_sections",
-        "severity": "human_review",
-        "message": "Codex report is missing required STAX report section(s): STAX acknowledgement, Objective, Files changed, Tests added, Commands run, Command output summary with exit codes, What is verified, What is weak/provisional, What is unverified, Risks, One next action."
-      },
-      {
-        "id": "completion_claim_not_decomposed",
-        "severity": "human_review",
-        "message": "Completion claim is not decomposed into the required STAX report fields."
+        "severity": "warning",
+        "message": "Current Codex turn capture does not contain the current STAX acknowledgement; report acknowledgement is present, so this may be capture lag."
       }
     ],
-    "acknowledgement": "STAX_ACK turn_2026-05-20T20-54-36-457Z_26b0 a709bddb 0b0535db",
-    "contractTurnId": "turn_2026-05-20T20-54-36-457Z_26b0"
+    "acknowledgement": "STAX_ACK turn_2026-05-21T16-54-25-520Z_c6ae 57ef7ced e40e5eb3",
+    "contractTurnId": "turn_2026-05-21T16-54-25-520Z_c6ae"
   },
   "cardShapeIssues": []
 }

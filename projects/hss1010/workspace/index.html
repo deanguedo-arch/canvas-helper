@@ -685,33 +685,26 @@
         <div id="view-assess" class="main-view">
             
             <aside class="assessment-sidebar" aria-label="Assignment course index">
-                <div class="assessment-student-card">
-                    <div class="assessment-total">
-                        <p class="text-xs text-slate-400">Total Marks</p>
-                        <p class="text-2xl font-black text-emerald-400">185</p>
-                    </div>
-                </div>
-
                 <nav class="assessment-module-nav" aria-label="Assignment sections by module">
-                    <button onclick="switchContentTab('start')" class="nav-btn bg-slate-900 text-slate-400 border border-slate-700" id="btn-assess-source" type="button">
+                    <button onclick="switchContentTab('start')" class="nav-btn bg-slate-800 text-blue-400 border border-blue-500" id="btn-assess-source" type="button">
                         <span class="module-code">00 Source PDF</span>
                     </button>
-                    <button onclick="switchAssessTab('sec1')" class="nav-btn active bg-slate-800 text-blue-400 border border-blue-500" id="btn-sec1">
+                    <button onclick="switchContentTab('wellness')" class="nav-btn bg-slate-900 text-slate-400 border border-slate-700" id="btn-assess-wellness" type="button">
                         <span class="module-code">01 Wellness</span>
-                        <span class="assignment-link-label">Section 1 Assignment</span>
                     </button>
-                    <button onclick="switchAssessTab('sec2')" class="nav-btn bg-slate-900 text-slate-400 border border-slate-700" id="btn-sec2">
+                    <button onclick="openAssignmentSection('sec1')" class="assignment-sub-link nav-btn active bg-slate-800 text-blue-400 border border-blue-500" id="btn-sec1" type="button">Section 1 Assignment</button>
+                    <button onclick="switchContentTab('anatomy')" class="nav-btn bg-slate-900 text-slate-400 border border-slate-700" id="btn-assess-anatomy" type="button">
                         <span class="module-code">02 Anatomy</span>
-                        <span class="assignment-link-label">Section 2 Assignment</span>
                     </button>
-                    <button onclick="switchAssessTab('sec3')" class="nav-btn bg-slate-900 text-slate-400 border border-slate-700" id="btn-sec3">
+                    <button onclick="openAssignmentSection('sec2')" class="assignment-sub-link nav-btn bg-slate-900 text-slate-400 border border-slate-700" id="btn-sec2" type="button">Section 2 Assignment</button>
+                    <button onclick="switchContentTab('lifestyle')" class="nav-btn bg-slate-900 text-slate-400 border border-slate-700" id="btn-assess-lifestyle" type="button">
                         <span class="module-code">03 Lifestyle</span>
-                        <span class="assignment-link-label">Section 3 Assignment</span>
                     </button>
-                    <button onclick="switchAssessTab('sec4')" class="nav-btn bg-slate-900 text-slate-400 border border-slate-700" id="btn-sec4">
+                    <button onclick="openAssignmentSection('sec3')" class="assignment-sub-link nav-btn bg-slate-900 text-slate-400 border border-slate-700" id="btn-sec3" type="button">Section 3 Assignment</button>
+                    <button onclick="switchContentTab('public')" class="nav-btn bg-slate-900 text-slate-400 border border-slate-700" id="btn-assess-public" type="button">
                         <span class="module-code">04 Public Health</span>
-                        <span class="assignment-link-label">Section 4 Assignment</span>
                     </button>
+                    <button onclick="openAssignmentSection('sec4')" class="assignment-sub-link nav-btn bg-slate-900 text-slate-400 border border-slate-700" id="btn-sec4" type="button">Section 4 Assignment</button>
                 </nav>
             </aside>
 
@@ -935,7 +928,7 @@
             document.getElementById(tabId).classList.add('active');
             
             // Update buttons
-            document.querySelectorAll('#view-assess .nav-btn').forEach(btn => {
+            document.querySelectorAll('#view-assess .assessment-module-nav .assignment-sub-link').forEach(btn => {
                 btn.classList.remove('active', 'bg-slate-800', 'text-blue-400', 'border-blue-500');
                 btn.classList.add('bg-slate-900', 'text-slate-400', 'border-slate-700');
             });
@@ -1017,7 +1010,7 @@
 
         function checkSectionScore(secId, total) {
             const scores = calculateScores();
-            let score = (secId === 'sec1') ? scores.s1 : (secId === 'sec2') ? scores.s2 : scores.s3;
+            let score = (secId === 'sec1') ? scores.s1 : (secId === 'sec2') ? scores.s2 : (secId === 'sec3') ? scores.s3 : scores.s4;
             document.getElementById('score-'+secId+'-display').innerText = `Score: ${score} / ${total}`;
             document.getElementById('score-'+secId+'-display').classList.remove('hidden');
         }

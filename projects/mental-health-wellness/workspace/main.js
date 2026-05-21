@@ -250,7 +250,7 @@
   function renderProgress() {
     const summary = getProgressSummary();
     refs.courseTitle.textContent = data.course?.title || "Course Shell";
-    refs.courseSubtitle.textContent = data.course?.subtitle || "Content-only Brightspace conversion.";
+    refs.courseSubtitle.textContent = data.course?.subtitle || "Complete each unit in order and track your progress.";
     refs.sidebarProgressTrack?.setAttribute("aria-valuenow", String(summary.percent));
     if (refs.sidebarProgressFill) refs.sidebarProgressFill.style.width = `${summary.percent}%`;
     refs.progressPercent.textContent = `${summary.percent}%`;
@@ -293,7 +293,7 @@
     refs.sectionTitle.textContent = state.activeId ? "Chapter Content" : "Chapters";
     refs.sectionIntro.textContent = state.activeId
       ? "Complete lesson cards in sequence. Your progress is saved in this shell."
-      : "Open each Mental Health & Wellness module from the converted Brightspace content.";
+      : "Open each Mental Health & Wellness unit and complete the lesson cards in order.";
   }
 
   function renderHomeCards() {

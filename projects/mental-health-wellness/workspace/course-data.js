@@ -1,7 +1,7 @@
 window.MENTAL_HEALTH_WELLNESS_DATA = {
   "course": {
     "title": "Mental Health & Wellness",
-    "subtitle": "Content-only Brightspace conversion.",
+    "subtitle": "Complete each unit in order and track your progress.",
     "enableLibrary": false
   },
   "chapters": [

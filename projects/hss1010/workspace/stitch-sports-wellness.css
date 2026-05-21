@@ -331,7 +331,8 @@ button,
   color: var(--hss-oxygen-blue);
 }
 
-#view-study > .flex:first-child .assignment-sub-link {
+#view-study > .flex:first-child .assignment-sub-link,
+#view-assess .assessment-module-nav .assignment-sub-link {
   width: calc(100% - 18px);
   min-height: 32px;
   margin: -6px 0 2px 18px;
@@ -348,14 +349,19 @@ button,
   line-height: 1.1 !important;
   text-align: left;
   text-transform: uppercase;
+  transform: none !important;
 }
 
 #view-study > .flex:first-child .assignment-sub-link:hover,
 #view-study > .flex:first-child .assignment-sub-link:focus-visible,
-#view-study > .flex:first-child .assignment-sub-link.active {
+#view-study > .flex:first-child .assignment-sub-link.active,
+#view-assess .assessment-module-nav .assignment-sub-link:hover,
+#view-assess .assessment-module-nav .assignment-sub-link:focus-visible,
+#view-assess .assessment-module-nav .assignment-sub-link.active {
   border-color: var(--hss-oxygen-blue) !important;
   background: rgba(56, 189, 248, 0.16) !important;
   box-shadow: var(--hss-glow-blue) !important;
+  transform: none !important;
 }
 
 .glass,

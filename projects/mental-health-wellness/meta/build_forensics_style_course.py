@@ -12,7 +12,7 @@ from datetime import datetime
 from html import escape
 from pathlib import Path
 from typing import Any
-from urllib.parse import unquote, urlparse
+from urllib.parse import parse_qs, unquote, unquote_plus, urlparse
 from xml.etree import ElementTree as ET
 
 
@@ -47,6 +47,10 @@ META_DIR = PROJECT_ROOT / "meta"
 CONTENT_DIR = WORKSPACE_DIR / "content"
 REFERENCES_DIR = WORKSPACE_DIR / "references" / SOURCE_REF_ROOT
 SOURCE_ZIP = first_existing_source(CONFIG)
+ASSET_ZIP = Path(
+    os.environ.get("MENTAL_HEALTH_WELLNESS_ASSET_ZIP")
+    or r"c:\Users\dean.guedo\Downloads\D2LExport_60408_21-22 _ S2 _ Mental Health _ Wellness _ Per 1(A) __202652118.zip"
+)
 
 ACCENTS = [
     "#2f8f6b",
@@ -67,6 +71,13 @@ NOISE_TEXT = {
     "template javascript",
     "back to top",
 }
+
+NEW_WINDOW_HELPER_RE = re.compile(
+    r"\(?\s*(?:t?his\s+)?link\s+opens\s+in\s+(?:a\s+)?new\s+window(?:/tab)?\s*\)?",
+    re.IGNORECASE,
+)
+BRIGHTSPACE_EDITOR_HELP_HOST = "documentation.brightspace.com/en/le/html_editor"
+D2L_QUICKLINK_PATH = "/d2l/common/dialogs/quicklink/quicklink.d2l"
 
 ASSESSMENT_TITLE_PATTERNS = (
     "assignment",
@@ -144,7 +155,32 @@ def is_assessment_item(title: str) -> str | None:
 
 
 def clean_href(value: str) -> str:
-    return (value or "").replace("\xa0", " ").strip()
+    href = (value or "").replace("\xa0", " ").strip()
+    return re.sub(r"^(?:%c2%a0|%a0)+", "", href, flags=re.IGNORECASE).strip()
+
+
+def strip_new_window_helper(value: str | None) -> str:
+    if not value:
+        return ""
+    cleaned = NEW_WINDOW_HELPER_RE.sub("", value)
+    if cleaned == value:
+        return value
+    return cleaned.strip()
+
+
+def is_new_window_helper_text(value: str) -> bool:
+    text = normalize_text(value)
+    if not text:
+        return False
+    return not normalize_text(NEW_WINDOW_HELPER_RE.sub("", value))
+
+
+def is_brightspace_editor_help_href(href: str) -> bool:
+    return BRIGHTSPACE_EDITOR_HELP_HOST in href.casefold()
+
+
+def is_d2l_quicklink_href(href: str) -> bool:
+    return D2L_QUICKLINK_PATH in href.casefold()
 
 
 def safe_rmtree(path: Path, allowed_root: Path) -> None:
@@ -164,6 +200,8 @@ def json_dump(data: Any) -> str:
 class MentalHealthWellnessShellBuilder:
     def __init__(self) -> None:
         self.zip_file: zipfile.ZipFile
+        self.asset_zip_file: zipfile.ZipFile | None = None
+        self.asset_entries: dict[str, str] = {}
         self.manifest_root: ET.Element
         self.resources: dict[str, list[str]] = {}
         self.asset_cache: dict[str, str] = {}
@@ -173,6 +211,7 @@ class MentalHealthWellnessShellBuilder:
             "generatedAt": datetime.now().isoformat(timespec="seconds"),
             "projectSlug": PROJECT_SLUG,
             "sourceZip": str(SOURCE_ZIP),
+            "assetZip": str(ASSET_ZIP),
             "shellSource": rel_posix(REFERENCE_PROJECT / "workspace", REPO_ROOT),
             "includedChapters": [],
             "skippedTopLevelModules": [],
@@ -224,6 +263,94 @@ class MentalHealthWellnessShellBuilder:
   text-decoration: underline;
 }
 
+.lesson-body a:not(:has(img)) {
+  color: #1d4ed8 !important;
+  font-weight: 700;
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+  border-radius: 4px;
+  transition: background-color 140ms ease, color 140ms ease, outline-color 140ms ease;
+}
+
+.lesson-body a:not(:has(img)):hover,
+.lesson-body a:not(:has(img)):focus-visible {
+  color: #1e40af !important;
+  background: rgba(37, 99, 235, 0.1);
+  outline: 2px solid rgba(37, 99, 235, 0.22);
+  outline-offset: 2px;
+}
+
+.lesson-body a:has(img) {
+  display: inline-block;
+}
+
+.missing-resource-link {
+  color: #1d4ed8 !important;
+  font-weight: 700;
+  border-bottom: 2px dashed rgba(37, 99, 235, 0.5);
+}
+
+.missing-source-note {
+  border-color: rgba(37, 99, 235, 0.36);
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-weight: 700;
+}
+
+.lesson-body {
+  font-size: 0.98rem;
+  line-height: 1.62;
+}
+
+.lesson-body :where(p, li) {
+  max-width: 78ch;
+  line-height: 1.62;
+}
+
+.lesson-body :where(h1) {
+  margin: 0 0 10px;
+  color: var(--text);
+  font-size: 1.55rem;
+  line-height: 1.18;
+}
+
+.lesson-body :where(h2) {
+  margin: 18px 0 8px;
+  color: var(--text);
+  font-size: 1.22rem;
+  line-height: 1.22;
+}
+
+.lesson-body :where(h3, h4, h5, h6) {
+  margin: 16px 0 6px;
+  color: var(--text);
+  font-size: 1.05rem;
+  line-height: 1.25;
+}
+
+.lesson-body :where(p, ul, ol, blockquote, table, figure) + :where(p, ul, ol, blockquote, table, figure, h1, h2, h3, h4, h5, h6) {
+  margin-top: 12px;
+}
+
+.lesson-body :where(ul, ol) {
+  padding-left: 1.35rem;
+}
+
+.lesson-body :where(blockquote) {
+  margin: 14px 0;
+  padding: 2px 0 2px 16px;
+  border-left: 3px solid rgba(37, 99, 235, 0.28);
+  color: var(--muted);
+}
+
+.lesson-body :where(hr) {
+  margin: 18px 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+}
+
 .lesson-card[data-progress-state="active"],
 .lesson-card[data-progress-state="locked"] {
   border-color: rgba(37, 99, 235, 0.4);
@@ -245,8 +372,14 @@ class MentalHealthWellnessShellBuilder:
 
 .lesson-card[data-progress-state="locked"] .lesson-body,
 .lesson-card[data-progress-state="locked"] .sequence-top {
-  opacity: 1;
-  filter: none;
+  opacity: 0.42;
+  filter: blur(2px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.lesson-card[data-progress-state="locked"] .lesson-progress-actions {
+  opacity: 0.55;
 }
 
 .lesson-card[data-progress-state="complete"] {
@@ -265,15 +398,25 @@ class MentalHealthWellnessShellBuilder:
         self.prepare()
         with zipfile.ZipFile(SOURCE_ZIP) as zip_file:
             self.zip_file = zip_file
-            self.manifest_root = ET.fromstring(zip_file.read("imsmanifest.xml"))
-            self.resources = read_resources(self.manifest_root)
-            chapters = self.collect_chapters()
-            self.write_raw_baseline(chapters)
-            self.write_index(len(chapters))
-            self.write_main_js()
-            self.write_course_data(chapters)
-            self.write_project_json()
-            self.write_audit()
+            if ASSET_ZIP.exists():
+                with zipfile.ZipFile(ASSET_ZIP) as asset_zip_file:
+                    self.asset_zip_file = asset_zip_file
+                    self.asset_entries = {name.casefold(): name for name in asset_zip_file.namelist()}
+                    self.build_from_open_zips()
+            else:
+                self.audit["unresolvedAssets"].append({"sourceHtml": "", "src": str(ASSET_ZIP), "kind": "asset-zip-missing"})
+                self.build_from_open_zips()
+
+    def build_from_open_zips(self) -> None:
+        self.manifest_root = ET.fromstring(self.zip_file.read("imsmanifest.xml"))
+        self.resources = read_resources(self.manifest_root)
+        chapters = self.collect_chapters()
+        self.write_raw_baseline(chapters)
+        self.write_index(len(chapters))
+        self.write_main_js()
+        self.write_course_data(chapters)
+        self.write_project_json()
+        self.write_audit()
 
     def collect_chapters(self) -> list[dict[str, Any]]:
         chapters: list[dict[str, Any]] = []
@@ -431,14 +574,28 @@ class MentalHealthWellnessShellBuilder:
     def clean_document(self, doc: Any) -> None:
         for node in list(doc.xpath("//script|//noscript|//style|//link")):
             node.drop_tree()
+        for node in list(doc.xpath("//comment()")):
+            node.drop_tree()
         for node in list(doc.xpath("//*[@class or @id]")):
             class_id = f"{node.get('class') or ''} {node.get('id') or ''}".casefold()
             if "d2l" in class_id or "navigation" in class_id:
                 node.drop_tree()
+        for node in list(doc.xpath("//*")):
+            if node.text:
+                node.text = strip_new_window_helper(node.text)
+            if node.tail:
+                node.tail = strip_new_window_helper(node.tail)
         for anchor in list(doc.xpath("//a")):
             text = normalize_key(anchor.text_content())
-            href = (anchor.get("href") or "").strip().casefold()
-            if text in NOISE_TEXT or href == "#top":
+            href = clean_href(anchor.get("href") or "").casefold()
+            anchor.attrib.pop("style", None)
+            if (
+                text in NOISE_TEXT
+                or href == "#top"
+                or is_new_window_helper_text(text)
+                or is_brightspace_editor_help_href(href)
+                or (not normalize_text(anchor.text_content()) and not anchor.xpath(".//img"))
+            ):
                 anchor.drop_tree()
         for node in list(doc.xpath("//*")):
             for attr in list(node.attrib):
@@ -446,10 +603,64 @@ class MentalHealthWellnessShellBuilder:
                 if attr_key.startswith(("data-d2l", "onclick", "onload", "onerror")):
                     node.attrib.pop(attr, None)
             text = normalize_key(node.text_content())
-            if text in NOISE_TEXT:
+            if text in NOISE_TEXT or is_new_window_helper_text(text):
                 node.drop_tree()
                 continue
             if re.search(r"\bunit\s+\d+\s+assignment\b", text) and len(node.xpath(".//*")) <= 1:
+                node.drop_tree()
+        self.remove_next_steps_sections(doc)
+        self.strip_presentational_markup(doc)
+        self.remove_empty_layout_nodes(doc)
+
+    def remove_next_steps_sections(self, doc: Any) -> None:
+        for node in list(doc.xpath("//*[self::h1 or self::h2 or self::h3 or self::h4 or self::p or self::strong]")):
+            if normalize_key(node.text_content()) != "next steps":
+                continue
+            removable = node
+            for ancestor in node.iterancestors():
+                class_names = f" {ancestor.get('class') or ''} ".casefold()
+                if " stacked-panels " in class_names:
+                    removable = ancestor
+                    break
+                if " card " in class_names or " card-body " in class_names:
+                    removable = ancestor
+            parent = removable.getparent()
+            if parent is not None:
+                removable.drop_tree()
+
+    def strip_presentational_markup(self, doc: Any) -> None:
+        for node in list(doc.xpath("//*")):
+            for attr in list(node.attrib):
+                attr_key = attr.casefold()
+                if attr_key in {
+                    "class",
+                    "id",
+                    "role",
+                    "tabindex",
+                    "aria-controls",
+                    "aria-selected",
+                    "data-toggle",
+                }:
+                    node.attrib.pop(attr, None)
+                    continue
+                if attr_key.startswith("data-"):
+                    node.attrib.pop(attr, None)
+                    continue
+                if attr_key == "style" and node.tag.lower() != "img":
+                    node.attrib.pop(attr, None)
+
+    def remove_empty_layout_nodes(self, doc: Any) -> None:
+        removable_tags = {"div", "p", "span", "footer", "section", "article"}
+        content_xpath = ".//a|.//img|.//iframe|.//video|.//audio|.//object|.//embed|.//table|.//source"
+        for node in reversed(list(doc.xpath("//*"))):
+            if node.tag.lower() not in removable_tags:
+                continue
+            if normalize_text(node.text_content()):
+                continue
+            if node.xpath(content_xpath):
+                continue
+            parent = node.getparent()
+            if parent is not None:
                 node.drop_tree()
 
     def localize_images(self, doc: Any, base_href: str) -> None:
@@ -460,20 +671,55 @@ class MentalHealthWellnessShellBuilder:
                 image.set("decoding", "async")
                 continue
             package_href = resolve_package_href(base_href, src, self.zip_file)
+            source_zip = self.zip_file
+            if not package_href:
+                package_href = self.resolve_asset_href(src)
+                source_zip = self.asset_zip_file or self.zip_file
             if not package_href:
                 self.audit["unresolvedAssets"].append({"sourceHtml": base_href, "src": src, "kind": "image"})
                 fallback = lxml_html.Element("div")
                 fallback.set("class", "missing-source-note")
-                fallback.text = "Source image unavailable in the Brightspace export."
+                fallback.text = "Image not available yet."
                 parent = image.getparent()
                 if parent is not None:
                     parent.replace(image, fallback)
                 continue
-            image.set("src", self.copy_support(package_href, "assets"))
+            image.set("src", self.copy_support(package_href, "assets", source_zip))
             image.set("loading", "lazy")
             image.set("decoding", "async")
             if not image.get("alt"):
                 image.set("alt", Path(package_href).name)
+
+    def resolve_asset_href(self, src: str) -> str | None:
+        if not self.asset_entries:
+            return None
+        normalized = unquote_plus(clean_href(src)).replace("\\", "/")
+        parsed = urlparse(normalized)
+        candidates: list[str] = []
+        query = parse_qs(parsed.query)
+        for file_id in query.get("fileId", []):
+            candidates.append(unquote_plus(file_id))
+        path = parsed.path or normalized
+        parts = [part for part in path.split("/") if part and part not in {".", ".."}]
+        for index in range(len(parts)):
+            candidates.append("/".join(parts[index:]))
+        if path:
+            candidates.append(posixpath.basename(path))
+        for candidate in candidates:
+            hit = self.asset_entries.get(candidate.casefold())
+            if hit:
+                return hit
+        for candidate in candidates:
+            if not candidate:
+                continue
+            matches = [
+                actual
+                for key, actual in self.asset_entries.items()
+                if posixpath.basename(key).casefold() == posixpath.basename(candidate).casefold()
+            ]
+            if len(matches) == 1:
+                return matches[0]
+        return None
 
     def normalize_media(self, doc: Any, base_href: str, title: str) -> None:
         for node in list(doc.xpath("//iframe|//video|//audio|//embed|//object")):
@@ -508,6 +754,7 @@ class MentalHealthWellnessShellBuilder:
     def normalize_links(self, doc: Any, base_href: str, title: str) -> None:
         for anchor in list(doc.xpath("//a[@href]")):
             href = clean_href(anchor.get("href") or "")
+            anchor.attrib.pop("style", None)
             if href.startswith("www."):
                 href = f"https://{href}"
                 anchor.set("href", href)
@@ -518,14 +765,26 @@ class MentalHealthWellnessShellBuilder:
                     anchor.set("rel", "noopener")
                 continue
             package_href = resolve_package_href(base_href, href, self.zip_file)
+            source_zip = self.zip_file
+            if not package_href:
+                package_href = self.resolve_asset_href(href)
+                source_zip = self.asset_zip_file or self.zip_file
             if not package_href:
                 self.audit["unresolvedAssets"].append({"sourceHtml": base_href, "src": href, "kind": "link"})
+                if is_d2l_quicklink_href(href):
+                    replacement = lxml_html.Element("span")
+                    replacement.set("class", "missing-resource-link")
+                    replacement.set("data-missing-resource", "true")
+                    replacement.text = normalize_text(anchor.text_content()) or title or "Resource not available yet"
+                    parent = anchor.getparent()
+                    if parent is not None:
+                        parent.replace(anchor, replacement)
                 continue
             if package_href.lower().endswith((".html", ".htm")):
                 anchor.set("href", self.copy_source_html(package_href))
                 self.audit["localHtmlLinks"].append({"sourceHtml": base_href, "href": href, "packageHref": package_href})
             else:
-                anchor.set("href", self.copy_support(package_href, "linked-resources"))
+                anchor.set("href", self.copy_support(package_href, "linked-resources", source_zip))
             if not normalize_text(anchor.text_content()):
                 anchor.text = title or Path(package_href).name
 
@@ -552,7 +811,7 @@ class MentalHealthWellnessShellBuilder:
 <body>
 <main>
 <h1>{escape(title)}</h1>
-<p>This linked reference was retained from the original course package.</p>
+<p>This reference is included with the course.</p>
 </main>
 </body>
 </html>
@@ -565,12 +824,13 @@ class MentalHealthWellnessShellBuilder:
         )
         return rel
 
-    def copy_support(self, package_href: str, category: str) -> str:
-        cache_key = f"{category}:{package_href}"
+    def copy_support(self, package_href: str, category: str, source_zip: zipfile.ZipFile | None = None) -> str:
+        source_zip = source_zip or self.zip_file
+        cache_key = f"{category}:{id(source_zip)}:{package_href}"
         if cache_key in self.asset_cache:
             return self.asset_cache[cache_key]
         destination = self.localized_destination(package_href, category)
-        destination.write_bytes(self.zip_file.read(package_href))
+        destination.write_bytes(source_zip.read(package_href))
         rel = self.chapter_relative(destination)
         self.asset_cache[cache_key] = rel
         record = {"sourceHref": package_href, "outputPath": rel_posix(destination, WORKSPACE_DIR), "bytes": destination.stat().st_size}
@@ -620,7 +880,6 @@ class MentalHealthWellnessShellBuilder:
           <span class="eyebrow">Module Content</span>
           <h2 class="section-title">Lesson sequence</h2>
         </div>
-        <p class="section-copy">Retained content from the original Mental Health &amp; Wellness Brightspace module.</p>
       </div>
       <div class="sequence-list">
         {components_html}
@@ -636,22 +895,19 @@ class MentalHealthWellnessShellBuilder:
         (chapter_dir / "index.html").write_text(page, encoding="utf-8")
 
     def render_component_card(self, component: dict[str, Any]) -> str:
-        trail = f'<p class="sequence-note">{escape(component["trail"])}</p>' if component["trail"] else ""
         return f"""
         <article class="sequence-card lesson-card" data-module-component-id="{escape(component["id"])}" data-progress-state="locked">
           <div class="sequence-top">
             <span class="sequence-number">{escape(str(component["number"]))}</span>
             <div>
               <span class="sequence-kind">{escape(component["kind"])}</span>
-              <h3 class="sequence-title">{escape(component["title"])}</h3>
-              {trail}
             </div>
           </div>
           <div class="lesson-body">{component["bodyHtml"]}</div>
           <div class="lesson-progress-footer" data-progress-footer>
             <div class="lesson-progress-copy" data-progress-copy>
               <span class="lesson-progress-label">Module progression</span>
-              <p class="lesson-progress-note">Complete this component to unlock the next lesson card.</p>
+              <p class="lesson-progress-note">Mark complete when you finish reviewing this card.</p>
             </div>
             <div class="lesson-progress-actions" data-progress-actions>
               <button class="action-link secondary" type="button" data-mark-complete="{escape(component["id"])}">Mark Complete</button>
@@ -669,6 +925,7 @@ class MentalHealthWellnessShellBuilder:
   const updateType = "mental-health-wellness-module-progress-update";
   const syncType = "mental-health-wellness-module-progress-sync";
   const cards = Array.from(document.querySelectorAll("[data-module-component-id]"));
+  const reviewUnlockAll = true;
   let completion = {};
 
   function postReady() {
@@ -689,15 +946,16 @@ class MentalHealthWellnessShellBuilder:
     cards.forEach((card) => {
       const componentId = card.dataset.moduleComponentId || "";
       const complete = !!completion[componentId];
-      card.dataset.progressState = complete ? "complete" : unlocked ? "active" : "locked";
+      const cardUnlocked = reviewUnlockAll || unlocked;
+      card.dataset.progressState = complete ? "complete" : cardUnlocked ? "active" : "locked";
       card.querySelectorAll("[data-mark-complete], [data-mark-complete-next]").forEach((button) => {
-        button.disabled = !unlocked || complete;
+        button.disabled = !cardUnlocked || complete;
       });
       const completeLabel = card.querySelector("[data-progress-complete]");
       if (completeLabel) completeLabel.hidden = !complete;
       const actions = card.querySelector("[data-progress-actions]");
       if (actions) actions.hidden = complete;
-      if (!complete) unlocked = false;
+      if (!complete && !reviewUnlockAll) unlocked = false;
     });
     if (focusComponentId) {
       document.querySelector(`[data-module-component-id="${CSS.escape(focusComponentId)}"]`)?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -810,7 +1068,7 @@ class MentalHealthWellnessShellBuilder:
                 <div id="progress-fill" class="progress-fill"></div>
               </div>
               <h2 id="course-title">Mental Health &amp; Wellness</h2>
-              <p id="course-subtitle">Content-only Brightspace conversion.</p>
+              <p id="course-subtitle">Complete each unit in order and track your progress.</p>
             </div>
           </div>
         </section>
@@ -818,7 +1076,7 @@ class MentalHealthWellnessShellBuilder:
         <section class="content-shell">
           <div class="section-header">
             <h3 id="section-title">Chapters</h3>
-            <p id="section-intro">Open each source unit, complete lesson cards in sequence, and keep progress in this local course shell.</p>
+            <p id="section-intro">Open each unit and complete lesson cards in sequence to unlock what comes next.</p>
           </div>
           <div id="content-body" class="content-body"></div>
         </section>
@@ -1086,7 +1344,7 @@ class MentalHealthWellnessShellBuilder:
   function renderProgress() {
     const summary = getProgressSummary();
     refs.courseTitle.textContent = data.course?.title || "Course Shell";
-    refs.courseSubtitle.textContent = data.course?.subtitle || "Content-only Brightspace conversion.";
+    refs.courseSubtitle.textContent = data.course?.subtitle || "Complete each unit in order and track your progress.";
     refs.sidebarProgressTrack?.setAttribute("aria-valuenow", String(summary.percent));
     if (refs.sidebarProgressFill) refs.sidebarProgressFill.style.width = `${summary.percent}%`;
     refs.progressPercent.textContent = `${summary.percent}%`;
@@ -1129,7 +1387,7 @@ class MentalHealthWellnessShellBuilder:
     refs.sectionTitle.textContent = state.activeId ? "Chapter Content" : "Chapters";
     refs.sectionIntro.textContent = state.activeId
       ? "Complete lesson cards in sequence. Your progress is saved in this shell."
-      : "Open each Mental Health & Wellness module from the converted Brightspace content.";
+      : "Open each Mental Health & Wellness unit and complete the lesson cards in order.";
   }
 
   function renderHomeCards() {
@@ -1271,7 +1529,7 @@ class MentalHealthWellnessShellBuilder:
         data = {
             "course": {
                 "title": "Mental Health & Wellness",
-                "subtitle": "Content-only Brightspace conversion.",
+                "subtitle": "Complete each unit in order and track your progress.",
                 "enableLibrary": False,
             },
             "chapters": data_chapters,
