@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chapter Viewer</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #08111c;
+      --panel: #0f1826;
+      --line: rgba(95, 120, 155, 0.24);
+      --text: #e8eef6;
+      --muted: #8a96a8;
+      --accent: #34d399;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, sans-serif;
+    }
+    .viewer-shell { min-height: 100vh; padding: 18px; }
+    .viewer-toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #0a111c;
+    }
+    .viewer-title {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .viewer-meta {
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .viewer-status {
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--panel);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .viewer-status.error { color: #ff9db0; }
+    .viewer-pages { display: grid; gap: 18px; }
+    .page-card {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--panel);
+    }
+    .page-label {
+      margin: 0 0 10px;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--muted);
+    }
+    canvas {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      background: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="viewer-shell">
+    <div class="viewer-toolbar">
+      <div>
+        <div class="viewer-title" id="viewer-title">Chapter Viewer</div>
+        <div class="viewer-meta" id="viewer-meta">Loading document</div>
+      </div>
+    </div>
+    <div id="viewer-status" class="viewer-status">Loading PDF...</div>
+    <div id="viewer-pages" class="viewer-pages" hidden></div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const file = params.get('file');
+    const title = params.get('title') || 'Chapter Viewer';
+
+    const titleNode = document.getElementById('viewer-title');
+    const metaNode = document.getElementById('viewer-meta');
+    const statusNode = document.getElementById('viewer-status');
+    const pagesNode = document.getElementById('viewer-pages');
+
+    titleNode.textContent = title;
+    metaNode.textContent = file ? 'Rendering in app' : 'Missing file';
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+    function setError(message) {
+      statusNode.textContent = message;
+      statusNode.classList.add('error');
+      pagesNode.hidden = true;
+    }
+
+    function getScale(viewport) {
+      const maxWidth = Math.min(window.innerWidth - 80, 1100);
+      return Math.max(1, maxWidth / viewport.width);
+    }
+
+    async function renderPdf() {
+      if (!file) {
+        setError('No PDF file was provided to the viewer.');
+        return;
+      }
+      try {
+        const pdf = await pdfjsLib.getDocument(file).promise;
+        metaNode.textContent = pdf.numPages === 1 ? '1 page' : `${pdf.numPages} pages`;
+        pagesNode.hidden = false;
+        statusNode.hidden = true;
+        for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber += 1) {
+          const page = await pdf.getPage(pageNumber);
+          const baseViewport = page.getViewport({ scale: 1 });
+          const viewport = page.getViewport({ scale: getScale(baseViewport) });
+          const card = document.createElement('section');
+          card.className = 'page-card';
+          const label = document.createElement('p');
+          label.className = 'page-label';
+          label.textContent = `Page ${pageNumber}`;
+          const canvas = document.createElement('canvas');
+          const context = canvas.getContext('2d');
+          canvas.width = viewport.width;
+          canvas.height = viewport.height;
+          card.append(label, canvas);
+          pagesNode.appendChild(card);
+          await page.render({ canvasContext: context, viewport }).promise;
+        }
+      } catch (error) {
+        setError(error && error.message ? error.message : 'Unable to render this PDF in the app.');
+      }
+    }
+
+    renderPdf();
+  </script>
+</body>
+</html>

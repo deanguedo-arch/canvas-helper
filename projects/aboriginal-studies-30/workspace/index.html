@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aboriginal Studies 30</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body data-project-slug="aboriginal-studies-30">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <header class="brand-block">
+        <div>
+          <h1>Aboriginal<br />Studies 30</h1>
+          <p class="mono">Course Shell</p>
+        </div>
+        <div class="brand-mark" aria-hidden="true">AS</div>
+      </header>
+
+      <nav class="sidebar-nav" aria-label="Course sections">
+        <button id="nav-home" class="nav-item active" type="button">
+          <span class="nav-left"><i class="fa-solid fa-layer-group nav-icon"></i><span>Units</span></span>
+        </button>
+        <button id="nav-quizzes" class="nav-item" type="button">
+          <span class="nav-left"><i class="fa-solid fa-circle-question nav-icon"></i><span>Quizzes</span></span>
+        </button>
+        <button id="nav-assignments" class="nav-item" type="button">
+          <span class="nav-left"><i class="fa-solid fa-clipboard-list nav-icon"></i><span>Assignments</span></span>
+        </button>
+        <button id="nav-library" class="nav-item" type="button">
+          <span class="nav-left"><i class="fa-solid fa-book nav-icon"></i><span>Library</span></span>
+        </button>
+        <button id="nav-film" class="nav-item" type="button">
+          <span class="nav-left"><i class="fa-solid fa-tv nav-icon"></i><span>Film Room</span></span>
+        </button>
+      </nav>
+
+      <div class="sidebar-save-host" data-google-hosted-controls-host="true"></div>
+    </aside>
+
+    <main class="content">
+      <div class="content-inner">
+        <section class="progress-shell" aria-label="Course progress">
+          <div class="progress-panel">
+            <div class="progress-inner">
+              <div class="progress-top">
+                <span class="progress-label mono">Course progress</span>
+                <span id="progress-count" class="progress-count mono">0/4 units</span>
+              </div>
+              <div class="progress-track" aria-hidden="true">
+                <div class="progress-fill" id="progress-fill"></div>
+              </div>
+              <div class="progress-bottom">
+                <span id="progress-percent" class="progress-percent">0% <span class="progress-complete">complete</span></span>
+                <span class="progress-meta mono"><i class="fa-solid fa-layer-group"></i> Modules: <strong>0/4</strong></span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="modules-shell">
+          <h2 id="section-title">Units</h2>
+          <div id="content-body" class="content-body"></div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="./course-data.js"></script>
+  <script src="./main.js"></script>
+</body>
+</html>
