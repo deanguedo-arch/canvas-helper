@@ -2,7 +2,7 @@
 
 - Project: `aboriginal-studies-30`
 - Task: Fix tablet/mobile unit-card title visibility and hide the progress panel in top-sidebar mode.
-- Status: Local verification passed; ready for user visual review
+- Status: STAX accepted; ready for user visual review
 
 ## Summary
 - Unit-card titles no longer disappear in tablet/narrow layouts.
@@ -48,9 +48,13 @@
   - exitCode: 0.
 - `npm run stax:preflight -- --observer`
   - exitCode: 1; local package is missing script `stax:preflight`.
+- STAX sidecar gate
+  - exitCode: 0; status `Accept`; proof strength `Audit-grade`.
+  - Verified current command evidence for AS30 shell test, project verify, project e2e, smoke e2e, typecheck, studio build, and diff check.
+  - Verified current visual evidence for tablet and phone responsive screenshots.
 
 ## Known risks / follow-up
-- The local `canvas-helper` package does not expose `npm run stax:preflight`; STAX sidecar status may lag or refer to older tasks until the external sidecar refreshes.
+- The local `canvas-helper` package does not expose `npm run stax:preflight`; STAX evidence was collected from the STAX tooling repo against this Canvas repo.
 - This pass intentionally hides the progress panel only under the tablet/top-sidebar breakpoint. Desktop still keeps the progress panel.
 - No deploy, publish, sync, or release action was performed.
 
