@@ -49,6 +49,7 @@ Status: candidate
 - npm run validate:manifests
 - npm run verify
 - publish-ai-course-building-resources.bat
+- publish-course-showcase.bat
 - publish-experimental-psychology.bat
 - publish-experimental-psychology.sh
 - publish-forensics.bat
@@ -57,143 +58,13 @@ Status: candidate
 - publish-forensics35.sh
 - publish-general-psychology.bat
 - publish-general-psychology.sh
+- publish-learning-strategies-15.bat
+- publish-learning-strategies-25.bat
+- publish-learning-strategies-35.bat
+- publish-learning-strategies.bat
+- publish-mental-health-wellness.bat
 - publish-sportswellness.bat
 - publish-worldreligions30-option1.bat
-- scripts/assessment-export.ts
-- scripts/build-assessment-map.ts
-- scripts/build-course-blueprint.ts
-- scripts/build-course-shell.ts
-- scripts/build-forensicstudiesoption2-content.ts
-- scripts/build-lesson-packets.ts
-- scripts/build-pattern-library.ts
-- scripts/build-unit1-knowledge-check.ts
-- scripts/deploy-google-hosted.ts
-- scripts/export-apps-script.ts
-- scripts/export-brightspace-package.ts
-- scripts/export-brightspace.ts
-- scripts/export-google-hosted.ts
-- scripts/export-html.ts
-- scripts/export-scorm.ts
-- scripts/lib/apps-script.ts
-- scripts/lib/assessments/export-brightspace.ts
-- scripts/lib/assessments/schema.ts
-- scripts/lib/benchmarks/validate.ts
-- scripts/lib/conversion/auditCoverage.ts
-- scripts/lib/conversion/buildSourceMap.ts
-- scripts/lib/conversion/detectStructures.ts
-- scripts/lib/course-shell-content-parsers.ts
-- scripts/lib/course-shell-resources.ts
-- scripts/lib/course-shell.ts
-- scripts/lib/exporter.ts
-- scripts/lib/google-hosted-deploy.ts
-- scripts/lib/google-hosted.ts
-- scripts/run-e2e-project.ts
-- scripts/smoke-local-pipeline.ts
-- scripts/sync-course-images.ts
-- scripts/tests/ai-course-building-resources-google-hosted.test.ts
-- scripts/tests/ai-course-building-resources.test.ts
-- scripts/tests/apps-script-export.test.ts
-- scripts/tests/assessments-engine.test.ts
-- scripts/tests/authoring-preferences.test.ts
-- scripts/tests/benchmarks.test.ts
-- scripts/tests/brightspace-package-reface.test.ts
-- scripts/tests/calm-module-4-workspace.test.ts
-- scripts/tests/calm-module-workspace.test.ts
-- scripts/tests/calm3new-intro-poem.test.mjs
-- scripts/tests/calmmodule2-finish-cleanup.test.ts
-- scripts/tests/calmmodule2-hero-polish.test.ts
-- scripts/tests/calmmodule2-money-section.test.ts
-- scripts/tests/calmmodule2-teacher-export.test.ts
-- scripts/tests/calmmodule2-teacher-report-print-polish.test.ts
-- scripts/tests/calmmodule3-workspace.test.ts
-- scripts/tests/course-images.test.ts
-- scripts/tests/course-planning.test.ts
-- scripts/tests/course-shell-content-parsers.test.ts
-- scripts/tests/course-shell-resources.test.ts
-- scripts/tests/course-shell.test.ts
-- scripts/tests/d2l-course-map.test.ts
-- scripts/tests/deviation-gate.test.ts
-- scripts/tests/doc-bundle-import.test.ts
-- scripts/tests/e2e-contract-harness.test.ts
-- scripts/tests/experimental-psych-workspace.test.ts
-- scripts/tests/forensics35-workspace.test.ts
-- scripts/tests/forensicstudiesoption2-content.test.ts
-- scripts/tests/forensicstudiesoption2-shell-behavior.test.ts
-- scripts/tests/forensicstudiesoption2-theme.test.ts
-- scripts/tests/general-psychology-workspace.test.ts
-- scripts/tests/generation-context-builder.test.ts
-- scripts/tests/google-hosted-deploy.test.ts
-- scripts/tests/google-hosted-export.test.ts
-- scripts/tests/headroom-session.test.ts
-- scripts/tests/hss1010-conversion.test.ts
-- scripts/tests/incoming-intake.test.ts
-- scripts/tests/incoming-route.test.ts
-- scripts/tests/incoming-watch.test.ts
-- scripts/tests/intelligence-policy.test.ts
-- scripts/tests/learning-pipeline-check.ts
-- scripts/tests/memory-ledger.test.ts
-- scripts/tests/pdf-text.test.ts
-- scripts/tests/preview-route.test.ts
-- scripts/tests/progress-report.test.ts
-- scripts/tests/project-manifest-policy.test.ts
-- scripts/tests/project-recovery.test.ts
-- scripts/tests/react-module-import.test.ts
-- scripts/tests/ready-mind-shell.test.ts
-- scripts/tests/reference-resource-preview.test.ts
-- scripts/tests/report-all-progress.test.ts
-- scripts/tests/scorm-export.test.ts
-- scripts/tests/single-html-export.test.ts
-- scripts/tests/social_studies_docx_export_test.py
-- scripts/tests/sportswellness-apps-script-runtime.test.ts
-- scripts/tests/sportswellness-assignment-runtime-globals.test.ts
-- scripts/tests/sportswellness-film-room.test.ts
-- scripts/tests/sportswellness-google-hosted.test.ts
-- scripts/tests/sportswellness-performance-menu.test.ts
-- scripts/tests/sportswellness-phase2-assignments.test.ts
-- scripts/tests/sportswellness-phase2-content.test.ts
-- scripts/tests/sportswellness-phase3-assignment.test.ts
-- scripts/tests/sportswellness-phase3-content.test.ts
-- scripts/tests/sportswellness-phase3-parity.test.ts
-- scripts/tests/sportswellness-phase4a-assignment.test.ts
-- scripts/tests/sportswellness-phase4b-assignment.test.ts
-- scripts/tests/sportswellness-ui-state.test.ts
-- scripts/tests/studio-auto.test.ts
-- scripts/tests/studio-incoming-refresh.test.ts
-- scripts/tests/verification-assessment-delivery.test.ts
-- scripts/tests/verification-course-shell.test.ts
-- scripts/tests/worldreligions30-option1-assignment-copy.test.ts
-- scripts/tests/worldreligions30-option1-assignment-theme.test.ts
-- scripts/tests/worldreligions30-option1-assignment-toolbar.test.ts
-- scripts/tests/worldreligions30-option1-assignment1.test.ts
-- scripts/tests/worldreligions30-option1-assignment10.test.ts
-- scripts/tests/worldreligions30-option1-assignment2.test.ts
-- scripts/tests/worldreligions30-option1-assignment3.test.ts
-- scripts/tests/worldreligions30-option1-assignment4.test.ts
-- scripts/tests/worldreligions30-option1-assignment5.test.ts
-- scripts/tests/worldreligions30-option1-assignment6.test.ts
-- scripts/tests/worldreligions30-option1-assignment7.test.ts
-- scripts/tests/worldreligions30-option1-assignment8.test.ts
-- scripts/tests/worldreligions30-option1-assignment9.test.ts
-- scripts/tests/worldreligions30-option1-chapter1-content.test.ts
-- scripts/tests/worldreligions30-option1-chapter10-content.test.ts
-- scripts/tests/worldreligions30-option1-chapter4-content.test.ts
-- scripts/tests/worldreligions30-option1-chapter5-content.test.ts
-- scripts/tests/worldreligions30-option1-chapter6-content.test.ts
-- scripts/tests/worldreligions30-option1-chapter7-content.test.ts
-- scripts/tests/worldreligions30-option1-chapter8-content.test.ts
-- scripts/tests/worldreligions30-option1-chapter9-content.test.ts
-- scripts/tests/worldreligions30-option1-editorial-shell.test.ts
-- scripts/tests/worldreligions30-option1-google-hosted.test.ts
-- scripts/tests/worldreligions30-option1-quiz-format.test.ts
-- scripts/tests/worldreligions30-option1-quiz-summary.test.ts
-- scripts/tests/worldreligions30-option1-shell-behavior.test.ts
-- scripts/tests/worldreligions30-option1-student-copy.test.ts
-- scripts/tests/worldreligions30-option1-written-response.test.ts
-- scripts/tests/worldreligions30-option2-results-report.test.ts
-- scripts/tests/worldreligions30-option2-student-choice.test.ts
-- scripts/tests/worldreligions30-variants.test.ts
-- scripts/validate-project-metadata.ts
-- scripts/verify-project.ts
 
 ## Detected Risky Actions
 - deploy-google-hosted.bat requires explicit human approval, non-mutating preflight proof, target validation
@@ -202,11 +73,8 @@ Status: candidate
 - npm run export:apps-script requires explicit human approval, non-mutating preflight proof, target validation
 - npm run export:google-hosted requires explicit human approval, non-mutating preflight proof, target validation
 - npm run sync:course-images requires explicit human approval, non-mutating preflight proof, target validation
-- npm run test:apps-script requires explicit human approval, non-mutating preflight proof, target validation
-- npm run test:exports requires explicit human approval, non-mutating preflight proof, target validation
-- npm run test:google-hosted requires explicit human approval, non-mutating preflight proof, target validation
-- npm run test:report-all-progress requires explicit human approval, non-mutating preflight proof, target validation
 - publish-ai-course-building-resources.bat requires explicit human approval, non-mutating preflight proof, target validation
+- publish-course-showcase.bat requires explicit human approval, non-mutating preflight proof, target validation
 - publish-experimental-psychology.bat requires explicit human approval, non-mutating preflight proof, target validation
 - publish-experimental-psychology.sh requires explicit human approval, non-mutating preflight proof, target validation
 - publish-forensics.bat requires explicit human approval, non-mutating preflight proof, target validation
@@ -215,22 +83,13 @@ Status: candidate
 - publish-forensics35.sh requires explicit human approval, non-mutating preflight proof, target validation
 - publish-general-psychology.bat requires explicit human approval, non-mutating preflight proof, target validation
 - publish-general-psychology.sh requires explicit human approval, non-mutating preflight proof, target validation
+- publish-learning-strategies-15.bat requires explicit human approval, non-mutating preflight proof, target validation
+- publish-learning-strategies-25.bat requires explicit human approval, non-mutating preflight proof, target validation
+- publish-learning-strategies-35.bat requires explicit human approval, non-mutating preflight proof, target validation
+- publish-learning-strategies.bat requires explicit human approval, non-mutating preflight proof, target validation
+- publish-mental-health-wellness.bat requires explicit human approval, non-mutating preflight proof, target validation
 - publish-sportswellness.bat requires explicit human approval, non-mutating preflight proof, target validation
 - publish-worldreligions30-option1.bat requires explicit human approval, non-mutating preflight proof, target validation
-- scripts/deploy-google-hosted.ts requires explicit human approval, non-mutating preflight proof, target validation
-- scripts/export-apps-script.ts requires explicit human approval, non-mutating preflight proof, target validation
-- scripts/export-google-hosted.ts requires explicit human approval, non-mutating preflight proof, target validation
-- scripts/lib/apps-script.ts requires explicit human approval, non-mutating preflight proof, target validation
-- scripts/lib/google-hosted-deploy.ts requires explicit human approval, non-mutating preflight proof, target validation
-- scripts/lib/google-hosted.ts requires explicit human approval, non-mutating preflight proof, target validation
-- scripts/sync-course-images.ts requires explicit human approval, non-mutating preflight proof, target validation
-- scripts/tests/ai-course-building-resources-google-hosted.test.ts requires explicit human approval, non-mutating preflight proof, target validation
-- scripts/tests/apps-script-export.test.ts requires explicit human approval, non-mutating preflight proof, target validation
-- scripts/tests/google-hosted-deploy.test.ts requires explicit human approval, non-mutating preflight proof, target validation
-- scripts/tests/google-hosted-export.test.ts requires explicit human approval, non-mutating preflight proof, target validation
-- scripts/tests/sportswellness-apps-script-runtime.test.ts requires explicit human approval, non-mutating preflight proof, target validation
-- scripts/tests/sportswellness-google-hosted.test.ts requires explicit human approval, non-mutating preflight proof, target validation
-- scripts/tests/worldreligions30-option1-google-hosted.test.ts requires explicit human approval, non-mutating preflight proof, target validation
 
 ## Proposed Proof Rules
 - build_ready: require local_command_output, target_repo_cwd (package.json scripts)
