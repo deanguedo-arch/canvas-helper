@@ -3649,12 +3649,17 @@ button:disabled {
 }
 
 @media (max-width: 860px) {
-  .app-shell {
+  .app-shell,
+  .app-shell.is-sidebar-collapsed {
     grid-template-columns: 1fr;
   }
 
   .sidebar {
     position: static;
+  }
+
+  .progress-shell {
+    display: none;
   }
 
   .content-inner {
@@ -3683,7 +3688,7 @@ button:disabled {
     align-items: flex-start;
   }
 
-  .stack-card-button {
+  .stack-card-button:not(.unit-card) {
     grid-template-columns: 1fr;
   }
 }

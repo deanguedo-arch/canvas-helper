@@ -179,6 +179,10 @@ test("aboriginal studies 30 shell uses the supplied pixel-redline visual system"
   assert.match(stylesSource, /@container \(max-width:\s*720px\)[\s\S]*?\.unit-card \.unit-card-content span\s*{[\s\S]*?display:\s*none/);
   assert.match(stylesSource, /@media \(max-width:\s*760px\)[\s\S]*?\.unit-card\s*{[\s\S]*?grid-template-columns:\s*104px minmax\(0,\s*1fr\) 24px[\s\S]*?height:\s*88px/);
   assert.match(stylesSource, /@media \(max-width:\s*760px\)[\s\S]*?\.unit-card \.unit-card-content span\s*{[\s\S]*?display:\s*none/);
+  assert.match(stylesSource, /@media \(max-width:\s*860px\)[\s\S]*?\.app-shell,\s*\.app-shell\.is-sidebar-collapsed\s*{[\s\S]*?grid-template-columns:\s*1fr/);
+  assert.match(stylesSource, /@media \(max-width:\s*860px\)[\s\S]*?\.progress-shell\s*{[\s\S]*?display:\s*none/);
+  assert.match(stylesSource, /@media \(max-width:\s*860px\)[\s\S]*?\.stack-card-button:not\(\.unit-card\)\s*{[\s\S]*?grid-template-columns:\s*1fr/);
+  assert.doesNotMatch(stylesSource, /@media \(max-width:\s*860px\)[\s\S]*?\.stack-card-button\s*{[\s\S]*?grid-template-columns:\s*1fr/);
   assert.match(stylesSource, /@media \(max-width:\s*640px\)[\s\S]*?\.unit-card\s*{[\s\S]*?grid-template-columns:\s*92px minmax\(0,\s*1fr\) 18px[\s\S]*?height:\s*78px/);
 });
 
