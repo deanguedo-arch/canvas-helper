@@ -60,6 +60,94 @@ VIDEO_FILE_EXTENSIONS = (
 )
 
 
+def source_native_docx_css() -> str:
+    return """
+@page { size: 8.5in 11in; margin: 0.55in; }
+body { background: #ffffff; color: #333333; font-family: "Trebuchet MS", Calibri, Arial, sans-serif; font-size: 12pt; line-height: 1.42; }
+.docx-root { width: 7.35in; margin: 0 auto; }
+.docx-lesson { page-break-before: always; margin: 0 0 22pt 0; }
+.docx-lesson.first { page-break-before: auto; }
+.docx-group-heading { page-break-before: always; margin: 22pt 0 14pt; }
+.docx-group-heading h1 { color: #4b4665; font-size: 18pt; border-bottom: 1px solid #cccccc; padding-bottom: 8pt; }
+#border { border: 1px solid #a7a7a7; padding: 8px; margin: 0 0 16pt 0; }
+#container { width: 100%; margin: 0 auto; }
+#header { background: #6096bf; color: #ffffff; padding: 14px 18px; margin: 0 0 18px 0; }
+#header h1 { color: #ffffff; font-size: 18pt; font-weight: normal; margin: 0; line-height: 1.2; }
+#content h1, #content h2 { color: #4b4665; line-height: 1.25; }
+#content h2 { font-size: 17pt; margin: 12pt 0 10pt; }
+#content h3 { color: #666666; font-size: 12.5pt; margin: 11pt 0 6pt; }
+p { margin: 0 0 9pt 0; }
+ul, ol { margin-top: 4pt; margin-bottom: 9pt; }
+li { margin-bottom: 4pt; }
+img { max-width: 100%; height: auto; }
+img[align="left"] { margin: 0 12pt 8pt 0; }
+img[align="right"] { margin: 0 0 8pt 12pt; }
+#feature, .feature, #readingassignment, #internet, #email, #vocabulary, #bonus { background: #ebf5eb; padding: 10pt; margin: 12pt 0; }
+#media, #portfolio, #multipleperspectives, #trackyourprogress, #help { background: #e2e1ee; padding: 10pt; margin: 12pt 0; }
+#tools, #skills { background: #d6e1ed; padding: 10pt; margin: 12pt 0; }
+#assignmentdrop, #quiz { background: #fff1c9; padding: 10pt; margin: 12pt 0; }
+.docx-video-card { background: #ebf5eb; border: 1px solid #222222; padding: 9pt; margin: 12pt 0 16pt; max-width: 6.7in; box-sizing: border-box; }
+.docx-video-card a { display: block; }
+.docx-video-card p { margin: 7pt 0 0 0; }
+.docx-video-thumbnail { display: block; width: 6.45in; max-width: 100%; height: auto; }
+a { color: #0563c1; text-decoration: underline; }
+hr { border: none; border-top: 1px solid #cccccc; margin: 16pt 0; }
+"""
+
+
+def next_step_docx_css() -> str:
+    return """
+@page { size: 8.5in 11in; margin: 0.6in; }
+body { background: #ffffff; color: #191C1C; font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; font-size: 11.5pt; line-height: 1.48; }
+.docx-root { width: 7.2in; margin: 0 auto; }
+.docx-lesson { page-break-before: always; margin: 0 0 22pt 0; }
+.docx-lesson.first { page-break-before: auto; }
+.docx-group-heading { page-break-before: always; margin: 22pt 0 14pt; padding: 11pt 13pt; background: #EAF7E6; border-left: 5pt solid #59A844; }
+.docx-group-heading h1 { color: #155608; font-size: 18pt; border-bottom: 1px solid #DDE2DD; padding-bottom: 7pt; margin: 0; line-height: 1.2; }
+#border { border: 1px solid #DDE2DD; padding: 10pt; margin: 0 0 16pt 0; background: #FFFFFF; }
+#container, .container { width: 100%; margin: 0 auto; }
+#header { background: #155608; color: #FFFFFF; padding: 15pt 18pt; margin: 0 0 18pt 0; border-bottom: 4pt solid #59A844; }
+#header h1, #header h2, #header h3, #header h4 { color: #FFFFFF; font-size: 18pt; font-weight: bold; margin: 0; line-height: 1.2; }
+#content h1, #content h2, h1, h2 { color: #155608; line-height: 1.25; page-break-after: avoid; }
+#content h2, h2 { font-size: 17pt; margin: 14pt 0 10pt; }
+#content h3, #content h4, #content h5, h3, h4, h5 { color: #155608; font-size: 13pt; margin: 12pt 0 7pt; page-break-after: avoid; }
+p { margin: 0 0 9pt 0; }
+ul, ol { margin-top: 4pt; margin-bottom: 10pt; padding-left: 20pt; }
+li { margin-bottom: 4pt; }
+strong { color: #191C1C; }
+em { color: #40493B; }
+img { max-width: 100%; height: auto; }
+img[align="left"] { margin: 0 12pt 8pt 0; }
+img[align="right"] { margin: 0 0 8pt 12pt; }
+table { border-collapse: collapse; width: 100%; margin: 10pt 0 14pt; }
+th { background: #155608; color: #FFFFFF; border: 1px solid #155608; padding: 6pt; font-weight: bold; }
+td { border: 1px solid #DDE2DD; padding: 6pt; color: #191C1C; }
+tr:nth-child(even) td { background: #F9F9F8; }
+.jumbotron, #feature, .feature, #readingassignment, #internet, #email, #vocabulary, #bonus { background: #EAF7E6; border-left: 5pt solid #59A844; padding: 11pt 13pt; margin: 12pt 0; }
+#media, #portfolio, #multipleperspectives, #trackyourprogress, #help, #tools, #skills { background: #F9F9F8; border-left: 5pt solid #1E6D0D; padding: 11pt 13pt; margin: 12pt 0; }
+#assignmentdrop, #quiz, .media { background: #FFF0CF; border-left: 5pt solid #FDBF3F; padding: 11pt 13pt; margin: 12pt 0; color: #191C1C; }
+.docx-video-card { background: #EAF7E6; border: 1px solid #1E6D0D; border-left: 5pt solid #59A844; padding: 10pt; margin: 12pt 0 16pt; max-width: 6.7in; box-sizing: border-box; }
+.docx-video-card a { display: block; }
+.docx-video-card p { margin: 7pt 0 0 0; color: #191C1C; }
+.docx-video-thumbnail { display: block; width: 6.45in; max-width: 100%; height: auto; }
+a { color: #155608; text-decoration: underline; font-weight: bold; }
+hr { border: none; border-top: 1px solid #DDE2DD; margin: 16pt 0; }
+"""
+
+
+DOCX_STYLE_PROFILES = {
+    "source-native": source_native_docx_css,
+    "next-step": next_step_docx_css,
+}
+
+
+def docx_css_for_profile(profile: str) -> str:
+    try:
+        return DOCX_STYLE_PROFILES[profile]()
+    except KeyError as exc:
+        raise ValueError(f"Unknown DOCX style profile: {profile}") from exc
+
+
 @dataclass(frozen=True)
 class CourseConfig:
     key: str
@@ -69,6 +157,7 @@ class CourseConfig:
     source_zip_env: str
     skip_title_patterns: tuple[str, ...]
     unwrap_title_patterns: tuple[str, ...] = ()
+    docx_style_profile: str = "source-native"
 
 
 COURSES: dict[str, CourseConfig] = {
@@ -151,6 +240,7 @@ COURSES: dict[str, CourseConfig] = {
         source_zip_name="D2LCCExport_149766_25-26 _ S1 _ Learning Strategies 15 (2018) _ Per 1_202651252.zip",
         source_zip_env="LEARNING_STRATEGIES15_SOURCE_ZIP",
         skip_title_patterns=("teacher", "keep hidden", "old"),
+        docx_style_profile="next-step",
     ),
     "learning-strategies25": CourseConfig(
         key="learning-strategies25",
@@ -401,6 +491,7 @@ class BrightspaceCourseDocxExporter:
             "generatedAt": datetime.now().isoformat(timespec="seconds"),
             "courseKey": config.key,
             "courseTitle": config.course_title,
+            "docxStyleProfile": config.docx_style_profile,
             "sourceZip": str(self.source_zip),
             "outputRoot": rel_posix(self.upload_root, self.project_root),
             "includedUnits": [],
@@ -922,38 +1013,7 @@ class BrightspaceCourseDocxExporter:
 
     def combined_html(self, unit_title: str, body_parts: list[str]) -> str:
         inlined_css = "\n\n".join(self.css_cache.values())
-        generated_css = """
-@page { size: 8.5in 11in; margin: 0.55in; }
-body { background: #ffffff; color: #333333; font-family: "Trebuchet MS", Calibri, Arial, sans-serif; font-size: 12pt; line-height: 1.42; }
-.docx-root { width: 7.35in; margin: 0 auto; }
-.docx-lesson { page-break-before: always; margin: 0 0 22pt 0; }
-.docx-lesson.first { page-break-before: auto; }
-.docx-group-heading { page-break-before: always; margin: 22pt 0 14pt; }
-.docx-group-heading h1 { color: #4b4665; font-size: 18pt; border-bottom: 1px solid #cccccc; padding-bottom: 8pt; }
-#border { border: 1px solid #a7a7a7; padding: 8px; margin: 0 0 16pt 0; }
-#container { width: 100%; margin: 0 auto; }
-#header { background: #6096bf; color: #ffffff; padding: 14px 18px; margin: 0 0 18px 0; }
-#header h1 { color: #ffffff; font-size: 18pt; font-weight: normal; margin: 0; line-height: 1.2; }
-#content h1, #content h2 { color: #4b4665; line-height: 1.25; }
-#content h2 { font-size: 17pt; margin: 12pt 0 10pt; }
-#content h3 { color: #666666; font-size: 12.5pt; margin: 11pt 0 6pt; }
-p { margin: 0 0 9pt 0; }
-ul, ol { margin-top: 4pt; margin-bottom: 9pt; }
-li { margin-bottom: 4pt; }
-img { max-width: 100%; height: auto; }
-img[align="left"] { margin: 0 12pt 8pt 0; }
-img[align="right"] { margin: 0 0 8pt 12pt; }
-#feature, .feature, #readingassignment, #internet, #email, #vocabulary, #bonus { background: #ebf5eb; padding: 10pt; margin: 12pt 0; }
-#media, #portfolio, #multipleperspectives, #trackyourprogress, #help { background: #e2e1ee; padding: 10pt; margin: 12pt 0; }
-#tools, #skills { background: #d6e1ed; padding: 10pt; margin: 12pt 0; }
-#assignmentdrop, #quiz { background: #fff1c9; padding: 10pt; margin: 12pt 0; }
-.docx-video-card { background: #ebf5eb; border: 1px solid #222222; padding: 9pt; margin: 12pt 0 16pt; max-width: 6.7in; box-sizing: border-box; }
-.docx-video-card a { display: block; }
-.docx-video-card p { margin: 7pt 0 0 0; }
-.docx-video-thumbnail { display: block; width: 6.45in; max-width: 100%; height: auto; }
-a { color: #0563c1; text-decoration: underline; }
-hr { border: none; border-top: 1px solid #cccccc; margin: 16pt 0; }
-"""
+        generated_css = docx_css_for_profile(self.config.docx_style_profile)
         return f"""<!doctype html>
 <html>
 <head>
@@ -1096,6 +1156,7 @@ try {{
             f"# {self.config.course_title} Brightspace ZIP to DOCX Upload Package",
             "",
             f"Generated: {self.audit['generatedAt']}",
+            f"DOCX style profile: `{self.config.docx_style_profile}`",
             "",
             "## Folder contents",
             "",

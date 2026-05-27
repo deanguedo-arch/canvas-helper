@@ -72,6 +72,20 @@ The script should preserve the original Brightspace page structure where possibl
 - Use page breaks between lessons/resources.
 - Do not add synthetic course styling that changes the lesson’s visual character.
 
+### Course-Approved DOCX Style Profiles
+
+Synthetic styling is still not the default. A course may use an explicit DOCX style profile only when the requested conversion goal is to apply a known brand/accessibility treatment across the whole course.
+
+For Learning Strategies 15, `scripts/brightspace_zip_to_docx_upload_package.py` uses the `next-step` DOCX style profile. That profile adapts the Next Step Brightspace redesign strategy for Word import:
+
+- preserve the Brightspace manifest order, lesson text, links, media handoff blocks, and image assets;
+- apply the Next Step palette to the generated Word-import HTML across every unit document;
+- use accessible deep greens for headings, headers, links, and tables;
+- reserve the brighter logo green for borders and accent treatments;
+- use warm amber callouts for assignments/quizzes and soft green callouts for lesson features.
+
+The generated audit and upload-package README record the selected `docxStyleProfile`.
+
 ## Noise Removal Standard
 
 Remove LMS/admin/noise before Word import:
