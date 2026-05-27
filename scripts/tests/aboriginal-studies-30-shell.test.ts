@@ -103,6 +103,7 @@ test("aboriginal studies 30 shell uses the supplied pixel-redline visual system"
     "unit-card-left-t2.png",
     "unit-card-left-t3.png",
     "unit-card-left-t4.png",
+    "unit-card-divider-reference.png",
     "unit-card-right-texture.png"
   ];
 
@@ -153,9 +154,15 @@ test("aboriginal studies 30 shell uses the supplied pixel-redline visual system"
   assert.doesNotMatch(stylesSource, /\.content-body\s*>\s*\.stack-list\s*{[^}]*max-width:\s*980px/s);
   assert.match(stylesSource, /\.unit-card\s*{[^}]*min-height:\s*107px/s);
   assert.match(stylesSource, /\.unit-card\s*{[^}]*grid-template-columns:\s*128px minmax\(0,\s*1fr\) 48px/s);
+  assert.match(stylesSource, /\.stack-list\s*{[^}]*container-type:\s*inline-size/s);
+  assert.match(stylesSource, /\.unit-card \.unit-card-content span\s*{[^}]*text-overflow:\s*ellipsis/s);
+  assert.match(stylesSource, /\.unit-card \.unit-card-content span\s*{[^}]*white-space:\s*nowrap/s);
   assert.match(stylesSource, /\.unit-card::before/);
   assert.match(stylesSource, /\.unit-card::before\s*{[^}]*unit-card-right-texture/s);
+  assert.match(stylesSource, /\.unit-card::before\s*{[^}]*width:\s*530px/s);
   assert.match(stylesSource, /\.unit-card::after\s*{[^}]*left:\s*126px/s);
+  assert.match(stylesSource, /\.unit-card::after\s*{[^}]*width:\s*12px/s);
+  assert.match(stylesSource, /\.unit-card::after\s*{[^}]*unit-card-divider-reference/s);
   assert.doesNotMatch(stylesSource, /\.unit-badge-shell\s*{[^}]*linear-gradient/s);
   assert.match(stylesSource, /\.unit-badge-shell\s*{[^}]*unit-card-left-t1\.png/s);
   assert.match(stylesSource, /unit-card-left-t2\.png/);
@@ -166,8 +173,12 @@ test("aboriginal studies 30 shell uses the supplied pixel-redline visual system"
   assert.doesNotMatch(stylesSource, /\.unit-badge-label/);
   assert.match(stylesSource, /\.unit-arrow/);
   assert.doesNotMatch(stylesSource, /\.brand-mark/);
-  assert.match(stylesSource, /@media \(max-width:\s*860px\)[\s\S]*?\.unit-card\s*{[\s\S]*?grid-template-columns:\s*104px minmax\(0,\s*1fr\) 24px[\s\S]*?height:\s*88px/);
-  assert.match(stylesSource, /@media \(max-width:\s*860px\)[\s\S]*?\.unit-card \.unit-card-content span\s*{[\s\S]*?display:\s*none/);
+  assert.match(stylesSource, /@container \(max-width:\s*980px\)[\s\S]*?\.unit-card\s*{[\s\S]*?grid-template-columns:\s*128px minmax\(0,\s*1fr\) 48px[\s\S]*?min-height:\s*107px/);
+  assert.match(stylesSource, /@container \(max-width:\s*980px\)[\s\S]*?\.unit-card \.unit-card-content span\s*{[\s\S]*?display:\s*block/);
+  assert.match(stylesSource, /@container \(max-width:\s*720px\)[\s\S]*?\.unit-card\s*{[\s\S]*?grid-template-columns:\s*104px minmax\(0,\s*1fr\) 24px[\s\S]*?height:\s*88px/);
+  assert.match(stylesSource, /@container \(max-width:\s*720px\)[\s\S]*?\.unit-card \.unit-card-content span\s*{[\s\S]*?display:\s*none/);
+  assert.match(stylesSource, /@media \(max-width:\s*760px\)[\s\S]*?\.unit-card\s*{[\s\S]*?grid-template-columns:\s*104px minmax\(0,\s*1fr\) 24px[\s\S]*?height:\s*88px/);
+  assert.match(stylesSource, /@media \(max-width:\s*760px\)[\s\S]*?\.unit-card \.unit-card-content span\s*{[\s\S]*?display:\s*none/);
   assert.match(stylesSource, /@media \(max-width:\s*640px\)[\s\S]*?\.unit-card\s*{[\s\S]*?grid-template-columns:\s*92px minmax\(0,\s*1fr\) 18px[\s\S]*?height:\s*78px/);
 });
 

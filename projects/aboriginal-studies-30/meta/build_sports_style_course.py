@@ -151,6 +151,7 @@ def copy_design_assets(audit: dict) -> None:
         "unit-card-left-t2.png",
         "unit-card-left-t3.png",
         "unit-card-left-t4.png",
+        "unit-card-divider-reference.png",
         "unit-card-right-texture.png",
     ]
     obsolete_assets = [
@@ -2556,6 +2557,7 @@ a {
 }
 
 .stack-list {
+  container-type: inline-size;
   display: grid;
   gap: 21px;
 }
@@ -2610,10 +2612,12 @@ a {
   content: "";
   position: absolute;
   inset: 0 0 0 auto;
-  width: 260px;
+  width: 530px;
   pointer-events: none;
-  background: url("./assets/design/as30/unit-card-right-texture.png") right center / cover no-repeat;
-  opacity: 0.6;
+  background: url("./assets/design/as30/unit-card-right-texture.png?v=botanical-right") right center / 530px 108px no-repeat;
+  opacity: 0.84;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 24%, #000 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 24%, #000 100%);
 }
 
 .unit-card::after {
@@ -2622,11 +2626,9 @@ a {
   top: 0;
   bottom: 0;
   left: 126px;
-  width: 14px;
+  width: 12px;
   pointer-events: none;
-  background:
-    linear-gradient(90deg, var(--as-turquoise) 0 2px, rgba(25, 193, 183, 0.15) 2px 7px, var(--as-copper) 7px 8px, transparent 8px 100%);
-  box-shadow: 0 0 18px rgba(25, 193, 183, 0.2);
+  background: url("./assets/design/as30/unit-card-divider-reference.png?v=woven-divider") center / 12px 108px no-repeat;
 }
 
 .unit-card:hover,
@@ -2687,22 +2689,27 @@ a {
   align-content: center;
   gap: 9px;
   min-width: 0;
-  padding: 18px 28px 18px 37px;
+  padding: 18px 28px 18px 27px;
 }
 
 .unit-card .unit-card-content strong {
   margin: 0;
   color: var(--as-cream);
   font-family: var(--font-display);
-  font-size: clamp(25px, 2vw, 30px);
+  font-size: clamp(25px, 1.82vw, 28px);
   font-weight: 700;
   letter-spacing: 0;
 }
 
 .unit-card .unit-card-content span {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
   color: var(--as-cream-muted);
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .unit-arrow {
@@ -3517,6 +3524,130 @@ button:disabled {
   text-decoration: none;
 }
 
+@container (max-width: 980px) {
+  .unit-card {
+    grid-template-columns: 128px minmax(0, 1fr) 48px;
+    min-height: 107px;
+    height: auto;
+  }
+
+  .unit-card::before {
+    width: 360px;
+    background-size: 360px 108px;
+    opacity: 0.72;
+  }
+
+  .unit-card::after {
+    left: 126px;
+  }
+
+  .unit-badge-shell {
+    min-height: 105px;
+    background-size: 128px 107px;
+  }
+
+  .unit-card-content {
+    overflow: hidden;
+    padding: 18px 22px 18px 27px;
+    gap: 8px;
+  }
+
+  .unit-card .unit-card-content strong {
+    display: block;
+    overflow: hidden;
+    font-size: clamp(24px, 2.75vw, 28px);
+    line-height: 1.1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .unit-card .unit-card-content span {
+    display: block;
+  }
+}
+
+@container (max-width: 720px) {
+  .unit-card {
+    grid-template-columns: 104px minmax(0, 1fr) 24px;
+    min-height: 88px;
+    height: 88px;
+  }
+
+  .unit-card::before {
+    width: 220px;
+    background-size: 220px 88px;
+    opacity: 0.52;
+  }
+
+  .unit-card::after {
+    left: 102px;
+    width: 10px;
+    background-size: 10px 88px;
+  }
+
+  .unit-badge-shell {
+    min-height: 86px;
+    background-size: 104px 88px;
+  }
+
+  .unit-card-content {
+    overflow: hidden;
+    padding: 12px 12px 12px 18px;
+    gap: 0;
+  }
+
+  .unit-card .unit-card-content strong {
+    display: -webkit-box;
+    overflow: hidden;
+    font-size: clamp(20px, 3.4vw, 24px);
+    line-height: 1.08;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .unit-card .unit-card-content span {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .unit-card {
+    grid-template-columns: 104px minmax(0, 1fr) 24px;
+    min-height: 88px;
+    height: 88px;
+  }
+
+  .unit-card::after {
+    left: 102px;
+    width: 10px;
+    background-size: 10px 88px;
+  }
+
+  .unit-badge-shell {
+    min-height: 86px;
+    background-size: 104px 88px;
+  }
+
+  .unit-card-content {
+    overflow: hidden;
+    padding: 12px 12px 12px 18px;
+    gap: 0;
+  }
+
+  .unit-card .unit-card-content strong {
+    display: -webkit-box;
+    overflow: hidden;
+    font-size: clamp(18px, 4.2vw, 23px);
+    line-height: 1.08;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .unit-card .unit-card-content span {
+    display: none;
+  }
+}
+
 @media (max-width: 860px) {
   .app-shell {
     grid-template-columns: 1fr;
@@ -3555,40 +3686,6 @@ button:disabled {
   .stack-card-button {
     grid-template-columns: 1fr;
   }
-
-  .unit-card {
-    grid-template-columns: 104px minmax(0, 1fr) 24px;
-    min-height: 88px;
-    height: 88px;
-  }
-
-  .unit-card::after {
-    left: 102px;
-  }
-
-  .unit-badge-shell {
-    min-height: 86px;
-    background-size: 104px 88px;
-  }
-
-  .unit-card-content {
-    overflow: hidden;
-    padding: 12px 12px 12px 18px;
-    gap: 0;
-  }
-
-  .unit-card .unit-card-content strong {
-    display: -webkit-box;
-    overflow: hidden;
-    font-size: clamp(18px, 4.2vw, 23px);
-    line-height: 1.08;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-  }
-
-  .unit-card .unit-card-content span {
-    display: none;
-  }
 }
 
 @media (max-width: 640px) {
@@ -3600,6 +3697,8 @@ button:disabled {
 
   .unit-card::after {
     left: 90px;
+    width: 8px;
+    background-size: 8px 78px;
   }
 
   .unit-badge-shell {
