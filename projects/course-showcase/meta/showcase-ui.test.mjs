@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
@@ -151,4 +151,53 @@ test("filters group CALM courses and Options courses without Humanities or Scien
   const mentalHealthBlock = courseBlock("mental-health-wellness");
   assert.match(mentalHealthBlock, /title: "Mental Health & Wellness"/);
   assert.match(mentalHealthBlock, /url: "https:\/\/mentalhealthandwellness\.web\.app"/);
+});
+
+test("option two high-end concept is available as a standalone interactive preview", () => {
+  const optionHtmlPath = resolve(workspaceDir, "option-two.html");
+  const optionCssPath = resolve(workspaceDir, "option-two.css");
+  const optionJsPath = resolve(workspaceDir, "option-two.js");
+  const logoPath = resolve(workspaceDir, "assets/option-two/nextstep-logo-tagline.png");
+  const lilguyPath = resolve(workspaceDir, "assets/option-two/lilguy-green.png");
+
+  assert.ok(existsSync(optionHtmlPath), "expected option-two.html to exist");
+  assert.ok(existsSync(optionCssPath), "expected option-two.css to exist");
+  assert.ok(existsSync(optionJsPath), "expected option-two.js to exist");
+  assert.ok(existsSync(logoPath), "expected option two Next Step logo asset");
+  assert.ok(existsSync(lilguyPath), "expected option two lilguy asset");
+
+  const optionHtml = readFileSync(optionHtmlPath, "utf8");
+  const optionCss = readFileSync(optionCssPath, "utf8");
+  const optionJs = readFileSync(optionJsPath, "utf8");
+
+  assert.match(optionHtml, /class="option-two-page"/);
+  assert.match(optionHtml, /href="\.\/option-two\.css"/);
+  assert.match(optionHtml, /src="\.\/option-two\.js"/);
+  assert.match(optionHtml, /assets\/option-two\/nextstep-logo-tagline\.png/);
+  assert.match(optionHtml, /data-filter="options"/);
+  assert.match(optionHtml, /id="optionTwoCourses"/);
+  assert.doesNotMatch(optionHtml, /nextstep_course_showcase_high_end_mockup\.png/);
+
+  assert.match(optionCss, /--primary:\s*#1e6d0d/);
+  assert.match(optionCss, /\.option-two-dashboard\b/);
+  assert.match(optionCss, /\.option-two-shell\b[\s\S]*?grid-template-columns:\s*224px minmax\(0,\s*1fr\) 288px;/);
+  assert.match(optionCss, /\.course-card-list\b/);
+  assert.match(optionCss, /@media \(max-width:\s*920px\)/);
+
+  assert.match(optionJs, /const optionTwoCourses = \[/);
+  assert.match(optionJs, /https:\/\/forensics35\.web\.app/);
+  assert.match(optionJs, /function selectOptionTwoCourse\(/);
+  assert.match(optionJs, /function renderOptionTwoCards\(/);
+  assert.match(optionJs, /function setOptionTwoFilter\(/);
+  assert.match(optionJs, /navigator\.clipboard/);
+});
+
+test("current showcase entry point links to option two", () => {
+  assert.match(html, /href="\.\/option-two\.html"/);
+  assert.match(html, /class="concept-switcher"/);
+  assert.match(html, /class="concept-link"/);
+  assert.match(html, /View Option Two/);
+  assert.match(html, /data-testid="option-two-link"/);
+  assert.match(css, /\.concept-switcher\b/);
+  assert.match(css, /\.concept-link\b/);
 });

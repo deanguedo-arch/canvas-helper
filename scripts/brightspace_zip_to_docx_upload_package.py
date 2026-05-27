@@ -177,6 +177,38 @@ COURSES: dict[str, CourseConfig] = {
         skip_title_patterns=("teacher", "keep hidden", "old", "assignment submission"),
         unwrap_title_patterns=("units of study",),
     ),
+    "math7": CourseConfig(
+        key="math7",
+        project_slug="mathematics-7-docx-export",
+        course_title="Mathematics 7",
+        source_zip_name="D2LExport_16531_20-21 _ Mathematics 7 _ Per 1(A) _ Sec 1_202652610.zip",
+        source_zip_env="MATH7_SOURCE_ZIP",
+        skip_title_patterns=("teacher", "keep hidden", "old"),
+    ),
+    "math8": CourseConfig(
+        key="math8",
+        project_slug="mathematics-8-docx-export",
+        course_title="Mathematics 8",
+        source_zip_name="D2LExport_16533_20-21 _ Mathematics 8 _ Per 1(A) _ Sec 1_202652637.zip",
+        source_zip_env="MATH8_SOURCE_ZIP",
+        skip_title_patterns=("teacher", "keep hidden", "old"),
+    ),
+    "math9": CourseConfig(
+        key="math9",
+        project_slug="mathematics-9-docx-export",
+        course_title="Mathematics 9",
+        source_zip_name="D2LExport_16534_20-21 _ Mathematics 9 _ Per 1(A) _ Sec 1_202652651.zip",
+        source_zip_env="MATH9_SOURCE_ZIP",
+        skip_title_patterns=("teacher", "keep hidden", "old"),
+    ),
+    "science9": CourseConfig(
+        key="science9",
+        project_slug="science-9-docx-export",
+        course_title="Science 9",
+        source_zip_name="D2LExport_16514_20-21 _ Science 9 _ Per 1(A) _ Sec 1_202652623.zip",
+        source_zip_env="SCIENCE9_SOURCE_ZIP",
+        skip_title_patterns=("teacher", "keep hidden", "old"),
+    ),
 }
 
 
@@ -408,11 +440,17 @@ class BrightspaceCourseDocxExporter:
             identifier = resource.get("identifier")
             if not identifier:
                 continue
-            resources[identifier] = [
-                file_node.get("href") or ""
-                for file_node in resource
-                if local_name(file_node.tag) == "file" and file_node.get("href")
-            ]
+            hrefs: list[str] = []
+            resource_href = (resource.get("href") or "").strip()
+            if resource_href:
+                hrefs.append(resource_href.replace("\\", "/"))
+            for file_node in resource:
+                if local_name(file_node.tag) != "file":
+                    continue
+                file_href = (file_node.get("href") or "").strip()
+                if file_href:
+                    hrefs.append(file_href.replace("\\", "/"))
+            resources[identifier] = list(dict.fromkeys(hrefs))
         return resources
 
     def top_modules(self) -> list[ET.Element]:
@@ -564,7 +602,23 @@ class BrightspaceCourseDocxExporter:
         return f'<section class="docx-lesson{first_class}" data-source-href="{escape(href)}">{body_html}</section>'
 
     def render_support_section(self, unit_title: str, title: str, href: str, unit_folder: str, first: bool) -> str:
-        support_rel = self.copy_support(href, title or Path(href).name, unit_folder)
+        archive_href = href
+        if href.startswith("/") and package_path_exists(self.zip_file, href.lstrip("/")):
+            archive_href = href.lstrip("/")
+        looks_external = is_external_url(href) or (
+            href.startswith("/") and not package_path_exists(self.zip_file, href) and not package_path_exists(self.zip_file, href.lstrip("/"))
+        )
+        if looks_external:
+            first_class = " first" if first else ""
+            escaped_title = escape(title or href)
+            escaped_href = escape(href)
+            return (
+                f'<section class="docx-lesson support-section{first_class}">'
+                f'<div id="border"><div id="container"><div id="header"><h1>{escaped_title}</h1></div>'
+                f'<div id="content"><p><strong>External supporting link:</strong> '
+                f'<a href="{escaped_href}">{escaped_href}</a></p></div></div></div></section>'
+            )
+        support_rel = self.copy_support(archive_href, title or Path(archive_href).name, unit_folder)
         first_class = " first" if first else ""
         escaped_title = escape(title or Path(href).name)
         escaped_rel = escape(support_rel)
@@ -937,7 +991,15 @@ $word.Visible = $false
 $word.DisplayAlerts = 0
 try {{
   foreach ($job in $jobs) {{
-    $doc = $word.Documents.Open($job.html, $false, $true)
+    $doc = $null
+    for ($attempt = 1; $attempt -le 10 -and $null -eq $doc; $attempt++) {{
+      try {{
+        $doc = $word.Documents.Open($job.html, $false, $true)
+      }} catch {{
+        if ($attempt -eq 10) {{ throw }}
+        Start-Sleep -Milliseconds (200 * $attempt)
+      }}
+    }}
     foreach ($shape in @($doc.InlineShapes)) {{
       try {{
         $link = $shape.LinkFormat
@@ -958,11 +1020,26 @@ try {{
       }} catch {{
       }}
     }}
-    $doc.SaveAs([ref]$job.docx, [ref]16)
-    $doc.Close($false)
+    $saved = $false
+    for ($attempt = 1; $attempt -le 10 -and -not $saved; $attempt++) {{
+      try {{
+        $doc.SaveAs([ref]$job.docx, [ref]16)
+        $saved = $true
+      }} catch {{
+        if ($attempt -eq 10) {{ throw }}
+        Start-Sleep -Milliseconds (250 * $attempt)
+      }}
+    }}
+    try {{
+      $doc.Close($false)
+    }} catch {{
+    }}
   }}
 }} finally {{
-  $word.Quit()
+  try {{
+    $word.Quit()
+  }} catch {{
+  }}
 }}
 """.strip(),
             encoding="utf-8",

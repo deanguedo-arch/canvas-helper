@@ -7,6 +7,8 @@ const STORAGE_KEYS = {
 };
 
 const refs = {
+  appShell: document.getElementById('app-shell'),
+  sidebarToggle: document.getElementById('sidebar-toggle'),
   sectionTitle: document.getElementById('section-title'),
   contentBody: document.getElementById('content-body'),
   progressFill: document.getElementById('progress-fill'),
@@ -35,8 +37,11 @@ let state = loadJson(STORAGE_KEYS.ui, {
   activeUnitId: units[0]?.id || null,
   activeLibraryId: null,
   activeAssignmentId: null,
-  activeFilmId: null
+  activeFilmId: null,
+  sidebarCollapsed: false
 });
+
+state.sidebarCollapsed = Boolean(state.sidebarCollapsed);
 
 const routeParams = new URLSearchParams(window.location.search);
 const requestedSection = routeParams.get('section');
@@ -131,6 +136,23 @@ function setActiveFilm(itemId) {
   render();
 }
 
+function applySidebarState() {
+  refs.appShell?.classList.toggle('is-sidebar-collapsed', state.sidebarCollapsed);
+  if (!refs.sidebarToggle) return;
+  refs.sidebarToggle.setAttribute('aria-expanded', String(!state.sidebarCollapsed));
+  refs.sidebarToggle.setAttribute('aria-label', state.sidebarCollapsed ? 'Expand sidebar' : 'Collapse sidebar');
+  const icon = refs.sidebarToggle.querySelector('i');
+  if (icon) {
+    icon.className = `fa-solid ${state.sidebarCollapsed ? 'fa-chevron-right' : 'fa-chevron-left'}`;
+  }
+}
+
+function toggleSidebar() {
+  state.sidebarCollapsed = !state.sidebarCollapsed;
+  saveJson(STORAGE_KEYS.ui, state);
+  applySidebarState();
+}
+
 function markUnitComplete(unitId) {
   if (!progress.completedUnits.includes(unitId)) {
     progress.completedUnits.push(unitId);
@@ -177,7 +199,7 @@ function updateProgress() {
   const percent = Math.round((done / total) * 100);
   refs.progressFill.style.width = `${percent}%`;
   refs.progressPercent.innerHTML = `${percent}% <span class="progress-complete">complete</span>`;
-  refs.progressCount.textContent = `${done}/${units.length} units`;
+  refs.progressCount.textContent = `${done} / ${units.length} Units`;
   document.querySelector('.progress-meta strong').textContent = `${done}/${units.length}`;
 }
 
@@ -206,11 +228,14 @@ function renderHome() {
         const complete = isUnitComplete(unit.id);
         return `
           <button type="button" class="stack-card stack-card-button unit-card${locked ? ' is-locked' : ''}${complete ? ' is-complete' : ''}" data-unit-id="${unit.id}" ${locked ? 'disabled' : ''}>
-            <span class="card-code mono">${escapeHtml(unit.code)}</span>
-            <span class="card-lock-content">
+            <span class="unit-badge-shell unit-badge-shell--${escapeHtml(unit.code.toLowerCase())}" aria-hidden="true">
+              <span class="unit-badge unit-badge--${escapeHtml(unit.code.toLowerCase())}"></span>
+            </span>
+            <span class="card-lock-content unit-card-content">
               <strong>${escapeHtml(unit.title)}</strong>
               <span>${escapeHtml(locked ? 'Complete the previous unit to unlock this one.' : unit.description)}</span>
             </span>
+            <span class="unit-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></span>
           </button>
         `;
       }).join('')}
@@ -817,5 +842,7 @@ refs.navQuizzes?.addEventListener('click', () => setSection('quizzes'));
 refs.navAssignments?.addEventListener('click', () => setSection('assignments'));
 refs.navLibrary?.addEventListener('click', () => setSection('library'));
 refs.navFilm?.addEventListener('click', () => setSection('film'));
+refs.sidebarToggle?.addEventListener('click', toggleSidebar);
 
+applySidebarState();
 render();

@@ -1,0 +1,22 @@
+Compare your latest implementation screenshot against:
+
+docs/design/as30/reference/as30-units-home-reference-1672x941.png
+
+Do a visual correction pass only. Do not change behavior unless necessary for layout.
+
+Check these measurements:
+- Sidebar width should be 336px.
+- Progress hero should be about 1247×274px and start around x=382 y=32.
+- Unit cards should be about 1255×108px and start around x=374.
+- Unit list gap should be about 21px.
+- Badge column should be about 130px.
+- Vertical accent strip should sit between badge and copy.
+- Typography should feel cream, premium, and close to reference.
+- Active Units nav should be much stronger than inactive nav.
+- Do not let the UI become generic gray/blue dashboard styling.
+
+Return:
+- what was off
+- what you changed
+- updated screenshot
+- build/lint/test output if code changed

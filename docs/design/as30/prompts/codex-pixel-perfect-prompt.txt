@@ -1,0 +1,44 @@
+You are working in the Aboriginal Studies 30 course-shell repo.
+
+Read these first:
+1. AGENTS.md
+2. docs/design/as30/PIXEL_PERFECT_IMPLEMENTATION_PLAN.md
+3. docs/design/as30/VISUAL_QA_CHECKLIST.md
+
+Use these visual references:
+- docs/design/as30/reference/as30-units-home-reference-1672x941.png
+- docs/design/as30/reference/as30-design-system-reference-1448x1086.png
+- docs/design/as30/reference/as30-units-home-annotated-measurements.png
+
+Task phase 0:
+Inspect the repo only. Do not edit files yet.
+
+Return:
+- current route/component map
+- exact files controlling shell/sidebar/units/theme/questions/library/film room/assignments/quizzes
+- style system currently used
+- build/lint/test commands
+- screenshot/preview method available
+- any missing assets or assumptions
+- step-by-step implementation plan
+
+After I approve the plan, implement only the shell/sidebar/progress hero/Units home first.
+
+Pixel target:
+The Units Home at 1672×941 must match the reference as closely as practical:
+- 336px sidebar
+- 50px pattern band
+- progress hero around x=382 y=32 w=1247 h=274
+- unit cards around x=374 w=1255 h=108
+- cream/copper/turquoise/forest palette
+- active Units nav with strong teal state
+- circular T1/T2/T3/T4 badges
+- copper borders and dark textured card backgrounds
+
+Do not implement secondary screens until the Units Home visual shell is close.
+
+Proof required after implementation:
+- build/lint/test output
+- screenshot at 1672×941
+- changed files list
+- deviations from reference

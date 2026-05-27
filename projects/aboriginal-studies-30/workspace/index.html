@@ -4,19 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aboriginal Studies 30</title>
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="./styles.css" />
 </head>
-<body data-project-slug="aboriginal-studies-30">
-  <div class="app-shell">
-    <aside class="sidebar">
+<body class="as30-shell" data-project-slug="aboriginal-studies-30">
+  <div id="app-shell" class="app-shell">
+    <aside id="course-sidebar" class="sidebar" aria-label="Course navigation">
+      <div class="sidebar-pattern" aria-hidden="true"></div>
+      <button id="sidebar-toggle" class="sidebar-toggle" type="button" aria-controls="course-sidebar" aria-expanded="true" aria-label="Collapse sidebar">
+        <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+      </button>
       <header class="brand-block">
-        <div>
-          <h1>Aboriginal<br />Studies 30</h1>
-          <p class="mono">Course Shell</p>
+        <div class="brand-panel">
+          <div class="brand-medallion" aria-hidden="true"></div>
+          <div class="brand-title-wrap">
+            <h1>Aboriginal<br />Studies 30</h1>
+            <div class="brand-rule" aria-hidden="true"></div>
+            <p class="mono">Course Shell</p>
+          </div>
         </div>
-        <div class="brand-mark" aria-hidden="true">AS</div>
       </header>
 
       <nav class="sidebar-nav" aria-label="Course sections">
@@ -37,7 +44,12 @@
         </button>
       </nav>
 
-      <div class="sidebar-save-host" data-google-hosted-controls-host="true"></div>
+      <div class="sidebar-footer" aria-hidden="true">
+        <p>Learning. Respect. Reciprocity.</p>
+        <span class="sidebar-footer-rule"></span>
+      </div>
+
+      <div class="sidebar-save-host" data-google-hosted-controls-host="true" data-sidebar-root-only="true"></div>
     </aside>
 
     <main class="content">
@@ -47,7 +59,7 @@
             <div class="progress-inner">
               <div class="progress-top">
                 <span class="progress-label mono">Course progress</span>
-                <span id="progress-count" class="progress-count mono">0/4 units</span>
+                <span id="progress-count" class="progress-count mono">0 / 4 Units</span>
               </div>
               <div class="progress-track" aria-hidden="true">
                 <div class="progress-fill" id="progress-fill"></div>
@@ -61,7 +73,10 @@
         </section>
 
         <section class="modules-shell">
-          <h2 id="section-title">Units</h2>
+          <div class="section-title-row">
+            <h2 id="section-title">Units</h2>
+            <span class="section-title-ornament" aria-hidden="true"></span>
+          </div>
           <div id="content-body" class="content-body"></div>
         </section>
       </div>

@@ -1,107 +1,73 @@
 # Handoff
 
 - Project: `aboriginal-studies-30`
-- Task: Restore and polish the Theme 1 online booklet activity and consolidate its resources.
-- Status: complete for local review
+- Task: Fix hamburger/collapsed behavior for accepted unit cards and remove AS sidebar badge.
+- Status: ready for local visual review
 
 ## Summary
-- Theme 1 now includes Assignment 1.1, all numbered booklet questions 1-87, and Assignment 1.2.
-- Fill-in-the-blank questions render as real inline inputs without repeating the full question above the blank line.
-- Multiple-choice questions render as selectable choices, and question 37 renders as a fillable table.
-- Prompt-specific resources now appear with the prompts they support:
-  - Assignment 1.1 includes `Walking Together: The Oral Tradition`.
-  - Question 56 includes the embedded `Road Allowance People` video.
-  - Assignment 1.2 includes the embedded `Métis Self-Governance` video.
-- Replaced the broken LearnAlberta oral tradition URL with the supplied local PDF at `workspace/assets/theme-1/readings/indigenous-worldviews.pdf`.
-- Renamed the unit resource detail card to `Resources`.
-- Added `Chapter 1` to the top of the Theme 1 resource list with the `Open Chapter` action.
-- Renamed the online booklet header to `Theme 1 Questions`.
-- Removed the redundant top resource-card grid from the online booklet; resources now live in the unit `Resources` list and prompt-specific links stay attached to the relevant questions.
-- Section source labels remain in place for textbook page ranges and reading references.
-- Removed all inline booklet image grids from the Theme 1 written assignment surface because they did not format well in this activity.
-- The generator may still extract Theme 1 PDF images into workspace assets during rebuild, but the activity data no longer attaches those images to student prompts or sections.
-- Theme 1 long-answer and table-answer textareas now use controlled auto-grow: students cannot manually drag-resize them, fields expand vertically while typing, and very long responses cap at a stable height with internal scrolling.
-- Added a Google Stitch redesign brief at `projects/aboriginal-studies-30/meta/google-stitch-redesign-brief.md` so the current course shell can be sent out for a visual redesign without losing required structure.
-- Kept the answer key out of the student-facing workspace and tests.
-- Kept `reviewUnlockAll = true` so the whole course remains unlocked while editing.
+- Preserved the accepted desktop unit-card look.
+- Removed the circular `AS` badge from the sidebar brand area in both the live workspace and the builder template.
+- Fixed the hamburger/narrow breakage by overriding the generic mobile `.stack-card-button` one-column rule for `.unit-card`.
+- Added smaller responsive unit-card sizing below `640px` while keeping the badge panel horizontal.
 
 ## Files Changed
-- `projects/aboriginal-studies-30/meta/build_sports_style_course.py`
-- `projects/aboriginal-studies-30/meta/project.json`
-- `projects/aboriginal-studies-30/meta/source-zip-audit.json`
-- `projects/aboriginal-studies-30/workspace/course-data.js`
-- `projects/aboriginal-studies-30/workspace/main.js`
-- `projects/aboriginal-studies-30/workspace/styles.css`
-- `projects/aboriginal-studies-30/workspace/assets/theme-1/readings/indigenous-worldviews.pdf`
-- `projects/aboriginal-studies-30/workspace/assets/theme-1/images/**`
-- `scripts/tests/aboriginal-studies-30-shell.test.ts`
 - `.stax/task.md`
 - `.stax/codex-report.md`
+- `.stax/command-evidence/cmd_2026-05-26T20_36_44_334Z_0c3d6942392c.pointer.json`
 - `.stax/visual-proofs/manifest.json`
-- `.stax/visual-proofs/visual_2026-05-25T18_18_14_332Z_8ad5829ebf68.png`
-- `.stax/command-evidence/cmd_2026-05-25T18_18_25_873Z_0c3d6942392c.pointer.json`
-- `.stax/visual-proofs/visual_2026-05-25T18_14_27_617Z_4a039bd52c19.png`
-- `.stax/command-evidence/cmd_2026-05-25T18_14_42_634Z_0c3d6942392c.pointer.json`
-- `.stax/visual-proofs/visual_2026-05-25T18_42_26_353Z_e2f4ad4bdf26.png`
-- `.stax/command-evidence/cmd_2026-05-25T18_42_08_383Z_0c3d6942392c.pointer.json`
-- `.stax/visual-proofs/visual_2026-05-25T18_51_36_543Z_76d7c89da8e6.png`
-- `.stax/command-evidence/cmd_2026-05-25T18_51_21_184Z_0c3d6942392c.pointer.json`
-- `.stax/visual-proofs/visual_2026-05-25T19_42_39_981Z_472d7e4110f9.png`
-- `.stax/command-evidence/cmd_2026-05-25T19_42_30_597Z_0c3d6942392c.pointer.json`
-- `projects/aboriginal-studies-30/meta/google-stitch-redesign-brief.md`
+- `.stax/visual-proofs/visual_2026-05-26T20_36_20_043Z_031c8664263b.png`
 - `docs/ops/ACTIVE_HANDOFF.md`
+- `projects/aboriginal-studies-30/meta/build_sports_style_course.py`
+- `projects/aboriginal-studies-30/meta/visual-checks/as30-unit-cards-collapsed-hamburger-fix-1672x941.png`
+- `projects/aboriginal-studies-30/meta/visual-checks/as30-unit-cards-mobile-hamburger-fix-760x941.png`
+- `projects/aboriginal-studies-30/meta/visual-checks/as30-unit-cards-reference-fix-1672x941.png`
+- `projects/aboriginal-studies-30/workspace/index.html`
+- `projects/aboriginal-studies-30/workspace/styles.css`
+- `scripts/tests/aboriginal-studies-30-shell.test.ts`
 
 ## Verification Run
-- `python projects/aboriginal-studies-30/meta/build_sports_style_course.py`
 - `node node_modules/tsx/dist/cli.mjs --test scripts/tests/aboriginal-studies-30-shell.test.ts`
-- `npm.cmd run validate:manifests -- --project aboriginal-studies-30`
+  - Passed: 8 tests.
 - `npm.cmd run verify -- --project aboriginal-studies-30`
-- `rg -n -i "Answer Key|AB_Studies_30_Combined_Answer_Key|AB-Studies-30-Theme-[0-9]-Key|teacher answer|View Slides|Phases|Performance|Tape catalog|tapes loaded|BrightSpace page|Brightspace page|Booklet page|figcaption" projects/aboriginal-studies-30/workspace`
-- `npm.cmd run typecheck`
-- `npm.cmd run build:studio`
+  - Passed; no missing local assets, embeds, or course-shell resources.
+  - External Google Fonts and Font Awesome remain warnings.
 - `npm.cmd run test:e2e:project -- --project aboriginal-studies-30`
-- `npm.cmd run test:e2e:smoke`
-- Read back `projects/aboriginal-studies-30/meta/google-stitch-redesign-brief.md` and checked it includes required Stitch redesign constraints: Theme 1 Questions, View Chapter, Download PDF, Film Room, no Phases, and no Performance.
-- Playwright DOM check on `http://127.0.0.1:8131/?section=unit&unit=theme-1` confirmed `.activity-response` and `.activity-table-response` have computed `resize: none`, grow after a long typed response, cap at 360px and 260px respectively, switch to internal scrolling, and still save input to `aboriginal-studies-30.activityResponses`.
-- Playwright DOM check on `http://127.0.0.1:8130/?section=unit` confirmed the detail card title is `Resources`, `Chapter 1` appears with `Open Chapter`, the oral tradition resource points to `./assets/theme-1/readings/indigenous-worldviews.pdf`, the online booklet has 0 top activity resource cards, and prompt-specific resources remain present.
-- Follow-up Playwright DOM check confirmed the online activity header reads `Theme 1 Questions` and the first resource row is `Chapter 1` with `Open Chapter`.
-- Local PDF fetch check confirmed `indigenous-worldviews.pdf` returns HTTP 200 as `application/pdf` with length `1206122`.
-- STAX visual proof: `visual_2026-05-25T18_18_14_332Z_8ad5829ebf68`
-- STAX command evidence: `cmd_2026-05-25T18_18_25_873Z_0c3d6942392c`
-- Current STAX visual proof: `visual_2026-05-25T18_42_26_353Z_e2f4ad4bdf26`
-- Current STAX command evidence: `cmd_2026-05-25T18_42_08_383Z_0c3d6942392c`
-- Latest STAX visual proof: `visual_2026-05-25T18_51_36_543Z_76d7c89da8e6`
-- Latest STAX command evidence: `cmd_2026-05-25T18_51_21_184Z_0c3d6942392c`
-- Controlled response-box STAX visual proof: `visual_2026-05-25T19_42_39_981Z_472d7e4110f9`
-- Controlled response-box STAX command evidence: `cmd_2026-05-25T19_42_30_597Z_0c3d6942392c`
-- Latest STAX observer preflight exited 0 and recorded Reject as non-blocking observer output.
+  - Passed: 1 test.
+- Playwright screenshot/metrics:
+  - `projects/aboriginal-studies-30/meta/visual-checks/as30-unit-cards-reference-fix-1672x941.png`
+  - `projects/aboriginal-studies-30/meta/visual-checks/as30-unit-cards-collapsed-hamburger-fix-1672x941.png`
+  - `projects/aboriginal-studies-30/meta/visual-checks/as30-unit-cards-mobile-hamburger-fix-760x941.png`
+- STAX command evidence:
+  - `cmd_2026-05-26T20_36_44_334Z_0c3d6942392c`
+- STAX visual proof:
+  - `visual_2026-05-26T20_36_20_043Z_031c8664263b`
 
 ## Known Risks / Follow-Up
-- The online booklet saves responses to browser storage; there is not yet a teacher submission backend.
-- `reviewUnlockAll` is intentionally on for editing; turn it off before student release.
-- Some YouTube embeds may show provider-side restrictions, but the resource/source links remain available.
-- The answer key was not converted into student feedback or self-check logic.
-- Regeneration depends on the local Brightspace ZIP path, Course Materials folder, Theme 1 booklet PDF path, and the supplied `C:\Users\dean.guedo\Downloads\Indigenous-Worldviews.pdf`.
-- STAX may still report unrelated stale ledger noise because the repo has older evidence from other tasks.
+- No Firebase or hosted deploy was performed.
+- Narrow screens still wrap long theme titles; the fixed issue is the badge panel no longer becomes a full-width broken tile.
+- The wider worktree still includes unrelated Course Showcase, generated AS30 DOCX, and other prior changes. Those were not reverted.
+- STAX may still reject because stale/wrong-worktree evidence from older unrelated tasks remains in its proof gate.
 
 ## Source-Of-Truth Location
-- Generator: `projects/aboriginal-studies-30/meta/build_sports_style_course.py`
-- Generated workspace: `projects/aboriginal-studies-30/workspace/index.html`
-- Generated runtime/data: `projects/aboriginal-studies-30/workspace/course-data.js`, `projects/aboriginal-studies-30/workspace/main.js`, `projects/aboriginal-studies-30/workspace/styles.css`
-- Extracted booklet image assets, not attached to the activity UI: `projects/aboriginal-studies-30/workspace/assets/theme-1/images/`
-- Local oral tradition reading PDF: `projects/aboriginal-studies-30/workspace/assets/theme-1/readings/indigenous-worldviews.pdf`
+- AS30 generator:
+  - `projects/aboriginal-studies-30/meta/build_sports_style_course.py`
+- Active generated workspace:
+  - `projects/aboriginal-studies-30/workspace/index.html`
+  - `projects/aboriginal-studies-30/workspace/styles.css`
+- Regression test:
+  - `scripts/tests/aboriginal-studies-30-shell.test.ts`
 
 ## Fragile Areas / What Might Drift
-- The generator deletes and rebuilds the workspace each run.
-- Theme 1 questions are hand-structured from PDF extraction; future edits should happen in the generator, not directly in generated workspace files.
-- Prompt-level video embeds depend on the source video URLs remaining embeddable.
+- Re-running the AS30 builder can regenerate workspace files and DOCX artifacts.
+- Unit-card visuals rely on the `unit-card-left-t*.png` crop assets and `unit-card-right-texture.png`.
+- Mobile/narrow layout is screenshot-sensitive because long theme titles wrap.
 
 ## Next Prompt Assumptions
-- The user wants Theme 1 reviewed locally before applying the same online-booklet treatment to Themes 2-4.
-- If answer-key-based self-check is requested, it should be explicitly scoped so answers are not accidentally exposed.
+- The user is reviewing the local preview before any deploy.
+- If approved, the next likely step is a hosted deploy or a similar pass on another AS30 section.
 
 ## Exact Next Command
-`Get-Content -Raw projects/aboriginal-studies-30/meta/google-stitch-redesign-brief.md`
+`node node_modules/tsx/dist/cli.mjs --test scripts/tests/aboriginal-studies-30-shell.test.ts`
 
 ## Exact Next File To Open
-`projects/aboriginal-studies-30/meta/google-stitch-redesign-brief.md`
+`projects/aboriginal-studies-30/workspace/styles.css`

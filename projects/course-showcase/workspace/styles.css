@@ -78,6 +78,38 @@ a {
   z-index: 60;
 }
 
+.concept-switcher {
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+}
+
+.concept-link {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  border: 1px solid rgba(12, 92, 42, 0.18);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--green-dark);
+  box-shadow: 0 10px 22px rgba(12, 92, 42, 0.12);
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.concept-link:hover,
+.concept-link:focus-visible {
+  outline: none;
+  border-color: rgba(11, 143, 51, 0.34);
+  box-shadow: 0 0 0 4px rgba(11, 143, 51, 0.14), 0 10px 22px rgba(12, 92, 42, 0.12);
+}
+
 .runner-brand-image {
   display: block;
   width: auto;

@@ -16,6 +16,7 @@ const mainPath = path.resolve(workspaceDir, "main.js");
 const dataPath = path.resolve(workspaceDir, "course-data.js");
 const stylesPath = path.resolve(workspaceDir, "styles.css");
 const viewerPath = path.resolve(workspaceDir, "pdf-viewer.html");
+const designAssetDir = path.resolve(workspaceDir, "assets", "design", "as30");
 
 type CourseData = {
   course?: Record<string, unknown>;
@@ -70,6 +71,8 @@ test("aboriginal studies 30 project metadata and workspace shell exist", async (
   assert.match(indexSource, /<title>Aboriginal Studies 30<\/title>/);
   assert.match(indexSource, /data-project-slug="aboriginal-studies-30"/);
   assert.match(indexSource, /data-google-hosted-controls-host="true"/);
+  assert.match(indexSource, /id="sidebar-toggle"/);
+  assert.match(indexSource, /aria-controls="course-sidebar"/);
   assert.match(indexSource, />Units<\/span>/);
   assert.match(indexSource, />Quizzes<\/span>/);
   assert.match(indexSource, />Assignments<\/span>/);
@@ -77,6 +80,95 @@ test("aboriginal studies 30 project metadata and workspace shell exist", async (
   assert.match(indexSource, />Film Room<\/span>/);
   assert.doesNotMatch(indexSource, /Phases|Performance|Sports Wellness/i);
   assert.doesNotMatch(mainSource, /Phases|Performance|View Slides/);
+});
+
+test("aboriginal studies 30 shell uses the supplied pixel-redline visual system", async () => {
+  const [indexSource, mainSource, stylesSource] = await Promise.all([
+    readFile(indexPath, "utf8"),
+    readFile(mainPath, "utf8"),
+    readFile(stylesPath, "utf8")
+  ]);
+
+  const requiredDesignAssets = [
+    "sidebar-top-pattern-band.png",
+    "sidebar-lower-texture.png",
+    "sidebar-brand-mark.png",
+    "progress-track-reference.png",
+    "unit-badge-reference.png",
+    "unit-badge-t1.png",
+    "unit-badge-t2.png",
+    "unit-badge-t3.png",
+    "unit-badge-t4.png",
+    "unit-card-left-t1.png",
+    "unit-card-left-t2.png",
+    "unit-card-left-t3.png",
+    "unit-card-left-t4.png",
+    "unit-card-right-texture.png"
+  ];
+
+  for (const fileName of requiredDesignAssets) {
+    await access(path.resolve(designAssetDir, fileName));
+  }
+
+  assert.match(indexSource, /Barlow\+Condensed/);
+  assert.match(indexSource, /Playfair\+Display/);
+  assert.match(indexSource, /Inter:wght/);
+  assert.match(indexSource, /sidebar-pattern/);
+  assert.match(indexSource, /brand-medallion/);
+  assert.match(indexSource, /brand-panel/);
+  assert.doesNotMatch(indexSource, /brand-mark/);
+  assert.doesNotMatch(indexSource, />AS<\/div>/);
+  assert.match(indexSource, /Learning\. Respect\. Reciprocity\./);
+  assert.match(indexSource, /section-title-row/);
+
+  assert.match(mainSource, /sidebarCollapsed/);
+  assert.match(mainSource, /toggleSidebar/);
+  assert.match(mainSource, /unit-badge/);
+  assert.match(mainSource, /unit-badge-shell--\$\{escapeHtml\(unit\.code\.toLowerCase\(\)\)\}/);
+  assert.match(mainSource, /unit-badge--\$\{escapeHtml\(unit\.code\.toLowerCase\(\)\)\}/);
+  assert.doesNotMatch(mainSource, /unit-badge-label/);
+  assert.match(mainSource, /unit-arrow/);
+
+  assert.match(stylesSource, /--as-sidebar-width:\s*336px/);
+  assert.match(stylesSource, /--as-content-max:\s*1256px/);
+  assert.match(stylesSource, /--font-brand:\s*"Barlow Condensed"/);
+  assert.match(stylesSource, /--font-display:\s*"Playfair Display"/);
+  assert.match(stylesSource, /#061014/);
+  assert.match(stylesSource, /#19C1B7/);
+  assert.match(stylesSource, /#B87347/);
+  assert.match(stylesSource, /#F2E9D8/);
+  assert.match(stylesSource, /grid-template-columns:\s*var\(--as-sidebar-width\) minmax\(0,\s*1fr\)/);
+  assert.match(stylesSource, /--as-sidebar-collapsed-width:\s*88px/);
+  assert.match(stylesSource, /\.app-shell\.is-sidebar-collapsed/);
+  assert.match(stylesSource, /sidebar-brand-mark\.png/);
+  assert.doesNotMatch(stylesSource, /\.brand-medallion\s*{[^}]*conic-gradient/s);
+  assert.doesNotMatch(stylesSource, /sidebar-brand-block\.png/);
+  assert.match(stylesSource, /\.progress-panel\s*{[^}]*min-height:\s*271px/s);
+  assert.match(stylesSource, /\.progress-panel\s*{[^}]*border-radius:\s*18px/s);
+  assert.doesNotMatch(stylesSource, /progress-hero-reference\.png/);
+  assert.doesNotMatch(stylesSource, /sidebar-active-nav-slice\.png/);
+  await assert.rejects(access(path.resolve(designAssetDir, "sidebar-active-nav-slice.png")));
+  await assert.rejects(access(path.resolve(designAssetDir, "sidebar-brand-block.png")));
+  assert.match(stylesSource, /\.progress-track\s*{[^}]*height:\s*39px/s);
+  assert.doesNotMatch(stylesSource, /\.content-body\s*>\s*\.stack-list\s*{[^}]*max-width:\s*980px/s);
+  assert.match(stylesSource, /\.unit-card\s*{[^}]*min-height:\s*107px/s);
+  assert.match(stylesSource, /\.unit-card\s*{[^}]*grid-template-columns:\s*128px minmax\(0,\s*1fr\) 48px/s);
+  assert.match(stylesSource, /\.unit-card::before/);
+  assert.match(stylesSource, /\.unit-card::before\s*{[^}]*unit-card-right-texture/s);
+  assert.match(stylesSource, /\.unit-card::after\s*{[^}]*left:\s*126px/s);
+  assert.doesNotMatch(stylesSource, /\.unit-badge-shell\s*{[^}]*linear-gradient/s);
+  assert.match(stylesSource, /\.unit-badge-shell\s*{[^}]*unit-card-left-t1\.png/s);
+  assert.match(stylesSource, /unit-card-left-t2\.png/);
+  assert.match(stylesSource, /unit-card-left-t3\.png/);
+  assert.match(stylesSource, /unit-card-left-t4\.png/);
+  assert.match(stylesSource, /\.unit-badge/);
+  assert.match(stylesSource, /\.unit-badge\s*{[^}]*display:\s*none/s);
+  assert.doesNotMatch(stylesSource, /\.unit-badge-label/);
+  assert.match(stylesSource, /\.unit-arrow/);
+  assert.doesNotMatch(stylesSource, /\.brand-mark/);
+  assert.match(stylesSource, /@media \(max-width:\s*860px\)[\s\S]*?\.unit-card\s*{[\s\S]*?grid-template-columns:\s*104px minmax\(0,\s*1fr\) 24px[\s\S]*?height:\s*88px/);
+  assert.match(stylesSource, /@media \(max-width:\s*860px\)[\s\S]*?\.unit-card \.unit-card-content span\s*{[\s\S]*?display:\s*none/);
+  assert.match(stylesSource, /@media \(max-width:\s*640px\)[\s\S]*?\.unit-card\s*{[\s\S]*?grid-template-columns:\s*92px minmax\(0,\s*1fr\) 18px[\s\S]*?height:\s*78px/);
 });
 
 test("aboriginal studies 30 library uses chapter viewer cards and excludes answer keys", async () => {
@@ -317,11 +409,13 @@ test("aboriginal studies 30 runtime preserves progress locks and section labels"
   assert.match(stylesSource, /\.unit-card\.is-locked/);
   assert.match(stylesSource, /filter:\s*blur\(2px\)/);
   assert.match(stylesSource, /\.sidebar-save-host/);
-  assert.match(stylesSource, /grid-template-columns:\s*320px minmax\(0,\s*1fr\)/);
+  assert.match(stylesSource, /\.sidebar-save-host\s*{[^}]*margin-top:\s*auto/s);
+  assert.match(stylesSource, /\.app-shell\.is-sidebar-collapsed\s+\.sidebar-save-host/);
+  assert.match(stylesSource, /grid-template-columns:\s*var\(--as-sidebar-width\) minmax\(0,\s*1fr\)/);
   assert.match(stylesSource, /\.content-inner\s*{[^}]*height:\s*100vh/s);
   assert.match(stylesSource, /\.content-inner\s*{[^}]*overflow-y:\s*auto/s);
   assert.match(stylesSource, /\.progress-inner/);
-  assert.match(stylesSource, /\.nav-item\.active\s*{[^}]*background:\s*rgba\(0,\s*166,\s*118,\s*0\.92\)/s);
+  assert.match(stylesSource, /\.nav-item\.active\s*{[^}]*linear-gradient\(90deg,\s*rgba\(25,\s*193,\s*183,\s*0\.54\)/s);
 });
 
 test("aboriginal studies 30 is discoverable by the studio project picker", async () => {

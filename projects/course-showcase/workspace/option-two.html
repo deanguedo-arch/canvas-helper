@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Next Step Course Showcase - Option Two</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&family=Rubik:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./option-two.css" />
+</head>
+<body class="option-two-page">
+  <header class="option-two-topbar" aria-label="Course Showcase Option Two navigation">
+    <a class="brand-lockup" href="./index.html" aria-label="Return to Course Showcase option one">
+      <img src="./assets/option-two/nextstep-logo-tagline.png" alt="Next Step" />
+    </a>
+    <div class="library-title" aria-label="Course Showcase Learning Library">
+      <strong>Course Showcase</strong>
+      <span>Learning Library</span>
+    </div>
+    <nav class="top-links" aria-label="Showcase sections">
+      <a href="#browse">Courses</a>
+      <a href="#resources">Resources</a>
+      <a href="#district">District View</a>
+    </nav>
+    <label class="search-box" for="optionTwoSearch">
+      <span aria-hidden="true">Search</span>
+      <input id="optionTwoSearch" type="search" placeholder="Search courses, topics, or skills" autocomplete="off" />
+    </label>
+    <div class="top-actions">
+      <a class="outline-action" href="./index.html">Option One</a>
+      <button class="outline-action" type="button">Sign in</button>
+      <button class="solid-action" type="button">Get Started</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-grid" aria-label="Option Two overview">
+      <article class="hero-card hero-card-light">
+        <p class="section-kicker">Education. Growth. Well-being.</p>
+        <h1>A calmer, premium course showcase for the next step.</h1>
+        <p class="hero-copy">
+          A polished learning library experience that feels credible for administrators,
+          approachable for students, and easier to scan than a basic course catalog.
+        </p>
+        <div class="hero-actions">
+          <a class="solid-action" href="#browse">Explore Courses</a>
+          <button class="outline-action" type="button" data-scroll-preview>Preview Experience</button>
+        </div>
+      </article>
+      <article class="hero-card hero-card-dark">
+        <div class="hero-card-status">
+          <span class="soft-pill">Live Preview</span>
+          <span class="amber-pill">Admin Ready</span>
+        </div>
+        <h2>Less "tech demo." More trusted education platform.</h2>
+        <p>
+          The visual system is intentionally light, structured, and calm:
+          generous spacing, subtle tonal layers, strong hierarchy, rounded cards,
+          and restrained green and amber accents.
+        </p>
+      </article>
+    </section>
+
+    <section class="stat-strip" aria-label="Showcase metrics">
+      <div>
+        <span>01</span>
+        <strong id="statLessons">42</strong>
+        <p>Lessons in featured course</p>
+      </div>
+      <div>
+        <span>08</span>
+        <strong id="statModules">8</strong>
+        <p>Structured modules</p>
+      </div>
+      <div>
+        <span>12</span>
+        <strong id="statQuizzes">12</strong>
+        <p>Interactive quizzes</p>
+      </div>
+      <div>
+        <span>30h</span>
+        <strong id="statTime">30h</strong>
+        <p>Estimated course time</p>
+      </div>
+    </section>
+
+    <section class="option-two-shell" id="browse" aria-label="Interactive course showcase">
+      <aside class="browse-sidebar" aria-label="Browse controls">
+        <p class="section-kicker">Browse</p>
+        <button class="side-item is-active" type="button" data-panel="showcase">Course Showcase</button>
+        <button class="side-item" type="button" data-filter-shortcut="all">All Courses</button>
+        <button class="side-item" type="button" data-filter-shortcut="favorites">My Favorites</button>
+        <button class="side-item" type="button" data-panel="recent">Recently Viewed</button>
+        <button class="side-item" type="button" data-panel="analytics">Analytics <span id="analyticsCount">3</span></button>
+
+        <p class="section-kicker sidebar-kicker">Categories</p>
+        <div class="sidebar-categories" aria-label="Category shortcuts">
+          <button class="category-shortcut is-active" type="button" data-filter-shortcut="all">All</button>
+          <button class="category-shortcut" type="button" data-filter-shortcut="calm">CALM</button>
+          <button class="category-shortcut" type="button" data-filter-shortcut="ldc">LDC</button>
+          <button class="category-shortcut" type="button" data-filter-shortcut="options">Options</button>
+          <button class="category-shortcut" type="button" data-filter-shortcut="wellness">Wellness Resources</button>
+        </div>
+
+        <div class="sidebar-note" id="resources">
+          <img src="./assets/option-two/lilguy-green.png" alt="" aria-hidden="true" />
+          <strong>Built for student success</strong>
+          <p>High-quality previews, clear metadata, and calm visual hierarchy for quick decisions.</p>
+          <a href="#featured">View library standards</a>
+        </div>
+      </aside>
+
+      <section class="option-two-dashboard" aria-label="Selected course workspace">
+        <div class="filter-toolbar">
+          <div class="filter-tabs" aria-label="Course filters">
+            <button class="filter-tab is-active" type="button" data-filter="all">All</button>
+            <button class="filter-tab" type="button" data-filter="calm">CALM</button>
+            <button class="filter-tab" type="button" data-filter="ldc">LDC</button>
+            <button class="filter-tab" type="button" data-filter="options">Options</button>
+            <button class="filter-tab" type="button" data-filter="wellness">Wellness Resources</button>
+          </div>
+          <div class="device-tabs" aria-label="Preview device">
+            <button class="device-tab is-active" type="button" data-device="desktop">Desktop</button>
+            <button class="device-tab" type="button" data-device="tablet">Tablet</button>
+            <button class="device-tab" type="button" data-device="mobile">Mobile</button>
+          </div>
+        </div>
+
+        <article class="selected-feature" id="selectedFeature" aria-live="polite">
+          <div class="selected-copy">
+            <div class="pill-row">
+              <span class="soft-pill" id="selectedAreaPill">Options</span>
+              <span class="muted-pill" id="selectedStatusPill">Live</span>
+            </div>
+            <h2 id="selectedTitle">Forensics 35</h2>
+            <p id="selectedDescription">
+              Dive into real-world forensic science through hands-on lessons, case studies, and interactive quizzes.
+            </p>
+            <div class="selected-actions">
+              <a class="solid-action" id="openCourse" href="https://forensics35.web.app" target="_blank" rel="noopener">Open Live Course</a>
+              <a class="text-action" id="resumeCourse" href="https://forensics35.web.app" target="_blank" rel="noopener">Resume: Case Study 4</a>
+            </div>
+          </div>
+          <div class="selected-visual" aria-hidden="true">
+            <div class="fingerprint-lines">
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="selected-note">
+              <span>Selected Course</span>
+              <strong id="selectedHighlight">Evidence, cases, critical thinking.</strong>
+            </div>
+          </div>
+        </article>
+
+        <dl class="metric-row" aria-label="Selected course metrics">
+          <div><dt>Modules</dt><dd id="metricModules">8</dd></div>
+          <div><dt>Lessons</dt><dd id="metricLessons">42</dd></div>
+          <div><dt>Quizzes</dt><dd id="metricQuizzes">12</dd></div>
+          <div><dt>Est. Time</dt><dd id="metricTime">30h</dd></div>
+        </dl>
+
+        <section class="activity-panel" aria-label="Recent activity">
+          <div class="activity-heading">
+            <p class="section-kicker">Recent Activity</p>
+            <button type="button">View all</button>
+          </div>
+          <div class="activity-row">
+            <span class="activity-thumb" aria-hidden="true"></span>
+            <div>
+              <strong id="activityTitle">Case Study 4: Trace Evidence</strong>
+              <p id="activityMeta">In progress - Last accessed May 19, 2025</p>
+            </div>
+            <button class="outline-action" type="button">Continue</button>
+          </div>
+        </section>
+      </section>
+
+      <aside class="detail-panel" id="district" aria-label="Selected course details">
+        <div class="detail-head">
+          <span class="course-symbol" id="detailSymbol" aria-hidden="true"></span>
+          <span class="muted-pill">Live</span>
+        </div>
+        <h2 id="detailTitle">Forensics 35</h2>
+        <p id="detailSummary">
+          A tighter detail panel gives administrators the course information they need without competing with the preview.
+        </p>
+        <dl class="detail-list">
+          <div><dt>Area</dt><dd id="detailArea">Options</dd></div>
+          <div><dt>Status</dt><dd id="detailStatus">Live</dd></div>
+          <div><dt>Category</dt><dd id="detailCategory">Options</dd></div>
+          <div><dt>Host</dt><dd id="detailHost">forensics35</dd></div>
+          <div><dt>Version</dt><dd id="detailVersion">v3.5.2</dd></div>
+          <div><dt>Last updated</dt><dd id="detailUpdated">May 20, 2025</dd></div>
+        </dl>
+        <a class="solid-action full-width" id="detailOpen" href="https://forensics35.web.app" target="_blank" rel="noopener">Open Live Course</a>
+        <button class="outline-action full-width" id="copyLink" type="button">Copy Preview Link</button>
+      </aside>
+    </section>
+
+    <section class="featured-section" id="featured" aria-label="Featured courses">
+      <div class="featured-heading">
+        <div>
+          <p class="section-kicker">Featured Courses</p>
+          <h2>Other courses</h2>
+          <p>Compact cards stay visually rich without making the page feel crowded.</p>
+        </div>
+        <button class="outline-action" type="button" data-filter-all>View All Courses</button>
+      </div>
+      <div class="course-card-list" id="optionTwoCourses"></div>
+    </section>
+  </main>
+
+  <script src="./option-two.js"></script>
+</body>
+</html>

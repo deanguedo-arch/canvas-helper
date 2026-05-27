@@ -5636,3 +5636,101 @@ One question before I change it: do you want only the large top hero image reduc
 ## Known risks / follow-up
 - Manual Word visual review was still pending.
 - Two shared template banner images were missing from the source ZIP.
+
+---
+
+# Archived Handoff: Aboriginal Studies 30 Sidebar Brand Fix
+
+- Archived on: 2026-05-26
+- Prior active handoff source: docs/ops/ACTIVE_HANDOFF.md before Course Showcase Option Two work
+
+# Handoff
+
+- Project: `aboriginal-studies-30`
+- Task: Fix the AS30 sidebar brand, collapse behavior, and sidebar Google sign-in placement.
+- Status: complete for local review
+
+## Summary
+- Restored the supplied AS30 flower/medallion mark as a real reusable asset: `docs/design/as30/assets/sidebar-brand-mark.png`.
+- Updated the AS30 generator so rebuilds copy and use `sidebar-brand-mark.png` in the live sidebar instead of recreating the mark with CSS.
+- Adjusted the sidebar brand row so:
+  - the original flower mark remains visible.
+  - `Aboriginal Studies 30` stays clear of the `AS` badge.
+  - the `AS` badge remains fully inside the sidebar.
+  - the collapse button sits in the top pattern band instead of on top of the brand.
+- Added persistent sidebar collapse state and an accessible `#sidebar-toggle`.
+- Kept the Google sign-in host in the sidebar with `data-google-hosted-controls-host="true"` and `data-sidebar-root-only="true"`.
+- In collapsed mode, hid text-heavy sidebar elements and removed the lower text-bearing texture so it does not clip at the bottom.
+- Kept the existing AS30 course structure intact: Units, Quizzes, Assignments, Library, and Film Room only.
+- Kept `reviewUnlockAll = true` so the course remains unlocked for editing.
+
+## Files Changed
+- `docs/design/as30/assets/sidebar-brand-mark.png`
+- `projects/aboriginal-studies-30/meta/build_sports_style_course.py`
+- `projects/aboriginal-studies-30/meta/project.json`
+- `projects/aboriginal-studies-30/meta/source-zip-audit.json`
+- `projects/aboriginal-studies-30/workspace/index.html`
+- `projects/aboriginal-studies-30/workspace/main.js`
+- `projects/aboriginal-studies-30/workspace/styles.css`
+- `projects/aboriginal-studies-30/workspace/assets/design/as30/sidebar-brand-mark.png`
+- `projects/aboriginal-studies-30/meta/visual-checks/as30-sidebar-brand-expanded-1672x941.png`
+- `projects/aboriginal-studies-30/meta/visual-checks/as30-sidebar-brand-collapsed-1672x941.png`
+- `scripts/tests/aboriginal-studies-30-shell.test.ts`
+- `.stax/task.md`
+- `.stax/codex-report.md`
+- `docs/ops/ACTIVE_HANDOFF.md`
+
+## Verification Run
+- `node node_modules/tsx/dist/cli.mjs --test scripts/tests/aboriginal-studies-30-shell.test.ts`
+  - Red run failed as expected before the brand asset existed.
+- `python projects/aboriginal-studies-30/meta/build_sports_style_course.py`
+- `node node_modules/tsx/dist/cli.mjs --test scripts/tests/aboriginal-studies-30-shell.test.ts`
+  - 8 passed.
+- Playwright expanded-sidebar DOM/screenshot check at `1672x941`:
+  - mark uses `sidebar-brand-mark.png`.
+  - AS badge fits inside sidebar.
+  - title does not overlap AS badge.
+  - sign-in host is inside `.sidebar`.
+- Playwright collapsed-sidebar DOM/screenshot check at `1672x941`:
+  - sidebar width is `88`.
+  - `is-sidebar-collapsed` is applied.
+  - title and footer are hidden.
+  - collapsed background no longer uses `sidebar-lower-texture.png`.
+- `npm.cmd run verify -- --project aboriginal-studies-30`
+- `npm.cmd run build:studio`
+- `npm.cmd run typecheck`
+- `npm.cmd run test:e2e:project -- --project aboriginal-studies-30`
+- `npm.cmd run test:e2e:smoke`
+
+## Known Risks / Follow-Up
+- `reviewUnlockAll` is intentionally on for editing and should be turned off before student release.
+- The expanded footer still uses the supplied reference texture, which includes visual footer text by design.
+- The workspace rebuild regenerates assignment DOCX files, so those AS30 generated files can show as modified after builder runs.
+- No hosted deployment was performed in this pass.
+- STAX may still report unrelated stale ledger noise from older tasks even when current local proof is green.
+
+## Source-Of-Truth Location
+- Generator: `projects/aboriginal-studies-30/meta/build_sports_style_course.py`
+- Design source/reference: `docs/design/as30/`
+- Generated workspace: `projects/aboriginal-studies-30/workspace/index.html`
+- Generated runtime/data: `projects/aboriginal-studies-30/workspace/course-data.js`, `projects/aboriginal-studies-30/workspace/main.js`, `projects/aboriginal-studies-30/workspace/styles.css`
+- Visual proofs:
+  - `projects/aboriginal-studies-30/meta/visual-checks/as30-sidebar-brand-expanded-1672x941.png`
+  - `projects/aboriginal-studies-30/meta/visual-checks/as30-sidebar-brand-collapsed-1672x941.png`
+
+## Fragile Areas / What Might Drift
+- The generator deletes and rebuilds `workspace/` each run; future AS30 visual edits should happen in the generator and `docs/design/as30/`, not only in generated workspace output.
+- The supplied PNG slices are reference assets, not clean atomic UI textures in every case.
+- The collapse button is an added control not present in the original redline, so its placement should be checked visually if the sidebar header changes again.
+- External font loading depends on Google Fonts availability.
+
+## Next Prompt Assumptions
+- The user will visually review the expanded and collapsed AS30 sidebar first.
+- If the user likes this fix, the next likely pass is tightening the same design language on detail pages without changing the course structure.
+
+## Exact Next Command
+`node node_modules/tsx/dist/cli.mjs --test scripts/tests/aboriginal-studies-30-shell.test.ts`
+
+## Exact Next File To Open
+`projects/aboriginal-studies-30/meta/build_sports_style_course.py`
+
