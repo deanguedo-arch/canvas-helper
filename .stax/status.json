@@ -1,48 +1,32 @@
 {
   "schemaVersion": "stax-sidecar-status-v1",
-  "generatedAt": "2026-05-27T18:48:25.447Z",
+  "generatedAt": "2026-05-28T14:00:30.145Z",
   "repo": "canvas-helper",
   "repoPath": "/Users/deanguedo/Documents/GitHub/canvas-helper",
   "branch": "main",
-  "commitSha": "fff50f92da74e57d743bedad48de898d6a5eb3b2",
-  "task": "Fix Aboriginal Studies 30 tablet/mobile unit-card title visibility and hide the progress panel in top-sidebar mode.\n\nGoal:\n- Keep unit-card titles visible in narrow/tablet states.\n- Prevent generic stack-card responsive rules from overriding the AS30 unit-card grid.\n- Hide the large course progress panel when the sidebar moves to the top on tablet/phone widths.\n- Apply the fix to both the active workspace stylesheet and the AS30 builder template.\n\nAcceptance boundary:\n- Do not edit raw imports.\n- Do not deploy, publish, sync, or release.\n- Keep scope to AS30 workspace/meta CSS, focused regression tests, visual proof images, handoff, and STAX report/task files.",
+  "commitSha": "167491821e462fdd5baf649be5b5153ce5bbcf03",
+  "task": "Update the Canvas Helper STAX sidecar protocol wording so screenshot proof guidance includes STAX self-capture from a local preview URL as well as existing-image registration.",
   "verdict": "Accept",
   "exitCode": 0,
   "why": "Accept means required claims are supported by verified evidence for this repo state; STAX does not certify general code correctness.",
   "verified": [
-    "Working-tree diff detected with 31 changed file(s).",
+    "No working-tree diff is currently present.",
     "Codex report contract includes Files changed, Commands run, What is verified, What is unverified, and Risks.",
-    "Diff audit: accept.",
-    "Command evidence classifier: strong_local_proof for npm run build:studio.",
+    "Command evidence classifier: strong_local_proof for npm run typecheck.",
     "Claim-to-proof: visual claim is fully supported.",
     "Claim-to-proof: protocol_compliance claim is fully supported.",
-    "Visual evidence verified: visual_2026-05-27T18_39_00_979Z_b64403833e50 (rendered_screenshot) matches the current auditable worktree.",
-    "Visual evidence verified: visual_2026-05-27T18_44_34_962Z_5f8616954382 (rendered_screenshot) matches the current auditable worktree.",
-    "Visual evidence verified: visual_2026-05-27T18_44_42_239Z_2e7ac62e2866 (rendered_screenshot) matches the current auditable worktree.",
     "Historical visual evidence ignored for current proof because visual_2026-05-16T23_54_19_358Z_4cc055f3d9f7 is stale_visual_proof.",
     "Historical visual evidence ignored for current proof because visual_2026-05-16T23_54_27_047Z_00b16ed10b29 is stale_visual_proof.",
     "Historical visual evidence ignored for current proof because visual_2026-05-16T23_54_35_224Z_37a3a056b994 is stale_visual_proof.",
-    "Command evidence provenance verified: cmd_2026-05-27T18_38_34_062Z_466c2f308b48.",
-    "Command evidence freshness verified: cmd_2026-05-27T18_38_34_062Z_466c2f308b48 matches the current auditable worktree.",
-    "Command evidence provenance verified: cmd_2026-05-27T18_38_26_578Z_b79b85db39e0.",
-    "Command evidence freshness verified: cmd_2026-05-27T18_38_26_578Z_b79b85db39e0 matches the current auditable worktree.",
-    "Command evidence provenance verified: cmd_2026-05-27T18_38_19_607Z_982c1455e5e7.",
-    "Command evidence freshness verified: cmd_2026-05-27T18_38_19_607Z_982c1455e5e7 matches the current auditable worktree.",
-    "Command evidence provenance verified: cmd_2026-05-27T18_38_07_669Z_d9f625a92414.",
-    "Command evidence freshness verified: cmd_2026-05-27T18_38_07_669Z_d9f625a92414 matches the current auditable worktree.",
-    "Command evidence provenance verified: cmd_2026-05-27T18_37_58_943Z_3103b2923da9.",
-    "Command evidence freshness verified: cmd_2026-05-27T18_37_58_943Z_3103b2923da9 matches the current auditable worktree.",
-    "Command evidence provenance verified: cmd_2026-05-27T18_37_49_648Z_a31f5f3af22a.",
-    "Command evidence freshness verified: cmd_2026-05-27T18_37_49_648Z_a31f5f3af22a matches the current auditable worktree.",
-    "Command evidence provenance verified: cmd_2026-05-27T18_37_44_085Z_0c3d6942392c.",
-    "Command evidence freshness verified: cmd_2026-05-27T18_37_44_085Z_0c3d6942392c matches the current auditable worktree.",
-    "Historical command evidence ignored for current proof because /Users/deanguedo/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 -m py_compile scripts/brightspace_zip_to_docx_upload_package.py scripts/tests/brightspace_docx_style_profile_test.py is wrong_worktree.",
-    "Historical command evidence ignored for current proof because /Users/deanguedo/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 scripts/tests/brightspace_docx_style_profile_test.py is wrong_worktree.",
-    "Historical command evidence ignored for current proof because npm run test:e2e:project -- --project general-psychology-20-independent-studies-202633108 is wrong_commit.",
-    "Proof strength: Audit-grade (1) - Unsupported test_pass claim: - AS30 shell regression test passed through STAX command evidence. (Runtime/completion claim requires local STAX command evidence.).",
-    "Fresh STAX sidecar heartbeat is present (95958ms old).",
-    "Fresh Codex turn capture is present for session 019e1246-dcae-7c00-8915-6615c5fb3fe7 with 1807 message(s).",
-    "Protocol warning recorded as non-blocking: Current Codex turn capture does not contain the current STAX acknowledgement; report acknowledgement is present, so this may be capture lag."
+    "Command evidence provenance verified: cmd_2026-05-28T12_45_20_884Z_982c1455e5e7.",
+    "Command evidence freshness verified: cmd_2026-05-28T12_45_20_884Z_982c1455e5e7 matches the current auditable worktree.",
+    "Historical command evidence ignored for current proof because git diff --check is wrong_worktree.",
+    "Historical command evidence ignored for current proof because npm run smoke:pipeline is wrong_worktree.",
+    "Historical command evidence ignored for current proof because npm run build:studio is wrong_worktree.",
+    "Proof strength: Audit-grade (1) - Available proof is strong enough for this claim type.",
+    "Fresh STAX sidecar heartbeat is present (1055ms old).",
+    "Fresh Codex turn capture is present for session 019e1246-dcae-7c00-8915-6615c5fb3fe7 with 2401 message(s).",
+    "Protocol compliance verified: Codex acknowledged current STAX turn contract: STAX_ACK turn_2026-05-28T13-59-55-671Z_2277 4e22b209 3615a81f"
   ],
   "weak": [],
   "unverified": [],
@@ -52,66 +36,36 @@
   "proofStrength": {
     "schemaVersion": "proof-strength-v1",
     "claimType": "visual_behavior_verified",
-    "claimText": "Fix Aboriginal Studies 30 tablet/mobile unit-card title visibility and hide the progress panel in top-sidebar mode.\n\nGoal:\n- Keep unit-card titles visible in narrow/tablet states.\n- Prevent generic stack-card responsive rules from overriding the AS30 unit-card grid.\n- Hide the large course progress panel when the sidebar moves to the top on tablet/phone widths.\n- Apply the fix to both the active workspace stylesheet and the AS30 builder template.\n\nAcceptance boundary:\n- Do not edit raw imports.\n- Do not deploy, publish, sync, or release.\n- Keep scope to AS30 workspace/meta CSS, focused regression tests, visual proof images, handoff, and STAX report/task files.\n\nSTAX acknowledgement: STAX_ACK turn_2026-05-27T18-46-29-741Z_dadd 4338f33b bd28b184\n\nObjective:\nFix Aboriginal Studies 30 tablet/mobile unit-card title visibility and hide the progress panel in top-sidebar mode.\n\nFiles changed:\n- `docs/ops/ACTIVE_HANDOFF.md`\n- `projects/aboriginal-studies-30/meta/build_sports_style_course.py`\n- `projects/aboriginal-studies-30/workspace/styles.css`\n- `scripts/tests/aboriginal-studies-30-shell.test.ts`\n- `projects/aboriginal-studies-30/meta/visual-checks/as30-responsive-title-progress-css760.png`\n- `projects/aboriginal-studies-30/meta/visual-checks/as30-responsive-title-progress-css430.png`\n- `projects/aboriginal-studies-30/meta/visual-checks/as30-responsive-title-progress-tablet-760x941.png`\n- `projects/aboriginal-studies-30/meta/visual-checks/as30-responsive-title-progress-phone-430x941.png`\n\nTests added:\n- Added AS30 shell assertions that the 860px responsive rule keeps `.unit-card` grids intact.\n- Added AS30 shell assertions that the progress panel is hidden at the top-sidebar breakpoint.\n- Added a negative assertion that the generic `.stack-card-button` one-column rule does not target unit cards.\n\nCommands run:\n- `npm run stax:collect -- --repo /Users/deanguedo/Documents/GitHub/canvas-helper -- node node_modules/tsx/dist/cli.mjs --test scripts/tests/aboriginal-studies-30-shell.test.ts`\n  - exitCode: 0\n  - evidence: `cmd_2026-05-27T18_37_44_085Z_0c3d6942392c`\n- `npm run stax:collect -- --repo /Users/deanguedo/Documents/GitHub/canvas-helper -- npm run verify -- --project aboriginal-studies-30`\n  - exitCode: 0\n  - evidence: `cmd_2026-05-27T18_37_49_648Z_a31f5f3af22a`\n- `npm run stax:collect -- --repo /Users/deanguedo/Documents/GitHub/canvas-helper -- npm run test:e2e:project -- --project aboriginal-studies-30`\n  - exitCode: 0\n  - evidence: `cmd_2026-05-27T18_37_58_943Z_3103b2923da9`\n- `npm run stax:collect -- --repo /Users/deanguedo/Documents/GitHub/canvas-helper -- npm run test:e2e:smoke`\n  - exitCode: 0\n  - evidence: `cmd_2026-05-27T18_38_07_669Z_d9f625a92414`\n- `npm run stax:collect -- --repo /Users/deanguedo/Documents/GitHub/canvas-helper -- npm run typecheck`\n  - exitCode: 0\n  - evidence: `cmd_2026-05-27T18_38_19_607Z_982c1455e5e7`\n- `npm run stax:collect -- --repo /Users/deanguedo/Documents/GitHub/canvas-helper -- npm run build:studio`\n  - exitCode: 0\n  - evidence: `cmd_2026-05-27T18_38_26_578Z_b79b85db39e0`\n- `npm run stax:collect -- --repo /Users/deanguedo/Documents/GitHub/canvas-helper -- git diff --check`\n  - exitCode: 0\n  - evidence: `cmd_2026-05-27T18_38_34_062Z_466c2f308b48`\n- `npm run stax:collect-visual -- --repo /Users/deanguedo/Documents/GitHub/canvas-helper --path projects/aboriginal-studies-30/meta/visual-checks/as30-responsive-title-progress-tablet-760x941.png ...`\n  - exitCode: 0\n  - evidence: `visual_2026-05-27T18_39_00_979Z_91f6b2d8660f`\n- `npm run stax:collect-visual -- --repo /Users/deanguedo/Documents/GitHub/canvas-helper --path projects/aboriginal-studies-30/meta/visual-checks/as30-responsive-title-progress-phone-430x941.png ...`\n  - exitCode: 0\n  - evidence: `visual_2026-05-27T18_39_00_979Z_b64403833e50`\n\nCommand output summary with exit codes:\n- AS30 shell regression test passed through STAX command evidence.\n- AS30 project verification passed through STAX command evidence.\n- AS30 project e2e contract passed through STAX command evidence.\n- Smoke e2e contract passed through STAX command evidence.\n- Typecheck passed through STAX command evidence.\n- Studio build passed through STAX command evidence.\n- Whitespace diff check passed through STAX command evidence.\n- Tablet and phone visual proof screenshots were captured into the STAX sidecar visual-proof store.\n\nWhat is verified:\n- Unit-card titles remain visible in tablet/mobile layouts.\n- The generic 860px `.stack-card-button` responsive rule no longer overrides `.unit-card` grid layout.\n- The progress panel is hidden under the tablet/top-sidebar breakpoint.\n- The workspace stylesheet and AS30 builder template carry the same responsive fix.\n- Current Canvas sidecar command evidence matches the exact current AS30 worktree.\n- Tablet and phone screenshot evidence exists for the responsive state.\n\nWhat is weak/provisional:\n- Visual proof is from local screenshot artifacts, not a hosted/deployed course URL.\n- The Canvas package still does not expose local `stax:*` scripts; evidence was collected from the STAX tooling repo against this Canvas repo.\n\nWhat is unverified:\n- No deploy, publish, sync, upload, or release action was performed.\n- No hosted Canvas/Firebase behavior was checked.\n\nRisks:\n- Do not commit generated `.stax` status/proof artifacts.\n- Do not commit Python bytecode caches.\n- Do not commit unrelated scratch visual-check images from earlier AS30 tuning passes.\n- Keep the builder template and workspace CSS aligned if this layout changes again.\n\nOne next action:\nRun the Canvas sidecar gate, then commit and push only the AS30 responsive fix, focused test, active handoff, and four responsive proof screenshots.",
+    "claimText": "Update the Canvas Helper STAX sidecar protocol wording so screenshot proof guidance includes STAX self-capture from a local preview URL as well as existing-image registration.\n\nSTAX acknowledgement: STAX_ACK turn_2026-05-28T13-59-55-671Z_2277 4e22b209 3615a81f\n\nObjective:\nUpdate the Canvas Helper STAX sidecar protocol wording so screenshot proof guidance includes STAX self-capture from a local preview URL as well as existing-image registration.\n\nFiles changed:\n- `AGENTS.md`\n- `.stax/prompt-contract.json`\n- `.stax/proof-surfaces.candidate.json`\n- `.stax/proof-surfaces.review.md`\n- `.stax/task.md`\n\nTests added:\n- None in Canvas Helper.\n\nCommands run:\n- From `/Users/deanguedo/Documents/GitHub/STAX`: `npm run stax:sidecar-upgrade -- --repo /Users/deanguedo/Documents/GitHub/canvas-helper --discover-surfaces`\n  - exitCode: 0\n- From `/Users/deanguedo/Documents/GitHub/STAX`: `npm run stax:collect -- --repo /Users/deanguedo/Documents/GitHub/canvas-helper -- npm run typecheck`\n  - exitCode: 0\n  - evidence: `cmd_2026-05-28T12_45_20_884Z_982c1455e5e7`\n\nCommand output summary with exit codes:\n- Sidecar upgrade exited 0.\n- Canvas Helper typecheck exited 0 through current-worktree STAX command evidence.\n\nWhat is verified:\n- `AGENTS.md` now tells agents to prefer `--url <local-preview-url>` when a local preview is running so STAX captures the screenshot itself.\n- `.stax/prompt-contract.json` now lists `npm run stax:collect-visual -- --repo <repo> --url <local-preview-url> ...` and the fallback `--path <screenshot.png>` registration path.\n- `.stax/proof-surfaces.candidate.json` was regenerated locally as candidate-only discovery output.\n- Current-worktree command evidence exists for Canvas Helper `npm run typecheck`.\n\nWhat is weak/provisional:\n- This updates sidecar guidance only; it does not certify a new course page or hosted page.\n- The regenerated proof-surface candidate remains candidate-only unless approved separately.\n\nWhat is unverified:\n- No Canvas source or Studio UI code was changed.\n- No new screenshot was captured in this sidecar protocol update.\n- No protected live action was run.\n\nRisks:\n- Generated `.stax` status/proof/report files are still local sidecar artifacts.\n- Existing approved proof surfaces were not re-approved in this step.\n\nOne next action:\nRun the Canvas Helper STAX sidecar gate for this sidecar protocol update and keep the changed protocol files if it accepts.",
     "rawScore": 1,
     "finalScore": 1,
     "label": "Audit-grade",
     "capApplied": [],
     "rejectReasons": [],
-    "primaryLimiter": "Unsupported test_pass claim: - AS30 shell regression test passed through STAX command evidence. (Runtime/completion claim requires local STAX command evidence.).",
-    "missingProof": [
-      "Unsupported test_pass claim: - AS30 shell regression test passed through STAX command evidence. (Runtime/completion claim requires local STAX command evidence.)."
-    ],
+    "primaryLimiter": "Available proof is strong enough for this claim type.",
+    "missingProof": [],
     "weakProof": [
+      "Weak command claim: npm run stax:sidecar-upgrade -- --repo (Command is named, but no command output was cited.).",
       "Weak command claim: npm run stax:collect -- --repo (Command is named, but no command output was cited.).",
       "Weak command claim: npm run stax:collect-visual -- --repo (Command is named, but no command output was cited.)."
     ],
     "strongProof": [
-      "Grounded file_path claim: docs/ops/ACTIVE_HANDOFF.md.",
-      "Grounded file_path claim: projects/aboriginal-studies-30/meta/build_sports_style_course.py.",
-      "Grounded file_path claim: projects/aboriginal-studies-30/workspace/styles.css.",
-      "Grounded file_path claim: scripts/tests/aboriginal-studies-30-shell.test.ts.",
-      "Grounded file_path claim: projects/aboriginal-studies-30/meta/visual-checks/as30-responsive-title-progress-css760.png.",
-      "Grounded file_path claim: projects/aboriginal-studies-30/meta/visual-checks/as30-responsive-title-progress-css430.png.",
-      "Grounded file_path claim: projects/aboriginal-studies-30/meta/visual-checks/as30-responsive-title-progress-tablet-760x941.png.",
-      "Grounded file_path claim: projects/aboriginal-studies-30/meta/visual-checks/as30-responsive-title-progress-phone-430x941.png.",
-      "Grounded file_path claim: node_modules/tsx/dist/cli.mjs.",
-      "Grounded command claim: npm run verify -- --project.",
-      "Grounded command claim: npm run test:e2e:project -- --project.",
-      "Grounded command claim: npm run test:e2e:smoke.",
       "Grounded command claim: npm run typecheck.",
-      "Grounded command claim: npm run build:studio.",
-      "Grounded test_pass claim: - Typecheck passed through STAX command evidence..",
-      "Grounded test_pass claim: - Studio build passed through STAX command evidence..",
       "Grounded completion claim: What is verified:.",
       "Grounded verification claim: What is verified:.",
-      "Local STAX command evidence passed: git diff --check exited 0.",
-      "Local STAX command evidence passed: npm run build:studio exited 0.",
       "Local STAX command evidence passed: npm run typecheck exited 0.",
-      "Local STAX command evidence passed: npm run test:e2e:smoke exited 0.",
-      "Local STAX command evidence passed: npm run test:e2e:project -- --project aboriginal-studies-30 exited 0.",
-      "Local STAX command evidence passed: npm run verify -- --project aboriginal-studies-30 exited 0.",
-      "Local STAX command evidence passed: node node_modules/tsx/dist/cli.mjs --test scripts/tests/aboriginal-studies-30-shell.test.ts exited 0.",
-      "Repo evidence enumerated source files.",
-      "Rendered visual proof was supplied.",
-      "Release preflight proof was supplied."
+      "Rendered visual proof was supplied."
     ],
-    "oneNextAction": "Run the repo's relevant local proof command through STAX command evidence."
+    "oneNextAction": "No proof-strength correction is needed for this claim."
   },
-  "protocolStatus": "warning",
-  "protocolFailures": [
-    {
-      "id": "current_turn_capture_missing_ack",
-      "severity": "warning",
-      "message": "Current Codex turn capture does not contain the current STAX acknowledgement; report acknowledgement is present, so this may be capture lag."
-    }
-  ],
+  "protocolStatus": "ok",
+  "protocolFailures": [],
   "protocol": {
     "schemaVersion": "stax-protocol-compliance-v1",
-    "generatedAt": "2026-05-27T18:48:25.444Z",
+    "generatedAt": "2026-05-28T14:00:30.142Z",
     "mode": "normal",
-    "status": "warning",
-    "acknowledgedTurnContract": false,
+    "status": "ok",
+    "acknowledgedTurnContract": true,
     "codexReportPresent": true,
     "requiredSectionsPresent": [
       "STAX acknowledgement",
@@ -127,15 +81,9 @@
       "One next action"
     ],
     "missingRequiredSections": [],
-    "findings": [
-      {
-        "id": "current_turn_capture_missing_ack",
-        "severity": "warning",
-        "message": "Current Codex turn capture does not contain the current STAX acknowledgement; report acknowledgement is present, so this may be capture lag."
-      }
-    ],
-    "acknowledgement": "STAX_ACK turn_2026-05-27T18-46-29-741Z_dadd 4338f33b bd28b184",
-    "contractTurnId": "turn_2026-05-27T18-46-29-741Z_dadd"
+    "findings": [],
+    "acknowledgement": "STAX_ACK turn_2026-05-28T13-59-55-671Z_2277 4e22b209 3615a81f",
+    "contractTurnId": "turn_2026-05-28T13-59-55-671Z_2277"
   },
   "cardShapeIssues": []
 }
