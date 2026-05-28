@@ -3,7 +3,7 @@
   "repoPath": "/Users/deanguedo/Documents/GitHub/canvas-helper",
   "repoName": "canvas-helper",
   "status": "candidate",
-  "generatedAt": "2026-05-27T15:37:53.878Z",
+  "generatedAt": "2026-05-28T00:15:17.111Z",
   "confidence": "high",
   "detectedStack": [
     "html-css",
@@ -72,11 +72,10 @@
         "visual_checklist"
       ],
       "commands": [
-        "npm run smoke:pipeline",
-        "npm run test:e2e",
-        "npm run test:e2e:harness",
+        "npm run test:e2e:smoke",
         "npm run test:e2e:project",
-        "npm run test:e2e:smoke"
+        "npm run test:e2e",
+        "npm run test:e2e:harness"
       ],
       "blockedEvidence": [
         "css_diff_only",
@@ -84,7 +83,7 @@
       ],
       "confidence": "high",
       "source": "workspace/config/script detection",
-      "nextAction": "Capture rendered visual proof and run npm run smoke:pipeline through stax:collect."
+      "nextAction": "Capture rendered visual proof and run npm run test:e2e:smoke through stax:collect."
     },
     {
       "claimType": "course_deploy_ready",

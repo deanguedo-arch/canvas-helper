@@ -19,12 +19,13 @@ import { verifyProjectBundle } from "./lib/verification.js";
 async function main() {
   const parsedArgs = parseArgs(process.argv.slice(2));
   const inputPath = path.resolve(getStringFlag(parsedArgs, "input") ?? path.join(repoRoot, "canvas code and references"));
-  const projectSlug = getStringFlag(parsedArgs, "project") ?? "smoke-calm-module";
+  const projectSlug = getStringFlag(parsedArgs, "project") ?? `smoke-local-pipeline-${process.pid}`;
   const keepProject = hasFlag(parsedArgs, "keep");
-  const policyOverride = readCliIntelligenceOverride(parsedArgs);
+  const cliPolicyOverride = readCliIntelligenceOverride(parsedArgs);
+  const policyOverride = Object.keys(cliPolicyOverride).length > 0 ? cliPolicyOverride : { mode: "off" as const };
   const projectPaths = getProjectPaths(projectSlug);
 
-  await removePath(projectPaths.root);
+  await removeSmokeProject(projectPaths, keepProject);
 
   try {
     console.log(`[smoke] importing ${inputPath} -> ${projectSlug}`);
@@ -96,10 +97,20 @@ async function main() {
     console.log(`- google hosted: ${googleHosted.exportDir}`);
     console.log(`- single html: ${singleHtml.outputPath}`);
   } finally {
-    if (!keepProject) {
-      await removePath(projectPaths.root);
-    }
+    await removeSmokeProject(projectPaths, keepProject);
   }
+}
+
+async function removeSmokeProject(projectPaths: ReturnType<typeof getProjectPaths>, keepProject: boolean) {
+  if (keepProject) return;
+  await removePath(projectPaths.root);
+  if (isScratchSmokeSlug(path.basename(projectPaths.root))) {
+    await removePath(projectPaths.resourceDir);
+  }
+}
+
+function isScratchSmokeSlug(projectSlug: string) {
+  return projectSlug.startsWith("smoke-local-pipeline-");
 }
 
 main().catch((error) => {
