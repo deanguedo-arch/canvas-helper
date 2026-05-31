@@ -37,7 +37,7 @@
     "assessment:export": "tsx scripts/assessment-export.ts",
     "test:assessments": "tsx --test scripts/tests/assessments-engine.test.ts",
     "test:scorm": "tsx --test scripts/tests/scorm-export.test.ts",
-    "test:apps-script": "tsx --test scripts/tests/apps-script-export.test.ts",
+    "test:apps-script": "tsx --test scripts/tests/apps-script-export.test.ts scripts/tests/apps-script-tracker-source.test.ts",
     "test:google-hosted": "tsx --test scripts/tests/google-hosted-export.test.ts",
     "test:progress-report": "tsx --test scripts/tests/progress-report.test.ts",
     "test:report-all-progress": "tsx --test scripts/tests/report-all-progress.test.ts scripts/tests/google-hosted-deploy.test.ts",

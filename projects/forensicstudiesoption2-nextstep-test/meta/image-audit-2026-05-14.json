@@ -1,0 +1,611 @@
+{
+  "generatedAt": "2026-05-14T15:27:15.915Z",
+  "project": "forensicstudiesoption2-nextstep-test",
+  "roots": [
+    {
+      "name": "workspace",
+      "root": "projects/forensicstudiesoption2-nextstep-test/workspace",
+      "filesScanned": 172,
+      "imageReferences": 366,
+      "localExisting": 331,
+      "localMissing": 5,
+      "externalReferences": 30,
+      "blankImageTags": 0
+    },
+    {
+      "name": "google-hosted-export",
+      "root": "projects/forensicstudiesoption2-nextstep-test/exports/google-hosted",
+      "filesScanned": 177,
+      "imageReferences": 366,
+      "localExisting": 331,
+      "localMissing": 5,
+      "externalReferences": 30,
+      "blankImageTags": 0
+    }
+  ],
+  "totals": {
+    "filesScanned": 349,
+    "imageReferences": 732,
+    "localExisting": 662,
+    "localMissing": 10,
+    "externalReferences": 60,
+    "externalChecked": 16,
+    "externalFailed": 10,
+    "blankImageTags": 0
+  },
+  "missingLocal": [
+    {
+      "surface": "workspace",
+      "file": "references/forensics/сontent/i16157390-e22b-49f6-b519-ab6887cba9b3/Content/book_1419/chapter_12056.html",
+      "ref": "..\\september-9-11-attacks-anniversary-ground-zero-world-trade-center-pentagon-flight-93-second-airplane-wtc_39997_600x450.jpg",
+      "kind": "img-src",
+      "expectedPath": "references/forensics/сontent/i16157390-e22b-49f6-b519-ab6887cba9b3/Content/september-9-11-attacks-anniversary-ground-zero-world-trade-center-pentagon-flight-93-second-airplane-wtc_39997_600x450.jpg"
+    },
+    {
+      "surface": "workspace",
+      "file": "references/forensics/сontent/i2b5fcc4e-bc3b-4fed-ab4c-e39906258b3f/Content/book_1417/chapter_12023.html",
+      "ref": "..\\diana-accident-princess-diana-22101163-616-421.jpg",
+      "kind": "img-src",
+      "expectedPath": "references/forensics/сontent/i2b5fcc4e-bc3b-4fed-ab4c-e39906258b3f/Content/diana-accident-princess-diana-22101163-616-421.jpg"
+    },
+    {
+      "surface": "workspace",
+      "file": "references/forensics/сontent/i864f0f6f-54b2-4d9d-aae2-cc3872177ec8/Content/book_1419/chapter_12055.html",
+      "ref": "..\\honor-guards-stand-on-duty-at-the-tomb-of-the-unknown-soldier-in-sept-2012-in-arlington-county-va.jpg",
+      "kind": "img-src",
+      "expectedPath": "references/forensics/сontent/i864f0f6f-54b2-4d9d-aae2-cc3872177ec8/Content/honor-guards-stand-on-duty-at-the-tomb-of-the-unknown-soldier-in-sept-2012-in-arlington-county-va.jpg"
+    },
+    {
+      "surface": "workspace",
+      "file": "references/forensics/сontent/i9de295d9-d55b-4a60-ac4a-1e9ca89e7f72/Content/book_1418/chapter_12043.html",
+      "ref": "..\\article-2202906-150057CA000005DC-652_634x882.jpg",
+      "kind": "img-src",
+      "expectedPath": "references/forensics/сontent/i9de295d9-d55b-4a60-ac4a-1e9ca89e7f72/Content/article-2202906-150057CA000005DC-652_634x882.jpg"
+    },
+    {
+      "surface": "workspace",
+      "file": "references/forensics/сontent/iab328ad4-59b6-47fe-95ca-ea0efa2a4f0e/Content/book_1413/chapter_12229.html",
+      "ref": "../../PastedImage_6d3jlqhzl2bu8j83x2uh6eot26d3wx6w0015343530.png",
+      "kind": "img-src",
+      "expectedPath": "references/forensics/сontent/iab328ad4-59b6-47fe-95ca-ea0efa2a4f0e/PastedImage_6d3jlqhzl2bu8j83x2uh6eot26d3wx6w0015343530.png"
+    },
+    {
+      "surface": "google-hosted-export",
+      "file": "references/forensics/сontent/i16157390-e22b-49f6-b519-ab6887cba9b3/Content/book_1419/chapter_12056.html",
+      "ref": "..\\september-9-11-attacks-anniversary-ground-zero-world-trade-center-pentagon-flight-93-second-airplane-wtc_39997_600x450.jpg",
+      "kind": "img-src",
+      "expectedPath": "references/forensics/сontent/i16157390-e22b-49f6-b519-ab6887cba9b3/Content/september-9-11-attacks-anniversary-ground-zero-world-trade-center-pentagon-flight-93-second-airplane-wtc_39997_600x450.jpg"
+    },
+    {
+      "surface": "google-hosted-export",
+      "file": "references/forensics/сontent/i2b5fcc4e-bc3b-4fed-ab4c-e39906258b3f/Content/book_1417/chapter_12023.html",
+      "ref": "..\\diana-accident-princess-diana-22101163-616-421.jpg",
+      "kind": "img-src",
+      "expectedPath": "references/forensics/сontent/i2b5fcc4e-bc3b-4fed-ab4c-e39906258b3f/Content/diana-accident-princess-diana-22101163-616-421.jpg"
+    },
+    {
+      "surface": "google-hosted-export",
+      "file": "references/forensics/сontent/i864f0f6f-54b2-4d9d-aae2-cc3872177ec8/Content/book_1419/chapter_12055.html",
+      "ref": "..\\honor-guards-stand-on-duty-at-the-tomb-of-the-unknown-soldier-in-sept-2012-in-arlington-county-va.jpg",
+      "kind": "img-src",
+      "expectedPath": "references/forensics/сontent/i864f0f6f-54b2-4d9d-aae2-cc3872177ec8/Content/honor-guards-stand-on-duty-at-the-tomb-of-the-unknown-soldier-in-sept-2012-in-arlington-county-va.jpg"
+    },
+    {
+      "surface": "google-hosted-export",
+      "file": "references/forensics/сontent/i9de295d9-d55b-4a60-ac4a-1e9ca89e7f72/Content/book_1418/chapter_12043.html",
+      "ref": "..\\article-2202906-150057CA000005DC-652_634x882.jpg",
+      "kind": "img-src",
+      "expectedPath": "references/forensics/сontent/i9de295d9-d55b-4a60-ac4a-1e9ca89e7f72/Content/article-2202906-150057CA000005DC-652_634x882.jpg"
+    },
+    {
+      "surface": "google-hosted-export",
+      "file": "references/forensics/сontent/iab328ad4-59b6-47fe-95ca-ea0efa2a4f0e/Content/book_1413/chapter_12229.html",
+      "ref": "../../PastedImage_6d3jlqhzl2bu8j83x2uh6eot26d3wx6w0015343530.png",
+      "kind": "img-src",
+      "expectedPath": "references/forensics/сontent/iab328ad4-59b6-47fe-95ca-ea0efa2a4f0e/PastedImage_6d3jlqhzl2bu8j83x2uh6eot26d3wx6w0015343530.png"
+    }
+  ],
+  "blankImageTags": [],
+  "externalImages": [
+    {
+      "surface": "workspace",
+      "file": "content/chapter-2/index.html",
+      "ref": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Francis_Galton_1850s.jpg/220px-Francis_Galton_1850s.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "workspace",
+      "file": "content/chapter-2/index.html",
+      "ref": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Juan_Vucetich_100.jpg/220px-Juan_Vucetich_100.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "workspace",
+      "file": "content/chapter-2/index.html",
+      "ref": "https://upload.wikimedia.org/wikipedia/commons/a/ab/John_Dillinger_mug_shot.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "workspace",
+      "file": "content/chapter-2/index.html",
+      "ref": "http://moodle.aspenview.org:18321/file.php?file=%2F267%2Fmag.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "workspace",
+      "file": "content/chapter-3/index.html",
+      "ref": "https://upload.wikimedia.org/wikipedia/commons/0/05/Southwest_corner_of_Central_Park%2C_looking_east%2C_NYC.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "workspace",
+      "file": "content/chapter-4/index.html",
+      "ref": "https://i.ytimg.com/vi/2aPz_AV0t3U/hqdefault.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "workspace",
+      "file": "content/chapter-4/index.html",
+      "ref": "http://www.statcan.gc.ca/pub/85-002-x/2017001/article/14842/c-g/c-g01-eng.gif",
+      "kind": "img-src"
+    },
+    {
+      "surface": "workspace",
+      "file": "content/chapter-4/index.html",
+      "ref": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/Karl_Landsteiner_nobel.jpg/220px-Karl_Landsteiner_nobel.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "workspace",
+      "file": "content/chapter-6/index.html",
+      "ref": "https://images-na.ssl-images-amazon.com/images/M/MV5BZTBjZjY4ODMtZWU2MS00YjBhLTg1MDUtMjk2OWU4MTM5MjFkXkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_UY317_CR9,0,214,317_AL_.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "workspace",
+      "file": "content/chapter-6/index.html",
+      "ref": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Robert_Hanssen.jpg/220px-Robert_Hanssen.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "workspace",
+      "file": "content/chapter-6/index.html",
+      "ref": "http://d2l.adlc.ca/content/ADLC-Depts/Forensics/LDC2754-3c-08Jun06/module5/Images/polyoffice.JPG",
+      "kind": "asset-attr"
+    },
+    {
+      "surface": "workspace",
+      "file": "content/chapter-6/index.html",
+      "ref": "http://d2l.adlc.ca/content/ADLC-Depts/Forensics/LDC2754-3c-08Jun06/Module5/Images/lusk_bigger.jpg",
+      "kind": "asset-attr"
+    },
+    {
+      "surface": "workspace",
+      "file": "content/chapter-7/index.html",
+      "ref": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Eukaryote_DNA-en.svg/1189px-Eukaryote_DNA-en.svg.png",
+      "kind": "img-src"
+    },
+    {
+      "surface": "workspace",
+      "file": "content/chapter-7/index.html",
+      "ref": "https://static01.nyt.com/images/2014/09/03/us/JP-CAROLINA1/JP-CAROLINA1-master1050.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "workspace",
+      "file": "course-data.js",
+      "ref": "https://upload.wikimedia.org/wikipedia/commons/2/2c/CSIRO_ScienceImage_8115_Human_hair_and_Merino_wool_fibre.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "workspace",
+      "file": "course-data.js",
+      "ref": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Agarose_gel_slab_for_DNA_Analysis%2C_after_the_Electrophoresis_run.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "workspace",
+      "file": "references/forensics/сontent/i09fc2f90-b5a6-46d8-a876-6a6e38b8956f/Content/book_1413/chapter_12228.html",
+      "ref": "https://upload.wikimedia.org/wikipedia/commons/0/05/Southwest_corner_of_Central_Park%2C_looking_east%2C_NYC.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "workspace",
+      "file": "references/forensics/сontent/i0cf5b8a9-296e-4e86-999b-cc1b41e7bedb/Content/book_1416/chapter_12001.html",
+      "ref": "http://www.statcan.gc.ca/pub/85-002-x/2017001/article/14842/c-g/c-g01-eng.gif",
+      "kind": "img-src"
+    },
+    {
+      "surface": "workspace",
+      "file": "references/forensics/сontent/i21fc9773-877f-49ab-893d-c4f7c2c19448/Content/book_1418/chapter_12024.html",
+      "ref": "http://d2l.adlc.ca/content/ADLC-Depts/Forensics/LDC2754-3c-08Jun06/module5/Images/polyoffice.JPG",
+      "kind": "asset-attr"
+    },
+    {
+      "surface": "workspace",
+      "file": "references/forensics/сontent/i38c48eab-1542-4f6d-8852-1d3643a3d094/Content/book_1418/chapter_12028.html",
+      "ref": "https://images-na.ssl-images-amazon.com/images/M/MV5BZTBjZjY4ODMtZWU2MS00YjBhLTg1MDUtMjk2OWU4MTM5MjFkXkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_UY317_CR9,0,214,317_AL_.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "workspace",
+      "file": "references/forensics/сontent/i6fc5f283-0bc6-4999-9efe-01ac5381f0b7/Content/book_1412/chapter_11960.html",
+      "ref": "https://upload.wikimedia.org/wikipedia/commons/a/ab/John_Dillinger_mug_shot.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "workspace",
+      "file": "references/forensics/сontent/i71043ac1-3088-4bee-bbd4-206b7b84385f/Content/book_1419/chapter_12048.html",
+      "ref": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Eukaryote_DNA-en.svg/1189px-Eukaryote_DNA-en.svg.png",
+      "kind": "img-src"
+    },
+    {
+      "surface": "workspace",
+      "file": "references/forensics/сontent/i88bfb601-8b90-4e70-beb3-9bbfc67f6212/Content/book_1418/chapter_12037.html",
+      "ref": "http://d2l.adlc.ca/content/ADLC-Depts/Forensics/LDC2754-3c-08Jun06/Module5/Images/lusk_bigger.jpg",
+      "kind": "asset-attr"
+    },
+    {
+      "surface": "workspace",
+      "file": "references/forensics/сontent/i8c6713da-9c8b-41e3-8877-5889ba9d71a2/Content/book_1418/chapter_12034.html",
+      "ref": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Robert_Hanssen.jpg/220px-Robert_Hanssen.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "workspace",
+      "file": "references/forensics/сontent/i8fca4d43-9030-4991-9ce9-e078260f3c51/Content/book_1419/chapter_12065.html",
+      "ref": "https://static01.nyt.com/images/2014/09/03/us/JP-CAROLINA1/JP-CAROLINA1-master1050.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "workspace",
+      "file": "references/forensics/сontent/i90b6e6d0-c199-4ca3-b49c-6d3bd91c111d/Content/book_1412/chapter_11966.html",
+      "ref": "http://moodle.aspenview.org:18321/file.php?file=%2F267%2Fmag.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "workspace",
+      "file": "references/forensics/сontent/i9242df94-c9b7-489b-b1a6-57dc75d05f46/Content/book_1416/chapter_12089.html",
+      "ref": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/Karl_Landsteiner_nobel.jpg/220px-Karl_Landsteiner_nobel.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "workspace",
+      "file": "references/forensics/сontent/ia75e99a0-4dca-4672-b2a6-7732eee561b9/Content/book_1416/chapter_12092.html",
+      "ref": "https://i.ytimg.com/vi/2aPz_AV0t3U/hqdefault.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "workspace",
+      "file": "references/forensics/сontent/ided21828-5e62-49a3-aae1-6cf000ed83f6/Content/book_1412/chapter_11957.html",
+      "ref": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Francis_Galton_1850s.jpg/220px-Francis_Galton_1850s.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "workspace",
+      "file": "references/forensics/сontent/ided21828-5e62-49a3-aae1-6cf000ed83f6/Content/book_1412/chapter_11957.html",
+      "ref": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Juan_Vucetich_100.jpg/220px-Juan_Vucetich_100.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "google-hosted-export",
+      "file": "content/chapter-2/index.html",
+      "ref": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Francis_Galton_1850s.jpg/220px-Francis_Galton_1850s.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "google-hosted-export",
+      "file": "content/chapter-2/index.html",
+      "ref": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Juan_Vucetich_100.jpg/220px-Juan_Vucetich_100.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "google-hosted-export",
+      "file": "content/chapter-2/index.html",
+      "ref": "https://upload.wikimedia.org/wikipedia/commons/a/ab/John_Dillinger_mug_shot.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "google-hosted-export",
+      "file": "content/chapter-2/index.html",
+      "ref": "http://moodle.aspenview.org:18321/file.php?file=%2F267%2Fmag.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "google-hosted-export",
+      "file": "content/chapter-3/index.html",
+      "ref": "https://upload.wikimedia.org/wikipedia/commons/0/05/Southwest_corner_of_Central_Park%2C_looking_east%2C_NYC.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "google-hosted-export",
+      "file": "content/chapter-4/index.html",
+      "ref": "https://i.ytimg.com/vi/2aPz_AV0t3U/hqdefault.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "google-hosted-export",
+      "file": "content/chapter-4/index.html",
+      "ref": "http://www.statcan.gc.ca/pub/85-002-x/2017001/article/14842/c-g/c-g01-eng.gif",
+      "kind": "img-src"
+    },
+    {
+      "surface": "google-hosted-export",
+      "file": "content/chapter-4/index.html",
+      "ref": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/Karl_Landsteiner_nobel.jpg/220px-Karl_Landsteiner_nobel.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "google-hosted-export",
+      "file": "content/chapter-6/index.html",
+      "ref": "https://images-na.ssl-images-amazon.com/images/M/MV5BZTBjZjY4ODMtZWU2MS00YjBhLTg1MDUtMjk2OWU4MTM5MjFkXkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_UY317_CR9,0,214,317_AL_.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "google-hosted-export",
+      "file": "content/chapter-6/index.html",
+      "ref": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Robert_Hanssen.jpg/220px-Robert_Hanssen.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "google-hosted-export",
+      "file": "content/chapter-6/index.html",
+      "ref": "http://d2l.adlc.ca/content/ADLC-Depts/Forensics/LDC2754-3c-08Jun06/module5/Images/polyoffice.JPG",
+      "kind": "asset-attr"
+    },
+    {
+      "surface": "google-hosted-export",
+      "file": "content/chapter-6/index.html",
+      "ref": "http://d2l.adlc.ca/content/ADLC-Depts/Forensics/LDC2754-3c-08Jun06/Module5/Images/lusk_bigger.jpg",
+      "kind": "asset-attr"
+    },
+    {
+      "surface": "google-hosted-export",
+      "file": "content/chapter-7/index.html",
+      "ref": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Eukaryote_DNA-en.svg/1189px-Eukaryote_DNA-en.svg.png",
+      "kind": "img-src"
+    },
+    {
+      "surface": "google-hosted-export",
+      "file": "content/chapter-7/index.html",
+      "ref": "https://static01.nyt.com/images/2014/09/03/us/JP-CAROLINA1/JP-CAROLINA1-master1050.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "google-hosted-export",
+      "file": "course-data.js",
+      "ref": "https://upload.wikimedia.org/wikipedia/commons/2/2c/CSIRO_ScienceImage_8115_Human_hair_and_Merino_wool_fibre.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "google-hosted-export",
+      "file": "course-data.js",
+      "ref": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Agarose_gel_slab_for_DNA_Analysis%2C_after_the_Electrophoresis_run.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "google-hosted-export",
+      "file": "references/forensics/сontent/i09fc2f90-b5a6-46d8-a876-6a6e38b8956f/Content/book_1413/chapter_12228.html",
+      "ref": "https://upload.wikimedia.org/wikipedia/commons/0/05/Southwest_corner_of_Central_Park%2C_looking_east%2C_NYC.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "google-hosted-export",
+      "file": "references/forensics/сontent/i0cf5b8a9-296e-4e86-999b-cc1b41e7bedb/Content/book_1416/chapter_12001.html",
+      "ref": "http://www.statcan.gc.ca/pub/85-002-x/2017001/article/14842/c-g/c-g01-eng.gif",
+      "kind": "img-src"
+    },
+    {
+      "surface": "google-hosted-export",
+      "file": "references/forensics/сontent/i21fc9773-877f-49ab-893d-c4f7c2c19448/Content/book_1418/chapter_12024.html",
+      "ref": "http://d2l.adlc.ca/content/ADLC-Depts/Forensics/LDC2754-3c-08Jun06/module5/Images/polyoffice.JPG",
+      "kind": "asset-attr"
+    },
+    {
+      "surface": "google-hosted-export",
+      "file": "references/forensics/сontent/i38c48eab-1542-4f6d-8852-1d3643a3d094/Content/book_1418/chapter_12028.html",
+      "ref": "https://images-na.ssl-images-amazon.com/images/M/MV5BZTBjZjY4ODMtZWU2MS00YjBhLTg1MDUtMjk2OWU4MTM5MjFkXkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_UY317_CR9,0,214,317_AL_.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "google-hosted-export",
+      "file": "references/forensics/сontent/i6fc5f283-0bc6-4999-9efe-01ac5381f0b7/Content/book_1412/chapter_11960.html",
+      "ref": "https://upload.wikimedia.org/wikipedia/commons/a/ab/John_Dillinger_mug_shot.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "google-hosted-export",
+      "file": "references/forensics/сontent/i71043ac1-3088-4bee-bbd4-206b7b84385f/Content/book_1419/chapter_12048.html",
+      "ref": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Eukaryote_DNA-en.svg/1189px-Eukaryote_DNA-en.svg.png",
+      "kind": "img-src"
+    },
+    {
+      "surface": "google-hosted-export",
+      "file": "references/forensics/сontent/i88bfb601-8b90-4e70-beb3-9bbfc67f6212/Content/book_1418/chapter_12037.html",
+      "ref": "http://d2l.adlc.ca/content/ADLC-Depts/Forensics/LDC2754-3c-08Jun06/Module5/Images/lusk_bigger.jpg",
+      "kind": "asset-attr"
+    },
+    {
+      "surface": "google-hosted-export",
+      "file": "references/forensics/сontent/i8c6713da-9c8b-41e3-8877-5889ba9d71a2/Content/book_1418/chapter_12034.html",
+      "ref": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Robert_Hanssen.jpg/220px-Robert_Hanssen.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "google-hosted-export",
+      "file": "references/forensics/сontent/i8fca4d43-9030-4991-9ce9-e078260f3c51/Content/book_1419/chapter_12065.html",
+      "ref": "https://static01.nyt.com/images/2014/09/03/us/JP-CAROLINA1/JP-CAROLINA1-master1050.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "google-hosted-export",
+      "file": "references/forensics/сontent/i90b6e6d0-c199-4ca3-b49c-6d3bd91c111d/Content/book_1412/chapter_11966.html",
+      "ref": "http://moodle.aspenview.org:18321/file.php?file=%2F267%2Fmag.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "google-hosted-export",
+      "file": "references/forensics/сontent/i9242df94-c9b7-489b-b1a6-57dc75d05f46/Content/book_1416/chapter_12089.html",
+      "ref": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/Karl_Landsteiner_nobel.jpg/220px-Karl_Landsteiner_nobel.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "google-hosted-export",
+      "file": "references/forensics/сontent/ia75e99a0-4dca-4672-b2a6-7732eee561b9/Content/book_1416/chapter_12092.html",
+      "ref": "https://i.ytimg.com/vi/2aPz_AV0t3U/hqdefault.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "google-hosted-export",
+      "file": "references/forensics/сontent/ided21828-5e62-49a3-aae1-6cf000ed83f6/Content/book_1412/chapter_11957.html",
+      "ref": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Francis_Galton_1850s.jpg/220px-Francis_Galton_1850s.jpg",
+      "kind": "img-src"
+    },
+    {
+      "surface": "google-hosted-export",
+      "file": "references/forensics/сontent/ided21828-5e62-49a3-aae1-6cf000ed83f6/Content/book_1412/chapter_11957.html",
+      "ref": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Juan_Vucetich_100.jpg/220px-Juan_Vucetich_100.jpg",
+      "kind": "img-src"
+    }
+  ],
+  "externalFailures": [
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Francis_Galton_1850s.jpg/220px-Francis_Galton_1850s.jpg",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Juan_Vucetich_100.jpg/220px-Juan_Vucetich_100.jpg",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "http://moodle.aspenview.org:18321/file.php?file=%2F267%2Fmag.jpg",
+      "status": null,
+      "ok": false,
+      "error": "timeout"
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/0/05/Southwest_corner_of_Central_Park%2C_looking_east%2C_NYC.jpg",
+      "status": 429,
+      "ok": false
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/Karl_Landsteiner_nobel.jpg/220px-Karl_Landsteiner_nobel.jpg",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://images-na.ssl-images-amazon.com/images/M/MV5BZTBjZjY4ODMtZWU2MS00YjBhLTg1MDUtMjk2OWU4MTM5MjFkXkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_UY317_CR9,0,214,317_AL_.jpg",
+      "status": 404,
+      "ok": false
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Robert_Hanssen.jpg/220px-Robert_Hanssen.jpg",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "http://d2l.adlc.ca/content/ADLC-Depts/Forensics/LDC2754-3c-08Jun06/module5/Images/polyoffice.JPG",
+      "status": null,
+      "ok": false,
+      "error": "getaddrinfo ENOTFOUND d2l.adlc.ca"
+    },
+    {
+      "url": "http://d2l.adlc.ca/content/ADLC-Depts/Forensics/LDC2754-3c-08Jun06/Module5/Images/lusk_bigger.jpg",
+      "status": null,
+      "ok": false,
+      "error": "getaddrinfo ENOTFOUND d2l.adlc.ca"
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Eukaryote_DNA-en.svg/1189px-Eukaryote_DNA-en.svg.png",
+      "status": 400,
+      "ok": false
+    }
+  ],
+  "externalChecked": [
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Francis_Galton_1850s.jpg/220px-Francis_Galton_1850s.jpg",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Juan_Vucetich_100.jpg/220px-Juan_Vucetich_100.jpg",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/a/ab/John_Dillinger_mug_shot.jpg",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "http://moodle.aspenview.org:18321/file.php?file=%2F267%2Fmag.jpg",
+      "status": null,
+      "ok": false,
+      "error": "timeout"
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/0/05/Southwest_corner_of_Central_Park%2C_looking_east%2C_NYC.jpg",
+      "status": 429,
+      "ok": false
+    },
+    {
+      "url": "https://i.ytimg.com/vi/2aPz_AV0t3U/hqdefault.jpg",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "http://www.statcan.gc.ca/pub/85-002-x/2017001/article/14842/c-g/c-g01-eng.gif",
+      "status": 301,
+      "ok": true
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/Karl_Landsteiner_nobel.jpg/220px-Karl_Landsteiner_nobel.jpg",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://images-na.ssl-images-amazon.com/images/M/MV5BZTBjZjY4ODMtZWU2MS00YjBhLTg1MDUtMjk2OWU4MTM5MjFkXkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_UY317_CR9,0,214,317_AL_.jpg",
+      "status": 404,
+      "ok": false
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Robert_Hanssen.jpg/220px-Robert_Hanssen.jpg",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "http://d2l.adlc.ca/content/ADLC-Depts/Forensics/LDC2754-3c-08Jun06/module5/Images/polyoffice.JPG",
+      "status": null,
+      "ok": false,
+      "error": "getaddrinfo ENOTFOUND d2l.adlc.ca"
+    },
+    {
+      "url": "http://d2l.adlc.ca/content/ADLC-Depts/Forensics/LDC2754-3c-08Jun06/Module5/Images/lusk_bigger.jpg",
+      "status": null,
+      "ok": false,
+      "error": "getaddrinfo ENOTFOUND d2l.adlc.ca"
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Eukaryote_DNA-en.svg/1189px-Eukaryote_DNA-en.svg.png",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://static01.nyt.com/images/2014/09/03/us/JP-CAROLINA1/JP-CAROLINA1-master1050.jpg",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/2/2c/CSIRO_ScienceImage_8115_Human_hair_and_Merino_wool_fibre.jpg",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Agarose_gel_slab_for_DNA_Analysis%2C_after_the_Electrophoresis_run.jpg",
+      "status": 200,
+      "ok": true
+    }
+  ]
+}

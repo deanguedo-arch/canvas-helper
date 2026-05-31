@@ -12,7 +12,21 @@ export async function openProjectInStudio(page: Page, slug: string) {
 
   const projectSelect = page.getByTestId("workspace-project-select");
   await expect(projectSelect).toBeVisible();
-  await projectSelect.selectOption(slug);
+  await expect
+    .poll(
+      () =>
+        projectSelect.evaluate((select, targetSlug) =>
+          Array.from((select as HTMLSelectElement).options).some((option) => option.value === targetSlug),
+          slug
+        ),
+      { message: `workspace project option appears for ${slug}` }
+    )
+    .toBe(true);
+  await projectSelect.evaluate((select, targetSlug) => {
+    const element = select as HTMLSelectElement;
+    element.value = targetSlug;
+    element.dispatchEvent(new Event("change", { bubbles: true }));
+  }, slug);
 
   await expect(page.getByTestId("project-root")).toBeVisible();
   await expect(page.getByTestId("workspace-preview-frame")).toBeVisible();

@@ -29,6 +29,21 @@ const filmRoomItems = DATA.filmRoomItems || [];
 const themeActivities = DATA.themeActivities || [];
 const reviewUnlockAll = true;
 const routeableSections = new Set(['home', 'unit', 'quizzes', 'assignments', 'assignment', 'library', 'film']);
+const sidebarForcedCollapseQuery = window.matchMedia?.('(max-width: 860px)');
+const libraryPageCounts = {
+  './assets/library/chapter-1.pdf': 34,
+  './assets/library/chapter-2.pdf': 40,
+  './assets/library/chapter-3.pdf': 32,
+  './assets/library/chapter-4.pdf': 50,
+  './assets/library/chapter-5.pdf': 20,
+  './assets/library/chapter-6.pdf': 30,
+  './assets/library/chapter-7.pdf': 28,
+  './assets/library/critical-response-criteria.pdf': 2,
+  './assets/library/critical-response-rubric.pdf': 2,
+  './assets/library/glossary.pdf': 5,
+  './assets/library/halfbreed-maria-campbell.pdf': 223,
+  './assets/library/textbook.pdf': 256
+};
 
 let progress = loadJson(STORAGE_KEYS.progress, { completedUnits: [], completedAssignments: [] });
 let activityResponses = loadJson(STORAGE_KEYS.activityResponses, {});
@@ -38,10 +53,29 @@ let state = loadJson(STORAGE_KEYS.ui, {
   activeLibraryId: null,
   activeAssignmentId: null,
   activeFilmId: null,
-  sidebarCollapsed: false
+  sidebarCollapsed: false,
+  mobileSidebarExpanded: false,
+  libraryReaderOpen: true,
+  libraryReaderFullscreen: false,
+  librarySearch: '',
+  librarySort: 'default'
 });
 
 state.sidebarCollapsed = Boolean(state.sidebarCollapsed);
+state.mobileSidebarExpanded = Boolean(state.mobileSidebarExpanded);
+state.libraryReaderOpen = state.libraryReaderOpen !== false;
+state.libraryReaderFullscreen = Boolean(state.libraryReaderFullscreen);
+state.librarySearch = typeof state.librarySearch === 'string' ? state.librarySearch : '';
+state.librarySort = state.librarySort === 'title' ? 'title' : 'default';
+
+function isSidebarForcedCollapsed() {
+  return Boolean(sidebarForcedCollapseQuery?.matches);
+}
+
+function isSidebarCollapsed() {
+  if (isSidebarForcedCollapsed()) return !state.mobileSidebarExpanded;
+  return state.sidebarCollapsed;
+}
 
 const routeParams = new URLSearchParams(window.location.search);
 const requestedSection = routeParams.get('section');
@@ -104,6 +138,7 @@ function isAssignmentUnlocked(assignment) {
 
 function setSection(section) {
   state.section = section;
+  if (section !== 'library') state.libraryReaderFullscreen = false;
   saveJson(STORAGE_KEYS.ui, state);
   render();
 }
@@ -118,6 +153,7 @@ function setActiveUnit(unitId) {
 function setActiveLibrary(itemId) {
   state.section = 'library';
   state.activeLibraryId = itemId;
+  state.libraryReaderOpen = true;
   saveJson(STORAGE_KEYS.ui, state);
   render();
 }
@@ -137,17 +173,26 @@ function setActiveFilm(itemId) {
 }
 
 function applySidebarState() {
-  refs.appShell?.classList.toggle('is-sidebar-collapsed', state.sidebarCollapsed);
+  const collapsed = isSidebarCollapsed();
+  const forcedCollapsed = isSidebarForcedCollapsed();
+  refs.appShell?.classList.toggle('is-sidebar-collapsed', collapsed);
+  refs.appShell?.classList.toggle('is-sidebar-forced-collapsed', forcedCollapsed);
   if (!refs.sidebarToggle) return;
-  refs.sidebarToggle.setAttribute('aria-expanded', String(!state.sidebarCollapsed));
-  refs.sidebarToggle.setAttribute('aria-label', state.sidebarCollapsed ? 'Expand sidebar' : 'Collapse sidebar');
+  refs.sidebarToggle.setAttribute('aria-expanded', String(!collapsed));
+  refs.sidebarToggle.setAttribute('aria-label', collapsed ? 'Expand sidebar' : 'Collapse sidebar');
   const icon = refs.sidebarToggle.querySelector('i');
   if (icon) {
-    icon.className = `fa-solid ${state.sidebarCollapsed ? 'fa-chevron-right' : 'fa-chevron-left'}`;
+    icon.className = `fa-solid ${collapsed ? 'fa-chevron-right' : 'fa-chevron-left'}`;
   }
 }
 
 function toggleSidebar() {
+  if (isSidebarForcedCollapsed()) {
+    state.mobileSidebarExpanded = !state.mobileSidebarExpanded;
+    saveJson(STORAGE_KEYS.ui, state);
+    applySidebarState();
+    return;
+  }
   state.sidebarCollapsed = !state.sidebarCollapsed;
   saveJson(STORAGE_KEYS.ui, state);
   applySidebarState();
@@ -664,50 +709,223 @@ function renderAssignmentLinks(assignment) {
   `;
 }
 
+function getLibraryPageCount(item) {
+  return libraryPageCounts[item.file] || null;
+}
+
+function formatLibraryPages(item) {
+  const pages = getLibraryPageCount(item);
+  if (!pages) return 'PDF';
+  return `${pages} ${pages === 1 ? 'page' : 'pages'}`;
+}
+
+function libraryIndexLabel(item, index) {
+  const chapterMatch = item.id.match(/chapter-(\d+)/);
+  if (chapterMatch) return chapterMatch[1].padStart(2, '0');
+  if (item.code && item.code.length <= 4) return item.code;
+  return String(index + 1).padStart(2, '0');
+}
+
+function libraryDescription(item) {
+  if (item.description) return item.description;
+  if (item.kind === 'chapter') {
+    return 'Open this chapter in the course viewer or download it for offline reading.';
+  }
+  return 'Open this course resource in the viewer or download it for offline reading.';
+}
+
+function getSelectedLibraryItem() {
+  return libraryItems.find((item) => item.id === state.activeLibraryId)
+    || libraryItems.find((item) => item.kind === 'chapter')
+    || libraryItems[0]
+    || null;
+}
+
+function renderLibraryRows(items, selected) {
+  if (!items.length) {
+    return '<div class="library-empty-list">No matching library items.</div>';
+  }
+  return items.map((item, index) => {
+    const isActive = selected?.id === item.id;
+    return `
+      <button class="chapter-tab${isActive ? ' is-active' : ''}" type="button" data-library-id="${escapeHtml(item.id)}" aria-pressed="${isActive}">
+        <span class="chapter-index mono">${escapeHtml(libraryIndexLabel(item, index))}</span>
+        <span class="chapter-tab-main">
+          <strong>${escapeHtml(item.title)}</strong>
+          <span>${escapeHtml(formatLibraryPages(item))}</span>
+        </span>
+        <span class="chapter-status" aria-hidden="true"><i class="fa-solid ${isActive ? 'fa-check' : 'fa-circle'}"></i></span>
+      </button>
+    `;
+  }).join('');
+}
+
+function renderLibrarySelectOptions(chapterItems, resourceItems, selected) {
+  const chapterOptions = chapterItems.map((item) => `
+    <option value="${escapeHtml(item.id)}"${selected?.id === item.id ? ' selected' : ''}>
+      ${escapeHtml(item.title)} - ${escapeHtml(formatLibraryPages(item))}
+    </option>
+  `).join('');
+  const resourceOptions = resourceItems.map((item) => `
+    <option value="${escapeHtml(item.id)}"${selected?.id === item.id ? ' selected' : ''}>
+      ${escapeHtml(item.title)} - ${escapeHtml(formatLibraryPages(item))}
+    </option>
+  `).join('');
+  return `
+    ${chapterOptions ? `<optgroup label="Chapters">${chapterOptions}</optgroup>` : ''}
+    ${resourceOptions ? `<optgroup label="Resources">${resourceOptions}</optgroup>` : ''}
+  `;
+}
+
 function renderLibrary() {
-  const active = libraryItems.find((item) => item.id === state.activeLibraryId);
-  const viewerSrc = active
-    ? `./pdf-viewer.html?file=${encodeURIComponent(active.file)}&title=${encodeURIComponent(active.title)}`
-    : '';
+  const selected = getSelectedLibraryItem();
+  if (!selected) {
+    refs.sectionTitle.textContent = 'Library';
+    refs.contentBody.innerHTML = `
+      <div class="empty-card">
+        <h3>No library files loaded yet</h3>
+        <p>PDF resources can be added here without changing the course shell.</p>
+      </div>
+    `;
+    return;
+  }
+
+  const search = state.librarySearch.trim().toLowerCase();
+  const sortedItems = [...libraryItems].sort((a, b) => {
+    if (state.librarySort !== 'title') return 0;
+    return a.title.localeCompare(b.title);
+  });
+  const filteredItems = search
+    ? sortedItems.filter((item) => `${item.title} ${item.code} ${item.kind} ${item.description || ''}`.toLowerCase().includes(search))
+    : sortedItems;
+  const chapterItems = filteredItems.filter((item) => item.kind === 'chapter');
+  const resourceItems = filteredItems.filter((item) => item.kind !== 'chapter');
+  const chapterCount = libraryItems.filter((item) => item.kind === 'chapter').length;
+  const resourceCount = libraryItems.length - chapterCount;
+  const viewerSrc = `./pdf-viewer.html?file=${encodeURIComponent(selected.file)}&title=${encodeURIComponent(selected.title)}`;
+  const readerOpen = state.libraryReaderOpen !== false;
+  const readerFullscreen = readerOpen && state.libraryReaderFullscreen === true;
+  const selectedCode = selected.code || (selected.kind === 'chapter' ? 'Chapter' : 'Resource');
+
+  document.body.classList.toggle('is-library-reader-fullscreen', readerFullscreen);
   refs.sectionTitle.textContent = 'Library';
   refs.contentBody.innerHTML = `
-    <div class="stack-list">
-      ${active ? `
-        <article class="viewer-card">
-          <div class="viewer-card-head">
-            <div>
-              <span class="card-code mono">${escapeHtml(active.code)}</span>
-              <h3>${escapeHtml(active.title)}</h3>
+    <section class="library-section">
+      <div class="library-tools-row">
+        <label class="library-search-box" for="library-search">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          <input id="library-search" type="search" value="${escapeHtml(state.librarySearch)}" placeholder="Search library..." autocomplete="off" />
+        </label>
+        <button class="library-tool-button" type="button" data-library-sort>
+          <i class="fa-solid fa-arrow-down-wide-short" aria-hidden="true"></i>
+          ${state.librarySort === 'title' ? 'Source Order' : 'Sort A-Z'}
+        </button>
+      </div>
+
+      <div class="library-browser">
+        <aside class="chapter-selector-panel" aria-label="Library item selector">
+          <label class="library-mobile-select-wrap" for="library-mobile-select">
+            <span class="mono">Choose reading</span>
+            <select id="library-mobile-select">
+              ${renderLibrarySelectOptions(chapterItems, resourceItems, selected)}
+            </select>
+          </label>
+          <div class="chapter-selector-header">
+            <span class="mono">Chapters</span>
+            <strong>${chapterCount} ${chapterCount === 1 ? 'chapter' : 'chapters'}</strong>
+          </div>
+          <div class="chapter-list">
+            ${renderLibraryRows(chapterItems, selected)}
+          </div>
+          ${resourceItems.length ? `
+            <div class="resource-selector-group">
+              <div class="chapter-selector-header chapter-selector-header--secondary">
+                <span class="mono">Resources</span>
+                <strong>${resourceCount} files</strong>
+              </div>
+              <div class="chapter-list">
+                ${renderLibraryRows(resourceItems, selected)}
+              </div>
             </div>
-            <div class="card-actions">
-              <a href="${escapeHtml(active.file)}" target="_blank" rel="noopener noreferrer">Download PDF</a>
-              <button type="button" id="close-library-viewer">Close Viewer</button>
+          ` : ''}
+        </aside>
+
+        <article class="chapter-reader-panel${readerFullscreen ? ' is-reader-fullscreen' : ''}">
+          <div class="chapter-reader-header">
+            <div class="chapter-reader-copy">
+              <span class="chapter-reader-kicker mono">${escapeHtml(selectedCode)}</span>
+              <h3>${escapeHtml(selected.title)}</h3>
+              <p>${escapeHtml(libraryDescription(selected))}</p>
+              <div class="chapter-reader-meta">
+                <i class="fa-regular fa-file-lines" aria-hidden="true"></i>
+                <span>${escapeHtml(formatLibraryPages(selected))}</span>
+              </div>
+            </div>
+            <div class="chapter-actions">
+              <button class="primary-action" type="button" id="toggle-library-reader">
+                <i class="fa-solid ${readerOpen ? 'fa-eye-slash' : 'fa-book-open'}" aria-hidden="true"></i>
+                ${readerOpen ? 'Close Viewer' : 'Open Reader'}
+              </button>
+              <button class="secondary-action reader-fullscreen-action" type="button" id="fullscreen-library-reader">
+                <i class="fa-solid ${readerFullscreen ? 'fa-compress' : 'fa-expand'}" aria-hidden="true"></i>
+                ${readerFullscreen ? 'Exit Full Screen' : 'Full Screen'}
+              </button>
+              <a class="secondary-action" href="${escapeHtml(selected.file)}" target="_blank" rel="noopener noreferrer">
+                <i class="fa-solid fa-download" aria-hidden="true"></i>
+                Download PDF
+              </a>
             </div>
           </div>
-          <iframe src="${viewerSrc}" title="${escapeHtml(active.title)}"></iframe>
+
+          ${readerOpen ? `
+            <div class="pdf-reader-frame">
+              <iframe src="${viewerSrc}" title="${escapeHtml(selected.title)}"></iframe>
+            </div>
+          ` : `
+            <div class="reader-closed-panel">
+              <span class="mono">Reader closed</span>
+              <p>Open the selected PDF in the course viewer when you are ready to read.</p>
+            </div>
+          `}
         </article>
-      ` : ''}
-      ${libraryItems.map((item) => `
-        <article class="stack-card">
-          <span class="card-code mono">${escapeHtml(item.code)}</span>
-          <h3>${escapeHtml(item.title)}</h3>
-          <p>${escapeHtml(item.description)}</p>
-          <div class="card-actions">
-            <button type="button" data-library-id="${item.id}">${item.kind === 'chapter' ? 'View Chapter' : 'View Resource'}</button>
-            <a href="${escapeHtml(item.file)}" target="_blank" rel="noopener noreferrer">Download PDF</a>
-          </div>
-        </article>
-      `).join('')}
-    </div>
+      </div>
+    </section>
   `;
+
   refs.contentBody.querySelectorAll('[data-library-id]').forEach((button) => {
     button.addEventListener('click', () => setActiveLibrary(button.dataset.libraryId));
   });
-  document.getElementById('close-library-viewer')?.addEventListener('click', () => {
-    state.activeLibraryId = null;
-    saveJson(STORAGE_KEYS.ui, state);
-    render();
+  refs.contentBody.querySelector('#library-mobile-select')?.addEventListener('change', (event) => {
+    setActiveLibrary(event.target.value);
   });
+  refs.contentBody.querySelector('[data-library-sort]')?.addEventListener('click', () => {
+    state.librarySort = state.librarySort === 'title' ? 'default' : 'title';
+    saveJson(STORAGE_KEYS.ui, state);
+    renderLibrary();
+  });
+  refs.contentBody.querySelector('#toggle-library-reader')?.addEventListener('click', () => {
+    state.libraryReaderOpen = !readerOpen;
+    if (!state.libraryReaderOpen) state.libraryReaderFullscreen = false;
+    saveJson(STORAGE_KEYS.ui, state);
+    renderLibrary();
+  });
+  refs.contentBody.querySelector('#fullscreen-library-reader')?.addEventListener('click', toggleLibraryFullscreen);
+  refs.contentBody.querySelector('#library-search')?.addEventListener('input', (event) => {
+    const nextValue = event.target.value;
+    state.librarySearch = nextValue;
+    saveJson(STORAGE_KEYS.ui, state);
+    renderLibrary();
+    const nextInput = refs.contentBody.querySelector('#library-search');
+    nextInput?.focus();
+    nextInput?.setSelectionRange(nextValue.length, nextValue.length);
+  });
+}
+
+function toggleLibraryFullscreen() {
+  state.libraryReaderOpen = true;
+  state.libraryReaderFullscreen = !state.libraryReaderFullscreen;
+  saveJson(STORAGE_KEYS.ui, state);
+  renderLibrary();
 }
 
 function renderFilmRoom() {
@@ -826,6 +1044,10 @@ function toEmbedUrl(url) {
 }
 
 function render() {
+  document.body.classList.toggle(
+    'is-library-reader-fullscreen',
+    state.section === 'library' && state.libraryReaderOpen !== false && state.libraryReaderFullscreen === true
+  );
   updateProgress();
   setActiveNav();
   if (state.section === 'unit') return renderUnit();
@@ -843,6 +1065,13 @@ refs.navAssignments?.addEventListener('click', () => setSection('assignments'));
 refs.navLibrary?.addEventListener('click', () => setSection('library'));
 refs.navFilm?.addEventListener('click', () => setSection('film'));
 refs.sidebarToggle?.addEventListener('click', toggleSidebar);
+sidebarForcedCollapseQuery?.addEventListener?.('change', applySidebarState);
+document.addEventListener('keydown', (event) => {
+  if (event.key !== 'Escape' || !state.libraryReaderFullscreen) return;
+  state.libraryReaderFullscreen = false;
+  saveJson(STORAGE_KEYS.ui, state);
+  renderLibrary();
+});
 
 applySidebarState();
 render();

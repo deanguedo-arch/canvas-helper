@@ -5734,3 +5734,82 @@ One question before I change it: do you want only the large top hero image reduc
 ## Exact Next File To Open
 `projects/aboriginal-studies-30/meta/build_sports_style_course.py`
 
+---
+
+# Archived Handoff - 2026-05-31 - Next Step Teacher Tracker
+
+- Project: `canvas-helper`
+- Task: Next Step Teacher Tracker - Stable Tracker Bundle v1 plus approved test course-create apply flow.
+- Status: live sheet updated and verified with two approved test course shells created
+
+## Summary
+- The bound Apps Script project for `Copy of Class List Fall 2025` was updated from `tasks/next-step-course-builder-lite-extension.gs`.
+- Old fragment files in the Apps Script project were neutralized so they cannot collide with the merged `Code.gs` bundle:
+  - `Powerschool New Student ADD.gs`
+  - `EmailAutomation.gs`
+  - `zzCourseBuilderLite.gs`
+- Course Creation Apply was built from two approved test rows.
+- The first apply attempt failed safely with zero creates because the Classroom API required `ownerId`.
+- The local source was patched to include `ownerId: item.ownerEmail || 'me'` in the approved course-create payload.
+- The patched source was saved back into Apps Script.
+- The approved create apply was rerun and created two new test Classroom course shells.
+
+## Live Created Test Courses
+- `Codex Test Classroom A 2026-05-30`
+  - Course ID: `798040986703`
+  - Apply result: `CREATED course 798040986703.`
+- `Codex Test Classroom B 2026-05-30`
+  - Course ID: `798041086875`
+  - Apply result: `CREATED course 798041086875.`
+
+## Files Changed
+- `tasks/next-step-course-builder-lite-extension.gs`
+- `docs/ops/ACTIVE_HANDOFF.md`
+- `.stax/codex-report.md`
+
+## Verification Run
+- `node --check --input-type=commonjs < tasks/next-step-course-builder-lite-extension.gs`
+  - exitCode: 0
+- `npm run test:apps-script`
+  - exitCode: 0
+  - result: 2 tests passed
+- `rg -n "^function onOpen\\(" tasks/next-step-course-builder-lite-extension.gs`
+  - result: exactly one active `onOpen`
+- Forbidden write-surface grep on `tasks/next-step-course-builder-lite-extension.gs`
+  - only expected matches:
+    - existing selected-preview path: `MailApp.sendEmail(`
+    - approved course-create path: `Classroom.Courses.create(payload)`
+- Toxic fragment grep:
+  - no `function updatePowerSchoolSync`
+  - no `function sendHybridEmails`
+- Live Google Sheet/App Script run:
+  - `Apply Approved Course Creates`
+  - rows evaluated: 2
+  - created this run: 2
+  - errors: 0
+
+## Source Of Truth Location
+- Local canonical source:
+  - `/Users/deanguedo/Documents/GitHub/canvas-helper/tasks/next-step-course-builder-lite-extension.gs`
+- Live bound Apps Script project:
+  - `EMAIL LISTS`
+  - `https://script.google.com/home/projects/1GlsxiWzQIhSy7F90i7m1G73cfM6KAfp-dUDthPO6UB7_NERKl3Kp7aql/edit`
+- Live spreadsheet:
+  - `https://docs.google.com/spreadsheets/d/1yihw_8HWB-zvKVfCmEpph_ytSfMDlVRdf3VpCSnwJQo/edit`
+
+## What Remains Locked
+- No existing Classroom content was edited, deleted, rostered, invited, posted, published, graded, or otherwise changed.
+- The only Classroom write endpoint now present is `Classroom.Courses.create`, gated by `Course Creation Apply`.
+- No assignment, material, announcement, roster, teacher invite, Drive, Form, Calendar, UrlFetch, or web-app deployment write path was added.
+
+## Known Risks / Follow-Up
+- The two test Classroom shells now exist and are intentionally empty/provisioned. Decide later whether to keep, archive, or delete them manually.
+- The current repo still has broad unrelated dirty working-tree state from other tasks, so broad STAX status may remain noisy.
+- The Google Drive connector could not read this sheet directly due a 403 permission response; browser verification was used for the live sheet result.
+- Course creation works, but later phases should stay narrow: topics next, then assignments/materials/announcements only after explicit approval.
+
+## Exact Next Command
+`node --check --input-type=commonjs < tasks/next-step-course-builder-lite-extension.gs && npm run test:apps-script`
+
+## Exact Next File To Open
+`/Users/deanguedo/Documents/GitHub/canvas-helper/tasks/next-step-course-builder-lite-extension.gs`

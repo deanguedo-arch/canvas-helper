@@ -10,7 +10,7 @@ window.LEARNING_STRATEGIES_35_DATA = {
       "code": "Unit 1",
       "number": 1,
       "title": "Module 1: Understanding Yourself as a Learner",
-      "accent": "#2f8f6b",
+      "accent": "#155608",
       "summary": "Includes 4 content items, starting with Section 1: Learning Style, Section 2: Group Work, Section 3: Learner Diversity.",
       "contentPath": "./content/chapter-1/index.html",
       "componentIds": [
@@ -26,7 +26,7 @@ window.LEARNING_STRATEGIES_35_DATA = {
       "code": "Unit 2",
       "number": 2,
       "title": "Module 2: Goal Setting and Organization",
-      "accent": "#4b7f93",
+      "accent": "#155608",
       "summary": "Includes 3 content items, starting with Section 1: Organization, Section 2: Time Management, Section 3: Goals.",
       "contentPath": "./content/chapter-2/index.html",
       "componentIds": [
@@ -41,7 +41,7 @@ window.LEARNING_STRATEGIES_35_DATA = {
       "code": "Unit 3",
       "number": 3,
       "title": "Module 3: Understanding the Learning Process",
-      "accent": "#9a6c2f",
+      "accent": "#155608",
       "summary": "Includes 3 content items, starting with Section 1: Readiness, Section 2: Notetaking, Section 3: Remembering Information.",
       "contentPath": "./content/chapter-3/index.html",
       "componentIds": [
@@ -56,7 +56,7 @@ window.LEARNING_STRATEGIES_35_DATA = {
       "code": "Unit 4",
       "number": 4,
       "title": "Module 4: Responding to Assessment",
-      "accent": "#7a6e9f",
+      "accent": "#155608",
       "summary": "Includes 2 content items, starting with Section 1: Assessment, Section 2: Test taking.",
       "contentPath": "./content/chapter-4/index.html",
       "componentIds": [
@@ -70,7 +70,7 @@ window.LEARNING_STRATEGIES_35_DATA = {
       "code": "Unit 5",
       "number": 5,
       "title": "Module 5: Self-Advocacy and Relationship Management in Learning",
-      "accent": "#5f8f3f",
+      "accent": "#155608",
       "summary": "Includes 3 content items, starting with Section 1: Resiliency, Section 2: Interconnectedness, Section 3: Self-Advocacy.",
       "contentPath": "./content/chapter-5/index.html",
       "componentIds": [
