@@ -156,6 +156,7 @@ class CourseConfig:
     source_zip_name: str
     source_zip_env: str
     skip_title_patterns: tuple[str, ...]
+    include_title_patterns: tuple[str, ...] = ()
     unwrap_title_patterns: tuple[str, ...] = ()
     docx_style_profile: str = "source-native"
 
@@ -298,6 +299,69 @@ COURSES: dict[str, CourseConfig] = {
         source_zip_name="D2LExport_16514_20-21 _ Science 9 _ Per 1(A) _ Sec 1_202652623.zip",
         source_zip_env="SCIENCE9_SOURCE_ZIP",
         skip_title_patterns=("teacher", "keep hidden", "old"),
+    ),
+    "science14": CourseConfig(
+        key="science14",
+        project_slug="science-14-docx-export",
+        course_title="Science 14",
+        source_zip_name="science-10.zip",
+        source_zip_env="SCIENCE10_BUNDLE_SOURCE_ZIP",
+        skip_title_patterns=("teacher", "keep hidden", "old"),
+        include_title_patterns=("science 14:",),
+    ),
+    "science10": CourseConfig(
+        key="science10",
+        project_slug="science-10-docx-export",
+        course_title="Science 10",
+        source_zip_name="science-10.zip",
+        source_zip_env="SCIENCE10_BUNDLE_SOURCE_ZIP",
+        skip_title_patterns=("teacher", "keep hidden", "old"),
+        include_title_patterns=("science 10:",),
+    ),
+    "cfl-art": CourseConfig(
+        key="cfl-art",
+        project_slug="cfl-art-docx-export",
+        course_title="CFL Art",
+        source_zip_name="science-10.zip",
+        source_zip_env="SCIENCE10_BUNDLE_SOURCE_ZIP",
+        skip_title_patterns=("teacher", "keep hidden", "old"),
+        include_title_patterns=("cfl art:",),
+    ),
+    "rec2050": CourseConfig(
+        key="rec2050",
+        project_slug="rec2050-sport-psychology-2-docx-export",
+        course_title="REC2050 Sport Psychology 2",
+        source_zip_name="science-10.zip",
+        source_zip_env="SCIENCE10_BUNDLE_SOURCE_ZIP",
+        skip_title_patterns=("teacher", "keep hidden", "old"),
+        include_title_patterns=("rec2050 sport psychology 2:",),
+    ),
+    "ent1020": CourseConfig(
+        key="ent1020",
+        project_slug="ent1020-elements-of-a-venture-plan-docx-export",
+        course_title="ENT1020 Elements of a Venture Plan",
+        source_zip_name="science-10.zip",
+        source_zip_env="SCIENCE10_BUNDLE_SOURCE_ZIP",
+        skip_title_patterns=("teacher", "keep hidden", "old"),
+        include_title_patterns=("enterprise and innovation", "ent 1020"),
+    ),
+    "rec1050": CourseConfig(
+        key="rec1050",
+        project_slug="rec1050-sport-psychology-1-docx-export",
+        course_title="REC1050 Sport Psychology 1",
+        source_zip_name="science-10.zip",
+        source_zip_env="SCIENCE10_BUNDLE_SOURCE_ZIP",
+        skip_title_patterns=("teacher", "keep hidden", "old"),
+        include_title_patterns=("rec1050 sport psychology 1:",),
+    ),
+    "science10-4": CourseConfig(
+        key="science10-4",
+        project_slug="science-10-4-docx-export",
+        course_title="Science 10-4",
+        source_zip_name="science-10.zip",
+        source_zip_env="SCIENCE10_BUNDLE_SOURCE_ZIP",
+        skip_title_patterns=("teacher", "keep hidden", "old"),
+        include_title_patterns=("science 10-4:",),
     ),
 }
 
@@ -549,6 +613,18 @@ class BrightspaceCourseDocxExporter:
         roots = item_children(organization)
         if len(roots) == 1 and not item_title(roots[0]):
             roots = item_children(roots[0])
+        if self.config.include_title_patterns:
+            selected_roots = [
+                item
+                for item in roots
+                if any(pattern in normalize_key(item_title(item)) for pattern in self.config.include_title_patterns)
+            ]
+            if not selected_roots:
+                patterns = ", ".join(self.config.include_title_patterns)
+                raise SystemExit(f"No top-level modules matched {self.config.key} include patterns: {patterns}")
+            roots = []
+            for item in selected_roots:
+                roots.extend(item_children(item) or [item])
         modules: list[ET.Element] = []
         for item in roots:
             title = normalize_key(item_title(item))

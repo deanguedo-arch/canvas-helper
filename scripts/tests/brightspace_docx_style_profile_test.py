@@ -4,6 +4,7 @@ import importlib.util
 import sys
 import unittest
 from pathlib import Path
+from xml.etree import ElementTree as ET
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -46,6 +47,48 @@ class BrightspaceDocxStyleProfileTests(unittest.TestCase):
     def test_unknown_docx_style_profile_fails_fast(self) -> None:
         with self.assertRaisesRegex(ValueError, "Unknown DOCX style profile"):
             builder.docx_css_for_profile("missing-profile")
+
+    def test_include_title_patterns_select_one_course_section_and_export_its_children(self) -> None:
+        config = builder.CourseConfig(
+            key="science10",
+            project_slug="science-10-docx-export",
+            course_title="Science 10",
+            source_zip_name="science-10.zip",
+            source_zip_env="SCIENCE10_SOURCE_ZIP",
+            skip_title_patterns=("teacher",),
+            include_title_patterns=("science 10:",),
+        )
+        exporter = builder.BrightspaceCourseDocxExporter.__new__(builder.BrightspaceCourseDocxExporter)
+        exporter.config = config
+        exporter.manifest_root = ET.fromstring(
+            """
+            <manifest>
+              <organizations>
+                <organization>
+                  <item identifier="root">
+                    <item identifier="science14">
+                      <title>Science 14: Section SGOVL</title>
+                      <item identifier="matter14"><title>Unit 1 - Matter</title></item>
+                    </item>
+                    <item identifier="science10">
+                      <title>Science 10: Section SGOVL</title>
+                      <item identifier="biology"><title>Biology</title></item>
+                      <item identifier="chemistry"><title>Chemistry</title></item>
+                    </item>
+                    <item identifier="science104">
+                      <title>Science 10-4: Section SGOVL</title>
+                      <item identifier="matter104"><title>Unit 1: Properties of Matter</title></item>
+                    </item>
+                  </item>
+                </organization>
+              </organizations>
+            </manifest>
+            """
+        )
+
+        modules = exporter.top_modules()
+
+        self.assertEqual([builder.item_title(item) for item in modules], ["Biology", "Chemistry"])
 
 
 if __name__ == "__main__":
