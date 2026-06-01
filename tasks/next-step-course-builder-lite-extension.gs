@@ -1,11 +1,11 @@
 /************************************************************
  COURSE BUILDER LITE + TEACHER CONTROL PANEL
- Safe layer: tracker + preview + explicitly approved test course creation.
+ Safe layer: tracker + preview + explicitly approved locked-gate apply flows.
 
- This extension may create up to COURSE_CREATE_MAX_PER_RUN new Classroom
- course shells from the Course Creation Apply sheet. It does not edit,
- delete, roster, invite, post, publish, grade, or otherwise change existing
- Google Classroom content.
+ This extension may create new Classroom shell items only from explicit
+ apply sheets with approval checkboxes, confirmation text, caps per run,
+ duplicate checks, created IDs written back, and Command Centre logging.
+ It does not edit, delete, grade, deploy a web app, or run automatic sends.
 ************************************************************/
 
 const APP = {
@@ -32,6 +32,24 @@ const APP = {
   COURSE_BUILD_PACKET_SHEET: 'Course Build Packet',
   COURSE_CREATION_REVIEW_SHEET: 'Course Creation Review',
   COURSE_CREATION_APPLY_SHEET: 'Course Creation Apply',
+  COURSE_CREATION_APPLY_PROOF_ARCHIVE_SHEET: 'Course Creation Apply Proof Archive',
+  LIVE_PROOF_CHECKLIST_SHEET: 'Live Proof Checklist',
+  SIMPLE_TEMPLATE_LIBRARY_SHEET: 'Simple Shell Template Library',
+  SIMPLE_SHELL_SHEET: 'Simple Shell Builder',
+  SIMPLE_ANNOUNCEMENTS_SHEET: 'Simple Announcements',
+  TOPIC_APPLY_REVIEW_SHEET: 'Topic Apply Review',
+  ASSIGNMENT_APPLY_REVIEW_SHEET: 'Assignment Apply Review',
+  MATERIAL_APPLY_REVIEW_SHEET: 'Material Apply Review',
+  ANNOUNCEMENT_APPLY_REVIEW_SHEET: 'Announcement Apply Review',
+  STUDENT_INVITE_REVIEW_SHEET: 'Student Invite Review',
+  TEACHER_INVITE_REVIEW_SHEET: 'Teacher Invite Review',
+  ARTIFACT_APPLY_REVIEW_SHEET: 'Artifact Apply Review',
+  ADMIN_SUMMARY_SHEET: 'Admin Summary',
+  CONTACT_NEEDED_REPORT_SHEET: 'Contact Needed Report',
+  MISSING_WORK_REPORT_SHEET: 'Missing Work Report',
+  NEEDS_MARKING_REPORT_SHEET: 'Needs Marking Report',
+  ROSTER_MISMATCH_REPORT_SHEET: 'Roster Mismatch Report',
+  COURSE_PROGRESS_SUMMARY_SHEET: 'Course Progress Summary',
   COURSE_LAUNCH_CHECKLIST_SHEET: 'Course Launch Checklist',
   GENERATED_TAB_PREFIX: 'GC - ',
   TEACHER_PANEL_TITLE: 'Next Step Teacher Control Panel',
@@ -90,6 +108,17 @@ const APP = {
 };
 
 const COURSE_CREATE_MAX_PER_RUN = 2;
+const TOPIC_CREATE_MAX_PER_RUN = 5;
+const ASSIGNMENT_CREATE_MAX_PER_RUN = 3;
+const MATERIAL_CREATE_MAX_PER_RUN = 5;
+const ANNOUNCEMENT_CREATE_MAX_PER_RUN = 2;
+const STUDENT_INVITE_MAX_PER_RUN = 5;
+const TEACHER_INVITE_MAX_PER_RUN = 3;
+const ARTIFACT_CREATE_MAX_PER_RUN = 5;
+const SIMPLE_SHELL_CREATE_MAX_PER_RUN = 5;
+const SIMPLE_ANNOUNCEMENT_POST_MAX_PER_RUN = 5;
+const SIMPLE_SHELL_HEADER_ROW = 8;
+const SIMPLE_ANNOUNCEMENTS_HEADER_ROW = 9;
 
 let EMAIL_PREVIEW_GC_CACHE_ = null;
 
@@ -97,14 +126,11 @@ function onOpen() {
   const ui = SpreadsheetApp.getUi();
 
   ui.createMenu('Next Step Tracker')
-    .addItem('0. Open Teacher Control Panel', 'showTeacherControlPanel')
-    .addItem('0b. Setup Course Builder Lite', 'setupCourseBuilderLite')
-    .addItem('0c. Setup Course Shell Template', 'setupCourseShellTemplate')
-    .addItem('0d. Preview Course Build Plan', 'previewCourseBuildPlan')
-    .addItem('0e. Generate Course Build Packet', 'generateCourseBuildPacket')
-    .addItem('0f. Build Course Creation Review', 'buildCourseCreationReview')
-    .addItem('0g. Build Course Launch Checklist', 'buildCourseLaunchChecklist')
-    .addItem('0h. Build Course Creation Apply', 'buildCourseCreationApply')
+    .addItem('0. Sync Everything', 'teacherSyncEverything')
+    .addItem('0a. Setup Announcements Tab', 'setupSimpleTeacherTabs')
+    .addItem('0b. Queue Announcement Rows', 'queueSimpleAnnouncementRows')
+    .addItem('0c. Post Selected Announcements', 'postSimpleAnnouncements')
+    .addItem('0d. Open Teacher Control Panel', 'showTeacherControlPanel')
     .addSeparator()
     .addItem('1. Setup / Repair Tracker', 'teacherSetupRepair')
     .addItem('2. Refresh Student List', 'teacherRefreshStudentList')
@@ -123,23 +149,17 @@ function onOpen() {
     .addItem('Repair Master Blank Rows', 'repairMasterBlankRows')
     .addToUi();
 
-  ui.createMenu('Next Step Course Builder')
-    .addItem('Open Teacher Control Panel', 'showTeacherControlPanel')
-    .addItem('Setup Course Builder Lite', 'setupCourseBuilderLite')
-    .addItem('Setup Course Shell Template', 'setupCourseShellTemplate')
-    .addItem('Preview Build Plan', 'previewCourseBuildPlan')
-    .addItem('Generate Course Build Packet', 'generateCourseBuildPacket')
-    .addItem('Build Course Creation Review', 'buildCourseCreationReview')
-    .addItem('Build Course Launch Checklist', 'buildCourseLaunchChecklist')
-    .addItem('Build Course Creation Apply', 'buildCourseCreationApply')
-    .addItem('Apply Build Plan - LOCKED', 'applyCourseBuildPlan')
-    .addItem('Apply Approved Course Creates', 'applyApprovedCourseCreates')
-    .addItem('Web App Deployment Help', 'showTeacherWebAppDeployHelp')
+  ui.createMenu('Next Step Announcements')
+    .addItem('Setup Announcements Tab', 'setupSimpleTeacherTabs')
+    .addItem('Queue Simple Announcement Rows', 'queueSimpleAnnouncementRows')
+    .addItem('Post Selected Simple Announcements', 'postSimpleAnnouncements')
     .addToUi();
 
   ui.createMenu('Next Step Admin')
     .addItem('Show Backend Sheets', 'showBackendSheets')
     .addItem('Hide Backend Sheets - Keep GC Tabs', 'hideBackendSheets')
+    .addItem('Show Retired Course Builder Sheets', 'disableSimpleTeacherMode')
+    .addItem('Hide Retired Course Builder Sheets', 'enableSimpleTeacherMode')
     .addItem('Emergency: Clear Master Validations', 'emergencyClearMasterValidations')
     .addItem('DANGER: Delete Generated GC Tabs', 'cleanGeneratedGcTabs')
     .addItem('Resume Classroom Progress Queue', 'continueCheckedClassroomProgressUpdateManual')
@@ -274,20 +294,10 @@ function teacherSetupRepair() {
 
 function teacherSyncEverything() {
   withLock_('Sync Everything', () => {
-    requireClassroomService_();
-
-    const rosterResult = updateRosterFromImportAndFeedInternal_(false) || { rows: 0 };
-    const masterResult = syncMasterTrackerFromRosterInternal_(false) || { added: 0, updated: 0, archived: 0, activeRows: 0 };
-    const progressStart = startCheckedClassroomProgressUpdateInternal_();
-
-    setupEmailSettingsSheetInternal_(false);
-    setupDashboardSheet_();
-
-    appendSyncLog_(
-      'SYNC EVERYTHING',
-      progressStart.progress.remaining > 0 ? 'RUNNING' : 'DONE',
-      `Roster rows: ${rosterResult.rows || 0}; active Master rows: ${masterResult.activeRows || 0}; restored from archive: ${masterResult.restored || 0}; archived stale rows: ${masterResult.archived || 0}; checked courses: ${progressStart.checkedCourses || 0}; course tabs created: ${progressStart.courseMap.created || 0}; deleted: ${progressStart.courseMap.deleted || 0}; courses updated now: ${progressStart.progress.updatedThisRun || 0}; remaining progress queue: ${progressStart.progress.remaining || 0}; errors: ${(progressStart.courseMap.errors || 0) + (progressStart.progress.errorsThisRun || 0)}.`
-    );
+    const summary = teacherSyncEverythingInternal_();
+    const progressStart = summary.progressStart;
+    const rosterResult = summary.rosterResult;
+    const masterResult = summary.masterResult;
 
     const remainingLine = progressStart.progress.remaining > 0
       ? `\n\nRemaining courses: ${progressStart.progress.remaining}\nThe queue has been scheduled to continue automatically. You can also use Next Step Admin → Resume Classroom Progress Queue.`
@@ -297,6 +307,25 @@ function teacherSyncEverything() {
       `Sync Everything started.\n\nRoster rows: ${rosterResult.rows || 0}\nActive Master rows: ${masterResult.activeRows || 0}\nRestored from archive: ${masterResult.restored || 0}\nArchived stale Master rows: ${masterResult.archived || 0}\nChecked Classroom courses: ${progressStart.checkedCourses || 0}\nGC tabs created: ${progressStart.courseMap.created || 0}\nGC tabs updated: ${progressStart.courseMap.kept || 0}\nGC tabs deleted: ${progressStart.courseMap.deleted || 0}\nClassroom student rows loaded: ${progressStart.courseMap.studentRows || 0}\nCourses updated now: ${progressStart.progress.updatedThisRun || 0}\nErrors: ${(progressStart.courseMap.errors || 0) + (progressStart.progress.errorsThisRun || 0)}${remainingLine}`
     );
   });
+}
+
+function teacherSyncEverythingInternal_() {
+  requireClassroomService_();
+
+  const rosterResult = updateRosterFromImportAndFeedInternal_(false) || { rows: 0 };
+  const masterResult = syncMasterTrackerFromRosterInternal_(false) || { added: 0, updated: 0, archived: 0, activeRows: 0 };
+  const progressStart = startCheckedClassroomProgressUpdateInternal_();
+
+  setupEmailSettingsSheetInternal_(false);
+  setupDashboardSheet_();
+
+  appendSyncLog_(
+    'SYNC EVERYTHING',
+    progressStart.progress.remaining > 0 ? 'RUNNING' : 'DONE',
+    `Roster rows: ${rosterResult.rows || 0}; active Master rows: ${masterResult.activeRows || 0}; restored from archive: ${masterResult.restored || 0}; archived stale rows: ${masterResult.archived || 0}; checked courses: ${progressStart.checkedCourses || 0}; course tabs created: ${progressStart.courseMap.created || 0}; deleted: ${progressStart.courseMap.deleted || 0}; courses updated now: ${progressStart.progress.updatedThisRun || 0}; remaining progress queue: ${progressStart.progress.remaining || 0}; errors: ${(progressStart.courseMap.errors || 0) + (progressStart.progress.errorsThisRun || 0)}.`
+  );
+
+  return { rosterResult, masterResult, progressStart };
 }
 
 function teacherRefreshStudentList() {
@@ -3020,13 +3049,29 @@ function appendEmailLog_(draft, result, detail) {
 }
 
 /************************************************************
- ONEDIT CONTACT LOG
+ONEDIT CONTACT LOG
  ************************************************************/
 function onEdit(e) {
   if (!e) return;
+  const sheet = e.range && e.range.getSheet ? e.range.getSheet() : null;
+  if (!sheet) return;
+  const sheetName = sheet.getName();
+  if (sheetName === APP.MASTER_SHEET) {
+    handleMasterContactLogEdit_(e);
+    return;
+  }
+  if (sheetName === APP.SIMPLE_SHELL_SHEET) {
+    handleSimpleShellOnEdit_(e);
+    return;
+  }
+  if (sheetName === APP.SIMPLE_ANNOUNCEMENTS_SHEET) {
+    handleSimpleAnnouncementsOnEdit_(e);
+  }
+}
+
+function handleMasterContactLogEdit_(e) {
   const range = e.range;
   const sheet = range.getSheet();
-  if (sheet.getName() !== APP.MASTER_SHEET) return;
   if (range.getRow() <= 1) return;
   if (range.getValue() !== true) return;
 
@@ -3059,8 +3104,85 @@ function onEdit(e) {
   ]);
 }
 
+function handleSimpleShellOnEdit_(e) {
+  const range = e.range;
+  const sheet = range.getSheet();
+  const row = range.getRow();
+  const col = range.getColumn();
+  if (row <= SIMPLE_SHELL_HEADER_ROW) {
+    if (row === 3 && col === 2 && range.getValue() === true) {
+      try { populateSimpleShellInternal_(); } catch (err) {
+        appendCommandCentreLog_('POPULATE SIMPLE SHELL FROM CHECKBOX', 'ERROR', err && err.message ? err.message : err);
+      }
+    }
+    applySimpleControlValidations_(sheet, true);
+    return;
+  }
+
+  ensureSimpleShellBlankTailRow_(sheet);
+  styleSimpleShellSheet_(sheet);
+}
+
+function handleSimpleAnnouncementsOnEdit_(e) {
+  const range = e.range;
+  const sheet = range.getSheet();
+  const row = range.getRow();
+  const col = range.getColumn();
+  if (row <= SIMPLE_ANNOUNCEMENTS_HEADER_ROW) {
+    if (row === 6 && col === 2 && range.getValue() === true) {
+      try { queueSimpleAnnouncementRowsInternal_({}); } catch (err) {
+        appendCommandCentreLog_('QUEUE SIMPLE ANNOUNCEMENTS FROM CHECKBOX', 'ERROR', err && err.message ? err.message : err);
+      }
+    }
+    applySimpleControlValidations_(sheet, false);
+    return;
+  }
+  if (col === 2 || col === 3) {
+    syncSimpleCourseContextRow_(sheet, row, true);
+  }
+  ensureSimpleAnnouncementsBlankTailRow_(sheet);
+  styleSimpleAnnouncementsSheet_(sheet);
+}
+
+function syncSimpleCourseContextRow_(sheet, row, forceCourseId) {
+  if (!sheet || row <= SIMPLE_ANNOUNCEMENTS_HEADER_ROW) return false;
+  const isShell = sheet.getName() === APP.SIMPLE_SHELL_SHEET;
+  if (isShell) return false;
+  const headers = isShell ? getSimpleShellHeaders_() : getSimpleAnnouncementsHeaders_();
+  const values = sheet.getRange(row, 1, 1, headers.length).getValues()[0];
+  const courseName = String(values[1] || '').trim();
+  if (!courseName) return false;
+
+  const lookup = getSimpleCourseMetaLookup_();
+  const idLookup = buildCourseIdLookupForApply_();
+  const meta = lookup[normalizeText_(courseName)] || {};
+  const mappedCourseName = String(meta.courseName || courseName || '').trim();
+  const resolvedCourseId = String(
+    (forceCourseId ? '' : values[2]) ||
+    meta.courseId ||
+    resolveCourseIdForRecord_({ courseName: mappedCourseName, section: meta.section || '' }, idLookup) ||
+    resolveCourseIdForRecord_({ courseName, section: meta.section || '' }, idLookup) ||
+    ''
+  ).trim();
+
+  let changed = false;
+  if (mappedCourseName && mappedCourseName !== courseName) {
+    values[1] = mappedCourseName;
+    changed = true;
+  }
+  if (resolvedCourseId && String(values[2] || '').trim() !== resolvedCourseId) {
+    values[2] = resolvedCourseId;
+    changed = true;
+  }
+
+  if (changed) {
+    setValuesNoValidation_(sheet.getRange(row, 1, 1, headers.length), [values]);
+  }
+  return changed;
+}
+
 /************************************************************
- CLASSROOM API HELPERS
+CLASSROOM API HELPERS
  ************************************************************/
 function listActiveClassroomCourses_() {
   let pageToken;
@@ -3508,7 +3630,9 @@ function hideBackendSheets() {
     APP.EMAIL_IMPORT_SHEET,
     APP.COURSE_MAP_SHEET,
     APP.EMAIL_PREVIEW_SHEET,
-    APP.CLASSROOM_AUDIT_SHEET
+    APP.CLASSROOM_AUDIT_SHEET,
+    APP.SIMPLE_SHELL_SHEET,
+    APP.SIMPLE_ANNOUNCEMENTS_SHEET
   ].forEach(name => keepVisible[name] = true);
 
   ss.getSheets().forEach(sheet => {
@@ -3736,6 +3860,19 @@ function dedupeEmails_(emails) {
   return output;
 }
 
+function dedupeByNormalized_(values) {
+  const seen = {};
+  const output = [];
+  (values || []).forEach(value => {
+    const text = String(value || '').trim();
+    const key = normalizeText_(text);
+    if (!text || !key || seen[key]) return;
+    seen[key] = true;
+    output.push(text);
+  });
+  return output;
+}
+
 function cleanEmailCell_(value) {
   return dedupeEmails_(extractEmails_(String(value || ''))).join(', ');
 }
@@ -3955,7 +4092,7 @@ function setupCourseBuilderLite() {
   withLock_('Setup Course Builder Lite', () => {
     setupCourseBuilderLiteInternal_();
 
-    SpreadsheetApp.getUi().alert('Course Builder Lite is ready.\n\nThis includes the Course Builder, Course Shell Template, Course Build Preview, Course Build Packet, Course Creation Review, Course Creation Apply, and Course Launch Checklist sheets.\n\nOnly Apply Approved Course Creates can create new Classroom course shells, and it is capped at two approved rows per run. Existing Classroom content remains locked.');
+    SpreadsheetApp.getUi().alert('Course Builder Lite is ready.\n\nThis includes the Course Builder, Course Shell Template, Course Build Preview, Course Build Packet, Course Creation Review, Course Creation Apply, Live Proof Checklist, and Course Launch Checklist sheets.\n\nClassroom writes are available only through separate approved apply sheets with confirmation text, caps, duplicate checks, ID writeback, and Command Centre logging.');
   });
 }
 
@@ -3963,7 +4100,7 @@ function setupCourseShellTemplate() {
   withLock_('Setup Course Shell Template', () => {
     setupCourseShellTemplateInternal_();
 
-    SpreadsheetApp.getUi().alert('Course Shell Template is ready.\n\nUse it to plan topics, assignments, materials, announcements, dates, points, links, and publish flags. It is preview-only and cannot change Google Classroom.');
+    SpreadsheetApp.getUi().alert('Course Shell Template is ready.\n\nUse it to plan topics, assignments, materials, announcements, dates, points, links, and publish flags. It does not apply anything by itself; each write uses a separate approved apply sheet.');
   });
 }
 
@@ -4047,6 +4184,38 @@ function buildCourseCreationApply() {
   });
 }
 
+function buildLiveProofChecklist() {
+  withLock_('Build Live Proof Checklist', () => {
+    const summary = buildLiveProofChecklistInternal_();
+
+    SpreadsheetApp.getUi().alert(
+      `Live Proof Checklist built.\n\n` +
+      `Phases tracked: ${summary.rows}\n` +
+      `Rows pre-approved: ${summary.approved}\n` +
+      `Rows already marked ran: ${summary.ran}\n\n` +
+      'Use one disposable test course only. Approve and run one row at a time, then verify duplicate re-run behavior before moving to the next phase.'
+    );
+  });
+}
+
+function refreshCourseCreationApplyStatus() {
+  withLock_('Refresh Course Creation Apply Status', () => {
+    const summary = refreshCourseCreationApplyStatusInternal_();
+
+    SpreadsheetApp.getUi().alert(
+      `Course Creation Apply status refreshed.\n\n` +
+      `Rows checked: ${summary.rows}\n` +
+      `Course exists: ${summary.exists}\n` +
+      `Course archived: ${summary.archived}\n` +
+      `Course not found: ${summary.notFound}\n` +
+      `ID blank: ${summary.idBlank}\n` +
+      `Moved to proof archive: ${summary.proofArchived}\n` +
+      `Errors: ${summary.errors}\n\n` +
+      'Read-only Classroom check only. No Classroom content was created, changed, archived, deleted, rostered, invited, posted, published, or graded.'
+    );
+  });
+}
+
 function applyApprovedCourseCreates() {
   withLock_('Apply Approved Course Creates', () => {
     const preview = getApprovedCourseCreatePreview_();
@@ -4091,6 +4260,1133 @@ function applyApprovedCourseCreates() {
   });
 }
 
+function enableSimpleTeacherMode() {
+  withLock_('Enable Tracker + Announcements Mode', () => {
+    setupSimpleTeacherTabsInternal_();
+    hideAdvancedSheetsForSimpleMode_();
+    SpreadsheetApp.getUi().alert(
+      'Tracker + Announcements mode is ON.\n\n' +
+      'The Course Builder is retired from the normal workflow.\n\n' +
+      'Use these pieces now:\n' +
+      `- ${APP.DASHBOARD_SHEET}\n` +
+      `- ${APP.MASTER_SHEET}\n` +
+      `- ${APP.COURSE_MAP_SHEET}\n` +
+      `- ${APP.SIMPLE_ANNOUNCEMENTS_SHEET}\n\n` +
+      'Run from menu:\n' +
+      '- Sync Everything\n' +
+      '- Queue Simple Announcement Rows\n' +
+      '- Post Selected Simple Announcements\n\n' +
+      'The old builder sheets are hidden, not deleted.'
+    );
+  });
+}
+
+function disableSimpleTeacherMode() {
+  withLock_('Disable Simple Mode', () => {
+    showBackendSheets();
+    SpreadsheetApp.getUi().alert('Simple Mode is OFF. All tabs are visible again.');
+  });
+}
+
+function setupSimpleTeacherTabs() {
+  withLock_('Setup Announcements Tab', () => {
+    setupSimpleTeacherTabsInternal_();
+    SpreadsheetApp.getUi().alert(
+      'Announcements tab is ready.\n\n' +
+      `Use ${APP.SIMPLE_ANNOUNCEMENTS_SHEET} for one-course or bulk announcements.\n\n` +
+      'The Course Builder tabs are no longer part of the normal workflow.'
+    );
+  });
+}
+
+function loadSelectedCourseIntoSimpleShell() {
+  withLock_('Load Selected Course Into Simple Shell', () => {
+    const summary = loadSelectedCourseIntoSimpleShellInternal_();
+    SpreadsheetApp.getUi().alert(
+      `Simple Shell course loaded.\n\n` +
+      `Course: ${summary.courseName || '(none)'}\n` +
+      `Rows loaded: ${summary.rowsLoaded}\n` +
+      `From shell template: ${summary.fromTemplate ? 'YES' : 'NO'}`
+    );
+  });
+}
+
+function populateSimpleShell() {
+  withLock_('Populate Simple Shell', () => {
+    const summary = populateSimpleShellInternal_();
+    SpreadsheetApp.getUi().alert(
+      `Simple Shell populated.\n\n` +
+      `Course: ${summary.courseName || '(none)'}\n` +
+      `Template: ${summary.templateName || '(none)'}\n` +
+      `Rows loaded: ${summary.rowsLoaded}\n\n` +
+      `Nothing was posted to Classroom.`
+    );
+  });
+}
+
+function addSimpleShellRowBelow() {
+  withLock_('Add Simple Shell Row', () => {
+    const rowNumber = addSimpleShellRowBelowInternal_();
+    SpreadsheetApp.getUi().alert(`Inserted a new Simple Shell row below row ${rowNumber - 1}.`);
+  });
+}
+
+function moveSimpleShellRowUp() {
+  withLock_('Move Simple Shell Row Up', () => {
+    const moved = moveSimpleShellRowInternal_(-1);
+    if (!moved) SpreadsheetApp.getUi().alert('Select a Simple Shell data row (row 2 or lower) to move.');
+  });
+}
+
+function moveSimpleShellRowDown() {
+  withLock_('Move Simple Shell Row Down', () => {
+    const moved = moveSimpleShellRowInternal_(1);
+    if (!moved) SpreadsheetApp.getUi().alert('Select a Simple Shell data row (row 2 or lower) to move.');
+  });
+}
+
+function deleteSelectedSimpleShellRow() {
+  withLock_('Delete Simple Shell Row', () => {
+    const deleted = deleteSimpleShellRowInternal_();
+    if (!deleted) SpreadsheetApp.getUi().alert('Select a Simple Shell data row (row 2 or lower) to delete.');
+  });
+}
+
+function applySimpleShellBuilderRows() {
+  withLock_('Apply Simple Shell Rows', () => {
+    requireClassroomService_();
+    const summary = applySimpleShellBuilderRowsInternal_();
+    SpreadsheetApp.getUi().alert(
+      `Simple shell apply complete.\n\n` +
+      `Rows checked: ${summary.rowsChecked}\n` +
+      `Rows approved: ${summary.rowsApproved}\n` +
+      `Rows blocked: ${summary.rowsBlocked}\n` +
+      `Topics created: ${summary.topicsCreated}\n` +
+      `Topics skipped existing: ${summary.topicsSkipped}\n` +
+      `Materials created: ${summary.materialsCreated}\n` +
+      `Materials skipped existing: ${summary.materialsSkipped}\n` +
+      `Assignments created: ${summary.assignmentsCreated}\n` +
+      `Assignments skipped existing: ${summary.assignmentsSkipped}\n` +
+      `Announcements created: ${summary.announcementsCreated}\n` +
+      `Announcements skipped existing: ${summary.announcementsSkipped}\n` +
+      `Errors: ${summary.errors}`
+    );
+  });
+}
+
+function postSimpleAnnouncements() {
+  withLock_('Post Simple Announcements', () => {
+    requireClassroomService_();
+    const summary = postSimpleAnnouncementsInternal_();
+    SpreadsheetApp.getUi().alert(
+      `Simple announcement apply complete.\n\n` +
+      `Rows checked: ${summary.rowsChecked}\n` +
+      `Rows approved: ${summary.rowsApproved}\n` +
+      `Rows blocked: ${summary.rowsBlocked}\n` +
+      `Announcements created: ${summary.created}\n` +
+      `Announcements skipped existing: ${summary.skipped}\n` +
+      `Errors: ${summary.errors}`
+    );
+  });
+}
+
+function buildSimpleAnnouncementQueueFromCourseMap() {
+  withLock_('Queue Bulk Announcement Rows From Course Map', () => {
+    const summary = queueSimpleAnnouncementRowsInternal_({ forceAllChecked: true });
+    SpreadsheetApp.getUi().alert(
+      `Bulk announcement queue ready.\n\n` +
+      `Checked courses: ${summary.checkedCourses}\n` +
+      `Rows queued: ${summary.queued}\n` +
+      `Rows skipped (already queued): ${summary.skipped}\n\n` +
+      `Next: check Post? on the rows you want, then run Post Simple Announcements.`
+    );
+  });
+}
+
+function queueSimpleAnnouncementRows() {
+  withLock_('Queue Simple Announcement Rows', () => {
+    const summary = queueSimpleAnnouncementRowsInternal_({});
+    SpreadsheetApp.getUi().alert(
+      `Announcement rows queued.\n\n` +
+      `Target mode: ${summary.targetMode}\n` +
+      `Rows queued: ${summary.queued}\n` +
+      `Rows skipped: ${summary.skipped}\n\n` +
+      `Next: check Post? on the rows you want, then run Post Selected Simple Announcements.`
+    );
+  });
+}
+
+function setupSimpleTeacherTabsInternal_() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const announcements = ss.getSheetByName(APP.SIMPLE_ANNOUNCEMENTS_SHEET) || ss.insertSheet(APP.SIMPLE_ANNOUNCEMENTS_SHEET);
+  setupSimpleAnnouncementsSheet_(announcements);
+  ensureSimpleAnnouncementsBlankTailRow_(announcements);
+  styleSimpleAnnouncementsSheet_(announcements);
+  announcements.showSheet();
+  ss.setActiveSheet(announcements);
+  appendCommandCentreLog_('SETUP ANNOUNCEMENTS TAB', 'DONE', `Announcements tab ready: ${APP.SIMPLE_ANNOUNCEMENTS_SHEET}. Course Builder tabs are retired from normal use.`);
+}
+
+function hideAdvancedSheetsForSimpleMode_() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const keepVisible = {};
+  [
+    APP.DASHBOARD_SHEET,
+    APP.MASTER_SHEET,
+    APP.ROSTER_IMPORT_SHEET,
+    APP.COURSE_MAP_SHEET,
+    APP.SIMPLE_ANNOUNCEMENTS_SHEET,
+    APP.COMMAND_CENTRE_LOG_SHEET
+  ].forEach(name => keepVisible[name] = true);
+
+  ss.getSheets().forEach(sheet => {
+    const name = sheet.getName();
+    const isGeneratedGcTab = name.startsWith(APP.GENERATED_TAB_PREFIX);
+    const shouldStayVisible = keepVisible[name] || isGeneratedGcTab;
+    if (shouldStayVisible) {
+      try { sheet.showSheet(); } catch (err) {}
+      return;
+    }
+    if (ss.getSheets().filter(s => !s.isSheetHidden()).length > 1) {
+      try { sheet.hideSheet(); } catch (err) {}
+    }
+  });
+  appendCommandCentreLog_('ENABLE SIMPLE MODE', 'DONE', 'Advanced tabs hidden; simple tabs visible.');
+}
+
+function getSimpleShellHeaders_() {
+  return ['Use?', 'Order', 'Type', 'Topic', 'Title', 'Description / Instructions', 'Due Date', 'Points', 'Attachment Link', 'Publish?', 'Classroom Course ID', 'Existing Item ID', 'Created Item ID', 'Result'];
+}
+
+function getSimpleAnnouncementsHeaders_() {
+  return ['Post?', 'Course Name', 'Classroom Course ID', 'Announcement Text', 'Attachment Link', 'Publish?', 'Created Announcement ID', 'Posted At', 'Result'];
+}
+
+function getSimpleTemplateLibraryHeaders_() {
+  return ['Template Name', 'Order', 'Type', 'Topic', 'Title', 'Description / Instructions', 'Due Date', 'Points', 'Attachment Link', 'Publish?', 'Notes'];
+}
+
+function getSimpleShellTypeOptions_() {
+  return ['TOPIC', 'MATERIAL', 'ASSIGNMENT', 'ANNOUNCEMENT'];
+}
+
+function getSimpleAnnouncementTargetModes_() {
+  return ['ONE COURSE', 'SELECTED COURSES', 'ALL CHECKED COURSES'];
+}
+
+function styleSimpleShellSheet_(sheet) {
+  const headers = getSimpleShellHeaders_();
+  const headerRow = SIMPLE_SHELL_HEADER_ROW;
+  const lastRow = Math.max(sheet.getLastRow(), headerRow);
+  styleSimpleControlSheet_(sheet, headerRow, headers.length);
+  applySimpleShellColumnWidths_(sheet);
+  if (lastRow > headerRow) {
+    const dataRows = lastRow - headerRow;
+    sheet.getRange(headerRow + 1, 1, dataRows, 1).insertCheckboxes();
+    sheet.getRange(headerRow + 1, 10, dataRows, 1).insertCheckboxes();
+    const typeRule = SpreadsheetApp.newDataValidation().requireValueInList(getSimpleShellTypeOptions_(), true).setAllowInvalid(false).build();
+    sheet.getRange(headerRow + 1, 3, dataRows, 1).setDataValidation(typeRule);
+  }
+  applySimpleControlValidations_(sheet, true);
+}
+
+function styleSimpleAnnouncementsSheet_(sheet) {
+  const headers = getSimpleAnnouncementsHeaders_();
+  const headerRow = SIMPLE_ANNOUNCEMENTS_HEADER_ROW;
+  const lastRow = Math.max(sheet.getLastRow(), headerRow);
+  styleSimpleControlSheet_(sheet, headerRow, headers.length);
+  applySimpleAnnouncementColumnWidths_(sheet);
+  if (lastRow > headerRow) {
+    const dataRows = lastRow - headerRow;
+    sheet.getRange(headerRow + 1, 1, dataRows, 1).insertCheckboxes();
+    sheet.getRange(headerRow + 1, 6, dataRows, 1).insertCheckboxes();
+    if (dataRows) sheet.getRange(headerRow + 1, 8, dataRows, 1).setNumberFormat('yyyy-mm-dd h:mm AM/PM');
+  }
+  applySimpleControlValidations_(sheet, false);
+}
+
+function styleSimpleControlSheet_(sheet, headerRow, numCols) {
+  removeExistingFilterIfAny_(sheet);
+  sheet.setFrozenRows(headerRow);
+  if (headerRow > 1 && numCols > 2) {
+    const blankControlArea = sheet.getRange(1, 3, headerRow - 1, numCols - 2);
+    blankControlArea.clearContent();
+    blankControlArea.clearDataValidations();
+    blankControlArea.clearNote();
+  }
+  if (headerRow > 1) {
+    sheet.setRowHeights(1, headerRow - 1, 28);
+  }
+  sheet.setRowHeight(headerRow, 42);
+  if (sheet.getLastRow() > headerRow) {
+    sheet.setRowHeights(headerRow + 1, sheet.getLastRow() - headerRow, 28);
+  }
+  sheet.getRange(headerRow, 1, 1, numCols)
+    .setFontWeight('bold')
+    .setBackground('#57b983')
+    .setFontColor('#000000')
+    .setWrap(true)
+    .setVerticalAlignment('middle');
+  sheet.getRange(1, 1, Math.max(sheet.getLastRow(), headerRow), numCols)
+    .setBorder(false, false, false, false, false, false);
+  sheet.getRange(1, 1, Math.max(headerRow - 1, 1), numCols)
+    .setWrap(false)
+    .setVerticalAlignment('middle');
+  sheet.getRange(1, 1, Math.max(headerRow - 1, 1), Math.min(numCols, 2))
+    .setBorder(true, true, true, true, true, true);
+  sheet.getRange(headerRow, 1, Math.max(sheet.getLastRow() - headerRow + 1, 1), numCols)
+    .setWrap(false)
+    .setVerticalAlignment('middle')
+    .setBorder(true, true, true, true, true, true);
+  sheet.getRange(headerRow, 1, 1, numCols).setWrap(true);
+  safeCreateFilter_(sheet, headerRow, 1, Math.max(sheet.getLastRow() - headerRow + 1, 1), numCols);
+}
+
+function applySimpleShellColumnWidths_(sheet) {
+  const widths = [190, 150, 132, 190, 260, 380, 122, 92, 260, 92, 178, 150, 150, 420];
+  widths.forEach((width, index) => sheet.setColumnWidth(index + 1, width));
+}
+
+function applySimpleAnnouncementColumnWidths_(sheet) {
+  const widths = [190, 250, 178, 520, 260, 92, 178, 164, 420];
+  widths.forEach((width, index) => sheet.setColumnWidth(index + 1, width));
+}
+
+function applySimpleControlValidations_(sheet, isShell) {
+  if (!sheet) return;
+  const courses = getSimpleCourseChoices_();
+  const courseRule = courses.length ? SpreadsheetApp.newDataValidation().requireValueInList(courses, true).setAllowInvalid(true).build() : null;
+  if (isShell) {
+    const templates = getSimpleTemplateNames_();
+    if (courseRule) sheet.getRange('B1').setDataValidation(courseRule);
+    if (templates.length) {
+      const templateRule = SpreadsheetApp.newDataValidation().requireValueInList(templates, true).setAllowInvalid(true).build();
+      sheet.getRange('B2').setDataValidation(templateRule);
+    }
+    sheet.getRange('B3:B5').insertCheckboxes();
+    return;
+  }
+
+  if (courseRule) {
+    sheet.getRange('B5').setDataValidation(courseRule);
+    if (sheet.getMaxRows() > SIMPLE_ANNOUNCEMENTS_HEADER_ROW) {
+      sheet.getRange(SIMPLE_ANNOUNCEMENTS_HEADER_ROW + 1, 2, sheet.getMaxRows() - SIMPLE_ANNOUNCEMENTS_HEADER_ROW, 1).setDataValidation(courseRule);
+    }
+  }
+  const modeRule = SpreadsheetApp.newDataValidation().requireValueInList(getSimpleAnnouncementTargetModes_(), true).setAllowInvalid(false).build();
+  sheet.getRange('B4').setDataValidation(modeRule);
+  sheet.getRange('B3').insertCheckboxes();
+  sheet.getRange('B6:B7').insertCheckboxes();
+}
+
+function getSimpleCourseChoices_() {
+  const choices = [];
+  try {
+    readEnabledCourseMaps_().forEach(map => {
+      const name = String(map.displayCourseName || map.classroomCourseName || '').trim();
+      if (name) choices.push(name);
+    });
+  } catch (err) {}
+
+  return dedupeByNormalized_(choices);
+}
+
+function setupSimpleTemplateLibraryInternal_() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const sheet = ss.getSheetByName(APP.SIMPLE_TEMPLATE_LIBRARY_SHEET) || ss.insertSheet(APP.SIMPLE_TEMPLATE_LIBRARY_SHEET);
+  const headers = getSimpleTemplateLibraryHeaders_();
+  const existingHeader = sheet.getLastRow() >= 1
+    ? sheet.getRange(1, 1, 1, Math.max(sheet.getLastColumn(), headers.length)).getValues()[0].slice(0, headers.length).join('|')
+    : '';
+  if (existingHeader !== headers.join('|')) {
+    const rows = buildDefaultSimpleTemplateRows_();
+    writeSimpleTable_(sheet, headers, rows);
+  } else if (sheet.getLastRow() < 2) {
+    setValuesNoValidation_(sheet.getRange(2, 1, buildDefaultSimpleTemplateRows_().length, headers.length), buildDefaultSimpleTemplateRows_());
+  }
+  styleSimpleSheet_(sheet, Math.max(sheet.getLastRow(), 2), headers.length);
+  if (sheet.getLastRow() > 1) {
+    const typeRule = SpreadsheetApp.newDataValidation().requireValueInList(getSimpleShellTypeOptions_(), true).setAllowInvalid(false).build();
+    sheet.getRange(2, 3, sheet.getLastRow() - 1, 1).setDataValidation(typeRule);
+    sheet.getRange(2, 10, sheet.getLastRow() - 1, 1).insertCheckboxes();
+  }
+  return sheet;
+}
+
+function buildDefaultSimpleTemplateRows_() {
+  const templates = ['CALM 10 Default', 'AB 10 Default', 'AB 20 Default', 'AB 30 Default', 'Custom'];
+  const rows = [];
+  templates.forEach(template => {
+    rows.push([template, 1, 'TOPIC', 'Orientation', 'Orientation', 'Course start-up and expectations.', '', '', '', false, 'Starter topic']);
+    rows.push([template, 2, 'MATERIAL', 'Orientation', 'Course Outline', 'Paste course outline, links, or opening instructions here.', '', '', 'https://', false, 'Starter material']);
+    rows.push([template, 3, 'ANNOUNCEMENT', 'Orientation', 'Welcome', `Welcome to ${template.replace(' Default', '')}. Please begin with the orientation materials.`, '', '', '', false, 'Starter announcement']);
+    rows.push([template, 4, 'TOPIC', 'Module 1', 'Module 1', 'First module or unit.', '', '', '', false, 'Starter topic']);
+    rows.push([template, 5, 'MATERIAL', 'Module 1', 'Module 1 Instructions', 'Paste module instructions or resource link here.', '', '', 'https://', false, 'Starter material']);
+    rows.push([template, 6, 'ASSIGNMENT', 'Module 1', 'Module 1 Check-In', 'Paste assignment instructions here.', '', 10, '', false, 'Starter assignment']);
+  });
+  return rows;
+}
+
+function getSimpleTemplateNames_() {
+  try {
+    const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(APP.SIMPLE_TEMPLATE_LIBRARY_SHEET);
+    return dedupeByNormalized_(readSimpleTemplateLibraryRecords_(sheet).map(row => row.templateName).filter(Boolean));
+  } catch (err) {
+    return ['CALM 10 Default', 'AB 10 Default', 'AB 20 Default', 'AB 30 Default', 'Custom'];
+  }
+}
+
+function readSimpleTemplateLibraryRecords_(sheet) {
+  if (!sheet || sheet.getLastRow() < 2) return [];
+  const headers = getSimpleTemplateLibraryHeaders_();
+  ensureHeaderRow_(sheet, headers);
+  const values = sheet.getRange(2, 1, sheet.getLastRow() - 1, headers.length).getValues();
+  return values.map((row, index) => ({
+    rowNumber: index + 2,
+    templateName: String(row[0] || '').trim(),
+    order: row[1] || '',
+    type: String(row[2] || '').trim().toUpperCase(),
+    topic: String(row[3] || '').trim(),
+    title: String(row[4] || '').trim(),
+    description: String(row[5] || '').trim(),
+    dueDate: row[6] || '',
+    points: row[7] || '',
+    attachmentLink: String(row[8] || '').trim(),
+    publish: row[9] === true,
+    notes: String(row[10] || '').trim()
+  })).filter(row => row.templateName && row.type);
+}
+
+function setupSimpleShellBuilderSheet_(sheet) {
+  const headers = getSimpleShellHeaders_();
+  const current = sheet.getRange(SIMPLE_SHELL_HEADER_ROW, 1, 1, Math.max(sheet.getLastColumn(), headers.length)).getValues()[0].slice(0, headers.length).join('|');
+  const firstCourse = getSimpleStarterCourseRow_();
+  const firstTemplate = getSimpleTemplateNames_()[0] || 'Custom';
+  if (current !== headers.join('|')) {
+    sheet.clear();
+    sheet.clearConditionalFormatRules();
+    setValuesNoValidation_(sheet.getRange(SIMPLE_SHELL_HEADER_ROW, 1, 1, headers.length), [headers]);
+    setValuesNoValidation_(sheet.getRange(SIMPLE_SHELL_HEADER_ROW + 1, 1, 1, headers.length), [buildBlankSimpleShellRow_(firstCourse.courseId)]);
+  }
+  setValueIfBlank_(sheet.getRange('A1'), 'Selected Classroom Course');
+  setValueIfBlank_(sheet.getRange('B1'), firstCourse.courseName || '');
+  setValueIfBlank_(sheet.getRange('A2'), 'Selected Shell Template');
+  setValueIfBlank_(sheet.getRange('B2'), firstTemplate);
+  setValueIfBlank_(sheet.getRange('A3'), 'Populate Shell?');
+  setValueIfBlank_(sheet.getRange('A4'), 'Clear Existing Draft Rows?');
+  setValueIfBlank_(sheet.getRange('A5'), 'Apply Selected Rows?');
+}
+
+function setupSimpleAnnouncementsSheet_(sheet) {
+  const headers = getSimpleAnnouncementsHeaders_();
+  const current = sheet.getRange(SIMPLE_ANNOUNCEMENTS_HEADER_ROW, 1, 1, Math.max(sheet.getLastColumn(), headers.length)).getValues()[0].slice(0, headers.length).join('|');
+  const firstCourse = getSimpleStarterCourseRow_();
+  if (current !== headers.join('|')) {
+    sheet.clear();
+    sheet.clearConditionalFormatRules();
+    setValuesNoValidation_(sheet.getRange(SIMPLE_ANNOUNCEMENTS_HEADER_ROW, 1, 1, headers.length), [headers]);
+    setValuesNoValidation_(sheet.getRange(SIMPLE_ANNOUNCEMENTS_HEADER_ROW + 1, 1, 1, headers.length), [buildBlankSimpleAnnouncementRow_(firstCourse.courseName, firstCourse.courseId)]);
+  }
+  setValueIfBlank_(sheet.getRange('A1'), 'Announcement Text');
+  setValueIfBlank_(sheet.getRange('A2'), 'Attachment Link');
+  setValueIfBlank_(sheet.getRange('A3'), 'Publish?');
+  setValueIfBlank_(sheet.getRange('A4'), 'Target Mode');
+  setValueIfBlank_(sheet.getRange('B4'), 'ONE COURSE');
+  setValueIfBlank_(sheet.getRange('A5'), 'Course');
+  setValueIfBlank_(sheet.getRange('B5'), firstCourse.courseName || '');
+  setValueIfBlank_(sheet.getRange('A6'), 'Queue Announcement Rows?');
+  setValueIfBlank_(sheet.getRange('A7'), 'Post Selected Announcements?');
+}
+
+function setValueIfBlank_(range, value) {
+  if (String(range.getValue() || '').trim() === '') setValueNoValidation_(range, value);
+}
+
+function getSimpleCourseMetaLookup_() {
+  const lookup = {};
+  const put = (courseName, section, courseId) => {
+    const cleanCourse = String(courseName || '').trim();
+    const key = normalizeText_(cleanCourse);
+    if (!cleanCourse || !key) return;
+    if (!lookup[key]) {
+      lookup[key] = {
+        courseName: cleanCourse,
+        section: String(section || '').trim(),
+        courseId: String(courseId || '').trim()
+      };
+      return;
+    }
+    if (!lookup[key].section && section) lookup[key].section = String(section || '').trim();
+    if (!lookup[key].courseId && courseId) lookup[key].courseId = String(courseId || '').trim();
+  };
+
+  try {
+    readEnabledCourseMaps_().forEach(map => {
+      put(map.displayCourseName || map.classroomCourseName, '', map.classroomCourseId);
+      put(map.classroomCourseName || map.displayCourseName, '', map.classroomCourseId);
+    });
+  } catch (err) {}
+
+  try {
+    const creationSheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(APP.COURSE_CREATION_APPLY_SHEET);
+    readCourseCreationApplyRecords_(creationSheet).forEach(row => {
+      put(row.courseName, row.section, row.createdCourseId || row.existingCourseId || '');
+    });
+  } catch (err) {}
+
+  try {
+    const shell = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(APP.COURSE_SHELL_TEMPLATE_SHEET);
+    readCourseShellTemplateRecords_(shell).forEach(record => {
+      put(record.courseName, record.section, '');
+    });
+  } catch (err) {}
+
+  return lookup;
+}
+
+function getSimpleStarterCourseRow_() {
+  const options = getSimpleCourseChoices_();
+  const lookup = getSimpleCourseMetaLookup_();
+  const first = String(options[0] || '').trim();
+  const meta = lookup[normalizeText_(first)] || {};
+  return {
+    courseName: first || '',
+    section: String(meta.section || '').trim(),
+    courseId: String(meta.courseId || '').trim()
+  };
+}
+
+function buildBlankSimpleShellRow_(courseName, section, courseId) {
+  const resolvedCourseId = arguments.length === 1 ? courseName : courseId;
+  return [false, '', '', '', '', '', '', '', '', false, resolvedCourseId || '', '', '', ''];
+}
+
+function buildBlankSimpleAnnouncementRow_(courseName, section, courseId) {
+  const resolvedCourseId = arguments.length === 2 ? section : courseId;
+  return [false, courseName || '', resolvedCourseId || '', '', '', false, '', '', ''];
+}
+
+function normalizeSimpleSheetCourseContext_(sheet, isShell) {
+  if (!sheet) return;
+  const headers = isShell ? getSimpleShellHeaders_() : getSimpleAnnouncementsHeaders_();
+  const headerRow = isShell ? SIMPLE_SHELL_HEADER_ROW : SIMPLE_ANNOUNCEMENTS_HEADER_ROW;
+  if (sheet.getLastRow() <= headerRow) return;
+  const colCourse = headers.indexOf('Course Name') + 1;
+  const colCourseId = headers.indexOf('Classroom Course ID') + 1;
+  if (!colCourseId) return;
+
+  const values = sheet.getRange(headerRow + 1, 1, sheet.getLastRow() - headerRow, headers.length).getValues();
+  const lookup = getSimpleCourseMetaLookup_();
+  const idLookup = buildCourseIdLookupForApply_();
+  let changed = false;
+
+  values.forEach((row, index) => {
+    const courseName = isShell ? String(sheet.getRange('B1').getValue() || '').trim() : String(row[colCourse - 1] || '').trim();
+    if (!courseName && !isShell) return;
+    const key = normalizeText_(courseName);
+    const meta = lookup[key] || {};
+    const resolvedCourseId = String(row[colCourseId - 1] || meta.courseId || resolveCourseIdForRecord_({ courseName, section: meta.section || '' }, idLookup) || '').trim();
+
+    if (resolvedCourseId && String(row[colCourseId - 1] || '').trim() !== resolvedCourseId) {
+      row[colCourseId - 1] = resolvedCourseId;
+      changed = true;
+    }
+    if (!isShell && meta.courseName && courseName !== meta.courseName) {
+      row[colCourse - 1] = meta.courseName;
+      changed = true;
+    }
+    if (isShell && row[0] !== true && row[0] !== false && String(row[0] || '').trim() !== '') {
+      row[0] = false;
+      changed = true;
+    }
+  });
+
+  if (changed) {
+    setValuesNoValidation_(sheet.getRange(headerRow + 1, 1, values.length, headers.length), values);
+  }
+}
+
+function ensureSimpleShellBlankTailRow_(sheet) {
+  if (!sheet) return;
+  const headers = getSimpleShellHeaders_();
+  ensureSimpleBlankTailRow_(sheet, headers, SIMPLE_SHELL_HEADER_ROW, [3, 4, 5, 6], buildBlankSimpleShellRow_, 1, 10);
+}
+
+function ensureSimpleAnnouncementsBlankTailRow_(sheet) {
+  if (!sheet) return;
+  const headers = getSimpleAnnouncementsHeaders_();
+  ensureSimpleBlankTailRow_(sheet, headers, SIMPLE_ANNOUNCEMENTS_HEADER_ROW, [2, 4, 5], buildBlankSimpleAnnouncementRow_, 1, 6);
+}
+
+function ensureSimpleBlankTailRow_(sheet, headers, headerRow, keyCols, rowBuilder, checkboxColA, checkboxColB) {
+  setValuesNoValidation_(sheet.getRange(headerRow, 1, 1, headers.length), [headers]);
+  const lastRow = Math.max(sheet.getLastRow(), headerRow);
+  if (lastRow <= headerRow) {
+    const starter = getSimpleStarterCourseRow_();
+    setValuesNoValidation_(sheet.getRange(headerRow + 1, 1, 1, headers.length), [rowBuilder(starter.courseName, starter.courseId)]);
+  }
+
+  const finalRow = Math.max(sheet.getLastRow(), headerRow + 1);
+  const lastValues = sheet.getRange(finalRow, 1, 1, headers.length).getValues()[0];
+  const hasTailContent = keyCols.some(col => String(lastValues[col - 1] || '').trim() !== '');
+  if (!hasTailContent) return;
+
+  sheet.insertRowsAfter(finalRow, 1);
+  const seedCourse = String(lastValues[1] || sheet.getRange('B1').getValue() || '').trim();
+  const seedCourseId = String(lastValues[10] || lastValues[2] || '').trim();
+  const newRow = rowBuilder(seedCourse, seedCourseId);
+  setValuesNoValidation_(sheet.getRange(finalRow + 1, 1, 1, headers.length), [newRow]);
+  if (checkboxColA) sheet.getRange(finalRow + 1, checkboxColA).insertCheckboxes();
+  if (checkboxColB) sheet.getRange(finalRow + 1, checkboxColB).insertCheckboxes();
+}
+
+function loadSelectedCourseIntoSimpleShellInternal_() {
+  return populateSimpleShellInternal_();
+}
+
+function populateSimpleShellInternal_() {
+  setupSimpleTeacherTabsInternal_();
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const shell = ss.getSheetByName(APP.SIMPLE_SHELL_SHEET);
+  const library = ss.getSheetByName(APP.SIMPLE_TEMPLATE_LIBRARY_SHEET);
+  const headers = getSimpleShellHeaders_();
+  const controls = getSimpleShellControls_(shell);
+  const selectedCourseName = controls.courseName;
+  const selectedTemplate = controls.templateName;
+
+  if (!selectedCourseName) throw new Error(`Pick a course from the Selected Classroom Course dropdown in ${APP.SIMPLE_SHELL_SHEET}.`);
+  if (!selectedTemplate) throw new Error(`Pick a shell template from the Selected Shell Template dropdown in ${APP.SIMPLE_SHELL_SHEET}.`);
+
+  const records = readSimpleTemplateLibraryRecords_(library)
+    .filter(record => normalizeText_(record.templateName) === normalizeText_(selectedTemplate));
+  records.sort((a, b) => {
+    const aOrder = Number(a.order);
+    const bOrder = Number(b.order);
+    if (!isNaN(aOrder) && !isNaN(bOrder) && aOrder !== bOrder) return aOrder - bOrder;
+    return a.rowNumber - b.rowNumber;
+  });
+
+  const lookup = buildCourseIdLookupForApply_();
+  const metaLookup = getSimpleCourseMetaLookup_();
+  const meta = metaLookup[normalizeText_(selectedCourseName)] || {};
+  const courseId = String(meta.courseId || resolveCourseIdForRecord_({ courseName: selectedCourseName, section: meta.section || '' }, lookup) || '').trim();
+  const currentRows = readSimpleTableRows_(shell, headers, SIMPLE_SHELL_HEADER_ROW);
+  const preservedCreatedRows = controls.clearDraftRows
+    ? currentRows.filter(row => String(row['Created Item ID'] || '').trim())
+    : currentRows.filter(row => rowHasSimpleShellContent_(row));
+  const newRows = records.map(record => [
+    true,
+    record.order || '',
+    normalizeSimpleShellType_(record.type),
+    record.topic || '',
+    record.title || '',
+    record.description || '',
+    record.dueDate || '',
+    record.points || '',
+    record.attachmentLink || '',
+    record.publish === true,
+    courseId || '',
+    '',
+    '',
+    ''
+  ]);
+
+  const rows = preservedCreatedRows.map(row => simpleShellObjectToRow_(row))
+    .concat(newRows);
+  if (!rows.length) {
+    rows.push(buildBlankSimpleShellRow_(courseId));
+  }
+  rows.push(buildBlankSimpleShellRow_(courseId));
+
+  writeSimpleTableRows_(shell, headers, SIMPLE_SHELL_HEADER_ROW, rows);
+  styleSimpleShellSheet_(shell);
+  normalizeSimpleSheetCourseContext_(shell, true);
+  ensureSimpleShellBlankTailRow_(shell);
+  setValueNoValidation_(shell.getRange('B3'), false);
+  appendCommandCentreLog_('POPULATE SIMPLE SHELL', 'DONE', `Loaded ${Math.max(rows.length - 1, 0)} editable row(s) for ${selectedCourseName} using ${selectedTemplate}.`);
+  ss.setActiveSheet(shell);
+  ss.setActiveSelection(shell.getRange(SIMPLE_SHELL_HEADER_ROW + 1, 3));
+
+  return {
+    courseName: selectedCourseName,
+    templateName: selectedTemplate,
+    rowsLoaded: Math.max(rows.length - 1, 0),
+    fromTemplate: records.length > 0
+  };
+}
+
+function getSimpleShellControls_(sheet) {
+  return {
+    courseName: String(sheet.getRange('B1').getValue() || '').trim(),
+    templateName: String(sheet.getRange('B2').getValue() || '').trim(),
+    populateShell: sheet.getRange('B3').getValue() === true,
+    clearDraftRows: sheet.getRange('B4').getValue() === true,
+    applySelectedRows: sheet.getRange('B5').getValue() === true
+  };
+}
+
+function getSimpleAnnouncementControls_(sheet) {
+  return {
+    text: String(sheet.getRange('B1').getValue() || '').trim(),
+    link: String(sheet.getRange('B2').getValue() || '').trim(),
+    publish: sheet.getRange('B3').getValue() === true,
+    targetMode: String(sheet.getRange('B4').getValue() || 'ONE COURSE').trim().toUpperCase(),
+    courseName: String(sheet.getRange('B5').getValue() || '').trim(),
+    queueRows: sheet.getRange('B6').getValue() === true,
+    postSelected: sheet.getRange('B7').getValue() === true
+  };
+}
+
+function writeSimpleTableRows_(sheet, headers, headerRow, rows) {
+  setValuesNoValidation_(sheet.getRange(headerRow, 1, 1, headers.length), [headers]);
+  const currentLast = sheet.getLastRow();
+  if (currentLast > headerRow) {
+    sheet.getRange(headerRow + 1, 1, currentLast - headerRow, headers.length).clearContent();
+  }
+  if (rows.length) setValuesNoValidation_(sheet.getRange(headerRow + 1, 1, rows.length, headers.length), rows);
+}
+
+function readSimpleTableRows_(sheet, headers, headerRow) {
+  if (!sheet || sheet.getLastRow() <= headerRow) return [];
+  const values = sheet.getRange(headerRow + 1, 1, sheet.getLastRow() - headerRow, headers.length).getValues();
+  return values.map((row, index) => {
+    const obj = { __rowNumber: headerRow + index + 1 };
+    headers.forEach((header, col) => obj[header] = row[col]);
+    return obj;
+  }).filter(row => headers.some(header => String(row[header] || '').trim() !== ''));
+}
+
+function rowHasSimpleShellContent_(row) {
+  return ['Type', 'Topic', 'Title', 'Description / Instructions', 'Attachment Link', 'Created Item ID'].some(header => String(row[header] || '').trim());
+}
+
+function simpleShellObjectToRow_(row) {
+  return getSimpleShellHeaders_().map(header => row[header] || '');
+}
+
+function normalizeSimpleShellType_(value) {
+  const clean = normalizeText_(value).toUpperCase();
+  if (clean === 'COURSEWORK') return 'ASSIGNMENT';
+  if (clean === 'COURSE WORK') return 'ASSIGNMENT';
+  if (getSimpleShellTypeOptions_().indexOf(clean) !== -1) return clean;
+  return clean || '';
+}
+
+function addSimpleShellRowBelowInternal_() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const sheet = ss.getSheetByName(APP.SIMPLE_SHELL_SHEET);
+  if (!sheet) throw new Error(`Sheet "${APP.SIMPLE_SHELL_SHEET}" not found.`);
+
+  const headers = getSimpleShellHeaders_();
+  const selected = sheet.getActiveRange();
+  const currentRow = Math.max(selected ? selected.getRow() : SIMPLE_SHELL_HEADER_ROW + 1, SIMPLE_SHELL_HEADER_ROW + 1);
+  const insertAfter = Math.min(currentRow, sheet.getMaxRows());
+  sheet.insertRowsAfter(insertAfter, 1);
+
+  const sourceRow = Math.max(insertAfter, SIMPLE_SHELL_HEADER_ROW + 1);
+  const sourceValues = sheet.getRange(sourceRow, 1, 1, headers.length).getValues()[0];
+  const newRow = buildBlankSimpleShellRow_(sourceValues[10]);
+  setValuesNoValidation_(sheet.getRange(insertAfter + 1, 1, 1, headers.length), [newRow]);
+  styleSimpleShellSheet_(sheet);
+  sheet.setActiveSelection(sheet.getRange(insertAfter + 1, 3));
+  appendCommandCentreLog_('ADD SIMPLE SHELL ROW', 'DONE', `Inserted row ${insertAfter + 1}.`);
+  return insertAfter + 1;
+}
+
+function buildSimpleAnnouncementQueueFromCourseMapInternal_() {
+  return queueSimpleAnnouncementRowsInternal_({ forceAllChecked: true });
+}
+
+function queueSimpleAnnouncementRowsInternal_(options) {
+  setupSimpleTeacherTabsInternal_();
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const sheet = ss.getSheetByName(APP.SIMPLE_ANNOUNCEMENTS_SHEET);
+  const headers = getSimpleAnnouncementsHeaders_();
+  const controls = getSimpleAnnouncementControls_(sheet);
+  const templateText = controls.text;
+  const templateLink = controls.link;
+  const templatePublish = controls.publish;
+  const targetMode = options && options.forceAllChecked ? 'ALL CHECKED COURSES' : (controls.targetMode || 'ONE COURSE');
+
+  if (!templateText) throw new Error(`Write your announcement text in B1 of ${APP.SIMPLE_ANNOUNCEMENTS_SHEET}, then run this again.`);
+
+  const allMaps = readEnabledCourseMaps_();
+  if (!allMaps.length) {
+    throw new Error(`No checked courses found. Check Use? rows in ${APP.COURSE_MAP_SHEET}, then run this again.`);
+  }
+
+  let maps = [];
+  if (targetMode === 'ALL CHECKED COURSES') {
+    maps = allMaps;
+  } else if (targetMode === 'ONE COURSE') {
+    maps = allMaps.filter(map => normalizeText_(map.displayCourseName || map.classroomCourseName) === normalizeText_(controls.courseName));
+    if (!maps.length) throw new Error(`Pick a checked course in B5 of ${APP.SIMPLE_ANNOUNCEMENTS_SHEET}.`);
+  } else {
+    maps = [{ displayCourseName: '', classroomCourseName: '', classroomCourseId: '' }];
+  }
+
+  const existing = readSimpleTableRows_(sheet, headers, SIMPLE_ANNOUNCEMENTS_HEADER_ROW);
+  const existingKeys = {};
+  existing.forEach(row => {
+    const courseName = String(row['Course Name'] || '').trim();
+    const text = String(row['Announcement Text'] || '').trim();
+    if (!courseName || !text) return;
+    const link = String(row['Attachment Link'] || '').trim();
+    existingKeys[`${normalizeText_(courseName)}|${normalizeText_(text)}|${normalizeText_(link)}`] = true;
+  });
+
+  const pendingRows = [];
+  let skipped = 0;
+  maps.forEach(map => {
+    const courseName = String(map.displayCourseName || map.classroomCourseName || '').trim();
+    const courseId = String(map.classroomCourseId || '').trim();
+    const key = `${normalizeText_(courseName)}|${normalizeText_(templateText)}|${normalizeText_(templateLink)}`;
+    if (courseName && existingKeys[key]) {
+      skipped++;
+      return;
+    }
+    existingKeys[key] = true;
+    pendingRows.push([
+      false,
+      courseName,
+      courseId,
+      templateText,
+      templateLink,
+      templatePublish,
+      '',
+      '',
+      ''
+    ]);
+  });
+
+  if (pendingRows.length) {
+    const startRow = Math.max(sheet.getLastRow(), SIMPLE_ANNOUNCEMENTS_HEADER_ROW) + 1;
+    setValuesNoValidation_(sheet.getRange(startRow, 1, pendingRows.length, headers.length), pendingRows);
+    sheet.getRange(startRow, 1, pendingRows.length, 1).insertCheckboxes();
+    sheet.getRange(startRow, 6, pendingRows.length, 1).insertCheckboxes();
+  }
+
+  styleSimpleAnnouncementsSheet_(sheet);
+  normalizeSimpleSheetCourseContext_(sheet, false);
+  ensureSimpleAnnouncementsBlankTailRow_(sheet);
+  setValueNoValidation_(sheet.getRange('B6'), false);
+  appendCommandCentreLog_(
+    'QUEUE SIMPLE ANNOUNCEMENTS',
+    'DONE',
+    `Target mode: ${targetMode}; queued: ${pendingRows.length}; skipped: ${skipped}.`
+  );
+  ss.setActiveSheet(sheet);
+  if (pendingRows.length) sheet.setActiveSelection(sheet.getRange(Math.max(sheet.getLastRow() - pendingRows.length, SIMPLE_ANNOUNCEMENTS_HEADER_ROW + 1), 1));
+
+  return {
+    checkedCourses: allMaps.length,
+    targetMode,
+    queued: pendingRows.length,
+    skipped
+  };
+}
+
+function moveSimpleShellRowInternal_(direction) {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(APP.SIMPLE_SHELL_SHEET);
+  if (!sheet) return false;
+  const selected = sheet.getActiveRange();
+  if (!selected) return false;
+
+  const headers = getSimpleShellHeaders_();
+  const row = selected.getRow();
+  if (row <= SIMPLE_SHELL_HEADER_ROW) return false;
+  const targetRow = row + (direction > 0 ? 1 : -1);
+  if (targetRow <= SIMPLE_SHELL_HEADER_ROW || targetRow > sheet.getLastRow()) return false;
+
+  const rowValues = sheet.getRange(row, 1, 1, headers.length).getValues()[0];
+  const targetValues = sheet.getRange(targetRow, 1, 1, headers.length).getValues()[0];
+  setValuesNoValidation_(sheet.getRange(row, 1, 1, headers.length), [targetValues]);
+  setValuesNoValidation_(sheet.getRange(targetRow, 1, 1, headers.length), [rowValues]);
+  sheet.setActiveSelection(sheet.getRange(targetRow, selected.getColumn()));
+  appendCommandCentreLog_(
+    direction > 0 ? 'MOVE SIMPLE SHELL ROW DOWN' : 'MOVE SIMPLE SHELL ROW UP',
+    'DONE',
+    `Moved row ${row} to ${targetRow}.`
+  );
+  return true;
+}
+
+function deleteSimpleShellRowInternal_() {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(APP.SIMPLE_SHELL_SHEET);
+  if (!sheet) return false;
+  const selected = sheet.getActiveRange();
+  if (!selected) return false;
+  const row = selected.getRow();
+  if (row <= SIMPLE_SHELL_HEADER_ROW) return false;
+
+  if (sheet.getLastRow() <= SIMPLE_SHELL_HEADER_ROW + 1) {
+    const blank = buildBlankSimpleShellRow_('');
+    setValuesNoValidation_(sheet.getRange(SIMPLE_SHELL_HEADER_ROW + 1, 1, 1, blank.length), [blank]);
+  } else {
+    sheet.deleteRow(row);
+  }
+
+  styleSimpleShellSheet_(sheet);
+  ensureSimpleShellBlankTailRow_(sheet);
+  appendCommandCentreLog_('DELETE SIMPLE SHELL ROW', 'DONE', `Deleted row ${row}.`);
+  return true;
+}
+
+function applySimpleShellBuilderRowsInternal_() {
+  requireClassroomService_();
+  setupSimpleTeacherTabsInternal_();
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const shell = ss.getSheetByName(APP.SIMPLE_SHELL_SHEET);
+  const controls = getSimpleShellControls_(shell);
+  if (controls.populateShell) populateSimpleShellInternal_();
+  normalizeSimpleSheetCourseContext_(shell, true);
+  ensureSimpleShellBlankTailRow_(shell);
+  const headers = getSimpleShellHeaders_();
+  const rows = readSimpleTableRows_(shell, headers, SIMPLE_SHELL_HEADER_ROW);
+  const summary = {
+    rowsChecked: rows.length,
+    rowsApproved: 0,
+    rowsBlocked: 0,
+    topicsCreated: 0,
+    topicsSkipped: 0,
+    assignmentsCreated: 0,
+    assignmentsSkipped: 0,
+    materialsCreated: 0,
+    materialsSkipped: 0,
+    announcementsCreated: 0,
+    announcementsSkipped: 0,
+    errors: 0
+  };
+  const topicCache = {};
+  const existingCache = {};
+  const output = shell.getRange(SIMPLE_SHELL_HEADER_ROW + 1, 1, Math.max(shell.getLastRow() - SIMPLE_SHELL_HEADER_ROW, 0), headers.length).getValues();
+
+  rows.forEach(row => {
+    if (row['Use?'] !== true) return;
+    summary.rowsApproved++;
+    const outputIndex = row.__rowNumber - SIMPLE_SHELL_HEADER_ROW - 1;
+    const type = normalizeSimpleShellType_(row['Type']);
+    const courseId = String(row['Classroom Course ID'] || '').trim();
+    const topicName = String(row['Topic'] || '').trim();
+    const title = String(row['Title'] || '').trim();
+    const description = String(row['Description / Instructions'] || '').trim();
+    const existingItemId = String(row['Existing Item ID'] || '').trim();
+    const createdItemId = String(row['Created Item ID'] || '').trim();
+    const textKey = type === 'ANNOUNCEMENT' ? (description || title) : title;
+    const blockReasons = [];
+
+    if (createdItemId) {
+      writeSimpleShellResult_(output, outputIndex, `SKIPPED - Already created (${createdItemId}).`, createdItemId);
+      return;
+    }
+    if (existingItemId) {
+      writeSimpleShellResult_(output, outputIndex, `SKIPPED - Existing item linked (${existingItemId}).`, existingItemId);
+      return;
+    }
+    if (summary.topicsCreated + summary.assignmentsCreated + summary.materialsCreated + summary.announcementsCreated >= SIMPLE_SHELL_CREATE_MAX_PER_RUN) {
+      writeSimpleShellResult_(output, outputIndex, `SKIPPED - Run cap ${SIMPLE_SHELL_CREATE_MAX_PER_RUN} reached.`, '');
+      return;
+    }
+    if (!courseId) blockReasons.push('Classroom Course ID missing.');
+    if (!type) blockReasons.push('Type missing.');
+    if (type === 'TOPIC' && !(topicName || title)) blockReasons.push('Topic or Title missing.');
+    if ((type === 'MATERIAL' || type === 'ASSIGNMENT') && !title) blockReasons.push('Title missing.');
+    if (type === 'ANNOUNCEMENT' && !textKey) blockReasons.push('Announcement text missing.');
+    if (getSimpleShellTypeOptions_().indexOf(type) === -1) blockReasons.push(`Unsupported Type: ${type}.`);
+    if (blockReasons.length) {
+      summary.rowsBlocked++;
+      writeSimpleShellResult_(output, outputIndex, `BLOCKED - ${blockReasons.join(' ')}`, '');
+      return;
+    }
+
+    try {
+      if (!topicCache[courseId]) topicCache[courseId] = getClassroomTopicsByName_(courseId);
+      let createdId = '';
+      if (type === 'TOPIC') {
+        const topicToCreate = topicName || title;
+        const duplicate = topicCache[courseId][normalizeText_(topicToCreate)];
+        if (duplicate && duplicate.id) {
+          summary.topicsSkipped++;
+          writeSimpleShellResult_(output, outputIndex, `SKIPPED - Topic already exists (${duplicate.id}).`, duplicate.id);
+          return;
+        }
+        const created = createClassroomTopic_(courseId, topicToCreate);
+        createdId = String(created && (created.topicId || created.id) || '').trim();
+        topicCache[courseId][normalizeText_(topicToCreate)] = { id: createdId, status: 'EXISTS', name: topicToCreate };
+        summary.topicsCreated++;
+      } else {
+        const topicId = topicName && topicCache[courseId][normalizeText_(topicName)]
+          ? topicCache[courseId][normalizeText_(topicName)].id
+          : '';
+        if (topicName && !topicId) {
+          summary.rowsBlocked++;
+          writeSimpleShellResult_(output, outputIndex, 'BLOCKED - Topic is not in Classroom yet. Create/apply the topic row first.', '');
+          return;
+        }
+        const kind = type === 'ASSIGNMENT' ? 'ASSIGNMENT' : type === 'MATERIAL' ? 'MATERIAL' : 'ANNOUNCEMENT';
+        const config = getCourseworkApplyConfig_(kind);
+        const cacheKey = `${kind}|${courseId}`;
+        if (!existingCache[cacheKey]) existingCache[cacheKey] = config.existingLookup(courseId);
+        const duplicateKey = normalizeText_(kind === 'ANNOUNCEMENT' ? textKey : title);
+        const duplicate = existingCache[cacheKey][duplicateKey];
+        if (duplicate && duplicate.id) {
+          if (kind === 'ASSIGNMENT') summary.assignmentsSkipped++;
+          if (kind === 'MATERIAL') summary.materialsSkipped++;
+          if (kind === 'ANNOUNCEMENT') summary.announcementsSkipped++;
+          writeSimpleShellResult_(output, outputIndex, `SKIPPED - ${kind} already exists (${duplicate.id}).`, duplicate.id);
+          return;
+        }
+        const applyRow = simpleShellRowToCourseworkApplyRow_(row, topicId, kind);
+        const created = config.create(courseId, applyRow);
+        createdId = String(created && (created.id || created.courseWorkMaterial && created.courseWorkMaterial.id) || '').trim();
+        existingCache[cacheKey][duplicateKey] = { id: createdId, status: 'EXISTS' };
+        if (kind === 'ASSIGNMENT') summary.assignmentsCreated++;
+        if (kind === 'MATERIAL') summary.materialsCreated++;
+        if (kind === 'ANNOUNCEMENT') summary.announcementsCreated++;
+      }
+      writeSimpleShellResult_(output, outputIndex, `CREATED ${type} ${createdId}.`, createdId);
+      appendCommandCentreLog_('APPLY SIMPLE SHELL ROW', 'CREATED', `${type} / ${title || topicName || textKey} -> ${createdId}`);
+    } catch (err) {
+      summary.errors++;
+      writeSimpleShellResult_(output, outputIndex, `ERROR - ${err && err.message ? err.message : err}`, '');
+      appendCommandCentreLog_('APPLY SIMPLE SHELL ROW', 'ERROR', `${type} / ${title || topicName}: ${err && err.message ? err.message : err}`);
+    }
+  });
+
+  if (output.length) setValuesNoValidation_(shell.getRange(SIMPLE_SHELL_HEADER_ROW + 1, 1, output.length, headers.length), output);
+  styleSimpleShellSheet_(shell);
+  setValueNoValidation_(shell.getRange('B5'), false);
+  appendCommandCentreLog_('APPLY SIMPLE SHELL ROWS', summary.errors ? 'DONE WITH ERRORS' : 'DONE', `Approved: ${summary.rowsApproved}; blocked: ${summary.rowsBlocked}; topics created: ${summary.topicsCreated}; materials created: ${summary.materialsCreated}; assignments created: ${summary.assignmentsCreated}; announcements created: ${summary.announcementsCreated}.`);
+  return summary;
+}
+
+function writeSimpleShellResult_(output, index, result, createdId) {
+  if (!output[index]) return;
+  if (createdId) output[index][12] = createdId;
+  output[index][13] = result || '';
+}
+
+function simpleShellRowToCourseworkApplyRow_(row, topicId, kind) {
+  const publishState = row['Publish?'] === true ? 'PUBLISHED' : 'DRAFT';
+  const common = {
+    'Classroom Course ID': row['Classroom Course ID'],
+    'Course Name': '',
+    'Section': '',
+    'Topic Name': row['Topic'],
+    'Topic ID': topicId || '',
+    'Description': row['Description / Instructions'],
+    'Attachment Link': row['Attachment Link'],
+    'Publish State': publishState
+  };
+  if (kind === 'ASSIGNMENT') {
+    common['Assignment Title'] = row['Title'];
+    common['Due Date'] = row['Due Date'];
+    common['Points'] = row['Points'];
+    return common;
+  }
+  if (kind === 'MATERIAL') {
+    common['Material Title'] = row['Title'];
+    return common;
+  }
+  common['Announcement Title / Label'] = row['Title'];
+  common['Text'] = row['Description / Instructions'] || row['Title'];
+  return common;
+}
+
+function postSimpleAnnouncementsInternal_() {
+  requireClassroomService_();
+  setupSimpleTeacherTabsInternal_();
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const sheet = ss.getSheetByName(APP.SIMPLE_ANNOUNCEMENTS_SHEET);
+  const controls = getSimpleAnnouncementControls_(sheet);
+  if (controls.queueRows) queueSimpleAnnouncementRowsInternal_({});
+  normalizeSimpleSheetCourseContext_(sheet, false);
+  ensureSimpleAnnouncementsBlankTailRow_(sheet);
+  const headers = getSimpleAnnouncementsHeaders_();
+  const rows = readSimpleTableRows_(sheet, headers, SIMPLE_ANNOUNCEMENTS_HEADER_ROW);
+  const summary = { rowsChecked: rows.length, rowsApproved: 0, rowsBlocked: 0, created: 0, skipped: 0, errors: 0 };
+  const existingCache = {};
+  const output = sheet.getRange(SIMPLE_ANNOUNCEMENTS_HEADER_ROW + 1, 1, Math.max(sheet.getLastRow() - SIMPLE_ANNOUNCEMENTS_HEADER_ROW, 0), headers.length).getValues();
+
+  rows.forEach(row => {
+    if (row['Post?'] !== true) return;
+    summary.rowsApproved++;
+    const courseName = String(row['Course Name'] || '').trim();
+    const text = String(row['Announcement Text'] || '').trim();
+    const link = String(row['Attachment Link'] || '').trim();
+    const publish = row['Publish?'] === true ? 'PUBLISHED' : 'DRAFT';
+    const resolvedCourseId = String(row['Classroom Course ID'] || '').trim();
+    const createdId = String(row['Created Announcement ID'] || '').trim();
+    const outputIndex = row.__rowNumber - SIMPLE_ANNOUNCEMENTS_HEADER_ROW - 1;
+    const blockReasons = [];
+
+    if (createdId) {
+      summary.skipped++;
+      writeSimpleAnnouncementResult_(output, outputIndex, createdId, '', `SKIPPED - Already posted (${createdId}).`);
+      return;
+    }
+    if (summary.created >= SIMPLE_ANNOUNCEMENT_POST_MAX_PER_RUN) {
+      writeSimpleAnnouncementResult_(output, outputIndex, '', '', `SKIPPED - Run cap ${SIMPLE_ANNOUNCEMENT_POST_MAX_PER_RUN} reached.`);
+      return;
+    }
+    if (!resolvedCourseId) blockReasons.push('Classroom Course ID missing.');
+    if (!text) blockReasons.push('Announcement text missing.');
+    if (blockReasons.length) {
+      summary.rowsBlocked++;
+      writeSimpleAnnouncementResult_(output, outputIndex, '', '', `BLOCKED - ${blockReasons.join(' ')}`);
+      return;
+    }
+    try {
+      if (!existingCache[resolvedCourseId]) existingCache[resolvedCourseId] = getClassroomAnnouncementsByName_(resolvedCourseId);
+      const duplicate = existingCache[resolvedCourseId][normalizeText_(text)];
+      if (duplicate && duplicate.id) {
+        summary.skipped++;
+        writeSimpleAnnouncementResult_(output, outputIndex, duplicate.id, '', `SKIPPED - Announcement already exists (${duplicate.id}).`);
+        return;
+      }
+      const created = createClassroomAnnouncement_(resolvedCourseId, {
+        'Announcement Title / Label': text.length > 80 ? `${text.slice(0, 80)}...` : text,
+        'Text': text,
+        'Attachment Link': link,
+        'Publish State': publish
+      });
+      const id = String(created && created.id || '').trim();
+      existingCache[resolvedCourseId][normalizeText_(text)] = { id, status: 'EXISTS' };
+      summary.created++;
+      writeSimpleAnnouncementResult_(output, outputIndex, id, new Date(), `POSTED announcement ${id}.`);
+      appendCommandCentreLog_('POST SIMPLE ANNOUNCEMENT', 'CREATED', `${courseName || resolvedCourseId} -> ${id}`);
+    } catch (err) {
+      summary.errors++;
+      writeSimpleAnnouncementResult_(output, outputIndex, '', '', `ERROR - ${err && err.message ? err.message : err}`);
+      appendCommandCentreLog_('POST SIMPLE ANNOUNCEMENT', 'ERROR', `${courseName || resolvedCourseId}: ${err && err.message ? err.message : err}`);
+    }
+  });
+
+  if (output.length) setValuesNoValidation_(sheet.getRange(SIMPLE_ANNOUNCEMENTS_HEADER_ROW + 1, 1, output.length, headers.length), output);
+  styleSimpleAnnouncementsSheet_(sheet);
+  setValueNoValidation_(sheet.getRange('B7'), false);
+  appendCommandCentreLog_('POST SIMPLE ANNOUNCEMENTS', summary.errors ? 'DONE WITH ERRORS' : 'DONE', `Approved: ${summary.rowsApproved}; blocked: ${summary.rowsBlocked}; created: ${summary.created}; skipped: ${summary.skipped}.`);
+  return summary;
+}
+
+function writeSimpleAnnouncementResult_(output, index, createdId, postedAt, result) {
+  if (!output[index]) return;
+  if (createdId) output[index][6] = createdId;
+  if (postedAt) output[index][7] = postedAt;
+  output[index][8] = result || '';
+}
+
+function buildResultBySourceRow_(sheet, headers, label) {
+  const rows = readApplySheetRows_(sheet, headers);
+  const output = {};
+  rows.forEach(row => {
+    const sourceRow = Number(row['Source Row'] || 0);
+    if (!sourceRow) return;
+    output[sourceRow] = String(row['Apply Result'] || row[label] || '').trim();
+  });
+  return output;
+}
+
 function setupCourseBuilderLiteInternal_() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   const builder = ss.getSheetByName(APP.COURSE_BUILDER_SHEET) || ss.insertSheet(APP.COURSE_BUILDER_SHEET);
@@ -4098,6 +5394,8 @@ function setupCourseBuilderLiteInternal_() {
   const packet = ss.getSheetByName(APP.COURSE_BUILD_PACKET_SHEET) || ss.insertSheet(APP.COURSE_BUILD_PACKET_SHEET);
   const creationReview = ss.getSheetByName(APP.COURSE_CREATION_REVIEW_SHEET) || ss.insertSheet(APP.COURSE_CREATION_REVIEW_SHEET);
   const courseCreationApply = ss.getSheetByName(APP.COURSE_CREATION_APPLY_SHEET) || ss.insertSheet(APP.COURSE_CREATION_APPLY_SHEET);
+  const courseCreationApplyProofArchive = ss.getSheetByName(APP.COURSE_CREATION_APPLY_PROOF_ARCHIVE_SHEET) || ss.insertSheet(APP.COURSE_CREATION_APPLY_PROOF_ARCHIVE_SHEET);
+  const liveProofChecklist = ss.getSheetByName(APP.LIVE_PROOF_CHECKLIST_SHEET) || ss.insertSheet(APP.LIVE_PROOF_CHECKLIST_SHEET);
   const launchChecklist = ss.getSheetByName(APP.COURSE_LAUNCH_CHECKLIST_SHEET) || ss.insertSheet(APP.COURSE_LAUNCH_CHECKLIST_SHEET);
 
   const builderHeaders = getCourseBuilderHeaders_();
@@ -4117,6 +5415,12 @@ function setupCourseBuilderLiteInternal_() {
   writeSimpleTable_(packet, getCourseBuildPacketHeaders_(), []);
   writeSimpleTable_(creationReview, getCourseCreationReviewHeaders_(), []);
   writeSimpleTable_(courseCreationApply, getCourseCreationApplyHeaders_(), []);
+  if (courseCreationApplyProofArchive.getLastRow() === 0) {
+    writeSimpleTable_(courseCreationApplyProofArchive, getCourseCreationApplyProofArchiveHeaders_(), []);
+  } else {
+    ensureHeaderRow_(courseCreationApplyProofArchive, getCourseCreationApplyProofArchiveHeaders_());
+  }
+  buildLiveProofChecklistInternal_(liveProofChecklist);
   writeSimpleTable_(launchChecklist, getCourseLaunchChecklistHeaders_(), []);
   styleCourseBuilderSheet_(builder);
   setupCourseShellTemplateInternal_(true);
@@ -4125,8 +5429,10 @@ function setupCourseBuilderLiteInternal_() {
   styleCourseBuildPacketSheet_(packet, 1);
   styleCourseCreationReviewSheet_(creationReview, 1);
   styleCourseCreationApplySheet_(courseCreationApply, 1);
+  styleCourseCreationApplyProofArchiveSheet_(courseCreationApplyProofArchive, 1);
+  styleLiveProofChecklistSheet_(liveProofChecklist, Math.max(liveProofChecklist.getLastRow(), 1));
   styleCourseLaunchChecklistSheet_(launchChecklist, 1);
-  appendCommandCentreLog_('SETUP COURSE BUILDER LITE', 'DONE', 'Course Builder, Course Shell Template, Course Build Preview, Course Build Packet, Course Creation Review, Course Creation Apply, and Course Launch Checklist sheets are ready. Existing Classroom content remains locked.');
+  appendCommandCentreLog_('SETUP COURSE BUILDER LITE', 'DONE', 'Course Builder, Course Shell Template, Course Build Preview, Course Build Packet, Course Creation Review, Course Creation Apply, Course Creation Apply Proof Archive, Live Proof Checklist, and Course Launch Checklist sheets are ready. Existing Classroom content remains locked.');
 
   try {
     builder.showSheet();
@@ -4136,7 +5442,7 @@ function setupCourseBuilderLiteInternal_() {
 
   return {
     ok: true,
-    message: 'Course Builder, Course Shell Template, Course Build Preview, Course Build Packet, Course Creation Review, Course Creation Apply, and Course Launch Checklist sheets are ready. Existing Classroom content remains locked.'
+    message: 'Course Builder, Course Shell Template, Course Build Preview, Course Build Packet, Course Creation Review, Course Creation Apply, Course Creation Apply Proof Archive, Live Proof Checklist, and Course Launch Checklist sheets are ready. Existing Classroom content remains locked.'
   };
 }
 
@@ -4474,6 +5780,8 @@ function buildCourseCreationApplyInternal_() {
         '',
         '',
         '',
+        existingId ? 'COURSE EXISTS' : 'ID BLANK',
+        '',
         ''
       ]);
     });
@@ -4599,6 +5907,8 @@ function applyApprovedCourseCreatesInternal_() {
             createdCourseId,
             now,
             createdBy,
+            'COURSE EXISTS',
+            now,
             'CREATED'
           ]
         ];
@@ -4612,6 +5922,8 @@ function applyApprovedCourseCreatesInternal_() {
         createdCourseId,
         createdBy,
         when: now,
+        courseStatus: 'COURSE EXISTS',
+        statusCheckedAt: now,
         reason: `CREATED course ${createdCourseId}.`
       });
       propagateCourseCreationApplyResult_(item, createdCourseId, `CREATED (${createdCourseId})`, '');
@@ -4649,6 +5961,131 @@ function applyApprovedCourseCreatesInternal_() {
     });
 
   return summary;
+}
+
+function refreshCourseCreationApplyStatusInternal_() {
+  requireClassroomService_();
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const apply = ss.getSheetByName(APP.COURSE_CREATION_APPLY_SHEET) || ss.insertSheet(APP.COURSE_CREATION_APPLY_SHEET);
+  const headers = getCourseCreationApplyHeaders_();
+  ensureHeaderRow_(apply, headers);
+
+  const summary = {
+    rows: 0,
+    exists: 0,
+    archived: 0,
+    notFound: 0,
+    idBlank: 0,
+    proofArchived: 0,
+    errors: 0
+  };
+
+  const lastRow = getRealLastRowByColumns_(apply, [1, 2, 3, 9, 13, 18]);
+  if (lastRow < 2) {
+    appendCommandCentreLog_('REFRESH COURSE CREATION APPLY STATUS', 'DONE', 'No Course Creation Apply rows found.');
+    return summary;
+  }
+
+  const now = new Date();
+  const statusCache = {};
+  const values = apply.getRange(2, 1, lastRow - 1, headers.length).getValues();
+  const rowsToArchive = [];
+  const rowsToDelete = [];
+
+  values.forEach((row, index) => {
+    const rowNumber = index + 2;
+    const hasContent = row.some(value => String(value || '').trim() !== '');
+    if (!hasContent) return;
+    summary.rows++;
+
+    const existingId = String(row[8] || '').trim();
+    const createdId = String(row[12] || '').trim();
+    const courseId = createdId || existingId;
+    let status = 'ID BLANK';
+    let applyResult = String(row[17] || '').trim();
+
+    if (!courseId) {
+      summary.idBlank++;
+    } else {
+      const cached = statusCache[courseId] || getCourseCreationApplyCourseStatus_(courseId);
+      statusCache[courseId] = cached;
+      status = cached.status;
+      if (status === 'COURSE EXISTS') summary.exists++;
+      else if (status === 'COURSE ARCHIVED') summary.archived++;
+      else if (status === 'COURSE NOT FOUND') summary.notFound++;
+      else if (status === 'ERROR') summary.errors++;
+
+      const isProofRow = isCourseCreationApplyTestProofRow_(row);
+      const shouldArchiveProofRow = isProofRow && (
+        status === 'COURSE EXISTS' ||
+        status === 'COURSE ARCHIVED' ||
+        status === 'COURSE NOT FOUND'
+      );
+
+      if (shouldArchiveProofRow) {
+        status = 'TEST DELETED / NEEDS REVIEW';
+        applyResult = 'TEST COURSE DELETED / PROOF ROW - DO NOT REUSE';
+        rowsToArchive.push(row.concat([now, 'Deleted temporary Codex test course proof row moved out of active apply sheet.']));
+        rowsToDelete.push(rowNumber);
+        summary.proofArchived++;
+      } else if (cached.detail && status === 'ERROR') {
+        applyResult = `STATUS ERROR - ${cached.detail}`;
+      }
+    }
+
+    row[15] = status;
+    row[16] = now;
+    row[17] = applyResult;
+    if (rowsToDelete.indexOf(rowNumber) === -1) {
+      setValuesNoValidation_(apply.getRange(rowNumber, 1, 1, headers.length), [row]);
+    }
+  });
+
+  if (rowsToArchive.length) {
+    appendCourseCreationApplyProofArchiveRows_(rowsToArchive);
+    rowsToDelete.sort((a, b) => b - a).forEach(rowNumber => apply.deleteRow(rowNumber));
+  }
+
+  styleCourseCreationApplySheet_(apply, Math.max(apply.getLastRow(), 1));
+  appendCommandCentreLog_(
+    'REFRESH COURSE CREATION APPLY STATUS',
+    summary.errors ? 'DONE WITH ERRORS' : 'DONE',
+    `Rows checked: ${summary.rows}; exists: ${summary.exists}; archived: ${summary.archived}; not found: ${summary.notFound}; ID blank: ${summary.idBlank}; proof archived: ${summary.proofArchived}; errors: ${summary.errors}. Read-only Classroom status check only.`
+  );
+  return summary;
+}
+
+function getCourseCreationApplyCourseStatus_(courseId) {
+  try {
+    const course = Classroom.Courses.get(courseId);
+    const state = normalizeText_((course && course.courseState) || '');
+    if (state === 'archived') return { status: 'COURSE ARCHIVED', detail: '' };
+    return { status: 'COURSE EXISTS', detail: '' };
+  } catch (err) {
+    const message = String(err && err.message ? err.message : err);
+    const clean = normalizeText_(message);
+    if (clean.indexOf('not found') !== -1 || clean.indexOf('requested entity was not found') !== -1 || clean.indexOf('404') !== -1) {
+      return { status: 'COURSE NOT FOUND', detail: message };
+    }
+    return { status: 'ERROR', detail: message };
+  }
+}
+
+function isCourseCreationApplyTestProofRow_(row) {
+  const text = row.map(value => String(value || '')).join(' ');
+  const clean = normalizeText_(text);
+  return clean.indexOf('codex test classroom') !== -1 || clean.indexOf('test course deleted') !== -1 || clean.indexOf('proof row') !== -1;
+}
+
+function appendCourseCreationApplyProofArchiveRows_(rows) {
+  if (!rows || !rows.length) return;
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const sheet = ss.getSheetByName(APP.COURSE_CREATION_APPLY_PROOF_ARCHIVE_SHEET) || ss.insertSheet(APP.COURSE_CREATION_APPLY_PROOF_ARCHIVE_SHEET);
+  const headers = getCourseCreationApplyProofArchiveHeaders_();
+  ensureHeaderRow_(sheet, headers);
+  const startRow = Math.max(sheet.getLastRow() + 1, 2);
+  setValuesNoValidation_(sheet.getRange(startRow, 1, rows.length, headers.length), rows);
+  styleCourseCreationApplyProofArchiveSheet_(sheet, sheet.getLastRow());
 }
 
 function buildCourseLaunchChecklistInternal_() {
@@ -4760,9 +6197,9 @@ function buildCourseLaunchChecklistInternal_() {
 function applyCourseBuildPlan() {
   appendCommandCentreLog_('APPLY COURSE BUILD PLAN', 'LOCKED', 'Blocked by Classroom write lock. No Google Classroom content was created or changed.');
   SpreadsheetApp.getUi().alert(
-    'Classroom write lock is ON.\n\n' +
-    'This build intentionally cannot create courses, topics, assignments, materials, announcements, students, teachers, or invites.\n\n' +
-    'Use Preview Build Plan to review the plan. Classroom write actions need a separate explicit approval and a separate implementation pass.'
+    'Bulk Classroom build is still locked.\n\n' +
+    'Use the separate apply sheets instead: Course Creation Apply, Topic Apply Review, Assignment Apply Review, Material Apply Review, Announcement Apply Review, Student Invite Review, Teacher Invite Review, and Artifact Apply Review.\n\n' +
+    'Each write action still requires exact row approval and confirmation text.'
   );
 }
 
@@ -4773,11 +6210,14 @@ function showClassroomWriteLockStatus() {
     '- Read existing Classroom course/roster/progress data when you choose existing tracker actions.\n' +
     '- Create and update spreadsheet tabs.\n' +
     '- Preview course-builder plans.\n\n' +
-    '- Create up to two NEW Classroom course shells from approved Course Creation Apply rows.\n\n' +
+    '- Create up to two NEW Classroom course shells from approved Course Creation Apply rows.\n' +
+    '- Create approved topics, assignments, materials, announcements, student adds, teacher adds, and artifacts only from their separate gated apply sheets.\n\n' +
+    '- Refresh Course Creation Apply status using read-only course lookups.\n\n' +
     'Blocked in this version:\n' +
     '- Modify existing Classroom courses.\n' +
-    '- Post assignments, materials, or announcements.\n' +
-    '- Add or invite students/teachers.\n' +
+    '- Create grades, Calendar items, or web deployments.\n' +
+    '- Create Drive/Docs/Forms artifacts outside the approved Artifact Apply Review flow.\n' +
+    '- Run automatic Classroom writes or automatic email sends.\n' +
     '- Delete or archive Classroom content.'
   );
 }
@@ -4789,7 +6229,7 @@ function showTeacherWebAppDeployHelp() {
     'Recommended first deployment settings:\n' +
     '- Execute as: Me\n' +
     '- Who has access: Only myself or your district domain\n\n' +
-    'Do not approve content, roster, invite, or existing-course write actions from this version. Only the separate Course Creation Apply flow can create up to two new course shells.'
+    'Do not use the web app as a bypass. It must expose only already-proven gated flows after deployment is separately approved.'
   );
 }
 
@@ -4799,6 +6239,62 @@ function getTeacherControlPanelClientState() {
 
 function getTeacherWebAppClientState() {
   return getTeacherWebAppState_();
+}
+
+function teacherSyncEverythingFromWebApp() {
+  return runTeacherWebAppAction_('SYNC EVERYTHING', () => teacherSyncEverythingInternal_());
+}
+
+function enableSimpleTeacherModeFromWebApp() {
+  return runTeacherWebAppAction_('ENABLE SIMPLE MODE', () => {
+    setupSimpleTeacherTabsInternal_();
+    hideAdvancedSheetsForSimpleMode_();
+    return { message: 'Simple Mode enabled. Use Simple Shell Builder and Simple Announcements tabs.' };
+  });
+}
+
+function setupSimpleTeacherTabsFromWebApp() {
+  return runTeacherWebAppAction_('SETUP SIMPLE TABS', () => setupSimpleTeacherTabsInternal_());
+}
+
+function loadSelectedCourseIntoSimpleShellFromWebApp() {
+  return runTeacherWebAppAction_('LOAD SIMPLE SHELL COURSE', () => loadSelectedCourseIntoSimpleShellInternal_());
+}
+
+function populateSimpleShellFromWebApp() {
+  return runTeacherWebAppAction_('POPULATE SIMPLE SHELL', () => populateSimpleShellInternal_());
+}
+
+function addSimpleShellRowBelowFromWebApp() {
+  return runTeacherWebAppAction_('ADD SIMPLE SHELL ROW', () => ({ row: addSimpleShellRowBelowInternal_() }));
+}
+
+function moveSimpleShellRowUpFromWebApp() {
+  return runTeacherWebAppAction_('MOVE SIMPLE SHELL ROW UP', () => ({ moved: moveSimpleShellRowInternal_(-1) }));
+}
+
+function moveSimpleShellRowDownFromWebApp() {
+  return runTeacherWebAppAction_('MOVE SIMPLE SHELL ROW DOWN', () => ({ moved: moveSimpleShellRowInternal_(1) }));
+}
+
+function deleteSelectedSimpleShellRowFromWebApp() {
+  return runTeacherWebAppAction_('DELETE SIMPLE SHELL ROW', () => ({ deleted: deleteSimpleShellRowInternal_() }));
+}
+
+function applySimpleShellBuilderRowsFromWebApp() {
+  return runTeacherWebAppAction_('APPLY SIMPLE SHELL ROWS', () => applySimpleShellBuilderRowsInternal_());
+}
+
+function postSimpleAnnouncementsFromWebApp() {
+  return runTeacherWebAppAction_('POST SIMPLE ANNOUNCEMENTS', () => postSimpleAnnouncementsInternal_());
+}
+
+function buildSimpleAnnouncementQueueFromCourseMapFromWebApp() {
+  return runTeacherWebAppAction_('QUEUE SIMPLE BULK ANNOUNCEMENTS', () => buildSimpleAnnouncementQueueFromCourseMapInternal_());
+}
+
+function queueSimpleAnnouncementRowsFromWebApp() {
+  return runTeacherWebAppAction_('QUEUE SIMPLE ANNOUNCEMENTS', () => queueSimpleAnnouncementRowsInternal_({}));
 }
 
 function setupCourseBuilderLiteFromWebApp() {
@@ -4823,6 +6319,14 @@ function buildCourseCreationReviewFromWebApp() {
 
 function buildCourseLaunchChecklistFromWebApp() {
   return runTeacherWebAppAction_('BUILD COURSE LAUNCH CHECKLIST', () => buildCourseLaunchChecklistInternal_());
+}
+
+function buildLiveProofChecklistFromWebApp() {
+  return runTeacherWebAppAction_('BUILD LIVE PROOF CHECKLIST', () => buildLiveProofChecklistInternal_());
+}
+
+function refreshCourseCreationApplyStatusFromWebApp() {
+  return runTeacherWebAppAction_('REFRESH COURSE CREATION APPLY STATUS', () => refreshCourseCreationApplyStatusInternal_());
 }
 
 function applyCourseBuildPlanFromWebApp() {
@@ -4891,6 +6395,10 @@ function openCourseCreationReviewSheet() {
 
 function openCourseLaunchChecklistSheet() {
   activateSheetByName_(APP.COURSE_LAUNCH_CHECKLIST_SHEET || 'Course Launch Checklist');
+}
+
+function openLiveProofChecklistSheet() {
+  activateSheetByName_(APP.LIVE_PROOF_CHECKLIST_SHEET || 'Live Proof Checklist');
 }
 
 function openCourseShellTemplateSheet() {
@@ -4989,10 +6497,13 @@ function getTeacherWebAppState_() {
   state.launchItems = getCourseLaunchChecklistItems_(launchChecklist, 12);
   state.recentLogs = getRecentCommandCentreLogs_(8);
   state.boundary = [
+    'Read/sync actions are safe.',
     'Spreadsheet setup and previews are allowed.',
+    'Live Proof Checklist is the required harness before scaling apply flows to real courses.',
     'Course Shell Template can plan topics, assignments, materials, announcements, due dates, points, links, and publish flags.',
-    'Apply Approved Course Creates can create up to two new Classroom course shells from approved rows.',
-    'Existing Classroom course edits, roster writes, assignment/material/topic/announcement writes, and invite writes are blocked.',
+    'Course creation, topic creation, coursework, materials, announcements, invites, and artifacts require separate approved apply sheets.',
+    'No editing, deleting, grading, automatic sending, Calendar changes, or web deployment in this version.',
+    'Existing Classroom content remains locked.',
     'Read-only Classroom progress pulls remain separate from Course Builder planning.'
   ];
   state.generatedAt = Utilities.formatDate(new Date(), Session.getScriptTimeZone(), 'yyyy-MM-dd h:mm a');
@@ -5212,11 +6723,17 @@ function getTeacherPanelSheetLinks_() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   const baseUrl = String(ss.getUrl() || '').split('#')[0];
   const specs = [
+    ['simpleTemplateLibrary', APP.SIMPLE_TEMPLATE_LIBRARY_SHEET || 'Simple Shell Template Library'],
+    ['simpleShell', APP.SIMPLE_SHELL_SHEET || 'Simple Shell Builder'],
+    ['simpleAnnouncements', APP.SIMPLE_ANNOUNCEMENTS_SHEET || 'Simple Announcements'],
     ['courseBuilder', APP.COURSE_BUILDER_SHEET || 'Course Builder'],
     ['courseShellTemplate', APP.COURSE_SHELL_TEMPLATE_SHEET || 'Course Shell Template'],
     ['courseBuildPreview', APP.COURSE_BUILD_PREVIEW_SHEET || 'Course Build Preview'],
     ['courseBuildPacket', APP.COURSE_BUILD_PACKET_SHEET || 'Course Build Packet'],
     ['courseCreationReview', APP.COURSE_CREATION_REVIEW_SHEET || 'Course Creation Review'],
+    ['courseCreationApply', APP.COURSE_CREATION_APPLY_SHEET || 'Course Creation Apply'],
+    ['courseCreationApplyProofArchive', APP.COURSE_CREATION_APPLY_PROOF_ARCHIVE_SHEET || 'Course Creation Apply Proof Archive'],
+    ['liveProofChecklist', APP.LIVE_PROOF_CHECKLIST_SHEET || 'Live Proof Checklist'],
     ['courseLaunchChecklist', APP.COURSE_LAUNCH_CHECKLIST_SHEET || 'Course Launch Checklist'],
     ['master', APP.MASTER_SHEET || 'MASTER TRACKER NEXT STEP'],
     ['courseMap', APP.COURSE_MAP_SHEET || 'Classroom Course Map'],
@@ -5428,7 +6945,7 @@ function getTeacherControlPanelHtml_() {
   <div class="shell">
     <h1>Next Step Teacher Control Panel</h1>
     <p class="sub">${escapeHtml_(state.spreadsheetName)}</p>
-    <div class="lock"><strong>Classroom write lock: ${state.classroomWriteLock}</strong><br>Only approved new course-shell creation is enabled. Existing Classroom content remains locked.</div>
+    <div class="lock"><strong>Classroom write lock: ${state.classroomWriteLock}</strong><br>Read/sync actions are safe. Classroom writes run only from approved apply sheets with confirmation text, caps, duplicate checks, ID writeback, and logs.</div>
 
     <div class="stats">
       <div class="stat"><strong>${state.activeCourses}</strong><span>checked courses</span></div>
@@ -5447,31 +6964,28 @@ function getTeacherControlPanelHtml_() {
 
     <div class="group">
       <h2>Daily Controls</h2>
+      <button class="primary" onclick="runAction('teacherSyncEverything')">Sync Everything</button>
+      <button class="primary" onclick="runAction('enableSimpleTeacherMode')">Use Tracker + Announcements Mode</button>
+      <button onclick="runAction('setupSimpleTeacherTabs')">Setup Announcements Tab</button>
+      <button onclick="runAction('queueSimpleAnnouncementRows')">Queue Simple Announcement Rows</button>
+      <button onclick="runAction('postSimpleAnnouncements')">Post Selected Simple Announcements</button>
       <button class="primary" onclick="runAction('teacherRefreshStudentList')">Refresh Student List</button>
       <button onclick="runAction('refreshFeedStatusAndHighlights')">Refresh Feed Status / HERE Highlight</button>
       <button onclick="runAction('previewSelectedStudentEmails')">Preview Selected Emails</button>
     </div>
 
     <div class="group">
-      <h2>Course Builder Lite</h2>
-      <button onclick="runAction('setupCourseBuilderLiteFromWebApp')">Setup Course Builder Lite</button>
-      <button onclick="runAction('setupCourseShellTemplateFromWebApp')">Setup Course Shell Template</button>
-      <button class="primary" onclick="runAction('previewCourseBuildPlanFromWebApp')">Preview Build Plan</button>
-      <button onclick="runAction('generateCourseBuildPacketFromWebApp')">Generate Build Packet</button>
-      <button onclick="runAction('buildCourseCreationReviewFromWebApp')">Build Creation Review</button>
-      <button onclick="runAction('buildCourseLaunchChecklistFromWebApp')">Build Launch Checklist</button>
-      <button class="danger" onclick="runAction('applyCourseBuildPlanFromWebApp')">Apply Build Plan - Locked</button>
+      <h2>Announcements</h2>
+      <p class="sub">Write in the ${escapeHtml_(APP.SIMPLE_ANNOUNCEMENTS_SHEET)} tab, queue the target course rows, then post only checked rows.</p>
+      <button onclick="runAction('setupSimpleTeacherTabs')">Open / Repair Announcements Tab</button>
+      <button onclick="runAction('queueSimpleAnnouncementRows')">Queue Rows</button>
+      <button class="primary" onclick="runAction('postSimpleAnnouncements')">Post Checked Rows</button>
     </div>
 
     <div class="group">
       <h2>Open Sheets</h2>
       <div class="button-grid">
-        ${sheetNavButtonHtml_(sheetLinks, 'courseBuilder', 'Course Builder')}
-        ${sheetNavButtonHtml_(sheetLinks, 'courseShellTemplate', 'Shell Template')}
-        ${sheetNavButtonHtml_(sheetLinks, 'courseBuildPreview', 'Preview')}
-        ${sheetNavButtonHtml_(sheetLinks, 'courseBuildPacket', 'Packet')}
-        ${sheetNavButtonHtml_(sheetLinks, 'courseCreationReview', 'Creation')}
-        ${sheetNavButtonHtml_(sheetLinks, 'courseLaunchChecklist', 'Checklist')}
+        ${sheetNavButtonHtml_(sheetLinks, 'simpleAnnouncements', 'Simple Announcements')}
         ${sheetNavButtonHtml_(sheetLinks, 'master', 'Master')}
         ${sheetNavButtonHtml_(sheetLinks, 'courseMap', 'Course Map')}
         ${sheetNavButtonHtml_(sheetLinks, 'emailPreview', 'Email Preview')}
@@ -5495,7 +7009,9 @@ function getTeacherControlPanelHtml_() {
         <ul>
           <li>Execute as: Me</li>
           <li>Access: Only myself or district domain</li>
-          <li>Only Course Creation Apply can create new course shells, capped at two per run.</li>
+          <li>Read/sync actions are safe.</li>
+          <li>Approved apply sheets are the only Classroom/Drive/Form write gates.</li>
+          <li>No editing, deleting, grading, automatic sending, Calendar changes, or web deployment in this version.</li>
         </ul>
       </div>
     </div>
@@ -5815,20 +7331,18 @@ function getTeacherWebAppHtml_() {
       <h1>Next Step Teacher Control Panel</h1>
       <p class="sub">${escapeHtml_(state.spreadsheetName)} · updated ${escapeHtml_(state.generatedAt || '')}</p>
     </div>
-    <div class="lock"><strong>Classroom write lock: ${escapeHtml_(state.classroomWriteLock)}</strong><br>No Classroom content can be created or changed here.</div>
+    <div class="lock"><strong>Classroom write lock: ${escapeHtml_(state.classroomWriteLock)}</strong><br>Read/sync actions are safe. Classroom writes run only from approved apply sheets with confirmation text, caps, duplicate checks, ID writeback, and logs.</div>
   </header>
 
   <main class="layout">
     <section>
       <div class="toolbar">
-        <button class="primary" onclick="webRunAction('previewCourseBuildPlanFromWebApp')">Preview Build Plan</button>
-        <button onclick="webRunAction('setupCourseBuilderLiteFromWebApp')">Setup Builder</button>
-        <button onclick="webRunAction('setupCourseShellTemplateFromWebApp')">Setup Shell Template</button>
-        <button onclick="webRunAction('generateCourseBuildPacketFromWebApp')">Generate Packet</button>
-        <button onclick="webRunAction('buildCourseCreationReviewFromWebApp')">Build Creation Review</button>
-        <button onclick="webRunAction('buildCourseLaunchChecklistFromWebApp')">Build Launch Checklist</button>
+        <button class="primary" onclick="webRunAction('teacherSyncEverythingFromWebApp')">Sync Everything</button>
+        <button class="primary" onclick="webRunAction('enableSimpleTeacherModeFromWebApp')">Use Tracker + Announcements Mode</button>
+        <button onclick="webRunAction('setupSimpleTeacherTabsFromWebApp')">Setup Announcements Tab</button>
+        <button onclick="webRunAction('queueSimpleAnnouncementRowsFromWebApp')">Queue Announcement Rows</button>
+        <button onclick="webRunAction('postSimpleAnnouncementsFromWebApp')">Post Selected Announcements</button>
         <button onclick="webRefreshState()">Refresh View</button>
-        <button class="danger" onclick="webRunAction('applyCourseBuildPlanFromWebApp')">Apply Build Plan - Locked</button>
       </div>
       <p class="status" id="webStatus"></p>
 
@@ -5970,10 +7484,16 @@ function getTeacherWebAppHtml_() {
         <div class="panel-header"><h2>Open Sheets</h2></div>
         <div class="panel-body">
           ${sheetNavButtonHtml_(sheetLinks, 'courseBuilder', 'Course Builder')}
+          ${sheetNavButtonHtml_(sheetLinks, 'simpleTemplateLibrary', 'Template Library')}
+          ${sheetNavButtonHtml_(sheetLinks, 'simpleShell', 'Simple Shell')}
+          ${sheetNavButtonHtml_(sheetLinks, 'simpleAnnouncements', 'Simple Announcements')}
           ${sheetNavButtonHtml_(sheetLinks, 'courseShellTemplate', 'Shell Template')}
           ${sheetNavButtonHtml_(sheetLinks, 'courseBuildPreview', 'Preview')}
           ${sheetNavButtonHtml_(sheetLinks, 'courseBuildPacket', 'Packet')}
           ${sheetNavButtonHtml_(sheetLinks, 'courseCreationReview', 'Creation Review')}
+          ${sheetNavButtonHtml_(sheetLinks, 'courseCreationApply', 'Creation Apply')}
+          ${sheetNavButtonHtml_(sheetLinks, 'courseCreationApplyProofArchive', 'Proof Archive')}
+          ${sheetNavButtonHtml_(sheetLinks, 'liveProofChecklist', 'Live Proof')}
           ${sheetNavButtonHtml_(sheetLinks, 'courseLaunchChecklist', 'Launch Checklist')}
           ${sheetNavButtonHtml_(sheetLinks, 'master', 'Master')}
           ${sheetNavButtonHtml_(sheetLinks, 'courseMap', 'Course Map')}
@@ -6306,8 +7826,14 @@ function getCourseCreationApplyHeaders_() {
     'Created Course ID',
     'Created At',
     'Created By',
+    'Course Status',
+    'Status Checked At',
     'Apply Result'
   ];
+}
+
+function getCourseCreationApplyProofArchiveHeaders_() {
+  return getCourseCreationApplyHeaders_().concat(['Archived At', 'Archive Reason']);
 }
 
 function getCourseLaunchChecklistHeaders_() {
@@ -6325,6 +7851,108 @@ function getCourseLaunchChecklistHeaders_() {
     'Manual Next Step',
     'Done?'
   ];
+}
+
+function getLiveProofChecklistHeaders_() {
+  return [
+    'Phase',
+    'Allowed Test Target',
+    'Approved?',
+    'Ran?',
+    'Result',
+    'Created ID / URL',
+    'Duplicate Re-run Verified?',
+    'Live Classroom Spot Check?',
+    'Blocked From Real Courses?',
+    'Notes'
+  ];
+}
+
+function getDefaultLiveProofChecklistRows_() {
+  return [
+    ['Topic Apply', 'One disposable test course only', false, false, 'NOT RUN', '', '', '', 'YES', 'Create one topic, then rerun and confirm duplicate block.'],
+    ['Material Apply', 'One disposable test course only', false, false, 'NOT RUN', '', '', '', 'YES', 'Create one harmless draft material with one safe link.'],
+    ['Assignment Apply', 'One disposable test course only', false, false, 'NOT RUN', '', '', '', 'YES', 'Create one draft assignment only; use no due date or safe future date.'],
+    ['Announcement Apply', 'One disposable test course only', false, false, 'NOT RUN', '', '', '', 'YES', 'Create one draft-only announcement. Do not publish to students.'],
+    ['Artifact Apply', 'One disposable test student row only', false, false, 'NOT RUN', '', '', '', 'YES', 'Approve one row only. Do not approve all artifact rows at once.'],
+    ['Student Invite Apply', 'Dummy/test account only', false, false, 'LOCKED', '', '', '', 'YES', 'Keep locked unless you explicitly decide to test roster permissions.'],
+    ['Teacher Invite Apply', 'Dummy/test account only', false, false, 'LOCKED', '', '', '', 'YES', 'Keep locked unless you explicitly decide to test teacher invite permissions.'],
+    ['Email Send', 'Email Preview selected row only', false, false, 'LOCKED', '', '', '', 'YES', 'Do not run until controlled apply flows are proven.'],
+    ['Web App Deployment', 'Not in this phase', false, false, 'LOCKED', '', '', '', 'YES', 'Keep locked until all apply gates are proven on disposable tests.']
+  ];
+}
+
+function buildLiveProofChecklistInternal_(existingSheet) {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const sheet = existingSheet || ss.getSheetByName(APP.LIVE_PROOF_CHECKLIST_SHEET) || ss.insertSheet(APP.LIVE_PROOF_CHECKLIST_SHEET);
+  const headers = getLiveProofChecklistHeaders_();
+  const defaults = getDefaultLiveProofChecklistRows_();
+
+  const existingMap = {};
+  const existingLastRow = sheet.getLastRow();
+  if (existingLastRow >= 2) {
+    const headerRow = sheet.getRange(1, 1, 1, Math.max(sheet.getLastColumn(), headers.length)).getValues()[0].map(h => normalizeText_(h));
+    const idx = {
+      phase: getHeaderIndex_(headerRow, ['phase'], 0),
+      target: getHeaderIndex_(headerRow, ['allowed test target'], 1),
+      approved: getHeaderIndex_(headerRow, ['approved?'], 2),
+      ran: getHeaderIndex_(headerRow, ['ran?'], 3),
+      result: getHeaderIndex_(headerRow, ['result'], 4),
+      created: getHeaderIndex_(headerRow, ['created id / url', 'created id/url'], 5),
+      duplicate: getHeaderIndex_(headerRow, ['duplicate re-run verified?', 'duplicate rerun verified?'], 6),
+      spotCheck: getHeaderIndex_(headerRow, ['live classroom spot check?'], 7),
+      blocked: getHeaderIndex_(headerRow, ['blocked from real courses?'], 8),
+      notes: getHeaderIndex_(headerRow, ['notes'], 9)
+    };
+    const existingRows = sheet.getRange(2, 1, existingLastRow - 1, Math.max(sheet.getLastColumn(), headers.length)).getValues();
+    existingRows.forEach(row => {
+      const phase = String((idx.phase >= 0 ? row[idx.phase] : '') || '').trim();
+      if (!phase) return;
+      existingMap[normalizeText_(phase)] = [
+        phase,
+        idx.target >= 0 ? row[idx.target] : '',
+        idx.approved >= 0 ? row[idx.approved] === true : false,
+        idx.ran >= 0 ? row[idx.ran] === true : false,
+        idx.result >= 0 ? row[idx.result] : '',
+        idx.created >= 0 ? row[idx.created] : '',
+        idx.duplicate >= 0 ? row[idx.duplicate] : '',
+        idx.spotCheck >= 0 ? row[idx.spotCheck] : '',
+        idx.blocked >= 0 ? row[idx.blocked] : '',
+        idx.notes >= 0 ? row[idx.notes] : ''
+      ];
+    });
+  }
+
+  const rows = defaults.map(defaultRow => {
+    const key = normalizeText_(defaultRow[0]);
+    const existing = existingMap[key];
+    if (!existing) return defaultRow;
+    return [
+      defaultRow[0],
+      existing[1] || defaultRow[1],
+      existing[2] === true,
+      existing[3] === true,
+      existing[4] || defaultRow[4],
+      existing[5] || '',
+      existing[6] || '',
+      existing[7] || '',
+      existing[8] || defaultRow[8],
+      existing[9] || defaultRow[9]
+    ];
+  });
+
+  writeSimpleTable_(sheet, headers, rows);
+  styleLiveProofChecklistSheet_(sheet, rows.length + 1);
+
+  const approved = rows.filter(row => row[2] === true).length;
+  const ran = rows.filter(row => row[3] === true).length;
+  appendCommandCentreLog_('BUILD LIVE PROOF CHECKLIST', 'DONE', `Rows: ${rows.length}; approved: ${approved}; ran: ${ran}. Disposable test-only safety harness refreshed.`);
+
+  return {
+    rows: rows.length,
+    approved,
+    ran
+  };
 }
 
 function styleCourseBuildPreviewSheet_(sheet, numRows) {
@@ -6454,12 +8082,15 @@ function styleCourseCreationApplySheet_(sheet, numRows) {
   sheet.setColumnWidth(13, 220);
   sheet.setColumnWidth(14, 170);
   sheet.setColumnWidth(15, 230);
-  sheet.setColumnWidth(16, 320);
+  sheet.setColumnWidth(16, 170);
+  sheet.setColumnWidth(17, 170);
+  sheet.setColumnWidth(18, 360);
 
   if (sheet.getLastRow() > 1) {
     const dataRows = sheet.getLastRow() - 1;
     sheet.getRange(2, 1, dataRows, 1).insertCheckboxes();
     sheet.getRange(2, 14, dataRows, 1).setNumberFormat('yyyy-mm-dd h:mm AM/PM');
+    sheet.getRange(2, 17, dataRows, 1).setNumberFormat('yyyy-mm-dd h:mm AM/PM');
 
     const stateRule = SpreadsheetApp.newDataValidation()
       .requireValueInList(['PROVISIONED', 'ACTIVE'], true)
@@ -6468,15 +8099,39 @@ function styleCourseCreationApplySheet_(sheet, numRows) {
     sheet.getRange(2, 8, dataRows, 1).setDataValidation(stateRule);
 
     const readinessRange = sheet.getRange(2, 11, dataRows, 1);
-    const resultRange = sheet.getRange(2, 16, dataRows, 1);
+    const courseStatusRange = sheet.getRange(2, 16, dataRows, 1);
+    const resultRange = sheet.getRange(2, 18, dataRows, 1);
     sheet.setConditionalFormatRules([
       SpreadsheetApp.newConditionalFormatRule().whenTextEqualTo('READY FOR REVIEW').setBackground('#d9ead3').setFontColor('#274e13').setRanges([readinessRange]).build(),
       SpreadsheetApp.newConditionalFormatRule().whenTextEqualTo('REVIEW').setBackground('#fff2cc').setFontColor('#7f6000').setRanges([readinessRange]).build(),
       SpreadsheetApp.newConditionalFormatRule().whenTextEqualTo('BLOCKED').setBackground('#f4cccc').setFontColor('#990000').setRanges([readinessRange]).build(),
+      SpreadsheetApp.newConditionalFormatRule().whenTextEqualTo('COURSE EXISTS').setBackground('#d9ead3').setFontColor('#274e13').setRanges([courseStatusRange]).build(),
+      SpreadsheetApp.newConditionalFormatRule().whenTextEqualTo('COURSE NOT FOUND').setBackground('#f4cccc').setFontColor('#990000').setRanges([courseStatusRange]).build(),
+      SpreadsheetApp.newConditionalFormatRule().whenTextContains('TEST DELETED').setBackground('#fff2cc').setFontColor('#7f6000').setRanges([courseStatusRange]).build(),
       SpreadsheetApp.newConditionalFormatRule().whenTextContains('CREATED').setBackground('#d9ead3').setFontColor('#274e13').setRanges([resultRange]).build(),
       SpreadsheetApp.newConditionalFormatRule().whenTextContains('ERROR').setBackground('#f4cccc').setFontColor('#990000').setRanges([resultRange]).build(),
       SpreadsheetApp.newConditionalFormatRule().whenTextContains('SKIPPED').setBackground('#eeeeee').setFontColor('#666666').setRanges([resultRange]).build()
     ]);
+  }
+}
+
+function styleCourseCreationApplyProofArchiveSheet_(sheet, numRows) {
+  const headers = getCourseCreationApplyProofArchiveHeaders_();
+  styleSimpleSheet_(sheet, Math.max(numRows || sheet.getLastRow(), 1), headers.length);
+  sheet.setFrozenRows(1);
+  sheet.setFrozenColumns(3);
+  sheet.setColumnWidth(1, 95);
+  sheet.setColumnWidth(3, 230);
+  sheet.setColumnWidth(12, 520);
+  sheet.setColumnWidth(16, 190);
+  sheet.setColumnWidth(18, 360);
+  sheet.setColumnWidth(19, 170);
+  sheet.setColumnWidth(20, 360);
+  if (sheet.getLastRow() > 1) {
+    const dataRows = sheet.getLastRow() - 1;
+    sheet.getRange(2, 14, dataRows, 1).setNumberFormat('yyyy-mm-dd h:mm AM/PM');
+    sheet.getRange(2, 17, dataRows, 1).setNumberFormat('yyyy-mm-dd h:mm AM/PM');
+    sheet.getRange(2, 19, dataRows, 1).setNumberFormat('yyyy-mm-dd h:mm AM/PM');
   }
 }
 
@@ -6505,6 +8160,40 @@ function styleCourseLaunchChecklistSheet_(sheet, numRows) {
       SpreadsheetApp.newConditionalFormatRule().whenTextEqualTo('READY FOR REVIEW').setBackground('#d9ead3').setFontColor('#274e13').setRanges([readinessRange]).build(),
       SpreadsheetApp.newConditionalFormatRule().whenTextEqualTo('REVIEW').setBackground('#fff2cc').setFontColor('#7f6000').setRanges([readinessRange]).build(),
       SpreadsheetApp.newConditionalFormatRule().whenTextEqualTo('BLOCKED').setBackground('#f4cccc').setFontColor('#990000').setRanges([readinessRange]).build()
+    ]);
+  }
+}
+
+function styleLiveProofChecklistSheet_(sheet, numRows) {
+  const headers = getLiveProofChecklistHeaders_();
+  styleSimpleSheet_(sheet, Math.max(numRows || sheet.getLastRow(), 1), headers.length);
+  sheet.setFrozenRows(1);
+  sheet.setFrozenColumns(2);
+  sheet.setColumnWidth(1, 170);
+  sheet.setColumnWidth(2, 260);
+  sheet.setColumnWidth(3, 95);
+  sheet.setColumnWidth(4, 75);
+  sheet.setColumnWidth(5, 150);
+  sheet.setColumnWidth(6, 260);
+  sheet.setColumnWidth(7, 190);
+  sheet.setColumnWidth(8, 180);
+  sheet.setColumnWidth(9, 190);
+  sheet.setColumnWidth(10, 520);
+
+  if (sheet.getLastRow() > 1) {
+    const dataRows = sheet.getLastRow() - 1;
+    sheet.getRange(2, 3, dataRows, 1).insertCheckboxes();
+    sheet.getRange(2, 4, dataRows, 1).insertCheckboxes();
+
+    const blockedRange = sheet.getRange(2, 9, dataRows, 1);
+    const resultRange = sheet.getRange(2, 5, dataRows, 1);
+    const duplicateRange = sheet.getRange(2, 7, dataRows, 1);
+    sheet.setConditionalFormatRules([
+      SpreadsheetApp.newConditionalFormatRule().whenTextEqualTo('YES').setBackground('#f4cccc').setFontColor('#990000').setRanges([blockedRange]).build(),
+      SpreadsheetApp.newConditionalFormatRule().whenTextContains('PASS').setBackground('#d9ead3').setFontColor('#274e13').setRanges([resultRange, duplicateRange]).build(),
+      SpreadsheetApp.newConditionalFormatRule().whenTextContains('DONE').setBackground('#d9ead3').setFontColor('#274e13').setRanges([resultRange]).build(),
+      SpreadsheetApp.newConditionalFormatRule().whenTextContains('LOCKED').setBackground('#fff2cc').setFontColor('#7f6000').setRanges([resultRange]).build(),
+      SpreadsheetApp.newConditionalFormatRule().whenTextContains('FAIL').setBackground('#f4cccc').setFontColor('#990000').setRanges([resultRange, duplicateRange]).build()
     ]);
   }
 }
@@ -6668,7 +8357,9 @@ function readCourseCreationApplyRecords_(sheet) {
       createdCourseId: String(row[12] || '').trim(),
       createdAt: row[13] || '',
       createdBy: String(row[14] || '').trim(),
-      applyResult: String(row[15] || '').trim()
+      courseStatus: String(row[15] || '').trim(),
+      statusCheckedAt: row[16] || '',
+      applyResult: String(row[17] || '').trim()
     }))
     .filter(item => item.courseName || item.existingCourseId || item.createdCourseId || item.applyResult);
 }
@@ -6679,6 +8370,8 @@ function updateCourseCreationApplyResult_(sheet, rowNumber, result) {
   const createdIdCol = headers.indexOf('Created Course ID') + 1;
   const createdAtCol = headers.indexOf('Created At') + 1;
   const createdByCol = headers.indexOf('Created By') + 1;
+  const courseStatusCol = headers.indexOf('Course Status') + 1;
+  const statusCheckedAtCol = headers.indexOf('Status Checked At') + 1;
   const applyResultCol = headers.indexOf('Apply Result') + 1;
   const existingIdCol = headers.indexOf('Existing Course ID') + 1;
 
@@ -6693,6 +8386,12 @@ function updateCourseCreationApplyResult_(sheet, rowNumber, result) {
   }
   if (result.createdBy && createdByCol) {
     sheet.getRange(rowNumber, createdByCol).setValue(result.createdBy);
+  }
+  if (result.courseStatus && courseStatusCol) {
+    sheet.getRange(rowNumber, courseStatusCol).setValue(result.courseStatus);
+  }
+  if (result.statusCheckedAt && statusCheckedAtCol) {
+    sheet.getRange(rowNumber, statusCheckedAtCol).setValue(result.statusCheckedAt).setNumberFormat('yyyy-mm-dd h:mm AM/PM');
   }
   if (applyResultCol) {
     sheet.getRange(rowNumber, applyResultCol).setValue(result.reason || (result.applied ? 'CREATED' : 'SKIPPED'));
@@ -7472,4 +9171,1098 @@ function jsonForHtml_(value) {
     .replace(/&/g, '\\u0026')
     .replace(/\u2028/g, '\\u2028')
     .replace(/\u2029/g, '\\u2029');
+}
+
+/************************************************************
+ LOCKED-GATE APPLY FLOWS: TOPICS THROUGH PRE-WEB-APP PHASES
+ ************************************************************/
+function buildTopicApplyReview() {
+  withLock_('Build Topic Apply Review', () => {
+    const summary = buildTopicApplyReviewInternal_();
+    SpreadsheetApp.getUi().alert(`Topic Apply Review built.\n\nRows: ${summary.rows}\nReady: ${summary.ready}\nReview: ${summary.review}\nBlocked: ${summary.blocked}\n\nNo topics were created yet.`);
+  });
+}
+
+function applyApprovedTopics() {
+  withLock_('Apply Approved Topics', () => {
+    const preview = getApprovedApplyPreview_(APP.TOPIC_APPLY_REVIEW_SHEET, getTopicApplyReviewHeaders_(), {
+      approvalHeader: 'Approve?',
+      confirmHeader: 'Confirm Text',
+      confirmText: 'CREATE TOPIC',
+      readinessHeader: 'Readiness',
+      createdIdHeader: 'Created Topic ID',
+      existingIdHeader: 'Existing Topic ID',
+      max: TOPIC_CREATE_MAX_PER_RUN,
+      nameHeader: 'Topic Name'
+    });
+    if (!confirmApplyRows_('Create approved Classroom topics?', preview, 'topics', 'No assignments, materials, announcements, rosters, invites, grades, Drive files, Forms, or web deployments will be created.')) return;
+    const summary = applyApprovedTopicsInternal_();
+    SpreadsheetApp.getUi().alert(`Topic apply complete.\n\nCreated: ${summary.created}\nSkipped existing: ${summary.skippedExisting}\nBlocked: ${summary.blocked}\nNot approved: ${summary.notApproved}\nErrors: ${summary.errors}\nMax per run: ${TOPIC_CREATE_MAX_PER_RUN}`);
+  });
+}
+
+function buildAssignmentApplyReview() {
+  withLock_('Build Assignment Apply Review', () => {
+    const summary = buildCourseworkApplyReviewInternal_('ASSIGNMENT');
+    SpreadsheetApp.getUi().alert(`Assignment Apply Review built.\n\nRows: ${summary.rows}\nReady: ${summary.ready}\nReview: ${summary.review}\nBlocked: ${summary.blocked}\n\nNo assignments were created yet.`);
+  });
+}
+
+function applyApprovedAssignments() {
+  withLock_('Apply Approved Assignments', () => {
+    const preview = getApprovedApplyPreview_(APP.ASSIGNMENT_APPLY_REVIEW_SHEET, getAssignmentApplyReviewHeaders_(), {
+      approvalHeader: 'Approve?',
+      confirmHeader: 'Confirm Text',
+      confirmText: 'POST ASSIGNMENT',
+      readinessHeader: 'Readiness',
+      createdIdHeader: 'Created Assignment ID',
+      existingIdHeader: 'Existing Assignment ID',
+      max: ASSIGNMENT_CREATE_MAX_PER_RUN,
+      nameHeader: 'Assignment Title'
+    });
+    if (!confirmApplyRows_('Create approved Classroom assignments?', preview, 'assignments', 'This may create student-facing coursework. No materials, announcements, rosters, invites, grades, Drive files, Forms, or web deployments will be created.')) return;
+    const summary = applyApprovedAssignmentsInternal_();
+    SpreadsheetApp.getUi().alert(`Assignment apply complete.\n\nCreated: ${summary.created}\nSkipped existing: ${summary.skippedExisting}\nBlocked: ${summary.blocked}\nNot approved: ${summary.notApproved}\nErrors: ${summary.errors}\nMax per run: ${ASSIGNMENT_CREATE_MAX_PER_RUN}`);
+  });
+}
+
+function buildMaterialApplyReview() {
+  withLock_('Build Material Apply Review', () => {
+    const summary = buildCourseworkApplyReviewInternal_('MATERIAL');
+    SpreadsheetApp.getUi().alert(`Material Apply Review built.\n\nRows: ${summary.rows}\nReady: ${summary.ready}\nReview: ${summary.review}\nBlocked: ${summary.blocked}\n\nNo materials were created yet.`);
+  });
+}
+
+function applyApprovedMaterials() {
+  withLock_('Apply Approved Materials', () => {
+    const preview = getApprovedApplyPreview_(APP.MATERIAL_APPLY_REVIEW_SHEET, getMaterialApplyReviewHeaders_(), {
+      approvalHeader: 'Approve?',
+      confirmHeader: 'Confirm Text',
+      confirmText: 'POST MATERIAL',
+      readinessHeader: 'Readiness',
+      createdIdHeader: 'Created Material ID',
+      existingIdHeader: 'Existing Material ID',
+      max: MATERIAL_CREATE_MAX_PER_RUN,
+      nameHeader: 'Material Title'
+    });
+    if (!confirmApplyRows_('Create approved Classroom materials?', preview, 'materials', 'No assignments, announcements, rosters, invites, grades, Drive files, Forms, or web deployments will be created.')) return;
+    const summary = applyApprovedMaterialsInternal_();
+    SpreadsheetApp.getUi().alert(`Material apply complete.\n\nCreated: ${summary.created}\nSkipped existing: ${summary.skippedExisting}\nBlocked: ${summary.blocked}\nNot approved: ${summary.notApproved}\nErrors: ${summary.errors}\nMax per run: ${MATERIAL_CREATE_MAX_PER_RUN}`);
+  });
+}
+
+function buildAnnouncementApplyReview() {
+  withLock_('Build Announcement Apply Review', () => {
+    const summary = buildCourseworkApplyReviewInternal_('ANNOUNCEMENT');
+    SpreadsheetApp.getUi().alert(`Announcement Apply Review built.\n\nRows: ${summary.rows}\nReady: ${summary.ready}\nReview: ${summary.review}\nBlocked: ${summary.blocked}\n\nNo announcements were created yet.`);
+  });
+}
+
+function applyApprovedAnnouncements() {
+  withLock_('Apply Approved Announcements', () => {
+    const preview = getApprovedApplyPreview_(APP.ANNOUNCEMENT_APPLY_REVIEW_SHEET, getAnnouncementApplyReviewHeaders_(), {
+      approvalHeader: 'Approve?',
+      confirmHeader: 'Confirm Text',
+      confirmText: 'POST ANNOUNCEMENT',
+      readinessHeader: 'Readiness',
+      createdIdHeader: 'Created Announcement ID',
+      existingIdHeader: 'Existing Announcement ID',
+      max: ANNOUNCEMENT_CREATE_MAX_PER_RUN,
+      nameHeader: 'Announcement Title / Label'
+    });
+    if (!confirmApplyRows_('Create approved Classroom announcements?', preview, 'announcements', 'Announcements can notify students. No assignments, materials, rosters, invites, grades, Drive files, Forms, or web deployments will be created.')) return;
+    const summary = applyApprovedAnnouncementsInternal_();
+    SpreadsheetApp.getUi().alert(`Announcement apply complete.\n\nCreated: ${summary.created}\nSkipped existing: ${summary.skippedExisting}\nBlocked: ${summary.blocked}\nNot approved: ${summary.notApproved}\nErrors: ${summary.errors}\nMax per run: ${ANNOUNCEMENT_CREATE_MAX_PER_RUN}`);
+  });
+}
+
+function buildStudentInviteReview() {
+  withLock_('Build Student Invite Review', () => {
+    const summary = buildStudentInviteReviewInternal_();
+    SpreadsheetApp.getUi().alert(`Student Invite Review built.\n\nRows: ${summary.rows}\nReady: ${summary.ready}\nReview: ${summary.review}\nBlocked: ${summary.blocked}\n\nNo students were added or invited yet.`);
+  });
+}
+
+function applyApprovedStudentInvites() {
+  withLock_('Apply Approved Student Invites', () => {
+    const preview = getApprovedApplyPreview_(APP.STUDENT_INVITE_REVIEW_SHEET, getStudentInviteReviewHeaders_(), {
+      approvalHeader: 'Approve Invite?',
+      confirmHeader: 'Confirm Text',
+      confirmText: 'INVITE STUDENT',
+      readinessHeader: 'Readiness',
+      createdIdHeader: 'Invitation ID / Result ID',
+      max: STUDENT_INVITE_MAX_PER_RUN,
+      nameHeader: 'Student Email'
+    });
+    if (!confirmApplyRows_('Apply approved student invites/adds?', preview, 'student rows', 'This changes Classroom roster membership for approved rows only. No teachers, assignments, materials, announcements, grades, Drive files, Forms, or web deployments will be changed.')) return;
+    const summary = applyApprovedStudentInvitesInternal_();
+    SpreadsheetApp.getUi().alert(`Student invite apply complete.\n\nAdded/invited: ${summary.created}\nSkipped existing: ${summary.skippedExisting}\nBlocked: ${summary.blocked}\nNot approved: ${summary.notApproved}\nErrors: ${summary.errors}\nMax per run: ${STUDENT_INVITE_MAX_PER_RUN}`);
+  });
+}
+
+function buildTeacherInviteReview() {
+  withLock_('Build Teacher Invite Review', () => {
+    const summary = buildTeacherInviteReviewInternal_();
+    SpreadsheetApp.getUi().alert(`Teacher Invite Review built.\n\nRows: ${summary.rows}\nReady: ${summary.ready}\nReview: ${summary.review}\nBlocked: ${summary.blocked}\n\nNo teachers were added or invited yet.`);
+  });
+}
+
+function applyApprovedTeacherInvites() {
+  withLock_('Apply Approved Teacher Invites', () => {
+    const preview = getApprovedApplyPreview_(APP.TEACHER_INVITE_REVIEW_SHEET, getTeacherInviteReviewHeaders_(), {
+      approvalHeader: 'Approve Invite?',
+      confirmHeader: 'Confirm Text',
+      confirmText: 'INVITE TEACHER',
+      readinessHeader: 'Readiness',
+      createdIdHeader: 'Invitation ID / Result ID',
+      max: TEACHER_INVITE_MAX_PER_RUN,
+      nameHeader: 'Teacher Email'
+    });
+    if (!confirmApplyRows_('Apply approved teacher invites/adds?', preview, 'teacher rows', 'This changes co-teacher access for approved rows only. No students, coursework, grades, Drive files, Forms, or web deployments will be changed.')) return;
+    const summary = applyApprovedTeacherInvitesInternal_();
+    SpreadsheetApp.getUi().alert(`Teacher invite apply complete.\n\nAdded/invited: ${summary.created}\nSkipped existing: ${summary.skippedExisting}\nBlocked: ${summary.blocked}\nNot approved: ${summary.notApproved}\nErrors: ${summary.errors}\nMax per run: ${TEACHER_INVITE_MAX_PER_RUN}`);
+  });
+}
+
+function buildArtifactApplyReview() {
+  withLock_('Build Artifact Apply Review', () => {
+    const summary = buildArtifactApplyReviewInternal_();
+    SpreadsheetApp.getUi().alert(`Artifact Apply Review built.\n\nRows: ${summary.rows}\nReady: ${summary.ready}\nReview: ${summary.review}\nBlocked: ${summary.blocked}\n\nNo Drive, Doc, or Form artifacts were created yet.`);
+  });
+}
+
+function applyApprovedArtifacts() {
+  withLock_('Apply Approved Artifacts', () => {
+    const preview = getApprovedApplyPreview_(APP.ARTIFACT_APPLY_REVIEW_SHEET, getArtifactApplyReviewHeaders_(), {
+      approvalHeader: 'Approve?',
+      confirmHeader: 'Confirm Text',
+      confirmText: 'CREATE ARTIFACT',
+      readinessHeader: 'Readiness',
+      createdIdHeader: 'Created Artifact URL',
+      existingIdHeader: 'Existing Artifact URL',
+      max: ARTIFACT_CREATE_MAX_PER_RUN,
+      nameHeader: 'Artifact Type'
+    });
+    if (!confirmApplyRows_('Create approved Drive/Docs/Forms artifacts?', preview, 'artifact rows', 'This creates only approved artifact rows. No Classroom content, rosters, grades, emails, Calendar items, or web deployments will be changed.')) return;
+    const summary = applyApprovedArtifactsInternal_();
+    SpreadsheetApp.getUi().alert(`Artifact apply complete.\n\nCreated: ${summary.created}\nSkipped existing: ${summary.skippedExisting}\nBlocked: ${summary.blocked}\nNot approved: ${summary.notApproved}\nErrors: ${summary.errors}\nMax per run: ${ARTIFACT_CREATE_MAX_PER_RUN}`);
+  });
+}
+
+function buildAdminReports() {
+  withLock_('Build Admin Reports', () => {
+    const summary = buildAdminReportsInternal_();
+    SpreadsheetApp.getUi().alert(`Admin reports built.\n\nSheets updated: ${summary.sheets}\nRows written: ${summary.rows}\n\nReports are read-only. No Classroom content, roster, email, Drive, Form, Calendar, or web deployment was changed.`);
+  });
+}
+
+function getTopicApplyReviewHeaders_() {
+  return ['Approve?', 'Confirm Text', 'Classroom Course ID', 'Course Name', 'Section', 'Topic Name', 'Existing Topic ID', 'Existing Topic Status', 'Readiness', 'Block Reason', 'Created Topic ID', 'Created At', 'Created By', 'Apply Result', 'Source Sheet', 'Source Row'];
+}
+
+function getAssignmentApplyReviewHeaders_() {
+  return ['Approve?', 'Confirm Text', 'Classroom Course ID', 'Course Name', 'Section', 'Topic Name', 'Topic ID', 'Assignment Title', 'Description', 'Due Date', 'Due Time', 'Points', 'Attachment Link', 'Publish State', 'Assignee Mode', 'Existing Assignment ID', 'Created Assignment ID', 'Created At', 'Created By', 'Apply Result', 'Source Sheet', 'Source Row', 'Readiness', 'Block Reason'];
+}
+
+function getMaterialApplyReviewHeaders_() {
+  return ['Approve?', 'Confirm Text', 'Classroom Course ID', 'Course Name', 'Section', 'Topic Name', 'Topic ID', 'Material Title', 'Description', 'Attachment Link', 'Publish State', 'Existing Material ID', 'Created Material ID', 'Created At', 'Created By', 'Apply Result', 'Source Sheet', 'Source Row', 'Readiness', 'Block Reason'];
+}
+
+function getAnnouncementApplyReviewHeaders_() {
+  return ['Approve?', 'Confirm Text', 'Classroom Course ID', 'Course Name', 'Section', 'Topic Name', 'Topic ID', 'Announcement Title / Label', 'Text', 'Attachment Link', 'Publish State', 'Existing Announcement ID', 'Created Announcement ID', 'Created At', 'Created By', 'Apply Result', 'Source Sheet', 'Source Row', 'Readiness', 'Block Reason'];
+}
+
+function getStudentInviteReviewHeaders_() {
+  return ['Approve Invite?', 'Confirm Text', 'Classroom Course ID', 'Course Name', 'Student Name', 'Student Email', 'In PowerSchool?', 'Already In Classroom?', 'Readiness', 'Block Reason', 'Invitation ID / Result ID', 'Invited At', 'Invited By', 'Apply Result'];
+}
+
+function getTeacherInviteReviewHeaders_() {
+  return ['Approve Invite?', 'Confirm Text', 'Classroom Course ID', 'Course Name', 'Teacher Email', 'Already Teacher?', 'Readiness', 'Block Reason', 'Invitation ID / Result ID', 'Invited At', 'Invited By', 'Apply Result'];
+}
+
+function getArtifactApplyReviewHeaders_() {
+  return ['Approve?', 'Confirm Text', 'Artifact Type', 'Student Name', 'Student Email', 'Course', 'Template ID', 'Destination Folder ID', 'Existing Artifact URL', 'Created Artifact URL', 'Created At', 'Created By', 'Readiness', 'Block Reason', 'Apply Result'];
+}
+
+function buildTopicApplyReviewInternal_() {
+  requireClassroomService_();
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const shell = ss.getSheetByName(APP.COURSE_SHELL_TEMPLATE_SHEET) || ss.insertSheet(APP.COURSE_SHELL_TEMPLATE_SHEET);
+  const records = readCourseShellTemplateRecords_(shell).filter(record => normalizeText_(record.itemType) === 'topic');
+  const courseIds = buildCourseIdLookupForApply_();
+  const topicCache = {};
+  const rows = [];
+  const summary = { rows: 0, ready: 0, review: 0, blocked: 0 };
+
+  records.forEach(record => {
+    const courseId = resolveCourseIdForRecord_(record, courseIds);
+    const topicName = record.topic || record.itemTitle || '';
+    let existing = { id: '', status: '' };
+    let readiness = 'READY';
+    const blocks = [];
+    if (!record.build) {
+      readiness = 'REVIEW';
+      blocks.push('Use? is not checked on the source row.');
+    }
+    if (!courseId) {
+      readiness = 'BLOCKED';
+      blocks.push('Classroom Course ID is missing. Build/refresh Course Creation Apply or Course Map first.');
+    }
+    if (!topicName) {
+      readiness = 'BLOCKED';
+      blocks.push('Topic Name is missing.');
+    }
+    if (courseId) {
+      if (!topicCache[courseId]) topicCache[courseId] = getClassroomTopicsByName_(courseId);
+      existing = topicCache[courseId][normalizeText_(topicName)] || existing;
+      if (existing.id) {
+        readiness = 'BLOCKED';
+        blocks.push('Duplicate topic already exists in Classroom.');
+      }
+    }
+    incrementReadinessSummary_(summary, readiness);
+    rows.push([false, '', courseId, record.courseName, record.section, topicName, existing.id, existing.status || (existing.id ? 'EXISTS' : ''), readiness, blocks.join(' '), '', '', '', '', record.sourceType === 'shell' ? APP.COURSE_SHELL_TEMPLATE_SHEET : APP.COURSE_BUILDER_SHEET, record.rowNumber]);
+  });
+
+  summary.rows = rows.length;
+  const sheet = ss.getSheetByName(APP.TOPIC_APPLY_REVIEW_SHEET) || ss.insertSheet(APP.TOPIC_APPLY_REVIEW_SHEET);
+  writeSimpleTable_(sheet, getTopicApplyReviewHeaders_(), rows);
+  styleLockedApplySheet_(sheet, getTopicApplyReviewHeaders_(), { approvalCol: 1, dateCols: [12], readinessCol: 9, resultCol: 14 });
+  appendCommandCentreLog_('BUILD TOPIC APPLY REVIEW', summary.blocked ? 'REVIEW' : 'DONE', `Rows: ${summary.rows}; ready: ${summary.ready}; review: ${summary.review}; blocked: ${summary.blocked}.`);
+  return summary;
+}
+
+function applyApprovedTopicsInternal_() {
+  requireClassroomService_();
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(APP.TOPIC_APPLY_REVIEW_SHEET);
+  const rows = readApplySheetRows_(sheet, getTopicApplyReviewHeaders_());
+  const summary = makeApplySummary_(rows);
+  const approved = rows.filter(row => row['Approve?'] === true);
+  const topicCache = {};
+  approved.slice(0).forEach(row => {
+    if (!isApprovedApplyRow_(row, 'CREATE TOPIC', 'Created Topic ID', 'Existing Topic ID')) {
+      if (row['Approve?'] === true) summary.blocked++;
+      return;
+    }
+    if (summary.created >= TOPIC_CREATE_MAX_PER_RUN) return;
+    try {
+      const courseId = String(row['Classroom Course ID'] || '').trim();
+      const topicName = String(row['Topic Name'] || '').trim();
+      if (!courseId || !topicName) {
+        summary.blocked++;
+        updateApplyRowResult_(sheet, row.__rowNumber, getTopicApplyReviewHeaders_(), { result: 'BLOCKED - Missing course ID or topic name.' });
+        return;
+      }
+      if (!topicCache[courseId]) topicCache[courseId] = getClassroomTopicsByName_(courseId);
+      const duplicate = topicCache[courseId][normalizeText_(topicName)];
+      if (duplicate && duplicate.id) {
+        summary.skippedExisting++;
+        updateApplyRowResult_(sheet, row.__rowNumber, getTopicApplyReviewHeaders_(), { existingIdHeader: 'Existing Topic ID', existingId: duplicate.id, result: `SKIPPED - Topic already exists (${duplicate.id}).` });
+        return;
+      }
+      const created = createClassroomTopic_(courseId, topicName);
+      const id = String(created && created.topicId || created && created.id || '').trim();
+      topicCache[courseId][normalizeText_(topicName)] = { id, status: 'EXISTS' };
+      summary.created++;
+      updateApplyRowResult_(sheet, row.__rowNumber, getTopicApplyReviewHeaders_(), { createdIdHeader: 'Created Topic ID', createdId: id, createdByHeader: 'Created By', createdAtHeader: 'Created At', result: `CREATED topic ${id}.` });
+      propagateApplyResultToSource_(row, 'CREATED', `Topic created ${id}.`);
+      appendCommandCentreLog_('APPLY APPROVED TOPICS', 'CREATED', `${row['Course Name']} / ${topicName} -> ${id}`);
+    } catch (err) {
+      summary.errors++;
+      updateApplyRowResult_(sheet, row.__rowNumber, getTopicApplyReviewHeaders_(), { result: `ERROR - ${err && err.message ? err.message : err}` });
+      appendCommandCentreLog_('APPLY APPROVED TOPICS', 'ERROR', `${row['Course Name']} / ${row['Topic Name']}: ${err && err.message ? err.message : err}`);
+    }
+  });
+  summary.notApproved = rows.filter(row => row['Approve?'] !== true).length;
+  styleLockedApplySheet_(sheet, getTopicApplyReviewHeaders_(), { approvalCol: 1, dateCols: [12], readinessCol: 9, resultCol: 14 });
+  appendCommandCentreLog_('APPLY APPROVED TOPICS', summary.errors ? 'DONE WITH ERRORS' : 'DONE', `Created ${summary.created}; skipped existing ${summary.skippedExisting}; blocked ${summary.blocked}; not approved ${summary.notApproved}; errors ${summary.errors}; cap ${TOPIC_CREATE_MAX_PER_RUN}.`);
+  return summary;
+}
+
+function buildCourseworkApplyReviewInternal_(kind) {
+  requireClassroomService_();
+  const normalizedKind = normalizeText_(kind).toUpperCase();
+  const config = getCourseworkApplyConfig_(normalizedKind);
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const shell = ss.getSheetByName(APP.COURSE_SHELL_TEMPLATE_SHEET) || ss.insertSheet(APP.COURSE_SHELL_TEMPLATE_SHEET);
+  const records = readCourseShellTemplateRecords_(shell).filter(record => normalizeText_(record.itemType).toUpperCase() === normalizedKind);
+  const courseIds = buildCourseIdLookupForApply_();
+  const topicCache = {};
+  const existingCache = {};
+  const rows = [];
+  const summary = { rows: 0, ready: 0, review: 0, blocked: 0 };
+
+  records.forEach(record => {
+    const courseId = resolveCourseIdForRecord_(record, courseIds);
+    const title = record.itemTitle || '';
+    const topicName = record.topic || '';
+    let readiness = 'READY';
+    const blocks = [];
+    let topicId = '';
+    let existingId = '';
+    if (!record.build) {
+      readiness = 'REVIEW';
+      blocks.push('Use? is not checked on the source row.');
+    }
+    if (!courseId) {
+      readiness = 'BLOCKED';
+      blocks.push('Classroom Course ID is missing.');
+    }
+    if (!title && normalizedKind !== 'ANNOUNCEMENT') {
+      readiness = 'BLOCKED';
+      blocks.push(`${config.label} title is missing.`);
+    }
+    if (normalizedKind === 'ANNOUNCEMENT' && !record.description && !title) {
+      readiness = 'BLOCKED';
+      blocks.push('Announcement text is missing.');
+    }
+    if (courseId && topicName) {
+      if (!topicCache[courseId]) topicCache[courseId] = getClassroomTopicsByName_(courseId);
+      const topic = topicCache[courseId][normalizeText_(topicName)] || {};
+      topicId = topic.id || '';
+      if (!topicId) {
+        readiness = readiness === 'BLOCKED' ? 'BLOCKED' : 'REVIEW';
+        blocks.push('Topic is not created yet; run Topic Apply or leave Topic ID blank.');
+      }
+    }
+    if (courseId) {
+      const cacheKey = `${normalizedKind}|${courseId}`;
+      if (!existingCache[cacheKey]) existingCache[cacheKey] = config.existingLookup(courseId);
+      const existing = existingCache[cacheKey][normalizeText_(title || record.description)];
+      if (existing && existing.id) {
+        readiness = 'BLOCKED';
+        blocks.push(`${config.label} already exists in Classroom.`);
+        existingId = existing.id;
+      }
+    }
+    incrementReadinessSummary_(summary, readiness);
+    rows.push(config.rowBuilder(record, { courseId, topicId, existingId, readiness, blockReason: blocks.join(' ') }));
+  });
+
+  summary.rows = rows.length;
+  const sheet = ss.getSheetByName(config.sheetName) || ss.insertSheet(config.sheetName);
+  writeSimpleTable_(sheet, config.headers, rows);
+  styleLockedApplySheet_(sheet, config.headers, config.style);
+  appendCommandCentreLog_(`BUILD ${normalizedKind} APPLY REVIEW`, summary.blocked ? 'REVIEW' : 'DONE', `Rows: ${summary.rows}; ready: ${summary.ready}; review: ${summary.review}; blocked: ${summary.blocked}.`);
+  return summary;
+}
+
+function applyApprovedAssignmentsInternal_() {
+  return applyApprovedCourseworkItems_('ASSIGNMENT');
+}
+
+function applyApprovedMaterialsInternal_() {
+  return applyApprovedCourseworkItems_('MATERIAL');
+}
+
+function applyApprovedAnnouncementsInternal_() {
+  return applyApprovedCourseworkItems_('ANNOUNCEMENT');
+}
+
+function applyApprovedCourseworkItems_(kind) {
+  requireClassroomService_();
+  const normalizedKind = normalizeText_(kind).toUpperCase();
+  const config = getCourseworkApplyConfig_(normalizedKind);
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(config.sheetName);
+  const rows = readApplySheetRows_(sheet, config.headers);
+  const summary = makeApplySummary_(rows);
+  const existingCache = {};
+  rows.forEach(row => {
+    if (row['Approve?'] !== true) return;
+    if (!isApprovedApplyRow_(row, config.confirmText, config.createdIdHeader, config.existingIdHeader)) {
+      summary.blocked++;
+      return;
+    }
+    if (summary.created >= config.max) return;
+    try {
+      const courseId = String(row['Classroom Course ID'] || '').trim();
+      const title = String(row[config.titleHeader] || row['Announcement Title / Label'] || '').trim();
+      if (!courseId || (!title && normalizedKind !== 'ANNOUNCEMENT')) {
+        summary.blocked++;
+        updateApplyRowResult_(sheet, row.__rowNumber, config.headers, { result: 'BLOCKED - Missing course ID or title.' });
+        return;
+      }
+      const cacheKey = `${normalizedKind}|${courseId}`;
+      if (!existingCache[cacheKey]) existingCache[cacheKey] = config.existingLookup(courseId);
+      const duplicateKey = normalizeText_(title || row['Text']);
+      const duplicate = existingCache[cacheKey][duplicateKey];
+      if (duplicate && duplicate.id) {
+        summary.skippedExisting++;
+        updateApplyRowResult_(sheet, row.__rowNumber, config.headers, { existingIdHeader: config.existingIdHeader, existingId: duplicate.id, result: `SKIPPED - Already exists (${duplicate.id}).` });
+        return;
+      }
+      const created = config.create(courseId, row);
+      const id = String(created && (created.id || created.courseWorkMaterial && created.courseWorkMaterial.id) || '').trim();
+      existingCache[cacheKey][duplicateKey] = { id, status: 'EXISTS' };
+      summary.created++;
+      updateApplyRowResult_(sheet, row.__rowNumber, config.headers, { createdIdHeader: config.createdIdHeader, createdId: id, createdByHeader: 'Created By', createdAtHeader: 'Created At', result: `CREATED ${config.label.toLowerCase()} ${id}.` });
+      appendCommandCentreLog_(`APPLY APPROVED ${normalizedKind}`, 'CREATED', `${row['Course Name']} / ${title || row['Text']} -> ${id}`);
+    } catch (err) {
+      summary.errors++;
+      updateApplyRowResult_(sheet, row.__rowNumber, config.headers, { result: `ERROR - ${err && err.message ? err.message : err}` });
+      appendCommandCentreLog_(`APPLY APPROVED ${normalizedKind}`, 'ERROR', `${row['Course Name']}: ${err && err.message ? err.message : err}`);
+    }
+  });
+  summary.notApproved = rows.filter(row => row['Approve?'] !== true).length;
+  styleLockedApplySheet_(sheet, config.headers, config.style);
+  appendCommandCentreLog_(`APPLY APPROVED ${normalizedKind}`, summary.errors ? 'DONE WITH ERRORS' : 'DONE', `Created ${summary.created}; skipped existing ${summary.skippedExisting}; blocked ${summary.blocked}; not approved ${summary.notApproved}; errors ${summary.errors}; cap ${config.max}.`);
+  return summary;
+}
+
+function buildStudentInviteReviewInternal_() {
+  requireClassroomService_();
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const audit = ss.getSheetByName(APP.CLASSROOM_AUDIT_SHEET);
+  const rows = [];
+  const summary = { rows: 0, ready: 0, review: 0, blocked: 0 };
+  if (audit && audit.getLastRow() >= 2) {
+    const values = audit.getDataRange().getValues();
+    const headers = values[0].map(h => normalizeText_(h));
+    const idx = {
+      course: getHeaderIndex_(headers, ['course'], 1),
+      courseId: getHeaderIndex_(headers, ['classroom course id'], 3),
+      name: getHeaderIndex_(headers, ['student name'], 4),
+      email: getHeaderIndex_(headers, ['student email'], 5),
+      inPs: getHeaderIndex_(headers, ['in powerschool?'], 6),
+      inGc: getHeaderIndex_(headers, ['in classroom?'], 7),
+      issue: getHeaderIndex_(headers, ['issue'], 9)
+    };
+    for (let r = 1; r < values.length; r++) {
+      const row = values[r];
+      const issue = normalizeText_(row[idx.issue]);
+      if (issue !== 'in powerschool not classroom') continue;
+      const email = String(row[idx.email] || '').trim();
+      let readiness = 'READY';
+      const blocks = [];
+      if (!email) {
+        readiness = 'BLOCKED';
+        blocks.push('Student email is missing.');
+      }
+      if (!row[idx.courseId]) {
+        readiness = 'BLOCKED';
+        blocks.push('Classroom Course ID is missing.');
+      }
+      incrementReadinessSummary_(summary, readiness);
+      rows.push([false, '', row[idx.courseId] || '', row[idx.course] || '', row[idx.name] || '', email, row[idx.inPs] ? 'YES' : 'NO', 'NO', readiness, blocks.join(' '), '', '', '', '']);
+    }
+  }
+  summary.rows = rows.length;
+  const sheet = ss.getSheetByName(APP.STUDENT_INVITE_REVIEW_SHEET) || ss.insertSheet(APP.STUDENT_INVITE_REVIEW_SHEET);
+  writeSimpleTable_(sheet, getStudentInviteReviewHeaders_(), rows);
+  styleLockedApplySheet_(sheet, getStudentInviteReviewHeaders_(), { approvalCol: 1, dateCols: [12], readinessCol: 9, resultCol: 14 });
+  appendCommandCentreLog_('BUILD STUDENT INVITE REVIEW', summary.blocked ? 'REVIEW' : 'DONE', `Rows: ${summary.rows}; ready: ${summary.ready}; review: ${summary.review}; blocked: ${summary.blocked}.`);
+  return summary;
+}
+
+function applyApprovedStudentInvitesInternal_() {
+  requireClassroomService_();
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(APP.STUDENT_INVITE_REVIEW_SHEET);
+  const headers = getStudentInviteReviewHeaders_();
+  const rows = readApplySheetRows_(sheet, headers);
+  const summary = makeApplySummary_(rows);
+  rows.forEach(row => {
+    if (row['Approve Invite?'] !== true) return;
+    if (!isApprovedInviteRow_(row, 'INVITE STUDENT', 'Invitation ID / Result ID')) {
+      summary.blocked++;
+      return;
+    }
+    if (summary.created >= STUDENT_INVITE_MAX_PER_RUN) return;
+    try {
+      const courseId = String(row['Classroom Course ID'] || '').trim();
+      const email = String(row['Student Email'] || '').trim();
+      if (!courseId || !email || normalizeText_(row['In PowerSchool?']) !== 'yes' || normalizeText_(row['Already In Classroom?']) === 'yes') {
+        summary.blocked++;
+        updateApplyRowResult_(sheet, row.__rowNumber, headers, { result: 'BLOCKED - Missing course/email, not in PowerSchool, or already in Classroom.' });
+        return;
+      }
+      const created = Classroom.Invitations.create({
+        courseId,
+        userId: email,
+        role: 'STUDENT'
+      });
+      const id = String(created && created.id || email).trim();
+      summary.created++;
+      updateApplyRowResult_(sheet, row.__rowNumber, headers, { createdIdHeader: 'Invitation ID / Result ID', createdId: id, createdByHeader: 'Invited By', createdAtHeader: 'Invited At', result: `INVITED student ${email}.` });
+      appendCommandCentreLog_('APPLY APPROVED STUDENT INVITES', 'DONE', `${row['Course Name']} / ${email}`);
+    } catch (err) {
+      summary.errors++;
+      updateApplyRowResult_(sheet, row.__rowNumber, headers, { result: `ERROR - ${err && err.message ? err.message : err}` });
+      appendCommandCentreLog_('APPLY APPROVED STUDENT INVITES', 'ERROR', `${row['Course Name']} / ${row['Student Email']}: ${err && err.message ? err.message : err}`);
+    }
+  });
+  summary.notApproved = rows.filter(row => row['Approve Invite?'] !== true).length;
+  styleLockedApplySheet_(sheet, headers, { approvalCol: 1, dateCols: [12], readinessCol: 9, resultCol: 14 });
+  return summary;
+}
+
+function buildTeacherInviteReviewInternal_() {
+  requireClassroomService_();
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const records = readCourseShellTemplateRecords_(ss.getSheetByName(APP.COURSE_SHELL_TEMPLATE_SHEET) || ss.insertSheet(APP.COURSE_SHELL_TEMPLATE_SHEET));
+  const courseIds = buildCourseIdLookupForApply_();
+  const rows = [];
+  const seen = {};
+  const summary = { rows: 0, ready: 0, review: 0, blocked: 0 };
+  records.forEach(record => {
+    const emails = dedupeEmails_(extractEmails_(record.coTeacherEmails || ''));
+    emails.forEach(email => {
+      const courseId = resolveCourseIdForRecord_(record, courseIds);
+      const key = `${courseId}|${email}`;
+      if (seen[key]) return;
+      seen[key] = true;
+      let readiness = 'READY';
+      const blocks = [];
+      if (!courseId) {
+        readiness = 'BLOCKED';
+        blocks.push('Classroom Course ID is missing.');
+      }
+      const already = courseId && teacherAlreadyInCourse_(courseId, email);
+      if (already) {
+        readiness = 'BLOCKED';
+        blocks.push('Teacher is already in Classroom.');
+      }
+      incrementReadinessSummary_(summary, readiness);
+      rows.push([false, '', courseId || '', record.courseName || '', email, already ? 'YES' : 'NO', readiness, blocks.join(' '), '', '', '', '']);
+    });
+  });
+  summary.rows = rows.length;
+  const sheet = ss.getSheetByName(APP.TEACHER_INVITE_REVIEW_SHEET) || ss.insertSheet(APP.TEACHER_INVITE_REVIEW_SHEET);
+  writeSimpleTable_(sheet, getTeacherInviteReviewHeaders_(), rows);
+  styleLockedApplySheet_(sheet, getTeacherInviteReviewHeaders_(), { approvalCol: 1, dateCols: [10], readinessCol: 7, resultCol: 12 });
+  appendCommandCentreLog_('BUILD TEACHER INVITE REVIEW', summary.blocked ? 'REVIEW' : 'DONE', `Rows: ${summary.rows}; ready: ${summary.ready}; review: ${summary.review}; blocked: ${summary.blocked}.`);
+  return summary;
+}
+
+function applyApprovedTeacherInvitesInternal_() {
+  requireClassroomService_();
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(APP.TEACHER_INVITE_REVIEW_SHEET);
+  const headers = getTeacherInviteReviewHeaders_();
+  const rows = readApplySheetRows_(sheet, headers);
+  const summary = makeApplySummary_(rows);
+  rows.forEach(row => {
+    if (row['Approve Invite?'] !== true) return;
+    if (!isApprovedInviteRow_(row, 'INVITE TEACHER', 'Invitation ID / Result ID')) {
+      summary.blocked++;
+      return;
+    }
+    if (summary.created >= TEACHER_INVITE_MAX_PER_RUN) return;
+    try {
+      const courseId = String(row['Classroom Course ID'] || '').trim();
+      const email = String(row['Teacher Email'] || '').trim();
+      if (!courseId || !email || normalizeText_(row['Already Teacher?']) === 'yes') {
+        summary.blocked++;
+        updateApplyRowResult_(sheet, row.__rowNumber, headers, { result: 'BLOCKED - Missing course/email or teacher already exists.' });
+        return;
+      }
+      const created = Classroom.Invitations.create({
+        courseId,
+        userId: email,
+        role: 'TEACHER'
+      });
+      const id = String(created && created.id || email).trim();
+      summary.created++;
+      updateApplyRowResult_(sheet, row.__rowNumber, headers, { createdIdHeader: 'Invitation ID / Result ID', createdId: id, createdByHeader: 'Invited By', createdAtHeader: 'Invited At', result: `INVITED teacher ${email}.` });
+      appendCommandCentreLog_('APPLY APPROVED TEACHER INVITES', 'DONE', `${row['Course Name']} / ${email}`);
+    } catch (err) {
+      summary.errors++;
+      updateApplyRowResult_(sheet, row.__rowNumber, headers, { result: `ERROR - ${err && err.message ? err.message : err}` });
+      appendCommandCentreLog_('APPLY APPROVED TEACHER INVITES', 'ERROR', `${row['Course Name']} / ${row['Teacher Email']}: ${err && err.message ? err.message : err}`);
+    }
+  });
+  summary.notApproved = rows.filter(row => row['Approve Invite?'] !== true).length;
+  styleLockedApplySheet_(sheet, headers, { approvalCol: 1, dateCols: [10], readinessCol: 7, resultCol: 12 });
+  return summary;
+}
+
+function buildArtifactApplyReviewInternal_() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const masterRows = readMasterRowsAsObjects_(ss.getSheetByName(APP.MASTER_SHEET));
+  const rows = masterRows.map(row => {
+    const email = cleanEmailCell_(row['Email'] || '');
+    const readiness = row['Student Name'] && row['Course'] ? 'READY' : 'BLOCKED';
+    return [false, '', 'STUDENT_FOLDER', row['Student Name'] || '', email, row['Course'] || '', '', '', '', '', '', '', readiness, readiness === 'READY' ? '' : 'Student name and course are required.', ''];
+  });
+  const summary = { rows: rows.length, ready: rows.filter(row => row[12] === 'READY').length, review: 0, blocked: rows.filter(row => row[12] === 'BLOCKED').length };
+  const sheet = ss.getSheetByName(APP.ARTIFACT_APPLY_REVIEW_SHEET) || ss.insertSheet(APP.ARTIFACT_APPLY_REVIEW_SHEET);
+  writeSimpleTable_(sheet, getArtifactApplyReviewHeaders_(), rows);
+  styleLockedApplySheet_(sheet, getArtifactApplyReviewHeaders_(), { approvalCol: 1, dateCols: [11], readinessCol: 13, resultCol: 15 });
+  appendCommandCentreLog_('BUILD ARTIFACT APPLY REVIEW', summary.blocked ? 'REVIEW' : 'DONE', `Rows: ${summary.rows}; ready: ${summary.ready}; blocked: ${summary.blocked}.`);
+  return summary;
+}
+
+function applyApprovedArtifactsInternal_() {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(APP.ARTIFACT_APPLY_REVIEW_SHEET);
+  const headers = getArtifactApplyReviewHeaders_();
+  const rows = readApplySheetRows_(sheet, headers);
+  const summary = makeApplySummary_(rows);
+  rows.forEach(row => {
+    if (row['Approve?'] !== true) return;
+    if (!isApprovedApplyRow_(row, 'CREATE ARTIFACT', 'Created Artifact URL', 'Existing Artifact URL')) {
+      summary.blocked++;
+      return;
+    }
+    if (summary.created >= ARTIFACT_CREATE_MAX_PER_RUN) return;
+    try {
+      const artifactType = normalizeText_(row['Artifact Type']).toUpperCase().replace(/\s+/g, '_');
+      const nameParts = [row['Course'], row['Student Name'], row['Artifact Type']].filter(Boolean);
+      let url = '';
+      if (artifactType === 'STUDENT_FOLDER') {
+        const folder = row['Destination Folder ID']
+          ? DriveApp.getFolderById(String(row['Destination Folder ID']).trim()).createFolder(nameParts.join(' - '))
+          : DriveApp.createFolder(nameParts.join(' - '));
+        url = folder.getUrl();
+      } else if (artifactType === 'PROGRESS_DOC' || artifactType === 'PROGRESS_PDF' || artifactType === 'CERTIFICATE_DOC') {
+        const doc = DocumentApp.create(nameParts.join(' - '));
+        doc.getBody().appendParagraph(`Student: ${row['Student Name'] || ''}`);
+        doc.getBody().appendParagraph(`Course: ${row['Course'] || ''}`);
+        doc.getBody().appendParagraph(`Created: ${new Date()}`);
+        doc.saveAndClose();
+        url = doc.getUrl();
+      } else if (artifactType === 'CHECK_IN_FORM' || artifactType === 'VERBAL_ASSESSMENT_FORM') {
+        const form = FormApp.create(nameParts.join(' - '));
+        form.setDescription(`Generated for ${row['Student Name'] || 'student'} in ${row['Course'] || 'course'}.`);
+        form.addParagraphTextItem().setTitle('Teacher notes');
+        url = form.getEditUrl();
+      } else {
+        summary.blocked++;
+        updateApplyRowResult_(sheet, row.__rowNumber, headers, { result: `BLOCKED - Unknown artifact type ${row['Artifact Type']}.` });
+        return;
+      }
+      summary.created++;
+      updateApplyRowResult_(sheet, row.__rowNumber, headers, { createdIdHeader: 'Created Artifact URL', createdId: url, createdByHeader: 'Created By', createdAtHeader: 'Created At', result: `CREATED ${row['Artifact Type']}.` });
+      appendCommandCentreLog_('APPLY APPROVED ARTIFACTS', 'CREATED', `${row['Artifact Type']} / ${row['Student Name']} / ${row['Course']}`);
+    } catch (err) {
+      summary.errors++;
+      updateApplyRowResult_(sheet, row.__rowNumber, headers, { result: `ERROR - ${err && err.message ? err.message : err}` });
+      appendCommandCentreLog_('APPLY APPROVED ARTIFACTS', 'ERROR', `${row['Artifact Type']} / ${row['Student Name']}: ${err && err.message ? err.message : err}`);
+    }
+  });
+  summary.notApproved = rows.filter(row => row['Approve?'] !== true).length;
+  styleLockedApplySheet_(sheet, headers, { approvalCol: 1, dateCols: [11], readinessCol: 13, resultCol: 15 });
+  return summary;
+}
+
+function buildAdminReportsInternal_() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const now = new Date();
+  let totalRows = 0;
+  let sheetCount = 0;
+  const masterRows = readMasterRowsAsObjects_(ss.getSheetByName(APP.MASTER_SHEET));
+  const auditRows = readSheetObjectsByName_(APP.CLASSROOM_AUDIT_SHEET);
+  const emailRows = readSheetObjectsByName_(APP.EMAIL_LOG_SHEET);
+  const contactRows = readSheetObjectsByName_(APP.CONTACT_LOG_SHEET);
+  const gcSummaryRows = readSheetObjectsByName_(APP.SUMMARY_SHEET);
+
+  const writeReport = (sheetName, headers, rows) => {
+    const sheet = ss.getSheetByName(sheetName) || ss.insertSheet(sheetName);
+    writeSimpleTable_(sheet, headers, rows);
+    if (rows.length) sheet.getRange(2, 1, rows.length, 1).setNumberFormat('yyyy-mm-dd h:mm AM/PM');
+    styleSimpleSheet_(sheet, rows.length + 1, headers.length);
+    totalRows += rows.length;
+    sheetCount++;
+  };
+
+  writeReport(APP.ADMIN_SUMMARY_SHEET, ['Generated At', 'Metric', 'Value', 'Detail'], [
+    [now, 'Active Master rows', masterRows.length, 'From active-only Master Tracker'],
+    [now, 'Checked Classroom courses', readEnabledCourseMaps_().length, 'From Classroom Course Map'],
+    [now, 'Roster mismatch rows', auditRows.filter(row => row['Issue']).length, 'From GC PowerSchool Audit'],
+    [now, 'Email log rows', emailRows.length, 'From Email Log'],
+    [now, 'Contact log rows', contactRows.length, 'From Contact Log'],
+    [now, 'GC summary rows', gcSummaryRows.length, 'From GC Assignment Tabs Summary']
+  ]);
+
+  writeReport(APP.ROSTER_MISMATCH_REPORT_SHEET, ['Generated At', 'Course', 'Student Name', 'Student Email', 'Issue', 'Recommended Action'], auditRows
+    .filter(row => row['Issue'] && normalizeText_(row['Issue']) !== 'email match')
+    .map(row => [now, row['Course'] || '', row['Student Name'] || '', row['Student Email'] || '', row['Issue'] || '', row['Recommended Action'] || '']));
+
+  writeReport(APP.CONTACT_NEEDED_REPORT_SHEET, ['Generated At', 'Student Name', 'Course', 'Status', 'Last Contact', 'Email', 'Recommended Action'], masterRows
+    .filter(row => ['BEHIND', 'NO CONTACT'].indexOf(cleanStatus_(row['STATUS'])) !== -1)
+    .map(row => [now, row['Student Name'] || '', row['Course'] || '', row['STATUS'] || '', row['LAST CONTACT'] || '', row['Email'] || '', 'Preview selected email or log contact.']));
+
+  writeReport(APP.MISSING_WORK_REPORT_SHEET, ['Generated At', 'Course', 'Student Name', 'Outstanding Detail', 'Recommended Action'], collectGcTabAssignmentStatusRows_(['OUTSTANDING', 'MISSING - PAST DUE']).map(row => [now, row.course, row.student, row.detail, 'Review course tab and preview email if appropriate.']));
+
+  writeReport(APP.NEEDS_MARKING_REPORT_SHEET, ['Generated At', 'Course', 'Student Name', 'Needs Marking Detail', 'Recommended Action'], collectGcTabAssignmentStatusRows_(['TURNED IN - NEEDS MARKING']).map(row => [now, row.course, row.student, row.detail, 'Open Classroom submission and mark/return work.']));
+
+  writeReport(APP.COURSE_PROGRESS_SUMMARY_SHEET, ['Generated At', 'Course', 'Students', 'Assignments', 'Missing Cells', 'Late Cells', 'Course Avg Grade %', 'Classroom Course ID'], gcSummaryRows.map(row => [now, row['Display Course'] || row['Course'] || '', row['Students'] || '', row['Assignments'] || '', row['Missing Cells'] || '', row['Late Cells'] || '', row['Course Avg Grade %'] || '', row['Classroom Course ID'] || '']));
+
+  appendCommandCentreLog_('BUILD ADMIN REPORTS', 'DONE', `Sheets updated: ${sheetCount}; rows written: ${totalRows}. Read-only reporting only.`);
+  return { sheets: sheetCount, rows: totalRows };
+}
+
+function getCourseworkApplyConfig_(kind) {
+  const common = {
+    ASSIGNMENT: {
+      sheetName: APP.ASSIGNMENT_APPLY_REVIEW_SHEET,
+      headers: getAssignmentApplyReviewHeaders_(),
+      label: 'Assignment',
+      confirmText: 'POST ASSIGNMENT',
+      createdIdHeader: 'Created Assignment ID',
+      existingIdHeader: 'Existing Assignment ID',
+      titleHeader: 'Assignment Title',
+      max: ASSIGNMENT_CREATE_MAX_PER_RUN,
+      style: { approvalCol: 1, dateCols: [18], readinessCol: 23, resultCol: 20 },
+      existingLookup: getClassroomAssignmentsByName_,
+      create: createClassroomAssignment_,
+      rowBuilder: (record, state) => [false, '', state.courseId, record.courseName, record.section, record.topic, state.topicId, record.itemTitle, record.description, record.dueDate, '', record.points, record.attachmentLink, record.publish ? 'PUBLISHED' : 'DRAFT', 'ALL_STUDENTS', state.existingId, '', '', '', '', APP.COURSE_SHELL_TEMPLATE_SHEET, record.rowNumber, state.readiness, state.blockReason]
+    },
+    MATERIAL: {
+      sheetName: APP.MATERIAL_APPLY_REVIEW_SHEET,
+      headers: getMaterialApplyReviewHeaders_(),
+      label: 'Material',
+      confirmText: 'POST MATERIAL',
+      createdIdHeader: 'Created Material ID',
+      existingIdHeader: 'Existing Material ID',
+      titleHeader: 'Material Title',
+      max: MATERIAL_CREATE_MAX_PER_RUN,
+      style: { approvalCol: 1, dateCols: [14], readinessCol: 19, resultCol: 16 },
+      existingLookup: getClassroomMaterialsByName_,
+      create: createClassroomMaterial_,
+      rowBuilder: (record, state) => [false, '', state.courseId, record.courseName, record.section, record.topic, state.topicId, record.itemTitle, record.description, record.attachmentLink, record.publish ? 'PUBLISHED' : 'DRAFT', state.existingId, '', '', '', '', APP.COURSE_SHELL_TEMPLATE_SHEET, record.rowNumber, state.readiness, state.blockReason]
+    },
+    ANNOUNCEMENT: {
+      sheetName: APP.ANNOUNCEMENT_APPLY_REVIEW_SHEET,
+      headers: getAnnouncementApplyReviewHeaders_(),
+      label: 'Announcement',
+      confirmText: 'POST ANNOUNCEMENT',
+      createdIdHeader: 'Created Announcement ID',
+      existingIdHeader: 'Existing Announcement ID',
+      titleHeader: 'Announcement Title / Label',
+      max: ANNOUNCEMENT_CREATE_MAX_PER_RUN,
+      style: { approvalCol: 1, dateCols: [14], readinessCol: 19, resultCol: 16 },
+      existingLookup: getClassroomAnnouncementsByName_,
+      create: createClassroomAnnouncement_,
+      rowBuilder: (record, state) => [false, '', state.courseId, record.courseName, record.section, record.topic, state.topicId, record.itemTitle, record.description, record.attachmentLink, record.publish ? 'PUBLISHED' : 'DRAFT', state.existingId, '', '', '', '', APP.COURSE_SHELL_TEMPLATE_SHEET, record.rowNumber, state.readiness, state.blockReason]
+    }
+  };
+  return common[kind];
+}
+
+function buildCourseIdLookupForApply_() {
+  const lookup = {};
+  const add = (course, section, id) => {
+    const cleanId = String(id || '').trim();
+    const key = makeCourseSectionKey_(course, section);
+    if (key && cleanId) lookup[key] = cleanId;
+    const courseOnly = `${normalizeText_(course)}|`;
+    if (courseOnly && cleanId && !lookup[courseOnly]) lookup[courseOnly] = cleanId;
+  };
+  try {
+    readCourseCreationApplyRecords_(SpreadsheetApp.getActiveSpreadsheet().getSheetByName(APP.COURSE_CREATION_APPLY_SHEET)).forEach(row => {
+      add(row.courseName, row.section, row.createdCourseId || row.existingCourseId);
+    });
+  } catch (err) {}
+  try {
+    readEnabledCourseMaps_().forEach(map => add(map.displayCourseName || map.classroomCourseName, '', map.classroomCourseId));
+  } catch (err) {}
+  return lookup;
+}
+
+function resolveCourseIdForRecord_(record, lookup) {
+  const key = makeCourseSectionKey_(record.courseName, record.section);
+  const courseOnly = `${normalizeText_(record.courseName)}|`;
+  return (lookup || {})[key] || (lookup || {})[courseOnly] || '';
+}
+
+function getClassroomTopicsByName_(courseId) {
+  const topics = {};
+  let pageToken;
+  do {
+    const response = Classroom.Courses.Topics.list(courseId, { pageSize: 100, pageToken });
+    (response.topic || []).forEach(topic => {
+      topics[normalizeText_(topic.name)] = { id: topic.topicId || topic.id || '', status: 'EXISTS', name: topic.name || '' };
+    });
+    pageToken = response.nextPageToken;
+  } while (pageToken);
+  return topics;
+}
+
+function getClassroomAssignmentsByName_(courseId) {
+  return getClassroomCourseWorkByNameForApply_(courseId);
+}
+
+function getClassroomCourseWorkByNameForApply_(courseId) {
+  const items = {};
+  let pageToken;
+  do {
+    const response = Classroom.Courses.CourseWork.list(courseId, { pageSize: 100, pageToken });
+    (response.courseWork || []).forEach(item => {
+      items[normalizeText_(item.title)] = { id: item.id || '', status: item.state || 'EXISTS' };
+    });
+    pageToken = response.nextPageToken;
+  } while (pageToken);
+  return items;
+}
+
+function getClassroomMaterialsByName_(courseId) {
+  const items = {};
+  let pageToken;
+  do {
+    const response = Classroom.Courses.CourseWorkMaterials.list(courseId, { pageSize: 100, pageToken });
+    (response.courseWorkMaterial || []).forEach(item => {
+      items[normalizeText_(item.title)] = { id: item.id || '', status: item.state || 'EXISTS' };
+    });
+    pageToken = response.nextPageToken;
+  } while (pageToken);
+  return items;
+}
+
+function getClassroomAnnouncementsByName_(courseId) {
+  const items = {};
+  let pageToken;
+  do {
+    const response = Classroom.Courses.Announcements.list(courseId, { pageSize: 100, pageToken });
+    (response.announcements || []).forEach(item => {
+      items[normalizeText_(item.text)] = { id: item.id || '', status: item.state || 'EXISTS' };
+    });
+    pageToken = response.nextPageToken;
+  } while (pageToken);
+  return items;
+}
+
+function createClassroomTopic_(courseId, topicName) {
+  return Classroom.Courses.Topics.create({ name: topicName }, courseId);
+}
+
+function createClassroomAssignment_(courseId, row) {
+  const due = builderDueDateToClassroomDue_(row['Due Date']);
+  const payload = {
+    title: String(row['Assignment Title'] || '').trim(),
+    description: String(row['Description'] || '').trim(),
+    workType: 'ASSIGNMENT',
+    state: normalizeClassroomPublishState_(row['Publish State']),
+    maxPoints: row['Points'] !== '' && !isNaN(Number(row['Points'])) ? Number(row['Points']) : undefined,
+    topicId: String(row['Topic ID'] || '').trim() || undefined,
+    materials: buildClassroomMaterialsFromLink_(row['Attachment Link'])
+  };
+  if (due) payload.dueDate = due;
+  Object.keys(payload).forEach(key => payload[key] === undefined && delete payload[key]);
+  return Classroom.Courses.CourseWork.create(payload, courseId);
+}
+
+function createClassroomMaterial_(courseId, row) {
+  const payload = {
+    title: String(row['Material Title'] || '').trim(),
+    description: String(row['Description'] || '').trim(),
+    state: normalizeClassroomPublishState_(row['Publish State']),
+    topicId: String(row['Topic ID'] || '').trim() || undefined,
+    materials: buildClassroomMaterialsFromLink_(row['Attachment Link'])
+  };
+  Object.keys(payload).forEach(key => payload[key] === undefined && delete payload[key]);
+  return Classroom.Courses.CourseWorkMaterials.create(payload, courseId);
+}
+
+function createClassroomAnnouncement_(courseId, row) {
+  const title = String(row['Announcement Title / Label'] || '').trim();
+  const text = String(row['Text'] || '').trim() || title;
+  const payload = {
+    text,
+    state: normalizeClassroomPublishState_(row['Publish State']),
+    materials: buildClassroomMaterialsFromLink_(row['Attachment Link'])
+  };
+  Object.keys(payload).forEach(key => payload[key] === undefined && delete payload[key]);
+  return Classroom.Courses.Announcements.create(payload, courseId);
+}
+
+function normalizeClassroomPublishState_(value) {
+  const clean = normalizeText_(value);
+  return clean === 'published' ? 'PUBLISHED' : 'DRAFT';
+}
+
+function buildClassroomMaterialsFromLink_(value) {
+  const link = String(value || '').trim();
+  if (!/^https?:\/\//i.test(link)) return undefined;
+  return [{ link: { url: link } }];
+}
+
+function builderDueDateToClassroomDue_(value) {
+  if (!value) return null;
+  const date = Object.prototype.toString.call(value) === '[object Date]' ? value : new Date(value);
+  if (isNaN(date.getTime())) return null;
+  return { year: date.getFullYear(), month: date.getMonth() + 1, day: date.getDate() };
+}
+
+function teacherAlreadyInCourse_(courseId, email) {
+  const cleanEmail = normalizeText_(email);
+  if (!courseId || !cleanEmail) return false;
+  let pageToken;
+  do {
+    const response = Classroom.Courses.Teachers.list(courseId, { pageSize: 100, pageToken });
+    const found = (response.teachers || []).some(teacher => normalizeText_(((teacher.profile || {}).emailAddress) || '') === cleanEmail);
+    if (found) return true;
+    pageToken = response.nextPageToken;
+  } while (pageToken);
+  return false;
+}
+
+function readApplySheetRows_(sheet, headers) {
+  if (!sheet || sheet.getLastRow() < 2) return [];
+  ensureHeaderRow_(sheet, headers);
+  const values = sheet.getRange(2, 1, sheet.getLastRow() - 1, headers.length).getValues();
+  return values.map((row, index) => {
+    const obj = { __rowNumber: index + 2 };
+    headers.forEach((header, col) => obj[header] = row[col]);
+    return obj;
+  }).filter(row => headers.some(header => header !== 'Approve?' && header !== 'Approve Invite?' && String(row[header] || '').trim() !== ''));
+}
+
+function isApprovedApplyRow_(row, confirmText, createdIdHeader, existingIdHeader) {
+  return row
+    && normalizeText_(row['Confirm Text']) === normalizeText_(confirmText)
+    && normalizeText_(row['Readiness']) === 'ready'
+    && !String(row[createdIdHeader] || '').trim()
+    && (!existingIdHeader || !String(row[existingIdHeader] || '').trim());
+}
+
+function isApprovedInviteRow_(row, confirmText, createdIdHeader) {
+  return row
+    && normalizeText_(row['Confirm Text']) === normalizeText_(confirmText)
+    && normalizeText_(row['Readiness']) === 'ready'
+    && !String(row[createdIdHeader] || '').trim();
+}
+
+function makeApplySummary_(rows) {
+  return { rows: (rows || []).length, created: 0, skippedExisting: 0, blocked: 0, notApproved: 0, errors: 0 };
+}
+
+function incrementReadinessSummary_(summary, readiness) {
+  if (readiness === 'READY') summary.ready++;
+  else if (readiness === 'BLOCKED') summary.blocked++;
+  else summary.review++;
+}
+
+function getApprovedApplyPreview_(sheetName, headers, options) {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(sheetName);
+  const rows = readApplySheetRows_(sheet, headers);
+  const approved = rows.filter(row => row[options.approvalHeader] === true);
+  const ready = approved.filter(row => {
+    return normalizeText_(row[options.confirmHeader]) === normalizeText_(options.confirmText)
+      && normalizeText_(row[options.readinessHeader]) === 'ready'
+      && !String(row[options.createdIdHeader] || '').trim()
+      && (!options.existingIdHeader || !String(row[options.existingIdHeader] || '').trim());
+  });
+  return {
+    approved: ready.length,
+    approvedTotal: approved.length,
+    alreadyCreated: approved.filter(row => String(row[options.createdIdHeader] || '').trim() || options.existingIdHeader && String(row[options.existingIdHeader] || '').trim()).length,
+    blockedApproved: Math.max(0, approved.length - ready.length),
+    max: options.max,
+    names: ready.slice(0, options.max).map(row => `- ${row[options.nameHeader] || row['Course Name'] || row['Student Name'] || row['Teacher Email'] || 'approved row'}`)
+  };
+}
+
+function confirmApplyRows_(title, preview, noun, warningText) {
+  if (!preview || !preview.approved) {
+    SpreadsheetApp.getUi().alert(
+      `No approved ${noun} are ready to run.\n\n` +
+      `Approved rows on sheet: ${preview && preview.approvedTotal || 0}\n` +
+      `Already created / linked: ${preview && preview.alreadyCreated || 0}\n` +
+      `Approved but blocked by gates: ${preview && preview.blockedApproved || 0}`
+    );
+    return false;
+  }
+  const confirmation = SpreadsheetApp.getUi().alert(
+    title,
+    `Approved rows ready: ${preview.approved}\n` +
+    `Will run at most this time: ${Math.min(preview.max || preview.approved, preview.approved)}\n\n` +
+    `${(preview.names || []).join('\n')}\n\n` +
+    `${warningText || ''}`,
+    SpreadsheetApp.getUi().ButtonSet.YES_NO
+  );
+  return confirmation === SpreadsheetApp.getUi().Button.YES;
+}
+
+function updateApplyRowResult_(sheet, rowNumber, headers, result) {
+  if (!sheet || !rowNumber) return;
+  const setByHeader = (header, value) => {
+    const col = headers.indexOf(header) + 1;
+    if (col > 0) sheet.getRange(rowNumber, col).setValue(value);
+  };
+  const now = new Date();
+  if (result.existingIdHeader && result.existingId) setByHeader(result.existingIdHeader, result.existingId);
+  if (result.createdIdHeader && result.createdId) setByHeader(result.createdIdHeader, result.createdId);
+  if (result.createdAtHeader) {
+    const col = headers.indexOf(result.createdAtHeader) + 1;
+    if (col > 0) sheet.getRange(rowNumber, col).setValue(now).setNumberFormat('yyyy-mm-dd h:mm AM/PM');
+  }
+  if (result.createdByHeader) setByHeader(result.createdByHeader, getActiveTeacherEmail_());
+  setByHeader('Apply Result', result.result || '');
+}
+
+function styleLockedApplySheet_(sheet, headers, options) {
+  styleSimpleSheet_(sheet, Math.max(sheet.getLastRow(), 1), headers.length);
+  sheet.setFrozenRows(1);
+  sheet.setFrozenColumns(Math.min(3, headers.length));
+  if (sheet.getLastRow() > 1) {
+    const rows = sheet.getLastRow() - 1;
+    if (options.approvalCol) sheet.getRange(2, options.approvalCol, rows, 1).insertCheckboxes();
+    (options.dateCols || []).forEach(col => sheet.getRange(2, col, rows, 1).setNumberFormat('yyyy-mm-dd h:mm AM/PM'));
+    const rules = [];
+    if (options.readinessCol) {
+      const readinessRange = sheet.getRange(2, options.readinessCol, rows, 1);
+      rules.push(
+        SpreadsheetApp.newConditionalFormatRule().whenTextEqualTo('READY').setBackground('#d9ead3').setFontColor('#274e13').setRanges([readinessRange]).build(),
+        SpreadsheetApp.newConditionalFormatRule().whenTextEqualTo('REVIEW').setBackground('#fff2cc').setFontColor('#7f6000').setRanges([readinessRange]).build(),
+        SpreadsheetApp.newConditionalFormatRule().whenTextEqualTo('BLOCKED').setBackground('#f4cccc').setFontColor('#990000').setRanges([readinessRange]).build()
+      );
+    }
+    if (options.resultCol) {
+      const resultRange = sheet.getRange(2, options.resultCol, rows, 1);
+      rules.push(
+        SpreadsheetApp.newConditionalFormatRule().whenTextContains('CREATED').setBackground('#d9ead3').setFontColor('#274e13').setRanges([resultRange]).build(),
+        SpreadsheetApp.newConditionalFormatRule().whenTextContains('ERROR').setBackground('#f4cccc').setFontColor('#990000').setRanges([resultRange]).build(),
+        SpreadsheetApp.newConditionalFormatRule().whenTextContains('SKIPPED').setBackground('#eeeeee').setFontColor('#666666').setRanges([resultRange]).build()
+      );
+    }
+    sheet.setConditionalFormatRules(rules);
+  }
+  try { sheet.autoResizeColumns(1, Math.min(headers.length, 10)); } catch (err) {}
+}
+
+function propagateApplyResultToSource_(row, status, detail) {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const sheetName = String(row['Source Sheet'] || '').trim();
+  const rowNumber = Number(row['Source Row'] || 0);
+  const sheet = sheetName ? ss.getSheetByName(sheetName) : null;
+  if (!sheet || rowNumber < 2) return;
+  setValuesNoValidation_(sheet.getRange(rowNumber, 17, 1, 2), [[status || '', detail || '']]);
+}
+
+function readSheetObjectsByName_(sheetName) {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(sheetName);
+  if (!sheet || sheet.getLastRow() < 2) return [];
+  const values = sheet.getDataRange().getValues();
+  const headers = values[0];
+  return values.slice(1).map(row => {
+    const obj = {};
+    headers.forEach((header, index) => obj[header] = row[index]);
+    return obj;
+  }).filter(row => Object.keys(row).some(key => String(row[key] || '').trim() !== ''));
+}
+
+function collectGcTabAssignmentStatusRows_(targetLabels) {
+  const targets = (targetLabels || []).map(label => normalizeText_(label));
+  const rows = [];
+  SpreadsheetApp.getActiveSpreadsheet().getSheets().forEach(sheet => {
+    const name = sheet.getName();
+    if (!name.startsWith(APP.GENERATED_TAB_PREFIX) || sheet.getLastRow() < 2 || sheet.getLastColumn() < 15) return;
+    const values = sheet.getDataRange().getValues();
+    const headers = values[0];
+    const assignmentStart = 14;
+    for (let r = 1; r < values.length; r++) {
+      const student = values[r][0] || values[r][1] || '';
+      for (let c = assignmentStart; c < headers.length; c++) {
+        const status = String(values[r][c] || '').trim();
+        if (!status) continue;
+        const clean = normalizeText_(status);
+        if (targets.some(target => clean.indexOf(target) !== -1)) {
+          rows.push({
+            course: name.replace(APP.GENERATED_TAB_PREFIX, ''),
+            student,
+            detail: `${assignmentTitleFromHeader_(headers[c])}: ${status}`
+          });
+        }
+      }
+    }
+  });
+  return rows;
 }
