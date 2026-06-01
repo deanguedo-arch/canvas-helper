@@ -148,6 +148,8 @@ test("Teacher-facing workflow is tracker plus simple announcements, not course b
   assert.match(source, /\.addItem\('Setup Announcements Tab', 'setupSimpleTeacherTabs'\)/);
   assert.match(source, /\.addItem\('Queue Simple Announcement Rows', 'queueSimpleAnnouncementRows'\)/);
   assert.match(source, /\.addItem\('Post Selected Simple Announcements', 'postSimpleAnnouncements'\)/);
+  assert.match(source, /\.addItem\('Clear Selected Announcement Rows', 'clearSelectedAnnouncementRows'\)/);
+  assert.match(source, /\.addItem\('Clear All Queued Announcement Rows', 'clearAllQueuedAnnouncementRows'\)/);
 
   assert.doesNotMatch(source, /\.addItem\('Populate Simple Shell', 'populateSimpleShell'\)/);
   assert.doesNotMatch(source, /\.addItem\('Apply Selected Simple Shell Rows', 'applySimpleShellBuilderRows'\)/);
@@ -162,12 +164,44 @@ test("Teacher-facing workflow is tracker plus simple announcements, not course b
   assert.match(source, /function queueSimpleAnnouncementRows\(/);
   assert.match(source, /function queueSimpleAnnouncementRowsInternal_/);
   assert.match(source, /\.addItem\('Queue Simple Announcement Rows', 'queueSimpleAnnouncementRows'\)/);
+  assert.match(source, /function clearSelectedAnnouncementRows\(/);
+  assert.match(source, /function clearSelectedAnnouncementRowsInternal_/);
+  assert.match(source, /function clearAllQueuedAnnouncementRows\(/);
+  assert.match(source, /function clearAllQueuedAnnouncementRowsInternal_/);
+  assert.match(source, /Sheet-only cleanup; no Classroom changes/);
+  assert.match(source, /runAction\('clearSelectedAnnouncementRows'\)/);
+  assert.match(source, /runAction\('clearAllQueuedAnnouncementRows'\)/);
+  assert.match(source, /function getFirstBlankSimpleAnnouncementWriteRow_/);
+  assert.match(source, /function isSimpleAnnouncementValuesBlank_/);
+  assert.match(source, /function trimSimpleAnnouncementTrailingBlankRows_/);
+  assert.doesNotMatch(source, /setValuesNoValidation_\(\s*sheet\.getRange\(SIMPLE_ANNOUNCEMENTS_HEADER_ROW \+ 1, 1, 1, headers\.length\), \[buildBlankSimpleAnnouncementRow_/);
   assert.match(source, /writeSimpleAnnouncementResult_/);
   assert.match(source, /SIMPLE_ANNOUNCEMENT_POST_MAX_PER_RUN = 5/);
 
   assert.doesNotMatch(source, /Classroom\.Courses\.[A-Za-z.]+\.delete\(/);
   assert.doesNotMatch(source, /Classroom\.Courses\.[A-Za-z.]+\.patch\(/);
   assert.doesNotMatch(source, /function\s+doDeploy\b/);
+});
+
+test("Next Step Simple Ops bridge exposes read-only spreadsheet state", async () => {
+  const source = await readTrackerSource();
+
+  assert.match(source, /if \(e && e\.parameter && e\.parameter\.nextStepBridge\)/);
+  assert.match(source, /function handleNextStepSimpleOpsBridge_/);
+  assert.match(source, /ContentService\.MimeType\.JAVASCRIPT/);
+  assert.match(source, /Only read-only state is exposed through this bridge/);
+  assert.match(source, /function getNextStepSimpleOpsBridgeState_/);
+  assert.match(source, /function getNextStepSimpleOpsBridgeCourses_/);
+  assert.match(source, /function getNextStepSimpleOpsBridgeStudents_/);
+  assert.match(source, /function getNextStepSimpleOpsBridgeAnnouncements_/);
+  assert.match(source, /function getNextStepSimpleOpsBridgeEmailPreview_/);
+  assert.match(source, /source: 'apps-script'/);
+  const bridgeSlice = source.slice(
+    source.indexOf("function handleNextStepSimpleOpsBridge_"),
+    source.indexOf("function setupCourseBuilderLite")
+  );
+  assert.doesNotMatch(bridgeSlice, /Classroom\.Courses\.[A-Za-z.]+\.create\(/);
+  assert.doesNotMatch(bridgeSlice, /MailApp\.sendEmail\(/);
 });
 
 test("Email send path uses checked preview rows instead of direct Master blasts", async () => {

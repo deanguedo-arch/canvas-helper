@@ -130,7 +130,9 @@ function onOpen() {
     .addItem('0a. Setup Announcements Tab', 'setupSimpleTeacherTabs')
     .addItem('0b. Queue Announcement Rows', 'queueSimpleAnnouncementRows')
     .addItem('0c. Post Selected Announcements', 'postSimpleAnnouncements')
-    .addItem('0d. Open Teacher Control Panel', 'showTeacherControlPanel')
+    .addItem('0d. Clear Selected Announcement Rows', 'clearSelectedAnnouncementRows')
+    .addItem('0e. Clear All Queued Announcement Rows', 'clearAllQueuedAnnouncementRows')
+    .addItem('0f. Open Teacher Control Panel', 'showTeacherControlPanel')
     .addSeparator()
     .addItem('1. Setup / Repair Tracker', 'teacherSetupRepair')
     .addItem('2. Refresh Student List', 'teacherRefreshStudentList')
@@ -153,6 +155,9 @@ function onOpen() {
     .addItem('Setup Announcements Tab', 'setupSimpleTeacherTabs')
     .addItem('Queue Simple Announcement Rows', 'queueSimpleAnnouncementRows')
     .addItem('Post Selected Simple Announcements', 'postSimpleAnnouncements')
+    .addSeparator()
+    .addItem('Clear Selected Announcement Rows', 'clearSelectedAnnouncementRows')
+    .addItem('Clear All Queued Announcement Rows', 'clearAllQueuedAnnouncementRows')
     .addToUi();
 
   ui.createMenu('Next Step Admin')
@@ -4082,10 +4087,39 @@ function showTeacherControlPanel() {
 }
 
 function doGet(e) {
+  if (e && e.parameter && e.parameter.nextStepBridge) {
+    return handleNextStepSimpleOpsBridge_(e);
+  }
+
   return HtmlService
     .createHtmlOutput(getTeacherWebAppHtml_(e))
     .setTitle(APP.TEACHER_PANEL_TITLE || 'Next Step Teacher Control Panel')
     .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
+}
+
+function handleNextStepSimpleOpsBridge_(e) {
+  const rawCallback = String((e && e.parameter && e.parameter.callback) || '');
+  const callback = /^[A-Za-z_$][A-Za-z0-9_$]{0,80}$/.test(rawCallback) ? rawCallback : 'nextStepSimpleOpsBridge';
+  const action = String((e && e.parameter && e.parameter.action) || 'state').toLowerCase();
+  let payload;
+
+  try {
+    if (action !== 'state') {
+      throw new Error('Only read-only state is exposed through this bridge.');
+    }
+    payload = getNextStepSimpleOpsBridgeState_();
+  } catch (err) {
+    payload = {
+      ok: false,
+      source: 'apps-script',
+      error: String(err && err.message ? err.message : err)
+    };
+  }
+
+  const json = JSON.stringify(payload).replace(/<\/script/gi, '<\\/script');
+  return ContentService
+    .createTextOutput(`${callback}(${json});`)
+    .setMimeType(ContentService.MimeType.JAVASCRIPT);
 }
 
 function setupCourseBuilderLite() {
@@ -4416,6 +4450,37 @@ function queueSimpleAnnouncementRows() {
   });
 }
 
+function clearSelectedAnnouncementRows() {
+  withLock_('Clear Selected Announcement Rows', () => {
+    const summary = clearSelectedAnnouncementRowsInternal_();
+    SpreadsheetApp.getUi().alert(
+      `Selected announcement rows cleared.\n\n` +
+      `Rows cleared: ${summary.cleared}\n` +
+      `Rows skipped: ${summary.skipped}\n\n` +
+      `This only clears rows in ${APP.SIMPLE_ANNOUNCEMENTS_SHEET}. Nothing was deleted or changed in Google Classroom.`
+    );
+  });
+}
+
+function clearAllQueuedAnnouncementRows() {
+  withLock_('Clear All Queued Announcement Rows', () => {
+    const ui = SpreadsheetApp.getUi();
+    const response = ui.alert(
+      'Clear all queued announcement rows?',
+      `This clears the announcement table rows in ${APP.SIMPLE_ANNOUNCEMENTS_SHEET} only. It does not delete, archive, or change anything in Google Classroom.`,
+      ui.ButtonSet.YES_NO
+    );
+    if (response !== ui.Button.YES) return;
+
+    const summary = clearAllQueuedAnnouncementRowsInternal_();
+    ui.alert(
+      `Announcement queue cleared.\n\n` +
+      `Rows cleared: ${summary.cleared}\n\n` +
+      `Nothing was deleted or changed in Google Classroom.`
+    );
+  });
+}
+
 function setupSimpleTeacherTabsInternal_() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   const announcements = ss.getSheetByName(APP.SIMPLE_ANNOUNCEMENTS_SHEET) || ss.insertSheet(APP.SIMPLE_ANNOUNCEMENTS_SHEET);
@@ -4680,12 +4745,10 @@ function setupSimpleShellBuilderSheet_(sheet) {
 function setupSimpleAnnouncementsSheet_(sheet) {
   const headers = getSimpleAnnouncementsHeaders_();
   const current = sheet.getRange(SIMPLE_ANNOUNCEMENTS_HEADER_ROW, 1, 1, Math.max(sheet.getLastColumn(), headers.length)).getValues()[0].slice(0, headers.length).join('|');
-  const firstCourse = getSimpleStarterCourseRow_();
   if (current !== headers.join('|')) {
     sheet.clear();
     sheet.clearConditionalFormatRules();
     setValuesNoValidation_(sheet.getRange(SIMPLE_ANNOUNCEMENTS_HEADER_ROW, 1, 1, headers.length), [headers]);
-    setValuesNoValidation_(sheet.getRange(SIMPLE_ANNOUNCEMENTS_HEADER_ROW + 1, 1, 1, headers.length), [buildBlankSimpleAnnouncementRow_(firstCourse.courseName, firstCourse.courseId)]);
   }
   setValueIfBlank_(sheet.getRange('A1'), 'Announcement Text');
   setValueIfBlank_(sheet.getRange('A2'), 'Attachment Link');
@@ -4762,8 +4825,7 @@ function buildBlankSimpleShellRow_(courseName, section, courseId) {
 }
 
 function buildBlankSimpleAnnouncementRow_(courseName, section, courseId) {
-  const resolvedCourseId = arguments.length === 2 ? section : courseId;
-  return [false, courseName || '', resolvedCourseId || '', '', '', false, '', '', ''];
+  return [false, '', '', '', '', false, '', '', ''];
 }
 
 function normalizeSimpleSheetCourseContext_(sheet, isShell) {
@@ -4815,7 +4877,7 @@ function ensureSimpleShellBlankTailRow_(sheet) {
 function ensureSimpleAnnouncementsBlankTailRow_(sheet) {
   if (!sheet) return;
   const headers = getSimpleAnnouncementsHeaders_();
-  ensureSimpleBlankTailRow_(sheet, headers, SIMPLE_ANNOUNCEMENTS_HEADER_ROW, [2, 4, 5], buildBlankSimpleAnnouncementRow_, 1, 6);
+  trimSimpleAnnouncementTrailingBlankRows_(sheet, headers);
 }
 
 function ensureSimpleBlankTailRow_(sheet, headers, headerRow, keyCols, rowBuilder, checkboxColA, checkboxColB) {
@@ -5060,7 +5122,7 @@ function queueSimpleAnnouncementRowsInternal_(options) {
   });
 
   if (pendingRows.length) {
-    const startRow = Math.max(sheet.getLastRow(), SIMPLE_ANNOUNCEMENTS_HEADER_ROW) + 1;
+    const startRow = getFirstBlankSimpleAnnouncementWriteRow_(sheet, headers);
     setValuesNoValidation_(sheet.getRange(startRow, 1, pendingRows.length, headers.length), pendingRows);
     sheet.getRange(startRow, 1, pendingRows.length, 1).insertCheckboxes();
     sheet.getRange(startRow, 6, pendingRows.length, 1).insertCheckboxes();
@@ -5068,7 +5130,7 @@ function queueSimpleAnnouncementRowsInternal_(options) {
 
   styleSimpleAnnouncementsSheet_(sheet);
   normalizeSimpleSheetCourseContext_(sheet, false);
-  ensureSimpleAnnouncementsBlankTailRow_(sheet);
+  trimSimpleAnnouncementTrailingBlankRows_(sheet, headers);
   setValueNoValidation_(sheet.getRange('B6'), false);
   appendCommandCentreLog_(
     'QUEUE SIMPLE ANNOUNCEMENTS',
@@ -5084,6 +5146,116 @@ function queueSimpleAnnouncementRowsInternal_(options) {
     queued: pendingRows.length,
     skipped
   };
+}
+
+function getFirstBlankSimpleAnnouncementWriteRow_(sheet, headers) {
+  const firstDataRow = SIMPLE_ANNOUNCEMENTS_HEADER_ROW + 1;
+  const lastRow = Math.max(sheet.getLastRow(), firstDataRow);
+  const values = sheet.getRange(firstDataRow, 1, lastRow - firstDataRow + 1, headers.length).getValues();
+  for (let index = 0; index < values.length; index++) {
+    if (isSimpleAnnouncementValuesBlank_(values[index])) return firstDataRow + index;
+  }
+  return lastRow + 1;
+}
+
+function clearSelectedAnnouncementRowsInternal_() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const sheet = ss.getSheetByName(APP.SIMPLE_ANNOUNCEMENTS_SHEET);
+  if (!sheet) throw new Error(`${APP.SIMPLE_ANNOUNCEMENTS_SHEET} is missing. Run Setup Announcements Tab first.`);
+
+  const activeRange = sheet.getActiveRange();
+  if (!activeRange) return { cleared: 0, skipped: 0 };
+
+  const headers = getSimpleAnnouncementsHeaders_();
+  const firstDataRow = SIMPLE_ANNOUNCEMENTS_HEADER_ROW + 1;
+  const startRow = Math.max(activeRange.getRow(), firstDataRow);
+  const endRow = Math.min(activeRange.getRow() + activeRange.getNumRows() - 1, sheet.getMaxRows());
+  if (endRow < firstDataRow) return { cleared: 0, skipped: activeRange.getNumRows() };
+
+  let cleared = 0;
+  let skipped = 0;
+  const rowsToDelete = [];
+  for (let rowNumber = startRow; rowNumber <= endRow; rowNumber++) {
+    if (isSimpleAnnouncementDataRowBlank_(sheet, rowNumber, headers)) {
+      skipped++;
+      continue;
+    }
+    rowsToDelete.push(rowNumber);
+    cleared++;
+  }
+
+  deleteSimpleAnnouncementDataRows_(sheet, rowsToDelete);
+  finishSimpleAnnouncementRowCleanup_(sheet);
+  appendCommandCentreLog_(
+    'CLEAR SELECTED ANNOUNCEMENT ROWS',
+    'DONE',
+    `Rows cleared: ${cleared}; rows skipped: ${skipped}. Sheet-only cleanup; no Classroom changes.`
+  );
+  return { cleared, skipped };
+}
+
+function clearAllQueuedAnnouncementRowsInternal_() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const sheet = ss.getSheetByName(APP.SIMPLE_ANNOUNCEMENTS_SHEET);
+  if (!sheet) throw new Error(`${APP.SIMPLE_ANNOUNCEMENTS_SHEET} is missing. Run Setup Announcements Tab first.`);
+
+  const headers = getSimpleAnnouncementsHeaders_();
+  const firstDataRow = SIMPLE_ANNOUNCEMENTS_HEADER_ROW + 1;
+  const lastRow = Math.max(sheet.getLastRow(), SIMPLE_ANNOUNCEMENTS_HEADER_ROW);
+  let cleared = 0;
+  const rowsToDelete = [];
+  for (let rowNumber = firstDataRow; rowNumber <= lastRow; rowNumber++) {
+    if (isSimpleAnnouncementDataRowBlank_(sheet, rowNumber, headers)) continue;
+    rowsToDelete.push(rowNumber);
+    cleared++;
+  }
+
+  deleteSimpleAnnouncementDataRows_(sheet, rowsToDelete);
+  finishSimpleAnnouncementRowCleanup_(sheet);
+  appendCommandCentreLog_(
+    'CLEAR ALL ANNOUNCEMENT ROWS',
+    'DONE',
+    `Rows cleared: ${cleared}. Sheet-only cleanup; no Classroom changes.`
+  );
+  return { cleared };
+}
+
+function deleteSimpleAnnouncementDataRows_(sheet, rowNumbers) {
+  rowNumbers
+    .slice()
+    .sort((a, b) => b - a)
+    .forEach(rowNumber => {
+      if (rowNumber > SIMPLE_ANNOUNCEMENTS_HEADER_ROW && rowNumber <= sheet.getMaxRows()) {
+        sheet.deleteRow(rowNumber);
+      }
+    });
+}
+
+function isSimpleAnnouncementDataRowBlank_(sheet, rowNumber, headers) {
+  const values = sheet.getRange(rowNumber, 1, 1, headers.length).getValues()[0];
+  return isSimpleAnnouncementValuesBlank_(values);
+}
+
+function isSimpleAnnouncementValuesBlank_(values) {
+  return values.every(value => value === '' || value === false || value === null);
+}
+
+function finishSimpleAnnouncementRowCleanup_(sheet) {
+  trimSimpleAnnouncementTrailingBlankRows_(sheet, getSimpleAnnouncementsHeaders_());
+  styleSimpleAnnouncementsSheet_(sheet);
+}
+
+function trimSimpleAnnouncementTrailingBlankRows_(sheet, headers) {
+  if (!sheet) return;
+  const effectiveHeaders = headers || getSimpleAnnouncementsHeaders_();
+  const firstDataRow = SIMPLE_ANNOUNCEMENTS_HEADER_ROW + 1;
+  let lastRow = sheet.getLastRow();
+  while (lastRow >= firstDataRow) {
+    const values = sheet.getRange(lastRow, 1, 1, effectiveHeaders.length).getValues()[0];
+    if (!isSimpleAnnouncementValuesBlank_(values)) break;
+    sheet.deleteRow(lastRow);
+    lastRow--;
+  }
 }
 
 function moveSimpleShellRowInternal_(direction) {
@@ -6224,7 +6396,7 @@ function showClassroomWriteLockStatus() {
 
 function showTeacherWebAppDeployHelp() {
   SpreadsheetApp.getUi().alert(
-    'The in-sheet sidebar is available now from Next Step Course Builder -> Open Teacher Control Panel.\n\n' +
+    'The in-sheet sidebar is available now from Next Step Tracker -> Open Teacher Control Panel.\n\n' +
     'To publish the same panel as a web app, use Apps Script: Deploy -> New deployment -> Web app.\n\n' +
     'Recommended first deployment settings:\n' +
     '- Execute as: Me\n' +
@@ -6241,6 +6413,185 @@ function getTeacherWebAppClientState() {
   return getTeacherWebAppState_();
 }
 
+function getNextStepSimpleOpsBridgeState_() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const courses = getNextStepSimpleOpsBridgeCourses_();
+  const students = getNextStepSimpleOpsBridgeStudents_();
+  const announcements = getNextStepSimpleOpsBridgeAnnouncements_();
+  const emailPreview = getNextStepSimpleOpsBridgeEmailPreview_();
+  const logs = getRecentCommandCentreLogs_(10).map(log => ({
+    time: log.at || '',
+    action: log.action || '',
+    result: log.result || '',
+    safety: log.detail || ''
+  }));
+  const dashboard = getNextStepSimpleOpsBridgeDashboard_(courses, students, emailPreview);
+
+  return {
+    ok: true,
+    source: 'apps-script',
+    spreadsheetName: ss.getName(),
+    generatedAt: Utilities.formatDate(new Date(), Session.getScriptTimeZone(), 'yyyy-MM-dd h:mm a'),
+    dashboard,
+    courses,
+    students,
+    announcements,
+    emailPreview,
+    logs,
+    boundary: [
+      'Read-only state is exposed to the displayed Canvas Helper project.',
+      'Live Classroom posts and email sends remain gated inside Apps Script.',
+      'No Classroom delete/edit endpoint is exposed through this bridge.'
+    ]
+  };
+}
+
+function getNextStepSimpleOpsBridgeCourses_() {
+  const masterRows = (() => {
+    const master = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(APP.MASTER_SHEET);
+    return master ? readMasterRowsAsObjects_(master) : [];
+  })();
+  const byCourse = {};
+  masterRows.forEach(row => {
+    const course = String(row['Course'] || '').trim();
+    if (!course) return;
+    if (!byCourse[course]) byCourse[course] = { activeStudents: 0, behind: 0, pendingEmails: 0 };
+    byCourse[course].activeStudents++;
+    if (normalizeText_(row['STATUS']) === 'behind') byCourse[course].behind++;
+    if (isTruthy_(row['SEND EMAIL?'])) byCourse[course].pendingEmails++;
+  });
+
+  return readEnabledCourseMaps_().map(map => {
+    const courseName = map.displayCourseName || map.classroomCourseName || map.classroomCourseId || '';
+    const stats = byCourse[courseName] || { activeStudents: 0, behind: 0, pendingEmails: 0 };
+    return {
+      name: courseName,
+      id: map.classroomCourseId || '',
+      section: '',
+      checked: true,
+      activeStudents: stats.activeStudents,
+      behind: stats.behind,
+      pendingEmails: stats.pendingEmails,
+      lastSync: ''
+    };
+  });
+}
+
+function getNextStepSimpleOpsBridgeStudents_() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const master = ss.getSheetByName(APP.MASTER_SHEET);
+  const rows = master ? readMasterRowsAsObjects_(master) : [];
+  return rows.map(row => {
+    const status = normalizeText_(row['STATUS']);
+    let completionPercent = 50;
+    if (status === 'done') completionPercent = 100;
+    if (status === 'on pace') completionPercent = 75;
+    if (status === 'behind') completionPercent = 25;
+    if (status === 'no contact') completionPercent = 0;
+
+    return {
+      name: String(row['Student Name'] || '').trim(),
+      email: String(row['Email'] || '').trim(),
+      course: String(row['Course'] || '').trim(),
+      total: '',
+      done: '',
+      outstanding: '',
+      pastDue: status === 'behind' ? 1 : 0,
+      needsMarking: 0,
+      completionPercent,
+      lastSubmission: '',
+      lastContact: row['LAST CONTACT'] ? String(row['LAST CONTACT']) : '',
+      risk: getNextStepSimpleOpsRiskLabel_(completionPercent, status),
+      recommendedAction: getNextStepSimpleOpsRecommendedAction_(status),
+      noContact: status === 'no contact'
+    };
+  }).filter(row => row.name || row.course);
+}
+
+function getNextStepSimpleOpsRiskLabel_(completionPercent, status) {
+  if (status === 'done' || completionPercent >= 100) return 'Complete';
+  if (completionPercent >= 75) return 'Almost Done';
+  if (completionPercent >= 50) return 'In Progress';
+  if (completionPercent >= 25) return 'Behind';
+  if (completionPercent > 0) return 'Very Behind';
+  return 'No Progress';
+}
+
+function getNextStepSimpleOpsRecommendedAction_(status) {
+  if (status === 'done') return 'No action needed.';
+  if (status === 'on pace') return 'Monitor progress.';
+  if (status === 'behind') return 'Generate missing-work preview.';
+  if (status === 'no contact') return 'Use no-contact workflow.';
+  return 'Review tracker row.';
+}
+
+function getNextStepSimpleOpsBridgeAnnouncements_() {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(APP.SIMPLE_ANNOUNCEMENTS_SHEET);
+  const firstDataRow = SIMPLE_ANNOUNCEMENTS_HEADER_ROW + 1;
+  if (!sheet || sheet.getLastRow() < firstDataRow) return [];
+  const headers = getSimpleAnnouncementsHeaders_();
+  const lastRow = Math.max(firstDataRow, sheet.getLastRow());
+  const values = sheet.getRange(firstDataRow, 1, lastRow - firstDataRow + 1, headers.length).getDisplayValues();
+  const rawChecks = sheet.getRange(firstDataRow, 1, values.length, 1).getValues();
+  const rawPublish = sheet.getRange(firstDataRow, 6, values.length, 1).getValues();
+  return values.map((row, index) => ({
+    post: rawChecks[index][0] === true,
+    courseName: row[1] || '',
+    courseId: row[2] || '',
+    text: row[3] || '',
+    attachmentLink: row[4] || '',
+    publish: rawPublish[index][0] === true,
+    createdId: row[6] || '',
+    postedAt: row[7] || '',
+    result: row[8] || ''
+  })).filter(row => row.courseName || row.courseId || row.text || row.createdId || row.result);
+}
+
+function getNextStepSimpleOpsBridgeEmailPreview_() {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(APP.EMAIL_PREVIEW_SHEET);
+  if (!sheet || sheet.getLastRow() < 2) return [];
+  const values = sheet.getDataRange().getDisplayValues();
+  const raw = sheet.getDataRange().getValues();
+  const headers = values[0].map(header => normalizeText_(header));
+  const idx = {
+    send: getHeaderIndex_(headers, ['send?', 'send email?', 'send'], 0),
+    student: getHeaderIndex_(headers, ['student name', 'student'], 1),
+    email: getHeaderIndex_(headers, ['email', 'student email'], 2),
+    course: getHeaderIndex_(headers, ['course'], 3),
+    completion: getHeaderIndex_(headers, ['completion', 'completion %'], 4),
+    pastDue: getHeaderIndex_(headers, ['past due', 'missing past due'], 5),
+    needsMarking: getHeaderIndex_(headers, ['needs marking'], 6),
+    template: getHeaderIndex_(headers, ['template', 'template key'], 7),
+    subject: getHeaderIndex_(headers, ['subject'], 8),
+    lastSent: getHeaderIndex_(headers, ['last sent', 'email last sent'], 9),
+    result: getHeaderIndex_(headers, ['result', 'email result'], 10)
+  };
+  return values.slice(1).map((row, rowIndex) => ({
+    send: idx.send >= 0 && raw[rowIndex + 1][idx.send] === true,
+    student: idx.student >= 0 ? row[idx.student] : '',
+    email: idx.email >= 0 ? row[idx.email] : '',
+    course: idx.course >= 0 ? row[idx.course] : '',
+    completion: idx.completion >= 0 ? row[idx.completion] : '',
+    pastDue: idx.pastDue >= 0 ? row[idx.pastDue] : '',
+    needsMarking: idx.needsMarking >= 0 ? row[idx.needsMarking] : '',
+    template: idx.template >= 0 ? row[idx.template] : '',
+    subject: idx.subject >= 0 ? row[idx.subject] : '',
+    lastSent: idx.lastSent >= 0 ? row[idx.lastSent] : '',
+    result: idx.result >= 0 ? row[idx.result] : ''
+  })).filter(row => row.student || row.email || row.course || row.subject || row.result);
+}
+
+function getNextStepSimpleOpsBridgeDashboard_(courses, students, emailPreview) {
+  return {
+    activeCourses: courses.length,
+    activeStudents: students.length,
+    underFifty: students.filter(row => Number(row.completionPercent || 0) < 50).length,
+    missingPastDue: students.reduce((sum, row) => sum + Number(row.pastDue || 0), 0),
+    needsMarking: students.reduce((sum, row) => sum + Number(row.needsMarking || 0), 0),
+    pendingEmails: (emailPreview || []).filter(row => row.send || row.subject).length
+  };
+}
+
 function teacherSyncEverythingFromWebApp() {
   return runTeacherWebAppAction_('SYNC EVERYTHING', () => teacherSyncEverythingInternal_());
 }
@@ -6249,7 +6600,7 @@ function enableSimpleTeacherModeFromWebApp() {
   return runTeacherWebAppAction_('ENABLE SIMPLE MODE', () => {
     setupSimpleTeacherTabsInternal_();
     hideAdvancedSheetsForSimpleMode_();
-    return { message: 'Simple Mode enabled. Use Simple Shell Builder and Simple Announcements tabs.' };
+    return { message: 'Tracker + Announcements mode enabled. Use the Simple Announcements tab for daily posting.' };
   });
 }
 
@@ -6287,6 +6638,14 @@ function applySimpleShellBuilderRowsFromWebApp() {
 
 function postSimpleAnnouncementsFromWebApp() {
   return runTeacherWebAppAction_('POST SIMPLE ANNOUNCEMENTS', () => postSimpleAnnouncementsInternal_());
+}
+
+function clearSelectedAnnouncementRowsFromWebApp() {
+  return runTeacherWebAppAction_('CLEAR SELECTED ANNOUNCEMENT ROWS', () => clearSelectedAnnouncementRowsInternal_());
+}
+
+function clearAllQueuedAnnouncementRowsFromWebApp() {
+  return runTeacherWebAppAction_('CLEAR ALL ANNOUNCEMENT ROWS', () => clearAllQueuedAnnouncementRowsInternal_());
 }
 
 function buildSimpleAnnouncementQueueFromCourseMapFromWebApp() {
@@ -6969,6 +7328,8 @@ function getTeacherControlPanelHtml_() {
       <button onclick="runAction('setupSimpleTeacherTabs')">Setup Announcements Tab</button>
       <button onclick="runAction('queueSimpleAnnouncementRows')">Queue Simple Announcement Rows</button>
       <button onclick="runAction('postSimpleAnnouncements')">Post Selected Simple Announcements</button>
+      <button onclick="runAction('clearSelectedAnnouncementRows')">Clear Selected Announcement Rows</button>
+      <button onclick="runAction('clearAllQueuedAnnouncementRows')">Clear All Queued Announcement Rows</button>
       <button class="primary" onclick="runAction('teacherRefreshStudentList')">Refresh Student List</button>
       <button onclick="runAction('refreshFeedStatusAndHighlights')">Refresh Feed Status / HERE Highlight</button>
       <button onclick="runAction('previewSelectedStudentEmails')">Preview Selected Emails</button>
@@ -6980,6 +7341,8 @@ function getTeacherControlPanelHtml_() {
       <button onclick="runAction('setupSimpleTeacherTabs')">Open / Repair Announcements Tab</button>
       <button onclick="runAction('queueSimpleAnnouncementRows')">Queue Rows</button>
       <button class="primary" onclick="runAction('postSimpleAnnouncements')">Post Checked Rows</button>
+      <button onclick="runAction('clearSelectedAnnouncementRows')">Clear Selected Rows</button>
+      <button onclick="runAction('clearAllQueuedAnnouncementRows')">Clear All Rows</button>
     </div>
 
     <div class="group">
@@ -7342,6 +7705,8 @@ function getTeacherWebAppHtml_() {
         <button onclick="webRunAction('setupSimpleTeacherTabsFromWebApp')">Setup Announcements Tab</button>
         <button onclick="webRunAction('queueSimpleAnnouncementRowsFromWebApp')">Queue Announcement Rows</button>
         <button onclick="webRunAction('postSimpleAnnouncementsFromWebApp')">Post Selected Announcements</button>
+        <button onclick="webRunAction('clearSelectedAnnouncementRowsFromWebApp')">Clear Selected Announcement Rows</button>
+        <button onclick="webRunAction('clearAllQueuedAnnouncementRowsFromWebApp')">Clear All Queued Announcement Rows</button>
         <button onclick="webRefreshState()">Refresh View</button>
       </div>
       <p class="status" id="webStatus"></p>
