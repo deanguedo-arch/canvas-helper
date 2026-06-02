@@ -548,7 +548,7 @@ body::before {
 }
 
 .lesson-body a:not(:has(img)) {
-  color: #1d4ed8 !important;
+  color: var(--primary-strong) !important;
   font-weight: 700;
   text-decoration-line: underline;
   text-decoration-thickness: 2px;
@@ -560,9 +560,9 @@ body::before {
 
 .lesson-body a:not(:has(img)):hover,
 .lesson-body a:not(:has(img)):focus-visible {
-  color: #1e40af !important;
-  background: rgba(37, 99, 235, 0.1);
-  outline: 2px solid rgba(37, 99, 235, 0.22);
+  color: var(--primary) !important;
+  background: rgba(89, 168, 68, 0.1);
+  outline: 2px solid rgba(89, 168, 68, 0.22);
   outline-offset: 2px;
 }
 
@@ -571,15 +571,15 @@ body::before {
 }
 
 .missing-resource-link {
-  color: #1d4ed8 !important;
+  color: var(--primary-strong) !important;
   font-weight: 700;
-  border-bottom: 2px dashed rgba(37, 99, 235, 0.5);
+  border-bottom: 2px dashed rgba(89, 168, 68, 0.5);
 }
 
 .missing-source-note {
-  border-color: rgba(37, 99, 235, 0.36);
-  background: #eff6ff;
-  color: #1d4ed8;
+  border-color: rgba(89, 168, 68, 0.36);
+  background: #eff7ea;
+  color: var(--primary-strong);
   font-weight: 700;
 }
 
@@ -625,7 +625,7 @@ body::before {
 .lesson-body :where(blockquote) {
   margin: 14px 0;
   padding: 2px 0 2px 16px;
-  border-left: 3px solid rgba(37, 99, 235, 0.28);
+  border-left: 3px solid rgba(89, 168, 68, 0.28);
   color: var(--muted);
 }
 
@@ -637,21 +637,21 @@ body::before {
 
 .lesson-card[data-progress-state="active"],
 .lesson-card[data-progress-state="locked"] {
-  border-color: rgba(37, 99, 235, 0.4);
-  background: #f8fbff;
+  border-color: rgba(89, 168, 68, 0.4);
+  background: #f7fbf4;
 }
 
 .lesson-card[data-progress-state="active"] .sequence-number,
 .lesson-card[data-progress-state="locked"] .sequence-number {
-  background: rgba(37, 99, 235, 0.14);
-  color: #1d4ed8;
+  background: rgba(89, 168, 68, 0.14);
+  color: var(--primary-strong);
 }
 
 .lesson-card[data-progress-state="active"] .sequence-kind,
 .lesson-card[data-progress-state="locked"] .sequence-kind,
 .lesson-card[data-progress-state="active"] .lesson-progress-label,
 .lesson-card[data-progress-state="locked"] .lesson-progress-label {
-  color: #1d4ed8;
+  color: var(--primary-strong);
 }
 
 .lesson-card[data-progress-state="locked"] .lesson-body,

@@ -22,6 +22,28 @@ import {
 } from "./shared.js";
 import type { ExportAuthoringGateOptions } from "./shared.js";
 
+export function resolveTrackedScormStorageKeys(
+  detectedStorageKeys: string[],
+  manifest: { googleHosted?: { trackedStorageKeys?: unknown[] } }
+) {
+  const keys = new Set<string>();
+  for (const key of detectedStorageKeys) {
+    const normalized = String(key || "").trim();
+    if (normalized) {
+      keys.add(normalized);
+    }
+  }
+
+  for (const key of manifest.googleHosted?.trackedStorageKeys ?? []) {
+    const normalized = String(key || "").trim();
+    if (normalized) {
+      keys.add(normalized);
+    }
+  }
+
+  return [...keys];
+}
+
 export async function exportProjectToScormPackage(
   projectSlug: string,
   version: ScormVersion = "2004",
@@ -51,7 +73,8 @@ export async function exportProjectToScormPackage(
     );
   }
 
-  const storageKeys = await detectStorageKeysFromWorkspace(scormExportDir, `${projectSlug}::workspace-state::v1`);
+  const detectedStorageKeys = await detectStorageKeysFromWorkspace(scormExportDir, `${projectSlug}::workspace-state::v1`);
+  const storageKeys = resolveTrackedScormStorageKeys(detectedStorageKeys, manifest);
   const bridgeScript = buildScormBridgeScript({
     projectSlug,
     storageKeys,

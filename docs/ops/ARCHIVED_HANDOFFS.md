@@ -5813,3 +5813,171 @@ One question before I change it: do you want only the large top hero image reduc
 
 ## Exact Next File To Open
 `/Users/deanguedo/Documents/GitHub/canvas-helper/tasks/next-step-course-builder-lite-extension.gs`
+
+---
+
+# Archived Handoff - Next Step Simple Ops Firebase Deploy
+
+- Project: `canvas-helper`
+- Active slice: Next Step Simple Ops Firebase deploy + spreadsheet bridge.
+- Status: The displayed project is live on Firebase Hosting; spreadsheet bridge is ready in source but still needs a deployed Apps Script `/exec` URL.
+
+## Summary
+- Deployed the Next Step Simple Ops displayed project to Firebase Hosting.
+- Targeted the existing Firebase Hosting site `nextstepclassroom`, which matches the supplied Firebase app id.
+- Live URL: `https://nextstepclassroom.web.app`
+- Added Firebase initialization/Analytics to the displayed project using the supplied config.
+- Added project-local Firebase config:
+  - `projects/next-step-simple-ops-webapp/firebase.json`
+  - `projects/next-step-simple-ops-webapp/.firebaserc`
+- Added Windows deploy helper:
+  - `publish-next-step-simple-ops.bat`
+- The `.bat` verifies the Canvas Helper project, builds Studio, then deploys only `hosting:nextstepclassroom`.
+- The app still does not send email, post Classroom announcements, delete Classroom content, or bypass Apps Script gates.
+
+## Files changed
+- `projects/next-step-simple-ops-webapp/workspace/index.html`
+- `projects/next-step-simple-ops-webapp/workspace/styles.css`
+- `projects/next-step-simple-ops-webapp/workspace/app.js`
+- `projects/next-step-simple-ops-webapp/firebase.json`
+- `projects/next-step-simple-ops-webapp/.firebaserc`
+- `projects/next-step-simple-ops-webapp/raw/original.html`
+- `projects/next-step-simple-ops-webapp/meta/project.json`
+- `projects/next-step-simple-ops-webapp/meta/prompt-pack.md`
+- `publish-next-step-simple-ops.bat`
+- `tasks/next-step-course-builder-lite-extension.gs`
+- `scripts/tests/apps-script-tracker-source.test.ts`
+- `docs/ops/ACTIVE_HANDOFF.md`
+- `.stax/codex-report.md`
+
+## Verification run
+- `node --check projects/next-step-simple-ops-webapp/workspace/app.js && npm run verify -- --project next-step-simple-ops-webapp`
+  - exit code: `0`
+- `npm run build:studio`
+  - exit code: `0`
+- `npm run test:apps-script`
+  - exit code: `0`
+  - result: `13/13` tests passed
+- `cd projects/next-step-simple-ops-webapp && npx firebase hosting:sites:list --project calm-module-one --json --non-interactive`
+  - exit code: `0`
+  - confirmed `nextstepclassroom` exists
+- `cd projects/next-step-simple-ops-webapp && npx firebase deploy --only hosting:nextstepclassroom --project calm-module-one --non-interactive`
+  - exit code: `0`
+  - Hosting URL: `https://nextstepclassroom.web.app`
+- Live fetch check for `https://nextstepclassroom.web.app/`
+  - exit code: `0`
+  - HTTP status: `200`
+  - contains `Next Step Command Centre`
+- STAX visual proof:
+  - proof id: `visual_2026-06-01T19_36_42_040Z_abe7c48dd62e`
+  - proof path: `.stax/visual-proofs/visual_2026-06-01T19_36_42_040Z_abe7c48dd62e.png`
+- STAX observer preflight:
+  - exit code: `0`
+  - non-blocking observer verdict: `Reject`
+  - reason: approval artifact missing and noisy stale STAX history remains from unrelated older tasks
+
+## Known risks / follow-up
+- The deployed app is not yet connected to live spreadsheet data.
+- The Apps Script bridge must be deployed as a web app and pasted into the Firebase app Settings view.
+- The bridge state shape depends on the current sheet names and headers in `tasks/next-step-course-builder-lite-extension.gs`.
+- The app intentionally remains read-focused from Firebase; write actions must stay in Apps Script gated flows.
+
+## Source-of-truth location
+- Displayed project source:
+  - `projects/next-step-simple-ops-webapp/workspace/index.html`
+  - `projects/next-step-simple-ops-webapp/workspace/styles.css`
+  - `projects/next-step-simple-ops-webapp/workspace/app.js`
+- Firebase deploy config:
+  - `projects/next-step-simple-ops-webapp/firebase.json`
+  - `projects/next-step-simple-ops-webapp/.firebaserc`
+  - `publish-next-step-simple-ops.bat`
+- Spreadsheet bridge source:
+  - `tasks/next-step-course-builder-lite-extension.gs`
+
+## Fragile areas / what might drift
+- Recreating the Apps Script deployment may produce a new `/exec` URL.
+- The Firebase Hosting site should remain `nextstepclassroom`; deploying default hosting would overwrite a different site.
+- Sheet header changes may break bridge fields until mapping code is updated.
+
+## Next prompt assumptions
+- The deployed Firebase app is live and ready for bridge connection.
+- Next step is Apps Script web app deployment/update, not adding write actions.
+- Use Settings in `https://nextstepclassroom.web.app` to save and test the Apps Script `/exec` URL.
+
+## Exact next command
+`cd projects/next-step-simple-ops-webapp && npx firebase deploy --only hosting:nextstepclassroom --project calm-module-one --non-interactive`
+
+## Exact next file to open
+`tasks/next-step-course-builder-lite-extension.gs`
+
+---
+
+# Archived Handoff - Forensic Studies Option 2 SCORM Cross-Browser Save
+
+- Project: `forensicstudiesoption2`
+- Task: Fix Brightspace SCORM cross-browser save/resume for Forensic Studies Option 2.
+- Status: `ready for Brightspace validation`
+
+## Files changed
+- `scripts/lib/scorm.ts`
+- `scripts/lib/exports/scorm-package.ts`
+- `scripts/lib/exports/shared.ts`
+- `scripts/tests/scorm-export.test.ts`
+- `projects/forensicstudiesoption2/meta/project.json`
+- `projects/forensicstudiesoption2/meta/deviation-report.md`
+- `projects/forensicstudiesoption2/meta/deviation-report.json`
+- `projects/forensicstudiesoption2/exports/forensicstudiesoption2-scorm-2004.zip`
+- `.stax/task.md`
+- `.stax/codex-report.md`
+- `docs/ops/ACTIVE_HANDOFF.md`
+
+## What changed
+- SCORM storage-key detection now scans HTML files as well as script files, so inline assignment scripts are included.
+- SCORM export now unions detected keys with explicit `googleHosted.trackedStorageKeys` from project metadata.
+- The generated SCORM bridge now listens for same-origin `storage` events, so assignment iframe writes trigger SCORM suspend-data saves.
+- Regenerated `projects/forensicstudiesoption2/exports/forensicstudiesoption2-scorm-2004.zip`.
+
+## Why this changed
+- Option 2 assignments run inside embedded assignment HTML contexts.
+- The old SCORM bridge could miss iframe writes and the old detector missed the inline module 4 storage key.
+- Brightspace cross-browser resume needs those values committed to `cmi.suspend_data`, not just browser-local `localStorage`.
+
+## Source of truth
+- SCORM runtime/export source:
+  - `scripts/lib/scorm.ts`
+  - `scripts/lib/exports/scorm-package.ts`
+  - `scripts/lib/exports/shared.ts`
+- Course source:
+  - `projects/forensicstudiesoption2/workspace/index.html`
+  - `projects/forensicstudiesoption2/workspace/main.js`
+  - `projects/forensicstudiesoption2/workspace/course-data.js`
+  - `projects/forensicstudiesoption2/workspace/assignments/`
+- Upload artifact:
+  - `projects/forensicstudiesoption2/exports/forensicstudiesoption2-scorm-2004.zip`
+
+## Fragile areas / watchouts
+- Upload the ZIP as a Brightspace SCORM package. Do not upload it through normal Manage Files or extracted course files.
+- Cross-browser saving still requires Brightspace to launch the SCORM API for this object.
+- SCORM 2004 suspend data is capped; the bridge is configured for 60,000 characters.
+- `projects/forensicstudiesoption2-nextstep-test/meta/*` remains dirty from pre-existing work and was not touched for this fix.
+
+## Next prompt should assume
+- Scope had narrowed to `forensicstudiesoption2`.
+- The SCORM ZIP was regenerated and includes `forensics::module4assignment::v1`.
+- The generated bridge has iframe storage-event flushing.
+
+## What still needs validation
+- Upload `projects/forensicstudiesoption2/exports/forensicstudiesoption2-scorm-2004.zip` into Brightspace as SCORM.
+- In Browser A, launch as learner, enter assignment/module progress, wait for/save with the SCORM control, and close.
+- In Browser B, relaunch the same SCORM object and confirm the state resumes.
+
+## Known risks
+- If the SCORM control is not visible, Brightspace is not launching the artifact with a SCORM API.
+- If Brightspace reports save failure, suspend-data size or SCORM permissions may be blocking persistence.
+- A regular Brightspace HTML package cannot provide cross-browser saving for this localStorage-backed course.
+
+## Exact next command
+`npm run export:scorm -- --project forensicstudiesoption2 --version 2004`
+
+## Exact next file to open
+`scripts/lib/scorm.ts`

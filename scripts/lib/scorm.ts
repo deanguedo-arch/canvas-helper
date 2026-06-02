@@ -43,22 +43,116 @@ export function getScormZipLabel(version: ScormVersion) {
   return version === "2004" ? "scorm-2004" : "scorm-1-2";
 }
 
-export function findStorageKeysInScriptSources(sourceTexts: string[], fallbackKey: string) {
-  const keys = new Set<string>();
+function addStorageKey(keys: Set<string>, value: string | undefined) {
+  const key = value?.trim();
+  if (!key || key.includes("${")) {
+    return;
+  }
+
+  keys.add(key);
+}
+
+function resolveTemplateValue(value: string, variables: Map<string, string>) {
+  let resolved = value;
+  for (const match of value.matchAll(/\$\{([^}]+)\}/g)) {
+    const expression = match[1]?.trim() ?? "";
+    const replacement = variables.get(expression);
+    if (!replacement) {
+      continue;
+    }
+
+    resolved = resolved.replace(match[0], replacement);
+  }
+
+  return resolved;
+}
+
+function collectStringVariables(sourceTexts: string[]) {
+  const variables = new Map<string, string>();
 
   for (const source of sourceTexts) {
-    for (const match of source.matchAll(/\bSTORAGE_KEY\s*=\s*['"`]([^'"`]+)['"`]/g)) {
-      const key = match[1]?.trim();
-      if (key) {
-        keys.add(key);
+    for (const match of source.matchAll(/["']storageKey["']\s*:\s*["'`]([^"'`]+)["'`]/g)) {
+      const value = match[1]?.trim();
+      if (value) {
+        variables.set("courseShellData.storageKey", value);
+      }
+    }
+  }
+
+  for (const source of sourceTexts) {
+    for (const match of source.matchAll(/\b(?:const|let|var)\s+([A-Za-z_$][\w$]*)\s*=\s*String\(\s*courseShellData\.storageKey\s*\|\|\s*["'`]([^"'`]+)["'`]\s*\)/g)) {
+      const name = match[1]?.trim();
+      const fallback = match[2]?.trim();
+      const value = variables.get("courseShellData.storageKey") ?? fallback;
+      if (name && value) {
+        variables.set(name, value);
       }
     }
 
-    for (const match of source.matchAll(/localStorage\.(?:getItem|setItem|removeItem)\(\s*['"`]([^'"`]+)['"`]/g)) {
-      const key = match[1]?.trim();
-      if (key) {
-        keys.add(key);
+    for (const match of source.matchAll(/\b(?:const|let|var)\s+([A-Za-z_$][\w$]*)\s*=\s*[^;\n]*\|\|\s*["'`]([^"'`]+)["'`]/g)) {
+      const name = match[1]?.trim();
+      const value = match[2]?.trim();
+      if (name && value && !variables.has(name)) {
+        variables.set(name, value);
       }
+    }
+
+    for (const match of source.matchAll(/\b(?:const|let|var)\s+([A-Za-z_$][\w$]*)\s*=\s*["']([^"']+)["']/g)) {
+      const name = match[1]?.trim();
+      const value = match[2]?.trim();
+      if (name && value && !variables.has(name)) {
+        variables.set(name, value);
+      }
+    }
+  }
+
+  for (let pass = 0; pass < 4; pass += 1) {
+    let changed = false;
+    for (const source of sourceTexts) {
+      for (const match of source.matchAll(/\b(?:const|let|var)\s+([A-Za-z_$][\w$]*)\s*=\s*`([^`]+)`/g)) {
+        const name = match[1]?.trim();
+        const template = match[2] ?? "";
+        const value = resolveTemplateValue(template, variables);
+        if (name && value && !value.includes("${") && variables.get(name) !== value) {
+          variables.set(name, value);
+          changed = true;
+        }
+      }
+    }
+
+    if (!changed) {
+      break;
+    }
+  }
+
+  return variables;
+}
+
+export function findStorageKeysInScriptSources(sourceTexts: string[], fallbackKey: string) {
+  const keys = new Set<string>();
+  const variables = collectStringVariables(sourceTexts);
+
+  for (const [name, value] of variables.entries()) {
+    if (/(?:^|_)(?:STORAGE|STATE|UI)_KEY$/i.test(name)) {
+      addStorageKey(keys, value);
+    }
+  }
+
+  for (const source of sourceTexts) {
+    for (const match of source.matchAll(/\b(?:[A-Za-z_$][\w$]*_)?(?:STORAGE|STATE)_KEY\b\s*=\s*['"`]([^'"`]+)['"`]/g)) {
+      addStorageKey(keys, match[1]);
+    }
+
+    for (const match of source.matchAll(/localStorage\.(?:getItem|setItem|removeItem)\(\s*['"`]([^'"`]+)['"`]/g)) {
+      addStorageKey(keys, match[1]);
+    }
+
+    for (const match of source.matchAll(/localStorage\.(?:getItem|setItem|removeItem)\(\s*`([^`]+)`/g)) {
+      addStorageKey(keys, resolveTemplateValue(match[1] ?? "", variables));
+    }
+
+    for (const match of source.matchAll(/localStorage\.(?:getItem|setItem|removeItem)\(\s*([A-Za-z_$][\w$]*)/g)) {
+      addStorageKey(keys, variables.get(match[1] ?? ""));
     }
   }
 
@@ -364,10 +458,12 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
       return;
     }
 
-    for (const key of trackedKeySet) {
+    for (const entry of Object.entries(state.values)) {
+      const key = entry[0];
+      const value = entry[1];
       try {
-        const value = state.values[key];
         if (typeof value === "string") {
+          trackedKeySet.add(String(key));
           window.localStorage.setItem(key, value);
         }
       } catch (_error) {
@@ -515,6 +611,24 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
     terminated = true;
   }
 
+  function handleStorageEvent(event) {
+    if (!event) {
+      return;
+    }
+
+    if (!(event.storageArea === window.localStorage)) {
+      return;
+    }
+
+    if (event.key === null) {
+      scheduleFlush("storage:clear");
+      return;
+    }
+
+    trackedKeySet.add(String(event.key));
+    scheduleFlush("storage:" + String(event.key));
+  }
+
   function installControls() {
     if (controlHost || !document.body) {
       return;
@@ -573,8 +687,10 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
 
     Storage.prototype.setItem = function (key, value) {
       originalSetItem.call(this, key, value);
-      if (this === window.localStorage && trackedKeySet.has(String(key))) {
-        scheduleFlush("setItem:" + String(key));
+      if (this === window.localStorage) {
+        const normalizedKey = String(key);
+        trackedKeySet.add(normalizedKey);
+        scheduleFlush("setItem:" + normalizedKey);
       }
     };
 
@@ -622,6 +738,7 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
 
     window.addEventListener("beforeunload", terminateSession);
     window.addEventListener("pagehide", terminateSession);
+    window.addEventListener("storage", handleStorageEvent);
     document.addEventListener("visibilitychange", function () {
       if (document.visibilityState === "hidden") {
         persistToLms("visibility-hidden");

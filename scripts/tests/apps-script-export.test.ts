@@ -10,6 +10,7 @@ import { repoRoot } from "../lib/paths.js";
 import { cleanupProjectFixture, createProjectFixture } from "./helpers/project-fixture.js";
 
 const TEST_PROJECT_SLUG = "test-apps-script-export";
+const DIRECTORY_REF_PROJECT_SLUG = "test-apps-script-directory-ref";
 
 type AppsScriptExportFn = (projectSlug: string) => Promise<{
   driveAssetFileCount: number;
@@ -159,8 +160,42 @@ test("exportProjectToAppsScript writes a drive-backed Apps Script shell package"
     assert.match(readme, /Apps Script/i);
     assert.match(readme, /Google Drive/i);
     assert.match(readme, /setDriveRootFolderId/i);
+    assert.match(readme, /polls tracked localStorage keys/i);
+    assert.doesNotMatch(readme, /patches localStorage/i);
   } finally {
     await cleanupProjectFixture(TEST_PROJECT_SLUG);
+  }
+});
+
+test("exportProjectToAppsScript ignores local references that resolve to directories", async () => {
+  const exportProjectToAppsScript = getAppsScriptExportFn();
+  assert.equal(typeof exportProjectToAppsScript, "function");
+
+  await createProjectFixture({
+    slug: DIRECTORY_REF_PROJECT_SLUG,
+    workspaceFiles: {
+      "main.js": [
+        "const moduleRoute = './module2';",
+        "document.body.setAttribute('data-module-route', moduleRoute);",
+        ""
+      ].join("\n"),
+      "module2/placeholder.txt": "Directory marker for a route-like workspace reference.\n"
+    }
+  });
+
+  try {
+    const result = await exportProjectToAppsScript!(DIRECTORY_REF_PROJECT_SLUG);
+    const driveManifestPath = path.join(result.exportDir, "drive-assets", "asset-manifest.json");
+    const driveShellPath = path.join(result.exportDir, "drive-assets", "__canvas_helper_shell", "index.html");
+    const [driveManifest, driveShell] = await Promise.all([
+      readFile(driveManifestPath, "utf8"),
+      readFile(driveShellPath, "utf8")
+    ]);
+
+    assert.match(driveShell, /const moduleRoute = '\.\/module2';/);
+    assert.doesNotMatch(driveManifest, /module2/);
+  } finally {
+    await cleanupProjectFixture(DIRECTORY_REF_PROJECT_SLUG);
   }
 });
 

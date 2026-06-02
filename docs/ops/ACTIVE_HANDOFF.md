@@ -1,93 +1,92 @@
 # Handoff
 
-- Project: `canvas-helper`
-- Active slice: Next Step Simple Ops Firebase deploy + spreadsheet bridge.
-- Status: The displayed project is live on Firebase Hosting; spreadsheet bridge is ready in source but still needs a deployed Apps Script `/exec` URL.
-
-## Summary
-- Deployed the Next Step Simple Ops displayed project to Firebase Hosting.
-- Targeted the existing Firebase Hosting site `nextstepclassroom`, which matches the supplied Firebase app id.
-- Live URL: `https://nextstepclassroom.web.app`
-- Added Firebase initialization/Analytics to the displayed project using the supplied config.
-- Added project-local Firebase config:
-  - `projects/next-step-simple-ops-webapp/firebase.json`
-  - `projects/next-step-simple-ops-webapp/.firebaserc`
-- Added Windows deploy helper:
-  - `publish-next-step-simple-ops.bat`
-- The `.bat` verifies the Canvas Helper project, builds Studio, then deploys only `hosting:nextstepclassroom`.
-- The app still does not send email, post Classroom announcements, delete Classroom content, or bypass Apps Script gates.
+- Project: `forensicstudiesoption2`
+- Task: Generate and validate the Apps Script / Google Drive package for Forensic Studies Option 2.
+- Status: `ready for Apps Script deployment validation`
 
 ## Files changed
-- `projects/next-step-simple-ops-webapp/workspace/index.html`
-- `projects/next-step-simple-ops-webapp/workspace/styles.css`
-- `projects/next-step-simple-ops-webapp/workspace/app.js`
-- `projects/next-step-simple-ops-webapp/firebase.json`
-- `projects/next-step-simple-ops-webapp/.firebaserc`
-- `projects/next-step-simple-ops-webapp/raw/original.html`
-- `projects/next-step-simple-ops-webapp/meta/project.json`
-- `projects/next-step-simple-ops-webapp/meta/prompt-pack.md`
-- `publish-next-step-simple-ops.bat`
-- `tasks/next-step-course-builder-lite-extension.gs`
-- `scripts/tests/apps-script-tracker-source.test.ts`
-- `docs/ops/ACTIVE_HANDOFF.md`
+- `scripts/lib/exports/shared.ts`
+- `scripts/lib/apps-script.ts`
+- `scripts/tests/apps-script-export.test.ts`
+- `projects/forensicstudiesoption2/meta/project.json`
+- `projects/forensicstudiesoption2/meta/deviation-report.md`
+- `projects/forensicstudiesoption2/meta/deviation-report.json`
+- Generated output: `projects/forensicstudiesoption2/exports/apps-script/`
+- `.stax/task.md`
 - `.stax/codex-report.md`
+- `docs/ops/ACTIVE_HANDOFF.md`
+- `docs/ops/ARCHIVED_HANDOFFS.md`
 
-## Verification run
-- `node --check projects/next-step-simple-ops-webapp/workspace/app.js && npm run verify -- --project next-step-simple-ops-webapp`
-  - exit code: `0`
-- `npm run build:studio`
-  - exit code: `0`
-- `npm run test:apps-script`
-  - exit code: `0`
-  - result: `13/13` tests passed
-- `cd projects/next-step-simple-ops-webapp && npx firebase hosting:sites:list --project calm-module-one --json --non-interactive`
-  - exit code: `0`
-  - confirmed `nextstepclassroom` exists
-- `cd projects/next-step-simple-ops-webapp && npx firebase deploy --only hosting:nextstepclassroom --project calm-module-one --non-interactive`
-  - exit code: `0`
-  - Hosting URL: `https://nextstepclassroom.web.app`
-- Live fetch check for `https://nextstepclassroom.web.app/`
-  - exit code: `0`
-  - HTTP status: `200`
-  - contains `Next Step Command Centre`
-- STAX visual proof:
-  - proof id: `visual_2026-06-01T19_36_42_040Z_abe7c48dd62e`
-  - proof path: `.stax/visual-proofs/visual_2026-06-01T19_36_42_040Z_abe7c48dd62e.png`
-- STAX observer preflight:
-  - exit code: `0`
-  - non-blocking observer verdict: `Reject`
-  - reason: approval artifact missing and noisy stale STAX history remains from unrelated older tasks
+## What changed
+- Generated the Apps Script package at `projects/forensicstudiesoption2/exports/apps-script/`.
+- The generated package contains `Code.gs`, `appsscript.json`, `.claspignore`, `README-deploy.md`, and `drive-assets/`.
+- The package includes 4 shell files and 29 Drive asset files; `asset-manifest.json` lists 27 course assets plus the shell and manifest files.
+- `Code.gs` includes Apps Script autosave for all 10 tracked Forensics keys:
+  - `forensicstudiesoption2.progress`
+  - `forensicstudiesoption2.ui`
+  - `forensics::module1assignment::v1`
+  - `forensics::module2assignment::v1`
+  - `forensics::module3assignment::v1`
+  - `forensics::module4assignment::v1`
+  - `forensics::module5assignment::v1`
+  - `forensics::module6assignment::v1`
+  - `forensics::module7assignment::v1`
+  - `forensics::module8assignment::v1`
+- Fixed a shared export bug where local route-like references that resolve to directories, such as `assignments/module2`, were treated as file assets.
+- Added an Apps Script export regression test for directory references.
 
-## Known risks / follow-up
-- The deployed app is not yet connected to live spreadsheet data.
-- The Apps Script bridge must be deployed as a web app and pasted into the Firebase app Settings view.
-- The bridge state shape depends on the current sheet names and headers in `tasks/next-step-course-builder-lite-extension.gs`.
-- The app intentionally remains read-focused from Firebase; write actions must stay in Apps Script gated flows.
+## Why this changed
+- The user could not use Brightspace SCORM upload and asked to try the Google Apps Script treatment for the same course.
+- Apps Script autosave can provide cross-browser persistence through `google.script.run` and Drive-backed private JSON autosave records after live deployment.
+- The Forensics workspace has a route-like string reference to a local directory; the exporter needed to skip directories and only embed regular files.
 
-## Source-of-truth location
-- Displayed project source:
-  - `projects/next-step-simple-ops-webapp/workspace/index.html`
-  - `projects/next-step-simple-ops-webapp/workspace/styles.css`
-  - `projects/next-step-simple-ops-webapp/workspace/app.js`
-- Firebase deploy config:
-  - `projects/next-step-simple-ops-webapp/firebase.json`
-  - `projects/next-step-simple-ops-webapp/.firebaserc`
-  - `publish-next-step-simple-ops.bat`
-- Spreadsheet bridge source:
-  - `tasks/next-step-course-builder-lite-extension.gs`
+## Source of truth
+- Course source:
+  - `projects/forensicstudiesoption2/workspace/index.html`
+  - `projects/forensicstudiesoption2/workspace/main.js`
+  - `projects/forensicstudiesoption2/workspace/course-data.js`
+  - `projects/forensicstudiesoption2/workspace/assignments/`
+- Apps Script exporter:
+  - `scripts/lib/exports/apps-script.ts`
+  - `scripts/lib/apps-script.ts`
+  - `scripts/lib/exports/shared.ts`
+  - `scripts/export-apps-script.ts`
+- Generated package:
+  - `projects/forensicstudiesoption2/exports/apps-script/`
 
-## Fragile areas / what might drift
-- Recreating the Apps Script deployment may produce a new `/exec` URL.
-- The Firebase Hosting site should remain `nextstepclassroom`; deploying default hosting would overwrite a different site.
-- Sheet header changes may break bridge fields until mapping code is updated.
+## Fragile areas / watchouts
+- The package is generated and verified locally, but it has not been deployed to a live Apps Script web app.
+- Raw `drive-assets/__canvas_helper_shell/index.html` is not a full local preview because `Code.gs` injects the Apps Script asset and autosave bootstrap at runtime.
+- Cross-browser autosave only works from the deployed Apps Script `/exec` URL with `google.script.run` available.
+- Learners must be signed into a Google account consistently across browsers/devices for reliable restore.
+- Upload the `drive-assets` folder itself to Google Drive, not its parent folder.
+- Existing dirty files under `projects/forensicstudiesoption2-nextstep-test/meta/*` predated this work and were not touched.
 
-## Next prompt assumptions
-- The deployed Firebase app is live and ready for bridge connection.
-- Next step is Apps Script web app deployment/update, not adding write actions.
-- Use Settings in `https://nextstepclassroom.web.app` to save and test the Apps Script `/exec` URL.
+## Next prompt should assume
+- Latest scope is only `forensicstudiesoption2`.
+- The Apps Script package has been generated and includes the Forensics autosave keys.
+- `.clasp.json` is not present yet in `projects/forensicstudiesoption2/exports/apps-script/`, so the Apps Script project has not been linked locally.
+- No Google Drive upload, `clasp push`, Apps Script version, or web-app deployment was performed.
+
+## What still needs validation
+- Upload `projects/forensicstudiesoption2/exports/apps-script/drive-assets` to Google Drive.
+- Create or link a standalone Apps Script project from `projects/forensicstudiesoption2/exports/apps-script`.
+- Set the uploaded Drive folder ID with `setDriveRootFolderId("FOLDER_ID")` or a temporary no-argument helper.
+- Run `rebuildDriveAssetIndex()` in Apps Script.
+- Deploy as a web app, open the `/exec` URL in a browser, and verify course load, assignments, images, autosave status, and cross-browser restore.
+
+## Known risks
+- A local file preview cannot prove Apps Script autosave because `google.script.run` exists only in Apps Script.
+- If Drive permissions are too narrow, binary assets may not render for learners.
+- If the Drive root folder ID points at the parent folder instead of `drive-assets`, Apps Script will report missing indexed assets.
 
 ## Exact next command
-`cd projects/next-step-simple-ops-webapp && npx firebase deploy --only hosting:nextstepclassroom --project calm-module-one --non-interactive`
+`Set-Location "C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\forensicstudiesoption2\exports\apps-script"; clasp create --type webapp --title "forensicstudiesoption2"`
 
 ## Exact next file to open
-`tasks/next-step-course-builder-lite-extension.gs`
+`projects/forensicstudiesoption2/exports/apps-script/README-deploy.md`
+
+## Do not do next / warnings
+- Do not paste browser HTML or JS files into Apps Script as `.gs`; only push the generated shell files.
+- Do not deploy or publish a new Apps Script web app without confirming the Google Drive `drive-assets` upload and folder ID.
+- Do not overwrite unrelated course exports.

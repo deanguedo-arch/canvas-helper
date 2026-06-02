@@ -1,6 +1,11 @@
 import assert from "node:assert/strict";
+import { mkdtemp, rm, writeFile } from "node:fs/promises";
+import os from "node:os";
+import path from "node:path";
 import test from "node:test";
 
+import { detectStorageKeysFromWorkspace } from "../lib/exports/shared.js";
+import * as scormPackage from "../lib/exports/scorm-package.js";
 import {
   buildScormBridgeScript,
   buildScormManifest,
@@ -25,6 +30,96 @@ test("findStorageKeysInScriptSources extracts STORAGE_KEY and localStorage liter
   const keys = findStorageKeysInScriptSources([source], "fallback-key");
 
   assert.deepEqual(keys.sort(), ["calm3new::workspace-state::v1", "secondary-key"]);
+});
+
+test("findStorageKeysInScriptSources extracts named storage key constants", () => {
+  const source = `
+    const FORENSICS_WORKSPACE_STATE_KEY = "forensics::workspace-state::v1";
+    window.localStorage.setItem(FORENSICS_WORKSPACE_STATE_KEY, JSON.stringify(state));
+  `;
+  const keys = findStorageKeysInScriptSources([source], "fallback-key");
+
+  assert.deepEqual(keys, ["forensics::workspace-state::v1"]);
+});
+
+test("findStorageKeysInScriptSources resolves course shell storage key templates", () => {
+  const courseDataSource = `
+    window.courseShellData = {
+      "storageKey": "general-psychology-20-independent-studies-202633108::workspace-state::v1"
+    };
+  `;
+  const mainSource = `
+    const STORAGE_KEY = String(courseShellData.storageKey || "fallback::workspace-state::v1");
+    const LEGACY_STORAGE_KEY = \`${"${courseShellData.storageKey}"}::assessment-layout::v5\`;
+    localStorage.getItem(STORAGE_KEY);
+    localStorage.getItem(LEGACY_STORAGE_KEY);
+  `;
+  const keys = findStorageKeysInScriptSources([courseDataSource, mainSource], "fallback-key");
+
+  assert.deepEqual(keys.sort(), [
+    "general-psychology-20-independent-studies-202633108::workspace-state::v1",
+    "general-psychology-20-independent-studies-202633108::workspace-state::v1::assessment-layout::v5"
+  ]);
+});
+
+test("findStorageKeysInScriptSources resolves project slug template keys used in localStorage", () => {
+  const source = `
+    const PROJECT_SLUG = document.body?.dataset.projectSlug || "worldreligions30-option1";
+    const STORAGE_KEY = \`${"${PROJECT_SLUG}"}.progress\`;
+    const UI_KEY = \`${"${PROJECT_SLUG}"}.ui\`;
+    window.localStorage.getItem(STORAGE_KEY);
+    window.localStorage.setItem(UI_KEY, JSON.stringify({ sidebarCollapsed: true }));
+  `;
+  const keys = findStorageKeysInScriptSources([source], "fallback-key");
+
+  assert.deepEqual(keys.sort(), ["worldreligions30-option1.progress", "worldreligions30-option1.ui"]);
+});
+
+test("detectStorageKeysFromWorkspace reads inline assignment HTML storage keys", async () => {
+  const tempDir = await mkdtemp(path.join(os.tmpdir(), "canvas-helper-scorm-"));
+  try {
+    await writeFile(
+      path.join(tempDir, "module4assignment.html"),
+      `
+        <!doctype html>
+        <script>
+          const MODULE4_ASSIGNMENT_STORAGE_KEY = "forensics::module4assignment::v1";
+          window.localStorage.setItem(MODULE4_ASSIGNMENT_STORAGE_KEY, JSON.stringify({ complete: true }));
+        </script>
+      `,
+      "utf8"
+    );
+
+    const keys = await detectStorageKeysFromWorkspace(tempDir, "fallback-key");
+    assert.deepEqual(keys, ["forensics::module4assignment::v1"]);
+  } finally {
+    await rm(tempDir, { recursive: true, force: true });
+  }
+});
+
+test("resolveTrackedScormStorageKeys preserves explicit project metadata keys", () => {
+  const resolver = (scormPackage as unknown as {
+    resolveTrackedScormStorageKeys?: (
+      detectedStorageKeys: string[],
+      manifest: { googleHosted?: { trackedStorageKeys?: string[] } }
+    ) => string[];
+  }).resolveTrackedScormStorageKeys;
+
+  assert.equal(typeof resolver, "function");
+  const keys = resolver?.(
+    ["forensicstudiesoption2.progress"],
+    {
+      googleHosted: {
+        trackedStorageKeys: [
+          "forensics::module4assignment::v1",
+          "forensicstudiesoption2.progress",
+          ""
+        ]
+      }
+    }
+  );
+
+  assert.deepEqual(keys, ["forensicstudiesoption2.progress", "forensics::module4assignment::v1"]);
 });
 
 test("injectScormBridgeTag inserts bridge before first local script", () => {
@@ -100,4 +195,28 @@ test("buildScormBridgeScript emits explicit suspend and save-exit flow", () => {
   assert.match(bridge2004, /suspend/);
   assert.match(bridge2004, /saveAndExit/);
   assert.match(bridge2004, /Save and Exit/);
+});
+
+test("buildScormBridgeScript dynamically tracks localStorage keys created during a session", () => {
+  const bridge2004 = buildScormBridgeScript({
+    projectSlug: "experimental-psych-30",
+    storageKeys: ["experimental-psych-30::workspace-state::v1"],
+    version: "2004"
+  });
+
+  assert.match(bridge2004, /trackedKeySet\.add\(String\(key\)\)/);
+  assert.match(bridge2004, /Object\.entries\(state\.values\)/);
+});
+
+test("buildScormBridgeScript flushes localStorage writes from assignment iframes", () => {
+  const bridge2004 = buildScormBridgeScript({
+    projectSlug: "forensicstudiesoption2",
+    storageKeys: ["forensics::module4assignment::v1"],
+    version: "2004"
+  });
+
+  assert.match(bridge2004, /window\.addEventListener\("storage"/);
+  assert.match(bridge2004, /event\.storageArea === window\.localStorage/);
+  assert.match(bridge2004, /trackedKeySet\.add\(String\(event\.key\)\)/);
+  assert.match(bridge2004, /scheduleFlush\("storage:" \+ String\(event\.key\)\)/);
 });

@@ -601,7 +601,7 @@ export function buildAppsScriptDeployReadme(options: BuildAppsScriptDeployReadme
     "## Autosave",
     "",
     `- Tracked localStorage keys: ${options.storageKeys.length ? options.storageKeys.join(", ") : "(none detected)"}`,
-    "- The generated page patches localStorage and also listens for storage events from same-origin frames.",
+    "- The generated page polls tracked localStorage keys and listens for storage events from same-origin frames without patching storage prototypes.",
     "- Server functions `getCanvasHelperAutosave()` and `saveCanvasHelperAutosave(payload)` store one JSON file per active Google user key.",
     "- Apps Script creates a private `Canvas Helper Autosaves - <slug>` folder in the script owner's Drive on first save or restore.",
     "",

@@ -1,13 +1,13 @@
 import { spawn } from "node:child_process";
 import { once } from "node:events";
 import { createWriteStream, readFileSync } from "node:fs";
-import { readFile } from "node:fs/promises";
+import { readFile, stat } from "node:fs/promises";
 import path from "node:path";
 
 import { load } from "cheerio";
 import { lookup as lookupMimeType } from "mime-types";
 
-import { copyDirectory, ensureDir, fileExists, listFilesRecursive, removePath } from "../fs.js";
+import { copyDirectory, ensureDir, listFilesRecursive, removePath } from "../fs.js";
 import { runAuthoringDeviationGate } from "../intelligence/apply/deviation-gate.js";
 import { findStorageKeysInScriptSources } from "../scorm.js";
 import type {
@@ -75,6 +75,18 @@ function isPathInsideDirectory(rootDir: string, targetPath: string) {
   const normalizedTarget = normalizePath(targetPath);
   const rootWithSeparator = normalizedRoot.endsWith(path.sep) ? normalizedRoot : `${normalizedRoot}${path.sep}`;
   return normalizedTarget === normalizedRoot || normalizedTarget.startsWith(rootWithSeparator);
+}
+
+async function isRegularFile(filePath: string) {
+  try {
+    return (await stat(filePath)).isFile();
+  } catch {
+    return false;
+  }
+}
+
+async function isWorkspaceFile(workspaceDir: string, targetPath: string) {
+  return isPathInsideDirectory(workspaceDir, targetPath) && (await isRegularFile(targetPath));
 }
 
 function resolveWorkspaceResourcePath(resourceRef: string, baseDir: string, workspaceDir: string) {
@@ -182,7 +194,7 @@ async function resolveEmbeddedAssetExpression(
   }
 
   const resolvedPath = resolveWorkspaceResourcePath(resourceRef, baseDir, workspaceDir);
-  if (!resolvedPath || !isPathInsideDirectory(workspaceDir, resolvedPath) || !(await fileExists(resolvedPath))) {
+  if (!resolvedPath || !(await isWorkspaceFile(workspaceDir, resolvedPath))) {
     return null;
   }
 
@@ -402,7 +414,7 @@ async function buildStandaloneHtmlDocument(
     }
 
     const stylesheetPath = resolveWorkspaceResourcePath(href, htmlDir, workspaceDir);
-    if (!stylesheetPath || !isPathInsideDirectory(workspaceDir, stylesheetPath) || !(await fileExists(stylesheetPath))) {
+    if (!stylesheetPath || !(await isWorkspaceFile(workspaceDir, stylesheetPath))) {
       continue;
     }
 
@@ -422,7 +434,7 @@ async function buildStandaloneHtmlDocument(
     }
 
     const scriptPath = resolveWorkspaceResourcePath(sourcePath, htmlDir, workspaceDir);
-    if (!scriptPath || !isPathInsideDirectory(workspaceDir, scriptPath) || !(await fileExists(scriptPath))) {
+    if (!scriptPath || !(await isWorkspaceFile(workspaceDir, scriptPath))) {
       continue;
     }
 
@@ -614,7 +626,7 @@ async function inlineLocalResource(
   }
 
   const resolvedPath = resolveWorkspaceResourcePath(resourceRef, baseDir, workspaceDir);
-  if (!resolvedPath || !isPathInsideDirectory(workspaceDir, resolvedPath) || !(await fileExists(resolvedPath))) {
+  if (!resolvedPath || !(await isWorkspaceFile(workspaceDir, resolvedPath))) {
     return resourceRef;
   }
 
@@ -886,7 +898,16 @@ export async function detectStorageKeysFromWorkspace(workspaceDir: string, fallb
   const workspaceFiles = await listFilesRecursive(workspaceDir);
   const scriptFiles = workspaceFiles.filter((filePath) => {
     const ext = path.extname(filePath).toLowerCase();
-    return ext === ".js" || ext === ".jsx" || ext === ".mjs" || ext === ".cjs" || ext === ".ts" || ext === ".tsx";
+    return (
+      ext === ".js" ||
+      ext === ".jsx" ||
+      ext === ".mjs" ||
+      ext === ".cjs" ||
+      ext === ".ts" ||
+      ext === ".tsx" ||
+      ext === ".html" ||
+      ext === ".htm"
+    );
   });
 
   const scriptSources = await Promise.all(scriptFiles.map((filePath) => readFile(filePath, "utf8")));
