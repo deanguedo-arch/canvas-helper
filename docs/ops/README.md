@@ -61,6 +61,8 @@ Use this folder to keep local work disciplined, reproducible, and handoff-friend
 - Codex-specific Mac operating loop: [`codex-mac-workflow.md`](./codex-mac-workflow.md)
 - Apps Script Drive deploy workflow: [`apps-script-drive-deploy.md`](./apps-script-drive-deploy.md)
 - Google Hosted deploy workflow: [`google-hosted-deploy.md`](./google-hosted-deploy.md)
+- STAX course deploy proof gate: [`stax-course-deploy-proof-gate.md`](./stax-course-deploy-proof-gate.md)
+- Next Step D2L redesign prompt and process: [`next-step-brightspace-d2l-redesign.md`](./next-step-brightspace-d2l-redesign.md)
 - Workflow patterns and prompt contract: [`docs/workflows/`](../workflows/README.md)
 
 ## Working Rule
