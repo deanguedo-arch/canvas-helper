@@ -1,0 +1,52 @@
+{
+  "id": "aa88635c-5cb8-416a-8a55-2744a1647873",
+  "slug": "next-step-redesigned-unit-docs",
+  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\incoming\\next-step-redesigned-unit-docs",
+  "inputKind": "html",
+  "brightspaceTarget": "course-page",
+  "previewModes": [
+    "raw",
+    "workspace"
+  ],
+  "workspaceEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\next-step-redesigned-unit-docs\\workspace\\index.html",
+  "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\next-step-redesigned-unit-docs\\raw\\original.html",
+  "learningSource": "other",
+  "learningTrust": "auto",
+  "learningUpdatedAt": "2026-06-02T16:35:54.988Z",
+  "migrationState": "migrated",
+  "projectType": "conversion",
+  "preferredWorkflows": [
+    "conversion"
+  ],
+  "canonicalEntry": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\next-step-redesigned-unit-docs\\workspace\\index.html",
+  "canonicalSources": [
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\next-step-redesigned-unit-docs\\workspace\\index.html",
+    "main.jsx",
+    "styles.css"
+  ],
+  "generatedOutputs": [
+    "workspace/brightspace-source-inputs-original-format/unit-1-properties-of-matter-original-format.html",
+    "workspace/brightspace-source-inputs-original-format/unit-2-energy-transfer-technologies-original-format.html",
+    "workspace/brightspace-source-inputs-original-format/unit-3-matter-and-energy-in-living-systems-original-format.html",
+    "workspace/brightspace-source-inputs-original-format/unit-4-matter-and-energy-in-the-environment-original-format.html"
+  ],
+  "regenerateCommand": "node scripts/convert-docx-to-brightspace-source.mjs --source projects/incoming/next-step-redesigned-unit-docs-original-format-source --out projects/next-step-redesigned-unit-docs/workspace/brightspace-source-inputs-original-format",
+  "injectedComponents": [],
+  "importedFirstPassOrigin": {
+    "sourceSystem": "other",
+    "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\incoming\\next-step-redesigned-unit-docs",
+    "importedAt": "2026-06-02T16:35:54.674Z"
+  },
+  "exportTargets": [
+    {
+      "target": "brightspace",
+      "enabled": true,
+      "notes": "Default export target for imported projects."
+    }
+  ],
+  "authoringStatus": "active",
+  "referenceOnly": [],
+  "sourceOfTruthNotes": "Edit workspace sources listed in canonicalSources. Treat generated exports and runtime bundles as derived output.",
+  "createdAt": "2026-06-02T16:35:54.674Z",
+  "updatedAt": "2026-06-02T18:22:00.000Z"
+}

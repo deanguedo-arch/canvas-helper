@@ -108,6 +108,7 @@ Run `rebuildDriveAssetIndex()` in the Apps Script editor after setting the folde
 Use the Apps Script `/exec` URL in Google Sites with `Insert > Embed > By URL`.
 
 For cross-device autosave, learners must open the course while signed into a Google account. Anonymous access can load the course, but it cannot reliably identify the same learner across devices.
+Generated autosave scripts prefer the signed-in user's email when Apps Script exposes it, fall back to Google's temporary active-user key, and fail instead of writing shared `anonymous` autosave records when neither key is available.
 
 ## Update And Redeploy Loop
 

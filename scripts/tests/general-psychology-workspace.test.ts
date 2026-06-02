@@ -200,6 +200,7 @@ test("general psychology uses the forensics35 course shell without assignments n
   assert.match(source, /data-open-shell-content/);
   assert.match(source, /data-open-shell-quiz/);
   assert.match(source, /SCHOLARLY ACCESS/);
+  assert.match(source, /filter:\s*blur\(3px\)/);
 });
 
 test("general psychology module 6 excludes the social influence written response placeholder", async () => {

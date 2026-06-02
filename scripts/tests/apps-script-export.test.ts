@@ -11,6 +11,7 @@ import { cleanupProjectFixture, createProjectFixture } from "./helpers/project-f
 
 const TEST_PROJECT_SLUG = "test-apps-script-export";
 const DIRECTORY_REF_PROJECT_SLUG = "test-apps-script-directory-ref";
+const ESCAPED_HTML_ASSET_PROJECT_SLUG = "test-apps-script-escaped-html-asset";
 
 type AppsScriptExportFn = (projectSlug: string) => Promise<{
   driveAssetFileCount: number;
@@ -139,6 +140,9 @@ test("exportProjectToAppsScript writes a drive-backed Apps Script shell package"
     assert.match(codeGs, /function getCanvasHelperAutosave\(\)/);
     assert.match(codeGs, /function saveCanvasHelperAutosave\(payload\)/);
     assert.match(codeGs, /Session\.getTemporaryActiveUserKey\(\)/);
+    assert.match(codeGs, /const activeEmail = Session\.getActiveUser\(\)\.getEmail\(\);[\s\S]+return 'email:' \+ String\(activeEmail\)\.trim\(\)\.toLowerCase\(\);[\s\S]+const temporaryKey = Session\.getTemporaryActiveUserKey\(\);/);
+    assert.match(codeGs, /throw new Error\('Apps Script autosave requires a signed-in Google account or a Google temporary active user key\.'\);/);
+    assert.doesNotMatch(codeGs, /return 'anonymous';/);
     assert.match(codeGs, /LockService\.getScriptLock\(\)/);
     assert.match(codeGs, /DriveApp\.createFolder/);
     assert.match(codeGs, /window\.__CH_APPS_SCRIPT_AUTOSAVE__/);
@@ -196,6 +200,57 @@ test("exportProjectToAppsScript ignores local references that resolve to directo
     assert.doesNotMatch(driveManifest, /module2/);
   } finally {
     await cleanupProjectFixture(DIRECTORY_REF_PROJECT_SLUG);
+  }
+});
+
+test("exportProjectToAppsScript keeps escaped HTML strings syntactically valid", async () => {
+  const exportProjectToAppsScript = getAppsScriptExportFn();
+  assert.equal(typeof exportProjectToAppsScript, "function");
+
+  await createProjectFixture({
+    slug: ESCAPED_HTML_ASSET_PROJECT_SLUG,
+    workspaceHtml: [
+      "<!doctype html>",
+      "<html>",
+      "  <body>",
+      "    <div id=\"app\"></div>",
+      "    <script src=\"./course-data.js\"></script>",
+      "    <script src=\"./main.js\"></script>",
+      "  </body>",
+      "</html>",
+      ""
+    ].join("\n"),
+    workspaceFiles: {
+      "course-data.js": [
+        "window.TEST_IMAGE = \"./photo.jpg\";",
+        "window.TEST_DATA = {",
+        "  instructionHtml: \"<div><img src=\\\"./photo.jpg\\\" alt=\\\"Photo\\\"><img src=\\\"./photo%20space.jpg\\\" alt=\\\"Photo Space\\\"></div>\"",
+        "};",
+        ""
+      ].join("\n"),
+      "main.js": "document.body.setAttribute('data-loaded', String(Boolean(window.TEST_DATA)));\n",
+      "photo.jpg": "fixture image bytes\n",
+      "photo space.jpg": "fixture image bytes\n"
+    }
+  });
+
+  try {
+    const result = await exportProjectToAppsScript!(ESCAPED_HTML_ASSET_PROJECT_SLUG);
+    const driveShellPath = path.join(result.exportDir, "drive-assets", "__canvas_helper_shell", "index.html");
+    const driveShell = await readFile(driveShellPath, "utf8");
+    const scriptBlocks = [...driveShell.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)].map((match) => match[1] ?? "");
+
+    assert.match(driveShell, /window\.TEST_IMAGE = window\.__CH_ASSET__\("asset-\d+"\);/);
+    assert.equal([...driveShell.matchAll(/src=\\"" \+ window\.__CH_ASSET__\("asset-\d+"\)/g)].length, 2);
+    assert.doesNotMatch(driveShell, /src=\\"\.\/photo\.jpg\\"/);
+    assert.doesNotMatch(driveShell, /src=\\"\.\/photo%20space\.jpg\\"/);
+    assert.doesNotMatch(driveShell, /src=\\window\.__CH_ASSET__/);
+    assert.ok(scriptBlocks.length > 0);
+    for (const [index, scriptBlock] of scriptBlocks.entries()) {
+      assert.doesNotThrow(() => new vm.Script(scriptBlock, { filename: `apps-script-shell-${index}.js` }));
+    }
+  } finally {
+    await cleanupProjectFixture(ESCAPED_HTML_ASSET_PROJECT_SLUG);
   }
 });
 

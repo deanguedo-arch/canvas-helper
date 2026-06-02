@@ -272,8 +272,11 @@ body::before {
 }
 
 .lesson-card.is-locked .lesson-body,
-.lesson-card.is-locked .sequence-top {
+.lesson-card.is-locked .sequence-top,
+.lesson-card[data-progress-state="locked"] .lesson-body,
+.lesson-card[data-progress-state="locked"] .sequence-top {
   opacity: 0.72;
+  filter: blur(2px);
   pointer-events: none;
   user-select: none;
 }

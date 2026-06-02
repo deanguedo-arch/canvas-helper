@@ -1,0 +1,818 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Assessment Portion - Isolated Prototype</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@300..700,0..1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --surface: #081614;
+      --panel: #122622;
+      --panel-2: #172d29;
+      --panel-3: #213733;
+      --line: rgba(213, 232, 228, 0.2);
+      --text: #ecf4f1;
+      --muted: #c8d8d3;
+      --primary: #00957e;
+      --secondary: #a4d55f;
+      --tertiary: #ff6b00;
+      --error: #ffb4ab;
+      --shadow: 0 24px 60px rgba(0, 0, 0, 0.32);
+      font-family: Calibri, Aptos, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px),
+        radial-gradient(circle at 82% 14%, rgba(0, 149, 126, 0.3), transparent 34rem),
+        radial-gradient(circle at 18% 84%, rgba(255, 107, 0, 0.18), transparent 30rem),
+        var(--surface);
+      background-size: 48px 48px, 48px 48px, auto, auto, auto;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button {
+      border: 1px solid var(--line);
+      background: var(--panel-2);
+      color: var(--text);
+      min-height: 44px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: border-color 150ms ease, background 150ms ease, transform 150ms ease;
+    }
+
+    button:hover,
+    button:focus-visible {
+      border-color: rgba(164, 213, 95, 0.75);
+      background: var(--panel-3);
+      outline: none;
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    .material-symbols-outlined {
+      font-family: "Material Symbols Outlined";
+      font-size: 1.25em;
+      line-height: 1;
+      vertical-align: middle;
+    }
+
+    .shell {
+      width: min(1180px, calc(100vw - 32px));
+      margin: 0 auto;
+      padding: 32px 0 56px;
+    }
+
+    .hero,
+    .section {
+      border-bottom: 1px solid var(--line);
+      padding: 44px 0;
+    }
+
+    .hero {
+      min-height: 48vh;
+      display: grid;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--secondary);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      max-width: 920px;
+      margin-top: 12px;
+      font-family: "Times New Roman", Times, serif;
+      font-size: clamp(3rem, 7vw, 5.75rem);
+      line-height: 1.02;
+      font-weight: 800;
+    }
+
+    h1 span {
+      display: block;
+      margin-top: 18px;
+      color: var(--muted);
+      font-family: Calibri, Aptos, Arial, sans-serif;
+      font-size: clamp(1.3rem, 2.2vw, 2rem);
+      font-weight: 400;
+      line-height: 1.35;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 3vw, 3rem);
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+
+    h3 {
+      font-size: 1.55rem;
+      line-height: 1.2;
+    }
+
+    .lead {
+      max-width: 850px;
+      color: var(--muted);
+      font-size: 1.2rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .panel,
+    .card {
+      background: rgba(18, 38, 34, 0.88);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .panel {
+      padding: 22px;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      padding: 22px;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 4px;
+      background: var(--accent, var(--primary));
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    .meter-panel {
+      display: grid;
+      gap: 12px;
+    }
+
+    .score-total {
+      text-align: right;
+      font-size: 2.5rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .score-bar {
+      display: flex;
+      height: 34px;
+      overflow: hidden;
+      border-radius: 8px;
+      background: var(--panel-3);
+      border: 1px solid var(--line);
+    }
+
+    .score-segment {
+      width: var(--w);
+      background: var(--accent);
+      box-shadow: inset 0 0 18px rgba(255, 255, 255, 0.24);
+      transition: width 180ms ease;
+    }
+
+    .legend {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .legend strong {
+      display: block;
+      color: var(--text);
+      font-size: 1.05rem;
+    }
+
+    .control {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .control-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      padding: 6px 10px;
+      border: 1px solid color-mix(in srgb, var(--accent) 42%, transparent);
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--accent) 14%, transparent);
+      color: var(--text);
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--accent);
+    }
+
+    input[type="number"] {
+      width: 86px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--text);
+      padding: 8px 10px;
+      text-align: right;
+    }
+
+    .level-buttons {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .level-buttons button {
+      padding: 16px 14px;
+      text-align: left;
+      font-weight: 800;
+    }
+
+    .level-buttons button[aria-pressed="true"] {
+      border-color: var(--tertiary);
+      background: rgba(255, 107, 0, 0.14);
+      color: #ffd9bd;
+    }
+
+    .burden-stage {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 20px;
+      align-items: center;
+      margin-top: 26px;
+    }
+
+    .scale {
+      min-height: 220px;
+      display: grid;
+      align-items: center;
+      justify-items: center;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(4, 15, 14, 0.45);
+      padding: 18px;
+    }
+
+    .scale-stack {
+      display: grid;
+      gap: 8px;
+      width: min(220px, 100%);
+    }
+
+    .block {
+      min-height: 42px;
+      border-radius: 6px;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      color: #081614;
+      background: var(--secondary);
+    }
+
+    .block.ai {
+      background: var(--tertiary);
+      color: #fff7ed;
+    }
+
+    .balance-message {
+      margin-top: 18px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .gate-shell {
+      margin-top: 24px;
+      overflow: hidden;
+    }
+
+    .gate-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      border-bottom: 1px solid var(--line);
+      background: var(--panel-2);
+      padding: 14px 18px;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      padding: 18px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .flow span {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px 8px;
+      background: rgba(8, 22, 20, 0.4);
+    }
+
+    .flow span.active {
+      border-color: var(--primary);
+      background: rgba(0, 149, 126, 0.2);
+      color: var(--text);
+    }
+
+    .gate-content {
+      min-height: 330px;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+    }
+
+    .gate-card {
+      width: min(720px, 100%);
+      display: grid;
+      gap: 18px;
+      text-align: center;
+    }
+
+    .evidence-box {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(4, 15, 14, 0.44);
+      padding: 18px;
+      color: var(--muted);
+      text-align: left;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .primary {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+      font-weight: 900;
+      padding: 0 18px;
+    }
+
+    .secondary {
+      color: #15320f;
+      background: var(--secondary);
+      border-color: var(--secondary);
+      font-weight: 900;
+      padding: 0 18px;
+    }
+
+    .danger {
+      color: #2b0906;
+      background: var(--error);
+      border-color: var(--error);
+      font-weight: 900;
+      padding: 0 18px;
+    }
+
+    @media (max-width: 860px) {
+      .grid-2,
+      .grid-3,
+      .burden-stage {
+        grid-template-columns: 1fr;
+      }
+
+      .level-buttons {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .flow {
+        grid-template-columns: 1fr;
+      }
+
+      .legend {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">AI Assessment Portion</div>
+        <h1>
+          Product. Process. Defence.
+          <span>Assessments become valid when final work, creation evidence, and human explanation all point to the same learning.</span>
+        </h1>
+      </div>
+    </section>
+
+    <section class="section" id="context">
+      <div class="grid-2">
+        <div>
+          <h2>Why The Model Exists</h2>
+          <p class="lead">Traditional online assessment is vulnerable because final products alone no longer prove learning. AI makes polished work easy to produce, but polish is not proof. The model shifts attention from a single submission to a defensible body of evidence.</p>
+        </div>
+        <div class="panel">
+          <div class="grid-2" style="grid-template-columns: 1fr 1fr; gap: 14px;">
+            <div class="card" style="--accent: var(--tertiary);">
+              <span class="pill" style="--accent: var(--tertiary);"><span class="material-symbols-outlined">inventory_2</span> Old</span>
+              <p>Trust the uploaded product and grade the polish.</p>
+            </div>
+            <div class="card" style="--accent: var(--primary);">
+              <span class="pill" style="--accent: var(--primary);"><span class="material-symbols-outlined">verified_user</span> New</span>
+              <p>Validate product, process, and defence together.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="core-model">
+      <div class="grid-2">
+        <div>
+          <h2>Core Assessment Model</h2>
+          <p class="lead">Adjust the weights and marks to show that AI use does not automatically change the grade structure. The evidence expectations change; the professional assessment model remains explicit.</p>
+        </div>
+        <div class="panel meter-panel">
+          <div id="scoreTotal" class="score-total">100%</div>
+          <div class="score-bar" aria-label="Weighted assessment score">
+            <div id="productSegment" class="score-segment" style="--accent: var(--primary); --w: 50%;"></div>
+            <div id="processSegment" class="score-segment" style="--accent: var(--secondary); --w: 25%;"></div>
+            <div id="defenceSegment" class="score-segment" style="--accent: var(--tertiary); --w: 25%;"></div>
+          </div>
+          <div class="legend">
+            <span>Product <strong id="productLabel">50% / 50%</strong></span>
+            <span>Process <strong id="processLabel">25% / 25%</strong></span>
+            <span>Defence <strong id="defenceLabel">25% / 25%</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <article class="card" style="--accent: var(--primary);">
+          <h3>Product</h3>
+          <p>The final written response, project, presentation, exam, source analysis, or issue response.</p>
+          <div class="control" style="--accent: var(--primary);">
+            <div class="control-row"><strong>Weight</strong><span id="productWeightValue">50%</span></div>
+            <input id="productWeight" type="range" min="0" max="100" value="50" data-kind="weight">
+            <div class="control-row"><strong>Mark</strong><input id="productMark" type="number" min="0" max="100" value="100" data-kind="mark"></div>
+          </div>
+        </article>
+
+        <article class="card" style="--accent: var(--secondary);">
+          <h3>Process</h3>
+          <p>Draft history, planning notes, source organizers, AI-use logs, revisions, and checkpoints.</p>
+          <div class="control" style="--accent: var(--secondary);">
+            <div class="control-row"><strong>Weight</strong><span id="processWeightValue">25%</span></div>
+            <input id="processWeight" type="range" min="0" max="100" value="25" data-kind="weight">
+            <div class="control-row"><strong>Mark</strong><input id="processMark" type="number" min="0" max="100" value="100" data-kind="mark"></div>
+          </div>
+        </article>
+
+        <article class="card" style="--accent: var(--tertiary);">
+          <h3>Defence</h3>
+          <p>Oral conference, written explanation, skill check, or live demonstration of understanding.</p>
+          <div class="control" style="--accent: var(--tertiary);">
+            <div class="control-row"><strong>Weight</strong><span id="defenceWeightValue">25%</span></div>
+            <input id="defenceWeight" type="range" min="0" max="100" value="25" data-kind="weight">
+            <div class="control-row"><strong>Mark</strong><input id="defenceMark" type="number" min="0" max="100" value="100" data-kind="mark"></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="ai-levels">
+      <h2>Same Outcome. Different Evidence Burden.</h2>
+      <p class="lead">Select an AI-use level. The assessment weights stay visible, but the evidence burden changes to protect ownership.</p>
+
+      <div class="level-buttons" role="group" aria-label="AI level selector">
+        <button type="button" data-level="0" aria-pressed="true">Level 0<br><small>No AI</small></button>
+        <button type="button" data-level="1" aria-pressed="false">Level 1<br><small>Planning Support</small></button>
+        <button type="button" data-level="2" aria-pressed="false">Level 2<br><small>Drafting Support</small></button>
+        <button type="button" data-level="3" aria-pressed="false">Level 3<br><small>Heavy AI Support</small></button>
+      </div>
+
+      <div class="burden-stage">
+        <div class="scale">
+          <div class="scale-stack" id="aiStack"></div>
+        </div>
+        <div style="font-size: 3rem; color: var(--muted); text-align: center;">=</div>
+        <div class="scale">
+          <div class="scale-stack" id="evidenceStack"></div>
+        </div>
+      </div>
+      <div id="burdenMessage" class="balance-message"></div>
+    </section>
+
+    <section class="section" id="validity-gate">
+      <h2>Validity Gate Simulator</h2>
+      <p class="lead">A teacher reviews the evidence, conducts the defence, then decides whether the student has validated ownership of the work.</p>
+
+      <div class="panel gate-shell">
+        <div class="gate-header">
+          <span id="scenarioCounter">Scenario 1 of 2</span>
+          <span id="scenarioSubject">Grade 10 Science</span>
+        </div>
+        <div class="flow" aria-label="Validity gate steps">
+          <span data-step-label="start">Submission</span>
+          <span data-step-label="review">Review</span>
+          <span data-step-label="defence">Defence</span>
+          <span data-step-label="decision">Decision</span>
+          <span data-step-label="finish">Action</span>
+        </div>
+        <div id="gateContent" class="gate-content"></div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const weights = {
+      product: 50,
+      process: 25,
+      defence: 25
+    };
+
+    const marks = {
+      product: 100,
+      process: 100,
+      defence: 100
+    };
+
+    const levelData = [
+      {
+        ai: 0,
+        evidence: 1,
+        message: "Level 0: final product plus normal process evidence is enough because AI did not contribute to the product."
+      },
+      {
+        ai: 1,
+        evidence: 2,
+        message: "Level 1: planning support requires a clearer process trail and disclosure."
+      },
+      {
+        ai: 2,
+        evidence: 3,
+        message: "Level 2: drafting support requires drafts, source notes, revision evidence, and targeted defence."
+      },
+      {
+        ai: 3,
+        evidence: 4,
+        message: "Level 3: heavy AI support requires the strongest ownership proof before the product can be treated as valid."
+      }
+    ];
+
+    const scenarios = [
+      {
+        student: "Alex",
+        subject: "Grade 10 Science",
+        assignment: "Climate Change Research Paper",
+        observation: "The paper uses highly advanced vocabulary about atmospheric chemistry.",
+        defence: "Alex cannot explain anthropogenic radiative forcing or connect the phrase to the rest of the paper.",
+        correct: "fail"
+      },
+      {
+        student: "Maya",
+        subject: "Grade 12 Computer Science",
+        assignment: "Python Sorting Algorithm",
+        observation: "The algorithm goes beyond the base curriculum and uses efficient logic.",
+        defence: "Maya whiteboards the algorithm, explains why she used it, and identifies a flaw she would improve.",
+        correct: "pass"
+      }
+    ];
+
+    let scenarioIndex = 0;
+    let gateStep = "start";
+
+    function clampNumber(value, min, max) {
+      const parsed = Number(value);
+      if (!Number.isFinite(parsed)) return min;
+      return Math.max(min, Math.min(max, parsed));
+    }
+
+    function rebalanceWeights(changedKey) {
+      const keys = Object.keys(weights);
+      weights[changedKey] = clampNumber(document.getElementById(changedKey + "Weight").value, 0, 100);
+      const remainingKeys = keys.filter((key) => key !== changedKey);
+      const remainingTotal = remainingKeys.reduce((total, key) => total + weights[key], 0);
+      const targetRemaining = 100 - weights[changedKey];
+
+      if (remainingTotal <= 0) {
+        const split = targetRemaining / remainingKeys.length;
+        remainingKeys.forEach((key) => { weights[key] = split; });
+      } else {
+        remainingKeys.forEach((key) => {
+          weights[key] = (weights[key] / remainingTotal) * targetRemaining;
+        });
+      }
+    }
+
+    function updateAssessment() {
+      Object.keys(marks).forEach((key) => {
+        marks[key] = clampNumber(document.getElementById(key + "Mark").value, 0, 100);
+      });
+
+      const earned = Object.fromEntries(Object.keys(weights).map((key) => [key, weights[key] * (marks[key] / 100)]));
+      const total = earned.product + earned.process + earned.defence;
+
+      document.getElementById("scoreTotal").textContent = Math.round(total) + "%";
+      Object.keys(weights).forEach((key) => {
+        document.getElementById(key + "Weight").value = Math.round(weights[key]);
+        document.getElementById(key + "WeightValue").textContent = Math.round(weights[key]) + "%";
+        document.getElementById(key + "Segment").style.setProperty("--w", Math.max(0, earned[key]) + "%");
+        document.getElementById(key + "Label").textContent = Math.round(earned[key]) + "% / " + Math.round(weights[key]) + "%";
+      });
+    }
+
+    document.querySelectorAll("[data-kind='weight']").forEach((input) => {
+      input.addEventListener("input", (event) => {
+        rebalanceWeights(event.target.id.replace("Weight", ""));
+        updateAssessment();
+      });
+    });
+
+    document.querySelectorAll("[data-kind='mark']").forEach((input) => {
+      input.addEventListener("input", updateAssessment);
+    });
+
+    function renderBlocks(container, count, className, label) {
+      container.innerHTML = "";
+      for (let index = 0; index < count; index += 1) {
+        const block = document.createElement("div");
+        block.className = "block " + className;
+        block.textContent = label;
+        container.appendChild(block);
+      }
+    }
+
+    function setLevel(level) {
+      const selected = levelData[level];
+      document.querySelectorAll("[data-level]").forEach((button) => {
+        button.setAttribute("aria-pressed", button.dataset.level === String(level));
+      });
+      renderBlocks(document.getElementById("aiStack"), Math.max(1, selected.ai), "ai", selected.ai === 0 ? "No AI" : "AI Help");
+      renderBlocks(document.getElementById("evidenceStack"), selected.evidence, "", "Evidence");
+      document.getElementById("burdenMessage").textContent = selected.message;
+    }
+
+    document.querySelectorAll("[data-level]").forEach((button) => {
+      button.addEventListener("click", () => setLevel(Number(button.dataset.level)));
+    });
+
+    function currentScenario() {
+      return scenarios[scenarioIndex];
+    }
+
+    function setGateStep(step) {
+      gateStep = step;
+      renderGate();
+    }
+
+    function nextScenario() {
+      if (scenarioIndex < scenarios.length - 1) {
+        scenarioIndex += 1;
+        setGateStep("start");
+        return;
+      }
+      scenarioIndex = 0;
+      setGateStep("start");
+    }
+
+    function decide(result) {
+      setGateStep(result === currentScenario().correct ? "validated" : "notValidated");
+    }
+
+    function renderGate() {
+      const scenario = currentScenario();
+      document.getElementById("scenarioCounter").textContent = "Scenario " + (scenarioIndex + 1) + " of " + scenarios.length;
+      document.getElementById("scenarioSubject").textContent = scenario.subject + " (" + scenario.student + ")";
+
+      const activeMap = {
+        start: "start",
+        review: "review",
+        defence: "defence",
+        validated: "finish",
+        notValidated: "finish"
+      };
+
+      document.querySelectorAll("[data-step-label]").forEach((node) => {
+        node.classList.toggle("active", node.dataset.stepLabel === activeMap[gateStep]);
+      });
+
+      const content = document.getElementById("gateContent");
+      if (gateStep === "start") {
+        content.innerHTML = `
+          <div class="gate-card">
+            <h3>Assessment Submitted</h3>
+            <p class="lead">Prepare for the validity gate before treating the final product as secure evidence.</p>
+            <div class="evidence-box"><strong>Initial observation:</strong><br>${scenario.observation}</div>
+            <div class="actions"><button class="primary" onclick="setGateStep('review')"><span class="material-symbols-outlined">assignment</span> Begin Teacher Review</button></div>
+          </div>
+        `;
+      } else if (gateStep === "review") {
+        content.innerHTML = `
+          <div class="gate-card">
+            <h3>Teacher Review</h3>
+            <p class="lead">Look for evidence that explains how the student created the work, where AI was used, and what should be probed in the defence.</p>
+            <div class="evidence-box"><strong>Assignment:</strong> ${scenario.assignment}</div>
+            <div class="actions"><button class="secondary" onclick="setGateStep('defence')"><span class="material-symbols-outlined">forum</span> Conduct Defence</button></div>
+          </div>
+        `;
+      } else if (gateStep === "defence") {
+        content.innerHTML = `
+          <div class="gate-card">
+            <h3>Defence Transcript</h3>
+            <div class="evidence-box">${scenario.defence}</div>
+            <div class="actions">
+              <button class="secondary" onclick="decide('pass')"><span class="material-symbols-outlined">check_circle</span> Valid Defence</button>
+              <button class="danger" onclick="decide('fail')"><span class="material-symbols-outlined">cancel</span> Weak Defence</button>
+            </div>
+          </div>
+        `;
+      } else if (gateStep === "validated") {
+        content.innerHTML = `
+          <div class="gate-card">
+            <h3>Result Validated</h3>
+            <p class="lead">The defence supports the submitted product and process evidence. Apply the rubric normally.</p>
+            <div class="actions"><button class="primary" onclick="nextScenario()">Continue</button></div>
+          </div>
+        `;
+      } else {
+        content.innerHTML = `
+          <div class="gate-card">
+            <h3>Not Validated</h3>
+            <p class="lead">The student could not accurately defend ownership or understanding. Choose a follow-up action outside this prototype.</p>
+            <div class="actions"><button class="primary" onclick="nextScenario()">Continue</button></div>
+          </div>
+        `;
+      }
+    }
+
+    updateAssessment();
+    setLevel(0);
+    renderGate();
+  </script>
+</body>
+</html>

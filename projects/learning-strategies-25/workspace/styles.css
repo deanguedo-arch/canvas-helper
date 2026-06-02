@@ -913,6 +913,12 @@ body[data-section="home"][data-tab="chapters"][data-view="overview"] #course-sub
   opacity: 0.72;
 }
 
+.locked-card > :not(.status-chip) {
+  filter: blur(2px);
+  pointer-events: none;
+  user-select: none;
+}
+
 .library-shell {
   display: grid;
   gap: 20px;

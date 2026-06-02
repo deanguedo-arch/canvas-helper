@@ -53,4 +53,5 @@ test("experimental psychology uses the forensics35 course shell structure", asyn
   assert.match(source, /data-open-shell-content/);
   assert.match(source, /data-open-shell-quiz/);
   assert.match(source, /SCHOLARLY ACCESS/);
+  assert.match(source, /filter:\s*blur\(3px\)/);
 });

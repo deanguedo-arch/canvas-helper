@@ -181,6 +181,7 @@ test("forensics35 module reader uses a progressive sequence with locked-card blu
   assert.match(source, /forensic-sequence-card \.forensic-sequence-card-body :where\(img, video, object, embed, canvas, svg\)/);
   assert.match(source, /forensic-sequence-card \.forensic-sequence-card-body :where\(iframe\)/);
   assert.match(source, /forensic-sequence-card \.forensic-sequence-card-body :where\(table\)/);
+  assert.match(source, /filter:\s*blur\(3px\)/);
   assert.match(source, /Mark complete \+ next/);
 });
 

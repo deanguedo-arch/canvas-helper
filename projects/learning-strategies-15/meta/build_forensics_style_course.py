@@ -923,7 +923,7 @@ class LearningStrategiesShellBuilder:
   const updateType = "learning-strategies-15-module-progress-update";
   const syncType = "learning-strategies-15-module-progress-sync";
   const cards = Array.from(document.querySelectorAll("[data-module-component-id]"));
-  const reviewUnlockAll = true;
+  const reviewUnlockAll = false;
   let completion = {};
 
   function postReady() {

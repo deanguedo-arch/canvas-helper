@@ -4,11 +4,14 @@ import path from "node:path";
 import test from "node:test";
 
 const workspaceDir = path.resolve("projects", "forensicstudiesoption2", "workspace");
+const nextStepWorkspaceDir = path.resolve("projects", "forensicstudiesoption2-nextstep-test", "workspace");
 const indexPath = path.join(workspaceDir, "index.html");
 const mainPath = path.join(workspaceDir, "main.js");
 const pdfViewerPath = path.join(workspaceDir, "pdf-viewer.html");
 const stylesPath = path.join(workspaceDir, "styles.css");
+const nextStepStylesPath = path.join(nextStepWorkspaceDir, "styles.css");
 const moduleStylesPath = path.join(workspaceDir, "content", "module-index.css");
+const nextStepModuleStylesPath = path.join(nextStepWorkspaceDir, "content", "module-index.css");
 const assignmentsDir = path.join(workspaceDir, "assignments");
 const assignmentThemePath = path.join(assignmentsDir, "forensic-assignment-theme.css");
 const assignmentPrintHelperPath = path.join(assignmentsDir, "forensic-assignment-print.js");
@@ -19,6 +22,17 @@ const moduleTwoAssignmentPath = path.join(assignmentsDir, "module2assignment-app
 const moduleTwoBundlePath = path.join(assignmentsDir, "module2assignment.bundle.js");
 const moduleSevenAssignmentPath = path.join(assignmentsDir, "module7assignment-app.jsx");
 const moduleSevenBundlePath = path.join(assignmentsDir, "module7assignment.bundle.js");
+
+async function readAllNextStepChapterSources(): Promise<string> {
+  const contentDir = path.join(nextStepWorkspaceDir, "content");
+  const entries = await readdir(contentDir, { withFileTypes: true });
+  const chapterDirs = entries
+    .filter((entry) => entry.isDirectory() && /^chapter-\d+$/i.test(entry.name))
+    .map((entry) => entry.name)
+    .sort((a, b) => Number(a.replace("chapter-", "")) - Number(b.replace("chapter-", "")));
+  const sources = await Promise.all(chapterDirs.map((chapterDir) => readFile(path.join(contentDir, chapterDir, "index.html"), "utf8")));
+  return sources.join("\n");
+}
 
 test("forensic studies option2 shell loads the next-step theme fonts", async () => {
   const indexSource = await readFile(indexPath, "utf8");
@@ -99,7 +113,21 @@ test("forensic studies option2 generated chapter pages share the next-step theme
   assert.match(moduleStylesSource, /--text:\s*#1a1c1a/i);
   assert.match(moduleStylesSource, /font-family:\s*"Open Sans"/i);
   assert.match(moduleStylesSource, /font-family:\s*"Rubik"/i);
+  assert.match(moduleStylesSource, /\.lesson-card\.is-locked \.lesson-body,[\s\S]*?filter:\s*blur\(2px\);/i);
+  assert.match(moduleStylesSource, /\.lesson-card\[data-progress-state="locked"\] \.lesson-body,[\s\S]*?filter:\s*blur\(2px\);/i);
   assert.doesNotMatch(moduleStylesSource, /#0c1324|#191f31|#22d3ee|#8aebff|Space Grotesk|font-family:\s*"Inter"|family=Inter|backdrop-filter:\s*blur/i);
+});
+
+test("forensic studies next-step test shell blurs locked cards in the Studio root preview", async () => {
+  const [stylesSource, moduleStylesSource, chapterSource] = await Promise.all([
+    readFile(nextStepStylesPath, "utf8"),
+    readFile(nextStepModuleStylesPath, "utf8"),
+    readAllNextStepChapterSources()
+  ]);
+
+  assert.match(stylesSource, /\.locked-card > :not\(\.status-chip\)[\s\S]*?filter:\s*blur\(2px\);/i);
+  assert.match(chapterSource, /<link rel="stylesheet" href="\.\.\/module-index\.css" \/>/i);
+  assert.match(moduleStylesSource, /\.lesson-card\[data-progress-state="locked"\] \.lesson-body,[\s\S]*?filter:\s*blur\(2px\);/i);
 });
 
 test("forensic studies option2 pdf viewer follows the next-step shell palette", async () => {

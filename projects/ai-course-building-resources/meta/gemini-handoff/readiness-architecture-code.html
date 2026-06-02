@@ -1,0 +1,897 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Readiness Architecture Prototype</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #10130f;
+      --surface: #171b15;
+      --surface-2: #20261d;
+      --line: #3b4537;
+      --line-soft: rgba(219, 213, 190, 0.16);
+      --text: #eee9d6;
+      --muted: #c9c1a7;
+      --dim: #8f8878;
+      --green: #8bbf66;
+      --amber: #d89945;
+      --rust: #c76f43;
+      --bone: #f5f0dc;
+      --danger: #de846f;
+      --ok: #96c981;
+      font-family: "IBM Plex Sans", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        linear-gradient(var(--line-soft) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line-soft) 1px, transparent 1px),
+        var(--bg);
+      background-size: 36px 36px;
+    }
+
+    button {
+      min-height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--surface);
+      color: var(--text);
+      font: inherit;
+      cursor: pointer;
+    }
+
+    button:hover,
+    button:focus-visible {
+      border-color: var(--bone);
+      outline: none;
+    }
+
+    .page {
+      width: min(1180px, calc(100vw - 28px));
+      margin: 0 auto;
+      padding: 28px 0 56px;
+    }
+
+    .frame {
+      border: 1px solid var(--line);
+      background: rgba(23, 27, 21, 0.92);
+      margin-bottom: 18px;
+    }
+
+    .intro {
+      min-height: 420px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+    }
+
+    .intro-copy,
+    .intro-board {
+      padding: clamp(24px, 5vw, 56px);
+    }
+
+    .intro-board {
+      border-left: 1px solid var(--line);
+      display: grid;
+      align-content: center;
+      gap: 14px;
+      background: #13170f;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      max-width: 790px;
+      font-size: clamp(2.8rem, 7vw, 6.2rem);
+      line-height: 0.96;
+      letter-spacing: -0.06em;
+      font-weight: 700;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 3vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+      margin-bottom: 12px;
+    }
+
+    h3 {
+      font-size: 1.18rem;
+      letter-spacing: -0.015em;
+    }
+
+    .lead {
+      max-width: 820px;
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 1.7vw, 1.35rem);
+    }
+
+    .mono {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.82rem;
+      letter-spacing: 0.01em;
+      color: var(--muted);
+    }
+
+    .board-row {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 14px;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 14px;
+    }
+
+    .board-row:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .board-key {
+      font-family: "IBM Plex Mono", monospace;
+      color: var(--dim);
+      font-size: 0.78rem;
+    }
+
+    .section {
+      padding: clamp(22px, 4vw, 38px);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      background: var(--surface-2);
+      padding: 18px;
+    }
+
+    .card p {
+      margin-top: 10px;
+      color: var(--muted);
+    }
+
+    .lens-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .lens-item {
+      min-height: 170px;
+      border: 1px solid var(--line);
+      background: #141811;
+      padding: 14px;
+    }
+
+    .lens-item p {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .architecture-buttons {
+      display: grid;
+      gap: 10px;
+    }
+
+    .architecture-buttons button {
+      padding: 16px;
+      text-align: left;
+    }
+
+    .architecture-buttons button[aria-pressed="true"] {
+      border-color: var(--amber);
+      background: #2d261a;
+    }
+
+    .button-title {
+      display: block;
+      font-weight: 700;
+    }
+
+    .button-note {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .profile {
+      border: 1px solid var(--line);
+      background: #141811;
+    }
+
+    .profile-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      padding: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .profile-body {
+      padding: 18px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .meter {
+      display: grid;
+      grid-template-columns: 160px 1fr 42px;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .meter-label {
+      color: var(--muted);
+    }
+
+    .track {
+      height: 12px;
+      border: 1px solid var(--line);
+      background: #0d100c;
+    }
+
+    .fill {
+      height: 100%;
+      width: calc(var(--value) * 1%);
+      background: var(--color, var(--green));
+    }
+
+    .meter-value {
+      font-family: "IBM Plex Mono", monospace;
+      color: var(--bone);
+      text-align: right;
+      font-size: 0.82rem;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border: 1px solid var(--line);
+      margin-top: 20px;
+    }
+
+    .time-cell {
+      min-height: 116px;
+      padding: 14px;
+      border-right: 1px solid var(--line);
+      background: #13170f;
+    }
+
+    .time-cell:last-child {
+      border-right: 0;
+    }
+
+    .time-cell strong {
+      display: block;
+      margin-bottom: 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      color: var(--dim);
+    }
+
+    .time-load {
+      height: 34px;
+      width: calc(var(--load) * 1%);
+      min-width: 8px;
+      background: var(--amber);
+      margin-top: 14px;
+    }
+
+    .scenario-layout {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.82fr) minmax(0, 1.18fr);
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .scenario-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .scenario-list button {
+      text-align: left;
+      padding: 14px;
+    }
+
+    .scenario-list button[aria-pressed="true"] {
+      border-color: var(--green);
+      background: #202819;
+    }
+
+    .case-panel {
+      border: 1px solid var(--line);
+      background: #141811;
+      min-height: 360px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+    }
+
+    .case-top,
+    .case-body,
+    .case-actions {
+      padding: 18px;
+    }
+
+    .case-top {
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+    }
+
+    .case-body {
+      display: grid;
+      align-content: center;
+      gap: 16px;
+    }
+
+    .case-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      border-top: 1px solid var(--line);
+    }
+
+    .case-actions button {
+      padding: 0 14px;
+    }
+
+    .good {
+      border-color: var(--ok);
+      background: #1e2819;
+    }
+
+    .warn {
+      border-color: var(--amber);
+      background: #2b2418;
+    }
+
+    .bad {
+      border-color: var(--danger);
+      background: #2c1d19;
+    }
+
+    .decision {
+      border: 1px solid var(--line);
+      padding: 14px;
+      color: var(--muted);
+      background: #10130f;
+    }
+
+    .closing {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.7fr);
+      gap: 20px;
+      align-items: start;
+    }
+
+    .vote-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .vote-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      border: 1px solid var(--line);
+      padding: 12px;
+      color: var(--muted);
+      background: #141811;
+    }
+
+    @media (max-width: 860px) {
+      .intro,
+      .split,
+      .scenario-layout,
+      .closing {
+        grid-template-columns: 1fr;
+      }
+
+      .intro-board {
+        border-left: 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .cards,
+      .lens-grid,
+      .timeline {
+        grid-template-columns: 1fr;
+      }
+
+      .time-cell {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .time-cell:last-child {
+        border-bottom: 0;
+      }
+
+      .meter {
+        grid-template-columns: 1fr;
+      }
+
+      .meter-value {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="frame intro">
+      <div class="intro-copy">
+        <p class="mono">Pacing / Process / Readiness</p>
+        <h1>Architectures of Academic Gatekeeping</h1>
+        <p class="lead">High-stakes assessments need boundaries. The question is which boundary protects learning without exceeding teacher capacity.</p>
+      </div>
+      <aside class="intro-board" aria-label="Presentation premise">
+        <div class="board-row">
+          <span class="board-key">Problem</span>
+          <p>Unprepared students reach high-stakes work and experience predictable failure.</p>
+        </div>
+        <div class="board-row">
+          <span class="board-key">Tension</span>
+          <p>Automation protects time. Relationships build trust. Both create trade-offs.</p>
+        </div>
+        <div class="board-row">
+          <span class="board-key">Decision</span>
+          <p>Choose the gate architecture that fits the current course reality.</p>
+        </div>
+        <div class="board-row">
+          <span class="board-key">District</span>
+          <p>Student engagement is the lens: clarity, cognitive load, feedback, ownership, and emotional safety.</p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="frame section">
+      <h2>Three Ways To Control Readiness</h2>
+      <p class="lead">Each model solves a real instructional problem. Each model also creates friction somewhere else.</p>
+
+      <div class="cards">
+        <article class="card">
+          <p class="mono">Option 1</p>
+          <h3>Strict Funnel</h3>
+          <p>One automated LMS readiness check unlocks the summative only after a target score is reached.</p>
+        </article>
+        <article class="card">
+          <p class="mono">Option 2</p>
+          <h3>Multi-Macro Scaffold</h3>
+          <p>The unit is divided into smaller chunks. Automated gates unlock each next segment.</p>
+        </article>
+        <article class="card">
+          <p class="mono">Option 3</p>
+          <h3>Process Check-In</h3>
+          <p>Students submit process evidence and complete a teacher check-in before the final prompt opens.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="frame section">
+      <h2>Student Engagement Lens</h2>
+      <p class="lead">The gate is not only a pacing tool. It is an engagement architecture when it makes expectations clear, protects working memory, requires active thinking, builds ownership, and keeps teacher relationships visible.</p>
+
+      <div class="lens-grid">
+        <article class="lens-item">
+          <p class="mono">Teacher Clarity</p>
+          <h3>Make the gate visible</h3>
+          <p>Students know the readiness conditions, success criteria, and evidence expectations before high-stakes work begins.</p>
+        </article>
+        <article class="lens-item">
+          <p class="mono">Cognitive Load</p>
+          <h3>Sequence the work</h3>
+          <p>The unit is segmented so students do not carry every resource, skill, and deadline at once.</p>
+        </article>
+        <article class="lens-item">
+          <p class="mono">High-Leverage Feedback</p>
+          <h3>Require active thinking</h3>
+          <p>Students retrieve, explain, apply, and respond to timely feedback instead of passively submitting.</p>
+        </article>
+        <article class="lens-item">
+          <p class="mono">Ownership</p>
+          <h3>Track the process</h3>
+          <p>Students declare intent, monitor progress, and show evidence of how learning was built.</p>
+        </article>
+        <article class="lens-item">
+          <p class="mono">Emotional Engagement</p>
+          <h3>Protect trust</h3>
+          <p>The architecture supports safety, belonging, and confidence to take academic risks.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="frame section" id="explorer">
+      <div class="split">
+        <div>
+          <h2>Architecture Explorer</h2>
+          <p class="lead">Select a model. The readiness profile updates to show what the architecture protects, what it costs, and how it aligns to the district engagement focus.</p>
+          <div class="architecture-buttons" role="group" aria-label="Architecture selector">
+            <button type="button" data-model="strict" aria-pressed="true">
+              <span class="button-title">Strict Funnel</span>
+              <span class="button-note">One automated macro gate before the summative.</span>
+            </button>
+            <button type="button" data-model="multi" aria-pressed="false">
+              <span class="button-title">Multi-Macro Scaffold</span>
+              <span class="button-note">Multiple automated gates across the unit.</span>
+            </button>
+            <button type="button" data-model="process" aria-pressed="false">
+              <span class="button-title">Process Check-In</span>
+              <span class="button-note">Teacher-reviewed preparation before release.</span>
+            </button>
+          </div>
+        </div>
+
+        <article class="profile" aria-live="polite">
+          <div class="profile-header">
+            <div>
+              <p class="mono" id="modelType">Single Automated Gate</p>
+              <h3 id="modelName">Strict Funnel</h3>
+            </div>
+            <p class="mono" id="modelBestFor">Best for: efficiency</p>
+          </div>
+          <div class="profile-body">
+            <p id="modelSummary">Students complete learning materials and practice checks, then pass one LMS readiness check before the summative prompt unlocks.</p>
+            <div class="meter">
+              <span class="meter-label">Automation</span>
+              <div class="track"><div id="automationFill" class="fill" style="--value: 92; --color: var(--green);"></div></div>
+              <span id="automationValue" class="meter-value">92</span>
+            </div>
+            <div class="meter">
+              <span class="meter-label">Cognitive load protection</span>
+              <div class="track"><div id="cognitiveFill" class="fill" style="--value: 48; --color: var(--amber);"></div></div>
+              <span id="cognitiveValue" class="meter-value">48</span>
+            </div>
+            <div class="meter">
+              <span class="meter-label">Relational trust</span>
+              <div class="track"><div id="trustFill" class="fill" style="--value: 28; --color: var(--rust);"></div></div>
+              <span id="trustValue" class="meter-value">28</span>
+            </div>
+            <div class="meter">
+              <span class="meter-label">Upstream teacher time</span>
+              <div class="track"><div id="timeFill" class="fill" style="--value: 18; --color: var(--rust);"></div></div>
+              <span id="timeValue" class="meter-value">18</span>
+            </div>
+            <div class="meter">
+              <span class="meter-label">Student friction</span>
+              <div class="track"><div id="frictionFill" class="fill" style="--value: 54; --color: var(--amber);"></div></div>
+              <span id="frictionValue" class="meter-value">54</span>
+            </div>
+            <div class="meter">
+              <span class="meter-label">Engagement alignment</span>
+              <div class="track"><div id="engagementFill" class="fill" style="--value: 64; --color: var(--green);"></div></div>
+              <span id="engagementValue" class="meter-value">64</span>
+            </div>
+            <div id="modelEngagementAlignment" class="decision">Engagement lens: strongest for Teacher Clarity because every student sees the same readiness rule before release.</div>
+            <div id="modelRisk" class="decision">Risk: advanced students may feel slowed down by proving readiness through a diagnostic first.</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="frame section">
+      <h2>Where The Workload Moves</h2>
+      <p class="lead">The hidden design question is not only how students move. It is when the teacher pays the cost.</p>
+      <div class="timeline" aria-label="Teacher workload timeline">
+        <div class="time-cell">
+          <strong>Unit Start</strong>
+          <p id="phaseStart">Minimal teacher load. LMS and practice materials carry most pacing.</p>
+          <div id="loadStart" class="time-load" style="--load: 18;"></div>
+        </div>
+        <div class="time-cell">
+          <strong>Middle</strong>
+          <p id="phaseMiddle">Students self-monitor until the macro gate approaches.</p>
+          <div id="loadMiddle" class="time-load" style="--load: 24;"></div>
+        </div>
+        <div class="time-cell">
+          <strong>Gate</strong>
+          <p id="phaseGate">The LMS checks readiness through one diagnostic score.</p>
+          <div id="loadGate" class="time-load" style="--load: 32;"></div>
+        </div>
+        <div class="time-cell">
+          <strong>Summative</strong>
+          <p id="phaseSummative">Teacher time is protected from students who are not ready.</p>
+          <div id="loadSummative" class="time-load" style="--load: 46;"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="frame section" id="simulator">
+      <h2>Readiness Gate Simulator</h2>
+      <p class="lead">Test the selected architecture against a student case. The point is not to find a perfect gate. The point is to see where each gate bends or breaks.</p>
+
+      <div class="scenario-layout">
+        <div class="scenario-list" role="group" aria-label="Student case selector">
+          <button type="button" data-case="advanced" aria-pressed="true">
+            <span class="button-title">Riley: advanced student</span>
+            <span class="button-note">Already knows the material and wants direct access.</span>
+          </button>
+          <button type="button" data-case="vulnerable" aria-pressed="false">
+            <span class="button-title">Sam: vulnerable learner</span>
+            <span class="button-note">Gets overwhelmed when the unit stays too large.</span>
+          </button>
+          <button type="button" data-case="process" aria-pressed="false">
+            <span class="button-title">Jordan: prepared but quiet</span>
+            <span class="button-note">Has strong notes and needs a relational confidence check.</span>
+          </button>
+          <button type="button" data-case="unprepared" aria-pressed="false">
+            <span class="button-title">Avery: unprepared student</span>
+            <span class="button-note">Wants the summative unlocked but has weak preparation evidence.</span>
+          </button>
+        </div>
+
+        <article class="case-panel" aria-live="polite">
+          <div class="case-top">
+            <span id="caseName">Riley</span>
+            <span id="caseNeed">Needs: flexibility</span>
+          </div>
+          <div class="case-body">
+            <h3 id="caseTitle">Advanced student meets the gate</h3>
+            <p id="caseDescription">Riley already understands the issue and can discuss it well, but the LMS still requires the diagnostic before the final prompt opens.</p>
+            <div id="caseDecision" class="decision">Under Strict Funnel, Riley is protected by the same rule as everyone else, but the gate may feel like unnecessary delay.</div>
+          </div>
+          <div class="case-actions">
+            <button type="button" class="good" data-action="release">Release</button>
+            <button type="button" class="warn" data-action="scaffold">Scaffold</button>
+            <button type="button" class="warn" data-action="conference">Conference</button>
+            <button type="button" class="bad" data-action="delay">Delay</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="frame section">
+      <div class="closing">
+        <div>
+          <h2>Capacity And Engagement Question</h2>
+          <p class="lead">Automation paces the student. Relationships build the student. The pilot has to match the capacity that actually exists and the district's student engagement focus.</p>
+        </div>
+        <div class="vote-list">
+          <div class="vote-row"><span>Protect downstream teacher time</span><strong>Strict Funnel</strong></div>
+          <div class="vote-row"><span>Manage cognitive load tightly</span><strong>Multi-Macro</strong></div>
+          <div class="vote-row"><span>Build relational trust early</span><strong>Process Check-In</strong></div>
+          <div class="vote-row"><span>District engagement lens</span><strong>Which improves clarity, feedback, ownership, and belonging?</strong></div>
+          <div class="vote-row"><span>Final discussion prompt</span><strong>Which can we sustain?</strong></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const models = {
+      strict: {
+        type: "Single Automated Gate",
+        name: "Strict Funnel",
+        bestFor: "Best for: efficiency",
+        summary: "Students complete learning materials and practice checks, then pass one LMS readiness check before the summative prompt unlocks.",
+        automation: 92,
+        cognitive: 48,
+        trust: 28,
+        time: 18,
+        friction: 54,
+        engagement: 64,
+        engagementText: "Engagement lens: strongest for Teacher Clarity because every student sees the same readiness rule before release.",
+        risk: "Risk: advanced students may feel slowed down by proving readiness through a diagnostic first.",
+        phases: {
+          start: ["Minimal teacher load. LMS and practice materials carry most pacing.", 18],
+          middle: ["Students self-monitor until the macro gate approaches.", 24],
+          gate: ["The LMS checks readiness through one diagnostic score.", 32],
+          summative: ["Teacher time is protected from students who are not ready.", 46]
+        }
+      },
+      multi: {
+        type: "Multiple Automated Gates",
+        name: "Multi-Macro Scaffold",
+        bestFor: "Best for: vulnerable learners",
+        summary: "The issue is divided into smaller segments. Students pass Macro A, then Macro B, before the final prompt opens.",
+        automation: 84,
+        cognitive: 88,
+        trust: 34,
+        time: 30,
+        friction: 76,
+        engagement: 78,
+        engagementText: "Engagement lens: strongest for Cognitive Load Management because the course is segmented into smaller, more manageable success points.",
+        risk: "Risk: students can experience the course as a sequence of roadblocks rather than a coherent learning arc.",
+        phases: {
+          start: ["Teacher designs smaller checkpoints and clearer segment boundaries.", 34],
+          middle: ["Automated gates keep students from carrying too much at once.", 42],
+          gate: ["Multiple LMS checks create repeated release decisions.", 58],
+          summative: ["Students arrive with staged success, but some may feel over-controlled.", 36]
+        }
+      },
+      process: {
+        type: "Relational Gate",
+        name: "Process Check-In",
+        bestFor: "Best for: trust and preparation evidence",
+        summary: "Students build notes, outlines, research, and a Declaration and Intent. The teacher reviews process evidence before releasing the final prompt.",
+        automation: 26,
+        cognitive: 74,
+        trust: 94,
+        time: 88,
+        friction: 42,
+        engagement: 91,
+        engagementText: "Engagement lens: strongest for Emotional Engagement, Metacognition and Ownership, and High-Leverage Feedback because readiness is validated through process evidence and teacher conversation.",
+        risk: "Risk: the teacher pays the cost early through process review, check-ins, and readiness conversations.",
+        phases: {
+          start: ["Teacher workload moves upstream through portfolio expectations and early conferences.", 78],
+          middle: ["Preparation evidence is reviewed while students are still shaping the work.", 88],
+          gate: ["Readiness depends on human judgment, not only a score.", 82],
+          summative: ["Students reach the prompt with stronger relationship and clearer ownership.", 54]
+        }
+      }
+    };
+
+    const cases = {
+      advanced: {
+        name: "Riley",
+        need: "Needs: flexibility",
+        title: "Advanced student meets the gate",
+        description: "Riley already understands the issue and can discuss it well, but the LMS still requires the diagnostic before the final prompt opens.",
+        responses: {
+          strict: "Under Strict Funnel, Riley is protected by the same rule as everyone else, but the gate may feel like unnecessary delay.",
+          multi: "Under Multi-Macro, Riley may experience repeated gates as bureaucracy unless extension paths exist.",
+          process: "Under Process Check-In, Riley can quickly prove readiness through process evidence and conversation."
+        },
+        best: "release"
+      },
+      vulnerable: {
+        name: "Sam",
+        need: "Needs: smaller chunks",
+        title: "Vulnerable learner faces a large unit",
+        description: "Sam starts the unit but loses track when all resources and the final prompt are visible at once.",
+        responses: {
+          strict: "Under Strict Funnel, Sam may not fail until late in the unit, when recovery time is limited.",
+          multi: "Under Multi-Macro, Sam gets smaller release points and more frequent success signals.",
+          process: "Under Process Check-In, Sam may benefit, but only if the teacher has time for early support."
+        },
+        best: "scaffold"
+      },
+      process: {
+        name: "Jordan",
+        need: "Needs: confidence and sign-off",
+        title: "Prepared student with strong process evidence",
+        description: "Jordan has notes, outlines, and source work but is hesitant about starting the summative assessment.",
+        responses: {
+          strict: "Under Strict Funnel, Jordan's process evidence may be invisible if the diagnostic is the only gate.",
+          multi: "Under Multi-Macro, Jordan gets structure but not necessarily relational confidence.",
+          process: "Under Process Check-In, Jordan's preparation becomes visible and the teacher can release with confidence."
+        },
+        best: "conference"
+      },
+      unprepared: {
+        name: "Avery",
+        need: "Needs: boundary",
+        title: "Unprepared student asks for release",
+        description: "Avery wants the final prompt unlocked but has weak notes, missing practice attempts, and shallow explanation.",
+        responses: {
+          strict: "Under Strict Funnel, Avery must prove baseline readiness before the summative opens.",
+          multi: "Under Multi-Macro, Avery is likely stopped earlier and redirected before the final task.",
+          process: "Under Process Check-In, Avery's lack of process evidence is visible before release."
+        },
+        best: "delay"
+      }
+    };
+
+    let selectedModel = "strict";
+    let selectedCase = "advanced";
+
+    function setMeter(key, value) {
+      document.getElementById(key + "Fill").style.setProperty("--value", value);
+      document.getElementById(key + "Value").textContent = value;
+    }
+
+    function setTimelineCell(phase, data) {
+      const labelMap = {
+        start: "phaseStart",
+        middle: "phaseMiddle",
+        gate: "phaseGate",
+        summative: "phaseSummative"
+      };
+      const loadMap = {
+        start: "loadStart",
+        middle: "loadMiddle",
+        gate: "loadGate",
+        summative: "loadSummative"
+      };
+      document.getElementById(labelMap[phase]).textContent = data[0];
+      document.getElementById(loadMap[phase]).style.setProperty("--load", data[1]);
+    }
+
+    function renderModel() {
+      const model = models[selectedModel];
+      document.getElementById("modelType").textContent = model.type;
+      document.getElementById("modelName").textContent = model.name;
+      document.getElementById("modelBestFor").textContent = model.bestFor;
+      document.getElementById("modelSummary").textContent = model.summary;
+      document.getElementById("modelRisk").textContent = model.risk;
+      document.getElementById("modelEngagementAlignment").textContent = model.engagementText;
+      setMeter("automation", model.automation);
+      setMeter("cognitive", model.cognitive);
+      setMeter("trust", model.trust);
+      setMeter("time", model.time);
+      setMeter("friction", model.friction);
+      setMeter("engagement", model.engagement);
+      Object.keys(model.phases).forEach((phase) => setTimelineCell(phase, model.phases[phase]));
+      document.querySelectorAll("[data-model]").forEach((button) => {
+        button.setAttribute("aria-pressed", String(button.dataset.model === selectedModel));
+      });
+      renderCase();
+    }
+
+    function renderCase() {
+      const student = cases[selectedCase];
+      document.getElementById("caseName").textContent = student.name;
+      document.getElementById("caseNeed").textContent = student.need;
+      document.getElementById("caseTitle").textContent = student.title;
+      document.getElementById("caseDescription").textContent = student.description;
+      document.getElementById("caseDecision").textContent = student.responses[selectedModel];
+      document.querySelectorAll("[data-case]").forEach((button) => {
+        button.setAttribute("aria-pressed", String(button.dataset.case === selectedCase));
+      });
+    }
+
+    function judgeAction(action) {
+      const student = cases[selectedCase];
+      const model = models[selectedModel];
+      const result = action === student.best
+        ? "Strong fit: " + model.name + " can support this learner if the release decision is handled as selected."
+        : "Watch the mismatch: this action may solve one problem while creating another for " + student.name + ".";
+      document.getElementById("caseDecision").textContent = result;
+    }
+
+    document.querySelectorAll("[data-model]").forEach((button) => {
+      button.addEventListener("click", () => {
+        selectedModel = button.dataset.model;
+        renderModel();
+      });
+    });
+
+    document.querySelectorAll("[data-case]").forEach((button) => {
+      button.addEventListener("click", () => {
+        selectedCase = button.dataset.case;
+        renderCase();
+      });
+    });
+
+    document.querySelectorAll("[data-action]").forEach((button) => {
+      button.addEventListener("click", () => judgeAction(button.dataset.action));
+    });
+
+    renderModel();
+  </script>
+</body>
+</html>

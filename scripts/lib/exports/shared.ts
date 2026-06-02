@@ -66,6 +66,14 @@ function stripQueryAndHash(value: string) {
   return value.split(/[?#]/, 1)[0];
 }
 
+function decodeResourcePath(value: string) {
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return value;
+  }
+}
+
 function normalizePath(value: string) {
   return path.resolve(value).toLowerCase();
 }
@@ -90,7 +98,7 @@ async function isWorkspaceFile(workspaceDir: string, targetPath: string) {
 }
 
 function resolveWorkspaceResourcePath(resourceRef: string, baseDir: string, workspaceDir: string) {
-  const sanitized = stripQueryAndHash(resourceRef.trim().replace(/\\/g, "/"));
+  const sanitized = decodeResourcePath(stripQueryAndHash(resourceRef.trim().replace(/\\/g, "/")));
   if (!sanitized) {
     return null;
   }
@@ -232,7 +240,18 @@ async function processJavaScriptSource(
       }
     );
 
-    nextScript = await replaceAsync(nextScript, /(['"])((?:\.{1,2}\/|\/)[^'"\r\n]+?)\1/g, async (match) => {
+    nextScript = await replaceAsync(nextScript, /\\(['"])((?:\.{1,2}\/|\/)[^'"\\\r\n]+?)\\\1/g, async (match) => {
+      const quote = match[1] ?? '"';
+      const assetExpression = await resolveEmbeddedAssetExpression(match[2] ?? "", scriptDir, workspaceDir, context, documentAssets);
+      if (!assetExpression) {
+        return match[0];
+      }
+
+      context.inlinedAssetCount += 1;
+      return `\\${quote}${quote} + ${assetExpression} + ${quote}\\${quote}`;
+    });
+
+    nextScript = await replaceAsync(nextScript, /(?<!\\)(['"])((?:\.{1,2}\/|\/)[^'"\r\n]+?)(?<!\\)\1/g, async (match) => {
       const assetExpression = await resolveEmbeddedAssetExpression(match[2] ?? "", scriptDir, workspaceDir, context, documentAssets);
       if (!assetExpression) {
         return match[0];
@@ -245,7 +264,7 @@ async function processJavaScriptSource(
     return nextScript;
   }
 
-  return replaceAsync(scriptContent, /(['"`])((?:\.{1,2}\/|\/)[^'"`\r\n]+?)\1/g, async (match) => {
+  return replaceAsync(scriptContent, /(?<!\\)(['"`])((?:\.{1,2}\/|\/)[^'"`\r\n]+?)(?<!\\)\1/g, async (match) => {
     const quote = match[1] ?? "'";
     const rawValue = match[2] ?? "";
     const inlinedValue = await inlineLocalResource(rawValue, scriptDir, workspaceDir, context);

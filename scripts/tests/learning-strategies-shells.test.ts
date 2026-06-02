@@ -62,22 +62,28 @@ for (const course of courses) {
     const auditPath = path.resolve(projectDir, "meta", "source-zip-audit.json");
     const indexPath = path.resolve(projectDir, "workspace", "index.html");
     const mainPath = path.resolve(projectDir, "workspace", "main.js");
+    const stylesPath = path.resolve(projectDir, "workspace", "styles.css");
     const dataPath = path.resolve(projectDir, "workspace", "course-data.js");
     const moduleCssPath = path.resolve(projectDir, "workspace", "content", "module-index.css");
+    const buildScriptPath = path.resolve(projectDir, "meta", "build_forensics_style_course.py");
 
     await access(projectJsonPath);
     await access(auditPath);
     await access(indexPath);
     await access(mainPath);
+    await access(stylesPath);
     await access(dataPath);
     await access(moduleCssPath);
+    await access(buildScriptPath);
 
-    const [projectJsonSource, indexSource, mainSource, dataSource, moduleCssSource, chapterSource] = await Promise.all([
+    const [projectJsonSource, indexSource, mainSource, stylesSource, dataSource, moduleCssSource, buildScriptSource, chapterSource] = await Promise.all([
       readFile(projectJsonPath, "utf8"),
       readFile(indexPath, "utf8"),
       readFile(mainPath, "utf8"),
+      readFile(stylesPath, "utf8"),
       readFile(dataPath, "utf8"),
       readFile(moduleCssPath, "utf8"),
+      readFile(buildScriptPath, "utf8"),
       readAllChapterSources(projectDir, course.expectedChapters)
     ]);
     const manifest = JSON.parse(projectJsonSource) as { slug: string; migrationState: string; projectType: string };
@@ -104,9 +110,11 @@ for (const course of courses) {
     assert.doesNotMatch(indexSource, /Brightspace|conversion|converted|source unit|original course package/i);
     assert.match(mainSource, new RegExp(`${course.slug}\\.progress`));
     assert.match(mainSource, new RegExp(`${course.slug}-module-progress-ready`));
-    assert.match(chapterSource, /class="sequence-kind">Reading<\/span>/);
+    assert.match(stylesSource, /\.locked-card > :not\(\.status-chip\)[\s\S]*?filter:\s*blur\(2px\);/i);
+    assert.match(chapterSource, /<link rel="stylesheet" href="\.\.\/module-index\.css" \/>/i);
+    assert.match(chapterSource, /class="sequence-kind"[^>]*>Reading<\/span>/);
     assert.match(chapterSource, /Mark Complete/);
-    assert.match(chapterSource, /const reviewUnlockAll = true/);
+    assert.match(chapterSource, /const reviewUnlockAll = false/);
     assert.match(chapterSource, /Mark complete when you finish reviewing this card\./);
     assert.match(chapterSource, /button\.disabled = !cardUnlocked \|\| complete/);
     assert.match(chapterSource, /if \(!complete && !reviewUnlockAll\) unlocked = false/);
@@ -116,6 +124,7 @@ for (const course of courses) {
     assert.doesNotMatch(chapterSource, />\s*Next Steps\s*</i);
     assert.doesNotMatch(chapterSource, /class="sequence-title"|class="sequence-note"/);
     assert.match(moduleCssSource, /filter:\s*blur\(2px\)/);
+    assert.match(buildScriptSource, /filter:\s*blur\(2px\)/);
     assert.match(moduleCssSource, /\.lesson-body a:not\(:has\(img\)\)/);
 
     const expectedAssetZipPattern =
