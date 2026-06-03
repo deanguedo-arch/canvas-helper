@@ -29,6 +29,8 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 WORD_SAFE_IMAGE_WIDTH_PX = 620
 WORD_SAFE_VIDEO_HEIGHT_PX = 349
 WORD_SAFE_IMAGE_WIDTH_EMU = round(6.45 * 914400)
+RELATIONSHIP_NS = "http://schemas.openxmlformats.org/package/2006/relationships"
+IMAGE_RELATIONSHIP_TYPE = "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image"
 
 NOISE_TEXT = {
     "image source",
@@ -146,6 +148,147 @@ def docx_css_for_profile(profile: str) -> str:
         return DOCX_STYLE_PROFILES[profile]()
     except KeyError as exc:
         raise ValueError(f"Unknown DOCX style profile: {profile}") from exc
+
+
+def docx_external_image_relationships(docx_path: Path) -> list[dict[str, str]]:
+    external: list[dict[str, str]] = []
+    relationship_tag = f"{{{RELATIONSHIP_NS}}}Relationship"
+    with zipfile.ZipFile(docx_path, "r") as docx:
+        for entry in docx.namelist():
+            if not entry.endswith(".rels"):
+                continue
+            try:
+                rels = ET.fromstring(docx.read(entry))
+            except ET.ParseError:
+                continue
+            for relationship in rels.findall(relationship_tag):
+                if relationship.get("Type") != IMAGE_RELATIONSHIP_TYPE:
+                    continue
+                if relationship.get("TargetMode") != "External":
+                    continue
+                external.append(
+                    {
+                        "relationshipPart": entry,
+                        "relationshipId": relationship.get("Id") or "",
+                        "target": relationship.get("Target") or "",
+                    }
+                )
+    return external
+
+
+def image_extension_from_target(target: str, content_type: str = "") -> str:
+    content_type = content_type.casefold()
+    if "png" in content_type:
+        return ".png"
+    if "gif" in content_type:
+        return ".gif"
+    if "webp" in content_type:
+        return ".webp"
+    if "jpeg" in content_type or "jpg" in content_type:
+        return ".jpg"
+    suffix = Path(unquote(urlparse(target).path)).suffix.casefold()
+    if suffix in {".png", ".gif", ".webp", ".jpg", ".jpeg", ".bmp", ".tif", ".tiff"}:
+        return suffix
+    return ".png"
+
+
+def read_external_image_bytes(target: str) -> tuple[bytes, str]:
+    parsed = urlparse(target)
+    if parsed.scheme == "file":
+        path_text = unquote(parsed.path)
+        if re.match(r"^/[A-Za-z]:/", path_text):
+            path_text = path_text[1:]
+        data = Path(path_text).read_bytes()
+        return data, image_extension_from_target(target)
+    if parsed.scheme in {"http", "https"}:
+        request = Request(target, headers={"User-Agent": "Mozilla/5.0"})
+        with urlopen(request, timeout=20) as response:
+            data = response.read(16 * 1024 * 1024)
+            content_type = response.headers.get("content-type") or ""
+        if "image" not in content_type.casefold():
+            raise ValueError(f"External target is not an image: {target}")
+        return data, image_extension_from_target(target, content_type)
+    raise ValueError(f"Unsupported external image target: {target}")
+
+
+def missing_external_image_placeholder(target: str) -> tuple[bytes, str]:
+    image = Image.new("RGB", (WORD_SAFE_IMAGE_WIDTH_PX, 160), "#fff7ed")
+    draw = ImageDraw.Draw(image)
+    font = ImageFont.load_default()
+    draw.rectangle((0, 0, WORD_SAFE_IMAGE_WIDTH_PX - 1, 159), outline="#9a3412", width=2)
+    draw.text((18, 18), "External image unavailable during DOCX conversion", fill="#7c2d12", font=font)
+    draw.text((18, 48), normalize_text(target)[:120], fill="#431407", font=font)
+    out = BytesIO()
+    image.save(out, format="PNG", dpi=(144, 144))
+    return out.getvalue(), ".png"
+
+
+def relationship_base_path(relationship_part: str) -> str:
+    if "/_rels/" not in relationship_part:
+        return ""
+    prefix, rest = relationship_part.split("/_rels/", 1)
+    source_name = rest.removesuffix(".rels")
+    return f"{prefix}/{source_name}".rsplit("/", 1)[0]
+
+
+def embed_external_image_relationships(docx_path: Path) -> list[dict[str, str]]:
+    relationship_tag = f"{{{RELATIONSHIP_NS}}}Relationship"
+    temp_path = docx_path.with_name(docx_path.stem + ".embed.tmp.docx")
+    embedded: list[dict[str, str]] = []
+    ET.register_namespace("", RELATIONSHIP_NS)
+
+    with zipfile.ZipFile(docx_path, "r") as source_zip, zipfile.ZipFile(temp_path, "w", zipfile.ZIP_DEFLATED) as target_zip:
+        existing_entries = set(source_zip.namelist())
+        media_to_write: list[tuple[str, bytes]] = []
+        for info in source_zip.infolist():
+            data = source_zip.read(info.filename)
+            if info.filename.endswith(".rels"):
+                try:
+                    rels = ET.fromstring(data)
+                except ET.ParseError:
+                    target_zip.writestr(info, data)
+                    continue
+                changed = False
+                for relationship in rels.findall(relationship_tag):
+                    if relationship.get("Type") != IMAGE_RELATIONSHIP_TYPE or relationship.get("TargetMode") != "External":
+                        continue
+                    relationship_id = relationship.get("Id") or "image"
+                    original_target = relationship.get("Target") or ""
+                    try:
+                        image_bytes, extension = read_external_image_bytes(original_target)
+                        fallback = False
+                    except Exception:
+                        image_bytes, extension = missing_external_image_placeholder(original_target)
+                        fallback = True
+                    media_name = f"word/media/embedded-external-{safe_name(relationship_id, 30)}{extension}"
+                    counter = 2
+                    while media_name in existing_entries:
+                        media_name = f"word/media/embedded-external-{safe_name(relationship_id, 30)}-{counter}{extension}"
+                        counter += 1
+                    existing_entries.add(media_name)
+                    media_to_write.append((media_name, image_bytes))
+                    base_path = relationship_base_path(info.filename)
+                    internal_target = posixpath.relpath(media_name, base_path) if base_path else media_name
+                    relationship.set("Target", internal_target)
+                    relationship.attrib.pop("TargetMode", None)
+                    embedded.append(
+                        {
+                            "docxPath": str(docx_path),
+                            "relationshipPart": info.filename,
+                            "relationshipId": relationship_id,
+                            "originalTarget": original_target,
+                            "embeddedTarget": media_name,
+                            "fallbackPlaceholder": str(fallback).lower(),
+                        }
+                    )
+                    changed = True
+                if changed:
+                    data = ET.tostring(rels, encoding="utf-8", xml_declaration=True)
+            target_zip.writestr(info, data)
+        for media_name, image_bytes in media_to_write:
+            target_zip.writestr(media_name, image_bytes)
+    temp_path.replace(docx_path)
+    return embedded
 
 
 @dataclass(frozen=True)
@@ -267,6 +410,14 @@ COURSES: dict[str, CourseConfig] = {
         source_zip_env="MENTAL_HEALTH_WELLNESS_SOURCE_ZIP",
         skip_title_patterns=("teacher", "keep hidden", "old", "assignment submission"),
         unwrap_title_patterns=("units of study",),
+    ),
+    "forensic-studies25": CourseConfig(
+        key="forensic-studies25",
+        project_slug="forensic-studies-25-docx-export",
+        course_title="Forensic Studies 25",
+        source_zip_name="D2LExport_148856_24-25 _ Forensic Studies 25 _ Per 1(A-B) _ Sec S3_20266328.zip",
+        source_zip_env="FORENSIC_STUDIES25_SOURCE_ZIP",
+        skip_title_patterns=("teacher", "keep hidden", "old"),
     ),
     "math7": CourseConfig(
         key="math7",
@@ -566,6 +717,8 @@ class BrightspaceCourseDocxExporter:
             "imagesCopied": [],
             "imagesConstrained": [],
             "docxImageExtentsClamped": [],
+            "docxExternalImagesEmbedded": [],
+            "docxExternalImagesRemaining": [],
             "mediaReferences": [],
             "cssFilesInlined": [],
             "localHtmlLinks": [],
@@ -1186,6 +1339,14 @@ try {{
         )
         for _, docx_path in html_jobs:
             self.clamp_docx_image_extents(docx_path)
+            embedded = embed_external_image_relationships(docx_path)
+            for entry in embedded:
+                entry["docxPath"] = rel_posix(docx_path, self.upload_root)
+            self.audit["docxExternalImagesEmbedded"].extend(embedded)
+            remaining = docx_external_image_relationships(docx_path)
+            for entry in remaining:
+                entry["docxPath"] = rel_posix(docx_path, self.upload_root)
+            self.audit["docxExternalImagesRemaining"].extend(remaining)
 
     def clamp_docx_image_extents(self, docx_path: Path) -> None:
         if not docx_path.exists():

@@ -1,14 +1,14 @@
 STAX Sidecar rejected or held this task because proof is incomplete.
 
 Do exactly one cleanup pass:
-Approved proof surface for course_deploy_ready: For course deploys, prove the source workspace changed, regenerate the export, collect the deploy command through STAX, verify the live target, and capture rendered visual proof. Capture or register the visual artifact from the STAX checkout/tooling repo with either npm run stax:collect-visual -- --repo /Users/deanguedo/Documents/GitHub/canvas-helper --url <local-preview-url> --description "<page/state verified>" --checklist "<target page/state>" --checklist "<responsive/viewport checked>" --checklist "<visible outcome>" or npm run stax:collect-visual -- --repo /Users/deanguedo/Documents/GitHub/canvas-helper --path <screenshot.png> --description "<page/state verified>" --checklist "<target page/state>" --checklist "<responsive/viewport checked>" --checklist "<visible outcome>", then rerun stax:gate.
+Approved proof surface for build_ready: Run npm run assessment-map through stax:collect in the target repo. Suggested command: npm run build:studio.
 
 Address these proof gaps:
-- Codex report contract is malformed because missing sections: Files changed, Commands run, What is verified, What is unverified, Risks.
-- Command evidence classifier: stale_proof for bash -lc test -s docs/ops/stax-course-*-proof-gate.md && rg -q "Retire Poisoned Command Evidence" docs/ops/stax-course-*-proof-gate.md && rg -q "stax-course-.*proof-gate" docs/ops/README.md.
+- Command evidence classifier: stale_proof for node C:\Users\DEAN~1.GUE\AppData\Local\Temp\stax-ai-course-live-verify.js.
 - Claim-to-proof: implementation claim is unsupported because behavior_test, source_diff, command_evidence_after_diff.
-- Visual/style claim lacks STAX-collected rendered visual proof.
-- Command evidence provenance is not verified for bash -lc test -s docs/ops/stax-course-*-proof-gate.md && rg -q "Retire Poisoned Command Evidence" docs/ops/stax-course-*-proof-gate.md && rg -q "stax-course-.*proof-gate" docs/ops/README.md: wrong_commit.
+- Command evidence provenance is not verified for node C:\Users\DEAN~1.GUE\AppData\Local\Temp\stax-ai-course-live-verify.js: wrong_commit.
+- Command evidence freshness failed for node C:\Users\DEAN~1.GUE\AppData\Local\Temp\stax-ai-course-live-verify.js: wrong_commit.
+- Command evidence provenance is not verified for node -e const crypto=require('crypto'); (async()=>{ const checks=[['root','https://digitalpresentation.web.app/'],['resource','https://digitalpresentation.web.app/resources/dean-ai-assessment-pillars.html']]; for (const [label,url] of checks){ const res=await fetch(url); const text=await res.text(); console.log(label,'status='+res.status,'bytes='+text.length); if(!res.ok) throw new Error(label+' not ok'); } const videoUrl='https://digitalpresentation.web.app/resources/media/inspire-the-work.mp4'; const video=await fetch(videoUrl); const bytes=Buffer.from(await video.arrayBuffer()); const hash=crypto.createHash('sha256').update(bytes).digest('hex'); console.log('video','status='+video.status,'bytes='+bytes.length,'sha256='+hash); if(!video.ok) throw new Error('video not ok'); if(bytes.length!==26836430) throw new Error('video byte mismatch'); if(hash!=='8f9f33a1b968162cb7d432df29267371d8c0b7f2e332074b0b6ec11566b33964') throw new Error('video hash mismatch'); })().catch((error)=>{ console.error(error.stack||error); process.exit(1); });: wrong_commit.
 
 Do not broaden scope. Do not claim tests passed without local command evidence. Update .stax/codex-report.md, then stop.
-Risk to avoid: Malformed Codex report risk: fake-complete language can outrun the proof stack when files, commands, and residual unknowns are omitted.
+Risk to avoid: Command evidence risk: wrong commit: expected 64e10e6f124e8a83038ff5332d4737ffe5fa69c5, got a2b910320f2cd6ceae89db5551233628b2ff090f.

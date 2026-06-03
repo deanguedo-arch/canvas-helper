@@ -2,7 +2,9 @@ from __future__ import annotations
 
 import importlib.util
 import sys
+import tempfile
 import unittest
+import zipfile
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
@@ -89,6 +91,67 @@ class BrightspaceDocxStyleProfileTests(unittest.TestCase):
         modules = exporter.top_modules()
 
         self.assertEqual([builder.item_title(item) for item in modules], ["Biology", "Chemistry"])
+
+    def test_docx_external_image_relationships_are_detected(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            docx_path = Path(temp_dir) / "linked-image.docx"
+            with zipfile.ZipFile(docx_path, "w", zipfile.ZIP_DEFLATED) as docx:
+                docx.writestr(
+                    "word/_rels/document.xml.rels",
+                    """<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                    <Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+                      <Relationship Id="rId1"
+                        Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image"
+                        Target="file:///C:/temp/assets/image.png"
+                        TargetMode="External"/>
+                    </Relationships>""",
+                )
+
+            relationships = builder.docx_external_image_relationships(docx_path)
+
+            self.assertEqual(
+                relationships,
+                [
+                    {
+                        "relationshipPart": "word/_rels/document.xml.rels",
+                        "relationshipId": "rId1",
+                        "target": "file:///C:/temp/assets/image.png",
+                    }
+                ],
+            )
+
+    def test_docx_external_image_relationships_are_embedded(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            temp_path = Path(temp_dir)
+            image_path = temp_path / "image.png"
+            image_path.write_bytes(
+                b"\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR"
+                b"\x00\x00\x00\x01\x00\x00\x00\x01\x08\x02\x00\x00\x00"
+                b"\x90wS\xde\x00\x00\x00\x0cIDATx\x9cc\xf8\xff\xff?\x00\x05\xfe\x02\xfeA\xe2%\xb5"
+                b"\x00\x00\x00\x00IEND\xaeB`\x82"
+            )
+            docx_path = temp_path / "linked-image.docx"
+            with zipfile.ZipFile(docx_path, "w", zipfile.ZIP_DEFLATED) as docx:
+                docx.writestr(
+                    "word/_rels/document.xml.rels",
+                    f"""<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                    <Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+                      <Relationship Id="rId1"
+                        Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image"
+                        Target="{image_path.as_uri()}"
+                        TargetMode="External"/>
+                    </Relationships>""",
+                )
+
+            embedded = builder.embed_external_image_relationships(docx_path)
+
+            self.assertEqual(len(embedded), 1)
+            self.assertEqual(builder.docx_external_image_relationships(docx_path), [])
+            with zipfile.ZipFile(docx_path) as docx:
+                self.assertIn("word/media/embedded-external-rId1.png", docx.namelist())
+                rels = docx.read("word/_rels/document.xml.rels").decode("utf-8")
+            self.assertIn('Target="media/embedded-external-rId1.png"', rels)
+            self.assertNotIn("TargetMode", rels)
 
 
 if __name__ == "__main__":

@@ -1,58 +1,67 @@
 # Handoff
 
-- Project: `ai-course-building-resources`
-- Task: Add Gatekeeping Architecture as the third digital presentation option and preview it locally.
-- Status: `Gatekeeping is wired as third option locally; not exported or deployed`
+- Project: `forensic-studies-25-docx-export`
+- Task: Fix linked-image failures in the Forensic Studies 25 DOCX conversion.
+- Status: `Fixed package generated; canonical Genetics original remains locked by Word`
 
 ## Summary
-Gatekeeping Architecture is now a third option in the local digital presentation hub after `Assessment Pillars` and `AI Resources`. The hub supports direct preview with `?resource=gatekeeping`, and the direct page resource switchers now use the same order: Assessment Pillars, AI Resources, Gatekeeping Architecture.
+The linked-image placeholders came from external image relationships that Word preserved in the DOCX package. The shared Brightspace DOCX converter now detects external DOCX image relationships and embeds those images into `word/media/*`, using a generated placeholder only if an external image cannot be fetched.
+
+Clean fixed package:
+`projects/forensic-studies-25-docx-export-fixed/exports/upload-package/`
+
+Canonical package restored as much as the open Word lock allows:
+`projects/forensic-studies-25-docx-export/exports/upload-package/`
+
+Because `08 - 7 Forensic Genetics.docx` is open in Word, the canonical folder contains a fixed copy named `08 - 7 Forensic Genetics - refreshed.docx`. The full fixed package has the corrected Genetics file under the original name.
 
 ## Files changed
-- `projects/ai-course-building-resources/workspace/index.html`
-- `projects/ai-course-building-resources/workspace/resources/dean-ai-assessment-pillars.html`
-- `projects/ai-course-building-resources/workspace/resources/gatekeeping-architecture.html`
-- `projects/ai-course-building-resources/workspace/resources/jon-ai-resource.html`
-- `projects/ai-course-building-resources/meta/project.json`
+- `scripts/brightspace_zip_to_docx_upload_package.py`
+- `scripts/tests/brightspace_docx_style_profile_test.py`
+- `projects/forensic-studies-25-docx-export-fixed/exports/upload-package/**`
+- `projects/forensic-studies-25-docx-export/exports/upload-package/**`
+- `projects/forensic-studies-25-docx-export-fixed/meta/**`
+- `projects/forensic-studies-25-docx-export/meta/**`
 - `.stax/codex-report.md`
 - `docs/ops/ACTIVE_HANDOFF.md`
 
-Observed related dirty file from concurrent top-bar work:
-- `projects/ai-course-building-resources/workspace/resources/ai-course-theme.css`
+Unrelated dirty files observed and preserved:
+- `reports/latest-progress.csv`
+- `reports/progress-2026-06-02-1511.csv`
+- `reports/progress-2026-06-03-0840.csv`
+- `reports/progress-2026-06-03-0841.csv`
 
 ## Verification run
-- Browser/current preview target: `http://127.0.0.1:4178/index.html?resource=gatekeeping&v=gatekeeping-third-ordered-20260602`.
-- Source order check passed across hub and direct pages: Assessment Pillars, AI Resources, Gatekeeping Architecture.
-- Clean Playwright verification passed: hub selected `gatekeeping`, iframe loaded `./resources/gatekeeping-architecture.html`, direct Gatekeeping resource jump marked Gatekeeping current, and clicking `Multi-Macro Scaffold` changed `#archTitle` to `Multi-Macro Scaffold`.
-- `npm run verify -- --project ai-course-building-resources` passed.
-- `npm run typecheck` passed.
-- `npm run build:studio` passed.
-- `git diff --check -- <touched files>` passed.
-- STAX visual proof captured: `.stax/visual-proofs/visual_2026-06-02T21_58_12_652Z_7a119d68b8f1.png`.
+- Failing test observed before implementation: `python scripts/tests/brightspace_docx_style_profile_test.py` failed because `docx_external_image_relationships` and `embed_external_image_relationships` were missing.
+- `python scripts/tests/brightspace_docx_style_profile_test.py` passed after implementation: 6 tests.
+- `python -m py_compile scripts/brightspace_zip_to_docx_upload_package.py scripts/tests/brightspace_docx_style_profile_test.py` passed.
+- Full fixed package generation passed with 11 included units, 147 rendered HTML sections, 172 copied ZIP images, 11 external DOCX images embedded, and 0 remaining external DOCX image relationships.
+- Verification script confirmed every DOCX in `forensic-studies-25-docx-export-fixed` has 0 external image relationships.
+- Verification script confirmed restored canonical DOCX files have 0 external image relationships, excluding the locked original `08 - 7 Forensic Genetics.docx` and Word's `~$` lock file.
 
 ## Known risks / follow-up
-- This is local workspace preview only; no export or deploy was run.
-- Gatekeeping was promoted from `/tmp/codex-preview/index.html`; future `/tmp` preview edits must be reapplied to `workspace/resources/gatekeeping-architecture.html`.
-- Gatekeeping remains standalone inline CSS/JS and is not yet consolidated into `ai-course-theme.css`.
-- Concurrent top-bar work changed related files during this pass and was preserved.
+- The original canonical `08 - 7 Forensic Genetics.docx` could not be overwritten because Word has it open.
+- Use `projects/forensic-studies-25-docx-export-fixed/exports/upload-package/` as the clean package now.
+- After closing Word, rerun the exact next command below to replace the canonical package without the refreshed-copy workaround.
+- Some external images may be embedded as generated placeholders if their source server did not return image bytes during conversion.
 
 ## Source-of-truth location
-- Hub entry: `projects/ai-course-building-resources/workspace/index.html`
-- Assessment resource: `projects/ai-course-building-resources/workspace/resources/dean-ai-assessment-pillars.html`
-- AI Resources resource: `projects/ai-course-building-resources/workspace/resources/jon-ai-resource.html`
-- Gatekeeping Architecture resource: `projects/ai-course-building-resources/workspace/resources/gatekeeping-architecture.html`
-- Project metadata: `projects/ai-course-building-resources/meta/project.json`
+- Converter: `scripts/brightspace_zip_to_docx_upload_package.py`
+- Regression tests: `scripts/tests/brightspace_docx_style_profile_test.py`
+- Clean fixed package: `projects/forensic-studies-25-docx-export-fixed/exports/upload-package/`
+- Canonical package: `projects/forensic-studies-25-docx-export/exports/upload-package/`
 
 ## Fragile areas / what might drift
-- Resource switcher order must stay synchronized across the hub and all direct pages.
-- Theme storage key from the concurrent top-bar pass: `ai-course-building-resources::theme::v1`.
-- The live Firebase site has not changed until export and deploy are run.
+- External HTTP images can disappear or block automated fetches over time.
+- Word can create external image relationships when importing HTML with remote image URLs.
+- Open DOCX files block canonical regeneration on Windows.
 
 ## Next prompt assumptions
-- The user wants local preview wiring and visual refinement first, not deploy/export.
-- If approved, next pass should production-tighten shared navigation/theme behavior and then export/deploy only if explicitly requested.
+- The priority is usable DOCX output with no broken linked-image boxes.
+- The clean fixed package is acceptable immediately, while the canonical package can be fully replaced after the open Word document is closed.
 
 ## Exact next command
-`open 'http://127.0.0.1:4178/index.html?resource=gatekeeping&v=gatekeeping-third-ordered-20260602'`
+`$env:FORENSIC_STUDIES25_SOURCE_ZIP='C:\Users\dean.guedo\Downloads\D2LExport_148856_24-25 _ Forensic Studies 25 _ Per 1(A-B) _ Sec S3_20266328.zip'; python scripts/brightspace_zip_to_docx_upload_package.py --course forensic-studies25`
 
 ## Exact next file to open
-`projects/ai-course-building-resources/workspace/resources/gatekeeping-architecture.html`
+`projects/forensic-studies-25-docx-export-fixed/exports/upload-package/01_DOCX_BY_UNIT/08 - 7 Forensic Genetics.docx`
