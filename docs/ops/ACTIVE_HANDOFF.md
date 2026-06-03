@@ -1,61 +1,58 @@
 # Handoff
 
 - Project: `ai-course-building-resources`
-- Task: Layer district student engagement language into the readiness/gatekeeping Gemini handoff design and prototype.
-- Status: `Completed as reference artifact refinement; not integrated or deployed`
+- Task: Add Gatekeeping Architecture as the third digital presentation option and preview it locally.
+- Status: `Gatekeeping is wired as third option locally; not exported or deployed`
+
+## Summary
+Gatekeeping Architecture is now a third option in the local digital presentation hub after `Assessment Pillars` and `AI Resources`. The hub supports direct preview with `?resource=gatekeeping`, and the direct page resource switchers now use the same order: Assessment Pillars, AI Resources, Gatekeeping Architecture.
 
 ## Files changed
-- `projects/ai-course-building-resources/meta/gemini-handoff/readiness-architecture-design.md`
-- `projects/ai-course-building-resources/meta/gemini-handoff/readiness-architecture-code.html`
+- `projects/ai-course-building-resources/workspace/index.html`
+- `projects/ai-course-building-resources/workspace/resources/dean-ai-assessment-pillars.html`
+- `projects/ai-course-building-resources/workspace/resources/gatekeeping-architecture.html`
+- `projects/ai-course-building-resources/workspace/resources/jon-ai-resource.html`
+- `projects/ai-course-building-resources/meta/project.json`
 - `.stax/codex-report.md`
 - `docs/ops/ACTIVE_HANDOFF.md`
 
-## What changed
-- Added a `District Engagement Lens` section to the design brief.
-- Added the district engagement language: Teacher Clarity, Cognitive Load Management, Cognitive Engagement and High-Leverage Feedback, Metacognition and Ownership, and Emotional Engagement.
-- Updated the Gemini prompt seed so Gemini treats student engagement as the strategic frame for the next two years.
-- Added a `Student Engagement Lens` section to the standalone HTML prototype.
-- Added an `Engagement alignment` metric and model-specific engagement explanation to the architecture explorer.
-- Updated the closing discussion prompt to connect gate architecture, staff capacity, and student engagement.
+Observed related dirty file from concurrent top-bar work:
+- `projects/ai-course-building-resources/workspace/resources/ai-course-theme.css`
 
-## Why this changed
-- The user said district leadership is prioritizing student engagement and asked to layer the pasted district language into the presentation concept.
+## Verification run
+- Browser/current preview target: `http://127.0.0.1:4178/index.html?resource=gatekeeping&v=gatekeeping-third-ordered-20260602`.
+- Source order check passed across hub and direct pages: Assessment Pillars, AI Resources, Gatekeeping Architecture.
+- Clean Playwright verification passed: hub selected `gatekeeping`, iframe loaded `./resources/gatekeeping-architecture.html`, direct Gatekeeping resource jump marked Gatekeeping current, and clicking `Multi-Macro Scaffold` changed `#archTitle` to `Multi-Macro Scaffold`.
+- `npm run verify -- --project ai-course-building-resources` passed.
+- `npm run typecheck` passed.
+- `npm run build:studio` passed.
+- `git diff --check -- <touched files>` passed.
+- STAX visual proof captured: `.stax/visual-proofs/visual_2026-06-02T21_58_12_652Z_7a119d68b8f1.png`.
 
-## Source of truth
-- Gemini handoff design:
-  - `projects/ai-course-building-resources/meta/gemini-handoff/readiness-architecture-design.md`
-- Gemini handoff code:
-  - `projects/ai-course-building-resources/meta/gemini-handoff/readiness-architecture-code.html`
-- District language source:
-  - `C:\Users\dean.guedo\.codex\attachments\de88768b-a33f-4362-8269-ebc5e7c289a9\pasted-text.txt`
+## Known risks / follow-up
+- This is local workspace preview only; no export or deploy was run.
+- Gatekeeping was promoted from `/tmp/codex-preview/index.html`; future `/tmp` preview edits must be reapplied to `workspace/resources/gatekeeping-architecture.html`.
+- Gatekeeping remains standalone inline CSS/JS and is not yet consolidated into `ai-course-theme.css`.
+- Concurrent top-bar work changed related files during this pass and was preserved.
 
-## Fragile areas / watchouts
-- These files are reference artifacts, not canonical workspace presentation pages.
-- No deploy/export was run for this task.
-- The engagement alignment meter is a conceptual discussion aid, not measured district data.
-- The active STAX status still references a prior deploy-proof rejection and was not corrected by this task.
+## Source-of-truth location
+- Hub entry: `projects/ai-course-building-resources/workspace/index.html`
+- Assessment resource: `projects/ai-course-building-resources/workspace/resources/dean-ai-assessment-pillars.html`
+- AI Resources resource: `projects/ai-course-building-resources/workspace/resources/jon-ai-resource.html`
+- Gatekeeping Architecture resource: `projects/ai-course-building-resources/workspace/resources/gatekeeping-architecture.html`
+- Project metadata: `projects/ai-course-building-resources/meta/project.json`
 
-## Next prompt should assume
-- The readiness prototype now has district engagement language layered into it.
-- The prototype should be treated as a Gemini prompt/input artifact unless the user explicitly asks to integrate it into the live digital presentation.
-- If integrated later, source-of-truth rules require editing canonical workspace files, not generated exports.
+## Fragile areas / what might drift
+- Resource switcher order must stay synchronized across the hub and all direct pages.
+- Theme storage key from the concurrent top-bar pass: `ai-course-building-resources::theme::v1`.
+- The live Firebase site has not changed until export and deploy are run.
 
-## What still needs validation
-- Optional browser preview of `readiness-architecture-code.html`.
-- Optional Gemini pass to generate a more polished engagement-forward version.
-- If this becomes district-facing, confirm exact wording against the official district engagement document.
-
-## Known risks
-- The district wording came from pasted text and may need final policy-language review.
-- The standalone prototype may need CSS/JS normalization before becoming part of the canonical project page.
+## Next prompt assumptions
+- The user wants local preview wiring and visual refinement first, not deploy/export.
+- If approved, next pass should production-tighten shared navigation/theme behavior and then export/deploy only if explicitly requested.
 
 ## Exact next command
-`Start-Process "projects\ai-course-building-resources\meta\gemini-handoff\readiness-architecture-code.html"`
+`open 'http://127.0.0.1:4178/index.html?resource=gatekeeping&v=gatekeeping-third-ordered-20260602'`
 
 ## Exact next file to open
-`projects/ai-course-building-resources/meta/gemini-handoff/readiness-architecture-design.md`
-
-## Do not do next / warnings
-- Do not edit `projects/ai-course-building-resources/raw/**`.
-- Do not patch `projects/ai-course-building-resources/exports/**` as source.
-- Do not assume the previous STAX deploy proof rejection is fixed.
+`projects/ai-course-building-resources/workspace/resources/gatekeeping-architecture.html`

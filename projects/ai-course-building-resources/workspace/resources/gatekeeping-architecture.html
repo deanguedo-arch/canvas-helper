@@ -1,0 +1,3541 @@
+<!doctype html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Architectures of Academic Gatekeeping - District Engagement Layer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --surface: #f9f9f9;
+      --surface-2: #ffffff;
+      --panel: rgba(255, 255, 255, 0.94);
+      --panel-2: rgba(243, 243, 244, 0.96);
+      --panel-3: rgba(232, 232, 232, 0.88);
+      --line: rgba(190, 202, 182, 0.72);
+      --line-strong: rgba(111, 122, 105, 0.55);
+      --text: #1a1c1c;
+      --muted: #3f4a3b;
+      --quiet: #6f7a69;
+      --teal: #39a935;
+      --green: #39a935;
+      --amber: #5f5e5e;
+      --orange: #ba1a1a;
+      --blue: #006e0d;
+      --violet: #5c5f5e;
+      --error: #ba1a1a;
+      --shadow: 0 4px 20px rgba(68, 68, 68, 0.08);
+      --radius: 4px;
+      font-family: Inter, sans-serif;
+    }
+
+    .dark {
+      --surface: #061a2e;
+      --surface-2: #08243d;
+      --panel: rgba(9, 39, 66, 0.91);
+      --panel-2: rgba(17, 58, 92, 0.9);
+      --panel-3: rgba(28, 76, 114, 0.74);
+      --line: rgba(198, 225, 247, 0.18);
+      --line-strong: rgba(198, 225, 247, 0.36);
+      --text: #f3f9ff;
+      --muted: #c4d7e8;
+      --quiet: #91aac1;
+      --teal: #20c7a8;
+      --green: #93d86f;
+      --amber: #ffbd45;
+      --orange: #ff7448;
+      --blue: #6fb5ff;
+      --violet: #bfa6ff;
+      --error: #ffb4ab;
+      --shadow: 0 26px 70px rgba(0, 0, 0, 0.36);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 92px;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      line-height: 1.5;
+      background:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px),
+        radial-gradient(circle at 80% 12%, rgba(111, 181, 255, 0.24), transparent 34rem),
+        radial-gradient(circle at 14% 88%, rgba(255, 189, 69, 0.18), transparent 31rem),
+        var(--surface);
+      background-size: 68px 68px, 68px 68px, 17px 17px, 17px 17px, auto, auto, auto;
+    }
+
+    button,
+    input { font: inherit; }
+
+    button,
+    .anchor-button {
+      min-height: 44px;
+      border: 1px solid var(--line-strong);
+      border-radius: 4px;
+      background: rgba(13, 48, 78, 0.82);
+      color: var(--text);
+      cursor: pointer;
+      transition: border-color 150ms ease, background 150ms ease, transform 150ms ease, box-shadow 150ms ease;
+      text-decoration: none;
+    }
+
+    button:hover,
+    button:focus-visible,
+    .anchor-button:hover,
+    .anchor-button:focus-visible {
+      border-color: rgba(255, 189, 69, 0.86);
+      background: rgba(22, 67, 104, 0.92);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(255, 189, 69, 0.12);
+    }
+
+    button:active,
+    .anchor-button:active { transform: scale(0.985); }
+
+    h1, h2, h3, h4, p { margin: 0; }
+
+    h1 {
+      max-width: 1060px;
+      margin-top: 14px;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(3rem, 7vw, 6.05rem);
+      line-height: 0.98;
+      font-weight: 900;
+      letter-spacing: -0.035em;
+      text-wrap: balance;
+    }
+
+    h1 span {
+      display: block;
+      margin-top: 20px;
+      color: var(--muted);
+      font-family: Inter, sans-serif;
+      font-size: clamp(1.22rem, 2.1vw, 2.05rem);
+      font-weight: 400;
+      letter-spacing: 0;
+      line-height: 1.25;
+    }
+
+    h2 {
+      max-width: 1030px;
+      font-size: clamp(2rem, 3.25vw, 3.15rem);
+      line-height: 1.04;
+      margin-bottom: 14px;
+      letter-spacing: -0.02em;
+      text-wrap: balance;
+    }
+
+    h3 {
+      font-size: clamp(1.32rem, 1.7vw, 1.7rem);
+      line-height: 1.12;
+      letter-spacing: -0.01em;
+    }
+
+    h4 {
+      font-size: 1.02rem;
+      line-height: 1.15;
+    }
+
+    .shell {
+      width: min(1220px, calc(100vw - 17.5rem - 32px));
+      margin-left: calc(17.5rem + 16px);
+      margin-right: 16px;
+      padding: 92px 0 60px;
+      transition: margin-left 180ms ease, width 180ms ease;
+    }
+
+    body[data-sidebar-collapsed="true"] .shell {
+      width: min(1220px, calc(100vw - 32px));
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .gate-menu-button {
+      display: inline-grid;
+      place-items: center;
+      width: 42px;
+      min-height: 42px;
+      padding: 0;
+      flex: 0 0 auto;
+    }
+
+    .theme-toggle {
+      display: inline-grid;
+      place-items: center;
+      width: 42px;
+      min-height: 42px;
+      padding: 0;
+      flex: 0 0 auto;
+    }
+
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 22px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .gate-sidebar {
+      position: fixed;
+      left: 0;
+      top: 72px;
+      z-index: 25;
+      width: 17.5rem;
+      max-width: min(17.5rem, 88vw);
+      height: calc(100vh - 72px);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 22px 18px;
+      border-right: 1px solid var(--line);
+      background: var(--panel);
+      box-shadow: none;
+      transform: translateX(0);
+      transition: transform 180ms ease;
+    }
+
+    body[data-sidebar-collapsed="true"] .gate-sidebar {
+      transform: translateX(-100%);
+    }
+
+    .gate-sidebar.open {
+      transform: translateX(0);
+    }
+
+    .gate-sidebar h2 {
+      margin: 0 0 2px;
+      font-size: 1.35rem;
+    }
+
+    .gate-sidebar p {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .gate-sidebar nav {
+      display: grid;
+      gap: 4px;
+      margin-top: 14px;
+      overflow-y: auto;
+    }
+
+    .gate-sidebar a {
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      padding: 0 12px;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 800;
+    }
+
+    .gate-sidebar a:hover,
+    .gate-sidebar a:focus-visible {
+      border-color: var(--line-strong);
+      background: var(--panel-2);
+      color: var(--text);
+      outline: none;
+    }
+
+    .gate-sidebar-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      display: none;
+      background: rgba(0, 0, 0, 0.28);
+    }
+
+    .gate-sidebar-backdrop.open {
+      display: block;
+    }
+
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 30;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 0 28px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: none;
+    }
+
+    .dark .topbar {
+      background: rgba(6, 26, 46, 0.96);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line-strong);
+      border-radius: 4px;
+      color: var(--amber);
+      background: rgba(6, 26, 46, 0.72);
+      font-weight: 900;
+      box-shadow: inset 0 0 24px rgba(255, 189, 69, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      color: var(--muted);
+      text-decoration: none;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      padding: 7px 10px;
+      font-size: 0.88rem;
+      font-weight: 800;
+    }
+
+    .nav a:hover,
+    .nav a:focus-visible {
+      color: var(--text);
+      border-color: var(--line-strong);
+      background: rgba(255, 255, 255, 0.05);
+      outline: none;
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 14px;
+      flex-wrap: nowrap;
+      min-width: 0;
+      margin-left: auto;
+    }
+
+    .resource-jump {
+      display: flex;
+      gap: 6px;
+      flex-wrap: nowrap;
+      padding: 4px;
+      border: 1px solid #becab6;
+      border-radius: 4px;
+      background: #ffffff;
+      order: 20;
+    }
+
+    .resource-jump a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 10px;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      color: #3f4a3b;
+      font-family: var(--font-body, Inter, sans-serif);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      line-height: 1;
+      text-decoration: none;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .resource-jump a:hover,
+    .resource-jump a:focus-visible {
+      border-color: #39a935;
+      color: #155608;
+      outline: none;
+    }
+
+    .resource-jump a[aria-current="page"] {
+      background: #39a935;
+      border-color: #39a935;
+      color: #ffffff;
+    }
+
+    .hero,
+    .section {
+      position: relative;
+      scroll-margin-top: 92px;
+      border-top: 1px solid var(--line);
+      padding: 52px 0;
+    }
+
+    .anchor-target {
+      display: block;
+      height: 0;
+      scroll-margin-top: 92px;
+    }
+
+    .hero {
+      min-height: calc(100vh - 72px);
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      border-top: 0;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1120px;
+    }
+
+    .eyebrow {
+      color: var(--amber);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .lead {
+      max-width: 880px;
+      color: var(--muted);
+      font-size: clamp(1.08rem, 1.5vw, 1.28rem);
+    }
+
+    .hero .lead {
+      margin-top: 24px;
+      max-width: 910px;
+      font-size: clamp(1.18rem, 1.7vw, 1.5rem);
+    }
+
+    .hero-video {
+      width: min(760px, 100%);
+      margin: 28px auto 0;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--surface);
+      overflow: hidden;
+    }
+
+    .hero-video video {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #111;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .anchor-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0 18px;
+      font-weight: 900;
+    }
+
+    .anchor-button.primary,
+    button.primary {
+      background: var(--teal);
+      border-color: var(--teal);
+      color: #04211d;
+      font-weight: 900;
+    }
+
+    .anchor-button.secondary,
+    button.secondary {
+      background: var(--amber);
+      border-color: var(--amber);
+      color: #241506;
+      font-weight: 900;
+    }
+
+    button.warning {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: #2c0900;
+      font-weight: 900;
+    }
+
+    button.danger {
+      background: var(--error);
+      border-color: var(--error);
+      color: #2b0906;
+      font-weight: 900;
+    }
+
+    .blueprint-gate {
+      position: absolute;
+      right: 1%;
+      top: 12%;
+      width: min(44vw, 540px);
+      aspect-ratio: 1.25;
+      opacity: 0.58;
+      pointer-events: none;
+      filter: drop-shadow(0 28px 45px rgba(0, 0, 0, 0.18));
+    }
+
+    .blueprint-gate::before,
+    .blueprint-gate::after {
+      content: "";
+      position: absolute;
+      border: 2px solid rgba(198, 225, 247, 0.45);
+      box-shadow: inset 0 0 0 1px rgba(198, 225, 247, 0.16), 0 0 45px rgba(111, 181, 255, 0.08);
+    }
+
+    .blueprint-gate::before {
+      left: 16%;
+      top: 16%;
+      width: 18%;
+      height: 70%;
+      transform: skewY(-18deg);
+    }
+
+    .blueprint-gate::after {
+      right: 12%;
+      top: 8%;
+      width: 18%;
+      height: 74%;
+      transform: skewY(18deg);
+    }
+
+    .gate-rail {
+      position: absolute;
+      left: 26%;
+      right: 22%;
+      top: 24%;
+      height: 45%;
+      border-top: 2px solid rgba(198, 225, 247, 0.45);
+      border-bottom: 2px solid rgba(198, 225, 247, 0.45);
+      transform: skewY(-15deg);
+    }
+
+    .gate-rail::before,
+    .gate-rail::after {
+      content: "";
+      position: absolute;
+      top: -10%;
+      bottom: -10%;
+      width: 1px;
+      background: rgba(198, 225, 247, 0.36);
+    }
+
+    .gate-rail::before { left: 30%; }
+    .gate-rail::after { right: 22%; }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.07fr 0.93fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .grid-5 {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .panel,
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .panel { padding: 22px; }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      padding: 22px;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 4px;
+      background: var(--accent, var(--teal));
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      border: 1px solid rgba(198, 225, 247, 0.22);
+      border-radius: 4px;
+      padding: 6px 10px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text);
+      font-size: 0.9rem;
+      font-weight: 900;
+    }
+
+    .pill.teal { border-color: rgba(32, 199, 168, 0.48); background: rgba(32, 199, 168, 0.14); }
+    .pill.amber { border-color: rgba(255, 189, 69, 0.52); background: rgba(255, 189, 69, 0.14); }
+    .pill.orange { border-color: rgba(255, 116, 72, 0.52); background: rgba(255, 116, 72, 0.14); }
+    .pill.blue { border-color: rgba(111, 181, 255, 0.52); background: rgba(111, 181, 255, 0.14); }
+    .pill.green { border-color: rgba(147, 216, 111, 0.52); background: rgba(147, 216, 111, 0.14); }
+    .pill.violet { border-color: rgba(191, 166, 255, 0.52); background: rgba(191, 166, 255, 0.14); }
+
+    .problem-card {
+      min-height: 250px;
+      display: grid;
+      align-content: space-between;
+      gap: 18px;
+      background: rgba(9, 39, 66, 0.72);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius);
+      padding: 22px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .problem-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -12% -45% 30%;
+      height: 180px;
+      background: radial-gradient(circle, var(--accent, var(--amber)), transparent 67%);
+      opacity: 0.12;
+    }
+
+    .problem-icon {
+      width: 84px;
+      height: 84px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line-strong);
+      border-radius: 4px;
+      color: var(--accent, var(--amber));
+      background: rgba(255, 255, 255, 0.04);
+      font-size: 2.6rem;
+      font-weight: 900;
+    }
+
+    .engagement-strip {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .focus-button {
+      min-height: 118px;
+      padding: 14px;
+      text-align: left;
+      display: grid;
+      align-content: start;
+      gap: 8px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .focus-button::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 4px;
+      background: var(--accent, var(--blue));
+    }
+
+    .focus-button strong {
+      display: block;
+      font-size: 1.02rem;
+      line-height: 1.08;
+    }
+
+    .focus-button small {
+      color: var(--muted);
+      font-weight: 750;
+      line-height: 1.25;
+    }
+
+    .focus-button[aria-pressed="true"] {
+      border-color: var(--accent, var(--amber));
+      background: linear-gradient(135deg, rgba(255, 189, 69, 0.13), rgba(111, 181, 255, 0.08));
+      box-shadow: 0 0 0 3px rgba(255, 189, 69, 0.10), var(--shadow);
+    }
+
+    .district-detail {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 22px;
+      margin-top: 22px;
+      align-items: stretch;
+    }
+
+    .district-copy {
+      display: grid;
+      gap: 14px;
+    }
+
+    .detail-box {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: rgba(3, 20, 36, 0.42);
+    }
+
+    .detail-box strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .detail-box p {
+      color: var(--muted);
+      font-weight: 750;
+    }
+
+    .matrix {
+      display: grid;
+      gap: 10px;
+    }
+
+    .profile-comparison {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .profile-card {
+      display: grid;
+      gap: 10px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 16px;
+    }
+
+    .profile-card.is-active {
+      border-color: var(--green);
+      background: rgba(57, 169, 53, 0.07);
+    }
+
+    .profile-card h4 {
+      margin: 0;
+      color: var(--text);
+      font-family: var(--font-display);
+      font-size: 1.22rem;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .matrix-note {
+      margin: 14px 0 12px;
+      color: var(--quiet);
+      font-size: 0.92rem;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .matrix-total {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      border-bottom: 1px solid var(--line);
+      color: var(--text);
+      font-weight: 900;
+      padding: 2px 0 14px;
+    }
+
+    .matrix-total strong {
+      color: var(--green-deep);
+      font-size: 1.28rem;
+      white-space: nowrap;
+    }
+
+    .matrix-row {
+      display: grid;
+      grid-template-columns: 168px 1fr 72px;
+      gap: 12px;
+      align-items: center;
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 0.92rem;
+    }
+
+    .mini-track {
+      height: 12px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+    }
+
+    .mini-fill {
+      width: var(--w, 0%);
+      height: 100%;
+      border-radius: 4px;
+      background: var(--accent, var(--teal));
+      transition: width 180ms ease;
+    }
+
+    .human-lift {
+      margin-top: 28px;
+      border-top: 1px solid var(--line);
+      padding-top: 22px;
+    }
+
+    .human-lift-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .human-lift-card {
+      display: grid;
+      gap: 12px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 16px;
+    }
+
+    .human-lift-card h4 {
+      margin: 0;
+      color: var(--text);
+      font-family: var(--font-display);
+      font-size: 1.18rem;
+      line-height: 1.2;
+    }
+
+    .human-lift-total {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+      font-weight: 900;
+    }
+
+    .human-lift-total strong {
+      color: var(--green-deep);
+      font-size: 1.24rem;
+      white-space: nowrap;
+    }
+
+    .lift-row {
+      display: grid;
+      grid-template-columns: 150px 1fr 76px;
+      gap: 10px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 850;
+    }
+
+    .lift-track {
+      position: relative;
+      height: 14px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: #e2e2e2;
+    }
+
+    .lift-base,
+    .lift-plus {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+    }
+
+    .lift-base {
+      left: 0;
+      width: var(--base, 0%);
+      background: var(--accent, var(--green));
+    }
+
+    .lift-plus {
+      left: var(--base, 0%);
+      width: var(--plus, 0%);
+      background: #f2a23a;
+    }
+
+    .lift-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 850;
+      margin-top: 10px;
+    }
+
+    .lift-legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .lift-legend i {
+      display: inline-block;
+      width: 16px;
+      height: 10px;
+      border-radius: 2px;
+      background: var(--swatch);
+    }
+
+    .spectrum-panel {
+      margin-top: 24px;
+      padding: 34px 28px 28px;
+      overflow: hidden;
+    }
+
+    .spectrum-labels {
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-weight: 900;
+      font-size: 0.95rem;
+    }
+
+    .spectrum-track {
+      position: relative;
+      height: 124px;
+      margin-top: 8px;
+    }
+
+    .spectrum-line {
+      position: absolute;
+      left: 5%;
+      right: 5%;
+      top: 46px;
+      height: 6px;
+      background: linear-gradient(90deg, var(--teal), var(--amber), var(--orange));
+      border-radius: 4px;
+      box-shadow: 0 0 30px rgba(255, 189, 69, 0.16);
+    }
+
+    .spectrum-node {
+      position: absolute;
+      top: 22px;
+      transform: translateX(-50%);
+      display: grid;
+      justify-items: center;
+      gap: 10px;
+      width: 210px;
+      text-align: center;
+    }
+
+    .spectrum-node:nth-child(2) { left: 25%; }
+    .spectrum-node:nth-child(3) { left: 75%; }
+
+    .node-dot {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border: 3px solid var(--surface);
+      border-radius: 4px;
+      background: var(--accent);
+      color: #061a2e;
+      font-weight: 900;
+      box-shadow: 0 0 0 1px var(--line-strong), 0 0 30px rgba(255, 189, 69, 0.18);
+    }
+
+    .node-name {
+      color: var(--text);
+      font-size: 1.04rem;
+      font-weight: 900;
+      line-height: 1.1;
+    }
+
+    .node-sub {
+      color: var(--quiet);
+      font-size: 0.86rem;
+      font-weight: 800;
+    }
+
+    .selector {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .architecture-button {
+      position: relative;
+      overflow: hidden;
+      min-height: 134px;
+      padding: 18px 16px;
+      text-align: left;
+      display: grid;
+      align-content: start;
+      gap: 8px;
+    }
+
+    .architecture-button::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 4px;
+      background: var(--accent, var(--teal));
+      opacity: 0.9;
+    }
+
+    .architecture-button strong {
+      display: block;
+      font-size: 1.2rem;
+      line-height: 1.08;
+    }
+
+    .architecture-button small {
+      color: var(--muted);
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .architecture-button[aria-pressed="true"] {
+      border-color: var(--accent, var(--amber));
+      background: linear-gradient(135deg, rgba(255, 189, 69, 0.13), rgba(111, 181, 255, 0.08));
+      box-shadow: 0 0 0 3px rgba(255, 189, 69, 0.10), var(--shadow);
+    }
+
+    .explorer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin-top: 22px;
+      align-items: stretch;
+    }
+
+    .map-panel {
+      min-height: 470px;
+      display: grid;
+      align-content: space-between;
+      gap: 24px;
+      overflow: hidden;
+    }
+
+    .blueprint-flow { display: grid; gap: 14px; }
+
+    .flow-step {
+      position: relative;
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 14px;
+      align-items: center;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: rgba(3, 20, 36, 0.48);
+    }
+
+    .flow-step:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      left: 38px;
+      bottom: -15px;
+      height: 15px;
+      border-left: 2px dashed rgba(198, 225, 247, 0.32);
+    }
+
+    .step-index {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 4px;
+      background: var(--accent, var(--teal));
+      color: #061a2e;
+      font-weight: 900;
+    }
+
+    .flow-step h4 { margin: 0; }
+    .flow-step p {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .profile-table {
+      display: grid;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .profile-row {
+      display: grid;
+      grid-template-columns: 155px 1fr;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .profile-row:last-child { border-bottom: 0; }
+
+    .profile-row span,
+    .profile-row strong { padding: 12px 13px; }
+
+    .profile-row span {
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.035);
+      font-weight: 900;
+    }
+
+    .profile-row strong {
+      color: var(--text);
+      font-weight: 800;
+    }
+
+    .model-comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .model-card {
+      display: grid;
+      gap: 12px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.04);
+      color: inherit;
+      cursor: pointer;
+      font: inherit;
+      text-align: left;
+      width: 100%;
+    }
+
+    .model-card.is-selected {
+      border-color: var(--accent, var(--green));
+      background: rgba(57, 169, 53, 0.08);
+    }
+
+    .model-card:focus-visible {
+      outline: 3px solid color-mix(in srgb, var(--green) 28%, transparent);
+      outline-offset: 2px;
+    }
+
+    .model-card h4 {
+      margin: 0;
+      color: var(--text);
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      line-height: 1.2;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .model-fit {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .model-fit strong {
+      color: var(--text);
+      font-family: var(--font-display);
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .model-summary {
+      display: grid;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.35;
+    }
+
+    .model-summary div {
+      display: grid;
+      gap: 2px;
+    }
+
+    .model-summary b {
+      color: var(--text);
+      font-weight: 800;
+    }
+
+    .tradeoff-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .tradeoff-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 10px;
+      align-items: start;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .tradeoff-item b { color: var(--text); }
+
+    .marker {
+      width: 24px;
+      height: 24px;
+      display: grid;
+      place-items: center;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid var(--line-strong);
+      color: var(--accent, var(--amber));
+      font-size: 0.82rem;
+      font-weight: 900;
+    }
+
+    .burden-stage {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 18px;
+      align-items: stretch;
+      margin-top: 24px;
+    }
+
+    .scale {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 16px;
+      min-height: 255px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(3, 20, 36, 0.42);
+    }
+
+    .scale h4 {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .scale-stack {
+      display: grid;
+      align-content: end;
+      gap: 8px;
+    }
+
+    .block {
+      min-height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 7px;
+      background: var(--teal);
+      color: #061a2e;
+      font-weight: 900;
+      font-size: 0.88rem;
+      text-align: center;
+      padding: 0 8px;
+    }
+
+    .block.human { background: var(--orange); color: #fff5ef; }
+    .block.system { background: var(--blue); color: #061a2e; }
+
+    .burden-symbol {
+      display: grid;
+      place-items: center;
+      min-width: 44px;
+      color: var(--quiet);
+      font-size: 2.4rem;
+      font-weight: 200;
+    }
+
+    .balance-message {
+      margin-top: 16px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(3, 20, 36, 0.58);
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .meter-panel {
+      display: grid;
+      gap: 14px;
+    }
+
+    .score-total {
+      text-align: right;
+      font-size: 3rem;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .score-caption {
+      text-align: right;
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 800;
+    }
+
+    .score-bar {
+      display: flex;
+      height: 36px;
+      overflow: hidden;
+      border-radius: 4px;
+      background: rgba(3, 20, 36, 0.72);
+      border: 1px solid var(--line);
+    }
+
+    .score-segment {
+      width: var(--w, 0%);
+      background: var(--accent);
+      box-shadow: inset 0 0 18px rgba(255, 255, 255, 0.25);
+      transition: width 180ms ease;
+    }
+
+    .legend {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .legend strong {
+      display: block;
+      color: var(--text);
+      font-size: 0.96rem;
+    }
+
+    .capacity-grid {
+      display: grid;
+      grid-template-columns: 0.88fr 1.12fr;
+      gap: 22px;
+      margin-top: 24px;
+      align-items: start;
+    }
+
+    .control {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .control-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+      font-weight: 900;
+    }
+
+    .weight-entry {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text);
+      font-weight: 900;
+    }
+
+    .weight-input {
+      width: 74px;
+      min-height: 38px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--surface);
+      color: var(--text);
+      font: inherit;
+      font-weight: 900;
+      padding: 7px 8px;
+      text-align: right;
+    }
+
+    .weight-input:focus-visible {
+      outline: 3px solid color-mix(in srgb, var(--green) 28%, transparent);
+      border-color: var(--green);
+    }
+
+    .weight-slider {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 100%;
+      height: 18px;
+      background: transparent;
+      accent-color: #39a935;
+    }
+
+    .weight-slider::-webkit-slider-runnable-track {
+      height: 8px;
+      border: 1px solid #becab6;
+      border-radius: 999px;
+      background: linear-gradient(
+        90deg,
+        #39a935 0%,
+        #39a935 var(--range-progress, 20%),
+        #e2e2e2 var(--range-progress, 20%),
+        #e2e2e2 100%
+      );
+    }
+
+    .weight-slider::-webkit-slider-thumb {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      margin-top: -6px;
+      border: 2px solid #39a935;
+      border-radius: 50%;
+      background: #39a935;
+      cursor: pointer;
+    }
+
+    .weight-slider::-moz-range-track {
+      height: 8px;
+      border: 1px solid #becab6;
+      border-radius: 999px;
+      background: #e2e2e2;
+    }
+
+    .weight-slider::-moz-range-progress {
+      height: 8px;
+      border-radius: 999px;
+      background: #39a935;
+    }
+
+    .weight-slider::-moz-range-thumb {
+      width: 18px;
+      height: 18px;
+      border: 2px solid #39a935;
+      border-radius: 50%;
+      background: #39a935;
+      cursor: pointer;
+    }
+
+    .weight-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+    }
+
+    .weight-total {
+      color: var(--green-deep);
+      font-weight: 900;
+    }
+
+    .weight-total.is-invalid {
+      color: #b02a1f;
+    }
+
+    .weight-reset {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--surface);
+      color: var(--green-deep);
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.9rem;
+      font-weight: 900;
+      padding: 8px 10px;
+    }
+
+    .scoreline {
+      display: grid;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .scoreline-row {
+      display: grid;
+      grid-template-columns: 185px 1fr 48px;
+      gap: 12px;
+      align-items: center;
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 0.92rem;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      align-items: stretch;
+      min-height: 260px;
+      padding: 18px 14px 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        rgba(3, 20, 36, 0.42);
+      background-size: 100% 52px, auto;
+    }
+
+    .timeline-col {
+      display: grid;
+      grid-template-rows: 175px 42px;
+      gap: 12px;
+      height: 230px;
+      align-items: stretch;
+      min-width: 0;
+    }
+
+    .bar-wrap {
+      display: grid;
+      align-items: end;
+      height: 175px;
+      min-height: 175px;
+    }
+
+    .bar {
+      height: var(--h, 10%);
+      min-height: 14px;
+      border-radius: 7px 7px 2px 2px;
+      background: linear-gradient(180deg, rgba(255, 189, 69, 0.95), rgba(255, 116, 72, 0.78));
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      transition: height 180ms ease;
+    }
+
+    .timeline-label {
+      color: var(--muted);
+      font-size: 0.83rem;
+      font-weight: 900;
+      text-align: center;
+      line-height: 1.15;
+      min-height: 42px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .gate-shell {
+      margin-top: 24px;
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .gate-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      border-bottom: 1px solid var(--line);
+      background: var(--panel-2);
+      padding: 14px 18px;
+      color: var(--muted);
+      font-weight: 900;
+    }
+
+    .gate-flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      padding: 18px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .gate-flow span {
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 12px 8px;
+      background: rgba(3, 20, 36, 0.44);
+    }
+
+    .gate-flow span.active {
+      border-color: var(--teal);
+      background: rgba(32, 199, 168, 0.16);
+      color: var(--text);
+    }
+
+    .gate-content {
+      min-height: 390px;
+      display: grid;
+      place-items: center;
+      padding: 30px;
+    }
+
+    .gate-card {
+      width: min(820px, 100%);
+      display: grid;
+      gap: 18px;
+      text-align: center;
+    }
+
+    .evidence-box {
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: rgba(3, 20, 36, 0.52);
+      padding: 18px;
+      color: var(--muted);
+      text-align: left;
+      font-weight: 750;
+    }
+
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      text-align: left;
+    }
+
+    .evidence-grid .evidence-box { min-height: 118px; }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .actions button {
+      padding: 0 16px;
+      font-weight: 900;
+    }
+
+    .decision-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .decision-grid button {
+      min-height: 88px;
+      padding: 12px;
+      text-align: left;
+      font-weight: 900;
+    }
+
+    .feedback {
+      padding: 16px;
+      border-radius: 4px;
+      text-align: left;
+      border: 1px solid var(--line-strong);
+      background: rgba(3, 20, 36, 0.58);
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .feedback.good {
+      border-color: rgba(32, 199, 168, 0.55);
+      background: rgba(32, 199, 168, 0.10);
+    }
+
+    .feedback.bad {
+      border-color: rgba(255, 116, 72, 0.56);
+      background: rgba(255, 116, 72, 0.12);
+    }
+
+    .vote-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 26px;
+    }
+
+    .vote-card {
+      display: grid;
+      gap: 16px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .vote-count {
+      color: var(--amber);
+      font-family: "Playfair Display", serif;
+      font-size: 4rem;
+      font-weight: 900;
+      line-height: 0.9;
+    }
+
+    .facilitator-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .prompt {
+      padding: 16px;
+      border-left: 4px solid var(--accent, var(--amber));
+      background: rgba(3, 20, 36, 0.42);
+      border-radius: 4px;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .quiet-note {
+      margin-top: 14px;
+      color: var(--quiet);
+      font-size: 0.92rem;
+      font-weight: 750;
+    }
+
+    .truth-line {
+      margin-top: 24px;
+      padding: 18px;
+      border: 1px solid rgba(255, 189, 69, 0.38);
+      border-radius: var(--radius);
+      background: rgba(255, 189, 69, 0.08);
+      color: #ffe6b5;
+      font-size: 1.08rem;
+      font-weight: 900;
+    }
+
+    @media (max-width: 980px) {
+      .topbar { align-items: flex-start; flex-direction: column; }
+      .grid-2,
+      .explorer-grid,
+      .capacity-grid,
+      .model-comparison,
+      .district-detail { grid-template-columns: 1fr; }
+      .grid-3,
+      .vote-grid,
+      .facilitator-strip,
+      .selector { grid-template-columns: 1fr; }
+      .grid-5,
+      .engagement-strip { grid-template-columns: 1fr 1fr; }
+      .burden-stage { grid-template-columns: 1fr; }
+      .burden-symbol { min-height: 24px; }
+      .gate-flow { grid-template-columns: 1fr; }
+      .blueprint-gate { opacity: 0.26; width: 70vw; right: -22vw; }
+    }
+
+    @media (max-width: 640px) {
+      .shell { width: min(100vw - 22px, 1220px); padding-top: 10px; }
+      .hero, .section { padding: 38px 0; }
+      .grid-4,
+      .grid-5,
+      .engagement-strip,
+      .legend,
+      .decision-grid,
+      .timeline,
+      .evidence-grid { grid-template-columns: 1fr; }
+      .timeline { min-height: auto; }
+      .timeline-col { height: auto; grid-template-columns: 1fr 82px; grid-template-rows: auto; align-items: center; }
+      .bar-wrap { height: 22px; min-height: 22px; }
+      .bar { height: 22px !important; width: var(--h, 10%); min-width: 12px; border-radius: 4px; }
+      .timeline-label { min-height: auto; justify-content: flex-end; text-align: right; }
+      .profile-row,
+      .matrix-row,
+      .scoreline-row { grid-template-columns: 1fr; }
+      .profile-comparison { grid-template-columns: 1fr; }
+      .human-lift-grid { grid-template-columns: 1fr; }
+      .lift-row { grid-template-columns: 1fr; }
+      .score-total,
+      .score-caption { text-align: left; }
+    }
+
+    :root {
+      --surface: #f9f9f9;
+      --surface-2: #ffffff;
+      --panel: #ffffff;
+      --panel-2: #f3f3f4;
+      --panel-3: #eeeeee;
+      --line: #e2e2e2;
+      --line-strong: #becab6;
+      --text: #1a1c1c;
+      --muted: #3f4a3b;
+      --quiet: #6f7a69;
+      --teal: #39a935;
+      --green: #155608;
+      --amber: #5f5e5e;
+      --orange: #ba1a1a;
+      --blue: #006e0d;
+      --violet: #444746;
+      --error: #ba1a1a;
+      --shadow: 0 4px 20px rgba(68, 68, 68, 0.08);
+      --radius: 4px;
+      --font-display: "Playfair Display", Georgia, serif;
+      --font-body: "Inter", "Aptos", sans-serif;
+      --type-display-lg: 48px;
+      --type-display-lg-line: 56px;
+      --type-headline-lg: 32px;
+      --type-headline-lg-line: 40px;
+      --type-headline-lg-mobile: 28px;
+      --type-headline-lg-mobile-line: 36px;
+      --type-headline-md: 24px;
+      --type-headline-md-line: 32px;
+      --type-body-lg: 18px;
+      --type-body-lg-line: 28px;
+      --type-body-md: 16px;
+      --type-body-md-line: 24px;
+      --type-label-md: 14px;
+      --type-label-md-line: 20px;
+      font-family: var(--font-body);
+    }
+
+    body {
+      color: var(--text);
+      background: var(--surface);
+      font-family: var(--font-body);
+      font-size: var(--type-body-md);
+      font-weight: 400;
+      line-height: var(--type-body-md-line);
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    .vote-count {
+      font-family: var(--font-display);
+      color: var(--text);
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 680px;
+      font-size: var(--type-display-lg);
+      line-height: var(--type-display-lg-line);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    h1 span {
+      max-width: 640px;
+      color: var(--quiet);
+      font-family: var(--font-body);
+      font-size: var(--type-body-lg);
+      font-weight: 400;
+      line-height: var(--type-body-lg-line);
+      letter-spacing: 0;
+    }
+
+    h2 {
+      max-width: 860px;
+      font-size: var(--type-headline-lg);
+      line-height: var(--type-headline-lg-line);
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: var(--type-headline-md);
+      line-height: var(--type-headline-md-line);
+      font-weight: 600;
+    }
+
+    h4 {
+      font-family: var(--font-body);
+      font-size: var(--type-label-md);
+      line-height: var(--type-label-md-line);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .shell {
+      width: min(1280px, calc(100vw - 48px));
+      padding: 0 0 64px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      margin: 0 calc(50% - 50vw);
+      padding: 14px max(24px, calc((100vw - 1280px) / 2));
+      background: rgba(249, 249, 249, 0.94);
+      border-bottom: 1px solid #eeeeee;
+      box-shadow: 0 1px 0 rgba(26, 28, 28, 0.04);
+      backdrop-filter: blur(8px);
+    }
+
+    .brand {
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: var(--type-label-md);
+      line-height: var(--type-label-md-line);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 28px;
+      border-color: #39a935;
+      border-radius: 2px;
+      color: #155608;
+      background: #ffffff;
+      box-shadow: none;
+      font-family: var(--font-display);
+      font-weight: 700;
+    }
+
+    .nav {
+      gap: 22px;
+    }
+
+    .nav a {
+      color: var(--muted);
+      border-radius: 0;
+      padding: 6px 0 8px;
+      font-family: var(--font-body);
+      font-size: var(--type-label-md);
+      line-height: var(--type-label-md-line);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav a:hover,
+    .nav a:focus-visible {
+      color: #155608;
+      background: transparent;
+      border-color: #39a935;
+      box-shadow: none;
+    }
+
+    .hero,
+    .section {
+      border-top-color: #e8e8e8;
+      padding: 72px 0;
+    }
+
+    .hero {
+      min-height: 680px;
+      display: grid;
+      align-items: center;
+      justify-items: center;
+      text-align: center;
+    }
+
+    .hero-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .eyebrow {
+      color: #155608;
+      font-family: var(--font-body);
+      font-size: var(--type-label-md);
+      font-weight: 600;
+      line-height: var(--type-label-md-line);
+      letter-spacing: 0.05em;
+    }
+
+    p {
+      font-family: var(--font-body);
+      font-size: var(--type-body-md);
+      font-weight: 400;
+      line-height: var(--type-body-md-line);
+    }
+
+    .lead {
+      font-family: var(--font-body);
+      font-size: var(--type-body-lg) !important;
+      font-weight: 400;
+      line-height: var(--type-body-lg-line) !important;
+      letter-spacing: 0;
+    }
+
+    .card p,
+    .detail-box p,
+    .flow-step p,
+    .profile-row,
+    .tradeoff-item,
+    .timeline-label,
+    .score-caption,
+    .legend,
+    .control-row,
+    .matrix-row,
+    .scoreline-row,
+    .evidence-box,
+    .feedback,
+    .balance-message,
+    .prompt,
+    .quiet-note,
+    .gate-header,
+    .gate-flow {
+      font-family: var(--font-body);
+      font-size: var(--type-body-md);
+      font-weight: 400;
+      line-height: var(--type-body-md-line);
+      letter-spacing: 0;
+    }
+
+    .lead,
+    .card p,
+    .detail-box p,
+    .flow-step p,
+    .tradeoff-item,
+    .timeline-label,
+    .score-caption,
+    .legend,
+    .control-row,
+    .matrix-row,
+    .scoreline-row,
+    .evidence-box,
+    .feedback,
+    .balance-message,
+    .prompt,
+    .quiet-note,
+    .gate-header,
+    .gate-flow {
+      color: var(--muted);
+    }
+
+    .hero .lead {
+      max-width: 690px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: var(--type-body-lg);
+      line-height: var(--type-body-lg-line);
+    }
+
+    .hero-actions {
+      justify-content: center;
+    }
+
+    button,
+    .anchor-button {
+      min-height: 42px;
+      border-radius: 4px;
+      border-color: #becab6;
+      background: #ffffff;
+      color: #155608;
+      font-family: var(--font-body);
+      font-size: var(--type-label-md);
+      font-weight: 600;
+      line-height: var(--type-label-md-line);
+      letter-spacing: 0.05em;
+      box-shadow: none;
+      transition: border-color 150ms ease, background 150ms ease, color 150ms ease;
+    }
+
+    button:hover,
+    button:focus-visible,
+    .anchor-button:hover,
+    .anchor-button:focus-visible {
+      border-color: #39a935;
+      background: #f3f8f2;
+      color: #155608;
+      box-shadow: 0 0 0 3px rgba(57, 169, 53, 0.12);
+    }
+
+    button:active,
+    .anchor-button:active {
+      transform: none;
+    }
+
+    .anchor-button.primary,
+    button.primary {
+      background: #39a935;
+      border-color: #39a935;
+      color: #ffffff;
+    }
+
+    .anchor-button.secondary,
+    button.secondary,
+    button.warning {
+      background: #ffffff;
+      border-color: #39a935;
+      color: #155608;
+    }
+
+    button.danger {
+      background: #ba1a1a;
+      border-color: #ba1a1a;
+      color: #ffffff;
+    }
+
+    .blueprint-gate {
+      right: 0;
+      top: 50%;
+      width: min(36vw, 440px);
+      aspect-ratio: 0.95;
+      opacity: 1;
+      transform: translateY(-50%);
+      padding: 42px;
+      background: #ffffff;
+      border: 1px solid #e2e2e2;
+      border-radius: 4px;
+      box-shadow: var(--shadow);
+      filter: none;
+    }
+
+    .blueprint-gate::before,
+    .blueprint-gate::after {
+      border-color: #dadada;
+      box-shadow: none;
+    }
+
+    .gate-rail {
+      border-color: #dadada;
+    }
+
+    .gate-rail::before,
+    .gate-rail::after {
+      background: #e2e2e2;
+    }
+
+    .panel,
+    .card,
+    .problem-card,
+    .vote-card,
+    .focus-button,
+    .architecture-button,
+    .detail-box,
+    .flow-step,
+    .profile-table,
+    .scale,
+    .balance-message,
+    .timeline,
+    .gate-flow span,
+    .evidence-box,
+    .feedback,
+    .prompt {
+      background: #ffffff !important;
+      border-color: #e2e2e2 !important;
+      border-radius: 4px !important;
+      box-shadow: var(--shadow);
+    }
+
+    .panel,
+    .card,
+    .problem-card,
+    .vote-card {
+      border-top: 4px solid #39a935;
+    }
+
+    .card::before,
+    .focus-button::before,
+    .architecture-button::before,
+    .problem-card::after {
+      display: none;
+    }
+
+    .problem-card {
+      min-height: 214px;
+      align-content: start;
+    }
+
+    .problem-card-grid {
+      align-items: stretch;
+    }
+
+    .problem-card-grid .problem-card {
+      height: 100%;
+    }
+
+    .problem-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 4px;
+      border-color: #39a935;
+      color: #ffffff;
+      background: #39a935;
+      font-family: var(--font-body);
+      font-size: var(--type-headline-md);
+      line-height: var(--type-headline-md-line);
+      font-weight: 700;
+      box-shadow: none;
+    }
+
+    .pill {
+      border: 0;
+      border-radius: 0;
+      padding: 0;
+      background: transparent !important;
+      color: #155608;
+      font-family: var(--font-body);
+      font-size: var(--type-label-md);
+      font-weight: 600;
+      line-height: var(--type-label-md-line);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .pill.teal,
+    .pill.amber,
+    .pill.orange,
+    .pill.blue,
+    .pill.green,
+    .pill.violet {
+      border: 0;
+      background: transparent !important;
+      color: #155608;
+    }
+
+    .focus-button,
+    .architecture-button {
+      min-height: 112px;
+      padding: 18px;
+      text-align: left;
+    }
+
+    .focus-button strong,
+    .architecture-button strong,
+    .detail-box strong,
+    .tradeoff-item b,
+    .profile-row strong,
+    .legend strong {
+      color: var(--text);
+      font-family: var(--font-body);
+      font-weight: 600;
+      letter-spacing: 0;
+    }
+
+    .focus-button strong,
+    .architecture-button strong {
+      font-size: var(--type-body-md);
+      line-height: var(--type-body-md-line);
+    }
+
+    .focus-button small,
+    .architecture-button small {
+      color: var(--muted);
+      font-family: var(--font-body);
+      font-size: var(--type-label-md);
+      font-weight: 400;
+      line-height: var(--type-label-md-line);
+      letter-spacing: 0;
+    }
+
+    .focus-button[aria-pressed="true"],
+    .architecture-button[aria-pressed="true"] {
+      border-color: #39a935 !important;
+      background: #f5fbf4 !important;
+      box-shadow: 0 0 0 2px rgba(57, 169, 53, 0.14);
+    }
+
+    .district-detail-single {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .explorer-alignment-panel {
+      margin-top: 22px;
+    }
+
+    .explorer-alignment-panel .matrix {
+      max-width: 960px;
+    }
+
+    .mini-track,
+    .score-bar {
+      border-color: #dadada;
+      background: #e8e8e8;
+      border-radius: 4px;
+    }
+
+    .mini-fill,
+    .score-segment,
+    .bar {
+      border-radius: 4px;
+      box-shadow: none;
+    }
+
+    .spectrum-line {
+      height: 2px;
+      background: #becab6;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .node-dot,
+    .step-index,
+    .marker,
+    .block {
+      border-radius: 4px;
+      background: #39a935;
+      color: #ffffff;
+      box-shadow: none;
+    }
+
+    .node-dot {
+      border: 1px solid #39a935;
+      width: 36px;
+      height: 36px;
+    }
+
+    .node-name {
+      color: var(--text);
+      font-family: var(--font-display);
+      font-size: var(--type-headline-md);
+      font-weight: 600;
+      line-height: var(--type-headline-md-line);
+    }
+
+    .node-sub {
+      color: var(--quiet);
+      font-family: var(--font-body);
+      font-size: var(--type-label-md);
+      font-weight: 400;
+      line-height: var(--type-label-md-line);
+    }
+
+    .profile-row span {
+      color: var(--muted);
+      background: #f3f3f4;
+    }
+
+    .scale h4 {
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    .block.human,
+    .block.system {
+      background: #5f5e5e;
+      color: #ffffff;
+    }
+
+    .score-total {
+      color: #155608;
+      font-family: var(--font-display);
+      font-size: var(--type-display-lg);
+      font-weight: 700;
+      line-height: var(--type-display-lg-line);
+      letter-spacing: -0.02em;
+    }
+
+    .gate-header {
+      background: #f3f3f4;
+    }
+
+    .gate-flow span.active {
+      border-color: #39a935 !important;
+      background: #f5fbf4 !important;
+      color: #155608;
+    }
+
+    .gate-card {
+      text-align: left;
+    }
+
+    .gate-card .actions {
+      justify-content: flex-start;
+    }
+
+    .decision-grid button {
+      min-height: 96px;
+      background: #ffffff;
+      border-color: #e2e2e2;
+      color: var(--text);
+    }
+
+    .feedback.good {
+      border-color: #39a935 !important;
+      background: #f5fbf4 !important;
+      color: var(--muted);
+    }
+
+    .feedback.bad {
+      border-color: #ba1a1a !important;
+      background: #fff6f5 !important;
+      color: var(--muted);
+    }
+
+    .truth-line {
+      border-color: #becab6;
+      border-radius: 4px;
+      background: #f5fbf4;
+      color: #155608;
+      box-shadow: none;
+    }
+
+    @media (max-width: 980px) {
+      .blueprint-gate {
+        position: relative;
+        right: auto;
+        top: auto;
+        width: min(100%, 420px);
+        margin-top: 32px;
+        transform: none;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .shell {
+        width: min(100vw - 32px, 1220px);
+      }
+
+      h2 {
+        font-size: var(--type-headline-lg-mobile);
+        line-height: var(--type-headline-lg-mobile-line);
+      }
+
+      .topbar {
+        margin: 0 calc(50% - 50vw);
+        padding: 12px 16px;
+      }
+
+      .hero,
+      .section {
+        padding: 44px 0;
+      }
+    }
+  
+    body.presentation-active .topbar,
+    body.presentation-active .gate-sidebar,
+    body.presentation-active .gate-sidebar-backdrop {
+      display: none !important;
+    }
+
+    body.presentation-active .shell {
+      width: min(1220px, calc(100vw - 32px));
+      padding-top: 0;
+    }
+
+    body.presentation-active .hero,
+    body.presentation-active .section {
+      min-height: 100vh;
+      display: grid;
+      align-items: center;
+      scroll-snap-align: start;
+    }
+
+    body.presentation-active {
+      height: 100vh;
+      overflow-y: auto;
+      scroll-snap-type: y mandatory;
+    }
+
+    .gate-exit-presentation {
+      position: fixed;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 10000;
+      display: none;
+    }
+
+    body.presentation-active .gate-exit-presentation {
+      display: inline-flex;
+    }
+
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: 0;
+      padding: 0 28px;
+      height: 72px;
+      z-index: 60;
+    }
+
+    .gate-menu-button {
+      margin-right: auto;
+    }
+  
+    @media (max-width: 899px) {
+      .shell,
+      body[data-sidebar-collapsed="true"] .shell {
+        width: min(1220px, calc(100vw - 32px));
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .gate-sidebar {
+        top: 72px;
+        height: calc(100vh - 72px);
+        transform: translateX(-100%);
+        box-shadow: var(--shadow);
+      }
+
+      .gate-sidebar.open {
+        transform: translateX(0);
+      }
+
+      .gate-sidebar-backdrop.open {
+        display: block;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="./ai-course-theme.css">
+</head>
+<body class="gatekeeping-page">
+  <button type="button" class="gate-exit-presentation anchor-button" onclick="togglePresentationMode()" aria-label="Exit Presentation">
+    <span class="material-symbols-outlined">close_fullscreen</span>
+    Exit Presentation
+  </button>
+  <div id="sidebar-backdrop" class="gate-sidebar-backdrop" aria-hidden="true"></div>
+  <aside id="sidebar" class="gate-sidebar" aria-label="Gatekeeping presentation navigation">
+    <nav>
+      <a href="#problem">Problem Frame</a>
+      <a href="#district">District Engagement</a>
+      <a href="#spectrum">Spectrum</a>
+      <a href="#explorer">Architecture Explorer</a>
+      <a href="#workload">Workload Movement</a>
+      <a href="#simulator">Readiness Gate</a>
+      <a href="#capacity">Capacity Question</a>
+    </nav>
+  </aside>
+
+  <main class="shell">
+    <header class="topbar" aria-label="Presentation navigation">
+      <button type="button" id="gate-menu-button" class="gate-menu-button" onclick="toggleSidebar()" aria-label="Toggle presentation navigation"><span class="material-symbols-outlined">menu</span></button>
+        <div class="topbar-actions">
+        <button type="button" class="theme-toggle" onclick="toggleDarkMode()" aria-label="Toggle Light/Dark Mode"><span data-theme-icon class="material-symbols-outlined">dark_mode</span></button>
+          <button type="button" id="gate-presentation-toggle" class="anchor-button" onclick="togglePresentationMode()" aria-label="Toggle Presentation Mode"><span data-presentation-icon class="material-symbols-outlined">present_to_all</span><span data-presentation-label>Enter Presentation</span></button>
+          <nav class="resource-jump" aria-label="Digital presentation resources">
+        <a href="./dean-ai-assessment-pillars.html" aria-current="false" aria-pressed="false">Assessment Pillars</a>
+        <a href="./gatekeeping-architecture.html" aria-current="page" aria-pressed="true">Gatekeeping Architecture</a>
+        <a href="./jon-ai-resource.html" aria-current="false" aria-pressed="false">AI Resources</a>
+      </nav>
+      </div>
+    </header>
+
+    <section class="hero" id="top">
+      <div class="hero-inner">
+        <div class="eyebrow">Live Preview · District Student Engagement Layer</div>
+        <h1>Architectures of Academic Gatekeeping<span>Pacing, Process, Readiness, and Student Engagement</span></h1>
+        <p class="lead">If high-stakes assessments can fail unprepared students, the gate is not just an LMS feature. It is a student engagement architecture: clarity, cognitive load, feedback, metacognition, and relationship have to be visible before the summative prompt opens.</p>
+        <div class="hero-video" aria-label="The Human Gate video">
+          <video controls preload="metadata" playsinline>
+            <source src="./media/the-human-gate.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="hero-actions">
+          <a class="anchor-button primary" href="#district">Open District Lens</a>
+          <a class="anchor-button" href="#explorer">Compare Gate Models</a>
+          <a class="anchor-button secondary" href="#simulator">Run Readiness Gate</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="problem">
+      <div class="grid-2">
+        <div>
+          <div class="eyebrow">The non-negotiable</div>
+          <h2>High-stakes work needs a boundary before failure becomes predictable.</h2>
+          <p class="lead">The question is not whether to use a gate. The question is what kind of gate supports the district engagement priorities without crushing teacher capacity: a single automated readiness check, multiple automated gates, or a relational process check-in.</p>
+        </div>
+        <div class="grid-2 problem-card-grid" style="grid-template-columns: 1fr 1fr; gap: 16px;">
+          <article class="problem-card" style="--accent: var(--orange);">
+            <div class="problem-icon">!</div>
+            <div>
+              <h3>The Baseline Problem</h3>
+              <p>Unprepared students taking high-stakes assessments leads to predictable failure, shallow submission behaviour, and wasted instructional time.</p>
+            </div>
+          </article>
+          <article class="problem-card" style="--accent: var(--amber);">
+            <div class="problem-icon">?</div>
+            <div>
+              <h3>The District Question</h3>
+              <p>Which gate increases engagement instead of creating another roadblock students resent or teachers cannot sustain?</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="district">
+      <div class="grid-2">
+        <div>
+          <div class="eyebrow">District language layer</div>
+          <h2>This section makes the model speak the language the district already cares about.</h2>
+          <p class="lead">The weak version would paste the district table at the end. The stronger version makes every gatekeeping option answer the five student engagement priorities directly.</p>
+        </div>
+        <div class="panel">
+          <span class="pill blue">Student engagement focus</span>
+          <h3 style="margin-top: 12px;">The five lenses</h3>
+          <p class="lead" style="font-size: 1.02rem; margin-top: 8px;">Teacher clarity, cognitive load management, cognitive engagement with high-leverage feedback, metacognition and ownership, and emotional engagement become the evaluation frame for the readiness architecture.</p>
+        </div>
+      </div>
+
+      <div class="engagement-strip" role="group" aria-label="District student engagement focus selector">
+        <button class="focus-button" type="button" data-focus="clarity" style="--accent: var(--blue);" aria-pressed="true">
+          <strong>Teacher Clarity</strong>
+          <small>Expectations, intentions, criteria.</small>
+        </button>
+        <button class="focus-button" type="button" data-focus="load" style="--accent: var(--green);" aria-pressed="false">
+          <strong>Cognitive Load</strong>
+          <small>Segment and sequence complexity.</small>
+        </button>
+        <button class="focus-button" type="button" data-focus="feedback" style="--accent: var(--amber);" aria-pressed="false">
+          <strong>Feedback</strong>
+          <small>Mental effort plus timely guidance.</small>
+        </button>
+        <button class="focus-button" type="button" data-focus="ownership" style="--accent: var(--violet);" aria-pressed="false">
+          <strong>Ownership</strong>
+          <small>Plan, monitor, reflect.</small>
+        </button>
+        <button class="focus-button" type="button" data-focus="emotional" style="--accent: var(--teal);" aria-pressed="false">
+          <strong>Emotional Engagement</strong>
+          <small>Trust, belonging, safe risk.</small>
+        </button>
+      </div>
+
+      <div class="district-detail district-detail-single">
+        <section class="panel district-copy">
+          <span id="focusPill" class="pill blue">Teacher Clarity</span>
+          <h3 id="focusTitle">Teacher Clarity</h3>
+          <div class="detail-box">
+            <strong>District definition and goal</strong>
+            <p id="focusDefinition"></p>
+          </div>
+          <div class="detail-box">
+            <strong>Readiness architecture translation</strong>
+            <p id="focusTranslation"></p>
+          </div>
+          <div class="detail-box">
+            <strong>Staff-facing question</strong>
+            <p id="focusQuestion"></p>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="section" id="explorer">
+      <span id="spectrum" class="anchor-target" aria-hidden="true"></span>
+      <div class="eyebrow">Model explorer</div>
+      <h2>Pick the pacing architecture.</h2>
+      <p class="lead">Staff must select a pacing model and immediately see what it does to automation, cognitive load, relational trust, feedback quality, ownership, and teacher workload timing.</p>
+
+      <div class="selector" role="group" aria-label="Readiness architecture selector">
+        <button type="button" class="architecture-button" data-arch="strict" style="--accent: var(--teal);" aria-pressed="true" onclick="updateArchitecture('strict')">
+          <strong>Strict Funnel</strong>
+          <small>Students complete learning and practice, then face one readiness gate before the summative unlocks.</small>
+        </button>
+        <button type="button" class="architecture-button" data-arch="multi" style="--accent: var(--amber);" aria-pressed="false" onclick="updateArchitecture('multi')">
+          <strong>Multi-Macro Scaffold</strong>
+          <small>The unit is divided into smaller chunks with readiness gates between major sections.</small>
+        </button>
+      </div>
+
+      <div class="explorer-grid">
+        <section class="panel map-panel" aria-live="polite">
+          <div>
+            <span id="archPill" class="pill teal">Single automated gate</span>
+            <h3 id="archTitle" style="margin-top: 12px;">Strict Funnel</h3>
+            <p id="archTagline" class="lead" style="font-size: 1.05rem; margin-top: 8px;"></p>
+          </div>
+          <div id="blueprintFlow" class="blueprint-flow"></div>
+          <div class="profile-table" id="profileTable"></div>
+        </section>
+
+        <section class="panel map-panel">
+          <div>
+            <span class="pill amber">Trade-off profile</span>
+            <h3 style="margin-top: 12px;">What this model buys you — and what it costs.</h3>
+          </div>
+          <div id="tradeoffList" class="tradeoff-list"></div>
+          <span id="workload" class="anchor-target" aria-hidden="true"></span>
+          <div class="burden-stage" aria-label="System and human load comparison">
+            <div class="scale">
+              <h4>System Automation</h4>
+              <div class="scale-stack" id="systemStack"></div>
+            </div>
+            <div class="burden-symbol">⇄</div>
+            <div class="scale">
+              <h4>Human / Teacher Load</h4>
+              <div class="scale-stack" id="humanStack"></div>
+            </div>
+          </div>
+          <div id="burdenMessage" class="balance-message"></div>
+        </section>
+      </div>
+
+      <section class="panel explorer-alignment-panel" aria-live="polite">
+        <span class="pill amber">Architecture profile comparison</span>
+        <h3 id="districtArchTitle" style="margin-top: 12px;">Strict Funnel vs Multi-Macro Scaffold</h3>
+        <p id="districtArchNote" class="lead" style="font-size: 1.02rem; margin-top: 8px;">Each model gets exactly 100 points. The comparison shows where each architecture spends its instructional energy.</p>
+        <div class="matrix" id="districtMatrix" style="margin-top: 18px;"></div>
+      </section>
+
+    <section class="section" id="engagement-fit">
+      <span id="capacity" class="anchor-target" aria-hidden="true"></span>
+      <div class="grid-2">
+        <div>
+          <div class="eyebrow">District engagement fit model</div>
+          <h2>Do not sell this as “better” unless it maps to the district priorities.</h2>
+          <p class="lead">Adjust the district engagement priorities. The score updates against the selected architecture. This is not a grade; it is a pressure test for alignment.</p>
+        </div>
+        <div class="panel meter-panel">
+          <div id="fitScore" class="score-total">0%</div>
+          <div class="score-caption">District priorities aligned with selected architecture</div>
+          <div class="score-bar" aria-label="District engagement fit score">
+            <div id="claritySegment" class="score-segment" style="--accent: var(--blue); --w: 0%;"></div>
+            <div id="loadSegment" class="score-segment" style="--accent: var(--green); --w: 0%;"></div>
+            <div id="feedbackSegment" class="score-segment" style="--accent: var(--amber); --w: 0%;"></div>
+            <div id="ownershipSegment" class="score-segment" style="--accent: var(--violet); --w: 0%;"></div>
+            <div id="emotionalSegment" class="score-segment" style="--accent: var(--teal); --w: 0%;"></div>
+          </div>
+          <div class="legend">
+            <span>Clarity <strong id="clarityLabel">0%</strong></span>
+            <span>Load <strong id="loadLabel">0%</strong></span>
+            <span>Feedback <strong id="feedbackLabel">0%</strong></span>
+            <span>Ownership <strong id="ownershipLabel">0%</strong></span>
+            <span>Emotional <strong id="emotionalLabel">0%</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="capacity-grid">
+        <section class="panel">
+          <span class="pill blue">Live weighting</span>
+          <h3 style="margin-top: 12px;">Which district engagement focus matters most right now?</h3>
+          <div class="control" style="--accent: var(--blue);">
+            <div class="control-row">
+              <strong>Teacher clarity</strong>
+              <label class="weight-entry"><input id="clarityWeight" class="weight-input" type="number" min="0" max="100" step="5" value="20" data-kind="weight" data-weight-key="clarity" aria-label="Teacher clarity priority percentage"><span>%</span></label>
+            </div>
+            <input class="weight-slider" type="range" min="0" max="100" step="5" value="20" data-kind="weight" data-weight-key="clarity" aria-label="Teacher clarity priority slider">
+          </div>
+          <div class="control" style="--accent: var(--green);">
+            <div class="control-row">
+              <strong>Cognitive load management</strong>
+              <label class="weight-entry"><input id="loadWeight" class="weight-input" type="number" min="0" max="100" step="5" value="20" data-kind="weight" data-weight-key="load" aria-label="Cognitive load management priority percentage"><span>%</span></label>
+            </div>
+            <input class="weight-slider" type="range" min="0" max="100" step="5" value="20" data-kind="weight" data-weight-key="load" aria-label="Cognitive load management priority slider">
+          </div>
+          <div class="control" style="--accent: var(--amber);">
+            <div class="control-row">
+              <strong>High-leverage feedback</strong>
+              <label class="weight-entry"><input id="feedbackWeight" class="weight-input" type="number" min="0" max="100" step="5" value="20" data-kind="weight" data-weight-key="feedback" aria-label="High-leverage feedback priority percentage"><span>%</span></label>
+            </div>
+            <input class="weight-slider" type="range" min="0" max="100" step="5" value="20" data-kind="weight" data-weight-key="feedback" aria-label="High-leverage feedback priority slider">
+          </div>
+          <div class="control" style="--accent: var(--violet);">
+            <div class="control-row">
+              <strong>Metacognition & ownership</strong>
+              <label class="weight-entry"><input id="ownershipWeight" class="weight-input" type="number" min="0" max="100" step="5" value="20" data-kind="weight" data-weight-key="ownership" aria-label="Metacognition and ownership priority percentage"><span>%</span></label>
+            </div>
+            <input class="weight-slider" type="range" min="0" max="100" step="5" value="20" data-kind="weight" data-weight-key="ownership" aria-label="Metacognition and ownership priority slider">
+          </div>
+          <div class="control" style="--accent: var(--teal);">
+            <div class="control-row">
+              <strong>Emotional engagement</strong>
+              <label class="weight-entry"><input id="emotionalWeight" class="weight-input" type="number" min="0" max="100" step="5" value="20" data-kind="weight" data-weight-key="emotional" aria-label="Emotional engagement priority percentage"><span>%</span></label>
+            </div>
+            <input class="weight-slider" type="range" min="0" max="100" step="5" value="20" data-kind="weight" data-weight-key="emotional" aria-label="Emotional engagement priority slider">
+          </div>
+          <div class="weight-footer">
+            <strong class="weight-total" id="weightTotalStatus">Total: 100%</strong>
+            <button class="weight-reset" id="resetWeights" type="button">Reset evenly</button>
+          </div>
+        </section>
+
+        <section class="panel">
+          <span class="pill green">Architecture fit comparison</span>
+          <h3 id="scoreProfileTitle" style="margin-top: 12px;">Strict Funnel vs Multi-Macro Scaffold</h3>
+          <div class="model-comparison" id="modelComparison"></div>
+          <h3 style="margin-top: 28px;">Teacher workload timing</h3>
+          <p class="lead" style="font-size: 1rem; margin-top: 6px;">The issue is not just how much work exists. It is where the work lands.</p>
+          <div class="timeline" id="timeline" style="margin-top: 16px;"></div>
+        </section>
+      </div>
+      <div id="capacityTruth" class="truth-line"></div>
+    </section>
+
+
+      <div class="panel" style="margin-top: 32px; border-color: var(--orange);">
+        <span class="pill orange">The Human Layer</span>
+        <h3 style="margin-top: 14px;">The Process Check-In</h3>
+        <p class="lead" style="font-size: 1.1rem; margin-top: 8px;">The Process Check-In is its own separate layer. It is <em>how</em> you conduct the readiness check in the Strict Funnel, or <em>how</em> you conduct the macro gates in the Multi-Macro Scaffold. It is a dedicated chance to talk to students, review their process portfolio, and provide high-leverage feedback, with unlocking the prompt as the end goal.</p>
+        
+        <div class="grid-2" style="margin-top: 24px; gap: 20px;">
+          <div class="detail-box" style="border-color: var(--teal); background: rgba(32, 199, 168, 0.05);">
+            <strong style="color: var(--teal); font-size: 1.05rem;">With the Strict Funnel</strong>
+            <p style="margin-top: 4px;">One comprehensive Process Check-In occurs at the very end of the unit to verify readiness before the final summative prompt unlocks.</p>
+          </div>
+          <div class="detail-box" style="border-color: var(--amber); background: rgba(255, 189, 69, 0.05);">
+            <strong style="color: var(--amber); font-size: 1.05rem;">With the Multi-Macro Scaffold</strong>
+            <p style="margin-top: 4px;">Multiple smaller Process Check-Ins occur throughout the unit, acting as the relational gates between each chunk of learning.</p>
+          </div>
+        </div>
+
+        <h4 style="margin-top: 32px; color: var(--text); border-bottom: 1px solid var(--line); padding-bottom: 8px; font-size: 1.1rem;">The Teacher's Decision Toolkit</h4>
+        <p style="color: var(--muted); font-size: 0.95rem; margin-top: 8px;">Regardless of which pacing architecture is chosen, the teacher evaluates the process evidence during the check-in and makes one of four operational choices:</p>
+        
+        <div class="grid-4" style="margin-top: 16px;">
+          <div class="detail-box" style="background: rgba(32, 199, 168, 0.08); border-color: rgba(32, 199, 168, 0.3);">
+            <strong style="color: var(--teal); font-size: 1.05rem;">Release Prompt</strong>
+            <p style="font-size: 0.9rem; margin-top: 4px;"><strong>Ready now.</strong> Student has proven foundational knowledge and provided sufficient process evidence.</p>
+          </div>
+          <div class="detail-box" style="background: rgba(111, 181, 255, 0.08); border-color: rgba(111, 181, 255, 0.3);">
+            <strong style="color: var(--blue); font-size: 1.05rem;">Targeted Scaffold</strong>
+            <p style="font-size: 0.9rem; margin-top: 4px;"><strong>Patch a specific gap.</strong> Student is close, but needs one specific intervention or resource before unlocking.</p>
+          </div>
+          <div class="detail-box" style="background: rgba(255, 189, 69, 0.08); border-color: rgba(255, 189, 69, 0.3);">
+            <strong style="color: var(--amber); font-size: 1.05rem;">Teacher Conference</strong>
+            <p style="font-size: 0.9rem; margin-top: 4px;"><strong>Resolve evidence mismatch.</strong> Quiz scores and process uploads do not align; human verification is required.</p>
+          </div>
+          <div class="detail-box" style="background: rgba(255, 116, 72, 0.08); border-color: rgba(255, 116, 72, 0.3);">
+            <strong style="color: var(--orange); font-size: 1.05rem;">Delay Access</strong>
+            <p style="font-size: 0.9rem; margin-top: 4px;"><strong>Not ready.</strong> Student lacks foundational knowledge; releasing the prompt would cause predictable failure.</p>
+          </div>
+        </div>
+
+        <div class="human-lift">
+          <span class="pill orange">What the human layer adds</span>
+          <h4 style="margin-top: 12px; color: var(--text); font-size: 1.1rem;">Automation spends 100 points. The Process Check-In adds engagement capacity on top.</h4>
+          <p style="color: var(--muted); font-size: 0.95rem; margin-top: 8px;">The architecture gives the structure. The teacher's toolkit adds the missing human work: targeted feedback, emotional safety, ownership, and judgment when the evidence is messy.</p>
+          <div class="lift-legend" aria-label="Human layer visual legend">
+            <span><i style="--swatch: #39a935;"></i>Automated architecture profile</span>
+            <span><i style="--swatch: #f2a23a;"></i>Process Check-In lift</span>
+          </div>
+
+          <div class="human-lift-grid">
+            <article class="human-lift-card">
+              <h4>Strict Funnel + Process Check-In</h4>
+              <div class="human-lift-total"><span>Engagement capacity after human layer</span><strong>200/100</strong></div>
+              <div class="lift-row"><span>Teacher Clarity</span><div class="lift-track"><div class="lift-base" style="--accent: var(--blue); --base: 20%;"></div><div class="lift-plus" style="--base: 20%; --plus: 5%;"></div></div><strong>40 + 10</strong></div>
+              <div class="lift-row"><span>Cognitive Load</span><div class="lift-track"><div class="lift-base" style="--accent: var(--green); --base: 7.5%;"></div><div class="lift-plus" style="--base: 7.5%; --plus: 2.5%;"></div></div><strong>15 + 5</strong></div>
+              <div class="lift-row"><span>Feedback</span><div class="lift-track"><div class="lift-base" style="--accent: var(--amber); --base: 5%;"></div><div class="lift-plus" style="--base: 5%; --plus: 15%;"></div></div><strong>10 + 30</strong></div>
+              <div class="lift-row"><span>Ownership</span><div class="lift-track"><div class="lift-base" style="--accent: var(--violet); --base: 12.5%;"></div><div class="lift-plus" style="--base: 12.5%; --plus: 12.5%;"></div></div><strong>25 + 25</strong></div>
+              <div class="lift-row"><span>Emotional Safety</span><div class="lift-track"><div class="lift-base" style="--accent: var(--teal); --base: 5%;"></div><div class="lift-plus" style="--base: 5%; --plus: 15%;"></div></div><strong>10 + 30</strong></div>
+            </article>
+
+            <article class="human-lift-card">
+              <h4>Multi-Macro Scaffold + Process Check-In</h4>
+              <div class="human-lift-total"><span>Engagement capacity after human layer</span><strong>200/100</strong></div>
+              <div class="lift-row"><span>Teacher Clarity</span><div class="lift-track"><div class="lift-base" style="--accent: var(--blue); --base: 7.5%;"></div><div class="lift-plus" style="--base: 7.5%; --plus: 5%;"></div></div><strong>15 + 10</strong></div>
+              <div class="lift-row"><span>Cognitive Load</span><div class="lift-track"><div class="lift-base" style="--accent: var(--green); --base: 20%;"></div><div class="lift-plus" style="--base: 20%; --plus: 2.5%;"></div></div><strong>40 + 5</strong></div>
+              <div class="lift-row"><span>Feedback</span><div class="lift-track"><div class="lift-base" style="--accent: var(--amber); --base: 7.5%;"></div><div class="lift-plus" style="--base: 7.5%; --plus: 15%;"></div></div><strong>15 + 30</strong></div>
+              <div class="lift-row"><span>Ownership</span><div class="lift-track"><div class="lift-base" style="--accent: var(--violet); --base: 12.5%;"></div><div class="lift-plus" style="--base: 12.5%; --plus: 12.5%;"></div></div><strong>25 + 25</strong></div>
+              <div class="lift-row"><span>Emotional Safety</span><div class="lift-track"><div class="lift-base" style="--accent: var(--teal); --base: 2.5%;"></div><div class="lift-plus" style="--base: 2.5%; --plus: 15%;"></div></div><strong>5 + 30</strong></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="simulator">
+      <div class="eyebrow">Readiness gate simulator</div>
+      <h2>Use cases to test whether the architecture actually protects engagement.</h2>
+      <p class="lead">The gate is not “pass quiz, unlock prompt.” The real decision is whether the evidence says the student is ready, what kind of feedback they need, and whether the gate preserves trust.</p>
+
+      <div class="panel gate-shell">
+        <div class="gate-header">
+          <span id="scenarioCounter">Scenario 1 of 3</span>
+          <span id="scenarioSubject">Selected architecture: Strict Funnel</span>
+        </div>
+        <div class="gate-flow" aria-label="Readiness gate steps">
+          <span data-step-label="profile">Learner Profile</span>
+          <span data-step-label="evidence">Process Evidence</span>
+          <span data-step-label="checkin">Readiness Check</span>
+          <span data-step-label="decision">Gate Decision</span>
+          <span data-step-label="action">Engagement Action</span>
+        </div>
+        <div id="gateContent" class="gate-content"></div>
+      </div>
+    </section>
+
+    <section class="section" id="decision">
+      <div class="eyebrow">Staff decision surface</div>
+      <h2>The decision is not philosophical. It is operational.</h2>
+      <p class="lead">Choose the pacing model that best fits the district engagement focus and the staffing reality. The wrong answer is choosing the most ideal model and ignoring the workload consequence.</p>
+
+      <div class="vote-grid">
+        <article class="vote-card" style="--accent: var(--teal);">
+          <span class="pill teal">Option 1</span>
+          <h3>Strict Funnel</h3>
+          <p class="lead" style="font-size: 1rem;">Best when clarity and automation matter more than relationship-heavy feedback.</p>
+        </article>
+        <article class="vote-card" style="--accent: var(--amber);">
+          <span class="pill amber">Option 2</span>
+          <h3>Multi-Macro Scaffold</h3>
+          <p class="lead" style="font-size: 1rem;">Best when cognitive load management and staged success are the main engagement levers.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const AI_COURSE_THEME_STORAGE_KEY = "ai-course-building-resources::theme::v1";
+
+    function syncThemeIcons() {
+      const isDark = document.documentElement.classList.contains("dark");
+      document.querySelectorAll("[data-theme-icon]").forEach((icon) => {
+        icon.textContent = isDark ? "light_mode" : "dark_mode";
+      });
+    }
+
+    function applyStoredTheme() {
+      let storedTheme = null;
+      try {
+        storedTheme = localStorage.getItem(AI_COURSE_THEME_STORAGE_KEY);
+      } catch {
+        storedTheme = null;
+      }
+      document.documentElement.classList.toggle("dark", storedTheme === "dark");
+      syncThemeIcons();
+    }
+
+    function toggleDarkMode() {
+      const nextIsDark = !document.documentElement.classList.contains("dark");
+      document.documentElement.classList.toggle("dark", nextIsDark);
+      try {
+        localStorage.setItem(AI_COURSE_THEME_STORAGE_KEY, nextIsDark ? "dark" : "light");
+      } catch {}
+      syncThemeIcons();
+    }
+
+    function syncPresentationControls() {
+      const isPresentation = document.body.classList.contains("presentation-active");
+      document.querySelectorAll("[data-presentation-icon]").forEach((icon) => {
+        icon.textContent = isPresentation ? "close_fullscreen" : "present_to_all";
+      });
+      document.querySelectorAll("[data-presentation-label]").forEach((label) => {
+        label.textContent = isPresentation ? "Exit Presentation" : "Enter Presentation";
+      });
+    }
+
+    function togglePresentationMode() {
+      const isPresentation = document.body.classList.toggle("presentation-active");
+      if (isPresentation) toggleSidebar(false);
+      syncPresentationControls();
+    }
+
+    function toggleSidebar(force) {
+      const sidebar = document.getElementById("sidebar");
+      const backdrop = document.getElementById("sidebar-backdrop");
+      const desktop = window.matchMedia("(min-width: 900px)").matches;
+
+      if (desktop) {
+        const currentlyCollapsed = document.body.getAttribute("data-sidebar-collapsed") === "true";
+        const shouldCollapse = typeof force === "boolean" ? !force : !currentlyCollapsed;
+        document.body.setAttribute("data-sidebar-collapsed", String(shouldCollapse));
+        sidebar.classList.remove("open");
+        backdrop.classList.remove("open");
+        return;
+      }
+
+      const shouldOpen = typeof force === "boolean" ? force : !sidebar.classList.contains("open");
+      sidebar.classList.toggle("open", shouldOpen);
+      backdrop.classList.toggle("open", shouldOpen);
+    }
+
+
+    function handleSidebarTopicClick() {
+      if (!window.matchMedia("(min-width: 900px)").matches) {
+        toggleSidebar(false);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      document.body.setAttribute("data-sidebar-collapsed", "false");
+      applyStoredTheme();
+    });
+    const districtFocus = {
+      clarity: {
+        title: "Teacher Clarity",
+        short: "Clarity",
+        pill: "blue",
+        accent: "var(--blue)",
+        definition: "Making expectations, learning intentions, and success criteria highly explicit to reduce student anxiety and confusion.",
+        translation: "A readiness gate must make the release conditions visible: what students must complete, what evidence counts, and exactly what unlocks the summative prompt.",
+        question: "Can a student explain what they must do next without emailing the teacher or guessing inside the LMS?"
+      },
+      load: {
+        title: "Cognitive Load Management",
+        short: "Load",
+        pill: "green",
+        accent: "var(--green)",
+        definition: "Segmenting and sequencing complex tasks to prevent working memory overload and free up mental capacity for deep learning.",
+        translation: "A readiness gate should chunk complex assessments into manageable stages instead of dumping the entire task on students at once.",
+        question: "Does the architecture reduce overload, or does it simply add more clicks and compliance friction?"
+      },
+      feedback: {
+        title: "Cognitive Engagement & High-Leverage Feedback",
+        short: "Feedback",
+        pill: "amber",
+        accent: "var(--amber)",
+        definition: "Requiring students to invest mental effort rather than remaining passive, coupled with timely, specific feedback to guide progress.",
+        translation: "A readiness gate should force real thinking and return useful next steps before the student hits the summative assessment.",
+        question: "Does the gate create better thinking, or does it merely certify that the student clicked through content?"
+      },
+      ownership: {
+        title: "Metacognition & Ownership",
+        short: "Ownership",
+        pill: "violet",
+        accent: "var(--violet)",
+        definition: "Utilizing strategies where students set goals, monitor their own learning, and actively reflect on their progress.",
+        translation: "A readiness gate should make students show their plan, monitor their evidence, and reflect on whether they are actually ready.",
+        question: "Does the model make students own the process, or does the system carry the responsibility for them?"
+      },
+      emotional: {
+        title: "Emotional Engagement",
+        short: "Emotional",
+        pill: "teal",
+        accent: "var(--teal)",
+        definition: "Fostering positive relationships with teachers, creating a sense of belonging, and ensuring students feel safe taking risks.",
+        translation: "A readiness gate should be experienced as a safety net and accelerator, not as punishment or a locked door with no human context.",
+        question: "Does the student experience the gate as support, or as proof the system is trying to stop them?"
+      }
+    };
+
+    const metricKeys = ["clarity", "load", "feedback", "ownership", "emotional"];
+    const weights = { clarity: 20, load: 20, feedback: 20, ownership: 20, emotional: 20 };
+
+    const architectures = {
+      strict: {
+        name: "Strict Funnel",
+        subtitle: "Single automated gate",
+        pillClass: "teal",
+        accent: "var(--teal)",
+        tagline: "Students complete learning materials and practice, then one LMS readiness check unlocks the summative when they hit the threshold.",
+        flow: [
+          ["Learn", "Student completes unit materials and ungraded practice."],
+          ["Readiness Check", "One macro diagnostic verifies baseline knowledge."],
+          ["Unlock", "The LMS releases the summative prompt after the threshold is met."],
+          ["Assess", "Teacher focuses on the final assessment and later defence if needed."]
+        ],
+        table: {
+          "Best fit": "Large volume, limited teacher time, clear objective prerequisites.",
+          "Engagement win": "High clarity and low ambiguity.",
+          "Blind spot": "Weak relational trust and limited process visibility.",
+          "Risk": "Advanced students may feel slowed down; struggling students may grind attempts without understanding."
+        },
+        tradeoffs: [
+          ["Clarity", "Very clear unlock rule: meet the score, access the prompt."],
+          ["Feedback", "Mostly automated; efficient but not always high-leverage."],
+          ["Relationship", "Minimal human interaction before the high-stakes moment."],
+          ["Capacity", "Protects teacher time better than the other models."]
+        ],
+        systemLoad: 4,
+        humanLoad: 1,
+        timeline: [15, 20, 35, 25],
+        scores: { clarity: 40, load: 15, feedback: 10, ownership: 25, emotional: 10 },
+        districtNote: "This model spends its 100 points on teacher clarity and a single ownership pause. It is clean and scalable, but most of its energy goes to the final boundary rather than ongoing feedback or emotional safety.",
+        warning: "Use this when the district priority is clarity and efficiency. Do not pretend it solves feedback quality or emotional engagement on its own.",
+        burden: "Strict Funnel pushes the burden onto the LMS. That is efficient, but the human signal is thin unless teachers intentionally add feedback moments.",
+        truth: "The Strict Funnel is implementable. Its weakness is not logistics; its weakness is student experience. Add human feedback moments or accept that it is mostly an efficiency play."
+      },
+      multi: {
+        name: "Multi-Macro Scaffold",
+        subtitle: "Multiple automated gates",
+        pillClass: "amber",
+        accent: "var(--amber)",
+        tagline: "The unit is broken into halves or thirds. Students pass Macro A to unlock the next chunk, then Macro B to unlock the summative prompt.",
+        flow: [
+          ["Chunk 1", "Student completes first section of learning."],
+          ["Macro A", "LMS gate confirms readiness for the next section."],
+          ["Chunk 2", "Student completes the next section with reduced overload."],
+          ["Macro B", "Final diagnostic unlocks the summative prompt."]
+        ],
+        table: {
+          "Best fit": "Complex units, vulnerable learners, students who get lost in long modules.",
+          "Engagement win": "Strong cognitive load management through staged success.",
+          "Blind spot": "Can feel bureaucratic if every step becomes another lock.",
+          "Risk": "Students may experience the unit as a maze of gates instead of a coherent learning path."
+        },
+        tradeoffs: [
+          ["Clarity", "Clear sequence, but more moving parts for students to track."],
+          ["Load", "Best model for chunking and preventing overwhelm."],
+          ["Feedback", "More frequent automated feedback, but still not deeply relational."],
+          ["Capacity", "Moderate setup work; low day-to-day teacher load once built."]
+        ],
+        systemLoad: 5,
+        humanLoad: 2,
+        timeline: [30, 45, 55, 25],
+        scores: { clarity: 15, load: 40, feedback: 15, ownership: 25, emotional: 5 },
+        districtNote: "This model spends its 100 points on cognitive load management and repeated ownership checks. It protects students from drowning in the unit, but it trades away some simplicity and emotional ease.",
+        warning: "This model is only student-friendly if the sequence feels purposeful. Automation still underserves emotional engagement and nuanced feedback.",
+        burden: "Multi-Macro Scaffold increases system control. It is excellent for cognitive load, but it adds friction and requires stronger LMS design discipline.",
+        truth: "The Multi-Macro Scaffold is the safest model for vulnerable learners. The cost is complexity. If the LMS build is sloppy, this becomes the most annoying option fast."
+      }
+    };
+
+    const scenarios = [
+      {
+        student: "Ari",
+        subject: "Grade 10 Social Studies",
+        assignment: "Issue Response: To what extent should globalization shape identity?",
+        profile: "Ari completed all learning materials and scored 74% on the readiness check after three attempts.",
+        evidence: "Notes are thin but present. Practice responses show improvement. Ari has a clear thesis but weak source connection.",
+        checkin: "Ari can explain the core issue and identify one source that supports the claim, but needs help connecting evidence to argument.",
+        correct: "scaffold",
+        engagement: "High-leverage feedback is the engagement move here: do not block the student indefinitely; patch the evidence-to-argument gap.",
+        why: "Ari is not fully ready, but the gap is specific and fixable. A targeted scaffold protects confidence while requiring real cognitive work."
+      },
+      {
+        student: "Sam",
+        subject: "Grade 10 Science",
+        assignment: "Chemistry Unit Performance Task",
+        profile: "Sam skipped most practice materials, then failed the readiness check twice with scores below 50%.",
+        evidence: "No completed organizer, no practice corrections, and no attempt to explain errors from the diagnostic.",
+        checkin: "Sam says, 'I just want to try the final and see what happens.' They cannot explain the difference between reactants and products.",
+        correct: "delay",
+        engagement: "Cognitive load management is the engagement move here: opening the summative would create predictable failure, not productive struggle.",
+        why: "This is not readiness. Releasing the prompt would set Sam up to fail. Delay access and require a smaller sequence of prerequisite work."
+      },
+      {
+        student: "Noah",
+        subject: "Grade 10 English Language Arts",
+        assignment: "Literary Analysis Paragraph",
+        profile: "Noah scored 86% on the readiness check after one attempt and is asking for immediate access to the final prompt.",
+        evidence: "Portfolio is sparse. The outline appears polished, but there are no notes, no quote selection trail, and no visible revision history.",
+        checkin: "During the Process Check-In, Noah can summarize the plot, but cannot explain why the selected quotes support the claim or how the interpretation changed during planning.",
+        correct: "conference",
+        engagement: "Metacognition and ownership are the engagement move here: the score looks good, but the process evidence does not prove readiness.",
+        why: "The score looks fine, but the process evidence and explanation do not match. This needs a teacher conference before release or delay."
+      }
+    ];
+
+    let activeArchKey = "strict";
+    let activeFocusKey = "clarity";
+    let scenarioIndex = 0;
+    let gateStep = "profile";
+    let lastDecision = null;
+
+    function clampNumber(value, min, max) {
+      const parsed = Number(value);
+      if (!Number.isFinite(parsed)) return min;
+      return Math.max(min, Math.min(max, parsed));
+    }
+
+    function setWeight(key, value) {
+      weights[key] = clampNumber(value, 0, 100);
+    }
+
+    function getWeightTotal() {
+      return metricKeys.reduce((total, key) => total + weights[key], 0);
+    }
+
+    function isWeightTotalValid() {
+      return Math.round(getWeightTotal()) === 100;
+    }
+
+    function renderBlocks(container, count, className, label) {
+      container.innerHTML = "";
+      const safeCount = Math.max(1, count);
+      for (let index = 0; index < safeCount; index += 1) {
+        const block = document.createElement("div");
+        block.className = "block " + className;
+        block.textContent = label;
+        container.appendChild(block);
+      }
+    }
+
+    function renderFlow(architecture) {
+      const flow = document.getElementById("blueprintFlow");
+      flow.innerHTML = "";
+      architecture.flow.forEach((step, index) => {
+        const node = document.createElement("div");
+        node.className = "flow-step";
+        node.style.setProperty("--accent", architecture.accent);
+        node.innerHTML = `<div class="step-index">${index + 1}</div><div><h4>${step[0]}</h4><p>${step[1]}</p></div>`;
+        flow.appendChild(node);
+      });
+    }
+
+    function renderProfileTable(architecture) {
+      const table = document.getElementById("profileTable");
+      table.innerHTML = "";
+      Object.entries(architecture.table).forEach(([label, value]) => {
+        const row = document.createElement("div");
+        row.className = "profile-row";
+        row.innerHTML = `<span>${label}</span><strong>${value}</strong>`;
+        table.appendChild(row);
+      });
+    }
+
+    function renderTradeoffs(architecture) {
+      const list = document.getElementById("tradeoffList");
+      list.innerHTML = "";
+      architecture.tradeoffs.forEach(([label, text]) => {
+        const item = document.createElement("div");
+        item.className = "tradeoff-item";
+        item.style.setProperty("--accent", architecture.accent);
+        item.innerHTML = `<span class="marker">${label[0]}</span><div><b>${label}:</b> ${text}</div>`;
+        list.appendChild(item);
+      });
+    }
+
+    function renderTimeline(architecture) {
+      const labels = ["Start of unit", "Middle", "Before summative", "After / defence"];
+      const timeline = document.getElementById("timeline");
+      timeline.innerHTML = "";
+      architecture.timeline.forEach((height, index) => {
+        const col = document.createElement("div");
+        col.className = "timeline-col";
+        col.innerHTML = `<div class="bar-wrap"><div class="bar" style="--h: ${height}%;"></div></div><div class="timeline-label">${labels[index]}</div>`;
+        timeline.appendChild(col);
+      });
+    }
+
+    function updateArchitecture(key) {
+      activeArchKey = key;
+      const architecture = architectures[key];
+      document.querySelectorAll("[data-arch]").forEach((button) => {
+        const selected = button.dataset.arch === key;
+        button.setAttribute("aria-pressed", String(selected));
+        if (selected) button.style.setProperty("--accent", architecture.accent);
+      });
+
+      document.getElementById("archPill").className = "pill " + architecture.pillClass;
+      document.getElementById("archPill").textContent = architecture.subtitle;
+      document.getElementById("archTitle").textContent = architecture.name;
+      document.getElementById("archTagline").textContent = architecture.tagline;
+      document.getElementById("scoreProfileTitle").textContent = "Strict Funnel vs Multi-Macro Scaffold";
+      document.getElementById("capacityTruth").textContent = architecture.truth;
+      document.getElementById("burdenMessage").textContent = architecture.burden;
+
+      renderFlow(architecture);
+      renderProfileTable(architecture);
+      renderTradeoffs(architecture);
+      renderBlocks(document.getElementById("systemStack"), architecture.systemLoad, "system", "System gate");
+      renderBlocks(document.getElementById("humanStack"), architecture.humanLoad, "human", "Human touch");
+      renderTimeline(architecture);
+      updateFitModel();
+      renderDistrictLens();
+      renderGate();
+    }
+
+    function calculateFit(architecture) {
+      return metricKeys.reduce((total, key) => total + Math.min(weights[key], architecture.scores[key]), 0);
+    }
+
+    function renderModelComparison() {
+      const container = document.getElementById("modelComparison");
+      container.innerHTML = "";
+
+      ["strict", "multi"].forEach((key) => {
+        const architecture = architectures[key];
+        const fit = isWeightTotalValid() ? Math.round(calculateFit(architecture)) + "/100" : "--/100";
+        const card = document.createElement("button");
+        card.type = "button";
+        card.dataset.arch = key;
+        card.className = "model-card" + (key === activeArchKey ? " is-selected" : "");
+        card.setAttribute("aria-pressed", String(key === activeArchKey));
+        card.style.setProperty("--accent", architecture.accent);
+        card.innerHTML = `
+          <h4>${architecture.name}</h4>
+          <div class="model-fit"><span>Alignment with current priorities</span><strong>${fit}</strong></div>
+          <div class="model-summary">
+            <div><b>Best fit</b>${architecture.table["Best fit"]}</div>
+            <div><b>Engagement win</b>${architecture.table["Engagement win"]}</div>
+            <div><b>Blind spot</b>${architecture.table["Blind spot"]}</div>
+            <div><b>Risk</b>${architecture.table.Risk}</div>
+          </div>
+        `;
+        card.addEventListener("click", () => updateArchitecture(key));
+        container.appendChild(card);
+      });
+    }
+
+    function setFocus(key) {
+      activeFocusKey = key;
+      document.querySelectorAll("[data-focus]").forEach((button) => {
+        const selected = button.dataset.focus === key;
+        button.setAttribute("aria-pressed", String(selected));
+      });
+      renderDistrictLens();
+    }
+
+    function renderDistrictLens() {
+      const focus = districtFocus[activeFocusKey];
+      const architecture = architectures[activeArchKey];
+      document.getElementById("focusPill").className = "pill " + focus.pill;
+      document.getElementById("focusPill").textContent = focus.title;
+      document.getElementById("focusTitle").textContent = focus.title;
+      document.getElementById("focusDefinition").textContent = focus.definition;
+      document.getElementById("focusTranslation").textContent = focus.translation;
+      document.getElementById("focusQuestion").textContent = focus.question;
+      document.getElementById("districtArchTitle").textContent = "Strict Funnel vs Multi-Macro Scaffold";
+      document.getElementById("districtArchNote").textContent = "Each model gets exactly 100 points. The comparison shows where each architecture spends its instructional energy.";
+
+      const matrix = document.getElementById("districtMatrix");
+      matrix.innerHTML = "";
+      const note = document.createElement("p");
+      note.className = "matrix-note";
+      note.textContent = "The rows add to 100 in each model. This is not a grade; it is the architecture's distribution profile.";
+      matrix.appendChild(note);
+
+      const comparison = document.createElement("div");
+      comparison.className = "profile-comparison";
+      ["strict", "multi"].forEach((key) => {
+        const profile = architectures[key];
+        const profileTotal = metricKeys.reduce((total, metricKey) => total + profile.scores[metricKey], 0);
+        const card = document.createElement("article");
+        card.className = "profile-card" + (key === activeArchKey ? " is-active" : "");
+        card.innerHTML = `
+          <h4>${profile.name}</h4>
+          <div class="matrix-total"><span>Profile total</span><strong>${profileTotal}/100</strong></div>
+        `;
+        metricKeys.forEach((metricKey) => {
+          const item = districtFocus[metricKey];
+          const profilePoints = profile.scores[metricKey];
+          const row = document.createElement("div");
+          row.className = "matrix-row";
+          row.innerHTML = `<span>${item.title}</span><div class="mini-track" aria-hidden="true"><div class="mini-fill" style="--accent: ${item.accent}; --w: ${profilePoints}%;"></div></div><strong>${profilePoints} pts</strong>`;
+          card.appendChild(row);
+        });
+        comparison.appendChild(card);
+      });
+      matrix.appendChild(comparison);
+    }
+
+    function updateFitModel() {
+      const architecture = architectures[activeArchKey];
+      const contributions = {};
+      const total = Math.round(getWeightTotal());
+      const totalValid = isWeightTotalValid();
+
+      metricKeys.forEach((key) => {
+        contributions[key] = Math.min(weights[key], architecture.scores[key]);
+      });
+
+      const totalStatus = document.getElementById("weightTotalStatus");
+      totalStatus.textContent = totalValid ? "Total: 100%" : `Total: ${total}% - adjust to 100%`;
+      totalStatus.classList.toggle("is-invalid", !totalValid);
+
+      document.getElementById("fitScore").textContent = totalValid ? Math.round(calculateFit(architecture)) + "/100" : "--/100";
+
+      metricKeys.forEach((key) => {
+        const roundedWeight = Math.round(weights[key]);
+        document.querySelectorAll(`[data-weight-key="${key}"]`).forEach((input) => {
+          input.value = roundedWeight;
+          if (input.type === "range") {
+            input.style.setProperty("--range-progress", roundedWeight + "%");
+          }
+        });
+        document.getElementById(key + "Segment").style.setProperty("--w", totalValid ? Math.max(0, contributions[key]) + "%" : "0%");
+        document.getElementById(key + "Label").textContent = totalValid ? `${Math.round(contributions[key])} matched` : `${roundedWeight}% priority`;
+      });
+
+      renderModelComparison();
+      renderDistrictLens();
+    }
+
+    function currentScenario() { return scenarios[scenarioIndex]; }
+
+    function setGateStep(step) {
+      gateStep = step;
+      renderGate();
+    }
+
+    function nextScenario() {
+      scenarioIndex = (scenarioIndex + 1) % scenarios.length;
+      lastDecision = null;
+      setGateStep("profile");
+    }
+
+    function decideReadiness(decision) {
+      lastDecision = decision;
+      setGateStep("action");
+    }
+
+    function decisionLabel(decision) {
+      const labels = {
+        release: "Release Prompt",
+        scaffold: "Targeted Scaffold",
+        conference: "Teacher Conference",
+        delay: "Delay Access"
+      };
+      return labels[decision] || decision;
+    }
+
+    function renderGate() {
+      const scenario = currentScenario();
+      const architecture = architectures[activeArchKey];
+      document.getElementById("scenarioCounter").textContent = `Scenario ${scenarioIndex + 1} of ${scenarios.length}: ${scenario.student}`;
+      document.getElementById("scenarioSubject").textContent = `Selected architecture: ${architecture.name}`;
+
+      const activeMap = {
+        profile: "profile",
+        evidence: "evidence",
+        checkin: "checkin",
+        decision: "decision",
+        action: "action"
+      };
+
+      document.querySelectorAll("[data-step-label]").forEach((node) => {
+        node.classList.toggle("active", node.dataset.stepLabel === activeMap[gateStep]);
+      });
+
+      const content = document.getElementById("gateContent");
+      if (gateStep === "profile") {
+        content.innerHTML = `
+          <div class="gate-card">
+            <span class="pill blue">Learner profile</span>
+            <h3>${scenario.subject}</h3>
+            <p class="lead" style="font-size: 1.05rem; margin: 0 auto;">${scenario.assignment}</p>
+            <div class="evidence-box"><strong>Progress signal:</strong><br>${scenario.profile}</div>
+            <div class="evidence-box"><strong>Architecture lens:</strong><br>${architecture.name} would treat this case through its ${architecture.subtitle.toLowerCase()} logic. The engagement question is whether that logic gives enough clarity, feedback, ownership, and safety before the summative opens.</div>
+            <div class="actions"><button class="primary" onclick="setGateStep('evidence')">Review Process Evidence</button></div>
+          </div>
+        `;
+      } else if (gateStep === "evidence") {
+        content.innerHTML = `
+          <div class="gate-card">
+            <span class="pill amber">Process evidence</span>
+            <h3>Does the preparation trail support readiness?</h3>
+            <div class="evidence-grid">
+              <div class="evidence-box"><strong>Portfolio:</strong><br>${scenario.evidence}</div>
+              <div class="evidence-box"><strong>District lens:</strong><br>Look for cognitive engagement and metacognition, not just task completion. The evidence should show how the student is monitoring their own readiness.</div>
+            </div>
+            <div class="actions"><button class="secondary" onclick="setGateStep('checkin')">Conduct Readiness Check-In</button></div>
+          </div>
+        `;
+      } else if (gateStep === "checkin") {
+        content.innerHTML = `
+          <div class="gate-card">
+            <span class="pill orange">Readiness check-in</span>
+            <h3>Listen for understanding, not confidence.</h3>
+            <div class="evidence-box"><strong>Student explanation:</strong><br>${scenario.checkin}</div>
+            <div class="evidence-box"><strong>Engagement move:</strong><br>${scenario.engagement}</div>
+            <div class="actions"><button class="primary" onclick="setGateStep('decision')">Make Gate Decision</button></div>
+          </div>
+        `;
+      } else if (gateStep === "decision") {
+        content.innerHTML = `
+          <div class="gate-card">
+            <span class="pill teal">Gate decision</span>
+            <h3>What should happen before the summative prompt opens?</h3>
+            <div class="decision-grid">
+              <button onclick="decideReadiness('release')">Release Prompt<br><small>Ready now</small></button>
+              <button onclick="decideReadiness('scaffold')">Targeted Scaffold<br><small>Patch a specific gap</small></button>
+              <button onclick="decideReadiness('conference')">Teacher Conference<br><small>Resolve evidence mismatch</small></button>
+              <button onclick="decideReadiness('delay')">Delay Access<br><small>Not ready</small></button>
+            </div>
+          </div>
+        `;
+      } else {
+        const isCorrect = lastDecision === scenario.correct;
+        content.innerHTML = `
+          <div class="gate-card">
+            <span class="pill ${isCorrect ? "teal" : "orange"}">${isCorrect ? "Strong judgment" : "Weak gate decision"}</span>
+            <h3>${isCorrect ? "Decision validated" : "Decision needs correction"}</h3>
+            <div class="feedback ${isCorrect ? "good" : "bad"}">
+              <strong>Your decision:</strong> ${decisionLabel(lastDecision)}<br>
+              <strong>Best decision:</strong> ${decisionLabel(scenario.correct)}<br><br>
+              ${scenario.why}
+            </div>
+            <div class="actions">
+              <button class="primary" onclick="nextScenario()">Continue to Next Scenario</button>
+              <button onclick="setGateStep('profile')">Replay This Scenario</button>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    function getBestFitArchitecture() {
+      if (!isWeightTotalValid()) {
+        return activeArchKey;
+      }
+
+      let bestArch = activeArchKey;
+      let bestScore = -1;
+
+      Object.keys(architectures).forEach(key => {
+        let score = calculateFit(architectures[key]);
+        
+        // Add a microscopic bias to the currently active architecture 
+        // to prevent UI flickering if there is a perfect tie while dragging.
+        if (key === activeArchKey) score += 0.0001;
+        
+        if (score > bestScore) {
+          bestScore = score;
+          bestArch = key;
+        }
+      });
+      return bestArch;
+    }
+
+    document.querySelectorAll("[data-arch]").forEach((button) => {
+      button.addEventListener("click", () => updateArchitecture(button.dataset.arch));
+    });
+
+    document.querySelectorAll("[data-focus]").forEach((button) => {
+      button.addEventListener("click", () => setFocus(button.dataset.focus));
+    });
+
+    document.querySelectorAll("[data-kind='weight']").forEach((input) => {
+      input.addEventListener("input", (event) => {
+        setWeight(event.target.dataset.weightKey, event.target.value);
+        
+        const bestArch = getBestFitArchitecture();
+        if (bestArch !== activeArchKey) {
+          // If a new architecture is a better fit, switch to it automatically
+          updateArchitecture(bestArch);
+        } else {
+          // Otherwise just update the score visually
+          updateFitModel();
+        }
+      });
+    });
+
+    document.getElementById("resetWeights").addEventListener("click", () => {
+      metricKeys.forEach((key) => {
+        weights[key] = 20;
+      });
+      updateFitModel();
+    });
+
+    updateArchitecture("strict");
+    setFocus("clarity");
+  </script>
+</body>
+</html>

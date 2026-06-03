@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="dark scroll-smooth" lang="en">
+<html class="scroll-smooth" lang="en">
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -307,7 +307,6 @@
     </script>
 </head>
 <body class="assessment-page bg-surface text-on-surface font-body-md min-h-screen">
-
 <!-- Exit Presentation Button -->
 <button id="exit-pres-btn" onclick="togglePresentationMode()" class="bg-error/20 border border-error/50 hover:bg-error/30 text-error-container px-4 py-3 rounded-full font-bold flex items-center gap-2 shadow-2xl backdrop-blur-md transition-all">
     <span class="material-symbols-outlined">close_fullscreen</span> Exit Presentation
@@ -322,6 +321,11 @@
             </button>
         </div>
         <div id="assessment-topbar-controls" class="fixed top-5 right-4 sm:right-8 z-[60] flex items-center justify-end gap-3 sm:gap-4">
+    <nav class="resource-jump" aria-label="Digital presentation resources">
+        <a href="./dean-ai-assessment-pillars.html" aria-current="page" aria-pressed="true">Assessment Pillars</a>
+        <a href="./gatekeeping-architecture.html" aria-current="false" aria-pressed="false">Gatekeeping Architecture</a>
+        <a href="./jon-ai-resource.html" aria-current="false" aria-pressed="false">AI Resources</a>
+      </nav>
             <!-- Theme Toggle Button -->
             <button onclick="toggleDarkMode()" class="p-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors flex items-center justify-center cursor-pointer" aria-label="Toggle Light/Dark Mode">
                 <span id="theme-icon" class="material-symbols-outlined">light_mode</span>
@@ -335,10 +339,6 @@
 
 <!-- SideNavBar -->
 <aside id="sidebar" class="flex flex-col py-6 gap-2 fixed left-0 top-20 h-[calc(100vh-5rem)] w-64 border-r border-surface-variant bg-surface/95 md:bg-surface/50 backdrop-blur-xl font-inter font-medium text-sm z-40 transition-transform duration-300 transform -translate-x-full md:translate-x-0">
-    <div class="px-6 pb-6 mb-2 border-b border-surface-variant">
-        <h2 class="text-lg font-bold text-on-surface">Executive Portal</h2>
-        <p class="text-on-surface-variant text-xs mt-1">Assessment Integrity</p>
-    </div>
     <nav class="flex-1 px-4 flex flex-col gap-1 overflow-y-auto">
         <a href="#context" class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all duration-200 rounded-lg">
             <span class="material-symbols-outlined text-xl">info</span>
@@ -871,29 +871,36 @@
 
 <script>
     // --- THEME TOGGLE LOGIC ---
-    function initTheme() {
-        const html = document.documentElement;
-        const icon = document.getElementById('theme-icon');
-        // By default we start dark based on the 'dark' class on <html>
-        if (html.classList.contains('dark')) {
-            icon.innerText = 'light_mode'; // Offer to switch to light
-        } else {
-            icon.innerText = 'dark_mode'; // Offer to switch to dark
-        }
+    const AI_COURSE_THEME_STORAGE_KEY = "ai-course-building-resources::theme::v1";
+
+    function syncThemeIcons() {
+        const isDark = document.documentElement.classList.contains("dark");
+        document.querySelectorAll("#theme-icon, [data-theme-icon]").forEach((icon) => {
+            icon.textContent = isDark ? "light_mode" : "dark_mode";
+        });
     }
-    document.addEventListener('DOMContentLoaded', initTheme);
+
+    function applyStoredTheme() {
+        let storedTheme = null;
+        try {
+            storedTheme = localStorage.getItem(AI_COURSE_THEME_STORAGE_KEY);
+        } catch {
+            storedTheme = null;
+        }
+        document.documentElement.classList.toggle("dark", storedTheme === "dark");
+        syncThemeIcons();
+    }
 
     function toggleDarkMode() {
-        const html = document.documentElement;
-        const icon = document.getElementById('theme-icon');
-        if (html.classList.contains('dark')) {
-            html.classList.remove('dark');
-            icon.innerText = 'dark_mode';
-        } else {
-            html.classList.add('dark');
-            icon.innerText = 'light_mode';
-        }
+        const nextIsDark = !document.documentElement.classList.contains("dark");
+        document.documentElement.classList.toggle("dark", nextIsDark);
+        try {
+            localStorage.setItem(AI_COURSE_THEME_STORAGE_KEY, nextIsDark ? "dark" : "light");
+        } catch {}
+        syncThemeIcons();
     }
+
+    document.addEventListener("DOMContentLoaded", applyStoredTheme);
 
     // --- SIDEBAR TOGGLE LOGIC ---
     function toggleSidebar() {
@@ -906,10 +913,12 @@
                 sidebar.classList.remove('md:translate-x-0');
                 sidebar.classList.add('md:-translate-x-full');
                 main.classList.remove('md:ml-64');
+                document.body.setAttribute('data-sidebar-collapsed', 'true');
             } else {
                 sidebar.classList.remove('md:-translate-x-full');
                 sidebar.classList.add('md:translate-x-0');
                 main.classList.add('md:ml-64');
+                document.body.setAttribute('data-sidebar-collapsed', 'false');
             }
         } else {
             // Mobile behavior

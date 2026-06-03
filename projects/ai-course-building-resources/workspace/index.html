@@ -5,191 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AI Course Building Resources</title>
     <link rel="icon" href="data:," />
+    <meta http-equiv="refresh" content="0; url=./resources/dean-ai-assessment-pillars.html" />
     <style>
-      :root {
-        color-scheme: light;
-        --switch-bg: #081614;
-        --switch-border: #33524c;
-        --switch-text: #eaf4f1;
-        --switch-muted: #b7cbc6;
-        --switch-active-bg: #00957E;
-        --switch-active-text: #ffffff;
-        --switch-focus: #A4D55F;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
       html,
       body {
-        width: 100%;
-        height: 100%;
-      }
-
-      body {
+        min-height: 100%;
         margin: 0;
-        background: #081614;
-        font-family: Calibri, Aptos, Arial, sans-serif;
-      }
-
-      body[data-active-resource="assessment"],
-      body[data-active-resource="ai-resources"] {
-        --switch-bg: #081614;
-        --switch-border: #33524c;
-        --switch-text: #eaf4f1;
-        --switch-muted: #b7cbc6;
-        --switch-active-bg: #00957E;
-        --switch-active-text: #ffffff;
-        --switch-focus: #A4D55F;
-      }
-
-      .app {
-        width: 100%;
-        height: 100%;
-        display: grid;
-        grid-template-rows: 58px minmax(0, 1fr);
-        overflow: hidden;
-      }
-
-      .switcher-bar {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        min-width: 0;
-        padding: 7px 14px;
-        border-bottom: 1px solid var(--switch-border);
-        background: var(--switch-bg);
-      }
-
-      .resource-switcher {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        min-width: 0;
-        color: var(--switch-text);
-      }
-
-      .resource-switcher button {
-        appearance: none;
-        min-height: 40px;
-        border: 1px solid transparent;
-        border-radius: 6px;
-        background: transparent;
-        color: var(--switch-muted);
-        cursor: pointer;
-        font: inherit;
-        font-size: 15px;
-        font-weight: 700;
-        letter-spacing: 0;
-        line-height: 1;
-        padding: 0 12px;
-        white-space: nowrap;
-      }
-
-      .resource-switcher button:hover {
-        color: var(--switch-text);
-        border-color: var(--switch-border);
-      }
-
-      .resource-switcher button:focus-visible {
-        outline: 2px solid var(--switch-focus);
-        outline-offset: 2px;
-      }
-
-      .resource-switcher button[aria-pressed="true"] {
-        background: var(--switch-active-bg);
-        border-color: var(--switch-active-bg);
-        color: var(--switch-active-text);
-      }
-
-      .frame-wrap,
-      iframe {
-        width: 100%;
-        height: 100%;
-      }
-
-      .frame-wrap {
-        overflow: hidden;
-      }
-
-      iframe {
-        display: block;
-        border: 0;
-        background: #ffffff;
-      }
-
-      @media (max-width: 620px) {
-        .app {
-          grid-template-rows: 58px minmax(0, 1fr);
-        }
-
-        .switcher-bar {
-          padding: 8px 10px;
-        }
-
-        .resource-switcher button {
-          flex: 1;
-          padding: 0 8px;
-        }
+        background: #f9f9f9;
+        color: #1a1c1c;
+        font-family: Inter, sans-serif;
       }
     </style>
   </head>
-  <body data-active-resource="assessment">
-    <main class="app">
-      <header class="switcher-bar">
-        <nav class="resource-switcher" aria-label="Resource selector" data-testid="resource-selector">
-          <button type="button" data-resource-target="assessment" aria-pressed="true">Assessment Pillars</button>
-          <button type="button" data-resource-target="ai-resources" aria-pressed="false">AI resources</button>
-        </nav>
-      </header>
-
-      <section class="frame-wrap" aria-label="Selected resource">
-        <iframe
-          data-testid="resource-frame"
-          title="DEANAIASSESSMENTPILLARS"
-          src="about:blank"
-        ></iframe>
-      </section>
-    </main>
-
+  <body>
     <script>
       (() => {
         const resources = {
-          assessment: {
-            title: "DEANAIASSESSMENTPILLARS",
-            path: "./resources/dean-ai-assessment-pillars.html",
-            theme: "assessment"
-          },
-          "ai-resources": {
-            title: "JONAIRESOURCE",
-            path: "./resources/jon-ai-resource.html",
-            theme: "ai-resources"
-          }
+          assessment: "./resources/dean-ai-assessment-pillars.html",
+          "ai-resources": "./resources/jon-ai-resource.html",
+          gatekeeping: "./resources/gatekeeping-architecture.html"
         };
 
-        const frame = document.querySelector('[data-testid="resource-frame"]');
-        const buttons = Array.from(document.querySelectorAll("[data-resource-target]"));
-
-        function selectResource(key) {
-          const resource = resources[key];
-          if (!resource || !frame) {
-            return;
-          }
-
-          document.body.dataset.activeResource = resource.theme;
-          frame.src = resource.path;
-          frame.title = resource.title;
-          for (const button of buttons) {
-            button.setAttribute("aria-pressed", String(button.dataset.resourceTarget === key));
-          }
-        }
-
-        for (const button of buttons) {
-          button.addEventListener("click", () => selectResource(button.dataset.resourceTarget));
-        }
-
-        selectResource("assessment");
+        const requested = new URLSearchParams(window.location.search).get("resource");
+        window.location.replace(resources[requested] || resources.assessment);
       })();
     </script>
   </body>
