@@ -476,6 +476,50 @@
       height: auto;
     }
 
+    .decision-audio {
+      margin: 28px 0;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--teal);
+      border-radius: 6px;
+      background: var(--surface);
+    }
+
+    .decision-audio strong {
+      display: block;
+      color: var(--teal);
+      font-size: 0.92rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .decision-audio p {
+      margin: 8px 0 14px;
+      color: var(--muted);
+      font-weight: 750;
+    }
+
+    .decision-audio audio {
+      display: block;
+      width: 100%;
+    }
+
+    .process-video {
+      margin: 24px 0;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--surface);
+      overflow: hidden;
+    }
+
+    .process-video video {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #111;
+    }
+
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
@@ -1076,6 +1120,28 @@
       border-color: var(--accent, var(--amber));
       background: linear-gradient(135deg, rgba(255, 189, 69, 0.13), rgba(111, 181, 255, 0.08));
       box-shadow: 0 0 0 3px rgba(255, 189, 69, 0.10), var(--shadow);
+    }
+
+    .architecture-visual {
+      margin: 22px 0 0;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--surface);
+      overflow: hidden;
+    }
+
+    .architecture-visual img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .architecture-visual figcaption {
+      padding: 12px 14px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 800;
+      border-top: 1px solid var(--line);
     }
 
     .explorer-grid {
@@ -2591,9 +2657,6 @@
           <div class="eyebrow">The non-negotiable</div>
           <h2>High-stakes work needs a boundary before failure becomes predictable.</h2>
           <p class="lead">The question is not whether to use a gate. The question is what kind of gate supports the district engagement priorities without crushing teacher capacity: a single automated readiness check, multiple automated gates, or a relational process check-in.</p>
-          <figure class="stakes-visual" aria-label="Students approaching a protected academic gate while an unsupported path breaks away">
-            <img src="./media/gatekeeping-non-negotiable-stakes.png" alt="Students walking toward a green academic gate while a separate cracked path drops away before an assignment prompt." loading="lazy">
-          </figure>
         </div>
         <div class="grid-2 problem-card-grid" style="grid-template-columns: 1fr 1fr; gap: 16px;">
           <article class="problem-card" style="--accent: var(--orange);">
@@ -2612,6 +2675,9 @@
           </article>
         </div>
       </div>
+      <figure class="stakes-visual" aria-label="Students approaching a protected academic gate while an unsupported path breaks away">
+        <img src="./media/gatekeeping-non-negotiable-stakes.png" alt="Students walking toward a green academic gate while a separate cracked path drops away before an assignment prompt." loading="lazy">
+      </figure>
     </section>
 
     <section class="section" id="district">
@@ -2720,6 +2786,11 @@
           <div id="burdenMessage" class="balance-message"></div>
         </section>
       </div>
+
+      <figure class="architecture-visual" aria-live="polite">
+        <img id="architectureVisualImage" src="./media/strict-funnel-pathway.png" alt="Strict Funnel pathway showing learn, readiness check, unlock, and assess stages.">
+        <figcaption id="architectureVisualCaption">Strict Funnel: one readiness gate creates a clear boundary before the assignment prompt unlocks.</figcaption>
+      </figure>
 
       <section class="panel explorer-alignment-panel" aria-live="polite">
         <span class="pill amber">Architecture profile comparison</span>
@@ -2830,6 +2901,13 @@
           </div>
         </div>
 
+        <div class="process-video" aria-label="The Process Check-In video">
+          <video controls preload="metadata" playsinline>
+            <source src="./media/the-process-check-in.mp4" type="video/mp4">
+            Your browser does not support the video element.
+          </video>
+        </div>
+
         <h4 style="margin-top: 32px; color: var(--text); border-bottom: 1px solid var(--line); padding-bottom: 8px; font-size: 1.1rem;">The Teacher's Decision Toolkit</h4>
         <p style="color: var(--muted); font-size: 0.95rem; margin-top: 8px;">Regardless of which pacing architecture is chosen, the teacher evaluates the process evidence during the check-in and makes one of four operational choices:</p>
         
@@ -2883,6 +2961,14 @@
             </article>
           </div>
         </div>
+        <div class="decision-audio">
+          <strong>Human conversation layer</strong>
+          <p>Listen before choosing: the gate only works when the operational model still leaves room for teacher judgment and student conversation.</p>
+          <audio controls preload="metadata" src="./media/human-conversations-beat-automated-gatekeeping.m4a">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+
       </div>
     </section>
 
@@ -3257,6 +3343,22 @@
       document.getElementById("scoreProfileTitle").textContent = "Strict Funnel vs Multi-Macro Scaffold";
       document.getElementById("capacityTruth").textContent = architecture.truth;
       document.getElementById("burdenMessage").textContent = architecture.burden;
+
+      const architectureVisual = {
+        strict: {
+          src: "./media/strict-funnel-pathway.png",
+          alt: "Strict Funnel pathway showing learn, readiness check, unlock, and assess stages.",
+          caption: "Strict Funnel: one readiness gate creates a clear boundary before the assignment prompt unlocks."
+        },
+        multi: {
+          src: "./media/multi-macro-scaffold-pathway.png",
+          alt: "Multi-Macro Scaffold pathway showing chunk one, readiness check, chunk two, readiness check, unlock, and assess stages.",
+          caption: "Multi-Macro Scaffold: smaller chunks and repeated readiness gates manage cognitive load before the final assessment."
+        }
+      }[key];
+      document.getElementById("architectureVisualImage").src = architectureVisual.src;
+      document.getElementById("architectureVisualImage").alt = architectureVisual.alt;
+      document.getElementById("architectureVisualCaption").textContent = architectureVisual.caption;
 
       renderFlow(architecture);
       renderProfileTable(architecture);
