@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NextStep - Money Basics and the Economy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=IBM+Plex+Sans:wght@600&amp;family=Work+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#154212",
+                        "surface-muted": "#F1F3F4",
+                        "inverse-primary": "#a1d494",
+                        "on-secondary-fixed-variant": "#454749",
+                        "on-tertiary-fixed": "#131e17",
+                        "tertiary-fixed-dim": "#bdcabe",
+                        "surface-container": "#edeeef",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "alert-red": "#BA1A1A",
+                        "on-background": "#191c1d",
+                        "inverse-on-surface": "#f0f1f2",
+                        "secondary-fixed": "#e2e2e5",
+                        "surface-container-highest": "#e1e3e4",
+                        "tertiary-fixed": "#d9e6da",
+                        "primary-container": "#2d5a27",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#b9c6bb",
+                        "on-surface-variant": "#42493e",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#a1d494",
+                        "surface-container-low": "#f3f4f5",
+                        "tertiary-container": "#47534a",
+                        "inverse-surface": "#2e3132",
+                        "surface-tint": "#3b6934",
+                        "outline": "#72796e",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "background": "#f8f9fa",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#23501e",
+                        "surface-container-high": "#e7e8e9",
+                        "surface-dim": "#d9dadb",
+                        "secondary": "#5d5e61",
+                        "secondary-container": "#e2e2e5",
+                        "success-green": "#2D5A27",
+                        "primary-fixed": "#bcf0ae",
+                        "on-secondary-container": "#636467",
+                        "on-primary-container": "#9dd090",
+                        "surface-variant": "#e1e3e4",
+                        "surface": "#f8f9fa",
+                        "secondary-fixed-dim": "#c6c6c9",
+                        "on-primary-fixed": "#002201",
+                        "on-secondary-fixed": "#1a1c1e",
+                        "ink-dark": "#1A1C1E",
+                        "tertiary": "#303c34",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#191c1d",
+                        "on-tertiary-fixed-variant": "#3e4a41",
+                        "outline-variant": "#c2c9bb",
+                        "surface-bright": "#f8f9fa"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    spacing: {
+                        "sm": "16px",
+                        "base": "4px",
+                        "md": "24px",
+                        "xl": "64px",
+                        "lg": "40px",
+                        "xs": "8px",
+                        "container-max": "1140px",
+                        "gutter": "20px"
+                    },
+                    fontFamily: {
+                        "body-lg": ["Work Sans"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "label-md": ["IBM Plex Sans"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "caption": ["Work Sans"],
+                        "body-md": ["Work Sans"]
+                    },
+                    fontSize: {
+                        "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+                        "headline-lg": ["32px", { lineHeight: "1.2", fontWeight: "700" }],
+                        "label-md": ["14px", { lineHeight: "1.4", letterSpacing: "0.05em", fontWeight: "600" }],
+                        "headline-lg-mobile": ["24px", { lineHeight: "1.2", fontWeight: "700" }],
+                        "display-lg": ["48px", { lineHeight: "1.1", letterSpacing: "0", fontWeight: "800" }],
+                        "headline-md": ["24px", { lineHeight: "1.3", fontWeight: "600" }],
+                        "caption": ["12px", { lineHeight: "1.4", fontWeight: "400" }],
+                        "body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+	        .icon-fill {
+	            font-variation-settings: 'FILL' 1;
+	        }
+	        .course-sidebar,
+	        .course-main,
+	        .sidebar-label,
+	        .sidebar-title,
+	        .sidebar-toggle .material-symbols-outlined,
+	        .lesson-subnav {
+	            transition: width 180ms ease, margin-left 180ms ease, opacity 140ms ease, transform 180ms ease;
+	        }
+	        .sidebar-label,
+	        .sidebar-title {
+	            display: inline-block;
+	            white-space: nowrap;
+	            overflow: hidden;
+	        }
+	        @media (min-width: 768px) {
+	            body.sidebar-collapsed .course-sidebar {
+	                width: 80px;
+	            }
+	            body.sidebar-collapsed .course-main {
+	                margin-left: 80px;
+	            }
+	            body.sidebar-collapsed .sidebar-label,
+	            body.sidebar-collapsed .sidebar-title {
+	                opacity: 0;
+	                width: 0;
+	                overflow: hidden;
+	            }
+	            body.sidebar-collapsed .course-nav-link {
+	                justify-content: center;
+	                gap: 0;
+	            }
+	            body.sidebar-collapsed .lesson-subnav {
+	                display: none;
+	            }
+	            body.sidebar-collapsed .sidebar-toggle .material-symbols-outlined {
+	                transform: rotate(180deg);
+	            }
+	        }
+	        .lessons-collapsed .lesson-subnav {
+	            display: none;
+	        }
+	        .lessons-toggle .lessons-chevron {
+	            transition: transform 160ms ease;
+	        }
+	        .lessons-collapsed .lessons-chevron {
+	            transform: rotate(-90deg);
+	        }
+	        .reading-resource.is-active {
+	            border-color: #2d5a27;
+	            background: #f3f7f1;
+	        }
+	        .reading-selector-item.is-hidden {
+	            display: none;
+	        }
+	        .reading-viewer-panel.is-fullscreen {
+	            position: fixed;
+	            inset: 80px 24px 24px 24px;
+	            z-index: 60;
+	            max-width: none;
+	            overflow: auto;
+	        }
+	        .reading-frame-wrap.is-closed {
+	            display: none;
+	        }
+	        .reading-empty-state {
+	            display: none;
+	        }
+	        .reading-empty-state.is-visible {
+	            display: block;
+	        }
+	        .lesson-card.is-active {
+	            border-color: #2d5a27;
+	            background: #f3f7f1;
+	        }
+	        .lesson-detail-panel[hidden] {
+	            display: none !important;
+	        }
+	        .course-page[hidden],
+	        .intro-only[hidden] {
+	            display: none !important;
+	        }
+	        @media (max-width: 900px) {
+	            .reading-viewer-panel.is-fullscreen {
+	                inset: 72px 12px 12px 12px;
+	            }
+	        }
+	        .quiz-resource.is-active,
+	        .quiz-choice.is-selected {
+	            border-color: #2d5a27;
+	            background: #f3f7f1;
+	        }
+	    </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="h-16 bg-ink-dark text-white flex items-center justify-center fixed top-0 w-full z-50">
+<div class="flex h-16 items-center justify-center"><img alt="NextStep Logo" class="h-14 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQVO7T55Vcbvu7l1Y-Pq2LG5DHe0HoIXbH6uFUj4X-gSBWUI708z4_N9h1PD7V2Px5M0ETz4ezeXPqthyJDmpW8Mx5wJ4Ov4imQ7M82KVUT_zuP-zeI6RsPMJU7LoZcRG007h1yv7rwxT8Si2gPaxpk0QYWljctY7hRRxsrKGAlzuZJBm2TExKPCMQxrss439kua1Z5jGQ2EuAEtICUgSbvrPnpdqx4_WLzjMj2aI8fPUjVDkhDwL0P0D_gr3aFglhCuu5riObfqkp"/></div>
+</header>
+<div class="flex flex-1 w-full pt-16 min-h-screen">
+<!-- SideNavBar -->
+	<aside class="course-sidebar fixed left-0 top-16 bottom-0 z-40 hidden md:flex flex-col bg-ink-dark text-surface-variant w-72 overflow-y-auto">
+	<div class="p-lg pb-md relative">
+	<button aria-label="Collapse sidebar" aria-expanded="true" class="sidebar-toggle absolute right-3 top-4 h-8 w-8 rounded-lg border border-white/10 text-surface-variant hover:bg-white/5 hover:text-white focus:outline-none focus:ring-2 focus:ring-white/40 flex items-center justify-center" type="button">
+	<span class="material-symbols-outlined text-[20px]">chevron_left</span>
+	</button>
+	<div class="sidebar-title pr-8">
+	<h2 class="font-headline-md text-headline-md font-bold text-white mb-1">Money Basics</h2>
+	<p class="font-caption text-caption text-surface-variant">Financial Literacy 101</p>
+	</div>
+	</div>
+	<nav class="flex-1 px-sm pb-lg space-y-1">
+	<a class="course-nav-link flex items-center gap-sm font-label-md text-label-md bg-white/10 text-white rounded-xl mx-2 px-4 py-3 transition-all duration-200" href="#introduction" data-page-target="introduction">
+	<span class="material-symbols-outlined" data-icon="info">info</span>
+	<span class="sidebar-label">Introduction</span>
+	                </a>
+	<div class="lesson-nav-group">
+	<button aria-expanded="true" class="lessons-toggle course-nav-link w-[calc(100%-1rem)] flex items-center gap-sm font-label-md text-label-md text-surface-variant px-4 py-3 mx-2 rounded-xl hover:bg-white/5 hover:text-white transition-all duration-200 text-left" type="button" data-page-target="lessons">
+	<span class="material-symbols-outlined" data-icon="school">school</span>
+	<span class="sidebar-label flex-1">Lessons</span>
+	<span class="lessons-chevron material-symbols-outlined text-[18px] sidebar-label">expand_more</span>
+	                </button>
+	<div class="lesson-subnav ml-12 mr-2 mt-1 mb-2 space-y-1">
+	<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#lesson-what-is-money" data-page-target="lessons" data-lesson-id="lesson-what-is-money">1.1 What Is Money?</a>
+	<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#lesson-characteristics" data-page-target="lessons" data-lesson-id="lesson-characteristics">1.2 Characteristics of Money</a>
+	</div>
+	                </div>
+	<a class="course-nav-link flex items-center gap-sm font-label-md text-label-md text-surface-variant px-4 py-3 mx-2 rounded-xl hover:bg-white/5 hover:text-white transition-all duration-200" href="#quizzes" data-page-target="quizzes">
+	<span class="material-symbols-outlined" data-icon="assignment_turned_in">assignment_turned_in</span>
+	<span class="sidebar-label">Quizzes</span>
+	                </a>
+	<a class="course-nav-link flex items-center gap-sm font-label-md text-label-md text-surface-variant px-4 py-3 mx-2 rounded-xl hover:bg-white/5 hover:text-white transition-all duration-200" href="#readings" data-page-target="readings">
+	<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+	<span class="sidebar-label">Readings</span>
+	                </a>
+	<a class="course-nav-link flex items-center gap-sm font-label-md text-label-md text-surface-variant px-4 py-3 mx-2 rounded-xl hover:bg-white/5 hover:text-white transition-all duration-200" href="#resources" data-page-target="resources">
+	<span class="material-symbols-outlined" data-icon="folder">folder</span>
+	<span class="sidebar-label">Extra Resources</span>
+	                </a>
+	</nav>
+	</aside>
+	<!-- Main Content Canvas -->
+	<main class="course-main flex-1 md:ml-72 relative flex flex-col bg-surface-container-lowest" data-canonical-entry="finlit101-money-basics">
+<!-- Video Hero Seamless -->
+<div class="intro-only w-full relative group cursor-pointer bg-black flex-shrink-0">
+<img alt="Video placeholder showing a hand drawing an apple turning into a durable good" class="w-full aspect-video object-cover max-h-[70vh]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC32VwimeI-P67qQATHm1i1Ms-Rx8BQJ64vnSzL_oAdgkWC4Rx3d-UqMD4MrCyNrYlA599GiPGqKAcpYsnl-B5Xv1offm6kNEX28hpxz_AluHETerqVPCxMBMODsJLviRjSS-TnH6IpIPL8hd4jZrqH7nLg6OELRmM4lFSpJ8BP_lICoM5FSw9XCWUscvhohqDITB5CuRsDe6YRFZ8DRH--Js1uIXm_-afSlyla4mfcbBUVX9gwpXzUsiLoaQTUoQC5ZLRzV293vB0C"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+<div class="w-16 h-16 bg-white/90 backdrop-blur rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-[32px] text-primary ml-1 icon-fill">play_arrow</span>
+</div>
+</div>
+<!-- Custom Video Controls Mockup -->
+<div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent flex items-center gap-4 text-white opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[20px]">pause</span>
+<span class="material-symbols-outlined text-[20px]">volume_up</span>
+<span class="font-caption text-caption font-medium tracking-wide">3:16 / 4:32</span>
+<div class="flex-1 h-1.5 bg-white/30 rounded-full cursor-pointer relative">
+<div class="absolute top-0 left-0 h-full bg-primary-fixed rounded-full" style="width: 70%;"></div>
+<div class="absolute top-1/2 left-[70%] -translate-y-1/2 -translate-x-1/2 w-3 h-3 bg-white rounded-full shadow-sm"></div>
+</div>
+<span class="font-caption text-caption font-bold">1x</span>
+<span class="material-symbols-outlined text-[20px]">fullscreen</span>
+</div>
+</div>
+<div class="p-lg md:p-xl flex-1">
+<div class="max-w-5xl mx-auto">
+<!-- Header Section -->
+<div class="mb-xl">
+<!-- Breadcrumb -->
+<div class="flex items-center gap-2 font-caption text-caption text-on-surface-variant mb-md">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Module 1</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-on-surface font-semibold">Money Basics</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-sm">Money Basics and the Economy</h1>
+<div class="flex flex-wrap items-center justify-between gap-md bg-surface p-md rounded-2xl border border-surface-muted shadow-sm">
+<div class="flex items-center gap-sm text-on-surface-variant font-label-md text-label-md">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]">library_books</span> 3 Topics</span>
+<span class="w-1 h-1 bg-surface-dim rounded-full"></span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]">assignment</span> 3 Activities</span>
+</div>
+<div class="flex items-center gap-md flex-1 max-w-xs">
+<div class="flex-1">
+<div class="flex justify-between font-caption text-caption mb-1">
+<span class="text-primary font-semibold">Achievement Points</span>
+<span class="text-on-surface-variant">15/45</span>
+</div>
+<div class="h-2 bg-surface-container w-full rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 33%;"></div>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary-container icon-fill text-[24px]">workspace_premium</span>
+</div>
+</div>
+</div>
+<!-- Content Grid Layout -->
+<div class="space-y-xl">
+<!-- Main Content Column -->
+<div class="space-y-xl">
+<!-- Introduction Section -->
+<section id="introduction" class="course-page" data-page="introduction">
+<div class="flex items-center mb-md">
+<h2 class="font-headline-lg text-headline-lg text-on-surface uppercase tracking-wide">Introduction</h2>
+</div>
+<div class="prose prose-lg text-on-surface-variant font-body-lg">
+<p class="mb-4">Money has come a long way over the years – first replacing barter to make it easy to exchange goods and services – all the way to the new crypto currencies that have entered the picture.</p>
+<p class="">But what makes something able to serve as money? What makes people willing to accept something as money? This Topic takes a closer look at what we use as money and the characteristics that enables something to be used as money.</p>
+</div>
+</section>
+<!-- Activities Section (Bento style) -->
+<section id="lessons" class="course-page" data-page="lessons" hidden>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-md uppercase tracking-wide">Lessons</h2>
+<div id="lesson-selector" class="grid grid-cols-1 md:grid-cols-2 gap-sm mb-md" aria-label="Lesson selector">
+<article class="lesson-card is-active bg-surface border border-surface-muted rounded-lg p-md relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-primary-container"></div>
+<div class="flex justify-between items-start mb-sm">
+<span class="font-caption text-caption text-secondary uppercase tracking-wider">Lesson 1.1</span>
+<span class="material-symbols-outlined text-outline-variant">school</span>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface mb-sm uppercase tracking-wide">What Is Money?</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Start with why money replaced barter, how it helps people exchange value, and why trust matters in every transaction.</p>
+<a class="inline-flex items-center gap-1 font-label-md text-label-md text-primary hover:underline" href="#lesson-what-is-money" data-page-target="lessons" data-lesson-id="lesson-what-is-money">Open Lesson <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+</article>
+<article class="lesson-card bg-surface border border-surface-muted rounded-lg p-md relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-primary-container"></div>
+<div class="flex justify-between items-start mb-sm">
+<span class="font-caption text-caption text-secondary uppercase tracking-wider">Lesson 1.2</span>
+<span class="material-symbols-outlined text-outline-variant">school</span>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface mb-sm uppercase tracking-wide">Characteristics of Money</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Build the standard for the lesson pattern by focusing on durability, portability, divisibility, scarcity, and acceptance.</p>
+<a class="inline-flex items-center gap-1 font-label-md text-label-md text-primary hover:underline" href="#lesson-characteristics" data-page-target="lessons" data-lesson-id="lesson-characteristics">Open Lesson <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+</article>
+</div>
+<div class="space-y-md">
+<article id="lesson-what-is-money" class="lesson-detail-panel bg-surface-container-low border border-surface-muted rounded-lg p-lg relative overflow-hidden" data-lesson-panel="lesson-what-is-money">
+<div class="absolute top-0 left-0 w-full h-1 bg-primary-container"></div>
+<span class="font-label-md text-label-md text-secondary uppercase tracking-[0.16em]">Financial Literacy 101 Course | Lesson 1.1</span>
+<h3 class="font-display-lg text-display-lg text-on-surface mt-sm mb-md">What Is Money?</h3>
+<div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_240px] gap-md">
+<div class="space-y-md">
+<div class="bg-surface border border-surface-muted rounded-lg p-lg">
+<h4 class="font-headline-md text-headline-md text-on-surface mb-sm">Key Idea</h4>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Money works because people agree to accept it as a way to trade, store value, and compare prices. It removes the pressure of finding someone who wants exactly what you have at the exact moment you want to trade.</p>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-sm">Lesson Flow</h4>
+<div class="space-y-2">
+<div class="grid grid-cols-[40px_minmax(0,1fr)] gap-sm rounded-lg border border-surface-muted bg-white p-sm">
+<span class="flex h-9 w-9 items-center justify-center rounded-lg bg-primary-fixed font-label-md text-label-md text-primary">1</span>
+<div>
+<strong class="block font-body-md text-body-md text-on-surface">Barter and the double coincidence of wants</strong>
+<span class="font-caption text-caption text-on-surface-variant">Why direct trade breaks down quickly.</span>
+</div>
+</div>
+<div class="grid grid-cols-[40px_minmax(0,1fr)] gap-sm rounded-lg border border-surface-muted bg-white p-sm">
+<span class="flex h-9 w-9 items-center justify-center rounded-lg bg-primary-fixed font-label-md text-label-md text-primary">2</span>
+<div>
+<strong class="block font-body-md text-body-md text-on-surface">Money as a shared agreement</strong>
+<span class="font-caption text-caption text-on-surface-variant">How trust makes paper, coins, and digital balances useful.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<aside class="bg-surface border border-surface-muted rounded-lg p-md h-fit">
+<span class="font-caption text-caption text-secondary uppercase tracking-wider">Practice</span>
+<p class="font-body-md text-body-md text-on-surface-variant mt-sm mb-md">Connect the lesson to the introduction, then move into the first assessment when ready.</p>
+<a class="inline-flex min-h-11 items-center gap-2 rounded-lg bg-primary px-4 py-2 font-label-md text-label-md text-white hover:bg-primary-container focus:outline-none focus:ring-2 focus:ring-primary/40" href="#quizzes" data-page-target="quizzes">Go to Quizzes <span class="material-symbols-outlined text-[18px]">arrow_forward</span></a>
+</aside>
+</div>
+</article>
+<article id="lesson-characteristics" class="lesson-detail-panel bg-surface-container-low border border-surface-muted rounded-lg p-lg relative overflow-hidden" data-lesson-panel="lesson-characteristics" hidden>
+<div class="absolute top-0 left-0 w-full h-1 bg-primary-container"></div>
+<span class="font-label-md text-label-md text-secondary uppercase tracking-[0.16em]">Financial Literacy 101 Course | Lesson 1.2</span>
+<h3 class="font-display-lg text-display-lg text-on-surface mt-sm mb-md">Characteristics of Money</h3>
+<div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_240px] gap-md">
+<div class="space-y-md">
+<div class="bg-surface border border-surface-muted rounded-lg p-lg">
+<h4 class="font-headline-md text-headline-md text-on-surface mb-sm">Key Idea</h4>
+<p class="font-body-lg text-body-lg text-on-surface-variant">For something to work well as money, it needs traits that make it reliable in everyday life: durability, portability, divisibility, scarcity, recognizability, and acceptance.</p>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-sm">Lesson Flow</h4>
+<div class="space-y-2">
+<div class="grid grid-cols-[40px_minmax(0,1fr)] gap-sm rounded-lg border border-surface-muted bg-white p-sm">
+<span class="flex h-9 w-9 items-center justify-center rounded-lg bg-primary-fixed font-label-md text-label-md text-primary">1</span>
+<div>
+<strong class="block font-body-md text-body-md text-on-surface">Core money traits</strong>
+<span class="font-caption text-caption text-on-surface-variant">Define the qualities that make money practical.</span>
+</div>
+</div>
+<div class="grid grid-cols-[40px_minmax(0,1fr)] gap-sm rounded-lg border border-surface-muted bg-white p-sm">
+<span class="flex h-9 w-9 items-center justify-center rounded-lg bg-primary-fixed font-label-md text-label-md text-primary">2</span>
+<div>
+<strong class="block font-body-md text-body-md text-on-surface">Apply the traits</strong>
+<span class="font-caption text-caption text-on-surface-variant">Test how different objects succeed or fail as money.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<aside class="bg-surface border border-surface-muted rounded-lg p-md h-fit">
+<span class="font-caption text-caption text-secondary uppercase tracking-wider">Practice</span>
+<p class="font-body-md text-body-md text-on-surface-variant mt-sm mb-md">Use the reading notes, then try the characteristics quiz.</p>
+<a class="inline-flex min-h-11 items-center gap-2 rounded-lg bg-primary px-4 py-2 font-label-md text-label-md text-white hover:bg-primary-container focus:outline-none focus:ring-2 focus:ring-primary/40" href="#readings" data-page-target="readings">Open Readings <span class="material-symbols-outlined text-[18px]">arrow_forward</span></a>
+</aside>
+</div>
+</article>
+</div>
+</section>
+<!-- Quizzes Section -->
+<section id="quizzes" class="course-page" data-page="quizzes" hidden>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-md uppercase tracking-wide">Quizzes</h2>
+<div id="quiz-selector" class="grid grid-cols-1 md:grid-cols-2 gap-sm mb-md" aria-label="Quiz selector">
+<button class="quiz-resource is-active text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors" type="button" data-quiz-id="money-whats-to-know">
+<span class="font-caption text-caption text-secondary uppercase tracking-wider">Assessment</span>
+<strong class="block font-label-md text-label-md text-on-surface mt-1 uppercase tracking-wide">Quiz 1: Money Basics</strong>
+<span class="block font-caption text-caption text-on-surface-variant mt-1">4 Questions | 15 min | +10</span>
+</button>
+<button class="quiz-resource text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors" type="button" data-quiz-id="characteristics-check">
+<span class="font-caption text-caption text-secondary uppercase tracking-wider">Assessment</span>
+<strong class="block font-label-md text-label-md text-on-surface mt-1 uppercase tracking-wide">Quiz 2: Characteristics of Money</strong>
+<span class="block font-caption text-caption text-on-surface-variant mt-1">4 Questions | 15 min | +10</span>
+</button>
+</div>
+<article id="quiz-assessment" class="bg-surface-container-low border border-surface-muted rounded-lg p-lg">
+<span id="quiz-profile" class="font-label-md text-label-md text-secondary uppercase tracking-[0.16em]">Financial Literacy 101 Course | Assessment</span>
+<h3 id="quiz-title" class="font-display-lg text-display-lg text-on-surface mt-sm mb-md">Quiz 1: Money Basics</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-md mb-md">
+<div>
+<span class="block font-label-md text-label-md text-secondary uppercase tracking-[0.12em] mb-1">Status</span>
+<strong id="quiz-status" class="font-body-lg text-body-lg text-on-surface font-normal">In progress</strong>
+</div>
+<div>
+<span class="block font-label-md text-label-md text-secondary uppercase tracking-[0.12em] mb-1">Submitted</span>
+<strong id="quiz-submitted" class="font-body-lg text-body-lg text-on-surface font-normal">Not yet submitted</strong>
+</div>
+</div>
+<div class="bg-surface border border-surface-muted rounded-lg p-lg mb-md grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_220px] gap-md items-center">
+<div>
+<h4 class="font-headline-lg text-headline-lg text-on-surface mb-sm">Final Evaluation</h4>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">This counter tracks completed questions only. Marks are handled separately, and written responses are reviewed manually.</p>
+</div>
+<div class="text-left lg:text-right">
+<div class="font-display-lg text-[72px] leading-none text-primary-container"><span id="quiz-completed-count">0</span>/<span id="quiz-total-count">4</span></div>
+<p id="quiz-completed-label" class="font-label-md text-label-md text-alert-red uppercase tracking-[0.12em]">0 questions completed</p>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-sm mb-lg">
+<button id="quiz-mark-complete" class="inline-flex min-h-11 items-center rounded-lg bg-primary px-4 py-2 font-label-md text-label-md text-white hover:bg-primary-container focus:outline-none focus:ring-2 focus:ring-primary/40" type="button">Mark Complete</button>
+<button id="quiz-check-answer" class="inline-flex min-h-11 items-center rounded-lg border border-surface-muted bg-white px-4 py-2 font-label-md text-label-md text-on-surface hover:bg-surface-container-low focus:outline-none focus:ring-2 focus:ring-primary/30" type="button">Check Answers</button>
+<button id="quiz-generate-results" class="inline-flex min-h-11 items-center rounded-lg border border-surface-muted bg-white px-4 py-2 font-label-md text-label-md text-on-surface hover:bg-surface-container-low focus:outline-none focus:ring-2 focus:ring-primary/30" type="button">Generate Results</button>
+<button id="quiz-retake" class="inline-flex min-h-11 items-center rounded-lg border border-surface-muted bg-white px-4 py-2 font-label-md text-label-md text-on-surface hover:bg-surface-container-low focus:outline-none focus:ring-2 focus:ring-primary/30" type="button">Retake Quiz</button>
+<button id="quiz-back-list" class="ml-auto inline-flex min-h-11 items-center gap-1 rounded-lg px-3 py-2 font-label-md text-label-md text-primary hover:underline" type="button">Back to Quizzes <span class="material-symbols-outlined text-[16px]">arrow_forward</span></button>
+</div>
+<div class="border-t border-surface-muted pt-lg">
+<h4 class="font-headline-lg text-headline-lg text-on-surface mb-md">Section Breakdown</h4>
+<div id="quiz-section-breakdown" class="space-y-sm"></div>
+</div>
+<div id="quiz-questions" class="space-y-md mt-lg"></div>
+</article>
+</section>
+<section id="activities" class="course-page" data-page="introduction">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-md uppercase tracking-wide">Activities</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-sm">
+<!-- Assignment Card -->
+<div class="bg-surface border border-surface-muted rounded-2xl p-md hover:shadow-[0_4px_20px_rgb(0,0,0,0.06)] transition-shadow duration-300 relative group overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-primary-container"></div>
+<div class="flex justify-between items-start mb-sm">
+<span class="font-caption text-caption text-secondary uppercase tracking-wider">Assignment</span>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">open_in_new</span>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface mb-md pr-6">ASSIGNMENTS 1.1</h3>
+<div class="flex items-center gap-3 text-on-surface-variant font-caption text-caption">
+<span class="">4 Questions</span>
+<span class="w-1 h-1 bg-surface-dim rounded-full"></span>
+<span class="flex items-center gap-1 text-primary-container font-medium"><span class="material-symbols-outlined text-[14px] icon-fill">workspace_premium</span> +20</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Discussion Section -->
+<section id="discussion" class="course-page" data-page="introduction">
+</section>
+<!-- Additional Learning Callout -->
+<section id="additional-learning" class="course-page" data-page="introduction">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-md uppercase tracking-wide">Additional Learning</h2>
+<div class="bg-tertiary-fixed border-l-4 border-primary rounded-r-2xl p-lg">
+<p class="font-body-md text-body-md text-on-surface mb-4">Today, our money has little, if any, value in and of itself. Our bank notes really only have value in terms of what we can acquire with them. The metal in our coins isn't worth very much either. There isn't 10 cents' worth of silver in our 10-cent piece or 5 cents' worth of nickel in our 5-cent piece.</p>
+<button class="font-label-md text-label-md text-primary uppercase tracking-wider hover:underline flex items-center gap-1">
+                                    Show More <span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+</div>
+</section>
+<!-- Readings Library -->
+<section id="readings" class="course-page" data-page="readings" hidden>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-md uppercase tracking-wide">Readings</h2>
+<div class="flex flex-wrap items-center gap-sm mb-sm">
+<label class="flex min-h-11 flex-1 min-w-[240px] items-center gap-2 rounded-lg border border-surface-muted bg-white px-3 py-2 text-on-surface-variant focus-within:border-primary-container focus-within:ring-2 focus-within:ring-primary/20" for="reading-search">
+<span class="material-symbols-outlined text-[20px]">search</span>
+<input id="reading-search" class="w-full border-0 bg-transparent p-0 font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant focus:ring-0" type="search" placeholder="Search readings..." autocomplete="off"/>
+</label>
+<button id="reading-sort" class="inline-flex min-h-11 items-center gap-2 rounded-lg border border-surface-muted bg-white px-4 py-2 font-label-md text-label-md text-on-surface hover:bg-surface-container-low focus:outline-none focus:ring-2 focus:ring-primary/30" type="button">
+<span class="material-symbols-outlined text-[18px]">sort_by_alpha</span>
+<span id="reading-sort-label">Sort A-Z</span>
+</button>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-[320px_minmax(0,1fr)] gap-sm">
+<aside class="bg-surface border border-surface-muted rounded-lg p-sm h-fit" aria-label="Reading selector">
+<label class="block lg:hidden mb-sm" for="reading-mobile-select">
+<span class="block font-caption text-caption text-secondary uppercase tracking-wider mb-1">Choose Reading</span>
+<select id="reading-mobile-select" class="w-full min-h-11 rounded-lg border border-surface-muted bg-white px-3 py-2 font-body-md text-body-md text-on-surface focus:border-primary-container focus:ring-primary/20">
+<option value="canadian-dollar">A History of the Canadian Dollar</option>
+<option value="beavers-to-bears">From Beavers to Bears</option>
+<option value="money-characteristics">Characteristics of Money</option>
+</select>
+</label>
+<div class="hidden lg:flex items-center justify-between gap-2 mb-sm px-1">
+<span class="font-caption text-caption text-secondary uppercase tracking-wider">Library</span>
+<strong id="reading-result-count" class="font-caption text-caption text-primary">3 files</strong>
+</div>
+<div id="reading-list" class="hidden lg:block space-y-2">
+<button class="reading-resource reading-selector-item is-active w-full text-left bg-white border border-surface-muted rounded-lg p-sm transition-colors" type="button" data-reading-id="canadian-dollar">
+<span class="font-caption text-caption text-primary uppercase tracking-wider">01</span>
+<strong class="block font-label-md text-label-md text-on-surface mt-1 uppercase tracking-wide">A History of the Canadian Dollar</strong>
+<span class="block font-caption text-caption text-on-surface-variant mt-1">PDF | Bank of Canada</span>
+</button>
+<button class="reading-resource reading-selector-item w-full text-left bg-white border border-surface-muted rounded-lg p-sm transition-colors" type="button" data-reading-id="beavers-to-bears">
+<span class="font-caption text-caption text-primary uppercase tracking-wider">02</span>
+<strong class="block font-label-md text-label-md text-on-surface mt-1 uppercase tracking-wide">From Beavers to Bears</strong>
+<span class="block font-caption text-caption text-on-surface-variant mt-1">Article | Canada's History</span>
+</button>
+<button class="reading-resource reading-selector-item w-full text-left bg-white border border-surface-muted rounded-lg p-sm transition-colors" type="button" data-reading-id="money-characteristics">
+<span class="font-caption text-caption text-primary uppercase tracking-wider">03</span>
+<strong class="block font-label-md text-label-md text-on-surface mt-1 uppercase tracking-wide">Characteristics of Money</strong>
+<span class="block font-caption text-caption text-on-surface-variant mt-1">Reading Notes | Course Guide</span>
+</button>
+</div>
+<div id="reading-empty-state" class="reading-empty-state rounded-lg border border-surface-muted bg-surface-container-low p-sm font-body-md text-body-md text-on-surface-variant">No matching readings.</div>
+</aside>
+<article id="reading-viewer-panel" class="reading-viewer-panel bg-surface border border-surface-muted rounded-lg p-lg relative overflow-hidden" aria-live="polite">
+<div class="absolute top-0 left-0 w-full h-1 bg-primary-container"></div>
+<div class="flex flex-wrap items-start justify-between gap-sm mb-md">
+<div>
+<span id="reading-kind" class="font-caption text-caption text-secondary uppercase tracking-wider">Reading</span>
+<h3 id="reading-title" class="font-headline-md text-headline-md text-on-surface mt-1">A History of the Canadian Dollar</h3>
+<p id="reading-source" class="font-caption text-caption text-on-surface-variant mt-1">Bank of Canada | December, 2005</p>
+</div>
+<div class="flex flex-wrap gap-2">
+<button id="reading-toggle-viewer" class="inline-flex min-h-11 items-center gap-2 rounded-lg bg-primary px-4 py-2 font-label-md text-label-md text-white hover:bg-primary-container focus:outline-none focus:ring-2 focus:ring-primary/40" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility_off</span>
+<span id="reading-toggle-label">Close Viewer</span>
+</button>
+<button id="reading-fullscreen" class="inline-flex min-h-11 items-center gap-2 rounded-lg border border-surface-muted bg-white px-4 py-2 font-label-md text-label-md text-on-surface hover:bg-surface-container-low focus:outline-none focus:ring-2 focus:ring-primary/30" type="button">
+<span class="material-symbols-outlined text-[18px]">fullscreen</span>
+<span id="reading-fullscreen-label">Full Screen</span>
+</button>
+<a id="reading-link" class="inline-flex min-h-11 items-center gap-2 rounded-lg border border-surface-muted bg-white px-4 py-2 font-label-md text-label-md text-on-surface hover:bg-surface-container-low focus:outline-none focus:ring-2 focus:ring-primary/30" href="https://www.bankofcanada.ca/wp-content/uploads/2010/07/dollar_book.pdf" target="_blank" rel="noopener noreferrer">
+<span id="reading-action">Download PDF</span> <span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</a>
+</div>
+</div>
+<p id="reading-description" class="font-body-md text-body-md text-on-surface-variant mb-md">The following is a link to a detailed history of the Canadian dollar from the Bank of Canada. It is from 2005, but it is a history, so the content is still relevant.</p>
+<div class="flex flex-wrap items-center gap-3 font-caption text-caption text-on-surface-variant mb-md">
+<span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">description</span><span id="reading-format">PDF</span></span>
+<span class="w-1 h-1 rounded-full bg-surface-dim"></span>
+<span id="reading-pages">52 pages</span>
+</div>
+<div id="reading-frame-wrap" class="reading-frame-wrap rounded-lg border border-outline-variant bg-surface-container-low p-sm">
+<div id="reading-pdf-viewer" class="rounded-lg bg-white overflow-hidden">
+<iframe id="reading-frame" class="w-full min-h-[620px] border-0 bg-white" title="A History of the Canadian Dollar" src="https://www.bankofcanada.ca/wp-content/uploads/2010/07/dollar_book.pdf"></iframe>
+</div>
+<div id="reading-text-viewer" class="hidden rounded-lg bg-white border border-surface-muted p-lg">
+<span id="reading-text-label" class="font-caption text-caption text-primary uppercase tracking-wider">Reading Preview</span>
+<h4 id="reading-text-heading" class="font-headline-md text-headline-md text-on-surface mt-2">A History of the Canadian Dollar</h4>
+<p id="reading-text-body" class="font-body-lg text-body-lg text-on-surface-variant mt-sm"></p>
+</div>
+</div>
+<div id="reading-closed" class="hidden rounded-lg border border-surface-muted bg-surface-container-low p-lg">
+<span class="font-caption text-caption text-secondary uppercase tracking-wider">Viewer Closed</span>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Open the selected reading when you are ready to review it here.</p>
+</div>
+</article>
+</div>
+</section>
+<!-- Extra Resources Page -->
+<section id="resources" class="course-page" data-page="resources" hidden>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-md uppercase tracking-wide">Extra Resources</h2>
+<div class="grid grid-cols-1 lg:grid-cols-[320px_minmax(0,1fr)] gap-sm">
+<aside class="bg-surface border border-surface-muted rounded-lg p-sm h-fit" aria-label="Extra resources folders">
+<button class="w-full text-left bg-white border border-primary-container rounded-lg p-sm transition-colors" type="button">
+<span class="font-caption text-caption text-primary uppercase tracking-wider">01</span>
+<strong class="block font-label-md text-label-md text-on-surface mt-1 uppercase tracking-wide">Worksheets</strong>
+<span class="block font-caption text-caption text-on-surface-variant mt-1">Coming soon</span>
+</button>
+<button class="mt-2 w-full text-left bg-white border border-surface-muted rounded-lg p-sm transition-colors" type="button">
+<span class="font-caption text-caption text-primary uppercase tracking-wider">02</span>
+<strong class="block font-label-md text-label-md text-on-surface mt-1 uppercase tracking-wide">Glossary</strong>
+<span class="block font-caption text-caption text-on-surface-variant mt-1">Coming soon</span>
+</button>
+<button class="mt-2 w-full text-left bg-white border border-surface-muted rounded-lg p-sm transition-colors" type="button">
+<span class="font-caption text-caption text-primary uppercase tracking-wider">03</span>
+<strong class="block font-label-md text-label-md text-on-surface mt-1 uppercase tracking-wide">External Tools</strong>
+<span class="block font-caption text-caption text-on-surface-variant mt-1">Coming soon</span>
+</button>
+</aside>
+<article class="bg-surface border border-surface-muted rounded-lg p-lg relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-primary-container"></div>
+<div class="flex items-start justify-between gap-sm mb-md">
+<div>
+<span class="font-caption text-caption text-secondary uppercase tracking-wider">Resource Folder</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-1">Worksheets</h3>
+<p class="font-caption text-caption text-on-surface-variant mt-1">Financial Literacy 101 | Money Basics</p>
+</div>
+<span class="material-symbols-outlined text-primary-container">folder</span>
+</div>
+<div class="rounded-lg border border-surface-muted bg-surface-container-low p-lg">
+<span class="font-caption text-caption text-secondary uppercase tracking-wider">No files loaded yet</span>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Worksheets, templates, calculators, and support files will appear in this folder as the module grows.</p>
+</div>
+</article>
+</div>
+</section>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+	<script>
+	    (() => {
+	        const toggle = document.querySelector(".sidebar-toggle");
+	        const lessonsGroup = document.querySelector(".lesson-nav-group");
+	        const lessonsToggle = document.querySelector(".lessons-toggle");
+	        if (!toggle) return;
+
+	        const setCollapsed = (isCollapsed) => {
+	            document.body.classList.toggle("sidebar-collapsed", isCollapsed);
+	            toggle.setAttribute("aria-expanded", String(!isCollapsed));
+	            toggle.setAttribute("aria-label", isCollapsed ? "Expand sidebar" : "Collapse sidebar");
+	        };
+
+	        toggle.addEventListener("click", () => {
+	            setCollapsed(!document.body.classList.contains("sidebar-collapsed"));
+	        });
+
+	        if (lessonsGroup && lessonsToggle) {
+	            lessonsToggle.addEventListener("click", () => {
+	                const isCollapsed = lessonsGroup.classList.toggle("lessons-collapsed");
+	                lessonsToggle.setAttribute("aria-expanded", String(!isCollapsed));
+	                setActivePage("lessons", "lessons");
+	            });
+	        }
+
+	        const coursePages = document.querySelectorAll(".course-page");
+	        const introOnlyBlocks = document.querySelectorAll(".intro-only");
+	        const pageTriggers = document.querySelectorAll("[data-page-target]");
+	        const lessonTriggers = document.querySelectorAll("[data-lesson-id]");
+	        const lessonPanels = document.querySelectorAll("[data-lesson-panel]");
+	        const lessonCards = document.querySelectorAll(".lesson-card");
+	        let activeLessonId = "lesson-what-is-money";
+	        const routeMap = {
+	            introduction: "introduction",
+	            lessons: "lessons",
+	            "lesson-what-is-money": "lessons",
+	            "lesson-characteristics": "lessons",
+	            quizzes: "quizzes",
+	            readings: "readings",
+	            resources: "resources"
+	        };
+
+	        const pageFromHash = (hash) => {
+	            const cleanHash = String(hash || "").replace("#", "");
+	            return routeMap[cleanHash] || "introduction";
+	        };
+
+	        function setActiveLesson(lessonId = activeLessonId) {
+	            const nextLesson = [...lessonPanels].some((panel) => panel.id === lessonId) ? lessonId : "lesson-what-is-money";
+	            activeLessonId = nextLesson;
+	            lessonPanels.forEach((panel) => {
+	                panel.hidden = panel.id !== nextLesson;
+	            });
+	            lessonCards.forEach((card) => {
+	                const cardLessonId = card.querySelector("[data-lesson-id]")?.getAttribute("data-lesson-id");
+	                card.classList.toggle("is-active", cardLessonId === nextLesson);
+	            });
+	            lessonTriggers.forEach((trigger) => {
+	                const isActive = trigger.getAttribute("data-lesson-id") === nextLesson;
+	                if (trigger.classList.contains("sublesson-link")) {
+	                    trigger.classList.toggle("bg-white/5", isActive);
+	                    trigger.classList.toggle("text-white", isActive);
+	                    trigger.classList.toggle("text-surface-variant", !isActive);
+	                }
+	            });
+	        }
+
+	        function setActivePage(pageId, targetId = pageId, shouldUpdateHash = true) {
+	            const nextPage = routeMap[pageId] || pageId || "introduction";
+	            coursePages.forEach((section) => {
+	                section.hidden = section.getAttribute("data-page") !== nextPage;
+	            });
+	            introOnlyBlocks.forEach((block) => {
+	                block.hidden = nextPage !== "introduction";
+	            });
+	            pageTriggers.forEach((trigger) => {
+	                const isActive = trigger.getAttribute("data-page-target") === nextPage;
+	                if (!trigger.classList.contains("course-nav-link")) return;
+	                trigger.classList.toggle("bg-white/10", isActive);
+	                trigger.classList.toggle("text-white", isActive);
+	                trigger.classList.toggle("text-surface-variant", !isActive);
+	            });
+	            if (shouldUpdateHash) {
+	                const nextHash = `#${targetId || nextPage}`;
+	                if (window.location.hash !== nextHash) {
+	                    history.pushState(null, "", nextHash);
+	                }
+	            }
+	            if (nextPage === "lessons") {
+	                const targetLesson = routeMap[targetId] === "lessons" && targetId !== "lessons" ? targetId : activeLessonId;
+	                setActiveLesson(targetLesson);
+	            }
+	            window.requestAnimationFrame(() => {
+	                const target = document.getElementById(targetId);
+	                const targetPage = target?.getAttribute("data-page") || target?.closest(".course-page")?.getAttribute("data-page");
+	                if (target && targetPage === nextPage) {
+	                    target.scrollIntoView({ block: "start" });
+	                } else {
+	                    window.scrollTo({ top: 0, behavior: "auto" });
+	                }
+	            });
+	        }
+
+	        pageTriggers.forEach((trigger) => {
+	            trigger.addEventListener("click", (event) => {
+	                const targetPage = trigger.getAttribute("data-page-target");
+	                const targetHash = trigger.getAttribute("href")?.replace("#", "") || targetPage;
+	                if (trigger.tagName === "A") event.preventDefault();
+	                setActivePage(targetPage, targetHash);
+	            });
+	        });
+
+	        window.addEventListener("hashchange", () => {
+	            const targetId = window.location.hash.replace("#", "") || "introduction";
+	            setActivePage(pageFromHash(window.location.hash), targetId, false);
+	        });
+
+	        setActivePage(pageFromHash(window.location.hash), window.location.hash.replace("#", "") || "introduction", false);
+
+	        const readings = {
+	            "canadian-dollar": {
+	                order: 1,
+	                kind: "PDF",
+	                title: "A History of the Canadian Dollar",
+	                source: "Bank of Canada | December, 2005",
+	                description: "Open this PDF in the course viewer or download it for offline reading.",
+	                url: "https://www.bankofcanada.ca/wp-content/uploads/2010/07/dollar_book.pdf",
+	                action: "Download PDF",
+	                format: "PDF",
+	                pages: "52 pages",
+	                viewer: "pdf"
+	            },
+	            "beavers-to-bears": {
+	                order: 2,
+	                kind: "Article",
+	                title: "From Beavers to Bears: The History of Canadian Currency",
+	                source: "Canada's History | February 8, 2015",
+	                description: "Open this article from the course viewer or continue to the source site.",
+	                url: "https://www.canadashistory.ca/explore/arts-culture-society/from-beavers-to-bears-the-history-of-canadian-curr",
+	                action: "Open Article",
+	                format: "Article",
+	                pages: "Web reading",
+	                viewer: "text",
+	                preview: "A look at some wild ways Canadians cashed in on goods and services. Use this article as a quick companion reading for the history of Canadian currency."
+	            },
+	            "money-characteristics": {
+	                order: 3,
+	                kind: "Reading Notes",
+	                title: "Characteristics of Money",
+	                source: "Course Guide | Money Basics",
+	                description: "Review the core traits that make something work as money before moving into quizzes or assignments.",
+	                url: "#additional-learning",
+	                action: "Review Notes",
+	                format: "Course notes",
+	                pages: "1 page",
+	                viewer: "text",
+	                preview: "Money works best when it is durable, portable, divisible, scarce enough to hold value, and widely accepted. These traits help people trust that money can be exchanged later for goods and services."
+	            }
+	        };
+
+	        const readingList = document.querySelector("#reading-list");
+	        const readingButtons = () => [...document.querySelectorAll(".reading-resource")];
+	        const readingKind = document.querySelector("#reading-kind");
+	        const readingTitle = document.querySelector("#reading-title");
+	        const readingSource = document.querySelector("#reading-source");
+	        const readingDescription = document.querySelector("#reading-description");
+	        const readingFormat = document.querySelector("#reading-format");
+	        const readingPages = document.querySelector("#reading-pages");
+	        const readingLink = document.querySelector("#reading-link");
+	        const readingAction = document.querySelector("#reading-action");
+	        const readingFrameWrap = document.querySelector("#reading-frame-wrap");
+	        const readingPdfViewer = document.querySelector("#reading-pdf-viewer");
+	        const readingTextViewer = document.querySelector("#reading-text-viewer");
+	        const readingFrame = document.querySelector("#reading-frame");
+	        const readingTextHeading = document.querySelector("#reading-text-heading");
+	        const readingTextBody = document.querySelector("#reading-text-body");
+	        const readingClosed = document.querySelector("#reading-closed");
+	        const readingMobileSelect = document.querySelector("#reading-mobile-select");
+	        const readingSearch = document.querySelector("#reading-search");
+	        const readingSort = document.querySelector("#reading-sort");
+	        const readingSortLabel = document.querySelector("#reading-sort-label");
+	        const readingResultCount = document.querySelector("#reading-result-count");
+	        const readingEmptyState = document.querySelector("#reading-empty-state");
+	        const readingToggleViewer = document.querySelector("#reading-toggle-viewer");
+	        const readingToggleLabel = document.querySelector("#reading-toggle-label");
+	        const readingFullscreen = document.querySelector("#reading-fullscreen");
+	        const readingFullscreenLabel = document.querySelector("#reading-fullscreen-label");
+	        const readingViewerPanel = document.querySelector("#reading-viewer-panel");
+	        let activeReadingId = "canadian-dollar";
+	        let readingSortMode = "source";
+	        let readingViewerOpen = true;
+	        let readingIsFullscreen = false;
+
+	        const setReading = (readingId) => {
+	            const reading = readings[readingId];
+	            if (!reading) return;
+	            activeReadingId = readingId;
+	            readingButtons().forEach((button) => {
+	                button.classList.toggle("is-active", button.getAttribute("data-reading-id") === readingId);
+	            });
+	            if (readingMobileSelect) readingMobileSelect.value = readingId;
+	            readingKind.textContent = reading.kind;
+	            readingTitle.textContent = reading.title;
+	            readingSource.textContent = reading.source;
+	            readingDescription.textContent = reading.description;
+	            readingFormat.textContent = reading.format;
+	            readingPages.textContent = reading.pages;
+	            readingLink.href = reading.url;
+	            readingAction.textContent = reading.action;
+	            if (reading.viewer === "pdf") {
+	                readingPdfViewer.classList.remove("hidden");
+	                readingTextViewer.classList.add("hidden");
+	                readingFrame.src = reading.url;
+	                readingFrame.title = reading.title;
+	            } else {
+	                readingPdfViewer.classList.add("hidden");
+	                readingTextViewer.classList.remove("hidden");
+	                readingTextHeading.textContent = reading.title;
+	                readingTextBody.textContent = reading.preview;
+	            }
+	        };
+
+	        const updateReadingViewerState = () => {
+	            readingFrameWrap.classList.toggle("is-closed", !readingViewerOpen);
+	            readingClosed.classList.toggle("hidden", readingViewerOpen);
+	            readingToggleLabel.textContent = readingViewerOpen ? "Close Viewer" : "Open Viewer";
+	            readingToggleViewer.querySelector(".material-symbols-outlined").textContent = readingViewerOpen ? "visibility_off" : "menu_book";
+	            readingViewerPanel.classList.toggle("is-fullscreen", readingIsFullscreen);
+	            readingFullscreenLabel.textContent = readingIsFullscreen ? "Exit Full Screen" : "Full Screen";
+	            readingFullscreen.querySelector(".material-symbols-outlined").textContent = readingIsFullscreen ? "fullscreen_exit" : "fullscreen";
+	        };
+
+	        const updateReadingFilter = () => {
+	            const query = readingSearch?.value.trim().toLowerCase() || "";
+	            let visibleCount = 0;
+	            readingButtons().forEach((button) => {
+	                const reading = readings[button.getAttribute("data-reading-id")];
+	                const haystack = `${reading.title} ${reading.source} ${reading.kind} ${reading.description}`.toLowerCase();
+	                const isVisible = haystack.includes(query);
+	                button.classList.toggle("is-hidden", !isVisible);
+	                if (isVisible) visibleCount += 1;
+	            });
+	            readingResultCount.textContent = `${visibleCount} ${visibleCount === 1 ? "file" : "files"}`;
+	            readingEmptyState.classList.toggle("is-visible", visibleCount === 0);
+	        };
+
+	        readingList?.addEventListener("click", (event) => {
+	            const button = event.target.closest("[data-reading-id]");
+	            if (!button) return;
+	            setReading(button.getAttribute("data-reading-id"));
+	        });
+
+	        readingMobileSelect?.addEventListener("change", (event) => setReading(event.target.value));
+	        readingSearch?.addEventListener("input", updateReadingFilter);
+	        readingSort?.addEventListener("click", () => {
+	            readingSortMode = readingSortMode === "source" ? "title" : "source";
+	            const sortedButtons = readingButtons().sort((a, b) => {
+	                const aReading = readings[a.getAttribute("data-reading-id")];
+	                const bReading = readings[b.getAttribute("data-reading-id")];
+	                if (readingSortMode === "title") return aReading.title.localeCompare(bReading.title);
+	                return aReading.order - bReading.order;
+	            });
+	            sortedButtons.forEach((button) => readingList.appendChild(button));
+	            readingSortLabel.textContent = readingSortMode === "title" ? "Source Order" : "Sort A-Z";
+	            updateReadingFilter();
+	        });
+	        readingToggleViewer?.addEventListener("click", () => {
+	            readingViewerOpen = !readingViewerOpen;
+	            if (!readingViewerOpen) readingIsFullscreen = false;
+	            updateReadingViewerState();
+	        });
+	        readingFullscreen?.addEventListener("click", () => {
+	            readingViewerOpen = true;
+	            readingIsFullscreen = !readingIsFullscreen;
+	            updateReadingViewerState();
+	        });
+
+	        setReading(activeReadingId);
+	        updateReadingFilter();
+	        updateReadingViewerState();
+
+	        const quizzes = {
+	            "money-whats-to-know": {
+	                profile: "Financial Literacy 101 Course | Assessment",
+	                title: "Quiz 1: Money Basics",
+	                status: "In progress",
+	                submitted: "Not yet submitted",
+	                sections: [
+	                    { id: "multiple-choice", title: "Multiple Choice", range: "Questions 1-2" },
+	                    { id: "true-false", title: "True / False", range: "Questions 3-4" }
+	                ],
+	                questions: [
+	                    {
+	                        id: "barter-problem",
+	                        section: "multiple-choice",
+	                        question: "What problem did money mostly solve when replacing barter?",
+	                        choices: [
+	                            "It made it easier to exchange goods and services without finding a perfect trade partner.",
+	                            "It made every product cost the exact same amount.",
+	                            "It removed the need for people to trust each other.",
+	                            "It stopped people from saving for later."
+	                        ],
+	                        answerIndex: 0
+	                    },
+	                    {
+	                        id: "money-value",
+	                        section: "multiple-choice",
+	                        question: "Why do bank notes work as money even though the paper itself has little value?",
+	                        choices: [
+	                            "The paper is rare enough to be valuable on its own.",
+	                            "People accept them because they trust they can exchange them for goods and services.",
+	                            "They can only be used inside banks.",
+	                            "They are worth the metal used to print them."
+	                        ],
+	                        answerIndex: 1
+	                    },
+	                    {
+	                        id: "money-trust",
+	                        section: "true-false",
+	                        question: "Money depends partly on trust that others will accept it.",
+	                        choices: ["True", "False"],
+	                        answerIndex: 0
+	                    },
+	                    {
+	                        id: "barter-easy",
+	                        section: "true-false",
+	                        question: "Barter always makes trade easier than using money.",
+	                        choices: ["True", "False"],
+	                        answerIndex: 1
+	                    }
+	                ]
+	            },
+	            "characteristics-check": {
+	                profile: "Financial Literacy 101 Course | Assessment",
+	                title: "Quiz 2: Characteristics of Money",
+	                status: "In progress",
+	                submitted: "Not yet submitted",
+	                sections: [
+	                    { id: "terms", title: "Term Matching", range: "Questions 1-2" },
+	                    { id: "application", title: "Short Answer", range: "Questions 3-4" }
+	                ],
+	                questions: [
+	                    {
+	                        id: "portability",
+	                        section: "terms",
+	                        question: "Which characteristic means money can be carried and used easily?",
+	                        choices: ["Durability", "Portability", "Scarcity", "Divisibility"],
+	                        answerIndex: 1
+	                    },
+	                    {
+	                        id: "divisibility",
+	                        section: "terms",
+	                        question: "Why is divisibility important for money?",
+	                        choices: [
+	                            "It lets money be split into smaller amounts for different prices.",
+	                            "It makes money impossible to copy.",
+	                            "It means money must be heavy.",
+	                            "It means money loses value quickly."
+	                        ],
+	                        answerIndex: 0
+	                    },
+	                    {
+	                        id: "durability",
+	                        section: "application",
+	                        question: "A durable form of money should be able to last through repeated use.",
+	                        choices: ["True", "False"],
+	                        answerIndex: 0
+	                    },
+	                    {
+	                        id: "scarcity",
+	                        section: "application",
+	                        question: "If anyone could create unlimited money, what characteristic would be weakened most?",
+	                        choices: ["Scarcity", "Portability", "Visibility", "Shape"],
+	                        answerIndex: 0
+	                    }
+	                ]
+	            }
+	        };
+
+	        const quizButtons = document.querySelectorAll(".quiz-resource");
+	        const quizProfile = document.querySelector("#quiz-profile");
+	        const quizTitle = document.querySelector("#quiz-title");
+	        const quizStatus = document.querySelector("#quiz-status");
+	        const quizSubmitted = document.querySelector("#quiz-submitted");
+	        const quizCompletedCount = document.querySelector("#quiz-completed-count");
+	        const quizTotalCount = document.querySelector("#quiz-total-count");
+	        const quizCompletedLabel = document.querySelector("#quiz-completed-label");
+	        const quizSectionBreakdown = document.querySelector("#quiz-section-breakdown");
+	        const quizQuestions = document.querySelector("#quiz-questions");
+	        const quizCheckAnswer = document.querySelector("#quiz-check-answer");
+	        const quizMarkComplete = document.querySelector("#quiz-mark-complete");
+	        const quizGenerateResults = document.querySelector("#quiz-generate-results");
+	        const quizRetake = document.querySelector("#quiz-retake");
+	        const quizBackList = document.querySelector("#quiz-back-list");
+	        let activeQuizId = "money-whats-to-know";
+	        const quizDrafts = {};
+
+	        const ensureQuizDraft = (quizId) => {
+	            if (!quizDrafts[quizId]) {
+	                quizDrafts[quizId] = {
+	                    answers: {},
+	                    checked: false,
+	                    submitted: false
+	                };
+	            }
+	            return quizDrafts[quizId];
+	        };
+
+	        const getActiveQuiz = () => quizzes[activeQuizId] || quizzes["money-whats-to-know"];
+
+	        const renderQuiz = () => {
+	            const quiz = getActiveQuiz();
+	            const draft = ensureQuizDraft(activeQuizId);
+	            const answeredCount = quiz.questions.filter((question) => draft.answers[question.id] !== undefined).length;
+	            const correctCount = quiz.questions.filter((question) => draft.answers[question.id] === question.answerIndex).length;
+	            quizButtons.forEach((button) => {
+	                button.classList.toggle("is-active", button.getAttribute("data-quiz-id") === activeQuizId);
+	            });
+	            quizProfile.textContent = quiz.profile;
+	            quizTitle.textContent = quiz.title;
+	            quizStatus.textContent = draft.submitted ? "Complete" : quiz.status;
+	            quizSubmitted.textContent = draft.submitted ? "Submitted" : quiz.submitted;
+	            quizCompletedCount.textContent = answeredCount;
+	            quizTotalCount.textContent = quiz.questions.length;
+	            quizCompletedLabel.textContent = `${answeredCount} ${answeredCount === 1 ? "question" : "questions"} completed`;
+
+	            quizSectionBreakdown.innerHTML = quiz.sections.map((section) => {
+	                const sectionQuestions = quiz.questions.filter((question) => question.section === section.id);
+	                const sectionAnswered = sectionQuestions.filter((question) => draft.answers[question.id] !== undefined).length;
+	                return `
+	                    <div class="grid grid-cols-[4px_minmax(0,1fr)_auto] items-center gap-sm rounded-lg border border-surface-muted bg-white p-sm">
+	                        <div class="h-full min-h-[58px] bg-alert-red"></div>
+	                        <div>
+	                            <strong class="block font-body-md text-body-md text-on-surface">${section.title}</strong>
+	                            <span class="font-label-md text-label-md text-secondary uppercase tracking-[0.1em]">${section.range}</span>
+	                        </div>
+	                        <strong class="font-headline-md text-headline-md text-alert-red">${sectionAnswered}/${sectionQuestions.length}</strong>
+	                    </div>
+	                `;
+	            }).join("");
+
+	            quizQuestions.innerHTML = quiz.questions.map((question, index) => {
+	                const selectedAnswer = draft.answers[question.id];
+	                const isChecked = draft.checked && selectedAnswer !== undefined;
+	                const isCorrect = selectedAnswer === question.answerIndex;
+	                const feedbackClass = isChecked ? (isCorrect ? "border-primary-container bg-tertiary-fixed" : "border-alert-red bg-error-container") : "border-surface-muted bg-white";
+	                return `
+	                    <article class="rounded-lg border ${feedbackClass} p-md">
+	                        <div class="grid grid-cols-[48px_minmax(0,1fr)] gap-sm items-start mb-sm">
+	                            <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary-fixed font-label-md text-label-md text-primary">${index + 1}</span>
+	                            <strong class="font-body-lg text-body-lg text-on-surface">${question.question}</strong>
+	                        </div>
+	                        <div class="space-y-2">
+	                            ${question.choices.map((choice, choiceIndex) => {
+	                                const selectedClass = selectedAnswer === choiceIndex ? "is-selected" : "";
+	                                return `
+	                                    <button class="quiz-choice ${selectedClass} w-full rounded-lg border border-surface-muted bg-white p-sm text-left font-body-md text-body-md text-on-surface transition-colors hover:border-primary-container" type="button" data-question-id="${question.id}" data-choice-index="${choiceIndex}">
+	                                        <span class="mr-3 font-label-md text-label-md text-primary">${String.fromCharCode(65 + choiceIndex)}</span>${choice}
+	                                    </button>
+	                                `;
+	                            }).join("")}
+	                        </div>
+	                        ${isChecked ? `
+	                            <p class="mt-sm font-body-md text-body-md ${isCorrect ? "text-primary" : "text-alert-red"}">
+	                                ${isCorrect ? "Correct" : `Correct answer: ${question.choices[question.answerIndex]}`}
+	                            </p>
+	                        ` : ""}
+	                    </article>
+	                `;
+	            }).join("");
+	        };
+
+	        quizButtons.forEach((button) => {
+	            button.addEventListener("click", () => {
+	                const quizId = button.getAttribute("data-quiz-id");
+	                if (!quizzes[quizId]) return;
+	                activeQuizId = quizId;
+	                renderQuiz();
+	            });
+	        });
+
+	        quizQuestions?.addEventListener("click", (event) => {
+	            const choiceButton = event.target.closest("[data-question-id]");
+	            if (!choiceButton) return;
+	            const draft = ensureQuizDraft(activeQuizId);
+	            draft.answers[choiceButton.getAttribute("data-question-id")] = Number(choiceButton.getAttribute("data-choice-index"));
+	            draft.checked = false;
+	            renderQuiz();
+	        });
+
+	        quizCheckAnswer?.addEventListener("click", () => {
+	            ensureQuizDraft(activeQuizId).checked = true;
+	            renderQuiz();
+	        });
+
+	        quizMarkComplete?.addEventListener("click", () => {
+	            ensureQuizDraft(activeQuizId).submitted = true;
+	            renderQuiz();
+	        });
+
+	        quizGenerateResults?.addEventListener("click", () => {
+	            ensureQuizDraft(activeQuizId).checked = true;
+	            renderQuiz();
+	        });
+
+	        quizRetake?.addEventListener("click", () => {
+	            quizDrafts[activeQuizId] = {
+	                answers: {},
+	                checked: false,
+	                submitted: false
+	            };
+	            renderQuiz();
+	        });
+
+	        quizBackList?.addEventListener("click", () => {
+	            document.querySelector("#quiz-selector")?.scrollIntoView({ block: "start" });
+	        });
+
+	        renderQuiz();
+	    })();
+	</script>
+	</body></html>

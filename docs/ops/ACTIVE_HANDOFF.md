@@ -1,67 +1,78 @@
 # Handoff
 
-- Project: `forensic-studies-25-docx-export`
-- Task: Fix linked-image failures in the Forensic Studies 25 DOCX conversion.
-- Status: `Fixed package generated; canonical Genetics original remains locked by Word`
+- Project: `finlit101-money-basics`
+- Task: Wire Money Basics into separate course pages with lesson subpages, Readings viewer, Quizzes assessment page, Extra Resources placeholder, and collapsible sidebar.
+- Status: `Fixed and browser/behavior-verified`
 
 ## Summary
-The linked-image placeholders came from external image relationships that Word preserved in the DOCX package. The shared Brightspace DOCX converter now detects external DOCX image relationships and embeds those images into `word/media/*`, using a generated placeholder only if an external image cannot be fetched.
+The Money Basics shell now treats Introduction, Lessons, Quizzes, Readings, and Extra Resources as separate routed pages instead of one long intro page. Lessons houses two selectable sublesson pages. Readings uses an Aboriginal Studies 30-style selector/viewer pattern adapted to the Money Basics green/white/dark design. Quizzes uses a full assessment-style page with quiz selection, status/submitted metadata, final evaluation counter, action buttons, section breakdown, and question cards. Extra Resources is wired as its own folder page with placeholder folders for future files.
 
-Clean fixed package:
-`projects/forensic-studies-25-docx-export-fixed/exports/upload-package/`
-
-Canonical package restored as much as the open Word lock allows:
-`projects/forensic-studies-25-docx-export/exports/upload-package/`
-
-Because `08 - 7 Forensic Genetics.docx` is open in Word, the canonical folder contains a fixed copy named `08 - 7 Forensic Genetics - refreshed.docx`. The full fixed package has the corrected Genetics file under the original name.
+Preview:
+`http://127.0.0.1:5174/preview/workspace/finlit101-money-basics/index.html?rev=1780625062009#quizzes`
 
 ## Files changed
-- `scripts/brightspace_zip_to_docx_upload_package.py`
-- `scripts/tests/brightspace_docx_style_profile_test.py`
-- `projects/forensic-studies-25-docx-export-fixed/exports/upload-package/**`
-- `projects/forensic-studies-25-docx-export/exports/upload-package/**`
-- `projects/forensic-studies-25-docx-export-fixed/meta/**`
-- `projects/forensic-studies-25-docx-export/meta/**`
-- `.stax/codex-report.md`
+- `projects/finlit101-money-basics/workspace/index.html`
 - `docs/ops/ACTIVE_HANDOFF.md`
-
-Unrelated dirty files observed and preserved:
-- `reports/latest-progress.csv`
-- `reports/progress-2026-06-02-1511.csv`
-- `reports/progress-2026-06-03-0840.csv`
-- `reports/progress-2026-06-03-0841.csv`
+- `.stax/codex-report.md`
+- `.stax/status.json`
+- `.stax/next-codex-prompt.md`
+- `.stax/proof_strength.json`
+- `.stax/reports/latest-proof-report.md`
+- `.stax/reports/latest-confidence-report.md`
+- `.stax/visual-proofs/visual_2026-06-05T02_04_45_994Z_72fe2d9f763d.png`
+- `.stax/visual-proofs/manifest.json`
 
 ## Verification run
-- Failing test observed before implementation: `python scripts/tests/brightspace_docx_style_profile_test.py` failed because `docx_external_image_relationships` and `embed_external_image_relationships` were missing.
-- `python scripts/tests/brightspace_docx_style_profile_test.py` passed after implementation: 6 tests.
-- `python -m py_compile scripts/brightspace_zip_to_docx_upload_package.py scripts/tests/brightspace_docx_style_profile_test.py` passed.
-- Full fixed package generation passed with 11 included units, 147 rendered HTML sections, 172 copied ZIP images, 11 external DOCX images embedded, and 0 remaining external DOCX image relationships.
-- Verification script confirmed every DOCX in `forensic-studies-25-docx-export-fixed` has 0 external image relationships.
-- Verification script confirmed restored canonical DOCX files have 0 external image relationships, excluding the locked original `08 - 7 Forensic Genetics.docx` and Word's `~$` lock file.
+- `npm run verify -- --project finlit101-money-basics --mode workspace`
+  - exit 0
+  - metadata policy passed
+  - no missing local assets
+  - no missing workspace embeds
+  - known warnings remain for external Tailwind, fonts, icons, remote images, and remote PDF/article links
+- Playwright routed-page interaction check
+  - exit 0
+  - `#lesson-characteristics` opens the Lessons page and selects the 1.2 lesson panel
+  - sidebar collapse toggles successfully
+  - `#readings` opens as its own page with 3 readings
+  - selecting the Beavers to Bears article switches from PDF viewer to text preview
+  - `#quizzes` opens as its own page; answering Q1, checking answers, and marking complete updates the counter to `1/4`
+  - selecting Quiz 2 renders `Quiz 2: Characteristics of Money` with 4 question cards
+  - `#resources` opens as its own page with Worksheets, Glossary, and External Tools folders
+  - screenshot saved to `/tmp/finlit101-routed-pages.png`
+- In-app browser refresh
+  - refreshed to `#quizzes`
+  - DOM assertions confirmed visible page `quizzes`, 4 quiz questions, 2 lesson panels, 3 readings, and `#resources` route
+- STAX visual proof
+  - `visual_2026-06-05T02_04_45_994Z_72fe2d9f763d`
+- `npm run test:e2e:smoke`
+  - exit 0
+  - 1 Playwright smoke test passed
+- STAX observer preflight from `/Users/deanguedo/Documents/GitHub/STAX`
+  - exit 0 in observer mode
+  - recorded a non-blocking Reject because the repo-level approval artifact is missing and the STAX task still references an older `ai-course-building-resources` objective
 
 ## Known risks / follow-up
-- The original canonical `08 - 7 Forensic Genetics.docx` could not be overwritten because Word has it open.
-- Use `projects/forensic-studies-25-docx-export-fixed/exports/upload-package/` as the clean package now.
-- After closing Word, rerun the exact next command below to replace the canonical package without the refreshed-copy workaround.
-- Some external images may be embedded as generated placeholders if their source server did not return image bytes during conversion.
+- The two lessons, two quizzes, and three readings are starter/sample content rather than imported final course banks.
+- Extra Resources is wired structurally, but the actual resource files are not loaded yet.
+- Quiz state is in-page/session-only and does not persist.
+- Mobile was covered by responsive structure and desktop browser proof, but not a deep device matrix pass.
+- STAX status remains noisy because the sidecar task text is stale relative to the current FinLit work.
 
 ## Source-of-truth location
-- Converter: `scripts/brightspace_zip_to_docx_upload_package.py`
-- Regression tests: `scripts/tests/brightspace_docx_style_profile_test.py`
-- Clean fixed package: `projects/forensic-studies-25-docx-export-fixed/exports/upload-package/`
-- Canonical package: `projects/forensic-studies-25-docx-export/exports/upload-package/`
+- `projects/finlit101-money-basics/workspace/index.html`
 
 ## Fragile areas / what might drift
-- External HTTP images can disappear or block automated fetches over time.
-- Word can create external image relationships when importing HTML with remote image URLs.
-- Open DOCX files block canonical regeneration on Windows.
+- Hash routes: `#introduction`, `#lessons`, `#lesson-what-is-money`, `#lesson-characteristics`, `#quizzes`, `#readings`, and `#resources`.
+- Remote dependencies: Tailwind CDN, Google fonts/icons, Google image asset, Bank of Canada PDF, and external article URL.
+- Future imports may need quiz and reading data moved out of inline JavaScript once the course standard stabilizes.
 
 ## Next prompt assumptions
-- The priority is usable DOCX output with no broken linked-image boxes.
-- The clean fixed package is acceptable immediately, while the canonical package can be fully replaced after the open Word document is closed.
+- Continue iterating visually on `finlit101-money-basics` as the first standard for the course.
+- Keep changes inside `projects/finlit101-money-basics/**` unless asked otherwise.
+- Preserve the current dark sidebar, centered top logo, white content canvas, and green accent system.
 
 ## Exact next command
-`$env:FORENSIC_STUDIES25_SOURCE_ZIP='C:\Users\dean.guedo\Downloads\D2LExport_148856_24-25 _ Forensic Studies 25 _ Per 1(A-B) _ Sec S3_20266328.zip'; python scripts/brightspace_zip_to_docx_upload_package.py --course forensic-studies25`
+`npm run verify -- --project finlit101-money-basics --mode workspace`
 
 ## Exact next file to open
-`projects/forensic-studies-25-docx-export-fixed/exports/upload-package/01_DOCX_BY_UNIT/08 - 7 Forensic Genetics.docx`
+`projects/finlit101-money-basics/workspace/index.html`
