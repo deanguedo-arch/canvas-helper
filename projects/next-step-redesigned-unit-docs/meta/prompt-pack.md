@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: next-step-redesigned-unit-docs
-- Generated: 2026-06-02T16:35:55.223Z
+- Generated: 2026-06-05T15:41:39.125Z
 
 ## Rules
 
@@ -42,9 +42,9 @@ none
 
 ```json
 {
-  "id": "aa88635c-5cb8-416a-8a55-2744a1647873",
+  "id": "d1d8b5d3-10a8-4afe-921b-bef00f7d3f40",
   "slug": "next-step-redesigned-unit-docs",
-  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\incoming\\next-step-redesigned-unit-docs",
+  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\processed\\next-step-redesigned-unit-docs\\source",
   "inputKind": "html",
   "brightspaceTarget": "course-page",
   "previewModes": [
@@ -55,7 +55,7 @@ none
   "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\next-step-redesigned-unit-docs\\raw\\original.html",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-06-02T16:35:54.988Z",
+  "learningUpdatedAt": "2026-06-05T15:41:39.056Z",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
@@ -72,7 +72,7 @@ none
   "importedFirstPassOrigin": {
     "sourceSystem": "other",
     "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\incoming\\next-step-redesigned-unit-docs",
-    "importedAt": "2026-06-02T16:35:54.674Z"
+    "importedAt": "2026-06-05T15:41:30.797Z"
   },
   "exportTargets": [
     {
@@ -84,8 +84,9 @@ none
   "authoringStatus": "active",
   "referenceOnly": [],
   "sourceOfTruthNotes": "Edit workspace sources listed in canonicalSources. Treat generated exports and runtime bundles as derived output.",
-  "createdAt": "2026-06-02T16:35:54.674Z",
-  "updatedAt": "2026-06-02T16:35:54.988Z"
+  "createdAt": "2026-06-05T15:41:30.797Z",
+  "updatedAt": "2026-06-05T15:41:39.056Z",
+  "workspaceApprovedAt": "2026-06-05T15:41:39.056Z"
 }
 ```
 
@@ -198,7 +199,26 @@ none
 
 ## Import Log
 
-> import-log.md: missing
+```md
+# Import Log
+
+- Generated: 2026-06-05T15:41:30.797Z
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\incoming\next-step-redesigned-unit-docs
+
+## Actions
+- No HTML entrypoint was found. Generated a starter workspace from 4 document source file(s).
+- Generated starter HTML from the document bundle into raw/original.html.
+- Externalized 1 inline style block(s) to workspace/styles.css.
+- Externalized 1 inline script block(s) to workspace/main.jsx.
+- Copied 4 supporting file(s) into projects/resources/next-step-redesigned-unit-docs/.
+- Indexed the imported supporting material into projects/resources/next-step-redesigned-unit-docs/_extracted/.
+- Learned project patterns (C:\Users\dean.guedo\Documents\GitHub\canvas-helper\.runtime\pattern-bank\auto\next-step-redesigned-unit-docs.json).
+- Updated local pattern bank (41 profile(s)).
+- Generated prompt pack (C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\next-step-redesigned-unit-docs\meta\prompt-pack.md).
+
+## Warnings
+- Imported a document bundle instead of a prebuilt site. Review the generated workspace and replace the starter scaffold.
+```
 
 ## Global Memory
 

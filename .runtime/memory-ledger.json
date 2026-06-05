@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-06-02T16:35:54.988Z",
+  "generatedAt": "2026-06-05T15:52:05.767Z",
   "entries": [
     {
       "kind": "component",
@@ -2478,6 +2478,64 @@
     },
     {
       "kind": "component",
+      "key": "component:finlit101-money-basics",
+      "summary": "Reusable sections and components from finlit101-money-basics",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "activities",
+          "additional",
+          "assignments",
+          "basics",
+          "bears",
+          "beavers",
+          "canadian",
+          "currency",
+          "dollar",
+          "economy",
+          "from",
+          "history",
+          "introduction",
+          "know",
+          "learning",
+          "module",
+          "money",
+          "name",
+          "sidetrips",
+          "snapshot",
+          "what"
+        ],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "component:pattern:finlit101-money-basics:import:2026-06-05T15:41:29.913Z:component",
+          "projectSlug": "finlit101-money-basics",
+          "source": "pattern",
+          "command": "import",
+          "observedAt": "2026-06-05T15:41:29.913Z"
+        },
+        {
+          "id": "component:pattern:finlit101-money-basics:refs:2026-06-05T15:41:41.482Z:component",
+          "projectSlug": "finlit101-money-basics",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:41:41.482Z"
+        }
+      ],
+      "projectSlugs": [
+        "finlit101-money-basics"
+      ],
+      "reinforcementCount": 2,
+      "lastSeenAt": "2026-06-05T15:41:41.482Z",
+      "confidence": "high",
+      "approved": true
+    },
+    {
+      "kind": "component",
       "key": "component:forensics",
       "summary": "Reusable sections and components from forensics",
       "signals": {
@@ -4203,13 +4261,114 @@
           "source": "pattern",
           "command": "import",
           "observedAt": "2026-06-02T16:35:54.988Z"
+        },
+        {
+          "id": "component:pattern:next-step-redesigned-unit-docs:import:2026-06-05T15:41:31.170Z:component",
+          "projectSlug": "next-step-redesigned-unit-docs",
+          "source": "pattern",
+          "command": "import",
+          "observedAt": "2026-06-05T15:41:31.170Z"
+        },
+        {
+          "id": "component:pattern:next-step-redesigned-unit-docs:refs:2026-06-05T15:41:39.056Z:component",
+          "projectSlug": "next-step-redesigned-unit-docs",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:41:39.056Z"
         }
       ],
       "projectSlugs": [
         "next-step-redesigned-unit-docs"
       ],
-      "reinforcementCount": 1,
-      "lastSeenAt": "2026-06-02T16:35:54.988Z",
+      "reinforcementCount": 3,
+      "lastSeenAt": "2026-06-05T15:41:39.056Z",
+      "confidence": "high",
+      "approved": true
+    },
+    {
+      "kind": "component",
+      "key": "component:next-step-redesigned-unit-docs-original-format-source",
+      "summary": "Reusable sections and components from next-step-redesigned-unit-docs-original-format-source",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "detected",
+          "imported",
+          "moduletitle",
+          "snapshot",
+          "source",
+          "sources",
+          "topics"
+        ],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "component:pattern:next-step-redesigned-unit-docs-original-format-source:import:2026-06-05T15:41:31.837Z:component",
+          "projectSlug": "next-step-redesigned-unit-docs-original-format-source",
+          "source": "pattern",
+          "command": "import",
+          "observedAt": "2026-06-05T15:41:31.837Z"
+        },
+        {
+          "id": "component:pattern:next-step-redesigned-unit-docs-original-format-source:refs:2026-06-05T15:41:41.846Z:component",
+          "projectSlug": "next-step-redesigned-unit-docs-original-format-source",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:41:41.846Z"
+        }
+      ],
+      "projectSlugs": [
+        "next-step-redesigned-unit-docs-original-format-source"
+      ],
+      "reinforcementCount": 2,
+      "lastSeenAt": "2026-06-05T15:41:41.846Z",
+      "confidence": "medium",
+      "approved": true
+    },
+    {
+      "kind": "component",
+      "key": "component:ready-mind",
+      "summary": "Reusable sections and components from ready-mind",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "course",
+          "mind",
+          "modules",
+          "progress",
+          "readiness",
+          "ready"
+        ],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "component:pattern:ready-mind:refs:2026-06-05T15:41:39.204Z:component",
+          "projectSlug": "ready-mind",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:41:39.204Z"
+        },
+        {
+          "id": "component:pattern:ready-mind:refs:2026-06-05T15:41:44.890Z:component",
+          "projectSlug": "ready-mind",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:41:44.890Z"
+        }
+      ],
+      "projectSlugs": [
+        "ready-mind"
+      ],
+      "reinforcementCount": 2,
+      "lastSeenAt": "2026-06-05T15:41:44.890Z",
       "confidence": "medium",
       "approved": true
     },
@@ -16517,6 +16676,67 @@
       ],
       "reinforcementCount": 29,
       "lastSeenAt": "2026-04-21T17:03:10.807Z",
+      "confidence": "high",
+      "approved": true
+    },
+    {
+      "kind": "resource",
+      "key": "resource:finlit101-money-basics",
+      "summary": "Reference and resource profile from finlit101-money-basics",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "activities",
+          "additional",
+          "assignments",
+          "basics",
+          "bears",
+          "beavers",
+          "canadian",
+          "currency",
+          "dollar",
+          "economy",
+          "from",
+          "history",
+          "introduction",
+          "know",
+          "learning",
+          "module",
+          "money",
+          "name",
+          "sidetrips",
+          "snapshot",
+          "what"
+        ],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [],
+        "referenceKinds": [
+          "image",
+          "md"
+        ]
+      },
+      "origins": [
+        {
+          "id": "resource:reference:finlit101-money-basics:import:2026-06-05T15:41:29.913Z:resource",
+          "projectSlug": "finlit101-money-basics",
+          "source": "reference",
+          "command": "import",
+          "observedAt": "2026-06-05T15:41:29.913Z"
+        },
+        {
+          "id": "resource:reference:finlit101-money-basics:refs:2026-06-05T15:41:41.482Z:resource",
+          "projectSlug": "finlit101-money-basics",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:41:41.482Z"
+        }
+      ],
+      "projectSlugs": [
+        "finlit101-money-basics"
+      ],
+      "reinforcementCount": 2,
+      "lastSeenAt": "2026-06-05T15:41:41.482Z",
       "confidence": "high",
       "approved": true
     },
@@ -36203,13 +36423,293 @@
           "source": "reference",
           "command": "refs",
           "observedAt": "2026-04-21T23:29:22.720Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:41:38.683Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:41:38.683Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:41:41.357Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:41:41.357Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:41:59.278Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:41:59.278Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:42:17.082Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:42:17.082Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:42:35.063Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:42:35.063Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:42:37.708Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:42:37.708Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:43:01.687Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:43:01.687Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:43:04.505Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:43:04.505Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:43:22.318Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:43:22.318Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:43:39.747Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:43:39.747Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:44:03.273Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:44:03.273Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:44:06.169Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:44:06.169Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:44:24.660Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:44:24.660Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:44:42.127Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:44:42.127Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:44:59.579Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:44:59.579Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:45:17.117Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:45:17.117Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:45:34.690Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:45:34.690Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:45:52.161Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:45:52.161Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:46:09.678Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:46:09.678Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:46:27.208Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:46:27.208Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:46:44.682Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:46:44.682Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:47:02.321Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:47:02.321Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:47:19.723Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:47:19.723Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:47:37.307Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:47:37.307Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:47:55.026Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:47:55.026Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:48:12.547Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:48:12.547Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:48:30.225Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:48:30.225Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:48:47.566Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:48:47.566Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:49:05.125Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:49:05.125Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:49:22.627Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:49:22.627Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:49:40.140Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:49:40.140Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:49:57.932Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:49:57.932Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:50:15.353Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:50:15.353Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:50:33.056Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:50:33.056Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:50:50.765Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:50:50.765Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:51:09.383Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:51:09.383Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:51:12.118Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:51:12.118Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:51:30.557Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:51:30.557Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:51:48.312Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:51:48.312Z"
+        },
+        {
+          "id": "resource:reference:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:52:05.767Z:resource",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:52:05.767Z"
         }
       ],
       "projectSlugs": [
         "general-psychology-20-independent-studies-202633108"
       ],
-      "reinforcementCount": 2785,
-      "lastSeenAt": "2026-04-21T23:29:22.720Z",
+      "reinforcementCount": 2825,
+      "lastSeenAt": "2026-06-05T15:52:05.767Z",
       "confidence": "high",
       "approved": true
     },
@@ -37857,13 +38357,118 @@
           "source": "reference",
           "command": "import",
           "observedAt": "2026-06-02T16:35:54.988Z"
+        },
+        {
+          "id": "resource:reference:next-step-redesigned-unit-docs:import:2026-06-05T15:41:31.170Z:resource",
+          "projectSlug": "next-step-redesigned-unit-docs",
+          "source": "reference",
+          "command": "import",
+          "observedAt": "2026-06-05T15:41:31.170Z"
+        },
+        {
+          "id": "resource:reference:next-step-redesigned-unit-docs:refs:2026-06-05T15:41:39.056Z:resource",
+          "projectSlug": "next-step-redesigned-unit-docs",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:41:39.056Z"
         }
       ],
       "projectSlugs": [
         "next-step-redesigned-unit-docs"
       ],
-      "reinforcementCount": 1,
-      "lastSeenAt": "2026-06-02T16:35:54.988Z",
+      "reinforcementCount": 3,
+      "lastSeenAt": "2026-06-05T15:41:39.056Z",
+      "confidence": "high",
+      "approved": true
+    },
+    {
+      "kind": "resource",
+      "key": "resource:next-step-redesigned-unit-docs-original-format-source",
+      "summary": "Reference and resource profile from next-step-redesigned-unit-docs-original-format-source",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "detected",
+          "imported",
+          "moduletitle",
+          "snapshot",
+          "source",
+          "sources",
+          "topics"
+        ],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [],
+        "referenceKinds": [
+          "docx"
+        ]
+      },
+      "origins": [
+        {
+          "id": "resource:reference:next-step-redesigned-unit-docs-original-format-source:import:2026-06-05T15:41:31.837Z:resource",
+          "projectSlug": "next-step-redesigned-unit-docs-original-format-source",
+          "source": "reference",
+          "command": "import",
+          "observedAt": "2026-06-05T15:41:31.837Z"
+        },
+        {
+          "id": "resource:reference:next-step-redesigned-unit-docs-original-format-source:refs:2026-06-05T15:41:41.846Z:resource",
+          "projectSlug": "next-step-redesigned-unit-docs-original-format-source",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:41:41.846Z"
+        }
+      ],
+      "projectSlugs": [
+        "next-step-redesigned-unit-docs-original-format-source"
+      ],
+      "reinforcementCount": 2,
+      "lastSeenAt": "2026-06-05T15:41:41.846Z",
+      "confidence": "medium",
+      "approved": true
+    },
+    {
+      "kind": "resource",
+      "key": "resource:ready-mind",
+      "summary": "Reference and resource profile from ready-mind",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "course",
+          "mind",
+          "modules",
+          "progress",
+          "readiness",
+          "ready"
+        ],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [],
+        "referenceKinds": [
+          "md"
+        ]
+      },
+      "origins": [
+        {
+          "id": "resource:reference:ready-mind:refs:2026-06-05T15:41:39.204Z:resource",
+          "projectSlug": "ready-mind",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:41:39.204Z"
+        },
+        {
+          "id": "resource:reference:ready-mind:refs:2026-06-05T15:41:44.890Z:resource",
+          "projectSlug": "ready-mind",
+          "source": "reference",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:41:44.890Z"
+        }
+      ],
+      "projectSlugs": [
+        "ready-mind"
+      ],
+      "reinforcementCount": 2,
+      "lastSeenAt": "2026-06-05T15:41:44.890Z",
       "confidence": "medium",
       "approved": true
     },
@@ -42227,6 +42832,113 @@
     },
     {
       "kind": "style",
+      "key": "style:finlit101-money-basics",
+      "summary": "Approved style direction from finlit101-money-basics",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "activities",
+          "additional",
+          "assignments",
+          "basics",
+          "bears",
+          "beavers",
+          "canadian",
+          "currency",
+          "dollar",
+          "economy",
+          "from",
+          "history",
+          "introduction",
+          "know",
+          "learning",
+          "module",
+          "money",
+          "name",
+          "sidetrips",
+          "snapshot",
+          "what"
+        ],
+        "styleTokens": [
+          "duration-200",
+          "duration-300",
+          "opacity-100",
+          "rounded-2xl",
+          "rounded-full",
+          "rounded-lg",
+          "rounded-r",
+          "rounded-xl",
+          "z-50"
+        ],
+        "hexColors": [
+          "#002201",
+          "#131e17",
+          "#154212",
+          "#191c1d",
+          "#1a1c1e",
+          "#23501e",
+          "#2d5a27",
+          "#2e3132",
+          "#303c34",
+          "#3b6934",
+          "#3e4a41",
+          "#42493e",
+          "#454749",
+          "#47534a",
+          "#5d5e61",
+          "#636467",
+          "#72796e",
+          "#93000a",
+          "#9dd090",
+          "#a1d494",
+          "#b9c6bb",
+          "#ba1a1a",
+          "#bcf0ae",
+          "#bdcabe",
+          "#c2c9bb",
+          "#c6c6c9",
+          "#d9dadb",
+          "#d9e6da",
+          "#e1e3e4",
+          "#e2e2e5",
+          "#e7e8e9",
+          "#edeeef",
+          "#f0f1f2",
+          "#f1f3f4",
+          "#f3f4f5",
+          "#f8f9fa",
+          "#ffdad6",
+          "#ffffff"
+        ],
+        "externalDependencies": [],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "style:pattern:finlit101-money-basics:import:2026-06-05T15:41:29.913Z:style",
+          "projectSlug": "finlit101-money-basics",
+          "source": "pattern",
+          "command": "import",
+          "observedAt": "2026-06-05T15:41:29.913Z"
+        },
+        {
+          "id": "style:pattern:finlit101-money-basics:refs:2026-06-05T15:41:41.482Z:style",
+          "projectSlug": "finlit101-money-basics",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:41:41.482Z"
+        }
+      ],
+      "projectSlugs": [
+        "finlit101-money-basics"
+      ],
+      "reinforcementCount": 2,
+      "lastSeenAt": "2026-06-05T15:41:41.482Z",
+      "confidence": "high",
+      "approved": true
+    },
+    {
+      "kind": "style",
       "key": "style:forensics",
       "summary": "Approved style direction from forensics",
       "signals": {
@@ -42603,6 +43315,7 @@
         "styleTokens": [],
         "hexColors": [
           "#0a0b0d",
+          "#0f172a",
           "#101012",
           "#111",
           "#111114",
@@ -42611,18 +43324,26 @@
           "#141416",
           "#141419",
           "#151517",
+          "#157908",
+          "#15803d",
+          "#164d0b",
           "#171719",
           "#17171a",
           "#17181c",
+          "#191c18",
+          "#191c1c",
           "#1a1a1d",
           "#1a1a1f",
+          "#1a1c1a",
           "#1b1b1f",
           "#1c1a18",
           "#1c1a1d",
           "#1c1c20",
           "#1d3a31",
+          "#1e6d0d",
           "#1f1b1f",
           "#1f1f22",
+          "#201311",
           "#201b1b",
           "#202024",
           "#202125",
@@ -42630,24 +43351,30 @@
           "#232328",
           "#232329",
           "#242325",
+          "#242326",
           "#252424",
           "#252528",
           "#25252b",
           "#28221d",
           "#28282c",
           "#28412d",
+          "#2b3445",
           "#2c2c31",
+          "#2c2f2e",
           "#2d2324",
           "#2d241f",
           "#2d2d31",
+          "#2e3131",
           "#2f231c",
           "#2f251f",
           "#2f2a24",
           "#2f2f31",
           "#2f2f33",
           "#2f2f34",
+          "#2f3430",
           "#302e31",
           "#303039",
+          "#303332",
           "#312822",
           "#323238",
           "#342a24",
@@ -42660,29 +43387,41 @@
           "#3a2f29",
           "#3a3840",
           "#3b2f28",
+          "#3b3100",
           "#3c2522",
           "#3c312a",
+          "#3c3f3e",
           "#3f8a6b",
+          "#3f9f2e",
+          "#40493b",
+          "#414942",
           "#433b33",
           "#454048",
           "#4a392f",
           "#4a3b38",
           "#4b382f",
+          "#4b4e4d",
+          "#4b8d39",
           "#4f4a44",
           "#53473e",
           "#534c50",
           "#544340",
           "#584b42",
           "#59535c",
+          "#59a844",
           "#5a342a",
           "#5a4a3f",
           "#5a5555",
+          "#5a5e5d",
           "#5b4d43",
           "#5c5148",
           "#5d4b3f",
           "#5e4d42",
           "#5f352c",
+          "#5f6660",
+          "#606762",
           "#645855",
+          "#656b61",
           "#66584d",
           "#6a3f34",
           "#6a5a53",
@@ -42691,7 +43430,9 @@
           "#6c5a4c",
           "#6e332b",
           "#6e5242",
+          "#6f4e00",
           "#6f5d50",
+          "#707a6a",
           "#7a4739",
           "#7a604d",
           "#7a6a5d",
@@ -42708,7 +43449,11 @@
           "#9e9ba1",
           "#9f5b56",
           "#9f9494",
+          "#a3f788",
           "#a87c67",
+          "#a8b4ca",
+          "#a9ff94",
+          "#adb4af",
           "#b19179",
           "#b49983",
           "#b7acaa",
@@ -42716,13 +43461,20 @@
           "#b89c87",
           "#b8b2a8",
           "#b9ceb4",
+          "#b9dcb2",
+          "#ba1a1a",
           "#bbf7d0",
           "#bca594",
+          "#c0cab7",
+          "#c2cce0",
+          "#c3c8c1",
           "#c8b9a5",
           "#c8c1b8",
           "#c9b9a8",
+          "#c9ceca",
           "#caa692",
           "#cbb9a6",
+          "#cbd5e1",
           "#cec3b2",
           "#cec3c1",
           "#d1c7b9",
@@ -42733,17 +43485,29 @@
           "#d7ccbf",
           "#d7cebf",
           "#d8ccbe",
+          "#d8ddd3",
           "#d9c1be",
+          "#d9dad9",
           "#dcb8ac",
+          "#dce6fb",
           "#ded2c3",
+          "#e1e3e2",
+          "#e5d3b0",
           "#e5e2e3",
           "#e7e2e1",
+          "#e7e8e7",
           "#e8d7c5",
           "#e8dac9",
+          "#e8f6e3",
           "#e9dece",
           "#ead9b5",
           "#eadfce",
+          "#eaf5e8",
+          "#eceeec",
+          "#edeeed",
           "#edf4ea",
+          "#edf8e8",
+          "#eef6eb",
           "#ef4444",
           "#efe2d4",
           "#efe3d3",
@@ -42756,27 +43520,38 @@
           "#f1dfd0",
           "#f2dfd1",
           "#f3e8dc",
+          "#f3f4f3",
           "#f3f4f6",
           "#f5ece3",
           "#f5f0e8",
+          "#f6f7f3",
+          "#f6f7f4",
           "#f7efe4",
           "#f7f0e5",
           "#f8ece8",
           "#f8f0e5",
           "#f8f2e8",
+          "#f8fafc",
           "#f9f4eb",
+          "#f9f9f8",
+          "#f9faf7",
           "#fbf7f0",
+          "#fdbf3f",
           "#fecaca",
           "#ffb4a9",
+          "#ffc857",
           "#ffd6ce",
           "#ffdad5",
           "#fff",
           "#fff0e2",
           "#fff1ec",
+          "#fff1ee",
+          "#fff2d0",
           "#fff4f1",
           "#fff5ec",
           "#fff6ea",
           "#fff8ee",
+          "#fffaf0",
           "#fffaf3",
           "#fffdf8",
           "#fffdfa",
@@ -62259,13 +63034,293 @@
           "source": "pattern",
           "command": "refs",
           "observedAt": "2026-04-21T23:29:22.720Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:41:38.683Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:41:38.683Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:41:41.357Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:41:41.357Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:41:59.278Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:41:59.278Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:42:17.082Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:42:17.082Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:42:35.063Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:42:35.063Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:42:37.708Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:42:37.708Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:43:01.687Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:43:01.687Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:43:04.505Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:43:04.505Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:43:22.318Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:43:22.318Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:43:39.747Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:43:39.747Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:44:03.273Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:44:03.273Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:44:06.169Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:44:06.169Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:44:24.660Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:44:24.660Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:44:42.127Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:44:42.127Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:44:59.579Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:44:59.579Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:45:17.117Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:45:17.117Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:45:34.690Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:45:34.690Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:45:52.161Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:45:52.161Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:46:09.678Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:46:09.678Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:46:27.208Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:46:27.208Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:46:44.682Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:46:44.682Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:47:02.321Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:47:02.321Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:47:19.723Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:47:19.723Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:47:37.307Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:47:37.307Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:47:55.026Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:47:55.026Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:48:12.547Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:48:12.547Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:48:30.225Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:48:30.225Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:48:47.566Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:48:47.566Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:49:05.125Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:49:05.125Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:49:22.627Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:49:22.627Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:49:40.140Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:49:40.140Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:49:57.932Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:49:57.932Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:50:15.353Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:50:15.353Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:50:33.056Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:50:33.056Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:50:50.765Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:50:50.765Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:51:09.383Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:51:09.383Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:51:12.118Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:51:12.118Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:51:30.557Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:51:30.557Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:51:48.312Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:51:48.312Z"
+        },
+        {
+          "id": "style:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:52:05.767Z:style",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:52:05.767Z"
         }
       ],
       "projectSlugs": [
         "general-psychology-20-independent-studies-202633108"
       ],
-      "reinforcementCount": 2782,
-      "lastSeenAt": "2026-04-21T23:29:22.720Z",
+      "reinforcementCount": 2822,
+      "lastSeenAt": "2026-06-05T15:52:05.767Z",
       "confidence": "high",
       "approved": true
     },
@@ -64510,13 +65565,86 @@
           "source": "pattern",
           "command": "import",
           "observedAt": "2026-06-02T16:35:54.988Z"
+        },
+        {
+          "id": "style:pattern:next-step-redesigned-unit-docs:import:2026-06-05T15:41:31.170Z:style",
+          "projectSlug": "next-step-redesigned-unit-docs",
+          "source": "pattern",
+          "command": "import",
+          "observedAt": "2026-06-05T15:41:31.170Z"
+        },
+        {
+          "id": "style:pattern:next-step-redesigned-unit-docs:refs:2026-06-05T15:41:39.056Z:style",
+          "projectSlug": "next-step-redesigned-unit-docs",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:41:39.056Z"
         }
       ],
       "projectSlugs": [
         "next-step-redesigned-unit-docs"
       ],
-      "reinforcementCount": 1,
-      "lastSeenAt": "2026-06-02T16:35:54.988Z",
+      "reinforcementCount": 3,
+      "lastSeenAt": "2026-06-05T15:41:39.056Z",
+      "confidence": "high",
+      "approved": true
+    },
+    {
+      "kind": "style",
+      "key": "style:next-step-redesigned-unit-docs-original-format-source",
+      "summary": "Approved style direction from next-step-redesigned-unit-docs-original-format-source",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "detected",
+          "imported",
+          "moduletitle",
+          "snapshot",
+          "source",
+          "sources",
+          "topics"
+        ],
+        "styleTokens": [
+          "indigo-100",
+          "indigo-500",
+          "rounded-[2rem",
+          "rounded-2xl",
+          "rounded-full",
+          "slate-200",
+          "slate-300",
+          "slate-50",
+          "slate-900",
+          "slate-950"
+        ],
+        "hexColors": [
+          "#020617",
+          "#0f172a",
+          "#111827"
+        ],
+        "externalDependencies": [],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "style:pattern:next-step-redesigned-unit-docs-original-format-source:import:2026-06-05T15:41:31.837Z:style",
+          "projectSlug": "next-step-redesigned-unit-docs-original-format-source",
+          "source": "pattern",
+          "command": "import",
+          "observedAt": "2026-06-05T15:41:31.837Z"
+        },
+        {
+          "id": "style:pattern:next-step-redesigned-unit-docs-original-format-source:refs:2026-06-05T15:41:41.846Z:style",
+          "projectSlug": "next-step-redesigned-unit-docs-original-format-source",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:41:41.846Z"
+        }
+      ],
+      "projectSlugs": [
+        "next-step-redesigned-unit-docs-original-format-source"
+      ],
+      "reinforcementCount": 2,
+      "lastSeenAt": "2026-06-05T15:41:41.846Z",
       "confidence": "high",
       "approved": true
     },
@@ -64856,6 +65984,223 @@
       "reinforcementCount": 1,
       "lastSeenAt": "2026-03-15T12:23:17.694Z",
       "confidence": "medium",
+      "approved": true
+    },
+    {
+      "kind": "style",
+      "key": "style:ready-mind",
+      "summary": "Approved style direction from ready-mind",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "course",
+          "mind",
+          "modules",
+          "progress",
+          "readiness",
+          "ready"
+        ],
+        "styleTokens": [
+          "emerald-400",
+          "rose-500",
+          "sky-400",
+          "sky-500",
+          "sky-600",
+          "slate-300",
+          "slate-400",
+          "slate-500"
+        ],
+        "hexColors": [
+          "#000",
+          "#006b5f",
+          "#00b782",
+          "#00cf99",
+          "#00ff7f",
+          "#020617",
+          "#031411",
+          "#040506",
+          "#050b13",
+          "#051510",
+          "#06090d",
+          "#071019",
+          "#07111c",
+          "#081018",
+          "#08111c",
+          "#08111d",
+          "#08131d",
+          "#090a0c",
+          "#091018",
+          "#09222a",
+          "#0a1018",
+          "#0b111a",
+          "#0b121f",
+          "#0b1220",
+          "#0c111c",
+          "#0d141f",
+          "#0d1826",
+          "#0da98a",
+          "#0ea5e9",
+          "#0f172a",
+          "#0f1826",
+          "#0f766e",
+          "#101722",
+          "#10b981",
+          "#111b30",
+          "#121a23",
+          "#13202f",
+          "#13e6af",
+          "#14b8a6",
+          "#151b25",
+          "#162033",
+          "#191c1e",
+          "#1b2431",
+          "#1c2531",
+          "#1d2631",
+          "#1d2734",
+          "#1d2b3d",
+          "#1e293b",
+          "#1e3147",
+          "#223247",
+          "#22c55e",
+          "#233347",
+          "#23344a",
+          "#243347",
+          "#25364b",
+          "#2a3748",
+          "#2a3a50",
+          "#2b3b52",
+          "#31f2cf",
+          "#334155",
+          "#344052",
+          "#36f3d0",
+          "#38bdf8",
+          "#394558",
+          "#3a4658",
+          "#3a495e",
+          "#3c4947",
+          "#42526a",
+          "#4648d4",
+          "#5cf0cf",
+          "#5dd9ff",
+          "#5f6977",
+          "#6063ee",
+          "#64748b",
+          "#64f2c0",
+          "#6b7788",
+          "#6c7a77",
+          "#6cf0d0",
+          "#70849c",
+          "#7ce9c7",
+          "#7cecd1",
+          "#7d8b9d",
+          "#7f8ba0",
+          "#842bd2",
+          "#8a94a3",
+          "#8a96a8",
+          "#8b96a9",
+          "#8ea2b9",
+          "#8fa2ba",
+          "#90a0b4",
+          "#90a3ba",
+          "#91a6be",
+          "#93a4ba",
+          "#93a6bc",
+          "#94a8bf",
+          "#97abc2",
+          "#98a9c0",
+          "#9aa6b6",
+          "#9aeeda",
+          "#9db0c6",
+          "#9fb0c7",
+          "#9fb3c8",
+          "#a6b7ca",
+          "#a8b8cb",
+          "#aab4c1",
+          "#b2bdcb",
+          "#b8c4d7",
+          "#b8c5d4",
+          "#b9c7da",
+          "#bbcac6",
+          "#c1c9d4",
+          "#c2ccd9",
+          "#c8d2de",
+          "#c8d3df",
+          "#cad5e2",
+          "#cbd5e1",
+          "#cfd9e5",
+          "#d0d8e3",
+          "#d2d8e0",
+          "#d2dbe7",
+          "#d6deea",
+          "#d7e1ed",
+          "#d7e3f3",
+          "#d8dadc",
+          "#d8e4f3",
+          "#dbe6f1",
+          "#dce7f4",
+          "#e0e3e5",
+          "#e2e8f0",
+          "#e3ebf5",
+          "#e6e8ea",
+          "#e6f4ff",
+          "#e6fff7",
+          "#e8eef6",
+          "#ebfff8",
+          "#eceef0",
+          "#ecfeff",
+          "#ecfffb",
+          "#edf5ff",
+          "#edf7f6",
+          "#eef2f8",
+          "#eef4ff",
+          "#eef6ff",
+          "#eef8f7",
+          "#effff9",
+          "#effffb",
+          "#f1f5f9",
+          "#f2f4f6",
+          "#f2f6fb",
+          "#f2f7fd",
+          "#f2fffb",
+          "#f3f8ff",
+          "#f43f5e",
+          "#f4f7fb",
+          "#f4fbff",
+          "#f59e0b",
+          "#f5f8fd",
+          "#f7f9fb",
+          "#f7f9fc",
+          "#f87171",
+          "#facc15",
+          "#fb7185",
+          "#fda4af",
+          "#ffffff"
+        ],
+        "externalDependencies": [],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "style:pattern:ready-mind:refs:2026-06-05T15:41:39.204Z:style",
+          "projectSlug": "ready-mind",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:41:39.204Z"
+        },
+        {
+          "id": "style:pattern:ready-mind:refs:2026-06-05T15:41:44.890Z:style",
+          "projectSlug": "ready-mind",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:41:44.890Z"
+        }
+      ],
+      "projectSlugs": [
+        "ready-mind"
+      ],
+      "reinforcementCount": 2,
+      "lastSeenAt": "2026-06-05T15:41:44.890Z",
+      "confidence": "high",
       "approved": true
     },
     {
@@ -68464,6 +69809,78 @@
     },
     {
       "kind": "tool",
+      "key": "tool:finlit101-money-basics",
+      "summary": "Runtime and tool choices from finlit101-money-basics",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "activities",
+          "additional",
+          "assignments",
+          "basics",
+          "bears",
+          "beavers",
+          "canadian",
+          "currency",
+          "dollar",
+          "economy",
+          "from",
+          "history",
+          "introduction",
+          "know",
+          "learning",
+          "module",
+          "money",
+          "name",
+          "sidetrips",
+          "snapshot",
+          "what"
+        ],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [
+          "0..1&amp;display=swap",
+          "container-queries",
+          "FILL@100..700",
+          "https://cdn.tailwindcss.com?plugins=forms",
+          "https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=IBM+Plex+Sans:wght@600&amp;family=Work+Sans:wght@400;600&amp;display=swap",
+          "https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=IBM+Plex+Sans:wght@600&amp;family=Work+Sans:wght@400;600&amp;display=swap\"",
+          "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght",
+          "https://lh3.googleusercontent.com/aida-public/AB6AXuAQVO7T55Vcbvu7l1Y-Pq2LG5DHe0HoIXbH6uFUj4X-gSBWUI708z4_N9h1PD7V2Px5M0ETz4ezeXPqthyJDmpW8Mx5wJ4Ov4imQ7M82KVUT_zuP-zeI6RsPMJU7LoZcRG007h1yv7rwxT8Si2gPaxpk0QYWljctY7hRRxsrKGAlzuZJBm2TExKPCMQxrss439kua1Z5jGQ2EuAEtICUgSbvrPnpdqx4_WLzjMj2aI8fPUjVDkhDwL0P0D_gr3aFglhCuu5riObfqkp",
+          "https://lh3.googleusercontent.com/aida-public/AB6AXuAQVO7T55Vcbvu7l1Y-Pq2LG5DHe0HoIXbH6uFUj4X-gSBWUI708z4_N9h1PD7V2Px5M0ETz4ezeXPqthyJDmpW8Mx5wJ4Ov4imQ7M82KVUT_zuP-zeI6RsPMJU7LoZcRG007h1yv7rwxT8Si2gPaxpk0QYWljctY7hRRxsrKGAlzuZJBm2TExKPCMQxrss439kua1Z5jGQ2EuAEtICUgSbvrPnpdqx4_WLzjMj2aI8fPUjVDkhDwL0P0D_gr3aFglhCuu5riObfqkp\"/></div>",
+          "https://lh3.googleusercontent.com/aida-public/AB6AXuAQVO7T55Vcbvu7l1Y-Pq2LG5DHe0HoIXbH6uFUj4X-gSBWUI708z4_N9h1PD7V2Px5M0ETz4ezeXPqthyJDmpW8Mx5wJ4Ov4imQ7M82KVUT_zuP-zeI6RsPMJU7LoZcRG007h1yv7rwxT8Si2gPaxpk0QYWljctY7hRRxsrKGAlzuZJBm2TExKPCMQxrss439kua1Z5jGQ2EuAEtICUgSbvrPnpdqx4_WLzjMj2aI8fPUjVDkhDwL0P0D_gr3aFglhCuu5riObfqkp\"></div>",
+          "https://lh3.googleusercontent.com/aida-public/AB6AXuC32VwimeI-P67qQATHm1i1Ms-Rx8BQJ64vnSzL_oAdgkWC4Rx3d-UqMD4MrCyNrYlA599GiPGqKAcpYsnl-B5Xv1offm6kNEX28hpxz_AluHETerqVPCxMBMODsJLviRjSS-TnH6IpIPL8hd4jZrqH7nLg6OELRmM4lFSpJ8BP_lICoM5FSw9XCWUscvhohqDITB5CuRsDe6YRFZ8DRH--Js1uIXm_-afSlyla4mfcbBUVX9gwpXzUsiLoaQTUoQC5ZLRzV293vB0C",
+          "https://lh3.googleusercontent.com/aida-public/AB6AXuC32VwimeI-P67qQATHm1i1Ms-Rx8BQJ64vnSzL_oAdgkWC4Rx3d-UqMD4MrCyNrYlA599GiPGqKAcpYsnl-B5Xv1offm6kNEX28hpxz_AluHETerqVPCxMBMODsJLviRjSS-TnH6IpIPL8hd4jZrqH7nLg6OELRmM4lFSpJ8BP_lICoM5FSw9XCWUscvhohqDITB5CuRsDe6YRFZ8DRH--Js1uIXm_-afSlyla4mfcbBUVX9gwpXzUsiLoaQTUoQC5ZLRzV293vB0C\"/>",
+          "https://lh3.googleusercontent.com/aida-public/AB6AXuC32VwimeI-P67qQATHm1i1Ms-Rx8BQJ64vnSzL_oAdgkWC4Rx3d-UqMD4MrCyNrYlA599GiPGqKAcpYsnl-B5Xv1offm6kNEX28hpxz_AluHETerqVPCxMBMODsJLviRjSS-TnH6IpIPL8hd4jZrqH7nLg6OELRmM4lFSpJ8BP_lICoM5FSw9XCWUscvhohqDITB5CuRsDe6YRFZ8DRH--Js1uIXm_-afSlyla4mfcbBUVX9gwpXzUsiLoaQTUoQC5ZLRzV293vB0C\">"
+        ],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "tool:pattern:finlit101-money-basics:import:2026-06-05T15:41:29.913Z:tool",
+          "projectSlug": "finlit101-money-basics",
+          "source": "pattern",
+          "command": "import",
+          "observedAt": "2026-06-05T15:41:29.913Z"
+        },
+        {
+          "id": "tool:pattern:finlit101-money-basics:refs:2026-06-05T15:41:41.482Z:tool",
+          "projectSlug": "finlit101-money-basics",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:41:41.482Z"
+        }
+      ],
+      "projectSlugs": [
+        "finlit101-money-basics"
+      ],
+      "reinforcementCount": 2,
+      "lastSeenAt": "2026-06-05T15:41:41.482Z",
+      "confidence": "high",
+      "approved": true
+    },
+    {
+      "kind": "tool",
       "key": "tool:forensics",
       "summary": "Runtime and tool choices from forensics",
       "signals": {
@@ -68674,10 +70091,12 @@
         "externalDependencies": [
           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd",
           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"&gt;&lt;html&gt;&lt;body&gt;&lt;p&gt;&lt;p",
+          "https://\"",
           "https://esm.sh/pdfjs-dist@4.10.38/legacy/build/pdf.mjs\";",
           "https://esm.sh/pdfjs-dist@4.10.38/legacy/build/pdf.worker.mjs\";",
           "https://fonts.googleapis.com\"",
           "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap\"",
+          "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Rubik:wght@500;600;700;800&display=swap\"",
           "https://fonts.gstatic.com\"",
           "https://www.youtube.com/embed/R-sVnmmw6WY?si=lz5DO1T8oeMt3XV4\"",
           "https://www.youtube.com/results?search_query=${encodeURIComponent(normalized"
@@ -88193,13 +89612,293 @@
           "source": "pattern",
           "command": "refs",
           "observedAt": "2026-04-21T23:29:22.720Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:41:38.683Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:41:38.683Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:41:41.357Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:41:41.357Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:41:59.278Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:41:59.278Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:42:17.082Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:42:17.082Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:42:35.063Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:42:35.063Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:42:37.708Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:42:37.708Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:43:01.687Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:43:01.687Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:43:04.505Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:43:04.505Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:43:22.318Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:43:22.318Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:43:39.747Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:43:39.747Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:44:03.273Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:44:03.273Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:44:06.169Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:44:06.169Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:44:24.660Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:44:24.660Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:44:42.127Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:44:42.127Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:44:59.579Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:44:59.579Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:45:17.117Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:45:17.117Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:45:34.690Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:45:34.690Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:45:52.161Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:45:52.161Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:46:09.678Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:46:09.678Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:46:27.208Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:46:27.208Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:46:44.682Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:46:44.682Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:47:02.321Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:47:02.321Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:47:19.723Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:47:19.723Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:47:37.307Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:47:37.307Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:47:55.026Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:47:55.026Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:48:12.547Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:48:12.547Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:48:30.225Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:48:30.225Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:48:47.566Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:48:47.566Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:49:05.125Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:49:05.125Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:49:22.627Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:49:22.627Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:49:40.140Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:49:40.140Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:49:57.932Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:49:57.932Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:50:15.353Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:50:15.353Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:50:33.056Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:50:33.056Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:50:50.765Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:50:50.765Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:51:09.383Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:51:09.383Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:51:12.118Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:51:12.118Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:51:30.557Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:51:30.557Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:51:48.312Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:51:48.312Z"
+        },
+        {
+          "id": "tool:pattern:general-psychology-20-independent-studies-202633108:refs:2026-06-05T15:52:05.767Z:tool",
+          "projectSlug": "general-psychology-20-independent-studies-202633108",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:52:05.767Z"
         }
       ],
       "projectSlugs": [
         "general-psychology-20-independent-studies-202633108"
       ],
-      "reinforcementCount": 2787,
-      "lastSeenAt": "2026-04-21T23:29:22.720Z",
+      "reinforcementCount": 2827,
+      "lastSeenAt": "2026-06-05T15:52:05.767Z",
       "confidence": "high",
       "approved": true
     },
@@ -89994,13 +91693,87 @@
           "source": "pattern",
           "command": "import",
           "observedAt": "2026-06-02T16:35:54.988Z"
+        },
+        {
+          "id": "tool:pattern:next-step-redesigned-unit-docs:import:2026-06-05T15:41:31.170Z:tool",
+          "projectSlug": "next-step-redesigned-unit-docs",
+          "source": "pattern",
+          "command": "import",
+          "observedAt": "2026-06-05T15:41:31.170Z"
+        },
+        {
+          "id": "tool:pattern:next-step-redesigned-unit-docs:refs:2026-06-05T15:41:39.056Z:tool",
+          "projectSlug": "next-step-redesigned-unit-docs",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:41:39.056Z"
         }
       ],
       "projectSlugs": [
         "next-step-redesigned-unit-docs"
       ],
-      "reinforcementCount": 1,
-      "lastSeenAt": "2026-06-02T16:35:54.988Z",
+      "reinforcementCount": 3,
+      "lastSeenAt": "2026-06-05T15:41:39.056Z",
+      "confidence": "high",
+      "approved": true
+    },
+    {
+      "kind": "tool",
+      "key": "tool:next-step-redesigned-unit-docs-original-format-source",
+      "summary": "Runtime and tool choices from next-step-redesigned-unit-docs-original-format-source",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "detected",
+          "imported",
+          "moduletitle",
+          "snapshot",
+          "source",
+          "sources",
+          "topics"
+        ],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [
+          "https://cdn.tailwindcss.com",
+          "https://cdn.tailwindcss.com\"></script>",
+          "https://fonts.googleapis.com",
+          "https://fonts.googleapis.com\">",
+          "https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&amp;display=swap",
+          "https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&amp;display=swap\"",
+          "https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap\"",
+          "https://fonts.gstatic.com",
+          "https://fonts.gstatic.com\"",
+          "https://unpkg.com/@babel/standalone/babel.min.js",
+          "https://unpkg.com/@babel/standalone/babel.min.js\"></script>",
+          "https://unpkg.com/react-dom@18/umd/react-dom.development.js",
+          "https://unpkg.com/react-dom@18/umd/react-dom.development.js\"></script>",
+          "https://unpkg.com/react@18/umd/react.development.js",
+          "https://unpkg.com/react@18/umd/react.development.js\"></script>"
+        ],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "tool:pattern:next-step-redesigned-unit-docs-original-format-source:import:2026-06-05T15:41:31.837Z:tool",
+          "projectSlug": "next-step-redesigned-unit-docs-original-format-source",
+          "source": "pattern",
+          "command": "import",
+          "observedAt": "2026-06-05T15:41:31.837Z"
+        },
+        {
+          "id": "tool:pattern:next-step-redesigned-unit-docs-original-format-source:refs:2026-06-05T15:41:41.846Z:tool",
+          "projectSlug": "next-step-redesigned-unit-docs-original-format-source",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:41:41.846Z"
+        }
+      ],
+      "projectSlugs": [
+        "next-step-redesigned-unit-docs-original-format-source"
+      ],
+      "reinforcementCount": 2,
+      "lastSeenAt": "2026-06-05T15:41:41.846Z",
       "confidence": "high",
       "approved": true
     },
@@ -90357,6 +92130,55 @@
       ],
       "reinforcementCount": 1,
       "lastSeenAt": "2026-03-15T12:23:17.694Z",
+      "confidence": "high",
+      "approved": true
+    },
+    {
+      "kind": "tool",
+      "key": "tool:ready-mind",
+      "summary": "Runtime and tool choices from ready-mind",
+      "signals": {
+        "sectionLabels": [],
+        "keywords": [
+          "course",
+          "mind",
+          "modules",
+          "progress",
+          "readiness",
+          "ready"
+        ],
+        "styleTokens": [],
+        "hexColors": [],
+        "externalDependencies": [
+          "https://cdn.tailwindcss.com';",
+          "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css\"",
+          "https://fonts.googleapis.com/css?family=Inter:ital",
+          "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap\"",
+          "https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700;800&display=swap\""
+        ],
+        "referenceKinds": []
+      },
+      "origins": [
+        {
+          "id": "tool:pattern:ready-mind:refs:2026-06-05T15:41:39.204Z:tool",
+          "projectSlug": "ready-mind",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:41:39.204Z"
+        },
+        {
+          "id": "tool:pattern:ready-mind:refs:2026-06-05T15:41:44.890Z:tool",
+          "projectSlug": "ready-mind",
+          "source": "pattern",
+          "command": "refs",
+          "observedAt": "2026-06-05T15:41:44.890Z"
+        }
+      ],
+      "projectSlugs": [
+        "ready-mind"
+      ],
+      "reinforcementCount": 2,
+      "lastSeenAt": "2026-06-05T15:41:44.890Z",
       "confidence": "high",
       "approved": true
     },

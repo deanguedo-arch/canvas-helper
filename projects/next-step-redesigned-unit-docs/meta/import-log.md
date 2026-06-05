@@ -1,6 +1,6 @@
 # Import Log
 
-- Generated: 2026-06-02T16:35:54.674Z
+- Generated: 2026-06-05T15:41:30.797Z
 - Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\incoming\next-step-redesigned-unit-docs
 
 ## Actions
@@ -11,7 +11,7 @@
 - Copied 4 supporting file(s) into projects/resources/next-step-redesigned-unit-docs/.
 - Indexed the imported supporting material into projects/resources/next-step-redesigned-unit-docs/_extracted/.
 - Learned project patterns (C:\Users\dean.guedo\Documents\GitHub\canvas-helper\.runtime\pattern-bank\auto\next-step-redesigned-unit-docs.json).
-- Updated local pattern bank (40 profile(s)).
+- Updated local pattern bank (41 profile(s)).
 - Generated prompt pack (C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\next-step-redesigned-unit-docs\meta\prompt-pack.md).
 
 ## Warnings

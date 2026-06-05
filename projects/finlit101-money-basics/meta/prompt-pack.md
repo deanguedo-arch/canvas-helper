@@ -1,7 +1,7 @@
 # Prompt Pack
 
 - Project: finlit101-money-basics
-- Generated: 2026-06-05T14:45:42.338Z
+- Generated: 2026-06-05T15:41:41.571Z
 
 ## Rules
 
@@ -26,10 +26,10 @@
 
 ## Intelligence Policy
 
-- Mode: off
-- Policy source: env-override
-- Collect pattern bank: off
-- Collect memory ledger: off
+- Mode: collect
+- Policy source: repo-default
+- Collect pattern bank: on
+- Collect memory ledger: on
 - Apply pattern bank to prompt pack: off
 - Apply memory ledger to prompt pack: off
 - Apply memory ledger to recommendations: off
@@ -42,49 +42,51 @@ none
 
 ```json
 {
-  "id": "finlit101-money-basics",
+  "id": "78d59b43-a5cf-4c1b-8479-16a1fe906cb3",
   "slug": "finlit101-money-basics",
-  "sourcePath": "/Users/deanguedo/Downloads/stitch_extracted_text_from_https_finlit101.ca_en_topic_money_basics.zip",
+  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\processed\\finlit101-money-basics\\source",
   "inputKind": "html",
   "brightspaceTarget": "course-page",
   "previewModes": [
+    "raw",
     "workspace"
   ],
-  "workspaceEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/finlit101-money-basics/workspace/index.html",
-  "rawEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/finlit101-money-basics/raw/original.html",
+  "workspaceEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\finlit101-money-basics\\workspace\\index.html",
+  "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\finlit101-money-basics\\raw\\original.html",
+  "learningSource": "other",
+  "learningTrust": "auto",
+  "learningUpdatedAt": "2026-06-05T15:41:41.482Z",
   "migrationState": "migrated",
-  "projectType": "generated-course",
+  "projectType": "conversion",
   "preferredWorkflows": [
-    "generated-course"
+    "conversion"
   ],
-  "canonicalEntry": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/finlit101-money-basics/workspace/index.html",
+  "canonicalEntry": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\finlit101-money-basics\\workspace\\index.html",
   "canonicalSources": [
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/finlit101-money-basics/workspace/index.html",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/finlit101-money-basics/meta/prompt-pack.md"
-  ],
-  "authoringStatus": "active",
-  "exportTargets": [
-    {
-      "target": "html",
-      "enabled": true,
-      "notes": "Standalone editable course-page HTML for setting the first Financial Literacy 101 issue standard."
-    }
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\finlit101-money-basics\\workspace\\index.html",
+    "main.js",
+    "styles.css"
   ],
   "generatedOutputs": [],
   "injectedComponents": [],
-  "referenceOnly": [
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/finlit101-money-basics/raw/original.html",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/incoming/finlit101-money-basics/code.html",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/incoming/finlit101-money-basics/screen.png",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/incoming/finlit101-money-basics/DESIGN.md"
+  "importedFirstPassOrigin": {
+    "sourceSystem": "other",
+    "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\incoming\\finlit101-money-basics",
+    "importedAt": "2026-06-05T15:41:29.848Z"
+  },
+  "exportTargets": [
+    {
+      "target": "brightspace",
+      "enabled": true,
+      "notes": "Default export target for imported projects."
+    }
   ],
-  "sourceOfTruthNotes": "Edit workspace/index.html as the canonical course-page surface. The incoming zip extraction is provenance only. Use meta/prompt-pack.md for the imported visual and brand standard while expanding this first issue before scaling to additional Financial Literacy 101 topics.",
-  "learningSource": "other",
-  "learningTrust": "auto",
-  "learningUpdatedAt": "2026-06-05T14:45:42.337Z",
-  "createdAt": "2026-06-04T00:00:00.000Z",
-  "updatedAt": "2026-06-05T14:45:42.337Z",
-  "workspaceApprovedAt": "2026-06-05T14:40:53.709Z"
+  "authoringStatus": "active",
+  "referenceOnly": [],
+  "sourceOfTruthNotes": "Edit workspace sources listed in canonicalSources. Treat generated exports and runtime bundles as derived output.",
+  "createdAt": "2026-06-05T15:41:29.848Z",
+  "updatedAt": "2026-06-05T15:41:41.482Z",
+  "workspaceApprovedAt": "2026-06-05T15:41:41.482Z"
 }
 ```
 
@@ -95,11 +97,23 @@ none
 - Teacher notes are contextual authority only.
 - Textbook and reference resources are supporting evidence, not lesson generators.
 - Imported Canvas workspace content is fallback context only when outline or assessment evidence is missing.
-- Current classified resource mix: .
+- Current classified resource mix: other: 2.
 
 ## Resource Catalog Summary
 
+### name: Academic Precision colors: surface: '#f8f9fa' (other)
+- Authority: supporting-only
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\finlit101-money-basics\DESIGN.md
+- Extraction: indexed via native
+- Chunks: 5
+- Signals: none
 
+### screen (other)
+- Authority: supporting-only
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\finlit101-money-basics\screen.png
+- Extraction: stored-only
+- Chunks: 0
+- Signals: none
 
 ## D2L Course Map Summary
 
@@ -108,11 +122,13 @@ none
 
 ## Course Blueprint Summary
 
-No blueprint units were generated.
+> course-blueprint.json: missing
+> Next: `npm run blueprint -- --project finlit101-money-basics`
 
 ## Assessment Map Summary
 
-No assessment entries were generated.
+> assessment-map.json: missing
+> Next: `npm run assessment-map -- --project finlit101-money-basics`
 
 ## Lesson Packet Summary
 
@@ -129,31 +145,108 @@ No assessment entries were generated.
 
 ## Sections List
 
-> section-map.json: missing
+- No sections detected.
 
 ## Style Guide
 
-> style-guide.md: missing
+```md
+# Style Guide
+
+## Runtime Shape
+- Imported workspace stays close to the original HTML runtime rather than forcing an immediate framework rewrite.
+- External dependencies preserved: https://cdn.tailwindcss.com?plugins=forms,container-queries, https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=IBM+Plex+Sans:wght@600&amp;family=Work+Sans:wght@400;600&amp;display=swap, https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap, https://lh3.googleusercontent.com/aida-public/AB6AXuAQVO7T55Vcbvu7l1Y-Pq2LG5DHe0HoIXbH6uFUj4X-gSBWUI708z4_N9h1PD7V2Px5M0ETz4ezeXPqthyJDmpW8Mx5wJ4Ov4imQ7M82KVUT_zuP-zeI6RsPMJU7LoZcRG007h1yv7rwxT8Si2gPaxpk0QYWljctY7hRRxsrKGAlzuZJBm2TExKPCMQxrss439kua1Z5jGQ2EuAEtICUgSbvrPnpdqx4_WLzjMj2aI8fPUjVDkhDwL0P0D_gr3aFglhCuu5riObfqkp, https://lh3.googleusercontent.com/aida-public/AB6AXuC32VwimeI-P67qQATHm1i1Ms-Rx8BQJ64vnSzL_oAdgkWC4Rx3d-UqMD4MrCyNrYlA599GiPGqKAcpYsnl-B5Xv1offm6kNEX28hpxz_AluHETerqVPCxMBMODsJLviRjSS-TnH6IpIPL8hd4jZrqH7nLg6OELRmM4lFSpJ8BP_lICoM5FSw9XCWUscvhohqDITB5CuRsDe6YRFZ8DRH--Js1uIXm_-afSlyla4mfcbBUVX9gwpXzUsiLoaQTUoQC5ZLRzV293vB0C
+
+## Visual Signals
+- No Tailwind color tokens detected.
+- Hex colors: #154212, #F1F3F4, #a1d494, #454749, #131e17, #bdcabe, #edeeef, #93000a, #ba1a1a, #BA1A1A
+- Repeated shape tokens: rounded-xl, rounded-full, rounded-2xl, rounded-lg, rounded-r
+- Motion and interaction tokens: transition-all, hover:bg-white/5, hover:text-white, hover:bg-black/10, transition-colors, hover:scale-110, transition-transform, hover:opacity-100, transition-opacity, hover:text-primary
+
+## Interaction Notes
+- No notable interaction heuristics detected.
+
+## Editing Guidance
+- Prefer edits in workspace/ files only; raw/ is the preserved baseline.
+- Preserve existing dependency URLs unless you intentionally replace the runtime.
+- When rewriting content, keep heading hierarchy and repeated utility-class patterns consistent with the original style.
+```
 
 ## Content Outline
 
-> content-outline.md: missing
+```md
+# Content Outline
+
+- Project: finlit101-money-basics
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\incoming\finlit101-money-basics
+
+## Sections
+- No structured sections were detected. Edit workspace/main directly.
+```
 
 ## Import Log
 
-> import-log.md: missing
+```md
+# Import Log
+
+- Generated: 2026-06-05T15:41:29.848Z
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\incoming\finlit101-money-basics
+
+## Actions
+- Detected "code.html" as the site entrypoint inside the source folder.
+- Copied the source HTML into raw/original.html without modifying it.
+- Externalized 1 inline style block(s) to workspace/styles.css.
+- Externalized 1 inline script block(s) to workspace/main.js.
+- Copied 2 supporting file(s) into projects/resources/finlit101-money-basics/.
+- Indexed the imported supporting material into projects/resources/finlit101-money-basics/_extracted/.
+- Learned project patterns (C:\Users\dean.guedo\Documents\GitHub\canvas-helper\.runtime\pattern-bank\auto\finlit101-money-basics.json).
+- Updated local pattern bank (41 profile(s)).
+- Generated prompt pack (C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\finlit101-money-basics\meta\prompt-pack.md).
+
+## Warnings
+- None.
+```
 
 ## Global Memory
 
-disabled by intelligence policy (off)
+disabled by intelligence policy (collect)
 
 ## Pattern Matches
 
-disabled by intelligence policy (off)
+disabled by intelligence policy (collect)
 
 ## Reference Excerpts
 
-none
+### design-md (md/other)
+- Source: C:\Users\dean.guedo\Documents\GitHub\canvas-helper\projects\resources\finlit101-money-basics\DESIGN.md
+
+```text
+---
+name: Academic Precision
+colors:
+  surface: '#f8f9fa'
+  surface-dim: '#d9dadb'
+  surface-bright: '#f8f9fa'
+  surface-container-lowest: '#ffffff'
+  surface-container-low: '#f3f4f5'
+  surface-container: '#edeeef'
+  surface-container-high: '#e7e8e9'
+  surface-container-highest: '#e1e3e4'
+  on-surface: '#191c1d'
+  on-surface-variant: '#42493e'
+  inverse-surface: '#2e3132'
+  inverse-on-surface: '#f0f1f2'
+  outline: '#72796e'
+  outline-variant: '#c2c9bb'
+  surface-tint: '#3b6934'
+  primary: '#154212'
+  on-primary: '#ffffff'
+  primary-container: '#2d5a27'
+  on-primary-container: '#9dd090'
+  inverse-primary: '#a1d494'
+  secondary: '#5d5e61'
+  on-secondary: '#ffffff'
+  secondary-container: '#e2e2...
+```
 
 ## Task Stub
 

@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>ELA 30-1 - Modern Drama</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=IBM+Plex+Sans:wght@600&amp;family=Work+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: "#154212",
+        "primary-container": "#2d5a27",
+        "primary-fixed": "#bcf0ae",
+        "surface-muted": "#F1F3F4",
+        "surface-container-lowest": "#ffffff",
+        "surface-container-low": "#f3f4f5",
+        "surface-container": "#edeeef",
+        "surface": "#f8f9fa",
+        "surface-variant": "#e1e3e4",
+        "surface-dim": "#d9dadb",
+        "on-surface": "#191c1d",
+        "on-surface-variant": "#42493e",
+        "secondary": "#5d5e61",
+        "ink-dark": "#1A1C1E",
+        "outline-variant": "#c2c9bb"
+      },
+      borderRadius: {
+        DEFAULT: "0.125rem",
+        lg: "0.5rem",
+        full: "999px"
+      },
+      spacing: {
+        xs: "8px",
+        sm: "16px",
+        md: "24px",
+        lg: "40px",
+        xl: "64px"
+      },
+      fontFamily: {
+        "body-md": ["Work Sans"],
+        "headline-lg": ["Hanken Grotesk"],
+        "headline-md": ["Hanken Grotesk"],
+        "display-lg": ["Hanken Grotesk"],
+        "label-md": ["IBM Plex Sans"],
+        caption: ["Work Sans"]
+      },
+      fontSize: {
+        "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+        "headline-lg": ["32px", { lineHeight: "1.2", fontWeight: "700" }],
+        "headline-md": ["24px", { lineHeight: "1.3", fontWeight: "700" }],
+        "display-lg": ["48px", { lineHeight: "1.1", fontWeight: "800" }],
+        "label-md": ["14px", { lineHeight: "1.4", fontWeight: "600" }],
+        caption: ["12px", { lineHeight: "1.4", fontWeight: "500" }]
+      }
+    }
+  }
+}
+</script>
+<style>
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+.course-sidebar, .course-main, .sidebar-label { transition: width 180ms ease, margin-left 180ms ease, opacity 140ms ease; }
+.course-nav-link { color: #e1e3e4; }
+.course-nav-link:hover, .course-nav-link.active { background: rgba(255,255,255,0.1); color: #fff; }
+.course-page[hidden], .lesson-detail-panel[hidden] { display: none !important; }
+body.sidebar-collapsed .course-sidebar { width: 80px; }
+body.sidebar-collapsed .course-main { margin-left: 80px; }
+body.sidebar-collapsed .sidebar-label, body.sidebar-collapsed .sidebar-title, body.sidebar-collapsed .lesson-subnav { display: none; }
+body.sidebar-collapsed .course-nav-link { justify-content: center; }
+.lesson-card.is-active { border-color: #2d5a27; background: #f3f7f1; }
+.lesson-layout { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 24px; align-items: start; }
+.source-content { color: #191c1d; font-family: "Work Sans"; font-size: 16px; line-height: 1.65; }
+.source-content h1 { font-family: "Hanken Grotesk"; font-size: 28px; line-height: 1.2; font-weight: 800; margin: 0 0 16px; }
+.source-content h2, .source-content h3 { font-family: "Hanken Grotesk"; font-size: 22px; line-height: 1.25; font-weight: 700; margin: 28px 0 12px; }
+.source-content p { margin: 0 0 16px; max-width: 74ch; }
+.source-content ul, .source-content ol { margin: 0 0 16px 22px; max-width: 74ch; }
+.source-content li { margin: 8px 0; }
+.source-content a, .source-link { color: #154212; text-decoration: underline; text-underline-offset: 3px; }
+.source-image { display: block; width: min(100%, 680px); max-height: 360px; object-fit: cover; border-radius: 8px; border: 1px solid #e1e3e4; margin: 18px 0; }
+.lesson-jump { min-height: 44px; display: inline-flex; align-items: center; border: 1px solid #e1e3e4; border-radius: 8px; padding: 8px 14px; font-family: "IBM Plex Sans"; font-size: 14px; color: #191c1d; background: #fff; }
+.lesson-jump.primary { background: #154212; color: #fff; border-color: #154212; }
+.resource-card { display: flex; flex-direction: column; gap: 6px; min-height: 120px; border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; padding: 16px; color: #191c1d; }
+.resource-card strong { font-family: "Hanken Grotesk"; font-size: 18px; line-height: 1.25; }
+.resource-card span:last-child { color: #42493e; font-size: 13px; line-height: 1.35; word-break: break-word; }
+.completed-pill { border: 1px solid #c2c9bb; border-radius: 8px; padding: 8px 12px; background: #fff; color: #42493e; }
+.completed-pill strong { color: #154212; }
+@media (max-width: 900px) {
+  .course-sidebar { display: none; }
+  .course-main { margin-left: 0 !important; }
+  .lesson-layout { grid-template-columns: 1fr; }
+  .source-content h1 { font-size: 24px; }
+}
+</style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface font-body-md min-h-screen">
+<header class="h-16 bg-ink-dark text-white flex items-center justify-center fixed top-0 w-full z-50">
+  <div class="absolute left-6 flex items-center gap-3">
+    <span class="material-symbols-outlined" aria-hidden="true">theater_comedy</span>
+    <span class="font-label-md text-label-md">ELA 30-1</span>
+  </div>
+  <strong class="font-headline-md text-headline-md">Modern Drama</strong>
+  <button id="sidebar-toggle" class="absolute right-4 hidden md:inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/40" type="button" aria-label="Toggle sidebar">
+    <span class="material-symbols-outlined" aria-hidden="true">dock_to_left</span>
+  </button>
+</header>
+<aside class="course-sidebar fixed left-0 top-16 bottom-0 z-40 hidden md:flex flex-col bg-ink-dark text-surface-variant w-72 overflow-y-auto">
+  <div class="p-lg pb-md">
+    <h1 class="sidebar-title font-headline-md text-headline-md font-bold text-white mb-1">Modern Drama</h1>
+    <p class="font-caption text-caption text-surface-variant">ELA 30-1</p>
+  </div>
+  <nav class="flex-1 px-sm pb-lg space-y-1">
+    <a class="course-nav-link active flex items-center gap-sm font-label-md text-label-md rounded-lg mx-2 px-4 py-3 transition-colors" href="#overview" data-page-target="overview"><span class="material-symbols-outlined" aria-hidden="true">dashboard</span><span class="sidebar-label">Overview</span></a>
+    <div class="lessons-nav">
+      <a class="course-nav-link flex items-center gap-sm font-label-md text-label-md rounded-lg mx-2 px-4 py-3 transition-colors" href="#lessons" data-page-target="lessons"><span class="material-symbols-outlined" aria-hidden="true">menu_book</span><span class="sidebar-label">Lessons</span></a>
+      <div class="lesson-subnav ml-12 mr-3 mt-1 space-y-1"><a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#modern-drama-introduction" data-page-target="lessons" data-lesson-id="modern-drama-introduction">Intro. Modern Drama - Introduction</a>
+<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#lesson-1-characteristics-of-modern-drama" data-page-target="lessons" data-lesson-id="lesson-1-characteristics-of-modern-drama">1. Characteristics of Modern Drama</a>
+<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#lesson-2-introduction-to-a-streetcar-named-desire" data-page-target="lessons" data-lesson-id="lesson-2-introduction-to-a-streetcar-named-desire">2. Introduction to A Streetcar Named Desire</a>
+<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#lesson-3-streetcar-information-and-overview" data-page-target="lessons" data-lesson-id="lesson-3-streetcar-information-and-overview">3. Streetcar Information and Overview</a>
+<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#lesson-4-introduction-to-death-of-a-salesman" data-page-target="lessons" data-lesson-id="lesson-4-introduction-to-death-of-a-salesman">4. Introduction to Death of a Salesman</a>
+<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#lesson-5-introduction-to-a-doll-s-house" data-page-target="lessons" data-lesson-id="lesson-5-introduction-to-a-doll-s-house">5. Introduction to A Doll's House</a>
+<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#lesson-6-writing-a-critical-and-analytical-response-to-text-s" data-page-target="lessons" data-lesson-id="lesson-6-writing-a-critical-and-analytical-response-to-text-s">6. Writing a Critical and Analytical Response to Text(s)</a>
+<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#lesson-7-samples-of-student-writing" data-page-target="lessons" data-lesson-id="lesson-7-samples-of-student-writing">7. Samples of Student Writing</a></div>
+    </div>
+    <a class="course-nav-link flex items-center gap-sm font-label-md text-label-md rounded-lg mx-2 px-4 py-3 transition-colors" href="#writing" data-page-target="writing"><span class="material-symbols-outlined" aria-hidden="true">edit_note</span><span class="sidebar-label">Writing Studio</span></a>
+    <a class="course-nav-link flex items-center gap-sm font-label-md text-label-md rounded-lg mx-2 px-4 py-3 transition-colors" href="#readings" data-page-target="readings"><span class="material-symbols-outlined" aria-hidden="true">library_books</span><span class="sidebar-label">Readings</span></a>
+    <a class="course-nav-link flex items-center gap-sm font-label-md text-label-md rounded-lg mx-2 px-4 py-3 transition-colors" href="#resources" data-page-target="resources"><span class="material-symbols-outlined" aria-hidden="true">folder_open</span><span class="sidebar-label">Resources</span></a>
+  </nav>
+</aside>
+<main class="course-main min-h-screen pt-16 md:ml-72 bg-surface-container-lowest">
+  <div class="p-lg md:p-xl">
+    <section id="overview" class="course-page" data-page="overview">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-xl items-start">
+        <div class="lg:col-span-7">
+          <div class="mb-lg">
+            <p class="font-label-md text-label-md text-secondary">ELA 30-1 | Unit Frame</p>
+            <h2 class="font-display-lg text-display-lg text-on-surface mt-xs mb-sm">Modern Drama</h2>
+            <p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">A Brightspace-ready master lesson frame for the Modern Drama unit. The original lesson sequence is preserved, while navigation, completion state, source links, and writing support are organized into a reusable course surface.</p>
+          </div>
+          <div class="flex flex-wrap gap-sm mb-lg">
+            <span class="completed-pill"><strong id="complete-count">0</strong>/8 lessons complete</span>
+            <span class="completed-pill">8 source lessons</span>
+            <span class="completed-pill">Brightspace conversion</span>
+          </div>
+          <a class="lesson-jump primary" href="#lessons" data-page-target="lessons">Open Lesson Frame</a>
+        </div>
+        <div class="lg:col-span-5">
+          <div class="aspect-[4/3] overflow-hidden rounded-lg border border-surface-muted bg-surface">
+            <img alt="Modern drama visual reference" class="w-full h-full object-cover" src="./assets/source/drama-masks-jpg.jpg">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="lessons" class="course-page" data-page="lessons" hidden>
+      <div class="mb-lg">
+        <p class="font-label-md text-label-md text-secondary">ELA 30-1 | Lessons</p>
+        <h2 class="font-headline-lg text-headline-lg text-on-surface mt-xs">Modern Drama Lesson Sequence</h2>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-md mb-lg">
+        <button class="lesson-card text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors" type="button" data-lesson-id="modern-drama-introduction">
+        <span class="font-caption text-caption text-primary">Intro</span>
+        <strong class="block font-label-md text-label-md text-on-surface mt-1">Modern Drama - Introduction</strong>
+        <span class="block font-caption text-caption text-on-surface-variant mt-2">Modern Drama Introduction In this unit, you will have the opportunity to: appreciate the artistry of a classic play by Tennessee Williams practice developing strong and thoughtful...</span>
+      </button>
+<button class="lesson-card text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors" type="button" data-lesson-id="lesson-1-characteristics-of-modern-drama">
+        <span class="font-caption text-caption text-primary">Lesson 1</span>
+        <strong class="block font-label-md text-label-md text-on-surface mt-1">Lesson 1: Characteristics of Modern Drama</strong>
+        <span class="block font-caption text-caption text-on-surface-variant mt-2">Characteristics of Modern Drama Before film and television, theatre was one of the predominant forms of entertainment. A theatrical performance has the ability to bring all kinds...</span>
+      </button>
+<button class="lesson-card text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors" type="button" data-lesson-id="lesson-2-introduction-to-a-streetcar-named-desire">
+        <span class="font-caption text-caption text-primary">Lesson 2</span>
+        <strong class="block font-label-md text-label-md text-on-surface mt-1">Lesson 2: Introduction to A Streetcar Named Desire</strong>
+        <span class="block font-caption text-caption text-on-surface-variant mt-2">Introduction to A Streetcar Named Desire Pictured above is the set model, designed by Michael Yeargan, for the world premiere performances of Andre Previn's opera A Streetcar Name...</span>
+      </button>
+<button class="lesson-card text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors" type="button" data-lesson-id="lesson-3-streetcar-information-and-overview">
+        <span class="font-caption text-caption text-primary">Lesson 3</span>
+        <strong class="block font-label-md text-label-md text-on-surface mt-1">Lesson 3: Streetcar Information and Overview</strong>
+        <span class="block font-caption text-caption text-on-surface-variant mt-2">Streetcar Information and Overview</span>
+      </button>
+<button class="lesson-card text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors" type="button" data-lesson-id="lesson-4-introduction-to-death-of-a-salesman">
+        <span class="font-caption text-caption text-primary">Lesson 4</span>
+        <strong class="block font-label-md text-label-md text-on-surface mt-1">Lesson 4: Introduction to Death of a Salesman</strong>
+        <span class="block font-caption text-caption text-on-surface-variant mt-2">Introduction to Death of a Salesman The play you will be reading and discussing for this section of the course is available on the Internet here. If you wish you read it in book f...</span>
+      </button>
+<button class="lesson-card text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors" type="button" data-lesson-id="lesson-5-introduction-to-a-doll-s-house">
+        <span class="font-caption text-caption text-primary">Lesson 5</span>
+        <strong class="block font-label-md text-label-md text-on-surface mt-1">Lesson 5: Introduction to A Doll's House</strong>
+        <span class="block font-caption text-caption text-on-surface-variant mt-2">Introduction to A Doll's House The play you will be reading and discussing for this section of the course is available online (link below). If you wish you read it in book form, i...</span>
+      </button>
+<button class="lesson-card text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors" type="button" data-lesson-id="lesson-6-writing-a-critical-and-analytical-response-to-text-s">
+        <span class="font-caption text-caption text-primary">Lesson 6</span>
+        <strong class="block font-label-md text-label-md text-on-surface mt-1">Lesson 6: Writing a Critical and Analytical Response to Text(s)</strong>
+        <span class="block font-caption text-caption text-on-surface-variant mt-2">Writing a Critical and Analytical Response to Text(s) Part A (Written) of the diploma exam consists of the following two tasks: Personal Response to Texts Assignment (20% of your...</span>
+      </button>
+<button class="lesson-card text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors" type="button" data-lesson-id="lesson-7-samples-of-student-writing">
+        <span class="font-caption text-caption text-primary">Lesson 7</span>
+        <strong class="block font-label-md text-label-md text-on-surface mt-1">Lesson 7: Samples of Student Writing</strong>
+        <span class="block font-caption text-caption text-on-surface-variant mt-2">Samples of Student Writing Before you begin to write your first Critical/Analytical Response to Literary Texts Assignment, you may find it helpful to review some samples of studen...</span>
+      </button>
+      </div>
+      <article id="modern-drama-introduction" class="lesson-detail-panel bg-surface-container-low border border-surface-muted rounded-lg p-lg relative overflow-hidden" data-lesson-panel="modern-drama-introduction" >
+        <div class="absolute top-0 left-0 w-full h-1 bg-primary-container"></div>
+        <span class="font-label-md text-label-md text-secondary">ELA 30-1 | Unit Introduction</span>
+        <div class="flex flex-wrap items-start justify-between gap-md mt-sm mb-md">
+          <div>
+            <h2 class="font-headline-lg text-headline-lg text-on-surface">Modern Drama - Introduction</h2>
+            <p class="font-body-md text-body-md text-on-surface-variant mt-xs max-w-3xl">Modern Drama Introduction In this unit, you will have the opportunity to: appreciate the artistry of a classic play by Tennessee Williams practice developing strong and thoughtful...</p>
+          </div>
+          <button class="mark-complete inline-flex min-h-11 items-center rounded-lg bg-primary px-4 py-2 font-label-md text-label-md text-white hover:bg-primary-container focus:outline-none focus:ring-2 focus:ring-primary/40" type="button" data-complete-id="modern-drama-introduction">Mark Complete</button>
+        </div>
+        <div class="lesson-layout">
+          <div class="source-content"><!-- HEADER -->
+<div id="header">
+<h1>Modern Drama Introduction</h1>
+</div>
+<!-- CONTENT -->
+<p><strong>In this unit, you will have the opportunity to:</strong></p>
+<ul>
+<li>
+<p>appreciate the artistry of a classic play by Tennessee Williams</p>
+</li>
+<li>
+<p>practice developing strong and thoughtful thesis statements</p>
+</li>
+<li>
+<p>get inside the head of one of the main characters and create an original dramatic monologue</p>
+</li>
+<li>
+<p>improve thoughtfulness, effectiveness and correctness of communication through your first&nbsp;<em>Critical/Analytical Response</em>&nbsp;to Texts essay</p>
+</li>
+<li>
+<p>review some&nbsp;<a href="./resources/litdevice.html" target="_blank" rel="noopener noreferrer"><strong>Literary Techniques in Drama&nbsp;</strong></a>as you work your way through the play</p>
+</li>
+</ul>
+<!-- FOOTER -->
+<div id="footer"></div></div>
+          <aside class="lesson-resources bg-surface border border-surface-muted rounded-lg p-md">
+            <h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Source Links</h3>
+            <ul class="space-y-2"><li><a class="source-link" href="./resources/litdevice.html" target="_blank" rel="noopener noreferrer">Literary Techniques in Drama</a></li></ul>
+          </aside>
+        </div>
+        <div class="flex flex-wrap gap-sm mt-lg pt-md border-t border-surface-muted">
+          
+          <a class="lesson-jump primary" href="#lesson-1-characteristics-of-modern-drama" data-page-target="lessons" data-lesson-id="lesson-1-characteristics-of-modern-drama">Next Lesson</a>
+        </div>
+      </article>
+<article id="lesson-1-characteristics-of-modern-drama" class="lesson-detail-panel bg-surface-container-low border border-surface-muted rounded-lg p-lg relative overflow-hidden" data-lesson-panel="lesson-1-characteristics-of-modern-drama" hidden>
+        <div class="absolute top-0 left-0 w-full h-1 bg-primary-container"></div>
+        <span class="font-label-md text-label-md text-secondary">ELA 30-1 | Lesson 1</span>
+        <div class="flex flex-wrap items-start justify-between gap-md mt-sm mb-md">
+          <div>
+            <h2 class="font-headline-lg text-headline-lg text-on-surface">Lesson 1: Characteristics of Modern Drama</h2>
+            <p class="font-body-md text-body-md text-on-surface-variant mt-xs max-w-3xl">Characteristics of Modern Drama Before film and television, theatre was one of the predominant forms of entertainment. A theatrical performance has the ability to bring all kinds...</p>
+          </div>
+          <button class="mark-complete inline-flex min-h-11 items-center rounded-lg bg-primary px-4 py-2 font-label-md text-label-md text-white hover:bg-primary-container focus:outline-none focus:ring-2 focus:ring-primary/40" type="button" data-complete-id="lesson-1-characteristics-of-modern-drama">Mark Complete</button>
+        </div>
+        <div class="lesson-layout">
+          <div class="source-content"><!-- HEADER -->
+<div id="header">
+<h1>Characteristics of Modern Drama</h1>
+</div>
+<!-- CONTENT -->
+<p><img class="source-image" height="271" src="./assets/source/drama-masks-jpg.jpg" width="403" alt="drama_masks_jpg" loading="lazy"></p>
+<p>Before film and television, theatre was one of the predominant forms of entertainment. A theatrical performance has the ability to bring all kinds of stories to life, due to the presence of real people performing directly in front of the audience.</p>
+<h2>Consider:</h2>
+<ul>
+<li>
+<p>What makes writing drama challenging for playwrights?</p>
+</li>
+<li>How does writing plays differ from writing other literary forms?</li>
+<li>Why does the playwright choose drama as the genre to develop his ideas?</li>
+<li>How would the work be different if it were presented as a short story or novel?</li>
+</ul>
+<h2>Characteristics of Modern Drama:</h2>
+<ol>
+<li>
+<p>As a form of narrative, a modern drama has all the usual story elements: plot, character, theme, setting, atmosphere, and so on. Different elements may be emphasized but character is always important.</p>
+</li>
+<li>
+<p>A modern drama may include symbols or motifs, just like other narratives. A prop might have a symbolic value; through repetition, a word, phrase, or gesture might become a motif that helps to unify the play and express its theme.</p>
+</li>
+<li>
+<p>Drama is meant to be seen or heard, instead of being read like short stories and novels. Because of this, the framework of a play is the action and the dialogue. Plays performed on stage by skilled actors come alive as we see and hear the characters and the action.</p>
+</li>
+</ol>
+<h2>How to Read and Interpret the Modern Drama:</h2>
+<ul>
+<li>Become familiar with the list of characters. Note any details about how characters are related to each other.</li>
+<li>Look for stereotypes in the way the characters are portrayed.</li>
+<li>Consider how the main characters change as a result of the action of the drama. These changes are usually keys to the underlying theme of the play.</li>
+<li>Approach the plot of the play as you would a short story. Look for the central conflict in the story. Predict what will happen as the action unfolds. Is the resolution to the plot satisfying?</li>
+<li>Be prepared to read the play more than once, in order to appreciate the subtle nuances of the work.</li>
+<li>Borrow the CD or audio-tape of the play from your local library. You will then have the advantage of hearing professional actors bring characters to life.</li>
+</ul>
+<!-- FOOTER -->
+<div id="footer"></div></div>
+          
+        </div>
+        <div class="flex flex-wrap gap-sm mt-lg pt-md border-t border-surface-muted">
+          <a class="lesson-jump" href="#modern-drama-introduction" data-page-target="lessons" data-lesson-id="modern-drama-introduction">Previous</a>
+          <a class="lesson-jump primary" href="#lesson-2-introduction-to-a-streetcar-named-desire" data-page-target="lessons" data-lesson-id="lesson-2-introduction-to-a-streetcar-named-desire">Next Lesson</a>
+        </div>
+      </article>
+<article id="lesson-2-introduction-to-a-streetcar-named-desire" class="lesson-detail-panel bg-surface-container-low border border-surface-muted rounded-lg p-lg relative overflow-hidden" data-lesson-panel="lesson-2-introduction-to-a-streetcar-named-desire" hidden>
+        <div class="absolute top-0 left-0 w-full h-1 bg-primary-container"></div>
+        <span class="font-label-md text-label-md text-secondary">ELA 30-1 | Lesson 2</span>
+        <div class="flex flex-wrap items-start justify-between gap-md mt-sm mb-md">
+          <div>
+            <h2 class="font-headline-lg text-headline-lg text-on-surface">Lesson 2: Introduction to A Streetcar Named Desire</h2>
+            <p class="font-body-md text-body-md text-on-surface-variant mt-xs max-w-3xl">Introduction to A Streetcar Named Desire Pictured above is the set model, designed by Michael Yeargan, for the world premiere performances of Andre Previn's opera A Streetcar Name...</p>
+          </div>
+          <button class="mark-complete inline-flex min-h-11 items-center rounded-lg bg-primary px-4 py-2 font-label-md text-label-md text-white hover:bg-primary-container focus:outline-none focus:ring-2 focus:ring-primary/40" type="button" data-complete-id="lesson-2-introduction-to-a-streetcar-named-desire">Mark Complete</button>
+        </div>
+        <div class="lesson-layout">
+          <div class="source-content"><!-- HEADER -->
+<div id="header">
+<h1>Introduction to A Streetcar Named Desire</h1>
+</div>
+<!-- CONTENT -->
+<p><img class="source-image" src="./assets/source/streetcar.jpg" width="343" height="217" encodedsrc="modern_drama/streetcar_named_desire/%2Fcontent%2Fcbel%2Fela%2Fcbel07junela301baseline%2Fmodern_drama%2Fstreetcar_named_desire%2F..%2Fimages%2Fstreetcar.jpg" alt="streetcar" loading="lazy"></p>
+<p><em>Pictured above is the set model, designed by Michael Yeargan, for the world premiere performances of Andre Previn's opera&nbsp;A Streetcar Named Desire.&nbsp;</em><em>Photo: Terrence McCarthy; Courtesy: San Francisco Opera</em></p>
+<p>It will be necessary for you to purchase a copy of the play&nbsp;<strong><em>A Streetcar Named Desire</em></strong>&nbsp;by Tennessee Williams from a bookstore, or you may find the play at your local library.&nbsp; If you are unable to locate a copy, please email your instructor for assistance.</p>
+<p><img class="source-image" src="./assets/source/tennessee-williams-pjoto.jpg" alt="" title="" width="221" height="146" loading="lazy"></p>
+<p>Williams' play explores many of the playwright's personal struggles in a society which he felt was often repressive and narrow-minded.&nbsp; Williams said that the belief which inspired and dominated his writing was the "<em><strong>need for understanding and tenderness among individuals trapped by circumstance</strong></em>."</p>
+<p>Before you begin to read the play, research the playwright&nbsp;<a href="http://www.biography.com/people/tennessee-williams-9532952" target="_blank" rel="noopener noreferrer">Tennessee Williams</a>. Biographical information about the playwright may help you enjoy the play more and to be more aware of some of the issues the writer is exploring. Every writer is a part of the world in which he lives. Therefore, as you study any piece of literature, consider how it reflects the personal experiences of the author. Remember that writers frequently explore issues in their own lives through their writing.</p>
+<!-- FOOTER -->
+<div id="footer"></div></div>
+          <aside class="lesson-resources bg-surface border border-surface-muted rounded-lg p-md">
+            <h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Source Links</h3>
+            <ul class="space-y-2"><li><a class="source-link" href="http://www.biography.com/people/tennessee-williams-9532952" target="_blank" rel="noopener noreferrer">Tennessee Williams</a></li></ul>
+          </aside>
+        </div>
+        <div class="flex flex-wrap gap-sm mt-lg pt-md border-t border-surface-muted">
+          <a class="lesson-jump" href="#lesson-1-characteristics-of-modern-drama" data-page-target="lessons" data-lesson-id="lesson-1-characteristics-of-modern-drama">Previous</a>
+          <a class="lesson-jump primary" href="#lesson-3-streetcar-information-and-overview" data-page-target="lessons" data-lesson-id="lesson-3-streetcar-information-and-overview">Next Lesson</a>
+        </div>
+      </article>
+<article id="lesson-3-streetcar-information-and-overview" class="lesson-detail-panel bg-surface-container-low border border-surface-muted rounded-lg p-lg relative overflow-hidden" data-lesson-panel="lesson-3-streetcar-information-and-overview" hidden>
+        <div class="absolute top-0 left-0 w-full h-1 bg-primary-container"></div>
+        <span class="font-label-md text-label-md text-secondary">ELA 30-1 | Lesson 3</span>
+        <div class="flex flex-wrap items-start justify-between gap-md mt-sm mb-md">
+          <div>
+            <h2 class="font-headline-lg text-headline-lg text-on-surface">Lesson 3: Streetcar Information and Overview</h2>
+            <p class="font-body-md text-body-md text-on-surface-variant mt-xs max-w-3xl">Streetcar Information and Overview</p>
+          </div>
+          <button class="mark-complete inline-flex min-h-11 items-center rounded-lg bg-primary px-4 py-2 font-label-md text-label-md text-white hover:bg-primary-container focus:outline-none focus:ring-2 focus:ring-primary/40" type="button" data-complete-id="lesson-3-streetcar-information-and-overview">Mark Complete</button>
+        </div>
+        <div class="lesson-layout">
+          <div class="source-content"><!-- HEADER -->
+<div id="header">
+<h1>Streetcar Information and Overview</h1>
+</div>
+<!-- CONTENT -->
+<p><iframe width="500" height="375" src="https://www.youtube.com/embed/a9G7lU8J21Y?feature=oembed&amp;wmode=opaque&amp;rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></p>
+<!-- FOOTER -->
+<div id="footer"></div></div>
+          
+        </div>
+        <div class="flex flex-wrap gap-sm mt-lg pt-md border-t border-surface-muted">
+          <a class="lesson-jump" href="#lesson-2-introduction-to-a-streetcar-named-desire" data-page-target="lessons" data-lesson-id="lesson-2-introduction-to-a-streetcar-named-desire">Previous</a>
+          <a class="lesson-jump primary" href="#lesson-4-introduction-to-death-of-a-salesman" data-page-target="lessons" data-lesson-id="lesson-4-introduction-to-death-of-a-salesman">Next Lesson</a>
+        </div>
+      </article>
+<article id="lesson-4-introduction-to-death-of-a-salesman" class="lesson-detail-panel bg-surface-container-low border border-surface-muted rounded-lg p-lg relative overflow-hidden" data-lesson-panel="lesson-4-introduction-to-death-of-a-salesman" hidden>
+        <div class="absolute top-0 left-0 w-full h-1 bg-primary-container"></div>
+        <span class="font-label-md text-label-md text-secondary">ELA 30-1 | Lesson 4</span>
+        <div class="flex flex-wrap items-start justify-between gap-md mt-sm mb-md">
+          <div>
+            <h2 class="font-headline-lg text-headline-lg text-on-surface">Lesson 4: Introduction to Death of a Salesman</h2>
+            <p class="font-body-md text-body-md text-on-surface-variant mt-xs max-w-3xl">Introduction to Death of a Salesman The play you will be reading and discussing for this section of the course is available on the Internet here. If you wish you read it in book f...</p>
+          </div>
+          <button class="mark-complete inline-flex min-h-11 items-center rounded-lg bg-primary px-4 py-2 font-label-md text-label-md text-white hover:bg-primary-container focus:outline-none focus:ring-2 focus:ring-primary/40" type="button" data-complete-id="lesson-4-introduction-to-death-of-a-salesman">Mark Complete</button>
+        </div>
+        <div class="lesson-layout">
+          <div class="source-content"><!-- HEADER -->
+<div id="header">
+<h1>Introduction to Death of a Salesman</h1>
+</div>
+<!-- CONTENT -->
+<p><img class="source-image" src="./assets/source/ss-salesman-businessman-salesperson.jpg" alt="" title="" width="352" height="198" loading="lazy"></p>
+
+<p>The play you will be reading and discussing for this section of the course is available <a href="http://www.pelister.org/literature/ArthurMiller/Miller_Salesman.pdf" target="_blank" rel="noopener noreferrer">on the Internet here</a>.&nbsp; If you wish you read it in book form, it will be necessary for you to purchase a copy of the play <strong><em><u>Death of a Salesman</u></em></strong>&nbsp;by Arthur Miller from a bookstore, or you may find the play at your local library. &nbsp;</p>
+
+<p>Miller's play explores struggles in attempt to fulfill "The American Dream." Willy Loman's struggle is that of "every man", trying to achieve a better life for himself and his family. <a href="http://www.sparknotes.com/lit/salesman/context.html" target="_blank" rel="noopener noreferrer">Read more about the play's themes here.&nbsp;</a></p>
+<p>Before you begin to read the play, research the playwright <a href="https://www.neh.gov/about/awards/jefferson-lecture/arthur-miller-biography" target="_blank" rel="noopener noreferrer">Arthur Miller.</a> &nbsp;Biographical information about the playwright may help you enjoy the play more and to be more aware of some of the issues the writer is exploring. Every writer is a part of the world in which he lives. Therefore, as you study any piece of literature, consider how it reflects the personal experiences of the author. Remember that writers frequently explore issues in their own lives through their writing.</p>
+<!-- FOOTER -->
+<div id="footer"></div></div>
+          <aside class="lesson-resources bg-surface border border-surface-muted rounded-lg p-md">
+            <h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Source Links</h3>
+            <ul class="space-y-2"><li><a class="source-link" href="http://www.pelister.org/literature/ArthurMiller/Miller_Salesman.pdf" target="_blank" rel="noopener noreferrer">on the Internet here</a></li><li><a class="source-link" href="http://www.sparknotes.com/lit/salesman/context.html" target="_blank" rel="noopener noreferrer">Read more about the play's themes here.</a></li><li><a class="source-link" href="https://www.neh.gov/about/awards/jefferson-lecture/arthur-miller-biography" target="_blank" rel="noopener noreferrer">Arthur Miller.</a></li></ul>
+          </aside>
+        </div>
+        <div class="flex flex-wrap gap-sm mt-lg pt-md border-t border-surface-muted">
+          <a class="lesson-jump" href="#lesson-3-streetcar-information-and-overview" data-page-target="lessons" data-lesson-id="lesson-3-streetcar-information-and-overview">Previous</a>
+          <a class="lesson-jump primary" href="#lesson-5-introduction-to-a-doll-s-house" data-page-target="lessons" data-lesson-id="lesson-5-introduction-to-a-doll-s-house">Next Lesson</a>
+        </div>
+      </article>
+<article id="lesson-5-introduction-to-a-doll-s-house" class="lesson-detail-panel bg-surface-container-low border border-surface-muted rounded-lg p-lg relative overflow-hidden" data-lesson-panel="lesson-5-introduction-to-a-doll-s-house" hidden>
+        <div class="absolute top-0 left-0 w-full h-1 bg-primary-container"></div>
+        <span class="font-label-md text-label-md text-secondary">ELA 30-1 | Lesson 5</span>
+        <div class="flex flex-wrap items-start justify-between gap-md mt-sm mb-md">
+          <div>
+            <h2 class="font-headline-lg text-headline-lg text-on-surface">Lesson 5: Introduction to A Doll's House</h2>
+            <p class="font-body-md text-body-md text-on-surface-variant mt-xs max-w-3xl">Introduction to A Doll's House The play you will be reading and discussing for this section of the course is available online (link below). If you wish you read it in book form, i...</p>
+          </div>
+          <button class="mark-complete inline-flex min-h-11 items-center rounded-lg bg-primary px-4 py-2 font-label-md text-label-md text-white hover:bg-primary-container focus:outline-none focus:ring-2 focus:ring-primary/40" type="button" data-complete-id="lesson-5-introduction-to-a-doll-s-house">Mark Complete</button>
+        </div>
+        <div class="lesson-layout">
+          <div class="source-content"><!-- HEADER -->
+<div id="header">
+<h1>Introduction to A Doll's House</h1>
+</div>
+<!-- CONTENT -->
+<p class="TextWrapLeft"><img class="source-image" src="./assets/source/a-Doll-s-house1.jpg" alt="A Doll's House" title="A Doll's House" style="max-width: 100%;" loading="lazy"></p>
+<p>The play you will be reading and discussing for this section of the course is available online (link below).&nbsp;&nbsp;If you wish you read it in book form, it will be necessary for you to purchase a copy of the play <strong><em><u>A Doll's House by Henrik Ibsen&nbsp;</u></em></strong>from a bookstore, or you may find the play at your local library. &nbsp;</p>
+<p>Before you begin to read the play, research the playwright <a href="https://www.biography.com/people/henrik-ibsen-37014" target="_blank" rel="noopener noreferrer">Henrik Ibsen</a>.&nbsp;Biographical information about the playwright may help you enjoy the play more and to be more aware of some of the issues the writer is exploring. Every writer is a part of the world in which he lives. Therefore, as you study any piece of literature, consider how it reflects the personal experiences of the author. Remember that writers frequently explore issues in their own lives through their writing.</p>
+<p>Once you have completed your research, you may begin to read the play. Don't forget to implement the strategies outlined on the content page (link) When you have read the play, continue to Assignment&nbsp;4 - Exploring Character.</p>
+<p><strong>A Doll's House</strong>, by Norwegian playwright Henrik Ibsen, is a dramatic criticism of 19th century gender norms, which emphasized a woman's obedience to her husband. At the conclusion of the play, the protagonist Nora Helmer rebels against these cultural norms. She abandons her husband and her children.</p>
+<p>Themes. A Doll's House draws a drab portrayal of the role in life of women from all walks of life. The female characters in the play demonstrate Nora's assertion that 'even though men refuse to&nbsp;<strong>sacrifice</strong>&nbsp;their integrity, hundreds of thousands of women have.'</p>
+<ul>
+<li><a rel="noopener noreferrer" href="https://www.gutenberg.org/files/2542/2542-h/2542-h.htm" target="_blank">Read the play online</a></li>
+<li><a rel="noopener noreferrer" href="https://www.youtube.com/watch?v=sr3nw7CZvO8" target="_blank">A Doll's House-Full Play </a></li>
+<li><a rel="noopener noreferrer" href="https://www.sparknotes.com/lit/dollhouse/summary/" target="_blank">Sparks Notes Plot Summary</a></li>
+<li><a rel="noopener noreferrer" href="https://www.aresearchguide.com/a-dolls-house-characters-analysis.html" target="_blank">Character Analysis</a></li>
+</ul>
+<!-- FOOTER -->
+<div id="footer"></div></div>
+          <aside class="lesson-resources bg-surface border border-surface-muted rounded-lg p-md">
+            <h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Source Links</h3>
+            <ul class="space-y-2"><li><a class="source-link" href="https://www.biography.com/people/henrik-ibsen-37014" target="_blank" rel="noopener noreferrer">Henrik Ibsen</a></li><li><a class="source-link" href="https://www.gutenberg.org/files/2542/2542-h/2542-h.htm" target="_blank" rel="noopener noreferrer">Read the play online</a></li><li><a class="source-link" href="https://www.youtube.com/watch?v=sr3nw7CZvO8" target="_blank" rel="noopener noreferrer">A Doll's House-Full Play</a></li><li><a class="source-link" href="https://www.sparknotes.com/lit/dollhouse/summary/" target="_blank" rel="noopener noreferrer">Sparks Notes Plot Summary</a></li><li><a class="source-link" href="https://www.aresearchguide.com/a-dolls-house-characters-analysis.html" target="_blank" rel="noopener noreferrer">Character Analysis</a></li></ul>
+          </aside>
+        </div>
+        <div class="flex flex-wrap gap-sm mt-lg pt-md border-t border-surface-muted">
+          <a class="lesson-jump" href="#lesson-4-introduction-to-death-of-a-salesman" data-page-target="lessons" data-lesson-id="lesson-4-introduction-to-death-of-a-salesman">Previous</a>
+          <a class="lesson-jump primary" href="#lesson-6-writing-a-critical-and-analytical-response-to-text-s" data-page-target="lessons" data-lesson-id="lesson-6-writing-a-critical-and-analytical-response-to-text-s">Next Lesson</a>
+        </div>
+      </article>
+<article id="lesson-6-writing-a-critical-and-analytical-response-to-text-s" class="lesson-detail-panel bg-surface-container-low border border-surface-muted rounded-lg p-lg relative overflow-hidden" data-lesson-panel="lesson-6-writing-a-critical-and-analytical-response-to-text-s" hidden>
+        <div class="absolute top-0 left-0 w-full h-1 bg-primary-container"></div>
+        <span class="font-label-md text-label-md text-secondary">ELA 30-1 | Lesson 6</span>
+        <div class="flex flex-wrap items-start justify-between gap-md mt-sm mb-md">
+          <div>
+            <h2 class="font-headline-lg text-headline-lg text-on-surface">Lesson 6: Writing a Critical and Analytical Response to Text(s)</h2>
+            <p class="font-body-md text-body-md text-on-surface-variant mt-xs max-w-3xl">Writing a Critical and Analytical Response to Text(s) Part A (Written) of the diploma exam consists of the following two tasks: Personal Response to Texts Assignment (20% of your...</p>
+          </div>
+          <button class="mark-complete inline-flex min-h-11 items-center rounded-lg bg-primary px-4 py-2 font-label-md text-label-md text-white hover:bg-primary-container focus:outline-none focus:ring-2 focus:ring-primary/40" type="button" data-complete-id="lesson-6-writing-a-critical-and-analytical-response-to-text-s">Mark Complete</button>
+        </div>
+        <div class="lesson-layout">
+          <div class="source-content"><!-- HEADER -->
+<div id="header">
+<h1>Writing a Critical and Analytical Response to Text(s)</h1>
+</div>
+<!-- CONTENT -->
+<p><img class="source-image" width="406" height="274" src="./assets/source/students-writing.jpg" alt="students_writing" loading="lazy"></p>
+
+<p><strong>Part A (Written)</strong> of the diploma exam consists of the following two tasks:</p>
+<ol>
+  <li>&nbsp;Personal Response to Texts Assignment (20% of your diploma exam mark)</li>
+  <li>&nbsp;Critical/Analytical Response to Literary Texts Assignment (30% of your diploma exam mark)</li>
+</ol>
+<p>The&nbsp;<strong>Critical/Analytical Response to Texts</strong>&nbsp;is the second part of writing you will complete in Part A of the English 30-1 Diploma Exam.&nbsp;&nbsp;It will ask you to demonstrate your understanding of a literary text (or texts) that you have studied in detail in your English Language Arts 30-1 class.&nbsp; The assignment is a further exploration of the topic introduces in the Personal Response to Texts Assignment.</p>
+<p>You will be asked to write about how the topic is reflected in the ideas developed by the author(s).</p>
+<p>You are expected to write a thoughtful, well-developed composition in which you synthesize your thinking about the topic and your interpretation of your chosen text(s).<strong>&nbsp;</strong></p>
+<p>Your composition will be assessed on the basis of your ability to express your understanding of the literary text(s), relate that understanding to the ideas in the text(s) to the assignment, and support your ideas with evidence from your chosen text(s).</p>
+<p><strong>What does this mean??&nbsp;&nbsp;<em>KNOW YOUR TEXTS!!</em></strong></p>
+<p><strong>On the diploma exam, you must focus your composition on a text or texts other than those provided in the examination booklet.&nbsp;&nbsp;</strong>Compositions that refer only to the texts provided in the examination or that make no reference to literature studied are assessed as Insufficient.&nbsp;</p>
+<p>When considering the text(s) that you will discuss,<strong>&nbsp;select literary examples that you know well, that are meaningful to you, and that are relevant to the topic.&nbsp;&nbsp;</strong>Choose from short stories, novels, plays, screenplays, poetry, films or other literary texts that you have studied in ELA 30-1.</p>
+<p><strong>Suggestions for Writing the Critical/Analytical Response to Texts Assignment on the Diploma Exam</strong>
+</p><ul>
+<li>
+As you plan and proceed, be sure that your selection and treatment of the text(s) reflect and develop the topic in enough detail to sustain a thorough discussion of the topic and the text(s) at the English Language Arts 30–1 level.
+<br>
+<br>
+</li>
+<li>
+We recommend focusing on just one of the texts.&nbsp; If you choose to support your ideas with more than one text, make sure that each text purposefully supports and develops the unifying or controlling idea in your response.
+<br>
+<br>
+</li>
+<li>
+You will need to identify the text(s) you will discuss in your response. Remember, markers do not read compositions written on literary texts they do not know well.
+  <br>
+  <br>
+</li>
+<li>
+You also need to clarify your reasons for choosing the literature you have identified. You will be asked to reflect on the strategies you used when making this choice in the exam booklet. This step is intended to help you clarify the ways in which the topic is addressed by the text (or texts) you select. &nbsp;This step is designed to help you think about what you are doing.
+<br>
+<br>
+</li>
+<li>When planning, carefully consider your controlling idea or how you will create a strong unifying effect in your essay.&nbsp;<br>
+  <br>
+</li>
+<li>Your supporting evidence must relate clearly to the topic and support your literary interpretation(s). To demonstrate the validity of your idea(s), use only those events, circumstances, or details that will support or enhance your discussion. Your work will then illustrate your ability to shape your composition and enhance the unifying effect.<br>
+  <br>
+</li>
+<li>Carefully integrated supporting evidence such as quotations or paraphrases will show the reader that you have internalized or that you have appreciated the significance of the text(s) you have chosen. However, supporting evidence, while it is a significant requirement of the assignment, does not speak for itself. The function of evidence is to illustrate an idea you have expressed in your own words.&nbsp;<strong>Do not merely retell the sequence of events in the text(s</strong>). It should be evident that you have deliberately chosen support to reinforce your ideas. Not only are you responsible for the use you make of the supporting evidence—paraphrased and quoted text(s) must accurately represent the source.<br>
+  <br>
+</li>
+<li>Generally, it is best to refrain from quoting the text except (1) when the quotation lends greater authority to an idea than a paraphrase would or (2) when the quotation is so apt or emphatically stated that a paraphrase would not recapture the eloquence of the text. Paraphrase whenever the exact words are not as important as the details they present. Practice the skillful integration of supporting evidence, and refer to your English Language Arts handbooks for guidance regarding embedding quotations and avoiding plagiarism when you summarize or paraphrase.<br>
+  <br>
+</li>
+<li>You should be cautious about embedding lengthy quotations, footnotes, or references into first-draft writing because they often impede the unifying effect and the creation of an authentic voice.&nbsp; Providing authorized bibliographic material or page references for your supporting evidence is not required in your composition, may be inappropriate, and may consume time you might use better in other aspects of your preparation for and writing of the examination.</li>
+</ul>
+<!-- FOOTER -->
+<div id="footer"></div></div>
+          
+        </div>
+        <div class="flex flex-wrap gap-sm mt-lg pt-md border-t border-surface-muted">
+          <a class="lesson-jump" href="#lesson-5-introduction-to-a-doll-s-house" data-page-target="lessons" data-lesson-id="lesson-5-introduction-to-a-doll-s-house">Previous</a>
+          <a class="lesson-jump primary" href="#lesson-7-samples-of-student-writing" data-page-target="lessons" data-lesson-id="lesson-7-samples-of-student-writing">Next Lesson</a>
+        </div>
+      </article>
+<article id="lesson-7-samples-of-student-writing" class="lesson-detail-panel bg-surface-container-low border border-surface-muted rounded-lg p-lg relative overflow-hidden" data-lesson-panel="lesson-7-samples-of-student-writing" hidden>
+        <div class="absolute top-0 left-0 w-full h-1 bg-primary-container"></div>
+        <span class="font-label-md text-label-md text-secondary">ELA 30-1 | Lesson 7</span>
+        <div class="flex flex-wrap items-start justify-between gap-md mt-sm mb-md">
+          <div>
+            <h2 class="font-headline-lg text-headline-lg text-on-surface">Lesson 7: Samples of Student Writing</h2>
+            <p class="font-body-md text-body-md text-on-surface-variant mt-xs max-w-3xl">Samples of Student Writing Before you begin to write your first Critical/Analytical Response to Literary Texts Assignment, you may find it helpful to review some samples of studen...</p>
+          </div>
+          <button class="mark-complete inline-flex min-h-11 items-center rounded-lg bg-primary px-4 py-2 font-label-md text-label-md text-white hover:bg-primary-container focus:outline-none focus:ring-2 focus:ring-primary/40" type="button" data-complete-id="lesson-7-samples-of-student-writing">Mark Complete</button>
+        </div>
+        <div class="lesson-layout">
+          <div class="source-content"><!-- HEADER -->
+<div id="header">
+<h1>Samples of Student Writing</h1>
+</div>
+<!-- CONTENT -->
+<p><img class="source-image" src="./assets/source/young-man-thinking.jpg" width="317" height="206" alt="young_man_thinking" loading="lazy"></p>
+<p>Before you begin to write your first Critical/Analytical Response to Literary Texts Assignment, you may find it helpful to review some samples of student's writing. Take some time to look through the samples provided below in order to gain an idea of the expectations. In particular, carefully review the markers' rationale for each paper and consider what makes the difference between a mark of S, PF, E etc.</p>
+<p>**These are fairly lengthy documents, and they contain samples of both the Personal Response to Texts and the Critical/Analytical Response to Literary Texts. For now, review the samples of the CARs and compare the S paper to the PF paper, and so on.</p>
+<p><a href="https://education.alberta.ca/english-language-arts-10-12/diploma-exam-exemplars/?searchMode=3" target="_blank" rel="noopener noreferrer">Student writing samples from&nbsp;English Language Arts 30-1 provided by Alberta Education</a></p>
+<!-- FOOTER -->
+<div id="footer"></div></div>
+          <aside class="lesson-resources bg-surface border border-surface-muted rounded-lg p-md">
+            <h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Source Links</h3>
+            <ul class="space-y-2"><li><a class="source-link" href="https://education.alberta.ca/english-language-arts-10-12/diploma-exam-exemplars/?searchMode=3" target="_blank" rel="noopener noreferrer">Student writing samples from English Language Arts 30-1 provided by Alberta Education</a></li></ul>
+          </aside>
+        </div>
+        <div class="flex flex-wrap gap-sm mt-lg pt-md border-t border-surface-muted">
+          <a class="lesson-jump" href="#lesson-6-writing-a-critical-and-analytical-response-to-text-s" data-page-target="lessons" data-lesson-id="lesson-6-writing-a-critical-and-analytical-response-to-text-s">Previous</a>
+          <a class="lesson-jump primary" href="#writing" data-page-target="writing">Open Writing Studio</a>
+        </div>
+      </article>
+    </section>
+
+    <section id="writing" class="course-page" data-page="writing" hidden>
+      <div class="max-w-5xl">
+        <p class="font-label-md text-label-md text-secondary">ELA 30-1 | Writing Studio</p>
+        <h2 class="font-headline-lg text-headline-lg text-on-surface mt-xs mb-md">Critical/Analytical Response Workspace</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+          <article class="bg-white border border-surface-muted rounded-lg p-md">
+            <h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Text Knowledge</h3>
+            <p class="text-on-surface-variant">Choose one studied play and collect evidence tied to conflict, character, theme, and dramatic technique.</p>
+          </article>
+          <article class="bg-white border border-surface-muted rounded-lg p-md">
+            <h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Thesis Control</h3>
+            <p class="text-on-surface-variant">State how the playwright develops the topic, then keep each body paragraph anchored to that interpretation.</p>
+          </article>
+          <article class="bg-white border border-surface-muted rounded-lg p-md">
+            <h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Evidence Quality</h3>
+            <p class="text-on-surface-variant">Use precise moments from the drama rather than broad plot summary. Explain how each detail proves the claim.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="readings" class="course-page" data-page="readings" hidden>
+      <div class="max-w-5xl">
+        <p class="font-label-md text-label-md text-secondary">ELA 30-1 | Readings</p>
+        <h2 class="font-headline-lg text-headline-lg text-on-surface mt-xs mb-md">Core Text Path</h2>
+        <div class="bg-white border border-surface-muted rounded-lg p-lg source-content">
+          <p>The unit points learners toward three drama study paths: <strong>A Streetcar Named Desire</strong>, <strong>Death of a Salesman</strong>, and <strong>A Doll's House</strong>. Keep the required text access policy local to your Brightspace course, then use this frame to hold the reading launch notes, author research prompts, and writing supports.</p>
+          <p>The source links captured from the D2L export are listed in Resources.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="resources" class="course-page" data-page="resources" hidden>
+      <div class="max-w-6xl">
+        <p class="font-label-md text-label-md text-secondary">ELA 30-1 | Resources</p>
+        <h2 class="font-headline-lg text-headline-lg text-on-surface mt-xs mb-md">Source Resources</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-md"><a class="resource-card" href="./resources/litdevice.html" target="_blank" rel="noopener noreferrer">
+      <span class="font-caption text-caption text-primary">Local Source</span>
+      <strong>Literary Techniques in Drama</strong>
+      <span>litdevice.html?ou=505088</span>
+    </a>
+<a class="resource-card" href="http://www.biography.com/people/tennessee-williams-9532952" target="_blank" rel="noopener noreferrer">
+      <span class="font-caption text-caption text-primary">External Source</span>
+      <strong>Tennessee Williams</strong>
+      <span>http://www.biography.com/people/tennessee-williams-9532952</span>
+    </a>
+<a class="resource-card" href="http://www.pelister.org/literature/ArthurMiller/Miller_Salesman.pdf" target="_blank" rel="noopener noreferrer">
+      <span class="font-caption text-caption text-primary">External Source</span>
+      <strong>on the Internet here</strong>
+      <span>http://www.pelister.org/literature/ArthurMiller/Miller_Salesman.pdf</span>
+    </a>
+<a class="resource-card" href="http://www.sparknotes.com/lit/salesman/context.html" target="_blank" rel="noopener noreferrer">
+      <span class="font-caption text-caption text-primary">External Source</span>
+      <strong>Read more about the play's themes here.</strong>
+      <span>http://www.sparknotes.com/lit/salesman/context.html</span>
+    </a>
+<a class="resource-card" href="https://www.neh.gov/about/awards/jefferson-lecture/arthur-miller-biography" target="_blank" rel="noopener noreferrer">
+      <span class="font-caption text-caption text-primary">External Source</span>
+      <strong>Arthur Miller.</strong>
+      <span>https://www.neh.gov/about/awards/jefferson-lecture/arthur-miller-biography</span>
+    </a>
+<a class="resource-card" href="https://www.biography.com/people/henrik-ibsen-37014" target="_blank" rel="noopener noreferrer">
+      <span class="font-caption text-caption text-primary">External Source</span>
+      <strong>Henrik Ibsen</strong>
+      <span>https://www.biography.com/people/henrik-ibsen-37014</span>
+    </a>
+<a class="resource-card" href="https://www.gutenberg.org/files/2542/2542-h/2542-h.htm" target="_blank" rel="noopener noreferrer">
+      <span class="font-caption text-caption text-primary">External Source</span>
+      <strong>Read the play online</strong>
+      <span>https://www.gutenberg.org/files/2542/2542-h/2542-h.htm</span>
+    </a>
+<a class="resource-card" href="https://www.youtube.com/watch?v=sr3nw7CZvO8" target="_blank" rel="noopener noreferrer">
+      <span class="font-caption text-caption text-primary">External Source</span>
+      <strong>A Doll's House-Full Play</strong>
+      <span>https://www.youtube.com/watch?v=sr3nw7CZvO8</span>
+    </a>
+<a class="resource-card" href="https://www.sparknotes.com/lit/dollhouse/summary/" target="_blank" rel="noopener noreferrer">
+      <span class="font-caption text-caption text-primary">External Source</span>
+      <strong>Sparks Notes Plot Summary</strong>
+      <span>https://www.sparknotes.com/lit/dollhouse/summary/</span>
+    </a>
+<a class="resource-card" href="https://www.aresearchguide.com/a-dolls-house-characters-analysis.html" target="_blank" rel="noopener noreferrer">
+      <span class="font-caption text-caption text-primary">External Source</span>
+      <strong>Character Analysis</strong>
+      <span>https://www.aresearchguide.com/a-dolls-house-characters-analysis.html</span>
+    </a>
+<a class="resource-card" href="https://education.alberta.ca/english-language-arts-10-12/diploma-exam-exemplars/?searchMode=3" target="_blank" rel="noopener noreferrer">
+      <span class="font-caption text-caption text-primary">External Source</span>
+      <strong>Student writing samples from English Language Arts 30-1 provided by Alberta Education</strong>
+      <span>https://education.alberta.ca/english-language-arts-10-12/diploma-exam-exemplars/?searchMode=3</span>
+    </a></div>
+      </div>
+    </section>
+  </div>
+</main>
+<script>
+const STORAGE_KEY = "canvas-helper:ela30-1-modern-drama:complete";
+const pages = Array.from(document.querySelectorAll(".course-page"));
+const navLinks = Array.from(document.querySelectorAll("[data-page-target]"));
+const lessonCards = Array.from(document.querySelectorAll(".lesson-card"));
+const lessonPanels = Array.from(document.querySelectorAll("[data-lesson-panel]"));
+const lessonIds = ["modern-drama-introduction","lesson-1-characteristics-of-modern-drama","lesson-2-introduction-to-a-streetcar-named-desire","lesson-3-streetcar-information-and-overview","lesson-4-introduction-to-death-of-a-salesman","lesson-5-introduction-to-a-doll-s-house","lesson-6-writing-a-critical-and-analytical-response-to-text-s","lesson-7-samples-of-student-writing"];
+
+function readComplete() {
+  try {
+    return new Set(JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]"));
+  } catch {
+    return new Set();
+  }
+}
+
+function writeComplete(values) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(Array.from(values)));
+}
+
+function updateComplete() {
+  const complete = readComplete();
+  document.getElementById("complete-count").textContent = String(complete.size);
+  document.querySelectorAll("[data-complete-id]").forEach((button) => {
+    const id = button.getAttribute("data-complete-id");
+    button.textContent = complete.has(id) ? "Completed" : "Mark Complete";
+  });
+}
+
+function showPage(pageName) {
+  pages.forEach((page) => {
+    page.hidden = page.getAttribute("data-page") !== pageName;
+  });
+  document.querySelectorAll(".course-nav-link").forEach((link) => {
+    link.classList.toggle("active", link.getAttribute("data-page-target") === pageName);
+  });
+}
+
+function showLesson(lessonId) {
+  lessonPanels.forEach((panel) => {
+    panel.hidden = panel.getAttribute("data-lesson-panel") !== lessonId;
+  });
+  lessonCards.forEach((card) => {
+    card.classList.toggle("is-active", card.getAttribute("data-lesson-id") === lessonId);
+  });
+}
+
+function route() {
+  const hash = (window.location.hash || "#overview").slice(1);
+  if (lessonIds.includes(hash)) {
+    showPage("lessons");
+    showLesson(hash);
+    return;
+  }
+  const page = ["overview", "lessons", "writing", "readings", "resources"].includes(hash) ? hash : "overview";
+  showPage(page);
+  if (page === "lessons") {
+    showLesson(lessonIds[0]);
+  }
+}
+
+document.addEventListener("click", (event) => {
+  const target = event.target.closest("[data-page-target]");
+  if (target) {
+    const lessonId = target.getAttribute("data-lesson-id");
+    const pageTarget = target.getAttribute("data-page-target");
+    if (lessonId) {
+      showPage("lessons");
+      showLesson(lessonId);
+    } else if (pageTarget) {
+      showPage(pageTarget);
+    }
+  }
+  const completeButton = event.target.closest("[data-complete-id]");
+  if (completeButton) {
+    const id = completeButton.getAttribute("data-complete-id");
+    const complete = readComplete();
+    complete.add(id);
+    writeComplete(complete);
+    updateComplete();
+  }
+});
+
+document.getElementById("sidebar-toggle")?.addEventListener("click", () => {
+  document.body.classList.toggle("sidebar-collapsed");
+});
+
+window.addEventListener("hashchange", route);
+route();
+updateComplete();
+</script>
+</body>
+</html>
