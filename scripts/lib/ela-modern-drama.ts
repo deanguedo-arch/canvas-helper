@@ -2,6 +2,7 @@ import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 import * as cheerio from "cheerio";
+import type { AnyNode, Element } from "domhandler";
 import JSZip from "jszip";
 
 import { ensureDir, writeJsonFile, writeTextFile } from "./fs.js";
@@ -22,6 +23,13 @@ export type ModernDramaLink = {
   workspaceHref: string;
 };
 
+export type ModernDramaVideo = {
+  title: string;
+  originalSrc: string;
+  embedSrc: string;
+  origin: "iframe" | "link";
+};
+
 export type ModernDramaLesson = {
   id: string;
   sequence: number;
@@ -30,6 +38,7 @@ export type ModernDramaLesson = {
   contentHtml: string;
   text: string;
   images: ModernDramaImage[];
+  videos: ModernDramaVideo[];
   links: ModernDramaLink[];
 };
 
@@ -199,12 +208,45 @@ function resolveLocalHtmlPath(input: {
   return firstExistingPath([decoded, path.posix.join(lessonDir, decoded)], input.zipEntries);
 }
 
-function extractHtmlText($: cheerio.CheerioAPI, element: cheerio.Cheerio<cheerio.AnyNode>) {
+function normalizeYouTubeEmbedSrc(rawUrl: string) {
+  const decoded = safeDecodeUri(decodeHtmlEntities(rawUrl));
+  try {
+    const url = new URL(decoded);
+    const host = url.hostname.toLowerCase().replace(/^www\./, "");
+    if (host === "youtube.com" || host === "m.youtube.com") {
+      if (url.pathname === "/watch") {
+        const id = url.searchParams.get("v");
+        return id ? `https://www.youtube.com/embed/${id}` : null;
+      }
+      const embedMatch = url.pathname.match(/^\/embed\/([^/?#]+)/);
+      if (embedMatch?.[1]) {
+        return `https://www.youtube.com/embed/${embedMatch[1]}${url.search}`;
+      }
+      const shortsMatch = url.pathname.match(/^\/shorts\/([^/?#]+)/);
+      if (shortsMatch?.[1]) {
+        return `https://www.youtube.com/embed/${shortsMatch[1]}`;
+      }
+    }
+    if (host === "youtu.be") {
+      const id = url.pathname.split("/").filter(Boolean)[0];
+      return id ? `https://www.youtube.com/embed/${id}` : null;
+    }
+  } catch {
+    return null;
+  }
+  return null;
+}
+
+function normalizeVideoEmbedSrc(rawUrl: string) {
+  return normalizeYouTubeEmbedSrc(rawUrl);
+}
+
+function extractHtmlText($: cheerio.CheerioAPI, element: cheerio.Cheerio<AnyNode>) {
   return normalizeWhitespace(element.text()).replace(/@2019 CBe-learn - Calgary Board of Education/g, "").trim();
 }
 
 function cleanSourceContentHtml(html: string, lessonHref: string, zipEntries: Set<string>) {
-  const $ = cheerio.load(html, { decodeEntities: false });
+  const $ = cheerio.load(html);
   $("script, style, link, meta, title").remove();
   $("p").each((_, element) => {
     const paragraph = $(element);
@@ -231,11 +273,37 @@ function cleanSourceContentHtml(html: string, lessonHref: string, zipEntries: Se
     images.push({ originalSrc, zipPath: resolvedPath, workspaceSrc, alt });
   });
 
+  const videos: ModernDramaVideo[] = [];
+  $("iframe[src]").each((_, element) => {
+    const frame = $(element);
+    const originalSrc = frame.attr("src") ?? "";
+    const embedSrc = normalizeVideoEmbedSrc(originalSrc);
+    if (!embedSrc) {
+      return;
+    }
+
+    frame.attr("src", embedSrc);
+    frame.attr("class", normalizeWhitespace(`${frame.attr("class") ?? ""} source-video-frame`));
+    frame.attr("loading", "lazy");
+    frame.attr("title", frame.attr("title") ?? "Embedded video");
+    frame.attr("allow", frame.attr("allow") ?? "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture");
+    frame.attr("allowfullscreen", "true");
+    frame.removeAttr("width");
+    frame.removeAttr("height");
+    videos.push({ title: frame.attr("title") ?? "Embedded video", originalSrc, embedSrc, origin: "iframe" });
+  });
+
   const links: ModernDramaLink[] = [];
   $("a[href]").each((_, element) => {
     const link = $(element);
     const href = link.attr("href") ?? "";
     const text = normalizeWhitespace(link.text()) || href;
+    const embedSrc = normalizeVideoEmbedSrc(href);
+    if (embedSrc) {
+      link.attr("class", normalizeWhitespace(`${link.attr("class") ?? ""} source-video-link`));
+      videos.push({ title: text, originalSrc: href, embedSrc, origin: "link" });
+    }
+
     const localPath = resolveLocalHtmlPath({ lessonHref, rawHref: href, zipEntries });
     if (localPath) {
       const workspaceHref = `./resources/${toLocalResourceFileName(localPath)}`;
@@ -255,7 +323,7 @@ function cleanSourceContentHtml(html: string, lessonHref: string, zipEntries: Se
 
   const body = $("body");
   const contentRoot = body.length > 0 ? body : $.root();
-  let contentHtml = contentRoot.html() ?? "";
+  let contentHtml = body.length > 0 ? body.html() ?? "" : $.root().html() ?? "";
   contentHtml = contentHtml
     .replace(/@2019 CBe-learn - Calgary Board of Education/g, "")
     .replace(/\sclass="(?:CentreAlign|LeftAlign|RightAlign)"/g, "")
@@ -266,6 +334,7 @@ function cleanSourceContentHtml(html: string, lessonHref: string, zipEntries: Se
     contentHtml,
     text: extractHtmlText($, contentRoot),
     images,
+    videos: uniqueBy(videos, (video) => video.embedSrc),
     links
   };
 }
@@ -286,7 +355,7 @@ async function readZipBuffer(zip: JSZip, zipPath: string) {
   return await file.async("nodebuffer");
 }
 
-function directChildText($: cheerio.CheerioAPI, element: cheerio.Element, childSelector: string) {
+function directChildText($: cheerio.CheerioAPI, element: AnyNode, childSelector: string) {
   return normalizeWhitespace($(element).children(childSelector).first().text());
 }
 
@@ -313,7 +382,7 @@ export async function extractModernDramaUnit(zipBuffer: Buffer | Uint8Array): Pr
   const $ = cheerio.load(manifest, { xmlMode: true });
   const resources = getResourceMap($);
 
-  let modernDramaItem: cheerio.Element | null = null;
+  let modernDramaItem: Element | null = null;
   $("item").each((_, element) => {
     const title = directChildText($, element, "title");
     if (title === SOURCE_UNIT_TITLE || $(element).attr("identifierref") === ACTIVE_UNIT_IDENTIFIER) {
@@ -345,6 +414,7 @@ export async function extractModernDramaUnit(zipBuffer: Buffer | Uint8Array): Pr
       contentHtml: cleaned.contentHtml,
       text: cleaned.text,
       images: cleaned.images,
+      videos: cleaned.videos,
       links: cleaned.links
     });
   }
@@ -457,6 +527,7 @@ function buildImportLog(zipPath: string, unit: ModernDramaUnit) {
 - Active manifest unit: ${unit.title}
 - Lessons imported: ${unit.lessons.length}
 - Local source images copied into workspace/assets/source.
+- YouTube iframes and links normalized into embedded video surfaces where present.
 - Local supplementary HTML links copied into workspace/resources.
 - Source HTML encoding: UTF-16 Brightspace HTML decoded during generation.
 `;
@@ -465,6 +536,7 @@ function buildImportLog(zipPath: string, unit: ModernDramaUnit) {
 function buildReferenceIndex(slug: string, unit: ModernDramaUnit) {
   const references = unit.lessons.map((lesson) => ({
     id: toSafeId(lesson.title),
+    originalPath: lesson.sourceHref,
     projectId: slug,
     kind: "html" as ReferenceKind,
     relativePath: lesson.sourceHref,
@@ -490,11 +562,13 @@ function buildResourceCatalog(slug: string, unit: ModernDramaUnit): { generatedA
     kind: "html",
     relativePath: lesson.sourceHref,
     absolutePath: path.join(getProjectPaths(slug).resourceDir, ...lesson.sourceHref.split("/")),
+    originalPath: lesson.sourceHref,
     titleGuess: lesson.title,
     extractionStatus: "indexed",
     extractionMethod: "native",
     extractedTextPath: path.join(getProjectPaths(slug).resourceExtractedDir, `${toSafeId(lesson.title)}.txt`),
     extractionIssue: undefined,
+    chunkCount: 1,
     resourceCategory: lesson.title.toLowerCase().includes("response") || lesson.title.toLowerCase().includes("samples")
       ? "assessment"
       : "textbook",
@@ -502,7 +576,12 @@ function buildResourceCatalog(slug: string, unit: ModernDramaUnit): { generatedA
       ? "assessment-authoritative"
       : "supporting-only",
     sectionLabels: [lesson.title],
-    keywordHints: []
+    keywordHints: [],
+    blueprintSignals: [],
+    assessmentSignals: lesson.title.toLowerCase().includes("response") || lesson.title.toLowerCase().includes("samples")
+      ? ["critical analytical response"]
+      : [],
+    supportSignals: lesson.videos.length > 0 ? ["embedded video"] : []
   }));
 
   return {
@@ -528,6 +607,8 @@ function buildProjectManifest(options: {
     previewModes: ["raw", "workspace"],
     workspaceEntrypoint: paths.workspaceEntrypoint,
     rawEntrypoint: paths.rawEntrypoint,
+    createdAt: options.generatedAt,
+    updatedAt: options.generatedAt,
     learningSource: "other",
     learningTrust: "auto",
     learningUpdatedAt: options.generatedAt,
@@ -580,6 +661,39 @@ function renderLessonCards(unit: ModernDramaUnit) {
     .join("\n");
 }
 
+function renderEmbeddedVideo(video: ModernDramaVideo) {
+  return `<article class="source-video-card">
+    <iframe class="source-video-frame" src="${escapeHtml(video.embedSrc)}" title="${escapeHtml(video.title)}" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="source-video-meta">
+      <strong>${escapeHtml(video.title)}</strong>
+      <a href="${escapeHtml(video.originalSrc)}" target="_blank" rel="noopener noreferrer">Open source video</a>
+    </div>
+  </article>`;
+}
+
+function renderLessonLinkedVideos(lesson: ModernDramaLesson) {
+  const videos = uniqueBy(lesson.videos.filter((video) => video.origin === "link"), (video) => video.embedSrc);
+  if (videos.length === 0) {
+    return "";
+  }
+  return `<section class="embedded-video-section" aria-label="Embedded lesson videos">
+    ${videos.map(renderEmbeddedVideo).join("\n")}
+  </section>`;
+}
+
+function renderVideoResources(unit: ModernDramaUnit) {
+  const videos = uniqueBy(unit.lessons.flatMap((lesson) => lesson.videos), (video) => video.embedSrc);
+  if (videos.length === 0) {
+    return "";
+  }
+  return `<section class="mb-lg">
+    <h3 class="font-headline-md text-headline-md text-on-surface mb-md">Embedded Videos</h3>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-md">
+      ${videos.map(renderEmbeddedVideo).join("\n")}
+    </div>
+  </section>`;
+}
+
 function renderLessonPanels(unit: ModernDramaUnit) {
   return unit.lessons
     .map((lesson, index) => {
@@ -606,7 +720,7 @@ function renderLessonPanels(unit: ModernDramaUnit) {
           <button class="mark-complete inline-flex min-h-11 items-center rounded-lg bg-primary px-4 py-2 font-label-md text-label-md text-white hover:bg-primary-container focus:outline-none focus:ring-2 focus:ring-primary/40" type="button" data-complete-id="${lesson.id}">Mark Complete</button>
         </div>
         <div class="lesson-layout">
-          <div class="source-content">${lesson.contentHtml}</div>
+          <div class="source-content">${lesson.contentHtml}${renderLessonLinkedVideos(lesson)}</div>
           ${resourceList}
         </div>
         <div class="flex flex-wrap gap-sm mt-lg pt-md border-t border-surface-muted">
@@ -638,7 +752,10 @@ function renderSidebar(unit: ModernDramaUnit) {
 }
 
 function renderExternalResources(unit: ModernDramaUnit) {
-  const links = uniqueBy(unit.lessons.flatMap((lesson) => lesson.links), (link) => `${link.kind}:${link.href}`);
+  const links = uniqueBy(
+    unit.lessons.flatMap((lesson) => lesson.links).filter((link) => !normalizeVideoEmbedSrc(link.href)),
+    (link) => `${link.kind}:${link.href}`
+  );
   if (links.length === 0) {
     return `<p class="font-body-md text-body-md text-on-surface-variant">No external links were detected in this unit.</p>`;
   }
@@ -744,6 +861,13 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 .source-content li { margin: 8px 0; }
 .source-content a, .source-link { color: #154212; text-decoration: underline; text-underline-offset: 3px; }
 .source-image { display: block; width: min(100%, 680px); max-height: 360px; object-fit: cover; border-radius: 8px; border: 1px solid #e1e3e4; margin: 18px 0; }
+.source-video-frame { display: block; width: min(100%, 760px); aspect-ratio: 16 / 9; min-height: 220px; height: auto; border: 1px solid #d9dadb; border-radius: 8px; background: #000; margin: 18px 0; }
+.embedded-video-section { margin-top: 24px; max-width: 760px; }
+.source-video-card { border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; padding: 12px; }
+.source-video-card .source-video-frame { width: 100%; margin: 0; min-height: 220px; }
+.source-video-meta { display: flex; flex-direction: column; gap: 4px; padding-top: 10px; }
+.source-video-meta strong { font-family: "Hanken Grotesk"; font-size: 17px; line-height: 1.3; color: #191c1d; }
+.source-video-meta a { font-family: "IBM Plex Sans"; font-size: 14px; color: #154212; text-decoration: underline; text-underline-offset: 3px; }
 .lesson-jump { min-height: 44px; display: inline-flex; align-items: center; border: 1px solid #e1e3e4; border-radius: 8px; padding: 8px 14px; font-family: "IBM Plex Sans"; font-size: 14px; color: #191c1d; background: #fff; }
 .lesson-jump.primary { background: #154212; color: #fff; border-color: #154212; }
 .resource-card { display: flex; flex-direction: column; gap: 6px; min-height: 120px; border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; padding: 16px; color: #191c1d; }
@@ -756,6 +880,7 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
   .course-main { margin-left: 0 !important; }
   .lesson-layout { grid-template-columns: 1fr; }
   .source-content h1 { font-size: 24px; }
+  .source-video-frame, .source-video-card .source-video-frame { min-height: 190px; }
 }
 </style>
 </head>
@@ -849,6 +974,7 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
       <div class="max-w-6xl">
         <p class="font-label-md text-label-md text-secondary">${COURSE_TITLE} | Resources</p>
         <h2 class="font-headline-lg text-headline-lg text-on-surface mt-xs mb-md">Source Resources</h2>
+        ${renderVideoResources(unit)}
         ${renderExternalResources(unit)}
       </div>
     </section>

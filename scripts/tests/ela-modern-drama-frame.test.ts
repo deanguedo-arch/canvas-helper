@@ -74,7 +74,7 @@ test("extractModernDramaUnit reads the manifest sequence and lesson content", as
   );
   zip.file(
     "modern_drama/characteristics_of_modern_drama.html",
-    utf16Html(`<!doctype html><html><body><h1>Characteristics of Modern Drama</h1><p>Drama is meant to be seen or heard.</p><p><img src="images/drama_masks_jpg.jpg" alt="Drama masks" /></p></body></html>`)
+    utf16Html(`<!doctype html><html><body><h1>Characteristics of Modern Drama</h1><p>Drama is meant to be seen or heard.</p><p><img src="images/drama_masks_jpg.jpg" alt="Drama masks" /></p><p><iframe width="500" height="375" src="https://www.youtube.com/embed/a9G7lU8J21Y?rel=0"></iframe></p><p><a href="https://www.youtube.com/watch?v=sr3nw7CZvO8">A Doll's House-Full Play</a></p></body></html>`)
   );
   zip.file("modern_drama/images/drama_masks_jpg.jpg", "image-bytes");
 
@@ -87,4 +87,9 @@ test("extractModernDramaUnit reads the manifest sequence and lesson content", as
   assert.match(unit.lessons[1].text, /seen or heard/);
   assert.equal(unit.lessons[1].images[0]?.zipPath, "modern_drama/images/drama_masks_jpg.jpg");
   assert.match(unit.lessons[1].contentHtml, /assets\/source\/drama-masks-jpg\.jpg/);
+  assert.deepEqual(
+    unit.lessons[1].videos.map((video) => video.embedSrc),
+    ["https://www.youtube.com/embed/a9G7lU8J21Y?rel=0", "https://www.youtube.com/embed/sr3nw7CZvO8"]
+  );
+  assert.match(unit.lessons[1].contentHtml, /source-video-frame/);
 });

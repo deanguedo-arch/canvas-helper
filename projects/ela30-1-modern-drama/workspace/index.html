@@ -80,6 +80,13 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 .source-content li { margin: 8px 0; }
 .source-content a, .source-link { color: #154212; text-decoration: underline; text-underline-offset: 3px; }
 .source-image { display: block; width: min(100%, 680px); max-height: 360px; object-fit: cover; border-radius: 8px; border: 1px solid #e1e3e4; margin: 18px 0; }
+.source-video-frame { display: block; width: min(100%, 760px); aspect-ratio: 16 / 9; min-height: 220px; height: auto; border: 1px solid #d9dadb; border-radius: 8px; background: #000; margin: 18px 0; }
+.embedded-video-section { margin-top: 24px; max-width: 760px; }
+.source-video-card { border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; padding: 12px; }
+.source-video-card .source-video-frame { width: 100%; margin: 0; min-height: 220px; }
+.source-video-meta { display: flex; flex-direction: column; gap: 4px; padding-top: 10px; }
+.source-video-meta strong { font-family: "Hanken Grotesk"; font-size: 17px; line-height: 1.3; color: #191c1d; }
+.source-video-meta a { font-family: "IBM Plex Sans"; font-size: 14px; color: #154212; text-decoration: underline; text-underline-offset: 3px; }
 .lesson-jump { min-height: 44px; display: inline-flex; align-items: center; border: 1px solid #e1e3e4; border-radius: 8px; padding: 8px 14px; font-family: "IBM Plex Sans"; font-size: 14px; color: #191c1d; background: #fff; }
 .lesson-jump.primary { background: #154212; color: #fff; border-color: #154212; }
 .resource-card { display: flex; flex-direction: column; gap: 6px; min-height: 120px; border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; padding: 16px; color: #191c1d; }
@@ -92,6 +99,7 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
   .course-main { margin-left: 0 !important; }
   .lesson-layout { grid-template-columns: 1fr; }
   .source-content h1 { font-size: 24px; }
+  .source-video-frame, .source-video-card .source-video-frame { min-height: 190px; }
 }
 </style>
 </head>
@@ -354,7 +362,7 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 <h1>Streetcar Information and Overview</h1>
 </div>
 <!-- CONTENT -->
-<p><iframe width="500" height="375" src="https://www.youtube.com/embed/a9G7lU8J21Y?feature=oembed&amp;wmode=opaque&amp;rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></p>
+<p><iframe src="https://www.youtube.com/embed/a9G7lU8J21Y?feature=oembed&amp;wmode=opaque&amp;rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true" class="source-video-frame" loading="lazy" title="Embedded video"></iframe></p>
 <!-- FOOTER -->
 <div id="footer"></div></div>
           
@@ -422,12 +430,20 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 <p>Themes. A Doll's House draws a drab portrayal of the role in life of women from all walks of life. The female characters in the play demonstrate Nora's assertion that 'even though men refuse to&nbsp;<strong>sacrifice</strong>&nbsp;their integrity, hundreds of thousands of women have.'</p>
 <ul>
 <li><a rel="noopener noreferrer" href="https://www.gutenberg.org/files/2542/2542-h/2542-h.htm" target="_blank">Read the play online</a></li>
-<li><a rel="noopener noreferrer" href="https://www.youtube.com/watch?v=sr3nw7CZvO8" target="_blank">A Doll's House-Full Play </a></li>
+<li><a rel="noopener noreferrer" href="https://www.youtube.com/watch?v=sr3nw7CZvO8" target="_blank" class="source-video-link">A Doll's House-Full Play </a></li>
 <li><a rel="noopener noreferrer" href="https://www.sparknotes.com/lit/dollhouse/summary/" target="_blank">Sparks Notes Plot Summary</a></li>
 <li><a rel="noopener noreferrer" href="https://www.aresearchguide.com/a-dolls-house-characters-analysis.html" target="_blank">Character Analysis</a></li>
 </ul>
 <!-- FOOTER -->
-<div id="footer"></div></div>
+<div id="footer"></div><section class="embedded-video-section" aria-label="Embedded lesson videos">
+    <article class="source-video-card">
+    <iframe class="source-video-frame" src="https://www.youtube.com/embed/sr3nw7CZvO8" title="A Doll's House-Full Play" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="source-video-meta">
+      <strong>A Doll's House-Full Play</strong>
+      <a href="https://www.youtube.com/watch?v=sr3nw7CZvO8" target="_blank" rel="noopener noreferrer">Open source video</a>
+    </div>
+  </article>
+  </section></div>
           <aside class="lesson-resources bg-surface border border-surface-muted rounded-lg p-md">
             <h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Source Links</h3>
             <ul class="space-y-2"><li><a class="source-link" href="https://www.biography.com/people/henrik-ibsen-37014" target="_blank" rel="noopener noreferrer">Henrik Ibsen</a></li><li><a class="source-link" href="https://www.gutenberg.org/files/2542/2542-h/2542-h.htm" target="_blank" rel="noopener noreferrer">Read the play online</a></li><li><a class="source-link" href="https://www.youtube.com/watch?v=sr3nw7CZvO8" target="_blank" rel="noopener noreferrer">A Doll's House-Full Play</a></li><li><a class="source-link" href="https://www.sparknotes.com/lit/dollhouse/summary/" target="_blank" rel="noopener noreferrer">Sparks Notes Plot Summary</a></li><li><a class="source-link" href="https://www.aresearchguide.com/a-dolls-house-characters-analysis.html" target="_blank" rel="noopener noreferrer">Character Analysis</a></li></ul>
@@ -583,6 +599,25 @@ You also need to clarify your reasons for choosing the literature you have ident
       <div class="max-w-6xl">
         <p class="font-label-md text-label-md text-secondary">ELA 30-1 | Resources</p>
         <h2 class="font-headline-lg text-headline-lg text-on-surface mt-xs mb-md">Source Resources</h2>
+        <section class="mb-lg">
+    <h3 class="font-headline-md text-headline-md text-on-surface mb-md">Embedded Videos</h3>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-md">
+      <article class="source-video-card">
+    <iframe class="source-video-frame" src="https://www.youtube.com/embed/a9G7lU8J21Y?feature=oembed&amp;wmode=opaque&amp;rel=0" title="Embedded video" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="source-video-meta">
+      <strong>Embedded video</strong>
+      <a href="https://www.youtube.com/embed/a9G7lU8J21Y?feature=oembed&amp;wmode=opaque&amp;rel=0" target="_blank" rel="noopener noreferrer">Open source video</a>
+    </div>
+  </article>
+<article class="source-video-card">
+    <iframe class="source-video-frame" src="https://www.youtube.com/embed/sr3nw7CZvO8" title="A Doll's House-Full Play" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="source-video-meta">
+      <strong>A Doll's House-Full Play</strong>
+      <a href="https://www.youtube.com/watch?v=sr3nw7CZvO8" target="_blank" rel="noopener noreferrer">Open source video</a>
+    </div>
+  </article>
+    </div>
+  </section>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-md"><a class="resource-card" href="./resources/litdevice.html" target="_blank" rel="noopener noreferrer">
       <span class="font-caption text-caption text-primary">Local Source</span>
       <strong>Literary Techniques in Drama</strong>
@@ -617,11 +652,6 @@ You also need to clarify your reasons for choosing the literature you have ident
       <span class="font-caption text-caption text-primary">External Source</span>
       <strong>Read the play online</strong>
       <span>https://www.gutenberg.org/files/2542/2542-h/2542-h.htm</span>
-    </a>
-<a class="resource-card" href="https://www.youtube.com/watch?v=sr3nw7CZvO8" target="_blank" rel="noopener noreferrer">
-      <span class="font-caption text-caption text-primary">External Source</span>
-      <strong>A Doll's House-Full Play</strong>
-      <span>https://www.youtube.com/watch?v=sr3nw7CZvO8</span>
     </a>
 <a class="resource-card" href="https://www.sparknotes.com/lit/dollhouse/summary/" target="_blank" rel="noopener noreferrer">
       <span class="font-caption text-caption text-primary">External Source</span>

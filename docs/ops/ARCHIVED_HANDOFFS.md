@@ -5981,3 +5981,34 @@ One question before I change it: do you want only the large top hero image reduc
 
 ## Exact next file to open
 `scripts/lib/scorm.ts`
+
+---
+
+# Archived Handoff - FinLit Money Basics Routed Frame
+
+- Archived on: 2026-06-05
+- Project: `finlit101-money-basics`
+- Prior status: fixed and browser/behavior-verified; current active work moved to `ela30-1-modern-drama`.
+
+## Summary
+The Money Basics shell was wired into separate routed pages for Introduction, Lessons, Quizzes, Readings, and Extra Resources. Lessons included two selectable sublesson pages, Readings used a selector/viewer pattern, Quizzes used an assessment-style page, and Extra Resources was structurally wired for future files.
+
+## Source-of-truth location
+- `projects/finlit101-money-basics/workspace/index.html`
+
+## Verification run
+- `npm run verify -- --project finlit101-money-basics --mode workspace`
+- Playwright routed-page interaction check
+- In-app browser refresh checks
+- `npm run test:e2e:smoke`
+
+## Known risks / follow-up
+- Starter/sample lesson, quiz, reading, and resource content still needed final course-bank imports.
+- Quiz state was in-page/session-only.
+- STAX status was noisy because the sidecar task still referenced an older unrelated objective at that time.
+
+## Exact next command
+`npm run verify -- --project finlit101-money-basics --mode workspace`
+
+## Exact next file to open
+`projects/finlit101-money-basics/workspace/index.html`

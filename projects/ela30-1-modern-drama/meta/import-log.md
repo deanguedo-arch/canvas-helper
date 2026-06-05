@@ -5,5 +5,6 @@
 - Active manifest unit: Modern Drama
 - Lessons imported: 8
 - Local source images copied into workspace/assets/source.
+- YouTube iframes and links normalized into embedded video surfaces where present.
 - Local supplementary HTML links copied into workspace/resources.
 - Source HTML encoding: UTF-16 Brightspace HTML decoded during generation.
