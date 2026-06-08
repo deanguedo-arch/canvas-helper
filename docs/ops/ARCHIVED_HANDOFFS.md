@@ -6012,3 +6012,54 @@ The Money Basics shell was wired into separate routed pages for Introduction, Le
 
 ## Exact next file to open
 `projects/finlit101-money-basics/workspace/index.html`
+
+---
+
+# Handoff
+
+- Project: `ela30-1-modern-drama`
+- Task: Add Film Room dropdown behavior, top-bar lesson progress, and sidebar-local collapse control.
+- Status: `implemented, verified, committed, and pushed`
+
+## Files changed
+- `docs/ops/ACTIVE_HANDOFF.md`
+- `projects/ela30-1-modern-drama/meta/project.json`
+- `projects/ela30-1-modern-drama/meta/reference-index.json`
+- `projects/ela30-1-modern-drama/meta/resource-catalog.json`
+- `projects/ela30-1-modern-drama/meta/section-map.json`
+- `projects/ela30-1-modern-drama/workspace/index.html`
+- `scripts/lib/ela-modern-drama.ts`
+- `scripts/tests/ela-modern-drama-frame.test.ts`
+
+## What changed
+- Film Room uses a dropdown selector with a separate Now Loaded panel.
+- Top-bar progress tracks lesson Mark Complete state.
+- Sidebar collapse control lives in the sidebar header.
+
+## Why this changed
+- The ELA Streetcar master frame needed the same Library/Film Room/progress pattern requested for future course reuse.
+
+## Source of truth
+- Canonical editable source: `projects/ela30-1-modern-drama/workspace/index.html`
+- Regeneration source: `scripts/lib/ela-modern-drama.ts`
+
+## Fragile areas / watchouts
+- Completion state is localStorage preview behavior only.
+- Generic iframe titles are normalized from lesson titles.
+- Forced rebuild rewrites generated timestamps in project metadata.
+
+## Next prompt should assume
+- Continue from `ela30-1-modern-drama` with Streetcar as the active unit.
+- Use the generator for future rebuilds instead of hand-patching generated HTML.
+
+## What still needs validation
+- Brightspace packaging/export is still a later step.
+
+## Known risks
+- Embedded YouTube videos remain network-dependent.
+
+## Exact next command
+`git status --short --branch`
+
+## Exact next file to open
+`projects/ela30-1-modern-drama/workspace/index.html`

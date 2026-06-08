@@ -295,7 +295,9 @@ test("buildWorkspaceHtml separates PDFs, videos, and external sources into dedic
 
   assert.match(html, /data-page-target="library"[\s\S]*>Library</);
   assert.match(html, /data-page-target="film-room"[\s\S]*>Film Room</);
-  assert.match(html, /const staticPages = \["overview","lessons","writing","readings","library","film-room","resources"\]/);
+  assert.doesNotMatch(html, /data-page-target="readings"/);
+  assert.doesNotMatch(html, /<section id="readings"/);
+  assert.match(html, /const staticPages = \["overview","lessons","writing","library","film-room","resources"\]/);
   assert.match(librarySection, /A-Streetcar-Named-Desire-questions\.pdf/);
   assert.match(librarySection, /Download PDF/);
   assert.match(filmRoomSection, /https:\/\/www\.youtube\.com\/embed\/abc123/);
@@ -350,13 +352,30 @@ test("buildWorkspaceHtml wires top-bar lesson progress and keeps collapse contro
   const header = html.match(/<header[\s\S]*?<\/header>/)?.[0] ?? "";
   const aside = html.match(/<aside[\s\S]*?<\/aside>/)?.[0] ?? "";
 
+  assert.match(header, /class="topbar-logo-link"/);
+  assert.match(header, /<img class="next-step-logo" src="assets\/brand\/nxt-ce-logo-white-with-ce\.png" alt="Next Step">/);
+  assert.match(html, /\.course-topbar \{[^}]*grid-template-columns: minmax\(0, 1fr\) auto minmax\(0, 1fr\)/);
+  assert.match(html, /\.topbar-logo-link \{[^}]*grid-column: 2;[^}]*justify-self: center;/);
+  assert.doesNotMatch(header, /theater_comedy/);
+  assert.doesNotMatch(header, /<span class="font-label-md text-label-md">ELA 30-1<\/span>/);
+  assert.doesNotMatch(html, /\.next-step-logo \{[^}]*background: #fff/);
+  assert.doesNotMatch(html, /\.next-step-logo \{[^}]*padding:/);
+  assert.doesNotMatch(header, /course-header-title/);
+  assert.doesNotMatch(header, /A Streetcar Named Desire/);
   assert.match(header, /top-progress-shell/);
   assert.match(header, /id="top-progress-fill"/);
   assert.match(header, /id="top-progress-count"/);
   assert.match(header, /id="top-progress-percent"/);
   assert.match(header, /aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"/);
+  assert.match(html, /\.top-progress-shell \{[^}]*position: absolute;[^}]*right: 24px;[^}]*top: 16px;/);
   assert.doesNotMatch(header, /id="sidebar-toggle"/);
   assert.match(aside, /id="sidebar-toggle"/);
+  assert.match(aside, /data-lessons-toggle aria-expanded="false" aria-controls="lesson-subnav"/);
+  assert.match(aside, /id="lesson-subnav" class="lesson-subnav/);
+  assert.match(html, /\.lesson-subnav \{ display: none; \}/);
+  assert.match(html, /\.lessons-nav\.is-open \.lesson-subnav \{ display: block; \}/);
+  assert.match(html, /function setLessonsOpen\(open\)/);
+  assert.match(html, /const lessonToggle = event\.target\.closest\("\[data-lessons-toggle\]"\);/);
   assert.match(html, /const totalLessons = 2;/);
   assert.match(html, /const progressPercent = totalLessons \? Math\.round\(\(complete\.size \/ totalLessons\) \* 100\) : 0;/);
   assert.match(html, /progressFill\.style\.width = `\$\{progressPercent\}%`;/);

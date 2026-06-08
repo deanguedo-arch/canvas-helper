@@ -1,4 +1,4 @@
-import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
+import { copyFile, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 import * as cheerio from "cheerio";
@@ -68,6 +68,15 @@ export type BuildElaModernDramaProjectOptions = {
 
 const DEFAULT_SLUG = "ela30-1-modern-drama";
 const COURSE_TITLE = "ELA 30-1";
+const NEXT_STEP_LOGO_WORKSPACE_HREF = "assets/brand/nxt-ce-logo-white-with-ce.png";
+const NEXT_STEP_LOGO_SOURCE_PATH = path.join(
+  repoRoot,
+  "docs",
+  "design",
+  "next-step",
+  "assets",
+  "nxt-ce-logo-white-with-ce.png"
+);
 const SOURCE_UNIT_TARGETS = [
   {
     canonicalTitle: "A Streetcar Named Desire",
@@ -710,7 +719,7 @@ function buildStyleGuide() {
 - Keep cards compact, readable, and export-safe for Brightspace integration.
 
 ## Interaction Notes
-- Hash routes drive Overview, Lessons, Writing Studio, Readings, Library, Film Room, and Resources.
+- Hash routes drive Overview, Lessons, Writing Studio, Library, Film Room, and Resources.
 - Library collects local PDFs/documents, Film Room collects normalized videos, and Resources is reserved for external non-video links.
 - Lesson completion uses localStorage for local preview only.
 - Sidebar collapse should not change the active route.
@@ -1061,12 +1070,11 @@ function renderSidebar(unit: ModernDramaUnit) {
     .join("\n");
   return `<nav class="flex-1 px-sm pb-lg space-y-1">
     <a class="course-nav-link active flex items-center gap-sm font-label-md text-label-md rounded-lg mx-2 px-4 py-3 transition-colors" href="#overview" data-page-target="overview"><span class="material-symbols-outlined" aria-hidden="true">dashboard</span><span class="sidebar-label">Overview</span></a>
-    <div class="lessons-nav">
-      <a class="course-nav-link flex items-center gap-sm font-label-md text-label-md rounded-lg mx-2 px-4 py-3 transition-colors" href="#lessons" data-page-target="lessons"><span class="material-symbols-outlined" aria-hidden="true">menu_book</span><span class="sidebar-label">Lessons</span></a>
-      <div class="lesson-subnav ml-12 mr-3 mt-1 space-y-1">${lessons}</div>
+    <div class="lessons-nav" data-lessons-nav>
+      <a class="course-nav-link lessons-toggle flex items-center gap-sm font-label-md text-label-md rounded-lg mx-2 px-4 py-3 transition-colors" href="#lessons" data-page-target="lessons" data-lessons-toggle aria-expanded="false" aria-controls="lesson-subnav"><span class="material-symbols-outlined" aria-hidden="true">menu_book</span><span class="sidebar-label">Lessons</span><span class="material-symbols-outlined lessons-toggle-icon ml-auto" aria-hidden="true">expand_more</span></a>
+      <div id="lesson-subnav" class="lesson-subnav ml-12 mr-3 mt-1 space-y-1">${lessons}</div>
     </div>
     <a class="course-nav-link flex items-center gap-sm font-label-md text-label-md rounded-lg mx-2 px-4 py-3 transition-colors" href="#writing" data-page-target="writing"><span class="material-symbols-outlined" aria-hidden="true">edit_note</span><span class="sidebar-label">Writing Studio</span></a>
-    <a class="course-nav-link flex items-center gap-sm font-label-md text-label-md rounded-lg mx-2 px-4 py-3 transition-colors" href="#readings" data-page-target="readings"><span class="material-symbols-outlined" aria-hidden="true">library_books</span><span class="sidebar-label">Readings</span></a>
     <a class="course-nav-link flex items-center gap-sm font-label-md text-label-md rounded-lg mx-2 px-4 py-3 transition-colors" href="#library" data-page-target="library"><span class="material-symbols-outlined" aria-hidden="true">local_library</span><span class="sidebar-label">Library</span></a>
     <a class="course-nav-link flex items-center gap-sm font-label-md text-label-md rounded-lg mx-2 px-4 py-3 transition-colors" href="#film-room" data-page-target="film-room"><span class="material-symbols-outlined" aria-hidden="true">live_tv</span><span class="sidebar-label">Film Room</span></a>
     <a class="course-nav-link flex items-center gap-sm font-label-md text-label-md rounded-lg mx-2 px-4 py-3 transition-colors" href="#resources" data-page-target="resources"><span class="material-symbols-outlined" aria-hidden="true">folder_open</span><span class="sidebar-label">Resources</span></a>
@@ -1167,27 +1175,30 @@ tailwind.config = {
 </script>
 <style>
 .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-.course-topbar { min-height: 104px; display: flex; align-items: center; justify-content: center; padding: 14px 24px; }
-.topbar-brand { position: absolute; left: 24px; top: 20px; display: flex; align-items: center; gap: 12px; }
-.topbar-center { width: min(760px, calc(100vw - 420px)); display: flex; flex-direction: column; align-items: center; gap: 10px; }
-.course-header-title { display: block; max-width: 100%; overflow: hidden; text-align: center; text-overflow: ellipsis; white-space: nowrap; }
-.top-progress-shell { width: min(100%, 720px); display: flex; flex-direction: column; gap: 6px; color: #e1e3e4; }
-.top-progress-meta { display: grid; grid-template-columns: 1fr auto auto; gap: 12px; align-items: center; font-family: "IBM Plex Sans"; font-size: 12px; line-height: 1.4; text-transform: uppercase; }
+.course-topbar { min-height: 72px; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; padding: 10px 24px; position: fixed; }
+.topbar-logo-link { grid-column: 2; display: inline-flex; min-height: 44px; align-items: center; justify-content: center; justify-self: center; }
+.next-step-logo { display: block; width: auto; max-width: 240px; height: 44px; object-fit: contain; }
+.top-progress-shell { position: absolute; right: 24px; top: 16px; width: min(320px, 30vw); display: flex; flex-direction: column; gap: 5px; color: #e1e3e4; }
+.top-progress-meta { display: grid; grid-template-columns: 1fr auto auto; gap: 8px; align-items: center; font-family: "IBM Plex Sans"; font-size: 11px; line-height: 1.4; text-transform: uppercase; }
 .top-progress-meta strong { color: #bcf0ae; }
-.top-progress-bar { height: 12px; border: 1px solid #2d5a27; border-radius: 8px; background: repeating-linear-gradient(45deg, rgba(188,240,174,0.12) 0 6px, rgba(188,240,174,0.04) 6px 12px), #0f1710; overflow: hidden; }
+.top-progress-bar { height: 10px; border: 1px solid #2d5a27; border-radius: 8px; background: repeating-linear-gradient(45deg, rgba(188,240,174,0.12) 0 6px, rgba(188,240,174,0.04) 6px 12px), #0f1710; overflow: hidden; }
 .top-progress-fill { width: 0%; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #bcf0ae, #2d5a27); transition: width 180ms ease; }
-.course-main { padding-top: 104px !important; }
+.course-main { padding-top: 72px !important; }
 .course-sidebar, .course-main, .sidebar-label { transition: width 180ms ease, margin-left 180ms ease, opacity 140ms ease; }
-.course-sidebar { top: 104px !important; }
+.course-sidebar { top: 72px !important; }
 .sidebar-header { position: relative; }
 .sidebar-toggle-button { position: absolute; top: 16px; right: 16px; min-height: 44px; min-width: 44px; display: inline-flex; align-items: center; justify-content: center; border-radius: 8px; color: #fff; }
 .sidebar-toggle-button:hover, .sidebar-toggle-button:focus-visible { background: rgba(255,255,255,0.1); outline: none; }
 .course-nav-link { color: #e1e3e4; }
 .course-nav-link:hover, .course-nav-link.active { background: rgba(255,255,255,0.1); color: #fff; }
+.lesson-subnav { display: none; }
+.lessons-nav.is-open .lesson-subnav { display: block; }
+.lessons-toggle-icon { font-size: 20px; transition: transform 160ms ease; }
+.lessons-nav.is-open .lessons-toggle-icon { transform: rotate(180deg); }
 .course-page[hidden], .lesson-detail-panel[hidden] { display: none !important; }
 body.sidebar-collapsed .course-sidebar { width: 80px; }
 body.sidebar-collapsed .course-main { margin-left: 80px; }
-body.sidebar-collapsed .sidebar-label, body.sidebar-collapsed .sidebar-title, body.sidebar-collapsed .sidebar-course-label, body.sidebar-collapsed .lesson-subnav { display: none; }
+body.sidebar-collapsed .sidebar-label, body.sidebar-collapsed .sidebar-title, body.sidebar-collapsed .sidebar-course-label, body.sidebar-collapsed .lesson-subnav, body.sidebar-collapsed .lessons-toggle-icon { display: none; }
 body.sidebar-collapsed .sidebar-header { display: flex; justify-content: center; padding: 16px 8px 12px; }
 body.sidebar-collapsed .sidebar-toggle-button { position: static; }
 body.sidebar-collapsed .course-nav-link { justify-content: center; }
@@ -1256,13 +1267,12 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 .completed-pill strong { color: #154212; }
 @media (max-width: 900px) {
   .course-sidebar { display: none; }
-  .course-main { margin-left: 0 !important; padding-top: 122px !important; }
-  .course-topbar { min-height: 122px; padding: 12px 16px; align-items: flex-start; }
-  .topbar-brand { position: static; width: 100%; justify-content: flex-start; }
-  .topbar-center { width: 100%; align-items: stretch; gap: 8px; }
-  .course-header-title { max-width: calc(100vw - 32px); text-align: left; font-size: 20px !important; line-height: 1.2 !important; }
-  .top-progress-meta { grid-template-columns: 1fr auto; }
-  .top-progress-percent { grid-column: 2; grid-row: 1; }
+  .course-main { margin-left: 0 !important; padding-top: 124px !important; }
+  .course-topbar { min-height: 124px; grid-template-columns: 1fr; grid-template-rows: auto auto; gap: 8px; padding: 10px 16px; }
+  .topbar-logo-link { grid-column: 1; justify-self: center; }
+  .next-step-logo { max-width: min(220px, calc(100vw - 32px)); height: 38px; }
+  .top-progress-shell { position: static; grid-column: 1 / -1; width: 100%; justify-self: stretch; }
+  .top-progress-meta { grid-template-columns: 1fr auto auto; }
   .lesson-layout { grid-template-columns: 1fr; }
   .source-content h1 { font-size: 24px; }
   .source-video-frame, .source-video-card .source-video-frame { min-height: 190px; }
@@ -1276,21 +1286,17 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 </head>
 <body class="bg-surface-container-lowest text-on-surface font-body-md min-h-screen">
 <header class="course-topbar bg-ink-dark text-white fixed top-0 w-full z-50">
-  <div class="topbar-brand">
-    <span class="material-symbols-outlined" aria-hidden="true">theater_comedy</span>
-    <span class="font-label-md text-label-md">${COURSE_TITLE}</span>
-  </div>
-  <div class="topbar-center">
-    <strong class="course-header-title font-headline-md text-headline-md">${escapeHtml(unit.title)}</strong>
-    <div class="top-progress-shell" aria-label="Course progress">
-      <div class="top-progress-meta">
-        <span>Course Progress</span>
-        <span><strong id="top-progress-count">0</strong> / ${totalLessons} Lessons</span>
-        <span id="top-progress-percent" class="top-progress-percent">0%</span>
-      </div>
-      <div id="top-progress-bar" class="top-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-        <div id="top-progress-fill" class="top-progress-fill"></div>
-      </div>
+  <a class="topbar-logo-link" href="#overview" data-page-target="overview" aria-label="Next Step home">
+    <img class="next-step-logo" src="${NEXT_STEP_LOGO_WORKSPACE_HREF}" alt="Next Step">
+  </a>
+  <div class="top-progress-shell" aria-label="Course progress">
+    <div class="top-progress-meta">
+      <span>Course Progress</span>
+      <span><strong id="top-progress-count">0</strong> / ${totalLessons} Lessons</span>
+      <span id="top-progress-percent" class="top-progress-percent">0%</span>
+    </div>
+    <div id="top-progress-bar" class="top-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <div id="top-progress-fill" class="top-progress-fill"></div>
     </div>
   </div>
 </header>
@@ -1362,17 +1368,6 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
       </div>
     </section>
 
-    <section id="readings" class="course-page" data-page="readings" hidden>
-      <div class="max-w-5xl">
-        <p class="font-label-md text-label-md text-secondary">${COURSE_TITLE} | Readings</p>
-        <h2 class="font-headline-lg text-headline-lg text-on-surface mt-xs mb-md">Core Text Path</h2>
-        <div class="bg-white border border-surface-muted rounded-lg p-lg source-content">
-          <p>The active reading path centers on <strong>${escapeHtml(unit.title)}</strong>. Keep the required text access policy local to your Brightspace course, then use this frame to hold reading launch notes, scene checkpoints, author research prompts, and writing supports.</p>
-          <p>External reading sources are collected in Resources, local PDFs are collected in Library, and imported videos are collected in Film Room.</p>
-        </div>
-      </div>
-    </section>
-
     <section id="library" class="course-page" data-page="library" hidden>
       <div class="max-w-6xl">
         <p class="font-label-md text-label-md text-secondary">${COURSE_TITLE} | Library</p>
@@ -1403,7 +1398,9 @@ const STORAGE_KEY = "canvas-helper:ela30-1-modern-drama:complete";
 const pages = Array.from(document.querySelectorAll(".course-page"));
 const lessonIds = ${JSON.stringify(unit.lessons.map((lesson) => lesson.id))};
 const totalLessons = ${totalLessons};
-const staticPages = ["overview","lessons","writing","readings","library","film-room","resources"];
+const staticPages = ["overview","lessons","writing","library","film-room","resources"];
+const lessonsNav = document.querySelector("[data-lessons-nav]");
+const lessonsToggle = document.querySelector("[data-lessons-toggle]");
 
 function readComplete() {
   try {
@@ -1444,23 +1441,49 @@ function showPage(pageName) {
   document.querySelectorAll(".course-nav-link").forEach((link) => {
     link.classList.toggle("active", link.getAttribute("data-page-target") === activeNavTarget);
   });
+  if (pageName !== "lessons" && !lessonIds.includes(pageName)) {
+    setLessonsOpen(false);
+  }
+}
+
+function setLessonsOpen(open) {
+  lessonsNav?.classList.toggle("is-open", open);
+  lessonsToggle?.setAttribute("aria-expanded", String(open));
 }
 
 function route() {
   const hash = (window.location.hash || "#overview").slice(1);
   if ([...staticPages, ...lessonIds].includes(hash)) {
     showPage(hash);
+    if (hash === "lessons" || lessonIds.includes(hash)) {
+      setLessonsOpen(true);
+    }
     return;
   }
   showPage("overview");
 }
 
 document.addEventListener("click", (event) => {
+  const lessonToggle = event.target.closest("[data-lessons-toggle]");
+  if (lessonToggle) {
+    event.preventDefault();
+    const nextOpen = !lessonsNav?.classList.contains("is-open");
+    if (nextOpen) {
+      history.pushState(null, "", "#lessons");
+      showPage("lessons");
+    }
+    setLessonsOpen(nextOpen);
+    return;
+  }
+
   const target = event.target.closest("[data-page-target]");
   if (target) {
     const pageTarget = target.getAttribute("data-page-target");
     if (pageTarget) {
       showPage(pageTarget);
+      if (pageTarget === "lessons" || lessonIds.includes(pageTarget)) {
+        setLessonsOpen(true);
+      }
     }
   }
   const libraryTarget = event.target.closest("[data-library-doc-target]");
@@ -1568,6 +1591,13 @@ async function copyUnitSources(zip: JSZip, unit: ModernDramaUnit, slug: string) 
   }
 }
 
+async function copyBrandAssets(slug: string) {
+  const paths = getProjectPaths(slug);
+  const destinationPath = path.join(paths.workspaceDir, ...NEXT_STEP_LOGO_WORKSPACE_HREF.split("/"));
+  await ensureDir(path.dirname(destinationPath));
+  await copyFile(NEXT_STEP_LOGO_SOURCE_PATH, destinationPath);
+}
+
 function lessonDocumentAlreadyCopied(unit: ModernDramaUnit, zipPath: string) {
   return unit.lessons.some((lesson) => lesson.document?.zipPath === zipPath);
 }
@@ -1581,7 +1611,6 @@ async function writeSectionMap(slug: string, unit: ModernDramaUnit) {
       { id: "overview", title: "Overview", role: "landing" },
       { id: "lessons", title: "Lessons", role: "lesson-library" },
       { id: "writing", title: "Writing Studio", role: "writing-support" },
-      { id: "readings", title: "Readings", role: "reading-support" },
       { id: "library", title: "Library", role: "document-library" },
       { id: "film-room", title: "Film Room", role: "video-library" },
       { id: "resources", title: "Resources", role: "external-resource-library" },
@@ -1625,6 +1654,7 @@ export async function buildElaModernDramaProject(options: BuildElaModernDramaPro
   await mkdir(paths.resourceDir, { recursive: true });
   await writeTextFile(paths.rawEntrypoint, buildSourceIndexHtml(unit));
   await writeTextFile(paths.workspaceEntrypoint, buildWorkspaceHtml(unit));
+  await copyBrandAssets(slug);
   await copyUnitSources(zip, unit, slug);
 
   await writeJsonFile(paths.manifestPath, buildProjectManifest({ slug, zipPath: options.zipPath, generatedAt }));

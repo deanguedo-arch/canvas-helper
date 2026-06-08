@@ -1,80 +1,66 @@
 # Handoff
 
 - Project: `ela30-1-modern-drama`
-- Task: Add Film Room dropdown behavior, top-bar lesson progress, and sidebar-local collapse control.
-- Status: `Implemented and verified, pending commit`
-
-## Summary
-The ELA 30-1 Streetcar frame now has the requested Film Room dropdown behavior and a completion-linked top progress bar. The video stage remains on the left; the right Film Room controller has a labeled playlist `<select>` plus a separate `Now loaded` panel. The fixed top bar now includes a styled course progress track that updates when lesson `Mark Complete` buttons are used. The sidebar collapse button has been moved from the fixed top bar into the sidebar header.
-
-Preview:
-`http://127.0.0.1:5174/preview/workspace/ela30-1-modern-drama/index.html#film-room`
+- Task: Remove duplicate Readings section and center the white Next Step CE topbar logo.
+- Status: `implemented and verified, pending commit`
 
 ## Files changed
+- `.stax/task.md`
 - `docs/ops/ACTIVE_HANDOFF.md`
+- `docs/ops/ARCHIVED_HANDOFFS.md`
+- `docs/design/next-step/assets/nxt-ce-logo-white-with-ce.png`
 - `projects/ela30-1-modern-drama/meta/project.json`
 - `projects/ela30-1-modern-drama/meta/reference-index.json`
 - `projects/ela30-1-modern-drama/meta/resource-catalog.json`
 - `projects/ela30-1-modern-drama/meta/section-map.json`
 - `projects/ela30-1-modern-drama/workspace/index.html`
+- `projects/ela30-1-modern-drama/workspace/assets/brand/nxt-ce-logo-white-with-ce.png`
 - `scripts/lib/ela-modern-drama.ts`
 - `scripts/tests/ela-modern-drama-frame.test.ts`
 
-## Verification run
-- `npx tsx --test scripts/tests/ela-modern-drama-frame.test.ts`
-  - exit 1 first for missing Film Room dropdown
-  - exit 1 again for generic video title fallback
-  - exit 1 again for missing top progress/sidebar placement
-  - exit 0 after implementation
-  - 7 tests passed
-- `npx tsx scripts/build-ela-modern-drama.ts --zip "C:\Users\dean.guedo\Downloads\D2LExport_6670_CBE System ELA 30-1 (Winter 2020)_20266815.zip" --slug ela30-1-modern-drama --force`
-  - exit 0
-  - rebuilt 25 Streetcar lessons
-- Generated HTML structural checks
-  - exit 0
-  - Film Room has 1 select, 5 options, 5 video panels, 5 now-loaded panels, no playlist buttons, and lesson-title labels
-  - Header has progress fill/count/percent and no sidebar toggle
-  - Sidebar has the collapse toggle
-- `npm run verify -- --project ela30-1-modern-drama --mode workspace`
-  - exit 0
-  - metadata policy passed
-  - no missing local assets or workspace embeds
-  - expected external dependency warnings remain for Tailwind CDN and Google fonts/icons
-- `npm run typecheck`
-  - exit 0
-- `npm run build:studio`
-  - exit 0
-- Playwright local preview checks
-  - exit 0
-  - Film dropdown switches to Lesson 11 and updates visible iframe/metadata/count
-  - Top progress starts at 0%, changes to 4% after one of 25 lessons is marked complete, updates fill width and ARIA value
-  - Sidebar toggle collapses from the sidebar header
-  - Mobile top progress has no horizontal overflow
+## What changed
+- Removed the Readings sidebar link from the generated ELA shell.
+- Removed the generated `#readings` route and static route allow-list entry.
+- Removed the Readings entry from `meta/section-map.json`.
+- Restored the centered white Next Step CE logo in the fixed topbar.
+- Moved the completion-linked progress control into the top-right corner.
+- Removed the centered unit-title/progress stack from the topbar.
+- Kept Library, Film Room, Resources, lessons, progress, and sidebar collapse behavior intact.
 
-## Known risks / follow-up
-- This is still a master working HTML frame, not a finished Brightspace export package.
-- Source iframe titles in the export are generic, so the generator uses the source lesson title for dropdown labels.
-- Embedded YouTube videos remain network-dependent.
-- Lesson completion is localStorage preview behavior, not Brightspace gradebook persistence.
-- Project has no `meta/e2e-contract.json`; browser verification used focused Playwright scripts.
+## Why this changed
+- The PDF/document workflow now belongs in Library, so a separate Readings section duplicated navigation without adding a distinct use.
+- The topbar needed to match the requested Next Step branded course shell instead of using the unit title or a left-aligned logo as the topbar anchor.
 
-## Source-of-truth location
+## Source of truth
 - Canonical editable source: `projects/ela30-1-modern-drama/workspace/index.html`
 - Regeneration source: `scripts/lib/ela-modern-drama.ts`
+- Current source ZIP: `C:\Users\dean.guedo\Downloads\D2LExport_6670_CBE System ELA 30-1 (Winter 2020)_20266815.zip`
 
-## Fragile areas / what might drift
-- The Streetcar source branch still depends on `RES_CONTENT_3544` and the source typo alias `A Steetcar Named Desire`.
-- Generic video titles are intentionally replaced with the source lesson title in the Film Room catalog.
-- Progress math is tied to `lessonIds.length` and localStorage key `canvas-helper:ela30-1-modern-drama:complete`.
+## Fragile areas / watchouts
+- A stale `#readings` hash intentionally falls back to Overview because the route no longer exists.
+- The centered logo asset is copied from `docs/design/next-step/assets/nxt-ce-logo-white-with-ce.png` during regeneration.
 - Forced rebuild rewrites generated timestamps in project metadata.
+- STAX observer status may remain Reject because of stale historical sidecar proof unrelated to this focused ELA change.
 
-## Next prompt assumptions
-- Continue from `ela30-1-modern-drama` with Streetcar as the active unit content.
-- Keep the Film Room dropdown and top progress bar as the default pattern for this master frame.
-- Use the generator for future rebuilds rather than hand-patching generated HTML.
+## Next prompt should assume
+- Continue from `ela30-1-modern-drama` with Streetcar as the active unit.
+- Use the generator for future rebuilds rather than hand-patching generated workspace HTML.
+- Library is the canonical PDF/document section.
+- Topbar center is the white Next Step CE logo; the unit title remains in the sidebar and page content, not the fixed header center.
+
+## What still needs validation
+- Brightspace packaging/export is still a later step.
+
+## Known risks
+- Embedded YouTube videos remain network-dependent.
+- Lesson completion remains localStorage preview behavior, not Brightspace gradebook persistence.
 
 ## Exact next command
 `git status --short --branch`
 
 ## Exact next file to open
-`projects/ela30-1-modern-drama/workspace/index.html`
+`scripts/lib/ela-modern-drama.ts`
+
+## Do not do next / warnings
+- Do not wire in the other ELA units until explicitly requested.
+- Do not stage unrelated untracked Forensics static-module files.
