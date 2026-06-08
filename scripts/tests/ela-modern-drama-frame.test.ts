@@ -95,6 +95,69 @@ test("extractModernDramaUnit reads the manifest sequence and lesson content", as
   assert.match(unit.lessons[1].contentHtml, /source-video-frame/);
 });
 
+test("extractModernDramaUnit imports the Streetcar branch including scenes and PDF lessons", async () => {
+  const zip = new JSZip();
+  zip.file(
+    "imsmanifest.xml",
+    `<?xml version="1.0" encoding="utf-8"?>
+    <manifest xmlns="http://www.imsglobal.org/xsd/imscp_v1p1">
+      <organizations>
+        <organization>
+          <item identifierref="RES_CONTENT_3544">
+            <title>A Steetcar Named Desire</title>
+            <item identifierref="RES_CONTENT_3545"><title>A Streetcar Named Desire - Introduction</title></item>
+            <item identifierref="RES_CONTENT_3546"><title>Lesson 1: Tennessee Williams</title></item>
+            <item identifierref="RES_CONTENT_3549"><title>Lesson 4: A Streetcar Named Desire questions</title></item>
+            <item identifierref="RES_CONTENT_3557">
+              <title>Scene Overviews</title>
+              <item identifierref="RES_CONTENT_3558"><title>Scene 1 Overview</title></item>
+            </item>
+          </item>
+        </organization>
+      </organizations>
+      <resources>
+        <resource identifier="RES_CONTENT_3544" type="webcontent" />
+        <resource identifier="RES_CONTENT_3545" type="webcontent" href="streetcar_named_desire\\a_streetcar_named_desire_unit_intro.html" />
+        <resource identifier="RES_CONTENT_3546" type="webcontent" href="streetcar_named_desire\\Tennessee Williams.html" />
+        <resource identifier="RES_CONTENT_3549" type="webcontent" href="streetcar_named_desire\\assets\\A Streetcar Named Desire questions.pdf" />
+        <resource identifier="RES_CONTENT_3557" type="webcontent" />
+        <resource identifier="RES_CONTENT_3558" type="webcontent" href="streetcar_named_desire\\Scene 1 Overview.html" />
+      </resources>
+    </manifest>`
+  );
+  zip.file(
+    "streetcar_named_desire/a_streetcar_named_desire_unit_intro.html",
+    utf16Html(`<!doctype html><html><body><h1>Streetcar Introduction</h1><p>Begin studying the play.</p></body></html>`)
+  );
+  zip.file(
+    "streetcar_named_desire/Tennessee Williams.html",
+    utf16Html(`<!doctype html><html><body><h1>Tennessee Williams</h1><p>Learn about the playwright.</p><img src="images/tennessee_williams_pjoto.jpg" alt="Tennessee Williams" /></body></html>`)
+  );
+  zip.file(
+    "streetcar_named_desire/Scene 1 Overview.html",
+    utf16Html(`<!doctype html><html><body><h1>Scene 1 Overview</h1><p>Blanche arrives in New Orleans.</p></body></html>`)
+  );
+  zip.file("streetcar_named_desire/assets/A Streetcar Named Desire questions.pdf", "%PDF-1.4");
+  zip.file("streetcar_named_desire/images/tennessee_williams_pjoto.jpg", "image-bytes");
+
+  const unit = await extractModernDramaUnit(await zip.generateAsync({ type: "nodebuffer" }));
+
+  assert.equal(unit.title, "A Streetcar Named Desire");
+  assert.deepEqual(
+    unit.lessons.map((lesson) => lesson.title),
+    [
+      "A Streetcar Named Desire - Introduction",
+      "Lesson 1: Tennessee Williams",
+      "Lesson 4: A Streetcar Named Desire questions",
+      "Scene 1 Overview"
+    ]
+  );
+  assert.equal(unit.lessons[1].images[0]?.zipPath, "streetcar_named_desire/images/tennessee_williams_pjoto.jpg");
+  assert.equal(unit.lessons[2].sourceKind, "pdf");
+  assert.match(unit.lessons[2].contentHtml, /source-document-frame/);
+  assert.match(unit.lessons[2].contentHtml, /assets\/source\/A-Streetcar-Named-Desire-questions\.pdf/);
+});
+
 test("buildWorkspaceHtml keeps the lesson library separate from individual lesson pages", () => {
   const html = buildWorkspaceHtml({
     title: "Modern Drama",
@@ -104,6 +167,7 @@ test("buildWorkspaceHtml keeps the lesson library separate from individual lesso
         id: "lesson-one",
         sequence: 1,
         title: "Lesson One",
+        sourceKind: "html",
         sourceHref: "modern_drama/lesson-one.html",
         contentHtml: "<h1>Lesson One</h1><p>Full lesson content.</p>",
         text: "Lesson One Full lesson content.",
@@ -115,6 +179,7 @@ test("buildWorkspaceHtml keeps the lesson library separate from individual lesso
         id: "lesson-two",
         sequence: 2,
         title: "Lesson Two",
+        sourceKind: "html",
         sourceHref: "modern_drama/lesson-two.html",
         contentHtml: "<h1>Lesson Two</h1><p>Second full lesson content.</p>",
         text: "Lesson Two Second full lesson content.",

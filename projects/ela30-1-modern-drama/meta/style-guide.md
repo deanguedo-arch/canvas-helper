@@ -7,7 +7,7 @@
 
 ## Visual Signals
 - Preserve the FinLit dark sidebar, fixed top bar, white content canvas, and green accent system.
-- Use drama imagery only where it clarifies the unit; avoid decorative filler.
+- Use source imagery only where it clarifies the active unit; avoid decorative filler.
 - Keep cards compact, readable, and export-safe for Brightspace integration.
 
 ## Interaction Notes

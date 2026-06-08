@@ -21,6 +21,7 @@ export type ModernDramaLink = {
   href: string;
   kind: "external" | "local";
   workspaceHref: string;
+  zipPath?: string;
 };
 
 export type ModernDramaVideo = {
@@ -30,16 +31,27 @@ export type ModernDramaVideo = {
   origin: "iframe" | "link";
 };
 
+export type ModernDramaSourceKind = "html" | "pdf" | "other";
+
+export type ModernDramaDocument = {
+  title: string;
+  zipPath: string;
+  workspaceHref: string;
+  kind: Exclude<ModernDramaSourceKind, "html">;
+};
+
 export type ModernDramaLesson = {
   id: string;
   sequence: number;
   title: string;
+  sourceKind: ModernDramaSourceKind;
   sourceHref: string;
   contentHtml: string;
   text: string;
   images: ModernDramaImage[];
   videos: ModernDramaVideo[];
   links: ModernDramaLink[];
+  document?: ModernDramaDocument;
 };
 
 export type ModernDramaUnit = {
@@ -56,8 +68,18 @@ export type BuildElaModernDramaProjectOptions = {
 
 const DEFAULT_SLUG = "ela30-1-modern-drama";
 const COURSE_TITLE = "ELA 30-1";
-const SOURCE_UNIT_TITLE = "Modern Drama";
-const ACTIVE_UNIT_IDENTIFIER = "RES_CONTENT_3535";
+const SOURCE_UNIT_TARGETS = [
+  {
+    canonicalTitle: "A Streetcar Named Desire",
+    titleAliases: ["A Streetcar Named Desire", "A Steetcar Named Desire"],
+    identifier: "RES_CONTENT_3544"
+  },
+  {
+    canonicalTitle: "Modern Drama",
+    titleAliases: ["Modern Drama"],
+    identifier: "RES_CONTENT_3535"
+  }
+];
 
 function normalizeWhitespace(value: string) {
   return value.replace(/\s+/g, " ").trim();
@@ -145,6 +167,27 @@ function toLocalResourceFileName(zipPath: string) {
   return `${base || "resource"}.html`;
 }
 
+function sourceKindForPath(zipPath: string): ModernDramaSourceKind {
+  const extension = path.posix.extname(zipPath).toLowerCase();
+  if (extension === ".html" || extension === ".htm") {
+    return "html";
+  }
+  if (extension === ".pdf") {
+    return "pdf";
+  }
+  return "other";
+}
+
+function sourceRootForPath(zipPath: string) {
+  return normalizeZipPath(zipPath).split("/").filter(Boolean)[0] ?? "";
+}
+
+function workspaceHrefForLocalResource(zipPath: string) {
+  return sourceKindForPath(zipPath) === "html"
+    ? `./resources/${toLocalResourceFileName(zipPath)}`
+    : `./assets/source/${toSafeFileName(zipPath)}`;
+}
+
 function firstExistingPath(candidates: string[], zipEntries: Set<string>) {
   for (const candidate of candidates) {
     const normalized = normalizeZipPath(candidate);
@@ -176,10 +219,11 @@ export function resolveModernDramaAssetPath(input: {
   }
 
   const lessonDir = path.posix.dirname(normalizeZipPath(input.lessonHref));
+  const sourceRoot = sourceRootForPath(input.lessonHref);
   const candidates = [
     decoded,
     path.posix.join(lessonDir, decoded),
-    decoded.includes("modern_drama/") ? decoded.slice(decoded.lastIndexOf("modern_drama/")) : ""
+    sourceRoot && decoded.includes(`${sourceRoot}/`) ? decoded.slice(decoded.lastIndexOf(`${sourceRoot}/`)) : ""
   ].filter(Boolean);
 
   const directMatch = firstExistingPath(candidates, input.zipEntries);
@@ -190,7 +234,7 @@ export function resolveModernDramaAssetPath(input: {
   const basename = path.posix.basename(decoded).toLowerCase();
   return (
     [...input.zipEntries].find((entry) => {
-      return entry.startsWith("modern_drama/") && path.posix.basename(entry).toLowerCase() === basename;
+      return (!sourceRoot || entry.startsWith(`${sourceRoot}/`)) && path.posix.basename(entry).toLowerCase() === basename;
     }) ?? null
   );
 }
@@ -306,11 +350,11 @@ function cleanSourceContentHtml(html: string, lessonHref: string, zipEntries: Se
 
     const localPath = resolveLocalHtmlPath({ lessonHref, rawHref: href, zipEntries });
     if (localPath) {
-      const workspaceHref = `./resources/${toLocalResourceFileName(localPath)}`;
+      const workspaceHref = workspaceHrefForLocalResource(localPath);
       link.attr("href", workspaceHref);
       link.attr("target", "_blank");
       link.attr("rel", "noopener noreferrer");
-      links.push({ text, href, kind: "local", workspaceHref });
+      links.push({ text, href, kind: "local", workspaceHref, zipPath: localPath });
       return;
     }
 
@@ -335,7 +379,8 @@ function cleanSourceContentHtml(html: string, lessonHref: string, zipEntries: Se
     text: extractHtmlText($, contentRoot),
     images,
     videos: uniqueBy(videos, (video) => video.embedSrc),
-    links
+    links,
+    document: undefined
   };
 }
 
@@ -371,6 +416,80 @@ function getResourceMap($: cheerio.CheerioAPI) {
   return resources;
 }
 
+function findSourceUnit($: cheerio.CheerioAPI) {
+  for (const target of SOURCE_UNIT_TARGETS) {
+    let matchedItem: Element | null = null;
+    $("item").each((_, element) => {
+      const title = directChildText($, element, "title");
+      const identifierRef = $(element).attr("identifierref") ?? "";
+      const hasMatchingTitle = target.titleAliases.some((alias) => normalizeWhitespace(alias).toLowerCase() === title.toLowerCase());
+      if (hasMatchingTitle || identifierRef === target.identifier) {
+        matchedItem = element;
+        return false;
+      }
+      return undefined;
+    });
+
+    if (matchedItem) {
+      return { item: matchedItem, target };
+    }
+  }
+
+  return null;
+}
+
+function sourceLessonItems($: cheerio.CheerioAPI, parentItem: Element, resources: Map<string, string>) {
+  const items: Element[] = [];
+  const visit = (item: Element) => {
+    $(item).children("item").each((_, child) => {
+      const childElement = child as Element;
+      const identifier = $(childElement).attr("identifierref") ?? "";
+      if (resources.has(identifier)) {
+        items.push(childElement);
+      }
+      visit(childElement);
+    });
+  };
+  visit(parentItem);
+  return items;
+}
+
+function buildDocumentLesson(title: string, sourceHref: string, sourceKind: Exclude<ModernDramaSourceKind, "html">) {
+  const workspaceHref = `./assets/source/${toSafeFileName(sourceHref)}`;
+  const label = sourceKind === "pdf" ? "PDF" : "source document";
+  const linkText = `Open ${title}`;
+  const document: ModernDramaDocument = {
+    title,
+    zipPath: sourceHref,
+    workspaceHref,
+    kind: sourceKind
+  };
+  const frameMarkup =
+    sourceKind === "pdf"
+      ? `<iframe class="source-document-frame" src="${escapeHtml(workspaceHref)}" title="${escapeHtml(title)}"></iframe>`
+      : "";
+
+  return {
+    contentHtml: `<h1>${escapeHtml(title)}</h1>
+<p>This source item is provided as a local ${label} from the Brightspace export.</p>
+<p><a class="source-link" href="${escapeHtml(workspaceHref)}" target="_blank" rel="noopener noreferrer">${escapeHtml(linkText)}</a></p>
+${frameMarkup}`,
+    text: `${title} Local ${label}: ${sourceHref}`,
+    images: [] as ModernDramaImage[],
+    videos: [] as ModernDramaVideo[],
+    links: [
+      {
+        text: linkText,
+        href: sourceHref,
+        kind: "local" as const,
+        workspaceHref,
+        zipPath: sourceHref
+      }
+    ],
+    document
+  };
+}
+
 export async function extractModernDramaUnit(zipBuffer: Buffer | Uint8Array): Promise<ModernDramaUnit> {
   const zip = await JSZip.loadAsync(zipBuffer);
   const zipEntries = new Set(
@@ -382,46 +501,42 @@ export async function extractModernDramaUnit(zipBuffer: Buffer | Uint8Array): Pr
   const $ = cheerio.load(manifest, { xmlMode: true });
   const resources = getResourceMap($);
 
-  let modernDramaItem: Element | null = null;
-  $("item").each((_, element) => {
-    const title = directChildText($, element, "title");
-    if (title === SOURCE_UNIT_TITLE || $(element).attr("identifierref") === ACTIVE_UNIT_IDENTIFIER) {
-      modernDramaItem = element;
-      return false;
-    }
-    return undefined;
-  });
-
-  if (!modernDramaItem) {
-    throw new Error("Could not find Modern Drama item in imsmanifest.xml.");
+  const sourceUnit = findSourceUnit($);
+  if (!sourceUnit) {
+    throw new Error("Could not find Streetcar or Modern Drama item in imsmanifest.xml.");
   }
 
   const lessons: ModernDramaLesson[] = [];
-  for (const [index, element] of $(modernDramaItem).children("item").toArray().entries()) {
+  for (const [index, element] of sourceLessonItems($, sourceUnit.item, resources).entries()) {
     const identifier = $(element).attr("identifierref") ?? "";
     const sourceHref = resources.get(identifier);
     if (!sourceHref) {
       continue;
     }
-    const sourceHtml = await readZipText(zip, sourceHref);
     const title = directChildText($, element, "title") || `Lesson ${index + 1}`;
-    const cleaned = cleanSourceContentHtml(sourceHtml, sourceHref, zipEntries);
+    const sourceKind = sourceKindForPath(sourceHref);
+    const cleaned =
+      sourceKind === "html"
+        ? cleanSourceContentHtml(await readZipText(zip, sourceHref), sourceHref, zipEntries)
+        : buildDocumentLesson(title, sourceHref, sourceKind);
     lessons.push({
       id: toSafeId(title),
       sequence: index + 1,
       title,
+      sourceKind,
       sourceHref,
       contentHtml: cleaned.contentHtml,
       text: cleaned.text,
       images: cleaned.images,
       videos: cleaned.videos,
-      links: cleaned.links
+      links: cleaned.links,
+      document: cleaned.document
     });
   }
 
   const localResources = lessons.flatMap((lesson) => lesson.links.filter((link) => link.kind === "local"));
   return {
-    title: directChildText($, modernDramaItem, "title") || SOURCE_UNIT_TITLE,
+    title: sourceUnit.target.canonicalTitle,
     lessons,
     localResources
   };
@@ -491,7 +606,7 @@ function buildStyleGuide() {
 
 ## Visual Signals
 - Preserve the FinLit dark sidebar, fixed top bar, white content canvas, and green accent system.
-- Use drama imagery only where it clarifies the unit; avoid decorative filler.
+- Use source imagery only where it clarifies the active unit; avoid decorative filler.
 - Keep cards compact, readable, and export-safe for Brightspace integration.
 
 ## Interaction Notes
@@ -527,6 +642,7 @@ function buildImportLog(zipPath: string, unit: ModernDramaUnit) {
 - Active manifest unit: ${unit.title}
 - Lessons imported: ${unit.lessons.length}
 - Local source images copied into workspace/assets/source.
+- Local source documents copied into workspace/assets/source.
 - YouTube iframes and links normalized into embedded video surfaces where present.
 - Local supplementary HTML links copied into workspace/resources.
 - Source HTML encoding: UTF-16 Brightspace HTML decoded during generation.
@@ -538,11 +654,11 @@ function buildReferenceIndex(slug: string, unit: ModernDramaUnit) {
     id: toSafeId(lesson.title),
     originalPath: lesson.sourceHref,
     projectId: slug,
-    kind: "html" as ReferenceKind,
+    kind: lesson.sourceKind as ReferenceKind,
     relativePath: lesson.sourceHref,
     titleGuess: lesson.title,
-    extractionStatus: "indexed" as const,
-    extractionMethod: "native" as const,
+    extractionStatus: lesson.sourceKind === "html" ? "indexed" as const : "stored-only" as const,
+    extractionMethod: lesson.sourceKind === "html" ? "native" as const : undefined,
     extractedTextPath: path.join(getProjectPaths(slug).resourceExtractedDir, `${toSafeId(lesson.title)}.txt`),
     sectionLabels: [lesson.title]
   }));
@@ -559,13 +675,13 @@ function buildResourceCatalog(slug: string, unit: ModernDramaUnit): { generatedA
   const resources: ResourceCatalogEntry[] = unit.lessons.map((lesson) => ({
     id: toSafeId(lesson.title),
     projectId: slug,
-    kind: "html",
+    kind: lesson.sourceKind,
     relativePath: lesson.sourceHref,
     absolutePath: path.join(getProjectPaths(slug).resourceDir, ...lesson.sourceHref.split("/")),
     originalPath: lesson.sourceHref,
     titleGuess: lesson.title,
-    extractionStatus: "indexed",
-    extractionMethod: "native",
+    extractionStatus: lesson.sourceKind === "html" ? "indexed" : "stored-only",
+    extractionMethod: lesson.sourceKind === "html" ? "native" : undefined,
     extractedTextPath: path.join(getProjectPaths(slug).resourceExtractedDir, `${toSafeId(lesson.title)}.txt`),
     extractionIssue: undefined,
     chunkCount: 1,
@@ -624,7 +740,7 @@ function buildProjectManifest(options: {
       sourceSystem: "brightspace",
       sourcePath: options.zipPath,
       importedAt: options.generatedAt,
-      notes: "D2L/Brightspace Modern Drama unit extracted into a FinLit-style master lesson frame."
+      notes: "D2L/Brightspace Streetcar unit extracted into a FinLit-style master lesson frame."
     },
     exportTargets: [
       {
@@ -778,7 +894,7 @@ export function buildWorkspaceHtml(unit: ModernDramaUnit) {
   const totalLessons = unit.lessons.length;
   const mainImage = firstUnitImage(unit);
   const imageMarkup = mainImage
-    ? `<img alt="Modern drama visual reference" class="w-full h-full object-cover" src="${mainImage}">`
+    ? `<img alt="${escapeHtml(unit.title)} visual reference" class="w-full h-full object-cover" src="${mainImage}">`
     : `<div class="w-full h-full bg-primary-container"></div>`;
 
   return `<!DOCTYPE html>
@@ -845,6 +961,7 @@ tailwind.config = {
 </script>
 <style>
 .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+.course-header-title { display: block; max-width: min(70vw, 760px); overflow: hidden; text-align: center; text-overflow: ellipsis; white-space: nowrap; }
 .course-sidebar, .course-main, .sidebar-label { transition: width 180ms ease, margin-left 180ms ease, opacity 140ms ease; }
 .course-nav-link { color: #e1e3e4; }
 .course-nav-link:hover, .course-nav-link.active { background: rgba(255,255,255,0.1); color: #fff; }
@@ -864,6 +981,7 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 .source-content a, .source-link { color: #154212; text-decoration: underline; text-underline-offset: 3px; }
 .source-image { display: block; width: min(100%, 680px); max-height: 360px; object-fit: cover; border-radius: 8px; border: 1px solid #e1e3e4; margin: 18px 0; }
 .source-video-frame { display: block; width: min(100%, 760px); aspect-ratio: 16 / 9; min-height: 220px; height: auto; border: 1px solid #d9dadb; border-radius: 8px; background: #000; margin: 18px 0; }
+.source-document-frame { display: block; width: min(100%, 760px); height: 620px; border: 1px solid #d9dadb; border-radius: 8px; background: #fff; margin: 18px 0; }
 .embedded-video-section { margin-top: 24px; max-width: 760px; }
 .source-video-card { border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; padding: 12px; }
 .source-video-card .source-video-frame { width: 100%; margin: 0; min-height: 220px; }
@@ -880,6 +998,7 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 @media (max-width: 900px) {
   .course-sidebar { display: none; }
   .course-main { margin-left: 0 !important; }
+  .course-header-title { max-width: calc(100vw - 150px); font-size: 20px !important; line-height: 1.2 !important; }
   .lesson-layout { grid-template-columns: 1fr; }
   .source-content h1 { font-size: 24px; }
   .source-video-frame, .source-video-card .source-video-frame { min-height: 190px; }
@@ -892,7 +1011,7 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
     <span class="material-symbols-outlined" aria-hidden="true">theater_comedy</span>
     <span class="font-label-md text-label-md">${COURSE_TITLE}</span>
   </div>
-  <strong class="font-headline-md text-headline-md">${escapeHtml(unit.title)}</strong>
+  <strong class="course-header-title font-headline-md text-headline-md">${escapeHtml(unit.title)}</strong>
   <button id="sidebar-toggle" class="absolute right-4 hidden md:inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/40" type="button" aria-label="Toggle sidebar">
     <span class="material-symbols-outlined" aria-hidden="true">dock_to_left</span>
   </button>
@@ -912,7 +1031,7 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
           <div class="mb-lg">
             <p class="font-label-md text-label-md text-secondary">${COURSE_TITLE} | Unit Frame</p>
             <h2 class="font-display-lg text-display-lg text-on-surface mt-xs mb-sm">${escapeHtml(unit.title)}</h2>
-            <p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">A Brightspace-ready master lesson frame for the Modern Drama unit. The original lesson sequence is preserved, while navigation, completion state, source links, and writing support are organized into a reusable course surface.</p>
+            <p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">A Brightspace-ready master lesson frame for ${escapeHtml(unit.title)}. The original lesson sequence is preserved, while navigation, completion state, source links, and writing support are organized into a reusable course surface.</p>
           </div>
           <div class="flex flex-wrap gap-sm mb-lg">
             <span class="completed-pill"><strong id="complete-count">0</strong>/${totalLessons} lessons complete</span>
@@ -932,7 +1051,7 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
     <section id="lessons" class="course-page" data-page="lessons" hidden>
       <div class="mb-lg">
         <p class="font-label-md text-label-md text-secondary">${COURSE_TITLE} | Lessons</p>
-        <h2 class="font-headline-lg text-headline-lg text-on-surface mt-xs">Modern Drama Lesson Sequence</h2>
+        <h2 class="font-headline-lg text-headline-lg text-on-surface mt-xs">${escapeHtml(unit.title)} Lesson Sequence</h2>
       </div>
       <div class="grid grid-cols-1 lg:grid-cols-4 gap-md mb-lg">
         ${renderLessonCards(unit)}
@@ -967,7 +1086,7 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
         <p class="font-label-md text-label-md text-secondary">${COURSE_TITLE} | Readings</p>
         <h2 class="font-headline-lg text-headline-lg text-on-surface mt-xs mb-md">Core Text Path</h2>
         <div class="bg-white border border-surface-muted rounded-lg p-lg source-content">
-          <p>The unit points learners toward three drama study paths: <strong>A Streetcar Named Desire</strong>, <strong>Death of a Salesman</strong>, and <strong>A Doll's House</strong>. Keep the required text access policy local to your Brightspace course, then use this frame to hold the reading launch notes, author research prompts, and writing supports.</p>
+          <p>The active reading path centers on <strong>${escapeHtml(unit.title)}</strong>. Keep the required text access policy local to your Brightspace course, then use this frame to hold reading launch notes, scene checkpoints, author research prompts, and writing supports.</p>
           <p>The source links captured from the D2L export are listed in Resources.</p>
         </div>
       </div>
@@ -1063,10 +1182,13 @@ updateComplete();
 async function copyUnitSources(zip: JSZip, unit: ModernDramaUnit, slug: string) {
   const paths = getProjectPaths(slug);
   for (const lesson of unit.lessons) {
-    await writeTextFile(
-      path.join(paths.resourceDir, ...lesson.sourceHref.split("/")),
-      await readZipText(zip, lesson.sourceHref)
-    );
+    const sourceResourcePath = path.join(paths.resourceDir, ...lesson.sourceHref.split("/"));
+    await ensureDir(path.dirname(sourceResourcePath));
+    if (lesson.sourceKind === "html") {
+      await writeTextFile(sourceResourcePath, await readZipText(zip, lesson.sourceHref));
+    } else {
+      await writeFile(sourceResourcePath, await readZipBuffer(zip, lesson.sourceHref));
+    }
     await writeTextFile(path.join(paths.resourceExtractedDir, `${toSafeId(lesson.title)}.txt`), `${lesson.text}\n`);
   }
 
@@ -1076,17 +1198,37 @@ async function copyUnitSources(zip: JSZip, unit: ModernDramaUnit, slug: string) 
     await writeFile(path.join(paths.workspaceAssetsDir, "source", toSafeFileName(image.zipPath)), await readZipBuffer(zip, image.zipPath));
   }
 
+  const documentPaths = uniqueBy(unit.lessons.flatMap((lesson) => lesson.document ? [lesson.document] : []), (document) => document.zipPath);
+  for (const document of documentPaths) {
+    await ensureDir(path.join(paths.workspaceAssetsDir, "source"));
+    await writeFile(path.join(paths.workspaceAssetsDir, "source", toSafeFileName(document.zipPath)), await readZipBuffer(zip, document.zipPath));
+  }
+
   const localResourcePaths = uniqueBy(
-    unit.lessons.flatMap((lesson) => lesson.links).filter((link) => link.kind === "local"),
-    (link) => link.href
+    unit.lessons.flatMap((lesson) => lesson.links).filter((link) => link.kind === "local" && link.zipPath),
+    (link) => link.zipPath ?? link.href
   );
   for (const link of localResourcePaths) {
-    const href = link.href.split(/[?#]/, 1)[0] ?? link.href;
-    const resolved = normalizeZipPath(path.posix.join("modern_drama", href));
-    const zipPath = zip.file(resolved) ? resolved : normalizeZipPath(path.posix.join("modern_drama", path.posix.basename(href)));
-    await writeTextFile(path.join(paths.workspaceDir, link.workspaceHref.replace(/^\.\//, "")), await readZipText(zip, zipPath));
-    await writeTextFile(path.join(paths.resourceDir, zipPath), await readZipText(zip, zipPath));
+    const zipPath = link.zipPath;
+    if (!zipPath || lessonDocumentAlreadyCopied(unit, zipPath)) {
+      continue;
+    }
+    const workspacePath = path.join(paths.workspaceDir, link.workspaceHref.replace(/^\.\//, ""));
+    const resourcePath = path.join(paths.resourceDir, ...zipPath.split("/"));
+    await ensureDir(path.dirname(workspacePath));
+    await ensureDir(path.dirname(resourcePath));
+    if (sourceKindForPath(zipPath) === "html") {
+      await writeTextFile(workspacePath, await readZipText(zip, zipPath));
+      await writeTextFile(resourcePath, await readZipText(zip, zipPath));
+    } else {
+      await writeFile(workspacePath, await readZipBuffer(zip, zipPath));
+      await writeFile(resourcePath, await readZipBuffer(zip, zipPath));
+    }
   }
+}
+
+function lessonDocumentAlreadyCopied(unit: ModernDramaUnit, zipPath: string) {
+  return unit.lessons.some((lesson) => lesson.document?.zipPath === zipPath);
 }
 
 async function writeSectionMap(slug: string, unit: ModernDramaUnit) {
@@ -1113,16 +1255,22 @@ async function writeSectionMap(slug: string, unit: ModernDramaUnit) {
 export async function buildElaModernDramaProject(options: BuildElaModernDramaProjectOptions) {
   const slug = options.slug ?? DEFAULT_SLUG;
   const projectRoot = path.join(projectsRoot, slug);
+  const paths = getProjectPaths(slug);
   const relativeRoot = path.relative(projectsRoot, projectRoot);
   if (relativeRoot.startsWith("..") || path.isAbsolute(relativeRoot)) {
     throw new Error(`Refusing to write outside projects root: ${projectRoot}`);
   }
+  const resourcesRoot = path.join(repoRoot, "projects", "resources");
+  const relativeResourceRoot = path.relative(resourcesRoot, paths.resourceDir);
+  if (relativeResourceRoot.startsWith("..") || path.isAbsolute(relativeResourceRoot)) {
+    throw new Error(`Refusing to write outside project resources root: ${paths.resourceDir}`);
+  }
 
   if (options.force) {
     await rm(projectRoot, { recursive: true, force: true });
+    await rm(paths.resourceDir, { recursive: true, force: true });
   }
 
-  const paths = getProjectPaths(slug);
   const zipBuffer = await readFile(options.zipPath);
   const zip = await JSZip.loadAsync(zipBuffer);
   const unit = await extractModernDramaUnit(zipBuffer);
