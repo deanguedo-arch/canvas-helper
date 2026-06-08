@@ -1,60 +1,41 @@
-# Handoff
+﻿# Active Handoff
 
-- Project: `ela30-1-modern-drama`
-- Task: Keep the `ela30-1-modern-drama` Writing Studio structure aligned with the current user-requested labels and grouping.
-- Status: ready for validation
+## Summary
+Rebuilt the Forensics Module 1 static package generator so the exported learner shell matches the Forensic Studies 25 Option Two layout and visual language while keeping the static stripped behavior.
 
 ## Files changed
-- `scripts/lib/ela-modern-drama.ts`
-- `projects/ela30-1-modern-drama/workspace/index.html`
-- `projects/ela30-1-modern-drama/meta/project.json`
-- `scripts/lib/ela-thesis-builder-activity.ts`
-- `scripts/lib/ela-critical-response-activity.ts`
-- `scripts/tests/ela-modern-drama-frame.test.ts`
-- `docs/ops/ACTIVE_HANDOFF.md`
+- scripts/build-forensics-module1-static.ts
+- projects/forensics-module1/workspace/module-1-static/index.html
+- projects/forensics-module1/workspace/module-1-static/styles.css
+- projects/forensics-module1/workspace/module-1-static/module-1.js
+- projects/forensics-module1/workspace/module-1-static/module-1-data.js
+- projects/forensics-module1/workspace/module-1-static/lesson.html
+- projects/forensics-module1/workspace/module-1-static.zip
+- .stax/codex-report.md
+- docs/ops/ACTIVE_HANDOFF.md
 
-## What changed
-- Outer Writing Studio tab label is now `Thesis Workshop`.
-- The prior `Thesis Control` activity remains available as the nested Text Knowledge question set, not a top-level replacement.
-- Activity metadata and injected component wiring remain in project metadata for reusable rebuilds.
-- This handoff checkpoint was refreshed so continuation starts with the current state.
+## Verification run
+- npx tsx scripts/build-forensics-module1-static.ts: exit 0, rebuilt projects\forensics-module1\workspace\module-1-static.
+- Compress-Archive for module-1-static.zip: exit 0.
+- Invoke-WebRequest http://127.0.0.1:8801/: HTTP 200.
+- rg stripped-feature residue check against index.html, module-1.js, styles.css, lesson.html: clean.
+- Image count in assets/images: 19.
+- STAX observer preflight from STAX checkout: exit 0, observer verdict Reject, non-blocking, reason approval artifact missing.
 
-## Why this changed
-- The user requested this specific visible labeling hierarchy before continuing to other units.
+## Known risks / follow-up
+The shell is now Option Two-style, but visual acceptance still needs the user's browser review. STAX observer remains rejected because approval.json is missing, not because the local package failed the targeted checks.
 
-## Source of truth
-- Canonical editable entry: `scripts/lib/ela-modern-drama.ts`
-- Canonical editable source for injected content:
-  - `scripts/lib/ela-thesis-builder-activity.ts`
-  - `scripts/lib/ela-critical-response-activity.ts`
-- Canonical workspace output: `projects/ela30-1-modern-drama/workspace/index.html`
-- Canonical project wiring: `projects/ela30-1-modern-drama/meta/project.json`
+## Source-of-truth location
+Generator source of truth is scripts/build-forensics-module1-static.ts. Generated package is projects/forensics-module1/workspace/module-1-static/. ZIP is projects/forensics-module1/workspace/module-1-static.zip.
 
-## Fragile areas / watchouts
-- Regenerating the project rewrites `workspace/index.html`; keep all behavioral edits in `scripts/lib/ela-modern-drama.ts`.
-- If the downloaded TSX activity sources change, regenerate the converted activity modules.
-- `.stax` status can remain stale even after proof commands succeed.
-- Completion/presentation state is currently implemented in browser storage and local preview scope.
+## Fragile areas / what might drift
+The static package depends on authoritative Module 1 data from projects/forensicstudiesoption2/workspace/course-data.js and assignment files under projects/forensics-module1/workspace/assets/. If those change, rebuild with the generator rather than hand-editing generated output.
 
-## Next prompt should assume
-- Continue with `ela30-1-modern-drama` as active.
-- Keep the current shell styling, side bar collapse, progress, and content library/film room patterns.
-- Do not commit or push without explicit request.
-
-## What still needs validation
-- Re-run focused project verification after any file edits: `npm run verify -- --project ela30-1-modern-drama --mode workspace`.
-- Optional: run a STAX preflight for updated proof posture.
-
-## Known risks
-- Label drift can reappear if downstream generators or metadata are changed out of sync.
-- Clipboard-dependent actions remain environment-sensitive in some browsers.
+## Next prompt assumptions
+Assume the user wants visual tweaks inside the static Option Two-style shell only, not changes to the original forensicstudiesoption2 project.
 
 ## Exact next command
-`npm run verify -- --project ela30-1-modern-drama --mode workspace`
+npx tsx scripts/build-forensics-module1-static.ts
 
 ## Exact next file to open
-`projects/ela30-1-modern-drama/workspace/index.html`
-
-## Do not do next / warnings
-- Do not edit files under `projects/ela30-1-modern-drama/raw/**` or `projects/ela30-1-modern-drama/exports/**` for source-of-truth work.
-- Do not remove the nested Text Knowledge `Thesis Control` placement while keeping outer tab `Thesis Workshop`.
+scripts/build-forensics-module1-static.ts

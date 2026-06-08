@@ -1,1 +1,49 @@
-<!DOCTYPE html><html lang="en"><head>  <meta charset="UTF-8" />  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  <title>Forensic Studies 25 - Module 1</title>  <link rel="stylesheet" href="styles.css" /></head><body><div class="app-shell">  <aside class="sidebar" aria-label="Module navigation">    <div class="brand">      <div class="brand-row">        <strong class="brand-title">Forensic<br />Studies 25</strong>        <button class="menu-button" type="button" aria-label="Course menu">Menu</button>      </div>      <span class="brand-label">Scholarly Access</span>      <span class="brand-rule"></span>    </div>    <nav class="module-nav">      <button type="button" class="nav-item is-active" data-tab="overview"><span class="nav-icon" aria-hidden="true">H</span>Overview</button>      <button type="button" class="nav-item" data-tab="lesson"><span class="nav-icon" aria-hidden="true">L</span>Lesson</button>      <button type="button" class="nav-item" data-tab="quiz"><span class="nav-icon" aria-hidden="true">Q</span>Quiz</button>      <button type="button" class="nav-item" data-tab="assignment"><span class="nav-icon" aria-hidden="true">A</span>Assignment</button>      <button type="button" class="nav-item" data-tab="resources"><span class="nav-icon" aria-hidden="true">R</span>Resources</button>    </nav>  </aside>  <main class="main" id="main-content">    <section class="panel is-active" id="overview-panel" data-panel="overview" aria-label="Overview"></section>    <section class="panel" id="lesson-panel" data-panel="lesson" aria-label="Lesson">      <iframe class="lesson-frame" src="./lesson.html" title="Module 1 lesson content"></iframe>    </section>    <section class="panel" id="quiz-panel" data-panel="quiz" aria-label="Quiz"></section>    <section class="panel" id="assignment-panel" data-panel="assignment" aria-label="Assignment">      <div class="assignment-actions">        <a class="button" href="./assignment/module1assignment.html" target="_blank" rel="noopener">Open assignment full screen</a>      </div>      <iframe class="assignment-frame" src="./assignment/module1assignment.html" title="Crime Scene Certification Lab"></iframe>    </section>    <section class="panel" id="resources-panel" data-panel="resources" aria-label="Resources"></section>  </main></div><script src="./module-1-data.js"></script><script src="./module-1.js"></script></body></html>
+ï»¿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forensic Studies 25 | Module 1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body data-project-slug="forensics-module1" data-shell-variant="option-2-static" data-section="home" data-tab="chapters" data-view="overview">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <div class="brand-lockup"><div class="brand-text"><h1>Forensic Studies 25</h1></div></div>
+        <button id="menu-toggle" class="menu-toggle" type="button" aria-expanded="false" title="Toggle navigation"><span></span><span></span><span></span></button>
+      </div>
+      <nav class="sidebar-nav" aria-label="Primary navigation">
+        <div class="nav-group primary-nav"><button id="nav-home" class="nav-item active" type="button"><i class="fa-solid fa-house"></i><span>Home</span></button></div>
+        <div class="nav-group home-tabs" aria-label="Home sections">
+          <button id="tab-chapters" class="home-tab active" type="button" data-tab="chapters"><i class="fa-solid fa-scroll"></i><span>Chapters</span></button>
+          <button id="tab-quizzes" class="home-tab" type="button" data-tab="quizzes"><i class="fa-solid fa-circle-question"></i><span>Quizzes</span></button>
+          <button id="tab-assignments" class="home-tab" type="button" data-tab="assignments"><i class="fa-solid fa-pen"></i><span>Assignments</span></button>
+        </div>
+      </nav>
+    </aside>
+    <main class="content">
+      <div class="content-inner">
+        <section class="course-hero" aria-label="Course overview">
+          <div class="hero-kicker">Static module package</div>
+          <h2 id="course-title">Forensic Studies 25</h2>
+          <p id="course-subtitle">Module 1 content, quiz, assignment, and resources prepared for local review and Google delivery.</p>
+        </section>
+        <section class="content-shell">
+          <div class="section-header">
+            <h3 id="section-title">Chapters</h3>
+            <p id="section-intro">Open Module 1 content, take the local quiz, and launch the assignment without course locks, progress gates, or saved state.</p>
+          </div>
+          <div id="content-body" class="content-body"></div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script src="./module-1-data.js"></script>
+  <script src="./module-1.js"></script>
+</body>
+</html>
