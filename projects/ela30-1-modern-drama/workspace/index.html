@@ -62,14 +62,29 @@ tailwind.config = {
 </script>
 <style>
 .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-.course-header-title { display: block; max-width: min(70vw, 760px); overflow: hidden; text-align: center; text-overflow: ellipsis; white-space: nowrap; }
+.course-topbar { min-height: 104px; display: flex; align-items: center; justify-content: center; padding: 14px 24px; }
+.topbar-brand { position: absolute; left: 24px; top: 20px; display: flex; align-items: center; gap: 12px; }
+.topbar-center { width: min(760px, calc(100vw - 420px)); display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.course-header-title { display: block; max-width: 100%; overflow: hidden; text-align: center; text-overflow: ellipsis; white-space: nowrap; }
+.top-progress-shell { width: min(100%, 720px); display: flex; flex-direction: column; gap: 6px; color: #e1e3e4; }
+.top-progress-meta { display: grid; grid-template-columns: 1fr auto auto; gap: 12px; align-items: center; font-family: "IBM Plex Sans"; font-size: 12px; line-height: 1.4; text-transform: uppercase; }
+.top-progress-meta strong { color: #bcf0ae; }
+.top-progress-bar { height: 12px; border: 1px solid #2d5a27; border-radius: 8px; background: repeating-linear-gradient(45deg, rgba(188,240,174,0.12) 0 6px, rgba(188,240,174,0.04) 6px 12px), #0f1710; overflow: hidden; }
+.top-progress-fill { width: 0%; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #bcf0ae, #2d5a27); transition: width 180ms ease; }
+.course-main { padding-top: 104px !important; }
 .course-sidebar, .course-main, .sidebar-label { transition: width 180ms ease, margin-left 180ms ease, opacity 140ms ease; }
+.course-sidebar { top: 104px !important; }
+.sidebar-header { position: relative; }
+.sidebar-toggle-button { position: absolute; top: 16px; right: 16px; min-height: 44px; min-width: 44px; display: inline-flex; align-items: center; justify-content: center; border-radius: 8px; color: #fff; }
+.sidebar-toggle-button:hover, .sidebar-toggle-button:focus-visible { background: rgba(255,255,255,0.1); outline: none; }
 .course-nav-link { color: #e1e3e4; }
 .course-nav-link:hover, .course-nav-link.active { background: rgba(255,255,255,0.1); color: #fff; }
 .course-page[hidden], .lesson-detail-panel[hidden] { display: none !important; }
 body.sidebar-collapsed .course-sidebar { width: 80px; }
 body.sidebar-collapsed .course-main { margin-left: 80px; }
-body.sidebar-collapsed .sidebar-label, body.sidebar-collapsed .sidebar-title, body.sidebar-collapsed .lesson-subnav { display: none; }
+body.sidebar-collapsed .sidebar-label, body.sidebar-collapsed .sidebar-title, body.sidebar-collapsed .sidebar-course-label, body.sidebar-collapsed .lesson-subnav { display: none; }
+body.sidebar-collapsed .sidebar-header { display: flex; justify-content: center; padding: 16px 8px 12px; }
+body.sidebar-collapsed .sidebar-toggle-button { position: static; }
 body.sidebar-collapsed .course-nav-link { justify-content: center; }
 .lesson-card:hover, .lesson-card:focus-visible { border-color: #2d5a27; background: #f3f7f1; }
 .lesson-layout { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 24px; align-items: start; }
@@ -97,18 +112,18 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 .external-resource-action, .library-actions a, .film-source-link { min-height: 42px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid #154212; border-radius: 8px; background: #154212; color: #fff; padding: 9px 14px; font-family: "IBM Plex Sans"; font-size: 14px; text-decoration: none; }
 .external-resource-action:hover, .external-resource-action:focus-visible, .library-actions a:hover, .library-actions a:focus-visible, .film-source-link:hover, .film-source-link:focus-visible { background: #2d5a27; border-color: #2d5a27; color: #fff; outline: none; }
 .library-browser { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 24px; align-items: start; }
-.library-list-panel, .library-reader-panel, .film-room-stage, .film-room-sidebar { border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; }
+.library-list-panel, .library-reader-panel, .film-room-stage, .film-room-control-panel, .film-now-panel { border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; }
 .library-list-panel { padding: 18px; }
-.library-list-panel h3, .library-reader-header h3, .film-room-header h3 { font-family: "Hanken Grotesk"; font-size: 24px; line-height: 1.2; font-weight: 800; margin: 6px 0 8px; color: #191c1d; }
+.library-list-panel h3, .library-reader-header h3, .film-room-header h3, .film-room-control-panel h3, .film-now-panel h3 { font-family: "Hanken Grotesk"; font-size: 24px; line-height: 1.2; font-weight: 800; margin: 6px 0 8px; color: #191c1d; }
 .library-list-panel p, .library-reader-header p { color: #42493e; font-size: 14px; line-height: 1.5; margin: 0; }
 .library-doc-list { display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
 .library-doc-tab { width: 100%; min-height: 70px; display: grid; grid-template-columns: 42px minmax(0, 1fr); gap: 12px; align-items: center; border: 1px solid #e1e3e4; border-radius: 8px; background: #f8f9fa; color: #191c1d; padding: 12px; text-align: left; }
 .library-doc-tab:hover, .library-doc-tab:focus-visible, .library-doc-tab.active { border-color: #2d5a27; background: #f3f7f1; outline: none; }
-.library-doc-tab strong, .film-playlist-item strong { display: block; overflow-wrap: anywhere; font-family: "Hanken Grotesk"; font-size: 16px; line-height: 1.25; }
-.library-doc-tab small, .film-playlist-item small { display: block; color: #42493e; font-size: 12px; line-height: 1.3; margin-top: 4px; }
+.library-doc-tab strong { display: block; overflow-wrap: anywhere; font-family: "Hanken Grotesk"; font-size: 16px; line-height: 1.25; }
+.library-doc-tab small { display: block; color: #42493e; font-size: 12px; line-height: 1.3; margin-top: 4px; }
 .library-doc-index { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 8px; background: #154212; color: #fff; font-family: "IBM Plex Sans"; font-size: 13px; }
 .library-reader-panel { padding: 18px; }
-.library-reader-panel[hidden], .film-panel[hidden], .film-source-link[hidden] { display: none !important; }
+.library-reader-panel[hidden], .film-panel[hidden], .film-now-panel[hidden] { display: none !important; }
 .library-reader-header { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; margin-bottom: 16px; }
 .library-actions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
 .library-document-frame { display: block; width: 100%; height: min(68vh, 680px); min-height: 520px; border: 1px solid #d9dadb; border-radius: 8px; background: #fff; }
@@ -117,12 +132,16 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 .film-room-stage { padding: 18px; background: #f8f9fa; }
 .film-room-header { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
 .film-room-frame { display: block; width: 100%; aspect-ratio: 16 / 9; min-height: 360px; border: 1px solid #191c1d; border-radius: 8px; background: #000; }
-.film-room-sidebar { padding: 18px; }
-.film-playlist { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
-.film-playlist-item { width: 100%; min-height: 74px; display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; align-items: center; border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; color: #191c1d; padding: 12px; text-align: left; }
-.film-playlist-item span { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 8px; background: #f1f3f4; color: #154212; font-family: "IBM Plex Sans"; font-size: 12px; }
-.film-playlist-item:hover, .film-playlist-item:focus-visible, .film-playlist-item.active { border-color: #2d5a27; background: #f3f7f1; outline: none; }
-.film-source-actions { margin-top: 16px; }
+.film-room-sidebar { display: flex; flex-direction: column; gap: 16px; }
+.film-room-control-panel, .film-now-panel { padding: 18px; }
+.film-room-control-panel p, .film-now-panel p { color: #42493e; font-size: 14px; line-height: 1.5; margin: 0 0 14px; }
+.film-room-label { display: block; margin: 18px 0 8px; font-family: "IBM Plex Sans"; font-size: 13px; line-height: 1.4; font-weight: 600; color: #154212; }
+.film-room-select { width: 100%; min-height: 46px; border: 1px solid #c2c9bb; border-radius: 8px; background: #fff; color: #191c1d; padding: 9px 12px; font-family: "Work Sans"; font-size: 15px; line-height: 1.4; }
+.film-room-select:focus { border-color: #154212; outline: 2px solid rgba(21, 66, 18, 0.22); outline-offset: 2px; }
+.film-now-stack { display: flex; flex-direction: column; gap: 16px; }
+.film-now-source { font-family: "IBM Plex Sans"; font-weight: 600; color: #191c1d !important; }
+.film-now-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 18px 0 12px; }
+.film-now-count { font-family: "IBM Plex Sans"; font-size: 13px; color: #154212; }
 .lesson-jump { min-height: 44px; display: inline-flex; align-items: center; border: 1px solid #e1e3e4; border-radius: 8px; padding: 8px 14px; font-family: "IBM Plex Sans"; font-size: 14px; color: #191c1d; background: #fff; }
 .lesson-jump.primary { background: #154212; color: #fff; border-color: #154212; }
 .resource-card { display: flex; flex-direction: column; gap: 6px; min-height: 120px; border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; padding: 16px; color: #191c1d; }
@@ -132,8 +151,13 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 .completed-pill strong { color: #154212; }
 @media (max-width: 900px) {
   .course-sidebar { display: none; }
-  .course-main { margin-left: 0 !important; }
-  .course-header-title { max-width: calc(100vw - 150px); font-size: 20px !important; line-height: 1.2 !important; }
+  .course-main { margin-left: 0 !important; padding-top: 122px !important; }
+  .course-topbar { min-height: 122px; padding: 12px 16px; align-items: flex-start; }
+  .topbar-brand { position: static; width: 100%; justify-content: flex-start; }
+  .topbar-center { width: 100%; align-items: stretch; gap: 8px; }
+  .course-header-title { max-width: calc(100vw - 32px); text-align: left; font-size: 20px !important; line-height: 1.2 !important; }
+  .top-progress-meta { grid-template-columns: 1fr auto; }
+  .top-progress-percent { grid-column: 2; grid-row: 1; }
   .lesson-layout { grid-template-columns: 1fr; }
   .source-content h1 { font-size: 24px; }
   .source-video-frame, .source-video-card .source-video-frame { min-height: 190px; }
@@ -146,20 +170,32 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 </style>
 </head>
 <body class="bg-surface-container-lowest text-on-surface font-body-md min-h-screen">
-<header class="h-16 bg-ink-dark text-white flex items-center justify-center fixed top-0 w-full z-50">
-  <div class="absolute left-6 flex items-center gap-3">
+<header class="course-topbar bg-ink-dark text-white fixed top-0 w-full z-50">
+  <div class="topbar-brand">
     <span class="material-symbols-outlined" aria-hidden="true">theater_comedy</span>
     <span class="font-label-md text-label-md">ELA 30-1</span>
   </div>
-  <strong class="course-header-title font-headline-md text-headline-md">A Streetcar Named Desire</strong>
-  <button id="sidebar-toggle" class="absolute right-4 hidden md:inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/40" type="button" aria-label="Toggle sidebar">
-    <span class="material-symbols-outlined" aria-hidden="true">dock_to_left</span>
-  </button>
+  <div class="topbar-center">
+    <strong class="course-header-title font-headline-md text-headline-md">A Streetcar Named Desire</strong>
+    <div class="top-progress-shell" aria-label="Course progress">
+      <div class="top-progress-meta">
+        <span>Course Progress</span>
+        <span><strong id="top-progress-count">0</strong> / 25 Lessons</span>
+        <span id="top-progress-percent" class="top-progress-percent">0%</span>
+      </div>
+      <div id="top-progress-bar" class="top-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div id="top-progress-fill" class="top-progress-fill"></div>
+      </div>
+    </div>
+  </div>
 </header>
 <aside class="course-sidebar fixed left-0 top-16 bottom-0 z-40 hidden md:flex flex-col bg-ink-dark text-surface-variant w-72 overflow-y-auto">
-  <div class="p-lg pb-md">
+  <div class="sidebar-header p-lg pb-md">
+    <button id="sidebar-toggle" class="sidebar-toggle-button hidden md:inline-flex" type="button" aria-label="Toggle sidebar">
+      <span class="material-symbols-outlined" aria-hidden="true">dock_to_left</span>
+    </button>
     <h1 class="sidebar-title font-headline-md text-headline-md font-bold text-white mb-1">A Streetcar Named Desire</h1>
-    <p class="font-caption text-caption text-surface-variant">ELA 30-1</p>
+    <p class="sidebar-course-label font-caption text-caption text-surface-variant">ELA 30-1</p>
   </div>
   <nav class="flex-1 px-sm pb-lg space-y-1">
     <a class="course-nav-link active flex items-center gap-sm font-label-md text-label-md rounded-lg mx-2 px-4 py-3 transition-colors" href="#overview" data-page-target="overview"><span class="material-symbols-outlined" aria-hidden="true">dashboard</span><span class="sidebar-label">Overview</span></a>
@@ -1373,54 +1409,91 @@ You also need to clarify your reasons for choosing the literature you have ident
         <span class="resource-kicker">Film Room</span>
         <h3>5 embedded videos</h3>
       </div>
-      <article class="film-panel" data-film-panel="film-1-embedded-video">
-      <iframe class="film-room-frame" src="https://www.youtube.com/embed/763wrhAthqE" title="Embedded video" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <article class="film-panel" data-film-panel="film-1-lesson-1-tennessee-williams">
+      <iframe class="film-room-frame" src="https://www.youtube.com/embed/763wrhAthqE" title="Lesson 1: Tennessee Williams" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </article>
-<article class="film-panel" data-film-panel="film-2-embedded-video" hidden>
-      <iframe class="film-room-frame" src="https://www.youtube.com/embed/a9G7lU8J21Y?feature=oembed&amp;wmode=opaque&amp;rel=0" title="Embedded video" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<article class="film-panel" data-film-panel="film-2-lesson-2-streetcar-overview-and-character" hidden>
+      <iframe class="film-room-frame" src="https://www.youtube.com/embed/a9G7lU8J21Y?feature=oembed&amp;wmode=opaque&amp;rel=0" title="Lesson 2: Streetcar Overview and Character" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </article>
-<article class="film-panel" data-film-panel="film-3-embedded-video" hidden>
-      <iframe class="film-room-frame" src="https://www.youtube.com/embed/4mE6ItCl3nc?feature=oembed&amp;wmode=opaque&amp;rel=0" title="Embedded video" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<article class="film-panel" data-film-panel="film-3-lesson-3-streetcar-character-powerpoint-ppt" hidden>
+      <iframe class="film-room-frame" src="https://www.youtube.com/embed/4mE6ItCl3nc?feature=oembed&amp;wmode=opaque&amp;rel=0" title="Lesson 3: Streetcar Character Powerpoint (ppt)" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </article>
-<article class="film-panel" data-film-panel="film-4-embedded-video" hidden>
-      <iframe class="film-room-frame" src="https://www.youtube.com/embed/on4HDdvGyWo?feature=oembed&amp;wmode=opaque&amp;rel=0" title="Embedded video" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<article class="film-panel" data-film-panel="film-4-lesson-9-relationships" hidden>
+      <iframe class="film-room-frame" src="https://www.youtube.com/embed/on4HDdvGyWo?feature=oembed&amp;wmode=opaque&amp;rel=0" title="Lesson 9: Relationships" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </article>
-<article class="film-panel" data-film-panel="film-5-embedded-video" hidden>
-      <iframe class="film-room-frame" src="https://www.youtube.com/embed/xwjlpExKvsY?feature=oembed&amp;wmode=opaque&amp;rel=0" title="Embedded video" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<article class="film-panel" data-film-panel="film-5-lesson-11-song-symbolism" hidden>
+      <iframe class="film-room-frame" src="https://www.youtube.com/embed/xwjlpExKvsY?feature=oembed&amp;wmode=opaque&amp;rel=0" title="Lesson 11: Song Symbolism" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </article>
     </div>
     <aside class="film-room-sidebar">
-      <span class="resource-kicker">Playlist</span>
-      <div class="film-playlist"><button class="film-playlist-item active" type="button" data-film-target="film-1-embedded-video" aria-pressed="true">
-      <span>01</span>
-      <strong>Embedded video</strong>
-      <small>Lesson 1: Tennessee Williams</small>
-    </button>
-<button class="film-playlist-item" type="button" data-film-target="film-2-embedded-video" aria-pressed="false">
-      <span>02</span>
-      <strong>Embedded video</strong>
-      <small>Lesson 2: Streetcar Overview and Character</small>
-    </button>
-<button class="film-playlist-item" type="button" data-film-target="film-3-embedded-video" aria-pressed="false">
-      <span>03</span>
-      <strong>Embedded video</strong>
-      <small>Lesson 3: Streetcar Character Powerpoint (ppt)</small>
-    </button>
-<button class="film-playlist-item" type="button" data-film-target="film-4-embedded-video" aria-pressed="false">
-      <span>04</span>
-      <strong>Embedded video</strong>
-      <small>Lesson 9: Relationships</small>
-    </button>
-<button class="film-playlist-item" type="button" data-film-target="film-5-embedded-video" aria-pressed="false">
-      <span>05</span>
-      <strong>Embedded video</strong>
-      <small>Lesson 11: Song Symbolism</small>
-    </button></div>
-      <div class="film-source-actions"><a class="film-source-link" data-film-source="film-1-embedded-video" href="https://www.youtube.com/embed/763wrhAthqE" target="_blank" rel="noopener noreferrer">Open source video</a>
-<a class="film-source-link" data-film-source="film-2-embedded-video" hidden href="https://www.youtube.com/embed/a9G7lU8J21Y?feature=oembed&amp;wmode=opaque&amp;rel=0" target="_blank" rel="noopener noreferrer">Open source video</a>
-<a class="film-source-link" data-film-source="film-3-embedded-video" hidden href="https://www.youtube.com/embed/4mE6ItCl3nc?feature=oembed&amp;wmode=opaque&amp;rel=0" target="_blank" rel="noopener noreferrer">Open source video</a>
-<a class="film-source-link" data-film-source="film-4-embedded-video" hidden href="https://www.youtube.com/embed/on4HDdvGyWo?feature=oembed&amp;wmode=opaque&amp;rel=0" target="_blank" rel="noopener noreferrer">Open source video</a>
-<a class="film-source-link" data-film-source="film-5-embedded-video" hidden href="https://www.youtube.com/embed/xwjlpExKvsY?feature=oembed&amp;wmode=opaque&amp;rel=0" target="_blank" rel="noopener noreferrer">Open source video</a></div>
+      <article class="film-room-control-panel">
+        <span class="resource-kicker">Video Catalog</span>
+        <h3>Load a video</h3>
+        <p>Use the playlist to switch videos without leaving the course shell.</p>
+        <label class="film-room-label" for="film-room-select">Playlist</label>
+        <select id="film-room-select" class="film-room-select" data-film-select>
+          <option value="film-1-lesson-1-tennessee-williams" selected>Lesson 1: Tennessee Williams</option>
+<option value="film-2-lesson-2-streetcar-overview-and-character">Lesson 2: Streetcar Overview and Character</option>
+<option value="film-3-lesson-3-streetcar-character-powerpoint-ppt">Lesson 3: Streetcar Character Powerpoint (ppt)</option>
+<option value="film-4-lesson-9-relationships">Lesson 9: Relationships</option>
+<option value="film-5-lesson-11-song-symbolism">Lesson 11: Song Symbolism</option>
+        </select>
+      </article>
+      <div class="film-now-stack"><article class="film-now-panel" data-film-now-panel="film-1-lesson-1-tennessee-williams">
+        <span class="resource-kicker">Now loaded</span>
+        <h3>Lesson 1: Tennessee Williams</h3>
+        <p class="film-now-source">Lesson 1: Tennessee Williams</p>
+        <p>Media resource from Lesson 1: Tennessee Williams.</p>
+        <div class="film-now-footer">
+          <span class="resource-kicker">Embedded Source</span>
+          <span class="film-now-count">1 / 5</span>
+        </div>
+        <a class="film-source-link" href="https://www.youtube.com/embed/763wrhAthqE" target="_blank" rel="noopener noreferrer">Open Source</a>
+      </article>
+<article class="film-now-panel" data-film-now-panel="film-2-lesson-2-streetcar-overview-and-character" hidden>
+        <span class="resource-kicker">Now loaded</span>
+        <h3>Lesson 2: Streetcar Overview and Character</h3>
+        <p class="film-now-source">Lesson 2: Streetcar Overview and Character</p>
+        <p>Media resource from Lesson 2: Streetcar Overview and Character.</p>
+        <div class="film-now-footer">
+          <span class="resource-kicker">Embedded Source</span>
+          <span class="film-now-count">2 / 5</span>
+        </div>
+        <a class="film-source-link" href="https://www.youtube.com/embed/a9G7lU8J21Y?feature=oembed&amp;wmode=opaque&amp;rel=0" target="_blank" rel="noopener noreferrer">Open Source</a>
+      </article>
+<article class="film-now-panel" data-film-now-panel="film-3-lesson-3-streetcar-character-powerpoint-ppt" hidden>
+        <span class="resource-kicker">Now loaded</span>
+        <h3>Lesson 3: Streetcar Character Powerpoint (ppt)</h3>
+        <p class="film-now-source">Lesson 3: Streetcar Character Powerpoint (ppt)</p>
+        <p>Media resource from Lesson 3: Streetcar Character Powerpoint (ppt).</p>
+        <div class="film-now-footer">
+          <span class="resource-kicker">Embedded Source</span>
+          <span class="film-now-count">3 / 5</span>
+        </div>
+        <a class="film-source-link" href="https://www.youtube.com/embed/4mE6ItCl3nc?feature=oembed&amp;wmode=opaque&amp;rel=0" target="_blank" rel="noopener noreferrer">Open Source</a>
+      </article>
+<article class="film-now-panel" data-film-now-panel="film-4-lesson-9-relationships" hidden>
+        <span class="resource-kicker">Now loaded</span>
+        <h3>Lesson 9: Relationships</h3>
+        <p class="film-now-source">Lesson 9: Relationships</p>
+        <p>Media resource from Lesson 9: Relationships.</p>
+        <div class="film-now-footer">
+          <span class="resource-kicker">Embedded Source</span>
+          <span class="film-now-count">4 / 5</span>
+        </div>
+        <a class="film-source-link" href="https://www.youtube.com/embed/on4HDdvGyWo?feature=oembed&amp;wmode=opaque&amp;rel=0" target="_blank" rel="noopener noreferrer">Open Source</a>
+      </article>
+<article class="film-now-panel" data-film-now-panel="film-5-lesson-11-song-symbolism" hidden>
+        <span class="resource-kicker">Now loaded</span>
+        <h3>Lesson 11: Song Symbolism</h3>
+        <p class="film-now-source">Lesson 11: Song Symbolism</p>
+        <p>Media resource from Lesson 11: Song Symbolism.</p>
+        <div class="film-now-footer">
+          <span class="resource-kicker">Embedded Source</span>
+          <span class="film-now-count">5 / 5</span>
+        </div>
+        <a class="film-source-link" href="https://www.youtube.com/embed/xwjlpExKvsY?feature=oembed&amp;wmode=opaque&amp;rel=0" target="_blank" rel="noopener noreferrer">Open Source</a>
+      </article></div>
     </aside>
   </div>
       </div>
@@ -1552,6 +1625,7 @@ You also need to clarify your reasons for choosing the literature you have ident
 const STORAGE_KEY = "canvas-helper:ela30-1-modern-drama:complete";
 const pages = Array.from(document.querySelectorAll(".course-page"));
 const lessonIds = ["a-streetcar-named-desire-introduction","lesson-1-tennessee-williams","lesson-2-streetcar-overview-and-character","lesson-3-streetcar-character-powerpoint-ppt","lesson-4-a-streetcar-named-desire-questions","lesson-5-a-streetcar-named-desire-analysis","lesson-6-the-streetcar","lesson-7-motifs","lesson-8-symbols","lesson-9-relationships","lesson-10-themes","lesson-11-song-symbolism","scene-1-overview","scene-2-overview","scene-3-overview","scene-4-overview","scene-5-overview","scene-6-overview","scene-7-overview","scene-8-overview","scene-9-overview","scene-10-overview","scene-11-overview","lesson-12-writing-a-critical-and-analytical-response-to-text-s","lesson-13-samples-of-student-writing"];
+const totalLessons = 25;
 const staticPages = ["overview","lessons","writing","readings","library","film-room","resources"];
 
 function readComplete() {
@@ -1568,7 +1642,17 @@ function writeComplete(values) {
 
 function updateComplete() {
   const complete = readComplete();
-  document.getElementById("complete-count").textContent = String(complete.size);
+  const progressPercent = totalLessons ? Math.round((complete.size / totalLessons) * 100) : 0;
+  const completeCount = document.getElementById("complete-count");
+  const topProgressCount = document.getElementById("top-progress-count");
+  const topProgressPercent = document.getElementById("top-progress-percent");
+  const progressBar = document.getElementById("top-progress-bar");
+  const progressFill = document.getElementById("top-progress-fill");
+  if (completeCount) completeCount.textContent = String(complete.size);
+  if (topProgressCount) topProgressCount.textContent = String(complete.size);
+  if (topProgressPercent) topProgressPercent.textContent = `${progressPercent}%`;
+  if (progressBar) progressBar.setAttribute("aria-valuenow", String(progressPercent));
+  if (progressFill) progressFill.style.width = `${progressPercent}%`;
   document.querySelectorAll("[data-complete-id]").forEach((button) => {
     const id = button.getAttribute("data-complete-id");
     button.textContent = complete.has(id) ? "Completed" : "Mark Complete";
@@ -1606,10 +1690,6 @@ document.addEventListener("click", (event) => {
   if (libraryTarget) {
     setActiveLibraryDocument(libraryTarget.getAttribute("data-library-doc-target"));
   }
-  const filmTarget = event.target.closest("[data-film-target]");
-  if (filmTarget) {
-    setActiveFilm(filmTarget.getAttribute("data-film-target"));
-  }
   const completeButton = event.target.closest("[data-complete-id]");
   if (completeButton) {
     const id = completeButton.getAttribute("data-complete-id");
@@ -1618,6 +1698,10 @@ document.addEventListener("click", (event) => {
     writeComplete(complete);
     updateComplete();
   }
+});
+
+document.querySelector("[data-film-select]")?.addEventListener("change", (event) => {
+  setActiveFilm(event.target.value);
 });
 
 function setActiveLibraryDocument(id) {
@@ -1634,16 +1718,15 @@ function setActiveLibraryDocument(id) {
 
 function setActiveFilm(id) {
   if (!id) return;
+  const select = document.querySelector("[data-film-select]");
+  if (select && select.value !== id) {
+    select.value = id;
+  }
   document.querySelectorAll("[data-film-panel]").forEach((panel) => {
     panel.hidden = panel.getAttribute("data-film-panel") !== id;
   });
-  document.querySelectorAll("[data-film-source]").forEach((link) => {
-    link.hidden = link.getAttribute("data-film-source") !== id;
-  });
-  document.querySelectorAll("[data-film-target]").forEach((button) => {
-    const active = button.getAttribute("data-film-target") === id;
-    button.classList.toggle("active", active);
-    button.setAttribute("aria-pressed", String(active));
+  document.querySelectorAll("[data-film-now-panel]").forEach((panel) => {
+    panel.hidden = panel.getAttribute("data-film-now-panel") !== id;
   });
 }
 

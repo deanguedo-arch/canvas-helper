@@ -642,14 +642,24 @@ function unitVideos(unit: ModernDramaUnit) {
         continue;
       }
       seen.add(video.embedSrc);
+      const displayTitle = videoDisplayTitle(video, lesson.title);
       videos.push({
         ...video,
-        id: `film-${videos.length + 1}-${toSafeId(video.title || lesson.title)}`,
+        title: displayTitle,
+        id: `film-${videos.length + 1}-${toSafeId(displayTitle)}`,
         sourceTitle: lesson.title
       });
     }
   }
   return videos;
+}
+
+function videoDisplayTitle(video: ModernDramaVideo, sourceTitle: string) {
+  const title = normalizeWhitespace(video.title);
+  if (!title || /^embedded video$/i.test(title) || /^video$/i.test(title)) {
+    return sourceTitle;
+  }
+  return title;
 }
 
 function unitExternalResources(unit: ModernDramaUnit) {
@@ -963,14 +973,20 @@ function renderFilmRoom(unit: ModernDramaUnit) {
     </article>`)
     .join("\n");
   const playlist = videos
-    .map((video, index) => `<button class="film-playlist-item${index === 0 ? " active" : ""}" type="button" data-film-target="${escapeHtml(video.id)}" aria-pressed="${index === 0}">
-      <span>${String(index + 1).padStart(2, "0")}</span>
-      <strong>${escapeHtml(video.title)}</strong>
-      <small>${escapeHtml(video.sourceTitle)}</small>
-    </button>`)
+    .map((video, index) => `<option value="${escapeHtml(video.id)}"${index === 0 ? " selected" : ""}>${escapeHtml(video.title)}</option>`)
     .join("\n");
-  const sourceLinks = videos
-    .map((video, index) => `<a class="film-source-link" data-film-source="${escapeHtml(video.id)}"${index === 0 ? "" : " hidden"} href="${escapeHtml(video.originalSrc)}" target="_blank" rel="noopener noreferrer">Open source video</a>`)
+  const nowLoaded = videos
+    .map((video, index) => `<article class="film-now-panel" data-film-now-panel="${escapeHtml(video.id)}"${index === 0 ? "" : " hidden"}>
+        <span class="resource-kicker">Now loaded</span>
+        <h3>${escapeHtml(video.title)}</h3>
+        <p class="film-now-source">${escapeHtml(video.sourceTitle)}</p>
+        <p>Media resource from ${escapeHtml(video.sourceTitle)}.</p>
+        <div class="film-now-footer">
+          <span class="resource-kicker">Embedded Source</span>
+          <span class="film-now-count">${index + 1} / ${videos.length}</span>
+        </div>
+        <a class="film-source-link" href="${escapeHtml(video.originalSrc)}" target="_blank" rel="noopener noreferrer">Open Source</a>
+      </article>`)
     .join("\n");
 
   return `<div class="film-room-shell">
@@ -982,9 +998,16 @@ function renderFilmRoom(unit: ModernDramaUnit) {
       ${panels}
     </div>
     <aside class="film-room-sidebar">
-      <span class="resource-kicker">Playlist</span>
-      <div class="film-playlist">${playlist}</div>
-      <div class="film-source-actions">${sourceLinks}</div>
+      <article class="film-room-control-panel">
+        <span class="resource-kicker">Video Catalog</span>
+        <h3>Load a video</h3>
+        <p>Use the playlist to switch videos without leaving the course shell.</p>
+        <label class="film-room-label" for="film-room-select">Playlist</label>
+        <select id="film-room-select" class="film-room-select" data-film-select>
+          ${playlist}
+        </select>
+      </article>
+      <div class="film-now-stack">${nowLoaded}</div>
     </aside>
   </div>`;
 }
@@ -1144,14 +1167,29 @@ tailwind.config = {
 </script>
 <style>
 .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-.course-header-title { display: block; max-width: min(70vw, 760px); overflow: hidden; text-align: center; text-overflow: ellipsis; white-space: nowrap; }
+.course-topbar { min-height: 104px; display: flex; align-items: center; justify-content: center; padding: 14px 24px; }
+.topbar-brand { position: absolute; left: 24px; top: 20px; display: flex; align-items: center; gap: 12px; }
+.topbar-center { width: min(760px, calc(100vw - 420px)); display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.course-header-title { display: block; max-width: 100%; overflow: hidden; text-align: center; text-overflow: ellipsis; white-space: nowrap; }
+.top-progress-shell { width: min(100%, 720px); display: flex; flex-direction: column; gap: 6px; color: #e1e3e4; }
+.top-progress-meta { display: grid; grid-template-columns: 1fr auto auto; gap: 12px; align-items: center; font-family: "IBM Plex Sans"; font-size: 12px; line-height: 1.4; text-transform: uppercase; }
+.top-progress-meta strong { color: #bcf0ae; }
+.top-progress-bar { height: 12px; border: 1px solid #2d5a27; border-radius: 8px; background: repeating-linear-gradient(45deg, rgba(188,240,174,0.12) 0 6px, rgba(188,240,174,0.04) 6px 12px), #0f1710; overflow: hidden; }
+.top-progress-fill { width: 0%; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #bcf0ae, #2d5a27); transition: width 180ms ease; }
+.course-main { padding-top: 104px !important; }
 .course-sidebar, .course-main, .sidebar-label { transition: width 180ms ease, margin-left 180ms ease, opacity 140ms ease; }
+.course-sidebar { top: 104px !important; }
+.sidebar-header { position: relative; }
+.sidebar-toggle-button { position: absolute; top: 16px; right: 16px; min-height: 44px; min-width: 44px; display: inline-flex; align-items: center; justify-content: center; border-radius: 8px; color: #fff; }
+.sidebar-toggle-button:hover, .sidebar-toggle-button:focus-visible { background: rgba(255,255,255,0.1); outline: none; }
 .course-nav-link { color: #e1e3e4; }
 .course-nav-link:hover, .course-nav-link.active { background: rgba(255,255,255,0.1); color: #fff; }
 .course-page[hidden], .lesson-detail-panel[hidden] { display: none !important; }
 body.sidebar-collapsed .course-sidebar { width: 80px; }
 body.sidebar-collapsed .course-main { margin-left: 80px; }
-body.sidebar-collapsed .sidebar-label, body.sidebar-collapsed .sidebar-title, body.sidebar-collapsed .lesson-subnav { display: none; }
+body.sidebar-collapsed .sidebar-label, body.sidebar-collapsed .sidebar-title, body.sidebar-collapsed .sidebar-course-label, body.sidebar-collapsed .lesson-subnav { display: none; }
+body.sidebar-collapsed .sidebar-header { display: flex; justify-content: center; padding: 16px 8px 12px; }
+body.sidebar-collapsed .sidebar-toggle-button { position: static; }
 body.sidebar-collapsed .course-nav-link { justify-content: center; }
 .lesson-card:hover, .lesson-card:focus-visible { border-color: #2d5a27; background: #f3f7f1; }
 .lesson-layout { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 24px; align-items: start; }
@@ -1179,18 +1217,18 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 .external-resource-action, .library-actions a, .film-source-link { min-height: 42px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid #154212; border-radius: 8px; background: #154212; color: #fff; padding: 9px 14px; font-family: "IBM Plex Sans"; font-size: 14px; text-decoration: none; }
 .external-resource-action:hover, .external-resource-action:focus-visible, .library-actions a:hover, .library-actions a:focus-visible, .film-source-link:hover, .film-source-link:focus-visible { background: #2d5a27; border-color: #2d5a27; color: #fff; outline: none; }
 .library-browser { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 24px; align-items: start; }
-.library-list-panel, .library-reader-panel, .film-room-stage, .film-room-sidebar { border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; }
+.library-list-panel, .library-reader-panel, .film-room-stage, .film-room-control-panel, .film-now-panel { border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; }
 .library-list-panel { padding: 18px; }
-.library-list-panel h3, .library-reader-header h3, .film-room-header h3 { font-family: "Hanken Grotesk"; font-size: 24px; line-height: 1.2; font-weight: 800; margin: 6px 0 8px; color: #191c1d; }
+.library-list-panel h3, .library-reader-header h3, .film-room-header h3, .film-room-control-panel h3, .film-now-panel h3 { font-family: "Hanken Grotesk"; font-size: 24px; line-height: 1.2; font-weight: 800; margin: 6px 0 8px; color: #191c1d; }
 .library-list-panel p, .library-reader-header p { color: #42493e; font-size: 14px; line-height: 1.5; margin: 0; }
 .library-doc-list { display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
 .library-doc-tab { width: 100%; min-height: 70px; display: grid; grid-template-columns: 42px minmax(0, 1fr); gap: 12px; align-items: center; border: 1px solid #e1e3e4; border-radius: 8px; background: #f8f9fa; color: #191c1d; padding: 12px; text-align: left; }
 .library-doc-tab:hover, .library-doc-tab:focus-visible, .library-doc-tab.active { border-color: #2d5a27; background: #f3f7f1; outline: none; }
-.library-doc-tab strong, .film-playlist-item strong { display: block; overflow-wrap: anywhere; font-family: "Hanken Grotesk"; font-size: 16px; line-height: 1.25; }
-.library-doc-tab small, .film-playlist-item small { display: block; color: #42493e; font-size: 12px; line-height: 1.3; margin-top: 4px; }
+.library-doc-tab strong { display: block; overflow-wrap: anywhere; font-family: "Hanken Grotesk"; font-size: 16px; line-height: 1.25; }
+.library-doc-tab small { display: block; color: #42493e; font-size: 12px; line-height: 1.3; margin-top: 4px; }
 .library-doc-index { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 8px; background: #154212; color: #fff; font-family: "IBM Plex Sans"; font-size: 13px; }
 .library-reader-panel { padding: 18px; }
-.library-reader-panel[hidden], .film-panel[hidden], .film-source-link[hidden] { display: none !important; }
+.library-reader-panel[hidden], .film-panel[hidden], .film-now-panel[hidden] { display: none !important; }
 .library-reader-header { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; margin-bottom: 16px; }
 .library-actions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
 .library-document-frame { display: block; width: 100%; height: min(68vh, 680px); min-height: 520px; border: 1px solid #d9dadb; border-radius: 8px; background: #fff; }
@@ -1199,12 +1237,16 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 .film-room-stage { padding: 18px; background: #f8f9fa; }
 .film-room-header { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
 .film-room-frame { display: block; width: 100%; aspect-ratio: 16 / 9; min-height: 360px; border: 1px solid #191c1d; border-radius: 8px; background: #000; }
-.film-room-sidebar { padding: 18px; }
-.film-playlist { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
-.film-playlist-item { width: 100%; min-height: 74px; display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; align-items: center; border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; color: #191c1d; padding: 12px; text-align: left; }
-.film-playlist-item span { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 8px; background: #f1f3f4; color: #154212; font-family: "IBM Plex Sans"; font-size: 12px; }
-.film-playlist-item:hover, .film-playlist-item:focus-visible, .film-playlist-item.active { border-color: #2d5a27; background: #f3f7f1; outline: none; }
-.film-source-actions { margin-top: 16px; }
+.film-room-sidebar { display: flex; flex-direction: column; gap: 16px; }
+.film-room-control-panel, .film-now-panel { padding: 18px; }
+.film-room-control-panel p, .film-now-panel p { color: #42493e; font-size: 14px; line-height: 1.5; margin: 0 0 14px; }
+.film-room-label { display: block; margin: 18px 0 8px; font-family: "IBM Plex Sans"; font-size: 13px; line-height: 1.4; font-weight: 600; color: #154212; }
+.film-room-select { width: 100%; min-height: 46px; border: 1px solid #c2c9bb; border-radius: 8px; background: #fff; color: #191c1d; padding: 9px 12px; font-family: "Work Sans"; font-size: 15px; line-height: 1.4; }
+.film-room-select:focus { border-color: #154212; outline: 2px solid rgba(21, 66, 18, 0.22); outline-offset: 2px; }
+.film-now-stack { display: flex; flex-direction: column; gap: 16px; }
+.film-now-source { font-family: "IBM Plex Sans"; font-weight: 600; color: #191c1d !important; }
+.film-now-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 18px 0 12px; }
+.film-now-count { font-family: "IBM Plex Sans"; font-size: 13px; color: #154212; }
 .lesson-jump { min-height: 44px; display: inline-flex; align-items: center; border: 1px solid #e1e3e4; border-radius: 8px; padding: 8px 14px; font-family: "IBM Plex Sans"; font-size: 14px; color: #191c1d; background: #fff; }
 .lesson-jump.primary { background: #154212; color: #fff; border-color: #154212; }
 .resource-card { display: flex; flex-direction: column; gap: 6px; min-height: 120px; border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; padding: 16px; color: #191c1d; }
@@ -1214,8 +1256,13 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 .completed-pill strong { color: #154212; }
 @media (max-width: 900px) {
   .course-sidebar { display: none; }
-  .course-main { margin-left: 0 !important; }
-  .course-header-title { max-width: calc(100vw - 150px); font-size: 20px !important; line-height: 1.2 !important; }
+  .course-main { margin-left: 0 !important; padding-top: 122px !important; }
+  .course-topbar { min-height: 122px; padding: 12px 16px; align-items: flex-start; }
+  .topbar-brand { position: static; width: 100%; justify-content: flex-start; }
+  .topbar-center { width: 100%; align-items: stretch; gap: 8px; }
+  .course-header-title { max-width: calc(100vw - 32px); text-align: left; font-size: 20px !important; line-height: 1.2 !important; }
+  .top-progress-meta { grid-template-columns: 1fr auto; }
+  .top-progress-percent { grid-column: 2; grid-row: 1; }
   .lesson-layout { grid-template-columns: 1fr; }
   .source-content h1 { font-size: 24px; }
   .source-video-frame, .source-video-card .source-video-frame { min-height: 190px; }
@@ -1228,20 +1275,32 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 </style>
 </head>
 <body class="bg-surface-container-lowest text-on-surface font-body-md min-h-screen">
-<header class="h-16 bg-ink-dark text-white flex items-center justify-center fixed top-0 w-full z-50">
-  <div class="absolute left-6 flex items-center gap-3">
+<header class="course-topbar bg-ink-dark text-white fixed top-0 w-full z-50">
+  <div class="topbar-brand">
     <span class="material-symbols-outlined" aria-hidden="true">theater_comedy</span>
     <span class="font-label-md text-label-md">${COURSE_TITLE}</span>
   </div>
-  <strong class="course-header-title font-headline-md text-headline-md">${escapeHtml(unit.title)}</strong>
-  <button id="sidebar-toggle" class="absolute right-4 hidden md:inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/40" type="button" aria-label="Toggle sidebar">
-    <span class="material-symbols-outlined" aria-hidden="true">dock_to_left</span>
-  </button>
+  <div class="topbar-center">
+    <strong class="course-header-title font-headline-md text-headline-md">${escapeHtml(unit.title)}</strong>
+    <div class="top-progress-shell" aria-label="Course progress">
+      <div class="top-progress-meta">
+        <span>Course Progress</span>
+        <span><strong id="top-progress-count">0</strong> / ${totalLessons} Lessons</span>
+        <span id="top-progress-percent" class="top-progress-percent">0%</span>
+      </div>
+      <div id="top-progress-bar" class="top-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div id="top-progress-fill" class="top-progress-fill"></div>
+      </div>
+    </div>
+  </div>
 </header>
 <aside class="course-sidebar fixed left-0 top-16 bottom-0 z-40 hidden md:flex flex-col bg-ink-dark text-surface-variant w-72 overflow-y-auto">
-  <div class="p-lg pb-md">
+  <div class="sidebar-header p-lg pb-md">
+    <button id="sidebar-toggle" class="sidebar-toggle-button hidden md:inline-flex" type="button" aria-label="Toggle sidebar">
+      <span class="material-symbols-outlined" aria-hidden="true">dock_to_left</span>
+    </button>
     <h1 class="sidebar-title font-headline-md text-headline-md font-bold text-white mb-1">${escapeHtml(unit.title)}</h1>
-    <p class="font-caption text-caption text-surface-variant">${COURSE_TITLE}</p>
+    <p class="sidebar-course-label font-caption text-caption text-surface-variant">${COURSE_TITLE}</p>
   </div>
   ${renderSidebar(unit)}
 </aside>
@@ -1343,6 +1402,7 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 const STORAGE_KEY = "canvas-helper:ela30-1-modern-drama:complete";
 const pages = Array.from(document.querySelectorAll(".course-page"));
 const lessonIds = ${JSON.stringify(unit.lessons.map((lesson) => lesson.id))};
+const totalLessons = ${totalLessons};
 const staticPages = ["overview","lessons","writing","readings","library","film-room","resources"];
 
 function readComplete() {
@@ -1359,7 +1419,17 @@ function writeComplete(values) {
 
 function updateComplete() {
   const complete = readComplete();
-  document.getElementById("complete-count").textContent = String(complete.size);
+  const progressPercent = totalLessons ? Math.round((complete.size / totalLessons) * 100) : 0;
+  const completeCount = document.getElementById("complete-count");
+  const topProgressCount = document.getElementById("top-progress-count");
+  const topProgressPercent = document.getElementById("top-progress-percent");
+  const progressBar = document.getElementById("top-progress-bar");
+  const progressFill = document.getElementById("top-progress-fill");
+  if (completeCount) completeCount.textContent = String(complete.size);
+  if (topProgressCount) topProgressCount.textContent = String(complete.size);
+  if (topProgressPercent) topProgressPercent.textContent = \`\${progressPercent}%\`;
+  if (progressBar) progressBar.setAttribute("aria-valuenow", String(progressPercent));
+  if (progressFill) progressFill.style.width = \`\${progressPercent}%\`;
   document.querySelectorAll("[data-complete-id]").forEach((button) => {
     const id = button.getAttribute("data-complete-id");
     button.textContent = complete.has(id) ? "Completed" : "Mark Complete";
@@ -1397,10 +1467,6 @@ document.addEventListener("click", (event) => {
   if (libraryTarget) {
     setActiveLibraryDocument(libraryTarget.getAttribute("data-library-doc-target"));
   }
-  const filmTarget = event.target.closest("[data-film-target]");
-  if (filmTarget) {
-    setActiveFilm(filmTarget.getAttribute("data-film-target"));
-  }
   const completeButton = event.target.closest("[data-complete-id]");
   if (completeButton) {
     const id = completeButton.getAttribute("data-complete-id");
@@ -1409,6 +1475,10 @@ document.addEventListener("click", (event) => {
     writeComplete(complete);
     updateComplete();
   }
+});
+
+document.querySelector("[data-film-select]")?.addEventListener("change", (event) => {
+  setActiveFilm(event.target.value);
 });
 
 function setActiveLibraryDocument(id) {
@@ -1425,16 +1495,15 @@ function setActiveLibraryDocument(id) {
 
 function setActiveFilm(id) {
   if (!id) return;
+  const select = document.querySelector("[data-film-select]");
+  if (select && select.value !== id) {
+    select.value = id;
+  }
   document.querySelectorAll("[data-film-panel]").forEach((panel) => {
     panel.hidden = panel.getAttribute("data-film-panel") !== id;
   });
-  document.querySelectorAll("[data-film-source]").forEach((link) => {
-    link.hidden = link.getAttribute("data-film-source") !== id;
-  });
-  document.querySelectorAll("[data-film-target]").forEach((button) => {
-    const active = button.getAttribute("data-film-target") === id;
-    button.classList.toggle("active", active);
-    button.setAttribute("aria-pressed", String(active));
+  document.querySelectorAll("[data-film-now-panel]").forEach((panel) => {
+    panel.hidden = panel.getAttribute("data-film-now-panel") !== id;
   });
 }
 

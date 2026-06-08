@@ -223,6 +223,18 @@ test("buildWorkspaceHtml separates PDFs, videos, and external sources into dedic
             originalSrc: videoHref,
             embedSrc: "https://www.youtube.com/embed/abc123",
             origin: "link"
+          },
+          {
+            title: "Streetcar performance clip",
+            originalSrc: "https://www.youtube.com/watch?v=def456",
+            embedSrc: "https://www.youtube.com/embed/def456",
+            origin: "link"
+          },
+          {
+            title: "Embedded video",
+            originalSrc: "https://www.youtube.com/watch?v=ghi789",
+            embedSrc: "https://www.youtube.com/embed/ghi789",
+            origin: "iframe"
           }
         ],
         links: [
@@ -287,9 +299,66 @@ test("buildWorkspaceHtml separates PDFs, videos, and external sources into dedic
   assert.match(librarySection, /A-Streetcar-Named-Desire-questions\.pdf/);
   assert.match(librarySection, /Download PDF/);
   assert.match(filmRoomSection, /https:\/\/www\.youtube\.com\/embed\/abc123/);
-  assert.match(filmRoomSection, /Open source video/);
+  assert.match(filmRoomSection, /Open Source/);
+  assert.match(filmRoomSection, /<select id="film-room-select" class="film-room-select" data-film-select>/);
+  assert.match(filmRoomSection, /<option value="film-1-streetcar-staging-clip" selected>Streetcar staging clip<\/option>/);
+  assert.match(filmRoomSection, /<option value="film-2-streetcar-performance-clip">Streetcar performance clip<\/option>/);
+  assert.match(filmRoomSection, /<option value="film-3-scene-1-overview">Scene 1 Overview<\/option>/);
+  assert.match(filmRoomSection, /data-film-now-panel="film-1-streetcar-staging-clip"/);
+  assert.match(filmRoomSection, /Now loaded/);
+  assert.match(filmRoomSection, /1 \/ 3/);
+  assert.doesNotMatch(filmRoomSection, /data-film-target|film-playlist-item/);
+  assert.match(html, /document\.querySelector\("\[data-film-select\]"\)\?\.addEventListener\("change"/);
   assert.match(resourcesSection, /Scene 1 Overview/);
   assert.match(resourcesSection, /Open Resource/);
   assert.doesNotMatch(resourcesSection, /A-Streetcar-Named-Desire-questions\.pdf/);
   assert.doesNotMatch(resourcesSection, /youtube\.com\/embed\/abc123/);
+});
+
+test("buildWorkspaceHtml wires top-bar lesson progress and keeps collapse control in the sidebar", () => {
+  const html = buildWorkspaceHtml({
+    title: "A Streetcar Named Desire",
+    localResources: [],
+    lessons: [
+      {
+        id: "lesson-one",
+        sequence: 1,
+        title: "Lesson One",
+        sourceKind: "html",
+        sourceHref: "streetcar_named_desire/lesson-one.html",
+        contentHtml: "<h1>Lesson One</h1>",
+        text: "Lesson One",
+        images: [],
+        videos: [],
+        links: []
+      },
+      {
+        id: "lesson-two",
+        sequence: 2,
+        title: "Lesson Two",
+        sourceKind: "html",
+        sourceHref: "streetcar_named_desire/lesson-two.html",
+        contentHtml: "<h1>Lesson Two</h1>",
+        text: "Lesson Two",
+        images: [],
+        videos: [],
+        links: []
+      }
+    ]
+  });
+
+  const header = html.match(/<header[\s\S]*?<\/header>/)?.[0] ?? "";
+  const aside = html.match(/<aside[\s\S]*?<\/aside>/)?.[0] ?? "";
+
+  assert.match(header, /top-progress-shell/);
+  assert.match(header, /id="top-progress-fill"/);
+  assert.match(header, /id="top-progress-count"/);
+  assert.match(header, /id="top-progress-percent"/);
+  assert.match(header, /aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"/);
+  assert.doesNotMatch(header, /id="sidebar-toggle"/);
+  assert.match(aside, /id="sidebar-toggle"/);
+  assert.match(html, /const totalLessons = 2;/);
+  assert.match(html, /const progressPercent = totalLessons \? Math\.round\(\(complete\.size \/ totalLessons\) \* 100\) : 0;/);
+  assert.match(html, /progressFill\.style\.width = `\$\{progressPercent\}%`;/);
+  assert.match(html, /progressBar\.setAttribute\("aria-valuenow", String\(progressPercent\)\);/);
 });
