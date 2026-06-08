@@ -652,11 +652,11 @@ function renderLessonCards(unit: ModernDramaUnit) {
   return unit.lessons
     .map((lesson) => {
       const badge = lesson.sequence === 1 ? "Intro" : `Lesson ${lesson.sequence - 1}`;
-      return `<button class="lesson-card text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors" type="button" data-lesson-id="${lesson.id}">
+      return `<a class="lesson-card block text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/40" href="#${lesson.id}" data-page-target="${lesson.id}">
         <span class="font-caption text-caption text-primary">${escapeHtml(badge)}</span>
         <strong class="block font-label-md text-label-md text-on-surface mt-1">${escapeHtml(lesson.title)}</strong>
         <span class="block font-caption text-caption text-on-surface-variant mt-2">${escapeHtml(lessonSummary(lesson))}</span>
-      </button>`;
+      </a>`;
     })
     .join("\n");
 }
@@ -709,25 +709,27 @@ function renderLessonPanels(unit: ModernDramaUnit) {
               .join("")}</ul>
           </aside>`
         : "";
-      return `<article id="${lesson.id}" class="lesson-detail-panel bg-surface-container-low border border-surface-muted rounded-lg p-lg relative overflow-hidden" data-lesson-panel="${lesson.id}" ${index === 0 ? "" : "hidden"}>
-        <div class="absolute top-0 left-0 w-full h-1 bg-primary-container"></div>
-        <span class="font-label-md text-label-md text-secondary">${escapeHtml(COURSE_TITLE)} | ${escapeHtml(label)}</span>
-        <div class="flex flex-wrap items-start justify-between gap-md mt-sm mb-md">
-          <div>
-            <h2 class="font-headline-lg text-headline-lg text-on-surface">${escapeHtml(lesson.title)}</h2>
-            <p class="font-body-md text-body-md text-on-surface-variant mt-xs max-w-3xl">${escapeHtml(lessonSummary(lesson))}</p>
+      return `<section id="${lesson.id}" class="course-page" data-page="${lesson.id}" hidden>
+        <article class="lesson-detail-panel bg-surface-container-low border border-surface-muted rounded-lg p-lg relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-full h-1 bg-primary-container"></div>
+          <span class="font-label-md text-label-md text-secondary">${escapeHtml(COURSE_TITLE)} | ${escapeHtml(label)}</span>
+          <div class="flex flex-wrap items-start justify-between gap-md mt-sm mb-md">
+            <div>
+              <h2 class="font-headline-lg text-headline-lg text-on-surface">${escapeHtml(lesson.title)}</h2>
+              <p class="font-body-md text-body-md text-on-surface-variant mt-xs max-w-3xl">${escapeHtml(lessonSummary(lesson))}</p>
+            </div>
+            <button class="mark-complete inline-flex min-h-11 items-center rounded-lg bg-primary px-4 py-2 font-label-md text-label-md text-white hover:bg-primary-container focus:outline-none focus:ring-2 focus:ring-primary/40" type="button" data-complete-id="${lesson.id}">Mark Complete</button>
           </div>
-          <button class="mark-complete inline-flex min-h-11 items-center rounded-lg bg-primary px-4 py-2 font-label-md text-label-md text-white hover:bg-primary-container focus:outline-none focus:ring-2 focus:ring-primary/40" type="button" data-complete-id="${lesson.id}">Mark Complete</button>
-        </div>
-        <div class="lesson-layout">
-          <div class="source-content">${lesson.contentHtml}${renderLessonLinkedVideos(lesson)}</div>
-          ${resourceList}
-        </div>
-        <div class="flex flex-wrap gap-sm mt-lg pt-md border-t border-surface-muted">
-          ${prev ? `<a class="lesson-jump" href="#${prev.id}" data-page-target="lessons" data-lesson-id="${prev.id}">Previous</a>` : ""}
-          ${next ? `<a class="lesson-jump primary" href="#${next.id}" data-page-target="lessons" data-lesson-id="${next.id}">Next Lesson</a>` : `<a class="lesson-jump primary" href="#writing" data-page-target="writing">Open Writing Studio</a>`}
-        </div>
-      </article>`;
+          <div class="lesson-layout">
+            <div class="source-content">${lesson.contentHtml}${renderLessonLinkedVideos(lesson)}</div>
+            ${resourceList}
+          </div>
+          <div class="flex flex-wrap gap-sm mt-lg pt-md border-t border-surface-muted">
+            ${prev ? `<a class="lesson-jump" href="#${prev.id}" data-page-target="${prev.id}">Previous</a>` : `<a class="lesson-jump" href="#lessons" data-page-target="lessons">Lesson Library</a>`}
+            ${next ? `<a class="lesson-jump primary" href="#${next.id}" data-page-target="${next.id}">Next Lesson</a>` : `<a class="lesson-jump primary" href="#writing" data-page-target="writing">Open Writing Studio</a>`}
+          </div>
+        </article>
+      </section>`;
     })
     .join("\n");
 }
@@ -736,7 +738,7 @@ function renderSidebar(unit: ModernDramaUnit) {
   const lessons = unit.lessons
     .map((lesson) => {
       const label = lesson.sequence === 1 ? "Intro" : `${lesson.sequence - 1}`;
-      return `<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#${lesson.id}" data-page-target="lessons" data-lesson-id="${lesson.id}">${label}. ${escapeHtml(lesson.title.replace(/^Lesson \d+:\s*/i, ""))}</a>`;
+      return `<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#${lesson.id}" data-page-target="${lesson.id}">${label}. ${escapeHtml(lesson.title.replace(/^Lesson \d+:\s*/i, ""))}</a>`;
     })
     .join("\n");
   return `<nav class="flex-1 px-sm pb-lg space-y-1">
@@ -772,7 +774,7 @@ function firstUnitImage(unit: ModernDramaUnit) {
   return unit.lessons.flatMap((lesson) => lesson.images)[0]?.workspaceSrc ?? "";
 }
 
-function buildWorkspaceHtml(unit: ModernDramaUnit) {
+export function buildWorkspaceHtml(unit: ModernDramaUnit) {
   const totalLessons = unit.lessons.length;
   const mainImage = firstUnitImage(unit);
   const imageMarkup = mainImage
@@ -851,7 +853,7 @@ body.sidebar-collapsed .course-sidebar { width: 80px; }
 body.sidebar-collapsed .course-main { margin-left: 80px; }
 body.sidebar-collapsed .sidebar-label, body.sidebar-collapsed .sidebar-title, body.sidebar-collapsed .lesson-subnav { display: none; }
 body.sidebar-collapsed .course-nav-link { justify-content: center; }
-.lesson-card.is-active { border-color: #2d5a27; background: #f3f7f1; }
+.lesson-card:hover, .lesson-card:focus-visible { border-color: #2d5a27; background: #f3f7f1; }
 .lesson-layout { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 24px; align-items: start; }
 .source-content { color: #191c1d; font-family: "Work Sans"; font-size: 16px; line-height: 1.65; }
 .source-content h1 { font-family: "Hanken Grotesk"; font-size: 28px; line-height: 1.2; font-weight: 800; margin: 0 0 16px; }
@@ -935,8 +937,9 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
       <div class="grid grid-cols-1 lg:grid-cols-4 gap-md mb-lg">
         ${renderLessonCards(unit)}
       </div>
-      ${renderLessonPanels(unit)}
     </section>
+
+    ${renderLessonPanels(unit)}
 
     <section id="writing" class="course-page" data-page="writing" hidden>
       <div class="max-w-5xl">
@@ -983,10 +986,8 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 <script>
 const STORAGE_KEY = "canvas-helper:ela30-1-modern-drama:complete";
 const pages = Array.from(document.querySelectorAll(".course-page"));
-const navLinks = Array.from(document.querySelectorAll("[data-page-target]"));
-const lessonCards = Array.from(document.querySelectorAll(".lesson-card"));
-const lessonPanels = Array.from(document.querySelectorAll("[data-lesson-panel]"));
 const lessonIds = ${JSON.stringify(unit.lessons.map((lesson) => lesson.id))};
+const staticPages = ["overview", "lessons", "writing", "readings", "resources"];
 
 function readComplete() {
   try {
@@ -1010,46 +1011,29 @@ function updateComplete() {
 }
 
 function showPage(pageName) {
+  const activeNavTarget = lessonIds.includes(pageName) ? "lessons" : pageName;
   pages.forEach((page) => {
     page.hidden = page.getAttribute("data-page") !== pageName;
   });
   document.querySelectorAll(".course-nav-link").forEach((link) => {
-    link.classList.toggle("active", link.getAttribute("data-page-target") === pageName);
-  });
-}
-
-function showLesson(lessonId) {
-  lessonPanels.forEach((panel) => {
-    panel.hidden = panel.getAttribute("data-lesson-panel") !== lessonId;
-  });
-  lessonCards.forEach((card) => {
-    card.classList.toggle("is-active", card.getAttribute("data-lesson-id") === lessonId);
+    link.classList.toggle("active", link.getAttribute("data-page-target") === activeNavTarget);
   });
 }
 
 function route() {
   const hash = (window.location.hash || "#overview").slice(1);
-  if (lessonIds.includes(hash)) {
-    showPage("lessons");
-    showLesson(hash);
+  if ([...staticPages, ...lessonIds].includes(hash)) {
+    showPage(hash);
     return;
   }
-  const page = ["overview", "lessons", "writing", "readings", "resources"].includes(hash) ? hash : "overview";
-  showPage(page);
-  if (page === "lessons") {
-    showLesson(lessonIds[0]);
-  }
+  showPage("overview");
 }
 
 document.addEventListener("click", (event) => {
   const target = event.target.closest("[data-page-target]");
   if (target) {
-    const lessonId = target.getAttribute("data-lesson-id");
     const pageTarget = target.getAttribute("data-page-target");
-    if (lessonId) {
-      showPage("lessons");
-      showLesson(lessonId);
-    } else if (pageTarget) {
+    if (pageTarget) {
       showPage(pageTarget);
     }
   }

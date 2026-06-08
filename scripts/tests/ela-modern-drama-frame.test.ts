@@ -4,6 +4,7 @@ import test from "node:test";
 import JSZip from "jszip";
 
 import {
+  buildWorkspaceHtml,
   decodeBrightspaceHtml,
   extractModernDramaUnit,
   resolveModernDramaAssetPath
@@ -92,4 +93,43 @@ test("extractModernDramaUnit reads the manifest sequence and lesson content", as
     ["https://www.youtube.com/embed/a9G7lU8J21Y?rel=0", "https://www.youtube.com/embed/sr3nw7CZvO8"]
   );
   assert.match(unit.lessons[1].contentHtml, /source-video-frame/);
+});
+
+test("buildWorkspaceHtml keeps the lesson library separate from individual lesson pages", () => {
+  const html = buildWorkspaceHtml({
+    title: "Modern Drama",
+    localResources: [],
+    lessons: [
+      {
+        id: "lesson-one",
+        sequence: 1,
+        title: "Lesson One",
+        sourceHref: "modern_drama/lesson-one.html",
+        contentHtml: "<h1>Lesson One</h1><p>Full lesson content.</p>",
+        text: "Lesson One Full lesson content.",
+        images: [],
+        videos: [],
+        links: []
+      },
+      {
+        id: "lesson-two",
+        sequence: 2,
+        title: "Lesson Two",
+        sourceHref: "modern_drama/lesson-two.html",
+        contentHtml: "<h1>Lesson Two</h1><p>Second full lesson content.</p>",
+        text: "Lesson Two Second full lesson content.",
+        images: [],
+        videos: [],
+        links: []
+      }
+    ]
+  });
+
+  const lessonsSection = html.match(/<section id="lessons"[\s\S]*?<\/section>\s*<section id="lesson-one"/)?.[0] ?? "";
+
+  assert.match(lessonsSection, /<a class="lesson-card[\s\S]*href="#lesson-one"/);
+  assert.doesNotMatch(lessonsSection, /data-lesson-panel=/);
+  assert.match(html, /<section id="lesson-one" class="course-page" data-page="lesson-one" hidden>/);
+  assert.match(html, /function route\(\) \{[\s\S]*showPage\(hash\)/);
+  assert.doesNotMatch(html, /if \(page === "lessons"\) \{\s*showLesson/);
 });
