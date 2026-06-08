@@ -1,10 +1,8 @@
 (function () {
   const data = window.FORENSIC_STUDIES_OPTION2_DATA || window.WORLD_RELIGIONS_DATA || { course: {}, chapters: [], quizzes: [], assignments: [], library: [] };
   const PROJECT_SLUG = document.body?.dataset.projectSlug || "forensicstudiesoption2-nextstep-test";
-  const STORAGE_KEY = "forensicstudiesoption2-nextstep-test.progress";
-  const UI_KEY = "forensicstudiesoption2-nextstep-test.ui";
-  const AUTHORING_UNLOCK_ALL = false;
-  const AUTHORING_UNLOCK_ASSIGNMENTS = false;
+  const AUTHORING_UNLOCK_ALL = true;
+  const AUTHORING_UNLOCK_ASSIGNMENTS = true;
   const COMPACT_NAV_QUERY = "(max-width: 1023px)";
 
   const refs = {
@@ -33,10 +31,16 @@
     contentBody: document.getElementById("content-body")
   };
 
+  function getDefaultActiveIdForTab(tab) {
+    if (tab === "quizzes") return (data.quizzes || [])[0]?.id || null;
+    if (tab === "assignments") return getAssignments()[0]?.id || null;
+    return getVisibleChapters()[0]?.id || null;
+  }
+
   const state = {
     section: "home",
     tab: "chapters",
-    activeId: null,
+    activeId: getDefaultActiveIdForTab("chapters"),
     mobileNavOpen: false,
     sidebarCollapsed: loadUiState().sidebarCollapsed,
     quizSection: "mc",
@@ -109,41 +113,25 @@
   };
 
   function loadProgress() {
-    try {
-      const parsed = JSON.parse(window.localStorage.getItem(STORAGE_KEY) || "{}");
-      return {
-        quizComplete: parsed.quizComplete || {},
-        quizCompletedAt: parsed.quizCompletedAt || {},
-        quizWork: parsed.quizWork || {},
-        moduleComponents: parsed.moduleComponents || {},
-        assignmentComplete: parsed.assignmentComplete || {}
-      };
-    } catch (_error) {
-      return {
-        quizComplete: {},
-        quizCompletedAt: {},
-        quizWork: {},
-        moduleComponents: {},
-        assignmentComplete: {}
-      };
-    }
+    return {
+      quizComplete: {},
+      quizCompletedAt: {},
+      quizWork: {},
+      moduleComponents: {},
+      assignmentComplete: {}
+    };
   }
 
   function saveProgress() {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state.progress));
+    return;
   }
 
   function loadUiState() {
-    try {
-      const parsed = JSON.parse(window.localStorage.getItem(UI_KEY) || "{}");
-      return { sidebarCollapsed: !!parsed.sidebarCollapsed };
-    } catch (_error) {
-      return { sidebarCollapsed: false };
-    }
+    return { sidebarCollapsed: false };
   }
 
   function saveUiState() {
-    window.localStorage.setItem(UI_KEY, JSON.stringify({ sidebarCollapsed: state.sidebarCollapsed }));
+    return;
   }
 
   function isMobile() {
@@ -233,14 +221,6 @@
     const assignmentId = state.activeId;
     const frame = getActiveAssignmentFrame();
     if (!assignmentId || !frame) return;
-
-    getAssignmentResetStorageKeys(assignmentId).forEach((key) => {
-      try {
-        window.localStorage.removeItem(key);
-      } catch (_error) {
-        // Ignore storage cleanup failures and still try to reload the runtime.
-      }
-    });
 
     if (state.progress.assignmentComplete[assignmentId]) {
       delete state.progress.assignmentComplete[assignmentId];
@@ -521,23 +501,23 @@
 
   function getQuizLockedCopy(quiz) {
     if (quiz && quiz.id === "quiz-9") {
-      return "Locked until all other modules are complete";
+      return "Ready";
     }
-    return "Locked until all module content is marked complete";
+    return "Ready";
   }
 
   function getAssignmentLockedCopy(assignment) {
     if (assignment && assignment.id === "assignment-8") {
-      return "Locked until assignments 1-7 are complete";
+      return "Ready";
     }
-    return "Locked until all module content is marked complete";
+    return "Ready";
   }
 
   function getChapterLockedCopy(chapter) {
     if (isForensicsFinalExamChapter(chapter)) {
-      return "Locked until all other modules are complete";
+      return "Ready";
     }
-    return "Locked until all module content is marked complete";
+    return "Ready";
   }
 
   function isAssignmentGenerateTrigger(control) {
@@ -598,20 +578,11 @@
   }
 
   function isQuizUnlocked(quiz) {
-    if (AUTHORING_UNLOCK_ALL) return true;
-    if (quiz && quiz.id === "quiz-9") {
-      return isForensicsFinalExamUnlocked();
-    }
-    return !!quiz && isModuleComplete(quiz.chapterId);
+    return !!quiz;
   }
 
   function isAssignmentUnlocked(assignment) {
-    if (AUTHORING_UNLOCK_ALL) return true;
-    if (AUTHORING_UNLOCK_ASSIGNMENTS) return true;
-    if (assignment && assignment.id === "assignment-8") {
-      return areForensicsAssignmentsOneToSevenComplete();
-    }
-    return !!assignment && isModuleComplete(assignment.chapterId);
+    return !!assignment;
   }
 
   function getUnlockedChapterCount() {
@@ -908,8 +879,10 @@
     state.section = section;
     if (section === "home") {
       state.tab = "chapters";
+      state.activeId = getDefaultActiveIdForTab(state.tab);
+    } else {
+      state.activeId = null;
     }
-    state.activeId = null;
     closeMobileNav();
     render();
   }
@@ -917,7 +890,7 @@
   function setTab(tab) {
     state.section = "home";
     state.tab = tab;
-    state.activeId = null;
+    state.activeId = getDefaultActiveIdForTab(tab);
     closeMobileNav();
     render();
   }
@@ -1037,7 +1010,7 @@
           ${(data.quizzes || []).map((quiz) => {
             const unlocked = isQuizUnlocked(quiz);
             return `
-              <article class="course-card quiz-card ${unlocked ? "" : "locked-card"}" style="--accent:${escapeHtml(quiz.accent || "#8b6728")}">
+              <article class="course-card quiz-card" style="--accent:${escapeHtml(quiz.accent || "#8b6728")}">
                 <p class="card-code">${escapeHtml(quiz.code)}</p>
                 <h4 class="card-title">${escapeHtml(quiz.title)}</h4>
                 <p class="card-summary">${escapeHtml(quiz.summary || "This quiz keeps the original source-linked assessment available inside the shell.")}</p>
@@ -1058,7 +1031,7 @@
           ${getAssignments().map((assignment) => {
             const unlocked = isAssignmentUnlocked(assignment);
             return `
-              <article class="course-card assignment-card ${unlocked ? "" : "locked-card"}" style="--accent:${escapeHtml(assignment.accent || "#8b6728")}">
+              <article class="course-card assignment-card" style="--accent:${escapeHtml(assignment.accent || "#8b6728")}">
                 <p class="card-code">${escapeHtml(assignment.code)}</p>
                 <h4 class="card-title">${escapeHtml(assignment.title)}</h4>
                 <p class="card-summary">${escapeHtml(assignment.summary)}</p>
@@ -1099,7 +1072,7 @@
               ? `<div class="status-chip">${escapeHtml(`${completedCount}/${componentCount} components complete`)}</div>`
               : `<div class="status-chip">Ready</div>`;
           return `
-            <article class="course-card chapter-card editorial-overview-card ${unlocked ? "" : "locked-card"}" style="--accent:${escapeHtml(chapter.accent || "#8b6728")}">
+            <article class="course-card chapter-card editorial-overview-card" style="--accent:${escapeHtml(chapter.accent || "#8b6728")}">
               <p class="card-code">${escapeHtml(chapter.code)}</p>
               <h4 class="card-title">${escapeHtml(chapter.title)}</h4>
               <p class="card-summary">${escapeHtml(chapter.summary)}</p>

@@ -73,7 +73,7 @@ tailwind.config = {
 .course-main { padding-top: 72px !important; }
 .course-sidebar, .course-main, .sidebar-label { transition: width 180ms ease, margin-left 180ms ease, opacity 140ms ease; }
 .course-sidebar { top: 72px !important; }
-.sidebar-header { position: relative; }
+.course-sidebar .sidebar-header { position: relative; padding-right: 76px; }
 .sidebar-toggle-button { position: absolute; top: 16px; right: 16px; min-height: 44px; min-width: 44px; display: inline-flex; align-items: center; justify-content: center; border-radius: 8px; color: #fff; }
 .sidebar-toggle-button:hover, .sidebar-toggle-button:focus-visible { background: rgba(255,255,255,0.1); outline: none; }
 .course-nav-link { color: #e1e3e4; }
@@ -152,6 +152,77 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 .resource-card span:last-child { color: #42493e; font-size: 13px; line-height: 1.35; word-break: break-word; }
 .completed-pill { border: 1px solid #c2c9bb; border-radius: 8px; padding: 8px 12px; background: #fff; color: #42493e; }
 .completed-pill strong { color: #154212; }
+.critical-response-activity { display: flex; flex-direction: column; gap: 24px; margin-top: 24px; }
+.critical-response-tabs { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.critical-response-tab { min-height: 158px; display: flex; flex-direction: column; align-items: flex-start; gap: 10px; border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; padding: 20px; text-align: left; color: #191c1d; }
+.critical-response-tab:hover, .critical-response-tab:focus-visible, .critical-response-tab.active { border-color: #2d5a27; background: #f3f7f1; outline: none; }
+.critical-response-tab-icon { color: #154212; font-size: 24px; }
+.critical-response-tab strong { font-family: "Hanken Grotesk"; font-size: 22px; line-height: 1.25; color: #191c1d; }
+.critical-response-tab span:last-child { color: #42493e; font-size: 14px; line-height: 1.5; }
+.critical-response-workshop-shell { border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; overflow: hidden; }
+.critical-response-workshop-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; padding: 24px; border-bottom: 1px solid #e1e3e4; background: #f8f9fa; }
+.critical-response-workshop-header h3 { margin: 0 0 8px; font-family: "Hanken Grotesk"; font-size: 26px; line-height: 1.2; color: #191c1d; }
+.critical-response-workshop-header p { margin: 0; max-width: 72ch; color: #42493e; line-height: 1.5; }
+.critical-response-status { min-width: 132px; display: flex; flex-direction: column; gap: 6px; align-items: flex-end; font-family: "IBM Plex Sans"; font-size: 13px; color: #42493e; }
+.critical-response-progress-track { height: 8px; background: #edf1eb; }
+.critical-response-progress-fill { width: 0%; height: 100%; background: #154212; transition: width 180ms ease; }
+.critical-response-group-tabs { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; padding: 16px 24px 0; background: #fff; }
+.critical-response-group-tab { display: grid; grid-template-columns: 24px minmax(0, 1fr) auto; gap: 10px; align-items: center; min-height: 52px; border: 1px solid #e1e3e4; border-radius: 8px; background: #f8f9fa; color: #191c1d; padding: 10px 12px; text-align: left; }
+.critical-response-group-tab:hover, .critical-response-group-tab:focus-visible, .critical-response-group-tab.active { border-color: #2d5a27; background: #f3f7f1; outline: none; }
+.critical-response-group-tab span:not(.material-symbols-outlined) { font-family: "Hanken Grotesk"; font-size: 15px; line-height: 1.2; font-weight: 800; }
+.critical-response-group-tab small { color: #42493e; font-size: 12px; line-height: 1.3; }
+.critical-response-panel { padding: 24px; }
+.critical-response-step-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
+.critical-response-step-title { margin: 0; font-family: "Hanken Grotesk"; font-size: 22px; line-height: 1.25; color: #191c1d; }
+.critical-response-step-index { font-family: "IBM Plex Sans"; font-size: 13px; color: #42493e; white-space: nowrap; }
+.critical-response-question { margin: 0 0 20px; max-width: 78ch; font-size: 17px; line-height: 1.55; color: #191c1d; }
+.critical-response-scenario { margin: 0 0 20px; border-left: 4px solid #2d5a27; border-radius: 0 8px 8px 0; background: #f3f7f1; padding: 14px 16px; color: #191c1d; font-style: italic; line-height: 1.5; }
+.critical-response-options { display: grid; gap: 14px; }
+.critical-response-options.two-column { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.critical-response-option { position: relative; min-height: 74px; border: 1px solid #d9dadb; border-radius: 8px; background: #fff; padding: 16px 46px 16px 16px; text-align: left; color: #191c1d; line-height: 1.45; }
+.critical-response-option:hover:not(:disabled), .critical-response-option:focus-visible:not(:disabled) { border-color: #2d5a27; background: #f8fbf7; outline: none; }
+.critical-response-option:disabled { cursor: default; }
+.critical-response-option-label { display: block; margin-bottom: 6px; font-family: "IBM Plex Sans"; font-size: 12px; color: #154212; }
+.critical-response-option-icon { position: absolute; top: 16px; right: 16px; font-size: 22px; }
+.critical-response-option.is-correct { border-color: #2d5a27; background: #f3f7f1; }
+.critical-response-option.is-incorrect { border-color: #b3261e; background: #fff7f6; }
+.critical-response-option.is-reveal { border-color: #2d5a27; }
+.critical-response-option.is-muted { color: #5d5e61; background: #f8f9fa; opacity: 0.72; }
+.critical-response-feedback { display: flex; align-items: flex-start; gap: 12px; margin-top: 22px; border-radius: 8px; padding: 16px; line-height: 1.5; }
+.critical-response-feedback.correct { border: 1px solid #c2c9bb; background: #f3f7f1; color: #154212; }
+.critical-response-feedback.incorrect { border: 1px solid #f1b8b4; background: #fff7f6; color: #7d1b16; }
+.critical-response-feedback strong { display: block; margin-bottom: 4px; font-family: "Hanken Grotesk"; font-size: 17px; color: inherit; }
+.critical-response-actions { display: flex; justify-content: flex-end; margin-top: 18px; }
+.critical-response-action { min-height: 44px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid #154212; border-radius: 8px; background: #154212; color: #fff; padding: 9px 14px; font-family: "IBM Plex Sans"; font-size: 14px; }
+.critical-response-action:hover, .critical-response-action:focus-visible { background: #2d5a27; border-color: #2d5a27; outline: none; }
+.critical-response-complete { border: 1px solid #c2c9bb; border-radius: 8px; background: #f3f7f1; padding: 24px; }
+.critical-response-complete h3 { margin: 0 0 8px; font-family: "Hanken Grotesk"; font-size: 24px; line-height: 1.2; color: #191c1d; }
+.critical-response-complete p { margin: 0 0 18px; color: #42493e; line-height: 1.5; }
+.thesis-builder { display: flex; flex-direction: column; gap: 20px; }
+.thesis-stepper { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.thesis-step { display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 10px; align-items: center; border: 1px solid #e1e3e4; border-radius: 8px; background: #f8f9fa; color: #42493e; padding: 10px; }
+.thesis-step.active, .thesis-step.complete { border-color: #2d5a27; background: #f3f7f1; color: #154212; }
+.thesis-step-marker { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; background: #fff; border: 1px solid #d9dadb; font-family: "IBM Plex Sans"; font-size: 13px; }
+.thesis-step.complete .thesis-step-marker { border-color: #2d5a27; background: #2d5a27; color: #fff; }
+.thesis-step-check { display: block; width: 9px; height: 15px; border: solid currentColor; border-width: 0 3px 3px 0; transform: rotate(45deg) translate(-1px, -1px); }
+.thesis-step span:last-child { font-family: "IBM Plex Sans"; font-size: 13px; line-height: 1.3; }
+.thesis-feedback { display: flex; gap: 12px; align-items: flex-start; border: 1px solid #f2c7c7; border-radius: 8px; background: #fff5f5; color: #7b1b1b; padding: 14px; }
+.thesis-feedback strong { display: block; margin-bottom: 4px; font-family: "Hanken Grotesk"; font-size: 16px; line-height: 1.2; }
+.thesis-choice-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.thesis-choice-grid.three-column { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.thesis-choice { min-height: 86px; border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; color: #191c1d; padding: 14px; text-align: left; }
+.thesis-choice:hover, .thesis-choice:focus-visible { border-color: #2d5a27; background: #f3f7f1; outline: none; }
+.thesis-choice strong { display: block; margin-bottom: 6px; font-family: "Hanken Grotesk"; font-size: 17px; line-height: 1.2; }
+.thesis-choice small { display: block; color: #154212; font-family: "IBM Plex Sans"; font-size: 12px; line-height: 1.3; margin-bottom: 8px; }
+.thesis-preview { border: 1px solid #e1e3e4; border-radius: 8px; background: #f8f9fa; padding: 16px; color: #42493e; line-height: 1.55; }
+.thesis-preview strong { color: #154212; }
+.thesis-output { border: 1px solid #c2c9bb; border-radius: 8px; background: #f3f7f1; padding: 20px; }
+.thesis-output h4 { margin: 0 0 10px; font-family: "Hanken Grotesk"; font-size: 22px; line-height: 1.2; color: #191c1d; }
+.thesis-output textarea { width: 100%; min-height: 150px; border: 1px solid #c2c9bb; border-radius: 8px; background: #fff; color: #191c1d; padding: 14px; font-family: "Work Sans"; font-size: 16px; line-height: 1.55; resize: vertical; }
+.thesis-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+.thesis-action { min-height: 42px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid #154212; border-radius: 8px; background: #154212; color: #fff; padding: 9px 14px; font-family: "IBM Plex Sans"; font-size: 14px; }
+.thesis-action.secondary { background: #fff; color: #154212; }
+.thesis-action:hover, .thesis-action:focus-visible { background: #2d5a27; border-color: #2d5a27; color: #fff; outline: none; }
 @media (max-width: 900px) {
   .course-sidebar { display: none; }
   .course-main { margin-left: 0 !important; padding-top: 124px !important; }
@@ -168,6 +239,9 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
   .library-actions { justify-content: flex-start; }
   .library-document-frame { min-height: 420px; height: 62vh; }
   .film-room-frame { min-height: 220px; }
+  .critical-response-tabs, .critical-response-options.two-column, .thesis-stepper, .thesis-choice-grid, .thesis-choice-grid.three-column { grid-template-columns: 1fr; }
+  .critical-response-workshop-header, .critical-response-step-header { flex-direction: column; }
+  .critical-response-status { align-items: flex-start; }
 }
 </style>
 </head>
@@ -1330,22 +1404,55 @@ You also need to clarify your reasons for choosing the literature you have ident
       </section>
 
     <section id="writing" class="course-page" data-page="writing" hidden>
-      <div class="max-w-5xl">
+      <div class="max-w-6xl">
         <p class="font-label-md text-label-md text-secondary">ELA 30-1 | Writing Studio</p>
         <h2 class="font-headline-lg text-headline-lg text-on-surface mt-xs mb-md">Critical/Analytical Response Workspace</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-md">
-          <article class="bg-white border border-surface-muted rounded-lg p-md">
-            <h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Text Knowledge</h3>
-            <p class="text-on-surface-variant">Choose one studied play and collect evidence tied to conflict, character, theme, and dramatic technique.</p>
-          </article>
-          <article class="bg-white border border-surface-muted rounded-lg p-md">
-            <h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Thesis Control</h3>
-            <p class="text-on-surface-variant">State how the playwright develops the topic, then keep each body paragraph anchored to that interpretation.</p>
-          </article>
-          <article class="bg-white border border-surface-muted rounded-lg p-md">
-            <h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Evidence Quality</h3>
-            <p class="text-on-surface-variant">Use precise moments from the drama rather than broad plot summary. Explain how each detail proves the claim.</p>
-          </article>
+        <div class="critical-response-activity" data-critical-response-activity>
+          <div class="critical-response-tabs" role="tablist" aria-label="Critical response workshop tracks">
+            <button class="critical-response-tab active" type="button" role="tab" aria-selected="true" data-workshop-tab="textKnowledge">
+      <span class="material-symbols-outlined critical-response-tab-icon" aria-hidden="true">menu_book</span>
+      <strong>Text Knowledge</strong>
+      <span>Practice the Streetcar text, thesis-control concepts, and evidence-quality decisions in one organized question bank.</span>
+    </button>
+<button class="critical-response-tab" type="button" role="tab" aria-selected="false" data-workshop-tab="thesisControl">
+      <span class="material-symbols-outlined critical-response-tab-icon" aria-hidden="true">edit_note</span>
+      <strong>Thesis Workshop</strong>
+      <span>Build a diploma-ready thesis by connecting prompt topic, character, analytical action, and universal significance.</span>
+    </button>
+          </div>
+          <div class="critical-response-workshop-shell">
+            <div class="critical-response-workshop-header">
+              <div>
+                <h3 data-workshop-heading>Text Knowledge Question Bank: A Streetcar Named Desire</h3>
+                <p data-workshop-description>All current critical response questions are grouped here so students can stay in the text-knowledge lane before moving into thesis drafting.</p>
+              </div>
+              <div class="critical-response-status" aria-live="polite">
+                <span data-workshop-step-count>Step 1 of 15</span>
+                <span data-workshop-score>0 correct</span>
+              </div>
+            </div>
+            <div class="critical-response-progress-track" aria-hidden="true">
+              <div class="critical-response-progress-fill" data-workshop-progress-fill></div>
+            </div>
+            <div class="critical-response-group-tabs" data-question-group-tabs>
+              <button class="critical-response-group-tab active" type="button" aria-pressed="true" data-question-group-tab="textKnowledge">
+      <span class="material-symbols-outlined" aria-hidden="true">menu_book</span>
+      <span>Text Knowledge</span>
+      <small>15 questions</small>
+    </button>
+<button class="critical-response-group-tab" type="button" aria-pressed="false" data-question-group-tab="thesisControl">
+      <span class="material-symbols-outlined" aria-hidden="true">edit_note</span>
+      <span>Thesis Control</span>
+      <small>15 questions</small>
+    </button>
+<button class="critical-response-group-tab" type="button" aria-pressed="false" data-question-group-tab="evidenceQuality">
+      <span class="material-symbols-outlined" aria-hidden="true">tips_and_updates</span>
+      <span>Evidence Quality</span>
+      <small>15 questions</small>
+    </button>
+            </div>
+            <div class="critical-response-panel" data-workshop-panel></div>
+          </div>
         </div>
       </div>
     </section>
@@ -1615,6 +1722,26 @@ const totalLessons = 25;
 const staticPages = ["overview","lessons","writing","library","film-room","resources"];
 const lessonsNav = document.querySelector("[data-lessons-nav]");
 const lessonsToggle = document.querySelector("[data-lessons-toggle]");
+const criticalResponseQuestionGroups = [{"id":"textKnowledge","title":"Text Knowledge","description":"Choose one studied play and collect evidence tied to conflict, character, theme, and dramatic technique.","steps":[{"title":"Rule #1: Choosing Your Text","type":"quiz","question":"On the ELA 30-1 diploma, you must focus your Critical/Analytical composition on:","options":[{"id":"a","text":"The reading selection provided in the examination booklet.","correct":false},{"id":"b","text":"A literary text you have studied well in class, such as A Streetcar Named Desire.","correct":true},{"id":"c","text":"A personal experience that relates to the given topic.","correct":false}],"explanation":"Compositions that refer only to the texts provided in the examination or that make no reference to literature studied are assessed as Insufficient."},{"title":"Identifying Dramatic Technique: Music","type":"scenario","question":"You want to discuss Blanche's descent into madness and her haunting past. Which dramatic technique provides the best evidence for this internal conflict?","options":[{"id":"a","text":"The changing colors of the lighting in the Elysian Fields apartment.","correct":false},{"id":"b","text":"The recurring auditory motif of the Varsouviana Polka music.","correct":true}],"explanation":"The Varsouviana Polka specifically triggers whenever Blanche thinks of her husband's death, acting as an auditory representation of her trauma and fracturing mind that only she (and the audience) can hear."},{"title":"Defining the Core Conflict","type":"comparison","question":"Which statement best captures the fundamental conflict of the play for an analytical essay?","options":[{"id":"a","text":"Blanche and Stanley fight because Blanche is a snob who looks down on his apartment, and Stanley doesn't like her interfering with his marriage.","correct":false,"label":"Plot Level"},{"id":"b","text":"The conflict between Blanche and Stanley represents the clash between the fading, illusion-driven aristocracy of the Old South and the brutal, realistic industrialism of the New South.","correct":true,"label":"Analytical Level"}],"explanation":"The second option connects the character-level conflict to the broader thematic meaning of the play."},{"title":"Symbolism: The Paper Lantern","type":"quiz","question":"What does Blanche's paper lantern placed over the naked light bulb primarily symbolize?","options":[{"id":"a","text":"Her desire to make the apartment look more expensive and upper-class.","correct":false},{"id":"b","text":"Her desperate need to soften harsh realities and hide her fading youth behind artificial illusions.","correct":true}],"explanation":"The naked bulb represents the harsh, unforgiving truth (Stanley's domain), while the lantern represents Blanche's fragile manufactured reality."},{"title":"Thematic Motif: Bathing","type":"scenario","question":"Blanche constantly takes long, hot baths throughout the play. If writing about the theme of guilt, how would you analyze this?","options":[{"id":"a","text":"It is a physical manifestation of her psychological desire to cleanse herself of her sordid past in Laurel.","correct":true},{"id":"b","text":"It shows how she uses up all of Stanley and Stella's resources, causing domestic tension in the household.","correct":false}],"explanation":"While it does cause tension (plot), analytically, the bathing is a ritualistic attempt at purification and washing away her guilt."},{"title":"Setting Analysis: Elysian Fields","type":"quiz","question":"What is the literary significance of the street name 'Elysian Fields' where Stella and Stanley live?","options":[{"id":"a","text":"It is an ironic allusion to the Greek afterlife for heroes, contrasting with the grim, industrial reality of the setting.","correct":true},{"id":"b","text":"It is a direct reference to the wealthy plantation that Blanche and Stella lost in Mississippi.","correct":false}],"explanation":"In mythology, Elysian Fields is paradise. Williams uses this ironically; for Blanche, this 'afterlife' (the end of her line) is a brutal, cramped purgatory."},{"title":"Character Motivation: Napoleonic Code","type":"comparison","question":"When Stanley brings up the 'Napoleonic Code', what does it reveal about his character for an essay?","options":[{"id":"a","text":"It reveals his deep knowledge of Louisiana law and his desire to protect his wife's financial interests.","correct":false,"label":"Surface Reading"},{"id":"b","text":"It reveals his primal need for dominance and territorial control, as he views his wife's property - and by extension, his wife - as entirely his own.","correct":true,"label":"Analytical Reading"}],"explanation":"Stanley is not a legal scholar; he uses the Code to assert patriarchal dominance and ensure he isn't being swindled out of what he believes is rightfully his territory."},{"title":"Symbolism: Belle Reve","type":"quiz","question":"The Dubois family plantation is named 'Belle Reve'. Translated, this means 'Beautiful Dream'. Why is this significant?","options":[{"id":"a","text":"It highlights that the plantation was always a magical place that Blanche dreams of returning to.","correct":false},{"id":"b","text":"It emphasizes that the aristocratic lifestyle of the Old South was ultimately an unsustainable illusion - a dream that had to end.","correct":true}],"explanation":"Belle Reve was built on a foundation of debt and slavery. Its loss signifies the inevitable collapse of the 'beautiful dream' of the Old South when faced with modern reality."},{"title":"Identifying Dramatic Technique: Blue Piano","type":"quiz","question":"Unlike the Varsouviana, which only Blanche hears, the 'blue piano' is heard by everyone. What does it represent?","options":[{"id":"a","text":"The vibrant, cyclical, and unapologetic spirit of life in New Orleans.","correct":true},{"id":"b","text":"The tragic death of Allan Grey and Blanche's lingering sorrow.","correct":false}],"explanation":"The blue piano expresses the spirit of the vibrant, raw, New South. It often swells during moments of passion, life, and the cyclical nature of the city."},{"title":"Quote Analysis: The Final Scene","type":"scenario","question":"Blanche's final line is: 'I have always depended on the kindness of strangers.' What does this indicate about her character arc?","options":[{"id":"a","text":"She has finally found a doctor who will treat her kindly and cure her.","correct":false},{"id":"b","text":"She has completely severed ties with reality, retreating into a final, permanent illusion where the doctor is a 'gentleman' rescuing her.","correct":true}],"explanation":"The tragedy is complete. Unable to face the trauma of the rape and her sister's betrayal, her mind entirely fractures, clinging to the illusion of Southern gentility."},{"title":"Allegory: The Streetcars","type":"quiz","question":"Blanche explains her route: 'They told me to take a street-car named Desire, and then transfer to one called Cemeteries... and get off at - Elysian Fields!' This represents:","options":[{"id":"a","text":"The confusing public transit system of 1940s New Orleans.","correct":false},{"id":"b","text":"An allegorical journey showing that unchecked desire inevitably leads to death/destruction, and finally to the afterlife.","correct":true}],"explanation":"Williams explicitly lays out the thematic trajectory of Blanche's life in her very first lines. Her desires led to her social 'death' in Laurel, bringing her to her final resting place."},{"title":"Character Analysis: Stella's Choice","type":"comparison","question":"How should an analytical essay treat Stella's decision to stay with Stanley at the end?","options":[{"id":"a","text":"She chooses Stanley because she hates Blanche for lying to everyone.","correct":false,"label":"Incorrect Motivation"},{"id":"b","text":"She consciously chooses self-deception ('I couldn't believe her story and go on living with Stanley') because her primal bond to him and her new baby outweigh her loyalty to the past.","correct":true,"label":"Analytical Truth"}],"explanation":"Stella represents the bridge between the Old and New South. Her tragedy is that she must sacrifice her sister and embrace an illusion to survive in Stanley's world."},{"title":"The Poker Night Dynamics","type":"scenario","question":"The stage directions describe the men at the poker table wearing 'solid blues, a purple, a red-and-white check, a light green'. What is the purpose of this primary color imagery?","options":[{"id":"a","text":"To contrast the men's raw, vivid, physical masculinity against Blanche's faded, moth-like delicacy.","correct":true},{"id":"b","text":"To show that the men are wealthy enough to afford brightly colored clothing.","correct":false}],"explanation":"Williams calls them the 'raw colors of childhood's spectrum'. It establishes the men as coarse, direct, and overwhelmingly physical."},{"title":"Character Foil: Mitch","type":"quiz","question":"What thematic role does Mitch serve in the play?","options":[{"id":"a","text":"He serves as a symbol of the perfect gentleman who could have saved Blanche if Stanley hadn't interfered.","correct":false},{"id":"b","text":"He represents a temporary illusion of sanctuary for Blanche, but ultimately proves to be bound by the same crude reality as Stanley.","correct":true}],"explanation":"While softer than Stanley, Mitch's brutal reaction to Blanche's past ('You're not clean enough to bring in the house with my mother') proves he is still part of the unforgiving reality she cannot escape."},{"title":"The Climax: Scene 10","type":"comparison","question":"When Stanley says, 'We've had this date with each other from the beginning!' right before the assault, it signifies:","options":[{"id":"a","text":"The inevitable, destructive conquest of the New South's brutal reality over the Old South's fragile illusions.","correct":true,"label":"Thematic Level"},{"id":"b","text":"That Stanley had been planning this specific moment since the day she arrived.","correct":false,"label":"Plot Level"}],"explanation":"Their conflict was fundamentally irreconcilable. Stanley's raw, animalistic realism was always destined to destroy Blanche's delicate, fabricated world."}],"icon":"menu_book"},{"id":"thesisControl","title":"Thesis Control","description":"State how the playwright develops the topic, then keep each body paragraph anchored to that interpretation.","steps":[{"title":"Crafting a Strong Thesis","type":"comparison","question":"If the exam topic is 'the impact of illusions on an individual's reality', which is the strongest thesis statement?","options":[{"id":"a","text":"In A Streetcar Named Desire, Tennessee Williams shows that Blanche relies on illusions because her reality is too hard to deal with, which eventually causes her to go crazy.","correct":false,"label":"Draft Thesis"},{"id":"b","text":"In A Streetcar Named Desire, Williams suggests that when an individual relies on fragile illusions to survive a traumatic past, they inevitably fracture their psychological reality when confronted with brutal, uncompromising truths.","correct":true,"label":"Refined Thesis"}],"explanation":"The second thesis is stronger because it defines the *impact* clearly (fracturing psychological reality) and uses precise, analytical vocabulary."},{"title":"Avoiding Moralizing","type":"quiz","question":"A common mistake is writing a 'moralizing' thesis that judges characters instead of analyzing them. Which of these is an analytical thesis?","options":[{"id":"a","text":"Stanley Kowalski is an evil and abusive man, proving that bad people will always destroy good people.","correct":false},{"id":"b","text":"Stanley Kowalski embodies the ruthless, unapologetic force of modern reality, acting as the primary catalyst for the destruction of Blanche's illusions.","correct":true}],"explanation":"Avoid terms like 'good', 'evil', or 'mean'. Analyze what the character *represents* and their *function* in the playwright's thematic message."},{"title":"Decoding the Prompt","type":"scenario","question":"The diploma prompt asks you to discuss 'the significance of an individual's attempt to escape reality'. What must your thesis address?","options":[{"id":"a","text":"How Blanche tries to escape reality by drinking, lying, and taking baths.","correct":false},{"id":"b","text":"WHY Blanche attempts to escape, and the ultimate CONSEQUENCES (the significance) of that attempt.","correct":true}],"explanation":"Option A just lists plot points. Option B addresses 'significance' - the *meaning* and *result* of the behavior."},{"title":"Topic Sentence Alignment","type":"scenario","question":"Your thesis argues that 'fragile illusions fracture against brutal truths.' Which topic sentence best anchors your first body paragraph to this specific thesis?","options":[{"id":"a","text":"Blanche's meticulous construction of her 'Southern belle' persona serves as a desperate psychological shield against her traumatic history in Laurel.","correct":true},{"id":"b","text":"When Blanche arrives at Elysian Fields, she immediately begins lying about drinking Stanley's liquor.","correct":false}],"explanation":"The first option establishes the 'illusion' and connects it to the 'why' (psychological shield), tying directly back to your thesis. The second is plot summary."},{"title":"Topic Sentence on Setting","type":"comparison","question":"How can you write a topic sentence that uses SETTING to advance your thesis about 'the inescapable nature of reality'?","options":[{"id":"a","text":"The cramped, claustrophobic setting of the Elysian Fields apartment serves as a physical manifestation of the reality Blanche cannot escape.","correct":true,"label":"Analytical"},{"id":"b","text":"Stanley and Stella live in a two-room apartment in New Orleans called Elysian Fields.","correct":false,"label":"Descriptive"}],"explanation":"A topic sentence must make an arguable claim that supports the thesis, not just state a fact about the play."},{"title":"Integrating Technique into Thesis","type":"quiz","question":"Which thesis successfully incorporates dramatic technique into its core argument?","options":[{"id":"a","text":"Williams uses music, lighting, and stage directions to make the play more interesting for the audience.","correct":false},{"id":"b","text":"Through the expressionistic use of the Varsouviana polka and harsh lighting, Williams externalizes Blanche's internal psychological deterioration.","correct":true}],"explanation":"Don't just list techniques; explain *how* the playwright uses them to construct meaning."},{"title":"Spotting the Drift","type":"scenario","question":"Your paragraph is arguing that Stanley destroys Blanche's illusions. Which sentence drifts OFF TOPIC into summary?","options":[{"id":"a","text":"By revealing her sordid past to Mitch, Stanley systematically dismantles the respectable persona she has constructed.","correct":false},{"id":"b","text":"Mitch was going to marry her, and they had gone on several dates, including one where they talked in French.","correct":true}],"explanation":"Sentence B drifts into retelling the story of Mitch and Blanche's dates, abandoning the analysis of Stanley's destruction of her illusion."},{"title":"Aligning Evidence to Thesis","type":"comparison","question":"Thesis: 'Stella actively chooses self-deception to survive.' Which piece of evidence best supports this specific claim?","options":[{"id":"a","text":"Stella says, 'I couldn't believe her story and go on living with Stanley.'","correct":true,"label":"Strong Alignment"},{"id":"b","text":"Stella tells Blanche to stop being so critical of the apartment.","correct":false,"label":"Weak Alignment"}],"explanation":"The quote in Option A explicitly demonstrates Stella making a conscious choice to disbelieve the truth (self-deception) in order to maintain her life (survival)."},{"title":"Paragraph Transitions","type":"quiz","question":"You just finished a paragraph on Blanche's illusions. Your next paragraph is about Stanley breaking them. Which is the best transitional phrase?","options":[{"id":"a","text":"Another thing that happens in the play is Stanley getting mad.","correct":false},{"id":"b","text":"However, Blanche's carefully constructed sanctuary is ultimately unsustainable when confronted by Stanley's relentless realism.","correct":true}],"explanation":"A good transition bridges the concept of the previous paragraph (sanctuary) with the new concept (Stanley's realism)."},{"title":"Maintaining the Thread","type":"quiz","question":"You are concluding a paragraph about Stanley tearing the paper lantern off the lightbulb. How do you tie this back to your thesis about 'brutal truths'?","options":[{"id":"a","text":"This shows how mean Stanley is and how much he wants to hurt Blanche by exposing her age.","correct":false},{"id":"b","text":"Ultimately, Blanche's manufactured sanctuary is destroyed by Stanley's deliberate intrusion of raw truth, physically tearing away the illusion that protected her.","correct":true}],"explanation":"To control your thesis, you must constantly return to the key terms of your argument. Option B brings back 'sanctuary', 'truth', and 'illusion'."},{"title":"Evaluating a 'Desire' Thesis","type":"scenario","question":"If the topic is 'the role of desire', which thesis asserts better control?","options":[{"id":"a","text":"Williams portrays desire as a destructive, uncontrollable force that overpowers rationality and drives individuals to their tragic downfall.","correct":true},{"id":"b","text":"Desire is a major theme because Blanche desires to be young, Stanley desires Stella, and Stella desires Stanley.","correct":false}],"explanation":"Option A makes an overarching, arguable claim about the *nature* of desire. Option B merely lists examples of characters wanting things."},{"title":"Introduction Funnel Strategy","type":"quiz","question":"A strong introduction starts broad and narrows to the thesis. Which sequence is correct?","options":[{"id":"a","text":"Universal hook -> Introduce Play/Author -> Context of characters -> Thesis statement.","correct":true},{"id":"b","text":"Thesis statement -> List of characters -> Summary of Scene 1 -> Universal hook.","correct":false}],"explanation":"The 'funnel' method pulls the reader from a universal human truth down into the specific mechanics of how Tennessee Williams explores that truth in this specific play."},{"title":"Concluding the Essay","type":"comparison","question":"What is the primary goal of the concluding paragraph in a diploma essay?","options":[{"id":"a","text":"To restate the thesis word-for-word and list the three examples used in the body paragraphs.","correct":false,"label":"Middle School Style"},{"id":"b","text":"To synthesize the arguments and explain the broader significance - the 'so what' - of the playwright's message regarding human nature.","correct":true,"label":"Diploma Style"}],"explanation":"A 30-1 conclusion should elevate the argument. Don't just repeat yourself; tell the marker why this interpretation matters to our understanding of the human condition."},{"title":"The 'So What?' Factor","type":"scenario","question":"How do you add the 'So What?' factor to the end of an essay about the destruction of the Old South?","options":[{"id":"a","text":"Therefore, Blanche goes to an asylum and Stanley wins the conflict.","correct":false},{"id":"b","text":"Through Blanche's demise, Williams offers a bleak commentary: in the modern world, brutal pragmatism will inevitably eradicate fragile idealism.","correct":true}],"explanation":"Option B steps back from the plot and explains the universal, thematic message the playwright is trying to convey."},{"title":"Final Thesis Check","type":"quiz","question":"Read your thesis, then read the prompt. If the prompt asks about 'the impact of significant experience,' and your thesis is 'Stanley's poker games show masculinity,' what went wrong?","options":[{"id":"a","text":"Nothing. Poker games are a significant experience for Stanley.","correct":false},{"id":"b","text":"You failed to answer the prompt. You must explicitly address how an experience impacts an individual's perspective or reality.","correct":true}],"explanation":"Thesis control begins with explicitly answering the prompt provided. If you write a great essay on a topic you weren't asked about, the mark will be heavily penalized."}],"icon":"edit_note"},{"id":"evidenceQuality","title":"Evidence Quality","description":"Use precise moments from the drama rather than broad plot summary. Explain how each detail proves the claim.","steps":[{"title":"Analysis vs. Plot Summary","type":"comparison","question":"The guidelines state: 'Do not merely retell the sequence of events...' Which is an example of strong ANALYSIS rather than plot summary?","options":[{"id":"a","text":"Blanche arrives at Elysian Fields and criticizes Stella's apartment. Later, Stanley throws the radio out the window during a poker game.","correct":false,"label":"Example A"},{"id":"b","text":"Williams utilizes the confined setting of the apartment to trap Blanche in a primal reality she cannot escape. Stanley's violent destruction of the radio serves as a physical manifestation of his dominance.","correct":true,"label":"Example B"}],"explanation":"Example B uses the events to prove a point about character conflict and symbolism, whereas Example A just lists what happens chronologically."},{"title":"Quoting vs. Paraphrasing","type":"scenario","question":"You want to emphasize Blanche's desperate reliance on illusion. How should you integrate this evidence?","options":[{"id":"a","text":"Quote it directly. The quotation is emphatically stated and perfectly captures the essence of her character.","correct":true},{"id":"b","text":"Paraphrase it. You should always avoid quoting dialogue in an essay.","correct":false}],"explanation":"The guidelines state you should quote when 'the quotation is so apt or emphatically stated that a paraphrase would not recapture the eloquence of the text.' This famous line is a perfect time to quote!"},{"title":"Fixing 'Dropped Quotes'","type":"comparison","question":"A 'dropped quote' is dumped into a paragraph without context. Which option integrates the evidence correctly?","options":[{"id":"a","text":"Blanche is scared of the light. \"I can't stand a naked light bulb, any more than I can a rude remark or a vulgar action.\" This shows she hides from reality.","correct":false,"label":"Dropped Quote"},{"id":"b","text":"Blanche's aversion to truth is immediately apparent when she insists on covering the bare bulb, equating a \"naked light bulb\" with a \"vulgar action,\" thereby revealing how she equates harsh light with the exposure of her true self.","correct":true,"label":"Integrated Quote"}],"explanation":"Option B flawlessly weaves the exact words into the writer's own sentence, explaining exactly *how* the detail proves the claim."},{"title":"Selecting Evidence: Stanley's Dominance","type":"quiz","question":"You are arguing that Stanley establishes primal dominance over his household immediately in Scene 1. Which detail is the highest quality evidence?","options":[{"id":"a","text":"He says hello to Eunice and goes bowling with Mitch.","correct":false},{"id":"b","text":"He heaves a blood-stained package of meat at Stella, commanding her to catch it.","correct":true}],"explanation":"The meat-throwing is a powerful, symbolic stage action that establishes him as the 'hunter/gatherer' and demands Stella's subservience."},{"title":"Grammatical Embedding","type":"scenario","question":"How do you weave a quote so it grammatically fits your own sentence?","scenarioText":"Quote: \"We've had this date with each other from the beginning!\"","options":[{"id":"a","text":"Stanley reveals that the assault was inevitable, declaring that they have \"had this date with each other from the beginning!\"","correct":true},{"id":"b","text":"Stanley says \"We've had this date with each other from the beginning!\" which means it was inevitable.","correct":false}],"explanation":"Option A blends the quoted phrase seamlessly into the syntax of the student's own sentence, making for a much smoother read."},{"title":"Analyzing the Meat Scene","type":"comparison","question":"Which explanation offers the best analysis of the meat-throwing incident in Scene 1?","options":[{"id":"a","text":"This shows that Stanley went to the butcher to get food for his wife.","correct":false,"label":"Literal"},{"id":"b","text":"This gesture establishes the primal, sexual undercurrent of their marriage, reducing their dynamic to that of a caveman providing for his mate.","correct":true,"label":"Analytical"}],"explanation":"Always push past the literal action to the symbolic meaning. Evidence Quality requires you to explain *why* the playwright included the detail."},{"title":"Paraphrasing a Monologue","type":"quiz","question":"Blanche gives a page-long monologue detailing the deaths at Belle Reve and the loss of the estate. How should you use this in a first draft?","options":[{"id":"a","text":"Embed the entire lengthy quotation so the marker can read her exact words.","correct":false},{"id":"b","text":"Paraphrase the relentless sequence of deaths she describes to illustrate the trauma that fractured her sanity, keeping quotes limited to key phrases like \"the grim reaper had put up his tent on our doorstep.\"","correct":true}],"explanation":"The diploma guidelines warn against embedding lengthy quotations. Summarize the bulk of it, and extract only the most powerful snippets to quote directly."},{"title":"Utilizing Stage Directions","type":"scenario","question":"You want to prove Stanley's animalistic nature using Williams' stage directions. How do you refer to it?","options":[{"id":"a","text":"Williams characterizes Stanley with \"animal joy in his being,\" implicitly comparing him to a primal force.","correct":true},{"id":"b","text":"Stanley says that he has animal joy in his being.","correct":false}],"explanation":"Stanley doesn't say this; it's in the stage directions. Acknowledge that the *playwright* is using these words to characterize him."},{"title":"Evaluating the Analysis","type":"comparison","question":"Read this sentence. Does the analysis actually match the quote provided? \n'Blanche loves wearing nice clothes, as seen when she says, \"I can't stand a naked light bulb.\"'","options":[{"id":"a","text":"Yes, light bulbs are related to getting dressed.","correct":false,"label":"Mismatched"},{"id":"b","text":"No. The quote is about her fear of harsh reality and exposure, not her fashion sense. The evidence does not prove the claim.","correct":true,"label":"Accurate Assessment"}],"explanation":"The biggest error students make is dropping a quote that doesn't actually prove the point they are trying to make in that specific sentence."},{"title":"Using Ellipses","type":"quiz","question":"You want to quote Blanche: 'I don't want realism. I want magic! Yes, yes, magic! I try to give that to people.' You only need the first and last part. How do you format this?","options":[{"id":"a","text":"\"I don't want realism... I try to give that to people.\"","correct":true},{"id":"b","text":"\"I don't want realism I try to give that to people.\"","correct":false}],"explanation":"Use an ellipsis (...) to indicate that you have omitted words from the middle of a continuous quotation, ensuring the grammar still makes sense."},{"title":"Selecting Evidence: Alcoholism","type":"scenario","question":"You want to prove Blanche is an alcoholic who hides her addiction to maintain her 'proper' facade. Best evidence?","options":[{"id":"a","text":"She drinks a beer with Stanley at the poker game.","correct":false},{"id":"b","text":"In Scene 1, she nervously searches for Stanley's whiskey, drinks a half-tumbler, and then carefully washes the glass before anyone sees.","correct":true}],"explanation":"The *action* of washing the glass and hiding the evidence is what proves the *facade*, making it much higher quality evidence than simply stating she drinks."},{"title":"Analyzing the Spilled Coke","type":"quiz","question":"When Blanche spills Coca-Cola on her white dress, she gasps in panic. Analytically, what does this evidence suggest?","options":[{"id":"a","text":"It is a symbolic threat to her constructed purity; the stain represents the inescapable reality of her tarnished past bleeding through her white facade.","correct":true},{"id":"b","text":"It shows she is clumsy because she is drinking too much alcohol.","correct":false}],"explanation":"White represents purity/innocence. The dark stain on the white dress is a visual metaphor for her past sins ruining her illusion of perfection."},{"title":"Specific vs Vague Evidence","type":"comparison","question":"Which of these provides the level of specificity expected on a 30-1 Diploma?","options":[{"id":"a","text":"Mitch gets really mad at Blanche and makes her feel bad about lying.","correct":false,"label":"Vague"},{"id":"b","text":"Mitch brutally tears the paper lantern off the bulb to get a 'good look' at Blanche, physically violating her sanctuary.","correct":true,"label":"Specific"}],"explanation":"Broad summaries ('Mitch gets mad') score poorly. Precise moments from the drama ('tears the paper lantern') score in the Proficient/Excellent range."},{"title":"Deconstructing 'Animal Joy'","type":"quiz","question":"Williams writes that the 'center of [Stanley's] life has been pleasure with women... with the power and pride of a richly feathered male bird among hens.' This evidence proves:","options":[{"id":"a","text":"Stanley is primarily driven by primal instinct, physical gratification, and an unwavering belief in his own patriarchal supremacy.","correct":true},{"id":"b","text":"Stanley likes to keep chickens in his backyard in New Orleans.","correct":false}],"explanation":"The metaphor of the 'feathered male bird' explicitly connects his character to the animal kingdom, stripping away civilized refinement."},{"title":"Explaining the Torn Lantern","type":"scenario","question":"Stanley hands Blanche the torn paper lantern as she is being taken to the asylum. How do you explain the significance of this final piece of evidence?","options":[{"id":"a","text":"He is cleaning up the apartment and returning her property to her before she leaves.","correct":false},{"id":"b","text":"It is a final act of cruelty; handing her the shredded symbol of her illusions signifies his complete, uncompromising victory over her fragile world.","correct":true}],"explanation":"Always connect the final piece of evidence back to the core conflict and the thesis. Stanley's gesture is the ultimate triumph of brutal reality."}],"icon":"tips_and_updates"}];
+const thesisBuilderActivity = {"title":"Thesis Builder","description":"Build a diploma-ready thesis by connecting prompt topic, character, analytical action, and universal significance.","topics":[{"id":"t1","text":"the impact of illusions on reality","label":"Illusion vs. Reality"},{"id":"t2","text":"the conflict between the past and the present","label":"Past vs. Present"},{"id":"t3","text":"the significance of an individual's desire for dominance","label":"Power & Dominance"},{"id":"t4","text":"the psychological impact of unresolved trauma","label":"Unresolved Trauma"},{"id":"t5","text":"the destructive nature of unchecked desire","label":"Role of Desire"},{"id":"t6","text":"the struggle for self-preservation in a hostile environment","label":"Self-Preservation"}],"characters":[{"id":"c1","name":"Blanche DuBois","desc":"The faded Southern belle"},{"id":"c2","name":"Stanley Kowalski","desc":"The embodiment of the New South"},{"id":"c3","name":"Stella Kowalski","desc":"The bridge between two worlds"},{"id":"c4","name":"Harold 'Mitch' Mitchell","desc":"The illusion of sanctuary"}],"actions":{"c1":[{"id":"a1","text":"meticulously constructing a fragile facade of Southern gentility","type":"analytical"},{"id":"a2","text":"lying about her age and drinking Stanley's liquor","type":"trap","trapMsg":"Plot summary trap. Do not just list what the character does. Elevate the language to describe the analytical meaning behind the lies."},{"id":"a3","text":"utilizing calculated deceit as a psychological shield","type":"analytical"},{"id":"a4","text":"taking long hot baths to wash away her past","type":"trap","trapMsg":"Literal trap. While the bathing is symbolic, this phrasing is too literal for a thesis. Focus on the psychological motivation."},{"id":"a5","text":"desperately clinging to aristocratic ideals to avoid confronting her own degradation","type":"analytical"},{"id":"a6","text":"retreating into a world of fabricated magic","type":"analytical"}],"c2":[{"id":"a7","text":"enforcing a ruthless, uncompromising code of primal realism","type":"analytical"},{"id":"a8","text":"systematically stripping away the illusions of those around him","type":"analytical"},{"id":"a9","text":"throwing a radio out the window and yelling at his wife","type":"trap","trapMsg":"Plot summary trap. While this happens in the play, a thesis must focus on what his violence represents thematically."},{"id":"a10","text":"asserting territorial dominance through physical intimidation","type":"analytical"},{"id":"a11","text":"acting like an ape and eating with his fingers","type":"trap","trapMsg":"Colloquial trap. This is too casual. Use Williams' text to frame him analytically, such as embodying primal, animalistic forces."},{"id":"a12","text":"weaponizing truth to destroy fragile idealism","type":"analytical"}],"c3":[{"id":"a13","text":"crying but choosing to stay with Stanley anyway","type":"trap","trapMsg":"Colloquial trap. This is too casual and plot-focused. Frame her choice using analytical, ELA 30-1 level vocabulary."},{"id":"a14","text":"consciously embracing self-deception to preserve her sanctuary","type":"analytical"},{"id":"a15","text":"sacrificing her aristocratic loyalty for physical security","type":"analytical"},{"id":"a16","text":"ignoring Blanche's warnings because she likes Stanley","type":"trap","trapMsg":"Vague trap. 'Likes Stanley' is too weak. Analyze the intense, primal bond that dictates her decisions."},{"id":"a17","text":"mediating the irreconcilable differences between two opposing worldviews","type":"analytical"},{"id":"a18","text":"surrendering moral clarity for the sake of survival","type":"analytical"}],"c4":[{"id":"a19","text":"offering a temporary, conditional sanctuary based on false pretenses","type":"analytical"},{"id":"a20","text":"tearing the paper lantern off the lightbulb to look at her","type":"trap","trapMsg":"Plot summary trap. Do not focus on the literal lantern in your thesis. Focus on what tearing it represents: violating sanctuary and exposing truth."},{"id":"a21","text":"exposing his own underlying brutality when confronted with imperfect truth","type":"analytical"},{"id":"a22","text":"rejecting Blanche because she was not clean enough for his mother","type":"trap","trapMsg":"Literal plot trap. Elevate this to analyze his hypocrisy or conformity to the New South's double standards."},{"id":"a23","text":"conforming to the patriarchal expectations of his environment","type":"analytical"}]},"consequences":{"c1":[{"id":"cq1","text":"will inevitably fracture their own psyche when confronted with brutal truths.","type":"analytical"},{"id":"cq2","text":"ensures their ultimate destruction in a world that has no room for delicate idealism.","type":"analytical"},{"id":"cq3","text":"which causes her to be sent away to a mental hospital.","type":"trap","trapMsg":"Plot summary trap. The end of a thesis should state the thematic message or universal truth, not just how the story ends."},{"id":"cq4","text":"proves that lying never works out in the end.","type":"trap","trapMsg":"Moralizing trap. Avoid simplistic, judgmental cliches. Analyze the tragic significance of the character's failure."},{"id":"cq5","text":"highlights the tragic futility of escaping reality through imagination.","type":"analytical"}],"c2":[{"id":"cq6","text":"demonstrates the inevitable, violent triumph of the New South over the Old.","type":"analytical"},{"id":"cq7","text":"proving that he is the villain of the story and a terrible husband.","type":"trap","trapMsg":"Moralizing trap. Avoid judging characters as good or evil. Analyze their symbolic function in the playwright's message."},{"id":"cq8","text":"exposes the terrifying vulnerability of those unable to adapt to modern brutality.","type":"analytical"},{"id":"cq9","text":"shows that men were very sexist in the 1940s.","type":"trap","trapMsg":"Generalization trap. This is a broad historical statement, not analysis of the text's specific thematic message."},{"id":"cq10","text":"solidifies the absolute supremacy of pragmatic realism over fragile idealism.","type":"analytical"}],"c3":[{"id":"cq11","text":"highlights the tragic moral compromises required to survive in a patriarchal society.","type":"analytical"},{"id":"cq12","text":"showing she is a bad sister who does not care about family.","type":"trap","trapMsg":"Moralizing trap. Do not judge Stella as bad. Analyze the significance and cost of the choice she is forced to make."},{"id":"cq13","text":"illustrates how the bridge between the Old and New South requires the abandonment of truth.","type":"analytical"},{"id":"cq14","text":"meaning she has to live with a guilty conscience forever.","type":"trap","trapMsg":"Speculation trap. Do not guess what happens after the curtain falls. Stick to the universal truth Williams reveals in the text."},{"id":"cq15","text":"proves that primal, physical bonds often overpower intellectual or familial loyalties.","type":"analytical"}],"c4":[{"id":"cq16","text":"reveals the inescapable pervasiveness of the New South's uncompromising cruelty.","type":"analytical"},{"id":"cq17","text":"proves that even seemingly gentle individuals are corrupted by their environment.","type":"analytical"},{"id":"cq18","text":"making him just as bad as Stanley in the end.","type":"trap","trapMsg":"Colloquial trap. 'Just as bad' is too informal. Describe how he adopts Stanley's ideological stance instead."},{"id":"cq19","text":"demonstrates how the demand for perfection destroys the possibility of genuine connection.","type":"analytical"},{"id":"cq20","text":"showing he never really loved her anyway.","type":"trap","trapMsg":"Emotional speculation trap. Avoid analyzing characters like real people with hidden feelings. Analyze their literary purpose."}]}};
+const criticalResponseRoot = document.querySelector("[data-critical-response-activity]");
+const criticalResponseState = {
+  activeId: "textKnowledge",
+  questionGroupId: criticalResponseQuestionGroups[0]?.id || "",
+  stepIndex: 0,
+  score: 0,
+  selectedOptionId: null,
+  thesisStep: 1,
+  thesisSelections: {
+    topic: null,
+    character: null,
+    action: null,
+    consequence: null
+  },
+  thesisFeedback: null,
+  thesisText: "",
+  thesisCopied: false
+};
 
 function readComplete() {
   try {
@@ -1676,6 +1803,302 @@ function route() {
   }
   showPage("overview");
 }
+
+function escapeRuntimeHtml(value) {
+  return String(value ?? "").replace(/[&<>"']/g, (char) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[char]);
+}
+
+function currentQuestionGroup() {
+  return criticalResponseQuestionGroups.find((group) => group.id === criticalResponseState.questionGroupId) || criticalResponseQuestionGroups[0];
+}
+
+function setCriticalResponseMode(id) {
+  criticalResponseState.activeId = id === "thesisControl" ? "thesisControl" : "textKnowledge";
+  criticalResponseState.selectedOptionId = null;
+  renderCriticalResponseActivity();
+}
+
+function resetQuestionGroup(id) {
+  criticalResponseState.questionGroupId = id || criticalResponseQuestionGroups[0]?.id || "";
+  criticalResponseState.stepIndex = 0;
+  criticalResponseState.score = 0;
+  criticalResponseState.selectedOptionId = null;
+  renderCriticalResponseActivity();
+}
+
+function selectedCriticalResponseOption(step) {
+  return step?.options.find((option) => option.id === criticalResponseState.selectedOptionId) || null;
+}
+
+function thesisSelectionValue(key, fallback) {
+  return criticalResponseState.thesisSelections[key]?.text || criticalResponseState.thesisSelections[key]?.name || fallback;
+}
+
+function generateThesisText() {
+  const selections = criticalResponseState.thesisSelections;
+  if (!selections.topic || !selections.character || !selections.action || !selections.consequence) {
+    return "";
+  }
+  return "In his play A Streetcar Named Desire, Tennessee Williams explores " + selections.topic.text + " through the character of " + selections.character.name + ". He suggests that by " + selections.action.text + ", an individual " + selections.consequence.text;
+}
+
+function resetThesisBuilder() {
+  criticalResponseState.thesisStep = 1;
+  criticalResponseState.thesisSelections = {
+    topic: null,
+    character: null,
+    action: null,
+    consequence: null
+  };
+  criticalResponseState.thesisFeedback = null;
+  criticalResponseState.thesisText = "";
+  criticalResponseState.thesisCopied = false;
+  renderCriticalResponseActivity();
+}
+
+function renderCriticalResponseActivity() {
+  if (!criticalResponseRoot) return;
+  criticalResponseRoot.querySelectorAll("[data-workshop-tab]").forEach((button) => {
+    const active = button.getAttribute("data-workshop-tab") === criticalResponseState.activeId;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-selected", String(active));
+  });
+  if (criticalResponseState.activeId === "thesisControl") {
+    renderThesisBuilderActivity();
+    return;
+  }
+  renderTextKnowledgeQuestionBank();
+}
+
+function renderTextKnowledgeQuestionBank() {
+  const group = currentQuestionGroup();
+  if (!group) return;
+  const heading = criticalResponseRoot.querySelector("[data-workshop-heading]");
+  const description = criticalResponseRoot.querySelector("[data-workshop-description]");
+  const stepCount = criticalResponseRoot.querySelector("[data-workshop-step-count]");
+  const score = criticalResponseRoot.querySelector("[data-workshop-score]");
+  const progressFill = criticalResponseRoot.querySelector("[data-workshop-progress-fill]");
+  const panel = criticalResponseRoot.querySelector("[data-workshop-panel]");
+  const groupTabs = criticalResponseRoot.querySelector("[data-question-group-tabs]");
+  const step = group.steps[criticalResponseState.stepIndex];
+  const completed = criticalResponseState.stepIndex >= group.steps.length;
+  const progressPercent = completed ? 100 : Math.round((criticalResponseState.stepIndex / group.steps.length) * 100);
+
+  if (groupTabs) groupTabs.hidden = false;
+  criticalResponseRoot.querySelectorAll("[data-question-group-tab]").forEach((button) => {
+    const active = button.getAttribute("data-question-group-tab") === group.id;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+  if (heading) heading.textContent = "Text Knowledge Question Bank: A Streetcar Named Desire";
+  if (description) description.textContent = "Current practice questions are organized by " + group.title + " so students can review the text before drafting.";
+  if (stepCount) stepCount.textContent = completed ? group.title + " complete" : group.title + " - Step " + (criticalResponseState.stepIndex + 1) + " of " + group.steps.length;
+  if (score) score.textContent = criticalResponseState.score + " / " + group.steps.length + " correct";
+  if (progressFill) progressFill.style.width = progressPercent + "%";
+  if (!panel) return;
+
+  if (completed) {
+    panel.innerHTML = '<div class="critical-response-complete"><h3>' + escapeRuntimeHtml(group.title) + ' Practice Complete</h3><p>You scored ' + criticalResponseState.score + ' out of ' + group.steps.length + '. Choose another question group above or retake this one.</p><button class="critical-response-action" type="button" data-workshop-restart>Retake Group</button></div>';
+    return;
+  }
+
+  const selected = selectedCriticalResponseOption(step);
+  const optionsClass = "critical-response-options" + (step.type === "comparison" ? " two-column" : "");
+  const scenario = step.scenarioText ? '<div class="critical-response-scenario">' + escapeRuntimeHtml(step.scenarioText) + '</div>' : "";
+  const options = step.options.map((option) => {
+    let optionClass = "critical-response-option";
+    if (selected) {
+      if (option.id === selected.id) {
+        optionClass += option.correct ? " is-correct" : " is-incorrect";
+      } else if (option.correct) {
+        optionClass += " is-reveal";
+      } else {
+        optionClass += " is-muted";
+      }
+    }
+    const label = option.label ? '<span class="critical-response-option-label">' + escapeRuntimeHtml(option.label) + '</span>' : "";
+    const icon = selected && (option.id === selected.id || option.correct)
+      ? '<span class="material-symbols-outlined critical-response-option-icon" aria-hidden="true">' + (option.correct ? "check_circle" : "cancel") + '</span>'
+      : "";
+    return '<button class="' + optionClass + '" type="button" data-workshop-option="' + escapeRuntimeHtml(option.id) + '"' + (selected ? " disabled" : "") + '>' + label + '<span>' + escapeRuntimeHtml(option.text) + '</span>' + icon + '</button>';
+  }).join("");
+  const feedback = selected
+    ? '<div class="critical-response-feedback ' + (selected.correct ? "correct" : "incorrect") + '"><span class="material-symbols-outlined" aria-hidden="true">' + (selected.correct ? "check_circle" : "error") + '</span><div><strong>' + (selected.correct ? "Correct" : "Review") + '</strong><span>' + escapeRuntimeHtml(step.explanation) + '</span></div></div><div class="critical-response-actions"><button class="critical-response-action" type="button" data-workshop-next>' + (criticalResponseState.stepIndex === group.steps.length - 1 ? "Finish Group" : "Next Question") + '<span class="material-symbols-outlined" aria-hidden="true">chevron_right</span></button></div>'
+    : "";
+  panel.innerHTML = '<div class="critical-response-step-header"><h4 class="critical-response-step-title">' + escapeRuntimeHtml(step.title) + '</h4><span class="critical-response-step-index">' + escapeRuntimeHtml(group.title) + ' - Step ' + (criticalResponseState.stepIndex + 1) + ' of ' + group.steps.length + '</span></div><p class="critical-response-question">' + escapeRuntimeHtml(step.question) + '</p>' + scenario + '<div class="' + optionsClass + '">' + options + '</div>' + feedback;
+}
+
+function renderThesisBuilderActivity() {
+  const heading = criticalResponseRoot.querySelector("[data-workshop-heading]");
+  const description = criticalResponseRoot.querySelector("[data-workshop-description]");
+  const stepCount = criticalResponseRoot.querySelector("[data-workshop-step-count]");
+  const score = criticalResponseRoot.querySelector("[data-workshop-score]");
+  const progressFill = criticalResponseRoot.querySelector("[data-workshop-progress-fill]");
+  const panel = criticalResponseRoot.querySelector("[data-workshop-panel]");
+  const groupTabs = criticalResponseRoot.querySelector("[data-question-group-tabs]");
+  const step = criticalResponseState.thesisStep;
+  const progressPercent = step >= 5 ? 100 : Math.round(((step - 1) / 4) * 100);
+  if (groupTabs) groupTabs.hidden = true;
+  if (heading) heading.textContent = "Thesis Builder Workshop: A Streetcar Named Desire";
+  if (description) description.textContent = thesisBuilderActivity.description;
+  if (stepCount) stepCount.textContent = step >= 5 ? "Thesis generated" : "Step " + step + " of 4";
+  if (score) score.textContent = "Builder";
+  if (progressFill) progressFill.style.width = progressPercent + "%";
+  if (!panel) return;
+  panel.innerHTML = '<div class="thesis-builder" data-thesis-builder>' + renderThesisStepper() + renderThesisFeedback() + renderThesisStepContent() + renderThesisPreview() + '</div>';
+}
+
+function renderThesisStepper() {
+  const labels = ["Topic", "Character", "Action", "Meaning"];
+  return '<div class="thesis-stepper">' + labels.map((label, index) => {
+    const number = index + 1;
+    const state = criticalResponseState.thesisStep === number ? " active" : criticalResponseState.thesisStep > number ? " complete" : "";
+    const marker = criticalResponseState.thesisStep > number
+      ? '<span class="thesis-step-marker" aria-label="Completed"><span class="thesis-step-check" aria-hidden="true"></span></span>'
+      : '<span class="thesis-step-marker">' + String(number) + '</span>';
+    return '<div class="thesis-step' + state + '">' + marker + '<span>' + escapeRuntimeHtml(label) + '</span></div>';
+  }).join("") + '</div>';
+}
+
+function renderThesisFeedback() {
+  if (!criticalResponseState.thesisFeedback) return "";
+  return '<div class="thesis-feedback"><span class="material-symbols-outlined" aria-hidden="true">warning</span><div><strong>Watch out</strong><span>' + escapeRuntimeHtml(criticalResponseState.thesisFeedback) + '</span></div></div>';
+}
+
+function renderThesisStepContent() {
+  const step = criticalResponseState.thesisStep;
+  if (step === 1) {
+    return renderThesisChoices("Step 1: Choose a Diploma Prompt Topic", "topic", thesisBuilderActivity.topics, "three-column");
+  }
+  if (step === 2) {
+    return renderThesisChoices("Step 2: Select a Subject", "character", thesisBuilderActivity.characters, "");
+  }
+  if (step === 3) {
+    const characterId = criticalResponseState.thesisSelections.character?.id;
+    return renderThesisChoices("Step 3: Define the Action", "action", thesisBuilderActivity.actions[characterId] || [], "");
+  }
+  if (step === 4) {
+    const characterId = criticalResponseState.thesisSelections.character?.id;
+    return renderThesisChoices("Step 4: Define the Significance", "consequence", thesisBuilderActivity.consequences[characterId] || [], "");
+  }
+  const thesisText = criticalResponseState.thesisText || generateThesisText();
+  return '<div class="thesis-output"><h4>Generated Thesis</h4><textarea data-thesis-output>' + escapeRuntimeHtml(thesisText) + '</textarea><div class="thesis-actions"><button class="thesis-action" type="button" data-thesis-copy><span class="material-symbols-outlined" aria-hidden="true">' + (criticalResponseState.thesisCopied ? "check_circle" : "content_copy") + '</span>' + (criticalResponseState.thesisCopied ? "Copied" : "Copy Thesis") + '</button><button class="thesis-action secondary" type="button" data-thesis-restart><span class="material-symbols-outlined" aria-hidden="true">refresh</span>Build Another Thesis</button></div></div>';
+}
+
+function renderThesisChoices(title, category, items, className) {
+  const choices = items.map((item) => {
+    const label = item.label ? '<small>' + escapeRuntimeHtml(item.label) + '</small>' : "";
+    const heading = item.name ? '<strong>' + escapeRuntimeHtml(item.name) + '</strong>' : "";
+    const body = item.name ? '<span>' + escapeRuntimeHtml(item.desc || "") + '</span>' : '<span>' + escapeRuntimeHtml(item.text) + '</span>';
+    return '<button class="thesis-choice" type="button" data-thesis-choice="' + escapeRuntimeHtml(category) + '" data-thesis-choice-id="' + escapeRuntimeHtml(item.id) + '">' + label + heading + body + '</button>';
+  }).join("");
+  return '<div><div class="critical-response-step-header"><h4 class="critical-response-step-title">' + escapeRuntimeHtml(title) + '</h4><span class="critical-response-step-index">Thesis Workshop</span></div><div class="thesis-choice-grid ' + escapeRuntimeHtml(className) + '">' + choices + '</div></div>';
+}
+
+function renderThesisPreview() {
+  if (criticalResponseState.thesisStep >= 5) return "";
+  return '<div class="thesis-preview">In his play A Streetcar Named Desire, Tennessee Williams explores <strong>' + escapeRuntimeHtml(thesisSelectionValue("topic", "[Topic]")) + '</strong> through the character of <strong>' + escapeRuntimeHtml(thesisSelectionValue("character", "[Character]")) + '</strong>. He suggests that by <strong>' + escapeRuntimeHtml(thesisSelectionValue("action", "[Action]")) + '</strong>, an individual <strong>' + escapeRuntimeHtml(thesisSelectionValue("consequence", "[Significance]")) + '</strong></div>';
+}
+
+function selectCriticalResponseOption(optionId) {
+  const group = currentQuestionGroup();
+  const step = group?.steps[criticalResponseState.stepIndex];
+  if (!step || criticalResponseState.selectedOptionId) return;
+  const option = step.options.find((candidate) => candidate.id === optionId);
+  if (!option) return;
+  criticalResponseState.selectedOptionId = option.id;
+  if (option.correct) {
+    criticalResponseState.score += 1;
+  }
+  renderCriticalResponseActivity();
+}
+
+function nextCriticalResponseStep() {
+  const group = currentQuestionGroup();
+  if (!group) return;
+  criticalResponseState.stepIndex += 1;
+  criticalResponseState.selectedOptionId = null;
+  renderCriticalResponseActivity();
+}
+
+function selectThesisChoice(category, id) {
+  const source = category === "topic"
+    ? thesisBuilderActivity.topics
+    : category === "character"
+      ? thesisBuilderActivity.characters
+      : category === "action"
+        ? (thesisBuilderActivity.actions[criticalResponseState.thesisSelections.character?.id] || [])
+        : (thesisBuilderActivity.consequences[criticalResponseState.thesisSelections.character?.id] || []);
+  const item = source.find((candidate) => candidate.id === id);
+  if (!item) return;
+  if (item.type === "trap") {
+    criticalResponseState.thesisFeedback = item.trapMsg || "Choose an analytical option before moving on.";
+    renderCriticalResponseActivity();
+    return;
+  }
+  criticalResponseState.thesisFeedback = null;
+  criticalResponseState.thesisSelections[category] = item;
+  if (category === "character") {
+    criticalResponseState.thesisSelections.action = null;
+    criticalResponseState.thesisSelections.consequence = null;
+  }
+  if (category === "action") {
+    criticalResponseState.thesisSelections.consequence = null;
+  }
+  criticalResponseState.thesisStep += 1;
+  if (criticalResponseState.thesisStep >= 5) {
+    criticalResponseState.thesisText = generateThesisText();
+  }
+  renderCriticalResponseActivity();
+}
+
+criticalResponseRoot?.addEventListener("click", (event) => {
+  const tab = event.target.closest("[data-workshop-tab]");
+  if (tab && criticalResponseRoot.contains(tab)) {
+    setCriticalResponseMode(tab.getAttribute("data-workshop-tab"));
+    return;
+  }
+  const groupTab = event.target.closest("[data-question-group-tab]");
+  if (groupTab && criticalResponseRoot.contains(groupTab)) {
+    resetQuestionGroup(groupTab.getAttribute("data-question-group-tab"));
+    return;
+  }
+  const option = event.target.closest("[data-workshop-option]");
+  if (option && criticalResponseRoot.contains(option)) {
+    selectCriticalResponseOption(option.getAttribute("data-workshop-option"));
+    return;
+  }
+  if (event.target.closest("[data-workshop-next]")) {
+    nextCriticalResponseStep();
+    return;
+  }
+  if (event.target.closest("[data-workshop-restart]")) {
+    resetQuestionGroup(criticalResponseState.questionGroupId);
+    return;
+  }
+  const thesisChoice = event.target.closest("[data-thesis-choice]");
+  if (thesisChoice && criticalResponseRoot.contains(thesisChoice)) {
+    selectThesisChoice(thesisChoice.getAttribute("data-thesis-choice"), thesisChoice.getAttribute("data-thesis-choice-id"));
+    return;
+  }
+  const thesisOutput = criticalResponseRoot.querySelector("[data-thesis-output]");
+  if (event.target.closest("[data-thesis-copy]")) {
+    criticalResponseState.thesisText = thesisOutput?.value || criticalResponseState.thesisText;
+    navigator.clipboard?.writeText(criticalResponseState.thesisText);
+    criticalResponseState.thesisCopied = true;
+    renderCriticalResponseActivity();
+    return;
+  }
+  if (event.target.closest("[data-thesis-restart]")) {
+    resetThesisBuilder();
+  }
+});
 
 document.addEventListener("click", (event) => {
   const lessonToggle = event.target.closest("[data-lessons-toggle]");
@@ -1749,6 +2172,7 @@ document.getElementById("sidebar-toggle")?.addEventListener("click", () => {
 });
 
 window.addEventListener("hashchange", route);
+renderCriticalResponseActivity();
 route();
 updateComplete();
 </script>

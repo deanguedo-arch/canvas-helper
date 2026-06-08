@@ -10,15 +10,16 @@
   ],
   "workspaceEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ela30-1-modern-drama\\workspace\\index.html",
   "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ela30-1-modern-drama\\raw\\original.html",
-  "createdAt": "2026-06-08T16:01:36.177Z",
-  "updatedAt": "2026-06-08T16:01:36.177Z",
+  "createdAt": "2026-06-08T16:56:51.095Z",
+  "updatedAt": "2026-06-08T17:11:30.716Z",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-06-08T16:01:36.177Z",
+  "learningUpdatedAt": "2026-06-08T16:56:51.095Z",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
-    "conversion"
+    "conversion",
+    "injection/integration"
   ],
   "canonicalEntry": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ela30-1-modern-drama\\workspace\\index.html",
   "canonicalSources": [
@@ -26,11 +27,26 @@
   ],
   "generatedOutputs": [],
   "regenerateCommand": "npx tsx scripts/build-ela-modern-drama.ts --zip \"C:\\Users\\dean.guedo\\Downloads\\D2LExport_6670_CBE System ELA 30-1 (Winter 2020)_20266815.zip\" --slug ela30-1-modern-drama --force",
-  "injectedComponents": [],
+  "injectedComponents": [
+    {
+      "id": "critical-response-workshop",
+      "source": "C:\\Users\\dean.guedo\\Downloads\\critical_response_activity.tsx",
+      "target": "projects/ela30-1-modern-drama/workspace/index.html#writing",
+      "status": "active",
+      "notes": "Converted from the external TSX activity into the static Writing Studio shell."
+    },
+    {
+      "id": "thesis-builder-workshop",
+      "source": "C:\\Users\\dean.guedo\\Downloads\\thesis_builder_activity.tsx",
+      "target": "projects/ela30-1-modern-drama/workspace/index.html#writing",
+      "status": "active",
+      "notes": "Converted from the external thesis builder TSX into the static Thesis Control panel."
+    }
+  ],
   "importedFirstPassOrigin": {
     "sourceSystem": "brightspace",
     "sourcePath": "C:\\Users\\dean.guedo\\Downloads\\D2LExport_6670_CBE System ELA 30-1 (Winter 2020)_20266815.zip",
-    "importedAt": "2026-06-08T16:01:36.177Z",
+    "importedAt": "2026-06-08T16:56:51.095Z",
     "notes": "D2L/Brightspace Streetcar unit extracted into a FinLit-style master lesson frame."
   },
   "exportTargets": [
@@ -50,5 +66,6 @@
     "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ela30-1-modern-drama\\raw\\original.html",
     "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\resources\\ela30-1-modern-drama"
   ],
-  "sourceOfTruthNotes": "Edit workspace/index.html as the canonical master lesson frame. Treat raw and resources as imported reference material."
+  "sourceOfTruthNotes": "Edit workspace/index.html as the canonical master lesson frame. Treat raw and resources as imported reference material.",
+  "workspaceApprovedAt": "2026-06-08T17:11:30.716Z"
 }

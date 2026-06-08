@@ -108,6 +108,7 @@ export type ProjectManifest = {
   sourceOfTruthNotes?: string;
   googleHosted?: {
     authMode?: "google" | "none";
+    injectBridge?: boolean;
     trackedStorageKeys?: string[];
   };
   createdAt: string;

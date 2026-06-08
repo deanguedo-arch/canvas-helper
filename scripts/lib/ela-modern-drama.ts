@@ -5,6 +5,14 @@ import * as cheerio from "cheerio";
 import type { AnyNode, Element } from "domhandler";
 import JSZip from "jszip";
 
+import {
+  CRITICAL_RESPONSE_ACTIVITY_SOURCE,
+  CRITICAL_RESPONSE_WORKSHOPS
+} from "./ela-critical-response-activity.js";
+import {
+  THESIS_BUILDER_ACTIVITY,
+  THESIS_BUILDER_ACTIVITY_SOURCE
+} from "./ela-thesis-builder-activity.js";
 import { ensureDir, writeJsonFile, writeTextFile } from "./fs.js";
 import { getProjectPaths, projectsRoot, repoRoot } from "./paths.js";
 import type { ProjectManifest, ReferenceKind, ResourceCatalogEntry } from "./types.js";
@@ -573,6 +581,13 @@ function escapeHtml(value: string) {
     .replace(/"/g, "&quot;");
 }
 
+function scriptJson(value: unknown) {
+  return JSON.stringify(value)
+    .replace(/</g, "\\u003c")
+    .replace(/\u2028/g, "\\u2028")
+    .replace(/\u2029/g, "\\u2029");
+}
+
 function truncate(value: string, length: number) {
   if (value.length <= length) {
     return value;
@@ -819,7 +834,7 @@ function buildResourceCatalog(slug: string, unit: ModernDramaUnit): { generatedA
   };
 }
 
-function buildProjectManifest(options: {
+export function buildProjectManifest(options: {
   slug: string;
   zipPath: string;
   generatedAt: string;
@@ -841,12 +856,27 @@ function buildProjectManifest(options: {
     learningUpdatedAt: options.generatedAt,
     migrationState: "migrated",
     projectType: "conversion",
-    preferredWorkflows: ["conversion"],
+    preferredWorkflows: ["conversion", "injection/integration"],
     canonicalEntry: paths.workspaceEntrypoint,
     canonicalSources: [paths.workspaceEntrypoint],
     generatedOutputs: [],
     regenerateCommand: `npx tsx scripts/build-ela-modern-drama.ts --zip "${options.zipPath}" --slug ${options.slug} --force`,
-    injectedComponents: [],
+    injectedComponents: [
+    {
+      id: "critical-response-workshop",
+      source: CRITICAL_RESPONSE_ACTIVITY_SOURCE,
+      target: `projects/${options.slug}/workspace/index.html#writing`,
+      status: "active",
+      notes: "Converted from the external TSX activity into the static Writing Studio shell."
+    },
+    {
+      id: "thesis-builder-workshop",
+      source: THESIS_BUILDER_ACTIVITY_SOURCE,
+      target: `projects/${options.slug}/workspace/index.html#writing`,
+      status: "active",
+      notes: "Converted from the external thesis builder TSX into the static Thesis Workshop panel."
+    }
+  ],
     importedFirstPassOrigin: {
       sourceSystem: "brightspace",
       sourcePath: options.zipPath,
@@ -1100,6 +1130,69 @@ function renderExternalResources(unit: ModernDramaUnit) {
     .join("\n")}</div>`;
 }
 
+function renderWritingStudio() {
+  const writingTabs = [
+    {
+      id: "textKnowledge",
+      title: "Text Knowledge",
+      icon: "menu_book",
+      description: "Practice the Streetcar text, thesis-control concepts, and evidence-quality decisions in one organized question bank."
+    },
+    {
+      id: "thesisControl",
+      title: "Thesis Workshop",
+      icon: "edit_note",
+      description: THESIS_BUILDER_ACTIVITY.description
+    }
+  ];
+  const firstQuestionGroup = CRITICAL_RESPONSE_WORKSHOPS[0];
+  const tabs = writingTabs.map((workshop, index) => {
+    const active = index === 0;
+    return `<button class="critical-response-tab${active ? " active" : ""}" type="button" role="tab" aria-selected="${active ? "true" : "false"}" data-workshop-tab="${escapeHtml(workshop.id)}">
+      <span class="material-symbols-outlined critical-response-tab-icon" aria-hidden="true">${escapeHtml(workshop.icon)}</span>
+      <strong>${escapeHtml(workshop.title)}</strong>
+      <span>${escapeHtml(workshop.description)}</span>
+    </button>`;
+  }).join("\n");
+  const questionGroups = CRITICAL_RESPONSE_WORKSHOPS.map((group, index) => {
+    const active = index === 0;
+    return `<button class="critical-response-group-tab${active ? " active" : ""}" type="button" aria-pressed="${active ? "true" : "false"}" data-question-group-tab="${escapeHtml(group.id)}">
+      <span class="material-symbols-outlined" aria-hidden="true">${escapeHtml(group.icon)}</span>
+      <span>${escapeHtml(group.title)}</span>
+      <small>${group.steps.length} questions</small>
+    </button>`;
+  }).join("\n");
+
+  return `<div class="max-w-6xl">
+        <p class="font-label-md text-label-md text-secondary">${COURSE_TITLE} | Writing Studio</p>
+        <h2 class="font-headline-lg text-headline-lg text-on-surface mt-xs mb-md">Critical/Analytical Response Workspace</h2>
+        <div class="critical-response-activity" data-critical-response-activity>
+          <div class="critical-response-tabs" role="tablist" aria-label="Critical response workshop tracks">
+            ${tabs}
+          </div>
+          <div class="critical-response-workshop-shell">
+            <div class="critical-response-workshop-header">
+              <div>
+                <h3 data-workshop-heading>Text Knowledge Question Bank: A Streetcar Named Desire</h3>
+                <p data-workshop-description>All current critical response questions are grouped here so students can stay in the text-knowledge lane before moving into thesis drafting.</p>
+              </div>
+              <div class="critical-response-status" aria-live="polite">
+                <span data-workshop-step-count>Step 1 of ${firstQuestionGroup?.steps.length ?? 0}</span>
+                <span data-workshop-score>0 correct</span>
+              </div>
+            </div>
+            <div class="critical-response-progress-track" aria-hidden="true">
+              <div class="critical-response-progress-fill" data-workshop-progress-fill></div>
+            </div>
+            <div class="critical-response-group-tabs" data-question-group-tabs>
+              ${questionGroups}
+            </div>
+            <div class="critical-response-panel" data-workshop-panel></div>
+          </div>
+        </div>
+      </div>`;
+}
+
 function firstUnitImage(unit: ModernDramaUnit) {
   return unit.lessons.flatMap((lesson) => lesson.images)[0]?.workspaceSrc ?? "";
 }
@@ -1186,7 +1279,7 @@ tailwind.config = {
 .course-main { padding-top: 72px !important; }
 .course-sidebar, .course-main, .sidebar-label { transition: width 180ms ease, margin-left 180ms ease, opacity 140ms ease; }
 .course-sidebar { top: 72px !important; }
-.sidebar-header { position: relative; }
+.course-sidebar .sidebar-header { position: relative; padding-right: 76px; }
 .sidebar-toggle-button { position: absolute; top: 16px; right: 16px; min-height: 44px; min-width: 44px; display: inline-flex; align-items: center; justify-content: center; border-radius: 8px; color: #fff; }
 .sidebar-toggle-button:hover, .sidebar-toggle-button:focus-visible { background: rgba(255,255,255,0.1); outline: none; }
 .course-nav-link { color: #e1e3e4; }
@@ -1265,6 +1358,77 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 .resource-card span:last-child { color: #42493e; font-size: 13px; line-height: 1.35; word-break: break-word; }
 .completed-pill { border: 1px solid #c2c9bb; border-radius: 8px; padding: 8px 12px; background: #fff; color: #42493e; }
 .completed-pill strong { color: #154212; }
+.critical-response-activity { display: flex; flex-direction: column; gap: 24px; margin-top: 24px; }
+.critical-response-tabs { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.critical-response-tab { min-height: 158px; display: flex; flex-direction: column; align-items: flex-start; gap: 10px; border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; padding: 20px; text-align: left; color: #191c1d; }
+.critical-response-tab:hover, .critical-response-tab:focus-visible, .critical-response-tab.active { border-color: #2d5a27; background: #f3f7f1; outline: none; }
+.critical-response-tab-icon { color: #154212; font-size: 24px; }
+.critical-response-tab strong { font-family: "Hanken Grotesk"; font-size: 22px; line-height: 1.25; color: #191c1d; }
+.critical-response-tab span:last-child { color: #42493e; font-size: 14px; line-height: 1.5; }
+.critical-response-workshop-shell { border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; overflow: hidden; }
+.critical-response-workshop-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; padding: 24px; border-bottom: 1px solid #e1e3e4; background: #f8f9fa; }
+.critical-response-workshop-header h3 { margin: 0 0 8px; font-family: "Hanken Grotesk"; font-size: 26px; line-height: 1.2; color: #191c1d; }
+.critical-response-workshop-header p { margin: 0; max-width: 72ch; color: #42493e; line-height: 1.5; }
+.critical-response-status { min-width: 132px; display: flex; flex-direction: column; gap: 6px; align-items: flex-end; font-family: "IBM Plex Sans"; font-size: 13px; color: #42493e; }
+.critical-response-progress-track { height: 8px; background: #edf1eb; }
+.critical-response-progress-fill { width: 0%; height: 100%; background: #154212; transition: width 180ms ease; }
+.critical-response-group-tabs { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; padding: 16px 24px 0; background: #fff; }
+.critical-response-group-tab { display: grid; grid-template-columns: 24px minmax(0, 1fr) auto; gap: 10px; align-items: center; min-height: 52px; border: 1px solid #e1e3e4; border-radius: 8px; background: #f8f9fa; color: #191c1d; padding: 10px 12px; text-align: left; }
+.critical-response-group-tab:hover, .critical-response-group-tab:focus-visible, .critical-response-group-tab.active { border-color: #2d5a27; background: #f3f7f1; outline: none; }
+.critical-response-group-tab span:not(.material-symbols-outlined) { font-family: "Hanken Grotesk"; font-size: 15px; line-height: 1.2; font-weight: 800; }
+.critical-response-group-tab small { color: #42493e; font-size: 12px; line-height: 1.3; }
+.critical-response-panel { padding: 24px; }
+.critical-response-step-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
+.critical-response-step-title { margin: 0; font-family: "Hanken Grotesk"; font-size: 22px; line-height: 1.25; color: #191c1d; }
+.critical-response-step-index { font-family: "IBM Plex Sans"; font-size: 13px; color: #42493e; white-space: nowrap; }
+.critical-response-question { margin: 0 0 20px; max-width: 78ch; font-size: 17px; line-height: 1.55; color: #191c1d; }
+.critical-response-scenario { margin: 0 0 20px; border-left: 4px solid #2d5a27; border-radius: 0 8px 8px 0; background: #f3f7f1; padding: 14px 16px; color: #191c1d; font-style: italic; line-height: 1.5; }
+.critical-response-options { display: grid; gap: 14px; }
+.critical-response-options.two-column { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.critical-response-option { position: relative; min-height: 74px; border: 1px solid #d9dadb; border-radius: 8px; background: #fff; padding: 16px 46px 16px 16px; text-align: left; color: #191c1d; line-height: 1.45; }
+.critical-response-option:hover:not(:disabled), .critical-response-option:focus-visible:not(:disabled) { border-color: #2d5a27; background: #f8fbf7; outline: none; }
+.critical-response-option:disabled { cursor: default; }
+.critical-response-option-label { display: block; margin-bottom: 6px; font-family: "IBM Plex Sans"; font-size: 12px; color: #154212; }
+.critical-response-option-icon { position: absolute; top: 16px; right: 16px; font-size: 22px; }
+.critical-response-option.is-correct { border-color: #2d5a27; background: #f3f7f1; }
+.critical-response-option.is-incorrect { border-color: #b3261e; background: #fff7f6; }
+.critical-response-option.is-reveal { border-color: #2d5a27; }
+.critical-response-option.is-muted { color: #5d5e61; background: #f8f9fa; opacity: 0.72; }
+.critical-response-feedback { display: flex; align-items: flex-start; gap: 12px; margin-top: 22px; border-radius: 8px; padding: 16px; line-height: 1.5; }
+.critical-response-feedback.correct { border: 1px solid #c2c9bb; background: #f3f7f1; color: #154212; }
+.critical-response-feedback.incorrect { border: 1px solid #f1b8b4; background: #fff7f6; color: #7d1b16; }
+.critical-response-feedback strong { display: block; margin-bottom: 4px; font-family: "Hanken Grotesk"; font-size: 17px; color: inherit; }
+.critical-response-actions { display: flex; justify-content: flex-end; margin-top: 18px; }
+.critical-response-action { min-height: 44px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid #154212; border-radius: 8px; background: #154212; color: #fff; padding: 9px 14px; font-family: "IBM Plex Sans"; font-size: 14px; }
+.critical-response-action:hover, .critical-response-action:focus-visible { background: #2d5a27; border-color: #2d5a27; outline: none; }
+.critical-response-complete { border: 1px solid #c2c9bb; border-radius: 8px; background: #f3f7f1; padding: 24px; }
+.critical-response-complete h3 { margin: 0 0 8px; font-family: "Hanken Grotesk"; font-size: 24px; line-height: 1.2; color: #191c1d; }
+.critical-response-complete p { margin: 0 0 18px; color: #42493e; line-height: 1.5; }
+.thesis-builder { display: flex; flex-direction: column; gap: 20px; }
+.thesis-stepper { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.thesis-step { display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 10px; align-items: center; border: 1px solid #e1e3e4; border-radius: 8px; background: #f8f9fa; color: #42493e; padding: 10px; }
+.thesis-step.active, .thesis-step.complete { border-color: #2d5a27; background: #f3f7f1; color: #154212; }
+.thesis-step-marker { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; background: #fff; border: 1px solid #d9dadb; font-family: "IBM Plex Sans"; font-size: 13px; }
+.thesis-step.complete .thesis-step-marker { border-color: #2d5a27; background: #2d5a27; color: #fff; }
+.thesis-step-check { display: block; width: 9px; height: 15px; border: solid currentColor; border-width: 0 3px 3px 0; transform: rotate(45deg) translate(-1px, -1px); }
+.thesis-step span:last-child { font-family: "IBM Plex Sans"; font-size: 13px; line-height: 1.3; }
+.thesis-feedback { display: flex; gap: 12px; align-items: flex-start; border: 1px solid #f2c7c7; border-radius: 8px; background: #fff5f5; color: #7b1b1b; padding: 14px; }
+.thesis-feedback strong { display: block; margin-bottom: 4px; font-family: "Hanken Grotesk"; font-size: 16px; line-height: 1.2; }
+.thesis-choice-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.thesis-choice-grid.three-column { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.thesis-choice { min-height: 86px; border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; color: #191c1d; padding: 14px; text-align: left; }
+.thesis-choice:hover, .thesis-choice:focus-visible { border-color: #2d5a27; background: #f3f7f1; outline: none; }
+.thesis-choice strong { display: block; margin-bottom: 6px; font-family: "Hanken Grotesk"; font-size: 17px; line-height: 1.2; }
+.thesis-choice small { display: block; color: #154212; font-family: "IBM Plex Sans"; font-size: 12px; line-height: 1.3; margin-bottom: 8px; }
+.thesis-preview { border: 1px solid #e1e3e4; border-radius: 8px; background: #f8f9fa; padding: 16px; color: #42493e; line-height: 1.55; }
+.thesis-preview strong { color: #154212; }
+.thesis-output { border: 1px solid #c2c9bb; border-radius: 8px; background: #f3f7f1; padding: 20px; }
+.thesis-output h4 { margin: 0 0 10px; font-family: "Hanken Grotesk"; font-size: 22px; line-height: 1.2; color: #191c1d; }
+.thesis-output textarea { width: 100%; min-height: 150px; border: 1px solid #c2c9bb; border-radius: 8px; background: #fff; color: #191c1d; padding: 14px; font-family: "Work Sans"; font-size: 16px; line-height: 1.55; resize: vertical; }
+.thesis-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+.thesis-action { min-height: 42px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid #154212; border-radius: 8px; background: #154212; color: #fff; padding: 9px 14px; font-family: "IBM Plex Sans"; font-size: 14px; }
+.thesis-action.secondary { background: #fff; color: #154212; }
+.thesis-action:hover, .thesis-action:focus-visible { background: #2d5a27; border-color: #2d5a27; color: #fff; outline: none; }
 @media (max-width: 900px) {
   .course-sidebar { display: none; }
   .course-main { margin-left: 0 !important; padding-top: 124px !important; }
@@ -1281,6 +1445,9 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
   .library-actions { justify-content: flex-start; }
   .library-document-frame { min-height: 420px; height: 62vh; }
   .film-room-frame { min-height: 220px; }
+  .critical-response-tabs, .critical-response-options.two-column, .thesis-stepper, .thesis-choice-grid, .thesis-choice-grid.three-column { grid-template-columns: 1fr; }
+  .critical-response-workshop-header, .critical-response-step-header { flex-direction: column; }
+  .critical-response-status { align-items: flex-start; }
 }
 </style>
 </head>
@@ -1348,24 +1515,7 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
     ${renderLessonPanels(unit)}
 
     <section id="writing" class="course-page" data-page="writing" hidden>
-      <div class="max-w-5xl">
-        <p class="font-label-md text-label-md text-secondary">${COURSE_TITLE} | Writing Studio</p>
-        <h2 class="font-headline-lg text-headline-lg text-on-surface mt-xs mb-md">Critical/Analytical Response Workspace</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-md">
-          <article class="bg-white border border-surface-muted rounded-lg p-md">
-            <h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Text Knowledge</h3>
-            <p class="text-on-surface-variant">Choose one studied play and collect evidence tied to conflict, character, theme, and dramatic technique.</p>
-          </article>
-          <article class="bg-white border border-surface-muted rounded-lg p-md">
-            <h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Thesis Control</h3>
-            <p class="text-on-surface-variant">State how the playwright develops the topic, then keep each body paragraph anchored to that interpretation.</p>
-          </article>
-          <article class="bg-white border border-surface-muted rounded-lg p-md">
-            <h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Evidence Quality</h3>
-            <p class="text-on-surface-variant">Use precise moments from the drama rather than broad plot summary. Explain how each detail proves the claim.</p>
-          </article>
-        </div>
-      </div>
+      ${renderWritingStudio()}
     </section>
 
     <section id="library" class="course-page" data-page="library" hidden>
@@ -1401,6 +1551,26 @@ const totalLessons = ${totalLessons};
 const staticPages = ["overview","lessons","writing","library","film-room","resources"];
 const lessonsNav = document.querySelector("[data-lessons-nav]");
 const lessonsToggle = document.querySelector("[data-lessons-toggle]");
+const criticalResponseQuestionGroups = ${scriptJson(CRITICAL_RESPONSE_WORKSHOPS)};
+const thesisBuilderActivity = ${scriptJson(THESIS_BUILDER_ACTIVITY)};
+const criticalResponseRoot = document.querySelector("[data-critical-response-activity]");
+const criticalResponseState = {
+  activeId: "textKnowledge",
+  questionGroupId: criticalResponseQuestionGroups[0]?.id || "",
+  stepIndex: 0,
+  score: 0,
+  selectedOptionId: null,
+  thesisStep: 1,
+  thesisSelections: {
+    topic: null,
+    character: null,
+    action: null,
+    consequence: null
+  },
+  thesisFeedback: null,
+  thesisText: "",
+  thesisCopied: false
+};
 
 function readComplete() {
   try {
@@ -1462,6 +1632,302 @@ function route() {
   }
   showPage("overview");
 }
+
+function escapeRuntimeHtml(value) {
+  return String(value ?? "").replace(/[&<>"']/g, (char) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[char]);
+}
+
+function currentQuestionGroup() {
+  return criticalResponseQuestionGroups.find((group) => group.id === criticalResponseState.questionGroupId) || criticalResponseQuestionGroups[0];
+}
+
+function setCriticalResponseMode(id) {
+  criticalResponseState.activeId = id === "thesisControl" ? "thesisControl" : "textKnowledge";
+  criticalResponseState.selectedOptionId = null;
+  renderCriticalResponseActivity();
+}
+
+function resetQuestionGroup(id) {
+  criticalResponseState.questionGroupId = id || criticalResponseQuestionGroups[0]?.id || "";
+  criticalResponseState.stepIndex = 0;
+  criticalResponseState.score = 0;
+  criticalResponseState.selectedOptionId = null;
+  renderCriticalResponseActivity();
+}
+
+function selectedCriticalResponseOption(step) {
+  return step?.options.find((option) => option.id === criticalResponseState.selectedOptionId) || null;
+}
+
+function thesisSelectionValue(key, fallback) {
+  return criticalResponseState.thesisSelections[key]?.text || criticalResponseState.thesisSelections[key]?.name || fallback;
+}
+
+function generateThesisText() {
+  const selections = criticalResponseState.thesisSelections;
+  if (!selections.topic || !selections.character || !selections.action || !selections.consequence) {
+    return "";
+  }
+  return "In his play A Streetcar Named Desire, Tennessee Williams explores " + selections.topic.text + " through the character of " + selections.character.name + ". He suggests that by " + selections.action.text + ", an individual " + selections.consequence.text;
+}
+
+function resetThesisBuilder() {
+  criticalResponseState.thesisStep = 1;
+  criticalResponseState.thesisSelections = {
+    topic: null,
+    character: null,
+    action: null,
+    consequence: null
+  };
+  criticalResponseState.thesisFeedback = null;
+  criticalResponseState.thesisText = "";
+  criticalResponseState.thesisCopied = false;
+  renderCriticalResponseActivity();
+}
+
+function renderCriticalResponseActivity() {
+  if (!criticalResponseRoot) return;
+  criticalResponseRoot.querySelectorAll("[data-workshop-tab]").forEach((button) => {
+    const active = button.getAttribute("data-workshop-tab") === criticalResponseState.activeId;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-selected", String(active));
+  });
+  if (criticalResponseState.activeId === "thesisControl") {
+    renderThesisBuilderActivity();
+    return;
+  }
+  renderTextKnowledgeQuestionBank();
+}
+
+function renderTextKnowledgeQuestionBank() {
+  const group = currentQuestionGroup();
+  if (!group) return;
+  const heading = criticalResponseRoot.querySelector("[data-workshop-heading]");
+  const description = criticalResponseRoot.querySelector("[data-workshop-description]");
+  const stepCount = criticalResponseRoot.querySelector("[data-workshop-step-count]");
+  const score = criticalResponseRoot.querySelector("[data-workshop-score]");
+  const progressFill = criticalResponseRoot.querySelector("[data-workshop-progress-fill]");
+  const panel = criticalResponseRoot.querySelector("[data-workshop-panel]");
+  const groupTabs = criticalResponseRoot.querySelector("[data-question-group-tabs]");
+  const step = group.steps[criticalResponseState.stepIndex];
+  const completed = criticalResponseState.stepIndex >= group.steps.length;
+  const progressPercent = completed ? 100 : Math.round((criticalResponseState.stepIndex / group.steps.length) * 100);
+
+  if (groupTabs) groupTabs.hidden = false;
+  criticalResponseRoot.querySelectorAll("[data-question-group-tab]").forEach((button) => {
+    const active = button.getAttribute("data-question-group-tab") === group.id;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+  if (heading) heading.textContent = "Text Knowledge Question Bank: A Streetcar Named Desire";
+  if (description) description.textContent = "Current practice questions are organized by " + group.title + " so students can review the text before drafting.";
+  if (stepCount) stepCount.textContent = completed ? group.title + " complete" : group.title + " - Step " + (criticalResponseState.stepIndex + 1) + " of " + group.steps.length;
+  if (score) score.textContent = criticalResponseState.score + " / " + group.steps.length + " correct";
+  if (progressFill) progressFill.style.width = progressPercent + "%";
+  if (!panel) return;
+
+  if (completed) {
+    panel.innerHTML = '<div class="critical-response-complete"><h3>' + escapeRuntimeHtml(group.title) + ' Practice Complete</h3><p>You scored ' + criticalResponseState.score + ' out of ' + group.steps.length + '. Choose another question group above or retake this one.</p><button class="critical-response-action" type="button" data-workshop-restart>Retake Group</button></div>';
+    return;
+  }
+
+  const selected = selectedCriticalResponseOption(step);
+  const optionsClass = "critical-response-options" + (step.type === "comparison" ? " two-column" : "");
+  const scenario = step.scenarioText ? '<div class="critical-response-scenario">' + escapeRuntimeHtml(step.scenarioText) + '</div>' : "";
+  const options = step.options.map((option) => {
+    let optionClass = "critical-response-option";
+    if (selected) {
+      if (option.id === selected.id) {
+        optionClass += option.correct ? " is-correct" : " is-incorrect";
+      } else if (option.correct) {
+        optionClass += " is-reveal";
+      } else {
+        optionClass += " is-muted";
+      }
+    }
+    const label = option.label ? '<span class="critical-response-option-label">' + escapeRuntimeHtml(option.label) + '</span>' : "";
+    const icon = selected && (option.id === selected.id || option.correct)
+      ? '<span class="material-symbols-outlined critical-response-option-icon" aria-hidden="true">' + (option.correct ? "check_circle" : "cancel") + '</span>'
+      : "";
+    return '<button class="' + optionClass + '" type="button" data-workshop-option="' + escapeRuntimeHtml(option.id) + '"' + (selected ? " disabled" : "") + '>' + label + '<span>' + escapeRuntimeHtml(option.text) + '</span>' + icon + '</button>';
+  }).join("");
+  const feedback = selected
+    ? '<div class="critical-response-feedback ' + (selected.correct ? "correct" : "incorrect") + '"><span class="material-symbols-outlined" aria-hidden="true">' + (selected.correct ? "check_circle" : "error") + '</span><div><strong>' + (selected.correct ? "Correct" : "Review") + '</strong><span>' + escapeRuntimeHtml(step.explanation) + '</span></div></div><div class="critical-response-actions"><button class="critical-response-action" type="button" data-workshop-next>' + (criticalResponseState.stepIndex === group.steps.length - 1 ? "Finish Group" : "Next Question") + '<span class="material-symbols-outlined" aria-hidden="true">chevron_right</span></button></div>'
+    : "";
+  panel.innerHTML = '<div class="critical-response-step-header"><h4 class="critical-response-step-title">' + escapeRuntimeHtml(step.title) + '</h4><span class="critical-response-step-index">' + escapeRuntimeHtml(group.title) + ' - Step ' + (criticalResponseState.stepIndex + 1) + ' of ' + group.steps.length + '</span></div><p class="critical-response-question">' + escapeRuntimeHtml(step.question) + '</p>' + scenario + '<div class="' + optionsClass + '">' + options + '</div>' + feedback;
+}
+
+function renderThesisBuilderActivity() {
+  const heading = criticalResponseRoot.querySelector("[data-workshop-heading]");
+  const description = criticalResponseRoot.querySelector("[data-workshop-description]");
+  const stepCount = criticalResponseRoot.querySelector("[data-workshop-step-count]");
+  const score = criticalResponseRoot.querySelector("[data-workshop-score]");
+  const progressFill = criticalResponseRoot.querySelector("[data-workshop-progress-fill]");
+  const panel = criticalResponseRoot.querySelector("[data-workshop-panel]");
+  const groupTabs = criticalResponseRoot.querySelector("[data-question-group-tabs]");
+  const step = criticalResponseState.thesisStep;
+  const progressPercent = step >= 5 ? 100 : Math.round(((step - 1) / 4) * 100);
+  if (groupTabs) groupTabs.hidden = true;
+  if (heading) heading.textContent = "Thesis Builder Workshop: A Streetcar Named Desire";
+  if (description) description.textContent = thesisBuilderActivity.description;
+  if (stepCount) stepCount.textContent = step >= 5 ? "Thesis generated" : "Step " + step + " of 4";
+  if (score) score.textContent = "Builder";
+  if (progressFill) progressFill.style.width = progressPercent + "%";
+  if (!panel) return;
+  panel.innerHTML = '<div class="thesis-builder" data-thesis-builder>' + renderThesisStepper() + renderThesisFeedback() + renderThesisStepContent() + renderThesisPreview() + '</div>';
+}
+
+function renderThesisStepper() {
+  const labels = ["Topic", "Character", "Action", "Meaning"];
+  return '<div class="thesis-stepper">' + labels.map((label, index) => {
+    const number = index + 1;
+    const state = criticalResponseState.thesisStep === number ? " active" : criticalResponseState.thesisStep > number ? " complete" : "";
+    const marker = criticalResponseState.thesisStep > number
+      ? '<span class="thesis-step-marker" aria-label="Completed"><span class="thesis-step-check" aria-hidden="true"></span></span>'
+      : '<span class="thesis-step-marker">' + String(number) + '</span>';
+    return '<div class="thesis-step' + state + '">' + marker + '<span>' + escapeRuntimeHtml(label) + '</span></div>';
+  }).join("") + '</div>';
+}
+
+function renderThesisFeedback() {
+  if (!criticalResponseState.thesisFeedback) return "";
+  return '<div class="thesis-feedback"><span class="material-symbols-outlined" aria-hidden="true">warning</span><div><strong>Watch out</strong><span>' + escapeRuntimeHtml(criticalResponseState.thesisFeedback) + '</span></div></div>';
+}
+
+function renderThesisStepContent() {
+  const step = criticalResponseState.thesisStep;
+  if (step === 1) {
+    return renderThesisChoices("Step 1: Choose a Diploma Prompt Topic", "topic", thesisBuilderActivity.topics, "three-column");
+  }
+  if (step === 2) {
+    return renderThesisChoices("Step 2: Select a Subject", "character", thesisBuilderActivity.characters, "");
+  }
+  if (step === 3) {
+    const characterId = criticalResponseState.thesisSelections.character?.id;
+    return renderThesisChoices("Step 3: Define the Action", "action", thesisBuilderActivity.actions[characterId] || [], "");
+  }
+  if (step === 4) {
+    const characterId = criticalResponseState.thesisSelections.character?.id;
+    return renderThesisChoices("Step 4: Define the Significance", "consequence", thesisBuilderActivity.consequences[characterId] || [], "");
+  }
+  const thesisText = criticalResponseState.thesisText || generateThesisText();
+  return '<div class="thesis-output"><h4>Generated Thesis</h4><textarea data-thesis-output>' + escapeRuntimeHtml(thesisText) + '</textarea><div class="thesis-actions"><button class="thesis-action" type="button" data-thesis-copy><span class="material-symbols-outlined" aria-hidden="true">' + (criticalResponseState.thesisCopied ? "check_circle" : "content_copy") + '</span>' + (criticalResponseState.thesisCopied ? "Copied" : "Copy Thesis") + '</button><button class="thesis-action secondary" type="button" data-thesis-restart><span class="material-symbols-outlined" aria-hidden="true">refresh</span>Build Another Thesis</button></div></div>';
+}
+
+function renderThesisChoices(title, category, items, className) {
+  const choices = items.map((item) => {
+    const label = item.label ? '<small>' + escapeRuntimeHtml(item.label) + '</small>' : "";
+    const heading = item.name ? '<strong>' + escapeRuntimeHtml(item.name) + '</strong>' : "";
+    const body = item.name ? '<span>' + escapeRuntimeHtml(item.desc || "") + '</span>' : '<span>' + escapeRuntimeHtml(item.text) + '</span>';
+    return '<button class="thesis-choice" type="button" data-thesis-choice="' + escapeRuntimeHtml(category) + '" data-thesis-choice-id="' + escapeRuntimeHtml(item.id) + '">' + label + heading + body + '</button>';
+  }).join("");
+  return '<div><div class="critical-response-step-header"><h4 class="critical-response-step-title">' + escapeRuntimeHtml(title) + '</h4><span class="critical-response-step-index">Thesis Workshop</span></div><div class="thesis-choice-grid ' + escapeRuntimeHtml(className) + '">' + choices + '</div></div>';
+}
+
+function renderThesisPreview() {
+  if (criticalResponseState.thesisStep >= 5) return "";
+  return '<div class="thesis-preview">In his play A Streetcar Named Desire, Tennessee Williams explores <strong>' + escapeRuntimeHtml(thesisSelectionValue("topic", "[Topic]")) + '</strong> through the character of <strong>' + escapeRuntimeHtml(thesisSelectionValue("character", "[Character]")) + '</strong>. He suggests that by <strong>' + escapeRuntimeHtml(thesisSelectionValue("action", "[Action]")) + '</strong>, an individual <strong>' + escapeRuntimeHtml(thesisSelectionValue("consequence", "[Significance]")) + '</strong></div>';
+}
+
+function selectCriticalResponseOption(optionId) {
+  const group = currentQuestionGroup();
+  const step = group?.steps[criticalResponseState.stepIndex];
+  if (!step || criticalResponseState.selectedOptionId) return;
+  const option = step.options.find((candidate) => candidate.id === optionId);
+  if (!option) return;
+  criticalResponseState.selectedOptionId = option.id;
+  if (option.correct) {
+    criticalResponseState.score += 1;
+  }
+  renderCriticalResponseActivity();
+}
+
+function nextCriticalResponseStep() {
+  const group = currentQuestionGroup();
+  if (!group) return;
+  criticalResponseState.stepIndex += 1;
+  criticalResponseState.selectedOptionId = null;
+  renderCriticalResponseActivity();
+}
+
+function selectThesisChoice(category, id) {
+  const source = category === "topic"
+    ? thesisBuilderActivity.topics
+    : category === "character"
+      ? thesisBuilderActivity.characters
+      : category === "action"
+        ? (thesisBuilderActivity.actions[criticalResponseState.thesisSelections.character?.id] || [])
+        : (thesisBuilderActivity.consequences[criticalResponseState.thesisSelections.character?.id] || []);
+  const item = source.find((candidate) => candidate.id === id);
+  if (!item) return;
+  if (item.type === "trap") {
+    criticalResponseState.thesisFeedback = item.trapMsg || "Choose an analytical option before moving on.";
+    renderCriticalResponseActivity();
+    return;
+  }
+  criticalResponseState.thesisFeedback = null;
+  criticalResponseState.thesisSelections[category] = item;
+  if (category === "character") {
+    criticalResponseState.thesisSelections.action = null;
+    criticalResponseState.thesisSelections.consequence = null;
+  }
+  if (category === "action") {
+    criticalResponseState.thesisSelections.consequence = null;
+  }
+  criticalResponseState.thesisStep += 1;
+  if (criticalResponseState.thesisStep >= 5) {
+    criticalResponseState.thesisText = generateThesisText();
+  }
+  renderCriticalResponseActivity();
+}
+
+criticalResponseRoot?.addEventListener("click", (event) => {
+  const tab = event.target.closest("[data-workshop-tab]");
+  if (tab && criticalResponseRoot.contains(tab)) {
+    setCriticalResponseMode(tab.getAttribute("data-workshop-tab"));
+    return;
+  }
+  const groupTab = event.target.closest("[data-question-group-tab]");
+  if (groupTab && criticalResponseRoot.contains(groupTab)) {
+    resetQuestionGroup(groupTab.getAttribute("data-question-group-tab"));
+    return;
+  }
+  const option = event.target.closest("[data-workshop-option]");
+  if (option && criticalResponseRoot.contains(option)) {
+    selectCriticalResponseOption(option.getAttribute("data-workshop-option"));
+    return;
+  }
+  if (event.target.closest("[data-workshop-next]")) {
+    nextCriticalResponseStep();
+    return;
+  }
+  if (event.target.closest("[data-workshop-restart]")) {
+    resetQuestionGroup(criticalResponseState.questionGroupId);
+    return;
+  }
+  const thesisChoice = event.target.closest("[data-thesis-choice]");
+  if (thesisChoice && criticalResponseRoot.contains(thesisChoice)) {
+    selectThesisChoice(thesisChoice.getAttribute("data-thesis-choice"), thesisChoice.getAttribute("data-thesis-choice-id"));
+    return;
+  }
+  const thesisOutput = criticalResponseRoot.querySelector("[data-thesis-output]");
+  if (event.target.closest("[data-thesis-copy]")) {
+    criticalResponseState.thesisText = thesisOutput?.value || criticalResponseState.thesisText;
+    navigator.clipboard?.writeText(criticalResponseState.thesisText);
+    criticalResponseState.thesisCopied = true;
+    renderCriticalResponseActivity();
+    return;
+  }
+  if (event.target.closest("[data-thesis-restart]")) {
+    resetThesisBuilder();
+  }
+});
 
 document.addEventListener("click", (event) => {
   const lessonToggle = event.target.closest("[data-lessons-toggle]");
@@ -1535,6 +2001,7 @@ document.getElementById("sidebar-toggle")?.addEventListener("click", () => {
 });
 
 window.addEventListener("hashchange", route);
+renderCriticalResponseActivity();
 route();
 updateComplete();
 </script>

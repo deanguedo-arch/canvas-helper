@@ -209,6 +209,7 @@ export async function exportProjectToGoogleHosted(
   const workspaceEntrypointRelative = toRelativePosixPath(paths.workspaceDir, paths.workspaceEntrypoint);
   const googleHostedEntrypointPath = path.join(googleHostedExportDir, ...workspaceEntrypointRelative.split("/"));
   const bridgeRelativePath = "./google-hosted-bridge.js";
+  const shouldInjectBridge = manifest.googleHosted?.injectBridge !== false;
   const preservedDeployFiles = await readPreservedDeployFiles(googleHostedExportDir);
 
   await copyWorkspaceToExportDir(paths.workspaceDir, googleHostedExportDir);
@@ -234,15 +235,19 @@ export async function exportProjectToGoogleHosted(
   const progressItems = await loadRequiredCompletionItemsFromWorkspace(paths.workspaceDir);
 
   await Promise.all([
-    writeTextFile(
-      path.join(googleHostedExportDir, "google-hosted-bridge.js"),
-      buildGoogleHostedBridgeScript({
-        authMode,
-        progressItems,
-        projectSlug,
-        storageKeys
-      })
-    ),
+    ...(shouldInjectBridge
+      ? [
+          writeTextFile(
+            path.join(googleHostedExportDir, "google-hosted-bridge.js"),
+            buildGoogleHostedBridgeScript({
+              authMode,
+              progressItems,
+              projectSlug,
+              storageKeys
+            })
+          )
+        ]
+      : []),
     writeTextFile(path.join(googleHostedExportDir, "firebase-config.template.json"), buildFirebaseConfigTemplate(projectSlug)),
     writeTextFile(path.join(googleHostedExportDir, "firebase.json"), buildFirebaseHostingConfig()),
     writeTextFile(path.join(googleHostedExportDir, ".firebaserc.template"), buildFirebaseRcTemplate()),
@@ -260,9 +265,11 @@ export async function exportProjectToGoogleHosted(
     )
   ]);
 
-  const entrypointHtml = await readFile(googleHostedEntrypointPath, "utf8");
-  const entrypointWithBridge = injectGoogleHostedBridgeTag(entrypointHtml, bridgeRelativePath);
-  await writeTextFile(googleHostedEntrypointPath, entrypointWithBridge);
+  if (shouldInjectBridge) {
+    const entrypointHtml = await readFile(googleHostedEntrypointPath, "utf8");
+    const entrypointWithBridge = injectGoogleHostedBridgeTag(entrypointHtml, bridgeRelativePath);
+    await writeTextFile(googleHostedEntrypointPath, entrypointWithBridge);
+  }
 
   const finalFiles = await listFilesRecursive(googleHostedExportDir);
   await markProjectWorkspaceApproved(projectSlug);

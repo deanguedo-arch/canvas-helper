@@ -17,35 +17,12 @@ import {
   Droplet
 } from 'lucide-react';
 
-const MODULE1_ASSIGNMENT_STORAGE_KEY = 'forensics::module1assignment::v1';
-
 function readModule1AssignmentState() {
-  if (typeof window === 'undefined') {
-    return null;
-  }
-
-  try {
-    const raw = window.localStorage.getItem('forensics::module1assignment::v1');
-    if (!raw) {
-      return null;
-    }
-    const parsed = JSON.parse(raw);
-    return parsed && typeof parsed === 'object' ? parsed : null;
-  } catch (_error) {
-    return null;
-  }
+  return null;
 }
 
 function writeModule1AssignmentState(state) {
-  if (typeof window === 'undefined') {
-    return;
-  }
-
-  try {
-    window.localStorage.setItem('forensics::module1assignment::v1', JSON.stringify(state));
-  } catch (_error) {
-    // Ignore storage write failures in locked/private contexts.
-  }
+  return;
 }
 
 const App = () => {

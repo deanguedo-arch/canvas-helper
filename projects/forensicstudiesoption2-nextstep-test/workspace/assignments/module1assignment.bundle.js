@@ -21961,28 +21961,10 @@
   // projects/forensicstudiesoption2-nextstep-test/workspace/assignments/module1assignment-app.jsx
   var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
   function readModule1AssignmentState() {
-    if (typeof window === "undefined") {
-      return null;
-    }
-    try {
-      const raw = window.localStorage.getItem("forensics::module1assignment::v1");
-      if (!raw) {
-        return null;
-      }
-      const parsed = JSON.parse(raw);
-      return parsed && typeof parsed === "object" ? parsed : null;
-    } catch (_error) {
-      return null;
-    }
+    return null;
   }
   function writeModule1AssignmentState(state) {
-    if (typeof window === "undefined") {
-      return;
-    }
-    try {
-      window.localStorage.setItem("forensics::module1assignment::v1", JSON.stringify(state));
-    } catch (_error) {
-    }
+    return;
   }
   var App = () => {
     const [persistedState] = (0, import_react3.useState)(() => readModule1AssignmentState());

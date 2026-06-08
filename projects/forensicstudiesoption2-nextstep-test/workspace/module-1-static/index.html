@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forensic Studies 25 - Module 1</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Module navigation">
+    <div class="brand">
+      <div class="brand-row">
+        <strong class="brand-title">Forensic<br />Studies 25</strong>
+        <button class="menu-button" type="button" aria-label="Course menu">Menu</button>
+      </div>
+      <span class="brand-label">Scholarly Access</span>
+      <span class="brand-rule"></span>
+    </div>
+    <nav class="module-nav">
+      <button type="button" class="nav-item is-active" data-tab="overview"><span class="nav-icon" aria-hidden="true">H</span>Overview</button>
+      <button type="button" class="nav-item" data-tab="lesson"><span class="nav-icon" aria-hidden="true">L</span>Lesson</button>
+      <button type="button" class="nav-item" data-tab="quiz"><span class="nav-icon" aria-hidden="true">Q</span>Quiz</button>
+      <button type="button" class="nav-item" data-tab="assignment"><span class="nav-icon" aria-hidden="true">A</span>Assignment</button>
+      <button type="button" class="nav-item" data-tab="resources"><span class="nav-icon" aria-hidden="true">R</span>Resources</button>
+    </nav>
+  </aside>
+  <main class="main" id="main-content">
+    <section class="panel is-active" id="overview-panel" data-panel="overview" aria-label="Overview"></section>
+    <section class="panel" id="lesson-panel" data-panel="lesson" aria-label="Lesson">
+      <iframe class="lesson-frame" src="./lesson.html" title="Module 1 lesson content"></iframe>
+    </section>
+    <section class="panel" id="quiz-panel" data-panel="quiz" aria-label="Quiz"></section>
+    <section class="panel" id="assignment-panel" data-panel="assignment" aria-label="Assignment">
+      <div class="assignment-actions">
+        <a class="button" href="./assignment/module1assignment.html" target="_blank" rel="noopener">Open assignment full screen</a>
+      </div>
+      <iframe class="assignment-frame" src="./assignment/module1assignment.html" title="Crime Scene Certification Lab"></iframe>
+    </section>
+    <section class="panel" id="resources-panel" data-panel="resources" aria-label="Resources"></section>
+  </main>
+</div>
+<script src="./module-1-data.js"></script>
+<script src="./module-1.js"></script>
+</body>
+</html>

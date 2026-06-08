@@ -42,27 +42,17 @@
   "generatedOutputs": [],
   "injectedComponents": [],
   "referenceOnly": [],
-  "sourceOfTruthNotes": "Next Step palette test copy. Edit forensicstudiesoption2-nextstep-test workspace files only; original forensicstudiesoption2 remains untouched.",
+  "sourceOfTruthNotes": "Next Step Module 1 tester copy. Active tester is scoped to Module 1 only with no locks, sign-in, hosted bridge, or browser save behavior. Edit forensicstudiesoption2-nextstep-test workspace files only; original forensicstudiesoption2 remains untouched.",
   "googleHosted": {
-    "trackedStorageKeys": [
-      "forensicstudiesoption2-nextstep-test.progress",
-      "forensicstudiesoption2-nextstep-test.ui",
-      "forensics::module1assignment::v1",
-      "forensics::module2assignment::v1",
-      "forensics::module3assignment::v1",
-      "forensics::module4assignment::v1",
-      "forensics::module5assignment::v1",
-      "forensics::module6assignment::v1",
-      "forensics::module7assignment::v1",
-      "forensics::module8assignment::v1"
-    ],
-    "authMode": "google"
+    "authMode": "none",
+    "injectBridge": false,
+    "trackedStorageKeys": []
   },
   "learningSource": "other",
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-05-12T18:44:10.040Z",
-  "workspaceApprovedAt": "2026-06-02T20:22:10.005Z",
-  "updatedAt": "2026-06-02T20:22:10.005Z",
+  "workspaceApprovedAt": "2026-06-08T16:48:07.094Z",
+  "updatedAt": "2026-06-08T16:48:07.094Z",
   "nextStepPaletteTest": {
     "copiedFromProject": "forensicstudiesoption2",
     "copiedAt": "2026-05-29T16:39:10.196Z",

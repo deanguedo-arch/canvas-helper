@@ -4,6 +4,7 @@ import test from "node:test";
 import JSZip from "jszip";
 
 import {
+  buildProjectManifest,
   buildWorkspaceHtml,
   decodeBrightspaceHtml,
   extractModernDramaUnit,
@@ -370,6 +371,8 @@ test("buildWorkspaceHtml wires top-bar lesson progress and keeps collapse contro
   assert.match(html, /\.top-progress-shell \{[^}]*position: absolute;[^}]*right: 24px;[^}]*top: 16px;/);
   assert.doesNotMatch(header, /id="sidebar-toggle"/);
   assert.match(aside, /id="sidebar-toggle"/);
+  assert.match(html, /\.course-sidebar \.sidebar-header \{[^}]*padding-right: 76px;/);
+  assert.match(html, /body\.sidebar-collapsed \.sidebar-header \{[^}]*padding: 16px 8px 12px;/);
   assert.match(aside, /data-lessons-toggle aria-expanded="false" aria-controls="lesson-subnav"/);
   assert.match(aside, /id="lesson-subnav" class="lesson-subnav/);
   assert.match(html, /\.lesson-subnav \{ display: none; \}/);
@@ -380,4 +383,82 @@ test("buildWorkspaceHtml wires top-bar lesson progress and keeps collapse contro
   assert.match(html, /const progressPercent = totalLessons \? Math\.round\(\(complete\.size \/ totalLessons\) \* 100\) : 0;/);
   assert.match(html, /progressFill\.style\.width = `\$\{progressPercent\}%`;/);
   assert.match(html, /progressBar\.setAttribute\("aria-valuenow", String\(progressPercent\)\);/);
+});
+
+test("buildWorkspaceHtml integrates the critical response activity into Writing Studio", () => {
+  const html = buildWorkspaceHtml({
+    title: "A Streetcar Named Desire",
+    localResources: [],
+    lessons: [
+      {
+        id: "lesson-one",
+        sequence: 1,
+        title: "Lesson One",
+        sourceKind: "html",
+        sourceHref: "streetcar_named_desire/lesson-one.html",
+        contentHtml: "<h1>Lesson One</h1>",
+        text: "Lesson One",
+        images: [],
+        videos: [],
+        links: []
+      }
+    ]
+  });
+
+  const writingSection = html.match(/<section id="writing"[\s\S]*?<\/section>\s*<section id="library"/)?.[0] ?? "";
+
+  assert.match(writingSection, /data-critical-response-activity/);
+  assert.match(writingSection, /data-workshop-tab="textKnowledge"/);
+  assert.match(writingSection, /data-workshop-tab="thesisControl"/);
+  assert.doesNotMatch(writingSection, /data-workshop-tab="evidenceQuality"/);
+  assert.match(writingSection, /data-question-group-tab="textKnowledge"/);
+  assert.match(writingSection, /data-question-group-tab="thesisControl"/);
+  assert.match(writingSection, /data-question-group-tab="evidenceQuality"/);
+  assert.match(writingSection, /data-workshop-panel/);
+  assert.match(html, /const criticalResponseQuestionGroups = \[/);
+  assert.match(html, /const thesisBuilderActivity = \{/);
+  assert.match(html, /Rule #1: Choosing Your Text/);
+  assert.match(html, /Text Knowledge Question Bank: A Streetcar Named Desire/);
+  assert.match(html, /Thesis Builder Workshop: A Streetcar Named Desire/);
+  assert.match(html, /the impact of illusions on reality/);
+  assert.match(html, /data-workshop-option/);
+  assert.match(html, /data-workshop-next/);
+  assert.match(html, /data-workshop-restart/);
+  assert.match(html, /data-thesis-builder/);
+  assert.match(html, /data-thesis-choice/);
+  assert.match(html, /data-thesis-restart/);
+  assert.match(html, /data-thesis-copy/);
+  assert.match(html, /function renderCriticalResponseActivity\(\)/);
+  assert.match(html, /function renderThesisBuilderActivity\(\)/);
+  assert.match(html, /thesis-step-check/);
+  assert.match(html, /aria-label="Completed"/);
+  assert.doesNotMatch(html, /const marker = criticalResponseState\.thesisStep > number \? "check" : String\(number\);/);
+  assert.match(html, /criticalResponseRoot\?\.addEventListener\("click"/);
+  assert.doesNotMatch(html, /createRoot|ReactDOM|critical_response_activity\.tsx|thesis_builder_activity\.tsx/);
+});
+
+test("buildProjectManifest tracks the critical response activity as an active injection", () => {
+  const manifest = buildProjectManifest({
+    slug: "ela30-1-modern-drama",
+    zipPath: "C:\\Users\\dean.guedo\\Downloads\\D2LExport_6670_CBE System ELA 30-1 (Winter 2020)_20266815.zip",
+    generatedAt: "2026-06-08T00:00:00.000Z"
+  });
+
+  assert.deepEqual(manifest.preferredWorkflows, ["conversion", "injection/integration"]);
+  assert.deepEqual(manifest.injectedComponents, [
+    {
+      id: "critical-response-workshop",
+      source: "C:\\Users\\dean.guedo\\Downloads\\critical_response_activity.tsx",
+      target: "projects/ela30-1-modern-drama/workspace/index.html#writing",
+      status: "active",
+      notes: "Converted from the external TSX activity into the static Writing Studio shell."
+    },
+    {
+      id: "thesis-builder-workshop",
+      source: "C:\\Users\\dean.guedo\\Downloads\\thesis_builder_activity.tsx",
+      target: "projects/ela30-1-modern-drama/workspace/index.html#writing",
+      status: "active",
+      notes: "Converted from the external thesis builder TSX into the static Thesis Control panel."
+    }
+  ]);
 });
