@@ -6063,3 +6063,61 @@ The Money Basics shell was wired into separate routed pages for Introduction, Le
 
 ## Exact next file to open
 `projects/ela30-1-modern-drama/workspace/index.html`
+
+## 2026-06-08: docs/ops/ACTIVE_HANDOFF.md (pre-handoff-refresh)
+
+# Handoff
+
+- Project: `ela30-1-modern-drama`
+- Task: Keep Streetcar Writing Studio structure and integrate activity labels/groups to requested hierarchy.
+- Status: in progress
+
+## Files changed
+- `scripts/lib/ela-modern-drama.ts`
+- `projects/ela30-1-modern-drama/workspace/index.html`
+- `projects/ela30-1-modern-drama/meta/project.json`
+- `scripts/lib/ela-thesis-builder-activity.ts`
+- `scripts/tests/ela-modern-drama-frame.test.ts`
+- `docs/ops/ACTIVE_HANDOFF.md`
+
+## What changed
+- Top Writing Studio tab label in this project now reads `Thesis Workshop` while the corresponding text-knowledge child section remains `Thesis Control`.
+- Thesis Builder and critical-response activities are integrated into the modern drama project style and project metadata.
+- The active handoff checkpoint was updated to lock the current label/grouping state for continuation.
+
+## Why this changed
+- The user requested that the outer writing-studio label and inner text knowledge grouping stay as requested before continuing future course units.
+
+## Source of truth
+- Canonical generator: `scripts/lib/ela-modern-drama.ts`
+- Workspace artifact: `projects/ela30-1-modern-drama/workspace/index.html`
+- Activity metadata and injected source wiring: `projects/ela30-1-modern-drama/meta/project.json`
+- Activity templates: `scripts/lib/ela-thesis-builder-activity.ts`, `scripts/lib/ela-critical-response-activity.ts`
+
+## Fragile areas / watchouts
+- Regenerating `ela30-1-modern-drama` rewrites `workspace/index.html`; keep edits in generator files.
+- The thesis builder source should be revalidated if the downloaded TSX seed changes.
+- `.stax` sidecar status can remain stale even when command evidence is current.
+
+## Next prompt should assume
+- Treat `ela30-1-modern-drama` as the active project and preserve existing shell styling.
+- Keep edits in generator/workspace/metadata scope unless requested.
+- Do not commit or push unless explicitly requested.
+
+## What still needs validation
+- Run project verification if any generator or metadata files are edited.
+- Run STAX preflight once sidecar state is refreshed.
+
+## Known risks
+- Manual edits to `projects/ela30-1-modern-drama/workspace/index.html` can be overwritten on rebuild.
+- Labels and IDs must stay synchronized between generator and runtime markup.
+
+## Exact next command
+`npm run stax:collect -- --repo "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper" -- npm run build:studio`
+
+## Exact next file to open
+`docs/ops/ACTIVE_HANDOFF.md`
+
+## Do not do next / warnings
+- Do not edit or commit any files under `projects/ela30-1-modern-drama/raw/**`.
+- Do not revert the nested `Thesis Control` label while keeping outer `Thesis Workshop`.
