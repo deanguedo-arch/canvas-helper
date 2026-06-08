@@ -575,6 +575,96 @@ function lessonSummary(lesson: ModernDramaLesson) {
   return truncate(lesson.text.replace(new RegExp(`^${lesson.title}\\s*`, "i"), ""), 180);
 }
 
+type UnitDocumentItem = {
+  id: string;
+  title: string;
+  sourceTitle: string;
+  workspaceHref: string;
+  zipPath: string;
+  kind: Exclude<ModernDramaSourceKind, "html">;
+};
+
+type UnitVideoItem = ModernDramaVideo & {
+  id: string;
+  sourceTitle: string;
+};
+
+type ExternalResourceItem = ModernDramaLink & {
+  sourceTitle: string;
+};
+
+function linkSourceKind(link: ModernDramaLink) {
+  return sourceKindForPath(link.zipPath ?? link.workspaceHref ?? link.href);
+}
+
+function isLocalDocumentLink(link: ModernDramaLink) {
+  if (link.kind !== "local") {
+    return false;
+  }
+  return linkSourceKind(link) !== "html" || sourceKindForPath(link.workspaceHref) !== "html";
+}
+
+function unitDocuments(unit: ModernDramaUnit) {
+  const documents: UnitDocumentItem[] = [];
+  for (const lesson of unit.lessons) {
+    if (lesson.document) {
+      documents.push({
+        id: `document-${toSafeId(`${lesson.id}-${lesson.document.workspaceHref}`)}`,
+        title: lesson.document.title,
+        sourceTitle: lesson.title,
+        workspaceHref: lesson.document.workspaceHref,
+        zipPath: lesson.document.zipPath,
+        kind: lesson.document.kind
+      });
+    }
+
+    for (const link of lesson.links.filter(isLocalDocumentLink)) {
+      const kind = linkSourceKind(link);
+      documents.push({
+        id: `document-${toSafeId(`${lesson.id}-${link.workspaceHref}`)}`,
+        title: link.text.replace(/^Open\s+/i, "") || path.posix.basename(link.workspaceHref),
+        sourceTitle: lesson.title,
+        workspaceHref: link.workspaceHref,
+        zipPath: link.zipPath ?? link.href,
+        kind: kind === "html" ? "other" : kind
+      });
+    }
+  }
+  return uniqueBy(documents, (document) => document.workspaceHref);
+}
+
+function unitVideos(unit: ModernDramaUnit) {
+  const videos: UnitVideoItem[] = [];
+  const seen = new Set<string>();
+  for (const lesson of unit.lessons) {
+    for (const video of lesson.videos) {
+      if (seen.has(video.embedSrc)) {
+        continue;
+      }
+      seen.add(video.embedSrc);
+      videos.push({
+        ...video,
+        id: `film-${videos.length + 1}-${toSafeId(video.title || lesson.title)}`,
+        sourceTitle: lesson.title
+      });
+    }
+  }
+  return videos;
+}
+
+function unitExternalResources(unit: ModernDramaUnit) {
+  const links: ExternalResourceItem[] = [];
+  for (const lesson of unit.lessons) {
+    for (const link of lesson.links) {
+      if (link.kind !== "external" || normalizeVideoEmbedSrc(link.href) || normalizeVideoEmbedSrc(link.workspaceHref)) {
+        continue;
+      }
+      links.push({ ...link, sourceTitle: lesson.title });
+    }
+  }
+  return uniqueBy(links, (link) => `${link.kind}:${link.href}`);
+}
+
 function buildSourceIndexHtml(unit: ModernDramaUnit) {
   const rows = unit.lessons
     .map((lesson) => `<li><strong>${escapeHtml(lesson.title)}</strong><br><code>${escapeHtml(lesson.sourceHref)}</code></li>`)
@@ -610,7 +700,8 @@ function buildStyleGuide() {
 - Keep cards compact, readable, and export-safe for Brightspace integration.
 
 ## Interaction Notes
-- Hash routes drive Overview, Lessons, Writing Studio, Readings, and Resources.
+- Hash routes drive Overview, Lessons, Writing Studio, Readings, Library, Film Room, and Resources.
+- Library collects local PDFs/documents, Film Room collects normalized videos, and Resources is reserved for external non-video links.
 - Lesson completion uses localStorage for local preview only.
 - Sidebar collapse should not change the active route.
 
@@ -642,8 +733,9 @@ function buildImportLog(zipPath: string, unit: ModernDramaUnit) {
 - Active manifest unit: ${unit.title}
 - Lessons imported: ${unit.lessons.length}
 - Local source images copied into workspace/assets/source.
-- Local source documents copied into workspace/assets/source.
-- YouTube iframes and links normalized into embedded video surfaces where present.
+- Local source documents copied into workspace/assets/source and surfaced in the Library route.
+- YouTube iframes and links normalized into lesson embeds and the Film Room route where present.
+- External non-video links surfaced as resource cards in the Resources route.
 - Local supplementary HTML links copied into workspace/resources.
 - Source HTML encoding: UTF-16 Brightspace HTML decoded during generation.
 `;
@@ -797,17 +889,104 @@ function renderLessonLinkedVideos(lesson: ModernDramaLesson) {
   </section>`;
 }
 
-function renderVideoResources(unit: ModernDramaUnit) {
-  const videos = uniqueBy(unit.lessons.flatMap((lesson) => lesson.videos), (video) => video.embedSrc);
-  if (videos.length === 0) {
-    return "";
+function renderLibrary(unit: ModernDramaUnit) {
+  const documents = unitDocuments(unit);
+  if (documents.length === 0) {
+    return `<article class="empty-route-card">
+      <span class="material-symbols-outlined" aria-hidden="true">library_books</span>
+      <h3>No PDFs loaded yet</h3>
+      <p>PDFs and local source documents from the Brightspace export will appear here when this unit includes them.</p>
+    </article>`;
   }
-  return `<section class="mb-lg">
-    <h3 class="font-headline-md text-headline-md text-on-surface mb-md">Embedded Videos</h3>
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-md">
-      ${videos.map(renderEmbeddedVideo).join("\n")}
+
+  const tabs = documents
+    .map((document, index) => `<button class="library-doc-tab${index === 0 ? " active" : ""}" type="button" data-library-doc-target="${escapeHtml(document.id)}" aria-pressed="${index === 0}">
+      <span class="library-doc-index">${String(index + 1).padStart(2, "0")}</span>
+      <span>
+        <strong>${escapeHtml(document.title)}</strong>
+        <small>${escapeHtml(document.kind.toUpperCase())}</small>
+      </span>
+    </button>`)
+    .join("\n");
+  const panels = documents
+    .map((document, index) => {
+      const isPdf = document.kind === "pdf";
+      const openLabel = isPdf ? "Open PDF" : "Open File";
+      const downloadLabel = isPdf ? "Download PDF" : "Download File";
+      const frame = isPdf
+        ? `<iframe class="library-document-frame" src="${escapeHtml(document.workspaceHref)}" title="${escapeHtml(document.title)}"></iframe>`
+        : `<div class="library-file-fallback">
+            <p>This local source file is available to open in a new browser tab.</p>
+            <a class="external-resource-action" href="${escapeHtml(document.workspaceHref)}" target="_blank" rel="noopener noreferrer">${escapeHtml(openLabel)}</a>
+          </div>`;
+      return `<article class="library-reader-panel" data-library-doc-panel="${escapeHtml(document.id)}"${index === 0 ? "" : " hidden"}>
+        <div class="library-reader-header">
+          <div>
+            <span class="resource-kicker">${escapeHtml(document.kind.toUpperCase())} Source</span>
+            <h3>${escapeHtml(document.title)}</h3>
+            <p>Source lesson: ${escapeHtml(document.sourceTitle)}</p>
+          </div>
+          <div class="library-actions">
+            <a href="${escapeHtml(document.workspaceHref)}" target="_blank" rel="noopener noreferrer">${escapeHtml(openLabel)}</a>
+            <a href="${escapeHtml(document.workspaceHref)}" download>${escapeHtml(downloadLabel)}</a>
+          </div>
+        </div>
+        ${frame}
+      </article>`;
+    })
+    .join("\n");
+
+  return `<div class="library-browser">
+    <aside class="library-list-panel">
+      <span class="resource-kicker">Library</span>
+      <h3>${documents.length} local ${documents.length === 1 ? "document" : "documents"}</h3>
+      <p>PDFs are collected here so Resources can stay focused on external reading links.</p>
+      <div class="library-doc-list">${tabs}</div>
+    </aside>
+    <div class="library-reader-stack">${panels}</div>
+  </div>`;
+}
+
+function renderFilmRoom(unit: ModernDramaUnit) {
+  const videos = unitVideos(unit);
+  if (videos.length === 0) {
+    return `<article class="empty-route-card">
+      <span class="material-symbols-outlined" aria-hidden="true">movie</span>
+      <h3>No videos loaded yet</h3>
+      <p>Embedded video links from imported lessons will appear here as a dedicated film room.</p>
+    </article>`;
+  }
+
+  const panels = videos
+    .map((video, index) => `<article class="film-panel" data-film-panel="${escapeHtml(video.id)}"${index === 0 ? "" : " hidden"}>
+      <iframe class="film-room-frame" src="${escapeHtml(video.embedSrc)}" title="${escapeHtml(video.title)}" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </article>`)
+    .join("\n");
+  const playlist = videos
+    .map((video, index) => `<button class="film-playlist-item${index === 0 ? " active" : ""}" type="button" data-film-target="${escapeHtml(video.id)}" aria-pressed="${index === 0}">
+      <span>${String(index + 1).padStart(2, "0")}</span>
+      <strong>${escapeHtml(video.title)}</strong>
+      <small>${escapeHtml(video.sourceTitle)}</small>
+    </button>`)
+    .join("\n");
+  const sourceLinks = videos
+    .map((video, index) => `<a class="film-source-link" data-film-source="${escapeHtml(video.id)}"${index === 0 ? "" : " hidden"} href="${escapeHtml(video.originalSrc)}" target="_blank" rel="noopener noreferrer">Open source video</a>`)
+    .join("\n");
+
+  return `<div class="film-room-shell">
+    <div class="film-room-stage">
+      <div class="film-room-header">
+        <span class="resource-kicker">Film Room</span>
+        <h3>${videos.length} embedded ${videos.length === 1 ? "video" : "videos"}</h3>
+      </div>
+      ${panels}
     </div>
-  </section>`;
+    <aside class="film-room-sidebar">
+      <span class="resource-kicker">Playlist</span>
+      <div class="film-playlist">${playlist}</div>
+      <div class="film-source-actions">${sourceLinks}</div>
+    </aside>
+  </div>`;
 }
 
 function renderLessonPanels(unit: ModernDramaUnit) {
@@ -865,24 +1044,28 @@ function renderSidebar(unit: ModernDramaUnit) {
     </div>
     <a class="course-nav-link flex items-center gap-sm font-label-md text-label-md rounded-lg mx-2 px-4 py-3 transition-colors" href="#writing" data-page-target="writing"><span class="material-symbols-outlined" aria-hidden="true">edit_note</span><span class="sidebar-label">Writing Studio</span></a>
     <a class="course-nav-link flex items-center gap-sm font-label-md text-label-md rounded-lg mx-2 px-4 py-3 transition-colors" href="#readings" data-page-target="readings"><span class="material-symbols-outlined" aria-hidden="true">library_books</span><span class="sidebar-label">Readings</span></a>
+    <a class="course-nav-link flex items-center gap-sm font-label-md text-label-md rounded-lg mx-2 px-4 py-3 transition-colors" href="#library" data-page-target="library"><span class="material-symbols-outlined" aria-hidden="true">local_library</span><span class="sidebar-label">Library</span></a>
+    <a class="course-nav-link flex items-center gap-sm font-label-md text-label-md rounded-lg mx-2 px-4 py-3 transition-colors" href="#film-room" data-page-target="film-room"><span class="material-symbols-outlined" aria-hidden="true">live_tv</span><span class="sidebar-label">Film Room</span></a>
     <a class="course-nav-link flex items-center gap-sm font-label-md text-label-md rounded-lg mx-2 px-4 py-3 transition-colors" href="#resources" data-page-target="resources"><span class="material-symbols-outlined" aria-hidden="true">folder_open</span><span class="sidebar-label">Resources</span></a>
   </nav>`;
 }
 
 function renderExternalResources(unit: ModernDramaUnit) {
-  const links = uniqueBy(
-    unit.lessons.flatMap((lesson) => lesson.links).filter((link) => !normalizeVideoEmbedSrc(link.href)),
-    (link) => `${link.kind}:${link.href}`
-  );
+  const links = unitExternalResources(unit);
   if (links.length === 0) {
-    return `<p class="font-body-md text-body-md text-on-surface-variant">No external links were detected in this unit.</p>`;
+    return `<article class="empty-route-card">
+      <span class="material-symbols-outlined" aria-hidden="true">travel_explore</span>
+      <h3>No external sources loaded yet</h3>
+      <p>External non-video links from the imported unit will appear here as resource cards.</p>
+    </article>`;
   }
-  return `<div class="grid grid-cols-1 md:grid-cols-2 gap-md">${links
-    .map((link) => `<a class="resource-card" href="${escapeHtml(link.workspaceHref)}" target="_blank" rel="noopener noreferrer">
-      <span class="font-caption text-caption text-primary">${link.kind === "local" ? "Local Source" : "External Source"}</span>
-      <strong>${escapeHtml(link.text)}</strong>
-      <span>${escapeHtml(truncate(link.href, 120))}</span>
-    </a>`)
+  return `<div class="external-resource-grid">${links
+    .map((link) => `<article class="external-resource-card">
+      <span class="resource-kicker">External Source</span>
+      <h3>${escapeHtml(link.text)}</h3>
+      <p>Captured from ${escapeHtml(link.sourceTitle)}. Use this as a supporting source or review stop.</p>
+      <a class="external-resource-action" href="${escapeHtml(link.workspaceHref)}" target="_blank" rel="noopener noreferrer">Open Resource</a>
+    </article>`)
     .join("\n")}</div>`;
 }
 
@@ -988,6 +1171,40 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 .source-video-meta { display: flex; flex-direction: column; gap: 4px; padding-top: 10px; }
 .source-video-meta strong { font-family: "Hanken Grotesk"; font-size: 17px; line-height: 1.3; color: #191c1d; }
 .source-video-meta a { font-family: "IBM Plex Sans"; font-size: 14px; color: #154212; text-decoration: underline; text-underline-offset: 3px; }
+.resource-kicker { display: block; font-family: "IBM Plex Sans"; font-size: 12px; line-height: 1.4; font-weight: 600; color: #154212; text-transform: uppercase; letter-spacing: 0; }
+.external-resource-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.external-resource-card, .empty-route-card { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; min-height: 190px; border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; padding: 18px; color: #191c1d; }
+.external-resource-card h3, .empty-route-card h3 { font-family: "Hanken Grotesk"; font-size: 20px; line-height: 1.25; font-weight: 800; margin: 0; }
+.external-resource-card p, .empty-route-card p { color: #42493e; font-size: 14px; line-height: 1.5; margin: 0; }
+.external-resource-action, .library-actions a, .film-source-link { min-height: 42px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid #154212; border-radius: 8px; background: #154212; color: #fff; padding: 9px 14px; font-family: "IBM Plex Sans"; font-size: 14px; text-decoration: none; }
+.external-resource-action:hover, .external-resource-action:focus-visible, .library-actions a:hover, .library-actions a:focus-visible, .film-source-link:hover, .film-source-link:focus-visible { background: #2d5a27; border-color: #2d5a27; color: #fff; outline: none; }
+.library-browser { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 24px; align-items: start; }
+.library-list-panel, .library-reader-panel, .film-room-stage, .film-room-sidebar { border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; }
+.library-list-panel { padding: 18px; }
+.library-list-panel h3, .library-reader-header h3, .film-room-header h3 { font-family: "Hanken Grotesk"; font-size: 24px; line-height: 1.2; font-weight: 800; margin: 6px 0 8px; color: #191c1d; }
+.library-list-panel p, .library-reader-header p { color: #42493e; font-size: 14px; line-height: 1.5; margin: 0; }
+.library-doc-list { display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
+.library-doc-tab { width: 100%; min-height: 70px; display: grid; grid-template-columns: 42px minmax(0, 1fr); gap: 12px; align-items: center; border: 1px solid #e1e3e4; border-radius: 8px; background: #f8f9fa; color: #191c1d; padding: 12px; text-align: left; }
+.library-doc-tab:hover, .library-doc-tab:focus-visible, .library-doc-tab.active { border-color: #2d5a27; background: #f3f7f1; outline: none; }
+.library-doc-tab strong, .film-playlist-item strong { display: block; overflow-wrap: anywhere; font-family: "Hanken Grotesk"; font-size: 16px; line-height: 1.25; }
+.library-doc-tab small, .film-playlist-item small { display: block; color: #42493e; font-size: 12px; line-height: 1.3; margin-top: 4px; }
+.library-doc-index { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 8px; background: #154212; color: #fff; font-family: "IBM Plex Sans"; font-size: 13px; }
+.library-reader-panel { padding: 18px; }
+.library-reader-panel[hidden], .film-panel[hidden], .film-source-link[hidden] { display: none !important; }
+.library-reader-header { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; margin-bottom: 16px; }
+.library-actions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+.library-document-frame { display: block; width: 100%; height: min(68vh, 680px); min-height: 520px; border: 1px solid #d9dadb; border-radius: 8px; background: #fff; }
+.library-file-fallback { border: 1px dashed #c2c9bb; border-radius: 8px; background: #f8f9fa; padding: 24px; }
+.film-room-shell { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 24px; align-items: start; }
+.film-room-stage { padding: 18px; background: #f8f9fa; }
+.film-room-header { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
+.film-room-frame { display: block; width: 100%; aspect-ratio: 16 / 9; min-height: 360px; border: 1px solid #191c1d; border-radius: 8px; background: #000; }
+.film-room-sidebar { padding: 18px; }
+.film-playlist { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+.film-playlist-item { width: 100%; min-height: 74px; display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; align-items: center; border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; color: #191c1d; padding: 12px; text-align: left; }
+.film-playlist-item span { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 8px; background: #f1f3f4; color: #154212; font-family: "IBM Plex Sans"; font-size: 12px; }
+.film-playlist-item:hover, .film-playlist-item:focus-visible, .film-playlist-item.active { border-color: #2d5a27; background: #f3f7f1; outline: none; }
+.film-source-actions { margin-top: 16px; }
 .lesson-jump { min-height: 44px; display: inline-flex; align-items: center; border: 1px solid #e1e3e4; border-radius: 8px; padding: 8px 14px; font-family: "IBM Plex Sans"; font-size: 14px; color: #191c1d; background: #fff; }
 .lesson-jump.primary { background: #154212; color: #fff; border-color: #154212; }
 .resource-card { display: flex; flex-direction: column; gap: 6px; min-height: 120px; border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; padding: 16px; color: #191c1d; }
@@ -1002,6 +1219,11 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
   .lesson-layout { grid-template-columns: 1fr; }
   .source-content h1 { font-size: 24px; }
   .source-video-frame, .source-video-card .source-video-frame { min-height: 190px; }
+  .library-browser, .film-room-shell { grid-template-columns: 1fr; }
+  .library-reader-header { flex-direction: column; }
+  .library-actions { justify-content: flex-start; }
+  .library-document-frame { min-height: 420px; height: 62vh; }
+  .film-room-frame { min-height: 220px; }
 }
 </style>
 </head>
@@ -1087,16 +1309,31 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
         <h2 class="font-headline-lg text-headline-lg text-on-surface mt-xs mb-md">Core Text Path</h2>
         <div class="bg-white border border-surface-muted rounded-lg p-lg source-content">
           <p>The active reading path centers on <strong>${escapeHtml(unit.title)}</strong>. Keep the required text access policy local to your Brightspace course, then use this frame to hold reading launch notes, scene checkpoints, author research prompts, and writing supports.</p>
-          <p>The source links captured from the D2L export are listed in Resources.</p>
+          <p>External reading sources are collected in Resources, local PDFs are collected in Library, and imported videos are collected in Film Room.</p>
         </div>
+      </div>
+    </section>
+
+    <section id="library" class="course-page" data-page="library" hidden>
+      <div class="max-w-6xl">
+        <p class="font-label-md text-label-md text-secondary">${COURSE_TITLE} | Library</p>
+        <h2 class="font-headline-lg text-headline-lg text-on-surface mt-xs mb-md">PDF Library</h2>
+        ${renderLibrary(unit)}
+      </div>
+    </section>
+
+    <section id="film-room" class="course-page" data-page="film-room" hidden>
+      <div class="max-w-6xl">
+        <p class="font-label-md text-label-md text-secondary">${COURSE_TITLE} | Film Room</p>
+        <h2 class="font-headline-lg text-headline-lg text-on-surface mt-xs mb-md">Video Room</h2>
+        ${renderFilmRoom(unit)}
       </div>
     </section>
 
     <section id="resources" class="course-page" data-page="resources" hidden>
       <div class="max-w-6xl">
         <p class="font-label-md text-label-md text-secondary">${COURSE_TITLE} | Resources</p>
-        <h2 class="font-headline-lg text-headline-lg text-on-surface mt-xs mb-md">Source Resources</h2>
-        ${renderVideoResources(unit)}
+        <h2 class="font-headline-lg text-headline-lg text-on-surface mt-xs mb-md">External Source Resources</h2>
         ${renderExternalResources(unit)}
       </div>
     </section>
@@ -1106,7 +1343,7 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 const STORAGE_KEY = "canvas-helper:ela30-1-modern-drama:complete";
 const pages = Array.from(document.querySelectorAll(".course-page"));
 const lessonIds = ${JSON.stringify(unit.lessons.map((lesson) => lesson.id))};
-const staticPages = ["overview", "lessons", "writing", "readings", "resources"];
+const staticPages = ["overview","lessons","writing","readings","library","film-room","resources"];
 
 function readComplete() {
   try {
@@ -1156,6 +1393,14 @@ document.addEventListener("click", (event) => {
       showPage(pageTarget);
     }
   }
+  const libraryTarget = event.target.closest("[data-library-doc-target]");
+  if (libraryTarget) {
+    setActiveLibraryDocument(libraryTarget.getAttribute("data-library-doc-target"));
+  }
+  const filmTarget = event.target.closest("[data-film-target]");
+  if (filmTarget) {
+    setActiveFilm(filmTarget.getAttribute("data-film-target"));
+  }
   const completeButton = event.target.closest("[data-complete-id]");
   if (completeButton) {
     const id = completeButton.getAttribute("data-complete-id");
@@ -1165,6 +1410,33 @@ document.addEventListener("click", (event) => {
     updateComplete();
   }
 });
+
+function setActiveLibraryDocument(id) {
+  if (!id) return;
+  document.querySelectorAll("[data-library-doc-panel]").forEach((panel) => {
+    panel.hidden = panel.getAttribute("data-library-doc-panel") !== id;
+  });
+  document.querySelectorAll("[data-library-doc-target]").forEach((button) => {
+    const active = button.getAttribute("data-library-doc-target") === id;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+}
+
+function setActiveFilm(id) {
+  if (!id) return;
+  document.querySelectorAll("[data-film-panel]").forEach((panel) => {
+    panel.hidden = panel.getAttribute("data-film-panel") !== id;
+  });
+  document.querySelectorAll("[data-film-source]").forEach((link) => {
+    link.hidden = link.getAttribute("data-film-source") !== id;
+  });
+  document.querySelectorAll("[data-film-target]").forEach((button) => {
+    const active = button.getAttribute("data-film-target") === id;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+}
 
 document.getElementById("sidebar-toggle")?.addEventListener("click", () => {
   document.body.classList.toggle("sidebar-collapsed");
@@ -1241,7 +1513,9 @@ async function writeSectionMap(slug: string, unit: ModernDramaUnit) {
       { id: "lessons", title: "Lessons", role: "lesson-library" },
       { id: "writing", title: "Writing Studio", role: "writing-support" },
       { id: "readings", title: "Readings", role: "reading-support" },
-      { id: "resources", title: "Resources", role: "resource-library" },
+      { id: "library", title: "Library", role: "document-library" },
+      { id: "film-room", title: "Film Room", role: "video-library" },
+      { id: "resources", title: "Resources", role: "external-resource-library" },
       ...unit.lessons.map((lesson) => ({
         id: lesson.id,
         title: lesson.title,

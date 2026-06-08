@@ -89,6 +89,40 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 .source-video-meta { display: flex; flex-direction: column; gap: 4px; padding-top: 10px; }
 .source-video-meta strong { font-family: "Hanken Grotesk"; font-size: 17px; line-height: 1.3; color: #191c1d; }
 .source-video-meta a { font-family: "IBM Plex Sans"; font-size: 14px; color: #154212; text-decoration: underline; text-underline-offset: 3px; }
+.resource-kicker { display: block; font-family: "IBM Plex Sans"; font-size: 12px; line-height: 1.4; font-weight: 600; color: #154212; text-transform: uppercase; letter-spacing: 0; }
+.external-resource-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.external-resource-card, .empty-route-card { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; min-height: 190px; border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; padding: 18px; color: #191c1d; }
+.external-resource-card h3, .empty-route-card h3 { font-family: "Hanken Grotesk"; font-size: 20px; line-height: 1.25; font-weight: 800; margin: 0; }
+.external-resource-card p, .empty-route-card p { color: #42493e; font-size: 14px; line-height: 1.5; margin: 0; }
+.external-resource-action, .library-actions a, .film-source-link { min-height: 42px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid #154212; border-radius: 8px; background: #154212; color: #fff; padding: 9px 14px; font-family: "IBM Plex Sans"; font-size: 14px; text-decoration: none; }
+.external-resource-action:hover, .external-resource-action:focus-visible, .library-actions a:hover, .library-actions a:focus-visible, .film-source-link:hover, .film-source-link:focus-visible { background: #2d5a27; border-color: #2d5a27; color: #fff; outline: none; }
+.library-browser { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 24px; align-items: start; }
+.library-list-panel, .library-reader-panel, .film-room-stage, .film-room-sidebar { border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; }
+.library-list-panel { padding: 18px; }
+.library-list-panel h3, .library-reader-header h3, .film-room-header h3 { font-family: "Hanken Grotesk"; font-size: 24px; line-height: 1.2; font-weight: 800; margin: 6px 0 8px; color: #191c1d; }
+.library-list-panel p, .library-reader-header p { color: #42493e; font-size: 14px; line-height: 1.5; margin: 0; }
+.library-doc-list { display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
+.library-doc-tab { width: 100%; min-height: 70px; display: grid; grid-template-columns: 42px minmax(0, 1fr); gap: 12px; align-items: center; border: 1px solid #e1e3e4; border-radius: 8px; background: #f8f9fa; color: #191c1d; padding: 12px; text-align: left; }
+.library-doc-tab:hover, .library-doc-tab:focus-visible, .library-doc-tab.active { border-color: #2d5a27; background: #f3f7f1; outline: none; }
+.library-doc-tab strong, .film-playlist-item strong { display: block; overflow-wrap: anywhere; font-family: "Hanken Grotesk"; font-size: 16px; line-height: 1.25; }
+.library-doc-tab small, .film-playlist-item small { display: block; color: #42493e; font-size: 12px; line-height: 1.3; margin-top: 4px; }
+.library-doc-index { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 8px; background: #154212; color: #fff; font-family: "IBM Plex Sans"; font-size: 13px; }
+.library-reader-panel { padding: 18px; }
+.library-reader-panel[hidden], .film-panel[hidden], .film-source-link[hidden] { display: none !important; }
+.library-reader-header { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; margin-bottom: 16px; }
+.library-actions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+.library-document-frame { display: block; width: 100%; height: min(68vh, 680px); min-height: 520px; border: 1px solid #d9dadb; border-radius: 8px; background: #fff; }
+.library-file-fallback { border: 1px dashed #c2c9bb; border-radius: 8px; background: #f8f9fa; padding: 24px; }
+.film-room-shell { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 24px; align-items: start; }
+.film-room-stage { padding: 18px; background: #f8f9fa; }
+.film-room-header { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
+.film-room-frame { display: block; width: 100%; aspect-ratio: 16 / 9; min-height: 360px; border: 1px solid #191c1d; border-radius: 8px; background: #000; }
+.film-room-sidebar { padding: 18px; }
+.film-playlist { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+.film-playlist-item { width: 100%; min-height: 74px; display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; align-items: center; border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; color: #191c1d; padding: 12px; text-align: left; }
+.film-playlist-item span { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 8px; background: #f1f3f4; color: #154212; font-family: "IBM Plex Sans"; font-size: 12px; }
+.film-playlist-item:hover, .film-playlist-item:focus-visible, .film-playlist-item.active { border-color: #2d5a27; background: #f3f7f1; outline: none; }
+.film-source-actions { margin-top: 16px; }
 .lesson-jump { min-height: 44px; display: inline-flex; align-items: center; border: 1px solid #e1e3e4; border-radius: 8px; padding: 8px 14px; font-family: "IBM Plex Sans"; font-size: 14px; color: #191c1d; background: #fff; }
 .lesson-jump.primary { background: #154212; color: #fff; border-color: #154212; }
 .resource-card { display: flex; flex-direction: column; gap: 6px; min-height: 120px; border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; padding: 16px; color: #191c1d; }
@@ -103,6 +137,11 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
   .lesson-layout { grid-template-columns: 1fr; }
   .source-content h1 { font-size: 24px; }
   .source-video-frame, .source-video-card .source-video-frame { min-height: 190px; }
+  .library-browser, .film-room-shell { grid-template-columns: 1fr; }
+  .library-reader-header { flex-direction: column; }
+  .library-actions { justify-content: flex-start; }
+  .library-document-frame { min-height: 420px; height: 62vh; }
+  .film-room-frame { min-height: 220px; }
 }
 </style>
 </head>
@@ -154,6 +193,8 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
     </div>
     <a class="course-nav-link flex items-center gap-sm font-label-md text-label-md rounded-lg mx-2 px-4 py-3 transition-colors" href="#writing" data-page-target="writing"><span class="material-symbols-outlined" aria-hidden="true">edit_note</span><span class="sidebar-label">Writing Studio</span></a>
     <a class="course-nav-link flex items-center gap-sm font-label-md text-label-md rounded-lg mx-2 px-4 py-3 transition-colors" href="#readings" data-page-target="readings"><span class="material-symbols-outlined" aria-hidden="true">library_books</span><span class="sidebar-label">Readings</span></a>
+    <a class="course-nav-link flex items-center gap-sm font-label-md text-label-md rounded-lg mx-2 px-4 py-3 transition-colors" href="#library" data-page-target="library"><span class="material-symbols-outlined" aria-hidden="true">local_library</span><span class="sidebar-label">Library</span></a>
+    <a class="course-nav-link flex items-center gap-sm font-label-md text-label-md rounded-lg mx-2 px-4 py-3 transition-colors" href="#film-room" data-page-target="film-room"><span class="material-symbols-outlined" aria-hidden="true">live_tv</span><span class="sidebar-label">Film Room</span></a>
     <a class="course-nav-link flex items-center gap-sm font-label-md text-label-md rounded-lg mx-2 px-4 py-3 transition-colors" href="#resources" data-page-target="resources"><span class="material-symbols-outlined" aria-hidden="true">folder_open</span><span class="sidebar-label">Resources</span></a>
   </nav>
 </aside>
@@ -1282,155 +1323,227 @@ You also need to clarify your reasons for choosing the literature you have ident
         <h2 class="font-headline-lg text-headline-lg text-on-surface mt-xs mb-md">Core Text Path</h2>
         <div class="bg-white border border-surface-muted rounded-lg p-lg source-content">
           <p>The active reading path centers on <strong>A Streetcar Named Desire</strong>. Keep the required text access policy local to your Brightspace course, then use this frame to hold reading launch notes, scene checkpoints, author research prompts, and writing supports.</p>
-          <p>The source links captured from the D2L export are listed in Resources.</p>
+          <p>External reading sources are collected in Resources, local PDFs are collected in Library, and imported videos are collected in Film Room.</p>
         </div>
+      </div>
+    </section>
+
+    <section id="library" class="course-page" data-page="library" hidden>
+      <div class="max-w-6xl">
+        <p class="font-label-md text-label-md text-secondary">ELA 30-1 | Library</p>
+        <h2 class="font-headline-lg text-headline-lg text-on-surface mt-xs mb-md">PDF Library</h2>
+        <div class="library-browser">
+    <aside class="library-list-panel">
+      <span class="resource-kicker">Library</span>
+      <h3>1 local document</h3>
+      <p>PDFs are collected here so Resources can stay focused on external reading links.</p>
+      <div class="library-doc-list"><button class="library-doc-tab active" type="button" data-library-doc-target="document-lesson-4-a-streetcar-named-desire-questions-assets-source-a-streetcar-named-desi" aria-pressed="true">
+      <span class="library-doc-index">01</span>
+      <span>
+        <strong>Lesson 4: A Streetcar Named Desire questions</strong>
+        <small>PDF</small>
+      </span>
+    </button></div>
+    </aside>
+    <div class="library-reader-stack"><article class="library-reader-panel" data-library-doc-panel="document-lesson-4-a-streetcar-named-desire-questions-assets-source-a-streetcar-named-desi">
+        <div class="library-reader-header">
+          <div>
+            <span class="resource-kicker">PDF Source</span>
+            <h3>Lesson 4: A Streetcar Named Desire questions</h3>
+            <p>Source lesson: Lesson 4: A Streetcar Named Desire questions</p>
+          </div>
+          <div class="library-actions">
+            <a href="./assets/source/A-Streetcar-Named-Desire-questions.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+            <a href="./assets/source/A-Streetcar-Named-Desire-questions.pdf" download>Download PDF</a>
+          </div>
+        </div>
+        <iframe class="library-document-frame" src="./assets/source/A-Streetcar-Named-Desire-questions.pdf" title="Lesson 4: A Streetcar Named Desire questions"></iframe>
+      </article></div>
+  </div>
+      </div>
+    </section>
+
+    <section id="film-room" class="course-page" data-page="film-room" hidden>
+      <div class="max-w-6xl">
+        <p class="font-label-md text-label-md text-secondary">ELA 30-1 | Film Room</p>
+        <h2 class="font-headline-lg text-headline-lg text-on-surface mt-xs mb-md">Video Room</h2>
+        <div class="film-room-shell">
+    <div class="film-room-stage">
+      <div class="film-room-header">
+        <span class="resource-kicker">Film Room</span>
+        <h3>5 embedded videos</h3>
+      </div>
+      <article class="film-panel" data-film-panel="film-1-embedded-video">
+      <iframe class="film-room-frame" src="https://www.youtube.com/embed/763wrhAthqE" title="Embedded video" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </article>
+<article class="film-panel" data-film-panel="film-2-embedded-video" hidden>
+      <iframe class="film-room-frame" src="https://www.youtube.com/embed/a9G7lU8J21Y?feature=oembed&amp;wmode=opaque&amp;rel=0" title="Embedded video" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </article>
+<article class="film-panel" data-film-panel="film-3-embedded-video" hidden>
+      <iframe class="film-room-frame" src="https://www.youtube.com/embed/4mE6ItCl3nc?feature=oembed&amp;wmode=opaque&amp;rel=0" title="Embedded video" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </article>
+<article class="film-panel" data-film-panel="film-4-embedded-video" hidden>
+      <iframe class="film-room-frame" src="https://www.youtube.com/embed/on4HDdvGyWo?feature=oembed&amp;wmode=opaque&amp;rel=0" title="Embedded video" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </article>
+<article class="film-panel" data-film-panel="film-5-embedded-video" hidden>
+      <iframe class="film-room-frame" src="https://www.youtube.com/embed/xwjlpExKvsY?feature=oembed&amp;wmode=opaque&amp;rel=0" title="Embedded video" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </article>
+    </div>
+    <aside class="film-room-sidebar">
+      <span class="resource-kicker">Playlist</span>
+      <div class="film-playlist"><button class="film-playlist-item active" type="button" data-film-target="film-1-embedded-video" aria-pressed="true">
+      <span>01</span>
+      <strong>Embedded video</strong>
+      <small>Lesson 1: Tennessee Williams</small>
+    </button>
+<button class="film-playlist-item" type="button" data-film-target="film-2-embedded-video" aria-pressed="false">
+      <span>02</span>
+      <strong>Embedded video</strong>
+      <small>Lesson 2: Streetcar Overview and Character</small>
+    </button>
+<button class="film-playlist-item" type="button" data-film-target="film-3-embedded-video" aria-pressed="false">
+      <span>03</span>
+      <strong>Embedded video</strong>
+      <small>Lesson 3: Streetcar Character Powerpoint (ppt)</small>
+    </button>
+<button class="film-playlist-item" type="button" data-film-target="film-4-embedded-video" aria-pressed="false">
+      <span>04</span>
+      <strong>Embedded video</strong>
+      <small>Lesson 9: Relationships</small>
+    </button>
+<button class="film-playlist-item" type="button" data-film-target="film-5-embedded-video" aria-pressed="false">
+      <span>05</span>
+      <strong>Embedded video</strong>
+      <small>Lesson 11: Song Symbolism</small>
+    </button></div>
+      <div class="film-source-actions"><a class="film-source-link" data-film-source="film-1-embedded-video" href="https://www.youtube.com/embed/763wrhAthqE" target="_blank" rel="noopener noreferrer">Open source video</a>
+<a class="film-source-link" data-film-source="film-2-embedded-video" hidden href="https://www.youtube.com/embed/a9G7lU8J21Y?feature=oembed&amp;wmode=opaque&amp;rel=0" target="_blank" rel="noopener noreferrer">Open source video</a>
+<a class="film-source-link" data-film-source="film-3-embedded-video" hidden href="https://www.youtube.com/embed/4mE6ItCl3nc?feature=oembed&amp;wmode=opaque&amp;rel=0" target="_blank" rel="noopener noreferrer">Open source video</a>
+<a class="film-source-link" data-film-source="film-4-embedded-video" hidden href="https://www.youtube.com/embed/on4HDdvGyWo?feature=oembed&amp;wmode=opaque&amp;rel=0" target="_blank" rel="noopener noreferrer">Open source video</a>
+<a class="film-source-link" data-film-source="film-5-embedded-video" hidden href="https://www.youtube.com/embed/xwjlpExKvsY?feature=oembed&amp;wmode=opaque&amp;rel=0" target="_blank" rel="noopener noreferrer">Open source video</a></div>
+    </aside>
+  </div>
       </div>
     </section>
 
     <section id="resources" class="course-page" data-page="resources" hidden>
       <div class="max-w-6xl">
         <p class="font-label-md text-label-md text-secondary">ELA 30-1 | Resources</p>
-        <h2 class="font-headline-lg text-headline-lg text-on-surface mt-xs mb-md">Source Resources</h2>
-        <section class="mb-lg">
-    <h3 class="font-headline-md text-headline-md text-on-surface mb-md">Embedded Videos</h3>
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-md">
-      <article class="source-video-card">
-    <iframe class="source-video-frame" src="https://www.youtube.com/embed/763wrhAthqE" title="Embedded video" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <div class="source-video-meta">
-      <strong>Embedded video</strong>
-      <a href="https://www.youtube.com/embed/763wrhAthqE" target="_blank" rel="noopener noreferrer">Open source video</a>
-    </div>
-  </article>
-<article class="source-video-card">
-    <iframe class="source-video-frame" src="https://www.youtube.com/embed/a9G7lU8J21Y?feature=oembed&amp;wmode=opaque&amp;rel=0" title="Embedded video" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <div class="source-video-meta">
-      <strong>Embedded video</strong>
-      <a href="https://www.youtube.com/embed/a9G7lU8J21Y?feature=oembed&amp;wmode=opaque&amp;rel=0" target="_blank" rel="noopener noreferrer">Open source video</a>
-    </div>
-  </article>
-<article class="source-video-card">
-    <iframe class="source-video-frame" src="https://www.youtube.com/embed/4mE6ItCl3nc?feature=oembed&amp;wmode=opaque&amp;rel=0" title="Embedded video" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <div class="source-video-meta">
-      <strong>Embedded video</strong>
-      <a href="https://www.youtube.com/embed/4mE6ItCl3nc?feature=oembed&amp;wmode=opaque&amp;rel=0" target="_blank" rel="noopener noreferrer">Open source video</a>
-    </div>
-  </article>
-<article class="source-video-card">
-    <iframe class="source-video-frame" src="https://www.youtube.com/embed/on4HDdvGyWo?feature=oembed&amp;wmode=opaque&amp;rel=0" title="Embedded video" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <div class="source-video-meta">
-      <strong>Embedded video</strong>
-      <a href="https://www.youtube.com/embed/on4HDdvGyWo?feature=oembed&amp;wmode=opaque&amp;rel=0" target="_blank" rel="noopener noreferrer">Open source video</a>
-    </div>
-  </article>
-<article class="source-video-card">
-    <iframe class="source-video-frame" src="https://www.youtube.com/embed/xwjlpExKvsY?feature=oembed&amp;wmode=opaque&amp;rel=0" title="Embedded video" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <div class="source-video-meta">
-      <strong>Embedded video</strong>
-      <a href="https://www.youtube.com/embed/xwjlpExKvsY?feature=oembed&amp;wmode=opaque&amp;rel=0" target="_blank" rel="noopener noreferrer">Open source video</a>
-    </div>
-  </article>
-    </div>
-  </section>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-md"><a class="resource-card" href="http://www.biography.com/people/tennessee-williams-9532952" target="_blank" rel="noopener noreferrer">
-      <span class="font-caption text-caption text-primary">External Source</span>
-      <strong>Tennessee Williams</strong>
-      <span>http://www.biography.com/people/tennessee-williams-9532952</span>
-    </a>
-<a class="resource-card" href="https://www.biography.com/writer/tennessee-williams" target="_blank" rel="noopener noreferrer">
-      <span class="font-caption text-caption text-primary">External Source</span>
-      <strong>Biography</strong>
-      <span>https://www.biography.com/writer/tennessee-williams</span>
-    </a>
-<a class="resource-card" href="https://www.shmoop.com/streetcar-named-desire/" target="_blank" rel="noopener noreferrer">
-      <span class="font-caption text-caption text-primary">External Source</span>
-      <strong>Streetcar Overview</strong>
-      <span>https://www.shmoop.com/streetcar-named-desire/</span>
-    </a>
-<a class="resource-card" href="./assets/source/A-Streetcar-Named-Desire-questions.pdf" target="_blank" rel="noopener noreferrer">
-      <span class="font-caption text-caption text-primary">Local Source</span>
-      <strong>Open Lesson 4: A Streetcar Named Desire questions</strong>
-      <span>streetcar_named_desire/assets/A Streetcar Named Desire questions.pdf</span>
-    </a>
-<a class="resource-card" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/author/" target="_blank" rel="noopener noreferrer">
-      <span class="font-caption text-caption text-primary">External Source</span>
-      <strong>Williams</strong>
-      <span>https://www.coursehero.com/lit/A-Streetcar-Named-Desire/author/</span>
-    </a>
-<a class="resource-card" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/scene-7-summary/" target="_blank" rel="noopener noreferrer">
-      <span class="font-caption text-caption text-primary">External Source</span>
-      <strong>Scene 7</strong>
-      <span>https://www.coursehero.com/lit/A-Streetcar-Named-Desire/scene-7-summary/</span>
-    </a>
-<a class="resource-card" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/scene-11-summary/" target="_blank" rel="noopener noreferrer">
-      <span class="font-caption text-caption text-primary">External Source</span>
-      <strong>Scene 11</strong>
-      <span>https://www.coursehero.com/lit/A-Streetcar-Named-Desire/scene-11-summary/</span>
-    </a>
-<a class="resource-card" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/motifs/" target="_blank" rel="noopener noreferrer">
-      <span class="font-caption text-caption text-primary">External Source</span>
-      <strong>https://www.coursehero.com/lit/A-Streetcar-Named-Desire/motifs/</strong>
-      <span>https://www.coursehero.com/lit/A-Streetcar-Named-Desire/motifs/</span>
-    </a>
-<a class="resource-card" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/character-analysis/#Mitch" target="_blank" rel="noopener noreferrer">
-      <span class="font-caption text-caption text-primary">External Source</span>
-      <strong>Mitch</strong>
-      <span>https://www.coursehero.com/lit/A-Streetcar-Named-Desire/character-analysis/#Mitch</span>
-    </a>
-<a class="resource-card" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/scene-3-summary/" target="_blank" rel="noopener noreferrer">
-      <span class="font-caption text-caption text-primary">External Source</span>
-      <strong>Scene 3</strong>
-      <span>https://www.coursehero.com/lit/A-Streetcar-Named-Desire/scene-3-summary/</span>
-    </a>
-<a class="resource-card" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/scene-5-summary/" target="_blank" rel="noopener noreferrer">
-      <span class="font-caption text-caption text-primary">External Source</span>
-      <strong>Scene 5</strong>
-      <span>https://www.coursehero.com/lit/A-Streetcar-Named-Desire/scene-5-summary/</span>
-    </a>
-<a class="resource-card" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/scene-9-summary/" target="_blank" rel="noopener noreferrer">
-      <span class="font-caption text-caption text-primary">External Source</span>
-      <strong>Scene 9</strong>
-      <span>https://www.coursehero.com/lit/A-Streetcar-Named-Desire/scene-9-summary/</span>
-    </a>
-<a class="resource-card" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/symbols/" target="_blank" rel="noopener noreferrer">
-      <span class="font-caption text-caption text-primary">External Source</span>
-      <strong>https://www.coursehero.com/lit/A-Streetcar-Named-Desire/symbols/</strong>
-      <span>https://www.coursehero.com/lit/A-Streetcar-Named-Desire/symbols/</span>
-    </a>
-<a class="resource-card" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/themes/" target="_blank" rel="noopener noreferrer">
-      <span class="font-caption text-caption text-primary">External Source</span>
-      <strong>https://www.coursehero.com/lit/A-Streetcar-Named-Desire/themes/</strong>
-      <span>https://www.coursehero.com/lit/A-Streetcar-Named-Desire/themes/</span>
-    </a>
-<a class="resource-card" href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-1" target="_blank" rel="noopener noreferrer">
-      <span class="font-caption text-caption text-primary">External Source</span>
-      <strong>Scene 1 Cliffnotes overview</strong>
-      <span>https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-1</span>
-    </a>
-<a class="resource-card" href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-2" target="_blank" rel="noopener noreferrer">
-      <span class="font-caption text-caption text-primary">External Source</span>
-      <strong>Scene 2 Cliffnotes overview</strong>
-      <span>https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-2</span>
-    </a>
-<a class="resource-card" href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-3" target="_blank" rel="noopener noreferrer">
-      <span class="font-caption text-caption text-primary">External Source</span>
-      <strong>Cliff notes Scene 3</strong>
-      <span>https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-3</span>
-    </a>
-<a class="resource-card" href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-4" target="_blank" rel="noopener noreferrer">
-      <span class="font-caption text-caption text-primary">External Source</span>
-      <strong>Scene 4 Overview</strong>
-      <span>https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-4</span>
-    </a>
-<a class="resource-card" href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-5" target="_blank" rel="noopener noreferrer">
-      <span class="font-caption text-caption text-primary">External Source</span>
-      <strong>Scene 5 Overview</strong>
-      <span>https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-5</span>
-    </a>
-<a class="resource-card" href="https://education.alberta.ca/english-language-arts-10-12/diploma-exam-exemplars/?searchMode=3" target="_blank" rel="noopener noreferrer">
-      <span class="font-caption text-caption text-primary">External Source</span>
-      <strong>Student writing samples from English Language Arts 30-1 provided by Alberta Education</strong>
-      <span>https://education.alberta.ca/english-language-arts-10-12/diploma-exam-exemplars/?searchMode=3</span>
-    </a></div>
+        <h2 class="font-headline-lg text-headline-lg text-on-surface mt-xs mb-md">External Source Resources</h2>
+        <div class="external-resource-grid"><article class="external-resource-card">
+      <span class="resource-kicker">External Source</span>
+      <h3>Tennessee Williams</h3>
+      <p>Captured from A Streetcar Named Desire - Introduction. Use this as a supporting source or review stop.</p>
+      <a class="external-resource-action" href="http://www.biography.com/people/tennessee-williams-9532952" target="_blank" rel="noopener noreferrer">Open Resource</a>
+    </article>
+<article class="external-resource-card">
+      <span class="resource-kicker">External Source</span>
+      <h3>Biography</h3>
+      <p>Captured from Lesson 1: Tennessee Williams. Use this as a supporting source or review stop.</p>
+      <a class="external-resource-action" href="https://www.biography.com/writer/tennessee-williams" target="_blank" rel="noopener noreferrer">Open Resource</a>
+    </article>
+<article class="external-resource-card">
+      <span class="resource-kicker">External Source</span>
+      <h3>Streetcar Overview</h3>
+      <p>Captured from Lesson 2: Streetcar Overview and Character. Use this as a supporting source or review stop.</p>
+      <a class="external-resource-action" href="https://www.shmoop.com/streetcar-named-desire/" target="_blank" rel="noopener noreferrer">Open Resource</a>
+    </article>
+<article class="external-resource-card">
+      <span class="resource-kicker">External Source</span>
+      <h3>Williams</h3>
+      <p>Captured from Lesson 7: Motifs. Use this as a supporting source or review stop.</p>
+      <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/author/" target="_blank" rel="noopener noreferrer">Open Resource</a>
+    </article>
+<article class="external-resource-card">
+      <span class="resource-kicker">External Source</span>
+      <h3>Scene 7</h3>
+      <p>Captured from Lesson 7: Motifs. Use this as a supporting source or review stop.</p>
+      <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/scene-7-summary/" target="_blank" rel="noopener noreferrer">Open Resource</a>
+    </article>
+<article class="external-resource-card">
+      <span class="resource-kicker">External Source</span>
+      <h3>Scene 11</h3>
+      <p>Captured from Lesson 7: Motifs. Use this as a supporting source or review stop.</p>
+      <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/scene-11-summary/" target="_blank" rel="noopener noreferrer">Open Resource</a>
+    </article>
+<article class="external-resource-card">
+      <span class="resource-kicker">External Source</span>
+      <h3>https://www.coursehero.com/lit/A-Streetcar-Named-Desire/motifs/</h3>
+      <p>Captured from Lesson 7: Motifs. Use this as a supporting source or review stop.</p>
+      <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/motifs/" target="_blank" rel="noopener noreferrer">Open Resource</a>
+    </article>
+<article class="external-resource-card">
+      <span class="resource-kicker">External Source</span>
+      <h3>Mitch</h3>
+      <p>Captured from Lesson 8: Symbols. Use this as a supporting source or review stop.</p>
+      <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/character-analysis/#Mitch" target="_blank" rel="noopener noreferrer">Open Resource</a>
+    </article>
+<article class="external-resource-card">
+      <span class="resource-kicker">External Source</span>
+      <h3>Scene 3</h3>
+      <p>Captured from Lesson 8: Symbols. Use this as a supporting source or review stop.</p>
+      <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/scene-3-summary/" target="_blank" rel="noopener noreferrer">Open Resource</a>
+    </article>
+<article class="external-resource-card">
+      <span class="resource-kicker">External Source</span>
+      <h3>Scene 5</h3>
+      <p>Captured from Lesson 8: Symbols. Use this as a supporting source or review stop.</p>
+      <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/scene-5-summary/" target="_blank" rel="noopener noreferrer">Open Resource</a>
+    </article>
+<article class="external-resource-card">
+      <span class="resource-kicker">External Source</span>
+      <h3>Scene 9</h3>
+      <p>Captured from Lesson 8: Symbols. Use this as a supporting source or review stop.</p>
+      <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/scene-9-summary/" target="_blank" rel="noopener noreferrer">Open Resource</a>
+    </article>
+<article class="external-resource-card">
+      <span class="resource-kicker">External Source</span>
+      <h3>https://www.coursehero.com/lit/A-Streetcar-Named-Desire/symbols/</h3>
+      <p>Captured from Lesson 8: Symbols. Use this as a supporting source or review stop.</p>
+      <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/symbols/" target="_blank" rel="noopener noreferrer">Open Resource</a>
+    </article>
+<article class="external-resource-card">
+      <span class="resource-kicker">External Source</span>
+      <h3>https://www.coursehero.com/lit/A-Streetcar-Named-Desire/themes/</h3>
+      <p>Captured from Lesson 10: Themes. Use this as a supporting source or review stop.</p>
+      <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/themes/" target="_blank" rel="noopener noreferrer">Open Resource</a>
+    </article>
+<article class="external-resource-card">
+      <span class="resource-kicker">External Source</span>
+      <h3>Scene 1 Cliffnotes overview</h3>
+      <p>Captured from Scene 1 Overview. Use this as a supporting source or review stop.</p>
+      <a class="external-resource-action" href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-1" target="_blank" rel="noopener noreferrer">Open Resource</a>
+    </article>
+<article class="external-resource-card">
+      <span class="resource-kicker">External Source</span>
+      <h3>Scene 2 Cliffnotes overview</h3>
+      <p>Captured from Scene 2 Overview. Use this as a supporting source or review stop.</p>
+      <a class="external-resource-action" href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-2" target="_blank" rel="noopener noreferrer">Open Resource</a>
+    </article>
+<article class="external-resource-card">
+      <span class="resource-kicker">External Source</span>
+      <h3>Cliff notes Scene 3</h3>
+      <p>Captured from Scene 3 Overview. Use this as a supporting source or review stop.</p>
+      <a class="external-resource-action" href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-3" target="_blank" rel="noopener noreferrer">Open Resource</a>
+    </article>
+<article class="external-resource-card">
+      <span class="resource-kicker">External Source</span>
+      <h3>Scene 4 Overview</h3>
+      <p>Captured from Scene 4 Overview. Use this as a supporting source or review stop.</p>
+      <a class="external-resource-action" href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-4" target="_blank" rel="noopener noreferrer">Open Resource</a>
+    </article>
+<article class="external-resource-card">
+      <span class="resource-kicker">External Source</span>
+      <h3>Scene 5 Overview</h3>
+      <p>Captured from Scene 5 Overview. Use this as a supporting source or review stop.</p>
+      <a class="external-resource-action" href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-5" target="_blank" rel="noopener noreferrer">Open Resource</a>
+    </article>
+<article class="external-resource-card">
+      <span class="resource-kicker">External Source</span>
+      <h3>Student writing samples from English Language Arts 30-1 provided by Alberta Education</h3>
+      <p>Captured from Lesson 13: Samples of Student Writing. Use this as a supporting source or review stop.</p>
+      <a class="external-resource-action" href="https://education.alberta.ca/english-language-arts-10-12/diploma-exam-exemplars/?searchMode=3" target="_blank" rel="noopener noreferrer">Open Resource</a>
+    </article></div>
       </div>
     </section>
   </div>
@@ -1439,7 +1552,7 @@ You also need to clarify your reasons for choosing the literature you have ident
 const STORAGE_KEY = "canvas-helper:ela30-1-modern-drama:complete";
 const pages = Array.from(document.querySelectorAll(".course-page"));
 const lessonIds = ["a-streetcar-named-desire-introduction","lesson-1-tennessee-williams","lesson-2-streetcar-overview-and-character","lesson-3-streetcar-character-powerpoint-ppt","lesson-4-a-streetcar-named-desire-questions","lesson-5-a-streetcar-named-desire-analysis","lesson-6-the-streetcar","lesson-7-motifs","lesson-8-symbols","lesson-9-relationships","lesson-10-themes","lesson-11-song-symbolism","scene-1-overview","scene-2-overview","scene-3-overview","scene-4-overview","scene-5-overview","scene-6-overview","scene-7-overview","scene-8-overview","scene-9-overview","scene-10-overview","scene-11-overview","lesson-12-writing-a-critical-and-analytical-response-to-text-s","lesson-13-samples-of-student-writing"];
-const staticPages = ["overview", "lessons", "writing", "readings", "resources"];
+const staticPages = ["overview","lessons","writing","readings","library","film-room","resources"];
 
 function readComplete() {
   try {
@@ -1489,6 +1602,14 @@ document.addEventListener("click", (event) => {
       showPage(pageTarget);
     }
   }
+  const libraryTarget = event.target.closest("[data-library-doc-target]");
+  if (libraryTarget) {
+    setActiveLibraryDocument(libraryTarget.getAttribute("data-library-doc-target"));
+  }
+  const filmTarget = event.target.closest("[data-film-target]");
+  if (filmTarget) {
+    setActiveFilm(filmTarget.getAttribute("data-film-target"));
+  }
   const completeButton = event.target.closest("[data-complete-id]");
   if (completeButton) {
     const id = completeButton.getAttribute("data-complete-id");
@@ -1498,6 +1619,33 @@ document.addEventListener("click", (event) => {
     updateComplete();
   }
 });
+
+function setActiveLibraryDocument(id) {
+  if (!id) return;
+  document.querySelectorAll("[data-library-doc-panel]").forEach((panel) => {
+    panel.hidden = panel.getAttribute("data-library-doc-panel") !== id;
+  });
+  document.querySelectorAll("[data-library-doc-target]").forEach((button) => {
+    const active = button.getAttribute("data-library-doc-target") === id;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+}
+
+function setActiveFilm(id) {
+  if (!id) return;
+  document.querySelectorAll("[data-film-panel]").forEach((panel) => {
+    panel.hidden = panel.getAttribute("data-film-panel") !== id;
+  });
+  document.querySelectorAll("[data-film-source]").forEach((link) => {
+    link.hidden = link.getAttribute("data-film-source") !== id;
+  });
+  document.querySelectorAll("[data-film-target]").forEach((button) => {
+    const active = button.getAttribute("data-film-target") === id;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+}
 
 document.getElementById("sidebar-toggle")?.addEventListener("click", () => {
   document.body.classList.toggle("sidebar-collapsed");

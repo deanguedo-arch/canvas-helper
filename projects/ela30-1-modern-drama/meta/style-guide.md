@@ -11,7 +11,8 @@
 - Keep cards compact, readable, and export-safe for Brightspace integration.
 
 ## Interaction Notes
-- Hash routes drive Overview, Lessons, Writing Studio, Readings, and Resources.
+- Hash routes drive Overview, Lessons, Writing Studio, Readings, Library, Film Room, and Resources.
+- Library collects local PDFs/documents, Film Room collects normalized videos, and Resources is reserved for external non-video links.
 - Lesson completion uses localStorage for local preview only.
 - Sidebar collapse should not change the active route.
 

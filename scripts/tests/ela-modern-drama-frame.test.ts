@@ -198,3 +198,98 @@ test("buildWorkspaceHtml keeps the lesson library separate from individual lesso
   assert.match(html, /function route\(\) \{[\s\S]*showPage\(hash\)/);
   assert.doesNotMatch(html, /if \(page === "lessons"\) \{\s*showLesson/);
 });
+
+test("buildWorkspaceHtml separates PDFs, videos, and external sources into dedicated routes", () => {
+  const pdfHref = "./assets/source/A-Streetcar-Named-Desire-questions.pdf";
+  const videoHref = "https://www.youtube.com/watch?v=abc123";
+  const externalHref =
+    "https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-1";
+  const html = buildWorkspaceHtml({
+    title: "A Streetcar Named Desire",
+    localResources: [],
+    lessons: [
+      {
+        id: "scene-one-overview",
+        sequence: 1,
+        title: "Scene 1 Overview",
+        sourceKind: "html",
+        sourceHref: "streetcar_named_desire/Scene 1 Overview.html",
+        contentHtml: `<h1>Scene 1 Overview</h1><p>Blanche arrives.</p><p><a href="${externalHref}">Scene 1 Overview</a></p>`,
+        text: "Scene 1 Overview Blanche arrives.",
+        images: [],
+        videos: [
+          {
+            title: "Streetcar staging clip",
+            originalSrc: videoHref,
+            embedSrc: "https://www.youtube.com/embed/abc123",
+            origin: "link"
+          }
+        ],
+        links: [
+          {
+            text: "Scene 1 Overview",
+            href: externalHref,
+            kind: "external",
+            workspaceHref: externalHref
+          },
+          {
+            text: "Streetcar staging clip",
+            href: videoHref,
+            kind: "external",
+            workspaceHref: videoHref
+          }
+        ]
+      },
+      {
+        id: "streetcar-questions",
+        sequence: 2,
+        title: "A Streetcar Named Desire questions",
+        sourceKind: "pdf",
+        sourceHref: "streetcar_named_desire/assets/A Streetcar Named Desire questions.pdf",
+        contentHtml: `<h1>A Streetcar Named Desire questions</h1><iframe class="source-document-frame" src="${pdfHref}" title="A Streetcar Named Desire questions"></iframe>`,
+        text: "A Streetcar Named Desire questions Local PDF.",
+        images: [],
+        videos: [],
+        links: [
+          {
+            text: "Open A Streetcar Named Desire questions",
+            href: "streetcar_named_desire/assets/A Streetcar Named Desire questions.pdf",
+            kind: "local",
+            workspaceHref: pdfHref,
+            zipPath: "streetcar_named_desire/assets/A Streetcar Named Desire questions.pdf"
+          }
+        ],
+        document: {
+          title: "A Streetcar Named Desire questions",
+          zipPath: "streetcar_named_desire/assets/A Streetcar Named Desire questions.pdf",
+          workspaceHref: pdfHref,
+          kind: "pdf"
+        }
+      }
+    ]
+  });
+
+  const sliceRoute = (id: string, next: string) => {
+    const start = html.indexOf(`<section id="${id}"`);
+    const end = html.indexOf(next, start + 1);
+    assert.notEqual(start, -1, `${id} route should exist`);
+    assert.notEqual(end, -1, `${id} route should have a following boundary`);
+    return html.slice(start, end);
+  };
+
+  const librarySection = sliceRoute("library", `<section id="film-room"`);
+  const filmRoomSection = sliceRoute("film-room", `<section id="resources"`);
+  const resourcesSection = sliceRoute("resources", "</main>");
+
+  assert.match(html, /data-page-target="library"[\s\S]*>Library</);
+  assert.match(html, /data-page-target="film-room"[\s\S]*>Film Room</);
+  assert.match(html, /const staticPages = \["overview","lessons","writing","readings","library","film-room","resources"\]/);
+  assert.match(librarySection, /A-Streetcar-Named-Desire-questions\.pdf/);
+  assert.match(librarySection, /Download PDF/);
+  assert.match(filmRoomSection, /https:\/\/www\.youtube\.com\/embed\/abc123/);
+  assert.match(filmRoomSection, /Open source video/);
+  assert.match(resourcesSection, /Scene 1 Overview/);
+  assert.match(resourcesSection, /Open Resource/);
+  assert.doesNotMatch(resourcesSection, /A-Streetcar-Named-Desire-questions\.pdf/);
+  assert.doesNotMatch(resourcesSection, /youtube\.com\/embed\/abc123/);
+});
