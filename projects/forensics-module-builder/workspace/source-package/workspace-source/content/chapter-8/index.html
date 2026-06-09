@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>8 Careers in Forensic Science | Forensic Studies 25</title>
+  
+  
+  
+  
+  <link rel="stylesheet" href="../module-index.css" />
+</head>
+<body data-project-slug="forensicstudiesoption2-nextstep-test" data-chapter-id="chapter-8" style="margin: 0; background: #F9F9F8; color: #191C1C; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 16px; line-height: 1.6;"><a id="skip-to-content" href="#main-content" style="display: inline-block; margin: 12px 24px 0 24px; padding: 10px 14px; background: #155608; color: #FFFFFF; border: 2px solid #FDBF3F; border-radius: 6px; text-decoration: none; font-weight: 700; outline-offset: 3px;">Skip to content</a>
+  
+  <main class="module-page" id="main-content" style="max-width: 1200px; margin: 0 auto; background: #F9F9F8; padding: 24px; box-sizing: border-box;" aria-labelledby="chapter-8-title">
+    <section class="module-hero" aria-labelledby="chapter-8-title" style="background: #155608; color: #FFFFFF; border: 1px solid #1E6D0D; border-radius: 8px; padding: 28px; margin: 0 0 24px 0; box-shadow: 0 6px 18px #DDE2DD;">
+      <span class="eyebrow" style="display: inline-block; margin: 0 0 6px 0; color: #FFFFFF; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0;">Module 8</span>
+      <h1 class="module-title" id="chapter-8-title" style="margin: 6px 0 12px 0; color: #FFFFFF; font-size: 2rem; line-height: 1.2; letter-spacing: 0;">8 Careers in Forensic Science</h1>
+      <p class="module-summary" style="margin: 0; color: #FFFFFF; font-size: 1.05rem; line-height: 1.6; max-width: 760px;">Compare forensic career paths and reflect on which roles fit your strengths and interests.</p>
+    </section>
+
+    <section class="module-section" aria-labelledby="chapter-8-section-1-lesson-sequence" style="background: #FFFFFF; border: 1px solid #DDE2DD; border-radius: 8px; padding: 24px; margin: 0 0 24px 0; box-shadow: 0 6px 18px #DDE2DD;">
+      <div class="section-heading" style="display: block; border-bottom: 1px solid #DDE2DD; margin: 0 0 22px 0; padding: 0 0 16px 0;">
+        <div>
+          <span class="eyebrow" style="display: inline-block; margin: 0 0 6px 0; color: #40493B; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0;">Module Content</span>
+          <h2 class="section-title" id="chapter-8-section-1-lesson-sequence" style="margin: 0; color: #155608; font-size: 1.55rem; line-height: 1.25; letter-spacing: 0;">Lesson sequence</h2>
+        </div>
+        <p class="section-copy" style="margin: 10px 0 0 0; color: #40493B; line-height: 1.6;">Retained lesson content from the original Forensics module.</p>
+      </div>
+      <div class="empty-state">This module did not retain any expanded lesson pages in the export bundle.</div>
+    </section>
+  </main>
+  <script>
+    const chapterId = document.body.dataset.chapterId || "";
+    const componentIds = [];
+    let completionState = Object.create(null);
+
+    function getLessonCards() {
+      return Array.from(document.querySelectorAll("[data-module-component-id]"));
+    }
+
+    function getComponentId(card) {
+      return card?.dataset?.moduleComponentId || "";
+    }
+
+    function getNextIncompleteComponentId() {
+      return componentIds.find((componentId) => !completionState[componentId]) || "";
+    }
+
+    function isComponentReachable(componentId) {
+      const nextIncomplete = getNextIncompleteComponentId();
+      return !nextIncomplete || completionState[componentId] || nextIncomplete === componentId;
+    }
+
+    function scrollToComponent(componentId) {
+      if (!componentId) return;
+      const card = document.querySelector('[data-module-component-id="' + componentId.replace(/"/g, '\"') + '"]');
+      if (!card) return;
+      card.scrollIntoView({ behavior: "smooth", block: "start" });
+      const button = card.querySelector("[data-mark-complete-next], [data-mark-complete]");
+      button?.focus({ preventScroll: true });
+    }
+
+    function syncCardState() {
+      const nextIncomplete = getNextIncompleteComponentId();
+      getLessonCards().forEach((card) => {
+        const componentId = getComponentId(card);
+        const complete = !!completionState[componentId];
+        const reachable = isComponentReachable(componentId);
+        const isLast = componentIds[componentIds.length - 1] === componentId;
+        const state = complete ? "complete" : reachable ? "active" : "locked";
+        const footer = card.querySelector("[data-progress-footer]");
+        const progressCopy = card.querySelector("[data-progress-copy]");
+        const actions = card.querySelector("[data-progress-actions]");
+        const completeBadge = card.querySelector("[data-progress-complete]");
+        card.dataset.progressState = state;
+        card.classList.toggle("is-complete", complete);
+        card.classList.toggle("is-active", state === "active");
+        card.classList.toggle("is-locked", state === "locked");
+
+        const buttons = Array.from(card.querySelectorAll("[data-mark-complete], [data-mark-complete-next]"));
+        buttons.forEach((button) => {
+          button.disabled = state === "locked" || complete;
+        });
+
+        if (footer) {
+          footer.hidden = complete && !isLast;
+        }
+        if (progressCopy) {
+          progressCopy.hidden = complete && isLast;
+        }
+        if (actions) {
+          actions.hidden = state !== "active";
+        }
+        if (completeBadge) {
+          completeBadge.hidden = !(complete && isLast);
+        }
+      });
+
+      document.body.dataset.nextIncompleteComponentId = nextIncomplete || "";
+    }
+
+    function postProgressReady() {
+      window.parent?.postMessage({
+        type: "forensicstudiesoption2-nextstep-test-module-progress-ready",
+        chapterId,
+        componentIds
+      }, "*");
+    }
+
+    function postProgressUpdate(componentId, focusNext) {
+      window.parent?.postMessage({
+        type: "forensicstudiesoption2-nextstep-test-module-progress-update",
+        chapterId,
+        componentId,
+        complete: true,
+        focusNext: !!focusNext
+      }, "*");
+    }
+
+    window.addEventListener("message", (event) => {
+      const payload = event.data;
+      if (!payload || payload.type !== "forensicstudiesoption2-nextstep-test-module-progress-sync" || payload.chapterId !== chapterId) return;
+      completionState = payload.completion && typeof payload.completion === "object" ? payload.completion : Object.create(null);
+      syncCardState();
+      if (payload.focusComponentId) {
+        scrollToComponent(payload.focusComponentId);
+      }
+    });
+
+    document.addEventListener("click", (event) => {
+      const completeButton = event.target.closest("[data-mark-complete]");
+      const completeNextButton = event.target.closest("[data-mark-complete-next]");
+      const trigger = completeNextButton || completeButton;
+      if (!trigger) return;
+
+      const componentId = trigger.dataset.markCompleteNext || trigger.dataset.markComplete || "";
+      if (!componentId || !isComponentReachable(componentId) || completionState[componentId]) return;
+
+      completionState[componentId] = true;
+      syncCardState();
+
+      if (completeNextButton) {
+        scrollToComponent(getNextIncompleteComponentId());
+      }
+
+      postProgressUpdate(componentId, !!completeNextButton);
+    });
+
+    syncCardState();
+    postProgressReady();
+
+    document.addEventListener("error", (event) => {
+      const target = event.target;
+      if (!(target instanceof HTMLImageElement)) return;
+      const label = target.dataset.fallbackLabel || target.getAttribute("alt") || "Source image unavailable";
+      const fallback = document.createElement("span");
+      fallback.className = "lesson-media-missing";
+      fallback.setAttribute("role", "img");
+      fallback.setAttribute("aria-label", label);
+      fallback.textContent = label;
+      target.replaceWith(fallback);
+    }, true);
+  </script>
+
+
+</body></html>

@@ -10,11 +10,11 @@
   ],
   "workspaceEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ela30-1-modern-drama\\workspace\\index.html",
   "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ela30-1-modern-drama\\raw\\original.html",
-  "createdAt": "2026-06-08T16:56:51.095Z",
-  "updatedAt": "2026-06-08T19:10:46.048Z",
+  "createdAt": "2026-06-08T21:31:19.092Z",
+  "updatedAt": "2026-06-08T21:31:19.092Z",
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-06-08T16:56:51.095Z",
+  "learningUpdatedAt": "2026-06-08T21:31:19.092Z",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
@@ -25,8 +25,10 @@
   "canonicalSources": [
     "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ela30-1-modern-drama\\workspace\\index.html"
   ],
-  "generatedOutputs": [],
-  "regenerateCommand": "npx tsx scripts/build-ela-modern-drama.ts --zip \"C:\\Users\\dean.guedo\\Downloads\\D2LExport_6670_CBE System ELA 30-1 (Winter 2020)_20266815.zip\" --slug ela30-1-modern-drama --force",
+  "generatedOutputs": [
+    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ela30-1-modern-drama\\exports\\ela30-1-modern-drama-v2.zip"
+  ],
+  "regenerateCommand": "npx tsx scripts/build-ela-modern-drama.ts --zip \"C:\\Users\\dean.guedo\\Downloads\\D2LExport_6670_CBE System ELA 30-1 (Winter 2020)_20266815.zip\" --nextstep-zip \"C:\\Users\\dean.guedo\\Downloads\\English 30-1 nextstep.zip\" --movie \"C:\\Users\\dean.guedo\\Downloads\\Streetcar Named Desire Movie.mp4\" --slug ela30-1-modern-drama --force",
   "injectedComponents": [
     {
       "id": "critical-response-workshop",
@@ -40,14 +42,28 @@
       "source": "C:\\Users\\dean.guedo\\Downloads\\thesis_builder_activity.tsx",
       "target": "projects/ela30-1-modern-drama/workspace/index.html#writing",
       "status": "active",
-      "notes": "Converted from the external thesis builder TSX into the static Thesis Control panel."
+      "notes": "Converted from the external thesis builder TSX into the static Thesis Workshop panel."
+    },
+    {
+      "id": "evidence-collector-workshop",
+      "source": "C:\\Users\\dean.guedo\\Downloads\\evidence_collector_activity.tsx",
+      "target": "projects/ela30-1-modern-drama/workspace/index.html#writing",
+      "status": "active",
+      "notes": "Converted from the external evidence collector TSX into the static Writing Studio shell."
+    },
+    {
+      "id": "paragraph-architect-workshop",
+      "source": "C:\\Users\\dean.guedo\\Downloads\\petal_paragraph_architect.tsx",
+      "target": "projects/ela30-1-modern-drama/workspace/index.html#writing",
+      "status": "active",
+      "notes": "Converted from the external PETAL paragraph architect TSX into the static Writing Studio shell."
     }
   ],
   "importedFirstPassOrigin": {
     "sourceSystem": "brightspace",
     "sourcePath": "C:\\Users\\dean.guedo\\Downloads\\D2LExport_6670_CBE System ELA 30-1 (Winter 2020)_20266815.zip",
-    "importedAt": "2026-06-08T16:56:51.095Z",
-    "notes": "D2L/Brightspace Streetcar unit extracted into a FinLit-style master lesson frame."
+    "importedAt": "2026-06-08T21:31:19.092Z",
+    "notes": "D2L/Brightspace Streetcar unit kept as the lesson source of truth. Next Step source package supplies Library documents, and the local movie path supplies the Film Room asset. Next Step source: C:\\Users\\dean.guedo\\Downloads\\English 30-1 nextstep.zip."
   },
   "exportTargets": [
     {
@@ -66,6 +82,5 @@
     "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ela30-1-modern-drama\\raw\\original.html",
     "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\resources\\ela30-1-modern-drama"
   ],
-  "sourceOfTruthNotes": "Edit workspace/index.html as the canonical master lesson frame. Treat raw and resources as imported reference material.",
-  "workspaceApprovedAt": "2026-06-08T19:10:46.048Z"
+  "sourceOfTruthNotes": "Edit workspace/index.html as the canonical master lesson frame. Treat raw and resources as imported reference material."
 }

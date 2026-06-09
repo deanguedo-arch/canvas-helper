@@ -98,6 +98,7 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 .source-content ul, .source-content ol { margin: 0 0 16px 22px; max-width: 74ch; }
 .source-content li { margin: 8px 0; }
 .source-content a, .source-link { color: #154212; text-decoration: underline; text-underline-offset: 3px; }
+.library-group-chip { display: inline-flex; align-items: center; min-height: 28px; border: 1px solid #c2c9bb; border-radius: 8px; background: #f3f7f1; color: #154212; padding: 4px 9px; font-family: "IBM Plex Sans"; font-size: 12px; line-height: 1.3; }
 .source-image { display: block; width: min(100%, 680px); max-height: 360px; object-fit: cover; border-radius: 8px; border: 1px solid #e1e3e4; margin: 18px 0; }
 .source-video-frame { display: block; width: min(100%, 760px); aspect-ratio: 16 / 9; min-height: 220px; height: auto; border: 1px solid #d9dadb; border-radius: 8px; background: #000; margin: 18px 0; }
 .source-document-frame { display: block; width: min(100%, 760px); height: 620px; border: 1px solid #d9dadb; border-radius: 8px; background: #fff; margin: 18px 0; }
@@ -107,8 +108,18 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 .source-video-meta { display: flex; flex-direction: column; gap: 4px; padding-top: 10px; }
 .source-video-meta strong { font-family: "Hanken Grotesk"; font-size: 17px; line-height: 1.3; color: #191c1d; }
 .source-video-meta a { font-family: "IBM Plex Sans"; font-size: 14px; color: #154212; text-decoration: underline; text-underline-offset: 3px; }
+.scene-overview-browser { display: grid; gap: 18px; }
+.scene-overview-control { display: grid; gap: 8px; max-width: 360px; border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; padding: 16px; }
+.scene-overview-panel { border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; padding: 18px; }
+.scene-overview-panel-header { margin-bottom: 12px; }
+.scene-overview-panel-header h3 { font-family: "Hanken Grotesk"; font-size: 24px; line-height: 1.2; margin: 4px 0 0; color: #191c1d; }
 .resource-kicker { display: block; font-family: "IBM Plex Sans"; font-size: 12px; line-height: 1.4; font-weight: 600; color: #154212; text-transform: uppercase; letter-spacing: 0; }
 .external-resource-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.resource-stack { display: grid; gap: 18px; }
+.resource-workflow-card { border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; padding: 18px; }
+.resource-workflow-card h3 { margin: 0 0 10px; font-family: "Hanken Grotesk"; font-size: 22px; line-height: 1.2; color: #191c1d; }
+.resource-workflow-card p, .resource-workflow-card li { color: #42493e; line-height: 1.55; }
+.resource-workflow-card ol { margin: 0 0 0 22px; }
 .external-resource-card, .empty-route-card { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; min-height: 190px; border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; padding: 18px; color: #191c1d; }
 .external-resource-card h3, .empty-route-card h3 { font-family: "Hanken Grotesk"; font-size: 20px; line-height: 1.25; font-weight: 800; margin: 0; }
 .external-resource-card p, .empty-route-card p { color: #42493e; font-size: 14px; line-height: 1.5; margin: 0; }
@@ -120,6 +131,7 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 .library-list-panel h3, .library-reader-header h3, .film-room-header h3, .film-room-control-panel h3, .film-now-panel h3 { font-family: "Hanken Grotesk"; font-size: 24px; line-height: 1.2; font-weight: 800; margin: 6px 0 8px; color: #191c1d; }
 .library-list-panel p, .library-reader-header p { color: #42493e; font-size: 14px; line-height: 1.5; margin: 0; }
 .library-doc-list { display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
+.library-group-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
 .library-doc-tab { width: 100%; min-height: 70px; display: grid; grid-template-columns: 42px minmax(0, 1fr); gap: 12px; align-items: center; border: 1px solid #e1e3e4; border-radius: 8px; background: #f8f9fa; color: #191c1d; padding: 12px; text-align: left; }
 .library-doc-tab:hover, .library-doc-tab:focus-visible, .library-doc-tab.active { border-color: #2d5a27; background: #f3f7f1; outline: none; }
 .library-doc-tab strong { display: block; overflow-wrap: anywhere; font-family: "Hanken Grotesk"; font-size: 16px; line-height: 1.25; }
@@ -223,6 +235,36 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 .thesis-action { min-height: 42px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid #154212; border-radius: 8px; background: #154212; color: #fff; padding: 9px 14px; font-family: "IBM Plex Sans"; font-size: 14px; }
 .thesis-action.secondary { background: #fff; color: #154212; }
 .thesis-action:hover, .thesis-action:focus-visible { background: #2d5a27; border-color: #2d5a27; color: #fff; outline: none; }
+.evidence-collector { display: flex; flex-direction: column; gap: 20px; }
+.evidence-category-stack { display: grid; gap: 22px; }
+.evidence-category h5, .evidence-use-note h5 { margin: 0 0 10px; font-family: "IBM Plex Sans"; font-size: 13px; line-height: 1.3; color: #154212; }
+.evidence-choice strong { margin-bottom: 6px; }
+.evidence-output { display: grid; gap: 12px; }
+.evidence-use-note { border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; padding: 14px; }
+.evidence-use-note p { margin: 0; color: #42493e; line-height: 1.5; }
+.paragraph-architect { display: flex; flex-direction: column; gap: 20px; }
+.paragraph-mode-tabs { display: inline-flex; flex-wrap: wrap; gap: 8px; align-self: flex-start; border: 1px solid #e1e3e4; border-radius: 8px; background: #f8f9fa; padding: 6px; }
+.paragraph-mode-tab { min-height: 40px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid transparent; border-radius: 8px; background: transparent; color: #42493e; padding: 8px 12px; font-family: "IBM Plex Sans"; font-size: 13px; }
+.paragraph-mode-tab.active, .paragraph-mode-tab:hover, .paragraph-mode-tab:focus-visible { border-color: #2d5a27; background: #fff; color: #154212; outline: none; }
+.paragraph-framework-stack { display: grid; gap: 14px; }
+.paragraph-framework-card { display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 14px; border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; padding: 16px; }
+.paragraph-framework-card > span { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border: 1px solid #c2c9bb; border-radius: 8px; background: #f3f7f1; color: #154212; font-family: "Hanken Grotesk"; font-size: 24px; font-weight: 800; }
+.paragraph-framework-card h5 { margin: 0 0 6px; font-family: "Hanken Grotesk"; font-size: 20px; line-height: 1.25; color: #191c1d; }
+.paragraph-framework-card p { margin: 0 0 8px; color: #42493e; line-height: 1.5; }
+.paragraph-framework-card small { display: block; color: #154212; line-height: 1.45; }
+.paragraph-scenario-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+.paragraph-scenario-card { min-height: 118px; border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; color: #191c1d; padding: 16px; text-align: left; }
+.paragraph-scenario-card:hover, .paragraph-scenario-card:focus-visible { border-color: #2d5a27; background: #f3f7f1; outline: none; }
+.paragraph-scenario-card small { display: block; margin-bottom: 8px; font-family: "IBM Plex Sans"; font-size: 12px; line-height: 1.3; color: #154212; }
+.paragraph-scenario-card strong { display: block; font-family: "Hanken Grotesk"; font-size: 19px; line-height: 1.25; }
+.paragraph-choice strong { font-size: 16px; line-height: 1.45; }
+.paragraph-preview { display: grid; gap: 8px; }
+.paragraph-preview p { margin: 0; color: #42493e; line-height: 1.6; }
+.paragraph-preview span { color: #7a8177; font-style: italic; }
+.paragraph-output { display: grid; gap: 12px; }
+.paragraph-checklist { border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; padding: 14px; }
+.paragraph-checklist h5 { margin: 0 0 8px; font-family: "IBM Plex Sans"; font-size: 13px; color: #154212; }
+.paragraph-checklist ul { margin: 0 0 0 20px; color: #42493e; line-height: 1.5; }
 @media (max-width: 900px) {
   .course-sidebar { display: none; }
   .course-main { margin-left: 0 !important; padding-top: 124px !important; }
@@ -253,7 +295,7 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
   <div class="top-progress-shell" aria-label="Course progress">
     <div class="top-progress-meta">
       <span>Course Progress</span>
-      <span><strong id="top-progress-count">0</strong> / 25 Lessons</span>
+      <span><strong id="top-progress-count">0</strong> / 15 Lessons</span>
       <span id="top-progress-percent" class="top-progress-percent">0%</span>
     </div>
     <div id="top-progress-bar" class="top-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
@@ -285,19 +327,9 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 <a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#lesson-9-relationships" data-page-target="lesson-9-relationships">9. Relationships</a>
 <a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#lesson-10-themes" data-page-target="lesson-10-themes">10. Themes</a>
 <a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#lesson-11-song-symbolism" data-page-target="lesson-11-song-symbolism">11. Song Symbolism</a>
-<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#scene-1-overview" data-page-target="scene-1-overview">12. Scene 1 Overview</a>
-<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#scene-2-overview" data-page-target="scene-2-overview">13. Scene 2 Overview</a>
-<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#scene-3-overview" data-page-target="scene-3-overview">14. Scene 3 Overview</a>
-<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#scene-4-overview" data-page-target="scene-4-overview">15. Scene 4 Overview</a>
-<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#scene-5-overview" data-page-target="scene-5-overview">16. Scene 5 Overview</a>
-<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#scene-6-overview" data-page-target="scene-6-overview">17. Scene 6 Overview</a>
-<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#scene-7-overview" data-page-target="scene-7-overview">18. Scene 7 Overview</a>
-<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#scene-8-overview" data-page-target="scene-8-overview">19. Scene 8 Overview</a>
-<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#scene-9-overview" data-page-target="scene-9-overview">20. Scene 9 Overview</a>
-<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#scene-10-overview" data-page-target="scene-10-overview">21. Scene 10 Overview</a>
-<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#scene-11-overview" data-page-target="scene-11-overview">22. Scene 11 Overview</a>
-<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#lesson-12-writing-a-critical-and-analytical-response-to-text-s" data-page-target="lesson-12-writing-a-critical-and-analytical-response-to-text-s">23. Writing a Critical and Analytical Response to Text(s)</a>
-<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#lesson-13-samples-of-student-writing" data-page-target="lesson-13-samples-of-student-writing">24. Samples of Student Writing</a></div>
+<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#scene-overviews" data-page-target="scene-overviews">12. Scene Overviews</a>
+<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#lesson-12-writing-a-critical-and-analytical-response-to-text-s" data-page-target="lesson-12-writing-a-critical-and-analytical-response-to-text-s">13. Writing a Critical and Analytical Response to Text(s)</a>
+<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#lesson-13-samples-of-student-writing" data-page-target="lesson-13-samples-of-student-writing">14. Samples of Student Writing</a></div>
     </div>
     <a class="course-nav-link flex items-center gap-sm font-label-md text-label-md rounded-lg mx-2 px-4 py-3 transition-colors" href="#writing" data-page-target="writing"><span class="material-symbols-outlined" aria-hidden="true">edit_note</span><span class="sidebar-label">Writing Studio</span></a>
     <a class="course-nav-link flex items-center gap-sm font-label-md text-label-md rounded-lg mx-2 px-4 py-3 transition-colors" href="#library" data-page-target="library"><span class="material-symbols-outlined" aria-hidden="true">local_library</span><span class="sidebar-label">Library</span></a>
@@ -316,8 +348,8 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
             <p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">A Brightspace-ready master lesson frame for A Streetcar Named Desire. The original lesson sequence is preserved, while navigation, completion state, source links, and writing support are organized into a reusable course surface.</p>
           </div>
           <div class="flex flex-wrap gap-sm mb-lg">
-            <span class="completed-pill"><strong id="complete-count">0</strong>/25 lessons complete</span>
-            <span class="completed-pill">25 source lessons</span>
+            <span class="completed-pill"><strong id="complete-count">0</strong>/15 lessons complete</span>
+            <span class="completed-pill">15 source lessons</span>
             <span class="completed-pill">Brightspace conversion</span>
           </div>
           <a class="lesson-jump primary" href="#lessons" data-page-target="lessons">Open Lesson Frame</a>
@@ -396,68 +428,18 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
         <strong class="block font-label-md text-label-md text-on-surface mt-1">Lesson 11: Song Symbolism</strong>
         <span class="block font-caption text-caption text-on-surface-variant mt-2">Song Symbolism</span>
       </a>
-<a class="lesson-card block text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/40" href="#scene-1-overview" data-page-target="scene-1-overview">
+<a class="lesson-card block text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/40" href="#scene-overviews" data-page-target="scene-overviews">
         <span class="font-caption text-caption text-primary">Lesson 12</span>
-        <strong class="block font-label-md text-label-md text-on-surface mt-1">Scene 1 Overview</strong>
-        <span class="block font-caption text-caption text-on-surface-variant mt-2">Scene 1 Cliffnotes overview Summary Stanley appears and calls for Stella, his wife, to catch a package of meat. He then goes bowling and Stella follows. Almost immediately, Blanch...</span>
-      </a>
-<a class="lesson-card block text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/40" href="#scene-2-overview" data-page-target="scene-2-overview">
-        <span class="font-caption text-caption text-primary">Lesson 13</span>
-        <strong class="block font-label-md text-label-md text-on-surface mt-1">Scene 2 Overview</strong>
-        <span class="block font-caption text-caption text-on-surface-variant mt-2">Scene 2 Cliffnotes overview Summary Stella tells Stanley that she is taking Blanche out for dinner and a show while he has his poker game at the apartment. He is annoyed because h...</span>
-      </a>
-<a class="lesson-card block text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/40" href="#scene-3-overview" data-page-target="scene-3-overview">
-        <span class="font-caption text-caption text-primary">Lesson 14</span>
-        <strong class="block font-label-md text-label-md text-on-surface mt-1">Scene 3 Overview</strong>
-        <span class="block font-caption text-caption text-on-surface-variant mt-2">Cliff notes Scene 3 Summary Later that night Mitch, Stanley's friend, wants to drop out of the poker game because his mother is sick. Stella and Blanche return from the show, and...</span>
-      </a>
-<a class="lesson-card block text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/40" href="#scene-4-overview" data-page-target="scene-4-overview">
-        <span class="font-caption text-caption text-primary">Lesson 15</span>
-        <strong class="block font-label-md text-label-md text-on-surface mt-1">Scene 4 Overview</strong>
-        <span class="block font-caption text-caption text-on-surface-variant mt-2">Scene 4 Overview Summary The following morning, Blanche comes hesitantly and frightenedly to the Kowalski apartment and when she sees Stella alone, she rushes to her and embraces...</span>
-      </a>
-<a class="lesson-card block text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/40" href="#scene-5-overview" data-page-target="scene-5-overview">
-        <span class="font-caption text-caption text-primary">Lesson 16</span>
-        <strong class="block font-label-md text-label-md text-on-surface mt-1">Scene 5 Overview</strong>
-        <span class="block font-caption text-caption text-on-surface-variant mt-2">Scene 5 Overview Summary Blanche has been visiting now for three months. She has just finished composing a letter to Shep Huntleigh pretending that she has been on a round of teas...</span>
-      </a>
-<a class="lesson-card block text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/40" href="#scene-6-overview" data-page-target="scene-6-overview">
-        <span class="font-caption text-caption text-primary">Lesson 17</span>
-        <strong class="block font-label-md text-label-md text-on-surface mt-1">Scene 6 Overview</strong>
-        <span class="block font-caption text-caption text-on-surface-variant mt-2">Summary Later that same evening, Blanche and Mitch are returning rather late from a date. They are discussing the failure of the evening. Blanche takes the blame for the failure b...</span>
-      </a>
-<a class="lesson-card block text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/40" href="#scene-7-overview" data-page-target="scene-7-overview">
-        <span class="font-caption text-caption text-primary">Lesson 18</span>
-        <strong class="block font-label-md text-label-md text-on-surface mt-1">Scene 7 Overview</strong>
-        <span class="block font-caption text-caption text-on-surface-variant mt-2">Summary A few weeks later, Stanley comes home to find that Blanche is soaking in a hot tub, even though it is blistering hot outside. It is Blanche's birthday and Stella has prepa...</span>
-      </a>
-<a class="lesson-card block text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/40" href="#scene-8-overview" data-page-target="scene-8-overview">
-        <span class="font-caption text-caption text-primary">Lesson 19</span>
-        <strong class="block font-label-md text-label-md text-on-surface mt-1">Scene 8 Overview</strong>
-        <span class="block font-caption text-caption text-on-surface-variant mt-2">Summary A short time later that evening, Blanche, Stella, and Stanley are finishing with Blanche's birthday party. She cannot understand why Mitch has not shown up. She tries to t...</span>
-      </a>
-<a class="lesson-card block text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/40" href="#scene-9-overview" data-page-target="scene-9-overview">
-        <span class="font-caption text-caption text-primary">Lesson 20</span>
-        <strong class="block font-label-md text-label-md text-on-surface mt-1">Scene 9 Overview</strong>
-        <span class="block font-caption text-caption text-on-surface-variant mt-2">Summary Later that evening, Blanche is alone in the apartment. The doorbell startles her. It is Mitch, who is still dressed in his working clothes and who is unshaven. Blanche pre...</span>
-      </a>
-<a class="lesson-card block text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/40" href="#scene-10-overview" data-page-target="scene-10-overview">
-        <span class="font-caption text-caption text-primary">Lesson 21</span>
-        <strong class="block font-label-md text-label-md text-on-surface mt-1">Scene 10 Overview</strong>
-        <span class="block font-caption text-caption text-on-surface-variant mt-2">Summary Later that evening, Blanche is dressed in an old, faded gown and has a rhinestone tiara on her head. She has been drinking heavily. She is talking to herself when Stanley...</span>
-      </a>
-<a class="lesson-card block text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/40" href="#scene-11-overview" data-page-target="scene-11-overview">
-        <span class="font-caption text-caption text-primary">Lesson 22</span>
-        <strong class="block font-label-md text-label-md text-on-surface mt-1">Scene 11 Overview</strong>
-        <span class="block font-caption text-caption text-on-surface-variant mt-2">Summary Several weeks later, Stella is seen packing some of Blanche's things. There is another poker party going on. This time, Stanley is winning. Eunice comes in to help with th...</span>
+        <strong class="block font-label-md text-label-md text-on-surface mt-1">Scene Overviews</strong>
+        <span class="block font-caption text-caption text-on-surface-variant mt-2">Scene 1 Overview Scene 1 CliffsNotes overview Summary Stanley appears and calls for Stella, his wife, to catch a package of meat. He then goes bowling and Stella follows. Almost i...</span>
       </a>
 <a class="lesson-card block text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/40" href="#lesson-12-writing-a-critical-and-analytical-response-to-text-s" data-page-target="lesson-12-writing-a-critical-and-analytical-response-to-text-s">
-        <span class="font-caption text-caption text-primary">Lesson 23</span>
+        <span class="font-caption text-caption text-primary">Lesson 13</span>
         <strong class="block font-label-md text-label-md text-on-surface mt-1">Lesson 12: Writing a Critical and Analytical Response to Text(s)</strong>
         <span class="block font-caption text-caption text-on-surface-variant mt-2">Writing a Critical and Analytical Response to Text(s) Part A (Written) of the diploma exam consists of the following two tasks: Personal Response to Texts Assignment (20% of your...</span>
       </a>
 <a class="lesson-card block text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/40" href="#lesson-13-samples-of-student-writing" data-page-target="lesson-13-samples-of-student-writing">
-        <span class="font-caption text-caption text-primary">Lesson 24</span>
+        <span class="font-caption text-caption text-primary">Lesson 14</span>
         <strong class="block font-label-md text-label-md text-on-surface mt-1">Lesson 13: Samples of Student Writing</strong>
         <span class="block font-caption text-caption text-on-surface-variant mt-2">Samples of Student Writing Before you begin to write your first Critical/Analytical Response to Literary Texts Assignment, you may find it helpful to review some samples of studen...</span>
       </a>
@@ -482,10 +464,7 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 </div>
 <!-- CONTENT -->
 
-<p><img class="source-image" src="./assets/source/streetcar.jpg" width="343" height="217" alt="streetcar" loading="lazy"></p>
 
-<p><em>Pictured above is the set model, designed by Michael Yeargan, for the world premiere performances of Andre Previn's opera&nbsp;A Streetcar Named Desire.&nbsp;</em><em>Photo: Terrence McCarthy; Courtesy: San Francisco Opera</em></p>
-<p>It will be necessary for you to purchase a copy of the play&nbsp;<strong><em>A Streetcar Named Desire</em></strong>&nbsp;by Tennessee Williams from a bookstore, or you may find the play at your local library.&nbsp; If you are unable to locate a copy, please email your instructor for assistance.</p>
 <p><img class="source-image" src="./assets/source/tennessee-williams-pjoto.jpg" alt="" title="" width="221" height="146" loading="lazy"></p>
 <p>Williams' play explores many of the playwright's personal struggles in a society which he felt was often repressive and narrow-minded.&nbsp; Williams said that the belief which inspired and dominated his writing was the "<em><strong>need for understanding and tenderness among individuals trapped by circumstance</strong></em>."</p>
 <p>Before you begin to read the play, research the playwright&nbsp;<a href="http://www.biography.com/people/tennessee-williams-9532952" target="_blank" rel="noopener noreferrer">Tennessee Williams</a>. Biographical information about the playwright may help you enjoy the play more and to be more aware of some of the issues the writer is exploring. Every writer is a part of the world in which he lives. Therefore, as you study any piece of literature, consider how it reflects the personal experiences of the author. Remember that writers frequently explore issues in their own lives through their writing.<!-- FOOTER --></p>
@@ -667,12 +646,12 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 <h1>The Streetcar</h1>
 </div>
 <!-- CONTENT -->
-<p>This is the picture of an actual streetcar named Desire. The streetcar was in fact used during the period the play was published (1947) . This is the streetcar that Blance used to get to the Elysian Fields. In greek mythology, Elysian Fields is a synonym for paradise. Classical Mythology. the abode of the blessed after death. any similarly conceived abode or state of the dead. any place or state of perfect happiness; paradise.</p>
+<p>This is the picture of an actual streetcar named Desire. The streetcar was in fact used during the period the play was published (1947) . This is the streetcar that Blanche used to get to the Elysian Fields. In greek mythology, Elysian Fields is a synonym for paradise. Classical Mythology. the abode of the blessed after death. any similarly conceived abode or state of the dead. any place or state of perfect happiness; paradise.</p>
 <p>But on her way there she stopped at Cemeteries.. We wonder if this is a potential clue about the character’s ending.</p>
 <p>The stops mentioned in the play such as Belle Reve ( page 9 ) and Elysian Fields ( page 6 ) are also real.<br>All These details enhance the illusion of the reality.</p>
 <p>The streetcar itself is still being used today, in San Francisco.</p>
 
-<p><img class="source-image" src="./assets/source/tumblr-nc4q62fugL1tkj7qpo1-1280.jpg" alt="This is the picture of an actual streetcar named Desire. The streetcar was in fact used during the period the play was published (1947) . This is the streetcar that Blance used to get to the Elysian Fields. In greek mythology, Elysian Fields is a..." style="max-width: 100%;" loading="lazy"></p>
+<p><img class="source-image" src="./assets/source/tumblr-nc4q62fugL1tkj7qpo1-1280.jpg" alt="This is the picture of an actual streetcar named Desire. The streetcar was in fact used during the period the play was published (1947) . This is the streetcar that Blanche used to get to the Elysian Fields. In greek mythology, Elysian Fields is a..." style="max-width: 100%;" loading="lazy"></p>
 <!-- FOOTER -->
 <div id="footer"></div></div>
             
@@ -864,28 +843,50 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
           </div>
           <div class="flex flex-wrap gap-sm mt-lg pt-md border-t border-surface-muted">
             <a class="lesson-jump" href="#lesson-10-themes" data-page-target="lesson-10-themes">Previous</a>
-            <a class="lesson-jump primary" href="#scene-1-overview" data-page-target="scene-1-overview">Next Lesson</a>
+            <a class="lesson-jump primary" href="#scene-overviews" data-page-target="scene-overviews">Next Lesson</a>
           </div>
         </article>
       </section>
-<section id="scene-1-overview" class="course-page" data-page="scene-1-overview" hidden>
+<section id="scene-overviews" class="course-page" data-page="scene-overviews" hidden>
         <article class="lesson-detail-panel bg-surface-container-low border border-surface-muted rounded-lg p-lg relative overflow-hidden">
           <div class="absolute top-0 left-0 w-full h-1 bg-primary-container"></div>
           <span class="font-label-md text-label-md text-secondary">ELA 30-1 | Lesson 12</span>
           <div class="flex flex-wrap items-start justify-between gap-md mt-sm mb-md">
             <div>
-              <h2 class="font-headline-lg text-headline-lg text-on-surface">Scene 1 Overview</h2>
-              <p class="font-body-md text-body-md text-on-surface-variant mt-xs max-w-3xl">Scene 1 Cliffnotes overview Summary Stanley appears and calls for Stella, his wife, to catch a package of meat. He then goes bowling and Stella follows. Almost immediately, Blanch...</p>
+              <h2 class="font-headline-lg text-headline-lg text-on-surface">Scene Overviews</h2>
+              <p class="font-body-md text-body-md text-on-surface-variant mt-xs max-w-3xl">Scene 1 Overview Scene 1 CliffsNotes overview Summary Stanley appears and calls for Stella, his wife, to catch a package of meat. He then goes bowling and Stella follows. Almost i...</p>
             </div>
-            <button class="mark-complete inline-flex min-h-11 items-center rounded-lg bg-primary px-4 py-2 font-label-md text-label-md text-white hover:bg-primary-container focus:outline-none focus:ring-2 focus:ring-primary/40" type="button" data-complete-id="scene-1-overview">Mark Complete</button>
+            <button class="mark-complete inline-flex min-h-11 items-center rounded-lg bg-primary px-4 py-2 font-label-md text-label-md text-white hover:bg-primary-container focus:outline-none focus:ring-2 focus:ring-primary/40" type="button" data-complete-id="scene-overviews">Mark Complete</button>
           </div>
           <div class="lesson-layout">
-            <div class="source-content"><!-- HEADER -->
+            <div class="source-content"><div class="scene-overview-browser">
+      <div class="scene-overview-control">
+        <label class="film-room-label" for="scene-overview-select">Choose a scene</label>
+        <select id="scene-overview-select" class="film-room-select" data-scene-overview-select>
+          <option value="scene-1-overview" selected>Scene 1 Overview</option>
+<option value="scene-2-overview">Scene 2 Overview</option>
+<option value="scene-3-overview">Scene 3 Overview</option>
+<option value="scene-4-overview">Scene 4 Overview</option>
+<option value="scene-5-overview">Scene 5 Overview</option>
+<option value="scene-6-overview">Scene 6 Overview</option>
+<option value="scene-7-overview">Scene 7 Overview</option>
+<option value="scene-8-overview">Scene 8 Overview</option>
+<option value="scene-9-overview">Scene 9 Overview</option>
+<option value="scene-10-overview">Scene 10 Overview</option>
+<option value="scene-11-overview">Scene 11 Overview</option>
+        </select>
+      </div>
+      <div class="scene-overview-panels"><article class="scene-overview-panel" data-scene-overview-panel="scene-1-overview">
+      <div class="scene-overview-panel-header">
+        <span class="resource-kicker">Scene Overview</span>
+        <h3>Scene 1 Overview</h3>
+      </div>
+      <div class="source-content"><!-- HEADER -->
 <div id="header">
 <h1>Scene 1 Overview</h1>
 </div>
 <!-- CONTENT -->
-<p><a href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-1" target="_blank" rel="noopener noreferrer">Scene 1 Cliffnotes overview</a></p>
+<p><a href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-1" target="_blank" rel="noopener noreferrer">Scene 1 CliffsNotes overview</a></p>
 <h2>Summary</h2>
 <p>Stanley appears and calls for Stella, his wife, to catch a package of meat. He then goes bowling and Stella follows. Almost immediately, Blanche appears trying to find a certain street number. Eunice, the neighbor, sees that Blanche is confused and assures her that this is the place where Stella lives. Eunice lets Blanche into the apartment and goes after Stella. Immediately, Blanche finds a bottle of whiskey and gulps down a big swig.</p>
 <p>When Stella arrives, Blanche blurts out how awful the apartment is but then tries to laugh off her comment. She asks for a drink in order to restore her nerves. Blanche then returns to the subject of the apartment, wondering how Stella could live in such a place. Stella tries to explain that New Orleans is different and that the apartment is not so bad. Blanche promises to say no more about it.</p>
@@ -904,35 +905,18 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 <p>Essentially, the play can be read as a series of encounters between the Kowalski world and the Blanche DuBois world. Each of these encounters will intensify with each subsequent meeting. The first encounter occurs at the end of Scene 1. The overly sensitive Blanche must introduce herself to Stanley, who immediately offers her a drink after he notices that the bottle has been touched. He takes off his shirt and makes a shady remark to Stella, who is in the bathroom. He then asks Blanche some pointed questions which end with an inquiry about her earlier marriage. By the end of the first encounter, Blanche is feeling sick. Thus, Stanley's rough, common, brutal questions end by hitting on the most sensitive aspect of Blanche's past life — her marriage with the young boy. Stanley's animalism almost destroys Blanche's sensibilities even in this first meeting. Thus the conflict is between the oversensitive aristocratic world of Blanche and the brutal, realistic, present-day world represented by Stanley. But as an afternote, it should be added that Stanley is the type of person who likes his "cards on the table." He doesn't go in for subtleties and deception; thus, had Blanche been honest about his liquor, perhaps they could have gotten off to a better start.</p>
 <!-- FOOTER -->
 <div id="footer"></div></div>
-            <aside class="lesson-resources bg-surface border border-surface-muted rounded-lg p-md">
-            <h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Source Links</h3>
-            <ul class="space-y-2"><li><a class="source-link" href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-1" target="_blank" rel="noopener noreferrer">Scene 1 Cliffnotes overview</a></li></ul>
-          </aside>
-          </div>
-          <div class="flex flex-wrap gap-sm mt-lg pt-md border-t border-surface-muted">
-            <a class="lesson-jump" href="#lesson-11-song-symbolism" data-page-target="lesson-11-song-symbolism">Previous</a>
-            <a class="lesson-jump primary" href="#scene-2-overview" data-page-target="scene-2-overview">Next Lesson</a>
-          </div>
-        </article>
-      </section>
-<section id="scene-2-overview" class="course-page" data-page="scene-2-overview" hidden>
-        <article class="lesson-detail-panel bg-surface-container-low border border-surface-muted rounded-lg p-lg relative overflow-hidden">
-          <div class="absolute top-0 left-0 w-full h-1 bg-primary-container"></div>
-          <span class="font-label-md text-label-md text-secondary">ELA 30-1 | Lesson 13</span>
-          <div class="flex flex-wrap items-start justify-between gap-md mt-sm mb-md">
-            <div>
-              <h2 class="font-headline-lg text-headline-lg text-on-surface">Scene 2 Overview</h2>
-              <p class="font-body-md text-body-md text-on-surface-variant mt-xs max-w-3xl">Scene 2 Cliffnotes overview Summary Stella tells Stanley that she is taking Blanche out for dinner and a show while he has his poker game at the apartment. He is annoyed because h...</p>
-            </div>
-            <button class="mark-complete inline-flex min-h-11 items-center rounded-lg bg-primary px-4 py-2 font-label-md text-label-md text-white hover:bg-primary-container focus:outline-none focus:ring-2 focus:ring-primary/40" type="button" data-complete-id="scene-2-overview">Mark Complete</button>
-          </div>
-          <div class="lesson-layout">
-            <div class="source-content"><!-- HEADER -->
+    </article>
+<article class="scene-overview-panel" data-scene-overview-panel="scene-2-overview" hidden>
+      <div class="scene-overview-panel-header">
+        <span class="resource-kicker">Scene Overview</span>
+        <h3>Scene 2 Overview</h3>
+      </div>
+      <div class="source-content"><!-- HEADER -->
 <div id="header">
 <h1>Scene 2 Overview</h1>
 </div>
 <!-- CONTENT -->
-<p><a href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-2" target="_blank" rel="noopener noreferrer">Scene 2 Cliffnotes overview </a></p>
+<p><a href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-2" target="_blank" rel="noopener noreferrer">Scene 2 CliffsNotes overview </a></p>
 <h2>Summary</h2>
 <p>Stella tells Stanley that she is taking Blanche out for dinner and a show while he has his poker game at the apartment. He is annoyed because he has to eat a cold plate which Stella placed in the ice box. She tells him that they have lost Belle Reve and that Blanche is upset and it would help if Stanley could admire Blanche's dress. But Stanley wants to return to the loss of Belle Reve. He wants to see a bill of sale or some papers. He reminds Stella of the Napoleonic Code which states that anything belonging to the wife belongs also to the husband. Thus if the wife is swindled, then the husband is swindled and Stanley does not like to be swindled. Stanley looks at all the furs and jewelry Blanche has brought with her and demands to know where the money came from to buy these. Stella tries to explain that it is all just artificial stuff and very cheap. But Stanley is going to have a friend evaluate it all. Stella goes out on the porch so as to end the discussion.</p>
 <p>When Blanche comes from her hot bath, she asks Stanley to button her and to give her a drag on his cigarette. He begins to question her about the clothes and Blanche begins fishing for a compliment from him about her looks. He tells her that he doesn't go in for that sort of thing and only likes people who "lay their cards on the table." Stella tries to stop the discussion, but Blanche sends her out after a coke. Then Stanley asks her about the loss of Belle Reve. Blanche explains that she knows she fibs a lot, because "after all, a woman's charm is fifty percent illusion," but when something is important she always tells the truth. Stanley asks her for the papers. She goes to the trunk and hands him a tin box. He wants to know what the other papers are and at the same time snatches them. Blanche tells him that they are love letters and the touch of his hands insults them. She then gives him the papers from many firms which had made loans on the plantation and comments that it is fitting all these old papers should now be in his hands. He takes the papers and tries to justify his suspicion by saying he has to be careful now that Stella is going to have a baby. When Stella returns, Blanche tells her how happy she is about the baby and how well she handled Stanley and that she even flirted with him. They leave as the poker players begin to arrive.</p>
@@ -943,30 +927,13 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 <p>This second scene presents the second encounter between the Stanley and Blanche worlds. Here even Blanche recognizes that Stanley's world is destructive to people like her. She says of her husband: "I hurt him the way that you would like to hurt me, but you can't." But in actuality, Stanley will be able to destroy her rather easily. Blanche also recognizes the difference between the two worlds when she presents Stanley the collected papers of Belle Reve and thinks that it is fitting their papers for the aristocratic home should now be in his brutal hands. At the end of the encounter, it is Blanche who is left trembling and shaken by the encounter.</p>
 <!-- FOOTER -->
 <div id="footer"></div></div>
-            <aside class="lesson-resources bg-surface border border-surface-muted rounded-lg p-md">
-            <h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Source Links</h3>
-            <ul class="space-y-2"><li><a class="source-link" href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-2" target="_blank" rel="noopener noreferrer">Scene 2 Cliffnotes overview</a></li></ul>
-          </aside>
-          </div>
-          <div class="flex flex-wrap gap-sm mt-lg pt-md border-t border-surface-muted">
-            <a class="lesson-jump" href="#scene-1-overview" data-page-target="scene-1-overview">Previous</a>
-            <a class="lesson-jump primary" href="#scene-3-overview" data-page-target="scene-3-overview">Next Lesson</a>
-          </div>
-        </article>
-      </section>
-<section id="scene-3-overview" class="course-page" data-page="scene-3-overview" hidden>
-        <article class="lesson-detail-panel bg-surface-container-low border border-surface-muted rounded-lg p-lg relative overflow-hidden">
-          <div class="absolute top-0 left-0 w-full h-1 bg-primary-container"></div>
-          <span class="font-label-md text-label-md text-secondary">ELA 30-1 | Lesson 14</span>
-          <div class="flex flex-wrap items-start justify-between gap-md mt-sm mb-md">
-            <div>
-              <h2 class="font-headline-lg text-headline-lg text-on-surface">Scene 3 Overview</h2>
-              <p class="font-body-md text-body-md text-on-surface-variant mt-xs max-w-3xl">Cliff notes Scene 3 Summary Later that night Mitch, Stanley's friend, wants to drop out of the poker game because his mother is sick. Stella and Blanche return from the show, and...</p>
-            </div>
-            <button class="mark-complete inline-flex min-h-11 items-center rounded-lg bg-primary px-4 py-2 font-label-md text-label-md text-white hover:bg-primary-container focus:outline-none focus:ring-2 focus:ring-primary/40" type="button" data-complete-id="scene-3-overview">Mark Complete</button>
-          </div>
-          <div class="lesson-layout">
-            <div class="source-content"><!-- HEADER -->
+    </article>
+<article class="scene-overview-panel" data-scene-overview-panel="scene-3-overview" hidden>
+      <div class="scene-overview-panel-header">
+        <span class="resource-kicker">Scene Overview</span>
+        <h3>Scene 3 Overview</h3>
+      </div>
+      <div class="source-content"><!-- HEADER -->
 <div id="header">
 <h1>Scene 3 Overview</h1>
 </div>
@@ -980,30 +947,13 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 <p>Note that the scene is set against a pretty wild poker game. Stanley is especially out of patience because he has been losing heavily. And we see Mitch immediately as a contrast to the others, especially with his concern for his sick mother.<a href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-3" target="_blank" rel="noopener noreferrer"> Cliff notes Scene 3</a></p>
 <!-- FOOTER -->
 <div id="footer"></div></div>
-            <aside class="lesson-resources bg-surface border border-surface-muted rounded-lg p-md">
-            <h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Source Links</h3>
-            <ul class="space-y-2"><li><a class="source-link" href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-3" target="_blank" rel="noopener noreferrer">Cliff notes Scene 3</a></li></ul>
-          </aside>
-          </div>
-          <div class="flex flex-wrap gap-sm mt-lg pt-md border-t border-surface-muted">
-            <a class="lesson-jump" href="#scene-2-overview" data-page-target="scene-2-overview">Previous</a>
-            <a class="lesson-jump primary" href="#scene-4-overview" data-page-target="scene-4-overview">Next Lesson</a>
-          </div>
-        </article>
-      </section>
-<section id="scene-4-overview" class="course-page" data-page="scene-4-overview" hidden>
-        <article class="lesson-detail-panel bg-surface-container-low border border-surface-muted rounded-lg p-lg relative overflow-hidden">
-          <div class="absolute top-0 left-0 w-full h-1 bg-primary-container"></div>
-          <span class="font-label-md text-label-md text-secondary">ELA 30-1 | Lesson 15</span>
-          <div class="flex flex-wrap items-start justify-between gap-md mt-sm mb-md">
-            <div>
-              <h2 class="font-headline-lg text-headline-lg text-on-surface">Scene 4 Overview</h2>
-              <p class="font-body-md text-body-md text-on-surface-variant mt-xs max-w-3xl">Scene 4 Overview Summary The following morning, Blanche comes hesitantly and frightenedly to the Kowalski apartment and when she sees Stella alone, she rushes to her and embraces...</p>
-            </div>
-            <button class="mark-complete inline-flex min-h-11 items-center rounded-lg bg-primary px-4 py-2 font-label-md text-label-md text-white hover:bg-primary-container focus:outline-none focus:ring-2 focus:ring-primary/40" type="button" data-complete-id="scene-4-overview">Mark Complete</button>
-          </div>
-          <div class="lesson-layout">
-            <div class="source-content"><!-- HEADER -->
+    </article>
+<article class="scene-overview-panel" data-scene-overview-panel="scene-4-overview" hidden>
+      <div class="scene-overview-panel-header">
+        <span class="resource-kicker">Scene Overview</span>
+        <h3>Scene 4 Overview</h3>
+      </div>
+      <div class="source-content"><!-- HEADER -->
 <div id="header">
 <h1>Scene 4 Overview</h1>
 </div>
@@ -1020,30 +970,13 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 <p>Even though Stanley feels victorious in this encounter, we must remember that he has overheard himself referred to as common, bestial, and vulgar. Blanche has called him a&nbsp;<em>savage&nbsp;</em>and a brute. This has occurred in&nbsp;<em>his&nbsp;</em>own home. Therefore, his resentment of Blanche and desire to be rid of her is quite justifiable. Later when he rapes her, the rape will be partially motivated by his resentment of her attitude toward him.</p>
 <!-- FOOTER -->
 <div id="footer"></div></div>
-            <aside class="lesson-resources bg-surface border border-surface-muted rounded-lg p-md">
-            <h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Source Links</h3>
-            <ul class="space-y-2"><li><a class="source-link" href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-4" target="_blank" rel="noopener noreferrer">Scene 4 Overview</a></li></ul>
-          </aside>
-          </div>
-          <div class="flex flex-wrap gap-sm mt-lg pt-md border-t border-surface-muted">
-            <a class="lesson-jump" href="#scene-3-overview" data-page-target="scene-3-overview">Previous</a>
-            <a class="lesson-jump primary" href="#scene-5-overview" data-page-target="scene-5-overview">Next Lesson</a>
-          </div>
-        </article>
-      </section>
-<section id="scene-5-overview" class="course-page" data-page="scene-5-overview" hidden>
-        <article class="lesson-detail-panel bg-surface-container-low border border-surface-muted rounded-lg p-lg relative overflow-hidden">
-          <div class="absolute top-0 left-0 w-full h-1 bg-primary-container"></div>
-          <span class="font-label-md text-label-md text-secondary">ELA 30-1 | Lesson 16</span>
-          <div class="flex flex-wrap items-start justify-between gap-md mt-sm mb-md">
-            <div>
-              <h2 class="font-headline-lg text-headline-lg text-on-surface">Scene 5 Overview</h2>
-              <p class="font-body-md text-body-md text-on-surface-variant mt-xs max-w-3xl">Scene 5 Overview Summary Blanche has been visiting now for three months. She has just finished composing a letter to Shep Huntleigh pretending that she has been on a round of teas...</p>
-            </div>
-            <button class="mark-complete inline-flex min-h-11 items-center rounded-lg bg-primary px-4 py-2 font-label-md text-label-md text-white hover:bg-primary-container focus:outline-none focus:ring-2 focus:ring-primary/40" type="button" data-complete-id="scene-5-overview">Mark Complete</button>
-          </div>
-          <div class="lesson-layout">
-            <div class="source-content"><!-- HEADER -->
+    </article>
+<article class="scene-overview-panel" data-scene-overview-panel="scene-5-overview" hidden>
+      <div class="scene-overview-panel-header">
+        <span class="resource-kicker">Scene Overview</span>
+        <h3>Scene 5 Overview</h3>
+      </div>
+      <div class="source-content"><!-- HEADER -->
 <div id="header">
 <h1>Scene 5 Overview</h1>
 </div>
@@ -1059,30 +992,13 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 <p>At this point in the drama, the scene with the young boy might seem puzzlingly out of place. It is not until later that we learn Blanche had once married a young boy and had been terribly cruel to him when he most needed her. Therefore, her sexual promiscuity returns to her guilt feelings over her failure to help her young husband. She seeks to relive the past and longs for a young lover to replace the young husband who shot himself. In other words, since she once denied help to her young husband, she now tries to compensate by giving herself to almost anyone.</p>
 <!-- FOOTER -->
 <div id="footer"></div></div>
-            <aside class="lesson-resources bg-surface border border-surface-muted rounded-lg p-md">
-            <h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Source Links</h3>
-            <ul class="space-y-2"><li><a class="source-link" href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-5" target="_blank" rel="noopener noreferrer">Scene 5 Overview</a></li></ul>
-          </aside>
-          </div>
-          <div class="flex flex-wrap gap-sm mt-lg pt-md border-t border-surface-muted">
-            <a class="lesson-jump" href="#scene-4-overview" data-page-target="scene-4-overview">Previous</a>
-            <a class="lesson-jump primary" href="#scene-6-overview" data-page-target="scene-6-overview">Next Lesson</a>
-          </div>
-        </article>
-      </section>
-<section id="scene-6-overview" class="course-page" data-page="scene-6-overview" hidden>
-        <article class="lesson-detail-panel bg-surface-container-low border border-surface-muted rounded-lg p-lg relative overflow-hidden">
-          <div class="absolute top-0 left-0 w-full h-1 bg-primary-container"></div>
-          <span class="font-label-md text-label-md text-secondary">ELA 30-1 | Lesson 17</span>
-          <div class="flex flex-wrap items-start justify-between gap-md mt-sm mb-md">
-            <div>
-              <h2 class="font-headline-lg text-headline-lg text-on-surface">Scene 6 Overview</h2>
-              <p class="font-body-md text-body-md text-on-surface-variant mt-xs max-w-3xl">Summary Later that same evening, Blanche and Mitch are returning rather late from a date. They are discussing the failure of the evening. Blanche takes the blame for the failure b...</p>
-            </div>
-            <button class="mark-complete inline-flex min-h-11 items-center rounded-lg bg-primary px-4 py-2 font-label-md text-label-md text-white hover:bg-primary-container focus:outline-none focus:ring-2 focus:ring-primary/40" type="button" data-complete-id="scene-6-overview">Mark Complete</button>
-          </div>
-          <div class="lesson-layout">
-            <div class="source-content"><!-- HEADER -->
+    </article>
+<article class="scene-overview-panel" data-scene-overview-panel="scene-6-overview" hidden>
+      <div class="scene-overview-panel-header">
+        <span class="resource-kicker">Scene Overview</span>
+        <h3>Scene 6 Overview</h3>
+      </div>
+      <div class="source-content"><!-- HEADER -->
 <div id="header">
 <h1>Scene 6 Overview</h1>
 </div>
@@ -1103,27 +1019,13 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 <p>Centrally, this scene reveals both Blanche and Mitch to be very lonesome people who could possibly find happiness with each other. Each could fill some type of vacancy for the other. Thus the scene ends on a note of hope for both characters.</p>
 <!-- FOOTER -->
 <div id="footer"></div></div>
-            
-          </div>
-          <div class="flex flex-wrap gap-sm mt-lg pt-md border-t border-surface-muted">
-            <a class="lesson-jump" href="#scene-5-overview" data-page-target="scene-5-overview">Previous</a>
-            <a class="lesson-jump primary" href="#scene-7-overview" data-page-target="scene-7-overview">Next Lesson</a>
-          </div>
-        </article>
-      </section>
-<section id="scene-7-overview" class="course-page" data-page="scene-7-overview" hidden>
-        <article class="lesson-detail-panel bg-surface-container-low border border-surface-muted rounded-lg p-lg relative overflow-hidden">
-          <div class="absolute top-0 left-0 w-full h-1 bg-primary-container"></div>
-          <span class="font-label-md text-label-md text-secondary">ELA 30-1 | Lesson 18</span>
-          <div class="flex flex-wrap items-start justify-between gap-md mt-sm mb-md">
-            <div>
-              <h2 class="font-headline-lg text-headline-lg text-on-surface">Scene 7 Overview</h2>
-              <p class="font-body-md text-body-md text-on-surface-variant mt-xs max-w-3xl">Summary A few weeks later, Stanley comes home to find that Blanche is soaking in a hot tub, even though it is blistering hot outside. It is Blanche's birthday and Stella has prepa...</p>
-            </div>
-            <button class="mark-complete inline-flex min-h-11 items-center rounded-lg bg-primary px-4 py-2 font-label-md text-label-md text-white hover:bg-primary-container focus:outline-none focus:ring-2 focus:ring-primary/40" type="button" data-complete-id="scene-7-overview">Mark Complete</button>
-          </div>
-          <div class="lesson-layout">
-            <div class="source-content"><!-- HEADER -->
+    </article>
+<article class="scene-overview-panel" data-scene-overview-panel="scene-7-overview" hidden>
+      <div class="scene-overview-panel-header">
+        <span class="resource-kicker">Scene Overview</span>
+        <h3>Scene 7 Overview</h3>
+      </div>
+      <div class="source-content"><!-- HEADER -->
 <div id="header">
 <h1>Scene 7 Overview</h1>
 </div>
@@ -1138,27 +1040,13 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 <p>It is ironic that Blanche is bathing (again symbolic of a cleansing ritual) while all the past that she is trying to wash away is about to be revealed by Stanley.</p>
 <!-- FOOTER -->
 <div id="footer"></div></div>
-            
-          </div>
-          <div class="flex flex-wrap gap-sm mt-lg pt-md border-t border-surface-muted">
-            <a class="lesson-jump" href="#scene-6-overview" data-page-target="scene-6-overview">Previous</a>
-            <a class="lesson-jump primary" href="#scene-8-overview" data-page-target="scene-8-overview">Next Lesson</a>
-          </div>
-        </article>
-      </section>
-<section id="scene-8-overview" class="course-page" data-page="scene-8-overview" hidden>
-        <article class="lesson-detail-panel bg-surface-container-low border border-surface-muted rounded-lg p-lg relative overflow-hidden">
-          <div class="absolute top-0 left-0 w-full h-1 bg-primary-container"></div>
-          <span class="font-label-md text-label-md text-secondary">ELA 30-1 | Lesson 19</span>
-          <div class="flex flex-wrap items-start justify-between gap-md mt-sm mb-md">
-            <div>
-              <h2 class="font-headline-lg text-headline-lg text-on-surface">Scene 8 Overview</h2>
-              <p class="font-body-md text-body-md text-on-surface-variant mt-xs max-w-3xl">Summary A short time later that evening, Blanche, Stella, and Stanley are finishing with Blanche's birthday party. She cannot understand why Mitch has not shown up. She tries to t...</p>
-            </div>
-            <button class="mark-complete inline-flex min-h-11 items-center rounded-lg bg-primary px-4 py-2 font-label-md text-label-md text-white hover:bg-primary-container focus:outline-none focus:ring-2 focus:ring-primary/40" type="button" data-complete-id="scene-8-overview">Mark Complete</button>
-          </div>
-          <div class="lesson-layout">
-            <div class="source-content"><!-- HEADER -->
+    </article>
+<article class="scene-overview-panel" data-scene-overview-panel="scene-8-overview" hidden>
+      <div class="scene-overview-panel-header">
+        <span class="resource-kicker">Scene Overview</span>
+        <h3>Scene 8 Overview</h3>
+      </div>
+      <div class="source-content"><!-- HEADER -->
 <div id="header">
 <h1>Scene 8 Overview</h1>
 </div>
@@ -1174,27 +1062,13 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 <p>Stanley's last remarks make it apparent that before the arrival of Blanche, things were going fine between them. We see here that part of his revenge stems from the fact that Blanche has called him dirty, a pig, ape, and similar names.</p>
 <!-- FOOTER -->
 <div id="footer"></div></div>
-            
-          </div>
-          <div class="flex flex-wrap gap-sm mt-lg pt-md border-t border-surface-muted">
-            <a class="lesson-jump" href="#scene-7-overview" data-page-target="scene-7-overview">Previous</a>
-            <a class="lesson-jump primary" href="#scene-9-overview" data-page-target="scene-9-overview">Next Lesson</a>
-          </div>
-        </article>
-      </section>
-<section id="scene-9-overview" class="course-page" data-page="scene-9-overview" hidden>
-        <article class="lesson-detail-panel bg-surface-container-low border border-surface-muted rounded-lg p-lg relative overflow-hidden">
-          <div class="absolute top-0 left-0 w-full h-1 bg-primary-container"></div>
-          <span class="font-label-md text-label-md text-secondary">ELA 30-1 | Lesson 20</span>
-          <div class="flex flex-wrap items-start justify-between gap-md mt-sm mb-md">
-            <div>
-              <h2 class="font-headline-lg text-headline-lg text-on-surface">Scene 9 Overview</h2>
-              <p class="font-body-md text-body-md text-on-surface-variant mt-xs max-w-3xl">Summary Later that evening, Blanche is alone in the apartment. The doorbell startles her. It is Mitch, who is still dressed in his working clothes and who is unshaven. Blanche pre...</p>
-            </div>
-            <button class="mark-complete inline-flex min-h-11 items-center rounded-lg bg-primary px-4 py-2 font-label-md text-label-md text-white hover:bg-primary-container focus:outline-none focus:ring-2 focus:ring-primary/40" type="button" data-complete-id="scene-9-overview">Mark Complete</button>
-          </div>
-          <div class="lesson-layout">
-            <div class="source-content"><!-- HEADER -->
+    </article>
+<article class="scene-overview-panel" data-scene-overview-panel="scene-9-overview" hidden>
+      <div class="scene-overview-panel-header">
+        <span class="resource-kicker">Scene Overview</span>
+        <h3>Scene 9 Overview</h3>
+      </div>
+      <div class="source-content"><!-- HEADER -->
 <div id="header">
 <h1>Scene 9 Overview</h1>
 </div>
@@ -1212,27 +1086,13 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 <p>Mitch, having learned of Blanche's past, then feels that she should sleep with him. In his disappointment with the truth about Blanche, he doesn't realize that she could give herself to a stranger but not freely to someone whom she knew as well as she knows Mitch and certainly not under such crude circumstances. Therefore, at the end of the scene, Blanche is at her lowest ebb of existence now that Stanley has given her a bus ticket back to Laurel and Mitch has deserted her.</p>
 <!-- FOOTER -->
 <div id="footer"></div></div>
-            
-          </div>
-          <div class="flex flex-wrap gap-sm mt-lg pt-md border-t border-surface-muted">
-            <a class="lesson-jump" href="#scene-8-overview" data-page-target="scene-8-overview">Previous</a>
-            <a class="lesson-jump primary" href="#scene-10-overview" data-page-target="scene-10-overview">Next Lesson</a>
-          </div>
-        </article>
-      </section>
-<section id="scene-10-overview" class="course-page" data-page="scene-10-overview" hidden>
-        <article class="lesson-detail-panel bg-surface-container-low border border-surface-muted rounded-lg p-lg relative overflow-hidden">
-          <div class="absolute top-0 left-0 w-full h-1 bg-primary-container"></div>
-          <span class="font-label-md text-label-md text-secondary">ELA 30-1 | Lesson 21</span>
-          <div class="flex flex-wrap items-start justify-between gap-md mt-sm mb-md">
-            <div>
-              <h2 class="font-headline-lg text-headline-lg text-on-surface">Scene 10 Overview</h2>
-              <p class="font-body-md text-body-md text-on-surface-variant mt-xs max-w-3xl">Summary Later that evening, Blanche is dressed in an old, faded gown and has a rhinestone tiara on her head. She has been drinking heavily. She is talking to herself when Stanley...</p>
-            </div>
-            <button class="mark-complete inline-flex min-h-11 items-center rounded-lg bg-primary px-4 py-2 font-label-md text-label-md text-white hover:bg-primary-container focus:outline-none focus:ring-2 focus:ring-primary/40" type="button" data-complete-id="scene-10-overview">Mark Complete</button>
-          </div>
-          <div class="lesson-layout">
-            <div class="source-content"><!-- HEADER -->
+    </article>
+<article class="scene-overview-panel" data-scene-overview-panel="scene-10-overview" hidden>
+      <div class="scene-overview-panel-header">
+        <span class="resource-kicker">Scene Overview</span>
+        <h3>Scene 10 Overview</h3>
+      </div>
+      <div class="source-content"><!-- HEADER -->
 <div id="header">
 <h1>Scene 10 Overview</h1>
 </div>
@@ -1247,27 +1107,13 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 <p>Blanche's horrified aversion to sleeping with Stanley is not based on any moral grounds. Instead, he represents every aspect of life which she is unable to cope with. He appears to her as her destroyer, and his rape of her is actually the cause of her madness. And she was not strong enough to defend herself against this hostile force. Thus it is not the actual rape which causes her madness, but the idea that she was raped by a man who represents everything unacceptable to her. Thus, she is symbolically unable to cope with the brutal realistic world represented by Stanley.</p>
 <!-- FOOTER -->
 <div id="footer"></div></div>
-            
-          </div>
-          <div class="flex flex-wrap gap-sm mt-lg pt-md border-t border-surface-muted">
-            <a class="lesson-jump" href="#scene-9-overview" data-page-target="scene-9-overview">Previous</a>
-            <a class="lesson-jump primary" href="#scene-11-overview" data-page-target="scene-11-overview">Next Lesson</a>
-          </div>
-        </article>
-      </section>
-<section id="scene-11-overview" class="course-page" data-page="scene-11-overview" hidden>
-        <article class="lesson-detail-panel bg-surface-container-low border border-surface-muted rounded-lg p-lg relative overflow-hidden">
-          <div class="absolute top-0 left-0 w-full h-1 bg-primary-container"></div>
-          <span class="font-label-md text-label-md text-secondary">ELA 30-1 | Lesson 22</span>
-          <div class="flex flex-wrap items-start justify-between gap-md mt-sm mb-md">
-            <div>
-              <h2 class="font-headline-lg text-headline-lg text-on-surface">Scene 11 Overview</h2>
-              <p class="font-body-md text-body-md text-on-surface-variant mt-xs max-w-3xl">Summary Several weeks later, Stella is seen packing some of Blanche's things. There is another poker party going on. This time, Stanley is winning. Eunice comes in to help with th...</p>
-            </div>
-            <button class="mark-complete inline-flex min-h-11 items-center rounded-lg bg-primary px-4 py-2 font-label-md text-label-md text-white hover:bg-primary-container focus:outline-none focus:ring-2 focus:ring-primary/40" type="button" data-complete-id="scene-11-overview">Mark Complete</button>
-          </div>
-          <div class="lesson-layout">
-            <div class="source-content"><!-- HEADER -->
+    </article>
+<article class="scene-overview-panel" data-scene-overview-panel="scene-11-overview" hidden>
+      <div class="scene-overview-panel-header">
+        <span class="resource-kicker">Scene Overview</span>
+        <h3>Scene 11 Overview</h3>
+      </div>
+      <div class="source-content"><!-- HEADER -->
 <div id="header">
 <h1>Scene 11 Overview</h1>
 </div>
@@ -1283,10 +1129,15 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 <p>The last line of the play puns on the man's world as Steve announces that the game is "seven-card stud," a particularly wild poker game.</p>
 <!-- FOOTER -->
 <div id="footer"></div></div>
-            
+    </article></div>
+    </div></div>
+            <aside class="lesson-resources bg-surface border border-surface-muted rounded-lg p-md">
+            <h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Source Links</h3>
+            <ul class="space-y-2"><li><a class="source-link" href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-1" target="_blank" rel="noopener noreferrer">Scene 1 CliffsNotes overview</a></li><li><a class="source-link" href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-2" target="_blank" rel="noopener noreferrer">Scene 2 CliffsNotes overview</a></li><li><a class="source-link" href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-3" target="_blank" rel="noopener noreferrer">Cliff notes Scene 3</a></li><li><a class="source-link" href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-4" target="_blank" rel="noopener noreferrer">Scene 4 Overview</a></li><li><a class="source-link" href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-5" target="_blank" rel="noopener noreferrer">Scene 5 Overview</a></li></ul>
+          </aside>
           </div>
           <div class="flex flex-wrap gap-sm mt-lg pt-md border-t border-surface-muted">
-            <a class="lesson-jump" href="#scene-10-overview" data-page-target="scene-10-overview">Previous</a>
+            <a class="lesson-jump" href="#lesson-11-song-symbolism" data-page-target="lesson-11-song-symbolism">Previous</a>
             <a class="lesson-jump primary" href="#lesson-12-writing-a-critical-and-analytical-response-to-text-s" data-page-target="lesson-12-writing-a-critical-and-analytical-response-to-text-s">Next Lesson</a>
           </div>
         </article>
@@ -1294,7 +1145,7 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 <section id="lesson-12-writing-a-critical-and-analytical-response-to-text-s" class="course-page" data-page="lesson-12-writing-a-critical-and-analytical-response-to-text-s" hidden>
         <article class="lesson-detail-panel bg-surface-container-low border border-surface-muted rounded-lg p-lg relative overflow-hidden">
           <div class="absolute top-0 left-0 w-full h-1 bg-primary-container"></div>
-          <span class="font-label-md text-label-md text-secondary">ELA 30-1 | Lesson 23</span>
+          <span class="font-label-md text-label-md text-secondary">ELA 30-1 | Lesson 13</span>
           <div class="flex flex-wrap items-start justify-between gap-md mt-sm mb-md">
             <div>
               <h2 class="font-headline-lg text-headline-lg text-on-surface">Lesson 12: Writing a Critical and Analytical Response to Text(s)</h2>
@@ -1363,7 +1214,7 @@ You also need to clarify your reasons for choosing the literature you have ident
             
           </div>
           <div class="flex flex-wrap gap-sm mt-lg pt-md border-t border-surface-muted">
-            <a class="lesson-jump" href="#scene-11-overview" data-page-target="scene-11-overview">Previous</a>
+            <a class="lesson-jump" href="#scene-overviews" data-page-target="scene-overviews">Previous</a>
             <a class="lesson-jump primary" href="#lesson-13-samples-of-student-writing" data-page-target="lesson-13-samples-of-student-writing">Next Lesson</a>
           </div>
         </article>
@@ -1371,7 +1222,7 @@ You also need to clarify your reasons for choosing the literature you have ident
 <section id="lesson-13-samples-of-student-writing" class="course-page" data-page="lesson-13-samples-of-student-writing" hidden>
         <article class="lesson-detail-panel bg-surface-container-low border border-surface-muted rounded-lg p-lg relative overflow-hidden">
           <div class="absolute top-0 left-0 w-full h-1 bg-primary-container"></div>
-          <span class="font-label-md text-label-md text-secondary">ELA 30-1 | Lesson 24</span>
+          <span class="font-label-md text-label-md text-secondary">ELA 30-1 | Lesson 14</span>
           <div class="flex flex-wrap items-start justify-between gap-md mt-sm mb-md">
             <div>
               <h2 class="font-headline-lg text-headline-lg text-on-surface">Lesson 13: Samples of Student Writing</h2>
@@ -1419,6 +1270,16 @@ You also need to clarify your reasons for choosing the literature you have ident
       <strong>Thesis Workshop</strong>
       <span>Build a diploma-ready thesis by connecting prompt topic, character, analytical action, and universal significance.</span>
     </button>
+<button class="critical-response-tab" type="button" role="tab" aria-selected="false" data-workshop-tab="evidenceCollector">
+      <span class="material-symbols-outlined critical-response-tab-icon" aria-hidden="true">fact_check</span>
+      <strong>Evidence Collector</strong>
+      <span>Build a precise analytical evidence sentence by connecting literary device, textual evidence, analytical verb, and thematic function.</span>
+    </button>
+<button class="critical-response-tab" type="button" role="tab" aria-selected="false" data-workshop-tab="paragraphArchitect">
+      <span class="material-symbols-outlined critical-response-tab-icon" aria-hidden="true">architecture</span>
+      <strong>Paragraph Architect</strong>
+      <span>Build a PETAL body paragraph by choosing a point, evidence, technique, analysis, and link that stay analytical.</span>
+    </button>
           </div>
           <div class="critical-response-workshop-shell">
             <div class="critical-response-workshop-header">
@@ -1464,29 +1325,144 @@ You also need to clarify your reasons for choosing the literature you have ident
         <div class="library-browser">
     <aside class="library-list-panel">
       <span class="resource-kicker">Library</span>
-      <h3>1 local document</h3>
-      <p>PDFs are collected here so Resources can stay focused on external reading links.</p>
-      <div class="library-doc-list"><button class="library-doc-tab active" type="button" data-library-doc-target="document-lesson-4-a-streetcar-named-desire-questions-assets-source-a-streetcar-named-desi" aria-pressed="true">
+      <h3>6 local documents</h3>
+      <p>PDFs and source documents are collected here so Resources can stay focused on supplemental links and workflow guidance.</p>
+      <div class="library-group-list"><span class="library-group-chip">Primary Text</span><span class="library-group-chip">Reading Guides</span><span class="library-group-chip">Essay Supports</span></div>
+      <div class="library-doc-list"><button class="library-doc-tab active" type="button" data-library-doc-target="primary-text-streetcar" aria-pressed="true">
       <span class="library-doc-index">01</span>
       <span>
-        <strong>Lesson 4: A Streetcar Named Desire questions</strong>
-        <small>PDF</small>
+        <strong>A Streetcar Named Desire</strong>
+        <small>Primary Text | Next Step</small>
+      </span>
+    </button>
+<button class="library-doc-tab" type="button" data-library-doc-target="cbe-streetcar-reading-guide" aria-pressed="false">
+      <span class="library-doc-index">02</span>
+      <span>
+        <strong>CBE Streetcar Reading Guide</strong>
+        <small>Reading Guides | CBE</small>
+      </span>
+    </button>
+<button class="library-doc-tab" type="button" data-library-doc-target="nextstep-unit5-streetcar" aria-pressed="false">
+      <span class="library-doc-index">03</span>
+      <span>
+        <strong>Next Step Unit 5 Streetcar Booklet</strong>
+        <small>Reading Guides | Next Step</small>
+      </span>
+    </button>
+<button class="library-doc-tab" type="button" data-library-doc-target="critical-analytical-how-to" aria-pressed="false">
+      <span class="library-doc-index">04</span>
+      <span>
+        <strong>Critical/Analytical Essay HOW TO</strong>
+        <small>Essay Supports | Next Step</small>
+      </span>
+    </button>
+<button class="library-doc-tab" type="button" data-library-doc-target="critical-analytical-rubric" aria-pressed="false">
+      <span class="library-doc-index">05</span>
+      <span>
+        <strong>Critical/Analytical Rubric</strong>
+        <small>Essay Supports | Next Step</small>
+      </span>
+    </button>
+<button class="library-doc-tab" type="button" data-library-doc-target="modern-drama-resilience-essay" aria-pressed="false">
+      <span class="library-doc-index">06</span>
+      <span>
+        <strong>Modern Drama Resilience Essay Prompt</strong>
+        <small>Essay Supports | Next Step</small>
       </span>
     </button></div>
     </aside>
-    <div class="library-reader-stack"><article class="library-reader-panel" data-library-doc-panel="document-lesson-4-a-streetcar-named-desire-questions-assets-source-a-streetcar-named-desi">
+    <div class="library-reader-stack"><article class="library-reader-panel" data-library-doc-panel="primary-text-streetcar">
         <div class="library-reader-header">
           <div>
-            <span class="resource-kicker">PDF Source</span>
-            <h3>Lesson 4: A Streetcar Named Desire questions</h3>
-            <p>Source lesson: Lesson 4: A Streetcar Named Desire questions</p>
+            <span class="resource-kicker">Next Step Source</span>
+            <h3>A Streetcar Named Desire</h3>
+            <p>Canonical student reading copy included under course-owner distribution rights.</p>
           </div>
           <div class="library-actions">
-            <a href="./assets/source/A-Streetcar-Named-Desire-questions.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
-            <a href="./assets/source/A-Streetcar-Named-Desire-questions.pdf" download>Download PDF</a>
+            <a href="./assets/source/a-streetcar-named-desire.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+            <a href="./assets/source/a-streetcar-named-desire.pdf" download>Download PDF</a>
           </div>
         </div>
-        <iframe class="library-document-frame" src="./assets/source/A-Streetcar-Named-Desire-questions.pdf" title="Lesson 4: A Streetcar Named Desire questions"></iframe>
+        <iframe class="library-document-frame" src="./assets/source/a-streetcar-named-desire.pdf" title="A Streetcar Named Desire"></iframe>
+      </article>
+<article class="library-reader-panel" data-library-doc-panel="cbe-streetcar-reading-guide" hidden>
+        <div class="library-reader-header">
+          <div>
+            <span class="resource-kicker">CBE Source</span>
+            <h3>CBE Streetcar Reading Guide</h3>
+            <p>Compact scene question bank used to support reading responses.</p>
+          </div>
+          <div class="library-actions">
+            <a href="./assets/source/cbe-streetcar-reading-guide.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+            <a href="./assets/source/cbe-streetcar-reading-guide.pdf" download>Download PDF</a>
+          </div>
+        </div>
+        <iframe class="library-document-frame" src="./assets/source/cbe-streetcar-reading-guide.pdf" title="CBE Streetcar Reading Guide"></iframe>
+      </article>
+<article class="library-reader-panel" data-library-doc-panel="nextstep-unit5-streetcar" hidden>
+        <div class="library-reader-header">
+          <div>
+            <span class="resource-kicker">Next Step Source</span>
+            <h3>Next Step Unit 5 Streetcar Booklet</h3>
+            <p>Primary formative reading question source for Scenes 1-10.</p>
+          </div>
+          <div class="library-actions">
+            <a href="./assets/source/nextstep-unit5-streetcar.docx" target="_blank" rel="noopener noreferrer">Open File</a>
+            <a href="./assets/source/nextstep-unit5-streetcar.docx" download>Download File</a>
+          </div>
+        </div>
+        <div class="library-file-fallback">
+            <p>This local source file is available to open in a new browser tab.</p>
+            <a class="external-resource-action" href="./assets/source/nextstep-unit5-streetcar.docx" target="_blank" rel="noopener noreferrer">Open File</a>
+          </div>
+      </article>
+<article class="library-reader-panel" data-library-doc-panel="critical-analytical-how-to" hidden>
+        <div class="library-reader-header">
+          <div>
+            <span class="resource-kicker">Next Step Source</span>
+            <h3>Critical/Analytical Essay HOW TO</h3>
+            <p>Student-facing process guide for Critical/Analytical essay planning.</p>
+          </div>
+          <div class="library-actions">
+            <a href="./assets/source/critical-analytical-essay-how-to.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+            <a href="./assets/source/critical-analytical-essay-how-to.pdf" download>Download PDF</a>
+          </div>
+        </div>
+        <iframe class="library-document-frame" src="./assets/source/critical-analytical-essay-how-to.pdf" title="Critical/Analytical Essay HOW TO"></iframe>
+      </article>
+<article class="library-reader-panel" data-library-doc-panel="critical-analytical-rubric" hidden>
+        <div class="library-reader-header">
+          <div>
+            <span class="resource-kicker">Next Step Source</span>
+            <h3>Critical/Analytical Rubric</h3>
+            <p>Rubric source for Thought and Understanding, Supporting Evidence, Form and Structure, Matters of Choice, and Matters of Correctness.</p>
+          </div>
+          <div class="library-actions">
+            <a href="./assets/source/critical-analytical-rubric.doc" target="_blank" rel="noopener noreferrer">Open File</a>
+            <a href="./assets/source/critical-analytical-rubric.doc" download>Download File</a>
+          </div>
+        </div>
+        <div class="library-file-fallback">
+            <p>This local source file is available to open in a new browser tab.</p>
+            <a class="external-resource-action" href="./assets/source/critical-analytical-rubric.doc" target="_blank" rel="noopener noreferrer">Open File</a>
+          </div>
+      </article>
+<article class="library-reader-panel" data-library-doc-panel="modern-drama-resilience-essay" hidden>
+        <div class="library-reader-header">
+          <div>
+            <span class="resource-kicker">Next Step Source</span>
+            <h3>Modern Drama Resilience Essay Prompt</h3>
+            <p>Prompt bank source for resilience shaped by reality.</p>
+          </div>
+          <div class="library-actions">
+            <a href="./assets/source/modern-drama-resilience-essay.docx" target="_blank" rel="noopener noreferrer">Open File</a>
+            <a href="./assets/source/modern-drama-resilience-essay.docx" download>Download File</a>
+          </div>
+        </div>
+        <div class="library-file-fallback">
+            <p>This local source file is available to open in a new browser tab.</p>
+            <a class="external-resource-action" href="./assets/source/modern-drama-resilience-essay.docx" target="_blank" rel="noopener noreferrer">Open File</a>
+          </div>
       </article></div>
   </div>
       </div>
@@ -1500,21 +1476,26 @@ You also need to clarify your reasons for choosing the literature you have ident
     <div class="film-room-stage">
       <div class="film-room-header">
         <span class="resource-kicker">Film Room</span>
-        <h3>5 embedded videos</h3>
+        <h3>6 embedded videos</h3>
       </div>
-      <article class="film-panel" data-film-panel="film-1-lesson-1-tennessee-williams">
+      <article class="film-panel" data-film-panel="streetcar-full-film">
+      <video class="film-room-frame" controls preload="metadata">
+            <source src="./assets/media/streetcar-named-desire-movie.mp4" type="video/mp4">
+          </video>
+    </article>
+<article class="film-panel" data-film-panel="film-2-lesson-1-tennessee-williams" hidden>
       <iframe class="film-room-frame" src="https://www.youtube.com/embed/763wrhAthqE" title="Lesson 1: Tennessee Williams" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </article>
-<article class="film-panel" data-film-panel="film-2-lesson-2-streetcar-overview-and-character" hidden>
+<article class="film-panel" data-film-panel="film-3-lesson-2-streetcar-overview-and-character" hidden>
       <iframe class="film-room-frame" src="https://www.youtube.com/embed/a9G7lU8J21Y?feature=oembed&amp;wmode=opaque&amp;rel=0" title="Lesson 2: Streetcar Overview and Character" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </article>
-<article class="film-panel" data-film-panel="film-3-lesson-3-streetcar-character-powerpoint-ppt" hidden>
+<article class="film-panel" data-film-panel="film-4-lesson-3-streetcar-character-powerpoint-ppt" hidden>
       <iframe class="film-room-frame" src="https://www.youtube.com/embed/4mE6ItCl3nc?feature=oembed&amp;wmode=opaque&amp;rel=0" title="Lesson 3: Streetcar Character Powerpoint (ppt)" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </article>
-<article class="film-panel" data-film-panel="film-4-lesson-9-relationships" hidden>
+<article class="film-panel" data-film-panel="film-5-lesson-9-relationships" hidden>
       <iframe class="film-room-frame" src="https://www.youtube.com/embed/on4HDdvGyWo?feature=oembed&amp;wmode=opaque&amp;rel=0" title="Lesson 9: Relationships" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </article>
-<article class="film-panel" data-film-panel="film-5-lesson-11-song-symbolism" hidden>
+<article class="film-panel" data-film-panel="film-6-lesson-11-song-symbolism" hidden>
       <iframe class="film-room-frame" src="https://www.youtube.com/embed/xwjlpExKvsY?feature=oembed&amp;wmode=opaque&amp;rel=0" title="Lesson 11: Song Symbolism" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </article>
     </div>
@@ -1523,67 +1504,80 @@ You also need to clarify your reasons for choosing the literature you have ident
         <span class="resource-kicker">Video Catalog</span>
         <h3>Load a video</h3>
         <p>Use the playlist to switch videos without leaving the course shell.</p>
+        <a class="film-source-link" href="#lesson-22-film-adaptation-lab" data-page-target="lesson-22-film-adaptation-lab">Back to Lesson 22</a>
         <label class="film-room-label" for="film-room-select">Playlist</label>
         <select id="film-room-select" class="film-room-select" data-film-select>
-          <option value="film-1-lesson-1-tennessee-williams" selected>Lesson 1: Tennessee Williams</option>
-<option value="film-2-lesson-2-streetcar-overview-and-character">Lesson 2: Streetcar Overview and Character</option>
-<option value="film-3-lesson-3-streetcar-character-powerpoint-ppt">Lesson 3: Streetcar Character Powerpoint (ppt)</option>
-<option value="film-4-lesson-9-relationships">Lesson 9: Relationships</option>
-<option value="film-5-lesson-11-song-symbolism">Lesson 11: Song Symbolism</option>
+          <option value="streetcar-full-film" selected>Streetcar Named Desire Movie</option>
+<option value="film-2-lesson-1-tennessee-williams">Lesson 1: Tennessee Williams</option>
+<option value="film-3-lesson-2-streetcar-overview-and-character">Lesson 2: Streetcar Overview and Character</option>
+<option value="film-4-lesson-3-streetcar-character-powerpoint-ppt">Lesson 3: Streetcar Character Powerpoint (ppt)</option>
+<option value="film-5-lesson-9-relationships">Lesson 9: Relationships</option>
+<option value="film-6-lesson-11-song-symbolism">Lesson 11: Song Symbolism</option>
         </select>
       </article>
-      <div class="film-now-stack"><article class="film-now-panel" data-film-now-panel="film-1-lesson-1-tennessee-williams">
+      <div class="film-now-stack"><article class="film-now-panel" data-film-now-panel="streetcar-full-film">
+        <span class="resource-kicker">Now loaded</span>
+        <h3>Streetcar Named Desire Movie</h3>
+        <p class="film-now-source">Film Room</p>
+        <p>Local course film resource packaged with this build.</p>
+        <div class="film-now-footer">
+          <span class="resource-kicker">Local Media</span>
+          <span class="film-now-count">1 / 6</span>
+        </div>
+        <a class="film-source-link" href="./assets/media/streetcar-named-desire-movie.mp4" target="_blank" rel="noopener noreferrer">Open Source</a>
+      </article>
+<article class="film-now-panel" data-film-now-panel="film-2-lesson-1-tennessee-williams" hidden>
         <span class="resource-kicker">Now loaded</span>
         <h3>Lesson 1: Tennessee Williams</h3>
         <p class="film-now-source">Lesson 1: Tennessee Williams</p>
         <p>Media resource from Lesson 1: Tennessee Williams.</p>
         <div class="film-now-footer">
           <span class="resource-kicker">Embedded Source</span>
-          <span class="film-now-count">1 / 5</span>
+          <span class="film-now-count">2 / 6</span>
         </div>
         <a class="film-source-link" href="https://www.youtube.com/embed/763wrhAthqE" target="_blank" rel="noopener noreferrer">Open Source</a>
       </article>
-<article class="film-now-panel" data-film-now-panel="film-2-lesson-2-streetcar-overview-and-character" hidden>
+<article class="film-now-panel" data-film-now-panel="film-3-lesson-2-streetcar-overview-and-character" hidden>
         <span class="resource-kicker">Now loaded</span>
         <h3>Lesson 2: Streetcar Overview and Character</h3>
         <p class="film-now-source">Lesson 2: Streetcar Overview and Character</p>
         <p>Media resource from Lesson 2: Streetcar Overview and Character.</p>
         <div class="film-now-footer">
           <span class="resource-kicker">Embedded Source</span>
-          <span class="film-now-count">2 / 5</span>
+          <span class="film-now-count">3 / 6</span>
         </div>
         <a class="film-source-link" href="https://www.youtube.com/embed/a9G7lU8J21Y?feature=oembed&amp;wmode=opaque&amp;rel=0" target="_blank" rel="noopener noreferrer">Open Source</a>
       </article>
-<article class="film-now-panel" data-film-now-panel="film-3-lesson-3-streetcar-character-powerpoint-ppt" hidden>
+<article class="film-now-panel" data-film-now-panel="film-4-lesson-3-streetcar-character-powerpoint-ppt" hidden>
         <span class="resource-kicker">Now loaded</span>
         <h3>Lesson 3: Streetcar Character Powerpoint (ppt)</h3>
         <p class="film-now-source">Lesson 3: Streetcar Character Powerpoint (ppt)</p>
         <p>Media resource from Lesson 3: Streetcar Character Powerpoint (ppt).</p>
         <div class="film-now-footer">
           <span class="resource-kicker">Embedded Source</span>
-          <span class="film-now-count">3 / 5</span>
+          <span class="film-now-count">4 / 6</span>
         </div>
         <a class="film-source-link" href="https://www.youtube.com/embed/4mE6ItCl3nc?feature=oembed&amp;wmode=opaque&amp;rel=0" target="_blank" rel="noopener noreferrer">Open Source</a>
       </article>
-<article class="film-now-panel" data-film-now-panel="film-4-lesson-9-relationships" hidden>
+<article class="film-now-panel" data-film-now-panel="film-5-lesson-9-relationships" hidden>
         <span class="resource-kicker">Now loaded</span>
         <h3>Lesson 9: Relationships</h3>
         <p class="film-now-source">Lesson 9: Relationships</p>
         <p>Media resource from Lesson 9: Relationships.</p>
         <div class="film-now-footer">
           <span class="resource-kicker">Embedded Source</span>
-          <span class="film-now-count">4 / 5</span>
+          <span class="film-now-count">5 / 6</span>
         </div>
         <a class="film-source-link" href="https://www.youtube.com/embed/on4HDdvGyWo?feature=oembed&amp;wmode=opaque&amp;rel=0" target="_blank" rel="noopener noreferrer">Open Source</a>
       </article>
-<article class="film-now-panel" data-film-now-panel="film-5-lesson-11-song-symbolism" hidden>
+<article class="film-now-panel" data-film-now-panel="film-6-lesson-11-song-symbolism" hidden>
         <span class="resource-kicker">Now loaded</span>
         <h3>Lesson 11: Song Symbolism</h3>
         <p class="film-now-source">Lesson 11: Song Symbolism</p>
         <p>Media resource from Lesson 11: Song Symbolism.</p>
         <div class="film-now-footer">
           <span class="resource-kicker">Embedded Source</span>
-          <span class="film-now-count">5 / 5</span>
+          <span class="film-now-count">6 / 6</span>
         </div>
         <a class="film-source-link" href="https://www.youtube.com/embed/xwjlpExKvsY?feature=oembed&amp;wmode=opaque&amp;rel=0" target="_blank" rel="noopener noreferrer">Open Source</a>
       </article></div>
@@ -1596,134 +1590,154 @@ You also need to clarify your reasons for choosing the literature you have ident
       <div class="max-w-6xl">
         <p class="font-label-md text-label-md text-secondary">ELA 30-1 | Resources</p>
         <h2 class="font-headline-lg text-headline-lg text-on-surface mt-xs mb-md">External Source Resources</h2>
-        <div class="external-resource-grid"><article class="external-resource-card">
+        <div class="resource-stack">
+    <section class="resource-workflow-card">
+      <h3>Student Workflow</h3>
+      <ol>
+        <li>Read the assigned scene.</li>
+        <li>Answer the core questions.</li>
+        <li>Add evidence to the bank.</li>
+        <li>Write the mini-response.</li>
+        <li>Mark the lesson complete.</li>
+        <li>Use evidence in the final essay.</li>
+      </ol>
+    </section>
+    <section class="resource-workflow-card">
+      <h3>Teacher Source Map</h3>
+      <p>CBE modern drama and Streetcar files provide unit framing, scene support, motifs, symbols, themes, film terminology, and writing samples. Next Step Unit 5 provides the core Streetcar reading questions for Scenes 1-10, while CBE reading guide questions support Scene 11 and final synthesis. Next Step essay supports provide rubric language and Critical/Analytical prompt banks.</p>
+    </section>
+    <div class="external-resource-grid"><article class="external-resource-card">
       <span class="resource-kicker">External Source</span>
       <h3>Tennessee Williams</h3>
-      <p>Captured from A Streetcar Named Desire - Introduction. Use this as a supporting source or review stop.</p>
+      <p>Captured from A Streetcar Named Desire - Introduction. Use this as a supplemental review stop, not as the main learning source.</p>
       <a class="external-resource-action" href="http://www.biography.com/people/tennessee-williams-9532952" target="_blank" rel="noopener noreferrer">Open Resource</a>
     </article>
 <article class="external-resource-card">
       <span class="resource-kicker">External Source</span>
       <h3>Biography</h3>
-      <p>Captured from Lesson 1: Tennessee Williams. Use this as a supporting source or review stop.</p>
+      <p>Captured from Lesson 1: Tennessee Williams. Use this as a supplemental review stop, not as the main learning source.</p>
       <a class="external-resource-action" href="https://www.biography.com/writer/tennessee-williams" target="_blank" rel="noopener noreferrer">Open Resource</a>
     </article>
 <article class="external-resource-card">
       <span class="resource-kicker">External Source</span>
       <h3>Streetcar Overview</h3>
-      <p>Captured from Lesson 2: Streetcar Overview and Character. Use this as a supporting source or review stop.</p>
+      <p>Captured from Lesson 2: Streetcar Overview and Character. Use this as a supplemental review stop, not as the main learning source.</p>
       <a class="external-resource-action" href="https://www.shmoop.com/streetcar-named-desire/" target="_blank" rel="noopener noreferrer">Open Resource</a>
     </article>
 <article class="external-resource-card">
       <span class="resource-kicker">External Source</span>
       <h3>Williams</h3>
-      <p>Captured from Lesson 7: Motifs. Use this as a supporting source or review stop.</p>
+      <p>Captured from Lesson 7: Motifs. Use this as a supplemental review stop, not as the main learning source.</p>
       <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/author/" target="_blank" rel="noopener noreferrer">Open Resource</a>
     </article>
 <article class="external-resource-card">
       <span class="resource-kicker">External Source</span>
       <h3>Scene 7</h3>
-      <p>Captured from Lesson 7: Motifs. Use this as a supporting source or review stop.</p>
+      <p>Captured from Lesson 7: Motifs. Use this as a supplemental review stop, not as the main learning source.</p>
       <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/scene-7-summary/" target="_blank" rel="noopener noreferrer">Open Resource</a>
     </article>
 <article class="external-resource-card">
       <span class="resource-kicker">External Source</span>
       <h3>Scene 11</h3>
-      <p>Captured from Lesson 7: Motifs. Use this as a supporting source or review stop.</p>
+      <p>Captured from Lesson 7: Motifs. Use this as a supplemental review stop, not as the main learning source.</p>
       <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/scene-11-summary/" target="_blank" rel="noopener noreferrer">Open Resource</a>
     </article>
 <article class="external-resource-card">
       <span class="resource-kicker">External Source</span>
       <h3>https://www.coursehero.com/lit/A-Streetcar-Named-Desire/motifs/</h3>
-      <p>Captured from Lesson 7: Motifs. Use this as a supporting source or review stop.</p>
+      <p>Captured from Lesson 7: Motifs. Use this as a supplemental review stop, not as the main learning source.</p>
       <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/motifs/" target="_blank" rel="noopener noreferrer">Open Resource</a>
     </article>
 <article class="external-resource-card">
       <span class="resource-kicker">External Source</span>
       <h3>Mitch</h3>
-      <p>Captured from Lesson 8: Symbols. Use this as a supporting source or review stop.</p>
+      <p>Captured from Lesson 8: Symbols. Use this as a supplemental review stop, not as the main learning source.</p>
       <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/character-analysis/#Mitch" target="_blank" rel="noopener noreferrer">Open Resource</a>
     </article>
 <article class="external-resource-card">
       <span class="resource-kicker">External Source</span>
       <h3>Scene 3</h3>
-      <p>Captured from Lesson 8: Symbols. Use this as a supporting source or review stop.</p>
+      <p>Captured from Lesson 8: Symbols. Use this as a supplemental review stop, not as the main learning source.</p>
       <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/scene-3-summary/" target="_blank" rel="noopener noreferrer">Open Resource</a>
     </article>
 <article class="external-resource-card">
       <span class="resource-kicker">External Source</span>
       <h3>Scene 5</h3>
-      <p>Captured from Lesson 8: Symbols. Use this as a supporting source or review stop.</p>
+      <p>Captured from Lesson 8: Symbols. Use this as a supplemental review stop, not as the main learning source.</p>
       <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/scene-5-summary/" target="_blank" rel="noopener noreferrer">Open Resource</a>
     </article>
 <article class="external-resource-card">
       <span class="resource-kicker">External Source</span>
       <h3>Scene 9</h3>
-      <p>Captured from Lesson 8: Symbols. Use this as a supporting source or review stop.</p>
+      <p>Captured from Lesson 8: Symbols. Use this as a supplemental review stop, not as the main learning source.</p>
       <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/scene-9-summary/" target="_blank" rel="noopener noreferrer">Open Resource</a>
     </article>
 <article class="external-resource-card">
       <span class="resource-kicker">External Source</span>
       <h3>https://www.coursehero.com/lit/A-Streetcar-Named-Desire/symbols/</h3>
-      <p>Captured from Lesson 8: Symbols. Use this as a supporting source or review stop.</p>
+      <p>Captured from Lesson 8: Symbols. Use this as a supplemental review stop, not as the main learning source.</p>
       <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/symbols/" target="_blank" rel="noopener noreferrer">Open Resource</a>
     </article>
 <article class="external-resource-card">
       <span class="resource-kicker">External Source</span>
       <h3>https://www.coursehero.com/lit/A-Streetcar-Named-Desire/themes/</h3>
-      <p>Captured from Lesson 10: Themes. Use this as a supporting source or review stop.</p>
+      <p>Captured from Lesson 10: Themes. Use this as a supplemental review stop, not as the main learning source.</p>
       <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/themes/" target="_blank" rel="noopener noreferrer">Open Resource</a>
     </article>
 <article class="external-resource-card">
       <span class="resource-kicker">External Source</span>
-      <h3>Scene 1 Cliffnotes overview</h3>
-      <p>Captured from Scene 1 Overview. Use this as a supporting source or review stop.</p>
+      <h3>Scene 1 CliffsNotes overview</h3>
+      <p>Captured from Scene Overviews. Use this as a supplemental review stop, not as the main learning source.</p>
       <a class="external-resource-action" href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-1" target="_blank" rel="noopener noreferrer">Open Resource</a>
     </article>
 <article class="external-resource-card">
       <span class="resource-kicker">External Source</span>
-      <h3>Scene 2 Cliffnotes overview</h3>
-      <p>Captured from Scene 2 Overview. Use this as a supporting source or review stop.</p>
+      <h3>Scene 2 CliffsNotes overview</h3>
+      <p>Captured from Scene Overviews. Use this as a supplemental review stop, not as the main learning source.</p>
       <a class="external-resource-action" href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-2" target="_blank" rel="noopener noreferrer">Open Resource</a>
     </article>
 <article class="external-resource-card">
       <span class="resource-kicker">External Source</span>
       <h3>Cliff notes Scene 3</h3>
-      <p>Captured from Scene 3 Overview. Use this as a supporting source or review stop.</p>
+      <p>Captured from Scene Overviews. Use this as a supplemental review stop, not as the main learning source.</p>
       <a class="external-resource-action" href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-3" target="_blank" rel="noopener noreferrer">Open Resource</a>
     </article>
 <article class="external-resource-card">
       <span class="resource-kicker">External Source</span>
       <h3>Scene 4 Overview</h3>
-      <p>Captured from Scene 4 Overview. Use this as a supporting source or review stop.</p>
+      <p>Captured from Scene Overviews. Use this as a supplemental review stop, not as the main learning source.</p>
       <a class="external-resource-action" href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-4" target="_blank" rel="noopener noreferrer">Open Resource</a>
     </article>
 <article class="external-resource-card">
       <span class="resource-kicker">External Source</span>
       <h3>Scene 5 Overview</h3>
-      <p>Captured from Scene 5 Overview. Use this as a supporting source or review stop.</p>
+      <p>Captured from Scene Overviews. Use this as a supplemental review stop, not as the main learning source.</p>
       <a class="external-resource-action" href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-5" target="_blank" rel="noopener noreferrer">Open Resource</a>
     </article>
 <article class="external-resource-card">
       <span class="resource-kicker">External Source</span>
       <h3>Student writing samples from English Language Arts 30-1 provided by Alberta Education</h3>
-      <p>Captured from Lesson 13: Samples of Student Writing. Use this as a supporting source or review stop.</p>
+      <p>Captured from Lesson 13: Samples of Student Writing. Use this as a supplemental review stop, not as the main learning source.</p>
       <a class="external-resource-action" href="https://education.alberta.ca/english-language-arts-10-12/diploma-exam-exemplars/?searchMode=3" target="_blank" rel="noopener noreferrer">Open Resource</a>
     </article></div>
+  </div>
       </div>
     </section>
   </div>
 </main>
 <script>
 const STORAGE_KEY = "canvas-helper:ela30-1-modern-drama:complete";
+const RESPONSE_STORAGE_KEY = "canvas-helper:ela30-1-modern-drama:responses";
 const pages = Array.from(document.querySelectorAll(".course-page"));
-const lessonIds = ["a-streetcar-named-desire-introduction","lesson-1-tennessee-williams","lesson-2-streetcar-overview-and-character","lesson-3-streetcar-character-powerpoint-ppt","lesson-4-a-streetcar-named-desire-questions","lesson-5-a-streetcar-named-desire-analysis","lesson-6-the-streetcar","lesson-7-motifs","lesson-8-symbols","lesson-9-relationships","lesson-10-themes","lesson-11-song-symbolism","scene-1-overview","scene-2-overview","scene-3-overview","scene-4-overview","scene-5-overview","scene-6-overview","scene-7-overview","scene-8-overview","scene-9-overview","scene-10-overview","scene-11-overview","lesson-12-writing-a-critical-and-analytical-response-to-text-s","lesson-13-samples-of-student-writing"];
-const totalLessons = 25;
+const lessonIds = ["a-streetcar-named-desire-introduction","lesson-1-tennessee-williams","lesson-2-streetcar-overview-and-character","lesson-3-streetcar-character-powerpoint-ppt","lesson-4-a-streetcar-named-desire-questions","lesson-5-a-streetcar-named-desire-analysis","lesson-6-the-streetcar","lesson-7-motifs","lesson-8-symbols","lesson-9-relationships","lesson-10-themes","lesson-11-song-symbolism","scene-overviews","lesson-12-writing-a-critical-and-analytical-response-to-text-s","lesson-13-samples-of-student-writing"];
+const totalLessons = 15;
 const staticPages = ["overview","lessons","writing","library","film-room","resources"];
 const lessonsNav = document.querySelector("[data-lessons-nav]");
 const lessonsToggle = document.querySelector("[data-lessons-toggle]");
 const criticalResponseQuestionGroups = [{"id":"textKnowledge","title":"Text Knowledge","description":"Choose one studied play and collect evidence tied to conflict, character, theme, and dramatic technique.","steps":[{"title":"Rule #1: Choosing Your Text","type":"quiz","question":"On the ELA 30-1 diploma, you must focus your Critical/Analytical composition on:","options":[{"id":"a","text":"The reading selection provided in the examination booklet.","correct":false},{"id":"b","text":"A literary text you have studied well in class, such as A Streetcar Named Desire.","correct":true},{"id":"c","text":"A personal experience that relates to the given topic.","correct":false}],"explanation":"Compositions that refer only to the texts provided in the examination or that make no reference to literature studied are assessed as Insufficient."},{"title":"Identifying Dramatic Technique: Music","type":"scenario","question":"You want to discuss Blanche's descent into madness and her haunting past. Which dramatic technique provides the best evidence for this internal conflict?","options":[{"id":"a","text":"The changing colors of the lighting in the Elysian Fields apartment.","correct":false},{"id":"b","text":"The recurring auditory motif of the Varsouviana Polka music.","correct":true}],"explanation":"The Varsouviana Polka specifically triggers whenever Blanche thinks of her husband's death, acting as an auditory representation of her trauma and fracturing mind that only she (and the audience) can hear."},{"title":"Defining the Core Conflict","type":"comparison","question":"Which statement best captures the fundamental conflict of the play for an analytical essay?","options":[{"id":"a","text":"Blanche and Stanley fight because Blanche is a snob who looks down on his apartment, and Stanley doesn't like her interfering with his marriage.","correct":false,"label":"Plot Level"},{"id":"b","text":"The conflict between Blanche and Stanley represents the clash between the fading, illusion-driven aristocracy of the Old South and the brutal, realistic industrialism of the New South.","correct":true,"label":"Analytical Level"}],"explanation":"The second option connects the character-level conflict to the broader thematic meaning of the play."},{"title":"Symbolism: The Paper Lantern","type":"quiz","question":"What does Blanche's paper lantern placed over the naked light bulb primarily symbolize?","options":[{"id":"a","text":"Her desire to make the apartment look more expensive and upper-class.","correct":false},{"id":"b","text":"Her desperate need to soften harsh realities and hide her fading youth behind artificial illusions.","correct":true}],"explanation":"The naked bulb represents the harsh, unforgiving truth (Stanley's domain), while the lantern represents Blanche's fragile manufactured reality."},{"title":"Thematic Motif: Bathing","type":"scenario","question":"Blanche constantly takes long, hot baths throughout the play. If writing about the theme of guilt, how would you analyze this?","options":[{"id":"a","text":"It is a physical manifestation of her psychological desire to cleanse herself of her sordid past in Laurel.","correct":true},{"id":"b","text":"It shows how she uses up all of Stanley and Stella's resources, causing domestic tension in the household.","correct":false}],"explanation":"While it does cause tension (plot), analytically, the bathing is a ritualistic attempt at purification and washing away her guilt."},{"title":"Setting Analysis: Elysian Fields","type":"quiz","question":"What is the literary significance of the street name 'Elysian Fields' where Stella and Stanley live?","options":[{"id":"a","text":"It is an ironic allusion to the Greek afterlife for heroes, contrasting with the grim, industrial reality of the setting.","correct":true},{"id":"b","text":"It is a direct reference to the wealthy plantation that Blanche and Stella lost in Mississippi.","correct":false}],"explanation":"In mythology, Elysian Fields is paradise. Williams uses this ironically; for Blanche, this 'afterlife' (the end of her line) is a brutal, cramped purgatory."},{"title":"Character Motivation: Napoleonic Code","type":"comparison","question":"When Stanley brings up the 'Napoleonic Code', what does it reveal about his character for an essay?","options":[{"id":"a","text":"It reveals his deep knowledge of Louisiana law and his desire to protect his wife's financial interests.","correct":false,"label":"Surface Reading"},{"id":"b","text":"It reveals his primal need for dominance and territorial control, as he views his wife's property - and by extension, his wife - as entirely his own.","correct":true,"label":"Analytical Reading"}],"explanation":"Stanley is not a legal scholar; he uses the Code to assert patriarchal dominance and ensure he isn't being swindled out of what he believes is rightfully his territory."},{"title":"Symbolism: Belle Reve","type":"quiz","question":"The Dubois family plantation is named 'Belle Reve'. Translated, this means 'Beautiful Dream'. Why is this significant?","options":[{"id":"a","text":"It highlights that the plantation was always a magical place that Blanche dreams of returning to.","correct":false},{"id":"b","text":"It emphasizes that the aristocratic lifestyle of the Old South was ultimately an unsustainable illusion - a dream that had to end.","correct":true}],"explanation":"Belle Reve was built on a foundation of debt and slavery. Its loss signifies the inevitable collapse of the 'beautiful dream' of the Old South when faced with modern reality."},{"title":"Identifying Dramatic Technique: Blue Piano","type":"quiz","question":"Unlike the Varsouviana, which only Blanche hears, the 'blue piano' is heard by everyone. What does it represent?","options":[{"id":"a","text":"The vibrant, cyclical, and unapologetic spirit of life in New Orleans.","correct":true},{"id":"b","text":"The tragic death of Allan Grey and Blanche's lingering sorrow.","correct":false}],"explanation":"The blue piano expresses the spirit of the vibrant, raw, New South. It often swells during moments of passion, life, and the cyclical nature of the city."},{"title":"Quote Analysis: The Final Scene","type":"scenario","question":"Blanche's final line is: 'I have always depended on the kindness of strangers.' What does this indicate about her character arc?","options":[{"id":"a","text":"She has finally found a doctor who will treat her kindly and cure her.","correct":false},{"id":"b","text":"She has completely severed ties with reality, retreating into a final, permanent illusion where the doctor is a 'gentleman' rescuing her.","correct":true}],"explanation":"The tragedy is complete. Unable to face the trauma of the rape and her sister's betrayal, her mind entirely fractures, clinging to the illusion of Southern gentility."},{"title":"Allegory: The Streetcars","type":"quiz","question":"Blanche explains her route: 'They told me to take a street-car named Desire, and then transfer to one called Cemeteries... and get off at - Elysian Fields!' This represents:","options":[{"id":"a","text":"The confusing public transit system of 1940s New Orleans.","correct":false},{"id":"b","text":"An allegorical journey showing that unchecked desire inevitably leads to death/destruction, and finally to the afterlife.","correct":true}],"explanation":"Williams explicitly lays out the thematic trajectory of Blanche's life in her very first lines. Her desires led to her social 'death' in Laurel, bringing her to her final resting place."},{"title":"Character Analysis: Stella's Choice","type":"comparison","question":"How should an analytical essay treat Stella's decision to stay with Stanley at the end?","options":[{"id":"a","text":"She chooses Stanley because she hates Blanche for lying to everyone.","correct":false,"label":"Incorrect Motivation"},{"id":"b","text":"She consciously chooses self-deception ('I couldn't believe her story and go on living with Stanley') because her primal bond to him and her new baby outweigh her loyalty to the past.","correct":true,"label":"Analytical Truth"}],"explanation":"Stella represents the bridge between the Old and New South. Her tragedy is that she must sacrifice her sister and embrace an illusion to survive in Stanley's world."},{"title":"The Poker Night Dynamics","type":"scenario","question":"The stage directions describe the men at the poker table wearing 'solid blues, a purple, a red-and-white check, a light green'. What is the purpose of this primary color imagery?","options":[{"id":"a","text":"To contrast the men's raw, vivid, physical masculinity against Blanche's faded, moth-like delicacy.","correct":true},{"id":"b","text":"To show that the men are wealthy enough to afford brightly colored clothing.","correct":false}],"explanation":"Williams calls them the 'raw colors of childhood's spectrum'. It establishes the men as coarse, direct, and overwhelmingly physical."},{"title":"Character Foil: Mitch","type":"quiz","question":"What thematic role does Mitch serve in the play?","options":[{"id":"a","text":"He serves as a symbol of the perfect gentleman who could have saved Blanche if Stanley hadn't interfered.","correct":false},{"id":"b","text":"He represents a temporary illusion of sanctuary for Blanche, but ultimately proves to be bound by the same crude reality as Stanley.","correct":true}],"explanation":"While softer than Stanley, Mitch's brutal reaction to Blanche's past ('You're not clean enough to bring in the house with my mother') proves he is still part of the unforgiving reality she cannot escape."},{"title":"The Climax: Scene 10","type":"comparison","question":"When Stanley says, 'We've had this date with each other from the beginning!' right before the assault, it signifies:","options":[{"id":"a","text":"The inevitable, destructive conquest of the New South's brutal reality over the Old South's fragile illusions.","correct":true,"label":"Thematic Level"},{"id":"b","text":"That Stanley had been planning this specific moment since the day she arrived.","correct":false,"label":"Plot Level"}],"explanation":"Their conflict was fundamentally irreconcilable. Stanley's raw, animalistic realism was always destined to destroy Blanche's delicate, fabricated world."}],"icon":"menu_book"},{"id":"thesisControl","title":"Thesis Control","description":"State how the playwright develops the topic, then keep each body paragraph anchored to that interpretation.","steps":[{"title":"Crafting a Strong Thesis","type":"comparison","question":"If the exam topic is 'the impact of illusions on an individual's reality', which is the strongest thesis statement?","options":[{"id":"a","text":"In A Streetcar Named Desire, Tennessee Williams shows that Blanche relies on illusions because her reality is too hard to deal with, which eventually causes her to go crazy.","correct":false,"label":"Draft Thesis"},{"id":"b","text":"In A Streetcar Named Desire, Williams suggests that when an individual relies on fragile illusions to survive a traumatic past, they inevitably fracture their psychological reality when confronted with brutal, uncompromising truths.","correct":true,"label":"Refined Thesis"}],"explanation":"The second thesis is stronger because it defines the *impact* clearly (fracturing psychological reality) and uses precise, analytical vocabulary."},{"title":"Avoiding Moralizing","type":"quiz","question":"A common mistake is writing a 'moralizing' thesis that judges characters instead of analyzing them. Which of these is an analytical thesis?","options":[{"id":"a","text":"Stanley Kowalski is an evil and abusive man, proving that bad people will always destroy good people.","correct":false},{"id":"b","text":"Stanley Kowalski embodies the ruthless, unapologetic force of modern reality, acting as the primary catalyst for the destruction of Blanche's illusions.","correct":true}],"explanation":"Avoid terms like 'good', 'evil', or 'mean'. Analyze what the character *represents* and their *function* in the playwright's thematic message."},{"title":"Decoding the Prompt","type":"scenario","question":"The diploma prompt asks you to discuss 'the significance of an individual's attempt to escape reality'. What must your thesis address?","options":[{"id":"a","text":"How Blanche tries to escape reality by drinking, lying, and taking baths.","correct":false},{"id":"b","text":"WHY Blanche attempts to escape, and the ultimate CONSEQUENCES (the significance) of that attempt.","correct":true}],"explanation":"Option A just lists plot points. Option B addresses 'significance' - the *meaning* and *result* of the behavior."},{"title":"Topic Sentence Alignment","type":"scenario","question":"Your thesis argues that 'fragile illusions fracture against brutal truths.' Which topic sentence best anchors your first body paragraph to this specific thesis?","options":[{"id":"a","text":"Blanche's meticulous construction of her 'Southern belle' persona serves as a desperate psychological shield against her traumatic history in Laurel.","correct":true},{"id":"b","text":"When Blanche arrives at Elysian Fields, she immediately begins lying about drinking Stanley's liquor.","correct":false}],"explanation":"The first option establishes the 'illusion' and connects it to the 'why' (psychological shield), tying directly back to your thesis. The second is plot summary."},{"title":"Topic Sentence on Setting","type":"comparison","question":"How can you write a topic sentence that uses SETTING to advance your thesis about 'the inescapable nature of reality'?","options":[{"id":"a","text":"The cramped, claustrophobic setting of the Elysian Fields apartment serves as a physical manifestation of the reality Blanche cannot escape.","correct":true,"label":"Analytical"},{"id":"b","text":"Stanley and Stella live in a two-room apartment in New Orleans called Elysian Fields.","correct":false,"label":"Descriptive"}],"explanation":"A topic sentence must make an arguable claim that supports the thesis, not just state a fact about the play."},{"title":"Integrating Technique into Thesis","type":"quiz","question":"Which thesis successfully incorporates dramatic technique into its core argument?","options":[{"id":"a","text":"Williams uses music, lighting, and stage directions to make the play more interesting for the audience.","correct":false},{"id":"b","text":"Through the expressionistic use of the Varsouviana polka and harsh lighting, Williams externalizes Blanche's internal psychological deterioration.","correct":true}],"explanation":"Don't just list techniques; explain *how* the playwright uses them to construct meaning."},{"title":"Spotting the Drift","type":"scenario","question":"Your paragraph is arguing that Stanley destroys Blanche's illusions. Which sentence drifts OFF TOPIC into summary?","options":[{"id":"a","text":"By revealing her sordid past to Mitch, Stanley systematically dismantles the respectable persona she has constructed.","correct":false},{"id":"b","text":"Mitch was going to marry her, and they had gone on several dates, including one where they talked in French.","correct":true}],"explanation":"Sentence B drifts into retelling the story of Mitch and Blanche's dates, abandoning the analysis of Stanley's destruction of her illusion."},{"title":"Aligning Evidence to Thesis","type":"comparison","question":"Thesis: 'Stella actively chooses self-deception to survive.' Which piece of evidence best supports this specific claim?","options":[{"id":"a","text":"Stella says, 'I couldn't believe her story and go on living with Stanley.'","correct":true,"label":"Strong Alignment"},{"id":"b","text":"Stella tells Blanche to stop being so critical of the apartment.","correct":false,"label":"Weak Alignment"}],"explanation":"The quote in Option A explicitly demonstrates Stella making a conscious choice to disbelieve the truth (self-deception) in order to maintain her life (survival)."},{"title":"Paragraph Transitions","type":"quiz","question":"You just finished a paragraph on Blanche's illusions. Your next paragraph is about Stanley breaking them. Which is the best transitional phrase?","options":[{"id":"a","text":"Another thing that happens in the play is Stanley getting mad.","correct":false},{"id":"b","text":"However, Blanche's carefully constructed sanctuary is ultimately unsustainable when confronted by Stanley's relentless realism.","correct":true}],"explanation":"A good transition bridges the concept of the previous paragraph (sanctuary) with the new concept (Stanley's realism)."},{"title":"Maintaining the Thread","type":"quiz","question":"You are concluding a paragraph about Stanley tearing the paper lantern off the lightbulb. How do you tie this back to your thesis about 'brutal truths'?","options":[{"id":"a","text":"This shows how mean Stanley is and how much he wants to hurt Blanche by exposing her age.","correct":false},{"id":"b","text":"Ultimately, Blanche's manufactured sanctuary is destroyed by Stanley's deliberate intrusion of raw truth, physically tearing away the illusion that protected her.","correct":true}],"explanation":"To control your thesis, you must constantly return to the key terms of your argument. Option B brings back 'sanctuary', 'truth', and 'illusion'."},{"title":"Evaluating a 'Desire' Thesis","type":"scenario","question":"If the topic is 'the role of desire', which thesis asserts better control?","options":[{"id":"a","text":"Williams portrays desire as a destructive, uncontrollable force that overpowers rationality and drives individuals to their tragic downfall.","correct":true},{"id":"b","text":"Desire is a major theme because Blanche desires to be young, Stanley desires Stella, and Stella desires Stanley.","correct":false}],"explanation":"Option A makes an overarching, arguable claim about the *nature* of desire. Option B merely lists examples of characters wanting things."},{"title":"Introduction Funnel Strategy","type":"quiz","question":"A strong introduction starts broad and narrows to the thesis. Which sequence is correct?","options":[{"id":"a","text":"Universal hook -> Introduce Play/Author -> Context of characters -> Thesis statement.","correct":true},{"id":"b","text":"Thesis statement -> List of characters -> Summary of Scene 1 -> Universal hook.","correct":false}],"explanation":"The 'funnel' method pulls the reader from a universal human truth down into the specific mechanics of how Tennessee Williams explores that truth in this specific play."},{"title":"Concluding the Essay","type":"comparison","question":"What is the primary goal of the concluding paragraph in a diploma essay?","options":[{"id":"a","text":"To restate the thesis word-for-word and list the three examples used in the body paragraphs.","correct":false,"label":"Middle School Style"},{"id":"b","text":"To synthesize the arguments and explain the broader significance - the 'so what' - of the playwright's message regarding human nature.","correct":true,"label":"Diploma Style"}],"explanation":"A 30-1 conclusion should elevate the argument. Don't just repeat yourself; tell the marker why this interpretation matters to our understanding of the human condition."},{"title":"The 'So What?' Factor","type":"scenario","question":"How do you add the 'So What?' factor to the end of an essay about the destruction of the Old South?","options":[{"id":"a","text":"Therefore, Blanche goes to an asylum and Stanley wins the conflict.","correct":false},{"id":"b","text":"Through Blanche's demise, Williams offers a bleak commentary: in the modern world, brutal pragmatism will inevitably eradicate fragile idealism.","correct":true}],"explanation":"Option B steps back from the plot and explains the universal, thematic message the playwright is trying to convey."},{"title":"Final Thesis Check","type":"quiz","question":"Read your thesis, then read the prompt. If the prompt asks about 'the impact of significant experience,' and your thesis is 'Stanley's poker games show masculinity,' what went wrong?","options":[{"id":"a","text":"Nothing. Poker games are a significant experience for Stanley.","correct":false},{"id":"b","text":"You failed to answer the prompt. You must explicitly address how an experience impacts an individual's perspective or reality.","correct":true}],"explanation":"Thesis control begins with explicitly answering the prompt provided. If you write a great essay on a topic you weren't asked about, the mark will be heavily penalized."}],"icon":"edit_note"},{"id":"evidenceQuality","title":"Evidence Quality","description":"Use precise moments from the drama rather than broad plot summary. Explain how each detail proves the claim.","steps":[{"title":"Analysis vs. Plot Summary","type":"comparison","question":"The guidelines state: 'Do not merely retell the sequence of events...' Which is an example of strong ANALYSIS rather than plot summary?","options":[{"id":"a","text":"Blanche arrives at Elysian Fields and criticizes Stella's apartment. Later, Stanley throws the radio out the window during a poker game.","correct":false,"label":"Example A"},{"id":"b","text":"Williams utilizes the confined setting of the apartment to trap Blanche in a primal reality she cannot escape. Stanley's violent destruction of the radio serves as a physical manifestation of his dominance.","correct":true,"label":"Example B"}],"explanation":"Example B uses the events to prove a point about character conflict and symbolism, whereas Example A just lists what happens chronologically."},{"title":"Quoting vs. Paraphrasing","type":"scenario","question":"You want to emphasize Blanche's desperate reliance on illusion. How should you integrate this evidence?","options":[{"id":"a","text":"Quote it directly. The quotation is emphatically stated and perfectly captures the essence of her character.","correct":true},{"id":"b","text":"Paraphrase it. You should always avoid quoting dialogue in an essay.","correct":false}],"explanation":"The guidelines state you should quote when 'the quotation is so apt or emphatically stated that a paraphrase would not recapture the eloquence of the text.' This famous line is a perfect time to quote!"},{"title":"Fixing 'Dropped Quotes'","type":"comparison","question":"A 'dropped quote' is dumped into a paragraph without context. Which option integrates the evidence correctly?","options":[{"id":"a","text":"Blanche is scared of the light. \"I can't stand a naked light bulb, any more than I can a rude remark or a vulgar action.\" This shows she hides from reality.","correct":false,"label":"Dropped Quote"},{"id":"b","text":"Blanche's aversion to truth is immediately apparent when she insists on covering the bare bulb, equating a \"naked light bulb\" with a \"vulgar action,\" thereby revealing how she equates harsh light with the exposure of her true self.","correct":true,"label":"Integrated Quote"}],"explanation":"Option B flawlessly weaves the exact words into the writer's own sentence, explaining exactly *how* the detail proves the claim."},{"title":"Selecting Evidence: Stanley's Dominance","type":"quiz","question":"You are arguing that Stanley establishes primal dominance over his household immediately in Scene 1. Which detail is the highest quality evidence?","options":[{"id":"a","text":"He says hello to Eunice and goes bowling with Mitch.","correct":false},{"id":"b","text":"He heaves a blood-stained package of meat at Stella, commanding her to catch it.","correct":true}],"explanation":"The meat-throwing is a powerful, symbolic stage action that establishes him as the 'hunter/gatherer' and demands Stella's subservience."},{"title":"Grammatical Embedding","type":"scenario","question":"How do you weave a quote so it grammatically fits your own sentence?","scenarioText":"Quote: \"We've had this date with each other from the beginning!\"","options":[{"id":"a","text":"Stanley reveals that the assault was inevitable, declaring that they have \"had this date with each other from the beginning!\"","correct":true},{"id":"b","text":"Stanley says \"We've had this date with each other from the beginning!\" which means it was inevitable.","correct":false}],"explanation":"Option A blends the quoted phrase seamlessly into the syntax of the student's own sentence, making for a much smoother read."},{"title":"Analyzing the Meat Scene","type":"comparison","question":"Which explanation offers the best analysis of the meat-throwing incident in Scene 1?","options":[{"id":"a","text":"This shows that Stanley went to the butcher to get food for his wife.","correct":false,"label":"Literal"},{"id":"b","text":"This gesture establishes the primal, sexual undercurrent of their marriage, reducing their dynamic to that of a caveman providing for his mate.","correct":true,"label":"Analytical"}],"explanation":"Always push past the literal action to the symbolic meaning. Evidence Quality requires you to explain *why* the playwright included the detail."},{"title":"Paraphrasing a Monologue","type":"quiz","question":"Blanche gives a page-long monologue detailing the deaths at Belle Reve and the loss of the estate. How should you use this in a first draft?","options":[{"id":"a","text":"Embed the entire lengthy quotation so the marker can read her exact words.","correct":false},{"id":"b","text":"Paraphrase the relentless sequence of deaths she describes to illustrate the trauma that fractured her sanity, keeping quotes limited to key phrases like \"the grim reaper had put up his tent on our doorstep.\"","correct":true}],"explanation":"The diploma guidelines warn against embedding lengthy quotations. Summarize the bulk of it, and extract only the most powerful snippets to quote directly."},{"title":"Utilizing Stage Directions","type":"scenario","question":"You want to prove Stanley's animalistic nature using Williams' stage directions. How do you refer to it?","options":[{"id":"a","text":"Williams characterizes Stanley with \"animal joy in his being,\" implicitly comparing him to a primal force.","correct":true},{"id":"b","text":"Stanley says that he has animal joy in his being.","correct":false}],"explanation":"Stanley doesn't say this; it's in the stage directions. Acknowledge that the *playwright* is using these words to characterize him."},{"title":"Evaluating the Analysis","type":"comparison","question":"Read this sentence. Does the analysis actually match the quote provided? \n'Blanche loves wearing nice clothes, as seen when she says, \"I can't stand a naked light bulb.\"'","options":[{"id":"a","text":"Yes, light bulbs are related to getting dressed.","correct":false,"label":"Mismatched"},{"id":"b","text":"No. The quote is about her fear of harsh reality and exposure, not her fashion sense. The evidence does not prove the claim.","correct":true,"label":"Accurate Assessment"}],"explanation":"The biggest error students make is dropping a quote that doesn't actually prove the point they are trying to make in that specific sentence."},{"title":"Using Ellipses","type":"quiz","question":"You want to quote Blanche: 'I don't want realism. I want magic! Yes, yes, magic! I try to give that to people.' You only need the first and last part. How do you format this?","options":[{"id":"a","text":"\"I don't want realism... I try to give that to people.\"","correct":true},{"id":"b","text":"\"I don't want realism I try to give that to people.\"","correct":false}],"explanation":"Use an ellipsis (...) to indicate that you have omitted words from the middle of a continuous quotation, ensuring the grammar still makes sense."},{"title":"Selecting Evidence: Alcoholism","type":"scenario","question":"You want to prove Blanche is an alcoholic who hides her addiction to maintain her 'proper' facade. Best evidence?","options":[{"id":"a","text":"She drinks a beer with Stanley at the poker game.","correct":false},{"id":"b","text":"In Scene 1, she nervously searches for Stanley's whiskey, drinks a half-tumbler, and then carefully washes the glass before anyone sees.","correct":true}],"explanation":"The *action* of washing the glass and hiding the evidence is what proves the *facade*, making it much higher quality evidence than simply stating she drinks."},{"title":"Analyzing the Spilled Coke","type":"quiz","question":"When Blanche spills Coca-Cola on her white dress, she gasps in panic. Analytically, what does this evidence suggest?","options":[{"id":"a","text":"It is a symbolic threat to her constructed purity; the stain represents the inescapable reality of her tarnished past bleeding through her white facade.","correct":true},{"id":"b","text":"It shows she is clumsy because she is drinking too much alcohol.","correct":false}],"explanation":"White represents purity/innocence. The dark stain on the white dress is a visual metaphor for her past sins ruining her illusion of perfection."},{"title":"Specific vs Vague Evidence","type":"comparison","question":"Which of these provides the level of specificity expected on a 30-1 Diploma?","options":[{"id":"a","text":"Mitch gets really mad at Blanche and makes her feel bad about lying.","correct":false,"label":"Vague"},{"id":"b","text":"Mitch brutally tears the paper lantern off the bulb to get a 'good look' at Blanche, physically violating her sanctuary.","correct":true,"label":"Specific"}],"explanation":"Broad summaries ('Mitch gets mad') score poorly. Precise moments from the drama ('tears the paper lantern') score in the Proficient/Excellent range."},{"title":"Deconstructing 'Animal Joy'","type":"quiz","question":"Williams writes that the 'center of [Stanley's] life has been pleasure with women... with the power and pride of a richly feathered male bird among hens.' This evidence proves:","options":[{"id":"a","text":"Stanley is primarily driven by primal instinct, physical gratification, and an unwavering belief in his own patriarchal supremacy.","correct":true},{"id":"b","text":"Stanley likes to keep chickens in his backyard in New Orleans.","correct":false}],"explanation":"The metaphor of the 'feathered male bird' explicitly connects his character to the animal kingdom, stripping away civilized refinement."},{"title":"Explaining the Torn Lantern","type":"scenario","question":"Stanley hands Blanche the torn paper lantern as she is being taken to the asylum. How do you explain the significance of this final piece of evidence?","options":[{"id":"a","text":"He is cleaning up the apartment and returning her property to her before she leaves.","correct":false},{"id":"b","text":"It is a final act of cruelty; handing her the shredded symbol of her illusions signifies his complete, uncompromising victory over her fragile world.","correct":true}],"explanation":"Always connect the final piece of evidence back to the core conflict and the thesis. Stanley's gesture is the ultimate triumph of brutal reality."}],"icon":"tips_and_updates"}];
 const thesisBuilderActivity = {"title":"Thesis Builder","description":"Build a diploma-ready thesis by connecting prompt topic, character, analytical action, and universal significance.","topics":[{"id":"t1","text":"the impact of illusions on reality","label":"Illusion vs. Reality"},{"id":"t2","text":"the conflict between the past and the present","label":"Past vs. Present"},{"id":"t3","text":"the significance of an individual's desire for dominance","label":"Power & Dominance"},{"id":"t4","text":"the psychological impact of unresolved trauma","label":"Unresolved Trauma"},{"id":"t5","text":"the destructive nature of unchecked desire","label":"Role of Desire"},{"id":"t6","text":"the struggle for self-preservation in a hostile environment","label":"Self-Preservation"}],"characters":[{"id":"c1","name":"Blanche DuBois","desc":"The faded Southern belle"},{"id":"c2","name":"Stanley Kowalski","desc":"The embodiment of the New South"},{"id":"c3","name":"Stella Kowalski","desc":"The bridge between two worlds"},{"id":"c4","name":"Harold 'Mitch' Mitchell","desc":"The illusion of sanctuary"}],"actions":{"c1":[{"id":"a1","text":"meticulously constructing a fragile facade of Southern gentility","type":"analytical"},{"id":"a2","text":"lying about her age and drinking Stanley's liquor","type":"trap","trapMsg":"Plot summary trap. Do not just list what the character does. Elevate the language to describe the analytical meaning behind the lies."},{"id":"a3","text":"utilizing calculated deceit as a psychological shield","type":"analytical"},{"id":"a4","text":"taking long hot baths to wash away her past","type":"trap","trapMsg":"Literal trap. While the bathing is symbolic, this phrasing is too literal for a thesis. Focus on the psychological motivation."},{"id":"a5","text":"desperately clinging to aristocratic ideals to avoid confronting her own degradation","type":"analytical"},{"id":"a6","text":"retreating into a world of fabricated magic","type":"analytical"}],"c2":[{"id":"a7","text":"enforcing a ruthless, uncompromising code of primal realism","type":"analytical"},{"id":"a8","text":"systematically stripping away the illusions of those around him","type":"analytical"},{"id":"a9","text":"throwing a radio out the window and yelling at his wife","type":"trap","trapMsg":"Plot summary trap. While this happens in the play, a thesis must focus on what his violence represents thematically."},{"id":"a10","text":"asserting territorial dominance through physical intimidation","type":"analytical"},{"id":"a11","text":"acting like an ape and eating with his fingers","type":"trap","trapMsg":"Colloquial trap. This is too casual. Use Williams' text to frame him analytically, such as embodying primal, animalistic forces."},{"id":"a12","text":"weaponizing truth to destroy fragile idealism","type":"analytical"}],"c3":[{"id":"a13","text":"crying but choosing to stay with Stanley anyway","type":"trap","trapMsg":"Colloquial trap. This is too casual and plot-focused. Frame her choice using analytical, ELA 30-1 level vocabulary."},{"id":"a14","text":"consciously embracing self-deception to preserve her sanctuary","type":"analytical"},{"id":"a15","text":"sacrificing her aristocratic loyalty for physical security","type":"analytical"},{"id":"a16","text":"ignoring Blanche's warnings because she likes Stanley","type":"trap","trapMsg":"Vague trap. 'Likes Stanley' is too weak. Analyze the intense, primal bond that dictates her decisions."},{"id":"a17","text":"mediating the irreconcilable differences between two opposing worldviews","type":"analytical"},{"id":"a18","text":"surrendering moral clarity for the sake of survival","type":"analytical"}],"c4":[{"id":"a19","text":"offering a temporary, conditional sanctuary based on false pretenses","type":"analytical"},{"id":"a20","text":"tearing the paper lantern off the lightbulb to look at her","type":"trap","trapMsg":"Plot summary trap. Do not focus on the literal lantern in your thesis. Focus on what tearing it represents: violating sanctuary and exposing truth."},{"id":"a21","text":"exposing his own underlying brutality when confronted with imperfect truth","type":"analytical"},{"id":"a22","text":"rejecting Blanche because she was not clean enough for his mother","type":"trap","trapMsg":"Literal plot trap. Elevate this to analyze his hypocrisy or conformity to the New South's double standards."},{"id":"a23","text":"conforming to the patriarchal expectations of his environment","type":"analytical"}]},"consequences":{"c1":[{"id":"cq1","text":"will inevitably fracture their own psyche when confronted with brutal truths.","type":"analytical"},{"id":"cq2","text":"ensures their ultimate destruction in a world that has no room for delicate idealism.","type":"analytical"},{"id":"cq3","text":"which causes her to be sent away to a mental hospital.","type":"trap","trapMsg":"Plot summary trap. The end of a thesis should state the thematic message or universal truth, not just how the story ends."},{"id":"cq4","text":"proves that lying never works out in the end.","type":"trap","trapMsg":"Moralizing trap. Avoid simplistic, judgmental cliches. Analyze the tragic significance of the character's failure."},{"id":"cq5","text":"highlights the tragic futility of escaping reality through imagination.","type":"analytical"}],"c2":[{"id":"cq6","text":"demonstrates the inevitable, violent triumph of the New South over the Old.","type":"analytical"},{"id":"cq7","text":"proving that he is the villain of the story and a terrible husband.","type":"trap","trapMsg":"Moralizing trap. Avoid judging characters as good or evil. Analyze their symbolic function in the playwright's message."},{"id":"cq8","text":"exposes the terrifying vulnerability of those unable to adapt to modern brutality.","type":"analytical"},{"id":"cq9","text":"shows that men were very sexist in the 1940s.","type":"trap","trapMsg":"Generalization trap. This is a broad historical statement, not analysis of the text's specific thematic message."},{"id":"cq10","text":"solidifies the absolute supremacy of pragmatic realism over fragile idealism.","type":"analytical"}],"c3":[{"id":"cq11","text":"highlights the tragic moral compromises required to survive in a patriarchal society.","type":"analytical"},{"id":"cq12","text":"showing she is a bad sister who does not care about family.","type":"trap","trapMsg":"Moralizing trap. Do not judge Stella as bad. Analyze the significance and cost of the choice she is forced to make."},{"id":"cq13","text":"illustrates how the bridge between the Old and New South requires the abandonment of truth.","type":"analytical"},{"id":"cq14","text":"meaning she has to live with a guilty conscience forever.","type":"trap","trapMsg":"Speculation trap. Do not guess what happens after the curtain falls. Stick to the universal truth Williams reveals in the text."},{"id":"cq15","text":"proves that primal, physical bonds often overpower intellectual or familial loyalties.","type":"analytical"}],"c4":[{"id":"cq16","text":"reveals the inescapable pervasiveness of the New South's uncompromising cruelty.","type":"analytical"},{"id":"cq17","text":"proves that even seemingly gentle individuals are corrupted by their environment.","type":"analytical"},{"id":"cq18","text":"making him just as bad as Stanley in the end.","type":"trap","trapMsg":"Colloquial trap. 'Just as bad' is too informal. Describe how he adopts Stanley's ideological stance instead."},{"id":"cq19","text":"demonstrates how the demand for perfection destroys the possibility of genuine connection.","type":"analytical"},{"id":"cq20","text":"showing he never really loved her anyway.","type":"trap","trapMsg":"Emotional speculation trap. Avoid analyzing characters like real people with hidden feelings. Analyze their literary purpose."}]}};
+const evidenceCollectorActivity = {"title":"Evidence Collector","description":"Build a precise analytical evidence sentence by connecting literary device, textual evidence, analytical verb, and thematic function.","categories":["The Basics","Interpreting Characters","Interpreting Plot","Interpreting Word Choice & Voice","Layers of Meaning"],"devices":[{"id":"d1","category":"The Basics","text":"Imagery","desc":"Vivid descriptions evoking sense-impressions"},{"id":"d2","category":"The Basics","text":"Symbolism","desc":"Objects representing abstract concepts"},{"id":"d3","category":"The Basics","text":"Tone","desc":"Word-choice and style conveying a specific attitude"},{"id":"d4","category":"Interpreting Characters","text":"Protagonist / Anti-Hero","desc":"The primary figure, humanized by deep flaws"},{"id":"d5","category":"Interpreting Characters","text":"Antagonist","desc":"The figure actively opposing the protagonist"},{"id":"d6","category":"Interpreting Characters","text":"Archetype","desc":"A resonant figure of mythic or historical importance"},{"id":"d7","category":"Interpreting Plot","text":"Exposition","desc":"Introduction of background, setting, and conflict"},{"id":"d8","category":"Interpreting Plot","text":"Climax","desc":"The height of conflict where destinies are unclear"},{"id":"d9","category":"Interpreting Word Choice & Voice","text":"Diction","desc":"Specific language and phrasing used by a character"},{"id":"d10","category":"Interpreting Word Choice & Voice","text":"Irony","desc":"A situation contradicting expectations or truths"},{"id":"d11","category":"Layers of Meaning","text":"Allegory","desc":"Tangible elements representing broader historical/social concepts"},{"id":"d12","category":"Layers of Meaning","text":"Metaphor / Simile","desc":"Comparing elements to identify profound similarities"}],"evidence":{"d1":[{"id":"e1","text":"the vibrant description of the poker players wearing 'solid blues, a purple, a red-and-white check' to evoke raw, primary masculinity","type":"analytical"},{"id":"e2","text":"the 'lurid reflections' and 'grotesque and menacing' shadows projected on the walls","type":"analytical"},{"id":"e3","text":"the guys wearing bright colored shirts during the poker game","type":"trap","trapMsg":"Imagery trap. Do not just summarize what they wear. Use imagery to explain the sense-impression and its significance."}],"d2":[{"id":"e4","text":"the fragile paper lantern purchased to artificially filter out the harsh glare of the naked bulb","type":"analytical"},{"id":"e5","text":"the blood-stained package of meat heaved at Stella in the opening scene","type":"analytical"},{"id":"e6","text":"Blanche putting a lantern on the light to hide her age","type":"trap","trapMsg":"Literal trap. Elevate the bulb as truth and the lantern as illusion."}],"d3":[{"id":"e7","text":"the melancholic, fatalistic notes of the 'blue piano' that establish a mood of inevitable tragedy","type":"analytical"},{"id":"e8","text":"the claustrophobic, oppressive stage directions describing the sweltering New Orleans heat","type":"analytical"},{"id":"e9","text":"the music playing in the background when Blanche is sad","type":"trap","trapMsg":"Vague trap. Be specific about the kind of music and the attitude it establishes."}],"d4":[{"id":"e10","text":"the portrayal of Blanche as a deeply flawed heroine whose desperate need for 'magic' over realism humanizes her trauma","type":"analytical"},{"id":"e11","text":"Blanche's meticulous construction of a 'Southern Belle' facade to mask her psychological deterioration","type":"analytical"},{"id":"e12","text":"Blanche being the main character who drinks too much and lies to everyone","type":"trap","trapMsg":"Colloquial trap. Frame her flaws as the defining traits of a tragic anti-hero."}],"d5":[{"id":"e13","text":"Stanley Kowalski's ruthless, unyielding enforcement of his own territorial dominance","type":"analytical"},{"id":"e14","text":"the systematic way Stanley strips away Blanche's constructed sanctuary through physical intimidation","type":"analytical"},{"id":"e15","text":"Stanley acting like the villain by ruining Blanche's life","type":"trap","trapMsg":"Moralizing trap. Analyze his function as an antagonist representing a specific opposing ideology."}],"d6":[{"id":"e16","text":"the deployment of Stanley as the quintessential 'alpha male' archetype of the industrialized New South","type":"analytical"},{"id":"e17","text":"Blanche embodying the decaying, obsolete archetype of the aristocratic Old South","type":"analytical"},{"id":"e18","text":"Stanley acting like a caveman throughout the play","type":"trap","trapMsg":"Colloquial trap. Use Williams' text to frame him as embodying primal, animalistic archetypes."}],"d7":[{"id":"e19","text":"the opening stage directions establishing the cramped, diverse, and unapologetic atmosphere of Elysian Fields","type":"analytical"},{"id":"e20","text":"the immediate introduction of the ideological clash between Blanche's white attire and the raw, physical environment","type":"analytical"},{"id":"e21","text":"the first scene where Blanche arrives at Stella's house to visit","type":"trap","trapMsg":"Plot summary trap. Focus on what is established for the audience, not only what happens."}],"d8":[{"id":"e22","text":"the terrifying culmination of tension in Scene 10, where inevitable physical violence shatters Blanche's psychological defenses","type":"analytical"},{"id":"e23","text":"when Stanley assaults Blanche while Stella is at the hospital","type":"trap","trapMsg":"Literal trap. Focus on the destruction of illusion by brutal reality."}],"d9":[{"id":"e24","text":"the stark contrast between Blanche's elevated, poetic euphemisms and Stanley's blunt, coarse slang","type":"analytical"},{"id":"e25","text":"Blanche's reliance on French phrasing to artificially elevate her social standing in a working-class environment","type":"analytical"},{"id":"e26","text":"the way the characters talk to each other differently based on where they grew up","type":"trap","trapMsg":"Vague trap. Diction requires specific word choices and a direct comparison of styles."}],"d10":[{"id":"e27","text":"Blanche's obsessive, ritualistic bathing to 'cleanse' herself of her sordid past within the morally ambiguous space of the apartment","type":"analytical"},{"id":"e28","text":"the audience knowing the brutal truth of the Flamingo Hotel while Blanche desperately performs her routine of pristine virtue","type":"analytical"},{"id":"e29","text":"Stella not knowing that Blanche lost Belle Reve until she told her","type":"trap","trapMsg":"Plot detail trap. Irony requires a subversion of truth or expectation that the audience understands."}],"d11":[{"id":"e30","text":"Blanche's fatalistic transit route, transferring from the 'Desire' streetcar to 'Cemeteries'","type":"analytical"},{"id":"e31","text":"the broader representation of the death of the agrarian South at the hands of the industrial working class","type":"analytical"},{"id":"e32","text":"the fact that they live in a poor neighborhood in New Orleans","type":"trap","trapMsg":"Literal trap. Analyze the allegorical meaning of the setting rather than the geographic fact."}],"d12":[{"id":"e33","text":"Blanche's desperate characterization of Stanley as a 'survivor of the Stone Age' bearing raw meat home","type":"analytical"},{"id":"e34","text":"the comparison of Blanche to a fragile, fluttering moth drawn dangerously close to a destructive light","type":"analytical"},{"id":"e35","text":"Blanche saying she feels like a trapped animal","type":"trap","trapMsg":"Dropped quote trap. Explain what the comparison reveals about her psychological state."}]},"verbs":[{"id":"v1","text":"to externalize","desc":"To make an internal feeling visible"},{"id":"v2","text":"to physicalize","desc":"To give physical form to an idea"},{"id":"v3","text":"to underscore","desc":"To emphasize a specific point"},{"id":"v4","text":"to subvert","desc":"To undermine or twist expectations"},{"id":"v5","text":"to manifest","desc":"To display or show plainly"},{"id":"v6","text":"to accentuate","desc":"To make more noticeable"},{"id":"v7","text":"to satirize","desc":"To mock or comment on societal norms"}],"functions":[{"id":"f1","text":"the rapid psychological fragmentation and descent into madness of the protagonist.","type":"analytical"},{"id":"f2","text":"the brutal, uncompromising reality of the New South overpowering the fragile illusions of the Old.","type":"analytical"},{"id":"f3","text":"the desperate lengths an individual will go to in order to maintain a fabricated sanctuary.","type":"analytical"},{"id":"f4","text":"the inescapable, haunting nature of unresolved trauma and grief.","type":"analytical"},{"id":"f5","text":"the primal, territorial dominance that dictates survival in a modern, industrialized society.","type":"analytical"},{"id":"f6","text":"the tragic cost of self-deception in a fundamentally hostile environment.","type":"analytical"},{"id":"f7","text":"that Stanley is an evil abuser who ruins everything for his wife and sister-in-law.","type":"trap","trapMsg":"Moralizing trap. Analyze symbolic function and thematic representation instead of judging characters as evil."},{"id":"f8","text":"that Blanche is just crazy and needs a doctor.","type":"trap","trapMsg":"Dismissive trap. Elevate your analysis of her mental state instead of reducing the tragedy to a simplistic diagnosis."}]};
+const paragraphArchitectActivity = {"title":"Paragraph Architect","description":"Build a PETAL body paragraph by choosing a point, evidence, technique, analysis, and link that stay analytical.","steps":[{"id":"p","label":"Point","description":"Topic sentence. Address the character's goal, conflict, or result."},{"id":"e","label":"Evidence","description":"Integrate a precise quotation or vivid moment from the text."},{"id":"t","label":"Technique","description":"Identify the specific literary device or dramatic technique."},{"id":"a","label":"Analyze","description":"Explain how the evidence and technique prove the point."},{"id":"l","label":"Link","description":"Connect the analysis back to the thesis and universal theme."}],"scenarios":[{"id":"s1","title":"Blanche's Illusion","theme":"Illusion vs. Reality","steps":{"p":[{"id":"p1","text":"Driven by a desperate goal to secure sanctuary, Blanche constructs a fragile facade of Southern purity that inevitably clashes with the harsh reality of her new environment.","type":"analytical"},{"id":"p2","text":"Blanche takes a streetcar to Stella's house to hide from her past.","type":"trap","trapMsg":"Plot summary trap. A topic sentence must make an analytical claim about the character's goal, conflict, or result."}],"e":[{"id":"e1","text":"She takes a lot of baths in the apartment.","type":"trap","trapMsg":"Vague evidence trap. Use a precise, vivid moment or direct quotation to anchor your analysis."},{"id":"e2","text":"She purchases a cheap paper lantern to cover the naked light bulb in the Kowalski bedroom.","type":"analytical"}],"t":[{"id":"t1","text":"Metaphor","type":"trap","trapMsg":"Incorrect technique. The lantern is a physical stage object, not a figurative comparison in dialogue."},{"id":"t2","text":"Symbolic Prop / Thematic Motif","type":"analytical"}],"a":[{"id":"a1","text":"By physically filtering the harsh, exposing glare of the bulb, the lantern acts as a tangible manifestation of her psychological need to soften reality and hide her fading youth.","type":"analytical"},{"id":"a2","text":"This shows she does not like bright lights because they hurt her eyes and make her look old.","type":"trap","trapMsg":"Literal trap. Analyze how the technique proves the point about her psychological facade."}],"l":[{"id":"l1","text":"Ultimately, this desperate reliance on artificial magic highlights the tragic vulnerability of individuals who use illusion as a shield against an unforgiving world.","type":"analytical"},{"id":"l2","text":"This leads to the result of her going crazy and being taken away.","type":"trap","trapMsg":"Plot summary trap. The link must connect back to the universal thesis, not just tell how the story ends."}]}},{"id":"s2","title":"Stanley's Dominance","theme":"Power & Primal Reality","steps":{"p":[{"id":"p1","text":"Stanley gets mad at Blanche for staying in his apartment and ruining his life.","type":"trap","trapMsg":"Colloquial trap. State the underlying conflict of values using elevated vocabulary."},{"id":"p2","text":"Stanley's goal of maintaining absolute patriarchal dominance creates an immediate, insurmountable conflict with Blanche's aristocratic presence.","type":"analytical"}],"e":[{"id":"e1","text":"He heaves a blood-stained package of raw meat at Stella in the opening scene.","type":"analytical"},{"id":"e2","text":"He plays poker with his friends in the kitchen.","type":"trap","trapMsg":"Weak evidence trap. The poker game needs more explanation than a direct, violently symbolic action."}],"t":[{"id":"t1","text":"Zoomorphic Imagery / Symbolic Stage Action","type":"analytical"},{"id":"t2","text":"Irony","type":"trap","trapMsg":"Incorrect technique. This action is a direct display of primal character, not irony."}],"a":[{"id":"a1","text":"This proves he went to the butcher to get food for dinner.","type":"trap","trapMsg":"Literal trap. Analyze the symbolic meaning of the playwright's stage action."},{"id":"a2","text":"This primal gesture immediately establishes him as a brutal hunter-gatherer, reducing their domestic dynamic to one of coarse, animalistic subservience.","type":"analytical"}],"l":[{"id":"l1","text":"Therefore, Stanley is the villain of the story.","type":"trap","trapMsg":"Moralizing trap. Analyze what Stanley represents thematically rather than judging him."},{"id":"l2","text":"Consequently, Williams establishes that in the modern, industrialized New South, raw physical power will violently overcome delicate social refinement.","type":"analytical"}]}},{"id":"s3","title":"Stella's Choice","theme":"Self-Preservation","steps":{"p":[{"id":"p1","text":"Caught between two opposing worlds, Stella's realization that she cannot survive without Stanley forces her to abandon objective truth.","type":"analytical"},{"id":"p2","text":"Stella has a conflict because she loves Stanley but also loves her sister Blanche.","type":"trap","trapMsg":"Vague trap. Use elevated vocabulary such as opposing worlds and objective truth."}],"e":[{"id":"e1","text":"She tells Eunice, 'I couldn't believe her story and go on living with Stanley.'","type":"analytical"},{"id":"e2","text":"She goes back to Stanley at the end of the play.","type":"trap","trapMsg":"Plot summary trap. Choose a specific piece of dialogue or stage direction."}],"t":[{"id":"t1","text":"Foreshadowing","type":"trap","trapMsg":"Incorrect technique. This occurs near the end and resolves her conflict rather than foreshadowing it."},{"id":"t2","text":"Explicit Dialogue / Internal Conflict","type":"analytical"}],"a":[{"id":"a1","text":"Her conscious choice to disbelieve Blanche reveals that her primal, physical bond to her husband supersedes her aristocratic loyalty to her sister.","type":"analytical"},{"id":"a2","text":"This means she genuinely thinks Blanche is a liar.","type":"trap","trapMsg":"Literal trap. She likely knows Blanche is telling the truth; analyze the psychology of choosing disbelief."}],"l":[{"id":"l1","text":"Through Stella's tragic compromise, the play suggests that self-preservation in a hostile environment often demands devastating moral sacrifices.","type":"analytical"},{"id":"l2","text":"This shows Stella is a terrible sister.","type":"trap","trapMsg":"Moralizing trap. Analyze the thematic result of the choice rather than judging her."}]}},{"id":"s4","title":"Mitch's Conformity","theme":"Toxic Social Expectations","steps":{"p":[{"id":"p1","text":"Seeking a socially acceptable sanctuary, Mitch initially presents a facade of gentility that eventually collapses under the pressure of patriarchal conformity.","type":"analytical"},{"id":"p2","text":"Mitch wants to marry Blanche but then finds out she lied about her past.","type":"trap","trapMsg":"Plot summary trap. Focus on internal conflict or social conformity, not just what happens."}],"e":[{"id":"e1","text":"He brutally tears the paper lantern off the lightbulb to get a 'good look' at Blanche in the light.","type":"analytical"},{"id":"e2","text":"He tells her she is not clean enough to bring in the house with his mother.","type":"trap","trapMsg":"Weak evidence trap. The physical action of tearing the lantern offers deeper symbolic analysis."}],"t":[{"id":"t1","text":"Symbolic Stage Action / Character Foil","type":"analytical"},{"id":"t2","text":"Personification","type":"trap","trapMsg":"Incorrect technique. He is not giving human traits to a non-human object."}],"a":[{"id":"a1","text":"By physically ripping away the protective filter, Mitch adopts Stanley's ruthless realism, weaponizing the harsh light to expose and shame Blanche.","type":"analytical"},{"id":"a2","text":"This shows he finally realizes she is old and has been lying about her age.","type":"trap","trapMsg":"Literal trap. Analyze the power dynamic and his adoption of Stanley's cruel methods."}],"l":[{"id":"l1","text":"This just proves that Mitch is actually a jerk just like Stanley.","type":"trap","trapMsg":"Colloquial and moralizing trap. Focus on the universal theme rather than judging the character."},{"id":"l2","text":"Ultimately, his betrayal underscores how societal pressures to conform to aggressive masculine standards can eradicate compassion and genuine connection.","type":"analytical"}]}},{"id":"s5","title":"Blanche's Grief","theme":"Unresolved Trauma","steps":{"p":[{"id":"p1","text":"Paralyzed by the guilt of her husband's suicide, Blanche is unable to escape the psychological haunting of her past, causing her to retreat into madness.","type":"analytical"},{"id":"p2","text":"Blanche feels bad because her husband Allan died when they were very young.","type":"trap","trapMsg":"Colloquial trap. Use terms such as paralyzed by guilt or unresolved trauma."}],"e":[{"id":"e1","text":"She talks about Allan to Mitch while they are on their date.","type":"trap","trapMsg":"Vague trap. Use a specific dramatic technique or vivid moment."},{"id":"e2","text":"The Varsouviana polka music plays loudly in her mind, stopping only when she hears the gunshot.","type":"analytical"}],"t":[{"id":"t1","text":"Auditory Motif / Expressionism","type":"analytical"},{"id":"t2","text":"Allegory","type":"trap","trapMsg":"Incorrect technique. The music is an auditory motif, not an allegory."}],"a":[{"id":"a1","text":"The relentless, cyclical melody externalizes her internal trauma, trapping her mind in a continuous loop of her greatest failure until she finds artificial release.","type":"analytical"},{"id":"a2","text":"This shows that she really likes polka music but it reminds her of a sad time.","type":"trap","trapMsg":"Literal trap. The music is an expressionistic tool showing her fracturing mind."}],"l":[{"id":"l1","text":"Consequently, Williams illustrates that unresolved grief, when confronted by an unforgiving reality, will inevitably fracture an individual's sanity.","type":"analytical"},{"id":"l2","text":"This shows that you should always deal with your problems or you will go crazy.","type":"trap","trapMsg":"Moralizing trap. State the author's universal truth objectively."}]}},{"id":"s6","title":"Destructive Passion","theme":"Unchecked Desire","steps":{"p":[{"id":"p1","text":"Driven by overwhelming, animalistic desire, Stella and Stanley's relationship represents a destructive, intoxicating passion that blinds individuals to moral atrocities.","type":"analytical"},{"id":"p2","text":"Stanley and Stella fight a lot but they always make up because they love each other.","type":"trap","trapMsg":"Colloquial trap. This ignores the dark, destructive undercurrent of the relationship."}],"e":[{"id":"e1","text":"After Stanley hits Stella, they reconcile with 'low, animal moans' as she is carried into the dark flat.","type":"analytical"},{"id":"e2","text":"Stella goes upstairs to Eunice's apartment but then comes back down.","type":"trap","trapMsg":"Plot summary trap. Select evidence with strong literary or symbolic weight."}],"t":[{"id":"t1","text":"Simile","type":"trap","trapMsg":"Incorrect technique. The stage directions use zoomorphic imagery rather than a like-or-as simile."},{"id":"t2","text":"Zoomorphic Imagery / Stage Directions","type":"analytical"}],"a":[{"id":"a1","text":"This means that they act like animals sometimes when they are mad.","type":"trap","trapMsg":"Vague analysis trap. Explain why Williams reduces them to animalistic behavior."},{"id":"a2","text":"The reduction of their reconciliation to guttural sounds physicalizes their bond as purely instinctual, stripped of any rational or ethical consideration.","type":"analytical"}],"l":[{"id":"l1","text":"Through this primal dynamic, the play warns that unchecked physical desire often requires the sacrifice of moral clarity and social refinement.","type":"analytical"},{"id":"l2","text":"This proves that Desire is the main theme of the play.","type":"trap","trapMsg":"Circular logic trap. Explain what the play says about desire, not just that desire exists."}]}}]};
 const criticalResponseRoot = document.querySelector("[data-critical-response-activity]");
 const criticalResponseState = {
   activeId: "textKnowledge",
@@ -1740,7 +1754,29 @@ const criticalResponseState = {
   },
   thesisFeedback: null,
   thesisText: "",
-  thesisCopied: false
+  thesisCopied: false,
+  evidenceStep: 1,
+  evidenceSelections: {
+    device: null,
+    evidence: null,
+    verb: null,
+    function: null
+  },
+  evidenceFeedback: null,
+  evidenceText: "",
+  evidenceCopied: false,
+  paragraphMode: "learn",
+  paragraphScenarioId: null,
+  paragraphStep: 0,
+  paragraphSelections: {
+    p: null,
+    e: null,
+    t: null,
+    a: null,
+    l: null
+  },
+  paragraphFeedback: null,
+  paragraphCopied: false
 };
 
 function readComplete() {
@@ -1754,6 +1790,42 @@ function readComplete() {
 function writeComplete(values) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(Array.from(values)));
 }
+
+function readResponses() {
+  try {
+    return JSON.parse(localStorage.getItem(RESPONSE_STORAGE_KEY) || "{}");
+  } catch {
+    return {};
+  }
+}
+
+function writeResponses(values) {
+  localStorage.setItem(RESPONSE_STORAGE_KEY, JSON.stringify(values));
+}
+
+function restoreResponses() {
+  const responses = readResponses();
+  document.querySelectorAll("textarea[data-response-id]").forEach((textarea) => {
+    const id = textarea.getAttribute("data-response-id");
+    if (id && Object.prototype.hasOwnProperty.call(responses, id)) {
+      textarea.value = responses[id];
+    }
+  });
+}
+
+document.addEventListener("input", (event) => {
+  const target = event.target;
+  if (!(target instanceof HTMLTextAreaElement) || !target.matches("textarea[data-response-id]")) {
+    return;
+  }
+  const id = target.getAttribute("data-response-id");
+  if (!id) {
+    return;
+  }
+  const responses = readResponses();
+  responses[id] = target.value;
+  writeResponses(responses);
+});
 
 function updateComplete() {
   const complete = readComplete();
@@ -1819,7 +1891,7 @@ function currentQuestionGroup() {
 }
 
 function setCriticalResponseMode(id) {
-  criticalResponseState.activeId = id === "thesisControl" ? "thesisControl" : "textKnowledge";
+  criticalResponseState.activeId = id === "thesisControl" || id === "evidenceCollector" || id === "paragraphArchitect" ? id : "textKnowledge";
   criticalResponseState.selectedOptionId = null;
   renderCriticalResponseActivity();
 }
@@ -1871,6 +1943,14 @@ function renderCriticalResponseActivity() {
   });
   if (criticalResponseState.activeId === "thesisControl") {
     renderThesisBuilderActivity();
+    return;
+  }
+  if (criticalResponseState.activeId === "evidenceCollector") {
+    renderEvidenceCollectorActivity();
+    return;
+  }
+  if (criticalResponseState.activeId === "paragraphArchitect") {
+    renderParagraphArchitectActivity();
     return;
   }
   renderTextKnowledgeQuestionBank();
@@ -2006,6 +2086,295 @@ function renderThesisPreview() {
   return '<div class="thesis-preview">In his play A Streetcar Named Desire, Tennessee Williams explores <strong>' + escapeRuntimeHtml(thesisSelectionValue("topic", "[Topic]")) + '</strong> through the character of <strong>' + escapeRuntimeHtml(thesisSelectionValue("character", "[Character]")) + '</strong>. He suggests that by <strong>' + escapeRuntimeHtml(thesisSelectionValue("action", "[Action]")) + '</strong>, an individual <strong>' + escapeRuntimeHtml(thesisSelectionValue("consequence", "[Significance]")) + '</strong></div>';
 }
 
+function evidenceSelectionValue(key, fallback) {
+  const item = criticalResponseState.evidenceSelections[key];
+  return item?.text || fallback;
+}
+
+function generateEvidenceText() {
+  const selections = criticalResponseState.evidenceSelections;
+  if (!selections.device || !selections.evidence || !selections.verb || !selections.function) {
+    return "";
+  }
+  return "Through his use of " + selections.device.text.toLowerCase() + ", specifically " + selections.evidence.text + ", Williams attempts " + selections.verb.text + " " + selections.function.text;
+}
+
+function resetEvidenceCollector() {
+  criticalResponseState.evidenceStep = 1;
+  criticalResponseState.evidenceSelections = {
+    device: null,
+    evidence: null,
+    verb: null,
+    function: null
+  };
+  criticalResponseState.evidenceFeedback = null;
+  criticalResponseState.evidenceText = "";
+  criticalResponseState.evidenceCopied = false;
+  renderCriticalResponseActivity();
+}
+
+function renderEvidenceCollectorActivity() {
+  const heading = criticalResponseRoot.querySelector("[data-workshop-heading]");
+  const description = criticalResponseRoot.querySelector("[data-workshop-description]");
+  const stepCount = criticalResponseRoot.querySelector("[data-workshop-step-count]");
+  const score = criticalResponseRoot.querySelector("[data-workshop-score]");
+  const progressFill = criticalResponseRoot.querySelector("[data-workshop-progress-fill]");
+  const panel = criticalResponseRoot.querySelector("[data-workshop-panel]");
+  const groupTabs = criticalResponseRoot.querySelector("[data-question-group-tabs]");
+  const step = criticalResponseState.evidenceStep;
+  const progressPercent = step >= 5 ? 100 : Math.round(((step - 1) / 4) * 100);
+  if (groupTabs) groupTabs.hidden = true;
+  if (heading) heading.textContent = "Evidence Collector: A Streetcar Named Desire";
+  if (description) description.textContent = evidenceCollectorActivity.description;
+  if (stepCount) stepCount.textContent = step >= 5 ? "Evidence sentence ready" : "Step " + step + " of 4";
+  if (score) score.textContent = "Collector";
+  if (progressFill) progressFill.style.width = progressPercent + "%";
+  if (!panel) return;
+  panel.innerHTML = '<div class="evidence-collector" data-evidence-collector>' + renderEvidenceStepper() + renderEvidenceFeedback() + renderEvidenceStepContent() + renderEvidencePreview() + '</div>';
+}
+
+function renderEvidenceStepper() {
+  const labels = ["Tool", "Evidence", "Action", "Function"];
+  return '<div class="thesis-stepper evidence-stepper">' + labels.map((label, index) => {
+    const number = index + 1;
+    const state = criticalResponseState.evidenceStep === number ? " active" : criticalResponseState.evidenceStep > number ? " complete" : "";
+    const marker = criticalResponseState.evidenceStep > number
+      ? '<span class="thesis-step-marker" aria-label="Completed"><span class="thesis-step-check" aria-hidden="true"></span></span>'
+      : '<span class="thesis-step-marker">' + String(number) + '</span>';
+    return '<div class="thesis-step' + state + '">' + marker + '<span>' + escapeRuntimeHtml(label) + '</span></div>';
+  }).join("") + '</div>';
+}
+
+function renderEvidenceFeedback() {
+  if (!criticalResponseState.evidenceFeedback) return "";
+  return '<div class="thesis-feedback"><span class="material-symbols-outlined" aria-hidden="true">warning</span><div><strong>Watch out</strong><span>' + escapeRuntimeHtml(criticalResponseState.evidenceFeedback) + '</span></div></div>';
+}
+
+function renderEvidenceStepContent() {
+  const step = criticalResponseState.evidenceStep;
+  if (step === 1) {
+    const sections = evidenceCollectorActivity.categories.map((category) => {
+      const choices = evidenceCollectorActivity.devices
+        .filter((device) => device.category === category)
+        .map((device) => renderEvidenceChoice("device", device))
+        .join("");
+      return '<section class="evidence-category"><h5>' + escapeRuntimeHtml(category) + '</h5><div class="thesis-choice-grid three-column">' + choices + '</div></section>';
+    }).join("");
+    return '<div><div class="critical-response-step-header"><h4 class="critical-response-step-title">Step 1: Select a Literary Tool</h4><span class="critical-response-step-index">Evidence Collector</span></div><p class="critical-response-question">Choose the analytical lens you want to use for the evidence sentence.</p><div class="evidence-category-stack">' + sections + '</div></div>';
+  }
+  if (step === 2) {
+    const deviceId = criticalResponseState.evidenceSelections.device?.id;
+    const choices = (evidenceCollectorActivity.evidence[deviceId] || []).map((item) => renderEvidenceChoice("evidence", item)).join("");
+    return '<div><div class="critical-response-step-header"><h4 class="critical-response-step-title">Step 2: Collect the Evidence</h4><span class="critical-response-step-index">' + escapeRuntimeHtml(evidenceSelectionValue("device", "Evidence")) + '</span></div><p class="critical-response-question">Select the strongest specific example for this literary tool.</p><div class="critical-response-options two-column">' + choices + '</div></div>';
+  }
+  if (step === 3) {
+    const choices = evidenceCollectorActivity.verbs.map((verb) => renderEvidenceChoice("verb", verb)).join("");
+    return '<div><div class="critical-response-step-header"><h4 class="critical-response-step-title">Step 3: Choose an Analytical Verb</h4><span class="critical-response-step-index">Evidence Collector</span></div><p class="critical-response-question">Choose the action Williams performs through this device.</p><div class="thesis-choice-grid three-column">' + choices + '</div></div>';
+  }
+  if (step === 4) {
+    const choices = evidenceCollectorActivity.functions.map((item) => renderEvidenceChoice("function", item)).join("");
+    return '<div><div class="critical-response-step-header"><h4 class="critical-response-step-title">Step 4: Define the Thematic Function</h4><span class="critical-response-step-index">Evidence Collector</span></div><p class="critical-response-question">Select the larger meaning this evidence reveals.</p><div class="critical-response-options">' + choices + '</div></div>';
+  }
+  const evidenceText = criticalResponseState.evidenceText || generateEvidenceText();
+  return '<div class="thesis-output evidence-output"><h4>Collected Evidence Sentence</h4><textarea data-evidence-output>' + escapeRuntimeHtml(evidenceText) + '</textarea><div class="thesis-actions"><button class="thesis-action" type="button" data-evidence-copy><span class="material-symbols-outlined" aria-hidden="true">' + (criticalResponseState.evidenceCopied ? "check_circle" : "content_copy") + '</span>' + (criticalResponseState.evidenceCopied ? "Copied" : "Copy Sentence") + '</button><button class="thesis-action secondary" type="button" data-evidence-restart><span class="material-symbols-outlined" aria-hidden="true">refresh</span>Collect More Evidence</button></div><div class="evidence-use-note"><h5>Use it in the paragraph</h5><p>Introduce the scene briefly, paste the sentence, then follow it with a short direct quotation from the play.</p></div></div>';
+}
+
+function renderEvidenceChoice(category, item) {
+  const heading = '<strong>' + escapeRuntimeHtml(item.text) + '</strong>';
+  const body = item.desc ? '<span>' + escapeRuntimeHtml(item.desc) + '</span>' : "";
+  return '<button class="thesis-choice evidence-choice" type="button" data-evidence-choice="' + escapeRuntimeHtml(category) + '" data-evidence-choice-id="' + escapeRuntimeHtml(item.id) + '">' + heading + body + '</button>';
+}
+
+function renderEvidencePreview() {
+  if (criticalResponseState.evidenceStep >= 5) return "";
+  return '<div class="thesis-preview evidence-preview">Through his use of <strong>' + escapeRuntimeHtml(evidenceSelectionValue("device", "[literary device]")) + '</strong>, specifically <strong>' + escapeRuntimeHtml(evidenceSelectionValue("evidence", "[textual evidence]")) + '</strong>, Williams attempts <strong>' + escapeRuntimeHtml(evidenceSelectionValue("verb", "[analytical verb]")) + '</strong> <strong>' + escapeRuntimeHtml(evidenceSelectionValue("function", "[thematic meaning]")) + '</strong></div>';
+}
+
+function selectEvidenceChoice(category, id) {
+  const source = category === "device"
+    ? evidenceCollectorActivity.devices
+    : category === "evidence"
+      ? (evidenceCollectorActivity.evidence[criticalResponseState.evidenceSelections.device?.id] || [])
+      : category === "verb"
+        ? evidenceCollectorActivity.verbs
+        : evidenceCollectorActivity.functions;
+  const item = source.find((candidate) => candidate.id === id);
+  if (!item) return;
+  if (item.type === "trap") {
+    criticalResponseState.evidenceFeedback = item.trapMsg || "Choose the analytical option before moving on.";
+    renderCriticalResponseActivity();
+    return;
+  }
+  criticalResponseState.evidenceFeedback = null;
+  criticalResponseState.evidenceSelections[category] = item;
+  if (category === "device") {
+    criticalResponseState.evidenceSelections.evidence = null;
+    criticalResponseState.evidenceSelections.verb = null;
+    criticalResponseState.evidenceSelections.function = null;
+  }
+  if (category === "evidence") {
+    criticalResponseState.evidenceSelections.verb = null;
+    criticalResponseState.evidenceSelections.function = null;
+  }
+  if (category === "verb") {
+    criticalResponseState.evidenceSelections.function = null;
+  }
+  criticalResponseState.evidenceStep += 1;
+  if (criticalResponseState.evidenceStep >= 5) {
+    criticalResponseState.evidenceText = generateEvidenceText();
+  }
+  renderCriticalResponseActivity();
+}
+
+function currentParagraphScenario() {
+  return paragraphArchitectActivity.scenarios.find((scenario) => scenario.id === criticalResponseState.paragraphScenarioId) || null;
+}
+
+function currentParagraphStepDefinition() {
+  return paragraphArchitectActivity.steps[criticalResponseState.paragraphStep - 1] || null;
+}
+
+function paragraphSelectionText(key) {
+  return criticalResponseState.paragraphSelections[key]?.text || "";
+}
+
+function generateParagraphText() {
+  const pText = paragraphSelectionText("p");
+  const eText = paragraphSelectionText("e");
+  const tText = paragraphSelectionText("t");
+  const aText = paragraphSelectionText("a");
+  const lText = paragraphSelectionText("l");
+  if (!pText || !eText || !tText || !aText || !lText) return "";
+  return pText + " For instance, " + eText.charAt(0).toLowerCase() + eText.slice(1) + " Through the use of " + tText.toLowerCase() + ", " + aText.charAt(0).toLowerCase() + aText.slice(1) + " " + lText;
+}
+
+function resetParagraphArchitect() {
+  criticalResponseState.paragraphMode = "build";
+  criticalResponseState.paragraphScenarioId = null;
+  criticalResponseState.paragraphStep = 0;
+  criticalResponseState.paragraphSelections = {
+    p: null,
+    e: null,
+    t: null,
+    a: null,
+    l: null
+  };
+  criticalResponseState.paragraphFeedback = null;
+  criticalResponseState.paragraphCopied = false;
+  renderCriticalResponseActivity();
+}
+
+function renderParagraphArchitectActivity() {
+  const heading = criticalResponseRoot.querySelector("[data-workshop-heading]");
+  const description = criticalResponseRoot.querySelector("[data-workshop-description]");
+  const stepCount = criticalResponseRoot.querySelector("[data-workshop-step-count]");
+  const score = criticalResponseRoot.querySelector("[data-workshop-score]");
+  const progressFill = criticalResponseRoot.querySelector("[data-workshop-progress-fill]");
+  const panel = criticalResponseRoot.querySelector("[data-workshop-panel]");
+  const groupTabs = criticalResponseRoot.querySelector("[data-question-group-tabs]");
+  const step = criticalResponseState.paragraphStep;
+  const progressPercent = step > 5 ? 100 : Math.round((step / 5) * 100);
+  if (groupTabs) groupTabs.hidden = true;
+  if (heading) heading.textContent = "Paragraph Architect: PETAL Builder";
+  if (description) description.textContent = paragraphArchitectActivity.description;
+  if (stepCount) stepCount.textContent = step === 0 ? "Choose scenario" : step > 5 ? "Paragraph complete" : "PETAL Step " + step + " of 5";
+  if (score) score.textContent = "Architect";
+  if (progressFill) progressFill.style.width = progressPercent + "%";
+  if (!panel) return;
+  panel.innerHTML = '<div class="paragraph-architect" data-paragraph-architect>' + renderParagraphModeTabs() + renderParagraphArchitectContent() + '</div>';
+}
+
+function renderParagraphModeTabs() {
+  return '<div class="paragraph-mode-tabs" role="tablist" aria-label="Paragraph Architect modes"><button class="paragraph-mode-tab' + (criticalResponseState.paragraphMode === "learn" ? " active" : "") + '" type="button" role="tab" aria-selected="' + String(criticalResponseState.paragraphMode === "learn") + '" data-paragraph-mode="learn"><span class="material-symbols-outlined" aria-hidden="true">menu_book</span>Learn the Framework</button><button class="paragraph-mode-tab' + (criticalResponseState.paragraphMode === "build" ? " active" : "") + '" type="button" role="tab" aria-selected="' + String(criticalResponseState.paragraphMode === "build") + '" data-paragraph-mode="build"><span class="material-symbols-outlined" aria-hidden="true">edit</span>Interactive Builder</button></div>';
+}
+
+function renderParagraphArchitectContent() {
+  if (criticalResponseState.paragraphMode === "learn") {
+    return renderParagraphLearnFramework();
+  }
+  if (criticalResponseState.paragraphStep === 0) {
+    const cards = paragraphArchitectActivity.scenarios.map((scenario) => {
+      return '<button class="paragraph-scenario-card" type="button" data-paragraph-scenario="' + escapeRuntimeHtml(scenario.id) + '"><small>' + escapeRuntimeHtml(scenario.theme) + '</small><strong>' + escapeRuntimeHtml(scenario.title) + '</strong></button>';
+    }).join("");
+    return '<div><div class="critical-response-step-header"><h4 class="critical-response-step-title">Select an Analytical Scenario</h4><span class="critical-response-step-index">Paragraph Architect</span></div><p class="critical-response-question">Choose the Streetcar paragraph focus you want to build.</p><div class="paragraph-scenario-grid">' + cards + '</div></div>';
+  }
+  if (criticalResponseState.paragraphStep > 5) {
+    const paragraphText = generateParagraphText();
+    return '<div class="thesis-output paragraph-output"><h4>Completed PETAL Paragraph</h4><textarea data-paragraph-output>' + escapeRuntimeHtml(paragraphText) + '</textarea><div class="thesis-actions"><button class="thesis-action" type="button" data-paragraph-copy><span class="material-symbols-outlined" aria-hidden="true">' + (criticalResponseState.paragraphCopied ? "check_circle" : "content_copy") + '</span>' + (criticalResponseState.paragraphCopied ? "Copied" : "Copy Paragraph") + '</button><button class="thesis-action secondary" type="button" data-paragraph-restart><span class="material-symbols-outlined" aria-hidden="true">refresh</span>Build Another</button></div><div class="paragraph-checklist"><h5>Rubric check</h5><ul><li>Point makes an analytical claim.</li><li>Evidence is precise rather than broad summary.</li><li>Technique and analysis explain how the playwright builds meaning.</li><li>Link returns to the universal thesis.</li></ul></div></div>';
+  }
+
+  const scenario = currentParagraphScenario();
+  const stepDefinition = currentParagraphStepDefinition();
+  if (!scenario || !stepDefinition) return "";
+  const choices = (scenario.steps[stepDefinition.id] || []).map((choice) => {
+    return '<button class="thesis-choice paragraph-choice" type="button" data-paragraph-choice="' + escapeRuntimeHtml(choice.id) + '"><strong>' + escapeRuntimeHtml(choice.text) + '</strong></button>';
+  }).join("");
+  return renderParagraphFeedback() + '<div><div class="critical-response-step-header"><h4 class="critical-response-step-title">Choose your ' + escapeRuntimeHtml(stepDefinition.label) + '</h4><span class="critical-response-step-index">' + escapeRuntimeHtml(scenario.title) + '</span></div><p class="critical-response-question">' + escapeRuntimeHtml(stepDefinition.description) + '</p><div class="critical-response-options">' + choices + '</div></div>' + renderParagraphPreview();
+}
+
+function renderParagraphLearnFramework() {
+  const cards = paragraphArchitectActivity.steps.map((step) => {
+    const extra = step.id === "p"
+      ? "A strong topic sentence makes an argument about goal, conflict, realization, or result."
+      : step.id === "e"
+        ? "Precise evidence means a vivid moment, stage direction, or short direct quotation."
+        : step.id === "t"
+          ? "Naming technique moves the paragraph from talking about plot to analyzing construction."
+          : step.id === "a"
+            ? "Analysis explains how the evidence proves the point and why the detail matters."
+            : "The link returns to the thesis and universal theme without moralizing.";
+    return '<article class="paragraph-framework-card"><span>' + escapeRuntimeHtml(step.id.toUpperCase()) + '</span><div><h5>' + escapeRuntimeHtml(step.label) + '</h5><p>' + escapeRuntimeHtml(step.description) + '</p><small>' + escapeRuntimeHtml(extra) + '</small></div></article>';
+  }).join("");
+  return '<div class="paragraph-framework"><div class="critical-response-step-header"><h4 class="critical-response-step-title">Master the P.E.T.A.L. Framework</h4><span class="critical-response-step-index">Learn the Framework</span></div><p class="critical-response-question">Use this structure to keep body paragraphs analytical instead of drifting into plot summary.</p><div class="paragraph-framework-stack">' + cards + '</div><div class="critical-response-actions"><button class="critical-response-action" type="button" data-paragraph-mode="build"><span class="material-symbols-outlined" aria-hidden="true">edit</span>Start Building</button></div></div>';
+}
+
+function renderParagraphFeedback() {
+  if (!criticalResponseState.paragraphFeedback) return "";
+  return '<div class="thesis-feedback"><span class="material-symbols-outlined" aria-hidden="true">warning</span><div><strong>Review guidelines</strong><span>' + escapeRuntimeHtml(criticalResponseState.paragraphFeedback) + '</span></div></div>';
+}
+
+function renderParagraphPreview() {
+  const selections = criticalResponseState.paragraphSelections;
+  return '<div class="thesis-preview paragraph-preview"><strong>Live PETAL Preview</strong><p>' +
+    (selections.p ? escapeRuntimeHtml(selections.p.text) + " " : '<span>[Point...] </span>') +
+    (selections.e ? 'For instance, ' + escapeRuntimeHtml(selections.e.text.charAt(0).toLowerCase() + selections.e.text.slice(1)) + " " : criticalResponseState.paragraphStep > 1 ? '<span>[Evidence...] </span>' : "") +
+    (selections.t && selections.a ? 'Through the use of ' + escapeRuntimeHtml(selections.t.text.toLowerCase()) + ', ' + escapeRuntimeHtml(selections.a.text.charAt(0).toLowerCase() + selections.a.text.slice(1)) + " " : criticalResponseState.paragraphStep > 3 ? '<span>[Technique and analysis...] </span>' : "") +
+    (selections.l ? escapeRuntimeHtml(selections.l.text) : criticalResponseState.paragraphStep > 4 ? '<span>[Link...]</span>' : "") +
+    '</p></div>';
+}
+
+function startParagraphScenario(id) {
+  criticalResponseState.paragraphScenarioId = id;
+  criticalResponseState.paragraphStep = 1;
+  criticalResponseState.paragraphSelections = {
+    p: null,
+    e: null,
+    t: null,
+    a: null,
+    l: null
+  };
+  criticalResponseState.paragraphFeedback = null;
+  criticalResponseState.paragraphCopied = false;
+  renderCriticalResponseActivity();
+}
+
+function selectParagraphChoice(id) {
+  const scenario = currentParagraphScenario();
+  const stepDefinition = currentParagraphStepDefinition();
+  if (!scenario || !stepDefinition) return;
+  const choice = (scenario.steps[stepDefinition.id] || []).find((candidate) => candidate.id === id);
+  if (!choice) return;
+  if (choice.type === "trap") {
+    criticalResponseState.paragraphFeedback = choice.trapMsg || "Choose the analytical option before moving on.";
+    renderCriticalResponseActivity();
+    return;
+  }
+  criticalResponseState.paragraphFeedback = null;
+  criticalResponseState.paragraphSelections[stepDefinition.id] = choice;
+  criticalResponseState.paragraphStep += 1;
+  renderCriticalResponseActivity();
+}
+
 function selectCriticalResponseOption(optionId) {
   const group = currentQuestionGroup();
   const step = group?.steps[criticalResponseState.stepIndex];
@@ -2087,6 +2456,27 @@ criticalResponseRoot?.addEventListener("click", (event) => {
     selectThesisChoice(thesisChoice.getAttribute("data-thesis-choice"), thesisChoice.getAttribute("data-thesis-choice-id"));
     return;
   }
+  const evidenceChoice = event.target.closest("[data-evidence-choice]");
+  if (evidenceChoice && criticalResponseRoot.contains(evidenceChoice)) {
+    selectEvidenceChoice(evidenceChoice.getAttribute("data-evidence-choice"), evidenceChoice.getAttribute("data-evidence-choice-id"));
+    return;
+  }
+  const paragraphMode = event.target.closest("[data-paragraph-mode]");
+  if (paragraphMode && criticalResponseRoot.contains(paragraphMode)) {
+    criticalResponseState.paragraphMode = paragraphMode.getAttribute("data-paragraph-mode") === "build" ? "build" : "learn";
+    renderCriticalResponseActivity();
+    return;
+  }
+  const paragraphScenario = event.target.closest("[data-paragraph-scenario]");
+  if (paragraphScenario && criticalResponseRoot.contains(paragraphScenario)) {
+    startParagraphScenario(paragraphScenario.getAttribute("data-paragraph-scenario"));
+    return;
+  }
+  const paragraphChoice = event.target.closest("[data-paragraph-choice]");
+  if (paragraphChoice && criticalResponseRoot.contains(paragraphChoice)) {
+    selectParagraphChoice(paragraphChoice.getAttribute("data-paragraph-choice"));
+    return;
+  }
   const thesisOutput = criticalResponseRoot.querySelector("[data-thesis-output]");
   if (event.target.closest("[data-thesis-copy]")) {
     criticalResponseState.thesisText = thesisOutput?.value || criticalResponseState.thesisText;
@@ -2097,6 +2487,30 @@ criticalResponseRoot?.addEventListener("click", (event) => {
   }
   if (event.target.closest("[data-thesis-restart]")) {
     resetThesisBuilder();
+    return;
+  }
+  const evidenceOutput = criticalResponseRoot.querySelector("[data-evidence-output]");
+  if (event.target.closest("[data-evidence-copy]")) {
+    criticalResponseState.evidenceText = evidenceOutput?.value || criticalResponseState.evidenceText;
+    navigator.clipboard?.writeText(criticalResponseState.evidenceText);
+    criticalResponseState.evidenceCopied = true;
+    renderCriticalResponseActivity();
+    return;
+  }
+  if (event.target.closest("[data-evidence-restart]")) {
+    resetEvidenceCollector();
+    return;
+  }
+  const paragraphOutput = criticalResponseRoot.querySelector("[data-paragraph-output]");
+  if (event.target.closest("[data-paragraph-copy]")) {
+    const text = paragraphOutput?.value || generateParagraphText();
+    navigator.clipboard?.writeText(text);
+    criticalResponseState.paragraphCopied = true;
+    renderCriticalResponseActivity();
+    return;
+  }
+  if (event.target.closest("[data-paragraph-restart]")) {
+    resetParagraphArchitect();
   }
 });
 
@@ -2141,6 +2555,13 @@ document.querySelector("[data-film-select]")?.addEventListener("change", (event)
   setActiveFilm(event.target.value);
 });
 
+document.addEventListener("change", (event) => {
+  const select = event.target.closest("[data-scene-overview-select]");
+  if (select) {
+    setActiveSceneOverview(select.value);
+  }
+});
+
 function setActiveLibraryDocument(id) {
   if (!id) return;
   document.querySelectorAll("[data-library-doc-panel]").forEach((panel) => {
@@ -2167,12 +2588,25 @@ function setActiveFilm(id) {
   });
 }
 
+function setActiveSceneOverview(id) {
+  if (!id) return;
+  document.querySelectorAll("[data-scene-overview-panel]").forEach((panel) => {
+    panel.hidden = panel.getAttribute("data-scene-overview-panel") !== id;
+  });
+  document.querySelectorAll("[data-scene-overview-select]").forEach((select) => {
+    if (select.value !== id) {
+      select.value = id;
+    }
+  });
+}
+
 document.getElementById("sidebar-toggle")?.addEventListener("click", () => {
   document.body.classList.toggle("sidebar-collapsed");
 });
 
 window.addEventListener("hashchange", route);
 renderCriticalResponseActivity();
+restoreResponses();
 route();
 updateComplete();
 </script>

@@ -1,4 +1,4 @@
-import { copyFile, mkdir, readFile, rm, writeFile } from "node:fs/promises";
+import { access, copyFile, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 import * as cheerio from "cheerio";
@@ -9,6 +9,14 @@ import {
   CRITICAL_RESPONSE_ACTIVITY_SOURCE,
   CRITICAL_RESPONSE_WORKSHOPS
 } from "./ela-critical-response-activity.js";
+import {
+  EVIDENCE_COLLECTOR_ACTIVITY,
+  EVIDENCE_COLLECTOR_ACTIVITY_SOURCE
+} from "./ela-evidence-collector-activity.js";
+import {
+  PARAGRAPH_ARCHITECT_ACTIVITY,
+  PARAGRAPH_ARCHITECT_ACTIVITY_SOURCE
+} from "./ela-paragraph-architect-activity.js";
 import {
   THESIS_BUILDER_ACTIVITY,
   THESIS_BUILDER_ACTIVITY_SOURCE
@@ -33,10 +41,13 @@ export type ModernDramaLink = {
 };
 
 export type ModernDramaVideo = {
+  id?: string;
   title: string;
   originalSrc: string;
   embedSrc: string;
-  origin: "iframe" | "link";
+  origin: "iframe" | "link" | "local";
+  sourceTitle?: string;
+  mediaType?: string;
 };
 
 export type ModernDramaSourceKind = "html" | "pdf" | "other";
@@ -46,6 +57,13 @@ export type ModernDramaDocument = {
   zipPath: string;
   workspaceHref: string;
   kind: Exclude<ModernDramaSourceKind, "html">;
+};
+
+export type ModernDramaLibraryDocument = ModernDramaDocument & {
+  id: string;
+  group: string;
+  sourceLabel: "CBE" | "Next Step" | "Course Build";
+  description: string;
 };
 
 export type ModernDramaLesson = {
@@ -66,16 +84,22 @@ export type ModernDramaUnit = {
   title: string;
   lessons: ModernDramaLesson[];
   localResources: ModernDramaLink[];
+  libraryDocuments?: ModernDramaLibraryDocument[];
+  filmResources?: ModernDramaVideo[];
 };
 
 export type BuildElaModernDramaProjectOptions = {
   zipPath: string;
+  nextStepZipPath?: string;
+  moviePath?: string;
   slug?: string;
   force?: boolean;
 };
 
 const DEFAULT_SLUG = "ela30-1-modern-drama";
 const COURSE_TITLE = "ELA 30-1";
+const DEFAULT_NEXT_STEP_ZIP_PATH = "C:\\Users\\dean.guedo\\Downloads\\English 30-1 nextstep.zip";
+const DEFAULT_STREETCAR_MOVIE_PATH = "C:\\Users\\dean.guedo\\Downloads\\Streetcar Named Desire Movie.mp4";
 const NEXT_STEP_LOGO_WORKSPACE_HREF = "assets/brand/nxt-ce-logo-white-with-ce.png";
 const NEXT_STEP_LOGO_SOURCE_PATH = path.join(
   repoRoot,
@@ -100,6 +124,20 @@ const SOURCE_UNIT_TARGETS = [
 
 function normalizeWhitespace(value: string) {
   return value.replace(/\s+/g, " ").trim();
+}
+
+function normalizeImportedText(value: string) {
+  return value
+    .replace(/@2019 CBe-learn - Calgary Board of Education/g, "")
+    .replace(/\bBlance\b/g, "Blanche")
+    .replace(/\bCliffnotes\b/g, "CliffsNotes");
+}
+
+function removeStreetcarAccessNoticeHtml(value: string) {
+  return value.replace(
+    /<p[^>]*>[\s\S]*?purchase a copy of the play[\s\S]*?A Streetcar Named Desire[\s\S]*?email your instructor for assistance\.?[\s\S]*?<\/p>/gi,
+    ""
+  );
 }
 
 function stripBOM(value: string) {
@@ -303,7 +341,7 @@ function normalizeVideoEmbedSrc(rawUrl: string) {
 }
 
 function extractHtmlText($: cheerio.CheerioAPI, element: cheerio.Cheerio<AnyNode>) {
-  return normalizeWhitespace(element.text()).replace(/@2019 CBe-learn - Calgary Board of Education/g, "").trim();
+  return normalizeImportedText(normalizeWhitespace(element.text())).trim();
 }
 
 function cleanSourceContentHtml(html: string, lessonHref: string, zipEntries: Set<string>) {
@@ -358,7 +396,7 @@ function cleanSourceContentHtml(html: string, lessonHref: string, zipEntries: Se
   $("a[href]").each((_, element) => {
     const link = $(element);
     const href = link.attr("href") ?? "";
-    const text = normalizeWhitespace(link.text()) || href;
+    const text = normalizeImportedText(normalizeWhitespace(link.text())) || href;
     const embedSrc = normalizeVideoEmbedSrc(href);
     if (embedSrc) {
       link.attr("class", normalizeWhitespace(`${link.attr("class") ?? ""} source-video-link`));
@@ -385,8 +423,10 @@ function cleanSourceContentHtml(html: string, lessonHref: string, zipEntries: Se
   const body = $("body");
   const contentRoot = body.length > 0 ? body : $.root();
   let contentHtml = body.length > 0 ? body.html() ?? "" : $.root().html() ?? "";
-  contentHtml = contentHtml
+  contentHtml = removeStreetcarAccessNoticeHtml(contentHtml)
     .replace(/@2019 CBe-learn - Calgary Board of Education/g, "")
+    .replace(/\bBlance\b/g, "Blanche")
+    .replace(/\bCliffnotes\b/g, "CliffsNotes")
     .replace(/\sclass="(?:CentreAlign|LeftAlign|RightAlign)"/g, "")
     .replace(/<p>\s*<\/p>/gi, "")
     .trim();
@@ -418,7 +458,7 @@ async function readZipBuffer(zip: JSZip, zipPath: string) {
 }
 
 function directChildText($: cheerio.CheerioAPI, element: AnyNode, childSelector: string) {
-  return normalizeWhitespace($(element).children(childSelector).first().text());
+  return normalizeImportedText(normalizeWhitespace($(element).children(childSelector).first().text()));
 }
 
 function getResourceMap($: cheerio.CheerioAPI) {
@@ -507,6 +547,67 @@ ${frameMarkup}`,
   };
 }
 
+function isSceneOverviewLesson(lesson: ModernDramaLesson) {
+  return /^Scene\s+\d+\s+Overview$/i.test(lesson.title);
+}
+
+function buildSceneOverviewsLesson(sceneLessons: ModernDramaLesson[], sequence: number): ModernDramaLesson {
+  const options = sceneLessons
+    .map((lesson, index) => `<option value="${escapeHtml(lesson.id)}"${index === 0 ? " selected" : ""}>${escapeHtml(lesson.title)}</option>`)
+    .join("\n");
+  const panels = sceneLessons
+    .map((lesson, index) => `<article class="scene-overview-panel" data-scene-overview-panel="${escapeHtml(lesson.id)}"${index === 0 ? "" : " hidden"}>
+      <div class="scene-overview-panel-header">
+        <span class="resource-kicker">Scene Overview</span>
+        <h3>${escapeHtml(lesson.title)}</h3>
+      </div>
+      <div class="source-content">${lesson.contentHtml}</div>
+    </article>`)
+    .join("\n");
+
+  return {
+    id: "scene-overviews",
+    sequence,
+    title: "Scene Overviews",
+    sourceKind: "html",
+    sourceHref: "streetcar_named_desire/scene-overviews.html",
+    contentHtml: `<div class="scene-overview-browser">
+      <div class="scene-overview-control">
+        <label class="film-room-label" for="scene-overview-select">Choose a scene</label>
+        <select id="scene-overview-select" class="film-room-select" data-scene-overview-select>
+          ${options}
+        </select>
+      </div>
+      <div class="scene-overview-panels">${panels}</div>
+    </div>`,
+    text: sceneLessons.map((lesson) => lesson.text).join(" "),
+    images: sceneLessons.flatMap((lesson) => lesson.images),
+    videos: sceneLessons.flatMap((lesson) => lesson.videos),
+    links: sceneLessons.flatMap((lesson) => lesson.links)
+  };
+}
+
+function combineSceneOverviewLessons(lessons: ModernDramaLesson[]) {
+  const sceneLessons = lessons.filter(isSceneOverviewLesson);
+  if (sceneLessons.length < 2) {
+    return lessons;
+  }
+
+  const combinedLessons: ModernDramaLesson[] = [];
+  let insertedScenes = false;
+  for (const lesson of lessons) {
+    if (isSceneOverviewLesson(lesson)) {
+      if (!insertedScenes) {
+        combinedLessons.push(buildSceneOverviewsLesson(sceneLessons, combinedLessons.length + 1));
+        insertedScenes = true;
+      }
+      continue;
+    }
+    combinedLessons.push({ ...lesson, sequence: combinedLessons.length + 1 });
+  }
+  return combinedLessons;
+}
+
 export async function extractModernDramaUnit(zipBuffer: Buffer | Uint8Array): Promise<ModernDramaUnit> {
   const zip = await JSZip.loadAsync(zipBuffer);
   const zipEntries = new Set(
@@ -551,10 +652,11 @@ export async function extractModernDramaUnit(zipBuffer: Buffer | Uint8Array): Pr
     });
   }
 
-  const localResources = lessons.flatMap((lesson) => lesson.links.filter((link) => link.kind === "local"));
+  const normalizedLessons = combineSceneOverviewLessons(lessons);
+  const localResources = normalizedLessons.flatMap((lesson) => lesson.links.filter((link) => link.kind === "local"));
   return {
     title: sourceUnit.target.canonicalTitle,
-    lessons,
+    lessons: normalizedLessons,
     localResources
   };
 }
@@ -595,14 +697,713 @@ function truncate(value: string, length: number) {
   return `${value.slice(0, length - 1).trim()}...`;
 }
 
+async function fileExists(filePath: string) {
+  try {
+    await access(filePath);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 function lessonSummary(lesson: ModernDramaLesson) {
   return truncate(lesson.text.replace(new RegExp(`^${lesson.title}\\s*`, "i"), ""), 180);
+}
+
+type AuthoredLessonSpec = {
+  id: string;
+  title: string;
+  subtitle: string;
+  time: string;
+  sources: string[];
+  target: string;
+  output: string;
+  miniLesson: string[];
+  studentPrompts: string[];
+  evidenceTask: string;
+  miniWrite: string;
+  tracking?: string[];
+  questions?: string[];
+};
+
+const AUTHORED_STREETCAR_LESSONS: AuthoredLessonSpec[] = [
+  {
+    id: "unit-launch-a-streetcar-named-desire",
+    title: "Unit Launch: A Streetcar Named Desire",
+    subtitle: "Set the reading, evidence, and Critical/Analytical writing path.",
+    time: "35-45 minutes",
+    sources: ["CBE unit introduction", "Next Step Unit 5 Streetcar booklet", "Course Build"],
+    target: "Explain how this unit turns reading into evidence-based Critical/Analytical writing.",
+    output: "Unit prediction response, two theme predictions, and evidence-bank setup.",
+    miniLesson: [
+      "This unit is built around one question: What happens when a person cannot survive reality without illusion? Students will read the play as drama, not as plot summary, and will keep returning to how Williams uses stage directions, sound, setting, light, costume, and dialogue to make meaning visible on stage.",
+      "The endpoint is visible from the start. By the end of the unit, students should have at least 22-25 usable evidence-bank entries that can support a diploma-level Critical/Analytical response. The evidence bank is not extra work; it is the bridge between reading, interpretation, paragraph practice, and final essay planning."
+    ],
+    studentPrompts: [
+      "Write a 100-150 word prediction about what the title, setting, and central question suggest about the conflict.",
+      "Choose two possible themes from illusion, desire, dependence, power, survival, or social judgment. Explain why each may matter in the play."
+    ],
+    evidenceTask: "Create the first evidence-bank row for a title, setting, or context detail that may become useful later.",
+    miniWrite: "Explain why a reader should track evidence while reading instead of waiting until the essay stage."
+  },
+  {
+    id: "lesson-1-modern-drama-toolkit",
+    title: "Modern Drama Toolkit",
+    subtitle: "Learn how drama communicates without a narrator.",
+    time: "40-50 minutes",
+    sources: ["CBE characteristics of modern drama", "CBE literary devices", "Course Build"],
+    target: "Analyze how dramatic techniques create meaning differently from narration in fiction.",
+    output: "One drama-method response, one technique application, and one toolkit table row.",
+    miniLesson: [
+      "Drama has no narrator to explain motive or theme. Meaning has to arrive through what an audience can hear and see: stage directions, dialogue, lighting, music, props, costume, movement, entrances, exits, silence, and the arrangement of physical space.",
+      "Modern drama often places ordinary people inside domestic spaces that become emotionally dangerous. In Streetcar, the apartment, street sounds, clothing, music, and repeated objects are not background decoration. They pressure characters until private conflict becomes public and visible."
+    ],
+    studentPrompts: [
+      "How does drama communicate meaning differently from a novel?",
+      "Choose one dramatic tool and explain how it can reveal character or theme before a character states anything directly."
+    ],
+    evidenceTask: "Start a toolkit row for one dramatic tool you expect to track in Streetcar.",
+    miniWrite: "Explain why stage directions can be as important as dialogue in a modern drama."
+  },
+  {
+    id: "lesson-2-tennessee-williams-and-context",
+    title: "Tennessee Williams and Context",
+    subtitle: "Use biography and context as interpretive pressure, not trivia.",
+    time: "40-50 minutes",
+    sources: ["Next Step Unit 5 Streetcar booklet", "CBE Tennessee Williams", "CBE Streetcar introduction"],
+    target: "Connect Williams' recurring concerns to possible conflicts in the play.",
+    output: "One context response and one conflict prediction.",
+    miniLesson: [
+      "Tennessee Williams became one of the major American dramatists of the twentieth century through plays such as The Glass Menagerie, A Streetcar Named Desire, and Cat on a Hot Tin Roof. His work often returns to fragile people, social pressure, desire, loneliness, repression, and the need for tenderness in a world that does not offer much of it.",
+      "Context should not turn into a biography quiz. The useful question is how the playwright's concerns prepare us to interpret characters under pressure. When a character performs strength, hides damage, or builds a protective illusion, the play asks us to study what that protection costs."
+    ],
+    studentPrompts: [
+      "Which pressure in Williams' context seems most likely to shape the play: repression, desire, fragility, social judgment, or loneliness?",
+      "Based on this context, what kind of conflict do you expect between private need and public behavior?"
+    ],
+    evidenceTask: "Record one contextual idea that could later help explain Blanche, Stanley, Stella, or Mitch.",
+    miniWrite: "Explain how context can guide interpretation without replacing close reading."
+  },
+  {
+    id: "lesson-3-the-world-of-the-play",
+    title: "The World of the Play",
+    subtitle: "Read setting as symbolic pressure.",
+    time: "40-50 minutes",
+    sources: ["CBE The Streetcar", "CBE Streetcar overview", "Course Build"],
+    target: "Interpret setting details as symbols that shape character conflict.",
+    output: "Streetcar-route response, setting prediction, and one setting-symbol table row.",
+    miniLesson: [
+      "New Orleans and Elysian Fields are loud, physical, crowded, working-class, and sensual. The setting does not wait politely in the background. It pushes on Blanche as soon as she arrives and makes her old ideas of refinement feel exposed and unstable.",
+      "The route names Desire, Cemeteries, and Elysian Fields create a symbolic map. Belle Reve means a beautiful dream, but that dream has been lost before the play begins. The play's geography therefore becomes a movement from desire toward loss, decay, and a false paradise that cannot protect anyone."
+    ],
+    studentPrompts: [
+      "Explain how the streetcar route can be read as a symbolic map of Blanche's life.",
+      "What kind of character would struggle most in this world? Defend your prediction."
+    ],
+    evidenceTask: "Add one setting detail and explain what pressure it may place on a character.",
+    miniWrite: "Explain how setting can become a force in the conflict rather than a backdrop."
+  },
+  {
+    id: "lesson-4-character-map-and-first-impressions",
+    title: "Character Map and First Impressions",
+    subtitle: "Build a first theory about relationships before the reading deepens.",
+    time: "40-50 minutes",
+    sources: ["CBE Streetcar character overview", "CBE character presentation", "Next Step Unit 5 Streetcar booklet"],
+    target: "Describe early character dynamics and revise first impressions using evidence.",
+    output: "Character map, first-impression response, and two prediction notes.",
+    miniLesson: [
+      "Character study in Streetcar depends on relationships. Blanche, Stella, Stanley, and Mitch are not isolated figures; each one is understood through the pressures they create for each other and the roles they try to occupy.",
+      "First impressions matter because Williams often makes the audience revise them. A character may seem powerful, vulnerable, kind, cruel, practical, or deluded in one scene and more complicated in the next. The goal is not to label quickly but to track change."
+    ],
+    studentPrompts: [
+      "Create a character map showing the early relationship lines among Blanche, Stella, Stanley, and Mitch.",
+      "Choose one character and write a first impression that you are prepared to revise as evidence develops."
+    ],
+    evidenceTask: "Record one early character detail and identify whether it reveals self-image, social role, or hidden pressure.",
+    miniWrite: "Explain why first impressions in drama should be treated as hypotheses."
+  },
+  {
+    id: "lesson-5-reading-guide-and-evidence-bank-setup",
+    title: "Reading Guide and Evidence Bank Setup",
+    subtitle: "Prepare the reading routine that will drive the essay.",
+    time: "35-45 minutes",
+    sources: ["Next Step Unit 5 Streetcar booklet", "CBE Streetcar reading guide PDF", "Course Build"],
+    target: "Use a repeatable reading routine to turn scene questions into essay-ready evidence.",
+    output: "Evidence-bank setup, one model entry, and one reading-plan response.",
+    miniLesson: [
+      "Every scene lesson follows the same logic: read the assigned scene, answer focused questions, collect evidence, interpret what the evidence reveals, and write a short analytical response. This routine prevents the final essay from becoming plot summary.",
+      "A strong evidence-bank entry does more than copy a detail. It identifies the technique, explains what the moment reveals, connects the moment to a theme, and records how the evidence might be used in an essay."
+    ],
+    studentPrompts: [
+      "Set up your evidence bank with the columns Evidence, Technique, What it reveals, Theme connection, and Essay use.",
+      "Write one model entry using a setting, title, or context detail from the unit launch lessons."
+    ],
+    evidenceTask: "Complete one model evidence-bank row and explain how it could support a paragraph.",
+    miniWrite: "Explain what makes an evidence entry useful for essay writing."
+  },
+  {
+    id: "lesson-6-scene-1-arrival-and-first-collision",
+    title: "Scene 1: Arrival and First Collision",
+    subtitle: "Track arrival, class tension, and the first clash of worlds.",
+    time: "50-60 minutes",
+    sources: ["Next Step Unit 5 Streetcar booklet", "CBE Scene 1 overview", "CBE reading guide PDF"],
+    target: "Analyze how Scene 1 establishes conflict through setting, arrival, and first impressions.",
+    output: "Four reading responses, two evidence-bank entries, and one mini-write.",
+    miniLesson: [
+      "Scene 1 introduces Blanche as a displaced figure entering a world that immediately unsettles her. The scene builds tension through the contrast between Blanche's expectations and the physical reality of Elysian Fields.",
+      "Pay attention to how Williams makes class, sexuality, family history, and space visible before the central conflict fully erupts. The first scene gives you evidence for later arguments about illusion, social class, dependence, and survival."
+    ],
+    tracking: ["Blanche's arrival", "Elysian Fields", "Belle Reve", "Stella's response", "Stanley's first impression"],
+    questions: ["What does Blanche's arrival reveal about her expectations?", "How does the setting challenge Blanche's self-image?", "What early tension appears between Blanche and Stanley?", "What does Belle Reve already suggest about loss?"],
+    studentPrompts: ["Answer the four reading questions using precise scene details.", "Identify one line, stage direction, or setting detail that could matter later."],
+    evidenceTask: "Add two entries: one setting detail and one character detail.",
+    miniWrite: "Explain how Williams makes Blanche seem both out of place and in need of sympathy."
+  },
+  {
+    id: "lesson-7-scene-2-territory-truth-and-possession",
+    title: "Scene 2: Territory, Truth, and Possession",
+    subtitle: "Study the conflict over property, truth, and control.",
+    time: "50-60 minutes",
+    sources: ["Next Step Unit 5 Streetcar booklet", "CBE Scene 2 overview", "CBE reading guide PDF"],
+    target: "Explain how Scene 2 turns family history into a power struggle.",
+    output: "Four reading responses, two evidence-bank entries, and one mini-write.",
+    miniLesson: [
+      "Scene 2 sharpens the first collision into a fight over territory and truth. Stanley treats Blanche's story as something to investigate, while Blanche tries to control how the past is seen and understood.",
+      "The trunk, papers, and Belle Reve become more than practical details. They show how property, memory, gender, and suspicion become weapons in the apartment."
+    ],
+    tracking: ["Stanley's inspection", "Blanche's trunk", "Belle Reve documents", "Stella's divided loyalty", "Stanley's sense of ownership"],
+    questions: ["Why does Stanley distrust Blanche's account of Belle Reve?", "How does the trunk become a dramatic object?", "What does Stanley's behavior reveal about control?", "How does Stella respond to the conflict?"],
+    studentPrompts: ["Answer the reading questions with attention to objects and power.", "Choose one object and explain how it changes the tone of the scene."],
+    evidenceTask: "Add two entries focused on property, truth, or control.",
+    miniWrite: "Explain how Williams uses ordinary objects to reveal a fight for power."
+  },
+  {
+    id: "lesson-8-scene-3-poker-night-and-masculine-violence",
+    title: "Scene 3: Poker Night and Masculine Violence",
+    subtitle: "Read the poker night as a social world under pressure.",
+    time: "50-60 minutes",
+    sources: ["Next Step Unit 5 Streetcar booklet", "CBE Scene 3 overview", "CBE reading guide PDF"],
+    target: "Analyze how Williams stages masculine violence and social loyalty.",
+    output: "Four reading responses, two evidence-bank entries, and one mini-write.",
+    miniLesson: [
+      "The poker night creates a concentrated version of Stanley's world: male friendship, competition, drinking, territory, and physical force. Blanche's presence disturbs that world, but Stanley's violence also exposes what Stella has chosen to live with.",
+      "The scene should not be reduced to a single event. Track the mood, the music, the physical space, the men's reactions, and the way desire and violence become linked."
+    ],
+    tracking: ["Poker table", "Mitch and Blanche", "Stanley's anger", "Stella's return", "Music and shouting"],
+    questions: ["How does the poker game define Stanley's world?", "How is Mitch separated from the other men?", "What does Stanley's violence reveal?", "How does Stella's return complicate the audience's judgment?"],
+    studentPrompts: ["Answer the reading questions with at least one stage or sound detail.", "Explain how the scene changes your view of Stella or Stanley."],
+    evidenceTask: "Add two entries about violence, loyalty, or social pressure.",
+    miniWrite: "Explain how Scene 3 links desire, danger, and dependence."
+  },
+  {
+    id: "lesson-9-scene-4-stellas-choice",
+    title: "Scene 4: Stella's Choice",
+    subtitle: "Examine denial, dependence, and the cost of staying.",
+    time: "45-55 minutes",
+    sources: ["Next Step Unit 5 Streetcar booklet", "CBE Scene 4 overview", "CBE reading guide PDF"],
+    target: "Interpret Stella's choice as a survival strategy with a cost.",
+    output: "Four reading responses, two evidence-bank entries, and one mini-write.",
+    miniLesson: [
+      "Scene 4 asks students to study Stella carefully. She is not simply passive, but her choices are shaped by desire, dependence, pregnancy, social reality, and the life she has built with Stanley.",
+      "Blanche tries to name Stanley as dangerous, but Stella is not ready to accept Blanche's interpretation. This creates a major tension in the play: truth may be visible, but accepting it may threaten the life a character needs to keep."
+    ],
+    tracking: ["Blanche's warning", "Stella's explanation", "Stanley's overhearing", "Desire and dependence", "Sister conflict"],
+    questions: ["How does Blanche describe Stanley?", "Why does Stella resist Blanche's judgment?", "What does Stanley overhearing change?", "How does the scene develop illusion versus reality?"],
+    studentPrompts: ["Answer the reading questions with attention to Stella's reasoning.", "Identify one moment where truth is avoided or softened."],
+    evidenceTask: "Add two entries about Stella, denial, or dependence.",
+    miniWrite: "Explain whether Stella's choice is weakness, survival, or both."
+  },
+  {
+    id: "lesson-10-scene-5-rumour-performance-and-panic",
+    title: "Scene 5: Rumour, Performance, and Panic",
+    subtitle: "Track Blanche's public performance and private fear.",
+    time: "45-55 minutes",
+    sources: ["Next Step Unit 5 Streetcar booklet", "CBE Scene 5 overview", "CBE reading guide PDF"],
+    target: "Analyze how Blanche performs control while panic begins to surface.",
+    output: "Four reading responses, two evidence-bank entries, and one mini-write.",
+    miniLesson: [
+      "Scene 5 shows Blanche managing appearances. She wants to control age, desire, reputation, and the story others can tell about her, but rumours and past actions begin to press into the present.",
+      "The scene is useful for essay thinking because it shows illusion as both strategy and danger. Blanche's performance helps her survive socially, but it also makes truthful connection harder."
+    ],
+    tracking: ["Rumours", "Blanche's flirting", "Age and appearance", "Mitch as hope", "Private panic"],
+    questions: ["What rumours begin to threaten Blanche?", "How does Blanche perform confidence?", "Why does Mitch matter to her plan for survival?", "What details reveal panic beneath the performance?"],
+    studentPrompts: ["Answer the reading questions with attention to performance.", "Find one moment where Blanche's words and inner state seem different."],
+    evidenceTask: "Add two entries about performance, reputation, or panic.",
+    miniWrite: "Explain how Williams shows Blanche trying to control how others see her."
+  },
+  {
+    id: "lesson-11-scene-6-confession-and-temporary-hope",
+    title: "Scene 6: Confession and Temporary Hope",
+    subtitle: "Study intimacy, confession, and fragile possibility.",
+    time: "50-60 minutes",
+    sources: ["Next Step Unit 5 Streetcar booklet", "CBE Scene 6 overview", "CBE reading guide PDF"],
+    target: "Explain how confession creates temporary hope while revealing lasting damage.",
+    output: "Four reading responses, two evidence-bank entries, and one mini-write.",
+    miniLesson: [
+      "Scene 6 slows the play into a more intimate conversation between Blanche and Mitch. The mood creates the possibility of tenderness, but Blanche's confession also reveals the trauma and guilt that continue to shape her.",
+      "The scene matters because it complicates Blanche. She is not only deceptive; she is also wounded, lonely, and desperate for a form of protection that may not be possible."
+    ],
+    tracking: ["Mitch's gentleness", "Blanche's confession", "Young husband", "Varsouviana", "Temporary hope"],
+    questions: ["How does Mitch differ from Stanley in this scene?", "What does Blanche reveal about her past?", "How does sound or memory shape the confession?", "Why is the hope in this scene temporary?"],
+    studentPrompts: ["Answer the reading questions using one confession detail.", "Identify one detail that makes Blanche more sympathetic or more complex."],
+    evidenceTask: "Add two entries about confession, trauma, or hope.",
+    miniWrite: "Explain how Scene 6 changes the audience's understanding of Blanche."
+  },
+  {
+    id: "lesson-12-midpoint-checkpoint-scenes-1-6",
+    title: "Midpoint Checkpoint: Scenes 1-6",
+    subtitle: "Pause, organize evidence, and test early interpretations.",
+    time: "45-55 minutes",
+    sources: ["Next Step Unit 5 Streetcar booklet", "CBE reading guide PDF", "Course Build"],
+    target: "Synthesize early evidence into provisional claims about character and theme.",
+    output: "Evidence-bank audit, one theme claim, and one analytical paragraph.",
+    miniLesson: [
+      "At the midpoint, students should pause before adding more plot. The first six scenes have already established the central tensions: illusion and reality, desire and dependence, class conflict, gendered power, and the difficulty of surviving truth.",
+      "A checkpoint prevents shallow reading. Students should check whether their evidence bank has a range of techniques rather than only plot events, and whether each entry could actually support a paragraph."
+    ],
+    studentPrompts: ["Choose your five strongest evidence-bank entries so far and explain what each could prove.", "Write one provisional theme claim that is specific enough to argue."],
+    evidenceTask: "Revise at least two evidence-bank entries to strengthen technique and theme connection.",
+    miniWrite: "Write one analytical paragraph about Blanche, Stella, or Stanley using two pieces of evidence."
+  },
+  {
+    id: "lesson-13-scene-7-exposure-and-dramatic-irony",
+    title: "Scene 7: Exposure and Dramatic Irony",
+    subtitle: "Track exposure, timing, and audience knowledge.",
+    time: "50-60 minutes",
+    sources: ["Next Step Unit 5 Streetcar booklet", "CBE Scene 7 overview", "CBE reading guide PDF"],
+    target: "Analyze how dramatic irony increases pressure on Blanche and Stella.",
+    output: "Four reading responses, two evidence-bank entries, and one mini-write.",
+    miniLesson: [
+      "Scene 7 turns Blanche's past into information that Stanley can use. The audience understands more than some characters do at the same moment, which creates dramatic irony and dread.",
+      "Exposure in the play is not neutral truth-telling. Stanley's knowledge becomes a weapon, and Stella's willingness to hear or reject that knowledge becomes part of the conflict."
+    ],
+    tracking: ["Stanley's information", "Birthday preparations", "Blanche bathing", "Stella's reaction", "Dramatic irony"],
+    questions: ["What information does Stanley reveal?", "How does timing make the reveal more painful?", "How does Stella respond?", "How does dramatic irony shape the audience's experience?"],
+    studentPrompts: ["Answer the reading questions with focus on timing and knowledge.", "Identify one detail that makes truth feel cruel rather than liberating."],
+    evidenceTask: "Add two entries about exposure, truth, or dramatic irony.",
+    miniWrite: "Explain how Scene 7 turns knowledge into power."
+  },
+  {
+    id: "lesson-14-scene-8-birthday-cruelty-and-collapse",
+    title: "Scene 8: Birthday, Cruelty, and Collapse",
+    subtitle: "Analyze celebration as humiliation.",
+    time: "45-55 minutes",
+    sources: ["Next Step Unit 5 Streetcar booklet", "CBE Scene 8 overview", "CBE reading guide PDF"],
+    target: "Explain how Williams turns a birthday scene into a collapse of hope.",
+    output: "Four reading responses, two evidence-bank entries, and one mini-write.",
+    miniLesson: [
+      "The birthday scene should feel wrong. A celebration normally signals care and belonging, but here it becomes a stage for cruelty, absence, and emotional collapse.",
+      "Stanley's gift and Mitch's absence show Blanche that her hoped-for escape is failing. The scene also tests Stella's ability to protect Blanche while remaining attached to Stanley."
+    ],
+    tracking: ["Birthday table", "Mitch's absence", "Stanley's gift", "Stella's discomfort", "Blanche's collapse"],
+    questions: ["Why does the birthday scene feel tense instead of celebratory?", "What does Mitch's absence signal?", "How does Stanley's gift function dramatically?", "What does Stella's response reveal?"],
+    studentPrompts: ["Answer the reading questions with attention to irony.", "Choose one object or absence and explain its emotional effect."],
+    evidenceTask: "Add two entries about cruelty, collapse, or failed rescue.",
+    miniWrite: "Explain how Scene 8 makes Blanche's hope feel increasingly impossible."
+  },
+  {
+    id: "lesson-15-scene-9-realism-vs-magic",
+    title: "Scene 9: Realism vs. Magic",
+    subtitle: "Study the paper lantern, exposure, and the need for illusion.",
+    time: "50-60 minutes",
+    sources: ["Next Step Unit 5 Streetcar booklet", "CBE Scene 9 overview", "CBE reading guide PDF"],
+    target: "Analyze how light and truth expose Blanche's conflict between realism and magic.",
+    output: "Four reading responses, two evidence-bank entries, and one mini-write.",
+    miniLesson: [
+      "Scene 9 brings Mitch and Blanche into a confrontation over truth. Mitch wants to see Blanche plainly, while Blanche insists that she has needed magic rather than realism.",
+      "The paper lantern is one of the play's clearest symbols because it changes meaning across the drama. It can be decoration, protection, illusion, performance, and finally a sign of exposure."
+    ],
+    tracking: ["Mitch after the birthday", "Light and paper lantern", "Blanche's account of truth", "Tarantula Arms", "Flower vendor"],
+    questions: ["Why does Mitch want the light?", "What does Blanche mean by magic?", "How does the paper lantern change in this scene?", "How does the flower vendor deepen the scene's meaning?"],
+    studentPrompts: ["Answer the reading questions using one light or sound detail.", "Trace the paper lantern before and during this scene."],
+    evidenceTask: "Add two entries about light, truth, or illusion.",
+    miniWrite: "Analyze the paper lantern as a symbol before, during, and after Mitch tears it down."
+  },
+  {
+    id: "lesson-16-scene-10-violence-and-inevitable-collision",
+    title: "Scene 10: Violence and Inevitable Collision",
+    subtitle: "Handle the final Blanche/Stanley collision with care and precision.",
+    time: "50-60 minutes",
+    sources: ["Next Step Unit 5 Streetcar booklet", "CBE Scene 10 overview", "CBE reading guide PDF"],
+    target: "Analyze how dramatic technique shows Blanche losing control of reality.",
+    output: "Four reading responses, two evidence-bank entries, and one mini-write.",
+    miniLesson: [
+      "Content note: this scene includes sexual violence. Handle the event academically and respectfully, without graphic detail and without sensationalizing it. Do not ignore what happens, but focus on how Williams stages power, fear, fantasy, and collapse.",
+      "Scene 10 makes Blanche's rescue fantasies fail under Stanley's physical and psychological dominance. Costume, phone calls, sound, movement, and expressionistic effects all show the boundary between illusion and reality breaking down."
+    ],
+    tracking: ["Blanche's costume", "Stanley's return", "Shep fantasy", "Phone failure", "Expressionistic effects"],
+    questions: ["How does Blanche's costume reveal fantasy?", "How does Stanley identify and exploit Blanche's lies?", "What does the failed phone call show?", "How do dramatic effects represent Blanche's loss of control?"],
+    studentPrompts: ["Answer the reading questions with respectful academic language.", "Identify one dramatic technique that shows psychological collapse."],
+    evidenceTask: "Add two entries about fantasy, violence, power, or stagecraft.",
+    miniWrite: "Explain how Williams uses dramatic technique to show Blanche losing control of reality."
+  },
+  {
+    id: "lesson-17-scene-11-denial-and-continuation",
+    title: "Scene 11: Denial and Continuation",
+    subtitle: "Read the ending as surface order built on denial.",
+    time: "50-60 minutes",
+    sources: ["CBE Scene 11 overview", "CBE reading guide PDF", "Next Step film and essay transition"],
+    target: "Explain why the ending remains tragic even as social order appears restored.",
+    output: "Five reading responses, three evidence-bank entries, and one final scene mini-write.",
+    miniLesson: [
+      "Scene 11 returns to poker, packing, and social routine. On the surface, order is restored. Underneath, that order depends on denial, institutionalization, Mitch's remorse, Stella's self-protection, and Stanley's world continuing.",
+      "The ending asks students to think carefully about survival. Stella may need denial to continue living, but that does not make the ending morally clean. The final image and soundscape keep the tragedy active."
+    ],
+    tracking: ["Poker game returning", "Stella packing", "Eunice's advice", "Mitch's remorse", "Paper lantern", "Final line"],
+    questions: ["What has changed since the earlier poker night?", "How does Stella handle Blanche's removal?", "Why does Eunice advise denial?", "What does Mitch's remorse reveal?", "Why is the ending tragic despite restored order?"],
+    studentPrompts: ["Answer the reading questions with focus on ending and continuation.", "Choose the final image, final line, or sound effect and explain its impact."],
+    evidenceTask: "Add three final scene entries. By the end of this lesson, aim for 22-25 usable evidence-bank entries.",
+    miniWrite: "Explain why the ending is tragic even though order appears to be restored."
+  },
+  {
+    id: "lesson-18-motifs-and-sound",
+    title: "Motifs and Sound",
+    subtitle: "Trace repeated sound and motif patterns across the whole play.",
+    time: "45-55 minutes",
+    sources: ["CBE Motifs and Symbols", "CBE Song Symbolism", "CBE film sound resource"],
+    target: "Trace how repeated motifs and sounds reveal what characters cannot say directly.",
+    output: "Two motif traces and one sound-focused mini-write.",
+    miniLesson: [
+      "Now that the play has been read, motifs should be studied as patterns rather than spoilers. The blue piano, Varsouviana polka, streetcar names, bathing, paper lantern, flowers, and poker cycle all gather meaning as they repeat.",
+      "Sound is especially important because it can reveal emotional pressure without a narrator. Music, vendor cries, trains, shouting, and silence can all externalize what characters avoid saying directly."
+    ],
+    studentPrompts: ["Choose two motifs and trace each through at least three moments.", "Explain how the meaning of one motif changes from early to late scenes."],
+    evidenceTask: "Complete motif tracking rows for two motifs using early, middle, and final appearances.",
+    miniWrite: "Explain how Williams uses sound to show what characters cannot say directly."
+  },
+  {
+    id: "lesson-19-symbols-and-stagecraft",
+    title: "Symbols and Stagecraft",
+    subtitle: "Move from object spotting to dramatic method.",
+    time: "45-55 minutes",
+    sources: ["CBE Symbols", "CBE Motifs and Symbols", "CBE modern drama toolkit"],
+    target: "Analyze how symbols and stagecraft change meaning across the drama.",
+    output: "Three symbol/stagecraft chart rows and one analytical paragraph.",
+    miniLesson: [
+      "Symbols in Streetcar are not fixed labels. Light, the paper lantern, costume, flowers, Belle Reve, bathing, music, space, the trunk, letters, radio, and ticket all shift meaning depending on context.",
+      "Stagecraft matters because the audience experiences symbols through performance. A symbol may be seen, hidden, torn, heard, carried, touched, or placed in a room where another character can control it."
+    ],
+    studentPrompts: ["Choose three symbols or stagecraft elements and explain literal object, abstract meaning, key scene, and essay use.", "Identify how one symbol changes by the end of the play."],
+    evidenceTask: "Add or revise three evidence-bank entries so each includes technique and essay use.",
+    miniWrite: "Choose one symbol and explain how its meaning changes by the end of the play."
+  },
+  {
+    id: "lesson-20-relationships-and-power",
+    title: "Relationships and Power",
+    subtitle: "Map how power shifts among the central relationships.",
+    time: "45-55 minutes",
+    sources: ["CBE Relationships rebuilt", "CBE scene overviews", "Next Step scene questions"],
+    target: "Evaluate which relationship most shapes Blanche's destruction and why.",
+    output: "Relationship power table and one defended relationship-map response.",
+    miniLesson: [
+      "The relationships page needs to be one of the strongest synthesis lessons because the play's themes live inside relationship dynamics. Blanche and Stanley, Blanche and Stella, Stella and Stanley, Blanche and Mitch, Stella and Eunice, and the poker world each show a different power arrangement.",
+      "Power is not static. It shifts through information, desire, violence, dependence, social judgment, and who controls the story that others believe."
+    ],
+    studentPrompts: ["Complete a relationship row for beginning dynamic, turning point, ending dynamic, power shift, and evidence.", "Which relationship is most responsible for Blanche's destruction? Defend your answer with three pieces of evidence."],
+    evidenceTask: "Add one evidence entry for each of three relationship dynamics.",
+    miniWrite: "Explain which character adapts best to reality and what that adaptation costs."
+  },
+  {
+    id: "lesson-21-themes-synthesis",
+    title: "Themes Synthesis",
+    subtitle: "Turn theme labels into essay-ready ideas.",
+    time: "45-55 minutes",
+    sources: ["CBE Themes", "CBE Motifs and Symbols", "Next Step formative questions"],
+    target: "Build arguable thesis statements from theme patterns and evidence.",
+    output: "Three possible theses and one strongest-thesis justification.",
+    miniLesson: [
+      "A theme is not a topic word. Illusion, desire, dependence, truth, class, gender, trauma, and judgment are only starting points. A strong theme statement explains what the play reveals about human behavior or social pressure.",
+      "The best thesis options connect a theme to a character focus and to evidence that can sustain a full essay. If the thesis only retells the plot, it is not ready."
+    ],
+    studentPrompts: ["Build three possible thesis statements using three different themes.", "Choose the strongest thesis and explain why it can support a full essay."],
+    evidenceTask: "Select at least six evidence entries that could support your strongest theme-to-thesis idea.",
+    miniWrite: "Revise one weak theme statement into a stronger analytical idea."
+  },
+  {
+    id: "lesson-22-film-adaptation-lab",
+    title: "Film Adaptation Lab",
+    subtitle: "Compare stage text and film choices as interpretation.",
+    time: "60-75 minutes",
+    sources: ["Next Step film transition", "CBE film study resources", "Course Film Room"],
+    target: "Compare how stage and film techniques shape audience understanding.",
+    output: "Two film comparison rows and one adaptation mini-write.",
+    miniLesson: [
+      "The film adaptation is not filler after the play. It is a second interpretation of the same dramatic material. Camera distance, angle, lighting, mise-en-scene, sound, performance, cuts, and set design can emphasize or soften details from the stage text.",
+      "Use the Film Room to choose moments for comparison. Before viewing, choose two scenes. During viewing, track performance, lighting, sound, camera, and setting. After viewing, decide which version is more effective for character or theme."
+    ],
+    studentPrompts: ["Open the Film Room and choose two scenes or moments to compare.", "Complete comparison rows for stage detail, film choice, effect, and which version is more effective."],
+    evidenceTask: "Add two evidence entries that compare stage direction or dramatic detail with film adaptation choice.",
+    miniWrite: "How does the film adaptation change the audience's understanding of Blanche, Stanley, or Stella?"
+  },
+  {
+    id: "lesson-23-critical-analytical-essay-bootcamp",
+    title: "Critical/Analytical Essay Bootcamp",
+    subtitle: "Move from evidence bank to essay plan.",
+    time: "60-75 minutes",
+    sources: ["Next Step Critical/Analytical Essay HOW TO", "Next Step rubric", "CBE writing a critical analytical response"],
+    target: "Build an essay plan that avoids plot summary and supports a controlling idea.",
+    output: "Decoded prompt, thesis, 4-6 evidence choices, outline, and one body paragraph.",
+    miniLesson: [
+      "No outline, no essay. If you cannot identify your thesis, topic sentences, evidence, and analysis before drafting, you are not ready to write the final Critical/Analytical response.",
+      "Essay bootcamp connects prompt decoding, AGTT, character angle, thesis control, evidence selection, topic sentences, PEAL or PETAL paragraph structure, and analysis that explains significance rather than retelling events."
+    ],
+    studentPrompts: ["Decode one prompt by identifying key terms, task, character angle, and possible theme.", "Use the Thesis Workshop and your evidence bank to draft one full outline."],
+    evidenceTask: "Choose 4-6 evidence-bank entries and mark how each will support a body paragraph.",
+    miniWrite: "Write one complete body paragraph that integrates evidence and explains significance."
+  },
+  {
+    id: "lesson-24-samples-rubric-and-final-essay",
+    title: "Samples, Rubric, and Final Essay",
+    subtitle: "Use samples and rubric language before final submission.",
+    time: "60-75 minutes",
+    sources: ["CBE CAR samples", "Next Step essay prompts", "Next Step Critical/Analytical rubric"],
+    target: "Apply rubric categories to improve final essay planning and revision.",
+    output: "Rubric self-assessment, prompt choice, final thesis, planning table, and final submission note.",
+    miniLesson: [
+      "The rubric categories are Thought and Understanding, Supporting Evidence, Form and Structure, Matters of Choice, and Matters of Correctness. In student language, ask whether ideas are insightful, evidence is precise and explained, structure is controlled, diction is purposeful, and sentence control is clean enough not to distract.",
+      "Final prompt choices can focus on resilience shaped by reality, motivations that direct individual action, imagination or illusion as refuge or trap, independence and relationships, or courage and separation. Each prompt must become Streetcar-ready through a specific character angle and evidence plan."
+    ],
+    studentPrompts: ["Read one sample and identify thesis, topic sentences, best evidence, strongest rubric category, and one possible improvement.", "Choose your final prompt and write your final thesis."],
+    evidenceTask: "Complete a final essay planning table that connects prompt, thesis, body topics, evidence, and rubric priorities.",
+    miniWrite: "Write final submission instructions for yourself: what must be checked before the essay is handed in?"
+  }
+];
+
+function renderSourceChips(sources: string[]) {
+  return `<div class="source-chip-row">${sources
+    .map((source) => `<span class="source-chip">${escapeHtml(source)}</span>`)
+    .join("")}</div>`;
+}
+
+function renderPromptTextareas(lesson: AuthoredLessonSpec) {
+  return lesson.studentPrompts
+    .map((prompt, index) => `<label class="student-response-field">
+      <span>${escapeHtml(prompt)}</span>
+      <textarea data-response-id="${escapeHtml(`${lesson.id}-prompt-${index + 1}`)}" rows="4"></textarea>
+      <small>Saved locally in this browser.</small>
+    </label>`)
+    .join("\n");
+}
+
+function renderEvidenceTable(lesson: AuthoredLessonSpec) {
+  return `<div class="evidence-table-wrap">
+    <table class="evidence-bank-table">
+      <thead>
+        <tr>
+          <th>Evidence</th>
+          <th>Technique</th>
+          <th>What it reveals</th>
+          <th>Theme connection</th>
+          <th>Essay use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><textarea data-response-id="${escapeHtml(`${lesson.id}-evidence`)}" rows="3"></textarea></td>
+          <td><textarea data-response-id="${escapeHtml(`${lesson.id}-technique`)}" rows="3"></textarea></td>
+          <td><textarea data-response-id="${escapeHtml(`${lesson.id}-reveals`)}" rows="3"></textarea></td>
+          <td><textarea data-response-id="${escapeHtml(`${lesson.id}-theme`)}" rows="3"></textarea></td>
+          <td><textarea data-response-id="${escapeHtml(`${lesson.id}-essay-use`)}" rows="3"></textarea></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="local-save-note">Saved locally in this browser.</p>
+  </div>`;
+}
+
+function renderSceneWork(lesson: AuthoredLessonSpec) {
+  if (!lesson.tracking || !lesson.questions) {
+    return "";
+  }
+  return `<section class="lesson-block scene-reading-task">
+    <h3>Read Instruction</h3>
+    <p>Read the assigned scene in your copy of <em>A Streetcar Named Desire</em>. Do not replace the reading with a summary. Use the questions below to focus your attention while you read.</p>
+    <h3>Track While Reading</h3>
+    <ul>${lesson.tracking.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
+    <h3>Reading Questions</h3>
+    ${lesson.questions
+      .map((question, index) => `<label class="student-response-field">
+        <span>${escapeHtml(question)}</span>
+        <textarea data-response-id="${escapeHtml(`${lesson.id}-question-${index + 1}`)}" rows="4"></textarea>
+        <small>Saved locally in this browser.</small>
+      </label>`)
+      .join("\n")}
+  </section>`;
+}
+
+function renderAuthoredLessonHtml(lesson: AuthoredLessonSpec) {
+  return `<div class="authored-lesson">
+    ${renderSourceChips(lesson.sources)}
+    <section class="lesson-block lesson-header-block">
+      <h1>${escapeHtml(lesson.title)}</h1>
+      <p>${escapeHtml(lesson.subtitle)}</p>
+      <p class="lesson-time">Estimated time: ${escapeHtml(lesson.time)}</p>
+    </section>
+    <section class="lesson-block learning-target">
+      <h3>Learning Target</h3>
+      <p>${escapeHtml(lesson.target)}</p>
+    </section>
+    <section class="lesson-block required-output">
+      <h3>Required Output</h3>
+      <p>${escapeHtml(lesson.output)}</p>
+    </section>
+    <section class="lesson-block mini-lesson">
+      <h3>Mini-lesson</h3>
+      ${lesson.miniLesson.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("\n")}
+    </section>
+    ${renderSceneWork(lesson)}
+    <section class="lesson-block student-work">
+      <h3>Student Work</h3>
+      ${renderPromptTextareas(lesson)}
+    </section>
+    <section class="lesson-block evidence-bank">
+      <h3>Evidence Bank</h3>
+      <p>${escapeHtml(lesson.evidenceTask)}</p>
+      ${renderEvidenceTable(lesson)}
+    </section>
+    <section class="lesson-block mini-write">
+      <h3>Mini-write / Exit Task</h3>
+      <p>${escapeHtml(lesson.miniWrite)}</p>
+      <label class="student-response-field">
+        <span>Draft your response here.</span>
+        <textarea data-response-id="${escapeHtml(`${lesson.id}-mini-write`)}" rows="5"></textarea>
+        <small>Saved locally in this browser.</small>
+      </label>
+    </section>
+  </div>`;
+}
+
+function authoredLessonToModernDramaLesson(lesson: AuthoredLessonSpec, sequence: number): ModernDramaLesson {
+  const contentHtml = renderAuthoredLessonHtml(lesson);
+  const text = normalizeWhitespace(
+    [
+      lesson.title,
+      lesson.subtitle,
+      lesson.target,
+      lesson.output,
+      ...lesson.miniLesson,
+      ...lesson.studentPrompts,
+      lesson.evidenceTask,
+      lesson.miniWrite,
+      ...(lesson.tracking ?? []),
+      ...(lesson.questions ?? [])
+    ].join(" ")
+  );
+  return {
+    id: lesson.id,
+    sequence,
+    title: lesson.title,
+    sourceKind: "html",
+    sourceHref: `authored-v2/${lesson.id}.html`,
+    contentHtml,
+    text,
+    images: [],
+    videos: [],
+    links: []
+  };
+}
+
+function buildStreetcarLibraryDocuments(): ModernDramaLibraryDocument[] {
+  return [
+    {
+      id: "primary-text-streetcar",
+      group: "Primary Text",
+      title: "A Streetcar Named Desire",
+      sourceLabel: "Next Step",
+      description: "Canonical student reading copy included under course-owner distribution rights.",
+      workspaceHref: "./assets/source/a-streetcar-named-desire.pdf",
+      zipPath: "English 30-1/ELA 30-1 Readings/A Streetcar Named Desire pdf.pdf",
+      kind: "pdf"
+    },
+    {
+      id: "cbe-streetcar-reading-guide",
+      group: "Reading Guides",
+      title: "CBE Streetcar Reading Guide",
+      sourceLabel: "CBE",
+      description: "Compact scene question bank used to support reading responses.",
+      workspaceHref: "./assets/source/cbe-streetcar-reading-guide.pdf",
+      zipPath: "streetcar_named_desire/assets/A Streetcar Named Desire questions.pdf",
+      kind: "pdf"
+    },
+    {
+      id: "nextstep-unit5-streetcar",
+      group: "Reading Guides",
+      title: "Next Step Unit 5 Streetcar Booklet",
+      sourceLabel: "Next Step",
+      description: "Primary formative reading question source for Scenes 1-10.",
+      workspaceHref: "./assets/source/nextstep-unit5-streetcar.docx",
+      zipPath: "English 30-1/ELA 30-1 Unit 5 A Streetcar Named Desire.docx",
+      kind: "other"
+    },
+    {
+      id: "critical-analytical-how-to",
+      group: "Essay Supports",
+      title: "Critical/Analytical Essay HOW TO",
+      sourceLabel: "Next Step",
+      description: "Student-facing process guide for Critical/Analytical essay planning.",
+      workspaceHref: "./assets/source/critical-analytical-essay-how-to.pdf",
+      zipPath: "English 30-1/LA30-1 Summative assessments/Unit 5- Modern Drama/Critical_Analytical Essay HOW TO.pdf",
+      kind: "pdf"
+    },
+    {
+      id: "critical-analytical-rubric",
+      group: "Essay Supports",
+      title: "Critical/Analytical Rubric",
+      sourceLabel: "Next Step",
+      description: "Rubric source for Thought and Understanding, Supporting Evidence, Form and Structure, Matters of Choice, and Matters of Correctness.",
+      workspaceHref: "./assets/source/critical-analytical-rubric.doc",
+      zipPath: "English 30-1/LA30-1 Summative assessments/Unit 5- Modern Drama/ELA 10-1 20-1 30-1 Critical-Analytical Rubric.doc",
+      kind: "other"
+    },
+    {
+      id: "modern-drama-resilience-essay",
+      group: "Essay Supports",
+      title: "Modern Drama Resilience Essay Prompt",
+      sourceLabel: "Next Step",
+      description: "Prompt bank source for resilience shaped by reality.",
+      workspaceHref: "./assets/source/modern-drama-resilience-essay.docx",
+      zipPath: "English 30-1/LA30-1 Summative assessments/Unit 5- Modern Drama/Units 5 DramaFilm _resilience_ Critical-Analytical Essay.docx",
+      kind: "other"
+    }
+  ];
+}
+
+function buildAuthoredStreetcarV2Unit(baseUnit: ModernDramaUnit): ModernDramaUnit {
+  const image = firstUnitImage(baseUnit);
+  const lessons = AUTHORED_STREETCAR_LESSONS.map((lesson, index) => authoredLessonToModernDramaLesson(lesson, index + 1));
+  if (image) {
+    lessons[0] = {
+      ...lessons[0],
+      images: baseUnit.lessons.flatMap((lesson) => lesson.images).slice(0, 1)
+    };
+  }
+
+  return {
+    title: "A Streetcar Named Desire",
+    lessons,
+    localResources: [],
+    libraryDocuments: buildStreetcarLibraryDocuments(),
+    filmResources: [
+      {
+        id: "streetcar-full-film",
+        title: "Streetcar Named Desire Movie",
+        originalSrc: "./assets/media/streetcar-named-desire-movie.mp4",
+        embedSrc: "./assets/media/streetcar-named-desire-movie.mp4",
+        origin: "local",
+        sourceTitle: "Film Adaptation Lab",
+        mediaType: "video/mp4"
+      }
+    ]
+  };
 }
 
 type UnitDocumentItem = {
   id: string;
   title: string;
-  sourceTitle: string;
+  sourceTitle?: string;
+  group?: string;
+  sourceLabel?: string;
+  description?: string;
   workspaceHref: string;
   zipPath: string;
   kind: Exclude<ModernDramaSourceKind, "html">;
@@ -629,6 +1430,16 @@ function isLocalDocumentLink(link: ModernDramaLink) {
 }
 
 function unitDocuments(unit: ModernDramaUnit) {
+  if (unit.libraryDocuments && unit.libraryDocuments.length > 0) {
+    return uniqueBy(
+      unit.libraryDocuments.map((document) => ({
+        ...document,
+        sourceTitle: document.group
+      })),
+      (document) => document.workspaceHref
+    );
+  }
+
   const documents: UnitDocumentItem[] = [];
   for (const lesson of unit.lessons) {
     if (lesson.document) {
@@ -660,6 +1471,19 @@ function unitDocuments(unit: ModernDramaUnit) {
 function unitVideos(unit: ModernDramaUnit) {
   const videos: UnitVideoItem[] = [];
   const seen = new Set<string>();
+  for (const video of unit.filmResources ?? []) {
+    const key = video.embedSrc;
+    if (seen.has(key)) {
+      continue;
+    }
+    seen.add(key);
+    videos.push({
+      ...video,
+      title: video.title,
+      id: video.id ?? `film-${videos.length + 1}-${toSafeId(video.title)}`,
+      sourceTitle: video.sourceTitle ?? "Film Room"
+    });
+  }
   for (const lesson of unit.lessons) {
     for (const video of lesson.videos) {
       if (seen.has(video.embedSrc)) {
@@ -837,6 +1661,8 @@ function buildResourceCatalog(slug: string, unit: ModernDramaUnit): { generatedA
 export function buildProjectManifest(options: {
   slug: string;
   zipPath: string;
+  nextStepZipPath?: string;
+  moviePath?: string;
   generatedAt: string;
 }): ProjectManifest {
   const paths = getProjectPaths(options.slug);
@@ -859,8 +1685,10 @@ export function buildProjectManifest(options: {
     preferredWorkflows: ["conversion", "injection/integration"],
     canonicalEntry: paths.workspaceEntrypoint,
     canonicalSources: [paths.workspaceEntrypoint],
-    generatedOutputs: [],
-    regenerateCommand: `npx tsx scripts/build-ela-modern-drama.ts --zip "${options.zipPath}" --slug ${options.slug} --force`,
+    generatedOutputs: [
+      path.join(repoRoot, "projects", options.slug, "exports", "ela30-1-modern-drama-v2.zip")
+    ],
+    regenerateCommand: `npx tsx scripts/build-ela-modern-drama.ts --zip "${options.zipPath}" --nextstep-zip "${options.nextStepZipPath ?? DEFAULT_NEXT_STEP_ZIP_PATH}" --movie "${options.moviePath ?? DEFAULT_STREETCAR_MOVIE_PATH}" --slug ${options.slug} --force`,
     injectedComponents: [
     {
       id: "critical-response-workshop",
@@ -875,13 +1703,27 @@ export function buildProjectManifest(options: {
       target: `projects/${options.slug}/workspace/index.html#writing`,
       status: "active",
       notes: "Converted from the external thesis builder TSX into the static Thesis Workshop panel."
+    },
+    {
+      id: "evidence-collector-workshop",
+      source: EVIDENCE_COLLECTOR_ACTIVITY_SOURCE,
+      target: `projects/${options.slug}/workspace/index.html#writing`,
+      status: "active",
+      notes: "Converted from the external evidence collector TSX into the static Writing Studio shell."
+    },
+    {
+      id: "paragraph-architect-workshop",
+      source: PARAGRAPH_ARCHITECT_ACTIVITY_SOURCE,
+      target: `projects/${options.slug}/workspace/index.html#writing`,
+      status: "active",
+      notes: "Converted from the external PETAL paragraph architect TSX into the static Writing Studio shell."
     }
   ],
     importedFirstPassOrigin: {
       sourceSystem: "brightspace",
       sourcePath: options.zipPath,
       importedAt: options.generatedAt,
-      notes: "D2L/Brightspace Streetcar unit extracted into a FinLit-style master lesson frame."
+      notes: `D2L/Brightspace Streetcar unit kept as the lesson source of truth. Next Step source package supplies Library documents, and the local movie path supplies the Film Room asset. Next Step source: ${options.nextStepZipPath ?? DEFAULT_NEXT_STEP_ZIP_PATH}.`
     },
     exportTargets: [
       {
@@ -953,10 +1795,16 @@ function renderLibrary(unit: ModernDramaUnit) {
       <span class="library-doc-index">${String(index + 1).padStart(2, "0")}</span>
       <span>
         <strong>${escapeHtml(document.title)}</strong>
-        <small>${escapeHtml(document.kind.toUpperCase())}</small>
+        <small>${escapeHtml(document.group ? `${document.group} | ${document.sourceLabel ?? document.kind.toUpperCase()}` : document.kind.toUpperCase())}</small>
       </span>
     </button>`)
     .join("\n");
+  const groupSummary = uniqueBy(
+    documents.map((document) => document.group).filter((group): group is string => Boolean(group)),
+    (group) => group
+  )
+    .map((group) => `<span class="library-group-chip">${escapeHtml(group)}</span>`)
+    .join("");
   const panels = documents
     .map((document, index) => {
       const isPdf = document.kind === "pdf";
@@ -971,9 +1819,9 @@ function renderLibrary(unit: ModernDramaUnit) {
       return `<article class="library-reader-panel" data-library-doc-panel="${escapeHtml(document.id)}"${index === 0 ? "" : " hidden"}>
         <div class="library-reader-header">
           <div>
-            <span class="resource-kicker">${escapeHtml(document.kind.toUpperCase())} Source</span>
+            <span class="resource-kicker">${escapeHtml(document.sourceLabel ?? document.kind.toUpperCase())} Source</span>
             <h3>${escapeHtml(document.title)}</h3>
-            <p>Source lesson: ${escapeHtml(document.sourceTitle)}</p>
+            <p>${escapeHtml(document.description ?? `Source lesson: ${document.sourceTitle ?? "Course resource"}`)}</p>
           </div>
           <div class="library-actions">
             <a href="${escapeHtml(document.workspaceHref)}" target="_blank" rel="noopener noreferrer">${escapeHtml(openLabel)}</a>
@@ -989,7 +1837,8 @@ function renderLibrary(unit: ModernDramaUnit) {
     <aside class="library-list-panel">
       <span class="resource-kicker">Library</span>
       <h3>${documents.length} local ${documents.length === 1 ? "document" : "documents"}</h3>
-      <p>PDFs are collected here so Resources can stay focused on external reading links.</p>
+      <p>PDFs and source documents are collected here so Resources can stay focused on supplemental links and workflow guidance.</p>
+      ${groupSummary ? `<div class="library-group-list">${groupSummary}</div>` : ""}
       <div class="library-doc-list">${tabs}</div>
     </aside>
     <div class="library-reader-stack">${panels}</div>
@@ -1007,9 +1856,16 @@ function renderFilmRoom(unit: ModernDramaUnit) {
   }
 
   const panels = videos
-    .map((video, index) => `<article class="film-panel" data-film-panel="${escapeHtml(video.id)}"${index === 0 ? "" : " hidden"}>
-      <iframe class="film-room-frame" src="${escapeHtml(video.embedSrc)}" title="${escapeHtml(video.title)}" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </article>`)
+    .map((video, index) => {
+      const media = video.origin === "local"
+        ? `<video class="film-room-frame" controls preload="metadata">
+            <source src="${escapeHtml(video.embedSrc)}" type="${escapeHtml(video.mediaType ?? "video/mp4")}">
+          </video>`
+        : `<iframe class="film-room-frame" src="${escapeHtml(video.embedSrc)}" title="${escapeHtml(video.title)}" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+      return `<article class="film-panel" data-film-panel="${escapeHtml(video.id)}"${index === 0 ? "" : " hidden"}>
+      ${media}
+    </article>`;
+    })
     .join("\n");
   const playlist = videos
     .map((video, index) => `<option value="${escapeHtml(video.id)}"${index === 0 ? " selected" : ""}>${escapeHtml(video.title)}</option>`)
@@ -1019,9 +1875,9 @@ function renderFilmRoom(unit: ModernDramaUnit) {
         <span class="resource-kicker">Now loaded</span>
         <h3>${escapeHtml(video.title)}</h3>
         <p class="film-now-source">${escapeHtml(video.sourceTitle)}</p>
-        <p>Media resource from ${escapeHtml(video.sourceTitle)}.</p>
+        <p>${video.origin === "local" ? "Local course film resource packaged with this build." : `Media resource from ${escapeHtml(video.sourceTitle)}.`}</p>
         <div class="film-now-footer">
-          <span class="resource-kicker">Embedded Source</span>
+          <span class="resource-kicker">${video.origin === "local" ? "Local Media" : "Embedded Source"}</span>
           <span class="film-now-count">${index + 1} / ${videos.length}</span>
         </div>
         <a class="film-source-link" href="${escapeHtml(video.originalSrc)}" target="_blank" rel="noopener noreferrer">Open Source</a>
@@ -1041,6 +1897,7 @@ function renderFilmRoom(unit: ModernDramaUnit) {
         <span class="resource-kicker">Video Catalog</span>
         <h3>Load a video</h3>
         <p>Use the playlist to switch videos without leaving the course shell.</p>
+        <a class="film-source-link" href="#lesson-22-film-adaptation-lab" data-page-target="lesson-22-film-adaptation-lab">Back to Lesson 22</a>
         <label class="film-room-label" for="film-room-select">Playlist</label>
         <select id="film-room-select" class="film-room-select" data-film-select>
           ${playlist}
@@ -1113,21 +1970,39 @@ function renderSidebar(unit: ModernDramaUnit) {
 
 function renderExternalResources(unit: ModernDramaUnit) {
   const links = unitExternalResources(unit);
-  if (links.length === 0) {
-    return `<article class="empty-route-card">
-      <span class="material-symbols-outlined" aria-hidden="true">travel_explore</span>
-      <h3>No external sources loaded yet</h3>
-      <p>External non-video links from the imported unit will appear here as resource cards.</p>
-    </article>`;
-  }
-  return `<div class="external-resource-grid">${links
-    .map((link) => `<article class="external-resource-card">
+  const externalCards = links.length === 0
+    ? `<article class="empty-route-card">
+        <span class="material-symbols-outlined" aria-hidden="true">travel_explore</span>
+        <h3>Supplemental links only</h3>
+        <p>The main unit is built from local CBE and Next Step sources. External study-guide links should only support review.</p>
+      </article>`
+    : links
+      .map((link) => `<article class="external-resource-card">
       <span class="resource-kicker">External Source</span>
       <h3>${escapeHtml(link.text)}</h3>
-      <p>Captured from ${escapeHtml(link.sourceTitle)}. Use this as a supporting source or review stop.</p>
+      <p>Captured from ${escapeHtml(link.sourceTitle)}. Use this as a supplemental review stop, not as the main learning source.</p>
       <a class="external-resource-action" href="${escapeHtml(link.workspaceHref)}" target="_blank" rel="noopener noreferrer">Open Resource</a>
     </article>`)
-    .join("\n")}</div>`;
+      .join("\n");
+
+  return `<div class="resource-stack">
+    <section class="resource-workflow-card">
+      <h3>Student Workflow</h3>
+      <ol>
+        <li>Read the assigned scene.</li>
+        <li>Answer the core questions.</li>
+        <li>Add evidence to the bank.</li>
+        <li>Write the mini-response.</li>
+        <li>Mark the lesson complete.</li>
+        <li>Use evidence in the final essay.</li>
+      </ol>
+    </section>
+    <section class="resource-workflow-card">
+      <h3>Teacher Source Map</h3>
+      <p>CBE modern drama and Streetcar files provide unit framing, scene support, motifs, symbols, themes, film terminology, and writing samples. Next Step Unit 5 provides the core Streetcar reading questions for Scenes 1-10, while CBE reading guide questions support Scene 11 and final synthesis. Next Step essay supports provide rubric language and Critical/Analytical prompt banks.</p>
+    </section>
+    <div class="external-resource-grid">${externalCards}</div>
+  </div>`;
 }
 
 function renderWritingStudio() {
@@ -1143,6 +2018,18 @@ function renderWritingStudio() {
       title: "Thesis Workshop",
       icon: "edit_note",
       description: THESIS_BUILDER_ACTIVITY.description
+    },
+    {
+      id: "evidenceCollector",
+      title: "Evidence Collector",
+      icon: "fact_check",
+      description: EVIDENCE_COLLECTOR_ACTIVITY.description
+    },
+    {
+      id: "paragraphArchitect",
+      title: "Paragraph Architect",
+      icon: "architecture",
+      description: PARAGRAPH_ARCHITECT_ACTIVITY.description
     }
   ];
   const firstQuestionGroup = CRITICAL_RESPONSE_WORKSHOPS[0];
@@ -1304,6 +2191,7 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 .source-content ul, .source-content ol { margin: 0 0 16px 22px; max-width: 74ch; }
 .source-content li { margin: 8px 0; }
 .source-content a, .source-link { color: #154212; text-decoration: underline; text-underline-offset: 3px; }
+.library-group-chip { display: inline-flex; align-items: center; min-height: 28px; border: 1px solid #c2c9bb; border-radius: 8px; background: #f3f7f1; color: #154212; padding: 4px 9px; font-family: "IBM Plex Sans"; font-size: 12px; line-height: 1.3; }
 .source-image { display: block; width: min(100%, 680px); max-height: 360px; object-fit: cover; border-radius: 8px; border: 1px solid #e1e3e4; margin: 18px 0; }
 .source-video-frame { display: block; width: min(100%, 760px); aspect-ratio: 16 / 9; min-height: 220px; height: auto; border: 1px solid #d9dadb; border-radius: 8px; background: #000; margin: 18px 0; }
 .source-document-frame { display: block; width: min(100%, 760px); height: 620px; border: 1px solid #d9dadb; border-radius: 8px; background: #fff; margin: 18px 0; }
@@ -1313,8 +2201,18 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 .source-video-meta { display: flex; flex-direction: column; gap: 4px; padding-top: 10px; }
 .source-video-meta strong { font-family: "Hanken Grotesk"; font-size: 17px; line-height: 1.3; color: #191c1d; }
 .source-video-meta a { font-family: "IBM Plex Sans"; font-size: 14px; color: #154212; text-decoration: underline; text-underline-offset: 3px; }
+.scene-overview-browser { display: grid; gap: 18px; }
+.scene-overview-control { display: grid; gap: 8px; max-width: 360px; border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; padding: 16px; }
+.scene-overview-panel { border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; padding: 18px; }
+.scene-overview-panel-header { margin-bottom: 12px; }
+.scene-overview-panel-header h3 { font-family: "Hanken Grotesk"; font-size: 24px; line-height: 1.2; margin: 4px 0 0; color: #191c1d; }
 .resource-kicker { display: block; font-family: "IBM Plex Sans"; font-size: 12px; line-height: 1.4; font-weight: 600; color: #154212; text-transform: uppercase; letter-spacing: 0; }
 .external-resource-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.resource-stack { display: grid; gap: 18px; }
+.resource-workflow-card { border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; padding: 18px; }
+.resource-workflow-card h3 { margin: 0 0 10px; font-family: "Hanken Grotesk"; font-size: 22px; line-height: 1.2; color: #191c1d; }
+.resource-workflow-card p, .resource-workflow-card li { color: #42493e; line-height: 1.55; }
+.resource-workflow-card ol { margin: 0 0 0 22px; }
 .external-resource-card, .empty-route-card { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; min-height: 190px; border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; padding: 18px; color: #191c1d; }
 .external-resource-card h3, .empty-route-card h3 { font-family: "Hanken Grotesk"; font-size: 20px; line-height: 1.25; font-weight: 800; margin: 0; }
 .external-resource-card p, .empty-route-card p { color: #42493e; font-size: 14px; line-height: 1.5; margin: 0; }
@@ -1326,6 +2224,7 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 .library-list-panel h3, .library-reader-header h3, .film-room-header h3, .film-room-control-panel h3, .film-now-panel h3 { font-family: "Hanken Grotesk"; font-size: 24px; line-height: 1.2; font-weight: 800; margin: 6px 0 8px; color: #191c1d; }
 .library-list-panel p, .library-reader-header p { color: #42493e; font-size: 14px; line-height: 1.5; margin: 0; }
 .library-doc-list { display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
+.library-group-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
 .library-doc-tab { width: 100%; min-height: 70px; display: grid; grid-template-columns: 42px minmax(0, 1fr); gap: 12px; align-items: center; border: 1px solid #e1e3e4; border-radius: 8px; background: #f8f9fa; color: #191c1d; padding: 12px; text-align: left; }
 .library-doc-tab:hover, .library-doc-tab:focus-visible, .library-doc-tab.active { border-color: #2d5a27; background: #f3f7f1; outline: none; }
 .library-doc-tab strong { display: block; overflow-wrap: anywhere; font-family: "Hanken Grotesk"; font-size: 16px; line-height: 1.25; }
@@ -1429,6 +2328,36 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 .thesis-action { min-height: 42px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid #154212; border-radius: 8px; background: #154212; color: #fff; padding: 9px 14px; font-family: "IBM Plex Sans"; font-size: 14px; }
 .thesis-action.secondary { background: #fff; color: #154212; }
 .thesis-action:hover, .thesis-action:focus-visible { background: #2d5a27; border-color: #2d5a27; color: #fff; outline: none; }
+.evidence-collector { display: flex; flex-direction: column; gap: 20px; }
+.evidence-category-stack { display: grid; gap: 22px; }
+.evidence-category h5, .evidence-use-note h5 { margin: 0 0 10px; font-family: "IBM Plex Sans"; font-size: 13px; line-height: 1.3; color: #154212; }
+.evidence-choice strong { margin-bottom: 6px; }
+.evidence-output { display: grid; gap: 12px; }
+.evidence-use-note { border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; padding: 14px; }
+.evidence-use-note p { margin: 0; color: #42493e; line-height: 1.5; }
+.paragraph-architect { display: flex; flex-direction: column; gap: 20px; }
+.paragraph-mode-tabs { display: inline-flex; flex-wrap: wrap; gap: 8px; align-self: flex-start; border: 1px solid #e1e3e4; border-radius: 8px; background: #f8f9fa; padding: 6px; }
+.paragraph-mode-tab { min-height: 40px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid transparent; border-radius: 8px; background: transparent; color: #42493e; padding: 8px 12px; font-family: "IBM Plex Sans"; font-size: 13px; }
+.paragraph-mode-tab.active, .paragraph-mode-tab:hover, .paragraph-mode-tab:focus-visible { border-color: #2d5a27; background: #fff; color: #154212; outline: none; }
+.paragraph-framework-stack { display: grid; gap: 14px; }
+.paragraph-framework-card { display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 14px; border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; padding: 16px; }
+.paragraph-framework-card > span { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border: 1px solid #c2c9bb; border-radius: 8px; background: #f3f7f1; color: #154212; font-family: "Hanken Grotesk"; font-size: 24px; font-weight: 800; }
+.paragraph-framework-card h5 { margin: 0 0 6px; font-family: "Hanken Grotesk"; font-size: 20px; line-height: 1.25; color: #191c1d; }
+.paragraph-framework-card p { margin: 0 0 8px; color: #42493e; line-height: 1.5; }
+.paragraph-framework-card small { display: block; color: #154212; line-height: 1.45; }
+.paragraph-scenario-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+.paragraph-scenario-card { min-height: 118px; border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; color: #191c1d; padding: 16px; text-align: left; }
+.paragraph-scenario-card:hover, .paragraph-scenario-card:focus-visible { border-color: #2d5a27; background: #f3f7f1; outline: none; }
+.paragraph-scenario-card small { display: block; margin-bottom: 8px; font-family: "IBM Plex Sans"; font-size: 12px; line-height: 1.3; color: #154212; }
+.paragraph-scenario-card strong { display: block; font-family: "Hanken Grotesk"; font-size: 19px; line-height: 1.25; }
+.paragraph-choice strong { font-size: 16px; line-height: 1.45; }
+.paragraph-preview { display: grid; gap: 8px; }
+.paragraph-preview p { margin: 0; color: #42493e; line-height: 1.6; }
+.paragraph-preview span { color: #7a8177; font-style: italic; }
+.paragraph-output { display: grid; gap: 12px; }
+.paragraph-checklist { border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; padding: 14px; }
+.paragraph-checklist h5 { margin: 0 0 8px; font-family: "IBM Plex Sans"; font-size: 13px; color: #154212; }
+.paragraph-checklist ul { margin: 0 0 0 20px; color: #42493e; line-height: 1.5; }
 @media (max-width: 900px) {
   .course-sidebar { display: none; }
   .course-main { margin-left: 0 !important; padding-top: 124px !important; }
@@ -1545,6 +2474,7 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 </main>
 <script>
 const STORAGE_KEY = "canvas-helper:ela30-1-modern-drama:complete";
+const RESPONSE_STORAGE_KEY = "canvas-helper:ela30-1-modern-drama:responses";
 const pages = Array.from(document.querySelectorAll(".course-page"));
 const lessonIds = ${JSON.stringify(unit.lessons.map((lesson) => lesson.id))};
 const totalLessons = ${totalLessons};
@@ -1553,6 +2483,8 @@ const lessonsNav = document.querySelector("[data-lessons-nav]");
 const lessonsToggle = document.querySelector("[data-lessons-toggle]");
 const criticalResponseQuestionGroups = ${scriptJson(CRITICAL_RESPONSE_WORKSHOPS)};
 const thesisBuilderActivity = ${scriptJson(THESIS_BUILDER_ACTIVITY)};
+const evidenceCollectorActivity = ${scriptJson(EVIDENCE_COLLECTOR_ACTIVITY)};
+const paragraphArchitectActivity = ${scriptJson(PARAGRAPH_ARCHITECT_ACTIVITY)};
 const criticalResponseRoot = document.querySelector("[data-critical-response-activity]");
 const criticalResponseState = {
   activeId: "textKnowledge",
@@ -1569,7 +2501,29 @@ const criticalResponseState = {
   },
   thesisFeedback: null,
   thesisText: "",
-  thesisCopied: false
+  thesisCopied: false,
+  evidenceStep: 1,
+  evidenceSelections: {
+    device: null,
+    evidence: null,
+    verb: null,
+    function: null
+  },
+  evidenceFeedback: null,
+  evidenceText: "",
+  evidenceCopied: false,
+  paragraphMode: "learn",
+  paragraphScenarioId: null,
+  paragraphStep: 0,
+  paragraphSelections: {
+    p: null,
+    e: null,
+    t: null,
+    a: null,
+    l: null
+  },
+  paragraphFeedback: null,
+  paragraphCopied: false
 };
 
 function readComplete() {
@@ -1583,6 +2537,42 @@ function readComplete() {
 function writeComplete(values) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(Array.from(values)));
 }
+
+function readResponses() {
+  try {
+    return JSON.parse(localStorage.getItem(RESPONSE_STORAGE_KEY) || "{}");
+  } catch {
+    return {};
+  }
+}
+
+function writeResponses(values) {
+  localStorage.setItem(RESPONSE_STORAGE_KEY, JSON.stringify(values));
+}
+
+function restoreResponses() {
+  const responses = readResponses();
+  document.querySelectorAll("textarea[data-response-id]").forEach((textarea) => {
+    const id = textarea.getAttribute("data-response-id");
+    if (id && Object.prototype.hasOwnProperty.call(responses, id)) {
+      textarea.value = responses[id];
+    }
+  });
+}
+
+document.addEventListener("input", (event) => {
+  const target = event.target;
+  if (!(target instanceof HTMLTextAreaElement) || !target.matches("textarea[data-response-id]")) {
+    return;
+  }
+  const id = target.getAttribute("data-response-id");
+  if (!id) {
+    return;
+  }
+  const responses = readResponses();
+  responses[id] = target.value;
+  writeResponses(responses);
+});
 
 function updateComplete() {
   const complete = readComplete();
@@ -1648,7 +2638,7 @@ function currentQuestionGroup() {
 }
 
 function setCriticalResponseMode(id) {
-  criticalResponseState.activeId = id === "thesisControl" ? "thesisControl" : "textKnowledge";
+  criticalResponseState.activeId = id === "thesisControl" || id === "evidenceCollector" || id === "paragraphArchitect" ? id : "textKnowledge";
   criticalResponseState.selectedOptionId = null;
   renderCriticalResponseActivity();
 }
@@ -1700,6 +2690,14 @@ function renderCriticalResponseActivity() {
   });
   if (criticalResponseState.activeId === "thesisControl") {
     renderThesisBuilderActivity();
+    return;
+  }
+  if (criticalResponseState.activeId === "evidenceCollector") {
+    renderEvidenceCollectorActivity();
+    return;
+  }
+  if (criticalResponseState.activeId === "paragraphArchitect") {
+    renderParagraphArchitectActivity();
     return;
   }
   renderTextKnowledgeQuestionBank();
@@ -1835,6 +2833,295 @@ function renderThesisPreview() {
   return '<div class="thesis-preview">In his play A Streetcar Named Desire, Tennessee Williams explores <strong>' + escapeRuntimeHtml(thesisSelectionValue("topic", "[Topic]")) + '</strong> through the character of <strong>' + escapeRuntimeHtml(thesisSelectionValue("character", "[Character]")) + '</strong>. He suggests that by <strong>' + escapeRuntimeHtml(thesisSelectionValue("action", "[Action]")) + '</strong>, an individual <strong>' + escapeRuntimeHtml(thesisSelectionValue("consequence", "[Significance]")) + '</strong></div>';
 }
 
+function evidenceSelectionValue(key, fallback) {
+  const item = criticalResponseState.evidenceSelections[key];
+  return item?.text || fallback;
+}
+
+function generateEvidenceText() {
+  const selections = criticalResponseState.evidenceSelections;
+  if (!selections.device || !selections.evidence || !selections.verb || !selections.function) {
+    return "";
+  }
+  return "Through his use of " + selections.device.text.toLowerCase() + ", specifically " + selections.evidence.text + ", Williams attempts " + selections.verb.text + " " + selections.function.text;
+}
+
+function resetEvidenceCollector() {
+  criticalResponseState.evidenceStep = 1;
+  criticalResponseState.evidenceSelections = {
+    device: null,
+    evidence: null,
+    verb: null,
+    function: null
+  };
+  criticalResponseState.evidenceFeedback = null;
+  criticalResponseState.evidenceText = "";
+  criticalResponseState.evidenceCopied = false;
+  renderCriticalResponseActivity();
+}
+
+function renderEvidenceCollectorActivity() {
+  const heading = criticalResponseRoot.querySelector("[data-workshop-heading]");
+  const description = criticalResponseRoot.querySelector("[data-workshop-description]");
+  const stepCount = criticalResponseRoot.querySelector("[data-workshop-step-count]");
+  const score = criticalResponseRoot.querySelector("[data-workshop-score]");
+  const progressFill = criticalResponseRoot.querySelector("[data-workshop-progress-fill]");
+  const panel = criticalResponseRoot.querySelector("[data-workshop-panel]");
+  const groupTabs = criticalResponseRoot.querySelector("[data-question-group-tabs]");
+  const step = criticalResponseState.evidenceStep;
+  const progressPercent = step >= 5 ? 100 : Math.round(((step - 1) / 4) * 100);
+  if (groupTabs) groupTabs.hidden = true;
+  if (heading) heading.textContent = "Evidence Collector: A Streetcar Named Desire";
+  if (description) description.textContent = evidenceCollectorActivity.description;
+  if (stepCount) stepCount.textContent = step >= 5 ? "Evidence sentence ready" : "Step " + step + " of 4";
+  if (score) score.textContent = "Collector";
+  if (progressFill) progressFill.style.width = progressPercent + "%";
+  if (!panel) return;
+  panel.innerHTML = '<div class="evidence-collector" data-evidence-collector>' + renderEvidenceStepper() + renderEvidenceFeedback() + renderEvidenceStepContent() + renderEvidencePreview() + '</div>';
+}
+
+function renderEvidenceStepper() {
+  const labels = ["Tool", "Evidence", "Action", "Function"];
+  return '<div class="thesis-stepper evidence-stepper">' + labels.map((label, index) => {
+    const number = index + 1;
+    const state = criticalResponseState.evidenceStep === number ? " active" : criticalResponseState.evidenceStep > number ? " complete" : "";
+    const marker = criticalResponseState.evidenceStep > number
+      ? '<span class="thesis-step-marker" aria-label="Completed"><span class="thesis-step-check" aria-hidden="true"></span></span>'
+      : '<span class="thesis-step-marker">' + String(number) + '</span>';
+    return '<div class="thesis-step' + state + '">' + marker + '<span>' + escapeRuntimeHtml(label) + '</span></div>';
+  }).join("") + '</div>';
+}
+
+function renderEvidenceFeedback() {
+  if (!criticalResponseState.evidenceFeedback) return "";
+  return '<div class="thesis-feedback"><span class="material-symbols-outlined" aria-hidden="true">warning</span><div><strong>Watch out</strong><span>' + escapeRuntimeHtml(criticalResponseState.evidenceFeedback) + '</span></div></div>';
+}
+
+function renderEvidenceStepContent() {
+  const step = criticalResponseState.evidenceStep;
+  if (step === 1) {
+    const sections = evidenceCollectorActivity.categories.map((category) => {
+      const choices = evidenceCollectorActivity.devices
+        .filter((device) => device.category === category)
+        .map((device) => renderEvidenceChoice("device", device))
+        .join("");
+      return '<section class="evidence-category"><h5>' + escapeRuntimeHtml(category) + '</h5><div class="thesis-choice-grid three-column">' + choices + '</div></section>';
+    }).join("");
+    return '<div><div class="critical-response-step-header"><h4 class="critical-response-step-title">Step 1: Select a Literary Tool</h4><span class="critical-response-step-index">Evidence Collector</span></div><p class="critical-response-question">Choose the analytical lens you want to use for the evidence sentence.</p><div class="evidence-category-stack">' + sections + '</div></div>';
+  }
+  if (step === 2) {
+    const deviceId = criticalResponseState.evidenceSelections.device?.id;
+    const choices = (evidenceCollectorActivity.evidence[deviceId] || []).map((item) => renderEvidenceChoice("evidence", item)).join("");
+    return '<div><div class="critical-response-step-header"><h4 class="critical-response-step-title">Step 2: Collect the Evidence</h4><span class="critical-response-step-index">' + escapeRuntimeHtml(evidenceSelectionValue("device", "Evidence")) + '</span></div><p class="critical-response-question">Select the strongest specific example for this literary tool.</p><div class="critical-response-options two-column">' + choices + '</div></div>';
+  }
+  if (step === 3) {
+    const choices = evidenceCollectorActivity.verbs.map((verb) => renderEvidenceChoice("verb", verb)).join("");
+    return '<div><div class="critical-response-step-header"><h4 class="critical-response-step-title">Step 3: Choose an Analytical Verb</h4><span class="critical-response-step-index">Evidence Collector</span></div><p class="critical-response-question">Choose the action Williams performs through this device.</p><div class="thesis-choice-grid three-column">' + choices + '</div></div>';
+  }
+  if (step === 4) {
+    const choices = evidenceCollectorActivity.functions.map((item) => renderEvidenceChoice("function", item)).join("");
+    return '<div><div class="critical-response-step-header"><h4 class="critical-response-step-title">Step 4: Define the Thematic Function</h4><span class="critical-response-step-index">Evidence Collector</span></div><p class="critical-response-question">Select the larger meaning this evidence reveals.</p><div class="critical-response-options">' + choices + '</div></div>';
+  }
+  const evidenceText = criticalResponseState.evidenceText || generateEvidenceText();
+  return '<div class="thesis-output evidence-output"><h4>Collected Evidence Sentence</h4><textarea data-evidence-output>' + escapeRuntimeHtml(evidenceText) + '</textarea><div class="thesis-actions"><button class="thesis-action" type="button" data-evidence-copy><span class="material-symbols-outlined" aria-hidden="true">' + (criticalResponseState.evidenceCopied ? "check_circle" : "content_copy") + '</span>' + (criticalResponseState.evidenceCopied ? "Copied" : "Copy Sentence") + '</button><button class="thesis-action secondary" type="button" data-evidence-restart><span class="material-symbols-outlined" aria-hidden="true">refresh</span>Collect More Evidence</button></div><div class="evidence-use-note"><h5>Use it in the paragraph</h5><p>Introduce the scene briefly, paste the sentence, then follow it with a short direct quotation from the play.</p></div></div>';
+}
+
+function renderEvidenceChoice(category, item) {
+  const heading = '<strong>' + escapeRuntimeHtml(item.text) + '</strong>';
+  const body = item.desc ? '<span>' + escapeRuntimeHtml(item.desc) + '</span>' : "";
+  return '<button class="thesis-choice evidence-choice" type="button" data-evidence-choice="' + escapeRuntimeHtml(category) + '" data-evidence-choice-id="' + escapeRuntimeHtml(item.id) + '">' + heading + body + '</button>';
+}
+
+function renderEvidencePreview() {
+  if (criticalResponseState.evidenceStep >= 5) return "";
+  return '<div class="thesis-preview evidence-preview">Through his use of <strong>' + escapeRuntimeHtml(evidenceSelectionValue("device", "[literary device]")) + '</strong>, specifically <strong>' + escapeRuntimeHtml(evidenceSelectionValue("evidence", "[textual evidence]")) + '</strong>, Williams attempts <strong>' + escapeRuntimeHtml(evidenceSelectionValue("verb", "[analytical verb]")) + '</strong> <strong>' + escapeRuntimeHtml(evidenceSelectionValue("function", "[thematic meaning]")) + '</strong></div>';
+}
+
+function selectEvidenceChoice(category, id) {
+  const source = category === "device"
+    ? evidenceCollectorActivity.devices
+    : category === "evidence"
+      ? (evidenceCollectorActivity.evidence[criticalResponseState.evidenceSelections.device?.id] || [])
+      : category === "verb"
+        ? evidenceCollectorActivity.verbs
+        : evidenceCollectorActivity.functions;
+  const item = source.find((candidate) => candidate.id === id);
+  if (!item) return;
+  if (item.type === "trap") {
+    criticalResponseState.evidenceFeedback = item.trapMsg || "Choose the analytical option before moving on.";
+    renderCriticalResponseActivity();
+    return;
+  }
+  criticalResponseState.evidenceFeedback = null;
+  criticalResponseState.evidenceSelections[category] = item;
+  if (category === "device") {
+    criticalResponseState.evidenceSelections.evidence = null;
+    criticalResponseState.evidenceSelections.verb = null;
+    criticalResponseState.evidenceSelections.function = null;
+  }
+  if (category === "evidence") {
+    criticalResponseState.evidenceSelections.verb = null;
+    criticalResponseState.evidenceSelections.function = null;
+  }
+  if (category === "verb") {
+    criticalResponseState.evidenceSelections.function = null;
+  }
+  criticalResponseState.evidenceStep += 1;
+  if (criticalResponseState.evidenceStep >= 5) {
+    criticalResponseState.evidenceText = generateEvidenceText();
+  }
+  renderCriticalResponseActivity();
+}
+
+function currentParagraphScenario() {
+  return paragraphArchitectActivity.scenarios.find((scenario) => scenario.id === criticalResponseState.paragraphScenarioId) || null;
+}
+
+function currentParagraphStepDefinition() {
+  return paragraphArchitectActivity.steps[criticalResponseState.paragraphStep - 1] || null;
+}
+
+function paragraphSelectionText(key) {
+  return criticalResponseState.paragraphSelections[key]?.text || "";
+}
+
+function generateParagraphText() {
+  const pText = paragraphSelectionText("p");
+  const eText = paragraphSelectionText("e");
+  const tText = paragraphSelectionText("t");
+  const aText = paragraphSelectionText("a");
+  const lText = paragraphSelectionText("l");
+  if (!pText || !eText || !tText || !aText || !lText) return "";
+  return pText + " For instance, " + eText.charAt(0).toLowerCase() + eText.slice(1) + " Through the use of " + tText.toLowerCase() + ", " + aText.charAt(0).toLowerCase() + aText.slice(1) + " " + lText;
+}
+
+function resetParagraphArchitect() {
+  criticalResponseState.paragraphMode = "build";
+  criticalResponseState.paragraphScenarioId = null;
+  criticalResponseState.paragraphStep = 0;
+  criticalResponseState.paragraphSelections = {
+    p: null,
+    e: null,
+    t: null,
+    a: null,
+    l: null
+  };
+  criticalResponseState.paragraphFeedback = null;
+  criticalResponseState.paragraphCopied = false;
+  renderCriticalResponseActivity();
+}
+
+function renderParagraphArchitectActivity() {
+  const heading = criticalResponseRoot.querySelector("[data-workshop-heading]");
+  const description = criticalResponseRoot.querySelector("[data-workshop-description]");
+  const stepCount = criticalResponseRoot.querySelector("[data-workshop-step-count]");
+  const score = criticalResponseRoot.querySelector("[data-workshop-score]");
+  const progressFill = criticalResponseRoot.querySelector("[data-workshop-progress-fill]");
+  const panel = criticalResponseRoot.querySelector("[data-workshop-panel]");
+  const groupTabs = criticalResponseRoot.querySelector("[data-question-group-tabs]");
+  const step = criticalResponseState.paragraphStep;
+  const progressPercent = step > 5 ? 100 : Math.round((step / 5) * 100);
+  if (groupTabs) groupTabs.hidden = true;
+  if (heading) heading.textContent = "Paragraph Architect: PETAL Builder";
+  if (description) description.textContent = paragraphArchitectActivity.description;
+  if (stepCount) stepCount.textContent = step === 0 ? "Choose scenario" : step > 5 ? "Paragraph complete" : "PETAL Step " + step + " of 5";
+  if (score) score.textContent = "Architect";
+  if (progressFill) progressFill.style.width = progressPercent + "%";
+  if (!panel) return;
+  panel.innerHTML = '<div class="paragraph-architect" data-paragraph-architect>' + renderParagraphModeTabs() + renderParagraphArchitectContent() + '</div>';
+}
+
+function renderParagraphModeTabs() {
+  return '<div class="paragraph-mode-tabs" role="tablist" aria-label="Paragraph Architect modes"><button class="paragraph-mode-tab' + (criticalResponseState.paragraphMode === "learn" ? " active" : "") + '" type="button" role="tab" aria-selected="' + String(criticalResponseState.paragraphMode === "learn") + '" data-paragraph-mode="learn"><span class="material-symbols-outlined" aria-hidden="true">menu_book</span>Learn the Framework</button><button class="paragraph-mode-tab' + (criticalResponseState.paragraphMode === "build" ? " active" : "") + '" type="button" role="tab" aria-selected="' + String(criticalResponseState.paragraphMode === "build") + '" data-paragraph-mode="build"><span class="material-symbols-outlined" aria-hidden="true">edit</span>Interactive Builder</button></div>';
+}
+
+function renderParagraphArchitectContent() {
+  if (criticalResponseState.paragraphMode === "learn") {
+    return renderParagraphLearnFramework();
+  }
+  if (criticalResponseState.paragraphStep === 0) {
+    const cards = paragraphArchitectActivity.scenarios.map((scenario) => {
+      return '<button class="paragraph-scenario-card" type="button" data-paragraph-scenario="' + escapeRuntimeHtml(scenario.id) + '"><small>' + escapeRuntimeHtml(scenario.theme) + '</small><strong>' + escapeRuntimeHtml(scenario.title) + '</strong></button>';
+    }).join("");
+    return '<div><div class="critical-response-step-header"><h4 class="critical-response-step-title">Select an Analytical Scenario</h4><span class="critical-response-step-index">Paragraph Architect</span></div><p class="critical-response-question">Choose the Streetcar paragraph focus you want to build.</p><div class="paragraph-scenario-grid">' + cards + '</div></div>';
+  }
+  if (criticalResponseState.paragraphStep > 5) {
+    const paragraphText = generateParagraphText();
+    return '<div class="thesis-output paragraph-output"><h4>Completed PETAL Paragraph</h4><textarea data-paragraph-output>' + escapeRuntimeHtml(paragraphText) + '</textarea><div class="thesis-actions"><button class="thesis-action" type="button" data-paragraph-copy><span class="material-symbols-outlined" aria-hidden="true">' + (criticalResponseState.paragraphCopied ? "check_circle" : "content_copy") + '</span>' + (criticalResponseState.paragraphCopied ? "Copied" : "Copy Paragraph") + '</button><button class="thesis-action secondary" type="button" data-paragraph-restart><span class="material-symbols-outlined" aria-hidden="true">refresh</span>Build Another</button></div><div class="paragraph-checklist"><h5>Rubric check</h5><ul><li>Point makes an analytical claim.</li><li>Evidence is precise rather than broad summary.</li><li>Technique and analysis explain how the playwright builds meaning.</li><li>Link returns to the universal thesis.</li></ul></div></div>';
+  }
+
+  const scenario = currentParagraphScenario();
+  const stepDefinition = currentParagraphStepDefinition();
+  if (!scenario || !stepDefinition) return "";
+  const choices = (scenario.steps[stepDefinition.id] || []).map((choice) => {
+    return '<button class="thesis-choice paragraph-choice" type="button" data-paragraph-choice="' + escapeRuntimeHtml(choice.id) + '"><strong>' + escapeRuntimeHtml(choice.text) + '</strong></button>';
+  }).join("");
+  return renderParagraphFeedback() + '<div><div class="critical-response-step-header"><h4 class="critical-response-step-title">Choose your ' + escapeRuntimeHtml(stepDefinition.label) + '</h4><span class="critical-response-step-index">' + escapeRuntimeHtml(scenario.title) + '</span></div><p class="critical-response-question">' + escapeRuntimeHtml(stepDefinition.description) + '</p><div class="critical-response-options">' + choices + '</div></div>' + renderParagraphPreview();
+}
+
+function renderParagraphLearnFramework() {
+  const cards = paragraphArchitectActivity.steps.map((step) => {
+    const extra = step.id === "p"
+      ? "A strong topic sentence makes an argument about goal, conflict, realization, or result."
+      : step.id === "e"
+        ? "Precise evidence means a vivid moment, stage direction, or short direct quotation."
+        : step.id === "t"
+          ? "Naming technique moves the paragraph from talking about plot to analyzing construction."
+          : step.id === "a"
+            ? "Analysis explains how the evidence proves the point and why the detail matters."
+            : "The link returns to the thesis and universal theme without moralizing.";
+    return '<article class="paragraph-framework-card"><span>' + escapeRuntimeHtml(step.id.toUpperCase()) + '</span><div><h5>' + escapeRuntimeHtml(step.label) + '</h5><p>' + escapeRuntimeHtml(step.description) + '</p><small>' + escapeRuntimeHtml(extra) + '</small></div></article>';
+  }).join("");
+  return '<div class="paragraph-framework"><div class="critical-response-step-header"><h4 class="critical-response-step-title">Master the P.E.T.A.L. Framework</h4><span class="critical-response-step-index">Learn the Framework</span></div><p class="critical-response-question">Use this structure to keep body paragraphs analytical instead of drifting into plot summary.</p><div class="paragraph-framework-stack">' + cards + '</div><div class="critical-response-actions"><button class="critical-response-action" type="button" data-paragraph-mode="build"><span class="material-symbols-outlined" aria-hidden="true">edit</span>Start Building</button></div></div>';
+}
+
+function renderParagraphFeedback() {
+  if (!criticalResponseState.paragraphFeedback) return "";
+  return '<div class="thesis-feedback"><span class="material-symbols-outlined" aria-hidden="true">warning</span><div><strong>Review guidelines</strong><span>' + escapeRuntimeHtml(criticalResponseState.paragraphFeedback) + '</span></div></div>';
+}
+
+function renderParagraphPreview() {
+  const selections = criticalResponseState.paragraphSelections;
+  return '<div class="thesis-preview paragraph-preview"><strong>Live PETAL Preview</strong><p>' +
+    (selections.p ? escapeRuntimeHtml(selections.p.text) + " " : '<span>[Point...] </span>') +
+    (selections.e ? 'For instance, ' + escapeRuntimeHtml(selections.e.text.charAt(0).toLowerCase() + selections.e.text.slice(1)) + " " : criticalResponseState.paragraphStep > 1 ? '<span>[Evidence...] </span>' : "") +
+    (selections.t && selections.a ? 'Through the use of ' + escapeRuntimeHtml(selections.t.text.toLowerCase()) + ', ' + escapeRuntimeHtml(selections.a.text.charAt(0).toLowerCase() + selections.a.text.slice(1)) + " " : criticalResponseState.paragraphStep > 3 ? '<span>[Technique and analysis...] </span>' : "") +
+    (selections.l ? escapeRuntimeHtml(selections.l.text) : criticalResponseState.paragraphStep > 4 ? '<span>[Link...]</span>' : "") +
+    '</p></div>';
+}
+
+function startParagraphScenario(id) {
+  criticalResponseState.paragraphScenarioId = id;
+  criticalResponseState.paragraphStep = 1;
+  criticalResponseState.paragraphSelections = {
+    p: null,
+    e: null,
+    t: null,
+    a: null,
+    l: null
+  };
+  criticalResponseState.paragraphFeedback = null;
+  criticalResponseState.paragraphCopied = false;
+  renderCriticalResponseActivity();
+}
+
+function selectParagraphChoice(id) {
+  const scenario = currentParagraphScenario();
+  const stepDefinition = currentParagraphStepDefinition();
+  if (!scenario || !stepDefinition) return;
+  const choice = (scenario.steps[stepDefinition.id] || []).find((candidate) => candidate.id === id);
+  if (!choice) return;
+  if (choice.type === "trap") {
+    criticalResponseState.paragraphFeedback = choice.trapMsg || "Choose the analytical option before moving on.";
+    renderCriticalResponseActivity();
+    return;
+  }
+  criticalResponseState.paragraphFeedback = null;
+  criticalResponseState.paragraphSelections[stepDefinition.id] = choice;
+  criticalResponseState.paragraphStep += 1;
+  renderCriticalResponseActivity();
+}
+
 function selectCriticalResponseOption(optionId) {
   const group = currentQuestionGroup();
   const step = group?.steps[criticalResponseState.stepIndex];
@@ -1916,6 +3203,27 @@ criticalResponseRoot?.addEventListener("click", (event) => {
     selectThesisChoice(thesisChoice.getAttribute("data-thesis-choice"), thesisChoice.getAttribute("data-thesis-choice-id"));
     return;
   }
+  const evidenceChoice = event.target.closest("[data-evidence-choice]");
+  if (evidenceChoice && criticalResponseRoot.contains(evidenceChoice)) {
+    selectEvidenceChoice(evidenceChoice.getAttribute("data-evidence-choice"), evidenceChoice.getAttribute("data-evidence-choice-id"));
+    return;
+  }
+  const paragraphMode = event.target.closest("[data-paragraph-mode]");
+  if (paragraphMode && criticalResponseRoot.contains(paragraphMode)) {
+    criticalResponseState.paragraphMode = paragraphMode.getAttribute("data-paragraph-mode") === "build" ? "build" : "learn";
+    renderCriticalResponseActivity();
+    return;
+  }
+  const paragraphScenario = event.target.closest("[data-paragraph-scenario]");
+  if (paragraphScenario && criticalResponseRoot.contains(paragraphScenario)) {
+    startParagraphScenario(paragraphScenario.getAttribute("data-paragraph-scenario"));
+    return;
+  }
+  const paragraphChoice = event.target.closest("[data-paragraph-choice]");
+  if (paragraphChoice && criticalResponseRoot.contains(paragraphChoice)) {
+    selectParagraphChoice(paragraphChoice.getAttribute("data-paragraph-choice"));
+    return;
+  }
   const thesisOutput = criticalResponseRoot.querySelector("[data-thesis-output]");
   if (event.target.closest("[data-thesis-copy]")) {
     criticalResponseState.thesisText = thesisOutput?.value || criticalResponseState.thesisText;
@@ -1926,6 +3234,30 @@ criticalResponseRoot?.addEventListener("click", (event) => {
   }
   if (event.target.closest("[data-thesis-restart]")) {
     resetThesisBuilder();
+    return;
+  }
+  const evidenceOutput = criticalResponseRoot.querySelector("[data-evidence-output]");
+  if (event.target.closest("[data-evidence-copy]")) {
+    criticalResponseState.evidenceText = evidenceOutput?.value || criticalResponseState.evidenceText;
+    navigator.clipboard?.writeText(criticalResponseState.evidenceText);
+    criticalResponseState.evidenceCopied = true;
+    renderCriticalResponseActivity();
+    return;
+  }
+  if (event.target.closest("[data-evidence-restart]")) {
+    resetEvidenceCollector();
+    return;
+  }
+  const paragraphOutput = criticalResponseRoot.querySelector("[data-paragraph-output]");
+  if (event.target.closest("[data-paragraph-copy]")) {
+    const text = paragraphOutput?.value || generateParagraphText();
+    navigator.clipboard?.writeText(text);
+    criticalResponseState.paragraphCopied = true;
+    renderCriticalResponseActivity();
+    return;
+  }
+  if (event.target.closest("[data-paragraph-restart]")) {
+    resetParagraphArchitect();
   }
 });
 
@@ -1970,6 +3302,13 @@ document.querySelector("[data-film-select]")?.addEventListener("change", (event)
   setActiveFilm(event.target.value);
 });
 
+document.addEventListener("change", (event) => {
+  const select = event.target.closest("[data-scene-overview-select]");
+  if (select) {
+    setActiveSceneOverview(select.value);
+  }
+});
+
 function setActiveLibraryDocument(id) {
   if (!id) return;
   document.querySelectorAll("[data-library-doc-panel]").forEach((panel) => {
@@ -1996,12 +3335,25 @@ function setActiveFilm(id) {
   });
 }
 
+function setActiveSceneOverview(id) {
+  if (!id) return;
+  document.querySelectorAll("[data-scene-overview-panel]").forEach((panel) => {
+    panel.hidden = panel.getAttribute("data-scene-overview-panel") !== id;
+  });
+  document.querySelectorAll("[data-scene-overview-select]").forEach((select) => {
+    if (select.value !== id) {
+      select.value = id;
+    }
+  });
+}
+
 document.getElementById("sidebar-toggle")?.addEventListener("click", () => {
   document.body.classList.toggle("sidebar-collapsed");
 });
 
 window.addEventListener("hashchange", route);
 renderCriticalResponseActivity();
+restoreResponses();
 route();
 updateComplete();
 </script>
@@ -2015,7 +3367,9 @@ async function copyUnitSources(zip: JSZip, unit: ModernDramaUnit, slug: string) 
   for (const lesson of unit.lessons) {
     const sourceResourcePath = path.join(paths.resourceDir, ...lesson.sourceHref.split("/"));
     await ensureDir(path.dirname(sourceResourcePath));
-    if (lesson.sourceKind === "html") {
+    if (!zip.file(lesson.sourceHref)) {
+      await writeTextFile(sourceResourcePath, `<!doctype html><html lang="en"><body>${lesson.contentHtml}</body></html>\n`);
+    } else if (lesson.sourceKind === "html") {
       await writeTextFile(sourceResourcePath, await readZipText(zip, lesson.sourceHref));
     } else {
       await writeFile(sourceResourcePath, await readZipBuffer(zip, lesson.sourceHref));
@@ -2055,6 +3409,85 @@ async function copyUnitSources(zip: JSZip, unit: ModernDramaUnit, slug: string) 
       await writeFile(workspacePath, await readZipBuffer(zip, zipPath));
       await writeFile(resourcePath, await readZipBuffer(zip, zipPath));
     }
+  }
+}
+
+async function copyAuthoredLessonSources(unit: ModernDramaUnit, slug: string) {
+  const paths = getProjectPaths(slug);
+  for (const lesson of unit.lessons) {
+    const sourceResourcePath = path.join(paths.resourceDir, ...lesson.sourceHref.split("/"));
+    await ensureDir(path.dirname(sourceResourcePath));
+    await writeTextFile(sourceResourcePath, `<!doctype html><html lang="en"><body>${lesson.contentHtml}</body></html>\n`);
+    await writeTextFile(path.join(paths.resourceExtractedDir, `${toSafeId(lesson.title)}.txt`), `${lesson.text}\n`);
+  }
+}
+
+async function copyZipEntryToWorkspace(input: {
+  zip: JSZip;
+  zipPath: string;
+  workspaceRelativePath: string;
+  resourceRelativePath?: string;
+  slug: string;
+}) {
+  const paths = getProjectPaths(input.slug);
+  const entry = input.zip.file(input.zipPath);
+  if (!entry) {
+    return false;
+  }
+  const buffer = await entry.async("nodebuffer");
+  const workspacePath = path.join(paths.workspaceDir, ...input.workspaceRelativePath.split("/"));
+  await ensureDir(path.dirname(workspacePath));
+  await writeFile(workspacePath, buffer);
+
+  if (input.resourceRelativePath) {
+    const resourcePath = path.join(paths.resourceDir, ...input.resourceRelativePath.split("/"));
+    await ensureDir(path.dirname(resourcePath));
+    await writeFile(resourcePath, buffer);
+  }
+  return true;
+}
+
+async function copyStreetcarV2Sources(input: {
+  cbeZip: JSZip;
+  nextStepZipPath: string;
+  moviePath: string;
+  unit: ModernDramaUnit;
+  slug: string;
+}) {
+  const paths = getProjectPaths(input.slug);
+  await copyZipEntryToWorkspace({
+    zip: input.cbeZip,
+    zipPath: "streetcar_named_desire/assets/A Streetcar Named Desire questions.pdf",
+    workspaceRelativePath: "assets/source/cbe-streetcar-reading-guide.pdf",
+    resourceRelativePath: "streetcar_named_desire/assets/A Streetcar Named Desire questions.pdf",
+    slug: input.slug
+  });
+  await copyZipEntryToWorkspace({
+    zip: input.cbeZip,
+    zipPath: "film_study/Elements of Film.html",
+    workspaceRelativePath: "resources/elements-of-film.html",
+    resourceRelativePath: "film_study/Elements of Film.html",
+    slug: input.slug
+  });
+
+  const nextStepZip = await JSZip.loadAsync(await readFile(input.nextStepZipPath));
+  for (const document of input.unit.libraryDocuments ?? []) {
+    if (document.sourceLabel !== "Next Step") {
+      continue;
+    }
+    await copyZipEntryToWorkspace({
+      zip: nextStepZip,
+      zipPath: document.zipPath,
+      workspaceRelativePath: document.workspaceHref.replace(/^\.\//, ""),
+      resourceRelativePath: document.zipPath,
+      slug: input.slug
+    });
+  }
+
+  if (await fileExists(input.moviePath)) {
+    const movieDestination = path.join(paths.workspaceDir, "assets", "media", "streetcar-named-desire-movie.mp4");
+    await ensureDir(path.dirname(movieDestination));
+    await copyFile(input.moviePath, movieDestination);
   }
 }
 
@@ -2112,19 +3545,37 @@ export async function buildElaModernDramaProject(options: BuildElaModernDramaPro
 
   const zipBuffer = await readFile(options.zipPath);
   const zip = await JSZip.loadAsync(zipBuffer);
-  const unit = await extractModernDramaUnit(zipBuffer);
+  const importedUnit = await extractModernDramaUnit(zipBuffer);
   const generatedAt = new Date().toISOString();
+  const nextStepZipPath = options.nextStepZipPath ?? DEFAULT_NEXT_STEP_ZIP_PATH;
+  const moviePath = options.moviePath ?? DEFAULT_STREETCAR_MOVIE_PATH;
+  const unit: ModernDramaUnit = {
+    ...importedUnit,
+    libraryDocuments: buildStreetcarLibraryDocuments(),
+    filmResources: [
+      {
+        id: "streetcar-full-film",
+        title: "Streetcar Named Desire Movie",
+        originalSrc: "./assets/media/streetcar-named-desire-movie.mp4",
+        embedSrc: "./assets/media/streetcar-named-desire-movie.mp4",
+        origin: "local",
+        sourceTitle: "Film Room",
+        mediaType: "video/mp4"
+      }
+    ]
+  };
 
   await mkdir(paths.rawDir, { recursive: true });
   await mkdir(paths.workspaceDir, { recursive: true });
   await mkdir(paths.metaDir, { recursive: true });
   await mkdir(paths.resourceDir, { recursive: true });
-  await writeTextFile(paths.rawEntrypoint, buildSourceIndexHtml(unit));
+  await writeTextFile(paths.rawEntrypoint, buildSourceIndexHtml(importedUnit));
   await writeTextFile(paths.workspaceEntrypoint, buildWorkspaceHtml(unit));
   await copyBrandAssets(slug);
-  await copyUnitSources(zip, unit, slug);
+  await copyUnitSources(zip, importedUnit, slug);
+  await copyStreetcarV2Sources({ cbeZip: zip, nextStepZipPath, moviePath, unit, slug });
 
-  await writeJsonFile(paths.manifestPath, buildProjectManifest({ slug, zipPath: options.zipPath, generatedAt }));
+  await writeJsonFile(paths.manifestPath, buildProjectManifest({ slug, zipPath: options.zipPath, nextStepZipPath, moviePath, generatedAt }));
   await writeTextFile(paths.styleGuidePath, buildStyleGuide());
   await writeTextFile(paths.contentOutlinePath, buildContentOutline(unit));
   await writeTextFile(paths.importLogPath, buildImportLog(options.zipPath, unit));

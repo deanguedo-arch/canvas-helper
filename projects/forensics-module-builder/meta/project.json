@@ -1,0 +1,43 @@
+﻿{
+  "migrationState": "migrated",
+  "projectType": "conversion",
+  "preferredWorkflows": ["conversion"],
+  "canonicalEntry": "projects/forensics-module-builder/workspace/approved-template/module-1-static/index.html",
+  "canonicalSources": [
+    "projects/forensics-module-builder/workspace/approved-template/module-1-static/index.html",
+    "projects/forensics-module-builder/workspace/approved-template/module-1-static/module-1.js",
+    "projects/forensics-module-builder/workspace/approved-template/module-1-static/module-1-data.js",
+    "projects/forensics-module-builder/workspace/approved-template/module-1-static/lesson.html",
+    "projects/forensics-module-builder/workspace/approved-template/module-1-static/assignment/",
+    "projects/forensics-module-builder/tools/generate-module.py",
+    "projects/forensics-module-builder/tools/audit-module.py",
+    "projects/forensics-module-builder/tools/package-modules.py"
+  ],
+  "authoringStatus": "active",
+  "exportTargets": ["static-zip"],
+  "generatedOutputs": [
+    "projects/forensics-module-builder/dist/module-2-static/",
+    "projects/forensics-module-builder/dist/module-3-static/",
+    "projects/forensics-module-builder/dist/module-4-static/",
+    "projects/forensics-module-builder/dist/module-5-static/",
+    "projects/forensics-module-builder/dist/module-6-static/",
+    "projects/forensics-module-builder/dist/module-7-static/",
+    "projects/forensics-module-builder/dist/module-8-static/",
+    "projects/forensics-module-builder/packages/module-2-static.zip",
+    "projects/forensics-module-builder/packages/module-3-static.zip",
+    "projects/forensics-module-builder/packages/module-4-static.zip",
+    "projects/forensics-module-builder/packages/module-5-static.zip",
+    "projects/forensics-module-builder/packages/module-6-static.zip",
+    "projects/forensics-module-builder/packages/module-7-static.zip",
+    "projects/forensics-module-builder/packages/module-8-static.zip"
+  ],
+  "regenerateCommand": "cd projects/forensics-module-builder && python -c \"import subprocess, sys; [subprocess.run(cmd, check=True) for m in range(2, 9) for cmd in ([sys.executable, 'tools/generate-module.py', '--module', str(m)], [sys.executable, 'tools/audit-module.py', f'dist/module-{m}-static'], [sys.executable, 'tools/package-modules.py', '--module', str(m)])]\"",
+  "importedFirstPassOrigin": {
+    "sourcePackageZip": "C:/Users/dean.guedo/Downloads/forensics25-chatgpt-package-20260608-083502(1).zip",
+    "approvedTemplateZip": "C:/Users/dean.guedo/Downloads/module-1-static-boom-normalized (1).zip"
+  },
+  "referenceOnly": [
+    "projects/forensics-module-builder/workspace/source-package/"
+  ],
+  "sourceOfTruthNotes": "Source package is input/reference only. The approved Module 1 template and tools folder are canonical. Generated dist/packages are runtime output and should be regenerated through tools/generate-module.py and tools/package-modules.py."
+}

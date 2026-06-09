@@ -136,7 +136,7 @@ test("extractModernDramaUnit imports the Streetcar branch including scenes and P
   );
   zip.file(
     "streetcar_named_desire/Scene 1 Overview.html",
-    utf16Html(`<!doctype html><html><body><h1>Scene 1 Overview</h1><p>Blanche arrives in New Orleans.</p></body></html>`)
+    utf16Html(`<!doctype html><html><body><h1>Scene 1 Overview</h1><p>Blance arrives in New Orleans.</p><p><a href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-1">Scene 1 Cliffnotes overview</a></p></body></html>`)
   );
   zip.file("streetcar_named_desire/assets/A Streetcar Named Desire questions.pdf", "%PDF-1.4");
   zip.file("streetcar_named_desire/images/tennessee_williams_pjoto.jpg", "image-bytes");
@@ -157,6 +157,77 @@ test("extractModernDramaUnit imports the Streetcar branch including scenes and P
   assert.equal(unit.lessons[2].sourceKind, "pdf");
   assert.match(unit.lessons[2].contentHtml, /source-document-frame/);
   assert.match(unit.lessons[2].contentHtml, /assets\/source\/A-Streetcar-Named-Desire-questions\.pdf/);
+  assert.match(unit.lessons[3].contentHtml, /Blanche arrives/);
+  assert.match(unit.lessons[3].contentHtml, /CliffsNotes overview/);
+  assert.doesNotMatch(unit.lessons[3].contentHtml, /Blance|Cliffnotes/);
+});
+
+test("extractModernDramaUnit combines multiple scene overviews into one dropdown lesson", async () => {
+  const zip = new JSZip();
+  zip.file(
+    "imsmanifest.xml",
+    `<?xml version="1.0" encoding="utf-8"?>
+    <manifest xmlns="http://www.imsglobal.org/xsd/imscp_v1p1">
+      <organizations>
+        <organization>
+          <item identifierref="RES_CONTENT_3544">
+            <title>A Steetcar Named Desire</title>
+            <item identifierref="RES_CONTENT_3545"><title>A Streetcar Named Desire - Introduction</title></item>
+            <item identifierref="RES_CONTENT_3557">
+              <title>Scene Overviews</title>
+              <item identifierref="RES_CONTENT_3558"><title>Scene 1 Overview</title></item>
+              <item identifierref="RES_CONTENT_3559"><title>Scene 2 Overview</title></item>
+            </item>
+            <item identifierref="RES_CONTENT_3560"><title>Lesson 12: Writing a Critical and Analytical Response to Text(s)</title></item>
+          </item>
+        </organization>
+      </organizations>
+      <resources>
+        <resource identifier="RES_CONTENT_3544" type="webcontent" />
+        <resource identifier="RES_CONTENT_3545" type="webcontent" href="streetcar_named_desire\\a_streetcar_named_desire_unit_intro.html" />
+        <resource identifier="RES_CONTENT_3557" type="webcontent" />
+        <resource identifier="RES_CONTENT_3558" type="webcontent" href="streetcar_named_desire\\Scene 1 Overview.html" />
+        <resource identifier="RES_CONTENT_3559" type="webcontent" href="streetcar_named_desire\\Scene 2 Overview.html" />
+        <resource identifier="RES_CONTENT_3560" type="webcontent" href="streetcar_named_desire\\writing.html" />
+      </resources>
+    </manifest>`
+  );
+  zip.file(
+    "streetcar_named_desire/a_streetcar_named_desire_unit_intro.html",
+    utf16Html(`<!doctype html><html><body><h1>Streetcar Introduction</h1><p>Begin studying the play.</p></body></html>`)
+  );
+  zip.file(
+    "streetcar_named_desire/Scene 1 Overview.html",
+    utf16Html(`<!doctype html><html><body><h1>Scene 1 Overview</h1><p>Blanche arrives.</p></body></html>`)
+  );
+  zip.file(
+    "streetcar_named_desire/Scene 2 Overview.html",
+    utf16Html(`<!doctype html><html><body><h1>Scene 2 Overview</h1><p>Stanley checks the papers.</p></body></html>`)
+  );
+  zip.file(
+    "streetcar_named_desire/writing.html",
+    utf16Html(`<!doctype html><html><body><h1>Writing Response</h1><p>Prepare the essay.</p></body></html>`)
+  );
+
+  const unit = await extractModernDramaUnit(await zip.generateAsync({ type: "nodebuffer" }));
+
+  assert.deepEqual(
+    unit.lessons.map((lesson) => lesson.title),
+    [
+      "A Streetcar Named Desire - Introduction",
+      "Scene Overviews",
+      "Lesson 12: Writing a Critical and Analytical Response to Text(s)"
+    ]
+  );
+  assert.equal(unit.lessons[1].id, "scene-overviews");
+  assert.equal(unit.lessons[1].sequence, 2);
+  assert.match(unit.lessons[1].contentHtml, /data-scene-overview-select/);
+  assert.match(unit.lessons[1].contentHtml, /<option value="scene-1-overview" selected>Scene 1 Overview<\/option>/);
+  assert.match(unit.lessons[1].contentHtml, /<option value="scene-2-overview">Scene 2 Overview<\/option>/);
+  assert.match(unit.lessons[1].contentHtml, /data-scene-overview-panel="scene-1-overview"/);
+  assert.match(unit.lessons[1].contentHtml, /data-scene-overview-panel="scene-2-overview" hidden/);
+  assert.match(unit.lessons[1].contentHtml, /Blanche arrives/);
+  assert.match(unit.lessons[1].contentHtml, /Stanley checks the papers/);
 });
 
 test("buildWorkspaceHtml keeps the lesson library separate from individual lesson pages", () => {
@@ -299,6 +370,8 @@ test("buildWorkspaceHtml separates PDFs, videos, and external sources into dedic
   assert.doesNotMatch(html, /data-page-target="readings"/);
   assert.doesNotMatch(html, /<section id="readings"/);
   assert.match(html, /const staticPages = \["overview","lessons","writing","library","film-room","resources"\]/);
+  assert.doesNotMatch(html, /purchase a copy of the play/);
+  assert.doesNotMatch(html, /email your instructor for assistance/);
   assert.match(librarySection, /A-Streetcar-Named-Desire-questions\.pdf/);
   assert.match(librarySection, /Download PDF/);
   assert.match(filmRoomSection, /https:\/\/www\.youtube\.com\/embed\/abc123/);
@@ -410,6 +483,8 @@ test("buildWorkspaceHtml integrates the critical response activity into Writing 
   assert.match(writingSection, /data-critical-response-activity/);
   assert.match(writingSection, /data-workshop-tab="textKnowledge"/);
   assert.match(writingSection, /data-workshop-tab="thesisControl"/);
+  assert.match(writingSection, /data-workshop-tab="evidenceCollector"/);
+  assert.match(writingSection, /data-workshop-tab="paragraphArchitect"/);
   assert.doesNotMatch(writingSection, /data-workshop-tab="evidenceQuality"/);
   assert.match(writingSection, /data-question-group-tab="textKnowledge"/);
   assert.match(writingSection, /data-question-group-tab="thesisControl"/);
@@ -417,9 +492,29 @@ test("buildWorkspaceHtml integrates the critical response activity into Writing 
   assert.match(writingSection, /data-workshop-panel/);
   assert.match(html, /const criticalResponseQuestionGroups = \[/);
   assert.match(html, /const thesisBuilderActivity = \{/);
+  assert.match(html, /const evidenceCollectorActivity = \{/);
+  assert.match(html, /const paragraphArchitectActivity = \{/);
   assert.match(html, /Rule #1: Choosing Your Text/);
   assert.match(html, /Text Knowledge Question Bank: A Streetcar Named Desire/);
   assert.match(html, /Thesis Builder Workshop: A Streetcar Named Desire/);
+  assert.match(html, /Evidence Collector: A Streetcar Named Desire/);
+  assert.match(html, /Paragraph Architect: PETAL Builder/);
+  assert.match(html, /Learn the Framework/);
+  assert.match(html, /Master the P\.E\.T\.A\.L\. Framework/);
+  assert.match(html, /data-paragraph-mode="learn"/);
+  assert.match(html, /data-paragraph-mode="build"/);
+  assert.match(html, /Literary Tool/);
+  assert.match(html, /Collected Evidence Sentence/);
+  assert.match(html, /data-evidence-collector/);
+  assert.match(html, /data-evidence-choice/);
+  assert.match(html, /data-evidence-copy/);
+  assert.match(html, /data-evidence-restart/);
+  assert.match(html, /data-paragraph-architect/);
+  assert.match(html, /data-paragraph-scenario/);
+  assert.match(html, /data-paragraph-choice/);
+  assert.match(html, /data-paragraph-copy/);
+  assert.match(html, /data-paragraph-restart/);
+  assert.match(html, /Completed PETAL Paragraph/);
   assert.match(html, /the impact of illusions on reality/);
   assert.match(html, /data-workshop-option/);
   assert.match(html, /data-workshop-next/);
@@ -430,11 +525,92 @@ test("buildWorkspaceHtml integrates the critical response activity into Writing 
   assert.match(html, /data-thesis-copy/);
   assert.match(html, /function renderCriticalResponseActivity\(\)/);
   assert.match(html, /function renderThesisBuilderActivity\(\)/);
+  assert.match(html, /function renderEvidenceCollectorActivity\(\)/);
+  assert.match(html, /function renderParagraphArchitectActivity\(\)/);
   assert.match(html, /thesis-step-check/);
   assert.match(html, /aria-label="Completed"/);
   assert.doesNotMatch(html, /const marker = criticalResponseState\.thesisStep > number \? "check" : String\(number\);/);
   assert.match(html, /criticalResponseRoot\?\.addEventListener\("click"/);
-  assert.doesNotMatch(html, /createRoot|ReactDOM|critical_response_activity\.tsx|thesis_builder_activity\.tsx/);
+  assert.doesNotMatch(html, /createRoot|ReactDOM|critical_response_activity\.tsx|thesis_builder_activity\.tsx|evidence_collector_activity\.tsx|petal_paragraph_architect\.tsx/);
+});
+
+test("buildWorkspaceHtml keeps imported lessons while exposing Streetcar library and film assets", () => {
+  const html = buildWorkspaceHtml({
+    title: "A Streetcar Named Desire",
+    localResources: [],
+    lessons: [
+      {
+        id: "streetcar-introduction",
+        sequence: 1,
+        title: "A Streetcar Named Desire - Introduction",
+        sourceKind: "html",
+        sourceHref: "streetcar_named_desire/a_streetcar_named_desire_unit_intro.html",
+        contentHtml: "<h1>Streetcar Introduction</h1><p>Imported CBE lesson content.</p>",
+        text: "Streetcar Introduction Imported CBE lesson content.",
+        images: [],
+        videos: [],
+        links: []
+      },
+      {
+        id: "scene-1-overview",
+        sequence: 2,
+        title: "Scene 1 Overview",
+        sourceKind: "html",
+        sourceHref: "streetcar_named_desire/Scene 1 Overview.html",
+        contentHtml: "<h1>Scene 1 Overview</h1><p>Blanche arrives in New Orleans.</p>",
+        text: "Scene 1 Overview Blanche arrives in New Orleans.",
+        images: [],
+        videos: [],
+        links: []
+      }
+    ],
+    libraryDocuments: [
+      {
+        id: "primary-text",
+        group: "Primary Text",
+        title: "A Streetcar Named Desire",
+        sourceLabel: "Next Step",
+        description: "Canonical student reading copy.",
+        workspaceHref: "./assets/source/a-streetcar-named-desire.pdf",
+        zipPath: "English 30-1/ELA 30-1 Readings/A Streetcar Named Desire pdf.pdf",
+        kind: "pdf"
+      },
+      {
+        id: "essay-how-to",
+        group: "Essay Supports",
+        title: "Critical/Analytical Essay HOW TO",
+        sourceLabel: "Next Step",
+        description: "Essay planning support.",
+        workspaceHref: "./assets/source/critical-analytical-essay-how-to.pdf",
+        zipPath: "English 30-1/LA30-1 Summative assessments/Unit 5- Modern Drama/Critical_Analytical Essay HOW TO.pdf",
+        kind: "pdf"
+      }
+    ],
+    filmResources: [
+      {
+        id: "streetcar-full-film",
+        title: "Streetcar Named Desire Movie",
+        originalSrc: "./assets/media/streetcar-named-desire-movie.mp4",
+        embedSrc: "./assets/media/streetcar-named-desire-movie.mp4",
+        origin: "local",
+        sourceTitle: "Film Room",
+        mediaType: "video/mp4"
+      }
+    ]
+  });
+
+  assert.match(html, /const totalLessons = 2;/);
+  assert.match(html, /Imported CBE lesson content/);
+  assert.match(html, /Scene 1 Overview/);
+  assert.doesNotMatch(html, /authored-lesson|Learning Target|Required Output|Mini-write/);
+  assert.match(html, /Primary Text/);
+  assert.match(html, /Essay Supports/);
+  assert.match(html, /a-streetcar-named-desire\.pdf/);
+  assert.match(html, /critical-analytical-essay-how-to\.pdf/);
+  assert.match(html, /streetcar-named-desire-movie\.mp4/);
+  assert.match(html, /<video class="film-room-frame"/);
+  assert.match(html, /href="#lesson-22-film-adaptation-lab"/);
+  assert.doesNotMatch(html, /file:\/\/|encodedsrc|Blance|Cliffnotes|@2019 CBe-learn/);
 });
 
 test("buildProjectManifest tracks the critical response activity as an active injection", () => {
@@ -458,7 +634,21 @@ test("buildProjectManifest tracks the critical response activity as an active in
       source: "C:\\Users\\dean.guedo\\Downloads\\thesis_builder_activity.tsx",
       target: "projects/ela30-1-modern-drama/workspace/index.html#writing",
       status: "active",
-      notes: "Converted from the external thesis builder TSX into the static Thesis Control panel."
+      notes: "Converted from the external thesis builder TSX into the static Thesis Workshop panel."
+    },
+    {
+      id: "evidence-collector-workshop",
+      source: "C:\\Users\\dean.guedo\\Downloads\\evidence_collector_activity.tsx",
+      target: "projects/ela30-1-modern-drama/workspace/index.html#writing",
+      status: "active",
+      notes: "Converted from the external evidence collector TSX into the static Writing Studio shell."
+    },
+    {
+      id: "paragraph-architect-workshop",
+      source: "C:\\Users\\dean.guedo\\Downloads\\petal_paragraph_architect.tsx",
+      target: "projects/ela30-1-modern-drama/workspace/index.html#writing",
+      status: "active",
+      notes: "Converted from the external PETAL paragraph architect TSX into the static Writing Studio shell."
     }
   ]);
 });

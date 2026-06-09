@@ -1,29 +1,236 @@
-ï»¿(() => {
+(() => {
   const data = window.MODULE_1_DATA;
-  const refs = {
-    body: document.body,
-    menuToggle: document.getElementById("menu-toggle"),
-    navHome: document.getElementById("nav-home"),
-    tabs: Array.from(document.querySelectorAll("[data-tab]")),
-    title: document.getElementById("section-title"),
-    intro: document.getElementById("section-intro"),
-    content: document.getElementById("content-body")
-  };
-  const state = { tab: "chapters", view: "overview" };
-  function escapeHtml(value) { return String(value ?? "").replace(/[&<>"']/g, (char) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[char]); }
-  function setHash(value) { if (location.hash.slice(1) !== value) history.replaceState(null, "", "#" + value); }
-  function setTab(tab, view = "overview") { state.tab = tab; state.view = view; refs.body.dataset.section = "home"; refs.body.dataset.tab = tab; refs.body.dataset.view = view; refs.navHome.classList.add("active"); refs.tabs.forEach((button) => button.classList.toggle("active", button.dataset.tab === tab)); setHash(view === "overview" ? tab : view); render(); }
-  function openChapter() { setTab("chapters", "chapter"); }
-  function openQuiz() { setTab("quizzes", "quiz"); }
-  function openAssignment() { setTab("assignments", "assignment"); }
-  function renderHeader(title, intro) { refs.title.textContent = title; refs.intro.textContent = intro; }
-  function renderChaptersOverview() { renderHeader("Chapters", "Open the extracted Module 1 lesson package. This static version removes course locks, progress gates, and saved completion state."); refs.content.innerHTML = `<div class="card-grid"><article class="course-card" style="--accent:#8b6a24"><p class="card-code">${escapeHtml(data.chapter.code)}</p><h4 class="card-title">${escapeHtml(data.chapter.title)}</h4><p class="card-summary">${escapeHtml(data.chapter.summary)}</p><div class="card-meta"><span><strong>${escapeHtml(String(data.chapter.componentCount))}</strong> lesson components extracted from Module 1.</span><span><strong>${escapeHtml(data.quiz.title)}</strong></span><span><strong>${escapeHtml(data.assignment.title)}</strong></span></div><div class="card-actions"><button class="btn btn-primary" type="button" data-action="open-chapter"><i class="fa-solid fa-arrow-right"></i> Open module</button><button class="btn btn-secondary" type="button" data-action="open-quiz"><i class="fa-solid fa-circle-question"></i> Take quiz</button><button class="btn btn-secondary" type="button" data-action="open-assignment"><i class="fa-solid fa-pen"></i> Assignment</button></div></article><article class="course-card" style="--accent:#59a844"><p class="card-code">Review flow</p><h4 class="card-title">Module 1 only</h4><p class="card-summary">The package keeps the content needed for review and Google delivery while stripping the full-course runtime.</p><div class="card-meta"><span>No completion buttons or locked cards.</span><span>No gatekeeping meter or saved browser state.</span><span>Only Module 1 runtime data.</span></div></article></div>`; }
-  function renderChapterDetail() { renderHeader(data.chapter.title, data.chapter.summary); refs.content.innerHTML = `<div class="detail-stack"><article class="detail-card" style="--accent:#8b6a24"><p class="detail-eyebrow">${escapeHtml(data.chapter.code)}</p><h4 class="detail-title">${escapeHtml(data.chapter.title)}</h4><p class="detail-summary">The lesson opens below as a local static page. External videos remain external, and local images have been copied into the package.</p><div class="detail-actions"><button class="btn btn-secondary" type="button" data-action="back-chapters"><i class="fa-solid fa-arrow-left"></i> Back to chapters</button><button class="btn btn-primary" type="button" data-action="open-quiz"><i class="fa-solid fa-circle-question"></i> Take quiz</button><button class="btn btn-secondary" type="button" data-action="open-assignment"><i class="fa-solid fa-pen"></i> Assignment</button></div></article><iframe class="lesson-frame" src="./lesson.html" title="Module 1 lesson content"></iframe></div>`; }
-  function calculateScore() { return data.quiz.multipleChoice.reduce((score, question) => { const selected = document.querySelector('input[name="question-' + question.number + '"]:checked'); return score + (selected && selected.value === question.answer ? 1 : 0); }, 0); }
-  function renderQuiz() { renderHeader("Quizzes", "Answer the Module 1 quiz locally. Results are shown on screen only and are not saved."); const questions = data.quiz.multipleChoice.map((question) => { const options = question.options.map((option) => `<label class="quiz-option"><input type="radio" name="question-${escapeHtml(question.number)}" value="${escapeHtml(option.label)}" /><span><strong>${escapeHtml(option.label)}.</strong> ${escapeHtml(option.text)}</span></label>`).join(""); return `<section class="quiz-question" data-question="${escapeHtml(question.number)}"><h4>Question ${escapeHtml(question.number)}</h4><p>${escapeHtml(question.prompt)}</p><div class="quiz-options">${options}</div><div class="quiz-feedback" aria-live="polite"></div></section>`; }).join(""); refs.content.innerHTML = `<article class="quiz-shell" style="--accent:#59a844"><div class="quiz-copy"><p class="detail-eyebrow">${escapeHtml(data.chapter.code)}</p><h4 class="detail-title">${escapeHtml(data.quiz.title)}</h4><p>Select an answer for each question, then submit to check your score. Nothing is saved to the browser.</p></div><form id="quiz-form" class="quiz-form">${questions}<div class="quiz-actions"><button class="btn btn-primary" type="submit"><i class="fa-solid fa-check"></i> Submit quiz</button><button class="btn btn-secondary" type="button" id="try-again"><i class="fa-solid fa-rotate-right"></i> Try again</button><button class="btn btn-secondary" type="button" data-action="open-assignment"><i class="fa-solid fa-pen"></i> Open assignment</button></div><p id="quiz-score" aria-live="polite"></p></form></article>`; document.getElementById("quiz-form").addEventListener("submit", (event) => { event.preventDefault(); const score = calculateScore(); document.getElementById("quiz-score").textContent = "Score: " + score + " / " + data.quiz.multipleChoice.length; data.quiz.multipleChoice.forEach((question) => { const card = document.querySelector('[data-question="' + question.number + '"]'); const selected = document.querySelector('input[name="question-' + question.number + '"]:checked'); const isCorrect = Boolean(selected && selected.value === question.answer); card.classList.toggle("is-correct", isCorrect); card.classList.toggle("is-incorrect", !isCorrect); card.querySelector(".quiz-feedback").textContent = isCorrect ? "Correct" : "Correct answer: " + question.answer; }); }); document.getElementById("try-again").addEventListener("click", () => { document.getElementById("quiz-form").reset(); document.getElementById("quiz-score").textContent = ""; document.querySelectorAll(".quiz-question").forEach((card) => { card.classList.remove("is-correct", "is-incorrect"); card.querySelector(".quiz-feedback").textContent = ""; }); }); }
-  function renderAssignmentsOverview() { renderHeader("Assignments", "Launch the Module 1 assignment as part of the same static package."); refs.content.innerHTML = `<article class="course-card" style="--accent:#59a844"><p class="card-code">Assignment</p><h4 class="card-title">${escapeHtml(data.assignment.title)}</h4><p class="card-summary">Open the assignment inside the Option Two-style shell or launch it in a separate tab for review.</p><div class="card-actions"><button class="btn btn-primary" type="button" data-action="open-assignment"><i class="fa-solid fa-pen"></i> Open assignment</button><a class="btn btn-secondary" href="./assignment/module1assignment.html" target="_blank" rel="noopener"><i class="fa-solid fa-up-right-from-square"></i> Full screen</a></div></article>`; }
-  function renderAssignmentDetail() { renderHeader(data.assignment.title, "The assignment is included locally and storage calls in the copied bundle have been neutralized for static review."); refs.content.innerHTML = `<div class="detail-stack"><article class="detail-card" style="--accent:#59a844"><p class="detail-eyebrow">Assignment</p><h4 class="detail-title">${escapeHtml(data.assignment.title)}</h4><p class="assignment-copy">Use this embedded version for review, or open the assignment full screen before placing it into a Google delivery target.</p><div class="assignment-actions"><button class="btn btn-secondary" type="button" data-action="back-assignments"><i class="fa-solid fa-arrow-left"></i> Back to assignments</button><a class="btn btn-primary" href="./assignment/module1assignment.html" target="_blank" rel="noopener"><i class="fa-solid fa-up-right-from-square"></i> Open full screen</a></div></article><div class="assignment-frame-shell"><iframe class="assignment-frame" src="./assignment/module1assignment.html" title="${escapeHtml(data.assignment.title)}"></iframe></div></div>`; }
-  function render() { if (state.tab === "chapters" && state.view === "chapter") return renderChapterDetail(); if (state.tab === "quizzes") return renderQuiz(); if (state.tab === "assignments" && state.view === "assignment") return renderAssignmentDetail(); if (state.tab === "assignments") return renderAssignmentsOverview(); return renderChaptersOverview(); }
-  refs.menuToggle?.addEventListener("click", () => { const collapsed = refs.body.classList.toggle("sidebar-collapsed"); refs.menuToggle.setAttribute("aria-expanded", String(!collapsed)); }); refs.navHome?.addEventListener("click", () => setTab("chapters")); refs.tabs.forEach((button) => button.addEventListener("click", () => setTab(button.dataset.tab))); refs.content.addEventListener("click", (event) => { const target = event.target.closest("[data-action]"); if (!target) return; const action = target.dataset.action; if (action === "open-chapter") openChapter(); if (action === "open-quiz") openQuiz(); if (action === "open-assignment") openAssignment(); if (action === "back-chapters") setTab("chapters"); if (action === "back-assignments") setTab("assignments"); });
-  const initial = location.hash.slice(1); if (initial === "quiz" || initial === "quizzes") setTab("quizzes", "quiz"); else if (initial === "assignment" || initial === "assignments") setTab("assignments", initial === "assignment" ? "assignment" : "overview"); else if (initial === "chapter" || initial === "lesson") setTab("chapters", "chapter"); else setTab("chapters");
+  const body = document.body;
+  const sectionTitle = document.getElementById("section-title");
+  const sectionIntro = document.getElementById("section-intro");
+  const content = document.getElementById("content-body");
+  const navItems = Array.from(document.querySelectorAll("[data-nav]"));
+
+  function escapeHtml(value) {
+    return String(value ?? "").replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
+  }
+
+  function normalizeRoute() {
+    const hash = location.hash.replace(/^#/, "").trim();
+    if (["chapter-1", "lesson"].includes(hash)) return "chapter-1";
+    if (["quiz-1", "quiz"].includes(hash)) return "quiz-1";
+    if (["assignment-1", "assignment"].includes(hash)) return "assignment-1";
+    if (hash === "quizzes") return "quiz-1";
+    if (hash === "assignments") return "assignment-1";
+    return "chapter-1";
+  }
+
+  function navGroup(route) {
+    if (route === "quiz-1" || route === "quizzes") return "quizzes";
+    if (route === "assignment-1" || route === "assignments") return "assignments";
+    return "chapters";
+  }
+
+  function setChrome(route, title, intro) {
+    body.dataset.route = route;
+    sectionTitle.textContent = title;
+    sectionIntro.textContent = intro;
+    const group = navGroup(route);
+    navItems.forEach((item) => item.classList.toggle("active", item.dataset.nav === group));
+  }
+
+  function renderChapters() {
+    setChrome("chapters", "Chapters", "Open module content, launch embedded assignments, and review the source-linked quiz.");
+    content.innerHTML = `
+      <div class="card-grid">
+        <article class="course-card" style="--accent:#8b6a24">
+          <p class="card-code">${escapeHtml(data.chapter.code)}</p>
+          <h4 class="card-title">${escapeHtml(data.chapter.title)}</h4>
+          <p class="card-summary">${escapeHtml(data.chapter.summary)}</p>
+          <div class="card-meta">
+            <span><strong>${escapeHtml(String(data.chapter.componentCount))}</strong> lesson components retained.</span>
+            <span><strong>${escapeHtml(data.quiz.title)}</strong></span>
+            <span><strong>${escapeHtml(data.assignment.title)}</strong></span>
+          </div>
+          <div class="card-actions">
+            <a class="btn btn-primary" href="#chapter-1"><i class="fa-solid fa-arrow-right"></i> Open module</a>
+            <a class="btn btn-secondary" href="#quiz-1"><i class="fa-solid fa-circle-question"></i> Open test</a>
+          </div>
+        </article>
+        <article class="course-card" style="--accent:#59a844">
+          <p class="card-code">Static review</p>
+          <h4 class="card-title">Module 1 package</h4>
+          <p class="card-summary">This package is limited to Module 1 and keeps the Option Two view model without progress storage or locked states.</p>
+          <div class="card-actions">
+            <a class="btn btn-secondary" href="#assignment-1"><i class="fa-solid fa-pen"></i> Assignment library</a>
+          </div>
+        </article>
+      </div>`;
+  }
+
+  function renderChapterDetail() {
+    setChrome("chapter-1", data.chapter.title, data.chapter.summary);
+    content.innerHTML = `
+      <div class="chapter-detail-surface">
+        <article class="chapter-head">
+          <p class="detail-eyebrow">${escapeHtml(data.chapter.code)}</p>
+          <h4 class="detail-title">${escapeHtml(data.chapter.title)}</h4>
+          <p class="detail-summary">${escapeHtml(data.chapter.summary)}</p>
+          <span class="module-completion-badge">0/${escapeHtml(String(data.chapter.componentCount))} components complete</span>
+          <div class="detail-actions">
+            <a class="btn btn-primary" href="#quiz-1">Open test</a>
+            <a class="btn btn-secondary" href="#assignment-1">Open assignment</a>
+          </div>
+        </article>
+        <div class="chapter-content-shell">
+          <iframe class="chapter-content-frame" src="./lesson.html" title="${escapeHtml(data.chapter.title)} lesson content"></iframe>
+        </div>
+      </div>`;
+  }
+
+  function renderQuizzes() {
+    setChrome("quizzes", "Quizzes", "Open the Module 1 assessment view.");
+    content.innerHTML = `
+      <article class="course-card" style="--accent:#59a844">
+        <p class="card-code">Forensic Studies 25 Assessment</p>
+        <h4 class="card-title">${escapeHtml(data.quiz.title)}</h4>
+        <p class="card-summary">Five multiple-choice questions from Module 1. Results are checked locally and are not saved.</p>
+        <div class="card-actions">
+          <a class="btn btn-primary" href="#quiz-1"><i class="fa-solid fa-circle-question"></i> Open quiz</a>
+          <a class="btn btn-secondary" href="#chapter-1">Back to module</a>
+        </div>
+      </article>`;
+  }
+
+  function renderQuizDetail() {
+    setChrome("quiz-1", "Quizzes", "Answer the Module 1 quiz locally. Results are shown on screen only and are not saved.");
+    const questions = data.quiz.multipleChoice.map((question) => {
+      const options = question.options.map((option) => `
+        <label class="quiz-option">
+          <input type="radio" name="question-${escapeHtml(question.number)}" value="${escapeHtml(option.label)}" />
+          <span><strong>${escapeHtml(option.label)}</strong>${escapeHtml(option.text)}</span>
+        </label>`).join("");
+      return `
+        <section class="quiz-question" data-question="${escapeHtml(question.number)}">
+          <div class="question-number">${escapeHtml(question.number)}</div>
+          <div class="question-body">
+            <h4>${escapeHtml(question.prompt)}</h4>
+            <div class="quiz-options">${options}</div>
+            <div class="quiz-feedback" aria-live="polite"></div>
+          </div>
+        </section>`;
+    }).join("");
+
+    content.innerHTML = `
+      <article class="assessment-shell">
+        <div class="assessment-top">
+          <p class="assessment-kicker">Forensic Studies 25 â€¢ Assessment</p>
+          <h4 class="assessment-title">Quiz 1: ${escapeHtml(data.quiz.title)}</h4>
+          <div class="assessment-meta">
+            <div><span>Status</span>In progress</div>
+            <div><span>Submitted</span>Not yet submitted</div>
+          </div>
+          <div class="evaluation-row">
+            <div class="evaluation-copy">
+              <h4>Final Evaluation</h4>
+              <p>This counter tracks completed questions only. Marks are handled separately, and written responses are reviewed manually.</p>
+            </div>
+            <div>
+              <div class="score-display"><strong id="score-count">0</strong><span>/5</span></div>
+              <div id="score-note" class="score-note">0 questions completed</div>
+            </div>
+          </div>
+          <div class="assessment-actions">
+            <button id="generate-results" class="btn btn-primary" type="button">Generate results</button>
+            <button id="check-answers" class="btn btn-secondary" type="button">Check answers</button>
+            <button id="retake-quiz" class="btn btn-secondary" type="button">Retake quiz</button>
+            <a class="back-link" href="#chapter-1">Back to module</a>
+          </div>
+        </div>
+        <div class="section-breakdown"><h4>Section Breakdown</h4></div>
+        <div class="breakdown-row"><strong>Multiple Choice<br><small>Questions 1-5</small></strong><span id="breakdown-count">0/5</span></div>
+        <form id="quiz-form" class="quiz-form">${questions}</form>
+      </article>`;
+    bindQuiz();
+  }
+
+  function renderAssignments() {
+    setChrome("assignments", "Assignments", "Open the Module 1 assignment surface.");
+    content.innerHTML = `
+      <article class="course-card" style="--accent:#59a844">
+        <p class="card-code">Assignment</p>
+        <h4 class="card-title">${escapeHtml(data.assignment.title)}</h4>
+        <p class="card-summary">Review Locard's Exchange Principle and apply it to the introductory crime scene case.</p>
+        <div class="card-actions">
+          <a class="btn btn-primary" href="#assignment-1"><i class="fa-solid fa-pen"></i> Open assignment</a>
+          <a class="btn btn-secondary" href="#chapter-1">Back to module</a>
+        </div>
+      </article>`;
+  }
+
+  function renderAssignmentDetail() {
+    setChrome("assignment-1", "Assignments", "Complete the Module 1 assignment surface in the local static package.");
+    content.innerHTML = `
+      <div class="assignment-detail-surface">
+        <article class="assignment-brief-card">
+          <p class="assignment-kicker">Assignment details</p>
+          <h4 class="card-title">${escapeHtml(data.assignment.title)}</h4>
+          <p class="assignment-copy">Review Locard's Exchange Principle and apply it to the introductory crime scene case.</p>
+          <p class="assignment-copy"><strong>When you have completed the assignment, upload your generated reports to your respective online classroom.</strong></p>
+          <div class="assignment-actions">
+            <a class="btn btn-primary" href="./assignment/module1assignment.html" target="_blank" rel="noopener">Open full screen</a>
+            <a class="btn btn-secondary" href="#chapter-1">Back to module</a>
+          </div>
+        </article>
+        <div class="assignment-frame-shell">
+          <iframe class="assignment-frame" src="./assignment/module1assignment.html" title="${escapeHtml(data.assignment.title)}"></iframe>
+        </div>
+      </div>`;
+  }
+
+  function answeredCount() {
+    return data.quiz.multipleChoice.filter((question) => document.querySelector('input[name="question-' + question.number + '"]:checked')).length;
+  }
+
+  function checkAnswers() {
+    let score = 0;
+    data.quiz.multipleChoice.forEach((question) => {
+      const card = document.querySelector('[data-question="' + question.number + '"]');
+      const selected = document.querySelector('input[name="question-' + question.number + '"]:checked');
+      const isCorrect = Boolean(selected && selected.value === question.answer);
+      if (isCorrect) score += 1;
+      card.classList.toggle("is-correct", isCorrect);
+      card.classList.toggle("is-incorrect", Boolean(selected) && !isCorrect);
+      card.querySelector(".quiz-feedback").textContent = selected ? (isCorrect ? "Correct" : "Correct answer: " + question.answer) : "No answer selected.";
+    });
+    const answered = answeredCount();
+    document.getElementById("score-count").textContent = String(score);
+    document.getElementById("score-note").textContent = answered + " questions completed";
+    document.getElementById("breakdown-count").textContent = answered + "/" + data.quiz.multipleChoice.length;
+  }
+
+  function resetQuiz() {
+    document.getElementById("quiz-form").reset();
+    document.getElementById("score-count").textContent = "0";
+    document.getElementById("score-note").textContent = "0 questions completed";
+    document.getElementById("breakdown-count").textContent = "0/" + data.quiz.multipleChoice.length;
+    document.querySelectorAll(".quiz-question").forEach((card) => {
+      card.classList.remove("is-correct", "is-incorrect");
+      card.querySelector(".quiz-feedback").textContent = "";
+    });
+  }
+
+  function bindQuiz() {
+    document.getElementById("check-answers")?.addEventListener("click", checkAnswers);
+    document.getElementById("generate-results")?.addEventListener("click", checkAnswers);
+    document.getElementById("retake-quiz")?.addEventListener("click", resetQuiz);
+  }
+
+  function renderRoute() {
+    const route = normalizeRoute();
+    if (!location.hash) history.replaceState(null, "", "#chapter-1");
+    if (route === "chapter-1") return renderChapterDetail();
+    if (route === "quiz-1") return renderQuizDetail();
+    if (route === "assignment-1") return renderAssignmentDetail();
+    return renderChapterDetail();
+  }
+
+  document.getElementById("menu-toggle")?.addEventListener("click", () => document.body.classList.toggle("sidebar-collapsed"));
+  window.addEventListener("hashchange", renderRoute);
+  renderRoute();
 })();

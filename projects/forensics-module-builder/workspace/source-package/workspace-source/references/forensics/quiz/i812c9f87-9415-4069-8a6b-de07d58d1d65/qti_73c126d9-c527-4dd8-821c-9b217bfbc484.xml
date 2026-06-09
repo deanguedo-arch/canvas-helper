@@ -1,0 +1,1951 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/profile/cc/ccv1p3/ccv1p3_qtiasiv1p2p1_v1p0.xsd">
+  <assessment ident="i8285c9fc-8c2f-480e-ba77-f29e3171d495" title="M4 Body Fluid Evidence Assessment">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>cc_profile</fieldlabel>
+        <fieldentry>cc.exam.v0p1</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_assessmenttype</fieldlabel>
+        <fieldentry>Examination</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>1</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>qmd_timelimit</fieldlabel>
+        <fieldentry>120</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    <section ident="ib3c317f5-5093-4f66-b33f-6ebf164105c6">
+      <item ident="i303429f2-3806-4a5b-8728-65760e34489d">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">Which choice correctly identifies the four components of blood?</mattext>
+          </material>
+          <response_lid ident="if4b52c37-4175-4dfd-b3dc-aa0dbc6cbdec" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i12689027-2b67-43cf-bba6-4694c2b91d2f">
+                <material>
+                  <mattext texttype="text/html">red blood cells, thrombocytes, hemoglobin, erythrocytes</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i9ad615b4-1ae4-4405-af28-8e43fa2c999e">
+                <material>
+                  <mattext texttype="text/html">plasma, red blood cells, white blood cells, platelets</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ib42377da-3380-42ea-b175-ea2e5de8be33">
+                <material>
+                  <mattext texttype="text/html">water, nutrients, minerals, gases</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i7f8a7bf4-d24c-4b5c-aa2d-cf55fefc6491">
+                <material>
+                  <mattext texttype="text/html">DNA, anti-serum A, anti-serum B, anti-serum Rh+</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if4b52c37-4175-4dfd-b3dc-aa0dbc6cbdec">i12689027-2b67-43cf-bba6-4694c2b91d2f</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="if4b52c37-4175-4dfd-b3dc-aa0dbc6cbdec">i9ad615b4-1ae4-4405-af28-8e43fa2c999e</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if4b52c37-4175-4dfd-b3dc-aa0dbc6cbdec">ib42377da-3380-42ea-b175-ea2e5de8be33</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if4b52c37-4175-4dfd-b3dc-aa0dbc6cbdec">i7f8a7bf4-d24c-4b5c-aa2d-cf55fefc6491</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="id7b03b4c-73de-44d6-94db-0a4a59b28a46">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">Which of the following areas in Alberta would produce the highest red blood cell count within an individual after several days?</mattext>
+          </material>
+          <response_lid ident="i72cc62db-45ca-4ae7-ae06-1fdec9002bc7" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i191819cf-b71f-4113-a2f9-a5543362097c">
+                <material>
+                  <mattext texttype="text/html">Banff  (elevation = 1383 m)</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i9724eea6-033e-44b8-b8ca-00fd2afebb47">
+                <material>
+                  <mattext texttype="text/html">Camrose (elevation = 740 m)</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ic334a3d1-bcd5-4431-9a36-99a0a6f738f8">
+                <material>
+                  <mattext texttype="text/html">Lake Louise (elevation = 1536 m) </mattext>
+                </material>
+              </response_label>
+              <response_label ident="ib8a30346-9b70-4f31-a2cc-3b0ba5dba6e9">
+                <material>
+                  <mattext texttype="text/html">Medicine Hat (elevation = 721 m) </mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i72cc62db-45ca-4ae7-ae06-1fdec9002bc7">i191819cf-b71f-4113-a2f9-a5543362097c</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i72cc62db-45ca-4ae7-ae06-1fdec9002bc7">i9724eea6-033e-44b8-b8ca-00fd2afebb47</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i72cc62db-45ca-4ae7-ae06-1fdec9002bc7">ic334a3d1-bcd5-4431-9a36-99a0a6f738f8</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i72cc62db-45ca-4ae7-ae06-1fdec9002bc7">ib8a30346-9b70-4f31-a2cc-3b0ba5dba6e9</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="iba5fe4b8-c206-4cb5-8c57-83ad843fc3e6">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">A brief anonymous phone call stating that the murder of a man has been committed leads police officers to an old, abandoned farmhouse several kilometres west of Cremona, Alberta. When police officers enter the farmhouse, they discover several dead chickens and a large amount of blood smeared on the walls of the kitchen. What scientific technique may be used to determine if the blood in the kitchen is from the chickens or from a human?</mattext>
+          </material>
+          <response_lid ident="i85dd6265-872a-42bd-94c1-e151f4befbf7" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i211ed3eb-3539-46cc-8837-68c3640c532e">
+                <material>
+                  <mattext texttype="text/html">DNA analysis</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ie48a3cbd-03cf-4348-b8a5-c8aae3fd7a26">
+                <material>
+                  <mattext texttype="text/html">Anti-serum testing </mattext>
+                </material>
+              </response_label>
+              <response_label ident="i3031856a-bee8-46bf-b182-fff2ac848c71">
+                <material>
+                  <mattext texttype="text/html">Enzyme testing</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i9c7b2680-df68-4fd7-8c02-703800feae17">
+                <material>
+                  <mattext texttype="text/html">Microscopic analysis</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i85dd6265-872a-42bd-94c1-e151f4befbf7">i211ed3eb-3539-46cc-8837-68c3640c532e</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i85dd6265-872a-42bd-94c1-e151f4befbf7">ie48a3cbd-03cf-4348-b8a5-c8aae3fd7a26</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i85dd6265-872a-42bd-94c1-e151f4befbf7">i3031856a-bee8-46bf-b182-fff2ac848c71</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i85dd6265-872a-42bd-94c1-e151f4befbf7">i9c7b2680-df68-4fd7-8c02-703800feae17</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ia356a85a-66ad-477a-8082-9ef189b35cd0">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">A brief anonymous phone call stating that the murder of a man has been committed leads police officers to an old, abandoned farmhouse several kilometres west of Cremona, Alberta. When police officers enter the farmhouse, they discover several dead chickens and a large amount of blood smeared on the walls of the kitchen. The red blood cells from the blood found in the kitchen prove to be anucleated, meaning the blood likely came from a</mattext>
+          </material>
+          <response_lid ident="i67ff2ba2-d040-4cf3-a673-23c8f6c9fc4c" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="iff016475-5a4f-410e-831a-ee5fd0ad0ce9">
+                <material>
+                  <mattext texttype="text/html">chicken</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ica990af5-3a67-407a-9bf0-c2913ae21311">
+                <material>
+                  <mattext texttype="text/html">toad</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ibcd7cf62-9539-4df3-b1dc-dfd4d7bcfb55">
+                <material>
+                  <mattext texttype="text/html">frog</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i38cbd86f-dd55-47c6-ba83-7982f1244d37">
+                <material>
+                  <mattext texttype="text/html">human</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i67ff2ba2-d040-4cf3-a673-23c8f6c9fc4c">iff016475-5a4f-410e-831a-ee5fd0ad0ce9</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i67ff2ba2-d040-4cf3-a673-23c8f6c9fc4c">ica990af5-3a67-407a-9bf0-c2913ae21311</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i67ff2ba2-d040-4cf3-a673-23c8f6c9fc4c">ibcd7cf62-9539-4df3-b1dc-dfd4d7bcfb55</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i67ff2ba2-d040-4cf3-a673-23c8f6c9fc4c">i38cbd86f-dd55-47c6-ba83-7982f1244d37</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i812b112b-c6ff-434b-a3ca-04a8c692670e">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">Which choice correctly identifies the three protein markers that exist on human red blood cells?</mattext>
+          </material>
+          <response_lid ident="id0a5cca2-30b1-483d-af58-926d86d8a102" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ie4857dbd-42af-43a4-b748-8b010029079c">
+                <material>
+                  <mattext texttype="text/html">A, B, Rh+</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i7a786a4f-eeca-4e6e-8f2a-bcec791589b0">
+                <material>
+                  <mattext texttype="text/html">ABO, Rh+, Rh-</mattext>
+                </material>
+              </response_label>
+              <response_label ident="iba2a96ad-70bc-4ee7-9b93-95f66475f964">
+                <material>
+                  <mattext texttype="text/html">AB, O, Rh+</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ifc37b2b2-08b2-4ff7-99c6-63e14c0a1f49">
+                <material>
+                  <mattext texttype="text/html">O, A, B</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="id0a5cca2-30b1-483d-af58-926d86d8a102">ie4857dbd-42af-43a4-b748-8b010029079c</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="id0a5cca2-30b1-483d-af58-926d86d8a102">i7a786a4f-eeca-4e6e-8f2a-bcec791589b0</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="id0a5cca2-30b1-483d-af58-926d86d8a102">iba2a96ad-70bc-4ee7-9b93-95f66475f964</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="id0a5cca2-30b1-483d-af58-926d86d8a102">ifc37b2b2-08b2-4ff7-99c6-63e14c0a1f49</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="iba465285-7f09-4ded-8900-837571d587bf">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">What blood type is the most helpful in the identification of a suspect because it is rare?</mattext>
+          </material>
+          <response_lid ident="i251170fe-5bff-44e6-a4bf-6dd59f713ba8" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i916dc416-dfdb-463c-9292-321f060c524a">
+                <material>
+                  <mattext texttype="text/html">Type AB </mattext>
+                </material>
+              </response_label>
+              <response_label ident="i93448aa6-8b2b-4e00-9b93-7d6e2f637abc">
+                <material>
+                  <mattext texttype="text/html">Type O</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i45e0b487-a9fd-4414-a2b6-3a5db680b307">
+                <material>
+                  <mattext texttype="text/html">Type A</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i5e1e37bb-0fea-45b8-a860-43321e7e9c8f">
+                <material>
+                  <mattext texttype="text/html">Type B</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i251170fe-5bff-44e6-a4bf-6dd59f713ba8">i916dc416-dfdb-463c-9292-321f060c524a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i251170fe-5bff-44e6-a4bf-6dd59f713ba8">i93448aa6-8b2b-4e00-9b93-7d6e2f637abc</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i251170fe-5bff-44e6-a4bf-6dd59f713ba8">i45e0b487-a9fd-4414-a2b6-3a5db680b307</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i251170fe-5bff-44e6-a4bf-6dd59f713ba8">i5e1e37bb-0fea-45b8-a860-43321e7e9c8f</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="if838002f-70ec-4771-a626-b6bd28e0a17f">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">Identifying one type of blood enzyme or protein within a blood evidence sample assists investigators because it</mattext>
+          </material>
+          <response_lid ident="i0e739ca8-fc17-4e6b-94d7-265d8e012bb3" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i0365fdaf-4986-4c62-8ca8-2cfdff258988">
+                <material>
+                  <mattext texttype="text/html">determines the type of crime that occurred</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i85fdcacd-bbdc-42e0-9330-eadc2d46621c">
+                <material>
+                  <mattext texttype="text/html">establishes the exact time of the crime</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ia3c751d0-4abc-4901-a444-37537fb23d5c">
+                <material>
+                  <mattext texttype="text/html">helps to narrow down the list of suspects</mattext>
+                </material>
+              </response_label>
+              <response_label ident="iefbea215-432e-4fd0-ac49-d7c138a37861">
+                <material>
+                  <mattext texttype="text/html">singles out one specific suspect</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i0e739ca8-fc17-4e6b-94d7-265d8e012bb3">i0365fdaf-4986-4c62-8ca8-2cfdff258988</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i0e739ca8-fc17-4e6b-94d7-265d8e012bb3">i85fdcacd-bbdc-42e0-9330-eadc2d46621c</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i0e739ca8-fc17-4e6b-94d7-265d8e012bb3">ia3c751d0-4abc-4901-a444-37537fb23d5c</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i0e739ca8-fc17-4e6b-94d7-265d8e012bb3">iefbea215-432e-4fd0-ac49-d7c138a37861</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i07ff2495-82c6-4617-a806-3412d560115e">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">Some Steps Involved in the Determination of Blood Type of an Unknown Sample
+&lt;p&gt; 1. Each sample is gently mixed.&lt;br /&gt; 2. One type of anti-serum is added to each sample.&lt;br /&gt; 3. An agglutination reaction is observed in two samples.&lt;br /&gt; 4. Unknown blood is separated into three separate samples.&lt;br /&gt;&lt;br /&gt; The sequence of steps that occur in the determination of the blood type of the unknown sample are &lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i41465cab-5427-4bbc-87f8-7396ec27352f" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i46ba3452-28c7-478b-b5af-6edb4c75d7db">
+                <material>
+                  <mattext texttype="text/html">4,2,1,3</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ia63c4c87-305a-47dc-a08e-fb8dd5583861">
+                <material>
+                  <mattext texttype="text/html">4,1,3,2</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ic3784c0b-47f9-45d6-8358-cd49fce50637">
+                <material>
+                  <mattext texttype="text/html">1,4,2,3</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i67e9bfd8-4137-4974-bfe6-8e2074d2bf1e">
+                <material>
+                  <mattext texttype="text/html">1,2,4,3</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i41465cab-5427-4bbc-87f8-7396ec27352f">i46ba3452-28c7-478b-b5af-6edb4c75d7db</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i41465cab-5427-4bbc-87f8-7396ec27352f">ia63c4c87-305a-47dc-a08e-fb8dd5583861</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i41465cab-5427-4bbc-87f8-7396ec27352f">ic3784c0b-47f9-45d6-8358-cd49fce50637</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i41465cab-5427-4bbc-87f8-7396ec27352f">i67e9bfd8-4137-4974-bfe6-8e2074d2bf1e</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i6c0a862c-b298-4a09-b9bf-92a518987c67">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">When blood evidence is suspected at a crime scene, what should be done initially?</mattext>
+          </material>
+          <response_lid ident="if070d600-9892-4814-8432-af813589b8d1" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i849e061c-c1b5-43e6-b99b-b940dee07bcf">
+                <material>
+                  <mattext texttype="text/html">Verify that the evidence found is blood.</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i74106bfb-35eb-4d79-aaa1-99768420aa96">
+                <material>
+                  <mattext texttype="text/html">Contact the medical examiner's office.</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ie09d283b-62e0-4f24-9ed3-48c8c4beb9f4">
+                <material>
+                  <mattext texttype="text/html">Complete a microscopic analysis of the evidence.</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ie972f283-63d3-4ec0-b01d-5d29e7bcc552">
+                <material>
+                  <mattext texttype="text/html">Determine the blood type of the victim.</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="if070d600-9892-4814-8432-af813589b8d1">i849e061c-c1b5-43e6-b99b-b940dee07bcf</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if070d600-9892-4814-8432-af813589b8d1">i74106bfb-35eb-4d79-aaa1-99768420aa96</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if070d600-9892-4814-8432-af813589b8d1">ie09d283b-62e0-4f24-9ed3-48c8c4beb9f4</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="if070d600-9892-4814-8432-af813589b8d1">ie972f283-63d3-4ec0-b01d-5d29e7bcc552</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i6adab6ff-34e2-40f6-9323-db6bccc0fe53">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">At a crime scene, the first technique that investigators use to find trace blood evidence is</mattext>
+          </material>
+          <response_lid ident="i44a4cca5-967b-4378-a12d-14700b31e9dc" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i8fa293d8-3a70-442b-8c8c-4a4074cc519d">
+                <material>
+                  <mattext texttype="text/html">luminol solution</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ie0ef7cf2-d5eb-47d6-a35b-50ff3f1fab1c">
+                <material>
+                  <mattext texttype="text/html">phenolphthalein reagent </mattext>
+                </material>
+              </response_label>
+              <response_label ident="ie3c3c295-98a5-4bab-9203-519fa0aa9978">
+                <material>
+                  <mattext texttype="text/html">hydrochloric acid</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i3b762edd-b370-4606-984e-6ced27e7cb97">
+                <material>
+                  <mattext texttype="text/html">powerful lighting  </mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i44a4cca5-967b-4378-a12d-14700b31e9dc">i8fa293d8-3a70-442b-8c8c-4a4074cc519d</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i44a4cca5-967b-4378-a12d-14700b31e9dc">ie0ef7cf2-d5eb-47d6-a35b-50ff3f1fab1c</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i44a4cca5-967b-4378-a12d-14700b31e9dc">ie3c3c295-98a5-4bab-9203-519fa0aa9978</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i44a4cca5-967b-4378-a12d-14700b31e9dc">i3b762edd-b370-4606-984e-6ced27e7cb97</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i3cde7837-30c2-4b8b-aa2d-1a4762edb732">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">What specific part of blood does phenolphthalein react with?</mattext>
+          </material>
+          <response_lid ident="i97c5fa6e-975d-4799-ac88-23f0c2e98b52" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="if3ebe318-2128-4edf-bcb9-e2e664914007">
+                <material>
+                  <mattext texttype="text/html">Oxygen</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i6e518543-0563-43a0-846e-e2ef6b916a0c">
+                <material>
+                  <mattext texttype="text/html">Hemoglobin </mattext>
+                </material>
+              </response_label>
+              <response_label ident="i11bde870-7c86-41dc-80b7-a5b85b1b3c1a">
+                <material>
+                  <mattext texttype="text/html">Thrombocytes</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i06146ac9-3a83-4c0e-b423-1390b21512c4">
+                <material>
+                  <mattext texttype="text/html">White blood cells </mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i97c5fa6e-975d-4799-ac88-23f0c2e98b52">if3ebe318-2128-4edf-bcb9-e2e664914007</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i97c5fa6e-975d-4799-ac88-23f0c2e98b52">i6e518543-0563-43a0-846e-e2ef6b916a0c</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i97c5fa6e-975d-4799-ac88-23f0c2e98b52">i11bde870-7c86-41dc-80b7-a5b85b1b3c1a</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i97c5fa6e-975d-4799-ac88-23f0c2e98b52">i06146ac9-3a83-4c0e-b423-1390b21512c4</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ieb2b64f4-b50f-46d1-b495-2b94f1df3188">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">When phenolphthalein comes into contact with blood, it</mattext>
+          </material>
+          <response_lid ident="i03666751-2241-4459-a16d-5e00c8b7af1f" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i241e9e35-ea8d-41d7-86fc-5812e15233c6">
+                <material>
+                  <mattext texttype="text/html">begins to fade</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i336d7c9e-656d-40b5-92d2-d55a6a62ced4">
+                <material>
+                  <mattext texttype="text/html">emits a greenish-blue glow  </mattext>
+                </material>
+              </response_label>
+              <response_label ident="ieb93719b-d976-415b-897d-ccd92d134ba8">
+                <material>
+                  <mattext texttype="text/html">turns a bright pink color</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ic233fe0d-c535-4b96-aeb4-f1e80983f80b">
+                <material>
+                  <mattext texttype="text/html">releases hydroxide ions</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i03666751-2241-4459-a16d-5e00c8b7af1f">i241e9e35-ea8d-41d7-86fc-5812e15233c6</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i03666751-2241-4459-a16d-5e00c8b7af1f">i336d7c9e-656d-40b5-92d2-d55a6a62ced4</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i03666751-2241-4459-a16d-5e00c8b7af1f">ieb93719b-d976-415b-897d-ccd92d134ba8</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i03666751-2241-4459-a16d-5e00c8b7af1f">ic233fe0d-c535-4b96-aeb4-f1e80983f80b</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="if5dead26-816d-404f-8a0b-6b36ccdbc012">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">Luminol reagent should be used at a crime scene when</mattext>
+          </material>
+          <response_lid ident="i3ca47596-b1f8-4116-ac6f-ab9fc72719b8" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i67a45d42-27f2-4613-b9a3-c7cfb40b00d2">
+                <material>
+                  <mattext texttype="text/html">the victim's and suspect's blood types are identical </mattext>
+                </material>
+              </response_label>
+              <response_label ident="i9d0c2eca-7e38-4abc-a1da-3150262a2810">
+                <material>
+                  <mattext texttype="text/html">more than one murder victim is present</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i4afafa97-b01d-4b5e-a07a-815d84f373db">
+                <material>
+                  <mattext texttype="text/html">both animal and human blood are suspected to be involved</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i3388e860-b2d7-4048-8350-c6b3f6f2b04c">
+                <material>
+                  <mattext texttype="text/html">it is suspected that the blood evidence has been cleaned away</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i3ca47596-b1f8-4116-ac6f-ab9fc72719b8">i67a45d42-27f2-4613-b9a3-c7cfb40b00d2</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i3ca47596-b1f8-4116-ac6f-ab9fc72719b8">i9d0c2eca-7e38-4abc-a1da-3150262a2810</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i3ca47596-b1f8-4116-ac6f-ab9fc72719b8">i4afafa97-b01d-4b5e-a07a-815d84f373db</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i3ca47596-b1f8-4116-ac6f-ab9fc72719b8">i3388e860-b2d7-4048-8350-c6b3f6f2b04c</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i77a5063a-8aa6-44df-b511-1325e3713e3c">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">When luminol comes into contact with blood, it</mattext>
+          </material>
+          <response_lid ident="i4cb0436a-c18a-4d45-8746-e12d66c460cc" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="id04a114c-76cd-4b36-8d4d-87fce1fa43a9">
+                <material>
+                  <mattext texttype="text/html">releases oxygen gas</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ifb51c579-e567-4941-b61c-15f260a43654">
+                <material>
+                  <mattext texttype="text/html">turns a bright pink color</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ia928fd48-cdb4-4f33-9afe-08c6361605ba">
+                <material>
+                  <mattext texttype="text/html">emits a greenish-blue glow</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i2031181b-5324-4d9a-b8e5-08f96a24bdd8">
+                <material>
+                  <mattext texttype="text/html">breaks down hemoglobin</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i4cb0436a-c18a-4d45-8746-e12d66c460cc">id04a114c-76cd-4b36-8d4d-87fce1fa43a9</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i4cb0436a-c18a-4d45-8746-e12d66c460cc">ifb51c579-e567-4941-b61c-15f260a43654</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i4cb0436a-c18a-4d45-8746-e12d66c460cc">ia928fd48-cdb4-4f33-9afe-08c6361605ba</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i4cb0436a-c18a-4d45-8746-e12d66c460cc">i2031181b-5324-4d9a-b8e5-08f96a24bdd8</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i011ea238-3a9c-435c-b165-c962244e15f7">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">What specific part of blood does luminol react with?</mattext>
+          </material>
+          <response_lid ident="ie783a7b4-46b8-4002-a843-841be028355d" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ic7e95c0a-7874-4491-a09d-d043646a2335">
+                <material>
+                  <mattext texttype="text/html">Protein strands in thrombocytes</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i9f6b115c-ece0-4b9a-a01d-cd1c0b9d9702">
+                <material>
+                  <mattext texttype="text/html">Dissolved gasses in plasma</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ice57e4e4-3075-4bc2-ab13-36c9f1aac8fc">
+                <material>
+                  <mattext texttype="text/html">Iron pigment in red blood cells</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i82e78120-f940-4c1b-a127-7ddd760d54a4">
+                <material>
+                  <mattext texttype="text/html">Nucleus of white blood cells</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ie783a7b4-46b8-4002-a843-841be028355d">ic7e95c0a-7874-4491-a09d-d043646a2335</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ie783a7b4-46b8-4002-a843-841be028355d">i9f6b115c-ece0-4b9a-a01d-cd1c0b9d9702</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ie783a7b4-46b8-4002-a843-841be028355d">ice57e4e4-3075-4bc2-ab13-36c9f1aac8fc</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ie783a7b4-46b8-4002-a843-841be028355d">i82e78120-f940-4c1b-a127-7ddd760d54a4</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i3ee26dad-c415-4766-980b-0448124fe527">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">The greater the distance that blood free-falls, the greater the increase in the</mattext>
+          </material>
+          <response_lid ident="i4741ba1d-355a-49d3-af11-00cd9f9ca22a" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i22828b11-7271-44a5-b463-94697e97d271">
+                <material>
+                  <mattext texttype="text/html">size of the circular stain pattern and the amount of cast-off residue  </mattext>
+                </material>
+              </response_label>
+              <response_label ident="icd51e21d-2c90-4f11-8d52-2af790b9ad21">
+                <material>
+                  <mattext texttype="text/html">amount of blood released and the length of the blood stain pattern </mattext>
+                </material>
+              </response_label>
+              <response_label ident="id32369db-82fb-42cc-8246-da1e2ceb4dcf">
+                <material>
+                  <mattext texttype="text/html">force of the impact and the surface tension in the blood droplets</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i7f7ac5e3-a0e5-4056-b7a3-8ac37a2977e8">
+                <material>
+                  <mattext texttype="text/html">number of blood droplets and the decomposition of hemoglobin</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i4741ba1d-355a-49d3-af11-00cd9f9ca22a">i22828b11-7271-44a5-b463-94697e97d271</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i4741ba1d-355a-49d3-af11-00cd9f9ca22a">icd51e21d-2c90-4f11-8d52-2af790b9ad21</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i4741ba1d-355a-49d3-af11-00cd9f9ca22a">id32369db-82fb-42cc-8246-da1e2ceb4dcf</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i4741ba1d-355a-49d3-af11-00cd9f9ca22a">i7f7ac5e3-a0e5-4056-b7a3-8ac37a2977e8</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i2e9aee28-ce7c-4e99-a050-ea97386623ef">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;img src="Content\blood spatter gun.PNG" alt="spatter" width="400" height="265" class="img-responsive atto_image_button_text-bottom"&gt;&lt;br&gt;The blood spatter pattern shown likely was the result of a&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i5d7d2762-9744-4c02-8450-18b38862d619" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="if28e18d2-dab4-4b0a-b591-af2eade59dec">
+                <material>
+                  <mattext texttype="text/html">baseball bat</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i9f90546b-f0dc-4754-b676-f829294d1a18">
+                <material>
+                  <mattext texttype="text/html">bullet</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i2dbf1d0f-d7a0-47d2-ab43-f9b9b181a267">
+                <material>
+                  <mattext texttype="text/html">knife</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i1f192622-3402-497b-8b21-54a0dcb5ac7d">
+                <material>
+                  <mattext texttype="text/html">human fist</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5d7d2762-9744-4c02-8450-18b38862d619">if28e18d2-dab4-4b0a-b591-af2eade59dec</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i5d7d2762-9744-4c02-8450-18b38862d619">i9f90546b-f0dc-4754-b676-f829294d1a18</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5d7d2762-9744-4c02-8450-18b38862d619">i2dbf1d0f-d7a0-47d2-ab43-f9b9b181a267</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5d7d2762-9744-4c02-8450-18b38862d619">i1f192622-3402-497b-8b21-54a0dcb5ac7d</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i55c089cc-257c-4a61-8ce6-4589ca96ba99">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">Which of the following crime scene objects could be tested to see if a person is a secretor?</mattext>
+          </material>
+          <response_lid ident="ib022611f-945e-4ce1-acb7-aa3e85804388" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="iefd553a1-9445-4eab-8137-eefd3dc49ce4">
+                <material>
+                  <mattext texttype="text/html">Strand of Hair</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i3c002a7b-002b-4946-b7fd-015405a5dbbe">
+                <material>
+                  <mattext texttype="text/html">Saliva on cigarette butt</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ie51867f8-6baf-4d09-9895-6b8935ca1081">
+                <material>
+                  <mattext texttype="text/html">Urine in toilet</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i8974e2c7-a1cf-4dad-b417-1dd4a360f0a7">
+                <material>
+                  <mattext texttype="text/html">Handle of a gun</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ib022611f-945e-4ce1-acb7-aa3e85804388">iefd553a1-9445-4eab-8137-eefd3dc49ce4</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ib022611f-945e-4ce1-acb7-aa3e85804388">i3c002a7b-002b-4946-b7fd-015405a5dbbe</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ib022611f-945e-4ce1-acb7-aa3e85804388">ie51867f8-6baf-4d09-9895-6b8935ca1081</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ib022611f-945e-4ce1-acb7-aa3e85804388">i8974e2c7-a1cf-4dad-b417-1dd4a360f0a7</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="ide99be95-29f1-46c9-8376-cf4a0d35cbce">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;img src="Content\semen.PNG" alt="semen" width="399" height="299" class="img-responsive atto_image_button_text-bottom"&gt;&lt;br&gt;The most visible objects in this micrograph of semen is &lt;br&gt;</mattext>
+          </material>
+          <response_lid ident="i55afe08d-e181-45f3-84f2-9a062dd646cf" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="if999cfae-226d-490b-b6ed-688e640fda42">
+                <material>
+                  <mattext texttype="text/html">pubic hairs</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i8aeaddb4-8901-4b32-8e72-1aac3d395c18">
+                <material>
+                  <mattext texttype="text/html">sperm cells</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i383756ba-55ba-499a-8c38-8e2613fc7722">
+                <material>
+                  <mattext texttype="text/html">acid phosphatase</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i551dfe4c-39f8-413b-8cb1-f4c325560530">
+                <material>
+                  <mattext texttype="text/html">seminal fluid</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i55afe08d-e181-45f3-84f2-9a062dd646cf">if999cfae-226d-490b-b6ed-688e640fda42</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i55afe08d-e181-45f3-84f2-9a062dd646cf">i8aeaddb4-8901-4b32-8e72-1aac3d395c18</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i55afe08d-e181-45f3-84f2-9a062dd646cf">i383756ba-55ba-499a-8c38-8e2613fc7722</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i55afe08d-e181-45f3-84f2-9a062dd646cf">i551dfe4c-39f8-413b-8cb1-f4c325560530</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="if9d78f31-4764-41d0-9e17-d3fcfef873be">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">The normal components of semen are</mattext>
+          </material>
+          <response_lid ident="i5d13366e-27f0-4bd4-a00a-8890d19c4ffd" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ia33a6d9a-e2ca-45ef-908e-cb04f8c9d746">
+                <material>
+                  <mattext texttype="text/html">mucous and sperm cells</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i5e494bd4-97ef-4a45-861a-e2ad2fe98e3f">
+                <material>
+                  <mattext texttype="text/html">seminal fluid and testosterone</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i529fe78d-0fa2-490b-8ae1-846bbf177005">
+                <material>
+                  <mattext texttype="text/html">testosterone and mucous</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i1ea64c41-916b-46b7-9c80-c34f008cc124">
+                <material>
+                  <mattext texttype="text/html">sperm cells and seminal fluid</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5d13366e-27f0-4bd4-a00a-8890d19c4ffd">ia33a6d9a-e2ca-45ef-908e-cb04f8c9d746</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5d13366e-27f0-4bd4-a00a-8890d19c4ffd">i5e494bd4-97ef-4a45-861a-e2ad2fe98e3f</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5d13366e-27f0-4bd4-a00a-8890d19c4ffd">i529fe78d-0fa2-490b-8ae1-846bbf177005</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i5d13366e-27f0-4bd4-a00a-8890d19c4ffd">i1ea64c41-916b-46b7-9c80-c34f008cc124</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i7e5f614b-0091-4618-b076-847bcbb38532">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">Sperm cells are unique in that they are the only human body cells that</mattext>
+          </material>
+          <response_lid ident="ib829449a-59fb-4726-a6e4-fdbf93a2e8f0" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ibc67904e-e915-4d47-9418-9869815490d8">
+                <material>
+                  <mattext texttype="text/html">are covered with mucous</mattext>
+                </material>
+              </response_label>
+              <response_label ident="icdd1a903-838e-4c9a-b1db-766d726d2026">
+                <material>
+                  <mattext texttype="text/html">are covered with pubic hairs</mattext>
+                </material>
+              </response_label>
+              <response_label ident="iacdad767-74ab-4b93-adfa-a430395c8282">
+                <material>
+                  <mattext texttype="text/html">have a tail </mattext>
+                </material>
+              </response_label>
+              <response_label ident="i0b56819d-2905-4b2a-9f5e-dad110fe220e">
+                <material>
+                  <mattext texttype="text/html">have a nucleus</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ib829449a-59fb-4726-a6e4-fdbf93a2e8f0">ibc67904e-e915-4d47-9418-9869815490d8</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ib829449a-59fb-4726-a6e4-fdbf93a2e8f0">icdd1a903-838e-4c9a-b1db-766d726d2026</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="ib829449a-59fb-4726-a6e4-fdbf93a2e8f0">iacdad767-74ab-4b93-adfa-a430395c8282</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="ib829449a-59fb-4726-a6e4-fdbf93a2e8f0">i0b56819d-2905-4b2a-9f5e-dad110fe220e</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i685f4928-3d96-4497-b3e5-3c1c1c351579">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">The substance in semen that the chemical in the fast blue B test reacts with is</mattext>
+          </material>
+          <response_lid ident="i30d6790b-de77-42bc-8555-b25956170b3a" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ia7e5cfbf-7049-4236-9e7b-1eab1966c500">
+                <material>
+                  <mattext texttype="text/html">testosterone</mattext>
+                </material>
+              </response_label>
+              <response_label ident="if950dbbd-0a5a-4868-8ddf-e7a1c112fe6f">
+                <material>
+                  <mattext texttype="text/html">sperm cells</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ibe843871-fec5-4dc7-8083-66a55e303669">
+                <material>
+                  <mattext texttype="text/html">acid phosphatase</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i5b36983b-c6e8-45d8-9e0f-fe324f24ef12">
+                <material>
+                  <mattext texttype="text/html">fructose</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i30d6790b-de77-42bc-8555-b25956170b3a">ia7e5cfbf-7049-4236-9e7b-1eab1966c500</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i30d6790b-de77-42bc-8555-b25956170b3a">if950dbbd-0a5a-4868-8ddf-e7a1c112fe6f</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i30d6790b-de77-42bc-8555-b25956170b3a">ibe843871-fec5-4dc7-8083-66a55e303669</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i30d6790b-de77-42bc-8555-b25956170b3a">i5b36983b-c6e8-45d8-9e0f-fe324f24ef12</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i38737f8a-b27e-41e6-932e-6d9003822594">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">If semen is present in a sample, during the fast blue B test it will</mattext>
+          </material>
+          <response_lid ident="i15fa4eca-46d3-4dcb-be50-5517952301bd" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ifda1f4d5-f0d2-4ba5-a179-ec61268059fc">
+                <material>
+                  <mattext texttype="text/html">change to a blue color</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i9a046d7e-0e4e-4bfb-b40d-7dcb06835449">
+                <material>
+                  <mattext texttype="text/html">release acid phosphatase</mattext>
+                </material>
+              </response_label>
+              <response_label ident="icae5e871-0f86-4c9e-b390-3dcf78acd66b">
+                <material>
+                  <mattext texttype="text/html">break down sperm cells</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i0fc6c415-b290-4dd8-b2eb-d0bd47ea569c">
+                <material>
+                  <mattext texttype="text/html">turn a deep purple color</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i15fa4eca-46d3-4dcb-be50-5517952301bd">ifda1f4d5-f0d2-4ba5-a179-ec61268059fc</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i15fa4eca-46d3-4dcb-be50-5517952301bd">i9a046d7e-0e4e-4bfb-b40d-7dcb06835449</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i15fa4eca-46d3-4dcb-be50-5517952301bd">icae5e871-0f86-4c9e-b390-3dcf78acd66b</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i15fa4eca-46d3-4dcb-be50-5517952301bd">i0fc6c415-b290-4dd8-b2eb-d0bd47ea569c</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i9a864ed2-b41b-4af9-a52a-4771e9f59a6e">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">After biological evidence is collected from a sexual assault victim and a crime scene, it is sent</mattext>
+          </material>
+          <response_lid ident="i18e74ba6-6e46-4209-a9e1-334be73bba12" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i4d46e604-5a22-494d-9eb7-dbe4c5975e1d">
+                <material>
+                  <mattext texttype="text/html">to a local hospital for a medicinal examination</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i44e528ad-ce72-4a63-bd62-ed154e7ec2eb">
+                <material>
+                  <mattext texttype="text/html">to the court house and put into long term storage </mattext>
+                </material>
+              </response_label>
+              <response_label ident="i40df5b4f-8f66-40bb-b6c1-841111edf654">
+                <material>
+                  <mattext texttype="text/html">to the medical examiner's office and destroyed</mattext>
+                </material>
+              </response_label>
+              <response_label ident="id3b89f72-3172-47e4-83f0-ccb7e8e77a1c">
+                <material>
+                  <mattext texttype="text/html">to a forensic laboratory for a DNA analysis</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i18e74ba6-6e46-4209-a9e1-334be73bba12">i4d46e604-5a22-494d-9eb7-dbe4c5975e1d</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i18e74ba6-6e46-4209-a9e1-334be73bba12">i44e528ad-ce72-4a63-bd62-ed154e7ec2eb</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i18e74ba6-6e46-4209-a9e1-334be73bba12">i40df5b4f-8f66-40bb-b6c1-841111edf654</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i18e74ba6-6e46-4209-a9e1-334be73bba12">id3b89f72-3172-47e4-83f0-ccb7e8e77a1c</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="icc264765-45b2-49d9-8a20-81c0969ca78b">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">What should occur as soon as possible after a sexual assault has been reported by a victim?</mattext>
+          </material>
+          <response_lid ident="i0c8d4821-8cf5-4340-8d86-ac76800da67c" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="i5efbd71b-362f-4fc9-8d10-6de9016df128">
+                <material>
+                  <mattext texttype="text/html">The suspect should complete a lie detector test.</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i41bb70d4-d70a-4a7b-ae97-f7ce5e92b17a">
+                <material>
+                  <mattext texttype="text/html">The victim should be given a rape kit examination.</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ie11106ff-f205-469d-ab84-f550dfd21bcb">
+                <material>
+                  <mattext texttype="text/html">The victim should be permitted to clean herself.</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i0a922e8d-cd94-48c6-ad3a-b8a793f786b0">
+                <material>
+                  <mattext texttype="text/html">The suspect should be allowed to make a statement.</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i0c8d4821-8cf5-4340-8d86-ac76800da67c">i5efbd71b-362f-4fc9-8d10-6de9016df128</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i0c8d4821-8cf5-4340-8d86-ac76800da67c">i41bb70d4-d70a-4a7b-ae97-f7ce5e92b17a</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i0c8d4821-8cf5-4340-8d86-ac76800da67c">ie11106ff-f205-469d-ab84-f550dfd21bcb</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i0c8d4821-8cf5-4340-8d86-ac76800da67c">i0a922e8d-cd94-48c6-ad3a-b8a793f786b0</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="i967d2641-a7f7-43ce-b5c8-543cfa0f5307">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_choice.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>1</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">Due to the relative small number of DNA analysts and the increased volume of evidence sent from police agencies, forensic laboratories in Canada have experienced</mattext>
+          </material>
+          <response_lid ident="i4c989343-1306-4fa8-953d-94735a65d8b1" rcardinality="Single">
+            <render_choice shuffle="Yes">
+              <response_label ident="ibfcc967a-326e-4478-b899-d6d369b25451">
+                <material>
+                  <mattext texttype="text/html">a backlog of evidence sent in for DNA analysis </mattext>
+                </material>
+              </response_label>
+              <response_label ident="i99a5e9c9-af0d-4735-b81e-d351960ed672">
+                <material>
+                  <mattext texttype="text/html">an accumulation in the number of not guilty verdicts given</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ie56abb93-e77b-4116-acfb-848f39883bcd">
+                <material>
+                  <mattext texttype="text/html">a decrease in the number of sexual assaults reported</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i2aa2cd4f-4945-4a54-9ac1-24486dfce9eb">
+                <material>
+                  <mattext texttype="text/html">a decrease in the turnaround time for DNA analysis</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="i4c989343-1306-4fa8-953d-94735a65d8b1">ibfcc967a-326e-4478-b899-d6d369b25451</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i4c989343-1306-4fa8-953d-94735a65d8b1">i99a5e9c9-af0d-4735-b81e-d351960ed672</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i4c989343-1306-4fa8-953d-94735a65d8b1">ie56abb93-e77b-4116-acfb-848f39883bcd</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i4c989343-1306-4fa8-953d-94735a65d8b1">i2aa2cd4f-4945-4a54-9ac1-24486dfce9eb</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="icae3dc8a-9937-4080-9fac-250277ba973e">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>cc_profile</fieldlabel>
+              <fieldentry>cc.multiple_response.v0p1</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>cc_weighting</fieldlabel>
+              <fieldentry>8</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;From the list below, check off which are types of biological evidence from a crime scene that will indicate the blood type of a secretor.&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="i5ea42cb4-e6af-459d-b510-e362b1a4c608" rcardinality="Multiple">
+            <render_choice shuffle="Yes">
+              <response_label ident="ib62bdf1b-f677-4f4b-8d17-9bb524ac9680">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Vaginal secretions&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ida7859b4-31f3-4887-ab94-3653f9423dff">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Urine&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i14912f19-a7d4-447e-bc00-0abdec444112">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Feces&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="icd7694da-3a84-4401-b4c3-c622d40692b2">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Saliva&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i29aa38ad-acef-4467-8eb6-748b89609a11">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Semen&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="ib421c024-1590-45f9-ae8d-7e1928cf5516">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Tears&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="i6cef1792-e6d2-4a0f-ab90-a4792bc2cd78">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;Thrombocytes&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="idadfa493-fdc6-4e2e-9c03-863c6286d385">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;White Blood Cells (WBCs)&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar minvalue="0" maxvalue="100" varname="SCORE" vartype="Decimal" />
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <and>
+                <varequal respident="i5ea42cb4-e6af-459d-b510-e362b1a4c608">ib62bdf1b-f677-4f4b-8d17-9bb524ac9680</varequal>
+                <not>
+                  <varequal respident="i5ea42cb4-e6af-459d-b510-e362b1a4c608">ida7859b4-31f3-4887-ab94-3653f9423dff</varequal>
+                </not>
+                <not>
+                  <varequal respident="i5ea42cb4-e6af-459d-b510-e362b1a4c608">i14912f19-a7d4-447e-bc00-0abdec444112</varequal>
+                </not>
+                <varequal respident="i5ea42cb4-e6af-459d-b510-e362b1a4c608">icd7694da-3a84-4401-b4c3-c622d40692b2</varequal>
+                <varequal respident="i5ea42cb4-e6af-459d-b510-e362b1a4c608">i29aa38ad-acef-4467-8eb6-748b89609a11</varequal>
+                <varequal respident="i5ea42cb4-e6af-459d-b510-e362b1a4c608">ib421c024-1590-45f9-ae8d-7e1928cf5516</varequal>
+                <not>
+                  <varequal respident="i5ea42cb4-e6af-459d-b510-e362b1a4c608">i6cef1792-e6d2-4a0f-ab90-a4792bc2cd78</varequal>
+                </not>
+                <not>
+                  <varequal respident="i5ea42cb4-e6af-459d-b510-e362b1a4c608">idadfa493-fdc6-4e2e-9c03-863c6286d385</varequal>
+                </not>
+              </and>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5ea42cb4-e6af-459d-b510-e362b1a4c608">ib62bdf1b-f677-4f4b-8d17-9bb524ac9680</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5ea42cb4-e6af-459d-b510-e362b1a4c608">ida7859b4-31f3-4887-ab94-3653f9423dff</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5ea42cb4-e6af-459d-b510-e362b1a4c608">i14912f19-a7d4-447e-bc00-0abdec444112</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5ea42cb4-e6af-459d-b510-e362b1a4c608">icd7694da-3a84-4401-b4c3-c622d40692b2</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5ea42cb4-e6af-459d-b510-e362b1a4c608">i29aa38ad-acef-4467-8eb6-748b89609a11</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5ea42cb4-e6af-459d-b510-e362b1a4c608">ib421c024-1590-45f9-ae8d-7e1928cf5516</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5ea42cb4-e6af-459d-b510-e362b1a4c608">i6cef1792-e6d2-4a0f-ab90-a4792bc2cd78</varequal>
+            </conditionvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="i5ea42cb4-e6af-459d-b510-e362b1a4c608">idadfa493-fdc6-4e2e-9c03-863c6286d385</varequal>
+            </conditionvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+    </section>
+  </assessment>
+</questestinterop>
