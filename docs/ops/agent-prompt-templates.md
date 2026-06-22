@@ -144,6 +144,36 @@ Include:
 - Do not do next / warnings
 ```
 
-## 7. Workflow Prompt Contract
+## 7. English 30-1 Unit Replication
+
+```text
+Mode: DEFAULT
+Workflow: conversion
+Project: <ela30-1-unit-slug>
+Canonical entry: projects/<slug>/workspace/index.html
+Boundary:
+- Touch the workspace course shell, project metadata, declared builder/source files, and export package only when regenerating the final deliverable.
+Source-of-truth constraints:
+- Imported Brightspace files are reference-only unless rebuilding from source.
+- Workspace/builder source is canonical.
+- Do not manually patch SCORM output except for inspection; fix workspace/builder, then rerun export.
+Success criteria:
+- Student-facing shell follows the English 30-1 replication model.
+- Film Room media plays in browser preview; questionable MP4s are converted to H.264/AAC with +faststart before packaging.
+- Text/question banks populate from dropdowns without pushing content or exposing local file-path language.
+- Fillable fields accept continuous typing, keep focus, autosave, and restore after reload.
+- SCORM 2004 export passes test:scorm, zip integrity, bridge-before-inline-script check, and packaged media verification.
+Verification:
+- Browser preview for the changed surface.
+- ffprobe for converted media when local video/audio is included.
+- npm run test:scorm
+- unzip -tq projects/<slug>/exports/<slug>-scorm-2004.zip
+Deliver:
+- Package path
+- Verification run
+- Known risks, especially LMS suspend-data size and large media upload limits
+```
+
+## 8. Workflow Prompt Contract
 
 Use `docs/workflows/prompt-contract.md` for day-to-day prompt shape.

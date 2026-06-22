@@ -99,7 +99,7 @@ export type BuildElaModernDramaProjectOptions = {
 const DEFAULT_SLUG = "ela30-1-modern-drama";
 const COURSE_TITLE = "ELA 30-1";
 const DEFAULT_NEXT_STEP_ZIP_PATH = "C:\\Users\\dean.guedo\\Downloads\\English 30-1 nextstep.zip";
-const DEFAULT_STREETCAR_MOVIE_PATH = "C:\\Users\\dean.guedo\\Downloads\\Streetcar Named Desire Movie.mp4";
+const DEFAULT_STREETCAR_MOVIE_PATH = "/Users/deanguedo/Downloads/Streetcar_Named_Desire_playback-safe.mp4";
 const NEXT_STEP_LOGO_WORKSPACE_HREF = "assets/brand/nxt-ce-logo-white-with-ce.png";
 const NEXT_STEP_LOGO_SOURCE_PATH = path.join(
   repoRoot,

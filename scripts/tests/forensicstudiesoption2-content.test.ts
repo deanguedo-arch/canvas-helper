@@ -323,10 +323,12 @@ test("forensic studies option2 chapter pages expose module component progression
   assert.match(chapterTwoSource, /data-module-component-id=/);
   assert.match(chapterTwoSource, /Mark Complete/i);
   assert.match(chapterTwoSource, /Mark Complete \+ Next/i);
+  assert.match(chapterTwoSource, /const reviewUnlockAll = true/);
   assert.match(chapterTwoSource, /forensicstudiesoption2-module-progress-ready/);
   assert.match(chapterTwoSource, /forensicstudiesoption2-module-progress-update/);
   assert.match(chapterTwoSource, /forensicstudiesoption2-module-progress-sync/);
   assert.match(chapterTwoSource, /is-locked|data-progress-state="locked"/i);
+  assert.match(chapterTwoSource, /reviewUnlockAll \|\| reachable/);
   assert.match(chapterTwoSource, /lesson-progress-complete/);
   assert.match(chapterTwoSource, /footer\.hidden\s*=\s*complete\s*&&\s*!isLast/);
   assert.match(chapterTwoSource, /actions\.hidden\s*=\s*state\s*!==\s*"active"/);

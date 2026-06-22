@@ -275,7 +275,8 @@ test("exportProjectToGoogleHosted transpiles main.jsx to browser-safe main.js wh
       "  </head>",
       "  <body>",
       "    <div id=\"app\"></div>",
-      "    <script type=\"module\" src=\"./main.js\"></script>",
+      "    <script src=\"https://unpkg.com/@babel/standalone/babel.min.js\"></script>",
+      "    <script type=\"text/babel\" data-type=\"module\" src=\"./main.jsx?rev=fixture\"></script>",
       "  </body>",
       "</html>",
       ""
@@ -297,10 +298,13 @@ test("exportProjectToGoogleHosted transpiles main.jsx to browser-safe main.js wh
 
   try {
     const result = await exportProjectToGoogleHosted(jsxTranspileSlug);
+    const exportedIndexHtml = await readFile(path.join(result.exportDir, "index.html"), "utf8");
     const transpiledMainJsPath = path.join(result.exportDir, "main.js");
     const transpiledMainJs = await readFile(transpiledMainJsPath, "utf8");
 
     assert.equal(await fileExists(transpiledMainJsPath), true);
+    assert.match(exportedIndexHtml, /<script src="\.\/google-hosted-bridge\.js"><\/script>\s*<script type="module" src="\.\/main\.js\?rev=fixture"><\/script>/);
+    assert.doesNotMatch(exportedIndexHtml, /@babel\/standalone|text\/babel|main\.jsx|data-type="module"/);
     assert.match(transpiledMainJs, /https:\/\/esm\.sh\/react@19\.1\.1\/jsx-runtime/);
     assert.doesNotMatch(transpiledMainJs, /from "react\/jsx-runtime"/);
     assert.doesNotMatch(transpiledMainJs, /from "react-dom\/client"/);

@@ -6165,3 +6165,381 @@ npx tsx scripts/build-forensics-module1-static.ts
 
 ## Exact next file to open
 scripts/build-forensics-module1-static.ts
+## 2026-06-10: docs/ops/ACTIVE_HANDOFF.md (pre-forensics-module1-inline-assignment-version8)
+
+# Active Handoff
+
+## Summary
+Continued the Forensics 25 Google Sites path by proving a no-`clasp` browser-based Apps Script route for Module 1. The Apps Script shell serves the uploaded Module 1 static package from Drive, with lessons and quiz working and assignment delivery moving to a same-tab Apps Script route.
+
+## Files changed
+- docs/ops/ACTIVE_HANDOFF.md
+- docs/ops/ARCHIVED_HANDOFFS.md
+- projects/forensics-module-builder/meta/module-1-apps-script-google-sites.md
+
+## Verification run
+- Manual Apps Script browser iteration only.
+- Main Apps Script `/exec` shell loaded.
+- Lesson content loaded after Drive `.html` upload conversion was disabled and files were re-uploaded as real files.
+- Lesson images rendered after switching to base64 Drive `data:` URLs.
+- Quiz rendered and worked in the shell.
+- Assignment rendered from the standalone Apps Script route `?view=assignment`.
+- Embedded assignment iframe remained unreliable inside the parent Apps Script shell, so the current direction is same-tab assignment navigation with a `Back to module` link.
+
+## Known risks / follow-up
+- The final same-tab assignment `Code.gs` needs one more live browser verification after deployment.
+- Google Sites adds another iframe layer, so avoid relying on nested assignment iframes.
+- Drive upload conversion can turn `.html` into Google Docs; disable conversion and upload real `.html` files.
+- If Drive files are replaced, rerun `rebuildDriveAssetIndex`.
+- If Apps Script is redeployed, ensure Google Sites points to the intended `/exec` URL or redeploys the existing embedded deployment ID.
+
+## Source-of-truth location
+- Manual Apps Script handoff: `projects/forensics-module-builder/meta/module-1-apps-script-google-sites.md`
+- Module 1 static package: `projects/forensics-module1/workspace/module-1-static/`
+- Module 1 generator: `scripts/build-forensics-module1-static.ts`
+- Broader Modules 2-8 Google Sites handoff: `projects/forensics-module-builder/meta/google-sites-conversion.md`
+
+## Fragile areas / what might drift
+- Apps Script `Code.gs` currently lives in the browser editor, not as an executable repo source file.
+- The Drive folder ID for Module 1 is `1h6FwBN3GbDn0Swxyv-S1ZwIzehijTPAw`.
+- Assignment delivery is stable as `?view=assignment`; nested iframe delivery was not stable.
+- Lesson images rely on base64 embedding from Drive blobs, which is acceptable for Module 1 but may need a generated asset strategy for Modules 2-8.
+
+## Next prompt assumptions
+- Continue Module 1 Google Sites proof first.
+- Preserve the current Option Two styling and static module structure.
+- Do not redesign the module.
+- Use browser-based Apps Script steps because `clasp` may be blocked by district permissions.
+
+## Exact next command
+`git status --short --branch`
+
+## Exact next file to open
+`projects/forensics-module-builder/meta/module-1-apps-script-google-sites.md`
+
+## 2026-06-10: docs/ops/ACTIVE_HANDOFF.md (pre-forensics-module2-upload-blocker)
+
+# Active Handoff
+
+## Summary
+Updated the Forensics 25 Module 1 browser-created Apps Script deployment so the assignment works both ways: a same-page inline assignment frame inside the Assignments view and an `Open assignment in new window` escape hatch. The same `/exec` deployment ID was updated to Version 8 on June 10, 2026.
+
+## Files changed
+- docs/ops/ACTIVE_HANDOFF.md
+- docs/ops/ARCHIVED_HANDOFFS.md
+- projects/forensics-module-builder/meta/module-1-apps-script-google-sites.md
+- projects/forensics-module-builder/meta/module-1-apps-script-code.gs
+
+## Verification run
+- `node --check /tmp/module-1-apps-script-code.js`: pass after copying the `.gs` source to a temporary `.js` file for syntax validation.
+- Apps Script editor showed `Saved to Drive` after replacing `Code.gs`.
+- Existing deployment ID `AKfycbyF0JLDni2bdNsN9ZotEcLMor2Cc9zKOBbrn1HMScakdAiJfGlgV6Hkzh5VGJZJJYLX` was updated in Manage deployments from Version 7 to Version 8.
+- Live `/exec?bust=<timestamp>` loaded in Chrome.
+- Assignments view showed the inline `Forensic Investigator` assignment frame and the `Open assignment in new window` button.
+- Inline assignment interaction worked: clicking `Deploy to Scene` inside the embedded frame advanced to `Phase 1: Establish Perimeter` with active text areas.
+
+## Known risks / follow-up
+- Google Sites adds another iframe layer, so verify this same Version 8 `/exec` URL inside the actual Sites embed before calling the Sites path fully accepted.
+- Drive upload conversion can turn `.html` into Google Docs; disable conversion and upload real `.html` files.
+- If Drive files are replaced, rerun `rebuildDriveAssetIndex`.
+- If Apps Script is redeployed, ensure Google Sites points to the intended `/exec` URL or redeploys the existing embedded deployment ID.
+- The inline frame uses Apps Script `srcdoc` injection plus the existing `?asset=assignment-bundle` route. If the bundle file is renamed or replaced, keep `assignment/module1assignment.bundle.js` mapped.
+
+## Source-of-truth location
+- Manual Apps Script handoff: `projects/forensics-module-builder/meta/module-1-apps-script-google-sites.md`
+- Saved Apps Script source: `projects/forensics-module-builder/meta/module-1-apps-script-code.gs`
+- Module 1 static package: `projects/forensics-module1/workspace/module-1-static/`
+- Module 1 generator: `scripts/build-forensics-module1-static.ts`
+- Broader Modules 2-8 Google Sites handoff: `projects/forensics-module-builder/meta/google-sites-conversion.md`
+
+## Fragile areas / what might drift
+- Apps Script `Code.gs` now has a repo-captured copy, but the live executable source still lives in the Apps Script browser editor.
+- The Drive folder ID for Module 1 is `1h6FwBN3GbDn0Swxyv-S1ZwIzehijTPAw`.
+- Assignment delivery is stable as both inline `srcdoc` inside the Assignments view and standalone `?view=assignment` in a new window.
+- Lesson images rely on base64 embedding from Drive blobs, which is acceptable for Module 1 but may need a generated asset strategy for Modules 2-8.
+
+## Next prompt assumptions
+- Verify Version 8 inside Google Sites first.
+- Preserve the current Option Two styling and static module structure.
+- Do not redesign the module.
+- Use browser-based Apps Script steps because `clasp` may be blocked by district permissions.
+
+## Exact next command
+`node --check /tmp/module-1-apps-script-code.js`
+
+## Exact next file to open
+`projects/forensics-module-builder/meta/module-1-apps-script-code.gs`
+
+## 2026-06-10: docs/ops/ACTIVE_HANDOFF.md (pre-forensics-modules-3-8-upload-blocker)
+
+# Handoff
+
+- Project: forensics-module-builder
+- Task: Build Forensics 25 Module 2 with the Module 1 Apps Script plus Drive logic and identify real blockers.
+- Status: blocked
+
+## Files changed
+
+- docs/ops/ACTIVE_HANDOFF.md
+- docs/ops/ARCHIVED_HANDOFFS.md
+- projects/forensics-module-builder/meta/module-2-apps-script-code.gs
+- projects/forensics-module-builder/meta/module-2-apps-script-google-sites.md
+- projects/forensics-module-builder/tools/generate-module.py
+- projects/forensics-module-builder/packages/module-2-static.zip
+- projects/forensics-module-builder/dist/module-2-static/
+
+## What changed
+
+- Generated Module 2 static package at `projects/forensics-module-builder/dist/module-2-static/`.
+- Packaged Module 2 zip at `projects/forensics-module-builder/packages/module-2-static.zip`.
+- Added Module 2 Apps Script bridge source at `projects/forensics-module-builder/meta/module-2-apps-script-code.gs`.
+- Added Module 2 Apps Script / Google Sites handoff at `projects/forensics-module-builder/meta/module-2-apps-script-google-sites.md`.
+- Created Drive folder `Forensics Module 2 Assets` under `ONLINE COURSES / Forensics Sites`.
+- Patched the module generator for Python 3.9 by replacing unsupported `Path.write_text(..., newline="\n")` with `Path.open(..., newline="\n")`.
+
+## Why this changed
+
+- Module 2 needed the same no-`clasp` Apps Script plus Drive-backed asset approach proven on Module 1.
+- Module 2 assignment uses `assignment/module2/*` fingerprint and suspect images, so the Apps Script bridge patches those bundle references into Drive-backed `data:` URLs before serving the assignment bundle.
+- Module 2 has a larger lesson image set, so the Apps Script bridge loads lesson and assignment HTML on demand through `google.script.run` instead of embedding everything in the first `/exec` response.
+
+## Source of truth
+
+- Module 2 generated package: `projects/forensics-module-builder/dist/module-2-static/`
+- Module 2 zip: `projects/forensics-module-builder/packages/module-2-static.zip`
+- Module 2 Apps Script source: `projects/forensics-module-builder/meta/module-2-apps-script-code.gs`
+- Module 2 Drive/Apps Script handoff: `projects/forensics-module-builder/meta/module-2-apps-script-google-sites.md`
+- Generator: `projects/forensics-module-builder/tools/generate-module.py`
+
+## Fragile areas / watchouts
+
+- Drive folder `Forensics Module 2 Assets` exists but is empty until upload succeeds.
+- Drive folder ID is `1DOt7cmS6IE6qX5nntzD5WnMmXcn9IT4S`.
+- Parent Drive folder `Forensics Sites` ID is `17wxhTSwYCXl1fwAbMEWZRJ0ww6q_85y7`.
+- Google Drive connector is not seeing the district Drive contents; use Chrome district session unless connector auth is refreshed to the eips.ca account.
+- Chrome extension upload failed with `fileChooser.setFiles failed` and `Not allowed`.
+- No local `clasp`, `gcloud`, `rclone`, or `drive` CLI is installed.
+
+## Next prompt should assume
+
+- Module 2 is not live yet.
+- The local package and bridge source are ready.
+- The hard block is getting `/Users/deanguedo/Documents/GitHub/canvas-helper/projects/forensics-module-builder/dist/module-2-static` uploaded as raw files into the empty Drive folder.
+- The user may need to enable Chrome extension file access: `chrome://extensions -> Codex extension -> Details -> Allow access to file URLs`.
+- Do not create a live Apps Script deployment until the Drive asset folder contains the Module 2 files.
+
+## What still needs validation
+
+- Verify Drive folder contains the exact Module 2 files and subfolders.
+- Run `setupModuleTwoDrive` and `rebuildDriveAssetIndex` in the Apps Script editor after upload.
+- Deploy a Module 2 web app.
+- Verify live `/exec` overview, lesson images, quiz, inline assignment frame, and `Open assignment in new window`.
+- Verify the live `/exec` URL inside Google Sites after Chrome live proof passes.
+
+## Known risks
+
+- Drive upload conversion can silently turn `.html` files into Google Docs; upload raw files only.
+- The Module 2 assignment bundle image patch is unproven live until Drive files exist.
+- Apps Script response size and iframe sandboxing still need real `/exec` verification.
+- Local Chrome automation showed the assignment app and first image, but iframe tab clicks were inconsistent through automation.
+
+## Exact next command
+
+`cp projects/forensics-module-builder/meta/module-2-apps-script-code.gs /tmp/module-2-apps-script-code.js && node --check /tmp/module-2-apps-script-code.js`
+
+## Exact next file to open
+
+`projects/forensics-module-builder/meta/module-2-apps-script-code.gs`
+
+## Do not do next / warnings
+
+- Do not deploy a broken Module 2 `/exec` before the Drive asset folder is populated.
+- Do not upload the Module 2 files as Google Docs.
+- Do not edit `projects/forensics-module-builder/dist/module-2-static/` by hand unless regenerating or inspecting generated output.
+
+## 2026-06-10: docs/ops/ACTIVE_HANDOFF.md (pre-forensics-modules-2-8-script-project-staging)
+
+# Handoff
+
+- Project: forensics-module-builder
+- Task: Prepare Forensics 25 Modules 3-8 with the Module 1/2 Apps Script plus Drive logic and stop at the real upload blocker.
+- Status: blocked
+
+## Summary
+
+Before script-project staging, Modules 3-8 had generated local static packages, zip files, Apps Script `Code.gs` sources, and empty Drive folders. Module 2 had the same local bridge plus a canary `index.html` in Drive. The remaining question was whether the scripts could be created in Google before the asset upload block was solved.
+
+## Files changed
+
+- docs/ops/ACTIVE_HANDOFF.md
+- docs/ops/ARCHIVED_HANDOFFS.md
+- projects/forensics-module-builder/meta/modules-3-8-apps-script-google-sites.md
+- projects/forensics-module-builder/meta/module-3-apps-script-code.gs
+- projects/forensics-module-builder/meta/module-4-apps-script-code.gs
+- projects/forensics-module-builder/meta/module-5-apps-script-code.gs
+- projects/forensics-module-builder/meta/module-6-apps-script-code.gs
+- projects/forensics-module-builder/meta/module-7-apps-script-code.gs
+- projects/forensics-module-builder/meta/module-8-apps-script-code.gs
+- projects/forensics-module-builder/tools/generate-apps-script-code.py
+- projects/forensics-module-builder/packages/module-3-static.zip
+- projects/forensics-module-builder/packages/module-4-static.zip
+- projects/forensics-module-builder/packages/module-5-static.zip
+- projects/forensics-module-builder/packages/module-6-static.zip
+- projects/forensics-module-builder/packages/module-7-static.zip
+- projects/forensics-module-builder/packages/module-8-static.zip
+
+## Verification run
+
+- Module 3-8 static audits reported `issues: []`.
+- Module 3-8 `Code.gs` files passed `node --check` when copied to `.js`.
+- Module 3-8 zip packages were created.
+- Empty Drive asset folders were created under `ONLINE COURSES / Forensics Sites`.
+
+## Known risks / follow-up
+
+- Drive asset folders were still empty.
+- Chrome extension upload and native folder upload were still blocked.
+- Apps Script projects had not yet been created for Modules 2-8.
+
+## Source-of-truth location
+
+- Batch handoff: `projects/forensics-module-builder/meta/modules-3-8-apps-script-google-sites.md`
+- Module 2 handoff: `projects/forensics-module-builder/meta/module-2-apps-script-google-sites.md`
+- Apps Script sources: `projects/forensics-module-builder/meta/module-2-apps-script-code.gs` through `projects/forensics-module-builder/meta/module-8-apps-script-code.gs`
+
+## Fragile areas / what might drift
+
+- Any live Apps Script source had to be pasted manually unless `clasp` became available.
+- Upload conversion could still turn raw files into Google Docs.
+
+## Next prompt assumptions
+
+- Try script-project staging through `clasp` first, then browser editor if EIPS blocks `clasp`.
+
+## Exact next command
+
+`npx --yes @google/clasp show-authorized-user --json`
+
+## Exact next file to open
+
+`projects/forensics-module-builder/meta/modules-3-8-apps-script-google-sites.md`
+
+## 2026-06-10: docs/ops/ACTIVE_HANDOFF.md (pre-module-2-fast-cache-live-verification)
+
+# Handoff
+
+- Project: forensics-module-builder
+- Task: Stage Forensics 25 Modules 2-8 Apps Script projects in the district Google account and preserve the upload/deploy handoff.
+- Status: blocked on raw Drive asset uploads
+
+## Summary
+
+The prior active handoff recorded Modules 2-8 as saved Apps Script projects in `dean.guedo@eips.ca`, with Module 2 not yet fully uploaded/deployed and Modules 3-8 still waiting on raw Drive asset upload. It also recorded that `clasp` was blocked by EIPS policy, the browser-editor path was the working script-editing route, and the next unblock was uploading raw static module folders into Drive.
+
+## Files changed in that handoff
+
+- docs/ops/ACTIVE_HANDOFF.md
+- docs/ops/ARCHIVED_HANDOFFS.md
+- projects/forensics-module-builder/meta/module-2-apps-script-google-sites.md
+- projects/forensics-module-builder/meta/modules-2-8-apps-script-projects.md
+- projects/forensics-module-builder/meta/modules-3-8-apps-script-google-sites.md
+
+## Reason archived
+
+Module 2 moved past the raw-upload block: its assets were present in Drive, the fast render cache was added to `module-2-apps-script-code.gs`, Apps Script Drive authorization was granted, `rebuildModuleTwoRenderCache` completed, and the existing Module 2 deployment was browser-verified from the live `/exec` URL.
+
+
+---
+
+<!-- Archived before Othello restart handoff on 2026-06-16 -->
+
+# Handoff
+
+## Summary
+
+- General Psychology Apps Script project `15T-RO-IqaaHW5xWy6qWFrpeFvOj-Qbd7ooF_an0F74hSoYHeXUtu6SDf` was updated in Chrome with regenerated `Code.gs`.
+- General Psychology now has bundled Drive folder ID `1ghNMjJABQPuUO4XeajdLoQE3Wl6aSga3` in local metadata and generated `Code.gs`.
+- General Psychology standalone Assignments section is now disabled; the deployable shell view list is `home`, `chapters`, `quizzes`, and `reader`.
+- General Psychology UTF-16 reference HTML is now decoded during Apps Script export, removing the visible `뾰½`/replacement-symbol garbage from lesson content.
+- General Psychology Apps Script autosave/manual Google save is disabled in local metadata and generated `Code.gs`; the generated script no longer includes the Google save button, autosave bootstrap, or save/restore functions.
+- Experimental Psychology Apps Script autosave/manual save is disabled in local metadata and generated `Code.gs`.
+- Experimental Psychology Apps Script project `194S7XEiMw7qg4mT_McEinsXK_GzPwTZsfb9TZdOD87zJv39usU2PdAg2` was manually updated in Chrome because `clasp` is unreliable for the EIPS account.
+- Experimental live `/exec` deployment was updated to version 5 on June 12, 2026, 11:33 AM.
+- Experimental live URL verified after deploy: `https://script.google.com/a/macros/eips.ca/s/AKfycbxO1mDs5yjgfB9WRtSxeZyAC-p4t3GmBQVtMHAMsnMBo4P6gEaWM0JUEGnlwOWGQgL8Tw/exec`
+- Experimental top-level lesson images were still blank after save removal because the Drive shell was serving image tags through direct Drive asset URLs. The export now hydrates those reference images through `getCanvasHelperAssetBase64(assetId)` and rewrites them to `data:` URLs.
+- This image fix is in the generated Drive shell file under `exports/apps-script/drive-assets/`, so the uploaded Drive asset folder must be replaced before the live `/exec` can show the fix.
+
+## Files Changed
+
+- `scripts/lib/apps-script.ts`
+- `scripts/lib/exports/apps-script.ts`
+- `scripts/tests/apps-script-export.test.ts`
+- `projects/experimental-psych-30-per-1-a-b-sec-s-202632352/meta/project.json`
+- `projects/experimental-psych-30-per-1-a-b-sec-s-202632352/exports/apps-script/`
+- `projects/general-psychology-20-independent-studies-202633108/meta/project.json`
+- `projects/general-psychology-20-independent-studies-202633108/workspace/main.js`
+- `projects/general-psychology-20-independent-studies-202633108/exports/apps-script/`
+- `scripts/tests/general-psychology-workspace.test.ts`
+- `docs/ops/ACTIVE_HANDOFF.md`
+
+## Verification Run
+
+- `npm run export:apps-script -- --project general-psychology-20-independent-studies-202633108` passed.
+- `npx tsx --test scripts/tests/general-psychology-workspace.test.ts` passed.
+- `npm run test:apps-script` passed after disabling General Psychology Apps Script autosave/manual Google save.
+- General Psychology generated `Code.gs` audit found no `CANVAS_HELPER_AUTOSAVE`, `buildAutosaveBootstrap`, `getCanvasHelperAutosave`, `saveCanvasHelperAutosave`, `__CH_APPS_SCRIPT_AUTOSAVE__`, `Enable Google save`, `Autosave ready`, `Autosave queued`, or `data-canvas-helper-apps-script-autosave`.
+- `npx tsx --test scripts/tests/apps-script-export.test.ts` passed.
+- General Psychology generated Drive shell audit found `COURSE_SHELL_VIEWS = ["home", "chapters", "quizzes", "reader"]`.
+- General Psychology generated Drive shell audit found no visible `뾰`, `½`, or replacement glyphs after UTF-16 export decoding.
+- `npm run export:apps-script -- --project experimental-psych-30-per-1-a-b-sec-s-202632352` passed.
+- `npx tsx --test scripts/tests/apps-script-export.test.ts` passed.
+- `npx tsx --test scripts/tests/experimental-psych-workspace.test.ts` passed.
+- `npm run test:apps-script` passed.
+- `git diff --check -- scripts/lib/exports/apps-script.ts scripts/tests/apps-script-export.test.ts projects/experimental-psych-30-per-1-a-b-sec-s-202632352/exports/apps-script/Code.gs projects/experimental-psych-30-per-1-a-b-sec-s-202632352/exports/apps-script/drive-assets/__canvas_helper_shell/index.html` passed.
+- Experimental generated `Code.gs` audit found no `CANVAS_HELPER_AUTOSAVE`, `buildAutosaveBootstrap`, `getCanvasHelperAutosave`, `saveCanvasHelperAutosave`, `__CH_APPS_SCRIPT_AUTOSAVE__`, `Enable Google save`, `Autosave ready`, `Autosave queued`, or `data-canvas-helper-apps-script-autosave`.
+- Experimental generated Drive shell audit found `requestImageDataUrl_`, `getCanvasHelperAssetBase64(assetId)`, and `apps-script-reference-image-hydrator`.
+- Experimental live `/exec` browser snapshot loaded course content with no `ReferenceError`, no `buildAutosaveBootstrap_`, and no autosave/save-button strings.
+- General Psychology live Apps Script editor search found folder ID `1ghNMjJABQPuUO4XeajdLoQE3Wl6aSga3` after paste/save.
+
+## Known Risks / Follow-Up
+
+- Experimental Apps Script still has a `Patch.gs` file in the Google-side project, but it has been neutralized to a comment. Local export packages do not include `Patch.gs`.
+- Do not reintroduce Apps Script autosave for Experimental unless the crash path is separately fixed.
+- Existing Google Drive asset folders can drift from local `exports/apps-script/drive-assets`; replace the uploaded `drive-assets` folder, then rerun `setupCourseDrive()` or `rebuildDriveAssetIndex()` after replacing Drive files.
+- Current blocker: browser automation could not control the in-app `/exec` tab or Chrome editor tab, and the Google Drive connector in this session does not expose raw folder upload/update. The local fix is ready, but the regenerated `drive-assets` folder still needs to be uploaded manually.
+- The worktree has many unrelated modified/untracked files from prior work; do not stage broadly.
+
+## Source-Of-Truth Location
+
+- Experimental canonical source: `projects/experimental-psych-30-per-1-a-b-sec-s-202632352/workspace/`
+- Experimental Apps Script package: `projects/experimental-psych-30-per-1-a-b-sec-s-202632352/exports/apps-script/`
+- General Psychology canonical source: `projects/general-psychology-20-independent-studies-202633108/workspace/`
+- General Psychology Apps Script package: `projects/general-psychology-20-independent-studies-202633108/exports/apps-script/`
+- Apps Script deployment workflow: `docs/ops/apps-script-drive-deploy.md`
+
+## Fragile Areas / What Might Drift
+
+- Apps Script editor projects can contain extra `.gs` files that local export packages do not know about. Experimental had `Patch.gs`, which broke live deploy after autosave removal until neutralized.
+- Apps Script deployments need a new version for `/exec` to reflect saved code.
+- Drive-backed Apps Script shells also need the matching `drive-assets/__canvas_helper_shell/index.html`; repasting Code.gs alone will not update shell JavaScript.
+- EIPS `clasp` auth has been unreliable; manual Apps Script editor paste remains the working path.
+- The find dialog in Apps Script Monaco can insert text if focus is not clean; prefer full clean repaste over in-editor search when validating generated code.
+
+## Next Prompt Assumptions
+
+- If continuing Experimental, upload the regenerated `projects/experimental-psych-30-per-1-a-b-sec-s-202632352/exports/apps-script/drive-assets` folder to the Drive asset root, then deploy a new version for deployment ID `AKfycbxO1mDs5yjgfB9WRtSxeZyAC-p4t3GmBQVtMHAMsnMBo4P6gEaWM0JUEGnlwOWGQgL8Tw`.
+- If continuing General Psychology, upload/verify the regenerated `projects/general-psychology-20-independent-studies-202633108/exports/apps-script/drive-assets` folder for ID `1ghNMjJABQPuUO4XeajdLoQE3Wl6aSga3`, then deploy/update its web app.
+- Keep General Psychology autosave disabled; students still use local course progress, but no Apps Script manual save/autosave control should appear.
+- Keep Experimental autosave disabled; students still use local course progress buttons, but no Apps Script manual save/autosave control should appear.
+
+## Exact Next Command
+
+```bash
+open projects/general-psychology-20-independent-studies-202633108/exports/apps-script
+```
+
+## Exact Next File To Open
+
+```text
+projects/general-psychology-20-independent-studies-202633108/exports/apps-script/drive-assets/__canvas_helper_shell/index.html
+```

@@ -72,15 +72,15 @@ test("general psychology marks scanned dead lesson links as plain text candidate
   assert.equal(isDeadLessonLink("content/unit/lesson.html"), false);
 });
 
-test("general psychology keeps default authoring-lock behavior", async () => {
+test("general psychology authoring mode unlocks progressive shell gates", async () => {
   const source = await readFile(mainPath, "utf8");
 
-  assert.match(source, /const AUTHORING_UNLOCK_ALL = false;/);
-  assert.doesNotMatch(
+  assert.match(source, /const AUTHORING_UNLOCK_ALL = true;/);
+  assert.match(
     source,
     /function moduleCompletion\(module\)\s*\{[\s\S]*if \(AUTHORING_UNLOCK_ALL\) \{[\s\S]*isUnlocked: true/,
   );
-  assert.doesNotMatch(
+  assert.match(
     source,
     /function buildUnlockedContentActivities\(content\)\s*\{[\s\S]*if \(AUTHORING_UNLOCK_ALL\) \{\s*return content;\s*\}/,
   );
@@ -182,25 +182,41 @@ test("general psychology does not show forensic course labels", async () => {
   assert.match(source, /data-shell-nav="chapters"/);
 });
 
-test("general psychology uses the forensics35 course shell without assignments navigation", async () => {
+test("general psychology uses the forensics35 course shell without standalone assignments navigation", async () => {
   const source = await readFile(mainPath, "utf8");
 
   assert.match(source, /courseShellView/);
   assert.match(source, /data-shell-nav="home"/);
   assert.match(source, /data-shell-nav="chapters"/);
   assert.match(source, /data-shell-nav="quizzes"/);
-  assert.doesNotMatch(source, /data-shell-nav="assignments"/);
+  assert.match(source, /COURSE_SHELL_VIEWS = \["home", "chapters", "quizzes", "reader"\]/);
+  assert.match(source, /courseShellAllowsAssignments\(\)/);
+  assert.match(source, /data-shell-nav="\$\{escapeHtml\(SHELL_ASSIGNMENTS_VIEW\)\}"/);
   assert.match(source, /forensics35-home-library/);
   assert.match(source, /forensics35-chapters-library/);
   assert.match(source, /forensics35-quiz-library/);
+  assert.match(source, /forensics35-assignment-library/);
   assert.match(source, /data-testid="forensics35-chapter-card"/);
   assert.match(source, /data-testid="forensics35-quiz-card"/);
+  assert.match(source, /data-testid="forensics35-assignment-card"/);
   assert.match(source, /data-testid="chapter-sequence-list"/);
   assert.match(source, /data-testid="mark-complete-panel"/);
   assert.match(source, /data-open-shell-content/);
   assert.match(source, /data-open-shell-quiz/);
+  assert.match(source, /data-open-shell-assignment/);
+  assert.match(source, /Open assignment/);
+  assert.match(source, /Complete this assignment directly in the workspace/);
+  assert.ok(source.includes('.replace(/\\s*\\([^)]*\\)\\s*$/g, "")'));
   assert.match(source, /SCHOLARLY ACCESS/);
   assert.match(source, /filter:\s*blur\(3px\)/);
+});
+
+test("general psychology library cards do not expose D2L manifest scaffolding copy", async () => {
+  const source = await readFile(mainPath, "utf8");
+  const scaffoldingCopy =
+    /Mapped from the D2L manifest hierarchy|Manifest-derived lesson title|Source path preserved for traceability|renderer mappings|mapped from the course manifest|real course sequence/i;
+
+  assert.doesNotMatch(source, scaffoldingCopy);
 });
 
 test("general psychology module 6 excludes the social influence written response placeholder", async () => {

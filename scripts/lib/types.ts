@@ -111,6 +111,13 @@ export type ProjectManifest = {
     injectBridge?: boolean;
     trackedStorageKeys?: string[];
   };
+  appsScript?: {
+    access?: string;
+    disableAutosave?: boolean;
+    driveRootFolderId?: string;
+    executeAs?: string;
+    webAppUrl?: string;
+  };
   createdAt: string;
   updatedAt: string;
 };

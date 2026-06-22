@@ -22,9 +22,12 @@ Use this workflow for D2L/Brightspace-derived projects where fidelity is primary
 ## Reliable Upgrade Patterns
 
 - Keep module sequence and assessment fidelity intact.
+- For new clean Brightspace course builds, prefer the shared Next Step shell pattern in [`brightspace-shell-template.md`](brightspace-shell-template.md) over copying an older course workspace.
 - Improve visual hierarchy with stronger section structure and spacing.
 - Normalize path handling and resource lookup defensively when imports vary.
 - Keep export-safe file references and avoid coupling to local-only assumptions.
+- Treat local media as part of export readiness, not decoration: probe videos, convert questionable files to browser-safe H.264/AAC MP4 with `+faststart`, and verify playback from the workspace preview before packaging.
+- Treat autosave as an export contract: response fields must keep focus while typing, restore after reload, and use stable storage keys that the target export bridge can track.
 - For Brightspace ZIP to editable Word output, use the Word-native HTML import standard in [`BRIGHTSPACE_ZIP_CONVERSION_TO_DOCX.md`](BRIGHTSPACE_ZIP_CONVERSION_TO_DOCX.md).
 
 ## Responsive and Interaction Defaults
@@ -78,6 +81,7 @@ If missing media is detected:
 - Prefer a graceful in-shell fallback note.
 - If a canonical external source is provided (for example YouTube), add a source-specific override.
 - Do not silently label broken media as converted.
+- If a local MP4 exists but fails browser playback, repair it rather than removing it. A safe default is H.264 video, AAC audio, `yuv420p`, and `-movflags +faststart`.
 
 ## Step 3: Shell Normalization and Placement
 
@@ -104,6 +108,16 @@ When lock behavior is requested, apply the same release-condition model:
 ## Step 5: Deploy Readiness Pass
 
 Before publish, choose the active delivery target and run the matching readiness pass.
+
+For SCORM:
+
+- Prefer SCORM 2004 for courses with free-response autosave because it has a larger `cmi.suspend_data` budget than SCORM 1.2.
+- Confirm tracked localStorage keys include every learner-response surface that must persist.
+- Confirm the injected `scorm-bridge.js` appears before the first inline/local course script in the exported `index.html`, so LMS suspend data restores before the course reads localStorage.
+- Confirm the bridge still installs its controls after `DOMContentLoaded` when it loads early in the document.
+- Type into representative response fields, confirm focus is not lost after the first character, reload, and confirm the response restores.
+- Run `npm run test:scorm` and `unzip -tq projects/<slug>/exports/<slug>-scorm-2004.zip`.
+- Remember that zip-direct testing only proves browser-local storage. Cross-browser restore requires the package to be launched from Brightspace or another LMS with a SCORM API.
 
 For Google Hosted:
 
@@ -148,5 +162,7 @@ Manual acceptance checklist:
 - Content/Quizzes/Assignments placement is correct for course policy.
 - No obvious mojibake in sampled lessons across multiple modules.
 - Missing media has graceful fallback or explicit embed override.
+- Local Film Room media loads in the browser with no media error.
 - Mobile sidebar/hamburger behavior is stable.
 - Progress/lock behavior works and persists as expected.
+- Autosaved responses restore after reload, and SCORM packages restore before course scripts read storage.

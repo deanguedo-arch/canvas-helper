@@ -228,13 +228,17 @@ test("forensic studies option2 applies special assignment 8 and final exam rules
   assert.doesNotMatch(mainSource, /Open quiz/);
 });
 
-test("forensic studies option2 keeps the assignment-only authoring unlock switch off by default", async () => {
+test("forensic studies option2 uses full authoring unlock without the assignment-only switch", async () => {
   const mainSource = await readFile(mainPath, "utf8");
   const isAssignmentUnlockedSource = extractNamedFunction(mainSource, "isAssignmentUnlocked");
   const isQuizUnlockedSource = extractNamedFunction(mainSource, "isQuizUnlocked");
   const isChapterUnlockedSource = extractNamedFunction(mainSource, "isChapterUnlocked");
 
+  assert.match(mainSource, /const AUTHORING_UNLOCK_ALL = true;/);
   assert.match(mainSource, /const AUTHORING_UNLOCK_ASSIGNMENTS = false;/);
+  assert.match(isChapterUnlockedSource, /if \(AUTHORING_UNLOCK_ALL && chapter\.id !== "chapter-8"\) return true;/);
+  assert.match(isQuizUnlockedSource, /if \(AUTHORING_UNLOCK_ALL\) return true;/);
+  assert.match(isAssignmentUnlockedSource, /if \(AUTHORING_UNLOCK_ALL\) return true;/);
   assert.match(isAssignmentUnlockedSource, /if \(AUTHORING_UNLOCK_ASSIGNMENTS\) return true;/);
   assert.doesNotMatch(isQuizUnlockedSource, /AUTHORING_UNLOCK_ASSIGNMENTS/);
   assert.doesNotMatch(isChapterUnlockedSource, /AUTHORING_UNLOCK_ASSIGNMENTS/);
