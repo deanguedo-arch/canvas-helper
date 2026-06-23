@@ -1,4 +1,5 @@
 import type { ProjectBundle } from "../lib/types";
+import { getFeaturedCourseBuildProjects, getOtherProjects, getProjectLabel } from "../lib/project-display";
 
 type WorkspacePickerProps = {
   selectedSlug: string;
@@ -19,6 +20,9 @@ export function WorkspacePicker({
   onHtmlChange,
   onRefresh
 }: WorkspacePickerProps) {
+  const featuredProjects = getFeaturedCourseBuildProjects(projects);
+  const otherProjects = getOtherProjects(projects);
+
   return (
     <div className="reference-picker workspace-picker">
       <label className="mini-field">
@@ -29,11 +33,22 @@ export function WorkspacePicker({
           onChange={(event) => onProjectChange(event.target.value)}
           data-testid="workspace-project-select"
         >
-          {projects.map((project) => (
-            <option key={project.manifest.id} value={project.manifest.slug}>
-              {project.manifest.slug}
-            </option>
-          ))}
+          {featuredProjects.length ? (
+            <optgroup label="Built course shells">
+              {featuredProjects.map((project) => (
+                <option key={project.manifest.id} value={project.manifest.slug}>
+                  {getProjectLabel(project.manifest.slug)}
+                </option>
+              ))}
+            </optgroup>
+          ) : null}
+          <optgroup label="All projects">
+            {otherProjects.map((project) => (
+              <option key={project.manifest.id} value={project.manifest.slug}>
+                {getProjectLabel(project.manifest.slug)}
+              </option>
+            ))}
+          </optgroup>
         </select>
       </label>
 

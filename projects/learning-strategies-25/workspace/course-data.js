@@ -11,7 +11,7 @@ window.LEARNING_STRATEGIES_25_DATA = {
       "number": 1,
       "title": "Module 1: Understanding Learners, Self-Advocacy and Relationship Management in Learning",
       "accent": "#155608",
-      "summary": "Includes 4 content items, starting with Section 1: Learning Styles and Preferences, Section 2: Diversity, Accomodation and Working with Others, Section 3: Lifelong Learning, Organization and Management Skills.",
+      "summary": "",
       "contentPath": "./content/chapter-1/index.html",
       "componentIds": [
         "component-1-section-1-learning-styles-and-preferences",
@@ -27,7 +27,7 @@ window.LEARNING_STRATEGIES_25_DATA = {
       "number": 2,
       "title": "Module 2: Organization and Management of Resources",
       "accent": "#155608",
-      "summary": "Includes 3 content items, starting with Section 1: The Why and How of Organizational Strategies and Skills, Section 2: Time Management, Section 3: Goals.",
+      "summary": "",
       "contentPath": "./content/chapter-2/index.html",
       "componentIds": [
         "component-1-section-1-the-why-and-how-of-organizational-strategies-and-skills",
@@ -42,7 +42,7 @@ window.LEARNING_STRATEGIES_25_DATA = {
       "number": 3,
       "title": "Module 3: Understanding the Learning Process and Responding to Assessment",
       "accent": "#155608",
-      "summary": "Includes 5 content items, starting with Section 1: Readiness for Learning, Section 2: Note-Taking Skills, Section 3: Consolidate and Remember Information.",
+      "summary": "",
       "contentPath": "./content/chapter-3/index.html",
       "componentIds": [
         "component-1-section-1-readiness-for-learning",

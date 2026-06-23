@@ -1,7 +1,7 @@
 {
   "id": "c13d30c7-8def-414f-8a3c-6c1a5c5e7382",
   "slug": "general-psychology-20-independent-studies-202633108",
-  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\processed\\general-psychology-20-independent-studies-202633108\\source",
+  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/general-psychology-20-independent-studies-202633108/source",
   "inputKind": "html",
   "brightspaceTarget": "course-page",
   "previewModes": [
@@ -47,12 +47,27 @@
       "target": "brightspace",
       "enabled": true,
       "notes": "Default export target for imported projects."
+    },
+    {
+      "target": "apps-script",
+      "enabled": true,
+      "notes": "Whole-course Google Apps Script delivery with Drive-backed assets."
     }
   ],
+  "googleHosted": {
+    "trackedStorageKeys": [
+      "general-psychology-20-independent-studies-202633108::workspace-state::v1",
+      "general-psychology-20-independent-studies-202633108::workspace-state::v1::assessment-layout::v5"
+    ]
+  },
+  "appsScript": {
+    "driveRootFolderId": "1ghNMjJABQPuUO4XeajdLoQE3Wl6aSga3",
+    "disableAutosave": true
+  },
   "authoringStatus": "active",
   "referenceOnly": [],
   "sourceOfTruthNotes": "Use workspace/index.html, workspace/main.js, workspace/assessment-delivery.js, and workspace/assets/*.html as editable canonical sources. Regenerate course-shell-data.js and D2L map artifacts from meta/build-shell-from-manifest.ps1. Do not replace this project with the generic build:course-shell output unless intentionally rebuilding course structure.",
   "createdAt": "2026-04-09T19:29:15.518Z",
-  "updatedAt": "2026-06-05T15:52:05.767Z",
-  "workspaceApprovedAt": "2026-06-05T15:52:05.767Z"
+  "updatedAt": "2026-06-23T14:53:08.710Z",
+  "workspaceApprovedAt": "2026-06-15T15:31:59.487Z"
 }

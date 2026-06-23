@@ -957,7 +957,8 @@ export default {
           "moduleVisibilityLabel": "visible",
           "sourceHref": "сontent/i2dfd85cb-a6c4-4a98-8710-2d1d7fb3da73/Module 2 Assessment.html",
           "resourceKind": "html",
-          "contentPreview": "",
+          "contentBody": "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file. Use the Module 2 Assignment PDF and Module 2 Law Enforcement Equipment Assessment quiz entries that are present in this course shell.",
+          "contentPreview": "This assessment is referenced in the D2L export, but the cartridge bundle on this computer did not include the source file.",
           "renderHint": "reading"
         },
         {

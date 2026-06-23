@@ -549,6 +549,7 @@
   <script>
     const chapterId = document.body.dataset.chapterId || "";
     const componentIds = ["component-1-forensic-genetics","component-2-lesson-1-dna","component-3-the-cell","component-4-dna","component-5-dna-analysis","component-6-rflp-vs-pcr","component-7-rflp-step-by-step","component-8-lesson-2-mtdna","component-9-mitochondrial-dna","component-10-mtdna-vs-nuclear-dna","component-11-case-study-unknown-soldiers","component-12-case-study-9-11","component-13-lesson-3-dna-profiling-and-population-frequency","component-14-population-frequency","component-15-probability-ratios","component-16-dna-matching","component-17-dna-the-law","component-18-case-study-oj-simpson","component-19-lesson-4-forensic-genetics-case-studies","component-20-punky-gustavson","component-21-a-case-of-wrongful-conviction"];
+    const reviewUnlockAll = true;
     let completionState = Object.create(null);
 
     function getLessonCards() {
@@ -584,7 +585,7 @@
         const complete = !!completionState[componentId];
         const reachable = isComponentReachable(componentId);
         const isLast = componentIds[componentIds.length - 1] === componentId;
-        const state = complete ? "complete" : reachable ? "active" : "locked";
+        const state = complete ? "complete" : (reviewUnlockAll || reachable) ? "active" : "locked";
         const footer = card.querySelector("[data-progress-footer]");
         const progressCopy = card.querySelector("[data-progress-copy]");
         const actions = card.querySelector("[data-progress-actions]");

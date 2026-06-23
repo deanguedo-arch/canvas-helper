@@ -531,6 +531,7 @@ Questioning Procedure</h3><p><span size="4"><img src="../../references/forensics
   <script>
     const chapterId = document.body.dataset.chapterId || "";
     const componentIds = ["component-1-polygraph-testing-forensic-document-analysis","component-2-lesson-1-the-polygraph-instrument","component-3-the-human-nervous-system","component-4-the-sympathetic-nervous-system","component-5-the-invention-of-the-polygraph","component-6-polograph-data","component-7-lesson-2-the-polygraph-exam","component-8-phases-of-the-exam","component-9-phases-of-the-exam-ii","component-10-polygraph-readings","component-11-polygraph-examinar-training","component-12-case-study-the-jonbenet-ramsey-case","component-13-lesson-3-forensic-writing-analysis","component-14-graphology","component-15-writing-style","component-16-document-criminal-profiling","component-17-case-study-the-9-11-letters","component-18-chromatography","component-19-lesson-4-polygraphing-writing-analysis-case-studies","component-20-susan-smith","component-21-the-lindbergh-baby"];
+    const reviewUnlockAll = true;
     let completionState = Object.create(null);
 
     function getLessonCards() {
@@ -566,7 +567,7 @@ Questioning Procedure</h3><p><span size="4"><img src="../../references/forensics
         const complete = !!completionState[componentId];
         const reachable = isComponentReachable(componentId);
         const isLast = componentIds[componentIds.length - 1] === componentId;
-        const state = complete ? "complete" : reachable ? "active" : "locked";
+        const state = complete ? "complete" : (reviewUnlockAll || reachable) ? "active" : "locked";
         const footer = card.querySelector("[data-progress-footer]");
         const progressCopy = card.querySelector("[data-progress-copy]");
         const actions = card.querySelector("[data-progress-actions]");

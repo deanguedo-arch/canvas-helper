@@ -1,0 +1,4053 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ELA 20-1 | Novel Study</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;700;800&family=IBM+Plex+Sans:wght@500;700&family=Work+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  
+  <style>
+:root {
+  --ink: #191c1d;
+  --ink-dark: #171b1b;
+  --primary: #154212;
+  --primary-strong: #0e3510;
+  --surface: #ffffff;
+  --surface-low: #f8f9fa;
+  --surface-soft: #f4f6f0;
+  --surface-muted: #d9dadb;
+  --surface-variant: #c5c9c1;
+  --text-muted: #444d42;
+  --topbar-height: 64px;
+  --sidebar-width: 18rem;
+  --sidebar-rail: 76px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: #fff;
+  font-family: "Work Sans", "Aptos", "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+a { color: inherit; }
+button, input, select, textarea { font: inherit; }
+.material-symbols-outlined { font-size: 24px; line-height: 1; }
+.course-topbar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  height: var(--topbar-height);
+  background: var(--ink-dark);
+  color: #fff;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+.topbar-logo-link {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+}
+.next-step-logo { display: block; width: 112px; height: auto; }
+.topbar-menu-toggle {
+  display: none;
+  position: absolute;
+  left: 14px;
+  top: 10px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 8px;
+  background: #2b302f;
+  color: #fff;
+  cursor: pointer;
+}
+.top-progress-shell {
+  position: absolute;
+  right: 24px;
+  top: 13px;
+  width: min(360px, 34vw);
+}
+.top-progress-meta {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 5px;
+  color: #fff;
+  font-family: "IBM Plex Sans", "Aptos", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.top-progress-meta strong { color: #c8f5bc; }
+.top-progress-bar {
+  height: 9px;
+  border: 1px solid #355d33;
+  border-radius: 999px;
+  background: #233123;
+  overflow: hidden;
+}
+.top-progress-fill { width: 0; height: 100%; background: #7dbc72; transition: width .18s ease; }
+.course-sidebar {
+  position: fixed;
+  z-index: 40;
+  top: var(--topbar-height);
+  bottom: 0;
+  left: 0;
+  width: var(--sidebar-width);
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: var(--ink-dark);
+  color: #eef3eb;
+}
+.sidebar-header {
+  position: relative;
+  padding: 22px 20px 18px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.sidebar-title {
+  margin: 0;
+  max-width: 190px;
+  color: #fff;
+  font-family: "Hanken Grotesk", "Aptos Display", sans-serif;
+  font-size: 28px;
+  line-height: 1.05;
+  font-weight: 800;
+}
+.sidebar-course-label { margin: 6px 0 0; color: #cfd6cd; font-size: 13px; font-weight: 700; }
+.sidebar-toggle-button {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 8px;
+  background: #2b302f;
+  color: #fff;
+  cursor: pointer;
+}
+.course-nav { display: flex; flex-direction: column; gap: 6px; padding: 12px; }
+.course-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: #eef3eb;
+  text-decoration: none;
+  font-family: "IBM Plex Sans", "Aptos", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+}
+.course-nav-link:hover,
+.course-nav-link.active { background: #303432; color: #fff; }
+.lessons-toggle-icon { margin-left: auto; transition: transform .16s ease; }
+.lessons-nav.is-open .lessons-toggle-icon,
+.nav-group.is-open .nav-group-icon { transform: rotate(180deg); }
+.lesson-subnav {
+  display: none;
+  margin: 4px 8px 8px 48px;
+}
+.lessons-nav.is-open .lesson-subnav,
+.nav-group.is-open .lesson-subnav { display: grid; gap: 4px; }
+.sublesson-link {
+  display: block;
+  padding: 7px 0;
+  color: #dbe2d8;
+  text-decoration: none;
+  font-size: 13px;
+  line-height: 1.35;
+}
+.sublesson-link:hover,
+.sublesson-link.active { color: #fff; }
+.course-main {
+  min-height: 100vh;
+  margin-left: var(--sidebar-width);
+  padding: 96px 28px 76px;
+}
+.course-frame {
+  width: min(1120px, calc(100vw - 360px));
+  margin: 0 auto;
+}
+.course-page > h2 {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Hanken Grotesk", "Aptos Display", sans-serif;
+  font-size: clamp(40px, 5vw, 58px);
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -.04em;
+}
+.course-kicker {
+  margin: 0 0 8px;
+  color: #596157;
+  font-family: "IBM Plex Sans", "Aptos", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+.page-intro {
+  max-width: 800px;
+  margin: 14px 0 0;
+  color: #3f473f;
+  font-size: 19px;
+}
+.unit-outcomes { margin-top: 28px; max-width: 800px; }
+.unit-outcomes-lead {
+  margin: 0 0 12px;
+  font-family: "Hanken Grotesk", "Aptos Display", sans-serif;
+  font-size: 25px;
+  line-height: 1.2;
+}
+.unit-focus-list {
+  display: grid;
+  gap: 9px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.unit-focus-list li {
+  padding: 10px 14px;
+  border-left: 3px solid var(--primary);
+  background: var(--surface-low);
+}
+.overview-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  margin-top: 44px;
+}
+.completed-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 8px 14px;
+  border: 1px solid var(--surface-muted);
+  border-radius: 8px;
+  background: #fff;
+  color: #334033;
+}
+.completed-pill strong { color: var(--primary); margin-right: 4px; }
+.external-resource-action,
+.lesson-jump {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid #b7c4b2;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--primary);
+  font-family: "IBM Plex Sans", "Aptos", sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+.external-resource-action,
+.lesson-jump.primary {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: #fff;
+}
+.resource-stack { display: grid; gap: 16px; margin-top: 28px; }
+.resource-lesson-group {
+  overflow: hidden;
+  border: 1px solid var(--surface-muted);
+  border-radius: 10px;
+  background: #fff;
+}
+.resource-lesson-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 20px 24px;
+  cursor: pointer;
+  list-style: none;
+  border-left: 3px solid var(--primary);
+}
+.resource-lesson-summary::-webkit-details-marker { display: none; }
+.resource-lesson-label { font-family: "Hanken Grotesk", "Aptos Display", sans-serif; font-size: 22px; font-weight: 800; }
+.resource-lesson-kicker {
+  display: block;
+  margin-bottom: 3px;
+  color: #596157;
+  font-family: "IBM Plex Sans", "Aptos", sans-serif;
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.resource-lesson-icon { font-size: 30px; font-weight: 800; line-height: 1; }
+.resource-lesson-group[open] .resource-lesson-icon { transform: rotate(45deg); }
+.resource-lesson-items { display: grid; gap: 12px; padding: 0 24px 24px; }
+.lesson-card {
+  display: grid;
+  gap: 6px;
+  padding: 18px;
+  border: 1px solid var(--surface-muted);
+  border-radius: 8px;
+  background: #fff;
+  color: inherit;
+  text-decoration: none;
+}
+.lesson-card:hover { border-color: #9eb09a; background: #fbfcfa; }
+.lesson-card span { color: var(--primary); font-family: "IBM Plex Sans", "Aptos", sans-serif; font-size: 14px; font-weight: 700; }
+.lesson-card strong { font-family: "Hanken Grotesk", "Aptos Display", sans-serif; font-size: 21px; line-height: 1.18; }
+.lesson-card p { margin: 0; color: #556052; }
+.lesson-detail-panel {
+  overflow: hidden;
+  border: 1px solid var(--surface-muted);
+  border-radius: 10px;
+  background: #fff;
+}
+.lesson-document-header {
+  padding: 34px 38px;
+  border-top: 4px solid var(--primary);
+  background: #fff;
+}
+.lesson-document-header p {
+  margin: 0 0 8px;
+  color: var(--primary);
+  font-family: "IBM Plex Sans", "Aptos", sans-serif;
+  font-weight: 700;
+}
+.lesson-document-header h2 {
+  margin: 0;
+  font-family: "Hanken Grotesk", "Aptos Display", sans-serif;
+  font-size: clamp(34px, 4.2vw, 48px);
+  line-height: 1.02;
+  letter-spacing: -.035em;
+}
+.lesson-document-header span {
+  display: block;
+  max-width: 760px;
+  margin-top: 12px;
+  color: #445044;
+  font-size: 18px;
+}
+.lesson-reader-panel {
+  padding: 42px 52px 36px;
+  background: #f1f2ef;
+}
+.source-content {
+  max-width: 820px;
+  margin: 0 auto;
+  color: #202520;
+}
+.source-content h1,
+.source-content h2,
+.source-content h3 {
+  margin: 1.35em 0 .45em;
+  font-family: "Hanken Grotesk", "Aptos Display", sans-serif;
+  line-height: 1.15;
+}
+.source-content h1 { font-size: 34px; }
+.source-content h2 { font-size: 29px; }
+.source-content h3 { font-size: 24px; }
+.source-content p { margin: 0 0 1em; }
+.source-content ul,
+.source-content ol { margin: .75em 0 1em 1.35em; padding: 0; }
+.source-content img,
+.source-image {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--surface-muted);
+  border-radius: 8px;
+}
+.source-table {
+  width: 100%;
+  margin: 18px 0;
+  border-collapse: collapse;
+  background: #fff;
+}
+.source-table th,
+.source-table td {
+  padding: 10px 12px;
+  border: 1px solid var(--surface-muted);
+  text-align: left;
+  vertical-align: top;
+}
+.source-note,
+.source-path { color: #596157; }
+.lesson-bottom-bar {
+  max-width: 820px;
+  margin: 34px auto 0;
+  padding-top: 18px;
+  border-top: 1px solid var(--surface-muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+.lesson-bottom-bar .mark-complete { margin-left: auto; }
+.guide-grid,
+.studio-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 28px;
+}
+.work-card,
+.resource-panel,
+.resource-card {
+  padding: 22px;
+  border: 1px solid var(--surface-muted);
+  border-radius: 10px;
+  background: #fbfbf8;
+}
+.work-card h3,
+.resource-card h3 {
+  margin: 0 0 10px;
+  font-family: "Hanken Grotesk", "Aptos Display", sans-serif;
+  font-size: 25px;
+  line-height: 1.15;
+}
+.work-card p,
+.resource-card p { color: #465046; }
+label { display: grid; gap: 8px; color: var(--primary); font-family: "IBM Plex Sans", "Aptos", sans-serif; font-weight: 700; }
+textarea,
+select,
+input {
+  width: 100%;
+  border: 1px solid #b9c5b1;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  padding: 12px 14px;
+}
+textarea { min-height: 118px; resize: vertical; }
+textarea:focus,
+select:focus,
+input:focus,
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid rgba(21,66,18,.2);
+  outline-offset: 2px;
+  border-color: var(--primary);
+}
+.save-status { color: #596157; font-size: 14px; }
+.resource-panel { max-width: 520px; margin: 24px 0 16px; }
+.resource-card { margin-top: 12px; }
+body.sidebar-collapsed .course-sidebar { width: var(--sidebar-rail); }
+body.sidebar-collapsed .course-main { margin-left: var(--sidebar-rail); }
+body.sidebar-collapsed .sidebar-title,
+body.sidebar-collapsed .sidebar-course-label,
+body.sidebar-collapsed .sidebar-label,
+body.sidebar-collapsed .lesson-subnav,
+body.sidebar-collapsed .lessons-toggle-icon { display: none !important; }
+body.sidebar-collapsed .lessons-nav.is-open .lesson-subnav,
+body.sidebar-collapsed .nav-group.is-open .lesson-subnav { display: none !important; }
+body.sidebar-collapsed .sidebar-header { padding: 12px 8px; display: flex; justify-content: center; }
+body.sidebar-collapsed .sidebar-toggle-button { position: static; }
+body.sidebar-collapsed .course-nav { padding: 8px; }
+body.sidebar-collapsed .course-nav-link {
+  width: 52px;
+  min-height: 52px;
+  margin: 0 auto;
+  padding: 0;
+  justify-content: center;
+  gap: 0;
+}
+@media (max-width: 1100px) {
+  .topbar-menu-toggle { display: inline-flex; align-items: center; justify-content: center; }
+  .top-progress-shell { right: 14px; width: min(280px, 42vw); }
+  body.sidebar-collapsed .course-sidebar,
+  .course-sidebar { display: none; }
+  body:not(.sidebar-collapsed) .course-sidebar {
+    display: block;
+    right: 0;
+    width: 100%;
+    bottom: auto;
+    max-height: 230px;
+    border-bottom: 1px solid rgba(255,255,255,.12);
+  }
+  body:not(.sidebar-collapsed) .sidebar-header { display: none; }
+  body:not(.sidebar-collapsed) .course-nav {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+    padding: 10px 12px;
+  }
+  body:not(.sidebar-collapsed) .lessons-nav,
+  body:not(.sidebar-collapsed) .nav-group { display: contents; }
+  body:not(.sidebar-collapsed) .lesson-subnav { display: none; }
+  body:not(.sidebar-collapsed) .lessons-nav.is-open .lesson-subnav,
+  body:not(.sidebar-collapsed) .nav-group.is-open .lesson-subnav {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+    margin: 0;
+    padding: 6px 0 0;
+  }
+  .course-main,
+  body.sidebar-collapsed .course-main {
+    margin-left: 0;
+    padding: 96px 18px 56px;
+  }
+  body:not(.sidebar-collapsed) .course-main { padding-top: 300px; }
+  .course-frame { width: min(100%, 900px); }
+  .guide-grid,
+  .studio-layout { grid-template-columns: 1fr; }
+  .lesson-reader-panel { padding: 28px 22px 30px; }
+  .lesson-document-header { padding: 28px 24px; }
+}
+@media (max-width: 680px) {
+  .next-step-logo { width: 96px; }
+  .top-progress-shell { width: 170px; }
+  .top-progress-meta { grid-template-columns: 1fr; gap: 0; font-size: 10px; }
+  body:not(.sidebar-collapsed) .course-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  body:not(.sidebar-collapsed) .course-main { padding-top: 330px; }
+  .course-page > h2 { font-size: 40px; }
+  .overview-actions,
+  .lesson-bottom-bar { align-items: stretch; flex-direction: column; }
+  .lesson-bottom-bar .mark-complete { margin-left: 0; }
+}
+@media print {
+  .course-topbar,
+  .course-sidebar,
+  .lesson-bottom-bar,
+  .overview-actions,
+  .resource-panel,
+  .external-resource-action { display: none !important; }
+  .course-main { margin: 0; padding: 0; }
+  .course-frame { width: auto; }
+  body { font-size: 12pt; }
+  .print-job-root { display: none; }
+  body.print-job-active .course-main { display: none !important; }
+  body.print-job-active .print-job-root {
+    display: block !important;
+    margin: 0;
+    padding: 0;
+  }
+  body.print-job-active .print-job-root button,
+  body.print-job-active .print-job-root .lesson-bottom-bar,
+  body.print-job-active .print-job-root .novel-question-toolbar,
+  body.print-job-active .print-job-root .writing-activity-picker,
+  body.print-job-active .print-job-root .paragraph-bottom-actions,
+  body.print-job-active .print-job-root .motif-bottom-actions,
+  body.print-job-active .print-job-root .author-intent-bottom-actions,
+  body.print-job-active .print-job-root .evidence-card-actions {
+    display: none !important;
+  }
+}
+
+.source-callout {
+  margin: 0 0 1.25rem;
+  padding: 18px 20px;
+  border-left: 3px solid var(--primary);
+  background: #fff;
+}
+.source-callout > :first-child { margin-top: 0; }
+.source-callout > :last-child { margin-bottom: 0; }
+.source-content .CentreAlign { text-align: center; }
+.source-content .Rounded { border-radius: 8px; }
+.reading-notebook {
+  display: grid;
+  gap: 22px;
+  margin-top: 30px;
+}
+.evidence-store[hidden] {
+  display: none !important;
+}
+.notebook-setup,
+.notebook-baseline article,
+.evidence-entry-panel,
+.evidence-bank-panel,
+.evidence-synthesis-panel {
+  border: 1px solid #d8dfd1;
+  border-radius: 8px;
+  background: #fff;
+}
+.notebook-setup {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  gap: 16px;
+  padding: 18px;
+  background: #f8f9f6;
+}
+.notebook-setup label:first-child {
+  grid-column: 1 / -1;
+}
+.notebook-baseline {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+.notebook-baseline article,
+.evidence-entry-panel,
+.evidence-bank-panel,
+.evidence-synthesis-panel {
+  padding: 22px;
+}
+.notebook-baseline h3,
+.evidence-entry-panel h3,
+.evidence-bank-panel h3,
+.evidence-synthesis-panel h3 {
+  margin: 0 0 10px;
+  color: #191c1d;
+  font-family: "Hanken Grotesk", "Aptos Display", sans-serif;
+  font-size: clamp(26px, 3vw, 34px);
+  line-height: 1.08;
+  font-weight: 800;
+}
+.evidence-entry-panel > div:first-child,
+.evidence-bank-head,
+.evidence-synthesis-panel > h3 {
+  margin-bottom: 18px;
+}
+.evidence-entry-panel > div:first-child p,
+.evidence-bank-head p {
+  margin: 0;
+  max-width: 760px;
+  color: #42493e;
+  font-size: 17px;
+  line-height: 1.55;
+}
+.reading-notebook label {
+  align-content: start;
+}
+.reading-notebook textarea {
+  min-height: 132px;
+}
+.evidence-entry-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.evidence-wide {
+  grid-column: 1 / -1;
+}
+.evidence-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid #e4e6df;
+}
+.evidence-bank-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: flex-end;
+}
+.evidence-bank-head label {
+  min-width: min(320px, 100%);
+}
+.evidence-bank-list {
+  display: grid;
+  gap: 14px;
+}
+.evidence-empty {
+  margin: 0;
+  padding: 18px;
+  border: 1px dashed #cbd1c5;
+  border-radius: 8px;
+  background: #fafbf8;
+  color: #42493e;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.evidence-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #d8dfd1;
+  border-left: 5px solid #b9c5b1;
+  border-radius: 8px;
+  background: #fff;
+  padding: 18px;
+}
+.evidence-card.is-strongest {
+  border-left-color: var(--primary);
+  background: #f8fbf4;
+}
+.evidence-card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--primary);
+  font-family: "IBM Plex Sans", "Aptos", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+}
+.evidence-card h4 {
+  margin: 10px 0 0;
+  color: #191c1d;
+  font-family: "Hanken Grotesk", "Aptos Display", sans-serif;
+  font-size: 23px;
+  line-height: 1.18;
+  font-weight: 800;
+}
+.evidence-card dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 18px;
+  margin: 16px 0 0;
+}
+.evidence-card dt {
+  color: var(--primary);
+  font-family: "IBM Plex Sans", "Aptos", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+}
+.evidence-card dd {
+  margin: 4px 0 0;
+  color: #42493e;
+  font-size: 15px;
+  line-height: 1.48;
+  white-space: pre-wrap;
+}
+.evidence-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+.evidence-card-actions button {
+  min-height: 38px;
+  border: 1px solid #cbd1c5;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--primary);
+  padding: 8px 12px;
+  font-family: "IBM Plex Sans", "Aptos", sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+}
+.evidence-card.is-strongest [data-reading-evidence-strong] {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: #fff;
+}
+.critical-writing-panel {
+  margin: 22px 0 0;
+  padding: 20px 22px;
+  border: 1px solid #d8dfd1;
+  border-radius: 8px;
+  background: #fff;
+}
+.critical-writing-panel h3 {
+  margin: 0 0 12px;
+  color: #202520;
+  font-family: "Hanken Grotesk", "Aptos Display", sans-serif;
+  font-size: 25px;
+  line-height: 1.15;
+}
+.critical-writing-panel p {
+  margin: 0;
+  color: #4d554a;
+  line-height: 1.6;
+}
+.critical-lesson-panel {
+  border-left: 3px solid var(--primary);
+}
+.critical-model-block {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid #dfe4da;
+}
+.critical-model-block strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--primary);
+  font-family: "IBM Plex Sans", "Aptos", sans-serif;
+}
+.critical-support-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.72fr);
+  gap: 14px;
+}
+.critical-support-grid .critical-writing-panel {
+  margin-top: 18px;
+}
+.critical-example-panel {
+  background: #f8f9f6;
+}
+.critical-diploma-panel {
+  border-left: 3px solid #8a6f2a;
+  background: #fffaf0;
+}
+.critical-diploma-panel h3 {
+  color: #5f4b18;
+}
+.critical-diploma-panel p {
+  color: #514733;
+}
+.critical-category-grid,
+.critical-writing-sequence {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.critical-category-grid {
+  margin-top: 16px;
+}
+.critical-category-grid article,
+.critical-sequence-card {
+  border: 1px solid #d8dfd1;
+  border-radius: 8px;
+  background: #f8f9f6;
+  padding: 15px 16px;
+}
+.critical-category-grid strong,
+.critical-sequence-card strong {
+  display: block;
+  color: var(--primary);
+  font-family: "IBM Plex Sans", "Aptos", sans-serif;
+}
+.critical-category-grid p,
+.critical-sequence-card p {
+  margin: 8px 0 0;
+  color: #4d554a;
+}
+.critical-writing-sequence {
+  margin-top: 22px;
+}
+.critical-sequence-card {
+  color: inherit;
+  text-decoration: none;
+}
+.critical-sequence-card:hover,
+.critical-sequence-card:focus-visible {
+  border-color: var(--primary);
+}
+.critical-sequence-card span {
+  display: block;
+  margin-bottom: 6px;
+  color: #5d6359;
+  font-size: 13px;
+  font-weight: 700;
+}
+.critical-step-list,
+.critical-check-list {
+  margin: 0;
+  padding-left: 22px;
+  color: #3f473d;
+  line-height: 1.65;
+}
+.critical-step-list li,
+.critical-check-list li {
+  margin: 7px 0;
+}
+.critical-planner {
+  background: #f8f9f6;
+}
+.critical-field-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 16px;
+}
+.critical-writing-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid #dfe4da;
+}
+.check-row {
+  display: flex;
+  grid-template-columns: none;
+  gap: 10px;
+  align-items: flex-start;
+  margin: 10px 0;
+  color: #202520;
+  font-family: "Work Sans", "Aptos", sans-serif;
+  font-weight: 500;
+}
+.check-row input {
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  accent-color: var(--primary);
+}
+.writing-activity-shell {
+  display: grid;
+  gap: 18px;
+  margin-top: 28px;
+}
+.writing-activity-picker {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 340px);
+  gap: 18px;
+  align-items: end;
+  padding: 18px 20px;
+  border: 1px solid #d8dfd1;
+  border-radius: 8px;
+  background: #f8f9f6;
+}
+.writing-activity-picker label {
+  display: block;
+  margin: 0 0 8px;
+  color: var(--primary);
+  font-family: "IBM Plex Sans", "Aptos", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+.writing-activity-picker p {
+  margin: 0;
+  color: #4d554a;
+  line-height: 1.55;
+}
+.writing-activity-picker select {
+  width: 100%;
+}
+.writing-activity-panel {
+  overflow: hidden;
+  border: 1px solid var(--surface-muted);
+  border-radius: 10px;
+  background: #fff;
+}
+.writing-activity-header {
+  padding: 24px 28px;
+  background: #161a17;
+  color: #fff;
+}
+.writing-activity-header h3 {
+  margin: 0;
+  color: #fff;
+  font-family: "Hanken Grotesk", "Aptos Display", sans-serif;
+  font-size: clamp(30px, 4vw, 46px);
+  line-height: 1.06;
+  font-weight: 800;
+}
+.writing-activity-header p {
+  max-width: 760px;
+  margin: 10px 0 0;
+  color: #d7ddd4;
+  font-size: 17px;
+  line-height: 1.55;
+}
+.writing-activity-body {
+  padding: 24px 28px 28px;
+}
+.writing-activity-body .studio-layout {
+  margin-top: 0;
+}
+.paragraph-builder-tool {
+  display: grid;
+  gap: 18px;
+}
+.paragraph-builder-instructions,
+.paragraph-builder-form,
+.paragraph-bank-shell {
+  padding: 18px 20px;
+  border: 1px solid #d8dfd1;
+  border-radius: 8px;
+  background: #ffffff;
+}
+.paragraph-builder-instructions h4,
+.paragraph-bank-header h4,
+.paragraph-bank-empty h4 {
+  margin: 0 0 10px;
+  color: var(--primary);
+  font-family: "Hanken Grotesk", "Aptos Display", sans-serif;
+  font-size: 22px;
+  line-height: 1.2;
+}
+.paragraph-builder-instructions ol {
+  margin: 0;
+  padding-left: 22px;
+  color: #3f473d;
+}
+.paragraph-builder-instructions li {
+  margin: 6px 0;
+}
+.paragraph-builder-form {
+  display: grid;
+  gap: 16px;
+  background: #f8f9f6;
+}
+.paragraph-builder-section {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid #d8dfd1;
+  border-radius: 8px;
+  background: #ffffff;
+}
+.paragraph-builder-section h3 {
+  margin: 0;
+  color: #202520;
+  font-size: 24px;
+  line-height: 1.15;
+}
+.paragraph-builder-section p {
+  margin: 0;
+  color: #4d554a;
+}
+.paragraph-builder-section label {
+  margin: 0;
+}
+.paragraph-builder-actions,
+.paragraph-bottom-actions,
+.paragraph-bank-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+.paragraph-builder-actions span {
+  color: #5d6359;
+  font-size: 14px;
+}
+.paragraph-bank-header p {
+  margin: 0;
+  color: #4d554a;
+}
+.paragraph-bank-header strong {
+  color: var(--primary);
+  font-family: "IBM Plex Sans", "Aptos", sans-serif;
+}
+.paragraph-bank-list {
+  display: grid;
+  gap: 14px;
+  margin-top: 16px;
+}
+.paragraph-bank-card {
+  overflow: hidden;
+  border: 1px solid #d8dfd1;
+  border-radius: 8px;
+  background: #fff;
+}
+.paragraph-bank-card-header,
+.paragraph-bank-card footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 14px;
+  background: #f8f9f6;
+}
+.paragraph-bank-card-header strong {
+  color: var(--primary);
+  line-height: 1.35;
+}
+.paragraph-bank-card-header button {
+  border: 1px solid #d8dfd1;
+  border-radius: 8px;
+  background: #fff;
+  color: #4d554a;
+  padding: 7px 10px;
+  font-family: "IBM Plex Sans", "Aptos", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.paragraph-bank-card-header button:hover,
+.paragraph-bank-card-header button:focus-visible {
+  border-color: var(--primary);
+  color: var(--primary);
+  outline: none;
+}
+.paragraph-bank-grid {
+  display: grid;
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+  border-top: 1px solid #e4e6df;
+  border-bottom: 1px solid #e4e6df;
+}
+.paragraph-bank-grid section {
+  padding: 14px;
+}
+.paragraph-bank-grid section + section {
+  border-left: 1px solid #e4e6df;
+}
+.paragraph-bank-grid h5 {
+  margin: 0 0 8px;
+  color: var(--primary);
+  font-family: "IBM Plex Sans", "Aptos", sans-serif;
+  font-size: 13px;
+}
+.paragraph-bank-grid p {
+  margin: 0;
+  color: #202520;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+.paragraph-bank-card footer {
+  color: #5d6359;
+  font-family: "IBM Plex Sans", "Aptos", sans-serif;
+  font-size: 13px;
+}
+.paragraph-bank-empty {
+  padding: 28px 18px;
+  border: 1px dashed #cbd1c5;
+  border-radius: 8px;
+  background: #fafbf8;
+  text-align: center;
+}
+.paragraph-bank-empty p {
+  margin: 0;
+  color: #5d6359;
+}
+.paragraph-bottom-actions {
+  justify-content: flex-end;
+  padding-top: 18px;
+  border-top: 1px solid #e4e6df;
+}
+.motif-entry-form {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding: 18px 20px;
+  border: 1px solid #d8dfd1;
+  border-radius: 8px;
+  background: #f8f9f6;
+}
+.motif-instructions {
+  margin: 0 0 18px;
+  padding: 18px 20px;
+  border: 1px solid #d8dfd1;
+  border-radius: 8px;
+  background: #ffffff;
+}
+.motif-instructions h4 {
+  margin: 0 0 10px;
+  color: var(--primary);
+  font-family: "Hanken Grotesk", "Aptos Display", sans-serif;
+  font-size: 22px;
+  line-height: 1.2;
+}
+.motif-instructions ol {
+  margin: 0;
+  padding-left: 22px;
+  color: #3f473d;
+}
+.motif-instructions li {
+  margin: 6px 0;
+}
+.motif-form-grid {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) minmax(110px, 150px) minmax(110px, 150px);
+  gap: 14px;
+}
+.motif-board textarea,
+.motif-board input,
+.motif-board select {
+  width: 100%;
+}
+.motif-board-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+.motif-save-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-end;
+  align-items: center;
+}
+.motif-save-line span {
+  color: #5d6359;
+  font-size: 14px;
+}
+.motif-board-tools {
+  justify-content: space-between;
+  margin: 0 0 16px;
+}
+.motif-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.motif-filter {
+  border: 1px solid #d4d8ce;
+  border-radius: 8px;
+  background: #fff;
+  color: #303730;
+  padding: 8px 10px;
+  font-family: "IBM Plex Sans", "Aptos", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.motif-filter:hover,
+.motif-filter:focus-visible {
+  border-color: var(--motif-color);
+  outline: none;
+}
+.motif-filter.is-active {
+  border-color: var(--motif-color);
+  background: color-mix(in srgb, var(--motif-color) 12%, #fff);
+  color: #151b15;
+}
+.motif-board-summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 16px;
+  padding: 12px 0;
+  border-top: 1px solid #e4e6df;
+  border-bottom: 1px solid #e4e6df;
+  color: #4d554a;
+}
+.motif-board-summary strong {
+  color: var(--primary);
+}
+.motif-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.motif-card {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+  border: 1px solid #d8dfd1;
+  border-top: 4px solid var(--motif-color);
+  border-radius: 8px;
+  background: #fff;
+}
+.motif-card-top,
+.motif-card footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+.motif-card-top strong {
+  color: var(--motif-color);
+  font-family: "IBM Plex Sans", "Aptos", sans-serif;
+}
+.motif-card-top button {
+  display: inline-flex;
+  width: 34px;
+  height: 34px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d8dfd1;
+  border-radius: 8px;
+  background: #fff;
+  color: #4d554a;
+  cursor: pointer;
+}
+.motif-card blockquote {
+  margin: 0;
+  color: #202520;
+  font-size: 17px;
+  line-height: 1.55;
+}
+.motif-card footer {
+  flex-wrap: wrap;
+  padding-top: 12px;
+  border-top: 1px solid #eceee8;
+  color: #5d6359;
+  font-family: "IBM Plex Sans", "Aptos", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+}
+.motif-card footer button {
+  margin-left: auto;
+  border: 1px solid #d8dfd1;
+  border-radius: 8px;
+  background: #fff;
+  color: #4d554a;
+  padding: 7px 10px;
+  font-family: "IBM Plex Sans", "Aptos", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.motif-card footer button:hover,
+.motif-card footer button:focus-visible {
+  border-color: var(--motif-color);
+  color: var(--motif-color);
+  outline: none;
+}
+.motif-empty-state {
+  padding: 32px 20px;
+  border: 1px dashed #cbd1c5;
+  border-radius: 8px;
+  background: #fafbf8;
+  text-align: center;
+}
+.motif-empty-state h4 {
+  margin: 0 0 8px;
+  color: var(--primary);
+  font-size: 22px;
+}
+.motif-empty-state p {
+  margin: 0;
+  color: #5d6359;
+}
+.motif-bottom-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid #e4e6df;
+}
+.author-intent-tool {
+  display: grid;
+  gap: 18px;
+}
+.author-intent-instructions,
+.author-intent-view {
+  padding: 18px 20px;
+  border: 1px solid #d8dfd1;
+  border-radius: 8px;
+  background: #ffffff;
+}
+.author-intent-instructions h4,
+.author-intent-copy h4,
+.author-intent-archive-header h4,
+.author-intent-empty h4 {
+  margin: 0 0 10px;
+  color: var(--primary);
+  font-family: "Hanken Grotesk", "Aptos Display", sans-serif;
+  font-size: 22px;
+  line-height: 1.2;
+}
+.author-intent-instructions ol {
+  margin: 0;
+  padding-left: 22px;
+  color: #3f473d;
+}
+.author-intent-instructions li {
+  margin: 6px 0;
+}
+.author-intent-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.author-intent-tabs button {
+  border: 1px solid #d4d8ce;
+  border-radius: 8px;
+  background: #fff;
+  color: #303730;
+  padding: 9px 12px;
+  font-family: "IBM Plex Sans", "Aptos", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.author-intent-tabs button.is-active,
+.author-intent-tabs button:hover,
+.author-intent-tabs button:focus-visible {
+  border-color: var(--primary);
+  background: #f2f6ef;
+  color: var(--primary);
+  outline: none;
+}
+.author-intent-tabs span {
+  display: inline-block;
+  min-width: 22px;
+  margin-left: 6px;
+  padding: 1px 6px;
+  border-radius: 8px;
+  background: #e8eee4;
+}
+.author-intent-view {
+  display: grid;
+  gap: 16px;
+  background: #f8f9f6;
+}
+.author-intent-view[hidden] {
+  display: none;
+}
+.author-intent-copy p,
+.author-intent-archive-header p {
+  margin: 0;
+  color: #4d554a;
+  line-height: 1.55;
+}
+.author-intent-tool textarea,
+.author-intent-tool select {
+  width: 100%;
+}
+.author-prompt-block {
+  display: grid;
+  gap: 10px;
+}
+.author-prompt-block > span {
+  color: var(--primary);
+  font-family: "IBM Plex Sans", "Aptos", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+.author-prompt-dropdown {
+  position: relative;
+  width: 100%;
+}
+.author-prompt-dropdown summary {
+  display: block;
+  min-height: 56px;
+  border: 1px solid #c9d1c4;
+  border-radius: 8px;
+  background: #fff;
+  color: #263126;
+  padding: 13px 42px 13px 14px;
+  font-family: "Work Sans", "Aptos", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.45;
+  cursor: pointer;
+  list-style: none;
+  white-space: normal;
+}
+.author-prompt-dropdown summary::-webkit-details-marker {
+  display: none;
+}
+.author-prompt-dropdown summary::after {
+  content: "expand_more";
+  position: absolute;
+  top: 14px;
+  right: 12px;
+  color: var(--primary);
+  font-family: "Material Symbols Outlined";
+  font-size: 22px;
+  line-height: 1;
+}
+.author-prompt-dropdown[open] summary {
+  border-color: var(--primary);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.author-prompt-dropdown summary:focus-visible {
+  border-color: var(--primary);
+  outline: 2px solid color-mix(in srgb, var(--primary) 28%, transparent);
+  outline-offset: 2px;
+}
+.author-prompt-list {
+  display: grid;
+  max-height: 360px;
+  overflow-y: auto;
+  border: 1px solid var(--primary);
+  border-top: 0;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  background: #fff;
+}
+.author-prompt-list button {
+  width: 100%;
+  border: 0;
+  border-top: 1px solid #e4e6df;
+  border-radius: 0;
+  background: #fff;
+  color: #303730;
+  padding: 12px 14px;
+  text-align: left;
+  font-family: "Work Sans", "Aptos", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.45;
+  cursor: pointer;
+}
+.author-prompt-list button:hover,
+.author-prompt-list button:focus-visible {
+  background: #f2f6ef;
+  color: var(--primary);
+  outline: none;
+}
+.author-prompt-list button.is-active {
+  background: #f2f6ef;
+  color: var(--primary);
+}
+.author-intent-actions,
+.author-intent-bottom-actions,
+.author-intent-archive-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+.author-intent-actions span {
+  color: #5d6359;
+  font-size: 14px;
+}
+.author-intent-reference {
+  padding: 14px 16px;
+  border-left: 3px solid var(--primary);
+  background: #ffffff;
+  color: #3f473d;
+}
+.author-intent-reference strong {
+  display: block;
+  margin: 0 0 6px;
+  color: var(--primary);
+  font-family: "IBM Plex Sans", "Aptos", sans-serif;
+  font-size: 13px;
+}
+.author-intent-reference p {
+  margin: 0 0 12px;
+}
+.author-intent-reference blockquote {
+  margin: 0;
+  color: #202520;
+  line-height: 1.55;
+}
+.author-intent-archive {
+  display: grid;
+  gap: 14px;
+}
+.author-intent-card {
+  border: 1px solid #d8dfd1;
+  border-radius: 8px;
+  background: #fff;
+  overflow: hidden;
+}
+.author-intent-card-header,
+.author-intent-card footer {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  background: #f8f9f6;
+}
+.author-intent-card-header strong {
+  color: var(--primary);
+  line-height: 1.35;
+}
+.author-intent-card-header button,
+.author-intent-card footer button {
+  border: 1px solid #d8dfd1;
+  border-radius: 8px;
+  background: #fff;
+  color: #4d554a;
+  padding: 7px 10px;
+  font-family: "IBM Plex Sans", "Aptos", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.author-intent-card-header button:hover,
+.author-intent-card-header button:focus-visible {
+  border-color: var(--primary);
+  color: var(--primary);
+  outline: none;
+}
+.author-intent-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid #e4e6df;
+  border-bottom: 1px solid #e4e6df;
+}
+.author-intent-card-grid section {
+  padding: 14px;
+}
+.author-intent-card-grid section + section {
+  border-left: 1px solid #e4e6df;
+}
+.author-intent-card-grid h5 {
+  margin: 0 0 8px;
+  color: var(--primary);
+  font-family: "IBM Plex Sans", "Aptos", sans-serif;
+  font-size: 13px;
+}
+.author-intent-card-grid p {
+  margin: 0;
+  color: #202520;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+.author-intent-card footer {
+  color: #5d6359;
+  font-family: "IBM Plex Sans", "Aptos", sans-serif;
+  font-size: 13px;
+}
+.author-intent-empty {
+  padding: 28px 18px;
+  border: 1px dashed #cbd1c5;
+  border-radius: 8px;
+  background: #fafbf8;
+  text-align: center;
+}
+.author-intent-empty p {
+  margin: 0;
+  color: #5d6359;
+}
+.author-intent-bottom-actions {
+  justify-content: flex-end;
+  padding-top: 18px;
+  border-top: 1px solid #e4e6df;
+}
+.novel-question-studio { margin-top: 28px; }
+.novel-question-controls {
+  display: grid;
+  gap: 8px;
+  max-width: 520px;
+}
+.novel-question-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 16px 0 12px;
+}
+.novel-question-toolbar button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #c5c9c1;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--primary);
+  padding: 9px 12px;
+  font-family: "IBM Plex Sans", "Aptos", sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+}
+.novel-question-save-status {
+  min-width: 92px;
+  color: #5d6359;
+  font-size: 14px;
+}
+.novel-question-document {
+  overflow: hidden;
+  border: 1px solid var(--surface-muted);
+  border-radius: 10px;
+  background: #fff;
+}
+.novel-question-document-header {
+  padding: 28px;
+  background: #161a17;
+  color: #fff;
+}
+.novel-question-document-header p {
+  margin: 0 0 10px;
+  color: #b9c3b2;
+  font-family: "IBM Plex Sans", "Aptos", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+}
+.novel-question-document-header h3 {
+  margin: 0;
+  font-family: "Hanken Grotesk", "Aptos Display", sans-serif;
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 1.05;
+  font-weight: 800;
+}
+.novel-question-document-header > span {
+  display: block;
+  margin-top: 8px;
+  color: #d7ddd4;
+  font-size: 18px;
+}
+.novel-question-progress {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255,255,255,.16);
+}
+.novel-question-progress > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: #d7ddd4;
+  font-size: 14px;
+}
+.novel-question-progress-track {
+  height: 8px;
+  margin-top: 8px;
+  border-radius: 999px;
+  background: #293029;
+  overflow: hidden;
+}
+.novel-question-progress-track div {
+  width: 0;
+  height: 100%;
+  background: #9fcf93;
+}
+.novel-question-list { padding: 26px 28px 0; }
+.novel-question-item { margin-bottom: 26px; }
+.novel-question-prompt {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 17px;
+  line-height: 1.55;
+}
+.novel-question-prompt strong { color: var(--primary); }
+.novel-question-hint {
+  margin: 0 0 12px 44px;
+  padding: 12px;
+  border: 1px solid #d5d8cc;
+  border-radius: 8px;
+  background: #fbfaf0;
+  color: #514d33;
+  font-size: 14px;
+}
+.novel-answer-field {
+  display: grid;
+  gap: 8px;
+  margin-left: 44px;
+}
+.novel-answer-field span {
+  color: var(--primary);
+  font-family: "IBM Plex Sans", "Aptos", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+.novel-answer-field textarea {
+  width: 100%;
+  min-height: 118px;
+  border: 1px solid #c5c9c1;
+  border-radius: 8px;
+  background: #f8f9fa;
+  padding: 12px;
+  font-family: "Work Sans", "Aptos", sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  resize: vertical;
+}
+.novel-answer-field textarea:focus {
+  outline: 2px solid rgba(21,66,18,.18);
+  border-color: var(--primary);
+  background: #fff;
+}
+.novel-word-count {
+  justify-self: end;
+  color: #747a70;
+  font-size: 12px;
+}
+.novel-question-synthesis {
+  margin: 28px;
+  padding: 24px;
+  border-radius: 10px;
+  background: #161a17;
+  color: #fff;
+}
+.novel-question-synthesis h3 {
+  margin: 0 0 8px;
+  font-family: "Hanken Grotesk", "Aptos Display", sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+}
+.novel-question-synthesis p { color: #d7ddd4; }
+.novel-question-synthesis .novel-answer-field {
+  margin-left: 0;
+  margin-top: 18px;
+}
+.novel-question-synthesis .novel-answer-field span { color: #cfe8c7; }
+.novel-question-synthesis textarea {
+  border-color: #3b4639;
+  background: #222822;
+  color: #fff;
+}
+@media (max-width: 680px) {
+  .writing-activity-picker,
+  .notebook-setup,
+  .evidence-entry-grid,
+  .evidence-card dl,
+  .critical-category-grid,
+  .critical-writing-sequence,
+  .critical-support-grid,
+  .paragraph-bank-grid,
+  .motif-form-grid,
+  .motif-card-grid,
+  .author-intent-card-grid {
+    grid-template-columns: 1fr;
+  }
+  .paragraph-bank-grid section + section {
+    border-left: 0;
+    border-top: 1px solid #e4e6df;
+  }
+  .author-intent-card-grid section + section {
+    border-left: 0;
+    border-top: 1px solid #e4e6df;
+  }
+  .writing-activity-body,
+  .writing-activity-header {
+    padding: 22px 18px;
+  }
+  .motif-board-tools,
+  .motif-board-summary,
+  .paragraph-builder-actions,
+  .paragraph-bank-header,
+  .evidence-bank-head,
+  .author-intent-actions,
+  .author-intent-archive-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .evidence-bank-head label { min-width: 0; }
+  .novel-question-toolbar { justify-content: flex-start; }
+  .novel-question-list { padding: 22px 18px 0; }
+  .novel-question-prompt { grid-template-columns: 28px minmax(0, 1fr); }
+  .novel-answer-field,
+  .novel-question-hint { margin-left: 38px; }
+  .novel-question-synthesis { margin: 18px; }
+}
+
+</style>
+</head>
+<body>
+<header class="course-topbar">
+    <button id="topbar-menu-toggle" class="topbar-menu-toggle" type="button" aria-label="Toggle menu">
+      <span class="material-symbols-outlined" aria-hidden="true">dock_to_left</span>
+    </button>
+    <a class="topbar-logo-link" href="#overview" data-page-target="overview" aria-label="Next Step home">
+      <img class="next-step-logo" src="assets/brand/nxt-ce-logo-white-with-ce.png" alt="Next Step Continuing Education">
+    </a>
+    <div class="top-progress-shell" aria-label="Course progress">
+      <div class="top-progress-meta">
+        <span>Course Progress</span>
+        <strong data-progress-count>0 / 3 lessons</strong>
+        <strong data-progress-percent>0%</strong>
+      </div>
+      <div class="top-progress-bar"><div class="top-progress-fill" data-progress-fill></div></div>
+    </div>
+  </header>
+<aside class="course-sidebar" aria-label="Course sidebar">
+    <div class="sidebar-header">
+      <button id="sidebar-toggle" class="sidebar-toggle-button" type="button" aria-label="Toggle sidebar">
+        <span class="material-symbols-outlined" aria-hidden="true">dock_to_left</span>
+      </button>
+      <h1 class="sidebar-title">Novel Study</h1>
+      <p class="sidebar-course-label">ELA 20-1</p>
+    </div>
+    <nav class="course-nav" aria-label="Course navigation">
+      <a class="course-nav-link active" href="#overview" data-page-target="overview">
+        <span class="material-symbols-outlined" aria-hidden="true">dashboard</span>
+        <span class="sidebar-label">Overview</span>
+      </a>
+      <div class="lessons-nav">
+        <a class="course-nav-link lessons-toggle" href="#lessons" data-page-target="lessons" data-lessons-toggle aria-expanded="false" aria-controls="lesson-subnav">
+          <span class="material-symbols-outlined" aria-hidden="true">menu_book</span>
+          <span class="sidebar-label">Lessons</span>
+          <span class="material-symbols-outlined lessons-toggle-icon" aria-hidden="true">expand_more</span>
+        </a>
+        <div id="lesson-subnav" class="lesson-subnav"><a class="sublesson-link" href="#lesson-1-novel-unit-introduction" data-page-target="lesson-1-novel-unit-introduction">1. Novel Unit Introduction</a>
+<a class="sublesson-link" href="#lesson-3-characteristics-of-a-novel" data-page-target="lesson-3-characteristics-of-a-novel">2. Characteristics of a Novel</a>
+<a class="sublesson-link" href="#lesson-4-how-to-read-a-novel" data-page-target="lesson-4-how-to-read-a-novel">3. How to Read a Novel</a></div>
+      </div>
+      <div class="nav-group" data-nav-group="critical-writing">
+        <a class="course-nav-link nav-group-toggle" href="#critical-writing" data-page-target="critical-writing" data-nav-group-toggle="critical-writing" aria-expanded="false" aria-controls="critical-writing-subnav">
+          <span class="material-symbols-outlined" aria-hidden="true">assignment</span>
+          <span class="sidebar-label">Critical Essay</span>
+          <span class="material-symbols-outlined lessons-toggle-icon nav-group-icon" aria-hidden="true">expand_more</span>
+        </a>
+        <div id="critical-writing-subnav" class="lesson-subnav nav-group-subnav">
+          <a class="sublesson-link" href="#critical-writing-topic-thesis" data-page-target="critical-writing-topic-thesis">1. Topic and Thesis</a>
+<a class="sublesson-link" href="#critical-writing-introduction" data-page-target="critical-writing-introduction">2. Introduction</a>
+<a class="sublesson-link" href="#critical-writing-body-beginning" data-page-target="critical-writing-body-beginning">3. Body 1: Beginning</a>
+<a class="sublesson-link" href="#critical-writing-body-middle" data-page-target="critical-writing-body-middle">4. Body 2: Middle</a>
+<a class="sublesson-link" href="#critical-writing-body-end" data-page-target="critical-writing-body-end">5. Body 3: End</a>
+<a class="sublesson-link" href="#critical-writing-conclusion-revision" data-page-target="critical-writing-conclusion-revision">6. Conclusion and Revision</a>
+        </div>
+      </div>
+      <a class="course-nav-link" href="#reading-guide" data-page-target="reading-guide">
+        <span class="material-symbols-outlined" aria-hidden="true">auto_stories</span>
+        <span class="sidebar-label">Reading Guide</span>
+      </a>
+<a class="course-nav-link" href="#novel-study-questions" data-page-target="novel-study-questions">
+        <span class="material-symbols-outlined" aria-hidden="true">quiz</span>
+        <span class="sidebar-label">Novel Study Questions</span>
+      </a>
+<a class="course-nav-link" href="#writing" data-page-target="writing">
+        <span class="material-symbols-outlined" aria-hidden="true">edit_note</span>
+        <span class="sidebar-label">Writing Studio</span>
+      </a>
+<a class="course-nav-link" href="#resources" data-page-target="resources">
+        <span class="material-symbols-outlined" aria-hidden="true">folder_open</span>
+        <span class="sidebar-label">Resources</span>
+      </a>
+    </nav>
+  </aside>
+<main class="course-main">
+  <div class="course-frame">
+    <section id="overview" class="course-page">
+    <p class="course-kicker">ELA 20-1 | Unit Frame</p>
+    <h2>Novel Study</h2>
+    <p class="page-intro">Build a practical reading routine for a full-length novel: track characters, follow conflict, collect evidence, and prepare for analytical writing.</p>
+    <section class="unit-outcomes" aria-labelledby="outcomes-title">
+      <h3 id="outcomes-title" class="unit-outcomes-lead">I can...</h3>
+      <ul class="unit-focus-list">
+        <li>read a novel with purpose and track meaning as it develops.</li>
+<li>explain how character, conflict, setting, and symbols work as patterns.</li>
+<li>use notes and quotations from a novel to support stronger written responses.</li>
+      </ul>
+    </section>
+    <div class="overview-actions" aria-label="Course status and actions">
+      <span class="completed-pill"><strong data-progress-count-inline>0/3</strong> lessons complete</span>
+      <span class="completed-pill">3 source lessons</span>
+      <a class="external-resource-action" href="#lesson-1-novel-unit-introduction" data-page-target="lesson-1-novel-unit-introduction">Open Lesson Frame</a>
+    </div>
+  </section>
+    <section id="lessons" class="course-page" hidden>
+    <p class="course-kicker">ELA 20-1 | Lessons</p>
+    <h2>Novel Study Lesson Sequence</h2>
+    <div class="resource-stack">
+      <details class="resource-lesson-group" open>
+          <summary class="resource-lesson-summary">
+            <span class="resource-lesson-label">
+              <span class="resource-lesson-kicker">Lesson Group</span>
+              Novel Study
+            </span>
+            <span class="resource-lesson-icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="resource-lesson-items">
+            <a class="lesson-card" href="#lesson-1-novel-unit-introduction" data-page-target="lesson-1-novel-unit-introduction">
+    <span>Lesson 1</span>
+    <strong>Novel Unit Introduction</strong>
+    <p>Set the purpose for the unit and prepare to track how a novel builds meaning over time.</p>
+  </a>
+<a class="lesson-card" href="#lesson-3-characteristics-of-a-novel" data-page-target="lesson-3-characteristics-of-a-novel">
+    <span>Lesson 2</span>
+    <strong>Characteristics of a Novel</strong>
+    <p>Review the major features of novels: plot, character, point of view, setting, conflict, and theme.</p>
+  </a>
+<a class="lesson-card" href="#lesson-4-how-to-read-a-novel" data-page-target="lesson-4-how-to-read-a-novel">
+    <span>Lesson 3</span>
+    <strong>How to Read a Novel</strong>
+    <p>Use active reading routines to notice patterns, questions, character change, and important passages.</p>
+  </a>
+          </div>
+        </details>
+    </div>
+  </section>
+    <section id="lesson-1-novel-unit-introduction" class="course-page lesson-page" hidden>
+    <article class="lesson-detail-panel">
+      <header class="lesson-document-header">
+        <p>Lesson 1</p>
+        <h2>Novel Unit Introduction</h2>
+        <span>Set the purpose for the unit and prepare to track how a novel builds meaning over time.</span>
+      </header>
+      <div class="lesson-reader-panel">
+        <div class="source-content"><!-- HEADER -->
+<div>
+<h1>Novel&nbsp;Study&nbsp;- Unit Introduction</h1>
+</div>
+<!-- CONTENT -->
+<p>"The novel is a great discovery; far greater than Galileo's telescope or somebody else's wireless. The novel is the highest form of expression so far attained. Why? Because it is so incapable of the absolute"&nbsp; ~D.H. Lawrence</p>
+<p class="CentreAlign"><img class="Rounded source-image" alt="I love to read" src="assets/imported/novel-study-images-i-love-to-read.jpg"></p>
+<p><strong>You were given a choice of novels at the beginning of the course and should have chosen one of the following&nbsp;for your research in a previous assignment:<br></strong></p>
+<ul>
+<li><strong>Into Thin Air&nbsp;</strong>by Jon Krakauer (non fiction)</li>
+<li><strong>1984</strong>&nbsp;by George Orwell (fiction)</li>
+<li><strong>Annabel</strong> by Kathleen Winter (fiction)</li>
+<li><strong>The Cellist of Sarajevo</strong> by Steven Galloway (fiction)</li>
+<li><strong>The Kiterunner</strong> (Khaled Hosseini)</li>
+<li><strong>A Thousand Splendid Suns</strong> (Khaled Hosseini)</li>
+<li><strong>The Glass Castle</strong> (Jeanette Walls)</li>
+</ul>
+<h2><strong>Overview</strong></h2>
+<p>The assignments in this section of the course are a culmination of the work you have done over the past few months. As such, you need to commit more time and effort to each of the assignments as the expectations are higher.</p>
+<h2><strong>This section involves</strong>:</h2>
+<ul>
+<li>responding to a book review based on the novel you chose to study for this course</li>
+<li>writing a Critical/Analytical Essay&nbsp;</li>
+</ul>
+<h2><strong>Throughout this section of the course, students should</strong>:</h2>
+<ul>
+<li>become actively involved with literature, using effective strategies for appreciation, understanding and critical response</li>
+<li>form generalizations by integrating new information with prior knowledge</li>
+<li>understand the role, variety and usefulness of literary criticism to literary study</li>
+<li>seek alternative viewpoints using information technologies</li>
+<li>critically assess information accessed through the use of a variety of technologies</li>
+<li>improve thoughtfulness, effectiveness and correctness of communication</li>
+</ul>
+<!-- FOOTER --></div>
+        <div class="lesson-bottom-bar">
+          <a class="lesson-jump" href="#lessons" data-page-target="lessons">Lesson Library</a>
+          <a class="lesson-jump primary" href="#lesson-3-characteristics-of-a-novel" data-page-target="lesson-3-characteristics-of-a-novel">Next Lesson</a>
+          <button class="lesson-jump primary mark-complete" type="button" data-complete-id="lesson-1-novel-unit-introduction">Complete</button>
+        </div>
+      </div>
+    </article>
+  </section>
+<section id="lesson-3-characteristics-of-a-novel" class="course-page lesson-page" hidden>
+    <article class="lesson-detail-panel">
+      <header class="lesson-document-header">
+        <p>Lesson 2</p>
+        <h2>Characteristics of a Novel</h2>
+        <span>Review the major features of novels: plot, character, point of view, setting, conflict, and theme.</span>
+      </header>
+      <div class="lesson-reader-panel">
+        <div class="source-content"><h2>How can we identify a novel? Here are some characteristics of a novel: </h2>
+          <ul>
+            <li>A novel may contain many of the elements of fiction that we have considered when studying the short story. However, a novel is usually longer and contains more characters than a short story. A novel may cover a longer period of time than a story. </li>
+            <li>A novel can begin anywhere in time (the past, present, or future.) </li>
+            <li>The conflict of a novel can exist on many different levels. </li>
+          </ul></div>
+        <div class="lesson-bottom-bar">
+          <a class="lesson-jump" href="#lesson-1-novel-unit-introduction" data-page-target="lesson-1-novel-unit-introduction">Previous</a>
+          <a class="lesson-jump primary" href="#lesson-4-how-to-read-a-novel" data-page-target="lesson-4-how-to-read-a-novel">Next Lesson</a>
+          <button class="lesson-jump primary mark-complete" type="button" data-complete-id="lesson-3-characteristics-of-a-novel">Complete</button>
+        </div>
+      </div>
+    </article>
+  </section>
+<section id="lesson-4-how-to-read-a-novel" class="course-page lesson-page" hidden>
+    <article class="lesson-detail-panel">
+      <header class="lesson-document-header">
+        <p>Lesson 3</p>
+        <h2>How to Read a Novel</h2>
+        <span>Use active reading routines to notice patterns, questions, character change, and important passages.</span>
+      </header>
+      <div class="lesson-reader-panel">
+        <div class="source-content"><div>
+<div class="source-callout">
+<ul>
+<li>If possible, research some biographical background on the author. Remember that writers sometimes use fiction as a tool to explore and reflect on issues in their own lives, so knowing something about the author may help extend your understanding of the themes of a novel.</li>
+<li>As soon as possible, try to determine both the time and place&nbsp;<strong class="source-note">setting</strong> of the story. You may need to do further research if the novel is set in either a time or a place with which you are unfamiliar.</li>
+<li>Be aware of the central conflicts that evolve as the<strong>&nbsp;</strong><strong class="source-note">plot</strong>develops. Remember that the internal conflicts of characters may be far more significant than obvious external conflicts in helping you discover the underlying themes of the novel.</li>
+<li>Determine the <strong class="source-note">point of view</strong>&nbsp;being used to relate the plot. Then carefully consider why you feel the author chose that particular point of view to relate the story. How does the chosen point of view slant or bias what the 'truth' is? Does the point of view shift?</li>
+<li>Determine who the protagonist (central character) is. Remember that the protagonist may be more than one person. Then determine what the protagonist is trying to achieve, or, in other words, what his or her goal is. Then consider what forces, including other characters, are hindering the protagonist from achieving that goal. Considering the nature of the protagonist(s) and that of the antagonist(s) and reflecting on the types of conflicts that develop provides important clues to help a reader make meaning of a novel.</li>
+<li>Be aware of any changes that occur in the essential nature of any of the major characters as the plot develops. If changes do occur, reflect why a character is motivated to undergo such a change. If, on the other hand, the essential nature of a central character never changes, consider how such a static nature determines that character's fate.</li>
+<li>Identify images that recur throughout the novel. Such recurring images are referred to as<strong>&nbsp;</strong><strong class="source-note">symbols</strong> and are often important keys to discovering the novel's themes.</li>
+<li>Watch for other literary devices, particularly the use of foreshadowing (hints of what is to come) or <strong class="source-note">irony</strong>. These, too, can be helpful clues to lead the reader to a more insightful understanding of the novel.</li>
+<li>Be sensitive to the general tone and mood of the story, and to changes in the tone and mood. Consider the author's style of writing and how that style reinforces the mood and general tone that the author is seeking to create.</li>
+<li>The title of a novel is usually carefully chosen. Speculate on the significance of the title the author chose for the novel.</li>
+<li>Most good novels deserve more than a single read. Re-reading a book usually allows readers to deepen and expand their understanding of the story and its underlying themes.</li>
+<li>Try to find someone else who has also studied the novel you are studying. Sharing various ideas, reactions and interpretations about a novel is an important way of expanding your perspectives.</li>
+<li>Reading critical reviews and watching movie adaptations of a novel may offer new perspectives and insights. However, challenge yourself to read and interpret the novel before you consider how others have interpreted the book. Then you will be better able to critique how effectively you feel a director has adapted a novel to a movie or how perceptively a critic has reviewed a novel.</li>
+</ul>
+</div>
+</div></div>
+        <div class="lesson-bottom-bar">
+          <a class="lesson-jump" href="#lesson-3-characteristics-of-a-novel" data-page-target="lesson-3-characteristics-of-a-novel">Previous</a>
+          <a class="lesson-jump primary" href="#critical-writing" data-page-target="critical-writing">Critical Essay Guide</a>
+          <button class="lesson-jump primary mark-complete" type="button" data-complete-id="lesson-4-how-to-read-a-novel">Complete</button>
+        </div>
+      </div>
+    </article>
+  </section>
+    <section id="critical-writing" class="course-page" hidden>
+    <p class="course-kicker">ELA 30-1 | Critical Analytical Writing</p>
+    <h2>Critical Analytical Essay Guide</h2>
+    <p class="page-intro">Use this guide to turn novel evidence into a controlled critical/analytical essay. The sequence follows the handout's structure: introduction and thesis, three body paragraphs focused on character development and change, then conclusion and revision.</p>
+
+    <section class="critical-writing-panel">
+      <h3>Alberta 30-1 assignment focus</h3>
+      <p>The critical/analytical response asks students to choose relevant literary evidence, develop an interpretation, and connect that interpretation to the assigned topic. The pages in this section are built around the Alberta reporting categories used for this style of writing.</p>
+      <div class="critical-category-grid">
+        <article><strong>Thought and Understanding</strong><p>Quality of interpretation, insight, and connection to the assigned topic.</p></article><article><strong>Supporting Evidence</strong><p>Selection and explanation of details that prove the interpretation.</p></article><article><strong>Form and Structure</strong><p>Essay organization, paragraph control, transitions, and unity.</p></article><article><strong>Matters of Choice</strong><p>Diction, syntax, voice, tone, and rhetorical control.</p></article><article><strong>Matters of Correctness</strong><p>Grammar, usage, punctuation, spelling, and sentence control.</p></article>
+      </div>
+    </section>
+
+    <section class="critical-writing-panel">
+      <h3>Outcome coverage</h3>
+      <ul class="critical-check-list">
+        <li>Read and respond critically to literary texts</li><li>Develop and support an interpretation with textual evidence</li><li>Organize ideas into a controlled critical/analytical form</li><li>Use precise diction, sentence control, and formal voice</li><li>Revise for correctness, clarity, and assignment purpose</li>
+      </ul>
+    </section>
+
+    <div class="critical-writing-sequence">
+      <a class="critical-sequence-card" href="#critical-writing-topic-thesis" data-page-target="critical-writing-topic-thesis">
+          <span>Writing Lesson 1</span>
+          <strong>Topic and Thesis</strong>
+          <p>Turn the assignment topic into a defensible controlling idea.</p>
+        </a><a class="critical-sequence-card" href="#critical-writing-introduction" data-page-target="critical-writing-introduction">
+          <span>Writing Lesson 2</span>
+          <strong>Introduction</strong>
+          <p>Move from the human topic to the specific text and thesis.</p>
+        </a><a class="critical-sequence-card" href="#critical-writing-body-beginning" data-page-target="critical-writing-body-beginning">
+          <span>Writing Lesson 3</span>
+          <strong>Body 1: Beginning</strong>
+          <p>Explain the character at the start of the text and connect that starting point to the topic.</p>
+        </a><a class="critical-sequence-card" href="#critical-writing-body-middle" data-page-target="critical-writing-body-middle">
+          <span>Writing Lesson 4</span>
+          <strong>Body 2: Middle</strong>
+          <p>Track the crisis, turning point, or pressure that pushes the character toward change.</p>
+        </a><a class="critical-sequence-card" href="#critical-writing-body-end" data-page-target="critical-writing-body-end">
+          <span>Writing Lesson 5</span>
+          <strong>Body 3: End</strong>
+          <p>Explain the changed character, resolution, and final insight.</p>
+        </a><a class="critical-sequence-card" href="#critical-writing-conclusion-revision" data-page-target="critical-writing-conclusion-revision">
+          <span>Writing Lesson 6</span>
+          <strong>Conclusion and Revision</strong>
+          <p>Close by returning from the character&#39;s change to the broader human idea.</p>
+        </a>
+    </div>
+  </section>
+<section id="critical-writing-topic-thesis" class="course-page critical-writing-page" hidden>
+    <p class="course-kicker">ELA 30-1 | Critical Analytical Writing</p>
+    <h2>Topic Control and Thesis</h2>
+    <p class="page-intro">Turn the assignment topic into a defensible controlling idea.</p>
+
+    <section class="unit-outcomes critical-lesson-outcomes" aria-label="Success criteria">
+      <h3 class="unit-outcomes-lead">I can...</h3>
+      <ul class="unit-focus-list">
+        <li>answer the assigned topic directly in my thesis.</li><li>name the text creator instead of treating the character as the author.</li><li>organize the argument around character development and change.</li>
+      </ul>
+    </section>
+
+    <article class="critical-writing-panel critical-lesson-panel">
+      <h3>Lesson</h3>
+      <p>A critical/analytical essay has an introduction with a thesis, three body paragraphs, and a conclusion. The three body paragraphs should focus on character development and change: beginning, middle, and end. The thesis must answer the essay topic question by explaining what happens to a character, what actions they take, how they are affected, and what ultimate epiphany or path the character embraces.</p>
+      <div class="critical-model-block">
+        <strong>Model move</strong>
+        <p>Use the frame from the handout: The text creator&#39;s idea regarding the topic is that _____. This keeps the sentence focused on the author, director, or playwright&#39;s idea rather than on a personal reaction to the text.</p>
+      </div>
+    </article>
+
+    <div class="critical-support-grid">
+      <article class="critical-writing-panel critical-example-panel">
+        <h3>Example</h3>
+        <p>Nora Helmer proves individuals who do not pursue long-term satisfaction through honest personal needs, and instead serve the desires of others, may use drastic measures to escape the regret of the life they have built. When adapting this example, remember that Nora is the character; the thesis should still name the text creator when answering the essay topic.</p>
+      </article>
+      <article class="critical-writing-panel critical-diploma-panel">
+        <h3>Diploma tip</h3>
+        <p>It is recommended that the body paragraphs discuss one character&#39;s beginning, middle, and end. Some texts also need minor discussion of another strong character if that character affects the main character&#39;s journey or epiphany.</p>
+      </article>
+    </div>
+
+    <article class="critical-writing-panel">
+      <h3>How to apply it</h3>
+      <ol class="critical-step-list">
+        <li>Identify the two-part essay topic question you are being asked to answer.</li><li>Name the text creator, the text, and the central character or characters you will use.</li><li>Decide what character development and change will structure the beginning, middle, and end body paragraphs.</li><li>State what the text creator suggests about the topic through the character&#39;s actions, effects, and epiphany or path.</li><li>Avoid first person. Do not use I in the essay.</li>
+      </ol>
+    </article>
+
+    <section class="critical-writing-panel critical-planner">
+      <h3>Student planning space</h3>
+      <p>Use this planning space to separate the topic, the text, and the thesis before drafting. By the end, you should have one sentence that can guide the entire essay.</p>
+      <div class="critical-field-grid">
+        <label>Two parts of the essay topic
+              <textarea rows="5" data-response-id="critical-writing-topic-two-parts" placeholder="For example: ambition / competing demands..."></textarea>
+            </label><label>Text creator, text, and character focus
+              <textarea rows="5" data-response-id="critical-writing-text-creator" placeholder="Author or director, title, and character(s)..."></textarea>
+            </label><label>Character development route
+              <textarea rows="5" data-response-id="critical-writing-character-route" placeholder="One main character&#39;s beginning, middle, end, plus any minor character who affects the journey..."></textarea>
+            </label><label>Working thesis
+              <textarea rows="5" data-response-id="critical-writing-thesis-draft" placeholder="The text creator suggests that..."></textarea>
+            </label>
+      </div>
+      <div class="critical-writing-actions">
+        <a class="lesson-jump" href="#critical-writing" data-page-target="critical-writing">Previous</a>
+        <a class="lesson-jump primary" href="#critical-writing-introduction" data-page-target="critical-writing-introduction">Next Writing Lesson</a>
+      </div>
+    </section>
+  </section>
+<section id="critical-writing-introduction" class="course-page critical-writing-page" hidden>
+    <p class="course-kicker">ELA 30-1 | Critical Analytical Writing</p>
+    <h2>Introduction Frame</h2>
+    <p class="page-intro">Move from the human topic to the specific text and thesis.</p>
+
+    <section class="unit-outcomes critical-lesson-outcomes" aria-label="Success criteria">
+      <h3 class="unit-outcomes-lead">I can...</h3>
+      <ul class="unit-focus-list">
+        <li>begin generally enough to lead into the text.</li><li>identify the text and creator clearly.</li><li>place the thesis as the final sentence or controlling move of the introduction.</li>
+      </ul>
+    </section>
+
+    <article class="critical-writing-panel critical-lesson-panel">
+      <h3>Lesson</h3>
+      <p>Always begin by discussing the topic generally in two or three sentences. Ask what can be said about the topic and how it relates to mankind. Then introduce the text, including the text creator, the name of the text, and the character or characters you will discuss to answer the essay topic. Name the basic conflict, connect it to both pieces of the topic question, and briefly point toward the character&#39;s change from the beginning to the end.</p>
+      <div class="critical-model-block">
+        <strong>Model move</strong>
+        <p>If the topic is ambition and competing demands, begin with the pressure people feel when desire conflicts with responsibility. Then introduce a text such as On the Rainy River or Sound of Metal, name the creator, name the character focus, describe the basic conflict, and land on the thesis.</p>
+      </div>
+    </article>
+
+    <div class="critical-support-grid">
+      <article class="critical-writing-panel critical-example-panel">
+        <h3>Example</h3>
+        <p>People often want more than one life can reasonably hold. When personal desire begins to compete with duty, individuals may discover that every choice carries a cost. In the novel, the text creator develops this tension through a character who must decide what matters most before the thesis names the writer&#39;s larger idea.</p>
+      </article>
+      <article class="critical-writing-panel critical-diploma-panel">
+        <h3>Diploma tip</h3>
+        <p>Keep the introduction purposeful. Do not spend the opening paragraph summarizing the whole text; move from topic, to text and conflict, to thesis.</p>
+      </article>
+    </div>
+
+    <article class="critical-writing-panel">
+      <h3>How to apply it</h3>
+      <ol class="critical-step-list">
+        <li>Begin with two or three sentences about the topic in general human terms.</li><li>Introduce the text creator, the title of the text, and the character or characters being discussed.</li><li>Name the basic conflict and connect it to both pieces of the topic question.</li><li>Briefly set up the character&#39;s movement from beginning to end before ending with the thesis.</li>
+      </ol>
+    </article>
+
+    <section class="critical-writing-panel critical-planner">
+      <h3>Student planning space</h3>
+      <p>Use this planning space to build the three moves of an introduction: general topic, text bridge, and thesis. These notes should become the order of your opening paragraph.</p>
+      <div class="critical-field-grid">
+        <label>General topic opening
+              <textarea rows="5" data-response-id="critical-writing-intro-general" placeholder="What can be said about this topic in human life?"></textarea>
+            </label><label>Text and conflict bridge
+              <textarea rows="5" data-response-id="critical-writing-intro-text" placeholder="Introduce the text, creator, character, and basic conflict..."></textarea>
+            </label><label>Final thesis sentence
+              <textarea rows="5" data-response-id="critical-writing-intro-thesis" placeholder="The text creator&#39;s idea regarding the topic is that..."></textarea>
+            </label>
+      </div>
+      <div class="critical-writing-actions">
+        <a class="lesson-jump" href="#critical-writing-topic-thesis" data-page-target="critical-writing-topic-thesis">Previous</a>
+        <a class="lesson-jump primary" href="#critical-writing-body-beginning" data-page-target="critical-writing-body-beginning">Next Writing Lesson</a>
+      </div>
+    </section>
+  </section>
+<section id="critical-writing-body-beginning" class="course-page critical-writing-page" hidden>
+    <p class="course-kicker">ELA 30-1 | Critical Analytical Writing</p>
+    <h2>Body Paragraph 1 - The Beginning</h2>
+    <p class="page-intro">Explain the character at the start of the text and connect that starting point to the topic.</p>
+
+    <section class="unit-outcomes critical-lesson-outcomes" aria-label="Success criteria">
+      <h3 class="unit-outcomes-lead">I can...</h3>
+      <ul class="unit-focus-list">
+        <li>focus the paragraph on character development, not plot summary alone.</li><li>choose evidence specific enough to prove the interpretation.</li><li>keep the explanation connected to the essay topic.</li>
+      </ul>
+    </section>
+
+    <article class="critical-writing-panel critical-lesson-panel">
+      <h3>Lesson</h3>
+      <p>Body Paragraph 1 discusses the initial character development as evidenced in the beginning of the text. Describe how the character can be understood from the onset, then give proof through a quotation or a very specific example. Always discuss the character in relation to the topic provided: what issue is arising, how the character is initially dealing with it, what actions are being taken, how the topic is coming into play, and what trouble is brewing.</p>
+      <div class="critical-model-block">
+        <strong>Model move</strong>
+        <p>A strong beginning paragraph might show that a character initially avoids responsibility, depends on approval, or misunderstands the cost of a choice. The evidence should prove the character&#39;s starting point and explain how the assigned topic is already creating pressure.</p>
+      </div>
+    </article>
+
+    <div class="critical-support-grid">
+      <article class="critical-writing-panel critical-example-panel">
+        <h3>Example</h3>
+        <p>At the beginning, the character may appear confident, but the evidence reveals that confidence depends on avoiding difficult truths. A strong paragraph would quote or describe that early moment, then explain how the character&#39;s starting belief creates the pressure that the essay will trace.</p>
+      </article>
+      <article class="critical-writing-panel critical-diploma-panel">
+        <h3>Diploma tip</h3>
+        <p>Think character development. Body 1 should answer the essay question, not summarize the opening chapters. Transition clearly toward Body Paragraph 2: the middle.</p>
+      </article>
+    </div>
+
+    <article class="critical-writing-panel">
+      <h3>How to apply it</h3>
+      <ol class="critical-step-list">
+        <li>Describe the character from the onset of the text.</li><li>Use a quotation or very specific example as proof.</li><li>Explain the issue that is arising and how the character initially deals with it through action or avoidance.</li><li>Show how the essay topic is coming into play and what trouble is brewing.</li><li>Transition toward Body Paragraph 2: the middle.</li>
+      </ol>
+    </article>
+
+    <section class="critical-writing-panel critical-planner">
+      <h3>Student planning space</h3>
+      <p>Use this planning space to collect the character&#39;s initial state, one strong opening detail, and the topic connection. These notes should become Body Paragraph 1.</p>
+      <div class="critical-field-grid">
+        <label>Initial character description
+              <textarea rows="5" data-response-id="critical-writing-beginning-character" placeholder="At the beginning, the character is..."></textarea>
+            </label><label>Beginning evidence
+              <textarea rows="5" data-response-id="critical-writing-beginning-evidence" placeholder="Quotation or specific moment with page/chapter..."></textarea>
+            </label><label>Topic connection
+              <textarea rows="5" data-response-id="critical-writing-beginning-topic-link" placeholder="This matters to the essay topic because..."></textarea>
+            </label>
+      </div>
+      <div class="critical-writing-actions">
+        <a class="lesson-jump" href="#critical-writing-introduction" data-page-target="critical-writing-introduction">Previous</a>
+        <a class="lesson-jump primary" href="#critical-writing-body-middle" data-page-target="critical-writing-body-middle">Next Writing Lesson</a>
+      </div>
+    </section>
+  </section>
+<section id="critical-writing-body-middle" class="course-page critical-writing-page" hidden>
+    <p class="course-kicker">ELA 30-1 | Critical Analytical Writing</p>
+    <h2>Body Paragraph 2 - The Middle</h2>
+    <p class="page-intro">Track the crisis, turning point, or pressure that pushes the character toward change.</p>
+
+    <section class="unit-outcomes critical-lesson-outcomes" aria-label="Success criteria">
+      <h3 class="unit-outcomes-lead">I can...</h3>
+      <ul class="unit-focus-list">
+        <li>show change in progress.</li><li>use evidence that proves pressure, conflict, or self-discovery.</li><li>transition toward the final version of the character.</li>
+      </ul>
+    </section>
+
+    <article class="critical-writing-panel critical-lesson-panel">
+      <h3>Lesson</h3>
+      <p>Body Paragraph 2 discusses what the character is grappling with and what conflict is causing their change. Consider whether the character goes through a crisis, experiences a major turning point, has a moment of self-discovery, or tries to hold onto the past instead of embracing something new. Begin exploring the changes the character makes, including actions or mistakes, and use proof from the text to support ideas that answer the essay topic question.</p>
+      <div class="critical-model-block">
+        <strong>Model move</strong>
+        <p>A strong middle paragraph might focus on a scene where the character&#39;s old belief stops working. The analysis should explain what pressure is acting on the character, who or what helps or hinders their progress, and how that pressure begins to reshape their choices.</p>
+      </div>
+    </article>
+
+    <div class="critical-support-grid">
+      <article class="critical-writing-panel critical-example-panel">
+        <h3>Example</h3>
+        <p>In the middle of the text, a character who once avoided conflict might be forced to confront the consequences of that avoidance. The paragraph should explain what changes in this moment and why the old pattern no longer works.</p>
+      </article>
+      <article class="critical-writing-panel critical-diploma-panel">
+        <h3>Diploma tip</h3>
+        <p>The middle paragraph usually earns marks through explanation. After evidence, spend enough time showing who or what is helping or standing in the way of epiphany or change.</p>
+      </article>
+    </div>
+
+    <article class="critical-writing-panel">
+      <h3>How to apply it</h3>
+      <ol class="critical-step-list">
+        <li>Identify what the character is grappling with in the middle of the text.</li><li>Explain the conflict, crisis, turning point, or self-discovery that causes change.</li><li>Consider whether the character is holding onto the past or embracing something new.</li><li>Show who or what helps, hinders, tempts, or pressures the character.</li><li>Use evidence to show movement toward an epiphany, mistake, or altered path.</li><li>Transition toward Body Paragraph 3: the end.</li>
+      </ol>
+    </article>
+
+    <section class="critical-writing-panel critical-planner">
+      <h3>Student planning space</h3>
+      <p>Use this planning space to name the turning point, choose evidence from the middle of the text, and explain the change that is starting to happen. These notes should become Body Paragraph 2.</p>
+      <div class="critical-field-grid">
+        <label>Middle conflict or turning point
+              <textarea rows="5" data-response-id="critical-writing-middle-conflict" placeholder="The character is now struggling with..."></textarea>
+            </label><label>Middle evidence
+              <textarea rows="5" data-response-id="critical-writing-middle-evidence" placeholder="Quotation or specific moment with page/chapter..."></textarea>
+            </label><label>Change in progress
+              <textarea rows="5" data-response-id="critical-writing-middle-change" placeholder="This moment begins to change the character by..."></textarea>
+            </label>
+      </div>
+      <div class="critical-writing-actions">
+        <a class="lesson-jump" href="#critical-writing-body-beginning" data-page-target="critical-writing-body-beginning">Previous</a>
+        <a class="lesson-jump primary" href="#critical-writing-body-end" data-page-target="critical-writing-body-end">Next Writing Lesson</a>
+      </div>
+    </section>
+  </section>
+<section id="critical-writing-body-end" class="course-page critical-writing-page" hidden>
+    <p class="course-kicker">ELA 30-1 | Critical Analytical Writing</p>
+    <h2>Body Paragraph 3 - The End</h2>
+    <p class="page-intro">Explain the changed character, resolution, and final insight.</p>
+
+    <section class="unit-outcomes critical-lesson-outcomes" aria-label="Success criteria">
+      <h3 class="unit-outcomes-lead">I can...</h3>
+      <ul class="unit-focus-list">
+        <li>prove the character&#39;s endpoint, not just describe another event.</li><li>support the conclusion about the character with evidence.</li><li>answer the topic question through the character&#39;s final state.</li>
+      </ul>
+    </section>
+
+    <article class="critical-writing-panel critical-lesson-panel">
+      <h3>Lesson</h3>
+      <p>Body Paragraph 3 discusses the changed character at the end of the text and the resolution. As a result of the middle paragraph, explain how the character can now be described in terms of character development or epiphany. What has the character learned, accepted, or changed for the better or worse? Are they embracing something new, even if they did not envision it for themselves or are not fully okay with the new situation?</p>
+      <div class="critical-model-block">
+        <strong>Model move</strong>
+        <p>A strong ending paragraph might show that the character now acts with honesty, accepts a painful truth, repeats a destructive pattern, or chooses a new path. The analysis should explain how this final state, resolution, or epiphany answers the assigned topic.</p>
+      </div>
+    </article>
+
+    <div class="critical-support-grid">
+      <article class="critical-writing-panel critical-example-panel">
+        <h3>Example</h3>
+        <p>By the end, the character&#39;s final choice should reveal what the text creator wants readers to understand. If the character accepts responsibility, explain how that final action proves a changed awareness rather than simply reporting what happened last.</p>
+      </article>
+      <article class="critical-writing-panel critical-diploma-panel">
+        <h3>Diploma tip</h3>
+        <p>Be specific and give examples, quotations, or proof to back up the exploration. Make sure the paragraph is still answering the essay topic question.</p>
+      </article>
+    </div>
+
+    <article class="critical-writing-panel">
+      <h3>How to apply it</h3>
+      <ol class="critical-step-list">
+        <li>Describe the changed character at the end of the text and the resolution.</li><li>Explain what the character has learned, accepted, changed, or failed to change.</li><li>Consider whether the character is embracing something new, even if the new situation is difficult.</li><li>Use examples, quotations, or proof to back up the exploration.</li><li>Make the connection back to the essay topic unmistakable.</li>
+      </ol>
+    </article>
+
+    <section class="critical-writing-panel critical-planner">
+      <h3>Student planning space</h3>
+      <p>Use this planning space to define the character&#39;s final state, select final evidence, and connect the resolution back to the topic. These notes should become Body Paragraph 3.</p>
+      <div class="critical-field-grid">
+        <label>Changed character description
+              <textarea rows="5" data-response-id="critical-writing-end-character" placeholder="By the end, the character has become..."></textarea>
+            </label><label>End evidence
+              <textarea rows="5" data-response-id="critical-writing-end-evidence" placeholder="Quotation or specific moment with page/chapter..."></textarea>
+            </label><label>Final topic connection
+              <textarea rows="5" data-response-id="critical-writing-end-topic-link" placeholder="This answers the essay topic because..."></textarea>
+            </label>
+      </div>
+      <div class="critical-writing-actions">
+        <a class="lesson-jump" href="#critical-writing-body-middle" data-page-target="critical-writing-body-middle">Previous</a>
+        <a class="lesson-jump primary" href="#critical-writing-conclusion-revision" data-page-target="critical-writing-conclusion-revision">Next Writing Lesson</a>
+      </div>
+    </section>
+  </section>
+<section id="critical-writing-conclusion-revision" class="course-page critical-writing-page" hidden>
+    <p class="course-kicker">ELA 30-1 | Critical Analytical Writing</p>
+    <h2>Conclusion and Final Check</h2>
+    <p class="page-intro">Close by returning from the character&#39;s change to the broader human idea.</p>
+
+    <section class="unit-outcomes critical-lesson-outcomes" aria-label="Success criteria">
+      <h3 class="unit-outcomes-lead">I can...</h3>
+      <ul class="unit-focus-list">
+        <li>return to the two-part topic question in the conclusion.</li><li>explain the final insight readers are meant to understand from the text.</li><li>revise for formal critical voice and avoid first person.</li>
+      </ul>
+    </section>
+
+    <article class="critical-writing-panel critical-lesson-panel">
+      <h3>Lesson</h3>
+      <p>The conclusion starts specifically with the character&#39;s change and epiphany in connection to the essay topic question. Then it moves back to a general discussion of the two-part essay topic question and the human condition. The final paragraph should help readers understand what we are supposed to learn from the text.</p>
+      <div class="critical-model-block">
+        <strong>Model move</strong>
+        <p>Begin with the character&#39;s final change or epiphany, then widen the idea: Through this change, the text suggests that people often recognize the cost of their choices only when they can no longer avoid the consequences.</p>
+      </div>
+    </article>
+
+    <div class="critical-support-grid">
+      <article class="critical-writing-panel critical-example-panel">
+        <h3>Example</h3>
+        <p>If the essay has shown a character moving from denial to responsibility, the conclusion can return to the human idea: the text suggests that growth often begins when people stop defending comfortable illusions and accept the cost of honest choices.</p>
+      </article>
+      <article class="critical-writing-panel critical-diploma-panel">
+        <h3>Diploma tip</h3>
+        <p>End by returning to the two-part essay topic and the awareness of the human condition. The conclusion should complete the argument rather than restart it.</p>
+      </article>
+    </div>
+
+    <article class="critical-writing-panel">
+      <h3>How to apply it</h3>
+      <ol class="critical-step-list">
+        <li>Begin specifically with the character&#39;s change or epiphany in relation to the essay topic.</li><li>Move back to a general discussion of the two-part essay topic question.</li><li>Explain the awareness of the human condition created by the text.</li><li>Ask what readers are supposed to learn from the text.</li><li>Revise for formal voice, sentence control, word choice, and correctness.</li>
+      </ol>
+    </article>
+
+    <section class="critical-writing-panel critical-planner">
+      <h3>Student planning space</h3>
+      <p>Use this planning space to decide what final insight the essay leaves with the reader and what sentence-level issues need revision before submission.</p>
+      <div class="critical-field-grid">
+        <label>Specific character change
+              <textarea rows="5" data-response-id="critical-writing-conclusion-change" placeholder="The character&#39;s final change shows..."></textarea>
+            </label><label>Human condition connection
+              <textarea rows="5" data-response-id="critical-writing-conclusion-human-condition" placeholder="The text suggests people..."></textarea>
+            </label><label>Revision priorities
+              <textarea rows="5" data-response-id="critical-writing-revision-priorities" placeholder="Before submitting, I need to fix..."></textarea>
+            </label>
+      </div>
+      <div class="critical-writing-actions">
+        <a class="lesson-jump" href="#critical-writing-body-end" data-page-target="critical-writing-body-end">Previous</a>
+        <a class="lesson-jump primary" href="#reading-guide" data-page-target="reading-guide">Reading Guide</a>
+      </div>
+    </section>
+  </section>
+    <section id="reading-guide" class="course-page" hidden>
+    <p class="course-kicker">ELA 20-1 | Reading Guide</p>
+    <h2>Novel Reading Guide</h2>
+    <p class="page-intro">Use this as a running evidence notebook while reading or rereading your selected novel. Save specific passages, then return to the bank when you need proof for questions or analytical writing.</p>
+    <div class="reading-notebook" data-reading-notebook>
+      <textarea class="evidence-store" data-response-id="reading-evidence-bank-json" data-reading-evidence-store hidden></textarea>
+      <section class="notebook-setup">
+        <label>Novel title
+          <input data-response-id="reading-novel-title" data-reading-evidence-field="novelTitle" type="text" placeholder="Name the novel you are studying.">
+        </label>
+        <label>Reading pass
+          <select data-response-id="reading-pass" data-reading-evidence-field="readingPass">
+            <option value="">Choose a pass...</option>
+            <option>Opening chapters</option>
+            <option>Middle chapters</option>
+            <option>Final chapters</option>
+            <option>Reread</option>
+            <option>Final evidence review</option>
+          </select>
+        </label>
+        <label>Current focus
+          <select data-response-id="reading-current-focus" data-reading-evidence-field="focus">
+            <option value="">Choose a focus...</option>
+            <option>Character</option>
+            <option>Conflict</option>
+            <option>Setting</option>
+            <option>Symbol</option>
+            <option>Motif</option>
+            <option>Theme</option>
+            <option>Narration</option>
+            <option>Turning point</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="notebook-baseline">
+        <article>
+          <h3>First reaction</h3>
+          <label>What stands out first?
+            <textarea data-response-id="reading-first-impression" placeholder="Describe one character choice, image, conflict, sentence, or passage that immediately shapes your reaction."></textarea>
+          </label>
+        </article>
+        <article>
+          <h3>Working pattern</h3>
+          <label>What larger idea is developing?
+            <textarea data-response-id="reading-theme" placeholder="Track a repeated image, conflict, character choice, symbol, or pattern that may become important."></textarea>
+          </label>
+        </article>
+      </section>
+
+      <section class="evidence-entry-panel">
+        <div>
+          <h3>Add passage evidence</h3>
+          <p>Capture one useful passage at a time. Strong novel evidence connects what happens to the author's choices and the idea being developed.</p>
+        </div>
+        <div class="evidence-entry-grid">
+          <label>Chapter and page
+            <input data-reading-evidence-draft="location" type="text" placeholder="e.g. Chapter 4, p. 82">
+          </label>
+          <label>Evidence type
+            <select data-response-id="reading-evidence-type" data-reading-evidence-draft="type">
+              <option value="">Choose a type...</option>
+              <option>Character</option>
+              <option>Conflict</option>
+              <option>Setting</option>
+              <option>Symbol</option>
+              <option>Motif</option>
+              <option>Theme</option>
+              <option>Narration</option>
+              <option>Key quotation</option>
+              <option>Turning point</option>
+            </select>
+          </label>
+          <label class="evidence-wide">Quotation or important moment
+            <textarea data-reading-evidence-draft="passage" placeholder="Copy a short quotation or summarize a precise moment from the novel."></textarea>
+          </label>
+          <label>Context
+            <textarea data-reading-evidence-draft="context" placeholder="What is happening around this passage? Who is involved?"></textarea>
+          </label>
+          <label>Author's choice
+            <textarea data-reading-evidence-draft="choice" placeholder="What does the author control here: diction, imagery, dialogue, contrast, narration, structure, or setting?"></textarea>
+          </label>
+          <label>Effect on the reader
+            <textarea data-response-id="reading-technique-effect" data-reading-evidence-draft="effect" placeholder="How does this choice guide what the reader feels, notices, questions, or understands?"></textarea>
+          </label>
+          <label>Theme or character connection
+            <textarea data-reading-evidence-draft="theme" placeholder="What larger idea, character change, conflict, or pattern does this passage help prove?"></textarea>
+          </label>
+          <label class="evidence-wide">Why this is useful evidence
+            <textarea data-response-id="reading-evidence-use" data-reading-evidence-draft="use" placeholder="Explain how you might use this passage in a novel-study question, paragraph, or critical essay."></textarea>
+          </label>
+        </div>
+        <div class="evidence-actions">
+          <button class="lesson-jump primary" type="button" data-reading-evidence-save>Save passage</button>
+          <button class="lesson-jump" type="button" data-reading-evidence-clear>Clear draft</button>
+          <span class="save-status" data-reading-evidence-status>0 passages saved</span>
+        </div>
+      </section>
+
+      <section class="evidence-bank-panel">
+        <div class="evidence-bank-head">
+          <div>
+            <h3>Evidence bank</h3>
+            <p data-reading-evidence-summary>No passages saved yet.</p>
+          </div>
+          <label>Filter by evidence type
+            <select data-reading-evidence-filter>
+              <option value="">All evidence</option>
+              <option>Character</option>
+              <option>Conflict</option>
+              <option>Setting</option>
+              <option>Symbol</option>
+              <option>Motif</option>
+              <option>Theme</option>
+              <option>Narration</option>
+              <option>Key quotation</option>
+              <option>Turning point</option>
+            </select>
+          </label>
+        </div>
+        <div class="evidence-bank-list" data-reading-evidence-list></div>
+      </section>
+
+      <section class="evidence-synthesis-panel">
+        <h3>Turn the bank into a response</h3>
+        <div class="evidence-entry-grid">
+          <label>What pattern is emerging across your evidence?
+            <textarea data-response-id="reading-synthesis-pattern" placeholder="Name a recurring conflict, character shift, symbol, motif, or idea."></textarea>
+          </label>
+          <label>Which saved passage is your strongest evidence so far?
+            <textarea data-response-id="reading-synthesis-strongest" placeholder="Choose one card from the evidence bank and explain why it is strong."></textarea>
+          </label>
+          <label class="evidence-wide">How could this evidence help answer a novel-study question?
+            <textarea data-response-id="reading-synthesis-question-link" placeholder="Connect your evidence bank to a question about character, theme, conflict, setting, or author's craft."></textarea>
+          </label>
+        </div>
+      </section>
+    </div>
+    <div class="lesson-bottom-bar">
+      <button class="lesson-jump primary" type="button" data-print-writing>Print Reading Portfolio</button>
+      <span class="save-status" data-save-status>Saved locally</span>
+    </div>
+    <script>
+(() => {
+  function escapeText(value) {
+    return String(value || "").replace(/[&<>"']/g, (char) => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;"
+    }[char]));
+  }
+  function getField(root, selector) {
+    return root.querySelector(selector);
+  }
+  function readCards(root) {
+    const store = getField(root, "[data-reading-evidence-store]");
+    try {
+      const parsed = JSON.parse(store?.value || "[]");
+      return Array.isArray(parsed) ? parsed : [];
+    } catch {
+      return [];
+    }
+  }
+  function writeCards(root, cards) {
+    const store = getField(root, "[data-reading-evidence-store]");
+    if (!store) return;
+    store.value = JSON.stringify(cards);
+    store.dispatchEvent(new Event("input", { bubbles: true }));
+    renderCards(root);
+  }
+  function setDraft(root, card) {
+    root.dataset.editingReadingEvidenceId = card?.id || "";
+    root.querySelectorAll("[data-reading-evidence-draft]").forEach((field) => {
+      const nextValue = card?.[field.getAttribute("data-reading-evidence-draft")] || "";
+      const didChange = field.value !== nextValue;
+      field.value = nextValue;
+      if (didChange && field.hasAttribute("data-response-id")) {
+        field.dispatchEvent(new Event("input", { bubbles: true }));
+      }
+    });
+    const saveButton = getField(root, "[data-reading-evidence-save]");
+    if (saveButton) saveButton.textContent = card ? "Update passage" : "Save passage";
+  }
+  function collectDraft(root) {
+    const card = {
+      id: root.dataset.editingReadingEvidenceId || "reading-evidence-" + Date.now(),
+      novelTitle: getField(root, "[data-reading-evidence-field='novelTitle']")?.value || "",
+      readingPass: getField(root, "[data-reading-evidence-field='readingPass']")?.value || "",
+      focus: getField(root, "[data-reading-evidence-field='focus']")?.value || "",
+      strongest: false
+    };
+    root.querySelectorAll("[data-reading-evidence-draft]").forEach((field) => {
+      card[field.getAttribute("data-reading-evidence-draft")] = field.value || "";
+    });
+    return card;
+  }
+  function usefulCard(card) {
+    return ["location", "type", "passage", "context", "choice", "effect", "theme", "use"].some((key) => String(card[key] || "").trim());
+  }
+  function updateSummary(root, cards) {
+    const summary = getField(root, "[data-reading-evidence-summary]");
+    const status = getField(root, "[data-reading-evidence-status]");
+    const strongest = cards.filter((card) => card.strongest).length;
+    const types = new Set(cards.map((card) => card.type).filter(Boolean)).size;
+    const text = cards.length
+      ? cards.length + " passage" + (cards.length === 1 ? "" : "s") + " saved · " + strongest + " marked strongest · " + types + " evidence type" + (types === 1 ? "" : "s")
+      : "No passages saved yet.";
+    if (summary) summary.textContent = text;
+    if (status) status.textContent = cards.length + " passage" + (cards.length === 1 ? "" : "s") + " saved";
+  }
+  function renderCards(root) {
+    const list = getField(root, "[data-reading-evidence-list]");
+    if (!list) return;
+    const cards = readCards(root);
+    const filter = getField(root, "[data-reading-evidence-filter]")?.value || "";
+    const visibleCards = filter ? cards.filter((card) => card.type === filter) : cards;
+    updateSummary(root, cards);
+    if (!visibleCards.length) {
+      list.innerHTML = '<p class="evidence-empty">No saved passages match this view yet. Add a passage above, then mark the strongest ones as you read.</p>';
+      return;
+    }
+    list.innerHTML = visibleCards
+      .map((card) => '<article class="evidence-card' + (card.strongest ? " is-strongest" : "") + '">' +
+        '<div class="evidence-card-top"><strong>Passage ' + (cards.indexOf(card) + 1) + '</strong><span>' + escapeText(card.type || "Type not set") + '</span></div>' +
+        '<h4>' + escapeText(card.location || "Location not set") + '</h4>' +
+        '<dl>' +
+          '<div><dt>Quotation or moment</dt><dd>' + escapeText(card.passage || "Not recorded yet.") + '</dd></div>' +
+          '<div><dt>Context</dt><dd>' + escapeText(card.context || "Not recorded yet.") + '</dd></div>' +
+          '<div><dt>Author choice</dt><dd>' + escapeText(card.choice || "Not recorded yet.") + '</dd></div>' +
+          '<div><dt>Effect</dt><dd>' + escapeText(card.effect || "Not recorded yet.") + '</dd></div>' +
+          '<div><dt>Connection</dt><dd>' + escapeText(card.theme || "Not recorded yet.") + '</dd></div>' +
+          '<div><dt>Use as evidence</dt><dd>' + escapeText(card.use || "Not recorded yet.") + '</dd></div>' +
+        '</dl>' +
+        '<div class="evidence-card-actions">' +
+          '<button type="button" data-reading-evidence-strong="' + escapeText(card.id) + '">' + (card.strongest ? "Strong evidence" : "Mark strongest") + '</button>' +
+          '<button type="button" data-reading-evidence-edit="' + escapeText(card.id) + '">Edit</button>' +
+          '<button type="button" data-reading-evidence-delete="' + escapeText(card.id) + '">Delete</button>' +
+        '</div>' +
+      '</article>')
+      .join("");
+  }
+  function initReadingNotebook() {
+    document.querySelectorAll("[data-reading-notebook]").forEach((root) => {
+      renderCards(root);
+      root.addEventListener("click", (event) => {
+        const save = event.target.closest("[data-reading-evidence-save]");
+        const clear = event.target.closest("[data-reading-evidence-clear]");
+        const edit = event.target.closest("[data-reading-evidence-edit]");
+        const remove = event.target.closest("[data-reading-evidence-delete]");
+        const strong = event.target.closest("[data-reading-evidence-strong]");
+        if (save) {
+          const card = collectDraft(root);
+          if (!usefulCard(card)) {
+            const status = getField(root, "[data-reading-evidence-status]");
+            if (status) status.textContent = "Add at least one note before saving.";
+            return;
+          }
+          const cards = readCards(root);
+          const existingIndex = cards.findIndex((item) => item.id === card.id);
+          if (existingIndex >= 0) {
+            card.strongest = Boolean(cards[existingIndex].strongest);
+            cards[existingIndex] = card;
+          } else {
+            cards.push(card);
+          }
+          writeCards(root, cards);
+          setDraft(root, null);
+        }
+        if (clear) setDraft(root, null);
+        if (edit) {
+          const card = readCards(root).find((item) => item.id === edit.getAttribute("data-reading-evidence-edit"));
+          if (card) setDraft(root, card);
+        }
+        if (remove) {
+          writeCards(root, readCards(root).filter((item) => item.id !== remove.getAttribute("data-reading-evidence-delete")));
+          if (root.dataset.editingReadingEvidenceId === remove.getAttribute("data-reading-evidence-delete")) setDraft(root, null);
+        }
+        if (strong) {
+          const id = strong.getAttribute("data-reading-evidence-strong");
+          writeCards(root, readCards(root).map((item) => item.id === id ? { ...item, strongest: !item.strongest } : item));
+        }
+      });
+      root.addEventListener("change", (event) => {
+        if (event.target.closest("[data-reading-evidence-filter]")) renderCards(root);
+      });
+      root.addEventListener("input", (event) => {
+        if (event.target.closest("[data-reading-evidence-store]")) renderCards(root);
+      });
+      window.setTimeout(() => renderCards(root), 0);
+    });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initReadingNotebook);
+  else initReadingNotebook();
+})();
+    </script>
+  </section>
+<section id="novel-study-questions" class="course-page" hidden>
+    <p class="course-kicker">ELA 20-1 | Novel Study Questions</p>
+    <h2>Novel Study Questions</h2>
+    <p class="page-intro">Complete these formative questions after each third of your selected novel. Use specific evidence from the text whenever possible.</p>
+    <div class="novel-question-studio" data-novel-question-studio>
+      <div class="novel-question-controls">
+        <label for="novel-question-section-select">Choose a section</label>
+        <select id="novel-question-section-select" data-novel-question-section-select>
+          <option value="section-1">Section 1 Questions</option><option value="section-2">Section 2 Questions</option><option value="section-3">Section 3 Questions</option>
+        </select>
+      </div>
+      <div class="novel-question-toolbar">
+        <span class="novel-question-save-status" data-novel-question-save-status></span>
+        <button type="button" data-novel-question-toggle-hints><span class="material-symbols-outlined" aria-hidden="true">lightbulb</span> Show Hints</button>
+        <button type="button" data-novel-question-print><span class="material-symbols-outlined" aria-hidden="true">print</span> Print / PDF</button>
+      </div>
+      <div class="novel-question-document">
+        <article class="novel-question-panel" data-novel-question-panel="section-1" data-panel-title="Section 1 Questions" data-panel-subtitle="Answer after reading the first third of your novel." >
+      <header class="novel-question-document-header">
+        <p>ELA 20-1 Formative Reading</p>
+        <h3 data-novel-question-title>Section 1 Questions</h3>
+        <span data-novel-question-subtitle>Answer after reading the first third of your novel.</span>
+        <div class="novel-question-progress">
+          <div><span>Formative Progress</span><strong data-novel-question-progress-label>0 of 9 answered</strong></div>
+          <div class="novel-question-progress-track"><div data-novel-question-progress-fill></div></div>
+        </div>
+      </header>
+      <div class="novel-question-list">
+        <div class="novel-question-item">
+              <div class="novel-question-prompt">
+                <strong>1.</strong>
+                <span>How does the novel begin?</span>
+              </div>
+              <div class="novel-question-hint" data-novel-question-hint hidden><strong>Teacher Hint:</strong> Describe the opening situation, mood, setting, and any first conflict or question the author creates.</div>
+              <label class="novel-answer-field">
+                <textarea rows="5" data-novel-question-answer="section-1-begin" placeholder="Type your analytical response here..."></textarea>
+                <span class="novel-word-count">0 words</span>
+              </label>
+            </div><div class="novel-question-item">
+              <div class="novel-question-prompt">
+                <strong>2.</strong>
+                <span>Who are the major characters and what are their relationships to each other?</span>
+              </div>
+              <div class="novel-question-hint" data-novel-question-hint hidden><strong>Teacher Hint:</strong> Name the central characters and explain how they are connected, not just who they are.</div>
+              <label class="novel-answer-field">
+                <textarea rows="5" data-novel-question-answer="section-1-major-characters" placeholder="Type your analytical response here..."></textarea>
+                <span class="novel-word-count">0 words</span>
+              </label>
+            </div><div class="novel-question-item">
+              <div class="novel-question-prompt">
+                <strong>3.</strong>
+                <span>What is the initial conflict?</span>
+              </div>
+              <div class="novel-question-hint" data-novel-question-hint hidden><strong>Teacher Hint:</strong> Look for the problem, pressure, or tension that starts moving the story forward.</div>
+              <label class="novel-answer-field">
+                <textarea rows="5" data-novel-question-answer="section-1-initial-conflict" placeholder="Type your analytical response here..."></textarea>
+                <span class="novel-word-count">0 words</span>
+              </label>
+            </div><div class="novel-question-item">
+              <div class="novel-question-prompt">
+                <strong>4.</strong>
+                <span>What method does the author use to create suspense?</span>
+              </div>
+              <div class="novel-question-hint" data-novel-question-hint hidden><strong>Teacher Hint:</strong> Consider unanswered questions, danger, pacing, foreshadowing, withheld information, or unstable relationships.</div>
+              <label class="novel-answer-field">
+                <textarea rows="5" data-novel-question-answer="section-1-suspense" placeholder="Type your analytical response here..."></textarea>
+                <span class="novel-word-count">0 words</span>
+              </label>
+            </div><div class="novel-question-item">
+              <div class="novel-question-prompt">
+                <strong>5.</strong>
+                <span>What is the point of view? Who is telling the story?</span>
+              </div>
+              <div class="novel-question-hint" data-novel-question-hint hidden><strong>Teacher Hint:</strong> Identify the narrator and explain how that perspective shapes what the reader knows or feels.</div>
+              <label class="novel-answer-field">
+                <textarea rows="5" data-novel-question-answer="section-1-point-of-view" placeholder="Type your analytical response here..."></textarea>
+                <span class="novel-word-count">0 words</span>
+              </label>
+            </div><div class="novel-question-item">
+              <div class="novel-question-prompt">
+                <strong>6.</strong>
+                <span>What minor characters are introduced in the novel?</span>
+              </div>
+              <div class="novel-question-hint" data-novel-question-hint hidden><strong>Teacher Hint:</strong> Include characters who may not lead the plot but still affect conflict, setting, or the protagonist.</div>
+              <label class="novel-answer-field">
+                <textarea rows="5" data-novel-question-answer="section-1-minor-characters" placeholder="Type your analytical response here..."></textarea>
+                <span class="novel-word-count">0 words</span>
+              </label>
+            </div><div class="novel-question-item">
+              <div class="novel-question-prompt">
+                <strong>7.</strong>
+                <span>Are there any characters you particularly like or dislike? Explain.</span>
+              </div>
+              <div class="novel-question-hint" data-novel-question-hint hidden><strong>Teacher Hint:</strong> Support your reaction with a specific action, decision, line of dialogue, or relationship.</div>
+              <label class="novel-answer-field">
+                <textarea rows="5" data-novel-question-answer="section-1-like-dislike" placeholder="Type your analytical response here..."></textarea>
+                <span class="novel-word-count">0 words</span>
+              </label>
+            </div><div class="novel-question-item">
+              <div class="novel-question-prompt">
+                <strong>8.</strong>
+                <span>What themes do you see being developed?</span>
+              </div>
+              <div class="novel-question-hint" data-novel-question-hint hidden><strong>Teacher Hint:</strong> Move beyond one-word topics. Explain what the novel may be suggesting about people, choices, or society.</div>
+              <label class="novel-answer-field">
+                <textarea rows="5" data-novel-question-answer="section-1-developing-themes" placeholder="Type your analytical response here..."></textarea>
+                <span class="novel-word-count">0 words</span>
+              </label>
+            </div><div class="novel-question-item">
+              <div class="novel-question-prompt">
+                <strong>9.</strong>
+                <span>Make a prediction as to what you believe will happen in the next section of the book.</span>
+              </div>
+              <div class="novel-question-hint" data-novel-question-hint hidden><strong>Teacher Hint:</strong> Base the prediction on evidence from conflict, character goals, or foreshadowing.</div>
+              <label class="novel-answer-field">
+                <textarea rows="5" data-novel-question-answer="section-1-prediction" placeholder="Type your analytical response here..."></textarea>
+                <span class="novel-word-count">0 words</span>
+              </label>
+            </div>
+      </div>
+    </article><article class="novel-question-panel" data-novel-question-panel="section-2" data-panel-title="Section 2 Questions" data-panel-subtitle="Answer after reading the middle third of your novel." hidden>
+      <header class="novel-question-document-header">
+        <p>ELA 20-1 Formative Reading</p>
+        <h3 data-novel-question-title>Section 2 Questions</h3>
+        <span data-novel-question-subtitle>Answer after reading the middle third of your novel.</span>
+        <div class="novel-question-progress">
+          <div><span>Formative Progress</span><strong data-novel-question-progress-label>0 of 9 answered</strong></div>
+          <div class="novel-question-progress-track"><div data-novel-question-progress-fill></div></div>
+        </div>
+      </header>
+      <div class="novel-question-list">
+        <div class="novel-question-item">
+              <div class="novel-question-prompt">
+                <strong>1.</strong>
+                <span>Has the conflict changed? Explain.</span>
+              </div>
+              <div class="novel-question-hint" data-novel-question-hint hidden><strong>Teacher Hint:</strong> Describe whether the original conflict has intensified, shifted, or revealed a deeper problem.</div>
+              <label class="novel-answer-field">
+                <textarea rows="5" data-novel-question-answer="section-2-conflict-change" placeholder="Type your analytical response here..."></textarea>
+                <span class="novel-word-count">0 words</span>
+              </label>
+            </div><div class="novel-question-item">
+              <div class="novel-question-prompt">
+                <strong>2.</strong>
+                <span>Are all the characters facing the same problem?</span>
+              </div>
+              <div class="novel-question-hint" data-novel-question-hint hidden><strong>Teacher Hint:</strong> Compare at least two characters and explain how their pressures are similar or different.</div>
+              <label class="novel-answer-field">
+                <textarea rows="5" data-novel-question-answer="section-2-shared-problem" placeholder="Type your analytical response here..."></textarea>
+                <span class="novel-word-count">0 words</span>
+              </label>
+            </div><div class="novel-question-item">
+              <div class="novel-question-prompt">
+                <strong>3.</strong>
+                <span>Discuss one important decision the protagonist has made.</span>
+              </div>
+              <div class="novel-question-hint" data-novel-question-hint hidden><strong>Teacher Hint:</strong> Name the decision, explain the motivation, and describe the consequence or likely consequence.</div>
+              <label class="novel-answer-field">
+                <textarea rows="5" data-novel-question-answer="section-2-protagonist-decision" placeholder="Type your analytical response here..."></textarea>
+                <span class="novel-word-count">0 words</span>
+              </label>
+            </div><div class="novel-question-item">
+              <div class="novel-question-prompt">
+                <strong>4.</strong>
+                <span>Discuss the author&#39;s style: foreshadowing, flashbacks, changing point of view, and other choices.</span>
+              </div>
+              <div class="novel-question-hint" data-novel-question-hint hidden><strong>Teacher Hint:</strong> Choose one or two techniques and explain their effect on the reader.</div>
+              <label class="novel-answer-field">
+                <textarea rows="5" data-novel-question-answer="section-2-author-style" placeholder="Type your analytical response here..."></textarea>
+                <span class="novel-word-count">0 words</span>
+              </label>
+            </div><div class="novel-question-item">
+              <div class="novel-question-prompt">
+                <strong>5.</strong>
+                <span>Discuss how the author is continuing to create suspense.</span>
+              </div>
+              <div class="novel-question-hint" data-novel-question-hint hidden><strong>Teacher Hint:</strong> Look for complications, uncertainty, secrets, delayed answers, or rising stakes.</div>
+              <label class="novel-answer-field">
+                <textarea rows="5" data-novel-question-answer="section-2-continuing-suspense" placeholder="Type your analytical response here..."></textarea>
+                <span class="novel-word-count">0 words</span>
+              </label>
+            </div><div class="novel-question-item">
+              <div class="novel-question-prompt">
+                <strong>6.</strong>
+                <span>Has anything happened to surprise you? Explain.</span>
+              </div>
+              <div class="novel-question-hint" data-novel-question-hint hidden><strong>Teacher Hint:</strong> Describe the moment and explain why it challenged your expectations.</div>
+              <label class="novel-answer-field">
+                <textarea rows="5" data-novel-question-answer="section-2-surprise" placeholder="Type your analytical response here..."></textarea>
+                <span class="novel-word-count">0 words</span>
+              </label>
+            </div><div class="novel-question-item">
+              <div class="novel-question-prompt">
+                <strong>7.</strong>
+                <span>How is the author developing the characters? Is it by telling us about them, by telling us what others say about them, or by telling us what the characters say about themselves?</span>
+              </div>
+              <div class="novel-question-hint" data-novel-question-hint hidden><strong>Teacher Hint:</strong> Use one character as an example and connect the technique to what you learn about that character.</div>
+              <label class="novel-answer-field">
+                <textarea rows="5" data-novel-question-answer="section-2-character-development" placeholder="Type your analytical response here..."></textarea>
+                <span class="novel-word-count">0 words</span>
+              </label>
+            </div><div class="novel-question-item">
+              <div class="novel-question-prompt">
+                <strong>8.</strong>
+                <span>How accurate have your predictions been so far?</span>
+              </div>
+              <div class="novel-question-hint" data-novel-question-hint hidden><strong>Teacher Hint:</strong> Compare your earlier prediction to what actually happened and explain what you learned about the author&#39;s direction.</div>
+              <label class="novel-answer-field">
+                <textarea rows="5" data-novel-question-answer="section-2-prediction-accuracy" placeholder="Type your analytical response here..."></textarea>
+                <span class="novel-word-count">0 words</span>
+              </label>
+            </div><div class="novel-question-item">
+              <div class="novel-question-prompt">
+                <strong>9.</strong>
+                <span>Make a final prediction for the end of the book.</span>
+              </div>
+              <div class="novel-question-hint" data-novel-question-hint hidden><strong>Teacher Hint:</strong> Use current conflict, character choices, and repeated patterns to make a defensible prediction.</div>
+              <label class="novel-answer-field">
+                <textarea rows="5" data-novel-question-answer="section-2-final-prediction" placeholder="Type your analytical response here..."></textarea>
+                <span class="novel-word-count">0 words</span>
+              </label>
+            </div>
+      </div>
+    </article><article class="novel-question-panel" data-novel-question-panel="section-3" data-panel-title="Section 3 Questions" data-panel-subtitle="Answer after finishing your novel." hidden>
+      <header class="novel-question-document-header">
+        <p>ELA 20-1 Formative Reading</p>
+        <h3 data-novel-question-title>Section 3 Questions</h3>
+        <span data-novel-question-subtitle>Answer after finishing your novel.</span>
+        <div class="novel-question-progress">
+          <div><span>Formative Progress</span><strong data-novel-question-progress-label>0 of 6 answered</strong></div>
+          <div class="novel-question-progress-track"><div data-novel-question-progress-fill></div></div>
+        </div>
+      </header>
+      <div class="novel-question-list">
+        <div class="novel-question-item">
+              <div class="novel-question-prompt">
+                <strong>1.</strong>
+                <span>What overall influence did the setting have on the events of the novel and the characters?</span>
+              </div>
+              <div class="novel-question-hint" data-novel-question-hint hidden><strong>Teacher Hint:</strong> Explain how time, place, social conditions, or atmosphere shaped choices and conflict.</div>
+              <label class="novel-answer-field">
+                <textarea rows="5" data-novel-question-answer="section-3-setting-influence" placeholder="Type your analytical response here..."></textarea>
+                <span class="novel-word-count">0 words</span>
+              </label>
+            </div><div class="novel-question-item">
+              <div class="novel-question-prompt">
+                <strong>2.</strong>
+                <span>Were the characters dynamic or static? Explain.</span>
+              </div>
+              <div class="novel-question-hint" data-novel-question-hint hidden><strong>Teacher Hint:</strong> Identify who changed or stayed the same and support your answer with specific evidence.</div>
+              <label class="novel-answer-field">
+                <textarea rows="5" data-novel-question-answer="section-3-dynamic-static" placeholder="Type your analytical response here..."></textarea>
+                <span class="novel-word-count">0 words</span>
+              </label>
+            </div><div class="novel-question-item">
+              <div class="novel-question-prompt">
+                <strong>3.</strong>
+                <span>Approximately how much time elapses in the book?</span>
+              </div>
+              <div class="novel-question-hint" data-novel-question-hint hidden><strong>Teacher Hint:</strong> Estimate the story&#39;s timeline and mention any jumps, flashbacks, or compressed time.</div>
+              <label class="novel-answer-field">
+                <textarea rows="5" data-novel-question-answer="section-3-elapsed-time" placeholder="Type your analytical response here..."></textarea>
+                <span class="novel-word-count">0 words</span>
+              </label>
+            </div><div class="novel-question-item">
+              <div class="novel-question-prompt">
+                <strong>4.</strong>
+                <span>What themes were developed? Which one do you feel was the most important one?</span>
+              </div>
+              <div class="novel-question-hint" data-novel-question-hint hidden><strong>Teacher Hint:</strong> Choose the strongest theme and explain how the novel develops it from beginning to end.</div>
+              <label class="novel-answer-field">
+                <textarea rows="5" data-novel-question-answer="section-3-important-theme" placeholder="Type your analytical response here..."></textarea>
+                <span class="novel-word-count">0 words</span>
+              </label>
+            </div><div class="novel-question-item">
+              <div class="novel-question-prompt">
+                <strong>5.</strong>
+                <span>What will you take away from your reading of the book?</span>
+              </div>
+              <div class="novel-question-hint" data-novel-question-hint hidden><strong>Teacher Hint:</strong> Connect your takeaway to a character, conflict, theme, or repeated idea from the novel.</div>
+              <label class="novel-answer-field">
+                <textarea rows="5" data-novel-question-answer="section-3-takeaway" placeholder="Type your analytical response here..."></textarea>
+                <span class="novel-word-count">0 words</span>
+              </label>
+            </div><div class="novel-question-item">
+              <div class="novel-question-prompt">
+                <strong>6.</strong>
+                <span>Make a criticism or recommendation for the novel.</span>
+              </div>
+              <div class="novel-question-hint" data-novel-question-hint hidden><strong>Teacher Hint:</strong> Evaluate the novel thoughtfully by naming a strength, limitation, audience, or reason for your recommendation.</div>
+              <label class="novel-answer-field">
+                <textarea rows="5" data-novel-question-answer="section-3-criticism-recommendation" placeholder="Type your analytical response here..."></textarea>
+                <span class="novel-word-count">0 words</span>
+              </label>
+            </div>
+      </div>
+    </article>
+        <section class="novel-question-synthesis">
+          <h3>Critical Analytical Essay Prep</h3>
+          <p>After finishing the novel, use your section answers to prepare for the critical analytical essay.</p>
+          <label class="novel-answer-field">
+            <span>Working thesis</span>
+            <textarea rows="5" data-novel-question-answer="essay-working-thesis" placeholder="Draft a thesis about the novel's most important idea..."></textarea>
+            <span class="novel-word-count">0 words</span>
+          </label>
+          <label class="novel-answer-field">
+            <span>Evidence plan</span>
+            <textarea rows="6" data-novel-question-answer="essay-evidence-plan" placeholder="List 2-3 moments, quotations, or character choices you could use as evidence..."></textarea>
+            <span class="novel-word-count">0 words</span>
+          </label>
+        </section>
+      </div>
+    </div>
+    <script>
+(() => {
+  const root = document.querySelector("[data-novel-question-studio]");
+  if (!root) return;
+  const storageKey = "canvas-helper:ela20-1-novel-study-clean:responses";
+  const select = root.querySelector("[data-novel-question-section-select]");
+  const saveStatus = root.querySelector("[data-novel-question-save-status]");
+  let hintsVisible = false;
+  let saveTimer = null;
+  function readResponses(){
+    try { return JSON.parse(localStorage.getItem(storageKey) || "{}"); } catch { return {}; }
+  }
+  function writeResponses(values){
+    localStorage.setItem(storageKey, JSON.stringify(values));
+  }
+  function wordCount(value){
+    return String(value || "").trim().split(/\s+/).filter(Boolean).length;
+  }
+  function updateFieldCount(field){
+    const countNode = field.closest(".novel-answer-field")?.querySelector(".novel-word-count");
+    if (countNode) countNode.textContent = wordCount(field.value) + " words";
+  }
+  function activePanel(){
+    return root.querySelector('[data-novel-question-panel]:not([hidden])');
+  }
+  function updateProgress(){
+    const panel = activePanel();
+    if (!panel) return;
+    const fields = Array.from(panel.querySelectorAll("[data-novel-question-answer]"));
+    const answered = fields.filter((field) => String(field.value || "").trim()).length;
+    const total = fields.length;
+    const label = panel.querySelector("[data-novel-question-progress-label]");
+    const fill = panel.querySelector("[data-novel-question-progress-fill]");
+    if (label) label.textContent = answered + " of " + total + " answered";
+    if (fill) fill.style.width = total ? Math.round((answered / total) * 100) + "%" : "0%";
+  }
+  function restoreResponses(){
+    const responses = readResponses();
+    root.querySelectorAll("[data-novel-question-answer]").forEach((field) => {
+      const key = field.getAttribute("data-novel-question-answer");
+      field.value = key ? responses[key] || "" : "";
+      updateFieldCount(field);
+    });
+    updateProgress();
+  }
+  function setSection(sectionId){
+    root.querySelectorAll("[data-novel-question-panel]").forEach((panel) => {
+      panel.hidden = panel.getAttribute("data-novel-question-panel") !== sectionId;
+    });
+    root.querySelectorAll("[data-novel-question-hint]").forEach((hint) => {
+      hint.hidden = !hintsVisible;
+    });
+    updateProgress();
+  }
+  select?.addEventListener("change", () => setSection(select.value));
+  root.addEventListener("click", (event) => {
+    const hintsButton = event.target.closest("[data-novel-question-toggle-hints]");
+    if (hintsButton) {
+      hintsVisible = !hintsVisible;
+      hintsButton.innerHTML = '<span class="material-symbols-outlined" aria-hidden="true">lightbulb</span> ' + (hintsVisible ? "Hide Hints" : "Show Hints");
+      root.querySelectorAll("[data-novel-question-hint]").forEach((hint) => { hint.hidden = !hintsVisible; });
+    }
+    if (event.target.closest("[data-novel-question-print]")) {
+      const panel = root.querySelector("[data-novel-question-panel]:not([hidden])") || root;
+      if (typeof window.printCourseSection === "function") window.printCourseSection(panel);
+      else window.print();
+    }
+  });
+  root.addEventListener("input", (event) => {
+    const field = event.target.closest("[data-novel-question-answer]");
+    if (!field) return;
+    const key = field.getAttribute("data-novel-question-answer");
+    if (!key) return;
+    const responses = readResponses();
+    responses[key] = field.value;
+    writeResponses(responses);
+    updateFieldCount(field);
+    updateProgress();
+    if (saveStatus) {
+      saveStatus.textContent = "Saving...";
+      clearTimeout(saveTimer);
+      saveTimer = setTimeout(() => { saveStatus.textContent = "Saved locally"; }, 700);
+    }
+  });
+  if (select) select.value = "section-1";
+  restoreResponses();
+  setSection(select?.value || "section-1");
+})();
+    </script>
+  </section>
+<section id="writing" class="course-page" hidden>
+    <p class="course-kicker">ELA 20-1 | Writing Studio</p>
+    <h2>Novel Study Writing Studio</h2>
+    <p class="page-intro">Turn reading notes into a clear analytical response. Build from claim to evidence to explanation, then check the paragraph for precision.</p>
+    <div class="writing-activity-shell" data-writing-studio>
+      <div class="writing-activity-picker">
+        <div>
+          <label for="writing-activity-select">Choose a workbook activity</label>
+          <p>Switch between draft building and motif evidence tracking. Your work stays saved in this browser.</p>
+        </div>
+        <select id="writing-activity-select" data-writing-activity-select>
+          <option value="paragraph-builder">Analytical Paragraph Builder</option><option value="motif-string-board">Motif String Board</option><option value="author-intent-toggle">Author&#39;s Intent Toggle</option>
+        </select>
+      </div>
+
+      <article class="writing-activity-panel" data-writing-activity-panel="paragraph-builder">
+        <header class="writing-activity-header">
+          <h3>Analytical Paragraph Builder</h3>
+          <p>Build a controlling idea, connect evidence, draft the paragraph, and run a quick revision check.</p>
+        </header>
+        <div class="writing-activity-body paragraph-builder-tool" data-paragraph-builder>
+          <section class="paragraph-builder-instructions">
+            <h4>Using the builder</h4>
+            <ol>
+              <li>Draft a controlling idea that can be argued.</li>
+              <li>Connect two pieces of evidence before writing the paragraph.</li>
+              <li>Run the revision check, then save each attempt to the paragraph bank.</li>
+            </ol>
+          </section>
+
+          <form class="paragraph-builder-form" data-paragraph-form>
+            <section class="paragraph-builder-section">
+              <h3>Controlling idea</h3>
+              <p>Make a claim that can be argued, not just observed.</p>
+              <label>What does the novel suggest about people, choices, conflict, or change?<textarea rows="5" data-response-id="controlling-idea" placeholder="Draft one arguable idea in a complete sentence..."></textarea></label>
+            </section>
+            <section class="paragraph-builder-section">
+              <h3>Evidence bank</h3>
+              <label>Quotation or moment 1<textarea rows="4" data-response-id="evidence-one" placeholder="Add quotation or moment, page number, speaker, and context..."></textarea></label>
+              <label>Quotation or moment 2<textarea rows="4" data-response-id="evidence-two" placeholder="Add a second piece of evidence that develops or complicates the idea..."></textarea></label>
+              <label>Why these details fit together<textarea rows="4" data-response-id="evidence-connection" placeholder="Explain the pattern these two details create..."></textarea></label>
+            </section>
+            <section class="paragraph-builder-section">
+              <h3>Paragraph builder</h3>
+              <label>Analytical paragraph<textarea rows="10" data-response-id="paragraph-builder" placeholder="Write a full paragraph: claim, evidence, explanation, second evidence, deeper explanation, concluding insight..."></textarea></label>
+            </section>
+            <section class="paragraph-builder-section">
+              <h3>Revision check</h3>
+              <label class="check-row"><input type="checkbox" data-response-id="revision-claim"> My claim is arguable and specific.</label>
+              <label class="check-row"><input type="checkbox" data-response-id="revision-evidence"> My evidence includes page references or clear context.</label>
+              <label class="check-row"><input type="checkbox" data-response-id="revision-analysis"> My explanation says how the evidence proves the claim.</label>
+              <label class="check-row"><input type="checkbox" data-response-id="revision-polish"> I checked sentence clarity and formal tone.</label>
+            </section>
+            <div class="paragraph-builder-actions">
+              <button class="button primary" type="submit">Save paragraph</button>
+              <span data-paragraph-status>Saved locally</span>
+            </div>
+          </form>
+
+          <section class="paragraph-bank-shell">
+            <div class="paragraph-bank-header">
+              <div>
+                <h4>Paragraph bank</h4>
+                <p>Saved attempts stay here so students can compare revisions and submit more than one version.</p>
+              </div>
+              <strong data-paragraph-count>0 saved paragraphs</strong>
+            </div>
+            <div class="paragraph-bank-list" data-paragraph-bank></div>
+          </section>
+
+          <div class="paragraph-bottom-actions">
+            <button class="button primary" type="button" data-print-writing>Print / PDF</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="writing-activity-panel motif-board-panel" data-writing-activity-panel="motif-string-board" hidden>
+        <header class="writing-activity-header">
+          <h3>Motif String Board</h3>
+          <p>Track quotations and moments by recurring motif so patterns are visible before you write.</p>
+        </header>
+        <div class="writing-activity-body motif-board" data-motif-board>
+          <section class="motif-instructions">
+            <h4>Using the board</h4>
+            <ol>
+              <li>Choose a motif that keeps returning in the novel.</li>
+              <li>Add a quotation or important moment with a chapter and page, then save it to the board.</li>
+              <li>Use the filters to compare repeated evidence before drafting.</li>
+            </ol>
+          </section>
+          <form class="motif-entry-form" data-motif-form>
+            <label class="motif-quote-field">Quotation or important moment
+              <textarea rows="4" data-motif-quote placeholder="Paste a quotation or summarize a moment from the novel..."></textarea>
+            </label>
+            <div class="motif-form-grid">
+              <label>Motif
+                <select data-motif-select><option value="Ambition &amp; Greed">Ambition &amp; Greed</option><option value="Betrayal &amp; Deception">Betrayal &amp; Deception</option><option value="Dreams &amp; Aspirations">Dreams &amp; Aspirations</option><option value="Fate vs. Free Will">Fate vs. Free Will</option><option value="Gender Roles">Gender Roles</option><option value="Illusion vs. Reality">Illusion vs. Reality</option><option value="Isolation &amp; Belonging">Isolation &amp; Belonging</option><option value="Power &amp; Control">Power &amp; Control</option><option value="Societal Pressure">Societal Pressure</option><option value="Shifting Identity">Shifting Identity</option></select>
+              </label>
+              <label>Chapter
+                <input type="number" min="1" step="1" data-motif-chapter placeholder="1">
+              </label>
+              <label>Page
+                <input type="text" data-motif-page placeholder="42">
+              </label>
+            </div>
+            <div class="motif-save-line">
+              <button class="button primary" type="submit">Save to board</button>
+              <span data-motif-status>Saved locally</span>
+            </div>
+          </form>
+
+          <div class="motif-board-tools">
+            <div class="motif-filter-row" data-motif-filters></div>
+            <button class="button" type="button" data-motif-sort>Sort: Chapter Asc</button>
+          </div>
+
+          <div class="motif-board-summary">
+            <strong data-motif-count>0 quote cards</strong>
+            <span>Use the filter buttons to compare one repeated idea across the full novel.</span>
+          </div>
+          <div class="motif-card-grid" data-motif-cards></div>
+          <div class="motif-empty-state" data-motif-empty>
+            <h4>No evidence saved yet</h4>
+            <p>Add a quotation, motif, chapter, and page to start building a visible evidence pattern.</p>
+          </div>
+          <div class="motif-bottom-actions">
+            <button class="button primary" type="button" data-print-writing>Print / PDF</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="writing-activity-panel author-intent-panel" data-writing-activity-panel="author-intent-toggle" hidden>
+        <header class="writing-activity-header">
+          <h3>Author's Intent Toggle</h3>
+          <p>Move from what the character experiences to why the author built that moment into the novel.</p>
+        </header>
+        <div class="writing-activity-body author-intent-tool" data-author-intent>
+          <section class="author-intent-instructions">
+            <h4>How it works</h4>
+            <ol>
+              <li>Answer a plot-level question from inside the character's reality.</li>
+              <li>Pivot to the author level and explain what the writer is exposing or critiquing.</li>
+              <li>Save the pair so your archive becomes evidence for later analytical writing.</li>
+            </ol>
+          </section>
+
+          <div class="author-intent-tabs" role="tablist" aria-label="Author intent stages">
+            <button type="button" data-author-view-button="plot" class="is-active">Plot Level</button>
+            <button type="button" data-author-view-button="author">Author Level</button>
+            <button type="button" data-author-view-button="archive">Saved Analyses <span data-author-archive-count>0</span></button>
+          </div>
+
+          <section class="author-intent-view" data-author-view="plot">
+            <div class="author-intent-copy">
+              <h4>Character's reality</h4>
+              <p>Treat the character as a person making choices within the world of the novel.</p>
+            </div>
+            <div class="author-prompt-block">
+              <span>Choose a plot-level question</span>
+              <details class="author-prompt-dropdown" data-author-prompt-dropdown>
+                <summary><span data-author-prompt-summary>What major choice did the character make in this chapter, and what was their conscious motivation?</span></summary>
+                <div class="author-prompt-list" role="listbox" data-author-prompt-list>
+                  <button type="button" role="option" aria-selected="true" data-author-prompt-choice="choice" class="is-active">What major choice did the character make in this chapter, and what was their conscious motivation?</button><button type="button" role="option" aria-selected="false" data-author-prompt-choice="conflict" class="">What is the character&#39;s primary internal conflict in this specific scene?</button><button type="button" role="option" aria-selected="false" data-author-prompt-choice="reaction" class="">How does the character react to the unexpected obstacle or revelation presented here?</button><button type="button" role="option" aria-selected="false" data-author-prompt-choice="relationship" class="">What significant shift occurs in the character&#39;s relationship dynamics during this interaction?</button><button type="button" role="option" aria-selected="false" data-author-prompt-choice="values" class="">What core belief or value does the character compromise or defend in this moment?</button><button type="button" role="option" aria-selected="false" data-author-prompt-choice="deception" class="">How does the character justify their morally ambiguous actions to themselves?</button><button type="button" role="option" aria-selected="false" data-author-prompt-choice="desire" class="">What explicit, tangible goal is the character actively pursuing right now?</button><button type="button" role="option" aria-selected="false" data-author-prompt-choice="vulnerability" class="">What emotional or psychological vulnerability does the character expose in this scene?</button>
+                </div>
+              </details>
+            </div>
+            <label>Plot-level response
+              <textarea rows="6" data-author-plot placeholder="Explain the character's choice, conflict, reaction, or motivation..."></textarea>
+            </label>
+            <div class="author-intent-actions">
+              <button class="button primary" type="button" data-author-pivot>Pivot to author level</button>
+              <span data-author-status>Saved locally</span>
+            </div>
+          </section>
+
+          <section class="author-intent-view" data-author-view="author" hidden>
+            <div class="author-intent-reference" data-author-reference>
+              Complete the plot-level response first, then pivot here.
+            </div>
+            <div class="author-intent-copy">
+              <h4>Author's construction</h4>
+              <p>Step outside the plot. Explain why the author may have engineered this situation.</p>
+            </div>
+            <label>Author-level analysis
+              <textarea rows="7" data-author-analysis placeholder="The author constructs this moment to reveal..."></textarea>
+            </label>
+            <div class="author-intent-actions">
+              <button class="button" type="button" data-author-back>Back to plot level</button>
+              <button class="button primary" type="button" data-author-save>Save analysis</button>
+              <span data-author-status>Saved locally</span>
+            </div>
+          </section>
+
+          <section class="author-intent-view" data-author-view="archive" hidden>
+            <div class="author-intent-archive-header">
+              <div>
+                <h4>Saved analyses</h4>
+                <p>Use this archive to compare plot-level evidence with author-level meaning.</p>
+              </div>
+              <button class="button" type="button" data-author-new>New analysis</button>
+            </div>
+            <div class="author-intent-archive" data-author-archive></div>
+          </section>
+
+          <div class="author-intent-bottom-actions">
+            <button class="button primary" type="button" data-print-writing>Print / PDF</button>
+          </div>
+        </div>
+      </article>
+    </div>
+    <script>
+(() => {
+  const root = document.querySelector("[data-writing-studio]");
+  if (!root) return;
+  const storageKey = "canvas-helper:ela20-1-novel-study-clean:responses";
+  const paragraphEntriesKey = "paragraph-builder:entries";
+  const entriesKey = "motif-string-board:entries";
+  const authorEntriesKey = "author-intent-toggle:entries";
+  const authorDraftKey = "author-intent-toggle:draft";
+  const motifs = [{"id":"Ambition & Greed","color":"#7a4a20"},{"id":"Betrayal & Deception","color":"#7b2f35"},{"id":"Dreams & Aspirations","color":"#5a5f22"},{"id":"Fate vs. Free Will","color":"#335f66"},{"id":"Gender Roles","color":"#674b67"},{"id":"Illusion vs. Reality","color":"#4d5f3f"},{"id":"Isolation & Belonging","color":"#695533"},{"id":"Power & Control","color":"#544732"},{"id":"Societal Pressure","color":"#365243"},{"id":"Shifting Identity","color":"#4f566b"}];
+  const authorPrompts = [{"id":"choice","text":"What major choice did the character make in this chapter, and what was their conscious motivation?"},{"id":"conflict","text":"What is the character's primary internal conflict in this specific scene?"},{"id":"reaction","text":"How does the character react to the unexpected obstacle or revelation presented here?"},{"id":"relationship","text":"What significant shift occurs in the character's relationship dynamics during this interaction?"},{"id":"values","text":"What core belief or value does the character compromise or defend in this moment?"},{"id":"deception","text":"How does the character justify their morally ambiguous actions to themselves?"},{"id":"desire","text":"What explicit, tangible goal is the character actively pursuing right now?"},{"id":"vulnerability","text":"What emotional or psychological vulnerability does the character expose in this scene?"}];
+  let paragraphEntries = [];
+  let entries = [];
+  let authorEntries = [];
+  let selectedAuthorPromptId = authorPrompts[0]?.id || "";
+  let currentFilter = "All";
+  let sortOrder = "asc";
+  let statusTimer = null;
+  let paragraphStatusTimer = null;
+  let authorStatusTimer = null;
+  const activitySelect = root.querySelector("[data-writing-activity-select]");
+  const paragraphForm = root.querySelector("[data-paragraph-form]");
+  const paragraphBankRoot = root.querySelector("[data-paragraph-bank]");
+  const paragraphCountRoot = root.querySelector("[data-paragraph-count]");
+  const paragraphStatusRoot = root.querySelector("[data-paragraph-status]");
+  const form = root.querySelector("[data-motif-form]");
+  const quoteField = root.querySelector("[data-motif-quote]");
+  const motifField = root.querySelector("[data-motif-select]");
+  const chapterField = root.querySelector("[data-motif-chapter]");
+  const pageField = root.querySelector("[data-motif-page]");
+  const cardsRoot = root.querySelector("[data-motif-cards]");
+  const emptyRoot = root.querySelector("[data-motif-empty]");
+  const filtersRoot = root.querySelector("[data-motif-filters]");
+  const countRoot = root.querySelector("[data-motif-count]");
+  const statusRoot = root.querySelector("[data-motif-status]");
+  const sortButton = root.querySelector("[data-motif-sort]");
+  const authorRoot = root.querySelector("[data-author-intent]");
+  const authorPromptList = root.querySelector("[data-author-prompt-list]");
+  const authorPromptDropdown = root.querySelector("[data-author-prompt-dropdown]");
+  const authorPromptSummary = root.querySelector("[data-author-prompt-summary]");
+  const authorPlotField = root.querySelector("[data-author-plot]");
+  const authorAnalysisField = root.querySelector("[data-author-analysis]");
+  const authorReference = root.querySelector("[data-author-reference]");
+  const authorArchiveRoot = root.querySelector("[data-author-archive]");
+
+  function readResponses(){
+    try { return JSON.parse(localStorage.getItem(storageKey) || "{}"); } catch { return {}; }
+  }
+  function writeResponses(values){
+    localStorage.setItem(storageKey, JSON.stringify(values));
+  }
+  function escapeText(value){
+    return String(value || "").replace(/[&<>"']/g, (character) => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;"
+    }[character]));
+  }
+  function normalizeEntry(entry){
+    if (!entry || typeof entry !== "object") return null;
+    const quote = String(entry.quote || "").trim();
+    const motif = String(entry.motif || "").trim();
+    const page = String(entry.page || "").trim();
+    const chapter = Number.parseInt(String(entry.chapter || ""), 10);
+    if (!quote || !motif || !page || !Number.isFinite(chapter) || chapter < 1) return null;
+    return {
+      id: String(entry.id || Math.random().toString(36).slice(2, 10)),
+      quote,
+      motif,
+      page,
+      chapter,
+      createdAt: Number(entry.createdAt || Date.now())
+    };
+  }
+  function loadEntries(){
+    const stored = readResponses()[entriesKey];
+    entries = Array.isArray(stored) ? stored.map(normalizeEntry).filter(Boolean) : [];
+  }
+  function normalizeParagraphEntry(entry){
+    if (!entry || typeof entry !== "object") return null;
+    const controllingIdea = String(entry.controllingIdea || "").trim();
+    const paragraph = String(entry.paragraph || "").trim();
+    if (!controllingIdea && !paragraph) return null;
+    return {
+      id: String(entry.id || Math.random().toString(36).slice(2, 10)),
+      controllingIdea,
+      evidenceOne: String(entry.evidenceOne || "").trim(),
+      evidenceTwo: String(entry.evidenceTwo || "").trim(),
+      evidenceConnection: String(entry.evidenceConnection || "").trim(),
+      paragraph,
+      checklist: {
+        claim: Boolean(entry.checklist?.claim),
+        evidence: Boolean(entry.checklist?.evidence),
+        analysis: Boolean(entry.checklist?.analysis),
+        polish: Boolean(entry.checklist?.polish),
+      },
+      createdAt: Number(entry.createdAt || Date.now())
+    };
+  }
+  function loadParagraphEntries(){
+    const stored = readResponses()[paragraphEntriesKey];
+    paragraphEntries = Array.isArray(stored) ? stored.map(normalizeParagraphEntry).filter(Boolean) : [];
+  }
+  function normalizeAuthorEntry(entry){
+    if (!entry || typeof entry !== "object") return null;
+    const question = String(entry.question || "").trim();
+    const plot = String(entry.plot || "").trim();
+    const author = String(entry.author || "").trim();
+    if (!question || !plot || !author) return null;
+    return {
+      id: String(entry.id || Math.random().toString(36).slice(2, 10)),
+      question,
+      promptId: String(entry.promptId || ""),
+      plot,
+      author,
+      createdAt: Number(entry.createdAt || Date.now())
+    };
+  }
+  function readAuthorDraft(){
+    const draft = readResponses()[authorDraftKey];
+    return draft && typeof draft === "object" ? draft : {};
+  }
+  function writeAuthorDraft(patch = {}){
+    const responses = readResponses();
+    responses[authorDraftKey] = { ...(responses[authorDraftKey] || {}), ...patch };
+    writeResponses(responses);
+  }
+  function loadAuthorEntries(){
+    const responses = readResponses();
+    const stored = responses[authorEntriesKey];
+    authorEntries = Array.isArray(stored) ? stored.map(normalizeAuthorEntry).filter(Boolean) : [];
+    const draft = readAuthorDraft();
+    if (typeof draft.promptId === "string" && draft.promptId && authorPrompts.some((prompt) => prompt.id === draft.promptId)) selectedAuthorPromptId = draft.promptId;
+    if (authorPlotField && typeof draft.plot === "string") authorPlotField.value = draft.plot;
+    if (authorAnalysisField && typeof draft.author === "string") authorAnalysisField.value = draft.author;
+    renderAuthorPromptChoices();
+  }
+  function saveEntries(message = "Saved locally"){
+    const responses = readResponses();
+    responses[entriesKey] = entries;
+    writeResponses(responses);
+    if (statusRoot) {
+      statusRoot.textContent = message;
+      clearTimeout(statusTimer);
+      statusTimer = setTimeout(() => { statusRoot.textContent = "Saved locally"; }, 1200);
+    }
+  }
+  function setParagraphStatus(message){
+    if (!paragraphStatusRoot) return;
+    paragraphStatusRoot.textContent = message;
+    clearTimeout(paragraphStatusTimer);
+    paragraphStatusTimer = setTimeout(() => { paragraphStatusRoot.textContent = "Saved locally"; }, 1200);
+  }
+  function saveParagraphEntries(message = "Saved locally"){
+    const responses = readResponses();
+    responses[paragraphEntriesKey] = paragraphEntries;
+    writeResponses(responses);
+    setParagraphStatus(message);
+  }
+  function saveAuthorEntries(message = "Saved locally"){
+    const responses = readResponses();
+    responses[authorEntriesKey] = authorEntries;
+    writeResponses(responses);
+    setAuthorStatus(message);
+  }
+  function setAuthorStatus(message){
+    root.querySelectorAll("[data-author-status]").forEach((status) => { status.textContent = message; });
+    clearTimeout(authorStatusTimer);
+    authorStatusTimer = setTimeout(() => {
+      root.querySelectorAll("[data-author-status]").forEach((status) => { status.textContent = "Saved locally"; });
+    }, 1200);
+  }
+  function setActivity(value){
+    root.querySelectorAll("[data-writing-activity-panel]").forEach((panel) => {
+      panel.hidden = panel.getAttribute("data-writing-activity-panel") !== value;
+    });
+  }
+  function getMotifColor(motifId){
+    const match = motifs.find((motif) => motif.id === motifId);
+    return match ? match.color : "#4f5a4f";
+  }
+  function filteredEntries(){
+    return entries
+      .filter((entry) => currentFilter === "All" || entry.motif === currentFilter)
+      .slice()
+      .sort((a, b) => {
+        if (a.chapter !== b.chapter) return sortOrder === "asc" ? a.chapter - b.chapter : b.chapter - a.chapter;
+        return b.createdAt - a.createdAt;
+      });
+  }
+  function renderFilters(){
+    if (!filtersRoot) return;
+    const options = ["All", ...motifs.map((motif) => motif.id)];
+    filtersRoot.innerHTML = options.map((option) => {
+      const selected = option === currentFilter ? " is-active" : "";
+      const color = option === "All" ? "#154212" : getMotifColor(option);
+      const label = option === "All" ? "All Motifs" : option;
+      return '<button type="button" class="motif-filter' + selected + '" data-motif-filter="' + escapeText(option) + '" style="--motif-color: ' + escapeText(color) + '">' + escapeText(label) + '</button>';
+    }).join("");
+  }
+  function renderBoard(){
+    const visible = filteredEntries();
+    if (countRoot) countRoot.textContent = entries.length + (entries.length === 1 ? " quote card" : " quote cards");
+    if (sortButton) sortButton.textContent = "Sort: Chapter " + (sortOrder === "asc" ? "Asc" : "Desc");
+    if (!cardsRoot || !emptyRoot) return;
+    cardsRoot.hidden = visible.length === 0;
+    emptyRoot.hidden = visible.length > 0;
+    cardsRoot.innerHTML = visible.map((entry) => {
+      const color = getMotifColor(entry.motif);
+      return '<article class="motif-card" style="--motif-color: ' + escapeText(color) + '">' +
+        '<div class="motif-card-top"><strong>' + escapeText(entry.motif) + '</strong></div>' +
+        '<blockquote>' + escapeText(entry.quote) + '</blockquote>' +
+        '<footer><span>Chapter ' + escapeText(entry.chapter) + '</span><span>Page ' + escapeText(entry.page) + '</span><button type="button" data-motif-delete="' + escapeText(entry.id) + '">Remove</button></footer>' +
+      '</article>';
+    }).join("");
+  }
+  function saveEntryFromFields(){
+    const entry = normalizeEntry({
+      quote: quoteField?.value,
+      motif: motifField?.value,
+      chapter: chapterField?.value,
+      page: pageField?.value,
+      createdAt: Date.now()
+    });
+    if (!entry) {
+      if (statusRoot) statusRoot.textContent = "Complete the fields to save a card";
+      return;
+    }
+    entries.push(entry);
+    if (quoteField) quoteField.value = "";
+    if (chapterField) chapterField.value = "";
+    if (pageField) pageField.value = "";
+    saveEntries("Saved to board");
+    renderBoard();
+  }
+  function fieldValue(key){
+    return String(root.querySelector('[data-response-id="' + key + '"]')?.value || "").trim();
+  }
+  function fieldChecked(key){
+    return Boolean(root.querySelector('[data-response-id="' + key + '"]')?.checked);
+  }
+  function clearParagraphDraft(){
+    const responses = readResponses();
+    paragraphForm?.querySelectorAll("[data-response-id]").forEach((field) => {
+      const key = field.getAttribute("data-response-id");
+      if (!key) return;
+      if (field.type === "checkbox") field.checked = false;
+      else field.value = "";
+      delete responses[key];
+    });
+    writeResponses(responses);
+  }
+  function renderParagraphBank(){
+    if (paragraphCountRoot) paragraphCountRoot.textContent = paragraphEntries.length + (paragraphEntries.length === 1 ? " saved paragraph" : " saved paragraphs");
+    if (!paragraphBankRoot) return;
+    if (!paragraphEntries.length) {
+      paragraphBankRoot.innerHTML = '<div class="paragraph-bank-empty"><h4>No paragraphs saved yet</h4><p>Complete the builder, then save each paragraph attempt here.</p></div>';
+      return;
+    }
+    const sorted = paragraphEntries.slice().sort((a, b) => b.createdAt - a.createdAt);
+    paragraphBankRoot.innerHTML = sorted.map((entry) => {
+      const checked = Object.values(entry.checklist).filter(Boolean).length;
+      return '<article class="paragraph-bank-card">' +
+        '<div class="paragraph-bank-card-header"><strong>' + escapeText(entry.controllingIdea || "Untitled paragraph") + '</strong><button type="button" data-paragraph-delete="' + escapeText(entry.id) + '">Remove</button></div>' +
+        '<div class="paragraph-bank-grid">' +
+          '<section><h5>Evidence</h5><p>' + escapeText([entry.evidenceOne, entry.evidenceTwo, entry.evidenceConnection].filter(Boolean).join("\n\n")) + '</p></section>' +
+          '<section><h5>Paragraph</h5><p>' + escapeText(entry.paragraph || "No paragraph text saved.") + '</p></section>' +
+        '</div>' +
+        '<footer><span>Revision checks: ' + checked + ' of 4</span><span>Saved ' + escapeText(new Date(entry.createdAt).toLocaleString()) + '</span></footer>' +
+      '</article>';
+    }).join("");
+  }
+  function saveParagraphDraft(){
+    const entry = normalizeParagraphEntry({
+      controllingIdea: fieldValue("controlling-idea"),
+      evidenceOne: fieldValue("evidence-one"),
+      evidenceTwo: fieldValue("evidence-two"),
+      evidenceConnection: fieldValue("evidence-connection"),
+      paragraph: fieldValue("paragraph-builder"),
+      checklist: {
+        claim: fieldChecked("revision-claim"),
+        evidence: fieldChecked("revision-evidence"),
+        analysis: fieldChecked("revision-analysis"),
+        polish: fieldChecked("revision-polish"),
+      },
+      createdAt: Date.now()
+    });
+    if (!entry) {
+      setParagraphStatus("Add a claim or paragraph before saving");
+      return;
+    }
+    paragraphEntries.push(entry);
+    saveParagraphEntries("Paragraph saved");
+    renderParagraphBank();
+    clearParagraphDraft();
+  }
+  function selectedAuthorPrompt(){
+    return authorPrompts.find((prompt) => prompt.id === selectedAuthorPromptId) || authorPrompts[0];
+  }
+  function renderAuthorPromptChoices(){
+    const prompt = selectedAuthorPrompt();
+    if (authorPromptSummary) authorPromptSummary.textContent = prompt?.text || "Choose a plot-level question";
+    if (!authorPromptList) return;
+    authorPromptList.querySelectorAll("[data-author-prompt-choice]").forEach((button) => {
+      const active = button.getAttribute("data-author-prompt-choice") === selectedAuthorPromptId;
+      button.classList.toggle("is-active", active);
+      button.setAttribute("aria-selected", active ? "true" : "false");
+    });
+  }
+  function setAuthorView(view){
+    if (!authorRoot) return;
+    authorRoot.querySelectorAll("[data-author-view]").forEach((panel) => {
+      panel.hidden = panel.getAttribute("data-author-view") !== view;
+    });
+    authorRoot.querySelectorAll("[data-author-view-button]").forEach((button) => {
+      button.classList.toggle("is-active", button.getAttribute("data-author-view-button") === view);
+    });
+  }
+  function updateAuthorReference(){
+    if (!authorReference) return;
+    const prompt = selectedAuthorPrompt();
+    const plot = String(authorPlotField?.value || "").trim();
+    authorReference.innerHTML = plot
+      ? '<strong>Plot-level question</strong><p>' + escapeText(prompt?.text || "") + '</p><strong>Character response</strong><blockquote>' + escapeText(plot) + '</blockquote>'
+      : "Complete the plot-level response first, then pivot here.";
+  }
+  function renderAuthorArchive(){
+    root.querySelectorAll("[data-author-archive-count]").forEach((node) => { node.textContent = String(authorEntries.length); });
+    if (!authorArchiveRoot) return;
+    if (!authorEntries.length) {
+      authorArchiveRoot.innerHTML = '<div class="author-intent-empty"><h4>No analyses saved yet</h4><p>Complete the plot and author levels, then save the pair here.</p></div>';
+      return;
+    }
+    const sorted = authorEntries.slice().sort((a, b) => b.createdAt - a.createdAt);
+    authorArchiveRoot.innerHTML = sorted.map((entry) => (
+      '<article class="author-intent-card">' +
+        '<div class="author-intent-card-header"><strong>' + escapeText(entry.question) + '</strong><button type="button" data-author-delete="' + escapeText(entry.id) + '">Remove</button></div>' +
+        '<div class="author-intent-card-grid">' +
+          '<section><h5>Plot Level</h5><p>' + escapeText(entry.plot) + '</p></section>' +
+          '<section><h5>Author Level</h5><p>' + escapeText(entry.author) + '</p></section>' +
+        '</div>' +
+        '<footer>Saved ' + escapeText(new Date(entry.createdAt).toLocaleString()) + '</footer>' +
+      '</article>'
+    )).join("");
+  }
+  function resetAuthorDraft(){
+    selectedAuthorPromptId = authorPrompts[0]?.id || "";
+    renderAuthorPromptChoices();
+    if (authorPlotField) authorPlotField.value = "";
+    if (authorAnalysisField) authorAnalysisField.value = "";
+    writeAuthorDraft({ promptId: selectedAuthorPromptId, plot: "", author: "" });
+    updateAuthorReference();
+    setAuthorView("plot");
+  }
+  function saveAuthorAnalysis(){
+    const prompt = selectedAuthorPrompt();
+    const plot = String(authorPlotField?.value || "").trim();
+    const author = String(authorAnalysisField?.value || "").trim();
+    if (!plot || !author || !prompt) {
+      setAuthorStatus("Complete both levels first");
+      return;
+    }
+    authorEntries.push({
+      id: Math.random().toString(36).slice(2, 10),
+      question: prompt.text,
+      promptId: prompt.id,
+      plot,
+      author,
+      createdAt: Date.now()
+    });
+    saveAuthorEntries("Analysis saved");
+    renderAuthorArchive();
+    resetAuthorDraft();
+    setAuthorView("archive");
+  }
+
+  activitySelect?.addEventListener("change", () => setActivity(activitySelect.value));
+  paragraphForm?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    saveParagraphDraft();
+  });
+  form?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    saveEntryFromFields();
+  });
+  authorPlotField?.addEventListener("input", () => {
+    writeAuthorDraft({ plot: authorPlotField.value });
+    updateAuthorReference();
+  });
+  authorAnalysisField?.addEventListener("input", () => {
+    writeAuthorDraft({ author: authorAnalysisField.value });
+  });
+  root.addEventListener("click", (event) => {
+    const filterButton = event.target.closest("[data-motif-filter]");
+    if (filterButton) {
+      currentFilter = filterButton.getAttribute("data-motif-filter") || "All";
+      renderFilters();
+      renderBoard();
+      return;
+    }
+    const deleteButton = event.target.closest("[data-motif-delete]");
+    if (deleteButton) {
+      entries = entries.filter((entry) => entry.id !== deleteButton.getAttribute("data-motif-delete"));
+      saveEntries("Removed quote");
+      renderBoard();
+      return;
+    }
+    if (event.target.closest("[data-motif-sort]")) {
+      sortOrder = sortOrder === "asc" ? "desc" : "asc";
+      renderBoard();
+      return;
+    }
+    const paragraphDeleteButton = event.target.closest("[data-paragraph-delete]");
+    if (paragraphDeleteButton) {
+      paragraphEntries = paragraphEntries.filter((entry) => entry.id !== paragraphDeleteButton.getAttribute("data-paragraph-delete"));
+      saveParagraphEntries("Removed paragraph");
+      renderParagraphBank();
+      return;
+    }
+    const authorPromptChoice = event.target.closest("[data-author-prompt-choice]");
+    if (authorPromptChoice) {
+      selectedAuthorPromptId = authorPromptChoice.getAttribute("data-author-prompt-choice") || selectedAuthorPromptId;
+      renderAuthorPromptChoices();
+      writeAuthorDraft({ promptId: selectedAuthorPromptId });
+      updateAuthorReference();
+      if (authorPromptDropdown) authorPromptDropdown.open = false;
+      return;
+    }
+    const authorViewButton = event.target.closest("[data-author-view-button]");
+    if (authorViewButton) {
+      const view = authorViewButton.getAttribute("data-author-view-button");
+      if (view) setAuthorView(view);
+      return;
+    }
+    if (event.target.closest("[data-author-pivot]")) {
+      const plot = String(authorPlotField?.value || "").trim();
+      if (!plot) {
+        setAuthorStatus("Complete the plot-level response first");
+        return;
+      }
+      updateAuthorReference();
+      setAuthorView("author");
+      return;
+    }
+    if (event.target.closest("[data-author-back]")) {
+      setAuthorView("plot");
+      return;
+    }
+    if (event.target.closest("[data-author-save]")) {
+      saveAuthorAnalysis();
+      return;
+    }
+    if (event.target.closest("[data-author-new]")) {
+      resetAuthorDraft();
+      return;
+    }
+    const authorDeleteButton = event.target.closest("[data-author-delete]");
+    if (authorDeleteButton) {
+      authorEntries = authorEntries.filter((entry) => entry.id !== authorDeleteButton.getAttribute("data-author-delete"));
+      saveAuthorEntries("Removed analysis");
+      renderAuthorArchive();
+      return;
+    }
+  });
+
+  loadEntries();
+  loadParagraphEntries();
+  loadAuthorEntries();
+  renderFilters();
+  renderBoard();
+  renderParagraphBank();
+  updateAuthorReference();
+  renderAuthorArchive();
+  setActivity(activitySelect?.value || "paragraph-builder");
+})();
+    </script>
+  </section>
+<section id="resources" class="course-page" hidden>
+    <p class="course-kicker">ELA 20-1 | Resources</p>
+    <h2>Course Resources</h2>
+    <p class="page-intro">Jump back to the imported lesson frames and source references without losing your reading or writing notes.</p>
+    <div class="resource-panel">
+      <label for="resource-select">Choose a source lesson</label>
+      <select id="resource-select" data-resource-select>
+        <option value="lesson-1-novel-unit-introduction">Novel Unit Introduction</option><option value="lesson-3-characteristics-of-a-novel">Characteristics of a Novel</option><option value="lesson-4-how-to-read-a-novel">How to Read a Novel</option>
+      </select>
+    </div>
+    <article class="resource-card" data-resource-panel="lesson-1-novel-unit-introduction" >
+          <h3>Novel Unit Introduction</h3>
+          <p>Set the purpose for the unit and prepare to track how a novel builds meaning over time.</p>
+          <p class="source-path">Imported from novel_study/novel_unit_introduction.html</p>
+          <a class="button" href="#lesson-1-novel-unit-introduction" data-page-target="lesson-1-novel-unit-introduction">Open lesson</a>
+        </article><article class="resource-card" data-resource-panel="lesson-3-characteristics-of-a-novel" hidden>
+          <h3>Characteristics of a Novel</h3>
+          <p>Review the major features of novels: plot, character, point of view, setting, conflict, and theme.</p>
+          <p class="source-path">Imported from Module 6/20-1characteristicsofanovel.html</p>
+          <a class="button" href="#lesson-3-characteristics-of-a-novel" data-page-target="lesson-3-characteristics-of-a-novel">Open lesson</a>
+        </article><article class="resource-card" data-resource-panel="lesson-4-how-to-read-a-novel" hidden>
+          <h3>How to Read a Novel</h3>
+          <p>Use active reading routines to notice patterns, questions, character change, and important passages.</p>
+          <p class="source-path">Imported from Module 6/20-1howtoreadanovel.html</p>
+          <a class="button" href="#lesson-4-how-to-read-a-novel" data-page-target="lesson-4-how-to-read-a-novel">Open lesson</a>
+        </article>
+  </section>
+  </div>
+</main>
+<script>
+const lessonIds = ["lesson-1-novel-unit-introduction","lesson-3-characteristics-of-a-novel","lesson-4-how-to-read-a-novel"];
+const pageIds = ["overview","lessons","lesson-1-novel-unit-introduction","lesson-3-characteristics-of-a-novel","lesson-4-how-to-read-a-novel","critical-writing","critical-writing-topic-thesis","critical-writing-introduction","critical-writing-body-beginning","critical-writing-body-middle","critical-writing-body-end","critical-writing-conclusion-revision","reading-guide","novel-study-questions","writing","resources"];
+const navGroupIdsByPage = {"critical-writing":"critical-writing","critical-writing-topic-thesis":"critical-writing","critical-writing-introduction":"critical-writing","critical-writing-body-beginning":"critical-writing","critical-writing-body-middle":"critical-writing","critical-writing-body-end":"critical-writing","critical-writing-conclusion-revision":"critical-writing"};
+const STORAGE_KEY = "canvas-helper:ela20-1-novel-study-clean:complete";
+const RESPONSE_STORAGE_KEY = "canvas-helper:ela20-1-novel-study-clean:responses";
+const lessonsNav = document.querySelector(".lessons-nav");
+const navGroups = Array.from(document.querySelectorAll("[data-nav-group]"));
+let saveTimer = null;
+function readComplete(){
+  try { return new Set(JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]")); } catch { return new Set(); }
+}
+function writeComplete(values){
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(Array.from(values)));
+}
+function readResponses(){
+  try { return JSON.parse(localStorage.getItem(RESPONSE_STORAGE_KEY) || "{}"); } catch { return {}; }
+}
+function writeResponses(values){
+  localStorage.setItem(RESPONSE_STORAGE_KEY, JSON.stringify(values));
+}
+function setLessonsOpen(open){
+  lessonsNav?.classList.toggle("is-open", open);
+  document.querySelector("[data-lessons-toggle]")?.setAttribute("aria-expanded", String(open));
+}
+function getNavGroup(groupId){
+  return navGroups.find((group) => group.getAttribute("data-nav-group") === groupId);
+}
+function setNavGroupOpen(groupId, open){
+  const group = getNavGroup(groupId);
+  if (!group) return;
+  group.classList.toggle("is-open", open);
+  group.querySelector("[data-nav-group-toggle]")?.setAttribute("aria-expanded", String(open));
+}
+function syncNavOpenState(activeGroupId, lessonsOpen){
+  setLessonsOpen(Boolean(lessonsOpen));
+  navGroups.forEach((group) => {
+    const groupId = group.getAttribute("data-nav-group");
+    if (groupId) setNavGroupOpen(groupId, groupId === activeGroupId);
+  });
+}
+function updateComplete(){
+  const complete = readComplete();
+  const count = lessonIds.filter((id) => complete.has(id)).length;
+  const percent = lessonIds.length ? Math.round((count / lessonIds.length) * 100) : 0;
+  document.querySelectorAll("[data-progress-count]").forEach((node) => node.textContent = count + " / " + lessonIds.length + " lessons");
+  document.querySelectorAll("[data-progress-count-inline]").forEach((node) => node.textContent = count + "/" + lessonIds.length);
+  document.querySelectorAll("[data-progress-percent]").forEach((node) => node.textContent = percent + "%");
+  document.querySelectorAll("[data-progress-fill]").forEach((node) => node.style.width = percent + "%");
+  document.querySelectorAll("[data-complete-id]").forEach((button) => {
+    const done = complete.has(button.getAttribute("data-complete-id"));
+    button.textContent = done ? "Completed" : "Complete";
+  });
+}
+function showPage(id){
+  const fallback = pageIds.includes(id) && document.getElementById(id) ? id : "overview";
+  document.querySelectorAll(".course-page").forEach((page) => page.hidden = page.id !== fallback);
+  const lessonsOpen = fallback === "lessons" || lessonIds.includes(fallback);
+  const navGroupId = navGroupIdsByPage[fallback] || "";
+  document.querySelectorAll("[data-page-target]").forEach((link) => {
+    const target = link.getAttribute("data-page-target");
+    link.classList.toggle("active", target === fallback || (lessonsOpen && target === "lessons") || (navGroupId && target === navGroupId));
+  });
+  syncNavOpenState(navGroupId, lessonsOpen);
+}
+function route(){
+  showPage((location.hash || "#overview").slice(1));
+}
+function toggleCourseMenu(){
+  document.body.classList.toggle("sidebar-collapsed");
+  const iconText = document.body.classList.contains("sidebar-collapsed") ? "dock_to_right" : "dock_to_left";
+  document.querySelectorAll("#sidebar-toggle .material-symbols-outlined, #topbar-menu-toggle .material-symbols-outlined").forEach((icon) => {
+    icon.textContent = iconText;
+  });
+}
+function setResourcePanel(id){
+  document.querySelectorAll("[data-resource-panel]").forEach((panel) => {
+    panel.hidden = panel.getAttribute("data-resource-panel") !== id;
+  });
+}
+function setActiveFilm(id){
+  if (!id) return;
+  document.querySelectorAll("[data-film-panel]").forEach((panel) => {
+    panel.hidden = panel.getAttribute("data-film-panel") !== id;
+  });
+}
+function restoreResponses(){
+  const responses = readResponses();
+  document.querySelectorAll("[data-response-id]").forEach((field) => {
+    const key = field.getAttribute("data-response-id");
+    if (!key) return;
+    if (field.type === "checkbox") field.checked = Boolean(responses[key]);
+    else field.value = responses[key] || "";
+  });
+}
+function clearPrintJob(){
+  document.body.classList.remove("print-job-active");
+  document.querySelectorAll(".print-job-root").forEach((node) => node.remove());
+}
+function syncPrintFormValues(source, clone){
+  const sourceFields = source.querySelectorAll("textarea, input, select");
+  const cloneFields = clone.querySelectorAll("textarea, input, select");
+  cloneFields.forEach((field, index) => {
+    const sourceField = sourceFields[index];
+    if (!sourceField) return;
+    if (field instanceof HTMLTextAreaElement && sourceField instanceof HTMLTextAreaElement) {
+      field.value = sourceField.value;
+      field.textContent = sourceField.value;
+    } else if (field instanceof HTMLInputElement && sourceField instanceof HTMLInputElement) {
+      if (field.type === "checkbox" || field.type === "radio") field.checked = sourceField.checked;
+      else field.value = sourceField.value;
+    } else if (field instanceof HTMLSelectElement && sourceField instanceof HTMLSelectElement) {
+      field.value = sourceField.value;
+      Array.from(field.options).forEach((option) => {
+        option.selected = option.value === sourceField.value;
+      });
+    }
+  });
+}
+function printCourseSection(source){
+  if (!source) {
+    window.print();
+    return;
+  }
+  clearPrintJob();
+  const printRoot = document.createElement("div");
+  printRoot.className = "print-job-root";
+  const clone = source.cloneNode(true);
+  syncPrintFormValues(source, clone);
+  clone.querySelectorAll("script").forEach((node) => node.remove());
+  printRoot.append(clone);
+  document.body.append(printRoot);
+  document.body.classList.add("print-job-active");
+  window.setTimeout(() => window.print(), 0);
+}
+window.printCourseSection = printCourseSection;
+document.addEventListener("click", (event) => {
+  const lessonToggle = event.target.closest("[data-lessons-toggle]");
+  if (lessonToggle) {
+    event.preventDefault();
+    const open = !lessonsNav?.classList.contains("is-open");
+    if (open) {
+      history.pushState(null, "", "#lessons");
+      showPage("lessons");
+    }
+    setLessonsOpen(open);
+    return;
+  }
+  const navGroupToggle = event.target.closest("[data-nav-group-toggle]");
+  if (navGroupToggle) {
+    event.preventDefault();
+    const groupId = navGroupToggle.getAttribute("data-nav-group-toggle");
+    if (!groupId) return;
+    const group = getNavGroup(groupId);
+    const open = !group?.classList.contains("is-open");
+    if (open) {
+      history.pushState(null, "", "#" + groupId);
+      showPage(groupId);
+    }
+    setNavGroupOpen(groupId, open);
+    return;
+  }
+  const target = event.target.closest("[data-page-target]");
+  if (target) {
+    const id = target.getAttribute("data-page-target");
+    if (id) showPage(id);
+  }
+  const completeButton = event.target.closest("[data-complete-id]");
+  if (completeButton) {
+    const complete = readComplete();
+    const id = completeButton.getAttribute("data-complete-id");
+    if (id) complete.add(id);
+    writeComplete(complete);
+    updateComplete();
+  }
+  const printButton = event.target.closest("[data-print-writing]");
+  if (printButton) {
+    printCourseSection(printButton.closest("[data-writing-activity-panel]") || printButton.closest(".course-page"));
+  }
+});
+document.addEventListener("input", (event) => {
+  const field = event.target.closest("[data-response-id]");
+  if (!field) return;
+  const key = field.getAttribute("data-response-id");
+  if (!key) return;
+  const responses = readResponses();
+  responses[key] = field.type === "checkbox" ? field.checked : field.value;
+  writeResponses(responses);
+  const saveStatus = document.querySelector("[data-save-status]");
+  if (saveStatus) {
+    saveStatus.textContent = "Saving...";
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(() => saveStatus.textContent = "Saved locally", 500);
+  }
+});
+document.addEventListener("change", (event) => {
+  const resourceSelect = event.target.closest("[data-resource-select]");
+  if (resourceSelect) setResourcePanel(resourceSelect.value);
+  const filmSelect = event.target.closest("[data-film-select]");
+  if (filmSelect) setActiveFilm(filmSelect.value);
+});
+document.getElementById("sidebar-toggle")?.addEventListener("click", toggleCourseMenu);
+document.getElementById("topbar-menu-toggle")?.addEventListener("click", toggleCourseMenu);
+window.addEventListener("hashchange", route);
+window.addEventListener("afterprint", clearPrintJob);
+restoreResponses();
+document.querySelectorAll("[data-resource-select]").forEach((select) => setResourcePanel(select.value));
+document.querySelectorAll("[data-film-select]").forEach((select) => setActiveFilm(select.value));
+route();
+updateComplete();
+</script>
+</body>
+</html>

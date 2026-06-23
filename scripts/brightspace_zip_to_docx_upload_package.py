@@ -393,6 +393,7 @@ COURSES: dict[str, CourseConfig] = {
         source_zip_name="D2LCCExport_149442_24-25 _ Learning Strategies 25 (2018) _ Per 1(A-B)_202651901.zip",
         source_zip_env="LEARNING_STRATEGIES25_SOURCE_ZIP",
         skip_title_patterns=("teacher", "keep hidden", "old"),
+        docx_style_profile="next-step",
     ),
     "learning-strategies35": CourseConfig(
         key="learning-strategies35",
@@ -401,6 +402,7 @@ COURSES: dict[str, CourseConfig] = {
         source_zip_name="D2LCCExport_149441_24-25 _ Learning Strategies 35 (2018) _ Per 1(A-B)_202651917.zip",
         source_zip_env="LEARNING_STRATEGIES35_SOURCE_ZIP",
         skip_title_patterns=("teacher", "keep hidden", "old"),
+        docx_style_profile="next-step",
     ),
     "mental-health-wellness": CourseConfig(
         key="mental-health-wellness",
@@ -707,6 +709,7 @@ class BrightspaceCourseDocxExporter:
             "courseKey": config.key,
             "courseTitle": config.course_title,
             "docxStyleProfile": config.docx_style_profile,
+            "importEngine": "unknown",
             "sourceZip": str(self.source_zip),
             "outputRoot": rel_posix(self.upload_root, self.project_root),
             "includedUnits": [],
@@ -1262,6 +1265,10 @@ class BrightspaceCourseDocxExporter:
 """
 
     def import_all_with_word(self, html_jobs: list[tuple[Path, Path]]) -> None:
+        powershell_path = shutil.which("powershell")
+        if not powershell_path:
+            self.import_all_with_python_docx(html_jobs)
+            return
         job_json = self.html_dir / "word-import-jobs.json"
         ps1 = self.html_dir / "word-import-course.ps1"
         job_json.write_text(
@@ -1334,10 +1341,279 @@ try {{
             encoding="utf-8",
         )
         subprocess.run(
-            ["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", str(ps1)],
+            [powershell_path, "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", str(ps1)],
             check=True,
         )
+        self.audit["importEngine"] = "word-com-powershell"
         for _, docx_path in html_jobs:
+            self.clamp_docx_image_extents(docx_path)
+            embedded = embed_external_image_relationships(docx_path)
+            for entry in embedded:
+                entry["docxPath"] = rel_posix(docx_path, self.upload_root)
+            self.audit["docxExternalImagesEmbedded"].extend(embedded)
+            remaining = docx_external_image_relationships(docx_path)
+            for entry in remaining:
+                entry["docxPath"] = rel_posix(docx_path, self.upload_root)
+            self.audit["docxExternalImagesRemaining"].extend(remaining)
+
+    def import_all_with_python_docx(self, html_jobs: list[tuple[Path, Path]]) -> None:
+        try:
+            from docx import Document
+            from docx.oxml import OxmlElement
+            from docx.oxml.ns import qn
+            from docx.shared import Inches, Pt, RGBColor
+        except ImportError:
+            self.import_all_with_textutil(html_jobs)
+            return
+
+        self.audit["importEngine"] = "python-docx-direct-fallback"
+        self.audit["docxImportEngine"] = "python-docx-direct-fallback"
+        self.audit["docxImportEngineNote"] = (
+            "Windows Word COM was unavailable in this Mac session. DOCX files were rebuilt from "
+            "the cleaned Word-import HTML with python-docx so text remains editable, local images "
+            "are embedded, and video handoff cards keep thumbnail images plus raw Google Docs-friendly URLs."
+        )
+        self.audit["directFallbackDocx"] = []
+
+        def style_document(document: Any) -> None:
+            section = document.sections[0]
+            section.top_margin = Inches(0.6)
+            section.bottom_margin = Inches(0.6)
+            section.left_margin = Inches(0.6)
+            section.right_margin = Inches(0.6)
+            normal = document.styles["Normal"]
+            normal.font.name = "Segoe UI"
+            normal.font.size = Pt(11.5)
+            normal.font.color.rgb = RGBColor(0x19, 0x1C, 0x1C)
+
+        def shade_paragraph(paragraph: Any, fill: str) -> None:
+            p_pr = paragraph._p.get_or_add_pPr()
+            shading = OxmlElement("w:shd")
+            shading.set(qn("w:fill"), fill)
+            p_pr.append(shading)
+
+        def add_hyperlink(paragraph: Any, text: str, url: str) -> Any:
+            relationship_id = paragraph.part.relate_to(
+                url,
+                "http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink",
+                is_external=True,
+            )
+            hyperlink = OxmlElement("w:hyperlink")
+            hyperlink.set(qn("r:id"), relationship_id)
+            run = OxmlElement("w:r")
+            properties = OxmlElement("w:rPr")
+            color = OxmlElement("w:color")
+            color.set(qn("w:val"), "155608")
+            underline = OxmlElement("w:u")
+            underline.set(qn("w:val"), "single")
+            properties.append(color)
+            properties.append(underline)
+            run.append(properties)
+            text_node = OxmlElement("w:t")
+            text_node.text = text
+            run.append(text_node)
+            hyperlink.append(run)
+            paragraph._p.append(hyperlink)
+            return hyperlink
+
+        def image_width(path: Path, requested_width: str | None = None) -> Any:
+            requested = int_attr(requested_width)
+            width_px = requested or WORD_SAFE_IMAGE_WIDTH_PX
+            try:
+                with Image.open(path) as source_image:
+                    source_image.load()
+                    width_px = requested or min(source_image.width, WORD_SAFE_IMAGE_WIDTH_PX)
+            except Exception:
+                width_px = min(width_px, WORD_SAFE_IMAGE_WIDTH_PX)
+            return Inches(max(0.5, min(width_px, WORD_SAFE_IMAGE_WIDTH_PX) / 96))
+
+        def add_image(document: Any, image_node: HtmlElement, base_dir: Path) -> bool:
+            src = image_node.get("src") or ""
+            image_path = (base_dir / unquote(src)).resolve()
+            if not image_path.exists() or image_path.suffix.casefold() == ".svg":
+                alt = normalize_text(image_node.get("alt") or "")
+                if alt:
+                    document.add_paragraph(alt)
+                return False
+            try:
+                paragraph = document.add_paragraph()
+                run = paragraph.add_run()
+                run.add_picture(str(image_path), width=image_width(image_path, image_node.get("width")))
+                return True
+            except Exception:
+                alt = normalize_text(image_node.get("alt") or image_path.name)
+                if alt:
+                    document.add_paragraph(alt)
+                return False
+
+        def add_text_run(paragraph: Any, text: str, bold: bool = False, italic: bool = False) -> None:
+            if not text:
+                return
+            run = paragraph.add_run(text)
+            run.bold = bold
+            run.italic = italic
+
+        def add_inline(paragraph: Any, node: HtmlElement, base_dir: Path, bold: bool = False, italic: bool = False) -> None:
+            tag = local_name(node.tag).casefold() if isinstance(node.tag, str) else ""
+            next_bold = bold or tag in {"strong", "b"}
+            next_italic = italic or tag in {"em", "i"}
+            if tag == "br":
+                paragraph.add_run().add_break()
+                return
+            if tag == "img":
+                src = node.get("src") or ""
+                image_path = (base_dir / unquote(src)).resolve()
+                if image_path.exists() and image_path.suffix.casefold() != ".svg":
+                    try:
+                        paragraph.add_run().add_picture(str(image_path), width=image_width(image_path, node.get("width")))
+                    except Exception:
+                        add_text_run(paragraph, normalize_text(node.get("alt") or image_path.name), next_bold, next_italic)
+                else:
+                    add_text_run(paragraph, normalize_text(node.get("alt") or ""), next_bold, next_italic)
+                return
+            if node.text:
+                add_text_run(paragraph, node.text, next_bold, next_italic)
+            if tag == "a" and node.get("href"):
+                link_text = normalize_text(node.text_content()) or node.get("href") or ""
+                paragraph._p.remove(paragraph.runs[-1]._r) if node.text and paragraph.runs else None
+                add_hyperlink(paragraph, link_text, node.get("href") or "")
+                return
+            for child in node:
+                add_inline(paragraph, child, base_dir, next_bold, next_italic)
+                if child.tail:
+                    add_text_run(paragraph, child.tail, next_bold, next_italic)
+
+        def add_paragraph_from_node(document: Any, node: HtmlElement, base_dir: Path, style: str | None = None) -> None:
+            paragraph = document.add_paragraph(style=style)
+            add_inline(paragraph, node, base_dir)
+            if not normalize_text(paragraph.text) and not paragraph.runs:
+                paragraph._element.getparent().remove(paragraph._element)
+
+        def add_video_card(document: Any, node: HtmlElement, base_dir: Path) -> None:
+            image_node = next(iter(node.xpath(".//img[@src]")), None)
+            link_node = next(iter(node.xpath(".//a[@href]")), None)
+            handoff_url = link_node.get("href") if link_node is not None else normalize_text(node.text_content())
+            label = document.add_paragraph()
+            shade_paragraph(label, "EAF7E6")
+            run = label.add_run("Google Docs video handoff")
+            run.bold = True
+            run.font.color.rgb = RGBColor(0x15, 0x56, 0x08)
+            if image_node is not None:
+                add_image(document, image_node, base_dir)
+            if handoff_url:
+                url_paragraph = document.add_paragraph()
+                shade_paragraph(url_paragraph, "FFF0CF")
+                add_hyperlink(url_paragraph, handoff_url, handoff_url)
+
+        block_tags = {"address", "article", "aside", "blockquote", "div", "figure", "footer", "header", "main", "nav", "section"}
+
+        def add_block(document: Any, node: HtmlElement, base_dir: Path) -> None:
+            tag = local_name(node.tag).casefold() if isinstance(node.tag, str) else ""
+            classes = (node.get("class") or "").casefold()
+            if "docx-video-card" in classes:
+                add_video_card(document, node, base_dir)
+                return
+            if tag in {"h1", "h2", "h3", "h4", "h5", "h6"}:
+                level = min(max(int(tag[1]), 1), 4)
+                heading = document.add_heading(normalize_text(node.text_content()), level=level)
+                for run in heading.runs:
+                    run.font.color.rgb = RGBColor(0x15, 0x56, 0x08)
+                return
+            if tag == "p":
+                add_paragraph_from_node(document, node, base_dir)
+                return
+            if tag in {"ul", "ol"}:
+                style = "List Bullet" if tag == "ul" else "List Number"
+                for item in node.xpath("./li"):
+                    add_paragraph_from_node(document, item, base_dir, style=style)
+                return
+            if tag == "img":
+                add_image(document, node, base_dir)
+                return
+            if tag == "table":
+                rows = node.xpath(".//tr")
+                if not rows:
+                    return
+                max_cols = max(len(row.xpath("./th|./td")) for row in rows)
+                table = document.add_table(rows=len(rows), cols=max_cols)
+                table.style = "Table Grid"
+                for row_index, row in enumerate(rows):
+                    for col_index, cell_node in enumerate(row.xpath("./th|./td")):
+                        cell = table.rows[row_index].cells[col_index]
+                        cell.text = normalize_text(cell_node.text_content())
+                return
+            if tag in block_tags or tag in {"body", "html"}:
+                has_block_child = False
+                for child in node:
+                    if not isinstance(child.tag, str):
+                        continue
+                    child_tag = local_name(child.tag).casefold()
+                    child_classes = (child.get("class") or "").casefold()
+                    if child_tag in block_tags or child_tag in {"h1", "h2", "h3", "h4", "h5", "h6", "p", "ul", "ol", "img", "table"} or "docx-video-card" in child_classes:
+                        has_block_child = True
+                        add_block(document, child, base_dir)
+                if not has_block_child:
+                    text = normalize_text(node.text_content())
+                    if text:
+                        document.add_paragraph(text)
+                return
+            text = normalize_text(node.text_content())
+            if text:
+                document.add_paragraph(text)
+
+        for html_path, docx_path in html_jobs:
+            document = Document()
+            style_document(document)
+            root = lxml_html.fromstring(html_path.read_text(encoding="utf-8", errors="ignore"))
+            main = root.find(".//main")
+            container = main if main is not None else root
+            first_section = True
+            for child in container:
+                if not isinstance(child.tag, str):
+                    continue
+                if not first_section:
+                    document.add_page_break()
+                add_block(document, child, html_path.parent)
+                first_section = False
+            document.save(docx_path)
+            self.clamp_docx_image_extents(docx_path)
+            embedded = embed_external_image_relationships(docx_path)
+            for entry in embedded:
+                entry["docxPath"] = rel_posix(docx_path, self.upload_root)
+            self.audit["docxExternalImagesEmbedded"].extend(embedded)
+            remaining = docx_external_image_relationships(docx_path)
+            for entry in remaining:
+                entry["docxPath"] = rel_posix(docx_path, self.upload_root)
+            self.audit["docxExternalImagesRemaining"].extend(remaining)
+            with zipfile.ZipFile(docx_path) as docx:
+                media_count = len([name for name in docx.namelist() if name.startswith("word/media/")])
+                xml_chars = len(docx.read("word/document.xml"))
+            self.audit["directFallbackDocx"].append(
+                {
+                    "docx": rel_posix(docx_path, REPO_ROOT),
+                    "bytes": docx_path.stat().st_size,
+                    "embeddedMedia": media_count,
+                    "xmlChars": xml_chars,
+                }
+            )
+
+    def import_all_with_textutil(self, html_jobs: list[tuple[Path, Path]]) -> None:
+        textutil_path = shutil.which("textutil")
+        if not textutil_path:
+            raise SystemExit("Neither powershell nor textutil is available for HTML-to-DOCX import.")
+        self.audit["importEngine"] = "textutil-html-fallback"
+        for html_path, docx_path in html_jobs:
+            subprocess.run(
+                [
+                    textutil_path,
+                    "-convert",
+                    "docx",
+                    str(html_path),
+                    "-output",
+                    str(docx_path),
+                ],
+                check=True,
+            )
             self.clamp_docx_image_extents(docx_path)
             embedded = embed_external_image_relationships(docx_path)
             for entry in embedded:
@@ -1394,6 +1670,7 @@ try {{
             "",
             f"Generated: {self.audit['generatedAt']}",
             f"DOCX style profile: `{self.config.docx_style_profile}`",
+            f"Import engine: `{self.audit['importEngine']}`",
             "",
             "## Folder contents",
             "",

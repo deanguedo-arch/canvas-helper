@@ -20,6 +20,8 @@ import {
 import d2lCourseMapData from "./d2l-map-data.js";
 import courseShellData from "./course-shell-data.js";
 
+const AUTHORING_UNLOCK_ALL = true;
+
 const actualHtmlSamples = {
   citeSources: `
     <div class="lesson-html">
@@ -335,16 +337,6 @@ function buildCourseFromD2LMap(seed, d2lMap) {
           description: shellActivity?.description || "Course content item",
           contentPreview,
           isHidden: lessonHidden,
-          learn: {
-            heading: node.title || `Lesson ${index + 1}`,
-            excerpt: "Mapped from the D2L manifest hierarchy. This node is included in the shell so navigation follows the real course sequence.",
-            bullets: [
-              "Manifest-derived lesson title",
-              "Source path preserved for traceability",
-              "Supports richer renderer mappings when available"
-            ],
-            callout: "This lesson is mapped from the course manifest with normalized module and lesson labels."
-          }
         };
       });
 
@@ -926,6 +918,7 @@ function readCompletionMapForModule(allCompletions, moduleId) {
 
 function buildUnlockedContentLessons(lessons, completionMap) {
   if (!Array.isArray(lessons) || lessons.length === 0) return [];
+  if (AUTHORING_UNLOCK_ALL) return lessons;
   const nextIndex = lessons.findIndex((lesson) => !completionMap[lesson.id]);
   if (nextIndex === -1) return lessons;
   return lessons.slice(0, nextIndex + 1);
@@ -947,6 +940,14 @@ function computeLessonCompletionProgress(lessons, completionMap) {
     completed += 1;
   }
   const percent = Math.round((completed / total) * 100);
+  if (AUTHORING_UNLOCK_ALL) {
+    return {
+      total,
+      completed,
+      percent,
+      isComplete: true,
+    };
+  }
   return {
     total,
     completed,
@@ -956,6 +957,7 @@ function computeLessonCompletionProgress(lessons, completionMap) {
 }
 
 function lessonProgressStateAtIndex(index, completedCount, totalCount) {
+  if (AUTHORING_UNLOCK_ALL) return index < completedCount ? "complete" : "active";
   if (index < completedCount) return "complete";
   if (index === completedCount && completedCount < totalCount) return "active";
   return "locked";
@@ -2771,15 +2773,10 @@ export default function ForensicCoursePlayerPreviewRestored() {
     const firstUnlocked = unlockedContentLessons[0] || row.contentLessons[0];
     const firstQuiz = row.quizzes[0];
     const moduleNumber = String(row.module.title || "").match(/^(\d+)/)?.[1] || String(index + 1);
-    const summary = toPlainPreview(
-      firstUnlocked?.learn?.excerpt || firstUnlocked?.contentPreview || firstUnlocked?.htmlSample || firstUnlocked?.assignmentXml?.intro,
-      "Open this module to work through the lesson pages and source activities."
-    );
     return (
       <article key={row.module.id} className={shellPanelClass} data-testid="forensics35-chapter-card">
         <div className="text-sm font-bold uppercase tracking-[0.12em] text-[#3f9f2e]">Module {moduleNumber}</div>
         <h3 className="mt-3 text-2xl font-bold leading-tight text-[#3c3f3e]">{row.module.title}</h3>
-        <p className="mt-5 min-h-[3.6rem] text-sm leading-6 text-[#606762]">{summary}</p>
         <div className="mt-6 flex flex-wrap gap-3">
           <button
             type="button"

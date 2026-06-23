@@ -3,7 +3,7 @@
   const PROJECT_SLUG = document.body?.dataset.projectSlug || "forensicstudiesoption2";
   const STORAGE_KEY = "forensicstudiesoption2.progress";
   const UI_KEY = "forensicstudiesoption2.ui";
-  const AUTHORING_UNLOCK_ALL = false;
+  const AUTHORING_UNLOCK_ALL = true;
   const AUTHORING_UNLOCK_ASSIGNMENTS = false;
   const COMPACT_NAV_QUERY = "(max-width: 1023px)";
 
@@ -590,6 +590,7 @@
       ? number
       : (data.chapters || []).find((item) => item.number === number) || null;
     if (!chapter) return false;
+    if (AUTHORING_UNLOCK_ALL && chapter.id !== "chapter-8") return true;
     if (chapter.id === "chapter-8") return false;
     if (isForensicsFinalExamChapter(chapter)) {
       return isForensicsFinalExamUnlocked();
@@ -2186,6 +2187,5 @@
   refs.body.classList.toggle("sidebar-collapsed", state.sidebarCollapsed && !isMobile());
   render();
 })();
-
 
 

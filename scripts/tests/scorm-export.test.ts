@@ -137,6 +137,20 @@ test("injectScormBridgeTag inserts bridge before first local script", () => {
   assert.match(output, /<script src="\.\/scorm-bridge\.js"><\/script>\s*<script src="\.\/main\.js"><\/script>/);
 });
 
+test("injectScormBridgeTag inserts bridge before inline course scripts", () => {
+  const html = `
+    <html>
+      <head>
+        <script>window.courseState = localStorage.getItem("course-state");</script>
+      </head>
+      <body></body>
+    </html>
+  `;
+
+  const output = injectScormBridgeTag(html, "./scorm-bridge.js");
+  assert.match(output, /<script src="\.\/scorm-bridge\.js"><\/script>\s*<script>window\.courseState/);
+});
+
 test("buildScormManifest emits SCORM 2004 metadata and resource references", () => {
   const manifest = buildScormManifest({
     identifier: "calm3new-scorm-2004",
@@ -179,6 +193,7 @@ test("buildScormBridgeScript targets the expected SCORM API", () => {
   assert.match(bridge2004, /API_1484_11/);
   assert.match(bridge2004, /"maxSuspendChars":60000/);
   assert.match(bridge2004, /const bootedImmediately = boot\(\);/);
+  assert.match(bridge2004, /DOMContentLoaded", installControls/);
   assert.match(bridge12, /LMSInitialize/);
   assert.match(bridge12, /"maxSuspendChars":3500/);
 });

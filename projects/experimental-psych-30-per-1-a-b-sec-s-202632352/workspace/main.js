@@ -1,8 +1,5 @@
 ﻿import courseShellData from "./course-shell-data.js";
 import assessmentDelivery from "./assessment-delivery.js";
-import * as pdfjsLib from "https://esm.sh/pdfjs-dist@4.10.38/legacy/build/pdf.mjs";
-
-pdfjsLib.GlobalWorkerOptions.workerSrc = "https://esm.sh/pdfjs-dist@4.10.38/legacy/build/pdf.worker.mjs";
 
 const STORAGE_KEY = String(courseShellData.storageKey || "experimental-psych-30-per-1-a-b-sec-s-202632352::workspace-state::v1");
 const LEGACY_STORAGE_KEY = `${courseShellData.storageKey}::assessment-layout::v5`;
@@ -11,8 +8,11 @@ const assessmentDeliveryByActivityId = new Map(assessmentDelivery.map((entry) =>
 const COURSE_THEME_MODES = ["current", "next-step"];
 const DEFAULT_THEME_MODE = "next-step";
 const THEME_PREFERENCE_VERSION = 2;
+const AUTHORING_UNLOCK_ALL = true;
 const COURSE_SHELL_VIEWS = ["home", "chapters", "quizzes", "assignments", "reader"];
 const SHELL_ASSIGNMENTS_VIEW = "assignments";
+const ASSIGNMENT_CARD_DESCRIPTION =
+  "Complete this assignment directly in the workspace, then save the result as a PDF and attach the resulting PDF to your corresponding Google Classroom assignment.";
 const SIDEBAR_COMPACT_QUERY = "(max-width: 1023px)";
 let compactSidebarOpen = false;
 
@@ -28,6 +28,8 @@ const quizLoadingByActivityId = new Set();
 const quizErrorByActivityId = new Set();
 const pdfDocumentPromiseByActivityId = new Map();
 const pdfErrorByActivityId = new Set();
+let pdfjsLibPromise = null;
+let readerHydrationObserver = null;
 const state = loadState();
 
 ensureSelection();
@@ -400,6 +402,21 @@ function buildReferenceRawUrl(pathValue) {
   return `/preview/references/raw/${slug}/${encodePath(pathValue)}`;
 }
 
+function buildReferenceAssetUrl(pathValue, mode = "asset") {
+  const rawUrl = buildReferenceRawUrl(pathValue);
+  const resolver = typeof window !== "undefined" ? window.__CH_REFERENCE_ASSET__ : null;
+  if (typeof resolver !== "function") {
+    return rawUrl;
+  }
+
+  try {
+    const resolvedUrl = resolver(rawUrl, { mode });
+    return typeof resolvedUrl === "string" && resolvedUrl ? resolvedUrl : rawUrl;
+  } catch {
+    return rawUrl;
+  }
+}
+
 function buildWorkspaceAssetUrl(pathValue) {
   const resolved = String(pathValue || "").trim();
   if (!resolved) {
@@ -513,7 +530,7 @@ function requestQuizData(activity) {
     })
     .finally(() => {
       quizLoadingByActivityId.delete(activity.id);
-      render();
+      renderWithForensicsScrollRestored();
     });
 }
 
@@ -644,6 +661,14 @@ function moduleCompletion(module) {
   const completedCount = content.filter((activity) => isLessonCompleted(activity.id)).length;
   const totalCount = content.length;
   const percent = totalCount ? Math.round((completedCount / totalCount) * 100) : 0;
+  if (AUTHORING_UNLOCK_ALL) {
+    return {
+      completedCount,
+      totalCount,
+      percent,
+      isUnlocked: true
+    };
+  }
   return {
     completedCount,
     totalCount,
@@ -656,6 +681,9 @@ function buildUnlockedContentItems(contentItems) {
   const items = Array.isArray(contentItems) ? contentItems : [];
   if (!items.length) {
     return [];
+  }
+  if (AUTHORING_UNLOCK_ALL) {
+    return items;
   }
 
   const nextIndex = items.findIndex((activity) => !isLessonCompleted(activity.id));
@@ -922,8 +950,105 @@ function requestActivityHtml(activity) {
     })
     .finally(() => {
       htmlLoadingByActivityId.delete(activity.id);
-      render();
+      renderWithForensicsScrollRestored();
     });
+}
+
+function loadPdfJsLib() {
+  if (pdfjsLibPromise) {
+    return pdfjsLibPromise;
+  }
+
+  pdfjsLibPromise = import("https://esm.sh/pdfjs-dist@4.10.38/legacy/build/pdf.mjs")
+    .then((module) => {
+      const pdfjsLib = module?.default || module;
+      pdfjsLib.GlobalWorkerOptions.workerSrc = "https://esm.sh/pdfjs-dist@4.10.38/legacy/build/pdf.worker.mjs";
+      return pdfjsLib;
+    })
+    .catch((error) => {
+      pdfjsLibPromise = null;
+      throw error;
+    });
+
+  return pdfjsLibPromise;
+}
+
+function findCourseActivityById(activityId) {
+  if (!activityId) {
+    return null;
+  }
+
+  for (const module of courseShellData.modules || []) {
+    const buckets = getModuleBuckets(module);
+    const content = Array.isArray(buckets.content) ? buckets.content : [];
+    const assignments = Array.isArray(buckets.assignments) ? buckets.assignments : [];
+    const match = content.concat(assignments).find((activity) => activity.id === activityId);
+    if (match) {
+      return match;
+    }
+  }
+
+  return null;
+}
+
+function disconnectReaderHydrationObserver() {
+  if (readerHydrationObserver) {
+    readerHydrationObserver.disconnect();
+    readerHydrationObserver = null;
+  }
+}
+
+function bindLazyReaderHydration() {
+  disconnectReaderHydrationObserver();
+
+  const targets = Array.from(root.querySelectorAll("[data-lazy-html-activity], [data-lazy-pdf-activity]"));
+  if (!targets.length) {
+    return;
+  }
+
+  const hydrateTarget = (element) => {
+    const htmlActivityId = element.getAttribute("data-lazy-html-activity");
+    const pdfActivityId = element.getAttribute("data-lazy-pdf-activity");
+
+    if (htmlActivityId) {
+      const activity = findCourseActivityById(htmlActivityId);
+      if (activity && !htmlCacheByActivityId.has(activity.id) && !htmlErrorByActivityId.has(activity.id)) {
+        requestActivityHtml(activity);
+      }
+    }
+
+    if (pdfActivityId) {
+      const activity = findCourseActivityById(pdfActivityId);
+      if (activity && !pdfErrorByActivityId.has(activity.id)) {
+        hydratePdfViewer(activity);
+      }
+    }
+  };
+
+  targets.filter((target) => target.hasAttribute("data-lazy-html-activity")).slice(0, 12).forEach(hydrateTarget);
+  window.setTimeout(() => {
+    targets.filter((target) => target.hasAttribute("data-lazy-html-activity")).forEach(hydrateTarget);
+  }, 1500);
+
+  if (typeof IntersectionObserver === "undefined") {
+    targets.forEach(hydrateTarget);
+    return;
+  }
+
+  readerHydrationObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+        hydrateTarget(entry.target);
+        readerHydrationObserver?.unobserve(entry.target);
+      });
+    },
+    { rootMargin: "1200px 0px 1200px 0px" }
+  );
+
+  targets.forEach((target) => readerHydrationObserver?.observe(target));
 }
 
 function buildPdfViewerId(activityId) {
@@ -938,7 +1063,7 @@ function getPdfToolbarMetaElement(activityId) {
   return root.querySelector(`[data-pdf-meta-id="${CSS.escape(buildPdfViewerId(activityId))}"]`);
 }
 
-function requestPdfDocument(activity) {
+async function requestPdfDocument(activity) {
   if (!activity?.id || activity.resourceKind !== "pdf" || !activity.sourceHref) {
     return Promise.reject(new Error("Missing PDF source."));
   }
@@ -948,6 +1073,7 @@ function requestPdfDocument(activity) {
     return existing;
   }
 
+  const pdfjsLib = await loadPdfJsLib();
   const loadingTask = pdfjsLib.getDocument(buildReferenceRawUrl(activity.sourceHref));
   const promise = loadingTask.promise
     .then((doc) => {
@@ -1021,10 +1147,11 @@ async function hydratePdfViewer(activity) {
   } catch {
     const freshViewer = getPdfViewerElement(activity.id);
     if (freshViewer) {
+      const fallbackUrl = buildReferenceAssetUrl(activity.sourceHref, "preview");
       freshViewer.innerHTML = `
         <div class="document-fallback">
           <p>This document preview could not be rendered in the workspace.</p>
-          <a class="document-link" href="${escapeHtml(buildReferenceRawUrl(activity.sourceHref))}" target="_blank" rel="noopener noreferrer">Open the PDF in a new tab</a>
+          <a class="document-link" href="${escapeHtml(fallbackUrl)}" target="_blank" rel="noopener noreferrer">Open the PDF in a new tab</a>
         </div>
       `;
     }
@@ -1460,17 +1587,27 @@ function renderActivityBody(activity) {
 
   if (activity.resourceKind === "pdf" && activity.sourceHref) {
     const pdfUrl = buildReferenceRawUrl(activity.sourceHref);
-    queueMicrotask(() => {
-      hydratePdfViewer(activity);
-    });
+    const pdfPreviewUrl = buildReferenceAssetUrl(activity.sourceHref, "preview");
+    if (pdfPreviewUrl !== pdfUrl) {
+      return `
+        <div class="reader-document">
+          <div class="document-toolbar">
+            <div class="document-meta">PDF preview</div>
+            <a class="document-link" href="${escapeHtml(pdfPreviewUrl)}" target="_blank" rel="noopener noreferrer">Open document in a new tab</a>
+          </div>
+          <iframe class="document-preview-frame" src="${escapeHtml(pdfPreviewUrl)}" title="${escapeHtml(activity.title || "Document preview")}" loading="lazy"></iframe>
+        </div>
+      `;
+    }
+
     return `
-      <div class="reader-document">
+      <div class="reader-document" data-lazy-pdf-activity="${escapeHtml(activity.id)}">
         <div class="document-toolbar">
-          <div class="document-meta" data-pdf-meta-id="${escapeHtml(buildPdfViewerId(activity.id))}">Loading pages...</div>
+          <div class="document-meta" data-pdf-meta-id="${escapeHtml(buildPdfViewerId(activity.id))}">Preview loads as you scroll</div>
           <a class="document-link" href="${escapeHtml(pdfUrl)}" target="_blank" rel="noopener noreferrer">Open document in a new tab</a>
         </div>
         <div class="document-frame" data-pdf-viewer-id="${escapeHtml(buildPdfViewerId(activity.id))}" data-loading="false">
-          <p class="loading">Loading document pages...</p>
+          <p class="loading">Document preview loads when this lesson scrolls into view...</p>
         </div>
       </div>
     `;
@@ -1482,8 +1619,13 @@ function renderActivityBody(activity) {
     }
 
     if (!htmlErrorByActivityId.has(activity.id)) {
-      requestActivityHtml(activity);
-      return `<p class="loading">Loading formatted source content...</p>`;
+      const fallback = activity.contentBody || activity.contentPreview || activity.description || "";
+      return `
+        <div class="reader-html reader-html-pending" data-lazy-html-activity="${escapeHtml(activity.id)}">
+          ${fallback ? renderTextContent(fallback) : `<p class="loading">Loading formatted source content...</p>`}
+          <p class="reader-loading-note">Formatting the full source content as this lesson comes into view...</p>
+        </div>
+      `;
     }
   }
 
@@ -1938,31 +2080,26 @@ function renderForensics35Shell() {
 
   bindForensics35ShellEvents();
   bindEmbeddedFrames();
+  bindLazyReaderHydration();
   bindUnavailableLessonImages();
 }
 
 function bindUnavailableLessonImages() {
   root.querySelectorAll(".forensic-reader-surface img").forEach((image) => {
-    const removeImage = () => {
-      const wrapper = image.closest("figure, .image-card, .image-frame, .reader-image, p, div");
+    const markUnavailable = () => {
       image.setAttribute("data-image-unavailable", "true");
-      if (wrapper && wrapper !== root && wrapper.children.length === 1 && !wrapper.textContent.trim()) {
-        wrapper.remove();
-        return;
-      }
-      image.remove();
     };
-    const removeIfUnavailable = () => {
+    const markIfUnavailable = () => {
       const src = String(image.currentSrc || image.getAttribute("src") || "").trim();
       if (!src || (image.complete && (image.naturalWidth === 0 || image.naturalHeight === 0))) {
-        removeImage();
+        markUnavailable();
       }
     };
-    image.addEventListener("error", removeImage, { once: true });
-    image.addEventListener("load", removeIfUnavailable, { once: true });
-    removeIfUnavailable();
-    window.setTimeout(removeIfUnavailable, 250);
-    window.setTimeout(removeIfUnavailable, 1000);
+    image.setAttribute("loading", image.getAttribute("loading") || "lazy");
+    image.setAttribute("decoding", image.getAttribute("decoding") || "async");
+    image.addEventListener("error", markUnavailable, { once: true });
+    image.addEventListener("load", () => image.removeAttribute("data-image-unavailable"), { once: true });
+    window.setTimeout(markIfUnavailable, 1500);
   });
 }
 
@@ -2085,7 +2222,6 @@ function renderForensics35ChapterCard(row) {
     <article class="forensic-module-card" data-testid="forensics35-chapter-card">
       <div class="forensic-overline">Module ${row.index + 1}</div>
       <h3>${escapeHtml(formatForensics35ModuleTitle(row))}</h3>
-      <p>Mapped from the D2L manifest hierarchy. This node is included in the shell so navigation follows the real course sequence.</p>
       <div class="forensic-card-actions">
         <button type="button" class="forensic-primary-button" data-open-shell-content="${escapeHtml(row.module.id)}">Open content</button>
         ${quiz ? `<button type="button" class="forensic-secondary-button" data-open-shell-quiz="${escapeHtml(row.module.id)}" data-activity-id="${escapeHtml(quiz.id)}" ${locked ? "disabled" : ""}>Open test</button>` : ""}
@@ -2114,7 +2250,7 @@ function renderForensics35AssignmentLibrary(rows) {
   return `
     <section class="forensic-library-section" id="forensics35-assignment-library">
       <h2>Assignments</h2>
-      <p>Open an assignment after completing the related module content.</p>
+      <p>${escapeHtml(ASSIGNMENT_CARD_DESCRIPTION)}</p>
       <div class="forensic-assessment-grid">
         ${cards || `<div class="forensic-empty">No standalone assignments are available in this course shell.</div>`}
       </div>
@@ -2122,16 +2258,26 @@ function renderForensics35AssignmentLibrary(rows) {
   `;
 }
 
+function formatAssignmentTitleForCard(title) {
+  return String(title || "Assignment")
+    .replace(/\s*(?:\([^)]*\)|\[[^\]]*\])\s*/g, " ")
+    .replace(/\s+/g, " ")
+    .trim() || "Assignment";
+}
+
 function renderForensics35AssessmentCard(row, activity, index, type) {
   const locked = !row.quizzesUnlocked;
-  const actionAttribute = type === "assignment" ? "data-open-shell-assignment" : "data-open-shell-quiz";
+  const isAssignment = type === "assignment";
+  const actionAttribute = isAssignment ? "data-open-shell-assignment" : "data-open-shell-quiz";
+  const activityTitle = isAssignment ? formatAssignmentTitleForCard(activity.title) : activity.title || "Assessment";
+  const buttonLabel = isAssignment ? "Open assignment" : "Open test";
   return `
-    <article class="forensic-module-card" data-testid="${type === "assignment" ? "forensics35-assignment-card" : "forensics35-quiz-card"}">
-      <div class="forensic-overline">${type === "assignment" ? "Assignment" : "Quiz"} ${index + 1}</div>
-      <h3>${escapeHtml(activity.title || (type === "assignment" ? "Assignment" : "Assessment"))}</h3>
-      <p>Mapped from the D2L manifest hierarchy. This node is included in the shell so navigation follows the real course sequence.</p>
+    <article class="forensic-module-card" data-testid="${isAssignment ? "forensics35-assignment-card" : "forensics35-quiz-card"}">
+      <div class="forensic-overline">${isAssignment ? "Assignment" : "Quiz"} ${index + 1}</div>
+      <h3>${escapeHtml(activityTitle)}</h3>
+      ${isAssignment ? `<p class="forensic-assignment-description">${escapeHtml(ASSIGNMENT_CARD_DESCRIPTION)}</p>` : ""}
       <div class="forensic-card-actions">
-        <button type="button" class="forensic-secondary-button" ${actionAttribute}="${escapeHtml(row.module.id)}" data-activity-id="${escapeHtml(activity.id)}" ${locked ? "disabled" : ""}>Open test</button>
+        <button type="button" class="forensic-secondary-button" ${actionAttribute}="${escapeHtml(row.module.id)}" data-activity-id="${escapeHtml(activity.id)}" ${locked ? "disabled" : ""}>${buttonLabel}</button>
       </div>
       ${locked ? `<div class="forensic-lock-pill">Locked until all module content is marked complete</div>` : ""}
     </article>
@@ -2170,7 +2316,7 @@ function renderForensics35ChapterReader(row) {
         <section class="forensic-progress-control" data-testid="mark-complete-panel">
           <div class="forensic-overline">Progress control</div>
           <h3>Lesson sequence</h3>
-          <p>Complete each lesson to unlock the next card in this module.</p>
+          <p>All lesson content for this module is laid out below.</p>
           <div class="forensic-progressbar"><span style="width:${row.completion.percent}%"></span></div>
           <p>${row.completion.completedCount}/${row.completion.totalCount} completed in this module</p>
         </section>
@@ -2187,8 +2333,9 @@ function renderForensics35SequenceCard(row, activity, index) {
   const locked = !unlockedIds.has(activity.id);
   const complete = isLessonCompleted(activity.id);
   const progressState = locked ? "locked" : complete ? "complete" : "active";
+  const cardState = locked ? "locked" : complete ? "complete" : "active";
   return `
-    <article class="forensic-sequence-card" data-progress-state="${progressState}">
+    <article class="forensic-sequence-card" data-progress-state="${progressState}" data-content-state="${cardState}">
       <div class="forensic-sequence-card-head">
         <span>${index + 1}</span>
         <div>
@@ -2197,10 +2344,20 @@ function renderForensics35SequenceCard(row, activity, index) {
         </div>
       </div>
       <div class="forensic-sequence-card-body">
-        ${renderActivityBody(activity)}
+        ${
+          locked
+            ? `<p class="forensic-sequence-summary">This lesson will unlock after the previous content is marked complete.</p>`
+            : renderActivityBody(activity)
+        }
       </div>
       <div class="forensic-sequence-actions">
-        <p>${locked ? "Locked until the previous lesson is completed." : complete ? "Lesson complete." : "Active lesson. Mark complete to unlock the next card."}</p>
+        <p>${
+          locked
+            ? "Locked until the previous lesson is completed."
+            : complete
+              ? "Lesson complete."
+              : "Content is open. Mark complete whenever you are ready."
+        }</p>
         <div>
           <button type="button" class="forensic-secondary-button" data-complete-lesson="${escapeHtml(activity.id)}" data-completed="${complete ? "true" : "false"}" ${locked ? "disabled" : ""}>${complete ? "Mark incomplete" : "Mark complete"}</button>
           ${!complete ? `<button type="button" class="forensic-secondary-button" data-complete-next="${escapeHtml(activity.id)}" data-module-id="${escapeHtml(row.module.id)}" ${locked ? "disabled" : ""}>Mark complete + next</button>` : ""}
@@ -2234,7 +2391,7 @@ function renderForensics35AssignmentReader(row) {
     <section class="forensic-reader-surface forensic-assessment-reader forensic-assignment-reader">
       <button type="button" class="forensic-secondary-button" data-shell-nav="${escapeHtml(SHELL_ASSIGNMENTS_VIEW)}">Back to assignments</button>
       <div class="forensic-reader-kicker">Module ${row.index + 1} - Assignment</div>
-      <h2>${escapeHtml(selected?.title || "Assignment")}</h2>
+      <h2>${escapeHtml(formatAssignmentTitleForCard(selected?.title))}</h2>
       <div class="forensic-assignment-body">
         ${selected ? renderActivityBody(selected) : `<div class="forensic-empty">No standalone assignment is available for this module.</div>`}
       </div>
@@ -2277,7 +2434,10 @@ function bindForensics35ShellEvents() {
   root.querySelectorAll("[data-open-shell-content]").forEach((button) => {
     button.addEventListener("click", () => {
       closeForensics35MenuAfterSelection();
-      openForensics35Content(button.getAttribute("data-open-shell-content") || "");
+      openForensics35Content(
+        button.getAttribute("data-open-shell-content") || "",
+        button.getAttribute("data-activity-id") || ""
+      );
     });
   });
 
@@ -2467,6 +2627,7 @@ function injectForensics35ShellStyles() {
     .forensic-reader-progress{margin-top:1rem;max-width:56rem;padding:1rem}.forensic-reader-progress>div:first-child{display:flex;justify-content:space-between;gap:1rem;color:#414942;font-size:.75rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.forensic-reader-list{margin-top:1.5rem;display:grid;gap:1.25rem}.forensic-progress-control{padding:1.25rem}.forensic-progress-control h3{margin:.25rem 0;color:#1a1c1a;font-size:1.125rem}
     .forensic-sequence-list{display:grid;gap:1.25rem}.forensic-sequence-card{overflow:hidden;padding:1rem}.forensic-sequence-card-head{display:flex;align-items:flex-start;gap:.75rem;margin-bottom:.75rem}.forensic-sequence-card-head>span{display:inline-flex;width:1.75rem;height:1.75rem;align-items:center;justify-content:center;border-radius:999px;background:#eef6eb;color:#3f9f2e;font-weight:800}.forensic-sequence-card-head h3{margin:.25rem 0 0;color:#1a1c1a;font-size:1.125rem}
     .forensic-sequence-card-body{min-width:0;max-width:100%;overflow:hidden}.forensic-sequence-card-body :where(img,video,object,embed,canvas,svg){display:block;max-width:100%!important;height:auto!important}.forensic-sequence-card-body :where(iframe){display:block;width:100%;max-width:100%!important}.forensic-sequence-card-body :where(table){width:100%!important;max-width:100%;table-layout:fixed}
+    .forensic-sequence-summary{margin:0 0 .85rem;color:#414942;line-height:1.65}
     .forensic-sequence-actions{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem;margin-top:1rem;border-top:1px solid #d9dad9;padding-top:1rem}.forensic-sequence-actions p{margin:0;color:#606762;font-size:.75rem}.forensic-sequence-actions div{display:flex;flex-wrap:wrap;gap:.5rem}.forensic-empty{padding:1.25rem;color:#414942}.forensic-assessment-reader{max-width:72rem}.forensic-reader-surface .quiz-detail-surface{border-color:#d9dad9;background:#fff;color:#1a1c1a;box-shadow:0 2px 8px rgba(0,0,0,.08)}
     .forensic-sequence-card[data-progress-state="locked"] .forensic-sequence-card-head,.forensic-sequence-card[data-progress-state="locked"] .forensic-sequence-card-body{filter:blur(3px);pointer-events:none;user-select:none;opacity:.72}.forensic-sequence-card[data-progress-state="locked"]{position:relative}.forensic-sequence-card[data-progress-state="locked"] .forensic-sequence-actions{position:relative;z-index:2;background:#fff}
     .forensic-reader-surface .reader-html,.forensic-reader-surface .reader-text,.forensic-reader-surface .reader-document,.forensic-reader-surface .assignment-handoff,.forensic-reader-surface .quiz-shell,.forensic-reader-surface [data-testid^="renderer-"],.forensic-reader-surface [data-testid="chapter-lesson-card"],.forensic-reader-surface [data-testid="quick-checkpoints"],.forensic-reader-surface [data-testid="mark-complete-panel"]{background:#fff!important;border-color:#d9dad9!important;color:#1a1c1a!important;box-shadow:0 2px 8px rgba(0,0,0,.08)!important}
@@ -3331,6 +3492,20 @@ function injectStyles() {
       color: #433b33;
     }
 
+    .reader-html-pending {
+      border: 1px dashed #d7ccbf;
+      border-radius: 8px;
+      padding: 0.85rem 0.95rem;
+      background: #fcf8f1;
+    }
+
+    .reader-loading-note {
+      margin: 0.8rem 0 0;
+      font-size: 0.84rem;
+      line-height: 1.45;
+      color: #6f6155;
+    }
+
     .reader-html a {
       color: #7a4739;
       text-decoration-thickness: 1px;
@@ -3451,6 +3626,15 @@ function injectStyles() {
       overflow: auto;
     }
 
+    .document-preview-frame {
+      width: 100%;
+      min-height: 78vh;
+      border: 1px solid #d1c7b9;
+      border-radius: 6px;
+      background: #efe7da;
+      display: block;
+    }
+
     .pdf-page {
       margin: 0 auto;
       width: min(100%, 920px);
@@ -3486,6 +3670,29 @@ function injectStyles() {
 
     .document-fallback p {
       margin: 0;
+    }
+
+    .forensic-runtime-note {
+      border: 1px solid #d6ccbf;
+      border-radius: 8px;
+      background: #fbf7f0;
+      padding: 0.85rem 0.95rem;
+      display: grid;
+      gap: 0.25rem;
+      margin: 0.9rem 0 1rem;
+    }
+
+    .forensic-runtime-note strong {
+      color: #3b2f28;
+      font-size: 0.84rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .forensic-runtime-note span {
+      color: #53473e;
+      font-size: 0.94rem;
+      line-height: 1.55;
     }
 
     .assignment-handoff {

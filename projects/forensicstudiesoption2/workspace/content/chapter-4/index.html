@@ -792,6 +792,7 @@ Forensic Science</i></h5>
   <script>
     const chapterId = document.body.dataset.chapterId || "";
     const componentIds = ["component-1-body-fluid-evidence","component-2-blood-components","component-3-blood-typing","component-4-lesson-one-all-about-blood","component-5-lesson-2-blood-evidence","component-6-blood-evidence-phenolphthalein","component-7-phenolphthalein-confirming-that-it-is-blood","component-8-blood-evidence-the-luminol-test","component-9-blood-splatter-evidence","component-10-lesson-3-other-body-fluid-evidence","component-11-other-body-fluid-evidence","component-12-semen","component-13-sexual-assault-rape-kits","component-14-lesson-4-case-studies","component-15-cases-involving-body-fluid-evidence","component-16-historical-crime-case-1","component-17-historical-crime-case-2","component-18-fictional-crime-case-1","component-19-fictional-crime-case-2","component-20-what-is-blood","component-21-blood-types","component-22-identifying-blood-types","component-23-blood-typing-in-a-lab"];
+    const reviewUnlockAll = true;
     let completionState = Object.create(null);
 
     function getLessonCards() {
@@ -827,7 +828,7 @@ Forensic Science</i></h5>
         const complete = !!completionState[componentId];
         const reachable = isComponentReachable(componentId);
         const isLast = componentIds[componentIds.length - 1] === componentId;
-        const state = complete ? "complete" : reachable ? "active" : "locked";
+        const state = complete ? "complete" : (reviewUnlockAll || reachable) ? "active" : "locked";
         const footer = card.querySelector("[data-progress-footer]");
         const progressCopy = card.querySelector("[data-progress-copy]");
         const actions = card.querySelector("[data-progress-actions]");

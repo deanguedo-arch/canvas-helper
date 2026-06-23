@@ -1,7 +1,7 @@
 {
   "id": "worldreligions30-option1",
   "slug": "worldreligions30-option1",
-  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\processed\\worldreligions30-option1\\source",
+  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/worldreligions30-option1/source",
   "inputKind": "docx-pdf-bundle",
   "brightspaceTarget": "course-page",
   "previewModes": [
@@ -36,6 +36,11 @@
       "target": "google-hosted",
       "enabled": true,
       "notes": "Firebase-hosted delivery with Google sign-in, autosave, and cross-device resume."
+    },
+    {
+      "target": "apps-script",
+      "enabled": true,
+      "notes": "Whole-course Google Apps Script delivery with Drive-backed assets, lazy text asset routes, and Apps Script autosave."
     }
   ],
   "authoringStatus": "active",
@@ -58,10 +63,16 @@
       "worldreligions30-option1.assignment.chapter10interactive"
     ]
   },
+  "appsScript": {
+    "driveRootFolderId": "1glj1Db5LHkra5RF0K-8CokinhEG9CwFg",
+    "webAppUrl": "https://script.google.com/a/macros/eips.ca/s/AKfycbyjCZL5qxsW5F3FdDag7i2VtfYptPHReNpyBm59dziw7I441syvTaajFdcWjCcnmPVj/exec",
+    "executeAs": "Me (dean.guedo@eips.ca)",
+    "access": "Anyone within Elk Island Public Schools"
+  },
   "sourceOfTruthNotes": "Edit the workspace shell files. Chapter PDFs are local library assets. Quiz content is generated from the booklet DOCX sources into workspace/course-data.js.",
   "learningSource": "other",
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-04-22T15:18:22.260Z",
-  "updatedAt": "2026-06-02T20:13:18.387Z",
-  "workspaceApprovedAt": "2026-06-02T20:13:18.387Z"
+  "updatedAt": "2026-06-23T14:53:09.580Z",
+  "workspaceApprovedAt": "2026-06-11T19:31:19.189Z"
 }

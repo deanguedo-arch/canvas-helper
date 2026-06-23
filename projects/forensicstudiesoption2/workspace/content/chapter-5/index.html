@@ -446,6 +446,7 @@
   <script>
     const chapterId = document.body.dataset.chapterId || "";
     const componentIds = ["component-1-forensic-detection-of-impaired-driving","component-2-forensic-detection-of-impaired-driving","component-3-lesson-1-alcohol-and-its-effects-upon-the-body","component-4-scientifc-description-of-alcohol","component-5-the-breakdown-of-alcohol-by-the-body","component-6-behavioral-effects-of-alcohol-consumption","component-7-the-drunkometer","component-8-lesson-2-the-breathalyzer","component-9-the-breathalyzer","component-10-determining-bac","component-11-drawbacks-to-the-breathalyzer","component-12-the-intoxilyzer-consequences-of-impaired-driving","component-13-the-intoxilyzer","component-14-operation-of-bac-testing-devices","component-15-refusal-to-provide-a-breath-sample","component-16-lesson-4-criminal-cases-involving-impaired-driving","component-17-the-drunken-russian-diplomat","component-18-the-death-of-princess-diana"];
+    const reviewUnlockAll = true;
     let completionState = Object.create(null);
 
     function getLessonCards() {
@@ -481,7 +482,7 @@
         const complete = !!completionState[componentId];
         const reachable = isComponentReachable(componentId);
         const isLast = componentIds[componentIds.length - 1] === componentId;
-        const state = complete ? "complete" : reachable ? "active" : "locked";
+        const state = complete ? "complete" : (reviewUnlockAll || reachable) ? "active" : "locked";
         const footer = card.querySelector("[data-progress-footer]");
         const progressCopy = card.querySelector("[data-progress-copy]");
         const actions = card.querySelector("[data-progress-actions]");

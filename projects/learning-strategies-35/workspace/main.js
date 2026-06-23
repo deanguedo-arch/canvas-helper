@@ -307,7 +307,6 @@
             <article class="course-card chapter-card editorial-overview-card" style="--accent:${escapeHtml(chapter.accent || "#2f8f6b")}">
               <p class="card-code">${escapeHtml(chapter.code)}</p>
               <h4 class="card-title">${escapeHtml(chapter.title)}</h4>
-              <p class="card-summary">${escapeHtml(chapter.summary)}</p>
               <div class="card-actions">
                 <button class="btn btn-primary" type="button" data-open-chapter="${escapeHtml(chapter.id)}">Open content</button>
               </div>
@@ -331,7 +330,6 @@
           <div>
             <p class="detail-eyebrow">${escapeHtml(chapter.code)}</p>
             <h4 class="detail-title">${escapeHtml(chapter.title)}</h4>
-            <p class="detail-summary">${escapeHtml(chapter.summary)}</p>
             ${componentCount ? `<div class="status-chip">${escapeHtml(`${completedCount}/${componentCount} components complete`)}</div>` : ""}
           </div>
           <div class="detail-actions">

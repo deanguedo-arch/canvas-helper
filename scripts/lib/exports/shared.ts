@@ -5,6 +5,7 @@ import { readFile, stat } from "node:fs/promises";
 import path from "node:path";
 
 import { load } from "cheerio";
+import { build as buildWithEsbuild } from "esbuild";
 import { lookup as lookupMimeType } from "mime-types";
 
 import { copyDirectory, ensureDir, listFilesRecursive, removePath } from "../fs.js";
@@ -116,6 +117,7 @@ type HtmlProcessingMode = "data-uri" | "asset-registry";
 export type EmbeddedAssetRecord = {
   id: string;
   mimeType: string;
+  referencePath?: string;
 } & (
   | {
       contentKind: "text";
@@ -137,6 +139,27 @@ type SingleHtmlBuildContext = {
   dataUriCache: Map<string, string>;
   embeddedAssetCache: Map<string, EmbeddedAssetRecord>;
   nextEmbeddedAssetId: number;
+};
+
+type LocalModuleExportInfo = {
+  defaultExpression: string | null;
+  namedExports: Set<string>;
+};
+
+type LocalModuleBundleState = {
+  emittedModulePaths: Set<string>;
+  importStack: Set<string>;
+  moduleExportsByPath: Map<string, LocalModuleExportInfo>;
+  nextModuleId: number;
+};
+
+type StaticImportBindings = {
+  defaultBinding: string | null;
+  namespaceBinding: string | null;
+  namedBindings: Array<{
+    imported: string;
+    local: string;
+  }>;
 };
 
 function createSingleHtmlBuildContext(): SingleHtmlBuildContext {
@@ -169,6 +192,10 @@ function isStylesheetPath(filePath: string) {
   return path.extname(filePath).toLowerCase() === ".css";
 }
 
+function htmlNeedsRelativeAssetContext(html: string) {
+  return /\b(?:src|href|poster|data)=["'][^"']*(?:\.{1,2}\/|references\/)/i.test(html);
+}
+
 function shouldProcessInlineScript(typeAttribute: string | undefined) {
   const normalizedType = (typeAttribute ?? "").trim().toLowerCase();
   return (
@@ -180,6 +207,28 @@ function shouldProcessInlineScript(typeAttribute: string | undefined) {
   );
 }
 
+function isBabelScriptType(typeAttribute: string | undefined) {
+  return (typeAttribute ?? "").trim().toLowerCase().includes("babel");
+}
+
+function isBabelStandaloneResource(value: string) {
+  return /(?:@babel\/standalone|babel\.min\.js|babel\.standalone)/i.test(value);
+}
+
+async function findPrecompiledSiblingScript(scriptPath: string, workspaceDir: string) {
+  const extension = path.extname(scriptPath).toLowerCase();
+  if (extension !== ".jsx" && extension !== ".tsx") {
+    return null;
+  }
+
+  const siblingScriptPath = path.join(path.dirname(scriptPath), `${path.basename(scriptPath, extension)}.js`);
+  if (siblingScriptPath === scriptPath || !(await isWorkspaceFile(workspaceDir, siblingScriptPath))) {
+    return null;
+  }
+
+  return siblingScriptPath;
+}
+
 function escapeForQuotedJavaScriptLiteral(value: string, quote: string) {
   return value
     .replace(/\\/g, "\\\\")
@@ -188,6 +237,192 @@ function escapeForQuotedJavaScriptLiteral(value: string, quote: string) {
 
 function toEmbeddedAssetUrlExpression(assetId: string) {
   return `window.__CH_ASSET__(${JSON.stringify(assetId)})`;
+}
+
+function createLocalModuleBundleState(): LocalModuleBundleState {
+  return {
+    emittedModulePaths: new Set(),
+    importStack: new Set(),
+    moduleExportsByPath: new Map(),
+    nextModuleId: 1
+  };
+}
+
+function escapeRegExp(value: string) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function parseNamedImportBindings(namedClause: string) {
+  const trimmedClause = namedClause.trim().replace(/^\{/, "").replace(/\}$/, "").trim();
+  if (!trimmedClause) {
+    return [];
+  }
+
+  return trimmedClause
+    .split(",")
+    .map((part) => part.trim())
+    .filter(Boolean)
+    .map((part) => {
+      const aliasMatch = /^([A-Za-z_$][\w$]*)\s+as\s+([A-Za-z_$][\w$]*)$/.exec(part);
+      if (aliasMatch) {
+        return {
+          imported: aliasMatch[1],
+          local: aliasMatch[2]
+        };
+      }
+
+      return {
+        imported: part,
+        local: part
+      };
+    });
+}
+
+function parseStaticImportBindings(importClause: string | undefined): StaticImportBindings {
+  const bindings: StaticImportBindings = {
+    defaultBinding: null,
+    namespaceBinding: null,
+    namedBindings: []
+  };
+  const trimmedClause = (importClause ?? "").trim();
+  if (!trimmedClause) {
+    return bindings;
+  }
+
+  if (trimmedClause.startsWith("{")) {
+    bindings.namedBindings = parseNamedImportBindings(trimmedClause);
+    return bindings;
+  }
+
+  if (trimmedClause.startsWith("*")) {
+    const namespaceMatch = /^\*\s+as\s+([A-Za-z_$][\w$]*)$/.exec(trimmedClause);
+    bindings.namespaceBinding = namespaceMatch?.[1] ?? null;
+    return bindings;
+  }
+
+  const commaIndex = trimmedClause.indexOf(",");
+  if (commaIndex === -1) {
+    bindings.defaultBinding = trimmedClause;
+    return bindings;
+  }
+
+  bindings.defaultBinding = trimmedClause.slice(0, commaIndex).trim();
+  const secondaryClause = trimmedClause.slice(commaIndex + 1).trim();
+  if (secondaryClause.startsWith("{")) {
+    bindings.namedBindings = parseNamedImportBindings(secondaryClause);
+  } else if (secondaryClause.startsWith("*")) {
+    const namespaceMatch = /^\*\s+as\s+([A-Za-z_$][\w$]*)$/.exec(secondaryClause);
+    bindings.namespaceBinding = namespaceMatch?.[1] ?? null;
+  }
+
+  return bindings;
+}
+
+function hasTopLevelDeclaration(source: string, identifier: string) {
+  const declarationPattern = new RegExp(`\\b(?:const|let|var|function|class)\\s+${escapeRegExp(identifier)}\\b`);
+  return declarationPattern.test(source);
+}
+
+function transformLocalModuleExports(source: string, state: LocalModuleBundleState): {
+  code: string;
+  exports: LocalModuleExportInfo;
+} {
+  const namedExports = new Set<string>();
+  let defaultExpression: string | null = null;
+  let nextSource = source.replace(
+    /\bexport\s+(const|let|var)\s+([A-Za-z_$][\w$]*)/g,
+    (_match, declarationKind: string, exportName: string) => {
+      namedExports.add(exportName);
+      return `${declarationKind} ${exportName}`;
+    }
+  );
+
+  nextSource = nextSource.replace(
+    /\bexport\s+(async\s+function|function|class)\s+([A-Za-z_$][\w$]*)/g,
+    (_match, declarationKind: string, exportName: string) => {
+      namedExports.add(exportName);
+      return `${declarationKind} ${exportName}`;
+    }
+  );
+
+  nextSource = nextSource.replace(/\bexport\s*\{([^}]+)\}\s*;?/g, (_match, exportList: string) => {
+    for (const part of String(exportList).split(",")) {
+      const trimmedPart = part.trim();
+      if (!trimmedPart) {
+        continue;
+      }
+
+      const aliasMatch = /^([A-Za-z_$][\w$]*)\s+as\s+([A-Za-z_$][\w$]*)$/.exec(trimmedPart);
+      const localName = aliasMatch?.[1] ?? trimmedPart;
+      const exportedName = aliasMatch?.[2] ?? trimmedPart;
+      if (exportedName === "default") {
+        defaultExpression = localName;
+      } else {
+        namedExports.add(localName);
+      }
+    }
+
+    return "";
+  });
+
+  const defaultFunctionMatch = /\bexport\s+default\s+(async\s+function|function)\s+([A-Za-z_$][\w$]*)/.exec(nextSource);
+  if (defaultFunctionMatch) {
+    defaultExpression = defaultFunctionMatch[2];
+    nextSource = nextSource.replace(
+      /\bexport\s+default\s+(async\s+function|function)\s+([A-Za-z_$][\w$]*)/,
+      `${defaultFunctionMatch[1]} ${defaultFunctionMatch[2]}`
+    );
+  }
+
+  if (!defaultExpression) {
+    const anonymousDefaultFunctionMatch = /\bexport\s+default\s+(async\s+function|function)\s*\(/.exec(nextSource);
+    if (anonymousDefaultFunctionMatch) {
+      defaultExpression = `__ch_module_default_${state.nextModuleId++}`;
+      nextSource = nextSource.replace(
+        /\bexport\s+default\s+(async\s+function|function)\s*\(/,
+        `${anonymousDefaultFunctionMatch[1]} ${defaultExpression}(`
+      );
+    }
+  }
+
+  if (!defaultExpression) {
+    const defaultClassMatch = /\bexport\s+default\s+class\s+([A-Za-z_$][\w$]*)/.exec(nextSource);
+    if (defaultClassMatch) {
+      defaultExpression = defaultClassMatch[1];
+      nextSource = nextSource.replace(/\bexport\s+default\s+class\s+([A-Za-z_$][\w$]*)/, `class ${defaultClassMatch[1]}`);
+    }
+  }
+
+  if (!defaultExpression) {
+    const anonymousDefaultClassMatch = /\bexport\s+default\s+class\s*(?=\{|\sextends\b)/.exec(nextSource);
+    if (anonymousDefaultClassMatch) {
+      defaultExpression = `__ch_module_default_${state.nextModuleId++}`;
+      nextSource = nextSource.replace(/\bexport\s+default\s+class\s*/, `class ${defaultExpression} `);
+    }
+  }
+
+  if (!defaultExpression) {
+    const defaultIdentifierMatch = /\bexport\s+default\s+([A-Za-z_$][\w$]*)\s*;?/.exec(nextSource);
+    if (defaultIdentifierMatch) {
+      defaultExpression = defaultIdentifierMatch[1];
+      nextSource = hasTopLevelDeclaration(nextSource, defaultExpression)
+        ? nextSource.replace(/\bexport\s+default\s+([A-Za-z_$][\w$]*)\s*;?/, "")
+        : nextSource.replace(/\bexport\s+default\s+([A-Za-z_$][\w$]*)\s*;?/, `const ${defaultExpression} = ${defaultExpression};`);
+    }
+  }
+
+  if (!defaultExpression && /\bexport\s+default\b/.test(nextSource)) {
+    defaultExpression = `__ch_module_default_${state.nextModuleId++}`;
+    nextSource = nextSource.replace(/\bexport\s+default\b/, `const ${defaultExpression} =`);
+  }
+
+  return {
+    code: nextSource,
+    exports: {
+      defaultExpression,
+      namedExports
+    }
+  };
 }
 
 async function resolveEmbeddedAssetExpression(
@@ -211,17 +446,137 @@ async function resolveEmbeddedAssetExpression(
   return toEmbeddedAssetUrlExpression(embeddedAsset.id);
 }
 
+async function bundleLocalScriptModule(
+  modulePath: string,
+  workspaceDir: string,
+  context: SingleHtmlBuildContext,
+  documentAssets: DocumentAssetCollector,
+  state: LocalModuleBundleState
+) {
+  const normalizedModulePath = normalizePath(modulePath);
+  const cachedExports = state.moduleExportsByPath.get(normalizedModulePath);
+  if (cachedExports) {
+    return {
+      code: "",
+      exports: cachedExports
+    };
+  }
+
+  if (state.importStack.has(normalizedModulePath)) {
+    throw new Error(`Circular local script import detected while bundling "${modulePath}".`);
+  }
+
+  state.importStack.add(normalizedModulePath);
+  const moduleSource = await readFile(modulePath, "utf8");
+  const processedModuleSource = await processJavaScriptSource(
+    moduleSource,
+    path.dirname(modulePath),
+    workspaceDir,
+    context,
+    "asset-registry",
+    documentAssets,
+    state
+  );
+  const transformedModule = transformLocalModuleExports(processedModuleSource, state);
+  state.moduleExportsByPath.set(normalizedModulePath, transformedModule.exports);
+  state.emittedModulePaths.add(normalizedModulePath);
+  state.importStack.delete(normalizedModulePath);
+
+  return transformedModule;
+}
+
+function buildLocalImportBindingCode(bindings: StaticImportBindings, exportInfo: LocalModuleExportInfo) {
+  const bindingLines: string[] = [];
+
+  if (bindings.namespaceBinding) {
+    const namespaceEntries = [...exportInfo.namedExports].map((name) => `${JSON.stringify(name)}:${name}`);
+    if (exportInfo.defaultExpression) {
+      namespaceEntries.unshift(`default:${exportInfo.defaultExpression}`);
+    }
+    bindingLines.push(`const ${bindings.namespaceBinding} = {${namespaceEntries.join(",")}};`);
+  }
+
+  if (bindings.defaultBinding) {
+    if (!exportInfo.defaultExpression) {
+      throw new Error(`Local module does not provide a default export for "${bindings.defaultBinding}".`);
+    }
+
+    if (bindings.defaultBinding !== exportInfo.defaultExpression) {
+      bindingLines.push(`const ${bindings.defaultBinding} = ${exportInfo.defaultExpression};`);
+    }
+  }
+
+  for (const binding of bindings.namedBindings) {
+    const sourceExpression = binding.imported === "default" ? exportInfo.defaultExpression : binding.imported;
+    if (!sourceExpression) {
+      throw new Error(`Local module does not provide a default export for "${binding.local}".`);
+    }
+
+    if (binding.local !== sourceExpression) {
+      bindingLines.push(`const ${binding.local} = ${sourceExpression};`);
+    }
+  }
+
+  return bindingLines.join("\n");
+}
+
+async function inlineLocalStaticImports(
+  scriptContent: string,
+  scriptDir: string,
+  workspaceDir: string,
+  context: SingleHtmlBuildContext,
+  documentAssets: DocumentAssetCollector,
+  state: LocalModuleBundleState
+) {
+  return replaceAsync(
+    scriptContent,
+    /^\s*import\s+(?:(.*?)\s+from\s+)?(['"])([^'"]+)\2\s*;?/gms,
+    async (match) => {
+      const importClause = match[1];
+      const resourceRef = match[3] ?? "";
+      if (!resourceRef || isExternalResource(resourceRef)) {
+        return match[0];
+      }
+
+      const resolvedPath = resolveWorkspaceResourcePath(resourceRef, scriptDir, workspaceDir);
+      if (!resolvedPath || !(await isWorkspaceFile(workspaceDir, resolvedPath)) || !isScriptPath(resolvedPath)) {
+        return match[0];
+      }
+
+      const bindings = parseStaticImportBindings(importClause);
+      const bundledModule = await bundleLocalScriptModule(resolvedPath, workspaceDir, context, documentAssets, state);
+      const bindingCode = buildLocalImportBindingCode(bindings, bundledModule.exports);
+      const inlinedModuleCode =
+        bundledModule.code.trim().length > 0 ? `/* inlined ${resourceRef} */\n${bundledModule.code.trim()}` : "";
+      context.inlinedAssetCount += 1;
+
+      return [inlinedModuleCode, bindingCode].filter(Boolean).join("\n");
+    }
+  );
+}
+
 async function processJavaScriptSource(
   scriptContent: string,
   scriptDir: string,
   workspaceDir: string,
   context: SingleHtmlBuildContext,
   scriptMode: ScriptProcessingMode = "data-uri",
-  documentAssets?: DocumentAssetCollector
+  documentAssets?: DocumentAssetCollector,
+  localModuleState?: LocalModuleBundleState
 ) {
   if (scriptMode === "asset-registry" && documentAssets) {
-    let nextScript = await replaceAsync(
+    const moduleState = localModuleState ?? createLocalModuleBundleState();
+    let nextScript = await inlineLocalStaticImports(
       scriptContent,
+      scriptDir,
+      workspaceDir,
+      context,
+      documentAssets,
+      moduleState
+    );
+
+    nextScript = await replaceAsync(
+      nextScript,
       /`((?:\.{1,2}\/|\/)[^`?#\r\n]+)((?:[?#][^`]*)?)`/g,
       async (match) => {
         const rawPath = match[1] ?? "";
@@ -280,17 +635,28 @@ async function processJavaScriptSource(
 async function readAndProcessStylesheet(
   stylesheetPath: string,
   workspaceDir: string,
-  context: SingleHtmlBuildContext
+  context: SingleHtmlBuildContext,
+  importStack = new Set<string>()
 ) {
   const cacheKey = normalizePath(stylesheetPath);
   if (context.stylesheetCache.has(cacheKey)) {
     return context.stylesheetCache.get(cacheKey) ?? "";
   }
 
-  let stylesheet = await readFile(stylesheetPath, "utf8");
-  stylesheet = await inlineCssAssetUrls(stylesheet, path.dirname(stylesheetPath), workspaceDir, context);
-  context.stylesheetCache.set(cacheKey, stylesheet);
-  return stylesheet;
+  if (importStack.has(cacheKey)) {
+    return "";
+  }
+
+  importStack.add(cacheKey);
+  try {
+    let stylesheet = await readFile(stylesheetPath, "utf8");
+    stylesheet = await inlineCssImports(stylesheet, path.dirname(stylesheetPath), workspaceDir, context, importStack);
+    stylesheet = await inlineCssAssetUrls(stylesheet, path.dirname(stylesheetPath), workspaceDir, context);
+    context.stylesheetCache.set(cacheKey, stylesheet);
+    return stylesheet;
+  } finally {
+    importStack.delete(cacheKey);
+  }
 }
 
 async function readAndProcessScript(
@@ -309,6 +675,80 @@ async function readAndProcessScript(
   script = await processJavaScriptSource(script, path.dirname(scriptPath), workspaceDir, context, scriptMode, documentAssets);
   context.scriptCache.set(cacheKey, script);
   return script;
+}
+
+function mapEsmShSpecifierToPackage(specifier: string) {
+  if (!specifier.startsWith("https://esm.sh/")) {
+    return specifier;
+  }
+
+  const parsed = new URL(specifier);
+  const segments = parsed.pathname.split("/").filter(Boolean);
+  if (segments.length === 0) {
+    return specifier;
+  }
+
+  if (segments[0]?.startsWith("@")) {
+    const scopedPackageName = segments[1]?.replace(/@\d.*$/, "");
+    return [segments[0], scopedPackageName, ...segments.slice(2)].filter(Boolean).join("/");
+  }
+
+  const packageName = segments[0].replace(/@\d.*$/, "");
+  return [packageName, ...segments.slice(1)].filter(Boolean).join("/");
+}
+
+function rewriteEsmShSpecifiersForLocalBundle(script: string) {
+  return script.replace(/(["'])(https:\/\/esm\.sh\/[^"']+)\1/g, (match, quote: string, specifier: string) => {
+    const mappedSpecifier = mapEsmShSpecifierToPackage(specifier);
+    if (mappedSpecifier === specifier) {
+      return match;
+    }
+
+    return `${quote}${mappedSpecifier}${quote}`;
+  });
+}
+
+async function bundlePrecompiledScriptForAppsScript(
+  scriptPath: string,
+  workspaceDir: string,
+  context: SingleHtmlBuildContext,
+  documentAssets?: DocumentAssetCollector
+) {
+  const cacheKey = `${normalizePath(scriptPath)}::asset-registry-bundled`;
+  if (context.scriptCache.has(cacheKey)) {
+    return context.scriptCache.get(cacheKey) ?? "";
+  }
+
+  const script = rewriteEsmShSpecifiersForLocalBundle(await readFile(scriptPath, "utf8"));
+  const buildResult = await buildWithEsbuild({
+    stdin: {
+      contents: script,
+      loader: "js",
+      resolveDir: path.dirname(scriptPath),
+      sourcefile: path.basename(scriptPath)
+    },
+    bundle: true,
+    define: {
+      "process.env.NODE_ENV": JSON.stringify("production")
+    },
+    format: "iife",
+    logLevel: "silent",
+    minify: false,
+    platform: "browser",
+    target: "es2019",
+    write: false
+  });
+  const bundledScript = buildResult.outputFiles[0]?.text ?? "";
+  const processedScript = await processJavaScriptSource(
+    bundledScript,
+    workspaceDir,
+    workspaceDir,
+    context,
+    "asset-registry",
+    documentAssets
+  );
+  context.scriptCache.set(cacheKey, processedScript);
+  return processedScript;
 }
 
 function buildEmbeddedAssetBootstrap(documentAssets: DocumentAssetCollector) {
@@ -457,7 +897,15 @@ async function buildStandaloneHtmlDocument(
       continue;
     }
 
-    const script = await readAndProcessScript(scriptPath, workspaceDir, context, scriptMode, activeDocumentAssets);
+    const typeAttribute = $(node).attr("type");
+    const precompiledScriptPath =
+      htmlMode === "asset-registry" && isBabelScriptType(typeAttribute)
+        ? await findPrecompiledSiblingScript(scriptPath, workspaceDir)
+        : null;
+    const scriptPathToInline = precompiledScriptPath ?? scriptPath;
+    const script = precompiledScriptPath
+      ? await bundlePrecompiledScriptForAppsScript(precompiledScriptPath, workspaceDir, context, activeDocumentAssets)
+      : await readAndProcessScript(scriptPathToInline, workspaceDir, context, scriptMode, activeDocumentAssets);
     const replacementTag = $("<script></script>");
 
     const attributes = node.attribs ?? {};
@@ -465,13 +913,37 @@ async function buildStandaloneHtmlDocument(
       if (name === "src") {
         continue;
       }
+      if (precompiledScriptPath && (name === "type" || name === "data-type" || name === "data-presets")) {
+        continue;
+      }
       replacementTag.attr(name, value);
+    }
+
+    if (precompiledScriptPath) {
+      replacementTag.attr("data-precompiled-source", toRelativePosixPath(workspaceDir, precompiledScriptPath));
+      replacementTag.attr("data-bundled-source", "esbuild");
     }
 
     replacementTag.attr("data-inline-source", sourcePath);
     replacementTag.text(script);
     $(node).replaceWith(replacementTag);
     context.inlinedAssetCount += 1;
+  }
+
+  if (htmlMode === "asset-registry") {
+    const remainingBabelScripts = $("script")
+      .toArray()
+      .some((node) => isBabelScriptType($(node).attr("type")));
+    if (!remainingBabelScripts) {
+      $("script[src]")
+        .toArray()
+        .forEach((node) => {
+          const sourcePath = $(node).attr("src")?.trim() ?? "";
+          if (sourcePath && isBabelStandaloneResource(sourcePath)) {
+            $(node).remove();
+          }
+        });
+    }
   }
 
   const inlineScriptNodes = $("script").toArray().filter((node) => !("src" in (node.attribs ?? {})));
@@ -518,6 +990,10 @@ async function buildStandaloneHtmlDocument(
         continue;
       }
 
+      if (htmlMode === "asset-registry" && !injectEmbeddedAssets) {
+        continue;
+      }
+
       const inlinedValue = await inlineLocalResource(originalValue, htmlDir, workspaceDir, context);
       if (inlinedValue === originalValue) {
         continue;
@@ -532,6 +1008,10 @@ async function buildStandaloneHtmlDocument(
   for (const node of srcsetNodes) {
     const srcsetValue = $(node).attr("srcset")?.trim() ?? "";
     if (!srcsetValue) {
+      continue;
+    }
+
+    if (htmlMode === "asset-registry" && !injectEmbeddedAssets) {
       continue;
     }
 
@@ -576,11 +1056,21 @@ async function buildEmbeddedAssetRecord(
   let embeddedAsset: EmbeddedAssetRecord;
 
   if (isHtmlPath(resolvedPath)) {
-    const standaloneHtml = await buildStandaloneHtmlDocument(resolvedPath, workspaceDir, context, "data-uri");
+    const standaloneHtml = await buildStandaloneHtmlDocument(
+      resolvedPath,
+      workspaceDir,
+      context,
+      documentAssets ? "asset-registry" : "data-uri",
+      documentAssets,
+      false
+    );
     mimeType = "text/html";
     embeddedAsset = {
       id: `asset-${context.nextEmbeddedAssetId}`,
       mimeType,
+      ...(documentAssets && htmlNeedsRelativeAssetContext(standaloneHtml)
+        ? { referencePath: toRelativePosixPath(workspaceDir, resolvedPath) }
+        : {}),
       contentKind: "text",
       textContent: standaloneHtml
     };
@@ -704,6 +1194,39 @@ async function inlineCssAssetUrls(
   });
 }
 
+async function inlineCssImports(
+  cssContent: string,
+  cssDir: string,
+  workspaceDir: string,
+  context: SingleHtmlBuildContext,
+  importStack: Set<string>
+) {
+  return replaceAsync(
+    cssContent,
+    /@import\s+(?:url\(\s*)?(?:(['"])([^'"]+)\1|([^'")\s;]+))(?:\s*\))?\s*([^;]*);/gi,
+    async (match) => {
+      const importRef = match[2] ?? match[3] ?? "";
+      if (!importRef || isExternalResource(importRef) || importRef.startsWith("data:")) {
+        return match[0];
+      }
+
+      const resolvedPath = resolveWorkspaceResourcePath(importRef, cssDir, workspaceDir);
+      if (!resolvedPath || !(await isWorkspaceFile(workspaceDir, resolvedPath)) || !isStylesheetPath(resolvedPath)) {
+        return match[0];
+      }
+
+      const importedStylesheet = await readAndProcessStylesheet(resolvedPath, workspaceDir, context, importStack);
+      context.inlinedAssetCount += 1;
+      const mediaQuery = (match[4] ?? "").trim();
+      if (!mediaQuery) {
+        return `/* inlined ${importRef} */\n${importedStylesheet}`;
+      }
+
+      return `/* inlined ${importRef} */\n@media ${mediaQuery} {\n${importedStylesheet}\n}`;
+    }
+  );
+}
+
 async function inlineSrcset(
   srcsetValue: string,
   baseDir: string,
@@ -786,6 +1309,11 @@ export async function buildSingleHtmlOutputBundle(workspaceDir: string, entrypoi
     documentAssets: [...documentAssets.values()],
     inlinedAssetCount: context.inlinedAssetCount
   };
+}
+
+export async function buildStandaloneHtmlAssetDocument(rootDir: string, entrypointPath: string): Promise<string> {
+  const context = createSingleHtmlBuildContext();
+  return buildStandaloneHtmlDocument(entrypointPath, rootDir, context, "data-uri");
 }
 
 export function composeSingleHtmlDocument(bundle: SingleHtmlOutputBundle) {

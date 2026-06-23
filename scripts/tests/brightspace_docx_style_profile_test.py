@@ -26,16 +26,18 @@ class BrightspaceDocxStyleProfileTests(unittest.TestCase):
         exporter.css_cache = {}
         return exporter
 
-    def test_learning_strategies_15_uses_next_step_docx_style_profile(self) -> None:
-        exporter = self.exporter_for("learning-strategies15")
+    def test_learning_strategies_courses_use_next_step_docx_style_profile(self) -> None:
+        for course_key in ("learning-strategies15", "learning-strategies25", "learning-strategies35"):
+            with self.subTest(course=course_key):
+                exporter = self.exporter_for(course_key)
 
-        html = exporter.combined_html("Module 1", ["<section><div id='header'><h1>Lesson</h1></div></section>"])
+                html = exporter.combined_html("Module 1", ["<section><div id='header'><h1>Lesson</h1></div></section>"])
 
-        self.assertIn("background: #155608", html)
-        self.assertIn("border-bottom: 4pt solid #59A844", html)
-        self.assertIn("background: #FFF0CF", html)
-        self.assertIn("color: #191C1C", html)
-        self.assertNotIn("rgba", html.casefold())
+                self.assertIn("background: #155608", html)
+                self.assertIn("border-bottom: 4pt solid #59A844", html)
+                self.assertIn("background: #FFF0CF", html)
+                self.assertIn("color: #191C1C", html)
+                self.assertNotIn("rgba", html.casefold())
 
     def test_other_courses_keep_source_native_docx_style_profile(self) -> None:
         exporter = self.exporter_for("social10")

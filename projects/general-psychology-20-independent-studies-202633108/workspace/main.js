@@ -11,7 +11,7 @@ const assessmentDeliveryByActivityId = new Map(assessmentDelivery.map((entry) =>
 const COURSE_THEME_MODES = ["current", "next-step"];
 const DEFAULT_THEME_MODE = "next-step";
 const THEME_PREFERENCE_VERSION = 2;
-const AUTHORING_UNLOCK_ALL = false;
+const AUTHORING_UNLOCK_ALL = true;
 const SIDEBAR_COMPACT_QUERY = "(max-width: 1023px)";
 const COURSE_SHELL_VIEWS = ["home", "chapters", "quizzes", "reader"];
 const SHELL_ASSIGNMENTS_VIEW = "assignments";
@@ -1437,6 +1437,14 @@ function moduleCompletion(module) {
   }
   const totalCount = content.length;
   const percent = totalCount ? Math.round((completedCount / totalCount) * 100) : 0;
+  if (AUTHORING_UNLOCK_ALL) {
+    return {
+      completedCount,
+      totalCount,
+      percent,
+      isUnlocked: true
+    };
+  }
   return {
     completedCount,
     totalCount,
@@ -1448,6 +1456,9 @@ function moduleCompletion(module) {
 function buildUnlockedContentActivities(content) {
   if (!Array.isArray(content) || !content.length) {
     return [];
+  }
+  if (AUTHORING_UNLOCK_ALL) {
+    return content;
   }
   const nextIncompleteIndex = content.findIndex((activity) => !isLessonCompleted(activity.id));
   if (nextIncompleteIndex === -1) {
@@ -3288,7 +3299,6 @@ function renderForensics35ChapterCard(row) {
     <article class="forensic-module-card" data-testid="forensics35-chapter-card">
       <div class="forensic-overline">Module ${row.index + 1}</div>
       <h3>${escapeHtml(formatForensics35ModuleTitle(row))}</h3>
-      <p>Mapped from the D2L manifest hierarchy. This node is included in the shell so navigation follows the real course sequence.</p>
       <div class="forensic-card-actions">
         <button type="button" class="forensic-primary-button" data-open-shell-content="${escapeHtml(row.module.id)}">Open content</button>
         ${quiz ? `<button type="button" class="forensic-secondary-button" data-open-shell-quiz="${escapeHtml(row.module.id)}" data-activity-id="${escapeHtml(quiz.id)}" ${locked ? "disabled" : ""}>Open test</button>` : ""}
@@ -3329,13 +3339,14 @@ function renderForensics35AssessmentCard(row, activity, index, type) {
   const locked = !row.quizzesUnlocked;
   const actionAttribute = type === "assignment" ? "data-open-shell-assignment" : "data-open-shell-quiz";
   if (type === "assignment") {
+    const title = String(activity.title || "Assignment").replace(/\s*\([^)]*\)\s*$/g, "").trim() || "Assignment";
     return `
     <article class="forensic-module-card" data-testid="forensics35-assignment-card">
       <div class="forensic-overline">Assignment ${index + 1}</div>
-      <h3>${escapeHtml(activity.title || "Assignment")}</h3>
-      <p>Mapped from the D2L manifest hierarchy. This node is included in the shell so navigation follows the real course sequence.</p>
+      <h3>${escapeHtml(title)}</h3>
+      <p>Complete this assignment directly in the workspace, then save the result as a PDF and attach the resulting PDF to your corresponding Google Classroom assignment.</p>
       <div class="forensic-card-actions">
-        <button type="button" class="forensic-secondary-button" ${actionAttribute}="${escapeHtml(row.module.id)}" data-activity-id="${escapeHtml(activity.id)}" ${locked ? "disabled" : ""}>Open test</button>
+        <button type="button" class="forensic-secondary-button" ${actionAttribute}="${escapeHtml(row.module.id)}" data-activity-id="${escapeHtml(activity.id)}" ${locked ? "disabled" : ""}>Open assignment</button>
       </div>
       ${locked ? `<div class="forensic-lock-pill">Locked until all module content is marked complete</div>` : ""}
     </article>
@@ -3346,7 +3357,6 @@ function renderForensics35AssessmentCard(row, activity, index, type) {
     <article class="forensic-module-card" data-testid="forensics35-quiz-card">
       <div class="forensic-overline">Quiz ${index + 1}</div>
       <h3>${escapeHtml(activity.title || "Assessment")}</h3>
-      <p>Mapped from the D2L manifest hierarchy. This node is included in the shell so navigation follows the real course sequence.</p>
       <div class="forensic-card-actions">
         <button type="button" class="forensic-secondary-button" ${actionAttribute}="${escapeHtml(row.module.id)}" data-activity-id="${escapeHtml(activity.id)}" ${locked ? "disabled" : ""}>Open test</button>
       </div>

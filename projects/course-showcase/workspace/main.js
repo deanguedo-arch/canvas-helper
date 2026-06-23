@@ -1,5 +1,101 @@
 ﻿const courses = [
   {
+    id: "local-ela20-novel-study",
+    title: "ELA 20-1 Novel Study",
+    shortTitle: "Novel Study",
+    category: "options",
+    area: "Local Builds",
+    status: "Local",
+    description: "Clean Novel Study build from the ELA 20-1 Brightspace export. Use this entry to compare the latest lesson styling and shell behavior.",
+    url: "../../ela20-1-novel-study-clean/workspace/index.html",
+    image: "./assets/course-icons/learning-strategies.svg",
+    version: "local"
+  },
+  {
+    id: "local-social30-related-issue-1",
+    title: "Social Studies 30-1: Related Issue 1",
+    shortTitle: "Social RI 1",
+    category: "options",
+    area: "Local Builds",
+    status: "Local",
+    description: "Clean Social Studies 30-1 shell for Units 1 and 2: ideology, identity, and foundations of liberalism.",
+    url: "../../social30-1-related-issue-1/workspace/index.html",
+    image: "./assets/course-icons/world-religions.svg",
+    version: "local"
+  },
+  {
+    id: "local-social30-related-issue-2",
+    title: "Social Studies 30-1: Related Issue 2",
+    shortTitle: "Social RI 2",
+    category: "options",
+    area: "Local Builds",
+    status: "Local",
+    description: "Clean Social Studies 30-1 shell for Units 3 and 4: modern liberalism and resistance to liberalism.",
+    url: "../../social30-1-related-issue-2/workspace/index.html",
+    image: "./assets/course-icons/world-religions.svg",
+    version: "local"
+  },
+  {
+    id: "local-social30-related-issue-3",
+    title: "Social Studies 30-1: Related Issue 3",
+    shortTitle: "Social RI 3",
+    category: "options",
+    area: "Local Builds",
+    status: "Local",
+    description: "Clean Social Studies 30-1 shell for Units 5 and 6: conflict, viability, rights, democracy, and liberalism in practice.",
+    url: "../../social30-1-related-issue-3/workspace/index.html",
+    image: "./assets/course-icons/world-religions.svg",
+    version: "local"
+  },
+  {
+    id: "local-social30-related-issue-4",
+    title: "Social Studies 30-1: Related Issue 4",
+    shortTitle: "Social RI 4",
+    category: "options",
+    area: "Local Builds",
+    status: "Local",
+    description: "Clean Social Studies 30-1 shell for Unit 7: citizenship, ideology, action, and contemporary issues.",
+    url: "../../social30-1-related-issue-4/workspace/index.html",
+    image: "./assets/course-icons/world-religions.svg",
+    version: "local"
+  },
+  {
+    id: "local-ela30-othello",
+    title: "ELA 30-1 Shakespeare: Othello",
+    shortTitle: "Othello",
+    category: "options",
+    area: "Local Builds",
+    status: "Local",
+    description: "Local Othello course build with the polished ELA 30-1 shell, lesson sequence, materials, act questions, and writing studio surfaces.",
+    url: "../../ela30-1-shakespeare-othello/workspace/index.html",
+    image: "./assets/course-icons/general-psychology.svg",
+    version: "local"
+  },
+  {
+    id: "local-ela30-short-stories",
+    title: "ELA 30-1 Short Stories",
+    shortTitle: "Short Stories",
+    category: "options",
+    area: "Local Builds",
+    status: "Local",
+    description: "Local Short Stories course build used as a styling reference for lesson sequence, reading materials, and workbook surfaces.",
+    url: "../../ela30-1-short-stories/workspace/index.html",
+    image: "./assets/course-icons/ai-course-resources.svg",
+    version: "local"
+  },
+  {
+    id: "local-ela30-modern-drama",
+    title: "ELA 30-1 Modern Drama",
+    shortTitle: "Modern Drama",
+    category: "options",
+    area: "Local Builds",
+    status: "Local",
+    description: "Local Modern Drama course build for comparing the current Streetcar unit shell, Film Room behavior, and lesson presentation.",
+    url: "../../ela30-1-modern-drama/workspace/index.html",
+    image: "./assets/course-icons/experimental-psychology.svg",
+    version: "local"
+  },
+  {
     id: "forensic-studies",
     title: "Forensic Studies 25",
     shortTitle: "Forensic Studies 25",
@@ -182,7 +278,7 @@
 ];
 
 const state = {
-  activeCourseId: "forensics-thirty-five",
+  activeCourseId: "local-ela20-novel-study",
   activeFilter: "all",
   activeDevice: "desktop"
 };
@@ -234,7 +330,11 @@ function getActiveCourse() {
 }
 
 function hostLabel(url) {
-  return new URL(url).hostname.replace(".web.app", "");
+  const resolvedUrl = new URL(url, window.location.href);
+  if (resolvedUrl.hostname === window.location.hostname) {
+    return resolvedUrl.pathname.replace(/^\/+/, "");
+  }
+  return resolvedUrl.hostname.replace(".web.app", "");
 }
 
 function setFrameSource(frame, url) {
@@ -443,4 +543,3 @@ renderRail();
 watchDesktopPreviewScale();
 setDevice(state.activeDevice);
 selectCourse(state.activeCourseId);
-

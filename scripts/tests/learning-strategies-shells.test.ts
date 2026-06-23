@@ -114,12 +114,16 @@ for (const course of courses) {
     assert.match(chapterSource, /<link rel="stylesheet" href="\.\.\/module-index\.css" \/>/i);
     assert.match(chapterSource, /class="sequence-kind"[^>]*>Reading<\/span>/);
     assert.match(chapterSource, /Mark Complete/);
-    assert.match(chapterSource, /const reviewUnlockAll = false/);
+    assert.match(chapterSource, /const reviewUnlockAll = true/);
     assert.match(chapterSource, /Mark complete when you finish reviewing this card\./);
     assert.match(chapterSource, /button\.disabled = !cardUnlocked \|\| complete/);
     assert.match(chapterSource, /if \(!complete && !reviewUnlockAll\) unlocked = false/);
     assert.doesNotMatch(chapterSource, /Course Information|Assignment Booklet|Teacher Guide|Contact Assignment/i);
     assert.doesNotMatch(chapterSource, /Retained content from the original|Brightspace module|Brightspace export|Source image unavailable/i);
+    assert.doesNotMatch(chapterSource, /Includes \d+ content items|starting with Lesson|starting with Section|class="module-summary"/i);
+    assert.doesNotMatch(mainSource, /class="card-summary"|class="detail-summary"/i);
+    assert.doesNotMatch(dataSource, /Includes \d+ content items|starting with Lesson|starting with Section/i);
+    assert.doesNotMatch(buildScriptSource, /Includes \{len\(components\)\} content items|class="module-summary"|card-summary|detail-summary/i);
     assert.doesNotMatch(chapterSource, /Complete this component to unlock the next lesson card\./);
     assert.doesNotMatch(chapterSource, />\s*Next Steps\s*</i);
     assert.doesNotMatch(chapterSource, /class="sequence-title"|class="sequence-note"/);

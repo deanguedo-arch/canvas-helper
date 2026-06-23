@@ -90,6 +90,17 @@ test("forensics35 top navigation renders Forensic Studies 25 style library pages
   assert.doesNotMatch(source, /data-open-shell-assignment/);
 });
 
+test("forensics35 library cards do not expose D2L manifest scaffolding copy", async () => {
+  const jsxSource = await readFile(workspaceMainJsxPath, "utf8");
+  const jsSource = await readFile(workspaceMainJsPath, "utf8");
+  const scaffoldingCopy =
+    /Mapped from the D2L manifest hierarchy|Manifest-derived lesson title|Source path preserved for traceability|renderer mappings|mapped from the course manifest/i;
+
+  assert.doesNotMatch(jsxSource, scaffoldingCopy);
+  assert.doesNotMatch(jsSource, scaffoldingCopy);
+  assert.doesNotMatch(jsxSource, /firstUnlocked\?\.learn\?\.excerpt/);
+});
+
 test("forensics35 keeps one sticky mobile course toolbar and no duplicate menu buttons", async () => {
   const source = await readFile(workspaceMainJsxPath, "utf8");
 
@@ -171,9 +182,12 @@ test("forensics35 reader sidebar hides reader blocks and chapter or quiz listing
   assert.doesNotMatch(source, /data-testid="library-item-btn"/);
 });
 
-test("forensics35 module reader uses a progressive sequence with locked-card blur", async () => {
+test("forensics35 module reader supports authoring unlock while retaining locked-card styling", async () => {
   const source = await readFile(workspaceMainJsxPath, "utf8");
 
+  assert.match(source, /const AUTHORING_UNLOCK_ALL = true;/);
+  assert.match(source, /if \(AUTHORING_UNLOCK_ALL\) return lessons;/);
+  assert.match(source, /if \(AUTHORING_UNLOCK_ALL\) return index < completedCount \? "complete" : "active";/);
   assert.match(source, /data-testid="chapter-sequence-list"/);
   assert.match(source, /lessonProgressStateAtIndex/);
   assert.match(source, /data-progress-state=\{progressState\}/);

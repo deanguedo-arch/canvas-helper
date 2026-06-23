@@ -1,7 +1,7 @@
 {
   "id": "ela30-1-modern-drama",
   "slug": "ela30-1-modern-drama",
-  "sourcePath": "C:\\Users\\dean.guedo\\Downloads\\D2LExport_6670_CBE System ELA 30-1 (Winter 2020)_20266815.zip",
+  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/ela30-1-modern-drama/source",
   "inputKind": "html",
   "brightspaceTarget": "course-page",
   "previewModes": [
@@ -11,7 +11,7 @@
   "workspaceEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ela30-1-modern-drama\\workspace\\index.html",
   "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ela30-1-modern-drama\\raw\\original.html",
   "createdAt": "2026-06-08T21:31:19.092Z",
-  "updatedAt": "2026-06-08T21:31:19.092Z",
+  "updatedAt": "2026-06-23T14:53:08.663Z",
   "learningSource": "other",
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-06-08T21:31:19.092Z",
@@ -28,7 +28,7 @@
   "generatedOutputs": [
     "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ela30-1-modern-drama\\exports\\ela30-1-modern-drama-v2.zip"
   ],
-  "regenerateCommand": "npx tsx scripts/build-ela-modern-drama.ts --zip \"C:\\Users\\dean.guedo\\Downloads\\D2LExport_6670_CBE System ELA 30-1 (Winter 2020)_20266815.zip\" --nextstep-zip \"C:\\Users\\dean.guedo\\Downloads\\English 30-1 nextstep.zip\" --movie \"C:\\Users\\dean.guedo\\Downloads\\Streetcar Named Desire Movie.mp4\" --slug ela30-1-modern-drama --force",
+  "regenerateCommand": "npx tsx scripts/build-ela-modern-drama.ts --zip \"C:\\Users\\dean.guedo\\Downloads\\D2LExport_6670_CBE System ELA 30-1 (Winter 2020)_20266815.zip\" --nextstep-zip \"C:\\Users\\dean.guedo\\Downloads\\English 30-1 nextstep.zip\" --movie \"/Users/deanguedo/Downloads/Streetcar_Named_Desire_playback-safe.mp4\" --slug ela30-1-modern-drama --force",
   "injectedComponents": [
     {
       "id": "critical-response-workshop",
@@ -63,7 +63,7 @@
     "sourceSystem": "brightspace",
     "sourcePath": "C:\\Users\\dean.guedo\\Downloads\\D2LExport_6670_CBE System ELA 30-1 (Winter 2020)_20266815.zip",
     "importedAt": "2026-06-08T21:31:19.092Z",
-    "notes": "D2L/Brightspace Streetcar unit kept as the lesson source of truth. Next Step source package supplies Library documents, and the local movie path supplies the Film Room asset. Next Step source: C:\\Users\\dean.guedo\\Downloads\\English 30-1 nextstep.zip."
+    "notes": "D2L/Brightspace Streetcar unit kept as the lesson source of truth. Next Step source package supplies Library documents, and the local playback-safe movie path supplies the Film Room asset. Next Step source: C:\\Users\\dean.guedo\\Downloads\\English 30-1 nextstep.zip."
   },
   "exportTargets": [
     {
@@ -82,5 +82,6 @@
     "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ela30-1-modern-drama\\raw\\original.html",
     "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\resources\\ela30-1-modern-drama"
   ],
-  "sourceOfTruthNotes": "Edit workspace/index.html as the canonical master lesson frame. Treat raw and resources as imported reference material."
+  "sourceOfTruthNotes": "Edit workspace/index.html as the canonical master lesson frame. Treat raw and resources as imported reference material.",
+  "workspaceApprovedAt": "2026-06-18T21:13:05.825Z"
 }

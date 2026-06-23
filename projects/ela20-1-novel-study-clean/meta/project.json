@@ -1,0 +1,55 @@
+{
+  "id": "ela20-1-novel-study-clean",
+  "slug": "ela20-1-novel-study-clean",
+  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/ela20-1-novel-study-clean/source",
+  "inputKind": "brightspace-zip",
+  "brightspaceTarget": "scorm",
+  "previewModes": [
+    "workspace"
+  ],
+  "workspaceEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela20-1-novel-study-clean/workspace/index.html",
+  "rawEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela20-1-novel-study-clean/raw/D2LExport_6668_CBE System ELA 20-1 (Winter 2020)_202661808 (1).zip",
+  "createdAt": "2026-06-21T14:13:25.870Z",
+  "updatedAt": "2026-06-23T14:53:08.659Z",
+  "migrationState": "migrated",
+  "projectType": "conversion",
+  "preferredWorkflows": [
+    "conversion"
+  ],
+  "canonicalEntry": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela20-1-novel-study-clean/workspace/index.html",
+  "canonicalSources": [
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela20-1-novel-study-clean/workspace/index.html",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/build-ela20-novel-study-clean.ts",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/next-step-course-shell.ts"
+  ],
+  "generatedOutputs": [],
+  "regenerateCommand": "npx tsx scripts/build-ela20-novel-study-clean.ts --zip \"/Users/deanguedo/Downloads/D2LExport_6668_CBE System ELA 20-1 (Winter 2020)_202661808 (1).zip\" --slug ela20-1-novel-study-clean",
+  "importedFirstPassOrigin": {
+    "sourceSystem": "brightspace",
+    "sourcePath": "/Users/deanguedo/Downloads/D2LExport_6668_CBE System ELA 20-1 (Winter 2020)_202661808 (1).zip",
+    "importedAt": "2026-06-21T14:13:25.870Z",
+    "notes": "Novel Study-only clean build from the supplied ELA 20-1 Brightspace export."
+  },
+  "exportTargets": [
+    {
+      "target": "scorm",
+      "enabled": true,
+      "notes": "SCORM 2004 package for Brightspace upload."
+    },
+    {
+      "target": "html",
+      "enabled": true,
+      "notes": "Standalone workspace preview."
+    }
+  ],
+  "authoringStatus": "active",
+  "referenceOnly": [
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela20-1-novel-study-clean/raw/D2LExport_6668_CBE System ELA 20-1 (Winter 2020)_202661808 (1).zip"
+  ],
+  "sourceOfTruthNotes": "This project is intentionally separate from the older ela20-1-novel-study project. Regenerate from scripts/build-ela20-novel-study-clean.ts; shared shell behavior lives in scripts/lib/next-step-course-shell.ts.",
+  "injectedComponents": [],
+  "learningSource": "other",
+  "learningTrust": "auto",
+  "learningUpdatedAt": "2026-06-22T20:03:05.051Z",
+  "workspaceApprovedAt": "2026-06-22T20:24:22.594Z"
+}

@@ -50,13 +50,40 @@ function normalizeProjectManifest(manifest: ProjectManifest): ProjectManifest {
 
 async function hasRequiredProjectArtifacts(slug: string) {
   const paths = getProjectPaths(slug);
-  const [hasManifest, hasRawEntrypoint, hasWorkspaceEntrypoint] = await Promise.all([
-    fileExists(paths.manifestPath),
-    fileExists(paths.rawEntrypoint),
-    fileExists(paths.workspaceEntrypoint)
-  ]);
+  if (!(await fileExists(paths.manifestPath))) {
+    return false;
+  }
 
-  return hasManifest && hasRawEntrypoint && hasWorkspaceEntrypoint;
+  const manifest = await readJsonFile<ProjectManifest>(paths.manifestPath);
+  const [hasManifestRawEntrypoint, hasDefaultRawEntrypoint, hasManifestWorkspaceEntrypoint, hasDefaultWorkspaceEntrypoint] =
+    await Promise.all([
+      manifest.rawEntrypoint ? fileExists(resolveManifestPath(paths.root, manifest.rawEntrypoint)) : Promise.resolve(false),
+      fileExists(paths.rawEntrypoint),
+      manifest.workspaceEntrypoint
+        ? fileExists(resolveManifestPath(paths.root, manifest.workspaceEntrypoint))
+        : Promise.resolve(false),
+      fileExists(paths.workspaceEntrypoint)
+    ]);
+
+  const hasWorkspaceEntrypoint = hasManifestWorkspaceEntrypoint || hasDefaultWorkspaceEntrypoint;
+  const hasRawEntrypoint = hasManifestRawEntrypoint || hasDefaultRawEntrypoint;
+
+  return hasWorkspaceEntrypoint && (hasRawEntrypoint || Boolean(manifest.previewModes?.includes("workspace")));
+}
+
+function resolveManifestPath(projectRoot: string, manifestPath: string) {
+  return path.isAbsolute(manifestPath) ? manifestPath : path.join(projectRoot, manifestPath);
+}
+
+async function resolveProjectEntrypoint(projectRoot: string, manifestPath: string | undefined, fallbackPath: string) {
+  if (manifestPath) {
+    const candidatePath = resolveManifestPath(projectRoot, manifestPath);
+    if (await fileExists(candidatePath)) {
+      return candidatePath;
+    }
+  }
+
+  return fallbackPath;
 }
 
 async function hasRecoverableProcessedSnapshot(slug: string) {
@@ -206,6 +233,12 @@ export async function readStudioProjectBundle(slug: string): Promise<StudioProje
   await ensureProjectFromProcessedSnapshot(slug);
   const manifest = await loadProjectManifest(slug);
   const paths = getProjectPaths(slug);
+  const rawEntrypoint = await resolveProjectEntrypoint(paths.root, manifest.rawEntrypoint, paths.rawEntrypoint);
+  const workspaceEntrypoint = await resolveProjectEntrypoint(
+    paths.root,
+    manifest.workspaceEntrypoint,
+    paths.workspaceEntrypoint
+  );
   const workspaceScript = await resolveWorkspaceScriptFile(paths.workspaceDir);
   const workspaceStyles = (await fileExists(path.join(paths.workspaceDir, "styles.css")))
     ? path.join(paths.workspaceDir, "styles.css")
@@ -243,8 +276,8 @@ export async function readStudioProjectBundle(slug: string): Promise<StudioProje
     },
     paths: {
       root: paths.root,
-      rawEntrypoint: paths.rawEntrypoint,
-      workspaceEntrypoint: paths.workspaceEntrypoint,
+      rawEntrypoint,
+      workspaceEntrypoint,
       workspaceScript,
       workspaceStyles,
       metaDir: paths.metaDir,

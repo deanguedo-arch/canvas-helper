@@ -11,7 +11,7 @@ window.LEARNING_STRATEGIES_15_DATA = {
       "number": 1,
       "title": "Module 1: Understanding Self as Learner",
       "accent": "#155608",
-      "summary": "Includes 5 content items, starting with Lesson 1a: Success, Lesson 1b: Feedback, Lesson 2: Environments.",
+      "summary": "",
       "contentPath": "./content/chapter-1/index.html",
       "componentIds": [
         "component-1-lesson-1a-success",
@@ -28,7 +28,7 @@ window.LEARNING_STRATEGIES_15_DATA = {
       "number": 2,
       "title": "Module 2: Goal Setting and Organization",
       "accent": "#155608",
-      "summary": "Includes 4 content items, starting with Lesson 1: Decisions, Lesson 2: Goal Setting, Lesson 3: Finding Time.",
+      "summary": "",
       "contentPath": "./content/chapter-2/index.html",
       "componentIds": [
         "component-1-lesson-1-decisions",
@@ -44,7 +44,7 @@ window.LEARNING_STRATEGIES_15_DATA = {
       "number": 3,
       "title": "Module 3: The Learning Process and Assessment",
       "accent": "#155608",
-      "summary": "Includes 3 content items, starting with Lesson 1: Study Skills, Lesson 2: Mastering Assessments, Lesson 3: Mental Health.",
+      "summary": "",
       "contentPath": "./content/chapter-3/index.html",
       "componentIds": [
         "component-1-lesson-1-study-skills",

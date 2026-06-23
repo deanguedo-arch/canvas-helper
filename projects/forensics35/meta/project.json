@@ -1,7 +1,7 @@
 {
   "id": "74bb82fa-ebed-44b8-8dcf-ceaa6e21df03",
   "slug": "forensics35",
-  "sourcePath": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\processed\\forensics35\\source",
+  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/forensics35/source",
   "inputKind": "html",
   "brightspaceTarget": "course-page",
   "previewModes": [
@@ -40,12 +40,26 @@
     {
       "target": "google-hosted",
       "enabled": true
+    },
+    {
+      "target": "apps-script",
+      "enabled": true,
+      "notes": "Whole-course Google Apps Script delivery with Drive-backed assets, lazy text asset routes, iframe hydration, PDF preview routing, and Apps Script autosave."
     }
   ],
+  "googleHosted": {
+    "trackedStorageKeys": [
+      "forensics35::workspace-state::v1"
+    ]
+  },
+  "appsScript": {
+    "driveRootFolderId": "1akSY50NQwf7KqqLUg7mDxG3UzyF8vTiF",
+    "disableAutosave": true
+  },
   "authoringStatus": "active",
   "referenceOnly": [],
   "sourceOfTruthNotes": "Edit workspace sources only. Keep raw/exports immutable and regenerate hosted output via export scripts.",
   "createdAt": "2026-03-18T14:44:01.332Z",
-  "updatedAt": "2026-06-02T20:13:01.665Z",
-  "workspaceApprovedAt": "2026-06-02T20:13:01.665Z"
+  "updatedAt": "2026-06-23T14:53:08.698Z",
+  "workspaceApprovedAt": "2026-06-18T23:03:16.924Z"
 }

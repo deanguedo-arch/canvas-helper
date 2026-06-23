@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "ela20-1-feature-film",
+  "generatedAt": "2026-06-22T20:28:11.028Z",
+  "pass": true,
+  "deviations": [
+    {
+      "ruleId": "require-interactive-shell",
+      "severity": "warn",
+      "surface": "export",
+      "location": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela20-1-feature-film/workspace/index.html",
+      "why": "Required pattern \"lesson-shell\" is missing.",
+      "evidence": "Missing pattern: lesson-shell"
+    },
+    {
+      "ruleId": "quality-max-consecutive-paragraph-blocks",
+      "severity": "warn",
+      "surface": "export",
+      "location": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela20-1-feature-film/workspace/index.html",
+      "why": "Detected 239 paragraph blocks but max allowed is 5.",
+      "evidence": "<p> count = 239"
+    }
+  ],
+  "acceptedDeviations": []
+}

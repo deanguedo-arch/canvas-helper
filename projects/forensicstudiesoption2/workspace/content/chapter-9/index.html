@@ -31,6 +31,7 @@
   <script>
     const chapterId = document.body.dataset.chapterId || "";
     const componentIds = [];
+    const reviewUnlockAll = true;
     let completionState = Object.create(null);
 
     function getLessonCards() {
@@ -66,7 +67,7 @@
         const complete = !!completionState[componentId];
         const reachable = isComponentReachable(componentId);
         const isLast = componentIds[componentIds.length - 1] === componentId;
-        const state = complete ? "complete" : reachable ? "active" : "locked";
+        const state = complete ? "complete" : (reviewUnlockAll || reachable) ? "active" : "locked";
         const footer = card.querySelector("[data-progress-footer]");
         const progressCopy = card.querySelector("[data-progress-copy]");
         const actions = card.querySelector("[data-progress-actions]");

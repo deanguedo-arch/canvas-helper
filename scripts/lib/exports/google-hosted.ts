@@ -1,6 +1,7 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 
+import { load } from "cheerio";
 import ts from "typescript";
 
 import { copyDirectory, copyFileEnsuringDir, fileExists, listFilesRecursive, writeTextFile } from "../fs.js";
@@ -117,6 +118,57 @@ async function transpileHostedMainJsx(exportDir: string) {
   const browserSafeModule = rewriteReactImportsToEsmSh(transpileResult.outputText);
   await writeTextFile(path.join(exportDir, "main.js"), browserSafeModule);
   return true;
+}
+
+async function hasHostedMainJsModule(exportDir: string) {
+  const mainJsPath = path.join(exportDir, "main.js");
+  if (!(await fileExists(mainJsPath))) {
+    return false;
+  }
+
+  const source = await readFile(mainJsPath, "utf8");
+  return /^\s*(?:import|export)\s/m.test(source);
+}
+
+async function rewriteHostedEntrypointScripts(html: string, exportDir: string) {
+  if (!(await fileExists(path.join(exportDir, "main.js")))) {
+    return html;
+  }
+
+  const $ = load(html);
+  const mainJsIsModule = await hasHostedMainJsModule(exportDir);
+  let rewroteMainScript = false;
+
+  $("script[src]").each((_, node) => {
+    const script = $(node);
+    const src = (script.attr("src") ?? "").trim();
+    if (!/(^|\/)main\.jsx(?:[?#].*)?$/i.test(src)) {
+      return;
+    }
+
+    script.attr("src", src.replace(/main\.jsx(?=([?#]|$))/i, "main.js"));
+    script.removeAttr("data-type");
+    if (mainJsIsModule) {
+      script.attr("type", "module");
+    } else {
+      script.removeAttr("type");
+    }
+    rewroteMainScript = true;
+  });
+
+  if (!rewroteMainScript) {
+    return html;
+  }
+
+  $("script[src]").each((_, node) => {
+    const script = $(node);
+    const src = (script.attr("src") ?? "").trim();
+    if (/@babel\/standalone|babel\.min\.js/i.test(src)) {
+      script.remove();
+    }
+  });
+
+  return $.html();
 }
 
 function extractD2LExportRoot(mapSource: string) {
@@ -267,7 +319,8 @@ export async function exportProjectToGoogleHosted(
 
   if (shouldInjectBridge) {
     const entrypointHtml = await readFile(googleHostedEntrypointPath, "utf8");
-    const entrypointWithBridge = injectGoogleHostedBridgeTag(entrypointHtml, bridgeRelativePath);
+    const entrypointWithHostedScripts = await rewriteHostedEntrypointScripts(entrypointHtml, googleHostedExportDir);
+    const entrypointWithBridge = injectGoogleHostedBridgeTag(entrypointWithHostedScripts, bridgeRelativePath);
     await writeTextFile(googleHostedEntrypointPath, entrypointWithBridge);
   }
 

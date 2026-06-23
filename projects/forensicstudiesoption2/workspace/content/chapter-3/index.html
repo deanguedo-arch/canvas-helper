@@ -410,6 +410,7 @@ conviction and subsequent hanging of Samuel Morgan.</p></div>
   <script>
     const chapterId = document.body.dataset.chapterId || "";
     const componentIds = ["component-1-what-is-trace-evidence","component-2-identifying-trace-evidence","component-3-collection-of-trace-evidence","component-4-collecting-trace-evidence-at-home","component-5-microscopic-analysis-of-hair","component-6-hair-evidence","component-7-useful-types-of-hair-samples","component-8-animal-hair","component-9-features-of-hair","component-10-crime-case-study-the-central-park-five","component-11-fibre-analysis","component-12-fibre-evidence","component-13-crime-case-study-samuel-morgan","component-14-real-csi-hair-and-fiber-analysis"];
+    const reviewUnlockAll = true;
     let completionState = Object.create(null);
 
     function getLessonCards() {
@@ -445,7 +446,7 @@ conviction and subsequent hanging of Samuel Morgan.</p></div>
         const complete = !!completionState[componentId];
         const reachable = isComponentReachable(componentId);
         const isLast = componentIds[componentIds.length - 1] === componentId;
-        const state = complete ? "complete" : reachable ? "active" : "locked";
+        const state = complete ? "complete" : (reviewUnlockAll || reachable) ? "active" : "locked";
         const footer = card.querySelector("[data-progress-footer]");
         const progressCopy = card.querySelector("[data-progress-copy]");
         const actions = card.querySelector("[data-progress-actions]");

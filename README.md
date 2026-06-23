@@ -107,7 +107,16 @@ Workflow guidance and prompt contracts live under `docs/workflows/`.
 - It also writes an unpacked folder to `projects/<slug>/exports/scorm-2004/` or `projects/<slug>/exports/scorm-1-2/`
 - SCORM 2004 is the recommended default for larger suspend-data payloads
 - The SCORM export injects a bridge script that syncs workspace localStorage state into `cmi.suspend_data`
+- For autosaved courses, the bridge must load before inline/local course scripts so LMS suspend data restores into `localStorage` before the course reads response state
+- Before Brightspace upload, verify response fields accept continuous typing, reload restores saved work, `npm run test:scorm` passes, and `unzip -tq projects/<slug>/exports/<slug>-scorm-2004.zip` reports no errors
+- SCORM cross-browser restore only works when launched through an LMS SCORM API; opening the zip or HTML directly can only prove browser-local storage
 - Export commands now only mark the workspace as approved in `project.json`; they do not regenerate prompt-pack or other intelligence artifacts unless you run the intelligence-producing commands explicitly
+
+### Local Media Notes
+
+- Browser playback is part of export readiness. Local Film Room videos should be probed and verified, not trusted because they have an `.mp4` extension.
+- If a video serves but does not play in Chrome or Brightspace, transcode it to H.264/AAC MP4 with `yuv420p` and `+faststart`, then point the builder or project metadata at that playback-safe source.
+- Do not replace a full-film item with a short clip unless the course design changes; preserve the intended media length when repairing playback.
 
 ### Google Hosted Export Notes
 

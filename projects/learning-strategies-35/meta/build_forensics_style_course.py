@@ -473,10 +473,7 @@ class LearningStrategiesShellBuilder:
         return chapters
 
     def chapter_summary(self, title: str, components: list[dict[str, Any]]) -> str:
-        if not components:
-            return "Source content is ready for this unit."
-        sample_titles = [component["title"] for component in components[:3]]
-        return f"Includes {len(components)} content items, starting with {', '.join(sample_titles)}."
+        return ""
 
     def resource_files(self, item: ET.Element) -> list[str]:
         ref = item.get("identifierref")
@@ -865,7 +862,6 @@ class LearningStrategiesShellBuilder:
     <section class="module-hero">
       <span class="eyebrow">{escape(chapter["code"])}</span>
       <h1 class="module-title">{escape(chapter["title"])}</h1>
-      <p class="module-summary">{escape(chapter["summary"])}</p>
     </section>
 
     <section class="module-section">
@@ -919,7 +915,7 @@ class LearningStrategiesShellBuilder:
   const updateType = "learning-strategies-35-module-progress-update";
   const syncType = "learning-strategies-35-module-progress-sync";
   const cards = Array.from(document.querySelectorAll("[data-module-component-id]"));
-  const reviewUnlockAll = false;
+  const reviewUnlockAll = true;
   let completion = {};
 
   function postReady() {
@@ -1395,7 +1391,6 @@ class LearningStrategiesShellBuilder:
             <article class="course-card chapter-card editorial-overview-card" style="--accent:${escapeHtml(chapter.accent || "#2f8f6b")}">
               <p class="card-code">${escapeHtml(chapter.code)}</p>
               <h4 class="card-title">${escapeHtml(chapter.title)}</h4>
-              <p class="card-summary">${escapeHtml(chapter.summary)}</p>
               <div class="card-actions">
                 <button class="btn btn-primary" type="button" data-open-chapter="${escapeHtml(chapter.id)}">Open content</button>
               </div>
@@ -1419,7 +1414,6 @@ class LearningStrategiesShellBuilder:
           <div>
             <p class="detail-eyebrow">${escapeHtml(chapter.code)}</p>
             <h4 class="detail-title">${escapeHtml(chapter.title)}</h4>
-            <p class="detail-summary">${escapeHtml(chapter.summary)}</p>
             ${componentCount ? `<div class="status-chip">${escapeHtml(`${completedCount}/${componentCount} components complete`)}</div>` : ""}
           </div>
           <div class="detail-actions">
@@ -1628,4 +1622,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

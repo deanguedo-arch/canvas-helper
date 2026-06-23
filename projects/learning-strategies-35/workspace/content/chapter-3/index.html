@@ -14,7 +14,6 @@
     <section class="module-hero" aria-labelledby="chapter-3-title" style="background: #155608; color: #FFFFFF; border: 1px solid #1E6D0D; border-radius: 8px; padding: 28px; margin: 0 0 24px 0; box-shadow: 0 6px 18px #DDE2DD;">
       <span class="eyebrow" style="display: inline-block; margin: 0 0 6px 0; color: #FFFFFF; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0;">Unit 3</span>
       <h1 class="module-title" id="chapter-3-title" style="margin: 6px 0 12px 0; color: #FFFFFF; font-size: 2rem; line-height: 1.2; letter-spacing: 0;">Module 3: Understanding the Learning Process</h1>
-      <p class="module-summary" style="margin: 0; color: #FFFFFF; font-size: 1.05rem; line-height: 1.6; max-width: 760px;">Includes 3 content items, starting with Section 1: Readiness, Section 2: Notetaking, Section 3: Remembering Information.</p>
     </section>
 
     <section class="module-section" aria-labelledby="chapter-3-lesson-sequence" style="background: #FFFFFF; border: 1px solid #DDE2DD; border-radius: 8px; padding: 24px; margin: 0 0 24px 0; box-shadow: 0 6px 18px #DDE2DD;">
@@ -426,7 +425,7 @@
   const updateType = "learning-strategies-35-module-progress-update";
   const syncType = "learning-strategies-35-module-progress-sync";
   const cards = Array.from(document.querySelectorAll("[data-module-component-id]"));
-  const reviewUnlockAll = false;
+  const reviewUnlockAll = true;
   let completion = {};
 
   function postReady() {

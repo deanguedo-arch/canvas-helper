@@ -820,6 +820,7 @@
   <script>
     const chapterId = document.body.dataset.chapterId || "";
     const componentIds = ["component-1-types-of-evidence-and-fingerprint-analysis","component-2-evidence-types","component-3-value-of-evidence","component-4-evidence-types-case-study","component-5-brief-history-of-fingerprinting","component-6-fingerprint-analysis","component-7-types-of-fingerprint-evidence","component-8-how-a-match-is-made","component-9-fingerprint-case-study-john-dillinger","component-10-latent-fingerprint-enhancement","component-11-latent-fingerprint-enhancement-2","component-12-latent-fingerprint-enhancement-3","component-13-experiment-short-term-vs-long-term-latent-fingerprint-samples-optional","component-14-experiment-finding-and-lifiting-latent-fingerprints-using-lifting-powders-optional","component-15-case-study-the-zodiac-killer","component-16-case-study-the-zodiac-killer-continued","component-17-case-study-bank-robbery-mystery"];
+    const reviewUnlockAll = true;
     let completionState = Object.create(null);
 
     function getLessonCards() {
@@ -855,7 +856,7 @@
         const complete = !!completionState[componentId];
         const reachable = isComponentReachable(componentId);
         const isLast = componentIds[componentIds.length - 1] === componentId;
-        const state = complete ? "complete" : reachable ? "active" : "locked";
+        const state = complete ? "complete" : (reviewUnlockAll || reachable) ? "active" : "locked";
         const footer = card.querySelector("[data-progress-footer]");
         const progressCopy = card.querySelector("[data-progress-copy]");
         const actions = card.querySelector("[data-progress-actions]");

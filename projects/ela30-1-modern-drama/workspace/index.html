@@ -65,32 +65,39 @@ tailwind.config = {
 .course-topbar { min-height: 72px; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; padding: 10px 24px; position: fixed; }
 .topbar-logo-link { grid-column: 2; display: inline-flex; min-height: 44px; align-items: center; justify-content: center; justify-self: center; }
 .next-step-logo { display: block; width: auto; max-width: 240px; height: 44px; object-fit: contain; }
+.topbar-menu-toggle { display: none; position: absolute; right: 16px; top: 10px; min-height: 44px; min-width: 44px; align-items: center; justify-content: center; border-radius: 8px; color: #fff; background: rgba(255,255,255,0.08); }
+.topbar-menu-toggle:hover, .topbar-menu-toggle:focus-visible { background: rgba(255,255,255,0.14); outline: none; }
 .top-progress-shell { position: absolute; right: 24px; top: 16px; width: min(320px, 30vw); display: flex; flex-direction: column; gap: 5px; color: #e1e3e4; }
 .top-progress-meta { display: grid; grid-template-columns: 1fr auto auto; gap: 8px; align-items: center; font-family: "IBM Plex Sans"; font-size: 11px; line-height: 1.4; text-transform: uppercase; }
 .top-progress-meta strong { color: #bcf0ae; }
 .top-progress-bar { height: 10px; border: 1px solid #2d5a27; border-radius: 8px; background: repeating-linear-gradient(45deg, rgba(188,240,174,0.12) 0 6px, rgba(188,240,174,0.04) 6px 12px), #0f1710; overflow: hidden; }
 .top-progress-fill { width: 0%; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #bcf0ae, #2d5a27); transition: width 180ms ease; }
-.course-main { padding-top: 72px !important; }
+:root { --course-sidebar-expanded: 288px; --course-sidebar-collapsed: 80px; }
+.course-main { margin-left: var(--course-sidebar-expanded) !important; padding-top: 72px !important; }
 .course-sidebar, .course-main, .sidebar-label { transition: width 180ms ease, margin-left 180ms ease, opacity 140ms ease; }
-.course-sidebar { top: 72px !important; }
+.course-sidebar { top: 72px !important; width: var(--course-sidebar-expanded) !important; overflow-x: hidden; }
 .course-sidebar .sidebar-header { position: relative; padding-right: 76px; }
-.sidebar-toggle-button { position: absolute; top: 16px; right: 16px; min-height: 44px; min-width: 44px; display: inline-flex; align-items: center; justify-content: center; border-radius: 8px; color: #fff; }
+.sidebar-toggle-button { position: absolute; top: 16px; right: 16px; z-index: 5; min-height: 44px; min-width: 44px; display: inline-flex; align-items: center; justify-content: center; border-radius: 8px; color: #fff; background: rgba(255,255,255,0.06); }
 .sidebar-toggle-button:hover, .sidebar-toggle-button:focus-visible { background: rgba(255,255,255,0.1); outline: none; }
-.course-nav-link { color: #e1e3e4; }
+.course-nav-link { color: #e1e3e4; min-width: 0; overflow: hidden; }
+.course-nav-link .material-symbols-outlined { flex: 0 0 auto; }
 .course-nav-link:hover, .course-nav-link.active { background: rgba(255,255,255,0.1); color: #fff; }
 .lesson-subnav { display: none; }
 .lessons-nav.is-open .lesson-subnav { display: block; }
 .lessons-toggle-icon { font-size: 20px; transition: transform 160ms ease; }
 .lessons-nav.is-open .lessons-toggle-icon { transform: rotate(180deg); }
 .course-page[hidden], .lesson-detail-panel[hidden] { display: none !important; }
-body.sidebar-collapsed .course-sidebar { width: 80px; }
-body.sidebar-collapsed .course-main { margin-left: 80px; }
+body.sidebar-collapsed .course-sidebar { width: var(--course-sidebar-collapsed) !important; }
+body.sidebar-collapsed .course-main { margin-left: var(--course-sidebar-collapsed) !important; }
 body.sidebar-collapsed .sidebar-label, body.sidebar-collapsed .sidebar-title, body.sidebar-collapsed .sidebar-course-label, body.sidebar-collapsed .lesson-subnav, body.sidebar-collapsed .lessons-toggle-icon { display: none; }
-body.sidebar-collapsed .sidebar-header { display: flex; justify-content: center; padding: 16px 8px 12px; }
+body.sidebar-collapsed .lessons-nav.is-open .lesson-subnav { display: none !important; }
+body.sidebar-collapsed .sidebar-header { display: flex; justify-content: center; padding: 14px 8px 12px; min-height: 72px; }
 body.sidebar-collapsed .sidebar-toggle-button { position: static; }
-body.sidebar-collapsed .course-nav-link { justify-content: center; }
+body.sidebar-collapsed .course-nav-link { justify-content: center; margin-left: 8px; margin-right: 8px; padding-left: 0; padding-right: 0; overflow: hidden; }
 .lesson-card:hover, .lesson-card:focus-visible { border-color: #2d5a27; background: #f3f7f1; }
 .lesson-layout { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 24px; align-items: start; }
+.lesson-resources ul { margin: 0; padding: 0; list-style: none; }
+.lesson-resources li { margin: 0; }
 .source-content { color: #191c1d; font-family: "Work Sans"; font-size: 16px; line-height: 1.65; }
 .source-content h1 { font-family: "Hanken Grotesk"; font-size: 28px; line-height: 1.2; font-weight: 800; margin: 0 0 16px; }
 .source-content h2, .source-content h3 { font-family: "Hanken Grotesk"; font-size: 22px; line-height: 1.25; font-weight: 700; margin: 28px 0 12px; }
@@ -111,11 +118,22 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 .scene-overview-browser { display: grid; gap: 18px; }
 .scene-overview-control { display: grid; gap: 8px; max-width: 360px; border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; padding: 16px; }
 .scene-overview-panel { border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; padding: 18px; }
-.scene-overview-panel-header { margin-bottom: 12px; }
+.scene-overview-panel-header { display: none; margin-bottom: 12px; }
 .scene-overview-panel-header h3 { font-family: "Hanken Grotesk"; font-size: 24px; line-height: 1.2; margin: 4px 0 0; color: #191c1d; }
 .resource-kicker { display: block; font-family: "IBM Plex Sans"; font-size: 12px; line-height: 1.4; font-weight: 600; color: #154212; text-transform: uppercase; letter-spacing: 0; }
-.external-resource-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.external-resource-grid { display: grid; gap: 16px; }
 .resource-stack { display: grid; gap: 18px; }
+.resource-lesson-group { border: 1px solid var(--border-default); border-radius: 18px; background: #ffffff; overflow: hidden; box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06); }
+.resource-lesson-summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 24px; cursor: pointer; list-style: none; font-family: "Aptos", "Segoe UI", sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--text-on-surface); }
+.resource-lesson-summary::-webkit-details-marker { display: none; }
+.resource-lesson-summary::after { content: "+"; flex-shrink: 0; font-size: 1.5rem; line-height: 1; color: var(--brand-green); transition: transform 160ms ease; }
+.resource-lesson-group[open] .resource-lesson-summary::after { content: "−"; }
+.resource-lesson-label { display: flex; flex-direction: column; gap: 4px; }
+.resource-lesson-kicker { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); }
+.resource-lesson-items { display: grid; gap: 16px; padding: 0 24px 24px; }
+.resource-lesson-items .external-resource-card { margin: 0; }
+.lesson-bottom-bar { align-items: center; justify-content: space-between; }
+.lesson-bottom-bar .mark-complete { margin-left: auto; order: 3; }
 .resource-workflow-card { border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; padding: 18px; }
 .resource-workflow-card h3 { margin: 0 0 10px; font-family: "Hanken Grotesk"; font-size: 22px; line-height: 1.2; color: #191c1d; }
 .resource-workflow-card p, .resource-workflow-card li { color: #42493e; line-height: 1.55; }
@@ -265,15 +283,82 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 .paragraph-checklist { border: 1px solid #e1e3e4; border-radius: 8px; background: #fff; padding: 14px; }
 .paragraph-checklist h5 { margin: 0 0 8px; font-family: "IBM Plex Sans"; font-size: 13px; color: #154212; }
 .paragraph-checklist ul { margin: 0 0 0 20px; color: #42493e; line-height: 1.5; }
-@media (max-width: 900px) {
-  .course-sidebar { display: none; }
-  .course-main { margin-left: 0 !important; padding-top: 124px !important; }
-  .course-topbar { min-height: 124px; grid-template-columns: 1fr; grid-template-rows: auto auto; gap: 8px; padding: 10px 16px; }
-  .topbar-logo-link { grid-column: 1; justify-self: center; }
-  .next-step-logo { max-width: min(220px, calc(100vw - 32px)); height: 38px; }
-  .top-progress-shell { position: static; grid-column: 1 / -1; width: 100%; justify-self: stretch; }
-  .top-progress-meta { grid-template-columns: 1fr auto auto; }
+@media (max-width: 1200px) {
   .lesson-layout { grid-template-columns: 1fr; }
+  .lesson-resources { padding: 16px; }
+  .lesson-resources ul { display: flex; flex-wrap: wrap; gap: 8px 14px; }
+  .lesson-resources .source-link { display: inline-flex; align-items: center; min-height: 32px; }
+}
+@media (max-width: 1050px) {
+  .course-topbar { min-height: 64px; grid-template-columns: 1fr; grid-template-rows: auto; padding: 8px 16px; }
+  .topbar-logo-link { grid-column: 1; justify-self: center; }
+  .next-step-logo { max-width: min(190px, calc(100vw - 32px)); height: 34px; }
+  .top-progress-shell { display: none !important; }
+  .course-sidebar {
+    display: flex !important;
+    position: fixed !important;
+    top: 64px !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: auto !important;
+    width: 100% !important;
+    max-height: calc(100vh - 64px);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    overflow-y: auto;
+  }
+  .course-sidebar .sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 58px;
+    padding: 9px 66px 9px 22px !important;
+  }
+  .topbar-menu-toggle { display: inline-flex; }
+  .sidebar-toggle-button { display: none !important; }
+  .sidebar-title { font-size: 23px !important; line-height: 1.1 !important; margin: 0 !important; }
+  .sidebar-course-label { margin: 0 !important; white-space: nowrap; }
+  .course-sidebar nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 0 14px 12px !important;
+  }
+  .course-nav-link {
+    flex: 1 1 150px;
+    min-height: 42px;
+    margin: 0 !important;
+    padding: 8px 12px !important;
+  }
+  .lessons-nav { flex: 1 1 150px; min-width: 0; }
+  .lessons-toggle { width: 100%; }
+  .lessons-nav.is-open { flex-basis: 100%; }
+  .lesson-subnav {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    display: none;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+  .lessons-nav.is-open .lesson-subnav { display: grid; }
+  .sublesson-link { padding: 8px 10px !important; }
+  .course-main { margin-left: 0 !important; padding-top: 238px !important; }
+  body.sidebar-collapsed .course-sidebar {
+    width: 100% !important;
+    height: 58px;
+    overflow: hidden;
+  }
+  body.sidebar-collapsed .course-main { margin-left: 0 !important; padding-top: 122px !important; }
+  body.sidebar-collapsed .sidebar-header {
+    justify-content: flex-start;
+    padding: 9px 66px 9px 22px !important;
+  }
+  body.sidebar-collapsed .sidebar-title,
+  body.sidebar-collapsed .sidebar-course-label {
+    display: block;
+  }
+  body.sidebar-collapsed .sidebar-title { font-size: 21px !important; }
+  body.sidebar-collapsed .course-sidebar nav { display: none; }
+  body.sidebar-collapsed .sidebar-toggle-button { display: none !important; }
   .source-content h1 { font-size: 24px; }
   .source-video-frame, .source-video-card .source-video-frame { min-height: 190px; }
   .library-browser, .film-room-shell { grid-template-columns: 1fr; }
@@ -292,6 +377,9 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
   <a class="topbar-logo-link" href="#overview" data-page-target="overview" aria-label="Next Step home">
     <img class="next-step-logo" src="assets/brand/nxt-ce-logo-white-with-ce.png" alt="Next Step">
   </a>
+  <button id="topbar-menu-toggle" class="topbar-menu-toggle" type="button" aria-label="Toggle menu">
+    <span class="material-symbols-outlined" aria-hidden="true">dock_to_left</span>
+  </button>
   <div class="top-progress-shell" aria-label="Course progress">
     <div class="top-progress-meta">
       <span>Course Progress</span>
@@ -315,19 +403,17 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
     <a class="course-nav-link active flex items-center gap-sm font-label-md text-label-md rounded-lg mx-2 px-4 py-3 transition-colors" href="#overview" data-page-target="overview"><span class="material-symbols-outlined" aria-hidden="true">dashboard</span><span class="sidebar-label">Overview</span></a>
     <div class="lessons-nav" data-lessons-nav>
       <a class="course-nav-link lessons-toggle flex items-center gap-sm font-label-md text-label-md rounded-lg mx-2 px-4 py-3 transition-colors" href="#lessons" data-page-target="lessons" data-lessons-toggle aria-expanded="false" aria-controls="lesson-subnav"><span class="material-symbols-outlined" aria-hidden="true">menu_book</span><span class="sidebar-label">Lessons</span><span class="material-symbols-outlined lessons-toggle-icon ml-auto" aria-hidden="true">expand_more</span></a>
-      <div id="lesson-subnav" class="lesson-subnav ml-12 mr-3 mt-1 space-y-1"><a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#a-streetcar-named-desire-introduction" data-page-target="a-streetcar-named-desire-introduction">Intro. A Streetcar Named Desire - Introduction</a>
-<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#lesson-1-tennessee-williams" data-page-target="lesson-1-tennessee-williams">1. Tennessee Williams</a>
-<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#lesson-2-streetcar-overview-and-character" data-page-target="lesson-2-streetcar-overview-and-character">2. Streetcar Overview and Character</a>
-<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#lesson-3-streetcar-character-powerpoint-ppt" data-page-target="lesson-3-streetcar-character-powerpoint-ppt">3. Streetcar Character Powerpoint (ppt)</a>
+      <div id="lesson-subnav" class="lesson-subnav ml-12 mr-3 mt-1 space-y-1"><a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#a-streetcar-named-desire-introduction" data-page-target="a-streetcar-named-desire-introduction">1. A Streetcar Named Desire - Introduction</a>
+<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#lesson-2-streetcar-overview-and-character" data-page-target="lesson-2-streetcar-overview-and-character">2. Streetcar Overview and Characters</a>
 <a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#lesson-4-a-streetcar-named-desire-questions" data-page-target="lesson-4-a-streetcar-named-desire-questions">4. A Streetcar Named Desire questions</a>
-<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#lesson-5-a-streetcar-named-desire-analysis" data-page-target="lesson-5-a-streetcar-named-desire-analysis">5. A Streetcar Named Desire Analysis</a>
-<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#lesson-6-the-streetcar" data-page-target="lesson-6-the-streetcar">6. The Streetcar</a>
-<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#lesson-7-motifs" data-page-target="lesson-7-motifs">7. Motifs</a>
-<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#lesson-8-symbols" data-page-target="lesson-8-symbols">8. Symbols</a>
-<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#lesson-9-relationships" data-page-target="lesson-9-relationships">9. Relationships</a>
-<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#lesson-10-themes" data-page-target="lesson-10-themes">10. Themes</a>
-<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#lesson-11-song-symbolism" data-page-target="lesson-11-song-symbolism">11. Song Symbolism</a>
-<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#scene-overviews" data-page-target="scene-overviews">12. Scene Overviews</a>
+<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#scene-overviews" data-page-target="scene-overviews">5. Scene Overviews</a>
+<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#lesson-5-a-streetcar-named-desire-analysis" data-page-target="lesson-5-a-streetcar-named-desire-analysis">6. A Streetcar Named Desire Analysis</a>
+<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#lesson-6-the-streetcar" data-page-target="lesson-6-the-streetcar">7. The Streetcar</a>
+<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#lesson-7-motifs" data-page-target="lesson-7-motifs">8. Motifs</a>
+<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#lesson-8-symbols" data-page-target="lesson-8-symbols">9. Symbols</a>
+<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#lesson-9-relationships" data-page-target="lesson-9-relationships">10. Relationships</a>
+<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#lesson-10-themes" data-page-target="lesson-10-themes">11. Themes</a>
+<a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#lesson-11-song-symbolism" data-page-target="lesson-11-song-symbolism">12. Song Symbolism</a>
 <a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#lesson-12-writing-a-critical-and-analytical-response-to-text-s" data-page-target="lesson-12-writing-a-critical-and-analytical-response-to-text-s">13. Writing a Critical and Analytical Response to Text(s)</a>
 <a class="sublesson-link block rounded-lg px-3 py-2 font-caption text-caption text-surface-variant hover:bg-white/5 hover:text-white" href="#lesson-13-samples-of-student-writing" data-page-target="lesson-13-samples-of-student-writing">14. Samples of Student Writing</a></div>
     </div>
@@ -345,7 +431,7 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
           <div class="mb-lg">
             <p class="font-label-md text-label-md text-secondary">ELA 30-1 | Unit Frame</p>
             <h2 class="font-display-lg text-display-lg text-on-surface mt-xs mb-sm">A Streetcar Named Desire</h2>
-            <p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">A Brightspace-ready master lesson frame for A Streetcar Named Desire. The original lesson sequence is preserved, while navigation, completion state, source links, and writing support are organized into a reusable course surface.</p>
+            <p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">In this unit, you will study Tennessee Williams' <em>A Streetcar Named Desire</em> as a modern drama about desire, power, illusion, class, gender, and survival. You will build background knowledge, read and analyze key scenes, track motifs and symbols, use evidence from the play, and prepare for critical and analytical writing.</p>
           </div>
           <div class="flex flex-wrap gap-sm mb-lg">
             <span class="completed-pill"><strong id="complete-count">0</strong>/15 lessons complete</span>
@@ -367,82 +453,95 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
         <p class="font-label-md text-label-md text-secondary">ELA 30-1 | Lessons</p>
         <h2 class="font-headline-lg text-headline-lg text-on-surface mt-xs">A Streetcar Named Desire Lesson Sequence</h2>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-4 gap-md mb-lg">
-        <a class="lesson-card block text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/40" href="#a-streetcar-named-desire-introduction" data-page-target="a-streetcar-named-desire-introduction">
-        <span class="font-caption text-caption text-primary">Intro</span>
-        <strong class="block font-label-md text-label-md text-on-surface mt-1">A Streetcar Named Desire - Introduction</strong>
-        <span class="block font-caption text-caption text-on-surface-variant mt-2">Introduction to A Streetcar Named Desire Pictured above is the set model, designed by Michael Yeargan, for the world premiere performances of Andre Previn's opera A Streetcar Name...</span>
-      </a>
-<a class="lesson-card block text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/40" href="#lesson-1-tennessee-williams" data-page-target="lesson-1-tennessee-williams">
-        <span class="font-caption text-caption text-primary">Lesson 1</span>
-        <strong class="block font-label-md text-label-md text-on-surface mt-1">Lesson 1: Tennessee Williams</strong>
-        <span class="block font-caption text-caption text-on-surface-variant mt-2">Tennessee Williams Biography “I have found it easier to identify with the characters who verge upon hysteria, who were frightened of life, who were desperate to reach out to anoth...</span>
-      </a>
-<a class="lesson-card block text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/40" href="#lesson-2-streetcar-overview-and-character" data-page-target="lesson-2-streetcar-overview-and-character">
-        <span class="font-caption text-caption text-primary">Lesson 2</span>
-        <strong class="block font-label-md text-label-md text-on-surface mt-1">Lesson 2: Streetcar Overview and Character</strong>
-        <span class="block font-caption text-caption text-on-surface-variant mt-2">Streetcar Overview and Character Streetcar Overview</span>
-      </a>
-<a class="lesson-card block text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/40" href="#lesson-3-streetcar-character-powerpoint-ppt" data-page-target="lesson-3-streetcar-character-powerpoint-ppt">
-        <span class="font-caption text-caption text-primary">Lesson 3</span>
-        <strong class="block font-label-md text-label-md text-on-surface mt-1">Lesson 3: Streetcar Character Powerpoint (ppt)</strong>
-        <span class="block font-caption text-caption text-on-surface-variant mt-2">Streetcar Character ppt</span>
-      </a>
-<a class="lesson-card block text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/40" href="#lesson-4-a-streetcar-named-desire-questions" data-page-target="lesson-4-a-streetcar-named-desire-questions">
-        <span class="font-caption text-caption text-primary">Lesson 4</span>
-        <strong class="block font-label-md text-label-md text-on-surface mt-1">Lesson 4: A Streetcar Named Desire questions</strong>
-        <span class="block font-caption text-caption text-on-surface-variant mt-2">Local PDF: streetcar_named_desire/assets/A Streetcar Named Desire questions.pdf</span>
-      </a>
-<a class="lesson-card block text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/40" href="#lesson-5-a-streetcar-named-desire-analysis" data-page-target="lesson-5-a-streetcar-named-desire-analysis">
-        <span class="font-caption text-caption text-primary">Lesson 5</span>
-        <strong class="block font-label-md text-label-md text-on-surface mt-1">Lesson 5: A Streetcar Named Desire Analysis</strong>
-        <span class="block font-caption text-caption text-on-surface-variant mt-2">A Streetcar Named Desire Analysis</span>
-      </a>
-<a class="lesson-card block text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/40" href="#lesson-6-the-streetcar" data-page-target="lesson-6-the-streetcar">
-        <span class="font-caption text-caption text-primary">Lesson 6</span>
-        <strong class="block font-label-md text-label-md text-on-surface mt-1">Lesson 6: The Streetcar</strong>
-        <span class="block font-caption text-caption text-on-surface-variant mt-2">The Streetcar This is the picture of an actual streetcar named Desire. The streetcar was in fact used during the period the play was published (1947) . This is the streetcar that...</span>
-      </a>
-<a class="lesson-card block text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/40" href="#lesson-7-motifs" data-page-target="lesson-7-motifs">
-        <span class="font-caption text-caption text-primary">Lesson 7</span>
-        <strong class="block font-label-md text-label-md text-on-surface mt-1">Lesson 7: Motifs</strong>
-        <span class="block font-caption text-caption text-on-surface-variant mt-2">Motifs Williams uses music, such as the &quot;blue piano,&quot; the song &quot;It's Only a Paper Moon,&quot; and the Varsouviana polka, to represent his characters' inner lives, set the mood, and fur...</span>
-      </a>
-<a class="lesson-card block text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/40" href="#lesson-8-symbols" data-page-target="lesson-8-symbols">
-        <span class="font-caption text-caption text-primary">Lesson 8</span>
-        <strong class="block font-label-md text-label-md text-on-surface mt-1">Lesson 8: Symbols</strong>
-        <span class="block font-caption text-caption text-on-surface-variant mt-2">Symbols Light Williams contrasts dim light and harsh light to underscore the theme of truth versus illusion. Dim light symbolizes Blanche's world of illusion because it helps to d...</span>
-      </a>
-<a class="lesson-card block text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/40" href="#lesson-9-relationships" data-page-target="lesson-9-relationships">
-        <span class="font-caption text-caption text-primary">Lesson 9</span>
-        <strong class="block font-label-md text-label-md text-on-surface mt-1">Lesson 9: Relationships</strong>
-        <span class="block font-caption text-caption text-on-surface-variant mt-2">Relationships</span>
-      </a>
-<a class="lesson-card block text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/40" href="#lesson-10-themes" data-page-target="lesson-10-themes">
-        <span class="font-caption text-caption text-primary">Lesson 10</span>
-        <strong class="block font-label-md text-label-md text-on-surface mt-1">Lesson 10: Themes</strong>
-        <span class="block font-caption text-caption text-on-surface-variant mt-2">Themes Desire, Destruction, and Death Desire and destruction form a toxic cocktail that influences the motivations and actions of the play's four major characters. Blanche, Stanle...</span>
-      </a>
-<a class="lesson-card block text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/40" href="#lesson-11-song-symbolism" data-page-target="lesson-11-song-symbolism">
-        <span class="font-caption text-caption text-primary">Lesson 11</span>
-        <strong class="block font-label-md text-label-md text-on-surface mt-1">Lesson 11: Song Symbolism</strong>
-        <span class="block font-caption text-caption text-on-surface-variant mt-2">Song Symbolism</span>
-      </a>
-<a class="lesson-card block text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/40" href="#scene-overviews" data-page-target="scene-overviews">
-        <span class="font-caption text-caption text-primary">Lesson 12</span>
-        <strong class="block font-label-md text-label-md text-on-surface mt-1">Scene Overviews</strong>
-        <span class="block font-caption text-caption text-on-surface-variant mt-2">Scene 1 Overview Scene 1 CliffsNotes overview Summary Stanley appears and calls for Stella, his wife, to catch a package of meat. He then goes bowling and Stella follows. Almost i...</span>
-      </a>
-<a class="lesson-card block text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/40" href="#lesson-12-writing-a-critical-and-analytical-response-to-text-s" data-page-target="lesson-12-writing-a-critical-and-analytical-response-to-text-s">
-        <span class="font-caption text-caption text-primary">Lesson 13</span>
-        <strong class="block font-label-md text-label-md text-on-surface mt-1">Lesson 12: Writing a Critical and Analytical Response to Text(s)</strong>
-        <span class="block font-caption text-caption text-on-surface-variant mt-2">Writing a Critical and Analytical Response to Text(s) Part A (Written) of the diploma exam consists of the following two tasks: Personal Response to Texts Assignment (20% of your...</span>
-      </a>
-<a class="lesson-card block text-left bg-surface border border-surface-muted rounded-lg p-md transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/40" href="#lesson-13-samples-of-student-writing" data-page-target="lesson-13-samples-of-student-writing">
-        <span class="font-caption text-caption text-primary">Lesson 14</span>
-        <strong class="block font-label-md text-label-md text-on-surface mt-1">Lesson 13: Samples of Student Writing</strong>
-        <span class="block font-caption text-caption text-on-surface-variant mt-2">Samples of Student Writing Before you begin to write your first Critical/Analytical Response to Literary Texts Assignment, you may find it helpful to review some samples of studen...</span>
-      </a>
+      <div class="space-y-3 mb-lg">
+        <details class="bg-surface border border-surface-muted rounded-lg p-md" open>
+          <summary class="cursor-pointer font-label-md text-label-md text-on-surface">Start Here</summary>
+          <div class="mt-md space-y-2">
+            <a class="lesson-card block bg-surface-container-low border border-surface-muted rounded-lg p-md focus:outline-none focus:ring-2 focus:ring-primary/40" href="#a-streetcar-named-desire-introduction" data-page-target="a-streetcar-named-desire-introduction">
+              <span class="font-caption text-caption text-primary">1</span>
+              <strong class="block font-label-md text-label-md text-on-surface mt-1">A Streetcar Named Desire - Introduction</strong>
+              <span class="block font-caption text-caption text-on-surface-variant mt-2">Meet Tennessee Williams and the world of the play before beginning the unit.</span>
+            </a>
+            <a class="lesson-card block bg-surface-container-low border border-surface-muted rounded-lg p-md focus:outline-none focus:ring-2 focus:ring-primary/40" href="#lesson-2-streetcar-overview-and-character" data-page-target="lesson-2-streetcar-overview-and-character">
+              <span class="font-caption text-caption text-primary">2</span>
+              <strong class="block font-label-md text-label-md text-on-surface mt-1">Streetcar Overview and Characters</strong>
+              <span class="block font-caption text-caption text-on-surface-variant mt-2">Build context for the play, its major characters, and why it still matters.</span>
+            </a>
+          </div>
+        </details>
+
+        <details class="bg-surface border border-surface-muted rounded-lg p-md" open>
+          <summary class="cursor-pointer font-label-md text-label-md text-on-surface">Reading the Play</summary>
+          <div class="mt-md space-y-2">
+            <a class="lesson-card block bg-surface-container-low border border-surface-muted rounded-lg p-md focus:outline-none focus:ring-2 focus:ring-primary/40" href="#lesson-4-a-streetcar-named-desire-questions" data-page-target="lesson-4-a-streetcar-named-desire-questions">
+              <span class="font-caption text-caption text-primary">4</span>
+              <strong class="block font-label-md text-label-md text-on-surface mt-1">A Streetcar Named Desire Questions</strong>
+              <span class="block font-caption text-caption text-on-surface-variant mt-2">Use the reading questions to track comprehension, evidence, and scene details.</span>
+            </a>
+            <a class="lesson-card block bg-surface-container-low border border-surface-muted rounded-lg p-md focus:outline-none focus:ring-2 focus:ring-primary/40" href="#scene-overviews" data-page-target="scene-overviews">
+              <span class="font-caption text-caption text-primary">5</span>
+              <strong class="block font-label-md text-label-md text-on-surface mt-1">Scene Overviews</strong>
+              <span class="block font-caption text-caption text-on-surface-variant mt-2">Review scene-by-scene summaries as you move through the play.</span>
+            </a>
+            <a class="lesson-card block bg-surface-container-low border border-surface-muted rounded-lg p-md focus:outline-none focus:ring-2 focus:ring-primary/40" href="#lesson-5-a-streetcar-named-desire-analysis" data-page-target="lesson-5-a-streetcar-named-desire-analysis">
+              <span class="font-caption text-caption text-primary">6</span>
+              <strong class="block font-label-md text-label-md text-on-surface mt-1">A Streetcar Named Desire Analysis</strong>
+              <span class="block font-caption text-caption text-on-surface-variant mt-2">Move from comprehension into interpretation and evidence-based analysis.</span>
+            </a>
+          </div>
+        </details>
+
+        <details class="bg-surface border border-surface-muted rounded-lg p-md" open>
+          <summary class="cursor-pointer font-label-md text-label-md text-on-surface">Literary Tools</summary>
+          <div class="mt-md space-y-2">
+            <a class="lesson-card block bg-surface-container-low border border-surface-muted rounded-lg p-md focus:outline-none focus:ring-2 focus:ring-primary/40" href="#lesson-6-the-streetcar" data-page-target="lesson-6-the-streetcar">
+              <span class="font-caption text-caption text-primary">7</span>
+              <strong class="block font-label-md text-label-md text-on-surface mt-1">The Streetcar</strong>
+              <span class="block font-caption text-caption text-on-surface-variant mt-2">Study the title image and how the streetcar becomes a symbolic route through the play.</span>
+            </a>
+            <a class="lesson-card block bg-surface-container-low border border-surface-muted rounded-lg p-md focus:outline-none focus:ring-2 focus:ring-primary/40" href="#lesson-7-motifs" data-page-target="lesson-7-motifs">
+              <span class="font-caption text-caption text-primary">8</span>
+              <strong class="block font-label-md text-label-md text-on-surface mt-1">Motifs</strong>
+              <span class="block font-caption text-caption text-on-surface-variant mt-2">Trace repeated music, objects, and references that shape meaning.</span>
+            </a>
+            <a class="lesson-card block bg-surface-container-low border border-surface-muted rounded-lg p-md focus:outline-none focus:ring-2 focus:ring-primary/40" href="#lesson-8-symbols" data-page-target="lesson-8-symbols">
+              <span class="font-caption text-caption text-primary">9</span>
+              <strong class="block font-label-md text-label-md text-on-surface mt-1">Symbols</strong>
+              <span class="block font-caption text-caption text-on-surface-variant mt-2">Analyze light, flowers, paper, and other symbols connected to illusion and loss.</span>
+            </a>
+            <a class="lesson-card block bg-surface-container-low border border-surface-muted rounded-lg p-md focus:outline-none focus:ring-2 focus:ring-primary/40" href="#lesson-9-relationships" data-page-target="lesson-9-relationships">
+              <span class="font-caption text-caption text-primary">10</span>
+              <strong class="block font-label-md text-label-md text-on-surface mt-1">Relationships</strong>
+              <span class="block font-caption text-caption text-on-surface-variant mt-2">Examine power, dependence, loyalty, and conflict between the central characters.</span>
+            </a>
+            <a class="lesson-card block bg-surface-container-low border border-surface-muted rounded-lg p-md focus:outline-none focus:ring-2 focus:ring-primary/40" href="#lesson-10-themes" data-page-target="lesson-10-themes">
+              <span class="font-caption text-caption text-primary">11</span>
+              <strong class="block font-label-md text-label-md text-on-surface mt-1">Themes</strong>
+              <span class="block font-caption text-caption text-on-surface-variant mt-2">Connect desire, truth, repression, class, and sexuality to the play as a whole.</span>
+            </a>
+            <a class="lesson-card block bg-surface-container-low border border-surface-muted rounded-lg p-md focus:outline-none focus:ring-2 focus:ring-primary/40" href="#lesson-11-song-symbolism" data-page-target="lesson-11-song-symbolism">
+              <span class="font-caption text-caption text-primary">12</span>
+              <strong class="block font-label-md text-label-md text-on-surface mt-1">Song Symbolism</strong>
+              <span class="block font-caption text-caption text-on-surface-variant mt-2">Consider how music and song reveal memory, pressure, and inner conflict.</span>
+            </a>
+          </div>
+        </details>
+
+        <details class="bg-surface border border-surface-muted rounded-lg p-md" open>
+          <summary class="cursor-pointer font-label-md text-label-md text-on-surface">Writing</summary>
+          <div class="mt-md space-y-2">
+            <a class="lesson-card block bg-surface-container-low border border-surface-muted rounded-lg p-md focus:outline-none focus:ring-2 focus:ring-primary/40" href="#lesson-12-writing-a-critical-and-analytical-response-to-text-s" data-page-target="lesson-12-writing-a-critical-and-analytical-response-to-text-s">
+              <span class="font-caption text-caption text-primary">13</span>
+              <strong class="block font-label-md text-label-md text-on-surface mt-1">Writing a Critical and Analytical Response to Text(s)</strong>
+              <span class="block font-caption text-caption text-on-surface-variant mt-2">Prepare a focused literary response using claim, evidence, and explanation.</span>
+            </a>
+            <a class="lesson-card block bg-surface-container-low border border-surface-muted rounded-lg p-md focus:outline-none focus:ring-2 focus:ring-primary/40" href="#lesson-13-samples-of-student-writing" data-page-target="lesson-13-samples-of-student-writing">
+              <span class="font-caption text-caption text-primary">14</span>
+              <strong class="block font-label-md text-label-md text-on-surface mt-1">Samples of Student Writing</strong>
+              <span class="block font-caption text-caption text-on-surface-variant mt-2">Review sample responses before drafting your own analytical writing.</span>
+            </a>
+          </div>
+        </details>
       </div>
     </section>
 
@@ -468,48 +567,18 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 <p><img class="source-image" src="./assets/source/tennessee-williams-pjoto.jpg" alt="" title="" width="221" height="146" loading="lazy"></p>
 <p>Williams' play explores many of the playwright's personal struggles in a society which he felt was often repressive and narrow-minded.&nbsp; Williams said that the belief which inspired and dominated his writing was the "<em><strong>need for understanding and tenderness among individuals trapped by circumstance</strong></em>."</p>
 <p>Before you begin to read the play, research the playwright&nbsp;<a href="http://www.biography.com/people/tennessee-williams-9532952" target="_blank" rel="noopener noreferrer">Tennessee Williams</a>. Biographical information about the playwright may help you enjoy the play more and to be more aware of some of the issues the writer is exploring. Every writer is a part of the world in which he lives. Therefore, as you study any piece of literature, consider how it reflects the personal experiences of the author. Remember that writers frequently explore issues in their own lives through their writing.<!-- FOOTER --></p>
+<h2>Tennessee Williams</h2>
+<p><a href="https://www.biography.com/writer/tennessee-williams" target="_blank" rel="noopener noreferrer">Biography</a></p>
+<p>“I have found it easier to identify with the characters who verge upon hysteria, who were frightened of life, who were desperate to reach out to another person. But these seemingly fragile people are the strong people really. “ Tennessee Williams</p>
+<p><iframe src="https://www.youtube.com/embed/763wrhAthqE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true" class="source-video-frame" loading="lazy" title="Embedded video"></iframe></p>
 <div id="footer"></div></div>
             <aside class="lesson-resources bg-surface border border-surface-muted rounded-lg p-md">
             <h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Source Links</h3>
-            <ul class="space-y-2"><li><a class="source-link" href="http://www.biography.com/people/tennessee-williams-9532952" target="_blank" rel="noopener noreferrer">Tennessee Williams</a></li></ul>
+            <ul class="space-y-2"><li><a class="source-link" href="http://www.biography.com/people/tennessee-williams-9532952" target="_blank" rel="noopener noreferrer">Tennessee Williams</a></li><li><a class="source-link" href="https://www.biography.com/writer/tennessee-williams" target="_blank" rel="noopener noreferrer">Biography</a></li></ul>
           </aside>
           </div>
           <div class="flex flex-wrap gap-sm mt-lg pt-md border-t border-surface-muted">
             <a class="lesson-jump" href="#lessons" data-page-target="lessons">Lesson Library</a>
-            <a class="lesson-jump primary" href="#lesson-1-tennessee-williams" data-page-target="lesson-1-tennessee-williams">Next Lesson</a>
-          </div>
-        </article>
-      </section>
-<section id="lesson-1-tennessee-williams" class="course-page" data-page="lesson-1-tennessee-williams" hidden>
-        <article class="lesson-detail-panel bg-surface-container-low border border-surface-muted rounded-lg p-lg relative overflow-hidden">
-          <div class="absolute top-0 left-0 w-full h-1 bg-primary-container"></div>
-          <span class="font-label-md text-label-md text-secondary">ELA 30-1 | Lesson 1</span>
-          <div class="flex flex-wrap items-start justify-between gap-md mt-sm mb-md">
-            <div>
-              <h2 class="font-headline-lg text-headline-lg text-on-surface">Lesson 1: Tennessee Williams</h2>
-              <p class="font-body-md text-body-md text-on-surface-variant mt-xs max-w-3xl">Tennessee Williams Biography “I have found it easier to identify with the characters who verge upon hysteria, who were frightened of life, who were desperate to reach out to anoth...</p>
-            </div>
-            <button class="mark-complete inline-flex min-h-11 items-center rounded-lg bg-primary px-4 py-2 font-label-md text-label-md text-white hover:bg-primary-container focus:outline-none focus:ring-2 focus:ring-primary/40" type="button" data-complete-id="lesson-1-tennessee-williams">Mark Complete</button>
-          </div>
-          <div class="lesson-layout">
-            <div class="source-content"><!-- HEADER -->
-<div id="header">
-<h1>Tennessee Williams</h1>
-</div>
-<!-- CONTENT -->
-<p><a href="https://www.biography.com/writer/tennessee-williams" target="_blank" rel="noopener noreferrer">Biography</a></p>
-<p>“I have found it easier to identify with the characters who verge upon hysteria, who were frightened of life, who were desperate to reach out to another person. But these seemingly fragile people are the strong people really. “ Tennessee Williams</p>
-<p><iframe src="https://www.youtube.com/embed/763wrhAthqE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true" class="source-video-frame" loading="lazy" title="Embedded video"></iframe></p>
-
-<!-- FOOTER -->
-<div id="footer"></div></div>
-            <aside class="lesson-resources bg-surface border border-surface-muted rounded-lg p-md">
-            <h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Source Links</h3>
-            <ul class="space-y-2"><li><a class="source-link" href="https://www.biography.com/writer/tennessee-williams" target="_blank" rel="noopener noreferrer">Biography</a></li></ul>
-          </aside>
-          </div>
-          <div class="flex flex-wrap gap-sm mt-lg pt-md border-t border-surface-muted">
-            <a class="lesson-jump" href="#a-streetcar-named-desire-introduction" data-page-target="a-streetcar-named-desire-introduction">Previous</a>
             <a class="lesson-jump primary" href="#lesson-2-streetcar-overview-and-character" data-page-target="lesson-2-streetcar-overview-and-character">Next Lesson</a>
           </div>
         </article>
@@ -520,19 +589,33 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
           <span class="font-label-md text-label-md text-secondary">ELA 30-1 | Lesson 2</span>
           <div class="flex flex-wrap items-start justify-between gap-md mt-sm mb-md">
             <div>
-              <h2 class="font-headline-lg text-headline-lg text-on-surface">Lesson 2: Streetcar Overview and Character</h2>
-              <p class="font-body-md text-body-md text-on-surface-variant mt-xs max-w-3xl">Streetcar Overview and Character Streetcar Overview</p>
+              <h2 class="font-headline-lg text-headline-lg text-on-surface">Lesson 2: Streetcar Overview and Characters</h2>
+              <p class="font-body-md text-body-md text-on-surface-variant mt-xs max-w-3xl">Streetcar overview, character framing, and supporting video resources.</p>
             </div>
             <button class="mark-complete inline-flex min-h-11 items-center rounded-lg bg-primary px-4 py-2 font-label-md text-label-md text-white hover:bg-primary-container focus:outline-none focus:ring-2 focus:ring-primary/40" type="button" data-complete-id="lesson-2-streetcar-overview-and-character">Mark Complete</button>
           </div>
           <div class="lesson-layout">
             <div class="source-content"><!-- HEADER -->
 <div id="header">
-<h1>Streetcar Overview and Character</h1>
+<h1>Streetcar Overview and Characters</h1>
 </div>
 <!-- CONTENT -->
 <p><a href="https://www.shmoop.com/streetcar-named-desire/" target="_blank" rel="noopener noreferrer">Streetcar Overview</a></p>
+<h2>A Streetcar Named Desire Introduction</h2>
+<p>Many critics place <em>A Streetcar Named Desire</em> among the very greatest American plays ever written. Even though it was first produced in 1947, its conflicts still feel immediate because Williams writes about power, desire, illusion, vulnerability, and the pressure people feel to survive inside rigid social roles.</p>
+<p>Tennessee Williams was already gaining attention after <em>The Glass Menagerie</em>, but <em>Streetcar</em> secured his place as one of the major American playwrights. The play opened on Broadway in December 1947, ran for more than two years, and earned major recognition, including the 1948 Pulitzer Prize.</p>
+<p>The original Broadway production also helped launch Marlon Brando into stardom through his performance as Stanley Kowalski. His portrayal became so influential that later actors playing Stanley are almost always measured against it.</p>
+<p>At its core, the play follows Blanche DuBois, Stella Kowalski, and Stanley Kowalski as their desires, fears, and private illusions collide. Williams creates characters who are fragile, contradictory, and deeply human, which is why audiences continue to find the play haunting and memorable.</p>
+<p>As you move into this lesson, think about why the play still feels powerful. Although its setting is tied to the mid-twentieth century, its emotional tensions—shame, longing, performance, repression, and the need to be seen with compassion—remain recognizable.</p>
+<div class="media-card my-md">
+  <h3>Street Car Audio Overview</h3>
+  <audio controls class="w-full" preload="metadata" src="assets/media/The_Brando_Curse_and_Forbidden_Subtext.m4a">
+    Your browser does not support the audio element.
+  </audio>
+</div>
 <p><iframe src="https://www.youtube.com/embed/a9G7lU8J21Y?feature=oembed&amp;wmode=opaque&amp;rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true" class="source-video-frame" loading="lazy" title="Embedded video"></iframe></p>
+<h2>Streetcar Characters</h2>
+<p><iframe src="https://www.youtube.com/embed/4mE6ItCl3nc?feature=oembed&amp;wmode=opaque&amp;rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true" class="source-video-frame" loading="lazy" title="Embedded video"></iframe></p>
 <!-- FOOTER -->
 <div id="footer"></div></div>
             <aside class="lesson-resources bg-surface border border-surface-muted rounded-lg p-md">
@@ -541,35 +624,7 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
           </aside>
           </div>
           <div class="flex flex-wrap gap-sm mt-lg pt-md border-t border-surface-muted">
-            <a class="lesson-jump" href="#lesson-1-tennessee-williams" data-page-target="lesson-1-tennessee-williams">Previous</a>
-            <a class="lesson-jump primary" href="#lesson-3-streetcar-character-powerpoint-ppt" data-page-target="lesson-3-streetcar-character-powerpoint-ppt">Next Lesson</a>
-          </div>
-        </article>
-      </section>
-<section id="lesson-3-streetcar-character-powerpoint-ppt" class="course-page" data-page="lesson-3-streetcar-character-powerpoint-ppt" hidden>
-        <article class="lesson-detail-panel bg-surface-container-low border border-surface-muted rounded-lg p-lg relative overflow-hidden">
-          <div class="absolute top-0 left-0 w-full h-1 bg-primary-container"></div>
-          <span class="font-label-md text-label-md text-secondary">ELA 30-1 | Lesson 3</span>
-          <div class="flex flex-wrap items-start justify-between gap-md mt-sm mb-md">
-            <div>
-              <h2 class="font-headline-lg text-headline-lg text-on-surface">Lesson 3: Streetcar Character Powerpoint (ppt)</h2>
-              <p class="font-body-md text-body-md text-on-surface-variant mt-xs max-w-3xl">Streetcar Character ppt</p>
-            </div>
-            <button class="mark-complete inline-flex min-h-11 items-center rounded-lg bg-primary px-4 py-2 font-label-md text-label-md text-white hover:bg-primary-container focus:outline-none focus:ring-2 focus:ring-primary/40" type="button" data-complete-id="lesson-3-streetcar-character-powerpoint-ppt">Mark Complete</button>
-          </div>
-          <div class="lesson-layout">
-            <div class="source-content"><!-- HEADER -->
-<div id="header">
-<h1>Streetcar Character ppt</h1>
-</div>
-<!-- CONTENT -->
-<p><iframe src="https://www.youtube.com/embed/4mE6ItCl3nc?feature=oembed&amp;wmode=opaque&amp;rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true" class="source-video-frame" loading="lazy" title="Embedded video"></iframe></p>
-<!-- FOOTER -->
-<div id="footer"></div></div>
-            
-          </div>
-          <div class="flex flex-wrap gap-sm mt-lg pt-md border-t border-surface-muted">
-            <a class="lesson-jump" href="#lesson-2-streetcar-overview-and-character" data-page-target="lesson-2-streetcar-overview-and-character">Previous</a>
+            <a class="lesson-jump" href="#a-streetcar-named-desire-introduction" data-page-target="a-streetcar-named-desire-introduction">Previous</a>
             <a class="lesson-jump primary" href="#lesson-4-a-streetcar-named-desire-questions" data-page-target="lesson-4-a-streetcar-named-desire-questions">Next Lesson</a>
           </div>
         </article>
@@ -581,13 +636,11 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
           <div class="flex flex-wrap items-start justify-between gap-md mt-sm mb-md">
             <div>
               <h2 class="font-headline-lg text-headline-lg text-on-surface">Lesson 4: A Streetcar Named Desire questions</h2>
-              <p class="font-body-md text-body-md text-on-surface-variant mt-xs max-w-3xl">Local PDF: streetcar_named_desire/assets/A Streetcar Named Desire questions.pdf</p>
             </div>
             <button class="mark-complete inline-flex min-h-11 items-center rounded-lg bg-primary px-4 py-2 font-label-md text-label-md text-white hover:bg-primary-container focus:outline-none focus:ring-2 focus:ring-primary/40" type="button" data-complete-id="lesson-4-a-streetcar-named-desire-questions">Mark Complete</button>
           </div>
           <div class="lesson-layout">
-            <div class="source-content"><h1>Lesson 4: A Streetcar Named Desire questions</h1>
-<p>This source item is provided as a local PDF from the Brightspace export.</p>
+            <div class="source-content">
 <p><a class="source-link" href="./assets/source/A-Streetcar-Named-Desire-questions.pdf" target="_blank" rel="noopener noreferrer">Open Lesson 4: A Streetcar Named Desire questions</a></p>
 <iframe class="source-document-frame" src="./assets/source/A-Streetcar-Named-Desire-questions.pdf" title="Lesson 4: A Streetcar Named Desire questions"></iframe></div>
             <aside class="lesson-resources bg-surface border border-surface-muted rounded-lg p-md">
@@ -596,7 +649,7 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
           </aside>
           </div>
           <div class="flex flex-wrap gap-sm mt-lg pt-md border-t border-surface-muted">
-            <a class="lesson-jump" href="#lesson-3-streetcar-character-powerpoint-ppt" data-page-target="lesson-3-streetcar-character-powerpoint-ppt">Previous</a>
+            <a class="lesson-jump" href="#lesson-2-streetcar-overview-and-character" data-page-target="lesson-2-streetcar-overview-and-character">Previous</a>
             <a class="lesson-jump primary" href="#lesson-5-a-streetcar-named-desire-analysis" data-page-target="lesson-5-a-streetcar-named-desire-analysis">Next Lesson</a>
           </div>
         </article>
@@ -682,20 +735,38 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 <p><a href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/author/" target="_blank" rel="noopener noreferrer">Williams</a>&nbsp;uses music, such as the "blue piano," the song "It's Only a Paper Moon," and the Varsouviana polka, to represent his characters' inner lives, set the mood, and further define the themes of the play.</p>
 <h2>Blue Piano</h2>
 <p>The term "blue piano" suggests the blues, mournful music often written in response to life's hardships and tragedies. The music of the "blue piano," which opens and closes the play, is often heard during particularly sad or tragic moments. For example, the "blue piano" grows louder as Blanche admits to Stella that Belle Reve is "lost," and again as Blanche flirts desperately with a young man. Later in the play, the "blue piano's" music grows louder until it turns into the "roar" of a train as Stanley prepares to rape Blanche.</p>
+<div class="mt-md">
+  <video controls class="w-full" preload="metadata" src="assets/media/Motif_of_the_Blue_Piano.mp4"></video>
+</div>
 <h2>"It's Only a Paper Moon"</h2>
 <p>The song "It's Only a Paper Moon" appears only once in the play, when Blanche sings it while taking a bath in&nbsp;<a href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/scene-7-summary/" target="_blank" rel="noopener noreferrer">Scene 7</a>, while Stanley reveals Blanche's sexual exploits to Stella. Its lyrics focus on one of Blanche's struggles to deal with truth versus illusion: "But it wouldn't be make-believe If you believe in me!" The song reveals Blanche's reliance on illusion to help her find true love. She believes that manipulative flirtation and hiding the truth about her sexual escapades is the only way to secure romantic love.</p>
+<div class="mt-md">
+  <video controls class="w-full" preload="metadata" src="assets/media/The__Paper_Moon__Motif.mp4"></video>
+</div>
 <h2>Varsouviana Polka</h2>
 <p>The Varsouviana polka symbolizes the combination of desire, destruction, and death that haunts Blanche, and which began with her husband's suicide. The author cues this polka when Blanche describes the death of her husband, when Stanley gives Blanche a ticket back to Laurel, where her life has fallen apart after she is caught having sex with one of her teenage students, and when the Doctor and Matron arrive to take Blanche away in&nbsp;<a href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/scene-11-summary/" target="_blank" rel="noopener noreferrer">Scene 11</a>.</p>
+<div class="mt-md">
+  <video controls class="w-full" preload="metadata" src="assets/media/Varsouviana_Polka_Motif.mp4"></video>
+</div>
 <h2>Belle Reve</h2>
 <p>Williams uses the Belle Reve plantation to represent the traditional lifestyle of upper-class Southern landowners. However characters in the play react to this setting in different ways. For Blanche, Belle Reve relates to her agonizing attempt to hang on to a refined way of life. The plantation's name is French for "beautiful dream." Even after Belle Reve has been lost, Blanche clings to traditional Southern values as if she still lived there. Stella feels some guilt about leaving Belle Reve. She cries when Blanche accuses her of not helping to keep the plantation. Blanche is angry not only about the loss of the estate, but also about having had to abandon the way of life the estate represents. She objects, "I let the place go? Where were you! In bed with your—Polack!" Stanley does not care about Belle Reve representing Southern tradition. For him Belle Reve means money. He and Stella did not get any money from the sale of Belle Reve, which upsets him until he realizes the property was lost due to a foreclosed mortgage.</p>
+<div class="mt-md">
+  <video controls class="w-full" preload="metadata" src="assets/media/Unpacking_Belle_Reve.mp4"></video>
+</div>
 <p><a href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/motifs/" target="_blank" rel="noopener noreferrer">https://www.coursehero.com/lit/A-Streetcar-Named-Desire/motifs/</a></p>
 <!-- FOOTER -->
 <div id="footer"></div></div>
-            <aside class="lesson-resources bg-surface border border-surface-muted rounded-lg p-md">
+          </div>
+          <div class="mt-lg pt-md border-t border-surface-muted">
+            <h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Psychological Weapons Audio</h3>
+            <audio controls class="w-full" preload="metadata" src="assets/media/Psychological_weapons_in_A_Streetcar_Named_Desire.m4a">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+          <aside class="lesson-resources bg-surface border border-surface-muted rounded-lg p-md mt-lg">
             <h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Source Links</h3>
             <ul class="space-y-2"><li><a class="source-link" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/author/" target="_blank" rel="noopener noreferrer">Williams</a></li><li><a class="source-link" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/scene-7-summary/" target="_blank" rel="noopener noreferrer">Scene 7</a></li><li><a class="source-link" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/scene-11-summary/" target="_blank" rel="noopener noreferrer">Scene 11</a></li><li><a class="source-link" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/motifs/" target="_blank" rel="noopener noreferrer">https://www.coursehero.com/lit/A-Streetcar-Named-Desire/motifs/</a></li></ul>
           </aside>
-          </div>
           <div class="flex flex-wrap gap-sm mt-lg pt-md border-t border-surface-muted">
             <a class="lesson-jump" href="#lesson-6-the-streetcar" data-page-target="lesson-6-the-streetcar">Previous</a>
             <a class="lesson-jump primary" href="#lesson-8-symbols" data-page-target="lesson-8-symbols">Next Lesson</a>
@@ -714,7 +785,7 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
             <button class="mark-complete inline-flex min-h-11 items-center rounded-lg bg-primary px-4 py-2 font-label-md text-label-md text-white hover:bg-primary-container focus:outline-none focus:ring-2 focus:ring-primary/40" type="button" data-complete-id="lesson-8-symbols">Mark Complete</button>
           </div>
           <div class="lesson-layout">
-            <div class="source-content"><!-- HEADER -->
+          <div class="source-content"><!-- HEADER -->
 <div id="header">
 <h1>Symbols</h1>
 </div>
@@ -722,9 +793,15 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 <h2 id="Light">Light</h2>
 <p><a href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/author/" target="_blank" rel="noopener noreferrer">Williams</a>&nbsp;contrasts dim light and harsh light to underscore the theme of truth versus illusion. Dim light symbolizes Blanche's world of illusion because it helps to disguise the truth about herself. For example, she asks&nbsp;<a href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/character-analysis/#Mitch" target="_blank" rel="noopener noreferrer">Mitch</a>&nbsp;to place a paper lantern over a bulb to dim the glaring light in order to hide her true age from him. Later Mitch mentions to Blanche that she refuses to be seen in the harsh glare of the sun. He finds this suspicious because "I've never had a real good look at you." Blanche fears if Mitch knows her real age, or the facts of her life in Laurel, he won't marry her.</p>
 <p>In contrast harsh light represents the naked truth, especially as seen by Stanley and Mitch. When Mitch wants to find out Blanche's age, he removes the paper lantern, exposing Blanche to the harsh light of a naked light bulb. Blanche finds this action insulting, but Mitch sees it as truthful. Blanche believes a woman should be allowed some deceit to protect her vanity. A gentleman should understand this need. However, for Mitch and Stanley, the main goal is to expose the facts without any shadings. To show this Williams has the Kowalski apartment lit with glaring light. In fact, soon after Blanche arrives at the apartment, she tells Stella to turn off the overhead light because "I won't be looked at in this merciless glare." Blanche also has many unpleasant truths about herself she would prefer not to see.</p>
+<div class="media-card my-md">
+  <video controls class="w-full" preload="metadata" src="assets/media/Light_Motif_in_Streetcar.mp4"></video>
+</div>
 <h2 id="Flowers">Flowers</h2>
 <p>The title of the play establishes a connection between desire and death or loss or destruction. The streetcar named Desire brings Blanche to another streetcar called Cemeteries and then to Elysian Fields, a Greek reference to the afterlife. Blanche blames the sexual escapades of her ancestors for the loss of Belle Reve. Blanche's own sexual escapades lead to the loss of a job and her reputation. Blanche's husband kills himself after his affair with another man is discovered. Finally Blanche loses her sanity after she is raped by Stanley.</p>
 <p>The flowers in the play become the perfect symbol for this connection between desire and death. In&nbsp;<a href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/scene-3-summary/" target="_blank" rel="noopener noreferrer">Scene 3</a>, Stella compliments Blanche's desirability, "You are fresh as a daisy." Yet Blanche references death in her reply, "One that's been picked a few days." In&nbsp;<a href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/scene-5-summary/" target="_blank" rel="noopener noreferrer">Scene 5</a>&nbsp;<a href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/character-analysis/#Mitch" target="_blank" rel="noopener noreferrer">Mitch</a>&nbsp;brings Blanche roses as an expression of his desire for her just as Blanche's inappropriate flirtation with the young man collecting newspaper payments ends. By&nbsp;<a href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/scene-9-summary/" target="_blank" rel="noopener noreferrer">Scene 9</a>, as Mitch and Blanche have a falling out, a Mexican woman appears selling flowers for the dead.</p>
+<div class="media-card my-md">
+  <video controls class="w-full" preload="metadata" src="assets/media/Decoding_Floral_Symbolism.mp4"></video>
+</div>
 <p><a href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/symbols/" target="_blank" rel="noopener noreferrer">https://www.coursehero.com/lit/A-Streetcar-Named-Desire/symbols/</a></p>
 <!-- FOOTER -->
 <div id="footer"></div></div>
@@ -790,21 +867,36 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
 <p>As a result Blanche is pulled between conflicting desires. On the one hand, she longs to find romantic love and to marry a man who will protect her from life's harsh realities. On the other, her husband's death has driven her into a world of sexual promiscuity (particularly with younger men) and drinking that prevents her from a respectable marriage. But for Blanche sex is the opposite of death, and sex helps her avoid facing the loss of her husband and her home. Blanche fights to keep the two conflicting desires apart, often resorting to lies to prevent other people, and possibly herself, from seeing the truth. In the end the inability to do so leads to her destruction.</p>
 <p>Stanley's greatest desire is to maintain his dominant position as the head of his family. He insists that his wife Stella play a submissive role, and he beats her if she resists. Their marriage is an ongoing cycle of sexual desire and violence. When Blanche threatens his domination of his family, Stanley decides to destroy her. He achieves his goal, exposing Blanche's past and dominating Blanche by raping her. Stella loves both Blanche and Stanley. She desires to keep the peace, but in the end Stella is forced to choose between her sister and her husband. With a new baby to care for, she sides with her husband. Stella's desire to maintain both relationships, therefore, ends in frustration and torment for her.</p>
 <p>Mitch desires a nice wife. He falls for Blanche's Southern belle affectations and becomes infatuated with her. However, when Mitch finds out the truth about Blanche's past, he becomes disillusioned and bitter and their relationship is destroyed. He ends up a broken man, whose desires have been shattered.</p>
+<div class="media-card my-md">
+<video controls class="w-full" preload="metadata" src="assets/media/Desire_and_Destruction.mp4"></video>
+</div>
 <h2 id="Truth_versus_Illusion">Truth versus Illusion</h2>
 <p><a href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/author/" target="_blank" rel="noopener noreferrer">Williams</a>&nbsp;explores the theme of truth versus illusion mainly by contrasting Blanche and Stanley. Blanche has trouble looking at the unvarnished truth, finding the harsh realities of life too difficult to take. Because of this she lives in the dimly lit world of half-truths and illusion, hiding behind her refined Southern values and manners and using them to manipulate other people. Her appreciation of poetry and art further helps her block out reality rather than engage with it. However, when Stanley reveals the truth about her disreputable past and then brutally rapes her, Blanche's illusions collapse. As a result she becomes insane, barely able to discern the difference between truth versus illusion.</p>
 <p>On the other hand, Stanley is a person who looks reality squarely in the face. He is a bluntly honest and crude man who despises lying. However Stanley has no ability to express compassion for others. Instead he uses the truth as a weapon to control and destroy Blanche.</p>
 <p>Stella balances truth versus illusion. She sees her relationship with Stanley for what it is and accepts it. However she has trouble accepting what he reveals about Blanche's past because she loves her sister. For Stella compassion overrides truth, and she believes her sister's behavior is understandable considering the tragic outcome of Blanche's marriage. In the end, however, Stella chooses illusion over truth in order to preserve her marriage, refusing to believe that Stanley raped Blanche.</p>
+<div class="media-card my-md">
+<video controls class="w-full" preload="metadata" src="assets/media/Truth_vs.mp4"></video>
+</div>
 <h2 id="Repression_and_Dependence">Repression and Dependence</h2>
 <p>Stella and Blanche live in a time when women were expected to be dependent on men, both financially and emotionally, and both women suffer as a result. In fact this dependence dictates the course of their lives. The death of her young husband and the loss of her family home have made Blanche especially vulnerable. Blanche is fixated on finding a man to protect her. Indeed Blanche sees this goal as necessary for her survival. When her last hope of marrying&nbsp;<a href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/character-analysis/#Mitch" target="_blank" rel="noopener noreferrer">Mitch</a>&nbsp;is destroyed, Blanche becomes hysterical, consumed by the panic of facing life without a man.</p>
 <p>Stella's financial, emotional, and sexual dependence on her husband Stanley traps her in a life with a man whom she suspects has raped her sister. Her need to preserve her marriage is so powerful that Stella sends Blanche to a state mental hospital rather than face the truth that her husband raped her sister.</p>
+<div class="media-card my-md">
+<video controls class="w-full" preload="metadata" src="assets/media/Repression___Dependence.mp4"></video>
+</div>
 <h2 id="Class_Differences">Class Differences</h2>
 <p>Characters in the play are defined by their social class and what they believe social class represents. Blanche bases her identity on being a refined Southern belle who appreciates the finer things in life, such as art and poetry. But Blanche's upper-class sensibilities clash with the Kowalskis' working-class life in Elysian Fields.</p>
 <p>Blanche's sister Stella has chosen to leave her upper-class background behind to join Stanley. Blanche sees her sister's choice as a big step down in social status, although Stella seems content with her decision. In fact Blanche may look the part of a refined lady, but she hides the fact that her scandalous behavior in her hometown has damaged her social standing. Her assertion that she represents a superior social class is a defensive mask Blanche wears to hide her own loss of social status.</p>
 <p>Blanche's insistence that she is superior to Stanley because he is low-class motivates him to destroy her. He overhears Blanche describe him to Stella as "sub-human—something not quite to the stage of humanity yet!" Soon after this Stanley begins to dig up dirt about Blanche to use against her. He sees himself as a type of public avenger out to expose her hypocrisy and save men like&nbsp;<a href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/character-analysis/#Mitch" target="_blank" rel="noopener noreferrer">Mitch</a>&nbsp;from her snares. Stanley also feels Blanche is encouraging Stella to look down on him. Stanley succeeds in ripping away Blanche's mask of superiority. However, in the process, he confirms Blanche's view of him as no better than an animal, which&nbsp;<a href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/author/" target="_blank" rel="noopener noreferrer">Williams</a>&nbsp;emphasizes by using "inhuman jungle voices" and "lurid reflections" when Stanley rapes her.</p>
+<div class="media-card my-md">
+<video controls class="w-full" preload="metadata" src="assets/media/Class_in_Streetcar.mp4"></video>
+</div>
 <h2 id="Passion_and_Sexuality">Passion and Sexuality</h2>
 <p>The sexuality of characters in the play reflects the way they view the world. Blanche's sexual exploits, particularly with very young men, are a way for her to escape the reality of her husband's suicide and the role she played in it and to find comfort from the trauma she has experienced as a result. Her sexual history, which includes many encounters "with strangers," is also something she feels she must conceal in order to find a husband.</p>
 <p>Stanley exudes a confident animal sexuality that binds him to his wife, Stella. But he also uses sexuality as a weapon, raping Blanche in order to dominate her. Stella's deep sexual bond with Stanley is double-edged. It is an expression of her passion for him. But the need to fulfill that sexual passion for Stanley is one of the factors that causes her to overlook Stanley's rape of her sister.</p>
 <p>The play also explores the dangers of hiding one's true sexual nature in a sexually repressive culture. The way Blanche's young husband Allan dies is significant. During the time the play was written, homosexuality was often viewed as immoral, forcing many homosexuals to hide their true sexual identity for fear of social rejection and physical violence. Blanche's disgust at her husband's homosexual behavior, for example, causes his suicide. Later Blanche herself, like many women, faces a double standard regarding her sexuality. Women could either be "decent," meaning they didn't sleep around, or they could be condemned as "loose" if they did. Blanche in particular feels torn between these two categories, trying to present herself as "decent" to find a new husband, while hiding her sexually promiscuous behavior. When&nbsp;<a href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/character-analysis/#Mitch" data-davis="true" data-amplitude="[Book] Character Analysis tab" data-crosslinktype="Characters" target="_blank" rel="noopener noreferrer">Mitch</a>&nbsp;finds out the truth about Blanche's sex life, he rejects her primarily because she has lied to him but also as "not being clean enough" to marry and take home to his mother.</p>
+<div class="media-card my-md">
+<video controls class="w-full" preload="metadata" src="assets/media/Streetcar__Passion___Desire.mp4"></video>
+</div>
 <p><a href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/themes/" target="_blank" rel="noopener noreferrer">https://www.coursehero.com/lit/A-Streetcar-Named-Desire/themes/</a></p>
 <!-- FOOTER -->
 <div id="footer"></div></div>
@@ -854,7 +946,6 @@ body.sidebar-collapsed .course-nav-link { justify-content: center; }
           <div class="flex flex-wrap items-start justify-between gap-md mt-sm mb-md">
             <div>
               <h2 class="font-headline-lg text-headline-lg text-on-surface">Scene Overviews</h2>
-              <p class="font-body-md text-body-md text-on-surface-variant mt-xs max-w-3xl">Scene 1 Overview Scene 1 CliffsNotes overview Summary Stanley appears and calls for Stella, his wife, to catch a package of meat. He then goes bowling and Stella follows. Almost i...</p>
             </div>
             <button class="mark-complete inline-flex min-h-11 items-center rounded-lg bg-primary px-4 py-2 font-label-md text-label-md text-white hover:bg-primary-container focus:outline-none focus:ring-2 focus:ring-primary/40" type="button" data-complete-id="scene-overviews">Mark Complete</button>
           </div>
@@ -1476,114 +1567,200 @@ You also need to clarify your reasons for choosing the literature you have ident
     <div class="film-room-stage">
       <div class="film-room-header">
         <span class="resource-kicker">Film Room</span>
-        <h3>6 embedded videos</h3>
+        <h3>13 lesson media items</h3>
       </div>
       <article class="film-panel" data-film-panel="streetcar-full-film">
-      <video class="film-room-frame" controls preload="metadata">
-            <source src="./assets/media/streetcar-named-desire-movie.mp4" type="video/mp4">
-          </video>
-    </article>
-<article class="film-panel" data-film-panel="film-2-lesson-1-tennessee-williams" hidden>
-      <iframe class="film-room-frame" src="https://www.youtube.com/embed/763wrhAthqE" title="Lesson 1: Tennessee Williams" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </article>
-<article class="film-panel" data-film-panel="film-3-lesson-2-streetcar-overview-and-character" hidden>
-      <iframe class="film-room-frame" src="https://www.youtube.com/embed/a9G7lU8J21Y?feature=oembed&amp;wmode=opaque&amp;rel=0" title="Lesson 2: Streetcar Overview and Character" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </article>
-<article class="film-panel" data-film-panel="film-4-lesson-3-streetcar-character-powerpoint-ppt" hidden>
-      <iframe class="film-room-frame" src="https://www.youtube.com/embed/4mE6ItCl3nc?feature=oembed&amp;wmode=opaque&amp;rel=0" title="Lesson 3: Streetcar Character Powerpoint (ppt)" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </article>
-<article class="film-panel" data-film-panel="film-5-lesson-9-relationships" hidden>
-      <iframe class="film-room-frame" src="https://www.youtube.com/embed/on4HDdvGyWo?feature=oembed&amp;wmode=opaque&amp;rel=0" title="Lesson 9: Relationships" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </article>
-<article class="film-panel" data-film-panel="film-6-lesson-11-song-symbolism" hidden>
-      <iframe class="film-room-frame" src="https://www.youtube.com/embed/xwjlpExKvsY?feature=oembed&amp;wmode=opaque&amp;rel=0" title="Lesson 11: Song Symbolism" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </article>
+        <video class="film-room-frame" controls preload="metadata">
+          <source src="./assets/media/streetcar-named-desire-movie.mp4" type="video/mp4">
+        </video>
+      </article>
+      <article class="film-panel" data-film-panel="streetcar-audio-overview" hidden>
+        <audio class="film-room-frame" controls preload="metadata" src="./assets/media/The_Brando_Curse_and_Forbidden_Subtext.m4a"></audio>
+      </article>
+      <article class="film-panel" data-film-panel="blue-piano-motif" hidden>
+        <video class="film-room-frame" controls preload="metadata" src="./assets/media/Motif_of_the_Blue_Piano.mp4"></video>
+      </article>
+      <article class="film-panel" data-film-panel="paper-moon-motif" hidden>
+        <video class="film-room-frame" controls preload="metadata" src="./assets/media/The__Paper_Moon__Motif.mp4"></video>
+      </article>
+      <article class="film-panel" data-film-panel="varsouviana-polka-motif" hidden>
+        <video class="film-room-frame" controls preload="metadata" src="./assets/media/Varsouviana_Polka_Motif.mp4"></video>
+      </article>
+      <article class="film-panel" data-film-panel="belle-reve-motif" hidden>
+        <video class="film-room-frame" controls preload="metadata" src="./assets/media/Unpacking_Belle_Reve.mp4"></video>
+      </article>
+      <article class="film-panel" data-film-panel="psychological-weapons-audio" hidden>
+        <audio class="film-room-frame" controls preload="metadata" src="./assets/media/Psychological_weapons_in_A_Streetcar_Named_Desire.m4a"></audio>
+      </article>
+      <article class="film-panel" data-film-panel="light-symbolism" hidden>
+        <video class="film-room-frame" controls preload="metadata" src="./assets/media/Light_Motif_in_Streetcar.mp4"></video>
+      </article>
+      <article class="film-panel" data-film-panel="floral-symbolism" hidden>
+        <video class="film-room-frame" controls preload="metadata" src="./assets/media/Decoding_Floral_Symbolism.mp4"></video>
+      </article>
+      <article class="film-panel" data-film-panel="truth-theme" hidden>
+        <video class="film-room-frame" controls preload="metadata" src="./assets/media/Truth_vs.mp4"></video>
+      </article>
+      <article class="film-panel" data-film-panel="repression-theme" hidden>
+        <video class="film-room-frame" controls preload="metadata" src="./assets/media/Repression___Dependence.mp4"></video>
+      </article>
+      <article class="film-panel" data-film-panel="class-theme" hidden>
+        <video class="film-room-frame" controls preload="metadata" src="./assets/media/Class_in_Streetcar.mp4"></video>
+      </article>
+      <article class="film-panel" data-film-panel="passion-theme" hidden>
+        <video class="film-room-frame" controls preload="metadata" src="./assets/media/Streetcar__Passion___Desire.mp4"></video>
+      </article>
     </div>
     <aside class="film-room-sidebar">
       <article class="film-room-control-panel">
-        <span class="resource-kicker">Video Catalog</span>
-        <h3>Load a video</h3>
-        <p>Use the playlist to switch videos without leaving the course shell.</p>
-        <a class="film-source-link" href="#lesson-22-film-adaptation-lab" data-page-target="lesson-22-film-adaptation-lab">Back to Lesson 22</a>
+        <span class="resource-kicker">Media Catalog</span>
+        <h3>Load lesson media</h3>
+        <p>Use the grouped playlist to review video and audio resources from across the unit.</p>
         <label class="film-room-label" for="film-room-select">Playlist</label>
         <select id="film-room-select" class="film-room-select" data-film-select>
-          <option value="streetcar-full-film" selected>Streetcar Named Desire Movie</option>
-<option value="film-2-lesson-1-tennessee-williams">Lesson 1: Tennessee Williams</option>
-<option value="film-3-lesson-2-streetcar-overview-and-character">Lesson 2: Streetcar Overview and Character</option>
-<option value="film-4-lesson-3-streetcar-character-powerpoint-ppt">Lesson 3: Streetcar Character Powerpoint (ppt)</option>
-<option value="film-5-lesson-9-relationships">Lesson 9: Relationships</option>
-<option value="film-6-lesson-11-song-symbolism">Lesson 11: Song Symbolism</option>
+          <optgroup label="Full Film and Context">
+            <option value="streetcar-full-film" selected>Streetcar Named Desire Movie</option>
+            <option value="streetcar-audio-overview">Street Car Audio Overview</option>
+          </optgroup>
+          <optgroup label="Motifs">
+            <option value="blue-piano-motif">Blue Piano Motif</option>
+            <option value="paper-moon-motif">Paper Moon Motif</option>
+            <option value="varsouviana-polka-motif">Varsouviana Polka Motif</option>
+            <option value="belle-reve-motif">Belle Reve Motif</option>
+            <option value="psychological-weapons-audio">Psychological Weapons Audio</option>
+          </optgroup>
+          <optgroup label="Symbols">
+            <option value="light-symbolism">Light Motif</option>
+            <option value="floral-symbolism">Floral Symbolism</option>
+          </optgroup>
+          <optgroup label="Themes">
+            <option value="truth-theme">Truth versus Illusion</option>
+            <option value="repression-theme">Repression and Dependence</option>
+            <option value="class-theme">Class in Streetcar</option>
+            <option value="passion-theme">Passion and Desire</option>
+          </optgroup>
         </select>
       </article>
-      <div class="film-now-stack"><article class="film-now-panel" data-film-now-panel="streetcar-full-film">
-        <span class="resource-kicker">Now loaded</span>
-        <h3>Streetcar Named Desire Movie</h3>
-        <p class="film-now-source">Film Room</p>
-        <p>Local course film resource packaged with this build.</p>
-        <div class="film-now-footer">
-          <span class="resource-kicker">Local Media</span>
-          <span class="film-now-count">1 / 6</span>
-        </div>
-        <a class="film-source-link" href="./assets/media/streetcar-named-desire-movie.mp4" target="_blank" rel="noopener noreferrer">Open Source</a>
-      </article>
-<article class="film-now-panel" data-film-now-panel="film-2-lesson-1-tennessee-williams" hidden>
-        <span class="resource-kicker">Now loaded</span>
-        <h3>Lesson 1: Tennessee Williams</h3>
-        <p class="film-now-source">Lesson 1: Tennessee Williams</p>
-        <p>Media resource from Lesson 1: Tennessee Williams.</p>
-        <div class="film-now-footer">
-          <span class="resource-kicker">Embedded Source</span>
-          <span class="film-now-count">2 / 6</span>
-        </div>
-        <a class="film-source-link" href="https://www.youtube.com/embed/763wrhAthqE" target="_blank" rel="noopener noreferrer">Open Source</a>
-      </article>
-<article class="film-now-panel" data-film-now-panel="film-3-lesson-2-streetcar-overview-and-character" hidden>
-        <span class="resource-kicker">Now loaded</span>
-        <h3>Lesson 2: Streetcar Overview and Character</h3>
-        <p class="film-now-source">Lesson 2: Streetcar Overview and Character</p>
-        <p>Media resource from Lesson 2: Streetcar Overview and Character.</p>
-        <div class="film-now-footer">
-          <span class="resource-kicker">Embedded Source</span>
-          <span class="film-now-count">3 / 6</span>
-        </div>
-        <a class="film-source-link" href="https://www.youtube.com/embed/a9G7lU8J21Y?feature=oembed&amp;wmode=opaque&amp;rel=0" target="_blank" rel="noopener noreferrer">Open Source</a>
-      </article>
-<article class="film-now-panel" data-film-now-panel="film-4-lesson-3-streetcar-character-powerpoint-ppt" hidden>
-        <span class="resource-kicker">Now loaded</span>
-        <h3>Lesson 3: Streetcar Character Powerpoint (ppt)</h3>
-        <p class="film-now-source">Lesson 3: Streetcar Character Powerpoint (ppt)</p>
-        <p>Media resource from Lesson 3: Streetcar Character Powerpoint (ppt).</p>
-        <div class="film-now-footer">
-          <span class="resource-kicker">Embedded Source</span>
-          <span class="film-now-count">4 / 6</span>
-        </div>
-        <a class="film-source-link" href="https://www.youtube.com/embed/4mE6ItCl3nc?feature=oembed&amp;wmode=opaque&amp;rel=0" target="_blank" rel="noopener noreferrer">Open Source</a>
-      </article>
-<article class="film-now-panel" data-film-now-panel="film-5-lesson-9-relationships" hidden>
-        <span class="resource-kicker">Now loaded</span>
-        <h3>Lesson 9: Relationships</h3>
-        <p class="film-now-source">Lesson 9: Relationships</p>
-        <p>Media resource from Lesson 9: Relationships.</p>
-        <div class="film-now-footer">
-          <span class="resource-kicker">Embedded Source</span>
-          <span class="film-now-count">5 / 6</span>
-        </div>
-        <a class="film-source-link" href="https://www.youtube.com/embed/on4HDdvGyWo?feature=oembed&amp;wmode=opaque&amp;rel=0" target="_blank" rel="noopener noreferrer">Open Source</a>
-      </article>
-<article class="film-now-panel" data-film-now-panel="film-6-lesson-11-song-symbolism" hidden>
-        <span class="resource-kicker">Now loaded</span>
-        <h3>Lesson 11: Song Symbolism</h3>
-        <p class="film-now-source">Lesson 11: Song Symbolism</p>
-        <p>Media resource from Lesson 11: Song Symbolism.</p>
-        <div class="film-now-footer">
-          <span class="resource-kicker">Embedded Source</span>
-          <span class="film-now-count">6 / 6</span>
-        </div>
-        <a class="film-source-link" href="https://www.youtube.com/embed/xwjlpExKvsY?feature=oembed&amp;wmode=opaque&amp;rel=0" target="_blank" rel="noopener noreferrer">Open Source</a>
-      </article></div>
-    </aside>
-  </div>
+      <div class="film-now-stack">
+        <article class="film-now-panel" data-film-now-panel="streetcar-full-film">
+          <span class="resource-kicker">Now loaded</span>
+          <h3>Streetcar Named Desire Movie</h3>
+          <p class="film-now-source">Film Room</p>
+          <p>Full local film resource packaged with this build.</p>
+          <div class="film-now-footer"><span class="resource-kicker">Video</span><span class="film-now-count">1 / 13</span></div>
+          <a class="film-source-link" href="./assets/media/streetcar-named-desire-movie.mp4" target="_blank" rel="noopener noreferrer">Open Source</a>
+        </article>
+        <article class="film-now-panel" data-film-now-panel="streetcar-audio-overview" hidden>
+          <span class="resource-kicker">Now loaded</span>
+          <h3>Street Car Audio Overview</h3>
+          <p class="film-now-source">Lesson 2: Streetcar Overview and Characters</p>
+          <p>Audio overview connected to the background and cultural context lesson.</p>
+          <div class="film-now-footer"><span class="resource-kicker">Audio</span><span class="film-now-count">2 / 13</span></div>
+          <a class="film-source-link" href="#lesson-2-streetcar-overview-and-character" data-page-target="lesson-2-streetcar-overview-and-character">Go to Lesson</a>
+          <a class="film-source-link" href="./assets/media/The_Brando_Curse_and_Forbidden_Subtext.m4a" target="_blank" rel="noopener noreferrer">Open Source</a>
+        </article>
+        <article class="film-now-panel" data-film-now-panel="blue-piano-motif" hidden>
+          <span class="resource-kicker">Now loaded</span>
+          <h3>Blue Piano Motif</h3>
+          <p class="film-now-source">Lesson 7: Motifs</p>
+          <p>Video support for the blue piano motif.</p>
+          <div class="film-now-footer"><span class="resource-kicker">Video</span><span class="film-now-count">3 / 13</span></div>
+          <a class="film-source-link" href="#lesson-7-motifs" data-page-target="lesson-7-motifs">Go to Lesson</a>
+          <a class="film-source-link" href="./assets/media/Motif_of_the_Blue_Piano.mp4" target="_blank" rel="noopener noreferrer">Open Source</a>
+        </article>
+        <article class="film-now-panel" data-film-now-panel="paper-moon-motif" hidden>
+          <span class="resource-kicker">Now loaded</span>
+          <h3>Paper Moon Motif</h3>
+          <p class="film-now-source">Lesson 7: Motifs</p>
+          <p>Video support for the Paper Moon motif.</p>
+          <div class="film-now-footer"><span class="resource-kicker">Video</span><span class="film-now-count">4 / 13</span></div>
+          <a class="film-source-link" href="#lesson-7-motifs" data-page-target="lesson-7-motifs">Go to Lesson</a>
+          <a class="film-source-link" href="./assets/media/The__Paper_Moon__Motif.mp4" target="_blank" rel="noopener noreferrer">Open Source</a>
+        </article>
+        <article class="film-now-panel" data-film-now-panel="varsouviana-polka-motif" hidden>
+          <span class="resource-kicker">Now loaded</span>
+          <h3>Varsouviana Polka Motif</h3>
+          <p class="film-now-source">Lesson 7: Motifs</p>
+          <p>Video support for Blanche's recurring polka memory.</p>
+          <div class="film-now-footer"><span class="resource-kicker">Video</span><span class="film-now-count">5 / 13</span></div>
+          <a class="film-source-link" href="#lesson-7-motifs" data-page-target="lesson-7-motifs">Go to Lesson</a>
+          <a class="film-source-link" href="./assets/media/Varsouviana_Polka_Motif.mp4" target="_blank" rel="noopener noreferrer">Open Source</a>
+        </article>
+        <article class="film-now-panel" data-film-now-panel="belle-reve-motif" hidden>
+          <span class="resource-kicker">Now loaded</span>
+          <h3>Belle Reve Motif</h3>
+          <p class="film-now-source">Lesson 7: Motifs</p>
+          <p>Video support for Belle Reve as memory, loss, and pressure.</p>
+          <div class="film-now-footer"><span class="resource-kicker">Video</span><span class="film-now-count">6 / 13</span></div>
+          <a class="film-source-link" href="#lesson-7-motifs" data-page-target="lesson-7-motifs">Go to Lesson</a>
+          <a class="film-source-link" href="./assets/media/Unpacking_Belle_Reve.mp4" target="_blank" rel="noopener noreferrer">Open Source</a>
+        </article>
+        <article class="film-now-panel" data-film-now-panel="psychological-weapons-audio" hidden>
+          <span class="resource-kicker">Now loaded</span>
+          <h3>Psychological Weapons Audio</h3>
+          <p class="film-now-source">Lesson 7: Motifs</p>
+          <p>Audio review connected to the motif lesson.</p>
+          <div class="film-now-footer"><span class="resource-kicker">Audio</span><span class="film-now-count">7 / 13</span></div>
+          <a class="film-source-link" href="#lesson-7-motifs" data-page-target="lesson-7-motifs">Go to Lesson</a>
+          <a class="film-source-link" href="./assets/media/Psychological_weapons_in_A_Streetcar_Named_Desire.m4a" target="_blank" rel="noopener noreferrer">Open Source</a>
+        </article>
+        <article class="film-now-panel" data-film-now-panel="light-symbolism" hidden>
+          <span class="resource-kicker">Now loaded</span>
+          <h3>Light Motif</h3>
+          <p class="film-now-source">Lesson 8: Symbols</p>
+          <p>Video support for light, exposure, illusion, and truth.</p>
+          <div class="film-now-footer"><span class="resource-kicker">Video</span><span class="film-now-count">8 / 13</span></div>
+          <a class="film-source-link" href="#lesson-8-symbols" data-page-target="lesson-8-symbols">Go to Lesson</a>
+          <a class="film-source-link" href="./assets/media/Light_Motif_in_Streetcar.mp4" target="_blank" rel="noopener noreferrer">Open Source</a>
+        </article>
+        <article class="film-now-panel" data-film-now-panel="floral-symbolism" hidden>
+          <span class="resource-kicker">Now loaded</span>
+          <h3>Floral Symbolism</h3>
+          <p class="film-now-source">Lesson 8: Symbols</p>
+          <p>Video support for flowers, desire, and death imagery.</p>
+          <div class="film-now-footer"><span class="resource-kicker">Video</span><span class="film-now-count">9 / 13</span></div>
+          <a class="film-source-link" href="#lesson-8-symbols" data-page-target="lesson-8-symbols">Go to Lesson</a>
+          <a class="film-source-link" href="./assets/media/Decoding_Floral_Symbolism.mp4" target="_blank" rel="noopener noreferrer">Open Source</a>
+        </article>
+        <article class="film-now-panel" data-film-now-panel="truth-theme" hidden>
+          <span class="resource-kicker">Now loaded</span>
+          <h3>Truth versus Illusion</h3>
+          <p class="film-now-source">Lesson 10: Themes</p>
+          <p>Video support for truth, illusion, and competing versions of reality.</p>
+          <div class="film-now-footer"><span class="resource-kicker">Video</span><span class="film-now-count">10 / 13</span></div>
+          <a class="film-source-link" href="#lesson-10-themes" data-page-target="lesson-10-themes">Go to Lesson</a>
+          <a class="film-source-link" href="./assets/media/Truth_vs.mp4" target="_blank" rel="noopener noreferrer">Open Source</a>
+        </article>
+        <article class="film-now-panel" data-film-now-panel="repression-theme" hidden>
+          <span class="resource-kicker">Now loaded</span>
+          <h3>Repression and Dependence</h3>
+          <p class="film-now-source">Lesson 10: Themes</p>
+          <p>Video support for gender expectations, dependence, and survival.</p>
+          <div class="film-now-footer"><span class="resource-kicker">Video</span><span class="film-now-count">11 / 13</span></div>
+          <a class="film-source-link" href="#lesson-10-themes" data-page-target="lesson-10-themes">Go to Lesson</a>
+          <a class="film-source-link" href="./assets/media/Repression___Dependence.mp4" target="_blank" rel="noopener noreferrer">Open Source</a>
+        </article>
+        <article class="film-now-panel" data-film-now-panel="class-theme" hidden>
+          <span class="resource-kicker">Now loaded</span>
+          <h3>Class in Streetcar</h3>
+          <p class="film-now-source">Lesson 10: Themes</p>
+          <p>Video support for class conflict and social performance.</p>
+          <div class="film-now-footer"><span class="resource-kicker">Video</span><span class="film-now-count">12 / 13</span></div>
+          <a class="film-source-link" href="#lesson-10-themes" data-page-target="lesson-10-themes">Go to Lesson</a>
+          <a class="film-source-link" href="./assets/media/Class_in_Streetcar.mp4" target="_blank" rel="noopener noreferrer">Open Source</a>
+        </article>
+        <article class="film-now-panel" data-film-now-panel="passion-theme" hidden>
+          <span class="resource-kicker">Now loaded</span>
+          <h3>Passion and Desire</h3>
+          <p class="film-now-source">Lesson 10: Themes</p>
+          <p>Video support for sexuality, desire, and social repression.</p>
+          <div class="film-now-footer"><span class="resource-kicker">Video</span><span class="film-now-count">13 / 13</span></div>
+          <a class="film-source-link" href="#lesson-10-themes" data-page-target="lesson-10-themes">Go to Lesson</a>
+          <a class="film-source-link" href="./assets/media/Streetcar__Passion___Desire.mp4" target="_blank" rel="noopener noreferrer">Open Source</a>
+        </article>
       </div>
+    </aside>
+  </div>      </div>
     </section>
 
     <section id="resources" class="course-page" data-page="resources" hidden>
@@ -1591,135 +1768,148 @@ You also need to clarify your reasons for choosing the literature you have ident
         <p class="font-label-md text-label-md text-secondary">ELA 30-1 | Resources</p>
         <h2 class="font-headline-lg text-headline-lg text-on-surface mt-xs mb-md">External Source Resources</h2>
         <div class="resource-stack">
-    <section class="resource-workflow-card">
-      <h3>Student Workflow</h3>
-      <ol>
-        <li>Read the assigned scene.</li>
-        <li>Answer the core questions.</li>
-        <li>Add evidence to the bank.</li>
-        <li>Write the mini-response.</li>
-        <li>Mark the lesson complete.</li>
-        <li>Use evidence in the final essay.</li>
-      </ol>
-    </section>
-    <section class="resource-workflow-card">
-      <h3>Teacher Source Map</h3>
-      <p>CBE modern drama and Streetcar files provide unit framing, scene support, motifs, symbols, themes, film terminology, and writing samples. Next Step Unit 5 provides the core Streetcar reading questions for Scenes 1-10, while CBE reading guide questions support Scene 11 and final synthesis. Next Step essay supports provide rubric language and Critical/Analytical prompt banks.</p>
-    </section>
-    <div class="external-resource-grid"><article class="external-resource-card">
-      <span class="resource-kicker">External Source</span>
-      <h3>Tennessee Williams</h3>
-      <p>Captured from A Streetcar Named Desire - Introduction. Use this as a supplemental review stop, not as the main learning source.</p>
-      <a class="external-resource-action" href="http://www.biography.com/people/tennessee-williams-9532952" target="_blank" rel="noopener noreferrer">Open Resource</a>
-    </article>
-<article class="external-resource-card">
-      <span class="resource-kicker">External Source</span>
-      <h3>Biography</h3>
-      <p>Captured from Lesson 1: Tennessee Williams. Use this as a supplemental review stop, not as the main learning source.</p>
-      <a class="external-resource-action" href="https://www.biography.com/writer/tennessee-williams" target="_blank" rel="noopener noreferrer">Open Resource</a>
-    </article>
-<article class="external-resource-card">
-      <span class="resource-kicker">External Source</span>
-      <h3>Streetcar Overview</h3>
-      <p>Captured from Lesson 2: Streetcar Overview and Character. Use this as a supplemental review stop, not as the main learning source.</p>
-      <a class="external-resource-action" href="https://www.shmoop.com/streetcar-named-desire/" target="_blank" rel="noopener noreferrer">Open Resource</a>
-    </article>
-<article class="external-resource-card">
-      <span class="resource-kicker">External Source</span>
-      <h3>Williams</h3>
-      <p>Captured from Lesson 7: Motifs. Use this as a supplemental review stop, not as the main learning source.</p>
-      <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/author/" target="_blank" rel="noopener noreferrer">Open Resource</a>
-    </article>
-<article class="external-resource-card">
-      <span class="resource-kicker">External Source</span>
-      <h3>Scene 7</h3>
-      <p>Captured from Lesson 7: Motifs. Use this as a supplemental review stop, not as the main learning source.</p>
-      <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/scene-7-summary/" target="_blank" rel="noopener noreferrer">Open Resource</a>
-    </article>
-<article class="external-resource-card">
-      <span class="resource-kicker">External Source</span>
-      <h3>Scene 11</h3>
-      <p>Captured from Lesson 7: Motifs. Use this as a supplemental review stop, not as the main learning source.</p>
-      <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/scene-11-summary/" target="_blank" rel="noopener noreferrer">Open Resource</a>
-    </article>
-<article class="external-resource-card">
-      <span class="resource-kicker">External Source</span>
-      <h3>https://www.coursehero.com/lit/A-Streetcar-Named-Desire/motifs/</h3>
-      <p>Captured from Lesson 7: Motifs. Use this as a supplemental review stop, not as the main learning source.</p>
-      <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/motifs/" target="_blank" rel="noopener noreferrer">Open Resource</a>
-    </article>
-<article class="external-resource-card">
-      <span class="resource-kicker">External Source</span>
-      <h3>Mitch</h3>
-      <p>Captured from Lesson 8: Symbols. Use this as a supplemental review stop, not as the main learning source.</p>
-      <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/character-analysis/#Mitch" target="_blank" rel="noopener noreferrer">Open Resource</a>
-    </article>
-<article class="external-resource-card">
-      <span class="resource-kicker">External Source</span>
-      <h3>Scene 3</h3>
-      <p>Captured from Lesson 8: Symbols. Use this as a supplemental review stop, not as the main learning source.</p>
-      <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/scene-3-summary/" target="_blank" rel="noopener noreferrer">Open Resource</a>
-    </article>
-<article class="external-resource-card">
-      <span class="resource-kicker">External Source</span>
-      <h3>Scene 5</h3>
-      <p>Captured from Lesson 8: Symbols. Use this as a supplemental review stop, not as the main learning source.</p>
-      <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/scene-5-summary/" target="_blank" rel="noopener noreferrer">Open Resource</a>
-    </article>
-<article class="external-resource-card">
-      <span class="resource-kicker">External Source</span>
-      <h3>Scene 9</h3>
-      <p>Captured from Lesson 8: Symbols. Use this as a supplemental review stop, not as the main learning source.</p>
-      <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/scene-9-summary/" target="_blank" rel="noopener noreferrer">Open Resource</a>
-    </article>
-<article class="external-resource-card">
-      <span class="resource-kicker">External Source</span>
-      <h3>https://www.coursehero.com/lit/A-Streetcar-Named-Desire/symbols/</h3>
-      <p>Captured from Lesson 8: Symbols. Use this as a supplemental review stop, not as the main learning source.</p>
-      <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/symbols/" target="_blank" rel="noopener noreferrer">Open Resource</a>
-    </article>
-<article class="external-resource-card">
-      <span class="resource-kicker">External Source</span>
-      <h3>https://www.coursehero.com/lit/A-Streetcar-Named-Desire/themes/</h3>
-      <p>Captured from Lesson 10: Themes. Use this as a supplemental review stop, not as the main learning source.</p>
-      <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/themes/" target="_blank" rel="noopener noreferrer">Open Resource</a>
-    </article>
-<article class="external-resource-card">
-      <span class="resource-kicker">External Source</span>
-      <h3>Scene 1 CliffsNotes overview</h3>
-      <p>Captured from Scene Overviews. Use this as a supplemental review stop, not as the main learning source.</p>
-      <a class="external-resource-action" href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-1" target="_blank" rel="noopener noreferrer">Open Resource</a>
-    </article>
-<article class="external-resource-card">
-      <span class="resource-kicker">External Source</span>
-      <h3>Scene 2 CliffsNotes overview</h3>
-      <p>Captured from Scene Overviews. Use this as a supplemental review stop, not as the main learning source.</p>
-      <a class="external-resource-action" href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-2" target="_blank" rel="noopener noreferrer">Open Resource</a>
-    </article>
-<article class="external-resource-card">
-      <span class="resource-kicker">External Source</span>
-      <h3>Cliff notes Scene 3</h3>
-      <p>Captured from Scene Overviews. Use this as a supplemental review stop, not as the main learning source.</p>
-      <a class="external-resource-action" href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-3" target="_blank" rel="noopener noreferrer">Open Resource</a>
-    </article>
-<article class="external-resource-card">
-      <span class="resource-kicker">External Source</span>
-      <h3>Scene 4 Overview</h3>
-      <p>Captured from Scene Overviews. Use this as a supplemental review stop, not as the main learning source.</p>
-      <a class="external-resource-action" href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-4" target="_blank" rel="noopener noreferrer">Open Resource</a>
-    </article>
-<article class="external-resource-card">
-      <span class="resource-kicker">External Source</span>
-      <h3>Scene 5 Overview</h3>
-      <p>Captured from Scene Overviews. Use this as a supplemental review stop, not as the main learning source.</p>
-      <a class="external-resource-action" href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-5" target="_blank" rel="noopener noreferrer">Open Resource</a>
-    </article>
-<article class="external-resource-card">
-      <span class="resource-kicker">External Source</span>
-      <h3>Student writing samples from English Language Arts 30-1 provided by Alberta Education</h3>
-      <p>Captured from Lesson 13: Samples of Student Writing. Use this as a supplemental review stop, not as the main learning source.</p>
-      <a class="external-resource-action" href="https://education.alberta.ca/english-language-arts-10-12/diploma-exam-exemplars/?searchMode=3" target="_blank" rel="noopener noreferrer">Open Resource</a>
-    </article></div>
+    <div class="scene-overview-browser">
+      <div class="scene-overview-control">
+        <label class="film-room-label" for="resource-lesson-select">Choose a lesson</label>
+        <select id="resource-lesson-select" class="film-room-select" data-resource-select>
+          <option value="resource-intro-lesson-1" selected>Introduction and Lesson 1</option>
+          <option value="resource-lesson-2">Lesson 2: Streetcar Overview and Character</option>
+          <option value="resource-lesson-7">Lesson 7: Motifs</option>
+          <option value="resource-lesson-8">Lesson 8: Symbols</option>
+          <option value="resource-lesson-10">Lesson 10: Themes</option>
+          <option value="resource-scene-overviews">Scene Overviews</option>
+          <option value="resource-lesson-13">Lesson 13: Samples of Student Writing</option>
+        </select>
+      </div>
+      <section class="external-resource-grid" data-resource-panel="resource-intro-lesson-1">
+        <article class="external-resource-card">
+          <span class="resource-kicker">Introduction</span>
+          <h3>Tennessee Williams</h3>
+          <p>Captured from A Streetcar Named Desire - Introduction. Use this as a supplemental review stop, not as the main learning source.</p>
+          <a class="external-resource-action" href="http://www.biography.com/people/tennessee-williams-9532952" target="_blank" rel="noopener noreferrer">Open Resource</a>
+        </article>
+        <article class="external-resource-card">
+          <span class="resource-kicker">Lesson 1</span>
+          <h3>Biography</h3>
+          <p>Captured from Lesson 1: Tennessee Williams. Use this as a supplemental review stop, not as the main learning source.</p>
+          <a class="external-resource-action" href="https://www.biography.com/writer/tennessee-williams" target="_blank" rel="noopener noreferrer">Open Resource</a>
+        </article>
+      </section>
+      <section class="external-resource-grid" data-resource-panel="resource-lesson-2" hidden>
+        <article class="external-resource-card">
+          <span class="resource-kicker">Lesson 2</span>
+          <h3>Streetcar Overview</h3>
+          <p>Captured from Lesson 2: Streetcar Overview and Character. Use this as a supplemental review stop, not as the main learning source.</p>
+          <a class="external-resource-action" href="https://www.shmoop.com/streetcar-named-desire/" target="_blank" rel="noopener noreferrer">Open Resource</a>
+        </article>
+      </section>
+      <section class="external-resource-grid" data-resource-panel="resource-lesson-7" hidden>
+        <article class="external-resource-card">
+          <span class="resource-kicker">Lesson 7</span>
+          <h3>Williams</h3>
+          <p>Captured from Lesson 7: Motifs. Use this as a supplemental review stop, not as the main learning source.</p>
+          <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/author/" target="_blank" rel="noopener noreferrer">Open Resource</a>
+        </article>
+        <article class="external-resource-card">
+          <span class="resource-kicker">Lesson 7</span>
+          <h3>Scene 7</h3>
+          <p>Captured from Lesson 7: Motifs. Use this as a supplemental review stop, not as the main learning source.</p>
+          <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/scene-7-summary/" target="_blank" rel="noopener noreferrer">Open Resource</a>
+        </article>
+        <article class="external-resource-card">
+          <span class="resource-kicker">Lesson 7</span>
+          <h3>Scene 11</h3>
+          <p>Captured from Lesson 7: Motifs. Use this as a supplemental review stop, not as the main learning source.</p>
+          <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/scene-11-summary/" target="_blank" rel="noopener noreferrer">Open Resource</a>
+        </article>
+        <article class="external-resource-card">
+          <span class="resource-kicker">Lesson 7</span>
+          <h3>Motifs overview</h3>
+          <p>Captured from Lesson 7: Motifs. Use this as a supplemental review stop, not as the main learning source.</p>
+          <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/motifs/" target="_blank" rel="noopener noreferrer">Open Resource</a>
+        </article>
+      </section>
+      <section class="external-resource-grid" data-resource-panel="resource-lesson-8" hidden>
+        <article class="external-resource-card">
+          <span class="resource-kicker">Lesson 8</span>
+          <h3>Mitch</h3>
+          <p>Captured from Lesson 8: Symbols. Use this as a supplemental review stop, not as the main learning source.</p>
+          <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/character-analysis/#Mitch" target="_blank" rel="noopener noreferrer">Open Resource</a>
+        </article>
+        <article class="external-resource-card">
+          <span class="resource-kicker">Lesson 8</span>
+          <h3>Scene 3</h3>
+          <p>Captured from Lesson 8: Symbols. Use this as a supplemental review stop, not as the main learning source.</p>
+          <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/scene-3-summary/" target="_blank" rel="noopener noreferrer">Open Resource</a>
+        </article>
+        <article class="external-resource-card">
+          <span class="resource-kicker">Lesson 8</span>
+          <h3>Scene 5</h3>
+          <p>Captured from Lesson 8: Symbols. Use this as a supplemental review stop, not as the main learning source.</p>
+          <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/scene-5-summary/" target="_blank" rel="noopener noreferrer">Open Resource</a>
+        </article>
+        <article class="external-resource-card">
+          <span class="resource-kicker">Lesson 8</span>
+          <h3>Scene 9</h3>
+          <p>Captured from Lesson 8: Symbols. Use this as a supplemental review stop, not as the main learning source.</p>
+          <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/scene-9-summary/" target="_blank" rel="noopener noreferrer">Open Resource</a>
+        </article>
+        <article class="external-resource-card">
+          <span class="resource-kicker">Lesson 8</span>
+          <h3>Symbols overview</h3>
+          <p>Captured from Lesson 8: Symbols. Use this as a supplemental review stop, not as the main learning source.</p>
+          <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/symbols/" target="_blank" rel="noopener noreferrer">Open Resource</a>
+        </article>
+      </section>
+      <section class="external-resource-grid" data-resource-panel="resource-lesson-10" hidden>
+        <article class="external-resource-card">
+          <span class="resource-kicker">Lesson 10</span>
+          <h3>Themes overview</h3>
+          <p>Captured from Lesson 10: Themes. Use this as a supplemental review stop, not as the main learning source.</p>
+          <a class="external-resource-action" href="https://www.coursehero.com/lit/A-Streetcar-Named-Desire/themes/" target="_blank" rel="noopener noreferrer">Open Resource</a>
+        </article>
+      </section>
+      <section class="external-resource-grid" data-resource-panel="resource-scene-overviews" hidden>
+        <article class="external-resource-card">
+          <span class="resource-kicker">Scene Overviews</span>
+          <h3>Scene 1 CliffsNotes overview</h3>
+          <p>Captured from Scene Overviews. Use this as a supplemental review stop, not as the main learning source.</p>
+          <a class="external-resource-action" href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-1" target="_blank" rel="noopener noreferrer">Open Resource</a>
+        </article>
+        <article class="external-resource-card">
+          <span class="resource-kicker">Scene Overviews</span>
+          <h3>Scene 2 CliffsNotes overview</h3>
+          <p>Captured from Scene Overviews. Use this as a supplemental review stop, not as the main learning source.</p>
+          <a class="external-resource-action" href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-2" target="_blank" rel="noopener noreferrer">Open Resource</a>
+        </article>
+        <article class="external-resource-card">
+          <span class="resource-kicker">Scene Overviews</span>
+          <h3>CliffsNotes Scene 3</h3>
+          <p>Captured from Scene Overviews. Use this as a supplemental review stop, not as the main learning source.</p>
+          <a class="external-resource-action" href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-3" target="_blank" rel="noopener noreferrer">Open Resource</a>
+        </article>
+        <article class="external-resource-card">
+          <span class="resource-kicker">Scene Overviews</span>
+          <h3>Scene 4 Overview</h3>
+          <p>Captured from Scene Overviews. Use this as a supplemental review stop, not as the main learning source.</p>
+          <a class="external-resource-action" href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-4" target="_blank" rel="noopener noreferrer">Open Resource</a>
+        </article>
+        <article class="external-resource-card">
+          <span class="resource-kicker">Scene Overviews</span>
+          <h3>Scene 5 Overview</h3>
+          <p>Captured from Scene Overviews. Use this as a supplemental review stop, not as the main learning source.</p>
+          <a class="external-resource-action" href="https://www.cliffsnotes.com/literature/s/a-streetcar-named-desire/summary-and-analysis/scene-5" target="_blank" rel="noopener noreferrer">Open Resource</a>
+        </article>
+      </section>
+      <section class="external-resource-grid" data-resource-panel="resource-lesson-13" hidden>
+        <article class="external-resource-card">
+          <span class="resource-kicker">Lesson 13</span>
+          <h3>Student writing samples from English Language Arts 30-1 provided by Alberta Education</h3>
+          <p>Captured from Lesson 13: Samples of Student Writing. Use this as a supplemental review stop, not as the main learning source.</p>
+          <a class="external-resource-action" href="https://education.alberta.ca/english-language-arts-10-12/diploma-exam-exemplars/?searchMode=3" target="_blank" rel="noopener noreferrer">Open Resource</a>
+        </article>
+      </section>
+    </div>
   </div>
       </div>
     </section>
@@ -2560,6 +2750,10 @@ document.addEventListener("change", (event) => {
   if (select) {
     setActiveSceneOverview(select.value);
   }
+  const resourceSelect = event.target.closest("[data-resource-select]");
+  if (resourceSelect) {
+    setActiveResourcePanel(resourceSelect.value);
+  }
 });
 
 function setActiveLibraryDocument(id) {
@@ -2600,13 +2794,60 @@ function setActiveSceneOverview(id) {
   });
 }
 
-document.getElementById("sidebar-toggle")?.addEventListener("click", () => {
+function setActiveResourcePanel(id) {
+  if (!id) return;
+  document.querySelectorAll("[data-resource-panel]").forEach((panel) => {
+    panel.hidden = panel.getAttribute("data-resource-panel") !== id;
+  });
+  document.querySelectorAll("[data-resource-select]").forEach((select) => {
+    if (select.value !== id) {
+      select.value = id;
+    }
+  });
+}
+
+function normalizeLessonPanels() {
+  document.querySelectorAll(".lesson-detail-panel").forEach((panel) => {
+    const topLabel = panel.querySelector(":scope > .font-label-md.text-label-md.text-secondary");
+    const topSummary = panel.querySelector(":scope > .flex.flex-wrap.items-start.justify-between.gap-md.mt-sm.mb-md");
+    const bottomBar = panel.querySelector(":scope > .flex.flex-wrap.gap-sm.mt-lg.pt-md.border-t.border-surface-muted");
+    const markComplete = topSummary?.querySelector(".mark-complete");
+    const summaryPreview = topSummary?.querySelector("p.font-body-md.text-body-md.text-on-surface-variant");
+    if (topLabel) {
+      topLabel.hidden = true;
+    }
+    if (summaryPreview) {
+      summaryPreview.hidden = true;
+    }
+    if (markComplete && bottomBar && !bottomBar.contains(markComplete)) {
+      bottomBar.appendChild(markComplete);
+      bottomBar.classList.add("lesson-bottom-bar");
+    }
+  });
+}
+
+function toggleCourseMenu() {
   document.body.classList.toggle("sidebar-collapsed");
+  document.querySelectorAll("#sidebar-toggle .material-symbols-outlined, #topbar-menu-toggle .material-symbols-outlined").forEach((sidebarIcon) => {
+    sidebarIcon.textContent = document.body.classList.contains("sidebar-collapsed") ? "dock_to_right" : "dock_to_left";
+  });
+}
+
+document.getElementById("sidebar-toggle")?.addEventListener("click", () => {
+  toggleCourseMenu();
+});
+
+document.getElementById("topbar-menu-toggle")?.addEventListener("click", () => {
+  toggleCourseMenu();
 });
 
 window.addEventListener("hashchange", route);
 renderCriticalResponseActivity();
 restoreResponses();
+document.querySelectorAll("[data-resource-select]").forEach((select) => {
+  setActiveResourcePanel(select.value);
+});
+normalizeLessonPanels();
 route();
 updateComplete();
 </script>

@@ -22,9 +22,15 @@ Use this workflow for D2L/Brightspace-derived projects where fidelity is primary
 ## Reliable Upgrade Patterns
 
 - Keep module sequence and assessment fidelity intact.
+- For new clean Brightspace course builds, prefer the shared Next Step shell pattern in [`brightspace-shell-template.md`](brightspace-shell-template.md) over copying an older course workspace.
+- For bulk module creation, treat [`brightspace-shell-template.md`](brightspace-shell-template.md) as the shell contract, not as optional design guidance.
 - Improve visual hierarchy with stronger section structure and spacing.
 - Normalize path handling and resource lookup defensively when imports vary.
 - Keep export-safe file references and avoid coupling to local-only assumptions.
+- Treat local media as part of export readiness, not decoration: probe videos, convert questionable files to browser-safe H.264/AAC MP4 with `+faststart`, and verify playback from the workspace preview before packaging.
+- Treat autosave as an export contract: response fields must keep focus while typing, restore after reload, and use stable storage keys that the target export bridge can track.
+- Treat print/PDF as an assignment contract: print buttons should scope to the current assignment/page, never expose hidden course pages, and should be smoke-tested in both workspace and exported SCORM when SCORM is the target.
+- Register clean course builds in Studio/Course Showcase before final export when visual parity with existing course shells matters.
 - For Brightspace ZIP to editable Word output, use the Word-native HTML import standard in [`BRIGHTSPACE_ZIP_CONVERSION_TO_DOCX.md`](BRIGHTSPACE_ZIP_CONVERSION_TO_DOCX.md).
 
 ## Responsive and Interaction Defaults
@@ -50,6 +56,17 @@ Use this exact sequence for new conversion work. Keep scope inside `projects/<sl
 5. Deploy readiness pass
 6. Verification + handoff
 
+For bulk module creation, repeat this sequence per module and do not advance to batch packaging until the shared shell behaviors are verified once against the newest generated workspace:
+
+- topbar logo centered and progress pinned right
+- collapsed sidebar hides subnav text
+- lesson groups/cards match the standard shell
+- resource browser uses grouped dropdowns
+- media playlist works for every local or embedded media group
+- evidence notebook and question-bank surfaces save/restore
+- print/PDF is scoped
+- Studio/Course Showcase can preview the new slug
+
 ## Step 1: Intake + Artifact Generation
 
 Run the standard conversion pipeline first so all planning artifacts exist:
@@ -72,12 +89,18 @@ Before editing UI logic, run a quick structural audit and record findings in han
 - Broken resource paths (including `content`/`сontent` variant drift and malformed relative paths).
 - Duplicate assessment listings across content and assignment buckets.
 - Module title/order mismatches vs source LMS structure.
+- Potential support-surface candidates:
+  - readings/stories/chapters/scenes that should become a text bank
+  - source question sheets that should become a question-bank page
+  - viewing/reading notes that should become an evidence notebook
+  - writing/essay process material that should become a Writing Studio or Critical Essay guide
 
 If missing media is detected:
 
 - Prefer a graceful in-shell fallback note.
 - If a canonical external source is provided (for example YouTube), add a source-specific override.
 - Do not silently label broken media as converted.
+- If a local MP4 exists but fails browser playback, repair it rather than removing it. A safe default is H.264 video, AAC audio, `yuv420p`, and `-movflags +faststart`.
 
 ## Step 3: Shell Normalization and Placement
 
@@ -104,6 +127,18 @@ When lock behavior is requested, apply the same release-condition model:
 ## Step 5: Deploy Readiness Pass
 
 Before publish, choose the active delivery target and run the matching readiness pass.
+
+For SCORM:
+
+- Prefer SCORM 2004 for courses with free-response autosave because it has a larger `cmi.suspend_data` budget than SCORM 1.2.
+- Confirm tracked localStorage keys include every learner-response surface that must persist.
+- Confirm the injected `scorm-bridge.js` appears before the first inline/local course script in the exported `index.html`, so LMS suspend data restores before the course reads localStorage.
+- Confirm the bridge still installs its controls after `DOMContentLoaded` when it loads early in the document.
+- Type into representative response fields, confirm focus is not lost after the first character, reload, and confirm the response restores.
+- If the course uses an evidence notebook, save at least one card, reload, and confirm the evidence bank restores without duplicate stale drafts.
+- Click at least one `Print / PDF` button and confirm the generated print root contains only the intended assignment/page and not unrelated hidden course sections.
+- Run `npm run test:scorm` and `unzip -tq projects/<slug>/exports/<slug>-scorm-2004.zip`.
+- Remember that zip-direct testing only proves browser-local storage. Cross-browser restore requires the package to be launched from Brightspace or another LMS with a SCORM API.
 
 For Google Hosted:
 
@@ -148,5 +183,9 @@ Manual acceptance checklist:
 - Content/Quizzes/Assignments placement is correct for course policy.
 - No obvious mojibake in sampled lessons across multiple modules.
 - Missing media has graceful fallback or explicit embed override.
+- Local Film Room media loads in the browser with no media error.
+- Studio/Course Showcase preview shows the same shell behavior as the trusted Short Stories / Feature Film baseline.
+- Print/PDF buttons print scoped assignment content only.
 - Mobile sidebar/hamburger behavior is stable.
 - Progress/lock behavior works and persists as expected.
+- Autosaved responses restore after reload, and SCORM packages restore before course scripts read storage.

@@ -1,7 +1,7 @@
 {
   "id": "learning-strategies-15",
   "slug": "learning-strategies-15",
-  "sourcePath": "c:\\Users\\dean.guedo\\Documents\\ONLINE COURSES\\Learning Strategies\\Learning Strategies 15 (3 credit)\\Learning Strategies 15 package\\00_SOURCE_ZIP\\D2LCCExport_149766_25-26 _ S1 _ Learning Strategies 15 (2018) _ Per 1_202651252.zip",
+  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/learning-strategies-15/source",
   "inputKind": "brightspace-zip",
   "brightspaceTarget": "course-page",
   "previewModes": [
@@ -38,6 +38,11 @@
       "target": "google-hosted",
       "enabled": true,
       "notes": "Configured for Firebase Hosting site learningstrategies15 with shared Google sign-in progress sync."
+    },
+    {
+      "target": "apps-script",
+      "enabled": true,
+      "notes": "Whole-course Google Apps Script delivery with Drive-backed assets."
     }
   ],
   "authoringStatus": "active",
@@ -56,9 +61,15 @@
     ],
     "authMode": "google"
   },
+  "appsScript": {
+    "driveRootFolderId": "1oCfYUtpd4Z66zUjqtD8a9eaNS5VQkB5U",
+    "webAppUrl": "https://script.google.com/a/macros/eips.ca/s/AKfycbyvHBnIeViSaYnhHc8n8QVihwmEm9u0uvYoLqtnfQLReB5ny69NiYnLr61rYXBmNfWx/exec",
+    "executeAs": "Me (dean.guedo@eips.ca)",
+    "access": "Anyone within Elk Island Public Schools"
+  },
   "learningSource": "other",
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-05-21T10:20:43",
-  "updatedAt": "2026-06-02T20:22:09.342Z",
-  "workspaceApprovedAt": "2026-06-02T20:22:09.342Z"
+  "updatedAt": "2026-06-23T14:53:08.721Z",
+  "workspaceApprovedAt": "2026-06-12T20:59:57.076Z"
 }

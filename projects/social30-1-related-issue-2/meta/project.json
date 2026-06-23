@@ -1,0 +1,64 @@
+{
+  "id": "social30-1-related-issue-2",
+  "slug": "social30-1-related-issue-2",
+  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/social30-1-related-issue-2/source",
+  "inputKind": "brightspace-zip",
+  "brightspaceTarget": "scorm",
+  "previewModes": [
+    "workspace"
+  ],
+  "workspaceEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/social30-1-related-issue-2/workspace/index.html",
+  "rawEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/social30-1-related-issue-2/raw/README.md",
+  "createdAt": "2026-06-23T14:42:19.954Z",
+  "updatedAt": "2026-06-23T14:53:09.118Z",
+  "migrationState": "migrated",
+  "projectType": "conversion",
+  "preferredWorkflows": [
+    "conversion"
+  ],
+  "canonicalEntry": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/social30-1-related-issue-2/workspace/index.html",
+  "canonicalSources": [
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/social30-1-related-issue-2/workspace/index.html",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/build-social30-related-issues.ts",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/next-step-course-shell.ts"
+  ],
+  "generatedOutputs": [],
+  "regenerateCommand": "npx tsx scripts/build-social30-related-issues.ts --zip \"/Users/deanguedo/Downloads/D2LExport_6712_CBE System Social Studies 30-1 (Winter 2020)_202662203.zip\" --only social30-1-related-issue-2",
+  "importedFirstPassOrigin": {
+    "sourceSystem": "brightspace",
+    "sourcePath": "/Users/deanguedo/Downloads/D2LExport_6712_CBE System Social Studies 30-1 (Winter 2020)_202662203.zip",
+    "importedAt": "2026-06-23T14:42:19.954Z",
+    "notes": "Related Issue 2 clean shell generated from Social Studies 30-1 Brightspace units U3 + U4."
+  },
+  "exportTargets": [
+    {
+      "target": "scorm",
+      "enabled": true,
+      "notes": "SCORM 2004 package for Brightspace upload."
+    },
+    {
+      "target": "html",
+      "enabled": true,
+      "notes": "Standalone workspace preview."
+    }
+  ],
+  "authoringStatus": "active",
+  "referenceOnly": [
+    "/Users/deanguedo/Downloads/D2LExport_6712_CBE System Social Studies 30-1 (Winter 2020)_202662203.zip",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/social30-1-related-issue-2/raw/README.md"
+  ],
+  "sourceOfTruthNotes": "The shared Brightspace ZIP is not duplicated per issue. Regenerate this workspace through scripts/build-social30-related-issues.ts and the shared Next Step shell.",
+  "conversionSummary": {
+    "relatedIssue": "Related Issue 2",
+    "issueQuestion": "To what extent is resistance to liberalism justified?",
+    "units": [
+      "U3",
+      "U4"
+    ],
+    "lessonsRecovered": 22
+  },
+  "injectedComponents": [],
+  "learningSource": "other",
+  "learningTrust": "auto",
+  "learningUpdatedAt": "2026-06-23T14:42:19.954Z"
+}

@@ -153,6 +153,25 @@ test("filters group CALM courses and Options courses without Humanities or Scien
   assert.match(mentalHealthBlock, /url: "https:\/\/mentalhealthandwellness\.web\.app"/);
 });
 
+test("local course comparison builds are available in the showcase", () => {
+  const expectedLocalCourses = [
+    ["local-ela20-novel-study", "../../ela20-1-novel-study-clean/workspace/index.html"],
+    ["local-ela30-othello", "../../ela30-1-shakespeare-othello/workspace/index.html"],
+    ["local-ela30-short-stories", "../../ela30-1-short-stories/workspace/index.html"],
+    ["local-ela30-modern-drama", "../../ela30-1-modern-drama/workspace/index.html"]
+  ];
+
+  for (const [id, url] of expectedLocalCourses) {
+    const block = courseBlock(id);
+    assert.match(block, /status: "Local"/);
+    assert.match(block, /area: "Local Builds"/);
+    assert.match(block, new RegExp(`url: "${url.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}"`));
+  }
+
+  assert.match(js, /activeCourseId: "local-ela20-novel-study"/);
+  assert.match(js, /new URL\(url, window\.location\.href\)/);
+});
+
 test("option two high-end concept is available as a standalone interactive preview", () => {
   const optionHtmlPath = resolve(workspaceDir, "option-two.html");
   const optionCssPath = resolve(workspaceDir, "option-two.css");

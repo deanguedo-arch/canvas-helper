@@ -4,6 +4,7 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from "https:
 import { ChevronDown, ChevronRight, CheckCircle2, Circle, ArrowLeft, ArrowRight, FileText, ClipboardCheck, Library, Search, PlayCircle, FileImage, FileQuestion, FileBadge, Bookmark, } from "https://esm.sh/lucide-react@0.542.0?deps=react@19.1.1";
 import d2lCourseMapData from "./d2l-map-data.js";
 import courseShellData from "./course-shell-data.js";
+const AUTHORING_UNLOCK_ALL = true;
 const actualHtmlSamples = {
     citeSources: `
     <div class="lesson-html">
@@ -307,16 +308,6 @@ function buildCourseFromD2LMap(seed, d2lMap) {
                 description: shellActivity?.description || "Course content item",
                 contentPreview,
                 isHidden: lessonHidden,
-                learn: {
-                    heading: node.title || `Lesson ${index + 1}`,
-                    excerpt: "Mapped from the D2L manifest hierarchy. This node is included in the shell so navigation follows the real course sequence.",
-                    bullets: [
-                        "Manifest-derived lesson title",
-                        "Source path preserved for traceability",
-                        "Supports richer renderer mappings when available"
-                    ],
-                    callout: "This lesson is mapped from the course manifest with normalized module and lesson labels."
-                }
             };
         });
         return {
@@ -834,6 +825,8 @@ function readCompletionMapForModule(allCompletions, moduleId) {
 function buildUnlockedContentLessons(lessons, completionMap) {
     if (!Array.isArray(lessons) || lessons.length === 0)
         return [];
+    if (AUTHORING_UNLOCK_ALL)
+        return lessons;
     const nextIndex = lessons.findIndex((lesson) => !completionMap[lesson.id]);
     if (nextIndex === -1)
         return lessons;
@@ -856,6 +849,14 @@ function computeLessonCompletionProgress(lessons, completionMap) {
         completed += 1;
     }
     const percent = Math.round((completed / total) * 100);
+    if (AUTHORING_UNLOCK_ALL) {
+        return {
+            total,
+            completed,
+            percent,
+            isComplete: true,
+        };
+    }
     return {
         total,
         completed,
@@ -864,6 +865,8 @@ function computeLessonCompletionProgress(lessons, completionMap) {
     };
 }
 function lessonProgressStateAtIndex(index, completedCount, totalCount) {
+    if (AUTHORING_UNLOCK_ALL)
+        return index < completedCount ? "complete" : "active";
     if (index < completedCount)
         return "complete";
     if (index === completedCount && completedCount < totalCount)
@@ -2128,8 +2131,7 @@ export default function ForensicCoursePlayerPreviewRestored() {
         const firstUnlocked = unlockedContentLessons[0] || row.contentLessons[0];
         const firstQuiz = row.quizzes[0];
         const moduleNumber = String(row.module.title || "").match(/^(\d+)/)?.[1] || String(index + 1);
-        const summary = toPlainPreview(firstUnlocked?.learn?.excerpt || firstUnlocked?.contentPreview || firstUnlocked?.htmlSample || firstUnlocked?.assignmentXml?.intro, "Open this module to work through the lesson pages and source activities.");
-        return (_jsxs("article", { className: shellPanelClass, "data-testid": "forensics35-chapter-card", children: [_jsxs("div", { className: "text-sm font-bold uppercase tracking-[0.12em] text-[#3f9f2e]", children: ["Module ", moduleNumber] }), _jsx("h3", { className: "mt-3 text-2xl font-bold leading-tight text-[#3c3f3e]", children: row.module.title }), _jsx("p", { className: "mt-5 min-h-[3.6rem] text-sm leading-6 text-[#606762]", children: summary }), _jsxs("div", { className: "mt-6 flex flex-wrap gap-3", children: [_jsx("button", { type: "button", className: shellButtonClass, "data-open-shell-content": row.module.id, disabled: !firstUnlocked, onClick: () => openShellContent(row), children: "Open content" }), firstQuiz ? (_jsx("button", { type: "button", className: shellMutedButtonClass, "data-open-shell-quiz": firstQuiz.id, disabled: !row.quizzesUnlocked, onClick: () => openShellLesson(row, "quizzes", firstQuiz), children: "Open test" })) : null] }), _jsxs("div", { className: "mt-4 inline-flex rounded-full bg-[#eef6eb] px-3 py-1 text-xs font-semibold text-[#3f9f2e]", children: [row.contentProgress.completed, "/", row.contentProgress.total, " components complete"] })] }, row.module.id));
+        return (_jsxs("article", { className: shellPanelClass, "data-testid": "forensics35-chapter-card", children: [_jsxs("div", { className: "text-sm font-bold uppercase tracking-[0.12em] text-[#3f9f2e]", children: ["Module ", moduleNumber] }), _jsx("h3", { className: "mt-3 text-2xl font-bold leading-tight text-[#3c3f3e]", children: row.module.title }), _jsxs("div", { className: "mt-6 flex flex-wrap gap-3", children: [_jsx("button", { type: "button", className: shellButtonClass, "data-open-shell-content": row.module.id, disabled: !firstUnlocked, onClick: () => openShellContent(row), children: "Open content" }), firstQuiz ? (_jsx("button", { type: "button", className: shellMutedButtonClass, "data-open-shell-quiz": firstQuiz.id, disabled: !row.quizzesUnlocked, onClick: () => openShellLesson(row, "quizzes", firstQuiz), children: "Open test" })) : null] }), _jsxs("div", { className: "mt-4 inline-flex rounded-full bg-[#eef6eb] px-3 py-1 text-xs font-semibold text-[#3f9f2e]", children: [row.contentProgress.completed, "/", row.contentProgress.total, " components complete"] })] }, row.module.id));
     };
     const renderAssessmentCard = ({ row, lesson, index, bucket }) => {
         const title = formatLessonTitleForDisplay(lesson);
@@ -2280,4 +2282,3 @@ const __canvasHelperRootElement = document.getElementById("root");
 if (__canvasHelperRootElement) {
     __CanvasHelperReactDomClient.createRoot(__canvasHelperRootElement).render(_jsx(ForensicCoursePlayerPreviewRestored, {}));
 }
-

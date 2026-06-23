@@ -174,9 +174,9 @@ export function injectScormBridgeTag(html: string, bridgeRelativePath = "./scorm
   const scriptNode = $("<script></script>");
   scriptNode.attr("src", bridgeRelativePath);
 
-  const localScriptNode = $("script[src]").toArray().find((node) => {
+  const localScriptNode = $("script").toArray().find((node) => {
     const src = ($(node).attr("src") ?? "").trim();
-    return src.length > 0 && !/^(?:[a-z][a-z0-9+.-]*:|\/\/|#)/i.test(src);
+    return src.length === 0 || !/^(?:[a-z][a-z0-9+.-]*:|\/\/|#)/i.test(src);
   });
 
   if (localScriptNode) {
@@ -630,7 +630,11 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
   }
 
   function installControls() {
-    if (controlHost || !document.body) {
+    if (controlHost) {
+      return;
+    }
+    if (!document.body) {
+      document.addEventListener("DOMContentLoaded", installControls, { once: true });
       return;
     }
 
