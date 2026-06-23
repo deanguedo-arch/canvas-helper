@@ -32,6 +32,7 @@ type IssueConfig = {
   units: string[];
   unitPrefixes: string[];
   textbookFiles: string[];
+  renderMode?: "standard-shell" | "inline-d2l" | "palette-shell";
 };
 
 type LessonSource = {
@@ -110,6 +111,18 @@ const ISSUES: IssueConfig[] = [
     textbookFiles: ["Part4.pdf", "Ch13.pdf", "Ch14.pdf", "Closer.pdf", "Glossary.pdf"]
   }
 ];
+
+const OPTION_ISSUES: IssueConfig[] = [
+  {
+    ...ISSUES[0],
+    slug: "social30-1-related-issue-1-option-2",
+    title: "Related Issue 1 (Option Two)",
+    shortTitle: "Social RI 1 Option Two",
+    renderMode: "palette-shell"
+  }
+];
+
+const ALL_ISSUES = [...ISSUES, ...OPTION_ISSUES];
 
 const COMMON_STUDENT_RESOURCE_PREFIXES = ["Student Resources/"];
 const UNIT_RESOURCE_EXTENSIONS = new Set([
@@ -868,6 +881,769 @@ function socialExtraCss() {
 }`;
 }
 
+function socialPaletteShellCss() {
+  return `
+:root {
+  --ink: #191C1C;
+  --ink-dark: #155608;
+  --primary: #155608;
+  --primary-strong: #1E6D0D;
+  --surface: #FFFFFF;
+  --surface-low: #F9F9F8;
+  --surface-soft: #EAF7E6;
+  --surface-muted: #DDE2DD;
+  --surface-variant: #DDE2DD;
+  --text-muted: #40493B;
+}
+body {
+  background: #F9F9F8;
+  color: #191C1C;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.course-topbar {
+  background: #155608;
+  border-bottom: 4px solid #59A844;
+}
+.topbar-menu-toggle,
+.sidebar-toggle-button {
+  background: #1E6D0D;
+  color: #FFFFFF;
+}
+.top-progress-meta,
+.top-progress-meta strong {
+  color: #FFFFFF;
+}
+.top-progress-bar {
+  border-color: #59A844;
+  background: #EAF7E6;
+}
+.top-progress-fill {
+  background: #FDBF3F;
+}
+.course-sidebar {
+  background: #155608;
+  color: #FFFFFF;
+}
+.sidebar-header {
+  border-bottom: 1px solid #59A844;
+}
+.sidebar-title,
+.sidebar-course-label,
+.course-nav-link,
+.sublesson-link {
+  color: #FFFFFF;
+}
+.course-nav-link:hover,
+.course-nav-link.active {
+  background: #EAF7E6;
+  color: #155608;
+}
+.course-nav-link:hover .material-symbols-outlined,
+.course-nav-link.active .material-symbols-outlined {
+  color: #155608;
+}
+.sublesson-link:hover,
+.sublesson-link.active {
+  color: #FDBF3F;
+}
+.course-main {
+  background: #F9F9F8;
+}
+.course-frame {
+  width: min(1200px, calc(100vw - 360px));
+}
+.course-page > h2,
+.lesson-document-header h2,
+.resource-lesson-label,
+.lesson-card strong,
+.source-content h1,
+.source-content h2,
+.source-content h3,
+.social-document-header h3,
+.social-document-dark h3,
+.work-card h3,
+.resource-card h3 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 0;
+}
+.course-kicker,
+.unit-outcomes-lead,
+.lesson-document-header p,
+.resource-lesson-kicker,
+.lesson-card span,
+.social-document-header p,
+.social-document-dark p,
+.social-resource-label,
+label {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.course-page > h2 {
+  color: #191C1C;
+}
+.page-intro,
+.lesson-document-header span,
+.source-content,
+.source-content p,
+.lesson-card p {
+  color: #40493B;
+}
+.unit-focus-list li {
+  border-left: 5px solid #155608;
+  background: #FFFFFF;
+  box-shadow: 0 6px 18px #DDE2DD;
+}
+.completed-pill,
+.resource-lesson-group,
+.lesson-card,
+.lesson-detail-panel,
+.work-card,
+.resource-panel,
+.resource-card,
+.social-document {
+  border-color: #DDE2DD;
+  background: #FFFFFF;
+  box-shadow: 0 6px 18px #DDE2DD;
+}
+.external-resource-action,
+.lesson-jump.primary {
+  border-color: #155608;
+  background: #155608;
+  color: #FFFFFF;
+}
+.lesson-jump,
+.completed-pill {
+  border-color: #DDE2DD;
+  color: #155608;
+}
+.resource-lesson-summary {
+  border-left: 6px solid #1E6D0D;
+  background: #FFFFFF;
+}
+.resource-lesson-group[open] .resource-lesson-summary {
+  background: #EAF7E6;
+}
+.lesson-card:hover {
+  border-color: #1E6D0D;
+  background: #EAF7E6;
+}
+.lesson-document-header,
+.social-document-header {
+  border-top: 6px solid #155608;
+  background: #FFFFFF;
+}
+.lesson-reader-panel {
+  background: #F9F9F8;
+}
+.source-content {
+  max-width: 900px;
+}
+.source-content a {
+  color: #155608;
+  font-weight: 700;
+}
+.source-content blockquote,
+.source-content .source-note {
+  background: #FFF0CF;
+  border-left: 6px solid #FDBF3F;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 0;
+  color: #191C1C;
+}
+.source-table th,
+.source-content th {
+  background: #155608;
+  color: #FFFFFF;
+}
+.source-table tr:nth-child(even),
+.source-content tr:nth-child(even) {
+  background: #EAF7E6;
+}
+textarea,
+select,
+input {
+  border-color: #DDE2DD;
+  color: #191C1C;
+  background: #FFFFFF;
+}
+textarea:focus,
+select:focus,
+input:focus,
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid #FDBF3F;
+  border-color: #155608;
+}
+.social-document-dark {
+  background: #155608;
+  border-bottom: 6px solid #59A844;
+}
+.social-document-dark p,
+.social-document-dark span,
+.social-document-dark h3 {
+  color: #FFFFFF;
+}
+@media (max-width: 1100px) {
+  .course-frame {
+    width: min(100%, 900px);
+  }
+  body:not(.sidebar-collapsed) .course-sidebar {
+    background: #155608;
+  }
+}`;
+}
+
+function socialShellCss(config: IssueConfig) {
+  return `${socialExtraCss()}\n${config.renderMode === "palette-shell" ? socialPaletteShellCss() : ""}`;
+}
+
+function inlineStyle(styles: Record<string, string | number | undefined>) {
+  return Object.entries(styles)
+    .filter(([, value]) => value !== undefined && value !== "")
+    .map(([property, value]) => `${property}: ${value}`)
+    .join("; ");
+}
+
+function normalizeInlineAltText(value: string | undefined) {
+  return normalizeWhitespace(value ?? "")
+    .replace(/&quot;/g, '"')
+    .replace(/["'“”‘’]/g, "")
+    .trim();
+}
+
+const d2l = {
+  primary: "#155608",
+  secondary: "#1E6D0D",
+  bright: "#59A844",
+  text: "#191C1C",
+  muted: "#40493B",
+  page: "#F9F9F8",
+  card: "#FFFFFF",
+  highlight: "#EAF7E6",
+  tip: "#FFF0CF",
+  amber: "#FDBF3F",
+  border: "#DDE2DD"
+};
+
+function inlineLessonContent(html: string, lessonTitle: string) {
+  const $ = cheerio.load(`<main>${html}</main>`, { xmlMode: false });
+  $("script, style, link, meta").remove();
+
+  $("h1").attr(
+    "style",
+    inlineStyle({
+      color: d2l.primary,
+      "font-size": "32px",
+      "line-height": "1.2",
+      margin: "26px 0 12px",
+      "font-weight": "800"
+    })
+  );
+  $("h2").attr(
+    "style",
+    inlineStyle({
+      color: d2l.primary,
+      "font-size": "26px",
+      "line-height": "1.25",
+      margin: "24px 0 10px",
+      "font-weight": "800"
+    })
+  );
+  $("h3, h4, h5, h6").attr(
+    "style",
+    inlineStyle({
+      color: d2l.text,
+      "font-size": "20px",
+      "line-height": "1.3",
+      margin: "20px 0 8px",
+      "font-weight": "800"
+    })
+  );
+  $("p").attr(
+    "style",
+    inlineStyle({
+      color: d2l.text,
+      "font-size": "16px",
+      "line-height": "1.6",
+      margin: "0 0 14px"
+    })
+  );
+  $("ul, ol").attr(
+    "style",
+    inlineStyle({
+      color: d2l.text,
+      "font-size": "16px",
+      "line-height": "1.6",
+      margin: "10px 0 18px 28px",
+      padding: "0"
+    })
+  );
+  $("li").attr(
+    "style",
+    inlineStyle({
+      margin: "0 0 8px",
+      color: d2l.text
+    })
+  );
+  $("blockquote").attr(
+    "style",
+    inlineStyle({
+      margin: "18px 0",
+      padding: "14px 18px",
+      "border-left": `6px solid ${d2l.amber}`,
+      background: d2l.tip,
+      color: d2l.text
+    })
+  );
+  $("table").each((_, table) => {
+    $(table).attr(
+      "style",
+      inlineStyle({
+        width: "100%",
+        "border-collapse": "collapse",
+        margin: "20px 0",
+        background: d2l.card,
+        color: d2l.text
+      })
+    );
+    $(table)
+      .find("tr")
+      .each((rowIndex, row) => {
+        $(row).attr("style", `background: ${rowIndex % 2 === 0 ? d2l.page : d2l.highlight}`);
+      });
+  });
+  $("th").attr(
+    "style",
+    inlineStyle({
+      padding: "12px",
+      border: `1px solid ${d2l.border}`,
+      background: d2l.primary,
+      color: d2l.card,
+      "text-align": "left",
+      "vertical-align": "top"
+    })
+  );
+  $("td").attr(
+    "style",
+    inlineStyle({
+      padding: "12px",
+      border: `1px solid ${d2l.border}`,
+      color: d2l.text,
+      "vertical-align": "top"
+    })
+  );
+  $("img").each((_, image) => {
+    const $image = $(image);
+    if (!normalizeInlineAltText($image.attr("alt"))) {
+      $image.attr("alt", `Image from ${lessonTitle}`);
+    }
+    $image.attr(
+      "style",
+      inlineStyle({
+        "max-width": "100%",
+        height: "auto",
+        display: "block",
+        margin: "16px auto",
+        border: `1px solid ${d2l.border}`,
+        "border-radius": "8px"
+      })
+    );
+  });
+  $("a").each((_, anchor) => {
+    const $anchor = $(anchor);
+    if ($anchor.attr("href")?.startsWith("#")) {
+      $anchor.attr("style", `color: ${d2l.primary}; font-weight: 700`);
+    } else {
+      $anchor.attr("style", `color: ${d2l.primary}; font-weight: 700; text-decoration: underline`);
+      if (!$anchor.attr("target")) {
+        $anchor.attr("target", "_blank");
+      }
+      if (!$anchor.attr("rel")) {
+        $anchor.attr("rel", "noreferrer");
+      }
+    }
+  });
+  $("audio, video").attr(
+    "style",
+    inlineStyle({
+      width: "100%",
+      "max-width": "920px",
+      display: "block",
+      margin: "16px 0"
+    })
+  );
+
+  $("*").each((_, element) => {
+    const $element = $(element);
+    const keep = new Set(["href", "src", "alt", "title", "target", "rel", "loading", "controls", "preload", "type", "style", "id", "aria-label", "aria-labelledby"]);
+    const attrs = "attribs" in element ? (element as Element).attribs : {};
+    for (const attr of Object.keys(attrs ?? {})) {
+      if (!keep.has(attr)) {
+        $element.removeAttr(attr);
+      }
+    }
+  });
+
+  return $("main").html() ?? "";
+}
+
+function renderInlineTextArea(label: string, placeholder: string) {
+  const id = slugify(label);
+  return `<label for="${escapeHtml(id)}" style="${inlineStyle({
+    display: "block",
+    color: d2l.primary,
+    "font-weight": "800",
+    "margin-bottom": "18px"
+  })}">${escapeHtml(label)}
+    <textarea id="${escapeHtml(id)}" rows="5" placeholder="${escapeHtml(placeholder)}" style="${inlineStyle({
+      display: "block",
+      width: "100%",
+      "margin-top": "8px",
+      padding: "12px",
+      border: `1px solid ${d2l.border}`,
+      "border-radius": "8px",
+      color: d2l.text,
+      background: d2l.card,
+      "font-family": "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+      "font-size": "16px",
+      "line-height": "1.6"
+    })}"></textarea>
+  </label>`;
+}
+
+function renderInlineResourceGroups(resources: ImportedResource[]) {
+  return groupResources(resources)
+    .map(
+      (group, index) => `<details${index === 0 ? " open" : ""} style="${inlineStyle({
+        background: d2l.card,
+        border: `1px solid ${d2l.border}`,
+        "border-radius": "10px",
+        margin: "16px 0",
+        "box-shadow": `0 6px 18px ${d2l.border}`
+      })}">
+        <summary style="${inlineStyle({
+          cursor: "pointer",
+          padding: "18px 20px",
+          color: d2l.primary,
+          "font-size": "20px",
+          "font-weight": "800",
+          "border-left": `6px solid ${d2l.secondary}`
+        })}">${escapeHtml(group.label)}</summary>
+        <div style="${inlineStyle({
+          display: "grid",
+          gap: "14px",
+          padding: "0 20px 20px"
+        })}">
+          ${group.resources
+            .map(
+              (resource) => `<article style="${inlineStyle({
+                padding: "18px",
+                border: `1px solid ${d2l.border}`,
+                "border-radius": "8px",
+                background: d2l.page
+              })}">
+                <h3 style="${inlineStyle({
+                  margin: "0 0 8px",
+                  color: d2l.text,
+                  "font-size": "20px",
+                  "line-height": "1.3"
+                })}">${escapeHtml(resource.title)}</h3>
+                <p style="${inlineStyle({
+                  margin: "0 0 12px",
+                  color: d2l.muted,
+                  "line-height": "1.6"
+                })}">${escapeHtml(resource.description)}</p>
+                <a href="${escapeHtml(resource.href)}" target="_blank" rel="noreferrer" style="${inlineStyle({
+                  display: "inline-block",
+                  padding: "10px 14px",
+                  background: d2l.primary,
+                  color: d2l.card,
+                  "border-radius": "8px",
+                  "font-weight": "800",
+                  "text-decoration": "none"
+                })}">Open Resource</a>
+              </article>`
+            )
+            .join("\n")}
+        </div>
+      </details>`
+    )
+    .join("\n");
+}
+
+function renderInlineD2LCourseShell(config: IssueConfig, lessons: SanitizedLesson[], resources: ImportedResource[]) {
+  const groupedLessons = getIssueLessonGroups(lessons, config.title);
+  const containerStyle = inlineStyle({
+    "max-width": "1200px",
+    margin: "0 auto",
+    background: d2l.page,
+    color: d2l.text,
+    "font-family": "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+    "font-size": "16px",
+    "line-height": "1.6",
+    padding: "0 18px 48px"
+  });
+  const cardStyle = inlineStyle({
+    background: d2l.card,
+    border: `1px solid ${d2l.border}`,
+    "border-radius": "10px",
+    padding: "28px",
+    margin: "24px 0",
+    "box-shadow": `0 6px 18px ${d2l.border}`
+  });
+  const buttonStyle = inlineStyle({
+    display: "inline-block",
+    padding: "10px 14px",
+    background: d2l.primary,
+    color: d2l.card,
+    "border-radius": "8px",
+    "font-weight": "800",
+    "text-decoration": "none",
+    margin: "6px 8px 6px 0"
+  });
+  const secondaryLinkStyle = inlineStyle({
+    display: "inline-block",
+    padding: "9px 12px",
+    border: `1px solid ${d2l.secondary}`,
+    color: d2l.primary,
+    background: d2l.card,
+    "border-radius": "8px",
+    "font-weight": "800",
+    "text-decoration": "none",
+    margin: "6px 8px 6px 0"
+  });
+
+  return `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>${escapeHtml(COURSE_CODE)} | ${escapeHtml(config.title)}</title>
+</head>
+<body style="${inlineStyle({
+  margin: "0",
+  background: d2l.page,
+  color: d2l.text,
+  "font-family": "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+  "font-size": "16px",
+  "line-height": "1.6"
+})}">
+  <a href="#main-content" style="${inlineStyle({
+    display: "inline-block",
+    margin: "12px",
+    padding: "8px 12px",
+    background: d2l.amber,
+    color: d2l.text,
+    "border-radius": "8px",
+    "font-weight": "800",
+    "text-decoration": "none"
+  })}">Skip to content</a>
+  <div style="${containerStyle}">
+    <header style="${inlineStyle({
+      background: d2l.primary,
+      color: d2l.card,
+      padding: "28px",
+      "border-radius": "0 0 12px 12px",
+      "border-bottom": `6px solid ${d2l.bright}`
+    })}">
+      <img src="assets/brand/nxt-ce-logo-white-with-ce.png" alt="Next Step Continuing Education" style="${inlineStyle({
+        display: "block",
+        width: "140px",
+        "max-width": "100%",
+        height: "auto",
+        margin: "0 0 22px"
+      })}">
+      <p style="${inlineStyle({
+        margin: "0 0 8px",
+        color: d2l.card,
+        "font-weight": "800"
+      })}">${escapeHtml(COURSE_CODE)}</p>
+      <h1 style="${inlineStyle({
+        margin: "0",
+        color: d2l.card,
+        "font-size": "42px",
+        "line-height": "1.15"
+      })}">${escapeHtml(config.title)}</h1>
+      <p style="${inlineStyle({
+        margin: "14px 0 0",
+        color: d2l.card,
+        "font-size": "20px",
+        "max-width": "900px"
+      })}">${escapeHtml(config.issueQuestion)}</p>
+    </header>
+
+    <main id="main-content" style="${inlineStyle({ display: "block" })}">
+      <section aria-labelledby="overview-title" style="${cardStyle}">
+        <h2 id="overview-title" style="${inlineStyle({
+          margin: "0 0 12px",
+          color: d2l.primary,
+          "font-size": "30px",
+          "line-height": "1.25"
+        })}">Overview</h2>
+        <p style="${inlineStyle({
+          color: d2l.text,
+          margin: "0 0 18px",
+          "font-size": "18px"
+        })}">${escapeHtml(config.overviewIntro)}</p>
+        <div style="${inlineStyle({
+          background: d2l.tip,
+          "border-left": `6px solid ${d2l.amber}`,
+          padding: "16px 18px",
+          margin: "18px 0",
+          color: d2l.text
+        })}">
+          <strong>Key idea:</strong> Keep returning to the related issue question as you read, analyze sources, and build your position.
+        </div>
+        <h3 style="${inlineStyle({
+          color: d2l.text,
+          "font-size": "22px",
+          margin: "22px 0 10px"
+        })}">I can...</h3>
+        <ul style="${inlineStyle({
+          margin: "0 0 18px 22px",
+          color: d2l.text,
+          "line-height": "1.6"
+        })}">
+          <li>explain how ${escapeHtml(config.units.join(" and "))} connect to the related issue question: ${escapeHtml(config.issueQuestion)}</li>
+          <li>analyze sources for perspective, evidence, bias, and ideological assumptions.</li>
+          <li>collect evidence from lessons and resources to support a defensible position.</li>
+          <li>refine my thinking into a clear Social Studies 30-1 position response.</li>
+        </ul>
+        <nav aria-label="Course sections">
+          <a href="#lesson-sequence" style="${buttonStyle}">Lesson Sequence</a>
+          <a href="#issue-inquiry" style="${secondaryLinkStyle}">Issue Inquiry</a>
+          <a href="#source-analysis" style="${secondaryLinkStyle}">Source Analysis</a>
+          <a href="#position-builder" style="${secondaryLinkStyle}">Position Builder</a>
+          <a href="#evidence-bank" style="${secondaryLinkStyle}">Evidence Bank</a>
+          <a href="#resources" style="${secondaryLinkStyle}">Resources</a>
+        </nav>
+      </section>
+
+      <section id="lesson-sequence" aria-labelledby="lesson-sequence-title" style="${cardStyle}">
+        <h2 id="lesson-sequence-title" style="${inlineStyle({
+          margin: "0 0 16px",
+          color: d2l.primary,
+          "font-size": "30px",
+          "line-height": "1.25"
+        })}">Lesson Sequence</h2>
+        ${groupedLessons
+          .map(
+            (group, groupIndex) => `<details${groupIndex === 0 ? " open" : ""} style="${inlineStyle({
+              background: d2l.card,
+              border: `1px solid ${d2l.border}`,
+              "border-radius": "10px",
+              margin: "16px 0"
+            })}">
+              <summary style="${inlineStyle({
+                cursor: "pointer",
+                padding: "18px 20px",
+                color: d2l.primary,
+                "font-size": "22px",
+                "font-weight": "800",
+                "border-left": `6px solid ${d2l.secondary}`
+              })}">${escapeHtml(group.title)}</summary>
+              <div style="${inlineStyle({
+                padding: "0 20px 20px",
+                display: "grid",
+                gap: "10px"
+              })}">
+                ${group.lessons
+                  .map(
+                    ({ lesson, index }) => `<a href="#${escapeHtml(lesson.id)}" style="${inlineStyle({
+                      display: "block",
+                      padding: "14px",
+                      background: d2l.page,
+                      border: `1px solid ${d2l.border}`,
+                      "border-radius": "8px",
+                      color: d2l.text,
+                      "text-decoration": "none"
+                    })}"><strong style="color: ${d2l.primary}">Lesson ${index + 1}</strong><br>${escapeHtml(lesson.title)}<br><span style="color: ${d2l.muted}">${escapeHtml(lesson.summary)}</span></a>`
+                  )
+                  .join("\n")}
+              </div>
+            </details>`
+          )
+          .join("\n")}
+      </section>
+
+      <section id="lessons" aria-label="Lesson content">
+        ${lessons
+          .map(
+            (lesson, index) => `<article id="${escapeHtml(lesson.id)}" aria-labelledby="${escapeHtml(lesson.id)}-title" style="${cardStyle}">
+              <header style="${inlineStyle({
+                background: d2l.primary,
+                color: d2l.card,
+                padding: "18px 20px",
+                margin: "-28px -28px 24px",
+                "border-radius": "10px 10px 0 0"
+              })}">
+                <p style="${inlineStyle({ margin: "0 0 6px", color: d2l.card, "font-weight": "800" })}">Lesson ${index + 1}</p>
+                <h2 id="${escapeHtml(lesson.id)}-title" style="${inlineStyle({
+                  margin: "0",
+                  color: d2l.card,
+                  "font-size": "30px",
+                  "line-height": "1.2"
+                })}">${escapeHtml(lesson.title)}</h2>
+              </header>
+              ${inlineLessonContent(lesson.html, lesson.title)}
+              <p style="${inlineStyle({ margin: "24px 0 0" })}"><a href="#lesson-sequence" style="${secondaryLinkStyle}">Back to Lesson Sequence</a></p>
+            </article>`
+          )
+          .join("\n")}
+      </section>
+
+      <section id="issue-inquiry" aria-labelledby="issue-inquiry-title" style="${cardStyle}">
+        <h2 id="issue-inquiry-title" style="${inlineStyle({ color: d2l.primary, margin: "0 0 12px", "font-size": "30px" })}">Issue Inquiry</h2>
+        <p style="${inlineStyle({ color: d2l.muted, margin: "0 0 18px" })}">Use this page to record your first thinking before you gather evidence across the unit lessons.</p>
+        ${renderInlineTextArea("What do I think right now?", "Write your first position on the related issue.")}
+        ${renderInlineTextArea("Terms I need to define", "List important concepts, ideologies, people, events, or vocabulary.")}
+        ${renderInlineTextArea("What evidence would strengthen or challenge my view?", "Name the types of sources, examples, or perspectives you need.")}
+      </section>
+
+      <section id="source-analysis" aria-labelledby="source-analysis-title" style="${cardStyle}">
+        <h2 id="source-analysis-title" style="${inlineStyle({ color: d2l.primary, margin: "0 0 12px", "font-size": "30px" })}">Source Analysis</h2>
+        ${["What is the source's main message?", "Which ideological perspective or principle is most visible?", "What detail from the source supports your interpretation?", `How does this source connect to ${config.title}?`, "What limitation, bias, or context should be considered before using this source as evidence?"]
+          .map((question) => renderInlineTextArea(question, "Type your analytical response here."))
+          .join("\n")}
+      </section>
+
+      <section id="position-builder" aria-labelledby="position-builder-title" style="${cardStyle}">
+        <h2 id="position-builder-title" style="${inlineStyle({ color: d2l.primary, margin: "0 0 12px", "font-size": "30px" })}">Position Builder</h2>
+        ${renderInlineTextArea("Working position", "To what extent? Start with a clear, defensible answer.")}
+        ${renderInlineTextArea("Evidence that supports the position", "Source, lesson, person, event, policy, or historical example.")}
+        ${renderInlineTextArea("Possible counterpoint", "What would someone with a different ideological perspective say?")}
+        ${renderInlineTextArea("Refined thesis", "Turn the position into a polished thesis statement.")}
+      </section>
+
+      <section id="evidence-bank" aria-labelledby="evidence-bank-title" style="${cardStyle}">
+        <h2 id="evidence-bank-title" style="${inlineStyle({ color: d2l.primary, margin: "0 0 12px", "font-size": "30px" })}">Evidence Bank</h2>
+        ${renderInlineTextArea("Source or lesson", "Example: Unit 1, Lesson 2 - Exploring Beliefs and Values.")}
+        ${renderInlineTextArea("Evidence detail", "Quote, event, policy, image detail, statistic, or source observation.")}
+        ${renderInlineTextArea("Why it matters", "Explain how this evidence helps answer the related issue question.")}
+      </section>
+
+      <section id="resources" aria-labelledby="resources-title" style="${cardStyle}">
+        <h2 id="resources-title" style="${inlineStyle({ color: d2l.primary, margin: "0 0 12px", "font-size": "30px" })}">Resources</h2>
+        <p style="${inlineStyle({ color: d2l.muted, margin: "0 0 18px" })}">Textbook chapters, recovered Brightspace files, and source links connected to ${escapeHtml(config.title)}.</p>
+        ${renderInlineResourceGroups(resources)}
+      </section>
+    </main>
+  </div>
+</body>
+</html>`;
+}
+
+function getIssueLessonGroups(lessons: NextStepShellLesson[], fallbackTitle: string) {
+  const groups = new Map<string, { title: string; lessons: Array<{ lesson: NextStepShellLesson; index: number }> }>();
+  lessons.forEach((lesson, index) => {
+    const title = lesson.group?.trim() || fallbackTitle;
+    const existing = groups.get(title) ?? { title, lessons: [] };
+    existing.lessons.push({ lesson, index });
+    groups.set(title, existing);
+  });
+  return Array.from(groups.values());
+}
+
 async function addResourceFromZip(
   zip: JSZip,
   workspaceDir: string,
@@ -1014,6 +1790,8 @@ function renderNavItems(config: IssueConfig, resources: ImportedResource[]): Nex
 async function writeProjectMetadata(slug: string, config: IssueConfig, zipPath: string, lessonCount: number) {
   const projectDir = path.join(ROOT, "projects", slug);
   const now = new Date().toISOString();
+  const isInlineD2L = config.renderMode === "inline-d2l";
+  const isPaletteShell = config.renderMode === "palette-shell";
   const metadata = {
     id: slug,
     slug,
@@ -1032,7 +1810,7 @@ async function writeProjectMetadata(slug: string, config: IssueConfig, zipPath: 
     canonicalSources: [
       path.join(projectDir, "workspace", "index.html"),
       path.join(ROOT, "scripts", "build-social30-related-issues.ts"),
-      path.join(ROOT, "scripts", "lib", "next-step-course-shell.ts")
+      ...(isInlineD2L ? [] : [path.join(ROOT, "scripts", "lib", "next-step-course-shell.ts")])
     ],
     generatedOutputs: [],
     regenerateCommand: `npx tsx scripts/build-social30-related-issues.ts --zip "${zipPath}" --only ${slug}`,
@@ -1040,7 +1818,7 @@ async function writeProjectMetadata(slug: string, config: IssueConfig, zipPath: 
       sourceSystem: "brightspace",
       sourcePath: zipPath,
       importedAt: now,
-      notes: `${config.title} clean shell generated from Social Studies 30-1 Brightspace units ${config.units.join(" + ")}.`
+      notes: `${config.title} ${isInlineD2L ? "inline D2L redesign option" : isPaletteShell ? "alternate palette shell option" : "clean shell"} generated from Social Studies 30-1 Brightspace units ${config.units.join(" + ")}.`
     },
     exportTargets: [
       {
@@ -1056,20 +1834,24 @@ async function writeProjectMetadata(slug: string, config: IssueConfig, zipPath: 
     ],
     authoringStatus: "active",
     referenceOnly: [zipPath, path.join(projectDir, "raw", "README.md")],
-    sourceOfTruthNotes:
-      "The shared Brightspace ZIP is not duplicated per issue. Regenerate this workspace through scripts/build-social30-related-issues.ts and the shared Next Step shell.",
+    sourceOfTruthNotes: isInlineD2L
+      ? "The shared Brightspace ZIP is not duplicated per issue. Regenerate this inline styled D2L option through scripts/build-social30-related-issues.ts."
+      : isPaletteShell
+        ? "The shared Brightspace ZIP is not duplicated per issue. Regenerate this alternate palette shell through scripts/build-social30-related-issues.ts and the shared Next Step shell."
+        : "The shared Brightspace ZIP is not duplicated per issue. Regenerate this workspace through scripts/build-social30-related-issues.ts and the shared Next Step shell.",
     conversionSummary: {
       relatedIssue: config.title,
       issueQuestion: config.issueQuestion,
       units: config.units,
-      lessonsRecovered: lessonCount
+      lessonsRecovered: lessonCount,
+      styleVariant: isInlineD2L ? "inline-d2l-next-step-palette" : isPaletteShell ? "next-step-palette-shell" : "standard-next-step-shell"
     }
   };
   await fs.mkdir(path.join(projectDir, "meta"), { recursive: true });
   await fs.writeFile(path.join(projectDir, "meta", "project.json"), `${JSON.stringify(metadata, null, 2)}\n`);
   await fs.writeFile(
     path.join(projectDir, "meta", "conversion-notes.md"),
-    `# ${config.title} Conversion Notes\n\n- Source ZIP: ${zipPath}\n- Units included: ${config.units.join(", ")}\n- Lessons recovered: ${lessonCount}\n- Shared shell: scripts/lib/next-step-course-shell.ts\n- Builder: scripts/build-social30-related-issues.ts\n\nThe raw ZIP is referenced rather than duplicated to avoid four large copies of the same Brightspace export.\n`
+    `# ${config.title} Conversion Notes\n\n- Source ZIP: ${zipPath}\n- Units included: ${config.units.join(", ")}\n- Lessons recovered: ${lessonCount}\n- Render mode: ${isInlineD2L ? "Inline CSS Brightspace/D2L redesign option" : isPaletteShell ? "Shared Next Step course shell with alternate palette styling" : "Shared Next Step course shell"}\n${isInlineD2L ? "" : "- Shared shell: scripts/lib/next-step-course-shell.ts\n"}- Builder: scripts/build-social30-related-issues.ts\n\nThe raw ZIP is referenced rather than duplicated to avoid four large copies of the same Brightspace export.\n`
   );
 }
 
@@ -1111,26 +1893,29 @@ async function buildIssue(zip: JSZip, zipIndex: Map<string, string>, zipPath: st
     return categoryOrder.indexOf(a.category) - categoryOrder.indexOf(b.category) || a.title.localeCompare(b.title);
   });
 
-  const html = renderNextStepCourseShell({
-    slug: config.slug,
-    courseTitle: `Social Studies 30-1: ${config.title}`,
-    courseCode: COURSE_CODE,
-    overviewIntro: config.overviewIntro,
-    outcomes: [
-      `I can explain how ${config.units.join(" and ")} connect to ${config.issueQuestion}`,
-      "I can analyze sources for perspective, evidence, bias, and ideological assumptions.",
-      "I can collect evidence from lessons and resources to support a defensible position.",
-      "I can refine my thinking into a clear Social Studies 30-1 position response."
-    ],
-    lessons,
-    navItems: renderNavItems(config, resources),
-    lessonGroupTitle: config.title,
-    lessonSequenceTitle: `${config.title} Lesson Sequence`,
-    sourceLessonLabel: "imported lessons",
-    nextAfterLastLesson: { id: "issue-inquiry", label: "Issue Inquiry" },
-    storageKeyBase: `canvas-helper:${config.slug}`,
-    extraCss: socialExtraCss()
-  });
+  const html =
+    config.renderMode === "inline-d2l"
+      ? renderInlineD2LCourseShell(config, lessons, resources)
+      : renderNextStepCourseShell({
+          slug: config.slug,
+          courseTitle: `Social Studies 30-1: ${config.title}`,
+          courseCode: COURSE_CODE,
+          overviewIntro: config.overviewIntro,
+          outcomes: [
+            `I can explain how ${config.units.join(" and ")} connect to ${config.issueQuestion}`,
+            "I can analyze sources for perspective, evidence, bias, and ideological assumptions.",
+            "I can collect evidence from lessons and resources to support a defensible position.",
+            "I can refine my thinking into a clear Social Studies 30-1 position response."
+          ],
+          lessons,
+          navItems: renderNavItems(config, resources),
+          lessonGroupTitle: config.title,
+          lessonSequenceTitle: `${config.title} Lesson Sequence`,
+          sourceLessonLabel: "imported lessons",
+          nextAfterLastLesson: { id: "issue-inquiry", label: "Issue Inquiry" },
+          storageKeyBase: `canvas-helper:${config.slug}`,
+          extraCss: socialShellCss(config)
+        });
 
   await fs.writeFile(path.join(workspaceDir, "index.html"), html);
   await writeProjectMetadata(config.slug, config, zipPath, lessons.length);
@@ -1140,7 +1925,9 @@ async function buildIssue(zip: JSZip, zipIndex: Map<string, string>, zipPath: st
 async function main() {
   const zipPath = getArg("zip", DEFAULT_ZIP_PATH);
   const only = getArg("only");
-  const selectedIssues = only ? ISSUES.filter((issue) => issue.slug === only || issue.title.toLowerCase() === only.toLowerCase()) : ISSUES;
+  const selectedIssues = only
+    ? ALL_ISSUES.filter((issue) => issue.slug === only || issue.title.toLowerCase() === only.toLowerCase())
+    : ISSUES;
 
   if (selectedIssues.length === 0) {
     throw new Error(`No related issue matched --only ${only}`);

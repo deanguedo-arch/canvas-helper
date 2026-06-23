@@ -24,6 +24,18 @@
     version: "local"
   },
   {
+    id: "local-social30-related-issue-1-option-2",
+    title: "Social Studies 30-1: Related Issue 1 (Option Two)",
+    shortTitle: "Social RI 1 B",
+    category: "options",
+    area: "Local Builds",
+    status: "Local",
+    description: "Alternate functional Social 30-1 shell for Related Issue 1 using the Next Step green-forward palette across the sidebar, header, and content.",
+    url: "../../social30-1-related-issue-1-option-2/workspace/index.html",
+    image: "./assets/course-icons/world-religions.svg",
+    version: "local"
+  },
+  {
     id: "local-social30-related-issue-2",
     title: "Social Studies 30-1: Related Issue 2",
     shortTitle: "Social RI 2",
