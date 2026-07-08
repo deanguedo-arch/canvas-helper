@@ -3,6 +3,7 @@ export type NextStepShellLesson = {
   title: string;
   summary: string;
   html: string;
+  unitGroup?: string;
   group?: string;
   entry?: string;
   excerpt?: string;
@@ -38,6 +39,8 @@ export type NextStepCourseShellOptions = {
   nextAfterLastLesson?: { id: string; label: string };
   logoPath?: string;
   storageKeyBase?: string;
+  showLessonCardSummary?: boolean;
+  showLessonHeaderSummary?: boolean;
   extraHeadHtml?: string;
   extraCss?: string;
 };
@@ -56,10 +59,63 @@ function scriptJson(value: unknown): string {
 }
 
 function renderSubnav(lessons: NextStepShellLesson[]) {
-  return lessons
+  const renderLink = ({ lesson, index }: { lesson: NextStepShellLesson; index: number }) =>
+    `<a class="sublesson-link" href="#${escapeHtml(lesson.id)}" data-page-target="${escapeHtml(lesson.id)}">${index + 1}. ${escapeHtml(lesson.title)}</a>`;
+
+  if (lessons.some((lesson) => lesson.unitGroup?.trim())) {
+    const units = new Map<
+      string,
+      {
+        title: string;
+        groups: Map<string, { title: string; lessons: Array<{ lesson: NextStepShellLesson; index: number }> }>;
+      }
+    >();
+
+    lessons.forEach((lesson, index) => {
+      const unitTitle = lesson.unitGroup?.trim() || "Lessons";
+      const sectionTitle = lesson.group?.trim() || "Lessons";
+      const unit = units.get(unitTitle) ?? { title: unitTitle, groups: new Map() };
+      const section = unit.groups.get(sectionTitle) ?? { title: sectionTitle, lessons: [] };
+      section.lessons.push({ lesson, index });
+      unit.groups.set(sectionTitle, section);
+      units.set(unitTitle, unit);
+    });
+
+    return Array.from(units.values())
+      .map(
+        (unit) => `<div class="sublesson-unit">
+        <span class="sublesson-unit-heading">${escapeHtml(unit.title)}</span>
+        ${Array.from(unit.groups.values())
+          .map(
+            (group) => `<div class="sublesson-group">
+          <span class="sublesson-heading">${escapeHtml(group.title)}</span>
+          ${group.lessons.map((item) => renderLink(item)).join("\n")}
+        </div>`
+          )
+          .join("\n")}
+      </div>`
+      )
+      .join("\n");
+  }
+
+  const groups = new Map<string, Array<{ lesson: NextStepShellLesson; index: number }>>();
+  lessons.forEach((lesson, index) => {
+    const title = lesson.group?.trim() || "Lessons";
+    const groupLessons = groups.get(title) ?? [];
+    groupLessons.push({ lesson, index });
+    groups.set(title, groupLessons);
+  });
+
+  if (groups.size <= 1) {
+    return lessons.map((lesson, index) => renderLink({ lesson, index })).join("\n");
+  }
+
+  return Array.from(groups.entries())
     .map(
-      (lesson, index) =>
-        `<a class="sublesson-link" href="#${escapeHtml(lesson.id)}" data-page-target="${escapeHtml(lesson.id)}">${index + 1}. ${escapeHtml(lesson.title)}</a>`
+      ([title, groupLessons]) => `<div class="sublesson-group">
+        <span class="sublesson-heading">${escapeHtml(title)}</span>
+        ${groupLessons.map((item) => renderLink(item)).join("\n")}
+      </div>`
     )
     .join("\n");
 }
@@ -144,7 +200,7 @@ function renderOverview(options: NextStepCourseShellOptions) {
   const firstLesson = options.lessons[0];
   const sourceLessonLabel = options.sourceLessonLabel ?? "source lessons";
   return `<section id="overview" class="course-page">
-    <p class="course-kicker">${escapeHtml(options.courseCode)} | Unit Frame</p>
+    <p class="course-kicker">Course overview</p>
     <h2>${escapeHtml(options.courseTitle)}</h2>
     <p class="page-intro">${escapeHtml(options.overviewIntro)}</p>
     <section class="unit-outcomes" aria-labelledby="outcomes-title">
@@ -161,11 +217,11 @@ function renderOverview(options: NextStepCourseShellOptions) {
   </section>`;
 }
 
-function renderLessonIndexCard(lesson: NextStepShellLesson, index: number) {
-  return `<a class="lesson-card" href="#${escapeHtml(lesson.id)}" data-page-target="${escapeHtml(lesson.id)}">
+function renderLessonIndexCard(lesson: NextStepShellLesson, index: number, showSummary: boolean) {
+  return `<a class="lesson-card${showSummary ? "" : " lesson-card--title-only"}" href="#${escapeHtml(lesson.id)}" data-page-target="${escapeHtml(lesson.id)}">
     <span>Lesson ${index + 1}</span>
     <strong>${escapeHtml(lesson.title)}</strong>
-    <p>${escapeHtml(lesson.summary)}</p>
+    ${showSummary ? `<p>${escapeHtml(lesson.summary)}</p>` : ""}
   </a>`;
 }
 
@@ -174,7 +230,9 @@ function getLessonIndexGroups(options: NextStepCourseShellOptions) {
   const groups = new Map<string, { title: string; lessons: Array<{ lesson: NextStepShellLesson; index: number }> }>();
 
   options.lessons.forEach((lesson, index) => {
-    const title = lesson.group?.trim() || fallbackTitle;
+    const sectionTitle = lesson.group?.trim() || fallbackTitle;
+    const unitTitle = lesson.unitGroup?.trim();
+    const title = unitTitle ? `${unitTitle} - ${sectionTitle}` : sectionTitle;
     const existing = groups.get(title) ?? { title, lessons: [] };
     existing.lessons.push({ lesson, index });
     groups.set(title, existing);
@@ -184,10 +242,11 @@ function getLessonIndexGroups(options: NextStepCourseShellOptions) {
 }
 
 function renderLessonsIndex(options: NextStepCourseShellOptions) {
-  const lessonSequenceTitle = options.lessonSequenceTitle ?? `${options.courseTitle} Lesson Sequence`;
+  const lessonSequenceTitle = options.lessonSequenceTitle ?? "Lesson pathway";
   const lessonGroups = getLessonIndexGroups(options);
+  const showLessonCardSummary = options.showLessonCardSummary ?? true;
   return `<section id="lessons" class="course-page" hidden>
-    <p class="course-kicker">${escapeHtml(options.courseCode)} | Lessons</p>
+    <p class="course-kicker">Lesson pathway</p>
     <h2>${escapeHtml(lessonSequenceTitle)}</h2>
     <div class="resource-stack">
       ${lessonGroups
@@ -201,7 +260,7 @@ function renderLessonsIndex(options: NextStepCourseShellOptions) {
             <span class="resource-lesson-icon" aria-hidden="true">+</span>
           </summary>
           <div class="resource-lesson-items">
-            ${group.lessons.map(({ lesson, index }) => renderLessonIndexCard(lesson, index)).join("\n")}
+            ${group.lessons.map(({ lesson, index }) => renderLessonIndexCard(lesson, index, showLessonCardSummary)).join("\n")}
           </div>
         </details>`
         )
@@ -224,13 +283,14 @@ function renderLessonPanel(
     : finalNext
       ? `<a class="lesson-jump primary" href="#${escapeHtml(finalNext.id)}" data-page-target="${escapeHtml(finalNext.id)}">${escapeHtml(finalNext.label)}</a>`
       : "";
+  const showHeaderSummary = options.showLessonHeaderSummary ?? true;
 
   return `<section id="${escapeHtml(lesson.id)}" class="course-page lesson-page" hidden>
     <article class="lesson-detail-panel">
       <header class="lesson-document-header">
         <p>Lesson ${index + 1}</p>
         <h2>${escapeHtml(lesson.title)}</h2>
-        <span>${escapeHtml(lesson.summary)}</span>
+        ${showHeaderSummary ? `<span>${escapeHtml(lesson.summary)}</span>` : ""}
       </header>
       <div class="lesson-reader-panel">
         <div class="source-content">${lesson.html}</div>
@@ -399,6 +459,42 @@ button, input, select, textarea { font: inherit; }
 }
 .lessons-nav.is-open .lesson-subnav,
 .nav-group.is-open .lesson-subnav { display: grid; gap: 4px; }
+.sublesson-unit {
+  display: grid;
+  gap: 5px;
+  padding: 10px 0 8px;
+  border-top: 1px solid #2d332f;
+}
+.sublesson-unit:first-child {
+  border-top: 0;
+  padding-top: 2px;
+}
+.sublesson-unit-heading {
+  display: block;
+  padding: 4px 0 2px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1.25;
+}
+.sublesson-group {
+  display: grid;
+  gap: 4px;
+  padding: 8px 0 6px;
+  border-top: 1px solid #2d332f;
+}
+.sublesson-group:first-child {
+  border-top: 0;
+  padding-top: 2px;
+}
+.sublesson-heading {
+  display: block;
+  padding: 4px 0 2px;
+  color: #aebaaa;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.25;
+}
 .sublesson-link {
   display: block;
   padding: 7px 0;
@@ -455,9 +551,11 @@ button, input, select, textarea { font: inherit; }
   list-style: none;
 }
 .unit-focus-list li {
+  box-sizing: border-box;
   padding: 10px 14px;
-  border-left: 3px solid var(--primary);
-  background: var(--surface-low);
+  border-left: 5px solid var(--primary);
+  background: #fff;
+  box-shadow: 0 6px 18px var(--surface-muted);
 }
 .overview-actions {
   display: flex;
@@ -544,6 +642,10 @@ button, input, select, textarea { font: inherit; }
 .lesson-card span { color: var(--primary); font-family: "IBM Plex Sans", "Aptos", sans-serif; font-size: 14px; font-weight: 700; }
 .lesson-card strong { font-family: "Hanken Grotesk", "Aptos Display", sans-serif; font-size: 21px; line-height: 1.18; }
 .lesson-card p { margin: 0; color: #556052; }
+.lesson-card--title-only {
+  gap: 8px;
+  align-content: start;
+}
 .lesson-detail-panel {
   overflow: hidden;
   border: 1px solid var(--surface-muted);
@@ -599,8 +701,11 @@ button, input, select, textarea { font: inherit; }
 .source-content ol { margin: .75em 0 1em 1.35em; padding: 0; }
 .source-content img,
 .source-image {
-  max-width: 100%;
+  width: auto;
+  max-width: min(100%, 760px);
+  max-height: 520px;
   height: auto;
+  object-fit: contain;
   border: 1px solid var(--surface-muted);
   border-radius: 8px;
 }
@@ -800,20 +905,51 @@ const pageIds = ${scriptJson(pageIds)};
 const navGroupIdsByPage = ${scriptJson(navGroupIdsByPage)};
 const STORAGE_KEY = "${escapeHtml(storageBase)}:complete";
 const RESPONSE_STORAGE_KEY = "${escapeHtml(storageBase)}:responses";
+const MANUAL_EVIDENCE_STORAGE_KEY = "${escapeHtml(storageBase)}:manual-evidence-notes";
 const lessonsNav = document.querySelector(".lessons-nav");
 const navGroups = Array.from(document.querySelectorAll("[data-nav-group]"));
+const fallbackStorage = {};
 let saveTimer = null;
+function readStorageValue(key, fallbackValue){
+  try {
+    if (window.localStorage) return window.localStorage.getItem(key) || fallbackValue;
+  } catch {}
+  return Object.prototype.hasOwnProperty.call(fallbackStorage, key) ? fallbackStorage[key] : fallbackValue;
+}
+function writeStorageValue(key, value){
+  try {
+    if (window.localStorage) {
+      window.localStorage.setItem(key, value);
+      return;
+    }
+  } catch {}
+  fallbackStorage[key] = value;
+}
 function readComplete(){
-  try { return new Set(JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]")); } catch { return new Set(); }
+  try { return new Set(JSON.parse(readStorageValue(STORAGE_KEY, "[]"))); } catch { return new Set(); }
 }
 function writeComplete(values){
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(Array.from(values)));
+  writeStorageValue(STORAGE_KEY, JSON.stringify(Array.from(values)));
 }
 function readResponses(){
-  try { return JSON.parse(localStorage.getItem(RESPONSE_STORAGE_KEY) || "{}"); } catch { return {}; }
+  try { return JSON.parse(readStorageValue(RESPONSE_STORAGE_KEY, "{}")); } catch { return {}; }
 }
 function writeResponses(values){
-  localStorage.setItem(RESPONSE_STORAGE_KEY, JSON.stringify(values));
+  Object.keys(values).forEach((key) => {
+    if (typeof values[key] === "string" && !values[key].trim()) delete values[key];
+  });
+  writeStorageValue(RESPONSE_STORAGE_KEY, JSON.stringify(values));
+}
+function readManualEvidenceNotes(){
+  try {
+    const notes = JSON.parse(readStorageValue(MANUAL_EVIDENCE_STORAGE_KEY, "[]"));
+    return Array.isArray(notes) ? notes : [];
+  } catch {
+    return [];
+  }
+}
+function writeManualEvidenceNotes(notes){
+  writeStorageValue(MANUAL_EVIDENCE_STORAGE_KEY, JSON.stringify(notes));
 }
 function setLessonsOpen(open){
   lessonsNav?.classList.toggle("is-open", open);
@@ -880,14 +1016,227 @@ function setActiveFilm(id){
     panel.hidden = panel.getAttribute("data-film-panel") !== id;
   });
 }
+function getLibraryDocumentScope(trigger){
+  return trigger?.closest("[data-library-doc-scope], .social-library-browser") || document;
+}
+function setActiveLibraryDocument(id, scope){
+  if (!id) return;
+  const root = scope || document;
+  root.querySelectorAll("[data-library-doc-panel]").forEach((panel) => {
+    panel.hidden = panel.getAttribute("data-library-doc-panel") !== id;
+  });
+  root.querySelectorAll("[data-library-doc-target]").forEach((button) => {
+    const active = button.getAttribute("data-library-doc-target") === id;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+  root.querySelectorAll("[data-library-doc-select]").forEach((select) => {
+    if (select.value !== id) select.value = id;
+  });
+}
+function getStudyTopicScope(trigger){
+  return trigger?.closest("[data-study-topic-scope]") || document;
+}
+function setActiveStudyTopic(group, id, scope){
+  if (!group || !id) return;
+  const root = scope || document;
+  root.querySelectorAll("[data-study-topic-panel='" + group + "']").forEach((panel) => {
+    panel.hidden = panel.getAttribute("data-study-topic-id") !== id;
+  });
+}
+function escapeForHtml(value){
+  return String(value || "").replace(/[&<>"']/g, (char) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[char] || char);
+}
+function getLessonEvidenceNotes(){
+  const responses = readResponses();
+  return Array.from(document.querySelectorAll("[data-evidence-note='lesson'][data-response-id]"))
+    .map((field) => {
+      const key = field.getAttribute("data-response-id");
+      const storedValue = key ? responses[key] : "";
+      const value = typeof storedValue === "string" ? storedValue.trim() : "";
+      return {
+        value,
+        title: field.getAttribute("data-evidence-lesson-title") || "Lesson evidence note",
+        group: field.getAttribute("data-evidence-lesson-group") || "",
+        number: field.getAttribute("data-evidence-lesson-number") || ""
+      };
+    })
+    .filter((note) => note.value);
+}
+function renderLessonEvidenceBank(){
+  const lists = Array.from(document.querySelectorAll("[data-lesson-evidence-list]"));
+  if (!lists.length) return;
+  const notes = getLessonEvidenceNotes();
+  lists.forEach((list) => {
+    if (!notes.length) {
+      list.innerHTML = '<p class="social-empty-state" data-lesson-evidence-empty>No lesson evidence notes yet. Add one from any lesson and it will appear here.</p>';
+      return;
+    }
+    list.innerHTML = notes.map((note) => {
+      const meta = [note.number ? "Lesson " + note.number : "", note.group].filter(Boolean).join(" - ");
+      return '<article class="social-lesson-evidence-card">' +
+        '<div class="social-lesson-evidence-meta">' + escapeForHtml(meta) + '</div>' +
+        '<h4>' + escapeForHtml(note.title) + '</h4>' +
+        '<p>' + escapeForHtml(note.value) + '</p>' +
+      '</article>';
+    }).join("");
+  });
+}
+function getEvidenceDraftFields(key, scope){
+  const root = scope || document;
+  const scopedFields = Array.from(root.querySelectorAll("[data-evidence-draft='" + key + "']"));
+  if (scopedFields.length) return scopedFields;
+  const fallback = root.querySelector("[data-response-id$=':evidence:" + key + "']");
+  return fallback ? [fallback] : [];
+}
+function getEvidenceFieldValue(field){
+  if (field instanceof HTMLSelectElement) {
+    return field.selectedOptions?.[0]?.textContent || field.value || "";
+  }
+  if (field instanceof HTMLInputElement && field.type === "radio") {
+    if (!field.checked) return "";
+    return field.getAttribute("data-practice-source-title") || field.closest("label")?.textContent?.trim() || field.value || "";
+  }
+  return field.value || "";
+}
+function getEvidenceDraft(scope){
+  const getValue = (key) => {
+    const fields = getEvidenceDraftFields(key, scope);
+    const values = fields
+      .map((field) => {
+        const value = String(getEvidenceFieldValue(field)).trim();
+        if (!value) return "";
+        const label = field.getAttribute("data-evidence-draft-label");
+        return fields.length > 1 && label ? label + ": " + value : value;
+      })
+      .filter(Boolean);
+    return values.join("\\n\\n");
+  };
+  return {
+    source: getValue("source"),
+    concept: getValue("concept"),
+    detail: getValue("detail"),
+    connection: getValue("connection"),
+    counterpoint: getValue("counterpoint")
+  };
+}
+function setEvidenceNotebookStatus(message, panel){
+  panel = panel || document.querySelector("[data-evidence-notebook-panel]");
+  const saveStatus = panel?.querySelector("[data-save-status]");
+  if (saveStatus) saveStatus.textContent = message;
+}
+function clearEvidenceDraft(scope){
+  const responses = readResponses();
+  ["source", "concept", "detail", "connection", "counterpoint"].forEach((key) => {
+    getEvidenceDraftFields(key, scope).forEach((field) => {
+      if (field instanceof HTMLSelectElement && field.options.length) {
+        field.selectedIndex = 0;
+      } else if (field instanceof HTMLInputElement && field.type === "radio") {
+        field.checked = field.hasAttribute("data-practice-source-default");
+      } else {
+        field.value = "";
+      }
+      const responseId = field.getAttribute("data-response-id");
+      if (responseId) delete responses[responseId];
+    });
+  });
+  writeResponses(responses);
+}
+function renderManualEvidenceBank(){
+  const lists = Array.from(document.querySelectorAll("[data-manual-evidence-list]"));
+  if (!lists.length) return;
+  const notes = readManualEvidenceNotes();
+  lists.forEach((list) => {
+    if (!notes.length) {
+      list.innerHTML = '<p class="social-empty-state" data-manual-evidence-empty>Use the notebook below to save reusable proof notes here.</p>';
+      return;
+    }
+    list.innerHTML = notes.map((note) => {
+      const title = note.concept || note.source || "Saved proof note";
+      const metaParts = [note.source || "", note.createdAt ? "Saved " + new Date(note.createdAt).toLocaleDateString() : ""].filter(Boolean);
+      const detail = note.detail ? '<div class="social-evidence-card-detail"><strong>Evidence</strong><p>' + escapeForHtml(note.detail) + '</p></div>' : "";
+      const connection = note.connection ? '<div class="social-evidence-card-detail"><strong>Why it matters</strong><p>' + escapeForHtml(note.connection) + '</p></div>' : "";
+      const counterpoint = note.counterpoint ? '<div class="social-evidence-card-detail"><strong>Counterpoint</strong><p>' + escapeForHtml(note.counterpoint) + '</p></div>' : "";
+      return '<article class="social-lesson-evidence-card social-manual-evidence-card">' +
+        '<div class="social-lesson-evidence-meta">' + escapeForHtml(metaParts.join(" - ")) + '</div>' +
+        '<h4>' + escapeForHtml(title) + '</h4>' +
+        detail +
+        connection +
+        counterpoint +
+        '<div class="social-evidence-card-actions"><button class="external-resource-action social-secondary-action" type="button" data-remove-evidence-note="' + escapeForHtml(note.id || "") + '">Remove</button></div>' +
+      '</article>';
+    }).join("");
+  });
+}
+function saveEvidenceDraftToNotebook(panel){
+  const draft = getEvidenceDraft(panel);
+  if (!draft.source && !draft.concept && !draft.detail && !draft.connection && !draft.counterpoint) {
+    setEvidenceNotebookStatus("Add a note before saving.", panel);
+    return;
+  }
+  const notes = readManualEvidenceNotes();
+  notes.unshift({
+    id: "evidence-" + Date.now(),
+    createdAt: new Date().toISOString(),
+    source: draft.source,
+    concept: draft.concept,
+    detail: draft.detail,
+    connection: draft.connection,
+    counterpoint: draft.counterpoint
+  });
+  writeManualEvidenceNotes(notes);
+  clearEvidenceDraft(panel);
+  renderManualEvidenceBank();
+  panel?.querySelectorAll("[data-practice-source-region]").forEach(initializePracticeSourceRegion);
+  setEvidenceNotebookStatus("Saved to Evidence Bank", panel);
+}
+function removeManualEvidenceNote(id){
+  if (!id) return;
+  const notes = readManualEvidenceNotes().filter((note) => note.id !== id);
+  writeManualEvidenceNotes(notes);
+  renderManualEvidenceBank();
+  setEvidenceNotebookStatus("Removed saved note");
+}
 function restoreResponses(){
   const responses = readResponses();
   document.querySelectorAll("[data-response-id]").forEach((field) => {
     const key = field.getAttribute("data-response-id");
     if (!key) return;
     if (field.type === "checkbox") field.checked = Boolean(responses[key]);
+    else if (field.type === "radio") field.checked = responses[key] ? field.value === responses[key] : field.hasAttribute("data-practice-source-default");
     else field.value = responses[key] || "";
   });
+  renderLessonEvidenceBank();
+  renderManualEvidenceBank();
+}
+function persistResponseField(field){
+  const key = field.getAttribute("data-response-id");
+  if (!key) return;
+  const responses = readResponses();
+  if (field.type === "checkbox") {
+    responses[key] = field.checked;
+  } else if (field.type === "radio") {
+    if (!field.checked) return;
+    responses[key] = field.value || "";
+  } else {
+    const value = field.value || "";
+    if (value.trim()) responses[key] = value;
+    else delete responses[key];
+  }
+  writeResponses(responses);
+  renderLessonEvidenceBank();
+  const saveStatus = field.closest("[data-writing-activity-panel]")?.querySelector("[data-save-status]") || document.querySelector("[data-save-status]");
+  if (saveStatus) {
+    saveStatus.textContent = "Saving...";
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(() => saveStatus.textContent = "Saved locally", 500);
+  }
 }
 function clearPrintJob(){
   document.body.classList.remove("print-job-active");
@@ -930,6 +1279,21 @@ function printCourseSection(source){
   window.setTimeout(() => window.print(), 0);
 }
 window.printCourseSection = printCourseSection;
+function setActivePracticeSource(id, select){
+  const root = select?.closest("[data-practice-source-region]") || document;
+  const panels = Array.from(root.querySelectorAll("[data-practice-source-panel]"));
+  if (!panels.length) return;
+  const nextId = id || panels[0]?.getAttribute("data-practice-source-panel") || "";
+  panels.forEach((panel) => {
+    panel.hidden = panel.getAttribute("data-practice-source-panel") !== nextId;
+  });
+}
+function initializePracticeSourceRegion(region){
+  if (!region) return;
+  const checked = region.querySelector("[data-practice-source-select]:checked");
+  const control = checked || region.querySelector("[data-practice-source-select]");
+  if (control) setActivePracticeSource(control.value, control);
+}
 document.addEventListener("click", (event) => {
   const lessonToggle = event.target.closest("[data-lessons-toggle]");
   if (lessonToggle) {
@@ -961,6 +1325,10 @@ document.addEventListener("click", (event) => {
     const id = target.getAttribute("data-page-target");
     if (id) showPage(id);
   }
+  const libraryTarget = event.target.closest("[data-library-doc-target]");
+  if (libraryTarget) {
+    setActiveLibraryDocument(libraryTarget.getAttribute("data-library-doc-target"), getLibraryDocumentScope(libraryTarget));
+  }
   const completeButton = event.target.closest("[data-complete-id]");
   if (completeButton) {
     const complete = readComplete();
@@ -968,6 +1336,18 @@ document.addEventListener("click", (event) => {
     if (id) complete.add(id);
     writeComplete(complete);
     updateComplete();
+  }
+  const saveEvidenceButton = event.target.closest("[data-save-evidence-note]");
+  if (saveEvidenceButton) {
+    event.preventDefault();
+    saveEvidenceDraftToNotebook(saveEvidenceButton.closest("[data-evidence-notebook-panel]"));
+    return;
+  }
+  const removeEvidenceButton = event.target.closest("[data-remove-evidence-note]");
+  if (removeEvidenceButton) {
+    event.preventDefault();
+    removeManualEvidenceNote(removeEvidenceButton.getAttribute("data-remove-evidence-note"));
+    return;
   }
   const printButton = event.target.closest("[data-print-writing]");
   if (printButton) {
@@ -977,23 +1357,33 @@ document.addEventListener("click", (event) => {
 document.addEventListener("input", (event) => {
   const field = event.target.closest("[data-response-id]");
   if (!field) return;
-  const key = field.getAttribute("data-response-id");
-  if (!key) return;
-  const responses = readResponses();
-  responses[key] = field.type === "checkbox" ? field.checked : field.value;
-  writeResponses(responses);
-  const saveStatus = document.querySelector("[data-save-status]");
-  if (saveStatus) {
-    saveStatus.textContent = "Saving...";
-    clearTimeout(saveTimer);
-    saveTimer = setTimeout(() => saveStatus.textContent = "Saved locally", 500);
-  }
+  persistResponseField(field);
 });
 document.addEventListener("change", (event) => {
+  const responseField = event.target.closest("[data-response-id]");
+  if (responseField) persistResponseField(responseField);
   const resourceSelect = event.target.closest("[data-resource-select]");
   if (resourceSelect) setResourcePanel(resourceSelect.value);
   const filmSelect = event.target.closest("[data-film-select]");
   if (filmSelect) setActiveFilm(filmSelect.value);
+  const practiceSourceSelect = event.target.closest("[data-practice-source-select]");
+  if (practiceSourceSelect && (!practiceSourceSelect.type || practiceSourceSelect.type !== "radio" || practiceSourceSelect.checked)) {
+    setActivePracticeSource(practiceSourceSelect.value, practiceSourceSelect);
+  }
+  const libraryDocSelect = event.target.closest("[data-library-doc-select]");
+  if (libraryDocSelect) setActiveLibraryDocument(libraryDocSelect.value, getLibraryDocumentScope(libraryDocSelect));
+  const studyTopicSelect = event.target.closest("[data-study-topic-select]");
+  if (studyTopicSelect) {
+    setActiveStudyTopic(
+      studyTopicSelect.getAttribute("data-study-topic-select"),
+      studyTopicSelect.value,
+      getStudyTopicScope(studyTopicSelect)
+    );
+  }
+});
+document.addEventListener("focusout", (event) => {
+  const responseField = event.target.closest("[data-response-id]");
+  if (responseField) persistResponseField(responseField);
 });
 document.getElementById("sidebar-toggle")?.addEventListener("click", toggleCourseMenu);
 document.getElementById("topbar-menu-toggle")?.addEventListener("click", toggleCourseMenu);
@@ -1002,6 +1392,16 @@ window.addEventListener("afterprint", clearPrintJob);
 restoreResponses();
 document.querySelectorAll("[data-resource-select]").forEach((select) => setResourcePanel(select.value));
 document.querySelectorAll("[data-film-select]").forEach((select) => setActiveFilm(select.value));
+document.querySelectorAll("[data-practice-source-region]").forEach(initializePracticeSourceRegion);
+document.querySelectorAll("[data-library-doc-select]").forEach((select) => {
+  setActiveLibraryDocument(select.value, getLibraryDocumentScope(select));
+});
+document.querySelectorAll("[data-study-topic-select]").forEach((select) => {
+  setActiveStudyTopic(select.getAttribute("data-study-topic-select"), select.value, getStudyTopicScope(select));
+});
+document.querySelectorAll("[data-library-doc-target].active, [data-library-doc-target][aria-pressed='true']").forEach((button) => {
+  setActiveLibraryDocument(button.getAttribute("data-library-doc-target"), getLibraryDocumentScope(button));
+});
 route();
 updateComplete();
 </script>`;

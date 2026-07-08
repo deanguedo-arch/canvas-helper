@@ -1,4 +1,5 @@
 import type { IncomingRefreshSummary, ProjectBundle } from "./types";
+import { getVisibleStudioProjects } from "./project-display";
 
 export async function fetchProjects() {
   const response = await fetch("/api/projects", {
@@ -8,7 +9,7 @@ export async function fetchProjects() {
     throw new Error("Failed to load projects.");
   }
 
-  return (await response.json()) as ProjectBundle[];
+  return getVisibleStudioProjects((await response.json()) as ProjectBundle[]);
 }
 
 export async function refreshIncomingIntake() {

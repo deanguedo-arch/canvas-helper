@@ -8,9 +8,20 @@ import { resolveIntelligencePolicy } from "./intelligence/config/policy.js";
 import { normalizeProjectManifestPolicy } from "./project-manifest-policy.js";
 
 const RESERVED_PROJECT_DIRS = new Set(["incoming", "processed", "resources"]);
+const HTML_FILE_SCAN_SKIP_DIRS = new Set([".git", "assets", "exports", "node_modules"]);
+const HIDDEN_STUDIO_PROJECT_SLUGS = new Set([
+  "social30-1-related-issue-1",
+  "social30-1-related-issue-2",
+  "social30-1-related-issue-3",
+  "social30-1-related-issue-4"
+]);
 
 function normalizeSlash(value: string) {
   return value.replace(/\\/g, "/");
+}
+
+function shouldSkipHtmlFileScanDir(name: string) {
+  return HTML_FILE_SCAN_SKIP_DIRS.has(name) || /^assets(?:\b|[\s._-])/i.test(name) || /^workspace\.(?:previous|stuck)-/.test(name);
 }
 
 async function listHtmlFiles(dirPath: string) {
@@ -18,7 +29,25 @@ async function listHtmlFiles(dirPath: string) {
     return [] as string[];
   }
 
-  const files = await listFilesRecursive(dirPath);
+  const files: string[] = [];
+  async function visit(currentDir: string) {
+    const entries = await readdir(currentDir, { withFileTypes: true });
+    await Promise.all(
+      entries.map(async (entry) => {
+        const entryPath = path.join(currentDir, entry.name);
+        if (entry.isDirectory()) {
+          if (shouldSkipHtmlFileScanDir(entry.name)) {
+            return;
+          }
+          await visit(entryPath);
+          return;
+        }
+        files.push(entryPath);
+      })
+    );
+  }
+
+  await visit(dirPath);
   return files
     .filter((filePath) => {
       const extension = path.extname(filePath).toLowerCase();
@@ -195,6 +224,7 @@ export async function listProjectSlugs() {
 
   return availability
     .filter((entry) => entry.hasManifest)
+    .filter((entry) => !HIDDEN_STUDIO_PROJECT_SLUGS.has(entry.slug))
     .map((entry) => entry.slug)
     .sort((left, right) => left.localeCompare(right));
 }
@@ -229,6 +259,22 @@ async function resolveWorkspaceScriptFile(workspaceDir: string) {
   return undefined;
 }
 
+async function latestExistingMtimeMs(filePaths: Array<string | undefined>, fallbackDir: string) {
+  const mtimes = await Promise.all(
+    filePaths.map(async (filePath) => {
+      if (!filePath || !(await fileExists(filePath))) {
+        return 0;
+      }
+      return latestMtimeMs(filePath);
+    })
+  );
+  const latest = Math.max(...mtimes);
+  if (latest > 0) {
+    return latest;
+  }
+  return latestMtimeMs(fallbackDir);
+}
+
 export async function readStudioProjectBundle(slug: string): Promise<StudioProjectBundle> {
   await ensureProjectFromProcessedSnapshot(slug);
   const manifest = await loadProjectManifest(slug);
@@ -260,8 +306,8 @@ export async function readStudioProjectBundle(slug: string): Promise<StudioProje
     resolveIntelligencePolicy(slug),
     readOptionalFile(paths.styleGuidePath),
     readOptionalFile(paths.importLogPath),
-    latestMtimeMs(paths.rawDir),
-    latestMtimeMs(paths.workspaceDir),
+    latestExistingMtimeMs([rawEntrypoint], paths.rawDir),
+    latestExistingMtimeMs([workspaceEntrypoint, workspaceScript, workspaceStyles], paths.workspaceDir),
     listHtmlFiles(paths.rawDir),
     listHtmlFiles(paths.workspaceDir)
   ]);

@@ -1,0 +1,74 @@
+{
+  "id": "social20-1-related-issue-2-option-2",
+  "slug": "social20-1-related-issue-2-option-2",
+  "sourcePath": "/Users/deanguedo/Downloads/CBE System Social Studies 20-1 (Winter 2020) - 762026 - 1246 PM.zip",
+  "supportSourcePath": "/Users/deanguedo/Downloads/CBE System Social Studies 20-1 (Winter 2020) - 762026 - 1247 PM.zip | /Users/deanguedo/Downloads/CBE System Social Studies 20-1 (Winter 2020) - 762026 - 1248 PM.zip | /Users/deanguedo/Downloads/CBE System Social Studies 20-1 (Winter 2020) - 762026 - 1249 PM.zip | /Users/deanguedo/Downloads/CBE System Social Studies 20-1 (Winter 2020) - 762026 - 1250 PM.zip | /Users/deanguedo/Downloads/CBE System Social Studies 20-1 (Winter 2020) - 762026 - 1250 PM (1).zip | /Users/deanguedo/Downloads/CBE System Social Studies 20-1 (Winter 2020) - 762026 - 1251 PM.zip | /Users/deanguedo/Downloads/CBE System Social Studies 20-1 (Winter 2020) - 762026 - 1252 PM.zip | /Users/deanguedo/Downloads/D2LExport_151229_25-26 _ S1 _ Social Studies 20-1 _ Per 1(A) _ Sec _20267642.zip | /Users/deanguedo/Downloads/drive-download-20260706T205412Z-3-001.zip | /Users/deanguedo/Downloads/NSO SOCIAL STUDIES PODCAST LIST.docx",
+  "inputKind": "brightspace-zip",
+  "brightspaceTarget": "scorm",
+  "previewModes": [
+    "workspace"
+  ],
+  "workspaceEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/social20-1-related-issue-2-option-2/workspace/index.html",
+  "rawEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/social20-1-related-issue-2-option-2/raw/README.md",
+  "createdAt": "2026-07-08T17:07:21.932Z",
+  "updatedAt": "2026-07-08T17:07:21.932Z",
+  "migrationState": "migrated",
+  "projectType": "conversion",
+  "preferredWorkflows": [
+    "conversion"
+  ],
+  "canonicalEntry": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/social20-1-related-issue-2-option-2/workspace/index.html",
+  "canonicalSources": [
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/social20-1-related-issue-2-option-2/workspace/index.html",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/build-social20-related-issues.ts",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/nso-podcasts.ts",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/next-step-course-shell.ts"
+  ],
+  "generatedOutputs": [],
+  "regenerateCommand": "npx tsx scripts/build-social20-related-issues.ts --only social20-1-related-issue-2-option-2",
+  "importedFirstPassOrigin": {
+    "sourceSystem": "brightspace",
+    "sourcePath": "/Users/deanguedo/Downloads/CBE System Social Studies 20-1 (Winter 2020) - 762026 - 1246 PM.zip",
+    "importedAt": "2026-07-08T17:07:21.932Z",
+    "notes": "National Interest and Ultranationalism generated from Social Studies 20-1 Brightspace and CBE resource ZIPs."
+  },
+  "exportTargets": [
+    {
+      "target": "scorm",
+      "enabled": true,
+      "notes": "SCORM 2004 package for Brightspace upload."
+    },
+    {
+      "target": "html",
+      "enabled": true,
+      "notes": "Standalone workspace preview."
+    }
+  ],
+  "authoringStatus": "active",
+  "referenceOnly": [
+    "/Users/deanguedo/Downloads/CBE System Social Studies 20-1 (Winter 2020) - 762026 - 1246 PM.zip",
+    "/Users/deanguedo/Downloads/CBE System Social Studies 20-1 (Winter 2020) - 762026 - 1247 PM.zip",
+    "/Users/deanguedo/Downloads/CBE System Social Studies 20-1 (Winter 2020) - 762026 - 1248 PM.zip",
+    "/Users/deanguedo/Downloads/CBE System Social Studies 20-1 (Winter 2020) - 762026 - 1249 PM.zip",
+    "/Users/deanguedo/Downloads/CBE System Social Studies 20-1 (Winter 2020) - 762026 - 1250 PM.zip",
+    "/Users/deanguedo/Downloads/CBE System Social Studies 20-1 (Winter 2020) - 762026 - 1250 PM (1).zip",
+    "/Users/deanguedo/Downloads/CBE System Social Studies 20-1 (Winter 2020) - 762026 - 1251 PM.zip",
+    "/Users/deanguedo/Downloads/CBE System Social Studies 20-1 (Winter 2020) - 762026 - 1252 PM.zip",
+    "/Users/deanguedo/Downloads/D2LExport_151229_25-26 _ S1 _ Social Studies 20-1 _ Per 1(A) _ Sec _20267642.zip",
+    "/Users/deanguedo/Downloads/drive-download-20260706T205412Z-3-001.zip",
+    "/Users/deanguedo/Downloads/NSO SOCIAL STUDIES PODCAST LIST.docx",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/social20-1-related-issue-2-option-2/raw/README.md"
+  ],
+  "sourceOfTruthNotes": "Regenerate this Social 20-1 workspace through scripts/build-social20-related-issues.ts and the shared Next Step shell.",
+  "conversionSummary": {
+    "relatedIssue": "National Interest and Ultranationalism",
+    "issueQuestion": "To what extent should national interest be pursued?",
+    "units": [
+      "U2"
+    ],
+    "lessonsRecovered": 55,
+    "podcastsPlaced": 19,
+    "podcastFallbackOverview": 0,
+    "styleVariant": "social-20-final-social-30-pattern"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "social20-1-related-issue-4-option-2",
+  "generatedAt": "2026-07-06T20:46:54.663Z",
+  "pass": true,
+  "deviations": [
+    {
+      "ruleId": "require-interactive-shell",
+      "severity": "warn",
+      "surface": "export",
+      "location": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/social20-1-related-issue-4-option-2/workspace/index.html",
+      "why": "Required pattern \"lesson-shell\" is missing.",
+      "evidence": "Missing pattern: lesson-shell"
+    },
+    {
+      "ruleId": "quality-max-consecutive-paragraph-blocks",
+      "severity": "warn",
+      "surface": "export",
+      "location": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/social20-1-related-issue-4-option-2/workspace/index.html",
+      "why": "Detected 646 paragraph blocks but max allowed is 5.",
+      "evidence": "<p> count = 646"
+    }
+  ],
+  "acceptedDeviations": []
+}

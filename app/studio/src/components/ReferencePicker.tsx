@@ -1,8 +1,9 @@
-import type { ReferenceTarget } from "../lib/types";
+import { getProjectLabel, getProjectSubjectGroups } from "../lib/project-display";
+import type { ProjectBundle, ReferenceTarget } from "../lib/types";
 
 type ReferencePickerProps = {
   target: ReferenceTarget;
-  projectOptions: string[];
+  projects: ProjectBundle[];
   htmlOptions: string[];
   resourceOptions: string[];
   incomingRefreshRunning: boolean;
@@ -19,7 +20,7 @@ type ReferencePickerProps = {
 
 export function ReferencePicker({
   target,
-  projectOptions,
+  projects,
   htmlOptions,
   resourceOptions,
   incomingRefreshRunning,
@@ -33,16 +34,22 @@ export function ReferencePicker({
   onResourcePathChange,
   onRefreshIntake
 }: ReferencePickerProps) {
+  const projectGroups = getProjectSubjectGroups(projects);
+
   return (
     <div className="picker-stack">
       <div className="reference-picker">
         <label className="mini-field">
           <span>Project</span>
           <select className="mini-select" value={target.projectSlug} onChange={(event) => onProjectChange(event.target.value)}>
-            {projectOptions.map((slug) => (
-              <option key={slug} value={slug}>
-                {slug}
-              </option>
+            {projectGroups.map((group) => (
+              <optgroup key={group.label} label={group.label}>
+                {group.projects.map((project) => (
+                  <option key={project.manifest.id} value={project.manifest.slug}>
+                    {getProjectLabel(project.manifest.slug)}
+                  </option>
+                ))}
+              </optgroup>
             ))}
           </select>
         </label>

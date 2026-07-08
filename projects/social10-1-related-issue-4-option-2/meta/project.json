@@ -1,0 +1,68 @@
+{
+  "id": "social10-1-related-issue-4-option-2",
+  "slug": "social10-1-related-issue-4-option-2",
+  "sourcePath": "/Users/deanguedo/Downloads/D2LCCExport_149634_25-26 _ S2 _ Social Studies 10-1 _ Per 1(A) _ Sec _202651213.ZIP",
+  "supportSourcePath": "/Users/deanguedo/Downloads/Social Studies 10-1 UPDATED MODULES-20260707T151048Z-3-001.zip | /Users/deanguedo/Downloads/NSO SOCIAL STUDIES PODCAST LIST.docx",
+  "inputKind": "brightspace-zip",
+  "brightspaceTarget": "workspace",
+  "previewModes": [
+    "workspace"
+  ],
+  "workspaceEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/social10-1-related-issue-4-option-2/workspace/index.html",
+  "rawEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/social10-1-related-issue-4-option-2/raw/README.md",
+  "createdAt": "2026-07-08T17:04:24.423Z",
+  "updatedAt": "2026-07-08T17:04:24.423Z",
+  "migrationState": "migrated",
+  "projectType": "conversion",
+  "preferredWorkflows": [
+    "conversion"
+  ],
+  "canonicalEntry": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/social10-1-related-issue-4-option-2/workspace/index.html",
+  "canonicalSources": [
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/social10-1-related-issue-4-option-2/workspace/index.html",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/build-social10-related-issues.ts",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/nso-podcasts.ts",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/next-step-course-shell.ts"
+  ],
+  "generatedOutputs": [],
+  "regenerateCommand": "npx tsx scripts/build-social10-related-issues.ts --only social10-1-related-issue-4-option-2",
+  "importedFirstPassOrigin": {
+    "sourceSystem": "brightspace+d2l-docx-overlay",
+    "sourcePath": "/Users/deanguedo/Downloads/D2LCCExport_149634_25-26 _ S2 _ Social Studies 10-1 _ Per 1(A) _ Sec _202651213.ZIP",
+    "importedAt": "2026-07-08T17:04:24.423Z",
+    "notes": "Global Citizenship generated from the Social Studies 10-1 D2L course export with updated DOCX modules and NSO podcast media layered into lessons."
+  },
+  "exportTargets": [
+    {
+      "target": "html",
+      "enabled": true,
+      "notes": "Standalone workspace preview. SCORM is intentionally out of scope until course workspace approval."
+    },
+    {
+      "target": "scorm",
+      "enabled": false,
+      "notes": "Deferred until the course workspace is approved."
+    }
+  ],
+  "authoringStatus": "active",
+  "referenceOnly": [
+    "/Users/deanguedo/Downloads/D2LCCExport_149634_25-26 _ S2 _ Social Studies 10-1 _ Per 1(A) _ Sec _202651213.ZIP",
+    "/Users/deanguedo/Downloads/Social Studies 10-1 UPDATED MODULES-20260707T151048Z-3-001.zip",
+    "/Users/deanguedo/Downloads/NSO SOCIAL STUDIES PODCAST LIST.docx",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/social10-1-related-issue-4-option-2/raw/README.md"
+  ],
+  "sourceOfTruthNotes": "Regenerate this Social Studies 10-1 workspace through scripts/build-social10-related-issues.ts and the shared Next Step shell. Do not hand-patch generated lesson HTML.",
+  "conversionSummary": {
+    "relatedIssue": "Global Citizenship",
+    "issueQuestion": "To what extent should I, as a citizen, respond to globalization?",
+    "lessonsRecovered": 10,
+    "resourcesRecovered": 29,
+    "docxPromptsPlaced": 53,
+    "docxPromptsQuarantined": 3,
+    "missingOriginalVisualSourcesOmitted": 20,
+    "missingVisualSourcesWithRecoveredDescriptions": 13,
+    "podcastsPlaced": 3,
+    "podcastFallbackOverview": 1,
+    "styleVariant": "social-10-final-social-30-pattern"
+  }
+}

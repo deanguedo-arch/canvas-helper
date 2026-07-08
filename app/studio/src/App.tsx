@@ -19,7 +19,6 @@ import {
   previewModes,
   type PreviewMode
 } from "./lib/types";
-import { orderProjectSlugs } from "./lib/project-display";
 import { toPreviewUrl, toReferenceResourcePreviewUrl } from "./lib/preview-urls";
 
 export function App() {
@@ -156,7 +155,6 @@ export function App() {
     referenceTarget: resolvedReference.target
   });
 
-  const referenceProjectOptions = orderProjectSlugs(projects.map((project) => project.manifest.slug));
   const referenceFileOptions = resolvedReference.options.html;
   const referenceResourceOptions = resolvedReference.options.resourcesActive;
   const visiblePreviewModes = layoutPreferences.compareMode ? [...previewModes] : [previewMode];
@@ -318,7 +316,7 @@ export function App() {
                           mode === "reference" ? (
                             <ReferencePicker
                               target={resolvedReference.target}
-                              projectOptions={referenceProjectOptions}
+                              projects={projects}
                               htmlOptions={referenceFileOptions}
                               resourceOptions={referenceResourceOptions}
                               incomingRefreshRunning={incomingRefreshRunning}
